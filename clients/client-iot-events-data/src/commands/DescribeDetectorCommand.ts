@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import {
-  DescribeDetectorRequest,
-  DescribeDetectorRequestFilterSensitiveLog,
-  DescribeDetectorResponse,
-  DescribeDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDetectorCommand,
-  serializeAws_restJson1DescribeDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDetectorRequest, DescribeDetectorResponse } from "../models/models_0";
+import { de_DescribeDetectorCommand, se_DescribeDetectorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDetectorCommand}.
  */
 export interface DescribeDetectorCommandInput extends DescribeDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDetectorCommand}.
  */
 export interface DescribeDetectorCommandOutput extends DescribeDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified detector (instance).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResponse,
  * import { IoTEventsDataClient, DescribeDetectorCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, DescribeDetectorCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
+ * const input = { // DescribeDetectorRequest
+ *   detectorModelName: "STRING_VALUE", // required
+ *   keyValue: "STRING_VALUE",
+ * };
  * const command = new DescribeDetectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDetectorCommandInput - {@link DescribeDetectorCommandInput}
+ * @returns {@link DescribeDetectorCommandOutput}
  * @see {@link DescribeDetectorCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectorCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -84,6 +87,9 @@ export class DescribeDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class DescribeDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class DescribeDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDetectorCommand(input, context);
+    return se_DescribeDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDetectorCommandOutput> {
-    return deserializeAws_restJson1DescribeDetectorCommand(output, context);
+    return de_DescribeDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

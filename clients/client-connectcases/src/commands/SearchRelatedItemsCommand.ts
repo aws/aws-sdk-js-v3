@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  SearchRelatedItemsRequest,
-  SearchRelatedItemsRequestFilterSensitiveLog,
-  SearchRelatedItemsResponse,
-  SearchRelatedItemsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchRelatedItemsCommand,
-  serializeAws_restJson1SearchRelatedItemsCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchRelatedItemsRequest, SearchRelatedItemsResponse } from "../models/models_0";
+import { de_SearchRelatedItemsCommand, se_SearchRelatedItemsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchRelatedItemsCommand}.
  */
 export interface SearchRelatedItemsCommandInput extends SearchRelatedItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchRelatedItemsCommand}.
  */
 export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for related items that are associated with a case.</p>
  *          <note>
  *             <p>If no filters are provided, this returns all related items associated with a
@@ -46,10 +43,29 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * import { ConnectCasesClient, SearchRelatedItemsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, SearchRelatedItemsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // SearchRelatedItemsRequest
+ *   domainId: "STRING_VALUE", // required
+ *   caseId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filters: [ // RelatedItemFilterList
+ *     { // RelatedItemTypeFilter Union: only one key present
+ *       contact: { // ContactFilter
+ *         channel: [ // ChannelList
+ *           "STRING_VALUE",
+ *         ],
+ *         contactArn: "STRING_VALUE",
+ *       },
+ *       comment: {},
+ *     },
+ *   ],
+ * };
  * const command = new SearchRelatedItemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchRelatedItemsCommandInput - {@link SearchRelatedItemsCommandInput}
+ * @returns {@link SearchRelatedItemsCommandOutput}
  * @see {@link SearchRelatedItemsCommandInput} for command's `input` shape.
  * @see {@link SearchRelatedItemsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -90,6 +106,9 @@ export class SearchRelatedItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchRelatedItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +137,8 @@ export class SearchRelatedItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchRelatedItemsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchRelatedItemsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +148,18 @@ export class SearchRelatedItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchRelatedItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchRelatedItemsCommand(input, context);
+    return se_SearchRelatedItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchRelatedItemsCommandOutput> {
-    return deserializeAws_restJson1SearchRelatedItemsCommand(output, context);
+    return de_SearchRelatedItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

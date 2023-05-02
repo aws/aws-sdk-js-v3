@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAppRequest,
-  CreateAppRequestFilterSensitiveLog,
-  CreateAppResponse,
-  CreateAppResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1CreateAppCommand, serializeAws_json1_1CreateAppCommand } from "../protocols/Aws_json1_1";
+import { CreateAppRequest, CreateAppResponse } from "../models/models_0";
+import { de_CreateAppCommand, se_CreateAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppCommand}.
  */
 export interface CreateAppCommandInput extends CreateAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppCommand}.
  */
 export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application. An application consists of one or more server groups. Each
  *             server group contain one or more servers.</p>
  * @example
@@ -40,10 +40,48 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * import { SMSClient, CreateAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, CreateAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // CreateAppRequest
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   roleName: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   serverGroups: [ // ServerGroups
+ *     { // ServerGroup
+ *       serverGroupId: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       serverList: [ // ServerList
+ *         { // Server
+ *           serverId: "STRING_VALUE",
+ *           serverType: "VIRTUAL_MACHINE",
+ *           vmServer: { // VmServer
+ *             vmServerAddress: { // VmServerAddress
+ *               vmManagerId: "STRING_VALUE",
+ *               vmId: "STRING_VALUE",
+ *             },
+ *             vmName: "STRING_VALUE",
+ *             vmManagerName: "STRING_VALUE",
+ *             vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
+ *             vmPath: "STRING_VALUE",
+ *           },
+ *           replicationJobId: "STRING_VALUE",
+ *           replicationJobTerminated: true || false,
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   tags: [ // Tags
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppCommandInput - {@link CreateAppCommandInput}
+ * @returns {@link CreateAppCommandOutput}
  * @see {@link CreateAppCommandInput} for command's `input` shape.
  * @see {@link CreateAppCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -79,6 +117,9 @@ export class CreateAppCommand extends $Command<CreateAppCommandInput, CreateAppC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +146,8 @@ export class CreateAppCommand extends $Command<CreateAppCommandInput, CreateAppC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +157,18 @@ export class CreateAppCommand extends $Command<CreateAppCommandInput, CreateAppC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAppCommand(input, context);
+    return se_CreateAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppCommandOutput> {
-    return deserializeAws_json1_1CreateAppCommand(output, context);
+    return de_CreateAppCommand(output, context);
   }
 
   // Start section: command_body_extra

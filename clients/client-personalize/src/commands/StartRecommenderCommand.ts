@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartRecommenderRequest,
-  StartRecommenderRequestFilterSensitiveLog,
-  StartRecommenderResponse,
-  StartRecommenderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartRecommenderRequest, StartRecommenderResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1StartRecommenderCommand,
-  serializeAws_json1_1StartRecommenderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartRecommenderCommand, se_StartRecommenderCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartRecommenderCommand}.
  */
 export interface StartRecommenderCommandInput extends StartRecommenderRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartRecommenderCommand}.
  */
 export interface StartRecommenderCommandOutput extends StartRecommenderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a recommender that is INACTIVE. Starting a recommender does not
  *       create any new models, but resumes billing and automatic retraining for the recommender.</p>
  * @example
@@ -43,10 +40,15 @@ export interface StartRecommenderCommandOutput extends StartRecommenderResponse,
  * import { PersonalizeClient, StartRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, StartRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // StartRecommenderRequest
+ *   recommenderArn: "STRING_VALUE", // required
+ * };
  * const command = new StartRecommenderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRecommenderCommandInput - {@link StartRecommenderCommandInput}
+ * @returns {@link StartRecommenderCommandOutput}
  * @see {@link StartRecommenderCommandInput} for command's `input` shape.
  * @see {@link StartRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -79,6 +81,9 @@ export class StartRecommenderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRecommenderCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class StartRecommenderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRecommenderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRecommenderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class StartRecommenderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartRecommenderCommand(input, context);
+    return se_StartRecommenderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecommenderCommandOutput> {
-    return deserializeAws_json1_1StartRecommenderCommand(output, context);
+    return de_StartRecommenderCommand(output, context);
   }
 
   // Start section: command_body_extra

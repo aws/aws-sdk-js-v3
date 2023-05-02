@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  CreateModelVersionRequest,
-  CreateModelVersionRequestFilterSensitiveLog,
-  CreateModelVersionResult,
-  CreateModelVersionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateModelVersionCommand,
-  serializeAws_json1_1CreateModelVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateModelVersionRequest, CreateModelVersionResult } from "../models/models_0";
+import { de_CreateModelVersionCommand, se_CreateModelVersionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelVersionCommand}.
  */
 export interface CreateModelVersionCommandInput extends CreateModelVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelVersionCommand}.
  */
 export interface CreateModelVersionCommandOutput extends CreateModelVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a version of the model using the specified model type and model id.
  *         </p>
  * @example
@@ -43,10 +40,46 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  * import { FraudDetectorClient, CreateModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // CreateModelVersionRequest
+ *   modelId: "STRING_VALUE", // required
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
+ *   trainingDataSource: "EXTERNAL_EVENTS" || "INGESTED_EVENTS", // required
+ *   trainingDataSchema: { // TrainingDataSchema
+ *     modelVariables: [ // ListOfStrings // required
+ *       "STRING_VALUE",
+ *     ],
+ *     labelSchema: { // LabelSchema
+ *       labelMapper: { // labelMapper
+ *         "<keys>": [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       unlabeledEventsTreatment: "IGNORE" || "FRAUD" || "LEGIT" || "AUTO",
+ *     },
+ *   },
+ *   externalEventsDetail: { // ExternalEventsDetail
+ *     dataLocation: "STRING_VALUE", // required
+ *     dataAccessRoleArn: "STRING_VALUE", // required
+ *   },
+ *   ingestedEventsDetail: { // IngestedEventsDetail
+ *     ingestedEventsTimeWindow: { // IngestedEventsTimeWindow
+ *       startTime: "STRING_VALUE", // required
+ *       endTime: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   tags: [ // tagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateModelVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelVersionCommandInput - {@link CreateModelVersionCommandInput}
+ * @returns {@link CreateModelVersionCommandOutput}
  * @see {@link CreateModelVersionCommandInput} for command's `input` shape.
  * @see {@link CreateModelVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -85,6 +118,9 @@ export class CreateModelVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +149,8 @@ export class CreateModelVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateModelVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateModelVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +160,18 @@ export class CreateModelVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateModelVersionCommand(input, context);
+    return se_CreateModelVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelVersionCommandOutput> {
-    return deserializeAws_json1_1CreateModelVersionCommand(output, context);
+    return de_CreateModelVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

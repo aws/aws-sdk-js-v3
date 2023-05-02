@@ -10,7 +10,7 @@ import {
 import { CodestarNotificationsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodestarNotificationsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEventTypesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListEventTypes(
   config: CodestarNotificationsPaginationConfiguration,
   input: ListEventTypesCommandInput,

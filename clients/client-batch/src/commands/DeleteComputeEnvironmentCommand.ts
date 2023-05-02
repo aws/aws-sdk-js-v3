@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  DeleteComputeEnvironmentRequest,
-  DeleteComputeEnvironmentRequestFilterSensitiveLog,
-  DeleteComputeEnvironmentResponse,
-  DeleteComputeEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteComputeEnvironmentCommand,
-  serializeAws_restJson1DeleteComputeEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteComputeEnvironmentRequest, DeleteComputeEnvironmentResponse } from "../models/models_0";
+import { de_DeleteComputeEnvironmentCommand, se_DeleteComputeEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteComputeEnvironmentCommand}.
  */
 export interface DeleteComputeEnvironmentCommandInput extends DeleteComputeEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteComputeEnvironmentCommand}.
  */
 export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Batch compute environment.</p>
  *          <p>Before you can delete a compute environment, you must set its state to <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation. Compute environments that use Fargate resources must terminate all
  *    active jobs on that compute environment before deleting the compute environment. If this isn't done, the compute
@@ -45,10 +42,15 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
  * import { BatchClient, DeleteComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DeleteComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = { // DeleteComputeEnvironmentRequest
+ *   computeEnvironment: "STRING_VALUE", // required
+ * };
  * const command = new DeleteComputeEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteComputeEnvironmentCommandInput - {@link DeleteComputeEnvironmentCommandInput}
+ * @returns {@link DeleteComputeEnvironmentCommandOutput}
  * @see {@link DeleteComputeEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -91,6 +93,9 @@ export class DeleteComputeEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteComputeEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class DeleteComputeEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteComputeEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteComputeEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class DeleteComputeEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteComputeEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteComputeEnvironmentCommand(input, context);
+    return se_DeleteComputeEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteComputeEnvironmentCommandOutput> {
-    return deserializeAws_restJson1DeleteComputeEnvironmentCommand(output, context);
+    return de_DeleteComputeEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { DeactivateEventSourceRequest, DeactivateEventSourceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeactivateEventSourceCommand,
-  serializeAws_json1_1DeactivateEventSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeactivateEventSourceRequest } from "../models/models_0";
+import { de_DeactivateEventSourceCommand, se_DeactivateEventSourceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivateEventSourceCommand}.
  */
 export interface DeactivateEventSourceCommandInput extends DeactivateEventSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeactivateEventSourceCommand}.
  */
 export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can use this operation to temporarily stop receiving events from the specified partner
  *       event source. The matching event bus is not deleted. </p>
  *          <p>When you deactivate a partner event source, the source goes into PENDING state. If it
@@ -41,10 +43,15 @@ export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
  * import { EventBridgeClient, DeactivateEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeactivateEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // DeactivateEventSourceRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeactivateEventSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateEventSourceCommandInput - {@link DeactivateEventSourceCommandInput}
+ * @returns {@link DeactivateEventSourceCommandOutput}
  * @see {@link DeactivateEventSourceCommandInput} for command's `input` shape.
  * @see {@link DeactivateEventSourceCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeactivateEventSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateEventSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +121,8 @@ export class DeactivateEventSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivateEventSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +132,18 @@ export class DeactivateEventSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeactivateEventSourceCommand(input, context);
+    return se_DeactivateEventSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateEventSourceCommandOutput> {
-    return deserializeAws_json1_1DeactivateEventSourceCommand(output, context);
+    return de_DeactivateEventSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

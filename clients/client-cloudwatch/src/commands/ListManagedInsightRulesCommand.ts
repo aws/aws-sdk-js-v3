@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  ListManagedInsightRulesInput,
-  ListManagedInsightRulesInputFilterSensitiveLog,
-  ListManagedInsightRulesOutput,
-  ListManagedInsightRulesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListManagedInsightRulesCommand,
-  serializeAws_queryListManagedInsightRulesCommand,
-} from "../protocols/Aws_query";
+import { ListManagedInsightRulesInput, ListManagedInsightRulesOutput } from "../models/models_0";
+import { de_ListManagedInsightRulesCommand, se_ListManagedInsightRulesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListManagedInsightRulesCommand}.
  */
 export interface ListManagedInsightRulesCommandInput extends ListManagedInsightRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListManagedInsightRulesCommand}.
  */
 export interface ListManagedInsightRulesCommandOutput extends ListManagedInsightRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * 			Returns a list
  * 			that contains the number
@@ -48,10 +45,17 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  * import { CloudWatchClient, ListManagedInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, ListManagedInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // ListManagedInsightRulesInput
+ *   ResourceARN: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListManagedInsightRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListManagedInsightRulesCommandInput - {@link ListManagedInsightRulesCommandInput}
+ * @returns {@link ListManagedInsightRulesCommandOutput}
  * @see {@link ListManagedInsightRulesCommandInput} for command's `input` shape.
  * @see {@link ListManagedInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -84,6 +88,9 @@ export class ListManagedInsightRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListManagedInsightRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class ListManagedInsightRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListManagedInsightRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListManagedInsightRulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class ListManagedInsightRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListManagedInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListManagedInsightRulesCommand(input, context);
+    return se_ListManagedInsightRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedInsightRulesCommandOutput> {
-    return deserializeAws_queryListManagedInsightRulesCommand(output, context);
+    return de_ListManagedInsightRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

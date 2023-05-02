@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  ListAssociatedFleetsRequest,
-  ListAssociatedFleetsRequestFilterSensitiveLog,
-  ListAssociatedFleetsResult,
-  ListAssociatedFleetsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAssociatedFleetsCommand,
-  serializeAws_json1_1ListAssociatedFleetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAssociatedFleetsRequest, ListAssociatedFleetsResult } from "../models/models_0";
+import { de_ListAssociatedFleetsCommand, se_ListAssociatedFleetsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociatedFleetsCommand}.
  */
 export interface ListAssociatedFleetsCommandInput extends ListAssociatedFleetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociatedFleetsCommand}.
  */
 export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the name of the fleet that is associated with the specified stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
  * import { AppStreamClient, ListAssociatedFleetsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, ListAssociatedFleetsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // ListAssociatedFleetsRequest
+ *   StackName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAssociatedFleetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedFleetsCommandInput - {@link ListAssociatedFleetsCommandInput}
+ * @returns {@link ListAssociatedFleetsCommandOutput}
  * @see {@link ListAssociatedFleetsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedFleetsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -69,6 +72,9 @@ export class ListAssociatedFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +103,8 @@ export class ListAssociatedFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociatedFleetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociatedFleetsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +114,18 @@ export class ListAssociatedFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociatedFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssociatedFleetsCommand(input, context);
+    return se_ListAssociatedFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedFleetsCommandOutput> {
-    return deserializeAws_json1_1ListAssociatedFleetsCommand(output, context);
+    return de_ListAssociatedFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

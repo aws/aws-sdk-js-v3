@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetApplicationPolicyRequest,
-  GetApplicationPolicyRequestFilterSensitiveLog,
-  GetApplicationPolicyResponse,
-  GetApplicationPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApplicationPolicyCommand,
-  serializeAws_restJson1GetApplicationPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetApplicationPolicyRequest, GetApplicationPolicyResponse } from "../models/models_0";
+import { de_GetApplicationPolicyCommand, se_GetApplicationPolicyCommand } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ServerlessApplicationRepositoryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetApplicationPolicyCommand}.
  */
 export interface GetApplicationPolicyCommandInput extends GetApplicationPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApplicationPolicyCommand}.
  */
 export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the policy for the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyR
  * import { ServerlessApplicationRepositoryClient, GetApplicationPolicyCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, GetApplicationPolicyCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = { // GetApplicationPolicyRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetApplicationPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApplicationPolicyCommandInput - {@link GetApplicationPolicyCommandInput}
+ * @returns {@link GetApplicationPolicyCommandOutput}
  * @see {@link GetApplicationPolicyCommandInput} for command's `input` shape.
  * @see {@link GetApplicationPolicyCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
@@ -88,6 +90,9 @@ export class GetApplicationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApplicationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class GetApplicationPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApplicationPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApplicationPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class GetApplicationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApplicationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApplicationPolicyCommand(input, context);
+    return se_GetApplicationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationPolicyCommandOutput> {
-    return deserializeAws_restJson1GetApplicationPolicyCommand(output, context);
+    return de_GetApplicationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

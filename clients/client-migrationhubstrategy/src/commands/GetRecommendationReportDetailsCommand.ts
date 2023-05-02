@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
+import { GetRecommendationReportDetailsRequest, GetRecommendationReportDetailsResponse } from "../models/models_0";
 import {
-  GetRecommendationReportDetailsRequest,
-  GetRecommendationReportDetailsRequestFilterSensitiveLog,
-  GetRecommendationReportDetailsResponse,
-  GetRecommendationReportDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRecommendationReportDetailsCommand,
-  serializeAws_restJson1GetRecommendationReportDetailsCommand,
+  de_GetRecommendationReportDetailsCommand,
+  se_GetRecommendationReportDetailsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecommendationReportDetailsCommand}.
  */
 export interface GetRecommendationReportDetailsCommandInput extends GetRecommendationReportDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecommendationReportDetailsCommand}.
  */
 export interface GetRecommendationReportDetailsCommandOutput
@@ -41,6 +40,7 @@ export interface GetRecommendationReportDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves detailed information about the specified recommendation report. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +48,15 @@ export interface GetRecommendationReportDetailsCommandOutput
  * import { MigrationHubStrategyClient, GetRecommendationReportDetailsCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetRecommendationReportDetailsCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // GetRecommendationReportDetailsRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetRecommendationReportDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommendationReportDetailsCommandInput - {@link GetRecommendationReportDetailsCommandInput}
+ * @returns {@link GetRecommendationReportDetailsCommandOutput}
  * @see {@link GetRecommendationReportDetailsCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationReportDetailsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -91,6 +96,9 @@ export class GetRecommendationReportDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommendationReportDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +127,8 @@ export class GetRecommendationReportDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommendationReportDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommendationReportDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +138,24 @@ export class GetRecommendationReportDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRecommendationReportDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecommendationReportDetailsCommand(input, context);
+    return se_GetRecommendationReportDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecommendationReportDetailsCommandOutput> {
-    return deserializeAws_restJson1GetRecommendationReportDetailsCommand(output, context);
+    return de_GetRecommendationReportDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

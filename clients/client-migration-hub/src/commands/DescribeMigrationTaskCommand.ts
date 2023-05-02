@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  DescribeMigrationTaskRequest,
-  DescribeMigrationTaskRequestFilterSensitiveLog,
-  DescribeMigrationTaskResult,
-  DescribeMigrationTaskResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMigrationTaskCommand,
-  serializeAws_json1_1DescribeMigrationTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeMigrationTaskRequest, DescribeMigrationTaskResult } from "../models/models_0";
+import { de_DescribeMigrationTaskCommand, se_DescribeMigrationTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMigrationTaskCommand}.
  */
 export interface DescribeMigrationTaskCommandInput extends DescribeMigrationTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMigrationTaskCommand}.
  */
 export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of all attributes associated with a specific migration task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTas
  * import { MigrationHubClient, DescribeMigrationTaskCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, DescribeMigrationTaskCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // DescribeMigrationTaskRequest
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMigrationTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMigrationTaskCommandInput - {@link DescribeMigrationTaskCommandInput}
+ * @returns {@link DescribeMigrationTaskCommandOutput}
  * @see {@link DescribeMigrationTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeMigrationTaskCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -95,6 +98,9 @@ export class DescribeMigrationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMigrationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class DescribeMigrationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMigrationTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMigrationTaskResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class DescribeMigrationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMigrationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMigrationTaskCommand(input, context);
+    return se_DescribeMigrationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMigrationTaskCommandOutput> {
-    return deserializeAws_json1_1DescribeMigrationTaskCommand(output, context);
+    return de_DescribeMigrationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

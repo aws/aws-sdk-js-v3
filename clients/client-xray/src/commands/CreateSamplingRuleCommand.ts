@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSamplingRuleRequest,
-  CreateSamplingRuleRequestFilterSensitiveLog,
-  CreateSamplingRuleResult,
-  CreateSamplingRuleResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSamplingRuleCommand,
-  serializeAws_restJson1CreateSamplingRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateSamplingRuleRequest, CreateSamplingRuleResult } from "../models/models_0";
+import { de_CreateSamplingRuleCommand, se_CreateSamplingRuleCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSamplingRuleCommand}.
  */
 export interface CreateSamplingRuleCommandInput extends CreateSamplingRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSamplingRuleCommand}.
  */
 export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a rule to control sampling behavior for instrumented applications. Services
  *          retrieve rules with <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html">GetSamplingRules</a>, and evaluate each rule in ascending
  *          order of <i>priority</i> for each request. If a rule matches, the service
@@ -48,10 +45,37 @@ export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResul
  * import { XRayClient, CreateSamplingRuleCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, CreateSamplingRuleCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // CreateSamplingRuleRequest
+ *   SamplingRule: { // SamplingRule
+ *     RuleName: "STRING_VALUE",
+ *     RuleARN: "STRING_VALUE",
+ *     ResourceARN: "STRING_VALUE", // required
+ *     Priority: Number("int"), // required
+ *     FixedRate: Number("double"), // required
+ *     ReservoirSize: Number("int"), // required
+ *     ServiceName: "STRING_VALUE", // required
+ *     ServiceType: "STRING_VALUE", // required
+ *     Host: "STRING_VALUE", // required
+ *     HTTPMethod: "STRING_VALUE", // required
+ *     URLPath: "STRING_VALUE", // required
+ *     Version: Number("int"), // required
+ *     Attributes: { // AttributeMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSamplingRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSamplingRuleCommandInput - {@link CreateSamplingRuleCommandInput}
+ * @returns {@link CreateSamplingRuleCommandOutput}
  * @see {@link CreateSamplingRuleCommandInput} for command's `input` shape.
  * @see {@link CreateSamplingRuleCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -84,6 +108,9 @@ export class CreateSamplingRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSamplingRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +139,8 @@ export class CreateSamplingRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSamplingRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSamplingRuleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +150,18 @@ export class CreateSamplingRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSamplingRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSamplingRuleCommand(input, context);
+    return se_CreateSamplingRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSamplingRuleCommandOutput> {
-    return deserializeAws_restJson1CreateSamplingRuleCommand(output, context);
+    return de_CreateSamplingRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

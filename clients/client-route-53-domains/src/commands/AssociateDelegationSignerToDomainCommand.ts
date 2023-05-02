@@ -15,21 +15,23 @@ import {
 
 import {
   AssociateDelegationSignerToDomainRequest,
-  AssociateDelegationSignerToDomainRequestFilterSensitiveLog,
   AssociateDelegationSignerToDomainResponse,
-  AssociateDelegationSignerToDomainResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateDelegationSignerToDomainCommand,
-  serializeAws_json1_1AssociateDelegationSignerToDomainCommand,
+  de_AssociateDelegationSignerToDomainCommand,
+  se_AssociateDelegationSignerToDomainCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDelegationSignerToDomainCommand}.
  */
 export interface AssociateDelegationSignerToDomainCommandInput extends AssociateDelegationSignerToDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDelegationSignerToDomainCommand}.
  */
 export interface AssociateDelegationSignerToDomainCommandOutput
@@ -37,6 +39,7 @@ export interface AssociateDelegationSignerToDomainCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a delegation signer (DS) record in the registry zone for this domain
  * 			name.</p>
  *          <p>Note that creating DS record at the registry impacts DNSSEC validation of your DNS
@@ -51,10 +54,20 @@ export interface AssociateDelegationSignerToDomainCommandOutput
  * import { Route53DomainsClient, AssociateDelegationSignerToDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, AssociateDelegationSignerToDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // AssociateDelegationSignerToDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   SigningAttributes: { // DnssecSigningAttributes
+ *     Algorithm: Number("int"),
+ *     Flags: Number("int"),
+ *     PublicKey: "STRING_VALUE",
+ *   },
+ * };
  * const command = new AssociateDelegationSignerToDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDelegationSignerToDomainCommandInput - {@link AssociateDelegationSignerToDomainCommandInput}
+ * @returns {@link AssociateDelegationSignerToDomainCommandOutput}
  * @see {@link AssociateDelegationSignerToDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateDelegationSignerToDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -102,6 +115,9 @@ export class AssociateDelegationSignerToDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDelegationSignerToDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +146,8 @@ export class AssociateDelegationSignerToDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDelegationSignerToDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDelegationSignerToDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,18 +157,24 @@ export class AssociateDelegationSignerToDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateDelegationSignerToDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDelegationSignerToDomainCommand(input, context);
+    return se_AssociateDelegationSignerToDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDelegationSignerToDomainCommandOutput> {
-    return deserializeAws_json1_1AssociateDelegationSignerToDomainCommand(output, context);
+    return de_AssociateDelegationSignerToDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

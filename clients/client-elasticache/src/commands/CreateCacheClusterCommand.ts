@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CreateCacheClusterMessage,
-  CreateCacheClusterMessageFilterSensitiveLog,
-  CreateCacheClusterResult,
-  CreateCacheClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateCacheClusterCommand,
-  serializeAws_queryCreateCacheClusterCommand,
-} from "../protocols/Aws_query";
+import { CreateCacheClusterMessage, CreateCacheClusterResult } from "../models/models_0";
+import { de_CreateCacheClusterCommand, se_CreateCacheClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCacheClusterCommand}.
  */
 export interface CreateCacheClusterCommandInput extends CreateCacheClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateCacheClusterCommand}.
  */
 export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a cluster. All nodes in the
  *             cluster run the same protocol-compliant cache engine software, either Memcached
  *             or Redis.</p>
@@ -45,10 +42,74 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  * import { ElastiCacheClient, CreateCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // CreateCacheClusterMessage
+ *   CacheClusterId: "STRING_VALUE", // required
+ *   ReplicationGroupId: "STRING_VALUE",
+ *   AZMode: "single-az" || "cross-az",
+ *   PreferredAvailabilityZone: "STRING_VALUE",
+ *   PreferredAvailabilityZones: [ // PreferredAvailabilityZoneList
+ *     "STRING_VALUE",
+ *   ],
+ *   NumCacheNodes: Number("int"),
+ *   CacheNodeType: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   CacheParameterGroupName: "STRING_VALUE",
+ *   CacheSubnetGroupName: "STRING_VALUE",
+ *   CacheSecurityGroupNames: [ // CacheSecurityGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [ // SecurityGroupIdsList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SnapshotArns: [ // SnapshotArnsList
+ *     "STRING_VALUE",
+ *   ],
+ *   SnapshotName: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   NotificationTopicArn: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   SnapshotRetentionLimit: Number("int"),
+ *   SnapshotWindow: "STRING_VALUE",
+ *   AuthToken: "STRING_VALUE",
+ *   OutpostMode: "single-outpost" || "cross-outpost",
+ *   PreferredOutpostArn: "STRING_VALUE",
+ *   PreferredOutpostArns: [ // PreferredOutpostArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   LogDeliveryConfigurations: [ // LogDeliveryConfigurationRequestList
+ *     { // LogDeliveryConfigurationRequest
+ *       LogType: "slow-log" || "engine-log",
+ *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
+ *       DestinationDetails: { // DestinationDetails
+ *         CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
+ *           LogGroup: "STRING_VALUE",
+ *         },
+ *         KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
+ *           DeliveryStream: "STRING_VALUE",
+ *         },
+ *       },
+ *       LogFormat: "text" || "json",
+ *       Enabled: true || false,
+ *     },
+ *   ],
+ *   TransitEncryptionEnabled: true || false,
+ *   NetworkType: "ipv4" || "ipv6" || "dual_stack",
+ *   IpDiscovery: "ipv4" || "ipv6",
+ * };
  * const command = new CreateCacheClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCacheClusterCommandInput - {@link CreateCacheClusterCommandInput}
+ * @returns {@link CreateCacheClusterCommandOutput}
  * @see {@link CreateCacheClusterCommandInput} for command's `input` shape.
  * @see {@link CreateCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -157,6 +218,9 @@ export class CreateCacheClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCacheClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,8 +249,8 @@ export class CreateCacheClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCacheClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCacheClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -196,12 +260,18 @@ export class CreateCacheClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateCacheClusterCommand(input, context);
+    return se_CreateCacheClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCacheClusterCommandOutput> {
-    return deserializeAws_queryCreateCacheClusterCommand(output, context);
+    return de_CreateCacheClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

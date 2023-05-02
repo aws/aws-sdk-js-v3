@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateFlowDefinitionRequest,
-  CreateFlowDefinitionRequestFilterSensitiveLog,
-  CreateFlowDefinitionResponse,
-  CreateFlowDefinitionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateFlowDefinitionCommand,
-  serializeAws_json1_1CreateFlowDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateFlowDefinitionRequest, CreateFlowDefinitionResponse } from "../models/models_1";
+import { de_CreateFlowDefinitionCommand, se_CreateFlowDefinitionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFlowDefinitionCommand}.
  */
 export interface CreateFlowDefinitionCommandInput extends CreateFlowDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFlowDefinitionCommand}.
  */
 export interface CreateFlowDefinitionCommandOutput extends CreateFlowDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a flow definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,53 @@ export interface CreateFlowDefinitionCommandOutput extends CreateFlowDefinitionR
  * import { SageMakerClient, CreateFlowDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateFlowDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateFlowDefinitionRequest
+ *   FlowDefinitionName: "STRING_VALUE", // required
+ *   HumanLoopRequestSource: { // HumanLoopRequestSource
+ *     AwsManagedHumanLoopRequestSource: "AWS/Rekognition/DetectModerationLabels/Image/V3" || "AWS/Textract/AnalyzeDocument/Forms/V1", // required
+ *   },
+ *   HumanLoopActivationConfig: { // HumanLoopActivationConfig
+ *     HumanLoopActivationConditionsConfig: { // HumanLoopActivationConditionsConfig
+ *       HumanLoopActivationConditions: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   HumanLoopConfig: { // HumanLoopConfig
+ *     WorkteamArn: "STRING_VALUE", // required
+ *     HumanTaskUiArn: "STRING_VALUE", // required
+ *     TaskTitle: "STRING_VALUE", // required
+ *     TaskDescription: "STRING_VALUE", // required
+ *     TaskCount: Number("int"), // required
+ *     TaskAvailabilityLifetimeInSeconds: Number("int"),
+ *     TaskTimeLimitInSeconds: Number("int"),
+ *     TaskKeywords: [ // FlowDefinitionTaskKeywords
+ *       "STRING_VALUE",
+ *     ],
+ *     PublicWorkforceTaskPrice: { // PublicWorkforceTaskPrice
+ *       AmountInUsd: { // USD
+ *         Dollars: Number("int"),
+ *         Cents: Number("int"),
+ *         TenthFractionsOfACent: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   OutputConfig: { // FlowDefinitionOutputConfig
+ *     S3OutputPath: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateFlowDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFlowDefinitionCommandInput - {@link CreateFlowDefinitionCommandInput}
+ * @returns {@link CreateFlowDefinitionCommandOutput}
  * @see {@link CreateFlowDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateFlowDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +116,9 @@ export class CreateFlowDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFlowDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +147,8 @@ export class CreateFlowDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFlowDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFlowDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +158,18 @@ export class CreateFlowDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFlowDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFlowDefinitionCommand(input, context);
+    return se_CreateFlowDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlowDefinitionCommandOutput> {
-    return deserializeAws_json1_1CreateFlowDefinitionCommand(output, context);
+    return de_CreateFlowDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

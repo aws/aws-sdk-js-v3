@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  StartDevEnvironmentRequest,
-  StartDevEnvironmentRequestFilterSensitiveLog,
-  StartDevEnvironmentResponse,
-  StartDevEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartDevEnvironmentCommand,
-  serializeAws_restJson1StartDevEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { StartDevEnvironmentRequest, StartDevEnvironmentResponse } from "../models/models_0";
+import { de_StartDevEnvironmentCommand, se_StartDevEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDevEnvironmentCommand}.
  */
 export interface StartDevEnvironmentCommandInput extends StartDevEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDevEnvironmentCommand}.
  */
 export interface StartDevEnvironmentCommandOutput extends StartDevEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a specified Dev Environment and puts it into an active state. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface StartDevEnvironmentCommandOutput extends StartDevEnvironmentRes
  * import { CodeCatalystClient, StartDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, StartDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // StartDevEnvironmentRequest
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   ides: [ // IdeConfigurationList
+ *     { // IdeConfiguration
+ *       runtime: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   instanceType: "STRING_VALUE",
+ *   inactivityTimeoutMinutes: Number("int"),
+ * };
  * const command = new StartDevEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDevEnvironmentCommandInput - {@link StartDevEnvironmentCommandInput}
+ * @returns {@link StartDevEnvironmentCommandOutput}
  * @see {@link StartDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link StartDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +100,9 @@ export class StartDevEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDevEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +131,8 @@ export class StartDevEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDevEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDevEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +142,18 @@ export class StartDevEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartDevEnvironmentCommand(input, context);
+    return se_StartDevEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDevEnvironmentCommandOutput> {
-    return deserializeAws_restJson1StartDevEnvironmentCommand(output, context);
+    return de_StartDevEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

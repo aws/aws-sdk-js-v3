@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  GetPreparedStatementInput,
-  GetPreparedStatementInputFilterSensitiveLog,
-  GetPreparedStatementOutput,
-  GetPreparedStatementOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPreparedStatementCommand,
-  serializeAws_json1_1GetPreparedStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { GetPreparedStatementInput, GetPreparedStatementOutput } from "../models/models_0";
+import { de_GetPreparedStatementCommand, se_GetPreparedStatementCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPreparedStatementCommand}.
  */
 export interface GetPreparedStatementCommandInput extends GetPreparedStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link GetPreparedStatementCommand}.
  */
 export interface GetPreparedStatementCommandOutput extends GetPreparedStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the prepared statement with the specified name from the specified
  *             workgroup.</p>
  * @example
@@ -43,10 +40,16 @@ export interface GetPreparedStatementCommandOutput extends GetPreparedStatementO
  * import { AthenaClient, GetPreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetPreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // GetPreparedStatementInput
+ *   StatementName: "STRING_VALUE", // required
+ *   WorkGroup: "STRING_VALUE", // required
+ * };
  * const command = new GetPreparedStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPreparedStatementCommandInput - {@link GetPreparedStatementCommandInput}
+ * @returns {@link GetPreparedStatementCommandOutput}
  * @see {@link GetPreparedStatementCommandInput} for command's `input` shape.
  * @see {@link GetPreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +84,9 @@ export class GetPreparedStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPreparedStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class GetPreparedStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPreparedStatementInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPreparedStatementOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class GetPreparedStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPreparedStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPreparedStatementCommand(input, context);
+    return se_GetPreparedStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPreparedStatementCommandOutput> {
-    return deserializeAws_json1_1GetPreparedStatementCommand(output, context);
+    return de_GetPreparedStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

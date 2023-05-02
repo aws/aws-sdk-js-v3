@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  DescribeBackupInput,
-  DescribeBackupInputFilterSensitiveLog,
-  DescribeBackupOutput,
-  DescribeBackupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeBackupCommand,
-  serializeAws_json1_0DescribeBackupCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeBackupInput, DescribeBackupOutput } from "../models/models_0";
+import { de_DescribeBackupCommand, se_DescribeBackupCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBackupCommand}.
  */
 export interface DescribeBackupCommandInput extends DescribeBackupInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBackupCommand}.
  */
 export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an existing backup of a table.</p>
  *          <p>You can call <code>DescribeBackup</code> at a maximum rate of 10 times per
  *             second.</p>
@@ -44,10 +41,15 @@ export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __Met
  * import { DynamoDBClient, DescribeBackupCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeBackupCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // DescribeBackupInput
+ *   BackupArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBackupCommandInput - {@link DescribeBackupCommandInput}
+ * @returns {@link DescribeBackupCommandOutput}
  * @see {@link DescribeBackupCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -79,6 +81,9 @@ export class DescribeBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class DescribeBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBackupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBackupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class DescribeBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeBackupCommand(input, context);
+    return se_DescribeBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBackupCommandOutput> {
-    return deserializeAws_json1_0DescribeBackupCommand(output, context);
+    return de_DescribeBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

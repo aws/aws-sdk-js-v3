@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CopyProductInput,
-  CopyProductInputFilterSensitiveLog,
-  CopyProductOutput,
-  CopyProductOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CopyProductCommand,
-  serializeAws_json1_1CopyProductCommand,
-} from "../protocols/Aws_json1_1";
+import { CopyProductInput, CopyProductOutput } from "../models/models_0";
+import { de_CopyProductCommand, se_CopyProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link CopyProductCommand}.
  */
 export interface CopyProductCommandInput extends CopyProductInput {}
 /**
+ * @public
+ *
  * The output of {@link CopyProductCommand}.
  */
 export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the specified source product to the specified target product or a new
  *          product.</p>
  *          <p>You can copy a product to the same account or another account. You can copy a product
@@ -48,10 +45,27 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  * import { ServiceCatalogClient, CopyProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CopyProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // CopyProductInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   SourceProductArn: "STRING_VALUE", // required
+ *   TargetProductId: "STRING_VALUE",
+ *   TargetProductName: "STRING_VALUE",
+ *   SourceProvisioningArtifactIdentifiers: [ // SourceProvisioningArtifactProperties
+ *     { // SourceProvisioningArtifactPropertiesMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   ],
+ *   CopyOptions: [ // CopyOptions
+ *     "CopyTags",
+ *   ],
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new CopyProductCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyProductCommandInput - {@link CopyProductCommandInput}
+ * @returns {@link CopyProductCommandOutput}
  * @see {@link CopyProductCommandInput} for command's `input` shape.
  * @see {@link CopyProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +95,9 @@ export class CopyProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +124,8 @@ export class CopyProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyProductInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyProductOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +135,18 @@ export class CopyProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CopyProductCommand(input, context);
+    return se_CopyProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyProductCommandOutput> {
-    return deserializeAws_json1_1CopyProductCommand(output, context);
+    return de_CopyProductCommand(output, context);
   }
 
   // Start section: command_body_extra

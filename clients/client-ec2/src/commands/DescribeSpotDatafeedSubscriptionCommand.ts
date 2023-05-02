@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeSpotDatafeedSubscriptionRequest, DescribeSpotDatafeedSubscriptionResult } from "../models/models_4";
 import {
-  DescribeSpotDatafeedSubscriptionRequest,
-  DescribeSpotDatafeedSubscriptionRequestFilterSensitiveLog,
-  DescribeSpotDatafeedSubscriptionResult,
-  DescribeSpotDatafeedSubscriptionResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommand,
-  serializeAws_ec2DescribeSpotDatafeedSubscriptionCommand,
+  de_DescribeSpotDatafeedSubscriptionCommand,
+  se_DescribeSpotDatafeedSubscriptionCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpotDatafeedSubscriptionCommand}.
  */
 export interface DescribeSpotDatafeedSubscriptionCommandInput extends DescribeSpotDatafeedSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpotDatafeedSubscriptionCommand}.
  */
 export interface DescribeSpotDatafeedSubscriptionCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
  *             Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  * import { EC2Client, DescribeSpotDatafeedSubscriptionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSpotDatafeedSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSpotDatafeedSubscriptionRequest
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeSpotDatafeedSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpotDatafeedSubscriptionCommandInput - {@link DescribeSpotDatafeedSubscriptionCommandInput}
+ * @returns {@link DescribeSpotDatafeedSubscriptionCommandOutput}
  * @see {@link DescribeSpotDatafeedSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -91,6 +96,9 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpotDatafeedSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +127,8 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpotDatafeedSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSpotDatafeedSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +138,24 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeSpotDatafeedSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSpotDatafeedSubscriptionCommand(input, context);
+    return se_DescribeSpotDatafeedSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSpotDatafeedSubscriptionCommandOutput> {
-    return deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommand(output, context);
+    return de_DescribeSpotDatafeedSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  UploadSigningCertificateRequest,
-  UploadSigningCertificateRequestFilterSensitiveLog,
-  UploadSigningCertificateResponse,
-  UploadSigningCertificateResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryUploadSigningCertificateCommand,
-  serializeAws_queryUploadSigningCertificateCommand,
-} from "../protocols/Aws_query";
+import { UploadSigningCertificateRequest, UploadSigningCertificateResponse } from "../models/models_1";
+import { de_UploadSigningCertificateCommand, se_UploadSigningCertificateCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UploadSigningCertificateCommand}.
  */
 export interface UploadSigningCertificateCommandInput extends UploadSigningCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UploadSigningCertificateCommand}.
  */
 export interface UploadSigningCertificateCommandOutput extends UploadSigningCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads an X.509 signing certificate and associates it with the specified IAM user.
  *             Some Amazon Web Services services require you to use certificates to validate requests that are signed
  *             with a corresponding private key. When you upload the certificate, its default status is
@@ -61,10 +58,16 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  * import { IAMClient, UploadSigningCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UploadSigningCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UploadSigningCertificateRequest
+ *   UserName: "STRING_VALUE",
+ *   CertificateBody: "STRING_VALUE", // required
+ * };
  * const command = new UploadSigningCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadSigningCertificateCommandInput - {@link UploadSigningCertificateCommandInput}
+ * @returns {@link UploadSigningCertificateCommandOutput}
  * @see {@link UploadSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link UploadSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -138,6 +141,9 @@ export class UploadSigningCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadSigningCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,8 +172,8 @@ export class UploadSigningCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadSigningCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UploadSigningCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -177,12 +183,18 @@ export class UploadSigningCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadSigningCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUploadSigningCertificateCommand(input, context);
+    return se_UploadSigningCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadSigningCertificateCommandOutput> {
-    return deserializeAws_queryUploadSigningCertificateCommand(output, context);
+    return de_UploadSigningCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

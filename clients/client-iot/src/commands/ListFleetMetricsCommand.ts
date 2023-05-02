@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListFleetMetricsRequest,
-  ListFleetMetricsRequestFilterSensitiveLog,
-  ListFleetMetricsResponse,
-  ListFleetMetricsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListFleetMetricsCommand,
-  serializeAws_restJson1ListFleetMetricsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFleetMetricsRequest, ListFleetMetricsResponse } from "../models/models_1";
+import { de_ListFleetMetricsCommand, se_ListFleetMetricsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFleetMetricsCommand}.
  */
 export interface ListFleetMetricsCommandInput extends ListFleetMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFleetMetricsCommand}.
  */
 export interface ListFleetMetricsCommandOutput extends ListFleetMetricsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all your fleet metrics. </p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListFleetMetrics</a> action.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListFleetMetricsCommandOutput extends ListFleetMetricsResponse,
  * import { IoTClient, ListFleetMetricsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListFleetMetricsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListFleetMetricsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListFleetMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFleetMetricsCommandInput - {@link ListFleetMetricsCommandInput}
+ * @returns {@link ListFleetMetricsCommandOutput}
  * @see {@link ListFleetMetricsCommandInput} for command's `input` shape.
  * @see {@link ListFleetMetricsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +88,9 @@ export class ListFleetMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFleetMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class ListFleetMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFleetMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFleetMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class ListFleetMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFleetMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFleetMetricsCommand(input, context);
+    return se_ListFleetMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFleetMetricsCommandOutput> {
-    return deserializeAws_restJson1ListFleetMetricsCommand(output, context);
+    return de_ListFleetMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

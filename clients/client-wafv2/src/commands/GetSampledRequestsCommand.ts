@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSampledRequestsRequest,
-  GetSampledRequestsRequestFilterSensitiveLog,
-  GetSampledRequestsResponse,
-  GetSampledRequestsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSampledRequestsCommand,
-  serializeAws_json1_1GetSampledRequestsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSampledRequestsRequest, GetSampledRequestsResponse } from "../models/models_0";
+import { de_GetSampledRequestsCommand, se_GetSampledRequestsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetSampledRequestsCommand}.
  */
 export interface GetSampledRequestsCommandInput extends GetSampledRequestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSampledRequestsCommand}.
  */
 export interface GetSampledRequestsCommandOutput extends GetSampledRequestsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets detailed information about a specified number of requests--a sample--that WAF
  *          randomly selects from among the first 5,000 requests that your Amazon Web Services resource received
  *          during a time range that you choose. You can specify a sample size of up to 500 requests,
@@ -51,10 +48,22 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * import { WAFV2Client, GetSampledRequestsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetSampledRequestsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // GetSampledRequestsRequest
+ *   WebAclArn: "STRING_VALUE", // required
+ *   RuleMetricName: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   TimeWindow: { // TimeWindow
+ *     StartTime: new Date("TIMESTAMP"), // required
+ *     EndTime: new Date("TIMESTAMP"), // required
+ *   },
+ *   MaxItems: Number("long"), // required
+ * };
  * const command = new GetSampledRequestsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSampledRequestsCommandInput - {@link GetSampledRequestsCommandInput}
+ * @returns {@link GetSampledRequestsCommandOutput}
  * @see {@link GetSampledRequestsCommandInput} for command's `input` shape.
  * @see {@link GetSampledRequestsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -109,6 +118,9 @@ export class GetSampledRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSampledRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +149,8 @@ export class GetSampledRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSampledRequestsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSampledRequestsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +160,18 @@ export class GetSampledRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSampledRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSampledRequestsCommand(input, context);
+    return se_GetSampledRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSampledRequestsCommandOutput> {
-    return deserializeAws_json1_1GetSampledRequestsCommand(output, context);
+    return de_GetSampledRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

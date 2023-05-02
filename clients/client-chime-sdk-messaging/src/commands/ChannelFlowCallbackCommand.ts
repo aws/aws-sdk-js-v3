@@ -22,23 +22,24 @@ import {
   ChannelFlowCallbackRequest,
   ChannelFlowCallbackRequestFilterSensitiveLog,
   ChannelFlowCallbackResponse,
-  ChannelFlowCallbackResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ChannelFlowCallbackCommand,
-  serializeAws_restJson1ChannelFlowCallbackCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ChannelFlowCallbackCommand, se_ChannelFlowCallbackCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ChannelFlowCallbackCommand}.
  */
 export interface ChannelFlowCallbackCommandInput extends ChannelFlowCallbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChannelFlowCallbackCommand}.
  */
 export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p>
  *          <p>You can return one of the following processing responses:</p>
  *          <ul>
@@ -58,10 +59,36 @@ export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackRes
  * import { ChimeSDKMessagingClient, ChannelFlowCallbackCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ChannelFlowCallbackCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // ChannelFlowCallbackRequest
+ *   CallbackId: "STRING_VALUE", // required
+ *   ChannelArn: "STRING_VALUE", // required
+ *   DeleteResource: true || false,
+ *   ChannelMessage: { // ChannelMessageCallback
+ *     MessageId: "STRING_VALUE", // required
+ *     Content: "STRING_VALUE",
+ *     Metadata: "STRING_VALUE",
+ *     PushNotification: { // PushNotificationConfiguration
+ *       Title: "STRING_VALUE",
+ *       Body: "STRING_VALUE",
+ *       Type: "DEFAULT" || "VOIP",
+ *     },
+ *     MessageAttributes: { // MessageAttributeMap
+ *       "<keys>": { // MessageAttributeValue
+ *         StringValues: [ // MessageAttributeStringValues
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     SubChannelId: "STRING_VALUE",
+ *     ContentType: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ChannelFlowCallbackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ChannelFlowCallbackCommandInput - {@link ChannelFlowCallbackCommandInput}
+ * @returns {@link ChannelFlowCallbackCommandOutput}
  * @see {@link ChannelFlowCallbackCommandInput} for command's `input` shape.
  * @see {@link ChannelFlowCallbackCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -107,6 +134,9 @@ export class ChannelFlowCallbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChannelFlowCallbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,7 +166,7 @@ export class ChannelFlowCallbackCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ChannelFlowCallbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ChannelFlowCallbackResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +176,18 @@ export class ChannelFlowCallbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChannelFlowCallbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ChannelFlowCallbackCommand(input, context);
+    return se_ChannelFlowCallbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChannelFlowCallbackCommandOutput> {
-    return deserializeAws_restJson1ChannelFlowCallbackCommand(output, context);
+    return de_ChannelFlowCallbackCommand(output, context);
   }
 
   // Start section: command_body_extra

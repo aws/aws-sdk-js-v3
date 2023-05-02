@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AttachPolicyRequest, AttachPolicyRequestFilterSensitiveLog } from "../models/models_0";
+import { AttachPolicyRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1AttachPolicyCommand,
-  serializeAws_json1_1AttachPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AttachPolicyCommand, se_AttachPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachPolicyCommand}.
  */
 export interface AttachPolicyCommandInput extends AttachPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachPolicyCommand}.
  */
 export interface AttachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a policy to a root, an organizational unit (OU), or an individual account.
  *             How the policy affects accounts depends on the type of policy. Refer to the
  *                 <i>Organizations User Guide</i> for information about each policy type:</p>
@@ -62,10 +64,16 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, AttachPolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, AttachPolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // AttachPolicyRequest
+ *   PolicyId: "STRING_VALUE", // required
+ *   TargetId: "STRING_VALUE", // required
+ * };
  * const command = new AttachPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachPolicyCommandInput - {@link AttachPolicyCommandInput}
+ * @returns {@link AttachPolicyCommandOutput}
  * @see {@link AttachPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachPolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -466,6 +474,9 @@ export class AttachPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -492,8 +503,8 @@ export class AttachPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -503,12 +514,18 @@ export class AttachPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachPolicyCommand(input, context);
+    return se_AttachPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachPolicyCommandOutput> {
-    return deserializeAws_json1_1AttachPolicyCommand(output, context);
+    return de_AttachPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

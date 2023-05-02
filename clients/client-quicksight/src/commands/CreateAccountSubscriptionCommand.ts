@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAccountSubscriptionRequest,
-  CreateAccountSubscriptionRequestFilterSensitiveLog,
-  CreateAccountSubscriptionResponse,
-  CreateAccountSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1CreateAccountSubscriptionCommand,
-  serializeAws_restJson1CreateAccountSubscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAccountSubscriptionRequest, CreateAccountSubscriptionResponse } from "../models/models_1";
+import { de_CreateAccountSubscriptionCommand, se_CreateAccountSubscriptionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccountSubscriptionCommand}.
  */
 export interface CreateAccountSubscriptionCommandInput extends CreateAccountSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccountSubscriptionCommand}.
  */
 export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon QuickSight account, or subscribes to Amazon QuickSight Q.</p>
  *          <p>The Amazon Web Services Region for the account is derived from what is configured in the
  *           CLI or SDK. This operation isn't supported in the US East (Ohio) Region, South America (Sao Paulo) Region, or Asia
@@ -64,10 +61,35 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * import { QuickSightClient, CreateAccountSubscriptionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateAccountSubscriptionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // CreateAccountSubscriptionRequest
+ *   Edition: "STANDARD" || "ENTERPRISE" || "ENTERPRISE_AND_Q", // required
+ *   AuthenticationMethod: "IAM_AND_QUICKSIGHT" || "IAM_ONLY" || "ACTIVE_DIRECTORY", // required
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   AccountName: "STRING_VALUE", // required
+ *   NotificationEmail: "STRING_VALUE", // required
+ *   ActiveDirectoryName: "STRING_VALUE",
+ *   Realm: "STRING_VALUE",
+ *   DirectoryId: "STRING_VALUE",
+ *   AdminGroup: [ // GroupsList
+ *     "STRING_VALUE",
+ *   ],
+ *   AuthorGroup: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ReaderGroup: [
+ *     "STRING_VALUE",
+ *   ],
+ *   FirstName: "STRING_VALUE",
+ *   LastName: "STRING_VALUE",
+ *   EmailAddress: "STRING_VALUE",
+ *   ContactNumber: "STRING_VALUE",
+ * };
  * const command = new CreateAccountSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccountSubscriptionCommandInput - {@link CreateAccountSubscriptionCommandInput}
+ * @returns {@link CreateAccountSubscriptionCommandOutput}
  * @see {@link CreateAccountSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateAccountSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -121,6 +143,9 @@ export class CreateAccountSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccountSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +174,8 @@ export class CreateAccountSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccountSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccountSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,15 +185,21 @@ export class CreateAccountSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccountSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccountSubscriptionCommand(input, context);
+    return se_CreateAccountSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAccountSubscriptionCommandOutput> {
-    return deserializeAws_restJson1CreateAccountSubscriptionCommand(output, context);
+    return de_CreateAccountSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

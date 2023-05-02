@@ -15,21 +15,24 @@ import {
 
 import {
   UpdateServerEngineAttributesRequest,
-  UpdateServerEngineAttributesRequestFilterSensitiveLog,
   UpdateServerEngineAttributesResponse,
   UpdateServerEngineAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
-  deserializeAws_json1_1UpdateServerEngineAttributesCommand,
-  serializeAws_json1_1UpdateServerEngineAttributesCommand,
+  de_UpdateServerEngineAttributesCommand,
+  se_UpdateServerEngineAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServerEngineAttributesCommand}.
  */
 export interface UpdateServerEngineAttributesCommandInput extends UpdateServerEngineAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServerEngineAttributesCommand}.
  */
 export interface UpdateServerEngineAttributesCommandOutput
@@ -37,6 +40,7 @@ export interface UpdateServerEngineAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Updates engine-specific attributes on a specified server. The server
  *       enters the <code>MODIFYING</code> state when this operation
@@ -57,10 +61,17 @@ export interface UpdateServerEngineAttributesCommandOutput
  * import { OpsWorksCMClient, UpdateServerEngineAttributesCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, UpdateServerEngineAttributesCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // UpdateServerEngineAttributesRequest
+ *   ServerName: "STRING_VALUE", // required
+ *   AttributeName: "STRING_VALUE", // required
+ *   AttributeValue: "STRING_VALUE",
+ * };
  * const command = new UpdateServerEngineAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServerEngineAttributesCommandInput - {@link UpdateServerEngineAttributesCommandInput}
+ * @returns {@link UpdateServerEngineAttributesCommandOutput}
  * @see {@link UpdateServerEngineAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateServerEngineAttributesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -96,6 +107,9 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServerEngineAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,7 +138,7 @@ export class UpdateServerEngineAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServerEngineAttributesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateServerEngineAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -135,15 +149,21 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServerEngineAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServerEngineAttributesCommand(input, context);
+    return se_UpdateServerEngineAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServerEngineAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateServerEngineAttributesCommand(output, context);
+    return de_UpdateServerEngineAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

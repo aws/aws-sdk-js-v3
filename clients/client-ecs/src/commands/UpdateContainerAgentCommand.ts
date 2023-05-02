@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  UpdateContainerAgentRequest,
-  UpdateContainerAgentRequestFilterSensitiveLog,
-  UpdateContainerAgentResponse,
-  UpdateContainerAgentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateContainerAgentCommand,
-  serializeAws_json1_1UpdateContainerAgentCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateContainerAgentRequest, UpdateContainerAgentResponse } from "../models/models_0";
+import { de_UpdateContainerAgentCommand, se_UpdateContainerAgentCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContainerAgentCommand}.
  */
 export interface UpdateContainerAgentCommandInput extends UpdateContainerAgentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContainerAgentCommand}.
  */
 export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Amazon ECS container agent on a specified container instance. Updating the
  * 			Amazon ECS container agent doesn't interrupt running tasks or services on the container
  * 			instance. The process for updating the agent differs depending on whether your container
@@ -60,10 +57,16 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * import { ECSClient, UpdateContainerAgentCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateContainerAgentCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // UpdateContainerAgentRequest
+ *   cluster: "STRING_VALUE",
+ *   containerInstance: "STRING_VALUE", // required
+ * };
  * const command = new UpdateContainerAgentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContainerAgentCommandInput - {@link UpdateContainerAgentCommandInput}
+ * @returns {@link UpdateContainerAgentCommandOutput}
  * @see {@link UpdateContainerAgentCommandInput} for command's `input` shape.
  * @see {@link UpdateContainerAgentCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -120,6 +123,9 @@ export class UpdateContainerAgentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContainerAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +154,8 @@ export class UpdateContainerAgentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContainerAgentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContainerAgentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +165,18 @@ export class UpdateContainerAgentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContainerAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateContainerAgentCommand(input, context);
+    return se_UpdateContainerAgentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContainerAgentCommandOutput> {
-    return deserializeAws_json1_1UpdateContainerAgentCommand(output, context);
+    return de_UpdateContainerAgentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  GetExclusionsPreviewRequest,
-  GetExclusionsPreviewRequestFilterSensitiveLog,
-  GetExclusionsPreviewResponse,
-  GetExclusionsPreviewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetExclusionsPreviewCommand,
-  serializeAws_json1_1GetExclusionsPreviewCommand,
-} from "../protocols/Aws_json1_1";
+import { GetExclusionsPreviewRequest, GetExclusionsPreviewResponse } from "../models/models_0";
+import { de_GetExclusionsPreviewCommand, se_GetExclusionsPreviewCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExclusionsPreviewCommand}.
  */
 export interface GetExclusionsPreviewCommandInput extends GetExclusionsPreviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExclusionsPreviewCommand}.
  */
 export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the exclusions preview (a list of ExclusionPreview objects) specified by
  *          the preview token. You can obtain the preview token by running the CreateExclusionsPreview
  *          API.</p>
@@ -44,10 +41,19 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  * import { InspectorClient, GetExclusionsPreviewCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, GetExclusionsPreviewCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // GetExclusionsPreviewRequest
+ *   assessmentTemplateArn: "STRING_VALUE", // required
+ *   previewToken: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new GetExclusionsPreviewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExclusionsPreviewCommandInput - {@link GetExclusionsPreviewCommandInput}
+ * @returns {@link GetExclusionsPreviewCommandOutput}
  * @see {@link GetExclusionsPreviewCommandInput} for command's `input` shape.
  * @see {@link GetExclusionsPreviewCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -85,6 +91,9 @@ export class GetExclusionsPreviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExclusionsPreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class GetExclusionsPreviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExclusionsPreviewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetExclusionsPreviewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class GetExclusionsPreviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExclusionsPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetExclusionsPreviewCommand(input, context);
+    return se_GetExclusionsPreviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExclusionsPreviewCommandOutput> {
-    return deserializeAws_json1_1GetExclusionsPreviewCommand(output, context);
+    return de_GetExclusionsPreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

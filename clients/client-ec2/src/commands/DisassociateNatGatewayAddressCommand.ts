@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DisassociateNatGatewayAddressRequest,
-  DisassociateNatGatewayAddressRequestFilterSensitiveLog,
-  DisassociateNatGatewayAddressResult,
-  DisassociateNatGatewayAddressResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2DisassociateNatGatewayAddressCommand,
-  serializeAws_ec2DisassociateNatGatewayAddressCommand,
-} from "../protocols/Aws_ec2";
+import { DisassociateNatGatewayAddressRequest, DisassociateNatGatewayAddressResult } from "../models/models_5";
+import { de_DisassociateNatGatewayAddressCommand, se_DisassociateNatGatewayAddressCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateNatGatewayAddressCommand}.
  */
 export interface DisassociateNatGatewayAddressCommandInput extends DisassociateNatGatewayAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateNatGatewayAddressCommand}.
  */
 export interface DisassociateNatGatewayAddressCommandOutput
@@ -37,6 +33,7 @@ export interface DisassociateNatGatewayAddressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *          <p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
  *          <p>An EIP will only be released at the end of MaxDrainDurationSeconds. The EIPs stay
@@ -50,10 +47,20 @@ export interface DisassociateNatGatewayAddressCommandOutput
  * import { EC2Client, DisassociateNatGatewayAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateNatGatewayAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisassociateNatGatewayAddressRequest
+ *   NatGatewayId: "STRING_VALUE", // required
+ *   AssociationIds: [ // EipAssociationIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxDrainDurationSeconds: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateNatGatewayAddressCommandInput - {@link DisassociateNatGatewayAddressCommandInput}
+ * @returns {@link DisassociateNatGatewayAddressCommandOutput}
  * @see {@link DisassociateNatGatewayAddressCommandInput} for command's `input` shape.
  * @see {@link DisassociateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +84,9 @@ export class DisassociateNatGatewayAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateNatGatewayAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +115,8 @@ export class DisassociateNatGatewayAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateNatGatewayAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateNatGatewayAddressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +126,21 @@ export class DisassociateNatGatewayAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateNatGatewayAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateNatGatewayAddressCommand(input, context);
+    return se_DisassociateNatGatewayAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateNatGatewayAddressCommandOutput> {
-    return deserializeAws_ec2DisassociateNatGatewayAddressCommand(output, context);
+    return de_DisassociateNatGatewayAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

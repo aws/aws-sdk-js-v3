@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  UpdateImagePermissionsRequest,
-  UpdateImagePermissionsRequestFilterSensitiveLog,
-  UpdateImagePermissionsResult,
-  UpdateImagePermissionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateImagePermissionsCommand,
-  serializeAws_json1_1UpdateImagePermissionsCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateImagePermissionsRequest, UpdateImagePermissionsResult } from "../models/models_0";
+import { de_UpdateImagePermissionsCommand, se_UpdateImagePermissionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateImagePermissionsCommand}.
  */
 export interface UpdateImagePermissionsCommandInput extends UpdateImagePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateImagePermissionsCommand}.
  */
 export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates permissions for the specified private image. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissi
  * import { AppStreamClient, UpdateImagePermissionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateImagePermissionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // UpdateImagePermissionsRequest
+ *   Name: "STRING_VALUE", // required
+ *   SharedAccountId: "STRING_VALUE", // required
+ *   ImagePermissions: { // ImagePermissions
+ *     allowFleet: true || false,
+ *     allowImageBuilder: true || false,
+ *   },
+ * };
  * const command = new UpdateImagePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateImagePermissionsCommandInput - {@link UpdateImagePermissionsCommandInput}
+ * @returns {@link UpdateImagePermissionsCommandOutput}
  * @see {@link UpdateImagePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateImagePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateImagePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +116,8 @@ export class UpdateImagePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateImagePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateImagePermissionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +127,18 @@ export class UpdateImagePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateImagePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateImagePermissionsCommand(input, context);
+    return se_UpdateImagePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateImagePermissionsCommandOutput> {
-    return deserializeAws_json1_1UpdateImagePermissionsCommand(output, context);
+    return de_UpdateImagePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

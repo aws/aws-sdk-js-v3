@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { DeleteDatasetRequest, DeleteDatasetRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDatasetCommand,
-  serializeAws_restJson1DeleteDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDatasetRequest } from "../models/models_0";
+import { de_DeleteDatasetCommand, se_DeleteDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatasetCommand}.
  */
 export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatasetCommand}.
  */
 export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified dataset.</p>
  *          <p>You do not have to delete the content of the dataset before you perform this
  *       operation.</p>
@@ -39,10 +41,15 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, DeleteDatasetCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DeleteDatasetCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // DeleteDatasetRequest
+ *   datasetName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
+ * @returns {@link DeleteDatasetCommandOutput}
  * @see {@link DeleteDatasetCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +117,8 @@ export class DeleteDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +128,18 @@ export class DeleteDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDatasetCommand(input, context);
+    return se_DeleteDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetCommandOutput> {
-    return deserializeAws_restJson1DeleteDatasetCommand(output, context);
+    return de_DeleteDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

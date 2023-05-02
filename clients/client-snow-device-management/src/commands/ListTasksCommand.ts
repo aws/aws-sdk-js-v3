@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTasksInput,
-  ListTasksInputFilterSensitiveLog,
-  ListTasksOutput,
-  ListTasksOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTasksCommand,
-  serializeAws_restJson1ListTasksCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTasksInput, ListTasksOutput } from "../models/models_0";
+import { de_ListTasksCommand, se_ListTasksCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../SnowDeviceManagementClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTasksCommand}.
  */
 export interface ListTasksCommandInput extends ListTasksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTasksCommand}.
  */
 export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of tasks that can be filtered by state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBeare
  * import { SnowDeviceManagementClient, ListTasksCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, ListTasksCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = { // ListTasksInput
+ *   state: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTasksCommandInput - {@link ListTasksCommandInput}
+ * @returns {@link ListTasksCommandOutput}
  * @see {@link ListTasksCommandInput} for command's `input` shape.
  * @see {@link ListTasksCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +118,8 @@ export class ListTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTasksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTasksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +129,18 @@ export class ListTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTasksCommand(input, context);
+    return se_ListTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTasksCommandOutput> {
-    return deserializeAws_restJson1ListTasksCommand(output, context);
+    return de_ListTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

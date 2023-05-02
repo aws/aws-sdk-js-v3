@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  ListDeviceDefinitionsRequest,
-  ListDeviceDefinitionsRequestFilterSensitiveLog,
-  ListDeviceDefinitionsResponse,
-  ListDeviceDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDeviceDefinitionsCommand,
-  serializeAws_restJson1ListDeviceDefinitionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDeviceDefinitionsRequest, ListDeviceDefinitionsResponse } from "../models/models_0";
+import { de_ListDeviceDefinitionsCommand, se_ListDeviceDefinitionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeviceDefinitionsCommand}.
  */
 export interface ListDeviceDefinitionsCommandInput extends ListDeviceDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeviceDefinitionsCommand}.
  */
 export interface ListDeviceDefinitionsCommandOutput extends ListDeviceDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves a list of device definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListDeviceDefinitionsCommandOutput extends ListDeviceDefinition
  * import { GreengrassClient, ListDeviceDefinitionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListDeviceDefinitionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListDeviceDefinitionsRequest
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeviceDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeviceDefinitionsCommandInput - {@link ListDeviceDefinitionsCommandInput}
+ * @returns {@link ListDeviceDefinitionsCommandOutput}
  * @see {@link ListDeviceDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListDeviceDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -69,6 +72,9 @@ export class ListDeviceDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeviceDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +103,8 @@ export class ListDeviceDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeviceDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeviceDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +114,18 @@ export class ListDeviceDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeviceDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDeviceDefinitionsCommand(input, context);
+    return se_ListDeviceDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceDefinitionsCommandOutput> {
-    return deserializeAws_restJson1ListDeviceDefinitionsCommand(output, context);
+    return de_ListDeviceDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

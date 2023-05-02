@@ -16,20 +16,22 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   BatchDeleteDelegationByAssessmentRequest,
-  BatchDeleteDelegationByAssessmentRequestFilterSensitiveLog,
   BatchDeleteDelegationByAssessmentResponse,
-  BatchDeleteDelegationByAssessmentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchDeleteDelegationByAssessmentCommand,
-  serializeAws_restJson1BatchDeleteDelegationByAssessmentCommand,
+  de_BatchDeleteDelegationByAssessmentCommand,
+  se_BatchDeleteDelegationByAssessmentCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteDelegationByAssessmentCommand}.
  */
 export interface BatchDeleteDelegationByAssessmentCommandInput extends BatchDeleteDelegationByAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteDelegationByAssessmentCommand}.
  */
 export interface BatchDeleteDelegationByAssessmentCommandOutput
@@ -37,6 +39,7 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a batch of delegations for an assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,18 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput
  * import { AuditManagerClient, BatchDeleteDelegationByAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, BatchDeleteDelegationByAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // BatchDeleteDelegationByAssessmentRequest
+ *   delegationIds: [ // DelegationIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   assessmentId: "STRING_VALUE", // required
+ * };
  * const command = new BatchDeleteDelegationByAssessmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteDelegationByAssessmentCommandInput - {@link BatchDeleteDelegationByAssessmentCommandInput}
+ * @returns {@link BatchDeleteDelegationByAssessmentCommandOutput}
  * @see {@link BatchDeleteDelegationByAssessmentCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDelegationByAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -85,6 +96,9 @@ export class BatchDeleteDelegationByAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteDelegationByAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +127,8 @@ export class BatchDeleteDelegationByAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteDelegationByAssessmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteDelegationByAssessmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +138,24 @@ export class BatchDeleteDelegationByAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDeleteDelegationByAssessmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteDelegationByAssessmentCommand(input, context);
+    return se_BatchDeleteDelegationByAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteDelegationByAssessmentCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteDelegationByAssessmentCommand(output, context);
+    return de_BatchDeleteDelegationByAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

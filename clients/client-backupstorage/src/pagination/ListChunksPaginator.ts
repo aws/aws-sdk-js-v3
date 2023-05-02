@@ -6,7 +6,7 @@ import { ListChunksCommand, ListChunksCommandInput, ListChunksCommandOutput } fr
 import { BackupStoragePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BackupStorageClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListChunksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListChunks(
   config: BackupStoragePaginationConfiguration,
   input: ListChunksCommandInput,

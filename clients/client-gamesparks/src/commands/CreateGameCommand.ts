@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  CreateGameRequest,
-  CreateGameRequestFilterSensitiveLog,
-  CreateGameResult,
-  CreateGameResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateGameCommand,
-  serializeAws_restJson1CreateGameCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateGameRequest, CreateGameResult } from "../models/models_0";
+import { de_CreateGameCommand, se_CreateGameCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGameCommand}.
  */
 export interface CreateGameCommandInput extends CreateGameRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGameCommand}.
  */
 export interface CreateGameCommandOutput extends CreateGameResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a new game with an empty configuration.
  *       After creating your game, you can update the configuration using <code>UpdateGameConfiguration</code> or <code>ImportGameConfiguration</code>.
@@ -45,10 +42,20 @@ export interface CreateGameCommandOutput extends CreateGameResult, __MetadataBea
  * import { GameSparksClient, CreateGameCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, CreateGameCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // CreateGameRequest
+ *   GameName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateGameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGameCommandInput - {@link CreateGameCommandInput}
+ * @returns {@link CreateGameCommandOutput}
  * @see {@link CreateGameCommandInput} for command's `input` shape.
  * @see {@link CreateGameCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateGameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGameCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +126,8 @@ export class CreateGameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGameResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +137,18 @@ export class CreateGameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateGameCommand(input, context);
+    return se_CreateGameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGameCommandOutput> {
-    return deserializeAws_restJson1CreateGameCommand(output, context);
+    return de_CreateGameCommand(output, context);
   }
 
   // Start section: command_body_extra

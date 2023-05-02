@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDefaultMessageTypeRequest,
-  DeleteDefaultMessageTypeRequestFilterSensitiveLog,
-  DeleteDefaultMessageTypeResult,
-  DeleteDefaultMessageTypeResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDefaultMessageTypeRequest, DeleteDefaultMessageTypeResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DeleteDefaultMessageTypeCommand,
-  serializeAws_json1_0DeleteDefaultMessageTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteDefaultMessageTypeCommand, se_DeleteDefaultMessageTypeCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDefaultMessageTypeCommand}.
  */
 export interface DeleteDefaultMessageTypeCommandInput extends DeleteDefaultMessageTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDefaultMessageTypeCommand}.
  */
 export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMessageTypeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing default message type on a configuration set.</p>
  *         <p> A message type is a type of messages that you plan to send. If you send
  *             account-related messages or time-sensitive messages such as one-time passcodes, choose
@@ -51,10 +48,15 @@ export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMess
  * import { PinpointSMSVoiceV2Client, DeleteDefaultMessageTypeCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DeleteDefaultMessageTypeCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DeleteDefaultMessageTypeRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDefaultMessageTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDefaultMessageTypeCommandInput - {@link DeleteDefaultMessageTypeCommandInput}
+ * @returns {@link DeleteDefaultMessageTypeCommandOutput}
  * @see {@link DeleteDefaultMessageTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteDefaultMessageTypeCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -96,6 +98,9 @@ export class DeleteDefaultMessageTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDefaultMessageTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +129,8 @@ export class DeleteDefaultMessageTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDefaultMessageTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDefaultMessageTypeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +140,18 @@ export class DeleteDefaultMessageTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDefaultMessageTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteDefaultMessageTypeCommand(input, context);
+    return se_DeleteDefaultMessageTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDefaultMessageTypeCommandOutput> {
-    return deserializeAws_json1_0DeleteDefaultMessageTypeCommand(output, context);
+    return de_DeleteDefaultMessageTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

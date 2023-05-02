@@ -16,21 +16,23 @@ import {
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import {
   RemoveSourceIdentifierFromSubscriptionMessage,
-  RemoveSourceIdentifierFromSubscriptionMessageFilterSensitiveLog,
   RemoveSourceIdentifierFromSubscriptionResult,
-  RemoveSourceIdentifierFromSubscriptionResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
-  serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
+  de_RemoveSourceIdentifierFromSubscriptionCommand,
+  se_RemoveSourceIdentifierFromSubscriptionCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveSourceIdentifierFromSubscriptionCommand}.
  */
 export interface RemoveSourceIdentifierFromSubscriptionCommandInput
   extends RemoveSourceIdentifierFromSubscriptionMessage {}
 /**
+ * @public
+ *
  * The output of {@link RemoveSourceIdentifierFromSubscriptionCommand}.
  */
 export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
@@ -38,6 +40,7 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a source identifier from an existing Amazon DocumentDB event notification
  *             subscription.</p>
  * @example
@@ -46,10 +49,16 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * import { DocDBClient, RemoveSourceIdentifierFromSubscriptionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, RemoveSourceIdentifierFromSubscriptionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // RemoveSourceIdentifierFromSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SourceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new RemoveSourceIdentifierFromSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveSourceIdentifierFromSubscriptionCommandInput - {@link RemoveSourceIdentifierFromSubscriptionCommandInput}
+ * @returns {@link RemoveSourceIdentifierFromSubscriptionCommandOutput}
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandInput} for command's `input` shape.
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -79,6 +88,9 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveSourceIdentifierFromSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +119,8 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +130,24 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RemoveSourceIdentifierFromSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(input, context);
+    return se_RemoveSourceIdentifierFromSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> {
-    return deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(output, context);
+    return de_RemoveSourceIdentifierFromSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

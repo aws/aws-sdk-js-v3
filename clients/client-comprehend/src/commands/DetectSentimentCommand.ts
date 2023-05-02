@@ -20,21 +20,23 @@ import {
   DetectSentimentResponse,
   DetectSentimentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectSentimentCommand,
-  serializeAws_json1_1DetectSentimentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectSentimentCommand, se_DetectSentimentCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectSentimentCommand}.
  */
 export interface DetectSentimentCommandInput extends DetectSentimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectSentimentCommand}.
  */
 export interface DetectSentimentCommandOutput extends DetectSentimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects text and returns an inference of the prevailing sentiment
  *         (<code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>). </p>
  * @example
@@ -43,10 +45,16 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  * import { ComprehendClient, DetectSentimentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectSentimentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DetectSentimentRequest
+ *   Text: "STRING_VALUE", // required
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ * };
  * const command = new DetectSentimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectSentimentCommandInput - {@link DetectSentimentCommandInput}
+ * @returns {@link DetectSentimentCommandOutput}
  * @see {@link DetectSentimentCommandInput} for command's `input` shape.
  * @see {@link DetectSentimentCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -86,6 +94,9 @@ export class DetectSentimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectSentimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,12 +136,18 @@ export class DetectSentimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectSentimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectSentimentCommand(input, context);
+    return se_DetectSentimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectSentimentCommandOutput> {
-    return deserializeAws_json1_1DetectSentimentCommand(output, context);
+    return de_DetectSentimentCommand(output, context);
   }
 
   // Start section: command_body_extra

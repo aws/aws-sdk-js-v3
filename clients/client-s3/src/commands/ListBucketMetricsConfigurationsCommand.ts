@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListBucketMetricsConfigurationsOutput, ListBucketMetricsConfigurationsRequest } from "../models/models_0";
 import {
-  ListBucketMetricsConfigurationsOutput,
-  ListBucketMetricsConfigurationsOutputFilterSensitiveLog,
-  ListBucketMetricsConfigurationsRequest,
-  ListBucketMetricsConfigurationsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListBucketMetricsConfigurationsCommand,
-  serializeAws_restXmlListBucketMetricsConfigurationsCommand,
+  de_ListBucketMetricsConfigurationsCommand,
+  se_ListBucketMetricsConfigurationsCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListBucketMetricsConfigurationsCommand}.
  */
 export interface ListBucketMetricsConfigurationsCommandInput extends ListBucketMetricsConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBucketMetricsConfigurationsCommand}.
  */
 export interface ListBucketMetricsConfigurationsCommandOutput
@@ -37,6 +36,7 @@ export interface ListBucketMetricsConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the metrics configurations for the bucket. The metrics configurations are only for
  *          the request metrics of the bucket and do not provide information on daily storage metrics.
  *          You can have up to 1,000 configurations per bucket.</p>
@@ -80,10 +80,17 @@ export interface ListBucketMetricsConfigurationsCommandOutput
  * import { S3Client, ListBucketMetricsConfigurationsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListBucketMetricsConfigurationsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // ListBucketMetricsConfigurationsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ContinuationToken: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new ListBucketMetricsConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBucketMetricsConfigurationsCommandInput - {@link ListBucketMetricsConfigurationsCommandInput}
+ * @returns {@link ListBucketMetricsConfigurationsCommandOutput}
  * @see {@link ListBucketMetricsConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketMetricsConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -113,6 +120,9 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBucketMetricsConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +151,8 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBucketMetricsConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBucketMetricsConfigurationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,18 +162,24 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListBucketMetricsConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListBucketMetricsConfigurationsCommand(input, context);
+    return se_ListBucketMetricsConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBucketMetricsConfigurationsCommandOutput> {
-    return deserializeAws_restXmlListBucketMetricsConfigurationsCommand(output, context);
+    return de_ListBucketMetricsConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

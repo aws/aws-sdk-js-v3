@@ -22,23 +22,24 @@ import {
   VerifyUserAttributeRequest,
   VerifyUserAttributeRequestFilterSensitiveLog,
   VerifyUserAttributeResponse,
-  VerifyUserAttributeResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1VerifyUserAttributeCommand,
-  serializeAws_json1_1VerifyUserAttributeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_VerifyUserAttributeCommand, se_VerifyUserAttributeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link VerifyUserAttributeCommand}.
  */
 export interface VerifyUserAttributeCommandInput extends VerifyUserAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifyUserAttributeCommand}.
  */
 export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Verifies the specified user attributes in the user pool.</p>
  *         <p>
  *             If your user pool requires verification before Amazon Cognito updates the attribute value,
@@ -52,10 +53,17 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
  * import { CognitoIdentityProviderClient, VerifyUserAttributeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, VerifyUserAttributeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // VerifyUserAttributeRequest
+ *   AccessToken: "STRING_VALUE", // required
+ *   AttributeName: "STRING_VALUE", // required
+ *   Code: "STRING_VALUE", // required
+ * };
  * const command = new VerifyUserAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifyUserAttributeCommandInput - {@link VerifyUserAttributeCommandInput}
+ * @returns {@link VerifyUserAttributeCommandOutput}
  * @see {@link VerifyUserAttributeCommandInput} for command's `input` shape.
  * @see {@link VerifyUserAttributeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -127,6 +135,9 @@ export class VerifyUserAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyUserAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,7 +167,7 @@ export class VerifyUserAttributeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: VerifyUserAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VerifyUserAttributeResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -166,12 +177,18 @@ export class VerifyUserAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyUserAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1VerifyUserAttributeCommand(input, context);
+    return se_VerifyUserAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyUserAttributeCommandOutput> {
-    return deserializeAws_json1_1VerifyUserAttributeCommand(output, context);
+    return de_VerifyUserAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

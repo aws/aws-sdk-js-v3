@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeVpcEndpointsRequest,
-  DescribeVpcEndpointsRequestFilterSensitiveLog,
-  DescribeVpcEndpointsResult,
-  DescribeVpcEndpointsResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2DescribeVpcEndpointsCommand,
-  serializeAws_ec2DescribeVpcEndpointsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeVpcEndpointsRequest, DescribeVpcEndpointsResult } from "../models/models_5";
+import { de_DescribeVpcEndpointsCommand, se_DescribeVpcEndpointsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcEndpointsCommand}.
  */
 export interface DescribeVpcEndpointsCommandInput extends DescribeVpcEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcEndpointsCommand}.
  */
 export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your VPC endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * import { EC2Client, DescribeVpcEndpointsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcEndpointsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVpcEndpointsRequest
+ *   DryRun: true || false,
+ *   VpcEndpointIds: [ // VpcEndpointIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeVpcEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcEndpointsCommandInput - {@link DescribeVpcEndpointsCommandInput}
+ * @returns {@link DescribeVpcEndpointsCommandOutput}
  * @see {@link DescribeVpcEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +84,9 @@ export class DescribeVpcEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +115,8 @@ export class DescribeVpcEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcEndpointsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +126,18 @@ export class DescribeVpcEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcEndpointsCommand(input, context);
+    return se_DescribeVpcEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcEndpointsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcEndpointsCommand(output, context);
+    return de_DescribeVpcEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

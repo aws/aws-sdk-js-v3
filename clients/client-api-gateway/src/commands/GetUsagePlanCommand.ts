@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  GetUsagePlanRequest,
-  GetUsagePlanRequestFilterSensitiveLog,
-  UsagePlan,
-  UsagePlanFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUsagePlanCommand,
-  serializeAws_restJson1GetUsagePlanCommand,
-} from "../protocols/Aws_restJson1";
+import { GetUsagePlanRequest, UsagePlan } from "../models/models_0";
+import { de_GetUsagePlanCommand, se_GetUsagePlanCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUsagePlanCommand}.
  */
 export interface GetUsagePlanCommandInput extends GetUsagePlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUsagePlanCommand}.
  */
 export interface GetUsagePlanCommandOutput extends UsagePlan, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a usage plan of a given plan identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetUsagePlanCommandOutput extends UsagePlan, __MetadataBearer {
  * import { APIGatewayClient, GetUsagePlanCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetUsagePlanCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetUsagePlanRequest
+ *   usagePlanId: "STRING_VALUE", // required
+ * };
  * const command = new GetUsagePlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUsagePlanCommandInput - {@link GetUsagePlanCommandInput}
+ * @returns {@link GetUsagePlanCommandOutput}
  * @see {@link GetUsagePlanCommandInput} for command's `input` shape.
  * @see {@link GetUsagePlanCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +83,9 @@ export class GetUsagePlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsagePlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class GetUsagePlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUsagePlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UsagePlanFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class GetUsagePlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsagePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUsagePlanCommand(input, context);
+    return se_GetUsagePlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsagePlanCommandOutput> {
-    return deserializeAws_restJson1GetUsagePlanCommand(output, context);
+    return de_GetUsagePlanCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -87,6 +87,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateAccessorCommandInput
   | CreateMemberCommandInput
@@ -116,6 +119,9 @@ export type ServiceInputTypes =
   | UpdateNodeCommandInput
   | VoteOnProposalCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateAccessorCommandOutput
   | CreateMemberCommandOutput
@@ -145,6 +151,9 @@ export type ServiceOutputTypes =
   | UpdateNodeCommandOutput
   | VoteOnProposalCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -152,7 +161,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -261,11 +270,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ManagedBlockchainClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -276,10 +288,15 @@ type ManagedBlockchainClientConfigType = Partial<__SmithyConfiguration<__HttpHan
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ManagedBlockchainClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ManagedBlockchainClient class constructor that set the region, credentials and other options.
  */
 export interface ManagedBlockchainClientConfig extends ManagedBlockchainClientConfigType {}
 
+/**
+ * @public
+ */
 type ManagedBlockchainClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -290,11 +307,14 @@ type ManagedBlockchainClientResolvedConfigType = __SmithyResolvedConfiguration<_
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ManagedBlockchainClient class. This is resolved and normalized from the {@link ManagedBlockchainClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ManagedBlockchainClient class. This is resolved and normalized from the {@link ManagedBlockchainClientConfig | constructor configuration interface}.
  */
 export interface ManagedBlockchainClientResolvedConfig extends ManagedBlockchainClientResolvedConfigType {}
 
 /**
+ * @public
  * <p></p>
  *          <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open-source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority.</p>
  *          <p>Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source frameworks. Because of fundamental differences between the frameworks, some API actions or data types may only apply in the context of one framework and not the other. For example, actions related to Hyperledger Fabric network members such as <code>CreateMember</code> and <code>DeleteMember</code> don't apply to Ethereum.</p>

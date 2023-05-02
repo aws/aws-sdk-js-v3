@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSubscribersRequest,
-  ListSubscribersRequestFilterSensitiveLog,
-  ListSubscribersResponse,
-  ListSubscribersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSubscribersCommand,
-  serializeAws_restJson1ListSubscribersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSubscribersRequest, ListSubscribersResponse } from "../models/models_0";
+import { de_ListSubscribersCommand, se_ListSubscribersCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSubscribersCommand}.
  */
 export interface ListSubscribersCommandInput extends ListSubscribersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSubscribersCommand}.
  */
 export interface ListSubscribersCommandOutput extends ListSubscribersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all subscribers for the specific Amazon Security Lake account ID. You can retrieve a list
  *          of subscriptions associated with a specific organization or Amazon Web Services account.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListSubscribersCommandOutput extends ListSubscribersResponse, _
  * import { SecurityLakeClient, ListSubscribersCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, ListSubscribersCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // ListSubscribersRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSubscribersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSubscribersCommandInput - {@link ListSubscribersCommandInput}
+ * @returns {@link ListSubscribersCommandOutput}
  * @see {@link ListSubscribersCommandInput} for command's `input` shape.
  * @see {@link ListSubscribersCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -95,6 +98,9 @@ export class ListSubscribersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSubscribersCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class ListSubscribersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSubscribersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSubscribersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class ListSubscribersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSubscribersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSubscribersCommand(input, context);
+    return se_ListSubscribersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscribersCommandOutput> {
-    return deserializeAws_restJson1ListSubscribersCommand(output, context);
+    return de_ListSubscribersCommand(output, context);
   }
 
   // Start section: command_body_extra

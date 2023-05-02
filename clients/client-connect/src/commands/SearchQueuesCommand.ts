@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  SearchQueuesRequest,
-  SearchQueuesRequestFilterSensitiveLog,
-  SearchQueuesResponse,
-  SearchQueuesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1SearchQueuesCommand,
-  serializeAws_restJson1SearchQueuesCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchQueuesRequest, SearchQueuesResponse } from "../models/models_1";
+import { de_SearchQueuesCommand, se_SearchQueuesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchQueuesCommand}.
  */
 export interface SearchQueuesCommandInput extends SearchQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchQueuesCommand}.
  */
 export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Searches queues in an Amazon Connect instance, with optional filtering.</p>
  * @example
@@ -43,10 +40,63 @@ export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __Metad
  * import { ConnectClient, SearchQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // SearchQueuesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SearchFilter: { // QueueSearchFilter
+ *     TagFilter: { // ControlPlaneTagFilter
+ *       OrConditions: [ // TagOrConditionList
+ *         [ // TagAndConditionList
+ *           { // TagCondition
+ *             TagKey: "STRING_VALUE",
+ *             TagValue: "STRING_VALUE",
+ *           },
+ *         ],
+ *       ],
+ *       AndConditions: [
+ *         {
+ *           TagKey: "STRING_VALUE",
+ *           TagValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       TagCondition: "<TagCondition>",
+ *     },
+ *   },
+ *   SearchCriteria: { // QueueSearchCriteria
+ *     OrConditions: [ // QueueSearchConditionList
+ *       {
+ *         OrConditions: [
+ *           "<QueueSearchCriteria>",
+ *         ],
+ *         AndConditions: [
+ *           "<QueueSearchCriteria>",
+ *         ],
+ *         StringCondition: { // StringCondition
+ *           FieldName: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *         },
+ *         QueueTypeCondition: "STANDARD",
+ *       },
+ *     ],
+ *     AndConditions: [
+ *       "<QueueSearchCriteria>",
+ *     ],
+ *     StringCondition: {
+ *       FieldName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *     },
+ *     QueueTypeCondition: "STANDARD",
+ *   },
+ * };
  * const command = new SearchQueuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchQueuesCommandInput - {@link SearchQueuesCommandInput}
+ * @returns {@link SearchQueuesCommandOutput}
  * @see {@link SearchQueuesCommandInput} for command's `input` shape.
  * @see {@link SearchQueuesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +135,9 @@ export class SearchQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +164,8 @@ export class SearchQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchQueuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchQueuesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +175,18 @@ export class SearchQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchQueuesCommand(input, context);
+    return se_SearchQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchQueuesCommandOutput> {
-    return deserializeAws_restJson1SearchQueuesCommand(output, context);
+    return de_SearchQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import {
 import { CloudControlPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudControlClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListResourcesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListResources(
   config: CloudControlPaginationConfiguration,
   input: ListResourcesCommandInput,

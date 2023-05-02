@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetEnvironmentAccountConnectionInput, GetEnvironmentAccountConnectionOutput } from "../models/models_0";
 import {
-  GetEnvironmentAccountConnectionInput,
-  GetEnvironmentAccountConnectionInputFilterSensitiveLog,
-  GetEnvironmentAccountConnectionOutput,
-  GetEnvironmentAccountConnectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetEnvironmentAccountConnectionCommand,
-  serializeAws_json1_0GetEnvironmentAccountConnectionCommand,
+  de_GetEnvironmentAccountConnectionCommand,
+  se_GetEnvironmentAccountConnectionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetEnvironmentAccountConnectionCommand}.
  */
 export interface GetEnvironmentAccountConnectionCommandInput extends GetEnvironmentAccountConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetEnvironmentAccountConnectionCommand}.
  */
 export interface GetEnvironmentAccountConnectionCommandOutput
@@ -37,6 +36,7 @@ export interface GetEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>In an environment account, get the detailed data for an environment account connection.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
  *         connections</a> in the <i>Proton User guide</i>.</p>
@@ -46,10 +46,15 @@ export interface GetEnvironmentAccountConnectionCommandOutput
  * import { ProtonClient, GetEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // GetEnvironmentAccountConnectionInput
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetEnvironmentAccountConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnvironmentAccountConnectionCommandInput - {@link GetEnvironmentAccountConnectionCommandInput}
+ * @returns {@link GetEnvironmentAccountConnectionCommandOutput}
  * @see {@link GetEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -88,6 +93,9 @@ export class GetEnvironmentAccountConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnvironmentAccountConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +124,8 @@ export class GetEnvironmentAccountConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentAccountConnectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEnvironmentAccountConnectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +135,24 @@ export class GetEnvironmentAccountConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEnvironmentAccountConnectionCommand(input, context);
+    return se_GetEnvironmentAccountConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEnvironmentAccountConnectionCommandOutput> {
-    return deserializeAws_json1_0GetEnvironmentAccountConnectionCommand(output, context);
+    return de_GetEnvironmentAccountConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

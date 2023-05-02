@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  UpdateClusterSettingsRequest,
-  UpdateClusterSettingsRequestFilterSensitiveLog,
-  UpdateClusterSettingsResponse,
-  UpdateClusterSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateClusterSettingsCommand,
-  serializeAws_json1_1UpdateClusterSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateClusterSettingsRequest, UpdateClusterSettingsResponse } from "../models/models_0";
+import { de_UpdateClusterSettingsCommand, se_UpdateClusterSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClusterSettingsCommand}.
  */
 export interface UpdateClusterSettingsCommandInput extends UpdateClusterSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClusterSettingsCommand}.
  */
 export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings to use for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSetting
  * import { ECSClient, UpdateClusterSettingsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateClusterSettingsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // UpdateClusterSettingsRequest
+ *   cluster: "STRING_VALUE", // required
+ *   settings: [ // ClusterSettings // required
+ *     { // ClusterSetting
+ *       name: "containerInsights",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateClusterSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterSettingsCommandInput - {@link UpdateClusterSettingsCommandInput}
+ * @returns {@link UpdateClusterSettingsCommandOutput}
  * @see {@link UpdateClusterSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterSettingsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -84,6 +92,9 @@ export class UpdateClusterSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +123,8 @@ export class UpdateClusterSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +134,18 @@ export class UpdateClusterSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateClusterSettingsCommand(input, context);
+    return se_UpdateClusterSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterSettingsCommandOutput> {
-    return deserializeAws_json1_1UpdateClusterSettingsCommand(output, context);
+    return de_UpdateClusterSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  ListQueriesRequest,
-  ListQueriesRequestFilterSensitiveLog,
-  ListQueriesResponse,
-  ListQueriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListQueriesCommand,
-  serializeAws_json1_1ListQueriesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListQueriesRequest, ListQueriesResponse } from "../models/models_0";
+import { de_ListQueriesCommand, se_ListQueriesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListQueriesCommand}.
  */
 export interface ListQueriesCommandInput extends ListQueriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListQueriesCommand}.
  */
 export interface ListQueriesCommandOutput extends ListQueriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of queries and query statuses for the past seven days. You must specify
  *          an ARN value for <code>EventDataStore</code>. Optionally, to shorten the list of results,
  *          you can specify a time range, formatted as timestamps, by adding <code>StartTime</code> and
@@ -48,10 +45,20 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  * import { CloudTrailClient, ListQueriesCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListQueriesCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // ListQueriesRequest
+ *   EventDataStore: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   QueryStatus: "QUEUED" || "RUNNING" || "FINISHED" || "FAILED" || "CANCELLED" || "TIMED_OUT",
+ * };
  * const command = new ListQueriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueriesCommandInput - {@link ListQueriesCommandInput}
+ * @returns {@link ListQueriesCommandOutput}
  * @see {@link ListQueriesCommandInput} for command's `input` shape.
  * @see {@link ListQueriesCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -113,6 +120,9 @@ export class ListQueriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +149,8 @@ export class ListQueriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQueriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +160,18 @@ export class ListQueriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListQueriesCommand(input, context);
+    return se_ListQueriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueriesCommandOutput> {
-    return deserializeAws_json1_1ListQueriesCommand(output, context);
+    return de_ListQueriesCommand(output, context);
   }
 
   // Start section: command_body_extra

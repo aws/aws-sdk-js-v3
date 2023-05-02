@@ -18,22 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteBotAliasRequest, DeleteBotAliasRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBotAliasCommand,
-  serializeAws_restJson1DeleteBotAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteBotAliasRequest } from "../models/models_0";
+import { de_DeleteBotAliasCommand, se_DeleteBotAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBotAliasCommand}.
  */
 export interface DeleteBotAliasCommandInput extends DeleteBotAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBotAliasCommand}.
  */
 export interface DeleteBotAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an alias for the specified bot. </p>
  *          <p>You can't delete an alias that is used in the association between a
  *       bot and a messaging channel. If an alias is used in a channel association,
@@ -49,10 +51,16 @@ export interface DeleteBotAliasCommandOutput extends __MetadataBearer {}
  * import { LexModelBuildingServiceClient, DeleteBotAliasCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, DeleteBotAliasCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // DeleteBotAliasRequest
+ *   name: "STRING_VALUE", // required
+ *   botName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBotAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBotAliasCommandInput - {@link DeleteBotAliasCommandInput}
+ * @returns {@link DeleteBotAliasCommandOutput}
  * @see {@link DeleteBotAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -113,6 +121,9 @@ export class DeleteBotAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBotAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +152,8 @@ export class DeleteBotAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBotAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +163,18 @@ export class DeleteBotAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBotAliasCommand(input, context);
+    return se_DeleteBotAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBotAliasCommandOutput> {
-    return deserializeAws_restJson1DeleteBotAliasCommand(output, context);
+    return de_DeleteBotAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

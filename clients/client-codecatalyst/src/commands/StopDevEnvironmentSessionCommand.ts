@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  StopDevEnvironmentSessionRequest,
-  StopDevEnvironmentSessionRequestFilterSensitiveLog,
-  StopDevEnvironmentSessionResponse,
-  StopDevEnvironmentSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopDevEnvironmentSessionCommand,
-  serializeAws_restJson1StopDevEnvironmentSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { StopDevEnvironmentSessionRequest, StopDevEnvironmentSessionResponse } from "../models/models_0";
+import { de_StopDevEnvironmentSessionCommand, se_StopDevEnvironmentSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopDevEnvironmentSessionCommand}.
  */
 export interface StopDevEnvironmentSessionCommandInput extends StopDevEnvironmentSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopDevEnvironmentSessionCommand}.
  */
 export interface StopDevEnvironmentSessionCommandOutput extends StopDevEnvironmentSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a session for a specified Dev Environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface StopDevEnvironmentSessionCommandOutput extends StopDevEnvironme
  * import { CodeCatalystClient, StopDevEnvironmentSessionCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, StopDevEnvironmentSessionCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // StopDevEnvironmentSessionRequest
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   sessionId: "STRING_VALUE", // required
+ * };
  * const command = new StopDevEnvironmentSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDevEnvironmentSessionCommandInput - {@link StopDevEnvironmentSessionCommandInput}
+ * @returns {@link StopDevEnvironmentSessionCommandOutput}
  * @see {@link StopDevEnvironmentSessionCommandInput} for command's `input` shape.
  * @see {@link StopDevEnvironmentSessionCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +93,9 @@ export class StopDevEnvironmentSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDevEnvironmentSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +124,8 @@ export class StopDevEnvironmentSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDevEnvironmentSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopDevEnvironmentSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +135,21 @@ export class StopDevEnvironmentSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDevEnvironmentSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopDevEnvironmentSessionCommand(input, context);
+    return se_StopDevEnvironmentSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopDevEnvironmentSessionCommandOutput> {
-    return deserializeAws_restJson1StopDevEnvironmentSessionCommand(output, context);
+    return de_StopDevEnvironmentSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

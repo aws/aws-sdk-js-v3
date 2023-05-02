@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DeleteWarmPoolAnswer,
-  DeleteWarmPoolAnswerFilterSensitiveLog,
-  DeleteWarmPoolType,
-  DeleteWarmPoolTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteWarmPoolCommand,
-  serializeAws_queryDeleteWarmPoolCommand,
-} from "../protocols/Aws_query";
+import { DeleteWarmPoolAnswer, DeleteWarmPoolType } from "../models/models_0";
+import { de_DeleteWarmPoolCommand, se_DeleteWarmPoolCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWarmPoolCommand}.
  */
 export interface DeleteWarmPoolCommandInput extends DeleteWarmPoolType {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWarmPoolCommand}.
  */
 export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the warm pool for the specified Auto Scaling group.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -44,10 +41,16 @@ export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __Met
  * import { AutoScalingClient, DeleteWarmPoolCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteWarmPoolCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DeleteWarmPoolType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ForceDelete: true || false,
+ * };
  * const command = new DeleteWarmPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWarmPoolCommandInput - {@link DeleteWarmPoolCommandInput}
+ * @returns {@link DeleteWarmPoolCommandOutput}
  * @see {@link DeleteWarmPoolCommandInput} for command's `input` shape.
  * @see {@link DeleteWarmPoolCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -88,6 +91,9 @@ export class DeleteWarmPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWarmPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class DeleteWarmPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWarmPoolTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWarmPoolAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class DeleteWarmPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWarmPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteWarmPoolCommand(input, context);
+    return se_DeleteWarmPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWarmPoolCommandOutput> {
-    return deserializeAws_queryDeleteWarmPoolCommand(output, context);
+    return de_DeleteWarmPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

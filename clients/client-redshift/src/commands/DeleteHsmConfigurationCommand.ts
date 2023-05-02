@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteHsmConfigurationMessage, DeleteHsmConfigurationMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteHsmConfigurationCommand,
-  serializeAws_queryDeleteHsmConfigurationCommand,
-} from "../protocols/Aws_query";
+import { DeleteHsmConfigurationMessage } from "../models/models_0";
+import { de_DeleteHsmConfigurationCommand, se_DeleteHsmConfigurationCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHsmConfigurationCommand}.
  */
 export interface DeleteHsmConfigurationCommandInput extends DeleteHsmConfigurationMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHsmConfigurationCommand}.
  */
 export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Amazon Redshift HSM configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  * import { RedshiftClient, DeleteHsmConfigurationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteHsmConfigurationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteHsmConfigurationMessage
+ *   HsmConfigurationIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHsmConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHsmConfigurationCommandInput - {@link DeleteHsmConfigurationCommandInput}
+ * @returns {@link DeleteHsmConfigurationCommandOutput}
  * @see {@link DeleteHsmConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteHsmConfigurationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteHsmConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHsmConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +109,8 @@ export class DeleteHsmConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHsmConfigurationMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +120,18 @@ export class DeleteHsmConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHsmConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteHsmConfigurationCommand(input, context);
+    return se_DeleteHsmConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHsmConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteHsmConfigurationCommand(output, context);
+    return de_DeleteHsmConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

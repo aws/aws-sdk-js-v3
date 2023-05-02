@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDomainsRequest,
-  ListDomainsRequestFilterSensitiveLog,
-  ListDomainsResponse,
-  ListDomainsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDomainsCommand,
-  serializeAws_restJson1ListDomainsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDomainsRequest, ListDomainsResponse } from "../models/models_0";
+import { de_ListDomainsCommand, se_ListDomainsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDomainsCommand}.
  */
 export interface ListDomainsCommandInput extends ListDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDomainsCommand}.
  */
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Retrieves a list of domains associated to a specified fleet.</p>
@@ -44,10 +41,17 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * import { WorkLinkClient, ListDomainsCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, ListDomainsCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // ListDomainsRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
+ * @returns {@link ListDomainsCommandOutput}
  * @see {@link ListDomainsCommandInput} for command's `input` shape.
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -86,6 +90,9 @@ export class ListDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class ListDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class ListDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDomainsCommand(input, context);
+    return se_ListDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainsCommandOutput> {
-    return deserializeAws_restJson1ListDomainsCommand(output, context);
+    return de_ListDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  ListPlaceIndexesRequest,
-  ListPlaceIndexesRequestFilterSensitiveLog,
-  ListPlaceIndexesResponse,
-  ListPlaceIndexesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPlaceIndexesCommand,
-  serializeAws_restJson1ListPlaceIndexesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPlaceIndexesRequest, ListPlaceIndexesResponse } from "../models/models_0";
+import { de_ListPlaceIndexesCommand, se_ListPlaceIndexesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPlaceIndexesCommand}.
  */
 export interface ListPlaceIndexesCommandInput extends ListPlaceIndexesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPlaceIndexesCommand}.
  */
 export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists place index resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse,
  * import { LocationClient, ListPlaceIndexesCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListPlaceIndexesCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // ListPlaceIndexesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPlaceIndexesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPlaceIndexesCommandInput - {@link ListPlaceIndexesCommandInput}
+ * @returns {@link ListPlaceIndexesCommandOutput}
  * @see {@link ListPlaceIndexesCommandInput} for command's `input` shape.
  * @see {@link ListPlaceIndexesCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListPlaceIndexesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlaceIndexesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class ListPlaceIndexesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPlaceIndexesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPlaceIndexesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class ListPlaceIndexesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlaceIndexesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPlaceIndexesCommand(input, context);
+    return se_ListPlaceIndexesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlaceIndexesCommandOutput> {
-    return deserializeAws_restJson1ListPlaceIndexesCommand(output, context);
+    return de_ListPlaceIndexesCommand(output, context);
   }
 
   // Start section: command_body_extra

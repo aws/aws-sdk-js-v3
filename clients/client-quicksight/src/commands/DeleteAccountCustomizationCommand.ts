@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAccountCustomizationRequest,
-  DeleteAccountCustomizationRequestFilterSensitiveLog,
-  DeleteAccountCustomizationResponse,
-  DeleteAccountCustomizationResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteAccountCustomizationCommand,
-  serializeAws_restJson1DeleteAccountCustomizationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAccountCustomizationRequest, DeleteAccountCustomizationResponse } from "../models/models_2";
+import { de_DeleteAccountCustomizationCommand, se_DeleteAccountCustomizationCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccountCustomizationCommand}.
  */
 export interface DeleteAccountCustomizationCommandInput extends DeleteAccountCustomizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccountCustomizationCommand}.
  */
 export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCustomizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all Amazon QuickSight customizations in this Amazon Web Services Region for the specified
  *             Amazon Web Services account and Amazon QuickSight namespace.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  * import { QuickSightClient, DeleteAccountCustomizationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteAccountCustomizationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DeleteAccountCustomizationRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE",
+ * };
  * const command = new DeleteAccountCustomizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountCustomizationCommandInput - {@link DeleteAccountCustomizationCommandInput}
+ * @returns {@link DeleteAccountCustomizationCommandOutput}
  * @see {@link DeleteAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountCustomizationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -94,6 +97,9 @@ export class DeleteAccountCustomizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountCustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +128,8 @@ export class DeleteAccountCustomizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccountCustomizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccountCustomizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,15 +139,21 @@ export class DeleteAccountCustomizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccountCustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccountCustomizationCommand(input, context);
+    return se_DeleteAccountCustomizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccountCustomizationCommandOutput> {
-    return deserializeAws_restJson1DeleteAccountCustomizationCommand(output, context);
+    return de_DeleteAccountCustomizationCommand(output, context);
   }
 
   // Start section: command_body_extra

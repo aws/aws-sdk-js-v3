@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartDeviceAuthorizationRequest,
-  StartDeviceAuthorizationRequestFilterSensitiveLog,
-  StartDeviceAuthorizationResponse,
-  StartDeviceAuthorizationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartDeviceAuthorizationCommand,
-  serializeAws_restJson1StartDeviceAuthorizationCommand,
-} from "../protocols/Aws_restJson1";
+import { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/models_0";
+import { de_StartDeviceAuthorizationCommand, se_StartDeviceAuthorizationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartDeviceAuthorizationCommand}.
  */
 export interface StartDeviceAuthorizationCommandInput extends StartDeviceAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDeviceAuthorizationCommand}.
  */
 export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthorizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates device authorization by requesting a pair of verification codes from the
  *       authorization service.</p>
  * @example
@@ -43,10 +40,17 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  * import { SSOOIDCClient, StartDeviceAuthorizationCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
  * // const { SSOOIDCClient, StartDeviceAuthorizationCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
  * const client = new SSOOIDCClient(config);
+ * const input = { // StartDeviceAuthorizationRequest
+ *   clientId: "STRING_VALUE", // required
+ *   clientSecret: "STRING_VALUE", // required
+ *   startUrl: "STRING_VALUE", // required
+ * };
  * const command = new StartDeviceAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDeviceAuthorizationCommandInput - {@link StartDeviceAuthorizationCommandInput}
+ * @returns {@link StartDeviceAuthorizationCommandOutput}
  * @see {@link StartDeviceAuthorizationCommandInput} for command's `input` shape.
  * @see {@link StartDeviceAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
@@ -91,6 +95,9 @@ export class StartDeviceAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDeviceAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +126,8 @@ export class StartDeviceAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDeviceAuthorizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDeviceAuthorizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +137,18 @@ export class StartDeviceAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDeviceAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartDeviceAuthorizationCommand(input, context);
+    return se_StartDeviceAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeviceAuthorizationCommandOutput> {
-    return deserializeAws_restJson1StartDeviceAuthorizationCommand(output, context);
+    return de_StartDeviceAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

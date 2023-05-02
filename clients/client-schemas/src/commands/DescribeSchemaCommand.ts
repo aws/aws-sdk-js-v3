@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSchemaRequest,
-  DescribeSchemaRequestFilterSensitiveLog,
-  DescribeSchemaResponse,
-  DescribeSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSchemaCommand,
-  serializeAws_restJson1DescribeSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeSchemaRequest, DescribeSchemaResponse } from "../models/models_0";
+import { de_DescribeSchemaCommand, se_DescribeSchemaCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSchemaCommand}.
  */
 export interface DescribeSchemaCommandInput extends DescribeSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSchemaCommand}.
  */
 export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve the schema definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * import { SchemasClient, DescribeSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DescribeSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // DescribeSchemaRequest
+ *   RegistryName: "STRING_VALUE", // required
+ *   SchemaName: "STRING_VALUE", // required
+ *   SchemaVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSchemaCommandInput - {@link DescribeSchemaCommandInput}
+ * @returns {@link DescribeSchemaCommandOutput}
  * @see {@link DescribeSchemaCommandInput} for command's `input` shape.
  * @see {@link DescribeSchemaCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +85,9 @@ export class DescribeSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class DescribeSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class DescribeSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSchemaCommand(input, context);
+    return se_DescribeSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSchemaCommandOutput> {
-    return deserializeAws_restJson1DescribeSchemaCommand(output, context);
+    return de_DescribeSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

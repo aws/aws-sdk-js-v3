@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListAccessPoliciesRequest,
-  ListAccessPoliciesRequestFilterSensitiveLog,
-  ListAccessPoliciesResponse,
-  ListAccessPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAccessPoliciesCommand,
-  serializeAws_restJson1ListAccessPoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAccessPoliciesRequest, ListAccessPoliciesResponse } from "../models/models_0";
+import { de_ListAccessPoliciesCommand, se_ListAccessPoliciesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessPoliciesCommand}.
  */
 export interface ListAccessPoliciesCommandInput extends ListAccessPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessPoliciesCommand}.
  */
 export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of access policies for an identity (an IAM Identity Center user, an IAM Identity Center
  *       group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or project).</p>
  * @example
@@ -43,10 +40,21 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * import { IoTSiteWiseClient, ListAccessPoliciesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAccessPoliciesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // ListAccessPoliciesRequest
+ *   identityType: "USER" || "GROUP" || "IAM",
+ *   identityId: "STRING_VALUE",
+ *   resourceType: "PORTAL" || "PROJECT",
+ *   resourceId: "STRING_VALUE",
+ *   iamArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAccessPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessPoliciesCommandInput - {@link ListAccessPoliciesCommandInput}
+ * @returns {@link ListAccessPoliciesCommandOutput}
  * @see {@link ListAccessPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAccessPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -83,6 +91,9 @@ export class ListAccessPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +122,8 @@ export class ListAccessPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +133,18 @@ export class ListAccessPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAccessPoliciesCommand(input, context);
+    return se_ListAccessPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessPoliciesCommandOutput> {
-    return deserializeAws_restJson1ListAccessPoliciesCommand(output, context);
+    return de_ListAccessPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

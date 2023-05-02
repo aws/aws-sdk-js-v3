@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from ApplicationDiscoveryService service.
  */
 export class ApplicationDiscoveryServiceServiceException extends __ServiceException {

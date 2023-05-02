@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
+import { GetBandwidthRateLimitScheduleInput, GetBandwidthRateLimitScheduleOutput } from "../models/models_0";
 import {
-  GetBandwidthRateLimitScheduleInput,
-  GetBandwidthRateLimitScheduleInputFilterSensitiveLog,
-  GetBandwidthRateLimitScheduleOutput,
-  GetBandwidthRateLimitScheduleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetBandwidthRateLimitScheduleCommand,
-  serializeAws_json1_0GetBandwidthRateLimitScheduleCommand,
+  de_GetBandwidthRateLimitScheduleCommand,
+  se_GetBandwidthRateLimitScheduleCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetBandwidthRateLimitScheduleCommand}.
  */
 export interface GetBandwidthRateLimitScheduleCommandInput extends GetBandwidthRateLimitScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBandwidthRateLimitScheduleCommand}.
  */
 export interface GetBandwidthRateLimitScheduleCommandOutput
@@ -37,6 +36,7 @@ export interface GetBandwidthRateLimitScheduleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the bandwidth rate limit schedule for a specified gateway.
  *       By default, gateways do not have bandwidth rate limit schedules, which means
  *       no bandwidth rate limiting is in effect. Use this to get a gateway's
@@ -47,10 +47,15 @@ export interface GetBandwidthRateLimitScheduleCommandOutput
  * import { BackupGatewayClient, GetBandwidthRateLimitScheduleCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, GetBandwidthRateLimitScheduleCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // GetBandwidthRateLimitScheduleInput
+ *   GatewayArn: "STRING_VALUE", // required
+ * };
  * const command = new GetBandwidthRateLimitScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBandwidthRateLimitScheduleCommandInput - {@link GetBandwidthRateLimitScheduleCommandInput}
+ * @returns {@link GetBandwidthRateLimitScheduleCommandOutput}
  * @see {@link GetBandwidthRateLimitScheduleCommandInput} for command's `input` shape.
  * @see {@link GetBandwidthRateLimitScheduleCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -87,6 +92,9 @@ export class GetBandwidthRateLimitScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBandwidthRateLimitScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class GetBandwidthRateLimitScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBandwidthRateLimitScheduleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBandwidthRateLimitScheduleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +134,21 @@ export class GetBandwidthRateLimitScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBandwidthRateLimitScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetBandwidthRateLimitScheduleCommand(input, context);
+    return se_GetBandwidthRateLimitScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBandwidthRateLimitScheduleCommandOutput> {
-    return deserializeAws_json1_0GetBandwidthRateLimitScheduleCommand(output, context);
+    return de_GetBandwidthRateLimitScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  CreateRuleRequest,
-  CreateRuleRequestFilterSensitiveLog,
-  CreateRuleResult,
-  CreateRuleResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRuleCommand,
-  serializeAws_json1_1CreateRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateRuleRequest, CreateRuleRequestFilterSensitiveLog, CreateRuleResult } from "../models/models_0";
+import { de_CreateRuleCommand, se_CreateRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRuleCommand}.
  */
 export interface CreateRuleCommandInput extends CreateRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRuleCommand}.
  */
 export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a rule for use with the specified detector. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBea
  * import { FraudDetectorClient, CreateRuleCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateRuleCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // CreateRuleRequest
+ *   ruleId: "STRING_VALUE", // required
+ *   detectorId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   expression: "STRING_VALUE", // required
+ *   language: "DETECTORPL", // required
+ *   outcomes: [ // NonEmptyListOfStrings // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: [ // tagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
+ * @returns {@link CreateRuleCommandOutput}
  * @see {@link CreateRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -81,6 +96,9 @@ export class CreateRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,7 +126,7 @@ export class CreateRuleCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRuleResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +136,18 @@ export class CreateRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRuleCommand(input, context);
+    return se_CreateRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleCommandOutput> {
-    return deserializeAws_json1_1CreateRuleCommand(output, context);
+    return de_CreateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

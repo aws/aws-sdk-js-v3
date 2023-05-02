@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetContactListRequest,
-  GetContactListRequestFilterSensitiveLog,
-  GetContactListResponse,
-  GetContactListResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetContactListCommand,
-  serializeAws_restJson1GetContactListCommand,
-} from "../protocols/Aws_restJson1";
+import { GetContactListRequest, GetContactListResponse } from "../models/models_0";
+import { de_GetContactListCommand, se_GetContactListCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetContactListCommand}.
  */
 export interface GetContactListCommandInput extends GetContactListRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContactListCommand}.
  */
 export interface GetContactListCommandOutput extends GetContactListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns contact list metadata. It does not return any information about the contacts
  *             present in the list.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetContactListCommandOutput extends GetContactListResponse, __M
  * import { SESv2Client, GetContactListCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetContactListCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // GetContactListRequest
+ *   ContactListName: "STRING_VALUE", // required
+ * };
  * const command = new GetContactListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContactListCommandInput - {@link GetContactListCommandInput}
+ * @returns {@link GetContactListCommandOutput}
  * @see {@link GetContactListCommandInput} for command's `input` shape.
  * @see {@link GetContactListCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -79,6 +81,9 @@ export class GetContactListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContactListCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class GetContactListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContactListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContactListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class GetContactListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContactListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetContactListCommand(input, context);
+    return se_GetContactListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactListCommandOutput> {
-    return deserializeAws_restJson1GetContactListCommand(output, context);
+    return de_GetContactListCommand(output, context);
   }
 
   // Start section: command_body_extra

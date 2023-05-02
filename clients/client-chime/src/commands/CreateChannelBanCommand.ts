@@ -16,32 +16,32 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   CreateChannelBanRequest,
-  CreateChannelBanRequestFilterSensitiveLog,
   CreateChannelBanResponse,
   CreateChannelBanResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateChannelBanCommand,
-  serializeAws_restJson1CreateChannelBanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateChannelBanCommand, se_CreateChannelBanCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChannelBanCommand}.
  */
 export interface CreateChannelBanCommandInput extends CreateChannelBanRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChannelBanCommand}.
  */
 export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently bans a member from a channel. Moderators can't add banned members to a
  *          channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then
  *             <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or
  *          channels.</p>
  *          <p>If you ban a user who is already part of a channel, that user is automatically kicked
  *          from the channel.</p>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
@@ -53,10 +53,17 @@ export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse,
  * import { ChimeClient, CreateChannelBanCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateChannelBanCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateChannelBanRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MemberArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new CreateChannelBanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChannelBanCommandInput - {@link CreateChannelBanCommandInput}
+ * @returns {@link CreateChannelBanCommandOutput}
  * @see {@link CreateChannelBanCommandInput} for command's `input` shape.
  * @see {@link CreateChannelBanCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -105,6 +112,9 @@ export class CreateChannelBanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChannelBanCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,7 +143,7 @@ export class CreateChannelBanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChannelBanRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateChannelBanResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -144,12 +154,18 @@ export class CreateChannelBanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChannelBanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateChannelBanCommand(input, context);
+    return se_CreateChannelBanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelBanCommandOutput> {
-    return deserializeAws_restJson1CreateChannelBanCommand(output, context);
+    return de_CreateChannelBanCommand(output, context);
   }
 
   // Start section: command_body_extra

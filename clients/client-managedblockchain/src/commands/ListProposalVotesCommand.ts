@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  ListProposalVotesInput,
-  ListProposalVotesInputFilterSensitiveLog,
-  ListProposalVotesOutput,
-  ListProposalVotesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProposalVotesCommand,
-  serializeAws_restJson1ListProposalVotesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProposalVotesInput, ListProposalVotesOutput } from "../models/models_0";
+import { de_ListProposalVotesCommand, se_ListProposalVotesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProposalVotesCommand}.
  */
 export interface ListProposalVotesCommandInput extends ListProposalVotesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListProposalVotesCommand}.
  */
 export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -47,10 +44,18 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  * import { ManagedBlockchainClient, ListProposalVotesCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListProposalVotesCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // ListProposalVotesInput
+ *   NetworkId: "STRING_VALUE", // required
+ *   ProposalId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListProposalVotesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProposalVotesCommandInput - {@link ListProposalVotesCommandInput}
+ * @returns {@link ListProposalVotesCommandOutput}
  * @see {@link ListProposalVotesCommandInput} for command's `input` shape.
  * @see {@link ListProposalVotesCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -89,6 +94,9 @@ export class ListProposalVotesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProposalVotesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class ListProposalVotesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProposalVotesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProposalVotesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +136,18 @@ export class ListProposalVotesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProposalVotesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProposalVotesCommand(input, context);
+    return se_ListProposalVotesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProposalVotesCommandOutput> {
-    return deserializeAws_restJson1ListProposalVotesCommand(output, context);
+    return de_ListProposalVotesCommand(output, context);
   }
 
   // Start section: command_body_extra

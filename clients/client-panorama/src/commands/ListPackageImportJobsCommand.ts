@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPackageImportJobsRequest,
-  ListPackageImportJobsRequestFilterSensitiveLog,
-  ListPackageImportJobsResponse,
-  ListPackageImportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPackageImportJobsRequest, ListPackageImportJobsResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1ListPackageImportJobsCommand,
-  serializeAws_restJson1ListPackageImportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPackageImportJobsCommand, se_ListPackageImportJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPackageImportJobsCommand}.
  */
 export interface ListPackageImportJobsCommandInput extends ListPackageImportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPackageImportJobsCommand}.
  */
 export interface ListPackageImportJobsCommandOutput extends ListPackageImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of package import jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListPackageImportJobsCommandOutput extends ListPackageImportJob
  * import { PanoramaClient, ListPackageImportJobsCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListPackageImportJobsCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // ListPackageImportJobsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPackageImportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPackageImportJobsCommandInput - {@link ListPackageImportJobsCommandInput}
+ * @returns {@link ListPackageImportJobsCommandOutput}
  * @see {@link ListPackageImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListPackageImportJobsCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListPackageImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPackageImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class ListPackageImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPackageImportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPackageImportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class ListPackageImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPackageImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPackageImportJobsCommand(input, context);
+    return se_ListPackageImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackageImportJobsCommandOutput> {
-    return deserializeAws_restJson1ListPackageImportJobsCommand(output, context);
+    return de_ListPackageImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

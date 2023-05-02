@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ListSnapshotsInRecycleBinRequest,
-  ListSnapshotsInRecycleBinRequestFilterSensitiveLog,
-  ListSnapshotsInRecycleBinResult,
-  ListSnapshotsInRecycleBinResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ListSnapshotsInRecycleBinCommand,
-  serializeAws_ec2ListSnapshotsInRecycleBinCommand,
-} from "../protocols/Aws_ec2";
+import { ListSnapshotsInRecycleBinRequest, ListSnapshotsInRecycleBinResult } from "../models/models_6";
+import { de_ListSnapshotsInRecycleBinCommand, se_ListSnapshotsInRecycleBinCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ListSnapshotsInRecycleBinCommand}.
  */
 export interface ListSnapshotsInRecycleBinCommandInput extends ListSnapshotsInRecycleBinRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSnapshotsInRecycleBinCommand}.
  */
 export interface ListSnapshotsInRecycleBinCommandOutput extends ListSnapshotsInRecycleBinResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists one or more snapshots that are currently in the Recycle Bin.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface ListSnapshotsInRecycleBinCommandOutput extends ListSnapshotsInR
  * import { EC2Client, ListSnapshotsInRecycleBinCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ListSnapshotsInRecycleBinCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ListSnapshotsInRecycleBinRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SnapshotIds: [ // SnapshotIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new ListSnapshotsInRecycleBinCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSnapshotsInRecycleBinCommandInput - {@link ListSnapshotsInRecycleBinCommandInput}
+ * @returns {@link ListSnapshotsInRecycleBinCommandOutput}
  * @see {@link ListSnapshotsInRecycleBinCommandInput} for command's `input` shape.
  * @see {@link ListSnapshotsInRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ListSnapshotsInRecycleBinCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSnapshotsInRecycleBinCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +107,8 @@ export class ListSnapshotsInRecycleBinCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSnapshotsInRecycleBinRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSnapshotsInRecycleBinResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +118,21 @@ export class ListSnapshotsInRecycleBinCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSnapshotsInRecycleBinCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ListSnapshotsInRecycleBinCommand(input, context);
+    return se_ListSnapshotsInRecycleBinCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSnapshotsInRecycleBinCommandOutput> {
-    return deserializeAws_ec2ListSnapshotsInRecycleBinCommand(output, context);
+    return de_ListSnapshotsInRecycleBinCommand(output, context);
   }
 
   // Start section: command_body_extra

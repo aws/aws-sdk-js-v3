@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyInstanceMaintenanceOptionsRequest, ModifyInstanceMaintenanceOptionsResult } from "../models/models_6";
 import {
-  ModifyInstanceMaintenanceOptionsRequest,
-  ModifyInstanceMaintenanceOptionsRequestFilterSensitiveLog,
-  ModifyInstanceMaintenanceOptionsResult,
-  ModifyInstanceMaintenanceOptionsResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyInstanceMaintenanceOptionsCommand,
-  serializeAws_ec2ModifyInstanceMaintenanceOptionsCommand,
+  de_ModifyInstanceMaintenanceOptionsCommand,
+  se_ModifyInstanceMaintenanceOptionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyInstanceMaintenanceOptionsCommand}.
  */
 export interface ModifyInstanceMaintenanceOptionsCommandInput extends ModifyInstanceMaintenanceOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyInstanceMaintenanceOptionsCommand}.
  */
 export interface ModifyInstanceMaintenanceOptionsCommandOutput
@@ -37,6 +36,7 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the recovery behavior of your instance to disable simplified automatic
  *             recovery or set the recovery behavior to default. The default configuration will not
  *             enable simplified automatic recovery for an unsupported instance type. For more
@@ -47,10 +47,17 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
  * import { EC2Client, ModifyInstanceMaintenanceOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceMaintenanceOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyInstanceMaintenanceOptionsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   AutoRecovery: "disabled" || "default",
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyInstanceMaintenanceOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceMaintenanceOptionsCommandInput - {@link ModifyInstanceMaintenanceOptionsCommandInput}
+ * @returns {@link ModifyInstanceMaintenanceOptionsCommandOutput}
  * @see {@link ModifyInstanceMaintenanceOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceMaintenanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceMaintenanceOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +112,8 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceMaintenanceOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyInstanceMaintenanceOptionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +123,24 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyInstanceMaintenanceOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceMaintenanceOptionsCommand(input, context);
+    return se_ModifyInstanceMaintenanceOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyInstanceMaintenanceOptionsCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceMaintenanceOptionsCommand(output, context);
+    return de_ModifyInstanceMaintenanceOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

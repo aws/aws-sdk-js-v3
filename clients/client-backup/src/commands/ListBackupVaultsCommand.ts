@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ListBackupVaultsInput,
-  ListBackupVaultsInputFilterSensitiveLog,
-  ListBackupVaultsOutput,
-  ListBackupVaultsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBackupVaultsCommand,
-  serializeAws_restJson1ListBackupVaultsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBackupVaultsInput, ListBackupVaultsOutput } from "../models/models_0";
+import { de_ListBackupVaultsCommand, se_ListBackupVaultsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBackupVaultsCommand}.
  */
 export interface ListBackupVaultsCommandInput extends ListBackupVaultsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBackupVaultsCommand}.
  */
 export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of recovery point storage containers along with information about
  *          them.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * import { BackupClient, ListBackupVaultsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupVaultsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListBackupVaultsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListBackupVaultsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackupVaultsCommandInput - {@link ListBackupVaultsCommandInput}
+ * @returns {@link ListBackupVaultsCommandOutput}
  * @see {@link ListBackupVaultsCommandInput} for command's `input` shape.
  * @see {@link ListBackupVaultsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -83,6 +86,9 @@ export class ListBackupVaultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackupVaultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class ListBackupVaultsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackupVaultsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBackupVaultsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class ListBackupVaultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackupVaultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBackupVaultsCommand(input, context);
+    return se_ListBackupVaultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupVaultsCommandOutput> {
-    return deserializeAws_restJson1ListBackupVaultsCommand(output, context);
+    return de_ListBackupVaultsCommand(output, context);
   }
 
   // Start section: command_body_extra

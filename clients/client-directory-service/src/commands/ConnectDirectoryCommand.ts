@@ -18,23 +18,24 @@ import {
   ConnectDirectoryRequest,
   ConnectDirectoryRequestFilterSensitiveLog,
   ConnectDirectoryResult,
-  ConnectDirectoryResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ConnectDirectoryCommand,
-  serializeAws_json1_1ConnectDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ConnectDirectoryCommand, se_ConnectDirectoryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConnectDirectoryCommand}.
  */
 export interface ConnectDirectoryCommandInput extends ConnectDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConnectDirectoryCommand}.
  */
 export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an AD Connector to connect to a self-managed directory.</p>
  *          <p>Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions
  *       have been explicitly granted through a policy. For details about what permissions are required
@@ -46,10 +47,35 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  * import { DirectoryServiceClient, ConnectDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ConnectDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // ConnectDirectoryRequest
+ *   Name: "STRING_VALUE", // required
+ *   ShortName: "STRING_VALUE",
+ *   Password: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Size: "Small" || "Large", // required
+ *   ConnectSettings: { // DirectoryConnectSettings
+ *     VpcId: "STRING_VALUE", // required
+ *     SubnetIds: [ // SubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     CustomerDnsIps: [ // DnsIpAddrs // required
+ *       "STRING_VALUE",
+ *     ],
+ *     CustomerUserName: "STRING_VALUE", // required
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ConnectDirectoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConnectDirectoryCommandInput - {@link ConnectDirectoryCommandInput}
+ * @returns {@link ConnectDirectoryCommandOutput}
  * @see {@link ConnectDirectoryCommandInput} for command's `input` shape.
  * @see {@link ConnectDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -87,6 +113,9 @@ export class ConnectDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConnectDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +145,7 @@ export class ConnectDirectoryCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ConnectDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectDirectoryResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +155,18 @@ export class ConnectDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConnectDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConnectDirectoryCommand(input, context);
+    return se_ConnectDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConnectDirectoryCommandOutput> {
-    return deserializeAws_json1_1ConnectDirectoryCommand(output, context);
+    return de_ConnectDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

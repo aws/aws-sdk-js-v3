@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { UpdateLabelGroupRequest, UpdateLabelGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateLabelGroupCommand,
-  serializeAws_json1_0UpdateLabelGroupCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateLabelGroupRequest } from "../models/models_0";
+import { de_UpdateLabelGroupCommand, se_UpdateLabelGroupCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLabelGroupCommand}.
  */
 export interface UpdateLabelGroupCommandInput extends UpdateLabelGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLabelGroupCommand}.
  */
 export interface UpdateLabelGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Updates the label group.
  * </p>
@@ -39,10 +41,18 @@ export interface UpdateLabelGroupCommandOutput extends __MetadataBearer {}
  * import { LookoutEquipmentClient, UpdateLabelGroupCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, UpdateLabelGroupCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // UpdateLabelGroupRequest
+ *   LabelGroupName: "STRING_VALUE", // required
+ *   FaultCodes: [ // FaultCodes
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateLabelGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLabelGroupCommandInput - {@link UpdateLabelGroupCommandInput}
+ * @returns {@link UpdateLabelGroupCommandOutput}
  * @see {@link UpdateLabelGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateLabelGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +99,9 @@ export class UpdateLabelGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLabelGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +130,8 @@ export class UpdateLabelGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLabelGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +141,18 @@ export class UpdateLabelGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLabelGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateLabelGroupCommand(input, context);
+    return se_UpdateLabelGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLabelGroupCommandOutput> {
-    return deserializeAws_json1_0UpdateLabelGroupCommand(output, context);
+    return de_UpdateLabelGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

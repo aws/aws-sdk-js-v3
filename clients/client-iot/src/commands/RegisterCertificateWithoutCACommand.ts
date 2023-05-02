@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { RegisterCertificateWithoutCARequest, RegisterCertificateWithoutCAResponse } from "../models/models_2";
 import {
-  RegisterCertificateWithoutCARequest,
-  RegisterCertificateWithoutCARequestFilterSensitiveLog,
-  RegisterCertificateWithoutCAResponse,
-  RegisterCertificateWithoutCAResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1RegisterCertificateWithoutCACommand,
-  serializeAws_restJson1RegisterCertificateWithoutCACommand,
+  de_RegisterCertificateWithoutCACommand,
+  se_RegisterCertificateWithoutCACommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterCertificateWithoutCACommand}.
  */
 export interface RegisterCertificateWithoutCACommandInput extends RegisterCertificateWithoutCARequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterCertificateWithoutCACommand}.
  */
 export interface RegisterCertificateWithoutCACommandOutput
@@ -37,6 +36,7 @@ export interface RegisterCertificateWithoutCACommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Register a certificate that does not have a certificate authority (CA).
  *          For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
  *          Certificate signing algorithms supported by IoT</a>.
@@ -47,10 +47,16 @@ export interface RegisterCertificateWithoutCACommandOutput
  * import { IoTClient, RegisterCertificateWithoutCACommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RegisterCertificateWithoutCACommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // RegisterCertificateWithoutCARequest
+ *   certificatePem: "STRING_VALUE", // required
+ *   status: "ACTIVE" || "INACTIVE" || "REVOKED" || "PENDING_TRANSFER" || "REGISTER_INACTIVE" || "PENDING_ACTIVATION",
+ * };
  * const command = new RegisterCertificateWithoutCACommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterCertificateWithoutCACommandInput - {@link RegisterCertificateWithoutCACommandInput}
+ * @returns {@link RegisterCertificateWithoutCACommandOutput}
  * @see {@link RegisterCertificateWithoutCACommandInput} for command's `input` shape.
  * @see {@link RegisterCertificateWithoutCACommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -98,6 +104,9 @@ export class RegisterCertificateWithoutCACommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterCertificateWithoutCACommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +135,8 @@ export class RegisterCertificateWithoutCACommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterCertificateWithoutCARequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterCertificateWithoutCAResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,15 +146,21 @@ export class RegisterCertificateWithoutCACommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterCertificateWithoutCACommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterCertificateWithoutCACommand(input, context);
+    return se_RegisterCertificateWithoutCACommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterCertificateWithoutCACommandOutput> {
-    return deserializeAws_restJson1RegisterCertificateWithoutCACommand(output, context);
+    return de_RegisterCertificateWithoutCACommand(output, context);
   }
 
   // Start section: command_body_extra

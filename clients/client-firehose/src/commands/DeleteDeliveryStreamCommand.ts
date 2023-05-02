@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import {
-  DeleteDeliveryStreamInput,
-  DeleteDeliveryStreamInputFilterSensitiveLog,
-  DeleteDeliveryStreamOutput,
-  DeleteDeliveryStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDeliveryStreamCommand,
-  serializeAws_json1_1DeleteDeliveryStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDeliveryStreamInput, DeleteDeliveryStreamOutput } from "../models/models_0";
+import { de_DeleteDeliveryStreamCommand, se_DeleteDeliveryStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeliveryStreamCommand}.
  */
 export interface DeleteDeliveryStreamCommandInput extends DeleteDeliveryStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeliveryStreamCommand}.
  */
 export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a delivery stream and its data.</p>
  *          <p>To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>. You can delete a delivery stream only if it is in one of the following states:
  *             <code>ACTIVE</code>, <code>DELETING</code>, <code>CREATING_FAILED</code>, or
@@ -51,10 +48,16 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  * import { FirehoseClient, DeleteDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, DeleteDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = { // DeleteDeliveryStreamInput
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ *   AllowForceDelete: true || false,
+ * };
  * const command = new DeleteDeliveryStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeliveryStreamCommandInput - {@link DeleteDeliveryStreamCommandInput}
+ * @returns {@link DeleteDeliveryStreamCommandOutput}
  * @see {@link DeleteDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -84,6 +87,9 @@ export class DeleteDeliveryStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class DeleteDeliveryStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeliveryStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDeliveryStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class DeleteDeliveryStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDeliveryStreamCommand(input, context);
+    return se_DeleteDeliveryStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeliveryStreamCommandOutput> {
-    return deserializeAws_json1_1DeleteDeliveryStreamCommand(output, context);
+    return de_DeleteDeliveryStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

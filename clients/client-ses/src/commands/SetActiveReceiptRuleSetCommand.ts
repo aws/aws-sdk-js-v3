@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SetActiveReceiptRuleSetRequest,
-  SetActiveReceiptRuleSetRequestFilterSensitiveLog,
-  SetActiveReceiptRuleSetResponse,
-  SetActiveReceiptRuleSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetActiveReceiptRuleSetCommand,
-  serializeAws_querySetActiveReceiptRuleSetCommand,
-} from "../protocols/Aws_query";
+import { SetActiveReceiptRuleSetRequest, SetActiveReceiptRuleSetResponse } from "../models/models_0";
+import { de_SetActiveReceiptRuleSetCommand, se_SetActiveReceiptRuleSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetActiveReceiptRuleSetCommand}.
  */
 export interface SetActiveReceiptRuleSetCommandInput extends SetActiveReceiptRuleSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetActiveReceiptRuleSetCommand}.
  */
 export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified receipt rule set as the active receipt rule set.</p>
  *         <note>
  *             <p>To disable your email-receiving through Amazon SES completely, you can call this API
@@ -48,10 +45,15 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  * import { SESClient, SetActiveReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetActiveReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SetActiveReceiptRuleSetRequest
+ *   RuleSetName: "STRING_VALUE",
+ * };
  * const command = new SetActiveReceiptRuleSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetActiveReceiptRuleSetCommandInput - {@link SetActiveReceiptRuleSetCommandInput}
+ * @returns {@link SetActiveReceiptRuleSetCommandOutput}
  * @see {@link SetActiveReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link SetActiveReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -89,6 +91,9 @@ export class SetActiveReceiptRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetActiveReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class SetActiveReceiptRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetActiveReceiptRuleSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetActiveReceiptRuleSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class SetActiveReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetActiveReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetActiveReceiptRuleSetCommand(input, context);
+    return se_SetActiveReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetActiveReceiptRuleSetCommandOutput> {
-    return deserializeAws_querySetActiveReceiptRuleSetCommand(output, context);
+    return de_SetActiveReceiptRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

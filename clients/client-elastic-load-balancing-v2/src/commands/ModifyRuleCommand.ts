@@ -18,24 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  ModifyRuleInput,
-  ModifyRuleInputFilterSensitiveLog,
-  ModifyRuleOutput,
-  ModifyRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryModifyRuleCommand, serializeAws_queryModifyRuleCommand } from "../protocols/Aws_query";
+import { ModifyRuleInput, ModifyRuleOutput } from "../models/models_0";
+import { de_ModifyRuleCommand, se_ModifyRuleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyRuleCommand}.
  */
 export interface ModifyRuleCommandInput extends ModifyRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link ModifyRuleCommand}.
  */
 export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the specified properties of the specified rule. Any properties that you do not
  *       specify are unchanged.</p>
  *          <p>To add an item to a list, remove an item from a list, or update an item in a list, you
@@ -47,10 +47,115 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  * import { ElasticLoadBalancingV2Client, ModifyRuleCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyRuleCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // ModifyRuleInput
+ *   RuleArn: "STRING_VALUE", // required
+ *   Conditions: [ // RuleConditionList
+ *     { // RuleCondition
+ *       Field: "STRING_VALUE",
+ *       Values: [ // ListOfString
+ *         "STRING_VALUE",
+ *       ],
+ *       HostHeaderConfig: { // HostHeaderConditionConfig
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       PathPatternConfig: { // PathPatternConditionConfig
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       HttpHeaderConfig: { // HttpHeaderConditionConfig
+ *         HttpHeaderName: "STRING_VALUE",
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       QueryStringConfig: { // QueryStringConditionConfig
+ *         Values: [ // QueryStringKeyValuePairList
+ *           { // QueryStringKeyValuePair
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       HttpRequestMethodConfig: { // HttpRequestMethodConditionConfig
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       SourceIpConfig: { // SourceIpConditionConfig
+ *         Values: "<ListOfString>",
+ *       },
+ *     },
+ *   ],
+ *   Actions: [ // Actions
+ *     { // Action
+ *       Type: "forward" || "authenticate-oidc" || "authenticate-cognito" || "redirect" || "fixed-response", // required
+ *       TargetGroupArn: "STRING_VALUE",
+ *       AuthenticateOidcConfig: { // AuthenticateOidcActionConfig
+ *         Issuer: "STRING_VALUE", // required
+ *         AuthorizationEndpoint: "STRING_VALUE", // required
+ *         TokenEndpoint: "STRING_VALUE", // required
+ *         UserInfoEndpoint: "STRING_VALUE", // required
+ *         ClientId: "STRING_VALUE", // required
+ *         ClientSecret: "STRING_VALUE",
+ *         SessionCookieName: "STRING_VALUE",
+ *         Scope: "STRING_VALUE",
+ *         SessionTimeout: Number("long"),
+ *         AuthenticationRequestExtraParams: { // AuthenticateOidcActionAuthenticationRequestExtraParams
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ *         UseExistingClientSecret: true || false,
+ *       },
+ *       AuthenticateCognitoConfig: { // AuthenticateCognitoActionConfig
+ *         UserPoolArn: "STRING_VALUE", // required
+ *         UserPoolClientId: "STRING_VALUE", // required
+ *         UserPoolDomain: "STRING_VALUE", // required
+ *         SessionCookieName: "STRING_VALUE",
+ *         Scope: "STRING_VALUE",
+ *         SessionTimeout: Number("long"),
+ *         AuthenticationRequestExtraParams: { // AuthenticateCognitoActionAuthenticationRequestExtraParams
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ *       },
+ *       Order: Number("int"),
+ *       RedirectConfig: { // RedirectActionConfig
+ *         Protocol: "STRING_VALUE",
+ *         Port: "STRING_VALUE",
+ *         Host: "STRING_VALUE",
+ *         Path: "STRING_VALUE",
+ *         Query: "STRING_VALUE",
+ *         StatusCode: "HTTP_301" || "HTTP_302", // required
+ *       },
+ *       FixedResponseConfig: { // FixedResponseActionConfig
+ *         MessageBody: "STRING_VALUE",
+ *         StatusCode: "STRING_VALUE", // required
+ *         ContentType: "STRING_VALUE",
+ *       },
+ *       ForwardConfig: { // ForwardActionConfig
+ *         TargetGroups: [ // TargetGroupList
+ *           { // TargetGroupTuple
+ *             TargetGroupArn: "STRING_VALUE",
+ *             Weight: Number("int"),
+ *           },
+ *         ],
+ *         TargetGroupStickinessConfig: { // TargetGroupStickinessConfig
+ *           Enabled: true || false,
+ *           DurationSeconds: Number("int"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new ModifyRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyRuleCommandInput - {@link ModifyRuleCommandInput}
+ * @returns {@link ModifyRuleCommandOutput}
  * @see {@link ModifyRuleCommandInput} for command's `input` shape.
  * @see {@link ModifyRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -154,6 +259,9 @@ export class ModifyRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,8 +288,8 @@ export class ModifyRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -191,12 +299,18 @@ export class ModifyRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyRuleCommand(input, context);
+    return se_ModifyRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyRuleCommandOutput> {
-    return deserializeAws_queryModifyRuleCommand(output, context);
+    return de_ModifyRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelSigningProfileRequest, CancelSigningProfileRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelSigningProfileCommand,
-  serializeAws_restJson1CancelSigningProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelSigningProfileRequest } from "../models/models_0";
+import { de_CancelSigningProfileCommand, se_CancelSigningProfileCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelSigningProfileCommand}.
  */
 export interface CancelSigningProfileCommandInput extends CancelSigningProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelSigningProfileCommand}.
  */
 export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.
  * 			A canceled profile is still viewable with the <code>ListSigningProfiles</code>
  * 			operation, but it cannot perform new signing jobs, and is deleted two years after
@@ -40,10 +42,15 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
  * import { SignerClient, CancelSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, CancelSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = { // CancelSigningProfileRequest
+ *   profileName: "STRING_VALUE", // required
+ * };
  * const command = new CancelSigningProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelSigningProfileCommandInput - {@link CancelSigningProfileCommandInput}
+ * @returns {@link CancelSigningProfileCommandOutput}
  * @see {@link CancelSigningProfileCommandInput} for command's `input` shape.
  * @see {@link CancelSigningProfileCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -80,6 +87,9 @@ export class CancelSigningProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelSigningProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class CancelSigningProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelSigningProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +129,18 @@ export class CancelSigningProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelSigningProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelSigningProfileCommand(input, context);
+    return se_CancelSigningProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelSigningProfileCommandOutput> {
-    return deserializeAws_restJson1CancelSigningProfileCommand(output, context);
+    return de_CancelSigningProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

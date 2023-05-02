@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  DeleteTypeRequest,
-  DeleteTypeRequestFilterSensitiveLog,
-  DeleteTypeResponse,
-  DeleteTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTypeCommand,
-  serializeAws_restJson1DeleteTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteTypeRequest, DeleteTypeResponse } from "../models/models_0";
+import { de_DeleteTypeCommand, se_DeleteTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTypeCommand}.
  */
 export interface DeleteTypeCommandInput extends DeleteTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTypeCommand}.
  */
 export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <code>Type</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
  * import { AppSyncClient, DeleteTypeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteTypeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // DeleteTypeRequest
+ *   apiId: "STRING_VALUE", // required
+ *   typeName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTypeCommandInput - {@link DeleteTypeCommandInput}
+ * @returns {@link DeleteTypeCommandOutput}
  * @see {@link DeleteTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteTypeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +89,9 @@ export class DeleteTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class DeleteTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class DeleteTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTypeCommand(input, context);
+    return se_DeleteTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTypeCommandOutput> {
-    return deserializeAws_restJson1DeleteTypeCommand(output, context);
+    return de_DeleteTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

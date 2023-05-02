@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteControlPanelRequest,
-  DeleteControlPanelRequestFilterSensitiveLog,
-  DeleteControlPanelResponse,
-  DeleteControlPanelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteControlPanelCommand,
-  serializeAws_restJson1DeleteControlPanelCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteControlPanelRequest, DeleteControlPanelResponse } from "../models/models_0";
+import { de_DeleteControlPanelCommand, se_DeleteControlPanelCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteControlPanelCommand}.
  */
 export interface DeleteControlPanelCommandInput extends DeleteControlPanelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteControlPanelCommand}.
  */
 export interface DeleteControlPanelCommandOutput extends DeleteControlPanelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a control panel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface DeleteControlPanelCommandOutput extends DeleteControlPanelRespo
  * import { Route53RecoveryControlConfigClient, DeleteControlPanelCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DeleteControlPanelCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // DeleteControlPanelRequest
+ *   ControlPanelArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteControlPanelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteControlPanelCommandInput - {@link DeleteControlPanelCommandInput}
+ * @returns {@link DeleteControlPanelCommandOutput}
  * @see {@link DeleteControlPanelCommandInput} for command's `input` shape.
  * @see {@link DeleteControlPanelCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -91,6 +93,9 @@ export class DeleteControlPanelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteControlPanelCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class DeleteControlPanelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteControlPanelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteControlPanelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class DeleteControlPanelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteControlPanelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteControlPanelCommand(input, context);
+    return se_DeleteControlPanelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteControlPanelCommandOutput> {
-    return deserializeAws_restJson1DeleteControlPanelCommand(output, context);
+    return de_DeleteControlPanelCommand(output, context);
   }
 
   // Start section: command_body_extra

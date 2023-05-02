@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTagsRequest,
-  ListTagsRequestFilterSensitiveLog,
-  ListTagsResult,
-  ListTagsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTagsRequest, ListTagsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { deserializeAws_json1_1ListTagsCommand, serializeAws_json1_1ListTagsCommand } from "../protocols/Aws_json1_1";
+import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsCommand}.
  */
 export interface ListTagsCommandInput extends ListTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsCommand}.
  */
 export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of tags that are applied to the specified stack or layer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,17 @@ export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer 
  * import { OpsWorksClient, ListTagsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, ListTagsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // ListTagsRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsCommandInput - {@link ListTagsCommandInput}
+ * @returns {@link ListTagsCommandOutput}
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +108,8 @@ export class ListTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +119,18 @@ export class ListTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsCommand(input, context);
+    return se_ListTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsCommandOutput> {
-    return deserializeAws_json1_1ListTagsCommand(output, context);
+    return de_ListTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

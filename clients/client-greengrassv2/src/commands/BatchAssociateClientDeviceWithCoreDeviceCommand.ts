@@ -16,21 +16,23 @@ import {
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import {
   BatchAssociateClientDeviceWithCoreDeviceRequest,
-  BatchAssociateClientDeviceWithCoreDeviceRequestFilterSensitiveLog,
   BatchAssociateClientDeviceWithCoreDeviceResponse,
-  BatchAssociateClientDeviceWithCoreDeviceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand,
-  serializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand,
+  de_BatchAssociateClientDeviceWithCoreDeviceCommand,
+  se_BatchAssociateClientDeviceWithCoreDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateClientDeviceWithCoreDeviceCommand}.
  */
 export interface BatchAssociateClientDeviceWithCoreDeviceCommandInput
   extends BatchAssociateClientDeviceWithCoreDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateClientDeviceWithCoreDeviceCommand}.
  */
 export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
@@ -38,6 +40,7 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a list of client devices with a core device. Use this API operation to specify
  *       which client devices can discover a core device through cloud discovery. With cloud discovery,
  *       client devices connect to IoT Greengrass to retrieve associated core devices' connectivity information
@@ -56,10 +59,20 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
  * import { GreengrassV2Client, BatchAssociateClientDeviceWithCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, BatchAssociateClientDeviceWithCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // BatchAssociateClientDeviceWithCoreDeviceRequest
+ *   entries: [ // AssociateClientDeviceWithCoreDeviceEntryList
+ *     { // AssociateClientDeviceWithCoreDeviceEntry
+ *       thingName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   coreDeviceThingName: "STRING_VALUE", // required
+ * };
  * const command = new BatchAssociateClientDeviceWithCoreDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateClientDeviceWithCoreDeviceCommandInput - {@link BatchAssociateClientDeviceWithCoreDeviceCommandInput}
+ * @returns {@link BatchAssociateClientDeviceWithCoreDeviceCommandOutput}
  * @see {@link BatchAssociateClientDeviceWithCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateClientDeviceWithCoreDeviceCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -100,6 +113,9 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateClientDeviceWithCoreDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +150,8 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchAssociateClientDeviceWithCoreDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchAssociateClientDeviceWithCoreDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +161,24 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchAssociateClientDeviceWithCoreDeviceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand(input, context);
+    return se_BatchAssociateClientDeviceWithCoreDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchAssociateClientDeviceWithCoreDeviceCommandOutput> {
-    return deserializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand(output, context);
+    return de_BatchAssociateClientDeviceWithCoreDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

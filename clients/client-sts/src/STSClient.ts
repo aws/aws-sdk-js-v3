@@ -66,6 +66,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssumeRoleCommandInput
   | AssumeRoleWithSAMLCommandInput
@@ -76,6 +79,9 @@ export type ServiceInputTypes =
   | GetFederationTokenCommandInput
   | GetSessionTokenCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssumeRoleCommandOutput
   | AssumeRoleWithSAMLCommandOutput
@@ -86,6 +92,9 @@ export type ServiceOutputTypes =
   | GetFederationTokenCommandOutput
   | GetSessionTokenCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -93,7 +102,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -202,11 +211,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type STSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -217,10 +229,15 @@ type STSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of STSClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of STSClient class constructor that set the region, credentials and other options.
  */
 export interface STSClientConfig extends STSClientConfigType {}
 
+/**
+ * @public
+ */
 type STSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -231,11 +248,14 @@ type STSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of STSClient class. This is resolved and normalized from the {@link STSClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of STSClient class. This is resolved and normalized from the {@link STSClientConfig | constructor configuration interface}.
  */
 export interface STSClientResolvedConfig extends STSClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Security Token Service</fullname>
  *          <p>Security Token Service (STS) enables you to request temporary, limited-privilege
  *       credentials for Identity and Access Management (IAM) users or for users that you

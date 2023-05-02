@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  CreateWorkerRequest,
-  CreateWorkerRequestFilterSensitiveLog,
-  CreateWorkerResponse,
-  CreateWorkerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkerCommand,
-  serializeAws_restJson1CreateWorkerCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateWorkerRequest, CreateWorkerResponse } from "../models/models_0";
+import { de_CreateWorkerCommand, se_CreateWorkerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkerCommand}.
  */
 export interface CreateWorkerCommandInput extends CreateWorkerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkerCommand}.
  */
 export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to create a worker
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,35 @@ export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __Metad
  * import { IoTRoboRunnerClient, CreateWorkerCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, CreateWorkerCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // CreateWorkerRequest
+ *   clientToken: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
+ *   fleet: "STRING_VALUE", // required
+ *   additionalTransientProperties: "STRING_VALUE",
+ *   additionalFixedProperties: "STRING_VALUE",
+ *   vendorProperties: { // VendorProperties
+ *     vendorWorkerId: "STRING_VALUE", // required
+ *     vendorWorkerIpAddress: "STRING_VALUE",
+ *     vendorAdditionalTransientProperties: "STRING_VALUE",
+ *     vendorAdditionalFixedProperties: "STRING_VALUE",
+ *   },
+ *   position: { // PositionCoordinates Union: only one key present
+ *     cartesianCoordinates: { // CartesianCoordinates
+ *       x: Number("double"), // required
+ *       y: Number("double"), // required
+ *       z: Number("double"),
+ *     },
+ *   },
+ *   orientation: { // Orientation Union: only one key present
+ *     degrees: Number("double"),
+ *   },
+ * };
  * const command = new CreateWorkerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkerCommandInput - {@link CreateWorkerCommandInput}
+ * @returns {@link CreateWorkerCommandOutput}
  * @see {@link CreateWorkerCommandInput} for command's `input` shape.
  * @see {@link CreateWorkerCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -90,6 +112,9 @@ export class CreateWorkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +141,8 @@ export class CreateWorkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +152,18 @@ export class CreateWorkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkerCommand(input, context);
+    return se_CreateWorkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkerCommandOutput> {
-    return deserializeAws_restJson1CreateWorkerCommand(output, context);
+    return de_CreateWorkerCommand(output, context);
   }
 
   // Start section: command_body_extra

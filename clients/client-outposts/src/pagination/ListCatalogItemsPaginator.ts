@@ -10,7 +10,7 @@ import { OutpostsClient } from "../OutpostsClient";
 import { OutpostsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OutpostsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCatalogItemsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCatalogItems(
   config: OutpostsPaginationConfiguration,
   input: ListCatalogItemsCommandInput,

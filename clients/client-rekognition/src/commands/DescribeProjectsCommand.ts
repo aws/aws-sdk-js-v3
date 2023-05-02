@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeProjectsRequest,
-  DescribeProjectsRequestFilterSensitiveLog,
-  DescribeProjectsResponse,
-  DescribeProjectsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProjectsCommand,
-  serializeAws_json1_1DescribeProjectsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeProjectsRequest, DescribeProjectsResponse } from "../models/models_0";
+import { de_DescribeProjectsCommand, se_DescribeProjectsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProjectsCommand}.
  */
 export interface DescribeProjectsCommandInput extends DescribeProjectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProjectsCommand}.
  */
 export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about your Amazon Rekognition Custom Labels projects. </p>
  *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjects</code> action.</p>
  * @example
@@ -43,10 +40,19 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  * import { RekognitionClient, DescribeProjectsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DescribeProjectsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DescribeProjectsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ProjectNames: [ // ProjectNames
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeProjectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProjectsCommandInput - {@link DescribeProjectsCommandInput}
+ * @returns {@link DescribeProjectsCommandOutput}
  * @see {@link DescribeProjectsCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -90,6 +96,9 @@ export class DescribeProjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +127,8 @@ export class DescribeProjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProjectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProjectsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +138,18 @@ export class DescribeProjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProjectsCommand(input, context);
+    return se_DescribeProjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProjectsCommandOutput> {
-    return deserializeAws_json1_1DescribeProjectsCommand(output, context);
+    return de_DescribeProjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

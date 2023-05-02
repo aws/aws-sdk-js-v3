@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateHITTypeRequest,
-  CreateHITTypeRequestFilterSensitiveLog,
-  CreateHITTypeResponse,
-  CreateHITTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateHITTypeRequest, CreateHITTypeResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1CreateHITTypeCommand,
-  serializeAws_json1_1CreateHITTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateHITTypeCommand, se_CreateHITTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHITTypeCommand}.
  */
 export interface CreateHITTypeCommandInput extends CreateHITTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHITTypeCommand}.
  */
 export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>CreateHITType</code> operation creates a new HIT type. This operation
  *             allows you to define a standard set of HIT properties to use when creating HITs.
@@ -47,10 +44,37 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * import { MTurkClient, CreateHITTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // CreateHITTypeRequest
+ *   AutoApprovalDelayInSeconds: Number("long"),
+ *   AssignmentDurationInSeconds: Number("long"), // required
+ *   Reward: "STRING_VALUE", // required
+ *   Title: "STRING_VALUE", // required
+ *   Keywords: "STRING_VALUE",
+ *   Description: "STRING_VALUE", // required
+ *   QualificationRequirements: [ // QualificationRequirementList
+ *     { // QualificationRequirement
+ *       QualificationTypeId: "STRING_VALUE", // required
+ *       Comparator: "STRING_VALUE", // required
+ *       IntegerValues: [ // IntegerList
+ *         Number("int"),
+ *       ],
+ *       LocaleValues: [ // LocaleList
+ *         { // Locale
+ *           Country: "STRING_VALUE", // required
+ *           Subdivision: "STRING_VALUE",
+ *         },
+ *       ],
+ *       RequiredToPreview: true || false,
+ *       ActionsGuarded: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateHITTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHITTypeCommandInput - {@link CreateHITTypeCommandInput}
+ * @returns {@link CreateHITTypeCommandOutput}
  * @see {@link CreateHITTypeCommandInput} for command's `input` shape.
  * @see {@link CreateHITTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -80,6 +104,9 @@ export class CreateHITTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHITTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +133,8 @@ export class CreateHITTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHITTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHITTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +144,18 @@ export class CreateHITTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHITTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHITTypeCommand(input, context);
+    return se_CreateHITTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHITTypeCommandOutput> {
-    return deserializeAws_json1_1CreateHITTypeCommand(output, context);
+    return de_CreateHITTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

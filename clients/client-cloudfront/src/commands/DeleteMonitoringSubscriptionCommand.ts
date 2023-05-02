@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { DeleteMonitoringSubscriptionRequest, DeleteMonitoringSubscriptionResult } from "../models/models_1";
 import {
-  DeleteMonitoringSubscriptionRequest,
-  DeleteMonitoringSubscriptionRequestFilterSensitiveLog,
-  DeleteMonitoringSubscriptionResult,
-  DeleteMonitoringSubscriptionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteMonitoringSubscriptionCommand,
-  serializeAws_restXmlDeleteMonitoringSubscriptionCommand,
+  de_DeleteMonitoringSubscriptionCommand,
+  se_DeleteMonitoringSubscriptionCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMonitoringSubscriptionCommand}.
  */
 export interface DeleteMonitoringSubscriptionCommandInput extends DeleteMonitoringSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMonitoringSubscriptionCommand}.
  */
 export interface DeleteMonitoringSubscriptionCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteMonitoringSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables additional CloudWatch metrics for the specified CloudFront
  * 			distribution.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DeleteMonitoringSubscriptionCommandOutput
  * import { CloudFrontClient, DeleteMonitoringSubscriptionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteMonitoringSubscriptionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteMonitoringSubscriptionRequest
+ *   DistributionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMonitoringSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMonitoringSubscriptionCommandInput - {@link DeleteMonitoringSubscriptionCommandInput}
+ * @returns {@link DeleteMonitoringSubscriptionCommandOutput}
  * @see {@link DeleteMonitoringSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteMonitoringSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -84,6 +89,9 @@ export class DeleteMonitoringSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMonitoringSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class DeleteMonitoringSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMonitoringSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMonitoringSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +131,21 @@ export class DeleteMonitoringSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMonitoringSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteMonitoringSubscriptionCommand(input, context);
+    return se_DeleteMonitoringSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMonitoringSubscriptionCommandOutput> {
-    return deserializeAws_restXmlDeleteMonitoringSubscriptionCommand(output, context);
+    return de_DeleteMonitoringSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

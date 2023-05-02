@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteVpcRequest, DeleteVpcRequestFilterSensitiveLog } from "../models/models_3";
-import { deserializeAws_ec2DeleteVpcCommand, serializeAws_ec2DeleteVpcCommand } from "../protocols/Aws_ec2";
+import { DeleteVpcRequest } from "../models/models_3";
+import { de_DeleteVpcCommand, se_DeleteVpcCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcCommand}.
  */
 export interface DeleteVpcCommandInput extends DeleteVpcRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcCommand}.
  */
 export interface DeleteVpcCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. For example, you must terminate all instances running in the VPC, delete all security groups associated with the VPC (except the default one), delete all route tables associated with the VPC (except the default one), and so on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,10 +39,16 @@ export interface DeleteVpcCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteVpcRequest
+ *   VpcId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteVpcCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcCommandInput - {@link DeleteVpcCommandInput}
+ * @returns {@link DeleteVpcCommandOutput}
  * @see {@link DeleteVpcCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +79,9 @@ export class DeleteVpcCommand extends $Command<DeleteVpcCommandInput, DeleteVpcC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +108,8 @@ export class DeleteVpcCommand extends $Command<DeleteVpcCommandInput, DeleteVpcC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +119,18 @@ export class DeleteVpcCommand extends $Command<DeleteVpcCommandInput, DeleteVpcC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpcCommand(input, context);
+    return se_DeleteVpcCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcCommandOutput> {
-    return deserializeAws_ec2DeleteVpcCommand(output, context);
+    return de_DeleteVpcCommand(output, context);
   }
 
   // Start section: command_body_extra

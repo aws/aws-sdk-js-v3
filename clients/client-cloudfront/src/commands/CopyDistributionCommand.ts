@@ -16,25 +16,26 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   CopyDistributionRequest,
-  CopyDistributionRequestFilterSensitiveLog,
   CopyDistributionResult,
   CopyDistributionResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlCopyDistributionCommand,
-  serializeAws_restXmlCopyDistributionCommand,
-} from "../protocols/Aws_restXml";
+import { de_CopyDistributionCommand, se_CopyDistributionCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CopyDistributionCommand}.
  */
 export interface CopyDistributionCommandInput extends CopyDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyDistributionCommand}.
  */
 export interface CopyDistributionCommandOutput extends CopyDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a staging distribution using the configuration of the provided primary
  * 			distribution. A staging distribution is a copy of an existing distribution (called the
  * 			primary distribution) that you can use in a continuous deployment workflow.</p>
@@ -48,10 +49,18 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  * import { CloudFrontClient, CopyDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CopyDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CopyDistributionRequest
+ *   PrimaryDistributionId: "STRING_VALUE", // required
+ *   Staging: true || false,
+ *   IfMatch: "STRING_VALUE",
+ *   CallerReference: "STRING_VALUE", // required
+ * };
  * const command = new CopyDistributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyDistributionCommandInput - {@link CopyDistributionCommandInput}
+ * @returns {@link CopyDistributionCommandOutput}
  * @see {@link CopyDistributionCommandInput} for command's `input` shape.
  * @see {@link CopyDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -301,6 +310,9 @@ export class CopyDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -329,7 +341,7 @@ export class CopyDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDistributionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CopyDistributionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -340,12 +352,18 @@ export class CopyDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCopyDistributionCommand(input, context);
+    return se_CopyDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDistributionCommandOutput> {
-    return deserializeAws_restXmlCopyDistributionCommand(output, context);
+    return de_CopyDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

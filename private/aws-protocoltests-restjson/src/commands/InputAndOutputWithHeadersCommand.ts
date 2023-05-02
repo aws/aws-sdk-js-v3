@@ -12,23 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { InputAndOutputWithHeadersIO, InputAndOutputWithHeadersIOFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1InputAndOutputWithHeadersCommand,
-  serializeAws_restJson1InputAndOutputWithHeadersCommand,
-} from "../protocols/Aws_restJson1";
+import { InputAndOutputWithHeadersIO } from "../models/models_0";
+import { de_InputAndOutputWithHeadersCommand, se_InputAndOutputWithHeadersCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link InputAndOutputWithHeadersCommand}.
  */
 export interface InputAndOutputWithHeadersCommandInput extends InputAndOutputWithHeadersIO {}
 /**
+ * @public
+ *
  * The output of {@link InputAndOutputWithHeadersCommand}.
  */
 export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWithHeadersIO, __MetadataBearer {}
 
 /**
+ * @public
  * The example tests how requests and responses are serialized when there is
  * no input or output payload but there are HTTP header bindings.
  * @example
@@ -37,10 +39,46 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * import { RestJsonProtocolClient, InputAndOutputWithHeadersCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, InputAndOutputWithHeadersCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // InputAndOutputWithHeadersIO
+ *   headerString: "STRING_VALUE",
+ *   headerByte: "BYTE_VALUE",
+ *   headerShort: Number("short"),
+ *   headerInteger: Number("int"),
+ *   headerLong: Number("long"),
+ *   headerFloat: Number("float"),
+ *   headerDouble: Number("double"),
+ *   headerTrueBool: true || false,
+ *   headerFalseBool: true || false,
+ *   headerStringList: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   headerStringSet: [ // StringSet
+ *     "STRING_VALUE",
+ *   ],
+ *   headerIntegerList: [ // IntegerList
+ *     Number("int"),
+ *   ],
+ *   headerBooleanList: [ // BooleanList
+ *     true || false,
+ *   ],
+ *   headerTimestampList: [ // TimestampList
+ *     new Date("TIMESTAMP"),
+ *   ],
+ *   headerEnum: "Foo" || "Baz" || "Bar" || "1" || "0",
+ *   headerEnumList: [ // FooEnumList
+ *     "Foo" || "Baz" || "Bar" || "1" || "0",
+ *   ],
+ *   headerIntegerEnum: 1 || 2 || 3,
+ *   headerIntegerEnumList: [ // IntegerEnumList
+ *     1 || 2 || 3,
+ *   ],
+ * };
  * const command = new InputAndOutputWithHeadersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InputAndOutputWithHeadersCommandInput - {@link InputAndOutputWithHeadersCommandInput}
+ * @returns {@link InputAndOutputWithHeadersCommandOutput}
  * @see {@link InputAndOutputWithHeadersCommandInput} for command's `input` shape.
  * @see {@link InputAndOutputWithHeadersCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -55,6 +93,9 @@ export class InputAndOutputWithHeadersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: InputAndOutputWithHeadersCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,8 +121,8 @@ export class InputAndOutputWithHeadersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InputAndOutputWithHeadersIOFilterSensitiveLog,
-      outputFilterSensitiveLog: InputAndOutputWithHeadersIOFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,15 +132,21 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InputAndOutputWithHeadersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InputAndOutputWithHeadersCommand(input, context);
+    return se_InputAndOutputWithHeadersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InputAndOutputWithHeadersCommandOutput> {
-    return deserializeAws_restJson1InputAndOutputWithHeadersCommand(output, context);
+    return de_InputAndOutputWithHeadersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GrantAccessRequest,
-  GrantAccessRequestFilterSensitiveLog,
-  GrantAccessResult,
-  GrantAccessResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GrantAccessRequest, GrantAccessResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1GrantAccessCommand,
-  serializeAws_json1_1GrantAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GrantAccessCommand, se_GrantAccessCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GrantAccessCommand}.
  */
 export interface GrantAccessCommandInput extends GrantAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link GrantAccessCommand}.
  */
 export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action can be used only with Windows stacks.</p>
  *          </note>
@@ -45,10 +42,16 @@ export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataB
  * import { OpsWorksClient, GrantAccessCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, GrantAccessCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // GrantAccessRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ValidForInMinutes: Number("int"),
+ * };
  * const command = new GrantAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GrantAccessCommandInput - {@link GrantAccessCommandInput}
+ * @returns {@link GrantAccessCommandOutput}
  * @see {@link GrantAccessCommandInput} for command's `input` shape.
  * @see {@link GrantAccessCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -78,6 +81,9 @@ export class GrantAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GrantAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class GrantAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GrantAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GrantAccessResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class GrantAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GrantAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GrantAccessCommand(input, context);
+    return se_GrantAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GrantAccessCommandOutput> {
-    return deserializeAws_json1_1GrantAccessCommand(output, context);
+    return de_GrantAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

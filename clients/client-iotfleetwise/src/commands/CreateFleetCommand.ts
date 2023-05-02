@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  CreateFleetRequest,
-  CreateFleetRequestFilterSensitiveLog,
-  CreateFleetResponse,
-  CreateFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateFleetCommand,
-  serializeAws_json1_0CreateFleetCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateFleetRequest, CreateFleetResponse } from "../models/models_0";
+import { de_CreateFleetCommand, se_CreateFleetCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFleetCommand}.
  */
 export interface CreateFleetCommandInput extends CreateFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFleetCommand}.
  */
 export interface CreateFleetCommandOutput extends CreateFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a fleet that represents a group of vehicles.
  *             </p>
  *         <note>
@@ -49,10 +46,23 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * import { IoTFleetWiseClient, CreateFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // CreateFleetRequest
+ *   fleetId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   signalCatalogArn: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFleetCommandInput - {@link CreateFleetCommandInput}
+ * @returns {@link CreateFleetCommandOutput}
  * @see {@link CreateFleetCommandInput} for command's `input` shape.
  * @see {@link CreateFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -98,6 +108,9 @@ export class CreateFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +137,8 @@ export class CreateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +148,18 @@ export class CreateFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateFleetCommand(input, context);
+    return se_CreateFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFleetCommandOutput> {
-    return deserializeAws_json1_0CreateFleetCommand(output, context);
+    return de_CreateFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

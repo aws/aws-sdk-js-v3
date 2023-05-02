@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  ListQueuedMessagesRequest,
-  ListQueuedMessagesRequestFilterSensitiveLog,
-  ListQueuedMessagesResponse,
-  ListQueuedMessagesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListQueuedMessagesCommand,
-  serializeAws_restJson1ListQueuedMessagesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListQueuedMessagesRequest, ListQueuedMessagesResponse } from "../models/models_0";
+import { de_ListQueuedMessagesCommand, se_ListQueuedMessagesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListQueuedMessagesCommand}.
  */
 export interface ListQueuedMessagesCommandInput extends ListQueuedMessagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListQueuedMessagesCommand}.
  */
 export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List queued messages in the downlink queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesRespo
  * import { IoTWirelessClient, ListQueuedMessagesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListQueuedMessagesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListQueuedMessagesRequest
+ *   Id: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   WirelessDeviceType: "Sidewalk" || "LoRaWAN",
+ * };
  * const command = new ListQueuedMessagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueuedMessagesCommandInput - {@link ListQueuedMessagesCommandInput}
+ * @returns {@link ListQueuedMessagesCommandOutput}
  * @see {@link ListQueuedMessagesCommandInput} for command's `input` shape.
  * @see {@link ListQueuedMessagesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +89,9 @@ export class ListQueuedMessagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueuedMessagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class ListQueuedMessagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueuedMessagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQueuedMessagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class ListQueuedMessagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueuedMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListQueuedMessagesCommand(input, context);
+    return se_ListQueuedMessagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueuedMessagesCommandOutput> {
-    return deserializeAws_restJson1ListQueuedMessagesCommand(output, context);
+    return de_ListQueuedMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

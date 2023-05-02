@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateIPSetRequest,
-  UpdateIPSetRequestFilterSensitiveLog,
-  UpdateIPSetResponse,
-  UpdateIPSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateIPSetCommand,
-  serializeAws_json1_1UpdateIPSetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateIPSetRequest, UpdateIPSetResponse } from "../models/models_0";
+import { de_UpdateIPSetCommand, se_UpdateIPSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIPSetCommand}.
  */
 export interface UpdateIPSetCommandInput extends UpdateIPSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIPSetCommand}.
  */
 export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -115,10 +112,25 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * import { WAFClient, UpdateIPSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateIPSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // UpdateIPSetRequest
+ *   IPSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // IPSetUpdates // required
+ *     { // IPSetUpdate
+ *       Action: "STRING_VALUE", // required
+ *       IPSetDescriptor: { // IPSetDescriptor
+ *         Type: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateIPSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIPSetCommandInput - {@link UpdateIPSetCommandInput}
+ * @returns {@link UpdateIPSetCommandOutput}
  * @see {@link UpdateIPSetCommandInput} for command's `input` shape.
  * @see {@link UpdateIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -277,6 +289,9 @@ export class UpdateIPSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIPSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -303,8 +318,8 @@ export class UpdateIPSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIPSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIPSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -314,12 +329,18 @@ export class UpdateIPSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateIPSetCommand(input, context);
+    return se_UpdateIPSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIPSetCommandOutput> {
-    return deserializeAws_json1_1UpdateIPSetCommand(output, context);
+    return de_UpdateIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

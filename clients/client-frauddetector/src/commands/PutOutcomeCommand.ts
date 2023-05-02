@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  PutOutcomeRequest,
-  PutOutcomeRequestFilterSensitiveLog,
-  PutOutcomeResult,
-  PutOutcomeResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutOutcomeCommand,
-  serializeAws_json1_1PutOutcomeCommand,
-} from "../protocols/Aws_json1_1";
+import { PutOutcomeRequest, PutOutcomeResult } from "../models/models_0";
+import { de_PutOutcomeCommand, se_PutOutcomeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutOutcomeCommand}.
  */
 export interface PutOutcomeCommandInput extends PutOutcomeRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutOutcomeCommand}.
  */
 export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an outcome. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBea
  * import { FraudDetectorClient, PutOutcomeCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutOutcomeCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // PutOutcomeRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tags: [ // tagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutOutcomeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutOutcomeCommandInput - {@link PutOutcomeCommandInput}
+ * @returns {@link PutOutcomeCommandOutput}
  * @see {@link PutOutcomeCommandInput} for command's `input` shape.
  * @see {@link PutOutcomeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +93,9 @@ export class PutOutcomeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutOutcomeCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +122,8 @@ export class PutOutcomeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutOutcomeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutOutcomeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +133,18 @@ export class PutOutcomeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutOutcomeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutOutcomeCommand(input, context);
+    return se_PutOutcomeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutOutcomeCommandOutput> {
-    return deserializeAws_json1_1PutOutcomeCommand(output, context);
+    return de_PutOutcomeCommand(output, context);
   }
 
   // Start section: command_body_extra

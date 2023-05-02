@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  DescribePackageVersionRequest,
-  DescribePackageVersionRequestFilterSensitiveLog,
-  DescribePackageVersionResult,
-  DescribePackageVersionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribePackageVersionCommand,
-  serializeAws_restJson1DescribePackageVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribePackageVersionRequest, DescribePackageVersionResult } from "../models/models_0";
+import { de_DescribePackageVersionCommand, se_DescribePackageVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePackageVersionCommand}.
  */
 export interface DescribePackageVersionCommandInput extends DescribePackageVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePackageVersionCommand}.
  */
 export interface DescribePackageVersionCommandOutput extends DescribePackageVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *        Returns a
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
@@ -46,10 +43,21 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  * import { CodeartifactClient, DescribePackageVersionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DescribePackageVersionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // DescribePackageVersionRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   packageVersion: "STRING_VALUE", // required
+ * };
  * const command = new DescribePackageVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePackageVersionCommandInput - {@link DescribePackageVersionCommandInput}
+ * @returns {@link DescribePackageVersionCommandOutput}
  * @see {@link DescribePackageVersionCommandInput} for command's `input` shape.
  * @see {@link DescribePackageVersionCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -101,6 +109,9 @@ export class DescribePackageVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePackageVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +140,8 @@ export class DescribePackageVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePackageVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePackageVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +151,18 @@ export class DescribePackageVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePackageVersionCommand(input, context);
+    return se_DescribePackageVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackageVersionCommandOutput> {
-    return deserializeAws_restJson1DescribePackageVersionCommand(output, context);
+    return de_DescribePackageVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

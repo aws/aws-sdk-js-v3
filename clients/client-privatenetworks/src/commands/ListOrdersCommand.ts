@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOrdersRequest,
-  ListOrdersRequestFilterSensitiveLog,
-  ListOrdersResponse,
-  ListOrdersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListOrdersRequest, ListOrdersResponse, ListOrdersResponseFilterSensitiveLog } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1ListOrdersCommand,
-  serializeAws_restJson1ListOrdersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListOrdersCommand, se_ListOrdersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrdersCommand}.
  */
 export interface ListOrdersCommandInput extends ListOrdersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOrdersCommand}.
  */
 export interface ListOrdersCommandOutput extends ListOrdersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists orders.  Add filters to your request to return a more
  *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of the network site or
  *             the status of the order.</p>
@@ -46,10 +43,22 @@ export interface ListOrdersCommandOutput extends ListOrdersResponse, __MetadataB
  * import { PrivateNetworksClient, ListOrdersCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ListOrdersCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // ListOrdersRequest
+ *   networkArn: "STRING_VALUE", // required
+ *   startToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: { // OrderFilters
+ *     "<keys>": [ // OrderFilterValues
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListOrdersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrdersCommandInput - {@link ListOrdersCommandInput}
+ * @returns {@link ListOrdersCommandOutput}
  * @see {@link ListOrdersCommandInput} for command's `input` shape.
  * @see {@link ListOrdersCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -82,6 +91,9 @@ export class ListOrdersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrdersCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,7 +120,7 @@ export class ListOrdersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOrdersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListOrdersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -119,12 +131,18 @@ export class ListOrdersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOrdersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOrdersCommand(input, context);
+    return se_ListOrdersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOrdersCommandOutput> {
-    return deserializeAws_restJson1ListOrdersCommand(output, context);
+    return de_ListOrdersCommand(output, context);
   }
 
   // Start section: command_body_extra

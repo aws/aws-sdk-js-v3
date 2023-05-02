@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  CreateDomainAssociationRequest,
-  CreateDomainAssociationRequestFilterSensitiveLog,
-  CreateDomainAssociationResult,
-  CreateDomainAssociationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDomainAssociationCommand,
-  serializeAws_restJson1CreateDomainAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDomainAssociationRequest, CreateDomainAssociationResult } from "../models/models_0";
+import { de_CreateDomainAssociationCommand, se_CreateDomainAssociationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDomainAssociationCommand}.
  */
 export interface CreateDomainAssociationCommandInput extends CreateDomainAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDomainAssociationCommand}.
  */
 export interface CreateDomainAssociationCommandOutput extends CreateDomainAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new domain association for an Amplify app. This action associates a custom
  *             domain with the Amplify app </p>
  * @example
@@ -43,10 +40,27 @@ export interface CreateDomainAssociationCommandOutput extends CreateDomainAssoci
  * import { AmplifyClient, CreateDomainAssociationCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateDomainAssociationCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // CreateDomainAssociationRequest
+ *   appId: "STRING_VALUE", // required
+ *   domainName: "STRING_VALUE", // required
+ *   enableAutoSubDomain: true || false,
+ *   subDomainSettings: [ // SubDomainSettings // required
+ *     { // SubDomainSetting
+ *       prefix: "STRING_VALUE", // required
+ *       branchName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   autoSubDomainCreationPatterns: [ // AutoSubDomainCreationPatterns
+ *     "STRING_VALUE",
+ *   ],
+ *   autoSubDomainIAMRole: "STRING_VALUE",
+ * };
  * const command = new CreateDomainAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainAssociationCommandInput - {@link CreateDomainAssociationCommandInput}
+ * @returns {@link CreateDomainAssociationCommandOutput}
  * @see {@link CreateDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -88,6 +102,9 @@ export class CreateDomainAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +133,8 @@ export class CreateDomainAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +144,18 @@ export class CreateDomainAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDomainAssociationCommand(input, context);
+    return se_CreateDomainAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1CreateDomainAssociationCommand(output, context);
+    return de_CreateDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

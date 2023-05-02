@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  PutIntegrationRequest,
-  PutIntegrationRequestFilterSensitiveLog,
-  PutIntegrationResponse,
-  PutIntegrationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutIntegrationCommand,
-  serializeAws_restJson1PutIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { PutIntegrationRequest, PutIntegrationResponse } from "../models/models_0";
+import { de_PutIntegrationCommand, se_PutIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutIntegrationCommand}.
  */
 export interface PutIntegrationCommandInput extends PutIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutIntegrationCommand}.
  */
 export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an integration between the service and a third-party service, which includes
  *          Amazon AppFlow and Amazon Connect.</p>
  *          <p>An integration can belong to only one domain.</p>
@@ -47,10 +44,88 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * import { CustomerProfilesClient, PutIntegrationCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, PutIntegrationCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // PutIntegrationRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   Uri: "STRING_VALUE",
+ *   ObjectTypeName: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   FlowDefinition: { // FlowDefinition
+ *     Description: "STRING_VALUE",
+ *     FlowName: "STRING_VALUE", // required
+ *     KmsArn: "STRING_VALUE", // required
+ *     SourceFlowConfig: { // SourceFlowConfig
+ *       ConnectorProfileName: "STRING_VALUE",
+ *       ConnectorType: "Salesforce" || "Marketo" || "Zendesk" || "Servicenow" || "S3", // required
+ *       IncrementalPullConfig: { // IncrementalPullConfig
+ *         DatetimeTypeFieldName: "STRING_VALUE",
+ *       },
+ *       SourceConnectorProperties: { // SourceConnectorProperties
+ *         Marketo: { // MarketoSourceProperties
+ *           Object: "STRING_VALUE", // required
+ *         },
+ *         S3: { // S3SourceProperties
+ *           BucketName: "STRING_VALUE", // required
+ *           BucketPrefix: "STRING_VALUE",
+ *         },
+ *         Salesforce: { // SalesforceSourceProperties
+ *           Object: "STRING_VALUE", // required
+ *           EnableDynamicFieldUpdate: true || false,
+ *           IncludeDeletedRecords: true || false,
+ *         },
+ *         ServiceNow: { // ServiceNowSourceProperties
+ *           Object: "STRING_VALUE", // required
+ *         },
+ *         Zendesk: { // ZendeskSourceProperties
+ *           Object: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *     Tasks: [ // Tasks // required
+ *       { // Task
+ *         ConnectorOperator: { // ConnectorOperator
+ *           Marketo: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *           S3: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *           Salesforce: "PROJECTION" || "LESS_THAN" || "CONTAINS" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *           ServiceNow: "PROJECTION" || "CONTAINS" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *           Zendesk: "PROJECTION" || "GREATER_THAN" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         },
+ *         DestinationField: "STRING_VALUE",
+ *         SourceFields: [ // SourceFields // required
+ *           "STRING_VALUE",
+ *         ],
+ *         TaskProperties: { // TaskPropertiesMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         TaskType: "Arithmetic" || "Filter" || "Map" || "Mask" || "Merge" || "Truncate" || "Validate", // required
+ *       },
+ *     ],
+ *     TriggerConfig: { // TriggerConfig
+ *       TriggerType: "Scheduled" || "Event" || "OnDemand", // required
+ *       TriggerProperties: { // TriggerProperties
+ *         Scheduled: { // ScheduledTriggerProperties
+ *           ScheduleExpression: "STRING_VALUE", // required
+ *           DataPullMode: "Incremental" || "Complete",
+ *           ScheduleStartTime: new Date("TIMESTAMP"),
+ *           ScheduleEndTime: new Date("TIMESTAMP"),
+ *           Timezone: "STRING_VALUE",
+ *           ScheduleOffset: Number("long"),
+ *           FirstExecutionFrom: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     },
+ *   },
+ *   ObjectTypeNames: { // ObjectTypeNames
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutIntegrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutIntegrationCommandInput - {@link PutIntegrationCommandInput}
+ * @returns {@link PutIntegrationCommandOutput}
  * @see {@link PutIntegrationCommandInput} for command's `input` shape.
  * @see {@link PutIntegrationCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -89,6 +164,9 @@ export class PutIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +195,8 @@ export class PutIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutIntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +206,18 @@ export class PutIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutIntegrationCommand(input, context);
+    return se_PutIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIntegrationCommandOutput> {
-    return deserializeAws_restJson1PutIntegrationCommand(output, context);
+    return de_PutIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

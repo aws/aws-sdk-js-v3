@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  DescribeParameterGroupsRequest,
-  DescribeParameterGroupsRequestFilterSensitiveLog,
-  DescribeParameterGroupsResponse,
-  DescribeParameterGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeParameterGroupsCommand,
-  serializeAws_json1_1DescribeParameterGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeParameterGroupsRequest, DescribeParameterGroupsResponse } from "../models/models_0";
+import { de_DescribeParameterGroupsCommand, se_DescribeParameterGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeParameterGroupsCommand}.
  */
 export interface DescribeParameterGroupsCommandInput extends DescribeParameterGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeParameterGroupsCommand}.
  */
 export interface DescribeParameterGroupsCommandOutput extends DescribeParameterGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of parameter group descriptions. If a parameter group name is specified, the list contains only the descriptions for that group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * import { MemoryDBClient, DescribeParameterGroupsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeParameterGroupsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // DescribeParameterGroupsRequest
+ *   ParameterGroupName: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeParameterGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeParameterGroupsCommandInput - {@link DescribeParameterGroupsCommandInput}
+ * @returns {@link DescribeParameterGroupsCommandOutput}
  * @see {@link DescribeParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -81,6 +85,9 @@ export class DescribeParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class DescribeParameterGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeParameterGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeParameterGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class DescribeParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeParameterGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeParameterGroupsCommand(input, context);
+    return se_DescribeParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeParameterGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeParameterGroupsCommand(output, context);
+    return de_DescribeParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

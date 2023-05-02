@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  DescribeApplicationStateRequest,
-  DescribeApplicationStateRequestFilterSensitiveLog,
-  DescribeApplicationStateResult,
-  DescribeApplicationStateResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeApplicationStateCommand,
-  serializeAws_json1_1DescribeApplicationStateCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeApplicationStateRequest, DescribeApplicationStateResult } from "../models/models_0";
+import { de_DescribeApplicationStateCommand, se_DescribeApplicationStateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeApplicationStateCommand}.
  */
 export interface DescribeApplicationStateCommandInput extends DescribeApplicationStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeApplicationStateCommand}.
  */
 export interface DescribeApplicationStateCommandOutput extends DescribeApplicationStateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the migration status of an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
  * import { MigrationHubClient, DescribeApplicationStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, DescribeApplicationStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // DescribeApplicationStateRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeApplicationStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicationStateCommandInput - {@link DescribeApplicationStateCommandInput}
+ * @returns {@link DescribeApplicationStateCommandOutput}
  * @see {@link DescribeApplicationStateCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationStateCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -100,6 +102,9 @@ export class DescribeApplicationStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +133,8 @@ export class DescribeApplicationStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationStateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +144,18 @@ export class DescribeApplicationStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApplicationStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicationStateCommand(input, context);
+    return se_DescribeApplicationStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationStateCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicationStateCommand(output, context);
+    return de_DescribeApplicationStateCommand(output, context);
   }
 
   // Start section: command_body_extra

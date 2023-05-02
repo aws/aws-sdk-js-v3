@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  UpdateRoleDescriptionRequest,
-  UpdateRoleDescriptionRequestFilterSensitiveLog,
-  UpdateRoleDescriptionResponse,
-  UpdateRoleDescriptionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryUpdateRoleDescriptionCommand,
-  serializeAws_queryUpdateRoleDescriptionCommand,
-} from "../protocols/Aws_query";
+import { UpdateRoleDescriptionRequest, UpdateRoleDescriptionResponse } from "../models/models_1";
+import { de_UpdateRoleDescriptionCommand, se_UpdateRoleDescriptionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoleDescriptionCommand}.
  */
 export interface UpdateRoleDescriptionCommandInput extends UpdateRoleDescriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoleDescriptionCommand}.
  */
 export interface UpdateRoleDescriptionCommandOutput extends UpdateRoleDescriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use <a>UpdateRole</a> instead.</p>
  *          <p>Modifies only the description of a role. This operation performs the same function as
  *             the <code>Description</code> parameter in the <code>UpdateRole</code> operation.</p>
@@ -44,10 +41,16 @@ export interface UpdateRoleDescriptionCommandOutput extends UpdateRoleDescriptio
  * import { IAMClient, UpdateRoleDescriptionCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateRoleDescriptionCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UpdateRoleDescriptionRequest
+ *   RoleName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRoleDescriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoleDescriptionCommandInput - {@link UpdateRoleDescriptionCommandInput}
+ * @returns {@link UpdateRoleDescriptionCommandOutput}
  * @see {@link UpdateRoleDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateRoleDescriptionCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -61,10 +64,10 @@ export interface UpdateRoleDescriptionCommandOutput extends UpdateRoleDescriptio
  *       failure.</p>
  *
  * @throws {@link UnmodifiableEntityException} (client fault)
- *  <p>The request was rejected because only the service that depends on the service-linked role
- *       can modify or delete the role on your behalf. The error message includes the name of the
- *       service that depends on this service-linked role. You must request the change through that
- *       service.</p>
+ *  <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
+ *       the service that depends on the service-linked role can modify or delete the role on your
+ *       behalf. The error message includes the name of the service that depends on this service-linked
+ *       role. You must request the change through that service.</p>
  *
  *
  */
@@ -85,6 +88,9 @@ export class UpdateRoleDescriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoleDescriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class UpdateRoleDescriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoleDescriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRoleDescriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class UpdateRoleDescriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoleDescriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateRoleDescriptionCommand(input, context);
+    return se_UpdateRoleDescriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoleDescriptionCommandOutput> {
-    return deserializeAws_queryUpdateRoleDescriptionCommand(output, context);
+    return de_UpdateRoleDescriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

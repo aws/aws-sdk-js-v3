@@ -10,7 +10,7 @@ import { SQSClient } from "../SQSClient";
 import { SQSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SQSClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDeadLetterSourceQueuesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDeadLetterSourceQueues(
   config: SQSPaginationConfiguration,
   input: ListDeadLetterSourceQueuesCommandInput,

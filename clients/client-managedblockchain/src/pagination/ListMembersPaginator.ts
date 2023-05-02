@@ -6,7 +6,7 @@ import { ManagedBlockchainClient } from "../ManagedBlockchainClient";
 import { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ManagedBlockchainClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMembersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMembers(
   config: ManagedBlockchainPaginationConfiguration,
   input: ListMembersCommandInput,

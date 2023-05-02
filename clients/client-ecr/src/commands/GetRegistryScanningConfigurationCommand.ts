@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { GetRegistryScanningConfigurationRequest, GetRegistryScanningConfigurationResponse } from "../models/models_0";
 import {
-  GetRegistryScanningConfigurationRequest,
-  GetRegistryScanningConfigurationRequestFilterSensitiveLog,
-  GetRegistryScanningConfigurationResponse,
-  GetRegistryScanningConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRegistryScanningConfigurationCommand,
-  serializeAws_json1_1GetRegistryScanningConfigurationCommand,
+  de_GetRegistryScanningConfigurationCommand,
+  se_GetRegistryScanningConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegistryScanningConfigurationCommand}.
  */
 export interface GetRegistryScanningConfigurationCommandInput extends GetRegistryScanningConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRegistryScanningConfigurationCommand}.
  */
 export interface GetRegistryScanningConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface GetRegistryScanningConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the scanning configuration for a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,13 @@ export interface GetRegistryScanningConfigurationCommandOutput
  * import { ECRClient, GetRegistryScanningConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetRegistryScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {};
  * const command = new GetRegistryScanningConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegistryScanningConfigurationCommandInput - {@link GetRegistryScanningConfigurationCommandInput}
+ * @returns {@link GetRegistryScanningConfigurationCommandOutput}
  * @see {@link GetRegistryScanningConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetRegistryScanningConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -81,6 +84,9 @@ export class GetRegistryScanningConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegistryScanningConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class GetRegistryScanningConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRegistryScanningConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRegistryScanningConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +126,24 @@ export class GetRegistryScanningConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRegistryScanningConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRegistryScanningConfigurationCommand(input, context);
+    return se_GetRegistryScanningConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRegistryScanningConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetRegistryScanningConfigurationCommand(output, context);
+    return de_GetRegistryScanningConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { GetCommentsForComparedCommitInput, GetCommentsForComparedCommitOutput } from "../models/models_0";
 import {
-  GetCommentsForComparedCommitInput,
-  GetCommentsForComparedCommitInputFilterSensitiveLog,
-  GetCommentsForComparedCommitOutput,
-  GetCommentsForComparedCommitOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCommentsForComparedCommitCommand,
-  serializeAws_json1_1GetCommentsForComparedCommitCommand,
+  de_GetCommentsForComparedCommitCommand,
+  se_GetCommentsForComparedCommitCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCommentsForComparedCommitCommand}.
  */
 export interface GetCommentsForComparedCommitCommandInput extends GetCommentsForComparedCommitInput {}
 /**
+ * @public
+ *
  * The output of {@link GetCommentsForComparedCommitCommand}.
  */
 export interface GetCommentsForComparedCommitCommandOutput
@@ -37,6 +36,7 @@ export interface GetCommentsForComparedCommitCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about comments made on the comparison between two commits.</p>
  *         <note>
  *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
@@ -48,10 +48,19 @@ export interface GetCommentsForComparedCommitCommandOutput
  * import { CodeCommitClient, GetCommentsForComparedCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetCommentsForComparedCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetCommentsForComparedCommitInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   beforeCommitId: "STRING_VALUE",
+ *   afterCommitId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetCommentsForComparedCommitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCommentsForComparedCommitCommandInput - {@link GetCommentsForComparedCommitCommandInput}
+ * @returns {@link GetCommentsForComparedCommitCommandOutput}
  * @see {@link GetCommentsForComparedCommitCommandInput} for command's `input` shape.
  * @see {@link GetCommentsForComparedCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -120,6 +129,9 @@ export class GetCommentsForComparedCommitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCommentsForComparedCommitCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +160,8 @@ export class GetCommentsForComparedCommitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCommentsForComparedCommitInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCommentsForComparedCommitOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,15 +171,21 @@ export class GetCommentsForComparedCommitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCommentsForComparedCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCommentsForComparedCommitCommand(input, context);
+    return se_GetCommentsForComparedCommitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCommentsForComparedCommitCommandOutput> {
-    return deserializeAws_json1_1GetCommentsForComparedCommitCommand(output, context);
+    return de_GetCommentsForComparedCommitCommand(output, context);
   }
 
   // Start section: command_body_extra

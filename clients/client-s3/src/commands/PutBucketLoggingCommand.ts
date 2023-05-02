@@ -14,23 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketLoggingRequest, PutBucketLoggingRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketLoggingCommand,
-  serializeAws_restXmlPutBucketLoggingCommand,
-} from "../protocols/Aws_restXml";
+import { PutBucketLoggingRequest } from "../models/models_0";
+import { de_PutBucketLoggingCommand, se_PutBucketLoggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketLoggingCommand}.
  */
 export interface PutBucketLoggingCommandInput extends PutBucketLoggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketLoggingCommand}.
  */
 export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set the logging parameters for a bucket and to specify permissions for who can view and
  *          modify the logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as the
  *          source bucket. To set the logging status of a bucket, you must be the bucket owner.</p>
@@ -113,10 +115,36 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketLoggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketLoggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketLoggingRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   BucketLoggingStatus: { // BucketLoggingStatus
+ *     LoggingEnabled: { // LoggingEnabled
+ *       TargetBucket: "STRING_VALUE", // required
+ *       TargetGrants: [ // TargetGrants
+ *         { // TargetGrant
+ *           Grantee: { // Grantee
+ *             DisplayName: "STRING_VALUE",
+ *             EmailAddress: "STRING_VALUE",
+ *             ID: "STRING_VALUE",
+ *             URI: "STRING_VALUE",
+ *             Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ *           },
+ *           Permission: "FULL_CONTROL" || "READ" || "WRITE",
+ *         },
+ *       ],
+ *       TargetPrefix: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketLoggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketLoggingCommandInput - {@link PutBucketLoggingCommandInput}
+ * @returns {@link PutBucketLoggingCommandOutput}
  * @see {@link PutBucketLoggingCommandInput} for command's `input` shape.
  * @see {@link PutBucketLoggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -172,6 +200,9 @@ export class PutBucketLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -207,8 +238,8 @@ export class PutBucketLoggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketLoggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -218,12 +249,18 @@ export class PutBucketLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketLoggingCommand(input, context);
+    return se_PutBucketLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketLoggingCommandOutput> {
-    return deserializeAws_restXmlPutBucketLoggingCommand(output, context);
+    return de_PutBucketLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

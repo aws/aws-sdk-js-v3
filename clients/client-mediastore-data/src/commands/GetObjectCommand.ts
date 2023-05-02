@@ -17,27 +17,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
-import {
-  GetObjectRequest,
-  GetObjectRequestFilterSensitiveLog,
-  GetObjectResponse,
-  GetObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetObjectCommand,
-  serializeAws_restJson1GetObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { GetObjectRequest, GetObjectResponse, GetObjectResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetObjectCommand, se_GetObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectCommand}.
  */
 export interface GetObjectCommandInput extends GetObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectCommand}.
  */
 export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectResponse, "Body">, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Downloads the object at the specified path. If the object’s upload availability is set to <code>streaming</code>, AWS Elemental MediaStore downloads the object even if it’s still uploading the object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +42,16 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectRe
  * import { MediaStoreDataClient, GetObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
  * // const { MediaStoreDataClient, GetObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
  * const client = new MediaStoreDataClient(config);
+ * const input = { // GetObjectRequest
+ *   Path: "STRING_VALUE", // required
+ *   Range: "STRING_VALUE",
+ * };
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectCommandInput - {@link GetObjectCommandInput}
+ * @returns {@link GetObjectCommandOutput}
  * @see {@link GetObjectCommandInput} for command's `input` shape.
  * @see {@link GetObjectCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +116,7 @@ export class GetObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetObjectResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -121,15 +127,21 @@ export class GetObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetObjectCommand(input, context);
+    return se_GetObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetObjectCommandOutput> {
-    return deserializeAws_restJson1GetObjectCommand(output, context);
+    return de_GetObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

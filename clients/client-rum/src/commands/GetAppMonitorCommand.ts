@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAppMonitorRequest,
-  GetAppMonitorRequestFilterSensitiveLog,
-  GetAppMonitorResponse,
-  GetAppMonitorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAppMonitorCommand,
-  serializeAws_restJson1GetAppMonitorCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAppMonitorRequest, GetAppMonitorResponse } from "../models/models_0";
+import { de_GetAppMonitorCommand, se_GetAppMonitorCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppMonitorCommand}.
  */
 export interface GetAppMonitorCommandInput extends GetAppMonitorRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppMonitorCommand}.
  */
 export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the complete configuration information for one app monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * import { RUMClient, GetAppMonitorCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, GetAppMonitorCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = { // GetAppMonitorRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetAppMonitorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppMonitorCommandInput - {@link GetAppMonitorCommandInput}
+ * @returns {@link GetAppMonitorCommandOutput}
  * @see {@link GetAppMonitorCommandInput} for command's `input` shape.
  * @see {@link GetAppMonitorCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetAppMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetAppMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppMonitorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAppMonitorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetAppMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAppMonitorCommand(input, context);
+    return se_GetAppMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppMonitorCommandOutput> {
-    return deserializeAws_restJson1GetAppMonitorCommand(output, context);
+    return de_GetAppMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

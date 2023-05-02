@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSiteAddressInput,
-  GetSiteAddressInputFilterSensitiveLog,
-  GetSiteAddressOutput,
-  GetSiteAddressOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSiteAddressInput, GetSiteAddressOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1GetSiteAddressCommand,
-  serializeAws_restJson1GetSiteAddressCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSiteAddressCommand, se_GetSiteAddressCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSiteAddressCommand}.
  */
 export interface GetSiteAddressCommandInput extends GetSiteAddressInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSiteAddressCommand}.
  */
 export interface GetSiteAddressCommandOutput extends GetSiteAddressOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Gets the site address of the specified site. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetSiteAddressCommandOutput extends GetSiteAddressOutput, __Met
  * import { OutpostsClient, GetSiteAddressCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetSiteAddressCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // GetSiteAddressInput
+ *   SiteId: "STRING_VALUE", // required
+ *   AddressType: "SHIPPING_ADDRESS" || "OPERATING_ADDRESS", // required
+ * };
  * const command = new GetSiteAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSiteAddressCommandInput - {@link GetSiteAddressCommandInput}
+ * @returns {@link GetSiteAddressCommandOutput}
  * @see {@link GetSiteAddressCommandInput} for command's `input` shape.
  * @see {@link GetSiteAddressCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -81,6 +84,9 @@ export class GetSiteAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSiteAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class GetSiteAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSiteAddressInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSiteAddressOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class GetSiteAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSiteAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSiteAddressCommand(input, context);
+    return se_GetSiteAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSiteAddressCommandOutput> {
-    return deserializeAws_restJson1GetSiteAddressCommand(output, context);
+    return de_GetSiteAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

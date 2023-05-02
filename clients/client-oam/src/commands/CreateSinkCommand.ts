@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSinkInput,
-  CreateSinkInputFilterSensitiveLog,
-  CreateSinkOutput,
-  CreateSinkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSinkInput, CreateSinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1CreateSinkCommand,
-  serializeAws_restJson1CreateSinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSinkCommand, se_CreateSinkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSinkCommand}.
  */
 export interface CreateSinkCommandInput extends CreateSinkInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateSinkCommand}.
  */
 export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this to create a <i>sink</i> in the current account, so that it can be
  *             used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that
  *             represents an attachment point in a monitoring account. Source accounts can link to the sink
@@ -48,10 +45,18 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  * import { OAMClient, CreateSinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, CreateSinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = { // CreateSinkInput
+ *   Name: "STRING_VALUE", // required
+ *   Tags: { // TagMapInput
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSinkCommandInput - {@link CreateSinkCommandInput}
+ * @returns {@link CreateSinkCommandOutput}
  * @see {@link CreateSinkCommandInput} for command's `input` shape.
  * @see {@link CreateSinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -90,6 +95,9 @@ export class CreateSinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +124,8 @@ export class CreateSinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSinkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSinkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +135,18 @@ export class CreateSinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSinkCommand(input, context);
+    return se_CreateSinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSinkCommandOutput> {
-    return deserializeAws_restJson1CreateSinkCommand(output, context);
+    return de_CreateSinkCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,23 @@ import {
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import {
   StartSavingsPlansPurchaseRecommendationGenerationRequest,
-  StartSavingsPlansPurchaseRecommendationGenerationRequestFilterSensitiveLog,
   StartSavingsPlansPurchaseRecommendationGenerationResponse,
-  StartSavingsPlansPurchaseRecommendationGenerationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommand,
-  serializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommand,
+  de_StartSavingsPlansPurchaseRecommendationGenerationCommand,
+  se_StartSavingsPlansPurchaseRecommendationGenerationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
 export interface StartSavingsPlansPurchaseRecommendationGenerationCommandInput
   extends StartSavingsPlansPurchaseRecommendationGenerationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
 export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
@@ -38,6 +40,7 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a Savings Plans recommendation generation. This enables you to calculate a fresh
  *       set of Savings Plans recommendations that takes your latest usage data and current Savings
  *       Plans inventory into account. You can refresh Savings Plans recommendations up to three times
@@ -53,10 +56,13 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * import { CostExplorerClient, StartSavingsPlansPurchaseRecommendationGenerationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, StartSavingsPlansPurchaseRecommendationGenerationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = {};
  * const command = new StartSavingsPlansPurchaseRecommendationGenerationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSavingsPlansPurchaseRecommendationGenerationCommandInput - {@link StartSavingsPlansPurchaseRecommendationGenerationCommandInput}
+ * @returns {@link StartSavingsPlansPurchaseRecommendationGenerationCommandOutput}
  * @see {@link StartSavingsPlansPurchaseRecommendationGenerationCommandInput} for command's `input` shape.
  * @see {@link StartSavingsPlansPurchaseRecommendationGenerationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -90,6 +96,9 @@ export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $C
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSavingsPlansPurchaseRecommendationGenerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +133,8 @@ export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $C
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSavingsPlansPurchaseRecommendationGenerationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSavingsPlansPurchaseRecommendationGenerationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +144,24 @@ export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $C
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommand(input, context);
+    return se_StartSavingsPlansPurchaseRecommendationGenerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput> {
-    return deserializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommand(output, context);
+    return de_StartSavingsPlansPurchaseRecommendationGenerationCommand(output, context);
   }
 
   // Start section: command_body_extra

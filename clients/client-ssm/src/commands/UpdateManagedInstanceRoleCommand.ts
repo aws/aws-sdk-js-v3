@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateManagedInstanceRoleRequest,
-  UpdateManagedInstanceRoleRequestFilterSensitiveLog,
-  UpdateManagedInstanceRoleResult,
-  UpdateManagedInstanceRoleResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateManagedInstanceRoleCommand,
-  serializeAws_json1_1UpdateManagedInstanceRoleCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateManagedInstanceRoleRequest, UpdateManagedInstanceRoleResult } from "../models/models_2";
+import { de_UpdateManagedInstanceRoleCommand, se_UpdateManagedInstanceRoleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateManagedInstanceRoleCommand}.
  */
 export interface UpdateManagedInstanceRoleCommandInput extends UpdateManagedInstanceRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateManagedInstanceRoleCommand}.
  */
 export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedInstanceRoleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the Identity and Access Management (IAM) role that is assigned to the
  *    on-premises server, edge device, or virtual machines (VM). IAM roles are first
  *    assigned to these hybrid nodes during the activation process. For more information, see <a>CreateActivation</a>.</p>
@@ -44,10 +41,16 @@ export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedIns
  * import { SSMClient, UpdateManagedInstanceRoleCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateManagedInstanceRoleCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateManagedInstanceRoleRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   IamRole: "STRING_VALUE", // required
+ * };
  * const command = new UpdateManagedInstanceRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateManagedInstanceRoleCommandInput - {@link UpdateManagedInstanceRoleCommandInput}
+ * @returns {@link UpdateManagedInstanceRoleCommandOutput}
  * @see {@link UpdateManagedInstanceRoleCommandInput} for command's `input` shape.
  * @see {@link UpdateManagedInstanceRoleCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -94,6 +97,9 @@ export class UpdateManagedInstanceRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateManagedInstanceRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +128,8 @@ export class UpdateManagedInstanceRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateManagedInstanceRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateManagedInstanceRoleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,15 +139,21 @@ export class UpdateManagedInstanceRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateManagedInstanceRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateManagedInstanceRoleCommand(input, context);
+    return se_UpdateManagedInstanceRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateManagedInstanceRoleCommandOutput> {
-    return deserializeAws_json1_1UpdateManagedInstanceRoleCommand(output, context);
+    return de_UpdateManagedInstanceRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

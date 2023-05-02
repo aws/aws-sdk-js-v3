@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListFindingAggregatorsRequest,
-  ListFindingAggregatorsRequestFilterSensitiveLog,
-  ListFindingAggregatorsResponse,
-  ListFindingAggregatorsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListFindingAggregatorsCommand,
-  serializeAws_restJson1ListFindingAggregatorsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFindingAggregatorsRequest, ListFindingAggregatorsResponse } from "../models/models_2";
+import { de_ListFindingAggregatorsCommand, se_ListFindingAggregatorsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFindingAggregatorsCommand}.
  */
 export interface ListFindingAggregatorsCommandInput extends ListFindingAggregatorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFindingAggregatorsCommand}.
  */
 export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregatorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If finding aggregation is enabled, then <code>ListFindingAggregators</code> returns the ARN of the finding aggregator. You can run this operation from any Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregat
  * import { SecurityHubClient, ListFindingAggregatorsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListFindingAggregatorsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // ListFindingAggregatorsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFindingAggregatorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFindingAggregatorsCommandInput - {@link ListFindingAggregatorsCommandInput}
+ * @returns {@link ListFindingAggregatorsCommandOutput}
  * @see {@link ListFindingAggregatorsCommandInput} for command's `input` shape.
  * @see {@link ListFindingAggregatorsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -68,6 +71,24 @@ export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregat
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To update the enablement status of a standard control
+ * ```javascript
+ * // The following example disables the specified control in the specified security standard.
+ * const input = {};
+ * const command = new ListFindingAggregatorsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FindingAggregators": [
+ *     {
+ *       "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:222222222222:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-update-the-enablement-status-of-a-standard-control-1678912506444
+ * ```
+ *
  */
 export class ListFindingAggregatorsCommand extends $Command<
   ListFindingAggregatorsCommandInput,
@@ -86,6 +107,9 @@ export class ListFindingAggregatorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFindingAggregatorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +138,8 @@ export class ListFindingAggregatorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFindingAggregatorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFindingAggregatorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +149,18 @@ export class ListFindingAggregatorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFindingAggregatorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFindingAggregatorsCommand(input, context);
+    return se_ListFindingAggregatorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFindingAggregatorsCommandOutput> {
-    return deserializeAws_restJson1ListFindingAggregatorsCommand(output, context);
+    return de_ListFindingAggregatorsCommand(output, context);
   }
 
   // Start section: command_body_extra

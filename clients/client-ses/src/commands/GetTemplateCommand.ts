@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTemplateRequest,
-  GetTemplateRequestFilterSensitiveLog,
-  GetTemplateResponse,
-  GetTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryGetTemplateCommand, serializeAws_queryGetTemplateCommand } from "../protocols/Aws_query";
+import { GetTemplateRequest, GetTemplateResponse } from "../models/models_0";
+import { de_GetTemplateCommand, se_GetTemplateCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTemplateCommand}.
  */
 export interface GetTemplateCommandInput extends GetTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTemplateCommand}.
  */
 export interface GetTemplateCommandOutput extends GetTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays the template object (which includes the Subject line, HTML part and text
  *             part) for the template you specify.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -41,10 +41,15 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * import { SESClient, GetTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // GetTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
+ * @returns {@link GetTemplateCommandOutput}
  * @see {@link GetTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -72,6 +77,9 @@ export class GetTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +106,8 @@ export class GetTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +117,18 @@ export class GetTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetTemplateCommand(input, context);
+    return se_GetTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateCommandOutput> {
-    return deserializeAws_queryGetTemplateCommand(output, context);
+    return de_GetTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

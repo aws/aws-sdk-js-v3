@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeStaleSecurityGroupsRequest,
-  DescribeStaleSecurityGroupsRequestFilterSensitiveLog,
-  DescribeStaleSecurityGroupsResult,
-  DescribeStaleSecurityGroupsResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeStaleSecurityGroupsCommand,
-  serializeAws_ec2DescribeStaleSecurityGroupsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeStaleSecurityGroupsRequest, DescribeStaleSecurityGroupsResult } from "../models/models_4";
+import { de_DescribeStaleSecurityGroupsCommand, se_DescribeStaleSecurityGroupsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStaleSecurityGroupsCommand}.
  */
 export interface DescribeStaleSecurityGroupsCommandInput extends DescribeStaleSecurityGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStaleSecurityGroupsCommand}.
  */
 export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleSecurityGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC.
  *           Rules are stale when they reference a deleted security group in the same VPC or in a peer VPC,
  *           or if they reference a security group in a peer VPC for which the VPC peering connection has
@@ -45,10 +42,18 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  * import { EC2Client, DescribeStaleSecurityGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeStaleSecurityGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeStaleSecurityGroupsRequest
+ *   DryRun: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   VpcId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStaleSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStaleSecurityGroupsCommandInput - {@link DescribeStaleSecurityGroupsCommandInput}
+ * @returns {@link DescribeStaleSecurityGroupsCommandOutput}
  * @see {@link DescribeStaleSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeStaleSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +77,9 @@ export class DescribeStaleSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStaleSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +108,8 @@ export class DescribeStaleSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStaleSecurityGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStaleSecurityGroupsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +119,21 @@ export class DescribeStaleSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStaleSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeStaleSecurityGroupsCommand(input, context);
+    return se_DescribeStaleSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStaleSecurityGroupsCommandOutput> {
-    return deserializeAws_ec2DescribeStaleSecurityGroupsCommand(output, context);
+    return de_DescribeStaleSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

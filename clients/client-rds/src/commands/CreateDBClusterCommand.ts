@@ -14,47 +14,123 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDBClusterMessage,
-  CreateDBClusterMessageFilterSensitiveLog,
-  CreateDBClusterResult,
-  CreateDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBClusterCommand,
-  serializeAws_queryCreateDBClusterCommand,
-} from "../protocols/Aws_query";
+import { CreateDBClusterMessage, CreateDBClusterResult } from "../models/models_0";
+import { de_CreateDBClusterCommand, se_CreateDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBClusterCommand}.
  */
 export interface CreateDBClusterCommandInput extends CreateDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBClusterCommand}.
  */
 export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+ *          <p>If you create an Aurora DB cluster, the request creates an empty cluster. You must
+ *             explicitly create the writer instance for your DB cluster using the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance</a> operation. If you create a Multi-AZ DB cluster, the
+ *             request creates a writer and two reader DB instances for you, each in a different
+ *             Availability Zone.</p>
  *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
- *             Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or
+ *             Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for MySQL or
  *             PostgreSQL DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What is Amazon Aurora?</a> in the <i>Amazon Aurora User
- *                     Guide</i>.</p>
+ *             Guide</i>.</p>
  *          <p>You can also use the <code>ReplicationSourceIdentifier</code> parameter to create a
- *             Multi-AZ DB cluster read replica with an RDS for PostgreSQL DB instance as the source.
- *             For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ DB cluster deployments</a> in the <i>Amazon
- *                     RDS User Guide</i>.</p>
+ *             Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance as the
+ *             source. For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ DB
+ *                 cluster deployments</a> in the <i>Amazon RDS User
+ *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, CreateDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CreateDBClusterMessage
+ *   AvailabilityZones: [ // AvailabilityZones
+ *     "STRING_VALUE",
+ *   ],
+ *   BackupRetentionPeriod: Number("int"),
+ *   CharacterSetName: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE",
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   MasterUsername: "STRING_VALUE",
+ *   MasterUserPassword: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   ReplicationSourceIdentifier: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StorageEncrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   PreSignedUrl: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   BacktrackWindow: Number("long"),
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   EngineMode: "STRING_VALUE",
+ *   ScalingConfiguration: { // ScalingConfiguration
+ *     MinCapacity: Number("int"),
+ *     MaxCapacity: Number("int"),
+ *     AutoPause: true || false,
+ *     SecondsUntilAutoPause: Number("int"),
+ *     TimeoutAction: "STRING_VALUE",
+ *     SecondsBeforeTimeout: Number("int"),
+ *   },
+ *   DeletionProtection: true || false,
+ *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   EnableHttpEndpoint: true || false,
+ *   CopyTagsToSnapshot: true || false,
+ *   Domain: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   EnableGlobalWriteForwarding: true || false,
+ *   DBClusterInstanceClass: "STRING_VALUE",
+ *   AllocatedStorage: Number("int"),
+ *   StorageType: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   PubliclyAccessible: true || false,
+ *   AutoMinorVersionUpgrade: true || false,
+ *   MonitoringInterval: Number("int"),
+ *   MonitoringRoleArn: "STRING_VALUE",
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   PerformanceInsightsRetentionPeriod: Number("int"),
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
+ *   NetworkType: "STRING_VALUE",
+ *   DBSystemId: "STRING_VALUE",
+ *   ManageMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBClusterCommandInput - {@link CreateDBClusterCommandInput}
+ * @returns {@link CreateDBClusterCommandOutput}
  * @see {@link CreateDBClusterCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -125,32 +201,258 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *             available across all DB instances.</p>
  *
  *
- * @example To create a DB cluster
+ * @example To create a MySQL 5.7--compatible DB cluster
  * ```javascript
- * // This example creates a DB cluster.
+ * // The following example create a MySQL 5.7-compatible DB cluster.
  * const input = {
- *   "AvailabilityZones": [
- *     "us-east-1a"
- *   ],
- *   "BackupRetentionPeriod": 1,
- *   "DBClusterIdentifier": "mydbcluster",
- *   "DBClusterParameterGroupName": "mydbclusterparametergroup",
- *   "DatabaseName": "myauroradb",
- *   "Engine": "aurora",
- *   "EngineVersion": "5.6.10a",
+ *   "DBClusterIdentifier": "sample-cluster",
+ *   "DBSubnetGroupName": "default",
+ *   "Engine": "aurora-mysql",
+ *   "EngineVersion": "5.7.12",
  *   "MasterUserPassword": "mypassword",
- *   "MasterUsername": "myuser",
- *   "Port": 3306,
- *   "StorageEncrypted": true
+ *   "MasterUsername": "admin",
+ *   "VpcSecurityGroupIds": [
+ *     "sg-0b91305example"
+ *   ]
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBCluster": {}
+ *   "DBCluster": {
+ *     "AllocatedStorage": 1,
+ *     "AssociatedRoles": [],
+ *     "AvailabilityZones": [
+ *       "us-east-1a",
+ *       "us-east-1b",
+ *       "us-east-1e"
+ *     ],
+ *     "BackupRetentionPeriod": 1,
+ *     "ClusterCreateTime": "2019-06-07T23:21:33.048Z",
+ *     "CopyTagsToSnapshot": false,
+ *     "DBClusterArn": "arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster",
+ *     "DBClusterIdentifier": "sample-cluster",
+ *     "DBClusterMembers": [],
+ *     "DBClusterParameterGroup": "default.aurora-mysql5.7",
+ *     "DBSubnetGroup": "default",
+ *     "DbClusterResourceId": "cluster-ANPAJ4AE5446DAEXAMPLE",
+ *     "DeletionProtection": false,
+ *     "Endpoint": "sample-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
+ *     "Engine": "aurora-mysql",
+ *     "EngineMode": "provisioned",
+ *     "EngineVersion": "5.7.12",
+ *     "HostedZoneId": "Z2R2ITUGPM61AM",
+ *     "HttpEndpointEnabled": false,
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "MasterUsername": "master",
+ *     "MultiAZ": false,
+ *     "Port": 3306,
+ *     "PreferredBackupWindow": "09:12-09:42",
+ *     "PreferredMaintenanceWindow": "mon:04:31-mon:05:01",
+ *     "ReadReplicaIdentifiers": [],
+ *     "ReaderEndpoint": "sample-cluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
+ *     "Status": "creating",
+ *     "StorageEncrypted": false,
+ *     "VpcSecurityGroups": [
+ *       {
+ *         "Status": "active",
+ *         "VpcSecurityGroupId": "sg-0b91305example"
+ *       }
+ *     ]
+ *   }
  * }
  * *\/
- * // example id: create-db-cluster-423b998d-eba9-40dd-8e19-96c5b6e5f31d
+ * // example id: to-create-a-mysql-57--compatible-db-cluster-1679699416154
+ * ```
+ *
+ * @example To create a PostgreSQL--compatible DB cluster
+ * ```javascript
+ * // The following creates a PostgreSQL-compatible DB cluster.
+ * const input = {
+ *   "DBClusterIdentifier": "sample-pg-cluster",
+ *   "DBSubnetGroupName": "default",
+ *   "Engine": "aurora-postgresql",
+ *   "MasterUserPassword": "mypassword",
+ *   "MasterUsername": "admin",
+ *   "VpcSecurityGroupIds": [
+ *     "sg-0b91305example"
+ *   ]
+ * };
+ * const command = new CreateDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {
+ *     "AllocatedStorage": 1,
+ *     "AssociatedRoles": [],
+ *     "AvailabilityZones": [
+ *       "us-east-1a",
+ *       "us-east-1b",
+ *       "us-east-1c"
+ *     ],
+ *     "BackupRetentionPeriod": 1,
+ *     "ClusterCreateTime": "2019-06-07T23:26:08.371Z",
+ *     "CopyTagsToSnapshot": false,
+ *     "DBClusterArn": "arn:aws:rds:us-east-1:123456789012:cluster:sample-pg-cluster",
+ *     "DBClusterIdentifier": "sample-pg-cluster",
+ *     "DBClusterMembers": [],
+ *     "DBClusterParameterGroup": "default.aurora-postgresql9.6",
+ *     "DBSubnetGroup": "default",
+ *     "DbClusterResourceId": "cluster-ANPAJ4AE5446DAEXAMPLE",
+ *     "DeletionProtection": false,
+ *     "Endpoint": "sample-pg-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
+ *     "Engine": "aurora-postgresql",
+ *     "EngineMode": "provisioned",
+ *     "EngineVersion": "9.6.9",
+ *     "HostedZoneId": "Z2R2ITUGPM61AM",
+ *     "HttpEndpointEnabled": false,
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "MasterUsername": "master",
+ *     "MultiAZ": false,
+ *     "Port": 5432,
+ *     "PreferredBackupWindow": "09:56-10:26",
+ *     "PreferredMaintenanceWindow": "wed:03:33-wed:04:03",
+ *     "ReadReplicaIdentifiers": [],
+ *     "ReaderEndpoint": "sample-pg-cluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
+ *     "Status": "creating",
+ *     "StorageEncrypted": false,
+ *     "VpcSecurityGroups": [
+ *       {
+ *         "Status": "active",
+ *         "VpcSecurityGroupId": "sg-0b91305example"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-postgresql--compatible-db-cluster-1679700161087
+ * ```
+ *
+ * @example To create a MySQL 5.7-compatible DB cluster
+ * ```javascript
+ * // The following example creates a MySQL 5.7-compatible Aurora DB cluster.
+ * const input = {
+ *   "DBClusterIdentifier": "sample-cluster",
+ *   "DBSubnetGroupName": "default",
+ *   "Engine": "aurora-mysql",
+ *   "EngineVersion": "5.7.12",
+ *   "MasterUserPassword": "mypassword",
+ *   "MasterUsername": "admin",
+ *   "VpcSecurityGroupIds": [
+ *     "sg-0b91305example"
+ *   ]
+ * };
+ * const command = new CreateDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {
+ *     "AllocatedStorage": 1,
+ *     "AssociatedRoles": [],
+ *     "AvailabilityZones": [
+ *       "us-east-1a",
+ *       "us-east-1b",
+ *       "us-east-1e"
+ *     ],
+ *     "BackupRetentionPeriod": 1,
+ *     "ClusterCreateTime": "2019-06-07T23:21:33.048Z",
+ *     "CopyTagsToSnapshot": false,
+ *     "DBClusterArn": "arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster",
+ *     "DBClusterIdentifier": "sample-cluster",
+ *     "DBClusterMembers": [],
+ *     "DBClusterParameterGroup": "default.aurora-mysql5.7",
+ *     "DBSubnetGroup": "default",
+ *     "DbClusterResourceId": "cluster-ANPAJ4AE5446DAEXAMPLE",
+ *     "DeletionProtection": false,
+ *     "Endpoint": "sample-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
+ *     "Engine": "aurora-mysql",
+ *     "EngineMode": "provisioned",
+ *     "EngineVersion": "5.7.12",
+ *     "HostedZoneId": "Z2R2ITUGPM61AM",
+ *     "HttpEndpointEnabled": false,
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "MasterUsername": "master",
+ *     "MultiAZ": false,
+ *     "Port": 3306,
+ *     "PreferredBackupWindow": "09:12-09:42",
+ *     "PreferredMaintenanceWindow": "mon:04:31-mon:05:01",
+ *     "ReadReplicaIdentifiers": [],
+ *     "ReaderEndpoint": "sample-cluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
+ *     "Status": "creating",
+ *     "StorageEncrypted": false,
+ *     "VpcSecurityGroups": [
+ *       {
+ *         "Status": "active",
+ *         "VpcSecurityGroupId": "sg-0b91305example"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-mysql-57-compatible-db-cluster-1679699416154
+ * ```
+ *
+ * @example To create a PostgreSQL-compatible DB cluster
+ * ```javascript
+ * // The following example creates a PostgreSQL-compatible Aurora DB cluster.
+ * const input = {
+ *   "DBClusterIdentifier": "sample-pg-cluster",
+ *   "DBSubnetGroupName": "default",
+ *   "Engine": "aurora-postgresql",
+ *   "MasterUserPassword": "mypassword",
+ *   "MasterUsername": "admin",
+ *   "VpcSecurityGroupIds": [
+ *     "sg-0b91305example"
+ *   ]
+ * };
+ * const command = new CreateDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {
+ *     "AllocatedStorage": 1,
+ *     "AssociatedRoles": [],
+ *     "AvailabilityZones": [
+ *       "us-east-1a",
+ *       "us-east-1b",
+ *       "us-east-1c"
+ *     ],
+ *     "BackupRetentionPeriod": 1,
+ *     "ClusterCreateTime": "2019-06-07T23:26:08.371Z",
+ *     "CopyTagsToSnapshot": false,
+ *     "DBClusterArn": "arn:aws:rds:us-east-1:123456789012:cluster:sample-pg-cluster",
+ *     "DBClusterIdentifier": "sample-pg-cluster",
+ *     "DBClusterMembers": [],
+ *     "DBClusterParameterGroup": "default.aurora-postgresql9.6",
+ *     "DBSubnetGroup": "default",
+ *     "DbClusterResourceId": "cluster-ANPAJ4AE5446DAEXAMPLE",
+ *     "DeletionProtection": false,
+ *     "Endpoint": "sample-pg-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
+ *     "Engine": "aurora-postgresql",
+ *     "EngineMode": "provisioned",
+ *     "EngineVersion": "9.6.9",
+ *     "HostedZoneId": "Z2R2ITUGPM61AM",
+ *     "HttpEndpointEnabled": false,
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "MasterUsername": "master",
+ *     "MultiAZ": false,
+ *     "Port": 5432,
+ *     "PreferredBackupWindow": "09:56-10:26",
+ *     "PreferredMaintenanceWindow": "wed:03:33-wed:04:03",
+ *     "ReadReplicaIdentifiers": [],
+ *     "ReaderEndpoint": "sample-pg-cluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
+ *     "Status": "creating",
+ *     "StorageEncrypted": false,
+ *     "VpcSecurityGroups": [
+ *       {
+ *         "Status": "active",
+ *         "VpcSecurityGroupId": "sg-0b91305example"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-postgresql-compatible-db-cluster-1679700161087
  * ```
  *
  */
@@ -171,6 +473,9 @@ export class CreateDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -200,8 +505,8 @@ export class CreateDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -211,12 +516,18 @@ export class CreateDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterCommand(input, context);
+    return se_CreateDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterCommandOutput> {
-    return deserializeAws_queryCreateDBClusterCommand(output, context);
+    return de_CreateDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

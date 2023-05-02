@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import {
-  GetPolicyRequest,
-  GetPolicyRequestFilterSensitiveLog,
-  GetPolicyResponse,
-  GetPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetPolicyCommand, serializeAws_json1_1GetPolicyCommand } from "../protocols/Aws_json1_1";
+import { GetPolicyRequest, GetPolicyResponse } from "../models/models_0";
+import { de_GetPolicyCommand, se_GetPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPolicyCommand}.
  */
 export interface GetPolicyCommandInput extends GetPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPolicyCommand}.
  */
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource-based policy attached to a private CA. If either the private CA
  * 			resource or the policy cannot be found, this action returns a
  * 				<code>ResourceNotFoundException</code>. </p>
@@ -69,10 +69,15 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * import { ACMPCAClient, GetPolicyCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, GetPolicyCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // GetPolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
+ * @returns {@link GetPolicyCommandOutput}
  * @see {@link GetPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPolicyCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -110,6 +115,9 @@ export class GetPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +144,8 @@ export class GetPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +155,18 @@ export class GetPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPolicyCommand(input, context);
+    return se_GetPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyCommandOutput> {
-    return deserializeAws_json1_1GetPolicyCommand(output, context);
+    return de_GetPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

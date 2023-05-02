@@ -14,52 +14,49 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  StopFleetActionsInput,
-  StopFleetActionsInputFilterSensitiveLog,
-  StopFleetActionsOutput,
-  StopFleetActionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopFleetActionsCommand,
-  serializeAws_json1_1StopFleetActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { StopFleetActionsInput, StopFleetActionsOutput } from "../models/models_0";
+import { de_StopFleetActionsCommand, se_StopFleetActionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopFleetActionsCommand}.
  */
 export interface StopFleetActionsCommandInput extends StopFleetActionsInput {}
 /**
+ * @public
+ *
  * The output of {@link StopFleetActionsCommand}.
  */
 export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Suspends certain types of activity in a fleet location. Currently, this operation is
  *             used to stop auto-scaling activity. For multi-location fleets, fleet actions are managed
  *             separately for each location. </p>
- *         <p>Stopping fleet actions has several potential purposes. It allows you to temporarily
+ *          <p>Stopping fleet actions has several potential purposes. It allows you to temporarily
  *             stop auto-scaling activity but retain your scaling policies for use in the future. For
  *             multi-location fleets, you can set up fleet-wide auto-scaling, and then opt out of it
  *             for certain locations. </p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To stop actions on instances in the fleet's home Region, provide a fleet ID
+ *                <p>To stop actions on instances in the fleet's home Region, provide a fleet ID
  *                     and the type of actions to suspend. </p>
  *             </li>
  *             <li>
- *                 <p>To stop actions on instances in one of the fleet's remote locations, provide a
+ *                <p>To stop actions on instances in one of the fleet's remote locations, provide a
  *                     fleet ID, a location name, and the type of actions to suspend. </p>
  *             </li>
  *          </ul>
- *         <p>If successful, GameLift no longer initiates scaling events except in response to manual
+ *          <p>If successful, Amazon GameLift no longer initiates scaling events except in response to manual
  *             changes using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html">UpdateFleetCapacity</a>.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 Fleets</a>
  *          </p>
  * @example
@@ -68,10 +65,19 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  * import { GameLiftClient, StopFleetActionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StopFleetActionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // StopFleetActionsInput
+ *   FleetId: "STRING_VALUE", // required
+ *   Actions: [ // FleetActionList // required
+ *     "AUTO_SCALING",
+ *   ],
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new StopFleetActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopFleetActionsCommandInput - {@link StopFleetActionsCommandInput}
+ * @returns {@link StopFleetActionsCommandOutput}
  * @see {@link StopFleetActionsCommandInput} for command's `input` shape.
  * @see {@link StopFleetActionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -112,6 +118,9 @@ export class StopFleetActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopFleetActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +149,8 @@ export class StopFleetActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopFleetActionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopFleetActionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,12 +160,18 @@ export class StopFleetActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopFleetActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopFleetActionsCommand(input, context);
+    return se_StopFleetActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFleetActionsCommandOutput> {
-    return deserializeAws_json1_1StopFleetActionsCommand(output, context);
+    return de_StopFleetActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

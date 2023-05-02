@@ -13,41 +13,59 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateIncidentRecordInput,
-  UpdateIncidentRecordInputFilterSensitiveLog,
-  UpdateIncidentRecordOutput,
-  UpdateIncidentRecordOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateIncidentRecordCommand,
-  serializeAws_restJson1UpdateIncidentRecordCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateIncidentRecordInput, UpdateIncidentRecordOutput } from "../models/models_0";
+import { de_UpdateIncidentRecordCommand, se_UpdateIncidentRecordCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIncidentRecordCommand}.
  */
 export interface UpdateIncidentRecordCommandInput extends UpdateIncidentRecordInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIncidentRecordCommand}.
  */
 export interface UpdateIncidentRecordCommandOutput extends UpdateIncidentRecordOutput, __MetadataBearer {}
 
 /**
- * <p>Update the details of an incident record. You can use this operation to update an
- *             incident record from the defined chat channel. For more information about using actions
- *             in chat channels, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact">Interacting through chat</a>.</p>
+ * @public
+ * <p>Update the details of an incident record. You can use this operation to update an incident
+ *       record from the defined chat channel. For more information about using actions in chat
+ *       channels, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact">Interacting through chat</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMIncidentsClient, UpdateIncidentRecordCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateIncidentRecordCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // UpdateIncidentRecordInput
+ *   clientToken: "STRING_VALUE",
+ *   arn: "STRING_VALUE", // required
+ *   title: "STRING_VALUE",
+ *   summary: "STRING_VALUE",
+ *   impact: Number("int"),
+ *   status: "STRING_VALUE",
+ *   chatChannel: { // ChatChannel Union: only one key present
+ *     empty: {},
+ *     chatbotSns: [ // ChatbotSnsConfigurationSet
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   notificationTargets: [ // NotificationTargetSet
+ *     { // NotificationTargetItem Union: only one key present
+ *       snsTopicArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateIncidentRecordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIncidentRecordCommandInput - {@link UpdateIncidentRecordCommandInput}
+ * @returns {@link UpdateIncidentRecordCommandOutput}
  * @see {@link UpdateIncidentRecordCommandInput} for command's `input` shape.
  * @see {@link UpdateIncidentRecordCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -91,6 +109,9 @@ export class UpdateIncidentRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIncidentRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +140,8 @@ export class UpdateIncidentRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIncidentRecordInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIncidentRecordOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +151,18 @@ export class UpdateIncidentRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIncidentRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIncidentRecordCommand(input, context);
+    return se_UpdateIncidentRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIncidentRecordCommandOutput> {
-    return deserializeAws_restJson1UpdateIncidentRecordCommand(output, context);
+    return de_UpdateIncidentRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

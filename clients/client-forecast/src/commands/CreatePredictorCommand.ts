@@ -18,23 +18,24 @@ import {
   CreatePredictorRequest,
   CreatePredictorRequestFilterSensitiveLog,
   CreatePredictorResponse,
-  CreatePredictorResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePredictorCommand,
-  serializeAws_json1_1CreatePredictorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePredictorCommand, se_CreatePredictorCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePredictorCommand}.
  */
 export interface CreatePredictorCommandInput extends CreatePredictorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePredictorCommand}.
  */
 export interface CreatePredictorCommandOutput extends CreatePredictorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p> This operation creates a legacy predictor that does not include all the predictor
  *         functionalities provided by Amazon Forecast. To create a predictor that is compatible with all
@@ -101,10 +102,97 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  * import { ForecastClient, CreatePredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreatePredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // CreatePredictorRequest
+ *   PredictorName: "STRING_VALUE", // required
+ *   AlgorithmArn: "STRING_VALUE",
+ *   ForecastHorizon: Number("int"), // required
+ *   ForecastTypes: [ // ForecastTypes
+ *     "STRING_VALUE",
+ *   ],
+ *   PerformAutoML: true || false,
+ *   AutoMLOverrideStrategy: "LatencyOptimized" || "AccuracyOptimized",
+ *   PerformHPO: true || false,
+ *   TrainingParameters: { // TrainingParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   EvaluationParameters: { // EvaluationParameters
+ *     NumberOfBacktestWindows: Number("int"),
+ *     BackTestWindowOffset: Number("int"),
+ *   },
+ *   HPOConfig: { // HyperParameterTuningJobConfig
+ *     ParameterRanges: { // ParameterRanges
+ *       CategoricalParameterRanges: [ // CategoricalParameterRanges
+ *         { // CategoricalParameterRange
+ *           Name: "STRING_VALUE", // required
+ *           Values: [ // Values // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       ContinuousParameterRanges: [ // ContinuousParameterRanges
+ *         { // ContinuousParameterRange
+ *           Name: "STRING_VALUE", // required
+ *           MaxValue: Number("double"), // required
+ *           MinValue: Number("double"), // required
+ *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *         },
+ *       ],
+ *       IntegerParameterRanges: [ // IntegerParameterRanges
+ *         { // IntegerParameterRange
+ *           Name: "STRING_VALUE", // required
+ *           MaxValue: Number("int"), // required
+ *           MinValue: Number("int"), // required
+ *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   InputDataConfig: { // InputDataConfig
+ *     DatasetGroupArn: "STRING_VALUE", // required
+ *     SupplementaryFeatures: [ // SupplementaryFeatures
+ *       { // SupplementaryFeature
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   FeaturizationConfig: { // FeaturizationConfig
+ *     ForecastFrequency: "STRING_VALUE", // required
+ *     ForecastDimensions: [ // ForecastDimensions
+ *       "STRING_VALUE",
+ *     ],
+ *     Featurizations: [ // Featurizations
+ *       { // Featurization
+ *         AttributeName: "STRING_VALUE", // required
+ *         FeaturizationPipeline: [ // FeaturizationPipeline
+ *           { // FeaturizationMethod
+ *             FeaturizationMethodName: "filling", // required
+ *             FeaturizationMethodParameters: { // FeaturizationMethodParameters
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   EncryptionConfig: { // EncryptionConfig
+ *     RoleArn: "STRING_VALUE", // required
+ *     KMSKeyArn: "STRING_VALUE", // required
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   OptimizationMetric: "WAPE" || "RMSE" || "AverageWeightedQuantileLoss" || "MASE" || "MAPE",
+ * };
  * const command = new CreatePredictorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePredictorCommandInput - {@link CreatePredictorCommandInput}
+ * @returns {@link CreatePredictorCommandOutput}
  * @see {@link CreatePredictorCommandInput} for command's `input` shape.
  * @see {@link CreatePredictorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -145,6 +233,9 @@ export class CreatePredictorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePredictorCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,7 +265,7 @@ export class CreatePredictorCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreatePredictorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePredictorResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -184,12 +275,18 @@ export class CreatePredictorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePredictorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePredictorCommand(input, context);
+    return se_CreatePredictorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePredictorCommandOutput> {
-    return deserializeAws_json1_1CreatePredictorCommand(output, context);
+    return de_CreatePredictorCommand(output, context);
   }
 
   // Start section: command_body_extra

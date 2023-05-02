@@ -2,6 +2,8 @@ export * from "./DescribeJobLogItemsPaginator";
 
 export * from "./DescribeJobsPaginator";
 
+export * from "./DescribeLaunchConfigurationTemplatesPaginator";
+
 export * from "./DescribeRecoveryInstancesPaginator";
 
 export * from "./DescribeRecoverySnapshotsPaginator";

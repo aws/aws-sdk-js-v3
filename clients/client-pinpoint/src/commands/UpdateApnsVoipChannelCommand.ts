@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateApnsVoipChannelRequest,
-  UpdateApnsVoipChannelRequestFilterSensitiveLog,
-  UpdateApnsVoipChannelResponse,
-  UpdateApnsVoipChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateApnsVoipChannelRequest, UpdateApnsVoipChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateApnsVoipChannelCommand,
-  serializeAws_restJson1UpdateApnsVoipChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateApnsVoipChannelCommand, se_UpdateApnsVoipChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApnsVoipChannelCommand}.
  */
 export interface UpdateApnsVoipChannelCommandInput extends UpdateApnsVoipChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApnsVoipChannelCommand}.
  */
 export interface UpdateApnsVoipChannelCommandOutput extends UpdateApnsVoipChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the APNs VoIP channel for an application or updates the status and settings of the APNs VoIP channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface UpdateApnsVoipChannelCommandOutput extends UpdateApnsVoipChanne
  * import { PinpointClient, UpdateApnsVoipChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateApnsVoipChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateApnsVoipChannelRequest
+ *   APNSVoipChannelRequest: { // APNSVoipChannelRequest
+ *     BundleId: "STRING_VALUE",
+ *     Certificate: "STRING_VALUE",
+ *     DefaultAuthenticationMethod: "STRING_VALUE",
+ *     Enabled: true || false,
+ *     PrivateKey: "STRING_VALUE",
+ *     TeamId: "STRING_VALUE",
+ *     TokenKey: "STRING_VALUE",
+ *     TokenKeyId: "STRING_VALUE",
+ *   },
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateApnsVoipChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApnsVoipChannelCommandInput - {@link UpdateApnsVoipChannelCommandInput}
+ * @returns {@link UpdateApnsVoipChannelCommandOutput}
  * @see {@link UpdateApnsVoipChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateApnsVoipChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +102,9 @@ export class UpdateApnsVoipChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApnsVoipChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +133,8 @@ export class UpdateApnsVoipChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApnsVoipChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApnsVoipChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +144,18 @@ export class UpdateApnsVoipChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApnsVoipChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApnsVoipChannelCommand(input, context);
+    return se_UpdateApnsVoipChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApnsVoipChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateApnsVoipChannelCommand(output, context);
+    return de_UpdateApnsVoipChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

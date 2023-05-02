@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListSecurityKeysRequest,
-  ListSecurityKeysRequestFilterSensitiveLog,
-  ListSecurityKeysResponse,
-  ListSecurityKeysResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListSecurityKeysCommand,
-  serializeAws_restJson1ListSecurityKeysCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSecurityKeysRequest, ListSecurityKeysResponse } from "../models/models_1";
+import { de_ListSecurityKeysCommand, se_ListSecurityKeysCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityKeysCommand}.
  */
 export interface ListSecurityKeysCommandInput extends ListSecurityKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityKeysCommand}.
  */
 export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all security keys associated with the instance.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse,
  * import { ConnectClient, ListSecurityKeysCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListSecurityKeysCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListSecurityKeysRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSecurityKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityKeysCommandInput - {@link ListSecurityKeysCommandInput}
+ * @returns {@link ListSecurityKeysCommandOutput}
  * @see {@link ListSecurityKeysCommandInput} for command's `input` shape.
  * @see {@link ListSecurityKeysCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListSecurityKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class ListSecurityKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSecurityKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSecurityKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class ListSecurityKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecurityKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSecurityKeysCommand(input, context);
+    return se_ListSecurityKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecurityKeysCommandOutput> {
-    return deserializeAws_restJson1ListSecurityKeysCommand(output, context);
+    return de_ListSecurityKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

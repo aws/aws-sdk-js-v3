@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetPolicyVersionRequest,
-  GetPolicyVersionRequestFilterSensitiveLog,
-  GetPolicyVersionResponse,
-  GetPolicyVersionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1GetPolicyVersionCommand,
-  serializeAws_restJson1GetPolicyVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPolicyVersionRequest, GetPolicyVersionResponse } from "../models/models_1";
+import { de_GetPolicyVersionCommand, se_GetPolicyVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPolicyVersionCommand}.
  */
 export interface GetPolicyVersionCommandInput extends GetPolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPolicyVersionCommand}.
  */
 export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified policy version.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPolicyVersion</a> action.</p>
  * @example
@@ -43,10 +40,16 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * import { IoTClient, GetPolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetPolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // GetPolicyVersionRequest
+ *   policyName: "STRING_VALUE", // required
+ *   policyVersionId: "STRING_VALUE", // required
+ * };
  * const command = new GetPolicyVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPolicyVersionCommandInput - {@link GetPolicyVersionCommandInput}
+ * @returns {@link GetPolicyVersionCommandOutput}
  * @see {@link GetPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link GetPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +91,9 @@ export class GetPolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class GetPolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPolicyVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPolicyVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class GetPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPolicyVersionCommand(input, context);
+    return se_GetPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyVersionCommandOutput> {
-    return deserializeAws_restJson1GetPolicyVersionCommand(output, context);
+    return de_GetPolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

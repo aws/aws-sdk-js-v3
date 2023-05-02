@@ -8,7 +8,7 @@
     },
     "build:cjs": {
       "outputs": ["dist-cjs/**"],
-      "dependsOn": ["build:types", "^build:types"]
+      "dependsOn": ["^build:types"]
     },
     "build:docs": {
       "outputs": ["dist-cjs/**"],
@@ -30,7 +30,9 @@
       "outputs": ["dist-types/ts3.4/**"],
       "dependsOn": ["^build:types:downlevel"]
     },
-    "clean": {},
+    "clean": {
+      "cache": false
+    },
     "generate:client": {
       "outputs": ["src/**", "package.json", "README.md"],
       "inputs": []

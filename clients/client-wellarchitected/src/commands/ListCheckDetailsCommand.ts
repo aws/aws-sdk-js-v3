@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCheckDetailsInput,
-  ListCheckDetailsInputFilterSensitiveLog,
-  ListCheckDetailsOutput,
-  ListCheckDetailsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCheckDetailsCommand,
-  serializeAws_restJson1ListCheckDetailsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCheckDetailsInput, ListCheckDetailsOutput } from "../models/models_0";
+import { de_ListCheckDetailsCommand, se_ListCheckDetailsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCheckDetailsCommand}.
  */
 export interface ListCheckDetailsCommandInput extends ListCheckDetailsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListCheckDetailsCommand}.
  */
 export interface ListCheckDetailsCommandOutput extends ListCheckDetailsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List of Trusted Advisor check details by account related to the workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListCheckDetailsCommandOutput extends ListCheckDetailsOutput, _
  * import { WellArchitectedClient, ListCheckDetailsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListCheckDetailsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListCheckDetailsInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   LensArn: "STRING_VALUE", // required
+ *   PillarId: "STRING_VALUE", // required
+ *   QuestionId: "STRING_VALUE", // required
+ *   ChoiceId: "STRING_VALUE", // required
+ * };
  * const command = new ListCheckDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCheckDetailsCommandInput - {@link ListCheckDetailsCommandInput}
+ * @returns {@link ListCheckDetailsCommandOutput}
  * @see {@link ListCheckDetailsCommandInput} for command's `input` shape.
  * @see {@link ListCheckDetailsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +92,9 @@ export class ListCheckDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCheckDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +123,8 @@ export class ListCheckDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCheckDetailsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCheckDetailsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +134,18 @@ export class ListCheckDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCheckDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCheckDetailsCommand(input, context);
+    return se_ListCheckDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCheckDetailsCommandOutput> {
-    return deserializeAws_restJson1ListCheckDetailsCommand(output, context);
+    return de_ListCheckDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

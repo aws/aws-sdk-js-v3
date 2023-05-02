@@ -15,22 +15,24 @@ import {
 
 import {
   DeleteInstanceAccessControlAttributeConfigurationRequest,
-  DeleteInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog,
   DeleteInstanceAccessControlAttributeConfigurationResponse,
-  DeleteInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommand,
-  serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommand,
+  de_DeleteInstanceAccessControlAttributeConfigurationCommand,
+  se_DeleteInstanceAccessControlAttributeConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceAccessControlAttributeConfigurationCommand}.
  */
 export interface DeleteInstanceAccessControlAttributeConfigurationCommandInput
   extends DeleteInstanceAccessControlAttributeConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceAccessControlAttributeConfigurationCommand}.
  */
 export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
@@ -38,6 +40,7 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the attributes-based access control (ABAC) feature for the specified IAM Identity Center
  *       instance and deletes all of the attribute mappings that have been configured. Once deleted,
  *       any attributes that are received from an identity source and any custom attributes you have
@@ -48,10 +51,15 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
  * import { SSOAdminClient, DeleteInstanceAccessControlAttributeConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DeleteInstanceAccessControlAttributeConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // DeleteInstanceAccessControlAttributeConfigurationRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceAccessControlAttributeConfigurationCommandInput - {@link DeleteInstanceAccessControlAttributeConfigurationCommandInput}
+ * @returns {@link DeleteInstanceAccessControlAttributeConfigurationCommandOutput}
  * @see {@link DeleteInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -98,6 +106,9 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceAccessControlAttributeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +143,8 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,18 +154,24 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommand(input, context);
+    return se_DeleteInstanceAccessControlAttributeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInstanceAccessControlAttributeConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommand(output, context);
+    return de_DeleteInstanceAccessControlAttributeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

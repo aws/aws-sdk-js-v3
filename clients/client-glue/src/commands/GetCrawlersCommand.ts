@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetCrawlersRequest,
-  GetCrawlersRequestFilterSensitiveLog,
-  GetCrawlersResponse,
-  GetCrawlersResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetCrawlersCommand,
-  serializeAws_json1_1GetCrawlersCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCrawlersRequest, GetCrawlersResponse } from "../models/models_1";
+import { de_GetCrawlersCommand, se_GetCrawlersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCrawlersCommand}.
  */
 export interface GetCrawlersCommandInput extends GetCrawlersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCrawlersCommand}.
  */
 export interface GetCrawlersCommandOutput extends GetCrawlersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves metadata for all crawlers defined in the customer
  *       account.</p>
  * @example
@@ -43,10 +40,16 @@ export interface GetCrawlersCommandOutput extends GetCrawlersResponse, __Metadat
  * import { GlueClient, GetCrawlersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetCrawlersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetCrawlersRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetCrawlersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCrawlersCommandInput - {@link GetCrawlersCommandInput}
+ * @returns {@link GetCrawlersCommandOutput}
  * @see {@link GetCrawlersCommandInput} for command's `input` shape.
  * @see {@link GetCrawlersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -73,6 +76,9 @@ export class GetCrawlersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCrawlersCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +105,8 @@ export class GetCrawlersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCrawlersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCrawlersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +116,18 @@ export class GetCrawlersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCrawlersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCrawlersCommand(input, context);
+    return se_GetCrawlersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCrawlersCommandOutput> {
-    return deserializeAws_json1_1GetCrawlersCommand(output, context);
+    return de_GetCrawlersCommand(output, context);
   }
 
   // Start section: command_body_extra

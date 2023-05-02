@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateTaskTemplateRequest,
-  CreateTaskTemplateRequestFilterSensitiveLog,
-  CreateTaskTemplateResponse,
-  CreateTaskTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTaskTemplateCommand,
-  serializeAws_restJson1CreateTaskTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateTaskTemplateRequest, CreateTaskTemplateResponse } from "../models/models_0";
+import { de_CreateTaskTemplateCommand, se_CreateTaskTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTaskTemplateCommand}.
  */
 export interface CreateTaskTemplateCommandInput extends CreateTaskTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTaskTemplateCommand}.
  */
 export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new task template in the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,65 @@ export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateRespo
  * import { ConnectClient, CreateTaskTemplateCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateTaskTemplateCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // CreateTaskTemplateRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ContactFlowId: "STRING_VALUE",
+ *   Constraints: { // TaskTemplateConstraints
+ *     RequiredFields: [ // RequiredTaskTemplateFields
+ *       { // RequiredFieldInfo
+ *         Id: { // TaskTemplateFieldIdentifier
+ *           Name: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     ReadOnlyFields: [ // ReadOnlyTaskTemplateFields
+ *       { // ReadOnlyFieldInfo
+ *         Id: {
+ *           Name: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     InvisibleFields: [ // InvisibleTaskTemplateFields
+ *       { // InvisibleFieldInfo
+ *         Id: {
+ *           Name: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   Defaults: { // TaskTemplateDefaults
+ *     DefaultFieldValues: [ // TaskTemplateDefaultFieldValueList
+ *       { // TaskTemplateDefaultFieldValue
+ *         Id: {
+ *           Name: "STRING_VALUE",
+ *         },
+ *         DefaultValue: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Status: "ACTIVE" || "INACTIVE",
+ *   Fields: [ // TaskTemplateFields // required
+ *     { // TaskTemplateField
+ *       Id: {
+ *         Name: "STRING_VALUE",
+ *       },
+ *       Description: "STRING_VALUE",
+ *       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL",
+ *       SingleSelectOptions: [ // SingleSelectOptions
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateTaskTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTaskTemplateCommandInput - {@link CreateTaskTemplateCommandInput}
+ * @returns {@link CreateTaskTemplateCommandOutput}
  * @see {@link CreateTaskTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateTaskTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +139,9 @@ export class CreateTaskTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTaskTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +170,8 @@ export class CreateTaskTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTaskTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTaskTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +181,18 @@ export class CreateTaskTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTaskTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTaskTemplateCommand(input, context);
+    return se_CreateTaskTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTaskTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateTaskTemplateCommand(output, context);
+    return de_CreateTaskTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

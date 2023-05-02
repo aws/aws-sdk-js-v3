@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  DeleteNodegroupRequest,
-  DeleteNodegroupRequestFilterSensitiveLog,
-  DeleteNodegroupResponse,
-  DeleteNodegroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteNodegroupCommand,
-  serializeAws_restJson1DeleteNodegroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteNodegroupRequest, DeleteNodegroupResponse } from "../models/models_0";
+import { de_DeleteNodegroupCommand, se_DeleteNodegroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNodegroupCommand}.
  */
 export interface DeleteNodegroupCommandInput extends DeleteNodegroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNodegroupCommand}.
  */
 export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon EKS node group for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, _
  * import { EKSClient, DeleteNodegroupCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DeleteNodegroupCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // DeleteNodegroupRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   nodegroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNodegroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNodegroupCommandInput - {@link DeleteNodegroupCommandInput}
+ * @returns {@link DeleteNodegroupCommandOutput}
  * @see {@link DeleteNodegroupCommandInput} for command's `input` shape.
  * @see {@link DeleteNodegroupCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -93,6 +96,9 @@ export class DeleteNodegroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNodegroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DeleteNodegroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNodegroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNodegroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class DeleteNodegroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNodegroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNodegroupCommand(input, context);
+    return se_DeleteNodegroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNodegroupCommandOutput> {
-    return deserializeAws_restJson1DeleteNodegroupCommand(output, context);
+    return de_DeleteNodegroupCommand(output, context);
   }
 
   // Start section: command_body_extra

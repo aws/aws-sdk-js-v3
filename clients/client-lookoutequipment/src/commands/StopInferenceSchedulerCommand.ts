@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  StopInferenceSchedulerRequest,
-  StopInferenceSchedulerRequestFilterSensitiveLog,
-  StopInferenceSchedulerResponse,
-  StopInferenceSchedulerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0StopInferenceSchedulerCommand,
-  serializeAws_json1_0StopInferenceSchedulerCommand,
-} from "../protocols/Aws_json1_0";
+import { StopInferenceSchedulerRequest, StopInferenceSchedulerResponse } from "../models/models_0";
+import { de_StopInferenceSchedulerCommand, se_StopInferenceSchedulerCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link StopInferenceSchedulerCommand}.
  */
 export interface StopInferenceSchedulerCommandInput extends StopInferenceSchedulerRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopInferenceSchedulerCommand}.
  */
 export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an inference scheduler. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
  * import { LookoutEquipmentClient, StopInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, StopInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // StopInferenceSchedulerRequest
+ *   InferenceSchedulerName: "STRING_VALUE", // required
+ * };
  * const command = new StopInferenceSchedulerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopInferenceSchedulerCommandInput - {@link StopInferenceSchedulerCommandInput}
+ * @returns {@link StopInferenceSchedulerCommandOutput}
  * @see {@link StopInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link StopInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -92,6 +94,9 @@ export class StopInferenceSchedulerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopInferenceSchedulerCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +125,8 @@ export class StopInferenceSchedulerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopInferenceSchedulerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopInferenceSchedulerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +136,18 @@ export class StopInferenceSchedulerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StopInferenceSchedulerCommand(input, context);
+    return se_StopInferenceSchedulerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInferenceSchedulerCommandOutput> {
-    return deserializeAws_json1_0StopInferenceSchedulerCommand(output, context);
+    return de_StopInferenceSchedulerCommand(output, context);
   }
 
   // Start section: command_body_extra

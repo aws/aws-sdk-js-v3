@@ -16,20 +16,22 @@ import {
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import {
   DescribeAnomalyDetectionExecutionsRequest,
-  DescribeAnomalyDetectionExecutionsRequestFilterSensitiveLog,
   DescribeAnomalyDetectionExecutionsResponse,
-  DescribeAnomalyDetectionExecutionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeAnomalyDetectionExecutionsCommand,
-  serializeAws_restJson1DescribeAnomalyDetectionExecutionsCommand,
+  de_DescribeAnomalyDetectionExecutionsCommand,
+  se_DescribeAnomalyDetectionExecutionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAnomalyDetectionExecutionsCommand}.
  */
 export interface DescribeAnomalyDetectionExecutionsCommandInput extends DescribeAnomalyDetectionExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAnomalyDetectionExecutionsCommand}.
  */
 export interface DescribeAnomalyDetectionExecutionsCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeAnomalyDetectionExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the status of the specified anomaly detection jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,18 @@ export interface DescribeAnomalyDetectionExecutionsCommandOutput
  * import { LookoutMetricsClient, DescribeAnomalyDetectionExecutionsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, DescribeAnomalyDetectionExecutionsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = { // DescribeAnomalyDetectionExecutionsRequest
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   Timestamp: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAnomalyDetectionExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAnomalyDetectionExecutionsCommandInput - {@link DescribeAnomalyDetectionExecutionsCommandInput}
+ * @returns {@link DescribeAnomalyDetectionExecutionsCommandOutput}
  * @see {@link DescribeAnomalyDetectionExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAnomalyDetectionExecutionsCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -87,6 +98,9 @@ export class DescribeAnomalyDetectionExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnomalyDetectionExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +129,8 @@ export class DescribeAnomalyDetectionExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAnomalyDetectionExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAnomalyDetectionExecutionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +140,24 @@ export class DescribeAnomalyDetectionExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAnomalyDetectionExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAnomalyDetectionExecutionsCommand(input, context);
+    return se_DescribeAnomalyDetectionExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAnomalyDetectionExecutionsCommandOutput> {
-    return deserializeAws_restJson1DescribeAnomalyDetectionExecutionsCommand(output, context);
+    return de_DescribeAnomalyDetectionExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

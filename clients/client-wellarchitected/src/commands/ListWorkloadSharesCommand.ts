@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorkloadSharesInput,
-  ListWorkloadSharesInputFilterSensitiveLog,
-  ListWorkloadSharesOutput,
-  ListWorkloadSharesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorkloadSharesCommand,
-  serializeAws_restJson1ListWorkloadSharesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWorkloadSharesInput, ListWorkloadSharesOutput } from "../models/models_0";
+import { de_ListWorkloadSharesCommand, se_ListWorkloadSharesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkloadSharesCommand}.
  */
 export interface ListWorkloadSharesCommandInput extends ListWorkloadSharesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkloadSharesCommand}.
  */
 export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the workload shares associated with the workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutpu
  * import { WellArchitectedClient, ListWorkloadSharesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListWorkloadSharesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListWorkloadSharesInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   SharedWithPrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ * };
  * const command = new ListWorkloadSharesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkloadSharesCommandInput - {@link ListWorkloadSharesCommandInput}
+ * @returns {@link ListWorkloadSharesCommandOutput}
  * @see {@link ListWorkloadSharesCommandInput} for command's `input` shape.
  * @see {@link ListWorkloadSharesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +90,9 @@ export class ListWorkloadSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkloadSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +121,8 @@ export class ListWorkloadSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkloadSharesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkloadSharesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +132,18 @@ export class ListWorkloadSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkloadSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorkloadSharesCommand(input, context);
+    return se_ListWorkloadSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkloadSharesCommandOutput> {
-    return deserializeAws_restJson1ListWorkloadSharesCommand(output, context);
+    return de_ListWorkloadSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

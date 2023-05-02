@@ -20,21 +20,24 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   DescribeChannelMembershipForAppInstanceUserRequest,
-  DescribeChannelMembershipForAppInstanceUserRequestFilterSensitiveLog,
   DescribeChannelMembershipForAppInstanceUserResponse,
   DescribeChannelMembershipForAppInstanceUserResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand,
-  serializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand,
+  de_DescribeChannelMembershipForAppInstanceUserCommand,
+  se_DescribeChannelMembershipForAppInstanceUserCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChannelMembershipForAppInstanceUserCommand}.
  */
 export interface DescribeChannelMembershipForAppInstanceUserCommandInput
   extends DescribeChannelMembershipForAppInstanceUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChannelMembershipForAppInstanceUserCommand}.
  */
 export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
@@ -42,11 +45,12 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the details of a channel based on the membership of the specified
- *             <code>AppInstanceUser</code>.</p>
+ *             <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -55,10 +59,17 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  * import { ChimeSDKMessagingClient, DescribeChannelMembershipForAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DescribeChannelMembershipForAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // DescribeChannelMembershipForAppInstanceUserRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   AppInstanceUserArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new DescribeChannelMembershipForAppInstanceUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelMembershipForAppInstanceUserCommandInput - {@link DescribeChannelMembershipForAppInstanceUserCommandInput}
+ * @returns {@link DescribeChannelMembershipForAppInstanceUserCommandOutput}
  * @see {@link DescribeChannelMembershipForAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelMembershipForAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -100,6 +111,9 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelMembershipForAppInstanceUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,7 +148,7 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChannelMembershipForAppInstanceUserRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelMembershipForAppInstanceUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -145,18 +159,24 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeChannelMembershipForAppInstanceUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand(input, context);
+    return se_DescribeChannelMembershipForAppInstanceUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand(output, context);
+    return de_DescribeChannelMembershipForAppInstanceUserCommand(output, context);
   }
 
   // Start section: command_body_extra

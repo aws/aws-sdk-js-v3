@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateLinkInput,
-  CreateLinkInputFilterSensitiveLog,
-  CreateLinkOutput,
-  CreateLinkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateLinkInput, CreateLinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1CreateLinkCommand,
-  serializeAws_restJson1CreateLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateLinkCommand, se_CreateLinkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLinkCommand}.
  */
 export interface CreateLinkCommandInput extends CreateLinkInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateLinkCommand}.
  */
 export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a link between a source account and a sink that you have created in a monitoring account.</p>
  *         <p>Before you create a link, you must create a sink in the monitoring account and create a
  *             sink policy in that account. The sink policy must permit the source account to link to it. You
@@ -51,10 +48,22 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * import { OAMClient, CreateLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, CreateLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = { // CreateLinkInput
+ *   LabelTemplate: "STRING_VALUE", // required
+ *   ResourceTypes: [ // ResourceTypesInput // required
+ *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace",
+ *   ],
+ *   SinkIdentifier: "STRING_VALUE", // required
+ *   Tags: { // TagMapInput
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLinkCommandInput - {@link CreateLinkCommandInput}
+ * @returns {@link CreateLinkCommandOutput}
  * @see {@link CreateLinkCommandInput} for command's `input` shape.
  * @see {@link CreateLinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -93,6 +102,9 @@ export class CreateLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +131,8 @@ export class CreateLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLinkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLinkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +142,18 @@ export class CreateLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLinkCommand(input, context);
+    return se_CreateLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLinkCommandOutput> {
-    return deserializeAws_restJson1CreateLinkCommand(output, context);
+    return de_CreateLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

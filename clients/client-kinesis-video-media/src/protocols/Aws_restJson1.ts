@@ -1,10 +1,12 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectString as __expectString,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -25,7 +27,10 @@ import {
   StartSelector,
 } from "../models/models_0";
 
-export const serializeAws_restJson1GetMediaCommand = async (
+/**
+ * serializeAws_restJson1GetMediaCommand
+ */
+export const se_GetMediaCommand = async (
   input: GetMediaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -35,13 +40,13 @@ export const serializeAws_restJson1GetMediaCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getMedia";
   let body: any;
-  body = JSON.stringify({
-    ...(input.StartSelector != null && {
-      StartSelector: serializeAws_restJson1StartSelector(input.StartSelector, context),
-    }),
-    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      StartSelector: (_) => se_StartSelector(_, context),
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -53,12 +58,15 @@ export const serializeAws_restJson1GetMediaCommand = async (
   });
 };
 
-export const deserializeAws_restJson1GetMediaCommand = async (
+/**
+ * deserializeAws_restJson1GetMediaCommand
+ */
+export const de_GetMediaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetMediaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetMediaCommandError(output, context);
+    return de_GetMediaCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -70,7 +78,10 @@ export const deserializeAws_restJson1GetMediaCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetMediaCommandError = async (
+/**
+ * deserializeAws_restJson1GetMediaCommandError
+ */
+const de_GetMediaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMediaCommandOutput> => {
@@ -82,43 +93,46 @@ const deserializeAws_restJson1GetMediaCommandError = async (
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideomedia#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "ConnectionLimitExceededException":
     case "com.amazonaws.kinesisvideomedia#ConnectionLimitExceededException":
-      throw await deserializeAws_restJson1ConnectionLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ConnectionLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideomedia#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.kinesisvideomedia#InvalidEndpointException":
-      throw await deserializeAws_restJson1InvalidEndpointExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideomedia#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideomedia#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1ClientLimitExceededExceptionRes
+ */
+const de_ClientLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClientLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ClientLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -126,15 +140,19 @@ const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConnectionLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ConnectionLimitExceededExceptionRes
+ */
+const de_ConnectionLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConnectionLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConnectionLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -142,15 +160,19 @@ const deserializeAws_restJson1ConnectionLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidArgumentExceptionRes
+ */
+const de_InvalidArgumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -158,15 +180,19 @@ const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidEndpointExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidEndpointExceptionRes
+ */
+const de_InvalidEndpointExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidEndpointException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidEndpointException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -174,15 +200,19 @@ const deserializeAws_restJson1InvalidEndpointExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1NotAuthorizedExceptionRes
+ */
+const de_NotAuthorizedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotAuthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -190,15 +220,19 @@ const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -206,13 +240,16 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1StartSelector = (input: StartSelector, context: __SerdeContext): any => {
-  return {
-    ...(input.AfterFragmentNumber != null && { AfterFragmentNumber: input.AfterFragmentNumber }),
-    ...(input.ContinuationToken != null && { ContinuationToken: input.ContinuationToken }),
-    ...(input.StartSelectorType != null && { StartSelectorType: input.StartSelectorType }),
-    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
-  };
+/**
+ * serializeAws_restJson1StartSelector
+ */
+const se_StartSelector = (input: StartSelector, context: __SerdeContext): any => {
+  return take(input, {
+    AfterFragmentNumber: [],
+    ContinuationToken: [],
+    StartSelectorType: [],
+    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

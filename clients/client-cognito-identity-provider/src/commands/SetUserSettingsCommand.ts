@@ -22,23 +22,24 @@ import {
   SetUserSettingsRequest,
   SetUserSettingsRequestFilterSensitiveLog,
   SetUserSettingsResponse,
-  SetUserSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetUserSettingsCommand,
-  serializeAws_json1_1SetUserSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetUserSettingsCommand, se_SetUserSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetUserSettingsCommand}.
  */
 export interface SetUserSettingsCommandInput extends SetUserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetUserSettingsCommand}.
  */
 export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <i>This action is no longer supported.</i> You can use it to configure
  *             only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
@@ -49,10 +50,21 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  * import { CognitoIdentityProviderClient, SetUserSettingsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SetUserSettingsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // SetUserSettingsRequest
+ *   AccessToken: "STRING_VALUE", // required
+ *   MFAOptions: [ // MFAOptionListType // required
+ *     { // MFAOptionType
+ *       DeliveryMedium: "SMS" || "EMAIL",
+ *       AttributeName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new SetUserSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetUserSettingsCommandInput - {@link SetUserSettingsCommandInput}
+ * @returns {@link SetUserSettingsCommandOutput}
  * @see {@link SetUserSettingsCommandInput} for command's `input` shape.
  * @see {@link SetUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -102,6 +114,9 @@ export class SetUserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,7 +146,7 @@ export class SetUserSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SetUserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetUserSettingsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +156,18 @@ export class SetUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetUserSettingsCommand(input, context);
+    return se_SetUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUserSettingsCommandOutput> {
-    return deserializeAws_json1_1SetUserSettingsCommand(output, context);
+    return de_SetUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

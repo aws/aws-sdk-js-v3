@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeInstanceEventWindowsRequest,
-  DescribeInstanceEventWindowsRequestFilterSensitiveLog,
-  DescribeInstanceEventWindowsResult,
-  DescribeInstanceEventWindowsResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeInstanceEventWindowsCommand,
-  serializeAws_ec2DescribeInstanceEventWindowsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeInstanceEventWindowsRequest, DescribeInstanceEventWindowsResult } from "../models/models_3";
+import { de_DescribeInstanceEventWindowsCommand, se_DescribeInstanceEventWindowsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceEventWindowsCommand}.
  */
 export interface DescribeInstanceEventWindowsCommandInput extends DescribeInstanceEventWindowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceEventWindowsCommand}.
  */
 export interface DescribeInstanceEventWindowsCommandOutput
@@ -37,6 +33,7 @@ export interface DescribeInstanceEventWindowsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified event windows or all event windows.</p>
  *          <p>If you specify event window IDs, the output includes information for only the specified
  *          event windows. If you specify filters, the output includes information for only those event
@@ -52,10 +49,28 @@ export interface DescribeInstanceEventWindowsCommandOutput
  * import { EC2Client, DescribeInstanceEventWindowsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeInstanceEventWindowsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeInstanceEventWindowsRequest
+ *   DryRun: true || false,
+ *   InstanceEventWindowIds: [ // InstanceEventWindowIdSet
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeInstanceEventWindowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceEventWindowsCommandInput - {@link DescribeInstanceEventWindowsCommandInput}
+ * @returns {@link DescribeInstanceEventWindowsCommandOutput}
  * @see {@link DescribeInstanceEventWindowsCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceEventWindowsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -79,6 +94,9 @@ export class DescribeInstanceEventWindowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceEventWindowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +125,8 @@ export class DescribeInstanceEventWindowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceEventWindowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceEventWindowsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +136,21 @@ export class DescribeInstanceEventWindowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceEventWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInstanceEventWindowsCommand(input, context);
+    return se_DescribeInstanceEventWindowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceEventWindowsCommandOutput> {
-    return deserializeAws_ec2DescribeInstanceEventWindowsCommand(output, context);
+    return de_DescribeInstanceEventWindowsCommand(output, context);
   }
 
   // Start section: command_body_extra

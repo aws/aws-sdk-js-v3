@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ApplicationDescriptionMessage,
-  ApplicationDescriptionMessageFilterSensitiveLog,
-  CreateApplicationMessage,
-  CreateApplicationMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateApplicationCommand,
-  serializeAws_queryCreateApplicationCommand,
-} from "../protocols/Aws_query";
+import { ApplicationDescriptionMessage, CreateApplicationMessage } from "../models/models_0";
+import { de_CreateApplicationCommand, se_CreateApplicationCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandInput extends CreateApplicationMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandOutput extends ApplicationDescriptionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application that has one configuration template named <code>default</code>
  *       and no application versions.</p>
  * @example
@@ -43,10 +40,37 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  * import { ElasticBeanstalkClient, CreateApplicationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CreateApplicationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // CreateApplicationMessage
+ *   ApplicationName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ResourceLifecycleConfig: { // ApplicationResourceLifecycleConfig
+ *     ServiceRole: "STRING_VALUE",
+ *     VersionLifecycleConfig: { // ApplicationVersionLifecycleConfig
+ *       MaxCountRule: { // MaxCountRule
+ *         Enabled: true || false, // required
+ *         MaxCount: Number("int"),
+ *         DeleteSourceFromS3: true || false,
+ *       },
+ *       MaxAgeRule: { // MaxAgeRule
+ *         Enabled: true || false, // required
+ *         MaxAgeInDays: Number("int"),
+ *         DeleteSourceFromS3: true || false,
+ *       },
+ *     },
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
+ * @returns {@link CreateApplicationCommandOutput}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -96,6 +120,9 @@ export class CreateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +151,8 @@ export class CreateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ApplicationDescriptionMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +162,18 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateApplicationCommand(input, context);
+    return se_CreateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
-    return deserializeAws_queryCreateApplicationCommand(output, context);
+    return de_CreateApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

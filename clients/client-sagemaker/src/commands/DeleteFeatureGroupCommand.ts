@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteFeatureGroupRequest, DeleteFeatureGroupRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteFeatureGroupCommand,
-  serializeAws_json1_1DeleteFeatureGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteFeatureGroupRequest } from "../models/models_1";
+import { de_DeleteFeatureGroupCommand, se_DeleteFeatureGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFeatureGroupCommand}.
  */
 export interface DeleteFeatureGroupCommandInput extends DeleteFeatureGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFeatureGroupCommand}.
  */
 export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the <code>FeatureGroup</code> and any data that was written to the
  *             <code>OnlineStore</code> of the <code>FeatureGroup</code>. Data cannot be accessed from
  *          the <code>OnlineStore</code> immediately after <code>DeleteFeatureGroup</code> is called. </p>
@@ -42,10 +44,15 @@ export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteFeatureGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteFeatureGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteFeatureGroupRequest
+ *   FeatureGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFeatureGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFeatureGroupCommandInput - {@link DeleteFeatureGroupCommandInput}
+ * @returns {@link DeleteFeatureGroupCommandOutput}
  * @see {@link DeleteFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteFeatureGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteFeatureGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFeatureGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +110,8 @@ export class DeleteFeatureGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFeatureGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +121,18 @@ export class DeleteFeatureGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFeatureGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFeatureGroupCommand(input, context);
+    return se_DeleteFeatureGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFeatureGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteFeatureGroupCommand(output, context);
+    return de_DeleteFeatureGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

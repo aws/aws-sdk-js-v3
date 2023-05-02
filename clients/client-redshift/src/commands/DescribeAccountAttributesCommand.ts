@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AccountAttributeList,
-  AccountAttributeListFilterSensitiveLog,
-  DescribeAccountAttributesMessage,
-  DescribeAccountAttributesMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAccountAttributesCommand,
-  serializeAws_queryDescribeAccountAttributesCommand,
-} from "../protocols/Aws_query";
+import { AccountAttributeList, DescribeAccountAttributesMessage } from "../models/models_0";
+import { de_DescribeAccountAttributesCommand, se_DescribeAccountAttributesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountAttributesCommand}.
  */
 export interface DescribeAccountAttributesCommandInput extends DescribeAccountAttributesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountAttributesCommand}.
  */
 export interface DescribeAccountAttributesCommandOutput extends AccountAttributeList, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of attributes attached to an account</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * import { RedshiftClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeAccountAttributesMessage
+ *   AttributeNames: [ // AttributeNameList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
+ * @returns {@link DescribeAccountAttributesCommandOutput}
  * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -69,6 +73,9 @@ export class DescribeAccountAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +104,8 @@ export class DescribeAccountAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountAttributesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: AccountAttributeListFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +115,21 @@ export class DescribeAccountAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAccountAttributesCommand(input, context);
+    return se_DescribeAccountAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountAttributesCommandOutput> {
-    return deserializeAws_queryDescribeAccountAttributesCommand(output, context);
+    return de_DescribeAccountAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

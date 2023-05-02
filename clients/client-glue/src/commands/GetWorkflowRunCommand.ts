@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetWorkflowRunRequest,
-  GetWorkflowRunRequestFilterSensitiveLog,
-  GetWorkflowRunResponse,
-  GetWorkflowRunResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetWorkflowRunCommand,
-  serializeAws_json1_1GetWorkflowRunCommand,
-} from "../protocols/Aws_json1_1";
+import { GetWorkflowRunRequest, GetWorkflowRunResponse } from "../models/models_1";
+import { de_GetWorkflowRunCommand, se_GetWorkflowRunCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkflowRunCommand}.
  */
 export interface GetWorkflowRunCommandInput extends GetWorkflowRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkflowRunCommand}.
  */
 export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the metadata for a given workflow run. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __M
  * import { GlueClient, GetWorkflowRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetWorkflowRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetWorkflowRunRequest
+ *   Name: "STRING_VALUE", // required
+ *   RunId: "STRING_VALUE", // required
+ *   IncludeGraph: true || false,
+ * };
  * const command = new GetWorkflowRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkflowRunCommandInput - {@link GetWorkflowRunCommandInput}
+ * @returns {@link GetWorkflowRunCommandOutput}
  * @see {@link GetWorkflowRunCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +85,9 @@ export class GetWorkflowRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkflowRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class GetWorkflowRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkflowRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkflowRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class GetWorkflowRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkflowRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetWorkflowRunCommand(input, context);
+    return se_GetWorkflowRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowRunCommandOutput> {
-    return deserializeAws_json1_1GetWorkflowRunCommand(output, context);
+    return de_GetWorkflowRunCommand(output, context);
   }
 
   // Start section: command_body_extra

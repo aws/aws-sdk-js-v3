@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteServerCatalogRequest,
-  DeleteServerCatalogRequestFilterSensitiveLog,
-  DeleteServerCatalogResponse,
-  DeleteServerCatalogResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteServerCatalogCommand,
-  serializeAws_json1_1DeleteServerCatalogCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteServerCatalogRequest, DeleteServerCatalogResponse } from "../models/models_0";
+import { de_DeleteServerCatalogCommand, se_DeleteServerCatalogCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServerCatalogCommand}.
  */
 export interface DeleteServerCatalogCommandInput extends DeleteServerCatalogRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServerCatalogCommand}.
  */
 export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all servers from your server catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogRes
  * import { SMSClient, DeleteServerCatalogCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteServerCatalogCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {};
  * const command = new DeleteServerCatalogCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServerCatalogCommandInput - {@link DeleteServerCatalogCommandInput}
+ * @returns {@link DeleteServerCatalogCommandOutput}
  * @see {@link DeleteServerCatalogCommandInput} for command's `input` shape.
  * @see {@link DeleteServerCatalogCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -82,6 +82,9 @@ export class DeleteServerCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServerCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +113,8 @@ export class DeleteServerCatalogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServerCatalogRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteServerCatalogResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +124,18 @@ export class DeleteServerCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServerCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteServerCatalogCommand(input, context);
+    return se_DeleteServerCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServerCatalogCommandOutput> {
-    return deserializeAws_json1_1DeleteServerCatalogCommand(output, context);
+    return de_DeleteServerCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

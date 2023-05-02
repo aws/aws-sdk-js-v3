@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListApplicationsInput,
-  ListApplicationsInputFilterSensitiveLog,
-  ListApplicationsOutput,
-  ListApplicationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListApplicationsCommand,
-  serializeAws_restJson1ListApplicationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListApplicationsInput, ListApplicationsOutput } from "../models/models_0";
+import { de_ListApplicationsCommand, se_ListApplicationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationsCommand}.
  */
 export interface ListApplicationsCommandInput extends ListApplicationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationsCommand}.
  */
 export interface ListApplicationsCommandOutput extends ListApplicationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the applications registered with AWS Systems Manager for SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * import { SsmSapClient, ListApplicationsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListApplicationsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // ListApplicationsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
+ * @returns {@link ListApplicationsCommandOutput}
  * @see {@link ListApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -78,6 +81,9 @@ export class ListApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class ListApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class ListApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApplicationsCommand(input, context);
+    return se_ListApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationsCommandOutput> {
-    return deserializeAws_restJson1ListApplicationsCommand(output, context);
+    return de_ListApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

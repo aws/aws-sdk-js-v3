@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import {
-  StartJobRunRequest,
-  StartJobRunRequestFilterSensitiveLog,
-  StartJobRunResponse,
-  StartJobRunResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartJobRunCommand,
-  serializeAws_restJson1StartJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { StartJobRunRequest, StartJobRunRequestFilterSensitiveLog, StartJobRunResponse } from "../models/models_0";
+import { de_StartJobRunCommand, se_StartJobRunCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartJobRunCommand}.
  */
 export interface StartJobRunCommandInput extends StartJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartJobRunCommand}.
  */
 export interface StartJobRunCommandOutput extends StartJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or
  *          SparkSQL query, that you submit to Amazon EMR on EKS.</p>
  * @example
@@ -43,10 +40,71 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * import { EMRContainersClient, StartJobRunCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, StartJobRunCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = { // StartJobRunRequest
+ *   name: "STRING_VALUE",
+ *   virtualClusterId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ *   executionRoleArn: "STRING_VALUE",
+ *   releaseLabel: "STRING_VALUE",
+ *   jobDriver: { // JobDriver
+ *     sparkSubmitJobDriver: { // SparkSubmitJobDriver
+ *       entryPoint: "STRING_VALUE", // required
+ *       entryPointArguments: [ // EntryPointArguments
+ *         "STRING_VALUE",
+ *       ],
+ *       sparkSubmitParameters: "STRING_VALUE",
+ *     },
+ *     sparkSqlJobDriver: { // SparkSqlJobDriver
+ *       entryPoint: "STRING_VALUE",
+ *       sparkSqlParameters: "STRING_VALUE",
+ *     },
+ *   },
+ *   configurationOverrides: { // ConfigurationOverrides
+ *     applicationConfiguration: [ // ConfigurationList
+ *       { // Configuration
+ *         classification: "STRING_VALUE", // required
+ *         properties: { // SensitivePropertiesMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         configurations: [
+ *           {
+ *             classification: "STRING_VALUE", // required
+ *             properties: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             configurations: "<ConfigurationList>",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     monitoringConfiguration: { // MonitoringConfiguration
+ *       persistentAppUI: "ENABLED" || "DISABLED",
+ *       cloudWatchMonitoringConfiguration: { // CloudWatchMonitoringConfiguration
+ *         logGroupName: "STRING_VALUE", // required
+ *         logStreamNamePrefix: "STRING_VALUE",
+ *       },
+ *       s3MonitoringConfiguration: { // S3MonitoringConfiguration
+ *         logUri: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   jobTemplateId: "STRING_VALUE",
+ *   jobTemplateParameters: { // TemplateParameterInputMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   retryPolicyConfiguration: { // RetryPolicyConfiguration
+ *     maxAttempts: Number("int"), // required
+ *   },
+ * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartJobRunCommandInput - {@link StartJobRunCommandInput}
+ * @returns {@link StartJobRunCommandOutput}
  * @see {@link StartJobRunCommandInput} for command's `input` shape.
  * @see {@link StartJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -79,6 +137,9 @@ export class StartJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,7 +167,7 @@ export class StartJobRunCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartJobRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartJobRunResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +177,18 @@ export class StartJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartJobRunCommand(input, context);
+    return se_StartJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartJobRunCommandOutput> {
-    return deserializeAws_restJson1StartJobRunCommand(output, context);
+    return de_StartJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

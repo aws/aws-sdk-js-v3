@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyVpnTunnelCertificateRequest,
-  ModifyVpnTunnelCertificateRequestFilterSensitiveLog,
-  ModifyVpnTunnelCertificateResult,
-  ModifyVpnTunnelCertificateResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVpnTunnelCertificateCommand,
-  serializeAws_ec2ModifyVpnTunnelCertificateCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyVpnTunnelCertificateRequest, ModifyVpnTunnelCertificateResult } from "../models/models_6";
+import { de_ModifyVpnTunnelCertificateCommand, se_ModifyVpnTunnelCertificateCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpnTunnelCertificateCommand}.
  */
 export interface ModifyVpnTunnelCertificateCommandInput extends ModifyVpnTunnelCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpnTunnelCertificateCommand}.
  */
 export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnelCertificateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the VPN tunnel endpoint certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnel
  * import { EC2Client, ModifyVpnTunnelCertificateCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpnTunnelCertificateCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVpnTunnelCertificateRequest
+ *   VpnConnectionId: "STRING_VALUE", // required
+ *   VpnTunnelOutsideIpAddress: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyVpnTunnelCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpnTunnelCertificateCommandInput - {@link ModifyVpnTunnelCertificateCommandInput}
+ * @returns {@link ModifyVpnTunnelCertificateCommandOutput}
  * @see {@link ModifyVpnTunnelCertificateCommandInput} for command's `input` shape.
  * @see {@link ModifyVpnTunnelCertificateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +73,9 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpnTunnelCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +104,8 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpnTunnelCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpnTunnelCertificateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +115,21 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVpnTunnelCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpnTunnelCertificateCommand(input, context);
+    return se_ModifyVpnTunnelCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpnTunnelCertificateCommandOutput> {
-    return deserializeAws_ec2ModifyVpnTunnelCertificateCommand(output, context);
+    return de_ModifyVpnTunnelCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,21 +20,23 @@ import {
   DetectEntitiesResponse,
   DetectEntitiesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectEntitiesCommand,
-  serializeAws_json1_1DetectEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectEntitiesCommand, se_DetectEntitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectEntitiesCommand}.
  */
 export interface DetectEntitiesCommandInput extends DetectEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectEntitiesCommand}.
  */
 export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects named entities in input text when you use the pre-trained model.
  *       Detects custom entities if you have a custom entity recognition model. </p>
  *          <p>
@@ -57,10 +59,25 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * import { ComprehendClient, DetectEntitiesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectEntitiesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DetectEntitiesRequest
+ *   Text: "STRING_VALUE",
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW",
+ *   EndpointArn: "STRING_VALUE",
+ *   Bytes: "BLOB_VALUE",
+ *   DocumentReaderConfig: { // DocumentReaderConfig
+ *     DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
+ *     DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ *     FeatureTypes: [ // ListOfDocumentReadFeatureTypes
+ *       "TABLES" || "FORMS",
+ *     ],
+ *   },
+ * };
  * const command = new DetectEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectEntitiesCommandInput - {@link DetectEntitiesCommandInput}
+ * @returns {@link DetectEntitiesCommandOutput}
  * @see {@link DetectEntitiesCommandInput} for command's `input` shape.
  * @see {@link DetectEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -104,6 +121,9 @@ export class DetectEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,12 +163,18 @@ export class DetectEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectEntitiesCommand(input, context);
+    return se_DetectEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectEntitiesCommandOutput> {
-    return deserializeAws_json1_1DetectEntitiesCommand(output, context);
+    return de_DetectEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

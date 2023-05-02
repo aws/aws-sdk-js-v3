@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetTransitGatewayPolicyTableAssociationsRequest,
-  GetTransitGatewayPolicyTableAssociationsRequestFilterSensitiveLog,
   GetTransitGatewayPolicyTableAssociationsResult,
-  GetTransitGatewayPolicyTableAssociationsResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommand,
-  serializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommand,
+  de_GetTransitGatewayPolicyTableAssociationsCommand,
+  se_GetTransitGatewayPolicyTableAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetTransitGatewayPolicyTableAssociationsCommand}.
  */
 export interface GetTransitGatewayPolicyTableAssociationsCommandInput
   extends GetTransitGatewayPolicyTableAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTransitGatewayPolicyTableAssociationsCommand}.
  */
 export interface GetTransitGatewayPolicyTableAssociationsCommandOutput
@@ -38,6 +40,7 @@ export interface GetTransitGatewayPolicyTableAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the transit gateway policy table associations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,26 @@ export interface GetTransitGatewayPolicyTableAssociationsCommandOutput
  * import { EC2Client, GetTransitGatewayPolicyTableAssociationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetTransitGatewayPolicyTableAssociationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetTransitGatewayPolicyTableAssociationsRequest
+ *   TransitGatewayPolicyTableId: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new GetTransitGatewayPolicyTableAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTransitGatewayPolicyTableAssociationsCommandInput - {@link GetTransitGatewayPolicyTableAssociationsCommandInput}
+ * @returns {@link GetTransitGatewayPolicyTableAssociationsCommandOutput}
  * @see {@link GetTransitGatewayPolicyTableAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayPolicyTableAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +91,9 @@ export class GetTransitGatewayPolicyTableAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTransitGatewayPolicyTableAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +128,8 @@ export class GetTransitGatewayPolicyTableAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTransitGatewayPolicyTableAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTransitGatewayPolicyTableAssociationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +139,24 @@ export class GetTransitGatewayPolicyTableAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTransitGatewayPolicyTableAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommand(input, context);
+    return se_GetTransitGatewayPolicyTableAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayPolicyTableAssociationsCommandOutput> {
-    return deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommand(output, context);
+    return de_GetTransitGatewayPolicyTableAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { RejectTransitGatewayVpcAttachmentRequest, RejectTransitGatewayVpcAttachmentResult } from "../models/models_6";
 import {
-  RejectTransitGatewayVpcAttachmentRequest,
-  RejectTransitGatewayVpcAttachmentRequestFilterSensitiveLog,
-  RejectTransitGatewayVpcAttachmentResult,
-  RejectTransitGatewayVpcAttachmentResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommand,
-  serializeAws_ec2RejectTransitGatewayVpcAttachmentCommand,
+  de_RejectTransitGatewayVpcAttachmentCommand,
+  se_RejectTransitGatewayVpcAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RejectTransitGatewayVpcAttachmentCommand}.
  */
 export interface RejectTransitGatewayVpcAttachmentCommandInput extends RejectTransitGatewayVpcAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectTransitGatewayVpcAttachmentCommand}.
  */
 export interface RejectTransitGatewayVpcAttachmentCommandOutput
@@ -37,6 +36,7 @@ export interface RejectTransitGatewayVpcAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects a request to attach a VPC to a transit gateway.</p>
  *          <p>The VPC attachment must be in the <code>pendingAcceptance</code> state.
  *          Use <a>DescribeTransitGatewayVpcAttachments</a> to view your pending VPC attachment requests.
@@ -47,10 +47,16 @@ export interface RejectTransitGatewayVpcAttachmentCommandOutput
  * import { EC2Client, RejectTransitGatewayVpcAttachmentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RejectTransitGatewayVpcAttachmentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RejectTransitGatewayVpcAttachmentRequest
+ *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new RejectTransitGatewayVpcAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectTransitGatewayVpcAttachmentCommandInput - {@link RejectTransitGatewayVpcAttachmentCommandInput}
+ * @returns {@link RejectTransitGatewayVpcAttachmentCommandOutput}
  * @see {@link RejectTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link RejectTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +80,9 @@ export class RejectTransitGatewayVpcAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectTransitGatewayVpcAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +111,8 @@ export class RejectTransitGatewayVpcAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectTransitGatewayVpcAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectTransitGatewayVpcAttachmentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +122,24 @@ export class RejectTransitGatewayVpcAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RejectTransitGatewayVpcAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2RejectTransitGatewayVpcAttachmentCommand(input, context);
+    return se_RejectTransitGatewayVpcAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectTransitGatewayVpcAttachmentCommandOutput> {
-    return deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommand(output, context);
+    return de_RejectTransitGatewayVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

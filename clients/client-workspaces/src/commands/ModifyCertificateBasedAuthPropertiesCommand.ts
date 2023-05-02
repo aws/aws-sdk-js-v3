@@ -15,21 +15,23 @@ import {
 
 import {
   ModifyCertificateBasedAuthPropertiesRequest,
-  ModifyCertificateBasedAuthPropertiesRequestFilterSensitiveLog,
   ModifyCertificateBasedAuthPropertiesResult,
-  ModifyCertificateBasedAuthPropertiesResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand,
-  serializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand,
+  de_ModifyCertificateBasedAuthPropertiesCommand,
+  se_ModifyCertificateBasedAuthPropertiesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCertificateBasedAuthPropertiesCommand}.
  */
 export interface ModifyCertificateBasedAuthPropertiesCommandInput extends ModifyCertificateBasedAuthPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCertificateBasedAuthPropertiesCommand}.
  */
 export interface ModifyCertificateBasedAuthPropertiesCommandOutput
@@ -37,6 +39,7 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the properties of the certificate-based authentication you want
  *          to use with your WorkSpaces.</p>
  * @example
@@ -45,10 +48,22 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
  * import { WorkSpacesClient, ModifyCertificateBasedAuthPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyCertificateBasedAuthPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // ModifyCertificateBasedAuthPropertiesRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
+ *     Status: "DISABLED" || "ENABLED",
+ *     CertificateAuthorityArn: "STRING_VALUE",
+ *   },
+ *   PropertiesToDelete: [ // DeletableCertificateBasedAuthPropertiesList
+ *     "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN",
+ *   ],
+ * };
  * const command = new ModifyCertificateBasedAuthPropertiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCertificateBasedAuthPropertiesCommandInput - {@link ModifyCertificateBasedAuthPropertiesCommandInput}
+ * @returns {@link ModifyCertificateBasedAuthPropertiesCommandOutput}
  * @see {@link ModifyCertificateBasedAuthPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyCertificateBasedAuthPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -84,6 +99,9 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCertificateBasedAuthPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +130,8 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCertificateBasedAuthPropertiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyCertificateBasedAuthPropertiesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +141,24 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyCertificateBasedAuthPropertiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand(input, context);
+    return se_ModifyCertificateBasedAuthPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand(output, context);
+    return de_ModifyCertificateBasedAuthPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

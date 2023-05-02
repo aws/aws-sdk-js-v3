@@ -91,6 +91,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateNodeCommandInput
   | CreateBackupCommandInput
@@ -112,6 +115,9 @@ export type ServiceInputTypes =
   | UpdateServerCommandInput
   | UpdateServerEngineAttributesCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateNodeCommandOutput
   | CreateBackupCommandOutput
@@ -133,6 +139,9 @@ export type ServiceOutputTypes =
   | UpdateServerCommandOutput
   | UpdateServerEngineAttributesCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -140,7 +149,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -249,11 +258,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type OpsWorksCMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -264,10 +276,15 @@ type OpsWorksCMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of OpsWorksCMClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of OpsWorksCMClient class constructor that set the region, credentials and other options.
  */
 export interface OpsWorksCMClientConfig extends OpsWorksCMClientConfigType {}
 
+/**
+ * @public
+ */
 type OpsWorksCMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -278,11 +295,14 @@ type OpsWorksCMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of OpsWorksCMClient class. This is resolved and normalized from the {@link OpsWorksCMClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of OpsWorksCMClient class. This is resolved and normalized from the {@link OpsWorksCMClientConfig | constructor configuration interface}.
  */
 export interface OpsWorksCMClientResolvedConfig extends OpsWorksCMClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>AWS OpsWorks CM</fullname>
  *          <p>AWS OpsWorks for configuration management (CM) is a service that runs and manages
  *       configuration management servers. You can use AWS OpsWorks CM to create and manage AWS

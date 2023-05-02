@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociateElasticIpRequest, AssociateElasticIpRequestFilterSensitiveLog } from "../models/models_0";
+import { AssociateElasticIpRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1AssociateElasticIpCommand,
-  serializeAws_json1_1AssociateElasticIpCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateElasticIpCommand, se_AssociateElasticIpCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateElasticIpCommand}.
  */
 export interface AssociateElasticIpCommandInput extends AssociateElasticIpRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateElasticIpCommand}.
  */
 export interface AssociateElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates one of the stack's registered Elastic IP addresses with a specified instance. The
  *       address must first be registered with the stack by calling <a>RegisterElasticIp</a>. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
@@ -45,10 +47,16 @@ export interface AssociateElasticIpCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, AssociateElasticIpCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, AssociateElasticIpCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // AssociateElasticIpRequest
+ *   ElasticIp: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE",
+ * };
  * const command = new AssociateElasticIpCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateElasticIpCommandInput - {@link AssociateElasticIpCommandInput}
+ * @returns {@link AssociateElasticIpCommandOutput}
  * @see {@link AssociateElasticIpCommandInput} for command's `input` shape.
  * @see {@link AssociateElasticIpCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -78,6 +86,9 @@ export class AssociateElasticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateElasticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +117,8 @@ export class AssociateElasticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateElasticIpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +128,18 @@ export class AssociateElasticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateElasticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateElasticIpCommand(input, context);
+    return se_AssociateElasticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateElasticIpCommandOutput> {
-    return deserializeAws_json1_1AssociateElasticIpCommand(output, context);
+    return de_AssociateElasticIpCommand(output, context);
   }
 
   // Start section: command_body_extra

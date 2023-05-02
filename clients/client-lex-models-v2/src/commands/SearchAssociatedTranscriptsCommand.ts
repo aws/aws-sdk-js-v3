@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { SearchAssociatedTranscriptsRequest, SearchAssociatedTranscriptsResponse } from "../models/models_0";
 import {
-  SearchAssociatedTranscriptsRequest,
-  SearchAssociatedTranscriptsRequestFilterSensitiveLog,
-  SearchAssociatedTranscriptsResponse,
-  SearchAssociatedTranscriptsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchAssociatedTranscriptsCommand,
-  serializeAws_restJson1SearchAssociatedTranscriptsCommand,
+  de_SearchAssociatedTranscriptsCommand,
+  se_SearchAssociatedTranscriptsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchAssociatedTranscriptsCommand}.
  */
 export interface SearchAssociatedTranscriptsCommandInput extends SearchAssociatedTranscriptsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchAssociatedTranscriptsCommand}.
  */
 export interface SearchAssociatedTranscriptsCommandOutput
@@ -37,6 +36,7 @@ export interface SearchAssociatedTranscriptsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Search for associated transcripts that meet the specified
  *          criteria.</p>
  * @example
@@ -45,10 +45,29 @@ export interface SearchAssociatedTranscriptsCommandOutput
  * import { LexModelsV2Client, SearchAssociatedTranscriptsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, SearchAssociatedTranscriptsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // SearchAssociatedTranscriptsRequest
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   botRecommendationId: "STRING_VALUE", // required
+ *   searchOrder: "Ascending" || "Descending",
+ *   filters: [ // AssociatedTranscriptFilters // required
+ *     { // AssociatedTranscriptFilter
+ *       name: "IntentId" || "SlotTypeId", // required
+ *       values: [ // FilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextIndex: Number("int"),
+ * };
  * const command = new SearchAssociatedTranscriptsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchAssociatedTranscriptsCommandInput - {@link SearchAssociatedTranscriptsCommandInput}
+ * @returns {@link SearchAssociatedTranscriptsCommandOutput}
  * @see {@link SearchAssociatedTranscriptsCommandInput} for command's `input` shape.
  * @see {@link SearchAssociatedTranscriptsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -91,6 +110,9 @@ export class SearchAssociatedTranscriptsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchAssociatedTranscriptsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +141,8 @@ export class SearchAssociatedTranscriptsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchAssociatedTranscriptsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchAssociatedTranscriptsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +152,21 @@ export class SearchAssociatedTranscriptsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchAssociatedTranscriptsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchAssociatedTranscriptsCommand(input, context);
+    return se_SearchAssociatedTranscriptsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchAssociatedTranscriptsCommandOutput> {
-    return deserializeAws_restJson1SearchAssociatedTranscriptsCommand(output, context);
+    return de_SearchAssociatedTranscriptsCommand(output, context);
   }
 
   // Start section: command_body_extra

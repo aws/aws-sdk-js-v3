@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/core-theme-documentation-generator",
-  "version": "3.296.0",
+  "version": "3.320.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -44,7 +44,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/core-theme-documentation-generator",
   "repository": {

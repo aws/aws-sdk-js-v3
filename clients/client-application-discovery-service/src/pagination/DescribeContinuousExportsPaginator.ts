@@ -10,7 +10,7 @@ import {
 import { ApplicationDiscoveryServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ApplicationDiscoveryServiceClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeContinuousExportsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeContinuousExports(
   config: ApplicationDiscoveryServicePaginationConfiguration,
   input: DescribeContinuousExportsCommandInput,

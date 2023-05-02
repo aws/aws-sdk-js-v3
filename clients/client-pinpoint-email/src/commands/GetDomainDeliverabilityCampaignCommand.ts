@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDomainDeliverabilityCampaignRequest,
-  GetDomainDeliverabilityCampaignRequestFilterSensitiveLog,
-  GetDomainDeliverabilityCampaignResponse,
-  GetDomainDeliverabilityCampaignResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDomainDeliverabilityCampaignRequest, GetDomainDeliverabilityCampaignResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand,
-  serializeAws_restJson1GetDomainDeliverabilityCampaignCommand,
+  de_GetDomainDeliverabilityCampaignCommand,
+  se_GetDomainDeliverabilityCampaignCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainDeliverabilityCampaignCommand}.
  */
 export interface GetDomainDeliverabilityCampaignCommandInput extends GetDomainDeliverabilityCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainDeliverabilityCampaignCommand}.
  */
 export interface GetDomainDeliverabilityCampaignCommandOutput
@@ -37,6 +36,7 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve all the deliverability data for a specific campaign. This data is available
  *             for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code>
@@ -47,10 +47,15 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
  * import { PinpointEmailClient, GetDomainDeliverabilityCampaignCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetDomainDeliverabilityCampaignCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // GetDomainDeliverabilityCampaignRequest
+ *   CampaignId: "STRING_VALUE", // required
+ * };
  * const command = new GetDomainDeliverabilityCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainDeliverabilityCampaignCommandInput - {@link GetDomainDeliverabilityCampaignCommandInput}
+ * @returns {@link GetDomainDeliverabilityCampaignCommandOutput}
  * @see {@link GetDomainDeliverabilityCampaignCommandInput} for command's `input` shape.
  * @see {@link GetDomainDeliverabilityCampaignCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -83,6 +88,9 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainDeliverabilityCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +119,8 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainDeliverabilityCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainDeliverabilityCampaignResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +130,24 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDomainDeliverabilityCampaignCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDomainDeliverabilityCampaignCommand(input, context);
+    return se_GetDomainDeliverabilityCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDomainDeliverabilityCampaignCommandOutput> {
-    return deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand(output, context);
+    return de_GetDomainDeliverabilityCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

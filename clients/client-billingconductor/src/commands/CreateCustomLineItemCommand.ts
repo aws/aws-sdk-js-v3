@@ -18,23 +18,24 @@ import {
   CreateCustomLineItemInput,
   CreateCustomLineItemInputFilterSensitiveLog,
   CreateCustomLineItemOutput,
-  CreateCustomLineItemOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCustomLineItemCommand,
-  serializeAws_restJson1CreateCustomLineItemCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateCustomLineItemCommand, se_CreateCustomLineItemCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomLineItemCommand}.
  */
 export interface CreateCustomLineItemCommandInput extends CreateCustomLineItemInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomLineItemCommand}.
  */
 export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a custom line item that can be used to create a one-time fixed charge that can be applied to a single billing group for the current or previous billing period. The one-time fixed charge is either a fee or discount.
  *     </p>
@@ -44,10 +45,37 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  * import { BillingconductorClient, CreateCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, CreateCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // CreateCustomLineItemInput
+ *   ClientToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   BillingGroupArn: "STRING_VALUE", // required
+ *   BillingPeriodRange: { // CustomLineItemBillingPeriodRange
+ *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
+ *     ExclusiveEndBillingPeriod: "STRING_VALUE",
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ChargeDetails: { // CustomLineItemChargeDetails
+ *     Flat: { // CustomLineItemFlatChargeDetails
+ *       ChargeValue: Number("double"), // required
+ *     },
+ *     Percentage: { // CustomLineItemPercentageChargeDetails
+ *       PercentageValue: Number("double"), // required
+ *       AssociatedValues: [ // CustomLineItemAssociationsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Type: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateCustomLineItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomLineItemCommandInput - {@link CreateCustomLineItemCommandInput}
+ * @returns {@link CreateCustomLineItemCommandOutput}
  * @see {@link CreateCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link CreateCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -94,6 +122,9 @@ export class CreateCustomLineItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomLineItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,7 +154,7 @@ export class CreateCustomLineItemCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateCustomLineItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomLineItemOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +164,18 @@ export class CreateCustomLineItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomLineItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCustomLineItemCommand(input, context);
+    return se_CreateCustomLineItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomLineItemCommandOutput> {
-    return deserializeAws_restJson1CreateCustomLineItemCommand(output, context);
+    return de_CreateCustomLineItemCommand(output, context);
   }
 
   // Start section: command_body_extra

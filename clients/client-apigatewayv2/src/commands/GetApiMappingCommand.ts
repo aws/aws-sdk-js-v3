@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetApiMappingRequest,
-  GetApiMappingRequestFilterSensitiveLog,
-  GetApiMappingResponse,
-  GetApiMappingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApiMappingCommand,
-  serializeAws_restJson1GetApiMappingCommand,
-} from "../protocols/Aws_restJson1";
+import { GetApiMappingRequest, GetApiMappingResponse } from "../models/models_0";
+import { de_GetApiMappingCommand, se_GetApiMappingCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApiMappingCommand}.
  */
 export interface GetApiMappingCommandInput extends GetApiMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApiMappingCommand}.
  */
 export interface GetApiMappingCommandOutput extends GetApiMappingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an API mapping.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetApiMappingCommandOutput extends GetApiMappingResponse, __Met
  * import { ApiGatewayV2Client, GetApiMappingCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetApiMappingCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetApiMappingRequest
+ *   ApiMappingId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new GetApiMappingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApiMappingCommandInput - {@link GetApiMappingCommandInput}
+ * @returns {@link GetApiMappingCommandOutput}
  * @see {@link GetApiMappingCommandInput} for command's `input` shape.
  * @see {@link GetApiMappingCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -78,6 +81,9 @@ export class GetApiMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApiMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class GetApiMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApiMappingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApiMappingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class GetApiMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApiMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApiMappingCommand(input, context);
+    return se_GetApiMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApiMappingCommandOutput> {
-    return deserializeAws_restJson1GetApiMappingCommand(output, context);
+    return de_GetApiMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

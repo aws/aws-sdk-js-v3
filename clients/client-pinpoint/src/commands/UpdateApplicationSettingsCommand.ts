@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateApplicationSettingsRequest,
-  UpdateApplicationSettingsRequestFilterSensitiveLog,
-  UpdateApplicationSettingsResponse,
-  UpdateApplicationSettingsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateApplicationSettingsRequest, UpdateApplicationSettingsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateApplicationSettingsCommand,
-  serializeAws_restJson1UpdateApplicationSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateApplicationSettingsCommand, se_UpdateApplicationSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationSettingsCommand}.
  */
 export interface UpdateApplicationSettingsCommandInput extends UpdateApplicationSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationSettingsCommand}.
  */
 export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicationSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,35 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * import { PinpointClient, UpdateApplicationSettingsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateApplicationSettingsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateApplicationSettingsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   WriteApplicationSettingsRequest: { // WriteApplicationSettingsRequest
+ *     CampaignHook: { // CampaignHook
+ *       LambdaFunctionName: "STRING_VALUE",
+ *       Mode: "DELIVERY" || "FILTER",
+ *       WebUrl: "STRING_VALUE",
+ *     },
+ *     CloudWatchMetricsEnabled: true || false,
+ *     EventTaggingEnabled: true || false,
+ *     Limits: { // CampaignLimits
+ *       Daily: Number("int"),
+ *       MaximumDuration: Number("int"),
+ *       MessagesPerSecond: Number("int"),
+ *       Total: Number("int"),
+ *       Session: Number("int"),
+ *     },
+ *     QuietTime: { // QuietTime
+ *       End: "STRING_VALUE",
+ *       Start: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateApplicationSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationSettingsCommandInput - {@link UpdateApplicationSettingsCommandInput}
+ * @returns {@link UpdateApplicationSettingsCommandOutput}
  * @see {@link UpdateApplicationSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationSettingsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +112,9 @@ export class UpdateApplicationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +143,8 @@ export class UpdateApplicationSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +154,21 @@ export class UpdateApplicationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApplicationSettingsCommand(input, context);
+    return se_UpdateApplicationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApplicationSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateApplicationSettingsCommand(output, context);
+    return de_UpdateApplicationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResourcePolicyRequest,
-  GetResourcePolicyRequestFilterSensitiveLog,
-  GetResourcePolicyResponse,
-  GetResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetResourcePolicyCommand,
-  serializeAws_restJson1GetResourcePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetResourcePolicyCommand, se_GetResourcePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePolicyCommand}.
  */
 export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePolicyCommand}.
  */
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a resource policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * import { NetworkManagerClient, GetResourcePolicyCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetResourcePolicyCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
+ * @returns {@link GetResourcePolicyCommandOutput}
  * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -81,6 +83,9 @@ export class GetResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class GetResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class GetResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourcePolicyCommand(input, context);
+    return se_GetResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePolicyCommandOutput> {
-    return deserializeAws_restJson1GetResourcePolicyCommand(output, context);
+    return de_GetResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetAccountPasswordPolicyResponse,
-  GetAccountPasswordPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetAccountPasswordPolicyCommand,
-  serializeAws_queryGetAccountPasswordPolicyCommand,
-} from "../protocols/Aws_query";
+import { GetAccountPasswordPolicyResponse } from "../models/models_0";
+import { de_GetAccountPasswordPolicyCommand, se_GetAccountPasswordPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountPasswordPolicyCommand}.
  */
 export interface GetAccountPasswordPolicyCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountPasswordPolicyCommand}.
  */
 export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswordPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the password policy for the Amazon Web Services account. This tells you the complexity
  *             requirements and mandatory rotation periods for the IAM user passwords in your account.
  *             For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
@@ -43,10 +42,13 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  * import { IAMClient, GetAccountPasswordPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetAccountPasswordPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {};
  * const command = new GetAccountPasswordPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountPasswordPolicyCommandInput - {@link GetAccountPasswordPolicyCommandInput}
+ * @returns {@link GetAccountPasswordPolicyCommandOutput}
  * @see {@link GetAccountPasswordPolicyCommandInput} for command's `input` shape.
  * @see {@link GetAccountPasswordPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -103,6 +105,9 @@ export class GetAccountPasswordPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountPasswordPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +136,8 @@ export class GetAccountPasswordPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetAccountPasswordPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +147,18 @@ export class GetAccountPasswordPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountPasswordPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetAccountPasswordPolicyCommand(input, context);
+    return se_GetAccountPasswordPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountPasswordPolicyCommandOutput> {
-    return deserializeAws_queryGetAccountPasswordPolicyCommand(output, context);
+    return de_GetAccountPasswordPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

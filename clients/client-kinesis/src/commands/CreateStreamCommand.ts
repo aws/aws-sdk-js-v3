@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { CreateStreamInput, CreateStreamInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateStreamCommand,
-  serializeAws_json1_1CreateStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateStreamInput } from "../models/models_0";
+import { de_CreateStreamCommand, se_CreateStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamCommand}.
  */
 export interface CreateStreamCommandInput extends CreateStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamCommand}.
  */
 export interface CreateStreamCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Kinesis data stream. A stream captures and transports data records that are
  *             continuously emitted from different data sources or <i>producers</i>.
  *             Scale-out within a stream is explicitly supported by means of shards, which are uniquely
@@ -80,10 +82,19 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, CreateStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, CreateStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // CreateStreamInput
+ *   StreamName: "STRING_VALUE", // required
+ *   ShardCount: Number("int"),
+ *   StreamModeDetails: { // StreamModeDetails
+ *     StreamMode: "PROVISIONED" || "ON_DEMAND", // required
+ *   },
+ * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
+ * @returns {@link CreateStreamCommandOutput}
  * @see {@link CreateStreamCommandInput} for command's `input` shape.
  * @see {@link CreateStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -119,6 +130,9 @@ export class CreateStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +159,8 @@ export class CreateStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +170,18 @@ export class CreateStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStreamCommand(input, context);
+    return se_CreateStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamCommandOutput> {
-    return deserializeAws_json1_1CreateStreamCommand(output, context);
+    return de_CreateStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

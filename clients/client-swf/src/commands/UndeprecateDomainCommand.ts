@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UndeprecateDomainInput, UndeprecateDomainInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0UndeprecateDomainCommand,
-  serializeAws_json1_0UndeprecateDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { UndeprecateDomainInput } from "../models/models_0";
+import { de_UndeprecateDomainCommand, se_UndeprecateDomainCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link UndeprecateDomainCommand}.
  */
 export interface UndeprecateDomainCommandInput extends UndeprecateDomainInput {}
 /**
+ * @public
+ *
  * The output of {@link UndeprecateDomainCommand}.
  */
 export interface UndeprecateDomainCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Undeprecates a previously deprecated domain. After a domain has been undeprecated it can be used
  *       to create new workflow executions or register new types.</p>
  *          <note>
@@ -65,10 +67,15 @@ export interface UndeprecateDomainCommandOutput extends __MetadataBearer {}
  * import { SWFClient, UndeprecateDomainCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, UndeprecateDomainCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // UndeprecateDomainInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new UndeprecateDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UndeprecateDomainCommandInput - {@link UndeprecateDomainCommandInput}
+ * @returns {@link UndeprecateDomainCommandOutput}
  * @see {@link UndeprecateDomainCommandInput} for command's `input` shape.
  * @see {@link UndeprecateDomainCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -101,6 +108,9 @@ export class UndeprecateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UndeprecateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +139,8 @@ export class UndeprecateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UndeprecateDomainInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +150,18 @@ export class UndeprecateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UndeprecateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UndeprecateDomainCommand(input, context);
+    return se_UndeprecateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UndeprecateDomainCommandOutput> {
-    return deserializeAws_json1_0UndeprecateDomainCommand(output, context);
+    return de_UndeprecateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

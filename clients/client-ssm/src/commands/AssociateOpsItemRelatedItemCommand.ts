@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateOpsItemRelatedItemRequest,
-  AssociateOpsItemRelatedItemRequestFilterSensitiveLog,
-  AssociateOpsItemRelatedItemResponse,
-  AssociateOpsItemRelatedItemResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateOpsItemRelatedItemCommand,
-  serializeAws_json1_1AssociateOpsItemRelatedItemCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateOpsItemRelatedItemRequest, AssociateOpsItemRelatedItemResponse } from "../models/models_0";
+import { de_AssociateOpsItemRelatedItemCommand, se_AssociateOpsItemRelatedItemCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateOpsItemRelatedItemCommand}.
  */
 export interface AssociateOpsItemRelatedItemCommandInput extends AssociateOpsItemRelatedItemRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateOpsItemRelatedItemCommand}.
  */
 export interface AssociateOpsItemRelatedItemCommandOutput
@@ -37,6 +33,7 @@ export interface AssociateOpsItemRelatedItemCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an
  *    Incident Manager incident or analysis with an OpsItem. Incident Manager and OpsCenter are capabilities of
  *    Amazon Web Services Systems Manager.</p>
@@ -46,10 +43,18 @@ export interface AssociateOpsItemRelatedItemCommandOutput
  * import { SSMClient, AssociateOpsItemRelatedItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, AssociateOpsItemRelatedItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // AssociateOpsItemRelatedItemRequest
+ *   OpsItemId: "STRING_VALUE", // required
+ *   AssociationType: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE", // required
+ *   ResourceUri: "STRING_VALUE", // required
+ * };
  * const command = new AssociateOpsItemRelatedItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateOpsItemRelatedItemCommandInput - {@link AssociateOpsItemRelatedItemCommandInput}
+ * @returns {@link AssociateOpsItemRelatedItemCommandOutput}
  * @see {@link AssociateOpsItemRelatedItemCommandInput} for command's `input` shape.
  * @see {@link AssociateOpsItemRelatedItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -90,6 +95,9 @@ export class AssociateOpsItemRelatedItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateOpsItemRelatedItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class AssociateOpsItemRelatedItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateOpsItemRelatedItemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateOpsItemRelatedItemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +137,21 @@ export class AssociateOpsItemRelatedItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateOpsItemRelatedItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateOpsItemRelatedItemCommand(input, context);
+    return se_AssociateOpsItemRelatedItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateOpsItemRelatedItemCommandOutput> {
-    return deserializeAws_json1_1AssociateOpsItemRelatedItemCommand(output, context);
+    return de_AssociateOpsItemRelatedItemCommand(output, context);
   }
 
   // Start section: command_body_extra

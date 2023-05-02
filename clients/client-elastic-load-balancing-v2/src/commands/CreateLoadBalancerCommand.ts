@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  CreateLoadBalancerInput,
-  CreateLoadBalancerInputFilterSensitiveLog,
-  CreateLoadBalancerOutput,
-  CreateLoadBalancerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateLoadBalancerCommand,
-  serializeAws_queryCreateLoadBalancerCommand,
-} from "../protocols/Aws_query";
+import { CreateLoadBalancerInput, CreateLoadBalancerOutput } from "../models/models_0";
+import { de_CreateLoadBalancerCommand, se_CreateLoadBalancerCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLoadBalancerCommand}.
  */
 export interface CreateLoadBalancerCommandInput extends CreateLoadBalancerInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateLoadBalancerCommand}.
  */
 export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
  *       Balancer.</p>
  *          <p>For more information, see the following:</p>
@@ -69,10 +66,39 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * import { ElasticLoadBalancingV2Client, CreateLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, CreateLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // CreateLoadBalancerInput
+ *   Name: "STRING_VALUE", // required
+ *   Subnets: [ // Subnets
+ *     "STRING_VALUE",
+ *   ],
+ *   SubnetMappings: [ // SubnetMappings
+ *     { // SubnetMapping
+ *       SubnetId: "STRING_VALUE",
+ *       AllocationId: "STRING_VALUE",
+ *       PrivateIPv4Address: "STRING_VALUE",
+ *       IPv6Address: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SecurityGroups: [ // SecurityGroups
+ *     "STRING_VALUE",
+ *   ],
+ *   Scheme: "internet-facing" || "internal",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Type: "application" || "network" || "gateway",
+ *   IpAddressType: "ipv4" || "dualstack",
+ *   CustomerOwnedIpv4Pool: "STRING_VALUE",
+ * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoadBalancerCommandInput - {@link CreateLoadBalancerCommandInput}
+ * @returns {@link CreateLoadBalancerCommandOutput}
  * @see {@link CreateLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -232,6 +258,9 @@ export class CreateLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -260,8 +289,8 @@ export class CreateLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLoadBalancerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLoadBalancerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -271,12 +300,18 @@ export class CreateLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateLoadBalancerCommand(input, context);
+    return se_CreateLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerCommandOutput> {
-    return deserializeAws_queryCreateLoadBalancerCommand(output, context);
+    return de_CreateLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

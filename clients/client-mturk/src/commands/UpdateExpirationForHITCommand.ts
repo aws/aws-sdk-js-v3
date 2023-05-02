@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateExpirationForHITRequest,
-  UpdateExpirationForHITRequestFilterSensitiveLog,
-  UpdateExpirationForHITResponse,
-  UpdateExpirationForHITResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateExpirationForHITRequest, UpdateExpirationForHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1UpdateExpirationForHITCommand,
-  serializeAws_json1_1UpdateExpirationForHITCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateExpirationForHITCommand, se_UpdateExpirationForHITCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateExpirationForHITCommand}.
  */
 export interface UpdateExpirationForHITCommandInput extends UpdateExpirationForHITRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateExpirationForHITCommand}.
  */
 export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationForHITResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>UpdateExpirationForHIT</code> operation allows you update the expiration time of a HIT.
  *             If you update it to a time in the past, the HIT will be immediately expired.
@@ -45,10 +42,16 @@ export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationFor
  * import { MTurkClient, UpdateExpirationForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, UpdateExpirationForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // UpdateExpirationForHITRequest
+ *   HITId: "STRING_VALUE", // required
+ *   ExpireAt: new Date("TIMESTAMP"), // required
+ * };
  * const command = new UpdateExpirationForHITCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateExpirationForHITCommandInput - {@link UpdateExpirationForHITCommandInput}
+ * @returns {@link UpdateExpirationForHITCommandOutput}
  * @see {@link UpdateExpirationForHITCommandInput} for command's `input` shape.
  * @see {@link UpdateExpirationForHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -78,6 +81,9 @@ export class UpdateExpirationForHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateExpirationForHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class UpdateExpirationForHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateExpirationForHITRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateExpirationForHITResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class UpdateExpirationForHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateExpirationForHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateExpirationForHITCommand(input, context);
+    return se_UpdateExpirationForHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExpirationForHITCommandOutput> {
-    return deserializeAws_json1_1UpdateExpirationForHITCommand(output, context);
+    return de_UpdateExpirationForHITCommand(output, context);
   }
 
   // Start section: command_body_extra

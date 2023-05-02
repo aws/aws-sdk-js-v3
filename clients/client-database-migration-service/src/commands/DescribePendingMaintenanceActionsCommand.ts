@@ -20,20 +20,22 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribePendingMaintenanceActionsMessage,
-  DescribePendingMaintenanceActionsMessageFilterSensitiveLog,
   DescribePendingMaintenanceActionsResponse,
-  DescribePendingMaintenanceActionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribePendingMaintenanceActionsCommand,
-  serializeAws_json1_1DescribePendingMaintenanceActionsCommand,
+  de_DescribePendingMaintenanceActionsCommand,
+  se_DescribePendingMaintenanceActionsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePendingMaintenanceActionsCommand}.
  */
 export interface DescribePendingMaintenanceActionsCommandInput extends DescribePendingMaintenanceActionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribePendingMaintenanceActionsCommand}.
  */
 export interface DescribePendingMaintenanceActionsCommandOutput
@@ -41,6 +43,7 @@ export interface DescribePendingMaintenanceActionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>For internal use only</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +51,25 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribePendingMaintenanceActionsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribePendingMaintenanceActionsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribePendingMaintenanceActionsMessage
+ *   ReplicationInstanceArn: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribePendingMaintenanceActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePendingMaintenanceActionsCommandInput - {@link DescribePendingMaintenanceActionsCommandInput}
+ * @returns {@link DescribePendingMaintenanceActionsCommandOutput}
  * @see {@link DescribePendingMaintenanceActionsCommandInput} for command's `input` shape.
  * @see {@link DescribePendingMaintenanceActionsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -78,6 +96,9 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePendingMaintenanceActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +127,8 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePendingMaintenanceActionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePendingMaintenanceActionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +138,24 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePendingMaintenanceActionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePendingMaintenanceActionsCommand(input, context);
+    return se_DescribePendingMaintenanceActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> {
-    return deserializeAws_json1_1DescribePendingMaintenanceActionsCommand(output, context);
+    return de_DescribePendingMaintenanceActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,39 +13,43 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAlarmRecommendationsRequest,
-  ListAlarmRecommendationsRequestFilterSensitiveLog,
-  ListAlarmRecommendationsResponse,
-  ListAlarmRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAlarmRecommendationsCommand,
-  serializeAws_restJson1ListAlarmRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAlarmRecommendationsRequest, ListAlarmRecommendationsResponse } from "../models/models_0";
+import { de_ListAlarmRecommendationsCommand, se_ListAlarmRecommendationsCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAlarmRecommendationsCommand}.
  */
 export interface ListAlarmRecommendationsCommandInput extends ListAlarmRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAlarmRecommendationsCommand}.
  */
 export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the alarm recommendations for an AWS Resilience Hub application.</p>
+ * @public
+ * <p>Lists the alarm recommendations for an Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, ListAlarmRecommendationsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAlarmRecommendationsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListAlarmRecommendationsRequest
+ *   assessmentArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAlarmRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAlarmRecommendationsCommandInput - {@link ListAlarmRecommendationsCommandInput}
+ * @returns {@link ListAlarmRecommendationsCommandOutput}
  * @see {@link ListAlarmRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListAlarmRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -56,7 +60,7 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -87,6 +91,9 @@ export class ListAlarmRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAlarmRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListAlarmRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAlarmRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAlarmRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class ListAlarmRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAlarmRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAlarmRecommendationsCommand(input, context);
+    return se_ListAlarmRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAlarmRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListAlarmRecommendationsCommand(output, context);
+    return de_ListAlarmRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

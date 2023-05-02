@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutMailboxPermissionsRequest,
-  PutMailboxPermissionsRequestFilterSensitiveLog,
-  PutMailboxPermissionsResponse,
-  PutMailboxPermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutMailboxPermissionsCommand,
-  serializeAws_json1_1PutMailboxPermissionsCommand,
-} from "../protocols/Aws_json1_1";
+import { PutMailboxPermissionsRequest, PutMailboxPermissionsResponse } from "../models/models_0";
+import { de_PutMailboxPermissionsCommand, se_PutMailboxPermissionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutMailboxPermissionsCommand}.
  */
 export interface PutMailboxPermissionsCommandInput extends PutMailboxPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutMailboxPermissionsCommand}.
  */
 export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets permissions for a user, group, or resource. This replaces any pre-existing
  *          permissions.</p>
  * @example
@@ -43,10 +40,20 @@ export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermission
  * import { WorkMailClient, PutMailboxPermissionsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutMailboxPermissionsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // PutMailboxPermissionsRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ *   GranteeId: "STRING_VALUE", // required
+ *   PermissionValues: [ // PermissionValues // required
+ *     "FULL_ACCESS" || "SEND_AS" || "SEND_ON_BEHALF",
+ *   ],
+ * };
  * const command = new PutMailboxPermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMailboxPermissionsCommandInput - {@link PutMailboxPermissionsCommandInput}
+ * @returns {@link PutMailboxPermissionsCommandOutput}
  * @see {@link PutMailboxPermissionsCommandInput} for command's `input` shape.
  * @see {@link PutMailboxPermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -89,6 +96,9 @@ export class PutMailboxPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMailboxPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class PutMailboxPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMailboxPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutMailboxPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +138,18 @@ export class PutMailboxPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMailboxPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutMailboxPermissionsCommand(input, context);
+    return se_PutMailboxPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMailboxPermissionsCommandOutput> {
-    return deserializeAws_json1_1PutMailboxPermissionsCommand(output, context);
+    return de_PutMailboxPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

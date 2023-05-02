@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -11,7 +11,8 @@ import {
   expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -40,13 +41,10 @@ import {
   BatchExecuteStatementInput,
   BatchExecuteStatementOutput,
   CancelStatementRequest,
-  CancelStatementResponse,
-  ColumnMetadata,
   DatabaseConnectionException,
   DescribeStatementRequest,
   DescribeStatementResponse,
   DescribeTableRequest,
-  DescribeTableResponse,
   ExecuteStatementException,
   ExecuteStatementInput,
   ExecuteStatementOutput,
@@ -55,170 +53,172 @@ import {
   GetStatementResultResponse,
   InternalServerException,
   ListDatabasesRequest,
-  ListDatabasesResponse,
   ListSchemasRequest,
-  ListSchemasResponse,
   ListStatementsRequest,
   ListStatementsResponse,
   ListTablesRequest,
-  ListTablesResponse,
   ResourceNotFoundException,
   SqlParameter,
   StatementData,
   SubStatementData,
-  TableMember,
   ValidationException,
 } from "../models/models_0";
 import { RedshiftDataServiceException as __BaseException } from "../models/RedshiftDataServiceException";
 
-export const serializeAws_json1_1BatchExecuteStatementCommand = async (
+/**
+ * serializeAws_json1_1BatchExecuteStatementCommand
+ */
+export const se_BatchExecuteStatementCommand = async (
   input: BatchExecuteStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.BatchExecuteStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchExecuteStatement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchExecuteStatementInput(input, context));
+  body = JSON.stringify(se_BatchExecuteStatementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CancelStatementCommand = async (
+/**
+ * serializeAws_json1_1CancelStatementCommand
+ */
+export const se_CancelStatementCommand = async (
   input: CancelStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.CancelStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelStatement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CancelStatementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeStatementCommand = async (
+/**
+ * serializeAws_json1_1DescribeStatementCommand
+ */
+export const se_DescribeStatementCommand = async (
   input: DescribeStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.DescribeStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStatement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeStatementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTableCommand = async (
+/**
+ * serializeAws_json1_1DescribeTableCommand
+ */
+export const se_DescribeTableCommand = async (
   input: DescribeTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.DescribeTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTable");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ExecuteStatementCommand = async (
+/**
+ * serializeAws_json1_1ExecuteStatementCommand
+ */
+export const se_ExecuteStatementCommand = async (
   input: ExecuteStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.ExecuteStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExecuteStatement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ExecuteStatementInput(input, context));
+  body = JSON.stringify(se_ExecuteStatementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetStatementResultCommand = async (
+/**
+ * serializeAws_json1_1GetStatementResultCommand
+ */
+export const se_GetStatementResultCommand = async (
   input: GetStatementResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.GetStatementResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetStatementResult");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetStatementResultRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDatabasesCommand = async (
+/**
+ * serializeAws_json1_1ListDatabasesCommand
+ */
+export const se_ListDatabasesCommand = async (
   input: ListDatabasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.ListDatabases",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatabases");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDatabasesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSchemasCommand = async (
+/**
+ * serializeAws_json1_1ListSchemasCommand
+ */
+export const se_ListSchemasCommand = async (
   input: ListSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.ListSchemas",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSchemas");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSchemasRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListStatementsCommand = async (
+/**
+ * serializeAws_json1_1ListStatementsCommand
+ */
+export const se_ListStatementsCommand = async (
   input: ListStatementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.ListStatements",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStatements");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListStatementsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTablesCommand = async (
+/**
+ * serializeAws_json1_1ListTablesCommand
+ */
+export const se_ListTablesCommand = async (
   input: ListTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.ListTables",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTables");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTablesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1BatchExecuteStatementCommand = async (
+/**
+ * deserializeAws_json1_1BatchExecuteStatementCommand
+ */
+export const de_BatchExecuteStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchExecuteStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchExecuteStatementCommandError(output, context);
+    return de_BatchExecuteStatementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchExecuteStatementOutput(data, context);
+  contents = de_BatchExecuteStatementOutput(data, context);
   const response: BatchExecuteStatementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchExecuteStatementCommandError = async (
+/**
+ * deserializeAws_json1_1BatchExecuteStatementCommandError
+ */
+const de_BatchExecuteStatementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchExecuteStatementCommandOutput> => {
@@ -230,42 +230,47 @@ const deserializeAws_json1_1BatchExecuteStatementCommandError = async (
   switch (errorCode) {
     case "ActiveStatementsExceededException":
     case "com.amazonaws.redshiftdata#ActiveStatementsExceededException":
-      throw await deserializeAws_json1_1ActiveStatementsExceededExceptionResponse(parsedOutput, context);
+      throw await de_ActiveStatementsExceededExceptionRes(parsedOutput, context);
     case "BatchExecuteStatementException":
     case "com.amazonaws.redshiftdata#BatchExecuteStatementException":
-      throw await deserializeAws_json1_1BatchExecuteStatementExceptionResponse(parsedOutput, context);
+      throw await de_BatchExecuteStatementExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CancelStatementCommand = async (
+/**
+ * deserializeAws_json1_1CancelStatementCommand
+ */
+export const de_CancelStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CancelStatementCommandError(output, context);
+    return de_CancelStatementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelStatementResponse(data, context);
+  contents = _json(data);
   const response: CancelStatementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CancelStatementCommandError = async (
+/**
+ * deserializeAws_json1_1CancelStatementCommandError
+ */
+const de_CancelStatementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelStatementCommandOutput> => {
@@ -277,45 +282,50 @@ const deserializeAws_json1_1CancelStatementCommandError = async (
   switch (errorCode) {
     case "DatabaseConnectionException":
     case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      throw await deserializeAws_json1_1DatabaseConnectionExceptionResponse(parsedOutput, context);
+      throw await de_DatabaseConnectionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftdata#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeStatementCommand = async (
+/**
+ * deserializeAws_json1_1DescribeStatementCommand
+ */
+export const de_DescribeStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeStatementCommandError(output, context);
+    return de_DescribeStatementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeStatementResponse(data, context);
+  contents = de_DescribeStatementResponse(data, context);
   const response: DescribeStatementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeStatementCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeStatementCommandError
+ */
+const de_DescribeStatementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStatementCommandOutput> => {
@@ -327,42 +337,47 @@ const deserializeAws_json1_1DescribeStatementCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftdata#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeTableCommand = async (
+/**
+ * deserializeAws_json1_1DescribeTableCommand
+ */
+export const de_DescribeTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeTableCommandError(output, context);
+    return de_DescribeTableCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTableResponse(data, context);
+  contents = _json(data);
   const response: DescribeTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeTableCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeTableCommandError
+ */
+const de_DescribeTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTableCommandOutput> => {
@@ -374,42 +389,47 @@ const deserializeAws_json1_1DescribeTableCommandError = async (
   switch (errorCode) {
     case "DatabaseConnectionException":
     case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      throw await deserializeAws_json1_1DatabaseConnectionExceptionResponse(parsedOutput, context);
+      throw await de_DatabaseConnectionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ExecuteStatementCommand = async (
+/**
+ * deserializeAws_json1_1ExecuteStatementCommand
+ */
+export const de_ExecuteStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ExecuteStatementCommandError(output, context);
+    return de_ExecuteStatementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ExecuteStatementOutput(data, context);
+  contents = de_ExecuteStatementOutput(data, context);
   const response: ExecuteStatementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ExecuteStatementCommandError = async (
+/**
+ * deserializeAws_json1_1ExecuteStatementCommandError
+ */
+const de_ExecuteStatementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteStatementCommandOutput> => {
@@ -421,42 +441,47 @@ const deserializeAws_json1_1ExecuteStatementCommandError = async (
   switch (errorCode) {
     case "ActiveStatementsExceededException":
     case "com.amazonaws.redshiftdata#ActiveStatementsExceededException":
-      throw await deserializeAws_json1_1ActiveStatementsExceededExceptionResponse(parsedOutput, context);
+      throw await de_ActiveStatementsExceededExceptionRes(parsedOutput, context);
     case "ExecuteStatementException":
     case "com.amazonaws.redshiftdata#ExecuteStatementException":
-      throw await deserializeAws_json1_1ExecuteStatementExceptionResponse(parsedOutput, context);
+      throw await de_ExecuteStatementExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetStatementResultCommand = async (
+/**
+ * deserializeAws_json1_1GetStatementResultCommand
+ */
+export const de_GetStatementResultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStatementResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetStatementResultCommandError(output, context);
+    return de_GetStatementResultCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetStatementResultResponse(data, context);
+  contents = de_GetStatementResultResponse(data, context);
   const response: GetStatementResultCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetStatementResultCommandError = async (
+/**
+ * deserializeAws_json1_1GetStatementResultCommandError
+ */
+const de_GetStatementResultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStatementResultCommandOutput> => {
@@ -468,42 +493,47 @@ const deserializeAws_json1_1GetStatementResultCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftdata#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListDatabasesCommand = async (
+/**
+ * deserializeAws_json1_1ListDatabasesCommand
+ */
+export const de_ListDatabasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatabasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDatabasesCommandError(output, context);
+    return de_ListDatabasesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDatabasesResponse(data, context);
+  contents = _json(data);
   const response: ListDatabasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListDatabasesCommandError = async (
+/**
+ * deserializeAws_json1_1ListDatabasesCommandError
+ */
+const de_ListDatabasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatabasesCommandOutput> => {
@@ -515,42 +545,47 @@ const deserializeAws_json1_1ListDatabasesCommandError = async (
   switch (errorCode) {
     case "DatabaseConnectionException":
     case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      throw await deserializeAws_json1_1DatabaseConnectionExceptionResponse(parsedOutput, context);
+      throw await de_DatabaseConnectionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListSchemasCommand = async (
+/**
+ * deserializeAws_json1_1ListSchemasCommand
+ */
+export const de_ListSchemasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSchemasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListSchemasCommandError(output, context);
+    return de_ListSchemasCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSchemasResponse(data, context);
+  contents = _json(data);
   const response: ListSchemasCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListSchemasCommandError = async (
+/**
+ * deserializeAws_json1_1ListSchemasCommandError
+ */
+const de_ListSchemasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSchemasCommandOutput> => {
@@ -562,42 +597,47 @@ const deserializeAws_json1_1ListSchemasCommandError = async (
   switch (errorCode) {
     case "DatabaseConnectionException":
     case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      throw await deserializeAws_json1_1DatabaseConnectionExceptionResponse(parsedOutput, context);
+      throw await de_DatabaseConnectionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListStatementsCommand = async (
+/**
+ * deserializeAws_json1_1ListStatementsCommand
+ */
+export const de_ListStatementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStatementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListStatementsCommandError(output, context);
+    return de_ListStatementsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListStatementsResponse(data, context);
+  contents = de_ListStatementsResponse(data, context);
   const response: ListStatementsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListStatementsCommandError = async (
+/**
+ * deserializeAws_json1_1ListStatementsCommandError
+ */
+const de_ListStatementsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStatementsCommandOutput> => {
@@ -609,39 +649,44 @@ const deserializeAws_json1_1ListStatementsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTablesCommand = async (
+/**
+ * deserializeAws_json1_1ListTablesCommand
+ */
+export const de_ListTablesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTablesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTablesCommandError(output, context);
+    return de_ListTablesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTablesResponse(data, context);
+  contents = _json(data);
   const response: ListTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTablesCommandError = async (
+/**
+ * deserializeAws_json1_1ListTablesCommandError
+ */
+const de_ListTablesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTablesCommandOutput> => {
@@ -653,30 +698,32 @@ const deserializeAws_json1_1ListTablesCommandError = async (
   switch (errorCode) {
     case "DatabaseConnectionException":
     case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      throw await deserializeAws_json1_1DatabaseConnectionExceptionResponse(parsedOutput, context);
+      throw await de_DatabaseConnectionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1ActiveStatementsExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ActiveStatementsExceededExceptionRes
+ */
+const de_ActiveStatementsExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ActiveStatementsExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ActiveStatementsExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ActiveStatementsExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -684,12 +731,15 @@ const deserializeAws_json1_1ActiveStatementsExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1BatchExecuteStatementExceptionResponse = async (
+/**
+ * deserializeAws_json1_1BatchExecuteStatementExceptionRes
+ */
+const de_BatchExecuteStatementExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BatchExecuteStatementException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BatchExecuteStatementException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BatchExecuteStatementException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -697,12 +747,15 @@ const deserializeAws_json1_1BatchExecuteStatementExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DatabaseConnectionExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DatabaseConnectionExceptionRes
+ */
+const de_DatabaseConnectionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DatabaseConnectionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DatabaseConnectionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DatabaseConnectionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -710,12 +763,15 @@ const deserializeAws_json1_1DatabaseConnectionExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ExecuteStatementExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ExecuteStatementExceptionRes
+ */
+const de_ExecuteStatementExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ExecuteStatementException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ExecuteStatementException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ExecuteStatementException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -723,12 +779,15 @@ const deserializeAws_json1_1ExecuteStatementExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -736,12 +795,15 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -749,12 +811,12 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -762,324 +824,144 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1BatchExecuteStatementInput = (
-  input: BatchExecuteStatementInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.Database != null && { Database: input.Database }),
-    ...(input.DbUser != null && { DbUser: input.DbUser }),
-    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
-    ...(input.Sqls != null && { Sqls: serializeAws_json1_1SqlList(input.Sqls, context) }),
-    ...(input.StatementName != null && { StatementName: input.StatementName }),
-    ...(input.WithEvent != null && { WithEvent: input.WithEvent }),
-    ...(input.WorkgroupName != null && { WorkgroupName: input.WorkgroupName }),
-  };
+/**
+ * serializeAws_json1_1BatchExecuteStatementInput
+ */
+const se_BatchExecuteStatementInput = (input: BatchExecuteStatementInput, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    ClusterIdentifier: [],
+    Database: [],
+    DbUser: [],
+    SecretArn: [],
+    Sqls: _json,
+    StatementName: [],
+    WithEvent: [],
+    WorkgroupName: [],
+  });
 };
 
-const serializeAws_json1_1CancelStatementRequest = (input: CancelStatementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
+// se_CancelStatementRequest omitted.
+
+// se_DescribeStatementRequest omitted.
+
+// se_DescribeTableRequest omitted.
+
+/**
+ * serializeAws_json1_1ExecuteStatementInput
+ */
+const se_ExecuteStatementInput = (input: ExecuteStatementInput, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    ClusterIdentifier: [],
+    Database: [],
+    DbUser: [],
+    Parameters: _json,
+    SecretArn: [],
+    Sql: [],
+    StatementName: [],
+    WithEvent: [],
+    WorkgroupName: [],
+  });
 };
 
-const serializeAws_json1_1DescribeStatementRequest = (
-  input: DescribeStatementRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
+// se_GetStatementResultRequest omitted.
+
+// se_ListDatabasesRequest omitted.
+
+// se_ListSchemasRequest omitted.
+
+// se_ListStatementsRequest omitted.
+
+// se_ListTablesRequest omitted.
+
+// se_SqlList omitted.
+
+// se_SqlParameter omitted.
+
+// se_SqlParametersList omitted.
+
+// de_ActiveStatementsExceededException omitted.
+
+// de_BatchExecuteStatementException omitted.
+
+/**
+ * deserializeAws_json1_1BatchExecuteStatementOutput
+ */
+const de_BatchExecuteStatementOutput = (output: any, context: __SerdeContext): BatchExecuteStatementOutput => {
+  return take(output, {
+    ClusterIdentifier: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Database: __expectString,
+    DbUser: __expectString,
+    Id: __expectString,
+    SecretArn: __expectString,
+    WorkgroupName: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1DescribeTableRequest = (input: DescribeTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.ConnectedDatabase != null && { ConnectedDatabase: input.ConnectedDatabase }),
-    ...(input.Database != null && { Database: input.Database }),
-    ...(input.DbUser != null && { DbUser: input.DbUser }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Schema != null && { Schema: input.Schema }),
-    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
-    ...(input.Table != null && { Table: input.Table }),
-    ...(input.WorkgroupName != null && { WorkgroupName: input.WorkgroupName }),
-  };
+// de_CancelStatementResponse omitted.
+
+// de_ColumnList omitted.
+
+// de_ColumnMetadata omitted.
+
+// de_ColumnMetadataList omitted.
+
+// de_DatabaseConnectionException omitted.
+
+// de_DatabaseList omitted.
+
+/**
+ * deserializeAws_json1_1DescribeStatementResponse
+ */
+const de_DescribeStatementResponse = (output: any, context: __SerdeContext): DescribeStatementResponse => {
+  return take(output, {
+    ClusterIdentifier: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Database: __expectString,
+    DbUser: __expectString,
+    Duration: __expectLong,
+    Error: __expectString,
+    HasResultSet: __expectBoolean,
+    Id: __expectString,
+    QueryParameters: _json,
+    QueryString: __expectString,
+    RedshiftPid: __expectLong,
+    RedshiftQueryId: __expectLong,
+    ResultRows: __expectLong,
+    ResultSize: __expectLong,
+    SecretArn: __expectString,
+    Status: __expectString,
+    SubStatements: (_: any) => de_SubStatementList(_, context),
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WorkgroupName: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1ExecuteStatementInput = (input: ExecuteStatementInput, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.Database != null && { Database: input.Database }),
-    ...(input.DbUser != null && { DbUser: input.DbUser }),
-    ...(input.Parameters != null && { Parameters: serializeAws_json1_1SqlParametersList(input.Parameters, context) }),
-    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
-    ...(input.Sql != null && { Sql: input.Sql }),
-    ...(input.StatementName != null && { StatementName: input.StatementName }),
-    ...(input.WithEvent != null && { WithEvent: input.WithEvent }),
-    ...(input.WorkgroupName != null && { WorkgroupName: input.WorkgroupName }),
-  };
+// de_DescribeTableResponse omitted.
+
+// de_ExecuteStatementException omitted.
+
+/**
+ * deserializeAws_json1_1ExecuteStatementOutput
+ */
+const de_ExecuteStatementOutput = (output: any, context: __SerdeContext): ExecuteStatementOutput => {
+  return take(output, {
+    ClusterIdentifier: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Database: __expectString,
+    DbUser: __expectString,
+    Id: __expectString,
+    SecretArn: __expectString,
+    WorkgroupName: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1GetStatementResultRequest = (
-  input: GetStatementResultRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListDatabasesRequest = (input: ListDatabasesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.Database != null && { Database: input.Database }),
-    ...(input.DbUser != null && { DbUser: input.DbUser }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
-    ...(input.WorkgroupName != null && { WorkgroupName: input.WorkgroupName }),
-  };
-};
-
-const serializeAws_json1_1ListSchemasRequest = (input: ListSchemasRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.ConnectedDatabase != null && { ConnectedDatabase: input.ConnectedDatabase }),
-    ...(input.Database != null && { Database: input.Database }),
-    ...(input.DbUser != null && { DbUser: input.DbUser }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SchemaPattern != null && { SchemaPattern: input.SchemaPattern }),
-    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
-    ...(input.WorkgroupName != null && { WorkgroupName: input.WorkgroupName }),
-  };
-};
-
-const serializeAws_json1_1ListStatementsRequest = (input: ListStatementsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RoleLevel != null && { RoleLevel: input.RoleLevel }),
-    ...(input.StatementName != null && { StatementName: input.StatementName }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
-
-const serializeAws_json1_1ListTablesRequest = (input: ListTablesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.ConnectedDatabase != null && { ConnectedDatabase: input.ConnectedDatabase }),
-    ...(input.Database != null && { Database: input.Database }),
-    ...(input.DbUser != null && { DbUser: input.DbUser }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SchemaPattern != null && { SchemaPattern: input.SchemaPattern }),
-    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
-    ...(input.TablePattern != null && { TablePattern: input.TablePattern }),
-    ...(input.WorkgroupName != null && { WorkgroupName: input.WorkgroupName }),
-  };
-};
-
-const serializeAws_json1_1SqlList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1SqlParameter = (input: SqlParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-const serializeAws_json1_1SqlParametersList = (input: SqlParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1SqlParameter(entry, context);
-    });
-};
-
-const deserializeAws_json1_1ActiveStatementsExceededException = (
-  output: any,
-  context: __SerdeContext
-): ActiveStatementsExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1BatchExecuteStatementException = (
-  output: any,
-  context: __SerdeContext
-): BatchExecuteStatementException => {
-  return {
-    Message: __expectString(output.Message),
-    StatementId: __expectString(output.StatementId),
-  } as any;
-};
-
-const deserializeAws_json1_1BatchExecuteStatementOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchExecuteStatementOutput => {
-  return {
-    ClusterIdentifier: __expectString(output.ClusterIdentifier),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    Database: __expectString(output.Database),
-    DbUser: __expectString(output.DbUser),
-    Id: __expectString(output.Id),
-    SecretArn: __expectString(output.SecretArn),
-    WorkgroupName: __expectString(output.WorkgroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1CancelStatementResponse = (
-  output: any,
-  context: __SerdeContext
-): CancelStatementResponse => {
-  return {
-    Status: __expectBoolean(output.Status),
-  } as any;
-};
-
-const deserializeAws_json1_1ColumnList = (output: any, context: __SerdeContext): ColumnMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ColumnMetadata(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
-  return {
-    columnDefault: __expectString(output.columnDefault),
-    isCaseSensitive: __expectBoolean(output.isCaseSensitive),
-    isCurrency: __expectBoolean(output.isCurrency),
-    isSigned: __expectBoolean(output.isSigned),
-    label: __expectString(output.label),
-    length: __expectInt32(output.length),
-    name: __expectString(output.name),
-    nullable: __expectInt32(output.nullable),
-    precision: __expectInt32(output.precision),
-    scale: __expectInt32(output.scale),
-    schemaName: __expectString(output.schemaName),
-    tableName: __expectString(output.tableName),
-    typeName: __expectString(output.typeName),
-  } as any;
-};
-
-const deserializeAws_json1_1ColumnMetadataList = (output: any, context: __SerdeContext): ColumnMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ColumnMetadata(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1DatabaseConnectionException = (
-  output: any,
-  context: __SerdeContext
-): DatabaseConnectionException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1DatabaseList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1DescribeStatementResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeStatementResponse => {
-  return {
-    ClusterIdentifier: __expectString(output.ClusterIdentifier),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    Database: __expectString(output.Database),
-    DbUser: __expectString(output.DbUser),
-    Duration: __expectLong(output.Duration),
-    Error: __expectString(output.Error),
-    HasResultSet: __expectBoolean(output.HasResultSet),
-    Id: __expectString(output.Id),
-    QueryParameters:
-      output.QueryParameters != null
-        ? deserializeAws_json1_1SqlParametersList(output.QueryParameters, context)
-        : undefined,
-    QueryString: __expectString(output.QueryString),
-    RedshiftPid: __expectLong(output.RedshiftPid),
-    RedshiftQueryId: __expectLong(output.RedshiftQueryId),
-    ResultRows: __expectLong(output.ResultRows),
-    ResultSize: __expectLong(output.ResultSize),
-    SecretArn: __expectString(output.SecretArn),
-    Status: __expectString(output.Status),
-    SubStatements:
-      output.SubStatements != null ? deserializeAws_json1_1SubStatementList(output.SubStatements, context) : undefined,
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-    WorkgroupName: __expectString(output.WorkgroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeTableResponse = (output: any, context: __SerdeContext): DescribeTableResponse => {
-  return {
-    ColumnList: output.ColumnList != null ? deserializeAws_json1_1ColumnList(output.ColumnList, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    TableName: __expectString(output.TableName),
-  } as any;
-};
-
-const deserializeAws_json1_1ExecuteStatementException = (
-  output: any,
-  context: __SerdeContext
-): ExecuteStatementException => {
-  return {
-    Message: __expectString(output.Message),
-    StatementId: __expectString(output.StatementId),
-  } as any;
-};
-
-const deserializeAws_json1_1ExecuteStatementOutput = (output: any, context: __SerdeContext): ExecuteStatementOutput => {
-  return {
-    ClusterIdentifier: __expectString(output.ClusterIdentifier),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    Database: __expectString(output.Database),
-    DbUser: __expectString(output.DbUser),
-    Id: __expectString(output.Id),
-    SecretArn: __expectString(output.SecretArn),
-    WorkgroupName: __expectString(output.WorkgroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1Field = (output: any, context: __SerdeContext): Field => {
+/**
+ * deserializeAws_json1_1Field
+ */
+const de_Field = (output: any, context: __SerdeContext): Field => {
   if (output.blobValue != null) {
     return {
       blobValue: context.base64Decoder(output.blobValue),
@@ -1103,223 +985,136 @@ const deserializeAws_json1_1Field = (output: any, context: __SerdeContext): Fiel
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_json1_1FieldList = (output: any, context: __SerdeContext): Field[] => {
+/**
+ * deserializeAws_json1_1FieldList
+ */
+const de_FieldList = (output: any, context: __SerdeContext): Field[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Field(__expectUnion(entry), context);
+      return de_Field(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GetStatementResultResponse = (
-  output: any,
-  context: __SerdeContext
-): GetStatementResultResponse => {
-  return {
-    ColumnMetadata:
-      output.ColumnMetadata != null
-        ? deserializeAws_json1_1ColumnMetadataList(output.ColumnMetadata, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-    Records: output.Records != null ? deserializeAws_json1_1SqlRecords(output.Records, context) : undefined,
-    TotalNumRows: __expectLong(output.TotalNumRows),
-  } as any;
+/**
+ * deserializeAws_json1_1GetStatementResultResponse
+ */
+const de_GetStatementResultResponse = (output: any, context: __SerdeContext): GetStatementResultResponse => {
+  return take(output, {
+    ColumnMetadata: _json,
+    NextToken: __expectString,
+    Records: (_: any) => de_SqlRecords(_, context),
+    TotalNumRows: __expectLong,
+  }) as any;
 };
 
-const deserializeAws_json1_1InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
+// de_InternalServerException omitted.
+
+// de_ListDatabasesResponse omitted.
+
+// de_ListSchemasResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListStatementsResponse
+ */
+const de_ListStatementsResponse = (output: any, context: __SerdeContext): ListStatementsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    Statements: (_: any) => de_StatementList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ListDatabasesResponse = (output: any, context: __SerdeContext): ListDatabasesResponse => {
-  return {
-    Databases: output.Databases != null ? deserializeAws_json1_1DatabaseList(output.Databases, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListTablesResponse omitted.
 
-const deserializeAws_json1_1ListSchemasResponse = (output: any, context: __SerdeContext): ListSchemasResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Schemas: output.Schemas != null ? deserializeAws_json1_1SchemaList(output.Schemas, context) : undefined,
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-const deserializeAws_json1_1ListStatementsResponse = (output: any, context: __SerdeContext): ListStatementsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Statements: output.Statements != null ? deserializeAws_json1_1StatementList(output.Statements, context) : undefined,
-  } as any;
-};
+// de_SchemaList omitted.
 
-const deserializeAws_json1_1ListTablesResponse = (output: any, context: __SerdeContext): ListTablesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Tables: output.Tables != null ? deserializeAws_json1_1TableList(output.Tables, context) : undefined,
-  } as any;
-};
+// de_SqlParameter omitted.
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceId: __expectString(output.ResourceId),
-  } as any;
-};
+// de_SqlParametersList omitted.
 
-const deserializeAws_json1_1SchemaList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SqlRecords
+ */
+const de_SqlRecords = (output: any, context: __SerdeContext): Field[][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_FieldList(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SqlParameter = (output: any, context: __SerdeContext): SqlParameter => {
-  return {
-    name: __expectString(output.name),
-    value: __expectString(output.value),
-  } as any;
+/**
+ * deserializeAws_json1_1StatementData
+ */
+const de_StatementData = (output: any, context: __SerdeContext): StatementData => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+    IsBatchStatement: __expectBoolean,
+    QueryParameters: _json,
+    QueryString: __expectString,
+    QueryStrings: _json,
+    SecretArn: __expectString,
+    StatementName: __expectString,
+    Status: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1SqlParametersList = (output: any, context: __SerdeContext): SqlParameter[] => {
+/**
+ * deserializeAws_json1_1StatementList
+ */
+const de_StatementList = (output: any, context: __SerdeContext): StatementData[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1SqlParameter(entry, context);
+      return de_StatementData(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SqlRecords = (output: any, context: __SerdeContext): Field[][] => {
+// de_StatementStringList omitted.
+
+/**
+ * deserializeAws_json1_1SubStatementData
+ */
+const de_SubStatementData = (output: any, context: __SerdeContext): SubStatementData => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Duration: __expectLong,
+    Error: __expectString,
+    HasResultSet: __expectBoolean,
+    Id: __expectString,
+    QueryString: __expectString,
+    RedshiftQueryId: __expectLong,
+    ResultRows: __expectLong,
+    ResultSize: __expectLong,
+    Status: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SubStatementList
+ */
+const de_SubStatementList = (output: any, context: __SerdeContext): SubStatementData[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1FieldList(entry, context);
+      return de_SubStatementData(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1StatementData = (output: any, context: __SerdeContext): StatementData => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    Id: __expectString(output.Id),
-    IsBatchStatement: __expectBoolean(output.IsBatchStatement),
-    QueryParameters:
-      output.QueryParameters != null
-        ? deserializeAws_json1_1SqlParametersList(output.QueryParameters, context)
-        : undefined,
-    QueryString: __expectString(output.QueryString),
-    QueryStrings:
-      output.QueryStrings != null ? deserializeAws_json1_1StatementStringList(output.QueryStrings, context) : undefined,
-    SecretArn: __expectString(output.SecretArn),
-    StatementName: __expectString(output.StatementName),
-    Status: __expectString(output.Status),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
-};
+// de_TableList omitted.
 
-const deserializeAws_json1_1StatementList = (output: any, context: __SerdeContext): StatementData[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1StatementData(entry, context);
-    });
-  return retVal;
-};
+// de_TableMember omitted.
 
-const deserializeAws_json1_1StatementStringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1SubStatementData = (output: any, context: __SerdeContext): SubStatementData => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    Duration: __expectLong(output.Duration),
-    Error: __expectString(output.Error),
-    HasResultSet: __expectBoolean(output.HasResultSet),
-    Id: __expectString(output.Id),
-    QueryString: __expectString(output.QueryString),
-    RedshiftQueryId: __expectLong(output.RedshiftQueryId),
-    ResultRows: __expectLong(output.ResultRows),
-    ResultSize: __expectLong(output.ResultSize),
-    Status: __expectString(output.Status),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1SubStatementList = (output: any, context: __SerdeContext): SubStatementData[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1SubStatementData(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TableList = (output: any, context: __SerdeContext): TableMember[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TableMember(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TableMember = (output: any, context: __SerdeContext): TableMember => {
-  return {
-    name: __expectString(output.name),
-    schema: __expectString(output.schema),
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -1341,6 +1136,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -1365,6 +1161,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `RedshiftData.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

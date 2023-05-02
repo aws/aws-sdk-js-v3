@@ -14,40 +14,43 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  FailoverDBClusterMessage,
-  FailoverDBClusterMessageFilterSensitiveLog,
-  FailoverDBClusterResult,
-  FailoverDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryFailoverDBClusterCommand,
-  serializeAws_queryFailoverDBClusterCommand,
-} from "../protocols/Aws_query";
+import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/models_0";
+import { de_FailoverDBClusterCommand, se_FailoverDBClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link FailoverDBClusterCommand}.
  */
 export interface FailoverDBClusterCommandInput extends FailoverDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link FailoverDBClusterCommand}.
  */
 export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Forces a failover for a cluster.</p>
- *         <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances) in the cluster to be the primary instance (the cluster writer).</p>
- *         <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica, if one exists. You can force a failover when you want to simulate a failure of a primary instance for testing.</p>
+ *          <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances) in the cluster to be the primary instance (the cluster writer).</p>
+ *          <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica, if one exists. You can force a failover when you want to simulate a failure of a primary instance for testing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, FailoverDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, FailoverDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // FailoverDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE",
+ *   TargetDBInstanceIdentifier: "STRING_VALUE",
+ * };
  * const command = new FailoverDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param FailoverDBClusterCommandInput - {@link FailoverDBClusterCommandInput}
+ * @returns {@link FailoverDBClusterCommandOutput}
  * @see {@link FailoverDBClusterCommandInput} for command's `input` shape.
  * @see {@link FailoverDBClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -82,6 +85,9 @@ export class FailoverDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FailoverDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class FailoverDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FailoverDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: FailoverDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class FailoverDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FailoverDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryFailoverDBClusterCommand(input, context);
+    return se_FailoverDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FailoverDBClusterCommandOutput> {
-    return deserializeAws_queryFailoverDBClusterCommand(output, context);
+    return de_FailoverDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

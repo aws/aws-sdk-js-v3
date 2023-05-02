@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  PutStorageConfigurationRequest,
-  PutStorageConfigurationRequestFilterSensitiveLog,
-  PutStorageConfigurationResponse,
-  PutStorageConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutStorageConfigurationCommand,
-  serializeAws_restJson1PutStorageConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { PutStorageConfigurationRequest, PutStorageConfigurationResponse } from "../models/models_0";
+import { de_PutStorageConfigurationCommand, se_PutStorageConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutStorageConfigurationCommand}.
  */
 export interface PutStorageConfigurationCommandInput extends PutStorageConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutStorageConfigurationCommand}.
  */
 export interface PutStorageConfigurationCommandOutput extends PutStorageConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures storage settings for IoT SiteWise.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  * import { IoTSiteWiseClient, PutStorageConfigurationCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, PutStorageConfigurationCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // PutStorageConfigurationRequest
+ *   storageType: "SITEWISE_DEFAULT_STORAGE" || "MULTI_LAYER_STORAGE", // required
+ *   multiLayerStorage: { // MultiLayerStorage
+ *     customerManagedS3Storage: { // CustomerManagedS3Storage
+ *       s3ResourceArn: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   disassociatedDataStorage: "ENABLED" || "DISABLED",
+ *   retentionPeriod: { // RetentionPeriod
+ *     numberOfDays: Number("int"),
+ *     unlimited: true || false,
+ *   },
+ * };
  * const command = new PutStorageConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutStorageConfigurationCommandInput - {@link PutStorageConfigurationCommandInput}
+ * @returns {@link PutStorageConfigurationCommandOutput}
  * @see {@link PutStorageConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutStorageConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -98,6 +111,9 @@ export class PutStorageConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutStorageConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +142,8 @@ export class PutStorageConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutStorageConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutStorageConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +153,18 @@ export class PutStorageConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutStorageConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutStorageConfigurationCommand(input, context);
+    return se_PutStorageConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutStorageConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutStorageConfigurationCommand(output, context);
+    return de_PutStorageConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

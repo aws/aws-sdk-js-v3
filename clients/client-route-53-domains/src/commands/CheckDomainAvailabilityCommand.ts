@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CheckDomainAvailabilityRequest,
-  CheckDomainAvailabilityRequestFilterSensitiveLog,
-  CheckDomainAvailabilityResponse,
-  CheckDomainAvailabilityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CheckDomainAvailabilityCommand,
-  serializeAws_json1_1CheckDomainAvailabilityCommand,
-} from "../protocols/Aws_json1_1";
+import { CheckDomainAvailabilityRequest, CheckDomainAvailabilityResponse } from "../models/models_0";
+import { de_CheckDomainAvailabilityCommand, se_CheckDomainAvailabilityCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CheckDomainAvailabilityCommand}.
  */
 export interface CheckDomainAvailabilityCommandInput extends CheckDomainAvailabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CheckDomainAvailabilityCommand}.
  */
 export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailabilityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation checks the availability of one domain name. Note that if the
  * 			availability status of a domain is pending, you must submit another request to determine
  * 			the availability of the domain name.</p>
@@ -44,10 +41,16 @@ export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailab
  * import { Route53DomainsClient, CheckDomainAvailabilityCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, CheckDomainAvailabilityCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // CheckDomainAvailabilityRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   IdnLangCode: "STRING_VALUE",
+ * };
  * const command = new CheckDomainAvailabilityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckDomainAvailabilityCommandInput - {@link CheckDomainAvailabilityCommandInput}
+ * @returns {@link CheckDomainAvailabilityCommandOutput}
  * @see {@link CheckDomainAvailabilityCommandInput} for command's `input` shape.
  * @see {@link CheckDomainAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -80,6 +83,9 @@ export class CheckDomainAvailabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckDomainAvailabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class CheckDomainAvailabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckDomainAvailabilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CheckDomainAvailabilityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class CheckDomainAvailabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckDomainAvailabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CheckDomainAvailabilityCommand(input, context);
+    return se_CheckDomainAvailabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckDomainAvailabilityCommandOutput> {
-    return deserializeAws_json1_1CheckDomainAvailabilityCommand(output, context);
+    return de_CheckDomainAvailabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

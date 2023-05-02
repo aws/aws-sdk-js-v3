@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AuthorizeSnapshotAccessMessage,
-  AuthorizeSnapshotAccessMessageFilterSensitiveLog,
-  AuthorizeSnapshotAccessResult,
-  AuthorizeSnapshotAccessResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryAuthorizeSnapshotAccessCommand,
-  serializeAws_queryAuthorizeSnapshotAccessCommand,
-} from "../protocols/Aws_query";
+import { AuthorizeSnapshotAccessMessage, AuthorizeSnapshotAccessResult } from "../models/models_0";
+import { de_AuthorizeSnapshotAccessCommand, se_AuthorizeSnapshotAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeSnapshotAccessCommand}.
  */
 export interface AuthorizeSnapshotAccessCommandInput extends AuthorizeSnapshotAccessMessage {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeSnapshotAccessCommand}.
  */
 export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotAccessResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Authorizes the specified Amazon Web Services account to restore the specified
  *             snapshot.</p>
  *          <p>
@@ -47,10 +44,18 @@ export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotA
  * import { RedshiftClient, AuthorizeSnapshotAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, AuthorizeSnapshotAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // AuthorizeSnapshotAccessMessage
+ *   SnapshotIdentifier: "STRING_VALUE",
+ *   SnapshotArn: "STRING_VALUE",
+ *   SnapshotClusterIdentifier: "STRING_VALUE",
+ *   AccountWithRestoreAccess: "STRING_VALUE", // required
+ * };
  * const command = new AuthorizeSnapshotAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeSnapshotAccessCommandInput - {@link AuthorizeSnapshotAccessCommandInput}
+ * @returns {@link AuthorizeSnapshotAccessCommandOutput}
  * @see {@link AuthorizeSnapshotAccessCommandInput} for command's `input` shape.
  * @see {@link AuthorizeSnapshotAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -98,6 +103,9 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeSnapshotAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +134,8 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeSnapshotAccessMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeSnapshotAccessResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +145,18 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeSnapshotAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeSnapshotAccessCommand(input, context);
+    return se_AuthorizeSnapshotAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AuthorizeSnapshotAccessCommandOutput> {
-    return deserializeAws_queryAuthorizeSnapshotAccessCommand(output, context);
+    return de_AuthorizeSnapshotAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

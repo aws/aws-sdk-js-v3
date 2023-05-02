@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  DeleteBranchRequest,
-  DeleteBranchRequestFilterSensitiveLog,
-  DeleteBranchResult,
-  DeleteBranchResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBranchCommand,
-  serializeAws_restJson1DeleteBranchCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteBranchRequest, DeleteBranchResult, DeleteBranchResultFilterSensitiveLog } from "../models/models_0";
+import { de_DeleteBranchCommand, se_DeleteBranchCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBranchCommand}.
  */
 export interface DeleteBranchCommandInput extends DeleteBranchRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBranchCommand}.
  */
 export interface DeleteBranchCommandOutput extends DeleteBranchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a branch for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteBranchCommandOutput extends DeleteBranchResult, __Metadat
  * import { AmplifyClient, DeleteBranchCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteBranchCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // DeleteBranchRequest
+ *   appId: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBranchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBranchCommandInput - {@link DeleteBranchCommandInput}
+ * @returns {@link DeleteBranchCommandOutput}
  * @see {@link DeleteBranchCommandInput} for command's `input` shape.
  * @see {@link DeleteBranchCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -84,6 +87,9 @@ export class DeleteBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +116,7 @@ export class DeleteBranchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBranchRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteBranchResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -121,12 +127,18 @@ export class DeleteBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBranchCommand(input, context);
+    return se_DeleteBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBranchCommandOutput> {
-    return deserializeAws_restJson1DeleteBranchCommand(output, context);
+    return de_DeleteBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

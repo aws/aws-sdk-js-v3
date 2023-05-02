@@ -14,16 +14,15 @@ import {
 } from "@aws-sdk/types";
 
 import { WriteGetObjectResponseRequest, WriteGetObjectResponseRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restXmlWriteGetObjectResponseCommand,
-  serializeAws_restXmlWriteGetObjectResponseCommand,
-} from "../protocols/Aws_restXml";
+import { de_WriteGetObjectResponseCommand, se_WriteGetObjectResponseCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link WriteGetObjectResponseCommand}.
  */
-type WriteGetObjectResponseCommandInputType = Omit<WriteGetObjectResponseRequest, "Body"> & {
+export type WriteGetObjectResponseCommandInputType = Omit<WriteGetObjectResponseRequest, "Body"> & {
   /**
    * For *`WriteGetObjectResponseRequest["Body"]`*, see {@link WriteGetObjectResponseRequest.Body}.
    */
@@ -34,11 +33,14 @@ type WriteGetObjectResponseCommandInputType = Omit<WriteGetObjectResponseRequest
  */
 export interface WriteGetObjectResponseCommandInput extends WriteGetObjectResponseCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link WriteGetObjectResponseCommand}.
  */
 export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Passes transformed
  *          objects to a <code>GetObject</code> operation when using Object Lambda access points. For information about
  *          Object Lambda access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with
@@ -68,10 +70,56 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  * import { S3Client, WriteGetObjectResponseCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, WriteGetObjectResponseCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // WriteGetObjectResponseRequest
+ *   RequestRoute: "STRING_VALUE", // required
+ *   RequestToken: "STRING_VALUE", // required
+ *   Body: "STREAMING_BLOB_VALUE",
+ *   StatusCode: Number("int"),
+ *   ErrorCode: "STRING_VALUE",
+ *   ErrorMessage: "STRING_VALUE",
+ *   AcceptRanges: "STRING_VALUE",
+ *   CacheControl: "STRING_VALUE",
+ *   ContentDisposition: "STRING_VALUE",
+ *   ContentEncoding: "STRING_VALUE",
+ *   ContentLanguage: "STRING_VALUE",
+ *   ContentLength: Number("long"),
+ *   ContentRange: "STRING_VALUE",
+ *   ContentType: "STRING_VALUE",
+ *   ChecksumCRC32: "STRING_VALUE",
+ *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumSHA1: "STRING_VALUE",
+ *   ChecksumSHA256: "STRING_VALUE",
+ *   DeleteMarker: true || false,
+ *   ETag: "STRING_VALUE",
+ *   Expires: new Date("TIMESTAMP"),
+ *   Expiration: "STRING_VALUE",
+ *   LastModified: new Date("TIMESTAMP"),
+ *   MissingMeta: Number("int"),
+ *   Metadata: { // Metadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",
+ *   ObjectLockLegalHoldStatus: "ON" || "OFF",
+ *   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
+ *   PartsCount: Number("int"),
+ *   ReplicationStatus: "COMPLETE" || "PENDING" || "FAILED" || "REPLICA",
+ *   RequestCharged: "requester",
+ *   Restore: "STRING_VALUE",
+ *   ServerSideEncryption: "AES256" || "aws:kms",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSEKMSKeyId: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ *   TagCount: Number("int"),
+ *   VersionId: "STRING_VALUE",
+ *   BucketKeyEnabled: true || false,
+ * };
  * const command = new WriteGetObjectResponseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param WriteGetObjectResponseCommandInput - {@link WriteGetObjectResponseCommandInput}
+ * @returns {@link WriteGetObjectResponseCommandOutput}
  * @see {@link WriteGetObjectResponseCommandInput} for command's `input` shape.
  * @see {@link WriteGetObjectResponseCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -101,6 +149,9 @@ export class WriteGetObjectResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: WriteGetObjectResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,7 +181,7 @@ export class WriteGetObjectResponseCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: WriteGetObjectResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +191,18 @@ export class WriteGetObjectResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: WriteGetObjectResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlWriteGetObjectResponseCommand(input, context);
+    return se_WriteGetObjectResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<WriteGetObjectResponseCommandOutput> {
-    return deserializeAws_restXmlWriteGetObjectResponseCommand(output, context);
+    return de_WriteGetObjectResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

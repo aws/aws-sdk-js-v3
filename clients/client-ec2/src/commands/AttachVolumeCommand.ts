@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AttachVolumeRequest,
-  AttachVolumeRequestFilterSensitiveLog,
-  VolumeAttachment,
-  VolumeAttachmentFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_ec2AttachVolumeCommand, serializeAws_ec2AttachVolumeCommand } from "../protocols/Aws_ec2";
+import { AttachVolumeRequest, VolumeAttachment } from "../models/models_0";
+import { de_AttachVolumeCommand, se_AttachVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AttachVolumeCommand}.
  */
 export interface AttachVolumeCommandInput extends AttachVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachVolumeCommand}.
  */
 export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance
  *       with the specified device name.</p>
  *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
@@ -63,10 +63,18 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * import { EC2Client, AttachVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AttachVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AttachVolumeRequest
+ *   Device: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   VolumeId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new AttachVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachVolumeCommandInput - {@link AttachVolumeCommandInput}
+ * @returns {@link AttachVolumeCommandOutput}
  * @see {@link AttachVolumeCommandInput} for command's `input` shape.
  * @see {@link AttachVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -112,6 +120,9 @@ export class AttachVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +149,8 @@ export class AttachVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VolumeAttachmentFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +160,18 @@ export class AttachVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AttachVolumeCommand(input, context);
+    return se_AttachVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachVolumeCommandOutput> {
-    return deserializeAws_ec2AttachVolumeCommand(output, context);
+    return de_AttachVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

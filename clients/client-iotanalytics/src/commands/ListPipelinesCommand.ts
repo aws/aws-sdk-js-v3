@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  ListPipelinesRequest,
-  ListPipelinesRequestFilterSensitiveLog,
-  ListPipelinesResponse,
-  ListPipelinesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPipelinesCommand,
-  serializeAws_restJson1ListPipelinesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPipelinesRequest, ListPipelinesResponse } from "../models/models_0";
+import { de_ListPipelinesCommand, se_ListPipelinesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPipelinesCommand}.
  */
 export interface ListPipelinesCommandInput extends ListPipelinesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPipelinesCommand}.
  */
 export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of pipelines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * import { IoTAnalyticsClient, ListPipelinesCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, ListPipelinesCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // ListPipelinesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelinesCommandInput - {@link ListPipelinesCommandInput}
+ * @returns {@link ListPipelinesCommandOutput}
  * @see {@link ListPipelinesCommandInput} for command's `input` shape.
  * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListPipelinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class ListPipelinesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPipelinesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPipelinesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class ListPipelinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPipelinesCommand(input, context);
+    return se_ListPipelinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelinesCommandOutput> {
-    return deserializeAws_restJson1ListPipelinesCommand(output, context);
+    return de_ListPipelinesCommand(output, context);
   }
 
   // Start section: command_body_extra

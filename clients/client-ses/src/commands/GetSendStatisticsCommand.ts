@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSendStatisticsResponse, GetSendStatisticsResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryGetSendStatisticsCommand,
-  serializeAws_queryGetSendStatisticsCommand,
-} from "../protocols/Aws_query";
+import { GetSendStatisticsResponse } from "../models/models_0";
+import { de_GetSendStatisticsCommand, se_GetSendStatisticsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSendStatisticsCommand}.
  */
 export interface GetSendStatisticsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSendStatisticsCommand}.
  */
 export interface GetSendStatisticsCommandOutput extends GetSendStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides sending statistics for the current AWS Region. The result is a list of data
  *             points, representing the last two weeks of sending activity. Each data point in the list
  *             contains statistics for a 15-minute period of time.</p>
@@ -40,10 +42,13 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  * import { SESClient, GetSendStatisticsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetSendStatisticsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {};
  * const command = new GetSendStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSendStatisticsCommandInput - {@link GetSendStatisticsCommandInput}
+ * @returns {@link GetSendStatisticsCommandOutput}
  * @see {@link GetSendStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetSendStatisticsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -103,6 +108,9 @@ export class GetSendStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSendStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +139,8 @@ export class GetSendStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetSendStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +150,18 @@ export class GetSendStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSendStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetSendStatisticsCommand(input, context);
+    return se_GetSendStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSendStatisticsCommandOutput> {
-    return deserializeAws_queryGetSendStatisticsCommand(output, context);
+    return de_GetSendStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

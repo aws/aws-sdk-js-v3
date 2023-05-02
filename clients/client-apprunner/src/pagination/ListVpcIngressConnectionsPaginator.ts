@@ -10,7 +10,7 @@ import {
 import { AppRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppRunnerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListVpcIngressConnectionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListVpcIngressConnections(
   config: AppRunnerPaginationConfiguration,
   input: ListVpcIngressConnectionsCommandInput,

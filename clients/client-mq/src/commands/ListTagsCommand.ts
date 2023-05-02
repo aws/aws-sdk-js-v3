@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTagsRequest,
-  ListTagsRequestFilterSensitiveLog,
-  ListTagsResponse,
-  ListTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTagsRequest, ListTagsResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import {
-  deserializeAws_restJson1ListTagsCommand,
-  serializeAws_restJson1ListTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsCommand}.
  */
 export interface ListTagsCommandInput extends ListTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsCommand}.
  */
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists tags for a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * import { MqClient, ListTagsCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, ListTagsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = { // ListTagsRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsCommandInput - {@link ListTagsCommandInput}
+ * @returns {@link ListTagsCommandOutput}
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -77,6 +79,9 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTagsCommand(input, context);
+    return se_ListTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsCommandOutput> {
-    return deserializeAws_restJson1ListTagsCommand(output, context);
+    return de_ListTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  EnableLoggingMessage,
-  EnableLoggingMessageFilterSensitiveLog,
-  LoggingStatus,
-  LoggingStatusFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryEnableLoggingCommand,
-  serializeAws_queryEnableLoggingCommand,
-} from "../protocols/Aws_query";
+import { EnableLoggingMessage, LoggingStatus } from "../models/models_1";
+import { de_EnableLoggingCommand, se_EnableLoggingCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableLoggingCommand}.
  */
 export interface EnableLoggingCommandInput extends EnableLoggingMessage {}
 /**
+ * @public
+ *
  * The output of {@link EnableLoggingCommand}.
  */
 export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts logging information, such as queries and connection attempts, for the
  *             specified Amazon Redshift cluster.</p>
  * @example
@@ -43,10 +40,21 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  * import { RedshiftClient, EnableLoggingCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, EnableLoggingCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // EnableLoggingMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   BucketName: "STRING_VALUE",
+ *   S3KeyPrefix: "STRING_VALUE",
+ *   LogDestinationType: "s3" || "cloudwatch",
+ *   LogExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new EnableLoggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableLoggingCommandInput - {@link EnableLoggingCommandInput}
+ * @returns {@link EnableLoggingCommandOutput}
  * @see {@link EnableLoggingCommandInput} for command's `input` shape.
  * @see {@link EnableLoggingCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -94,6 +102,9 @@ export class EnableLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +131,8 @@ export class EnableLoggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableLoggingMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: LoggingStatusFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +142,18 @@ export class EnableLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnableLoggingCommand(input, context);
+    return se_EnableLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableLoggingCommandOutput> {
-    return deserializeAws_queryEnableLoggingCommand(output, context);
+    return de_EnableLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
-import {
-  GetSessionRequest,
-  GetSessionRequestFilterSensitiveLog,
-  GetSessionResponse,
-  GetSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSessionCommand,
-  serializeAws_restJson1GetSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSessionRequest, GetSessionResponse, GetSessionResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetSessionCommand, se_GetSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSessionCommand}.
  */
 export interface GetSessionCommandInput extends GetSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSessionCommand}.
  */
 export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns session information for a specified bot, alias, and user
  *       ID.</p>
  * @example
@@ -47,10 +44,18 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * import { LexRuntimeServiceClient, GetSessionCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, GetSessionCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
+ * const input = { // GetSessionRequest
+ *   botName: "STRING_VALUE", // required
+ *   botAlias: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   checkpointLabelFilter: "STRING_VALUE",
+ * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSessionCommandInput - {@link GetSessionCommandInput}
+ * @returns {@link GetSessionCommandOutput}
  * @see {@link GetSessionCommandInput} for command's `input` shape.
  * @see {@link GetSessionCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
@@ -89,6 +94,9 @@ export class GetSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +123,7 @@ export class GetSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,12 +134,18 @@ export class GetSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSessionCommand(input, context);
+    return se_GetSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionCommandOutput> {
-    return deserializeAws_restJson1GetSessionCommand(output, context);
+    return de_GetSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

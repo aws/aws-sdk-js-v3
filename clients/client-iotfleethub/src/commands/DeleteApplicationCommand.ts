@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetHubClient";
-import {
-  DeleteApplicationRequest,
-  DeleteApplicationRequestFilterSensitiveLog,
-  DeleteApplicationResponse,
-  DeleteApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteApplicationCommand,
-  serializeAws_restJson1DeleteApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteApplicationRequest, DeleteApplicationResponse } from "../models/models_0";
+import { de_DeleteApplicationCommand, se_DeleteApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationCommand}.
  */
 export interface DeleteApplicationCommandInput extends DeleteApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationCommand}.
  */
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Fleet Hub for AWS IoT Device Management web application.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -45,10 +42,16 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * import { IoTFleetHubClient, DeleteApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, DeleteApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
  * const client = new IoTFleetHubClient(config);
+ * const input = { // DeleteApplicationRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
+ * @returns {@link DeleteApplicationCommandOutput}
  * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetHubClientResolvedConfig | config} for IoTFleetHubClient's `config` shape.
@@ -84,6 +87,9 @@ export class DeleteApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class DeleteApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class DeleteApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteApplicationCommand(input, context);
+    return se_DeleteApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationCommandOutput> {
-    return deserializeAws_restJson1DeleteApplicationCommand(output, context);
+    return de_DeleteApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

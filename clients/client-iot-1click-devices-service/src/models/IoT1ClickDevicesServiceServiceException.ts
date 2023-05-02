@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from IoT1ClickDevicesService service.
  */
 export class IoT1ClickDevicesServiceServiceException extends __ServiceException {

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DisassociateNetworkSettingsRequest, DisassociateNetworkSettingsResponse } from "../models/models_0";
 import {
-  DisassociateNetworkSettingsRequest,
-  DisassociateNetworkSettingsRequestFilterSensitiveLog,
-  DisassociateNetworkSettingsResponse,
-  DisassociateNetworkSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateNetworkSettingsCommand,
-  serializeAws_restJson1DisassociateNetworkSettingsCommand,
+  de_DisassociateNetworkSettingsCommand,
+  se_DisassociateNetworkSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateNetworkSettingsCommand}.
  */
 export interface DisassociateNetworkSettingsCommandInput extends DisassociateNetworkSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateNetworkSettingsCommand}.
  */
 export interface DisassociateNetworkSettingsCommandOutput
@@ -37,6 +36,7 @@ export interface DisassociateNetworkSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates network settings from a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface DisassociateNetworkSettingsCommandOutput
  * import { WorkSpacesWebClient, DisassociateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DisassociateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // DisassociateNetworkSettingsRequest
+ *   portalArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateNetworkSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateNetworkSettingsCommandInput - {@link DisassociateNetworkSettingsCommandInput}
+ * @returns {@link DisassociateNetworkSettingsCommandOutput}
  * @see {@link DisassociateNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link DisassociateNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -86,6 +91,9 @@ export class DisassociateNetworkSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +122,8 @@ export class DisassociateNetworkSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateNetworkSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateNetworkSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +133,21 @@ export class DisassociateNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateNetworkSettingsCommand(input, context);
+    return se_DisassociateNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1DisassociateNetworkSettingsCommand(output, context);
+    return de_DisassociateNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

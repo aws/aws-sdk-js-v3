@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  AddThingToBillingGroupRequest,
-  AddThingToBillingGroupRequestFilterSensitiveLog,
-  AddThingToBillingGroupResponse,
-  AddThingToBillingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AddThingToBillingGroupCommand,
-  serializeAws_restJson1AddThingToBillingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { AddThingToBillingGroupRequest, AddThingToBillingGroupResponse } from "../models/models_0";
+import { de_AddThingToBillingGroupCommand, se_AddThingToBillingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddThingToBillingGroupCommand}.
  */
 export interface AddThingToBillingGroupCommandInput extends AddThingToBillingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddThingToBillingGroupCommand}.
  */
 export interface AddThingToBillingGroupCommandOutput extends AddThingToBillingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a thing to a billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AddThingToBillingGroup</a> action.</p>
  * @example
@@ -43,10 +40,18 @@ export interface AddThingToBillingGroupCommandOutput extends AddThingToBillingGr
  * import { IoTClient, AddThingToBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AddThingToBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // AddThingToBillingGroupRequest
+ *   billingGroupName: "STRING_VALUE",
+ *   billingGroupArn: "STRING_VALUE",
+ *   thingName: "STRING_VALUE",
+ *   thingArn: "STRING_VALUE",
+ * };
  * const command = new AddThingToBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddThingToBillingGroupCommandInput - {@link AddThingToBillingGroupCommandInput}
+ * @returns {@link AddThingToBillingGroupCommandOutput}
  * @see {@link AddThingToBillingGroupCommandInput} for command's `input` shape.
  * @see {@link AddThingToBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +87,9 @@ export class AddThingToBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddThingToBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +118,8 @@ export class AddThingToBillingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddThingToBillingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddThingToBillingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +129,18 @@ export class AddThingToBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddThingToBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddThingToBillingGroupCommand(input, context);
+    return se_AddThingToBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddThingToBillingGroupCommandOutput> {
-    return deserializeAws_restJson1AddThingToBillingGroupCommand(output, context);
+    return de_AddThingToBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

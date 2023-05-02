@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListQueryLoggingConfigsRequest,
-  ListQueryLoggingConfigsRequestFilterSensitiveLog,
-  ListQueryLoggingConfigsResponse,
-  ListQueryLoggingConfigsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListQueryLoggingConfigsCommand,
-  serializeAws_restXmlListQueryLoggingConfigsCommand,
-} from "../protocols/Aws_restXml";
+import { ListQueryLoggingConfigsRequest, ListQueryLoggingConfigsResponse } from "../models/models_0";
+import { de_ListQueryLoggingConfigsCommand, se_ListQueryLoggingConfigsCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListQueryLoggingConfigsCommand}.
  */
 export interface ListQueryLoggingConfigsCommandInput extends ListQueryLoggingConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListQueryLoggingConfigsCommand}.
  */
 export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the configurations for DNS query logging that are associated with the current
  * 				Amazon Web Services account or the configuration that is associated with a specified
  * 			hosted zone.</p>
@@ -48,10 +45,17 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  * import { Route53Client, ListQueryLoggingConfigsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListQueryLoggingConfigsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListQueryLoggingConfigsRequest
+ *   HostedZoneId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListQueryLoggingConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueryLoggingConfigsCommandInput - {@link ListQueryLoggingConfigsCommandInput}
+ * @returns {@link ListQueryLoggingConfigsCommandOutput}
  * @see {@link ListQueryLoggingConfigsCommandInput} for command's `input` shape.
  * @see {@link ListQueryLoggingConfigsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -85,6 +89,9 @@ export class ListQueryLoggingConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueryLoggingConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class ListQueryLoggingConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueryLoggingConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQueryLoggingConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class ListQueryLoggingConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueryLoggingConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListQueryLoggingConfigsCommand(input, context);
+    return se_ListQueryLoggingConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueryLoggingConfigsCommandOutput> {
-    return deserializeAws_restXmlListQueryLoggingConfigsCommand(output, context);
+    return de_ListQueryLoggingConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeSnapshotsRequest,
-  DescribeSnapshotsRequestFilterSensitiveLog,
-  DescribeSnapshotsResult,
-  DescribeSnapshotsResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSnapshotsCommand,
-  serializeAws_ec2DescribeSnapshotsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeSnapshotsRequest, DescribeSnapshotsResult } from "../models/models_4";
+import { de_DescribeSnapshotsCommand, se_DescribeSnapshotsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotsCommand}.
  */
 export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotsCommand}.
  */
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified EBS snapshots available to you or all of the EBS snapshots
  *       available to you.</p>
  *          <p>The snapshots available to you include public snapshots, private snapshots that you own,
@@ -84,10 +81,34 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * import { EC2Client, DescribeSnapshotsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSnapshotsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSnapshotsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   OwnerIds: [ // OwnerStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   RestorableByUserIds: [ // RestorableByStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   SnapshotIds: [ // SnapshotIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
+ * @returns {@link DescribeSnapshotsCommandOutput}
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -179,6 +200,9 @@ export class DescribeSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -207,8 +231,8 @@ export class DescribeSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSnapshotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSnapshotsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -218,12 +242,18 @@ export class DescribeSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSnapshotsCommand(input, context);
+    return se_DescribeSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSnapshotsCommandOutput> {
-    return deserializeAws_ec2DescribeSnapshotsCommand(output, context);
+    return de_DescribeSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

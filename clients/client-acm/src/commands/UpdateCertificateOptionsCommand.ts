@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { UpdateCertificateOptionsRequest, UpdateCertificateOptionsRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateCertificateOptionsCommand,
-  serializeAws_json1_1UpdateCertificateOptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateCertificateOptionsRequest } from "../models/models_0";
+import { de_UpdateCertificateOptionsCommand, se_UpdateCertificateOptionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCertificateOptionsCommand}.
  */
 export interface UpdateCertificateOptionsCommandInput extends UpdateCertificateOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCertificateOptionsCommand}.
  */
 export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a certificate. Currently, you can use this function to specify whether to opt in
  *       to or out of recording your certificate in a certificate transparency log. For more
  *       information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency"> Opting Out of
@@ -40,10 +42,18 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  * import { ACMClient, UpdateCertificateOptionsCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, UpdateCertificateOptionsCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // UpdateCertificateOptionsRequest
+ *   CertificateArn: "STRING_VALUE", // required
+ *   Options: { // CertificateOptions
+ *     CertificateTransparencyLoggingPreference: "ENABLED" || "DISABLED",
+ *   },
+ * };
  * const command = new UpdateCertificateOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCertificateOptionsCommandInput - {@link UpdateCertificateOptionsCommandInput}
+ * @returns {@link UpdateCertificateOptionsCommandOutput}
  * @see {@link UpdateCertificateOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateOptionsCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -80,6 +90,9 @@ export class UpdateCertificateOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCertificateOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +121,8 @@ export class UpdateCertificateOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCertificateOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +132,18 @@ export class UpdateCertificateOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCertificateOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCertificateOptionsCommand(input, context);
+    return se_UpdateCertificateOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCertificateOptionsCommandOutput> {
-    return deserializeAws_json1_1UpdateCertificateOptionsCommand(output, context);
+    return de_UpdateCertificateOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

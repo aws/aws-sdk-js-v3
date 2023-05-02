@@ -19,22 +19,24 @@ import {
   GetDocumentPathResponse,
   GetDocumentPathResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDocumentPathCommand,
-  serializeAws_restJson1GetDocumentPathCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDocumentPathCommand, se_GetDocumentPathCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDocumentPathCommand}.
  */
 export interface GetDocumentPathCommandInput extends GetDocumentPathRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDocumentPathCommand}.
  */
 export interface GetDocumentPathCommandOutput extends GetDocumentPathResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the path information (the hierarchy from the root folder) for the
  *             requested document.</p>
  *          <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
@@ -47,10 +49,19 @@ export interface GetDocumentPathCommandOutput extends GetDocumentPathResponse, _
  * import { WorkDocsClient, GetDocumentPathCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetDocumentPathCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // GetDocumentPathRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   DocumentId: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   Fields: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new GetDocumentPathCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDocumentPathCommandInput - {@link GetDocumentPathCommandInput}
+ * @returns {@link GetDocumentPathCommandOutput}
  * @see {@link GetDocumentPathCommandInput} for command's `input` shape.
  * @see {@link GetDocumentPathCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -91,6 +102,9 @@ export class GetDocumentPathCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDocumentPathCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,12 +144,18 @@ export class GetDocumentPathCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDocumentPathCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDocumentPathCommand(input, context);
+    return se_GetDocumentPathCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentPathCommandOutput> {
-    return deserializeAws_restJson1GetDocumentPathCommand(output, context);
+    return de_GetDocumentPathCommand(output, context);
   }
 
   // Start section: command_body_extra

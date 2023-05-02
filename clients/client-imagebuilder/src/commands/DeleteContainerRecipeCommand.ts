@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  DeleteContainerRecipeRequest,
-  DeleteContainerRecipeRequestFilterSensitiveLog,
-  DeleteContainerRecipeResponse,
-  DeleteContainerRecipeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteContainerRecipeCommand,
-  serializeAws_restJson1DeleteContainerRecipeCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteContainerRecipeRequest, DeleteContainerRecipeResponse } from "../models/models_0";
+import { de_DeleteContainerRecipeCommand, se_DeleteContainerRecipeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContainerRecipeCommand}.
  */
 export interface DeleteContainerRecipeCommandInput extends DeleteContainerRecipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContainerRecipeCommand}.
  */
 export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a container recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecip
  * import { ImagebuilderClient, DeleteContainerRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteContainerRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // DeleteContainerRecipeRequest
+ *   containerRecipeArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContainerRecipeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContainerRecipeCommandInput - {@link DeleteContainerRecipeCommandInput}
+ * @returns {@link DeleteContainerRecipeCommandOutput}
  * @see {@link DeleteContainerRecipeCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerRecipeCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -54,22 +56,23 @@ export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecip
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceDependencyException} (client fault)
- *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits this
- * 			action. See the error message for more details.</p>
+ *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits
+ * 			this action. See the error message for more details.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -93,6 +96,9 @@ export class DeleteContainerRecipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContainerRecipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DeleteContainerRecipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContainerRecipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContainerRecipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class DeleteContainerRecipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContainerRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteContainerRecipeCommand(input, context);
+    return se_DeleteContainerRecipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContainerRecipeCommandOutput> {
-    return deserializeAws_restJson1DeleteContainerRecipeCommand(output, context);
+    return de_DeleteContainerRecipeCommand(output, context);
   }
 
   // Start section: command_body_extra

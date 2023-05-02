@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { ListSubscriptionDefinitionsRequest, ListSubscriptionDefinitionsResponse } from "../models/models_0";
 import {
-  ListSubscriptionDefinitionsRequest,
-  ListSubscriptionDefinitionsRequestFilterSensitiveLog,
-  ListSubscriptionDefinitionsResponse,
-  ListSubscriptionDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSubscriptionDefinitionsCommand,
-  serializeAws_restJson1ListSubscriptionDefinitionsCommand,
+  de_ListSubscriptionDefinitionsCommand,
+  se_ListSubscriptionDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSubscriptionDefinitionsCommand}.
  */
 export interface ListSubscriptionDefinitionsCommandInput extends ListSubscriptionDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSubscriptionDefinitionsCommand}.
  */
 export interface ListSubscriptionDefinitionsCommandOutput
@@ -37,6 +36,7 @@ export interface ListSubscriptionDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves a list of subscription definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface ListSubscriptionDefinitionsCommandOutput
  * import { GreengrassClient, ListSubscriptionDefinitionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListSubscriptionDefinitionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListSubscriptionDefinitionsRequest
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSubscriptionDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSubscriptionDefinitionsCommandInput - {@link ListSubscriptionDefinitionsCommandInput}
+ * @returns {@link ListSubscriptionDefinitionsCommandOutput}
  * @see {@link ListSubscriptionDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListSubscriptionDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -71,6 +77,9 @@ export class ListSubscriptionDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSubscriptionDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +108,8 @@ export class ListSubscriptionDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSubscriptionDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSubscriptionDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +119,21 @@ export class ListSubscriptionDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSubscriptionDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSubscriptionDefinitionsCommand(input, context);
+    return se_ListSubscriptionDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSubscriptionDefinitionsCommandOutput> {
-    return deserializeAws_restJson1ListSubscriptionDefinitionsCommand(output, context);
+    return de_ListSubscriptionDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

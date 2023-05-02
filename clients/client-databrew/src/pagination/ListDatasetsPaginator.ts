@@ -10,7 +10,7 @@ import { DataBrewClient } from "../DataBrewClient";
 import { DataBrewPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DataBrewClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDatasetsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDatasets(
   config: DataBrewPaginationConfiguration,
   input: ListDatasetsCommandInput,

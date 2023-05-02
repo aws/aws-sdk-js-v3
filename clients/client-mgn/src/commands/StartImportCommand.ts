@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  StartImportRequest,
-  StartImportRequestFilterSensitiveLog,
-  StartImportResponse,
-  StartImportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartImportCommand,
-  serializeAws_restJson1StartImportCommand,
-} from "../protocols/Aws_restJson1";
+import { StartImportRequest, StartImportResponse } from "../models/models_0";
+import { de_StartImportCommand, se_StartImportCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartImportCommand}.
  */
 export interface StartImportCommandInput extends StartImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartImportCommand}.
  */
 export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Start import.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * import { MgnClient, StartImportCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, StartImportCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // StartImportRequest
+ *   clientToken: "STRING_VALUE",
+ *   s3BucketSource: { // S3BucketSource
+ *     s3Bucket: "STRING_VALUE", // required
+ *     s3Key: "STRING_VALUE", // required
+ *     s3BucketOwner: "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartImportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImportCommandInput - {@link StartImportCommandInput}
+ * @returns {@link StartImportCommandOutput}
  * @see {@link StartImportCommandInput} for command's `input` shape.
  * @see {@link StartImportCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -84,6 +91,9 @@ export class StartImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class StartImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +131,18 @@ export class StartImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartImportCommand(input, context);
+    return se_StartImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportCommandOutput> {
-    return deserializeAws_restJson1StartImportCommand(output, context);
+    return de_StartImportCommand(output, context);
   }
 
   // Start section: command_body_extra

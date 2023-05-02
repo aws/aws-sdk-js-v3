@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  StartNotebookExecutionInput,
-  StartNotebookExecutionInputFilterSensitiveLog,
-  StartNotebookExecutionOutput,
-  StartNotebookExecutionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartNotebookExecutionCommand,
-  serializeAws_json1_1StartNotebookExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartNotebookExecutionInput, StartNotebookExecutionOutput } from "../models/models_0";
+import { de_StartNotebookExecutionCommand, se_StartNotebookExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartNotebookExecutionCommand}.
  */
 export interface StartNotebookExecutionCommandInput extends StartNotebookExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StartNotebookExecutionCommand}.
  */
 export interface StartNotebookExecutionCommandOutput extends StartNotebookExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a notebook execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,31 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
  * import { EMRClient, StartNotebookExecutionCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, StartNotebookExecutionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // StartNotebookExecutionInput
+ *   EditorId: "STRING_VALUE", // required
+ *   RelativePath: "STRING_VALUE", // required
+ *   NotebookExecutionName: "STRING_VALUE",
+ *   NotebookParams: "STRING_VALUE",
+ *   ExecutionEngine: { // ExecutionEngineConfig
+ *     Id: "STRING_VALUE", // required
+ *     Type: "EMR",
+ *     MasterInstanceSecurityGroupId: "STRING_VALUE",
+ *   },
+ *   ServiceRole: "STRING_VALUE", // required
+ *   NotebookInstanceSecurityGroupId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new StartNotebookExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartNotebookExecutionCommandInput - {@link StartNotebookExecutionCommandInput}
+ * @returns {@link StartNotebookExecutionCommandOutput}
  * @see {@link StartNotebookExecutionCommandInput} for command's `input` shape.
  * @see {@link StartNotebookExecutionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -76,6 +94,9 @@ export class StartNotebookExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartNotebookExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +125,8 @@ export class StartNotebookExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartNotebookExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartNotebookExecutionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +136,18 @@ export class StartNotebookExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartNotebookExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartNotebookExecutionCommand(input, context);
+    return se_StartNotebookExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartNotebookExecutionCommandOutput> {
-    return deserializeAws_json1_1StartNotebookExecutionCommand(output, context);
+    return de_StartNotebookExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

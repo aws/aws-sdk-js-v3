@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import {
-  ListEventTypesRequest,
-  ListEventTypesRequestFilterSensitiveLog,
-  ListEventTypesResult,
-  ListEventTypesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEventTypesCommand,
-  serializeAws_restJson1ListEventTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEventTypesRequest, ListEventTypesResult } from "../models/models_0";
+import { de_ListEventTypesCommand, se_ListEventTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventTypesCommand}.
  */
 export interface ListEventTypesCommandInput extends ListEventTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventTypesCommand}.
  */
 export interface ListEventTypesCommandOutput extends ListEventTypesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the event types available for configuring notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,22 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  * import { CodestarNotificationsClient, ListEventTypesCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, ListEventTypesCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
+ * const input = { // ListEventTypesRequest
+ *   Filters: [ // ListEventTypesFilters
+ *     { // ListEventTypesFilter
+ *       Name: "RESOURCE_TYPE" || "SERVICE_NAME", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEventTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventTypesCommandInput - {@link ListEventTypesCommandInput}
+ * @returns {@link ListEventTypesCommandOutput}
  * @see {@link ListEventTypesCommandInput} for command's `input` shape.
  * @see {@link ListEventTypesCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -79,6 +88,9 @@ export class ListEventTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +119,8 @@ export class ListEventTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventTypesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +130,18 @@ export class ListEventTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEventTypesCommand(input, context);
+    return se_ListEventTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventTypesCommandOutput> {
-    return deserializeAws_restJson1ListEventTypesCommand(output, context);
+    return de_ListEventTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

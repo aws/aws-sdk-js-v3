@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import {
-  RegisterUsageRequest,
-  RegisterUsageRequestFilterSensitiveLog,
-  RegisterUsageResult,
-  RegisterUsageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterUsageCommand,
-  serializeAws_json1_1RegisterUsageCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterUsageRequest, RegisterUsageResult } from "../models/models_0";
+import { de_RegisterUsageCommand, se_RegisterUsageCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterUsageCommand}.
  */
 export interface RegisterUsageCommandInput extends RegisterUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterUsageCommand}.
  */
 export interface RegisterUsageCommandOutput extends RegisterUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Paid container software products sold through AWS Marketplace must integrate with the
  *             AWS Marketplace Metering Service and call the <code>RegisterUsage</code> operation for
  *             software entitlement and metering. Free and BYOL products for Amazon ECS or Amazon EKS
@@ -85,10 +82,17 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * import { MarketplaceMeteringClient, RegisterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, RegisterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
  * const client = new MarketplaceMeteringClient(config);
+ * const input = { // RegisterUsageRequest
+ *   ProductCode: "STRING_VALUE", // required
+ *   PublicKeyVersion: Number("int"), // required
+ *   Nonce: "STRING_VALUE",
+ * };
  * const command = new RegisterUsageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterUsageCommandInput - {@link RegisterUsageCommandInput}
+ * @returns {@link RegisterUsageCommandOutput}
  * @see {@link RegisterUsageCommandInput} for command's `input` shape.
  * @see {@link RegisterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
@@ -143,6 +147,9 @@ export class RegisterUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,8 +176,8 @@ export class RegisterUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterUsageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -180,12 +187,18 @@ export class RegisterUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterUsageCommand(input, context);
+    return se_RegisterUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterUsageCommandOutput> {
-    return deserializeAws_json1_1RegisterUsageCommand(output, context);
+    return de_RegisterUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

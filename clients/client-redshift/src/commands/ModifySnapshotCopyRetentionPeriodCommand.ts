@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ModifySnapshotCopyRetentionPeriodMessage, ModifySnapshotCopyRetentionPeriodResult } from "../models/models_1";
 import {
-  ModifySnapshotCopyRetentionPeriodMessage,
-  ModifySnapshotCopyRetentionPeriodMessageFilterSensitiveLog,
-  ModifySnapshotCopyRetentionPeriodResult,
-  ModifySnapshotCopyRetentionPeriodResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand,
-  serializeAws_queryModifySnapshotCopyRetentionPeriodCommand,
+  de_ModifySnapshotCopyRetentionPeriodCommand,
+  se_ModifySnapshotCopyRetentionPeriodCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifySnapshotCopyRetentionPeriodCommand}.
  */
 export interface ModifySnapshotCopyRetentionPeriodCommandInput extends ModifySnapshotCopyRetentionPeriodMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifySnapshotCopyRetentionPeriodCommand}.
  */
 export interface ModifySnapshotCopyRetentionPeriodCommandOutput
@@ -37,6 +36,7 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the number of days to retain snapshots in the destination Amazon Web Services Region after
  *             they are copied from the source Amazon Web Services Region. By default, this operation only changes the
  *             retention period of copied automated snapshots. The retention periods for both new and
@@ -50,10 +50,17 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput
  * import { RedshiftClient, ModifySnapshotCopyRetentionPeriodCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifySnapshotCopyRetentionPeriodCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ModifySnapshotCopyRetentionPeriodMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   RetentionPeriod: Number("int"), // required
+ *   Manual: true || false,
+ * };
  * const command = new ModifySnapshotCopyRetentionPeriodCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySnapshotCopyRetentionPeriodCommandInput - {@link ModifySnapshotCopyRetentionPeriodCommandInput}
+ * @returns {@link ModifySnapshotCopyRetentionPeriodCommandOutput}
  * @see {@link ModifySnapshotCopyRetentionPeriodCommandInput} for command's `input` shape.
  * @see {@link ModifySnapshotCopyRetentionPeriodCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -95,6 +102,9 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySnapshotCopyRetentionPeriodCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +133,8 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySnapshotCopyRetentionPeriodMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifySnapshotCopyRetentionPeriodResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +144,24 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifySnapshotCopyRetentionPeriodCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifySnapshotCopyRetentionPeriodCommand(input, context);
+    return se_ModifySnapshotCopyRetentionPeriodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput> {
-    return deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand(output, context);
+    return de_ModifySnapshotCopyRetentionPeriodCommand(output, context);
   }
 
   // Start section: command_body_extra

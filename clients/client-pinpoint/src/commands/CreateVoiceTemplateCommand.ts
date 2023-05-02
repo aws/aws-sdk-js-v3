@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateVoiceTemplateRequest,
-  CreateVoiceTemplateRequestFilterSensitiveLog,
-  CreateVoiceTemplateResponse,
-  CreateVoiceTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateVoiceTemplateRequest, CreateVoiceTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateVoiceTemplateCommand,
-  serializeAws_restJson1CreateVoiceTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateVoiceTemplateCommand, se_CreateVoiceTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVoiceTemplateCommand}.
  */
 export interface CreateVoiceTemplateCommandInput extends CreateVoiceTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVoiceTemplateCommand}.
  */
 export interface CreateVoiceTemplateCommandOutput extends CreateVoiceTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a message template for messages that are sent through the voice channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface CreateVoiceTemplateCommandOutput extends CreateVoiceTemplateRes
  * import { PinpointClient, CreateVoiceTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateVoiceTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // CreateVoiceTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ *   VoiceTemplateRequest: { // VoiceTemplateRequest
+ *     Body: "STRING_VALUE",
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     LanguageCode: "STRING_VALUE",
+ *     tags: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *     VoiceId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateVoiceTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVoiceTemplateCommandInput - {@link CreateVoiceTemplateCommandInput}
+ * @returns {@link CreateVoiceTemplateCommandOutput}
  * @see {@link CreateVoiceTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateVoiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -84,6 +96,9 @@ export class CreateVoiceTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVoiceTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +127,8 @@ export class CreateVoiceTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVoiceTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVoiceTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +138,18 @@ export class CreateVoiceTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVoiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVoiceTemplateCommand(input, context);
+    return se_CreateVoiceTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVoiceTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateVoiceTemplateCommand(output, context);
+    return de_CreateVoiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

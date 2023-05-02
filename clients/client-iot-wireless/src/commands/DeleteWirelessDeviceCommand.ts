@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  DeleteWirelessDeviceRequest,
-  DeleteWirelessDeviceRequestFilterSensitiveLog,
-  DeleteWirelessDeviceResponse,
-  DeleteWirelessDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWirelessDeviceCommand,
-  serializeAws_restJson1DeleteWirelessDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteWirelessDeviceRequest, DeleteWirelessDeviceResponse } from "../models/models_0";
+import { de_DeleteWirelessDeviceCommand, se_DeleteWirelessDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWirelessDeviceCommand}.
  */
 export interface DeleteWirelessDeviceCommandInput extends DeleteWirelessDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWirelessDeviceCommand}.
  */
 export interface DeleteWirelessDeviceCommandOutput extends DeleteWirelessDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a wireless device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteWirelessDeviceCommandOutput extends DeleteWirelessDeviceR
  * import { IoTWirelessClient, DeleteWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DeleteWirelessDeviceRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWirelessDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWirelessDeviceCommandInput - {@link DeleteWirelessDeviceCommandInput}
+ * @returns {@link DeleteWirelessDeviceCommandOutput}
  * @see {@link DeleteWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +86,9 @@ export class DeleteWirelessDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWirelessDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DeleteWirelessDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWirelessDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWirelessDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DeleteWirelessDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWirelessDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWirelessDeviceCommand(input, context);
+    return se_DeleteWirelessDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWirelessDeviceCommandOutput> {
-    return deserializeAws_restJson1DeleteWirelessDeviceCommand(output, context);
+    return de_DeleteWirelessDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

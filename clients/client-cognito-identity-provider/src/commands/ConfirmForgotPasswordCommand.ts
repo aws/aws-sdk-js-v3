@@ -22,23 +22,24 @@ import {
   ConfirmForgotPasswordRequest,
   ConfirmForgotPasswordRequestFilterSensitiveLog,
   ConfirmForgotPasswordResponse,
-  ConfirmForgotPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ConfirmForgotPasswordCommand,
-  serializeAws_json1_1ConfirmForgotPasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ConfirmForgotPasswordCommand, se_ConfirmForgotPasswordCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmForgotPasswordCommand}.
  */
 export interface ConfirmForgotPasswordCommandInput extends ConfirmForgotPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmForgotPasswordCommand}.
  */
 export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a user to enter a confirmation code to reset a forgotten password.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +47,29 @@ export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswor
  * import { CognitoIdentityProviderClient, ConfirmForgotPasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ConfirmForgotPasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // ConfirmForgotPasswordRequest
+ *   ClientId: "STRING_VALUE", // required
+ *   SecretHash: "STRING_VALUE",
+ *   Username: "STRING_VALUE", // required
+ *   ConfirmationCode: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
+ *     AnalyticsEndpointId: "STRING_VALUE",
+ *   },
+ *   UserContextData: { // UserContextDataType
+ *     IpAddress: "STRING_VALUE",
+ *     EncodedData: "STRING_VALUE",
+ *   },
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ConfirmForgotPasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmForgotPasswordCommandInput - {@link ConfirmForgotPasswordCommandInput}
+ * @returns {@link ConfirmForgotPasswordCommandOutput}
  * @see {@link ConfirmForgotPasswordCommandInput} for command's `input` shape.
  * @see {@link ConfirmForgotPasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -129,6 +149,9 @@ export class ConfirmForgotPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmForgotPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,7 +181,7 @@ export class ConfirmForgotPasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ConfirmForgotPasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmForgotPasswordResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -168,12 +191,18 @@ export class ConfirmForgotPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmForgotPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConfirmForgotPasswordCommand(input, context);
+    return se_ConfirmForgotPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmForgotPasswordCommandOutput> {
-    return deserializeAws_json1_1ConfirmForgotPasswordCommand(output, context);
+    return de_ConfirmForgotPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

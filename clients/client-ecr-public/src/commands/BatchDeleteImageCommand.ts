@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  BatchDeleteImageRequest,
-  BatchDeleteImageRequestFilterSensitiveLog,
-  BatchDeleteImageResponse,
-  BatchDeleteImageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteImageCommand,
-  serializeAws_json1_1BatchDeleteImageCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchDeleteImageRequest, BatchDeleteImageResponse } from "../models/models_0";
+import { de_BatchDeleteImageCommand, se_BatchDeleteImageCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteImageCommand}.
  */
 export interface BatchDeleteImageCommandInput extends BatchDeleteImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteImageCommand}.
  */
 export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a list of specified images that are within a repository in a public registry.
  *          Images are specified with either an <code>imageTag</code> or
  *          <code>imageDigest</code>.</p>
@@ -48,10 +45,22 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * import { ECRPUBLICClient, BatchDeleteImageCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, BatchDeleteImageCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = { // BatchDeleteImageRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageIds: [ // ImageIdentifierList // required
+ *     { // ImageIdentifier
+ *       imageDigest: "STRING_VALUE",
+ *       imageTag: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchDeleteImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteImageCommandInput - {@link BatchDeleteImageCommandInput}
+ * @returns {@link BatchDeleteImageCommandOutput}
  * @see {@link BatchDeleteImageCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteImageCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -89,6 +98,9 @@ export class BatchDeleteImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +129,8 @@ export class BatchDeleteImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +140,18 @@ export class BatchDeleteImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteImageCommand(input, context);
+    return se_BatchDeleteImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteImageCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteImageCommand(output, context);
+    return de_BatchDeleteImageCommand(output, context);
   }
 
   // Start section: command_body_extra

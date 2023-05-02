@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCommandInvocationRequest,
-  GetCommandInvocationRequestFilterSensitiveLog,
-  GetCommandInvocationResult,
-  GetCommandInvocationResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetCommandInvocationCommand,
-  serializeAws_json1_1GetCommandInvocationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCommandInvocationRequest, GetCommandInvocationResult } from "../models/models_1";
+import { de_GetCommandInvocationCommand, se_GetCommandInvocationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCommandInvocationCommand}.
  */
 export interface GetCommandInvocationCommandInput extends GetCommandInvocationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCommandInvocationCommand}.
  */
 export interface GetCommandInvocationCommandOutput extends GetCommandInvocationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about command execution for an invocation or plugin.</p>
  *          <p>
  *             <code>GetCommandInvocation</code> only gives the execution status of a plugin in a document.
@@ -46,10 +43,17 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  * import { SSMClient, GetCommandInvocationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetCommandInvocationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetCommandInvocationRequest
+ *   CommandId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   PluginName: "STRING_VALUE",
+ * };
  * const command = new GetCommandInvocationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCommandInvocationCommandInput - {@link GetCommandInvocationCommandInput}
+ * @returns {@link GetCommandInvocationCommandOutput}
  * @see {@link GetCommandInvocationCommandInput} for command's `input` shape.
  * @see {@link GetCommandInvocationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -106,6 +110,9 @@ export class GetCommandInvocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCommandInvocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +141,8 @@ export class GetCommandInvocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCommandInvocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCommandInvocationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +152,18 @@ export class GetCommandInvocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCommandInvocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCommandInvocationCommand(input, context);
+    return se_GetCommandInvocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCommandInvocationCommandOutput> {
-    return deserializeAws_json1_1GetCommandInvocationCommand(output, context);
+    return de_GetCommandInvocationCommand(output, context);
   }
 
   // Start section: command_body_extra

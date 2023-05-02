@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  UpdateSchemaRequest,
-  UpdateSchemaRequestFilterSensitiveLog,
-  UpdateSchemaResponse,
-  UpdateSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSchemaCommand,
-  serializeAws_restJson1UpdateSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateSchemaRequest, UpdateSchemaResponse } from "../models/models_0";
+import { de_UpdateSchemaCommand, se_UpdateSchemaCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSchemaCommand}.
  */
 export interface UpdateSchemaCommandInput extends UpdateSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSchemaCommand}.
  */
 export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the schema name with a new name. Only development schema names can be
  *       updated.</p>
  * @example
@@ -43,10 +40,16 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * import { CloudDirectoryClient, UpdateSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // UpdateSchemaRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new UpdateSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSchemaCommandInput - {@link UpdateSchemaCommandInput}
+ * @returns {@link UpdateSchemaCommandOutput}
  * @see {@link UpdateSchemaCommandInput} for command's `input` shape.
  * @see {@link UpdateSchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -92,6 +95,9 @@ export class UpdateSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class UpdateSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class UpdateSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSchemaCommand(input, context);
+    return se_UpdateSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSchemaCommandOutput> {
-    return deserializeAws_restJson1UpdateSchemaCommand(output, context);
+    return de_UpdateSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

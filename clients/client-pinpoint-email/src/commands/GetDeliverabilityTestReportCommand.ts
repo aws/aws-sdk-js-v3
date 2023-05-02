@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDeliverabilityTestReportRequest,
-  GetDeliverabilityTestReportRequestFilterSensitiveLog,
-  GetDeliverabilityTestReportResponse,
-  GetDeliverabilityTestReportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDeliverabilityTestReportRequest, GetDeliverabilityTestReportResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1GetDeliverabilityTestReportCommand,
-  serializeAws_restJson1GetDeliverabilityTestReportCommand,
+  de_GetDeliverabilityTestReportCommand,
+  se_GetDeliverabilityTestReportCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeliverabilityTestReportCommand}.
  */
 export interface GetDeliverabilityTestReportCommandInput extends GetDeliverabilityTestReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeliverabilityTestReportCommand}.
  */
 export interface GetDeliverabilityTestReportCommandOutput
@@ -37,6 +36,7 @@ export interface GetDeliverabilityTestReportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve the results of a predictive inbox placement test.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetDeliverabilityTestReportCommandOutput
  * import { PinpointEmailClient, GetDeliverabilityTestReportCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetDeliverabilityTestReportCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // GetDeliverabilityTestReportRequest
+ *   ReportId: "STRING_VALUE", // required
+ * };
  * const command = new GetDeliverabilityTestReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeliverabilityTestReportCommandInput - {@link GetDeliverabilityTestReportCommandInput}
+ * @returns {@link GetDeliverabilityTestReportCommandOutput}
  * @see {@link GetDeliverabilityTestReportCommandInput} for command's `input` shape.
  * @see {@link GetDeliverabilityTestReportCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -80,6 +85,9 @@ export class GetDeliverabilityTestReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeliverabilityTestReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class GetDeliverabilityTestReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeliverabilityTestReportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeliverabilityTestReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +127,21 @@ export class GetDeliverabilityTestReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeliverabilityTestReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeliverabilityTestReportCommand(input, context);
+    return se_GetDeliverabilityTestReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDeliverabilityTestReportCommandOutput> {
-    return deserializeAws_restJson1GetDeliverabilityTestReportCommand(output, context);
+    return de_GetDeliverabilityTestReportCommand(output, context);
   }
 
   // Start section: command_body_extra

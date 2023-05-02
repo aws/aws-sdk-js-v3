@@ -63,11 +63,23 @@ import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand";
+import {
+  CreateVpcConnectionCommandInput,
+  CreateVpcConnectionCommandOutput,
+} from "./commands/CreateVpcConnectionCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import {
+  DeleteClusterPolicyCommandInput,
+  DeleteClusterPolicyCommandOutput,
+} from "./commands/DeleteClusterPolicyCommand";
 import {
   DeleteConfigurationCommandInput,
   DeleteConfigurationCommandOutput,
 } from "./commands/DeleteConfigurationCommand";
+import {
+  DeleteVpcConnectionCommandInput,
+  DeleteVpcConnectionCommandOutput,
+} from "./commands/DeleteVpcConnectionCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import {
   DescribeClusterOperationCommandInput,
@@ -83,13 +95,22 @@ import {
   DescribeConfigurationRevisionCommandOutput,
 } from "./commands/DescribeConfigurationRevisionCommand";
 import {
+  DescribeVpcConnectionCommandInput,
+  DescribeVpcConnectionCommandOutput,
+} from "./commands/DescribeVpcConnectionCommand";
+import {
   GetBootstrapBrokersCommandInput,
   GetBootstrapBrokersCommandOutput,
 } from "./commands/GetBootstrapBrokersCommand";
+import { GetClusterPolicyCommandInput, GetClusterPolicyCommandOutput } from "./commands/GetClusterPolicyCommand";
 import {
   GetCompatibleKafkaVersionsCommandInput,
   GetCompatibleKafkaVersionsCommandOutput,
 } from "./commands/GetCompatibleKafkaVersionsCommand";
+import {
+  ListClientVpcConnectionsCommandInput,
+  ListClientVpcConnectionsCommandOutput,
+} from "./commands/ListClientVpcConnectionsCommand";
 import {
   ListClusterOperationsCommandInput,
   ListClusterOperationsCommandOutput,
@@ -108,7 +129,13 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListVpcConnectionsCommandInput, ListVpcConnectionsCommandOutput } from "./commands/ListVpcConnectionsCommand";
+import { PutClusterPolicyCommandInput, PutClusterPolicyCommandOutput } from "./commands/PutClusterPolicyCommand";
 import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "./commands/RebootBrokerCommand";
+import {
+  RejectClientVpcConnectionCommandInput,
+  RejectClientVpcConnectionCommandOutput,
+} from "./commands/RejectClientVpcConnectionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateBrokerCountCommandInput, UpdateBrokerCountCommandOutput } from "./commands/UpdateBrokerCountCommand";
@@ -141,21 +168,30 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchAssociateScramSecretCommandInput
   | BatchDisassociateScramSecretCommandInput
   | CreateClusterCommandInput
   | CreateClusterV2CommandInput
   | CreateConfigurationCommandInput
+  | CreateVpcConnectionCommandInput
   | DeleteClusterCommandInput
+  | DeleteClusterPolicyCommandInput
   | DeleteConfigurationCommandInput
+  | DeleteVpcConnectionCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterOperationCommandInput
   | DescribeClusterV2CommandInput
   | DescribeConfigurationCommandInput
   | DescribeConfigurationRevisionCommandInput
+  | DescribeVpcConnectionCommandInput
   | GetBootstrapBrokersCommandInput
+  | GetClusterPolicyCommandInput
   | GetCompatibleKafkaVersionsCommandInput
+  | ListClientVpcConnectionsCommandInput
   | ListClusterOperationsCommandInput
   | ListClustersCommandInput
   | ListClustersV2CommandInput
@@ -165,7 +201,10 @@ export type ServiceInputTypes =
   | ListNodesCommandInput
   | ListScramSecretsCommandInput
   | ListTagsForResourceCommandInput
+  | ListVpcConnectionsCommandInput
+  | PutClusterPolicyCommandInput
   | RebootBrokerCommandInput
+  | RejectClientVpcConnectionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBrokerCountCommandInput
@@ -179,21 +218,30 @@ export type ServiceInputTypes =
   | UpdateSecurityCommandInput
   | UpdateStorageCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchAssociateScramSecretCommandOutput
   | BatchDisassociateScramSecretCommandOutput
   | CreateClusterCommandOutput
   | CreateClusterV2CommandOutput
   | CreateConfigurationCommandOutput
+  | CreateVpcConnectionCommandOutput
   | DeleteClusterCommandOutput
+  | DeleteClusterPolicyCommandOutput
   | DeleteConfigurationCommandOutput
+  | DeleteVpcConnectionCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterOperationCommandOutput
   | DescribeClusterV2CommandOutput
   | DescribeConfigurationCommandOutput
   | DescribeConfigurationRevisionCommandOutput
+  | DescribeVpcConnectionCommandOutput
   | GetBootstrapBrokersCommandOutput
+  | GetClusterPolicyCommandOutput
   | GetCompatibleKafkaVersionsCommandOutput
+  | ListClientVpcConnectionsCommandOutput
   | ListClusterOperationsCommandOutput
   | ListClustersCommandOutput
   | ListClustersV2CommandOutput
@@ -203,7 +251,10 @@ export type ServiceOutputTypes =
   | ListNodesCommandOutput
   | ListScramSecretsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListVpcConnectionsCommandOutput
+  | PutClusterPolicyCommandOutput
   | RebootBrokerCommandOutput
+  | RejectClientVpcConnectionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBrokerCountCommandOutput
@@ -217,6 +268,9 @@ export type ServiceOutputTypes =
   | UpdateSecurityCommandOutput
   | UpdateStorageCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -224,7 +278,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -333,11 +387,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type KafkaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -348,10 +405,15 @@ type KafkaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of KafkaClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of KafkaClient class constructor that set the region, credentials and other options.
  */
 export interface KafkaClientConfig extends KafkaClientConfigType {}
 
+/**
+ * @public
+ */
 type KafkaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -362,11 +424,14 @@ type KafkaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandler
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of KafkaClient class. This is resolved and normalized from the {@link KafkaClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of KafkaClient class. This is resolved and normalized from the {@link KafkaClientConfig | constructor configuration interface}.
  */
 export interface KafkaClientResolvedConfig extends KafkaClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The operations for managing an Amazon MSK cluster.</p>
  */
 export class KafkaClient extends __Client<

@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import {
-  GetEBSVolumeRecommendationsRequest,
-  GetEBSVolumeRecommendationsRequestFilterSensitiveLog,
-  GetEBSVolumeRecommendationsResponse,
-  GetEBSVolumeRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetEBSVolumeRecommendationsCommand,
-  serializeAws_json1_0GetEBSVolumeRecommendationsCommand,
-} from "../protocols/Aws_json1_0";
+import { GetEBSVolumeRecommendationsRequest, GetEBSVolumeRecommendationsResponse } from "../models/models_0";
+import { de_GetEBSVolumeRecommendationsCommand, se_GetEBSVolumeRecommendationsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetEBSVolumeRecommendationsCommand}.
  */
 export interface GetEBSVolumeRecommendationsCommandInput extends GetEBSVolumeRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEBSVolumeRecommendationsCommand}.
  */
 export interface GetEBSVolumeRecommendationsCommandOutput
@@ -37,6 +33,7 @@ export interface GetEBSVolumeRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.</p>
  *          <p>Compute Optimizer generates recommendations for Amazon EBS volumes that
  *             meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
@@ -48,10 +45,30 @@ export interface GetEBSVolumeRecommendationsCommandOutput
  * import { ComputeOptimizerClient, GetEBSVolumeRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEBSVolumeRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetEBSVolumeRecommendationsRequest
+ *   volumeArns: [ // VolumeArns
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // EBSFilters
+ *     { // EBSFilter
+ *       name: "Finding",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   accountIds: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetEBSVolumeRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEBSVolumeRecommendationsCommandInput - {@link GetEBSVolumeRecommendationsCommandInput}
+ * @returns {@link GetEBSVolumeRecommendationsCommandOutput}
  * @see {@link GetEBSVolumeRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetEBSVolumeRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -100,6 +117,9 @@ export class GetEBSVolumeRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEBSVolumeRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +148,8 @@ export class GetEBSVolumeRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEBSVolumeRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEBSVolumeRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +159,21 @@ export class GetEBSVolumeRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEBSVolumeRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEBSVolumeRecommendationsCommand(input, context);
+    return se_GetEBSVolumeRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEBSVolumeRecommendationsCommandOutput> {
-    return deserializeAws_json1_0GetEBSVolumeRecommendationsCommand(output, context);
+    return de_GetEBSVolumeRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

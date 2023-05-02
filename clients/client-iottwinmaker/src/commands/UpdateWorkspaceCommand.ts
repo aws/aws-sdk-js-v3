@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  UpdateWorkspaceRequest,
-  UpdateWorkspaceRequestFilterSensitiveLog,
-  UpdateWorkspaceResponse,
-  UpdateWorkspaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkspaceCommand,
-  serializeAws_restJson1UpdateWorkspaceCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateWorkspaceRequest, UpdateWorkspaceResponse } from "../models/models_0";
+import { de_UpdateWorkspaceCommand, se_UpdateWorkspaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkspaceCommand}.
  */
 export interface UpdateWorkspaceCommandInput extends UpdateWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkspaceCommand}.
  */
 export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * import { IoTTwinMakerClient, UpdateWorkspaceCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, UpdateWorkspaceCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // UpdateWorkspaceRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   role: "STRING_VALUE",
+ * };
  * const command = new UpdateWorkspaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceCommandInput - {@link UpdateWorkspaceCommandInput}
+ * @returns {@link UpdateWorkspaceCommandOutput}
  * @see {@link UpdateWorkspaceCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -87,6 +91,9 @@ export class UpdateWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class UpdateWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkspaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkspaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class UpdateWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkspaceCommand(input, context);
+    return se_UpdateWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkspaceCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkspaceCommand(output, context);
+    return de_UpdateWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

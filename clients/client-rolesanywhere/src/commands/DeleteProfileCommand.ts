@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ProfileDetailResponse,
-  ProfileDetailResponseFilterSensitiveLog,
-  ScalarProfileRequest,
-  ScalarProfileRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteProfileCommand,
-  serializeAws_restJson1DeleteProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
+import { de_DeleteProfileCommand, se_DeleteProfileCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProfileCommand}.
  */
 export interface DeleteProfileCommandInput extends ScalarProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProfileCommand}.
  */
 export interface DeleteProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a profile.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -46,10 +43,15 @@ export interface DeleteProfileCommandOutput extends ProfileDetailResponse, __Met
  * import { RolesAnywhereClient, DeleteProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, DeleteProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ScalarProfileRequest
+ *   profileId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProfileCommandInput - {@link DeleteProfileCommandInput}
+ * @returns {@link DeleteProfileCommandOutput}
  * @see {@link DeleteProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +81,9 @@ export class DeleteProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +110,8 @@ export class DeleteProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ProfileDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +121,18 @@ export class DeleteProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteProfileCommand(input, context);
+    return se_DeleteProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteProfileCommand(output, context);
+    return de_DeleteProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

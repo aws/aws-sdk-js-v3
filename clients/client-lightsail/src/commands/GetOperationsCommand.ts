@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetOperationsRequest,
-  GetOperationsRequestFilterSensitiveLog,
-  GetOperationsResult,
-  GetOperationsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetOperationsCommand,
-  serializeAws_json1_1GetOperationsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetOperationsRequest, GetOperationsResult } from "../models/models_1";
+import { de_GetOperationsCommand, se_GetOperationsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOperationsCommand}.
  */
 export interface GetOperationsCommandInput extends GetOperationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOperationsCommand}.
  */
 export interface GetOperationsCommandOutput extends GetOperationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all operations.</p>
  *          <p>Results are returned from oldest to newest, up to a maximum of 200. Results can be paged
  *       by making each subsequent call to <code>GetOperations</code> use the maximum (last)
@@ -45,10 +42,15 @@ export interface GetOperationsCommandOutput extends GetOperationsResult, __Metad
  * import { LightsailClient, GetOperationsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetOperationsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetOperationsRequest
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetOperationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOperationsCommandInput - {@link GetOperationsCommandInput}
+ * @returns {@link GetOperationsCommandOutput}
  * @see {@link GetOperationsCommandInput} for command's `input` shape.
  * @see {@link GetOperationsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +104,9 @@ export class GetOperationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +133,8 @@ export class GetOperationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOperationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOperationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +144,18 @@ export class GetOperationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOperationsCommand(input, context);
+    return se_GetOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationsCommandOutput> {
-    return deserializeAws_json1_1GetOperationsCommand(output, context);
+    return de_GetOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

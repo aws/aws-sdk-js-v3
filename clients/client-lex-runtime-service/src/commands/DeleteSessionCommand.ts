@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
-import {
-  DeleteSessionRequest,
-  DeleteSessionRequestFilterSensitiveLog,
-  DeleteSessionResponse,
-  DeleteSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSessionCommand,
-  serializeAws_restJson1DeleteSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_0";
+import { de_DeleteSessionCommand, se_DeleteSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSessionCommand}.
  */
 export interface DeleteSessionCommandInput extends DeleteSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSessionCommand}.
  */
 export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes session information for a specified bot, alias, and user ID.
  *     </p>
  * @example
@@ -47,10 +44,17 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * import { LexRuntimeServiceClient, DeleteSessionCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, DeleteSessionCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
+ * const input = { // DeleteSessionRequest
+ *   botName: "STRING_VALUE", // required
+ *   botAlias: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSessionCommandInput - {@link DeleteSessionCommandInput}
+ * @returns {@link DeleteSessionCommandOutput}
  * @see {@link DeleteSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteSessionCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
@@ -93,6 +97,9 @@ export class DeleteSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +126,8 @@ export class DeleteSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +137,18 @@ export class DeleteSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSessionCommand(input, context);
+    return se_DeleteSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSessionCommandOutput> {
-    return deserializeAws_restJson1DeleteSessionCommand(output, context);
+    return de_DeleteSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

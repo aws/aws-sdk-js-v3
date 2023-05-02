@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyVpcPeeringConnectionOptionsRequest, ModifyVpcPeeringConnectionOptionsResult } from "../models/models_6";
 import {
-  ModifyVpcPeeringConnectionOptionsRequest,
-  ModifyVpcPeeringConnectionOptionsRequestFilterSensitiveLog,
-  ModifyVpcPeeringConnectionOptionsResult,
-  ModifyVpcPeeringConnectionOptionsResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand,
-  serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand,
+  de_ModifyVpcPeeringConnectionOptionsCommand,
+  se_ModifyVpcPeeringConnectionOptionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpcPeeringConnectionOptionsCommand}.
  */
 export interface ModifyVpcPeeringConnectionOptionsCommandInput extends ModifyVpcPeeringConnectionOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpcPeeringConnectionOptionsCommand}.
  */
 export interface ModifyVpcPeeringConnectionOptionsCommandOutput
@@ -37,6 +36,7 @@ export interface ModifyVpcPeeringConnectionOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
@@ -69,10 +69,26 @@ export interface ModifyVpcPeeringConnectionOptionsCommandOutput
  * import { EC2Client, ModifyVpcPeeringConnectionOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcPeeringConnectionOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVpcPeeringConnectionOptionsRequest
+ *   AccepterPeeringConnectionOptions: { // PeeringConnectionOptionsRequest
+ *     AllowDnsResolutionFromRemoteVpc: true || false,
+ *     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
+ *     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ *   },
+ *   DryRun: true || false,
+ *   RequesterPeeringConnectionOptions: {
+ *     AllowDnsResolutionFromRemoteVpc: true || false,
+ *     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
+ *     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ *   },
+ *   VpcPeeringConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new ModifyVpcPeeringConnectionOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcPeeringConnectionOptionsCommandInput - {@link ModifyVpcPeeringConnectionOptionsCommandInput}
+ * @returns {@link ModifyVpcPeeringConnectionOptionsCommandOutput}
  * @see {@link ModifyVpcPeeringConnectionOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcPeeringConnectionOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -96,6 +112,9 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcPeeringConnectionOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +143,8 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpcPeeringConnectionOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpcPeeringConnectionOptionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +154,24 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVpcPeeringConnectionOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(input, context);
+    return se_ModifyVpcPeeringConnectionOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcPeeringConnectionOptionsCommandOutput> {
-    return deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(output, context);
+    return de_ModifyVpcPeeringConnectionOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

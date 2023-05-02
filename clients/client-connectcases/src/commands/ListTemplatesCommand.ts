@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  ListTemplatesRequest,
-  ListTemplatesRequestFilterSensitiveLog,
-  ListTemplatesResponse,
-  ListTemplatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTemplatesCommand,
-  serializeAws_restJson1ListTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTemplatesRequest, ListTemplatesResponse } from "../models/models_0";
+import { de_ListTemplatesCommand, se_ListTemplatesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTemplatesCommand}.
  */
 export interface ListTemplatesCommandInput extends ListTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTemplatesCommand}.
  */
 export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the templates in a Cases domain. Each list item is a condensed summary
  *       object of the template. </p>
  * @example
@@ -43,10 +40,20 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * import { ConnectCasesClient, ListTemplatesCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, ListTemplatesCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // ListTemplatesRequest
+ *   domainId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   status: [ // TemplateStatusFilters
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
+ * @returns {@link ListTemplatesCommandOutput}
  * @see {@link ListTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +123,8 @@ export class ListTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +134,18 @@ export class ListTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTemplatesCommand(input, context);
+    return se_ListTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListTemplatesCommand(output, context);
+    return de_ListTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

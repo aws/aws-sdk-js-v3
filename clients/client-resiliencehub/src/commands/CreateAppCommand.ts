@@ -19,27 +19,29 @@ import {
   CreateAppResponse,
   CreateAppResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAppCommand,
-  serializeAws_restJson1CreateAppCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAppCommand, se_CreateAppCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppCommand}.
  */
 export interface CreateAppCommandInput extends CreateAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppCommand}.
  */
 export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an AWS Resilience Hub application. An AWS Resilience Hub application is a collection of Amazon Web Services
- *       resources structured to prevent and recover Amazon Web Services application disruptions. To describe a
- *       AWS Resilience Hub application, you provide an application name, resources from one or more–up to
- *       five–CloudFormation stacks, and an appropriate resiliency policy.</p>
- *          <p>After you create an AWS Resilience Hub application, you publish it so that you can run a resiliency
+ * @public
+ * <p>Creates an Resilience Hub application. An Resilience Hub application is a
+ *       collection of Amazon Web Services resources structured to prevent and recover Amazon Web Services application disruptions. To describe a Resilience Hub application, you provide an
+ *       application name, resources from one or more–up to 20–CloudFormation stacks, and an appropriate
+ *       resiliency policy.</p>
+ *          <p>After you create an Resilience Hub application, you publish it so that you can run a resiliency
  *       assessment on it. You can then use recommendations from the assessment to improve resiliency
  *       by running another assessment, comparing results, and then iterating the process until you
  *       achieve your goals for recovery time objective (RTO) and recovery point objective
@@ -50,10 +52,22 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * import { ResiliencehubClient, CreateAppCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, CreateAppCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // CreateAppRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   policyArn: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   assessmentSchedule: "STRING_VALUE",
+ * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppCommandInput - {@link CreateAppCommandInput}
+ * @returns {@link CreateAppCommandOutput}
  * @see {@link CreateAppCommandInput} for command's `input` shape.
  * @see {@link CreateAppCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -70,7 +84,7 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -105,6 +119,9 @@ export class CreateAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,12 +159,18 @@ export class CreateAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAppCommand(input, context);
+    return se_CreateAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppCommandOutput> {
-    return deserializeAws_restJson1CreateAppCommand(output, context);
+    return de_CreateAppCommand(output, context);
   }
 
   // Start section: command_body_extra

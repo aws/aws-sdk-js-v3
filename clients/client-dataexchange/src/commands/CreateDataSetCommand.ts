@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  CreateDataSetRequest,
-  CreateDataSetRequestFilterSensitiveLog,
-  CreateDataSetResponse,
-  CreateDataSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDataSetCommand,
-  serializeAws_restJson1CreateDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDataSetRequest, CreateDataSetResponse } from "../models/models_0";
+import { de_CreateDataSetCommand, se_CreateDataSetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataSetCommand}.
  */
 export interface CreateDataSetCommandInput extends CreateDataSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataSetCommand}.
  */
 export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation creates a data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * import { DataExchangeClient, CreateDataSetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, CreateDataSetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // CreateDataSetRequest
+ *   AssetType: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Tags: { // MapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDataSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataSetCommandInput - {@link CreateDataSetCommandInput}
+ * @returns {@link CreateDataSetCommandOutput}
  * @see {@link CreateDataSetCommandInput} for command's `input` shape.
  * @see {@link CreateDataSetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateDataSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class CreateDataSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +131,18 @@ export class CreateDataSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDataSetCommand(input, context);
+    return se_CreateDataSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSetCommandOutput> {
-    return deserializeAws_restJson1CreateDataSetCommand(output, context);
+    return de_CreateDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

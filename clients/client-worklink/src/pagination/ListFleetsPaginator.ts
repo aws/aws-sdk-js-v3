@@ -6,7 +6,7 @@ import { WorkLinkClient } from "../WorkLinkClient";
 import { WorkLinkPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkLinkClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFleetsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFleets(
   config: WorkLinkPaginationConfiguration,
   input: ListFleetsCommandInput,

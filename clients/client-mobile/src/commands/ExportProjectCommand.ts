@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import {
-  ExportProjectRequest,
-  ExportProjectRequestFilterSensitiveLog,
-  ExportProjectResult,
-  ExportProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportProjectCommand,
-  serializeAws_restJson1ExportProjectCommand,
-} from "../protocols/Aws_restJson1";
+import { ExportProjectRequest, ExportProjectResult } from "../models/models_0";
+import { de_ExportProjectCommand, se_ExportProjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportProjectCommand}.
  */
 export interface ExportProjectCommandInput extends ExportProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportProjectCommand}.
  */
 export interface ExportProjectCommandOutput extends ExportProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Exports project configuration to a snapshot which can be downloaded and shared.
  *             Note that mobile app push credentials are encrypted in exported projects, so they
@@ -46,10 +43,15 @@ export interface ExportProjectCommandOutput extends ExportProjectResult, __Metad
  * import { MobileClient, ExportProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, ExportProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
+ * const input = { // ExportProjectRequest
+ *   projectId: "STRING_VALUE", // required
+ * };
  * const command = new ExportProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportProjectCommandInput - {@link ExportProjectCommandInput}
+ * @returns {@link ExportProjectCommandOutput}
  * @see {@link ExportProjectCommandInput} for command's `input` shape.
  * @see {@link ExportProjectCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
@@ -107,6 +109,9 @@ export class ExportProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +138,8 @@ export class ExportProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +149,18 @@ export class ExportProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportProjectCommand(input, context);
+    return se_ExportProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportProjectCommandOutput> {
-    return deserializeAws_restJson1ExportProjectCommand(output, context);
+    return de_ExportProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

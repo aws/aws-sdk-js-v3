@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopClockInput,
-  StopClockInputFilterSensitiveLog,
-  StopClockOutput,
-  StopClockOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopClockCommand,
-  serializeAws_restJson1StopClockCommand,
-} from "../protocols/Aws_restJson1";
+import { StopClockInput, StopClockOutput } from "../models/models_0";
+import { de_StopClockCommand, se_StopClockCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopClockCommand}.
  */
 export interface StopClockCommandInput extends StopClockInput {}
 /**
+ * @public
+ *
  * The output of {@link StopClockCommand}.
  */
 export interface StopClockCommandOutput extends StopClockOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the simulation clock.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StopClockCommandOutput extends StopClockOutput, __MetadataBeare
  * import { SimSpaceWeaverClient, StopClockCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, StopClockCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
+ * const input = { // StopClockInput
+ *   Simulation: "STRING_VALUE", // required
+ * };
  * const command = new StopClockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopClockCommandInput - {@link StopClockCommandInput}
+ * @returns {@link StopClockCommandOutput}
  * @see {@link StopClockCommandInput} for command's `input` shape.
  * @see {@link StopClockCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -84,6 +86,9 @@ export class StopClockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopClockCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class StopClockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopClockInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopClockOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class StopClockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopClockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopClockCommand(input, context);
+    return se_StopClockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopClockCommandOutput> {
-    return deserializeAws_restJson1StopClockCommand(output, context);
+    return de_StopClockCommand(output, context);
   }
 
   // Start section: command_body_extra

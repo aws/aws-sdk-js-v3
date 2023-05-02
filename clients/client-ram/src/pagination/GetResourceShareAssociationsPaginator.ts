@@ -10,7 +10,7 @@ import { RAMClient } from "../RAMClient";
 import { RAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RAMClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetResourceShareAssociationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetResourceShareAssociations(
   config: RAMPaginationConfiguration,
   input: GetResourceShareAssociationsCommandInput,

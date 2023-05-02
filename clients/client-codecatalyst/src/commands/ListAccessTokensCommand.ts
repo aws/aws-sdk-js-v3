@@ -14,38 +14,41 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  ListAccessTokensRequest,
-  ListAccessTokensRequestFilterSensitiveLog,
-  ListAccessTokensResponse,
-  ListAccessTokensResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAccessTokensCommand,
-  serializeAws_restJson1ListAccessTokensCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAccessTokensRequest, ListAccessTokensResponse } from "../models/models_0";
+import { de_ListAccessTokensCommand, se_ListAccessTokensCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessTokensCommand}.
  */
 export interface ListAccessTokensCommandInput extends ListAccessTokensRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessTokensCommand}.
  */
 export interface ListAccessTokensCommandOutput extends ListAccessTokensResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all personal access tokens (PATs) associated with the user who calls the API. You can only list PATs associated with your user account.</p>
+ * @public
+ * <p>Lists all personal access tokens (PATs) associated with the user who calls the API. You can only list PATs associated with your Amazon Web Services Builder ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCatalystClient, ListAccessTokensCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, ListAccessTokensCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // ListAccessTokensRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListAccessTokensCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessTokensCommandInput - {@link ListAccessTokensCommandInput}
+ * @returns {@link ListAccessTokensCommandOutput}
  * @see {@link ListAccessTokensCommandInput} for command's `input` shape.
  * @see {@link ListAccessTokensCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +91,9 @@ export class ListAccessTokensCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessTokensCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class ListAccessTokensCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessTokensRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessTokensResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class ListAccessTokensCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessTokensCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAccessTokensCommand(input, context);
+    return se_ListAccessTokensCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessTokensCommandOutput> {
-    return deserializeAws_restJson1ListAccessTokensCommand(output, context);
+    return de_ListAccessTokensCommand(output, context);
   }
 
   // Start section: command_body_extra

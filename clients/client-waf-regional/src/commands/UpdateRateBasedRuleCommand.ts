@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRateBasedRuleRequest,
-  UpdateRateBasedRuleRequestFilterSensitiveLog,
-  UpdateRateBasedRuleResponse,
-  UpdateRateBasedRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRateBasedRuleCommand,
-  serializeAws_json1_1UpdateRateBasedRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateRateBasedRuleRequest, UpdateRateBasedRuleResponse } from "../models/models_0";
+import { de_UpdateRateBasedRuleCommand, se_UpdateRateBasedRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRateBasedRuleCommand}.
  */
 export interface UpdateRateBasedRuleCommandInput extends UpdateRateBasedRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRateBasedRuleCommand}.
  */
 export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -96,10 +93,27 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  * import { WAFRegionalClient, UpdateRateBasedRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateRateBasedRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // UpdateRateBasedRuleRequest
+ *   RuleId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // RuleUpdates // required
+ *     { // RuleUpdate
+ *       Action: "STRING_VALUE", // required
+ *       Predicate: { // Predicate
+ *         Negated: true || false, // required
+ *         Type: "STRING_VALUE", // required
+ *         DataId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   RateLimit: Number("long"), // required
+ * };
  * const command = new UpdateRateBasedRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRateBasedRuleCommandInput - {@link UpdateRateBasedRuleCommandInput}
+ * @returns {@link UpdateRateBasedRuleCommandOutput}
  * @see {@link UpdateRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateRateBasedRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -232,6 +246,9 @@ export class UpdateRateBasedRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRateBasedRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -260,8 +277,8 @@ export class UpdateRateBasedRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRateBasedRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRateBasedRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -271,12 +288,18 @@ export class UpdateRateBasedRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRateBasedRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRateBasedRuleCommand(input, context);
+    return se_UpdateRateBasedRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRateBasedRuleCommandOutput> {
-    return deserializeAws_json1_1UpdateRateBasedRuleCommand(output, context);
+    return de_UpdateRateBasedRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

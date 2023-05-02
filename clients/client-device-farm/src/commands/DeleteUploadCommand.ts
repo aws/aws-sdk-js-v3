@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  DeleteUploadRequest,
-  DeleteUploadRequestFilterSensitiveLog,
-  DeleteUploadResult,
-  DeleteUploadResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteUploadCommand,
-  serializeAws_json1_1DeleteUploadCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteUploadRequest, DeleteUploadResult } from "../models/models_0";
+import { de_DeleteUploadCommand, se_DeleteUploadCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUploadCommand}.
  */
 export interface DeleteUploadCommandInput extends DeleteUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUploadCommand}.
  */
 export interface DeleteUploadCommandOutput extends DeleteUploadResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an upload given the upload ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
  * import { DeviceFarmClient, DeleteUploadCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteUploadCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // DeleteUploadRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUploadCommandInput - {@link DeleteUploadCommandInput}
+ * @returns {@link DeleteUploadCommandOutput}
  * @see {@link DeleteUploadCommandInput} for command's `input` shape.
  * @see {@link DeleteUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -92,6 +94,9 @@ export class DeleteUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class DeleteUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUploadRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUploadResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class DeleteUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUploadCommand(input, context);
+    return se_DeleteUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUploadCommandOutput> {
-    return deserializeAws_json1_1DeleteUploadCommand(output, context);
+    return de_DeleteUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

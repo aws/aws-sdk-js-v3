@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DeleteFaqRequest, DeleteFaqRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_json1_1DeleteFaqCommand, serializeAws_json1_1DeleteFaqCommand } from "../protocols/Aws_json1_1";
+import { DeleteFaqRequest } from "../models/models_0";
+import { de_DeleteFaqCommand, se_DeleteFaqCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFaqCommand}.
  */
 export interface DeleteFaqCommandInput extends DeleteFaqRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFaqCommand}.
  */
 export interface DeleteFaqCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an FAQ from an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,10 +39,16 @@ export interface DeleteFaqCommandOutput extends __MetadataBearer {}
  * import { KendraClient, DeleteFaqCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteFaqCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DeleteFaqRequest
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFaqCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFaqCommandInput - {@link DeleteFaqCommandInput}
+ * @returns {@link DeleteFaqCommandOutput}
  * @see {@link DeleteFaqCommandInput} for command's `input` shape.
  * @see {@link DeleteFaqCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -52,7 +63,7 @@ export interface DeleteFaqCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -85,6 +96,9 @@ export class DeleteFaqCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFaqCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +125,8 @@ export class DeleteFaqCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFaqRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +136,18 @@ export class DeleteFaqCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFaqCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFaqCommand(input, context);
+    return se_DeleteFaqCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFaqCommandOutput> {
-    return deserializeAws_json1_1DeleteFaqCommand(output, context);
+    return de_DeleteFaqCommand(output, context);
   }
 
   // Start section: command_body_extra

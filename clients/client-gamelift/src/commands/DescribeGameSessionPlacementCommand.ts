@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { DescribeGameSessionPlacementInput, DescribeGameSessionPlacementOutput } from "../models/models_0";
 import {
-  DescribeGameSessionPlacementInput,
-  DescribeGameSessionPlacementInputFilterSensitiveLog,
-  DescribeGameSessionPlacementOutput,
-  DescribeGameSessionPlacementOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGameSessionPlacementCommand,
-  serializeAws_json1_1DescribeGameSessionPlacementCommand,
+  de_DescribeGameSessionPlacementCommand,
+  se_DescribeGameSessionPlacementCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGameSessionPlacementCommand}.
  */
 export interface DescribeGameSessionPlacementCommandInput extends DescribeGameSessionPlacementInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGameSessionPlacementCommand}.
  */
 export interface DescribeGameSessionPlacementCommandOutput
@@ -37,10 +36,11 @@ export interface DescribeGameSessionPlacementCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information, including current status, about a game session placement
  *             request. </p>
- *         <p>To get game session placement details, specify the placement ID.</p>
- *         <p>This operation is not designed to be continually called to track game session status.
+ *          <p>To get game session placement details, specify the placement ID.</p>
+ *          <p>This operation is not designed to be continually called to track game session status.
  *             This practice can cause you to exceed your API limit, which results in errors. Instead,
  *             you must configure configure an Amazon Simple Notification Service (SNS) topic to receive notifications from
  *             FlexMatch or queues. Continuously polling with <code>DescribeGameSessionPlacement</code>
@@ -51,10 +51,15 @@ export interface DescribeGameSessionPlacementCommandOutput
  * import { GameLiftClient, DescribeGameSessionPlacementCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeGameSessionPlacementCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeGameSessionPlacementInput
+ *   PlacementId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGameSessionPlacementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGameSessionPlacementCommandInput - {@link DescribeGameSessionPlacementCommandInput}
+ * @returns {@link DescribeGameSessionPlacementCommandOutput}
  * @see {@link DescribeGameSessionPlacementCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionPlacementCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -92,6 +97,9 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGameSessionPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +128,8 @@ export class DescribeGameSessionPlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGameSessionPlacementInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGameSessionPlacementOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +139,21 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGameSessionPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGameSessionPlacementCommand(input, context);
+    return se_DescribeGameSessionPlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGameSessionPlacementCommandOutput> {
-    return deserializeAws_json1_1DescribeGameSessionPlacementCommand(output, context);
+    return de_DescribeGameSessionPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

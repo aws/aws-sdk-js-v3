@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  GetBackendEnvironmentRequest,
-  GetBackendEnvironmentRequestFilterSensitiveLog,
-  GetBackendEnvironmentResult,
-  GetBackendEnvironmentResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBackendEnvironmentCommand,
-  serializeAws_restJson1GetBackendEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBackendEnvironmentRequest, GetBackendEnvironmentResult } from "../models/models_0";
+import { de_GetBackendEnvironmentCommand, se_GetBackendEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackendEnvironmentCommand}.
  */
 export interface GetBackendEnvironmentCommandInput extends GetBackendEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBackendEnvironmentCommand}.
  */
 export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a backend environment for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmen
  * import { AmplifyClient, GetBackendEnvironmentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetBackendEnvironmentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // GetBackendEnvironmentRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ * };
  * const command = new GetBackendEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackendEnvironmentCommandInput - {@link GetBackendEnvironmentCommandInput}
+ * @returns {@link GetBackendEnvironmentCommandOutput}
  * @see {@link GetBackendEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetBackendEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -81,6 +84,9 @@ export class GetBackendEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackendEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class GetBackendEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBackendEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBackendEnvironmentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class GetBackendEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackendEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackendEnvironmentCommand(input, context);
+    return se_GetBackendEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackendEnvironmentCommandOutput> {
-    return deserializeAws_restJson1GetBackendEnvironmentCommand(output, context);
+    return de_GetBackendEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import {
-  ListTableColumnsRequest,
-  ListTableColumnsRequestFilterSensitiveLog,
-  ListTableColumnsResult,
-  ListTableColumnsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTableColumnsCommand,
-  serializeAws_restJson1ListTableColumnsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTableColumnsRequest, ListTableColumnsResult } from "../models/models_0";
+import { de_ListTableColumnsCommand, se_ListTableColumnsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTableColumnsCommand}.
  */
 export interface ListTableColumnsCommandInput extends ListTableColumnsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTableColumnsCommand}.
  */
 export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The ListTableColumns API allows you to retrieve a list of all the columns in a table in a workbook.
  *         </p>
@@ -44,10 +41,17 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  * import { HoneycodeClient, ListTableColumnsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, ListTableColumnsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = { // ListTableColumnsRequest
+ *   workbookId: "STRING_VALUE", // required
+ *   tableId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTableColumnsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTableColumnsCommandInput - {@link ListTableColumnsCommandInput}
+ * @returns {@link ListTableColumnsCommandOutput}
  * @see {@link ListTableColumnsCommandInput} for command's `input` shape.
  * @see {@link ListTableColumnsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -97,6 +101,9 @@ export class ListTableColumnsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTableColumnsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +132,8 @@ export class ListTableColumnsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTableColumnsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTableColumnsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +143,18 @@ export class ListTableColumnsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTableColumnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTableColumnsCommand(input, context);
+    return se_ListTableColumnsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableColumnsCommandOutput> {
-    return deserializeAws_restJson1ListTableColumnsCommand(output, context);
+    return de_ListTableColumnsCommand(output, context);
   }
 
   // Start section: command_body_extra

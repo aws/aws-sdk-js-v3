@@ -20,24 +20,25 @@ import {
   ListChannelsResponse,
   ListChannelsResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListChannelsCommand,
-  serializeAws_restJson1ListChannelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChannelsCommand, se_ListChannelsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChannelsCommand}.
  */
 export interface ListChannelsCommandInput extends ListChannelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChannelsCommand}.
  */
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
  *          filters to narrow results.</p>
- *
  *          <p class="title">
  *             <b>Functionality & restrictions</b>
  *          </p>
@@ -51,7 +52,6 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  *                list the private channels in an account.</p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
@@ -63,10 +63,19 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * import { ChimeClient, ListChannelsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListChannelsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListChannelsRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   Privacy: "PUBLIC" || "PRIVATE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelsCommandInput - {@link ListChannelsCommandInput}
+ * @returns {@link ListChannelsCommandOutput}
  * @see {@link ListChannelsCommandInput} for command's `input` shape.
  * @see {@link ListChannelsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -108,6 +117,9 @@ export class ListChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,12 +157,18 @@ export class ListChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelsCommand(input, context);
+    return se_ListChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelsCommandOutput> {
-    return deserializeAws_restJson1ListChannelsCommand(output, context);
+    return de_ListChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

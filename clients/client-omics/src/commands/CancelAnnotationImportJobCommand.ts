@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelAnnotationImportRequest,
-  CancelAnnotationImportRequestFilterSensitiveLog,
-  CancelAnnotationImportResponse,
-  CancelAnnotationImportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelAnnotationImportRequest, CancelAnnotationImportResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1CancelAnnotationImportJobCommand,
-  serializeAws_restJson1CancelAnnotationImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelAnnotationImportJobCommand, se_CancelAnnotationImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelAnnotationImportJobCommand}.
  */
 export interface CancelAnnotationImportJobCommandInput extends CancelAnnotationImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelAnnotationImportJobCommand}.
  */
 export interface CancelAnnotationImportJobCommandOutput extends CancelAnnotationImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an annotation import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface CancelAnnotationImportJobCommandOutput extends CancelAnnotation
  * import { OmicsClient, CancelAnnotationImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CancelAnnotationImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // CancelAnnotationImportRequest
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new CancelAnnotationImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelAnnotationImportJobCommandInput - {@link CancelAnnotationImportJobCommandInput}
+ * @returns {@link CancelAnnotationImportJobCommandOutput}
  * @see {@link CancelAnnotationImportJobCommandInput} for command's `input` shape.
  * @see {@link CancelAnnotationImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -84,6 +86,9 @@ export class CancelAnnotationImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelAnnotationImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class CancelAnnotationImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelAnnotationImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelAnnotationImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +128,21 @@ export class CancelAnnotationImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelAnnotationImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelAnnotationImportJobCommand(input, context);
+    return se_CancelAnnotationImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelAnnotationImportJobCommandOutput> {
-    return deserializeAws_restJson1CancelAnnotationImportJobCommand(output, context);
+    return de_CancelAnnotationImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { FMSClient } from "../FMSClient";
 import { FMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FMSClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListThirdPartyFirewallFirewallPoliciesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListThirdPartyFirewallFirewallPolicies(
   config: FMSPaginationConfiguration,
   input: ListThirdPartyFirewallFirewallPoliciesCommandInput,

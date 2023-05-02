@@ -23,23 +23,24 @@ import {
   VerifySoftwareTokenRequest,
   VerifySoftwareTokenRequestFilterSensitiveLog,
   VerifySoftwareTokenResponse,
-  VerifySoftwareTokenResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1VerifySoftwareTokenCommand,
-  serializeAws_json1_1VerifySoftwareTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { de_VerifySoftwareTokenCommand, se_VerifySoftwareTokenCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link VerifySoftwareTokenCommand}.
  */
 export interface VerifySoftwareTokenCommandInput extends VerifySoftwareTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifySoftwareTokenCommand}.
  */
 export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this API to register a user's entered time-based one-time password (TOTP) code and
  *             mark the user's software token MFA status as "verified" if successful. The request takes
  *             an access token or a session string, but not both.</p>
@@ -49,10 +50,18 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  * import { CognitoIdentityProviderClient, VerifySoftwareTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, VerifySoftwareTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // VerifySoftwareTokenRequest
+ *   AccessToken: "STRING_VALUE",
+ *   Session: "STRING_VALUE",
+ *   UserCode: "STRING_VALUE", // required
+ *   FriendlyDeviceName: "STRING_VALUE",
+ * };
  * const command = new VerifySoftwareTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifySoftwareTokenCommandInput - {@link VerifySoftwareTokenCommandInput}
+ * @returns {@link VerifySoftwareTokenCommandOutput}
  * @see {@link VerifySoftwareTokenCommandInput} for command's `input` shape.
  * @see {@link VerifySoftwareTokenCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -121,6 +130,9 @@ export class VerifySoftwareTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifySoftwareTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,7 +163,7 @@ export class VerifySoftwareTokenCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: VerifySoftwareTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VerifySoftwareTokenResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -161,12 +173,18 @@ export class VerifySoftwareTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifySoftwareTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1VerifySoftwareTokenCommand(input, context);
+    return se_VerifySoftwareTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifySoftwareTokenCommandOutput> {
-    return deserializeAws_json1_1VerifySoftwareTokenCommand(output, context);
+    return de_VerifySoftwareTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

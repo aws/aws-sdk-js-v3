@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreatePolicyRequest,
-  CreatePolicyRequestFilterSensitiveLog,
-  CreatePolicyResponse,
-  CreatePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePolicyCommand,
-  serializeAws_restJson1CreatePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { CreatePolicyRequest, CreatePolicyResponse } from "../models/models_0";
+import { de_CreatePolicyCommand, se_CreatePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePolicyCommand}.
  */
 export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePolicyCommand}.
  */
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IoT policy.</p>
  *          <p>The created policy is the default version for the policy. This operation creates a
  *          policy version with a version identifier of <b>1</b> and sets
@@ -46,10 +43,22 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * import { IoTClient, CreatePolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreatePolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreatePolicyRequest
+ *   policyName: "STRING_VALUE", // required
+ *   policyDocument: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePolicyCommandInput - {@link CreatePolicyCommandInput}
+ * @returns {@link CreatePolicyCommandOutput}
  * @see {@link CreatePolicyCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -94,6 +103,9 @@ export class CreatePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +132,8 @@ export class CreatePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +143,18 @@ export class CreatePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePolicyCommand(input, context);
+    return se_CreatePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyCommandOutput> {
-    return deserializeAws_restJson1CreatePolicyCommand(output, context);
+    return de_CreatePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

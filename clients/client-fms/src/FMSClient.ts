@@ -85,6 +85,7 @@ import {
   DisassociateThirdPartyFirewallCommandOutput,
 } from "./commands/DisassociateThirdPartyFirewallCommand";
 import { GetAdminAccountCommandInput, GetAdminAccountCommandOutput } from "./commands/GetAdminAccountCommand";
+import { GetAdminScopeCommandInput, GetAdminScopeCommandOutput } from "./commands/GetAdminScopeCommand";
 import { GetAppsListCommandInput, GetAppsListCommandOutput } from "./commands/GetAppsListCommand";
 import {
   GetComplianceDetailCommandInput,
@@ -109,6 +110,14 @@ import {
   GetViolationDetailsCommandInput,
   GetViolationDetailsCommandOutput,
 } from "./commands/GetViolationDetailsCommand";
+import {
+  ListAdminAccountsForOrganizationCommandInput,
+  ListAdminAccountsForOrganizationCommandOutput,
+} from "./commands/ListAdminAccountsForOrganizationCommand";
+import {
+  ListAdminsManagingAccountCommandInput,
+  ListAdminsManagingAccountCommandOutput,
+} from "./commands/ListAdminsManagingAccountCommand";
 import { ListAppsListsCommandInput, ListAppsListsCommandOutput } from "./commands/ListAppsListsCommand";
 import {
   ListComplianceStatusCommandInput,
@@ -134,6 +143,7 @@ import {
   ListThirdPartyFirewallFirewallPoliciesCommandInput,
   ListThirdPartyFirewallFirewallPoliciesCommandOutput,
 } from "./commands/ListThirdPartyFirewallFirewallPoliciesCommand";
+import { PutAdminAccountCommandInput, PutAdminAccountCommandOutput } from "./commands/PutAdminAccountCommand";
 import { PutAppsListCommandInput, PutAppsListCommandOutput } from "./commands/PutAppsListCommand";
 import {
   PutNotificationChannelCommandInput,
@@ -152,6 +162,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateAdminAccountCommandInput
   | AssociateThirdPartyFirewallCommandInput
@@ -165,6 +178,7 @@ export type ServiceInputTypes =
   | DisassociateAdminAccountCommandInput
   | DisassociateThirdPartyFirewallCommandInput
   | GetAdminAccountCommandInput
+  | GetAdminScopeCommandInput
   | GetAppsListCommandInput
   | GetComplianceDetailCommandInput
   | GetNotificationChannelCommandInput
@@ -174,6 +188,8 @@ export type ServiceInputTypes =
   | GetResourceSetCommandInput
   | GetThirdPartyFirewallAssociationStatusCommandInput
   | GetViolationDetailsCommandInput
+  | ListAdminAccountsForOrganizationCommandInput
+  | ListAdminsManagingAccountCommandInput
   | ListAppsListsCommandInput
   | ListComplianceStatusCommandInput
   | ListDiscoveredResourcesCommandInput
@@ -184,6 +200,7 @@ export type ServiceInputTypes =
   | ListResourceSetsCommandInput
   | ListTagsForResourceCommandInput
   | ListThirdPartyFirewallFirewallPoliciesCommandInput
+  | PutAdminAccountCommandInput
   | PutAppsListCommandInput
   | PutNotificationChannelCommandInput
   | PutPolicyCommandInput
@@ -192,6 +209,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateAdminAccountCommandOutput
   | AssociateThirdPartyFirewallCommandOutput
@@ -205,6 +225,7 @@ export type ServiceOutputTypes =
   | DisassociateAdminAccountCommandOutput
   | DisassociateThirdPartyFirewallCommandOutput
   | GetAdminAccountCommandOutput
+  | GetAdminScopeCommandOutput
   | GetAppsListCommandOutput
   | GetComplianceDetailCommandOutput
   | GetNotificationChannelCommandOutput
@@ -214,6 +235,8 @@ export type ServiceOutputTypes =
   | GetResourceSetCommandOutput
   | GetThirdPartyFirewallAssociationStatusCommandOutput
   | GetViolationDetailsCommandOutput
+  | ListAdminAccountsForOrganizationCommandOutput
+  | ListAdminsManagingAccountCommandOutput
   | ListAppsListsCommandOutput
   | ListComplianceStatusCommandOutput
   | ListDiscoveredResourcesCommandOutput
@@ -224,6 +247,7 @@ export type ServiceOutputTypes =
   | ListResourceSetsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListThirdPartyFirewallFirewallPoliciesCommandOutput
+  | PutAdminAccountCommandOutput
   | PutAppsListCommandOutput
   | PutNotificationChannelCommandOutput
   | PutPolicyCommandOutput
@@ -232,6 +256,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -239,7 +266,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -348,11 +375,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type FMSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -363,10 +393,15 @@ type FMSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of FMSClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of FMSClient class constructor that set the region, credentials and other options.
  */
 export interface FMSClientConfig extends FMSClientConfigType {}
 
+/**
+ * @public
+ */
 type FMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -377,17 +412,20 @@ type FMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of FMSClient class. This is resolved and normalized from the {@link FMSClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of FMSClient class. This is resolved and normalized from the {@link FMSClientConfig | constructor configuration interface}.
  */
 export interface FMSClientResolvedConfig extends FMSClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>This is the <i>Firewall Manager API Reference</i>. This guide is for
  *       developers who need detailed information about the Firewall Manager API actions, data
  *       types, and errors. For detailed information about Firewall Manager features, see the
  *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">Firewall Manager Developer Guide</a>.</p>
  *          <p>Some API actions require explicit resource permissions. For information, see the developer guide topic
- *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions for API actions</a>.
+ *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service">Service roles for Firewall Manager</a>.
  * </p>
  */
 export class FMSClient extends __Client<

@@ -10,7 +10,7 @@ import {
 import { ChimeSDKMeetingsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeSDKMeetingsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAttendeesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAttendees(
   config: ChimeSDKMeetingsPaginationConfiguration,
   input: ListAttendeesCommandInput,

@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetGroupRequest,
-  GetGroupRequestFilterSensitiveLog,
-  GetGroupResponse,
-  GetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryGetGroupCommand, serializeAws_queryGetGroupCommand } from "../protocols/Aws_query";
+import { GetGroupRequest, GetGroupResponse } from "../models/models_0";
+import { de_GetGroupCommand, se_GetGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupCommand}.
  */
 export interface GetGroupCommandInput extends GetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupCommand}.
  */
 export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of IAM users that are in the specified IAM group. You can paginate
  *             the results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
  * @example
@@ -40,10 +40,17 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * import { IAMClient, GetGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetGroupRequest
+ *   GroupName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupCommandInput - {@link GetGroupCommandInput}
+ * @returns {@link GetGroupCommandOutput}
  * @see {@link GetGroupCommandInput} for command's `input` shape.
  * @see {@link GetGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -71,6 +78,9 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +107,8 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +118,18 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetGroupCommand(input, context);
+    return se_GetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupCommandOutput> {
-    return deserializeAws_queryGetGroupCommand(output, context);
+    return de_GetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

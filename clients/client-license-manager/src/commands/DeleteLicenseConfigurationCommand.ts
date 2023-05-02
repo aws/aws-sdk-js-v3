@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  DeleteLicenseConfigurationRequest,
-  DeleteLicenseConfigurationRequestFilterSensitiveLog,
-  DeleteLicenseConfigurationResponse,
-  DeleteLicenseConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLicenseConfigurationCommand,
-  serializeAws_json1_1DeleteLicenseConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteLicenseConfigurationRequest, DeleteLicenseConfigurationResponse } from "../models/models_0";
+import { de_DeleteLicenseConfigurationCommand, se_DeleteLicenseConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLicenseConfigurationCommand}.
  */
 export interface DeleteLicenseConfigurationCommandInput extends DeleteLicenseConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLicenseConfigurationCommand}.
  */
 export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified license configuration.</p>
  *          <p>You cannot delete a license configuration that is in use.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseCo
  * import { LicenseManagerClient, DeleteLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, DeleteLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // DeleteLicenseConfigurationRequest
+ *   LicenseConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLicenseConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLicenseConfigurationCommandInput - {@link DeleteLicenseConfigurationCommandInput}
+ * @returns {@link DeleteLicenseConfigurationCommandOutput}
  * @see {@link DeleteLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -86,6 +88,9 @@ export class DeleteLicenseConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLicenseConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class DeleteLicenseConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLicenseConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLicenseConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +130,21 @@ export class DeleteLicenseConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLicenseConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLicenseConfigurationCommand(input, context);
+    return se_DeleteLicenseConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteLicenseConfigurationCommand(output, context);
+    return de_DeleteLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

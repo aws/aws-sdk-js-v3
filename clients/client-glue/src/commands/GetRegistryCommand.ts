@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetRegistryInput,
-  GetRegistryInputFilterSensitiveLog,
-  GetRegistryResponse,
-  GetRegistryResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetRegistryCommand,
-  serializeAws_json1_1GetRegistryCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRegistryInput, GetRegistryResponse } from "../models/models_1";
+import { de_GetRegistryCommand, se_GetRegistryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegistryCommand}.
  */
 export interface GetRegistryCommandInput extends GetRegistryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetRegistryCommand}.
  */
 export interface GetRegistryCommandOutput extends GetRegistryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified registry in detail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * import { GlueClient, GetRegistryCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetRegistryCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetRegistryInput
+ *   RegistryId: { // RegistryId
+ *     RegistryName: "STRING_VALUE",
+ *     RegistryArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetRegistryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegistryCommandInput - {@link GetRegistryCommandInput}
+ * @returns {@link GetRegistryCommandOutput}
  * @see {@link GetRegistryCommandInput} for command's `input` shape.
  * @see {@link GetRegistryCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +86,9 @@ export class GetRegistryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegistryCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +115,8 @@ export class GetRegistryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRegistryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRegistryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +126,18 @@ export class GetRegistryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRegistryCommand(input, context);
+    return se_GetRegistryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegistryCommandOutput> {
-    return deserializeAws_json1_1GetRegistryCommand(output, context);
+    return de_GetRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

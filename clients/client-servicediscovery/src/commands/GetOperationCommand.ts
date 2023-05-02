@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetOperationRequest,
-  GetOperationRequestFilterSensitiveLog,
-  GetOperationResponse,
-  GetOperationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOperationCommand,
-  serializeAws_json1_1GetOperationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetOperationRequest, GetOperationResponse } from "../models/models_0";
+import { de_GetOperationCommand, se_GetOperationCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetOperationCommand}.
  */
 export interface GetOperationCommandInput extends GetOperationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOperationCommand}.
  */
 export interface GetOperationCommandOutput extends GetOperationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about any operation that returns an operation ID in the response, such as a
  *     <code>CreateService</code> request.</p>
  *          <note>
@@ -46,10 +43,15 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * import { ServiceDiscoveryClient, GetOperationCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, GetOperationCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // GetOperationRequest
+ *   OperationId: "STRING_VALUE", // required
+ * };
  * const command = new GetOperationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOperationCommandInput - {@link GetOperationCommandInput}
+ * @returns {@link GetOperationCommandOutput}
  * @see {@link GetOperationCommandInput} for command's `input` shape.
  * @see {@link GetOperationCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -61,11 +63,6 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  *
  * @throws {@link OperationNotFound} (client fault)
  *  <p>No operation exists with the specified ID.</p>
- *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
  *
  *
  * @example Example: Get operation result
@@ -111,6 +108,9 @@ export class GetOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +137,8 @@ export class GetOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOperationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOperationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +148,18 @@ export class GetOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOperationCommand(input, context);
+    return se_GetOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationCommandOutput> {
-    return deserializeAws_json1_1GetOperationCommand(output, context);
+    return de_GetOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

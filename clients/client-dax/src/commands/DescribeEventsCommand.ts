@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  DescribeEventsRequest,
-  DescribeEventsRequestFilterSensitiveLog,
-  DescribeEventsResponse,
-  DescribeEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventsCommand,
-  serializeAws_json1_1DescribeEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEventsRequest, DescribeEventsResponse } from "../models/models_0";
+import { de_DescribeEventsCommand, se_DescribeEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandInput extends DescribeEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns events related to DAX clusters and parameter groups. You can obtain
  *             events specific to a particular DAX cluster or parameter group by providing the name
  *             as a parameter.</p>
@@ -46,10 +43,21 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * import { DAXClient, DescribeEventsCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeEventsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = { // DescribeEventsRequest
+ *   SourceName: "STRING_VALUE",
+ *   SourceType: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Duration: Number("int"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
+ * @returns {@link DescribeEventsCommandOutput}
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -82,6 +90,9 @@ export class DescribeEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class DescribeEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class DescribeEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventsCommand(input, context);
+    return se_DescribeEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventsCommandOutput> {
-    return deserializeAws_json1_1DescribeEventsCommand(output, context);
+    return de_DescribeEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

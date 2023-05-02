@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
-import {
-  UpdateSuiteDefinitionRequest,
-  UpdateSuiteDefinitionRequestFilterSensitiveLog,
-  UpdateSuiteDefinitionResponse,
-  UpdateSuiteDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSuiteDefinitionCommand,
-  serializeAws_restJson1UpdateSuiteDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateSuiteDefinitionRequest, UpdateSuiteDefinitionResponse } from "../models/models_0";
+import { de_UpdateSuiteDefinitionCommand, se_UpdateSuiteDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSuiteDefinitionCommand}.
  */
 export interface UpdateSuiteDefinitionCommandInput extends UpdateSuiteDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSuiteDefinitionCommand}.
  */
 export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Device Advisor test suite.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateSuiteDefinition</a> action.</p>
  * @example
@@ -43,10 +40,30 @@ export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitio
  * import { IotDeviceAdvisorClient, UpdateSuiteDefinitionCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, UpdateSuiteDefinitionCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
+ * const input = { // UpdateSuiteDefinitionRequest
+ *   suiteDefinitionId: "STRING_VALUE", // required
+ *   suiteDefinitionConfiguration: { // SuiteDefinitionConfiguration
+ *     suiteDefinitionName: "STRING_VALUE", // required
+ *     devices: [ // DeviceUnderTestList
+ *       { // DeviceUnderTest
+ *         thingArn: "STRING_VALUE",
+ *         certificateArn: "STRING_VALUE",
+ *         deviceRoleArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *     intendedForQualification: true || false,
+ *     isLongDurationTest: true || false,
+ *     rootGroup: "STRING_VALUE", // required
+ *     devicePermissionRoleArn: "STRING_VALUE", // required
+ *     protocol: "MqttV3_1_1" || "MqttV5" || "MqttV3_1_1_OverWebSocket" || "MqttV5_OverWebSocket",
+ *   },
+ * };
  * const command = new UpdateSuiteDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSuiteDefinitionCommandInput - {@link UpdateSuiteDefinitionCommandInput}
+ * @returns {@link UpdateSuiteDefinitionCommandOutput}
  * @see {@link UpdateSuiteDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateSuiteDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
@@ -76,6 +93,9 @@ export class UpdateSuiteDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSuiteDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +124,8 @@ export class UpdateSuiteDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSuiteDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSuiteDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +135,18 @@ export class UpdateSuiteDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSuiteDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSuiteDefinitionCommand(input, context);
+    return se_UpdateSuiteDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSuiteDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateSuiteDefinitionCommand(output, context);
+    return de_UpdateSuiteDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

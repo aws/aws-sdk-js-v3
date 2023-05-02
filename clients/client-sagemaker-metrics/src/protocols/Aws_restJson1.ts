@@ -1,13 +1,13 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt32 as __expectInt32,
+  _json,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
-  expectString as __expectString,
-  map as __map,
+  map,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -16,10 +16,13 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchPutMetricsCommandInput, BatchPutMetricsCommandOutput } from "../commands/BatchPutMetricsCommand";
-import { BatchPutMetricsError, RawMetricData } from "../models/models_0";
+import { RawMetricData } from "../models/models_0";
 import { SageMakerMetricsServiceException as __BaseException } from "../models/SageMakerMetricsServiceException";
 
-export const serializeAws_restJson1BatchPutMetricsCommand = async (
+/**
+ * serializeAws_restJson1BatchPutMetricsCommand
+ */
+export const se_BatchPutMetricsCommand = async (
   input: BatchPutMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -29,10 +32,12 @@ export const serializeAws_restJson1BatchPutMetricsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchPutMetrics";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MetricData != null && { MetricData: serializeAws_restJson1RawMetricDataList(input.MetricData, context) }),
-    ...(input.TrialComponentName != null && { TrialComponentName: input.TrialComponentName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MetricData: (_) => se_RawMetricDataList(_, context),
+      TrialComponentName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -44,24 +49,31 @@ export const serializeAws_restJson1BatchPutMetricsCommand = async (
   });
 };
 
-export const deserializeAws_restJson1BatchPutMetricsCommand = async (
+/**
+ * deserializeAws_restJson1BatchPutMetricsCommand
+ */
+export const de_BatchPutMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchPutMetricsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchPutMetricsCommandError(output, context);
+    return de_BatchPutMetricsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Errors != null) {
-    contents.Errors = deserializeAws_restJson1BatchPutMetricsErrorList(data.Errors, context);
-  }
+  const doc = take(data, {
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1BatchPutMetricsCommandError = async (
+/**
+ * deserializeAws_restJson1BatchPutMetricsCommandError
+ */
+const de_BatchPutMetricsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchPutMetricsCommandOutput> => {
@@ -71,53 +83,40 @@ const deserializeAws_restJson1BatchPutMetricsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-const map = __map;
-const serializeAws_restJson1RawMetricData = (input: RawMetricData, context: __SerdeContext): any => {
-  return {
-    ...(input.MetricName != null && { MetricName: input.MetricName }),
-    ...(input.Step != null && { Step: input.Step }),
-    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
-  };
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * serializeAws_restJson1RawMetricData
+ */
+const se_RawMetricData = (input: RawMetricData, context: __SerdeContext): any => {
+  return take(input, {
+    MetricName: [],
+    Step: [],
+    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Value: __serializeFloat,
+  });
 };
 
-const serializeAws_restJson1RawMetricDataList = (input: RawMetricData[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RawMetricDataList
+ */
+const se_RawMetricDataList = (input: RawMetricData[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1RawMetricData(entry, context);
+      return se_RawMetricData(entry, context);
     });
 };
 
-const deserializeAws_restJson1BatchPutMetricsError = (output: any, context: __SerdeContext): BatchPutMetricsError => {
-  return {
-    Code: __expectString(output.Code),
-    MetricIndex: __expectInt32(output.MetricIndex),
-  } as any;
-};
+// de_BatchPutMetricsError omitted.
 
-const deserializeAws_restJson1BatchPutMetricsErrorList = (
-  output: any,
-  context: __SerdeContext
-): BatchPutMetricsError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BatchPutMetricsError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchPutMetricsErrorList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

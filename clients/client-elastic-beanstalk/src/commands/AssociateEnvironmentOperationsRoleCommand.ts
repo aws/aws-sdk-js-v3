@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import { AssociateEnvironmentOperationsRoleMessage } from "../models/models_0";
 import {
-  AssociateEnvironmentOperationsRoleMessage,
-  AssociateEnvironmentOperationsRoleMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryAssociateEnvironmentOperationsRoleCommand,
-  serializeAws_queryAssociateEnvironmentOperationsRoleCommand,
+  de_AssociateEnvironmentOperationsRoleCommand,
+  se_AssociateEnvironmentOperationsRoleCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateEnvironmentOperationsRoleCommand}.
  */
 export interface AssociateEnvironmentOperationsRoleCommandInput extends AssociateEnvironmentOperationsRoleMessage {}
 /**
+ * @public
+ *
  * The output of {@link AssociateEnvironmentOperationsRoleCommand}.
  */
 export interface AssociateEnvironmentOperationsRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add or change the operations role used by an environment. After this call is made, Elastic Beanstalk
  *       uses the associated operations role for permissions to downstream services during subsequent
  *       calls acting on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
@@ -43,10 +45,16 @@ export interface AssociateEnvironmentOperationsRoleCommandOutput extends __Metad
  * import { ElasticBeanstalkClient, AssociateEnvironmentOperationsRoleCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, AssociateEnvironmentOperationsRoleCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // AssociateEnvironmentOperationsRoleMessage
+ *   EnvironmentName: "STRING_VALUE", // required
+ *   OperationsRole: "STRING_VALUE", // required
+ * };
  * const command = new AssociateEnvironmentOperationsRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateEnvironmentOperationsRoleCommandInput - {@link AssociateEnvironmentOperationsRoleCommandInput}
+ * @returns {@link AssociateEnvironmentOperationsRoleCommandOutput}
  * @see {@link AssociateEnvironmentOperationsRoleCommandInput} for command's `input` shape.
  * @see {@link AssociateEnvironmentOperationsRoleCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -74,6 +82,9 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateEnvironmentOperationsRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +113,8 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateEnvironmentOperationsRoleMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +124,24 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateEnvironmentOperationsRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAssociateEnvironmentOperationsRoleCommand(input, context);
+    return se_AssociateEnvironmentOperationsRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateEnvironmentOperationsRoleCommandOutput> {
-    return deserializeAws_queryAssociateEnvironmentOperationsRoleCommand(output, context);
+    return de_AssociateEnvironmentOperationsRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

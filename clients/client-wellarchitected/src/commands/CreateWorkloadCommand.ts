@@ -13,44 +13,85 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWorkloadInput,
-  CreateWorkloadInputFilterSensitiveLog,
-  CreateWorkloadOutput,
-  CreateWorkloadOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkloadCommand,
-  serializeAws_restJson1CreateWorkloadCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateWorkloadInput, CreateWorkloadOutput } from "../models/models_0";
+import { de_CreateWorkloadCommand, se_CreateWorkloadCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkloadCommand}.
  */
 export interface CreateWorkloadCommandInput extends CreateWorkloadInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkloadCommand}.
  */
 export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new workload.</p>
- *         <p>The owner of a workload can share the workload with other Amazon Web Services accounts, IAM users,
+ *          <p>The owner of a workload can share the workload with other Amazon Web Services accounts, users,
  *             an organization, and organizational units (OUs)
  *             in the same Amazon Web Services Region. Only the owner of a workload can delete it.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining a Workload</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining a Workload</a> in the
  *                 <i>Well-Architected Tool User Guide</i>.</p>
+ *          <important>
+ *             <p>Either <code>AwsRegions</code>, <code>NonAwsRegions</code>, or both must be specified when
+ *                 creating a workload.</p>
+ *             <p>You also must specify <code>ReviewOwner</code>, even though the
+ *                 parameter is listed as not being required in the following section.
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WellArchitectedClient, CreateWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, CreateWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // CreateWorkloadInput
+ *   WorkloadName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Environment: "PRODUCTION" || "PREPRODUCTION", // required
+ *   AccountIds: [ // WorkloadAccountIds
+ *     "STRING_VALUE",
+ *   ],
+ *   AwsRegions: [ // WorkloadAwsRegions
+ *     "STRING_VALUE",
+ *   ],
+ *   NonAwsRegions: [ // WorkloadNonAwsRegions
+ *     "STRING_VALUE",
+ *   ],
+ *   PillarPriorities: [ // WorkloadPillarPriorities
+ *     "STRING_VALUE",
+ *   ],
+ *   ArchitecturalDesign: "STRING_VALUE",
+ *   ReviewOwner: "STRING_VALUE",
+ *   IndustryType: "STRING_VALUE",
+ *   Industry: "STRING_VALUE",
+ *   Lenses: [ // WorkloadLenses // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Notes: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   DiscoveryConfig: { // WorkloadDiscoveryConfig
+ *     TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
+ *   },
+ *   Applications: [ // WorkloadApplications
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateWorkloadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkloadCommandInput - {@link CreateWorkloadCommandInput}
+ * @returns {@link CreateWorkloadCommandOutput}
  * @see {@link CreateWorkloadCommandInput} for command's `input` shape.
  * @see {@link CreateWorkloadCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -59,10 +100,13 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The user has reached their resource quota.</p>
@@ -92,6 +136,9 @@ export class CreateWorkloadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +167,8 @@ export class CreateWorkloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkloadInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkloadOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +178,18 @@ export class CreateWorkloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkloadCommand(input, context);
+    return se_CreateWorkloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkloadCommandOutput> {
-    return deserializeAws_restJson1CreateWorkloadCommand(output, context);
+    return de_CreateWorkloadCommand(output, context);
   }
 
   // Start section: command_body_extra

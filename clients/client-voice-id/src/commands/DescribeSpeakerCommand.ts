@@ -19,22 +19,24 @@ import {
   DescribeSpeakerResponse,
   DescribeSpeakerResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeSpeakerCommand,
-  serializeAws_json1_0DescribeSpeakerCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeSpeakerCommand, se_DescribeSpeakerCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpeakerCommand}.
  */
 export interface DescribeSpeakerCommandInput extends DescribeSpeakerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpeakerCommand}.
  */
 export interface DescribeSpeakerCommandOutput extends DescribeSpeakerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified speaker.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,16 @@ export interface DescribeSpeakerCommandOutput extends DescribeSpeakerResponse, _
  * import { VoiceIDClient, DescribeSpeakerCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DescribeSpeakerCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = { // DescribeSpeakerRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   SpeakerId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSpeakerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpeakerCommandInput - {@link DescribeSpeakerCommandInput}
+ * @returns {@link DescribeSpeakerCommandOutput}
  * @see {@link DescribeSpeakerCommandInput} for command's `input` shape.
  * @see {@link DescribeSpeakerCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -90,6 +98,9 @@ export class DescribeSpeakerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpeakerCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,12 +140,18 @@ export class DescribeSpeakerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpeakerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeSpeakerCommand(input, context);
+    return se_DescribeSpeakerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSpeakerCommandOutput> {
-    return deserializeAws_json1_0DescribeSpeakerCommand(output, context);
+    return de_DescribeSpeakerCommand(output, context);
   }
 
   // Start section: command_body_extra

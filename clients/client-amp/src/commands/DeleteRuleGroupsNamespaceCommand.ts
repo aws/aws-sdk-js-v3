@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import {
-  DeleteRuleGroupsNamespaceRequest,
-  DeleteRuleGroupsNamespaceRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRuleGroupsNamespaceCommand,
-  serializeAws_restJson1DeleteRuleGroupsNamespaceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRuleGroupsNamespaceRequest } from "../models/models_0";
+import { de_DeleteRuleGroupsNamespaceCommand, se_DeleteRuleGroupsNamespaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRuleGroupsNamespaceCommand}.
  */
 export interface DeleteRuleGroupsNamespaceCommandInput extends DeleteRuleGroupsNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRuleGroupsNamespaceCommand}.
  */
 export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Delete a rule groups namespace.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +39,17 @@ export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer
  * import { AmpClient, DeleteRuleGroupsNamespaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DeleteRuleGroupsNamespaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // DeleteRuleGroupsNamespaceRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteRuleGroupsNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRuleGroupsNamespaceCommandInput - {@link DeleteRuleGroupsNamespaceCommandInput}
+ * @returns {@link DeleteRuleGroupsNamespaceCommandOutput}
  * @see {@link DeleteRuleGroupsNamespaceCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleGroupsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -85,6 +91,9 @@ export class DeleteRuleGroupsNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRuleGroupsNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class DeleteRuleGroupsNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRuleGroupsNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +133,21 @@ export class DeleteRuleGroupsNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRuleGroupsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRuleGroupsNamespaceCommand(input, context);
+    return se_DeleteRuleGroupsNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRuleGroupsNamespaceCommandOutput> {
-    return deserializeAws_restJson1DeleteRuleGroupsNamespaceCommand(output, context);
+    return de_DeleteRuleGroupsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

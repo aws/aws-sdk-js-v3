@@ -15,21 +15,23 @@ import {
 
 import {
   DeleteAppReplicationConfigurationRequest,
-  DeleteAppReplicationConfigurationRequestFilterSensitiveLog,
   DeleteAppReplicationConfigurationResponse,
-  DeleteAppReplicationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteAppReplicationConfigurationCommand,
-  serializeAws_json1_1DeleteAppReplicationConfigurationCommand,
+  de_DeleteAppReplicationConfigurationCommand,
+  se_DeleteAppReplicationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppReplicationConfigurationCommand}.
  */
 export interface DeleteAppReplicationConfigurationCommandInput extends DeleteAppReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppReplicationConfigurationCommand}.
  */
 export interface DeleteAppReplicationConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface DeleteAppReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the replication configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface DeleteAppReplicationConfigurationCommandOutput
  * import { SMSClient, DeleteAppReplicationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteAppReplicationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // DeleteAppReplicationConfigurationRequest
+ *   appId: "STRING_VALUE",
+ * };
  * const command = new DeleteAppReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppReplicationConfigurationCommandInput - {@link DeleteAppReplicationConfigurationCommandInput}
+ * @returns {@link DeleteAppReplicationConfigurationCommandOutput}
  * @see {@link DeleteAppReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAppReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -87,6 +95,9 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +126,8 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppReplicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppReplicationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +137,24 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAppReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAppReplicationConfigurationCommand(input, context);
+    return se_DeleteAppReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAppReplicationConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteAppReplicationConfigurationCommand(output, context);
+    return de_DeleteAppReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

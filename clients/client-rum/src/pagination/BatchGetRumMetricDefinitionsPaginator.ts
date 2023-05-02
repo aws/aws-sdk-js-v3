@@ -10,7 +10,7 @@ import { RUMClient } from "../RUMClient";
 import { RUMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RUMClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new BatchGetRumMetricDefinitionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateBatchGetRumMetricDefinitions(
   config: RUMPaginationConfiguration,
   input: BatchGetRumMetricDefinitionsCommandInput,

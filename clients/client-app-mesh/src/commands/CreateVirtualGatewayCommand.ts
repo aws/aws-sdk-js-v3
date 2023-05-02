@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  CreateVirtualGatewayInput,
-  CreateVirtualGatewayInputFilterSensitiveLog,
-  CreateVirtualGatewayOutput,
-  CreateVirtualGatewayOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVirtualGatewayCommand,
-  serializeAws_restJson1CreateVirtualGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateVirtualGatewayInput, CreateVirtualGatewayOutput } from "../models/models_0";
+import { de_CreateVirtualGatewayCommand, se_CreateVirtualGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVirtualGatewayCommand}.
  */
 export interface CreateVirtualGatewayCommandInput extends CreateVirtualGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateVirtualGatewayCommand}.
  */
 export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a virtual gateway.</p>
  *          <p>A virtual gateway allows resources outside your mesh to communicate to resources that
  *          are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a
@@ -47,10 +44,144 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  * import { AppMeshClient, CreateVirtualGatewayCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateVirtualGatewayCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // CreateVirtualGatewayInput
+ *   virtualGatewayName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   spec: { // VirtualGatewaySpec
+ *     backendDefaults: { // VirtualGatewayBackendDefaults
+ *       clientPolicy: { // VirtualGatewayClientPolicy
+ *         tls: { // VirtualGatewayClientPolicyTls
+ *           enforce: true || false,
+ *           ports: [ // PortSet
+ *             Number("int"),
+ *           ],
+ *           certificate: { // VirtualGatewayClientTlsCertificate Union: only one key present
+ *             file: { // VirtualGatewayListenerTlsFileCertificate
+ *               certificateChain: "STRING_VALUE", // required
+ *               privateKey: "STRING_VALUE", // required
+ *             },
+ *             sds: { // VirtualGatewayListenerTlsSdsCertificate
+ *               secretName: "STRING_VALUE", // required
+ *             },
+ *           },
+ *           validation: { // VirtualGatewayTlsValidationContext
+ *             trust: { // VirtualGatewayTlsValidationContextTrust Union: only one key present
+ *               acm: { // VirtualGatewayTlsValidationContextAcmTrust
+ *                 certificateAuthorityArns: [ // VirtualGatewayCertificateAuthorityArns // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               file: { // VirtualGatewayTlsValidationContextFileTrust
+ *                 certificateChain: "STRING_VALUE", // required
+ *               },
+ *               sds: { // VirtualGatewayTlsValidationContextSdsTrust
+ *                 secretName: "STRING_VALUE", // required
+ *               },
+ *             },
+ *             subjectAlternativeNames: { // SubjectAlternativeNames
+ *               match: { // SubjectAlternativeNameMatchers
+ *                 exact: [ // SubjectAlternativeNameList // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
+ *     },
+ *     listeners: [ // VirtualGatewayListeners // required
+ *       { // VirtualGatewayListener
+ *         healthCheck: { // VirtualGatewayHealthCheckPolicy
+ *           timeoutMillis: Number("long"), // required
+ *           intervalMillis: Number("long"), // required
+ *           protocol: "STRING_VALUE", // required
+ *           port: Number("int"),
+ *           path: "STRING_VALUE",
+ *           healthyThreshold: Number("int"), // required
+ *           unhealthyThreshold: Number("int"), // required
+ *         },
+ *         portMapping: { // VirtualGatewayPortMapping
+ *           port: Number("int"), // required
+ *           protocol: "STRING_VALUE", // required
+ *         },
+ *         tls: { // VirtualGatewayListenerTls
+ *           mode: "STRING_VALUE", // required
+ *           validation: { // VirtualGatewayListenerTlsValidationContext
+ *             trust: { // VirtualGatewayListenerTlsValidationContextTrust Union: only one key present
+ *               file: {
+ *                 certificateChain: "STRING_VALUE", // required
+ *               },
+ *               sds: {
+ *                 secretName: "STRING_VALUE", // required
+ *               },
+ *             },
+ *             subjectAlternativeNames: {
+ *               match: {
+ *                 exact: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *           certificate: { // VirtualGatewayListenerTlsCertificate Union: only one key present
+ *             acm: { // VirtualGatewayListenerTlsAcmCertificate
+ *               certificateArn: "STRING_VALUE", // required
+ *             },
+ *             file: {
+ *               certificateChain: "STRING_VALUE", // required
+ *               privateKey: "STRING_VALUE", // required
+ *             },
+ *             sds: {
+ *               secretName: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *         connectionPool: { // VirtualGatewayConnectionPool Union: only one key present
+ *           http: { // VirtualGatewayHttpConnectionPool
+ *             maxConnections: Number("int"), // required
+ *             maxPendingRequests: Number("int"),
+ *           },
+ *           http2: { // VirtualGatewayHttp2ConnectionPool
+ *             maxRequests: Number("int"), // required
+ *           },
+ *           grpc: { // VirtualGatewayGrpcConnectionPool
+ *             maxRequests: Number("int"), // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     logging: { // VirtualGatewayLogging
+ *       accessLog: { // VirtualGatewayAccessLog Union: only one key present
+ *         file: { // VirtualGatewayFileAccessLog
+ *           path: "STRING_VALUE", // required
+ *           format: { // LoggingFormat Union: only one key present
+ *             text: "STRING_VALUE",
+ *             json: [ // JsonFormat
+ *               { // JsonFormatRef
+ *                 key: "STRING_VALUE", // required
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ *   tags: [ // TagList
+ *     { // TagRef
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new CreateVirtualGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVirtualGatewayCommandInput - {@link CreateVirtualGatewayCommandInput}
+ * @returns {@link CreateVirtualGatewayCommandOutput}
  * @see {@link CreateVirtualGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualGatewayCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -103,6 +234,9 @@ export class CreateVirtualGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVirtualGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +265,8 @@ export class CreateVirtualGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVirtualGatewayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVirtualGatewayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +276,18 @@ export class CreateVirtualGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVirtualGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVirtualGatewayCommand(input, context);
+    return se_CreateVirtualGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualGatewayCommandOutput> {
-    return deserializeAws_restJson1CreateVirtualGatewayCommand(output, context);
+    return de_CreateVirtualGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

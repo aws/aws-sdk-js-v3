@@ -14,40 +14,37 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ListScriptsInput,
-  ListScriptsInputFilterSensitiveLog,
-  ListScriptsOutput,
-  ListScriptsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListScriptsCommand,
-  serializeAws_json1_1ListScriptsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListScriptsInput, ListScriptsOutput } from "../models/models_0";
+import { de_ListScriptsCommand, se_ListScriptsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListScriptsCommand}.
  */
 export interface ListScriptsCommandInput extends ListScriptsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListScriptsCommand}.
  */
 export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves script records for all Realtime scripts that are associated with the Amazon Web Services
  *             account in use. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
- *         </p>
+ *          </p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,10 +52,16 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  * import { GameLiftClient, ListScriptsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListScriptsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ListScriptsInput
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListScriptsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListScriptsCommandInput - {@link ListScriptsCommandInput}
+ * @returns {@link ListScriptsCommandOutput}
  * @see {@link ListScriptsCommandInput} for command's `input` shape.
  * @see {@link ListScriptsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -93,6 +96,9 @@ export class ListScriptsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListScriptsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class ListScriptsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListScriptsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListScriptsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +136,18 @@ export class ListScriptsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListScriptsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListScriptsCommand(input, context);
+    return se_ListScriptsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScriptsCommandOutput> {
-    return deserializeAws_json1_1ListScriptsCommand(output, context);
+    return de_ListScriptsCommand(output, context);
   }
 
   // Start section: command_body_extra

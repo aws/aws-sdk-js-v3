@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ValidateSolNetworkPackageContentInput, ValidateSolNetworkPackageContentOutput } from "../models/models_0";
 import {
-  ValidateSolNetworkPackageContentInput,
-  ValidateSolNetworkPackageContentInputFilterSensitiveLog,
-  ValidateSolNetworkPackageContentOutput,
-  ValidateSolNetworkPackageContentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ValidateSolNetworkPackageContentCommand,
-  serializeAws_restJson1ValidateSolNetworkPackageContentCommand,
+  de_ValidateSolNetworkPackageContentCommand,
+  se_ValidateSolNetworkPackageContentCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateSolNetworkPackageContentCommand}.
  */
 export interface ValidateSolNetworkPackageContentCommandInput extends ValidateSolNetworkPackageContentInput {}
 /**
+ * @public
+ *
  * The output of {@link ValidateSolNetworkPackageContentCommand}.
  */
 export interface ValidateSolNetworkPackageContentCommandOutput
@@ -37,6 +36,7 @@ export interface ValidateSolNetworkPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates network package content. This can be used as a dry run before uploading network package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html">PutSolNetworkPackageContent</a>.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  * @example
@@ -45,10 +45,17 @@ export interface ValidateSolNetworkPackageContentCommandOutput
  * import { TnbClient, ValidateSolNetworkPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ValidateSolNetworkPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // ValidateSolNetworkPackageContentInput
+ *   nsdInfoId: "STRING_VALUE", // required
+ *   contentType: "application/zip",
+ *   file: "BLOB_VALUE", // required
+ * };
  * const command = new ValidateSolNetworkPackageContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateSolNetworkPackageContentCommandInput - {@link ValidateSolNetworkPackageContentCommandInput}
+ * @returns {@link ValidateSolNetworkPackageContentCommandOutput}
  * @see {@link ValidateSolNetworkPackageContentCommandInput} for command's `input` shape.
  * @see {@link ValidateSolNetworkPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -87,6 +94,9 @@ export class ValidateSolNetworkPackageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateSolNetworkPackageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +125,8 @@ export class ValidateSolNetworkPackageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateSolNetworkPackageContentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateSolNetworkPackageContentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +136,24 @@ export class ValidateSolNetworkPackageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ValidateSolNetworkPackageContentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ValidateSolNetworkPackageContentCommand(input, context);
+    return se_ValidateSolNetworkPackageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateSolNetworkPackageContentCommandOutput> {
-    return deserializeAws_restJson1ValidateSolNetworkPackageContentCommand(output, context);
+    return de_ValidateSolNetworkPackageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

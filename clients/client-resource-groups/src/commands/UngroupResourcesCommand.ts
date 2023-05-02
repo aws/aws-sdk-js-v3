@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UngroupResourcesInput,
-  UngroupResourcesInputFilterSensitiveLog,
-  UngroupResourcesOutput,
-  UngroupResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UngroupResourcesCommand,
-  serializeAws_restJson1UngroupResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { UngroupResourcesInput, UngroupResourcesOutput } from "../models/models_0";
+import { de_UngroupResourcesCommand, se_UngroupResourcesCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UngroupResourcesCommand}.
  */
 export interface UngroupResourcesCommandInput extends UngroupResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link UngroupResourcesCommand}.
  */
 export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified resources from the specified group. This operation works only
  *             with static groups that you populated using the <a>GroupResources</a>
  *             operation. It doesn't work with any resource groups that are automatically populated by
@@ -56,10 +53,18 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  * import { ResourceGroupsClient, UngroupResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, UngroupResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // UngroupResourcesInput
+ *   Group: "STRING_VALUE", // required
+ *   ResourceArns: [ // ResourceArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UngroupResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UngroupResourcesCommandInput - {@link UngroupResourcesCommandInput}
+ * @returns {@link UngroupResourcesCommandOutput}
  * @see {@link UngroupResourcesCommandInput} for command's `input` shape.
  * @see {@link UngroupResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -102,6 +107,9 @@ export class UngroupResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UngroupResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +138,8 @@ export class UngroupResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UngroupResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UngroupResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +149,18 @@ export class UngroupResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UngroupResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UngroupResourcesCommand(input, context);
+    return se_UngroupResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UngroupResourcesCommandOutput> {
-    return deserializeAws_restJson1UngroupResourcesCommand(output, context);
+    return de_UngroupResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

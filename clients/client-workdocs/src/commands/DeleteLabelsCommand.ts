@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteLabelsRequest,
-  DeleteLabelsRequestFilterSensitiveLog,
-  DeleteLabelsResponse,
-  DeleteLabelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLabelsCommand,
-  serializeAws_restJson1DeleteLabelsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteLabelsRequest, DeleteLabelsRequestFilterSensitiveLog, DeleteLabelsResponse } from "../models/models_0";
+import { de_DeleteLabelsCommand, se_DeleteLabelsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLabelsCommand}.
  */
 export interface DeleteLabelsCommandInput extends DeleteLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLabelsCommand}.
  */
 export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified list of labels from a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __Metad
  * import { WorkDocsClient, DeleteLabelsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteLabelsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DeleteLabelsRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   AuthenticationToken: "STRING_VALUE",
+ *   Labels: [ // SharedLabels
+ *     "STRING_VALUE",
+ *   ],
+ *   DeleteAll: true || false,
+ * };
  * const command = new DeleteLabelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLabelsCommandInput - {@link DeleteLabelsCommandInput}
+ * @returns {@link DeleteLabelsCommandOutput}
  * @see {@link DeleteLabelsCommandInput} for command's `input` shape.
  * @see {@link DeleteLabelsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +126,7 @@ export class DeleteLabelsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteLabelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLabelsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +136,18 @@ export class DeleteLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLabelsCommand(input, context);
+    return se_DeleteLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLabelsCommandOutput> {
-    return deserializeAws_restJson1DeleteLabelsCommand(output, context);
+    return de_DeleteLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

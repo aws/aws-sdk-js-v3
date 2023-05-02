@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateIndexTypeInput,
-  UpdateIndexTypeInputFilterSensitiveLog,
-  UpdateIndexTypeOutput,
-  UpdateIndexTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateIndexTypeCommand,
-  serializeAws_restJson1UpdateIndexTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateIndexTypeInput, UpdateIndexTypeOutput } from "../models/models_0";
+import { de_UpdateIndexTypeCommand, se_UpdateIndexTypeCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIndexTypeCommand}.
  */
 export interface UpdateIndexTypeCommandInput extends UpdateIndexTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIndexTypeCommand}.
  */
 export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the type of the index from one of the following types to the other. For more
  *             information about indexes and the role they perform in Amazon Web Services Resource Explorer, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on
  *                 cross-Region search by creating an aggregator index</a> in the
@@ -102,10 +99,16 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  * import { ResourceExplorer2Client, UpdateIndexTypeCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, UpdateIndexTypeCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = { // UpdateIndexTypeInput
+ *   Arn: "STRING_VALUE", // required
+ *   Type: "STRING_VALUE", // required
+ * };
  * const command = new UpdateIndexTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIndexTypeCommandInput - {@link UpdateIndexTypeCommandInput}
+ * @returns {@link UpdateIndexTypeCommandOutput}
  * @see {@link UpdateIndexTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateIndexTypeCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -157,6 +160,9 @@ export class UpdateIndexTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIndexTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,8 +191,8 @@ export class UpdateIndexTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIndexTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIndexTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -196,12 +202,18 @@ export class UpdateIndexTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIndexTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIndexTypeCommand(input, context);
+    return se_UpdateIndexTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIndexTypeCommandOutput> {
-    return deserializeAws_restJson1UpdateIndexTypeCommand(output, context);
+    return de_UpdateIndexTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetFaceDetectionRequest,
-  GetFaceDetectionRequestFilterSensitiveLog,
-  GetFaceDetectionResponse,
-  GetFaceDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetFaceDetectionCommand,
-  serializeAws_json1_1GetFaceDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetFaceDetectionRequest, GetFaceDetectionResponse } from "../models/models_0";
+import { de_GetFaceDetectionCommand, se_GetFaceDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetFaceDetectionCommand}.
  */
 export interface GetFaceDetectionCommandInput extends GetFaceDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFaceDetectionCommand}.
  */
 export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets face detection results for a Amazon Rekognition Video analysis started by <a>StartFaceDetection</a>.</p>
  *          <p>Face detection with Amazon Rekognition Video is an asynchronous operation. You start face detection by calling <a>StartFaceDetection</a>
  *      which returns a job identifier (<code>JobId</code>). When the face detection operation finishes, Amazon Rekognition Video publishes a completion status to
@@ -54,10 +51,17 @@ export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse,
  * import { RekognitionClient, GetFaceDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetFaceDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // GetFaceDetectionRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetFaceDetectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFaceDetectionCommandInput - {@link GetFaceDetectionCommandInput}
+ * @returns {@link GetFaceDetectionCommandOutput}
  * @see {@link GetFaceDetectionCommandInput} for command's `input` shape.
  * @see {@link GetFaceDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -104,6 +108,9 @@ export class GetFaceDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFaceDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +139,8 @@ export class GetFaceDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFaceDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFaceDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +150,18 @@ export class GetFaceDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFaceDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFaceDetectionCommand(input, context);
+    return se_GetFaceDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFaceDetectionCommandOutput> {
-    return deserializeAws_json1_1GetFaceDetectionCommand(output, context);
+    return de_GetFaceDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

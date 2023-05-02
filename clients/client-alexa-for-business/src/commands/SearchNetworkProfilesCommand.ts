@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  SearchNetworkProfilesRequest,
-  SearchNetworkProfilesRequestFilterSensitiveLog,
-  SearchNetworkProfilesResponse,
-  SearchNetworkProfilesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchNetworkProfilesCommand,
-  serializeAws_json1_1SearchNetworkProfilesCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchNetworkProfilesRequest, SearchNetworkProfilesResponse } from "../models/models_0";
+import { de_SearchNetworkProfilesCommand, se_SearchNetworkProfilesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchNetworkProfilesCommand}.
  */
 export interface SearchNetworkProfilesCommandInput extends SearchNetworkProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchNetworkProfilesCommand}.
  */
 export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches network profiles and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -43,10 +40,30 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
  * import { AlexaForBusinessClient, SearchNetworkProfilesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SearchNetworkProfilesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // SearchNetworkProfilesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   SortCriteria: [ // SortList
+ *     { // Sort
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SearchNetworkProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchNetworkProfilesCommandInput - {@link SearchNetworkProfilesCommandInput}
+ * @returns {@link SearchNetworkProfilesCommandOutput}
  * @see {@link SearchNetworkProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchNetworkProfilesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -70,6 +87,9 @@ export class SearchNetworkProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchNetworkProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +118,8 @@ export class SearchNetworkProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchNetworkProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchNetworkProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +129,18 @@ export class SearchNetworkProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchNetworkProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchNetworkProfilesCommand(input, context);
+    return se_SearchNetworkProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchNetworkProfilesCommandOutput> {
-    return deserializeAws_json1_1SearchNetworkProfilesCommand(output, context);
+    return de_SearchNetworkProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

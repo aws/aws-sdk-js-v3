@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  UpdateFunctionDefinitionRequest,
-  UpdateFunctionDefinitionRequestFilterSensitiveLog,
-  UpdateFunctionDefinitionResponse,
-  UpdateFunctionDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFunctionDefinitionCommand,
-  serializeAws_restJson1UpdateFunctionDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFunctionDefinitionRequest, UpdateFunctionDefinitionResponse } from "../models/models_0";
+import { de_UpdateFunctionDefinitionCommand, se_UpdateFunctionDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFunctionDefinitionCommand}.
  */
 export interface UpdateFunctionDefinitionCommandInput extends UpdateFunctionDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFunctionDefinitionCommand}.
  */
 export interface UpdateFunctionDefinitionCommandOutput extends UpdateFunctionDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates a Lambda function definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateFunctionDefinitionCommandOutput extends UpdateFunctionDef
  * import { GreengrassClient, UpdateFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // UpdateFunctionDefinitionRequest
+ *   FunctionDefinitionId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateFunctionDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFunctionDefinitionCommandInput - {@link UpdateFunctionDefinitionCommandInput}
+ * @returns {@link UpdateFunctionDefinitionCommandOutput}
  * @see {@link UpdateFunctionDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +75,9 @@ export class UpdateFunctionDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFunctionDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class UpdateFunctionDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFunctionDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFunctionDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class UpdateFunctionDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFunctionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFunctionDefinitionCommand(input, context);
+    return se_UpdateFunctionDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFunctionDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateFunctionDefinitionCommand(output, context);
+    return de_UpdateFunctionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { DeleteDatasetContentRequest, DeleteDatasetContentRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDatasetContentCommand,
-  serializeAws_restJson1DeleteDatasetContentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDatasetContentRequest } from "../models/models_0";
+import { de_DeleteDatasetContentCommand, se_DeleteDatasetContentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatasetContentCommand}.
  */
 export interface DeleteDatasetContentCommandInput extends DeleteDatasetContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatasetContentCommand}.
  */
 export interface DeleteDatasetContentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the content of the specified dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteDatasetContentCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, DeleteDatasetContentCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DeleteDatasetContentCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // DeleteDatasetContentRequest
+ *   datasetName: "STRING_VALUE", // required
+ *   versionId: "STRING_VALUE",
+ * };
  * const command = new DeleteDatasetContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatasetContentCommandInput - {@link DeleteDatasetContentCommandInput}
+ * @returns {@link DeleteDatasetContentCommandOutput}
  * @see {@link DeleteDatasetContentCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetContentCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -79,6 +87,9 @@ export class DeleteDatasetContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatasetContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +118,8 @@ export class DeleteDatasetContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatasetContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +129,18 @@ export class DeleteDatasetContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatasetContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDatasetContentCommand(input, context);
+    return se_DeleteDatasetContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetContentCommandOutput> {
-    return deserializeAws_restJson1DeleteDatasetContentCommand(output, context);
+    return de_DeleteDatasetContentCommand(output, context);
   }
 
   // Start section: command_body_extra

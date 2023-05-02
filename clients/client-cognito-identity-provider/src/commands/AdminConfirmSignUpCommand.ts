@@ -23,23 +23,24 @@ import {
   AdminConfirmSignUpRequest,
   AdminConfirmSignUpRequestFilterSensitiveLog,
   AdminConfirmSignUpResponse,
-  AdminConfirmSignUpResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminConfirmSignUpCommand,
-  serializeAws_json1_1AdminConfirmSignUpCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminConfirmSignUpCommand, se_AdminConfirmSignUpCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminConfirmSignUpCommand}.
  */
 export interface AdminConfirmSignUpCommandInput extends AdminConfirmSignUpRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminConfirmSignUpCommand}.
  */
 export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Confirms user registration as an admin without using a confirmation code. Works on any
  *             user.</p>
  *         <p>Calling this action requires developer credentials.</p>
@@ -49,10 +50,19 @@ export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpRespo
  * import { CognitoIdentityProviderClient, AdminConfirmSignUpCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminConfirmSignUpCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminConfirmSignUpRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new AdminConfirmSignUpCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminConfirmSignUpCommandInput - {@link AdminConfirmSignUpCommandInput}
+ * @returns {@link AdminConfirmSignUpCommandOutput}
  * @see {@link AdminConfirmSignUpCommandInput} for command's `input` shape.
  * @see {@link AdminConfirmSignUpCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -116,6 +126,9 @@ export class AdminConfirmSignUpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminConfirmSignUpCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,7 +159,7 @@ export class AdminConfirmSignUpCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminConfirmSignUpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminConfirmSignUpResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +169,18 @@ export class AdminConfirmSignUpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminConfirmSignUpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminConfirmSignUpCommand(input, context);
+    return se_AdminConfirmSignUpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminConfirmSignUpCommandOutput> {
-    return deserializeAws_json1_1AdminConfirmSignUpCommand(output, context);
+    return de_AdminConfirmSignUpCommand(output, context);
   }
 
   // Start section: command_body_extra

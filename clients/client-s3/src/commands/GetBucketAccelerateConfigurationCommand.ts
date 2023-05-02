@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetBucketAccelerateConfigurationOutput, GetBucketAccelerateConfigurationRequest } from "../models/models_0";
 import {
-  GetBucketAccelerateConfigurationOutput,
-  GetBucketAccelerateConfigurationOutputFilterSensitiveLog,
-  GetBucketAccelerateConfigurationRequest,
-  GetBucketAccelerateConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketAccelerateConfigurationCommand,
-  serializeAws_restXmlGetBucketAccelerateConfigurationCommand,
+  de_GetBucketAccelerateConfigurationCommand,
+  se_GetBucketAccelerateConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketAccelerateConfigurationCommand}.
  */
 export interface GetBucketAccelerateConfigurationCommandInput extends GetBucketAccelerateConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketAccelerateConfigurationCommand}.
  */
 export interface GetBucketAccelerateConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface GetBucketAccelerateConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This implementation of the GET action uses the <code>accelerate</code> subresource to
  *          return the Transfer Acceleration state of a bucket, which is either <code>Enabled</code> or
  *             <code>Suspended</code>. Amazon S3 Transfer Acceleration is a bucket-level feature that
@@ -69,10 +69,16 @@ export interface GetBucketAccelerateConfigurationCommandOutput
  * import { S3Client, GetBucketAccelerateConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketAccelerateConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketAccelerateConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketAccelerateConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketAccelerateConfigurationCommandInput - {@link GetBucketAccelerateConfigurationCommandInput}
+ * @returns {@link GetBucketAccelerateConfigurationCommandOutput}
  * @see {@link GetBucketAccelerateConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketAccelerateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -102,6 +108,9 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketAccelerateConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +139,8 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketAccelerateConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketAccelerateConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,18 +150,24 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketAccelerateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketAccelerateConfigurationCommand(input, context);
+    return se_GetBucketAccelerateConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketAccelerateConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketAccelerateConfigurationCommand(output, context);
+    return de_GetBucketAccelerateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

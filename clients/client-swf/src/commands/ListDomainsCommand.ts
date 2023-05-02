@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DomainInfos,
-  DomainInfosFilterSensitiveLog,
-  ListDomainsInput,
-  ListDomainsInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListDomainsCommand,
-  serializeAws_json1_0ListDomainsCommand,
-} from "../protocols/Aws_json1_0";
+import { DomainInfos, ListDomainsInput } from "../models/models_0";
+import { de_ListDomainsCommand, se_ListDomainsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDomainsCommand}.
  */
 export interface ListDomainsCommandInput extends ListDomainsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDomainsCommand}.
  */
 export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of domains registered in the account. The results may be split into
  *       multiple pages. To retrieve subsequent pages, make the call again using the nextPageToken
  *       returned by the initial call.</p>
@@ -73,10 +70,18 @@ export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer 
  * import { SWFClient, ListDomainsCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, ListDomainsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // ListDomainsInput
+ *   nextPageToken: "STRING_VALUE",
+ *   registrationStatus: "REGISTERED" || "DEPRECATED", // required
+ *   maximumPageSize: Number("int"),
+ *   reverseOrder: true || false,
+ * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
+ * @returns {@link ListDomainsCommandOutput}
  * @see {@link ListDomainsCommandInput} for command's `input` shape.
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -103,6 +108,9 @@ export class ListDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +137,8 @@ export class ListDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DomainInfosFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +148,18 @@ export class ListDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListDomainsCommand(input, context);
+    return se_ListDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainsCommandOutput> {
-    return deserializeAws_json1_0ListDomainsCommand(output, context);
+    return de_ListDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

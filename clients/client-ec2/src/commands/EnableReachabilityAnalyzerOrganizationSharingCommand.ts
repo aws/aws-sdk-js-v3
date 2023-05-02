@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   EnableReachabilityAnalyzerOrganizationSharingRequest,
-  EnableReachabilityAnalyzerOrganizationSharingRequestFilterSensitiveLog,
   EnableReachabilityAnalyzerOrganizationSharingResult,
-  EnableReachabilityAnalyzerOrganizationSharingResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommand,
-  serializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommand,
+  de_EnableReachabilityAnalyzerOrganizationSharingCommand,
+  se_EnableReachabilityAnalyzerOrganizationSharingCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableReachabilityAnalyzerOrganizationSharingCommand}.
  */
 export interface EnableReachabilityAnalyzerOrganizationSharingCommandInput
   extends EnableReachabilityAnalyzerOrganizationSharingRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableReachabilityAnalyzerOrganizationSharingCommand}.
  */
 export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
@@ -38,6 +40,7 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Establishes a trust relationship between Reachability Analyzer and Organizations.
  *          This operation must be performed by the management account for the organization.</p>
  *          <p>After you establish a trust relationship, a user in the management account or
@@ -49,10 +52,15 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
  * import { EC2Client, EnableReachabilityAnalyzerOrganizationSharingCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableReachabilityAnalyzerOrganizationSharingCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableReachabilityAnalyzerOrganizationSharingRequest
+ *   DryRun: true || false,
+ * };
  * const command = new EnableReachabilityAnalyzerOrganizationSharingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableReachabilityAnalyzerOrganizationSharingCommandInput - {@link EnableReachabilityAnalyzerOrganizationSharingCommandInput}
+ * @returns {@link EnableReachabilityAnalyzerOrganizationSharingCommandOutput}
  * @see {@link EnableReachabilityAnalyzerOrganizationSharingCommandInput} for command's `input` shape.
  * @see {@link EnableReachabilityAnalyzerOrganizationSharingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +84,9 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableReachabilityAnalyzerOrganizationSharingCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableReachabilityAnalyzerOrganizationSharingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableReachabilityAnalyzerOrganizationSharingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +132,24 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommand(input, context);
+    return se_EnableReachabilityAnalyzerOrganizationSharingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableReachabilityAnalyzerOrganizationSharingCommandOutput> {
-    return deserializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommand(output, context);
+    return de_EnableReachabilityAnalyzerOrganizationSharingCommand(output, context);
   }
 
   // Start section: command_body_extra

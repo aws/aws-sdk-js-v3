@@ -10,7 +10,7 @@ import { IoTThingsGraphClient } from "../IoTThingsGraphClient";
 import { IoTThingsGraphPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTThingsGraphClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchFlowExecutionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateSearchFlowExecutions(
   config: IoTThingsGraphPaginationConfiguration,
   input: SearchFlowExecutionsCommandInput,

@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteDBClusterParameterGroupMessage } from "../models/models_0";
 import {
-  DeleteDBClusterParameterGroupMessage,
-  DeleteDBClusterParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBClusterParameterGroupCommand,
-  serializeAws_queryDeleteDBClusterParameterGroupCommand,
+  de_DeleteDBClusterParameterGroupCommand,
+  se_DeleteDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBClusterParameterGroupCommand}.
  */
 export interface DeleteDBClusterParameterGroupCommandInput extends DeleteDBClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBClusterParameterGroupCommand}.
  */
 export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.</p>
  *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -46,10 +48,15 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * import { RDSClient, DeleteDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteDBClusterParameterGroupMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBClusterParameterGroupCommandInput - {@link DeleteDBClusterParameterGroupCommandInput}
+ * @returns {@link DeleteDBClusterParameterGroupCommandOutput}
  * @see {@link DeleteDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -65,15 +72,15 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  *             this state.</p>
  *
  *
- * @example To delete a DB cluster parameter group.
+ * @example To delete a DB cluster parameter group
  * ```javascript
- * // This example deletes the specified DB cluster parameter group.
+ * // The following example deletes the specified DB cluster parameter group.
  * const input = {
  *   "DBClusterParameterGroupName": "mydbclusterparametergroup"
  * };
  * const command = new DeleteDBClusterParameterGroupCommand(input);
  * await client.send(command);
- * // example id: delete-db-cluster-parameter-group-364f5555-ba0a-4cc8-979c-e769098924fc
+ * // example id: to-delete-a-db-cluster-parameter-group-1679962185718
  * ```
  *
  */
@@ -94,6 +101,9 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +132,8 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,15 +143,21 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterParameterGroupCommand(input, context);
+    return se_DeleteDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterParameterGroupCommand(output, context);
+    return de_DeleteDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

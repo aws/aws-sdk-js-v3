@@ -16,25 +16,26 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   GetDistributionConfigRequest,
-  GetDistributionConfigRequestFilterSensitiveLog,
   GetDistributionConfigResult,
   GetDistributionConfigResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlGetDistributionConfigCommand,
-  serializeAws_restXmlGetDistributionConfigCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetDistributionConfigCommand, se_GetDistributionConfigCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetDistributionConfigCommand}.
  */
 export interface GetDistributionConfigCommandInput extends GetDistributionConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDistributionConfigCommand}.
  */
 export interface GetDistributionConfigCommandOutput extends GetDistributionConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the configuration information about a distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface GetDistributionConfigCommandOutput extends GetDistributionConfi
  * import { CloudFrontClient, GetDistributionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetDistributionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetDistributionConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetDistributionConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDistributionConfigCommandInput - {@link GetDistributionConfigCommandInput}
+ * @returns {@link GetDistributionConfigCommandOutput}
  * @see {@link GetDistributionConfigCommandInput} for command's `input` shape.
  * @see {@link GetDistributionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -75,6 +81,9 @@ export class GetDistributionConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDistributionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,7 +112,7 @@ export class GetDistributionConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDistributionConfigRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDistributionConfigResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -114,12 +123,18 @@ export class GetDistributionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDistributionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetDistributionConfigCommand(input, context);
+    return se_GetDistributionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDistributionConfigCommandOutput> {
-    return deserializeAws_restXmlGetDistributionConfigCommand(output, context);
+    return de_GetDistributionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

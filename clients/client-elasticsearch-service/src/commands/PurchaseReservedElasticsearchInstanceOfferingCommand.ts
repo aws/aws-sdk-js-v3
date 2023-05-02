@@ -20,21 +20,23 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   PurchaseReservedElasticsearchInstanceOfferingRequest,
-  PurchaseReservedElasticsearchInstanceOfferingRequestFilterSensitiveLog,
   PurchaseReservedElasticsearchInstanceOfferingResponse,
-  PurchaseReservedElasticsearchInstanceOfferingResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand,
-  serializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand,
+  de_PurchaseReservedElasticsearchInstanceOfferingCommand,
+  se_PurchaseReservedElasticsearchInstanceOfferingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseReservedElasticsearchInstanceOfferingCommand}.
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingCommandInput
   extends PurchaseReservedElasticsearchInstanceOfferingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseReservedElasticsearchInstanceOfferingCommand}.
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
@@ -42,6 +44,7 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to purchase reserved Elasticsearch instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +52,17 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
  * import { ElasticsearchServiceClient, PurchaseReservedElasticsearchInstanceOfferingCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, PurchaseReservedElasticsearchInstanceOfferingCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // PurchaseReservedElasticsearchInstanceOfferingRequest
+ *   ReservedElasticsearchInstanceOfferingId: "STRING_VALUE", // required
+ *   ReservationName: "STRING_VALUE", // required
+ *   InstanceCount: Number("int"),
+ * };
  * const command = new PurchaseReservedElasticsearchInstanceOfferingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedElasticsearchInstanceOfferingCommandInput - {@link PurchaseReservedElasticsearchInstanceOfferingCommandInput}
+ * @returns {@link PurchaseReservedElasticsearchInstanceOfferingCommandOutput}
  * @see {@link PurchaseReservedElasticsearchInstanceOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedElasticsearchInstanceOfferingCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -94,6 +104,9 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedElasticsearchInstanceOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +141,8 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedElasticsearchInstanceOfferingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedElasticsearchInstanceOfferingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,18 +152,24 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand(input, context);
+    return se_PurchaseReservedElasticsearchInstanceOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput> {
-    return deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand(output, context);
+    return de_PurchaseReservedElasticsearchInstanceOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

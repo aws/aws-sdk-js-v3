@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListPoliciesRequest,
-  ListPoliciesRequestFilterSensitiveLog,
-  ListPoliciesResponse,
-  ListPoliciesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListPoliciesCommand,
-  serializeAws_restJson1ListPoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPoliciesRequest, ListPoliciesResponse } from "../models/models_1";
+import { de_ListPoliciesCommand, se_ListPoliciesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPoliciesCommand}.
  */
 export interface ListPoliciesCommandInput extends ListPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPoliciesCommand}.
  */
 export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your policies.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicies</a> action.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * import { IoTClient, ListPoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListPoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListPoliciesRequest
+ *   marker: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ *   ascendingOrder: true || false,
+ * };
  * const command = new ListPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPoliciesCommandInput - {@link ListPoliciesCommandInput}
+ * @returns {@link ListPoliciesCommandOutput}
  * @see {@link ListPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +118,8 @@ export class ListPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +129,18 @@ export class ListPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPoliciesCommand(input, context);
+    return se_ListPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPoliciesCommandOutput> {
-    return deserializeAws_restJson1ListPoliciesCommand(output, context);
+    return de_ListPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

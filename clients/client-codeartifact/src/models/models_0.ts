@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { CodeartifactServiceException as __BaseException } from "./CodeartifactServiceException";
 
 /**
+ * @public
  * <p>
  *         The operation did not succeed because of an unauthorized access attempt.
  *       </p>
@@ -25,24 +26,52 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum AllowPublish {
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-}
-
-export enum AllowUpstream {
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-}
-
-export enum HashAlgorithm {
-  MD5 = "MD5",
-  SHA1 = "SHA-1",
-  SHA256 = "SHA-256",
-  SHA512 = "SHA-512",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AllowPublish = {
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+} as const;
 
 /**
+ * @public
+ */
+export type AllowPublish = (typeof AllowPublish)[keyof typeof AllowPublish];
+
+/**
+ * @public
+ * @enum
+ */
+export const AllowUpstream = {
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type AllowUpstream = (typeof AllowUpstream)[keyof typeof AllowUpstream];
+
+/**
+ * @public
+ * @enum
+ */
+export const HashAlgorithm = {
+  MD5: "MD5",
+  SHA1: "SHA-1",
+  SHA256: "SHA-256",
+  SHA512: "SHA-512",
+} as const;
+
+/**
+ * @public
+ */
+export type HashAlgorithm = (typeof HashAlgorithm)[keyof typeof HashAlgorithm];
+
+/**
+ * @public
  * <p>
  *         Contains details about a package version asset.
  *        </p>
@@ -70,6 +99,9 @@ export interface AssetSummary {
   hashes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface AssociateExternalConnectionRequest {
   /**
    * <p>The name of the domain that contains the repository.</p>
@@ -131,24 +163,47 @@ export interface AssociateExternalConnectionRequest {
    *                   <code>public:maven-commonsware</code> - for the CommonsWare Android repository.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public:maven-clojars</code> - for the Clojars repository. </p>
+   *             </li>
    *          </ul>
    */
   externalConnection: string | undefined;
 }
 
-export enum PackageFormat {
-  GENERIC = "generic",
-  MAVEN = "maven",
-  NPM = "npm",
-  NUGET = "nuget",
-  PYPI = "pypi",
-}
-
-export enum ExternalConnectionStatus {
-  AVAILABLE = "Available",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageFormat = {
+  GENERIC: "generic",
+  MAVEN: "maven",
+  NPM: "npm",
+  NUGET: "nuget",
+  PYPI: "pypi",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageFormat = (typeof PackageFormat)[keyof typeof PackageFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalConnectionStatus = {
+  AVAILABLE: "Available",
+} as const;
+
+/**
+ * @public
+ */
+export type ExternalConnectionStatus = (typeof ExternalConnectionStatus)[keyof typeof ExternalConnectionStatus];
+
+/**
+ * @public
  * <p>
  *         Contains information about the external connection of a repository.
  *       </p>
@@ -197,6 +252,7 @@ export interface RepositoryExternalConnectionInfo {
 }
 
 /**
+ * @public
  * <p>
  *         Information about an upstream repository.
  *       </p>
@@ -209,6 +265,7 @@ export interface UpstreamRepositoryInfo {
 }
 
 /**
+ * @public
  * <p> The details of a repository stored in CodeArtifact. A CodeArtifact repository contains a set of
  *       package versions, each of which maps to a set of assets. Repositories are polyglot—a single
  *       repository can contain packages of any supported type. Each repository exposes endpoints for
@@ -269,8 +326,16 @@ export interface RepositoryDescription {
    *     </p>
    */
   externalConnections?: RepositoryExternalConnectionInfo[];
+
+  /**
+   * <p>A timestamp that represents the date and time the repository was created.</p>
+   */
+  createdTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AssociateExternalConnectionResult {
   /**
    * <p>
@@ -280,15 +345,25 @@ export interface AssociateExternalConnectionResult {
   repository?: RepositoryDescription;
 }
 
-export enum ResourceType {
-  ASSET = "asset",
-  DOMAIN = "domain",
-  PACKAGE = "package",
-  PACKAGE_VERSION = "package-version",
-  REPOSITORY = "repository",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  ASSET: "asset",
+  DOMAIN: "domain",
+  PACKAGE: "package",
+  PACKAGE_VERSION: "package-version",
+  REPOSITORY: "repository",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>
  *         The operation did not succeed because prerequisites are not met.
  *       </p>
@@ -326,6 +401,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
  */
 export class InternalServerException extends __BaseException {
@@ -345,6 +421,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *       The operation did not succeed because the resource requested is not found in the service.
  *     </p>
@@ -382,6 +459,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *         The operation did not succeed because it would have exceeded a service limit for your account.
  *       </p>
@@ -419,6 +497,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *       The operation did not succeed because too many requests are sent to the service.
  *     </p>
@@ -447,15 +526,25 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  ENCRYPTION_KEY_ERROR = "ENCRYPTION_KEY_ERROR",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  ENCRYPTION_KEY_ERROR: "ENCRYPTION_KEY_ERROR",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
@@ -484,6 +573,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CopyPackageVersionsRequest {
   /**
    * <p>
@@ -542,9 +634,7 @@ export interface CopyPackageVersionsRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -601,16 +691,26 @@ export interface CopyPackageVersionsRequest {
   includeFromUpstream?: boolean;
 }
 
-export enum PackageVersionErrorCode {
-  ALREADY_EXISTS = "ALREADY_EXISTS",
-  MISMATCHED_REVISION = "MISMATCHED_REVISION",
-  MISMATCHED_STATUS = "MISMATCHED_STATUS",
-  NOT_ALLOWED = "NOT_ALLOWED",
-  NOT_FOUND = "NOT_FOUND",
-  SKIPPED = "SKIPPED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageVersionErrorCode = {
+  ALREADY_EXISTS: "ALREADY_EXISTS",
+  MISMATCHED_REVISION: "MISMATCHED_REVISION",
+  MISMATCHED_STATUS: "MISMATCHED_STATUS",
+  NOT_ALLOWED: "NOT_ALLOWED",
+  NOT_FOUND: "NOT_FOUND",
+  SKIPPED: "SKIPPED",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageVersionErrorCode = (typeof PackageVersionErrorCode)[keyof typeof PackageVersionErrorCode];
+
+/**
+ * @public
  * <p>l
  *        An error associated with package.
  *    </p>
@@ -661,16 +761,26 @@ export interface PackageVersionError {
   errorMessage?: string;
 }
 
-export enum PackageVersionStatus {
-  ARCHIVED = "Archived",
-  DELETED = "Deleted",
-  DISPOSED = "Disposed",
-  PUBLISHED = "Published",
-  UNFINISHED = "Unfinished",
-  UNLISTED = "Unlisted",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageVersionStatus = {
+  ARCHIVED: "Archived",
+  DELETED: "Deleted",
+  DISPOSED: "Disposed",
+  PUBLISHED: "Published",
+  UNFINISHED: "Unfinished",
+  UNLISTED: "Unlisted",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageVersionStatus = (typeof PackageVersionStatus)[keyof typeof PackageVersionStatus];
+
+/**
+ * @public
  * <p>
  *       Contains the revision and status of a package version.
  *     </p>
@@ -691,6 +801,9 @@ export interface SuccessfulPackageVersionInfo {
   status?: PackageVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CopyPackageVersionsResult {
   /**
    * <p>
@@ -741,6 +854,7 @@ export interface CopyPackageVersionsResult {
 }
 
 /**
+ * @public
  * <p>A tag is a key-value pair that can be used to manage, search for, or filter resources in CodeArtifact.</p>
  */
 export interface Tag {
@@ -755,6 +869,9 @@ export interface Tag {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainRequest {
   /**
    * <p> The name of the domain to create. All domain names in an Amazon Web Services Region that are in the
@@ -785,12 +902,22 @@ export interface CreateDomainRequest {
   tags?: Tag[];
 }
 
-export enum DomainStatus {
-  ACTIVE = "Active",
-  DELETED = "Deleted",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DomainStatus = {
+  ACTIVE: "Active",
+  DELETED: "Deleted",
+} as const;
 
 /**
+ * @public
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
+
+/**
+ * @public
  * <p>
  *        Information about a domain. A domain is a container for repositories. When you create a domain, it is empty until you
  *        add one or more repositories.
@@ -853,6 +980,9 @@ export interface DomainDescription {
   s3BucketArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainResult {
   /**
    * <p>
@@ -863,6 +993,7 @@ export interface CreateDomainResult {
 }
 
 /**
+ * @public
  * <p>
  *        Information about an upstream repository. A list of <code>UpstreamRepository</code> objects is an input parameter to
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateRepository.html">CreateRepository</a>
@@ -876,6 +1007,9 @@ export interface UpstreamRepository {
   repositoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRepositoryRequest {
   /**
    * <p>
@@ -917,6 +1051,9 @@ export interface CreateRepositoryRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRepositoryResult {
   /**
    * <p>
@@ -926,6 +1063,9 @@ export interface CreateRepositoryResult {
   repository?: RepositoryDescription;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainRequest {
   /**
    * <p>
@@ -943,6 +1083,9 @@ export interface DeleteDomainRequest {
   domainOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainResult {
   /**
    * <p>
@@ -952,6 +1095,9 @@ export interface DeleteDomainResult {
   domain?: DomainDescription;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainPermissionsPolicyRequest {
   /**
    * <p>
@@ -978,6 +1124,7 @@ export interface DeleteDomainPermissionsPolicyRequest {
 }
 
 /**
+ * @public
  * <p>
  *         An CodeArtifact resource policy that contains a resource ARN, document details, and a revision.
  *       </p>
@@ -1005,6 +1152,9 @@ export interface ResourcePolicy {
   document?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainPermissionsPolicyResult {
   /**
    * <p>
@@ -1014,6 +1164,9 @@ export interface DeleteDomainPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackageRequest {
   /**
    * <p>The name of the domain that contains the package to delete.</p>
@@ -1047,14 +1200,15 @@ export interface DeletePackageRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
-   *         </p>
+   *                <p> The namespace of an npm package is its <code>scope</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *           Python and NuGet packages do not contain corresponding components, packages of those formats do not have a namespace.
    *         </p>
+   *             </li>
+   *             <li>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1067,6 +1221,7 @@ export interface DeletePackageRequest {
 }
 
 /**
+ * @public
  * <p>Details about the origin restrictions set on the package.
  *       The package origin restrictions determine how new versions of a package
  *       can be added to a specific repository.</p>
@@ -1084,6 +1239,7 @@ export interface PackageOriginRestrictions {
 }
 
 /**
+ * @public
  * <p>Details about the package origin configuration of a package.</p>
  */
 export interface PackageOriginConfiguration {
@@ -1095,6 +1251,7 @@ export interface PackageOriginConfiguration {
 }
 
 /**
+ * @public
  * <p>
  *       Details about a package, including its format, namespace, and name.
  *     </p>
@@ -1128,9 +1285,7 @@ export interface PackageSummary {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1151,6 +1306,9 @@ export interface PackageSummary {
   originConfiguration?: PackageOriginConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackageResult {
   /**
    * <p>
@@ -1160,6 +1318,9 @@ export interface DeletePackageResult {
   deletedPackage?: PackageSummary;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackageVersionsRequest {
   /**
    * <p>
@@ -1211,9 +1372,7 @@ export interface DeletePackageVersionsRequest {
    *           </p>
    *             </li>
    *             <li>
-   *                <p>
-   *             The namespace of a generic package is it’s <code>namespace</code>.
-   *           </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1241,6 +1400,9 @@ export interface DeletePackageVersionsRequest {
   expectedStatus?: PackageVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackageVersionsResult {
   /**
    * <p>
@@ -1291,6 +1453,9 @@ export interface DeletePackageVersionsResult {
   failedVersions?: Record<string, PackageVersionError>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryRequest {
   /**
    * <p>
@@ -1313,6 +1478,9 @@ export interface DeleteRepositoryRequest {
   repository: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryResult {
   /**
    * <p>
@@ -1322,6 +1490,9 @@ export interface DeleteRepositoryResult {
   repository?: RepositoryDescription;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryPermissionsPolicyRequest {
   /**
    * <p>
@@ -1354,6 +1525,9 @@ export interface DeleteRepositoryPermissionsPolicyRequest {
   policyRevision?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryPermissionsPolicyResult {
   /**
    * <p>
@@ -1363,6 +1537,9 @@ export interface DeleteRepositoryPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainRequest {
   /**
    * <p>
@@ -1380,6 +1557,9 @@ export interface DescribeDomainRequest {
   domainOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainResult {
   /**
    * <p>
@@ -1390,6 +1570,9 @@ export interface DescribeDomainResult {
   domain?: DomainDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageRequest {
   /**
    * <p>The name of the domain that contains the repository that contains the package.</p>
@@ -1435,9 +1618,7 @@ export interface DescribePackageRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1450,6 +1631,7 @@ export interface DescribePackageRequest {
 }
 
 /**
+ * @public
  * <p>Details about a package.</p>
  */
 export interface PackageDescription {
@@ -1479,9 +1661,7 @@ export interface PackageDescription {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1498,6 +1678,9 @@ export interface PackageDescription {
   originConfiguration?: PackageOriginConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageResult {
   /**
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a>
@@ -1506,6 +1689,9 @@ export interface DescribePackageResult {
   package: PackageDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageVersionRequest {
   /**
    * <p>
@@ -1555,9 +1741,7 @@ export interface DescribePackageVersionRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1577,6 +1761,7 @@ export interface DescribePackageVersionRequest {
 }
 
 /**
+ * @public
  * <p>
  *         Details of the license data.
  *       </p>
@@ -1598,6 +1783,7 @@ export interface LicenseInfo {
 }
 
 /**
+ * @public
  * <p>Information about how a package originally entered the CodeArtifact domain. For packages published directly to CodeArtifact, the entry point is the repository it was published to.
  *       For packages ingested from an external repository, the entry point is the external connection that it was ingested from. An external
  *     connection is a CodeArtifact repository that is connected to an external repository such as the npm registry or NuGet gallery.</p>
@@ -1614,13 +1800,23 @@ export interface DomainEntryPoint {
   externalConnectionName?: string;
 }
 
-export enum PackageVersionOriginType {
-  EXTERNAL = "EXTERNAL",
-  INTERNAL = "INTERNAL",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageVersionOriginType = {
+  EXTERNAL: "EXTERNAL",
+  INTERNAL: "INTERNAL",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageVersionOriginType = (typeof PackageVersionOriginType)[keyof typeof PackageVersionOriginType];
+
+/**
+ * @public
  * <p>Information about how a package version was added to a repository.</p>
  */
 export interface PackageVersionOrigin {
@@ -1638,6 +1834,7 @@ export interface PackageVersionOrigin {
 }
 
 /**
+ * @public
  * <p>
  *       Details about a package version.
  *     </p>
@@ -1671,9 +1868,7 @@ export interface PackageVersionDescription {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1760,6 +1955,9 @@ export interface PackageVersionDescription {
   origin?: PackageVersionOrigin;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageVersionResult {
   /**
    * <p>
@@ -1770,6 +1968,9 @@ export interface DescribePackageVersionResult {
   packageVersion: PackageVersionDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRepositoryRequest {
   /**
    * <p>
@@ -1794,6 +1995,9 @@ export interface DescribeRepositoryRequest {
   repository: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRepositoryResult {
   /**
    * <p>
@@ -1803,6 +2007,9 @@ export interface DescribeRepositoryResult {
   repository?: RepositoryDescription;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateExternalConnectionRequest {
   /**
    * <p>The name of the domain that contains the repository from which to remove the external
@@ -1829,6 +2036,9 @@ export interface DisassociateExternalConnectionRequest {
   externalConnection: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateExternalConnectionResult {
   /**
    * <p>
@@ -1838,6 +2048,9 @@ export interface DisassociateExternalConnectionResult {
   repository?: RepositoryDescription;
 }
 
+/**
+ * @public
+ */
 export interface DisposePackageVersionsRequest {
   /**
    * <p>
@@ -1889,9 +2102,7 @@ export interface DisposePackageVersionsRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1926,6 +2137,9 @@ export interface DisposePackageVersionsRequest {
   expectedStatus?: PackageVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DisposePackageVersionsResult {
   /**
    * <p>
@@ -1975,6 +2189,9 @@ export interface DisposePackageVersionsResult {
   failedVersions?: Record<string, PackageVersionError>;
 }
 
+/**
+ * @public
+ */
 export interface GetAuthorizationTokenRequest {
   /**
    * <p>
@@ -2000,6 +2217,9 @@ export interface GetAuthorizationTokenRequest {
   durationSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetAuthorizationTokenResult {
   /**
    * <p>
@@ -2016,6 +2236,9 @@ export interface GetAuthorizationTokenResult {
   expiration?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainPermissionsPolicyRequest {
   /**
    * <p>
@@ -2033,6 +2256,9 @@ export interface GetDomainPermissionsPolicyRequest {
   domainOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainPermissionsPolicyResult {
   /**
    * <p>
@@ -2042,6 +2268,9 @@ export interface GetDomainPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface GetPackageVersionAssetRequest {
   /**
    * <p>
@@ -2093,9 +2322,7 @@ export interface GetPackageVersionAssetRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -2130,6 +2357,9 @@ export interface GetPackageVersionAssetRequest {
   packageVersionRevision?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPackageVersionAssetResult {
   /**
    * <p> The binary file, or asset, that is downloaded.</p>
@@ -2158,6 +2388,9 @@ export interface GetPackageVersionAssetResult {
   packageVersionRevision?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPackageVersionReadmeRequest {
   /**
    * <p>
@@ -2193,20 +2426,11 @@ export interface GetPackageVersionReadmeRequest {
    *       namespace depends on its type. For example:</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *           The namespace of a Maven package version is its <code>groupId</code>.
-   *         </p>
+   *                <p> The namespace of an npm package version is its <code>scope</code>. </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of an npm package version is its <code>scope</code>.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           Python and NuGet package versions do not contain a corresponding component, package versions
-   *           of those formats do not have a namespace.
-   *         </p>
+   *                <p> Python and NuGet package versions do not contain a corresponding component, package
+   *           versions of those formats do not have a namespace. </p>
    *             </li>
    *          </ul>
    */
@@ -2227,6 +2451,9 @@ export interface GetPackageVersionReadmeRequest {
   packageVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPackageVersionReadmeResult {
   /**
    * <p>
@@ -2288,6 +2515,9 @@ export interface GetPackageVersionReadmeResult {
   readme?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryEndpointRequest {
   /**
    * <p>
@@ -2320,6 +2550,9 @@ export interface GetRepositoryEndpointRequest {
   format: PackageFormat | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryEndpointResult {
   /**
    * <p>
@@ -2329,6 +2562,9 @@ export interface GetRepositoryEndpointResult {
   repositoryEndpoint?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryPermissionsPolicyRequest {
   /**
    * <p>
@@ -2353,6 +2589,9 @@ export interface GetRepositoryPermissionsPolicyRequest {
   repository: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryPermissionsPolicyResult {
   /**
    * <p>
@@ -2362,6 +2601,9 @@ export interface GetRepositoryPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsRequest {
   /**
    * <p>
@@ -2379,6 +2621,7 @@ export interface ListDomainsRequest {
 }
 
 /**
+ * @public
  * <p> Information about a domain, including its name, Amazon Resource Name (ARN), and status.
  *       The <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListDomains.html">ListDomains</a> operation returns a list of <code>DomainSummary</code>
  *       objects. </p>
@@ -2428,6 +2671,9 @@ export interface DomainSummary {
   encryptionKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsResult {
   /**
    * <p>
@@ -2444,6 +2690,9 @@ export interface ListDomainsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagesRequest {
   /**
    * <p>
@@ -2493,9 +2742,7 @@ export interface ListPackagesRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -2537,6 +2784,9 @@ export interface ListPackagesRequest {
   upstream?: AllowUpstream | string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagesResult {
   /**
    * <p>
@@ -2554,6 +2804,9 @@ export interface ListPackagesResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackageVersionAssetsRequest {
   /**
    * <p>
@@ -2605,9 +2858,7 @@ export interface ListPackageVersionAssetsRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -2642,6 +2893,9 @@ export interface ListPackageVersionAssetsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackageVersionAssetsResult {
   /**
    * <p>
@@ -2710,6 +2964,9 @@ export interface ListPackageVersionAssetsResult {
   assets?: AssetSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListPackageVersionDependenciesRequest {
   /**
    * <p>
@@ -2761,9 +3018,7 @@ export interface ListPackageVersionDependenciesRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -2792,6 +3047,7 @@ export interface ListPackageVersionDependenciesRequest {
 }
 
 /**
+ * @public
  * <p>
  *         Details about a package dependency.
  *       </p>
@@ -2862,6 +3118,9 @@ export interface PackageDependency {
   versionRequirement?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackageVersionDependenciesResult {
   /**
    * <p>
@@ -2930,10 +3189,22 @@ export interface ListPackageVersionDependenciesResult {
   dependencies?: PackageDependency[];
 }
 
-export enum PackageVersionSortType {
-  PUBLISHED_TIME = "PUBLISHED_TIME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageVersionSortType = {
+  PUBLISHED_TIME: "PUBLISHED_TIME",
+} as const;
 
+/**
+ * @public
+ */
+export type PackageVersionSortType = (typeof PackageVersionSortType)[keyof typeof PackageVersionSortType];
+
+/**
+ * @public
+ */
 export interface ListPackageVersionsRequest {
   /**
    * <p>
@@ -2985,9 +3256,7 @@ export interface ListPackageVersionsRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -3036,6 +3305,7 @@ export interface ListPackageVersionsRequest {
 }
 
 /**
+ * @public
  * <p>
  *        Details about a package version, including its status, version, and revision. The
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>
@@ -3071,6 +3341,9 @@ export interface PackageVersionSummary {
   origin?: PackageVersionOrigin;
 }
 
+/**
+ * @public
+ */
 export interface ListPackageVersionsResult {
   /**
    * <p>
@@ -3147,6 +3420,9 @@ export interface ListPackageVersionsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoriesRequest {
   /**
    * <p> A prefix used to filter returned repositories. Only repositories with names that start
@@ -3170,6 +3446,7 @@ export interface ListRepositoriesRequest {
 }
 
 /**
+ * @public
  * <p> Details about a repository, including its Amazon Resource Name (ARN), description, and
  *       domain information. The <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListRepositories.html">ListRepositories</a> operation returns a list of
  *         <code>RepositorySummary</code> objects. </p>
@@ -3215,8 +3492,16 @@ export interface RepositorySummary {
    *     </p>
    */
   description?: string;
+
+  /**
+   * <p>A timestamp that represents the date and time the repository was created.</p>
+   */
+  createdTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoriesResult {
   /**
    * <p>
@@ -3234,6 +3519,9 @@ export interface ListRepositoriesResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoriesInDomainRequest {
   /**
    * <p>
@@ -3280,6 +3568,9 @@ export interface ListRepositoriesInDomainRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoriesInDomainResult {
   /**
    * <p>
@@ -3296,6 +3587,9 @@ export interface ListRepositoriesInDomainResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
@@ -3303,6 +3597,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResult {
   /**
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
@@ -3310,6 +3607,9 @@ export interface ListTagsForResourceResult {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PublishPackageVersionRequest {
   /**
    * <p>The name of the domain that contains the repository that contains the package version to publish.</p>
@@ -3353,7 +3653,7 @@ export interface PublishPackageVersionRequest {
 
   /**
    * <p>The name of the asset to publish. Asset names can include Unicode letters and numbers, and
-   *       the following special characters: <code>~ ! @ ^ & ( ) - ` _ + [ ] { } ; , .
+   *       the following special characters: <code>~ ! @ ^ & ( ) - ` _ + [ ] \{ \} ; , .
    *       `</code>
    *          </p>
    */
@@ -3361,8 +3661,8 @@ export interface PublishPackageVersionRequest {
 
   /**
    * <p>The SHA256 hash of the <code>assetContent</code> to publish. This value must be calculated
-   *       by the caller and provided with the
-   *       request.</p>
+   *       by the caller and provided with the request (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html#publishing-generic-packages">Publishing a generic package</a> in the <i>CodeArtifact User
+   *         Guide</i>).</p>
    *          <p>This value is used as an integrity check to verify that the <code>assetContent</code> has
    *       not changed after it was originally sent.</p>
    */
@@ -3371,13 +3671,16 @@ export interface PublishPackageVersionRequest {
   /**
    * <p>Specifies whether the package version should remain in the <code>unfinished</code>
    *       state. If omitted, the package version status will be set to <code>Published</code> (see
-   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact User Guide</i>).</p>
+   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status">Package version status</a> in the <i>CodeArtifact User Guide</i>).</p>
    *          <p>Valid values: <code>unfinished</code>
    *          </p>
    */
   unfinished?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PublishPackageVersionResult {
   /**
    * <p>The format of the package version.</p>
@@ -3415,6 +3718,9 @@ export interface PublishPackageVersionResult {
   asset?: AssetSummary;
 }
 
+/**
+ * @public
+ */
 export interface PutDomainPermissionsPolicyRequest {
   /**
    * <p>
@@ -3446,6 +3752,9 @@ export interface PutDomainPermissionsPolicyRequest {
   policyDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutDomainPermissionsPolicyResult {
   /**
    * <p> The resource policy that was set after processing the request. </p>
@@ -3453,6 +3762,9 @@ export interface PutDomainPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface PutPackageOriginConfigurationRequest {
   /**
    * <p>The name of the domain that contains the repository that contains the package.</p>
@@ -3498,9 +3810,7 @@ export interface PutPackageOriginConfigurationRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -3521,6 +3831,9 @@ export interface PutPackageOriginConfigurationRequest {
   restrictions: PackageOriginRestrictions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutPackageOriginConfigurationResult {
   /**
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a>
@@ -3531,6 +3844,9 @@ export interface PutPackageOriginConfigurationResult {
   originConfiguration?: PackageOriginConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutRepositoryPermissionsPolicyRequest {
   /**
    * <p>
@@ -3568,6 +3884,9 @@ export interface PutRepositoryPermissionsPolicyRequest {
   policyDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRepositoryPermissionsPolicyResult {
   /**
    * <p> The resource policy that was set after processing the request. </p>
@@ -3575,6 +3894,9 @@ export interface PutRepositoryPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to add or update tags for.</p>
@@ -3587,8 +3909,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
@@ -3601,8 +3929,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UpdatePackageVersionsStatusRequest {
   /**
    * <p>
@@ -3654,9 +3988,7 @@ export interface UpdatePackageVersionsStatusRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -3699,6 +4031,9 @@ export interface UpdatePackageVersionsStatusRequest {
   targetStatus: PackageVersionStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePackageVersionsStatusResult {
   /**
    * <p>
@@ -3715,6 +4050,9 @@ export interface UpdatePackageVersionsStatusResult {
   failedVersions?: Record<string, PackageVersionError>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRepositoryRequest {
   /**
    * <p>
@@ -3753,6 +4091,9 @@ export interface UpdateRepositoryRequest {
   upstreams?: UpstreamRepository[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateRepositoryResult {
   /**
    * <p>
@@ -3765,403 +4106,6 @@ export interface UpdateRepositoryResult {
 /**
  * @internal
  */
-export const AssetSummaryFilterSensitiveLog = (obj: AssetSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateExternalConnectionRequestFilterSensitiveLog = (obj: AssociateExternalConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryExternalConnectionInfoFilterSensitiveLog = (obj: RepositoryExternalConnectionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpstreamRepositoryInfoFilterSensitiveLog = (obj: UpstreamRepositoryInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryDescriptionFilterSensitiveLog = (obj: RepositoryDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateExternalConnectionResultFilterSensitiveLog = (obj: AssociateExternalConnectionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyPackageVersionsRequestFilterSensitiveLog = (obj: CopyPackageVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageVersionErrorFilterSensitiveLog = (obj: PackageVersionError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuccessfulPackageVersionInfoFilterSensitiveLog = (obj: SuccessfulPackageVersionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyPackageVersionsResultFilterSensitiveLog = (obj: CopyPackageVersionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainDescriptionFilterSensitiveLog = (obj: DomainDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDomainResultFilterSensitiveLog = (obj: CreateDomainResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpstreamRepositoryFilterSensitiveLog = (obj: UpstreamRepository): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRepositoryRequestFilterSensitiveLog = (obj: CreateRepositoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRepositoryResultFilterSensitiveLog = (obj: CreateRepositoryResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDomainRequestFilterSensitiveLog = (obj: DeleteDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDomainResultFilterSensitiveLog = (obj: DeleteDomainResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDomainPermissionsPolicyRequestFilterSensitiveLog = (
-  obj: DeleteDomainPermissionsPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourcePolicyFilterSensitiveLog = (obj: ResourcePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDomainPermissionsPolicyResultFilterSensitiveLog = (
-  obj: DeleteDomainPermissionsPolicyResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackageRequestFilterSensitiveLog = (obj: DeletePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageOriginRestrictionsFilterSensitiveLog = (obj: PackageOriginRestrictions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageOriginConfigurationFilterSensitiveLog = (obj: PackageOriginConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageSummaryFilterSensitiveLog = (obj: PackageSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackageResultFilterSensitiveLog = (obj: DeletePackageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackageVersionsRequestFilterSensitiveLog = (obj: DeletePackageVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackageVersionsResultFilterSensitiveLog = (obj: DeletePackageVersionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRepositoryRequestFilterSensitiveLog = (obj: DeleteRepositoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRepositoryResultFilterSensitiveLog = (obj: DeleteRepositoryResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRepositoryPermissionsPolicyRequestFilterSensitiveLog = (
-  obj: DeleteRepositoryPermissionsPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRepositoryPermissionsPolicyResultFilterSensitiveLog = (
-  obj: DeleteRepositoryPermissionsPolicyResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainRequestFilterSensitiveLog = (obj: DescribeDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainResultFilterSensitiveLog = (obj: DescribeDomainResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackageRequestFilterSensitiveLog = (obj: DescribePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageDescriptionFilterSensitiveLog = (obj: PackageDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackageResultFilterSensitiveLog = (obj: DescribePackageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackageVersionRequestFilterSensitiveLog = (obj: DescribePackageVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LicenseInfoFilterSensitiveLog = (obj: LicenseInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainEntryPointFilterSensitiveLog = (obj: DomainEntryPoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageVersionOriginFilterSensitiveLog = (obj: PackageVersionOrigin): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageVersionDescriptionFilterSensitiveLog = (obj: PackageVersionDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackageVersionResultFilterSensitiveLog = (obj: DescribePackageVersionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRepositoryRequestFilterSensitiveLog = (obj: DescribeRepositoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRepositoryResultFilterSensitiveLog = (obj: DescribeRepositoryResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateExternalConnectionRequestFilterSensitiveLog = (
-  obj: DisassociateExternalConnectionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateExternalConnectionResultFilterSensitiveLog = (
-  obj: DisassociateExternalConnectionResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisposePackageVersionsRequestFilterSensitiveLog = (obj: DisposePackageVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisposePackageVersionsResultFilterSensitiveLog = (obj: DisposePackageVersionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAuthorizationTokenRequestFilterSensitiveLog = (obj: GetAuthorizationTokenRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAuthorizationTokenResultFilterSensitiveLog = (obj: GetAuthorizationTokenResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainPermissionsPolicyRequestFilterSensitiveLog = (obj: GetDomainPermissionsPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainPermissionsPolicyResultFilterSensitiveLog = (obj: GetDomainPermissionsPolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPackageVersionAssetRequestFilterSensitiveLog = (obj: GetPackageVersionAssetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetPackageVersionAssetResultFilterSensitiveLog = (obj: GetPackageVersionAssetResult): any => ({
   ...obj,
 });
@@ -4169,309 +4113,6 @@ export const GetPackageVersionAssetResultFilterSensitiveLog = (obj: GetPackageVe
 /**
  * @internal
  */
-export const GetPackageVersionReadmeRequestFilterSensitiveLog = (obj: GetPackageVersionReadmeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPackageVersionReadmeResultFilterSensitiveLog = (obj: GetPackageVersionReadmeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRepositoryEndpointRequestFilterSensitiveLog = (obj: GetRepositoryEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRepositoryEndpointResultFilterSensitiveLog = (obj: GetRepositoryEndpointResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRepositoryPermissionsPolicyRequestFilterSensitiveLog = (
-  obj: GetRepositoryPermissionsPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRepositoryPermissionsPolicyResultFilterSensitiveLog = (
-  obj: GetRepositoryPermissionsPolicyResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsRequestFilterSensitiveLog = (obj: ListDomainsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainSummaryFilterSensitiveLog = (obj: DomainSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsResultFilterSensitiveLog = (obj: ListDomainsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackagesRequestFilterSensitiveLog = (obj: ListPackagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackagesResultFilterSensitiveLog = (obj: ListPackagesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackageVersionAssetsRequestFilterSensitiveLog = (obj: ListPackageVersionAssetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackageVersionAssetsResultFilterSensitiveLog = (obj: ListPackageVersionAssetsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackageVersionDependenciesRequestFilterSensitiveLog = (
-  obj: ListPackageVersionDependenciesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageDependencyFilterSensitiveLog = (obj: PackageDependency): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackageVersionDependenciesResultFilterSensitiveLog = (
-  obj: ListPackageVersionDependenciesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackageVersionsRequestFilterSensitiveLog = (obj: ListPackageVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageVersionSummaryFilterSensitiveLog = (obj: PackageVersionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackageVersionsResultFilterSensitiveLog = (obj: ListPackageVersionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRepositoriesRequestFilterSensitiveLog = (obj: ListRepositoriesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositorySummaryFilterSensitiveLog = (obj: RepositorySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRepositoriesResultFilterSensitiveLog = (obj: ListRepositoriesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRepositoriesInDomainRequestFilterSensitiveLog = (obj: ListRepositoriesInDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRepositoriesInDomainResultFilterSensitiveLog = (obj: ListRepositoriesInDomainResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PublishPackageVersionRequestFilterSensitiveLog = (obj: PublishPackageVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishPackageVersionResultFilterSensitiveLog = (obj: PublishPackageVersionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutDomainPermissionsPolicyRequestFilterSensitiveLog = (obj: PutDomainPermissionsPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutDomainPermissionsPolicyResultFilterSensitiveLog = (obj: PutDomainPermissionsPolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutPackageOriginConfigurationRequestFilterSensitiveLog = (
-  obj: PutPackageOriginConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutPackageOriginConfigurationResultFilterSensitiveLog = (
-  obj: PutPackageOriginConfigurationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRepositoryPermissionsPolicyRequestFilterSensitiveLog = (
-  obj: PutRepositoryPermissionsPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRepositoryPermissionsPolicyResultFilterSensitiveLog = (
-  obj: PutRepositoryPermissionsPolicyResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePackageVersionsStatusRequestFilterSensitiveLog = (obj: UpdatePackageVersionsStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePackageVersionsStatusResultFilterSensitiveLog = (obj: UpdatePackageVersionsStatusResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRepositoryRequestFilterSensitiveLog = (obj: UpdateRepositoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRepositoryResultFilterSensitiveLog = (obj: UpdateRepositoryResult): any => ({
   ...obj,
 });

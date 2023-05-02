@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeThemeAliasRequest,
-  DescribeThemeAliasRequestFilterSensitiveLog,
-  DescribeThemeAliasResponse,
-  DescribeThemeAliasResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeThemeAliasCommand,
-  serializeAws_restJson1DescribeThemeAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeThemeAliasRequest, DescribeThemeAliasResponse } from "../models/models_2";
+import { de_DescribeThemeAliasCommand, se_DescribeThemeAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeThemeAliasCommand}.
  */
 export interface DescribeThemeAliasCommandInput extends DescribeThemeAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeThemeAliasCommand}.
  */
 export interface DescribeThemeAliasCommandOutput extends DescribeThemeAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the alias for a theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeThemeAliasCommandOutput extends DescribeThemeAliasRespo
  * import { QuickSightClient, DescribeThemeAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeThemeAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeThemeAliasRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   ThemeId: "STRING_VALUE", // required
+ *   AliasName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeThemeAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeThemeAliasCommandInput - {@link DescribeThemeAliasCommandInput}
+ * @returns {@link DescribeThemeAliasCommandOutput}
  * @see {@link DescribeThemeAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeThemeAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -90,6 +94,9 @@ export class DescribeThemeAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeThemeAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class DescribeThemeAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeThemeAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeThemeAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class DescribeThemeAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeThemeAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeThemeAliasCommand(input, context);
+    return se_DescribeThemeAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeThemeAliasCommandOutput> {
-    return deserializeAws_restJson1DescribeThemeAliasCommand(output, context);
+    return de_DescribeThemeAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

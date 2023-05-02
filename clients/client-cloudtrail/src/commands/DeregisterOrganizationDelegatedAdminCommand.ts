@@ -16,20 +16,22 @@ import {
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import {
   DeregisterOrganizationDelegatedAdminRequest,
-  DeregisterOrganizationDelegatedAdminRequestFilterSensitiveLog,
   DeregisterOrganizationDelegatedAdminResponse,
-  DeregisterOrganizationDelegatedAdminResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand,
-  serializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand,
+  de_DeregisterOrganizationDelegatedAdminCommand,
+  se_DeregisterOrganizationDelegatedAdminCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterOrganizationDelegatedAdminCommand}.
  */
 export interface DeregisterOrganizationDelegatedAdminCommandInput extends DeregisterOrganizationDelegatedAdminRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterOrganizationDelegatedAdminCommand}.
  */
 export interface DeregisterOrganizationDelegatedAdminCommandOutput
@@ -37,6 +39,7 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes CloudTrail delegated administrator permissions from a member account in
  *          an organization.</p>
  * @example
@@ -45,10 +48,15 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
  * import { CloudTrailClient, DeregisterOrganizationDelegatedAdminCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DeregisterOrganizationDelegatedAdminCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // DeregisterOrganizationDelegatedAdminRequest
+ *   DelegatedAdminAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterOrganizationDelegatedAdminCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterOrganizationDelegatedAdminCommandInput - {@link DeregisterOrganizationDelegatedAdminCommandInput}
+ * @returns {@link DeregisterOrganizationDelegatedAdminCommandOutput}
  * @see {@link DeregisterOrganizationDelegatedAdminCommandInput} for command's `input` shape.
  * @see {@link DeregisterOrganizationDelegatedAdminCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -116,6 +124,9 @@ export class DeregisterOrganizationDelegatedAdminCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterOrganizationDelegatedAdminCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +155,8 @@ export class DeregisterOrganizationDelegatedAdminCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterOrganizationDelegatedAdminRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterOrganizationDelegatedAdminResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,18 +166,24 @@ export class DeregisterOrganizationDelegatedAdminCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterOrganizationDelegatedAdminCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand(input, context);
+    return se_DeregisterOrganizationDelegatedAdminCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterOrganizationDelegatedAdminCommandOutput> {
-    return deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand(output, context);
+    return de_DeregisterOrganizationDelegatedAdminCommand(output, context);
   }
 
   // Start section: command_body_extra

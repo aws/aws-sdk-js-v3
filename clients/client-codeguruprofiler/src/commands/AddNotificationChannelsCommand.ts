@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  AddNotificationChannelsRequest,
-  AddNotificationChannelsRequestFilterSensitiveLog,
-  AddNotificationChannelsResponse,
-  AddNotificationChannelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AddNotificationChannelsCommand,
-  serializeAws_restJson1AddNotificationChannelsCommand,
-} from "../protocols/Aws_restJson1";
+import { AddNotificationChannelsRequest, AddNotificationChannelsResponse } from "../models/models_0";
+import { de_AddNotificationChannelsCommand, se_AddNotificationChannelsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddNotificationChannelsCommand}.
  */
 export interface AddNotificationChannelsCommandInput extends AddNotificationChannelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddNotificationChannelsCommand}.
  */
 export interface AddNotificationChannelsCommandOutput extends AddNotificationChannelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add up to 2 anomaly notifications channels for a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  * import { CodeGuruProfilerClient, AddNotificationChannelsCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, AddNotificationChannelsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // AddNotificationChannelsRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   channels: [ // Channels // required
+ *     { // Channel
+ *       id: "STRING_VALUE",
+ *       uri: "STRING_VALUE", // required
+ *       eventPublishers: [ // EventPublishers // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new AddNotificationChannelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddNotificationChannelsCommandInput - {@link AddNotificationChannelsCommandInput}
+ * @returns {@link AddNotificationChannelsCommandOutput}
  * @see {@link AddNotificationChannelsCommandInput} for command's `input` shape.
  * @see {@link AddNotificationChannelsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -93,6 +104,9 @@ export class AddNotificationChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddNotificationChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +135,8 @@ export class AddNotificationChannelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddNotificationChannelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddNotificationChannelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +146,18 @@ export class AddNotificationChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddNotificationChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddNotificationChannelsCommand(input, context);
+    return se_AddNotificationChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddNotificationChannelsCommandOutput> {
-    return deserializeAws_restJson1AddNotificationChannelsCommand(output, context);
+    return de_AddNotificationChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,22 +15,24 @@ import {
 
 import {
   UpdateConfigurationSetEventDestinationRequest,
-  UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog,
   UpdateConfigurationSetEventDestinationResponse,
-  UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
 import {
-  deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand,
+  de_UpdateConfigurationSetEventDestinationCommand,
+  se_UpdateConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationSetEventDestinationCommand}.
  */
 export interface UpdateConfigurationSetEventDestinationCommandInput
   extends UpdateConfigurationSetEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationSetEventDestinationCommand}.
  */
 export interface UpdateConfigurationSetEventDestinationCommandOutput
@@ -38,6 +40,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,33 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * import { PinpointSMSVoiceClient, UpdateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
  * // const { PinpointSMSVoiceClient, UpdateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
+ * const input = { // UpdateConfigurationSetEventDestinationRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   EventDestination: { // EventDestinationDefinition
+ *     CloudWatchLogsDestination: { // CloudWatchLogsDestination
+ *       IamRoleArn: "STRING_VALUE",
+ *       LogGroupArn: "STRING_VALUE",
+ *     },
+ *     Enabled: true || false,
+ *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *       DeliveryStreamArn: "STRING_VALUE",
+ *       IamRoleArn: "STRING_VALUE",
+ *     },
+ *     MatchingEventTypes: [ // EventTypes
+ *       "STRING_VALUE",
+ *     ],
+ *     SnsDestination: { // SnsDestination
+ *       TopicArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   EventDestinationName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationSetEventDestinationCommandInput - {@link UpdateConfigurationSetEventDestinationCommandInput}
+ * @returns {@link UpdateConfigurationSetEventDestinationCommandOutput}
  * @see {@link UpdateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
@@ -84,6 +110,9 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +141,8 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +152,24 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand(input, context);
+    return se_UpdateConfigurationSetEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommand(output, context);
+    return de_UpdateConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  PutResourceSetRequest,
-  PutResourceSetRequestFilterSensitiveLog,
-  PutResourceSetResponse,
-  PutResourceSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutResourceSetCommand,
-  serializeAws_json1_1PutResourceSetCommand,
-} from "../protocols/Aws_json1_1";
+import { PutResourceSetRequest, PutResourceSetResponse } from "../models/models_0";
+import { de_PutResourceSetCommand, se_PutResourceSetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutResourceSetCommand}.
  */
 export interface PutResourceSetCommandInput extends PutResourceSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutResourceSetCommand}.
  */
 export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the resource set.</p>
  *          <p>An Firewall Manager resource set defines the resources to import into an Firewall Manager policy from another Amazon Web Services service.</p>
  * @example
@@ -43,10 +40,31 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  * import { FMSClient, PutResourceSetCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, PutResourceSetCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // PutResourceSetRequest
+ *   ResourceSet: { // ResourceSet
+ *     Id: "STRING_VALUE",
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     UpdateToken: "STRING_VALUE",
+ *     ResourceTypeList: [ // ResourceTypeList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     LastUpdateTime: new Date("TIMESTAMP"),
+ *     ResourceSetStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ *   },
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutResourceSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourceSetCommandInput - {@link PutResourceSetCommandInput}
+ * @returns {@link PutResourceSetCommandOutput}
  * @see {@link PutResourceSetCommandInput} for command's `input` shape.
  * @see {@link PutResourceSetCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -90,6 +108,9 @@ export class PutResourceSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourceSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +139,8 @@ export class PutResourceSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourceSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutResourceSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +150,18 @@ export class PutResourceSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourceSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutResourceSetCommand(input, context);
+    return se_PutResourceSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourceSetCommandOutput> {
-    return deserializeAws_json1_1PutResourceSetCommand(output, context);
+    return de_PutResourceSetCommand(output, context);
   }
 
   // Start section: command_body_extra

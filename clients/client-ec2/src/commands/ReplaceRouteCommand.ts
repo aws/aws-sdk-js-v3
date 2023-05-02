@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReplaceRouteRequest, ReplaceRouteRequestFilterSensitiveLog } from "../models/models_6";
-import { deserializeAws_ec2ReplaceRouteCommand, serializeAws_ec2ReplaceRouteCommand } from "../protocols/Aws_ec2";
+import { ReplaceRouteRequest } from "../models/models_6";
+import { de_ReplaceRouteCommand, se_ReplaceRouteCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReplaceRouteCommand}.
  */
 export interface ReplaceRouteCommandInput extends ReplaceRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplaceRouteCommand}.
  */
 export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces an existing route within a route table in a VPC.</p>
  *          <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify
  *            exactly one of the resources from the parameter list, or reset the local route to its default
@@ -39,10 +44,31 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ReplaceRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReplaceRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ReplaceRouteRequest
+ *   DestinationCidrBlock: "STRING_VALUE",
+ *   DestinationIpv6CidrBlock: "STRING_VALUE",
+ *   DestinationPrefixListId: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   VpcEndpointId: "STRING_VALUE",
+ *   EgressOnlyInternetGatewayId: "STRING_VALUE",
+ *   GatewayId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   LocalTarget: true || false,
+ *   NatGatewayId: "STRING_VALUE",
+ *   TransitGatewayId: "STRING_VALUE",
+ *   LocalGatewayId: "STRING_VALUE",
+ *   CarrierGatewayId: "STRING_VALUE",
+ *   NetworkInterfaceId: "STRING_VALUE",
+ *   RouteTableId: "STRING_VALUE", // required
+ *   VpcPeeringConnectionId: "STRING_VALUE",
+ *   CoreNetworkArn: "STRING_VALUE",
+ * };
  * const command = new ReplaceRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplaceRouteCommandInput - {@link ReplaceRouteCommandInput}
+ * @returns {@link ReplaceRouteCommandOutput}
  * @see {@link ReplaceRouteCommandInput} for command's `input` shape.
  * @see {@link ReplaceRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -79,6 +105,9 @@ export class ReplaceRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplaceRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +134,8 @@ export class ReplaceRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplaceRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +145,18 @@ export class ReplaceRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplaceRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceRouteCommand(input, context);
+    return se_ReplaceRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplaceRouteCommandOutput> {
-    return deserializeAws_ec2ReplaceRouteCommand(output, context);
+    return de_ReplaceRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

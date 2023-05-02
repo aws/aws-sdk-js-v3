@@ -16,20 +16,22 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   CreateProvisioningTemplateVersionRequest,
-  CreateProvisioningTemplateVersionRequestFilterSensitiveLog,
   CreateProvisioningTemplateVersionResponse,
-  CreateProvisioningTemplateVersionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateProvisioningTemplateVersionCommand,
-  serializeAws_restJson1CreateProvisioningTemplateVersionCommand,
+  de_CreateProvisioningTemplateVersionCommand,
+  se_CreateProvisioningTemplateVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProvisioningTemplateVersionCommand}.
  */
 export interface CreateProvisioningTemplateVersionCommandInput extends CreateProvisioningTemplateVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProvisioningTemplateVersionCommand}.
  */
 export interface CreateProvisioningTemplateVersionCommandOutput
@@ -37,6 +39,7 @@ export interface CreateProvisioningTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of a provisioning template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplateVersion</a> action.</p>
  * @example
@@ -45,10 +48,17 @@ export interface CreateProvisioningTemplateVersionCommandOutput
  * import { IoTClient, CreateProvisioningTemplateVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateProvisioningTemplateVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateProvisioningTemplateVersionRequest
+ *   templateName: "STRING_VALUE", // required
+ *   templateBody: "STRING_VALUE", // required
+ *   setAsDefault: true || false,
+ * };
  * const command = new CreateProvisioningTemplateVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProvisioningTemplateVersionCommandInput - {@link CreateProvisioningTemplateVersionCommandInput}
+ * @returns {@link CreateProvisioningTemplateVersionCommandOutput}
  * @see {@link CreateProvisioningTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link CreateProvisioningTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -94,6 +104,9 @@ export class CreateProvisioningTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProvisioningTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +135,8 @@ export class CreateProvisioningTemplateVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProvisioningTemplateVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProvisioningTemplateVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +146,24 @@ export class CreateProvisioningTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateProvisioningTemplateVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProvisioningTemplateVersionCommand(input, context);
+    return se_CreateProvisioningTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateProvisioningTemplateVersionCommandOutput> {
-    return deserializeAws_restJson1CreateProvisioningTemplateVersionCommand(output, context);
+    return de_CreateProvisioningTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

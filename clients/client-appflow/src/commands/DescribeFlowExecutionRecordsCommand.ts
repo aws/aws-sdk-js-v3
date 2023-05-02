@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
+import { DescribeFlowExecutionRecordsRequest, DescribeFlowExecutionRecordsResponse } from "../models/models_0";
 import {
-  DescribeFlowExecutionRecordsRequest,
-  DescribeFlowExecutionRecordsRequestFilterSensitiveLog,
-  DescribeFlowExecutionRecordsResponse,
-  DescribeFlowExecutionRecordsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFlowExecutionRecordsCommand,
-  serializeAws_restJson1DescribeFlowExecutionRecordsCommand,
+  de_DescribeFlowExecutionRecordsCommand,
+  se_DescribeFlowExecutionRecordsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFlowExecutionRecordsCommand}.
  */
 export interface DescribeFlowExecutionRecordsCommandInput extends DescribeFlowExecutionRecordsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFlowExecutionRecordsCommand}.
  */
 export interface DescribeFlowExecutionRecordsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeFlowExecutionRecordsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Fetches the execution history of the flow. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface DescribeFlowExecutionRecordsCommandOutput
  * import { AppflowClient, DescribeFlowExecutionRecordsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DescribeFlowExecutionRecordsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = { // DescribeFlowExecutionRecordsRequest
+ *   flowName: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFlowExecutionRecordsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFlowExecutionRecordsCommandInput - {@link DescribeFlowExecutionRecordsCommandInput}
+ * @returns {@link DescribeFlowExecutionRecordsCommandOutput}
  * @see {@link DescribeFlowExecutionRecordsCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowExecutionRecordsCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeFlowExecutionRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFlowExecutionRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class DescribeFlowExecutionRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFlowExecutionRecordsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFlowExecutionRecordsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +131,21 @@ export class DescribeFlowExecutionRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFlowExecutionRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFlowExecutionRecordsCommand(input, context);
+    return se_DescribeFlowExecutionRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFlowExecutionRecordsCommandOutput> {
-    return deserializeAws_restJson1DescribeFlowExecutionRecordsCommand(output, context);
+    return de_DescribeFlowExecutionRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

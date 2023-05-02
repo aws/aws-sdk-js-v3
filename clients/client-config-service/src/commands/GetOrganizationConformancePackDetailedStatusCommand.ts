@@ -16,21 +16,23 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   GetOrganizationConformancePackDetailedStatusRequest,
-  GetOrganizationConformancePackDetailedStatusRequestFilterSensitiveLog,
   GetOrganizationConformancePackDetailedStatusResponse,
-  GetOrganizationConformancePackDetailedStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand,
-  serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand,
+  de_GetOrganizationConformancePackDetailedStatusCommand,
+  se_GetOrganizationConformancePackDetailedStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOrganizationConformancePackDetailedStatusCommand}.
  */
 export interface GetOrganizationConformancePackDetailedStatusCommandInput
   extends GetOrganizationConformancePackDetailedStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOrganizationConformancePackDetailedStatusCommand}.
  */
 export interface GetOrganizationConformancePackDetailedStatusCommandOutput
@@ -38,6 +40,7 @@ export interface GetOrganizationConformancePackDetailedStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed status for each member account within an organization for a given organization conformance pack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,21 @@ export interface GetOrganizationConformancePackDetailedStatusCommandOutput
  * import { ConfigServiceClient, GetOrganizationConformancePackDetailedStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetOrganizationConformancePackDetailedStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // GetOrganizationConformancePackDetailedStatusRequest
+ *   OrganizationConformancePackName: "STRING_VALUE", // required
+ *   Filters: { // OrganizationResourceDetailedStatusFilters
+ *     AccountId: "STRING_VALUE",
+ *     Status: "CREATE_SUCCESSFUL" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_SUCCESSFUL" || "DELETE_FAILED" || "DELETE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED",
+ *   },
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetOrganizationConformancePackDetailedStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOrganizationConformancePackDetailedStatusCommandInput - {@link GetOrganizationConformancePackDetailedStatusCommandInput}
+ * @returns {@link GetOrganizationConformancePackDetailedStatusCommandOutput}
  * @see {@link GetOrganizationConformancePackDetailedStatusCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationConformancePackDetailedStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -105,6 +119,9 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOrganizationConformancePackDetailedStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +156,8 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOrganizationConformancePackDetailedStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOrganizationConformancePackDetailedStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,18 +167,24 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetOrganizationConformancePackDetailedStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand(input, context);
+    return se_GetOrganizationConformancePackDetailedStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput> {
-    return deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand(output, context);
+    return de_GetOrganizationConformancePackDetailedStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

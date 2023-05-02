@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
+import { UpdateNotificationConfigurationInput, UpdateNotificationConfigurationOutput } from "../models/models_0";
 import {
-  UpdateNotificationConfigurationInput,
-  UpdateNotificationConfigurationInputFilterSensitiveLog,
-  UpdateNotificationConfigurationOutput,
-  UpdateNotificationConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateNotificationConfigurationCommand,
-  serializeAws_restJson1UpdateNotificationConfigurationCommand,
+  de_UpdateNotificationConfigurationCommand,
+  se_UpdateNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNotificationConfigurationCommand}.
  */
 export interface UpdateNotificationConfigurationCommandInput extends UpdateNotificationConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNotificationConfigurationCommand}.
  */
 export interface UpdateNotificationConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the notification information for a stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,22 @@ export interface UpdateNotificationConfigurationCommandOutput
  * import { KinesisVideoClient, UpdateNotificationConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateNotificationConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // UpdateNotificationConfigurationInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   NotificationConfiguration: { // NotificationConfiguration
+ *     Status: "ENABLED" || "DISABLED", // required
+ *     DestinationConfig: { // NotificationDestinationConfig
+ *       Uri: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNotificationConfigurationCommandInput - {@link UpdateNotificationConfigurationCommandInput}
+ * @returns {@link UpdateNotificationConfigurationCommandOutput}
  * @see {@link UpdateNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -107,6 +119,9 @@ export class UpdateNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +150,8 @@ export class UpdateNotificationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNotificationConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNotificationConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,18 +161,24 @@ export class UpdateNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNotificationConfigurationCommand(input, context);
+    return se_UpdateNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNotificationConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateNotificationConfigurationCommand(output, context);
+    return de_UpdateNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

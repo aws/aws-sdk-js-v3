@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRecommendationsRequest,
-  ListRecommendationsRequestFilterSensitiveLog,
-  ListRecommendationsResponse,
-  ListRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecommendationsCommand,
-  serializeAws_restJson1ListRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRecommendationsRequest, ListRecommendationsResponse } from "../models/models_0";
+import { de_ListRecommendationsCommand, se_ListRecommendationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecommendationsCommand}.
  */
 export interface ListRecommendationsCommandInput extends ListRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecommendationsCommand}.
  */
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the recommendations present in your Amazon SES account in the current Amazon Web Services Region.</p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -43,10 +40,19 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * import { SESv2Client, ListRecommendationsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListRecommendationsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // ListRecommendationsRequest
+ *   Filter: { // ListRecommendationsFilter
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecommendationsCommandInput - {@link ListRecommendationsCommandInput}
+ * @returns {@link ListRecommendationsCommandOutput}
  * @see {@link ListRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -79,6 +85,9 @@ export class ListRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +116,8 @@ export class ListRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +127,18 @@ export class ListRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecommendationsCommand(input, context);
+    return se_ListRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListRecommendationsCommand(output, context);
+    return de_ListRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

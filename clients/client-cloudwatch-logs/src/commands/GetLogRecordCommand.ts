@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  GetLogRecordRequest,
-  GetLogRecordRequestFilterSensitiveLog,
-  GetLogRecordResponse,
-  GetLogRecordResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLogRecordCommand,
-  serializeAws_json1_1GetLogRecordCommand,
-} from "../protocols/Aws_json1_1";
+import { GetLogRecordRequest, GetLogRecordResponse } from "../models/models_0";
+import { de_GetLogRecordCommand, se_GetLogRecordCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLogRecordCommand}.
  */
 export interface GetLogRecordCommandInput extends GetLogRecordRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLogRecordCommand}.
  */
 export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all of the fields and values of a single log event. All fields are retrieved,
  *       even if the original query that produced the <code>logRecordPointer</code> retrieved only a
  *       subset of fields. Fields are returned as field name/field value pairs.</p>
@@ -45,10 +42,16 @@ export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __Metad
  * import { CloudWatchLogsClient, GetLogRecordCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetLogRecordCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // GetLogRecordRequest
+ *   logRecordPointer: "STRING_VALUE", // required
+ *   unmask: true || false,
+ * };
  * const command = new GetLogRecordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLogRecordCommandInput - {@link GetLogRecordCommandInput}
+ * @returns {@link GetLogRecordCommandOutput}
  * @see {@link GetLogRecordCommandInput} for command's `input` shape.
  * @see {@link GetLogRecordCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetLogRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLogRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class GetLogRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLogRecordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLogRecordResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class GetLogRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLogRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLogRecordCommand(input, context);
+    return se_GetLogRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLogRecordCommandOutput> {
-    return deserializeAws_json1_1GetLogRecordCommand(output, context);
+    return de_GetLogRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

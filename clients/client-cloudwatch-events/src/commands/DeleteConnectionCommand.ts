@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  DeleteConnectionRequest,
-  DeleteConnectionRequestFilterSensitiveLog,
-  DeleteConnectionResponse,
-  DeleteConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConnectionCommand,
-  serializeAws_json1_1DeleteConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteConnectionRequest, DeleteConnectionResponse } from "../models/models_0";
+import { de_DeleteConnectionCommand, se_DeleteConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConnectionCommand}.
  */
 export interface DeleteConnectionCommandInput extends DeleteConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConnectionCommand}.
  */
 export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * import { CloudWatchEventsClient, DeleteConnectionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DeleteConnectionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // DeleteConnectionRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
+ * @returns {@link DeleteConnectionCommandOutput}
  * @see {@link DeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -78,6 +80,9 @@ export class DeleteConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class DeleteConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class DeleteConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConnectionCommand(input, context);
+    return se_DeleteConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectionCommandOutput> {
-    return deserializeAws_json1_1DeleteConnectionCommand(output, context);
+    return de_DeleteConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

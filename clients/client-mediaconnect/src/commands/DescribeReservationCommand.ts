@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  DescribeReservationRequest,
-  DescribeReservationRequestFilterSensitiveLog,
-  DescribeReservationResponse,
-  DescribeReservationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeReservationCommand,
-  serializeAws_restJson1DescribeReservationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeReservationRequest, DescribeReservationResponse } from "../models/models_0";
+import { de_DescribeReservationCommand, se_DescribeReservationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservationCommand}.
  */
 export interface DescribeReservationCommandInput extends DescribeReservationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservationCommand}.
  */
 export interface DescribeReservationCommandOutput extends DescribeReservationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Displays the details of a reservation. The response includes the reservation name, state, start date and time, and the details of the offering that make up the rest of the reservation (such as price, duration, and outbound bandwidth).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeReservationCommandOutput extends DescribeReservationRes
  * import { MediaConnectClient, DescribeReservationCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, DescribeReservationCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // DescribeReservationRequest
+ *   ReservationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeReservationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservationCommandInput - {@link DescribeReservationCommandInput}
+ * @returns {@link DescribeReservationCommandOutput}
  * @see {@link DescribeReservationCommandInput} for command's `input` shape.
  * @see {@link DescribeReservationCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -84,6 +86,9 @@ export class DescribeReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DescribeReservationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DescribeReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeReservationCommand(input, context);
+    return se_DescribeReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReservationCommandOutput> {
-    return deserializeAws_restJson1DescribeReservationCommand(output, context);
+    return de_DescribeReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

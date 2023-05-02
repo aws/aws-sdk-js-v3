@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  ListContactsRequest,
-  ListContactsRequestFilterSensitiveLog,
-  ListContactsResponse,
-  ListContactsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListContactsCommand,
-  serializeAws_restJson1ListContactsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListContactsRequest, ListContactsResponse } from "../models/models_0";
+import { de_ListContactsCommand, se_ListContactsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListContactsCommand}.
  */
 export interface ListContactsCommandInput extends ListContactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContactsCommand}.
  */
 export interface ListContactsCommandOutput extends ListContactsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of contacts.</p>
  *          <p>If <code>statusList</code> contains AVAILABLE, the request must include
  *       <code>groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>.
@@ -45,10 +42,24 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * import { GroundStationClient, ListContactsCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListContactsCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // ListContactsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   statusList: [ // StatusList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   groundStation: "STRING_VALUE",
+ *   satelliteArn: "STRING_VALUE",
+ *   missionProfileArn: "STRING_VALUE",
+ * };
  * const command = new ListContactsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContactsCommandInput - {@link ListContactsCommandInput}
+ * @returns {@link ListContactsCommandOutput}
  * @see {@link ListContactsCommandInput} for command's `input` shape.
  * @see {@link ListContactsCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -81,6 +92,9 @@ export class ListContactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +121,8 @@ export class ListContactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContactsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContactsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +132,18 @@ export class ListContactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListContactsCommand(input, context);
+    return se_ListContactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactsCommandOutput> {
-    return deserializeAws_restJson1ListContactsCommand(output, context);
+    return de_ListContactsCommand(output, context);
   }
 
   // Start section: command_body_extra

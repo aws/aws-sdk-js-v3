@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListProvisioningTemplateVersionsRequest, ListProvisioningTemplateVersionsResponse } from "../models/models_1";
 import {
-  ListProvisioningTemplateVersionsRequest,
-  ListProvisioningTemplateVersionsRequestFilterSensitiveLog,
-  ListProvisioningTemplateVersionsResponse,
-  ListProvisioningTemplateVersionsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListProvisioningTemplateVersionsCommand,
-  serializeAws_restJson1ListProvisioningTemplateVersionsCommand,
+  de_ListProvisioningTemplateVersionsCommand,
+  se_ListProvisioningTemplateVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProvisioningTemplateVersionsCommand}.
  */
 export interface ListProvisioningTemplateVersionsCommandInput extends ListProvisioningTemplateVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProvisioningTemplateVersionsCommand}.
  */
 export interface ListProvisioningTemplateVersionsCommandOutput
@@ -37,6 +36,7 @@ export interface ListProvisioningTemplateVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>A list of provisioning template versions.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplateVersions</a> action.</p>
  * @example
@@ -45,10 +45,17 @@ export interface ListProvisioningTemplateVersionsCommandOutput
  * import { IoTClient, ListProvisioningTemplateVersionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListProvisioningTemplateVersionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListProvisioningTemplateVersionsRequest
+ *   templateName: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListProvisioningTemplateVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProvisioningTemplateVersionsCommandInput - {@link ListProvisioningTemplateVersionsCommandInput}
+ * @returns {@link ListProvisioningTemplateVersionsCommandOutput}
  * @see {@link ListProvisioningTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link ListProvisioningTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListProvisioningTemplateVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProvisioningTemplateVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +125,8 @@ export class ListProvisioningTemplateVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProvisioningTemplateVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProvisioningTemplateVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +136,24 @@ export class ListProvisioningTemplateVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListProvisioningTemplateVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProvisioningTemplateVersionsCommand(input, context);
+    return se_ListProvisioningTemplateVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisioningTemplateVersionsCommandOutput> {
-    return deserializeAws_restJson1ListProvisioningTemplateVersionsCommand(output, context);
+    return de_ListProvisioningTemplateVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

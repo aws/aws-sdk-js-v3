@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { DescribeKeyPhrasesDetectionJobRequest, DescribeKeyPhrasesDetectionJobResponse } from "../models/models_0";
 import {
-  DescribeKeyPhrasesDetectionJobRequest,
-  DescribeKeyPhrasesDetectionJobRequestFilterSensitiveLog,
-  DescribeKeyPhrasesDetectionJobResponse,
-  DescribeKeyPhrasesDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand,
-  serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand,
+  de_DescribeKeyPhrasesDetectionJobCommand,
+  se_DescribeKeyPhrasesDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeKeyPhrasesDetectionJobCommand}.
  */
 export interface DescribeKeyPhrasesDetectionJobCommandInput extends DescribeKeyPhrasesDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeKeyPhrasesDetectionJobCommand}.
  */
 export interface DescribeKeyPhrasesDetectionJobCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeKeyPhrasesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a key phrases detection job. Use this operation to get
  *       the status of a detection job.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DescribeKeyPhrasesDetectionJobCommandOutput
  * import { ComprehendClient, DescribeKeyPhrasesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeKeyPhrasesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribeKeyPhrasesDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeKeyPhrasesDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeKeyPhrasesDetectionJobCommandInput - {@link DescribeKeyPhrasesDetectionJobCommandInput}
+ * @returns {@link DescribeKeyPhrasesDetectionJobCommandOutput}
  * @see {@link DescribeKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +89,9 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeKeyPhrasesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeKeyPhrasesDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeKeyPhrasesDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +131,24 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeKeyPhrasesDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(input, context);
+    return se_DescribeKeyPhrasesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(output, context);
+    return de_DescribeKeyPhrasesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

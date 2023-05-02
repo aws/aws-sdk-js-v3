@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { ListConnectorDefinitionVersionsRequest, ListConnectorDefinitionVersionsResponse } from "../models/models_0";
 import {
-  ListConnectorDefinitionVersionsRequest,
-  ListConnectorDefinitionVersionsRequestFilterSensitiveLog,
-  ListConnectorDefinitionVersionsResponse,
-  ListConnectorDefinitionVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListConnectorDefinitionVersionsCommand,
-  serializeAws_restJson1ListConnectorDefinitionVersionsCommand,
+  de_ListConnectorDefinitionVersionsCommand,
+  se_ListConnectorDefinitionVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConnectorDefinitionVersionsCommand}.
  */
 export interface ListConnectorDefinitionVersionsCommandInput extends ListConnectorDefinitionVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConnectorDefinitionVersionsCommand}.
  */
 export interface ListConnectorDefinitionVersionsCommandOutput
@@ -37,6 +36,7 @@ export interface ListConnectorDefinitionVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Lists the versions of a connector definition, which are containers for connectors. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface ListConnectorDefinitionVersionsCommandOutput
  * import { GreengrassClient, ListConnectorDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListConnectorDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListConnectorDefinitionVersionsRequest
+ *   ConnectorDefinitionId: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListConnectorDefinitionVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConnectorDefinitionVersionsCommandInput - {@link ListConnectorDefinitionVersionsCommandInput}
+ * @returns {@link ListConnectorDefinitionVersionsCommandOutput}
  * @see {@link ListConnectorDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectorDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListConnectorDefinitionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectorDefinitionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +112,8 @@ export class ListConnectorDefinitionVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConnectorDefinitionVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConnectorDefinitionVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +123,24 @@ export class ListConnectorDefinitionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListConnectorDefinitionVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConnectorDefinitionVersionsCommand(input, context);
+    return se_ListConnectorDefinitionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConnectorDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1ListConnectorDefinitionVersionsCommand(output, context);
+    return de_ListConnectorDefinitionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

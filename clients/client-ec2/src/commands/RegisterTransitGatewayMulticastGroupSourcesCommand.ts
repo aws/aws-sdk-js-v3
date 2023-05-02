@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   RegisterTransitGatewayMulticastGroupSourcesRequest,
-  RegisterTransitGatewayMulticastGroupSourcesRequestFilterSensitiveLog,
   RegisterTransitGatewayMulticastGroupSourcesResult,
-  RegisterTransitGatewayMulticastGroupSourcesResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand,
-  serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand,
+  de_RegisterTransitGatewayMulticastGroupSourcesCommand,
+  se_RegisterTransitGatewayMulticastGroupSourcesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterTransitGatewayMulticastGroupSourcesCommand}.
  */
 export interface RegisterTransitGatewayMulticastGroupSourcesCommandInput
   extends RegisterTransitGatewayMulticastGroupSourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterTransitGatewayMulticastGroupSourcesCommand}.
  */
 export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
@@ -38,6 +40,7 @@ export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers sources (network interfaces) with the specified  transit gateway multicast group.</p>
  *          <p>A multicast source is a network interface attached to a supported instance that sends
  *             multicast traffic. For information about supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits">Multicast
@@ -50,10 +53,20 @@ export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
  * import { EC2Client, RegisterTransitGatewayMulticastGroupSourcesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RegisterTransitGatewayMulticastGroupSourcesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RegisterTransitGatewayMulticastGroupSourcesRequest
+ *   TransitGatewayMulticastDomainId: "STRING_VALUE", // required
+ *   GroupIpAddress: "STRING_VALUE",
+ *   NetworkInterfaceIds: [ // TransitGatewayNetworkInterfaceIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new RegisterTransitGatewayMulticastGroupSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterTransitGatewayMulticastGroupSourcesCommandInput - {@link RegisterTransitGatewayMulticastGroupSourcesCommandInput}
+ * @returns {@link RegisterTransitGatewayMulticastGroupSourcesCommandOutput}
  * @see {@link RegisterTransitGatewayMulticastGroupSourcesCommandInput} for command's `input` shape.
  * @see {@link RegisterTransitGatewayMulticastGroupSourcesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +90,9 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterTransitGatewayMulticastGroupSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +127,8 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterTransitGatewayMulticastGroupSourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterTransitGatewayMulticastGroupSourcesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +138,24 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterTransitGatewayMulticastGroupSourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand(input, context);
+    return se_RegisterTransitGatewayMulticastGroupSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterTransitGatewayMulticastGroupSourcesCommandOutput> {
-    return deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand(output, context);
+    return de_RegisterTransitGatewayMulticastGroupSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

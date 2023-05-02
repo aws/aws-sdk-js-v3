@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeActivationsRequest,
-  DescribeActivationsRequestFilterSensitiveLog,
-  DescribeActivationsResult,
-  DescribeActivationsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeActivationsCommand,
-  serializeAws_json1_1DescribeActivationsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeActivationsRequest, DescribeActivationsResult } from "../models/models_0";
+import { de_DescribeActivationsCommand, se_DescribeActivationsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeActivationsCommand}.
  */
 export interface DescribeActivationsCommandInput extends DescribeActivationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeActivationsCommand}.
  */
 export interface DescribeActivationsCommandOutput extends DescribeActivationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes details about the activation, such as the date and time the activation was
  *    created, its expiration date, the Identity and Access Management (IAM) role assigned to
  *    the managed nodes in the activation, and the number of nodes registered by using this
@@ -45,10 +42,24 @@ export interface DescribeActivationsCommandOutput extends DescribeActivationsRes
  * import { SSMClient, DescribeActivationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeActivationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeActivationsRequest
+ *   Filters: [ // DescribeActivationsFilterList
+ *     { // DescribeActivationsFilter
+ *       FilterKey: "ActivationIds" || "DefaultInstanceName" || "IamRole",
+ *       FilterValues: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeActivationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeActivationsCommandInput - {@link DescribeActivationsCommandInput}
+ * @returns {@link DescribeActivationsCommandOutput}
  * @see {@link DescribeActivationsCommandInput} for command's `input` shape.
  * @see {@link DescribeActivationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -81,6 +92,9 @@ export class DescribeActivationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeActivationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +123,8 @@ export class DescribeActivationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeActivationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeActivationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +134,18 @@ export class DescribeActivationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeActivationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeActivationsCommand(input, context);
+    return se_DescribeActivationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActivationsCommandOutput> {
-    return deserializeAws_json1_1DescribeActivationsCommand(output, context);
+    return de_DescribeActivationsCommand(output, context);
   }
 
   // Start section: command_body_extra

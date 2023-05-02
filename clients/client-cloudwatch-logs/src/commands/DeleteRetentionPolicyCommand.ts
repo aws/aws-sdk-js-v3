@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DeleteRetentionPolicyRequest, DeleteRetentionPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRetentionPolicyCommand,
-  serializeAws_json1_1DeleteRetentionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRetentionPolicyRequest } from "../models/models_0";
+import { de_DeleteRetentionPolicyCommand, se_DeleteRetentionPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRetentionPolicyCommand}.
  */
 export interface DeleteRetentionPolicyCommandInput extends DeleteRetentionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRetentionPolicyCommand}.
  */
 export interface DeleteRetentionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified retention policy.</p>
  *          <p>Log events do not expire if they belong to log groups without a retention policy.</p>
  * @example
@@ -38,10 +40,15 @@ export interface DeleteRetentionPolicyCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DeleteRetentionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteRetentionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DeleteRetentionPolicyRequest
+ *   logGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRetentionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRetentionPolicyCommandInput - {@link DeleteRetentionPolicyCommandInput}
+ * @returns {@link DeleteRetentionPolicyCommandOutput}
  * @see {@link DeleteRetentionPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRetentionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteRetentionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRetentionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +115,8 @@ export class DeleteRetentionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRetentionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +126,18 @@ export class DeleteRetentionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRetentionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRetentionPolicyCommand(input, context);
+    return se_DeleteRetentionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRetentionPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteRetentionPolicyCommand(output, context);
+    return de_DeleteRetentionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

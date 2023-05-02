@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListModelCardsRequest,
-  ListModelCardsRequestFilterSensitiveLog,
-  ListModelCardsResponse,
-  ListModelCardsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListModelCardsCommand,
-  serializeAws_json1_1ListModelCardsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListModelCardsRequest, ListModelCardsResponse } from "../models/models_3";
+import { de_ListModelCardsCommand, se_ListModelCardsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelCardsCommand}.
  */
 export interface ListModelCardsCommandInput extends ListModelCardsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelCardsCommand}.
  */
 export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List existing model cards.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __M
  * import { SageMakerClient, ListModelCardsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelCardsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListModelCardsRequest
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListModelCardsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelCardsCommandInput - {@link ListModelCardsCommandInput}
+ * @returns {@link ListModelCardsCommandOutput}
  * @see {@link ListModelCardsCommandInput} for command's `input` shape.
  * @see {@link ListModelCardsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +78,9 @@ export class ListModelCardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelCardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +109,8 @@ export class ListModelCardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelCardsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelCardsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +120,18 @@ export class ListModelCardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelCardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListModelCardsCommand(input, context);
+    return se_ListModelCardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelCardsCommandOutput> {
-    return deserializeAws_json1_1ListModelCardsCommand(output, context);
+    return de_ListModelCardsCommand(output, context);
   }
 
   // Start section: command_body_extra

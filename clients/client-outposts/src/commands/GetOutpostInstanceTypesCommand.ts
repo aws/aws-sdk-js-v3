@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetOutpostInstanceTypesInput,
-  GetOutpostInstanceTypesInputFilterSensitiveLog,
-  GetOutpostInstanceTypesOutput,
-  GetOutpostInstanceTypesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetOutpostInstanceTypesInput, GetOutpostInstanceTypesOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1GetOutpostInstanceTypesCommand,
-  serializeAws_restJson1GetOutpostInstanceTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetOutpostInstanceTypesCommand, se_GetOutpostInstanceTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOutpostInstanceTypesCommand}.
  */
 export interface GetOutpostInstanceTypesCommandInput extends GetOutpostInstanceTypesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetOutpostInstanceTypesCommand}.
  */
 export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstanceTypesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the instance types for the specified Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstance
  * import { OutpostsClient, GetOutpostInstanceTypesCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetOutpostInstanceTypesCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // GetOutpostInstanceTypesInput
+ *   OutpostId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetOutpostInstanceTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOutpostInstanceTypesCommandInput - {@link GetOutpostInstanceTypesCommandInput}
+ * @returns {@link GetOutpostInstanceTypesCommandOutput}
  * @see {@link GetOutpostInstanceTypesCommandInput} for command's `input` shape.
  * @see {@link GetOutpostInstanceTypesCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -81,6 +85,9 @@ export class GetOutpostInstanceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOutpostInstanceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class GetOutpostInstanceTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOutpostInstanceTypesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOutpostInstanceTypesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class GetOutpostInstanceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOutpostInstanceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetOutpostInstanceTypesCommand(input, context);
+    return se_GetOutpostInstanceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOutpostInstanceTypesCommandOutput> {
-    return deserializeAws_restJson1GetOutpostInstanceTypesCommand(output, context);
+    return de_GetOutpostInstanceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

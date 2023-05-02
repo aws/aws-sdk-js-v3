@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ProvisionPublicIpv4PoolCidrRequest,
-  ProvisionPublicIpv4PoolCidrRequestFilterSensitiveLog,
-  ProvisionPublicIpv4PoolCidrResult,
-  ProvisionPublicIpv4PoolCidrResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ProvisionPublicIpv4PoolCidrCommand,
-  serializeAws_ec2ProvisionPublicIpv4PoolCidrCommand,
-} from "../protocols/Aws_ec2";
+import { ProvisionPublicIpv4PoolCidrRequest, ProvisionPublicIpv4PoolCidrResult } from "../models/models_6";
+import { de_ProvisionPublicIpv4PoolCidrCommand, se_ProvisionPublicIpv4PoolCidrCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ProvisionPublicIpv4PoolCidrCommand}.
  */
 export interface ProvisionPublicIpv4PoolCidrCommandInput extends ProvisionPublicIpv4PoolCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link ProvisionPublicIpv4PoolCidrCommand}.
  */
 export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPublicIpv4PoolCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provision a CIDR to a public IPv4 pool.</p>
  *          <p>For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  * @example
@@ -43,10 +40,18 @@ export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPubli
  * import { EC2Client, ProvisionPublicIpv4PoolCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ProvisionPublicIpv4PoolCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ProvisionPublicIpv4PoolCidrRequest
+ *   DryRun: true || false,
+ *   IpamPoolId: "STRING_VALUE", // required
+ *   PoolId: "STRING_VALUE", // required
+ *   NetmaskLength: Number("int"), // required
+ * };
  * const command = new ProvisionPublicIpv4PoolCidrCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ProvisionPublicIpv4PoolCidrCommandInput - {@link ProvisionPublicIpv4PoolCidrCommandInput}
+ * @returns {@link ProvisionPublicIpv4PoolCidrCommandOutput}
  * @see {@link ProvisionPublicIpv4PoolCidrCommandInput} for command's `input` shape.
  * @see {@link ProvisionPublicIpv4PoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +75,9 @@ export class ProvisionPublicIpv4PoolCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ProvisionPublicIpv4PoolCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +106,8 @@ export class ProvisionPublicIpv4PoolCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ProvisionPublicIpv4PoolCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ProvisionPublicIpv4PoolCidrResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,15 +117,21 @@ export class ProvisionPublicIpv4PoolCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ProvisionPublicIpv4PoolCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ProvisionPublicIpv4PoolCidrCommand(input, context);
+    return se_ProvisionPublicIpv4PoolCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ProvisionPublicIpv4PoolCidrCommandOutput> {
-    return deserializeAws_ec2ProvisionPublicIpv4PoolCidrCommand(output, context);
+    return de_ProvisionPublicIpv4PoolCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

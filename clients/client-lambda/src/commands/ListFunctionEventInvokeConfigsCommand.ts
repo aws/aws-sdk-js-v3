@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { ListFunctionEventInvokeConfigsRequest, ListFunctionEventInvokeConfigsResponse } from "../models/models_0";
 import {
-  ListFunctionEventInvokeConfigsRequest,
-  ListFunctionEventInvokeConfigsRequestFilterSensitiveLog,
-  ListFunctionEventInvokeConfigsResponse,
-  ListFunctionEventInvokeConfigsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand,
-  serializeAws_restJson1ListFunctionEventInvokeConfigsCommand,
+  de_ListFunctionEventInvokeConfigsCommand,
+  se_ListFunctionEventInvokeConfigsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFunctionEventInvokeConfigsCommand}.
  */
 export interface ListFunctionEventInvokeConfigsCommandInput extends ListFunctionEventInvokeConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFunctionEventInvokeConfigsCommand}.
  */
 export interface ListFunctionEventInvokeConfigsCommandOutput
@@ -37,6 +36,7 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of configurations for asynchronous invocation for a function.</p>
  *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
  * @example
@@ -45,10 +45,17 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
  * import { LambdaClient, ListFunctionEventInvokeConfigsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListFunctionEventInvokeConfigsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // ListFunctionEventInvokeConfigsRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListFunctionEventInvokeConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionEventInvokeConfigsCommandInput - {@link ListFunctionEventInvokeConfigsCommandInput}
+ * @returns {@link ListFunctionEventInvokeConfigsCommandOutput}
  * @see {@link ListFunctionEventInvokeConfigsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionEventInvokeConfigsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionEventInvokeConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFunctionEventInvokeConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFunctionEventInvokeConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +133,24 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListFunctionEventInvokeConfigsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFunctionEventInvokeConfigsCommand(input, context);
+    return se_ListFunctionEventInvokeConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFunctionEventInvokeConfigsCommandOutput> {
-    return deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand(output, context);
+    return de_ListFunctionEventInvokeConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  DeleteImportedKeyMaterialRequest,
-  DeleteImportedKeyMaterialRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteImportedKeyMaterialCommand,
-  serializeAws_json1_1DeleteImportedKeyMaterialCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteImportedKeyMaterialRequest } from "../models/models_0";
+import { de_DeleteImportedKeyMaterialCommand, se_DeleteImportedKeyMaterialCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImportedKeyMaterialCommand}.
  */
 export interface DeleteImportedKeyMaterialCommandInput extends DeleteImportedKeyMaterialRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImportedKeyMaterialCommand}.
  */
 export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes key material that you previously imported. This operation makes the specified KMS
  *       key unusable. For more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a>
  *       in the <i>Key Management Service Developer Guide</i>. </p>
@@ -68,10 +67,15 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  * import { KMSClient, DeleteImportedKeyMaterialCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DeleteImportedKeyMaterialCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // DeleteImportedKeyMaterialRequest
+ *   KeyId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteImportedKeyMaterialCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImportedKeyMaterialCommandInput - {@link DeleteImportedKeyMaterialCommandInput}
+ * @returns {@link DeleteImportedKeyMaterialCommandOutput}
  * @see {@link DeleteImportedKeyMaterialCommandInput} for command's `input` shape.
  * @see {@link DeleteImportedKeyMaterialCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -144,6 +148,9 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImportedKeyMaterialCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,8 +179,8 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteImportedKeyMaterialRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -183,15 +190,21 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImportedKeyMaterialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteImportedKeyMaterialCommand(input, context);
+    return se_DeleteImportedKeyMaterialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteImportedKeyMaterialCommandOutput> {
-    return deserializeAws_json1_1DeleteImportedKeyMaterialCommand(output, context);
+    return de_DeleteImportedKeyMaterialCommand(output, context);
   }
 
   // Start section: command_body_extra

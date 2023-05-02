@@ -25,16 +25,17 @@ import {
   AdminRespondToAuthChallengeResponse,
   AdminRespondToAuthChallengeResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminRespondToAuthChallengeCommand,
-  serializeAws_json1_1AdminRespondToAuthChallengeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminRespondToAuthChallengeCommand, se_AdminRespondToAuthChallengeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminRespondToAuthChallengeCommand}.
  */
 export interface AdminRespondToAuthChallengeCommandInput extends AdminRespondToAuthChallengeRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminRespondToAuthChallengeCommand}.
  */
 export interface AdminRespondToAuthChallengeCommandOutput
@@ -42,6 +43,7 @@ export interface AdminRespondToAuthChallengeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Responds to an authentication challenge, as an administrator.</p>
  *
  *          <note>
@@ -69,10 +71,39 @@ export interface AdminRespondToAuthChallengeCommandOutput
  * import { CognitoIdentityProviderClient, AdminRespondToAuthChallengeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminRespondToAuthChallengeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminRespondToAuthChallengeRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE", // required
+ *   ChallengeName: "SMS_MFA" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED", // required
+ *   ChallengeResponses: { // ChallengeResponsesType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Session: "STRING_VALUE",
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
+ *     AnalyticsEndpointId: "STRING_VALUE",
+ *   },
+ *   ContextData: { // ContextDataType
+ *     IpAddress: "STRING_VALUE", // required
+ *     ServerName: "STRING_VALUE", // required
+ *     ServerPath: "STRING_VALUE", // required
+ *     HttpHeaders: [ // HttpHeaderList // required
+ *       { // HttpHeader
+ *         headerName: "STRING_VALUE",
+ *         headerValue: "STRING_VALUE",
+ *       },
+ *     ],
+ *     EncodedData: "STRING_VALUE",
+ *   },
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new AdminRespondToAuthChallengeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminRespondToAuthChallengeCommandInput - {@link AdminRespondToAuthChallengeCommandInput}
+ * @returns {@link AdminRespondToAuthChallengeCommandOutput}
  * @see {@link AdminRespondToAuthChallengeCommandInput} for command's `input` shape.
  * @see {@link AdminRespondToAuthChallengeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -172,6 +203,9 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminRespondToAuthChallengeCommandInput) {
     // Start section: command_constructor
     super();
@@ -212,15 +246,21 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminRespondToAuthChallengeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminRespondToAuthChallengeCommand(input, context);
+    return se_AdminRespondToAuthChallengeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminRespondToAuthChallengeCommandOutput> {
-    return deserializeAws_json1_1AdminRespondToAuthChallengeCommand(output, context);
+    return de_AdminRespondToAuthChallengeCommand(output, context);
   }
 
   // Start section: command_body_extra

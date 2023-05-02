@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRepositorySyncStatusInput,
-  GetRepositorySyncStatusInputFilterSensitiveLog,
-  GetRepositorySyncStatusOutput,
-  GetRepositorySyncStatusOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetRepositorySyncStatusCommand,
-  serializeAws_json1_0GetRepositorySyncStatusCommand,
-} from "../protocols/Aws_json1_0";
+import { GetRepositorySyncStatusInput, GetRepositorySyncStatusOutput } from "../models/models_0";
+import { de_GetRepositorySyncStatusCommand, se_GetRepositorySyncStatusCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRepositorySyncStatusCommand}.
  */
 export interface GetRepositorySyncStatusCommandInput extends GetRepositorySyncStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link GetRepositorySyncStatusCommand}.
  */
 export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncStatusOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the sync status of a repository used for Proton template sync. For more information about template sync, see .</p>
  *          <note>
  *             <p>A repository sync status isn't tied to the Proton Repository resource (or any other Proton resource). Therefore, tags on an Proton Repository resource
@@ -49,10 +46,18 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  * import { ProtonClient, GetRepositorySyncStatusCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetRepositorySyncStatusCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // GetRepositorySyncStatusInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   repositoryProvider: "STRING_VALUE", // required
+ *   branch: "STRING_VALUE", // required
+ *   syncType: "STRING_VALUE", // required
+ * };
  * const command = new GetRepositorySyncStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositorySyncStatusCommandInput - {@link GetRepositorySyncStatusCommandInput}
+ * @returns {@link GetRepositorySyncStatusCommandOutput}
  * @see {@link GetRepositorySyncStatusCommandInput} for command's `input` shape.
  * @see {@link GetRepositorySyncStatusCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -91,6 +96,9 @@ export class GetRepositorySyncStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositorySyncStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +127,8 @@ export class GetRepositorySyncStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRepositorySyncStatusInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRepositorySyncStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +138,18 @@ export class GetRepositorySyncStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRepositorySyncStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetRepositorySyncStatusCommand(input, context);
+    return se_GetRepositorySyncStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositorySyncStatusCommandOutput> {
-    return deserializeAws_json1_0GetRepositorySyncStatusCommand(output, context);
+    return de_GetRepositorySyncStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

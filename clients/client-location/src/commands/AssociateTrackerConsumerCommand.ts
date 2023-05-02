@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  AssociateTrackerConsumerRequest,
-  AssociateTrackerConsumerRequestFilterSensitiveLog,
-  AssociateTrackerConsumerResponse,
-  AssociateTrackerConsumerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateTrackerConsumerCommand,
-  serializeAws_restJson1AssociateTrackerConsumerCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateTrackerConsumerRequest, AssociateTrackerConsumerResponse } from "../models/models_0";
+import { de_AssociateTrackerConsumerCommand, se_AssociateTrackerConsumerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTrackerConsumerCommand}.
  */
 export interface AssociateTrackerConsumerCommandInput extends AssociateTrackerConsumerRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTrackerConsumerCommand}.
  */
 export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerConsumerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between a geofence collection and a tracker resource. This
  *             allows the tracker resource to communicate location data to the linked geofence
  *             collection. </p>
@@ -48,10 +45,16 @@ export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerC
  * import { LocationClient, AssociateTrackerConsumerCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, AssociateTrackerConsumerCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // AssociateTrackerConsumerRequest
+ *   TrackerName: "STRING_VALUE", // required
+ *   ConsumerArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateTrackerConsumerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTrackerConsumerCommandInput - {@link AssociateTrackerConsumerCommandInput}
+ * @returns {@link AssociateTrackerConsumerCommandOutput}
  * @see {@link AssociateTrackerConsumerCommandInput} for command's `input` shape.
  * @see {@link AssociateTrackerConsumerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -98,6 +101,9 @@ export class AssociateTrackerConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTrackerConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +132,8 @@ export class AssociateTrackerConsumerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTrackerConsumerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTrackerConsumerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +143,18 @@ export class AssociateTrackerConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateTrackerConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateTrackerConsumerCommand(input, context);
+    return se_AssociateTrackerConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTrackerConsumerCommandOutput> {
-    return deserializeAws_restJson1AssociateTrackerConsumerCommand(output, context);
+    return de_AssociateTrackerConsumerCommand(output, context);
   }
 
   // Start section: command_body_extra

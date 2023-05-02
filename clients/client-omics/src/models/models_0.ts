@@ -6,6 +6,7 @@ import { Readable } from "stream";
 import { OmicsServiceException as __BaseException } from "./OmicsServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,17 +25,27 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum ReadSetActivationJobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReadSetActivationJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
 
 /**
+ * @public
+ */
+export type ReadSetActivationJobStatus = (typeof ReadSetActivationJobStatus)[keyof typeof ReadSetActivationJobStatus];
+
+/**
+ * @public
  * <p>A read set activation job filter.</p>
  */
 export interface ActivateReadSetFilter {
@@ -55,6 +66,7 @@ export interface ActivateReadSetFilter {
 }
 
 /**
+ * @public
  * <p>A read set activation job.</p>
  */
 export interface ActivateReadSetJobItem {
@@ -84,14 +96,25 @@ export interface ActivateReadSetJobItem {
   completionTime?: Date;
 }
 
-export enum ReadSetActivationJobItemStatus {
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReadSetActivationJobItemStatus = {
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
 
 /**
+ * @public
+ */
+export type ReadSetActivationJobItemStatus =
+  (typeof ReadSetActivationJobItemStatus)[keyof typeof ReadSetActivationJobItemStatus];
+
+/**
+ * @public
  * <p>A source for a read set activation job.</p>
  */
 export interface ActivateReadSetSourceItem {
@@ -111,34 +134,44 @@ export interface ActivateReadSetSourceItem {
   statusMessage?: string;
 }
 
-export enum JobStatus {
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
   /**
    * The Job was cancelled
    */
-  CANCELLED = "CANCELLED",
+  CANCELLED: "CANCELLED",
   /**
    * The Job has completed
    */
-  COMPLETED = "COMPLETED",
+  COMPLETED: "COMPLETED",
   /**
    * The Job completed with failed runs
    */
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
   /**
    * The Job failed
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * The Job is executing
    */
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
   /**
    * The Job has been submitted to run
    */
-  SUBMITTED = "SUBMITTED",
-}
+  SUBMITTED: "SUBMITTED",
+} as const;
 
 /**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
  * <p>Details about an imported annotation item.</p>
  */
 export interface AnnotationImportItemDetail {
@@ -154,6 +187,7 @@ export interface AnnotationImportItemDetail {
 }
 
 /**
+ * @public
  * <p>A source for an annotation import job.</p>
  */
 export interface AnnotationImportItemSource {
@@ -163,6 +197,9 @@ export interface AnnotationImportItemSource {
   source: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelAnnotationImportRequest {
   /**
    * <p>The job's ID.</p>
@@ -170,9 +207,13 @@ export interface CancelAnnotationImportRequest {
   jobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelAnnotationImportResponse {}
 
 /**
+ * @public
  * <p>An unexpected error occurred. Try the request again.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -193,6 +234,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The target resource was not found in the current Region.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -212,6 +254,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -234,6 +277,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -252,6 +296,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetAnnotationImportRequest {
   /**
    * <p>The job's ID.</p>
@@ -260,6 +307,7 @@ export interface GetAnnotationImportRequest {
 }
 
 /**
+ * @public
  * <p>Read options for an annotation import job.</p>
  */
 export interface ReadOptions {
@@ -310,6 +358,7 @@ export interface ReadOptions {
 }
 
 /**
+ * @public
  * <p>Formatting options for a TSV file.</p>
  */
 export interface TsvOptions {
@@ -320,6 +369,7 @@ export interface TsvOptions {
 }
 
 /**
+ * @public
  * <p>Formatting options for a VCF file.</p>
  */
 export interface VcfOptions {
@@ -335,6 +385,7 @@ export interface VcfOptions {
 }
 
 /**
+ * @public
  * <p>Formatting options for a file.</p>
  */
 export type FormatOptions =
@@ -342,6 +393,9 @@ export type FormatOptions =
   | FormatOptions.VcfOptionsMember
   | FormatOptions.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace FormatOptions {
   /**
    * <p>Options for a TSV file.</p>
@@ -380,6 +434,9 @@ export namespace FormatOptions {
   };
 }
 
+/**
+ * @public
+ */
 export interface GetAnnotationImportResponse {
   /**
    * <p>The job's ID.</p>
@@ -438,6 +495,7 @@ export interface GetAnnotationImportResponse {
 }
 
 /**
+ * @public
  * <p>A filter for annotation import jobs.</p>
  */
 export interface ListAnnotationImportJobsFilter {
@@ -452,6 +510,9 @@ export interface ListAnnotationImportJobsFilter {
   storeName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAnnotationImportJobsRequest {
   /**
    * <p>The maximum number of jobs to return in one page of results.</p>
@@ -475,6 +536,7 @@ export interface ListAnnotationImportJobsRequest {
 }
 
 /**
+ * @public
  * <p>An annotation import job.</p>
  */
 export interface AnnotationImportJobItem {
@@ -519,6 +581,9 @@ export interface AnnotationImportJobItem {
   runLeftNormalization?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListAnnotationImportJobsResponse {
   /**
    * <p>A list of jobs.</p>
@@ -532,6 +597,7 @@ export interface ListAnnotationImportJobsResponse {
 }
 
 /**
+ * @public
  * <p>The request exceeds a service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -550,6 +616,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartAnnotationImportRequest {
   /**
    * <p>A destination annotation store for the job.</p>
@@ -577,6 +646,9 @@ export interface StartAnnotationImportRequest {
   runLeftNormalization?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartAnnotationImportResponse {
   /**
    * <p>The job's ID.</p>
@@ -585,6 +657,7 @@ export interface StartAnnotationImportResponse {
 }
 
 /**
+ * @public
  * <p>The request cannot be applied to the target resource in its current state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -604,10 +677,14 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A genome reference.</p>
  */
 export type ReferenceItem = ReferenceItem.ReferenceArnMember | ReferenceItem.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ReferenceItem {
   /**
    * <p>The reference's ARN.</p>
@@ -633,14 +710,24 @@ export namespace ReferenceItem {
   };
 }
 
-export enum EncryptionType {
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
   /**
    * KMS
    */
-  KMS = "KMS",
-}
+  KMS: "KMS",
+} as const;
 
 /**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
+ * @public
  * <p>Server-side encryption (SSE) settings for a store.</p>
  */
 export interface SseConfig {
@@ -655,89 +742,126 @@ export interface SseConfig {
   keyArn?: string;
 }
 
-export enum StoreFormat {
+/**
+ * @public
+ * @enum
+ */
+export const StoreFormat = {
   /**
    * GFF3 Format
    */
-  GFF = "GFF",
+  GFF: "GFF",
   /**
    * TSV Format
    */
-  TSV = "TSV",
+  TSV: "TSV",
   /**
    * VCF Format
    */
-  VCF = "VCF",
-}
+  VCF: "VCF",
+} as const;
 
-export enum AnnotationType {
+/**
+ * @public
+ */
+export type StoreFormat = (typeof StoreFormat)[keyof typeof StoreFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnnotationType = {
   /**
    * Contains contig and 1-base position
    */
-  CHR_POS = "CHR_POS",
+  CHR_POS: "CHR_POS",
   /**
    * Contains contig, 1-base position, ref and alt allele information
    */
-  CHR_POS_REF_ALT = "CHR_POS_REF_ALT",
+  CHR_POS_REF_ALT: "CHR_POS_REF_ALT",
   /**
    * Contains contig, start, and end positions. Coordinates are 1-based
    */
-  CHR_START_END_ONE_BASE = "CHR_START_END_ONE_BASE",
+  CHR_START_END_ONE_BASE: "CHR_START_END_ONE_BASE",
   /**
    * Contains contig, start, end, ref and alt allele information. Coordinates are 1-based
    */
-  CHR_START_END_REF_ALT_ONE_BASE = "CHR_START_END_REF_ALT_ONE_BASE",
+  CHR_START_END_REF_ALT_ONE_BASE: "CHR_START_END_REF_ALT_ONE_BASE",
   /**
    * Contains contig, start, end, ref and alt allele information. Coordinates are 0-based
    */
-  CHR_START_END_REF_ALT_ZERO_BASE = "CHR_START_END_REF_ALT_ZERO_BASE",
+  CHR_START_END_REF_ALT_ZERO_BASE: "CHR_START_END_REF_ALT_ZERO_BASE",
   /**
    * Contains contig, start, and end positions. Coordinates are 0-based
    */
-  CHR_START_END_ZERO_BASE = "CHR_START_END_ZERO_BASE",
+  CHR_START_END_ZERO_BASE: "CHR_START_END_ZERO_BASE",
   /**
    * Generic text file. No genomic information
    */
-  GENERIC = "GENERIC",
-}
+  GENERIC: "GENERIC",
+} as const;
 
-export enum FormatToHeaderKey {
-  ALT = "ALT",
-  CHR = "CHR",
-  END = "END",
-  POS = "POS",
-  REF = "REF",
-  START = "START",
-}
+/**
+ * @public
+ */
+export type AnnotationType = (typeof AnnotationType)[keyof typeof AnnotationType];
 
-export enum SchemaValueType {
+/**
+ * @public
+ * @enum
+ */
+export const FormatToHeaderKey = {
+  ALT: "ALT",
+  CHR: "CHR",
+  END: "END",
+  POS: "POS",
+  REF: "REF",
+  START: "START",
+} as const;
+
+/**
+ * @public
+ */
+export type FormatToHeaderKey = (typeof FormatToHeaderKey)[keyof typeof FormatToHeaderKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const SchemaValueType = {
   /**
    * BOOLEAN type
    */
-  BOOLEAN = "BOOLEAN",
+  BOOLEAN: "BOOLEAN",
   /**
    * DOUBLE type
    */
-  DOUBLE = "DOUBLE",
+  DOUBLE: "DOUBLE",
   /**
    * FLOAT type
    */
-  FLOAT = "FLOAT",
+  FLOAT: "FLOAT",
   /**
    * INT type
    */
-  INT = "INT",
+  INT: "INT",
   /**
    * LONG type
    */
-  LONG = "LONG",
+  LONG: "LONG",
   /**
    * STRING type
    */
-  STRING = "STRING",
-}
+  STRING: "STRING",
+} as const;
 
 /**
+ * @public
+ */
+export type SchemaValueType = (typeof SchemaValueType)[keyof typeof SchemaValueType];
+
+/**
+ * @public
  * <p>File settings for a TSV store.</p>
  */
 export interface TsvStoreOptions {
@@ -758,10 +882,14 @@ export interface TsvStoreOptions {
 }
 
 /**
+ * @public
  * <p>Settings for a store.</p>
  */
 export type StoreOptions = StoreOptions.TsvStoreOptionsMember | StoreOptions.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace StoreOptions {
   /**
    * <p>File settings for a TSV store.</p>
@@ -787,6 +915,9 @@ export namespace StoreOptions {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateAnnotationStoreRequest {
   /**
    * <p>The genome reference for the store's annotations.</p>
@@ -824,29 +955,41 @@ export interface CreateAnnotationStoreRequest {
   storeOptions?: StoreOptions;
 }
 
-export enum StoreStatus {
+/**
+ * @public
+ * @enum
+ */
+export const StoreStatus = {
   /**
    * The Store is active
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * The Store is being created
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * The Store is deleting
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * The Store creation failed
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * The Store is updating
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type StoreStatus = (typeof StoreStatus)[keyof typeof StoreStatus];
+
+/**
+ * @public
+ */
 export interface CreateAnnotationStoreResponse {
   /**
    * <p>The store's ID.</p>
@@ -884,6 +1027,9 @@ export interface CreateAnnotationStoreResponse {
   creationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAnnotationStoreRequest {
   /**
    * <p>The store's name.</p>
@@ -896,6 +1042,9 @@ export interface DeleteAnnotationStoreRequest {
   force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAnnotationStoreResponse {
   /**
    * <p>The store's status.</p>
@@ -903,6 +1052,9 @@ export interface DeleteAnnotationStoreResponse {
   status: StoreStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAnnotationStoreRequest {
   /**
    * <p>The store's name.</p>
@@ -910,6 +1062,9 @@ export interface GetAnnotationStoreRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAnnotationStoreResponse {
   /**
    * <p>The store's ID.</p>
@@ -983,6 +1138,7 @@ export interface GetAnnotationStoreResponse {
 }
 
 /**
+ * @public
  * <p>A filter for annotation stores.</p>
  */
 export interface ListAnnotationStoresFilter {
@@ -992,6 +1148,9 @@ export interface ListAnnotationStoresFilter {
   status?: StoreStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListAnnotationStoresRequest {
   /**
    * <p>IDs of stores to list.</p>
@@ -1015,6 +1174,7 @@ export interface ListAnnotationStoresRequest {
 }
 
 /**
+ * @public
  * <p>An annotation store.</p>
  */
 export interface AnnotationStoreItem {
@@ -1079,6 +1239,9 @@ export interface AnnotationStoreItem {
   storeSizeBytes: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAnnotationStoresResponse {
   /**
    * <p>A list of stores.</p>
@@ -1091,6 +1254,9 @@ export interface ListAnnotationStoresResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAnnotationStoreRequest {
   /**
    * <p>A name for the store.</p>
@@ -1103,6 +1269,9 @@ export interface UpdateAnnotationStoreRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAnnotationStoreResponse {
   /**
    * <p>The store's ID.</p>
@@ -1150,6 +1319,9 @@ export interface UpdateAnnotationStoreResponse {
   storeFormat?: StoreFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteReadSetRequest {
   /**
    * <p>The read sets' IDs.</p>
@@ -1163,6 +1335,7 @@ export interface BatchDeleteReadSetRequest {
 }
 
 /**
+ * @public
  * <p>An error from a batch read set operation.</p>
  */
 export interface ReadSetBatchError {
@@ -1182,6 +1355,9 @@ export interface ReadSetBatchError {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteReadSetResponse {
   /**
    * <p>Errors returned by individual delete operations.</p>
@@ -1190,6 +1366,7 @@ export interface BatchDeleteReadSetResponse {
 }
 
 /**
+ * @public
  * <p>The request timed out.</p>
  */
 export class RequestTimeoutException extends __BaseException {
@@ -1208,6 +1385,9 @@ export class RequestTimeoutException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelRunRequest {
   /**
    * <p>The run's ID.</p>
@@ -1215,6 +1395,9 @@ export interface CancelRunRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelVariantImportRequest {
   /**
    * <p>The job's ID.</p>
@@ -1222,8 +1405,14 @@ export interface CancelVariantImportRequest {
   jobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelVariantImportResponse {}
 
+/**
+ * @public
+ */
 export interface CreateReferenceStoreRequest {
   /**
    * <p>A name for the store.</p>
@@ -1251,6 +1440,9 @@ export interface CreateReferenceStoreRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateReferenceStoreResponse {
   /**
    * <p>The store's ID.</p>
@@ -1283,6 +1475,9 @@ export interface CreateReferenceStoreResponse {
   creationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRunGroupRequest {
   /**
    * <p>A name for the group.</p>
@@ -1315,6 +1510,9 @@ export interface CreateRunGroupRequest {
   requestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRunGroupResponse {
   /**
    * <p>The group's ARN.</p>
@@ -1332,6 +1530,9 @@ export interface CreateRunGroupResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSequenceStoreRequest {
   /**
    * <p>A name for the store.</p>
@@ -1359,6 +1560,9 @@ export interface CreateSequenceStoreRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSequenceStoreResponse {
   /**
    * <p>The store's ID.</p>
@@ -1391,6 +1595,9 @@ export interface CreateSequenceStoreResponse {
   creationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateVariantStoreRequest {
   /**
    * <p>The genome reference for the store's variants.</p>
@@ -1418,6 +1625,9 @@ export interface CreateVariantStoreRequest {
   sseConfig?: SseConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateVariantStoreResponse {
   /**
    * <p>The store's ID.</p>
@@ -1445,12 +1655,22 @@ export interface CreateVariantStoreResponse {
   creationTime: Date | undefined;
 }
 
-export enum WorkflowEngine {
-  NEXTFLOW = "NEXTFLOW",
-  WDL = "WDL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowEngine = {
+  NEXTFLOW: "NEXTFLOW",
+  WDL: "WDL",
+} as const;
 
 /**
+ * @public
+ */
+export type WorkflowEngine = (typeof WorkflowEngine)[keyof typeof WorkflowEngine];
+
+/**
+ * @public
  * <p>A workflow parameter.</p>
  */
 export interface WorkflowParameter {
@@ -1465,6 +1685,9 @@ export interface WorkflowParameter {
   optional?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkflowRequest {
   /**
    * <p>A name for the workflow.</p>
@@ -1517,15 +1740,26 @@ export interface CreateWorkflowRequest {
   requestId?: string;
 }
 
-export enum WorkflowStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus];
+
+/**
+ * @public
+ */
 export interface CreateWorkflowResponse {
   /**
    * <p>The workflow's ARN.</p>
@@ -1548,6 +1782,9 @@ export interface CreateWorkflowResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReferenceRequest {
   /**
    * <p>The reference's ID.</p>
@@ -1560,8 +1797,14 @@ export interface DeleteReferenceRequest {
   referenceStoreId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReferenceResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteReferenceStoreRequest {
   /**
    * <p>The store's ID.</p>
@@ -1569,8 +1812,14 @@ export interface DeleteReferenceStoreRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReferenceStoreResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRunRequest {
   /**
    * <p>The run's ID.</p>
@@ -1578,6 +1827,9 @@ export interface DeleteRunRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRunGroupRequest {
   /**
    * <p>The run group's ID.</p>
@@ -1585,6 +1837,9 @@ export interface DeleteRunGroupRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSequenceStoreRequest {
   /**
    * <p>The sequence store's ID.</p>
@@ -1592,8 +1847,14 @@ export interface DeleteSequenceStoreRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSequenceStoreResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteVariantStoreRequest {
   /**
    * <p>The store's name.</p>
@@ -1606,6 +1867,9 @@ export interface DeleteVariantStoreRequest {
   force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVariantStoreResponse {
   /**
    * <p>The store's status.</p>
@@ -1613,6 +1877,9 @@ export interface DeleteVariantStoreResponse {
   status: StoreStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowRequest {
   /**
    * <p>The workflow's ID.</p>
@@ -1621,6 +1888,7 @@ export interface DeleteWorkflowRequest {
 }
 
 /**
+ * @public
  * <p>A read set.</p>
  */
 export interface ExportReadSet {
@@ -1630,14 +1898,24 @@ export interface ExportReadSet {
   readSetId: string | undefined;
 }
 
-export enum ReadSetExportJobItemStatus {
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReadSetExportJobItemStatus = {
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
 
 /**
+ * @public
+ */
+export type ReadSetExportJobItemStatus = (typeof ReadSetExportJobItemStatus)[keyof typeof ReadSetExportJobItemStatus];
+
+/**
+ * @public
  * <p>Details about a read set.</p>
  */
 export interface ExportReadSetDetail {
@@ -1657,17 +1935,27 @@ export interface ExportReadSetDetail {
   statusMessage?: string;
 }
 
-export enum ReadSetExportJobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReadSetExportJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
 
 /**
+ * @public
+ */
+export type ReadSetExportJobStatus = (typeof ReadSetExportJobStatus)[keyof typeof ReadSetExportJobStatus];
+
+/**
+ * @public
  * <p>An read set export job filter.</p>
  */
 export interface ExportReadSetFilter {
@@ -1688,6 +1976,7 @@ export interface ExportReadSetFilter {
 }
 
 /**
+ * @public
  * <p>Details about a read set export job.</p>
  */
 export interface ExportReadSetJobDetail {
@@ -1723,6 +2012,7 @@ export interface ExportReadSetJobDetail {
 }
 
 /**
+ * @public
  * <p>Details about a file.</p>
  */
 export interface FileInformation {
@@ -1742,18 +2032,39 @@ export interface FileInformation {
   contentLength?: number;
 }
 
-export enum FileType {
-  BAM = "BAM",
-  CRAM = "CRAM",
-  FASTQ = "FASTQ",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FileType = {
+  BAM: "BAM",
+  CRAM: "CRAM",
+  FASTQ: "FASTQ",
+} as const;
 
-export enum ReadSetFile {
-  INDEX = "INDEX",
-  SOURCE1 = "SOURCE1",
-  SOURCE2 = "SOURCE2",
-}
+/**
+ * @public
+ */
+export type FileType = (typeof FileType)[keyof typeof FileType];
 
+/**
+ * @public
+ * @enum
+ */
+export const ReadSetFile = {
+  INDEX: "INDEX",
+  SOURCE1: "SOURCE1",
+  SOURCE2: "SOURCE2",
+} as const;
+
+/**
+ * @public
+ */
+export type ReadSetFile = (typeof ReadSetFile)[keyof typeof ReadSetFile];
+
+/**
+ * @public
+ */
 export interface GetReadSetRequest {
   /**
    * <p>The read set's ID.</p>
@@ -1776,6 +2087,9 @@ export interface GetReadSetRequest {
   partNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetReadSetResponse {
   /**
    * <p>The read set file payload.</p>
@@ -1784,6 +2098,7 @@ export interface GetReadSetResponse {
 }
 
 /**
+ * @public
  * <p>The ranges specified in the request are not valid.</p>
  */
 export class RangeNotSatisfiableException extends __BaseException {
@@ -1803,6 +2118,9 @@ export class RangeNotSatisfiableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetReadSetActivationJobRequest {
   /**
    * <p>The job's ID.</p>
@@ -1815,6 +2133,9 @@ export interface GetReadSetActivationJobRequest {
   sequenceStoreId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetReadSetActivationJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -1852,6 +2173,9 @@ export interface GetReadSetActivationJobResponse {
   sources?: ActivateReadSetSourceItem[];
 }
 
+/**
+ * @public
+ */
 export interface GetReadSetExportJobRequest {
   /**
    * <p>The job's sequence store ID.</p>
@@ -1864,6 +2188,9 @@ export interface GetReadSetExportJobRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetReadSetExportJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -1906,6 +2233,9 @@ export interface GetReadSetExportJobResponse {
   readSets?: ExportReadSetDetail[];
 }
 
+/**
+ * @public
+ */
 export interface GetReadSetImportJobRequest {
   /**
    * <p>The job's ID.</p>
@@ -1919,6 +2249,7 @@ export interface GetReadSetImportJobRequest {
 }
 
 /**
+ * @public
  * <p>Source files for a sequence.</p>
  */
 export interface SourceFiles {
@@ -1933,14 +2264,24 @@ export interface SourceFiles {
   source2?: string;
 }
 
-export enum ReadSetImportJobItemStatus {
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReadSetImportJobItemStatus = {
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
 
 /**
+ * @public
+ */
+export type ReadSetImportJobItemStatus = (typeof ReadSetImportJobItemStatus)[keyof typeof ReadSetImportJobItemStatus];
+
+/**
+ * @public
  * <p>A source for an import read set job.</p>
  */
 export interface ImportReadSetSourceItem {
@@ -2000,16 +2341,28 @@ export interface ImportReadSetSourceItem {
   tags?: Record<string, string>;
 }
 
-export enum ReadSetImportJobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReadSetImportJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
 
+/**
+ * @public
+ */
+export type ReadSetImportJobStatus = (typeof ReadSetImportJobStatus)[keyof typeof ReadSetImportJobStatus];
+
+/**
+ * @public
+ */
 export interface GetReadSetImportJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -2052,6 +2405,9 @@ export interface GetReadSetImportJobResponse {
   sources: ImportReadSetSourceItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetReadSetMetadataRequest {
   /**
    * <p>The read set's ID.</p>
@@ -2065,6 +2421,7 @@ export interface GetReadSetMetadataRequest {
 }
 
 /**
+ * @public
  * <p>Files in a read set.</p>
  */
 export interface ReadSetFiles {
@@ -2085,6 +2442,7 @@ export interface ReadSetFiles {
 }
 
 /**
+ * @public
  * <p>Details about a sequence.</p>
  */
 export interface SequenceInformation {
@@ -2109,14 +2467,26 @@ export interface SequenceInformation {
   alignment?: string;
 }
 
-export enum ReadSetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReadSetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+} as const;
 
+/**
+ * @public
+ */
+export type ReadSetStatus = (typeof ReadSetStatus)[keyof typeof ReadSetStatus];
+
+/**
+ * @public
+ */
 export interface GetReadSetMetadataResponse {
   /**
    * <p>The read set's ID.</p>
@@ -2184,11 +2554,23 @@ export interface GetReadSetMetadataResponse {
   files?: ReadSetFiles;
 }
 
-export enum ReferenceFile {
-  INDEX = "INDEX",
-  SOURCE = "SOURCE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceFile = {
+  INDEX: "INDEX",
+  SOURCE: "SOURCE",
+} as const;
 
+/**
+ * @public
+ */
+export type ReferenceFile = (typeof ReferenceFile)[keyof typeof ReferenceFile];
+
+/**
+ * @public
+ */
 export interface GetReferenceRequest {
   /**
    * <p>The reference's ID.</p>
@@ -2216,6 +2598,9 @@ export interface GetReferenceRequest {
   file?: ReferenceFile | string;
 }
 
+/**
+ * @public
+ */
 export interface GetReferenceResponse {
   /**
    * <p>The reference file payload.</p>
@@ -2223,6 +2608,9 @@ export interface GetReferenceResponse {
   payload?: Readable | ReadableStream | Blob;
 }
 
+/**
+ * @public
+ */
 export interface GetReferenceImportJobRequest {
   /**
    * <p>The job's ID.</p>
@@ -2235,14 +2623,25 @@ export interface GetReferenceImportJobRequest {
   referenceStoreId: string | undefined;
 }
 
-export enum ReferenceImportJobItemStatus {
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceImportJobItemStatus = {
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
 
 /**
+ * @public
+ */
+export type ReferenceImportJobItemStatus =
+  (typeof ReferenceImportJobItemStatus)[keyof typeof ReferenceImportJobItemStatus];
+
+/**
+ * @public
  * <p>An genome reference source.</p>
  */
 export interface ImportReferenceSourceItem {
@@ -2277,16 +2676,28 @@ export interface ImportReferenceSourceItem {
   tags?: Record<string, string>;
 }
 
-export enum ReferenceImportJobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceImportJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
 
+/**
+ * @public
+ */
+export type ReferenceImportJobStatus = (typeof ReferenceImportJobStatus)[keyof typeof ReferenceImportJobStatus];
+
+/**
+ * @public
+ */
 export interface GetReferenceImportJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -2329,6 +2740,9 @@ export interface GetReferenceImportJobResponse {
   sources: ImportReferenceSourceItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetReferenceMetadataRequest {
   /**
    * <p>The reference's ID.</p>
@@ -2342,6 +2756,7 @@ export interface GetReferenceMetadataRequest {
 }
 
 /**
+ * @public
  * <p>A set of genome reference files.</p>
  */
 export interface ReferenceFiles {
@@ -2356,12 +2771,24 @@ export interface ReferenceFiles {
   index?: FileInformation;
 }
 
-export enum ReferenceStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+} as const;
 
+/**
+ * @public
+ */
+export type ReferenceStatus = (typeof ReferenceStatus)[keyof typeof ReferenceStatus];
+
+/**
+ * @public
+ */
 export interface GetReferenceMetadataResponse {
   /**
    * <p>The reference's ID.</p>
@@ -2414,6 +2841,9 @@ export interface GetReferenceMetadataResponse {
   files?: ReferenceFiles;
 }
 
+/**
+ * @public
+ */
 export interface GetReferenceStoreRequest {
   /**
    * <p>The store's ID.</p>
@@ -2421,6 +2851,9 @@ export interface GetReferenceStoreRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetReferenceStoreResponse {
   /**
    * <p>The store's ID.</p>
@@ -2453,10 +2886,22 @@ export interface GetReferenceStoreResponse {
   creationTime: Date | undefined;
 }
 
-export enum RunExport {
-  DEFINITION = "DEFINITION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RunExport = {
+  DEFINITION: "DEFINITION",
+} as const;
 
+/**
+ * @public
+ */
+export type RunExport = (typeof RunExport)[keyof typeof RunExport];
+
+/**
+ * @public
+ */
 export interface GetRunRequest {
   /**
    * <p>The run's ID.</p>
@@ -2469,29 +2914,58 @@ export interface GetRunRequest {
   export?: (RunExport | string)[];
 }
 
-export enum RunLogLevel {
-  ALL = "ALL",
-  ERROR = "ERROR",
-  FATAL = "FATAL",
-  OFF = "OFF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RunLogLevel = {
+  ALL: "ALL",
+  ERROR: "ERROR",
+  FATAL: "FATAL",
+  OFF: "OFF",
+} as const;
 
-export enum RunStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-}
+/**
+ * @public
+ */
+export type RunLogLevel = (typeof RunLogLevel)[keyof typeof RunLogLevel];
 
-export enum WorkflowType {
-  PRIVATE = "PRIVATE",
-  SERVICE = "SERVICE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RunStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+} as const;
 
+/**
+ * @public
+ */
+export type RunStatus = (typeof RunStatus)[keyof typeof RunStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowType = {
+  PRIVATE: "PRIVATE",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
+
+/**
+ * @public
+ */
 export interface GetRunResponse {
   /**
    * <p>The run's ARN.</p>
@@ -2609,6 +3083,9 @@ export interface GetRunResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetRunGroupRequest {
   /**
    * <p>The group's ID.</p>
@@ -2616,6 +3093,9 @@ export interface GetRunGroupRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRunGroupResponse {
   /**
    * <p>The group's ARN.</p>
@@ -2658,6 +3138,9 @@ export interface GetRunGroupResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetRunTaskRequest {
   /**
    * <p>The task's ID.</p>
@@ -2670,16 +3153,28 @@ export interface GetRunTaskRequest {
   taskId: string | undefined;
 }
 
-export enum TaskStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+} as const;
 
+/**
+ * @public
+ */
+export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
+
+/**
+ * @public
+ */
 export interface GetRunTaskResponse {
   /**
    * <p>The task's ID.</p>
@@ -2732,6 +3227,9 @@ export interface GetRunTaskResponse {
   logStream?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSequenceStoreRequest {
   /**
    * <p>The store's ID.</p>
@@ -2739,6 +3237,9 @@ export interface GetSequenceStoreRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSequenceStoreResponse {
   /**
    * <p>The store's ID.</p>
@@ -2771,6 +3272,9 @@ export interface GetSequenceStoreResponse {
   creationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVariantImportRequest {
   /**
    * <p>The job's ID.</p>
@@ -2779,6 +3283,7 @@ export interface GetVariantImportRequest {
 }
 
 /**
+ * @public
  * <p>Details about an imported variant item.</p>
  */
 export interface VariantImportItemDetail {
@@ -2798,6 +3303,9 @@ export interface VariantImportItemDetail {
   statusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetVariantImportResponse {
   /**
    * <p>The job's ID.</p>
@@ -2850,6 +3358,9 @@ export interface GetVariantImportResponse {
   runLeftNormalization: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVariantStoreRequest {
   /**
    * <p>The store's name.</p>
@@ -2857,6 +3368,9 @@ export interface GetVariantStoreRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVariantStoreResponse {
   /**
    * <p>The store's ID.</p>
@@ -2919,10 +3433,22 @@ export interface GetVariantStoreResponse {
   storeSizeBytes: number | undefined;
 }
 
-export enum WorkflowExport {
-  DEFINITION = "DEFINITION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowExport = {
+  DEFINITION: "DEFINITION",
+} as const;
 
+/**
+ * @public
+ */
+export type WorkflowExport = (typeof WorkflowExport)[keyof typeof WorkflowExport];
+
+/**
+ * @public
+ */
 export interface GetWorkflowRequest {
   /**
    * <p>The workflow's ID.</p>
@@ -2940,6 +3466,9 @@ export interface GetWorkflowRequest {
   export?: (WorkflowExport | string)[];
 }
 
+/**
+ * @public
+ */
 export interface GetWorkflowResponse {
   /**
    * <p>The workflow's ARN.</p>
@@ -3018,6 +3547,7 @@ export interface GetWorkflowResponse {
 }
 
 /**
+ * @public
  * <p>A filter for import read set jobs.</p>
  */
 export interface ImportReadSetFilter {
@@ -3038,6 +3568,7 @@ export interface ImportReadSetFilter {
 }
 
 /**
+ * @public
  * <p>An import read set job.</p>
  */
 export interface ImportReadSetJobItem {
@@ -3073,6 +3604,7 @@ export interface ImportReadSetJobItem {
 }
 
 /**
+ * @public
  * <p>A filter for import references.</p>
  */
 export interface ImportReferenceFilter {
@@ -3093,6 +3625,7 @@ export interface ImportReferenceFilter {
 }
 
 /**
+ * @public
  * <p>An import reference job.</p>
  */
 export interface ImportReferenceJobItem {
@@ -3127,6 +3660,9 @@ export interface ImportReferenceJobItem {
   completionTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListReadSetActivationJobsRequest {
   /**
    * <p>The read set's sequence store ID.</p>
@@ -3149,6 +3685,9 @@ export interface ListReadSetActivationJobsRequest {
   filter?: ActivateReadSetFilter;
 }
 
+/**
+ * @public
+ */
 export interface ListReadSetActivationJobsResponse {
   /**
    * <p>A pagination token that's included if more results are available.</p>
@@ -3161,6 +3700,9 @@ export interface ListReadSetActivationJobsResponse {
   activationJobs?: ActivateReadSetJobItem[];
 }
 
+/**
+ * @public
+ */
 export interface ListReadSetExportJobsRequest {
   /**
    * <p>The jobs' sequence store ID.</p>
@@ -3183,6 +3725,9 @@ export interface ListReadSetExportJobsRequest {
   filter?: ExportReadSetFilter;
 }
 
+/**
+ * @public
+ */
 export interface ListReadSetExportJobsResponse {
   /**
    * <p>A pagination token that's included if more results are available.</p>
@@ -3195,6 +3740,9 @@ export interface ListReadSetExportJobsResponse {
   exportJobs?: ExportReadSetJobDetail[];
 }
 
+/**
+ * @public
+ */
 export interface ListReadSetImportJobsRequest {
   /**
    * <p>The maximum number of jobs to return in one page of results.</p>
@@ -3217,6 +3765,9 @@ export interface ListReadSetImportJobsRequest {
   filter?: ImportReadSetFilter;
 }
 
+/**
+ * @public
+ */
 export interface ListReadSetImportJobsResponse {
   /**
    * <p>A pagination token that's included if more results are available.</p>
@@ -3230,6 +3781,7 @@ export interface ListReadSetImportJobsResponse {
 }
 
 /**
+ * @public
  * <p>A filter for read sets.</p>
  */
 export interface ReadSetFilter {
@@ -3259,6 +3811,9 @@ export interface ReadSetFilter {
   createdBefore?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListReadSetsRequest {
   /**
    * <p>The jobs' sequence store ID.</p>
@@ -3282,6 +3837,7 @@ export interface ListReadSetsRequest {
 }
 
 /**
+ * @public
  * <p>A read set.</p>
  */
 export interface ReadSetListItem {
@@ -3346,6 +3902,9 @@ export interface ReadSetListItem {
   creationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListReadSetsResponse {
   /**
    * <p>A pagination token that's included if more results are available.</p>
@@ -3358,6 +3917,9 @@ export interface ListReadSetsResponse {
   readSets: ReadSetListItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListReferenceImportJobsRequest {
   /**
    * <p>The maximum number of jobs to return in one page of results.</p>
@@ -3380,6 +3942,9 @@ export interface ListReferenceImportJobsRequest {
   filter?: ImportReferenceFilter;
 }
 
+/**
+ * @public
+ */
 export interface ListReferenceImportJobsResponse {
   /**
    * <p>A pagination token that's included if more results are available.</p>
@@ -3393,6 +3958,7 @@ export interface ListReferenceImportJobsResponse {
 }
 
 /**
+ * @public
  * <p>A filter for references.</p>
  */
 export interface ReferenceFilter {
@@ -3417,6 +3983,9 @@ export interface ReferenceFilter {
   createdBefore?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListReferencesRequest {
   /**
    * <p>The references' reference store ID.</p>
@@ -3440,6 +4009,7 @@ export interface ListReferencesRequest {
 }
 
 /**
+ * @public
  * <p>A genome reference.</p>
  */
 export interface ReferenceListItem {
@@ -3489,6 +4059,9 @@ export interface ReferenceListItem {
   updateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListReferencesResponse {
   /**
    * <p>A pagination token that's included if more results are available.</p>
@@ -3502,6 +4075,7 @@ export interface ListReferencesResponse {
 }
 
 /**
+ * @public
  * <p>A filter for reference stores.</p>
  */
 export interface ReferenceStoreFilter {
@@ -3521,6 +4095,9 @@ export interface ReferenceStoreFilter {
   createdBefore?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListReferenceStoresRequest {
   /**
    * <p>The maximum number of stores to return in one page of results.</p>
@@ -3539,6 +4116,7 @@ export interface ListReferenceStoresRequest {
 }
 
 /**
+ * @public
  * <p>Details about a reference store.</p>
  */
 export interface ReferenceStoreDetail {
@@ -3573,6 +4151,9 @@ export interface ReferenceStoreDetail {
   creationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListReferenceStoresResponse {
   /**
    * <p>A pagination token that's included if more results are available.</p>
@@ -3585,6 +4166,9 @@ export interface ListReferenceStoresResponse {
   referenceStores: ReferenceStoreDetail[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRunGroupsRequest {
   /**
    * <p>The run groups' name.</p>
@@ -3603,6 +4187,7 @@ export interface ListRunGroupsRequest {
 }
 
 /**
+ * @public
  * <p>A run group.</p>
  */
 export interface RunGroupListItem {
@@ -3642,6 +4227,9 @@ export interface RunGroupListItem {
   creationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListRunGroupsResponse {
   /**
    * <p>A list of groups.</p>
@@ -3654,6 +4242,9 @@ export interface ListRunGroupsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRunsRequest {
   /**
    * <p>Filter the list by run name.</p>
@@ -3677,6 +4268,7 @@ export interface ListRunsRequest {
 }
 
 /**
+ * @public
  * <p>A workflow run.</p>
  */
 export interface RunListItem {
@@ -3731,6 +4323,9 @@ export interface RunListItem {
   stopTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListRunsResponse {
   /**
    * <p>A list of runs.</p>
@@ -3743,6 +4338,9 @@ export interface ListRunsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRunTasksRequest {
   /**
    * <p>The run's ID.</p>
@@ -3766,6 +4364,7 @@ export interface ListRunTasksRequest {
 }
 
 /**
+ * @public
  * <p>A workflow run task.</p>
  */
 export interface TaskListItem {
@@ -3810,6 +4409,9 @@ export interface TaskListItem {
   stopTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListRunTasksResponse {
   /**
    * <p>A list of tasks.</p>
@@ -3823,6 +4425,7 @@ export interface ListRunTasksResponse {
 }
 
 /**
+ * @public
  * <p>A filter for a sequence store.</p>
  */
 export interface SequenceStoreFilter {
@@ -3842,6 +4445,9 @@ export interface SequenceStoreFilter {
   createdBefore?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSequenceStoresRequest {
   /**
    * <p>The maximum number of stores to return in one page of results.</p>
@@ -3860,6 +4466,7 @@ export interface ListSequenceStoresRequest {
 }
 
 /**
+ * @public
  * <p>Details about a sequence store.</p>
  */
 export interface SequenceStoreDetail {
@@ -3894,6 +4501,9 @@ export interface SequenceStoreDetail {
   creationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSequenceStoresResponse {
   /**
    * <p>A pagination token that's included if more results are available.</p>
@@ -3906,6 +4516,9 @@ export interface ListSequenceStoresResponse {
   sequenceStores: SequenceStoreDetail[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource's ARN.</p>
@@ -3913,6 +4526,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags.</p>
@@ -3921,6 +4537,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>A filter for variant import jobs.</p>
  */
 export interface ListVariantImportJobsFilter {
@@ -3935,6 +4552,9 @@ export interface ListVariantImportJobsFilter {
   storeName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVariantImportJobsRequest {
   /**
    * <p>The maximum number of import jobs to return in one page of results.</p>
@@ -3958,6 +4578,7 @@ export interface ListVariantImportJobsRequest {
 }
 
 /**
+ * @public
  * <p>A variant import job.</p>
  */
 export interface VariantImportJobItem {
@@ -4002,6 +4623,9 @@ export interface VariantImportJobItem {
   runLeftNormalization?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListVariantImportJobsResponse {
   /**
    * <p>A list of jobs.</p>
@@ -4015,6 +4639,7 @@ export interface ListVariantImportJobsResponse {
 }
 
 /**
+ * @public
  * <p>A filter for variant stores.</p>
  */
 export interface ListVariantStoresFilter {
@@ -4024,6 +4649,9 @@ export interface ListVariantStoresFilter {
   status?: StoreStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListVariantStoresRequest {
   /**
    * <p>The maximum number of stores to return in one page of results.</p>
@@ -4047,6 +4675,7 @@ export interface ListVariantStoresRequest {
 }
 
 /**
+ * @public
  * <p>A variant store.</p>
  */
 export interface VariantStoreItem {
@@ -4106,6 +4735,9 @@ export interface VariantStoreItem {
   storeSizeBytes: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListVariantStoresResponse {
   /**
    * <p>A list of variant stores.</p>
@@ -4118,6 +4750,9 @@ export interface ListVariantStoresResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowsRequest {
   /**
    * <p>The workflows' type.</p>
@@ -4141,6 +4776,7 @@ export interface ListWorkflowsRequest {
 }
 
 /**
+ * @public
  * <p>A workflow.</p>
  */
 export interface WorkflowListItem {
@@ -4180,6 +4816,9 @@ export interface WorkflowListItem {
   creationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowsResponse {
   /**
    * <p>The workflows' items.</p>
@@ -4193,6 +4832,7 @@ export interface ListWorkflowsResponse {
 }
 
 /**
+ * @public
  * <p>A source for a reference import job.</p>
  */
 export interface StartReferenceImportJobSourceItem {
@@ -4217,6 +4857,9 @@ export interface StartReferenceImportJobSourceItem {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartReferenceImportJobRequest {
   /**
    * <p>The job's reference store ID.</p>
@@ -4239,6 +4882,9 @@ export interface StartReferenceImportJobRequest {
   sources: StartReferenceImportJobSourceItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartReferenceImportJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -4266,6 +4912,9 @@ export interface StartReferenceImportJobResponse {
   creationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRunGroupRequest {
   /**
    * <p>The group's ID.</p>
@@ -4293,6 +4942,9 @@ export interface UpdateRunGroupRequest {
   maxDuration?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartRunRequest {
   /**
    * <p>The run's workflow ID.</p>
@@ -4360,6 +5012,9 @@ export interface StartRunRequest {
   requestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartRunResponse {
   /**
    * <p>The run's ARN.</p>
@@ -4383,6 +5038,7 @@ export interface StartRunResponse {
 }
 
 /**
+ * @public
  * <p>A source for a read set activation job.</p>
  */
 export interface StartReadSetActivationJobSourceItem {
@@ -4392,6 +5048,9 @@ export interface StartReadSetActivationJobSourceItem {
   readSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartReadSetActivationJobRequest {
   /**
    * <p>The read set's sequence store ID.</p>
@@ -4409,6 +5068,9 @@ export interface StartReadSetActivationJobRequest {
   sources: StartReadSetActivationJobSourceItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartReadSetActivationJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -4431,6 +5093,9 @@ export interface StartReadSetActivationJobResponse {
   creationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartReadSetExportJobRequest {
   /**
    * <p>The read set's sequence store ID.</p>
@@ -4458,6 +5123,9 @@ export interface StartReadSetExportJobRequest {
   sources: ExportReadSet[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartReadSetExportJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -4486,6 +5154,7 @@ export interface StartReadSetExportJobResponse {
 }
 
 /**
+ * @public
  * <p>A source for a read set import job.</p>
  */
 export interface StartReadSetImportJobSourceItem {
@@ -4535,6 +5204,9 @@ export interface StartReadSetImportJobSourceItem {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartReadSetImportJobRequest {
   /**
    * <p>The read set's sequence store ID.</p>
@@ -4557,6 +5229,9 @@ export interface StartReadSetImportJobRequest {
   sources: StartReadSetImportJobSourceItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartReadSetImportJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -4584,6 +5259,9 @@ export interface StartReadSetImportJobResponse {
   creationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The resource's ARN.</p>
@@ -4596,8 +5274,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The resource's ARN.</p>
@@ -4610,9 +5294,13 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>A imported variant item's source.</p>
  */
 export interface VariantImportItemSource {
@@ -4622,6 +5310,9 @@ export interface VariantImportItemSource {
   source: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartVariantImportRequest {
   /**
    * <p>The destination variant store for the job.</p>
@@ -4644,6 +5335,9 @@ export interface StartVariantImportRequest {
   runLeftNormalization?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartVariantImportResponse {
   /**
    * <p>The job's ID.</p>
@@ -4651,6 +5345,9 @@ export interface StartVariantImportResponse {
   jobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVariantStoreRequest {
   /**
    * <p>A name for the store.</p>
@@ -4663,6 +5360,9 @@ export interface UpdateVariantStoreRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVariantStoreResponse {
   /**
    * <p>The store's ID.</p>
@@ -4700,6 +5400,9 @@ export interface UpdateVariantStoreResponse {
   updateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowRequest {
   /**
    * <p>The workflow's ID.</p>
@@ -4720,510 +5423,6 @@ export interface UpdateWorkflowRequest {
 /**
  * @internal
  */
-export const ActivateReadSetFilterFilterSensitiveLog = (obj: ActivateReadSetFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivateReadSetJobItemFilterSensitiveLog = (obj: ActivateReadSetJobItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivateReadSetSourceItemFilterSensitiveLog = (obj: ActivateReadSetSourceItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnnotationImportItemDetailFilterSensitiveLog = (obj: AnnotationImportItemDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnnotationImportItemSourceFilterSensitiveLog = (obj: AnnotationImportItemSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelAnnotationImportRequestFilterSensitiveLog = (obj: CancelAnnotationImportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelAnnotationImportResponseFilterSensitiveLog = (obj: CancelAnnotationImportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnnotationImportRequestFilterSensitiveLog = (obj: GetAnnotationImportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReadOptionsFilterSensitiveLog = (obj: ReadOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TsvOptionsFilterSensitiveLog = (obj: TsvOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VcfOptionsFilterSensitiveLog = (obj: VcfOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FormatOptionsFilterSensitiveLog = (obj: FormatOptions): any => {
-  if (obj.tsvOptions !== undefined) return { tsvOptions: TsvOptionsFilterSensitiveLog(obj.tsvOptions) };
-  if (obj.vcfOptions !== undefined) return { vcfOptions: VcfOptionsFilterSensitiveLog(obj.vcfOptions) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const GetAnnotationImportResponseFilterSensitiveLog = (obj: GetAnnotationImportResponse): any => ({
-  ...obj,
-  ...(obj.formatOptions && { formatOptions: FormatOptionsFilterSensitiveLog(obj.formatOptions) }),
-});
-
-/**
- * @internal
- */
-export const ListAnnotationImportJobsFilterFilterSensitiveLog = (obj: ListAnnotationImportJobsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnnotationImportJobsRequestFilterSensitiveLog = (obj: ListAnnotationImportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnnotationImportJobItemFilterSensitiveLog = (obj: AnnotationImportJobItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnnotationImportJobsResponseFilterSensitiveLog = (obj: ListAnnotationImportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAnnotationImportRequestFilterSensitiveLog = (obj: StartAnnotationImportRequest): any => ({
-  ...obj,
-  ...(obj.formatOptions && { formatOptions: FormatOptionsFilterSensitiveLog(obj.formatOptions) }),
-});
-
-/**
- * @internal
- */
-export const StartAnnotationImportResponseFilterSensitiveLog = (obj: StartAnnotationImportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReferenceItemFilterSensitiveLog = (obj: ReferenceItem): any => {
-  if (obj.referenceArn !== undefined) return { referenceArn: obj.referenceArn };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SseConfigFilterSensitiveLog = (obj: SseConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TsvStoreOptionsFilterSensitiveLog = (obj: TsvStoreOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StoreOptionsFilterSensitiveLog = (obj: StoreOptions): any => {
-  if (obj.tsvStoreOptions !== undefined)
-    return { tsvStoreOptions: TsvStoreOptionsFilterSensitiveLog(obj.tsvStoreOptions) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateAnnotationStoreRequestFilterSensitiveLog = (obj: CreateAnnotationStoreRequest): any => ({
-  ...obj,
-  ...(obj.reference && { reference: ReferenceItemFilterSensitiveLog(obj.reference) }),
-  ...(obj.storeOptions && { storeOptions: StoreOptionsFilterSensitiveLog(obj.storeOptions) }),
-});
-
-/**
- * @internal
- */
-export const CreateAnnotationStoreResponseFilterSensitiveLog = (obj: CreateAnnotationStoreResponse): any => ({
-  ...obj,
-  ...(obj.reference && { reference: ReferenceItemFilterSensitiveLog(obj.reference) }),
-  ...(obj.storeOptions && { storeOptions: StoreOptionsFilterSensitiveLog(obj.storeOptions) }),
-});
-
-/**
- * @internal
- */
-export const DeleteAnnotationStoreRequestFilterSensitiveLog = (obj: DeleteAnnotationStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAnnotationStoreResponseFilterSensitiveLog = (obj: DeleteAnnotationStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnnotationStoreRequestFilterSensitiveLog = (obj: GetAnnotationStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnnotationStoreResponseFilterSensitiveLog = (obj: GetAnnotationStoreResponse): any => ({
-  ...obj,
-  ...(obj.reference && { reference: ReferenceItemFilterSensitiveLog(obj.reference) }),
-  ...(obj.storeOptions && { storeOptions: StoreOptionsFilterSensitiveLog(obj.storeOptions) }),
-});
-
-/**
- * @internal
- */
-export const ListAnnotationStoresFilterFilterSensitiveLog = (obj: ListAnnotationStoresFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnnotationStoresRequestFilterSensitiveLog = (obj: ListAnnotationStoresRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnnotationStoreItemFilterSensitiveLog = (obj: AnnotationStoreItem): any => ({
-  ...obj,
-  ...(obj.reference && { reference: ReferenceItemFilterSensitiveLog(obj.reference) }),
-});
-
-/**
- * @internal
- */
-export const ListAnnotationStoresResponseFilterSensitiveLog = (obj: ListAnnotationStoresResponse): any => ({
-  ...obj,
-  ...(obj.annotationStores && {
-    annotationStores: obj.annotationStores.map((item) => AnnotationStoreItemFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateAnnotationStoreRequestFilterSensitiveLog = (obj: UpdateAnnotationStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAnnotationStoreResponseFilterSensitiveLog = (obj: UpdateAnnotationStoreResponse): any => ({
-  ...obj,
-  ...(obj.reference && { reference: ReferenceItemFilterSensitiveLog(obj.reference) }),
-  ...(obj.storeOptions && { storeOptions: StoreOptionsFilterSensitiveLog(obj.storeOptions) }),
-});
-
-/**
- * @internal
- */
-export const BatchDeleteReadSetRequestFilterSensitiveLog = (obj: BatchDeleteReadSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReadSetBatchErrorFilterSensitiveLog = (obj: ReadSetBatchError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteReadSetResponseFilterSensitiveLog = (obj: BatchDeleteReadSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelRunRequestFilterSensitiveLog = (obj: CancelRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelVariantImportRequestFilterSensitiveLog = (obj: CancelVariantImportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelVariantImportResponseFilterSensitiveLog = (obj: CancelVariantImportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReferenceStoreRequestFilterSensitiveLog = (obj: CreateReferenceStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReferenceStoreResponseFilterSensitiveLog = (obj: CreateReferenceStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRunGroupRequestFilterSensitiveLog = (obj: CreateRunGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRunGroupResponseFilterSensitiveLog = (obj: CreateRunGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSequenceStoreRequestFilterSensitiveLog = (obj: CreateSequenceStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSequenceStoreResponseFilterSensitiveLog = (obj: CreateSequenceStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVariantStoreRequestFilterSensitiveLog = (obj: CreateVariantStoreRequest): any => ({
-  ...obj,
-  ...(obj.reference && { reference: ReferenceItemFilterSensitiveLog(obj.reference) }),
-});
-
-/**
- * @internal
- */
-export const CreateVariantStoreResponseFilterSensitiveLog = (obj: CreateVariantStoreResponse): any => ({
-  ...obj,
-  ...(obj.reference && { reference: ReferenceItemFilterSensitiveLog(obj.reference) }),
-});
-
-/**
- * @internal
- */
-export const WorkflowParameterFilterSensitiveLog = (obj: WorkflowParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkflowRequestFilterSensitiveLog = (obj: CreateWorkflowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkflowResponseFilterSensitiveLog = (obj: CreateWorkflowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReferenceRequestFilterSensitiveLog = (obj: DeleteReferenceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReferenceResponseFilterSensitiveLog = (obj: DeleteReferenceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReferenceStoreRequestFilterSensitiveLog = (obj: DeleteReferenceStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReferenceStoreResponseFilterSensitiveLog = (obj: DeleteReferenceStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRunRequestFilterSensitiveLog = (obj: DeleteRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRunGroupRequestFilterSensitiveLog = (obj: DeleteRunGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSequenceStoreRequestFilterSensitiveLog = (obj: DeleteSequenceStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSequenceStoreResponseFilterSensitiveLog = (obj: DeleteSequenceStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVariantStoreRequestFilterSensitiveLog = (obj: DeleteVariantStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVariantStoreResponseFilterSensitiveLog = (obj: DeleteVariantStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkflowRequestFilterSensitiveLog = (obj: DeleteWorkflowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportReadSetFilterSensitiveLog = (obj: ExportReadSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportReadSetDetailFilterSensitiveLog = (obj: ExportReadSetDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportReadSetFilterFilterSensitiveLog = (obj: ExportReadSetFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportReadSetJobDetailFilterSensitiveLog = (obj: ExportReadSetJobDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FileInformationFilterSensitiveLog = (obj: FileInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReadSetRequestFilterSensitiveLog = (obj: GetReadSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetReadSetResponseFilterSensitiveLog = (obj: GetReadSetResponse): any => ({
   ...obj,
 });
@@ -5231,784 +5430,6 @@ export const GetReadSetResponseFilterSensitiveLog = (obj: GetReadSetResponse): a
 /**
  * @internal
  */
-export const GetReadSetActivationJobRequestFilterSensitiveLog = (obj: GetReadSetActivationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReadSetActivationJobResponseFilterSensitiveLog = (obj: GetReadSetActivationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReadSetExportJobRequestFilterSensitiveLog = (obj: GetReadSetExportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReadSetExportJobResponseFilterSensitiveLog = (obj: GetReadSetExportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReadSetImportJobRequestFilterSensitiveLog = (obj: GetReadSetImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceFilesFilterSensitiveLog = (obj: SourceFiles): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportReadSetSourceItemFilterSensitiveLog = (obj: ImportReadSetSourceItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReadSetImportJobResponseFilterSensitiveLog = (obj: GetReadSetImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReadSetMetadataRequestFilterSensitiveLog = (obj: GetReadSetMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReadSetFilesFilterSensitiveLog = (obj: ReadSetFiles): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SequenceInformationFilterSensitiveLog = (obj: SequenceInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReadSetMetadataResponseFilterSensitiveLog = (obj: GetReadSetMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReferenceRequestFilterSensitiveLog = (obj: GetReferenceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetReferenceResponseFilterSensitiveLog = (obj: GetReferenceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReferenceImportJobRequestFilterSensitiveLog = (obj: GetReferenceImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportReferenceSourceItemFilterSensitiveLog = (obj: ImportReferenceSourceItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReferenceImportJobResponseFilterSensitiveLog = (obj: GetReferenceImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReferenceMetadataRequestFilterSensitiveLog = (obj: GetReferenceMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReferenceFilesFilterSensitiveLog = (obj: ReferenceFiles): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReferenceMetadataResponseFilterSensitiveLog = (obj: GetReferenceMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReferenceStoreRequestFilterSensitiveLog = (obj: GetReferenceStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReferenceStoreResponseFilterSensitiveLog = (obj: GetReferenceStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRunRequestFilterSensitiveLog = (obj: GetRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRunResponseFilterSensitiveLog = (obj: GetRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRunGroupRequestFilterSensitiveLog = (obj: GetRunGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRunGroupResponseFilterSensitiveLog = (obj: GetRunGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRunTaskRequestFilterSensitiveLog = (obj: GetRunTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRunTaskResponseFilterSensitiveLog = (obj: GetRunTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSequenceStoreRequestFilterSensitiveLog = (obj: GetSequenceStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSequenceStoreResponseFilterSensitiveLog = (obj: GetSequenceStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVariantImportRequestFilterSensitiveLog = (obj: GetVariantImportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VariantImportItemDetailFilterSensitiveLog = (obj: VariantImportItemDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVariantImportResponseFilterSensitiveLog = (obj: GetVariantImportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVariantStoreRequestFilterSensitiveLog = (obj: GetVariantStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVariantStoreResponseFilterSensitiveLog = (obj: GetVariantStoreResponse): any => ({
-  ...obj,
-  ...(obj.reference && { reference: ReferenceItemFilterSensitiveLog(obj.reference) }),
-});
-
-/**
- * @internal
- */
-export const GetWorkflowRequestFilterSensitiveLog = (obj: GetWorkflowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowResponseFilterSensitiveLog = (obj: GetWorkflowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportReadSetFilterFilterSensitiveLog = (obj: ImportReadSetFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportReadSetJobItemFilterSensitiveLog = (obj: ImportReadSetJobItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportReferenceFilterFilterSensitiveLog = (obj: ImportReferenceFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportReferenceJobItemFilterSensitiveLog = (obj: ImportReferenceJobItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReadSetActivationJobsRequestFilterSensitiveLog = (obj: ListReadSetActivationJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReadSetActivationJobsResponseFilterSensitiveLog = (obj: ListReadSetActivationJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReadSetExportJobsRequestFilterSensitiveLog = (obj: ListReadSetExportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReadSetExportJobsResponseFilterSensitiveLog = (obj: ListReadSetExportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReadSetImportJobsRequestFilterSensitiveLog = (obj: ListReadSetImportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReadSetImportJobsResponseFilterSensitiveLog = (obj: ListReadSetImportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReadSetFilterFilterSensitiveLog = (obj: ReadSetFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReadSetsRequestFilterSensitiveLog = (obj: ListReadSetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReadSetListItemFilterSensitiveLog = (obj: ReadSetListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReadSetsResponseFilterSensitiveLog = (obj: ListReadSetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReferenceImportJobsRequestFilterSensitiveLog = (obj: ListReferenceImportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReferenceImportJobsResponseFilterSensitiveLog = (obj: ListReferenceImportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReferenceFilterFilterSensitiveLog = (obj: ReferenceFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReferencesRequestFilterSensitiveLog = (obj: ListReferencesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReferenceListItemFilterSensitiveLog = (obj: ReferenceListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReferencesResponseFilterSensitiveLog = (obj: ListReferencesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReferenceStoreFilterFilterSensitiveLog = (obj: ReferenceStoreFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReferenceStoresRequestFilterSensitiveLog = (obj: ListReferenceStoresRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReferenceStoreDetailFilterSensitiveLog = (obj: ReferenceStoreDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReferenceStoresResponseFilterSensitiveLog = (obj: ListReferenceStoresResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRunGroupsRequestFilterSensitiveLog = (obj: ListRunGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunGroupListItemFilterSensitiveLog = (obj: RunGroupListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRunGroupsResponseFilterSensitiveLog = (obj: ListRunGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRunsRequestFilterSensitiveLog = (obj: ListRunsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunListItemFilterSensitiveLog = (obj: RunListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRunsResponseFilterSensitiveLog = (obj: ListRunsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRunTasksRequestFilterSensitiveLog = (obj: ListRunTasksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskListItemFilterSensitiveLog = (obj: TaskListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRunTasksResponseFilterSensitiveLog = (obj: ListRunTasksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SequenceStoreFilterFilterSensitiveLog = (obj: SequenceStoreFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSequenceStoresRequestFilterSensitiveLog = (obj: ListSequenceStoresRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SequenceStoreDetailFilterSensitiveLog = (obj: SequenceStoreDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSequenceStoresResponseFilterSensitiveLog = (obj: ListSequenceStoresResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVariantImportJobsFilterFilterSensitiveLog = (obj: ListVariantImportJobsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVariantImportJobsRequestFilterSensitiveLog = (obj: ListVariantImportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VariantImportJobItemFilterSensitiveLog = (obj: VariantImportJobItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVariantImportJobsResponseFilterSensitiveLog = (obj: ListVariantImportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVariantStoresFilterFilterSensitiveLog = (obj: ListVariantStoresFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVariantStoresRequestFilterSensitiveLog = (obj: ListVariantStoresRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VariantStoreItemFilterSensitiveLog = (obj: VariantStoreItem): any => ({
-  ...obj,
-  ...(obj.reference && { reference: ReferenceItemFilterSensitiveLog(obj.reference) }),
-});
-
-/**
- * @internal
- */
-export const ListVariantStoresResponseFilterSensitiveLog = (obj: ListVariantStoresResponse): any => ({
-  ...obj,
-  ...(obj.variantStores && {
-    variantStores: obj.variantStores.map((item) => VariantStoreItemFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ListWorkflowsRequestFilterSensitiveLog = (obj: ListWorkflowsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkflowListItemFilterSensitiveLog = (obj: WorkflowListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkflowsResponseFilterSensitiveLog = (obj: ListWorkflowsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReferenceImportJobSourceItemFilterSensitiveLog = (obj: StartReferenceImportJobSourceItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReferenceImportJobRequestFilterSensitiveLog = (obj: StartReferenceImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReferenceImportJobResponseFilterSensitiveLog = (obj: StartReferenceImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRunGroupRequestFilterSensitiveLog = (obj: UpdateRunGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRunRequestFilterSensitiveLog = (obj: StartRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRunResponseFilterSensitiveLog = (obj: StartRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReadSetActivationJobSourceItemFilterSensitiveLog = (
-  obj: StartReadSetActivationJobSourceItem
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReadSetActivationJobRequestFilterSensitiveLog = (obj: StartReadSetActivationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReadSetActivationJobResponseFilterSensitiveLog = (obj: StartReadSetActivationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReadSetExportJobRequestFilterSensitiveLog = (obj: StartReadSetExportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReadSetExportJobResponseFilterSensitiveLog = (obj: StartReadSetExportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReadSetImportJobSourceItemFilterSensitiveLog = (obj: StartReadSetImportJobSourceItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReadSetImportJobRequestFilterSensitiveLog = (obj: StartReadSetImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReadSetImportJobResponseFilterSensitiveLog = (obj: StartReadSetImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VariantImportItemSourceFilterSensitiveLog = (obj: VariantImportItemSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartVariantImportRequestFilterSensitiveLog = (obj: StartVariantImportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartVariantImportResponseFilterSensitiveLog = (obj: StartVariantImportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVariantStoreRequestFilterSensitiveLog = (obj: UpdateVariantStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVariantStoreResponseFilterSensitiveLog = (obj: UpdateVariantStoreResponse): any => ({
-  ...obj,
-  ...(obj.reference && { reference: ReferenceItemFilterSensitiveLog(obj.reference) }),
-});
-
-/**
- * @internal
- */
-export const UpdateWorkflowRequestFilterSensitiveLog = (obj: UpdateWorkflowRequest): any => ({
   ...obj,
 });

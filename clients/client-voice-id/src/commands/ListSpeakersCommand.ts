@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSpeakersRequest,
-  ListSpeakersRequestFilterSensitiveLog,
-  ListSpeakersResponse,
-  ListSpeakersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListSpeakersCommand,
-  serializeAws_json1_0ListSpeakersCommand,
-} from "../protocols/Aws_json1_0";
+import { ListSpeakersRequest, ListSpeakersResponse, ListSpeakersResponseFilterSensitiveLog } from "../models/models_0";
+import { de_ListSpeakersCommand, se_ListSpeakersCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSpeakersCommand}.
  */
 export interface ListSpeakersCommandInput extends ListSpeakersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSpeakersCommand}.
  */
 export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all speakers in a specified domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __Metad
  * import { VoiceIDClient, ListSpeakersCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, ListSpeakersCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = { // ListSpeakersRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSpeakersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSpeakersCommandInput - {@link ListSpeakersCommandInput}
+ * @returns {@link ListSpeakersCommandOutput}
  * @see {@link ListSpeakersCommandInput} for command's `input` shape.
  * @see {@link ListSpeakersCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -90,6 +94,9 @@ export class ListSpeakersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSpeakersCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +123,7 @@ export class ListSpeakersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSpeakersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListSpeakersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -127,12 +134,18 @@ export class ListSpeakersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSpeakersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListSpeakersCommand(input, context);
+    return se_ListSpeakersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSpeakersCommandOutput> {
-    return deserializeAws_json1_0ListSpeakersCommand(output, context);
+    return de_ListSpeakersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeregisterDBProxyTargetsRequest,
-  DeregisterDBProxyTargetsRequestFilterSensitiveLog,
-  DeregisterDBProxyTargetsResponse,
-  DeregisterDBProxyTargetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeregisterDBProxyTargetsCommand,
-  serializeAws_queryDeregisterDBProxyTargetsCommand,
-} from "../protocols/Aws_query";
+import { DeregisterDBProxyTargetsRequest, DeregisterDBProxyTargetsResponse } from "../models/models_0";
+import { de_DeregisterDBProxyTargetsCommand, se_DeregisterDBProxyTargetsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterDBProxyTargetsCommand}.
  */
 export interface DeregisterDBProxyTargetsCommandInput extends DeregisterDBProxyTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterDBProxyTargetsCommand}.
  */
 export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxyTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove the association between one or more <code>DBProxyTarget</code> data structures and a <code>DBProxyTargetGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxy
  * import { RDSClient, DeregisterDBProxyTargetsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeregisterDBProxyTargetsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeregisterDBProxyTargetsRequest
+ *   DBProxyName: "STRING_VALUE", // required
+ *   TargetGroupName: "STRING_VALUE",
+ *   DBInstanceIdentifiers: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DBClusterIdentifiers: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeregisterDBProxyTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterDBProxyTargetsCommandInput - {@link DeregisterDBProxyTargetsCommandInput}
+ * @returns {@link DeregisterDBProxyTargetsCommandOutput}
  * @see {@link DeregisterDBProxyTargetsCommandInput} for command's `input` shape.
  * @see {@link DeregisterDBProxyTargetsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -81,6 +90,9 @@ export class DeregisterDBProxyTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterDBProxyTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +121,8 @@ export class DeregisterDBProxyTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterDBProxyTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterDBProxyTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +132,18 @@ export class DeregisterDBProxyTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterDBProxyTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeregisterDBProxyTargetsCommand(input, context);
+    return se_DeregisterDBProxyTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterDBProxyTargetsCommandOutput> {
-    return deserializeAws_queryDeregisterDBProxyTargetsCommand(output, context);
+    return de_DeregisterDBProxyTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

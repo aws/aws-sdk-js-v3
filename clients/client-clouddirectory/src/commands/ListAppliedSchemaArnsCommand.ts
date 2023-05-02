@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListAppliedSchemaArnsRequest,
-  ListAppliedSchemaArnsRequestFilterSensitiveLog,
-  ListAppliedSchemaArnsResponse,
-  ListAppliedSchemaArnsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppliedSchemaArnsCommand,
-  serializeAws_restJson1ListAppliedSchemaArnsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAppliedSchemaArnsRequest, ListAppliedSchemaArnsResponse } from "../models/models_0";
+import { de_ListAppliedSchemaArnsCommand, se_ListAppliedSchemaArnsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppliedSchemaArnsCommand}.
  */
 export interface ListAppliedSchemaArnsCommandInput extends ListAppliedSchemaArnsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppliedSchemaArnsCommand}.
  */
 export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArnsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists schema major versions applied to a directory. If <code>SchemaArn</code> is provided, lists the minor version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArn
  * import { CloudDirectoryClient, ListAppliedSchemaArnsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListAppliedSchemaArnsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListAppliedSchemaArnsRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   SchemaArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAppliedSchemaArnsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppliedSchemaArnsCommandInput - {@link ListAppliedSchemaArnsCommandInput}
+ * @returns {@link ListAppliedSchemaArnsCommandOutput}
  * @see {@link ListAppliedSchemaArnsCommandInput} for command's `input` shape.
  * @see {@link ListAppliedSchemaArnsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -94,6 +99,9 @@ export class ListAppliedSchemaArnsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppliedSchemaArnsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +130,8 @@ export class ListAppliedSchemaArnsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppliedSchemaArnsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppliedSchemaArnsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +141,18 @@ export class ListAppliedSchemaArnsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppliedSchemaArnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppliedSchemaArnsCommand(input, context);
+    return se_ListAppliedSchemaArnsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppliedSchemaArnsCommandOutput> {
-    return deserializeAws_restJson1ListAppliedSchemaArnsCommand(output, context);
+    return de_ListAppliedSchemaArnsCommand(output, context);
   }
 
   // Start section: command_body_extra

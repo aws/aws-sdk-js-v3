@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteUseCaseRequest, DeleteUseCaseRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUseCaseCommand,
-  serializeAws_restJson1DeleteUseCaseCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteUseCaseRequest } from "../models/models_0";
+import { de_DeleteUseCaseCommand, se_DeleteUseCaseCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUseCaseCommand}.
  */
 export interface DeleteUseCaseCommandInput extends DeleteUseCaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUseCaseCommand}.
  */
 export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a use case from an integration association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,17 @@ export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DeleteUseCaseCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteUseCaseCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DeleteUseCaseRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   IntegrationAssociationId: "STRING_VALUE", // required
+ *   UseCaseId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUseCaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUseCaseCommandInput - {@link DeleteUseCaseCommandInput}
+ * @returns {@link DeleteUseCaseCommandOutput}
  * @see {@link DeleteUseCaseCommandInput} for command's `input` shape.
  * @see {@link DeleteUseCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -76,6 +85,9 @@ export class DeleteUseCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUseCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +114,8 @@ export class DeleteUseCaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUseCaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +125,18 @@ export class DeleteUseCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUseCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUseCaseCommand(input, context);
+    return se_DeleteUseCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUseCaseCommandOutput> {
-    return deserializeAws_restJson1DeleteUseCaseCommand(output, context);
+    return de_DeleteUseCaseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  UpdateModelRequest,
-  UpdateModelRequestFilterSensitiveLog,
-  UpdateModelResult,
-  UpdateModelResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateModelCommand,
-  serializeAws_json1_1UpdateModelCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateModelRequest, UpdateModelResult } from "../models/models_0";
+import { de_UpdateModelCommand, se_UpdateModelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateModelCommand}.
  */
 export interface UpdateModelCommandInput extends UpdateModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateModelCommand}.
  */
 export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates model description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataB
  * import { FraudDetectorClient, UpdateModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // UpdateModelRequest
+ *   modelId: "STRING_VALUE", // required
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateModelCommandInput - {@link UpdateModelCommandInput}
+ * @returns {@link UpdateModelCommandOutput}
  * @see {@link UpdateModelCommandInput} for command's `input` shape.
  * @see {@link UpdateModelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +91,9 @@ export class UpdateModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class UpdateModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateModelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class UpdateModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateModelCommand(input, context);
+    return se_UpdateModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelCommandOutput> {
-    return deserializeAws_json1_1UpdateModelCommand(output, context);
+    return de_UpdateModelCommand(output, context);
   }
 
   // Start section: command_body_extra

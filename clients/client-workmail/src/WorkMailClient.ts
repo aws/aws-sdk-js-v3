@@ -287,6 +287,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateDelegateToResourceCommandInput
   | AssociateMemberToGroupCommandInput
@@ -369,6 +372,9 @@ export type ServiceInputTypes =
   | UpdatePrimaryEmailAddressCommandInput
   | UpdateResourceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateDelegateToResourceCommandOutput
   | AssociateMemberToGroupCommandOutput
@@ -451,6 +457,9 @@ export type ServiceOutputTypes =
   | UpdatePrimaryEmailAddressCommandOutput
   | UpdateResourceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -458,7 +467,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -567,11 +576,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type WorkMailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -582,10 +594,15 @@ type WorkMailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of WorkMailClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of WorkMailClient class constructor that set the region, credentials and other options.
  */
 export interface WorkMailClientConfig extends WorkMailClientConfigType {}
 
+/**
+ * @public
+ */
 type WorkMailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -596,11 +613,14 @@ type WorkMailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of WorkMailClient class. This is resolved and normalized from the {@link WorkMailClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of WorkMailClient class. This is resolved and normalized from the {@link WorkMailClientConfig | constructor configuration interface}.
  */
 export interface WorkMailClientResolvedConfig extends WorkMailClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>WorkMail is a secure, managed business email and calendaring service with support for
  *          existing desktop and mobile email clients. You can access your email, contacts, and
  *          calendars using Microsoft Outlook, your browser, or other native iOS and Android email

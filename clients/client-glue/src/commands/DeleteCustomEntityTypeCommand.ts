@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteCustomEntityTypeRequest,
-  DeleteCustomEntityTypeRequestFilterSensitiveLog,
-  DeleteCustomEntityTypeResponse,
-  DeleteCustomEntityTypeResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteCustomEntityTypeCommand,
-  serializeAws_json1_1DeleteCustomEntityTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteCustomEntityTypeRequest, DeleteCustomEntityTypeResponse } from "../models/models_1";
+import { de_DeleteCustomEntityTypeCommand, se_DeleteCustomEntityTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomEntityTypeCommand}.
  */
 export interface DeleteCustomEntityTypeCommandInput extends DeleteCustomEntityTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomEntityTypeCommand}.
  */
 export interface DeleteCustomEntityTypeCommandOutput extends DeleteCustomEntityTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom pattern by specifying its name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteCustomEntityTypeCommandOutput extends DeleteCustomEntityT
  * import { GlueClient, DeleteCustomEntityTypeCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteCustomEntityTypeCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteCustomEntityTypeRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCustomEntityTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomEntityTypeCommandInput - {@link DeleteCustomEntityTypeCommandInput}
+ * @returns {@link DeleteCustomEntityTypeCommandOutput}
  * @see {@link DeleteCustomEntityTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomEntityTypeCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +86,9 @@ export class DeleteCustomEntityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomEntityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DeleteCustomEntityTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomEntityTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomEntityTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DeleteCustomEntityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomEntityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCustomEntityTypeCommand(input, context);
+    return se_DeleteCustomEntityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomEntityTypeCommandOutput> {
-    return deserializeAws_json1_1DeleteCustomEntityTypeCommand(output, context);
+    return de_DeleteCustomEntityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

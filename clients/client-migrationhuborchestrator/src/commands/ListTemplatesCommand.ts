@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  ListMigrationWorkflowTemplatesRequest,
-  ListMigrationWorkflowTemplatesRequestFilterSensitiveLog,
-  ListMigrationWorkflowTemplatesResponse,
-  ListMigrationWorkflowTemplatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTemplatesCommand,
-  serializeAws_restJson1ListTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMigrationWorkflowTemplatesRequest, ListMigrationWorkflowTemplatesResponse } from "../models/models_0";
+import { de_ListTemplatesCommand, se_ListTemplatesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTemplatesCommand}.
  */
 export interface ListTemplatesCommandInput extends ListMigrationWorkflowTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTemplatesCommand}.
  */
 export interface ListTemplatesCommandOutput extends ListMigrationWorkflowTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the templates available in Migration Hub Orchestrator to create a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface ListTemplatesCommandOutput extends ListMigrationWorkflowTemplat
  * import { MigrationHubOrchestratorClient, ListTemplatesCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, ListTemplatesCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // ListMigrationWorkflowTemplatesRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
+ * @returns {@link ListTemplatesCommandOutput}
  * @see {@link ListTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListTemplatesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -82,6 +86,9 @@ export class ListTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class ListTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMigrationWorkflowTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMigrationWorkflowTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class ListTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTemplatesCommand(input, context);
+    return se_ListTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListTemplatesCommand(output, context);
+    return de_ListTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

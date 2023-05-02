@@ -15,37 +15,43 @@ import {
 
 import {
   DescribeAppAssessmentRequest,
-  DescribeAppAssessmentRequestFilterSensitiveLog,
   DescribeAppAssessmentResponse,
   DescribeAppAssessmentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAppAssessmentCommand,
-  serializeAws_restJson1DescribeAppAssessmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAppAssessmentCommand, se_DescribeAppAssessmentCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppAssessmentCommand}.
  */
 export interface DescribeAppAssessmentCommandInput extends DescribeAppAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppAssessmentCommand}.
  */
 export interface DescribeAppAssessmentCommandOutput extends DescribeAppAssessmentResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an assessment for an AWS Resilience Hub application.</p>
+ * @public
+ * <p>Describes an assessment for an Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, DescribeAppAssessmentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeAppAssessmentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // DescribeAppAssessmentRequest
+ *   assessmentArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAppAssessmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppAssessmentCommandInput - {@link DescribeAppAssessmentCommandInput}
+ * @returns {@link DescribeAppAssessmentCommandOutput}
  * @see {@link DescribeAppAssessmentCommandInput} for command's `input` shape.
  * @see {@link DescribeAppAssessmentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -56,7 +62,7 @@ export interface DescribeAppAssessmentCommandOutput extends DescribeAppAssessmen
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -87,6 +93,9 @@ export class DescribeAppAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +124,7 @@ export class DescribeAppAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppAssessmentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAppAssessmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,12 +135,18 @@ export class DescribeAppAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppAssessmentCommand(input, context);
+    return se_DescribeAppAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppAssessmentCommandOutput> {
-    return deserializeAws_restJson1DescribeAppAssessmentCommand(output, context);
+    return de_DescribeAppAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

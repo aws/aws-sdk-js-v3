@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import {
-  ListTargetsRequest,
-  ListTargetsRequestFilterSensitiveLog,
-  ListTargetsResult,
-  ListTargetsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTargetsCommand,
-  serializeAws_restJson1ListTargetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTargetsRequest, ListTargetsResult, ListTargetsResultFilterSensitiveLog } from "../models/models_0";
+import { de_ListTargetsCommand, se_ListTargetsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTargetsCommand}.
  */
 export interface ListTargetsCommandInput extends ListTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTargetsCommand}.
  */
 export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the notification rule targets for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,22 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
  * import { CodestarNotificationsClient, ListTargetsCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, ListTargetsCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
+ * const input = { // ListTargetsRequest
+ *   Filters: [ // ListTargetsFilters
+ *     { // ListTargetsFilter
+ *       Name: "TARGET_TYPE" || "TARGET_ADDRESS" || "TARGET_STATUS", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTargetsCommandInput - {@link ListTargetsCommandInput}
+ * @returns {@link ListTargetsCommandOutput}
  * @see {@link ListTargetsCommandInput} for command's `input` shape.
  * @see {@link ListTargetsCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -79,6 +88,9 @@ export class ListTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,7 +117,7 @@ export class ListTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTargetsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListTargetsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -116,12 +128,18 @@ export class ListTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTargetsCommand(input, context);
+    return se_ListTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsCommandOutput> {
-    return deserializeAws_restJson1ListTargetsCommand(output, context);
+    return de_ListTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

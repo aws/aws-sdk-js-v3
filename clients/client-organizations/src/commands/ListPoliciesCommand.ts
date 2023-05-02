@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPoliciesRequest,
-  ListPoliciesRequestFilterSensitiveLog,
-  ListPoliciesResponse,
-  ListPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPoliciesRequest, ListPoliciesResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListPoliciesCommand,
-  serializeAws_json1_1ListPoliciesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPoliciesCommand, se_ListPoliciesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPoliciesCommand}.
  */
 export interface ListPoliciesCommandInput extends ListPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPoliciesCommand}.
  */
 export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the list of all policies in an organization of a specified type.</p>
  *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
@@ -52,10 +49,17 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * import { OrganizationsClient, ListPoliciesCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListPoliciesCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // ListPoliciesRequest
+ *   Filter: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPoliciesCommandInput - {@link ListPoliciesCommandInput}
+ * @returns {@link ListPoliciesCommandOutput}
  * @see {@link ListPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -249,6 +253,9 @@ export class ListPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -275,8 +282,8 @@ export class ListPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -286,12 +293,18 @@ export class ListPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPoliciesCommand(input, context);
+    return se_ListPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPoliciesCommandOutput> {
-    return deserializeAws_json1_1ListPoliciesCommand(output, context);
+    return de_ListPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListFacesRequest,
-  ListFacesRequestFilterSensitiveLog,
-  ListFacesResponse,
-  ListFacesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ListFacesCommand, serializeAws_json1_1ListFacesCommand } from "../protocols/Aws_json1_1";
+import { ListFacesRequest, ListFacesResponse } from "../models/models_0";
+import { de_ListFacesCommand, se_ListFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFacesCommand}.
  */
 export interface ListFacesCommandInput extends ListFacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFacesCommand}.
  */
 export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata for faces in the specified collection. This metadata
  *       includes information such as the bounding box coordinates, the confidence (that the bounding
  *       box contains a face), and face ID. For an example, see Listing Faces in a Collection in the
@@ -44,10 +44,17 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  * import { RekognitionClient, ListFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // ListFacesRequest
+ *   CollectionId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFacesCommandInput - {@link ListFacesCommandInput}
+ * @returns {@link ListFacesCommandOutput}
  * @see {@link ListFacesCommandInput} for command's `input` shape.
  * @see {@link ListFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -233,6 +240,9 @@ export class ListFacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -259,8 +269,8 @@ export class ListFacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -270,12 +280,18 @@ export class ListFacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFacesCommand(input, context);
+    return se_ListFacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFacesCommandOutput> {
-    return deserializeAws_json1_1ListFacesCommand(output, context);
+    return de_ListFacesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  ListPresetsRequest,
-  ListPresetsRequestFilterSensitiveLog,
-  ListPresetsResponse,
-  ListPresetsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListPresetsCommand,
-  serializeAws_restJson1ListPresetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPresetsRequest, ListPresetsResponse } from "../models/models_2";
+import { de_ListPresetsCommand, se_ListPresetsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPresetsCommand}.
  */
 export interface ListPresetsCommandInput extends ListPresetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPresetsCommand}.
  */
 export interface ListPresetsCommandOutput extends ListPresetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve a JSON array of up to twenty of your presets. This will return the presets themselves, not just a list of them. To retrieve the next twenty presets, use the nextToken string returned with the array.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * import { MediaConvertClient, ListPresetsCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, ListPresetsCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = { // ListPresetsRequest
+ *   Category: "STRING_VALUE",
+ *   ListBy: "NAME" || "CREATION_DATE" || "SYSTEM",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Order: "ASCENDING" || "DESCENDING",
+ * };
  * const command = new ListPresetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPresetsCommandInput - {@link ListPresetsCommandInput}
+ * @returns {@link ListPresetsCommandOutput}
  * @see {@link ListPresetsCommandInput} for command's `input` shape.
  * @see {@link ListPresetsCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +93,9 @@ export class ListPresetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPresetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class ListPresetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPresetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPresetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class ListPresetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPresetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPresetsCommand(input, context);
+    return se_ListPresetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPresetsCommandOutput> {
-    return deserializeAws_restJson1ListPresetsCommand(output, context);
+    return de_ListPresetsCommand(output, context);
   }
 
   // Start section: command_body_extra

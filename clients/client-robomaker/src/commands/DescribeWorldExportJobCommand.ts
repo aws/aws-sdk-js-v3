@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeWorldExportJobRequest,
-  DescribeWorldExportJobRequestFilterSensitiveLog,
-  DescribeWorldExportJobResponse,
-  DescribeWorldExportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeWorldExportJobCommand,
-  serializeAws_restJson1DescribeWorldExportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeWorldExportJobRequest, DescribeWorldExportJobResponse } from "../models/models_0";
+import { de_DescribeWorldExportJobCommand, se_DescribeWorldExportJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorldExportJobCommand}.
  */
 export interface DescribeWorldExportJobCommandInput extends DescribeWorldExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorldExportJobCommand}.
  */
 export interface DescribeWorldExportJobCommandOutput extends DescribeWorldExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a world export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeWorldExportJobCommandOutput extends DescribeWorldExport
  * import { RoboMakerClient, DescribeWorldExportJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeWorldExportJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // DescribeWorldExportJobRequest
+ *   job: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorldExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorldExportJobCommandInput - {@link DescribeWorldExportJobCommandInput}
+ * @returns {@link DescribeWorldExportJobCommandOutput}
  * @see {@link DescribeWorldExportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeWorldExportJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -82,6 +84,9 @@ export class DescribeWorldExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorldExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DescribeWorldExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorldExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorldExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DescribeWorldExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorldExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWorldExportJobCommand(input, context);
+    return se_DescribeWorldExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorldExportJobCommandOutput> {
-    return deserializeAws_restJson1DescribeWorldExportJobCommand(output, context);
+    return de_DescribeWorldExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

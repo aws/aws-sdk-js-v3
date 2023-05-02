@@ -10,7 +10,7 @@ import { ResiliencehubClient } from "../ResiliencehubClient";
 import { ResiliencehubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResiliencehubClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAlarmRecommendationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAlarmRecommendations(
   config: ResiliencehubPaginationConfiguration,
   input: ListAlarmRecommendationsCommandInput,

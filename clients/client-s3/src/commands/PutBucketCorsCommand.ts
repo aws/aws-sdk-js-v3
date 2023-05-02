@@ -14,23 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketCorsRequest, PutBucketCorsRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketCorsCommand,
-  serializeAws_restXmlPutBucketCorsCommand,
-} from "../protocols/Aws_restXml";
+import { PutBucketCorsRequest } from "../models/models_0";
+import { de_PutBucketCorsCommand, se_PutBucketCorsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketCorsCommand}.
  */
 export interface PutBucketCorsCommandInput extends PutBucketCorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketCorsCommand}.
  */
 export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the <code>cors</code> configuration for your bucket. If the configuration exists,
  *          Amazon S3 replaces it.</p>
  *          <p>To use this operation, you must be allowed to perform the <code>s3:PutBucketCORS</code>
@@ -93,10 +95,38 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketCorsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketCorsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketCorsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   CORSConfiguration: { // CORSConfiguration
+ *     CORSRules: [ // CORSRules // required
+ *       { // CORSRule
+ *         ID: "STRING_VALUE",
+ *         AllowedHeaders: [ // AllowedHeaders
+ *           "STRING_VALUE",
+ *         ],
+ *         AllowedMethods: [ // AllowedMethods // required
+ *           "STRING_VALUE",
+ *         ],
+ *         AllowedOrigins: [ // AllowedOrigins // required
+ *           "STRING_VALUE",
+ *         ],
+ *         ExposeHeaders: [ // ExposeHeaders
+ *           "STRING_VALUE",
+ *         ],
+ *         MaxAgeSeconds: Number("int"),
+ *       },
+ *     ],
+ *   },
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketCorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketCorsCommandInput - {@link PutBucketCorsCommandInput}
+ * @returns {@link PutBucketCorsCommandOutput}
  * @see {@link PutBucketCorsCommandInput} for command's `input` shape.
  * @see {@link PutBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -171,6 +201,9 @@ export class PutBucketCorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketCorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -204,8 +237,8 @@ export class PutBucketCorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketCorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -215,12 +248,18 @@ export class PutBucketCorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketCorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketCorsCommand(input, context);
+    return se_PutBucketCorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketCorsCommandOutput> {
-    return deserializeAws_restXmlPutBucketCorsCommand(output, context);
+    return de_PutBucketCorsCommand(output, context);
   }
 
   // Start section: command_body_extra

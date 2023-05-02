@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  GetDataSetRequest,
-  GetDataSetRequestFilterSensitiveLog,
-  GetDataSetResponse,
-  GetDataSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataSetCommand,
-  serializeAws_restJson1GetDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDataSetRequest, GetDataSetResponse } from "../models/models_0";
+import { de_GetDataSetCommand, se_GetDataSetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataSetCommand}.
  */
 export interface GetDataSetCommandInput extends GetDataSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataSetCommand}.
  */
 export interface GetDataSetCommandOutput extends GetDataSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns information about a data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetDataSetCommandOutput extends GetDataSetResponse, __MetadataB
  * import { DataExchangeClient, GetDataSetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, GetDataSetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // GetDataSetRequest
+ *   DataSetId: "STRING_VALUE", // required
+ * };
  * const command = new GetDataSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataSetCommandInput - {@link GetDataSetCommandInput}
+ * @returns {@link GetDataSetCommandOutput}
  * @see {@link GetDataSetCommandInput} for command's `input` shape.
  * @see {@link GetDataSetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -81,6 +83,9 @@ export class GetDataSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class GetDataSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class GetDataSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataSetCommand(input, context);
+    return se_GetDataSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataSetCommandOutput> {
-    return deserializeAws_restJson1GetDataSetCommand(output, context);
+    return de_GetDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

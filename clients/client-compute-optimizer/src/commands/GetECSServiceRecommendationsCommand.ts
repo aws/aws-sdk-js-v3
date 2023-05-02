@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { GetECSServiceRecommendationsRequest, GetECSServiceRecommendationsResponse } from "../models/models_0";
 import {
-  GetECSServiceRecommendationsRequest,
-  GetECSServiceRecommendationsRequestFilterSensitiveLog,
-  GetECSServiceRecommendationsResponse,
-  GetECSServiceRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetECSServiceRecommendationsCommand,
-  serializeAws_json1_0GetECSServiceRecommendationsCommand,
+  de_GetECSServiceRecommendationsCommand,
+  se_GetECSServiceRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetECSServiceRecommendationsCommand}.
  */
 export interface GetECSServiceRecommendationsCommandInput extends GetECSServiceRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetECSServiceRecommendationsCommand}.
  */
 export interface GetECSServiceRecommendationsCommandOutput
@@ -37,6 +36,7 @@ export interface GetECSServiceRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Returns Amazon ECS service recommendations.
  *         </p>
@@ -53,10 +53,30 @@ export interface GetECSServiceRecommendationsCommandOutput
  * import { ComputeOptimizerClient, GetECSServiceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetECSServiceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetECSServiceRecommendationsRequest
+ *   serviceArns: [ // ServiceArns
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // ECSServiceRecommendationFilters
+ *     { // ECSServiceRecommendationFilter
+ *       name: "Finding" || "FindingReasonCode",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   accountIds: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetECSServiceRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetECSServiceRecommendationsCommandInput - {@link GetECSServiceRecommendationsCommandInput}
+ * @returns {@link GetECSServiceRecommendationsCommandOutput}
  * @see {@link GetECSServiceRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetECSServiceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -105,6 +125,9 @@ export class GetECSServiceRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetECSServiceRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +156,8 @@ export class GetECSServiceRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetECSServiceRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetECSServiceRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,15 +167,21 @@ export class GetECSServiceRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetECSServiceRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetECSServiceRecommendationsCommand(input, context);
+    return se_GetECSServiceRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetECSServiceRecommendationsCommandOutput> {
-    return deserializeAws_json1_0GetECSServiceRecommendationsCommand(output, context);
+    return de_GetECSServiceRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

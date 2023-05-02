@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { AssignPrivateNatGatewayAddressRequest, AssignPrivateNatGatewayAddressResult } from "../models/models_0";
 import {
-  AssignPrivateNatGatewayAddressRequest,
-  AssignPrivateNatGatewayAddressRequestFilterSensitiveLog,
-  AssignPrivateNatGatewayAddressResult,
-  AssignPrivateNatGatewayAddressResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AssignPrivateNatGatewayAddressCommand,
-  serializeAws_ec2AssignPrivateNatGatewayAddressCommand,
+  de_AssignPrivateNatGatewayAddressCommand,
+  se_AssignPrivateNatGatewayAddressCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssignPrivateNatGatewayAddressCommand}.
  */
 export interface AssignPrivateNatGatewayAddressCommandInput extends AssignPrivateNatGatewayAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssignPrivateNatGatewayAddressCommand}.
  */
 export interface AssignPrivateNatGatewayAddressCommandOutput
@@ -37,6 +36,7 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns one or more private IPv4 addresses to a private NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,20 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
  * import { EC2Client, AssignPrivateNatGatewayAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssignPrivateNatGatewayAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssignPrivateNatGatewayAddressRequest
+ *   NatGatewayId: "STRING_VALUE", // required
+ *   PrivateIpAddresses: [ // IpList
+ *     "STRING_VALUE",
+ *   ],
+ *   PrivateIpAddressCount: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new AssignPrivateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssignPrivateNatGatewayAddressCommandInput - {@link AssignPrivateNatGatewayAddressCommandInput}
+ * @returns {@link AssignPrivateNatGatewayAddressCommandOutput}
  * @see {@link AssignPrivateNatGatewayAddressCommandInput} for command's `input` shape.
  * @see {@link AssignPrivateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +81,9 @@ export class AssignPrivateNatGatewayAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssignPrivateNatGatewayAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +112,8 @@ export class AssignPrivateNatGatewayAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssignPrivateNatGatewayAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssignPrivateNatGatewayAddressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +123,24 @@ export class AssignPrivateNatGatewayAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssignPrivateNatGatewayAddressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2AssignPrivateNatGatewayAddressCommand(input, context);
+    return se_AssignPrivateNatGatewayAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssignPrivateNatGatewayAddressCommandOutput> {
-    return deserializeAws_ec2AssignPrivateNatGatewayAddressCommand(output, context);
+    return de_AssignPrivateNatGatewayAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

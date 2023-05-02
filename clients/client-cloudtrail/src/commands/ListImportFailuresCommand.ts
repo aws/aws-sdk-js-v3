@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  ListImportFailuresRequest,
-  ListImportFailuresRequestFilterSensitiveLog,
-  ListImportFailuresResponse,
-  ListImportFailuresResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListImportFailuresCommand,
-  serializeAws_json1_1ListImportFailuresCommand,
-} from "../protocols/Aws_json1_1";
+import { ListImportFailuresRequest, ListImportFailuresResponse } from "../models/models_0";
+import { de_ListImportFailuresCommand, se_ListImportFailuresCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListImportFailuresCommand}.
  */
 export interface ListImportFailuresCommandInput extends ListImportFailuresRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImportFailuresCommand}.
  */
 export interface ListImportFailuresCommandOutput extends ListImportFailuresResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of failures for the specified import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListImportFailuresCommandOutput extends ListImportFailuresRespo
  * import { CloudTrailClient, ListImportFailuresCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListImportFailuresCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // ListImportFailuresRequest
+ *   ImportId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListImportFailuresCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImportFailuresCommandInput - {@link ListImportFailuresCommandInput}
+ * @returns {@link ListImportFailuresCommandOutput}
  * @see {@link ListImportFailuresCommandInput} for command's `input` shape.
  * @see {@link ListImportFailuresCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -79,6 +83,9 @@ export class ListImportFailuresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImportFailuresCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class ListImportFailuresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImportFailuresRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImportFailuresResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class ListImportFailuresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImportFailuresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListImportFailuresCommand(input, context);
+    return se_ListImportFailuresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportFailuresCommandOutput> {
-    return deserializeAws_json1_1ListImportFailuresCommand(output, context);
+    return de_ListImportFailuresCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -12,18 +12,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedByteInput, MalformedByteInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedByteCommand,
-  serializeAws_restJson1MalformedByteCommand,
-} from "../protocols/Aws_restJson1";
+import { MalformedByteInput } from "../models/models_0";
+import { de_MalformedByteCommand, se_MalformedByteCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedByteCommand}.
  */
 export interface MalformedByteCommandInput extends MalformedByteInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedByteCommand}.
  */
 export interface MalformedByteCommandOutput extends __MetadataBearer {}
@@ -36,6 +37,9 @@ export class MalformedByteCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedByteCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +65,8 @@ export class MalformedByteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedByteInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,12 +76,18 @@ export class MalformedByteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedByteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedByteCommand(input, context);
+    return se_MalformedByteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedByteCommandOutput> {
-    return deserializeAws_restJson1MalformedByteCommand(output, context);
+    return de_MalformedByteCommand(output, context);
   }
 
   // Start section: command_body_extra

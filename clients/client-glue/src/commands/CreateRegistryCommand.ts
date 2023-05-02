@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateRegistryInput,
-  CreateRegistryInputFilterSensitiveLog,
-  CreateRegistryResponse,
-  CreateRegistryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRegistryCommand,
-  serializeAws_json1_1CreateRegistryCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateRegistryInput, CreateRegistryResponse } from "../models/models_1";
+import { de_CreateRegistryCommand, se_CreateRegistryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRegistryCommand}.
  */
 export interface CreateRegistryCommandInput extends CreateRegistryInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateRegistryCommand}.
  */
 export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new registry which may be used to hold a collection of schemas.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * import { GlueClient, CreateRegistryCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateRegistryCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateRegistryInput
+ *   RegistryName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateRegistryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRegistryCommandInput - {@link CreateRegistryCommandInput}
+ * @returns {@link CreateRegistryCommandOutput}
  * @see {@link CreateRegistryCommandInput} for command's `input` shape.
  * @see {@link CreateRegistryCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +93,9 @@ export class CreateRegistryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRegistryCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +124,8 @@ export class CreateRegistryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRegistryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRegistryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +135,18 @@ export class CreateRegistryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRegistryCommand(input, context);
+    return se_CreateRegistryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRegistryCommandOutput> {
-    return deserializeAws_json1_1CreateRegistryCommand(output, context);
+    return de_CreateRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

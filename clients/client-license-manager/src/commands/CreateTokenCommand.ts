@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  CreateTokenRequest,
-  CreateTokenRequestFilterSensitiveLog,
-  CreateTokenResponse,
-  CreateTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTokenCommand,
-  serializeAws_json1_1CreateTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTokenRequest, CreateTokenResponse } from "../models/models_0";
+import { de_CreateTokenCommand, se_CreateTokenCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTokenCommand}.
  */
 export interface CreateTokenCommandInput extends CreateTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTokenCommand}.
  */
 export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a long-lived token.</p>
  *          <p>A refresh token is a JWT token used to get an access token. With an access token,
  *           you can call AssumeRoleWithWebIdentity to get role credentials that you can use to
@@ -45,10 +42,23 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * import { LicenseManagerClient, CreateTokenCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateTokenCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // CreateTokenRequest
+ *   LicenseArn: "STRING_VALUE", // required
+ *   RoleArns: [ // ArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   ExpirationInDays: Number("int"),
+ *   TokenProperties: [ // MaxSize3StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTokenCommandInput - {@link CreateTokenCommandInput}
+ * @returns {@link CreateTokenCommandOutput}
  * @see {@link CreateTokenCommandInput} for command's `input` shape.
  * @see {@link CreateTokenCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -97,6 +107,9 @@ export class CreateTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +136,8 @@ export class CreateTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +147,18 @@ export class CreateTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTokenCommand(input, context);
+    return se_CreateTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTokenCommandOutput> {
-    return deserializeAws_json1_1CreateTokenCommand(output, context);
+    return de_CreateTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

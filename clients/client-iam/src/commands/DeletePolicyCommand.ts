@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeletePolicyRequest, DeletePolicyRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryDeletePolicyCommand, serializeAws_queryDeletePolicyCommand } from "../protocols/Aws_query";
+import { DeletePolicyRequest } from "../models/models_0";
+import { de_DeletePolicyCommand, se_DeletePolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePolicyCommand}.
  */
 export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePolicyCommand}.
  */
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified managed policy.</p>
  *          <p>Before you can delete a managed policy, you must first detach the policy from all
  *             users, groups, and roles that it is attached to. In addition, you must delete all the
@@ -58,10 +63,15 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeletePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeletePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeletePolicyRequest
+ *   PolicyArn: "STRING_VALUE", // required
+ * };
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePolicyCommandInput - {@link DeletePolicyCommandInput}
+ * @returns {@link DeletePolicyCommandOutput}
  * @see {@link DeletePolicyCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -105,6 +115,9 @@ export class DeletePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +144,8 @@ export class DeletePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +155,18 @@ export class DeletePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeletePolicyCommand(input, context);
+    return se_DeletePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePolicyCommandOutput> {
-    return deserializeAws_queryDeletePolicyCommand(output, context);
+    return de_DeletePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

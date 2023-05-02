@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDatasetGroupRequest,
-  DescribeDatasetGroupRequestFilterSensitiveLog,
-  DescribeDatasetGroupResponse,
-  DescribeDatasetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDatasetGroupRequest, DescribeDatasetGroupResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeDatasetGroupCommand,
-  serializeAws_json1_1DescribeDatasetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDatasetGroupCommand, se_DescribeDatasetGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDatasetGroupCommand}.
  */
 export interface DescribeDatasetGroupCommandInput extends DescribeDatasetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDatasetGroupCommand}.
  */
 export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the given dataset group. For more information on dataset
  *       groups, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  * import { PersonalizeClient, DescribeDatasetGroupCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeDatasetGroupCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeDatasetGroupRequest
+ *   datasetGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDatasetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatasetGroupCommandInput - {@link DescribeDatasetGroupCommandInput}
+ * @returns {@link DescribeDatasetGroupCommandOutput}
  * @see {@link DescribeDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -76,6 +78,9 @@ export class DescribeDatasetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatasetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class DescribeDatasetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatasetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatasetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class DescribeDatasetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDatasetGroupCommand(input, context);
+    return se_DescribeDatasetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeDatasetGroupCommand(output, context);
+    return de_DescribeDatasetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

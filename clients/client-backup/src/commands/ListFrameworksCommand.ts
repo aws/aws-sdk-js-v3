@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ListFrameworksInput,
-  ListFrameworksInputFilterSensitiveLog,
-  ListFrameworksOutput,
-  ListFrameworksOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFrameworksCommand,
-  serializeAws_restJson1ListFrameworksCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFrameworksInput, ListFrameworksOutput } from "../models/models_0";
+import { de_ListFrameworksCommand, se_ListFrameworksCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFrameworksCommand}.
  */
 export interface ListFrameworksCommandInput extends ListFrameworksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListFrameworksCommand}.
  */
 export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all frameworks for an Amazon Web Services account and Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __Met
  * import { BackupClient, ListFrameworksCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListFrameworksCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListFrameworksInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFrameworksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFrameworksCommandInput - {@link ListFrameworksCommandInput}
+ * @returns {@link ListFrameworksCommandOutput}
  * @see {@link ListFrameworksCommandInput} for command's `input` shape.
  * @see {@link ListFrameworksCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -76,6 +79,9 @@ export class ListFrameworksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFrameworksCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class ListFrameworksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFrameworksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFrameworksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class ListFrameworksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFrameworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFrameworksCommand(input, context);
+    return se_ListFrameworksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFrameworksCommandOutput> {
-    return deserializeAws_restJson1ListFrameworksCommand(output, context);
+    return de_ListFrameworksCommand(output, context);
   }
 
   // Start section: command_body_extra

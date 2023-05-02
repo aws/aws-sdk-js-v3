@@ -14,39 +14,33 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  DeleteAccountRequest,
-  DeleteAccountRequestFilterSensitiveLog,
-  DeleteAccountResponse,
-  DeleteAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccountCommand,
-  serializeAws_restJson1DeleteAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAccountRequest, DeleteAccountResponse } from "../models/models_0";
+import { de_DeleteAccountCommand, se_DeleteAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccountCommand}.
  */
 export interface DeleteAccountCommandInput extends DeleteAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccountCommand}.
  */
 export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Amazon Chime account. You must suspend all users before deleting
  *                 <code>Team</code> account. You can use the <a>BatchSuspendUser</a> action
  *             to dodo.</p>
- *
  *          <p>For <code>EnterpriseLWA</code> and <code>EnterpriseAD</code> accounts, you must release the
  *             claimed domains for your Amazon Chime account before deletion. As soon as you release
  *             the domain, all users under that account are suspended.</p>
- *
  *          <p>Deleted accounts appear in your <code>Disabled</code> accounts list for 90 days. To restore
  *             deleted account from your <code>Disabled</code> accounts list, you must contact AWS
  *             Support.</p>
- *
  *          <p>After 90 days, deleted accounts are permanently removed from your
  * <code>Disabled</code> accounts list.</p>
  * @example
@@ -55,10 +49,15 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * import { ChimeClient, DeleteAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DeleteAccountRequest
+ *   AccountId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountCommandInput - {@link DeleteAccountCommandInput}
+ * @returns {@link DeleteAccountCommandOutput}
  * @see {@link DeleteAccountCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -106,6 +105,9 @@ export class DeleteAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +134,8 @@ export class DeleteAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +145,18 @@ export class DeleteAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccountCommand(input, context);
+    return se_DeleteAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountCommandOutput> {
-    return deserializeAws_restJson1DeleteAccountCommand(output, context);
+    return de_DeleteAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

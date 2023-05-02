@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  ListTagsForStreamInput,
-  ListTagsForStreamInputFilterSensitiveLog,
-  ListTagsForStreamOutput,
-  ListTagsForStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTagsForStreamCommand,
-  serializeAws_restJson1ListTagsForStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTagsForStreamInput, ListTagsForStreamOutput } from "../models/models_0";
+import { de_ListTagsForStreamCommand, se_ListTagsForStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForStreamCommand}.
  */
 export interface ListTagsForStreamCommandInput extends ListTagsForStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForStreamCommand}.
  */
 export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of tags associated with the specified stream.</p>
  *          <p>In the request, you must specify either the <code>StreamName</code> or the
  *                 <code>StreamARN</code>. </p>
@@ -44,10 +41,17 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * import { KinesisVideoClient, ListTagsForStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, ListTagsForStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // ListTagsForStreamInput
+ *   NextToken: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   StreamName: "STRING_VALUE",
+ * };
  * const command = new ListTagsForStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForStreamCommandInput - {@link ListTagsForStreamCommandInput}
+ * @returns {@link ListTagsForStreamCommandOutput}
  * @see {@link ListTagsForStreamCommandInput} for command's `input` shape.
  * @see {@link ListTagsForStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -87,6 +91,9 @@ export class ListTagsForStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListTagsForStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class ListTagsForStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTagsForStreamCommand(input, context);
+    return se_ListTagsForStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForStreamCommandOutput> {
-    return deserializeAws_restJson1ListTagsForStreamCommand(output, context);
+    return de_ListTagsForStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

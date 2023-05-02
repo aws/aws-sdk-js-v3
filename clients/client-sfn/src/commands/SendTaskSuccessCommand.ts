@@ -17,24 +17,25 @@ import {
   SendTaskSuccessInput,
   SendTaskSuccessInputFilterSensitiveLog,
   SendTaskSuccessOutput,
-  SendTaskSuccessOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0SendTaskSuccessCommand,
-  serializeAws_json1_0SendTaskSuccessCommand,
-} from "../protocols/Aws_json1_0";
+import { de_SendTaskSuccessCommand, se_SendTaskSuccessCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendTaskSuccessCommand}.
  */
 export interface SendTaskSuccessCommandInput extends SendTaskSuccessInput {}
 /**
+ * @public
+ *
  * The output of {@link SendTaskSuccessCommand}.
  */
 export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
  *       pattern to report that the task identified by the <code>taskToken</code> completed
  *       successfully.</p>
@@ -44,10 +45,16 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  * import { SFNClient, SendTaskSuccessCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, SendTaskSuccessCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // SendTaskSuccessInput
+ *   taskToken: "STRING_VALUE", // required
+ *   output: "STRING_VALUE", // required
+ * };
  * const command = new SendTaskSuccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendTaskSuccessCommandInput - {@link SendTaskSuccessCommandInput}
+ * @returns {@link SendTaskSuccessCommandOutput}
  * @see {@link SendTaskSuccessCommandInput} for command's `input` shape.
  * @see {@link SendTaskSuccessCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -81,6 +88,9 @@ export class SendTaskSuccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendTaskSuccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +120,7 @@ export class SendTaskSuccessCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SendTaskSuccessInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SendTaskSuccessOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class SendTaskSuccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendTaskSuccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0SendTaskSuccessCommand(input, context);
+    return se_SendTaskSuccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTaskSuccessCommandOutput> {
-    return deserializeAws_json1_0SendTaskSuccessCommand(output, context);
+    return de_SendTaskSuccessCommand(output, context);
   }
 
   // Start section: command_body_extra

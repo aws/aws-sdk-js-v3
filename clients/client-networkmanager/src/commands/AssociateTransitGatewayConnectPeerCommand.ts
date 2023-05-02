@@ -15,21 +15,23 @@ import {
 
 import {
   AssociateTransitGatewayConnectPeerRequest,
-  AssociateTransitGatewayConnectPeerRequestFilterSensitiveLog,
   AssociateTransitGatewayConnectPeerResponse,
-  AssociateTransitGatewayConnectPeerResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1AssociateTransitGatewayConnectPeerCommand,
-  serializeAws_restJson1AssociateTransitGatewayConnectPeerCommand,
+  de_AssociateTransitGatewayConnectPeerCommand,
+  se_AssociateTransitGatewayConnectPeerCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTransitGatewayConnectPeerCommand}.
  */
 export interface AssociateTransitGatewayConnectPeerCommandInput extends AssociateTransitGatewayConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTransitGatewayConnectPeerCommand}.
  */
 export interface AssociateTransitGatewayConnectPeerCommandOutput
@@ -37,6 +39,7 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a transit gateway Connect peer with a device, and optionally, with a link. If you
  *             specify a link, it must be associated with the specified device. </p>
  *          <p>You can only associate transit gateway Connect peers that have been created on a
@@ -48,10 +51,18 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
  * import { NetworkManagerClient, AssociateTransitGatewayConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, AssociateTransitGatewayConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // AssociateTransitGatewayConnectPeerRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   TransitGatewayConnectPeerArn: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ *   LinkId: "STRING_VALUE",
+ * };
  * const command = new AssociateTransitGatewayConnectPeerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTransitGatewayConnectPeerCommandInput - {@link AssociateTransitGatewayConnectPeerCommandInput}
+ * @returns {@link AssociateTransitGatewayConnectPeerCommandOutput}
  * @see {@link AssociateTransitGatewayConnectPeerCommandInput} for command's `input` shape.
  * @see {@link AssociateTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -97,6 +108,9 @@ export class AssociateTransitGatewayConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTransitGatewayConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +139,8 @@ export class AssociateTransitGatewayConnectPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTransitGatewayConnectPeerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTransitGatewayConnectPeerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +150,24 @@ export class AssociateTransitGatewayConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateTransitGatewayConnectPeerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateTransitGatewayConnectPeerCommand(input, context);
+    return se_AssociateTransitGatewayConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateTransitGatewayConnectPeerCommandOutput> {
-    return deserializeAws_restJson1AssociateTransitGatewayConnectPeerCommand(output, context);
+    return de_AssociateTransitGatewayConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

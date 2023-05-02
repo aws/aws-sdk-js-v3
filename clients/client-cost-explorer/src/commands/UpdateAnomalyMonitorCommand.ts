@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  UpdateAnomalyMonitorRequest,
-  UpdateAnomalyMonitorRequestFilterSensitiveLog,
-  UpdateAnomalyMonitorResponse,
-  UpdateAnomalyMonitorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAnomalyMonitorCommand,
-  serializeAws_json1_1UpdateAnomalyMonitorCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateAnomalyMonitorRequest, UpdateAnomalyMonitorResponse } from "../models/models_0";
+import { de_UpdateAnomalyMonitorCommand, se_UpdateAnomalyMonitorCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAnomalyMonitorCommand}.
  */
 export interface UpdateAnomalyMonitorCommandInput extends UpdateAnomalyMonitorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAnomalyMonitorCommand}.
  */
 export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing cost anomaly monitor. The changes made are applied going forward, and
  *       doesn't change anomalies detected in the past. </p>
  * @example
@@ -43,10 +40,16 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
  * import { CostExplorerClient, UpdateAnomalyMonitorCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, UpdateAnomalyMonitorCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // UpdateAnomalyMonitorRequest
+ *   MonitorArn: "STRING_VALUE", // required
+ *   MonitorName: "STRING_VALUE",
+ * };
  * const command = new UpdateAnomalyMonitorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAnomalyMonitorCommandInput - {@link UpdateAnomalyMonitorCommandInput}
+ * @returns {@link UpdateAnomalyMonitorCommandOutput}
  * @see {@link UpdateAnomalyMonitorCommandInput} for command's `input` shape.
  * @see {@link UpdateAnomalyMonitorCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -76,6 +79,9 @@ export class UpdateAnomalyMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAnomalyMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class UpdateAnomalyMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAnomalyMonitorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAnomalyMonitorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class UpdateAnomalyMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAnomalyMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAnomalyMonitorCommand(input, context);
+    return se_UpdateAnomalyMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAnomalyMonitorCommandOutput> {
-    return deserializeAws_json1_1UpdateAnomalyMonitorCommand(output, context);
+    return de_UpdateAnomalyMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

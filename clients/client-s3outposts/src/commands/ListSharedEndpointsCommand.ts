@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSharedEndpointsRequest,
-  ListSharedEndpointsRequestFilterSensitiveLog,
-  ListSharedEndpointsResult,
-  ListSharedEndpointsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSharedEndpointsCommand,
-  serializeAws_restJson1ListSharedEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSharedEndpointsRequest, ListSharedEndpointsResult } from "../models/models_0";
+import { de_ListSharedEndpointsCommand, se_ListSharedEndpointsCommand } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSharedEndpointsCommand}.
  */
 export interface ListSharedEndpointsCommandInput extends ListSharedEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSharedEndpointsCommand}.
  */
 export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all endpoints associated with an Outpost that has been shared by Amazon Web Services Resource Access Manager (RAM).</p>
  *          <p>Related actions include:</p>
  *          <ul>
@@ -55,10 +52,17 @@ export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsRes
  * import { S3OutpostsClient, ListSharedEndpointsCommand } from "@aws-sdk/client-s3outposts"; // ES Modules import
  * // const { S3OutpostsClient, ListSharedEndpointsCommand } = require("@aws-sdk/client-s3outposts"); // CommonJS import
  * const client = new S3OutpostsClient(config);
+ * const input = { // ListSharedEndpointsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   OutpostId: "STRING_VALUE", // required
+ * };
  * const command = new ListSharedEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSharedEndpointsCommandInput - {@link ListSharedEndpointsCommandInput}
+ * @returns {@link ListSharedEndpointsCommandOutput}
  * @see {@link ListSharedEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListSharedEndpointsCommandOutput} for command's `response` shape.
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.
@@ -97,6 +101,9 @@ export class ListSharedEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSharedEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +132,8 @@ export class ListSharedEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSharedEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSharedEndpointsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +143,18 @@ export class ListSharedEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSharedEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSharedEndpointsCommand(input, context);
+    return se_ListSharedEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSharedEndpointsCommandOutput> {
-    return deserializeAws_restJson1ListSharedEndpointsCommand(output, context);
+    return de_ListSharedEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

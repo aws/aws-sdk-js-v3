@@ -18,22 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteIntentRequest, DeleteIntentRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteIntentCommand,
-  serializeAws_restJson1DeleteIntentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteIntentRequest } from "../models/models_0";
+import { de_DeleteIntentCommand, se_DeleteIntentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIntentCommand}.
  */
 export interface DeleteIntentCommandInput extends DeleteIntentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIntentCommand}.
  */
 export interface DeleteIntentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all versions of the intent, including the
  *         <code>$LATEST</code> version. To delete a specific version of the
  *       intent, use the <a>DeleteIntentVersion</a> operation.</p>
@@ -58,10 +60,15 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  * import { LexModelBuildingServiceClient, DeleteIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, DeleteIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // DeleteIntentRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIntentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIntentCommandInput - {@link DeleteIntentCommandInput}
+ * @returns {@link DeleteIntentCommandOutput}
  * @see {@link DeleteIntentCommandInput} for command's `input` shape.
  * @see {@link DeleteIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -122,6 +129,9 @@ export class DeleteIntentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIntentCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +158,8 @@ export class DeleteIntentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIntentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +169,18 @@ export class DeleteIntentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIntentCommand(input, context);
+    return se_DeleteIntentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIntentCommandOutput> {
-    return deserializeAws_restJson1DeleteIntentCommand(output, context);
+    return de_DeleteIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

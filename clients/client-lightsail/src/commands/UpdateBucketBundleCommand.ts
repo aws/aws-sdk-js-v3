@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  UpdateBucketBundleRequest,
-  UpdateBucketBundleRequestFilterSensitiveLog,
-  UpdateBucketBundleResult,
-  UpdateBucketBundleResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateBucketBundleCommand,
-  serializeAws_json1_1UpdateBucketBundleCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateBucketBundleRequest, UpdateBucketBundleResult } from "../models/models_1";
+import { de_UpdateBucketBundleCommand, se_UpdateBucketBundleCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBucketBundleCommand}.
  */
 export interface UpdateBucketBundleCommandInput extends UpdateBucketBundleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBucketBundleCommand}.
  */
 export interface UpdateBucketBundleCommandOutput extends UpdateBucketBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.</p>
  *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
  *       bucket. You can update a bucket's bundle only one time within a monthly Amazon Web Services
@@ -54,10 +51,16 @@ export interface UpdateBucketBundleCommandOutput extends UpdateBucketBundleResul
  * import { LightsailClient, UpdateBucketBundleCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateBucketBundleCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // UpdateBucketBundleRequest
+ *   bucketName: "STRING_VALUE", // required
+ *   bundleId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateBucketBundleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBucketBundleCommandInput - {@link UpdateBucketBundleCommandInput}
+ * @returns {@link UpdateBucketBundleCommandOutput}
  * @see {@link UpdateBucketBundleCommandInput} for command's `input` shape.
  * @see {@link UpdateBucketBundleCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +107,9 @@ export class UpdateBucketBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBucketBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +138,8 @@ export class UpdateBucketBundleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBucketBundleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBucketBundleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +149,18 @@ export class UpdateBucketBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBucketBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateBucketBundleCommand(input, context);
+    return se_UpdateBucketBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBucketBundleCommandOutput> {
-    return deserializeAws_json1_1UpdateBucketBundleCommand(output, context);
+    return de_UpdateBucketBundleCommand(output, context);
   }
 
   // Start section: command_body_extra

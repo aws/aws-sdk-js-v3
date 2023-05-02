@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  UpdateSnapshotRequest,
-  UpdateSnapshotRequestFilterSensitiveLog,
-  UpdateSnapshotResult,
-  UpdateSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSnapshotCommand,
-  serializeAws_restJson1UpdateSnapshotCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateSnapshotRequest, UpdateSnapshotResult } from "../models/models_0";
+import { de_UpdateSnapshotCommand, se_UpdateSnapshotCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSnapshotCommand}.
  */
 export interface UpdateSnapshotCommandInput extends UpdateSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSnapshotCommand}.
  */
 export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the metadata of a GameSparks snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResult, __Met
  * import { GameSparksClient, UpdateSnapshotCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, UpdateSnapshotCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // UpdateSnapshotRequest
+ *   GameName: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSnapshotCommandInput - {@link UpdateSnapshotCommandInput}
+ * @returns {@link UpdateSnapshotCommandOutput}
  * @see {@link UpdateSnapshotCommandInput} for command's `input` shape.
  * @see {@link UpdateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +88,9 @@ export class UpdateSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class UpdateSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class UpdateSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSnapshotCommand(input, context);
+    return se_UpdateSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSnapshotCommandOutput> {
-    return deserializeAws_restJson1UpdateSnapshotCommand(output, context);
+    return de_UpdateSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

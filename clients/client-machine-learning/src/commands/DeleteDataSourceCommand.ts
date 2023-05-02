@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  DeleteDataSourceInput,
-  DeleteDataSourceInputFilterSensitiveLog,
-  DeleteDataSourceOutput,
-  DeleteDataSourceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDataSourceCommand,
-  serializeAws_json1_1DeleteDataSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDataSourceInput, DeleteDataSourceOutput } from "../models/models_0";
+import { de_DeleteDataSourceCommand, se_DeleteDataSourceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataSourceCommand}.
  */
 export interface DeleteDataSourceCommandInput extends DeleteDataSourceInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataSourceCommand}.
  */
 export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the DELETED status to a <code>DataSource</code>, rendering it unusable.</p>
  *         <p>After using the <code>DeleteDataSource</code> operation, you can use the <a>GetDataSource</a> operation to verify that the status of the <code>DataSource</code> changed to DELETED.</p>
  *         <p>
@@ -45,10 +42,15 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * import { MachineLearningClient, DeleteDataSourceCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteDataSourceCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // DeleteDataSourceInput
+ *   DataSourceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataSourceCommandInput - {@link DeleteDataSourceCommandInput}
+ * @returns {@link DeleteDataSourceCommandOutput}
  * @see {@link DeleteDataSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSourceCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -81,6 +83,9 @@ export class DeleteDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataSourceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDataSourceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDataSourceCommand(input, context);
+    return se_DeleteDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataSourceCommandOutput> {
-    return deserializeAws_json1_1DeleteDataSourceCommand(output, context);
+    return de_DeleteDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

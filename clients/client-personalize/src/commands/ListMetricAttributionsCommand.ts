@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMetricAttributionsRequest,
-  ListMetricAttributionsRequestFilterSensitiveLog,
-  ListMetricAttributionsResponse,
-  ListMetricAttributionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListMetricAttributionsRequest, ListMetricAttributionsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListMetricAttributionsCommand,
-  serializeAws_json1_1ListMetricAttributionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListMetricAttributionsCommand, se_ListMetricAttributionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMetricAttributionsCommand}.
  */
 export interface ListMetricAttributionsCommandInput extends ListMetricAttributionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMetricAttributionsCommand}.
  */
 export interface ListMetricAttributionsCommandOutput extends ListMetricAttributionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists metric attributions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListMetricAttributionsCommandOutput extends ListMetricAttributi
  * import { PersonalizeClient, ListMetricAttributionsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListMetricAttributionsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListMetricAttributionsRequest
+ *   datasetGroupArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListMetricAttributionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMetricAttributionsCommandInput - {@link ListMetricAttributionsCommandInput}
+ * @returns {@link ListMetricAttributionsCommandOutput}
  * @see {@link ListMetricAttributionsCommandInput} for command's `input` shape.
  * @see {@link ListMetricAttributionsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -75,6 +79,9 @@ export class ListMetricAttributionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMetricAttributionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +110,8 @@ export class ListMetricAttributionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMetricAttributionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMetricAttributionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +121,18 @@ export class ListMetricAttributionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMetricAttributionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMetricAttributionsCommand(input, context);
+    return se_ListMetricAttributionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMetricAttributionsCommandOutput> {
-    return deserializeAws_json1_1ListMetricAttributionsCommand(output, context);
+    return de_ListMetricAttributionsCommand(output, context);
   }
 
   // Start section: command_body_extra

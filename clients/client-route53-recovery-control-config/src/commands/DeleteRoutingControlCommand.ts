@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteRoutingControlRequest,
-  DeleteRoutingControlRequestFilterSensitiveLog,
-  DeleteRoutingControlResponse,
-  DeleteRoutingControlResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRoutingControlCommand,
-  serializeAws_restJson1DeleteRoutingControlCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRoutingControlRequest, DeleteRoutingControlResponse } from "../models/models_0";
+import { de_DeleteRoutingControlCommand, se_DeleteRoutingControlCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRoutingControlCommand}.
  */
 export interface DeleteRoutingControlCommandInput extends DeleteRoutingControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRoutingControlCommand}.
  */
 export interface DeleteRoutingControlCommandOutput extends DeleteRoutingControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a routing control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface DeleteRoutingControlCommandOutput extends DeleteRoutingControlR
  * import { Route53RecoveryControlConfigClient, DeleteRoutingControlCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DeleteRoutingControlCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // DeleteRoutingControlRequest
+ *   RoutingControlArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRoutingControlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRoutingControlCommandInput - {@link DeleteRoutingControlCommandInput}
+ * @returns {@link DeleteRoutingControlCommandOutput}
  * @see {@link DeleteRoutingControlCommandInput} for command's `input` shape.
  * @see {@link DeleteRoutingControlCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -91,6 +93,9 @@ export class DeleteRoutingControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRoutingControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class DeleteRoutingControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRoutingControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRoutingControlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class DeleteRoutingControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRoutingControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRoutingControlCommand(input, context);
+    return se_DeleteRoutingControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoutingControlCommandOutput> {
-    return deserializeAws_restJson1DeleteRoutingControlCommand(output, context);
+    return de_DeleteRoutingControlCommand(output, context);
   }
 
   // Start section: command_body_extra

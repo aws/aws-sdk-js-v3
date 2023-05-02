@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  ListImportFileTaskRequest,
-  ListImportFileTaskRequestFilterSensitiveLog,
-  ListImportFileTaskResponse,
-  ListImportFileTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListImportFileTaskCommand,
-  serializeAws_restJson1ListImportFileTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { ListImportFileTaskRequest, ListImportFileTaskResponse } from "../models/models_0";
+import { de_ListImportFileTaskCommand, se_ListImportFileTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListImportFileTaskCommand}.
  */
 export interface ListImportFileTaskCommandInput extends ListImportFileTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImportFileTaskCommand}.
  */
 export interface ListImportFileTaskCommandOutput extends ListImportFileTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves a list of all the imports performed. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,16 @@ export interface ListImportFileTaskCommandOutput extends ListImportFileTaskRespo
  * import { MigrationHubStrategyClient, ListImportFileTaskCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, ListImportFileTaskCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // ListImportFileTaskRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListImportFileTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImportFileTaskCommandInput - {@link ListImportFileTaskCommandInput}
+ * @returns {@link ListImportFileTaskCommandOutput}
  * @see {@link ListImportFileTaskCommandInput} for command's `input` shape.
  * @see {@link ListImportFileTaskCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -86,6 +89,9 @@ export class ListImportFileTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImportFileTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class ListImportFileTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImportFileTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImportFileTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class ListImportFileTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImportFileTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListImportFileTaskCommand(input, context);
+    return se_ListImportFileTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportFileTaskCommandOutput> {
-    return deserializeAws_restJson1ListImportFileTaskCommand(output, context);
+    return de_ListImportFileTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

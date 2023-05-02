@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  RejectInputDeviceTransferRequest,
-  RejectInputDeviceTransferRequestFilterSensitiveLog,
-  RejectInputDeviceTransferResponse,
-  RejectInputDeviceTransferResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1RejectInputDeviceTransferCommand,
-  serializeAws_restJson1RejectInputDeviceTransferCommand,
-} from "../protocols/Aws_restJson1";
+import { RejectInputDeviceTransferRequest, RejectInputDeviceTransferResponse } from "../models/models_1";
+import { de_RejectInputDeviceTransferCommand, se_RejectInputDeviceTransferCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectInputDeviceTransferCommand}.
  */
 export interface RejectInputDeviceTransferCommandInput extends RejectInputDeviceTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectInputDeviceTransferCommand}.
  */
 export interface RejectInputDeviceTransferCommandOutput extends RejectInputDeviceTransferResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Reject the transfer of the specified input device to your AWS account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface RejectInputDeviceTransferCommandOutput extends RejectInputDevic
  * import { MediaLiveClient, RejectInputDeviceTransferCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, RejectInputDeviceTransferCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // RejectInputDeviceTransferRequest
+ *   InputDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new RejectInputDeviceTransferCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectInputDeviceTransferCommandInput - {@link RejectInputDeviceTransferCommandInput}
+ * @returns {@link RejectInputDeviceTransferCommandOutput}
  * @see {@link RejectInputDeviceTransferCommandInput} for command's `input` shape.
  * @see {@link RejectInputDeviceTransferCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -96,6 +98,9 @@ export class RejectInputDeviceTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectInputDeviceTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +129,8 @@ export class RejectInputDeviceTransferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectInputDeviceTransferRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectInputDeviceTransferResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,15 +140,21 @@ export class RejectInputDeviceTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectInputDeviceTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RejectInputDeviceTransferCommand(input, context);
+    return se_RejectInputDeviceTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectInputDeviceTransferCommandOutput> {
-    return deserializeAws_restJson1RejectInputDeviceTransferCommand(output, context);
+    return de_RejectInputDeviceTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

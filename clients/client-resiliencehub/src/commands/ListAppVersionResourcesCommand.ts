@@ -13,39 +13,45 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAppVersionResourcesRequest,
-  ListAppVersionResourcesRequestFilterSensitiveLog,
-  ListAppVersionResourcesResponse,
-  ListAppVersionResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppVersionResourcesCommand,
-  serializeAws_restJson1ListAppVersionResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAppVersionResourcesRequest, ListAppVersionResourcesResponse } from "../models/models_0";
+import { de_ListAppVersionResourcesCommand, se_ListAppVersionResourcesCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppVersionResourcesCommand}.
  */
 export interface ListAppVersionResourcesCommandInput extends ListAppVersionResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppVersionResourcesCommand}.
  */
 export interface ListAppVersionResourcesCommandOutput extends ListAppVersionResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the resources in an AWS Resilience Hub application.</p>
+ * @public
+ * <p>Lists all the resources in an Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, ListAppVersionResourcesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppVersionResourcesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListAppVersionResourcesRequest
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   resolutionId: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAppVersionResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppVersionResourcesCommandInput - {@link ListAppVersionResourcesCommandInput}
+ * @returns {@link ListAppVersionResourcesCommandOutput}
  * @see {@link ListAppVersionResourcesCommandInput} for command's `input` shape.
  * @see {@link ListAppVersionResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -62,7 +68,7 @@ export interface ListAppVersionResourcesCommandOutput extends ListAppVersionReso
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -93,6 +99,9 @@ export class ListAppVersionResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppVersionResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +130,8 @@ export class ListAppVersionResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppVersionResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppVersionResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +141,18 @@ export class ListAppVersionResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppVersionResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppVersionResourcesCommand(input, context);
+    return se_ListAppVersionResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppVersionResourcesCommandOutput> {
-    return deserializeAws_restJson1ListAppVersionResourcesCommand(output, context);
+    return de_ListAppVersionResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWorldGenerationJobRequest,
-  CreateWorldGenerationJobRequestFilterSensitiveLog,
-  CreateWorldGenerationJobResponse,
-  CreateWorldGenerationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorldGenerationJobCommand,
-  serializeAws_restJson1CreateWorldGenerationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateWorldGenerationJobRequest, CreateWorldGenerationJobResponse } from "../models/models_0";
+import { de_CreateWorldGenerationJobCommand, se_CreateWorldGenerationJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorldGenerationJobCommand}.
  */
 export interface CreateWorldGenerationJobCommandInput extends CreateWorldGenerationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorldGenerationJobCommand}.
  */
 export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenerationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates worlds using the specified template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenera
  * import { RoboMakerClient, CreateWorldGenerationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateWorldGenerationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // CreateWorldGenerationJobRequest
+ *   clientRequestToken: "STRING_VALUE",
+ *   template: "STRING_VALUE", // required
+ *   worldCount: { // WorldCount
+ *     floorplanCount: Number("int"),
+ *     interiorCountPerFloorplan: Number("int"),
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   worldTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateWorldGenerationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorldGenerationJobCommandInput - {@link CreateWorldGenerationJobCommandInput}
+ * @returns {@link CreateWorldGenerationJobCommandOutput}
  * @see {@link CreateWorldGenerationJobCommandInput} for command's `input` shape.
  * @see {@link CreateWorldGenerationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -93,6 +106,9 @@ export class CreateWorldGenerationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorldGenerationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +137,8 @@ export class CreateWorldGenerationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorldGenerationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorldGenerationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +148,18 @@ export class CreateWorldGenerationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorldGenerationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorldGenerationJobCommand(input, context);
+    return se_CreateWorldGenerationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorldGenerationJobCommandOutput> {
-    return deserializeAws_restJson1CreateWorldGenerationJobCommand(output, context);
+    return de_CreateWorldGenerationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -92,6 +92,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CancelJobCommandInput
   | CreateDataSetCommandInput
@@ -123,6 +126,9 @@ export type ServiceInputTypes =
   | UpdateEventActionCommandInput
   | UpdateRevisionCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CancelJobCommandOutput
   | CreateDataSetCommandOutput
@@ -154,6 +160,9 @@ export type ServiceOutputTypes =
   | UpdateEventActionCommandOutput
   | UpdateRevisionCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -161,7 +170,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -270,11 +279,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type DataExchangeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -285,10 +297,15 @@ type DataExchangeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of DataExchangeClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of DataExchangeClient class constructor that set the region, credentials and other options.
  */
 export interface DataExchangeClientConfig extends DataExchangeClientConfigType {}
 
+/**
+ * @public
+ */
 type DataExchangeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -299,11 +316,14 @@ type DataExchangeClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of DataExchangeClient class. This is resolved and normalized from the {@link DataExchangeClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of DataExchangeClient class. This is resolved and normalized from the {@link DataExchangeClientConfig | constructor configuration interface}.
  */
 export interface DataExchangeClientResolvedConfig extends DataExchangeClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access file-based data set in the AWS Cloud.</p>
  *          <p>As a subscriber, you can view and access the data sets that you have an entitlement to through
  *          a subscription. You can use the APIs to download or copy your entitled data sets to Amazon

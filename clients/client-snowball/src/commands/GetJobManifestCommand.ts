@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetJobManifestRequest,
-  GetJobManifestRequestFilterSensitiveLog,
-  GetJobManifestResult,
-  GetJobManifestResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetJobManifestCommand,
-  serializeAws_json1_1GetJobManifestCommand,
-} from "../protocols/Aws_json1_1";
+import { GetJobManifestRequest, GetJobManifestResult } from "../models/models_0";
+import { de_GetJobManifestCommand, se_GetJobManifestCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobManifestCommand}.
  */
 export interface GetJobManifestCommandInput extends GetJobManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobManifestCommand}.
  */
 export interface GetJobManifestCommandOutput extends GetJobManifestResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a link to an Amazon S3 presigned URL for the manifest file associated with the
  *       specified <code>JobId</code> value. You can access the manifest file for up to 60 minutes
  *       after this request has been made. To access the manifest file after 60 minutes have passed,
@@ -57,10 +54,15 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  * import { SnowballClient, GetJobManifestCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, GetJobManifestCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // GetJobManifestRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new GetJobManifestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobManifestCommandInput - {@link GetJobManifestCommandInput}
+ * @returns {@link GetJobManifestCommandOutput}
  * @see {@link GetJobManifestCommandInput} for command's `input` shape.
  * @see {@link GetJobManifestCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -114,6 +116,9 @@ export class GetJobManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +147,8 @@ export class GetJobManifestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobManifestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobManifestResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +158,18 @@ export class GetJobManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobManifestCommand(input, context);
+    return se_GetJobManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobManifestCommandOutput> {
-    return deserializeAws_json1_1GetJobManifestCommand(output, context);
+    return de_GetJobManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

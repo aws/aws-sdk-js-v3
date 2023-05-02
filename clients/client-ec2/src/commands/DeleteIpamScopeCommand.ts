@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteIpamScopeRequest,
-  DeleteIpamScopeRequestFilterSensitiveLog,
-  DeleteIpamScopeResult,
-  DeleteIpamScopeResultFilterSensitiveLog,
-} from "../models/models_2";
-import { deserializeAws_ec2DeleteIpamScopeCommand, serializeAws_ec2DeleteIpamScopeCommand } from "../protocols/Aws_ec2";
+import { DeleteIpamScopeRequest, DeleteIpamScopeResult } from "../models/models_2";
+import { de_DeleteIpamScopeCommand, se_DeleteIpamScopeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIpamScopeCommand}.
  */
 export interface DeleteIpamScopeCommandInput extends DeleteIpamScopeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIpamScopeCommand}.
  */
 export interface DeleteIpamScopeCommandOutput extends DeleteIpamScopeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
@@ -41,10 +41,16 @@ export interface DeleteIpamScopeCommandOutput extends DeleteIpamScopeResult, __M
  * import { EC2Client, DeleteIpamScopeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteIpamScopeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteIpamScopeRequest
+ *   DryRun: true || false,
+ *   IpamScopeId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIpamScopeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIpamScopeCommandInput - {@link DeleteIpamScopeCommandInput}
+ * @returns {@link DeleteIpamScopeCommandOutput}
  * @see {@link DeleteIpamScopeCommandInput} for command's `input` shape.
  * @see {@link DeleteIpamScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +74,9 @@ export class DeleteIpamScopeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIpamScopeCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +105,8 @@ export class DeleteIpamScopeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIpamScopeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIpamScopeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +116,18 @@ export class DeleteIpamScopeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIpamScopeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteIpamScopeCommand(input, context);
+    return se_DeleteIpamScopeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIpamScopeCommandOutput> {
-    return deserializeAws_ec2DeleteIpamScopeCommand(output, context);
+    return de_DeleteIpamScopeCommand(output, context);
   }
 
   // Start section: command_body_extra

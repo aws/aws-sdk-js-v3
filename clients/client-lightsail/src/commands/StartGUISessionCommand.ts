@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  StartGUISessionRequest,
-  StartGUISessionRequestFilterSensitiveLog,
-  StartGUISessionResult,
-  StartGUISessionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1StartGUISessionCommand,
-  serializeAws_json1_1StartGUISessionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartGUISessionRequest, StartGUISessionResult } from "../models/models_1";
+import { de_StartGUISessionCommand, se_StartGUISessionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartGUISessionCommand}.
  */
 export interface StartGUISessionCommandInput extends StartGUISessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartGUISessionCommand}.
  */
 export interface StartGUISessionCommandOutput extends StartGUISessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a graphical user interface (GUI) session that’s used to access a virtual
  *       computer’s operating system and application. The session will be active for 1 hour. Use this action to resume the session after it expires. </p>
  * @example
@@ -43,10 +40,15 @@ export interface StartGUISessionCommandOutput extends StartGUISessionResult, __M
  * import { LightsailClient, StartGUISessionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, StartGUISessionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // StartGUISessionRequest
+ *   resourceName: "STRING_VALUE", // required
+ * };
  * const command = new StartGUISessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartGUISessionCommandInput - {@link StartGUISessionCommandInput}
+ * @returns {@link StartGUISessionCommandOutput}
  * @see {@link StartGUISessionCommandInput} for command's `input` shape.
  * @see {@link StartGUISessionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -93,6 +95,9 @@ export class StartGUISessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartGUISessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +126,8 @@ export class StartGUISessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartGUISessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartGUISessionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +137,18 @@ export class StartGUISessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartGUISessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartGUISessionCommand(input, context);
+    return se_StartGUISessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartGUISessionCommandOutput> {
-    return deserializeAws_json1_1StartGUISessionCommand(output, context);
+    return de_StartGUISessionCommand(output, context);
   }
 
   // Start section: command_body_extra

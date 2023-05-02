@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutIdentityPolicyRequest,
-  PutIdentityPolicyRequestFilterSensitiveLog,
-  PutIdentityPolicyResponse,
-  PutIdentityPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryPutIdentityPolicyCommand,
-  serializeAws_queryPutIdentityPolicyCommand,
-} from "../protocols/Aws_query";
+import { PutIdentityPolicyRequest, PutIdentityPolicyResponse } from "../models/models_0";
+import { de_PutIdentityPolicyCommand, se_PutIdentityPolicyCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutIdentityPolicyCommand}.
  */
 export interface PutIdentityPolicyCommandInput extends PutIdentityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutIdentityPolicyCommand}.
  */
 export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates a sending authorization policy for the specified identity (an email
  *             address or a domain).</p>
  *         <note>
@@ -52,10 +49,17 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * import { SESClient, PutIdentityPolicyCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, PutIdentityPolicyCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // PutIdentityPolicyRequest
+ *   Identity: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutIdentityPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutIdentityPolicyCommandInput - {@link PutIdentityPolicyCommandInput}
+ * @returns {@link PutIdentityPolicyCommandOutput}
  * @see {@link PutIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link PutIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -96,6 +100,9 @@ export class PutIdentityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutIdentityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +131,8 @@ export class PutIdentityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutIdentityPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutIdentityPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +142,18 @@ export class PutIdentityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutIdentityPolicyCommand(input, context);
+    return se_PutIdentityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIdentityPolicyCommandOutput> {
-    return deserializeAws_queryPutIdentityPolicyCommand(output, context);
+    return de_PutIdentityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

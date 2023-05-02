@@ -14,20 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { SearchResponse, SearchResponseFilterSensitiveLog } from "../models/models_3";
-import { SearchRequest, SearchRequestFilterSensitiveLog } from "../models/models_4";
-import { deserializeAws_json1_1SearchCommand, serializeAws_json1_1SearchCommand } from "../protocols/Aws_json1_1";
+import { SearchRequest } from "../models/models_4";
+import { de_SearchCommand, se_SearchCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchCommand}.
  */
 export interface SearchCommandInput extends SearchRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchCommand}.
  */
 export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Finds SageMaker resources that match a search query. Matching resources are returned
  *       as a list of <code>SearchRecord</code> objects in the response. You can sort the search
  *       results by any resource property in a ascending or descending order.</p>
@@ -44,10 +49,62 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * import { SageMakerClient, SearchCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, SearchCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // SearchRequest
+ *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "Project" || "FeatureMetadata" || "HyperParameterTuningJob" || "ModelCard" || "Model", // required
+ *   SearchExpression: { // SearchExpression
+ *     Filters: [ // FilterList
+ *       { // Filter
+ *         Name: "STRING_VALUE", // required
+ *         Operator: "Equals" || "NotEquals" || "GreaterThan" || "GreaterThanOrEqualTo" || "LessThan" || "LessThanOrEqualTo" || "Contains" || "Exists" || "NotExists" || "In",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     NestedFilters: [ // NestedFiltersList
+ *       { // NestedFilters
+ *         NestedPropertyName: "STRING_VALUE", // required
+ *         Filters: [ // required
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Operator: "Equals" || "NotEquals" || "GreaterThan" || "GreaterThanOrEqualTo" || "LessThan" || "LessThanOrEqualTo" || "Contains" || "Exists" || "NotExists" || "In",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     SubExpressions: [ // SearchExpressionList
+ *       {
+ *         Filters: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Operator: "Equals" || "NotEquals" || "GreaterThan" || "GreaterThanOrEqualTo" || "LessThan" || "LessThanOrEqualTo" || "Contains" || "Exists" || "NotExists" || "In",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *         NestedFilters: [
+ *           {
+ *             NestedPropertyName: "STRING_VALUE", // required
+ *             Filters: "<FilterList>", // required
+ *           },
+ *         ],
+ *         SubExpressions: [
+ *           "<SearchExpression>",
+ *         ],
+ *         Operator: "And" || "Or",
+ *       },
+ *     ],
+ *     Operator: "And" || "Or",
+ *   },
+ *   SortBy: "STRING_VALUE",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchCommandInput - {@link SearchCommandInput}
+ * @returns {@link SearchCommandOutput}
  * @see {@link SearchCommandInput} for command's `input` shape.
  * @see {@link SearchCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +124,9 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +153,7 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SearchResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -104,12 +164,18 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchCommand(input, context);
+    return se_SearchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> {
-    return deserializeAws_json1_1SearchCommand(output, context);
+    return de_SearchCommand(output, context);
   }
 
   // Start section: command_body_extra

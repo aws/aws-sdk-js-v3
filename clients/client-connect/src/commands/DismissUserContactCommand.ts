@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DismissUserContactRequest,
-  DismissUserContactRequestFilterSensitiveLog,
-  DismissUserContactResponse,
-  DismissUserContactResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DismissUserContactCommand,
-  serializeAws_restJson1DismissUserContactCommand,
-} from "../protocols/Aws_restJson1";
+import { DismissUserContactRequest, DismissUserContactResponse } from "../models/models_0";
+import { de_DismissUserContactCommand, se_DismissUserContactCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DismissUserContactCommand}.
  */
 export interface DismissUserContactCommandInput extends DismissUserContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link DismissUserContactCommand}.
  */
 export interface DismissUserContactCommandOutput extends DismissUserContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
  *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
  *     <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
@@ -46,10 +43,17 @@ export interface DismissUserContactCommandOutput extends DismissUserContactRespo
  * import { ConnectClient, DismissUserContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DismissUserContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DismissUserContactRequest
+ *   UserId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ * };
  * const command = new DismissUserContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DismissUserContactCommandInput - {@link DismissUserContactCommandInput}
+ * @returns {@link DismissUserContactCommandOutput}
  * @see {@link DismissUserContactCommandInput} for command's `input` shape.
  * @see {@link DismissUserContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -91,6 +95,9 @@ export class DismissUserContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DismissUserContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +126,8 @@ export class DismissUserContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DismissUserContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DismissUserContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +137,18 @@ export class DismissUserContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DismissUserContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DismissUserContactCommand(input, context);
+    return se_DismissUserContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DismissUserContactCommandOutput> {
-    return deserializeAws_restJson1DismissUserContactCommand(output, context);
+    return de_DismissUserContactCommand(output, context);
   }
 
   // Start section: command_body_extra

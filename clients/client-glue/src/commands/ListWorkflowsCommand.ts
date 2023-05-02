@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListWorkflowsRequest,
-  ListWorkflowsRequestFilterSensitiveLog,
-  ListWorkflowsResponse,
-  ListWorkflowsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListWorkflowsCommand,
-  serializeAws_json1_1ListWorkflowsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListWorkflowsRequest, ListWorkflowsResponse } from "../models/models_2";
+import { de_ListWorkflowsCommand, se_ListWorkflowsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkflowsCommand}.
  */
 export interface ListWorkflowsCommandInput extends ListWorkflowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkflowsCommand}.
  */
 export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists names of workflows created in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * import { GlueClient, ListWorkflowsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListWorkflowsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListWorkflowsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkflowsCommandInput - {@link ListWorkflowsCommandInput}
+ * @returns {@link ListWorkflowsCommandOutput}
  * @see {@link ListWorkflowsCommandInput} for command's `input` shape.
  * @see {@link ListWorkflowsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +81,9 @@ export class ListWorkflowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkflowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class ListWorkflowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkflowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkflowsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class ListWorkflowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkflowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWorkflowsCommand(input, context);
+    return se_ListWorkflowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowsCommandOutput> {
-    return deserializeAws_json1_1ListWorkflowsCommand(output, context);
+    return de_ListWorkflowsCommand(output, context);
   }
 
   // Start section: command_body_extra

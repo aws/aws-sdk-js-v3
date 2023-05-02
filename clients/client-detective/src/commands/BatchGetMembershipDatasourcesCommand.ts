@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
+import { BatchGetMembershipDatasourcesRequest, BatchGetMembershipDatasourcesResponse } from "../models/models_0";
 import {
-  BatchGetMembershipDatasourcesRequest,
-  BatchGetMembershipDatasourcesRequestFilterSensitiveLog,
-  BatchGetMembershipDatasourcesResponse,
-  BatchGetMembershipDatasourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetMembershipDatasourcesCommand,
-  serializeAws_restJson1BatchGetMembershipDatasourcesCommand,
+  de_BatchGetMembershipDatasourcesCommand,
+  se_BatchGetMembershipDatasourcesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetMembershipDatasourcesCommand}.
  */
 export interface BatchGetMembershipDatasourcesCommandInput extends BatchGetMembershipDatasourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetMembershipDatasourcesCommand}.
  */
 export interface BatchGetMembershipDatasourcesCommandOutput
@@ -37,6 +36,7 @@ export interface BatchGetMembershipDatasourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information on the data source package history for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface BatchGetMembershipDatasourcesCommandOutput
  * import { DetectiveClient, BatchGetMembershipDatasourcesCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, BatchGetMembershipDatasourcesCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // BatchGetMembershipDatasourcesRequest
+ *   GraphArns: [ // GraphArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetMembershipDatasourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetMembershipDatasourcesCommandInput - {@link BatchGetMembershipDatasourcesCommandInput}
+ * @returns {@link BatchGetMembershipDatasourcesCommandOutput}
  * @see {@link BatchGetMembershipDatasourcesCommandInput} for command's `input` shape.
  * @see {@link BatchGetMembershipDatasourcesCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -84,6 +91,9 @@ export class BatchGetMembershipDatasourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetMembershipDatasourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class BatchGetMembershipDatasourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetMembershipDatasourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetMembershipDatasourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +133,21 @@ export class BatchGetMembershipDatasourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetMembershipDatasourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetMembershipDatasourcesCommand(input, context);
+    return se_BatchGetMembershipDatasourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetMembershipDatasourcesCommandOutput> {
-    return deserializeAws_restJson1BatchGetMembershipDatasourcesCommand(output, context);
+    return de_BatchGetMembershipDatasourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

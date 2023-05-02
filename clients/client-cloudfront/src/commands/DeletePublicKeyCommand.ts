@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeletePublicKeyRequest, DeletePublicKeyRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restXmlDeletePublicKeyCommand,
-  serializeAws_restXmlDeletePublicKeyCommand,
-} from "../protocols/Aws_restXml";
+import { DeletePublicKeyRequest } from "../models/models_1";
+import { de_DeletePublicKeyCommand, se_DeletePublicKeyCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePublicKeyCommand}.
  */
 export interface DeletePublicKeyCommandInput extends DeletePublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePublicKeyCommand}.
  */
 export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove a public key you previously added to CloudFront.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
  * import { CloudFrontClient, DeletePublicKeyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeletePublicKeyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeletePublicKeyRequest
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeletePublicKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePublicKeyCommandInput - {@link DeletePublicKeyCommandInput}
+ * @returns {@link DeletePublicKeyCommandOutput}
  * @see {@link DeletePublicKeyCommandInput} for command's `input` shape.
  * @see {@link DeletePublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -80,6 +88,9 @@ export class DeletePublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +119,8 @@ export class DeletePublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +130,18 @@ export class DeletePublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeletePublicKeyCommand(input, context);
+    return se_DeletePublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePublicKeyCommandOutput> {
-    return deserializeAws_restXmlDeletePublicKeyCommand(output, context);
+    return de_DeletePublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

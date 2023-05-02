@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  UpdateModelManifestRequest,
-  UpdateModelManifestRequestFilterSensitiveLog,
-  UpdateModelManifestResponse,
-  UpdateModelManifestResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateModelManifestCommand,
-  serializeAws_json1_0UpdateModelManifestCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateModelManifestRequest, UpdateModelManifestResponse } from "../models/models_0";
+import { de_UpdateModelManifestCommand, se_UpdateModelManifestCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateModelManifestCommand}.
  */
 export interface UpdateModelManifestCommandInput extends UpdateModelManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateModelManifestCommand}.
  */
 export interface UpdateModelManifestCommandOutput extends UpdateModelManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a vehicle model (model manifest). If created vehicles are associated with a
  *             vehicle model, it can't be updated.</p>
  * @example
@@ -43,10 +40,23 @@ export interface UpdateModelManifestCommandOutput extends UpdateModelManifestRes
  * import { IoTFleetWiseClient, UpdateModelManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, UpdateModelManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // UpdateModelManifestRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   nodesToAdd: [ // NodePaths
+ *     "STRING_VALUE",
+ *   ],
+ *   nodesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   status: "STRING_VALUE",
+ * };
  * const command = new UpdateModelManifestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateModelManifestCommandInput - {@link UpdateModelManifestCommandInput}
+ * @returns {@link UpdateModelManifestCommandOutput}
  * @see {@link UpdateModelManifestCommandInput} for command's `input` shape.
  * @see {@link UpdateModelManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -92,6 +102,9 @@ export class UpdateModelManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateModelManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +133,8 @@ export class UpdateModelManifestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateModelManifestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateModelManifestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +144,18 @@ export class UpdateModelManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateModelManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateModelManifestCommand(input, context);
+    return se_UpdateModelManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelManifestCommandOutput> {
-    return deserializeAws_json1_0UpdateModelManifestCommand(output, context);
+    return de_UpdateModelManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

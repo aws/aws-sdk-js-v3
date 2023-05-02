@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  DeleteExperimentRequest,
-  DeleteExperimentRequestFilterSensitiveLog,
-  DeleteExperimentResponse,
-  DeleteExperimentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteExperimentCommand,
-  serializeAws_restJson1DeleteExperimentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteExperimentRequest, DeleteExperimentResponse } from "../models/models_0";
+import { de_DeleteExperimentCommand, se_DeleteExperimentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExperimentCommand}.
  */
 export interface DeleteExperimentCommandInput extends DeleteExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExperimentCommand}.
  */
 export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Evidently experiment. The feature used for the experiment is not deleted.</p>
  *          <p>To stop an experiment without deleting it, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopExperiment.html">StopExperiment</a>. </p>
  * @example
@@ -43,10 +40,16 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * import { EvidentlyClient, DeleteExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, DeleteExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // DeleteExperimentRequest
+ *   project: "STRING_VALUE", // required
+ *   experiment: "STRING_VALUE", // required
+ * };
  * const command = new DeleteExperimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExperimentCommandInput - {@link DeleteExperimentCommandInput}
+ * @returns {@link DeleteExperimentCommandOutput}
  * @see {@link DeleteExperimentCommandInput} for command's `input` shape.
  * @see {@link DeleteExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -88,6 +91,9 @@ export class DeleteExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class DeleteExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class DeleteExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteExperimentCommand(input, context);
+    return se_DeleteExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperimentCommandOutput> {
-    return deserializeAws_restJson1DeleteExperimentCommand(output, context);
+    return de_DeleteExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

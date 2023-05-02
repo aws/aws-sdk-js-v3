@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRecommenderRequest,
-  CreateRecommenderRequestFilterSensitiveLog,
-  CreateRecommenderResponse,
-  CreateRecommenderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRecommenderRequest, CreateRecommenderResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateRecommenderCommand,
-  serializeAws_json1_1CreateRecommenderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateRecommenderCommand, se_CreateRecommenderCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRecommenderCommand}.
  */
 export interface CreateRecommenderCommandInput extends CreateRecommenderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRecommenderCommand}.
  */
 export interface CreateRecommenderCommandOutput extends CreateRecommenderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a recommender with the recipe (a Domain dataset group use case) you specify.
  *       You create recommenders for a Domain dataset group and specify the recommender's Amazon Resource Name (ARN) when you make a
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
@@ -117,10 +114,29 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  * import { PersonalizeClient, CreateRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateRecommenderRequest
+ *   name: "STRING_VALUE", // required
+ *   datasetGroupArn: "STRING_VALUE", // required
+ *   recipeArn: "STRING_VALUE", // required
+ *   recommenderConfig: { // RecommenderConfig
+ *     itemExplorationConfig: { // HyperParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     minRecommendationRequestsPerSecond: Number("int"),
+ *   },
+ *   tags: [ // Tags
+ *     { // Tag
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRecommenderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRecommenderCommandInput - {@link CreateRecommenderCommandInput}
+ * @returns {@link CreateRecommenderCommandOutput}
  * @see {@link CreateRecommenderCommandInput} for command's `input` shape.
  * @see {@link CreateRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -162,6 +178,9 @@ export class CreateRecommenderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRecommenderCommandInput) {
     // Start section: command_constructor
     super();
@@ -190,8 +209,8 @@ export class CreateRecommenderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRecommenderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRecommenderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -201,12 +220,18 @@ export class CreateRecommenderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRecommenderCommand(input, context);
+    return se_CreateRecommenderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRecommenderCommandOutput> {
-    return deserializeAws_json1_1CreateRecommenderCommand(output, context);
+    return de_CreateRecommenderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetCloudFormationStackRecordsRequest, GetCloudFormationStackRecordsResult } from "../models/models_0";
 import {
-  GetCloudFormationStackRecordsRequest,
-  GetCloudFormationStackRecordsRequestFilterSensitiveLog,
-  GetCloudFormationStackRecordsResult,
-  GetCloudFormationStackRecordsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCloudFormationStackRecordsCommand,
-  serializeAws_json1_1GetCloudFormationStackRecordsCommand,
+  de_GetCloudFormationStackRecordsCommand,
+  se_GetCloudFormationStackRecordsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCloudFormationStackRecordsCommand}.
  */
 export interface GetCloudFormationStackRecordsCommandInput extends GetCloudFormationStackRecordsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCloudFormationStackRecordsCommand}.
  */
 export interface GetCloudFormationStackRecordsCommandOutput
@@ -37,6 +36,7 @@ export interface GetCloudFormationStackRecordsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the CloudFormation stack record created as a result of the <code>create cloud
  *         formation stack</code> operation.</p>
  *          <p>An AWS CloudFormation stack is used to create a new Amazon EC2 instance from an exported Lightsail
@@ -47,10 +47,15 @@ export interface GetCloudFormationStackRecordsCommandOutput
  * import { LightsailClient, GetCloudFormationStackRecordsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetCloudFormationStackRecordsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetCloudFormationStackRecordsRequest
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetCloudFormationStackRecordsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCloudFormationStackRecordsCommandInput - {@link GetCloudFormationStackRecordsCommandInput}
+ * @returns {@link GetCloudFormationStackRecordsCommandOutput}
  * @see {@link GetCloudFormationStackRecordsCommandInput} for command's `input` shape.
  * @see {@link GetCloudFormationStackRecordsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +109,9 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCloudFormationStackRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +140,8 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCloudFormationStackRecordsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCloudFormationStackRecordsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,15 +151,21 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCloudFormationStackRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCloudFormationStackRecordsCommand(input, context);
+    return se_GetCloudFormationStackRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCloudFormationStackRecordsCommandOutput> {
-    return deserializeAws_json1_1GetCloudFormationStackRecordsCommand(output, context);
+    return de_GetCloudFormationStackRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListStreamingDistributionsRequest,
-  ListStreamingDistributionsRequestFilterSensitiveLog,
-  ListStreamingDistributionsResult,
-  ListStreamingDistributionsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListStreamingDistributionsCommand,
-  serializeAws_restXmlListStreamingDistributionsCommand,
-} from "../protocols/Aws_restXml";
+import { ListStreamingDistributionsRequest, ListStreamingDistributionsResult } from "../models/models_1";
+import { de_ListStreamingDistributionsCommand, se_ListStreamingDistributionsCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamingDistributionsCommand}.
  */
 export interface ListStreamingDistributionsCommandInput extends ListStreamingDistributionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamingDistributionsCommand}.
  */
 export interface ListStreamingDistributionsCommandOutput extends ListStreamingDistributionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List streaming distributions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListStreamingDistributionsCommandOutput extends ListStreamingDi
  * import { CloudFrontClient, ListStreamingDistributionsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListStreamingDistributionsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListStreamingDistributionsRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListStreamingDistributionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamingDistributionsCommandInput - {@link ListStreamingDistributionsCommandInput}
+ * @returns {@link ListStreamingDistributionsCommandOutput}
  * @see {@link ListStreamingDistributionsCommandInput} for command's `input` shape.
  * @see {@link ListStreamingDistributionsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -72,6 +75,9 @@ export class ListStreamingDistributionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamingDistributionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class ListStreamingDistributionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamingDistributionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamingDistributionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +117,21 @@ export class ListStreamingDistributionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamingDistributionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListStreamingDistributionsCommand(input, context);
+    return se_ListStreamingDistributionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStreamingDistributionsCommandOutput> {
-    return deserializeAws_restXmlListStreamingDistributionsCommand(output, context);
+    return de_ListStreamingDistributionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,23 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DisassociateSigninDelegateGroupsFromAccountRequest,
-  DisassociateSigninDelegateGroupsFromAccountRequestFilterSensitiveLog,
   DisassociateSigninDelegateGroupsFromAccountResponse,
-  DisassociateSigninDelegateGroupsFromAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCommand,
-  serializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCommand,
+  de_DisassociateSigninDelegateGroupsFromAccountCommand,
+  se_DisassociateSigninDelegateGroupsFromAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateSigninDelegateGroupsFromAccountCommand}.
  */
 export interface DisassociateSigninDelegateGroupsFromAccountCommandInput
   extends DisassociateSigninDelegateGroupsFromAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateSigninDelegateGroupsFromAccountCommand}.
  */
 export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
@@ -38,6 +40,7 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified sign-in delegate groups from the specified Amazon Chime account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,18 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
  * import { ChimeClient, DisassociateSigninDelegateGroupsFromAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DisassociateSigninDelegateGroupsFromAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DisassociateSigninDelegateGroupsFromAccountRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   GroupNames: [ // NonEmptyStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateSigninDelegateGroupsFromAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSigninDelegateGroupsFromAccountCommandInput - {@link DisassociateSigninDelegateGroupsFromAccountCommandInput}
+ * @returns {@link DisassociateSigninDelegateGroupsFromAccountCommandOutput}
  * @see {@link DisassociateSigninDelegateGroupsFromAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateSigninDelegateGroupsFromAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +104,9 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSigninDelegateGroupsFromAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +141,8 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSigninDelegateGroupsFromAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateSigninDelegateGroupsFromAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,18 +152,24 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateSigninDelegateGroupsFromAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCommand(input, context);
+    return se_DisassociateSigninDelegateGroupsFromAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCommand(output, context);
+    return de_DisassociateSigninDelegateGroupsFromAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeIpv6PoolsRequest,
-  DescribeIpv6PoolsRequestFilterSensitiveLog,
-  DescribeIpv6PoolsResult,
-  DescribeIpv6PoolsResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeIpv6PoolsCommand,
-  serializeAws_ec2DescribeIpv6PoolsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/models_4";
+import { de_DescribeIpv6PoolsCommand, se_DescribeIpv6PoolsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIpv6PoolsCommand}.
  */
 export interface DescribeIpv6PoolsCommandInput extends DescribeIpv6PoolsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIpv6PoolsCommand}.
  */
 export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your IPv6 address pools.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult,
  * import { EC2Client, DescribeIpv6PoolsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIpv6PoolsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeIpv6PoolsRequest
+ *   PoolIds: [ // Ipv6PoolIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DescribeIpv6PoolsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIpv6PoolsCommandInput - {@link DescribeIpv6PoolsCommandInput}
+ * @returns {@link DescribeIpv6PoolsCommandOutput}
  * @see {@link DescribeIpv6PoolsCommandInput} for command's `input` shape.
  * @see {@link DescribeIpv6PoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +84,9 @@ export class DescribeIpv6PoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIpv6PoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +115,8 @@ export class DescribeIpv6PoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIpv6PoolsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIpv6PoolsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +126,18 @@ export class DescribeIpv6PoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIpv6PoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIpv6PoolsCommand(input, context);
+    return se_DescribeIpv6PoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIpv6PoolsCommandOutput> {
-    return deserializeAws_ec2DescribeIpv6PoolsCommand(output, context);
+    return de_DescribeIpv6PoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

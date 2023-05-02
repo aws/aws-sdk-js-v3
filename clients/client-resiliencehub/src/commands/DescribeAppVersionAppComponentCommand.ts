@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeAppVersionAppComponentRequest, DescribeAppVersionAppComponentResponse } from "../models/models_0";
 import {
-  DescribeAppVersionAppComponentRequest,
-  DescribeAppVersionAppComponentRequestFilterSensitiveLog,
-  DescribeAppVersionAppComponentResponse,
-  DescribeAppVersionAppComponentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAppVersionAppComponentCommand,
-  serializeAws_restJson1DescribeAppVersionAppComponentCommand,
+  de_DescribeAppVersionAppComponentCommand,
+  se_DescribeAppVersionAppComponentCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppVersionAppComponentCommand}.
  */
 export interface DescribeAppVersionAppComponentCommandInput extends DescribeAppVersionAppComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppVersionAppComponentCommand}.
  */
 export interface DescribeAppVersionAppComponentCommandOutput
@@ -37,17 +36,25 @@ export interface DescribeAppVersionAppComponentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes an Application Component in the AWS Resilience Hub application.</p>
+ * @public
+ * <p>Describes an Application Component in the Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, DescribeAppVersionAppComponentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeAppVersionAppComponentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // DescribeAppVersionAppComponentRequest
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAppVersionAppComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppVersionAppComponentCommandInput - {@link DescribeAppVersionAppComponentCommandInput}
+ * @returns {@link DescribeAppVersionAppComponentCommandOutput}
  * @see {@link DescribeAppVersionAppComponentCommandInput} for command's `input` shape.
  * @see {@link DescribeAppVersionAppComponentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -64,7 +71,7 @@ export interface DescribeAppVersionAppComponentCommandOutput
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -95,6 +102,9 @@ export class DescribeAppVersionAppComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppVersionAppComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +133,8 @@ export class DescribeAppVersionAppComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppVersionAppComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAppVersionAppComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +144,24 @@ export class DescribeAppVersionAppComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAppVersionAppComponentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppVersionAppComponentCommand(input, context);
+    return se_DescribeAppVersionAppComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAppVersionAppComponentCommandOutput> {
-    return deserializeAws_restJson1DescribeAppVersionAppComponentCommand(output, context);
+    return de_DescribeAppVersionAppComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

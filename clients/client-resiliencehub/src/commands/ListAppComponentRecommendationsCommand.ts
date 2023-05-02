@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListAppComponentRecommendationsRequest, ListAppComponentRecommendationsResponse } from "../models/models_0";
 import {
-  ListAppComponentRecommendationsRequest,
-  ListAppComponentRecommendationsRequestFilterSensitiveLog,
-  ListAppComponentRecommendationsResponse,
-  ListAppComponentRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppComponentRecommendationsCommand,
-  serializeAws_restJson1ListAppComponentRecommendationsCommand,
+  de_ListAppComponentRecommendationsCommand,
+  se_ListAppComponentRecommendationsCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppComponentRecommendationsCommand}.
  */
 export interface ListAppComponentRecommendationsCommandInput extends ListAppComponentRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppComponentRecommendationsCommand}.
  */
 export interface ListAppComponentRecommendationsCommandOutput
@@ -37,17 +36,25 @@ export interface ListAppComponentRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the recommendations for an AWS Resilience Hub Application Component.</p>
+ * @public
+ * <p>Lists the recommendations for an Resilience Hub Application Component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, ListAppComponentRecommendationsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppComponentRecommendationsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListAppComponentRecommendationsRequest
+ *   assessmentArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAppComponentRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppComponentRecommendationsCommandInput - {@link ListAppComponentRecommendationsCommandInput}
+ * @returns {@link ListAppComponentRecommendationsCommandOutput}
  * @see {@link ListAppComponentRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListAppComponentRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -58,7 +65,7 @@ export interface ListAppComponentRecommendationsCommandOutput
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -89,6 +96,9 @@ export class ListAppComponentRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppComponentRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class ListAppComponentRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppComponentRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppComponentRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +138,24 @@ export class ListAppComponentRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAppComponentRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppComponentRecommendationsCommand(input, context);
+    return se_ListAppComponentRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAppComponentRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListAppComponentRecommendationsCommand(output, context);
+    return de_ListAppComponentRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

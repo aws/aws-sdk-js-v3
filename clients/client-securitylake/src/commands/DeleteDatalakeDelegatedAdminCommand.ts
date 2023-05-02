@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteDatalakeDelegatedAdminRequest, DeleteDatalakeDelegatedAdminResponse } from "../models/models_0";
 import {
-  DeleteDatalakeDelegatedAdminRequest,
-  DeleteDatalakeDelegatedAdminRequestFilterSensitiveLog,
-  DeleteDatalakeDelegatedAdminResponse,
-  DeleteDatalakeDelegatedAdminResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommand,
-  serializeAws_restJson1DeleteDatalakeDelegatedAdminCommand,
+  de_DeleteDatalakeDelegatedAdminCommand,
+  se_DeleteDatalakeDelegatedAdminCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatalakeDelegatedAdminCommand}.
  */
 export interface DeleteDatalakeDelegatedAdminCommandInput extends DeleteDatalakeDelegatedAdminRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatalakeDelegatedAdminCommand}.
  */
 export interface DeleteDatalakeDelegatedAdminCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteDatalakeDelegatedAdminCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the Amazon Security Lake delegated administrator account for the organization. This API
  *          can only be called by the organization management account. The organization management
  *          account cannot be the delegated administrator account.</p>
@@ -46,10 +46,15 @@ export interface DeleteDatalakeDelegatedAdminCommandOutput
  * import { SecurityLakeClient, DeleteDatalakeDelegatedAdminCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteDatalakeDelegatedAdminCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // DeleteDatalakeDelegatedAdminRequest
+ *   account: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDatalakeDelegatedAdminCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatalakeDelegatedAdminCommandInput - {@link DeleteDatalakeDelegatedAdminCommandInput}
+ * @returns {@link DeleteDatalakeDelegatedAdminCommandOutput}
  * @see {@link DeleteDatalakeDelegatedAdminCommandInput} for command's `input` shape.
  * @see {@link DeleteDatalakeDelegatedAdminCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -89,6 +94,9 @@ export class DeleteDatalakeDelegatedAdminCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatalakeDelegatedAdminCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class DeleteDatalakeDelegatedAdminCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatalakeDelegatedAdminRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDatalakeDelegatedAdminResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +136,21 @@ export class DeleteDatalakeDelegatedAdminCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatalakeDelegatedAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDatalakeDelegatedAdminCommand(input, context);
+    return se_DeleteDatalakeDelegatedAdminCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDatalakeDelegatedAdminCommandOutput> {
-    return deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommand(output, context);
+    return de_DeleteDatalakeDelegatedAdminCommand(output, context);
   }
 
   // Start section: command_body_extra

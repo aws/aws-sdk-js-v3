@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeLayersRequest,
-  DescribeLayersRequestFilterSensitiveLog,
-  DescribeLayersResult,
-  DescribeLayersResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeLayersRequest, DescribeLayersResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeLayersCommand,
-  serializeAws_json1_1DescribeLayersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLayersCommand, se_DescribeLayersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLayersCommand}.
  */
 export interface DescribeLayersCommandInput extends DescribeLayersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLayersCommand}.
  */
 export interface DescribeLayersCommandOutput extends DescribeLayersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a description of one or more layers in a specified stack.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -50,10 +47,18 @@ export interface DescribeLayersCommandOutput extends DescribeLayersResult, __Met
  * import { OpsWorksClient, DescribeLayersCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeLayersCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeLayersRequest
+ *   StackId: "STRING_VALUE",
+ *   LayerIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeLayersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLayersCommandInput - {@link DescribeLayersCommandInput}
+ * @returns {@link DescribeLayersCommandOutput}
  * @see {@link DescribeLayersCommandInput} for command's `input` shape.
  * @see {@link DescribeLayersCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -83,6 +88,9 @@ export class DescribeLayersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLayersCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +119,8 @@ export class DescribeLayersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLayersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLayersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +130,18 @@ export class DescribeLayersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLayersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLayersCommand(input, context);
+    return se_DescribeLayersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLayersCommandOutput> {
-    return deserializeAws_json1_1DescribeLayersCommand(output, context);
+    return de_DescribeLayersCommand(output, context);
   }
 
   // Start section: command_body_extra

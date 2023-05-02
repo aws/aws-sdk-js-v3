@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  DeleteConfigurationProfileRequest,
-  DeleteConfigurationProfileRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteConfigurationProfileCommand,
-  serializeAws_restJson1DeleteConfigurationProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteConfigurationProfileRequest } from "../models/models_0";
+import { de_DeleteConfigurationProfileCommand, se_DeleteConfigurationProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationProfileCommand}.
  */
 export interface DeleteConfigurationProfileCommandInput extends DeleteConfigurationProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationProfileCommand}.
  */
 export interface DeleteConfigurationProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a configuration profile. Deleting a configuration profile does not delete a
  *          configuration from a host.</p>
  * @example
@@ -41,10 +40,16 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * import { AppConfigClient, DeleteConfigurationProfileCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // DeleteConfigurationProfileRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ConfigurationProfileId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationProfileCommandInput - {@link DeleteConfigurationProfileCommandInput}
+ * @returns {@link DeleteConfigurationProfileCommandOutput}
  * @see {@link DeleteConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -93,6 +98,9 @@ export class DeleteConfigurationProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +129,8 @@ export class DeleteConfigurationProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +140,21 @@ export class DeleteConfigurationProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConfigurationProfileCommand(input, context);
+    return se_DeleteConfigurationProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteConfigurationProfileCommand(output, context);
+    return de_DeleteConfigurationProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

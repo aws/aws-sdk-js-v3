@@ -16,25 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DescribeChannelModeratorRequest,
-  DescribeChannelModeratorRequestFilterSensitiveLog,
   DescribeChannelModeratorResponse,
   DescribeChannelModeratorResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeChannelModeratorCommand,
-  serializeAws_restJson1DescribeChannelModeratorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeChannelModeratorCommand, se_DescribeChannelModeratorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChannelModeratorCommand}.
  */
 export interface DescribeChannelModeratorCommandInput extends DescribeChannelModeratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChannelModeratorCommand}.
  */
 export interface DescribeChannelModeratorCommandOutput extends DescribeChannelModeratorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of a single ChannelModerator.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -47,10 +48,17 @@ export interface DescribeChannelModeratorCommandOutput extends DescribeChannelMo
  * import { ChimeClient, DescribeChannelModeratorCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DescribeChannelModeratorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DescribeChannelModeratorRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChannelModeratorArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new DescribeChannelModeratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelModeratorCommandInput - {@link DescribeChannelModeratorCommandInput}
+ * @returns {@link DescribeChannelModeratorCommandOutput}
  * @see {@link DescribeChannelModeratorCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelModeratorCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -95,6 +103,9 @@ export class DescribeChannelModeratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelModeratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,7 +134,7 @@ export class DescribeChannelModeratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChannelModeratorRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelModeratorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -134,12 +145,18 @@ export class DescribeChannelModeratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChannelModeratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelModeratorCommand(input, context);
+    return se_DescribeChannelModeratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChannelModeratorCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelModeratorCommand(output, context);
+    return de_DescribeChannelModeratorCommand(output, context);
   }
 
   // Start section: command_body_extra

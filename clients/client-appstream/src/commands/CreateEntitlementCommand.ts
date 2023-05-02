@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  CreateEntitlementRequest,
-  CreateEntitlementRequestFilterSensitiveLog,
-  CreateEntitlementResult,
-  CreateEntitlementResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEntitlementCommand,
-  serializeAws_json1_1CreateEntitlementCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateEntitlementRequest, CreateEntitlementResult } from "../models/models_0";
+import { de_CreateEntitlementCommand, se_CreateEntitlementCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEntitlementCommand}.
  */
 export interface CreateEntitlementCommandInput extends CreateEntitlementRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEntitlementCommand}.
  */
 export interface CreateEntitlementCommandOutput extends CreateEntitlementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new entitlement. Entitlements control access to specific applications within
  *             a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
  *             identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled to all
@@ -47,10 +44,24 @@ export interface CreateEntitlementCommandOutput extends CreateEntitlementResult,
  * import { AppStreamClient, CreateEntitlementCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateEntitlementCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // CreateEntitlementRequest
+ *   Name: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AppVisibility: "ALL" || "ASSOCIATED", // required
+ *   Attributes: [ // EntitlementAttributeList // required
+ *     { // EntitlementAttribute
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateEntitlementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEntitlementCommandInput - {@link CreateEntitlementCommandInput}
+ * @returns {@link CreateEntitlementCommandOutput}
  * @see {@link CreateEntitlementCommandInput} for command's `input` shape.
  * @see {@link CreateEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -86,6 +97,9 @@ export class CreateEntitlementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEntitlementCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +128,8 @@ export class CreateEntitlementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEntitlementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEntitlementResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +139,18 @@ export class CreateEntitlementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEntitlementCommand(input, context);
+    return se_CreateEntitlementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEntitlementCommandOutput> {
-    return deserializeAws_json1_1CreateEntitlementCommand(output, context);
+    return de_CreateEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

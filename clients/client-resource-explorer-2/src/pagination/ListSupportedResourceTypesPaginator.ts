@@ -10,7 +10,7 @@ import { ResourceExplorer2Client } from "../ResourceExplorer2Client";
 import { ResourceExplorer2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResourceExplorer2Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSupportedResourceTypesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSupportedResourceTypes(
   config: ResourceExplorer2PaginationConfiguration,
   input: ListSupportedResourceTypesCommandInput,

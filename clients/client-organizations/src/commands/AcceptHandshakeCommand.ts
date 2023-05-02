@@ -15,26 +15,27 @@ import {
 
 import {
   AcceptHandshakeRequest,
-  AcceptHandshakeRequestFilterSensitiveLog,
   AcceptHandshakeResponse,
   AcceptHandshakeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1AcceptHandshakeCommand,
-  serializeAws_json1_1AcceptHandshakeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AcceptHandshakeCommand, se_AcceptHandshakeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptHandshakeCommand}.
  */
 export interface AcceptHandshakeCommandInput extends AcceptHandshakeRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptHandshakeCommand}.
  */
 export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a response to the originator of a handshake agreeing to the action proposed by
  *             the handshake request.</p>
  *          <p>You can only call this operation by the following principals when they also have the
@@ -72,10 +73,15 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  * import { OrganizationsClient, AcceptHandshakeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, AcceptHandshakeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // AcceptHandshakeRequest
+ *   HandshakeId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptHandshakeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptHandshakeCommandInput - {@link AcceptHandshakeCommandInput}
+ * @returns {@link AcceptHandshakeCommandOutput}
  * @see {@link AcceptHandshakeCommandInput} for command's `input` shape.
  * @see {@link AcceptHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -363,6 +369,9 @@ export class AcceptHandshakeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptHandshakeCommandInput) {
     // Start section: command_constructor
     super();
@@ -391,7 +400,7 @@ export class AcceptHandshakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptHandshakeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: AcceptHandshakeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -402,12 +411,18 @@ export class AcceptHandshakeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptHandshakeCommand(input, context);
+    return se_AcceptHandshakeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptHandshakeCommandOutput> {
-    return deserializeAws_json1_1AcceptHandshakeCommand(output, context);
+    return de_AcceptHandshakeCommand(output, context);
   }
 
   // Start section: command_body_extra

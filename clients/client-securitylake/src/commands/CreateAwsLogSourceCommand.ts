@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAwsLogSourceRequest,
-  CreateAwsLogSourceRequestFilterSensitiveLog,
-  CreateAwsLogSourceResponse,
-  CreateAwsLogSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAwsLogSourceCommand,
-  serializeAws_restJson1CreateAwsLogSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAwsLogSourceRequest, CreateAwsLogSourceResponse } from "../models/models_0";
+import { de_CreateAwsLogSourceCommand, se_CreateAwsLogSourceCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAwsLogSourceCommand}.
  */
 export interface CreateAwsLogSourceCommandInput extends CreateAwsLogSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAwsLogSourceCommand}.
  */
 export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a natively supported Amazon Web Service as an Amazon Security Lake source. Enables
  *          source types for member accounts in required Amazon Web Services Regions, based on the
  *          parameters you specify. You can choose any source type in any Region for either accounts
@@ -56,10 +53,32 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * import { SecurityLakeClient, CreateAwsLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateAwsLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // CreateAwsLogSourceRequest
+ *   inputOrder: [ // DimensionSet // required
+ *     "STRING_VALUE",
+ *   ],
+ *   enableAllDimensions: { // AllDimensionsMap
+ *     "<keys>": { // TwoDimensionsMap
+ *       "<keys>": [ // ValueSet
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   enableTwoDimensions: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   enableSingleDimension: [ // InputSet
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateAwsLogSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAwsLogSourceCommandInput - {@link CreateAwsLogSourceCommandInput}
+ * @returns {@link CreateAwsLogSourceCommandOutput}
  * @see {@link CreateAwsLogSourceCommandInput} for command's `input` shape.
  * @see {@link CreateAwsLogSourceCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -110,6 +129,9 @@ export class CreateAwsLogSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAwsLogSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +160,8 @@ export class CreateAwsLogSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAwsLogSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAwsLogSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +171,18 @@ export class CreateAwsLogSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAwsLogSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAwsLogSourceCommand(input, context);
+    return se_CreateAwsLogSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAwsLogSourceCommandOutput> {
-    return deserializeAws_restJson1CreateAwsLogSourceCommand(output, context);
+    return de_CreateAwsLogSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

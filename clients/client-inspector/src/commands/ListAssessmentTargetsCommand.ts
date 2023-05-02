@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  ListAssessmentTargetsRequest,
-  ListAssessmentTargetsRequestFilterSensitiveLog,
-  ListAssessmentTargetsResponse,
-  ListAssessmentTargetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAssessmentTargetsCommand,
-  serializeAws_json1_1ListAssessmentTargetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAssessmentTargetsRequest, ListAssessmentTargetsResponse } from "../models/models_0";
+import { de_ListAssessmentTargetsCommand, se_ListAssessmentTargetsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssessmentTargetsCommand}.
  */
 export interface ListAssessmentTargetsCommandInput extends ListAssessmentTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssessmentTargetsCommand}.
  */
 export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the ARNs of the assessment targets within this AWS account. For more
  *          information about assessment targets, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon Inspector Assessment
  *             Targets</a>.</p>
@@ -44,10 +41,19 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  * import { InspectorClient, ListAssessmentTargetsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListAssessmentTargetsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // ListAssessmentTargetsRequest
+ *   filter: { // AssessmentTargetFilter
+ *     assessmentTargetNamePattern: "STRING_VALUE",
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssessmentTargetsCommandInput - {@link ListAssessmentTargetsCommandInput}
+ * @returns {@link ListAssessmentTargetsCommandOutput}
  * @see {@link ListAssessmentTargetsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentTargetsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -100,6 +106,9 @@ export class ListAssessmentTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssessmentTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +137,8 @@ export class ListAssessmentTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssessmentTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssessmentTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +148,18 @@ export class ListAssessmentTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssessmentTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssessmentTargetsCommand(input, context);
+    return se_ListAssessmentTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentTargetsCommandOutput> {
-    return deserializeAws_json1_1ListAssessmentTargetsCommand(output, context);
+    return de_ListAssessmentTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

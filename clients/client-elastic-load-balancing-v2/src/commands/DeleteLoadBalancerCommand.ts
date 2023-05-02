@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DeleteLoadBalancerInput,
-  DeleteLoadBalancerInputFilterSensitiveLog,
-  DeleteLoadBalancerOutput,
-  DeleteLoadBalancerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteLoadBalancerCommand,
-  serializeAws_queryDeleteLoadBalancerCommand,
-} from "../protocols/Aws_query";
+import { DeleteLoadBalancerInput, DeleteLoadBalancerOutput } from "../models/models_0";
+import { de_DeleteLoadBalancerCommand, se_DeleteLoadBalancerCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLoadBalancerCommand}.
  */
 export interface DeleteLoadBalancerCommandInput extends DeleteLoadBalancerInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLoadBalancerCommand}.
  */
 export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Application Load Balancer, Network Load Balancer, or Gateway Load
  *       Balancer. Deleting a load balancer also deletes its listeners.</p>
  *          <p>You can't delete a load balancer if deletion protection is enabled. If the load balancer
@@ -52,10 +49,15 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  * import { ElasticLoadBalancingV2Client, DeleteLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DeleteLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DeleteLoadBalancerInput
+ *   LoadBalancerArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoadBalancerCommandInput - {@link DeleteLoadBalancerCommandInput}
+ * @returns {@link DeleteLoadBalancerCommandOutput}
  * @see {@link DeleteLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -99,6 +101,9 @@ export class DeleteLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +132,8 @@ export class DeleteLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLoadBalancerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLoadBalancerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +143,18 @@ export class DeleteLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteLoadBalancerCommand(input, context);
+    return se_DeleteLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLoadBalancerCommandOutput> {
-    return deserializeAws_queryDeleteLoadBalancerCommand(output, context);
+    return de_DeleteLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

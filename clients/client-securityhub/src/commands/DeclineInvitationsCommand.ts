@@ -13,41 +13,46 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeclineInvitationsRequest,
-  DeclineInvitationsRequestFilterSensitiveLog,
-  DeclineInvitationsResponse,
-  DeclineInvitationsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeclineInvitationsCommand,
-  serializeAws_restJson1DeclineInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/models_2";
+import { de_DeclineInvitationsCommand, se_DeclineInvitationsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeclineInvitationsCommand}.
  */
 export interface DeclineInvitationsCommandInput extends DeclineInvitationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeclineInvitationsCommand}.
  */
 export interface DeclineInvitationsCommandOutput extends DeclineInvitationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Declines invitations to become a member account.</p>
- *          <p>This operation is only used by accounts that are not part of an organization.
- *          Organization accounts do not receive invitations.</p>
+ *          <p>A prospective member account uses this operation to decline an invitation to become a member.</p>
+ *          <p>This operation is only called by member accounts that aren't part of an organization.
+ *          Organization accounts don't receive invitations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, DeclineInvitationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeclineInvitationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DeclineInvitationsRequest
+ *   AccountIds: [ // AccountIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeclineInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeclineInvitationsCommandInput - {@link DeclineInvitationsCommandInput}
+ * @returns {@link DeclineInvitationsCommandOutput}
  * @see {@link DeclineInvitationsCommandInput} for command's `input` shape.
  * @see {@link DeclineInvitationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -65,6 +70,25 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ *
+ * @example To decline invitation to become a member account
+ * ```javascript
+ * // The following example declines an invitation from the Security Hub administrator account to become a member account. The invited account makes the request.
+ * const input = {
+ *   "AccountIds": [
+ *     "123456789012",
+ *     "111122223333"
+ *   ]
+ * };
+ * const command = new DeclineInvitationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "UnprocessedAccounts": []
+ * }
+ * *\/
+ * // example id: to-decline-invitation-to-become-a-member-account-1675448487605
+ * ```
  *
  */
 export class DeclineInvitationsCommand extends $Command<
@@ -84,6 +108,9 @@ export class DeclineInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeclineInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +139,8 @@ export class DeclineInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeclineInvitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeclineInvitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +150,18 @@ export class DeclineInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeclineInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeclineInvitationsCommand(input, context);
+    return se_DeclineInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeclineInvitationsCommandOutput> {
-    return deserializeAws_restJson1DeclineInvitationsCommand(output, context);
+    return de_DeclineInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

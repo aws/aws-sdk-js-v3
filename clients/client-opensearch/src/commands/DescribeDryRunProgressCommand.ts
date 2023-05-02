@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDryRunProgressRequest,
-  DescribeDryRunProgressRequestFilterSensitiveLog,
-  DescribeDryRunProgressResponse,
-  DescribeDryRunProgressResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDryRunProgressRequest, DescribeDryRunProgressResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DescribeDryRunProgressCommand,
-  serializeAws_restJson1DescribeDryRunProgressCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDryRunProgressCommand, se_DescribeDryRunProgressCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDryRunProgressCommand}.
  */
 export interface DescribeDryRunProgressCommandInput extends DescribeDryRunProgressRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDryRunProgressCommand}.
  */
 export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgressResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch
  *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun">Determining whether a change will cause a blue/green deployment</a>.</p>
  * @example
@@ -43,10 +40,17 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * import { OpenSearchClient, DescribeDryRunProgressCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeDryRunProgressCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // DescribeDryRunProgressRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   DryRunId: "STRING_VALUE",
+ *   LoadDryRunConfig: true || false,
+ * };
  * const command = new DescribeDryRunProgressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDryRunProgressCommandInput - {@link DescribeDryRunProgressCommandInput}
+ * @returns {@link DescribeDryRunProgressCommandOutput}
  * @see {@link DescribeDryRunProgressCommandInput} for command's `input` shape.
  * @see {@link DescribeDryRunProgressCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -85,6 +89,9 @@ export class DescribeDryRunProgressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDryRunProgressCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class DescribeDryRunProgressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDryRunProgressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDryRunProgressResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class DescribeDryRunProgressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDryRunProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDryRunProgressCommand(input, context);
+    return se_DescribeDryRunProgressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDryRunProgressCommandOutput> {
-    return deserializeAws_restJson1DescribeDryRunProgressCommand(output, context);
+    return de_DescribeDryRunProgressCommand(output, context);
   }
 
   // Start section: command_body_extra

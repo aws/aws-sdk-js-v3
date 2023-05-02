@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CancelConversionRequest, CancelConversionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_ec2CancelConversionTaskCommand,
-  serializeAws_ec2CancelConversionTaskCommand,
-} from "../protocols/Aws_ec2";
+import { CancelConversionRequest } from "../models/models_0";
+import { de_CancelConversionTaskCommand, se_CancelConversionTaskCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelConversionTaskCommand}.
  */
 export interface CancelConversionTaskCommandInput extends CancelConversionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelConversionTaskCommand}.
  */
 export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all
  *    artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is
  *    in the process of transferring the final disk image, the command fails and returns an exception.</p>
@@ -41,10 +43,17 @@ export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
  * import { EC2Client, CancelConversionTaskCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelConversionTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CancelConversionRequest
+ *   ConversionTaskId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ *   ReasonMessage: "STRING_VALUE",
+ * };
  * const command = new CancelConversionTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelConversionTaskCommandInput - {@link CancelConversionTaskCommandInput}
+ * @returns {@link CancelConversionTaskCommandOutput}
  * @see {@link CancelConversionTaskCommandInput} for command's `input` shape.
  * @see {@link CancelConversionTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +77,9 @@ export class CancelConversionTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelConversionTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +108,8 @@ export class CancelConversionTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelConversionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +119,18 @@ export class CancelConversionTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelConversionTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelConversionTaskCommand(input, context);
+    return se_CancelConversionTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelConversionTaskCommandOutput> {
-    return deserializeAws_ec2CancelConversionTaskCommand(output, context);
+    return de_CancelConversionTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

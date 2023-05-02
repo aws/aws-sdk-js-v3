@@ -16,25 +16,26 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
   ListPricingRulesInput,
-  ListPricingRulesInputFilterSensitiveLog,
   ListPricingRulesOutput,
   ListPricingRulesOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPricingRulesCommand,
-  serializeAws_restJson1ListPricingRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPricingRulesCommand, se_ListPricingRulesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPricingRulesCommand}.
  */
 export interface ListPricingRulesCommandInput extends ListPricingRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPricingRulesCommand}.
  */
 export interface ListPricingRulesCommandOutput extends ListPricingRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Describes a pricing rule that can be associated to a pricing plan, or set of pricing plans.
  *     </p>
@@ -44,10 +45,22 @@ export interface ListPricingRulesCommandOutput extends ListPricingRulesOutput, _
  * import { BillingconductorClient, ListPricingRulesCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListPricingRulesCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // ListPricingRulesInput
+ *   BillingPeriod: "STRING_VALUE",
+ *   Filters: { // ListPricingRulesFilter
+ *     Arns: [ // PricingRuleArns
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPricingRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPricingRulesCommandInput - {@link ListPricingRulesCommandInput}
+ * @returns {@link ListPricingRulesCommandOutput}
  * @see {@link ListPricingRulesCommandInput} for command's `input` shape.
  * @see {@link ListPricingRulesCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -86,6 +99,9 @@ export class ListPricingRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPricingRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,7 +130,7 @@ export class ListPricingRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPricingRulesInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListPricingRulesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -125,12 +141,18 @@ export class ListPricingRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPricingRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPricingRulesCommand(input, context);
+    return se_ListPricingRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPricingRulesCommandOutput> {
-    return deserializeAws_restJson1ListPricingRulesCommand(output, context);
+    return de_ListPricingRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

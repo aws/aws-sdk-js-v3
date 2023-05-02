@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  DeleteLoadBalancerListenerInput,
-  DeleteLoadBalancerListenerInputFilterSensitiveLog,
-  DeleteLoadBalancerListenerOutput,
-  DeleteLoadBalancerListenerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteLoadBalancerListenersCommand,
-  serializeAws_queryDeleteLoadBalancerListenersCommand,
-} from "../protocols/Aws_query";
+import { DeleteLoadBalancerListenerInput, DeleteLoadBalancerListenerOutput } from "../models/models_0";
+import { de_DeleteLoadBalancerListenersCommand, se_DeleteLoadBalancerListenersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLoadBalancerListenersCommand}.
  */
 export interface DeleteLoadBalancerListenersCommandInput extends DeleteLoadBalancerListenerInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLoadBalancerListenersCommand}.
  */
 export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBalancerListenerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified listeners from the specified load balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,18 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * import { ElasticLoadBalancingClient, DeleteLoadBalancerListenersCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DeleteLoadBalancerListenersCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // DeleteLoadBalancerListenerInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerPorts: [ // Ports // required
+ *     Number("int"),
+ *   ],
+ * };
  * const command = new DeleteLoadBalancerListenersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoadBalancerListenersCommandInput - {@link DeleteLoadBalancerListenersCommandInput}
+ * @returns {@link DeleteLoadBalancerListenersCommandOutput}
  * @see {@link DeleteLoadBalancerListenersCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerListenersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -90,6 +95,9 @@ export class DeleteLoadBalancerListenersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoadBalancerListenersCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class DeleteLoadBalancerListenersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLoadBalancerListenerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLoadBalancerListenerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +137,21 @@ export class DeleteLoadBalancerListenersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoadBalancerListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteLoadBalancerListenersCommand(input, context);
+    return se_DeleteLoadBalancerListenersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLoadBalancerListenersCommandOutput> {
-    return deserializeAws_queryDeleteLoadBalancerListenersCommand(output, context);
+    return de_DeleteLoadBalancerListenersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { AddUserToGroupRequest, AddUserToGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryAddUserToGroupCommand,
-  serializeAws_queryAddUserToGroupCommand,
-} from "../protocols/Aws_query";
+import { AddUserToGroupRequest } from "../models/models_0";
+import { de_AddUserToGroupCommand, se_AddUserToGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AddUserToGroupCommand}.
  */
 export interface AddUserToGroupCommandInput extends AddUserToGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddUserToGroupCommand}.
  */
 export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified user to the specified group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
  * import { IAMClient, AddUserToGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, AddUserToGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // AddUserToGroupRequest
+ *   GroupName: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE", // required
+ * };
  * const command = new AddUserToGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddUserToGroupCommandInput - {@link AddUserToGroupCommandInput}
+ * @returns {@link AddUserToGroupCommandOutput}
  * @see {@link AddUserToGroupCommandInput} for command's `input` shape.
  * @see {@link AddUserToGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -88,6 +96,9 @@ export class AddUserToGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddUserToGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +127,8 @@ export class AddUserToGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddUserToGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +138,18 @@ export class AddUserToGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddUserToGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddUserToGroupCommand(input, context);
+    return se_AddUserToGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddUserToGroupCommandOutput> {
-    return deserializeAws_queryAddUserToGroupCommand(output, context);
+    return de_AddUserToGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

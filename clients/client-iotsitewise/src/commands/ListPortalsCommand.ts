@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListPortalsRequest,
-  ListPortalsRequestFilterSensitiveLog,
-  ListPortalsResponse,
-  ListPortalsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPortalsCommand,
-  serializeAws_restJson1ListPortalsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPortalsRequest, ListPortalsResponse } from "../models/models_0";
+import { de_ListPortalsCommand, se_ListPortalsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPortalsCommand}.
  */
 export interface ListPortalsCommandInput extends ListPortalsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPortalsCommand}.
  */
 export interface ListPortalsCommandOutput extends ListPortalsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of IoT SiteWise Monitor portals.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * import { IoTSiteWiseClient, ListPortalsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListPortalsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // ListPortalsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListPortalsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPortalsCommandInput - {@link ListPortalsCommandInput}
+ * @returns {@link ListPortalsCommandOutput}
  * @see {@link ListPortalsCommandInput} for command's `input` shape.
  * @see {@link ListPortalsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListPortalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPortalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class ListPortalsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPortalsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPortalsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class ListPortalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPortalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPortalsCommand(input, context);
+    return se_ListPortalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPortalsCommandOutput> {
-    return deserializeAws_restJson1ListPortalsCommand(output, context);
+    return de_ListPortalsCommand(output, context);
   }
 
   // Start section: command_body_extra

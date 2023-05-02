@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendTemplatedEmailRequest,
-  SendTemplatedEmailRequestFilterSensitiveLog,
-  SendTemplatedEmailResponse,
-  SendTemplatedEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySendTemplatedEmailCommand,
-  serializeAws_querySendTemplatedEmailCommand,
-} from "../protocols/Aws_query";
+import { SendTemplatedEmailRequest, SendTemplatedEmailResponse } from "../models/models_0";
+import { de_SendTemplatedEmailCommand, se_SendTemplatedEmailCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendTemplatedEmailCommand}.
  */
 export interface SendTemplatedEmailCommandInput extends SendTemplatedEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendTemplatedEmailCommand}.
  */
 export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message using an email template and immediately queues it for
  *             sending.</p>
  *         <p>In order to send email using the <code>SendTemplatedEmail</code> operation, your call
@@ -91,10 +88,42 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  * import { SESClient, SendTemplatedEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendTemplatedEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SendTemplatedEmailRequest
+ *   Source: "STRING_VALUE", // required
+ *   Destination: { // Destination
+ *     ToAddresses: [ // AddressList
+ *       "STRING_VALUE",
+ *     ],
+ *     CcAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *     BccAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ReplyToAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ReturnPath: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE",
+ *   ReturnPathArn: "STRING_VALUE",
+ *   Tags: [ // MessageTagList
+ *     { // MessageTag
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   Template: "STRING_VALUE", // required
+ *   TemplateArn: "STRING_VALUE",
+ *   TemplateData: "STRING_VALUE", // required
+ * };
  * const command = new SendTemplatedEmailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendTemplatedEmailCommandInput - {@link SendTemplatedEmailCommandInput}
+ * @returns {@link SendTemplatedEmailCommandOutput}
  * @see {@link SendTemplatedEmailCommandInput} for command's `input` shape.
  * @see {@link SendTemplatedEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -143,6 +172,9 @@ export class SendTemplatedEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendTemplatedEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,8 +203,8 @@ export class SendTemplatedEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendTemplatedEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendTemplatedEmailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -182,12 +214,18 @@ export class SendTemplatedEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendTemplatedEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendTemplatedEmailCommand(input, context);
+    return se_SendTemplatedEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTemplatedEmailCommandOutput> {
-    return deserializeAws_querySendTemplatedEmailCommand(output, context);
+    return de_SendTemplatedEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

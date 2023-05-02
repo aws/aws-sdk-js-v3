@@ -13,40 +13,70 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartIncidentInput,
-  StartIncidentInputFilterSensitiveLog,
-  StartIncidentOutput,
-  StartIncidentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartIncidentCommand,
-  serializeAws_restJson1StartIncidentCommand,
-} from "../protocols/Aws_restJson1";
+import { StartIncidentInput, StartIncidentOutput } from "../models/models_0";
+import { de_StartIncidentCommand, se_StartIncidentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartIncidentCommand}.
  */
 export interface StartIncidentCommandInput extends StartIncidentInput {}
 /**
+ * @public
+ *
  * The output of {@link StartIncidentCommand}.
  */
 export interface StartIncidentCommandOutput extends StartIncidentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to start an incident from CloudWatch alarms, EventBridge events, or
- *             manually. </p>
+ *       manually. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMIncidentsClient, StartIncidentCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, StartIncidentCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // StartIncidentInput
+ *   clientToken: "STRING_VALUE",
+ *   responsePlanArn: "STRING_VALUE", // required
+ *   title: "STRING_VALUE",
+ *   impact: Number("int"),
+ *   triggerDetails: { // TriggerDetails
+ *     source: "STRING_VALUE", // required
+ *     triggerArn: "STRING_VALUE",
+ *     timestamp: new Date("TIMESTAMP"), // required
+ *     rawData: "STRING_VALUE",
+ *   },
+ *   relatedItems: [ // RelatedItemList
+ *     { // RelatedItem
+ *       identifier: { // ItemIdentifier
+ *         value: { // ItemValue Union: only one key present
+ *           arn: "STRING_VALUE",
+ *           url: "STRING_VALUE",
+ *           metricDefinition: "STRING_VALUE",
+ *           pagerDutyIncidentDetail: { // PagerDutyIncidentDetail
+ *             id: "STRING_VALUE", // required
+ *             autoResolve: true || false,
+ *             secretId: "STRING_VALUE",
+ *           },
+ *         },
+ *         type: "STRING_VALUE", // required
+ *       },
+ *       title: "STRING_VALUE",
+ *       generatedId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new StartIncidentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartIncidentCommandInput - {@link StartIncidentCommandInput}
+ * @returns {@link StartIncidentCommandOutput}
  * @see {@link StartIncidentCommandInput} for command's `input` shape.
  * @see {@link StartIncidentCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -90,6 +120,9 @@ export class StartIncidentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartIncidentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +149,8 @@ export class StartIncidentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartIncidentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartIncidentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +160,18 @@ export class StartIncidentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartIncidentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartIncidentCommand(input, context);
+    return se_StartIncidentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartIncidentCommandOutput> {
-    return deserializeAws_restJson1StartIncidentCommand(output, context);
+    return de_StartIncidentCommand(output, context);
   }
 
   // Start section: command_body_extra

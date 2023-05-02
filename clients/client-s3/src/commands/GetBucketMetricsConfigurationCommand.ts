@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetBucketMetricsConfigurationOutput, GetBucketMetricsConfigurationRequest } from "../models/models_0";
 import {
-  GetBucketMetricsConfigurationOutput,
-  GetBucketMetricsConfigurationOutputFilterSensitiveLog,
-  GetBucketMetricsConfigurationRequest,
-  GetBucketMetricsConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketMetricsConfigurationCommand,
-  serializeAws_restXmlGetBucketMetricsConfigurationCommand,
+  de_GetBucketMetricsConfigurationCommand,
+  se_GetBucketMetricsConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketMetricsConfigurationCommand}.
  */
 export interface GetBucketMetricsConfigurationCommandInput extends GetBucketMetricsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketMetricsConfigurationCommand}.
  */
 export interface GetBucketMetricsConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface GetBucketMetricsConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a metrics configuration (specified by the metrics configuration ID) from the
  *          bucket. Note that this doesn't include the daily storage metrics.</p>
  *          <p> To use this operation, you must have permissions to perform the
@@ -77,10 +77,17 @@ export interface GetBucketMetricsConfigurationCommandOutput
  * import { S3Client, GetBucketMetricsConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketMetricsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketMetricsConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketMetricsConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketMetricsConfigurationCommandInput - {@link GetBucketMetricsConfigurationCommandInput}
+ * @returns {@link GetBucketMetricsConfigurationCommandOutput}
  * @see {@link GetBucketMetricsConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketMetricsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -110,6 +117,9 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketMetricsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +148,8 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketMetricsConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketMetricsConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,15 +159,21 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketMetricsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketMetricsConfigurationCommand(input, context);
+    return se_GetBucketMetricsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketMetricsConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketMetricsConfigurationCommand(output, context);
+    return de_GetBucketMetricsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

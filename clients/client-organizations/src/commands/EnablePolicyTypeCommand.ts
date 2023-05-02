@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  EnablePolicyTypeRequest,
-  EnablePolicyTypeRequestFilterSensitiveLog,
-  EnablePolicyTypeResponse,
-  EnablePolicyTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { EnablePolicyTypeRequest, EnablePolicyTypeResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1EnablePolicyTypeCommand,
-  serializeAws_json1_1EnablePolicyTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EnablePolicyTypeCommand, se_EnablePolicyTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnablePolicyTypeCommand}.
  */
 export interface EnablePolicyTypeCommandInput extends EnablePolicyTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnablePolicyTypeCommand}.
  */
 export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables a policy type in a root. After you enable a policy type in a root, you can
  *             attach policies of that type to the root, any organizational unit (OU), or account in
  *             that root. You can undo this by using the <a>DisablePolicyType</a>
@@ -52,10 +49,16 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  * import { OrganizationsClient, EnablePolicyTypeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, EnablePolicyTypeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // EnablePolicyTypeRequest
+ *   RootId: "STRING_VALUE", // required
+ *   PolicyType: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
+ * };
  * const command = new EnablePolicyTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnablePolicyTypeCommandInput - {@link EnablePolicyTypeCommandInput}
+ * @returns {@link EnablePolicyTypeCommandOutput}
  * @see {@link EnablePolicyTypeCommandInput} for command's `input` shape.
  * @see {@link EnablePolicyTypeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -453,6 +456,9 @@ export class EnablePolicyTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnablePolicyTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -481,8 +487,8 @@ export class EnablePolicyTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnablePolicyTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnablePolicyTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -492,12 +498,18 @@ export class EnablePolicyTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnablePolicyTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnablePolicyTypeCommand(input, context);
+    return se_EnablePolicyTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnablePolicyTypeCommandOutput> {
-    return deserializeAws_json1_1EnablePolicyTypeCommand(output, context);
+    return de_EnablePolicyTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

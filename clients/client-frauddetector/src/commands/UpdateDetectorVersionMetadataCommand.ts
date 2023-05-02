@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { UpdateDetectorVersionMetadataRequest, UpdateDetectorVersionMetadataResult } from "../models/models_0";
 import {
-  UpdateDetectorVersionMetadataRequest,
-  UpdateDetectorVersionMetadataRequestFilterSensitiveLog,
-  UpdateDetectorVersionMetadataResult,
-  UpdateDetectorVersionMetadataResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDetectorVersionMetadataCommand,
-  serializeAws_json1_1UpdateDetectorVersionMetadataCommand,
+  de_UpdateDetectorVersionMetadataCommand,
+  se_UpdateDetectorVersionMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDetectorVersionMetadataCommand}.
  */
 export interface UpdateDetectorVersionMetadataCommandInput extends UpdateDetectorVersionMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDetectorVersionMetadataCommand}.
  */
 export interface UpdateDetectorVersionMetadataCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateDetectorVersionMetadataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or
  *                 <code>INACTIVE</code>). </p>
  * @example
@@ -45,10 +45,17 @@ export interface UpdateDetectorVersionMetadataCommandOutput
  * import { FraudDetectorClient, UpdateDetectorVersionMetadataCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateDetectorVersionMetadataCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // UpdateDetectorVersionMetadataRequest
+ *   detectorId: "STRING_VALUE", // required
+ *   detectorVersionId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE", // required
+ * };
  * const command = new UpdateDetectorVersionMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDetectorVersionMetadataCommandInput - {@link UpdateDetectorVersionMetadataCommandInput}
+ * @returns {@link UpdateDetectorVersionMetadataCommandOutput}
  * @see {@link UpdateDetectorVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDetectorVersionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +125,8 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDetectorVersionMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDetectorVersionMetadataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +136,21 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDetectorVersionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDetectorVersionMetadataCommand(input, context);
+    return se_UpdateDetectorVersionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDetectorVersionMetadataCommandOutput> {
-    return deserializeAws_json1_1UpdateDetectorVersionMetadataCommand(output, context);
+    return de_UpdateDetectorVersionMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

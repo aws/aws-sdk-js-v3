@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-transcribe-streaming",
-  "version": "3.296.0",
+  "version": "3.310.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -21,7 +21,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/eventstream-serde-browser": "*",
-    "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4": "*",
     "@aws-sdk/types": "*",
@@ -51,7 +50,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-sdk-transcribe-streaming",
   "repository": {

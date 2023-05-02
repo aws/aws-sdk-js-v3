@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  RevokeFlowEntitlementRequest,
-  RevokeFlowEntitlementRequestFilterSensitiveLog,
-  RevokeFlowEntitlementResponse,
-  RevokeFlowEntitlementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RevokeFlowEntitlementCommand,
-  serializeAws_restJson1RevokeFlowEntitlementCommand,
-} from "../protocols/Aws_restJson1";
+import { RevokeFlowEntitlementRequest, RevokeFlowEntitlementResponse } from "../models/models_0";
+import { de_RevokeFlowEntitlementCommand, se_RevokeFlowEntitlementCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeFlowEntitlementCommand}.
  */
 export interface RevokeFlowEntitlementCommandInput extends RevokeFlowEntitlementRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeFlowEntitlementCommand}.
  */
 export interface RevokeFlowEntitlementCommandOutput extends RevokeFlowEntitlementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Revokes an entitlement from a flow. Once an entitlement is revoked, the content becomes unavailable to the subscriber and the associated output is removed.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface RevokeFlowEntitlementCommandOutput extends RevokeFlowEntitlemen
  * import { MediaConnectClient, RevokeFlowEntitlementCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, RevokeFlowEntitlementCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // RevokeFlowEntitlementRequest
+ *   EntitlementArn: "STRING_VALUE", // required
+ *   FlowArn: "STRING_VALUE", // required
+ * };
  * const command = new RevokeFlowEntitlementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeFlowEntitlementCommandInput - {@link RevokeFlowEntitlementCommandInput}
+ * @returns {@link RevokeFlowEntitlementCommandOutput}
  * @see {@link RevokeFlowEntitlementCommandInput} for command's `input` shape.
  * @see {@link RevokeFlowEntitlementCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +90,9 @@ export class RevokeFlowEntitlementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeFlowEntitlementCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class RevokeFlowEntitlementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeFlowEntitlementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeFlowEntitlementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class RevokeFlowEntitlementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeFlowEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RevokeFlowEntitlementCommand(input, context);
+    return se_RevokeFlowEntitlementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeFlowEntitlementCommandOutput> {
-    return deserializeAws_restJson1RevokeFlowEntitlementCommand(output, context);
+    return de_RevokeFlowEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,21 +15,24 @@ import {
 
 import {
   ListRecommendationTemplatesRequest,
-  ListRecommendationTemplatesRequestFilterSensitiveLog,
   ListRecommendationTemplatesResponse,
   ListRecommendationTemplatesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListRecommendationTemplatesCommand,
-  serializeAws_restJson1ListRecommendationTemplatesCommand,
+  de_ListRecommendationTemplatesCommand,
+  se_ListRecommendationTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecommendationTemplatesCommand}.
  */
 export interface ListRecommendationTemplatesCommandInput extends ListRecommendationTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecommendationTemplatesCommand}.
  */
 export interface ListRecommendationTemplatesCommandOutput
@@ -37,17 +40,31 @@ export interface ListRecommendationTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the recommendation templates for the AWS Resilience Hub applications.</p>
+ * @public
+ * <p>Lists the recommendation templates for the Resilience Hub applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, ListRecommendationTemplatesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListRecommendationTemplatesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListRecommendationTemplatesRequest
+ *   assessmentArn: "STRING_VALUE", // required
+ *   reverseOrder: true || false,
+ *   status: [ // RecommendationTemplateStatusList
+ *     "STRING_VALUE",
+ *   ],
+ *   recommendationTemplateArn: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRecommendationTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecommendationTemplatesCommandInput - {@link ListRecommendationTemplatesCommandInput}
+ * @returns {@link ListRecommendationTemplatesCommandOutput}
  * @see {@link ListRecommendationTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListRecommendationTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -58,7 +75,7 @@ export interface ListRecommendationTemplatesCommandOutput
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -86,6 +103,9 @@ export class ListRecommendationTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecommendationTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,7 +134,7 @@ export class ListRecommendationTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecommendationTemplatesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListRecommendationTemplatesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -125,15 +145,21 @@ export class ListRecommendationTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecommendationTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecommendationTemplatesCommand(input, context);
+    return se_ListRecommendationTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRecommendationTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListRecommendationTemplatesCommand(output, context);
+    return de_ListRecommendationTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

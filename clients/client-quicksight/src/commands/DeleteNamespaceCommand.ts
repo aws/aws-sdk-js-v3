@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteNamespaceRequest,
-  DeleteNamespaceRequestFilterSensitiveLog,
-  DeleteNamespaceResponse,
-  DeleteNamespaceResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteNamespaceCommand,
-  serializeAws_restJson1DeleteNamespaceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_2";
+import { de_DeleteNamespaceCommand, se_DeleteNamespaceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNamespaceCommand}.
  */
 export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNamespaceCommand}.
  */
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a namespace and the users and groups that are associated with the namespace.
  *         This is an asynchronous process. Assets including dashboards, analyses, datasets and data sources are not
  *         deleted. To delete these assets, you use the API operations for the relevant asset. </p>
@@ -44,10 +41,16 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * import { QuickSightClient, DeleteNamespaceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteNamespaceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DeleteNamespaceRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNamespaceCommandInput - {@link DeleteNamespaceCommandInput}
+ * @returns {@link DeleteNamespaceCommandOutput}
  * @see {@link DeleteNamespaceCommandInput} for command's `input` shape.
  * @see {@link DeleteNamespaceCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -95,6 +98,9 @@ export class DeleteNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class DeleteNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class DeleteNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNamespaceCommand(input, context);
+    return se_DeleteNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNamespaceCommandOutput> {
-    return deserializeAws_restJson1DeleteNamespaceCommand(output, context);
+    return de_DeleteNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

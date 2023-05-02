@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
+import { UpdateCampaignOutboundCallConfigRequest } from "../models/models_0";
 import {
-  UpdateCampaignOutboundCallConfigRequest,
-  UpdateCampaignOutboundCallConfigRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommand,
-  serializeAws_restJson1UpdateCampaignOutboundCallConfigCommand,
+  de_UpdateCampaignOutboundCallConfigCommand,
+  se_UpdateCampaignOutboundCallConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCampaignOutboundCallConfigCommand}.
  */
 export interface UpdateCampaignOutboundCallConfigCommandInput extends UpdateCampaignOutboundCallConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCampaignOutboundCallConfigCommand}.
  */
 export interface UpdateCampaignOutboundCallConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Updates the outbound call config of a campaign. This API is idempotent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,20 @@ export interface UpdateCampaignOutboundCallConfigCommandOutput extends __Metadat
  * import { ConnectCampaignsClient, UpdateCampaignOutboundCallConfigCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, UpdateCampaignOutboundCallConfigCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // UpdateCampaignOutboundCallConfigRequest
+ *   id: "STRING_VALUE", // required
+ *   connectContactFlowId: "STRING_VALUE",
+ *   connectSourcePhoneNumber: "STRING_VALUE",
+ *   answerMachineDetectionConfig: { // AnswerMachineDetectionConfig
+ *     enableAnswerMachineDetection: true || false, // required
+ *   },
+ * };
  * const command = new UpdateCampaignOutboundCallConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCampaignOutboundCallConfigCommandInput - {@link UpdateCampaignOutboundCallConfigCommandInput}
+ * @returns {@link UpdateCampaignOutboundCallConfigCommandOutput}
  * @see {@link UpdateCampaignOutboundCallConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateCampaignOutboundCallConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -85,6 +97,9 @@ export class UpdateCampaignOutboundCallConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCampaignOutboundCallConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +128,8 @@ export class UpdateCampaignOutboundCallConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCampaignOutboundCallConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +139,24 @@ export class UpdateCampaignOutboundCallConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCampaignOutboundCallConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCampaignOutboundCallConfigCommand(input, context);
+    return se_UpdateCampaignOutboundCallConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCampaignOutboundCallConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommand(output, context);
+    return de_UpdateCampaignOutboundCallConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

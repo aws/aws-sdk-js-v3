@@ -16,20 +16,22 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeEgressOnlyInternetGatewaysRequest,
-  DescribeEgressOnlyInternetGatewaysRequestFilterSensitiveLog,
   DescribeEgressOnlyInternetGatewaysResult,
-  DescribeEgressOnlyInternetGatewaysResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand,
-  serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand,
+  de_DescribeEgressOnlyInternetGatewaysCommand,
+  se_DescribeEgressOnlyInternetGatewaysCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEgressOnlyInternetGatewaysCommand}.
  */
 export interface DescribeEgressOnlyInternetGatewaysCommandInput extends DescribeEgressOnlyInternetGatewaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEgressOnlyInternetGatewaysCommand}.
  */
 export interface DescribeEgressOnlyInternetGatewaysCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeEgressOnlyInternetGatewaysCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your egress-only internet gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,28 @@ export interface DescribeEgressOnlyInternetGatewaysCommandOutput
  * import { EC2Client, DescribeEgressOnlyInternetGatewaysCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeEgressOnlyInternetGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeEgressOnlyInternetGatewaysRequest
+ *   DryRun: true || false,
+ *   EgressOnlyInternetGatewayIds: [ // EgressOnlyInternetGatewayIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DescribeEgressOnlyInternetGatewaysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEgressOnlyInternetGatewaysCommandInput - {@link DescribeEgressOnlyInternetGatewaysCommandInput}
+ * @returns {@link DescribeEgressOnlyInternetGatewaysCommandOutput}
  * @see {@link DescribeEgressOnlyInternetGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeEgressOnlyInternetGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +92,9 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEgressOnlyInternetGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +123,8 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEgressOnlyInternetGatewaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEgressOnlyInternetGatewaysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +134,24 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEgressOnlyInternetGatewaysCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(input, context);
+    return se_DescribeEgressOnlyInternetGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput> {
-    return deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(output, context);
+    return de_DescribeEgressOnlyInternetGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

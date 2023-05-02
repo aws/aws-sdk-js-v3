@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { ModifyReplicationSubnetGroupMessage, ModifyReplicationSubnetGroupResponse } from "../models/models_0";
 import {
-  ModifyReplicationSubnetGroupMessage,
-  ModifyReplicationSubnetGroupMessageFilterSensitiveLog,
-  ModifyReplicationSubnetGroupResponse,
-  ModifyReplicationSubnetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyReplicationSubnetGroupCommand,
-  serializeAws_json1_1ModifyReplicationSubnetGroupCommand,
+  de_ModifyReplicationSubnetGroupCommand,
+  se_ModifyReplicationSubnetGroupCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyReplicationSubnetGroupCommand}.
  */
 export interface ModifyReplicationSubnetGroupCommandInput extends ModifyReplicationSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyReplicationSubnetGroupCommand}.
  */
 export interface ModifyReplicationSubnetGroupCommandOutput
@@ -41,6 +40,7 @@ export interface ModifyReplicationSubnetGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for the specified replication subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +48,19 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * import { DatabaseMigrationServiceClient, ModifyReplicationSubnetGroupCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ModifyReplicationSubnetGroupCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // ModifyReplicationSubnetGroupMessage
+ *   ReplicationSubnetGroupIdentifier: "STRING_VALUE", // required
+ *   ReplicationSubnetGroupDescription: "STRING_VALUE",
+ *   SubnetIds: [ // SubnetIdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyReplicationSubnetGroupCommandInput - {@link ModifyReplicationSubnetGroupCommandInput}
+ * @returns {@link ModifyReplicationSubnetGroupCommandOutput}
  * @see {@link ModifyReplicationSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -112,6 +121,9 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyReplicationSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +152,8 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyReplicationSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyReplicationSubnetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,15 +163,21 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyReplicationSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyReplicationSubnetGroupCommand(input, context);
+    return se_ModifyReplicationSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyReplicationSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1ModifyReplicationSubnetGroupCommand(output, context);
+    return de_ModifyReplicationSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

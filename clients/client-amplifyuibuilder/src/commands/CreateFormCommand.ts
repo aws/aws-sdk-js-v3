@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import {
-  CreateFormRequest,
-  CreateFormRequestFilterSensitiveLog,
-  CreateFormResponse,
-  CreateFormResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFormCommand,
-  serializeAws_restJson1CreateFormCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateFormRequest, CreateFormResponse } from "../models/models_0";
+import { de_CreateFormCommand, se_CreateFormCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFormCommand}.
  */
 export interface CreateFormCommandInput extends CreateFormRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFormCommand}.
  */
 export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new form for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,171 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  * import { AmplifyUIBuilderClient, CreateFormCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, CreateFormCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = { // CreateFormRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   formToCreate: { // CreateFormData
+ *     name: "STRING_VALUE", // required
+ *     dataType: { // FormDataTypeConfig
+ *       dataSourceType: "STRING_VALUE", // required
+ *       dataTypeName: "STRING_VALUE", // required
+ *     },
+ *     formActionType: "STRING_VALUE", // required
+ *     fields: { // FieldsMap // required
+ *       "<keys>": { // FieldConfig
+ *         label: "STRING_VALUE",
+ *         position: { // FieldPosition Union: only one key present
+ *           fixed: "STRING_VALUE",
+ *           rightOf: "STRING_VALUE",
+ *           below: "STRING_VALUE",
+ *         },
+ *         excluded: true || false,
+ *         inputType: { // FieldInputConfig
+ *           type: "STRING_VALUE", // required
+ *           required: true || false,
+ *           readOnly: true || false,
+ *           placeholder: "STRING_VALUE",
+ *           defaultValue: "STRING_VALUE",
+ *           descriptiveText: "STRING_VALUE",
+ *           defaultChecked: true || false,
+ *           defaultCountryCode: "STRING_VALUE",
+ *           valueMappings: { // ValueMappings
+ *             values: [ // ValueMappingList // required
+ *               { // ValueMapping
+ *                 displayValue: { // FormInputValueProperty
+ *                   value: "STRING_VALUE",
+ *                   bindingProperties: { // FormInputValuePropertyBindingProperties
+ *                     property: "STRING_VALUE", // required
+ *                     field: "STRING_VALUE",
+ *                   },
+ *                   concat: [ // FormInputValuePropertyList
+ *                     {
+ *                       value: "STRING_VALUE",
+ *                       bindingProperties: {
+ *                         property: "STRING_VALUE", // required
+ *                         field: "STRING_VALUE",
+ *                       },
+ *                       concat: [
+ *                         "<FormInputValueProperty>",
+ *                       ],
+ *                     },
+ *                   ],
+ *                 },
+ *                 value: "<FormInputValueProperty>", // required
+ *               },
+ *             ],
+ *             bindingProperties: { // FormInputBindingProperties
+ *               "<keys>": { // FormInputBindingPropertiesValue
+ *                 type: "STRING_VALUE",
+ *                 bindingProperties: { // FormInputBindingPropertiesValueProperties
+ *                   model: "STRING_VALUE",
+ *                 },
+ *               },
+ *             },
+ *           },
+ *           name: "STRING_VALUE",
+ *           minValue: Number("float"),
+ *           maxValue: Number("float"),
+ *           step: Number("float"),
+ *           value: "STRING_VALUE",
+ *           isArray: true || false,
+ *           fileUploaderConfig: { // FileUploaderFieldConfig
+ *             accessLevel: "STRING_VALUE", // required
+ *             acceptedFileTypes: [ // StrValues // required
+ *               "STRING_VALUE",
+ *             ],
+ *             showThumbnails: true || false,
+ *             isResumable: true || false,
+ *             maxFileCount: Number("int"),
+ *             maxSize: Number("int"),
+ *           },
+ *         },
+ *         validations: [ // ValidationsList
+ *           { // FieldValidationConfiguration
+ *             type: "STRING_VALUE", // required
+ *             strValues: [
+ *               "STRING_VALUE",
+ *             ],
+ *             numValues: [ // NumValues
+ *               Number("int"),
+ *             ],
+ *             validationMessage: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     style: { // FormStyle
+ *       horizontalGap: { // FormStyleConfig Union: only one key present
+ *         tokenReference: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *       },
+ *       verticalGap: {//  Union: only one key present
+ *         tokenReference: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *       },
+ *       outerPadding: {//  Union: only one key present
+ *         tokenReference: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *       },
+ *     },
+ *     sectionalElements: { // SectionalElementMap // required
+ *       "<keys>": { // SectionalElement
+ *         type: "STRING_VALUE", // required
+ *         position: {//  Union: only one key present
+ *           fixed: "STRING_VALUE",
+ *           rightOf: "STRING_VALUE",
+ *           below: "STRING_VALUE",
+ *         },
+ *         text: "STRING_VALUE",
+ *         level: Number("int"),
+ *         orientation: "STRING_VALUE",
+ *         excluded: true || false,
+ *       },
+ *     },
+ *     schemaVersion: "STRING_VALUE", // required
+ *     cta: { // FormCTA
+ *       position: "STRING_VALUE",
+ *       clear: { // FormButton
+ *         excluded: true || false,
+ *         children: "STRING_VALUE",
+ *         position: {//  Union: only one key present
+ *           fixed: "STRING_VALUE",
+ *           rightOf: "STRING_VALUE",
+ *           below: "STRING_VALUE",
+ *         },
+ *       },
+ *       cancel: {
+ *         excluded: true || false,
+ *         children: "STRING_VALUE",
+ *         position: {//  Union: only one key present
+ *           fixed: "STRING_VALUE",
+ *           rightOf: "STRING_VALUE",
+ *           below: "STRING_VALUE",
+ *         },
+ *       },
+ *       submit: {
+ *         excluded: true || false,
+ *         children: "STRING_VALUE",
+ *         position: {//  Union: only one key present
+ *           fixed: "STRING_VALUE",
+ *           rightOf: "STRING_VALUE",
+ *           below: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     labelDecorator: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateFormCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFormCommandInput - {@link CreateFormCommandInput}
+ * @returns {@link CreateFormCommandOutput}
  * @see {@link CreateFormCommandInput} for command's `input` shape.
  * @see {@link CreateFormCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -82,6 +240,9 @@ export class CreateFormCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFormCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +269,8 @@ export class CreateFormCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFormRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFormResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +280,18 @@ export class CreateFormCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFormCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFormCommand(input, context);
+    return se_CreateFormCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFormCommandOutput> {
-    return deserializeAws_restJson1CreateFormCommand(output, context);
+    return de_CreateFormCommand(output, context);
   }
 
   // Start section: command_body_extra

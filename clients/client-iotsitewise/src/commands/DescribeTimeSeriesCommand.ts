@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribeTimeSeriesRequest,
-  DescribeTimeSeriesRequestFilterSensitiveLog,
-  DescribeTimeSeriesResponse,
-  DescribeTimeSeriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeTimeSeriesCommand,
-  serializeAws_restJson1DescribeTimeSeriesCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeTimeSeriesRequest, DescribeTimeSeriesResponse } from "../models/models_0";
+import { de_DescribeTimeSeriesCommand, se_DescribeTimeSeriesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTimeSeriesCommand}.
  */
 export interface DescribeTimeSeriesCommandInput extends DescribeTimeSeriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTimeSeriesCommand}.
  */
 export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a time series (data stream).</p>
  *          <p>To identify a time series, do one of the following:</p>
  *          <ul>
@@ -61,10 +58,17 @@ export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesRespo
  * import { IoTSiteWiseClient, DescribeTimeSeriesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeTimeSeriesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DescribeTimeSeriesRequest
+ *   alias: "STRING_VALUE",
+ *   assetId: "STRING_VALUE",
+ *   propertyId: "STRING_VALUE",
+ * };
  * const command = new DescribeTimeSeriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTimeSeriesCommandInput - {@link DescribeTimeSeriesCommandInput}
+ * @returns {@link DescribeTimeSeriesCommandOutput}
  * @see {@link DescribeTimeSeriesCommandInput} for command's `input` shape.
  * @see {@link DescribeTimeSeriesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -104,6 +108,9 @@ export class DescribeTimeSeriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTimeSeriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +139,8 @@ export class DescribeTimeSeriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTimeSeriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTimeSeriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +150,18 @@ export class DescribeTimeSeriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTimeSeriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTimeSeriesCommand(input, context);
+    return se_DescribeTimeSeriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTimeSeriesCommandOutput> {
-    return deserializeAws_restJson1DescribeTimeSeriesCommand(output, context);
+    return de_DescribeTimeSeriesCommand(output, context);
   }
 
   // Start section: command_body_extra

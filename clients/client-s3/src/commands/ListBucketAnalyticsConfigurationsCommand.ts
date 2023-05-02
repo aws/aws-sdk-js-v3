@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListBucketAnalyticsConfigurationsOutput, ListBucketAnalyticsConfigurationsRequest } from "../models/models_0";
 import {
-  ListBucketAnalyticsConfigurationsOutput,
-  ListBucketAnalyticsConfigurationsOutputFilterSensitiveLog,
-  ListBucketAnalyticsConfigurationsRequest,
-  ListBucketAnalyticsConfigurationsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand,
-  serializeAws_restXmlListBucketAnalyticsConfigurationsCommand,
+  de_ListBucketAnalyticsConfigurationsCommand,
+  se_ListBucketAnalyticsConfigurationsCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListBucketAnalyticsConfigurationsCommand}.
  */
 export interface ListBucketAnalyticsConfigurationsCommandInput extends ListBucketAnalyticsConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBucketAnalyticsConfigurationsCommand}.
  */
 export interface ListBucketAnalyticsConfigurationsCommandOutput
@@ -37,6 +36,7 @@ export interface ListBucketAnalyticsConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the analytics configurations for the bucket. You can have up to 1,000 analytics
  *          configurations per bucket.</p>
  *          <p>This action supports list pagination and does not return more than 100 configurations
@@ -79,10 +79,17 @@ export interface ListBucketAnalyticsConfigurationsCommandOutput
  * import { S3Client, ListBucketAnalyticsConfigurationsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListBucketAnalyticsConfigurationsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // ListBucketAnalyticsConfigurationsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ContinuationToken: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new ListBucketAnalyticsConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBucketAnalyticsConfigurationsCommandInput - {@link ListBucketAnalyticsConfigurationsCommandInput}
+ * @returns {@link ListBucketAnalyticsConfigurationsCommandOutput}
  * @see {@link ListBucketAnalyticsConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketAnalyticsConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -112,6 +119,9 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBucketAnalyticsConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +150,8 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBucketAnalyticsConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBucketAnalyticsConfigurationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,18 +161,24 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListBucketAnalyticsConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListBucketAnalyticsConfigurationsCommand(input, context);
+    return se_ListBucketAnalyticsConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBucketAnalyticsConfigurationsCommandOutput> {
-    return deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand(output, context);
+    return de_ListBucketAnalyticsConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

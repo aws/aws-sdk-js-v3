@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ValidateSolFunctionPackageContentInput, ValidateSolFunctionPackageContentOutput } from "../models/models_0";
 import {
-  ValidateSolFunctionPackageContentInput,
-  ValidateSolFunctionPackageContentInputFilterSensitiveLog,
-  ValidateSolFunctionPackageContentOutput,
-  ValidateSolFunctionPackageContentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ValidateSolFunctionPackageContentCommand,
-  serializeAws_restJson1ValidateSolFunctionPackageContentCommand,
+  de_ValidateSolFunctionPackageContentCommand,
+  se_ValidateSolFunctionPackageContentCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateSolFunctionPackageContentCommand}.
  */
 export interface ValidateSolFunctionPackageContentCommandInput extends ValidateSolFunctionPackageContentInput {}
 /**
+ * @public
+ *
  * The output of {@link ValidateSolFunctionPackageContentCommand}.
  */
 export interface ValidateSolFunctionPackageContentCommandOutput
@@ -37,6 +36,7 @@ export interface ValidateSolFunctionPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates function package content. This can be used as a dry run before uploading function package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html">PutSolFunctionPackageContent</a>.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  * @example
@@ -45,10 +45,17 @@ export interface ValidateSolFunctionPackageContentCommandOutput
  * import { TnbClient, ValidateSolFunctionPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ValidateSolFunctionPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // ValidateSolFunctionPackageContentInput
+ *   vnfPkgId: "STRING_VALUE", // required
+ *   contentType: "application/zip",
+ *   file: "BLOB_VALUE", // required
+ * };
  * const command = new ValidateSolFunctionPackageContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateSolFunctionPackageContentCommandInput - {@link ValidateSolFunctionPackageContentCommandInput}
+ * @returns {@link ValidateSolFunctionPackageContentCommandOutput}
  * @see {@link ValidateSolFunctionPackageContentCommandInput} for command's `input` shape.
  * @see {@link ValidateSolFunctionPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -87,6 +94,9 @@ export class ValidateSolFunctionPackageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateSolFunctionPackageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +125,8 @@ export class ValidateSolFunctionPackageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateSolFunctionPackageContentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateSolFunctionPackageContentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +136,24 @@ export class ValidateSolFunctionPackageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ValidateSolFunctionPackageContentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ValidateSolFunctionPackageContentCommand(input, context);
+    return se_ValidateSolFunctionPackageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateSolFunctionPackageContentCommandOutput> {
-    return deserializeAws_restJson1ValidateSolFunctionPackageContentCommand(output, context);
+    return de_ValidateSolFunctionPackageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

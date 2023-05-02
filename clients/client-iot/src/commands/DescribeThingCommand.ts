@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeThingRequest,
-  DescribeThingRequestFilterSensitiveLog,
-  DescribeThingResponse,
-  DescribeThingResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeThingCommand,
-  serializeAws_restJson1DescribeThingCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeThingRequest, DescribeThingResponse } from "../models/models_1";
+import { de_DescribeThingCommand, se_DescribeThingCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeThingCommand}.
  */
 export interface DescribeThingCommandInput extends DescribeThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeThingCommand}.
  */
 export interface DescribeThingCommandOutput extends DescribeThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThing</a> action.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeThingCommandOutput extends DescribeThingResponse, __Met
  * import { IoTClient, DescribeThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeThingRequest
+ *   thingName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeThingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeThingCommandInput - {@link DescribeThingCommandInput}
+ * @returns {@link DescribeThingCommandOutput}
  * @see {@link DescribeThingCommandInput} for command's `input` shape.
  * @see {@link DescribeThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +90,9 @@ export class DescribeThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class DescribeThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class DescribeThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeThingCommand(input, context);
+    return se_DescribeThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeThingCommandOutput> {
-    return deserializeAws_restJson1DescribeThingCommand(output, context);
+    return de_DescribeThingCommand(output, context);
   }
 
   // Start section: command_body_extra

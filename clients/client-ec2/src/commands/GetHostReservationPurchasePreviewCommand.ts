@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { GetHostReservationPurchasePreviewRequest, GetHostReservationPurchasePreviewResult } from "../models/models_5";
 import {
-  GetHostReservationPurchasePreviewRequest,
-  GetHostReservationPurchasePreviewRequestFilterSensitiveLog,
-  GetHostReservationPurchasePreviewResult,
-  GetHostReservationPurchasePreviewResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetHostReservationPurchasePreviewCommand,
-  serializeAws_ec2GetHostReservationPurchasePreviewCommand,
+  de_GetHostReservationPurchasePreviewCommand,
+  se_GetHostReservationPurchasePreviewCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetHostReservationPurchasePreviewCommand}.
  */
 export interface GetHostReservationPurchasePreviewCommandInput extends GetHostReservationPurchasePreviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHostReservationPurchasePreviewCommand}.
  */
 export interface GetHostReservationPurchasePreviewCommandOutput
@@ -37,6 +36,7 @@ export interface GetHostReservationPurchasePreviewCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Preview a reservation purchase with configurations that match those of your Dedicated
  *             Host. You must have active Dedicated Hosts in your account before you purchase a
  *             reservation.</p>
@@ -48,10 +48,18 @@ export interface GetHostReservationPurchasePreviewCommandOutput
  * import { EC2Client, GetHostReservationPurchasePreviewCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetHostReservationPurchasePreviewCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetHostReservationPurchasePreviewRequest
+ *   HostIdSet: [ // RequestHostIdSet // required
+ *     "STRING_VALUE",
+ *   ],
+ *   OfferingId: "STRING_VALUE", // required
+ * };
  * const command = new GetHostReservationPurchasePreviewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostReservationPurchasePreviewCommandInput - {@link GetHostReservationPurchasePreviewCommandInput}
+ * @returns {@link GetHostReservationPurchasePreviewCommandOutput}
  * @see {@link GetHostReservationPurchasePreviewCommandInput} for command's `input` shape.
  * @see {@link GetHostReservationPurchasePreviewCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +83,9 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostReservationPurchasePreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +114,8 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHostReservationPurchasePreviewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHostReservationPurchasePreviewResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +125,24 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetHostReservationPurchasePreviewCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetHostReservationPurchasePreviewCommand(input, context);
+    return se_GetHostReservationPurchasePreviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHostReservationPurchasePreviewCommandOutput> {
-    return deserializeAws_ec2GetHostReservationPurchasePreviewCommand(output, context);
+    return de_GetHostReservationPurchasePreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

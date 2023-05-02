@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  DescribeTestCasesInput,
-  DescribeTestCasesInputFilterSensitiveLog,
-  DescribeTestCasesOutput,
-  DescribeTestCasesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTestCasesCommand,
-  serializeAws_json1_1DescribeTestCasesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTestCasesInput, DescribeTestCasesOutput } from "../models/models_0";
+import { de_DescribeTestCasesCommand, se_DescribeTestCasesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTestCasesCommand}.
  */
 export interface DescribeTestCasesCommandInput extends DescribeTestCasesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTestCasesCommand}.
  */
 export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns a list of details about test cases for a report.
  *     </p>
@@ -44,10 +41,21 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  * import { CodeBuildClient, DescribeTestCasesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DescribeTestCasesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // DescribeTestCasesInput
+ *   reportArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: { // TestCaseFilter
+ *     status: "STRING_VALUE",
+ *     keyword: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DescribeTestCasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTestCasesCommandInput - {@link DescribeTestCasesCommandInput}
+ * @returns {@link DescribeTestCasesCommandOutput}
  * @see {@link DescribeTestCasesCommandInput} for command's `input` shape.
  * @see {@link DescribeTestCasesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -77,6 +85,9 @@ export class DescribeTestCasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTestCasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +116,8 @@ export class DescribeTestCasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTestCasesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTestCasesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +127,18 @@ export class DescribeTestCasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTestCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTestCasesCommand(input, context);
+    return se_DescribeTestCasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTestCasesCommandOutput> {
-    return deserializeAws_json1_1DescribeTestCasesCommand(output, context);
+    return de_DescribeTestCasesCommand(output, context);
   }
 
   // Start section: command_body_extra

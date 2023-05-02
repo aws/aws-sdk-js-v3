@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  CreateBotVersionRequest,
-  CreateBotVersionRequestFilterSensitiveLog,
-  CreateBotVersionResponse,
-  CreateBotVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBotVersionCommand,
-  serializeAws_restJson1CreateBotVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateBotVersionRequest, CreateBotVersionResponse } from "../models/models_0";
+import { de_CreateBotVersionCommand, se_CreateBotVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBotVersionCommand}.
  */
 export interface CreateBotVersionCommandInput extends CreateBotVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBotVersionCommand}.
  */
 export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of the bot based on the <code>DRAFT</code>
  *          version. If the <code>DRAFT</code> version of this resource hasn't
  *          changed since you created the last version, Amazon Lex doesn't create a new
@@ -47,10 +44,21 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * import { LexModelsV2Client, CreateBotVersionCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateBotVersionCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // CreateBotVersionRequest
+ *   botId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   botVersionLocaleSpecification: { // BotVersionLocaleSpecification // required
+ *     "<keys>": { // BotVersionLocaleDetails
+ *       sourceBotVersion: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateBotVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBotVersionCommandInput - {@link CreateBotVersionCommandInput}
+ * @returns {@link CreateBotVersionCommandOutput}
  * @see {@link CreateBotVersionCommandInput} for command's `input` shape.
  * @see {@link CreateBotVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -99,6 +107,9 @@ export class CreateBotVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBotVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +138,8 @@ export class CreateBotVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBotVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBotVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +149,18 @@ export class CreateBotVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBotVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBotVersionCommand(input, context);
+    return se_CreateBotVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBotVersionCommandOutput> {
-    return deserializeAws_restJson1CreateBotVersionCommand(output, context);
+    return de_CreateBotVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

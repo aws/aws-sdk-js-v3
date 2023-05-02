@@ -1,10 +1,20 @@
 // smithy-typescript generated code
-export enum RequiredFlag {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RequiredFlag = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type RequiredFlag = (typeof RequiredFlag)[keyof typeof RequiredFlag];
+
+/**
+ * @public
  * Use Allowed renditions to specify a list of possible resolutions in your ABR stack. * MediaConvert will create an ABR stack exclusively from the list of resolutions that you specify. * Some resolutions in the Allowed renditions list may not be included, however you can force a resolution to be included by setting Required to ENABLED. * You must specify at least one resolution that is greater than or equal to any resolutions that you specify in Min top rendition size or Min bottom rendition size. * If you specify Allowed renditions, you must not specify a separate rule for Force include renditions.
  */
 export interface AllowedRenditionSize {
@@ -24,25 +34,35 @@ export interface AllowedRenditionSize {
   Width?: number;
 }
 
-export enum AudioChannelTag {
-  C = "C",
-  CS = "CS",
-  L = "L",
-  LC = "LC",
-  LFE = "LFE",
-  LS = "LS",
-  LSD = "LSD",
-  R = "R",
-  RC = "RC",
-  RS = "RS",
-  RSD = "RSD",
-  TCS = "TCS",
-  VHC = "VHC",
-  VHL = "VHL",
-  VHR = "VHR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AudioChannelTag = {
+  C: "C",
+  CS: "CS",
+  L: "L",
+  LC: "LC",
+  LFE: "LFE",
+  LS: "LS",
+  LSD: "LSD",
+  R: "R",
+  RC: "RC",
+  RS: "RS",
+  RSD: "RSD",
+  TCS: "TCS",
+  VHC: "VHC",
+  VHL: "VHL",
+  VHR: "VHR",
+} as const;
 
 /**
+ * @public
+ */
+export type AudioChannelTag = (typeof AudioChannelTag)[keyof typeof AudioChannelTag];
+
+/**
+ * @public
  * When you mimic a multi-channel audio layout with multiple mono-channel tracks, you can tag each channel layout manually. For example, you would tag the tracks that contain your left, right, and center audio with Left (L), Right (R), and Center (C), respectively. When you don't specify a value, MediaConvert labels your track as Center (C) by default. To use audio layout tagging, your output must be in a QuickTime (.mov) container; your audio codec must be AAC, WAV, or AIFF; and you must set up your audio track to have only one channel.
  */
 export interface AudioChannelTaggingSettings {
@@ -52,29 +72,70 @@ export interface AudioChannelTaggingSettings {
   ChannelTag?: AudioChannelTag | string;
 }
 
-export enum AudioNormalizationAlgorithm {
-  ITU_BS_1770_1 = "ITU_BS_1770_1",
-  ITU_BS_1770_2 = "ITU_BS_1770_2",
-  ITU_BS_1770_3 = "ITU_BS_1770_3",
-  ITU_BS_1770_4 = "ITU_BS_1770_4",
-}
-
-export enum AudioNormalizationAlgorithmControl {
-  CORRECT_AUDIO = "CORRECT_AUDIO",
-  MEASURE_ONLY = "MEASURE_ONLY",
-}
-
-export enum AudioNormalizationLoudnessLogging {
-  DONT_LOG = "DONT_LOG",
-  LOG = "LOG",
-}
-
-export enum AudioNormalizationPeakCalculation {
-  NONE = "NONE",
-  TRUE_PEAK = "TRUE_PEAK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AudioNormalizationAlgorithm = {
+  ITU_BS_1770_1: "ITU_BS_1770_1",
+  ITU_BS_1770_2: "ITU_BS_1770_2",
+  ITU_BS_1770_3: "ITU_BS_1770_3",
+  ITU_BS_1770_4: "ITU_BS_1770_4",
+} as const;
 
 /**
+ * @public
+ */
+export type AudioNormalizationAlgorithm =
+  (typeof AudioNormalizationAlgorithm)[keyof typeof AudioNormalizationAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioNormalizationAlgorithmControl = {
+  CORRECT_AUDIO: "CORRECT_AUDIO",
+  MEASURE_ONLY: "MEASURE_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioNormalizationAlgorithmControl =
+  (typeof AudioNormalizationAlgorithmControl)[keyof typeof AudioNormalizationAlgorithmControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioNormalizationLoudnessLogging = {
+  DONT_LOG: "DONT_LOG",
+  LOG: "LOG",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioNormalizationLoudnessLogging =
+  (typeof AudioNormalizationLoudnessLogging)[keyof typeof AudioNormalizationLoudnessLogging];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioNormalizationPeakCalculation = {
+  NONE: "NONE",
+  TRUE_PEAK: "TRUE_PEAK",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioNormalizationPeakCalculation =
+  (typeof AudioNormalizationPeakCalculation)[keyof typeof AudioNormalizationPeakCalculation];
+
+/**
+ * @public
  * Advanced audio normalization settings. Ignore these settings unless you need to comply with a loudness standard.
  */
 export interface AudioNormalizationSettings {
@@ -109,58 +170,132 @@ export interface AudioNormalizationSettings {
   TargetLkfs?: number;
 
   /**
-   * Specify the True-peak limiter threshold in decibels relative to full scale (dBFS). The peak inter-audio sample loudness in your output will be limited to the value that you specify, without affecting the overall target LKFS. Enter a value from 0 to -20. Leave blank to use the default value 0.
+   * Specify the True-peak limiter threshold in decibels relative to full scale (dBFS). The peak inter-audio sample loudness in your output will be limited to the value that you specify, without affecting the overall target LKFS. Enter a value from 0 to -8. Leave blank to use the default value 0.
    */
   TruePeakLimiterThreshold?: number;
 }
 
-export enum AudioTypeControl {
-  FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
-
-export enum AacAudioDescriptionBroadcasterMix {
-  BROADCASTER_MIXED_AD = "BROADCASTER_MIXED_AD",
-  NORMAL = "NORMAL",
-}
-
-export enum AacCodecProfile {
-  HEV1 = "HEV1",
-  HEV2 = "HEV2",
-  LC = "LC",
-}
-
-export enum AacCodingMode {
-  AD_RECEIVER_MIX = "AD_RECEIVER_MIX",
-  CODING_MODE_1_0 = "CODING_MODE_1_0",
-  CODING_MODE_1_1 = "CODING_MODE_1_1",
-  CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_5_1 = "CODING_MODE_5_1",
-}
-
-export enum AacRateControlMode {
-  CBR = "CBR",
-  VBR = "VBR",
-}
-
-export enum AacRawFormat {
-  LATM_LOAS = "LATM_LOAS",
-  NONE = "NONE",
-}
-
-export enum AacSpecification {
-  MPEG2 = "MPEG2",
-  MPEG4 = "MPEG4",
-}
-
-export enum AacVbrQuality {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM_HIGH = "MEDIUM_HIGH",
-  MEDIUM_LOW = "MEDIUM_LOW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AudioTypeControl = {
+  FOLLOW_INPUT: "FOLLOW_INPUT",
+  USE_CONFIGURED: "USE_CONFIGURED",
+} as const;
 
 /**
+ * @public
+ */
+export type AudioTypeControl = (typeof AudioTypeControl)[keyof typeof AudioTypeControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacAudioDescriptionBroadcasterMix = {
+  BROADCASTER_MIXED_AD: "BROADCASTER_MIXED_AD",
+  NORMAL: "NORMAL",
+} as const;
+
+/**
+ * @public
+ */
+export type AacAudioDescriptionBroadcasterMix =
+  (typeof AacAudioDescriptionBroadcasterMix)[keyof typeof AacAudioDescriptionBroadcasterMix];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacCodecProfile = {
+  HEV1: "HEV1",
+  HEV2: "HEV2",
+  LC: "LC",
+} as const;
+
+/**
+ * @public
+ */
+export type AacCodecProfile = (typeof AacCodecProfile)[keyof typeof AacCodecProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacCodingMode = {
+  AD_RECEIVER_MIX: "AD_RECEIVER_MIX",
+  CODING_MODE_1_0: "CODING_MODE_1_0",
+  CODING_MODE_1_1: "CODING_MODE_1_1",
+  CODING_MODE_2_0: "CODING_MODE_2_0",
+  CODING_MODE_5_1: "CODING_MODE_5_1",
+} as const;
+
+/**
+ * @public
+ */
+export type AacCodingMode = (typeof AacCodingMode)[keyof typeof AacCodingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacRateControlMode = {
+  CBR: "CBR",
+  VBR: "VBR",
+} as const;
+
+/**
+ * @public
+ */
+export type AacRateControlMode = (typeof AacRateControlMode)[keyof typeof AacRateControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacRawFormat = {
+  LATM_LOAS: "LATM_LOAS",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type AacRawFormat = (typeof AacRawFormat)[keyof typeof AacRawFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacSpecification = {
+  MPEG2: "MPEG2",
+  MPEG4: "MPEG4",
+} as const;
+
+/**
+ * @public
+ */
+export type AacSpecification = (typeof AacSpecification)[keyof typeof AacSpecification];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacVbrQuality = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM_HIGH: "MEDIUM_HIGH",
+  MEDIUM_LOW: "MEDIUM_LOW",
+} as const;
+
+/**
+ * @public
+ */
+export type AacVbrQuality = (typeof AacVbrQuality)[keyof typeof AacVbrQuality];
+
+/**
+ * @public
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR". In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
  */
 export interface AacSettings {
@@ -210,58 +345,125 @@ export interface AacSettings {
   VbrQuality?: AacVbrQuality | string;
 }
 
-export enum Ac3BitstreamMode {
-  COMMENTARY = "COMMENTARY",
-  COMPLETE_MAIN = "COMPLETE_MAIN",
-  DIALOGUE = "DIALOGUE",
-  EMERGENCY = "EMERGENCY",
-  HEARING_IMPAIRED = "HEARING_IMPAIRED",
-  MUSIC_AND_EFFECTS = "MUSIC_AND_EFFECTS",
-  VISUALLY_IMPAIRED = "VISUALLY_IMPAIRED",
-  VOICE_OVER = "VOICE_OVER",
-}
-
-export enum Ac3CodingMode {
-  CODING_MODE_1_0 = "CODING_MODE_1_0",
-  CODING_MODE_1_1 = "CODING_MODE_1_1",
-  CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_3_2_LFE = "CODING_MODE_3_2_LFE",
-}
-
-export enum Ac3DynamicRangeCompressionLine {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
-
-export enum Ac3DynamicRangeCompressionProfile {
-  FILM_STANDARD = "FILM_STANDARD",
-  NONE = "NONE",
-}
-
-export enum Ac3DynamicRangeCompressionRf {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
-
-export enum Ac3LfeFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum Ac3MetadataControl {
-  FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Ac3BitstreamMode = {
+  COMMENTARY: "COMMENTARY",
+  COMPLETE_MAIN: "COMPLETE_MAIN",
+  DIALOGUE: "DIALOGUE",
+  EMERGENCY: "EMERGENCY",
+  HEARING_IMPAIRED: "HEARING_IMPAIRED",
+  MUSIC_AND_EFFECTS: "MUSIC_AND_EFFECTS",
+  VISUALLY_IMPAIRED: "VISUALLY_IMPAIRED",
+  VOICE_OVER: "VOICE_OVER",
+} as const;
 
 /**
+ * @public
+ */
+export type Ac3BitstreamMode = (typeof Ac3BitstreamMode)[keyof typeof Ac3BitstreamMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac3CodingMode = {
+  CODING_MODE_1_0: "CODING_MODE_1_0",
+  CODING_MODE_1_1: "CODING_MODE_1_1",
+  CODING_MODE_2_0: "CODING_MODE_2_0",
+  CODING_MODE_3_2_LFE: "CODING_MODE_3_2_LFE",
+} as const;
+
+/**
+ * @public
+ */
+export type Ac3CodingMode = (typeof Ac3CodingMode)[keyof typeof Ac3CodingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac3DynamicRangeCompressionLine = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
+
+/**
+ * @public
+ */
+export type Ac3DynamicRangeCompressionLine =
+  (typeof Ac3DynamicRangeCompressionLine)[keyof typeof Ac3DynamicRangeCompressionLine];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac3DynamicRangeCompressionProfile = {
+  FILM_STANDARD: "FILM_STANDARD",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Ac3DynamicRangeCompressionProfile =
+  (typeof Ac3DynamicRangeCompressionProfile)[keyof typeof Ac3DynamicRangeCompressionProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac3DynamicRangeCompressionRf = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
+
+/**
+ * @public
+ */
+export type Ac3DynamicRangeCompressionRf =
+  (typeof Ac3DynamicRangeCompressionRf)[keyof typeof Ac3DynamicRangeCompressionRf];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac3LfeFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Ac3LfeFilter = (typeof Ac3LfeFilter)[keyof typeof Ac3LfeFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac3MetadataControl = {
+  FOLLOW_INPUT: "FOLLOW_INPUT",
+  USE_CONFIGURED: "USE_CONFIGURED",
+} as const;
+
+/**
+ * @public
+ */
+export type Ac3MetadataControl = (typeof Ac3MetadataControl)[keyof typeof Ac3MetadataControl];
+
+/**
+ * @public
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AC3.
  */
 export interface Ac3Settings {
@@ -317,6 +519,7 @@ export interface Ac3Settings {
 }
 
 /**
+ * @public
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.
  */
 export interface AiffSettings {
@@ -336,86 +539,190 @@ export interface AiffSettings {
   SampleRate?: number;
 }
 
-export enum AudioCodec {
-  AAC = "AAC",
-  AC3 = "AC3",
-  AIFF = "AIFF",
-  EAC3 = "EAC3",
-  EAC3_ATMOS = "EAC3_ATMOS",
-  MP2 = "MP2",
-  MP3 = "MP3",
-  OPUS = "OPUS",
-  PASSTHROUGH = "PASSTHROUGH",
-  VORBIS = "VORBIS",
-  WAV = "WAV",
-}
-
-export enum Eac3AtmosBitstreamMode {
-  COMPLETE_MAIN = "COMPLETE_MAIN",
-}
-
-export enum Eac3AtmosCodingMode {
-  CODING_MODE_5_1_4 = "CODING_MODE_5_1_4",
-  CODING_MODE_7_1_4 = "CODING_MODE_7_1_4",
-  CODING_MODE_9_1_6 = "CODING_MODE_9_1_6",
-  CODING_MODE_AUTO = "CODING_MODE_AUTO",
-}
-
-export enum Eac3AtmosDialogueIntelligence {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum Eac3AtmosDownmixControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum Eac3AtmosDynamicRangeCompressionLine {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
-
-export enum Eac3AtmosDynamicRangeCompressionRf {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
-
-export enum Eac3AtmosDynamicRangeControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum Eac3AtmosMeteringMode {
-  ITU_BS_1770_1 = "ITU_BS_1770_1",
-  ITU_BS_1770_2 = "ITU_BS_1770_2",
-  ITU_BS_1770_3 = "ITU_BS_1770_3",
-  ITU_BS_1770_4 = "ITU_BS_1770_4",
-  LEQ_A = "LEQ_A",
-}
-
-export enum Eac3AtmosStereoDownmix {
-  DPL2 = "DPL2",
-  NOT_INDICATED = "NOT_INDICATED",
-  STEREO = "STEREO",
-  SURROUND = "SURROUND",
-}
-
-export enum Eac3AtmosSurroundExMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  NOT_INDICATED = "NOT_INDICATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AudioCodec = {
+  AAC: "AAC",
+  AC3: "AC3",
+  AIFF: "AIFF",
+  EAC3: "EAC3",
+  EAC3_ATMOS: "EAC3_ATMOS",
+  MP2: "MP2",
+  MP3: "MP3",
+  OPUS: "OPUS",
+  PASSTHROUGH: "PASSTHROUGH",
+  VORBIS: "VORBIS",
+  WAV: "WAV",
+} as const;
 
 /**
+ * @public
+ */
+export type AudioCodec = (typeof AudioCodec)[keyof typeof AudioCodec];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosBitstreamMode = {
+  COMPLETE_MAIN: "COMPLETE_MAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3AtmosBitstreamMode = (typeof Eac3AtmosBitstreamMode)[keyof typeof Eac3AtmosBitstreamMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosCodingMode = {
+  CODING_MODE_5_1_4: "CODING_MODE_5_1_4",
+  CODING_MODE_7_1_4: "CODING_MODE_7_1_4",
+  CODING_MODE_9_1_6: "CODING_MODE_9_1_6",
+  CODING_MODE_AUTO: "CODING_MODE_AUTO",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3AtmosCodingMode = (typeof Eac3AtmosCodingMode)[keyof typeof Eac3AtmosCodingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosDialogueIntelligence = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3AtmosDialogueIntelligence =
+  (typeof Eac3AtmosDialogueIntelligence)[keyof typeof Eac3AtmosDialogueIntelligence];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosDownmixControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3AtmosDownmixControl = (typeof Eac3AtmosDownmixControl)[keyof typeof Eac3AtmosDownmixControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosDynamicRangeCompressionLine = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3AtmosDynamicRangeCompressionLine =
+  (typeof Eac3AtmosDynamicRangeCompressionLine)[keyof typeof Eac3AtmosDynamicRangeCompressionLine];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosDynamicRangeCompressionRf = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3AtmosDynamicRangeCompressionRf =
+  (typeof Eac3AtmosDynamicRangeCompressionRf)[keyof typeof Eac3AtmosDynamicRangeCompressionRf];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosDynamicRangeControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3AtmosDynamicRangeControl =
+  (typeof Eac3AtmosDynamicRangeControl)[keyof typeof Eac3AtmosDynamicRangeControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosMeteringMode = {
+  ITU_BS_1770_1: "ITU_BS_1770_1",
+  ITU_BS_1770_2: "ITU_BS_1770_2",
+  ITU_BS_1770_3: "ITU_BS_1770_3",
+  ITU_BS_1770_4: "ITU_BS_1770_4",
+  LEQ_A: "LEQ_A",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3AtmosMeteringMode = (typeof Eac3AtmosMeteringMode)[keyof typeof Eac3AtmosMeteringMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosStereoDownmix = {
+  DPL2: "DPL2",
+  NOT_INDICATED: "NOT_INDICATED",
+  STEREO: "STEREO",
+  SURROUND: "SURROUND",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3AtmosStereoDownmix = (typeof Eac3AtmosStereoDownmix)[keyof typeof Eac3AtmosStereoDownmix];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosSurroundExMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  NOT_INDICATED: "NOT_INDICATED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3AtmosSurroundExMode = (typeof Eac3AtmosSurroundExMode)[keyof typeof Eac3AtmosSurroundExMode];
+
+/**
+ * @public
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3_ATMOS.
  */
 export interface Eac3AtmosSettings {
@@ -505,93 +812,222 @@ export interface Eac3AtmosSettings {
   SurroundExMode?: Eac3AtmosSurroundExMode | string;
 }
 
-export enum Eac3AttenuationControl {
-  ATTENUATE_3_DB = "ATTENUATE_3_DB",
-  NONE = "NONE",
-}
-
-export enum Eac3BitstreamMode {
-  COMMENTARY = "COMMENTARY",
-  COMPLETE_MAIN = "COMPLETE_MAIN",
-  EMERGENCY = "EMERGENCY",
-  HEARING_IMPAIRED = "HEARING_IMPAIRED",
-  VISUALLY_IMPAIRED = "VISUALLY_IMPAIRED",
-}
-
-export enum Eac3CodingMode {
-  CODING_MODE_1_0 = "CODING_MODE_1_0",
-  CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_3_2 = "CODING_MODE_3_2",
-}
-
-export enum Eac3DcFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum Eac3DynamicRangeCompressionLine {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
-
-export enum Eac3DynamicRangeCompressionRf {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
-
-export enum Eac3LfeControl {
-  LFE = "LFE",
-  NO_LFE = "NO_LFE",
-}
-
-export enum Eac3LfeFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum Eac3MetadataControl {
-  FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
-
-export enum Eac3PassthroughControl {
-  NO_PASSTHROUGH = "NO_PASSTHROUGH",
-  WHEN_POSSIBLE = "WHEN_POSSIBLE",
-}
-
-export enum Eac3PhaseControl {
-  NO_SHIFT = "NO_SHIFT",
-  SHIFT_90_DEGREES = "SHIFT_90_DEGREES",
-}
-
-export enum Eac3StereoDownmix {
-  DPL2 = "DPL2",
-  LO_RO = "LO_RO",
-  LT_RT = "LT_RT",
-  NOT_INDICATED = "NOT_INDICATED",
-}
-
-export enum Eac3SurroundExMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  NOT_INDICATED = "NOT_INDICATED",
-}
-
-export enum Eac3SurroundMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  NOT_INDICATED = "NOT_INDICATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AttenuationControl = {
+  ATTENUATE_3_DB: "ATTENUATE_3_DB",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type Eac3AttenuationControl = (typeof Eac3AttenuationControl)[keyof typeof Eac3AttenuationControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3BitstreamMode = {
+  COMMENTARY: "COMMENTARY",
+  COMPLETE_MAIN: "COMPLETE_MAIN",
+  EMERGENCY: "EMERGENCY",
+  HEARING_IMPAIRED: "HEARING_IMPAIRED",
+  VISUALLY_IMPAIRED: "VISUALLY_IMPAIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3BitstreamMode = (typeof Eac3BitstreamMode)[keyof typeof Eac3BitstreamMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3CodingMode = {
+  CODING_MODE_1_0: "CODING_MODE_1_0",
+  CODING_MODE_2_0: "CODING_MODE_2_0",
+  CODING_MODE_3_2: "CODING_MODE_3_2",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3CodingMode = (typeof Eac3CodingMode)[keyof typeof Eac3CodingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3DcFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3DcFilter = (typeof Eac3DcFilter)[keyof typeof Eac3DcFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3DynamicRangeCompressionLine = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3DynamicRangeCompressionLine =
+  (typeof Eac3DynamicRangeCompressionLine)[keyof typeof Eac3DynamicRangeCompressionLine];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3DynamicRangeCompressionRf = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3DynamicRangeCompressionRf =
+  (typeof Eac3DynamicRangeCompressionRf)[keyof typeof Eac3DynamicRangeCompressionRf];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3LfeControl = {
+  LFE: "LFE",
+  NO_LFE: "NO_LFE",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3LfeControl = (typeof Eac3LfeControl)[keyof typeof Eac3LfeControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3LfeFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3LfeFilter = (typeof Eac3LfeFilter)[keyof typeof Eac3LfeFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3MetadataControl = {
+  FOLLOW_INPUT: "FOLLOW_INPUT",
+  USE_CONFIGURED: "USE_CONFIGURED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3MetadataControl = (typeof Eac3MetadataControl)[keyof typeof Eac3MetadataControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3PassthroughControl = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  WHEN_POSSIBLE: "WHEN_POSSIBLE",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3PassthroughControl = (typeof Eac3PassthroughControl)[keyof typeof Eac3PassthroughControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3PhaseControl = {
+  NO_SHIFT: "NO_SHIFT",
+  SHIFT_90_DEGREES: "SHIFT_90_DEGREES",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3PhaseControl = (typeof Eac3PhaseControl)[keyof typeof Eac3PhaseControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3StereoDownmix = {
+  DPL2: "DPL2",
+  LO_RO: "LO_RO",
+  LT_RT: "LT_RT",
+  NOT_INDICATED: "NOT_INDICATED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3StereoDownmix = (typeof Eac3StereoDownmix)[keyof typeof Eac3StereoDownmix];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3SurroundExMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  NOT_INDICATED: "NOT_INDICATED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3SurroundExMode = (typeof Eac3SurroundExMode)[keyof typeof Eac3SurroundExMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3SurroundMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  NOT_INDICATED: "NOT_INDICATED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3SurroundMode = (typeof Eac3SurroundMode)[keyof typeof Eac3SurroundMode];
+
+/**
+ * @public
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3.
  */
 export interface Eac3Settings {
@@ -702,6 +1138,7 @@ export interface Eac3Settings {
 }
 
 /**
+ * @public
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
  */
 export interface Mp2Settings {
@@ -721,12 +1158,22 @@ export interface Mp2Settings {
   SampleRate?: number;
 }
 
-export enum Mp3RateControlMode {
-  CBR = "CBR",
-  VBR = "VBR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Mp3RateControlMode = {
+  CBR: "CBR",
+  VBR: "VBR",
+} as const;
 
 /**
+ * @public
+ */
+export type Mp3RateControlMode = (typeof Mp3RateControlMode)[keyof typeof Mp3RateControlMode];
+
+/**
+ * @public
  * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
  */
 export interface Mp3Settings {
@@ -757,6 +1204,7 @@ export interface Mp3Settings {
 }
 
 /**
+ * @public
  * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value OPUS.
  */
 export interface OpusSettings {
@@ -777,6 +1225,7 @@ export interface OpusSettings {
 }
 
 /**
+ * @public
  * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value Vorbis.
  */
 export interface VorbisSettings {
@@ -796,12 +1245,22 @@ export interface VorbisSettings {
   VbrQuality?: number;
 }
 
-export enum WavFormat {
-  RF64 = "RF64",
-  RIFF = "RIFF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WavFormat = {
+  RF64: "RF64",
+  RIFF: "RIFF",
+} as const;
 
 /**
+ * @public
+ */
+export type WavFormat = (typeof WavFormat)[keyof typeof WavFormat];
+
+/**
+ * @public
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value WAV.
  */
 export interface WavSettings {
@@ -827,6 +1286,7 @@ export interface WavSettings {
 }
 
 /**
+ * @public
  * Settings related to audio encoding. The settings in this group vary depending on the value that you choose for your audio codec.
  */
 export interface AudioCodecSettings {
@@ -886,207 +1346,226 @@ export interface AudioCodecSettings {
   WavSettings?: WavSettings;
 }
 
-export enum LanguageCode {
-  AAR = "AAR",
-  ABK = "ABK",
-  AFR = "AFR",
-  AKA = "AKA",
-  AMH = "AMH",
-  ARA = "ARA",
-  ARG = "ARG",
-  ASM = "ASM",
-  AVA = "AVA",
-  AVE = "AVE",
-  AYM = "AYM",
-  AZE = "AZE",
-  BAK = "BAK",
-  BAM = "BAM",
-  BEL = "BEL",
-  BEN = "BEN",
-  BIH = "BIH",
-  BIS = "BIS",
-  BOD = "BOD",
-  BOS = "BOS",
-  BRE = "BRE",
-  BUL = "BUL",
-  CAT = "CAT",
-  CES = "CES",
-  CHA = "CHA",
-  CHE = "CHE",
-  CHU = "CHU",
-  CHV = "CHV",
-  COR = "COR",
-  COS = "COS",
-  CRE = "CRE",
-  CYM = "CYM",
-  DAN = "DAN",
-  DEU = "DEU",
-  DIV = "DIV",
-  DZO = "DZO",
-  ELL = "ELL",
-  ENG = "ENG",
-  ENM = "ENM",
-  EPO = "EPO",
-  EST = "EST",
-  EUS = "EUS",
-  EWE = "EWE",
-  FAO = "FAO",
-  FAS = "FAS",
-  FIJ = "FIJ",
-  FIN = "FIN",
-  FRA = "FRA",
-  FRM = "FRM",
-  FRY = "FRY",
-  FUL = "FUL",
-  GER = "GER",
-  GLA = "GLA",
-  GLE = "GLE",
-  GLG = "GLG",
-  GLV = "GLV",
-  GRN = "GRN",
-  GUJ = "GUJ",
-  HAT = "HAT",
-  HAU = "HAU",
-  HEB = "HEB",
-  HER = "HER",
-  HIN = "HIN",
-  HMO = "HMO",
-  HRV = "HRV",
-  HUN = "HUN",
-  HYE = "HYE",
-  IBO = "IBO",
-  IDO = "IDO",
-  III = "III",
-  IKU = "IKU",
-  ILE = "ILE",
-  INA = "INA",
-  IND = "IND",
-  IPK = "IPK",
-  ISL = "ISL",
-  ITA = "ITA",
-  JAV = "JAV",
-  JPN = "JPN",
-  KAL = "KAL",
-  KAN = "KAN",
-  KAS = "KAS",
-  KAT = "KAT",
-  KAU = "KAU",
-  KAZ = "KAZ",
-  KHM = "KHM",
-  KIK = "KIK",
-  KIN = "KIN",
-  KIR = "KIR",
-  KOM = "KOM",
-  KON = "KON",
-  KOR = "KOR",
-  KUA = "KUA",
-  KUR = "KUR",
-  LAO = "LAO",
-  LAT = "LAT",
-  LAV = "LAV",
-  LIM = "LIM",
-  LIN = "LIN",
-  LIT = "LIT",
-  LTZ = "LTZ",
-  LUB = "LUB",
-  LUG = "LUG",
-  MAH = "MAH",
-  MAL = "MAL",
-  MAR = "MAR",
-  MKD = "MKD",
-  MLG = "MLG",
-  MLT = "MLT",
-  MON = "MON",
-  MRI = "MRI",
-  MSA = "MSA",
-  MYA = "MYA",
-  NAU = "NAU",
-  NAV = "NAV",
-  NBL = "NBL",
-  NDE = "NDE",
-  NDO = "NDO",
-  NEP = "NEP",
-  NLD = "NLD",
-  NNO = "NNO",
-  NOB = "NOB",
-  NOR = "NOR",
-  NYA = "NYA",
-  OCI = "OCI",
-  OJI = "OJI",
-  ORI = "ORI",
-  ORJ = "ORJ",
-  ORM = "ORM",
-  OSS = "OSS",
-  PAN = "PAN",
-  PLI = "PLI",
-  POL = "POL",
-  POR = "POR",
-  PUS = "PUS",
-  QAA = "QAA",
-  QPC = "QPC",
-  QUE = "QUE",
-  ROH = "ROH",
-  RON = "RON",
-  RUN = "RUN",
-  RUS = "RUS",
-  SAG = "SAG",
-  SAN = "SAN",
-  SIN = "SIN",
-  SLK = "SLK",
-  SLV = "SLV",
-  SME = "SME",
-  SMO = "SMO",
-  SNA = "SNA",
-  SND = "SND",
-  SOM = "SOM",
-  SOT = "SOT",
-  SPA = "SPA",
-  SQI = "SQI",
-  SRB = "SRB",
-  SRD = "SRD",
-  SRP = "SRP",
-  SSW = "SSW",
-  SUN = "SUN",
-  SWA = "SWA",
-  SWE = "SWE",
-  TAH = "TAH",
-  TAM = "TAM",
-  TAT = "TAT",
-  TEL = "TEL",
-  TGK = "TGK",
-  TGL = "TGL",
-  THA = "THA",
-  TIR = "TIR",
-  TNG = "TNG",
-  TON = "TON",
-  TSN = "TSN",
-  TSO = "TSO",
-  TUK = "TUK",
-  TUR = "TUR",
-  TWI = "TWI",
-  UIG = "UIG",
-  UKR = "UKR",
-  URD = "URD",
-  UZB = "UZB",
-  VEN = "VEN",
-  VIE = "VIE",
-  VOL = "VOL",
-  WLN = "WLN",
-  WOL = "WOL",
-  XHO = "XHO",
-  YID = "YID",
-  YOR = "YOR",
-  ZHA = "ZHA",
-  ZHO = "ZHO",
-  ZUL = "ZUL",
-}
-
-export enum AudioLanguageCodeControl {
-  FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LanguageCode = {
+  AAR: "AAR",
+  ABK: "ABK",
+  AFR: "AFR",
+  AKA: "AKA",
+  AMH: "AMH",
+  ARA: "ARA",
+  ARG: "ARG",
+  ASM: "ASM",
+  AVA: "AVA",
+  AVE: "AVE",
+  AYM: "AYM",
+  AZE: "AZE",
+  BAK: "BAK",
+  BAM: "BAM",
+  BEL: "BEL",
+  BEN: "BEN",
+  BIH: "BIH",
+  BIS: "BIS",
+  BOD: "BOD",
+  BOS: "BOS",
+  BRE: "BRE",
+  BUL: "BUL",
+  CAT: "CAT",
+  CES: "CES",
+  CHA: "CHA",
+  CHE: "CHE",
+  CHU: "CHU",
+  CHV: "CHV",
+  COR: "COR",
+  COS: "COS",
+  CRE: "CRE",
+  CYM: "CYM",
+  DAN: "DAN",
+  DEU: "DEU",
+  DIV: "DIV",
+  DZO: "DZO",
+  ELL: "ELL",
+  ENG: "ENG",
+  ENM: "ENM",
+  EPO: "EPO",
+  EST: "EST",
+  EUS: "EUS",
+  EWE: "EWE",
+  FAO: "FAO",
+  FAS: "FAS",
+  FIJ: "FIJ",
+  FIN: "FIN",
+  FRA: "FRA",
+  FRM: "FRM",
+  FRY: "FRY",
+  FUL: "FUL",
+  GER: "GER",
+  GLA: "GLA",
+  GLE: "GLE",
+  GLG: "GLG",
+  GLV: "GLV",
+  GRN: "GRN",
+  GUJ: "GUJ",
+  HAT: "HAT",
+  HAU: "HAU",
+  HEB: "HEB",
+  HER: "HER",
+  HIN: "HIN",
+  HMO: "HMO",
+  HRV: "HRV",
+  HUN: "HUN",
+  HYE: "HYE",
+  IBO: "IBO",
+  IDO: "IDO",
+  III: "III",
+  IKU: "IKU",
+  ILE: "ILE",
+  INA: "INA",
+  IND: "IND",
+  IPK: "IPK",
+  ISL: "ISL",
+  ITA: "ITA",
+  JAV: "JAV",
+  JPN: "JPN",
+  KAL: "KAL",
+  KAN: "KAN",
+  KAS: "KAS",
+  KAT: "KAT",
+  KAU: "KAU",
+  KAZ: "KAZ",
+  KHM: "KHM",
+  KIK: "KIK",
+  KIN: "KIN",
+  KIR: "KIR",
+  KOM: "KOM",
+  KON: "KON",
+  KOR: "KOR",
+  KUA: "KUA",
+  KUR: "KUR",
+  LAO: "LAO",
+  LAT: "LAT",
+  LAV: "LAV",
+  LIM: "LIM",
+  LIN: "LIN",
+  LIT: "LIT",
+  LTZ: "LTZ",
+  LUB: "LUB",
+  LUG: "LUG",
+  MAH: "MAH",
+  MAL: "MAL",
+  MAR: "MAR",
+  MKD: "MKD",
+  MLG: "MLG",
+  MLT: "MLT",
+  MON: "MON",
+  MRI: "MRI",
+  MSA: "MSA",
+  MYA: "MYA",
+  NAU: "NAU",
+  NAV: "NAV",
+  NBL: "NBL",
+  NDE: "NDE",
+  NDO: "NDO",
+  NEP: "NEP",
+  NLD: "NLD",
+  NNO: "NNO",
+  NOB: "NOB",
+  NOR: "NOR",
+  NYA: "NYA",
+  OCI: "OCI",
+  OJI: "OJI",
+  ORI: "ORI",
+  ORJ: "ORJ",
+  ORM: "ORM",
+  OSS: "OSS",
+  PAN: "PAN",
+  PLI: "PLI",
+  POL: "POL",
+  POR: "POR",
+  PUS: "PUS",
+  QAA: "QAA",
+  QPC: "QPC",
+  QUE: "QUE",
+  ROH: "ROH",
+  RON: "RON",
+  RUN: "RUN",
+  RUS: "RUS",
+  SAG: "SAG",
+  SAN: "SAN",
+  SIN: "SIN",
+  SLK: "SLK",
+  SLV: "SLV",
+  SME: "SME",
+  SMO: "SMO",
+  SNA: "SNA",
+  SND: "SND",
+  SOM: "SOM",
+  SOT: "SOT",
+  SPA: "SPA",
+  SQI: "SQI",
+  SRB: "SRB",
+  SRD: "SRD",
+  SRP: "SRP",
+  SSW: "SSW",
+  SUN: "SUN",
+  SWA: "SWA",
+  SWE: "SWE",
+  TAH: "TAH",
+  TAM: "TAM",
+  TAT: "TAT",
+  TEL: "TEL",
+  TGK: "TGK",
+  TGL: "TGL",
+  THA: "THA",
+  TIR: "TIR",
+  TNG: "TNG",
+  TON: "TON",
+  TSN: "TSN",
+  TSO: "TSO",
+  TUK: "TUK",
+  TUR: "TUR",
+  TWI: "TWI",
+  UIG: "UIG",
+  UKR: "UKR",
+  URD: "URD",
+  UZB: "UZB",
+  VEN: "VEN",
+  VIE: "VIE",
+  VOL: "VOL",
+  WLN: "WLN",
+  WOL: "WOL",
+  XHO: "XHO",
+  YID: "YID",
+  YOR: "YOR",
+  ZHA: "ZHA",
+  ZHO: "ZHO",
+  ZUL: "ZUL",
+} as const;
 
 /**
+ * @public
+ */
+export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioLanguageCodeControl = {
+  FOLLOW_INPUT: "FOLLOW_INPUT",
+  USE_CONFIGURED: "USE_CONFIGURED",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioLanguageCodeControl = (typeof AudioLanguageCodeControl)[keyof typeof AudioLanguageCodeControl];
+
+/**
+ * @public
  * OutputChannel mapping settings.
  */
 export interface OutputChannelMapping {
@@ -1102,6 +1581,7 @@ export interface OutputChannelMapping {
 }
 
 /**
+ * @public
  * Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel, in dB. Specify remix values to indicate how much of the content from your input audio channel you want in your output audio channels. Each instance of the InputChannels or InputChannelsFineTune array specifies these values for one output channel. Use one instance of this array for each output channel. In the console, each array corresponds to a column in the graphical depiction of the mapping matrix. The rows of the graphical matrix correspond to input channels. Valid values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification). Use InputChannels or InputChannelsFineTune to specify your remix values. Don't use both.
  */
 export interface ChannelMapping {
@@ -1112,6 +1592,7 @@ export interface ChannelMapping {
 }
 
 /**
+ * @public
  * Use Manual audio remixing (RemixSettings) to adjust audio levels for each audio channel in each output of your job. With audio remixing, you can output more or fewer audio channels than your input audio source provides.
  */
 export interface RemixSettings {
@@ -1132,6 +1613,7 @@ export interface RemixSettings {
 }
 
 /**
+ * @public
  * Settings related to one audio tab on the MediaConvert console. In your job JSON, an instance of AudioDescription is equivalent to one audio tab in the console. Usually, one audio tab corresponds to one output audio track. Depending on how you set up your input audio selectors and whether you use audio selector groups, one audio tab can correspond to a group of output audio tracks.
  */
 export interface AudioDescription {
@@ -1192,6 +1674,7 @@ export interface AudioDescription {
 }
 
 /**
+ * @public
  * Use Force include renditions to specify one or more resolutions to include your ABR stack. * (Recommended) To optimize automated ABR, specify as few resolutions as possible. * (Required) The number of resolutions that you specify must be equal to, or less than, the Max renditions setting. * If you specify a Min top rendition size rule, specify at least one resolution that is equal to, or greater than, Min top rendition size. * If you specify a Min bottom rendition size rule, only specify resolutions that are equal to, or greater than, Min bottom rendition size. * If you specify a Force include renditions rule, do not specify a separate rule for Allowed renditions. * Note: The ABR stack may include other resolutions that you do not specify here, depending on the Max renditions setting.
  */
 export interface ForceIncludeRenditionSize {
@@ -1207,6 +1690,7 @@ export interface ForceIncludeRenditionSize {
 }
 
 /**
+ * @public
  * Use Min bottom rendition size to specify a minimum size for the lowest resolution in your ABR stack. * The lowest resolution in your ABR stack will be equal to or greater than the value that you enter. For example: If you specify 640x360 the lowest resolution in your ABR stack will be equal to or greater than to 640x360. * If you specify a Min top rendition size rule, the value that you specify for Min bottom rendition size must be less than, or equal to, Min top rendition size.
  */
 export interface MinBottomRenditionSize {
@@ -1222,6 +1706,7 @@ export interface MinBottomRenditionSize {
 }
 
 /**
+ * @public
  * Use Min top rendition size to specify a minimum size for the highest resolution in your ABR stack. * The highest resolution in your ABR stack will be equal to or greater than the value that you enter. For example: If you specify 1280x720 the highest resolution in your ABR stack will be equal to or greater than 1280x720. * If you specify a value for Max resolution, the value that you specify for Min top rendition size must be less than, or equal to, Max resolution.
  */
 export interface MinTopRenditionSize {
@@ -1236,14 +1721,24 @@ export interface MinTopRenditionSize {
   Width?: number;
 }
 
-export enum RuleType {
-  ALLOWED_RENDITIONS = "ALLOWED_RENDITIONS",
-  FORCE_INCLUDE_RENDITIONS = "FORCE_INCLUDE_RENDITIONS",
-  MIN_BOTTOM_RENDITION_SIZE = "MIN_BOTTOM_RENDITION_SIZE",
-  MIN_TOP_RENDITION_SIZE = "MIN_TOP_RENDITION_SIZE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RuleType = {
+  ALLOWED_RENDITIONS: "ALLOWED_RENDITIONS",
+  FORCE_INCLUDE_RENDITIONS: "FORCE_INCLUDE_RENDITIONS",
+  MIN_BOTTOM_RENDITION_SIZE: "MIN_BOTTOM_RENDITION_SIZE",
+  MIN_TOP_RENDITION_SIZE: "MIN_TOP_RENDITION_SIZE",
+} as const;
 
 /**
+ * @public
+ */
+export type RuleType = (typeof RuleType)[keyof typeof RuleType];
+
+/**
+ * @public
  * Specify one or more Automated ABR rule types. Note: Force include and Allowed renditions are mutually exclusive.
  */
 export interface AutomatedAbrRule {
@@ -1273,78 +1768,173 @@ export interface AutomatedAbrRule {
   Type?: RuleType | string;
 }
 
-export enum BurninSubtitleAlignment {
-  AUTO = "AUTO",
-  CENTERED = "CENTERED",
-  LEFT = "LEFT",
-}
-
-export enum BurninSubtitleApplyFontColor {
-  ALL_TEXT = "ALL_TEXT",
-  WHITE_TEXT_ONLY = "WHITE_TEXT_ONLY",
-}
-
-export enum BurninSubtitleBackgroundColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  NONE = "NONE",
-  WHITE = "WHITE",
-}
-
-export enum BurninSubtitleFallbackFont {
-  BEST_MATCH = "BEST_MATCH",
-  MONOSPACED_SANSSERIF = "MONOSPACED_SANSSERIF",
-  MONOSPACED_SERIF = "MONOSPACED_SERIF",
-  PROPORTIONAL_SANSSERIF = "PROPORTIONAL_SANSSERIF",
-  PROPORTIONAL_SERIF = "PROPORTIONAL_SERIF",
-}
-
-export enum BurninSubtitleFontColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  BLUE = "BLUE",
-  GREEN = "GREEN",
-  HEX = "HEX",
-  RED = "RED",
-  WHITE = "WHITE",
-  YELLOW = "YELLOW",
-}
-
-export enum FontScript {
-  AUTOMATIC = "AUTOMATIC",
-  HANS = "HANS",
-  HANT = "HANT",
-}
-
-export enum BurninSubtitleOutlineColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  BLUE = "BLUE",
-  GREEN = "GREEN",
-  RED = "RED",
-  WHITE = "WHITE",
-  YELLOW = "YELLOW",
-}
-
-export enum BurninSubtitleShadowColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  NONE = "NONE",
-  WHITE = "WHITE",
-}
-
-export enum BurnInSubtitleStylePassthrough {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum BurninSubtitleTeletextSpacing {
-  AUTO = "AUTO",
-  FIXED_GRID = "FIXED_GRID",
-  PROPORTIONAL = "PROPORTIONAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleAlignment = {
+  AUTO: "AUTO",
+  CENTERED: "CENTERED",
+  LEFT: "LEFT",
+} as const;
 
 /**
+ * @public
+ */
+export type BurninSubtitleAlignment = (typeof BurninSubtitleAlignment)[keyof typeof BurninSubtitleAlignment];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleApplyFontColor = {
+  ALL_TEXT: "ALL_TEXT",
+  WHITE_TEXT_ONLY: "WHITE_TEXT_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type BurninSubtitleApplyFontColor =
+  (typeof BurninSubtitleApplyFontColor)[keyof typeof BurninSubtitleApplyFontColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleBackgroundColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+} as const;
+
+/**
+ * @public
+ */
+export type BurninSubtitleBackgroundColor =
+  (typeof BurninSubtitleBackgroundColor)[keyof typeof BurninSubtitleBackgroundColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleFallbackFont = {
+  BEST_MATCH: "BEST_MATCH",
+  MONOSPACED_SANSSERIF: "MONOSPACED_SANSSERIF",
+  MONOSPACED_SERIF: "MONOSPACED_SERIF",
+  PROPORTIONAL_SANSSERIF: "PROPORTIONAL_SANSSERIF",
+  PROPORTIONAL_SERIF: "PROPORTIONAL_SERIF",
+} as const;
+
+/**
+ * @public
+ */
+export type BurninSubtitleFallbackFont = (typeof BurninSubtitleFallbackFont)[keyof typeof BurninSubtitleFallbackFont];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleFontColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  HEX: "HEX",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+} as const;
+
+/**
+ * @public
+ */
+export type BurninSubtitleFontColor = (typeof BurninSubtitleFontColor)[keyof typeof BurninSubtitleFontColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const FontScript = {
+  AUTOMATIC: "AUTOMATIC",
+  HANS: "HANS",
+  HANT: "HANT",
+} as const;
+
+/**
+ * @public
+ */
+export type FontScript = (typeof FontScript)[keyof typeof FontScript];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleOutlineColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+} as const;
+
+/**
+ * @public
+ */
+export type BurninSubtitleOutlineColor = (typeof BurninSubtitleOutlineColor)[keyof typeof BurninSubtitleOutlineColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleShadowColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+} as const;
+
+/**
+ * @public
+ */
+export type BurninSubtitleShadowColor = (typeof BurninSubtitleShadowColor)[keyof typeof BurninSubtitleShadowColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurnInSubtitleStylePassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type BurnInSubtitleStylePassthrough =
+  (typeof BurnInSubtitleStylePassthrough)[keyof typeof BurnInSubtitleStylePassthrough];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleTeletextSpacing = {
+  AUTO: "AUTO",
+  FIXED_GRID: "FIXED_GRID",
+  PROPORTIONAL: "PROPORTIONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type BurninSubtitleTeletextSpacing =
+  (typeof BurninSubtitleTeletextSpacing)[keyof typeof BurninSubtitleTeletextSpacing];
+
+/**
+ * @public
  * Burn-in is a captions delivery method, rather than a captions format. Burn-in writes the captions directly on your video frames, replacing pixels of video content with the captions. Set up burn-in captions in the same output as your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/burn-in-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to BURN_IN.
  */
 export interface BurninDestinationSettings {
@@ -1454,98 +2044,208 @@ export interface BurninDestinationSettings {
   YPosition?: number;
 }
 
-export enum CaptionDestinationType {
-  BURN_IN = "BURN_IN",
-  DVB_SUB = "DVB_SUB",
-  EMBEDDED = "EMBEDDED",
-  EMBEDDED_PLUS_SCTE20 = "EMBEDDED_PLUS_SCTE20",
-  IMSC = "IMSC",
-  SCC = "SCC",
-  SCTE20_PLUS_EMBEDDED = "SCTE20_PLUS_EMBEDDED",
-  SMI = "SMI",
-  SRT = "SRT",
-  TELETEXT = "TELETEXT",
-  TTML = "TTML",
-  WEBVTT = "WEBVTT",
-}
-
-export enum DvbSubtitleAlignment {
-  AUTO = "AUTO",
-  CENTERED = "CENTERED",
-  LEFT = "LEFT",
-}
-
-export enum DvbSubtitleApplyFontColor {
-  ALL_TEXT = "ALL_TEXT",
-  WHITE_TEXT_ONLY = "WHITE_TEXT_ONLY",
-}
-
-export enum DvbSubtitleBackgroundColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  NONE = "NONE",
-  WHITE = "WHITE",
-}
-
-export enum DvbddsHandling {
-  NONE = "NONE",
-  NO_DISPLAY_WINDOW = "NO_DISPLAY_WINDOW",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum DvbSubSubtitleFallbackFont {
-  BEST_MATCH = "BEST_MATCH",
-  MONOSPACED_SANSSERIF = "MONOSPACED_SANSSERIF",
-  MONOSPACED_SERIF = "MONOSPACED_SERIF",
-  PROPORTIONAL_SANSSERIF = "PROPORTIONAL_SANSSERIF",
-  PROPORTIONAL_SERIF = "PROPORTIONAL_SERIF",
-}
-
-export enum DvbSubtitleFontColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  BLUE = "BLUE",
-  GREEN = "GREEN",
-  HEX = "HEX",
-  RED = "RED",
-  WHITE = "WHITE",
-  YELLOW = "YELLOW",
-}
-
-export enum DvbSubtitleOutlineColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  BLUE = "BLUE",
-  GREEN = "GREEN",
-  RED = "RED",
-  WHITE = "WHITE",
-  YELLOW = "YELLOW",
-}
-
-export enum DvbSubtitleShadowColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  NONE = "NONE",
-  WHITE = "WHITE",
-}
-
-export enum DvbSubtitleStylePassthrough {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum DvbSubtitlingType {
-  HEARING_IMPAIRED = "HEARING_IMPAIRED",
-  STANDARD = "STANDARD",
-}
-
-export enum DvbSubtitleTeletextSpacing {
-  AUTO = "AUTO",
-  FIXED_GRID = "FIXED_GRID",
-  PROPORTIONAL = "PROPORTIONAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CaptionDestinationType = {
+  BURN_IN: "BURN_IN",
+  DVB_SUB: "DVB_SUB",
+  EMBEDDED: "EMBEDDED",
+  EMBEDDED_PLUS_SCTE20: "EMBEDDED_PLUS_SCTE20",
+  IMSC: "IMSC",
+  SCC: "SCC",
+  SCTE20_PLUS_EMBEDDED: "SCTE20_PLUS_EMBEDDED",
+  SMI: "SMI",
+  SRT: "SRT",
+  TELETEXT: "TELETEXT",
+  TTML: "TTML",
+  WEBVTT: "WEBVTT",
+} as const;
 
 /**
+ * @public
+ */
+export type CaptionDestinationType = (typeof CaptionDestinationType)[keyof typeof CaptionDestinationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleAlignment = {
+  AUTO: "AUTO",
+  CENTERED: "CENTERED",
+  LEFT: "LEFT",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbSubtitleAlignment = (typeof DvbSubtitleAlignment)[keyof typeof DvbSubtitleAlignment];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleApplyFontColor = {
+  ALL_TEXT: "ALL_TEXT",
+  WHITE_TEXT_ONLY: "WHITE_TEXT_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbSubtitleApplyFontColor = (typeof DvbSubtitleApplyFontColor)[keyof typeof DvbSubtitleApplyFontColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleBackgroundColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbSubtitleBackgroundColor = (typeof DvbSubtitleBackgroundColor)[keyof typeof DvbSubtitleBackgroundColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbddsHandling = {
+  NONE: "NONE",
+  NO_DISPLAY_WINDOW: "NO_DISPLAY_WINDOW",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbddsHandling = (typeof DvbddsHandling)[keyof typeof DvbddsHandling];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubSubtitleFallbackFont = {
+  BEST_MATCH: "BEST_MATCH",
+  MONOSPACED_SANSSERIF: "MONOSPACED_SANSSERIF",
+  MONOSPACED_SERIF: "MONOSPACED_SERIF",
+  PROPORTIONAL_SANSSERIF: "PROPORTIONAL_SANSSERIF",
+  PROPORTIONAL_SERIF: "PROPORTIONAL_SERIF",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbSubSubtitleFallbackFont = (typeof DvbSubSubtitleFallbackFont)[keyof typeof DvbSubSubtitleFallbackFont];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleFontColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  HEX: "HEX",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbSubtitleFontColor = (typeof DvbSubtitleFontColor)[keyof typeof DvbSubtitleFontColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleOutlineColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbSubtitleOutlineColor = (typeof DvbSubtitleOutlineColor)[keyof typeof DvbSubtitleOutlineColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleShadowColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbSubtitleShadowColor = (typeof DvbSubtitleShadowColor)[keyof typeof DvbSubtitleShadowColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleStylePassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbSubtitleStylePassthrough =
+  (typeof DvbSubtitleStylePassthrough)[keyof typeof DvbSubtitleStylePassthrough];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitlingType = {
+  HEARING_IMPAIRED: "HEARING_IMPAIRED",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbSubtitlingType = (typeof DvbSubtitlingType)[keyof typeof DvbSubtitlingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleTeletextSpacing = {
+  AUTO: "AUTO",
+  FIXED_GRID: "FIXED_GRID",
+  PROPORTIONAL: "PROPORTIONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbSubtitleTeletextSpacing = (typeof DvbSubtitleTeletextSpacing)[keyof typeof DvbSubtitleTeletextSpacing];
+
+/**
+ * @public
  * Settings related to DVB-Sub captions. Set up DVB-Sub captions in the same output as your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/dvb-sub-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to DVB_SUB.
  */
 export interface DvbSubDestinationSettings {
@@ -1570,7 +2270,7 @@ export interface DvbSubDestinationSettings {
   BackgroundOpacity?: number;
 
   /**
-   * Specify how MediaConvert handles the display definition segment (DDS). Keep the default, None (NONE), to exclude the DDS from this set of captions. Choose No display window (NO_DISPLAY_WINDOW) to have MediaConvert include the DDS but not include display window data. In this case, MediaConvert writes that information to the page composition segment (PCS) instead. Choose Specify (SPECIFIED) to have MediaConvert set up the display window based on the values that you specify in related job settings. For video resolutions that are 576 pixels or smaller in height, MediaConvert doesn't include the DDS, regardless of the value you choose for DDS handling (ddsHandling). In this case, it doesn't write the display window data to the PCS either. Related settings: Use the settings DDS x-coordinate (ddsXCoordinate) and DDS y-coordinate (ddsYCoordinate) to specify the offset between the top left corner of the display window and the top left corner of the video frame. All burn-in and DVB-Sub font settings must match.
+   * Specify how MediaConvert handles the display definition segment (DDS). To exclude the DDS from this set of captions: Keep the default, None. To include the DDS: Choose Specified. When you do, also specify the offset coordinates of the display window with DDS x-coordinate and DDS y-coordinate. To include the DDS, but not include display window data: Choose No display window. When you do, you can write position metadata to the page composition segment (PCS) with DDS x-coordinate and DDS y-coordinate. For video resolutions with a height of 576 pixels or less, MediaConvert doesn't include the DDS, regardless of the value you choose for DDS handling. All burn-in and DVB-Sub font settings must match.
    */
   DdsHandling?: DvbddsHandling | string;
 
@@ -1688,6 +2388,7 @@ export interface DvbSubDestinationSettings {
 }
 
 /**
+ * @public
  * Settings related to CEA/EIA-608 and CEA/EIA-708 (also called embedded or ancillary) captions. Set up embedded captions in the same output as your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/embedded-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to EMBEDDED, EMBEDDED_PLUS_SCTE20, or SCTE20_PLUS_EMBEDDED.
  */
 export interface EmbeddedDestinationSettings {
@@ -1702,22 +2403,41 @@ export interface EmbeddedDestinationSettings {
   Destination708ServiceNumber?: number;
 }
 
-export enum ImscAccessibilitySubs {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum ImscStylePassthrough {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImscAccessibilitySubs = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type ImscAccessibilitySubs = (typeof ImscAccessibilitySubs)[keyof typeof ImscAccessibilitySubs];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImscStylePassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ImscStylePassthrough = (typeof ImscStylePassthrough)[keyof typeof ImscStylePassthrough];
+
+/**
+ * @public
  * Settings related to IMSC captions. IMSC is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/ttml-and-webvtt-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to IMSC.
  */
 export interface ImscDestinationSettings {
   /**
-   * Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions track is intended to provide accessibility for people who are deaf or hard of hearing. When you enable this feature, MediaConvert adds the following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for this track: CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". Keep the default value, Disabled, if the captions track is not intended to provide such accessibility. MediaConvert will not add the above attributes.
+   * If the IMSC captions track is intended to provide accessibility for people who are deaf or hard of hearing: Set Accessibility subtitles to Enabled. When you do, MediaConvert adds accessibility attributes to your output HLS or DASH manifest. For HLS manifests, MediaConvert adds the following accessibility attributes under EXT-X-MEDIA for this track: CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". For DASH manifests, MediaConvert adds the following in the adaptation set for this track: <Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="caption"/>. If the captions track is not intended to provide such accessibility: Keep the default value, Disabled. When you do, for DASH manifests, MediaConvert instead adds the following in the adaptation set for this track: <Role schemeIDUri="urn:mpeg:dash:role:2011" value="subtitle"/>.
    */
   Accessibility?: ImscAccessibilitySubs | string;
 
@@ -1727,15 +2447,25 @@ export interface ImscDestinationSettings {
   StylePassthrough?: ImscStylePassthrough | string;
 }
 
-export enum SccDestinationFramerate {
-  FRAMERATE_23_97 = "FRAMERATE_23_97",
-  FRAMERATE_24 = "FRAMERATE_24",
-  FRAMERATE_25 = "FRAMERATE_25",
-  FRAMERATE_29_97_DROPFRAME = "FRAMERATE_29_97_DROPFRAME",
-  FRAMERATE_29_97_NON_DROPFRAME = "FRAMERATE_29_97_NON_DROPFRAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SccDestinationFramerate = {
+  FRAMERATE_23_97: "FRAMERATE_23_97",
+  FRAMERATE_24: "FRAMERATE_24",
+  FRAMERATE_25: "FRAMERATE_25",
+  FRAMERATE_29_97_DROPFRAME: "FRAMERATE_29_97_DROPFRAME",
+  FRAMERATE_29_97_NON_DROPFRAME: "FRAMERATE_29_97_NON_DROPFRAME",
+} as const;
 
 /**
+ * @public
+ */
+export type SccDestinationFramerate = (typeof SccDestinationFramerate)[keyof typeof SccDestinationFramerate];
+
+/**
+ * @public
  * Settings related to SCC captions. SCC is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/scc-srt-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to SCC.
  */
 export interface SccDestinationSettings {
@@ -1745,12 +2475,22 @@ export interface SccDestinationSettings {
   Framerate?: SccDestinationFramerate | string;
 }
 
-export enum SrtStylePassthrough {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SrtStylePassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type SrtStylePassthrough = (typeof SrtStylePassthrough)[keyof typeof SrtStylePassthrough];
+
+/**
+ * @public
  * Settings related to SRT captions. SRT is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to SRT.
  */
 export interface SrtDestinationSettings {
@@ -1760,15 +2500,25 @@ export interface SrtDestinationSettings {
   StylePassthrough?: SrtStylePassthrough | string;
 }
 
-export enum TeletextPageType {
-  PAGE_TYPE_ADDL_INFO = "PAGE_TYPE_ADDL_INFO",
-  PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE = "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE",
-  PAGE_TYPE_INITIAL = "PAGE_TYPE_INITIAL",
-  PAGE_TYPE_PROGRAM_SCHEDULE = "PAGE_TYPE_PROGRAM_SCHEDULE",
-  PAGE_TYPE_SUBTITLE = "PAGE_TYPE_SUBTITLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TeletextPageType = {
+  PAGE_TYPE_ADDL_INFO: "PAGE_TYPE_ADDL_INFO",
+  PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE: "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE",
+  PAGE_TYPE_INITIAL: "PAGE_TYPE_INITIAL",
+  PAGE_TYPE_PROGRAM_SCHEDULE: "PAGE_TYPE_PROGRAM_SCHEDULE",
+  PAGE_TYPE_SUBTITLE: "PAGE_TYPE_SUBTITLE",
+} as const;
 
 /**
+ * @public
+ */
+export type TeletextPageType = (typeof TeletextPageType)[keyof typeof TeletextPageType];
+
+/**
+ * @public
  * Settings related to teletext captions. Set up teletext captions in the same output as your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/teletext-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to TELETEXT.
  */
 export interface TeletextDestinationSettings {
@@ -1783,12 +2533,22 @@ export interface TeletextDestinationSettings {
   PageTypes?: (TeletextPageType | string)[];
 }
 
-export enum TtmlStylePassthrough {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TtmlStylePassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type TtmlStylePassthrough = (typeof TtmlStylePassthrough)[keyof typeof TtmlStylePassthrough];
+
+/**
+ * @public
  * Settings related to TTML captions. TTML is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/ttml-and-webvtt-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to TTML.
  */
 export interface TtmlDestinationSettings {
@@ -1798,23 +2558,42 @@ export interface TtmlDestinationSettings {
   StylePassthrough?: TtmlStylePassthrough | string;
 }
 
-export enum WebvttAccessibilitySubs {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum WebvttStylePassthrough {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  STRICT = "STRICT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WebvttAccessibilitySubs = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type WebvttAccessibilitySubs = (typeof WebvttAccessibilitySubs)[keyof typeof WebvttAccessibilitySubs];
+
+/**
+ * @public
+ * @enum
+ */
+export const WebvttStylePassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  STRICT: "STRICT",
+} as const;
+
+/**
+ * @public
+ */
+export type WebvttStylePassthrough = (typeof WebvttStylePassthrough)[keyof typeof WebvttStylePassthrough];
+
+/**
+ * @public
  * Settings related to WebVTT captions. WebVTT is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/ttml-and-webvtt-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to WebVTT.
  */
 export interface WebvttDestinationSettings {
   /**
-   * Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions track is intended to provide accessibility for people who are deaf or hard of hearing. When you enable this feature, MediaConvert adds the following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for this track: CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". Keep the default value, Disabled, if the captions track is not intended to provide such accessibility. MediaConvert will not add the above attributes.
+   * If the WebVTT captions track is intended to provide accessibility for people who are deaf or hard of hearing: Set Accessibility subtitles to Enabled. When you do, MediaConvert adds accessibility attributes to your output HLS or DASH manifest. For HLS manifests, MediaConvert adds the following accessibility attributes under EXT-X-MEDIA for this track: CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". For DASH manifests, MediaConvert adds the following in the adaptation set for this track: <Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="caption"/>. If the captions track is not intended to provide such accessibility: Keep the default value, Disabled. When you do, for DASH manifests, MediaConvert instead adds the following in the adaptation set for this track: <Role schemeIDUri="urn:mpeg:dash:role:2011" value="subtitle"/>.
    */
   Accessibility?: WebvttAccessibilitySubs | string;
 
@@ -1825,6 +2604,7 @@ export interface WebvttDestinationSettings {
 }
 
 /**
+ * @public
  * Settings related to one captions tab on the MediaConvert console. In your job JSON, an instance of captions DestinationSettings is equivalent to one captions tab in the console. Usually, one captions tab corresponds to one output captions track. Depending on your output captions format, one tab might correspond to a set of output captions tracks. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/including-captions.html.
  */
 export interface CaptionDestinationSettings {
@@ -1880,6 +2660,7 @@ export interface CaptionDestinationSettings {
 }
 
 /**
+ * @public
  * This object holds groups of settings related to captions for one output. For each output that has captions, include one instance of CaptionDescriptions.
  */
 export interface CaptionDescription {
@@ -1910,6 +2691,7 @@ export interface CaptionDescription {
 }
 
 /**
+ * @public
  * Caption Description for preset
  */
 export interface CaptionDescriptionPreset {
@@ -1935,6 +2717,7 @@ export interface CaptionDescriptionPreset {
 }
 
 /**
+ * @public
  * Specify the details for each pair of HLS and DASH additional manifests that you want the service to generate for this CMAF output group. Each pair of manifests can reference a different subset of outputs in the group.
  */
 export interface CmafAdditionalManifest {
@@ -1950,6 +2733,7 @@ export interface CmafAdditionalManifest {
 }
 
 /**
+ * @public
  * Specify the details for each additional DASH manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
  */
 export interface DashAdditionalManifest {
@@ -1965,6 +2749,7 @@ export interface DashAdditionalManifest {
 }
 
 /**
+ * @public
  * Describes an account-specific API endpoint.
  */
 export interface Endpoint {
@@ -1975,6 +2760,7 @@ export interface Endpoint {
 }
 
 /**
+ * @public
  * Specify the details for each additional HLS manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
  */
 export interface HlsAdditionalManifest {
@@ -1989,12 +2775,22 @@ export interface HlsAdditionalManifest {
   SelectedOutputs?: string[];
 }
 
-export enum HlsAdMarkers {
-  ELEMENTAL = "ELEMENTAL",
-  ELEMENTAL_SCTE35 = "ELEMENTAL_SCTE35",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HlsAdMarkers = {
+  ELEMENTAL: "ELEMENTAL",
+  ELEMENTAL_SCTE35: "ELEMENTAL_SCTE35",
+} as const;
 
 /**
+ * @public
+ */
+export type HlsAdMarkers = (typeof HlsAdMarkers)[keyof typeof HlsAdMarkers];
+
+/**
+ * @public
  * Caption Language Mapping
  */
 export interface HlsCaptionLanguageMapping {
@@ -2020,6 +2816,7 @@ export interface HlsCaptionLanguageMapping {
 }
 
 /**
+ * @public
  * Optional. Configuration for a destination queue to which the job can hop once a customer-defined minimum wait time has passed.
  */
 export interface HopDestination {
@@ -2034,12 +2831,13 @@ export interface HopDestination {
   Queue?: string;
 
   /**
-   * Required for setting up a job to use queue hopping. Minimum wait time in minutes until the job can hop to the destination queue. Valid range is 1 to 1440 minutes, inclusive.
+   * Required for setting up a job to use queue hopping. Minimum wait time in minutes until the job can hop to the destination queue. Valid range is 1 to 4320 minutes, inclusive.
    */
   WaitMinutes?: number;
 }
 
 /**
+ * @public
  * To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3) to specify the base 64 encoded string and use Timecode (TimeCode) to specify the time when the tag should be inserted. To insert multiple ID3 tags in your output, create multiple instances of ID3 insertion (Id3Insertion).
  */
 export interface Id3Insertion {
@@ -2055,6 +2853,67 @@ export interface Id3Insertion {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AdvancedInputFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AdvancedInputFilter = (typeof AdvancedInputFilter)[keyof typeof AdvancedInputFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const AdvancedInputFilterAddTexture = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AdvancedInputFilterAddTexture =
+  (typeof AdvancedInputFilterAddTexture)[keyof typeof AdvancedInputFilterAddTexture];
+
+/**
+ * @public
+ * @enum
+ */
+export const AdvancedInputFilterSharpen = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  OFF: "OFF",
+} as const;
+
+/**
+ * @public
+ */
+export type AdvancedInputFilterSharpen = (typeof AdvancedInputFilterSharpen)[keyof typeof AdvancedInputFilterSharpen];
+
+/**
+ * @public
+ * Optional settings for Advanced input filter when you set Advanced input filter to Enabled.
+ */
+export interface AdvancedInputFilterSettings {
+  /**
+   * Add texture and detail to areas of your input video content that were lost after applying the Advanced input filter. To adaptively add texture and reduce softness: Choose Enabled. To not add any texture: Keep the default value, Disabled. We recommend that you choose Disabled for input video content that doesn't have texture, including screen recordings, computer graphics, or cartoons.
+   */
+  AddTexture?: AdvancedInputFilterAddTexture | string;
+
+  /**
+   * Optionally specify the amount of sharpening to apply when you use the Advanced input filter. Sharpening adds contrast to the edges of your video content and can reduce softness. To apply no sharpening: Keep the default value, Off. To apply a minimal amount of sharpening choose Low, or for the maximum choose High.
+   */
+  Sharpening?: AdvancedInputFilterSharpen | string;
+}
+
+/**
+ * @public
  * Use audio selector groups to combine multiple sidecar audio inputs so that you can assign them to a single output audio tab (AudioDescription). Note that, if you're working with embedded audio, it's simpler to assign multiple input tracks into a single audio selector rather than use an audio selector group.
  */
 export interface AudioSelectorGroup {
@@ -2064,19 +2923,38 @@ export interface AudioSelectorGroup {
   AudioSelectorNames?: string[];
 }
 
-export enum AudioDurationCorrection {
-  AUTO = "AUTO",
-  DISABLED = "DISABLED",
-  FRAME = "FRAME",
-  TRACK = "TRACK",
-}
-
-export enum AudioDefaultSelection {
-  DEFAULT = "DEFAULT",
-  NOT_DEFAULT = "NOT_DEFAULT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AudioDurationCorrection = {
+  AUTO: "AUTO",
+  DISABLED: "DISABLED",
+  FRAME: "FRAME",
+  TRACK: "TRACK",
+} as const;
 
 /**
+ * @public
+ */
+export type AudioDurationCorrection = (typeof AudioDurationCorrection)[keyof typeof AudioDurationCorrection];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioDefaultSelection = {
+  DEFAULT: "DEFAULT",
+  NOT_DEFAULT: "NOT_DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioDefaultSelection = (typeof AudioDefaultSelection)[keyof typeof AudioDefaultSelection];
+
+/**
+ * @public
  * Settings specific to audio sources in an HLS alternate rendition group. Specify the properties (renditionGroupId, renditionName or renditionLanguageCode) to identify the unique audio track among the alternative rendition groups present in the HLS manifest. If no unique track is found, or multiple tracks match the properties provided, the job fails. If no properties in hlsRenditionGroupSettings are specified, the default audio track within the video segment is chosen. If there is no audio within video segment, the alternative audio with DEFAULT=YES is chosen instead.
  */
 export interface HlsRenditionGroupSettings {
@@ -2096,14 +2974,24 @@ export interface HlsRenditionGroupSettings {
   RenditionName?: string;
 }
 
-export enum AudioSelectorType {
-  HLS_RENDITION_GROUP = "HLS_RENDITION_GROUP",
-  LANGUAGE_CODE = "LANGUAGE_CODE",
-  PID = "PID",
-  TRACK = "TRACK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AudioSelectorType = {
+  HLS_RENDITION_GROUP: "HLS_RENDITION_GROUP",
+  LANGUAGE_CODE: "LANGUAGE_CODE",
+  PID: "PID",
+  TRACK: "TRACK",
+} as const;
 
 /**
+ * @public
+ */
+export type AudioSelectorType = (typeof AudioSelectorType)[keyof typeof AudioSelectorType];
+
+/**
+ * @public
  * Use Audio selectors (AudioSelectors) to specify a track or set of tracks from the input that you will use in your outputs. You can use multiple Audio selectors per input.
  */
 export interface AudioSelector {
@@ -2168,17 +3056,36 @@ export interface AudioSelector {
   Tracks?: number[];
 }
 
-export enum AncillaryConvert608To708 {
-  DISABLED = "DISABLED",
-  UPCONVERT = "UPCONVERT",
-}
-
-export enum AncillaryTerminateCaptions {
-  DISABLED = "DISABLED",
-  END_OF_INPUT = "END_OF_INPUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AncillaryConvert608To708 = {
+  DISABLED: "DISABLED",
+  UPCONVERT: "UPCONVERT",
+} as const;
 
 /**
+ * @public
+ */
+export type AncillaryConvert608To708 = (typeof AncillaryConvert608To708)[keyof typeof AncillaryConvert608To708];
+
+/**
+ * @public
+ * @enum
+ */
+export const AncillaryTerminateCaptions = {
+  DISABLED: "DISABLED",
+  END_OF_INPUT: "END_OF_INPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type AncillaryTerminateCaptions = (typeof AncillaryTerminateCaptions)[keyof typeof AncillaryTerminateCaptions];
+
+/**
+ * @public
  * Settings for ancillary captions source.
  */
 export interface AncillarySourceSettings {
@@ -2199,6 +3106,7 @@ export interface AncillarySourceSettings {
 }
 
 /**
+ * @public
  * DVB Sub Source Settings
  */
 export interface DvbSubSourceSettings {
@@ -2208,17 +3116,36 @@ export interface DvbSubSourceSettings {
   Pid?: number;
 }
 
-export enum EmbeddedConvert608To708 {
-  DISABLED = "DISABLED",
-  UPCONVERT = "UPCONVERT",
-}
-
-export enum EmbeddedTerminateCaptions {
-  DISABLED = "DISABLED",
-  END_OF_INPUT = "END_OF_INPUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EmbeddedConvert608To708 = {
+  DISABLED: "DISABLED",
+  UPCONVERT: "UPCONVERT",
+} as const;
 
 /**
+ * @public
+ */
+export type EmbeddedConvert608To708 = (typeof EmbeddedConvert608To708)[keyof typeof EmbeddedConvert608To708];
+
+/**
+ * @public
+ * @enum
+ */
+export const EmbeddedTerminateCaptions = {
+  DISABLED: "DISABLED",
+  END_OF_INPUT: "END_OF_INPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type EmbeddedTerminateCaptions = (typeof EmbeddedTerminateCaptions)[keyof typeof EmbeddedTerminateCaptions];
+
+/**
+ * @public
  * Settings for embedded captions Source
  */
 export interface EmbeddedSourceSettings {
@@ -2243,12 +3170,37 @@ export interface EmbeddedSourceSettings {
   TerminateCaptions?: EmbeddedTerminateCaptions | string;
 }
 
-export enum FileSourceConvert608To708 {
-  DISABLED = "DISABLED",
-  UPCONVERT = "UPCONVERT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FileSourceConvert608To708 = {
+  DISABLED: "DISABLED",
+  UPCONVERT: "UPCONVERT",
+} as const;
 
 /**
+ * @public
+ */
+export type FileSourceConvert608To708 = (typeof FileSourceConvert608To708)[keyof typeof FileSourceConvert608To708];
+
+/**
+ * @public
+ * @enum
+ */
+export const CaptionSourceConvertPaintOnToPopOn = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CaptionSourceConvertPaintOnToPopOn =
+  (typeof CaptionSourceConvertPaintOnToPopOn)[keyof typeof CaptionSourceConvertPaintOnToPopOn];
+
+/**
+ * @public
  * Ignore this setting unless your input captions format is SCC. To have the service compensate for differing frame rates between your input captions and input video, specify the frame rate of the captions file. Specify this value as a fraction. When you work directly in your JSON job specification, use the settings framerateNumerator and framerateDenominator. For example, you might specify 24 / 1 for 24 fps, 25 / 1 for 25 fps, 24000 / 1001 for 23.976 fps, or 30000 / 1001 for 29.97 fps.
  */
 export interface CaptionSourceFramerate {
@@ -2263,12 +3215,22 @@ export interface CaptionSourceFramerate {
   FramerateNumerator?: number;
 }
 
-export enum FileSourceTimeDeltaUnits {
-  MILLISECONDS = "MILLISECONDS",
-  SECONDS = "SECONDS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FileSourceTimeDeltaUnits = {
+  MILLISECONDS: "MILLISECONDS",
+  SECONDS: "SECONDS",
+} as const;
 
 /**
+ * @public
+ */
+export type FileSourceTimeDeltaUnits = (typeof FileSourceTimeDeltaUnits)[keyof typeof FileSourceTimeDeltaUnits];
+
+/**
+ * @public
  * If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
  */
 export interface FileSourceSettings {
@@ -2276,6 +3238,11 @@ export interface FileSourceSettings {
    * Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
    */
   Convert608To708?: FileSourceConvert608To708 | string;
+
+  /**
+   * Choose the presentation style of your input SCC captions. To use the same presentation style as your input: Keep the default value, Disabled. To convert paint-on captions to pop-on: Choose Enabled. We also recommend that you choose Enabled if you notice additional repeated lines in your output captions.
+   */
+  ConvertPaintToPop?: CaptionSourceConvertPaintOnToPopOn | string;
 
   /**
    * Ignore this setting unless your input captions format is SCC. To have the service compensate for differing frame rates between your input captions and input video, specify the frame rate of the captions file. Specify this value as a fraction. When you work directly in your JSON job specification, use the settings framerateNumerator and framerateDenominator. For example, you might specify 24 / 1 for 24 fps, 25 / 1 for 25 fps, 24000 / 1001 for 23.976 fps, or 30000 / 1001 for 29.97 fps.
@@ -2298,24 +3265,34 @@ export interface FileSourceSettings {
   TimeDeltaUnits?: FileSourceTimeDeltaUnits | string;
 }
 
-export enum CaptionSourceType {
-  ANCILLARY = "ANCILLARY",
-  DVB_SUB = "DVB_SUB",
-  EMBEDDED = "EMBEDDED",
-  IMSC = "IMSC",
-  NULL_SOURCE = "NULL_SOURCE",
-  SCC = "SCC",
-  SCTE20 = "SCTE20",
-  SMI = "SMI",
-  SMPTE_TT = "SMPTE_TT",
-  SRT = "SRT",
-  STL = "STL",
-  TELETEXT = "TELETEXT",
-  TTML = "TTML",
-  WEBVTT = "WEBVTT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CaptionSourceType = {
+  ANCILLARY: "ANCILLARY",
+  DVB_SUB: "DVB_SUB",
+  EMBEDDED: "EMBEDDED",
+  IMSC: "IMSC",
+  NULL_SOURCE: "NULL_SOURCE",
+  SCC: "SCC",
+  SCTE20: "SCTE20",
+  SMI: "SMI",
+  SMPTE_TT: "SMPTE_TT",
+  SRT: "SRT",
+  STL: "STL",
+  TELETEXT: "TELETEXT",
+  TTML: "TTML",
+  WEBVTT: "WEBVTT",
+} as const;
 
 /**
+ * @public
+ */
+export type CaptionSourceType = (typeof CaptionSourceType)[keyof typeof CaptionSourceType];
+
+/**
+ * @public
  * Settings specific to Teletext caption sources, including Page number.
  */
 export interface TeletextSourceSettings {
@@ -2326,6 +3303,7 @@ export interface TeletextSourceSettings {
 }
 
 /**
+ * @public
  * Settings specific to caption sources that are specified by track number. Currently, this is only IMSC captions in an IMF package. If your caption source is IMSC 1.1 in a separate xml file, use FileSourceSettings instead of TrackSourceSettings.
  */
 export interface TrackSourceSettings {
@@ -2336,6 +3314,7 @@ export interface TrackSourceSettings {
 }
 
 /**
+ * @public
  * Settings specific to WebVTT sources in HLS alternative rendition group. Specify the properties (renditionGroupId, renditionName or renditionLanguageCode) to identify the unique subtitle track among the alternative rendition groups present in the HLS manifest. If no unique track is found, or multiple tracks match the specified properties, the job fails. If there is only one subtitle track in the rendition group, the settings can be left empty and the default subtitle track will be chosen. If your caption source is a sidecar file, use FileSourceSettings instead of WebvttHlsSourceSettings.
  */
 export interface WebvttHlsSourceSettings {
@@ -2356,6 +3335,7 @@ export interface WebvttHlsSourceSettings {
 }
 
 /**
+ * @public
  * If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml file, specify the URI of the input captions source file. If your input captions are IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
  */
 export interface CaptionSourceSettings {
@@ -2401,6 +3381,7 @@ export interface CaptionSourceSettings {
 }
 
 /**
+ * @public
  * Use captions selectors to specify the captions data from your input that you use in your outputs. You can use up to 20 captions selectors per input.
  */
 export interface CaptionSelector {
@@ -2421,6 +3402,7 @@ export interface CaptionSelector {
 }
 
 /**
+ * @public
  * Use Rectangle to identify a specific area of the video frame.
  */
 export interface Rectangle {
@@ -2445,18 +3427,37 @@ export interface Rectangle {
   Y?: number;
 }
 
-export enum InputDeblockFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum DecryptionMode {
-  AES_CBC = "AES_CBC",
-  AES_CTR = "AES_CTR",
-  AES_GCM = "AES_GCM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InputDeblockFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type InputDeblockFilter = (typeof InputDeblockFilter)[keyof typeof InputDeblockFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const DecryptionMode = {
+  AES_CBC: "AES_CBC",
+  AES_CTR: "AES_CTR",
+  AES_GCM: "AES_GCM",
+} as const;
+
+/**
+ * @public
+ */
+export type DecryptionMode = (typeof DecryptionMode)[keyof typeof DecryptionMode];
+
+/**
+ * @public
  * Settings for decrypting any input files that you encrypt before you upload them to Amazon S3. MediaConvert can decrypt files only when you use AWS Key Management Service (KMS) to encrypt the data key that you use to encrypt your content.
  */
 export interface InputDecryptionSettings {
@@ -2481,18 +3482,37 @@ export interface InputDecryptionSettings {
   KmsKeyRegion?: string;
 }
 
-export enum InputDenoiseFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum InputFilterEnable {
-  AUTO = "AUTO",
-  DISABLE = "DISABLE",
-  FORCE = "FORCE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InputDenoiseFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type InputDenoiseFilter = (typeof InputDenoiseFilter)[keyof typeof InputDenoiseFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputFilterEnable = {
+  AUTO: "AUTO",
+  DISABLE: "DISABLE",
+  FORCE: "FORCE",
+} as const;
+
+/**
+ * @public
+ */
+export type InputFilterEnable = (typeof InputFilterEnable)[keyof typeof InputFilterEnable];
+
+/**
+ * @public
  * These settings apply to a specific graphic overlay. You can include multiple overlays in your job.
  */
 export interface InsertableImage {
@@ -2553,6 +3573,7 @@ export interface InsertableImage {
 }
 
 /**
+ * @public
  * Use the image inserter feature to include a graphic overlay on your video. Enable or disable this feature for each input or output individually. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/graphic-overlay.html. This setting is disabled by default.
  */
 export interface ImageInserter {
@@ -2568,6 +3589,7 @@ export interface ImageInserter {
 }
 
 /**
+ * @public
  * To transcode only portions of your input, include one input clip for each part of your input that you want in your output. All input clips that you specify will be included in every output of the job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/assembling-multiple-inputs-and-input-clips.html.
  */
 export interface InputClipping {
@@ -2582,23 +3604,51 @@ export interface InputClipping {
   StartTimecode?: string;
 }
 
-export enum InputScanType {
-  AUTO = "AUTO",
-  PSF = "PSF",
-}
-
-export enum InputPsiControl {
-  IGNORE_PSI = "IGNORE_PSI",
-  USE_PSI = "USE_PSI",
-}
-
-export enum InputTimecodeSource {
-  EMBEDDED = "EMBEDDED",
-  SPECIFIEDSTART = "SPECIFIEDSTART",
-  ZEROBASED = "ZEROBASED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InputScanType = {
+  AUTO: "AUTO",
+  PSF: "PSF",
+} as const;
 
 /**
+ * @public
+ */
+export type InputScanType = (typeof InputScanType)[keyof typeof InputScanType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputPsiControl = {
+  IGNORE_PSI: "IGNORE_PSI",
+  USE_PSI: "USE_PSI",
+} as const;
+
+/**
+ * @public
+ */
+export type InputPsiControl = (typeof InputPsiControl)[keyof typeof InputPsiControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputTimecodeSource = {
+  EMBEDDED: "EMBEDDED",
+  SPECIFIEDSTART: "SPECIFIEDSTART",
+  ZEROBASED: "ZEROBASED",
+} as const;
+
+/**
+ * @public
+ */
+export type InputTimecodeSource = (typeof InputTimecodeSource)[keyof typeof InputTimecodeSource];
+
+/**
+ * @public
  * When you include Video generator, MediaConvert creates a video input with black frames. Use this setting if you do not have a video input or if you want to add black video frames before, or after, other inputs. You can specify Video generator, or you can specify an Input file, but you cannot specify both. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-generator.html
  */
 export interface InputVideoGenerator {
@@ -2608,33 +3658,70 @@ export interface InputVideoGenerator {
   Duration?: number;
 }
 
-export enum AlphaBehavior {
-  DISCARD = "DISCARD",
-  REMAP_TO_LUMA = "REMAP_TO_LUMA",
-}
-
-export enum ColorSpace {
-  FOLLOW = "FOLLOW",
-  HDR10 = "HDR10",
-  HLG_2020 = "HLG_2020",
-  P3D65_HDR = "P3D65_HDR",
-  P3D65_SDR = "P3D65_SDR",
-  P3DCI = "P3DCI",
-  REC_601 = "REC_601",
-  REC_709 = "REC_709",
-}
-
-export enum ColorSpaceUsage {
-  FALLBACK = "FALLBACK",
-  FORCE = "FORCE",
-}
-
-export enum EmbeddedTimecodeOverride {
-  NONE = "NONE",
-  USE_MDPM = "USE_MDPM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AlphaBehavior = {
+  DISCARD: "DISCARD",
+  REMAP_TO_LUMA: "REMAP_TO_LUMA",
+} as const;
 
 /**
+ * @public
+ */
+export type AlphaBehavior = (typeof AlphaBehavior)[keyof typeof AlphaBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const ColorSpace = {
+  FOLLOW: "FOLLOW",
+  HDR10: "HDR10",
+  HLG_2020: "HLG_2020",
+  P3D65_HDR: "P3D65_HDR",
+  P3D65_SDR: "P3D65_SDR",
+  P3DCI: "P3DCI",
+  REC_601: "REC_601",
+  REC_709: "REC_709",
+} as const;
+
+/**
+ * @public
+ */
+export type ColorSpace = (typeof ColorSpace)[keyof typeof ColorSpace];
+
+/**
+ * @public
+ * @enum
+ */
+export const ColorSpaceUsage = {
+  FALLBACK: "FALLBACK",
+  FORCE: "FORCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ColorSpaceUsage = (typeof ColorSpaceUsage)[keyof typeof ColorSpaceUsage];
+
+/**
+ * @public
+ * @enum
+ */
+export const EmbeddedTimecodeOverride = {
+  NONE: "NONE",
+  USE_MDPM: "USE_MDPM",
+} as const;
+
+/**
+ * @public
+ */
+export type EmbeddedTimecodeOverride = (typeof EmbeddedTimecodeOverride)[keyof typeof EmbeddedTimecodeOverride];
+
+/**
+ * @public
  * Use these settings to specify static color calibration metadata, as defined by SMPTE ST 2086. These values don't affect the pixel values that are encoded in the video stream. They are intended to help the downstream video player display content in a way that reflects the intentions of the the content creator.
  */
 export interface Hdr10Metadata {
@@ -2699,26 +3786,54 @@ export interface Hdr10Metadata {
   WhitePointY?: number;
 }
 
-export enum PadVideo {
-  BLACK = "BLACK",
-  DISABLED = "DISABLED",
-}
-
-export enum InputRotate {
-  AUTO = "AUTO",
-  DEGREES_180 = "DEGREES_180",
-  DEGREES_270 = "DEGREES_270",
-  DEGREES_90 = "DEGREES_90",
-  DEGREE_0 = "DEGREE_0",
-}
-
-export enum InputSampleRange {
-  FOLLOW = "FOLLOW",
-  FULL_RANGE = "FULL_RANGE",
-  LIMITED_RANGE = "LIMITED_RANGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PadVideo = {
+  BLACK: "BLACK",
+  DISABLED: "DISABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type PadVideo = (typeof PadVideo)[keyof typeof PadVideo];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputRotate = {
+  AUTO: "AUTO",
+  DEGREES_180: "DEGREES_180",
+  DEGREES_270: "DEGREES_270",
+  DEGREES_90: "DEGREES_90",
+  DEGREE_0: "DEGREE_0",
+} as const;
+
+/**
+ * @public
+ */
+export type InputRotate = (typeof InputRotate)[keyof typeof InputRotate];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputSampleRange = {
+  FOLLOW: "FOLLOW",
+  FULL_RANGE: "FULL_RANGE",
+  LIMITED_RANGE: "LIMITED_RANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type InputSampleRange = (typeof InputSampleRange)[keyof typeof InputSampleRange];
+
+/**
+ * @public
  * Input video selectors contain the video settings for the input. Each of your inputs can have up to one video selector.
  */
 export interface VideoSelector {
@@ -2779,9 +3894,20 @@ export interface VideoSelector {
 }
 
 /**
+ * @public
  * Use inputs to define the source files used in your transcoding job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/specify-input-settings.html. You can use multiple video inputs to do input stitching. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/assembling-multiple-inputs-and-input-clips.html
  */
 export interface Input {
+  /**
+   * Use to remove noise, blocking, blurriness, or ringing from your input as a pre-filter step before encoding. The Advanced input filter removes more types of compression artifacts and is an improvement when compared to basic Deblock and Denoise filters. To remove video compression artifacts from your input and improve the video quality: Choose Enabled. Additionally, this filter can help increase the video quality of your output relative to its bitrate, since noisy inputs are more complex and require more bits to encode. To help restore loss of detail after applying the filter, you can optionally add texture or sharpening as an additional step.Jobs that use this feature incur pro-tier pricing. To not apply advanced input filtering: Choose Disabled. Note that you can still apply basic filtering with Deblock and Denoise.
+   */
+  AdvancedInputFilter?: AdvancedInputFilter | string;
+
+  /**
+   * Optional settings for Advanced input filter when you set Advanced input filter to Enabled.
+   */
+  AdvancedInputFilterSettings?: AdvancedInputFilterSettings;
+
   /**
    * Use audio selector groups to combine multiple sidecar audio inputs so that you can assign them to a single output audio tab (AudioDescription). Note that, if you're working with embedded audio, it's simpler to assign multiple input tracks into a single audio selector rather than use an audio selector group.
    */
@@ -2828,12 +3954,12 @@ export interface Input {
   FileInput?: string;
 
   /**
-   * Specify how the transcoding service applies the denoise and deblock filters. You must also enable the filters separately, with Denoise (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The transcoding service determines whether to apply filtering, depending on input type and quality. * Disable - The input is not filtered. This is true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter). * Force - The input is filtered regardless of input type.
+   * Specify whether to apply input filtering to improve the video quality of your input. To apply filtering depending on your input type and quality: Choose Auto. To apply no filtering: Choose Disable. To apply filtering regardless of your input type and quality: Choose Force. When you do, you must also specify a value for Filter strength.
    */
   FilterEnable?: InputFilterEnable | string;
 
   /**
-   * Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is 0 to 5. Default is 0.
+   * Specify the strength of the input filter. To apply an automatic amount of filtering based the compression artifacts measured in your input: We recommend that you leave Filter strength blank and set Filter enable to Auto. To manually apply filtering: Enter a value from 1 to 5, where 1 is the least amount of filtering and 5 is the most. The value that you enter applies to the strength of the Deblock or Denoise filters, or to the strength of the Advanced input filter.
    */
   FilterStrength?: number;
 
@@ -2894,9 +4020,20 @@ export interface Input {
 }
 
 /**
+ * @public
  * Specified video input in a template.
  */
 export interface InputTemplate {
+  /**
+   * Use to remove noise, blocking, blurriness, or ringing from your input as a pre-filter step before encoding. The Advanced input filter removes more types of compression artifacts and is an improvement when compared to basic Deblock and Denoise filters. To remove video compression artifacts from your input and improve the video quality: Choose Enabled. Additionally, this filter can help increase the video quality of your output relative to its bitrate, since noisy inputs are more complex and require more bits to encode. To help restore loss of detail after applying the filter, you can optionally add texture or sharpening as an additional step.Jobs that use this feature incur pro-tier pricing. To not apply advanced input filtering: Choose Disabled. Note that you can still apply basic filtering with Deblock and Denoise.
+   */
+  AdvancedInputFilter?: AdvancedInputFilter | string;
+
+  /**
+   * Optional settings for Advanced input filter when you set Advanced input filter to Enabled.
+   */
+  AdvancedInputFilterSettings?: AdvancedInputFilterSettings;
+
   /**
    * Use audio selector groups to combine multiple sidecar audio inputs so that you can assign them to a single output audio tab (AudioDescription). Note that, if you're working with embedded audio, it's simpler to assign multiple input tracks into a single audio selector rather than use an audio selector group.
    */
@@ -2933,12 +4070,12 @@ export interface InputTemplate {
   DolbyVisionMetadataXml?: string;
 
   /**
-   * Specify how the transcoding service applies the denoise and deblock filters. You must also enable the filters separately, with Denoise (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The transcoding service determines whether to apply filtering, depending on input type and quality. * Disable - The input is not filtered. This is true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter). * Force - The input is filtered regardless of input type.
+   * Specify whether to apply input filtering to improve the video quality of your input. To apply filtering depending on your input type and quality: Choose Auto. To apply no filtering: Choose Disable. To apply filtering regardless of your input type and quality: Choose Force. When you do, you must also specify a value for Filter strength.
    */
   FilterEnable?: InputFilterEnable | string;
 
   /**
-   * Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is 0 to 5. Default is 0.
+   * Specify the strength of the input filter. To apply an automatic amount of filtering based the compression artifacts measured in your input: We recommend that you leave Filter strength blank and set Filter enable to Auto. To manually apply filtering: Enter a value from 1 to 5, where 1 is the least amount of filtering and 5 is the most. The value that you enter applies to the strength of the Deblock or Denoise filters, or to the strength of the Advanced input filter.
    */
   FilterStrength?: number;
 
@@ -2988,13 +4125,23 @@ export interface InputTemplate {
   VideoSelector?: VideoSelector;
 }
 
-export enum AccelerationMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  PREFERRED = "PREFERRED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccelerationMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  PREFERRED: "PREFERRED",
+} as const;
 
 /**
+ * @public
+ */
+export type AccelerationMode = (typeof AccelerationMode)[keyof typeof AccelerationMode];
+
+/**
+ * @public
  * Accelerated transcoding can significantly speed up jobs with long, visually complex content.
  */
 export interface AccelerationSettings {
@@ -3004,27 +4151,55 @@ export interface AccelerationSettings {
   Mode: AccelerationMode | string | undefined;
 }
 
-export enum AccelerationStatus {
-  ACCELERATED = "ACCELERATED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_ACCELERATED = "NOT_ACCELERATED",
-  NOT_APPLICABLE = "NOT_APPLICABLE",
-}
-
-export enum BillingTagsSource {
-  JOB = "JOB",
-  JOB_TEMPLATE = "JOB_TEMPLATE",
-  PRESET = "PRESET",
-  QUEUE = "QUEUE",
-}
-
-export enum JobPhase {
-  PROBING = "PROBING",
-  TRANSCODING = "TRANSCODING",
-  UPLOADING = "UPLOADING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccelerationStatus = {
+  ACCELERATED: "ACCELERATED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_ACCELERATED: "NOT_ACCELERATED",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type AccelerationStatus = (typeof AccelerationStatus)[keyof typeof AccelerationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BillingTagsSource = {
+  JOB: "JOB",
+  JOB_TEMPLATE: "JOB_TEMPLATE",
+  PRESET: "PRESET",
+  QUEUE: "QUEUE",
+} as const;
+
+/**
+ * @public
+ */
+export type BillingTagsSource = (typeof BillingTagsSource)[keyof typeof BillingTagsSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobPhase = {
+  PROBING: "PROBING",
+  TRANSCODING: "TRANSCODING",
+  UPLOADING: "UPLOADING",
+} as const;
+
+/**
+ * @public
+ */
+export type JobPhase = (typeof JobPhase)[keyof typeof JobPhase];
+
+/**
+ * @public
  * Provides messages from the service about jobs that you have already successfully submitted.
  */
 export interface JobMessages {
@@ -3040,6 +4215,7 @@ export interface JobMessages {
 }
 
 /**
+ * @public
  * Contains details about the output's video stream
  */
 export interface VideoDetail {
@@ -3055,6 +4231,7 @@ export interface VideoDetail {
 }
 
 /**
+ * @public
  * Details regarding output
  */
 export interface OutputDetail {
@@ -3070,6 +4247,7 @@ export interface OutputDetail {
 }
 
 /**
+ * @public
  * Contains details about the output groups specified in the job settings.
  */
 export interface OutputGroupDetail {
@@ -3080,6 +4258,7 @@ export interface OutputGroupDetail {
 }
 
 /**
+ * @public
  * Description of the source and destination queues between which the job has moved, along with the timestamp of the move
  */
 export interface QueueTransition {
@@ -3100,6 +4279,7 @@ export interface QueueTransition {
 }
 
 /**
+ * @public
  * Use ad avail blanking settings to specify your output content during SCTE-35 triggered ad avails. You can blank your video or overlay it with an image. MediaConvert also removes any audio and embedded captions during the ad avail. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/ad-avail-blanking.html.
  */
 export interface AvailBlanking {
@@ -3110,6 +4290,7 @@ export interface AvailBlanking {
 }
 
 /**
+ * @public
  * ESAM ManifestConfirmConditionNotification defined by OC-SP-ESAM-API-I03-131025.
  */
 export interface EsamManifestConfirmConditionNotification {
@@ -3120,6 +4301,7 @@ export interface EsamManifestConfirmConditionNotification {
 }
 
 /**
+ * @public
  * ESAM SignalProcessingNotification data defined by OC-SP-ESAM-API-I03-131025.
  */
 export interface EsamSignalProcessingNotification {
@@ -3130,6 +4312,7 @@ export interface EsamSignalProcessingNotification {
 }
 
 /**
+ * @public
  * Settings for Event Signaling And Messaging (ESAM). If you don't do ad insertion, you can ignore these settings.
  */
 export interface EsamSettings {
@@ -3149,17 +4332,36 @@ export interface EsamSettings {
   SignalProcessingNotification?: EsamSignalProcessingNotification;
 }
 
-export enum CopyProtectionAction {
-  PASSTHROUGH = "PASSTHROUGH",
-  STRIP = "STRIP",
-}
-
-export enum VchipAction {
-  PASSTHROUGH = "PASSTHROUGH",
-  STRIP = "STRIP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CopyProtectionAction = {
+  PASSTHROUGH: "PASSTHROUGH",
+  STRIP: "STRIP",
+} as const;
 
 /**
+ * @public
+ */
+export type CopyProtectionAction = (typeof CopyProtectionAction)[keyof typeof CopyProtectionAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const VchipAction = {
+  PASSTHROUGH: "PASSTHROUGH",
+  STRIP: "STRIP",
+} as const;
+
+/**
+ * @public
+ */
+export type VchipAction = (typeof VchipAction)[keyof typeof VchipAction];
+
+/**
+ * @public
  * If your source content has EIA-608 Line 21 Data Services, enable this feature to specify what MediaConvert does with the Extended Data Services (XDS) packets. You can choose to pass through XDS packets, or remove them from the output. For more information about XDS, see EIA-608 Line Data Services, section 9.5.1.5 05h Content Advisory.
  */
 export interface ExtendedDataServices {
@@ -3175,6 +4377,7 @@ export interface ExtendedDataServices {
 }
 
 /**
+ * @public
  * Use these settings only when you use Kantar watermarking. Specify the values that MediaConvert uses to generate and place Kantar watermarks in your output audio. These settings apply to every output in your job. In addition to specifying these values, you also need to store your Kantar credentials in AWS Secrets Manager. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/kantar-watermarking.html.
  */
 export interface KantarWatermarkSettings {
@@ -3245,6 +4448,7 @@ export interface KantarWatermarkSettings {
 }
 
 /**
+ * @public
  * For motion overlays that don't have a built-in frame rate, specify the frame rate of the overlay in frames per second, as a fraction. For example, specify 24 fps as 24/1. The overlay frame rate doesn't need to match the frame rate of the underlying video.
  */
 export interface MotionImageInsertionFramerate {
@@ -3259,12 +4463,22 @@ export interface MotionImageInsertionFramerate {
   FramerateNumerator?: number;
 }
 
-export enum MotionImageInsertionMode {
-  MOV = "MOV",
-  PNG = "PNG",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MotionImageInsertionMode = {
+  MOV: "MOV",
+  PNG: "PNG",
+} as const;
 
 /**
+ * @public
+ */
+export type MotionImageInsertionMode = (typeof MotionImageInsertionMode)[keyof typeof MotionImageInsertionMode];
+
+/**
+ * @public
  * Specify the offset between the upper-left corner of the video frame and the top left corner of the overlay.
  */
 export interface MotionImageInsertionOffset {
@@ -3279,12 +4493,22 @@ export interface MotionImageInsertionOffset {
   ImageY?: number;
 }
 
-export enum MotionImagePlayback {
-  ONCE = "ONCE",
-  REPEAT = "REPEAT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MotionImagePlayback = {
+  ONCE: "ONCE",
+  REPEAT: "REPEAT",
+} as const;
 
 /**
+ * @public
+ */
+export type MotionImagePlayback = (typeof MotionImagePlayback)[keyof typeof MotionImagePlayback];
+
+/**
+ * @public
  * Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/motion-graphic-overlay.html.
  */
 export interface MotionImageInserter {
@@ -3320,6 +4544,7 @@ export interface MotionImageInserter {
 }
 
 /**
+ * @public
  * Settings for your Nielsen configuration. If you don't do Nielsen measurement and analytics, ignore these settings. When you enable Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM to ID3 tagging for all outputs in the job. To enable Nielsen configuration programmatically, include an instance of nielsenConfiguration in your JSON job specification. Even if you don't include any children of nielsenConfiguration, you still enable the setting.
  */
 export interface NielsenConfiguration {
@@ -3334,23 +4559,54 @@ export interface NielsenConfiguration {
   DistributorId?: string;
 }
 
-export enum NielsenActiveWatermarkProcessType {
-  CBET = "CBET",
-  NAES2_AND_NW = "NAES2_AND_NW",
-  NAES2_AND_NW_AND_CBET = "NAES2_AND_NW_AND_CBET",
-}
-
-export enum NielsenSourceWatermarkStatusType {
-  CLEAN = "CLEAN",
-  WATERMARKED = "WATERMARKED",
-}
-
-export enum NielsenUniqueTicPerAudioTrackType {
-  RESERVE_UNIQUE_TICS_PER_TRACK = "RESERVE_UNIQUE_TICS_PER_TRACK",
-  SAME_TICS_PER_TRACK = "SAME_TICS_PER_TRACK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NielsenActiveWatermarkProcessType = {
+  CBET: "CBET",
+  NAES2_AND_NW: "NAES2_AND_NW",
+  NAES2_AND_NW_AND_CBET: "NAES2_AND_NW_AND_CBET",
+} as const;
 
 /**
+ * @public
+ */
+export type NielsenActiveWatermarkProcessType =
+  (typeof NielsenActiveWatermarkProcessType)[keyof typeof NielsenActiveWatermarkProcessType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NielsenSourceWatermarkStatusType = {
+  CLEAN: "CLEAN",
+  WATERMARKED: "WATERMARKED",
+} as const;
+
+/**
+ * @public
+ */
+export type NielsenSourceWatermarkStatusType =
+  (typeof NielsenSourceWatermarkStatusType)[keyof typeof NielsenSourceWatermarkStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NielsenUniqueTicPerAudioTrackType = {
+  RESERVE_UNIQUE_TICS_PER_TRACK: "RESERVE_UNIQUE_TICS_PER_TRACK",
+  SAME_TICS_PER_TRACK: "SAME_TICS_PER_TRACK",
+} as const;
+
+/**
+ * @public
+ */
+export type NielsenUniqueTicPerAudioTrackType =
+  (typeof NielsenUniqueTicPerAudioTrackType)[keyof typeof NielsenUniqueTicPerAudioTrackType];
+
+/**
+ * @public
  * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
  */
 export interface NielsenNonLinearWatermarkSettings {
@@ -3411,6 +4667,7 @@ export interface NielsenNonLinearWatermarkSettings {
 }
 
 /**
+ * @public
  * Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.
  */
 export interface AutomatedAbrSettings {
@@ -3436,6 +4693,7 @@ export interface AutomatedAbrSettings {
 }
 
 /**
+ * @public
  * Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
  */
 export interface AutomatedEncodingSettings {
@@ -3445,30 +4703,67 @@ export interface AutomatedEncodingSettings {
   AbrSettings?: AutomatedAbrSettings;
 }
 
-export enum CmafClientCache {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum CmafCodecSpecification {
-  RFC_4281 = "RFC_4281",
-  RFC_6381 = "RFC_6381",
-}
-
-export enum DashManifestStyle {
-  BASIC = "BASIC",
-  COMPACT = "COMPACT",
-  DISTINCT = "DISTINCT",
-}
-
-export enum S3ObjectCannedAcl {
-  AUTHENTICATED_READ = "AUTHENTICATED_READ",
-  BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
-  BUCKET_OWNER_READ = "BUCKET_OWNER_READ",
-  PUBLIC_READ = "PUBLIC_READ",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CmafClientCache = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type CmafClientCache = (typeof CmafClientCache)[keyof typeof CmafClientCache];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafCodecSpecification = {
+  RFC_4281: "RFC_4281",
+  RFC_6381: "RFC_6381",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafCodecSpecification = (typeof CmafCodecSpecification)[keyof typeof CmafCodecSpecification];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashManifestStyle = {
+  BASIC: "BASIC",
+  COMPACT: "COMPACT",
+  DISTINCT: "DISTINCT",
+} as const;
+
+/**
+ * @public
+ */
+export type DashManifestStyle = (typeof DashManifestStyle)[keyof typeof DashManifestStyle];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3ObjectCannedAcl = {
+  AUTHENTICATED_READ: "AUTHENTICATED_READ",
+  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
+  BUCKET_OWNER_READ: "BUCKET_OWNER_READ",
+  PUBLIC_READ: "PUBLIC_READ",
+} as const;
+
+/**
+ * @public
+ */
+export type S3ObjectCannedAcl = (typeof S3ObjectCannedAcl)[keyof typeof S3ObjectCannedAcl];
+
+/**
+ * @public
  * Optional. Have MediaConvert automatically apply Amazon S3 access control for the outputs in this output group. When you don't use this setting, S3 automatically applies the default access control list PRIVATE.
  */
 export interface S3DestinationAccessControl {
@@ -3478,12 +4773,22 @@ export interface S3DestinationAccessControl {
   CannedAcl?: S3ObjectCannedAcl | string;
 }
 
-export enum S3ServerSideEncryptionType {
-  SERVER_SIDE_ENCRYPTION_KMS = "SERVER_SIDE_ENCRYPTION_KMS",
-  SERVER_SIDE_ENCRYPTION_S3 = "SERVER_SIDE_ENCRYPTION_S3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const S3ServerSideEncryptionType = {
+  SERVER_SIDE_ENCRYPTION_KMS: "SERVER_SIDE_ENCRYPTION_KMS",
+  SERVER_SIDE_ENCRYPTION_S3: "SERVER_SIDE_ENCRYPTION_S3",
+} as const;
 
 /**
+ * @public
+ */
+export type S3ServerSideEncryptionType = (typeof S3ServerSideEncryptionType)[keyof typeof S3ServerSideEncryptionType];
+
+/**
+ * @public
  * Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
  */
 export interface S3EncryptionSettings {
@@ -3504,6 +4809,7 @@ export interface S3EncryptionSettings {
 }
 
 /**
+ * @public
  * Settings associated with S3 destination
  */
 export interface S3DestinationSettings {
@@ -3519,6 +4825,7 @@ export interface S3DestinationSettings {
 }
 
 /**
+ * @public
  * Settings associated with the destination. Will vary based on the type of destination
  */
 export interface DestinationSettings {
@@ -3528,17 +4835,37 @@ export interface DestinationSettings {
   S3Settings?: S3DestinationSettings;
 }
 
-export enum CmafEncryptionType {
-  AES_CTR = "AES_CTR",
-  SAMPLE_AES = "SAMPLE_AES",
-}
-
-export enum CmafInitializationVectorInManifest {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CmafEncryptionType = {
+  AES_CTR: "AES_CTR",
+  SAMPLE_AES: "SAMPLE_AES",
+} as const;
 
 /**
+ * @public
+ */
+export type CmafEncryptionType = (typeof CmafEncryptionType)[keyof typeof CmafEncryptionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafInitializationVectorInManifest = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafInitializationVectorInManifest =
+  (typeof CmafInitializationVectorInManifest)[keyof typeof CmafInitializationVectorInManifest];
+
+/**
+ * @public
  * If your output group type is CMAF, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider settings instead.
  */
 export interface SpekeKeyProviderCmaf {
@@ -3569,6 +4896,7 @@ export interface SpekeKeyProviderCmaf {
 }
 
 /**
+ * @public
  * Use these settings to set up encryption with a static key provider.
  */
 export interface StaticKeyProvider {
@@ -3593,12 +4921,22 @@ export interface StaticKeyProvider {
   Url?: string;
 }
 
-export enum CmafKeyProviderType {
-  SPEKE = "SPEKE",
-  STATIC_KEY = "STATIC_KEY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CmafKeyProviderType = {
+  SPEKE: "SPEKE",
+  STATIC_KEY: "STATIC_KEY",
+} as const;
 
 /**
+ * @public
+ */
+export type CmafKeyProviderType = (typeof CmafKeyProviderType)[keyof typeof CmafKeyProviderType];
+
+/**
+ * @public
  * Settings for CMAF encryption
  */
 export interface CmafEncryptionSettings {
@@ -3633,19 +4971,38 @@ export interface CmafEncryptionSettings {
   Type?: CmafKeyProviderType | string;
 }
 
-export enum CmafImageBasedTrickPlay {
-  ADVANCED = "ADVANCED",
-  NONE = "NONE",
-  THUMBNAIL = "THUMBNAIL",
-  THUMBNAIL_AND_FULLFRAME = "THUMBNAIL_AND_FULLFRAME",
-}
-
-export enum CmafIntervalCadence {
-  FOLLOW_CUSTOM = "FOLLOW_CUSTOM",
-  FOLLOW_IFRAME = "FOLLOW_IFRAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CmafImageBasedTrickPlay = {
+  ADVANCED: "ADVANCED",
+  NONE: "NONE",
+  THUMBNAIL: "THUMBNAIL",
+  THUMBNAIL_AND_FULLFRAME: "THUMBNAIL_AND_FULLFRAME",
+} as const;
 
 /**
+ * @public
+ */
+export type CmafImageBasedTrickPlay = (typeof CmafImageBasedTrickPlay)[keyof typeof CmafImageBasedTrickPlay];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafIntervalCadence = {
+  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
+  FOLLOW_IFRAME: "FOLLOW_IFRAME",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafIntervalCadence = (typeof CmafIntervalCadence)[keyof typeof CmafIntervalCadence];
+
+/**
+ * @public
  * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
  */
 export interface CmafImageBasedTrickPlaySettings {
@@ -3680,72 +5037,195 @@ export interface CmafImageBasedTrickPlaySettings {
   TileWidth?: number;
 }
 
-export enum CmafManifestCompression {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
-
-export enum CmafManifestDurationFormat {
-  FLOATING_POINT = "FLOATING_POINT",
-  INTEGER = "INTEGER",
-}
-
-export enum CmafMpdManifestBandwidthType {
-  AVERAGE = "AVERAGE",
-  MAX = "MAX",
-}
-
-export enum CmafMpdProfile {
-  MAIN_PROFILE = "MAIN_PROFILE",
-  ON_DEMAND_PROFILE = "ON_DEMAND_PROFILE",
-}
-
-export enum CmafPtsOffsetHandlingForBFrames {
-  MATCH_INITIAL_PTS = "MATCH_INITIAL_PTS",
-  ZERO_BASED = "ZERO_BASED",
-}
-
-export enum CmafSegmentControl {
-  SEGMENTED_FILES = "SEGMENTED_FILES",
-  SINGLE_FILE = "SINGLE_FILE",
-}
-
-export enum CmafSegmentLengthControl {
-  EXACT = "EXACT",
-  GOP_MULTIPLE = "GOP_MULTIPLE",
-}
-
-export enum CmafStreamInfResolution {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum CmafTargetDurationCompatibilityMode {
-  LEGACY = "LEGACY",
-  SPEC_COMPLIANT = "SPEC_COMPLIANT",
-}
-
-export enum CmafVideoCompositionOffsets {
-  SIGNED = "SIGNED",
-  UNSIGNED = "UNSIGNED",
-}
-
-export enum CmafWriteDASHManifest {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum CmafWriteHLSManifest {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum CmafWriteSegmentTimelineInRepresentation {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CmafManifestCompression = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type CmafManifestCompression = (typeof CmafManifestCompression)[keyof typeof CmafManifestCompression];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafManifestDurationFormat = {
+  FLOATING_POINT: "FLOATING_POINT",
+  INTEGER: "INTEGER",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafManifestDurationFormat = (typeof CmafManifestDurationFormat)[keyof typeof CmafManifestDurationFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafMpdManifestBandwidthType = {
+  AVERAGE: "AVERAGE",
+  MAX: "MAX",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafMpdManifestBandwidthType =
+  (typeof CmafMpdManifestBandwidthType)[keyof typeof CmafMpdManifestBandwidthType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafMpdProfile = {
+  MAIN_PROFILE: "MAIN_PROFILE",
+  ON_DEMAND_PROFILE: "ON_DEMAND_PROFILE",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafMpdProfile = (typeof CmafMpdProfile)[keyof typeof CmafMpdProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafPtsOffsetHandlingForBFrames = {
+  MATCH_INITIAL_PTS: "MATCH_INITIAL_PTS",
+  ZERO_BASED: "ZERO_BASED",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafPtsOffsetHandlingForBFrames =
+  (typeof CmafPtsOffsetHandlingForBFrames)[keyof typeof CmafPtsOffsetHandlingForBFrames];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafSegmentControl = {
+  SEGMENTED_FILES: "SEGMENTED_FILES",
+  SINGLE_FILE: "SINGLE_FILE",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafSegmentControl = (typeof CmafSegmentControl)[keyof typeof CmafSegmentControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafSegmentLengthControl = {
+  EXACT: "EXACT",
+  GOP_MULTIPLE: "GOP_MULTIPLE",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafSegmentLengthControl = (typeof CmafSegmentLengthControl)[keyof typeof CmafSegmentLengthControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafStreamInfResolution = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafStreamInfResolution = (typeof CmafStreamInfResolution)[keyof typeof CmafStreamInfResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafTargetDurationCompatibilityMode = {
+  LEGACY: "LEGACY",
+  SPEC_COMPLIANT: "SPEC_COMPLIANT",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafTargetDurationCompatibilityMode =
+  (typeof CmafTargetDurationCompatibilityMode)[keyof typeof CmafTargetDurationCompatibilityMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafVideoCompositionOffsets = {
+  SIGNED: "SIGNED",
+  UNSIGNED: "UNSIGNED",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafVideoCompositionOffsets =
+  (typeof CmafVideoCompositionOffsets)[keyof typeof CmafVideoCompositionOffsets];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafWriteDASHManifest = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafWriteDASHManifest = (typeof CmafWriteDASHManifest)[keyof typeof CmafWriteDASHManifest];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafWriteHLSManifest = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafWriteHLSManifest = (typeof CmafWriteHLSManifest)[keyof typeof CmafWriteHLSManifest];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafWriteSegmentTimelineInRepresentation = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafWriteSegmentTimelineInRepresentation =
+  (typeof CmafWriteSegmentTimelineInRepresentation)[keyof typeof CmafWriteSegmentTimelineInRepresentation];
+
+/**
+ * @public
  * Settings related to your CMAF output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html. When you work directly in your JSON job specification, include this object and any required children when you set Type, under OutputGroupSettings, to CMAF_GROUP_SETTINGS.
  */
 export interface CmafGroupSettings {
@@ -3885,17 +5365,38 @@ export interface CmafGroupSettings {
   WriteSegmentTimelineInRepresentation?: CmafWriteSegmentTimelineInRepresentation | string;
 }
 
-export enum DashIsoGroupAudioChannelConfigSchemeIdUri {
-  DOLBY_CHANNEL_CONFIGURATION = "DOLBY_CHANNEL_CONFIGURATION",
-  MPEG_CHANNEL_CONFIGURATION = "MPEG_CHANNEL_CONFIGURATION",
-}
-
-export enum DashIsoPlaybackDeviceCompatibility {
-  CENC_V1 = "CENC_V1",
-  UNENCRYPTED_SEI = "UNENCRYPTED_SEI",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoGroupAudioChannelConfigSchemeIdUri = {
+  DOLBY_CHANNEL_CONFIGURATION: "DOLBY_CHANNEL_CONFIGURATION",
+  MPEG_CHANNEL_CONFIGURATION: "MPEG_CHANNEL_CONFIGURATION",
+} as const;
 
 /**
+ * @public
+ */
+export type DashIsoGroupAudioChannelConfigSchemeIdUri =
+  (typeof DashIsoGroupAudioChannelConfigSchemeIdUri)[keyof typeof DashIsoGroupAudioChannelConfigSchemeIdUri];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoPlaybackDeviceCompatibility = {
+  CENC_V1: "CENC_V1",
+  UNENCRYPTED_SEI: "UNENCRYPTED_SEI",
+} as const;
+
+/**
+ * @public
+ */
+export type DashIsoPlaybackDeviceCompatibility =
+  (typeof DashIsoPlaybackDeviceCompatibility)[keyof typeof DashIsoPlaybackDeviceCompatibility];
+
+/**
+ * @public
  * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
  */
 export interface SpekeKeyProvider {
@@ -3922,6 +5423,7 @@ export interface SpekeKeyProvider {
 }
 
 /**
+ * @public
  * Specifies DRM settings for DASH outputs.
  */
 export interface DashIsoEncryptionSettings {
@@ -3936,24 +5438,52 @@ export interface DashIsoEncryptionSettings {
   SpekeKeyProvider?: SpekeKeyProvider;
 }
 
-export enum DashIsoHbbtvCompliance {
-  HBBTV_1_5 = "HBBTV_1_5",
-  NONE = "NONE",
-}
-
-export enum DashIsoImageBasedTrickPlay {
-  ADVANCED = "ADVANCED",
-  NONE = "NONE",
-  THUMBNAIL = "THUMBNAIL",
-  THUMBNAIL_AND_FULLFRAME = "THUMBNAIL_AND_FULLFRAME",
-}
-
-export enum DashIsoIntervalCadence {
-  FOLLOW_CUSTOM = "FOLLOW_CUSTOM",
-  FOLLOW_IFRAME = "FOLLOW_IFRAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoHbbtvCompliance = {
+  HBBTV_1_5: "HBBTV_1_5",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type DashIsoHbbtvCompliance = (typeof DashIsoHbbtvCompliance)[keyof typeof DashIsoHbbtvCompliance];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoImageBasedTrickPlay = {
+  ADVANCED: "ADVANCED",
+  NONE: "NONE",
+  THUMBNAIL: "THUMBNAIL",
+  THUMBNAIL_AND_FULLFRAME: "THUMBNAIL_AND_FULLFRAME",
+} as const;
+
+/**
+ * @public
+ */
+export type DashIsoImageBasedTrickPlay = (typeof DashIsoImageBasedTrickPlay)[keyof typeof DashIsoImageBasedTrickPlay];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoIntervalCadence = {
+  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
+  FOLLOW_IFRAME: "FOLLOW_IFRAME",
+} as const;
+
+/**
+ * @public
+ */
+export type DashIsoIntervalCadence = (typeof DashIsoIntervalCadence)[keyof typeof DashIsoIntervalCadence];
+
+/**
+ * @public
  * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
  */
 export interface DashIsoImageBasedTrickPlaySettings {
@@ -3988,42 +5518,111 @@ export interface DashIsoImageBasedTrickPlaySettings {
   TileWidth?: number;
 }
 
-export enum DashIsoMpdManifestBandwidthType {
-  AVERAGE = "AVERAGE",
-  MAX = "MAX",
-}
-
-export enum DashIsoMpdProfile {
-  MAIN_PROFILE = "MAIN_PROFILE",
-  ON_DEMAND_PROFILE = "ON_DEMAND_PROFILE",
-}
-
-export enum DashIsoPtsOffsetHandlingForBFrames {
-  MATCH_INITIAL_PTS = "MATCH_INITIAL_PTS",
-  ZERO_BASED = "ZERO_BASED",
-}
-
-export enum DashIsoSegmentControl {
-  SEGMENTED_FILES = "SEGMENTED_FILES",
-  SINGLE_FILE = "SINGLE_FILE",
-}
-
-export enum DashIsoSegmentLengthControl {
-  EXACT = "EXACT",
-  GOP_MULTIPLE = "GOP_MULTIPLE",
-}
-
-export enum DashIsoVideoCompositionOffsets {
-  SIGNED = "SIGNED",
-  UNSIGNED = "UNSIGNED",
-}
-
-export enum DashIsoWriteSegmentTimelineInRepresentation {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoMpdManifestBandwidthType = {
+  AVERAGE: "AVERAGE",
+  MAX: "MAX",
+} as const;
 
 /**
+ * @public
+ */
+export type DashIsoMpdManifestBandwidthType =
+  (typeof DashIsoMpdManifestBandwidthType)[keyof typeof DashIsoMpdManifestBandwidthType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoMpdProfile = {
+  MAIN_PROFILE: "MAIN_PROFILE",
+  ON_DEMAND_PROFILE: "ON_DEMAND_PROFILE",
+} as const;
+
+/**
+ * @public
+ */
+export type DashIsoMpdProfile = (typeof DashIsoMpdProfile)[keyof typeof DashIsoMpdProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoPtsOffsetHandlingForBFrames = {
+  MATCH_INITIAL_PTS: "MATCH_INITIAL_PTS",
+  ZERO_BASED: "ZERO_BASED",
+} as const;
+
+/**
+ * @public
+ */
+export type DashIsoPtsOffsetHandlingForBFrames =
+  (typeof DashIsoPtsOffsetHandlingForBFrames)[keyof typeof DashIsoPtsOffsetHandlingForBFrames];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoSegmentControl = {
+  SEGMENTED_FILES: "SEGMENTED_FILES",
+  SINGLE_FILE: "SINGLE_FILE",
+} as const;
+
+/**
+ * @public
+ */
+export type DashIsoSegmentControl = (typeof DashIsoSegmentControl)[keyof typeof DashIsoSegmentControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoSegmentLengthControl = {
+  EXACT: "EXACT",
+  GOP_MULTIPLE: "GOP_MULTIPLE",
+} as const;
+
+/**
+ * @public
+ */
+export type DashIsoSegmentLengthControl =
+  (typeof DashIsoSegmentLengthControl)[keyof typeof DashIsoSegmentLengthControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoVideoCompositionOffsets = {
+  SIGNED: "SIGNED",
+  UNSIGNED: "UNSIGNED",
+} as const;
+
+/**
+ * @public
+ */
+export type DashIsoVideoCompositionOffsets =
+  (typeof DashIsoVideoCompositionOffsets)[keyof typeof DashIsoVideoCompositionOffsets];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoWriteSegmentTimelineInRepresentation = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DashIsoWriteSegmentTimelineInRepresentation =
+  (typeof DashIsoWriteSegmentTimelineInRepresentation)[keyof typeof DashIsoWriteSegmentTimelineInRepresentation];
+
+/**
+ * @public
  * Settings related to your DASH output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html. When you work directly in your JSON job specification, include this object and any required children when you set Type, under OutputGroupSettings, to DASH_ISO_GROUP_SETTINGS.
  */
 export interface DashIsoGroupSettings {
@@ -4134,6 +5733,7 @@ export interface DashIsoGroupSettings {
 }
 
 /**
+ * @public
  * Settings related to your File output group. MediaConvert uses this group of settings to generate a single standalone file, rather than a streaming package. When you work directly in your JSON job specification, include this object and any required children when you set Type, under OutputGroupSettings, to FILE_GROUP_SETTINGS.
  */
 export interface FileGroupSettings {
@@ -4148,58 +5748,151 @@ export interface FileGroupSettings {
   DestinationSettings?: DestinationSettings;
 }
 
-export enum HlsAudioOnlyHeader {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum HlsCaptionLanguageSetting {
-  INSERT = "INSERT",
-  NONE = "NONE",
-  OMIT = "OMIT",
-}
-
-export enum HlsCaptionSegmentLengthControl {
-  LARGE_SEGMENTS = "LARGE_SEGMENTS",
-  MATCH_VIDEO = "MATCH_VIDEO",
-}
-
-export enum HlsClientCache {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum HlsCodecSpecification {
-  RFC_4281 = "RFC_4281",
-  RFC_6381 = "RFC_6381",
-}
-
-export enum HlsDirectoryStructure {
-  SINGLE_DIRECTORY = "SINGLE_DIRECTORY",
-  SUBDIRECTORY_PER_STREAM = "SUBDIRECTORY_PER_STREAM",
-}
-
-export enum HlsEncryptionType {
-  AES128 = "AES128",
-  SAMPLE_AES = "SAMPLE_AES",
-}
-
-export enum HlsInitializationVectorInManifest {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum HlsOfflineEncrypted {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum HlsKeyProviderType {
-  SPEKE = "SPEKE",
-  STATIC_KEY = "STATIC_KEY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HlsAudioOnlyHeader = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
+ * @public
+ */
+export type HlsAudioOnlyHeader = (typeof HlsAudioOnlyHeader)[keyof typeof HlsAudioOnlyHeader];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsCaptionLanguageSetting = {
+  INSERT: "INSERT",
+  NONE: "NONE",
+  OMIT: "OMIT",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsCaptionLanguageSetting = (typeof HlsCaptionLanguageSetting)[keyof typeof HlsCaptionLanguageSetting];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsCaptionSegmentLengthControl = {
+  LARGE_SEGMENTS: "LARGE_SEGMENTS",
+  MATCH_VIDEO: "MATCH_VIDEO",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsCaptionSegmentLengthControl =
+  (typeof HlsCaptionSegmentLengthControl)[keyof typeof HlsCaptionSegmentLengthControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsClientCache = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsClientCache = (typeof HlsClientCache)[keyof typeof HlsClientCache];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsCodecSpecification = {
+  RFC_4281: "RFC_4281",
+  RFC_6381: "RFC_6381",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsCodecSpecification = (typeof HlsCodecSpecification)[keyof typeof HlsCodecSpecification];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsDirectoryStructure = {
+  SINGLE_DIRECTORY: "SINGLE_DIRECTORY",
+  SUBDIRECTORY_PER_STREAM: "SUBDIRECTORY_PER_STREAM",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsDirectoryStructure = (typeof HlsDirectoryStructure)[keyof typeof HlsDirectoryStructure];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsEncryptionType = {
+  AES128: "AES128",
+  SAMPLE_AES: "SAMPLE_AES",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsEncryptionType = (typeof HlsEncryptionType)[keyof typeof HlsEncryptionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsInitializationVectorInManifest = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsInitializationVectorInManifest =
+  (typeof HlsInitializationVectorInManifest)[keyof typeof HlsInitializationVectorInManifest];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsOfflineEncrypted = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsOfflineEncrypted = (typeof HlsOfflineEncrypted)[keyof typeof HlsOfflineEncrypted];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsKeyProviderType = {
+  SPEKE: "SPEKE",
+  STATIC_KEY: "STATIC_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsKeyProviderType = (typeof HlsKeyProviderType)[keyof typeof HlsKeyProviderType];
+
+/**
+ * @public
  * Settings for HLS encryption
  */
 export interface HlsEncryptionSettings {
@@ -4239,19 +5932,38 @@ export interface HlsEncryptionSettings {
   Type?: HlsKeyProviderType | string;
 }
 
-export enum HlsImageBasedTrickPlay {
-  ADVANCED = "ADVANCED",
-  NONE = "NONE",
-  THUMBNAIL = "THUMBNAIL",
-  THUMBNAIL_AND_FULLFRAME = "THUMBNAIL_AND_FULLFRAME",
-}
-
-export enum HlsIntervalCadence {
-  FOLLOW_CUSTOM = "FOLLOW_CUSTOM",
-  FOLLOW_IFRAME = "FOLLOW_IFRAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HlsImageBasedTrickPlay = {
+  ADVANCED: "ADVANCED",
+  NONE: "NONE",
+  THUMBNAIL: "THUMBNAIL",
+  THUMBNAIL_AND_FULLFRAME: "THUMBNAIL_AND_FULLFRAME",
+} as const;
 
 /**
+ * @public
+ */
+export type HlsImageBasedTrickPlay = (typeof HlsImageBasedTrickPlay)[keyof typeof HlsImageBasedTrickPlay];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsIntervalCadence = {
+  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
+  FOLLOW_IFRAME: "FOLLOW_IFRAME",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsIntervalCadence = (typeof HlsIntervalCadence)[keyof typeof HlsIntervalCadence];
+
+/**
+ * @public
  * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
  */
 export interface HlsImageBasedTrickPlaySettings {
@@ -4286,53 +5998,136 @@ export interface HlsImageBasedTrickPlaySettings {
   TileWidth?: number;
 }
 
-export enum HlsManifestCompression {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
-
-export enum HlsManifestDurationFormat {
-  FLOATING_POINT = "FLOATING_POINT",
-  INTEGER = "INTEGER",
-}
-
-export enum HlsOutputSelection {
-  MANIFESTS_AND_SEGMENTS = "MANIFESTS_AND_SEGMENTS",
-  SEGMENTS_ONLY = "SEGMENTS_ONLY",
-}
-
-export enum HlsProgramDateTime {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum HlsSegmentControl {
-  SEGMENTED_FILES = "SEGMENTED_FILES",
-  SINGLE_FILE = "SINGLE_FILE",
-}
-
-export enum HlsSegmentLengthControl {
-  EXACT = "EXACT",
-  GOP_MULTIPLE = "GOP_MULTIPLE",
-}
-
-export enum HlsStreamInfResolution {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum HlsTargetDurationCompatibilityMode {
-  LEGACY = "LEGACY",
-  SPEC_COMPLIANT = "SPEC_COMPLIANT",
-}
-
-export enum HlsTimedMetadataId3Frame {
-  NONE = "NONE",
-  PRIV = "PRIV",
-  TDRL = "TDRL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HlsManifestCompression = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type HlsManifestCompression = (typeof HlsManifestCompression)[keyof typeof HlsManifestCompression];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsManifestDurationFormat = {
+  FLOATING_POINT: "FLOATING_POINT",
+  INTEGER: "INTEGER",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsManifestDurationFormat = (typeof HlsManifestDurationFormat)[keyof typeof HlsManifestDurationFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsOutputSelection = {
+  MANIFESTS_AND_SEGMENTS: "MANIFESTS_AND_SEGMENTS",
+  SEGMENTS_ONLY: "SEGMENTS_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsOutputSelection = (typeof HlsOutputSelection)[keyof typeof HlsOutputSelection];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsProgramDateTime = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsProgramDateTime = (typeof HlsProgramDateTime)[keyof typeof HlsProgramDateTime];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsSegmentControl = {
+  SEGMENTED_FILES: "SEGMENTED_FILES",
+  SINGLE_FILE: "SINGLE_FILE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsSegmentControl = (typeof HlsSegmentControl)[keyof typeof HlsSegmentControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsSegmentLengthControl = {
+  EXACT: "EXACT",
+  GOP_MULTIPLE: "GOP_MULTIPLE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsSegmentLengthControl = (typeof HlsSegmentLengthControl)[keyof typeof HlsSegmentLengthControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsStreamInfResolution = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsStreamInfResolution = (typeof HlsStreamInfResolution)[keyof typeof HlsStreamInfResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsTargetDurationCompatibilityMode = {
+  LEGACY: "LEGACY",
+  SPEC_COMPLIANT: "SPEC_COMPLIANT",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsTargetDurationCompatibilityMode =
+  (typeof HlsTargetDurationCompatibilityMode)[keyof typeof HlsTargetDurationCompatibilityMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsTimedMetadataId3Frame = {
+  NONE: "NONE",
+  PRIV: "PRIV",
+  TDRL: "TDRL",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsTimedMetadataId3Frame = (typeof HlsTimedMetadataId3Frame)[keyof typeof HlsTimedMetadataId3Frame];
+
+/**
+ * @public
  * Settings related to your HLS output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html. When you work directly in your JSON job specification, include this object and any required children when you set Type, under OutputGroupSettings, to HLS_GROUP_SETTINGS.
  */
 export interface HlsGroupSettings {
@@ -4493,6 +6288,7 @@ export interface HlsGroupSettings {
 }
 
 /**
+ * @public
  * Specify the details for each additional Microsoft Smooth Streaming manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
  */
 export interface MsSmoothAdditionalManifest {
@@ -4507,12 +6303,22 @@ export interface MsSmoothAdditionalManifest {
   SelectedOutputs?: string[];
 }
 
-export enum MsSmoothAudioDeduplication {
-  COMBINE_DUPLICATE_STREAMS = "COMBINE_DUPLICATE_STREAMS",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MsSmoothAudioDeduplication = {
+  COMBINE_DUPLICATE_STREAMS: "COMBINE_DUPLICATE_STREAMS",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type MsSmoothAudioDeduplication = (typeof MsSmoothAudioDeduplication)[keyof typeof MsSmoothAudioDeduplication];
+
+/**
+ * @public
  * If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
  */
 export interface MsSmoothEncryptionSettings {
@@ -4522,17 +6328,37 @@ export interface MsSmoothEncryptionSettings {
   SpekeKeyProvider?: SpekeKeyProvider;
 }
 
-export enum MsSmoothFragmentLengthControl {
-  EXACT = "EXACT",
-  GOP_MULTIPLE = "GOP_MULTIPLE",
-}
-
-export enum MsSmoothManifestEncoding {
-  UTF16 = "UTF16",
-  UTF8 = "UTF8",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MsSmoothFragmentLengthControl = {
+  EXACT: "EXACT",
+  GOP_MULTIPLE: "GOP_MULTIPLE",
+} as const;
 
 /**
+ * @public
+ */
+export type MsSmoothFragmentLengthControl =
+  (typeof MsSmoothFragmentLengthControl)[keyof typeof MsSmoothFragmentLengthControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const MsSmoothManifestEncoding = {
+  UTF16: "UTF16",
+  UTF8: "UTF8",
+} as const;
+
+/**
+ * @public
+ */
+export type MsSmoothManifestEncoding = (typeof MsSmoothManifestEncoding)[keyof typeof MsSmoothManifestEncoding];
+
+/**
+ * @public
  * Settings related to your Microsoft Smooth Streaming output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html. When you work directly in your JSON job specification, include this object and any required children when you set Type, under OutputGroupSettings, to MS_SMOOTH_GROUP_SETTINGS.
  */
 export interface MsSmoothGroupSettings {
@@ -4577,15 +6403,25 @@ export interface MsSmoothGroupSettings {
   ManifestEncoding?: MsSmoothManifestEncoding | string;
 }
 
-export enum OutputGroupType {
-  CMAF_GROUP_SETTINGS = "CMAF_GROUP_SETTINGS",
-  DASH_ISO_GROUP_SETTINGS = "DASH_ISO_GROUP_SETTINGS",
-  FILE_GROUP_SETTINGS = "FILE_GROUP_SETTINGS",
-  HLS_GROUP_SETTINGS = "HLS_GROUP_SETTINGS",
-  MS_SMOOTH_GROUP_SETTINGS = "MS_SMOOTH_GROUP_SETTINGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OutputGroupType = {
+  CMAF_GROUP_SETTINGS: "CMAF_GROUP_SETTINGS",
+  DASH_ISO_GROUP_SETTINGS: "DASH_ISO_GROUP_SETTINGS",
+  FILE_GROUP_SETTINGS: "FILE_GROUP_SETTINGS",
+  HLS_GROUP_SETTINGS: "HLS_GROUP_SETTINGS",
+  MS_SMOOTH_GROUP_SETTINGS: "MS_SMOOTH_GROUP_SETTINGS",
+} as const;
 
 /**
+ * @public
+ */
+export type OutputGroupType = (typeof OutputGroupType)[keyof typeof OutputGroupType];
+
+/**
+ * @public
  * Output Group settings, including type
  */
 export interface OutputGroupSettings {
@@ -4620,58 +6456,152 @@ export interface OutputGroupSettings {
   Type?: OutputGroupType | string;
 }
 
-export enum CmfcAudioDuration {
-  DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
-  MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
-}
-
-export enum CmfcAudioTrackType {
-  ALTERNATE_AUDIO_AUTO_SELECT = "ALTERNATE_AUDIO_AUTO_SELECT",
-  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT = "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
-  ALTERNATE_AUDIO_NOT_AUTO_SELECT = "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
-}
-
-export enum CmfcDescriptiveVideoServiceFlag {
-  DONT_FLAG = "DONT_FLAG",
-  FLAG = "FLAG",
-}
-
-export enum CmfcIFrameOnlyManifest {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum CmfcKlvMetadata {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
-
-export enum CmfcManifestMetadataSignaling {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum CmfcScte35Esam {
-  INSERT = "INSERT",
-  NONE = "NONE",
-}
-
-export enum CmfcScte35Source {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
-
-export enum CmfcTimedMetadata {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
-
-export enum CmfcTimedMetadataBoxVersion {
-  VERSION_0 = "VERSION_0",
-  VERSION_1 = "VERSION_1",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CmfcAudioDuration = {
+  DEFAULT_CODEC_DURATION: "DEFAULT_CODEC_DURATION",
+  MATCH_VIDEO_DURATION: "MATCH_VIDEO_DURATION",
+} as const;
 
 /**
+ * @public
+ */
+export type CmfcAudioDuration = (typeof CmfcAudioDuration)[keyof typeof CmfcAudioDuration];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcAudioTrackType = {
+  ALTERNATE_AUDIO_AUTO_SELECT: "ALTERNATE_AUDIO_AUTO_SELECT",
+  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
+  ALTERNATE_AUDIO_NOT_AUTO_SELECT: "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcAudioTrackType = (typeof CmfcAudioTrackType)[keyof typeof CmfcAudioTrackType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcDescriptiveVideoServiceFlag = {
+  DONT_FLAG: "DONT_FLAG",
+  FLAG: "FLAG",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcDescriptiveVideoServiceFlag =
+  (typeof CmfcDescriptiveVideoServiceFlag)[keyof typeof CmfcDescriptiveVideoServiceFlag];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcIFrameOnlyManifest = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcIFrameOnlyManifest = (typeof CmfcIFrameOnlyManifest)[keyof typeof CmfcIFrameOnlyManifest];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcKlvMetadata = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcKlvMetadata = (typeof CmfcKlvMetadata)[keyof typeof CmfcKlvMetadata];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcManifestMetadataSignaling = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcManifestMetadataSignaling =
+  (typeof CmfcManifestMetadataSignaling)[keyof typeof CmfcManifestMetadataSignaling];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcScte35Esam = {
+  INSERT: "INSERT",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcScte35Esam = (typeof CmfcScte35Esam)[keyof typeof CmfcScte35Esam];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcScte35Source = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcScte35Source = (typeof CmfcScte35Source)[keyof typeof CmfcScte35Source];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcTimedMetadata = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcTimedMetadata = (typeof CmfcTimedMetadata)[keyof typeof CmfcTimedMetadata];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcTimedMetadataBoxVersion = {
+  VERSION_0: "VERSION_0",
+  VERSION_1: "VERSION_1",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcTimedMetadataBoxVersion =
+  (typeof CmfcTimedMetadataBoxVersion)[keyof typeof CmfcTimedMetadataBoxVersion];
+
+/**
+ * @public
  * These settings relate to the fragmented MP4 container for the segments in your CMAF outputs.
  */
 export interface CmfcSettings {
@@ -4749,26 +6679,45 @@ export interface CmfcSettings {
   TimedMetadataValue?: string;
 }
 
-export enum ContainerType {
-  CMFC = "CMFC",
-  F4V = "F4V",
-  ISMV = "ISMV",
-  M2TS = "M2TS",
-  M3U8 = "M3U8",
-  MOV = "MOV",
-  MP4 = "MP4",
-  MPD = "MPD",
-  MXF = "MXF",
-  RAW = "RAW",
-  WEBM = "WEBM",
-}
-
-export enum F4vMoovPlacement {
-  NORMAL = "NORMAL",
-  PROGRESSIVE_DOWNLOAD = "PROGRESSIVE_DOWNLOAD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContainerType = {
+  CMFC: "CMFC",
+  F4V: "F4V",
+  ISMV: "ISMV",
+  M2TS: "M2TS",
+  M3U8: "M3U8",
+  MOV: "MOV",
+  MP4: "MP4",
+  MPD: "MPD",
+  MXF: "MXF",
+  RAW: "RAW",
+  WEBM: "WEBM",
+} as const;
 
 /**
+ * @public
+ */
+export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const F4vMoovPlacement = {
+  NORMAL: "NORMAL",
+  PROGRESSIVE_DOWNLOAD: "PROGRESSIVE_DOWNLOAD",
+} as const;
+
+/**
+ * @public
+ */
+export type F4vMoovPlacement = (typeof F4vMoovPlacement)[keyof typeof F4vMoovPlacement];
+
+/**
+ * @public
  * Settings for F4v container
  */
 export interface F4vSettings {
@@ -4777,794 +6726,3 @@ export interface F4vSettings {
    */
   MoovPlacement?: F4vMoovPlacement | string;
 }
-
-export enum M2tsAudioBufferModel {
-  ATSC = "ATSC",
-  DVB = "DVB",
-}
-
-export enum M2tsAudioDuration {
-  DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
-  MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
-}
-
-export enum M2tsBufferModel {
-  MULTIPLEX = "MULTIPLEX",
-  NONE = "NONE",
-}
-
-export enum M2tsDataPtsControl {
-  ALIGN_TO_VIDEO = "ALIGN_TO_VIDEO",
-  AUTO = "AUTO",
-}
-
-/**
- * Use these settings to insert a DVB Network Information Table (NIT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
- */
-export interface DvbNitSettings {
-  /**
-   * The numeric value placed in the Network Information Table (NIT).
-   */
-  NetworkId?: number;
-
-  /**
-   * The network name text placed in the network_name_descriptor inside the Network Information Table. Maximum length is 256 characters.
-   */
-  NetworkName?: string;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream.
-   */
-  NitInterval?: number;
-}
-
-/**
- * @internal
- */
-export const AllowedRenditionSizeFilterSensitiveLog = (obj: AllowedRenditionSize): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioChannelTaggingSettingsFilterSensitiveLog = (obj: AudioChannelTaggingSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioNormalizationSettingsFilterSensitiveLog = (obj: AudioNormalizationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AacSettingsFilterSensitiveLog = (obj: AacSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ac3SettingsFilterSensitiveLog = (obj: Ac3Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AiffSettingsFilterSensitiveLog = (obj: AiffSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Eac3AtmosSettingsFilterSensitiveLog = (obj: Eac3AtmosSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Eac3SettingsFilterSensitiveLog = (obj: Eac3Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Mp2SettingsFilterSensitiveLog = (obj: Mp2Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Mp3SettingsFilterSensitiveLog = (obj: Mp3Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpusSettingsFilterSensitiveLog = (obj: OpusSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VorbisSettingsFilterSensitiveLog = (obj: VorbisSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WavSettingsFilterSensitiveLog = (obj: WavSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioCodecSettingsFilterSensitiveLog = (obj: AudioCodecSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputChannelMappingFilterSensitiveLog = (obj: OutputChannelMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelMappingFilterSensitiveLog = (obj: ChannelMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemixSettingsFilterSensitiveLog = (obj: RemixSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioDescriptionFilterSensitiveLog = (obj: AudioDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForceIncludeRenditionSizeFilterSensitiveLog = (obj: ForceIncludeRenditionSize): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MinBottomRenditionSizeFilterSensitiveLog = (obj: MinBottomRenditionSize): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MinTopRenditionSizeFilterSensitiveLog = (obj: MinTopRenditionSize): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutomatedAbrRuleFilterSensitiveLog = (obj: AutomatedAbrRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BurninDestinationSettingsFilterSensitiveLog = (obj: BurninDestinationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DvbSubDestinationSettingsFilterSensitiveLog = (obj: DvbSubDestinationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EmbeddedDestinationSettingsFilterSensitiveLog = (obj: EmbeddedDestinationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImscDestinationSettingsFilterSensitiveLog = (obj: ImscDestinationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SccDestinationSettingsFilterSensitiveLog = (obj: SccDestinationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SrtDestinationSettingsFilterSensitiveLog = (obj: SrtDestinationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TeletextDestinationSettingsFilterSensitiveLog = (obj: TeletextDestinationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TtmlDestinationSettingsFilterSensitiveLog = (obj: TtmlDestinationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WebvttDestinationSettingsFilterSensitiveLog = (obj: WebvttDestinationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaptionDestinationSettingsFilterSensitiveLog = (obj: CaptionDestinationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaptionDescriptionFilterSensitiveLog = (obj: CaptionDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaptionDescriptionPresetFilterSensitiveLog = (obj: CaptionDescriptionPreset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CmafAdditionalManifestFilterSensitiveLog = (obj: CmafAdditionalManifest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashAdditionalManifestFilterSensitiveLog = (obj: DashAdditionalManifest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsAdditionalManifestFilterSensitiveLog = (obj: HlsAdditionalManifest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsCaptionLanguageMappingFilterSensitiveLog = (obj: HlsCaptionLanguageMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HopDestinationFilterSensitiveLog = (obj: HopDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Id3InsertionFilterSensitiveLog = (obj: Id3Insertion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioSelectorGroupFilterSensitiveLog = (obj: AudioSelectorGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsRenditionGroupSettingsFilterSensitiveLog = (obj: HlsRenditionGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioSelectorFilterSensitiveLog = (obj: AudioSelector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AncillarySourceSettingsFilterSensitiveLog = (obj: AncillarySourceSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DvbSubSourceSettingsFilterSensitiveLog = (obj: DvbSubSourceSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EmbeddedSourceSettingsFilterSensitiveLog = (obj: EmbeddedSourceSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaptionSourceFramerateFilterSensitiveLog = (obj: CaptionSourceFramerate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FileSourceSettingsFilterSensitiveLog = (obj: FileSourceSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TeletextSourceSettingsFilterSensitiveLog = (obj: TeletextSourceSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrackSourceSettingsFilterSensitiveLog = (obj: TrackSourceSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WebvttHlsSourceSettingsFilterSensitiveLog = (obj: WebvttHlsSourceSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaptionSourceSettingsFilterSensitiveLog = (obj: CaptionSourceSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaptionSelectorFilterSensitiveLog = (obj: CaptionSelector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RectangleFilterSensitiveLog = (obj: Rectangle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputDecryptionSettingsFilterSensitiveLog = (obj: InputDecryptionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsertableImageFilterSensitiveLog = (obj: InsertableImage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageInserterFilterSensitiveLog = (obj: ImageInserter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputClippingFilterSensitiveLog = (obj: InputClipping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputVideoGeneratorFilterSensitiveLog = (obj: InputVideoGenerator): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Hdr10MetadataFilterSensitiveLog = (obj: Hdr10Metadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VideoSelectorFilterSensitiveLog = (obj: VideoSelector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputFilterSensitiveLog = (obj: Input): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputTemplateFilterSensitiveLog = (obj: InputTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccelerationSettingsFilterSensitiveLog = (obj: AccelerationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobMessagesFilterSensitiveLog = (obj: JobMessages): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VideoDetailFilterSensitiveLog = (obj: VideoDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputDetailFilterSensitiveLog = (obj: OutputDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputGroupDetailFilterSensitiveLog = (obj: OutputGroupDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueueTransitionFilterSensitiveLog = (obj: QueueTransition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailBlankingFilterSensitiveLog = (obj: AvailBlanking): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EsamManifestConfirmConditionNotificationFilterSensitiveLog = (
-  obj: EsamManifestConfirmConditionNotification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EsamSignalProcessingNotificationFilterSensitiveLog = (obj: EsamSignalProcessingNotification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EsamSettingsFilterSensitiveLog = (obj: EsamSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtendedDataServicesFilterSensitiveLog = (obj: ExtendedDataServices): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KantarWatermarkSettingsFilterSensitiveLog = (obj: KantarWatermarkSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MotionImageInsertionFramerateFilterSensitiveLog = (obj: MotionImageInsertionFramerate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MotionImageInsertionOffsetFilterSensitiveLog = (obj: MotionImageInsertionOffset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MotionImageInserterFilterSensitiveLog = (obj: MotionImageInserter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NielsenConfigurationFilterSensitiveLog = (obj: NielsenConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NielsenNonLinearWatermarkSettingsFilterSensitiveLog = (obj: NielsenNonLinearWatermarkSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutomatedAbrSettingsFilterSensitiveLog = (obj: AutomatedAbrSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutomatedEncodingSettingsFilterSensitiveLog = (obj: AutomatedEncodingSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationAccessControlFilterSensitiveLog = (obj: S3DestinationAccessControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3EncryptionSettingsFilterSensitiveLog = (obj: S3EncryptionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationSettingsFilterSensitiveLog = (obj: S3DestinationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DestinationSettingsFilterSensitiveLog = (obj: DestinationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpekeKeyProviderCmafFilterSensitiveLog = (obj: SpekeKeyProviderCmaf): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StaticKeyProviderFilterSensitiveLog = (obj: StaticKeyProvider): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CmafEncryptionSettingsFilterSensitiveLog = (obj: CmafEncryptionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CmafImageBasedTrickPlaySettingsFilterSensitiveLog = (obj: CmafImageBasedTrickPlaySettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CmafGroupSettingsFilterSensitiveLog = (obj: CmafGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpekeKeyProviderFilterSensitiveLog = (obj: SpekeKeyProvider): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashIsoEncryptionSettingsFilterSensitiveLog = (obj: DashIsoEncryptionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashIsoImageBasedTrickPlaySettingsFilterSensitiveLog = (obj: DashIsoImageBasedTrickPlaySettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashIsoGroupSettingsFilterSensitiveLog = (obj: DashIsoGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FileGroupSettingsFilterSensitiveLog = (obj: FileGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsEncryptionSettingsFilterSensitiveLog = (obj: HlsEncryptionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsImageBasedTrickPlaySettingsFilterSensitiveLog = (obj: HlsImageBasedTrickPlaySettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsGroupSettingsFilterSensitiveLog = (obj: HlsGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MsSmoothAdditionalManifestFilterSensitiveLog = (obj: MsSmoothAdditionalManifest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MsSmoothEncryptionSettingsFilterSensitiveLog = (obj: MsSmoothEncryptionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MsSmoothGroupSettingsFilterSensitiveLog = (obj: MsSmoothGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputGroupSettingsFilterSensitiveLog = (obj: OutputGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CmfcSettingsFilterSensitiveLog = (obj: CmfcSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const F4vSettingsFilterSensitiveLog = (obj: F4vSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DvbNitSettingsFilterSensitiveLog = (obj: DvbNitSettings): any => ({
-  ...obj,
-});

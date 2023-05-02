@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAssistantRequest,
-  GetAssistantRequestFilterSensitiveLog,
-  GetAssistantResponse,
-  GetAssistantResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssistantCommand,
-  serializeAws_restJson1GetAssistantCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAssistantRequest, GetAssistantResponse } from "../models/models_0";
+import { de_GetAssistantCommand, se_GetAssistantCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssistantCommand}.
  */
 export interface GetAssistantCommandInput extends GetAssistantRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssistantCommand}.
  */
 export interface GetAssistantCommandOutput extends GetAssistantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an assistant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * import { WisdomClient, GetAssistantCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetAssistantCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // GetAssistantRequest
+ *   assistantId: "STRING_VALUE", // required
+ * };
  * const command = new GetAssistantCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssistantCommandInput - {@link GetAssistantCommandInput}
+ * @returns {@link GetAssistantCommandOutput}
  * @see {@link GetAssistantCommandInput} for command's `input` shape.
  * @see {@link GetAssistantCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +80,9 @@ export class GetAssistantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssistantCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class GetAssistantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssistantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssistantResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class GetAssistantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssistantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssistantCommand(input, context);
+    return se_GetAssistantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssistantCommandOutput> {
-    return deserializeAws_restJson1GetAssistantCommand(output, context);
+    return de_GetAssistantCommand(output, context);
   }
 
   // Start section: command_body_extra

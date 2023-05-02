@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { ResumeResourceRequest, ResumeResourceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1ResumeResourceCommand,
-  serializeAws_json1_1ResumeResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { ResumeResourceRequest } from "../models/models_0";
+import { de_ResumeResourceCommand, se_ResumeResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResumeResourceCommand}.
  */
 export interface ResumeResourceCommandInput extends ResumeResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResumeResourceCommand}.
  */
 export interface ResumeResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resumes a stopped monitor resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface ResumeResourceCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, ResumeResourceCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ResumeResourceCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // ResumeResourceRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ResumeResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeResourceCommandInput - {@link ResumeResourceCommandInput}
+ * @returns {@link ResumeResourceCommandOutput}
  * @see {@link ResumeResourceCommandInput} for command's `input` shape.
  * @see {@link ResumeResourceCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -78,6 +85,9 @@ export class ResumeResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +116,8 @@ export class ResumeResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +127,18 @@ export class ResumeResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResumeResourceCommand(input, context);
+    return se_ResumeResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeResourceCommandOutput> {
-    return deserializeAws_json1_1ResumeResourceCommand(output, context);
+    return de_ResumeResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

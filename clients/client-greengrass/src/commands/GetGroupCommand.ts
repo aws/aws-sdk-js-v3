@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetGroupRequest,
-  GetGroupRequestFilterSensitiveLog,
-  GetGroupResponse,
-  GetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGroupCommand,
-  serializeAws_restJson1GetGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGroupRequest, GetGroupResponse } from "../models/models_0";
+import { de_GetGroupCommand, se_GetGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupCommand}.
  */
 export interface GetGroupCommandInput extends GetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupCommand}.
  */
 export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * import { GreengrassClient, GetGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetGroupRequest
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupCommandInput - {@link GetGroupCommandInput}
+ * @returns {@link GetGroupCommandOutput}
  * @see {@link GetGroupCommandInput} for command's `input` shape.
  * @see {@link GetGroupCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +74,9 @@ export class GetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +103,8 @@ export class GetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +114,18 @@ export class GetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGroupCommand(input, context);
+    return se_GetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupCommandOutput> {
-    return deserializeAws_restJson1GetGroupCommand(output, context);
+    return de_GetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

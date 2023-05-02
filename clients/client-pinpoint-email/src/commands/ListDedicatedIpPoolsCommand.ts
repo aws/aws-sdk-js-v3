@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDedicatedIpPoolsRequest,
-  ListDedicatedIpPoolsRequestFilterSensitiveLog,
-  ListDedicatedIpPoolsResponse,
-  ListDedicatedIpPoolsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDedicatedIpPoolsRequest, ListDedicatedIpPoolsResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1ListDedicatedIpPoolsCommand,
-  serializeAws_restJson1ListDedicatedIpPoolsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDedicatedIpPoolsCommand, se_ListDedicatedIpPoolsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDedicatedIpPoolsCommand}.
  */
 export interface ListDedicatedIpPoolsCommandInput extends ListDedicatedIpPoolsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDedicatedIpPoolsCommand}.
  */
 export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all of the dedicated IP pools that exist in your Amazon Pinpoint account in the current
  *             AWS Region.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsR
  * import { PinpointEmailClient, ListDedicatedIpPoolsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, ListDedicatedIpPoolsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // ListDedicatedIpPoolsRequest
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListDedicatedIpPoolsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDedicatedIpPoolsCommandInput - {@link ListDedicatedIpPoolsCommandInput}
+ * @returns {@link ListDedicatedIpPoolsCommandOutput}
  * @see {@link ListDedicatedIpPoolsCommandInput} for command's `input` shape.
  * @see {@link ListDedicatedIpPoolsCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -76,6 +79,9 @@ export class ListDedicatedIpPoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDedicatedIpPoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class ListDedicatedIpPoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDedicatedIpPoolsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDedicatedIpPoolsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class ListDedicatedIpPoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDedicatedIpPoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDedicatedIpPoolsCommand(input, context);
+    return se_ListDedicatedIpPoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDedicatedIpPoolsCommandOutput> {
-    return deserializeAws_restJson1ListDedicatedIpPoolsCommand(output, context);
+    return de_ListDedicatedIpPoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

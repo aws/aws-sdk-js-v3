@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { DeleteSubscriptionDefinitionRequest, DeleteSubscriptionDefinitionResponse } from "../models/models_0";
 import {
-  DeleteSubscriptionDefinitionRequest,
-  DeleteSubscriptionDefinitionRequestFilterSensitiveLog,
-  DeleteSubscriptionDefinitionResponse,
-  DeleteSubscriptionDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSubscriptionDefinitionCommand,
-  serializeAws_restJson1DeleteSubscriptionDefinitionCommand,
+  de_DeleteSubscriptionDefinitionCommand,
+  se_DeleteSubscriptionDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubscriptionDefinitionCommand}.
  */
 export interface DeleteSubscriptionDefinitionCommandInput extends DeleteSubscriptionDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubscriptionDefinitionCommand}.
  */
 export interface DeleteSubscriptionDefinitionCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteSubscriptionDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a subscription definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface DeleteSubscriptionDefinitionCommandOutput
  * import { GreengrassClient, DeleteSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DeleteSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // DeleteSubscriptionDefinitionRequest
+ *   SubscriptionDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubscriptionDefinitionCommandInput - {@link DeleteSubscriptionDefinitionCommandInput}
+ * @returns {@link DeleteSubscriptionDefinitionCommandOutput}
  * @see {@link DeleteSubscriptionDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +79,9 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubscriptionDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +110,8 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubscriptionDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubscriptionDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +121,21 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubscriptionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSubscriptionDefinitionCommand(input, context);
+    return se_DeleteSubscriptionDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSubscriptionDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteSubscriptionDefinitionCommand(output, context);
+    return de_DeleteSubscriptionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

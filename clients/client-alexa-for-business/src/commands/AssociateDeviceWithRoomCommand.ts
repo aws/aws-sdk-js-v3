@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  AssociateDeviceWithRoomRequest,
-  AssociateDeviceWithRoomRequestFilterSensitiveLog,
-  AssociateDeviceWithRoomResponse,
-  AssociateDeviceWithRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateDeviceWithRoomCommand,
-  serializeAws_json1_1AssociateDeviceWithRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateDeviceWithRoomRequest, AssociateDeviceWithRoomResponse } from "../models/models_0";
+import { de_AssociateDeviceWithRoomCommand, se_AssociateDeviceWithRoomCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDeviceWithRoomCommand}.
  */
 export interface AssociateDeviceWithRoomCommandInput extends AssociateDeviceWithRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDeviceWithRoomCommand}.
  */
 export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWithRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a device with a given room. This applies all the settings from the room
  *          profile to the device, and all the skills in any skill groups added to that room. This
  *          operation requires the device to be online, or else a manual sync is required. </p>
@@ -44,10 +41,16 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  * import { AlexaForBusinessClient, AssociateDeviceWithRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateDeviceWithRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // AssociateDeviceWithRoomRequest
+ *   DeviceArn: "STRING_VALUE",
+ *   RoomArn: "STRING_VALUE",
+ * };
  * const command = new AssociateDeviceWithRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDeviceWithRoomCommandInput - {@link AssociateDeviceWithRoomCommandInput}
+ * @returns {@link AssociateDeviceWithRoomCommandOutput}
  * @see {@link AssociateDeviceWithRoomCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -80,6 +83,9 @@ export class AssociateDeviceWithRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDeviceWithRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class AssociateDeviceWithRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDeviceWithRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDeviceWithRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class AssociateDeviceWithRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDeviceWithRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDeviceWithRoomCommand(input, context);
+    return se_AssociateDeviceWithRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDeviceWithRoomCommandOutput> {
-    return deserializeAws_json1_1AssociateDeviceWithRoomCommand(output, context);
+    return de_AssociateDeviceWithRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

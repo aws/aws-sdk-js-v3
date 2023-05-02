@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteClusterSubnetGroupMessage, DeleteClusterSubnetGroupMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteClusterSubnetGroupCommand,
-  serializeAws_queryDeleteClusterSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteClusterSubnetGroupMessage } from "../models/models_0";
+import { de_DeleteClusterSubnetGroupCommand, se_DeleteClusterSubnetGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClusterSubnetGroupCommand}.
  */
 export interface DeleteClusterSubnetGroupCommandInput extends DeleteClusterSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClusterSubnetGroupCommand}.
  */
 export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified cluster subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer 
  * import { RedshiftClient, DeleteClusterSubnetGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteClusterSubnetGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteClusterSubnetGroupMessage
+ *   ClusterSubnetGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClusterSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterSubnetGroupCommandInput - {@link DeleteClusterSubnetGroupCommandInput}
+ * @returns {@link DeleteClusterSubnetGroupCommandOutput}
  * @see {@link DeleteClusterSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteClusterSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +112,8 @@ export class DeleteClusterSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClusterSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +123,18 @@ export class DeleteClusterSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteClusterSubnetGroupCommand(input, context);
+    return se_DeleteClusterSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterSubnetGroupCommandOutput> {
-    return deserializeAws_queryDeleteClusterSubnetGroupCommand(output, context);
+    return de_DeleteClusterSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

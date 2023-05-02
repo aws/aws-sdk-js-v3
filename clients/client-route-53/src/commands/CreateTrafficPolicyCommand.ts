@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTrafficPolicyRequest,
-  CreateTrafficPolicyRequestFilterSensitiveLog,
-  CreateTrafficPolicyResponse,
-  CreateTrafficPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateTrafficPolicyCommand,
-  serializeAws_restXmlCreateTrafficPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { CreateTrafficPolicyRequest, CreateTrafficPolicyResponse } from "../models/models_0";
+import { de_CreateTrafficPolicyCommand, se_CreateTrafficPolicyCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrafficPolicyCommand}.
  */
 export interface CreateTrafficPolicyCommandInput extends CreateTrafficPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrafficPolicyCommand}.
  */
 export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a traffic policy, which you use to create multiple DNS resource record sets
  * 			for one domain name (such as example.com) or one subdomain name (such as
  * 			www.example.com).</p>
@@ -44,10 +41,17 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * import { Route53Client, CreateTrafficPolicyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateTrafficPolicyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // CreateTrafficPolicyRequest
+ *   Name: "STRING_VALUE", // required
+ *   Document: "STRING_VALUE", // required
+ *   Comment: "STRING_VALUE",
+ * };
  * const command = new CreateTrafficPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrafficPolicyCommandInput - {@link CreateTrafficPolicyCommandInput}
+ * @returns {@link CreateTrafficPolicyCommandOutput}
  * @see {@link CreateTrafficPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -90,6 +94,9 @@ export class CreateTrafficPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrafficPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class CreateTrafficPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTrafficPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrafficPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class CreateTrafficPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrafficPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateTrafficPolicyCommand(input, context);
+    return se_CreateTrafficPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrafficPolicyCommandOutput> {
-    return deserializeAws_restXmlCreateTrafficPolicyCommand(output, context);
+    return de_CreateTrafficPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeletePermissionPolicyRequest,
-  DeletePermissionPolicyRequestFilterSensitiveLog,
-  DeletePermissionPolicyResponse,
-  DeletePermissionPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePermissionPolicyCommand,
-  serializeAws_json1_1DeletePermissionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeletePermissionPolicyRequest, DeletePermissionPolicyResponse } from "../models/models_0";
+import { de_DeletePermissionPolicyCommand, se_DeletePermissionPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePermissionPolicyCommand}.
  */
 export interface DeletePermissionPolicyCommandInput extends DeletePermissionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePermissionPolicyCommand}.
  */
 export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes an IAM policy from the specified rule group.</p>
  *          <p>You must be the owner of the rule group to perform this operation.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
  * import { WAFV2Client, DeletePermissionPolicyCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DeletePermissionPolicyCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // DeletePermissionPolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeletePermissionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePermissionPolicyCommandInput - {@link DeletePermissionPolicyCommandInput}
+ * @returns {@link DeletePermissionPolicyCommandOutput}
  * @see {@link DeletePermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -101,6 +103,9 @@ export class DeletePermissionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePermissionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +134,8 @@ export class DeletePermissionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePermissionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePermissionPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +145,18 @@ export class DeletePermissionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePermissionPolicyCommand(input, context);
+    return se_DeletePermissionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionPolicyCommandOutput> {
-    return deserializeAws_json1_1DeletePermissionPolicyCommand(output, context);
+    return de_DeletePermissionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

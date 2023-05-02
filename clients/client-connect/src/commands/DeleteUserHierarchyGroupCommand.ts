@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteUserHierarchyGroupRequest, DeleteUserHierarchyGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUserHierarchyGroupCommand,
-  serializeAws_restJson1DeleteUserHierarchyGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteUserHierarchyGroupRequest } from "../models/models_0";
+import { de_DeleteUserHierarchyGroupCommand, se_DeleteUserHierarchyGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserHierarchyGroupCommand}.
  */
 export interface DeleteUserHierarchyGroupCommandInput extends DeleteUserHierarchyGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserHierarchyGroupCommand}.
  */
 export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have
  *    any active child groups.</p>
  * @example
@@ -38,10 +40,16 @@ export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer 
  * import { ConnectClient, DeleteUserHierarchyGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteUserHierarchyGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DeleteUserHierarchyGroupRequest
+ *   HierarchyGroupId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserHierarchyGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserHierarchyGroupCommandInput - {@link DeleteUserHierarchyGroupCommandInput}
+ * @returns {@link DeleteUserHierarchyGroupCommandOutput}
  * @see {@link DeleteUserHierarchyGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteUserHierarchyGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +91,9 @@ export class DeleteUserHierarchyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserHierarchyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +122,8 @@ export class DeleteUserHierarchyGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserHierarchyGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +133,18 @@ export class DeleteUserHierarchyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserHierarchyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUserHierarchyGroupCommand(input, context);
+    return se_DeleteUserHierarchyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserHierarchyGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteUserHierarchyGroupCommand(output, context);
+    return de_DeleteUserHierarchyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

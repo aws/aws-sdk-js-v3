@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  DeletePreparedStatementInput,
-  DeletePreparedStatementInputFilterSensitiveLog,
-  DeletePreparedStatementOutput,
-  DeletePreparedStatementOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePreparedStatementCommand,
-  serializeAws_json1_1DeletePreparedStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { DeletePreparedStatementInput, DeletePreparedStatementOutput } from "../models/models_0";
+import { de_DeletePreparedStatementCommand, se_DeletePreparedStatementCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePreparedStatementCommand}.
  */
 export interface DeletePreparedStatementCommandInput extends DeletePreparedStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link DeletePreparedStatementCommand}.
  */
 export interface DeletePreparedStatementCommandOutput extends DeletePreparedStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the prepared statement with the specified name from the specified
  *             workgroup.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DeletePreparedStatementCommandOutput extends DeletePreparedStat
  * import { AthenaClient, DeletePreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeletePreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // DeletePreparedStatementInput
+ *   StatementName: "STRING_VALUE", // required
+ *   WorkGroup: "STRING_VALUE", // required
+ * };
  * const command = new DeletePreparedStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePreparedStatementCommandInput - {@link DeletePreparedStatementCommandInput}
+ * @returns {@link DeletePreparedStatementCommandOutput}
  * @see {@link DeletePreparedStatementCommandInput} for command's `input` shape.
  * @see {@link DeletePreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +84,9 @@ export class DeletePreparedStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePreparedStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class DeletePreparedStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePreparedStatementInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePreparedStatementOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class DeletePreparedStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePreparedStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePreparedStatementCommand(input, context);
+    return se_DeletePreparedStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePreparedStatementCommandOutput> {
-    return deserializeAws_json1_1DeletePreparedStatementCommand(output, context);
+    return de_DeletePreparedStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

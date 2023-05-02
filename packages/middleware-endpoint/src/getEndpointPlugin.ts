@@ -5,6 +5,9 @@ import { endpointMiddleware } from "./endpointMiddleware";
 import { EndpointResolvedConfig } from "./resolveEndpointConfig";
 import { EndpointParameterInstructions } from "./types";
 
+/**
+ * @internal
+ */
 export const endpointMiddlewareOptions: SerializeHandlerOptions & RelativeMiddlewareOptions = {
   step: "serialize",
   tags: ["ENDPOINT_PARAMETERS", "ENDPOINT_V2", "ENDPOINT"],
@@ -14,6 +17,9 @@ export const endpointMiddlewareOptions: SerializeHandlerOptions & RelativeMiddle
   toMiddleware: serializerMiddlewareOption.name!,
 };
 
+/**
+ * @internal
+ */
 export const getEndpointPlugin = <T extends EndpointParameters>(
   config: EndpointResolvedConfig<T>,
   instructions: EndpointParameterInstructions

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  GetDomainAssociationRequest,
-  GetDomainAssociationRequestFilterSensitiveLog,
-  GetDomainAssociationResult,
-  GetDomainAssociationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDomainAssociationCommand,
-  serializeAws_restJson1GetDomainAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDomainAssociationRequest, GetDomainAssociationResult } from "../models/models_0";
+import { de_GetDomainAssociationCommand, se_GetDomainAssociationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainAssociationCommand}.
  */
 export interface GetDomainAssociationCommandInput extends GetDomainAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainAssociationCommand}.
  */
 export interface GetDomainAssociationCommandOutput extends GetDomainAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the domain information for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetDomainAssociationCommandOutput extends GetDomainAssociationR
  * import { AmplifyClient, GetDomainAssociationCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetDomainAssociationCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // GetDomainAssociationRequest
+ *   appId: "STRING_VALUE", // required
+ *   domainName: "STRING_VALUE", // required
+ * };
  * const command = new GetDomainAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainAssociationCommandInput - {@link GetDomainAssociationCommandInput}
+ * @returns {@link GetDomainAssociationCommandOutput}
  * @see {@link GetDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link GetDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -81,6 +84,9 @@ export class GetDomainAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class GetDomainAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class GetDomainAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDomainAssociationCommand(input, context);
+    return se_GetDomainAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1GetDomainAssociationCommand(output, context);
+    return de_GetDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   CancelDetectMitigationActionsTaskRequest,
-  CancelDetectMitigationActionsTaskRequestFilterSensitiveLog,
   CancelDetectMitigationActionsTaskResponse,
-  CancelDetectMitigationActionsTaskResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CancelDetectMitigationActionsTaskCommand,
-  serializeAws_restJson1CancelDetectMitigationActionsTaskCommand,
+  de_CancelDetectMitigationActionsTaskCommand,
+  se_CancelDetectMitigationActionsTaskCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelDetectMitigationActionsTaskCommand}.
  */
 export interface CancelDetectMitigationActionsTaskCommandInput extends CancelDetectMitigationActionsTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelDetectMitigationActionsTaskCommand}.
  */
 export interface CancelDetectMitigationActionsTaskCommandOutput
@@ -37,6 +39,7 @@ export interface CancelDetectMitigationActionsTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Cancels a Device Defender ML Detect mitigation action.
  *       </p>
@@ -47,10 +50,15 @@ export interface CancelDetectMitigationActionsTaskCommandOutput
  * import { IoTClient, CancelDetectMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CancelDetectMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CancelDetectMitigationActionsTaskRequest
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new CancelDetectMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelDetectMitigationActionsTaskCommandInput - {@link CancelDetectMitigationActionsTaskCommandInput}
+ * @returns {@link CancelDetectMitigationActionsTaskCommandOutput}
  * @see {@link CancelDetectMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link CancelDetectMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +94,9 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelDetectMitigationActionsTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +125,8 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelDetectMitigationActionsTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelDetectMitigationActionsTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +136,24 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelDetectMitigationActionsTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelDetectMitigationActionsTaskCommand(input, context);
+    return se_CancelDetectMitigationActionsTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelDetectMitigationActionsTaskCommandOutput> {
-    return deserializeAws_restJson1CancelDetectMitigationActionsTaskCommand(output, context);
+    return de_CancelDetectMitigationActionsTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

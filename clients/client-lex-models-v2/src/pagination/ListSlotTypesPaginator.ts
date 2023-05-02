@@ -10,7 +10,7 @@ import { LexModelsV2Client } from "../LexModelsV2Client";
 import { LexModelsV2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LexModelsV2Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSlotTypesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSlotTypes(
   config: LexModelsV2PaginationConfiguration,
   input: ListSlotTypesCommandInput,

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBSnapshotMessage,
-  ModifyDBSnapshotMessageFilterSensitiveLog,
-  ModifyDBSnapshotResult,
-  ModifyDBSnapshotResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBSnapshotCommand,
-  serializeAws_queryModifyDBSnapshotCommand,
-} from "../protocols/Aws_query";
+import { ModifyDBSnapshotMessage, ModifyDBSnapshotResult } from "../models/models_1";
+import { de_ModifyDBSnapshotCommand, se_ModifyDBSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBSnapshotCommand}.
  */
 export interface ModifyDBSnapshotCommandInput extends ModifyDBSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBSnapshotCommand}.
  */
 export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted
  *             or unencrypted, but not shared or public.
  *
@@ -47,10 +44,17 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * import { RDSClient, ModifyDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyDBSnapshotMessage
+ *   DBSnapshotIdentifier: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ * };
  * const command = new ModifyDBSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBSnapshotCommandInput - {@link ModifyDBSnapshotCommandInput}
+ * @returns {@link ModifyDBSnapshotCommandOutput}
  * @see {@link ModifyDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link ModifyDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -59,6 +63,46 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
+ *
+ * @example To modify a DB snapshot
+ * ```javascript
+ * // The following example upgrades a PostgeSQL 10.6 snapshot named db5-snapshot-upg-test to PostgreSQL 11.7. The new DB engine version is shown after the snapshot has finished upgrading and its status is available.
+ * const input = {
+ *   "DBSnapshotIdentifier": "db5-snapshot-upg-test",
+ *   "EngineVersion": "11.7"
+ * };
+ * const command = new ModifyDBSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSnapshot": {
+ *     "AllocatedStorage": 20,
+ *     "AvailabilityZone": "us-west-2a",
+ *     "DBInstanceIdentifier": "database-5",
+ *     "DBSnapshotArn": "arn:aws:rds:us-west-2:123456789012:snapshot:db5-snapshot-upg-test",
+ *     "DBSnapshotIdentifier": "db5-snapshot-upg-test",
+ *     "DbiResourceId": "db-GJMF75LM42IL6BTFRE4UZJ5YM4",
+ *     "Encrypted": false,
+ *     "Engine": "postgres",
+ *     "EngineVersion": "10.6",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "InstanceCreateTime": "2020-03-27T19:59:04.735Z",
+ *     "LicenseModel": "postgresql-license",
+ *     "MasterUsername": "postgres",
+ *     "OptionGroupName": "default:postgres-11",
+ *     "PercentProgress": 100,
+ *     "Port": 5432,
+ *     "ProcessorFeatures": [],
+ *     "SnapshotCreateTime": "2020-03-27T20:49:17.092Z",
+ *     "SnapshotType": "manual",
+ *     "Status": "upgrading",
+ *     "StorageType": "gp2",
+ *     "VpcId": "vpc-2ff27557"
+ *   }
+ * }
+ * *\/
+ * // example id: to-modify-a-db-snapshot-1680381968028
+ * ```
  *
  */
 export class ModifyDBSnapshotCommand extends $Command<
@@ -78,6 +122,9 @@ export class ModifyDBSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +153,8 @@ export class ModifyDBSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +164,18 @@ export class ModifyDBSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBSnapshotCommand(input, context);
+    return se_ModifyDBSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBSnapshotCommandOutput> {
-    return deserializeAws_queryModifyDBSnapshotCommand(output, context);
+    return de_ModifyDBSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

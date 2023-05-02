@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DescribeRemediationExceptionsRequest, DescribeRemediationExceptionsResponse } from "../models/models_0";
 import {
-  DescribeRemediationExceptionsRequest,
-  DescribeRemediationExceptionsRequestFilterSensitiveLog,
-  DescribeRemediationExceptionsResponse,
-  DescribeRemediationExceptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRemediationExceptionsCommand,
-  serializeAws_json1_1DescribeRemediationExceptionsCommand,
+  de_DescribeRemediationExceptionsCommand,
+  se_DescribeRemediationExceptionsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRemediationExceptionsCommand}.
  */
 export interface DescribeRemediationExceptionsCommandInput extends DescribeRemediationExceptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRemediationExceptionsCommand}.
  */
 export interface DescribeRemediationExceptionsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeRemediationExceptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of one or more remediation exceptions. A detailed view of a remediation exception for a set of resources that includes an explanation of an exception and the time when the exception will be deleted.
  * 			When you specify the limit and the next token, you receive a paginated response. </p>
  *          <note>
@@ -51,10 +51,23 @@ export interface DescribeRemediationExceptionsCommandOutput
  * import { ConfigServiceClient, DescribeRemediationExceptionsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeRemediationExceptionsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeRemediationExceptionsRequest
+ *   ConfigRuleName: "STRING_VALUE", // required
+ *   ResourceKeys: [ // RemediationExceptionResourceKeys
+ *     { // RemediationExceptionResourceKey
+ *       ResourceType: "STRING_VALUE",
+ *       ResourceId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeRemediationExceptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRemediationExceptionsCommandInput - {@link DescribeRemediationExceptionsCommandInput}
+ * @returns {@link DescribeRemediationExceptionsCommandOutput}
  * @see {@link DescribeRemediationExceptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeRemediationExceptionsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -87,6 +100,9 @@ export class DescribeRemediationExceptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRemediationExceptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +131,8 @@ export class DescribeRemediationExceptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRemediationExceptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRemediationExceptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +142,21 @@ export class DescribeRemediationExceptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRemediationExceptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRemediationExceptionsCommand(input, context);
+    return se_DescribeRemediationExceptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRemediationExceptionsCommandOutput> {
-    return deserializeAws_json1_1DescribeRemediationExceptionsCommand(output, context);
+    return de_DescribeRemediationExceptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

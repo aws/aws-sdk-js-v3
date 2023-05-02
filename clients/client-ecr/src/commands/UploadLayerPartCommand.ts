@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  UploadLayerPartRequest,
-  UploadLayerPartRequestFilterSensitiveLog,
-  UploadLayerPartResponse,
-  UploadLayerPartResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UploadLayerPartCommand,
-  serializeAws_json1_1UploadLayerPartCommand,
-} from "../protocols/Aws_json1_1";
+import { UploadLayerPartRequest, UploadLayerPartResponse } from "../models/models_0";
+import { de_UploadLayerPartCommand, se_UploadLayerPartCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UploadLayerPartCommand}.
  */
 export interface UploadLayerPartCommandInput extends UploadLayerPartRequest {}
 /**
+ * @public
+ *
  * The output of {@link UploadLayerPartCommand}.
  */
 export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads an image layer part to Amazon ECR.</p>
  *         <p>When an image is pushed, each new image layer is uploaded in parts. The maximum size
  *             of each image layer part can be 20971520 bytes (or about 20MB). The UploadLayerPart API
@@ -49,10 +46,20 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * import { ECRClient, UploadLayerPartCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, UploadLayerPartCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // UploadLayerPartRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   uploadId: "STRING_VALUE", // required
+ *   partFirstByte: Number("long"), // required
+ *   partLastByte: Number("long"), // required
+ *   layerPartBlob: "BLOB_VALUE", // required
+ * };
  * const command = new UploadLayerPartCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadLayerPartCommandInput - {@link UploadLayerPartCommandInput}
+ * @returns {@link UploadLayerPartCommandOutput}
  * @see {@link UploadLayerPartCommandInput} for command's `input` shape.
  * @see {@link UploadLayerPartCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -103,6 +110,9 @@ export class UploadLayerPartCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadLayerPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +141,8 @@ export class UploadLayerPartCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadLayerPartRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UploadLayerPartResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +152,18 @@ export class UploadLayerPartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadLayerPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UploadLayerPartCommand(input, context);
+    return se_UploadLayerPartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadLayerPartCommandOutput> {
-    return deserializeAws_json1_1UploadLayerPartCommand(output, context);
+    return de_UploadLayerPartCommand(output, context);
   }
 
   // Start section: command_body_extra

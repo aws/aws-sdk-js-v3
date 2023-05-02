@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetIntentRequest,
-  GetIntentRequestFilterSensitiveLog,
-  GetIntentResponse,
-  GetIntentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIntentCommand,
-  serializeAws_restJson1GetIntentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetIntentRequest, GetIntentResponse } from "../models/models_0";
+import { de_GetIntentCommand, se_GetIntentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIntentCommand}.
  */
 export interface GetIntentCommandInput extends GetIntentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIntentCommand}.
  */
 export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns information about an intent. In addition to the intent
  *       name, you must specify the intent version. </p>
  *          <p> This operation requires permissions to perform the
@@ -49,10 +46,16 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  * import { LexModelBuildingServiceClient, GetIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetIntentRequest
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ * };
  * const command = new GetIntentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIntentCommandInput - {@link GetIntentCommandInput}
+ * @returns {@link GetIntentCommandOutput}
  * @see {@link GetIntentCommandInput} for command's `input` shape.
  * @see {@link GetIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -238,6 +241,9 @@ export class GetIntentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIntentCommandInput) {
     // Start section: command_constructor
     super();
@@ -264,8 +270,8 @@ export class GetIntentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIntentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIntentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -275,12 +281,18 @@ export class GetIntentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIntentCommand(input, context);
+    return se_GetIntentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntentCommandOutput> {
-    return deserializeAws_restJson1GetIntentCommand(output, context);
+    return de_GetIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

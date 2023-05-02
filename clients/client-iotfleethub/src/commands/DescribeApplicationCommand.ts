@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetHubClient";
-import {
-  DescribeApplicationRequest,
-  DescribeApplicationRequestFilterSensitiveLog,
-  DescribeApplicationResponse,
-  DescribeApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeApplicationCommand,
-  serializeAws_restJson1DescribeApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeApplicationRequest, DescribeApplicationResponse } from "../models/models_0";
+import { de_DescribeApplicationCommand, se_DescribeApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeApplicationCommand}.
  */
 export interface DescribeApplicationCommandInput extends DescribeApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeApplicationCommand}.
  */
 export interface DescribeApplicationCommandOutput extends DescribeApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Fleet Hub for AWS IoT Device Management web application.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -45,10 +42,15 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * import { IoTFleetHubClient, DescribeApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, DescribeApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
  * const client = new IoTFleetHubClient(config);
+ * const input = { // DescribeApplicationRequest
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicationCommandInput - {@link DescribeApplicationCommandInput}
+ * @returns {@link DescribeApplicationCommandOutput}
  * @see {@link DescribeApplicationCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetHubClientResolvedConfig | config} for IoTFleetHubClient's `config` shape.
@@ -84,6 +86,9 @@ export class DescribeApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DescribeApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DescribeApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeApplicationCommand(input, context);
+    return se_DescribeApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationCommandOutput> {
-    return deserializeAws_restJson1DescribeApplicationCommand(output, context);
+    return de_DescribeApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

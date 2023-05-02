@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  CreateWirelessDeviceRequest,
-  CreateWirelessDeviceRequestFilterSensitiveLog,
-  CreateWirelessDeviceResponse,
-  CreateWirelessDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWirelessDeviceCommand,
-  serializeAws_restJson1CreateWirelessDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateWirelessDeviceRequest, CreateWirelessDeviceResponse } from "../models/models_0";
+import { de_CreateWirelessDeviceCommand, se_CreateWirelessDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWirelessDeviceCommand}.
  */
 export interface CreateWirelessDeviceCommandInput extends CreateWirelessDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWirelessDeviceCommand}.
  */
 export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions a wireless device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,79 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  * import { IoTWirelessClient, CreateWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // CreateWirelessDeviceRequest
+ *   Type: "Sidewalk" || "LoRaWAN", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DestinationName: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   LoRaWAN: { // LoRaWANDevice
+ *     DevEui: "STRING_VALUE",
+ *     DeviceProfileId: "STRING_VALUE",
+ *     ServiceProfileId: "STRING_VALUE",
+ *     OtaaV1_1: { // OtaaV1_1
+ *       AppKey: "STRING_VALUE",
+ *       NwkKey: "STRING_VALUE",
+ *       JoinEui: "STRING_VALUE",
+ *     },
+ *     OtaaV1_0_x: { // OtaaV1_0_x
+ *       AppKey: "STRING_VALUE",
+ *       AppEui: "STRING_VALUE",
+ *       GenAppKey: "STRING_VALUE",
+ *     },
+ *     AbpV1_1: { // AbpV1_1
+ *       DevAddr: "STRING_VALUE",
+ *       SessionKeys: { // SessionKeysAbpV1_1
+ *         FNwkSIntKey: "STRING_VALUE",
+ *         SNwkSIntKey: "STRING_VALUE",
+ *         NwkSEncKey: "STRING_VALUE",
+ *         AppSKey: "STRING_VALUE",
+ *       },
+ *       FCntStart: Number("int"),
+ *     },
+ *     AbpV1_0_x: { // AbpV1_0_x
+ *       DevAddr: "STRING_VALUE",
+ *       SessionKeys: { // SessionKeysAbpV1_0_x
+ *         NwkSKey: "STRING_VALUE",
+ *         AppSKey: "STRING_VALUE",
+ *       },
+ *       FCntStart: Number("int"),
+ *     },
+ *     FPorts: { // FPorts
+ *       Fuota: Number("int"),
+ *       Multicast: Number("int"),
+ *       ClockSync: Number("int"),
+ *       Positioning: { // Positioning
+ *         ClockSync: Number("int"),
+ *         Stream: Number("int"),
+ *         Gnss: Number("int"),
+ *       },
+ *       Applications: [ // Applications
+ *         { // ApplicationConfig
+ *           FPort: Number("int"),
+ *           Type: "SemtechGeolocation",
+ *           DestinationName: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Positioning: "Enabled" || "Disabled",
+ *   Sidewalk: { // SidewalkCreateWirelessDevice
+ *     DeviceProfileId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateWirelessDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWirelessDeviceCommandInput - {@link CreateWirelessDeviceCommandInput}
+ * @returns {@link CreateWirelessDeviceCommandOutput}
  * @see {@link CreateWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link CreateWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +153,9 @@ export class CreateWirelessDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWirelessDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +184,8 @@ export class CreateWirelessDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWirelessDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWirelessDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +195,18 @@ export class CreateWirelessDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWirelessDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWirelessDeviceCommand(input, context);
+    return se_CreateWirelessDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWirelessDeviceCommandOutput> {
-    return deserializeAws_restJson1CreateWirelessDeviceCommand(output, context);
+    return de_CreateWirelessDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

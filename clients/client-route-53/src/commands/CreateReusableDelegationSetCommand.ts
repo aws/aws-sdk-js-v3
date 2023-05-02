@@ -14,23 +14,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateReusableDelegationSetRequest,
-  CreateReusableDelegationSetRequestFilterSensitiveLog,
-  CreateReusableDelegationSetResponse,
-  CreateReusableDelegationSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateReusableDelegationSetCommand,
-  serializeAws_restXmlCreateReusableDelegationSetCommand,
-} from "../protocols/Aws_restXml";
+import { CreateReusableDelegationSetRequest, CreateReusableDelegationSetResponse } from "../models/models_0";
+import { de_CreateReusableDelegationSetCommand, se_CreateReusableDelegationSetCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReusableDelegationSetCommand}.
  */
 export interface CreateReusableDelegationSetCommandInput extends CreateReusableDelegationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReusableDelegationSetCommand}.
  */
 export interface CreateReusableDelegationSetCommandOutput
@@ -38,6 +34,7 @@ export interface CreateReusableDelegationSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a delegation set (a group of four name servers) that can be reused by multiple
  * 			hosted zones that were created by the same Amazon Web Services account. </p>
  *          <p>You can also create a reusable delegation set that uses the four name servers that are
@@ -102,10 +99,16 @@ export interface CreateReusableDelegationSetCommandOutput
  * import { Route53Client, CreateReusableDelegationSetCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateReusableDelegationSetCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // CreateReusableDelegationSetRequest
+ *   CallerReference: "STRING_VALUE", // required
+ *   HostedZoneId: "STRING_VALUE",
+ * };
  * const command = new CreateReusableDelegationSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReusableDelegationSetCommandInput - {@link CreateReusableDelegationSetCommandInput}
+ * @returns {@link CreateReusableDelegationSetCommandOutput}
  * @see {@link CreateReusableDelegationSetCommandInput} for command's `input` shape.
  * @see {@link CreateReusableDelegationSetCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -156,6 +159,9 @@ export class CreateReusableDelegationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReusableDelegationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,8 +191,8 @@ export class CreateReusableDelegationSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReusableDelegationSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReusableDelegationSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -196,15 +202,21 @@ export class CreateReusableDelegationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReusableDelegationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateReusableDelegationSetCommand(input, context);
+    return se_CreateReusableDelegationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReusableDelegationSetCommandOutput> {
-    return deserializeAws_restXmlCreateReusableDelegationSetCommand(output, context);
+    return de_CreateReusableDelegationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

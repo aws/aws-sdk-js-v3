@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateUserRequest,
-  CreateUserRequestFilterSensitiveLog,
-  CreateUserResponse,
-  CreateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateUserCommand,
-  serializeAws_json1_1CreateUserCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateUserRequest, CreateUserRequestFilterSensitiveLog, CreateUserResponse } from "../models/models_0";
+import { de_CreateUserCommand, se_CreateUserCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserCommand}.
  */
 export interface CreateUserCommandInput extends CreateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserCommand}.
  */
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a user who can be used in WorkMail by calling the <a>RegisterToWorkMail</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { WorkMailClient, CreateUserCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateUserCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // CreateUserRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserCommandInput - {@link CreateUserCommandInput}
+ * @returns {@link CreateUserCommandOutput}
  * @see {@link CreateUserCommandInput} for command's `input` shape.
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -99,6 +104,9 @@ export class CreateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,7 +134,7 @@ export class CreateUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +144,18 @@ export class CreateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUserCommand(input, context);
+    return se_CreateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserCommandOutput> {
-    return deserializeAws_json1_1CreateUserCommand(output, context);
+    return de_CreateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

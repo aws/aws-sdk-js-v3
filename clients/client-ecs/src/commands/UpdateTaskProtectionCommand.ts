@@ -14,32 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  UpdateTaskProtectionRequest,
-  UpdateTaskProtectionRequestFilterSensitiveLog,
-  UpdateTaskProtectionResponse,
-  UpdateTaskProtectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTaskProtectionCommand,
-  serializeAws_json1_1UpdateTaskProtectionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTaskProtectionRequest, UpdateTaskProtectionResponse } from "../models/models_0";
+import { de_UpdateTaskProtectionCommand, se_UpdateTaskProtectionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTaskProtectionCommand}.
  */
 export interface UpdateTaskProtectionCommandInput extends UpdateTaskProtectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTaskProtectionCommand}.
  */
 export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the protection status of a task. You can set <code>protectionEnabled</code> to
  * 				<code>true</code> to protect your task from termination during scale-in events from
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html">Service
  * 				Autoscaling</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">deployments</a>.</p>
- *          <p>Task-protection, by default, expires after 2 hours at which point Amazon ECS unsets the
+ *          <p>Task-protection, by default, expires after 2 hours at which point Amazon ECS clears the
  * 				<code>protectionEnabled</code> property making the task eligible for termination by
  * 			a subsequent scale-in event.</p>
  *          <p>You can specify a custom expiration period for task protection from 1 minute to up to
@@ -68,10 +65,20 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * import { ECSClient, UpdateTaskProtectionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateTaskProtectionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // UpdateTaskProtectionRequest
+ *   cluster: "STRING_VALUE", // required
+ *   tasks: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   protectionEnabled: true || false, // required
+ *   expiresInMinutes: Number("int"),
+ * };
  * const command = new UpdateTaskProtectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTaskProtectionCommandInput - {@link UpdateTaskProtectionCommandInput}
+ * @returns {@link UpdateTaskProtectionCommandOutput}
  * @see {@link UpdateTaskProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskProtectionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -200,6 +207,9 @@ export class UpdateTaskProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTaskProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -228,8 +238,8 @@ export class UpdateTaskProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTaskProtectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTaskProtectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -239,12 +249,18 @@ export class UpdateTaskProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTaskProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTaskProtectionCommand(input, context);
+    return se_UpdateTaskProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTaskProtectionCommandOutput> {
-    return deserializeAws_json1_1UpdateTaskProtectionCommand(output, context);
+    return de_UpdateTaskProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

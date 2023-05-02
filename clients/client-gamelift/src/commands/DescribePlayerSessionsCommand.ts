@@ -14,53 +14,50 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribePlayerSessionsInput,
-  DescribePlayerSessionsInputFilterSensitiveLog,
-  DescribePlayerSessionsOutput,
-  DescribePlayerSessionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePlayerSessionsCommand,
-  serializeAws_json1_1DescribePlayerSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePlayerSessionsInput, DescribePlayerSessionsOutput } from "../models/models_0";
+import { de_DescribePlayerSessionsCommand, se_DescribePlayerSessionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePlayerSessionsCommand}.
  */
 export interface DescribePlayerSessionsCommandInput extends DescribePlayerSessionsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribePlayerSessionsCommand}.
  */
 export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves properties for one or more player sessions. </p>
- *         <p>This action can be used in the following ways: </p>
- *         <ul>
+ *          <p>This action can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To retrieve a specific player session, provide the player session ID
+ *                <p>To retrieve a specific player session, provide the player session ID
  *                     only.</p>
  *             </li>
  *             <li>
- *                 <p>To retrieve all player sessions in a game session, provide the game session ID
+ *                <p>To retrieve all player sessions in a game session, provide the game session ID
  *                     only.</p>
  *             </li>
  *             <li>
- *                 <p>To retrieve all player sessions for a specific player, provide a player ID
+ *                <p>To retrieve all player sessions for a specific player, provide a player ID
  *                     only.</p>
  *             </li>
  *          </ul>
- *         <p>To request player sessions, specify either a player session ID, game session ID, or
+ *          <p>To request player sessions, specify either a player session ID, game session ID, or
  *             player ID. You can filter this request by player session status. Use the pagination
  *             parameters to retrieve results as a set of sequential pages. </p>
- *         <p>If successful, a <code>PlayerSession</code> object is returned for each session that
+ *          <p>If successful, a <code>PlayerSession</code> object is returned for each session that
  *             matches the request.</p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,10 +65,20 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  * import { GameLiftClient, DescribePlayerSessionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribePlayerSessionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribePlayerSessionsInput
+ *   GameSessionId: "STRING_VALUE",
+ *   PlayerId: "STRING_VALUE",
+ *   PlayerSessionId: "STRING_VALUE",
+ *   PlayerSessionStatusFilter: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribePlayerSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePlayerSessionsCommandInput - {@link DescribePlayerSessionsCommandInput}
+ * @returns {@link DescribePlayerSessionsCommandOutput}
  * @see {@link DescribePlayerSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribePlayerSessionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -109,6 +116,9 @@ export class DescribePlayerSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePlayerSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +147,8 @@ export class DescribePlayerSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePlayerSessionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePlayerSessionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +158,18 @@ export class DescribePlayerSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePlayerSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePlayerSessionsCommand(input, context);
+    return se_DescribePlayerSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePlayerSessionsCommandOutput> {
-    return deserializeAws_json1_1DescribePlayerSessionsCommand(output, context);
+    return de_DescribePlayerSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

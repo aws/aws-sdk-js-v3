@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  UpdateLoggerDefinitionRequest,
-  UpdateLoggerDefinitionRequestFilterSensitiveLog,
-  UpdateLoggerDefinitionResponse,
-  UpdateLoggerDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLoggerDefinitionCommand,
-  serializeAws_restJson1UpdateLoggerDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateLoggerDefinitionRequest, UpdateLoggerDefinitionResponse } from "../models/models_0";
+import { de_UpdateLoggerDefinitionCommand, se_UpdateLoggerDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLoggerDefinitionCommand}.
  */
 export interface UpdateLoggerDefinitionCommandInput extends UpdateLoggerDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLoggerDefinitionCommand}.
  */
 export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates a logger definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinit
  * import { GreengrassClient, UpdateLoggerDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateLoggerDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // UpdateLoggerDefinitionRequest
+ *   LoggerDefinitionId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateLoggerDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLoggerDefinitionCommandInput - {@link UpdateLoggerDefinitionCommandInput}
+ * @returns {@link UpdateLoggerDefinitionCommandOutput}
  * @see {@link UpdateLoggerDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateLoggerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +75,9 @@ export class UpdateLoggerDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLoggerDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class UpdateLoggerDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLoggerDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLoggerDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class UpdateLoggerDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLoggerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLoggerDefinitionCommand(input, context);
+    return se_UpdateLoggerDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLoggerDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateLoggerDefinitionCommand(output, context);
+    return de_UpdateLoggerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   DeregisterOrganizationAdminAccountRequest,
-  DeregisterOrganizationAdminAccountRequestFilterSensitiveLog,
   DeregisterOrganizationAdminAccountResponse,
-  DeregisterOrganizationAdminAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeregisterOrganizationAdminAccountCommand,
-  serializeAws_restJson1DeregisterOrganizationAdminAccountCommand,
+  de_DeregisterOrganizationAdminAccountCommand,
+  se_DeregisterOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterOrganizationAdminAccountCommand}.
  */
 export interface DeregisterOrganizationAdminAccountCommandInput extends DeregisterOrganizationAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterOrganizationAdminAccountCommand}.
  */
 export interface DeregisterOrganizationAdminAccountCommandOutput
@@ -37,6 +39,7 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified Amazon Web Services account as a delegated administrator for
  *             Audit Manager. </p>
  *          <p>When you remove a delegated administrator from your Audit Manager settings, you
@@ -103,10 +106,15 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
  * import { AuditManagerClient, DeregisterOrganizationAdminAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, DeregisterOrganizationAdminAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // DeregisterOrganizationAdminAccountRequest
+ *   adminAccountId: "STRING_VALUE",
+ * };
  * const command = new DeregisterOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterOrganizationAdminAccountCommandInput - {@link DeregisterOrganizationAdminAccountCommandInput}
+ * @returns {@link DeregisterOrganizationAdminAccountCommandOutput}
  * @see {@link DeregisterOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DeregisterOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -144,6 +152,9 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,8 +183,8 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterOrganizationAdminAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterOrganizationAdminAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -183,18 +194,24 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterOrganizationAdminAccountCommand(input, context);
+    return se_DeregisterOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_restJson1DeregisterOrganizationAdminAccountCommand(output, context);
+    return de_DeregisterOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
 import { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlobalAcceleratorClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListListenersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListListeners(
   config: GlobalAcceleratorPaginationConfiguration,
   input: ListListenersCommandInput,

@@ -12,18 +12,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlListsInputOutput, XmlListsInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlXmlEmptyListsCommand,
-  serializeAws_restXmlXmlEmptyListsCommand,
-} from "../protocols/Aws_restXml";
+import { XmlListsInputOutput } from "../models/models_0";
+import { de_XmlEmptyListsCommand, se_XmlEmptyListsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link XmlEmptyListsCommand}.
  */
 export interface XmlEmptyListsCommandInput extends XmlListsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link XmlEmptyListsCommand}.
  */
 export interface XmlEmptyListsCommandOutput extends XmlListsInputOutput, __MetadataBearer {}
@@ -36,6 +37,9 @@ export class XmlEmptyListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlEmptyListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +65,8 @@ export class XmlEmptyListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlListsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlListsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,12 +76,18 @@ export class XmlEmptyListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlEmptyListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlEmptyListsCommand(input, context);
+    return se_XmlEmptyListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyListsCommandOutput> {
-    return deserializeAws_restXmlXmlEmptyListsCommand(output, context);
+    return de_XmlEmptyListsCommand(output, context);
   }
 
   // Start section: command_body_extra

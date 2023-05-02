@@ -19,27 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  CreateUserImportJobRequest,
-  CreateUserImportJobRequestFilterSensitiveLog,
-  CreateUserImportJobResponse,
-  CreateUserImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateUserImportJobCommand,
-  serializeAws_json1_1CreateUserImportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateUserImportJobRequest, CreateUserImportJobResponse } from "../models/models_0";
+import { de_CreateUserImportJobCommand, se_CreateUserImportJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserImportJobCommand}.
  */
 export interface CreateUserImportJobCommandInput extends CreateUserImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserImportJobCommand}.
  */
 export interface CreateUserImportJobCommandOutput extends CreateUserImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the user import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,10 +44,17 @@ export interface CreateUserImportJobCommandOutput extends CreateUserImportJobRes
  * import { CognitoIdentityProviderClient, CreateUserImportJobCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, CreateUserImportJobCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // CreateUserImportJobRequest
+ *   JobName: "STRING_VALUE", // required
+ *   UserPoolId: "STRING_VALUE", // required
+ *   CloudWatchLogsRoleArn: "STRING_VALUE", // required
+ * };
  * const command = new CreateUserImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserImportJobCommandInput - {@link CreateUserImportJobCommandInput}
+ * @returns {@link CreateUserImportJobCommandOutput}
  * @see {@link CreateUserImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateUserImportJobCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -99,6 +103,9 @@ export class CreateUserImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +135,8 @@ export class CreateUserImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +146,18 @@ export class CreateUserImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUserImportJobCommand(input, context);
+    return se_CreateUserImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserImportJobCommandOutput> {
-    return deserializeAws_json1_1CreateUserImportJobCommand(output, context);
+    return de_CreateUserImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

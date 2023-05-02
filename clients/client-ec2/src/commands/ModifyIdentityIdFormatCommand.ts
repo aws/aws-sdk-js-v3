@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyIdentityIdFormatRequest, ModifyIdentityIdFormatRequestFilterSensitiveLog } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyIdentityIdFormatCommand,
-  serializeAws_ec2ModifyIdentityIdFormatCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyIdentityIdFormatRequest } from "../models/models_6";
+import { de_ModifyIdentityIdFormatCommand, se_ModifyIdentityIdFormatCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyIdentityIdFormatCommand}.
  */
 export interface ModifyIdentityIdFormatCommandInput extends ModifyIdentityIdFormatRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyIdentityIdFormatCommand}.
  */
 export interface ModifyIdentityIdFormatCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the ID format of a resource for a specified IAM user, IAM role, or the root
  *        user for an account; or all IAM users, IAM roles, and the root user for an account. You can
  *        specify that resources should receive longer IDs (17-character IDs) when they are created. </p>
@@ -58,10 +60,17 @@ export interface ModifyIdentityIdFormatCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ModifyIdentityIdFormatCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyIdentityIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyIdentityIdFormatRequest
+ *   PrincipalArn: "STRING_VALUE", // required
+ *   Resource: "STRING_VALUE", // required
+ *   UseLongIds: true || false, // required
+ * };
  * const command = new ModifyIdentityIdFormatCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyIdentityIdFormatCommandInput - {@link ModifyIdentityIdFormatCommandInput}
+ * @returns {@link ModifyIdentityIdFormatCommandOutput}
  * @see {@link ModifyIdentityIdFormatCommandInput} for command's `input` shape.
  * @see {@link ModifyIdentityIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -85,6 +94,9 @@ export class ModifyIdentityIdFormatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyIdentityIdFormatCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +125,8 @@ export class ModifyIdentityIdFormatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyIdentityIdFormatRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +136,18 @@ export class ModifyIdentityIdFormatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyIdentityIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyIdentityIdFormatCommand(input, context);
+    return se_ModifyIdentityIdFormatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyIdentityIdFormatCommandOutput> {
-    return deserializeAws_ec2ModifyIdentityIdFormatCommand(output, context);
+    return de_ModifyIdentityIdFormatCommand(output, context);
   }
 
   // Start section: command_body_extra

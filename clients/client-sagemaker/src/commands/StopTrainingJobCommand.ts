@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopTrainingJobRequest, StopTrainingJobRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopTrainingJobCommand,
-  serializeAws_json1_1StopTrainingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopTrainingJobRequest } from "../models/models_3";
+import { de_StopTrainingJobCommand, se_StopTrainingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopTrainingJobCommand}.
  */
 export interface StopTrainingJobCommandInput extends StopTrainingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopTrainingJobCommand}.
  */
 export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a training job. To stop a job, SageMaker sends the algorithm the
  *                 <code>SIGTERM</code> signal, which delays job termination for 120 seconds.
  *             Algorithms might use this 120-second window to save the model artifacts, so the results
@@ -43,10 +45,15 @@ export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopTrainingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopTrainingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopTrainingJobRequest
+ *   TrainingJobName: "STRING_VALUE", // required
+ * };
  * const command = new StopTrainingJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopTrainingJobCommandInput - {@link StopTrainingJobCommandInput}
+ * @returns {@link StopTrainingJobCommandOutput}
  * @see {@link StopTrainingJobCommandInput} for command's `input` shape.
  * @see {@link StopTrainingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +80,9 @@ export class StopTrainingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopTrainingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +111,8 @@ export class StopTrainingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTrainingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +122,18 @@ export class StopTrainingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopTrainingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTrainingJobCommand(input, context);
+    return se_StopTrainingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTrainingJobCommandOutput> {
-    return deserializeAws_json1_1StopTrainingJobCommand(output, context);
+    return de_StopTrainingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

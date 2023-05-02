@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  PutRepositoryCatalogDataRequest,
-  PutRepositoryCatalogDataRequestFilterSensitiveLog,
-  PutRepositoryCatalogDataResponse,
-  PutRepositoryCatalogDataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutRepositoryCatalogDataCommand,
-  serializeAws_json1_1PutRepositoryCatalogDataCommand,
-} from "../protocols/Aws_json1_1";
+import { PutRepositoryCatalogDataRequest, PutRepositoryCatalogDataResponse } from "../models/models_0";
+import { de_PutRepositoryCatalogDataCommand, se_PutRepositoryCatalogDataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRepositoryCatalogDataCommand}.
  */
 export interface PutRepositoryCatalogDataCommandInput extends PutRepositoryCatalogDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRepositoryCatalogDataCommand}.
  */
 export interface PutRepositoryCatalogDataCommandOutput extends PutRepositoryCatalogDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the catalog data for a repository in a public registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface PutRepositoryCatalogDataCommandOutput extends PutRepositoryCata
  * import { ECRPUBLICClient, PutRepositoryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, PutRepositoryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = { // PutRepositoryCatalogDataRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   catalogData: { // RepositoryCatalogDataInput
+ *     description: "STRING_VALUE",
+ *     architectures: [ // ArchitectureList
+ *       "STRING_VALUE",
+ *     ],
+ *     operatingSystems: [ // OperatingSystemList
+ *       "STRING_VALUE",
+ *     ],
+ *     logoImageBlob: "BLOB_VALUE",
+ *     aboutText: "STRING_VALUE",
+ *     usageText: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutRepositoryCatalogDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRepositoryCatalogDataCommandInput - {@link PutRepositoryCatalogDataCommandInput}
+ * @returns {@link PutRepositoryCatalogDataCommandOutput}
  * @see {@link PutRepositoryCatalogDataCommandInput} for command's `input` shape.
  * @see {@link PutRepositoryCatalogDataCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -83,6 +98,9 @@ export class PutRepositoryCatalogDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRepositoryCatalogDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +129,8 @@ export class PutRepositoryCatalogDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRepositoryCatalogDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRepositoryCatalogDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +140,18 @@ export class PutRepositoryCatalogDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRepositoryCatalogDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRepositoryCatalogDataCommand(input, context);
+    return se_PutRepositoryCatalogDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRepositoryCatalogDataCommandOutput> {
-    return deserializeAws_json1_1PutRepositoryCatalogDataCommand(output, context);
+    return de_PutRepositoryCatalogDataCommand(output, context);
   }
 
   // Start section: command_body_extra

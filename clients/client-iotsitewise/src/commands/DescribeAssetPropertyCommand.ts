@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribeAssetPropertyRequest,
-  DescribeAssetPropertyRequestFilterSensitiveLog,
-  DescribeAssetPropertyResponse,
-  DescribeAssetPropertyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAssetPropertyCommand,
-  serializeAws_restJson1DescribeAssetPropertyCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAssetPropertyRequest, DescribeAssetPropertyResponse } from "../models/models_0";
+import { de_DescribeAssetPropertyCommand, se_DescribeAssetPropertyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAssetPropertyCommand}.
  */
 export interface DescribeAssetPropertyCommandInput extends DescribeAssetPropertyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAssetPropertyCommand}.
  */
 export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropertyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an asset property.</p>
  *          <note>
  *             <p>When you call this operation for an attribute property, this response includes the
@@ -49,10 +46,16 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * import { IoTSiteWiseClient, DescribeAssetPropertyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeAssetPropertyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DescribeAssetPropertyRequest
+ *   assetId: "STRING_VALUE", // required
+ *   propertyId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAssetPropertyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAssetPropertyCommandInput - {@link DescribeAssetPropertyCommandInput}
+ * @returns {@link DescribeAssetPropertyCommandOutput}
  * @see {@link DescribeAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link DescribeAssetPropertyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -92,6 +95,9 @@ export class DescribeAssetPropertyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAssetPropertyCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +126,8 @@ export class DescribeAssetPropertyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAssetPropertyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAssetPropertyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +137,18 @@ export class DescribeAssetPropertyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAssetPropertyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAssetPropertyCommand(input, context);
+    return se_DescribeAssetPropertyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAssetPropertyCommandOutput> {
-    return deserializeAws_restJson1DescribeAssetPropertyCommand(output, context);
+    return de_DescribeAssetPropertyCommand(output, context);
   }
 
   // Start section: command_body_extra

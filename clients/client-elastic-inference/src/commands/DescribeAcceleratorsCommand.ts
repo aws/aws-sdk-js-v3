@@ -14,29 +14,31 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticInferenceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticInferenceClient";
-import {
-  DescribeAcceleratorsRequest,
-  DescribeAcceleratorsRequestFilterSensitiveLog,
-  DescribeAcceleratorsResponse,
-  DescribeAcceleratorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAcceleratorsCommand,
-  serializeAws_restJson1DescribeAcceleratorsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAcceleratorsRequest, DescribeAcceleratorsResponse } from "../models/models_0";
+import { de_DescribeAcceleratorsCommand, se_DescribeAcceleratorsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAcceleratorsCommand}.
  */
 export interface DescribeAcceleratorsCommandInput extends DescribeAcceleratorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAcceleratorsCommand}.
  */
 export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Describes information over a provided set of accelerators belonging to an account.
+ *         </p>
+ *          <p>
+ *             February 15, 2023: Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance.
+ *             After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2.
+ *             However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
  *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +46,27 @@ export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsR
  * import { ElasticInferenceClient, DescribeAcceleratorsCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
  * // const { ElasticInferenceClient, DescribeAcceleratorsCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
  * const client = new ElasticInferenceClient(config);
+ * const input = { // DescribeAcceleratorsRequest
+ *   acceleratorIds: [ // AcceleratorIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [ // FilterList
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAcceleratorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAcceleratorsCommandInput - {@link DescribeAcceleratorsCommandInput}
+ * @returns {@link DescribeAcceleratorsCommandOutput}
  * @see {@link DescribeAcceleratorsCommandInput} for command's `input` shape.
  * @see {@link DescribeAcceleratorsCommandOutput} for command's `response` shape.
  * @see {@link ElasticInferenceClientResolvedConfig | config} for ElasticInferenceClient's `config` shape.
@@ -86,6 +105,9 @@ export class DescribeAcceleratorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAcceleratorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +136,8 @@ export class DescribeAcceleratorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAcceleratorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAcceleratorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +147,18 @@ export class DescribeAcceleratorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAcceleratorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAcceleratorsCommand(input, context);
+    return se_DescribeAcceleratorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAcceleratorsCommandOutput> {
-    return deserializeAws_restJson1DescribeAcceleratorsCommand(output, context);
+    return de_DescribeAcceleratorsCommand(output, context);
   }
 
   // Start section: command_body_extra

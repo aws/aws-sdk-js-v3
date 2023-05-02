@@ -16,21 +16,23 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   PutSipMediaApplicationLoggingConfigurationRequest,
-  PutSipMediaApplicationLoggingConfigurationRequestFilterSensitiveLog,
   PutSipMediaApplicationLoggingConfigurationResponse,
-  PutSipMediaApplicationLoggingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1PutSipMediaApplicationLoggingConfigurationCommand,
-  serializeAws_restJson1PutSipMediaApplicationLoggingConfigurationCommand,
+  de_PutSipMediaApplicationLoggingConfigurationCommand,
+  se_PutSipMediaApplicationLoggingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSipMediaApplicationLoggingConfigurationCommand}.
  */
 export interface PutSipMediaApplicationLoggingConfigurationCommandInput
   extends PutSipMediaApplicationLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSipMediaApplicationLoggingConfigurationCommand}.
  */
 export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
@@ -38,6 +40,7 @@ export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the logging configuration for the specified SIP media application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,18 @@ export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
  * import { ChimeClient, PutSipMediaApplicationLoggingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutSipMediaApplicationLoggingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // PutSipMediaApplicationLoggingConfigurationRequest
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   SipMediaApplicationLoggingConfiguration: { // SipMediaApplicationLoggingConfiguration
+ *     EnableSipMediaApplicationMessageLogs: true || false,
+ *   },
+ * };
  * const command = new PutSipMediaApplicationLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSipMediaApplicationLoggingConfigurationCommandInput - {@link PutSipMediaApplicationLoggingConfigurationCommandInput}
+ * @returns {@link PutSipMediaApplicationLoggingConfigurationCommandOutput}
  * @see {@link PutSipMediaApplicationLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutSipMediaApplicationLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +104,9 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSipMediaApplicationLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +141,8 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSipMediaApplicationLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSipMediaApplicationLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,18 +152,24 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutSipMediaApplicationLoggingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSipMediaApplicationLoggingConfigurationCommand(input, context);
+    return se_PutSipMediaApplicationLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutSipMediaApplicationLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutSipMediaApplicationLoggingConfigurationCommand(output, context);
+    return de_PutSipMediaApplicationLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

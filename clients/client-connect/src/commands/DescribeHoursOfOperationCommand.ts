@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeHoursOfOperationRequest,
-  DescribeHoursOfOperationRequestFilterSensitiveLog,
-  DescribeHoursOfOperationResponse,
-  DescribeHoursOfOperationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeHoursOfOperationCommand,
-  serializeAws_restJson1DescribeHoursOfOperationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeHoursOfOperationRequest, DescribeHoursOfOperationResponse } from "../models/models_0";
+import { de_DescribeHoursOfOperationCommand, se_DescribeHoursOfOperationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHoursOfOperationCommand}.
  */
 export interface DescribeHoursOfOperationCommandInput extends DescribeHoursOfOperationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHoursOfOperationCommand}.
  */
 export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOperationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the hours of operation.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOp
  * import { ConnectClient, DescribeHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeHoursOfOperationRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   HoursOfOperationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHoursOfOperationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHoursOfOperationCommandInput - {@link DescribeHoursOfOperationCommandInput}
+ * @returns {@link DescribeHoursOfOperationCommandOutput}
  * @see {@link DescribeHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link DescribeHoursOfOperationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +88,9 @@ export class DescribeHoursOfOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHoursOfOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class DescribeHoursOfOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHoursOfOperationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHoursOfOperationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class DescribeHoursOfOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHoursOfOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeHoursOfOperationCommand(input, context);
+    return se_DescribeHoursOfOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHoursOfOperationCommandOutput> {
-    return deserializeAws_restJson1DescribeHoursOfOperationCommand(output, context);
+    return de_DescribeHoursOfOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

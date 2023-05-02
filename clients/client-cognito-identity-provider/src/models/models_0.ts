@@ -3,13 +3,23 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { CognitoIdentityProviderServiceException as __BaseException } from "./CognitoIdentityProviderServiceException";
 
-export enum RecoveryOptionNameType {
-  ADMIN_ONLY = "admin_only",
-  VERIFIED_EMAIL = "verified_email",
-  VERIFIED_PHONE_NUMBER = "verified_phone_number",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecoveryOptionNameType = {
+  ADMIN_ONLY: "admin_only",
+  VERIFIED_EMAIL: "verified_email",
+  VERIFIED_PHONE_NUMBER: "verified_phone_number",
+} as const;
 
 /**
+ * @public
+ */
+export type RecoveryOptionNameType = (typeof RecoveryOptionNameType)[keyof typeof RecoveryOptionNameType];
+
+/**
+ * @public
  * <p>A map containing a priority as a key, and recovery method name as a value.</p>
  */
 export interface RecoveryOptionType {
@@ -26,6 +36,7 @@ export interface RecoveryOptionType {
 }
 
 /**
+ * @public
  * <p>The data type for <code>AccountRecoverySetting</code>.</p>
  */
 export interface AccountRecoverySettingType {
@@ -35,14 +46,25 @@ export interface AccountRecoverySettingType {
   RecoveryMechanisms?: RecoveryOptionType[];
 }
 
-export enum AccountTakeoverEventActionType {
-  BLOCK = "BLOCK",
-  MFA_IF_CONFIGURED = "MFA_IF_CONFIGURED",
-  MFA_REQUIRED = "MFA_REQUIRED",
-  NO_ACTION = "NO_ACTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccountTakeoverEventActionType = {
+  BLOCK: "BLOCK",
+  MFA_IF_CONFIGURED: "MFA_IF_CONFIGURED",
+  MFA_REQUIRED: "MFA_REQUIRED",
+  NO_ACTION: "NO_ACTION",
+} as const;
 
 /**
+ * @public
+ */
+export type AccountTakeoverEventActionType =
+  (typeof AccountTakeoverEventActionType)[keyof typeof AccountTakeoverEventActionType];
+
+/**
+ * @public
  * <p>Account takeover action type.</p>
  */
 export interface AccountTakeoverActionType {
@@ -79,6 +101,7 @@ export interface AccountTakeoverActionType {
 }
 
 /**
+ * @public
  * <p>Account takeover actions type.</p>
  */
 export interface AccountTakeoverActionsType {
@@ -99,6 +122,7 @@ export interface AccountTakeoverActionsType {
 }
 
 /**
+ * @public
  * <p>The notify email type.</p>
  */
 export interface NotifyEmailType {
@@ -119,6 +143,7 @@ export interface NotifyEmailType {
 }
 
 /**
+ * @public
  * <p>The notify configuration type.</p>
  */
 export interface NotifyConfigurationType {
@@ -158,6 +183,7 @@ export interface NotifyConfigurationType {
 }
 
 /**
+ * @public
  * <p>Configuration for mitigation actions and notification for different levels of risk
  *             detected for a potential account takeover.</p>
  */
@@ -173,14 +199,24 @@ export interface AccountTakeoverRiskConfigurationType {
   Actions: AccountTakeoverActionsType | undefined;
 }
 
-export enum AttributeDataType {
-  BOOLEAN = "Boolean",
-  DATETIME = "DateTime",
-  NUMBER = "Number",
-  STRING = "String",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AttributeDataType = {
+  BOOLEAN: "Boolean",
+  DATETIME: "DateTime",
+  NUMBER: "Number",
+  STRING: "String",
+} as const;
 
 /**
+ * @public
+ */
+export type AttributeDataType = (typeof AttributeDataType)[keyof typeof AttributeDataType];
+
+/**
+ * @public
  * <p>The minimum and maximum values of an attribute that is of the number data type.</p>
  */
 export interface NumberAttributeConstraintsType {
@@ -196,6 +232,7 @@ export interface NumberAttributeConstraintsType {
 }
 
 /**
+ * @public
  * <p>The constraints associated with a string attribute.</p>
  */
 export interface StringAttributeConstraintsType {
@@ -211,6 +248,7 @@ export interface StringAttributeConstraintsType {
 }
 
 /**
+ * @public
  * <p>Contains information about the schema attribute.</p>
  */
 export interface SchemaAttributeType {
@@ -265,6 +303,7 @@ export interface SchemaAttributeType {
 }
 
 /**
+ * @public
  * <p>Represents the request to add custom attributes.</p>
  */
 export interface AddCustomAttributesRequest {
@@ -280,12 +319,14 @@ export interface AddCustomAttributesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server for the request to add custom
  *             attributes.</p>
  */
 export interface AddCustomAttributesResponse {}
 
 /**
+ * @public
  * <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
  */
 export class InternalErrorException extends __BaseException {
@@ -305,6 +346,7 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the Amazon Cognito service encounters an invalid
  *             parameter.</p>
  */
@@ -325,6 +367,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when a user isn't authorized.</p>
  */
 export class NotAuthorizedException extends __BaseException {
@@ -344,6 +387,7 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
  */
@@ -364,6 +408,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  */
@@ -384,6 +429,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when you're trying to modify a user pool while a user import
  *             job is in progress for that pool.</p>
  */
@@ -403,6 +449,9 @@ export class UserImportInProgressException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AdminAddUserToGroupRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -421,6 +470,7 @@ export interface AdminAddUserToGroupRequest {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when a user isn't found.</p>
  */
 export class UserNotFoundException extends __BaseException {
@@ -440,6 +490,7 @@ export class UserNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the request to confirm user registration.</p>
  */
 export interface AdminConfirmSignUpRequest {
@@ -492,12 +543,14 @@ export interface AdminConfirmSignUpRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server for the request to confirm
  *             registration.</p>
  */
 export interface AdminConfirmSignUpResponse {}
 
 /**
+ * @public
  * <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
  */
 export class InvalidLambdaResponseException extends __BaseException {
@@ -517,6 +570,7 @@ export class InvalidLambdaResponseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
  *             resource.</p>
  */
@@ -537,6 +591,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the user has made too many failed attempts for a given
  *             action, such as sign-in.</p>
  */
@@ -557,6 +612,7 @@ export class TooManyFailedAttemptsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with
  *             Lambda.</p>
  */
@@ -577,6 +633,7 @@ export class UnexpectedLambdaException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
  *             with the Lambda service.</p>
  */
@@ -596,17 +653,36 @@ export class UserLambdaValidationException extends __BaseException {
   }
 }
 
-export enum DeliveryMediumType {
-  EMAIL = "EMAIL",
-  SMS = "SMS",
-}
-
-export enum MessageActionType {
-  RESEND = "RESEND",
-  SUPPRESS = "SUPPRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeliveryMediumType = {
+  EMAIL: "EMAIL",
+  SMS: "SMS",
+} as const;
 
 /**
+ * @public
+ */
+export type DeliveryMediumType = (typeof DeliveryMediumType)[keyof typeof DeliveryMediumType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MessageActionType = {
+  RESEND: "RESEND",
+  SUPPRESS: "SUPPRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageActionType = (typeof MessageActionType)[keyof typeof MessageActionType];
+
+/**
+ * @public
  * <p>Specifies whether the attribute is standard or custom.</p>
  */
 export interface AttributeType {
@@ -622,6 +698,7 @@ export interface AttributeType {
 }
 
 /**
+ * @public
  * <p>Represents the request to create a user in the specified user pool.</p>
  */
 export interface AdminCreateUserRequest {
@@ -770,6 +847,7 @@ export interface AdminCreateUserRequest {
 }
 
 /**
+ * @public
  * <p>
  *             <i>This data type is no longer supported.</i> Applies only to SMS
  *             multi-factor authentication (MFA) configurations. Does not apply to time-based one-time
@@ -789,17 +867,27 @@ export interface MFAOptionType {
   AttributeName?: string;
 }
 
-export enum UserStatusType {
-  ARCHIVED = "ARCHIVED",
-  COMPROMISED = "COMPROMISED",
-  CONFIRMED = "CONFIRMED",
-  FORCE_CHANGE_PASSWORD = "FORCE_CHANGE_PASSWORD",
-  RESET_REQUIRED = "RESET_REQUIRED",
-  UNCONFIRMED = "UNCONFIRMED",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UserStatusType = {
+  ARCHIVED: "ARCHIVED",
+  COMPROMISED: "COMPROMISED",
+  CONFIRMED: "CONFIRMED",
+  FORCE_CHANGE_PASSWORD: "FORCE_CHANGE_PASSWORD",
+  RESET_REQUIRED: "RESET_REQUIRED",
+  UNCONFIRMED: "UNCONFIRMED",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type UserStatusType = (typeof UserStatusType)[keyof typeof UserStatusType];
+
+/**
+ * @public
  * <p>A user profile in a Amazon Cognito user pool.</p>
  */
 export interface UserType {
@@ -866,6 +954,7 @@ export interface UserType {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server to the request to create the user.</p>
  */
 export interface AdminCreateUserResponse {
@@ -876,6 +965,7 @@ export interface AdminCreateUserResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when a verification code fails to deliver
  *             successfully.</p>
  */
@@ -896,6 +986,7 @@ export class CodeDeliveryFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
  */
 export class InvalidPasswordException extends __BaseException {
@@ -915,6 +1006,7 @@ export class InvalidPasswordException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is returned when the role provided for SMS configuration doesn't have
  *             permission to publish using Amazon SNS.</p>
  */
@@ -935,6 +1027,7 @@ export class InvalidSmsRoleAccessPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
  *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
@@ -957,6 +1050,7 @@ export class InvalidSmsRoleTrustRelationshipException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when a precondition is not met.</p>
  */
 export class PreconditionNotMetException extends __BaseException {
@@ -976,6 +1070,7 @@ export class PreconditionNotMetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed because the user is in an unsupported state.</p>
  */
 export class UnsupportedUserStateException extends __BaseException {
@@ -995,6 +1090,7 @@ export class UnsupportedUserStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when Amazon Cognito encounters a user name that already
  *             exists in the user pool.</p>
  */
@@ -1015,6 +1111,7 @@ export class UsernameExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The message template structure.</p>
  */
 export interface MessageTemplateType {
@@ -1035,6 +1132,7 @@ export interface MessageTemplateType {
 }
 
 /**
+ * @public
  * <p>The configuration for creating a new user profile.</p>
  */
 export interface AdminCreateUserConfigType {
@@ -1066,6 +1164,7 @@ export interface AdminCreateUserConfigType {
 }
 
 /**
+ * @public
  * <p>Represents the request to delete a user as an administrator.</p>
  */
 export interface AdminDeleteUserRequest {
@@ -1081,6 +1180,7 @@ export interface AdminDeleteUserRequest {
 }
 
 /**
+ * @public
  * <p>Represents the request to delete user attributes as an administrator.</p>
  */
 export interface AdminDeleteUserAttributesRequest {
@@ -1103,12 +1203,14 @@ export interface AdminDeleteUserAttributesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response received from the server for a request to delete user
  *             attributes.</p>
  */
 export interface AdminDeleteUserAttributesResponse {}
 
 /**
+ * @public
  * <p>A container for information about an IdP for a user pool.</p>
  */
 export interface ProviderUserIdentifierType {
@@ -1129,6 +1231,9 @@ export interface ProviderUserIdentifierType {
   ProviderAttributeValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface AdminDisableProviderForUserRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -1141,9 +1246,13 @@ export interface AdminDisableProviderForUserRequest {
   User: ProviderUserIdentifierType | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AdminDisableProviderForUserResponse {}
 
 /**
+ * @public
  * <p>This exception is thrown when a user tries to confirm the account with an email
  *             address or phone number that has already been supplied as an alias for a different
  *             user profile. This exception indicates that an account with this email address or phone
@@ -1167,6 +1276,7 @@ export class AliasExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the request to disable the user as an administrator.</p>
  */
 export interface AdminDisableUserRequest {
@@ -1182,12 +1292,14 @@ export interface AdminDisableUserRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response received from the server to disable the user as an
  *             administrator.</p>
  */
 export interface AdminDisableUserResponse {}
 
 /**
+ * @public
  * <p>Represents the request that enables the user as an administrator.</p>
  */
 export interface AdminEnableUserRequest {
@@ -1203,12 +1315,14 @@ export interface AdminEnableUserRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server for the request to enable a user as an
  *             administrator.</p>
  */
 export interface AdminEnableUserResponse {}
 
 /**
+ * @public
  * <p>Sends the forgot device request, as an administrator.</p>
  */
 export interface AdminForgetDeviceRequest {
@@ -1229,6 +1343,7 @@ export interface AdminForgetDeviceRequest {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the user pool configuration is not valid.</p>
  */
 export class InvalidUserPoolConfigurationException extends __BaseException {
@@ -1248,6 +1363,7 @@ export class InvalidUserPoolConfigurationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the request to get the device, as an administrator.</p>
  */
 export interface AdminGetDeviceRequest {
@@ -1268,6 +1384,7 @@ export interface AdminGetDeviceRequest {
 }
 
 /**
+ * @public
  * <p>The device type.</p>
  */
 export interface DeviceType {
@@ -1298,6 +1415,7 @@ export interface DeviceType {
 }
 
 /**
+ * @public
  * <p>Gets the device response, as an administrator.</p>
  */
 export interface AdminGetDeviceResponse {
@@ -1308,6 +1426,7 @@ export interface AdminGetDeviceResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to get the specified user as an administrator.</p>
  */
 export interface AdminGetUserRequest {
@@ -1324,6 +1443,7 @@ export interface AdminGetUserRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server from the request to get the specified user as
  *             an administrator.</p>
  */
@@ -1404,6 +1524,7 @@ export interface AdminGetUserResponse {
 }
 
 /**
+ * @public
  * <p>An Amazon Pinpoint analytics endpoint.</p>
  *         <p>An endpoint uniquely identifies a mobile device, email address, or phone number that
  *             can receive messages from Amazon Pinpoint analytics. For more information about Amazon Web Services Regions that
@@ -1416,17 +1537,27 @@ export interface AnalyticsMetadataType {
   AnalyticsEndpointId?: string;
 }
 
-export enum AuthFlowType {
-  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
-  ADMIN_USER_PASSWORD_AUTH = "ADMIN_USER_PASSWORD_AUTH",
-  CUSTOM_AUTH = "CUSTOM_AUTH",
-  REFRESH_TOKEN = "REFRESH_TOKEN",
-  REFRESH_TOKEN_AUTH = "REFRESH_TOKEN_AUTH",
-  USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH",
-  USER_SRP_AUTH = "USER_SRP_AUTH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthFlowType = {
+  ADMIN_NO_SRP_AUTH: "ADMIN_NO_SRP_AUTH",
+  ADMIN_USER_PASSWORD_AUTH: "ADMIN_USER_PASSWORD_AUTH",
+  CUSTOM_AUTH: "CUSTOM_AUTH",
+  REFRESH_TOKEN: "REFRESH_TOKEN",
+  REFRESH_TOKEN_AUTH: "REFRESH_TOKEN_AUTH",
+  USER_PASSWORD_AUTH: "USER_PASSWORD_AUTH",
+  USER_SRP_AUTH: "USER_SRP_AUTH",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthFlowType = (typeof AuthFlowType)[keyof typeof AuthFlowType];
+
+/**
+ * @public
  * <p>The HTTP header.</p>
  */
 export interface HttpHeader {
@@ -1442,6 +1573,7 @@ export interface HttpHeader {
 }
 
 /**
+ * @public
  * <p>Contextual user data type used for evaluating the risk of an unexpected event by Amazon Cognito
  *             advanced security.</p>
  */
@@ -1474,6 +1606,7 @@ export interface ContextDataType {
 }
 
 /**
+ * @public
  * <p>Initiates the authorization request, as an administrator.</p>
  */
 export interface AdminInitiateAuthRequest {
@@ -1660,6 +1793,7 @@ export interface AdminInitiateAuthRequest {
 }
 
 /**
+ * @public
  * <p>The new device metadata type.</p>
  */
 export interface NewDeviceMetadataType {
@@ -1675,6 +1809,7 @@ export interface NewDeviceMetadataType {
 }
 
 /**
+ * @public
  * <p>The authentication result.</p>
  */
 export interface AuthenticationResultType {
@@ -1710,20 +1845,30 @@ export interface AuthenticationResultType {
   NewDeviceMetadata?: NewDeviceMetadataType;
 }
 
-export enum ChallengeNameType {
-  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
-  CUSTOM_CHALLENGE = "CUSTOM_CHALLENGE",
-  DEVICE_PASSWORD_VERIFIER = "DEVICE_PASSWORD_VERIFIER",
-  DEVICE_SRP_AUTH = "DEVICE_SRP_AUTH",
-  MFA_SETUP = "MFA_SETUP",
-  NEW_PASSWORD_REQUIRED = "NEW_PASSWORD_REQUIRED",
-  PASSWORD_VERIFIER = "PASSWORD_VERIFIER",
-  SELECT_MFA_TYPE = "SELECT_MFA_TYPE",
-  SMS_MFA = "SMS_MFA",
-  SOFTWARE_TOKEN_MFA = "SOFTWARE_TOKEN_MFA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChallengeNameType = {
+  ADMIN_NO_SRP_AUTH: "ADMIN_NO_SRP_AUTH",
+  CUSTOM_CHALLENGE: "CUSTOM_CHALLENGE",
+  DEVICE_PASSWORD_VERIFIER: "DEVICE_PASSWORD_VERIFIER",
+  DEVICE_SRP_AUTH: "DEVICE_SRP_AUTH",
+  MFA_SETUP: "MFA_SETUP",
+  NEW_PASSWORD_REQUIRED: "NEW_PASSWORD_REQUIRED",
+  PASSWORD_VERIFIER: "PASSWORD_VERIFIER",
+  SELECT_MFA_TYPE: "SELECT_MFA_TYPE",
+  SMS_MFA: "SMS_MFA",
+  SOFTWARE_TOKEN_MFA: "SOFTWARE_TOKEN_MFA",
+} as const;
 
 /**
+ * @public
+ */
+export type ChallengeNameType = (typeof ChallengeNameType)[keyof typeof ChallengeNameType];
+
+/**
+ * @public
  * <p>Initiates the authentication response, as an administrator.</p>
  */
 export interface AdminInitiateAuthResponse {
@@ -1848,6 +1993,7 @@ export interface AdminInitiateAuthResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when Amazon Cognito can't find a multi-factor authentication
  *             (MFA) method.</p>
  */
@@ -1868,6 +2014,7 @@ export class MFAMethodNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when a password reset is required.</p>
  */
 export class PasswordResetRequiredException extends __BaseException {
@@ -1887,6 +2034,7 @@ export class PasswordResetRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when a user isn't confirmed successfully.</p>
  */
 export class UserNotConfirmedException extends __BaseException {
@@ -1905,6 +2053,9 @@ export class UserNotConfirmedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AdminLinkProviderForUserRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -1957,9 +2108,13 @@ export interface AdminLinkProviderForUserRequest {
   SourceUser: ProviderUserIdentifierType | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AdminLinkProviderForUserResponse {}
 
 /**
+ * @public
  * <p>Represents the request to list devices, as an administrator.</p>
  */
 export interface AdminListDevicesRequest {
@@ -1985,6 +2140,7 @@ export interface AdminListDevicesRequest {
 }
 
 /**
+ * @public
  * <p>Lists the device's response, as an administrator.</p>
  */
 export interface AdminListDevicesResponse {
@@ -1999,6 +2155,9 @@ export interface AdminListDevicesResponse {
   PaginationToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface AdminListGroupsForUserRequest {
   /**
    * <p>The username for the user.</p>
@@ -2023,6 +2182,7 @@ export interface AdminListGroupsForUserRequest {
 }
 
 /**
+ * @public
  * <p>The group type.</p>
  */
 export interface GroupType {
@@ -2075,6 +2235,9 @@ export interface GroupType {
   CreationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AdminListGroupsForUserResponse {
   /**
    * <p>The groups that the user belongs to.</p>
@@ -2088,6 +2251,9 @@ export interface AdminListGroupsForUserResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface AdminListUserAuthEventsRequest {
   /**
    * <p>The user pool ID.</p>
@@ -2112,17 +2278,36 @@ export interface AdminListUserAuthEventsRequest {
   NextToken?: string;
 }
 
-export enum ChallengeName {
-  Mfa = "Mfa",
-  Password = "Password",
-}
-
-export enum ChallengeResponse {
-  Failure = "Failure",
-  Success = "Success",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChallengeName = {
+  Mfa: "Mfa",
+  Password: "Password",
+} as const;
 
 /**
+ * @public
+ */
+export type ChallengeName = (typeof ChallengeName)[keyof typeof ChallengeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChallengeResponse = {
+  Failure: "Failure",
+  Success: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type ChallengeResponse = (typeof ChallengeResponse)[keyof typeof ChallengeResponse];
+
+/**
+ * @public
  * <p>The challenge response type.</p>
  */
 export interface ChallengeResponseType {
@@ -2138,6 +2323,7 @@ export interface ChallengeResponseType {
 }
 
 /**
+ * @public
  * <p>Specifies the user context data captured at the time of an event request.</p>
  */
 export interface EventContextDataType {
@@ -2167,12 +2353,22 @@ export interface EventContextDataType {
   Country?: string;
 }
 
-export enum FeedbackValueType {
-  INVALID = "Invalid",
-  VALID = "Valid",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FeedbackValueType = {
+  INVALID: "Invalid",
+  VALID: "Valid",
+} as const;
 
 /**
+ * @public
+ */
+export type FeedbackValueType = (typeof FeedbackValueType)[keyof typeof FeedbackValueType];
+
+/**
+ * @public
  * <p>Specifies the event feedback type.</p>
  */
 export interface EventFeedbackType {
@@ -2192,25 +2388,53 @@ export interface EventFeedbackType {
   FeedbackDate?: Date;
 }
 
-export enum EventResponseType {
-  Fail = "Fail",
-  InProgress = "InProgress",
-  Pass = "Pass",
-}
-
-export enum RiskDecisionType {
-  AccountTakeover = "AccountTakeover",
-  Block = "Block",
-  NoRisk = "NoRisk",
-}
-
-export enum RiskLevelType {
-  High = "High",
-  Low = "Low",
-  Medium = "Medium",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventResponseType = {
+  Fail: "Fail",
+  InProgress: "InProgress",
+  Pass: "Pass",
+} as const;
 
 /**
+ * @public
+ */
+export type EventResponseType = (typeof EventResponseType)[keyof typeof EventResponseType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RiskDecisionType = {
+  AccountTakeover: "AccountTakeover",
+  Block: "Block",
+  NoRisk: "NoRisk",
+} as const;
+
+/**
+ * @public
+ */
+export type RiskDecisionType = (typeof RiskDecisionType)[keyof typeof RiskDecisionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RiskLevelType = {
+  High: "High",
+  Low: "Low",
+  Medium: "Medium",
+} as const;
+
+/**
+ * @public
+ */
+export type RiskLevelType = (typeof RiskLevelType)[keyof typeof RiskLevelType];
+
+/**
+ * @public
  * <p>The event risk type.</p>
  */
 export interface EventRiskType {
@@ -2231,15 +2455,25 @@ export interface EventRiskType {
   CompromisedCredentialsDetected?: boolean;
 }
 
-export enum EventType {
-  ForgotPassword = "ForgotPassword",
-  PasswordChange = "PasswordChange",
-  ResendCode = "ResendCode",
-  SignIn = "SignIn",
-  SignUp = "SignUp",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  ForgotPassword: "ForgotPassword",
+  PasswordChange: "PasswordChange",
+  ResendCode: "ResendCode",
+  SignIn: "SignIn",
+  SignUp: "SignUp",
+} as const;
 
 /**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * @public
  * <p>The authentication event type.</p>
  */
 export interface AuthEventType {
@@ -2286,6 +2520,9 @@ export interface AuthEventType {
   EventFeedback?: EventFeedbackType;
 }
 
+/**
+ * @public
+ */
 export interface AdminListUserAuthEventsResponse {
   /**
    * <p>The response object. It includes the <code>EventID</code>, <code>EventType</code>,
@@ -2301,6 +2538,7 @@ export interface AdminListUserAuthEventsResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when user pool add-ons aren't enabled.</p>
  */
 export class UserPoolAddOnNotEnabledException extends __BaseException {
@@ -2319,6 +2557,9 @@ export class UserPoolAddOnNotEnabledException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AdminRemoveUserFromGroupRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -2337,6 +2578,7 @@ export interface AdminRemoveUserFromGroupRequest {
 }
 
 /**
+ * @public
  * <p>Represents the request to reset a user's password as an administrator.</p>
  */
 export interface AdminResetUserPasswordRequest {
@@ -2389,12 +2631,14 @@ export interface AdminResetUserPasswordRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server to reset a user password as an
  *             administrator.</p>
  */
 export interface AdminResetUserPasswordResponse {}
 
 /**
+ * @public
  * <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
  *             status code: 400.</p>
  */
@@ -2415,6 +2659,7 @@ export class InvalidEmailRoleAccessPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request to respond to the authentication challenge, as an administrator.</p>
  */
 export interface AdminRespondToAuthChallengeRequest {
@@ -2582,6 +2827,7 @@ export interface AdminRespondToAuthChallengeRequest {
 }
 
 /**
+ * @public
  * <p>Responds to the authentication challenge, as an administrator.</p>
  */
 export interface AdminRespondToAuthChallengeResponse {
@@ -2610,6 +2856,7 @@ export interface AdminRespondToAuthChallengeResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown if the provided code doesn't match what the server was
  *             expecting.</p>
  */
@@ -2630,6 +2877,7 @@ export class CodeMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown if a code has expired.</p>
  */
 export class ExpiredCodeException extends __BaseException {
@@ -2649,6 +2897,7 @@ export class ExpiredCodeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the software token time-based one-time password (TOTP)
  *             multi-factor authentication (MFA) isn't activated for the user pool.</p>
  */
@@ -2669,6 +2918,7 @@ export class SoftwareTokenMFANotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The type used for enabling SMS multi-factor authentication (MFA) at the user level.
  *             Phone numbers don't need to be verified to be used for SMS MFA. If an MFA type is
  *             activated for a user, the user will be prompted for MFA during all sign-in attempts,
@@ -2691,6 +2941,7 @@ export interface SMSMfaSettingsType {
 }
 
 /**
+ * @public
  * <p>The type used for enabling software token MFA at the user level. If an MFA type is
  *             activated for a user, the user will be prompted for MFA during all sign-in attempts,
  *             unless device tracking is turned on and the device has been trusted. If you want MFA to
@@ -2711,6 +2962,9 @@ export interface SoftwareTokenMfaSettingsType {
   PreferredMfa?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AdminSetUserMFAPreferenceRequest {
   /**
    * <p>The SMS text message MFA settings.</p>
@@ -2733,8 +2987,14 @@ export interface AdminSetUserMFAPreferenceRequest {
   UserPoolId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AdminSetUserMFAPreferenceResponse {}
 
+/**
+ * @public
+ */
 export interface AdminSetUserPasswordRequest {
   /**
    * <p>The user pool ID for the user pool where you want to set the user's password.</p>
@@ -2759,9 +3019,13 @@ export interface AdminSetUserPasswordRequest {
   Permanent?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AdminSetUserPasswordResponse {}
 
 /**
+ * @public
  * <p>You can use this parameter to set an MFA configuration that uses the SMS delivery
  *             medium.</p>
  */
@@ -2784,11 +3048,15 @@ export interface AdminSetUserSettingsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server to set user settings as an
  *             administrator.</p>
  */
 export interface AdminSetUserSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface AdminUpdateAuthEventFeedbackRequest {
   /**
    * <p>The user pool ID.</p>
@@ -2811,14 +3079,27 @@ export interface AdminUpdateAuthEventFeedbackRequest {
   FeedbackValue: FeedbackValueType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AdminUpdateAuthEventFeedbackResponse {}
 
-export enum DeviceRememberedStatusType {
-  NOT_REMEMBERED = "not_remembered",
-  REMEMBERED = "remembered",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceRememberedStatusType = {
+  NOT_REMEMBERED: "not_remembered",
+  REMEMBERED: "remembered",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceRememberedStatusType = (typeof DeviceRememberedStatusType)[keyof typeof DeviceRememberedStatusType];
+
+/**
+ * @public
  * <p>The request to update the device status, as an administrator.</p>
  */
 export interface AdminUpdateDeviceStatusRequest {
@@ -2844,11 +3125,13 @@ export interface AdminUpdateDeviceStatusRequest {
 }
 
 /**
+ * @public
  * <p>The status response to the request to update the device, as an administrator.</p>
  */
 export interface AdminUpdateDeviceStatusResponse {}
 
 /**
+ * @public
  * <p>Represents the request to update the user's attributes as an administrator.</p>
  */
 export interface AdminUpdateUserAttributesRequest {
@@ -2920,12 +3203,14 @@ export interface AdminUpdateUserAttributesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server for the request to update user attributes as
  *             an administrator.</p>
  */
 export interface AdminUpdateUserAttributesResponse {}
 
 /**
+ * @public
  * <p>The request to sign out of all devices, as an administrator.</p>
  */
 export interface AdminUserGlobalSignOutRequest {
@@ -2941,23 +3226,43 @@ export interface AdminUserGlobalSignOutRequest {
 }
 
 /**
+ * @public
  * <p>The global sign-out response, as an administrator.</p>
  */
 export interface AdminUserGlobalSignOutResponse {}
 
-export enum AdvancedSecurityModeType {
-  AUDIT = "AUDIT",
-  ENFORCED = "ENFORCED",
-  OFF = "OFF",
-}
-
-export enum AliasAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number",
-  PREFERRED_USERNAME = "preferred_username",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AdvancedSecurityModeType = {
+  AUDIT: "AUDIT",
+  ENFORCED: "ENFORCED",
+  OFF: "OFF",
+} as const;
 
 /**
+ * @public
+ */
+export type AdvancedSecurityModeType = (typeof AdvancedSecurityModeType)[keyof typeof AdvancedSecurityModeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AliasAttributeType = {
+  EMAIL: "email",
+  PHONE_NUMBER: "phone_number",
+  PREFERRED_USERNAME: "preferred_username",
+} as const;
+
+/**
+ * @public
+ */
+export type AliasAttributeType = (typeof AliasAttributeType)[keyof typeof AliasAttributeType];
+
+/**
+ * @public
  * <p>The Amazon Pinpoint analytics configuration necessary to collect metrics for a user
  *             pool.</p>
  *         <note>
@@ -2997,6 +3302,9 @@ export interface AnalyticsConfigurationType {
   UserDataShared?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSoftwareTokenRequest {
   /**
    * <p>A valid access token that Amazon Cognito issued to the user whose software token you want to
@@ -3011,6 +3319,9 @@ export interface AssociateSoftwareTokenRequest {
   Session?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSoftwareTokenResponse {
   /**
    * <p>A unique generated shared secret code that is used in the
@@ -3026,6 +3337,7 @@ export interface AssociateSoftwareTokenResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown if two or more modifications are happening
  *             concurrently.</p>
  */
@@ -3046,6 +3358,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -3064,12 +3377,22 @@ export class ForbiddenException extends __BaseException {
   }
 }
 
-export enum VerifiedAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VerifiedAttributeType = {
+  EMAIL: "email",
+  PHONE_NUMBER: "phone_number",
+} as const;
 
 /**
+ * @public
+ */
+export type VerifiedAttributeType = (typeof VerifiedAttributeType)[keyof typeof VerifiedAttributeType];
+
+/**
+ * @public
  * <p>Represents the request to change a user password.</p>
  */
 export interface ChangePasswordRequest {
@@ -3091,11 +3414,13 @@ export interface ChangePasswordRequest {
 }
 
 /**
+ * @public
  * <p>The response from the server to the change password request.</p>
  */
 export interface ChangePasswordResponse {}
 
 /**
+ * @public
  * <p>The device verifier against which it is authenticated.</p>
  */
 export interface DeviceSecretVerifierConfigType {
@@ -3112,6 +3437,7 @@ export interface DeviceSecretVerifierConfigType {
 }
 
 /**
+ * @public
  * <p>Confirms the device request.</p>
  */
 export interface ConfirmDeviceRequest {
@@ -3138,6 +3464,7 @@ export interface ConfirmDeviceRequest {
 }
 
 /**
+ * @public
  * <p>Confirms the device response.</p>
  */
 export interface ConfirmDeviceResponse {
@@ -3148,6 +3475,7 @@ export interface ConfirmDeviceResponse {
 }
 
 /**
+ * @public
  * <p>Contextual data, such as the user's device fingerprint, IP address, or location, used
  *             for evaluating the risk of an unexpected event by Amazon Cognito advanced
  *         security.</p>
@@ -3166,6 +3494,7 @@ export interface UserContextDataType {
 }
 
 /**
+ * @public
  * <p>The request representing the confirmation for a password reset.</p>
  */
 export interface ConfirmForgotPasswordRequest {
@@ -3249,12 +3578,14 @@ export interface ConfirmForgotPasswordRequest {
 }
 
 /**
+ * @public
  * <p>The response from the server that results from a user's request to retrieve a
  *             forgotten password.</p>
  */
 export interface ConfirmForgotPasswordResponse {}
 
 /**
+ * @public
  * <p>Represents the request to confirm registration of a user.</p>
  */
 export interface ConfirmSignUpRequest {
@@ -3341,10 +3672,14 @@ export interface ConfirmSignUpRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server for the registration confirmation.</p>
  */
 export interface ConfirmSignUpResponse {}
 
+/**
+ * @public
+ */
 export interface CreateGroupRequest {
   /**
    * <p>The name of the group. Must be unique.</p>
@@ -3386,6 +3721,9 @@ export interface CreateGroupRequest {
   Precedence?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupResponse {
   /**
    * <p>The group object for the group.</p>
@@ -3394,6 +3732,7 @@ export interface CreateGroupResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when Amazon Cognito encounters a group that already exists in the user
  *             pool.</p>
  */
@@ -3413,15 +3752,27 @@ export class GroupExistsException extends __BaseException {
   }
 }
 
-export enum IdentityProviderTypeType {
-  Facebook = "Facebook",
-  Google = "Google",
-  LoginWithAmazon = "LoginWithAmazon",
-  OIDC = "OIDC",
-  SAML = "SAML",
-  SignInWithApple = "SignInWithApple",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IdentityProviderTypeType = {
+  Facebook: "Facebook",
+  Google: "Google",
+  LoginWithAmazon: "LoginWithAmazon",
+  OIDC: "OIDC",
+  SAML: "SAML",
+  SignInWithApple: "SignInWithApple",
+} as const;
 
+/**
+ * @public
+ */
+export type IdentityProviderTypeType = (typeof IdentityProviderTypeType)[keyof typeof IdentityProviderTypeType];
+
+/**
+ * @public
+ */
 export interface CreateIdentityProviderRequest {
   /**
    * <p>The user pool ID.</p>
@@ -3568,6 +3919,7 @@ export interface CreateIdentityProviderRequest {
 }
 
 /**
+ * @public
  * <p>A container for information about an IdP.</p>
  */
 export interface IdentityProviderType {
@@ -3729,6 +4081,9 @@ export interface IdentityProviderType {
   CreationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateIdentityProviderResponse {
   /**
    * <p>The newly created IdP object.</p>
@@ -3737,6 +4092,7 @@ export interface CreateIdentityProviderResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the provider is already supported by the user
  *             pool.</p>
  */
@@ -3757,6 +4113,7 @@ export class DuplicateProviderException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource server scope.</p>
  */
 export interface ResourceServerScopeType {
@@ -3771,6 +4128,9 @@ export interface ResourceServerScopeType {
   ScopeDescription: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceServerRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -3797,6 +4157,7 @@ export interface CreateResourceServerRequest {
 }
 
 /**
+ * @public
  * <p>A container for information about a resource server for a user pool.</p>
  */
 export interface ResourceServerType {
@@ -3821,6 +4182,9 @@ export interface ResourceServerType {
   Scopes?: ResourceServerScopeType[];
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceServerResponse {
   /**
    * <p>The newly created resource server.</p>
@@ -3829,6 +4193,7 @@ export interface CreateResourceServerResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to create the user import job.</p>
  */
 export interface CreateUserImportJobRequest {
@@ -3848,18 +4213,28 @@ export interface CreateUserImportJobRequest {
   CloudWatchLogsRoleArn: string | undefined;
 }
 
-export enum UserImportJobStatusType {
-  Created = "Created",
-  Expired = "Expired",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Succeeded = "Succeeded",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UserImportJobStatusType = {
+  Created: "Created",
+  Expired: "Expired",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Pending: "Pending",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Succeeded: "Succeeded",
+} as const;
 
 /**
+ * @public
+ */
+export type UserImportJobStatusType = (typeof UserImportJobStatusType)[keyof typeof UserImportJobStatusType];
+
+/**
+ * @public
  * <p>The user import job type.</p>
  */
 export interface UserImportJobType {
@@ -3972,6 +4347,7 @@ export interface UserImportJobType {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server to the request to create the user import
  *             job.</p>
  */
@@ -3982,12 +4358,22 @@ export interface CreateUserImportJobResponse {
   UserImportJob?: UserImportJobType;
 }
 
-export enum DeletionProtectionType {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeletionProtectionType = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type DeletionProtectionType = (typeof DeletionProtectionType)[keyof typeof DeletionProtectionType];
+
+/**
+ * @public
  * <p>The device-remembering configuration for a user pool. A <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">
  *                 DescribeUserPool</a> request returns a null value for this object when the user
  *             pool isn't configured to remember devices. When device remembering is active, you can
@@ -4033,12 +4419,22 @@ export interface DeviceConfigurationType {
   DeviceOnlyRememberedOnUserPrompt?: boolean;
 }
 
-export enum EmailSendingAccountType {
-  COGNITO_DEFAULT = "COGNITO_DEFAULT",
-  DEVELOPER = "DEVELOPER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EmailSendingAccountType = {
+  COGNITO_DEFAULT: "COGNITO_DEFAULT",
+  DEVELOPER: "DEVELOPER",
+} as const;
 
 /**
+ * @public
+ */
+export type EmailSendingAccountType = (typeof EmailSendingAccountType)[keyof typeof EmailSendingAccountType];
+
+/**
+ * @public
  * <p>The email configuration of your user pool. The email configuration type sets your
  *             preferred sending method, Amazon Web Services Region, and sender for messages from your user
  *             pool.</p>
@@ -4150,11 +4546,22 @@ export interface EmailConfigurationType {
   ConfigurationSet?: string;
 }
 
-export enum CustomEmailSenderLambdaVersionType {
-  V1_0 = "V1_0",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomEmailSenderLambdaVersionType = {
+  V1_0: "V1_0",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomEmailSenderLambdaVersionType =
+  (typeof CustomEmailSenderLambdaVersionType)[keyof typeof CustomEmailSenderLambdaVersionType];
+
+/**
+ * @public
  * <p>A custom email sender Lambda configuration type.</p>
  */
 export interface CustomEmailLambdaVersionConfigType {
@@ -4171,11 +4578,22 @@ export interface CustomEmailLambdaVersionConfigType {
   LambdaArn: string | undefined;
 }
 
-export enum CustomSMSSenderLambdaVersionType {
-  V1_0 = "V1_0",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomSMSSenderLambdaVersionType = {
+  V1_0: "V1_0",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomSMSSenderLambdaVersionType =
+  (typeof CustomSMSSenderLambdaVersionType)[keyof typeof CustomSMSSenderLambdaVersionType];
+
+/**
+ * @public
  * <p>A custom SMS sender Lambda configuration type.</p>
  */
 export interface CustomSMSLambdaVersionConfigType {
@@ -4193,6 +4611,7 @@ export interface CustomSMSLambdaVersionConfigType {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration for Lambda triggers.</p>
  */
 export interface LambdaConfigType {
@@ -4264,13 +4683,23 @@ export interface LambdaConfigType {
   KMSKeyID?: string;
 }
 
-export enum UserPoolMfaType {
-  OFF = "OFF",
-  ON = "ON",
-  OPTIONAL = "OPTIONAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UserPoolMfaType = {
+  OFF: "OFF",
+  ON: "ON",
+  OPTIONAL: "OPTIONAL",
+} as const;
 
 /**
+ * @public
+ */
+export type UserPoolMfaType = (typeof UserPoolMfaType)[keyof typeof UserPoolMfaType];
+
+/**
+ * @public
  * <p>The password policy type.</p>
  */
 export interface PasswordPolicyType {
@@ -4317,6 +4746,7 @@ export interface PasswordPolicyType {
 }
 
 /**
+ * @public
  * <p>The policy associated with a user pool.</p>
  */
 export interface UserPoolPolicyType {
@@ -4327,6 +4757,7 @@ export interface UserPoolPolicyType {
 }
 
 /**
+ * @public
  * <p>The SMS configuration type is the settings that your Amazon Cognito user pool must use to send
  *             an SMS message from your Amazon Web Services account through Amazon Simple Notification Service. To send SMS
  *             messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an
@@ -4369,6 +4800,7 @@ export interface SmsConfigurationType {
 }
 
 /**
+ * @public
  * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
  * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
  * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
@@ -4392,12 +4824,22 @@ export interface UserAttributeUpdateSettingsType {
   AttributesRequireVerificationBeforeUpdate?: (VerifiedAttributeType | string)[];
 }
 
-export enum UsernameAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UsernameAttributeType = {
+  EMAIL: "email",
+  PHONE_NUMBER: "phone_number",
+} as const;
 
 /**
+ * @public
+ */
+export type UsernameAttributeType = (typeof UsernameAttributeType)[keyof typeof UsernameAttributeType];
+
+/**
+ * @public
  * <p>The username configuration type. </p>
  */
 export interface UsernameConfigurationType {
@@ -4426,6 +4868,7 @@ export interface UsernameConfigurationType {
 }
 
 /**
+ * @public
  * <p>The user pool add-ons type.</p>
  */
 export interface UserPoolAddOnsType {
@@ -4435,12 +4878,22 @@ export interface UserPoolAddOnsType {
   AdvancedSecurityMode: AdvancedSecurityModeType | string | undefined;
 }
 
-export enum DefaultEmailOptionType {
-  CONFIRM_WITH_CODE = "CONFIRM_WITH_CODE",
-  CONFIRM_WITH_LINK = "CONFIRM_WITH_LINK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DefaultEmailOptionType = {
+  CONFIRM_WITH_CODE: "CONFIRM_WITH_CODE",
+  CONFIRM_WITH_LINK: "CONFIRM_WITH_LINK",
+} as const;
 
 /**
+ * @public
+ */
+export type DefaultEmailOptionType = (typeof DefaultEmailOptionType)[keyof typeof DefaultEmailOptionType];
+
+/**
+ * @public
  * <p>The template for verification messages.</p>
  */
 export interface VerificationMessageTemplateType {
@@ -4485,6 +4938,7 @@ export interface VerificationMessageTemplateType {
 }
 
 /**
+ * @public
  * <p>Represents the request to create a user pool.</p>
  */
 export interface CreateUserPoolRequest {
@@ -4646,12 +5100,22 @@ export interface CreateUserPoolRequest {
   AccountRecoverySetting?: AccountRecoverySettingType;
 }
 
-export enum StatusType {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StatusType = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
 
 /**
+ * @public
+ */
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
+
+/**
+ * @public
  * <p>A container for information about the user pool.</p>
  */
 export interface UserPoolType {
@@ -4890,6 +5354,7 @@ export interface UserPoolType {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server for the request to create a user pool.</p>
  */
 export interface CreateUserPoolResponse {
@@ -4900,6 +5365,7 @@ export interface CreateUserPoolResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when a user pool tag can't be set or updated.</p>
  */
 export class UserPoolTaggingException extends __BaseException {
@@ -4918,36 +5384,74 @@ export class UserPoolTaggingException extends __BaseException {
   }
 }
 
-export enum OAuthFlowType {
-  client_credentials = "client_credentials",
-  code = "code",
-  implicit = "implicit",
-}
-
-export enum ExplicitAuthFlowsType {
-  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
-  ALLOW_ADMIN_USER_PASSWORD_AUTH = "ALLOW_ADMIN_USER_PASSWORD_AUTH",
-  ALLOW_CUSTOM_AUTH = "ALLOW_CUSTOM_AUTH",
-  ALLOW_REFRESH_TOKEN_AUTH = "ALLOW_REFRESH_TOKEN_AUTH",
-  ALLOW_USER_PASSWORD_AUTH = "ALLOW_USER_PASSWORD_AUTH",
-  ALLOW_USER_SRP_AUTH = "ALLOW_USER_SRP_AUTH",
-  CUSTOM_AUTH_FLOW_ONLY = "CUSTOM_AUTH_FLOW_ONLY",
-  USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH",
-}
-
-export enum PreventUserExistenceErrorTypes {
-  ENABLED = "ENABLED",
-  LEGACY = "LEGACY",
-}
-
-export enum TimeUnitsType {
-  DAYS = "days",
-  HOURS = "hours",
-  MINUTES = "minutes",
-  SECONDS = "seconds",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OAuthFlowType = {
+  client_credentials: "client_credentials",
+  code: "code",
+  implicit: "implicit",
+} as const;
 
 /**
+ * @public
+ */
+export type OAuthFlowType = (typeof OAuthFlowType)[keyof typeof OAuthFlowType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExplicitAuthFlowsType = {
+  ADMIN_NO_SRP_AUTH: "ADMIN_NO_SRP_AUTH",
+  ALLOW_ADMIN_USER_PASSWORD_AUTH: "ALLOW_ADMIN_USER_PASSWORD_AUTH",
+  ALLOW_CUSTOM_AUTH: "ALLOW_CUSTOM_AUTH",
+  ALLOW_REFRESH_TOKEN_AUTH: "ALLOW_REFRESH_TOKEN_AUTH",
+  ALLOW_USER_PASSWORD_AUTH: "ALLOW_USER_PASSWORD_AUTH",
+  ALLOW_USER_SRP_AUTH: "ALLOW_USER_SRP_AUTH",
+  CUSTOM_AUTH_FLOW_ONLY: "CUSTOM_AUTH_FLOW_ONLY",
+  USER_PASSWORD_AUTH: "USER_PASSWORD_AUTH",
+} as const;
+
+/**
+ * @public
+ */
+export type ExplicitAuthFlowsType = (typeof ExplicitAuthFlowsType)[keyof typeof ExplicitAuthFlowsType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreventUserExistenceErrorTypes = {
+  ENABLED: "ENABLED",
+  LEGACY: "LEGACY",
+} as const;
+
+/**
+ * @public
+ */
+export type PreventUserExistenceErrorTypes =
+  (typeof PreventUserExistenceErrorTypes)[keyof typeof PreventUserExistenceErrorTypes];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimeUnitsType = {
+  DAYS: "days",
+  HOURS: "hours",
+  MINUTES: "minutes",
+  SECONDS: "seconds",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeUnitsType = (typeof TimeUnitsType)[keyof typeof TimeUnitsType];
+
+/**
+ * @public
  * <p>The data type TokenValidityUnits specifies the time units you use when you set the
  *             duration of ID, access, and refresh tokens.</p>
  */
@@ -4976,6 +5480,7 @@ export interface TokenValidityUnitsType {
 }
 
 /**
+ * @public
  * <p>Represents the request to create a user pool client.</p>
  */
 export interface CreateUserPoolClientRequest {
@@ -5266,6 +5771,7 @@ export interface CreateUserPoolClientRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a user pool client.</p>
  */
 export interface UserPoolClientType {
@@ -5569,6 +6075,7 @@ export interface UserPoolClientType {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server to create a user pool client.</p>
  */
 export interface CreateUserPoolClientResponse {
@@ -5579,6 +6086,7 @@ export interface CreateUserPoolClientResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified OAuth flow is not valid.</p>
  */
 export class InvalidOAuthFlowException extends __BaseException {
@@ -5598,6 +6106,7 @@ export class InvalidOAuthFlowException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified scope doesn't exist.</p>
  */
 export class ScopeDoesNotExistException extends __BaseException {
@@ -5617,6 +6126,7 @@ export class ScopeDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for
  *             your application.</p>
  */
@@ -5628,6 +6138,9 @@ export interface CustomDomainConfigType {
   CertificateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserPoolDomainRequest {
   /**
    * <p>The domain string. For custom domains, this is the fully-qualified domain name, such
@@ -5652,6 +6165,9 @@ export interface CreateUserPoolDomainRequest {
   CustomDomainConfig?: CustomDomainConfigType;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserPoolDomainResponse {
   /**
    * <p>The Amazon CloudFront endpoint that you use as the target of the alias that you set up with
@@ -5660,6 +6176,9 @@ export interface CreateUserPoolDomainResponse {
   CloudFrontDomain?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupRequest {
   /**
    * <p>The name of the group.</p>
@@ -5672,6 +6191,9 @@ export interface DeleteGroupRequest {
   UserPoolId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIdentityProviderRequest {
   /**
    * <p>The user pool ID.</p>
@@ -5685,6 +6207,7 @@ export interface DeleteIdentityProviderRequest {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified identifier isn't supported.</p>
  */
 export class UnsupportedIdentityProviderException extends __BaseException {
@@ -5703,6 +6226,9 @@ export class UnsupportedIdentityProviderException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourceServerRequest {
   /**
    * <p>The user pool ID for the user pool that hosts the resource server.</p>
@@ -5716,6 +6242,7 @@ export interface DeleteResourceServerRequest {
 }
 
 /**
+ * @public
  * <p>Represents the request to delete a user.</p>
  */
 export interface DeleteUserRequest {
@@ -5727,6 +6254,7 @@ export interface DeleteUserRequest {
 }
 
 /**
+ * @public
  * <p>Represents the request to delete user attributes.</p>
  */
 export interface DeleteUserAttributesRequest {
@@ -5745,11 +6273,13 @@ export interface DeleteUserAttributesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server to delete user attributes.</p>
  */
 export interface DeleteUserAttributesResponse {}
 
 /**
+ * @public
  * <p>Represents the request to delete a user pool.</p>
  */
 export interface DeleteUserPoolRequest {
@@ -5760,6 +6290,7 @@ export interface DeleteUserPoolRequest {
 }
 
 /**
+ * @public
  * <p>Represents the request to delete a user pool client.</p>
  */
 export interface DeleteUserPoolClientRequest {
@@ -5774,6 +6305,9 @@ export interface DeleteUserPoolClientRequest {
   ClientId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserPoolDomainRequest {
   /**
    * <p>The domain string. For custom domains, this is the fully-qualified domain name, such
@@ -5788,8 +6322,14 @@ export interface DeleteUserPoolDomainRequest {
   UserPoolId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserPoolDomainResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeIdentityProviderRequest {
   /**
    * <p>The user pool ID.</p>
@@ -5802,6 +6342,9 @@ export interface DescribeIdentityProviderRequest {
   ProviderName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIdentityProviderResponse {
   /**
    * <p>The identity provider details.</p>
@@ -5809,6 +6352,9 @@ export interface DescribeIdentityProviderResponse {
   IdentityProvider: IdentityProviderType | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourceServerRequest {
   /**
    * <p>The user pool ID for the user pool that hosts the resource server.</p>
@@ -5821,6 +6367,9 @@ export interface DescribeResourceServerRequest {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourceServerResponse {
   /**
    * <p>The resource server.</p>
@@ -5828,6 +6377,9 @@ export interface DescribeResourceServerResponse {
   ResourceServer: ResourceServerType | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRiskConfigurationRequest {
   /**
    * <p>The user pool ID.</p>
@@ -5840,12 +6392,23 @@ export interface DescribeRiskConfigurationRequest {
   ClientId?: string;
 }
 
-export enum CompromisedCredentialsEventActionType {
-  BLOCK = "BLOCK",
-  NO_ACTION = "NO_ACTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CompromisedCredentialsEventActionType = {
+  BLOCK: "BLOCK",
+  NO_ACTION: "NO_ACTION",
+} as const;
 
 /**
+ * @public
+ */
+export type CompromisedCredentialsEventActionType =
+  (typeof CompromisedCredentialsEventActionType)[keyof typeof CompromisedCredentialsEventActionType];
+
+/**
+ * @public
  * <p>The compromised credentials actions type.</p>
  */
 export interface CompromisedCredentialsActionsType {
@@ -5855,13 +6418,23 @@ export interface CompromisedCredentialsActionsType {
   EventAction: CompromisedCredentialsEventActionType | string | undefined;
 }
 
-export enum EventFilterType {
-  PASSWORD_CHANGE = "PASSWORD_CHANGE",
-  SIGN_IN = "SIGN_IN",
-  SIGN_UP = "SIGN_UP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventFilterType = {
+  PASSWORD_CHANGE: "PASSWORD_CHANGE",
+  SIGN_IN: "SIGN_IN",
+  SIGN_UP: "SIGN_UP",
+} as const;
 
 /**
+ * @public
+ */
+export type EventFilterType = (typeof EventFilterType)[keyof typeof EventFilterType];
+
+/**
+ * @public
  * <p>The compromised credentials risk configuration type.</p>
  */
 export interface CompromisedCredentialsRiskConfigurationType {
@@ -5878,6 +6451,7 @@ export interface CompromisedCredentialsRiskConfigurationType {
 }
 
 /**
+ * @public
  * <p>The type of the configuration to override the risk decision.</p>
  */
 export interface RiskExceptionConfigurationType {
@@ -5896,6 +6470,7 @@ export interface RiskExceptionConfigurationType {
 }
 
 /**
+ * @public
  * <p>The risk configuration type.</p>
  */
 export interface RiskConfigurationType {
@@ -5933,6 +6508,9 @@ export interface RiskConfigurationType {
   LastModifiedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRiskConfigurationResponse {
   /**
    * <p>The risk configuration.</p>
@@ -5941,6 +6519,7 @@ export interface DescribeRiskConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to describe the user import job.</p>
  */
 export interface DescribeUserImportJobRequest {
@@ -5956,6 +6535,7 @@ export interface DescribeUserImportJobRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server to the request to describe the user import
  *             job.</p>
  */
@@ -5967,6 +6547,7 @@ export interface DescribeUserImportJobResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to describe the user pool.</p>
  */
 export interface DescribeUserPoolRequest {
@@ -5977,6 +6558,7 @@ export interface DescribeUserPoolRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response to describe the user pool.</p>
  */
 export interface DescribeUserPoolResponse {
@@ -5987,6 +6569,7 @@ export interface DescribeUserPoolResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to describe a user pool client.</p>
  */
 export interface DescribeUserPoolClientRequest {
@@ -6002,6 +6585,7 @@ export interface DescribeUserPoolClientRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server from a request to describe the user pool
  *             client.</p>
  */
@@ -6012,6 +6596,9 @@ export interface DescribeUserPoolClientResponse {
   UserPoolClient?: UserPoolClientType;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserPoolDomainRequest {
   /**
    * <p>The domain string. For custom domains, this is the fully-qualified domain name, such
@@ -6021,15 +6608,25 @@ export interface DescribeUserPoolDomainRequest {
   Domain: string | undefined;
 }
 
-export enum DomainStatusType {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DomainStatusType = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type DomainStatusType = (typeof DomainStatusType)[keyof typeof DomainStatusType];
+
+/**
+ * @public
  * <p>A container for information about a domain.</p>
  */
 export interface DomainDescriptionType {
@@ -6077,6 +6674,9 @@ export interface DomainDescriptionType {
   CustomDomainConfig?: CustomDomainConfigType;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserPoolDomainResponse {
   /**
    * <p>A domain description object containing information about the domain.</p>
@@ -6085,6 +6685,7 @@ export interface DescribeUserPoolDomainResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to forget the device.</p>
  */
 export interface ForgetDeviceRequest {
@@ -6101,6 +6702,7 @@ export interface ForgetDeviceRequest {
 }
 
 /**
+ * @public
  * <p>Represents the request to reset a user's password.</p>
  */
 export interface ForgotPasswordRequest {
@@ -6175,6 +6777,7 @@ export interface ForgotPasswordRequest {
 }
 
 /**
+ * @public
  * <p>The delivery details for an email or SMS message that Amazon Cognito sent for authentication or
  *             verification.</p>
  */
@@ -6196,6 +6799,7 @@ export interface CodeDeliveryDetailsType {
 }
 
 /**
+ * @public
  * <p>The response from Amazon Cognito to a request to reset a password.</p>
  */
 export interface ForgotPasswordResponse {
@@ -6207,6 +6811,7 @@ export interface ForgotPasswordResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to get the header information of the CSV file for the user
  *             import job.</p>
  */
@@ -6218,6 +6823,7 @@ export interface GetCSVHeaderRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server to the request to get the header information
  *             of the CSV file for the user import job.</p>
  */
@@ -6234,6 +6840,7 @@ export interface GetCSVHeaderResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to get the device.</p>
  */
 export interface GetDeviceRequest {
@@ -6250,6 +6857,7 @@ export interface GetDeviceRequest {
 }
 
 /**
+ * @public
  * <p>Gets the device response.</p>
  */
 export interface GetDeviceResponse {
@@ -6259,6 +6867,9 @@ export interface GetDeviceResponse {
   Device: DeviceType | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupRequest {
   /**
    * <p>The name of the group.</p>
@@ -6271,6 +6882,9 @@ export interface GetGroupRequest {
   UserPoolId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupResponse {
   /**
    * <p>The group object for the group.</p>
@@ -6278,6 +6892,9 @@ export interface GetGroupResponse {
   Group?: GroupType;
 }
 
+/**
+ * @public
+ */
 export interface GetIdentityProviderByIdentifierRequest {
   /**
    * <p>The user pool ID.</p>
@@ -6290,6 +6907,9 @@ export interface GetIdentityProviderByIdentifierRequest {
   IdpIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetIdentityProviderByIdentifierResponse {
   /**
    * <p>The identity provider details.</p>
@@ -6298,6 +6918,7 @@ export interface GetIdentityProviderByIdentifierResponse {
 }
 
 /**
+ * @public
  * <p>Request to get a signing certificate from Amazon Cognito.</p>
  */
 export interface GetSigningCertificateRequest {
@@ -6308,6 +6929,7 @@ export interface GetSigningCertificateRequest {
 }
 
 /**
+ * @public
  * <p>Response from Amazon Cognito for a signing certificate request.</p>
  */
 export interface GetSigningCertificateResponse {
@@ -6317,6 +6939,9 @@ export interface GetSigningCertificateResponse {
   Certificate?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetUICustomizationRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -6330,6 +6955,7 @@ export interface GetUICustomizationRequest {
 }
 
 /**
+ * @public
  * <p>A container for the UI customization information for a user pool's built-in app
  *             UI.</p>
  */
@@ -6370,6 +6996,9 @@ export interface UICustomizationType {
   CreationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetUICustomizationResponse {
   /**
    * <p>The UI customization information.</p>
@@ -6378,6 +7007,7 @@ export interface GetUICustomizationResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to get information about the user.</p>
  */
 export interface GetUserRequest {
@@ -6388,6 +7018,7 @@ export interface GetUserRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server from the request to get information about the
  *             user.</p>
  */
@@ -6427,6 +7058,7 @@ export interface GetUserResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to get user attribute verification.</p>
  */
 export interface GetUserAttributeVerificationCodeRequest {
@@ -6481,6 +7113,7 @@ export interface GetUserAttributeVerificationCodeRequest {
 }
 
 /**
+ * @public
  * <p>The verification code response returned by the server response to get the user
  *             attribute verification code.</p>
  */
@@ -6492,6 +7125,9 @@ export interface GetUserAttributeVerificationCodeResponse {
   CodeDeliveryDetails?: CodeDeliveryDetailsType;
 }
 
+/**
+ * @public
+ */
 export interface GetUserPoolMfaConfigRequest {
   /**
    * <p>The user pool ID.</p>
@@ -6500,12 +7136,13 @@ export interface GetUserPoolMfaConfigRequest {
 }
 
 /**
+ * @public
  * <p>The SMS text message multi-factor authentication (MFA) configuration type.</p>
  */
 export interface SmsMfaConfigType {
   /**
    * <p>The SMS authentication message that will be sent to users with the code they must sign
-   *             in. The message must contain the ‘{####}’ placeholder, which is replaced with the code.
+   *             in. The message must contain the ‘\{####\}’ placeholder, which is replaced with the code.
    *             If the message isn't included, and default message will be used.</p>
    */
   SmsAuthenticationMessage?: string;
@@ -6520,6 +7157,7 @@ export interface SmsMfaConfigType {
 }
 
 /**
+ * @public
  * <p>The type used for enabling software token MFA at the user pool level.</p>
  */
 export interface SoftwareTokenMfaConfigType {
@@ -6529,6 +7167,9 @@ export interface SoftwareTokenMfaConfigType {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetUserPoolMfaConfigResponse {
   /**
    * <p>The SMS text message multi-factor authentication (MFA) configuration.</p>
@@ -6562,6 +7203,7 @@ export interface GetUserPoolMfaConfigResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to sign out all devices.</p>
  */
 export interface GlobalSignOutRequest {
@@ -6572,11 +7214,13 @@ export interface GlobalSignOutRequest {
 }
 
 /**
+ * @public
  * <p>The response to the request to sign out all devices.</p>
  */
 export interface GlobalSignOutResponse {}
 
 /**
+ * @public
  * <p>Initiates the authentication request.</p>
  */
 export interface InitiateAuthRequest {
@@ -6749,6 +7393,7 @@ export interface InitiateAuthRequest {
 }
 
 /**
+ * @public
  * <p>Initiates the authentication response.</p>
  */
 export interface InitiateAuthResponse {
@@ -6853,6 +7498,7 @@ export interface InitiateAuthResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to list the devices.</p>
  */
 export interface ListDevicesRequest {
@@ -6874,6 +7520,7 @@ export interface ListDevicesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response to list devices.</p>
  */
 export interface ListDevicesResponse {
@@ -6888,6 +7535,9 @@ export interface ListDevicesResponse {
   PaginationToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupsRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -6906,6 +7556,9 @@ export interface ListGroupsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupsResponse {
   /**
    * <p>The group objects for the groups.</p>
@@ -6919,6 +7572,9 @@ export interface ListGroupsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIdentityProvidersRequest {
   /**
    * <p>The user pool ID.</p>
@@ -6937,6 +7593,7 @@ export interface ListIdentityProvidersRequest {
 }
 
 /**
+ * @public
  * <p>A container for IdP details.</p>
  */
 export interface ProviderDescription {
@@ -6961,6 +7618,9 @@ export interface ProviderDescription {
   CreationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListIdentityProvidersResponse {
   /**
    * <p>A list of IdP objects.</p>
@@ -6973,6 +7633,9 @@ export interface ListIdentityProvidersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceServersRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -6990,6 +7653,9 @@ export interface ListResourceServersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceServersResponse {
   /**
    * <p>The resource servers.</p>
@@ -7002,6 +7668,9 @@ export interface ListResourceServersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
@@ -7009,6 +7678,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are assigned to the user pool.</p>
@@ -7017,6 +7689,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to list the user import jobs.</p>
  */
 export interface ListUserImportJobsRequest {
@@ -7039,6 +7712,7 @@ export interface ListUserImportJobsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server to the request to list the user import
  *             jobs.</p>
  */
@@ -7056,6 +7730,7 @@ export interface ListUserImportJobsResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to list the user pool clients.</p>
  */
 export interface ListUserPoolClientsRequest {
@@ -7078,6 +7753,7 @@ export interface ListUserPoolClientsRequest {
 }
 
 /**
+ * @public
  * <p>The description of the user pool client.</p>
  */
 export interface UserPoolClientDescription {
@@ -7099,6 +7775,7 @@ export interface UserPoolClientDescription {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server that lists user pool clients.</p>
  */
 export interface ListUserPoolClientsResponse {
@@ -7115,6 +7792,7 @@ export interface ListUserPoolClientsResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to list user pools.</p>
  */
 export interface ListUserPoolsRequest {
@@ -7132,6 +7810,7 @@ export interface ListUserPoolsRequest {
 }
 
 /**
+ * @public
  * <p>A user pool description.</p>
  */
 export interface UserPoolDescriptionType {
@@ -7167,6 +7846,7 @@ export interface UserPoolDescriptionType {
 }
 
 /**
+ * @public
  * <p>Represents the response to list user pools.</p>
  */
 export interface ListUserPoolsResponse {
@@ -7183,6 +7863,7 @@ export interface ListUserPoolsResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to list users.</p>
  */
 export interface ListUsersRequest {
@@ -7305,6 +7986,7 @@ export interface ListUsersRequest {
 }
 
 /**
+ * @public
  * <p>The response from the request to list users.</p>
  */
 export interface ListUsersResponse {
@@ -7320,6 +8002,9 @@ export interface ListUsersResponse {
   PaginationToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersInGroupRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -7343,6 +8028,9 @@ export interface ListUsersInGroupRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersInGroupResponse {
   /**
    * <p>The users returned in the request to list users.</p>
@@ -7357,6 +8045,7 @@ export interface ListUsersInGroupResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to resend the confirmation code.</p>
  */
 export interface ResendConfirmationCodeRequest {
@@ -7429,6 +8118,7 @@ export interface ResendConfirmationCodeRequest {
 }
 
 /**
+ * @public
  * <p>The response from the server when Amazon Cognito makes the request to resend a confirmation
  *             code.</p>
  */
@@ -7441,6 +8131,7 @@ export interface ResendConfirmationCodeResponse {
 }
 
 /**
+ * @public
  * <p>The request to respond to an authentication challenge.</p>
  */
 export interface RespondToAuthChallengeRequest {
@@ -7590,6 +8281,7 @@ export interface RespondToAuthChallengeRequest {
 }
 
 /**
+ * @public
  * <p>The response to respond to the authentication challenge.</p>
  */
 export interface RespondToAuthChallengeResponse {
@@ -7618,6 +8310,9 @@ export interface RespondToAuthChallengeResponse {
   AuthenticationResult?: AuthenticationResultType;
 }
 
+/**
+ * @public
+ */
 export interface RevokeTokenRequest {
   /**
    * <p>The refresh token that you want to revoke.</p>
@@ -7636,9 +8331,13 @@ export interface RevokeTokenRequest {
   ClientSecret?: string;
 }
 
+/**
+ * @public
+ */
 export interface RevokeTokenResponse {}
 
 /**
+ * @public
  * <p>Exception that is thrown when the request isn't authorized. This can happen due to an
  *             invalid access token in the request.</p>
  */
@@ -7659,6 +8358,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception that is thrown when you attempt to perform an operation that isn't enabled
  *             for the user pool client.</p>
  */
@@ -7679,6 +8379,7 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
  */
 export class UnsupportedTokenTypeException extends __BaseException {
@@ -7697,6 +8398,9 @@ export class UnsupportedTokenTypeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface SetRiskConfigurationRequest {
   /**
    * <p>The user pool ID. </p>
@@ -7729,6 +8433,9 @@ export interface SetRiskConfigurationRequest {
   RiskExceptionConfiguration?: RiskExceptionConfigurationType;
 }
 
+/**
+ * @public
+ */
 export interface SetRiskConfigurationResponse {
   /**
    * <p>The risk configuration.</p>
@@ -7736,6 +8443,9 @@ export interface SetRiskConfigurationResponse {
   RiskConfiguration: RiskConfigurationType | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetUICustomizationRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -7758,6 +8468,9 @@ export interface SetUICustomizationRequest {
   ImageFile?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface SetUICustomizationResponse {
   /**
    * <p>The UI customization information.</p>
@@ -7765,6 +8478,9 @@ export interface SetUICustomizationResponse {
   UICustomization: UICustomizationType | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetUserMFAPreferenceRequest {
   /**
    * <p>The SMS text message multi-factor authentication (MFA) settings.</p>
@@ -7783,8 +8499,14 @@ export interface SetUserMFAPreferenceRequest {
   AccessToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetUserMFAPreferenceResponse {}
 
+/**
+ * @public
+ */
 export interface SetUserPoolMfaConfigRequest {
   /**
    * <p>The user pool ID.</p>
@@ -7824,6 +8546,9 @@ export interface SetUserPoolMfaConfigRequest {
   MfaConfiguration?: UserPoolMfaType | string;
 }
 
+/**
+ * @public
+ */
 export interface SetUserPoolMfaConfigResponse {
   /**
    * <p>The SMS text message MFA configuration.</p>
@@ -7857,6 +8582,7 @@ export interface SetUserPoolMfaConfigResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to set user settings.</p>
  */
 export interface SetUserSettingsRequest {
@@ -7874,95 +8600,10 @@ export interface SetUserSettingsRequest {
 }
 
 /**
+ * @public
  * <p>The response from the server for a set user settings request.</p>
  */
 export interface SetUserSettingsResponse {}
-
-/**
- * @internal
- */
-export const RecoveryOptionTypeFilterSensitiveLog = (obj: RecoveryOptionType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountRecoverySettingTypeFilterSensitiveLog = (obj: AccountRecoverySettingType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountTakeoverActionTypeFilterSensitiveLog = (obj: AccountTakeoverActionType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountTakeoverActionsTypeFilterSensitiveLog = (obj: AccountTakeoverActionsType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyEmailTypeFilterSensitiveLog = (obj: NotifyEmailType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyConfigurationTypeFilterSensitiveLog = (obj: NotifyConfigurationType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountTakeoverRiskConfigurationTypeFilterSensitiveLog = (
-  obj: AccountTakeoverRiskConfigurationType
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumberAttributeConstraintsTypeFilterSensitiveLog = (obj: NumberAttributeConstraintsType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StringAttributeConstraintsTypeFilterSensitiveLog = (obj: StringAttributeConstraintsType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaAttributeTypeFilterSensitiveLog = (obj: SchemaAttributeType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddCustomAttributesRequestFilterSensitiveLog = (obj: AddCustomAttributesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddCustomAttributesResponseFilterSensitiveLog = (obj: AddCustomAttributesResponse): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -7978,13 +8619,6 @@ export const AdminAddUserToGroupRequestFilterSensitiveLog = (obj: AdminAddUserTo
 export const AdminConfirmSignUpRequestFilterSensitiveLog = (obj: AdminConfirmSignUpRequest): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AdminConfirmSignUpResponseFilterSensitiveLog = (obj: AdminConfirmSignUpResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -8013,13 +8647,6 @@ export const AdminCreateUserRequestFilterSensitiveLog = (obj: AdminCreateUserReq
 /**
  * @internal
  */
-export const MFAOptionTypeFilterSensitiveLog = (obj: MFAOptionType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UserTypeFilterSensitiveLog = (obj: UserType): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
@@ -8032,20 +8659,6 @@ export const UserTypeFilterSensitiveLog = (obj: UserType): any => ({
 export const AdminCreateUserResponseFilterSensitiveLog = (obj: AdminCreateUserResponse): any => ({
   ...obj,
   ...(obj.User && { User: UserTypeFilterSensitiveLog(obj.User) }),
-});
-
-/**
- * @internal
- */
-export const MessageTemplateTypeFilterSensitiveLog = (obj: MessageTemplateType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdminCreateUserConfigTypeFilterSensitiveLog = (obj: AdminCreateUserConfigType): any => ({
-  ...obj,
 });
 
 /**
@@ -8067,36 +8680,6 @@ export const AdminDeleteUserAttributesRequestFilterSensitiveLog = (obj: AdminDel
 /**
  * @internal
  */
-export const AdminDeleteUserAttributesResponseFilterSensitiveLog = (obj: AdminDeleteUserAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProviderUserIdentifierTypeFilterSensitiveLog = (obj: ProviderUserIdentifierType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdminDisableProviderForUserRequestFilterSensitiveLog = (obj: AdminDisableProviderForUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdminDisableProviderForUserResponseFilterSensitiveLog = (
-  obj: AdminDisableProviderForUserResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AdminDisableUserRequestFilterSensitiveLog = (obj: AdminDisableUserRequest): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
@@ -8105,23 +8688,9 @@ export const AdminDisableUserRequestFilterSensitiveLog = (obj: AdminDisableUserR
 /**
  * @internal
  */
-export const AdminDisableUserResponseFilterSensitiveLog = (obj: AdminDisableUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AdminEnableUserRequestFilterSensitiveLog = (obj: AdminEnableUserRequest): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AdminEnableUserResponseFilterSensitiveLog = (obj: AdminEnableUserResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -8180,38 +8749,10 @@ export const AdminGetUserResponseFilterSensitiveLog = (obj: AdminGetUserResponse
 /**
  * @internal
  */
-export const AnalyticsMetadataTypeFilterSensitiveLog = (obj: AnalyticsMetadataType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpHeaderFilterSensitiveLog = (obj: HttpHeader): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContextDataTypeFilterSensitiveLog = (obj: ContextDataType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AdminInitiateAuthRequestFilterSensitiveLog = (obj: AdminInitiateAuthRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.AuthParameters && { AuthParameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const NewDeviceMetadataTypeFilterSensitiveLog = (obj: NewDeviceMetadataType): any => ({
-  ...obj,
 });
 
 /**
@@ -8232,20 +8773,6 @@ export const AdminInitiateAuthResponseFilterSensitiveLog = (obj: AdminInitiateAu
   ...(obj.AuthenticationResult && {
     AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
   }),
-});
-
-/**
- * @internal
- */
-export const AdminLinkProviderForUserRequestFilterSensitiveLog = (obj: AdminLinkProviderForUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdminLinkProviderForUserResponseFilterSensitiveLog = (obj: AdminLinkProviderForUserResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -8274,65 +8801,9 @@ export const AdminListGroupsForUserRequestFilterSensitiveLog = (obj: AdminListGr
 /**
  * @internal
  */
-export const GroupTypeFilterSensitiveLog = (obj: GroupType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdminListGroupsForUserResponseFilterSensitiveLog = (obj: AdminListGroupsForUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AdminListUserAuthEventsRequestFilterSensitiveLog = (obj: AdminListUserAuthEventsRequest): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ChallengeResponseTypeFilterSensitiveLog = (obj: ChallengeResponseType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventContextDataTypeFilterSensitiveLog = (obj: EventContextDataType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventFeedbackTypeFilterSensitiveLog = (obj: EventFeedbackType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventRiskTypeFilterSensitiveLog = (obj: EventRiskType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthEventTypeFilterSensitiveLog = (obj: AuthEventType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdminListUserAuthEventsResponseFilterSensitiveLog = (obj: AdminListUserAuthEventsResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -8349,13 +8820,6 @@ export const AdminRemoveUserFromGroupRequestFilterSensitiveLog = (obj: AdminRemo
 export const AdminResetUserPasswordRequestFilterSensitiveLog = (obj: AdminResetUserPasswordRequest): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AdminResetUserPasswordResponseFilterSensitiveLog = (obj: AdminResetUserPasswordResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -8381,30 +8845,9 @@ export const AdminRespondToAuthChallengeResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const SMSMfaSettingsTypeFilterSensitiveLog = (obj: SMSMfaSettingsType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SoftwareTokenMfaSettingsTypeFilterSensitiveLog = (obj: SoftwareTokenMfaSettingsType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AdminSetUserMFAPreferenceRequestFilterSensitiveLog = (obj: AdminSetUserMFAPreferenceRequest): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AdminSetUserMFAPreferenceResponseFilterSensitiveLog = (obj: AdminSetUserMFAPreferenceResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -8419,23 +8862,9 @@ export const AdminSetUserPasswordRequestFilterSensitiveLog = (obj: AdminSetUserP
 /**
  * @internal
  */
-export const AdminSetUserPasswordResponseFilterSensitiveLog = (obj: AdminSetUserPasswordResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AdminSetUserSettingsRequestFilterSensitiveLog = (obj: AdminSetUserSettingsRequest): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AdminSetUserSettingsResponseFilterSensitiveLog = (obj: AdminSetUserSettingsResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -8451,25 +8880,9 @@ export const AdminUpdateAuthEventFeedbackRequestFilterSensitiveLog = (
 /**
  * @internal
  */
-export const AdminUpdateAuthEventFeedbackResponseFilterSensitiveLog = (
-  obj: AdminUpdateAuthEventFeedbackResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AdminUpdateDeviceStatusRequestFilterSensitiveLog = (obj: AdminUpdateDeviceStatusRequest): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AdminUpdateDeviceStatusResponseFilterSensitiveLog = (obj: AdminUpdateDeviceStatusResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -8486,30 +8899,9 @@ export const AdminUpdateUserAttributesRequestFilterSensitiveLog = (obj: AdminUpd
 /**
  * @internal
  */
-export const AdminUpdateUserAttributesResponseFilterSensitiveLog = (obj: AdminUpdateUserAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AdminUserGlobalSignOutRequestFilterSensitiveLog = (obj: AdminUserGlobalSignOutRequest): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AdminUserGlobalSignOutResponseFilterSensitiveLog = (obj: AdminUserGlobalSignOutResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalyticsConfigurationTypeFilterSensitiveLog = (obj: AnalyticsConfigurationType): any => ({
-  ...obj,
 });
 
 /**
@@ -8541,37 +8933,9 @@ export const ChangePasswordRequestFilterSensitiveLog = (obj: ChangePasswordReque
 /**
  * @internal
  */
-export const ChangePasswordResponseFilterSensitiveLog = (obj: ChangePasswordResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceSecretVerifierConfigTypeFilterSensitiveLog = (obj: DeviceSecretVerifierConfigType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ConfirmDeviceRequestFilterSensitiveLog = (obj: ConfirmDeviceRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ConfirmDeviceResponseFilterSensitiveLog = (obj: ConfirmDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserContextDataTypeFilterSensitiveLog = (obj: UserContextDataType): any => ({
-  ...obj,
 });
 
 /**
@@ -8588,228 +8952,11 @@ export const ConfirmForgotPasswordRequestFilterSensitiveLog = (obj: ConfirmForgo
 /**
  * @internal
  */
-export const ConfirmForgotPasswordResponseFilterSensitiveLog = (obj: ConfirmForgotPasswordResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ConfirmSignUpRequestFilterSensitiveLog = (obj: ConfirmSignUpRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ConfirmSignUpResponseFilterSensitiveLog = (obj: ConfirmSignUpResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGroupRequestFilterSensitiveLog = (obj: CreateGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGroupResponseFilterSensitiveLog = (obj: CreateGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIdentityProviderRequestFilterSensitiveLog = (obj: CreateIdentityProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityProviderTypeFilterSensitiveLog = (obj: IdentityProviderType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIdentityProviderResponseFilterSensitiveLog = (obj: CreateIdentityProviderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceServerScopeTypeFilterSensitiveLog = (obj: ResourceServerScopeType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResourceServerRequestFilterSensitiveLog = (obj: CreateResourceServerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceServerTypeFilterSensitiveLog = (obj: ResourceServerType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResourceServerResponseFilterSensitiveLog = (obj: CreateResourceServerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserImportJobRequestFilterSensitiveLog = (obj: CreateUserImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserImportJobTypeFilterSensitiveLog = (obj: UserImportJobType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserImportJobResponseFilterSensitiveLog = (obj: CreateUserImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceConfigurationTypeFilterSensitiveLog = (obj: DeviceConfigurationType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EmailConfigurationTypeFilterSensitiveLog = (obj: EmailConfigurationType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomEmailLambdaVersionConfigTypeFilterSensitiveLog = (obj: CustomEmailLambdaVersionConfigType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomSMSLambdaVersionConfigTypeFilterSensitiveLog = (obj: CustomSMSLambdaVersionConfigType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaConfigTypeFilterSensitiveLog = (obj: LambdaConfigType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PasswordPolicyTypeFilterSensitiveLog = (obj: PasswordPolicyType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserPoolPolicyTypeFilterSensitiveLog = (obj: UserPoolPolicyType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SmsConfigurationTypeFilterSensitiveLog = (obj: SmsConfigurationType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserAttributeUpdateSettingsTypeFilterSensitiveLog = (obj: UserAttributeUpdateSettingsType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UsernameConfigurationTypeFilterSensitiveLog = (obj: UsernameConfigurationType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserPoolAddOnsTypeFilterSensitiveLog = (obj: UserPoolAddOnsType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerificationMessageTemplateTypeFilterSensitiveLog = (obj: VerificationMessageTemplateType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserPoolRequestFilterSensitiveLog = (obj: CreateUserPoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserPoolTypeFilterSensitiveLog = (obj: UserPoolType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserPoolResponseFilterSensitiveLog = (obj: CreateUserPoolResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TokenValidityUnitsTypeFilterSensitiveLog = (obj: TokenValidityUnitsType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserPoolClientRequestFilterSensitiveLog = (obj: CreateUserPoolClientRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -8832,48 +8979,6 @@ export const CreateUserPoolClientResponseFilterSensitiveLog = (obj: CreateUserPo
 /**
  * @internal
  */
-export const CustomDomainConfigTypeFilterSensitiveLog = (obj: CustomDomainConfigType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserPoolDomainRequestFilterSensitiveLog = (obj: CreateUserPoolDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserPoolDomainResponseFilterSensitiveLog = (obj: CreateUserPoolDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGroupRequestFilterSensitiveLog = (obj: DeleteGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIdentityProviderRequestFilterSensitiveLog = (obj: DeleteIdentityProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourceServerRequestFilterSensitiveLog = (obj: DeleteResourceServerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
@@ -8890,20 +8995,6 @@ export const DeleteUserAttributesRequestFilterSensitiveLog = (obj: DeleteUserAtt
 /**
  * @internal
  */
-export const DeleteUserAttributesResponseFilterSensitiveLog = (obj: DeleteUserAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserPoolRequestFilterSensitiveLog = (obj: DeleteUserPoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteUserPoolClientRequestFilterSensitiveLog = (obj: DeleteUserPoolClientRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
@@ -8912,74 +9003,9 @@ export const DeleteUserPoolClientRequestFilterSensitiveLog = (obj: DeleteUserPoo
 /**
  * @internal
  */
-export const DeleteUserPoolDomainRequestFilterSensitiveLog = (obj: DeleteUserPoolDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserPoolDomainResponseFilterSensitiveLog = (obj: DeleteUserPoolDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIdentityProviderRequestFilterSensitiveLog = (obj: DescribeIdentityProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIdentityProviderResponseFilterSensitiveLog = (obj: DescribeIdentityProviderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeResourceServerRequestFilterSensitiveLog = (obj: DescribeResourceServerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeResourceServerResponseFilterSensitiveLog = (obj: DescribeResourceServerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeRiskConfigurationRequestFilterSensitiveLog = (obj: DescribeRiskConfigurationRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CompromisedCredentialsActionsTypeFilterSensitiveLog = (obj: CompromisedCredentialsActionsType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompromisedCredentialsRiskConfigurationTypeFilterSensitiveLog = (
-  obj: CompromisedCredentialsRiskConfigurationType
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RiskExceptionConfigurationTypeFilterSensitiveLog = (obj: RiskExceptionConfigurationType): any => ({
-  ...obj,
 });
 
 /**
@@ -9001,34 +9027,6 @@ export const DescribeRiskConfigurationResponseFilterSensitiveLog = (obj: Describ
 /**
  * @internal
  */
-export const DescribeUserImportJobRequestFilterSensitiveLog = (obj: DescribeUserImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserImportJobResponseFilterSensitiveLog = (obj: DescribeUserImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserPoolRequestFilterSensitiveLog = (obj: DescribeUserPoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserPoolResponseFilterSensitiveLog = (obj: DescribeUserPoolResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeUserPoolClientRequestFilterSensitiveLog = (obj: DescribeUserPoolClientRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
@@ -9040,27 +9038,6 @@ export const DescribeUserPoolClientRequestFilterSensitiveLog = (obj: DescribeUse
 export const DescribeUserPoolClientResponseFilterSensitiveLog = (obj: DescribeUserPoolClientResponse): any => ({
   ...obj,
   ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientTypeFilterSensitiveLog(obj.UserPoolClient) }),
-});
-
-/**
- * @internal
- */
-export const DescribeUserPoolDomainRequestFilterSensitiveLog = (obj: DescribeUserPoolDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainDescriptionTypeFilterSensitiveLog = (obj: DomainDescriptionType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserPoolDomainResponseFilterSensitiveLog = (obj: DescribeUserPoolDomainResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -9084,34 +9061,6 @@ export const ForgotPasswordRequestFilterSensitiveLog = (obj: ForgotPasswordReque
 /**
  * @internal
  */
-export const CodeDeliveryDetailsTypeFilterSensitiveLog = (obj: CodeDeliveryDetailsType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForgotPasswordResponseFilterSensitiveLog = (obj: ForgotPasswordResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCSVHeaderRequestFilterSensitiveLog = (obj: GetCSVHeaderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCSVHeaderResponseFilterSensitiveLog = (obj: GetCSVHeaderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetDeviceRequestFilterSensitiveLog = (obj: GetDeviceRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
@@ -9123,52 +9072,6 @@ export const GetDeviceRequestFilterSensitiveLog = (obj: GetDeviceRequest): any =
 export const GetDeviceResponseFilterSensitiveLog = (obj: GetDeviceResponse): any => ({
   ...obj,
   ...(obj.Device && { Device: DeviceTypeFilterSensitiveLog(obj.Device) }),
-});
-
-/**
- * @internal
- */
-export const GetGroupRequestFilterSensitiveLog = (obj: GetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGroupResponseFilterSensitiveLog = (obj: GetGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityProviderByIdentifierRequestFilterSensitiveLog = (
-  obj: GetIdentityProviderByIdentifierRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityProviderByIdentifierResponseFilterSensitiveLog = (
-  obj: GetIdentityProviderByIdentifierResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSigningCertificateRequestFilterSensitiveLog = (obj: GetSigningCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSigningCertificateResponseFilterSensitiveLog = (obj: GetSigningCertificateResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -9227,53 +9130,9 @@ export const GetUserAttributeVerificationCodeRequestFilterSensitiveLog = (
 /**
  * @internal
  */
-export const GetUserAttributeVerificationCodeResponseFilterSensitiveLog = (
-  obj: GetUserAttributeVerificationCodeResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUserPoolMfaConfigRequestFilterSensitiveLog = (obj: GetUserPoolMfaConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SmsMfaConfigTypeFilterSensitiveLog = (obj: SmsMfaConfigType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SoftwareTokenMfaConfigTypeFilterSensitiveLog = (obj: SoftwareTokenMfaConfigType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUserPoolMfaConfigResponseFilterSensitiveLog = (obj: GetUserPoolMfaConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GlobalSignOutRequestFilterSensitiveLog = (obj: GlobalSignOutRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GlobalSignOutResponseFilterSensitiveLog = (obj: GlobalSignOutResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -9313,90 +9172,6 @@ export const ListDevicesResponseFilterSensitiveLog = (obj: ListDevicesResponse):
 /**
  * @internal
  */
-export const ListGroupsRequestFilterSensitiveLog = (obj: ListGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGroupsResponseFilterSensitiveLog = (obj: ListGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentityProvidersRequestFilterSensitiveLog = (obj: ListIdentityProvidersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProviderDescriptionFilterSensitiveLog = (obj: ProviderDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentityProvidersResponseFilterSensitiveLog = (obj: ListIdentityProvidersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceServersRequestFilterSensitiveLog = (obj: ListResourceServersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceServersResponseFilterSensitiveLog = (obj: ListResourceServersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUserImportJobsRequestFilterSensitiveLog = (obj: ListUserImportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUserImportJobsResponseFilterSensitiveLog = (obj: ListUserImportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUserPoolClientsRequestFilterSensitiveLog = (obj: ListUserPoolClientsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UserPoolClientDescriptionFilterSensitiveLog = (obj: UserPoolClientDescription): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
@@ -9415,44 +9190,9 @@ export const ListUserPoolClientsResponseFilterSensitiveLog = (obj: ListUserPoolC
 /**
  * @internal
  */
-export const ListUserPoolsRequestFilterSensitiveLog = (obj: ListUserPoolsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserPoolDescriptionTypeFilterSensitiveLog = (obj: UserPoolDescriptionType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUserPoolsResponseFilterSensitiveLog = (obj: ListUserPoolsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUsersRequestFilterSensitiveLog = (obj: ListUsersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
   ...obj,
   ...(obj.Users && { Users: obj.Users.map((item) => UserTypeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListUsersInGroupRequestFilterSensitiveLog = (obj: ListUsersInGroupRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -9471,13 +9211,6 @@ export const ResendConfirmationCodeRequestFilterSensitiveLog = (obj: ResendConfi
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ResendConfirmationCodeResponseFilterSensitiveLog = (obj: ResendConfirmationCodeResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -9506,13 +9239,6 @@ export const RevokeTokenRequestFilterSensitiveLog = (obj: RevokeTokenRequest): a
   ...(obj.Token && { Token: SENSITIVE_STRING }),
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RevokeTokenResponseFilterSensitiveLog = (obj: RevokeTokenResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -9558,35 +9284,7 @@ export const SetUserMFAPreferenceRequestFilterSensitiveLog = (obj: SetUserMFAPre
 /**
  * @internal
  */
-export const SetUserMFAPreferenceResponseFilterSensitiveLog = (obj: SetUserMFAPreferenceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetUserPoolMfaConfigRequestFilterSensitiveLog = (obj: SetUserPoolMfaConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetUserPoolMfaConfigResponseFilterSensitiveLog = (obj: SetUserPoolMfaConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SetUserSettingsRequestFilterSensitiveLog = (obj: SetUserSettingsRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SetUserSettingsResponseFilterSensitiveLog = (obj: SetUserSettingsResponse): any => ({
-  ...obj,
 });

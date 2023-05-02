@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  PutPortfolioPreferencesRequest,
-  PutPortfolioPreferencesRequestFilterSensitiveLog,
-  PutPortfolioPreferencesResponse,
-  PutPortfolioPreferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutPortfolioPreferencesCommand,
-  serializeAws_restJson1PutPortfolioPreferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { PutPortfolioPreferencesRequest, PutPortfolioPreferencesResponse } from "../models/models_0";
+import { de_PutPortfolioPreferencesCommand, se_PutPortfolioPreferencesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutPortfolioPreferencesCommand}.
  */
 export interface PutPortfolioPreferencesCommandInput extends PutPortfolioPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPortfolioPreferencesCommand}.
  */
 export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPreferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Saves the specified migration and modernization preferences. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,62 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  * import { MigrationHubStrategyClient, PutPortfolioPreferencesCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, PutPortfolioPreferencesCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // PutPortfolioPreferencesRequest
+ *   prioritizeBusinessGoals: { // PrioritizeBusinessGoals
+ *     businessGoals: { // BusinessGoals
+ *       speedOfMigration: Number("int"),
+ *       reduceOperationalOverheadWithManagedServices: Number("int"),
+ *       modernizeInfrastructureWithCloudNativeTechnologies: Number("int"),
+ *       licenseCostReduction: Number("int"),
+ *     },
+ *   },
+ *   applicationPreferences: { // ApplicationPreferences
+ *     managementPreference: { // ManagementPreference Union: only one key present
+ *       awsManagedResources: { // AwsManagedResources
+ *         targetDestination: [ // AwsManagedTargetDestinations // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       selfManageResources: { // SelfManageResources
+ *         targetDestination: [ // SelfManageTargetDestinations // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       noPreference: { // NoManagementPreference
+ *         targetDestination: [ // NoPreferenceTargetDestinations // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   databasePreferences: { // DatabasePreferences
+ *     databaseManagementPreference: "STRING_VALUE",
+ *     databaseMigrationPreference: { // DatabaseMigrationPreference Union: only one key present
+ *       heterogeneous: { // Heterogeneous
+ *         targetDatabaseEngine: [ // HeterogeneousTargetDatabaseEngines // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       homogeneous: { // Homogeneous
+ *         targetDatabaseEngine: [ // HomogeneousTargetDatabaseEngines
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       noPreference: { // NoDatabaseMigrationPreference
+ *         targetDatabaseEngine: [ // TargetDatabaseEngines // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   applicationMode: "STRING_VALUE",
+ * };
  * const command = new PutPortfolioPreferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPortfolioPreferencesCommandInput - {@link PutPortfolioPreferencesCommandInput}
+ * @returns {@link PutPortfolioPreferencesCommandOutput}
  * @see {@link PutPortfolioPreferencesCommandInput} for command's `input` shape.
  * @see {@link PutPortfolioPreferencesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -90,6 +139,9 @@ export class PutPortfolioPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPortfolioPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +170,8 @@ export class PutPortfolioPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPortfolioPreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPortfolioPreferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +181,18 @@ export class PutPortfolioPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPortfolioPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutPortfolioPreferencesCommand(input, context);
+    return se_PutPortfolioPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPortfolioPreferencesCommandOutput> {
-    return deserializeAws_restJson1PutPortfolioPreferencesCommand(output, context);
+    return de_PutPortfolioPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { RekognitionClient } from "../RekognitionClient";
 import { RekognitionPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RekognitionClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDatasetLabelsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDatasetLabels(
   config: RekognitionPaginationConfiguration,
   input: ListDatasetLabelsCommandInput,

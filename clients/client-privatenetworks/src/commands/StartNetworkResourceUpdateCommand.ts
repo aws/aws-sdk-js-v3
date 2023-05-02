@@ -20,21 +20,23 @@ import {
   StartNetworkResourceUpdateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1StartNetworkResourceUpdateCommand,
-  serializeAws_restJson1StartNetworkResourceUpdateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartNetworkResourceUpdateCommand, se_StartNetworkResourceUpdateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartNetworkResourceUpdateCommand}.
  */
 export interface StartNetworkResourceUpdateCommandInput extends StartNetworkResourceUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartNetworkResourceUpdateCommand}.
  */
 export interface StartNetworkResourceUpdateCommandOutput extends StartNetworkResourceUpdateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an update of the specified network resource.</p>
  *          <p>After you submit a request to replace or return a network resource, the status
  *            of the network resource is <code>CREATING_SHIPPING_LABEL</code>. The shipping label
@@ -47,10 +49,29 @@ export interface StartNetworkResourceUpdateCommandOutput extends StartNetworkRes
  * import { PrivateNetworksClient, StartNetworkResourceUpdateCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, StartNetworkResourceUpdateCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // StartNetworkResourceUpdateRequest
+ *   networkResourceArn: "STRING_VALUE", // required
+ *   updateType: "STRING_VALUE", // required
+ *   shippingAddress: { // Address
+ *     city: "STRING_VALUE", // required
+ *     company: "STRING_VALUE",
+ *     country: "STRING_VALUE", // required
+ *     name: "STRING_VALUE", // required
+ *     phoneNumber: "STRING_VALUE",
+ *     postalCode: "STRING_VALUE", // required
+ *     stateOrProvince: "STRING_VALUE", // required
+ *     street1: "STRING_VALUE", // required
+ *     street2: "STRING_VALUE",
+ *     street3: "STRING_VALUE",
+ *   },
+ *   returnReason: "STRING_VALUE",
+ * };
  * const command = new StartNetworkResourceUpdateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartNetworkResourceUpdateCommandInput - {@link StartNetworkResourceUpdateCommandInput}
+ * @returns {@link StartNetworkResourceUpdateCommandOutput}
  * @see {@link StartNetworkResourceUpdateCommandInput} for command's `input` shape.
  * @see {@link StartNetworkResourceUpdateCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -83,6 +104,9 @@ export class StartNetworkResourceUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartNetworkResourceUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,15 +146,21 @@ export class StartNetworkResourceUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartNetworkResourceUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartNetworkResourceUpdateCommand(input, context);
+    return se_StartNetworkResourceUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartNetworkResourceUpdateCommandOutput> {
-    return deserializeAws_restJson1StartNetworkResourceUpdateCommand(output, context);
+    return de_StartNetworkResourceUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

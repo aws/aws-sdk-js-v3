@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/hash-blob-browser",
-  "version": "3.296.0",
+  "version": "3.310.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -21,7 +21,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/chunked-blob-reader": "*",
-    "@aws-sdk/chunked-blob-reader-native": "*",
     "@aws-sdk/types": "*",
     "tslib": "^2.5.0"
   },
@@ -46,7 +45,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/hash-blob-browser",
   "repository": {

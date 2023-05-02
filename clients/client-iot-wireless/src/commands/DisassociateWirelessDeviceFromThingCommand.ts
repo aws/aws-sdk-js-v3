@@ -16,20 +16,22 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   DisassociateWirelessDeviceFromThingRequest,
-  DisassociateWirelessDeviceFromThingRequestFilterSensitiveLog,
   DisassociateWirelessDeviceFromThingResponse,
-  DisassociateWirelessDeviceFromThingResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateWirelessDeviceFromThingCommand,
-  serializeAws_restJson1DisassociateWirelessDeviceFromThingCommand,
+  de_DisassociateWirelessDeviceFromThingCommand,
+  se_DisassociateWirelessDeviceFromThingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWirelessDeviceFromThingCommand}.
  */
 export interface DisassociateWirelessDeviceFromThingCommandInput extends DisassociateWirelessDeviceFromThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWirelessDeviceFromThingCommand}.
  */
 export interface DisassociateWirelessDeviceFromThingCommandOutput
@@ -37,6 +39,7 @@ export interface DisassociateWirelessDeviceFromThingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a wireless device from its currently associated thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface DisassociateWirelessDeviceFromThingCommandOutput
  * import { IoTWirelessClient, DisassociateWirelessDeviceFromThingCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DisassociateWirelessDeviceFromThingCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DisassociateWirelessDeviceFromThingRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateWirelessDeviceFromThingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWirelessDeviceFromThingCommandInput - {@link DisassociateWirelessDeviceFromThingCommandInput}
+ * @returns {@link DisassociateWirelessDeviceFromThingCommandOutput}
  * @see {@link DisassociateWirelessDeviceFromThingCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessDeviceFromThingCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +97,9 @@ export class DisassociateWirelessDeviceFromThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWirelessDeviceFromThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class DisassociateWirelessDeviceFromThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateWirelessDeviceFromThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateWirelessDeviceFromThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +139,24 @@ export class DisassociateWirelessDeviceFromThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateWirelessDeviceFromThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateWirelessDeviceFromThingCommand(input, context);
+    return se_DisassociateWirelessDeviceFromThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateWirelessDeviceFromThingCommandOutput> {
-    return deserializeAws_restJson1DisassociateWirelessDeviceFromThingCommand(output, context);
+    return de_DisassociateWirelessDeviceFromThingCommand(output, context);
   }
 
   // Start section: command_body_extra

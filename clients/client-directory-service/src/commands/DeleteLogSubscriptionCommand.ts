@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DeleteLogSubscriptionRequest,
-  DeleteLogSubscriptionRequestFilterSensitiveLog,
-  DeleteLogSubscriptionResult,
-  DeleteLogSubscriptionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLogSubscriptionCommand,
-  serializeAws_json1_1DeleteLogSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteLogSubscriptionRequest, DeleteLogSubscriptionResult } from "../models/models_0";
+import { de_DeleteLogSubscriptionCommand, se_DeleteLogSubscriptionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLogSubscriptionCommand}.
  */
 export interface DeleteLogSubscriptionCommandInput extends DeleteLogSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLogSubscriptionCommand}.
  */
 export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified log subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptio
  * import { DirectoryServiceClient, DeleteLogSubscriptionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeleteLogSubscriptionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DeleteLogSubscriptionRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLogSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLogSubscriptionCommandInput - {@link DeleteLogSubscriptionCommandInput}
+ * @returns {@link DeleteLogSubscriptionCommandOutput}
  * @see {@link DeleteLogSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteLogSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -81,6 +83,9 @@ export class DeleteLogSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLogSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteLogSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLogSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLogSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteLogSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLogSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLogSubscriptionCommand(input, context);
+    return se_DeleteLogSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLogSubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteLogSubscriptionCommand(output, context);
+    return de_DeleteLogSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeSecurityGroupReferencesRequest, DescribeSecurityGroupReferencesResult } from "../models/models_4";
 import {
-  DescribeSecurityGroupReferencesRequest,
-  DescribeSecurityGroupReferencesRequestFilterSensitiveLog,
-  DescribeSecurityGroupReferencesResult,
-  DescribeSecurityGroupReferencesResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSecurityGroupReferencesCommand,
-  serializeAws_ec2DescribeSecurityGroupReferencesCommand,
+  de_DescribeSecurityGroupReferencesCommand,
+  se_DescribeSecurityGroupReferencesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSecurityGroupReferencesCommand}.
  */
 export interface DescribeSecurityGroupReferencesCommandInput extends DescribeSecurityGroupReferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSecurityGroupReferencesCommand}.
  */
 export interface DescribeSecurityGroupReferencesCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeSecurityGroupReferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>[VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,18 @@ export interface DescribeSecurityGroupReferencesCommandOutput
  * import { EC2Client, DescribeSecurityGroupReferencesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSecurityGroupReferencesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSecurityGroupReferencesRequest
+ *   DryRun: true || false,
+ *   GroupId: [ // GroupIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeSecurityGroupReferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecurityGroupReferencesCommandInput - {@link DescribeSecurityGroupReferencesCommandInput}
+ * @returns {@link DescribeSecurityGroupReferencesCommandOutput}
  * @see {@link DescribeSecurityGroupReferencesCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityGroupReferencesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -95,6 +103,9 @@ export class DescribeSecurityGroupReferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecurityGroupReferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +134,8 @@ export class DescribeSecurityGroupReferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSecurityGroupReferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSecurityGroupReferencesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +145,24 @@ export class DescribeSecurityGroupReferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeSecurityGroupReferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSecurityGroupReferencesCommand(input, context);
+    return se_DescribeSecurityGroupReferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSecurityGroupReferencesCommandOutput> {
-    return deserializeAws_ec2DescribeSecurityGroupReferencesCommand(output, context);
+    return de_DescribeSecurityGroupReferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

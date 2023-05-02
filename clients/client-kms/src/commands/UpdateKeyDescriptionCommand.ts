@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { UpdateKeyDescriptionRequest, UpdateKeyDescriptionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateKeyDescriptionCommand,
-  serializeAws_json1_1UpdateKeyDescriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateKeyDescriptionRequest } from "../models/models_0";
+import { de_UpdateKeyDescriptionCommand, se_UpdateKeyDescriptionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateKeyDescriptionCommand}.
  */
 export interface UpdateKeyDescriptionCommandInput extends UpdateKeyDescriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateKeyDescriptionCommand}.
  */
 export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description of a KMS key. To see the description of a KMS key, use <a>DescribeKey</a>. </p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -58,10 +60,16 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  * import { KMSClient, UpdateKeyDescriptionCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, UpdateKeyDescriptionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // UpdateKeyDescriptionRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ * };
  * const command = new UpdateKeyDescriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateKeyDescriptionCommandInput - {@link UpdateKeyDescriptionCommandInput}
+ * @returns {@link UpdateKeyDescriptionCommandOutput}
  * @see {@link UpdateKeyDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateKeyDescriptionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -131,6 +139,9 @@ export class UpdateKeyDescriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateKeyDescriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,8 +170,8 @@ export class UpdateKeyDescriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateKeyDescriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,12 +181,18 @@ export class UpdateKeyDescriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateKeyDescriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateKeyDescriptionCommand(input, context);
+    return se_UpdateKeyDescriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateKeyDescriptionCommandOutput> {
-    return deserializeAws_json1_1UpdateKeyDescriptionCommand(output, context);
+    return de_UpdateKeyDescriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

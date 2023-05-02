@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import {
-  ListModelsRequest,
-  ListModelsRequestFilterSensitiveLog,
-  ListModelsResponse,
-  ListModelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListModelsCommand,
-  serializeAws_restJson1ListModelsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListModelsRequest, ListModelsResponse } from "../models/models_0";
+import { de_ListModelsCommand, se_ListModelsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelsCommand}.
  */
 export interface ListModelsCommandInput extends ListModelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelsCommand}.
  */
 export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the versions of a model in an Amazon Lookout for Vision project.</p>
  *          <p>The <code>ListModels</code> operation is eventually consistent.
  *          Recent calls to <code>CreateModel</code> might
@@ -47,10 +44,17 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * import { LookoutVisionClient, ListModelsCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, ListModelsCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = { // ListModelsRequest
+ *   ProjectName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListModelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelsCommandInput - {@link ListModelsCommandInput}
+ * @returns {@link ListModelsCommandOutput}
  * @see {@link ListModelsCommandInput} for command's `input` shape.
  * @see {@link ListModelsCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -93,6 +97,9 @@ export class ListModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +126,8 @@ export class ListModelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +137,18 @@ export class ListModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListModelsCommand(input, context);
+    return se_ListModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelsCommandOutput> {
-    return deserializeAws_restJson1ListModelsCommand(output, context);
+    return de_ListModelsCommand(output, context);
   }
 
   // Start section: command_body_extra

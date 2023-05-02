@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetVocabularyRequest,
-  GetVocabularyRequestFilterSensitiveLog,
-  GetVocabularyResponse,
-  GetVocabularyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetVocabularyCommand,
-  serializeAws_json1_1GetVocabularyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetVocabularyRequest, GetVocabularyResponse } from "../models/models_0";
+import { de_GetVocabularyCommand, se_GetVocabularyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetVocabularyCommand}.
  */
 export interface GetVocabularyCommandInput extends GetVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVocabularyCommand}.
  */
 export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the specified custom vocabulary.</p>
  *          <p>To view the status of the specified custom vocabulary, check the
  *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
@@ -48,10 +45,15 @@ export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __Met
  * import { TranscribeClient, GetVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // GetVocabularyRequest
+ *   VocabularyName: "STRING_VALUE", // required
+ * };
  * const command = new GetVocabularyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVocabularyCommandInput - {@link GetVocabularyCommandInput}
+ * @returns {@link GetVocabularyCommandOutput}
  * @see {@link GetVocabularyCommandInput} for command's `input` shape.
  * @see {@link GetVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -93,6 +95,9 @@ export class GetVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class GetVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVocabularyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class GetVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetVocabularyCommand(input, context);
+    return se_GetVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVocabularyCommandOutput> {
-    return deserializeAws_json1_1GetVocabularyCommand(output, context);
+    return de_GetVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,31 +14,33 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteFleetInput, DeleteFleetInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFleetCommand,
-  serializeAws_json1_1DeleteFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteFleetInput } from "../models/models_0";
+import { de_DeleteFleetCommand, se_DeleteFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetCommand}.
  */
 export interface DeleteFleetCommandInput extends DeleteFleetInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetCommand}.
  */
 export interface DeleteFleetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all resources and information related a fleet. Any current fleet instances,
  *             including those in remote locations, are shut down. You don't need to call
  *                 <code>DeleteFleetLocations</code> separately.</p>
- *         <note>
+ *          <note>
  *             <p>If the fleet being deleted has a VPC peering connection, you first need to get a
  *                 valid authorization (good for 24 hours) by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html">CreateVpcPeeringAuthorization</a>. You do not need to explicitly delete the
  *                 VPC peering connection.</p>
- *         </note>
- *         <p>To delete a fleet, specify the fleet ID to be terminated. During the deletion process
+ *          </note>
+ *          <p>To delete a fleet, specify the fleet ID to be terminated. During the deletion process
  *             the fleet status is changed to <code>DELETING</code>. When completed, the status
  *             switches to <code>TERMINATED</code> and the fleet event <code>FLEET_DELETED</code> is
  *             sent.</p>
@@ -46,7 +48,7 @@ export interface DeleteFleetCommandOutput extends __MetadataBearer {}
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 Fleets</a>
  *          </p>
  * @example
@@ -55,10 +57,15 @@ export interface DeleteFleetCommandOutput extends __MetadataBearer {}
  * import { GameLiftClient, DeleteFleetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteFleetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DeleteFleetInput
+ *   FleetId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
+ * @returns {@link DeleteFleetCommandOutput}
  * @see {@link DeleteFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -106,6 +113,9 @@ export class DeleteFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +142,8 @@ export class DeleteFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFleetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +153,18 @@ export class DeleteFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFleetCommand(input, context);
+    return se_DeleteFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetCommandOutput> {
-    return deserializeAws_json1_1DeleteFleetCommand(output, context);
+    return de_DeleteFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

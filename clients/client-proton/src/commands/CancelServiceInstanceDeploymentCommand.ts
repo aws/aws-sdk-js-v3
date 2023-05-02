@@ -15,21 +15,24 @@ import {
 
 import {
   CancelServiceInstanceDeploymentInput,
-  CancelServiceInstanceDeploymentInputFilterSensitiveLog,
   CancelServiceInstanceDeploymentOutput,
   CancelServiceInstanceDeploymentOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0CancelServiceInstanceDeploymentCommand,
-  serializeAws_json1_0CancelServiceInstanceDeploymentCommand,
+  de_CancelServiceInstanceDeploymentCommand,
+  se_CancelServiceInstanceDeploymentCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelServiceInstanceDeploymentCommand}.
  */
 export interface CancelServiceInstanceDeploymentCommandInput extends CancelServiceInstanceDeploymentInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelServiceInstanceDeploymentCommand}.
  */
 export interface CancelServiceInstanceDeploymentCommandOutput
@@ -37,20 +40,24 @@ export interface CancelServiceInstanceDeploymentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is <code>IN_PROGRESS</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-instance-update.html">Update a service instance</a> in the
- *         <i>Proton User guide</i>.</p>
+ * @public
+ * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is <code>IN_PROGRESS</code>. For
+ *       more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-instance-update.html">Update a service instance</a>
+ *       in the <i>Proton User guide</i>.</p>
  *          <p>The following list includes potential cancellation scenarios.</p>
  *          <ul>
  *             <li>
- *                <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p>
+ *                <p>If the cancellation attempt succeeds, the resulting deployment state is
+ *             <code>CANCELLED</code>.</p>
  *             </li>
  *             <li>
- *                <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
+ *                <p>If the cancellation attempt fails, the resulting deployment state is
+ *             <code>FAILED</code>.</p>
  *             </li>
  *             <li>
- *                <p>If the current <a>UpdateServiceInstance</a> action succeeds before the cancellation attempt starts, the resulting deployment state is
- *             <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
+ *                <p>If the current <a>UpdateServiceInstance</a> action succeeds before the
+ *           cancellation attempt starts, the resulting deployment state is <code>SUCCEEDED</code> and
+ *           the cancellation attempt has no effect.</p>
  *             </li>
  *          </ul>
  * @example
@@ -59,10 +66,16 @@ export interface CancelServiceInstanceDeploymentCommandOutput
  * import { ProtonClient, CancelServiceInstanceDeploymentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CancelServiceInstanceDeploymentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // CancelServiceInstanceDeploymentInput
+ *   serviceInstanceName: "STRING_VALUE", // required
+ *   serviceName: "STRING_VALUE", // required
+ * };
  * const command = new CancelServiceInstanceDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelServiceInstanceDeploymentCommandInput - {@link CancelServiceInstanceDeploymentCommandInput}
+ * @returns {@link CancelServiceInstanceDeploymentCommandOutput}
  * @see {@link CancelServiceInstanceDeploymentCommandInput} for command's `input` shape.
  * @see {@link CancelServiceInstanceDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -104,6 +117,9 @@ export class CancelServiceInstanceDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelServiceInstanceDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,7 +148,7 @@ export class CancelServiceInstanceDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelServiceInstanceDeploymentInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CancelServiceInstanceDeploymentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -143,18 +159,24 @@ export class CancelServiceInstanceDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelServiceInstanceDeploymentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0CancelServiceInstanceDeploymentCommand(input, context);
+    return se_CancelServiceInstanceDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelServiceInstanceDeploymentCommandOutput> {
-    return deserializeAws_json1_0CancelServiceInstanceDeploymentCommand(output, context);
+    return de_CancelServiceInstanceDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

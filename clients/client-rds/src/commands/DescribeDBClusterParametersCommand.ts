@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBClusterParameterGroupDetails,
-  DBClusterParameterGroupDetailsFilterSensitiveLog,
-  DescribeDBClusterParametersMessage,
-  DescribeDBClusterParametersMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBClusterParametersCommand,
-  serializeAws_queryDescribeDBClusterParametersCommand,
-} from "../protocols/Aws_query";
+import { DBClusterParameterGroupDetails, DescribeDBClusterParametersMessage } from "../models/models_0";
+import { de_DescribeDBClusterParametersCommand, se_DescribeDBClusterParametersCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBClusterParametersCommand}.
  */
 export interface DescribeDBClusterParametersCommandInput extends DescribeDBClusterParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBClusterParametersCommand}.
  */
 export interface DescribeDBClusterParametersCommandOutput extends DBClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
  *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -48,10 +45,26 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * import { RDSClient, DescribeDBClusterParametersCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBClusterParametersCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeDBClusterParametersMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   Source: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBClusterParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBClusterParametersCommandInput - {@link DescribeDBClusterParametersCommandInput}
+ * @returns {@link DescribeDBClusterParametersCommandOutput}
  * @see {@link DescribeDBClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -62,16 +75,48 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  *         existing DB parameter group.</p>
  *
  *
- * @example To list DB cluster parameters
+ * @example To describe the parameters in a DB cluster parameter group
  * ```javascript
- * // This example lists system parameters for the specified DB cluster parameter group.
+ * // The following example retrieves details about the parameters in a DB cluster parameter group.
  * const input = {
- *   "DBClusterParameterGroupName": "mydbclusterparametergroup",
- *   "Source": "system"
+ *   "DBClusterParameterGroupName": "mydbclusterpg"
  * };
  * const command = new DescribeDBClusterParametersCommand(input);
- * await client.send(command);
- * // example id: describe-db-cluster-parameters-98043c28-e489-41a7-b118-bfd96dc779a1
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Parameters": [
+ *     {
+ *       "AllowedValues": "0,1",
+ *       "ApplyMethod": "pending-reboot",
+ *       "ApplyType": "static",
+ *       "DataType": "boolean",
+ *       "Description": "Controls whether user-defined functions that have only an xxx symbol for the main function can be loaded",
+ *       "IsModifiable": false,
+ *       "ParameterName": "allow-suspicious-udfs",
+ *       "Source": "engine-default",
+ *       "SupportedEngineModes": [
+ *         "provisioned"
+ *       ]
+ *     },
+ *     {
+ *       "AllowedValues": "0,1",
+ *       "ApplyMethod": "pending-reboot",
+ *       "ApplyType": "static",
+ *       "DataType": "boolean",
+ *       "Description": "Enables new features in the Aurora engine.",
+ *       "IsModifiable": true,
+ *       "ParameterName": "aurora_lab_mode",
+ *       "ParameterValue": "0",
+ *       "Source": "engine-default",
+ *       "SupportedEngineModes": [
+ *         "provisioned"
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-parameters-in-a-db-cluster-parameter-group-1680213275624
  * ```
  *
  */
@@ -92,6 +137,9 @@ export class DescribeDBClusterParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +168,8 @@ export class DescribeDBClusterParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClusterParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterParameterGroupDetailsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +179,21 @@ export class DescribeDBClusterParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBClusterParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterParametersCommand(input, context);
+    return se_DescribeDBClusterParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterParametersCommand(output, context);
+    return de_DescribeDBClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

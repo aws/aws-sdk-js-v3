@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { PutScheduledUpdateGroupActionType } from "../models/models_0";
 import {
-  PutScheduledUpdateGroupActionType,
-  PutScheduledUpdateGroupActionTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryPutScheduledUpdateGroupActionCommand,
-  serializeAws_queryPutScheduledUpdateGroupActionCommand,
+  de_PutScheduledUpdateGroupActionCommand,
+  se_PutScheduledUpdateGroupActionCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutScheduledUpdateGroupActionCommand}.
  */
 export interface PutScheduledUpdateGroupActionCommandInput extends PutScheduledUpdateGroupActionType {}
 /**
+ * @public
+ *
  * The output of {@link PutScheduledUpdateGroupActionCommand}.
  */
 export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -46,10 +48,24 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  * import { AutoScalingClient, PutScheduledUpdateGroupActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutScheduledUpdateGroupActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // PutScheduledUpdateGroupActionType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ScheduledActionName: "STRING_VALUE", // required
+ *   Time: new Date("TIMESTAMP"),
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Recurrence: "STRING_VALUE",
+ *   MinSize: Number("int"),
+ *   MaxSize: Number("int"),
+ *   DesiredCapacity: Number("int"),
+ *   TimeZone: "STRING_VALUE",
+ * };
  * const command = new PutScheduledUpdateGroupActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutScheduledUpdateGroupActionCommandInput - {@link PutScheduledUpdateGroupActionCommandInput}
+ * @returns {@link PutScheduledUpdateGroupActionCommandOutput}
  * @see {@link PutScheduledUpdateGroupActionCommandInput} for command's `input` shape.
  * @see {@link PutScheduledUpdateGroupActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -103,6 +119,9 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutScheduledUpdateGroupActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +150,8 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutScheduledUpdateGroupActionTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,15 +161,21 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutScheduledUpdateGroupActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutScheduledUpdateGroupActionCommand(input, context);
+    return se_PutScheduledUpdateGroupActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutScheduledUpdateGroupActionCommandOutput> {
-    return deserializeAws_queryPutScheduledUpdateGroupActionCommand(output, context);
+    return de_PutScheduledUpdateGroupActionCommand(output, context);
   }
 
   // Start section: command_body_extra

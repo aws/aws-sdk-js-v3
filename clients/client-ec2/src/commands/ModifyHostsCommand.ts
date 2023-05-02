@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyHostsRequest,
-  ModifyHostsRequestFilterSensitiveLog,
-  ModifyHostsResult,
-  ModifyHostsResultFilterSensitiveLog,
-} from "../models/models_6";
-import { deserializeAws_ec2ModifyHostsCommand, serializeAws_ec2ModifyHostsCommand } from "../protocols/Aws_ec2";
+import { ModifyHostsRequest, ModifyHostsResult } from "../models/models_6";
+import { de_ModifyHostsCommand, se_ModifyHostsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyHostsCommand}.
  */
 export interface ModifyHostsCommandInput extends ModifyHostsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyHostsCommand}.
  */
 export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,
  *             any instances that you launch with a tenancy of <code>host</code> but without a specific
  *             host ID are placed onto any available Dedicated Host in your account that has
@@ -47,10 +47,22 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  * import { EC2Client, ModifyHostsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyHostsRequest
+ *   AutoPlacement: "on" || "off",
+ *   HostIds: [ // RequestHostIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   HostRecovery: "on" || "off",
+ *   InstanceType: "STRING_VALUE",
+ *   InstanceFamily: "STRING_VALUE",
+ *   HostMaintenance: "on" || "off",
+ * };
  * const command = new ModifyHostsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyHostsCommandInput - {@link ModifyHostsCommandInput}
+ * @returns {@link ModifyHostsCommandOutput}
  * @see {@link ModifyHostsCommandInput} for command's `input` shape.
  * @see {@link ModifyHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +86,9 @@ export class ModifyHostsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +115,8 @@ export class ModifyHostsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyHostsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyHostsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +126,18 @@ export class ModifyHostsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyHostsCommand(input, context);
+    return se_ModifyHostsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyHostsCommandOutput> {
-    return deserializeAws_ec2ModifyHostsCommand(output, context);
+    return de_ModifyHostsCommand(output, context);
   }
 
   // Start section: command_body_extra

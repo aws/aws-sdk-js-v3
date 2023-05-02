@@ -6,7 +6,7 @@ import { DetectiveClient } from "../DetectiveClient";
 import { DetectivePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DetectiveClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMembersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMembers(
   config: DetectivePaginationConfiguration,
   input: ListMembersCommandInput,

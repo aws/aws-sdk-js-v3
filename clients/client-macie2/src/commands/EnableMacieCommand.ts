@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  EnableMacieRequest,
-  EnableMacieRequestFilterSensitiveLog,
-  EnableMacieResponse,
-  EnableMacieResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1EnableMacieCommand,
-  serializeAws_restJson1EnableMacieCommand,
-} from "../protocols/Aws_restJson1";
+import { EnableMacieRequest, EnableMacieResponse } from "../models/models_0";
+import { de_EnableMacieCommand, se_EnableMacieCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableMacieCommand}.
  */
 export interface EnableMacieCommandInput extends EnableMacieRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableMacieCommand}.
  */
 export interface EnableMacieCommandOutput extends EnableMacieResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Amazon Macie and specifies the configuration settings for a Macie account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
  * import { Macie2Client, EnableMacieCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, EnableMacieCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // EnableMacieRequest
+ *   clientToken: "STRING_VALUE",
+ *   findingPublishingFrequency: "FIFTEEN_MINUTES" || "ONE_HOUR" || "SIX_HOURS",
+ *   status: "PAUSED" || "ENABLED",
+ * };
  * const command = new EnableMacieCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableMacieCommandInput - {@link EnableMacieCommandInput}
+ * @returns {@link EnableMacieCommandOutput}
  * @see {@link EnableMacieCommandInput} for command's `input` shape.
  * @see {@link EnableMacieCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +94,9 @@ export class EnableMacieCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableMacieCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class EnableMacieCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableMacieRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableMacieResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class EnableMacieCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableMacieCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableMacieCommand(input, context);
+    return se_EnableMacieCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableMacieCommandOutput> {
-    return deserializeAws_restJson1EnableMacieCommand(output, context);
+    return de_EnableMacieCommand(output, context);
   }
 
   // Start section: command_body_extra

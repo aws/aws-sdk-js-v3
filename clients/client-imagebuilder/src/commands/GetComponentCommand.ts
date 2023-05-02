@@ -14,38 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  GetComponentRequest,
-  GetComponentRequestFilterSensitiveLog,
-  GetComponentResponse,
-  GetComponentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetComponentCommand,
-  serializeAws_restJson1GetComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetComponentRequest, GetComponentResponse } from "../models/models_0";
+import { de_GetComponentCommand, se_GetComponentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetComponentCommand}.
  */
 export interface GetComponentCommandInput extends GetComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetComponentCommand}.
  */
 export interface GetComponentCommandOutput extends GetComponentResponse, __MetadataBearer {}
 
 /**
- * <p> Gets a component object.</p>
+ * @public
+ * <p>Gets a component object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, GetComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // GetComponentRequest
+ *   componentBuildVersionArn: "STRING_VALUE", // required
+ * };
  * const command = new GetComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComponentCommandInput - {@link GetComponentCommandInput}
+ * @returns {@link GetComponentCommandOutput}
  * @see {@link GetComponentCommandInput} for command's `input` shape.
  * @see {@link GetComponentCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -54,18 +56,19 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -89,6 +92,9 @@ export class GetComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class GetComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class GetComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetComponentCommand(input, context);
+    return se_GetComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComponentCommandOutput> {
-    return deserializeAws_restJson1GetComponentCommand(output, context);
+    return de_GetComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

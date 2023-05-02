@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
+import { CreateSourceRepositoryBranchRequest, CreateSourceRepositoryBranchResponse } from "../models/models_0";
 import {
-  CreateSourceRepositoryBranchRequest,
-  CreateSourceRepositoryBranchRequestFilterSensitiveLog,
-  CreateSourceRepositoryBranchResponse,
-  CreateSourceRepositoryBranchResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSourceRepositoryBranchCommand,
-  serializeAws_restJson1CreateSourceRepositoryBranchCommand,
+  de_CreateSourceRepositoryBranchCommand,
+  se_CreateSourceRepositoryBranchCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSourceRepositoryBranchCommand}.
  */
 export interface CreateSourceRepositoryBranchCommandInput extends CreateSourceRepositoryBranchRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSourceRepositoryBranchCommand}.
  */
 export interface CreateSourceRepositoryBranchCommandOutput
@@ -37,6 +36,7 @@ export interface CreateSourceRepositoryBranchCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a branch in a specified source repository in Amazon CodeCatalyst. </p>
  *          <note>
  *             <p>This API only creates a branch in a source repository hosted in Amazon CodeCatalyst. You cannot use this API to create a branch in a linked repository.</p>
@@ -47,10 +47,19 @@ export interface CreateSourceRepositoryBranchCommandOutput
  * import { CodeCatalystClient, CreateSourceRepositoryBranchCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, CreateSourceRepositoryBranchCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // CreateSourceRepositoryBranchRequest
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   sourceRepositoryName: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   headCommitId: "STRING_VALUE",
+ * };
  * const command = new CreateSourceRepositoryBranchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSourceRepositoryBranchCommandInput - {@link CreateSourceRepositoryBranchCommandInput}
+ * @returns {@link CreateSourceRepositoryBranchCommandOutput}
  * @see {@link CreateSourceRepositoryBranchCommandInput} for command's `input` shape.
  * @see {@link CreateSourceRepositoryBranchCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -93,6 +102,9 @@ export class CreateSourceRepositoryBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSourceRepositoryBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +133,8 @@ export class CreateSourceRepositoryBranchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSourceRepositoryBranchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSourceRepositoryBranchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +144,21 @@ export class CreateSourceRepositoryBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSourceRepositoryBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSourceRepositoryBranchCommand(input, context);
+    return se_CreateSourceRepositoryBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSourceRepositoryBranchCommandOutput> {
-    return deserializeAws_restJson1CreateSourceRepositoryBranchCommand(output, context);
+    return de_CreateSourceRepositoryBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

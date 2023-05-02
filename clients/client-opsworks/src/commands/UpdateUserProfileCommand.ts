@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateUserProfileRequest, UpdateUserProfileRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateUserProfileRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateUserProfileCommand,
-  serializeAws_json1_1UpdateUserProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateUserProfileCommand, se_UpdateUserProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserProfileCommand}.
  */
 export interface UpdateUserProfileCommandInput extends UpdateUserProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserProfileCommand}.
  */
 export interface UpdateUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified user profile.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
@@ -41,10 +43,18 @@ export interface UpdateUserProfileCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateUserProfileCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateUserProfileCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UpdateUserProfileRequest
+ *   IamUserArn: "STRING_VALUE", // required
+ *   SshUsername: "STRING_VALUE",
+ *   SshPublicKey: "STRING_VALUE",
+ *   AllowSelfManagement: true || false,
+ * };
  * const command = new UpdateUserProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserProfileCommandInput - {@link UpdateUserProfileCommandInput}
+ * @returns {@link UpdateUserProfileCommandOutput}
  * @see {@link UpdateUserProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -74,6 +84,9 @@ export class UpdateUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +115,8 @@ export class UpdateUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +126,18 @@ export class UpdateUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateUserProfileCommand(input, context);
+    return se_UpdateUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserProfileCommandOutput> {
-    return deserializeAws_json1_1UpdateUserProfileCommand(output, context);
+    return de_UpdateUserProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

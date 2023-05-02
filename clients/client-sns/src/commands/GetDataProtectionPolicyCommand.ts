@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDataProtectionPolicyInput,
-  GetDataProtectionPolicyInputFilterSensitiveLog,
-  GetDataProtectionPolicyResponse,
-  GetDataProtectionPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetDataProtectionPolicyCommand,
-  serializeAws_queryGetDataProtectionPolicyCommand,
-} from "../protocols/Aws_query";
+import { GetDataProtectionPolicyInput, GetDataProtectionPolicyResponse } from "../models/models_0";
+import { de_GetDataProtectionPolicyCommand, se_GetDataProtectionPolicyCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataProtectionPolicyCommand}.
  */
 export interface GetDataProtectionPolicyCommandInput extends GetDataProtectionPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDataProtectionPolicyCommand}.
  */
 export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is
  *             stored in the specified Amazon SNS topic. </p>
  * @example
@@ -43,10 +40,15 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * import { SNSClient, GetDataProtectionPolicyCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetDataProtectionPolicyCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // GetDataProtectionPolicyInput
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataProtectionPolicyCommandInput - {@link GetDataProtectionPolicyCommandInput}
+ * @returns {@link GetDataProtectionPolicyCommandOutput}
  * @see {@link GetDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -87,6 +89,9 @@ export class GetDataProtectionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataProtectionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class GetDataProtectionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataProtectionPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataProtectionPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class GetDataProtectionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetDataProtectionPolicyCommand(input, context);
+    return se_GetDataProtectionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataProtectionPolicyCommandOutput> {
-    return deserializeAws_queryGetDataProtectionPolicyCommand(output, context);
+    return de_GetDataProtectionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

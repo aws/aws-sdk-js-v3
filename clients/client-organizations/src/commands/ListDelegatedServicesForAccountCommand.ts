@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDelegatedServicesForAccountRequest,
-  ListDelegatedServicesForAccountRequestFilterSensitiveLog,
-  ListDelegatedServicesForAccountResponse,
-  ListDelegatedServicesForAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDelegatedServicesForAccountRequest, ListDelegatedServicesForAccountResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1ListDelegatedServicesForAccountCommand,
-  serializeAws_json1_1ListDelegatedServicesForAccountCommand,
+  de_ListDelegatedServicesForAccountCommand,
+  se_ListDelegatedServicesForAccountCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDelegatedServicesForAccountCommand}.
  */
 export interface ListDelegatedServicesForAccountCommandInput extends ListDelegatedServicesForAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDelegatedServicesForAccountCommand}.
  */
 export interface ListDelegatedServicesForAccountCommandOutput
@@ -37,6 +36,7 @@ export interface ListDelegatedServicesForAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the Amazon Web Services services for which the specified account is a delegated
  *             administrator.</p>
  *          <p>This operation can be called only from the organization's
@@ -47,10 +47,17 @@ export interface ListDelegatedServicesForAccountCommandOutput
  * import { OrganizationsClient, ListDelegatedServicesForAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListDelegatedServicesForAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // ListDelegatedServicesForAccountRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDelegatedServicesForAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDelegatedServicesForAccountCommandInput - {@link ListDelegatedServicesForAccountCommandInput}
+ * @returns {@link ListDelegatedServicesForAccountCommandOutput}
  * @see {@link ListDelegatedServicesForAccountCommandInput} for command's `input` shape.
  * @see {@link ListDelegatedServicesForAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -408,6 +415,9 @@ export class ListDelegatedServicesForAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDelegatedServicesForAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -436,8 +446,8 @@ export class ListDelegatedServicesForAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDelegatedServicesForAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDelegatedServicesForAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -447,18 +457,24 @@ export class ListDelegatedServicesForAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDelegatedServicesForAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDelegatedServicesForAccountCommand(input, context);
+    return se_ListDelegatedServicesForAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDelegatedServicesForAccountCommandOutput> {
-    return deserializeAws_json1_1ListDelegatedServicesForAccountCommand(output, context);
+    return de_ListDelegatedServicesForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

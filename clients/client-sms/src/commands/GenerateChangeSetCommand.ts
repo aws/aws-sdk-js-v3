@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GenerateChangeSetRequest,
-  GenerateChangeSetRequestFilterSensitiveLog,
-  GenerateChangeSetResponse,
-  GenerateChangeSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GenerateChangeSetCommand,
-  serializeAws_json1_1GenerateChangeSetCommand,
-} from "../protocols/Aws_json1_1";
+import { GenerateChangeSetRequest, GenerateChangeSetResponse } from "../models/models_0";
+import { de_GenerateChangeSetCommand, se_GenerateChangeSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateChangeSetCommand}.
  */
 export interface GenerateChangeSetCommandInput extends GenerateChangeSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateChangeSetCommand}.
  */
 export interface GenerateChangeSetCommandOutput extends GenerateChangeSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a target change set for a currently launched stack and writes it to an Amazon S3
  *             object in the customer’s Amazon S3 bucket.</p>
  * @example
@@ -43,10 +40,16 @@ export interface GenerateChangeSetCommandOutput extends GenerateChangeSetRespons
  * import { SMSClient, GenerateChangeSetCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GenerateChangeSetCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // GenerateChangeSetRequest
+ *   appId: "STRING_VALUE",
+ *   changesetFormat: "JSON" || "YAML",
+ * };
  * const command = new GenerateChangeSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateChangeSetCommandInput - {@link GenerateChangeSetCommandInput}
+ * @returns {@link GenerateChangeSetCommandOutput}
  * @see {@link GenerateChangeSetCommandInput} for command's `input` shape.
  * @see {@link GenerateChangeSetCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -86,6 +89,9 @@ export class GenerateChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class GenerateChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateChangeSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateChangeSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class GenerateChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateChangeSetCommand(input, context);
+    return se_GenerateChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateChangeSetCommandOutput> {
-    return deserializeAws_json1_1GenerateChangeSetCommand(output, context);
+    return de_GenerateChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

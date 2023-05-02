@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateResourceRequest,
-  DisassociateResourceRequestFilterSensitiveLog,
-  DisassociateResourceResponse,
-  DisassociateResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateResourceCommand,
-  serializeAws_restJson1DisassociateResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateResourceRequest, DisassociateResourceResponse } from "../models/models_0";
+import { de_DisassociateResourceCommand, se_DisassociateResourceCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateResourceCommand}.
  */
 export interface DisassociateResourceCommandInput extends DisassociateResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateResourceCommand}.
  */
 export interface DisassociateResourceCommandOutput extends DisassociateResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a resource from application. Both the resource and the application can be specified either by ID or name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * import { ServiceCatalogAppRegistryClient, DisassociateResourceCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, DisassociateResourceCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // DisassociateResourceRequest
+ *   application: "STRING_VALUE", // required
+ *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
+ *   resource: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResourceCommandInput - {@link DisassociateResourceCommandInput}
+ * @returns {@link DisassociateResourceCommandOutput}
  * @see {@link DisassociateResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -59,6 +63,13 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The maximum number
+ *       of API requests
+ *       has been exceeded.
+ *     </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
@@ -82,6 +93,9 @@ export class DisassociateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +124,8 @@ export class DisassociateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +135,18 @@ export class DisassociateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateResourceCommand(input, context);
+    return se_DisassociateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateResourceCommandOutput> {
-    return deserializeAws_restJson1DisassociateResourceCommand(output, context);
+    return de_DisassociateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

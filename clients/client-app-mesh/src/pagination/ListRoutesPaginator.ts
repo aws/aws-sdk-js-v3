@@ -6,7 +6,7 @@ import { ListRoutesCommand, ListRoutesCommandInput, ListRoutesCommandOutput } fr
 import { AppMeshPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppMeshClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRoutesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListRoutes(
   config: AppMeshPaginationConfiguration,
   input: ListRoutesCommandInput,

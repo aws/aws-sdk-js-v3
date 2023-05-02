@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RebootDBInstanceMessage,
-  RebootDBInstanceMessageFilterSensitiveLog,
-  RebootDBInstanceResult,
-  RebootDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryRebootDBInstanceCommand,
-  serializeAws_queryRebootDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_RebootDBInstanceCommand, se_RebootDBInstanceCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RebootDBInstanceCommand}.
  */
 export interface RebootDBInstanceCommandInput extends RebootDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link RebootDBInstanceCommand}.
  */
 export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You might need to reboot your DB instance, usually for maintenance reasons. For example,
  *       if you make certain modifications, or if you change the DB parameter group associated with the
  *       DB instance, you must reboot the instance for the changes to take effect.</p>
@@ -46,10 +43,16 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * import { NeptuneClient, RebootDBInstanceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RebootDBInstanceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // RebootDBInstanceMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   ForceFailover: true || false,
+ * };
  * const command = new RebootDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootDBInstanceCommandInput - {@link RebootDBInstanceCommandInput}
+ * @returns {@link RebootDBInstanceCommandOutput}
  * @see {@link RebootDBInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -80,6 +83,9 @@ export class RebootDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class RebootDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class RebootDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRebootDBInstanceCommand(input, context);
+    return se_RebootDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootDBInstanceCommandOutput> {
-    return deserializeAws_queryRebootDBInstanceCommand(output, context);
+    return de_RebootDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

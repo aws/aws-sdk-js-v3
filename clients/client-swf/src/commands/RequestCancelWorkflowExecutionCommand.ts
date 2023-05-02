@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { RequestCancelWorkflowExecutionInput } from "../models/models_0";
 import {
-  RequestCancelWorkflowExecutionInput,
-  RequestCancelWorkflowExecutionInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0RequestCancelWorkflowExecutionCommand,
-  serializeAws_json1_0RequestCancelWorkflowExecutionCommand,
+  de_RequestCancelWorkflowExecutionCommand,
+  se_RequestCancelWorkflowExecutionCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RequestCancelWorkflowExecutionCommand}.
  */
 export interface RequestCancelWorkflowExecutionCommandInput extends RequestCancelWorkflowExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link RequestCancelWorkflowExecutionCommand}.
  */
 export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Records a <code>WorkflowExecutionCancelRequested</code> event in the currently running
  *       workflow execution identified by the given domain, workflowId, and runId. This logically
  *       requests the cancellation of the workflow execution as a whole. It is up to the decider to
@@ -78,10 +80,17 @@ export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataB
  * import { SWFClient, RequestCancelWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RequestCancelWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // RequestCancelWorkflowExecutionInput
+ *   domain: "STRING_VALUE", // required
+ *   workflowId: "STRING_VALUE", // required
+ *   runId: "STRING_VALUE",
+ * };
  * const command = new RequestCancelWorkflowExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestCancelWorkflowExecutionCommandInput - {@link RequestCancelWorkflowExecutionCommandInput}
+ * @returns {@link RequestCancelWorkflowExecutionCommandOutput}
  * @see {@link RequestCancelWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link RequestCancelWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -111,6 +120,9 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestCancelWorkflowExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +151,8 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RequestCancelWorkflowExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,18 +162,24 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RequestCancelWorkflowExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0RequestCancelWorkflowExecutionCommand(input, context);
+    return se_RequestCancelWorkflowExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RequestCancelWorkflowExecutionCommandOutput> {
-    return deserializeAws_json1_0RequestCancelWorkflowExecutionCommand(output, context);
+    return de_RequestCancelWorkflowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

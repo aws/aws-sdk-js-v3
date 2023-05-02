@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListProfilePermissionsRequest,
-  ListProfilePermissionsRequestFilterSensitiveLog,
-  ListProfilePermissionsResponse,
-  ListProfilePermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProfilePermissionsCommand,
-  serializeAws_restJson1ListProfilePermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProfilePermissionsRequest, ListProfilePermissionsResponse } from "../models/models_0";
+import { de_ListProfilePermissionsCommand, se_ListProfilePermissionsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProfilePermissionsCommand}.
  */
 export interface ListProfilePermissionsCommandInput extends ListProfilePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProfilePermissionsCommand}.
  */
 export interface ListProfilePermissionsCommandOutput extends ListProfilePermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the cross-account permissions associated with a signing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  * import { SignerClient, ListProfilePermissionsCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, ListProfilePermissionsCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = { // ListProfilePermissionsRequest
+ *   profileName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListProfilePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProfilePermissionsCommandInput - {@link ListProfilePermissionsCommandInput}
+ * @returns {@link ListProfilePermissionsCommandOutput}
  * @see {@link ListProfilePermissionsCommandInput} for command's `input` shape.
  * @see {@link ListProfilePermissionsCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -85,6 +88,9 @@ export class ListProfilePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProfilePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class ListProfilePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProfilePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProfilePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class ListProfilePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProfilePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProfilePermissionsCommand(input, context);
+    return se_ListProfilePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfilePermissionsCommandOutput> {
-    return deserializeAws_restJson1ListProfilePermissionsCommand(output, context);
+    return de_ListProfilePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

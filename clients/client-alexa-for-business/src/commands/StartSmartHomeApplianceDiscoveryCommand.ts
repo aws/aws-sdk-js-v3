@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { StartSmartHomeApplianceDiscoveryRequest, StartSmartHomeApplianceDiscoveryResponse } from "../models/models_0";
 import {
-  StartSmartHomeApplianceDiscoveryRequest,
-  StartSmartHomeApplianceDiscoveryRequestFilterSensitiveLog,
-  StartSmartHomeApplianceDiscoveryResponse,
-  StartSmartHomeApplianceDiscoveryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand,
-  serializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand,
+  de_StartSmartHomeApplianceDiscoveryCommand,
+  se_StartSmartHomeApplianceDiscoveryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSmartHomeApplianceDiscoveryCommand}.
  */
 export interface StartSmartHomeApplianceDiscoveryCommandInput extends StartSmartHomeApplianceDiscoveryRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSmartHomeApplianceDiscoveryCommand}.
  */
 export interface StartSmartHomeApplianceDiscoveryCommandOutput
@@ -37,6 +36,7 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates the discovery of any smart home appliances associated with the
  *          room.</p>
  * @example
@@ -45,10 +45,15 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
  * import { AlexaForBusinessClient, StartSmartHomeApplianceDiscoveryCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, StartSmartHomeApplianceDiscoveryCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // StartSmartHomeApplianceDiscoveryRequest
+ *   RoomArn: "STRING_VALUE", // required
+ * };
  * const command = new StartSmartHomeApplianceDiscoveryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSmartHomeApplianceDiscoveryCommandInput - {@link StartSmartHomeApplianceDiscoveryCommandInput}
+ * @returns {@link StartSmartHomeApplianceDiscoveryCommandOutput}
  * @see {@link StartSmartHomeApplianceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link StartSmartHomeApplianceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +80,9 @@ export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSmartHomeApplianceDiscoveryCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +111,8 @@ export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSmartHomeApplianceDiscoveryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSmartHomeApplianceDiscoveryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +122,24 @@ export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartSmartHomeApplianceDiscoveryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand(input, context);
+    return se_StartSmartHomeApplianceDiscoveryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartSmartHomeApplianceDiscoveryCommandOutput> {
-    return deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand(output, context);
+    return de_StartSmartHomeApplianceDiscoveryCommand(output, context);
   }
 
   // Start section: command_body_extra

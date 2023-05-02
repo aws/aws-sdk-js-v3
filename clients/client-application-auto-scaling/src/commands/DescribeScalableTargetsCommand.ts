@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  DescribeScalableTargetsRequest,
-  DescribeScalableTargetsRequestFilterSensitiveLog,
-  DescribeScalableTargetsResponse,
-  DescribeScalableTargetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeScalableTargetsCommand,
-  serializeAws_json1_1DescribeScalableTargetsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeScalableTargetsRequest, DescribeScalableTargetsResponse } from "../models/models_0";
+import { de_DescribeScalableTargetsCommand, se_DescribeScalableTargetsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalableTargetsCommand}.
  */
 export interface DescribeScalableTargetsCommandInput extends DescribeScalableTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalableTargetsCommand}.
  */
 export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the scalable targets in the specified namespace.</p>
  *          <p>You can filter the results using <code>ResourceIds</code> and
  *             <code>ScalableDimension</code>.</p>
@@ -48,10 +45,21 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  * import { ApplicationAutoScalingClient, DescribeScalableTargetsCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, DescribeScalableTargetsCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
+ * const input = { // DescribeScalableTargetsRequest
+ *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ *   ResourceIds: [ // ResourceIdsMaxLen1600
+ *     "STRING_VALUE",
+ *   ],
+ *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeScalableTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalableTargetsCommandInput - {@link DescribeScalableTargetsCommandInput}
+ * @returns {@link DescribeScalableTargetsCommandOutput}
  * @see {@link DescribeScalableTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeScalableTargetsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -120,6 +128,9 @@ export class DescribeScalableTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalableTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +159,8 @@ export class DescribeScalableTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScalableTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScalableTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +170,18 @@ export class DescribeScalableTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalableTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeScalableTargetsCommand(input, context);
+    return se_DescribeScalableTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScalableTargetsCommandOutput> {
-    return deserializeAws_json1_1DescribeScalableTargetsCommand(output, context);
+    return de_DescribeScalableTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

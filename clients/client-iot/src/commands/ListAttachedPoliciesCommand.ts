@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListAttachedPoliciesRequest,
-  ListAttachedPoliciesRequestFilterSensitiveLog,
-  ListAttachedPoliciesResponse,
-  ListAttachedPoliciesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListAttachedPoliciesCommand,
-  serializeAws_restJson1ListAttachedPoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAttachedPoliciesRequest, ListAttachedPoliciesResponse } from "../models/models_1";
+import { de_ListAttachedPoliciesCommand, se_ListAttachedPoliciesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttachedPoliciesCommand}.
  */
 export interface ListAttachedPoliciesCommandInput extends ListAttachedPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttachedPoliciesCommand}.
  */
 export interface ListAttachedPoliciesCommandOutput extends ListAttachedPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the policies attached to the specified thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAttachedPolicies</a> action.</p>
  * @example
@@ -43,10 +40,18 @@ export interface ListAttachedPoliciesCommandOutput extends ListAttachedPoliciesR
  * import { IoTClient, ListAttachedPoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListAttachedPoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListAttachedPoliciesRequest
+ *   target: "STRING_VALUE", // required
+ *   recursive: true || false,
+ *   marker: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListAttachedPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttachedPoliciesCommandInput - {@link ListAttachedPoliciesCommandInput}
+ * @returns {@link ListAttachedPoliciesCommandOutput}
  * @see {@link ListAttachedPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAttachedPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -91,6 +96,9 @@ export class ListAttachedPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttachedPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +127,8 @@ export class ListAttachedPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttachedPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAttachedPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +138,18 @@ export class ListAttachedPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttachedPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAttachedPoliciesCommand(input, context);
+    return se_ListAttachedPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttachedPoliciesCommandOutput> {
-    return deserializeAws_restJson1ListAttachedPoliciesCommand(output, context);
+    return de_ListAttachedPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

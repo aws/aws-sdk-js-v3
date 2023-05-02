@@ -13,24 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ScheduledAction, ScheduledActionFilterSensitiveLog } from "../models/models_0";
-import { ModifyScheduledActionMessage, ModifyScheduledActionMessageFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryModifyScheduledActionCommand,
-  serializeAws_queryModifyScheduledActionCommand,
-} from "../protocols/Aws_query";
+import { ScheduledAction } from "../models/models_0";
+import { ModifyScheduledActionMessage } from "../models/models_1";
+import { de_ModifyScheduledActionCommand, se_ModifyScheduledActionCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyScheduledActionCommand}.
  */
 export interface ModifyScheduledActionCommandInput extends ModifyScheduledActionMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyScheduledActionCommand}.
  */
 export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a scheduled action.
  *             </p>
  * @example
@@ -39,10 +41,38 @@ export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __M
  * import { RedshiftClient, ModifyScheduledActionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyScheduledActionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ModifyScheduledActionMessage
+ *   ScheduledActionName: "STRING_VALUE", // required
+ *   TargetAction: { // ScheduledActionType
+ *     ResizeCluster: { // ResizeClusterMessage
+ *       ClusterIdentifier: "STRING_VALUE", // required
+ *       ClusterType: "STRING_VALUE",
+ *       NodeType: "STRING_VALUE",
+ *       NumberOfNodes: Number("int"),
+ *       Classic: true || false,
+ *       ReservedNodeId: "STRING_VALUE",
+ *       TargetReservedNodeOfferingId: "STRING_VALUE",
+ *     },
+ *     PauseCluster: { // PauseClusterMessage
+ *       ClusterIdentifier: "STRING_VALUE", // required
+ *     },
+ *     ResumeCluster: { // ResumeClusterMessage
+ *       ClusterIdentifier: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Schedule: "STRING_VALUE",
+ *   IamRole: "STRING_VALUE",
+ *   ScheduledActionDescription: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Enable: true || false,
+ * };
  * const command = new ModifyScheduledActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyScheduledActionCommandInput - {@link ModifyScheduledActionCommandInput}
+ * @returns {@link ModifyScheduledActionCommandOutput}
  * @see {@link ModifyScheduledActionCommandInput} for command's `input` shape.
  * @see {@link ModifyScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -81,6 +111,9 @@ export class ModifyScheduledActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +142,8 @@ export class ModifyScheduledActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyScheduledActionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ScheduledActionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +153,18 @@ export class ModifyScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyScheduledActionCommand(input, context);
+    return se_ModifyScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyScheduledActionCommandOutput> {
-    return deserializeAws_queryModifyScheduledActionCommand(output, context);
+    return de_ModifyScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,21 +15,23 @@ import {
 
 import {
   DisassociateResourceSharePermissionRequest,
-  DisassociateResourceSharePermissionRequestFilterSensitiveLog,
   DisassociateResourceSharePermissionResponse,
-  DisassociateResourceSharePermissionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateResourceSharePermissionCommand,
-  serializeAws_restJson1DisassociateResourceSharePermissionCommand,
+  de_DisassociateResourceSharePermissionCommand,
+  se_DisassociateResourceSharePermissionCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateResourceSharePermissionCommand}.
  */
 export interface DisassociateResourceSharePermissionCommandInput extends DisassociateResourceSharePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateResourceSharePermissionCommand}.
  */
 export interface DisassociateResourceSharePermissionCommandOutput
@@ -37,46 +39,57 @@ export interface DisassociateResourceSharePermissionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disassociates an RAM permission from a resource share. Permission changes take effect
- *             immediately. You can remove a RAM permission from a resource share only if there are currently
- *             no resources of the relevant resource type currently attached to the resource share.</p>
+ * @public
+ * <p>Removes a managed permission from a resource share. Permission changes take effect immediately. You can
+ *             remove a managed permission from a resource share only if there are currently no resources of the relevant
+ *             resource type currently attached to the resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RAMClient, DisassociateResourceSharePermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, DisassociateResourceSharePermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // DisassociateResourceSharePermissionRequest
+ *   resourceShareArn: "STRING_VALUE", // required
+ *   permissionArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DisassociateResourceSharePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResourceSharePermissionCommandInput - {@link DisassociateResourceSharePermissionCommandInput}
+ * @returns {@link DisassociateResourceSharePermissionCommandOutput}
  * @see {@link DisassociateResourceSharePermissionCommandInput} for command's `input` shape.
  * @see {@link DisassociateResourceSharePermissionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The client token is not valid.</p>
+ *  <p>The operation failed because the specified client token isn't valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
  * @throws {@link InvalidStateTransitionException} (client fault)
- *  <p>The requested state transition is not valid.</p>
+ *  <p>The operation failed because the requested operation isn't valid for the resource
+ *             share in its current state.</p>
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
+ *             valid.</p>
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The requested operation is not permitted.</p>
+ *  <p>The operation failed because the requested operation isn't permitted.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *  <p>The operation failed because the service could not respond to the request due to an
+ *             internal problem. Try again later.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is not available.</p>
+ *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>A specified resource was not found.</p>
+ *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
  *
  */
@@ -97,6 +110,9 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResourceSharePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +141,8 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateResourceSharePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateResourceSharePermissionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +152,24 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateResourceSharePermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateResourceSharePermissionCommand(input, context);
+    return se_DisassociateResourceSharePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateResourceSharePermissionCommandOutput> {
-    return deserializeAws_restJson1DisassociateResourceSharePermissionCommand(output, context);
+    return de_DisassociateResourceSharePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

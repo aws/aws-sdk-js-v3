@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  DisconnectUserRequest,
-  DisconnectUserRequestFilterSensitiveLog,
-  DisconnectUserResponse,
-  DisconnectUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisconnectUserCommand,
-  serializeAws_restJson1DisconnectUserCommand,
-} from "../protocols/Aws_restJson1";
+import { DisconnectUserRequest, DisconnectUserResponse } from "../models/models_0";
+import { de_DisconnectUserCommand, se_DisconnectUserCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisconnectUserCommand}.
  */
 export interface DisconnectUserCommandInput extends DisconnectUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisconnectUserCommand}.
  */
 export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects all connections using a specified user ID from a room. This replicates the
  *             <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html">
  *             DisconnectUser</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
@@ -44,10 +41,17 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  * import { IvschatClient, DisconnectUserCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, DisconnectUserCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = { // DisconnectUserRequest
+ *   roomIdentifier: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   reason: "STRING_VALUE",
+ * };
  * const command = new DisconnectUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisconnectUserCommandInput - {@link DisconnectUserCommandInput}
+ * @returns {@link DisconnectUserCommandOutput}
  * @see {@link DisconnectUserCommandInput} for command's `input` shape.
  * @see {@link DisconnectUserCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
@@ -86,6 +90,9 @@ export class DisconnectUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisconnectUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class DisconnectUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisconnectUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class DisconnectUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisconnectUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisconnectUserCommand(input, context);
+    return se_DisconnectUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectUserCommandOutput> {
-    return deserializeAws_restJson1DisconnectUserCommand(output, context);
+    return de_DisconnectUserCommand(output, context);
   }
 
   // Start section: command_body_extra

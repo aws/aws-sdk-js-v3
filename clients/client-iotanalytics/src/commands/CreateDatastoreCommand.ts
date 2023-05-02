@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  CreateDatastoreRequest,
-  CreateDatastoreRequestFilterSensitiveLog,
-  CreateDatastoreResponse,
-  CreateDatastoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDatastoreCommand,
-  serializeAws_restJson1CreateDatastoreCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDatastoreRequest, CreateDatastoreResponse } from "../models/models_0";
+import { de_CreateDatastoreCommand, se_CreateDatastoreCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatastoreCommand}.
  */
 export interface CreateDatastoreCommandInput extends CreateDatastoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatastoreCommand}.
  */
 export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data store, which is a repository for messages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,65 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * import { IoTAnalyticsClient, CreateDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, CreateDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // CreateDatastoreRequest
+ *   datastoreName: "STRING_VALUE", // required
+ *   datastoreStorage: { // DatastoreStorage Union: only one key present
+ *     serviceManagedS3: {},
+ *     customerManagedS3: { // CustomerManagedDatastoreS3Storage
+ *       bucket: "STRING_VALUE", // required
+ *       keyPrefix: "STRING_VALUE",
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *     iotSiteWiseMultiLayerStorage: { // DatastoreIotSiteWiseMultiLayerStorage
+ *       customerManagedS3Storage: { // IotSiteWiseCustomerManagedDatastoreS3Storage
+ *         bucket: "STRING_VALUE", // required
+ *         keyPrefix: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   retentionPeriod: { // RetentionPeriod
+ *     unlimited: true || false,
+ *     numberOfDays: Number("int"),
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   fileFormatConfiguration: { // FileFormatConfiguration
+ *     jsonConfiguration: {},
+ *     parquetConfiguration: { // ParquetConfiguration
+ *       schemaDefinition: { // SchemaDefinition
+ *         columns: [ // Columns
+ *           { // Column
+ *             name: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   datastorePartitions: { // DatastorePartitions
+ *     partitions: [ // Partitions
+ *       { // DatastorePartition
+ *         attributePartition: { // Partition
+ *           attributeName: "STRING_VALUE", // required
+ *         },
+ *         timestampPartition: { // TimestampPartition
+ *           attributeName: "STRING_VALUE", // required
+ *           timestampFormat: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateDatastoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatastoreCommandInput - {@link CreateDatastoreCommandInput}
+ * @returns {@link CreateDatastoreCommandOutput}
  * @see {@link CreateDatastoreCommandInput} for command's `input` shape.
  * @see {@link CreateDatastoreCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -87,6 +139,9 @@ export class CreateDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +170,8 @@ export class CreateDatastoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatastoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatastoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +181,18 @@ export class CreateDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatastoreCommand(input, context);
+    return se_CreateDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatastoreCommandOutput> {
-    return deserializeAws_restJson1CreateDatastoreCommand(output, context);
+    return de_CreateDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

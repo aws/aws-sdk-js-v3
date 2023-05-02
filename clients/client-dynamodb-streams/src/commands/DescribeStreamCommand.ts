@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient";
-import {
-  DescribeStreamInput,
-  DescribeStreamInputFilterSensitiveLog,
-  DescribeStreamOutput,
-  DescribeStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeStreamCommand,
-  serializeAws_json1_0DescribeStreamCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeStreamInput, DescribeStreamOutput } from "../models/models_0";
+import { de_DescribeStreamCommand, se_DescribeStreamCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStreamCommand}.
  */
 export interface DescribeStreamCommandInput extends DescribeStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStreamCommand}.
  */
 export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table.</p>
  *          <note>
  *             <p>You can call <code>DescribeStream</code> at a maximum rate of 10 times per second.</p>
@@ -50,10 +47,17 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * import { DynamoDBStreamsClient, DescribeStreamCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
  * // const { DynamoDBStreamsClient, DescribeStreamCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
  * const client = new DynamoDBStreamsClient(config);
+ * const input = { // DescribeStreamInput
+ *   StreamArn: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   ExclusiveStartShardId: "STRING_VALUE",
+ * };
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStreamCommandInput - {@link DescribeStreamCommandInput}
+ * @returns {@link DescribeStreamCommandOutput}
  * @see {@link DescribeStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
@@ -150,6 +154,9 @@ export class DescribeStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,8 +185,8 @@ export class DescribeStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -189,12 +196,18 @@ export class DescribeStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeStreamCommand(input, context);
+    return se_DescribeStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamCommandOutput> {
-    return deserializeAws_json1_0DescribeStreamCommand(output, context);
+    return de_DescribeStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

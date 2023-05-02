@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  DescribePartnerEventSourceRequest,
-  DescribePartnerEventSourceRequestFilterSensitiveLog,
-  DescribePartnerEventSourceResponse,
-  DescribePartnerEventSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePartnerEventSourceCommand,
-  serializeAws_json1_1DescribePartnerEventSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePartnerEventSourceRequest, DescribePartnerEventSourceResponse } from "../models/models_0";
+import { de_DescribePartnerEventSourceCommand, se_DescribePartnerEventSourceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePartnerEventSourceCommand}.
  */
 export interface DescribePartnerEventSourceCommandInput extends DescribePartnerEventSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePartnerEventSourceCommand}.
  */
 export interface DescribePartnerEventSourceCommandOutput extends DescribePartnerEventSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>An SaaS partner can use this operation to list details about a partner event source that
  *       they have created. Amazon Web Services customers do not use this operation. Instead, Amazon Web Services customers can use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html">DescribeEventSource</a>
  *       to see details about a partner event source that is
@@ -45,10 +42,15 @@ export interface DescribePartnerEventSourceCommandOutput extends DescribePartner
  * import { CloudWatchEventsClient, DescribePartnerEventSourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DescribePartnerEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // DescribePartnerEventSourceRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DescribePartnerEventSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePartnerEventSourceCommandInput - {@link DescribePartnerEventSourceCommandInput}
+ * @returns {@link DescribePartnerEventSourceCommandOutput}
  * @see {@link DescribePartnerEventSourceCommandInput} for command's `input` shape.
  * @see {@link DescribePartnerEventSourceCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -81,6 +83,9 @@ export class DescribePartnerEventSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePartnerEventSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DescribePartnerEventSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePartnerEventSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePartnerEventSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +125,21 @@ export class DescribePartnerEventSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePartnerEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePartnerEventSourceCommand(input, context);
+    return se_DescribePartnerEventSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePartnerEventSourceCommandOutput> {
-    return deserializeAws_json1_1DescribePartnerEventSourceCommand(output, context);
+    return de_DescribePartnerEventSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

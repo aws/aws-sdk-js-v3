@@ -19,22 +19,24 @@ import {
   SearchResourcesResponse,
   SearchResourcesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchResourcesCommand,
-  serializeAws_restJson1SearchResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchResourcesCommand, se_SearchResourcesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchResourcesCommand}.
  */
 export interface SearchResourcesCommandInput extends SearchResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchResourcesCommand}.
  */
 export interface SearchResourcesCommandOutput extends SearchResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches metadata and the content of folders, documents, document versions, and comments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,71 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * import { WorkDocsClient, SearchResourcesCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, SearchResourcesCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // SearchResourcesRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   QueryText: "STRING_VALUE",
+ *   QueryScopes: [ // SearchQueryScopeTypeList
+ *     "NAME" || "CONTENT",
+ *   ],
+ *   OrganizationId: "STRING_VALUE",
+ *   AdditionalResponseFields: [ // AdditionalResponseFieldsList
+ *     "WEBURL",
+ *   ],
+ *   Filters: { // Filters
+ *     TextLocales: [ // TextLocaleTypeList
+ *       "AR" || "BG" || "BN" || "DA" || "DE" || "CS" || "EL" || "EN" || "ES" || "FA" || "FI" || "FR" || "HI" || "HU" || "ID" || "IT" || "JA" || "KO" || "LT" || "LV" || "NL" || "NO" || "PT" || "RO" || "RU" || "SV" || "SW" || "TH" || "TR" || "ZH" || "DEFAULT",
+ *     ],
+ *     ContentCategories: [ // SearchContentCategoryTypeList
+ *       "IMAGE" || "DOCUMENT" || "PDF" || "SPREADSHEET" || "PRESENTATION" || "AUDIO" || "VIDEO" || "SOURCE_CODE" || "OTHER",
+ *     ],
+ *     ResourceTypes: [ // SearchResourceTypeList
+ *       "FOLDER" || "DOCUMENT" || "COMMENT" || "DOCUMENT_VERSION",
+ *     ],
+ *     Labels: [ // SearchLabelList
+ *       "STRING_VALUE",
+ *     ],
+ *     Principals: [ // SearchPrincipalTypeList
+ *       { // SearchPrincipalType
+ *         Id: "STRING_VALUE", // required
+ *         Roles: [ // SearchPrincipalRoleList
+ *           "VIEWER" || "CONTRIBUTOR" || "OWNER" || "COOWNER",
+ *         ],
+ *       },
+ *     ],
+ *     AncestorIds: [ // SearchAncestorIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     SearchCollectionTypes: [ // SearchCollectionTypeList
+ *       "OWNED" || "SHARED_WITH_ME",
+ *     ],
+ *     SizeRange: { // LongRangeType
+ *       StartValue: Number("long"),
+ *       EndValue: Number("long"),
+ *     },
+ *     CreatedRange: { // DateRangeType
+ *       StartValue: new Date("TIMESTAMP"),
+ *       EndValue: new Date("TIMESTAMP"),
+ *     },
+ *     ModifiedRange: {
+ *       StartValue: new Date("TIMESTAMP"),
+ *       EndValue: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ *   OrderBy: [ // SearchResultSortList
+ *     { // SearchSortResult
+ *       Field: "RELEVANCE" || "NAME" || "SIZE" || "CREATED_TIMESTAMP" || "MODIFIED_TIMESTAMP",
+ *       Order: "ASC" || "DESC",
+ *     },
+ *   ],
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new SearchResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchResourcesCommandInput - {@link SearchResourcesCommandInput}
+ * @returns {@link SearchResourcesCommandOutput}
  * @see {@link SearchResourcesCommandInput} for command's `input` shape.
  * @see {@link SearchResourcesCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -81,6 +144,9 @@ export class SearchResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,12 +186,18 @@ export class SearchResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchResourcesCommand(input, context);
+    return se_SearchResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchResourcesCommandOutput> {
-    return deserializeAws_restJson1SearchResourcesCommand(output, context);
+    return de_SearchResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

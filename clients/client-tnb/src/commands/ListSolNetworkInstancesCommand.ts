@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSolNetworkInstancesInput,
-  ListSolNetworkInstancesInputFilterSensitiveLog,
-  ListSolNetworkInstancesOutput,
-  ListSolNetworkInstancesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSolNetworkInstancesCommand,
-  serializeAws_restJson1ListSolNetworkInstancesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSolNetworkInstancesInput, ListSolNetworkInstancesOutput } from "../models/models_0";
+import { de_ListSolNetworkInstancesCommand, se_ListSolNetworkInstancesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSolNetworkInstancesCommand}.
  */
 export interface ListSolNetworkInstancesCommandInput extends ListSolNetworkInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSolNetworkInstancesCommand}.
  */
 export interface ListSolNetworkInstancesCommandOutput extends ListSolNetworkInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your network instances.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListSolNetworkInstancesCommandOutput extends ListSolNetworkInst
  * import { TnbClient, ListSolNetworkInstancesCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ListSolNetworkInstancesCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // ListSolNetworkInstancesInput
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSolNetworkInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSolNetworkInstancesCommandInput - {@link ListSolNetworkInstancesCommandInput}
+ * @returns {@link ListSolNetworkInstancesCommandOutput}
  * @see {@link ListSolNetworkInstancesCommandInput} for command's `input` shape.
  * @see {@link ListSolNetworkInstancesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListSolNetworkInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSolNetworkInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class ListSolNetworkInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSolNetworkInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSolNetworkInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class ListSolNetworkInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSolNetworkInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSolNetworkInstancesCommand(input, context);
+    return se_ListSolNetworkInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolNetworkInstancesCommandOutput> {
-    return deserializeAws_restJson1ListSolNetworkInstancesCommand(output, context);
+    return de_ListSolNetworkInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

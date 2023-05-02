@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  DescribeTransactionRequest,
-  DescribeTransactionRequestFilterSensitiveLog,
-  DescribeTransactionResponse,
-  DescribeTransactionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeTransactionCommand,
-  serializeAws_restJson1DescribeTransactionCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeTransactionRequest, DescribeTransactionResponse } from "../models/models_0";
+import { de_DescribeTransactionCommand, se_DescribeTransactionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransactionCommand}.
  */
 export interface DescribeTransactionCommandInput extends DescribeTransactionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransactionCommand}.
  */
 export interface DescribeTransactionCommandOutput extends DescribeTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of a single transaction.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,16 +39,21 @@ export interface DescribeTransactionCommandOutput extends DescribeTransactionRes
  * import { LakeFormationClient, DescribeTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DescribeTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // DescribeTransactionRequest
+ *   TransactionId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTransactionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransactionCommandInput - {@link DescribeTransactionCommandInput}
+ * @returns {@link DescribeTransactionCommandOutput}
  * @see {@link DescribeTransactionCommandInput} for command's `input` shape.
  * @see {@link DescribeTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -81,6 +83,9 @@ export class DescribeTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DescribeTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTransactionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTransactionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DescribeTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTransactionCommand(input, context);
+    return se_DescribeTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTransactionCommandOutput> {
-    return deserializeAws_restJson1DescribeTransactionCommand(output, context);
+    return de_DescribeTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

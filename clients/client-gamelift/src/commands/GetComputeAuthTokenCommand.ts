@@ -14,41 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  GetComputeAuthTokenInput,
-  GetComputeAuthTokenInputFilterSensitiveLog,
-  GetComputeAuthTokenOutput,
-  GetComputeAuthTokenOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetComputeAuthTokenCommand,
-  serializeAws_json1_1GetComputeAuthTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { GetComputeAuthTokenInput, GetComputeAuthTokenOutput } from "../models/models_0";
+import { de_GetComputeAuthTokenCommand, se_GetComputeAuthTokenCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetComputeAuthTokenCommand}.
  */
 export interface GetComputeAuthTokenCommandInput extends GetComputeAuthTokenInput {}
 /**
+ * @public
+ *
  * The output of {@link GetComputeAuthTokenCommand}.
  */
 export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOutput, __MetadataBearer {}
 
 /**
- * <p>Requests an authorization token from GameLift. The authorization token is used by your
- *             game server to authenticate with GameLift. Each authentication token has an expiration
- *             token. To continue using the compute resource to host your game server, regularly
- *             retrieve a new authorization token.</p>
+ * @public
+ * <p>Requests an authentication token from Amazon GameLift. The authentication token is used by
+ *             your game server to authenticate with Amazon GameLift. Each authentication token has an
+ *             expiration time. To continue using the compute resource to host your game server,
+ *             regularly retrieve a new authorization token.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GameLiftClient, GetComputeAuthTokenCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, GetComputeAuthTokenCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // GetComputeAuthTokenInput
+ *   FleetId: "STRING_VALUE", // required
+ *   ComputeName: "STRING_VALUE", // required
+ * };
  * const command = new GetComputeAuthTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComputeAuthTokenCommandInput - {@link GetComputeAuthTokenCommandInput}
+ * @returns {@link GetComputeAuthTokenCommandOutput}
  * @see {@link GetComputeAuthTokenCommandInput} for command's `input` shape.
  * @see {@link GetComputeAuthTokenCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -86,6 +89,9 @@ export class GetComputeAuthTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComputeAuthTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class GetComputeAuthTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComputeAuthTokenInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComputeAuthTokenOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class GetComputeAuthTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComputeAuthTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComputeAuthTokenCommand(input, context);
+    return se_GetComputeAuthTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComputeAuthTokenCommandOutput> {
-    return deserializeAws_json1_1GetComputeAuthTokenCommand(output, context);
+    return de_GetComputeAuthTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

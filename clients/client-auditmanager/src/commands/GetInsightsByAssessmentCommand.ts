@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  GetInsightsByAssessmentRequest,
-  GetInsightsByAssessmentRequestFilterSensitiveLog,
-  GetInsightsByAssessmentResponse,
-  GetInsightsByAssessmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetInsightsByAssessmentCommand,
-  serializeAws_restJson1GetInsightsByAssessmentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetInsightsByAssessmentRequest, GetInsightsByAssessmentResponse } from "../models/models_0";
+import { de_GetInsightsByAssessmentCommand, se_GetInsightsByAssessmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInsightsByAssessmentCommand}.
  */
 export interface GetInsightsByAssessmentCommandInput extends GetInsightsByAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInsightsByAssessmentCommand}.
  */
 export interface GetInsightsByAssessmentCommandOutput extends GetInsightsByAssessmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the latest analytics data for a specific active assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetInsightsByAssessmentCommandOutput extends GetInsightsByAsses
  * import { AuditManagerClient, GetInsightsByAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetInsightsByAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // GetInsightsByAssessmentRequest
+ *   assessmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetInsightsByAssessmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInsightsByAssessmentCommandInput - {@link GetInsightsByAssessmentCommandInput}
+ * @returns {@link GetInsightsByAssessmentCommandOutput}
  * @see {@link GetInsightsByAssessmentCommandInput} for command's `input` shape.
  * @see {@link GetInsightsByAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -83,6 +85,9 @@ export class GetInsightsByAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInsightsByAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class GetInsightsByAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInsightsByAssessmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInsightsByAssessmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class GetInsightsByAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInsightsByAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInsightsByAssessmentCommand(input, context);
+    return se_GetInsightsByAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightsByAssessmentCommandOutput> {
-    return deserializeAws_restJson1GetInsightsByAssessmentCommand(output, context);
+    return de_GetInsightsByAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

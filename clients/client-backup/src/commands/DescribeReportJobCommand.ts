@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  DescribeReportJobInput,
-  DescribeReportJobInputFilterSensitiveLog,
-  DescribeReportJobOutput,
-  DescribeReportJobOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeReportJobCommand,
-  serializeAws_restJson1DescribeReportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeReportJobInput, DescribeReportJobOutput } from "../models/models_0";
+import { de_DescribeReportJobCommand, se_DescribeReportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReportJobCommand}.
  */
 export interface DescribeReportJobCommandInput extends DescribeReportJobInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReportJobCommand}.
  */
 export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details associated with creating a report as specified by its
  *             <code>ReportJobId</code>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput,
  * import { BackupClient, DescribeReportJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeReportJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DescribeReportJobInput
+ *   ReportJobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeReportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReportJobCommandInput - {@link DescribeReportJobCommandInput}
+ * @returns {@link DescribeReportJobCommandOutput}
  * @see {@link DescribeReportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeReportJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -79,6 +81,9 @@ export class DescribeReportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class DescribeReportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReportJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReportJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class DescribeReportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeReportJobCommand(input, context);
+    return se_DescribeReportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReportJobCommandOutput> {
-    return deserializeAws_restJson1DescribeReportJobCommand(output, context);
+    return de_DescribeReportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

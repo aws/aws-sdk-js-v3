@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  StopJobRequest,
-  StopJobRequestFilterSensitiveLog,
-  StopJobResult,
-  StopJobResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1StopJobCommand, serializeAws_json1_1StopJobCommand } from "../protocols/Aws_json1_1";
+import { StopJobRequest, StopJobResult } from "../models/models_0";
+import { de_StopJobCommand, se_StopJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopJobCommand}.
  */
 export interface StopJobCommandInput extends StopJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopJobCommand}.
  */
 export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a stop request for the current job. AWS Device Farm immediately stops the job on the device
  *             where tests have not started. You are not billed for this device. On the device where tests have started,
  *             setup suite and teardown suite tests run to completion on the device. You are billed for setup, teardown,
@@ -42,10 +42,15 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * import { DeviceFarmClient, StopJobCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, StopJobCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // StopJobRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new StopJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopJobCommandInput - {@link StopJobCommandInput}
+ * @returns {@link StopJobCommandOutput}
  * @see {@link StopJobCommandInput} for command's `input` shape.
  * @see {@link StopJobCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +86,9 @@ export class StopJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +115,8 @@ export class StopJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +126,18 @@ export class StopJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopJobCommand(input, context);
+    return se_StopJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopJobCommandOutput> {
-    return deserializeAws_json1_1StopJobCommand(output, context);
+    return de_StopJobCommand(output, context);
   }
 
   // Start section: command_body_extra

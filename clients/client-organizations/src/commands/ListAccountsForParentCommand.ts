@@ -15,26 +15,27 @@ import {
 
 import {
   ListAccountsForParentRequest,
-  ListAccountsForParentRequestFilterSensitiveLog,
   ListAccountsForParentResponse,
   ListAccountsForParentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListAccountsForParentCommand,
-  serializeAws_json1_1ListAccountsForParentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAccountsForParentCommand, se_ListAccountsForParentCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountsForParentCommand}.
  */
 export interface ListAccountsForParentCommandInput extends ListAccountsForParentRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountsForParentCommand}.
  */
 export interface ListAccountsForParentCommandOutput extends ListAccountsForParentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the accounts in an organization that are contained by the specified target root
  *             or organizational unit (OU). If you specify the root, you get a list of all the accounts
  *             that aren't in any OU. If you specify an OU, you get a list of all the accounts in only
@@ -56,10 +57,17 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * import { OrganizationsClient, ListAccountsForParentCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListAccountsForParentCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // ListAccountsForParentRequest
+ *   ParentId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAccountsForParentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountsForParentCommandInput - {@link ListAccountsForParentCommandInput}
+ * @returns {@link ListAccountsForParentCommandOutput}
  * @see {@link ListAccountsForParentCommandInput} for command's `input` shape.
  * @see {@link ListAccountsForParentCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -247,6 +255,9 @@ export class ListAccountsForParentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountsForParentCommandInput) {
     // Start section: command_constructor
     super();
@@ -275,7 +286,7 @@ export class ListAccountsForParentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountsForParentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListAccountsForParentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -286,12 +297,18 @@ export class ListAccountsForParentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountsForParentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccountsForParentCommand(input, context);
+    return se_ListAccountsForParentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountsForParentCommandOutput> {
-    return deserializeAws_json1_1ListAccountsForParentCommand(output, context);
+    return de_ListAccountsForParentCommand(output, context);
   }
 
   // Start section: command_body_extra

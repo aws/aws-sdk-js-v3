@@ -1,19 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -80,26 +80,19 @@ import {
   MigrationWorkflowSummary,
   PlatformCommand,
   PlatformScriptKey,
-  PluginSummary,
   ResourceNotFoundException,
-  StepAutomationConfiguration,
   StepInput,
-  StepOutput,
-  TemplateInput,
-  TemplateStepGroupSummary,
-  TemplateStepSummary,
-  TemplateSummary,
   ThrottlingException,
-  Tool,
   ValidationException,
   WorkflowStepAutomationConfiguration,
-  WorkflowStepGroupSummary,
   WorkflowStepOutput,
   WorkflowStepOutputUnion,
-  WorkflowStepSummary,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateWorkflowCommand = async (
+/**
+ * serializeAws_restJson1CreateWorkflowCommand
+ */
+export const se_CreateWorkflowCommand = async (
   input: CreateWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -109,17 +102,17 @@ export const serializeAws_restJson1CreateWorkflowCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/migrationworkflow";
   let body: any;
-  body = JSON.stringify({
-    ...(input.applicationConfigurationId != null && { applicationConfigurationId: input.applicationConfigurationId }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.inputParameters != null && {
-      inputParameters: serializeAws_restJson1StepInputParameters(input.inputParameters, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.stepTargets != null && { stepTargets: serializeAws_restJson1StringList(input.stepTargets, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1StringMap(input.tags, context) }),
-    ...(input.templateId != null && { templateId: input.templateId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      applicationConfigurationId: [],
+      description: [],
+      inputParameters: (_) => _json(_),
+      name: [],
+      stepTargets: (_) => _json(_),
+      tags: (_) => _json(_),
+      templateId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -131,7 +124,10 @@ export const serializeAws_restJson1CreateWorkflowCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateWorkflowStepCommand = async (
+/**
+ * serializeAws_restJson1CreateWorkflowStepCommand
+ */
+export const se_CreateWorkflowStepCommand = async (
   input: CreateWorkflowStepCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -141,23 +137,20 @@ export const serializeAws_restJson1CreateWorkflowStepCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstep";
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.next != null && { next: serializeAws_restJson1StringList(input.next, context) }),
-    ...(input.outputs != null && { outputs: serializeAws_restJson1WorkflowStepOutputList(input.outputs, context) }),
-    ...(input.previous != null && { previous: serializeAws_restJson1StringList(input.previous, context) }),
-    ...(input.stepActionType != null && { stepActionType: input.stepActionType }),
-    ...(input.stepGroupId != null && { stepGroupId: input.stepGroupId }),
-    ...(input.stepTarget != null && { stepTarget: serializeAws_restJson1StringList(input.stepTarget, context) }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-    ...(input.workflowStepAutomationConfiguration != null && {
-      workflowStepAutomationConfiguration: serializeAws_restJson1WorkflowStepAutomationConfiguration(
-        input.workflowStepAutomationConfiguration,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      next: (_) => _json(_),
+      outputs: (_) => _json(_),
+      previous: (_) => _json(_),
+      stepActionType: [],
+      stepGroupId: [],
+      stepTarget: (_) => _json(_),
+      workflowId: [],
+      workflowStepAutomationConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -169,7 +162,10 @@ export const serializeAws_restJson1CreateWorkflowStepCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateWorkflowStepGroupCommand = async (
+/**
+ * serializeAws_restJson1CreateWorkflowStepGroupCommand
+ */
+export const se_CreateWorkflowStepGroupCommand = async (
   input: CreateWorkflowStepGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -179,13 +175,15 @@ export const serializeAws_restJson1CreateWorkflowStepGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstepgroups";
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.next != null && { next: serializeAws_restJson1StringList(input.next, context) }),
-    ...(input.previous != null && { previous: serializeAws_restJson1StringList(input.previous, context) }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      next: (_) => _json(_),
+      previous: (_) => _json(_),
+      workflowId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -197,7 +195,10 @@ export const serializeAws_restJson1CreateWorkflowStepGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteWorkflowCommand = async (
+/**
+ * serializeAws_restJson1DeleteWorkflowCommand
+ */
+export const se_DeleteWorkflowCommand = async (
   input: DeleteWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -217,7 +218,10 @@ export const serializeAws_restJson1DeleteWorkflowCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteWorkflowStepCommand = async (
+/**
+ * serializeAws_restJson1DeleteWorkflowStepCommand
+ */
+export const se_DeleteWorkflowStepCommand = async (
   input: DeleteWorkflowStepCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -242,7 +246,10 @@ export const serializeAws_restJson1DeleteWorkflowStepCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteWorkflowStepGroupCommand = async (
+/**
+ * serializeAws_restJson1DeleteWorkflowStepGroupCommand
+ */
+export const se_DeleteWorkflowStepGroupCommand = async (
   input: DeleteWorkflowStepGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -266,7 +273,10 @@ export const serializeAws_restJson1DeleteWorkflowStepGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetTemplateCommand = async (
+/**
+ * serializeAws_restJson1GetTemplateCommand
+ */
+export const se_GetTemplateCommand = async (
   input: GetTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -287,7 +297,10 @@ export const serializeAws_restJson1GetTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetTemplateStepCommand = async (
+/**
+ * serializeAws_restJson1GetTemplateStepCommand
+ */
+export const se_GetTemplateStepCommand = async (
   input: GetTemplateStepCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -312,7 +325,10 @@ export const serializeAws_restJson1GetTemplateStepCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetTemplateStepGroupCommand = async (
+/**
+ * serializeAws_restJson1GetTemplateStepGroupCommand
+ */
+export const se_GetTemplateStepGroupCommand = async (
   input: GetTemplateStepGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -334,7 +350,10 @@ export const serializeAws_restJson1GetTemplateStepGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetWorkflowCommand = async (
+/**
+ * serializeAws_restJson1GetWorkflowCommand
+ */
+export const se_GetWorkflowCommand = async (
   input: GetWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -354,7 +373,10 @@ export const serializeAws_restJson1GetWorkflowCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetWorkflowStepCommand = async (
+/**
+ * serializeAws_restJson1GetWorkflowStepCommand
+ */
+export const se_GetWorkflowStepCommand = async (
   input: GetWorkflowStepCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -379,7 +401,10 @@ export const serializeAws_restJson1GetWorkflowStepCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetWorkflowStepGroupCommand = async (
+/**
+ * serializeAws_restJson1GetWorkflowStepGroupCommand
+ */
+export const se_GetWorkflowStepGroupCommand = async (
   input: GetWorkflowStepGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -403,7 +428,10 @@ export const serializeAws_restJson1GetWorkflowStepGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListPluginsCommand = async (
+/**
+ * serializeAws_restJson1ListPluginsCommand
+ */
+export const se_ListPluginsCommand = async (
   input: ListPluginsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -427,7 +455,10 @@ export const serializeAws_restJson1ListPluginsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -447,7 +478,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTemplatesCommand = async (
+/**
+ * serializeAws_restJson1ListTemplatesCommand
+ */
+export const se_ListTemplatesCommand = async (
   input: ListTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -473,7 +507,10 @@ export const serializeAws_restJson1ListTemplatesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTemplateStepGroupsCommand = async (
+/**
+ * serializeAws_restJson1ListTemplateStepGroupsCommand
+ */
+export const se_ListTemplateStepGroupsCommand = async (
   input: ListTemplateStepGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -499,7 +536,10 @@ export const serializeAws_restJson1ListTemplateStepGroupsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTemplateStepsCommand = async (
+/**
+ * serializeAws_restJson1ListTemplateStepsCommand
+ */
+export const se_ListTemplateStepsCommand = async (
   input: ListTemplateStepsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -525,7 +565,10 @@ export const serializeAws_restJson1ListTemplateStepsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListWorkflowsCommand = async (
+/**
+ * serializeAws_restJson1ListWorkflowsCommand
+ */
+export const se_ListWorkflowsCommand = async (
   input: ListWorkflowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -553,7 +596,10 @@ export const serializeAws_restJson1ListWorkflowsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListWorkflowStepGroupsCommand = async (
+/**
+ * serializeAws_restJson1ListWorkflowStepGroupsCommand
+ */
+export const se_ListWorkflowStepGroupsCommand = async (
   input: ListWorkflowStepGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -578,7 +624,10 @@ export const serializeAws_restJson1ListWorkflowStepGroupsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListWorkflowStepsCommand = async (
+/**
+ * serializeAws_restJson1ListWorkflowStepsCommand
+ */
+export const se_ListWorkflowStepsCommand = async (
   input: ListWorkflowStepsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -606,7 +655,10 @@ export const serializeAws_restJson1ListWorkflowStepsCommand = async (
   });
 };
 
-export const serializeAws_restJson1RetryWorkflowStepCommand = async (
+/**
+ * serializeAws_restJson1RetryWorkflowStepCommand
+ */
+export const se_RetryWorkflowStepCommand = async (
   input: RetryWorkflowStepCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -631,7 +683,10 @@ export const serializeAws_restJson1RetryWorkflowStepCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartWorkflowCommand = async (
+/**
+ * serializeAws_restJson1StartWorkflowCommand
+ */
+export const se_StartWorkflowCommand = async (
   input: StartWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -652,7 +707,10 @@ export const serializeAws_restJson1StartWorkflowCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopWorkflowCommand = async (
+/**
+ * serializeAws_restJson1StopWorkflowCommand
+ */
+export const se_StopWorkflowCommand = async (
   input: StopWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -673,7 +731,10 @@ export const serializeAws_restJson1StopWorkflowCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -684,9 +745,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -698,7 +761,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -725,7 +791,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateWorkflowCommand = async (
+/**
+ * serializeAws_restJson1UpdateWorkflowCommand
+ */
+export const se_UpdateWorkflowCommand = async (
   input: UpdateWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -736,14 +805,14 @@ export const serializeAws_restJson1UpdateWorkflowCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/migrationworkflow/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.inputParameters != null && {
-      inputParameters: serializeAws_restJson1StepInputParameters(input.inputParameters, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.stepTargets != null && { stepTargets: serializeAws_restJson1StringList(input.stepTargets, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      inputParameters: (_) => _json(_),
+      name: [],
+      stepTargets: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -755,7 +824,10 @@ export const serializeAws_restJson1UpdateWorkflowCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateWorkflowStepCommand = async (
+/**
+ * serializeAws_restJson1UpdateWorkflowStepCommand
+ */
+export const se_UpdateWorkflowStepCommand = async (
   input: UpdateWorkflowStepCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -766,24 +838,21 @@ export const serializeAws_restJson1UpdateWorkflowStepCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstep/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.next != null && { next: serializeAws_restJson1StringList(input.next, context) }),
-    ...(input.outputs != null && { outputs: serializeAws_restJson1WorkflowStepOutputList(input.outputs, context) }),
-    ...(input.previous != null && { previous: serializeAws_restJson1StringList(input.previous, context) }),
-    ...(input.status != null && { status: input.status }),
-    ...(input.stepActionType != null && { stepActionType: input.stepActionType }),
-    ...(input.stepGroupId != null && { stepGroupId: input.stepGroupId }),
-    ...(input.stepTarget != null && { stepTarget: serializeAws_restJson1StringList(input.stepTarget, context) }),
-    ...(input.workflowId != null && { workflowId: input.workflowId }),
-    ...(input.workflowStepAutomationConfiguration != null && {
-      workflowStepAutomationConfiguration: serializeAws_restJson1WorkflowStepAutomationConfiguration(
-        input.workflowStepAutomationConfiguration,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      next: (_) => _json(_),
+      outputs: (_) => _json(_),
+      previous: (_) => _json(_),
+      status: [],
+      stepActionType: [],
+      stepGroupId: [],
+      stepTarget: (_) => _json(_),
+      workflowId: [],
+      workflowStepAutomationConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -795,7 +864,10 @@ export const serializeAws_restJson1UpdateWorkflowStepCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateWorkflowStepGroupCommand = async (
+/**
+ * serializeAws_restJson1UpdateWorkflowStepGroupCommand
+ */
+export const se_UpdateWorkflowStepGroupCommand = async (
   input: UpdateWorkflowStepGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -809,12 +881,14 @@ export const serializeAws_restJson1UpdateWorkflowStepGroupCommand = async (
     workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.next != null && { next: serializeAws_restJson1StringList(input.next, context) }),
-    ...(input.previous != null && { previous: serializeAws_restJson1StringList(input.previous, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      next: (_) => _json(_),
+      previous: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -827,54 +901,41 @@ export const serializeAws_restJson1UpdateWorkflowStepGroupCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateWorkflowCommand = async (
+/**
+ * deserializeAws_restJson1CreateWorkflowCommand
+ */
+export const de_CreateWorkflowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkflowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateWorkflowCommandError(output, context);
+    return de_CreateWorkflowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.adsApplicationConfigurationId != null) {
-    contents.adsApplicationConfigurationId = __expectString(data.adsApplicationConfigurationId);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.stepTargets != null) {
-    contents.stepTargets = deserializeAws_restJson1StringList(data.stepTargets, context);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1StringMap(data.tags, context);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
-  if (data.workflowInputs != null) {
-    contents.workflowInputs = deserializeAws_restJson1StepInputParameters(data.workflowInputs, context);
-  }
+  const doc = take(data, {
+    adsApplicationConfigurationId: __expectString,
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    stepTargets: _json,
+    tags: _json,
+    templateId: __expectString,
+    workflowInputs: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateWorkflowCommandError = async (
+/**
+ * deserializeAws_restJson1CreateWorkflowCommandError
+ */
+const de_CreateWorkflowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkflowCommandOutput> => {
@@ -886,54 +947,54 @@ const deserializeAws_restJson1CreateWorkflowCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateWorkflowStepCommand = async (
+/**
+ * deserializeAws_restJson1CreateWorkflowStepCommand
+ */
+export const de_CreateWorkflowStepCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkflowStepCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateWorkflowStepCommandError(output, context);
+    return de_CreateWorkflowStepCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.stepGroupId != null) {
-    contents.stepGroupId = __expectString(data.stepGroupId);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    name: __expectString,
+    stepGroupId: __expectString,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateWorkflowStepCommandError = async (
+/**
+ * deserializeAws_restJson1CreateWorkflowStepCommandError
+ */
+const de_CreateWorkflowStepCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkflowStepCommandOutput> => {
@@ -945,66 +1006,58 @@ const deserializeAws_restJson1CreateWorkflowStepCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateWorkflowStepGroupCommand = async (
+/**
+ * deserializeAws_restJson1CreateWorkflowStepGroupCommand
+ */
+export const de_CreateWorkflowStepGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkflowStepGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateWorkflowStepGroupCommandError(output, context);
+    return de_CreateWorkflowStepGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.next != null) {
-    contents.next = deserializeAws_restJson1StringList(data.next, context);
-  }
-  if (data.previous != null) {
-    contents.previous = deserializeAws_restJson1StringList(data.previous, context);
-  }
-  if (data.tools != null) {
-    contents.tools = deserializeAws_restJson1ToolsList(data.tools, context);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    next: _json,
+    previous: _json,
+    tools: _json,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateWorkflowStepGroupCommandError = async (
+/**
+ * deserializeAws_restJson1CreateWorkflowStepGroupCommandError
+ */
+const de_CreateWorkflowStepGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkflowStepGroupCommandOutput> => {
@@ -1016,51 +1069,53 @@ const deserializeAws_restJson1CreateWorkflowStepGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteWorkflowCommand = async (
+/**
+ * deserializeAws_restJson1DeleteWorkflowCommand
+ */
+export const de_DeleteWorkflowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkflowCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteWorkflowCommandError(output, context);
+    return de_DeleteWorkflowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteWorkflowCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteWorkflowCommandError
+ */
+const de_DeleteWorkflowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkflowCommandOutput> => {
@@ -1072,36 +1127,38 @@ const deserializeAws_restJson1DeleteWorkflowCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteWorkflowStepCommand = async (
+/**
+ * deserializeAws_restJson1DeleteWorkflowStepCommand
+ */
+export const de_DeleteWorkflowStepCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkflowStepCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteWorkflowStepCommandError(output, context);
+    return de_DeleteWorkflowStepCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1110,7 +1167,10 @@ export const deserializeAws_restJson1DeleteWorkflowStepCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteWorkflowStepCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteWorkflowStepCommandError
+ */
+const de_DeleteWorkflowStepCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkflowStepCommandOutput> => {
@@ -1122,36 +1182,38 @@ const deserializeAws_restJson1DeleteWorkflowStepCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteWorkflowStepGroupCommand = async (
+/**
+ * deserializeAws_restJson1DeleteWorkflowStepGroupCommand
+ */
+export const de_DeleteWorkflowStepGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkflowStepGroupCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteWorkflowStepGroupCommandError(output, context);
+    return de_DeleteWorkflowStepGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1160,7 +1222,10 @@ export const deserializeAws_restJson1DeleteWorkflowStepGroupCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteWorkflowStepGroupCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteWorkflowStepGroupCommandError
+ */
+const de_DeleteWorkflowStepGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkflowStepGroupCommandOutput> => {
@@ -1172,66 +1237,60 @@ const deserializeAws_restJson1DeleteWorkflowStepGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetTemplateCommand = async (
+/**
+ * deserializeAws_restJson1GetTemplateCommand
+ */
+export const de_GetTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetTemplateCommandError(output, context);
+    return de_GetTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.inputs != null) {
-    contents.inputs = deserializeAws_restJson1TemplateInputList(data.inputs, context);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tools != null) {
-    contents.tools = deserializeAws_restJson1ToolsList(data.tools, context);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    inputs: _json,
+    name: __expectString,
+    status: __expectString,
+    tools: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1GetTemplateCommandError
+ */
+const de_GetTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTemplateCommandOutput> => {
@@ -1243,78 +1302,61 @@ const deserializeAws_restJson1GetTemplateCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetTemplateStepCommand = async (
+/**
+ * deserializeAws_restJson1GetTemplateStepCommand
+ */
+export const de_GetTemplateStepCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTemplateStepCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetTemplateStepCommandError(output, context);
+    return de_GetTemplateStepCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectString(data.creationTime);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.next != null) {
-    contents.next = deserializeAws_restJson1StringList(data.next, context);
-  }
-  if (data.outputs != null) {
-    contents.outputs = deserializeAws_restJson1StepOutputList(data.outputs, context);
-  }
-  if (data.previous != null) {
-    contents.previous = deserializeAws_restJson1StringList(data.previous, context);
-  }
-  if (data.stepActionType != null) {
-    contents.stepActionType = __expectString(data.stepActionType);
-  }
-  if (data.stepAutomationConfiguration != null) {
-    contents.stepAutomationConfiguration = deserializeAws_restJson1StepAutomationConfiguration(
-      data.stepAutomationConfiguration,
-      context
-    );
-  }
-  if (data.stepGroupId != null) {
-    contents.stepGroupId = __expectString(data.stepGroupId);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
+  const doc = take(data, {
+    creationTime: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    next: _json,
+    outputs: _json,
+    previous: _json,
+    stepActionType: __expectString,
+    stepAutomationConfiguration: _json,
+    stepGroupId: __expectString,
+    templateId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetTemplateStepCommandError = async (
+/**
+ * deserializeAws_restJson1GetTemplateStepCommandError
+ */
+const de_GetTemplateStepCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTemplateStepCommandOutput> => {
@@ -1326,75 +1368,63 @@ const deserializeAws_restJson1GetTemplateStepCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetTemplateStepGroupCommand = async (
+/**
+ * deserializeAws_restJson1GetTemplateStepGroupCommand
+ */
+export const de_GetTemplateStepGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTemplateStepGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetTemplateStepGroupCommandError(output, context);
+    return de_GetTemplateStepGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.next != null) {
-    contents.next = deserializeAws_restJson1StringList(data.next, context);
-  }
-  if (data.previous != null) {
-    contents.previous = deserializeAws_restJson1StringList(data.previous, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
-  if (data.tools != null) {
-    contents.tools = deserializeAws_restJson1ToolsList(data.tools, context);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    next: _json,
+    previous: _json,
+    status: __expectString,
+    templateId: __expectString,
+    tools: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetTemplateStepGroupCommandError = async (
+/**
+ * deserializeAws_restJson1GetTemplateStepGroupCommandError
+ */
+const de_GetTemplateStepGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTemplateStepGroupCommandOutput> => {
@@ -1406,105 +1436,73 @@ const deserializeAws_restJson1GetTemplateStepGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetWorkflowCommand = async (
+/**
+ * deserializeAws_restJson1GetWorkflowCommand
+ */
+export const de_GetWorkflowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWorkflowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetWorkflowCommandError(output, context);
+    return de_GetWorkflowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.adsApplicationConfigurationId != null) {
-    contents.adsApplicationConfigurationId = __expectString(data.adsApplicationConfigurationId);
-  }
-  if (data.adsApplicationName != null) {
-    contents.adsApplicationName = __expectString(data.adsApplicationName);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.completedSteps != null) {
-    contents.completedSteps = __expectInt32(data.completedSteps);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.endTime != null) {
-    contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedTime)));
-  }
-  if (data.lastStartTime != null) {
-    contents.lastStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartTime)));
-  }
-  if (data.lastStopTime != null) {
-    contents.lastStopTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStopTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1StringMap(data.tags, context);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
-  if (data.tools != null) {
-    contents.tools = deserializeAws_restJson1ToolsList(data.tools, context);
-  }
-  if (data.totalSteps != null) {
-    contents.totalSteps = __expectInt32(data.totalSteps);
-  }
-  if (data.workflowBucket != null) {
-    contents.workflowBucket = __expectString(data.workflowBucket);
-  }
-  if (data.workflowInputs != null) {
-    contents.workflowInputs = deserializeAws_restJson1StepInputParameters(data.workflowInputs, context);
-  }
+  const doc = take(data, {
+    adsApplicationConfigurationId: __expectString,
+    adsApplicationName: __expectString,
+    arn: __expectString,
+    completedSteps: __expectInt32,
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastStopTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    tags: _json,
+    templateId: __expectString,
+    tools: _json,
+    totalSteps: __expectInt32,
+    workflowBucket: __expectString,
+    workflowInputs: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetWorkflowCommandError = async (
+/**
+ * deserializeAws_restJson1GetWorkflowCommandError
+ */
+const de_GetWorkflowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWorkflowCommandOutput> => {
@@ -1516,111 +1514,74 @@ const deserializeAws_restJson1GetWorkflowCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetWorkflowStepCommand = async (
+/**
+ * deserializeAws_restJson1GetWorkflowStepCommand
+ */
+export const de_GetWorkflowStepCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWorkflowStepCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetWorkflowStepCommandError(output, context);
+    return de_GetWorkflowStepCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.endTime != null) {
-    contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
-  }
-  if (data.lastStartTime != null) {
-    contents.lastStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.next != null) {
-    contents.next = deserializeAws_restJson1StringList(data.next, context);
-  }
-  if (data.noOfSrvCompleted != null) {
-    contents.noOfSrvCompleted = __expectInt32(data.noOfSrvCompleted);
-  }
-  if (data.noOfSrvFailed != null) {
-    contents.noOfSrvFailed = __expectInt32(data.noOfSrvFailed);
-  }
-  if (data.outputs != null) {
-    contents.outputs = deserializeAws_restJson1WorkflowStepOutputList(data.outputs, context);
-  }
-  if (data.owner != null) {
-    contents.owner = __expectString(data.owner);
-  }
-  if (data.previous != null) {
-    contents.previous = deserializeAws_restJson1StringList(data.previous, context);
-  }
-  if (data.scriptOutputLocation != null) {
-    contents.scriptOutputLocation = __expectString(data.scriptOutputLocation);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
-  if (data.stepActionType != null) {
-    contents.stepActionType = __expectString(data.stepActionType);
-  }
-  if (data.stepGroupId != null) {
-    contents.stepGroupId = __expectString(data.stepGroupId);
-  }
-  if (data.stepId != null) {
-    contents.stepId = __expectString(data.stepId);
-  }
-  if (data.stepTarget != null) {
-    contents.stepTarget = deserializeAws_restJson1StringList(data.stepTarget, context);
-  }
-  if (data.totalNoOfSrv != null) {
-    contents.totalNoOfSrv = __expectInt32(data.totalNoOfSrv);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
-  if (data.workflowStepAutomationConfiguration != null) {
-    contents.workflowStepAutomationConfiguration = deserializeAws_restJson1WorkflowStepAutomationConfiguration(
-      data.workflowStepAutomationConfiguration,
-      context
-    );
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    next: _json,
+    noOfSrvCompleted: __expectInt32,
+    noOfSrvFailed: __expectInt32,
+    outputs: _json,
+    owner: __expectString,
+    previous: _json,
+    scriptOutputLocation: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    stepActionType: __expectString,
+    stepGroupId: __expectString,
+    stepId: __expectString,
+    stepTarget: _json,
+    totalNoOfSrv: __expectInt32,
+    workflowId: __expectString,
+    workflowStepAutomationConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetWorkflowStepCommandError = async (
+/**
+ * deserializeAws_restJson1GetWorkflowStepCommandError
+ */
+const de_GetWorkflowStepCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWorkflowStepCommandOutput> => {
@@ -1632,78 +1593,62 @@ const deserializeAws_restJson1GetWorkflowStepCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetWorkflowStepGroupCommand = async (
+/**
+ * deserializeAws_restJson1GetWorkflowStepGroupCommand
+ */
+export const de_GetWorkflowStepGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWorkflowStepGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetWorkflowStepGroupCommandError(output, context);
+    return de_GetWorkflowStepGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.endTime != null) {
-    contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.next != null) {
-    contents.next = deserializeAws_restJson1StringList(data.next, context);
-  }
-  if (data.owner != null) {
-    contents.owner = __expectString(data.owner);
-  }
-  if (data.previous != null) {
-    contents.previous = deserializeAws_restJson1StringList(data.previous, context);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tools != null) {
-    contents.tools = deserializeAws_restJson1ToolsList(data.tools, context);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    next: _json,
+    owner: __expectString,
+    previous: _json,
+    status: __expectString,
+    tools: _json,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetWorkflowStepGroupCommandError = async (
+/**
+ * deserializeAws_restJson1GetWorkflowStepGroupCommandError
+ */
+const de_GetWorkflowStepGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWorkflowStepGroupCommandOutput> => {
@@ -1715,51 +1660,55 @@ const deserializeAws_restJson1GetWorkflowStepGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListPluginsCommand = async (
+/**
+ * deserializeAws_restJson1ListPluginsCommand
+ */
+export const de_ListPluginsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPluginsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListPluginsCommandError(output, context);
+    return de_ListPluginsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.plugins != null) {
-    contents.plugins = deserializeAws_restJson1PluginSummaries(data.plugins, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    plugins: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListPluginsCommandError = async (
+/**
+ * deserializeAws_restJson1ListPluginsCommandError
+ */
+const de_ListPluginsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPluginsCommandOutput> => {
@@ -1771,42 +1720,48 @@ const deserializeAws_restJson1ListPluginsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1818,42 +1773,46 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTemplatesCommand = async (
+/**
+ * deserializeAws_restJson1ListTemplatesCommand
+ */
+export const de_ListTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTemplatesCommandError(output, context);
+    return de_ListTemplatesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.templateSummary != null) {
-    contents.templateSummary = deserializeAws_restJson1TemplateSummaryList(data.templateSummary, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    templateSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTemplatesCommandError = async (
+/**
+ * deserializeAws_restJson1ListTemplatesCommandError
+ */
+const de_ListTemplatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> => {
@@ -1865,48 +1824,49 @@ const deserializeAws_restJson1ListTemplatesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTemplateStepGroupsCommand = async (
+/**
+ * deserializeAws_restJson1ListTemplateStepGroupsCommand
+ */
+export const de_ListTemplateStepGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplateStepGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTemplateStepGroupsCommandError(output, context);
+    return de_ListTemplateStepGroupsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.templateStepGroupSummary != null) {
-    contents.templateStepGroupSummary = deserializeAws_restJson1TemplateStepGroupSummaryList(
-      data.templateStepGroupSummary,
-      context
-    );
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    templateStepGroupSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTemplateStepGroupsCommandError = async (
+/**
+ * deserializeAws_restJson1ListTemplateStepGroupsCommandError
+ */
+const de_ListTemplateStepGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplateStepGroupsCommandOutput> => {
@@ -1918,51 +1878,52 @@ const deserializeAws_restJson1ListTemplateStepGroupsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTemplateStepsCommand = async (
+/**
+ * deserializeAws_restJson1ListTemplateStepsCommand
+ */
+export const de_ListTemplateStepsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplateStepsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTemplateStepsCommandError(output, context);
+    return de_ListTemplateStepsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.templateStepSummaryList != null) {
-    contents.templateStepSummaryList = deserializeAws_restJson1TemplateStepSummaryList(
-      data.templateStepSummaryList,
-      context
-    );
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    templateStepSummaryList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTemplateStepsCommandError = async (
+/**
+ * deserializeAws_restJson1ListTemplateStepsCommandError
+ */
+const de_ListTemplateStepsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplateStepsCommandOutput> => {
@@ -1974,54 +1935,55 @@ const deserializeAws_restJson1ListTemplateStepsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListWorkflowsCommand = async (
+/**
+ * deserializeAws_restJson1ListWorkflowsCommand
+ */
+export const de_ListWorkflowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkflowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListWorkflowsCommandError(output, context);
+    return de_ListWorkflowsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.migrationWorkflowSummary != null) {
-    contents.migrationWorkflowSummary = deserializeAws_restJson1MigrationWorkflowSummaryList(
-      data.migrationWorkflowSummary,
-      context
-    );
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    migrationWorkflowSummary: (_) => de_MigrationWorkflowSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListWorkflowsCommandError = async (
+/**
+ * deserializeAws_restJson1ListWorkflowsCommandError
+ */
+const de_ListWorkflowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkflowsCommandOutput> => {
@@ -2033,54 +1995,55 @@ const deserializeAws_restJson1ListWorkflowsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListWorkflowStepGroupsCommand = async (
+/**
+ * deserializeAws_restJson1ListWorkflowStepGroupsCommand
+ */
+export const de_ListWorkflowStepGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkflowStepGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListWorkflowStepGroupsCommandError(output, context);
+    return de_ListWorkflowStepGroupsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.workflowStepGroupsSummary != null) {
-    contents.workflowStepGroupsSummary = deserializeAws_restJson1WorkflowStepGroupsSummaryList(
-      data.workflowStepGroupsSummary,
-      context
-    );
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    workflowStepGroupsSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListWorkflowStepGroupsCommandError = async (
+/**
+ * deserializeAws_restJson1ListWorkflowStepGroupsCommandError
+ */
+const de_ListWorkflowStepGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkflowStepGroupsCommandOutput> => {
@@ -2092,54 +2055,55 @@ const deserializeAws_restJson1ListWorkflowStepGroupsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListWorkflowStepsCommand = async (
+/**
+ * deserializeAws_restJson1ListWorkflowStepsCommand
+ */
+export const de_ListWorkflowStepsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkflowStepsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListWorkflowStepsCommandError(output, context);
+    return de_ListWorkflowStepsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.workflowStepsSummary != null) {
-    contents.workflowStepsSummary = deserializeAws_restJson1WorkflowStepsSummaryList(
-      data.workflowStepsSummary,
-      context
-    );
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    workflowStepsSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListWorkflowStepsCommandError = async (
+/**
+ * deserializeAws_restJson1ListWorkflowStepsCommandError
+ */
+const de_ListWorkflowStepsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkflowStepsCommandOutput> => {
@@ -2151,54 +2115,54 @@ const deserializeAws_restJson1ListWorkflowStepsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RetryWorkflowStepCommand = async (
+/**
+ * deserializeAws_restJson1RetryWorkflowStepCommand
+ */
+export const de_RetryWorkflowStepCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetryWorkflowStepCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RetryWorkflowStepCommandError(output, context);
+    return de_RetryWorkflowStepCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.stepGroupId != null) {
-    contents.stepGroupId = __expectString(data.stepGroupId);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    status: __expectString,
+    stepGroupId: __expectString,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1RetryWorkflowStepCommandError = async (
+/**
+ * deserializeAws_restJson1RetryWorkflowStepCommandError
+ */
+const de_RetryWorkflowStepCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetryWorkflowStepCommandOutput> => {
@@ -2210,57 +2174,55 @@ const deserializeAws_restJson1RetryWorkflowStepCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StartWorkflowCommand = async (
+/**
+ * deserializeAws_restJson1StartWorkflowCommand
+ */
+export const de_StartWorkflowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartWorkflowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartWorkflowCommandError(output, context);
+    return de_StartWorkflowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastStartTime != null) {
-    contents.lastStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartTime)));
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    lastStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    statusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1StartWorkflowCommandError = async (
+/**
+ * deserializeAws_restJson1StartWorkflowCommandError
+ */
+const de_StartWorkflowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartWorkflowCommandOutput> => {
@@ -2272,60 +2234,58 @@ const deserializeAws_restJson1StartWorkflowCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StopWorkflowCommand = async (
+/**
+ * deserializeAws_restJson1StopWorkflowCommand
+ */
+export const de_StopWorkflowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopWorkflowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopWorkflowCommandError(output, context);
+    return de_StopWorkflowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastStopTime != null) {
-    contents.lastStopTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStopTime)));
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusMessage != null) {
-    contents.statusMessage = __expectString(data.statusMessage);
-  }
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    lastStopTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    statusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1StopWorkflowCommandError = async (
+/**
+ * deserializeAws_restJson1StopWorkflowCommandError
+ */
+const de_StopWorkflowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopWorkflowCommandOutput> => {
@@ -2337,36 +2297,38 @@ const deserializeAws_restJson1StopWorkflowCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2375,7 +2337,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2387,27 +2352,29 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2416,7 +2383,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2428,72 +2398,56 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateWorkflowCommand = async (
+/**
+ * deserializeAws_restJson1UpdateWorkflowCommand
+ */
+export const de_UpdateWorkflowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWorkflowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateWorkflowCommandError(output, context);
+    return de_UpdateWorkflowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.adsApplicationConfigurationId != null) {
-    contents.adsApplicationConfigurationId = __expectString(data.adsApplicationConfigurationId);
-  }
-  if (data.arn != null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.creationTime != null) {
-    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status != null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.stepTargets != null) {
-    contents.stepTargets = deserializeAws_restJson1StringList(data.stepTargets, context);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1StringMap(data.tags, context);
-  }
-  if (data.templateId != null) {
-    contents.templateId = __expectString(data.templateId);
-  }
-  if (data.workflowInputs != null) {
-    contents.workflowInputs = deserializeAws_restJson1StepInputParameters(data.workflowInputs, context);
-  }
+  const doc = take(data, {
+    adsApplicationConfigurationId: __expectString,
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    stepTargets: _json,
+    tags: _json,
+    templateId: __expectString,
+    workflowInputs: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateWorkflowCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateWorkflowCommandError
+ */
+const de_UpdateWorkflowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWorkflowCommandOutput> => {
@@ -2505,57 +2459,57 @@ const deserializeAws_restJson1UpdateWorkflowCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateWorkflowStepCommand = async (
+/**
+ * deserializeAws_restJson1UpdateWorkflowStepCommand
+ */
+export const de_UpdateWorkflowStepCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWorkflowStepCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateWorkflowStepCommandError(output, context);
+    return de_UpdateWorkflowStepCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.stepGroupId != null) {
-    contents.stepGroupId = __expectString(data.stepGroupId);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
+  const doc = take(data, {
+    id: __expectString,
+    name: __expectString,
+    stepGroupId: __expectString,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateWorkflowStepCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateWorkflowStepCommandError
+ */
+const de_UpdateWorkflowStepCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWorkflowStepCommandOutput> => {
@@ -2567,66 +2521,58 @@ const deserializeAws_restJson1UpdateWorkflowStepCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateWorkflowStepGroupCommand = async (
+/**
+ * deserializeAws_restJson1UpdateWorkflowStepGroupCommand
+ */
+export const de_UpdateWorkflowStepGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWorkflowStepGroupCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateWorkflowStepGroupCommandError(output, context);
+    return de_UpdateWorkflowStepGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.id != null) {
-    contents.id = __expectString(data.id);
-  }
-  if (data.lastModifiedTime != null) {
-    contents.lastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedTime)));
-  }
-  if (data.name != null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.next != null) {
-    contents.next = deserializeAws_restJson1StringList(data.next, context);
-  }
-  if (data.previous != null) {
-    contents.previous = deserializeAws_restJson1StringList(data.previous, context);
-  }
-  if (data.tools != null) {
-    contents.tools = deserializeAws_restJson1ToolsList(data.tools, context);
-  }
-  if (data.workflowId != null) {
-    contents.workflowId = __expectString(data.workflowId);
-  }
+  const doc = take(data, {
+    description: __expectString,
+    id: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    next: _json,
+    previous: _json,
+    tools: _json,
+    workflowId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateWorkflowStepGroupCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateWorkflowStepGroupCommandError
+ */
+const de_UpdateWorkflowStepGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWorkflowStepGroupCommandOutput> => {
@@ -2638,40 +2584,43 @@ const deserializeAws_restJson1UpdateWorkflowStepGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhuborchestrator#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhuborchestrator#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2679,15 +2628,19 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2695,15 +2648,19 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2711,15 +2668,16 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2727,15 +2685,16 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2743,522 +2702,117 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1PlatformCommand = (input: PlatformCommand, context: __SerdeContext): any => {
-  return {
-    ...(input.linux != null && { linux: input.linux }),
-    ...(input.windows != null && { windows: input.windows }),
-  };
+// se_PlatformCommand omitted.
+
+// se_PlatformScriptKey omitted.
+
+// se_StepInput omitted.
+
+// se_StepInputParameters omitted.
+
+// se_StringList omitted.
+
+// se_StringMap omitted.
+
+// se_TagMap omitted.
+
+// se_WorkflowStepAutomationConfiguration omitted.
+
+// se_WorkflowStepOutput omitted.
+
+// se_WorkflowStepOutputList omitted.
+
+// se_WorkflowStepOutputUnion omitted.
+
+/**
+ * deserializeAws_restJson1MigrationWorkflowSummary
+ */
+const de_MigrationWorkflowSummary = (output: any, context: __SerdeContext): MigrationWorkflowSummary => {
+  return take(output, {
+    adsApplicationConfigurationName: __expectString,
+    completedSteps: __expectInt32,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    templateId: __expectString,
+    totalSteps: __expectInt32,
+  }) as any;
 };
 
-const serializeAws_restJson1PlatformScriptKey = (input: PlatformScriptKey, context: __SerdeContext): any => {
-  return {
-    ...(input.linux != null && { linux: input.linux }),
-    ...(input.windows != null && { windows: input.windows }),
-  };
-};
-
-const serializeAws_restJson1StepInput = (input: StepInput, context: __SerdeContext): any => {
-  return StepInput.visit(input, {
-    integerValue: (value) => ({ integerValue: value }),
-    listOfStringsValue: (value) => ({ listOfStringsValue: serializeAws_restJson1StringList(value, context) }),
-    mapOfStringValue: (value) => ({ mapOfStringValue: serializeAws_restJson1StringMap(value, context) }),
-    stringValue: (value) => ({ stringValue: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-const serializeAws_restJson1StepInputParameters = (input: Record<string, StepInput>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1StepInput(value, context);
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1WorkflowStepAutomationConfiguration = (
-  input: WorkflowStepAutomationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.command != null && { command: serializeAws_restJson1PlatformCommand(input.command, context) }),
-    ...(input.runEnvironment != null && { runEnvironment: input.runEnvironment }),
-    ...(input.scriptLocationS3Bucket != null && { scriptLocationS3Bucket: input.scriptLocationS3Bucket }),
-    ...(input.scriptLocationS3Key != null && {
-      scriptLocationS3Key: serializeAws_restJson1PlatformScriptKey(input.scriptLocationS3Key, context),
-    }),
-    ...(input.targetType != null && { targetType: input.targetType }),
-  };
-};
-
-const serializeAws_restJson1WorkflowStepOutput = (input: WorkflowStepOutput, context: __SerdeContext): any => {
-  return {
-    ...(input.dataType != null && { dataType: input.dataType }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.required != null && { required: input.required }),
-    ...(input.value != null && { value: serializeAws_restJson1WorkflowStepOutputUnion(input.value, context) }),
-  };
-};
-
-const serializeAws_restJson1WorkflowStepOutputList = (input: WorkflowStepOutput[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1WorkflowStepOutput(entry, context);
-    });
-};
-
-const serializeAws_restJson1WorkflowStepOutputUnion = (
-  input: WorkflowStepOutputUnion,
-  context: __SerdeContext
-): any => {
-  return WorkflowStepOutputUnion.visit(input, {
-    integerValue: (value) => ({ integerValue: value }),
-    listOfStringValue: (value) => ({ listOfStringValue: serializeAws_restJson1StringList(value, context) }),
-    stringValue: (value) => ({ stringValue: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-const deserializeAws_restJson1MigrationWorkflowSummary = (
-  output: any,
-  context: __SerdeContext
-): MigrationWorkflowSummary => {
-  return {
-    adsApplicationConfigurationName: __expectString(output.adsApplicationConfigurationName),
-    completedSteps: __expectInt32(output.completedSteps),
-    creationTime:
-      output.creationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
-        : undefined,
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    templateId: __expectString(output.templateId),
-    totalSteps: __expectInt32(output.totalSteps),
-  } as any;
-};
-
-const deserializeAws_restJson1MigrationWorkflowSummaryList = (
-  output: any,
-  context: __SerdeContext
-): MigrationWorkflowSummary[] => {
+/**
+ * deserializeAws_restJson1MigrationWorkflowSummaryList
+ */
+const de_MigrationWorkflowSummaryList = (output: any, context: __SerdeContext): MigrationWorkflowSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1MigrationWorkflowSummary(entry, context);
+      return de_MigrationWorkflowSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1PlatformCommand = (output: any, context: __SerdeContext): PlatformCommand => {
-  return {
-    linux: __expectString(output.linux),
-    windows: __expectString(output.windows),
-  } as any;
-};
+// de_PlatformCommand omitted.
 
-const deserializeAws_restJson1PlatformScriptKey = (output: any, context: __SerdeContext): PlatformScriptKey => {
-  return {
-    linux: __expectString(output.linux),
-    windows: __expectString(output.windows),
-  } as any;
-};
+// de_PlatformScriptKey omitted.
 
-const deserializeAws_restJson1PluginSummaries = (output: any, context: __SerdeContext): PluginSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PluginSummary(entry, context);
-    });
-  return retVal;
-};
+// de_PluginSummaries omitted.
 
-const deserializeAws_restJson1PluginSummary = (output: any, context: __SerdeContext): PluginSummary => {
-  return {
-    hostname: __expectString(output.hostname),
-    ipAddress: __expectString(output.ipAddress),
-    pluginId: __expectString(output.pluginId),
-    registeredTime: __expectString(output.registeredTime),
-    status: __expectString(output.status),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_PluginSummary omitted.
 
-const deserializeAws_restJson1StepAutomationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): StepAutomationConfiguration => {
-  return {
-    command: output.command != null ? deserializeAws_restJson1PlatformCommand(output.command, context) : undefined,
-    runEnvironment: __expectString(output.runEnvironment),
-    scriptLocationS3Bucket: __expectString(output.scriptLocationS3Bucket),
-    scriptLocationS3Key:
-      output.scriptLocationS3Key != null
-        ? deserializeAws_restJson1PlatformScriptKey(output.scriptLocationS3Key, context)
-        : undefined,
-    targetType: __expectString(output.targetType),
-  } as any;
-};
+// de_StepAutomationConfiguration omitted.
 
-const deserializeAws_restJson1StepInput = (output: any, context: __SerdeContext): StepInput => {
-  if (__expectInt32(output.integerValue) !== undefined) {
-    return { integerValue: __expectInt32(output.integerValue) as any };
-  }
-  if (output.listOfStringsValue != null) {
-    return {
-      listOfStringsValue: deserializeAws_restJson1StringList(output.listOfStringsValue, context),
-    };
-  }
-  if (output.mapOfStringValue != null) {
-    return {
-      mapOfStringValue: deserializeAws_restJson1StringMap(output.mapOfStringValue, context),
-    };
-  }
-  if (__expectString(output.stringValue) !== undefined) {
-    return { stringValue: __expectString(output.stringValue) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_StepInput omitted.
 
-const deserializeAws_restJson1StepInputParameters = (
-  output: any,
-  context: __SerdeContext
-): Record<string, StepInput> => {
-  return Object.entries(output).reduce((acc: Record<string, StepInput>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1StepInput(__expectUnion(value), context);
-    return acc;
-  }, {});
-};
+// de_StepInputParameters omitted.
 
-const deserializeAws_restJson1StepOutput = (output: any, context: __SerdeContext): StepOutput => {
-  return {
-    dataType: __expectString(output.dataType),
-    name: __expectString(output.name),
-    required: __expectBoolean(output.required),
-  } as any;
-};
+// de_StepOutput omitted.
 
-const deserializeAws_restJson1StepOutputList = (output: any, context: __SerdeContext): StepOutput[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1StepOutput(entry, context);
-    });
-  return retVal;
-};
+// de_StepOutputList omitted.
 
-const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_StringMap omitted.
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
-const deserializeAws_restJson1TemplateInput = (output: any, context: __SerdeContext): TemplateInput => {
-  return {
-    dataType: __expectString(output.dataType),
-    inputName: __expectString(output.inputName),
-    required: __expectBoolean(output.required),
-  } as any;
-};
+// de_TemplateInput omitted.
 
-const deserializeAws_restJson1TemplateInputList = (output: any, context: __SerdeContext): TemplateInput[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TemplateInput(entry, context);
-    });
-  return retVal;
-};
+// de_TemplateInputList omitted.
 
-const deserializeAws_restJson1TemplateStepGroupSummary = (
-  output: any,
-  context: __SerdeContext
-): TemplateStepGroupSummary => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    next: output.next != null ? deserializeAws_restJson1StringList(output.next, context) : undefined,
-    previous: output.previous != null ? deserializeAws_restJson1StringList(output.previous, context) : undefined,
-  } as any;
-};
+// de_TemplateStepGroupSummary omitted.
 
-const deserializeAws_restJson1TemplateStepGroupSummaryList = (
-  output: any,
-  context: __SerdeContext
-): TemplateStepGroupSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TemplateStepGroupSummary(entry, context);
-    });
-  return retVal;
-};
+// de_TemplateStepGroupSummaryList omitted.
 
-const deserializeAws_restJson1TemplateStepSummary = (output: any, context: __SerdeContext): TemplateStepSummary => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    next: output.next != null ? deserializeAws_restJson1StringList(output.next, context) : undefined,
-    owner: __expectString(output.owner),
-    previous: output.previous != null ? deserializeAws_restJson1StringList(output.previous, context) : undefined,
-    stepActionType: __expectString(output.stepActionType),
-    stepGroupId: __expectString(output.stepGroupId),
-    targetType: __expectString(output.targetType),
-    templateId: __expectString(output.templateId),
-  } as any;
-};
+// de_TemplateStepSummary omitted.
 
-const deserializeAws_restJson1TemplateStepSummaryList = (
-  output: any,
-  context: __SerdeContext
-): TemplateStepSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TemplateStepSummary(entry, context);
-    });
-  return retVal;
-};
+// de_TemplateStepSummaryList omitted.
 
-const deserializeAws_restJson1TemplateSummary = (output: any, context: __SerdeContext): TemplateSummary => {
-  return {
-    arn: __expectString(output.arn),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_TemplateSummary omitted.
 
-const deserializeAws_restJson1TemplateSummaryList = (output: any, context: __SerdeContext): TemplateSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TemplateSummary(entry, context);
-    });
-  return retVal;
-};
+// de_TemplateSummaryList omitted.
 
-const deserializeAws_restJson1Tool = (output: any, context: __SerdeContext): Tool => {
-  return {
-    name: __expectString(output.name),
-    url: __expectString(output.url),
-  } as any;
-};
+// de_Tool omitted.
 
-const deserializeAws_restJson1ToolsList = (output: any, context: __SerdeContext): Tool[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Tool(entry, context);
-    });
-  return retVal;
-};
+// de_ToolsList omitted.
 
-const deserializeAws_restJson1WorkflowStepAutomationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): WorkflowStepAutomationConfiguration => {
-  return {
-    command: output.command != null ? deserializeAws_restJson1PlatformCommand(output.command, context) : undefined,
-    runEnvironment: __expectString(output.runEnvironment),
-    scriptLocationS3Bucket: __expectString(output.scriptLocationS3Bucket),
-    scriptLocationS3Key:
-      output.scriptLocationS3Key != null
-        ? deserializeAws_restJson1PlatformScriptKey(output.scriptLocationS3Key, context)
-        : undefined,
-    targetType: __expectString(output.targetType),
-  } as any;
-};
+// de_WorkflowStepAutomationConfiguration omitted.
 
-const deserializeAws_restJson1WorkflowStepGroupsSummaryList = (
-  output: any,
-  context: __SerdeContext
-): WorkflowStepGroupSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1WorkflowStepGroupSummary(entry, context);
-    });
-  return retVal;
-};
+// de_WorkflowStepGroupsSummaryList omitted.
 
-const deserializeAws_restJson1WorkflowStepGroupSummary = (
-  output: any,
-  context: __SerdeContext
-): WorkflowStepGroupSummary => {
-  return {
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    next: output.next != null ? deserializeAws_restJson1StringList(output.next, context) : undefined,
-    owner: __expectString(output.owner),
-    previous: output.previous != null ? deserializeAws_restJson1StringList(output.previous, context) : undefined,
-    status: __expectString(output.status),
-  } as any;
-};
+// de_WorkflowStepGroupSummary omitted.
 
-const deserializeAws_restJson1WorkflowStepOutput = (output: any, context: __SerdeContext): WorkflowStepOutput => {
-  return {
-    dataType: __expectString(output.dataType),
-    name: __expectString(output.name),
-    required: __expectBoolean(output.required),
-    value:
-      output.value != null
-        ? deserializeAws_restJson1WorkflowStepOutputUnion(__expectUnion(output.value), context)
-        : undefined,
-  } as any;
-};
+// de_WorkflowStepOutput omitted.
 
-const deserializeAws_restJson1WorkflowStepOutputList = (output: any, context: __SerdeContext): WorkflowStepOutput[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1WorkflowStepOutput(entry, context);
-    });
-  return retVal;
-};
+// de_WorkflowStepOutputList omitted.
 
-const deserializeAws_restJson1WorkflowStepOutputUnion = (
-  output: any,
-  context: __SerdeContext
-): WorkflowStepOutputUnion => {
-  if (__expectInt32(output.integerValue) !== undefined) {
-    return { integerValue: __expectInt32(output.integerValue) as any };
-  }
-  if (output.listOfStringValue != null) {
-    return {
-      listOfStringValue: deserializeAws_restJson1StringList(output.listOfStringValue, context),
-    };
-  }
-  if (__expectString(output.stringValue) !== undefined) {
-    return { stringValue: __expectString(output.stringValue) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_WorkflowStepOutputUnion omitted.
 
-const deserializeAws_restJson1WorkflowStepsSummaryList = (
-  output: any,
-  context: __SerdeContext
-): WorkflowStepSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1WorkflowStepSummary(entry, context);
-    });
-  return retVal;
-};
+// de_WorkflowStepsSummaryList omitted.
 
-const deserializeAws_restJson1WorkflowStepSummary = (output: any, context: __SerdeContext): WorkflowStepSummary => {
-  return {
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    next: output.next != null ? deserializeAws_restJson1StringList(output.next, context) : undefined,
-    noOfSrvCompleted: __expectInt32(output.noOfSrvCompleted),
-    noOfSrvFailed: __expectInt32(output.noOfSrvFailed),
-    owner: __expectString(output.owner),
-    previous: output.previous != null ? deserializeAws_restJson1StringList(output.previous, context) : undefined,
-    scriptLocation: __expectString(output.scriptLocation),
-    status: __expectString(output.status),
-    statusMessage: __expectString(output.statusMessage),
-    stepActionType: __expectString(output.stepActionType),
-    stepId: __expectString(output.stepId),
-    totalNoOfSrv: __expectInt32(output.totalNoOfSrv),
-  } as any;
-};
+// de_WorkflowStepSummary omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

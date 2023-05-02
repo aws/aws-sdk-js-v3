@@ -14,23 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeIntentRequest, DescribeIntentRequestFilterSensitiveLog } from "../models/models_0";
-import { DescribeIntentResponse, DescribeIntentResponseFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeIntentCommand,
-  serializeAws_restJson1DescribeIntentCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeIntentRequest } from "../models/models_0";
+import { DescribeIntentResponse } from "../models/models_1";
+import { de_DescribeIntentCommand, se_DescribeIntentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIntentCommand}.
  */
 export interface DescribeIntentCommandInput extends DescribeIntentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIntentCommand}.
  */
 export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about an intent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,10 +40,18 @@ export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __M
  * import { LexModelsV2Client, DescribeIntentCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeIntentCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DescribeIntentRequest
+ *   intentId: "STRING_VALUE", // required
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeIntentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIntentCommandInput - {@link DescribeIntentCommandInput}
+ * @returns {@link DescribeIntentCommandOutput}
  * @see {@link DescribeIntentCommandInput} for command's `input` shape.
  * @see {@link DescribeIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -84,6 +94,9 @@ export class DescribeIntentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIntentCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +125,8 @@ export class DescribeIntentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIntentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIntentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +136,18 @@ export class DescribeIntentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeIntentCommand(input, context);
+    return se_DescribeIntentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIntentCommandOutput> {
-    return deserializeAws_restJson1DescribeIntentCommand(output, context);
+    return de_DescribeIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

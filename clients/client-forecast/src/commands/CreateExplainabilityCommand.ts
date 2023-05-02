@@ -18,23 +18,24 @@ import {
   CreateExplainabilityRequest,
   CreateExplainabilityRequestFilterSensitiveLog,
   CreateExplainabilityResponse,
-  CreateExplainabilityResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateExplainabilityCommand,
-  serializeAws_json1_1CreateExplainabilityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateExplainabilityCommand, se_CreateExplainabilityCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExplainabilityCommand}.
  */
 export interface CreateExplainabilityCommandInput extends CreateExplainabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExplainabilityCommand}.
  */
 export interface CreateExplainabilityCommandOutput extends CreateExplainabilityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>Explainability is only available for Forecasts and Predictors generated from an
  *                 AutoPredictor (<a>CreateAutoPredictor</a>)</p>
@@ -160,10 +161,44 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  * import { ForecastClient, CreateExplainabilityCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateExplainabilityCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // CreateExplainabilityRequest
+ *   ExplainabilityName: "STRING_VALUE", // required
+ *   ResourceArn: "STRING_VALUE", // required
+ *   ExplainabilityConfig: { // ExplainabilityConfig
+ *     TimeSeriesGranularity: "ALL" || "SPECIFIC", // required
+ *     TimePointGranularity: "ALL" || "SPECIFIC", // required
+ *   },
+ *   DataSource: { // DataSource
+ *     S3Config: { // S3Config
+ *       Path: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE", // required
+ *       KMSKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   Schema: { // Schema
+ *     Attributes: [ // SchemaAttributes
+ *       { // SchemaAttribute
+ *         AttributeName: "STRING_VALUE",
+ *         AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *       },
+ *     ],
+ *   },
+ *   EnableVisualization: true || false,
+ *   StartDateTime: "STRING_VALUE",
+ *   EndDateTime: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateExplainabilityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExplainabilityCommandInput - {@link CreateExplainabilityCommandInput}
+ * @returns {@link CreateExplainabilityCommandOutput}
  * @see {@link CreateExplainabilityCommandInput} for command's `input` shape.
  * @see {@link CreateExplainabilityCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -204,6 +239,9 @@ export class CreateExplainabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExplainabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -233,7 +271,7 @@ export class CreateExplainabilityCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateExplainabilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateExplainabilityResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -243,12 +281,18 @@ export class CreateExplainabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExplainabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateExplainabilityCommand(input, context);
+    return se_CreateExplainabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExplainabilityCommandOutput> {
-    return deserializeAws_json1_1CreateExplainabilityCommand(output, context);
+    return de_CreateExplainabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

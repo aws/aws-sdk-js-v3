@@ -14,61 +14,58 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeFleetUtilizationInput,
-  DescribeFleetUtilizationInputFilterSensitiveLog,
-  DescribeFleetUtilizationOutput,
-  DescribeFleetUtilizationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetUtilizationCommand,
-  serializeAws_json1_1DescribeFleetUtilizationCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFleetUtilizationInput, DescribeFleetUtilizationOutput } from "../models/models_0";
+import { de_DescribeFleetUtilizationCommand, se_DescribeFleetUtilizationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetUtilizationCommand}.
  */
 export interface DescribeFleetUtilizationCommandInput extends DescribeFleetUtilizationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetUtilizationCommand}.
  */
 export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtilizationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves utilization statistics for one or more fleets. Utilization data provides a
  *             snapshot of how the fleet's hosting resources are currently being used. For fleets with
  *             remote locations, this operation retrieves data for the fleet's home Region only. See
  *                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationUtilization.html">DescribeFleetLocationUtilization</a> to get utilization statistics for a
  *             fleet's remote locations.</p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To get utilization data for one or more specific fleets, provide a list of
+ *                <p>To get utilization data for one or more specific fleets, provide a list of
  *                     fleet IDs or fleet ARNs. </p>
  *             </li>
  *             <li>
- *                 <p>To get utilization data for all fleets, do not provide a fleet identifier.
+ *                <p>To get utilization data for all fleets, do not provide a fleet identifier.
  *                 </p>
  *             </li>
  *          </ul>
- *         <p>When requesting multiple fleets, use the pagination parameters to retrieve results as
+ *          <p>When requesting multiple fleets, use the pagination parameters to retrieve results as
  *             a set of sequential pages. </p>
- *         <p>If successful, a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_FleetUtilization.html">FleetUtilization</a> object is returned for each requested fleet ID, unless the
+ *          <p>If successful, a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_FleetUtilization.html">FleetUtilization</a> object is returned for each requested fleet ID, unless the
  *             fleet identifier is not found. Each fleet utilization object includes a
  *                 <code>Location</code> property, which is set to the fleet's home Region. </p>
- *         <note>
+ *          <note>
  *             <p>Some API operations may limit the number of fleet IDs allowed in one request. If a
  *                 request exceeds this limit, the request fails and the error message includes the
  *                 maximum allowed.</p>
- *         </note>
+ *          </note>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 Fleets</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift Metrics for Fleets</a>
  *          </p>
  * @example
@@ -77,10 +74,19 @@ export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtil
  * import { GameLiftClient, DescribeFleetUtilizationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetUtilizationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeFleetUtilizationInput
+ *   FleetIds: [ // FleetIdOrArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetUtilizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetUtilizationCommandInput - {@link DescribeFleetUtilizationCommandInput}
+ * @returns {@link DescribeFleetUtilizationCommandOutput}
  * @see {@link DescribeFleetUtilizationCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetUtilizationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -118,6 +124,9 @@ export class DescribeFleetUtilizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetUtilizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +155,8 @@ export class DescribeFleetUtilizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetUtilizationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetUtilizationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +166,18 @@ export class DescribeFleetUtilizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetUtilizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetUtilizationCommand(input, context);
+    return se_DescribeFleetUtilizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetUtilizationCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetUtilizationCommand(output, context);
+    return de_DescribeFleetUtilizationCommand(output, context);
   }
 
   // Start section: command_body_extra

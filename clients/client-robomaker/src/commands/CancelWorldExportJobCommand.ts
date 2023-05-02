@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelWorldExportJobRequest,
-  CancelWorldExportJobRequestFilterSensitiveLog,
-  CancelWorldExportJobResponse,
-  CancelWorldExportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelWorldExportJobCommand,
-  serializeAws_restJson1CancelWorldExportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelWorldExportJobRequest, CancelWorldExportJobResponse } from "../models/models_0";
+import { de_CancelWorldExportJobCommand, se_CancelWorldExportJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelWorldExportJobCommand}.
  */
 export interface CancelWorldExportJobCommandInput extends CancelWorldExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelWorldExportJobCommand}.
  */
 export interface CancelWorldExportJobCommandOutput extends CancelWorldExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface CancelWorldExportJobCommandOutput extends CancelWorldExportJobR
  * import { RoboMakerClient, CancelWorldExportJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CancelWorldExportJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // CancelWorldExportJobRequest
+ *   job: "STRING_VALUE", // required
+ * };
  * const command = new CancelWorldExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelWorldExportJobCommandInput - {@link CancelWorldExportJobCommandInput}
+ * @returns {@link CancelWorldExportJobCommandOutput}
  * @see {@link CancelWorldExportJobCommandInput} for command's `input` shape.
  * @see {@link CancelWorldExportJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -82,6 +84,9 @@ export class CancelWorldExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelWorldExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class CancelWorldExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelWorldExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelWorldExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class CancelWorldExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelWorldExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelWorldExportJobCommand(input, context);
+    return se_CancelWorldExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelWorldExportJobCommandOutput> {
-    return deserializeAws_restJson1CancelWorldExportJobCommand(output, context);
+    return de_CancelWorldExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

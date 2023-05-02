@@ -15,26 +15,27 @@ import {
 
 import {
   CancelEnvironmentDeploymentInput,
-  CancelEnvironmentDeploymentInputFilterSensitiveLog,
   CancelEnvironmentDeploymentOutput,
   CancelEnvironmentDeploymentOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CancelEnvironmentDeploymentCommand,
-  serializeAws_json1_0CancelEnvironmentDeploymentCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CancelEnvironmentDeploymentCommand, se_CancelEnvironmentDeploymentCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelEnvironmentDeploymentCommand}.
  */
 export interface CancelEnvironmentDeploymentCommandInput extends CancelEnvironmentDeploymentInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelEnvironmentDeploymentCommand}.
  */
 export interface CancelEnvironmentDeploymentCommandOutput extends CancelEnvironmentDeploymentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is <code>IN_PROGRESS</code>. For more
  *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-update.html">Update an environment</a> in the <i>Proton
  *         User guide</i>.</p>
@@ -57,10 +58,15 @@ export interface CancelEnvironmentDeploymentCommandOutput extends CancelEnvironm
  * import { ProtonClient, CancelEnvironmentDeploymentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CancelEnvironmentDeploymentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // CancelEnvironmentDeploymentInput
+ *   environmentName: "STRING_VALUE", // required
+ * };
  * const command = new CancelEnvironmentDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelEnvironmentDeploymentCommandInput - {@link CancelEnvironmentDeploymentCommandInput}
+ * @returns {@link CancelEnvironmentDeploymentCommandOutput}
  * @see {@link CancelEnvironmentDeploymentCommandInput} for command's `input` shape.
  * @see {@link CancelEnvironmentDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -102,6 +108,9 @@ export class CancelEnvironmentDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelEnvironmentDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,7 +139,7 @@ export class CancelEnvironmentDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelEnvironmentDeploymentInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CancelEnvironmentDeploymentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -141,15 +150,21 @@ export class CancelEnvironmentDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelEnvironmentDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CancelEnvironmentDeploymentCommand(input, context);
+    return se_CancelEnvironmentDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelEnvironmentDeploymentCommandOutput> {
-    return deserializeAws_json1_0CancelEnvironmentDeploymentCommand(output, context);
+    return de_CancelEnvironmentDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

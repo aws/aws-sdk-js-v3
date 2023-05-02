@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteThemeAliasRequest,
-  DeleteThemeAliasRequestFilterSensitiveLog,
-  DeleteThemeAliasResponse,
-  DeleteThemeAliasResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteThemeAliasCommand,
-  serializeAws_restJson1DeleteThemeAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteThemeAliasRequest, DeleteThemeAliasResponse } from "../models/models_2";
+import { de_DeleteThemeAliasCommand, se_DeleteThemeAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteThemeAliasCommand}.
  */
 export interface DeleteThemeAliasCommandInput extends DeleteThemeAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteThemeAliasCommand}.
  */
 export interface DeleteThemeAliasCommandOutput extends DeleteThemeAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the version of the theme that the specified theme alias points to.
  * 			If you provide a specific alias, you delete the version of the theme
  * 			that the alias points to.</p>
@@ -44,10 +41,17 @@ export interface DeleteThemeAliasCommandOutput extends DeleteThemeAliasResponse,
  * import { QuickSightClient, DeleteThemeAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteThemeAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DeleteThemeAliasRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   ThemeId: "STRING_VALUE", // required
+ *   AliasName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteThemeAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteThemeAliasCommandInput - {@link DeleteThemeAliasCommandInput}
+ * @returns {@link DeleteThemeAliasCommandOutput}
  * @see {@link DeleteThemeAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteThemeAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -92,6 +96,9 @@ export class DeleteThemeAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteThemeAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +127,8 @@ export class DeleteThemeAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteThemeAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteThemeAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +138,18 @@ export class DeleteThemeAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteThemeAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteThemeAliasCommand(input, context);
+    return se_DeleteThemeAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThemeAliasCommandOutput> {
-    return deserializeAws_restJson1DeleteThemeAliasCommand(output, context);
+    return de_DeleteThemeAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

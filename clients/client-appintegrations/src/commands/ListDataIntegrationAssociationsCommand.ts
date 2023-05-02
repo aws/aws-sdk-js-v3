@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
+import { ListDataIntegrationAssociationsRequest, ListDataIntegrationAssociationsResponse } from "../models/models_0";
 import {
-  ListDataIntegrationAssociationsRequest,
-  ListDataIntegrationAssociationsRequestFilterSensitiveLog,
-  ListDataIntegrationAssociationsResponse,
-  ListDataIntegrationAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDataIntegrationAssociationsCommand,
-  serializeAws_restJson1ListDataIntegrationAssociationsCommand,
+  de_ListDataIntegrationAssociationsCommand,
+  se_ListDataIntegrationAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataIntegrationAssociationsCommand}.
  */
 export interface ListDataIntegrationAssociationsCommandInput extends ListDataIntegrationAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataIntegrationAssociationsCommand}.
  */
 export interface ListDataIntegrationAssociationsCommandOutput
@@ -37,6 +36,7 @@ export interface ListDataIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of DataIntegration associations in the account.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -49,10 +49,17 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * import { AppIntegrationsClient, ListDataIntegrationAssociationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, ListDataIntegrationAssociationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = { // ListDataIntegrationAssociationsRequest
+ *   DataIntegrationIdentifier: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDataIntegrationAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataIntegrationAssociationsCommandInput - {@link ListDataIntegrationAssociationsCommandInput}
+ * @returns {@link ListDataIntegrationAssociationsCommandOutput}
  * @see {@link ListDataIntegrationAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListDataIntegrationAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListDataIntegrationAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataIntegrationAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +129,8 @@ export class ListDataIntegrationAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataIntegrationAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataIntegrationAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +140,24 @@ export class ListDataIntegrationAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDataIntegrationAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataIntegrationAssociationsCommand(input, context);
+    return se_ListDataIntegrationAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDataIntegrationAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListDataIntegrationAssociationsCommand(output, context);
+    return de_ListDataIntegrationAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

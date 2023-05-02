@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeElasticGpusRequest,
-  DescribeElasticGpusRequestFilterSensitiveLog,
-  DescribeElasticGpusResult,
-  DescribeElasticGpusResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeElasticGpusCommand,
-  serializeAws_ec2DescribeElasticGpusCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeElasticGpusRequest, DescribeElasticGpusResult } from "../models/models_3";
+import { de_DescribeElasticGpusCommand, se_DescribeElasticGpusCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeElasticGpusCommand}.
  */
 export interface DescribeElasticGpusCommandInput extends DescribeElasticGpusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeElasticGpusCommand}.
  */
 export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Elastic Graphics accelerator associated with your instances. For more information
  *             about Elastic Graphics, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon Elastic Graphics</a>.</p>
  * @example
@@ -43,10 +40,28 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
  * import { EC2Client, DescribeElasticGpusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeElasticGpusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeElasticGpusRequest
+ *   ElasticGpuIds: [ // ElasticGpuIdSet
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeElasticGpusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeElasticGpusCommandInput - {@link DescribeElasticGpusCommandInput}
+ * @returns {@link DescribeElasticGpusCommandOutput}
  * @see {@link DescribeElasticGpusCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticGpusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +85,9 @@ export class DescribeElasticGpusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeElasticGpusCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +116,8 @@ export class DescribeElasticGpusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeElasticGpusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeElasticGpusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +127,18 @@ export class DescribeElasticGpusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeElasticGpusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeElasticGpusCommand(input, context);
+    return se_DescribeElasticGpusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeElasticGpusCommandOutput> {
-    return deserializeAws_ec2DescribeElasticGpusCommand(output, context);
+    return de_DescribeElasticGpusCommand(output, context);
   }
 
   // Start section: command_body_extra

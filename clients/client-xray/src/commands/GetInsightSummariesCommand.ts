@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetInsightSummariesRequest,
-  GetInsightSummariesRequestFilterSensitiveLog,
-  GetInsightSummariesResult,
-  GetInsightSummariesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetInsightSummariesCommand,
-  serializeAws_restJson1GetInsightSummariesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetInsightSummariesRequest, GetInsightSummariesResult } from "../models/models_0";
+import { de_GetInsightSummariesCommand, se_GetInsightSummariesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInsightSummariesCommand}.
  */
 export interface GetInsightSummariesCommandInput extends GetInsightSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInsightSummariesCommand}.
  */
 export interface GetInsightSummariesCommandOutput extends GetInsightSummariesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the summaries of all insights in the specified group matching the provided filter values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface GetInsightSummariesCommandOutput extends GetInsightSummariesRes
  * import { XRayClient, GetInsightSummariesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetInsightSummariesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // GetInsightSummariesRequest
+ *   States: [ // InsightStateList
+ *     "ACTIVE" || "CLOSED",
+ *   ],
+ *   GroupARN: "STRING_VALUE",
+ *   GroupName: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetInsightSummariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInsightSummariesCommandInput - {@link GetInsightSummariesCommandInput}
+ * @returns {@link GetInsightSummariesCommandOutput}
  * @see {@link GetInsightSummariesCommandInput} for command's `input` shape.
  * @see {@link GetInsightSummariesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +85,9 @@ export class GetInsightSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInsightSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +116,8 @@ export class GetInsightSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInsightSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInsightSummariesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +127,18 @@ export class GetInsightSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInsightSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInsightSummariesCommand(input, context);
+    return se_GetInsightSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightSummariesCommandOutput> {
-    return deserializeAws_restJson1GetInsightSummariesCommand(output, context);
+    return de_GetInsightSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

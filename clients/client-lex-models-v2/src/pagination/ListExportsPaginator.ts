@@ -6,7 +6,7 @@ import { LexModelsV2Client } from "../LexModelsV2Client";
 import { LexModelsV2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LexModelsV2Client,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListExportsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListExports(
   config: LexModelsV2PaginationConfiguration,
   input: ListExportsCommandInput,

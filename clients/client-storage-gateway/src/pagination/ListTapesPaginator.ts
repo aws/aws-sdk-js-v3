@@ -6,7 +6,7 @@ import { StorageGatewayClient } from "../StorageGatewayClient";
 import { StorageGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: StorageGatewayClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTapesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTapes(
   config: StorageGatewayPaginationConfiguration,
   input: ListTapesCommandInput,

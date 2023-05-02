@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { RestoreDBInstanceToPointInTimeMessage, RestoreDBInstanceToPointInTimeResult } from "../models/models_1";
 import {
-  RestoreDBInstanceToPointInTimeMessage,
-  RestoreDBInstanceToPointInTimeMessageFilterSensitiveLog,
-  RestoreDBInstanceToPointInTimeResult,
-  RestoreDBInstanceToPointInTimeResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRestoreDBInstanceToPointInTimeCommand,
-  serializeAws_queryRestoreDBInstanceToPointInTimeCommand,
+  de_RestoreDBInstanceToPointInTimeCommand,
+  se_RestoreDBInstanceToPointInTimeCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBInstanceToPointInTimeCommand}.
  */
 export interface RestoreDBInstanceToPointInTimeCommandInput extends RestoreDBInstanceToPointInTimeMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBInstanceToPointInTimeCommand}.
  */
 export interface RestoreDBInstanceToPointInTimeCommandOutput
@@ -37,6 +36,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the LatestRestorableTime property. You can restore to a point up to the number of days specified by the BackupRetentionPeriod property.</p>
  *          <p>The target database is created with most of the original configuration, but in a
  *             system-selected Availability Zone, with the default security group, the default subnet
@@ -53,10 +53,67 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * import { RDSClient, RestoreDBInstanceToPointInTimeCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBInstanceToPointInTimeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // RestoreDBInstanceToPointInTimeMessage
+ *   SourceDBInstanceIdentifier: "STRING_VALUE",
+ *   TargetDBInstanceIdentifier: "STRING_VALUE", // required
+ *   RestoreTime: new Date("TIMESTAMP"),
+ *   UseLatestRestorableTime: true || false,
+ *   DBInstanceClass: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   AvailabilityZone: "STRING_VALUE",
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   PubliclyAccessible: true || false,
+ *   AutoMinorVersionUpgrade: true || false,
+ *   LicenseModel: "STRING_VALUE",
+ *   DBName: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   OptionGroupName: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StorageType: "STRING_VALUE",
+ *   TdeCredentialArn: "STRING_VALUE",
+ *   TdeCredentialPassword: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Domain: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   ProcessorFeatures: [ // ProcessorFeatureList
+ *     { // ProcessorFeature
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UseDefaultProcessorFeatures: true || false,
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   SourceDbiResourceId: "STRING_VALUE",
+ *   MaxAllocatedStorage: Number("int"),
+ *   SourceDBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ *   EnableCustomerOwnedIp: true || false,
+ *   CustomIamInstanceProfile: "STRING_VALUE",
+ *   BackupTarget: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
+ *   StorageThroughput: Number("int"),
+ *   AllocatedStorage: Number("int"),
+ * };
  * const command = new RestoreDBInstanceToPointInTimeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBInstanceToPointInTimeCommandInput - {@link RestoreDBInstanceToPointInTimeCommandInput}
+ * @returns {@link RestoreDBInstanceToPointInTimeCommandOutput}
  * @see {@link RestoreDBInstanceToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreDBInstanceToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -147,13 +204,13 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *             with the DB instance.</p>
  *
  *
- * @example To restore a DB instance to a point in time.
+ * @example To restore a DB instance to a point in time
  * ```javascript
- * // The following example restores a DB instance to a new DB instance at a point in time from the source DB instance.
+ * // The following example restores test-instance to a new DB instance named restored-test-instance, as of the specified time.
  * const input = {
- *   "RestoreTime": "2016-09-13T18:45:00Z",
- *   "SourceDBInstanceIdentifier": "mysql-sample",
- *   "TargetDBInstanceIdentifier": "mysql-sample-restored"
+ *   "RestoreTime": "2018-07-30T23:45:00.000Z",
+ *   "SourceDBInstanceIdentifier": "test-instance",
+ *   "TargetDBInstanceIdentifier": "restored-test-instance"
  * };
  * const command = new RestoreDBInstanceToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -166,9 +223,9 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *     "BackupRetentionPeriod": 7,
  *     "CACertificateIdentifier": "rds-ca-2015",
  *     "CopyTagsToSnapshot": false,
- *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:mysql-sample-restored",
+ *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:restored-test-instance",
  *     "DBInstanceClass": "db.t2.small",
- *     "DBInstanceIdentifier": "mysql-sample-restored",
+ *     "DBInstanceIdentifier": "restored-test-instance",
  *     "DBInstanceStatus": "available",
  *     "DBName": "sample",
  *     "DBParameterGroups": [
@@ -238,7 +295,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *   }
  * }
  * *\/
- * // example id: to-restore-a-db-instance-to-a-point-in-time-1473962652154
+ * // example id: to-restore-a-db-instance-to-a-point-in-time-1680036021951
  * ```
  *
  */
@@ -259,6 +316,9 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBInstanceToPointInTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -287,8 +347,8 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreDBInstanceToPointInTimeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreDBInstanceToPointInTimeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -298,18 +358,24 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RestoreDBInstanceToPointInTimeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBInstanceToPointInTimeCommand(input, context);
+    return se_RestoreDBInstanceToPointInTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBInstanceToPointInTimeCommandOutput> {
-    return deserializeAws_queryRestoreDBInstanceToPointInTimeCommand(output, context);
+    return de_RestoreDBInstanceToPointInTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,21 +15,23 @@ import {
 
 import {
   DisassociateResolverQueryLogConfigRequest,
-  DisassociateResolverQueryLogConfigRequestFilterSensitiveLog,
   DisassociateResolverQueryLogConfigResponse,
-  DisassociateResolverQueryLogConfigResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateResolverQueryLogConfigCommand,
-  serializeAws_json1_1DisassociateResolverQueryLogConfigCommand,
+  de_DisassociateResolverQueryLogConfigCommand,
+  se_DisassociateResolverQueryLogConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateResolverQueryLogConfigCommand}.
  */
 export interface DisassociateResolverQueryLogConfigCommandInput extends DisassociateResolverQueryLogConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateResolverQueryLogConfigCommand}.
  */
 export interface DisassociateResolverQueryLogConfigCommandOutput
@@ -37,6 +39,7 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a VPC from a query logging configuration.</p>
  *          <note>
  *             <p>Before you can delete a query logging configuration, you must first disassociate all VPCs
@@ -58,10 +61,16 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
  * import { Route53ResolverClient, DisassociateResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DisassociateResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // DisassociateResolverQueryLogConfigRequest
+ *   ResolverQueryLogConfigId: "STRING_VALUE", // required
+ *   ResourceId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResolverQueryLogConfigCommandInput - {@link DisassociateResolverQueryLogConfigCommandInput}
+ * @returns {@link DisassociateResolverQueryLogConfigCommandOutput}
  * @see {@link DisassociateResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link DisassociateResolverQueryLogConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -103,6 +112,9 @@ export class DisassociateResolverQueryLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResolverQueryLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +143,8 @@ export class DisassociateResolverQueryLogConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateResolverQueryLogConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateResolverQueryLogConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,18 +154,24 @@ export class DisassociateResolverQueryLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateResolverQueryLogConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateResolverQueryLogConfigCommand(input, context);
+    return se_DisassociateResolverQueryLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateResolverQueryLogConfigCommandOutput> {
-    return deserializeAws_json1_1DisassociateResolverQueryLogConfigCommand(output, context);
+    return de_DisassociateResolverQueryLogConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

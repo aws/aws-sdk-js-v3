@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResourcePolicyRequest,
-  GetResourcePolicyRequestFilterSensitiveLog,
-  GetResourcePolicyResponse,
-  GetResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetResourcePolicyCommand,
-  serializeAws_json1_1GetResourcePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_0";
+import { de_GetResourcePolicyCommand, se_GetResourcePolicyCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePolicyCommand}.
  */
 export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePolicyCommand}.
  */
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the JSON text of the resource-based policy document attached to the
  *       secret. For more information about permissions policies attached to a secret, see
  *       <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-policies.html">Permissions
@@ -52,10 +49,15 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * import { SecretsManagerClient, GetResourcePolicyCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, GetResourcePolicyCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // GetResourcePolicyRequest
+ *   SecretId: "STRING_VALUE", // required
+ * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
+ * @returns {@link GetResourcePolicyCommandOutput}
  * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -124,6 +126,9 @@ export class GetResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,8 +157,8 @@ export class GetResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -163,12 +168,18 @@ export class GetResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResourcePolicyCommand(input, context);
+    return se_GetResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePolicyCommandOutput> {
-    return deserializeAws_json1_1GetResourcePolicyCommand(output, context);
+    return de_GetResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

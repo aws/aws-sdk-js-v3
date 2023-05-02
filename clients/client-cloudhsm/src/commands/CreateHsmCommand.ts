@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  CreateHsmRequest,
-  CreateHsmRequestFilterSensitiveLog,
-  CreateHsmResponse,
-  CreateHsmResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1CreateHsmCommand, serializeAws_json1_1CreateHsmCommand } from "../protocols/Aws_json1_1";
+import { CreateHsmRequest, CreateHsmResponse } from "../models/models_0";
+import { de_CreateHsmCommand, se_CreateHsmCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHsmCommand}.
  */
 export interface CreateHsmCommandInput extends CreateHsmRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHsmCommand}.
  */
 export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -58,10 +58,22 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * import { CloudHSMClient, CreateHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, CreateHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // CreateHsmRequest
+ *   SubnetId: "STRING_VALUE", // required
+ *   SshKey: "STRING_VALUE", // required
+ *   EniIp: "STRING_VALUE",
+ *   IamRoleArn: "STRING_VALUE", // required
+ *   ExternalId: "STRING_VALUE",
+ *   SubscriptionType: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   SyslogIp: "STRING_VALUE",
+ * };
  * const command = new CreateHsmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHsmCommandInput - {@link CreateHsmCommandInput}
+ * @returns {@link CreateHsmCommandOutput}
  * @see {@link CreateHsmCommandInput} for command's `input` shape.
  * @see {@link CreateHsmCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -94,6 +106,9 @@ export class CreateHsmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHsmCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +135,8 @@ export class CreateHsmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHsmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHsmResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +146,18 @@ export class CreateHsmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHsmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHsmCommand(input, context);
+    return se_CreateHsmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHsmCommandOutput> {
-    return deserializeAws_json1_1CreateHsmCommand(output, context);
+    return de_CreateHsmCommand(output, context);
   }
 
   // Start section: command_body_extra

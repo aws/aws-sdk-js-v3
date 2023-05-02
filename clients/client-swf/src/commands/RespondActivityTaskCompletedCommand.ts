@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { RespondActivityTaskCompletedInput } from "../models/models_0";
 import {
-  RespondActivityTaskCompletedInput,
-  RespondActivityTaskCompletedInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0RespondActivityTaskCompletedCommand,
-  serializeAws_json1_0RespondActivityTaskCompletedCommand,
+  de_RespondActivityTaskCompletedCommand,
+  se_RespondActivityTaskCompletedCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RespondActivityTaskCompletedCommand}.
  */
 export interface RespondActivityTaskCompletedCommandInput extends RespondActivityTaskCompletedInput {}
 /**
+ * @public
+ *
  * The output of {@link RespondActivityTaskCompletedCommand}.
  */
 export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
  *       by the <code>taskToken</code> completed successfully with a <code>result</code> (if provided).
  *       The <code>result</code> appears in the <code>ActivityTaskCompleted</code> event in the
@@ -79,10 +81,16 @@ export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBea
  * import { SWFClient, RespondActivityTaskCompletedCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RespondActivityTaskCompletedCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // RespondActivityTaskCompletedInput
+ *   taskToken: "STRING_VALUE", // required
+ *   result: "STRING_VALUE",
+ * };
  * const command = new RespondActivityTaskCompletedCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RespondActivityTaskCompletedCommandInput - {@link RespondActivityTaskCompletedCommandInput}
+ * @returns {@link RespondActivityTaskCompletedCommandOutput}
  * @see {@link RespondActivityTaskCompletedCommandInput} for command's `input` shape.
  * @see {@link RespondActivityTaskCompletedCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -112,6 +120,9 @@ export class RespondActivityTaskCompletedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RespondActivityTaskCompletedCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +151,8 @@ export class RespondActivityTaskCompletedCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RespondActivityTaskCompletedInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,15 +162,21 @@ export class RespondActivityTaskCompletedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RespondActivityTaskCompletedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RespondActivityTaskCompletedCommand(input, context);
+    return se_RespondActivityTaskCompletedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RespondActivityTaskCompletedCommandOutput> {
-    return deserializeAws_json1_0RespondActivityTaskCompletedCommand(output, context);
+    return de_RespondActivityTaskCompletedCommand(output, context);
   }
 
   // Start section: command_body_extra

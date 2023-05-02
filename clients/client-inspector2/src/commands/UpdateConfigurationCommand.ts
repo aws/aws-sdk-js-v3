@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  UpdateConfigurationRequest,
-  UpdateConfigurationRequestFilterSensitiveLog,
-  UpdateConfigurationResponse,
-  UpdateConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConfigurationCommand,
-  serializeAws_restJson1UpdateConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateConfigurationRequest, UpdateConfigurationResponse } from "../models/models_0";
+import { de_UpdateConfigurationCommand, se_UpdateConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationCommand}.
  */
 export interface UpdateConfigurationCommandInput extends UpdateConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationCommand}.
  */
 export interface UpdateConfigurationCommandOutput extends UpdateConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates setting configurations for your Amazon Inspector account. When you use this API as an Amazon Inspector delegated administrator this updates the setting for all accounts you manage. Member accounts in an organization cannot update this setting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * import { Inspector2Client, UpdateConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, UpdateConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = { // UpdateConfigurationRequest
+ *   ecrConfiguration: { // EcrConfiguration
+ *     rescanDuration: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationCommandInput - {@link UpdateConfigurationCommandInput}
+ * @returns {@link UpdateConfigurationCommandOutput}
  * @see {@link UpdateConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -82,6 +86,9 @@ export class UpdateConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class UpdateConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class UpdateConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConfigurationCommand(input, context);
+    return se_UpdateConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateConfigurationCommand(output, context);
+    return de_UpdateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

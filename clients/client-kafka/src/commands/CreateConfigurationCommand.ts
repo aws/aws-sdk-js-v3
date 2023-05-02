@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  CreateConfigurationRequest,
-  CreateConfigurationRequestFilterSensitiveLog,
-  CreateConfigurationResponse,
-  CreateConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateConfigurationCommand,
-  serializeAws_restJson1CreateConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateConfigurationRequest, CreateConfigurationResponse } from "../models/models_0";
+import { de_CreateConfigurationCommand, se_CreateConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationCommand}.
  */
 export interface CreateConfigurationCommandInput extends CreateConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationCommand}.
  */
 export interface CreateConfigurationCommandOutput extends CreateConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new MSK configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * import { KafkaClient, CreateConfigurationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, CreateConfigurationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // CreateConfigurationRequest
+ *   Description: "STRING_VALUE",
+ *   KafkaVersions: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   Name: "STRING_VALUE", // required
+ *   ServerProperties: "BLOB_VALUE", // required
+ * };
  * const command = new CreateConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationCommandInput - {@link CreateConfigurationCommandInput}
+ * @returns {@link CreateConfigurationCommandOutput}
  * @see {@link CreateConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +128,8 @@ export class CreateConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +139,18 @@ export class CreateConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConfigurationCommand(input, context);
+    return se_CreateConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateConfigurationCommand(output, context);
+    return de_CreateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

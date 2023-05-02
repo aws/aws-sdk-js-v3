@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribePhoneNumberRequest,
-  DescribePhoneNumberRequestFilterSensitiveLog,
-  DescribePhoneNumberResponse,
-  DescribePhoneNumberResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribePhoneNumberCommand,
-  serializeAws_restJson1DescribePhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribePhoneNumberRequest, DescribePhoneNumberResponse } from "../models/models_0";
+import { de_DescribePhoneNumberCommand, se_DescribePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePhoneNumberCommand}.
  */
 export interface DescribePhoneNumberCommandInput extends DescribePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePhoneNumberCommand}.
  */
 export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance
  *    or traffic distribution group.</p>
  *          <important>
@@ -53,10 +50,15 @@ export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberRes
  * import { ConnectClient, DescribePhoneNumberCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribePhoneNumberCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribePhoneNumberRequest
+ *   PhoneNumberId: "STRING_VALUE", // required
+ * };
  * const command = new DescribePhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePhoneNumberCommandInput - {@link DescribePhoneNumberCommandInput}
+ * @returns {@link DescribePhoneNumberCommandOutput}
  * @see {@link DescribePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link DescribePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -95,6 +97,9 @@ export class DescribePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +128,8 @@ export class DescribePhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePhoneNumberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePhoneNumberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +139,18 @@ export class DescribePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePhoneNumberCommand(input, context);
+    return se_DescribePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePhoneNumberCommandOutput> {
-    return deserializeAws_restJson1DescribePhoneNumberCommand(output, context);
+    return de_DescribePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

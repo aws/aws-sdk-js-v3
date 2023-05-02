@@ -15,21 +15,23 @@ import {
 
 import {
   ListAWSServiceAccessForOrganizationRequest,
-  ListAWSServiceAccessForOrganizationRequestFilterSensitiveLog,
   ListAWSServiceAccessForOrganizationResponse,
-  ListAWSServiceAccessForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand,
-  serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand,
+  de_ListAWSServiceAccessForOrganizationCommand,
+  se_ListAWSServiceAccessForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAWSServiceAccessForOrganizationCommand}.
  */
 export interface ListAWSServiceAccessForOrganizationCommandInput extends ListAWSServiceAccessForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAWSServiceAccessForOrganizationCommand}.
  */
 export interface ListAWSServiceAccessForOrganizationCommandOutput
@@ -37,6 +39,7 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the Amazon Web Services services that you enabled to integrate with your
  *             organization. After a service on this list creates the resources that it requires for
  *             the integration, it can perform operations on your organization and its accounts.</p>
@@ -52,10 +55,16 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  * import { OrganizationsClient, ListAWSServiceAccessForOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListAWSServiceAccessForOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // ListAWSServiceAccessForOrganizationRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAWSServiceAccessForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAWSServiceAccessForOrganizationCommandInput - {@link ListAWSServiceAccessForOrganizationCommandInput}
+ * @returns {@link ListAWSServiceAccessForOrganizationCommandOutput}
  * @see {@link ListAWSServiceAccessForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListAWSServiceAccessForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -405,6 +414,9 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAWSServiceAccessForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -433,8 +445,8 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAWSServiceAccessForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAWSServiceAccessForOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -444,18 +456,24 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAWSServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(input, context);
+    return se_ListAWSServiceAccessForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> {
-    return deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(output, context);
+    return de_ListAWSServiceAccessForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

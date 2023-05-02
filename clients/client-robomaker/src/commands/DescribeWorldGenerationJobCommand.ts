@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeWorldGenerationJobRequest,
-  DescribeWorldGenerationJobRequestFilterSensitiveLog,
-  DescribeWorldGenerationJobResponse,
-  DescribeWorldGenerationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeWorldGenerationJobCommand,
-  serializeAws_restJson1DescribeWorldGenerationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeWorldGenerationJobRequest, DescribeWorldGenerationJobResponse } from "../models/models_0";
+import { de_DescribeWorldGenerationJobCommand, se_DescribeWorldGenerationJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorldGenerationJobCommand}.
  */
 export interface DescribeWorldGenerationJobCommandInput extends DescribeWorldGenerationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorldGenerationJobCommand}.
  */
 export interface DescribeWorldGenerationJobCommandOutput extends DescribeWorldGenerationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a world generation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeWorldGenerationJobCommandOutput extends DescribeWorldGe
  * import { RoboMakerClient, DescribeWorldGenerationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeWorldGenerationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // DescribeWorldGenerationJobRequest
+ *   job: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorldGenerationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorldGenerationJobCommandInput - {@link DescribeWorldGenerationJobCommandInput}
+ * @returns {@link DescribeWorldGenerationJobCommandOutput}
  * @see {@link DescribeWorldGenerationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeWorldGenerationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -82,6 +84,9 @@ export class DescribeWorldGenerationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorldGenerationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DescribeWorldGenerationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorldGenerationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorldGenerationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +126,21 @@ export class DescribeWorldGenerationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorldGenerationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWorldGenerationJobCommand(input, context);
+    return se_DescribeWorldGenerationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorldGenerationJobCommandOutput> {
-    return deserializeAws_restJson1DescribeWorldGenerationJobCommand(output, context);
+    return de_DescribeWorldGenerationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,21 +15,24 @@ import {
 
 import {
   ListHandshakesForOrganizationRequest,
-  ListHandshakesForOrganizationRequestFilterSensitiveLog,
   ListHandshakesForOrganizationResponse,
   ListHandshakesForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1ListHandshakesForOrganizationCommand,
-  serializeAws_json1_1ListHandshakesForOrganizationCommand,
+  de_ListHandshakesForOrganizationCommand,
+  se_ListHandshakesForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListHandshakesForOrganizationCommand}.
  */
 export interface ListHandshakesForOrganizationCommandInput extends ListHandshakesForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHandshakesForOrganizationCommand}.
  */
 export interface ListHandshakesForOrganizationCommandOutput
@@ -37,6 +40,7 @@ export interface ListHandshakesForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the handshakes that are associated with the organization that the requesting
  *             user is part of. The <code>ListHandshakesForOrganization</code> operation returns a list
  *             of handshake structures. Each structure contains details and status about a
@@ -61,10 +65,20 @@ export interface ListHandshakesForOrganizationCommandOutput
  * import { OrganizationsClient, ListHandshakesForOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListHandshakesForOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // ListHandshakesForOrganizationRequest
+ *   Filter: { // HandshakeFilter
+ *     ActionType: "INVITE" || "ENABLE_ALL_FEATURES" || "APPROVE_ALL_FEATURES" || "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
+ *     ParentHandshakeId: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListHandshakesForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHandshakesForOrganizationCommandInput - {@link ListHandshakesForOrganizationCommandInput}
+ * @returns {@link ListHandshakesForOrganizationCommandOutput}
  * @see {@link ListHandshakesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListHandshakesForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -317,6 +331,9 @@ export class ListHandshakesForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHandshakesForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -345,7 +362,7 @@ export class ListHandshakesForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHandshakesForOrganizationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListHandshakesForOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -356,15 +373,21 @@ export class ListHandshakesForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHandshakesForOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHandshakesForOrganizationCommand(input, context);
+    return se_ListHandshakesForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHandshakesForOrganizationCommandOutput> {
-    return deserializeAws_json1_1ListHandshakesForOrganizationCommand(output, context);
+    return de_ListHandshakesForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

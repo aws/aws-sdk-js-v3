@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSegmentRequest,
-  CreateSegmentRequestFilterSensitiveLog,
-  CreateSegmentResponse,
-  CreateSegmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSegmentRequest, CreateSegmentResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateSegmentCommand,
-  serializeAws_restJson1CreateSegmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSegmentCommand, se_CreateSegmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSegmentCommand}.
  */
 export interface CreateSegmentCommandInput extends CreateSegmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSegmentCommand}.
  */
 export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,151 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
  * import { PinpointClient, CreateSegmentCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateSegmentCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // CreateSegmentRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   WriteSegmentRequest: { // WriteSegmentRequest
+ *     Dimensions: { // SegmentDimensions
+ *       Attributes: { // MapOfAttributeDimension
+ *         "<keys>": { // AttributeDimension
+ *           AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
+ *           Values: [ // ListOf__string // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       Behavior: { // SegmentBehaviors
+ *         Recency: { // RecencyDimension
+ *           Duration: "HR_24" || "DAY_7" || "DAY_14" || "DAY_30", // required
+ *           RecencyType: "ACTIVE" || "INACTIVE", // required
+ *         },
+ *       },
+ *       Demographic: { // SegmentDemographics
+ *         AppVersion: { // SetDimension
+ *           DimensionType: "INCLUSIVE" || "EXCLUSIVE",
+ *           Values: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         Channel: {
+ *           DimensionType: "INCLUSIVE" || "EXCLUSIVE",
+ *           Values: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         DeviceType: {
+ *           DimensionType: "INCLUSIVE" || "EXCLUSIVE",
+ *           Values: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         Make: {
+ *           DimensionType: "INCLUSIVE" || "EXCLUSIVE",
+ *           Values: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         Model: {
+ *           DimensionType: "INCLUSIVE" || "EXCLUSIVE",
+ *           Values: "<ListOf__string>", // required
+ *         },
+ *         Platform: "<SetDimension>",
+ *       },
+ *       Location: { // SegmentLocation
+ *         Country: "<SetDimension>",
+ *         GPSPoint: { // GPSPointDimension
+ *           Coordinates: { // GPSCoordinates
+ *             Latitude: Number("double"), // required
+ *             Longitude: Number("double"), // required
+ *           },
+ *           RangeInKilometers: Number("double"),
+ *         },
+ *       },
+ *       Metrics: { // MapOfMetricDimension
+ *         "<keys>": { // MetricDimension
+ *           ComparisonOperator: "STRING_VALUE", // required
+ *           Value: Number("double"), // required
+ *         },
+ *       },
+ *       UserAttributes: {
+ *         "<keys>": {
+ *           AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
+ *           Values: "<ListOf__string>", // required
+ *         },
+ *       },
+ *     },
+ *     Name: "STRING_VALUE",
+ *     SegmentGroups: { // SegmentGroupList
+ *       Groups: [ // ListOfSegmentGroup
+ *         { // SegmentGroup
+ *           Dimensions: [ // ListOfSegmentDimensions
+ *             {
+ *               Attributes: {
+ *                 "<keys>": {
+ *                   AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
+ *                   Values: "<ListOf__string>", // required
+ *                 },
+ *               },
+ *               Behavior: {
+ *                 Recency: {
+ *                   Duration: "HR_24" || "DAY_7" || "DAY_14" || "DAY_30", // required
+ *                   RecencyType: "ACTIVE" || "INACTIVE", // required
+ *                 },
+ *               },
+ *               Demographic: {
+ *                 AppVersion: "<SetDimension>",
+ *                 Channel: "<SetDimension>",
+ *                 DeviceType: "<SetDimension>",
+ *                 Make: "<SetDimension>",
+ *                 Model: "<SetDimension>",
+ *                 Platform: "<SetDimension>",
+ *               },
+ *               Location: {
+ *                 Country: "<SetDimension>",
+ *                 GPSPoint: {
+ *                   Coordinates: {
+ *                     Latitude: Number("double"), // required
+ *                     Longitude: Number("double"), // required
+ *                   },
+ *                   RangeInKilometers: Number("double"),
+ *                 },
+ *               },
+ *               Metrics: {
+ *                 "<keys>": {
+ *                   ComparisonOperator: "STRING_VALUE", // required
+ *                   Value: Number("double"), // required
+ *                 },
+ *               },
+ *               UserAttributes: {
+ *                 "<keys>": {
+ *                   AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
+ *                   Values: "<ListOf__string>", // required
+ *                 },
+ *               },
+ *             },
+ *           ],
+ *           SourceSegments: [ // ListOfSegmentReference
+ *             { // SegmentReference
+ *               Id: "STRING_VALUE", // required
+ *               Version: Number("int"),
+ *             },
+ *           ],
+ *           SourceType: "ALL" || "ANY" || "NONE",
+ *           Type: "ALL" || "ANY" || "NONE",
+ *         },
+ *       ],
+ *       Include: "ALL" || "ANY" || "NONE",
+ *     },
+ *     tags: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateSegmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSegmentCommandInput - {@link CreateSegmentCommandInput}
+ * @returns {@link CreateSegmentCommandOutput}
  * @see {@link CreateSegmentCommandInput} for command's `input` shape.
  * @see {@link CreateSegmentCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +228,9 @@ export class CreateSegmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSegmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +257,8 @@ export class CreateSegmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSegmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSegmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +268,18 @@ export class CreateSegmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSegmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSegmentCommand(input, context);
+    return se_CreateSegmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSegmentCommandOutput> {
-    return deserializeAws_restJson1CreateSegmentCommand(output, context);
+    return de_CreateSegmentCommand(output, context);
   }
 
   // Start section: command_body_extra

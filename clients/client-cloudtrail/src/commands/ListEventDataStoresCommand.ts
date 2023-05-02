@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  ListEventDataStoresRequest,
-  ListEventDataStoresRequestFilterSensitiveLog,
-  ListEventDataStoresResponse,
-  ListEventDataStoresResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEventDataStoresCommand,
-  serializeAws_json1_1ListEventDataStoresCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEventDataStoresRequest, ListEventDataStoresResponse } from "../models/models_0";
+import { de_ListEventDataStoresCommand, se_ListEventDataStoresCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventDataStoresCommand}.
  */
 export interface ListEventDataStoresCommandInput extends ListEventDataStoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventDataStoresCommand}.
  */
 export interface ListEventDataStoresCommandOutput extends ListEventDataStoresResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all event data stores in the account, in the current
  *          region.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListEventDataStoresCommandOutput extends ListEventDataStoresRes
  * import { CloudTrailClient, ListEventDataStoresCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListEventDataStoresCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // ListEventDataStoresRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEventDataStoresCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventDataStoresCommandInput - {@link ListEventDataStoresCommandInput}
+ * @returns {@link ListEventDataStoresCommandOutput}
  * @see {@link ListEventDataStoresCommandInput} for command's `input` shape.
  * @see {@link ListEventDataStoresCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -87,6 +90,9 @@ export class ListEventDataStoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventDataStoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class ListEventDataStoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventDataStoresRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventDataStoresResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class ListEventDataStoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventDataStoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEventDataStoresCommand(input, context);
+    return se_ListEventDataStoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventDataStoresCommandOutput> {
-    return deserializeAws_json1_1ListEventDataStoresCommand(output, context);
+    return de_ListEventDataStoresCommand(output, context);
   }
 
   // Start section: command_body_extra

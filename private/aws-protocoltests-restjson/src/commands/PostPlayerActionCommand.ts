@@ -12,28 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PostPlayerActionInput,
-  PostPlayerActionInputFilterSensitiveLog,
-  PostPlayerActionOutput,
-  PostPlayerActionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PostPlayerActionCommand,
-  serializeAws_restJson1PostPlayerActionCommand,
-} from "../protocols/Aws_restJson1";
+import { PostPlayerActionInput, PostPlayerActionOutput } from "../models/models_0";
+import { de_PostPlayerActionCommand, se_PostPlayerActionCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link PostPlayerActionCommand}.
  */
 export interface PostPlayerActionCommandInput extends PostPlayerActionInput {}
 /**
+ * @public
+ *
  * The output of {@link PostPlayerActionCommand}.
  */
 export interface PostPlayerActionCommandOutput extends PostPlayerActionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This operation defines a union with a Unit member.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,10 +38,17 @@ export interface PostPlayerActionCommandOutput extends PostPlayerActionOutput, _
  * import { RestJsonProtocolClient, PostPlayerActionCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, PostPlayerActionCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // PostPlayerActionInput
+ *   action: { // PlayerAction Union: only one key present
+ *     quit: {},
+ *   },
+ * };
  * const command = new PostPlayerActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PostPlayerActionCommandInput - {@link PostPlayerActionCommandInput}
+ * @returns {@link PostPlayerActionCommandOutput}
  * @see {@link PostPlayerActionCommandInput} for command's `input` shape.
  * @see {@link PostPlayerActionCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -59,6 +63,9 @@ export class PostPlayerActionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: PostPlayerActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +91,8 @@ export class PostPlayerActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PostPlayerActionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PostPlayerActionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +102,18 @@ export class PostPlayerActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PostPlayerActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PostPlayerActionCommand(input, context);
+    return se_PostPlayerActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostPlayerActionCommandOutput> {
-    return deserializeAws_restJson1PostPlayerActionCommand(output, context);
+    return de_PostPlayerActionCommand(output, context);
   }
 
   // Start section: command_body_extra

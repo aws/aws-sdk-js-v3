@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteVoiceTemplateRequest,
-  DeleteVoiceTemplateRequestFilterSensitiveLog,
-  DeleteVoiceTemplateResponse,
-  DeleteVoiceTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteVoiceTemplateRequest, DeleteVoiceTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteVoiceTemplateCommand,
-  serializeAws_restJson1DeleteVoiceTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVoiceTemplateCommand, se_DeleteVoiceTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceTemplateCommand}.
  */
 export interface DeleteVoiceTemplateCommandInput extends DeleteVoiceTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceTemplateCommand}.
  */
 export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a message template for messages that were sent through the voice channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateRes
  * import { PinpointClient, DeleteVoiceTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteVoiceTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // DeleteVoiceTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new DeleteVoiceTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVoiceTemplateCommandInput - {@link DeleteVoiceTemplateCommandInput}
+ * @returns {@link DeleteVoiceTemplateCommandOutput}
  * @see {@link DeleteVoiceTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +93,9 @@ export class DeleteVoiceTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class DeleteVoiceTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVoiceTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVoiceTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class DeleteVoiceTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVoiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVoiceTemplateCommand(input, context);
+    return se_DeleteVoiceTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVoiceTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteVoiceTemplateCommand(output, context);
+    return de_DeleteVoiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

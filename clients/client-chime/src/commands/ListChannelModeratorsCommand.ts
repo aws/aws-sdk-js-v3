@@ -20,21 +20,23 @@ import {
   ListChannelModeratorsResponse,
   ListChannelModeratorsResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListChannelModeratorsCommand,
-  serializeAws_restJson1ListChannelModeratorsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChannelModeratorsCommand, se_ListChannelModeratorsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChannelModeratorsCommand}.
  */
 export interface ListChannelModeratorsCommandInput extends ListChannelModeratorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChannelModeratorsCommand}.
  */
 export interface ListChannelModeratorsCommandOutput extends ListChannelModeratorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the moderators for a channel.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -47,10 +49,18 @@ export interface ListChannelModeratorsCommandOutput extends ListChannelModerator
  * import { ChimeClient, ListChannelModeratorsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListChannelModeratorsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListChannelModeratorsRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new ListChannelModeratorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelModeratorsCommandInput - {@link ListChannelModeratorsCommandInput}
+ * @returns {@link ListChannelModeratorsCommandOutput}
  * @see {@link ListChannelModeratorsCommandInput} for command's `input` shape.
  * @see {@link ListChannelModeratorsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +102,9 @@ export class ListChannelModeratorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelModeratorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,12 +144,18 @@ export class ListChannelModeratorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChannelModeratorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelModeratorsCommand(input, context);
+    return se_ListChannelModeratorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelModeratorsCommandOutput> {
-    return deserializeAws_restJson1ListChannelModeratorsCommand(output, context);
+    return de_ListChannelModeratorsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,20 +20,22 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   DescribeElasticsearchDomainConfigRequest,
-  DescribeElasticsearchDomainConfigRequestFilterSensitiveLog,
   DescribeElasticsearchDomainConfigResponse,
-  DescribeElasticsearchDomainConfigResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeElasticsearchDomainConfigCommand,
-  serializeAws_restJson1DescribeElasticsearchDomainConfigCommand,
+  de_DescribeElasticsearchDomainConfigCommand,
+  se_DescribeElasticsearchDomainConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeElasticsearchDomainConfigCommand}.
  */
 export interface DescribeElasticsearchDomainConfigCommandInput extends DescribeElasticsearchDomainConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeElasticsearchDomainConfigCommand}.
  */
 export interface DescribeElasticsearchDomainConfigCommandOutput
@@ -41,6 +43,7 @@ export interface DescribeElasticsearchDomainConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +51,15 @@ export interface DescribeElasticsearchDomainConfigCommandOutput
  * import { ElasticsearchServiceClient, DescribeElasticsearchDomainConfigCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribeElasticsearchDomainConfigCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // DescribeElasticsearchDomainConfigRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeElasticsearchDomainConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeElasticsearchDomainConfigCommandInput - {@link DescribeElasticsearchDomainConfigCommandInput}
+ * @returns {@link DescribeElasticsearchDomainConfigCommandOutput}
  * @see {@link DescribeElasticsearchDomainConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticsearchDomainConfigCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -87,6 +95,9 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeElasticsearchDomainConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +126,8 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeElasticsearchDomainConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeElasticsearchDomainConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +137,24 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeElasticsearchDomainConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeElasticsearchDomainConfigCommand(input, context);
+    return se_DescribeElasticsearchDomainConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeElasticsearchDomainConfigCommandOutput> {
-    return deserializeAws_restJson1DescribeElasticsearchDomainConfigCommand(output, context);
+    return de_DescribeElasticsearchDomainConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

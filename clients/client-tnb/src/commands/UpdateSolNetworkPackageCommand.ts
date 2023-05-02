@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSolNetworkPackageInput,
-  UpdateSolNetworkPackageInputFilterSensitiveLog,
-  UpdateSolNetworkPackageOutput,
-  UpdateSolNetworkPackageOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSolNetworkPackageCommand,
-  serializeAws_restJson1UpdateSolNetworkPackageCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateSolNetworkPackageInput, UpdateSolNetworkPackageOutput } from "../models/models_0";
+import { de_UpdateSolNetworkPackageCommand, se_UpdateSolNetworkPackageCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSolNetworkPackageCommand}.
  */
 export interface UpdateSolNetworkPackageCommandInput extends UpdateSolNetworkPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSolNetworkPackageCommand}.
  */
 export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the operational state of a network package.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  *          <p>A network service descriptor is a .yaml file in a network package that uses the TOSCA standard to describe the network functions you want to deploy and the Amazon Web Services infrastructure you want to deploy the network functions on.</p>
@@ -44,10 +41,16 @@ export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPa
  * import { TnbClient, UpdateSolNetworkPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, UpdateSolNetworkPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // UpdateSolNetworkPackageInput
+ *   nsdInfoId: "STRING_VALUE", // required
+ *   nsdOperationalState: "ENABLED" || "DISABLED", // required
+ * };
  * const command = new UpdateSolNetworkPackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSolNetworkPackageCommandInput - {@link UpdateSolNetworkPackageCommandInput}
+ * @returns {@link UpdateSolNetworkPackageCommandOutput}
  * @see {@link UpdateSolNetworkPackageCommandInput} for command's `input` shape.
  * @see {@link UpdateSolNetworkPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -86,6 +89,9 @@ export class UpdateSolNetworkPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSolNetworkPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class UpdateSolNetworkPackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSolNetworkPackageInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSolNetworkPackageOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class UpdateSolNetworkPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSolNetworkPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSolNetworkPackageCommand(input, context);
+    return se_UpdateSolNetworkPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSolNetworkPackageCommandOutput> {
-    return deserializeAws_restJson1UpdateSolNetworkPackageCommand(output, context);
+    return de_UpdateSolNetworkPackageCommand(output, context);
   }
 
   // Start section: command_body_extra

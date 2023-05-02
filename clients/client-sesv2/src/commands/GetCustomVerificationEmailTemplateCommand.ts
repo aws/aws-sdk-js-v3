@@ -15,21 +15,23 @@ import {
 
 import {
   GetCustomVerificationEmailTemplateRequest,
-  GetCustomVerificationEmailTemplateRequestFilterSensitiveLog,
   GetCustomVerificationEmailTemplateResponse,
-  GetCustomVerificationEmailTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetCustomVerificationEmailTemplateCommand,
-  serializeAws_restJson1GetCustomVerificationEmailTemplateCommand,
+  de_GetCustomVerificationEmailTemplateCommand,
+  se_GetCustomVerificationEmailTemplateCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetCustomVerificationEmailTemplateCommand}.
  */
 export interface GetCustomVerificationEmailTemplateCommandInput extends GetCustomVerificationEmailTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCustomVerificationEmailTemplateCommand}.
  */
 export interface GetCustomVerificationEmailTemplateCommandOutput
@@ -37,6 +39,7 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the custom email verification template for the template name you
  *             specify.</p>
  *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
@@ -49,10 +52,15 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  * import { SESv2Client, GetCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // GetCustomVerificationEmailTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new GetCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCustomVerificationEmailTemplateCommandInput - {@link GetCustomVerificationEmailTemplateCommandInput}
+ * @returns {@link GetCustomVerificationEmailTemplateCommandOutput}
  * @see {@link GetCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link GetCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -85,6 +93,9 @@ export class GetCustomVerificationEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCustomVerificationEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +124,8 @@ export class GetCustomVerificationEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCustomVerificationEmailTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCustomVerificationEmailTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +135,24 @@ export class GetCustomVerificationEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetCustomVerificationEmailTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCustomVerificationEmailTemplateCommand(input, context);
+    return se_GetCustomVerificationEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCustomVerificationEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1GetCustomVerificationEmailTemplateCommand(output, context);
+    return de_GetCustomVerificationEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

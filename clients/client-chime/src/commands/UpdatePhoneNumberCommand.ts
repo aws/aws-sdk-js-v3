@@ -20,21 +20,23 @@ import {
   UpdatePhoneNumberResponse,
   UpdatePhoneNumberResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdatePhoneNumberCommand,
-  serializeAws_restJson1UpdatePhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePhoneNumberCommand, se_UpdatePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePhoneNumberCommand}.
  */
 export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePhoneNumberCommand}.
  */
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number detail at a time. For example, you can update either the product type or the calling name in one action.</p>
  *          <p>For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For numbers outside the U.S., you must use the Amazon Chime SIP Media Application Dial-In product type.</p>
  *          <p>Updates to outbound calling names can take 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.</p>
@@ -44,10 +46,17 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * import { ChimeClient, UpdatePhoneNumberCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdatePhoneNumberCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // UpdatePhoneNumberRequest
+ *   PhoneNumberId: "STRING_VALUE", // required
+ *   ProductType: "BusinessCalling" || "VoiceConnector" || "SipMediaApplicationDialIn",
+ *   CallingName: "STRING_VALUE",
+ * };
  * const command = new UpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePhoneNumberCommandInput - {@link UpdatePhoneNumberCommandInput}
+ * @returns {@link UpdatePhoneNumberCommandOutput}
  * @see {@link UpdatePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link UpdatePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -96,6 +105,9 @@ export class UpdatePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,12 +147,18 @@ export class UpdatePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePhoneNumberCommand(input, context);
+    return se_UpdatePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePhoneNumberCommandOutput> {
-    return deserializeAws_restJson1UpdatePhoneNumberCommand(output, context);
+    return de_UpdatePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

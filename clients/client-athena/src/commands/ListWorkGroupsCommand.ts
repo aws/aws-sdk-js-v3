@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListWorkGroupsInput,
-  ListWorkGroupsInputFilterSensitiveLog,
-  ListWorkGroupsOutput,
-  ListWorkGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListWorkGroupsCommand,
-  serializeAws_json1_1ListWorkGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListWorkGroupsInput, ListWorkGroupsOutput } from "../models/models_0";
+import { de_ListWorkGroupsCommand, se_ListWorkGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkGroupsCommand}.
  */
 export interface ListWorkGroupsCommandInput extends ListWorkGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkGroupsCommand}.
  */
 export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists available workgroups for the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __Met
  * import { AthenaClient, ListWorkGroupsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListWorkGroupsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListWorkGroupsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListWorkGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkGroupsCommandInput - {@link ListWorkGroupsCommandInput}
+ * @returns {@link ListWorkGroupsCommandOutput}
  * @see {@link ListWorkGroupsCommandInput} for command's `input` shape.
  * @see {@link ListWorkGroupsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -77,6 +80,9 @@ export class ListWorkGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +111,8 @@ export class ListWorkGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +122,18 @@ export class ListWorkGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWorkGroupsCommand(input, context);
+    return se_ListWorkGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkGroupsCommandOutput> {
-    return deserializeAws_json1_1ListWorkGroupsCommand(output, context);
+    return de_ListWorkGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

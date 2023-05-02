@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListIngestionsRequest,
-  ListIngestionsRequestFilterSensitiveLog,
-  ListIngestionsResponse,
-  ListIngestionsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1ListIngestionsCommand,
-  serializeAws_restJson1ListIngestionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListIngestionsRequest, ListIngestionsResponse } from "../models/models_3";
+import { de_ListIngestionsCommand, se_ListIngestionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListIngestionsCommand}.
  */
 export interface ListIngestionsCommandInput extends ListIngestionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIngestionsCommand}.
  */
 export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the history of SPICE ingestions for a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
  * import { QuickSightClient, ListIngestionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListIngestionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // ListIngestionsRequest
+ *   DataSetId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListIngestionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIngestionsCommandInput - {@link ListIngestionsCommandInput}
+ * @returns {@link ListIngestionsCommandOutput}
  * @see {@link ListIngestionsCommandInput} for command's `input` shape.
  * @see {@link ListIngestionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +98,9 @@ export class ListIngestionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIngestionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +129,8 @@ export class ListIngestionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIngestionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIngestionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +140,18 @@ export class ListIngestionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIngestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIngestionsCommand(input, context);
+    return se_ListIngestionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIngestionsCommandOutput> {
-    return deserializeAws_restJson1ListIngestionsCommand(output, context);
+    return de_ListIngestionsCommand(output, context);
   }
 
   // Start section: command_body_extra

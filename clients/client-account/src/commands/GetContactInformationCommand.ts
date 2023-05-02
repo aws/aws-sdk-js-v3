@@ -16,25 +16,26 @@ import {
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import {
   GetContactInformationRequest,
-  GetContactInformationRequestFilterSensitiveLog,
   GetContactInformationResponse,
   GetContactInformationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetContactInformationCommand,
-  serializeAws_restJson1GetContactInformationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetContactInformationCommand, se_GetContactInformationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContactInformationCommand}.
  */
 export interface GetContactInformationCommandInput extends GetContactInformationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContactInformationCommand}.
  */
 export interface GetContactInformationCommandOutput extends GetContactInformationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the primary contact information of an Amazon Web Services account.</p>
  *          <p>For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
  *                 the primary and alternate contact information</a>.</p>
@@ -44,10 +45,15 @@ export interface GetContactInformationCommandOutput extends GetContactInformatio
  * import { AccountClient, GetContactInformationCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, GetContactInformationCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
+ * const input = { // GetContactInformationRequest
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new GetContactInformationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContactInformationCommandInput - {@link GetContactInformationCommandInput}
+ * @returns {@link GetContactInformationCommandOutput}
  * @see {@link GetContactInformationCommandInput} for command's `input` shape.
  * @see {@link GetContactInformationCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -89,6 +95,9 @@ export class GetContactInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContactInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,7 +126,7 @@ export class GetContactInformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContactInformationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetContactInformationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -128,12 +137,18 @@ export class GetContactInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContactInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetContactInformationCommand(input, context);
+    return se_GetContactInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactInformationCommandOutput> {
-    return deserializeAws_restJson1GetContactInformationCommand(output, context);
+    return de_GetContactInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

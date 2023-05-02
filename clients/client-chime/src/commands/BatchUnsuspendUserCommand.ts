@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  BatchUnsuspendUserRequest,
-  BatchUnsuspendUserRequestFilterSensitiveLog,
-  BatchUnsuspendUserResponse,
-  BatchUnsuspendUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUnsuspendUserCommand,
-  serializeAws_restJson1BatchUnsuspendUserCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchUnsuspendUserRequest, BatchUnsuspendUserResponse } from "../models/models_0";
+import { de_BatchUnsuspendUserCommand, se_BatchUnsuspendUserCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUnsuspendUserCommand}.
  */
 export interface BatchUnsuspendUserCommandInput extends BatchUnsuspendUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUnsuspendUserCommand}.
  */
 export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the suspension from up to 50 previously suspended users for the specified Amazon
  *             Chime <code>EnterpriseLWA</code> account. Only users on <code>EnterpriseLWA</code>
  *             accounts can be unsuspended using this action. For more information about different account types, see
@@ -42,7 +39,6 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  *         Managing Your Amazon Chime Accounts
  *     </a> in the account types, in the <i>Amazon Chime Administration Guide</i>.
  * </p>
- *
  *          <p>
  * Previously suspended users who are unsuspended using this action are returned to
  * <code>Registered</code>
@@ -54,10 +50,18 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  * import { ChimeClient, BatchUnsuspendUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, BatchUnsuspendUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // BatchUnsuspendUserRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   UserIdList: [ // UserIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchUnsuspendUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUnsuspendUserCommandInput - {@link BatchUnsuspendUserCommandInput}
+ * @returns {@link BatchUnsuspendUserCommandOutput}
  * @see {@link BatchUnsuspendUserCommandInput} for command's `input` shape.
  * @see {@link BatchUnsuspendUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -102,6 +106,9 @@ export class BatchUnsuspendUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUnsuspendUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +137,8 @@ export class BatchUnsuspendUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUnsuspendUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUnsuspendUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +148,18 @@ export class BatchUnsuspendUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUnsuspendUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUnsuspendUserCommand(input, context);
+    return se_BatchUnsuspendUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUnsuspendUserCommandOutput> {
-    return deserializeAws_restJson1BatchUnsuspendUserCommand(output, context);
+    return de_BatchUnsuspendUserCommand(output, context);
   }
 
   // Start section: command_body_extra

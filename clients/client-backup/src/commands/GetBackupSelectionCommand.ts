@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  GetBackupSelectionInput,
-  GetBackupSelectionInputFilterSensitiveLog,
-  GetBackupSelectionOutput,
-  GetBackupSelectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBackupSelectionCommand,
-  serializeAws_restJson1GetBackupSelectionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBackupSelectionInput, GetBackupSelectionOutput } from "../models/models_0";
+import { de_GetBackupSelectionCommand, se_GetBackupSelectionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackupSelectionCommand}.
  */
 export interface GetBackupSelectionCommandInput extends GetBackupSelectionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBackupSelectionCommand}.
  */
 export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns selection metadata and a document in JSON format that specifies a list of
  *          resources that are associated with a backup plan.</p>
  * @example
@@ -43,10 +40,16 @@ export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutpu
  * import { BackupClient, GetBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // GetBackupSelectionInput
+ *   BackupPlanId: "STRING_VALUE", // required
+ *   SelectionId: "STRING_VALUE", // required
+ * };
  * const command = new GetBackupSelectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackupSelectionCommandInput - {@link GetBackupSelectionCommandInput}
+ * @returns {@link GetBackupSelectionCommandOutput}
  * @see {@link GetBackupSelectionCommandInput} for command's `input` shape.
  * @see {@link GetBackupSelectionCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -83,6 +86,9 @@ export class GetBackupSelectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackupSelectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class GetBackupSelectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBackupSelectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBackupSelectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class GetBackupSelectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackupSelectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackupSelectionCommand(input, context);
+    return se_GetBackupSelectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackupSelectionCommandOutput> {
-    return deserializeAws_restJson1GetBackupSelectionCommand(output, context);
+    return de_GetBackupSelectionCommand(output, context);
   }
 
   // Start section: command_body_extra

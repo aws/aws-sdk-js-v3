@@ -15,21 +15,23 @@ import {
 
 import {
   UpdateIdentityProviderConfigurationRequest,
-  UpdateIdentityProviderConfigurationRequestFilterSensitiveLog,
   UpdateIdentityProviderConfigurationResponse,
-  UpdateIdentityProviderConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateIdentityProviderConfigurationCommand,
-  serializeAws_restJson1UpdateIdentityProviderConfigurationCommand,
+  de_UpdateIdentityProviderConfigurationCommand,
+  se_UpdateIdentityProviderConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIdentityProviderConfigurationCommand}.
  */
 export interface UpdateIdentityProviderConfigurationCommandInput extends UpdateIdentityProviderConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIdentityProviderConfigurationCommand}.
  */
 export interface UpdateIdentityProviderConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface UpdateIdentityProviderConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates the identity provider configuration for the fleet.</p>
@@ -46,10 +49,17 @@ export interface UpdateIdentityProviderConfigurationCommandOutput
  * import { WorkLinkClient, UpdateIdentityProviderConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, UpdateIdentityProviderConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // UpdateIdentityProviderConfigurationRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   IdentityProviderType: "STRING_VALUE", // required
+ *   IdentityProviderSamlMetadata: "STRING_VALUE",
+ * };
  * const command = new UpdateIdentityProviderConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIdentityProviderConfigurationCommandInput - {@link UpdateIdentityProviderConfigurationCommandInput}
+ * @returns {@link UpdateIdentityProviderConfigurationCommandOutput}
  * @see {@link UpdateIdentityProviderConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateIdentityProviderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -88,6 +98,9 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIdentityProviderConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +129,8 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIdentityProviderConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIdentityProviderConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +140,24 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateIdentityProviderConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIdentityProviderConfigurationCommand(input, context);
+    return se_UpdateIdentityProviderConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIdentityProviderConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateIdentityProviderConfigurationCommand(output, context);
+    return de_UpdateIdentityProviderConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

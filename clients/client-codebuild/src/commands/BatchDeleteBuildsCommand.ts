@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  BatchDeleteBuildsInput,
-  BatchDeleteBuildsInputFilterSensitiveLog,
-  BatchDeleteBuildsOutput,
-  BatchDeleteBuildsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteBuildsCommand,
-  serializeAws_json1_1BatchDeleteBuildsCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchDeleteBuildsInput, BatchDeleteBuildsOutput } from "../models/models_0";
+import { de_BatchDeleteBuildsCommand, se_BatchDeleteBuildsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteBuildsCommand}.
  */
 export interface BatchDeleteBuildsCommandInput extends BatchDeleteBuildsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteBuildsCommand}.
  */
 export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more builds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput,
  * import { CodeBuildClient, BatchDeleteBuildsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, BatchDeleteBuildsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // BatchDeleteBuildsInput
+ *   ids: [ // BuildIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDeleteBuildsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteBuildsCommandInput - {@link BatchDeleteBuildsCommandInput}
+ * @returns {@link BatchDeleteBuildsCommandOutput}
  * @see {@link BatchDeleteBuildsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteBuildsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -72,6 +76,9 @@ export class BatchDeleteBuildsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteBuildsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +107,8 @@ export class BatchDeleteBuildsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteBuildsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteBuildsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +118,18 @@ export class BatchDeleteBuildsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteBuildsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteBuildsCommand(input, context);
+    return se_BatchDeleteBuildsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteBuildsCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteBuildsCommand(output, context);
+    return de_BatchDeleteBuildsCommand(output, context);
   }
 
   // Start section: command_body_extra

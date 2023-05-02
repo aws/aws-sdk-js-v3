@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSearchSuggestionsRequest,
-  GetSearchSuggestionsRequestFilterSensitiveLog,
-  GetSearchSuggestionsResponse,
-  GetSearchSuggestionsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1GetSearchSuggestionsCommand,
-  serializeAws_json1_1GetSearchSuggestionsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSearchSuggestionsRequest, GetSearchSuggestionsResponse } from "../models/models_2";
+import { de_GetSearchSuggestionsCommand, se_GetSearchSuggestionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSearchSuggestionsCommand}.
  */
 export interface GetSearchSuggestionsCommandInput extends GetSearchSuggestionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSearchSuggestionsCommand}.
  */
 export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>An auto-complete API for the search functionality in the SageMaker console. It returns
  *       suggestions of possible matches for the property name to use in <code>Search</code>
  *       queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
@@ -45,10 +42,20 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
  * import { SageMakerClient, GetSearchSuggestionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, GetSearchSuggestionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // GetSearchSuggestionsRequest
+ *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "Project" || "FeatureMetadata" || "HyperParameterTuningJob" || "ModelCard" || "Model", // required
+ *   SuggestionQuery: { // SuggestionQuery
+ *     PropertyNameQuery: { // PropertyNameQuery
+ *       PropertyNameHint: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new GetSearchSuggestionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSearchSuggestionsCommandInput - {@link GetSearchSuggestionsCommandInput}
+ * @returns {@link GetSearchSuggestionsCommandOutput}
  * @see {@link GetSearchSuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetSearchSuggestionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetSearchSuggestionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSearchSuggestionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +110,8 @@ export class GetSearchSuggestionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSearchSuggestionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSearchSuggestionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +121,18 @@ export class GetSearchSuggestionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSearchSuggestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSearchSuggestionsCommand(input, context);
+    return se_GetSearchSuggestionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSearchSuggestionsCommandOutput> {
-    return deserializeAws_json1_1GetSearchSuggestionsCommand(output, context);
+    return de_GetSearchSuggestionsCommand(output, context);
   }
 
   // Start section: command_body_extra

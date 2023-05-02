@@ -13,29 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSopRecommendationsRequest,
-  ListSopRecommendationsRequestFilterSensitiveLog,
-  ListSopRecommendationsResponse,
-  ListSopRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSopRecommendationsCommand,
-  serializeAws_restJson1ListSopRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSopRecommendationsRequest, ListSopRecommendationsResponse } from "../models/models_0";
+import { de_ListSopRecommendationsCommand, se_ListSopRecommendationsCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSopRecommendationsCommand}.
  */
 export interface ListSopRecommendationsCommandInput extends ListSopRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSopRecommendationsCommand}.
  */
 export interface ListSopRecommendationsCommandOutput extends ListSopRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the standard operating procedure (SOP) recommendations for the AWS Resilience Hub
+ * @public
+ * <p>Lists the standard operating procedure (SOP) recommendations for the Resilience Hub
  *       applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,10 +40,17 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * import { ResiliencehubClient, ListSopRecommendationsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListSopRecommendationsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListSopRecommendationsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   assessmentArn: "STRING_VALUE", // required
+ * };
  * const command = new ListSopRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSopRecommendationsCommandInput - {@link ListSopRecommendationsCommandInput}
+ * @returns {@link ListSopRecommendationsCommandOutput}
  * @see {@link ListSopRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListSopRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -63,7 +67,7 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -94,6 +98,9 @@ export class ListSopRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSopRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +129,8 @@ export class ListSopRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSopRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSopRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +140,18 @@ export class ListSopRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSopRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSopRecommendationsCommand(input, context);
+    return se_ListSopRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSopRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListSopRecommendationsCommand(output, context);
+    return de_ListSopRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

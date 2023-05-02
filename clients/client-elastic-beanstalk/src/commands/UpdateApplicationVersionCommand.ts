@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ApplicationVersionDescriptionMessage,
-  ApplicationVersionDescriptionMessageFilterSensitiveLog,
-  UpdateApplicationVersionMessage,
-  UpdateApplicationVersionMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryUpdateApplicationVersionCommand,
-  serializeAws_queryUpdateApplicationVersionCommand,
-} from "../protocols/Aws_query";
+import { ApplicationVersionDescriptionMessage, UpdateApplicationVersionMessage } from "../models/models_0";
+import { de_UpdateApplicationVersionCommand, se_UpdateApplicationVersionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationVersionCommand}.
  */
 export interface UpdateApplicationVersionCommandInput extends UpdateApplicationVersionMessage {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationVersionCommand}.
  */
 export interface UpdateApplicationVersionCommandOutput extends ApplicationVersionDescriptionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified application version to have the specified properties.</p>
  *          <note>
  *             <p>If a property (for example, <code>description</code>) is not provided, the value
@@ -46,10 +43,17 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
  * import { ElasticBeanstalkClient, UpdateApplicationVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, UpdateApplicationVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // UpdateApplicationVersionMessage
+ *   ApplicationName: "STRING_VALUE", // required
+ *   VersionLabel: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateApplicationVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationVersionCommandInput - {@link UpdateApplicationVersionCommandInput}
+ * @returns {@link UpdateApplicationVersionCommandOutput}
  * @see {@link UpdateApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -101,6 +105,9 @@ export class UpdateApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +136,8 @@ export class UpdateApplicationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationVersionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ApplicationVersionDescriptionMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +147,18 @@ export class UpdateApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateApplicationVersionCommand(input, context);
+    return se_UpdateApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationVersionCommandOutput> {
-    return deserializeAws_queryUpdateApplicationVersionCommand(output, context);
+    return de_UpdateApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

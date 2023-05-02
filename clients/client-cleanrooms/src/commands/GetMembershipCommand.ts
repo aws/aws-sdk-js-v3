@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  GetMembershipInput,
-  GetMembershipInputFilterSensitiveLog,
-  GetMembershipOutput,
-  GetMembershipOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMembershipCommand,
-  serializeAws_restJson1GetMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMembershipInput, GetMembershipOutput } from "../models/models_0";
+import { de_GetMembershipCommand, se_GetMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMembershipCommand}.
  */
 export interface GetMembershipCommandInput extends GetMembershipInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMembershipCommand}.
  */
 export interface GetMembershipCommandOutput extends GetMembershipOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a specified membership for an identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetMembershipCommandOutput extends GetMembershipOutput, __Metad
  * import { CleanRoomsClient, GetMembershipCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetMembershipCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // GetMembershipInput
+ *   membershipIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMembershipCommandInput - {@link GetMembershipCommandInput}
+ * @returns {@link GetMembershipCommandOutput}
  * @see {@link GetMembershipCommandInput} for command's `input` shape.
  * @see {@link GetMembershipCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMembershipInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMembershipOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMembershipCommand(input, context);
+    return se_GetMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMembershipCommandOutput> {
-    return deserializeAws_restJson1GetMembershipCommand(output, context);
+    return de_GetMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

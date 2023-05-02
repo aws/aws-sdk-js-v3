@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBotVersionsRequest,
-  GetBotVersionsRequestFilterSensitiveLog,
-  GetBotVersionsResponse,
-  GetBotVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBotVersionsCommand,
-  serializeAws_restJson1GetBotVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBotVersionsRequest, GetBotVersionsResponse } from "../models/models_0";
+import { de_GetBotVersionsCommand, se_GetBotVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBotVersionsCommand}.
  */
 export interface GetBotVersionsCommandInput extends GetBotVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBotVersionsCommand}.
  */
 export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about all of the versions of a bot.</p>
  *          <p>The <code>GetBotVersions</code> operation returns a
  *         <code>BotMetadata</code> object for each version of a bot. For example,
@@ -56,10 +53,17 @@ export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __M
  * import { LexModelBuildingServiceClient, GetBotVersionsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBotVersionsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetBotVersionsRequest
+ *   name: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetBotVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBotVersionsCommandInput - {@link GetBotVersionsCommandInput}
+ * @returns {@link GetBotVersionsCommandOutput}
  * @see {@link GetBotVersionsCommandInput} for command's `input` shape.
  * @see {@link GetBotVersionsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -98,6 +102,9 @@ export class GetBotVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBotVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +133,8 @@ export class GetBotVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBotVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBotVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +144,18 @@ export class GetBotVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBotVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBotVersionsCommand(input, context);
+    return se_GetBotVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotVersionsCommandOutput> {
-    return deserializeAws_restJson1GetBotVersionsCommand(output, context);
+    return de_GetBotVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

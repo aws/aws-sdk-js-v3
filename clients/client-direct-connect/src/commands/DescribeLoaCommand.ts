@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DescribeLoaRequest,
-  DescribeLoaRequestFilterSensitiveLog,
-  Loa,
-  LoaFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLoaCommand,
-  serializeAws_json1_1DescribeLoaCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLoaRequest, Loa } from "../models/models_0";
+import { de_DescribeLoaCommand, se_DescribeLoaCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoaCommand}.
  */
 export interface DescribeLoaCommandInput extends DescribeLoaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoaCommand}.
  */
 export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).</p>
  *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing
  *       your cross connect to Amazon Web Services at the colocation facility. For more information, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects at Direct Connect Locations</a>
@@ -45,10 +42,17 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  * import { DirectConnectClient, DescribeLoaCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeLoaCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeLoaRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   providerName: "STRING_VALUE",
+ *   loaContentType: "application/pdf",
+ * };
  * const command = new DescribeLoaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoaCommandInput - {@link DescribeLoaCommandInput}
+ * @returns {@link DescribeLoaCommandOutput}
  * @see {@link DescribeLoaCommandInput} for command's `input` shape.
  * @see {@link DescribeLoaCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -78,6 +82,9 @@ export class DescribeLoaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoaCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class DescribeLoaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LoaFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class DescribeLoaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLoaCommand(input, context);
+    return se_DescribeLoaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoaCommandOutput> {
-    return deserializeAws_json1_1DescribeLoaCommand(output, context);
+    return de_DescribeLoaCommand(output, context);
   }
 
   // Start section: command_body_extra

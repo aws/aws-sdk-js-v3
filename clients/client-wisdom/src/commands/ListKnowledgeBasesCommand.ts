@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListKnowledgeBasesRequest,
-  ListKnowledgeBasesRequestFilterSensitiveLog,
-  ListKnowledgeBasesResponse,
-  ListKnowledgeBasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListKnowledgeBasesCommand,
-  serializeAws_restJson1ListKnowledgeBasesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListKnowledgeBasesRequest, ListKnowledgeBasesResponse } from "../models/models_0";
+import { de_ListKnowledgeBasesCommand, se_ListKnowledgeBasesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListKnowledgeBasesCommand}.
  */
 export interface ListKnowledgeBasesCommandInput extends ListKnowledgeBasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListKnowledgeBasesCommand}.
  */
 export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the knowledge bases.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesRespo
  * import { WisdomClient, ListKnowledgeBasesCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, ListKnowledgeBasesCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // ListKnowledgeBasesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListKnowledgeBasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKnowledgeBasesCommandInput - {@link ListKnowledgeBasesCommandInput}
+ * @returns {@link ListKnowledgeBasesCommandOutput}
  * @see {@link ListKnowledgeBasesCommandInput} for command's `input` shape.
  * @see {@link ListKnowledgeBasesCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -75,6 +78,9 @@ export class ListKnowledgeBasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKnowledgeBasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class ListKnowledgeBasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListKnowledgeBasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListKnowledgeBasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class ListKnowledgeBasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKnowledgeBasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListKnowledgeBasesCommand(input, context);
+    return se_ListKnowledgeBasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKnowledgeBasesCommandOutput> {
-    return deserializeAws_restJson1ListKnowledgeBasesCommand(output, context);
+    return de_ListKnowledgeBasesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  EnableSerialConsoleAccessRequest,
-  EnableSerialConsoleAccessRequestFilterSensitiveLog,
-  EnableSerialConsoleAccessResult,
-  EnableSerialConsoleAccessResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2EnableSerialConsoleAccessCommand,
-  serializeAws_ec2EnableSerialConsoleAccessCommand,
-} from "../protocols/Aws_ec2";
+import { EnableSerialConsoleAccessRequest, EnableSerialConsoleAccessResult } from "../models/models_5";
+import { de_EnableSerialConsoleAccessCommand, se_EnableSerialConsoleAccessCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableSerialConsoleAccessCommand}.
  */
 export interface EnableSerialConsoleAccessCommandInput extends EnableSerialConsoleAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableSerialConsoleAccessCommand}.
  */
 export interface EnableSerialConsoleAccessCommandOutput extends EnableSerialConsoleAccessResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables access to the EC2 serial console of all instances for your account. By default,
  * 			access to the EC2 serial console is disabled for your account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a>
  * 			in the <i>Amazon EC2 User Guide</i>.</p>
@@ -44,10 +41,15 @@ export interface EnableSerialConsoleAccessCommandOutput extends EnableSerialCons
  * import { EC2Client, EnableSerialConsoleAccessCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableSerialConsoleAccessCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableSerialConsoleAccessRequest
+ *   DryRun: true || false,
+ * };
  * const command = new EnableSerialConsoleAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableSerialConsoleAccessCommandInput - {@link EnableSerialConsoleAccessCommandInput}
+ * @returns {@link EnableSerialConsoleAccessCommandOutput}
  * @see {@link EnableSerialConsoleAccessCommandInput} for command's `input` shape.
  * @see {@link EnableSerialConsoleAccessCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +73,9 @@ export class EnableSerialConsoleAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableSerialConsoleAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +104,8 @@ export class EnableSerialConsoleAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableSerialConsoleAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableSerialConsoleAccessResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +115,21 @@ export class EnableSerialConsoleAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableSerialConsoleAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableSerialConsoleAccessCommand(input, context);
+    return se_EnableSerialConsoleAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableSerialConsoleAccessCommandOutput> {
-    return deserializeAws_ec2EnableSerialConsoleAccessCommand(output, context);
+    return de_EnableSerialConsoleAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

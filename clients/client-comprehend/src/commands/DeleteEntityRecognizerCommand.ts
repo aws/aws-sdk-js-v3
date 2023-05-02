@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DeleteEntityRecognizerRequest,
-  DeleteEntityRecognizerRequestFilterSensitiveLog,
-  DeleteEntityRecognizerResponse,
-  DeleteEntityRecognizerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEntityRecognizerCommand,
-  serializeAws_json1_1DeleteEntityRecognizerCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEntityRecognizerRequest, DeleteEntityRecognizerResponse } from "../models/models_0";
+import { de_DeleteEntityRecognizerCommand, se_DeleteEntityRecognizerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEntityRecognizerCommand}.
  */
 export interface DeleteEntityRecognizerCommandInput extends DeleteEntityRecognizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEntityRecognizerCommand}.
  */
 export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecognizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an entity recognizer.</p>
  *          <p>Only those recognizers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
  *       If an active inference job is using the model, a <code>ResourceInUseException</code> will be
@@ -48,10 +45,15 @@ export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecogni
  * import { ComprehendClient, DeleteEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DeleteEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DeleteEntityRecognizerRequest
+ *   EntityRecognizerArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEntityRecognizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEntityRecognizerCommandInput - {@link DeleteEntityRecognizerCommandInput}
+ * @returns {@link DeleteEntityRecognizerCommandOutput}
  * @see {@link DeleteEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link DeleteEntityRecognizerCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -95,6 +97,9 @@ export class DeleteEntityRecognizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEntityRecognizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +128,8 @@ export class DeleteEntityRecognizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEntityRecognizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEntityRecognizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +139,18 @@ export class DeleteEntityRecognizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEntityRecognizerCommand(input, context);
+    return se_DeleteEntityRecognizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEntityRecognizerCommandOutput> {
-    return deserializeAws_json1_1DeleteEntityRecognizerCommand(output, context);
+    return de_DeleteEntityRecognizerCommand(output, context);
   }
 
   // Start section: command_body_extra

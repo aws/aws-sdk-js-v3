@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -87,613 +88,310 @@ import {
   UpdateParallelDataCommandInput,
   UpdateParallelDataCommandOutput,
 } from "./commands/UpdateParallelDataCommand";
-import { TranslateClient } from "./TranslateClient";
+import { TranslateClient, TranslateClientConfig } from "./TranslateClient";
 
-/**
- * <p>Provides translation of the input content from the source language to the target language.</p>
- */
-export class Translate extends TranslateClient {
+const commands = {
+  CreateParallelDataCommand,
+  DeleteParallelDataCommand,
+  DeleteTerminologyCommand,
+  DescribeTextTranslationJobCommand,
+  GetParallelDataCommand,
+  GetTerminologyCommand,
+  ImportTerminologyCommand,
+  ListLanguagesCommand,
+  ListParallelDataCommand,
+  ListTagsForResourceCommand,
+  ListTerminologiesCommand,
+  ListTextTranslationJobsCommand,
+  StartTextTranslationJobCommand,
+  StopTextTranslationJobCommand,
+  TagResourceCommand,
+  TranslateTextCommand,
+  UntagResourceCommand,
+  UpdateParallelDataCommand,
+};
+
+export interface Translate {
   /**
-   * <p>Creates a parallel data resource in Amazon Translate by importing an input file from
-   *       Amazon S3. Parallel data files contain examples that show how you want segments of text to be
-   *       translated. By adding parallel data, you can influence the style, tone, and word choice in
-   *       your translation output.</p>
+   * @see {@link CreateParallelDataCommand}
    */
-  public createParallelData(
+  createParallelData(
     args: CreateParallelDataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateParallelDataCommandOutput>;
-  public createParallelData(
+  createParallelData(
     args: CreateParallelDataCommandInput,
     cb: (err: any, data?: CreateParallelDataCommandOutput) => void
   ): void;
-  public createParallelData(
+  createParallelData(
     args: CreateParallelDataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateParallelDataCommandOutput) => void
   ): void;
-  public createParallelData(
-    args: CreateParallelDataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateParallelDataCommandOutput) => void),
-    cb?: (err: any, data?: CreateParallelDataCommandOutput) => void
-  ): Promise<CreateParallelDataCommandOutput> | void {
-    const command = new CreateParallelDataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a parallel data resource in Amazon Translate.</p>
+   * @see {@link DeleteParallelDataCommand}
    */
-  public deleteParallelData(
+  deleteParallelData(
     args: DeleteParallelDataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteParallelDataCommandOutput>;
-  public deleteParallelData(
+  deleteParallelData(
     args: DeleteParallelDataCommandInput,
     cb: (err: any, data?: DeleteParallelDataCommandOutput) => void
   ): void;
-  public deleteParallelData(
+  deleteParallelData(
     args: DeleteParallelDataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteParallelDataCommandOutput) => void
   ): void;
-  public deleteParallelData(
-    args: DeleteParallelDataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteParallelDataCommandOutput) => void),
-    cb?: (err: any, data?: DeleteParallelDataCommandOutput) => void
-  ): Promise<DeleteParallelDataCommandOutput> | void {
-    const command = new DeleteParallelDataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>A synchronous action that deletes a custom terminology.</p>
+   * @see {@link DeleteTerminologyCommand}
    */
-  public deleteTerminology(
+  deleteTerminology(
     args: DeleteTerminologyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteTerminologyCommandOutput>;
-  public deleteTerminology(
+  deleteTerminology(
     args: DeleteTerminologyCommandInput,
     cb: (err: any, data?: DeleteTerminologyCommandOutput) => void
   ): void;
-  public deleteTerminology(
+  deleteTerminology(
     args: DeleteTerminologyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTerminologyCommandOutput) => void
   ): void;
-  public deleteTerminology(
-    args: DeleteTerminologyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTerminologyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteTerminologyCommandOutput) => void
-  ): Promise<DeleteTerminologyCommandOutput> | void {
-    const command = new DeleteTerminologyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the properties associated with an asynchronous batch translation job including name,
-   *       ID, status, source and target languages, input/output S3 buckets, and so on.</p>
+   * @see {@link DescribeTextTranslationJobCommand}
    */
-  public describeTextTranslationJob(
+  describeTextTranslationJob(
     args: DescribeTextTranslationJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeTextTranslationJobCommandOutput>;
-  public describeTextTranslationJob(
+  describeTextTranslationJob(
     args: DescribeTextTranslationJobCommandInput,
     cb: (err: any, data?: DescribeTextTranslationJobCommandOutput) => void
   ): void;
-  public describeTextTranslationJob(
+  describeTextTranslationJob(
     args: DescribeTextTranslationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeTextTranslationJobCommandOutput) => void
   ): void;
-  public describeTextTranslationJob(
-    args: DescribeTextTranslationJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTextTranslationJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTextTranslationJobCommandOutput) => void
-  ): Promise<DescribeTextTranslationJobCommandOutput> | void {
-    const command = new DescribeTextTranslationJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Provides information about a parallel data resource.</p>
+   * @see {@link GetParallelDataCommand}
    */
-  public getParallelData(
+  getParallelData(
     args: GetParallelDataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetParallelDataCommandOutput>;
-  public getParallelData(
-    args: GetParallelDataCommandInput,
-    cb: (err: any, data?: GetParallelDataCommandOutput) => void
-  ): void;
-  public getParallelData(
+  getParallelData(args: GetParallelDataCommandInput, cb: (err: any, data?: GetParallelDataCommandOutput) => void): void;
+  getParallelData(
     args: GetParallelDataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetParallelDataCommandOutput) => void
   ): void;
-  public getParallelData(
-    args: GetParallelDataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParallelDataCommandOutput) => void),
-    cb?: (err: any, data?: GetParallelDataCommandOutput) => void
-  ): Promise<GetParallelDataCommandOutput> | void {
-    const command = new GetParallelDataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a custom terminology.</p>
+   * @see {@link GetTerminologyCommand}
    */
-  public getTerminology(
+  getTerminology(
     args: GetTerminologyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetTerminologyCommandOutput>;
-  public getTerminology(
-    args: GetTerminologyCommandInput,
-    cb: (err: any, data?: GetTerminologyCommandOutput) => void
-  ): void;
-  public getTerminology(
+  getTerminology(args: GetTerminologyCommandInput, cb: (err: any, data?: GetTerminologyCommandOutput) => void): void;
+  getTerminology(
     args: GetTerminologyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTerminologyCommandOutput) => void
   ): void;
-  public getTerminology(
-    args: GetTerminologyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTerminologyCommandOutput) => void),
-    cb?: (err: any, data?: GetTerminologyCommandOutput) => void
-  ): Promise<GetTerminologyCommandOutput> | void {
-    const command = new GetTerminologyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates or updates a custom terminology, depending on whether one already exists for the
-   *       given terminology name. Importing a terminology with the same name as an existing one will
-   *       merge the terminologies based on the chosen merge strategy. The only supported merge strategy
-   *       is OVERWRITE, where the imported terminology overwrites the existing terminology of the same
-   *       name.</p>
-   *          <p>If you import a terminology that overwrites an existing one, the new terminology takes up
-   *       to 10 minutes to fully propagate. After that, translations have access to the new
-   *       terminology.</p>
+   * @see {@link ImportTerminologyCommand}
    */
-  public importTerminology(
+  importTerminology(
     args: ImportTerminologyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ImportTerminologyCommandOutput>;
-  public importTerminology(
+  importTerminology(
     args: ImportTerminologyCommandInput,
     cb: (err: any, data?: ImportTerminologyCommandOutput) => void
   ): void;
-  public importTerminology(
+  importTerminology(
     args: ImportTerminologyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ImportTerminologyCommandOutput) => void
   ): void;
-  public importTerminology(
-    args: ImportTerminologyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportTerminologyCommandOutput) => void),
-    cb?: (err: any, data?: ImportTerminologyCommandOutput) => void
-  ): Promise<ImportTerminologyCommandOutput> | void {
-    const command = new ImportTerminologyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Provides a list of languages (RFC-5646 codes and names) that Amazon Translate supports.</p>
+   * @see {@link ListLanguagesCommand}
    */
-  public listLanguages(
-    args: ListLanguagesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListLanguagesCommandOutput>;
-  public listLanguages(
-    args: ListLanguagesCommandInput,
-    cb: (err: any, data?: ListLanguagesCommandOutput) => void
-  ): void;
-  public listLanguages(
+  listLanguages(args: ListLanguagesCommandInput, options?: __HttpHandlerOptions): Promise<ListLanguagesCommandOutput>;
+  listLanguages(args: ListLanguagesCommandInput, cb: (err: any, data?: ListLanguagesCommandOutput) => void): void;
+  listLanguages(
     args: ListLanguagesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLanguagesCommandOutput) => void
   ): void;
-  public listLanguages(
-    args: ListLanguagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLanguagesCommandOutput) => void),
-    cb?: (err: any, data?: ListLanguagesCommandOutput) => void
-  ): Promise<ListLanguagesCommandOutput> | void {
-    const command = new ListLanguagesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Provides a list of your parallel data resources in Amazon Translate.</p>
+   * @see {@link ListParallelDataCommand}
    */
-  public listParallelData(
+  listParallelData(
     args: ListParallelDataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListParallelDataCommandOutput>;
-  public listParallelData(
+  listParallelData(
     args: ListParallelDataCommandInput,
     cb: (err: any, data?: ListParallelDataCommandOutput) => void
   ): void;
-  public listParallelData(
+  listParallelData(
     args: ListParallelDataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListParallelDataCommandOutput) => void
   ): void;
-  public listParallelData(
-    args: ListParallelDataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListParallelDataCommandOutput) => void),
-    cb?: (err: any, data?: ListParallelDataCommandOutput) => void
-  ): Promise<ListParallelDataCommandOutput> | void {
-    const command = new ListParallelDataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all tags associated with a given Amazon Translate resource.
-   *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
-   *         Tagging your resources</a>.</p>
+   * @see {@link ListTagsForResourceCommand}
    */
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Provides a list of custom terminologies associated with your account.</p>
+   * @see {@link ListTerminologiesCommand}
    */
-  public listTerminologies(
+  listTerminologies(
     args: ListTerminologiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTerminologiesCommandOutput>;
-  public listTerminologies(
+  listTerminologies(
     args: ListTerminologiesCommandInput,
     cb: (err: any, data?: ListTerminologiesCommandOutput) => void
   ): void;
-  public listTerminologies(
+  listTerminologies(
     args: ListTerminologiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTerminologiesCommandOutput) => void
   ): void;
-  public listTerminologies(
-    args: ListTerminologiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTerminologiesCommandOutput) => void),
-    cb?: (err: any, data?: ListTerminologiesCommandOutput) => void
-  ): Promise<ListTerminologiesCommandOutput> | void {
-    const command = new ListTerminologiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of the batch translation jobs that you have submitted.</p>
+   * @see {@link ListTextTranslationJobsCommand}
    */
-  public listTextTranslationJobs(
+  listTextTranslationJobs(
     args: ListTextTranslationJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTextTranslationJobsCommandOutput>;
-  public listTextTranslationJobs(
+  listTextTranslationJobs(
     args: ListTextTranslationJobsCommandInput,
     cb: (err: any, data?: ListTextTranslationJobsCommandOutput) => void
   ): void;
-  public listTextTranslationJobs(
+  listTextTranslationJobs(
     args: ListTextTranslationJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTextTranslationJobsCommandOutput) => void
   ): void;
-  public listTextTranslationJobs(
-    args: ListTextTranslationJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTextTranslationJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListTextTranslationJobsCommandOutput) => void
-  ): Promise<ListTextTranslationJobsCommandOutput> | void {
-    const command = new ListTextTranslationJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts an asynchronous batch translation job. Use batch translation jobs to
-   *       translate large volumes of text across multiple documents at once.
-   *       For batch translation, you can input documents with different source languages (specify <code>auto</code>
-   *       as the source language). You can specify one
-   *       or more target languages. Batch translation translates each input document into each of the target languages.
-   *       For more information, see
-   *       <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous batch processing</a>.</p>
-   *
-   *          <p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>
+   * @see {@link StartTextTranslationJobCommand}
    */
-  public startTextTranslationJob(
+  startTextTranslationJob(
     args: StartTextTranslationJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartTextTranslationJobCommandOutput>;
-  public startTextTranslationJob(
+  startTextTranslationJob(
     args: StartTextTranslationJobCommandInput,
     cb: (err: any, data?: StartTextTranslationJobCommandOutput) => void
   ): void;
-  public startTextTranslationJob(
+  startTextTranslationJob(
     args: StartTextTranslationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartTextTranslationJobCommandOutput) => void
   ): void;
-  public startTextTranslationJob(
-    args: StartTextTranslationJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTextTranslationJobCommandOutput) => void),
-    cb?: (err: any, data?: StartTextTranslationJobCommandOutput) => void
-  ): Promise<StartTextTranslationJobCommandOutput> | void {
-    const command = new StartTextTranslationJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stops an asynchronous batch translation job that is in progress.</p>
-   *          <p>If the job's state is <code>IN_PROGRESS</code>, the job will be marked for termination and
-   *       put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped,
-   *       it is put into the <code>COMPLETED</code> state. Otherwise, the job is put into the
-   *         <code>STOPPED</code> state.</p>
-   *          <p>Asynchronous batch translation jobs are started with the <a>StartTextTranslationJob</a> operation. You can use the <a>DescribeTextTranslationJob</a> or <a>ListTextTranslationJobs</a>
-   *       operations to get a batch translation job's <code>JobId</code>.</p>
+   * @see {@link StopTextTranslationJobCommand}
    */
-  public stopTextTranslationJob(
+  stopTextTranslationJob(
     args: StopTextTranslationJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopTextTranslationJobCommandOutput>;
-  public stopTextTranslationJob(
+  stopTextTranslationJob(
     args: StopTextTranslationJobCommandInput,
     cb: (err: any, data?: StopTextTranslationJobCommandOutput) => void
   ): void;
-  public stopTextTranslationJob(
+  stopTextTranslationJob(
     args: StopTextTranslationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopTextTranslationJobCommandOutput) => void
   ): void;
-  public stopTextTranslationJob(
-    args: StopTextTranslationJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTextTranslationJobCommandOutput) => void),
-    cb?: (err: any, data?: StopTextTranslationJobCommandOutput) => void
-  ): Promise<StopTextTranslationJobCommandOutput> | void {
-    const command = new StopTextTranslationJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Associates a specific tag with a resource. A tag is a key-value pair
-   *       that adds as a metadata to a resource.
-   *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
-   *         Tagging your resources</a>.</p>
+   * @see {@link TagResourceCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Translates input text from the source language to the target language. For a list of
-   *       available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
+   * @see {@link TranslateTextCommand}
    */
-  public translateText(
-    args: TranslateTextCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TranslateTextCommandOutput>;
-  public translateText(
-    args: TranslateTextCommandInput,
-    cb: (err: any, data?: TranslateTextCommandOutput) => void
-  ): void;
-  public translateText(
+  translateText(args: TranslateTextCommandInput, options?: __HttpHandlerOptions): Promise<TranslateTextCommandOutput>;
+  translateText(args: TranslateTextCommandInput, cb: (err: any, data?: TranslateTextCommandOutput) => void): void;
+  translateText(
     args: TranslateTextCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TranslateTextCommandOutput) => void
   ): void;
-  public translateText(
-    args: TranslateTextCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TranslateTextCommandOutput) => void),
-    cb?: (err: any, data?: TranslateTextCommandOutput) => void
-  ): Promise<TranslateTextCommandOutput> | void {
-    const command = new TranslateTextCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Removes a specific tag associated with an Amazon Translate resource.
-   *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
-   *         Tagging your resources</a>.</p>
+   * @see {@link UntagResourceCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a previously created parallel data resource by importing a new input file from
-   *       Amazon S3.</p>
+   * @see {@link UpdateParallelDataCommand}
    */
-  public updateParallelData(
+  updateParallelData(
     args: UpdateParallelDataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateParallelDataCommandOutput>;
-  public updateParallelData(
+  updateParallelData(
     args: UpdateParallelDataCommandInput,
     cb: (err: any, data?: UpdateParallelDataCommandOutput) => void
   ): void;
-  public updateParallelData(
+  updateParallelData(
     args: UpdateParallelDataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateParallelDataCommandOutput) => void
   ): void;
-  public updateParallelData(
-    args: UpdateParallelDataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateParallelDataCommandOutput) => void),
-    cb?: (err: any, data?: UpdateParallelDataCommandOutput) => void
-  ): Promise<UpdateParallelDataCommandOutput> | void {
-    const command = new UpdateParallelDataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>Provides translation of the input content from the source language to the target language.</p>
+ */
+export class Translate extends TranslateClient implements Translate {}
+createAggregatedClient(commands, Translate);

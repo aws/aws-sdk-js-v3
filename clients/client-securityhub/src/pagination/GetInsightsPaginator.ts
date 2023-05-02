@@ -6,7 +6,7 @@ import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecurityHubClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetInsightsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetInsights(
   config: SecurityHubPaginationConfiguration,
   input: GetInsightsCommandInput,

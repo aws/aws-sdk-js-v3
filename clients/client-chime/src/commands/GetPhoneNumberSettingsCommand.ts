@@ -15,21 +15,23 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetPhoneNumberSettingsResponse, GetPhoneNumberSettingsResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPhoneNumberSettingsCommand,
-  serializeAws_restJson1GetPhoneNumberSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPhoneNumberSettingsCommand, se_GetPhoneNumberSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPhoneNumberSettingsCommand}.
  */
 export interface GetPhoneNumberSettingsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetPhoneNumberSettingsCommand}.
  */
 export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the phone number settings for the administrator's AWS account, such as the default outbound calling name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,13 @@ export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSetti
  * import { ChimeClient, GetPhoneNumberSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetPhoneNumberSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {};
  * const command = new GetPhoneNumberSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPhoneNumberSettingsCommandInput - {@link GetPhoneNumberSettingsCommandInput}
+ * @returns {@link GetPhoneNumberSettingsCommandOutput}
  * @see {@link GetPhoneNumberSettingsCommandInput} for command's `input` shape.
  * @see {@link GetPhoneNumberSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -82,6 +87,9 @@ export class GetPhoneNumberSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPhoneNumberSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +118,7 @@ export class GetPhoneNumberSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPhoneNumberSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -121,12 +129,18 @@ export class GetPhoneNumberSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPhoneNumberSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPhoneNumberSettingsCommand(input, context);
+    return se_GetPhoneNumberSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPhoneNumberSettingsCommandOutput> {
-    return deserializeAws_restJson1GetPhoneNumberSettingsCommand(output, context);
+    return de_GetPhoneNumberSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

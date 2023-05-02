@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DetectStackDriftInput,
-  DetectStackDriftInputFilterSensitiveLog,
-  DetectStackDriftOutput,
-  DetectStackDriftOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDetectStackDriftCommand,
-  serializeAws_queryDetectStackDriftCommand,
-} from "../protocols/Aws_query";
+import { DetectStackDriftInput, DetectStackDriftOutput } from "../models/models_0";
+import { de_DetectStackDriftCommand, se_DetectStackDriftCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetectStackDriftCommand}.
  */
 export interface DetectStackDriftCommandInput extends DetectStackDriftInput {}
 /**
+ * @public
+ *
  * The output of {@link DetectStackDriftCommand}.
  */
 export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects whether a stack's actual configuration differs, or has
  *             <i>drifted</i>, from it's expected configuration, as defined in the stack
  *          template and any values specified as template parameters. For each resource in the stack
@@ -62,10 +59,18 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  * import { CloudFormationClient, DetectStackDriftCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DetectStackDriftCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DetectStackDriftInput
+ *   StackName: "STRING_VALUE", // required
+ *   LogicalResourceIds: [ // LogicalResourceIds
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DetectStackDriftCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectStackDriftCommandInput - {@link DetectStackDriftCommandInput}
+ * @returns {@link DetectStackDriftCommandOutput}
  * @see {@link DetectStackDriftCommandInput} for command's `input` shape.
  * @see {@link DetectStackDriftCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -89,6 +94,9 @@ export class DetectStackDriftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectStackDriftCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class DetectStackDriftCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectStackDriftInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectStackDriftOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +136,18 @@ export class DetectStackDriftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectStackDriftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetectStackDriftCommand(input, context);
+    return se_DetectStackDriftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectStackDriftCommandOutput> {
-    return deserializeAws_queryDetectStackDriftCommand(output, context);
+    return de_DetectStackDriftCommand(output, context);
   }
 
   // Start section: command_body_extra

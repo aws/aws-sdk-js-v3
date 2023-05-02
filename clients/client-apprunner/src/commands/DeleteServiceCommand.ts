@@ -16,25 +16,26 @@ import {
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import {
   DeleteServiceRequest,
-  DeleteServiceRequestFilterSensitiveLog,
   DeleteServiceResponse,
   DeleteServiceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteServiceCommand,
-  serializeAws_json1_0DeleteServiceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteServiceCommand, se_DeleteServiceCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceCommand}.
  */
 export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceCommand}.
  */
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an App Runner service.</p>
  *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>
  *       call to track the operation's progress.</p>
@@ -48,10 +49,15 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * import { AppRunnerClient, DeleteServiceCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DeleteServiceCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // DeleteServiceRequest
+ *   ServiceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceCommandInput - {@link DeleteServiceCommandInput}
+ * @returns {@link DeleteServiceCommandOutput}
  * @see {@link DeleteServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -87,6 +93,9 @@ export class DeleteServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,7 +122,7 @@ export class DeleteServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -124,12 +133,18 @@ export class DeleteServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteServiceCommand(input, context);
+    return se_DeleteServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceCommandOutput> {
-    return deserializeAws_json1_0DeleteServiceCommand(output, context);
+    return de_DeleteServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

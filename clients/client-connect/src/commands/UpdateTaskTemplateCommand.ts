@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdateTaskTemplateRequest,
-  UpdateTaskTemplateRequestFilterSensitiveLog,
-  UpdateTaskTemplateResponse,
-  UpdateTaskTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateTaskTemplateCommand,
-  serializeAws_restJson1UpdateTaskTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateTaskTemplateRequest, UpdateTaskTemplateResponse } from "../models/models_1";
+import { de_UpdateTaskTemplateCommand, se_UpdateTaskTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTaskTemplateCommand}.
  */
 export interface UpdateTaskTemplateCommandInput extends UpdateTaskTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTaskTemplateCommand}.
  */
 export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates details about a specific task template in the specified Amazon Connect instance.
  *    This operation does not support partial updates. Instead it does a full update of template
  *    content.</p>
@@ -44,10 +41,65 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  * import { ConnectClient, UpdateTaskTemplateCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateTaskTemplateCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateTaskTemplateRequest
+ *   TaskTemplateId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ContactFlowId: "STRING_VALUE",
+ *   Constraints: { // TaskTemplateConstraints
+ *     RequiredFields: [ // RequiredTaskTemplateFields
+ *       { // RequiredFieldInfo
+ *         Id: { // TaskTemplateFieldIdentifier
+ *           Name: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     ReadOnlyFields: [ // ReadOnlyTaskTemplateFields
+ *       { // ReadOnlyFieldInfo
+ *         Id: {
+ *           Name: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     InvisibleFields: [ // InvisibleTaskTemplateFields
+ *       { // InvisibleFieldInfo
+ *         Id: {
+ *           Name: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   Defaults: { // TaskTemplateDefaults
+ *     DefaultFieldValues: [ // TaskTemplateDefaultFieldValueList
+ *       { // TaskTemplateDefaultFieldValue
+ *         Id: {
+ *           Name: "STRING_VALUE",
+ *         },
+ *         DefaultValue: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Status: "ACTIVE" || "INACTIVE",
+ *   Fields: [ // TaskTemplateFields
+ *     { // TaskTemplateField
+ *       Id: {
+ *         Name: "STRING_VALUE",
+ *       },
+ *       Description: "STRING_VALUE",
+ *       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL",
+ *       SingleSelectOptions: [ // SingleSelectOptions
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateTaskTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTaskTemplateCommandInput - {@link UpdateTaskTemplateCommandInput}
+ * @returns {@link UpdateTaskTemplateCommandOutput}
  * @see {@link UpdateTaskTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -89,6 +141,9 @@ export class UpdateTaskTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTaskTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +172,8 @@ export class UpdateTaskTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTaskTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTaskTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +183,18 @@ export class UpdateTaskTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTaskTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTaskTemplateCommand(input, context);
+    return se_UpdateTaskTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTaskTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateTaskTemplateCommand(output, context);
+    return de_UpdateTaskTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

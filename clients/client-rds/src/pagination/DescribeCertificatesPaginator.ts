@@ -10,7 +10,7 @@ import { RDSClient } from "../RDSClient";
 import { RDSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RDSClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeCertificatesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeCertificates(
   config: RDSPaginationConfiguration,
   input: DescribeCertificatesCommandInput,

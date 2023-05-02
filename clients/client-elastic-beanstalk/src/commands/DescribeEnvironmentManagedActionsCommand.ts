@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import { DescribeEnvironmentManagedActionsRequest, DescribeEnvironmentManagedActionsResult } from "../models/models_0";
 import {
-  DescribeEnvironmentManagedActionsRequest,
-  DescribeEnvironmentManagedActionsRequestFilterSensitiveLog,
-  DescribeEnvironmentManagedActionsResult,
-  DescribeEnvironmentManagedActionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEnvironmentManagedActionsCommand,
-  serializeAws_queryDescribeEnvironmentManagedActionsCommand,
+  de_DescribeEnvironmentManagedActionsCommand,
+  se_DescribeEnvironmentManagedActionsCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEnvironmentManagedActionsCommand}.
  */
 export interface DescribeEnvironmentManagedActionsCommandInput extends DescribeEnvironmentManagedActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEnvironmentManagedActionsCommand}.
  */
 export interface DescribeEnvironmentManagedActionsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeEnvironmentManagedActionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists an environment's upcoming and in-progress managed actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface DescribeEnvironmentManagedActionsCommandOutput
  * import { ElasticBeanstalkClient, DescribeEnvironmentManagedActionsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEnvironmentManagedActionsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DescribeEnvironmentManagedActionsRequest
+ *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   Status: "Scheduled" || "Pending" || "Running" || "Unknown",
+ * };
  * const command = new DescribeEnvironmentManagedActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentManagedActionsCommandInput - {@link DescribeEnvironmentManagedActionsCommandInput}
+ * @returns {@link DescribeEnvironmentManagedActionsCommandOutput}
  * @see {@link DescribeEnvironmentManagedActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentManagedActionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentManagedActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +112,8 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentManagedActionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEnvironmentManagedActionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +123,24 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEnvironmentManagedActionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentManagedActionsCommand(input, context);
+    return se_DescribeEnvironmentManagedActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentManagedActionsCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentManagedActionsCommand(output, context);
+    return de_DescribeEnvironmentManagedActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

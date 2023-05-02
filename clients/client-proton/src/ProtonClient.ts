@@ -86,6 +86,14 @@ import {
 import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
 import {
+  CreateServiceInstanceCommandInput,
+  CreateServiceInstanceCommandOutput,
+} from "./commands/CreateServiceInstanceCommand";
+import {
+  CreateServiceSyncConfigCommandInput,
+  CreateServiceSyncConfigCommandOutput,
+} from "./commands/CreateServiceSyncConfigCommand";
+import {
   CreateServiceTemplateCommandInput,
   CreateServiceTemplateCommandOutput,
 } from "./commands/CreateServiceTemplateCommand";
@@ -113,6 +121,10 @@ import {
 } from "./commands/DeleteEnvironmentTemplateVersionCommand";
 import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
+import {
+  DeleteServiceSyncConfigCommandInput,
+  DeleteServiceSyncConfigCommandOutput,
+} from "./commands/DeleteServiceSyncConfigCommand";
 import {
   DeleteServiceTemplateCommandInput,
   DeleteServiceTemplateCommandOutput,
@@ -151,6 +163,18 @@ import {
 } from "./commands/GetResourcesSummaryCommand";
 import { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import { GetServiceInstanceCommandInput, GetServiceInstanceCommandOutput } from "./commands/GetServiceInstanceCommand";
+import {
+  GetServiceInstanceSyncStatusCommandInput,
+  GetServiceInstanceSyncStatusCommandOutput,
+} from "./commands/GetServiceInstanceSyncStatusCommand";
+import {
+  GetServiceSyncBlockerSummaryCommandInput,
+  GetServiceSyncBlockerSummaryCommandOutput,
+} from "./commands/GetServiceSyncBlockerSummaryCommand";
+import {
+  GetServiceSyncConfigCommandInput,
+  GetServiceSyncConfigCommandOutput,
+} from "./commands/GetServiceSyncConfigCommand";
 import { GetServiceTemplateCommandInput, GetServiceTemplateCommandOutput } from "./commands/GetServiceTemplateCommand";
 import {
   GetServiceTemplateVersionCommandInput,
@@ -270,6 +294,14 @@ import {
   UpdateServicePipelineCommandOutput,
 } from "./commands/UpdateServicePipelineCommand";
 import {
+  UpdateServiceSyncBlockerCommandInput,
+  UpdateServiceSyncBlockerCommandOutput,
+} from "./commands/UpdateServiceSyncBlockerCommand";
+import {
+  UpdateServiceSyncConfigCommandInput,
+  UpdateServiceSyncConfigCommandOutput,
+} from "./commands/UpdateServiceSyncConfigCommand";
+import {
   UpdateServiceTemplateCommandInput,
   UpdateServiceTemplateCommandOutput,
 } from "./commands/UpdateServiceTemplateCommand";
@@ -289,6 +321,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptEnvironmentAccountConnectionCommandInput
   | CancelComponentDeploymentCommandInput
@@ -302,6 +337,8 @@ export type ServiceInputTypes =
   | CreateEnvironmentTemplateVersionCommandInput
   | CreateRepositoryCommandInput
   | CreateServiceCommandInput
+  | CreateServiceInstanceCommandInput
+  | CreateServiceSyncConfigCommandInput
   | CreateServiceTemplateCommandInput
   | CreateServiceTemplateVersionCommandInput
   | CreateTemplateSyncConfigCommandInput
@@ -312,6 +349,7 @@ export type ServiceInputTypes =
   | DeleteEnvironmentTemplateVersionCommandInput
   | DeleteRepositoryCommandInput
   | DeleteServiceCommandInput
+  | DeleteServiceSyncConfigCommandInput
   | DeleteServiceTemplateCommandInput
   | DeleteServiceTemplateVersionCommandInput
   | DeleteTemplateSyncConfigCommandInput
@@ -326,6 +364,9 @@ export type ServiceInputTypes =
   | GetResourcesSummaryCommandInput
   | GetServiceCommandInput
   | GetServiceInstanceCommandInput
+  | GetServiceInstanceSyncStatusCommandInput
+  | GetServiceSyncBlockerSummaryCommandInput
+  | GetServiceSyncConfigCommandInput
   | GetServiceTemplateCommandInput
   | GetServiceTemplateVersionCommandInput
   | GetTemplateSyncConfigCommandInput
@@ -363,10 +404,15 @@ export type ServiceInputTypes =
   | UpdateServiceCommandInput
   | UpdateServiceInstanceCommandInput
   | UpdateServicePipelineCommandInput
+  | UpdateServiceSyncBlockerCommandInput
+  | UpdateServiceSyncConfigCommandInput
   | UpdateServiceTemplateCommandInput
   | UpdateServiceTemplateVersionCommandInput
   | UpdateTemplateSyncConfigCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptEnvironmentAccountConnectionCommandOutput
   | CancelComponentDeploymentCommandOutput
@@ -380,6 +426,8 @@ export type ServiceOutputTypes =
   | CreateEnvironmentTemplateVersionCommandOutput
   | CreateRepositoryCommandOutput
   | CreateServiceCommandOutput
+  | CreateServiceInstanceCommandOutput
+  | CreateServiceSyncConfigCommandOutput
   | CreateServiceTemplateCommandOutput
   | CreateServiceTemplateVersionCommandOutput
   | CreateTemplateSyncConfigCommandOutput
@@ -390,6 +438,7 @@ export type ServiceOutputTypes =
   | DeleteEnvironmentTemplateVersionCommandOutput
   | DeleteRepositoryCommandOutput
   | DeleteServiceCommandOutput
+  | DeleteServiceSyncConfigCommandOutput
   | DeleteServiceTemplateCommandOutput
   | DeleteServiceTemplateVersionCommandOutput
   | DeleteTemplateSyncConfigCommandOutput
@@ -404,6 +453,9 @@ export type ServiceOutputTypes =
   | GetResourcesSummaryCommandOutput
   | GetServiceCommandOutput
   | GetServiceInstanceCommandOutput
+  | GetServiceInstanceSyncStatusCommandOutput
+  | GetServiceSyncBlockerSummaryCommandOutput
+  | GetServiceSyncConfigCommandOutput
   | GetServiceTemplateCommandOutput
   | GetServiceTemplateVersionCommandOutput
   | GetTemplateSyncConfigCommandOutput
@@ -441,10 +493,15 @@ export type ServiceOutputTypes =
   | UpdateServiceCommandOutput
   | UpdateServiceInstanceCommandOutput
   | UpdateServicePipelineCommandOutput
+  | UpdateServiceSyncBlockerCommandOutput
+  | UpdateServiceSyncConfigCommandOutput
   | UpdateServiceTemplateCommandOutput
   | UpdateServiceTemplateVersionCommandOutput
   | UpdateTemplateSyncConfigCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -452,7 +509,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -561,11 +618,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ProtonClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -576,10 +636,15 @@ type ProtonClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ProtonClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ProtonClient class constructor that set the region, credentials and other options.
  */
 export interface ProtonClientConfig extends ProtonClientConfigType {}
 
+/**
+ * @public
+ */
 type ProtonClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -590,11 +655,14 @@ type ProtonClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ProtonClient class. This is resolved and normalized from the {@link ProtonClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ProtonClient class. This is resolved and normalized from the {@link ProtonClientConfig | constructor configuration interface}.
  */
 export interface ProtonClientResolvedConfig extends ProtonClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>This is the Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the
  *     <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the Proton
  *    service.</p>

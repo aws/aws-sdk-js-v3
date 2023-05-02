@@ -16,20 +16,22 @@ import {
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
   DeleteLaunchConfigurationTemplateRequest,
-  DeleteLaunchConfigurationTemplateRequestFilterSensitiveLog,
   DeleteLaunchConfigurationTemplateResponse,
-  DeleteLaunchConfigurationTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommand,
-  serializeAws_restJson1DeleteLaunchConfigurationTemplateCommand,
+  de_DeleteLaunchConfigurationTemplateCommand,
+  se_DeleteLaunchConfigurationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLaunchConfigurationTemplateCommand}.
  */
 export interface DeleteLaunchConfigurationTemplateCommandInput extends DeleteLaunchConfigurationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLaunchConfigurationTemplateCommand}.
  */
 export interface DeleteLaunchConfigurationTemplateCommandOutput
@@ -37,6 +39,7 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a single Launch Configuration Template by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  * import { MgnClient, DeleteLaunchConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DeleteLaunchConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // DeleteLaunchConfigurationTemplateRequest
+ *   launchConfigurationTemplateID: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLaunchConfigurationTemplateCommandInput - {@link DeleteLaunchConfigurationTemplateCommandInput}
+ * @returns {@link DeleteLaunchConfigurationTemplateCommandOutput}
  * @see {@link DeleteLaunchConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -80,6 +88,9 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLaunchConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +119,8 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLaunchConfigurationTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLaunchConfigurationTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +130,24 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteLaunchConfigurationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLaunchConfigurationTemplateCommand(input, context);
+    return se_DeleteLaunchConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLaunchConfigurationTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommand(output, context);
+    return de_DeleteLaunchConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

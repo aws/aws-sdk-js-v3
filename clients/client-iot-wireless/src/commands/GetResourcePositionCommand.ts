@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  GetResourcePositionRequest,
-  GetResourcePositionRequestFilterSensitiveLog,
-  GetResourcePositionResponse,
-  GetResourcePositionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourcePositionCommand,
-  serializeAws_restJson1GetResourcePositionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetResourcePositionRequest, GetResourcePositionResponse } from "../models/models_0";
+import { de_GetResourcePositionCommand, se_GetResourcePositionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePositionCommand}.
  */
 export interface GetResourcePositionCommandInput extends GetResourcePositionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePositionCommand}.
  */
 export interface GetResourcePositionCommandOutput extends GetResourcePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the position information for a given wireless device or a wireless gateway resource.
  *             The position information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
  *                 (WGS84)</a>.</p>
@@ -44,10 +41,16 @@ export interface GetResourcePositionCommandOutput extends GetResourcePositionRes
  * import { IoTWirelessClient, GetResourcePositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetResourcePositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetResourcePositionRequest
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
+ * };
  * const command = new GetResourcePositionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePositionCommandInput - {@link GetResourcePositionCommandInput}
+ * @returns {@link GetResourcePositionCommandOutput}
  * @see {@link GetResourcePositionCommandInput} for command's `input` shape.
  * @see {@link GetResourcePositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +89,9 @@ export class GetResourcePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class GetResourcePositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourcePositionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourcePositionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class GetResourcePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourcePositionCommand(input, context);
+    return se_GetResourcePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePositionCommandOutput> {
-    return deserializeAws_restJson1GetResourcePositionCommand(output, context);
+    return de_GetResourcePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

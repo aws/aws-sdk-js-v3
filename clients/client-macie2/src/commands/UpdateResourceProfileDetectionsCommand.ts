@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { UpdateResourceProfileDetectionsRequest, UpdateResourceProfileDetectionsResponse } from "../models/models_1";
 import {
-  UpdateResourceProfileDetectionsRequest,
-  UpdateResourceProfileDetectionsRequestFilterSensitiveLog,
-  UpdateResourceProfileDetectionsResponse,
-  UpdateResourceProfileDetectionsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateResourceProfileDetectionsCommand,
-  serializeAws_restJson1UpdateResourceProfileDetectionsCommand,
+  de_UpdateResourceProfileDetectionsCommand,
+  se_UpdateResourceProfileDetectionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceProfileDetectionsCommand}.
  */
 export interface UpdateResourceProfileDetectionsCommandInput extends UpdateResourceProfileDetectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceProfileDetectionsCommand}.
  */
 export interface UpdateResourceProfileDetectionsCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateResourceProfileDetectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the sensitivity scoring settings for an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,21 @@ export interface UpdateResourceProfileDetectionsCommandOutput
  * import { Macie2Client, UpdateResourceProfileDetectionsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateResourceProfileDetectionsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // UpdateResourceProfileDetectionsRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   suppressDataIdentifiers: [ // __listOfSuppressDataIdentifier
+ *     { // SuppressDataIdentifier
+ *       id: "STRING_VALUE",
+ *       type: "CUSTOM" || "MANAGED",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateResourceProfileDetectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceProfileDetectionsCommandInput - {@link UpdateResourceProfileDetectionsCommandInput}
+ * @returns {@link UpdateResourceProfileDetectionsCommandOutput}
  * @see {@link UpdateResourceProfileDetectionsCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceProfileDetectionsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -89,6 +100,9 @@ export class UpdateResourceProfileDetectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceProfileDetectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +131,8 @@ export class UpdateResourceProfileDetectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourceProfileDetectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResourceProfileDetectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +142,24 @@ export class UpdateResourceProfileDetectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateResourceProfileDetectionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateResourceProfileDetectionsCommand(input, context);
+    return se_UpdateResourceProfileDetectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateResourceProfileDetectionsCommandOutput> {
-    return deserializeAws_restJson1UpdateResourceProfileDetectionsCommand(output, context);
+    return de_UpdateResourceProfileDetectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

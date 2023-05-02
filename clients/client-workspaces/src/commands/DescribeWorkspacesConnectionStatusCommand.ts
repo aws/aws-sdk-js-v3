@@ -15,21 +15,23 @@ import {
 
 import {
   DescribeWorkspacesConnectionStatusRequest,
-  DescribeWorkspacesConnectionStatusRequestFilterSensitiveLog,
   DescribeWorkspacesConnectionStatusResult,
-  DescribeWorkspacesConnectionStatusResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand,
-  serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand,
+  de_DescribeWorkspacesConnectionStatusCommand,
+  se_DescribeWorkspacesConnectionStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspacesConnectionStatusCommand}.
  */
 export interface DescribeWorkspacesConnectionStatusCommandInput extends DescribeWorkspacesConnectionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspacesConnectionStatusCommand}.
  */
 export interface DescribeWorkspacesConnectionStatusCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the connection status of the specified WorkSpaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,18 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
  * import { WorkSpacesClient, DescribeWorkspacesConnectionStatusCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspacesConnectionStatusCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeWorkspacesConnectionStatusRequest
+ *   WorkspaceIds: [ // WorkspaceIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeWorkspacesConnectionStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspacesConnectionStatusCommandInput - {@link DescribeWorkspacesConnectionStatusCommandInput}
+ * @returns {@link DescribeWorkspacesConnectionStatusCommandOutput}
  * @see {@link DescribeWorkspacesConnectionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspacesConnectionStatusCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -74,6 +85,9 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspacesConnectionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +116,8 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspacesConnectionStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspacesConnectionStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +127,24 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeWorkspacesConnectionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(input, context);
+    return se_DescribeWorkspacesConnectionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspacesConnectionStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(output, context);
+    return de_DescribeWorkspacesConnectionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

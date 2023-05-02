@@ -20,29 +20,30 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   DescribeChannelBanRequest,
-  DescribeChannelBanRequestFilterSensitiveLog,
   DescribeChannelBanResponse,
   DescribeChannelBanResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeChannelBanCommand,
-  serializeAws_restJson1DescribeChannelBanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeChannelBanCommand, se_DescribeChannelBanCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChannelBanCommand}.
  */
 export interface DescribeChannelBanCommandInput extends DescribeChannelBanRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChannelBanCommand}.
  */
 export interface DescribeChannelBanCommandOutput extends DescribeChannelBanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of a channel ban.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -51,10 +52,17 @@ export interface DescribeChannelBanCommandOutput extends DescribeChannelBanRespo
  * import { ChimeSDKMessagingClient, DescribeChannelBanCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DescribeChannelBanCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // DescribeChannelBanRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MemberArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new DescribeChannelBanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelBanCommandInput - {@link DescribeChannelBanCommandInput}
+ * @returns {@link DescribeChannelBanCommandOutput}
  * @see {@link DescribeChannelBanCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelBanCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -99,6 +107,9 @@ export class DescribeChannelBanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelBanCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,7 +138,7 @@ export class DescribeChannelBanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChannelBanRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelBanResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -138,12 +149,18 @@ export class DescribeChannelBanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChannelBanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelBanCommand(input, context);
+    return se_DescribeChannelBanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChannelBanCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelBanCommand(output, context);
+    return de_DescribeChannelBanCommand(output, context);
   }
 
   // Start section: command_body_extra

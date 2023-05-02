@@ -20,21 +20,23 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeReplicationTaskAssessmentRunsMessage,
-  DescribeReplicationTaskAssessmentRunsMessageFilterSensitiveLog,
   DescribeReplicationTaskAssessmentRunsResponse,
-  DescribeReplicationTaskAssessmentRunsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand,
-  serializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand,
+  de_DescribeReplicationTaskAssessmentRunsCommand,
+  se_DescribeReplicationTaskAssessmentRunsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationTaskAssessmentRunsCommand}.
  */
 export interface DescribeReplicationTaskAssessmentRunsCommandInput
   extends DescribeReplicationTaskAssessmentRunsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationTaskAssessmentRunsCommand}.
  */
 export interface DescribeReplicationTaskAssessmentRunsCommandOutput
@@ -42,6 +44,7 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of premigration assessment runs based on filter
  *          settings.</p>
  *          <p>These filter settings can specify a combination of premigration assessment runs,
@@ -57,10 +60,24 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentRunsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentRunsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeReplicationTaskAssessmentRunsMessage
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReplicationTaskAssessmentRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationTaskAssessmentRunsCommandInput - {@link DescribeReplicationTaskAssessmentRunsCommandInput}
+ * @returns {@link DescribeReplicationTaskAssessmentRunsCommandOutput}
  * @see {@link DescribeReplicationTaskAssessmentRunsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTaskAssessmentRunsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -87,6 +104,9 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationTaskAssessmentRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +135,8 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationTaskAssessmentRunsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplicationTaskAssessmentRunsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +146,24 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationTaskAssessmentRunsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand(input, context);
+    return se_DescribeReplicationTaskAssessmentRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationTaskAssessmentRunsCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand(output, context);
+    return de_DescribeReplicationTaskAssessmentRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

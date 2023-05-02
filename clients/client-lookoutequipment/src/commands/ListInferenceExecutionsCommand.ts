@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  ListInferenceExecutionsRequest,
-  ListInferenceExecutionsRequestFilterSensitiveLog,
-  ListInferenceExecutionsResponse,
-  ListInferenceExecutionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListInferenceExecutionsCommand,
-  serializeAws_json1_0ListInferenceExecutionsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListInferenceExecutionsRequest, ListInferenceExecutionsResponse } from "../models/models_0";
+import { de_ListInferenceExecutionsCommand, se_ListInferenceExecutionsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListInferenceExecutionsCommand}.
  */
 export interface ListInferenceExecutionsCommandInput extends ListInferenceExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInferenceExecutionsCommand}.
  */
 export interface ListInferenceExecutionsCommandOutput extends ListInferenceExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists all inference executions that have been performed by the specified inference
  *          scheduler. </p>
  * @example
@@ -43,10 +40,20 @@ export interface ListInferenceExecutionsCommandOutput extends ListInferenceExecu
  * import { LookoutEquipmentClient, ListInferenceExecutionsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListInferenceExecutionsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // ListInferenceExecutionsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   InferenceSchedulerName: "STRING_VALUE", // required
+ *   DataStartTimeAfter: new Date("TIMESTAMP"),
+ *   DataEndTimeBefore: new Date("TIMESTAMP"),
+ *   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ * };
  * const command = new ListInferenceExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInferenceExecutionsCommandInput - {@link ListInferenceExecutionsCommandInput}
+ * @returns {@link ListInferenceExecutionsCommandOutput}
  * @see {@link ListInferenceExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceExecutionsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListInferenceExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInferenceExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class ListInferenceExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInferenceExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInferenceExecutionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +138,18 @@ export class ListInferenceExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInferenceExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListInferenceExecutionsCommand(input, context);
+    return se_ListInferenceExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInferenceExecutionsCommandOutput> {
-    return deserializeAws_json1_0ListInferenceExecutionsCommand(output, context);
+    return de_ListInferenceExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

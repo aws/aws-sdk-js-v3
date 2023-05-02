@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  StartMulticastGroupSessionRequest,
-  StartMulticastGroupSessionRequestFilterSensitiveLog,
-  StartMulticastGroupSessionResponse,
-  StartMulticastGroupSessionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1StartMulticastGroupSessionCommand,
-  serializeAws_restJson1StartMulticastGroupSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { StartMulticastGroupSessionRequest, StartMulticastGroupSessionResponse } from "../models/models_1";
+import { de_StartMulticastGroupSessionCommand, se_StartMulticastGroupSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMulticastGroupSessionCommand}.
  */
 export interface StartMulticastGroupSessionCommandInput extends StartMulticastGroupSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMulticastGroupSessionCommand}.
  */
 export interface StartMulticastGroupSessionCommandOutput extends StartMulticastGroupSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a multicast group session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface StartMulticastGroupSessionCommandOutput extends StartMulticastG
  * import { IoTWirelessClient, StartMulticastGroupSessionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, StartMulticastGroupSessionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // StartMulticastGroupSessionRequest
+ *   Id: "STRING_VALUE", // required
+ *   LoRaWAN: { // LoRaWANMulticastSession
+ *     DlDr: Number("int"),
+ *     DlFreq: Number("int"),
+ *     SessionStartTime: new Date("TIMESTAMP"),
+ *     SessionTimeout: Number("int"),
+ *     PingSlotPeriod: Number("int"),
+ *   },
+ * };
  * const command = new StartMulticastGroupSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMulticastGroupSessionCommandInput - {@link StartMulticastGroupSessionCommandInput}
+ * @returns {@link StartMulticastGroupSessionCommandOutput}
  * @see {@link StartMulticastGroupSessionCommandInput} for command's `input` shape.
  * @see {@link StartMulticastGroupSessionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +96,9 @@ export class StartMulticastGroupSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMulticastGroupSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +127,8 @@ export class StartMulticastGroupSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMulticastGroupSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMulticastGroupSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +138,21 @@ export class StartMulticastGroupSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMulticastGroupSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartMulticastGroupSessionCommand(input, context);
+    return se_StartMulticastGroupSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartMulticastGroupSessionCommandOutput> {
-    return deserializeAws_restJson1StartMulticastGroupSessionCommand(output, context);
+    return de_StartMulticastGroupSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

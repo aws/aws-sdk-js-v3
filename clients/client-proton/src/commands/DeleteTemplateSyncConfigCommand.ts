@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTemplateSyncConfigInput,
-  DeleteTemplateSyncConfigInputFilterSensitiveLog,
-  DeleteTemplateSyncConfigOutput,
-  DeleteTemplateSyncConfigOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteTemplateSyncConfigCommand,
-  serializeAws_json1_0DeleteTemplateSyncConfigCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteTemplateSyncConfigInput, DeleteTemplateSyncConfigOutput } from "../models/models_0";
+import { de_DeleteTemplateSyncConfigCommand, se_DeleteTemplateSyncConfigCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTemplateSyncConfigCommand}.
  */
 export interface DeleteTemplateSyncConfigCommandInput extends DeleteTemplateSyncConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTemplateSyncConfigCommand}.
  */
 export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyncConfigOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a template sync configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyn
  * import { ProtonClient, DeleteTemplateSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteTemplateSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // DeleteTemplateSyncConfigInput
+ *   templateName: "STRING_VALUE", // required
+ *   templateType: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTemplateSyncConfigCommandInput - {@link DeleteTemplateSyncConfigCommandInput}
+ * @returns {@link DeleteTemplateSyncConfigCommandOutput}
  * @see {@link DeleteTemplateSyncConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteTemplateSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -87,6 +90,9 @@ export class DeleteTemplateSyncConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTemplateSyncConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class DeleteTemplateSyncConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTemplateSyncConfigInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTemplateSyncConfigOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class DeleteTemplateSyncConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTemplateSyncConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteTemplateSyncConfigCommand(input, context);
+    return se_DeleteTemplateSyncConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTemplateSyncConfigCommandOutput> {
-    return deserializeAws_json1_0DeleteTemplateSyncConfigCommand(output, context);
+    return de_DeleteTemplateSyncConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

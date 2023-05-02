@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetIndexingConfigurationRequest,
-  GetIndexingConfigurationRequestFilterSensitiveLog,
-  GetIndexingConfigurationResponse,
-  GetIndexingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1GetIndexingConfigurationCommand,
-  serializeAws_restJson1GetIndexingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetIndexingConfigurationRequest, GetIndexingConfigurationResponse } from "../models/models_1";
+import { de_GetIndexingConfigurationCommand, se_GetIndexingConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIndexingConfigurationCommand}.
  */
 export interface GetIndexingConfigurationCommandInput extends GetIndexingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIndexingConfigurationCommand}.
  */
 export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the indexing configuration.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetIndexingConfiguration</a> action.</p>
  * @example
@@ -43,10 +40,13 @@ export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfig
  * import { IoTClient, GetIndexingConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetIndexingConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {};
  * const command = new GetIndexingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIndexingConfigurationCommandInput - {@link GetIndexingConfigurationCommandInput}
+ * @returns {@link GetIndexingConfigurationCommandOutput}
  * @see {@link GetIndexingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetIndexingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +85,9 @@ export class GetIndexingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIndexingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +116,8 @@ export class GetIndexingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIndexingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIndexingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +127,18 @@ export class GetIndexingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIndexingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIndexingConfigurationCommand(input, context);
+    return se_GetIndexingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIndexingConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetIndexingConfigurationCommand(output, context);
+    return de_GetIndexingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

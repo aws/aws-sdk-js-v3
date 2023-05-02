@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDomainStatisticsReportRequest,
-  GetDomainStatisticsReportRequestFilterSensitiveLog,
-  GetDomainStatisticsReportResponse,
-  GetDomainStatisticsReportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDomainStatisticsReportCommand,
-  serializeAws_restJson1GetDomainStatisticsReportCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDomainStatisticsReportRequest, GetDomainStatisticsReportResponse } from "../models/models_0";
+import { de_GetDomainStatisticsReportCommand, se_GetDomainStatisticsReportCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainStatisticsReportCommand}.
  */
 export interface GetDomainStatisticsReportCommandInput extends GetDomainStatisticsReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainStatisticsReportCommand}.
  */
 export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatisticsReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve inbox placement and engagement rates for the domains that you use to send
  *             email.</p>
  * @example
@@ -43,10 +40,17 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  * import { SESv2Client, GetDomainStatisticsReportCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetDomainStatisticsReportCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // GetDomainStatisticsReportRequest
+ *   Domain: "STRING_VALUE", // required
+ *   StartDate: new Date("TIMESTAMP"), // required
+ *   EndDate: new Date("TIMESTAMP"), // required
+ * };
  * const command = new GetDomainStatisticsReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainStatisticsReportCommandInput - {@link GetDomainStatisticsReportCommandInput}
+ * @returns {@link GetDomainStatisticsReportCommandOutput}
  * @see {@link GetDomainStatisticsReportCommandInput} for command's `input` shape.
  * @see {@link GetDomainStatisticsReportCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -79,6 +83,9 @@ export class GetDomainStatisticsReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainStatisticsReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class GetDomainStatisticsReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainStatisticsReportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainStatisticsReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +125,21 @@ export class GetDomainStatisticsReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainStatisticsReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDomainStatisticsReportCommand(input, context);
+    return se_GetDomainStatisticsReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDomainStatisticsReportCommandOutput> {
-    return deserializeAws_restJson1GetDomainStatisticsReportCommand(output, context);
+    return de_GetDomainStatisticsReportCommand(output, context);
   }
 
   // Start section: command_body_extra

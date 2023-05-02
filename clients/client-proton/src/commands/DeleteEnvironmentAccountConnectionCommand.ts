@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteEnvironmentAccountConnectionInput, DeleteEnvironmentAccountConnectionOutput } from "../models/models_0";
 import {
-  DeleteEnvironmentAccountConnectionInput,
-  DeleteEnvironmentAccountConnectionInputFilterSensitiveLog,
-  DeleteEnvironmentAccountConnectionOutput,
-  DeleteEnvironmentAccountConnectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteEnvironmentAccountConnectionCommand,
-  serializeAws_json1_0DeleteEnvironmentAccountConnectionCommand,
+  de_DeleteEnvironmentAccountConnectionCommand,
+  se_DeleteEnvironmentAccountConnectionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEnvironmentAccountConnectionCommand}.
  */
 export interface DeleteEnvironmentAccountConnectionCommandInput extends DeleteEnvironmentAccountConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEnvironmentAccountConnectionCommand}.
  */
 export interface DeleteEnvironmentAccountConnectionCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>In an environment account, delete an environment account connection.</p>
  *          <p>After you delete an environment account connection that’s in use by an Proton environment, Proton <i>can’t</i> manage the
  *       environment infrastructure resources until a new environment account connection is accepted for the environment account and associated environment. You're
@@ -49,10 +49,15 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput
  * import { ProtonClient, DeleteEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // DeleteEnvironmentAccountConnectionInput
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEnvironmentAccountConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEnvironmentAccountConnectionCommandInput - {@link DeleteEnvironmentAccountConnectionCommandInput}
+ * @returns {@link DeleteEnvironmentAccountConnectionCommandOutput}
  * @see {@link DeleteEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -94,6 +99,9 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEnvironmentAccountConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +130,8 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentAccountConnectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEnvironmentAccountConnectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +141,24 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteEnvironmentAccountConnectionCommand(input, context);
+    return se_DeleteEnvironmentAccountConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEnvironmentAccountConnectionCommandOutput> {
-    return deserializeAws_json1_0DeleteEnvironmentAccountConnectionCommand(output, context);
+    return de_DeleteEnvironmentAccountConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

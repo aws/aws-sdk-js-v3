@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateVocabularyFilterRequest,
-  UpdateVocabularyFilterRequestFilterSensitiveLog,
-  UpdateVocabularyFilterResponse,
-  UpdateVocabularyFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateVocabularyFilterCommand,
-  serializeAws_json1_1UpdateVocabularyFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateVocabularyFilterRequest, UpdateVocabularyFilterResponse } from "../models/models_0";
+import { de_UpdateVocabularyFilterCommand, se_UpdateVocabularyFilterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVocabularyFilterCommand}.
  */
 export interface UpdateVocabularyFilterCommandInput extends UpdateVocabularyFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVocabularyFilterCommand}.
  */
 export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing custom vocabulary filter with a new list of words. The new list
  *             you provide overwrites all previous entries; you cannot append new terms onto an
  *             existing custom vocabulary filter.</p>
@@ -44,10 +41,20 @@ export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFil
  * import { TranscribeClient, UpdateVocabularyFilterCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, UpdateVocabularyFilterCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // UpdateVocabularyFilterRequest
+ *   VocabularyFilterName: "STRING_VALUE", // required
+ *   Words: [ // Words
+ *     "STRING_VALUE",
+ *   ],
+ *   VocabularyFilterFileUri: "STRING_VALUE",
+ *   DataAccessRoleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateVocabularyFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVocabularyFilterCommandInput - {@link UpdateVocabularyFilterCommandInput}
+ * @returns {@link UpdateVocabularyFilterCommandOutput}
  * @see {@link UpdateVocabularyFilterCommandInput} for command's `input` shape.
  * @see {@link UpdateVocabularyFilterCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateVocabularyFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVocabularyFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class UpdateVocabularyFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVocabularyFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVocabularyFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +138,18 @@ export class UpdateVocabularyFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVocabularyFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVocabularyFilterCommand(input, context);
+    return se_UpdateVocabularyFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVocabularyFilterCommandOutput> {
-    return deserializeAws_json1_1UpdateVocabularyFilterCommand(output, context);
+    return de_UpdateVocabularyFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

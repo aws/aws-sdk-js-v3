@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  CreateHapgRequest,
-  CreateHapgRequestFilterSensitiveLog,
-  CreateHapgResponse,
-  CreateHapgResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateHapgCommand,
-  serializeAws_json1_1CreateHapgCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateHapgRequest, CreateHapgResponse } from "../models/models_0";
+import { de_CreateHapgCommand, se_CreateHapgCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHapgCommand}.
  */
 export interface CreateHapgCommandInput extends CreateHapgRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHapgCommand}.
  */
 export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -53,10 +50,15 @@ export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataB
  * import { CloudHSMClient, CreateHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, CreateHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // CreateHapgRequest
+ *   Label: "STRING_VALUE", // required
+ * };
  * const command = new CreateHapgCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHapgCommandInput - {@link CreateHapgCommandInput}
+ * @returns {@link CreateHapgCommandOutput}
  * @see {@link CreateHapgCommandInput} for command's `input` shape.
  * @see {@link CreateHapgCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -89,6 +91,9 @@ export class CreateHapgCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHapgCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class CreateHapgCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHapgRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHapgResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class CreateHapgCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHapgCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHapgCommand(input, context);
+    return se_CreateHapgCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHapgCommandOutput> {
-    return deserializeAws_json1_1CreateHapgCommand(output, context);
+    return de_CreateHapgCommand(output, context);
   }
 
   // Start section: command_body_extra

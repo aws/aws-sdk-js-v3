@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  UpdateResourcePositionRequest,
-  UpdateResourcePositionRequestFilterSensitiveLog,
-  UpdateResourcePositionResponse,
-  UpdateResourcePositionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateResourcePositionCommand,
-  serializeAws_restJson1UpdateResourcePositionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateResourcePositionRequest, UpdateResourcePositionResponse } from "../models/models_1";
+import { de_UpdateResourcePositionCommand, se_UpdateResourcePositionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourcePositionCommand}.
  */
 export interface UpdateResourcePositionCommandInput extends UpdateResourcePositionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourcePositionCommand}.
  */
 export interface UpdateResourcePositionCommandOutput extends UpdateResourcePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the position information of a given wireless device or a wireless gateway
  *             resource. The position coordinates are based on the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
  *                 (WGS84)</a>.</p>
@@ -44,10 +41,17 @@ export interface UpdateResourcePositionCommandOutput extends UpdateResourcePosit
  * import { IoTWirelessClient, UpdateResourcePositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateResourcePositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // UpdateResourcePositionRequest
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
+ *   GeoJsonPayload: "BLOB_VALUE",
+ * };
  * const command = new UpdateResourcePositionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourcePositionCommandInput - {@link UpdateResourcePositionCommandInput}
+ * @returns {@link UpdateResourcePositionCommandOutput}
  * @see {@link UpdateResourcePositionCommandInput} for command's `input` shape.
  * @see {@link UpdateResourcePositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +90,9 @@ export class UpdateResourcePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourcePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class UpdateResourcePositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourcePositionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResourcePositionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class UpdateResourcePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourcePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateResourcePositionCommand(input, context);
+    return se_UpdateResourcePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourcePositionCommandOutput> {
-    return deserializeAws_restJson1UpdateResourcePositionCommand(output, context);
+    return de_UpdateResourcePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

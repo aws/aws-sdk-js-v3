@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetMergeOptionsInput,
-  GetMergeOptionsInputFilterSensitiveLog,
-  GetMergeOptionsOutput,
-  GetMergeOptionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMergeOptionsCommand,
-  serializeAws_json1_1GetMergeOptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetMergeOptionsInput, GetMergeOptionsOutput } from "../models/models_0";
+import { de_GetMergeOptionsCommand, se_GetMergeOptionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMergeOptionsCommand}.
  */
 export interface GetMergeOptionsCommandInput extends GetMergeOptionsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMergeOptionsCommand}.
  */
 export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the merge options available for merging two specified
  *             branches. For details about why a merge option is not available, use GetMergeConflicts
  *             or DescribeMergeConflicts.</p>
@@ -44,10 +41,19 @@ export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __M
  * import { CodeCommitClient, GetMergeOptionsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetMergeOptionsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetMergeOptionsInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   sourceCommitSpecifier: "STRING_VALUE", // required
+ *   destinationCommitSpecifier: "STRING_VALUE", // required
+ *   conflictDetailLevel: "STRING_VALUE",
+ *   conflictResolutionStrategy: "STRING_VALUE",
+ * };
  * const command = new GetMergeOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMergeOptionsCommandInput - {@link GetMergeOptionsCommandInput}
+ * @returns {@link GetMergeOptionsCommandOutput}
  * @see {@link GetMergeOptionsCommandInput} for command's `input` shape.
  * @see {@link GetMergeOptionsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -126,6 +132,9 @@ export class GetMergeOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMergeOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,8 +163,8 @@ export class GetMergeOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMergeOptionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMergeOptionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,12 +174,18 @@ export class GetMergeOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMergeOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMergeOptionsCommand(input, context);
+    return se_GetMergeOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMergeOptionsCommandOutput> {
-    return deserializeAws_json1_1GetMergeOptionsCommand(output, context);
+    return de_GetMergeOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,22 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteBotVersionRequest, DeleteBotVersionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBotVersionCommand,
-  serializeAws_restJson1DeleteBotVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteBotVersionRequest } from "../models/models_0";
+import { de_DeleteBotVersionCommand, se_DeleteBotVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBotVersionCommand}.
  */
 export interface DeleteBotVersionCommandInput extends DeleteBotVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBotVersionCommand}.
  */
 export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific version of a bot. To delete all versions of a
  *       bot, use the <a>DeleteBot</a> operation. </p>
  *          <p>This operation requires permissions for the
@@ -44,10 +46,16 @@ export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
  * import { LexModelBuildingServiceClient, DeleteBotVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, DeleteBotVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // DeleteBotVersionRequest
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBotVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBotVersionCommandInput - {@link DeleteBotVersionCommandInput}
+ * @returns {@link DeleteBotVersionCommandOutput}
  * @see {@link DeleteBotVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteBotVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -108,6 +116,9 @@ export class DeleteBotVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBotVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +147,8 @@ export class DeleteBotVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBotVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +158,18 @@ export class DeleteBotVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBotVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBotVersionCommand(input, context);
+    return se_DeleteBotVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBotVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteBotVersionCommand(output, context);
+    return de_DeleteBotVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

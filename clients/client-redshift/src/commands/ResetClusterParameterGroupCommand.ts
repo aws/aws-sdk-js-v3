@@ -13,30 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ClusterParameterGroupNameMessage,
-  ClusterParameterGroupNameMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  ResetClusterParameterGroupMessage,
-  ResetClusterParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryResetClusterParameterGroupCommand,
-  serializeAws_queryResetClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { ClusterParameterGroupNameMessage } from "../models/models_0";
+import { ResetClusterParameterGroupMessage } from "../models/models_1";
+import { de_ResetClusterParameterGroupCommand, se_ResetClusterParameterGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResetClusterParameterGroupCommand}.
  */
 export interface ResetClusterParameterGroupCommandInput extends ResetClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ResetClusterParameterGroupCommand}.
  */
 export interface ResetClusterParameterGroupCommandOutput extends ClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets one or more parameters of the specified parameter group to their default
  *             values and sets the source values of the parameters to "engine-default". To reset the
  *             entire parameter group specify the <i>ResetAllParameters</i> parameter.
@@ -47,10 +43,29 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  * import { RedshiftClient, ResetClusterParameterGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ResetClusterParameterGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ResetClusterParameterGroupMessage
+ *   ParameterGroupName: "STRING_VALUE", // required
+ *   ResetAllParameters: true || false,
+ *   Parameters: [ // ParametersList
+ *     { // Parameter
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       ApplyType: "static" || "dynamic",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ResetClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetClusterParameterGroupCommandInput - {@link ResetClusterParameterGroupCommandInput}
+ * @returns {@link ResetClusterParameterGroupCommandOutput}
  * @see {@link ResetClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -82,6 +97,9 @@ export class ResetClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +128,8 @@ export class ResetClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ClusterParameterGroupNameMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +139,21 @@ export class ResetClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResetClusterParameterGroupCommand(input, context);
+    return se_ResetClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryResetClusterParameterGroupCommand(output, context);
+    return de_ResetClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

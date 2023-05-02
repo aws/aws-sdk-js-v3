@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteVectorEnrichmentJobInput,
-  DeleteVectorEnrichmentJobInputFilterSensitiveLog,
-  DeleteVectorEnrichmentJobOutput,
-  DeleteVectorEnrichmentJobOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVectorEnrichmentJobCommand,
-  serializeAws_restJson1DeleteVectorEnrichmentJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVectorEnrichmentJobInput, DeleteVectorEnrichmentJobOutput } from "../models/models_0";
+import { de_DeleteVectorEnrichmentJobCommand, se_DeleteVectorEnrichmentJobCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVectorEnrichmentJobCommand}.
  */
 export interface DeleteVectorEnrichmentJobCommandInput extends DeleteVectorEnrichmentJobInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVectorEnrichmentJobCommand}.
  */
 export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to delete a Vector Enrichment job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnri
  * import { SageMakerGeospatialClient, DeleteVectorEnrichmentJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, DeleteVectorEnrichmentJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
+ * const input = { // DeleteVectorEnrichmentJobInput
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVectorEnrichmentJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVectorEnrichmentJobCommandInput - {@link DeleteVectorEnrichmentJobCommandInput}
+ * @returns {@link DeleteVectorEnrichmentJobCommandOutput}
  * @see {@link DeleteVectorEnrichmentJobCommandInput} for command's `input` shape.
  * @see {@link DeleteVectorEnrichmentJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -58,13 +60,13 @@ export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnri
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
+ *  <p>The request references a resource which does not exist.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -91,6 +93,9 @@ export class DeleteVectorEnrichmentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVectorEnrichmentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class DeleteVectorEnrichmentJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVectorEnrichmentJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVectorEnrichmentJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +135,21 @@ export class DeleteVectorEnrichmentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVectorEnrichmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVectorEnrichmentJobCommand(input, context);
+    return se_DeleteVectorEnrichmentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVectorEnrichmentJobCommandOutput> {
-    return deserializeAws_restJson1DeleteVectorEnrichmentJobCommand(output, context);
+    return de_DeleteVectorEnrichmentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

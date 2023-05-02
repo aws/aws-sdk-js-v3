@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutPermissionPolicyRequest,
-  PutPermissionPolicyRequestFilterSensitiveLog,
-  PutPermissionPolicyResponse,
-  PutPermissionPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutPermissionPolicyCommand,
-  serializeAws_json1_1PutPermissionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutPermissionPolicyRequest, PutPermissionPolicyResponse } from "../models/models_0";
+import { de_PutPermissionPolicyCommand, se_PutPermissionPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutPermissionPolicyCommand}.
  */
 export interface PutPermissionPolicyCommandInput extends PutPermissionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPermissionPolicyCommand}.
  */
 export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -82,10 +79,16 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  * import { WAFClient, PutPermissionPolicyCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, PutPermissionPolicyCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // PutPermissionPolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutPermissionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPermissionPolicyCommandInput - {@link PutPermissionPolicyCommandInput}
+ * @returns {@link PutPermissionPolicyCommandOutput}
  * @see {@link PutPermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutPermissionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -150,6 +153,9 @@ export class PutPermissionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPermissionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,8 +184,8 @@ export class PutPermissionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPermissionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPermissionPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -189,12 +195,18 @@ export class PutPermissionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutPermissionPolicyCommand(input, context);
+    return se_PutPermissionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPermissionPolicyCommandOutput> {
-    return deserializeAws_json1_1PutPermissionPolicyCommand(output, context);
+    return de_PutPermissionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

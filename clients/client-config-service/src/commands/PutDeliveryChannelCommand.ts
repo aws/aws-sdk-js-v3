@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutDeliveryChannelRequest, PutDeliveryChannelRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutDeliveryChannelCommand,
-  serializeAws_json1_1PutDeliveryChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { PutDeliveryChannelRequest } from "../models/models_1";
+import { de_PutDeliveryChannelCommand, se_PutDeliveryChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDeliveryChannelCommand}.
  */
 export interface PutDeliveryChannelCommandInput extends PutDeliveryChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDeliveryChannelCommand}.
  */
 export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a delivery channel object to deliver configuration
  * 			information to an Amazon S3 bucket and Amazon SNS topic.</p>
  *          <p>Before you can create a delivery channel, you must create a
@@ -51,10 +53,24 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * import { ConfigServiceClient, PutDeliveryChannelCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutDeliveryChannelCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // PutDeliveryChannelRequest
+ *   DeliveryChannel: { // DeliveryChannel
+ *     name: "STRING_VALUE",
+ *     s3BucketName: "STRING_VALUE",
+ *     s3KeyPrefix: "STRING_VALUE",
+ *     s3KmsKeyArn: "STRING_VALUE",
+ *     snsTopicARN: "STRING_VALUE",
+ *     configSnapshotDeliveryProperties: { // ConfigSnapshotDeliveryProperties
+ *       deliveryFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *     },
+ *   },
+ * };
  * const command = new PutDeliveryChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDeliveryChannelCommandInput - {@link PutDeliveryChannelCommandInput}
+ * @returns {@link PutDeliveryChannelCommandOutput}
  * @see {@link PutDeliveryChannelCommandInput} for command's `input` shape.
  * @see {@link PutDeliveryChannelCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -106,6 +122,9 @@ export class PutDeliveryChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDeliveryChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +153,8 @@ export class PutDeliveryChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDeliveryChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +164,18 @@ export class PutDeliveryChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDeliveryChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutDeliveryChannelCommand(input, context);
+    return se_PutDeliveryChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDeliveryChannelCommandOutput> {
-    return deserializeAws_json1_1PutDeliveryChannelCommand(output, context);
+    return de_PutDeliveryChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

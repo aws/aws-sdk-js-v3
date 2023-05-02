@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribeAccessPolicyRequest,
-  DescribeAccessPolicyRequestFilterSensitiveLog,
-  DescribeAccessPolicyResponse,
-  DescribeAccessPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAccessPolicyCommand,
-  serializeAws_restJson1DescribeAccessPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAccessPolicyRequest, DescribeAccessPolicyResponse } from "../models/models_0";
+import { de_DescribeAccessPolicyCommand, se_DescribeAccessPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccessPolicyCommand}.
  */
 export interface DescribeAccessPolicyCommandInput extends DescribeAccessPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccessPolicyCommand}.
  */
 export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an access policy, which specifies an identity's access to an IoT SiteWise Monitor portal or
  *       project.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyR
  * import { IoTSiteWiseClient, DescribeAccessPolicyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeAccessPolicyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DescribeAccessPolicyRequest
+ *   accessPolicyId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccessPolicyCommandInput - {@link DescribeAccessPolicyCommandInput}
+ * @returns {@link DescribeAccessPolicyCommandOutput}
  * @see {@link DescribeAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -86,6 +88,9 @@ export class DescribeAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class DescribeAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccessPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccessPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class DescribeAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccessPolicyCommand(input, context);
+    return se_DescribeAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1DescribeAccessPolicyCommand(output, context);
+    return de_DescribeAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

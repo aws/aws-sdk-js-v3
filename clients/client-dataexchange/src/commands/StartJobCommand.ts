@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  StartJobRequest,
-  StartJobRequestFilterSensitiveLog,
-  StartJobResponse,
-  StartJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartJobCommand,
-  serializeAws_restJson1StartJobCommand,
-} from "../protocols/Aws_restJson1";
+import { StartJobRequest, StartJobResponse } from "../models/models_0";
+import { de_StartJobCommand, se_StartJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartJobCommand}.
  */
 export interface StartJobCommandInput extends StartJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartJobCommand}.
  */
 export interface StartJobCommandOutput extends StartJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation starts a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StartJobCommandOutput extends StartJobResponse, __MetadataBeare
  * import { DataExchangeClient, StartJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, StartJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // StartJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StartJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartJobCommandInput - {@link StartJobCommandInput}
+ * @returns {@link StartJobCommandOutput}
  * @see {@link StartJobCommandInput} for command's `input` shape.
  * @see {@link StartJobCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -87,6 +89,9 @@ export class StartJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class StartJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class StartJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartJobCommand(input, context);
+    return se_StartJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartJobCommandOutput> {
-    return deserializeAws_restJson1StartJobCommand(output, context);
+    return de_StartJobCommand(output, context);
   }
 
   // Start section: command_body_extra

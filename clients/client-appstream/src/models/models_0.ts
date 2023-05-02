@@ -3,11 +3,21 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { AppStreamServiceException as __BaseException } from "./AppStreamServiceException";
 
-export enum AccessEndpointType {
-  STREAMING = "STREAMING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccessEndpointType = {
+  STREAMING: "STREAMING",
+} as const;
 
 /**
+ * @public
+ */
+export type AccessEndpointType = (typeof AccessEndpointType)[keyof typeof AccessEndpointType];
+
+/**
+ * @public
  * <p>Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.</p>
  */
 export interface AccessEndpoint {
@@ -22,17 +32,27 @@ export interface AccessEndpoint {
   VpceId?: string;
 }
 
-export enum Action {
-  CLIPBOARD_COPY_FROM_LOCAL_DEVICE = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
-  CLIPBOARD_COPY_TO_LOCAL_DEVICE = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
-  DOMAIN_PASSWORD_SIGNIN = "DOMAIN_PASSWORD_SIGNIN",
-  DOMAIN_SMART_CARD_SIGNIN = "DOMAIN_SMART_CARD_SIGNIN",
-  FILE_DOWNLOAD = "FILE_DOWNLOAD",
-  FILE_UPLOAD = "FILE_UPLOAD",
-  PRINTING_TO_LOCAL_DEVICE = "PRINTING_TO_LOCAL_DEVICE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Action = {
+  CLIPBOARD_COPY_FROM_LOCAL_DEVICE: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
+  CLIPBOARD_COPY_TO_LOCAL_DEVICE: "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
+  DOMAIN_PASSWORD_SIGNIN: "DOMAIN_PASSWORD_SIGNIN",
+  DOMAIN_SMART_CARD_SIGNIN: "DOMAIN_SMART_CARD_SIGNIN",
+  FILE_DOWNLOAD: "FILE_DOWNLOAD",
+  FILE_UPLOAD: "FILE_UPLOAD",
+  PRINTING_TO_LOCAL_DEVICE: "PRINTING_TO_LOCAL_DEVICE",
+} as const;
 
 /**
+ * @public
+ */
+export type Action = (typeof Action)[keyof typeof Action];
+
+/**
+ * @public
  * <p>Describes the S3 location.</p>
  */
 export interface S3Location {
@@ -48,6 +68,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Describes the details of the script.</p>
  */
 export interface ScriptDetails {
@@ -73,6 +94,7 @@ export interface ScriptDetails {
 }
 
 /**
+ * @public
  * <p>Describes an app block.</p>
  *          <p>App blocks are an Amazon AppStream 2.0 resource that stores the details about the
  *            virtual hard disk in an S3 bucket. It also stores the setup script with details about
@@ -118,14 +140,24 @@ export interface AppBlock {
   CreatedTime?: Date;
 }
 
-export enum PlatformType {
-  AMAZON_LINUX2 = "AMAZON_LINUX2",
-  WINDOWS = "WINDOWS",
-  WINDOWS_SERVER_2016 = "WINDOWS_SERVER_2016",
-  WINDOWS_SERVER_2019 = "WINDOWS_SERVER_2019",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlatformType = {
+  AMAZON_LINUX2: "AMAZON_LINUX2",
+  WINDOWS: "WINDOWS",
+  WINDOWS_SERVER_2016: "WINDOWS_SERVER_2016",
+  WINDOWS_SERVER_2019: "WINDOWS_SERVER_2019",
+} as const;
 
 /**
+ * @public
+ */
+export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
+
+/**
+ * @public
  * <p>Describes an application in the application catalog.</p>
  */
 export interface Application {
@@ -205,12 +237,22 @@ export interface Application {
   CreatedTime?: Date;
 }
 
-export enum ApplicationAttribute {
-  LAUNCH_PARAMETERS = "LAUNCH_PARAMETERS",
-  WORKING_DIRECTORY = "WORKING_DIRECTORY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationAttribute = {
+  LAUNCH_PARAMETERS: "LAUNCH_PARAMETERS",
+  WORKING_DIRECTORY: "WORKING_DIRECTORY",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplicationAttribute = (typeof ApplicationAttribute)[keyof typeof ApplicationAttribute];
+
+/**
+ * @public
  * <p>Describes the application fleet association.</p>
  */
 export interface ApplicationFleetAssociation {
@@ -226,6 +268,7 @@ export interface ApplicationFleetAssociation {
 }
 
 /**
+ * @public
  * <p>The persistent application settings for users of a stack.</p>
  */
 export interface ApplicationSettings {
@@ -241,6 +284,7 @@ export interface ApplicationSettings {
 }
 
 /**
+ * @public
  * <p>Describes the persistent application settings for users of a stack.</p>
  */
 export interface ApplicationSettingsResponse {
@@ -261,11 +305,23 @@ export interface ApplicationSettingsResponse {
   S3BucketName?: string;
 }
 
-export enum AppVisibility {
-  ALL = "ALL",
-  ASSOCIATED = "ASSOCIATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AppVisibility = {
+  ALL: "ALL",
+  ASSOCIATED: "ASSOCIATED",
+} as const;
 
+/**
+ * @public
+ */
+export type AppVisibility = (typeof AppVisibility)[keyof typeof AppVisibility];
+
+/**
+ * @public
+ */
 export interface AssociateApplicationFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -278,6 +334,9 @@ export interface AssociateApplicationFleetRequest {
   ApplicationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateApplicationFleetResult {
   /**
    * <p>If fleet name is specified, this returns the list of applications that are associated
@@ -288,6 +347,7 @@ export interface AssociateApplicationFleetResult {
 }
 
 /**
+ * @public
  * <p>An API error occurred. Wait a few minutes and try again.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -312,6 +372,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -336,6 +397,7 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested limit exceeds the permitted limit for an account.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -360,6 +422,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The attempted operation is not permitted.</p>
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -384,6 +447,7 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -407,6 +471,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateApplicationToEntitlementRequest {
   /**
    * <p>The name of the stack.</p>
@@ -424,9 +491,13 @@ export interface AssociateApplicationToEntitlementRequest {
   ApplicationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateApplicationToEntitlementResult {}
 
 /**
+ * @public
  * <p>The entitlement can't be found.</p>
  */
 export class EntitlementNotFoundException extends __BaseException {
@@ -450,6 +521,9 @@ export class EntitlementNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateFleetRequest {
   /**
    * <p>The name of the fleet. </p>
@@ -462,9 +536,13 @@ export interface AssociateFleetRequest {
   StackName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateFleetResult {}
 
 /**
+ * @public
  * <p>The image can't be updated because it's not compatible for updates.</p>
  */
 export class IncompatibleImageException extends __BaseException {
@@ -489,6 +567,7 @@ export class IncompatibleImageException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
  */
 export class InvalidAccountStatusException extends __BaseException {
@@ -512,14 +591,24 @@ export class InvalidAccountStatusException extends __BaseException {
   }
 }
 
-export enum AuthenticationType {
-  API = "API",
-  AWS_AD = "AWS_AD",
-  SAML = "SAML",
-  USERPOOL = "USERPOOL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticationType = {
+  API: "API",
+  AWS_AD: "AWS_AD",
+  SAML: "SAML",
+  USERPOOL: "USERPOOL",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
+/**
+ * @public
  * <p>Describes a user in the user pool and the associated stack.</p>
  */
 export interface UserStackAssociation {
@@ -547,6 +636,9 @@ export interface UserStackAssociation {
   SendEmailNotification?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateUserStackRequest {
   /**
    * <p>The list of UserStackAssociation objects.</p>
@@ -554,14 +646,25 @@ export interface BatchAssociateUserStackRequest {
   UserStackAssociations: UserStackAssociation[] | undefined;
 }
 
-export enum UserStackAssociationErrorCode {
-  DIRECTORY_NOT_FOUND = "DIRECTORY_NOT_FOUND",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STACK_NOT_FOUND = "STACK_NOT_FOUND",
-  USER_NAME_NOT_FOUND = "USER_NAME_NOT_FOUND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UserStackAssociationErrorCode = {
+  DIRECTORY_NOT_FOUND: "DIRECTORY_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  STACK_NOT_FOUND: "STACK_NOT_FOUND",
+  USER_NAME_NOT_FOUND: "USER_NAME_NOT_FOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type UserStackAssociationErrorCode =
+  (typeof UserStackAssociationErrorCode)[keyof typeof UserStackAssociationErrorCode];
+
+/**
+ * @public
  * <p>Describes the error that is returned when a user can’t be associated with or disassociated from a stack. </p>
  */
 export interface UserStackAssociationError {
@@ -581,6 +684,9 @@ export interface UserStackAssociationError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateUserStackResult {
   /**
    * <p>The list of UserStackAssociationError objects.</p>
@@ -588,6 +694,9 @@ export interface BatchAssociateUserStackResult {
   errors?: UserStackAssociationError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateUserStackRequest {
   /**
    * <p>The list of UserStackAssociation objects.</p>
@@ -595,6 +704,9 @@ export interface BatchDisassociateUserStackRequest {
   UserStackAssociations: UserStackAssociation[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateUserStackResult {
   /**
    * <p>The list of UserStackAssociationError objects.</p>
@@ -602,13 +714,23 @@ export interface BatchDisassociateUserStackResult {
   errors?: UserStackAssociationError[];
 }
 
-export enum CertificateBasedAuthStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ENABLED_NO_DIRECTORY_LOGIN_FALLBACK = "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CertificateBasedAuthStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ENABLED_NO_DIRECTORY_LOGIN_FALLBACK: "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
+} as const;
 
 /**
+ * @public
+ */
+export type CertificateBasedAuthStatus = (typeof CertificateBasedAuthStatus)[keyof typeof CertificateBasedAuthStatus];
+
+/**
+ * @public
  * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
  *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
  *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
@@ -630,6 +752,7 @@ export interface CertificateBasedAuthProperties {
 }
 
 /**
+ * @public
  * <p>Describes the capacity for a fleet.</p>
  */
 export interface ComputeCapacity {
@@ -640,6 +763,7 @@ export interface ComputeCapacity {
 }
 
 /**
+ * @public
  * <p>Describes the capacity status for a fleet.</p>
  */
 export interface ComputeCapacityStatus {
@@ -665,6 +789,9 @@ export interface ComputeCapacityStatus {
   Available?: number;
 }
 
+/**
+ * @public
+ */
 export interface CopyImageRequest {
   /**
    * <p>The name of the image to copy.</p>
@@ -687,6 +814,9 @@ export interface CopyImageRequest {
   DestinationImageDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyImageResponse {
   /**
    * <p>The name of the destination image.</p>
@@ -695,6 +825,7 @@ export interface CopyImageResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -719,6 +850,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource exists and is not in use, but isn't available.</p>
  */
 export class ResourceNotAvailableException extends __BaseException {
@@ -742,6 +874,9 @@ export class ResourceNotAvailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAppBlockRequest {
   /**
    * <p>The name of the app block.</p>
@@ -774,6 +909,9 @@ export interface CreateAppBlockRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppBlockResult {
   /**
    * <p>The app block.</p>
@@ -781,6 +919,9 @@ export interface CreateAppBlockResult {
   AppBlock?: AppBlock;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
    * <p>The name of the application. This name is visible to users when display name is not specified.</p>
@@ -838,6 +979,9 @@ export interface CreateApplicationRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationResult {
   /**
    * <p>Describes an application in the application catalog.</p>
@@ -846,6 +990,7 @@ export interface CreateApplicationResult {
 }
 
 /**
+ * @public
  * <p>Describes the credentials for the service account used by the fleet or image builder to connect to the directory.</p>
  */
 export interface ServiceAccountCredentials {
@@ -862,6 +1007,9 @@ export interface ServiceAccountCredentials {
   AccountPassword: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDirectoryConfigRequest {
   /**
    * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
@@ -891,6 +1039,7 @@ export interface CreateDirectoryConfigRequest {
 }
 
 /**
+ * @public
  * <p>Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  */
 export interface DirectoryConfig {
@@ -926,6 +1075,9 @@ export interface DirectoryConfig {
   CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
 }
 
+/**
+ * @public
+ */
 export interface CreateDirectoryConfigResult {
   /**
    * <p>Information about the directory configuration.</p>
@@ -934,6 +1086,7 @@ export interface CreateDirectoryConfigResult {
 }
 
 /**
+ * @public
  * <p>The specified role is invalid.</p>
  */
 export class InvalidRoleException extends __BaseException {
@@ -958,6 +1111,7 @@ export class InvalidRoleException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An attribute associated with an entitlement. Application entitlements work by matching
  *             a supported SAML 2.0 attribute name to a value when a user identity federates to an
  *             Amazon AppStream 2.0 SAML application.</p>
@@ -1002,6 +1156,9 @@ export interface EntitlementAttribute {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEntitlementRequest {
   /**
    * <p>The name of the entitlement.</p>
@@ -1030,6 +1187,7 @@ export interface CreateEntitlementRequest {
 }
 
 /**
+ * @public
  * <p>Specifies an entitlement. Entitlements control access to specific applications within
  *             a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
  *             identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled to all
@@ -1074,6 +1232,9 @@ export interface Entitlement {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateEntitlementResult {
   /**
    * <p>The entitlement.</p>
@@ -1082,6 +1243,7 @@ export interface CreateEntitlementResult {
 }
 
 /**
+ * @public
  * <p>The entitlement already exists.</p>
  */
 export class EntitlementAlreadyExistsException extends __BaseException {
@@ -1106,6 +1268,7 @@ export class EntitlementAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  */
 export interface DomainJoinInfo {
@@ -1120,18 +1283,37 @@ export interface DomainJoinInfo {
   OrganizationalUnitDistinguishedName?: string;
 }
 
-export enum FleetType {
-  ALWAYS_ON = "ALWAYS_ON",
-  ELASTIC = "ELASTIC",
-  ON_DEMAND = "ON_DEMAND",
-}
-
-export enum StreamView {
-  APP = "APP",
-  DESKTOP = "DESKTOP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetType = {
+  ALWAYS_ON: "ALWAYS_ON",
+  ELASTIC: "ELASTIC",
+  ON_DEMAND: "ON_DEMAND",
+} as const;
 
 /**
+ * @public
+ */
+export type FleetType = (typeof FleetType)[keyof typeof FleetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamView = {
+  APP: "APP",
+  DESKTOP: "DESKTOP",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamView = (typeof StreamView)[keyof typeof StreamView];
+
+/**
+ * @public
  * <p>Describes VPC configuration information for fleets and image builders.</p>
  */
 export interface VpcConfig {
@@ -1146,6 +1328,9 @@ export interface VpcConfig {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetRequest {
   /**
    * <p>A unique name for the fleet.</p>
@@ -1414,40 +1599,50 @@ export interface CreateFleetRequest {
   SessionScriptS3Location?: S3Location;
 }
 
-export enum FleetErrorCode {
-  DOMAIN_JOIN_ERROR_ACCESS_DENIED = "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
-  DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED = "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
-  DOMAIN_JOIN_ERROR_FILE_NOT_FOUND = "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
-  DOMAIN_JOIN_ERROR_INVALID_PARAMETER = "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
-  DOMAIN_JOIN_ERROR_LOGON_FAILURE = "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
-  DOMAIN_JOIN_ERROR_MORE_DATA = "DOMAIN_JOIN_ERROR_MORE_DATA",
-  DOMAIN_JOIN_ERROR_NOT_SUPPORTED = "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
-  DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN = "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
-  DOMAIN_JOIN_INTERNAL_SERVICE_ERROR = "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
-  DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME = "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
-  DOMAIN_JOIN_NERR_PASSWORD_EXPIRED = "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
-  DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED = "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
-  FLEET_INSTANCE_PROVISIONING_FAILURE = "FLEET_INSTANCE_PROVISIONING_FAILURE",
-  FLEET_STOPPED = "FLEET_STOPPED",
-  IAM_SERVICE_ROLE_IS_MISSING = "IAM_SERVICE_ROLE_IS_MISSING",
-  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION = "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
-  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION = "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
-  IGW_NOT_ATTACHED = "IGW_NOT_ATTACHED",
-  IMAGE_NOT_FOUND = "IMAGE_NOT_FOUND",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  INVALID_SUBNET_CONFIGURATION = "INVALID_SUBNET_CONFIGURATION",
-  MACHINE_ROLE_IS_MISSING = "MACHINE_ROLE_IS_MISSING",
-  NETWORK_INTERFACE_LIMIT_EXCEEDED = "NETWORK_INTERFACE_LIMIT_EXCEEDED",
-  SECURITY_GROUPS_NOT_FOUND = "SECURITY_GROUPS_NOT_FOUND",
-  STS_DISABLED_IN_REGION = "STS_DISABLED_IN_REGION",
-  SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES = "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
-  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetErrorCode = {
+  DOMAIN_JOIN_ERROR_ACCESS_DENIED: "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
+  DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED: "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
+  DOMAIN_JOIN_ERROR_FILE_NOT_FOUND: "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
+  DOMAIN_JOIN_ERROR_INVALID_PARAMETER: "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
+  DOMAIN_JOIN_ERROR_LOGON_FAILURE: "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
+  DOMAIN_JOIN_ERROR_MORE_DATA: "DOMAIN_JOIN_ERROR_MORE_DATA",
+  DOMAIN_JOIN_ERROR_NOT_SUPPORTED: "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
+  DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN: "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
+  DOMAIN_JOIN_INTERNAL_SERVICE_ERROR: "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
+  DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME: "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
+  DOMAIN_JOIN_NERR_PASSWORD_EXPIRED: "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
+  DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED: "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
+  FLEET_INSTANCE_PROVISIONING_FAILURE: "FLEET_INSTANCE_PROVISIONING_FAILURE",
+  FLEET_STOPPED: "FLEET_STOPPED",
+  IAM_SERVICE_ROLE_IS_MISSING: "IAM_SERVICE_ROLE_IS_MISSING",
+  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION: "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
+  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION: "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
+  IGW_NOT_ATTACHED: "IGW_NOT_ATTACHED",
+  IMAGE_NOT_FOUND: "IMAGE_NOT_FOUND",
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  INVALID_SUBNET_CONFIGURATION: "INVALID_SUBNET_CONFIGURATION",
+  MACHINE_ROLE_IS_MISSING: "MACHINE_ROLE_IS_MISSING",
+  NETWORK_INTERFACE_LIMIT_EXCEEDED: "NETWORK_INTERFACE_LIMIT_EXCEEDED",
+  SECURITY_GROUPS_NOT_FOUND: "SECURITY_GROUPS_NOT_FOUND",
+  STS_DISABLED_IN_REGION: "STS_DISABLED_IN_REGION",
+  SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES: "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type FleetErrorCode = (typeof FleetErrorCode)[keyof typeof FleetErrorCode];
+
+/**
+ * @public
  * <p>Describes a fleet error.</p>
  */
 export interface FleetError {
@@ -1462,14 +1657,24 @@ export interface FleetError {
   ErrorMessage?: string;
 }
 
-export enum FleetState {
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetState = {
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
 
 /**
+ * @public
+ */
+export type FleetState = (typeof FleetState)[keyof typeof FleetState];
+
+/**
+ * @public
  * <p>Describes a fleet.</p>
  */
 export interface Fleet {
@@ -1725,6 +1930,9 @@ export interface Fleet {
   SessionScriptS3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetResult {
   /**
    * <p>Information about the fleet.</p>
@@ -1733,6 +1941,7 @@ export interface CreateFleetResult {
 }
 
 /**
+ * @public
  * <p>AppStream 2.0 can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
  */
 export class RequestLimitExceededException extends __BaseException {
@@ -1756,6 +1965,9 @@ export class RequestLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateImageBuilderRequest {
   /**
    * <p>A unique name for the image builder.</p>
@@ -1930,6 +2142,7 @@ export interface CreateImageBuilderRequest {
 }
 
 /**
+ * @public
  * <p>Describes a resource error.</p>
  */
 export interface ResourceError {
@@ -1950,6 +2163,7 @@ export interface ResourceError {
 }
 
 /**
+ * @public
  * <p>Describes the network details of the fleet or image builder instance.</p>
  */
 export interface NetworkAccessConfiguration {
@@ -1964,26 +2178,46 @@ export interface NetworkAccessConfiguration {
   EniId?: string;
 }
 
-export enum ImageBuilderState {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PENDING_QUALIFICATION = "PENDING_QUALIFICATION",
-  REBOOTING = "REBOOTING",
-  RUNNING = "RUNNING",
-  SNAPSHOTTING = "SNAPSHOTTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-  UPDATING_AGENT = "UPDATING_AGENT",
-}
-
-export enum ImageBuilderStateChangeReasonCode {
-  IMAGE_UNAVAILABLE = "IMAGE_UNAVAILABLE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImageBuilderState = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  PENDING_QUALIFICATION: "PENDING_QUALIFICATION",
+  REBOOTING: "REBOOTING",
+  RUNNING: "RUNNING",
+  SNAPSHOTTING: "SNAPSHOTTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+  UPDATING_AGENT: "UPDATING_AGENT",
+} as const;
 
 /**
+ * @public
+ */
+export type ImageBuilderState = (typeof ImageBuilderState)[keyof typeof ImageBuilderState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageBuilderStateChangeReasonCode = {
+  IMAGE_UNAVAILABLE: "IMAGE_UNAVAILABLE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageBuilderStateChangeReasonCode =
+  (typeof ImageBuilderStateChangeReasonCode)[keyof typeof ImageBuilderStateChangeReasonCode];
+
+/**
+ * @public
  * <p>Describes the reason why the last image builder state change occurred.</p>
  */
 export interface ImageBuilderStateChangeReason {
@@ -1999,6 +2233,7 @@ export interface ImageBuilderStateChangeReason {
 }
 
 /**
+ * @public
  * <p>Describes a virtual machine that is used to create an image. </p>
  */
 export interface ImageBuilder {
@@ -2195,6 +2430,9 @@ export interface ImageBuilder {
   AccessEndpoints?: AccessEndpoint[];
 }
 
+/**
+ * @public
+ */
 export interface CreateImageBuilderResult {
   /**
    * <p>Information about the image builder.</p>
@@ -2202,6 +2440,9 @@ export interface CreateImageBuilderResult {
   ImageBuilder?: ImageBuilder;
 }
 
+/**
+ * @public
+ */
 export interface CreateImageBuilderStreamingURLRequest {
   /**
    * <p>The name of the image builder.</p>
@@ -2215,6 +2456,9 @@ export interface CreateImageBuilderStreamingURLRequest {
   Validity?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateImageBuilderStreamingURLResult {
   /**
    * <p>The URL to start the AppStream 2.0 streaming session.</p>
@@ -2227,13 +2471,23 @@ export interface CreateImageBuilderStreamingURLResult {
   Expires?: Date;
 }
 
-export enum StorageConnectorType {
-  GOOGLE_DRIVE = "GOOGLE_DRIVE",
-  HOMEFOLDERS = "HOMEFOLDERS",
-  ONE_DRIVE = "ONE_DRIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StorageConnectorType = {
+  GOOGLE_DRIVE: "GOOGLE_DRIVE",
+  HOMEFOLDERS: "HOMEFOLDERS",
+  ONE_DRIVE: "ONE_DRIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type StorageConnectorType = (typeof StorageConnectorType)[keyof typeof StorageConnectorType];
+
+/**
+ * @public
  * <p>Describes a connector that enables persistent storage for users.</p>
  */
 export interface StorageConnector {
@@ -2253,12 +2507,22 @@ export interface StorageConnector {
   Domains?: string[];
 }
 
-export enum PreferredProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PreferredProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
 
 /**
+ * @public
+ */
+export type PreferredProtocol = (typeof PreferredProtocol)[keyof typeof PreferredProtocol];
+
+/**
+ * @public
  * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
  */
 export interface StreamingExperienceSettings {
@@ -2268,12 +2532,22 @@ export interface StreamingExperienceSettings {
   PreferredProtocol?: PreferredProtocol | string;
 }
 
-export enum Permission {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Permission = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
+
+/**
+ * @public
  * <p>Describes an action and whether the action is enabled or disabled for users during their streaming sessions.</p>
  */
 export interface UserSetting {
@@ -2288,6 +2562,9 @@ export interface UserSetting {
   Permission: Permission | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateStackRequest {
   /**
    * <p>The name of the stack.</p>
@@ -2354,12 +2631,22 @@ export interface CreateStackRequest {
   StreamingExperienceSettings?: StreamingExperienceSettings;
 }
 
-export enum StackErrorCode {
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  STORAGE_CONNECTOR_ERROR = "STORAGE_CONNECTOR_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackErrorCode = {
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  STORAGE_CONNECTOR_ERROR: "STORAGE_CONNECTOR_ERROR",
+} as const;
 
 /**
+ * @public
+ */
+export type StackErrorCode = (typeof StackErrorCode)[keyof typeof StackErrorCode];
+
+/**
+ * @public
  * <p>Describes a stack error.</p>
  */
 export interface StackError {
@@ -2375,6 +2662,7 @@ export interface StackError {
 }
 
 /**
+ * @public
  * <p>Describes a stack.</p>
  */
 export interface Stack {
@@ -2449,6 +2737,9 @@ export interface Stack {
   StreamingExperienceSettings?: StreamingExperienceSettings;
 }
 
+/**
+ * @public
+ */
 export interface CreateStackResult {
   /**
    * <p>Information about the stack.</p>
@@ -2456,6 +2747,9 @@ export interface CreateStackResult {
   Stack?: Stack;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingURLRequest {
   /**
    * <p>The name of the stack.</p>
@@ -2490,6 +2784,9 @@ export interface CreateStreamingURLRequest {
   SessionContext?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingURLResult {
   /**
    * <p>The URL to start the AppStream 2.0 streaming session.</p>
@@ -2502,6 +2799,9 @@ export interface CreateStreamingURLResult {
   Expires?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateUpdatedImageRequest {
   /**
    * <p>The name of the image to update.</p>
@@ -2539,6 +2839,7 @@ export interface CreateUpdatedImageRequest {
 }
 
 /**
+ * @public
  * <p>Describes the permissions for an image. </p>
  */
 export interface ImagePermissions {
@@ -2553,23 +2854,42 @@ export interface ImagePermissions {
   allowImageBuilder?: boolean;
 }
 
-export enum ImageState {
-  AVAILABLE = "AVAILABLE",
-  COPYING = "COPYING",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  IMPORTING = "IMPORTING",
-  PENDING = "PENDING",
-}
-
-export enum ImageStateChangeReasonCode {
-  IMAGE_BUILDER_NOT_AVAILABLE = "IMAGE_BUILDER_NOT_AVAILABLE",
-  IMAGE_COPY_FAILURE = "IMAGE_COPY_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImageState = {
+  AVAILABLE: "AVAILABLE",
+  COPYING: "COPYING",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IMPORTING: "IMPORTING",
+  PENDING: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type ImageState = (typeof ImageState)[keyof typeof ImageState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageStateChangeReasonCode = {
+  IMAGE_BUILDER_NOT_AVAILABLE: "IMAGE_BUILDER_NOT_AVAILABLE",
+  IMAGE_COPY_FAILURE: "IMAGE_COPY_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageStateChangeReasonCode = (typeof ImageStateChangeReasonCode)[keyof typeof ImageStateChangeReasonCode];
+
+/**
+ * @public
  * <p>Describes the reason why the last image state change occurred.</p>
  */
 export interface ImageStateChangeReason {
@@ -2584,13 +2904,23 @@ export interface ImageStateChangeReason {
   Message?: string;
 }
 
-export enum VisibilityType {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-  SHARED = "SHARED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VisibilityType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+  SHARED: "SHARED",
+} as const;
 
 /**
+ * @public
+ */
+export type VisibilityType = (typeof VisibilityType)[keyof typeof VisibilityType];
+
+/**
+ * @public
  * <p>Describes an image.</p>
  */
 export interface Image {
@@ -2682,6 +3012,9 @@ export interface Image {
   ImageErrors?: ResourceError[];
 }
 
+/**
+ * @public
+ */
 export interface CreateUpdatedImageResult {
   /**
    * <p>Describes an image.</p>
@@ -2694,12 +3027,27 @@ export interface CreateUpdatedImageResult {
   canUpdateImage?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateUsageReportSubscriptionRequest {}
 
-export enum UsageReportSchedule {
-  DAILY = "DAILY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UsageReportSchedule = {
+  DAILY: "DAILY",
+} as const;
 
+/**
+ * @public
+ */
+export type UsageReportSchedule = (typeof UsageReportSchedule)[keyof typeof UsageReportSchedule];
+
+/**
+ * @public
+ */
 export interface CreateUsageReportSubscriptionResult {
   /**
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
@@ -2717,11 +3065,23 @@ export interface CreateUsageReportSubscriptionResult {
   Schedule?: UsageReportSchedule | string;
 }
 
-export enum MessageAction {
-  RESEND = "RESEND",
-  SUPPRESS = "SUPPRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MessageAction = {
+  RESEND: "RESEND",
+  SUPPRESS: "SUPPRESS",
+} as const;
 
+/**
+ * @public
+ */
+export type MessageAction = (typeof MessageAction)[keyof typeof MessageAction];
+
+/**
+ * @public
+ */
 export interface CreateUserRequest {
   /**
    * <p>The email address of the user.</p>
@@ -2755,8 +3115,14 @@ export interface CreateUserRequest {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResult {}
 
+/**
+ * @public
+ */
 export interface DeleteAppBlockRequest {
   /**
    * <p>The name of the app block.</p>
@@ -2764,9 +3130,13 @@ export interface DeleteAppBlockRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppBlockResult {}
 
 /**
+ * @public
  * <p>The specified resource is in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -2790,6 +3160,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>The name of the application.</p>
@@ -2797,8 +3170,14 @@ export interface DeleteApplicationRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationResult {}
 
+/**
+ * @public
+ */
 export interface DeleteDirectoryConfigRequest {
   /**
    * <p>The name of the directory configuration.</p>
@@ -2806,8 +3185,14 @@ export interface DeleteDirectoryConfigRequest {
   DirectoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDirectoryConfigResult {}
 
+/**
+ * @public
+ */
 export interface DeleteEntitlementRequest {
   /**
    * <p>The name of the entitlement.</p>
@@ -2820,8 +3205,14 @@ export interface DeleteEntitlementRequest {
   StackName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEntitlementResult {}
 
+/**
+ * @public
+ */
 export interface DeleteFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -2829,8 +3220,14 @@ export interface DeleteFleetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetResult {}
 
+/**
+ * @public
+ */
 export interface DeleteImageRequest {
   /**
    * <p>The name of the image.</p>
@@ -2838,6 +3235,9 @@ export interface DeleteImageRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImageResult {
   /**
    * <p>Information about the image.</p>
@@ -2845,6 +3245,9 @@ export interface DeleteImageResult {
   Image?: Image;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImageBuilderRequest {
   /**
    * <p>The name of the image builder.</p>
@@ -2852,6 +3255,9 @@ export interface DeleteImageBuilderRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImageBuilderResult {
   /**
    * <p>Information about the image builder.</p>
@@ -2859,6 +3265,9 @@ export interface DeleteImageBuilderResult {
   ImageBuilder?: ImageBuilder;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImagePermissionsRequest {
   /**
    * <p>The name of the private image.</p>
@@ -2871,8 +3280,14 @@ export interface DeleteImagePermissionsRequest {
   SharedAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImagePermissionsResult {}
 
+/**
+ * @public
+ */
 export interface DeleteStackRequest {
   /**
    * <p>The name of the stack.</p>
@@ -2880,12 +3295,24 @@ export interface DeleteStackRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStackResult {}
 
+/**
+ * @public
+ */
 export interface DeleteUsageReportSubscriptionRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteUsageReportSubscriptionResult {}
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The email address of the user.</p>
@@ -2901,8 +3328,14 @@ export interface DeleteUserRequest {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserResult {}
 
+/**
+ * @public
+ */
 export interface DescribeAppBlocksRequest {
   /**
    * <p>The ARNs of the app blocks.</p>
@@ -2921,6 +3354,9 @@ export interface DescribeAppBlocksRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppBlocksResult {
   /**
    * <p>The app blocks in the list.</p>
@@ -2934,6 +3370,9 @@ export interface DescribeAppBlocksResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationFleetAssociationsRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -2957,6 +3396,9 @@ export interface DescribeApplicationFleetAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationFleetAssociationsResult {
   /**
    * <p>The application fleet associations in the list.</p>
@@ -2970,6 +3412,9 @@ export interface DescribeApplicationFleetAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationsRequest {
   /**
    * <p>The ARNs for the applications.</p>
@@ -2988,6 +3433,9 @@ export interface DescribeApplicationsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationsResult {
   /**
    * <p>The applications in the list.</p>
@@ -3001,6 +3449,9 @@ export interface DescribeApplicationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDirectoryConfigsRequest {
   /**
    * <p>The directory names.</p>
@@ -3018,6 +3469,9 @@ export interface DescribeDirectoryConfigsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDirectoryConfigsResult {
   /**
    * <p>Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response. </p>
@@ -3030,6 +3484,9 @@ export interface DescribeDirectoryConfigsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntitlementsRequest {
   /**
    * <p>The name of the entitlement.</p>
@@ -3052,6 +3509,9 @@ export interface DescribeEntitlementsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntitlementsResult {
   /**
    * <p>The entitlements.</p>
@@ -3065,6 +3525,9 @@ export interface DescribeEntitlementsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetsRequest {
   /**
    * <p>The names of the fleets to describe.</p>
@@ -3077,6 +3540,9 @@ export interface DescribeFleetsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetsResult {
   /**
    * <p>Information about the fleets.</p>
@@ -3089,6 +3555,9 @@ export interface DescribeFleetsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageBuildersRequest {
   /**
    * <p>The names of the image builders to describe.</p>
@@ -3106,6 +3575,9 @@ export interface DescribeImageBuildersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageBuildersResult {
   /**
    * <p>Information about the image builders.</p>
@@ -3118,6 +3590,9 @@ export interface DescribeImageBuildersResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImagePermissionsRequest {
   /**
    * <p>The name of the private image for which to describe permissions. The image must be one that you own. </p>
@@ -3141,6 +3616,7 @@ export interface DescribeImagePermissionsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the permissions that are available to the specified AWS account for a shared image.</p>
  */
 export interface SharedImagePermissions {
@@ -3155,6 +3631,9 @@ export interface SharedImagePermissions {
   imagePermissions: ImagePermissions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImagePermissionsResult {
   /**
    * <p>The name of the private image.</p>
@@ -3172,6 +3651,9 @@ export interface DescribeImagePermissionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImagesRequest {
   /**
    * <p>The names of the public or private images to describe.</p>
@@ -3199,6 +3681,9 @@ export interface DescribeImagesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImagesResult {
   /**
    * <p>Information about the images.</p>
@@ -3211,6 +3696,9 @@ export interface DescribeImagesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSessionsRequest {
   /**
    * <p>The name of the stack. This value is case-sensitive.</p>
@@ -3245,18 +3733,37 @@ export interface DescribeSessionsRequest {
   AuthenticationType?: AuthenticationType | string;
 }
 
-export enum SessionConnectionState {
-  CONNECTED = "CONNECTED",
-  NOT_CONNECTED = "NOT_CONNECTED",
-}
-
-export enum SessionState {
-  ACTIVE = "ACTIVE",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SessionConnectionState = {
+  CONNECTED: "CONNECTED",
+  NOT_CONNECTED: "NOT_CONNECTED",
+} as const;
 
 /**
+ * @public
+ */
+export type SessionConnectionState = (typeof SessionConnectionState)[keyof typeof SessionConnectionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionState = {
+  ACTIVE: "ACTIVE",
+  EXPIRED: "EXPIRED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionState = (typeof SessionState)[keyof typeof SessionState];
+
+/**
+ * @public
  * <p>Describes a streaming session.</p>
  */
 export interface Session {
@@ -3312,6 +3819,9 @@ export interface Session {
   NetworkAccessConfiguration?: NetworkAccessConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSessionsResult {
   /**
    * <p>Information about the streaming sessions.</p>
@@ -3324,6 +3834,9 @@ export interface DescribeSessionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStacksRequest {
   /**
    * <p>The names of the stacks to describe.</p>
@@ -3336,6 +3849,9 @@ export interface DescribeStacksRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStacksResult {
   /**
    * <p>Information about the stacks.</p>
@@ -3348,6 +3864,9 @@ export interface DescribeStacksResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsageReportSubscriptionsRequest {
   /**
    * <p>The maximum size of each page of results.</p>
@@ -3360,13 +3879,24 @@ export interface DescribeUsageReportSubscriptionsRequest {
   NextToken?: string;
 }
 
-export enum UsageReportExecutionErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UsageReportExecutionErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type UsageReportExecutionErrorCode =
+  (typeof UsageReportExecutionErrorCode)[keyof typeof UsageReportExecutionErrorCode];
+
+/**
+ * @public
  * <p>Describes the error that is returned when a usage report can't be generated.</p>
  */
 export interface LastReportGenerationExecutionError {
@@ -3382,6 +3912,7 @@ export interface LastReportGenerationExecutionError {
 }
 
 /**
+ * @public
  * <p>Describes information about the usage report subscription.</p>
  */
 export interface UsageReportSubscription {
@@ -3411,6 +3942,9 @@ export interface UsageReportSubscription {
   SubscriptionErrors?: LastReportGenerationExecutionError[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsageReportSubscriptionsResult {
   /**
    * <p>Information about the usage report subscription.</p>
@@ -3423,6 +3957,9 @@ export interface DescribeUsageReportSubscriptionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsersRequest {
   /**
    * <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
@@ -3441,6 +3978,7 @@ export interface DescribeUsersRequest {
 }
 
 /**
+ * @public
  * <p>Describes a user in the user pool.</p>
  */
 export interface User {
@@ -3505,6 +4043,9 @@ export interface User {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsersResult {
   /**
    * <p>Information about users in the user pool.</p>
@@ -3517,6 +4058,9 @@ export interface DescribeUsersResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserStackAssociationsRequest {
   /**
    * <p>The name of the stack that is associated with the user.</p>
@@ -3547,6 +4091,9 @@ export interface DescribeUserStackAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserStackAssociationsResult {
   /**
    * <p>The UserStackAssociation objects.</p>
@@ -3559,6 +4106,9 @@ export interface DescribeUserStackAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisableUserRequest {
   /**
    * <p>The email address of the user.</p>
@@ -3574,8 +4124,14 @@ export interface DisableUserRequest {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableUserResult {}
 
+/**
+ * @public
+ */
 export interface DisassociateApplicationFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -3588,8 +4144,14 @@ export interface DisassociateApplicationFleetRequest {
   ApplicationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateApplicationFleetResult {}
 
+/**
+ * @public
+ */
 export interface DisassociateApplicationFromEntitlementRequest {
   /**
    * <p>The name of the stack with which the entitlement is associated.</p>
@@ -3607,8 +4169,14 @@ export interface DisassociateApplicationFromEntitlementRequest {
   ApplicationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateApplicationFromEntitlementResult {}
 
+/**
+ * @public
+ */
 export interface DisassociateFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -3621,8 +4189,14 @@ export interface DisassociateFleetRequest {
   StackName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateFleetResult {}
 
+/**
+ * @public
+ */
 export interface EnableUserRequest {
   /**
    * <p>The email address of the user.</p>
@@ -3638,9 +4212,13 @@ export interface EnableUserRequest {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableUserResult {}
 
 /**
+ * @public
  * <p>The application associated to an entitlement. Access is controlled based on user attributes.</p>
  */
 export interface EntitledApplication {
@@ -3650,6 +4228,9 @@ export interface EntitledApplication {
   ApplicationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExpireSessionRequest {
   /**
    * <p>The identifier of the streaming session.</p>
@@ -3657,17 +4238,32 @@ export interface ExpireSessionRequest {
   SessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExpireSessionResult {}
 
-export enum FleetAttribute {
-  DOMAIN_JOIN_INFO = "DOMAIN_JOIN_INFO",
-  IAM_ROLE_ARN = "IAM_ROLE_ARN",
-  SESSION_SCRIPT_S3_LOCATION = "SESSION_SCRIPT_S3_LOCATION",
-  USB_DEVICE_FILTER_STRINGS = "USB_DEVICE_FILTER_STRINGS",
-  VPC_CONFIGURATION = "VPC_CONFIGURATION",
-  VPC_CONFIGURATION_SECURITY_GROUP_IDS = "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetAttribute = {
+  DOMAIN_JOIN_INFO: "DOMAIN_JOIN_INFO",
+  IAM_ROLE_ARN: "IAM_ROLE_ARN",
+  SESSION_SCRIPT_S3_LOCATION: "SESSION_SCRIPT_S3_LOCATION",
+  USB_DEVICE_FILTER_STRINGS: "USB_DEVICE_FILTER_STRINGS",
+  VPC_CONFIGURATION: "VPC_CONFIGURATION",
+  VPC_CONFIGURATION_SECURITY_GROUP_IDS: "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
+} as const;
 
+/**
+ * @public
+ */
+export type FleetAttribute = (typeof FleetAttribute)[keyof typeof FleetAttribute];
+
+/**
+ * @public
+ */
 export interface ListAssociatedFleetsRequest {
   /**
    * <p>The name of the stack.</p>
@@ -3680,6 +4276,9 @@ export interface ListAssociatedFleetsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociatedFleetsResult {
   /**
    * <p>The name of the fleet.</p>
@@ -3692,6 +4291,9 @@ export interface ListAssociatedFleetsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociatedStacksRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -3704,6 +4306,9 @@ export interface ListAssociatedStacksRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociatedStacksResult {
   /**
    * <p>The name of the stack.</p>
@@ -3716,6 +4321,9 @@ export interface ListAssociatedStacksResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitledApplicationsRequest {
   /**
    * <p>The name of the stack with which the entitlement is associated.</p>
@@ -3738,6 +4346,9 @@ export interface ListEntitledApplicationsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitledApplicationsResult {
   /**
    * <p>The entitled applications.</p>
@@ -3750,6 +4361,9 @@ export interface ListEntitledApplicationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3757,6 +4371,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The information about the tags.</p>
@@ -3764,6 +4381,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -3771,8 +4391,14 @@ export interface StartFleetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartFleetResult {}
 
+/**
+ * @public
+ */
 export interface StartImageBuilderRequest {
   /**
    * <p>The name of the image builder.</p>
@@ -3785,6 +4411,9 @@ export interface StartImageBuilderRequest {
   AppstreamAgentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartImageBuilderResult {
   /**
    * <p>Information about the image builder.</p>
@@ -3792,6 +4421,9 @@ export interface StartImageBuilderResult {
   ImageBuilder?: ImageBuilder;
 }
 
+/**
+ * @public
+ */
 export interface StopFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -3799,8 +4431,14 @@ export interface StopFleetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopFleetResult {}
 
+/**
+ * @public
+ */
 export interface StopImageBuilderRequest {
   /**
    * <p>The name of the image builder.</p>
@@ -3808,6 +4446,9 @@ export interface StopImageBuilderRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopImageBuilderResult {
   /**
    * <p>Information about the image builder.</p>
@@ -3815,6 +4456,9 @@ export interface StopImageBuilderResult {
   ImageBuilder?: ImageBuilder;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3830,8 +4474,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3844,8 +4494,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
    * <p>The name of the application. This name is visible to users when display name is not specified.</p>
@@ -3893,6 +4549,9 @@ export interface UpdateApplicationRequest {
   AttributesToDelete?: (ApplicationAttribute | string)[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationResult {
   /**
    * <p>Describes an application in the application catalog.</p>
@@ -3900,6 +4559,9 @@ export interface UpdateApplicationResult {
   Application?: Application;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDirectoryConfigRequest {
   /**
    * <p>The name of the Directory Config object.</p>
@@ -3928,6 +4590,9 @@ export interface UpdateDirectoryConfigRequest {
   CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDirectoryConfigResult {
   /**
    * <p>Information about the Directory Config object.</p>
@@ -3935,6 +4600,9 @@ export interface UpdateDirectoryConfigResult {
   DirectoryConfig?: DirectoryConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEntitlementRequest {
   /**
    * <p>The name of the entitlement.</p>
@@ -3962,6 +4630,9 @@ export interface UpdateEntitlementRequest {
   Attributes?: EntitlementAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateEntitlementResult {
   /**
    * <p>The entitlement.</p>
@@ -3969,6 +4640,9 @@ export interface UpdateEntitlementResult {
   Entitlement?: Entitlement;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetRequest {
   /**
    * <p>The name of the image used to create the fleet.</p>
@@ -4220,6 +4894,9 @@ export interface UpdateFleetRequest {
   SessionScriptS3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetResult {
   /**
    * <p>Information about the fleet.</p>
@@ -4227,6 +4904,9 @@ export interface UpdateFleetResult {
   Fleet?: Fleet;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImagePermissionsRequest {
   /**
    * <p>The name of the private image.</p>
@@ -4244,23 +4924,38 @@ export interface UpdateImagePermissionsRequest {
   ImagePermissions: ImagePermissions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImagePermissionsResult {}
 
-export enum StackAttribute {
-  ACCESS_ENDPOINTS = "ACCESS_ENDPOINTS",
-  EMBED_HOST_DOMAINS = "EMBED_HOST_DOMAINS",
-  FEEDBACK_URL = "FEEDBACK_URL",
-  IAM_ROLE_ARN = "IAM_ROLE_ARN",
-  REDIRECT_URL = "REDIRECT_URL",
-  STORAGE_CONNECTORS = "STORAGE_CONNECTORS",
-  STORAGE_CONNECTOR_GOOGLE_DRIVE = "STORAGE_CONNECTOR_GOOGLE_DRIVE",
-  STORAGE_CONNECTOR_HOMEFOLDERS = "STORAGE_CONNECTOR_HOMEFOLDERS",
-  STORAGE_CONNECTOR_ONE_DRIVE = "STORAGE_CONNECTOR_ONE_DRIVE",
-  STREAMING_EXPERIENCE_SETTINGS = "STREAMING_EXPERIENCE_SETTINGS",
-  THEME_NAME = "THEME_NAME",
-  USER_SETTINGS = "USER_SETTINGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackAttribute = {
+  ACCESS_ENDPOINTS: "ACCESS_ENDPOINTS",
+  EMBED_HOST_DOMAINS: "EMBED_HOST_DOMAINS",
+  FEEDBACK_URL: "FEEDBACK_URL",
+  IAM_ROLE_ARN: "IAM_ROLE_ARN",
+  REDIRECT_URL: "REDIRECT_URL",
+  STORAGE_CONNECTORS: "STORAGE_CONNECTORS",
+  STORAGE_CONNECTOR_GOOGLE_DRIVE: "STORAGE_CONNECTOR_GOOGLE_DRIVE",
+  STORAGE_CONNECTOR_HOMEFOLDERS: "STORAGE_CONNECTOR_HOMEFOLDERS",
+  STORAGE_CONNECTOR_ONE_DRIVE: "STORAGE_CONNECTOR_ONE_DRIVE",
+  STREAMING_EXPERIENCE_SETTINGS: "STREAMING_EXPERIENCE_SETTINGS",
+  THEME_NAME: "THEME_NAME",
+  USER_SETTINGS: "USER_SETTINGS",
+} as const;
 
+/**
+ * @public
+ */
+export type StackAttribute = (typeof StackAttribute)[keyof typeof StackAttribute];
+
+/**
+ * @public
+ */
 export interface UpdateStackRequest {
   /**
    * <p>The stack name to display.</p>
@@ -4330,114 +5025,15 @@ export interface UpdateStackRequest {
   StreamingExperienceSettings?: StreamingExperienceSettings;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStackResult {
   /**
    * <p>Information about the stack.</p>
    */
   Stack?: Stack;
 }
-
-/**
- * @internal
- */
-export const AccessEndpointFilterSensitiveLog = (obj: AccessEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScriptDetailsFilterSensitiveLog = (obj: ScriptDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppBlockFilterSensitiveLog = (obj: AppBlock): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationFleetAssociationFilterSensitiveLog = (obj: ApplicationFleetAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationSettingsFilterSensitiveLog = (obj: ApplicationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationSettingsResponseFilterSensitiveLog = (obj: ApplicationSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateApplicationFleetRequestFilterSensitiveLog = (obj: AssociateApplicationFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateApplicationFleetResultFilterSensitiveLog = (obj: AssociateApplicationFleetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateApplicationToEntitlementRequestFilterSensitiveLog = (
-  obj: AssociateApplicationToEntitlementRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateApplicationToEntitlementResultFilterSensitiveLog = (
-  obj: AssociateApplicationToEntitlementResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateFleetRequestFilterSensitiveLog = (obj: AssociateFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateFleetResultFilterSensitiveLog = (obj: AssociateFleetResult): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -4496,69 +5092,6 @@ export const BatchDisassociateUserStackResultFilterSensitiveLog = (obj: BatchDis
 /**
  * @internal
  */
-export const CertificateBasedAuthPropertiesFilterSensitiveLog = (obj: CertificateBasedAuthProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComputeCapacityFilterSensitiveLog = (obj: ComputeCapacity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComputeCapacityStatusFilterSensitiveLog = (obj: ComputeCapacityStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyImageRequestFilterSensitiveLog = (obj: CopyImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyImageResponseFilterSensitiveLog = (obj: CopyImageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppBlockRequestFilterSensitiveLog = (obj: CreateAppBlockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppBlockResultFilterSensitiveLog = (obj: CreateAppBlockResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApplicationResultFilterSensitiveLog = (obj: CreateApplicationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ServiceAccountCredentialsFilterSensitiveLog = (obj: ServiceAccountCredentials): any => ({
   ...obj,
   ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
@@ -4596,408 +5129,11 @@ export const CreateDirectoryConfigResultFilterSensitiveLog = (obj: CreateDirecto
 /**
  * @internal
  */
-export const EntitlementAttributeFilterSensitiveLog = (obj: EntitlementAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEntitlementRequestFilterSensitiveLog = (obj: CreateEntitlementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EntitlementFilterSensitiveLog = (obj: Entitlement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEntitlementResultFilterSensitiveLog = (obj: CreateEntitlementResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainJoinInfoFilterSensitiveLog = (obj: DomainJoinInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConfigFilterSensitiveLog = (obj: VpcConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetRequestFilterSensitiveLog = (obj: CreateFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetErrorFilterSensitiveLog = (obj: FleetError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetFilterSensitiveLog = (obj: Fleet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetResultFilterSensitiveLog = (obj: CreateFleetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateImageBuilderRequestFilterSensitiveLog = (obj: CreateImageBuilderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceErrorFilterSensitiveLog = (obj: ResourceError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkAccessConfigurationFilterSensitiveLog = (obj: NetworkAccessConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageBuilderStateChangeReasonFilterSensitiveLog = (obj: ImageBuilderStateChangeReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageBuilderFilterSensitiveLog = (obj: ImageBuilder): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateImageBuilderResultFilterSensitiveLog = (obj: CreateImageBuilderResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateImageBuilderStreamingURLRequestFilterSensitiveLog = (
-  obj: CreateImageBuilderStreamingURLRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateImageBuilderStreamingURLResultFilterSensitiveLog = (
-  obj: CreateImageBuilderStreamingURLResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StorageConnectorFilterSensitiveLog = (obj: StorageConnector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingExperienceSettingsFilterSensitiveLog = (obj: StreamingExperienceSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserSettingFilterSensitiveLog = (obj: UserSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStackRequestFilterSensitiveLog = (obj: CreateStackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackErrorFilterSensitiveLog = (obj: StackError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackFilterSensitiveLog = (obj: Stack): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStackResultFilterSensitiveLog = (obj: CreateStackResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingURLRequestFilterSensitiveLog = (obj: CreateStreamingURLRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingURLResultFilterSensitiveLog = (obj: CreateStreamingURLResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUpdatedImageRequestFilterSensitiveLog = (obj: CreateUpdatedImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImagePermissionsFilterSensitiveLog = (obj: ImagePermissions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageStateChangeReasonFilterSensitiveLog = (obj: ImageStateChangeReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageFilterSensitiveLog = (obj: Image): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUpdatedImageResultFilterSensitiveLog = (obj: CreateUpdatedImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUsageReportSubscriptionRequestFilterSensitiveLog = (
-  obj: CreateUsageReportSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUsageReportSubscriptionResultFilterSensitiveLog = (
-  obj: CreateUsageReportSubscriptionResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
   ...obj,
   ...(obj.UserName && { UserName: SENSITIVE_STRING }),
   ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
   ...(obj.LastName && { LastName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateUserResultFilterSensitiveLog = (obj: CreateUserResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppBlockRequestFilterSensitiveLog = (obj: DeleteAppBlockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppBlockResultFilterSensitiveLog = (obj: DeleteAppBlockResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApplicationResultFilterSensitiveLog = (obj: DeleteApplicationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDirectoryConfigRequestFilterSensitiveLog = (obj: DeleteDirectoryConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDirectoryConfigResultFilterSensitiveLog = (obj: DeleteDirectoryConfigResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEntitlementRequestFilterSensitiveLog = (obj: DeleteEntitlementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEntitlementResultFilterSensitiveLog = (obj: DeleteEntitlementResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFleetRequestFilterSensitiveLog = (obj: DeleteFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFleetResultFilterSensitiveLog = (obj: DeleteFleetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteImageRequestFilterSensitiveLog = (obj: DeleteImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteImageResultFilterSensitiveLog = (obj: DeleteImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteImageBuilderRequestFilterSensitiveLog = (obj: DeleteImageBuilderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteImageBuilderResultFilterSensitiveLog = (obj: DeleteImageBuilderResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteImagePermissionsRequestFilterSensitiveLog = (obj: DeleteImagePermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteImagePermissionsResultFilterSensitiveLog = (obj: DeleteImagePermissionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStackRequestFilterSensitiveLog = (obj: DeleteStackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStackResultFilterSensitiveLog = (obj: DeleteStackResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUsageReportSubscriptionRequestFilterSensitiveLog = (
-  obj: DeleteUsageReportSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUsageReportSubscriptionResultFilterSensitiveLog = (
-  obj: DeleteUsageReportSubscriptionResult
-): any => ({
-  ...obj,
 });
 
 /**
@@ -5011,222 +5147,11 @@ export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any
 /**
  * @internal
  */
-export const DeleteUserResultFilterSensitiveLog = (obj: DeleteUserResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppBlocksRequestFilterSensitiveLog = (obj: DescribeAppBlocksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppBlocksResultFilterSensitiveLog = (obj: DescribeAppBlocksResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationFleetAssociationsRequestFilterSensitiveLog = (
-  obj: DescribeApplicationFleetAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationFleetAssociationsResultFilterSensitiveLog = (
-  obj: DescribeApplicationFleetAssociationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationsRequestFilterSensitiveLog = (obj: DescribeApplicationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationsResultFilterSensitiveLog = (obj: DescribeApplicationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDirectoryConfigsRequestFilterSensitiveLog = (obj: DescribeDirectoryConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeDirectoryConfigsResultFilterSensitiveLog = (obj: DescribeDirectoryConfigsResult): any => ({
   ...obj,
   ...(obj.DirectoryConfigs && {
     DirectoryConfigs: obj.DirectoryConfigs.map((item) => DirectoryConfigFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const DescribeEntitlementsRequestFilterSensitiveLog = (obj: DescribeEntitlementsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEntitlementsResultFilterSensitiveLog = (obj: DescribeEntitlementsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetsRequestFilterSensitiveLog = (obj: DescribeFleetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetsResultFilterSensitiveLog = (obj: DescribeFleetsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImageBuildersRequestFilterSensitiveLog = (obj: DescribeImageBuildersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImageBuildersResultFilterSensitiveLog = (obj: DescribeImageBuildersResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImagePermissionsRequestFilterSensitiveLog = (obj: DescribeImagePermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SharedImagePermissionsFilterSensitiveLog = (obj: SharedImagePermissions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImagePermissionsResultFilterSensitiveLog = (obj: DescribeImagePermissionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImagesRequestFilterSensitiveLog = (obj: DescribeImagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImagesResultFilterSensitiveLog = (obj: DescribeImagesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSessionsRequestFilterSensitiveLog = (obj: DescribeSessionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SessionFilterSensitiveLog = (obj: Session): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSessionsResultFilterSensitiveLog = (obj: DescribeSessionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStacksRequestFilterSensitiveLog = (obj: DescribeStacksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStacksResultFilterSensitiveLog = (obj: DescribeStacksResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUsageReportSubscriptionsRequestFilterSensitiveLog = (
-  obj: DescribeUsageReportSubscriptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LastReportGenerationExecutionErrorFilterSensitiveLog = (obj: LastReportGenerationExecutionError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UsageReportSubscriptionFilterSensitiveLog = (obj: UsageReportSubscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUsageReportSubscriptionsResultFilterSensitiveLog = (
-  obj: DescribeUsageReportSubscriptionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUsersRequestFilterSensitiveLog = (obj: DescribeUsersRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5280,246 +5205,9 @@ export const DisableUserRequestFilterSensitiveLog = (obj: DisableUserRequest): a
 /**
  * @internal
  */
-export const DisableUserResultFilterSensitiveLog = (obj: DisableUserResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateApplicationFleetRequestFilterSensitiveLog = (
-  obj: DisassociateApplicationFleetRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateApplicationFleetResultFilterSensitiveLog = (obj: DisassociateApplicationFleetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateApplicationFromEntitlementRequestFilterSensitiveLog = (
-  obj: DisassociateApplicationFromEntitlementRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateApplicationFromEntitlementResultFilterSensitiveLog = (
-  obj: DisassociateApplicationFromEntitlementResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateFleetRequestFilterSensitiveLog = (obj: DisassociateFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateFleetResultFilterSensitiveLog = (obj: DisassociateFleetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EnableUserRequestFilterSensitiveLog = (obj: EnableUserRequest): any => ({
   ...obj,
   ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const EnableUserResultFilterSensitiveLog = (obj: EnableUserResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EntitledApplicationFilterSensitiveLog = (obj: EntitledApplication): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExpireSessionRequestFilterSensitiveLog = (obj: ExpireSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExpireSessionResultFilterSensitiveLog = (obj: ExpireSessionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssociatedFleetsRequestFilterSensitiveLog = (obj: ListAssociatedFleetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssociatedFleetsResultFilterSensitiveLog = (obj: ListAssociatedFleetsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssociatedStacksRequestFilterSensitiveLog = (obj: ListAssociatedStacksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssociatedStacksResultFilterSensitiveLog = (obj: ListAssociatedStacksResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEntitledApplicationsRequestFilterSensitiveLog = (obj: ListEntitledApplicationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEntitledApplicationsResultFilterSensitiveLog = (obj: ListEntitledApplicationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartFleetRequestFilterSensitiveLog = (obj: StartFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartFleetResultFilterSensitiveLog = (obj: StartFleetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartImageBuilderRequestFilterSensitiveLog = (obj: StartImageBuilderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartImageBuilderResultFilterSensitiveLog = (obj: StartImageBuilderResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopFleetRequestFilterSensitiveLog = (obj: StopFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopFleetResultFilterSensitiveLog = (obj: StopFleetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopImageBuilderRequestFilterSensitiveLog = (obj: StopImageBuilderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopImageBuilderResultFilterSensitiveLog = (obj: StopImageBuilderResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationResultFilterSensitiveLog = (obj: UpdateApplicationResult): any => ({
-  ...obj,
 });
 
 /**
@@ -5538,60 +5226,4 @@ export const UpdateDirectoryConfigRequestFilterSensitiveLog = (obj: UpdateDirect
 export const UpdateDirectoryConfigResultFilterSensitiveLog = (obj: UpdateDirectoryConfigResult): any => ({
   ...obj,
   ...(obj.DirectoryConfig && { DirectoryConfig: DirectoryConfigFilterSensitiveLog(obj.DirectoryConfig) }),
-});
-
-/**
- * @internal
- */
-export const UpdateEntitlementRequestFilterSensitiveLog = (obj: UpdateEntitlementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEntitlementResultFilterSensitiveLog = (obj: UpdateEntitlementResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFleetRequestFilterSensitiveLog = (obj: UpdateFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFleetResultFilterSensitiveLog = (obj: UpdateFleetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateImagePermissionsRequestFilterSensitiveLog = (obj: UpdateImagePermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateImagePermissionsResultFilterSensitiveLog = (obj: UpdateImagePermissionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStackRequestFilterSensitiveLog = (obj: UpdateStackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStackResultFilterSensitiveLog = (obj: UpdateStackResult): any => ({
-  ...obj,
 });

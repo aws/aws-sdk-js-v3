@@ -14,51 +14,48 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeFleetPortSettingsInput,
-  DescribeFleetPortSettingsInputFilterSensitiveLog,
-  DescribeFleetPortSettingsOutput,
-  DescribeFleetPortSettingsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetPortSettingsCommand,
-  serializeAws_json1_1DescribeFleetPortSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFleetPortSettingsInput, DescribeFleetPortSettingsOutput } from "../models/models_0";
+import { de_DescribeFleetPortSettingsCommand, se_DescribeFleetPortSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetPortSettingsCommand}.
  */
 export interface DescribeFleetPortSettingsCommandInput extends DescribeFleetPortSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetPortSettingsCommand}.
  */
 export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a fleet's inbound connection permissions. Connection permissions specify the
  *             range of IP addresses and port settings that incoming traffic can use to access server
  *             processes in the fleet. Game sessions that are running on instances in the fleet must
  *             use connections that fall in this range.</p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To retrieve the inbound connection permissions for a fleet, identify the
+ *                <p>To retrieve the inbound connection permissions for a fleet, identify the
  *                     fleet's unique identifier. </p>
  *             </li>
  *             <li>
- *                 <p>To check the status of recent updates to a fleet remote location, specify the
+ *                <p>To check the status of recent updates to a fleet remote location, specify the
  *                     fleet ID and a location. Port setting updates can take time to propagate across
  *                     all locations. </p>
  *             </li>
  *          </ul>
- *         <p>If successful, a set of <code>IpPermission</code> objects is returned for the
+ *          <p>If successful, a set of <code>IpPermission</code> objects is returned for the
  *             requested fleet ID. When a location is specified, a pending status is included. If the
  *             requested fleet has been deleted, the result set is empty.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
- *                 <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
  * @example
@@ -67,10 +64,16 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  * import { GameLiftClient, DescribeFleetPortSettingsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetPortSettingsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeFleetPortSettingsInput
+ *   FleetId: "STRING_VALUE", // required
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetPortSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetPortSettingsCommandInput - {@link DescribeFleetPortSettingsCommandInput}
+ * @returns {@link DescribeFleetPortSettingsCommandOutput}
  * @see {@link DescribeFleetPortSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetPortSettingsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -111,6 +114,9 @@ export class DescribeFleetPortSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetPortSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +145,8 @@ export class DescribeFleetPortSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetPortSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetPortSettingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,15 +156,21 @@ export class DescribeFleetPortSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetPortSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetPortSettingsCommand(input, context);
+    return se_DescribeFleetPortSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetPortSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetPortSettingsCommand(output, context);
+    return de_DescribeFleetPortSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

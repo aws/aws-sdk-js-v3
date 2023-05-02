@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  ListMultiplexProgramsRequest,
-  ListMultiplexProgramsRequestFilterSensitiveLog,
-  ListMultiplexProgramsResponse,
-  ListMultiplexProgramsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListMultiplexProgramsCommand,
-  serializeAws_restJson1ListMultiplexProgramsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMultiplexProgramsRequest, ListMultiplexProgramsResponse } from "../models/models_1";
+import { de_ListMultiplexProgramsCommand, se_ListMultiplexProgramsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMultiplexProgramsCommand}.
  */
 export interface ListMultiplexProgramsCommandInput extends ListMultiplexProgramsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMultiplexProgramsCommand}.
  */
 export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgramsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * List the programs that currently exist for a specific multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  * import { MediaLiveClient, ListMultiplexProgramsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListMultiplexProgramsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // ListMultiplexProgramsRequest
+ *   MaxResults: Number("int"),
+ *   MultiplexId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListMultiplexProgramsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMultiplexProgramsCommandInput - {@link ListMultiplexProgramsCommandInput}
+ * @returns {@link ListMultiplexProgramsCommandOutput}
  * @see {@link ListMultiplexProgramsCommandInput} for command's `input` shape.
  * @see {@link ListMultiplexProgramsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +94,9 @@ export class ListMultiplexProgramsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMultiplexProgramsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class ListMultiplexProgramsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMultiplexProgramsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMultiplexProgramsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class ListMultiplexProgramsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMultiplexProgramsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMultiplexProgramsCommand(input, context);
+    return se_ListMultiplexProgramsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMultiplexProgramsCommandOutput> {
-    return deserializeAws_restJson1ListMultiplexProgramsCommand(output, context);
+    return de_ListMultiplexProgramsCommand(output, context);
   }
 
   // Start section: command_body_extra

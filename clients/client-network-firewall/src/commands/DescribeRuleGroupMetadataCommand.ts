@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeRuleGroupMetadataRequest,
-  DescribeRuleGroupMetadataRequestFilterSensitiveLog,
-  DescribeRuleGroupMetadataResponse,
-  DescribeRuleGroupMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRuleGroupMetadataRequest, DescribeRuleGroupMetadataResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DescribeRuleGroupMetadataCommand,
-  serializeAws_json1_0DescribeRuleGroupMetadataCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeRuleGroupMetadataCommand, se_DescribeRuleGroupMetadataCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRuleGroupMetadataCommand}.
  */
 export interface DescribeRuleGroupMetadataCommandInput extends DescribeRuleGroupMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRuleGroupMetadataCommand}.
  */
 export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGroupMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>High-level information about a rule group, returned by operations like create and describe.
  *          You can use the information provided in the metadata to retrieve and manage a rule group.
  *          You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>.
@@ -45,10 +42,17 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * import { NetworkFirewallClient, DescribeRuleGroupMetadataCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeRuleGroupMetadataCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // DescribeRuleGroupMetadataRequest
+ *   RuleGroupName: "STRING_VALUE",
+ *   RuleGroupArn: "STRING_VALUE",
+ *   Type: "STATELESS" || "STATEFUL",
+ * };
  * const command = new DescribeRuleGroupMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRuleGroupMetadataCommandInput - {@link DescribeRuleGroupMetadataCommandInput}
+ * @returns {@link DescribeRuleGroupMetadataCommandOutput}
  * @see {@link DescribeRuleGroupMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeRuleGroupMetadataCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -98,6 +102,9 @@ export class DescribeRuleGroupMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRuleGroupMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +133,8 @@ export class DescribeRuleGroupMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRuleGroupMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRuleGroupMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,15 +144,21 @@ export class DescribeRuleGroupMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRuleGroupMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeRuleGroupMetadataCommand(input, context);
+    return se_DescribeRuleGroupMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRuleGroupMetadataCommandOutput> {
-    return deserializeAws_json1_0DescribeRuleGroupMetadataCommand(output, context);
+    return de_DescribeRuleGroupMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

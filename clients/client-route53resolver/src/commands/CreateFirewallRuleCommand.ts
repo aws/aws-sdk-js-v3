@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateFirewallRuleRequest,
-  CreateFirewallRuleRequestFilterSensitiveLog,
-  CreateFirewallRuleResponse,
-  CreateFirewallRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFirewallRuleCommand,
-  serializeAws_json1_1CreateFirewallRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateFirewallRuleRequest, CreateFirewallRuleResponse } from "../models/models_0";
+import { de_CreateFirewallRuleCommand, se_CreateFirewallRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFirewallRuleCommand}.
  */
 export interface CreateFirewallRuleCommandInput extends CreateFirewallRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFirewallRuleCommand}.
  */
 export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a single DNS Firewall rule in the specified rule group, using the specified domain list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * import { Route53ResolverClient, CreateFirewallRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, CreateFirewallRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // CreateFirewallRuleRequest
+ *   CreatorRequestId: "STRING_VALUE", // required
+ *   FirewallRuleGroupId: "STRING_VALUE", // required
+ *   FirewallDomainListId: "STRING_VALUE", // required
+ *   Priority: Number("int"), // required
+ *   Action: "ALLOW" || "BLOCK" || "ALERT", // required
+ *   BlockResponse: "NODATA" || "NXDOMAIN" || "OVERRIDE",
+ *   BlockOverrideDomain: "STRING_VALUE",
+ *   BlockOverrideDnsType: "CNAME",
+ *   BlockOverrideTtl: Number("int"),
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new CreateFirewallRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFirewallRuleCommandInput - {@link CreateFirewallRuleCommandInput}
+ * @returns {@link CreateFirewallRuleCommandOutput}
  * @see {@link CreateFirewallRuleCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -88,6 +99,9 @@ export class CreateFirewallRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFirewallRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +130,8 @@ export class CreateFirewallRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFirewallRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFirewallRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +141,18 @@ export class CreateFirewallRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFirewallRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFirewallRuleCommand(input, context);
+    return se_CreateFirewallRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFirewallRuleCommandOutput> {
-    return deserializeAws_json1_1CreateFirewallRuleCommand(output, context);
+    return de_CreateFirewallRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

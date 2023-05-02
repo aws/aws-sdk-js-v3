@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  DeleteFileInput,
-  DeleteFileInputFilterSensitiveLog,
-  DeleteFileOutput,
-  DeleteFileOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFileCommand,
-  serializeAws_json1_1DeleteFileCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteFileInput, DeleteFileOutput } from "../models/models_0";
+import { de_DeleteFileCommand, se_DeleteFileCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFileCommand}.
  */
 export interface DeleteFileCommandInput extends DeleteFileInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFileCommand}.
  */
 export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified file from a specified branch. A commit is created on the branch
  *             that contains the revision. The file still exists in the commits earlier to the commit
  *             that contains the deletion.</p>
@@ -44,10 +41,22 @@ export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBea
  * import { CodeCommitClient, DeleteFileCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DeleteFileCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // DeleteFileInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ *   filePath: "STRING_VALUE", // required
+ *   parentCommitId: "STRING_VALUE", // required
+ *   keepEmptyFolders: true || false,
+ *   commitMessage: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   email: "STRING_VALUE",
+ * };
  * const command = new DeleteFileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFileCommandInput - {@link DeleteFileCommandInput}
+ * @returns {@link DeleteFileCommandOutput}
  * @see {@link DeleteFileCommandInput} for command's `input` shape.
  * @see {@link DeleteFileCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -149,6 +158,9 @@ export class DeleteFileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFileCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,8 +187,8 @@ export class DeleteFileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFileInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFileOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -186,12 +198,18 @@ export class DeleteFileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFileCommand(input, context);
+    return se_DeleteFileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileCommandOutput> {
-    return deserializeAws_json1_1DeleteFileCommand(output, context);
+    return de_DeleteFileCommand(output, context);
   }
 
   // Start section: command_body_extra

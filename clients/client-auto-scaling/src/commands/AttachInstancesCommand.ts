@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { AttachInstancesQuery, AttachInstancesQueryFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryAttachInstancesCommand,
-  serializeAws_queryAttachInstancesCommand,
-} from "../protocols/Aws_query";
+import { AttachInstancesQuery } from "../models/models_0";
+import { de_AttachInstancesCommand, se_AttachInstancesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AttachInstancesCommand}.
  */
 export interface AttachInstancesCommandInput extends AttachInstancesQuery {}
 /**
+ * @public
+ *
  * The output of {@link AttachInstancesCommand}.
  */
 export interface AttachInstancesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p>
  *          <p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the
  *             number of instances being attached. If the number of instances being attached plus the
@@ -46,10 +48,18 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, AttachInstancesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, AttachInstancesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // AttachInstancesQuery
+ *   InstanceIds: [ // InstanceIds
+ *     "STRING_VALUE",
+ *   ],
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new AttachInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachInstancesCommandInput - {@link AttachInstancesCommandInput}
+ * @returns {@link AttachInstancesCommandOutput}
  * @see {@link AttachInstancesCommandInput} for command's `input` shape.
  * @see {@link AttachInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -94,6 +104,9 @@ export class AttachInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +135,8 @@ export class AttachInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachInstancesQueryFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +146,18 @@ export class AttachInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAttachInstancesCommand(input, context);
+    return se_AttachInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachInstancesCommandOutput> {
-    return deserializeAws_queryAttachInstancesCommand(output, context);
+    return de_AttachInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

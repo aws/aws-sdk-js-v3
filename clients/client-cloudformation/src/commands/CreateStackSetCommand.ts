@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  CreateStackSetInput,
-  CreateStackSetInputFilterSensitiveLog,
-  CreateStackSetOutput,
-  CreateStackSetOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateStackSetCommand,
-  serializeAws_queryCreateStackSetCommand,
-} from "../protocols/Aws_query";
+import { CreateStackSetInput, CreateStackSetOutput } from "../models/models_0";
+import { de_CreateStackSetCommand, se_CreateStackSetCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStackSetCommand}.
  */
 export interface CreateStackSetCommandInput extends CreateStackSetInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStackSetCommand}.
  */
 export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a stack set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,48 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  * import { CloudFormationClient, CreateStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CreateStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // CreateStackSetInput
+ *   StackSetName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ *   StackId: "STRING_VALUE",
+ *   Parameters: [ // Parameters
+ *     { // Parameter
+ *       ParameterKey: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *       ResolvedValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Capabilities: [ // Capabilities
+ *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ *   ],
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AdministrationRoleARN: "STRING_VALUE",
+ *   ExecutionRoleName: "STRING_VALUE",
+ *   PermissionModel: "SERVICE_MANAGED" || "SELF_MANAGED",
+ *   AutoDeployment: { // AutoDeployment
+ *     Enabled: true || false,
+ *     RetainStacksOnAccountRemoval: true || false,
+ *   },
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   ManagedExecution: { // ManagedExecution
+ *     Active: true || false,
+ *   },
+ * };
  * const command = new CreateStackSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStackSetCommandInput - {@link CreateStackSetCommandInput}
+ * @returns {@link CreateStackSetCommandOutput}
  * @see {@link CreateStackSetCommandInput} for command's `input` shape.
  * @see {@link CreateStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -80,6 +115,9 @@ export class CreateStackSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStackSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +146,8 @@ export class CreateStackSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStackSetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStackSetOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +157,18 @@ export class CreateStackSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStackSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateStackSetCommand(input, context);
+    return se_CreateStackSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStackSetCommandOutput> {
-    return deserializeAws_queryCreateStackSetCommand(output, context);
+    return de_CreateStackSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,23 @@ import {
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import {
   ListThirdPartyFirewallFirewallPoliciesRequest,
-  ListThirdPartyFirewallFirewallPoliciesRequestFilterSensitiveLog,
   ListThirdPartyFirewallFirewallPoliciesResponse,
-  ListThirdPartyFirewallFirewallPoliciesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand,
-  serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand,
+  de_ListThirdPartyFirewallFirewallPoliciesCommand,
+  se_ListThirdPartyFirewallFirewallPoliciesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThirdPartyFirewallFirewallPoliciesCommand}.
  */
 export interface ListThirdPartyFirewallFirewallPoliciesCommandInput
   extends ListThirdPartyFirewallFirewallPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThirdPartyFirewallFirewallPoliciesCommand}.
  */
 export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
@@ -38,6 +40,7 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of all of the third-party firewall policies that are associated with the third-party firewall administrator's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,17 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
  * import { FMSClient, ListThirdPartyFirewallFirewallPoliciesCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListThirdPartyFirewallFirewallPoliciesCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // ListThirdPartyFirewallFirewallPoliciesRequest
+ *   ThirdPartyFirewall: "PALO_ALTO_NETWORKS_CLOUD_NGFW" || "FORTIGATE_CLOUD_NATIVE_FIREWALL", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"), // required
+ * };
  * const command = new ListThirdPartyFirewallFirewallPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThirdPartyFirewallFirewallPoliciesCommandInput - {@link ListThirdPartyFirewallFirewallPoliciesCommandInput}
+ * @returns {@link ListThirdPartyFirewallFirewallPoliciesCommandOutput}
  * @see {@link ListThirdPartyFirewallFirewallPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListThirdPartyFirewallFirewallPoliciesCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -89,6 +99,9 @@ export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThirdPartyFirewallFirewallPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +130,8 @@ export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListThirdPartyFirewallFirewallPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListThirdPartyFirewallFirewallPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +141,24 @@ export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListThirdPartyFirewallFirewallPoliciesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand(input, context);
+    return se_ListThirdPartyFirewallFirewallPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListThirdPartyFirewallFirewallPoliciesCommandOutput> {
-    return deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand(output, context);
+    return de_ListThirdPartyFirewallFirewallPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMapRunsInput,
-  ListMapRunsInputFilterSensitiveLog,
-  ListMapRunsOutput,
-  ListMapRunsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListMapRunsCommand,
-  serializeAws_json1_0ListMapRunsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListMapRunsInput, ListMapRunsOutput } from "../models/models_0";
+import { de_ListMapRunsCommand, se_ListMapRunsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMapRunsCommand}.
  */
 export interface ListMapRunsCommandInput extends ListMapRunsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListMapRunsCommand}.
  */
 export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Map Runs that were started by a given state machine execution. Use this API action to obtain Map Run ARNs, and then call <code>DescribeMapRun</code> to obtain more information, if needed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataB
  * import { SFNClient, ListMapRunsCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, ListMapRunsCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // ListMapRunsInput
+ *   executionArn: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListMapRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMapRunsCommandInput - {@link ListMapRunsCommandInput}
+ * @returns {@link ListMapRunsCommandOutput}
  * @see {@link ListMapRunsCommandInput} for command's `input` shape.
  * @see {@link ListMapRunsCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -78,6 +82,9 @@ export class ListMapRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMapRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class ListMapRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMapRunsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMapRunsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class ListMapRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMapRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListMapRunsCommand(input, context);
+    return se_ListMapRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMapRunsCommandOutput> {
-    return deserializeAws_json1_0ListMapRunsCommand(output, context);
+    return de_ListMapRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

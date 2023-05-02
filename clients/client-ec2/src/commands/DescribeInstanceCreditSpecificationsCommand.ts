@@ -16,20 +16,22 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeInstanceCreditSpecificationsRequest,
-  DescribeInstanceCreditSpecificationsRequestFilterSensitiveLog,
   DescribeInstanceCreditSpecificationsResult,
-  DescribeInstanceCreditSpecificationsResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DescribeInstanceCreditSpecificationsCommand,
-  serializeAws_ec2DescribeInstanceCreditSpecificationsCommand,
+  de_DescribeInstanceCreditSpecificationsCommand,
+  se_DescribeInstanceCreditSpecificationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceCreditSpecificationsCommand}.
  */
 export interface DescribeInstanceCreditSpecificationsCommandInput extends DescribeInstanceCreditSpecificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceCreditSpecificationsCommand}.
  */
 export interface DescribeInstanceCreditSpecificationsCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the credit option for CPU usage of the specified burstable performance
  *             instances. The credit options are <code>standard</code> and
  *             <code>unlimited</code>.</p>
@@ -63,10 +66,28 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput
  * import { EC2Client, DescribeInstanceCreditSpecificationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeInstanceCreditSpecificationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeInstanceCreditSpecificationsRequest
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   InstanceIds: [ // InstanceIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeInstanceCreditSpecificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceCreditSpecificationsCommandInput - {@link DescribeInstanceCreditSpecificationsCommandInput}
+ * @returns {@link DescribeInstanceCreditSpecificationsCommandOutput}
  * @see {@link DescribeInstanceCreditSpecificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceCreditSpecificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -90,6 +111,9 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceCreditSpecificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +142,8 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceCreditSpecificationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceCreditSpecificationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +153,24 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeInstanceCreditSpecificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInstanceCreditSpecificationsCommand(input, context);
+    return se_DescribeInstanceCreditSpecificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceCreditSpecificationsCommandOutput> {
-    return deserializeAws_ec2DescribeInstanceCreditSpecificationsCommand(output, context);
+    return de_DescribeInstanceCreditSpecificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

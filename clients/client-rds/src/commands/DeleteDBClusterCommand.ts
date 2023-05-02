@@ -13,31 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDBClusterMessage,
-  DeleteDBClusterMessageFilterSensitiveLog,
-  DeleteDBClusterResult,
-  DeleteDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBClusterCommand,
-  serializeAws_queryDeleteDBClusterCommand,
-} from "../protocols/Aws_query";
+import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/models_0";
+import { de_DeleteDBClusterCommand, se_DeleteDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBClusterCommand}.
  */
 export interface DeleteDBClusterCommandInput extends DeleteDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBClusterCommand}.
  */
 export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster.
  *           When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
  *           Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
+ *          <p>If you're deleting a Multi-AZ DB cluster with read replicas, all cluster members are
+ *             terminated and read replicas are promoted to standalone instances.</p>
  *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
@@ -50,10 +49,17 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * import { RDSClient, DeleteDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   SkipFinalSnapshot: true || false,
+ *   FinalDBSnapshotIdentifier: "STRING_VALUE",
+ * };
  * const command = new DeleteDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBClusterCommandInput - {@link DeleteDBClusterCommandInput}
+ * @returns {@link DeleteDBClusterCommandOutput}
  * @see {@link DeleteDBClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -76,21 +82,34 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *             snapshots.</p>
  *
  *
- * @example To delete a DB cluster.
+ * @example To delete a DB cluster
  * ```javascript
- * // This example deletes the specified DB cluster.
+ * // The following example deletes the DB cluster named mycluster and takes a final snapshot named mycluster-final-snapshot. The status of the DB cluster is available while the snapshot is being taken.
  * const input = {
- *   "DBClusterIdentifier": "mydbcluster",
- *   "SkipFinalSnapshot": true
+ *   "DBClusterIdentifier": "mycluster",
+ *   "FinalDBSnapshotIdentifier": "mycluster-final-snapshot",
+ *   "SkipFinalSnapshot": false
  * };
  * const command = new DeleteDBClusterCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBCluster": {}
+ *   "DBCluster": {
+ *     "AllocatedStorage": 20,
+ *     "AvailabilityZones": [
+ *       "eu-central-1b",
+ *       "eu-central-1c",
+ *       "eu-central-1a"
+ *     ],
+ *     "BackupRetentionPeriod": 7,
+ *     "DBClusterIdentifier": "mycluster",
+ *     "DBClusterParameterGroup": "default.aurora-postgresql10",
+ *     "DBSubnetGroup": "default-vpc-aa11bb22",
+ *     "Status": "available"
+ *   }
  * }
  * *\/
- * // example id: delete-db-cluster-927fc2c8-6c67-4075-b1ba-75490be0f7d6
+ * // example id: to-delete-a-db-cluster-1680197141906
  * ```
  *
  */
@@ -111,6 +130,9 @@ export class DeleteDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +161,8 @@ export class DeleteDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +172,18 @@ export class DeleteDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterCommand(input, context);
+    return se_DeleteDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterCommand(output, context);
+    return de_DeleteDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

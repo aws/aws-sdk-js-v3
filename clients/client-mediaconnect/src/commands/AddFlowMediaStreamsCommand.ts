@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  AddFlowMediaStreamsRequest,
-  AddFlowMediaStreamsRequestFilterSensitiveLog,
-  AddFlowMediaStreamsResponse,
-  AddFlowMediaStreamsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AddFlowMediaStreamsCommand,
-  serializeAws_restJson1AddFlowMediaStreamsCommand,
-} from "../protocols/Aws_restJson1";
+import { AddFlowMediaStreamsRequest, AddFlowMediaStreamsResponse } from "../models/models_0";
+import { de_AddFlowMediaStreamsCommand, se_AddFlowMediaStreamsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddFlowMediaStreamsCommand}.
  */
 export interface AddFlowMediaStreamsCommandInput extends AddFlowMediaStreamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddFlowMediaStreamsCommand}.
  */
 export interface AddFlowMediaStreamsCommandOutput extends AddFlowMediaStreamsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Adds media streams to an existing flow. After you add a media stream to a flow, you can associate it with a source and/or an output that uses the ST 2110 JPEG XS or CDI protocol.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,37 @@ export interface AddFlowMediaStreamsCommandOutput extends AddFlowMediaStreamsRes
  * import { MediaConnectClient, AddFlowMediaStreamsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, AddFlowMediaStreamsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // AddFlowMediaStreamsRequest
+ *   FlowArn: "STRING_VALUE", // required
+ *   MediaStreams: [ // __listOfAddMediaStreamRequest // required
+ *     { // AddMediaStreamRequest
+ *       Attributes: { // MediaStreamAttributesRequest
+ *         Fmtp: { // FmtpRequest
+ *           ChannelOrder: "STRING_VALUE",
+ *           Colorimetry: "BT601" || "BT709" || "BT2020" || "BT2100" || "ST2065-1" || "ST2065-3" || "XYZ",
+ *           ExactFramerate: "STRING_VALUE",
+ *           Par: "STRING_VALUE",
+ *           Range: "NARROW" || "FULL" || "FULLPROTECT",
+ *           ScanMode: "progressive" || "interlace" || "progressive-segmented-frame",
+ *           Tcs: "SDR" || "PQ" || "HLG" || "LINEAR" || "BT2100LINPQ" || "BT2100LINHLG" || "ST2065-1" || "ST428-1" || "DENSITY",
+ *         },
+ *         Lang: "STRING_VALUE",
+ *       },
+ *       ClockRate: Number("int"),
+ *       Description: "STRING_VALUE",
+ *       MediaStreamId: Number("int"), // required
+ *       MediaStreamName: "STRING_VALUE", // required
+ *       MediaStreamType: "video" || "audio" || "ancillary-data", // required
+ *       VideoFormat: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AddFlowMediaStreamsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddFlowMediaStreamsCommandInput - {@link AddFlowMediaStreamsCommandInput}
+ * @returns {@link AddFlowMediaStreamsCommandOutput}
  * @see {@link AddFlowMediaStreamsCommandInput} for command's `input` shape.
  * @see {@link AddFlowMediaStreamsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +111,9 @@ export class AddFlowMediaStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddFlowMediaStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +142,8 @@ export class AddFlowMediaStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddFlowMediaStreamsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddFlowMediaStreamsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +153,18 @@ export class AddFlowMediaStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddFlowMediaStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddFlowMediaStreamsCommand(input, context);
+    return se_AddFlowMediaStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddFlowMediaStreamsCommandOutput> {
-    return deserializeAws_restJson1AddFlowMediaStreamsCommand(output, context);
+    return de_AddFlowMediaStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

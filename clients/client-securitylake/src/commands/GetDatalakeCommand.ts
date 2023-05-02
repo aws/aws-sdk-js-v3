@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDatalakeRequest,
-  GetDatalakeRequestFilterSensitiveLog,
-  GetDatalakeResponse,
-  GetDatalakeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDatalakeCommand,
-  serializeAws_restJson1GetDatalakeCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDatalakeRequest, GetDatalakeResponse } from "../models/models_0";
+import { de_GetDatalakeCommand, se_GetDatalakeCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDatalakeCommand}.
  */
 export interface GetDatalakeCommandInput extends GetDatalakeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDatalakeCommand}.
  */
 export interface GetDatalakeCommandOutput extends GetDatalakeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the Amazon Security Lake configuration object for the specified Amazon Web Services account ID. You can use the <code>GetDatalake</code> API to know whether
  *          Security Lake is enabled for the current Region. This API does not take input parameters. </p>
  * @example
@@ -43,10 +40,13 @@ export interface GetDatalakeCommandOutput extends GetDatalakeResponse, __Metadat
  * import { SecurityLakeClient, GetDatalakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, GetDatalakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {};
  * const command = new GetDatalakeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatalakeCommandInput - {@link GetDatalakeCommandInput}
+ * @returns {@link GetDatalakeCommandOutput}
  * @see {@link GetDatalakeCommandInput} for command's `input` shape.
  * @see {@link GetDatalakeCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -91,6 +91,9 @@ export class GetDatalakeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatalakeCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +120,8 @@ export class GetDatalakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatalakeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDatalakeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +131,18 @@ export class GetDatalakeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatalakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDatalakeCommand(input, context);
+    return se_GetDatalakeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatalakeCommandOutput> {
-    return deserializeAws_restJson1GetDatalakeCommand(output, context);
+    return de_GetDatalakeCommand(output, context);
   }
 
   // Start section: command_body_extra

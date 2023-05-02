@@ -14,26 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { DeleteVoiceConnectorEmergencyCallingConfigurationRequest } from "../models/models_0";
 import {
-  DeleteVoiceConnectorEmergencyCallingConfigurationRequest,
-  DeleteVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
-  serializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
+  de_DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
+  se_DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
 export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput
   extends DeleteVoiceConnectorEmergencyCallingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
 export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the emergency calling configuration details from the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,10 +43,15 @@ export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput 
  * import { ChimeClient, DeleteVoiceConnectorEmergencyCallingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteVoiceConnectorEmergencyCallingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DeleteVoiceConnectorEmergencyCallingConfigurationRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVoiceConnectorEmergencyCallingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput - {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput}
+ * @returns {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput}
  * @see {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +133,8 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +144,24 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
+    return se_DeleteVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand(output, context);
+    return de_DeleteVoiceConnectorEmergencyCallingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

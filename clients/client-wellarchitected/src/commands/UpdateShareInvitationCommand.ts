@@ -13,30 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateShareInvitationInput,
-  UpdateShareInvitationInputFilterSensitiveLog,
-  UpdateShareInvitationOutput,
-  UpdateShareInvitationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateShareInvitationCommand,
-  serializeAws_restJson1UpdateShareInvitationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateShareInvitationInput, UpdateShareInvitationOutput } from "../models/models_0";
+import { de_UpdateShareInvitationCommand, se_UpdateShareInvitationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateShareInvitationCommand}.
  */
 export interface UpdateShareInvitationCommandInput extends UpdateShareInvitationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateShareInvitationCommand}.
  */
 export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a workload or custom lens share invitation.</p>
- *         <note>
+ *          <note>
  *             <p>This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.</p>
  *          </note>
  * @example
@@ -45,10 +42,16 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  * import { WellArchitectedClient, UpdateShareInvitationCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateShareInvitationCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // UpdateShareInvitationInput
+ *   ShareInvitationId: "STRING_VALUE", // required
+ *   ShareInvitationAction: "ACCEPT" || "REJECT", // required
+ * };
  * const command = new UpdateShareInvitationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateShareInvitationCommandInput - {@link UpdateShareInvitationCommandInput}
+ * @returns {@link UpdateShareInvitationCommandOutput}
  * @see {@link UpdateShareInvitationCommandInput} for command's `input` shape.
  * @see {@link UpdateShareInvitationCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -57,7 +60,7 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
@@ -90,6 +93,9 @@ export class UpdateShareInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateShareInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class UpdateShareInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateShareInvitationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateShareInvitationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class UpdateShareInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateShareInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateShareInvitationCommand(input, context);
+    return se_UpdateShareInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateShareInvitationCommandOutput> {
-    return deserializeAws_restJson1UpdateShareInvitationCommand(output, context);
+    return de_UpdateShareInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

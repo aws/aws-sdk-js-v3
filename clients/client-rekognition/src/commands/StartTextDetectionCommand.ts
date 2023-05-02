@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartTextDetectionRequest,
-  StartTextDetectionRequestFilterSensitiveLog,
-  StartTextDetectionResponse,
-  StartTextDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartTextDetectionCommand,
-  serializeAws_json1_1StartTextDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartTextDetectionRequest, StartTextDetectionResponse } from "../models/models_0";
+import { de_StartTextDetectionCommand, se_StartTextDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartTextDetectionCommand}.
  */
 export interface StartTextDetectionCommandInput extends StartTextDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTextDetectionCommand}.
  */
 export interface StartTextDetectionCommandOutput extends StartTextDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts asynchronous detection of text in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect text in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and
  *        the filename of the video. <code>StartTextDetection</code> returns a job identifier (<code>JobId</code>) which you use to get
@@ -49,10 +46,50 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  * import { RekognitionClient, StartTextDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartTextDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartTextDetectionRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ *   Filters: { // StartTextDetectionFilters
+ *     WordFilter: { // DetectionFilter
+ *       MinConfidence: Number("float"),
+ *       MinBoundingBoxHeight: Number("float"),
+ *       MinBoundingBoxWidth: Number("float"),
+ *     },
+ *     RegionsOfInterest: [ // RegionsOfInterest
+ *       { // RegionOfInterest
+ *         BoundingBox: { // BoundingBox
+ *           Width: Number("float"),
+ *           Height: Number("float"),
+ *           Left: Number("float"),
+ *           Top: Number("float"),
+ *         },
+ *         Polygon: [ // Polygon
+ *           { // Point
+ *             X: Number("float"),
+ *             Y: Number("float"),
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new StartTextDetectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTextDetectionCommandInput - {@link StartTextDetectionCommandInput}
+ * @returns {@link StartTextDetectionCommandOutput}
  * @see {@link StartTextDetectionCommandInput} for command's `input` shape.
  * @see {@link StartTextDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -109,6 +146,9 @@ export class StartTextDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTextDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +177,8 @@ export class StartTextDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTextDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartTextDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +188,18 @@ export class StartTextDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTextDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartTextDetectionCommand(input, context);
+    return se_StartTextDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTextDetectionCommandOutput> {
-    return deserializeAws_json1_1StartTextDetectionCommand(output, context);
+    return de_StartTextDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,22 +18,18 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  ModifyLoadBalancerAttributesInput,
-  ModifyLoadBalancerAttributesInputFilterSensitiveLog,
-  ModifyLoadBalancerAttributesOutput,
-  ModifyLoadBalancerAttributesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyLoadBalancerAttributesCommand,
-  serializeAws_queryModifyLoadBalancerAttributesCommand,
-} from "../protocols/Aws_query";
+import { ModifyLoadBalancerAttributesInput, ModifyLoadBalancerAttributesOutput } from "../models/models_0";
+import { de_ModifyLoadBalancerAttributesCommand, se_ModifyLoadBalancerAttributesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyLoadBalancerAttributesCommand}.
  */
 export interface ModifyLoadBalancerAttributesCommandInput extends ModifyLoadBalancerAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link ModifyLoadBalancerAttributesCommand}.
  */
 export interface ModifyLoadBalancerAttributesCommandOutput
@@ -41,6 +37,7 @@ export interface ModifyLoadBalancerAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified attributes of the specified Application Load Balancer, Network Load
  *       Balancer, or Gateway Load Balancer.</p>
  *          <p>If any of the specified attributes can't be modified as requested, the call fails. Any
@@ -51,10 +48,21 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * import { ElasticLoadBalancingV2Client, ModifyLoadBalancerAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyLoadBalancerAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // ModifyLoadBalancerAttributesInput
+ *   LoadBalancerArn: "STRING_VALUE", // required
+ *   Attributes: [ // LoadBalancerAttributes // required
+ *     { // LoadBalancerAttribute
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyLoadBalancerAttributesCommandInput - {@link ModifyLoadBalancerAttributesCommandInput}
+ * @returns {@link ModifyLoadBalancerAttributesCommandOutput}
  * @see {@link ModifyLoadBalancerAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -221,6 +229,9 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyLoadBalancerAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -249,8 +260,8 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyLoadBalancerAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyLoadBalancerAttributesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -260,15 +271,21 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyLoadBalancerAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyLoadBalancerAttributesCommand(input, context);
+    return se_ModifyLoadBalancerAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyLoadBalancerAttributesCommandOutput> {
-    return deserializeAws_queryModifyLoadBalancerAttributesCommand(output, context);
+    return de_ModifyLoadBalancerAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

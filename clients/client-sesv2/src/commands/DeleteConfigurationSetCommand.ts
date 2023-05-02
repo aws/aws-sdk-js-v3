@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteConfigurationSetRequest,
-  DeleteConfigurationSetRequestFilterSensitiveLog,
-  DeleteConfigurationSetResponse,
-  DeleteConfigurationSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteConfigurationSetCommand,
-  serializeAws_restJson1DeleteConfigurationSetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteConfigurationSetRequest, DeleteConfigurationSetResponse } from "../models/models_0";
+import { de_DeleteConfigurationSetCommand, se_DeleteConfigurationSetCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationSetCommand}.
  */
 export interface DeleteConfigurationSetCommandInput extends DeleteConfigurationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationSetCommand}.
  */
 export interface DeleteConfigurationSetCommandOutput extends DeleteConfigurationSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an existing configuration set.</p>
  *          <p>
  *             <i>Configuration sets</i> are groups of rules that you can apply to the
@@ -47,10 +44,15 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * import { SESv2Client, DeleteConfigurationSetCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteConfigurationSetCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // DeleteConfigurationSetRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationSetCommandInput - {@link DeleteConfigurationSetCommandInput}
+ * @returns {@link DeleteConfigurationSetCommandOutput}
  * @see {@link DeleteConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -86,6 +88,9 @@ export class DeleteConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class DeleteConfigurationSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfigurationSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class DeleteConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConfigurationSetCommand(input, context);
+    return se_DeleteConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigurationSetCommandOutput> {
-    return deserializeAws_restJson1DeleteConfigurationSetCommand(output, context);
+    return de_DeleteConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

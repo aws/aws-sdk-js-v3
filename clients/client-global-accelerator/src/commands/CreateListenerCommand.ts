@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  CreateListenerRequest,
-  CreateListenerRequestFilterSensitiveLog,
-  CreateListenerResponse,
-  CreateListenerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateListenerCommand,
-  serializeAws_json1_1CreateListenerCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateListenerRequest, CreateListenerResponse } from "../models/models_0";
+import { de_CreateListenerCommand, se_CreateListenerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateListenerCommand}.
  */
 export interface CreateListenerCommandInput extends CreateListenerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateListenerCommand}.
  */
 export interface CreateListenerCommandOutput extends CreateListenerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static
  * 			IP addresses on a port, port range, or list of port ranges that you specify. </p>
  * @example
@@ -47,10 +44,24 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * import { GlobalAcceleratorClient, CreateListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, CreateListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // CreateListenerRequest
+ *   AcceleratorArn: "STRING_VALUE", // required
+ *   PortRanges: [ // PortRanges // required
+ *     { // PortRange
+ *       FromPort: Number("int"),
+ *       ToPort: Number("int"),
+ *     },
+ *   ],
+ *   Protocol: "TCP" || "UDP", // required
+ *   ClientAffinity: "NONE" || "SOURCE_IP",
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateListenerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateListenerCommandInput - {@link CreateListenerCommandInput}
+ * @returns {@link CreateListenerCommandOutput}
  * @see {@link CreateListenerCommandInput} for command's `input` shape.
  * @see {@link CreateListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -89,6 +100,9 @@ export class CreateListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +131,8 @@ export class CreateListenerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateListenerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateListenerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +142,18 @@ export class CreateListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateListenerCommand(input, context);
+    return se_CreateListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateListenerCommandOutput> {
-    return deserializeAws_json1_1CreateListenerCommand(output, context);
+    return de_CreateListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

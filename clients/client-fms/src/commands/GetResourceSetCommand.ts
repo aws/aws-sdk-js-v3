@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  GetResourceSetRequest,
-  GetResourceSetRequestFilterSensitiveLog,
-  GetResourceSetResponse,
-  GetResourceSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetResourceSetCommand,
-  serializeAws_json1_1GetResourceSetCommand,
-} from "../protocols/Aws_json1_1";
+import { GetResourceSetRequest, GetResourceSetResponse } from "../models/models_0";
+import { de_GetResourceSetCommand, se_GetResourceSetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceSetCommand}.
  */
 export interface GetResourceSetCommandInput extends GetResourceSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceSetCommand}.
  */
 export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specific resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __M
  * import { FMSClient, GetResourceSetCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetResourceSetCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // GetResourceSetRequest
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceSetCommandInput - {@link GetResourceSetCommandInput}
+ * @returns {@link GetResourceSetCommandOutput}
  * @see {@link GetResourceSetCommandInput} for command's `input` shape.
  * @see {@link GetResourceSetCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -86,6 +88,9 @@ export class GetResourceSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class GetResourceSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class GetResourceSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResourceSetCommand(input, context);
+    return se_GetResourceSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceSetCommandOutput> {
-    return deserializeAws_json1_1GetResourceSetCommand(output, context);
+    return de_GetResourceSetCommand(output, context);
   }
 
   // Start section: command_body_extra

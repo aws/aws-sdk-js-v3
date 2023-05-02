@@ -15,21 +15,23 @@ import {
 
 import {
   PutConfigurationSetDeliveryOptionsRequest,
-  PutConfigurationSetDeliveryOptionsRequestFilterSensitiveLog,
   PutConfigurationSetDeliveryOptionsResponse,
-  PutConfigurationSetDeliveryOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand,
-  serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand,
+  de_PutConfigurationSetDeliveryOptionsCommand,
+  se_PutConfigurationSetDeliveryOptionsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationSetDeliveryOptionsCommand}.
  */
 export interface PutConfigurationSetDeliveryOptionsCommandInput extends PutConfigurationSetDeliveryOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationSetDeliveryOptionsCommand}.
  */
 export interface PutConfigurationSetDeliveryOptionsCommandOutput
@@ -37,6 +39,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate a configuration set with a dedicated IP pool. You can use dedicated IP pools
  *             to create groups of dedicated IP addresses for sending specific types of email.</p>
  * @example
@@ -45,10 +48,17 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * import { SESv2Client, PutConfigurationSetDeliveryOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutConfigurationSetDeliveryOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // PutConfigurationSetDeliveryOptionsRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   TlsPolicy: "REQUIRE" || "OPTIONAL",
+ *   SendingPoolName: "STRING_VALUE",
+ * };
  * const command = new PutConfigurationSetDeliveryOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationSetDeliveryOptionsCommandInput - {@link PutConfigurationSetDeliveryOptionsCommandInput}
+ * @returns {@link PutConfigurationSetDeliveryOptionsCommandOutput}
  * @see {@link PutConfigurationSetDeliveryOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetDeliveryOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +91,9 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationSetDeliveryOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +122,8 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigurationSetDeliveryOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutConfigurationSetDeliveryOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +133,24 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutConfigurationSetDeliveryOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand(input, context);
+    return se_PutConfigurationSetDeliveryOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> {
-    return deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand(output, context);
+    return de_PutConfigurationSetDeliveryOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

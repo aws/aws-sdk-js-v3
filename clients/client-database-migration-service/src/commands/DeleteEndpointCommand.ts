@@ -20,25 +20,26 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DeleteEndpointMessage,
-  DeleteEndpointMessageFilterSensitiveLog,
   DeleteEndpointResponse,
   DeleteEndpointResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEndpointCommand,
-  serializeAws_json1_1DeleteEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEndpointCommand, se_DeleteEndpointCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEndpointCommand}.
  */
 export interface DeleteEndpointCommandInput extends DeleteEndpointMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEndpointCommand}.
  */
 export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified endpoint.</p>
  *          <note>
  *             <p>All tasks associated with the endpoint must be deleted before you can delete the
@@ -51,10 +52,15 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * import { DatabaseMigrationServiceClient, DeleteEndpointCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteEndpointCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DeleteEndpointMessage
+ *   EndpointArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEndpointCommandInput - {@link DeleteEndpointCommandInput}
+ * @returns {@link DeleteEndpointCommandOutput}
  * @see {@link DeleteEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -111,6 +117,9 @@ export class DeleteEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,7 +148,7 @@ export class DeleteEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEndpointMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -150,12 +159,18 @@ export class DeleteEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEndpointCommand(input, context);
+    return se_DeleteEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointCommandOutput> {
-    return deserializeAws_json1_1DeleteEndpointCommand(output, context);
+    return de_DeleteEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

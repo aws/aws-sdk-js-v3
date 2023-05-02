@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
+import { DeleteAssessmentFrameworkShareRequest, DeleteAssessmentFrameworkShareResponse } from "../models/models_0";
 import {
-  DeleteAssessmentFrameworkShareRequest,
-  DeleteAssessmentFrameworkShareRequestFilterSensitiveLog,
-  DeleteAssessmentFrameworkShareResponse,
-  DeleteAssessmentFrameworkShareResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAssessmentFrameworkShareCommand,
-  serializeAws_restJson1DeleteAssessmentFrameworkShareCommand,
+  de_DeleteAssessmentFrameworkShareCommand,
+  se_DeleteAssessmentFrameworkShareCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssessmentFrameworkShareCommand}.
  */
 export interface DeleteAssessmentFrameworkShareCommandInput extends DeleteAssessmentFrameworkShareRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssessmentFrameworkShareCommand}.
  */
 export interface DeleteAssessmentFrameworkShareCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a share request for a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
  * import { AuditManagerClient, DeleteAssessmentFrameworkShareCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, DeleteAssessmentFrameworkShareCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // DeleteAssessmentFrameworkShareRequest
+ *   requestId: "STRING_VALUE", // required
+ *   requestType: "SENT" || "RECEIVED", // required
+ * };
  * const command = new DeleteAssessmentFrameworkShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssessmentFrameworkShareCommandInput - {@link DeleteAssessmentFrameworkShareCommandInput}
+ * @returns {@link DeleteAssessmentFrameworkShareCommandOutput}
  * @see {@link DeleteAssessmentFrameworkShareCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentFrameworkShareCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -85,6 +91,9 @@ export class DeleteAssessmentFrameworkShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssessmentFrameworkShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class DeleteAssessmentFrameworkShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssessmentFrameworkShareRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAssessmentFrameworkShareResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +133,24 @@ export class DeleteAssessmentFrameworkShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAssessmentFrameworkShareCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAssessmentFrameworkShareCommand(input, context);
+    return se_DeleteAssessmentFrameworkShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAssessmentFrameworkShareCommandOutput> {
-    return deserializeAws_restJson1DeleteAssessmentFrameworkShareCommand(output, context);
+    return de_DeleteAssessmentFrameworkShareCommand(output, context);
   }
 
   // Start section: command_body_extra

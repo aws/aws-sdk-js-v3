@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTagsInput,
-  GetTagsInputFilterSensitiveLog,
-  GetTagsOutput,
-  GetTagsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTagsCommand,
-  serializeAws_restJson1GetTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTagsInput, GetTagsOutput } from "../models/models_0";
+import { de_GetTagsCommand, se_GetTagsCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTagsCommand}.
  */
 export interface GetTagsCommandInput extends GetTagsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTagsCommand}.
  */
 export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of tags that are associated with a resource group, specified by an
  *             ARN.</p>
  *          <p>
@@ -54,10 +51,15 @@ export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
  * import { ResourceGroupsClient, GetTagsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GetTagsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // GetTagsInput
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new GetTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTagsCommandInput - {@link GetTagsCommandInput}
+ * @returns {@link GetTagsCommandOutput}
  * @see {@link GetTagsCommandInput} for command's `input` shape.
  * @see {@link GetTagsCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -100,6 +102,9 @@ export class GetTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +131,8 @@ export class GetTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTagsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTagsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +142,18 @@ export class GetTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTagsCommand(input, context);
+    return se_GetTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagsCommandOutput> {
-    return deserializeAws_restJson1GetTagsCommand(output, context);
+    return de_GetTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,25 +16,26 @@ import {
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
 import {
   DescribeTableDataImportJobRequest,
-  DescribeTableDataImportJobRequestFilterSensitiveLog,
   DescribeTableDataImportJobResult,
   DescribeTableDataImportJobResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeTableDataImportJobCommand,
-  serializeAws_restJson1DescribeTableDataImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeTableDataImportJobCommand, se_DescribeTableDataImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTableDataImportJobCommand}.
  */
 export interface DescribeTableDataImportJobCommandInput extends DescribeTableDataImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTableDataImportJobCommand}.
  */
 export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDataImportJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The DescribeTableDataImportJob API allows you to retrieve the status and details of a table data import job.
  *         </p>
@@ -44,10 +45,17 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  * import { HoneycodeClient, DescribeTableDataImportJobCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, DescribeTableDataImportJobCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = { // DescribeTableDataImportJobRequest
+ *   workbookId: "STRING_VALUE", // required
+ *   tableId: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTableDataImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTableDataImportJobCommandInput - {@link DescribeTableDataImportJobCommandInput}
+ * @returns {@link DescribeTableDataImportJobCommandOutput}
  * @see {@link DescribeTableDataImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTableDataImportJobCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -97,6 +105,9 @@ export class DescribeTableDataImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTableDataImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,7 +136,7 @@ export class DescribeTableDataImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTableDataImportJobRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeTableDataImportJobResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -136,15 +147,21 @@ export class DescribeTableDataImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTableDataImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTableDataImportJobCommand(input, context);
+    return se_DescribeTableDataImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTableDataImportJobCommandOutput> {
-    return deserializeAws_restJson1DescribeTableDataImportJobCommand(output, context);
+    return de_DescribeTableDataImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

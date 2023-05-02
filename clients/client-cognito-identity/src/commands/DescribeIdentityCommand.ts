@@ -15,27 +15,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import {
-  DescribeIdentityInput,
-  DescribeIdentityInputFilterSensitiveLog,
-  IdentityDescription,
-  IdentityDescriptionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeIdentityCommand,
-  serializeAws_json1_1DescribeIdentityCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeIdentityInput, IdentityDescription } from "../models/models_0";
+import { de_DescribeIdentityCommand, se_DescribeIdentityCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIdentityCommand}.
  */
 export interface DescribeIdentityCommandInput extends DescribeIdentityInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIdentityCommand}.
  */
 export interface DescribeIdentityCommandOutput extends IdentityDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata related to the given identity, including when the identity was
  *          created and any associated linked logins.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -45,10 +42,15 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * import { CognitoIdentityClient, DescribeIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, DescribeIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // DescribeIdentityInput
+ *   IdentityId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIdentityCommandInput - {@link DescribeIdentityCommandInput}
+ * @returns {@link DescribeIdentityCommandOutput}
  * @see {@link DescribeIdentityCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -88,6 +90,9 @@ export class DescribeIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class DescribeIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIdentityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: IdentityDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class DescribeIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeIdentityCommand(input, context);
+    return se_DescribeIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdentityCommandOutput> {
-    return deserializeAws_json1_1DescribeIdentityCommand(output, context);
+    return de_DescribeIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

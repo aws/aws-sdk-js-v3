@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorkerBlocksRequest,
-  ListWorkerBlocksRequestFilterSensitiveLog,
-  ListWorkerBlocksResponse,
-  ListWorkerBlocksResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListWorkerBlocksRequest, ListWorkerBlocksResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1ListWorkerBlocksCommand,
-  serializeAws_json1_1ListWorkerBlocksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListWorkerBlocksCommand, se_ListWorkerBlocksCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkerBlocksCommand}.
  */
 export interface ListWorkerBlocksCommandInput extends ListWorkerBlocksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkerBlocksCommand}.
  */
 export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>ListWorkersBlocks</code> operation retrieves a list of Workers who are blocked from working on your HITs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
  * import { MTurkClient, ListWorkerBlocksCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListWorkerBlocksCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // ListWorkerBlocksRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListWorkerBlocksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkerBlocksCommandInput - {@link ListWorkerBlocksCommandInput}
+ * @returns {@link ListWorkerBlocksCommandOutput}
  * @see {@link ListWorkerBlocksCommandInput} for command's `input` shape.
  * @see {@link ListWorkerBlocksCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -75,6 +78,9 @@ export class ListWorkerBlocksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkerBlocksCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class ListWorkerBlocksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkerBlocksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkerBlocksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class ListWorkerBlocksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkerBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWorkerBlocksCommand(input, context);
+    return se_ListWorkerBlocksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkerBlocksCommandOutput> {
-    return deserializeAws_json1_1ListWorkerBlocksCommand(output, context);
+    return de_ListWorkerBlocksCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartTextTranslationJobRequest,
-  StartTextTranslationJobRequestFilterSensitiveLog,
-  StartTextTranslationJobResponse,
-  StartTextTranslationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartTextTranslationJobCommand,
-  serializeAws_json1_1StartTextTranslationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StartTextTranslationJobRequest, StartTextTranslationJobResponse } from "../models/models_0";
+import { de_StartTextTranslationJobCommand, se_StartTextTranslationJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartTextTranslationJobCommand}.
  */
 export interface StartTextTranslationJobCommandInput extends StartTextTranslationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTextTranslationJobCommand}.
  */
 export interface StartTextTranslationJobCommandOutput extends StartTextTranslationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous batch translation job. Use batch translation jobs to
  *       translate large volumes of text across multiple documents at once.
  *       For batch translation, you can input documents with different source languages (specify <code>auto</code>
@@ -50,10 +47,42 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  * import { TranslateClient, StartTextTranslationJobCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, StartTextTranslationJobCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = { // StartTextTranslationJobRequest
+ *   JobName: "STRING_VALUE",
+ *   InputDataConfig: { // InputDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     ContentType: "STRING_VALUE", // required
+ *   },
+ *   OutputDataConfig: { // OutputDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     EncryptionKey: { // EncryptionKey
+ *       Type: "KMS", // required
+ *       Id: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   SourceLanguageCode: "STRING_VALUE", // required
+ *   TargetLanguageCodes: [ // TargetLanguageCodeStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TerminologyNames: [ // ResourceNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   ParallelDataNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientToken: "STRING_VALUE", // required
+ *   Settings: { // TranslationSettings
+ *     Formality: "FORMAL" || "INFORMAL",
+ *     Profanity: "MASK",
+ *   },
+ * };
  * const command = new StartTextTranslationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTextTranslationJobCommandInput - {@link StartTextTranslationJobCommandInput}
+ * @returns {@link StartTextTranslationJobCommandOutput}
  * @see {@link StartTextTranslationJobCommandInput} for command's `input` shape.
  * @see {@link StartTextTranslationJobCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -101,6 +130,9 @@ export class StartTextTranslationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTextTranslationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +161,8 @@ export class StartTextTranslationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTextTranslationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartTextTranslationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +172,18 @@ export class StartTextTranslationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTextTranslationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartTextTranslationJobCommand(input, context);
+    return se_StartTextTranslationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTextTranslationJobCommandOutput> {
-    return deserializeAws_json1_1StartTextTranslationJobCommand(output, context);
+    return de_StartTextTranslationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

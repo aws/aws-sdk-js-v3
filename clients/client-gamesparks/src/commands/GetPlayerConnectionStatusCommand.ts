@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  GetPlayerConnectionStatusRequest,
-  GetPlayerConnectionStatusRequestFilterSensitiveLog,
-  GetPlayerConnectionStatusResult,
-  GetPlayerConnectionStatusResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPlayerConnectionStatusCommand,
-  serializeAws_restJson1GetPlayerConnectionStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPlayerConnectionStatusRequest, GetPlayerConnectionStatusResult } from "../models/models_0";
+import { de_GetPlayerConnectionStatusCommand, se_GetPlayerConnectionStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPlayerConnectionStatusCommand}.
  */
 export interface GetPlayerConnectionStatusCommandInput extends GetPlayerConnectionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPlayerConnectionStatusCommand}.
  */
 export interface GetPlayerConnectionStatusCommandOutput extends GetPlayerConnectionStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of a player's connection to the game runtime.</p>
  *          <p>
  *       It's possible for a single player to have multiple connections to the game runtime.
@@ -46,10 +43,17 @@ export interface GetPlayerConnectionStatusCommandOutput extends GetPlayerConnect
  * import { GameSparksClient, GetPlayerConnectionStatusCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetPlayerConnectionStatusCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // GetPlayerConnectionStatusRequest
+ *   PlayerId: "STRING_VALUE", // required
+ *   GameName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ * };
  * const command = new GetPlayerConnectionStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPlayerConnectionStatusCommandInput - {@link GetPlayerConnectionStatusCommandInput}
+ * @returns {@link GetPlayerConnectionStatusCommandOutput}
  * @see {@link GetPlayerConnectionStatusCommandInput} for command's `input` shape.
  * @see {@link GetPlayerConnectionStatusCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -88,6 +92,9 @@ export class GetPlayerConnectionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPlayerConnectionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class GetPlayerConnectionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPlayerConnectionStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPlayerConnectionStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +134,21 @@ export class GetPlayerConnectionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPlayerConnectionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPlayerConnectionStatusCommand(input, context);
+    return se_GetPlayerConnectionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPlayerConnectionStatusCommandOutput> {
-    return deserializeAws_restJson1GetPlayerConnectionStatusCommand(output, context);
+    return de_GetPlayerConnectionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

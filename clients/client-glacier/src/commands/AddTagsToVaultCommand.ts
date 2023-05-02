@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { AddTagsToVaultInput, AddTagsToVaultInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1AddTagsToVaultCommand,
-  serializeAws_restJson1AddTagsToVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { AddTagsToVaultInput } from "../models/models_0";
+import { de_AddTagsToVaultCommand, se_AddTagsToVaultCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToVaultCommand}.
  */
 export interface AddTagsToVaultCommandInput extends AddTagsToVaultInput {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToVaultCommand}.
  */
 export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation adds the specified tags to a vault. Each tag is composed of a key and
  *          a value. Each vault can have up to 10 tags. If your request would cause the tag limit for
  *          the vault to be exceeded, the operation throws the <code>LimitExceededException</code>
@@ -42,10 +44,19 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, AddTagsToVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, AddTagsToVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // AddTagsToVaultInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new AddTagsToVaultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToVaultCommandInput - {@link AddTagsToVaultCommandInput}
+ * @returns {@link AddTagsToVaultCommandOutput}
  * @see {@link AddTagsToVaultCommandInput} for command's `input` shape.
  * @see {@link AddTagsToVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -101,6 +112,9 @@ export class AddTagsToVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +143,8 @@ export class AddTagsToVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsToVaultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +154,18 @@ export class AddTagsToVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddTagsToVaultCommand(input, context);
+    return se_AddTagsToVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToVaultCommandOutput> {
-    return deserializeAws_restJson1AddTagsToVaultCommand(output, context);
+    return de_AddTagsToVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

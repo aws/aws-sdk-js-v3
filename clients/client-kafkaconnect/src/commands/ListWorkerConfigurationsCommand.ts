@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  ListWorkerConfigurationsRequest,
-  ListWorkerConfigurationsRequestFilterSensitiveLog,
-  ListWorkerConfigurationsResponse,
-  ListWorkerConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorkerConfigurationsCommand,
-  serializeAws_restJson1ListWorkerConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWorkerConfigurationsRequest, ListWorkerConfigurationsResponse } from "../models/models_0";
+import { de_ListWorkerConfigurationsCommand, se_ListWorkerConfigurationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkerConfigurationsCommand}.
  */
 export interface ListWorkerConfigurationsCommandInput extends ListWorkerConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkerConfigurationsCommand}.
  */
 export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all of the worker configurations in this account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigu
  * import { KafkaConnectClient, ListWorkerConfigurationsCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, ListWorkerConfigurationsCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
+ * const input = { // ListWorkerConfigurationsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListWorkerConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkerConfigurationsCommandInput - {@link ListWorkerConfigurationsCommandInput}
+ * @returns {@link ListWorkerConfigurationsCommandOutput}
  * @see {@link ListWorkerConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListWorkerConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
@@ -96,6 +99,9 @@ export class ListWorkerConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkerConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +130,8 @@ export class ListWorkerConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkerConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkerConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +141,18 @@ export class ListWorkerConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkerConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorkerConfigurationsCommand(input, context);
+    return se_ListWorkerConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkerConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListWorkerConfigurationsCommand(output, context);
+    return de_ListWorkerConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

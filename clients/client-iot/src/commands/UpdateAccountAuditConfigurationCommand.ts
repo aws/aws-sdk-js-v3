@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { UpdateAccountAuditConfigurationRequest, UpdateAccountAuditConfigurationResponse } from "../models/models_2";
 import {
-  UpdateAccountAuditConfigurationRequest,
-  UpdateAccountAuditConfigurationRequestFilterSensitiveLog,
-  UpdateAccountAuditConfigurationResponse,
-  UpdateAccountAuditConfigurationResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateAccountAuditConfigurationCommand,
-  serializeAws_restJson1UpdateAccountAuditConfigurationCommand,
+  de_UpdateAccountAuditConfigurationCommand,
+  se_UpdateAccountAuditConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountAuditConfigurationCommand}.
  */
 export interface UpdateAccountAuditConfigurationCommandInput extends UpdateAccountAuditConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountAuditConfigurationCommand}.
  */
 export interface UpdateAccountAuditConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateAccountAuditConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures or reconfigures the Device Defender audit settings for this account.
  *           Settings include how audit notifications are sent and which audit checks are
  *           enabled or disabled.</p>
@@ -47,10 +47,27 @@ export interface UpdateAccountAuditConfigurationCommandOutput
  * import { IoTClient, UpdateAccountAuditConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateAccountAuditConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateAccountAuditConfigurationRequest
+ *   roleArn: "STRING_VALUE",
+ *   auditNotificationTargetConfigurations: { // AuditNotificationTargetConfigurations
+ *     "<keys>": { // AuditNotificationTarget
+ *       targetArn: "STRING_VALUE",
+ *       roleArn: "STRING_VALUE",
+ *       enabled: true || false,
+ *     },
+ *   },
+ *   auditCheckConfigurations: { // AuditCheckConfigurations
+ *     "<keys>": { // AuditCheckConfiguration
+ *       enabled: true || false,
+ *     },
+ *   },
+ * };
  * const command = new UpdateAccountAuditConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountAuditConfigurationCommandInput - {@link UpdateAccountAuditConfigurationCommandInput}
+ * @returns {@link UpdateAccountAuditConfigurationCommandOutput}
  * @see {@link UpdateAccountAuditConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountAuditConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -83,6 +100,9 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountAuditConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +131,8 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccountAuditConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAccountAuditConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +142,24 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateAccountAuditConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAccountAuditConfigurationCommand(input, context);
+    return se_UpdateAccountAuditConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAccountAuditConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateAccountAuditConfigurationCommand(output, context);
+    return de_UpdateAccountAuditConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

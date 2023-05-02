@@ -81,6 +81,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateConnectorCommandInput
   | CreateCustomPluginCommandInput
@@ -95,6 +98,9 @@ export type ServiceInputTypes =
   | ListWorkerConfigurationsCommandInput
   | UpdateConnectorCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateConnectorCommandOutput
   | CreateCustomPluginCommandOutput
@@ -109,6 +115,9 @@ export type ServiceOutputTypes =
   | ListWorkerConfigurationsCommandOutput
   | UpdateConnectorCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -116,7 +125,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -225,11 +234,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type KafkaConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -240,10 +252,15 @@ type KafkaConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of KafkaConnectClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of KafkaConnectClient class constructor that set the region, credentials and other options.
  */
 export interface KafkaConnectClientConfig extends KafkaConnectClientConfigType {}
 
+/**
+ * @public
+ */
 type KafkaConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -254,11 +271,14 @@ type KafkaConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of KafkaConnectClient class. This is resolved and normalized from the {@link KafkaConnectClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of KafkaConnectClient class. This is resolved and normalized from the {@link KafkaConnectClientConfig | constructor configuration interface}.
  */
 export interface KafkaConnectClientResolvedConfig extends KafkaConnectClientResolvedConfigType {}
 
 /**
+ * @public
  * <p/>
  */
 export class KafkaConnectClient extends __Client<

@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAccessPoliciesRequest,
-  ListAccessPoliciesRequestFilterSensitiveLog,
-  ListAccessPoliciesResponse,
-  ListAccessPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAccessPoliciesRequest, ListAccessPoliciesResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0ListAccessPoliciesCommand,
-  serializeAws_json1_0ListAccessPoliciesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListAccessPoliciesCommand, se_ListAccessPoliciesCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessPoliciesCommand}.
  */
 export interface ListAccessPoliciesCommandInput extends ListAccessPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessPoliciesCommand}.
  */
 export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a list of OpenSearch Serverless access policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,20 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * import { OpenSearchServerlessClient, ListAccessPoliciesCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, ListAccessPoliciesCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // ListAccessPoliciesRequest
+ *   type: "STRING_VALUE", // required
+ *   resource: [ // ResourceFilter
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAccessPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessPoliciesCommandInput - {@link ListAccessPoliciesCommandInput}
+ * @returns {@link ListAccessPoliciesCommandOutput}
  * @see {@link ListAccessPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAccessPoliciesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListAccessPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class ListAccessPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +129,18 @@ export class ListAccessPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListAccessPoliciesCommand(input, context);
+    return se_ListAccessPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessPoliciesCommandOutput> {
-    return deserializeAws_json1_0ListAccessPoliciesCommand(output, context);
+    return de_ListAccessPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { AssociateWirelessDeviceWithThingRequest, AssociateWirelessDeviceWithThingResponse } from "../models/models_0";
 import {
-  AssociateWirelessDeviceWithThingRequest,
-  AssociateWirelessDeviceWithThingRequestFilterSensitiveLog,
-  AssociateWirelessDeviceWithThingResponse,
-  AssociateWirelessDeviceWithThingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateWirelessDeviceWithThingCommand,
-  serializeAws_restJson1AssociateWirelessDeviceWithThingCommand,
+  de_AssociateWirelessDeviceWithThingCommand,
+  se_AssociateWirelessDeviceWithThingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateWirelessDeviceWithThingCommand}.
  */
 export interface AssociateWirelessDeviceWithThingCommandInput extends AssociateWirelessDeviceWithThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateWirelessDeviceWithThingCommand}.
  */
 export interface AssociateWirelessDeviceWithThingCommandOutput
@@ -37,6 +36,7 @@ export interface AssociateWirelessDeviceWithThingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a wireless device with a thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface AssociateWirelessDeviceWithThingCommandOutput
  * import { IoTWirelessClient, AssociateWirelessDeviceWithThingCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, AssociateWirelessDeviceWithThingCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // AssociateWirelessDeviceWithThingRequest
+ *   Id: "STRING_VALUE", // required
+ *   ThingArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateWirelessDeviceWithThingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWirelessDeviceWithThingCommandInput - {@link AssociateWirelessDeviceWithThingCommandInput}
+ * @returns {@link AssociateWirelessDeviceWithThingCommandOutput}
  * @see {@link AssociateWirelessDeviceWithThingCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessDeviceWithThingCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +95,9 @@ export class AssociateWirelessDeviceWithThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWirelessDeviceWithThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +126,8 @@ export class AssociateWirelessDeviceWithThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateWirelessDeviceWithThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateWirelessDeviceWithThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +137,24 @@ export class AssociateWirelessDeviceWithThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateWirelessDeviceWithThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateWirelessDeviceWithThingCommand(input, context);
+    return se_AssociateWirelessDeviceWithThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateWirelessDeviceWithThingCommandOutput> {
-    return deserializeAws_restJson1AssociateWirelessDeviceWithThingCommand(output, context);
+    return de_AssociateWirelessDeviceWithThingCommand(output, context);
   }
 
   // Start section: command_body_extra

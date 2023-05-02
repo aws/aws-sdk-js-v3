@@ -15,22 +15,24 @@ import {
 
 import {
   RegisterSlackWorkspaceForOrganizationRequest,
-  RegisterSlackWorkspaceForOrganizationRequestFilterSensitiveLog,
   RegisterSlackWorkspaceForOrganizationResult,
-  RegisterSlackWorkspaceForOrganizationResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand,
-  serializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand,
+  de_RegisterSlackWorkspaceForOrganizationCommand,
+  se_RegisterSlackWorkspaceForOrganizationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterSlackWorkspaceForOrganizationCommand}.
  */
 export interface RegisterSlackWorkspaceForOrganizationCommandInput
   extends RegisterSlackWorkspaceForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterSlackWorkspaceForOrganizationCommand}.
  */
 export interface RegisterSlackWorkspaceForOrganizationCommandOutput
@@ -38,6 +40,7 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a Slack workspace for your Amazon Web Services account. To call this API, your account must be
  *       part of an organization in Organizations.</p>
  *          <p>If you're the <i>management account</i> and you want to register Slack
@@ -74,10 +77,15 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput
  * import { SupportAppClient, RegisterSlackWorkspaceForOrganizationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, RegisterSlackWorkspaceForOrganizationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = { // RegisterSlackWorkspaceForOrganizationRequest
+ *   teamId: "STRING_VALUE", // required
+ * };
  * const command = new RegisterSlackWorkspaceForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterSlackWorkspaceForOrganizationCommandInput - {@link RegisterSlackWorkspaceForOrganizationCommandInput}
+ * @returns {@link RegisterSlackWorkspaceForOrganizationCommandOutput}
  * @see {@link RegisterSlackWorkspaceForOrganizationCommandInput} for command's `input` shape.
  * @see {@link RegisterSlackWorkspaceForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -143,6 +151,9 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterSlackWorkspaceForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,8 +182,8 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterSlackWorkspaceForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterSlackWorkspaceForOrganizationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -182,18 +193,24 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterSlackWorkspaceForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand(input, context);
+    return se_RegisterSlackWorkspaceForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterSlackWorkspaceForOrganizationCommandOutput> {
-    return deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand(output, context);
+    return de_RegisterSlackWorkspaceForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

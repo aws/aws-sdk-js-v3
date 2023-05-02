@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListAvailableManagementCidrRangesRequest, ListAvailableManagementCidrRangesResult } from "../models/models_0";
 import {
-  ListAvailableManagementCidrRangesRequest,
-  ListAvailableManagementCidrRangesRequestFilterSensitiveLog,
-  ListAvailableManagementCidrRangesResult,
-  ListAvailableManagementCidrRangesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAvailableManagementCidrRangesCommand,
-  serializeAws_json1_1ListAvailableManagementCidrRangesCommand,
+  de_ListAvailableManagementCidrRangesCommand,
+  se_ListAvailableManagementCidrRangesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailableManagementCidrRangesCommand}.
  */
 export interface ListAvailableManagementCidrRangesCommandInput extends ListAvailableManagementCidrRangesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailableManagementCidrRangesCommand}.
  */
 export interface ListAvailableManagementCidrRangesCommandOutput
@@ -37,6 +36,7 @@ export interface ListAvailableManagementCidrRangesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use
  *          for the network management interface when you enable Bring Your Own License (BYOL). </p>
  *          <p>This operation can be run only by Amazon Web Services accounts that are enabled for BYOL.
@@ -51,10 +51,17 @@ export interface ListAvailableManagementCidrRangesCommandOutput
  * import { WorkSpacesClient, ListAvailableManagementCidrRangesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ListAvailableManagementCidrRangesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // ListAvailableManagementCidrRangesRequest
+ *   ManagementCidrRangeConstraint: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAvailableManagementCidrRangesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailableManagementCidrRangesCommandInput - {@link ListAvailableManagementCidrRangesCommandInput}
+ * @returns {@link ListAvailableManagementCidrRangesCommandOutput}
  * @see {@link ListAvailableManagementCidrRangesCommandInput} for command's `input` shape.
  * @see {@link ListAvailableManagementCidrRangesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableManagementCidrRangesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAvailableManagementCidrRangesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAvailableManagementCidrRangesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +133,24 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAvailableManagementCidrRangesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableManagementCidrRangesCommand(input, context);
+    return se_ListAvailableManagementCidrRangesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableManagementCidrRangesCommandOutput> {
-    return deserializeAws_json1_1ListAvailableManagementCidrRangesCommand(output, context);
+    return de_ListAvailableManagementCidrRangesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetInstanceAttributeRequest, ResetInstanceAttributeRequestFilterSensitiveLog } from "../models/models_6";
-import {
-  deserializeAws_ec2ResetInstanceAttributeCommand,
-  serializeAws_ec2ResetInstanceAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { ResetInstanceAttributeRequest } from "../models/models_6";
+import { de_ResetInstanceAttributeCommand, se_ResetInstanceAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ResetInstanceAttributeCommand}.
  */
 export interface ResetInstanceAttributeCommandInput extends ResetInstanceAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetInstanceAttributeCommand}.
  */
 export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets an attribute of an instance to its default value. To reset the
  *                 <code>kernel</code> or <code>ramdisk</code>, the instance must be in a stopped
  *             state. To reset the <code>sourceDestCheck</code>, the instance can be either running or
@@ -45,10 +47,17 @@ export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ResetInstanceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ResetInstanceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ResetInstanceAttributeRequest
+ *   Attribute: "instanceType" || "kernel" || "ramdisk" || "userData" || "disableApiTermination" || "instanceInitiatedShutdownBehavior" || "rootDeviceName" || "blockDeviceMapping" || "productCodes" || "sourceDestCheck" || "groupSet" || "ebsOptimized" || "sriovNetSupport" || "enaSupport" || "enclaveOptions" || "disableApiStop", // required
+ *   DryRun: true || false,
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new ResetInstanceAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetInstanceAttributeCommandInput - {@link ResetInstanceAttributeCommandInput}
+ * @returns {@link ResetInstanceAttributeCommandOutput}
  * @see {@link ResetInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -84,6 +93,9 @@ export class ResetInstanceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetInstanceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +124,8 @@ export class ResetInstanceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetInstanceAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +135,18 @@ export class ResetInstanceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ResetInstanceAttributeCommand(input, context);
+    return se_ResetInstanceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetInstanceAttributeCommandOutput> {
-    return deserializeAws_ec2ResetInstanceAttributeCommand(output, context);
+    return de_ResetInstanceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

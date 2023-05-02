@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListDirectoriesRequest,
-  ListDirectoriesRequestFilterSensitiveLog,
-  ListDirectoriesResponse,
-  ListDirectoriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDirectoriesCommand,
-  serializeAws_restJson1ListDirectoriesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDirectoriesRequest, ListDirectoriesResponse } from "../models/models_0";
+import { de_ListDirectoriesCommand, se_ListDirectoriesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDirectoriesCommand}.
  */
 export interface ListDirectoriesCommandInput extends ListDirectoriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDirectoriesCommand}.
  */
 export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists directories created within an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  * import { CloudDirectoryClient, ListDirectoriesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListDirectoriesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListDirectoriesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   state: "ENABLED" || "DISABLED" || "DELETED",
+ * };
  * const command = new ListDirectoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDirectoriesCommandInput - {@link ListDirectoriesCommandInput}
+ * @returns {@link ListDirectoriesCommandOutput}
  * @see {@link ListDirectoriesCommandInput} for command's `input` shape.
  * @see {@link ListDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -91,6 +95,9 @@ export class ListDirectoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDirectoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +126,8 @@ export class ListDirectoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDirectoriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDirectoriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +137,18 @@ export class ListDirectoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDirectoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDirectoriesCommand(input, context);
+    return se_ListDirectoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDirectoriesCommandOutput> {
-    return deserializeAws_restJson1ListDirectoriesCommand(output, context);
+    return de_ListDirectoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

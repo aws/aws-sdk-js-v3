@@ -12,18 +12,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedListInput, MalformedListInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedListCommand,
-  serializeAws_restJson1MalformedListCommand,
-} from "../protocols/Aws_restJson1";
+import { MalformedListInput } from "../models/models_0";
+import { de_MalformedListCommand, se_MalformedListCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedListCommand}.
  */
 export interface MalformedListCommandInput extends MalformedListInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedListCommand}.
  */
 export interface MalformedListCommandOutput extends __MetadataBearer {}
@@ -36,6 +37,9 @@ export class MalformedListCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedListCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +65,8 @@ export class MalformedListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedListInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,12 +76,18 @@ export class MalformedListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedListCommand(input, context);
+    return se_MalformedListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedListCommandOutput> {
-    return deserializeAws_restJson1MalformedListCommand(output, context);
+    return de_MalformedListCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/models_0";
 import {
-  PutAccountSendingAttributesRequest,
-  PutAccountSendingAttributesRequestFilterSensitiveLog,
-  PutAccountSendingAttributesResponse,
-  PutAccountSendingAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAccountSendingAttributesCommand,
-  serializeAws_restJson1PutAccountSendingAttributesCommand,
+  de_PutAccountSendingAttributesCommand,
+  se_PutAccountSendingAttributesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountSendingAttributesCommand}.
  */
 export interface PutAccountSendingAttributesCommandInput extends PutAccountSendingAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountSendingAttributesCommand}.
  */
 export interface PutAccountSendingAttributesCommandOutput
@@ -37,6 +36,7 @@ export interface PutAccountSendingAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable or disable the ability of your account to send email.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface PutAccountSendingAttributesCommandOutput
  * import { SESv2Client, PutAccountSendingAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutAccountSendingAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // PutAccountSendingAttributesRequest
+ *   SendingEnabled: true || false,
+ * };
  * const command = new PutAccountSendingAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountSendingAttributesCommandInput - {@link PutAccountSendingAttributesCommandInput}
+ * @returns {@link PutAccountSendingAttributesCommandOutput}
  * @see {@link PutAccountSendingAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountSendingAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -77,6 +82,9 @@ export class PutAccountSendingAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountSendingAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class PutAccountSendingAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountSendingAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountSendingAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +124,21 @@ export class PutAccountSendingAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountSendingAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAccountSendingAttributesCommand(input, context);
+    return se_PutAccountSendingAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountSendingAttributesCommandOutput> {
-    return deserializeAws_restJson1PutAccountSendingAttributesCommand(output, context);
+    return de_PutAccountSendingAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

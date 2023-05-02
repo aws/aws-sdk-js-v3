@@ -16,32 +16,39 @@ import {
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   GenerateRandomRequest,
-  GenerateRandomRequestFilterSensitiveLog,
   GenerateRandomResponse,
   GenerateRandomResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GenerateRandomCommand,
-  serializeAws_json1_1GenerateRandomCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GenerateRandomCommand, se_GenerateRandomCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateRandomCommand}.
  */
 export interface GenerateRandomCommandInput extends GenerateRandomRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateRandomCommand}.
  */
 export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a random byte string that is cryptographically secure.</p>
  *          <p>You must use the <code>NumberOfBytes</code> parameter to specify the length of the random
  *       byte string. There is no default value for string length.</p>
  *          <p>By default, the random byte string is generated in KMS. To generate the byte string in
  *       the CloudHSM cluster associated with an CloudHSM key store, use the <code>CustomKeyStoreId</code>
  *       parameter.</p>
- *          <p>Applications in Amazon Web Services Nitro Enclaves can call this operation by using the <a href="https://github.com/aws/aws-nitro-enclaves-sdk-c">Amazon Web Services Nitro Enclaves Development Kit</a>. For information about the supporting parameters, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves use KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <code>GenerateRandom</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
+ *       isolated compute environment in Amazon EC2. To call <code>GenerateRandom</code> for a Nitro
+ *       enclave, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code> parameter
+ *       to provide the attestation document for the enclave. Instead of plaintext bytes, the response
+ *       includes the plaintext bytes encrypted under the public key from the attestation document
+ *       (<code>CiphertextForRecipient</code>).For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>For more information about entropy and random number generation, see
  *       <a href="https://docs.aws.amazon.com/kms/latest/cryptographic-details/">Key Management Service Cryptographic Details</a>.</p>
  *          <p>
@@ -56,10 +63,20 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * import { KMSClient, GenerateRandomCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateRandomCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // GenerateRandomRequest
+ *   NumberOfBytes: Number("int"),
+ *   CustomKeyStoreId: "STRING_VALUE",
+ *   Recipient: { // RecipientInfo
+ *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
+ *     AttestationDocument: "BLOB_VALUE",
+ *   },
+ * };
  * const command = new GenerateRandomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateRandomCommandInput - {@link GenerateRandomCommandInput}
+ * @returns {@link GenerateRandomCommandOutput}
  * @see {@link GenerateRandomCommandInput} for command's `input` shape.
  * @see {@link GenerateRandomCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -151,6 +168,9 @@ export class GenerateRandomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateRandomCommandInput) {
     // Start section: command_constructor
     super();
@@ -179,7 +199,7 @@ export class GenerateRandomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateRandomRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GenerateRandomResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -190,12 +210,18 @@ export class GenerateRandomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateRandomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateRandomCommand(input, context);
+    return se_GenerateRandomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateRandomCommandOutput> {
-    return deserializeAws_json1_1GenerateRandomCommand(output, context);
+    return de_GenerateRandomCommand(output, context);
   }
 
   // Start section: command_body_extra

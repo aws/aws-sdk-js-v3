@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateScheduledActionMessage,
-  CreateScheduledActionMessageFilterSensitiveLog,
-  ScheduledAction,
-  ScheduledActionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateScheduledActionCommand,
-  serializeAws_queryCreateScheduledActionCommand,
-} from "../protocols/Aws_query";
+import { CreateScheduledActionMessage, ScheduledAction } from "../models/models_0";
+import { de_CreateScheduledActionCommand, se_CreateScheduledActionCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateScheduledActionCommand}.
  */
 export interface CreateScheduledActionCommandInput extends CreateScheduledActionMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateScheduledActionCommand}.
  */
 export interface CreateScheduledActionCommandOutput extends ScheduledAction, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action.
  *             For example, you can create a schedule of when to run the <code>ResizeCluster</code> API operation.
  *         </p>
@@ -44,10 +41,38 @@ export interface CreateScheduledActionCommandOutput extends ScheduledAction, __M
  * import { RedshiftClient, CreateScheduledActionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateScheduledActionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // CreateScheduledActionMessage
+ *   ScheduledActionName: "STRING_VALUE", // required
+ *   TargetAction: { // ScheduledActionType
+ *     ResizeCluster: { // ResizeClusterMessage
+ *       ClusterIdentifier: "STRING_VALUE", // required
+ *       ClusterType: "STRING_VALUE",
+ *       NodeType: "STRING_VALUE",
+ *       NumberOfNodes: Number("int"),
+ *       Classic: true || false,
+ *       ReservedNodeId: "STRING_VALUE",
+ *       TargetReservedNodeOfferingId: "STRING_VALUE",
+ *     },
+ *     PauseCluster: { // PauseClusterMessage
+ *       ClusterIdentifier: "STRING_VALUE", // required
+ *     },
+ *     ResumeCluster: { // ResumeClusterMessage
+ *       ClusterIdentifier: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Schedule: "STRING_VALUE", // required
+ *   IamRole: "STRING_VALUE", // required
+ *   ScheduledActionDescription: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Enable: true || false,
+ * };
  * const command = new CreateScheduledActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScheduledActionCommandInput - {@link CreateScheduledActionCommandInput}
+ * @returns {@link CreateScheduledActionCommandOutput}
  * @see {@link CreateScheduledActionCommandInput} for command's `input` shape.
  * @see {@link CreateScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -89,6 +114,9 @@ export class CreateScheduledActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +145,8 @@ export class CreateScheduledActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateScheduledActionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ScheduledActionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +156,18 @@ export class CreateScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateScheduledActionCommand(input, context);
+    return se_CreateScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScheduledActionCommandOutput> {
-    return deserializeAws_queryCreateScheduledActionCommand(output, context);
+    return de_CreateScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

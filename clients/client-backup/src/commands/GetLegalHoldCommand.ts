@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  GetLegalHoldInput,
-  GetLegalHoldInputFilterSensitiveLog,
-  GetLegalHoldOutput,
-  GetLegalHoldOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLegalHoldCommand,
-  serializeAws_restJson1GetLegalHoldCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLegalHoldInput, GetLegalHoldOutput } from "../models/models_0";
+import { de_GetLegalHoldCommand, se_GetLegalHoldCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLegalHoldCommand}.
  */
 export interface GetLegalHoldCommandInput extends GetLegalHoldInput {}
 /**
+ * @public
+ *
  * The output of {@link GetLegalHoldCommand}.
  */
 export interface GetLegalHoldCommandOutput extends GetLegalHoldOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action returns details for a specified legal hold. The details are the
  *          body of a legal hold in JSON format, in addition to metadata.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetLegalHoldCommandOutput extends GetLegalHoldOutput, __Metadat
  * import { BackupClient, GetLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // GetLegalHoldInput
+ *   LegalHoldId: "STRING_VALUE", // required
+ * };
  * const command = new GetLegalHoldCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLegalHoldCommandInput - {@link GetLegalHoldCommandInput}
+ * @returns {@link GetLegalHoldCommandOutput}
  * @see {@link GetLegalHoldCommandInput} for command's `input` shape.
  * @see {@link GetLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -83,6 +85,9 @@ export class GetLegalHoldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class GetLegalHoldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLegalHoldInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLegalHoldOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class GetLegalHoldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLegalHoldCommand(input, context);
+    return se_GetLegalHoldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLegalHoldCommandOutput> {
-    return deserializeAws_restJson1GetLegalHoldCommand(output, context);
+    return de_GetLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

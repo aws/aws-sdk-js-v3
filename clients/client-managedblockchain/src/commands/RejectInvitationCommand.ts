@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  RejectInvitationInput,
-  RejectInvitationInputFilterSensitiveLog,
-  RejectInvitationOutput,
-  RejectInvitationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RejectInvitationCommand,
-  serializeAws_restJson1RejectInvitationCommand,
-} from "../protocols/Aws_restJson1";
+import { RejectInvitationInput, RejectInvitationOutput } from "../models/models_0";
+import { de_RejectInvitationCommand, se_RejectInvitationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectInvitationCommand}.
  */
 export interface RejectInvitationCommandInput extends RejectInvitationInput {}
 /**
+ * @public
+ *
  * The output of {@link RejectInvitationCommand}.
  */
 export interface RejectInvitationCommandOutput extends RejectInvitationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects an invitation to join a network. This action can be called by a principal in an Amazon Web Services account that has received an invitation to create a member and join a network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -47,10 +44,15 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
  * import { ManagedBlockchainClient, RejectInvitationCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, RejectInvitationCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // RejectInvitationInput
+ *   InvitationId: "STRING_VALUE", // required
+ * };
  * const command = new RejectInvitationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectInvitationCommandInput - {@link RejectInvitationCommandInput}
+ * @returns {@link RejectInvitationCommandOutput}
  * @see {@link RejectInvitationCommandInput} for command's `input` shape.
  * @see {@link RejectInvitationCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -95,6 +97,9 @@ export class RejectInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +128,8 @@ export class RejectInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectInvitationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectInvitationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +139,18 @@ export class RejectInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RejectInvitationCommand(input, context);
+    return se_RejectInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectInvitationCommandOutput> {
-    return deserializeAws_restJson1RejectInvitationCommand(output, context);
+    return de_RejectInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

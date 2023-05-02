@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SecurityLakeServiceException as __BaseException } from "./SecurityLakeServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
  *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
@@ -31,12 +32,22 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum AccessType {
-  LAKEFORMATION = "LAKEFORMATION",
-  S3 = "S3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccessType = {
+  LAKEFORMATION: "LAKEFORMATION",
+  S3: "S3",
+} as const;
 
 /**
+ * @public
+ */
+export type AccessType = (typeof AccessType)[keyof typeof AccessType];
+
+/**
+ * @public
  * <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
  *          specified, or the account whose credentials you used to make this request isn't a member of
  *          an organization.</p>
@@ -57,49 +68,68 @@ export class AccountNotFoundException extends __BaseException {
   }
 }
 
-export enum OcsfEventClass {
-  ACCESS_ACTIVITY = "ACCESS_ACTIVITY",
-  ACCOUNT_CHANGE = "ACCOUNT_CHANGE",
-  AUTHENTICATION = "AUTHENTICATION",
-  AUTHORIZATION = "AUTHORIZATION",
-  CLOUD_API = "CLOUD_API",
-  CLOUD_STORAGE = "CLOUD_STORAGE",
-  CONFIG_STATE = "CONFIG_STATE",
-  CONTAINER_LIFECYCLE = "CONTAINER_LIFECYCLE",
-  DATABASE_LIFECYCLE = "DATABASE_LIFECYCLE",
-  DHCP_ACTIVITY = "DHCP_ACTIVITY",
-  DNS_ACTIVITY = "DNS_ACTIVITY",
-  ENTITY_MANAGEMENT_AUDIT = "ENTITY_MANAGEMENT_AUDIT",
-  FILE_ACTIVITY = "FILE_ACTIVITY",
-  FTP_ACTIVITY = "FTP_ACTIVITY",
-  HTTP_ACTIVITY = "HTTP_ACTIVITY",
-  INVENTORY_INFO = "INVENTORY_INFO",
-  KERNEL_ACTIVITY = "KERNEL_ACTIVITY",
-  KERNEL_EXTENSION = "KERNEL_EXTENSION",
-  MEMORY_ACTIVITY = "MEMORY_ACTIVITY",
-  MODULE_ACTIVITY = "MODULE_ACTIVITY",
-  NETWORK_ACTIVITY = "NETWORK_ACTIVITY",
-  PROCESS_ACTIVITY = "PROCESS_ACTIVITY",
-  RDP_ACTIVITY = "RDP_ACTIVITY",
-  REGISTRY_KEY_ACTIVITY = "REGISTRY_KEY_ACTIVITY",
-  REGISTRY_VALUE_ACTIVITY = "REGISTRY_VALUE_ACTIVITY",
-  RESOURCE_ACTIVITY = "RESOURCE_ACTIVITY",
-  RFB_ACTIVITY = "RFB_ACTIVITY",
-  SCHEDULED_JOB_ACTIVITY = "SCHEDULED_JOB_ACTIVITY",
-  SECURITY_FINDING = "SECURITY_FINDING",
-  SMB_ACTIVITY = "SMB_ACTIVITY",
-  SMTP_ACTIVITY = "SMTP_ACTIVITY",
-  SSH_ACTIVITY = "SSH_ACTIVITY",
-  VIRTUAL_MACHINE_ACTIVITY = "VIRTUAL_MACHINE_ACTIVITY",
-}
-
-export enum SourceStatus {
-  ACTIVE = "ACTIVE",
-  DEACTIVATED = "DEACTIVATED",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OcsfEventClass = {
+  ACCESS_ACTIVITY: "ACCESS_ACTIVITY",
+  ACCOUNT_CHANGE: "ACCOUNT_CHANGE",
+  AUTHENTICATION: "AUTHENTICATION",
+  AUTHORIZATION: "AUTHORIZATION",
+  CLOUD_API: "CLOUD_API",
+  CLOUD_STORAGE: "CLOUD_STORAGE",
+  CONFIG_STATE: "CONFIG_STATE",
+  CONTAINER_LIFECYCLE: "CONTAINER_LIFECYCLE",
+  DATABASE_LIFECYCLE: "DATABASE_LIFECYCLE",
+  DHCP_ACTIVITY: "DHCP_ACTIVITY",
+  DNS_ACTIVITY: "DNS_ACTIVITY",
+  ENTITY_MANAGEMENT_AUDIT: "ENTITY_MANAGEMENT_AUDIT",
+  FILE_ACTIVITY: "FILE_ACTIVITY",
+  FTP_ACTIVITY: "FTP_ACTIVITY",
+  HTTP_ACTIVITY: "HTTP_ACTIVITY",
+  INVENTORY_INFO: "INVENTORY_INFO",
+  KERNEL_ACTIVITY: "KERNEL_ACTIVITY",
+  KERNEL_EXTENSION: "KERNEL_EXTENSION",
+  MEMORY_ACTIVITY: "MEMORY_ACTIVITY",
+  MODULE_ACTIVITY: "MODULE_ACTIVITY",
+  NETWORK_ACTIVITY: "NETWORK_ACTIVITY",
+  PROCESS_ACTIVITY: "PROCESS_ACTIVITY",
+  RDP_ACTIVITY: "RDP_ACTIVITY",
+  REGISTRY_KEY_ACTIVITY: "REGISTRY_KEY_ACTIVITY",
+  REGISTRY_VALUE_ACTIVITY: "REGISTRY_VALUE_ACTIVITY",
+  RESOURCE_ACTIVITY: "RESOURCE_ACTIVITY",
+  RFB_ACTIVITY: "RFB_ACTIVITY",
+  SCHEDULED_JOB_ACTIVITY: "SCHEDULED_JOB_ACTIVITY",
+  SECURITY_FINDING: "SECURITY_FINDING",
+  SMB_ACTIVITY: "SMB_ACTIVITY",
+  SMTP_ACTIVITY: "SMTP_ACTIVITY",
+  SSH_ACTIVITY: "SSH_ACTIVITY",
+  VIRTUAL_MACHINE_ACTIVITY: "VIRTUAL_MACHINE_ACTIVITY",
+} as const;
 
 /**
+ * @public
+ */
+export type OcsfEventClass = (typeof OcsfEventClass)[keyof typeof OcsfEventClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceStatus = {
+  ACTIVE: "ACTIVE",
+  DEACTIVATED: "DEACTIVATED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceStatus = (typeof SourceStatus)[keyof typeof SourceStatus];
+
+/**
+ * @public
  * <p>Retrieves the Logs status for the Amazon Security Lake account.</p>
  */
 export interface LogsStatus {
@@ -116,6 +146,7 @@ export interface LogsStatus {
 }
 
 /**
+ * @public
  * <p>Amazon Security Lake collects logs and events from supported Amazon Web Services and
  *          custom sources. For the list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
  */
@@ -142,24 +173,43 @@ export interface AccountSources {
   eventClass?: OcsfEventClass | string;
 }
 
-export enum Region {
-  AP_NORTHEAST_1 = "ap-northeast-1",
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  EU_CENTRAL_1 = "eu-central-1",
-  EU_WEST_1 = "eu-west-1",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_WEST_2 = "us-west-2",
-}
-
-export enum AwsLogSourceType {
-  CLOUD_TRAIL = "CLOUD_TRAIL",
-  ROUTE53 = "ROUTE53",
-  SH_FINDINGS = "SH_FINDINGS",
-  VPC_FLOW = "VPC_FLOW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Region = {
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_WEST_1: "eu-west-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_WEST_2: "us-west-2",
+} as const;
 
 /**
+ * @public
+ */
+export type Region = (typeof Region)[keyof typeof Region];
+
+/**
+ * @public
+ * @enum
+ */
+export const AwsLogSourceType = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  ROUTE53: "ROUTE53",
+  SH_FINDINGS: "SH_FINDINGS",
+  VPC_FLOW: "VPC_FLOW",
+} as const;
+
+/**
+ * @public
+ */
+export type AwsLogSourceType = (typeof AwsLogSourceType)[keyof typeof AwsLogSourceType];
+
+/**
+ * @public
  * <p>Automatically enable new organization accounts as member accounts from an Amazon Security Lake
  *          administrator account.</p>
  */
@@ -176,6 +226,7 @@ export interface AutoEnableNewRegionConfiguration {
 }
 
 /**
+ * @public
  * <p>Amazon Security Lake  generally returns 404 errors if the requested object is missing from the
  *          bucket.</p>
  */
@@ -196,6 +247,7 @@ export class BucketNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>More than one process tried to modify a resource at the same time. </p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -216,6 +268,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Occurs when a conflict with a previous successful write is detected. This generally
  *          occurs when the previous write did not have time to propagate to the host serving the
  *          current request. A retry (with appropriate backoff logic) is the recommended response to
@@ -250,6 +303,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was a conflict when you attempted to modify a Security Lake source name. </p>
  */
 export class ConflictSourceNamesException extends __BaseException {
@@ -269,6 +323,7 @@ export class ConflictSourceNamesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A conflicting subscription exception operation is in progress. </p>
  */
 export class ConflictSubscriptionException extends __BaseException {
@@ -287,12 +342,24 @@ export class ConflictSubscriptionException extends __BaseException {
   }
 }
 
-export enum Dimension {
-  MEMBER = "MEMBER",
-  REGION = "REGION",
-  SOURCE_TYPE = "SOURCE_TYPE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Dimension = {
+  MEMBER: "MEMBER",
+  REGION: "REGION",
+  SOURCE_TYPE: "SOURCE_TYPE",
+} as const;
 
+/**
+ * @public
+ */
+export type Dimension = (typeof Dimension)[keyof typeof Dimension];
+
+/**
+ * @public
+ */
 export interface CreateAwsLogSourceRequest {
   /**
    * <p>Specifies the input order to enable dimensions in Security Lake, namely Region, source type,
@@ -319,6 +386,9 @@ export interface CreateAwsLogSourceRequest {
   enableSingleDimension?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAwsLogSourceResponse {
   /**
    * <p>Lists the accounts that are in the process of enabling a natively supported Amazon Web Service as a Security Lake source.</p>
@@ -334,6 +404,7 @@ export interface CreateAwsLogSourceResponse {
 }
 
 /**
+ * @public
  * <p>Internal service exceptions are sometimes caused by transient issues. Before you start
  *          troubleshooting, perform the operation again. </p>
  */
@@ -361,6 +432,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -392,6 +464,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides an extension of the AmazonServiceException for errors reported by Amazon S3 while processing a request. In particular, this class provides access to the
  *             Amazon S3 extended request ID. If Amazon S3 is incorrectly handling a
  *          request and you need to contact Amazon, this extended request ID may provide useful
@@ -414,6 +487,7 @@ export class S3Exception extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to meet the constraints specified in Amazon Security Lake. </p>
  */
 export interface ValidationExceptionField {
@@ -428,14 +502,24 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>Your signing certificate could not be validated. </p>
  */
 export class ValidationException extends __BaseException {
@@ -466,6 +550,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomLogSourceRequest {
   /**
    * <p>The name for a third-party custom source. This must be a Regionally unique value.</p>
@@ -501,6 +588,9 @@ export interface CreateCustomLogSourceRequest {
   logProviderAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomLogSourceResponse {
   /**
    * <p>The location of the partition in the Amazon S3 bucket for Security Lake.</p>
@@ -533,17 +623,27 @@ export interface CreateCustomLogSourceResponse {
   logProviderAccessRoleArn: string | undefined;
 }
 
-export enum StorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  EXPIRE = "EXPIRE",
-  GLACIER = "GLACIER",
-  GLACIER_IR = "GLACIER_IR",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  STANDARD_IA = "STANDARD_IA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  EXPIRE: "EXPIRE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  STANDARD_IA: "STANDARD_IA",
+} as const;
 
 /**
+ * @public
+ */
+export type StorageClass = (typeof StorageClass)[keyof typeof StorageClass];
+
+/**
+ * @public
  * <p>Retention settings for the destination Amazon S3 buckets in Amazon Security Lake. </p>
  */
 export interface RetentionSetting {
@@ -561,6 +661,7 @@ export interface RetentionSetting {
 }
 
 /**
+ * @public
  * <p>Provides details of Amazon Security Lake configuration object.</p>
  */
 export interface LakeConfigurationRequest {
@@ -600,6 +701,9 @@ export interface LakeConfigurationRequest {
   replicationRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeRequest {
   /**
    * <p>Enable Security Lake in the specified Regions. To enable Security Lake in specific Amazon Web Services Regions, such as us-east-1 or ap-northeast-3, provide the Region codes. For a
@@ -625,9 +729,13 @@ export interface CreateDatalakeRequest {
   metaStoreManagerRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeResponse {}
 
 /**
+ * @public
  * <p>You have exceeded your service quota. To perform the requested action, remove some of
  *          the relevant resources, or use Service Quotas to request a service quota increase. </p>
  */
@@ -672,6 +780,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The limit on the number of requests per second was exceeded. </p>
  */
 export class ThrottlingException extends __BaseException {
@@ -711,6 +820,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeAutoEnableRequest {
   /**
    * <p>Enable Security Lake with the specified configuration settings to begin collecting security
@@ -719,8 +831,14 @@ export interface CreateDatalakeAutoEnableRequest {
   configurationForNewAccounts: AutoEnableNewRegionConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeAutoEnableResponse {}
 
+/**
+ * @public
+ */
 export interface CreateDatalakeDelegatedAdminRequest {
   /**
    * <p>The Amazon Web Services account ID of the Security Lake delegated administrator.</p>
@@ -728,20 +846,35 @@ export interface CreateDatalakeDelegatedAdminRequest {
   account: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeDelegatedAdminResponse {}
 
-export enum SubscriptionProtocolType {
-  APP = "APP",
-  EMAIL = "EMAIL",
-  EMAIL_JSON = "EMAIL_JSON",
-  FIREHOSE = "FIREHOSE",
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  LAMBDA = "LAMBDA",
-  SMS = "SMS",
-  SQS = "SQS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionProtocolType = {
+  APP: "APP",
+  EMAIL: "EMAIL",
+  EMAIL_JSON: "EMAIL_JSON",
+  FIREHOSE: "FIREHOSE",
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  LAMBDA: "LAMBDA",
+  SMS: "SMS",
+  SQS: "SQS",
+} as const;
 
+/**
+ * @public
+ */
+export type SubscriptionProtocolType = (typeof SubscriptionProtocolType)[keyof typeof SubscriptionProtocolType];
+
+/**
+ * @public
+ */
 export interface CreateDatalakeExceptionsSubscriptionRequest {
   /**
    * <p>The subscription protocol to which exception notifications are posted. </p>
@@ -754,14 +887,21 @@ export interface CreateDatalakeExceptionsSubscriptionRequest {
   notificationEndpoint: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeExceptionsSubscriptionResponse {}
 
 /**
+ * @public
  * <p>The supported source types from which logs and events are collected in Amazon Security Lake.
  *          For the list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
  */
 export type SourceType = SourceType.AwsSourceTypeMember | SourceType.CustomSourceTypeMember | SourceType.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace SourceType {
   /**
    * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. </p>
@@ -801,6 +941,9 @@ export namespace SourceType {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateSubscriberRequest {
   /**
    * <p>The supported Amazon Web Services from which logs and events are collected.
@@ -836,6 +979,9 @@ export interface CreateSubscriberRequest {
   subscriberDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSubscriberResponse {
   /**
    * <p>The <code>subscriptionId</code> created by the <code>CreateSubscriber</code> API
@@ -872,6 +1018,7 @@ export interface CreateSubscriberResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because a value that's not valid or is out of range was
  *          supplied for an input parameter. </p>
  */
@@ -891,11 +1038,23 @@ export class InvalidInputException extends __BaseException {
   }
 }
 
-export enum HttpsMethod {
-  POST = "POST",
-  PUT = "PUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HttpsMethod = {
+  POST: "POST",
+  PUT: "PUT",
+} as const;
 
+/**
+ * @public
+ */
+export type HttpsMethod = (typeof HttpsMethod)[keyof typeof HttpsMethod];
+
+/**
+ * @public
+ */
 export interface CreateSubscriptionNotificationConfigurationRequest {
   /**
    * <p>The subscription ID for the notification subscription.</p>
@@ -936,6 +1095,9 @@ export interface CreateSubscriptionNotificationConfigurationRequest {
   roleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSubscriptionNotificationConfigurationResponse {
   /**
    * <p>Returns the Amazon Resource Name (ARN) of the queue.</p>
@@ -943,6 +1105,9 @@ export interface CreateSubscriptionNotificationConfigurationResponse {
   queueArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAwsLogSourceRequest {
   /**
    * <p>This is a mandatory input. Specify the input order to disable dimensions in Security Lake,
@@ -968,6 +1133,9 @@ export interface DeleteAwsLogSourceRequest {
   disableSingleDimension?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteAwsLogSourceResponse {
   /**
    * <p>Deletion of the Amazon Web Services sources is in progress.</p>
@@ -980,6 +1148,9 @@ export interface DeleteAwsLogSourceResponse {
   failed?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomLogSourceRequest {
   /**
    * <p>The custom source name for the custom log source.</p>
@@ -987,6 +1158,9 @@ export interface DeleteCustomLogSourceRequest {
   customSourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomLogSourceResponse {
   /**
    * <p>The location of the partition in the Amazon S3 bucket for Security Lake.</p>
@@ -994,10 +1168,19 @@ export interface DeleteCustomLogSourceResponse {
   customDataLocation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeAutoEnableRequest {
   /**
    * <p>Remove automatic enablement of configuration settings for new member accounts in
@@ -1006,8 +1189,14 @@ export interface DeleteDatalakeAutoEnableRequest {
   removeFromConfigurationForNewAccounts: AutoEnableNewRegionConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeAutoEnableResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeDelegatedAdminRequest {
   /**
    * <p>The account ID the Security Lake delegated administrator.</p>
@@ -1015,10 +1204,19 @@ export interface DeleteDatalakeDelegatedAdminRequest {
   account: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeDelegatedAdminResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeExceptionsSubscriptionRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeExceptionsSubscriptionResponse {
   /**
    * <p>Retrieves the status of the delete Security Lake operation for an account. </p>
@@ -1026,6 +1224,9 @@ export interface DeleteDatalakeExceptionsSubscriptionResponse {
   status: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubscriberRequest {
   /**
    * <p>A value created by Security Lake that uniquely identifies your <code>DeleteSubscriber</code> API request. </p>
@@ -1033,8 +1234,14 @@ export interface DeleteSubscriberRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubscriberResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSubscriptionNotificationConfigurationRequest {
   /**
    * <p>The ID of the Security Lake subscriber account.</p>
@@ -1042,14 +1249,27 @@ export interface DeleteSubscriptionNotificationConfigurationRequest {
   subscriptionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubscriptionNotificationConfigurationResponse {}
 
-export enum EndpointProtocol {
-  HTTPS = "HTTPS",
-  SQS = "SQS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndpointProtocol = {
+  HTTPS: "HTTPS",
+  SQS: "SQS",
+} as const;
 
 /**
+ * @public
+ */
+export type EndpointProtocol = (typeof EndpointProtocol)[keyof typeof EndpointProtocol];
+
+/**
+ * @public
  * <p>Represents an error interacting with the Amazon EventBridge service.</p>
  */
 export class EventBridgeException extends __BaseException {
@@ -1069,6 +1289,7 @@ export class EventBridgeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>List of all failures.</p>
  */
 export interface Failures {
@@ -1089,6 +1310,7 @@ export interface Failures {
 }
 
 /**
+ * @public
  * <p>Response element for actions that make changes, namely create, update, or delete
  *          actions. </p>
  */
@@ -1104,16 +1326,29 @@ export interface FailuresResponse {
   failures?: Failures[];
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeRequest {}
 
-export enum SettingsStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SettingsStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INITIALIZED: "INITIALIZED",
+  PENDING: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type SettingsStatus = (typeof SettingsStatus)[keyof typeof SettingsStatus];
+
+/**
+ * @public
  * <p>The details of the last <code>UpdateDatalake</code> or <code>DeleteDatalake</code>
  *          API request which failed.</p>
  */
@@ -1132,6 +1367,7 @@ export interface LastUpdateFailure {
 }
 
 /**
+ * @public
  * <p>The status of the last <code>UpdateDatalake</code> or <code>DeleteDatalake</code> API
  *          request. This is set to Completed after the configuration is updated, or removed if
  *          deletion of the data lake is successful.</p>
@@ -1157,6 +1393,7 @@ export interface UpdateStatus {
 }
 
 /**
+ * @public
  * <p>Provides details of Amazon Security Lake lake configuration object.</p>
  */
 export interface LakeConfigurationResponse {
@@ -1212,6 +1449,9 @@ export interface LakeConfigurationResponse {
   updateStatus?: UpdateStatus;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeResponse {
   /**
    * <p>Retrieves the Security Lake configuration object. </p>
@@ -1219,8 +1459,14 @@ export interface GetDatalakeResponse {
   configurations: Record<string, LakeConfigurationResponse> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeAutoEnableRequest {}
 
+/**
+ * @public
+ */
 export interface GetDatalakeAutoEnableResponse {
   /**
    * <p>The configuration for new accounts.</p>
@@ -1228,8 +1474,14 @@ export interface GetDatalakeAutoEnableResponse {
   autoEnableNewAccounts: AutoEnableNewRegionConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeExceptionsExpiryRequest {}
 
+/**
+ * @public
+ */
 export interface GetDatalakeExceptionsExpiryResponse {
   /**
    * <p>The expiration period and time-to-live (TTL).</p>
@@ -1237,9 +1489,13 @@ export interface GetDatalakeExceptionsExpiryResponse {
   exceptionMessageExpiry: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeExceptionsSubscriptionRequest {}
 
 /**
+ * @public
  * <p>Protocol used in Amazon Security Lake that dictates how notifications are posted at the
  *          endpoint. </p>
  */
@@ -1255,6 +1511,9 @@ export interface ProtocolAndNotificationEndpoint {
   endpoint?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeExceptionsSubscriptionResponse {
   /**
    * <p>Retrieves the exception notification subscription information.</p>
@@ -1262,6 +1521,9 @@ export interface GetDatalakeExceptionsSubscriptionResponse {
   protocolAndNotificationEndpoint: ProtocolAndNotificationEndpoint | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeStatusRequest {
   /**
    * <p>The Amazon Web Services account ID for which a static snapshot of the current Amazon Web Services Region, including enabled accounts and log sources, is retrieved.</p>
@@ -1284,6 +1546,9 @@ export interface GetDatalakeStatusRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeStatusResponse {
   /**
    * <p>The list of enabled accounts and enabled sources.</p>
@@ -1300,6 +1565,9 @@ export interface GetDatalakeStatusResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSubscriberRequest {
   /**
    * <p>A value created by Amazon Security Lake that uniquely identifies your
@@ -1308,14 +1576,24 @@ export interface GetSubscriberRequest {
   id: string | undefined;
 }
 
-export enum SubscriptionStatus {
-  ACTIVE = "ACTIVE",
-  DEACTIVATED = "DEACTIVATED",
-  PENDING = "PENDING",
-  READY = "READY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionStatus = {
+  ACTIVE: "ACTIVE",
+  DEACTIVATED: "DEACTIVATED",
+  PENDING: "PENDING",
+  READY: "READY",
+} as const;
 
 /**
+ * @public
+ */
+export type SubscriptionStatus = (typeof SubscriptionStatus)[keyof typeof SubscriptionStatus];
+
+/**
+ * @public
  * <p>Provides details about the Amazon Security Lake account subscription. Subscribers are notified
  *          of new objects for a source as the data is written to your Amazon S3 bucket for
  *          Security Lake. </p>
@@ -1420,6 +1698,9 @@ export interface SubscriberResource {
   resourceShareName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSubscriberResponse {
   /**
    * <p>The subscription information for the specified subscription ID.</p>
@@ -1427,6 +1708,9 @@ export interface GetSubscriberResponse {
   subscriber?: SubscriberResource;
 }
 
+/**
+ * @public
+ */
 export interface ListDatalakeExceptionsRequest {
   /**
    * <p>List the Amazon Web Services Regions from which exceptions are retrieved.</p>
@@ -1448,6 +1732,9 @@ export interface ListDatalakeExceptionsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatalakeExceptionsResponse {
   /**
    * <p>Lists the failures that cannot be retried in the current Region.</p>
@@ -1464,6 +1751,9 @@ export interface ListDatalakeExceptionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLogSourcesRequest {
   /**
    * <p>Lists the log sources in input order, namely Region, source
@@ -1499,6 +1789,9 @@ export interface ListLogSourcesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLogSourcesResponse {
   /**
    * <p>Lists the log sources by Regions for enabled Security Lake accounts.</p>
@@ -1512,6 +1805,9 @@ export interface ListLogSourcesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSubscribersRequest {
   /**
    * <p>If nextToken is returned, there are more results available. You can repeat the call
@@ -1525,6 +1821,9 @@ export interface ListSubscribersRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSubscribersResponse {
   /**
    * <p>The subscribers available for the specified Security Lake account ID.</p>
@@ -1538,6 +1837,9 @@ export interface ListSubscribersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatalakeRequest {
   /**
    * <p>Specify the Region or Regions that will contribute data to the rollup region.</p>
@@ -1545,8 +1847,14 @@ export interface UpdateDatalakeRequest {
   configurations: Record<string, LakeConfigurationRequest> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatalakeResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatalakeExceptionsExpiryRequest {
   /**
    * <p>The time-to-live (TTL) for the exception message to remain.</p>
@@ -1554,8 +1862,14 @@ export interface UpdateDatalakeExceptionsExpiryRequest {
   exceptionMessageExpiry: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatalakeExceptionsExpiryResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatalakeExceptionsSubscriptionRequest {
   /**
    * <p>The subscription protocol to which exception messages are posted. </p>
@@ -1568,8 +1882,14 @@ export interface UpdateDatalakeExceptionsSubscriptionRequest {
   notificationEndpoint: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatalakeExceptionsSubscriptionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateSubscriberRequest {
   /**
    * <p>A value created by Security Lake that uniquely identifies your subscription. </p>
@@ -1598,6 +1918,9 @@ export interface UpdateSubscriberRequest {
   subscriberDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubscriberResponse {
   /**
    * <p>The account of the subscriber.</p>
@@ -1605,6 +1928,9 @@ export interface UpdateSubscriberResponse {
   subscriber?: SubscriberResource;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubscriptionNotificationConfigurationRequest {
   /**
    * <p>The subscription ID for which the subscription notification is specified. </p>
@@ -1644,577 +1970,12 @@ export interface UpdateSubscriptionNotificationConfigurationRequest {
   roleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubscriptionNotificationConfigurationResponse {
   /**
    * <p>Returns the ARN of the queue.</p>
    */
   queueArn?: string;
 }
-
-/**
- * @internal
- */
-export const LogsStatusFilterSensitiveLog = (obj: LogsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountSourcesFilterSensitiveLog = (obj: AccountSources): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoEnableNewRegionConfigurationFilterSensitiveLog = (obj: AutoEnableNewRegionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAwsLogSourceRequestFilterSensitiveLog = (obj: CreateAwsLogSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAwsLogSourceResponseFilterSensitiveLog = (obj: CreateAwsLogSourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomLogSourceRequestFilterSensitiveLog = (obj: CreateCustomLogSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomLogSourceResponseFilterSensitiveLog = (obj: CreateCustomLogSourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetentionSettingFilterSensitiveLog = (obj: RetentionSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LakeConfigurationRequestFilterSensitiveLog = (obj: LakeConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatalakeRequestFilterSensitiveLog = (obj: CreateDatalakeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatalakeResponseFilterSensitiveLog = (obj: CreateDatalakeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatalakeAutoEnableRequestFilterSensitiveLog = (obj: CreateDatalakeAutoEnableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatalakeAutoEnableResponseFilterSensitiveLog = (obj: CreateDatalakeAutoEnableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatalakeDelegatedAdminRequestFilterSensitiveLog = (
-  obj: CreateDatalakeDelegatedAdminRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatalakeDelegatedAdminResponseFilterSensitiveLog = (
-  obj: CreateDatalakeDelegatedAdminResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatalakeExceptionsSubscriptionRequestFilterSensitiveLog = (
-  obj: CreateDatalakeExceptionsSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatalakeExceptionsSubscriptionResponseFilterSensitiveLog = (
-  obj: CreateDatalakeExceptionsSubscriptionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceTypeFilterSensitiveLog = (obj: SourceType): any => {
-  if (obj.awsSourceType !== undefined) return { awsSourceType: obj.awsSourceType };
-  if (obj.customSourceType !== undefined) return { customSourceType: obj.customSourceType };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateSubscriberRequestFilterSensitiveLog = (obj: CreateSubscriberRequest): any => ({
-  ...obj,
-  ...(obj.sourceTypes && { sourceTypes: obj.sourceTypes.map((item) => SourceTypeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateSubscriberResponseFilterSensitiveLog = (obj: CreateSubscriberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSubscriptionNotificationConfigurationRequestFilterSensitiveLog = (
-  obj: CreateSubscriptionNotificationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSubscriptionNotificationConfigurationResponseFilterSensitiveLog = (
-  obj: CreateSubscriptionNotificationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAwsLogSourceRequestFilterSensitiveLog = (obj: DeleteAwsLogSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAwsLogSourceResponseFilterSensitiveLog = (obj: DeleteAwsLogSourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomLogSourceRequestFilterSensitiveLog = (obj: DeleteCustomLogSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomLogSourceResponseFilterSensitiveLog = (obj: DeleteCustomLogSourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatalakeRequestFilterSensitiveLog = (obj: DeleteDatalakeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatalakeResponseFilterSensitiveLog = (obj: DeleteDatalakeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatalakeAutoEnableRequestFilterSensitiveLog = (obj: DeleteDatalakeAutoEnableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatalakeAutoEnableResponseFilterSensitiveLog = (obj: DeleteDatalakeAutoEnableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatalakeDelegatedAdminRequestFilterSensitiveLog = (
-  obj: DeleteDatalakeDelegatedAdminRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatalakeDelegatedAdminResponseFilterSensitiveLog = (
-  obj: DeleteDatalakeDelegatedAdminResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatalakeExceptionsSubscriptionRequestFilterSensitiveLog = (
-  obj: DeleteDatalakeExceptionsSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatalakeExceptionsSubscriptionResponseFilterSensitiveLog = (
-  obj: DeleteDatalakeExceptionsSubscriptionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubscriberRequestFilterSensitiveLog = (obj: DeleteSubscriberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubscriberResponseFilterSensitiveLog = (obj: DeleteSubscriberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubscriptionNotificationConfigurationRequestFilterSensitiveLog = (
-  obj: DeleteSubscriptionNotificationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubscriptionNotificationConfigurationResponseFilterSensitiveLog = (
-  obj: DeleteSubscriptionNotificationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailuresFilterSensitiveLog = (obj: Failures): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailuresResponseFilterSensitiveLog = (obj: FailuresResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatalakeRequestFilterSensitiveLog = (obj: GetDatalakeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LastUpdateFailureFilterSensitiveLog = (obj: LastUpdateFailure): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStatusFilterSensitiveLog = (obj: UpdateStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LakeConfigurationResponseFilterSensitiveLog = (obj: LakeConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatalakeResponseFilterSensitiveLog = (obj: GetDatalakeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatalakeAutoEnableRequestFilterSensitiveLog = (obj: GetDatalakeAutoEnableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatalakeAutoEnableResponseFilterSensitiveLog = (obj: GetDatalakeAutoEnableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatalakeExceptionsExpiryRequestFilterSensitiveLog = (obj: GetDatalakeExceptionsExpiryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatalakeExceptionsExpiryResponseFilterSensitiveLog = (
-  obj: GetDatalakeExceptionsExpiryResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatalakeExceptionsSubscriptionRequestFilterSensitiveLog = (
-  obj: GetDatalakeExceptionsSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtocolAndNotificationEndpointFilterSensitiveLog = (obj: ProtocolAndNotificationEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatalakeExceptionsSubscriptionResponseFilterSensitiveLog = (
-  obj: GetDatalakeExceptionsSubscriptionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatalakeStatusRequestFilterSensitiveLog = (obj: GetDatalakeStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatalakeStatusResponseFilterSensitiveLog = (obj: GetDatalakeStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSubscriberRequestFilterSensitiveLog = (obj: GetSubscriberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubscriberResourceFilterSensitiveLog = (obj: SubscriberResource): any => ({
-  ...obj,
-  ...(obj.sourceTypes && { sourceTypes: obj.sourceTypes.map((item) => SourceTypeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetSubscriberResponseFilterSensitiveLog = (obj: GetSubscriberResponse): any => ({
-  ...obj,
-  ...(obj.subscriber && { subscriber: SubscriberResourceFilterSensitiveLog(obj.subscriber) }),
-});
-
-/**
- * @internal
- */
-export const ListDatalakeExceptionsRequestFilterSensitiveLog = (obj: ListDatalakeExceptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatalakeExceptionsResponseFilterSensitiveLog = (obj: ListDatalakeExceptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLogSourcesRequestFilterSensitiveLog = (obj: ListLogSourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLogSourcesResponseFilterSensitiveLog = (obj: ListLogSourcesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSubscribersRequestFilterSensitiveLog = (obj: ListSubscribersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSubscribersResponseFilterSensitiveLog = (obj: ListSubscribersResponse): any => ({
-  ...obj,
-  ...(obj.subscribers && { subscribers: obj.subscribers.map((item) => SubscriberResourceFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDatalakeRequestFilterSensitiveLog = (obj: UpdateDatalakeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatalakeResponseFilterSensitiveLog = (obj: UpdateDatalakeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatalakeExceptionsExpiryRequestFilterSensitiveLog = (
-  obj: UpdateDatalakeExceptionsExpiryRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatalakeExceptionsExpiryResponseFilterSensitiveLog = (
-  obj: UpdateDatalakeExceptionsExpiryResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatalakeExceptionsSubscriptionRequestFilterSensitiveLog = (
-  obj: UpdateDatalakeExceptionsSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatalakeExceptionsSubscriptionResponseFilterSensitiveLog = (
-  obj: UpdateDatalakeExceptionsSubscriptionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriberRequestFilterSensitiveLog = (obj: UpdateSubscriberRequest): any => ({
-  ...obj,
-  ...(obj.sourceTypes && { sourceTypes: obj.sourceTypes.map((item) => SourceTypeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriberResponseFilterSensitiveLog = (obj: UpdateSubscriberResponse): any => ({
-  ...obj,
-  ...(obj.subscriber && { subscriber: SubscriberResourceFilterSensitiveLog(obj.subscriber) }),
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriptionNotificationConfigurationRequestFilterSensitiveLog = (
-  obj: UpdateSubscriptionNotificationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriptionNotificationConfigurationResponseFilterSensitiveLog = (
-  obj: UpdateSubscriptionNotificationConfigurationResponse
-): any => ({
-  ...obj,
-});

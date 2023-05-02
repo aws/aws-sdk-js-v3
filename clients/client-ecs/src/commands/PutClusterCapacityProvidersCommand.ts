@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  PutClusterCapacityProvidersRequest,
-  PutClusterCapacityProvidersRequestFilterSensitiveLog,
-  PutClusterCapacityProvidersResponse,
-  PutClusterCapacityProvidersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutClusterCapacityProvidersCommand,
-  serializeAws_json1_1PutClusterCapacityProvidersCommand,
-} from "../protocols/Aws_json1_1";
+import { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/models_0";
+import { de_PutClusterCapacityProvidersCommand, se_PutClusterCapacityProvidersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutClusterCapacityProvidersCommand}.
  */
 export interface PutClusterCapacityProvidersCommandInput extends PutClusterCapacityProvidersRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutClusterCapacityProvidersCommand}.
  */
 export interface PutClusterCapacityProvidersCommandOutput
@@ -37,6 +33,7 @@ export interface PutClusterCapacityProvidersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the available capacity providers and the default capacity provider strategy
  * 			for a cluster.</p>
  *          <p>You must specify both the available capacity providers and a default capacity provider
@@ -57,10 +54,25 @@ export interface PutClusterCapacityProvidersCommandOutput
  * import { ECSClient, PutClusterCapacityProvidersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, PutClusterCapacityProvidersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // PutClusterCapacityProvidersRequest
+ *   cluster: "STRING_VALUE", // required
+ *   capacityProviders: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   defaultCapacityProviderStrategy: [ // CapacityProviderStrategy // required
+ *     { // CapacityProviderStrategyItem
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new PutClusterCapacityProvidersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutClusterCapacityProvidersCommandInput - {@link PutClusterCapacityProvidersCommandInput}
+ * @returns {@link PutClusterCapacityProvidersCommandOutput}
  * @see {@link PutClusterCapacityProvidersCommandInput} for command's `input` shape.
  * @see {@link PutClusterCapacityProvidersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -109,6 +121,9 @@ export class PutClusterCapacityProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutClusterCapacityProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +152,8 @@ export class PutClusterCapacityProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutClusterCapacityProvidersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutClusterCapacityProvidersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,15 +163,21 @@ export class PutClusterCapacityProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutClusterCapacityProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutClusterCapacityProvidersCommand(input, context);
+    return se_PutClusterCapacityProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutClusterCapacityProvidersCommandOutput> {
-    return deserializeAws_json1_1PutClusterCapacityProvidersCommand(output, context);
+    return de_PutClusterCapacityProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

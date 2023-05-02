@@ -19,22 +19,24 @@ import {
   GetBlockResponse,
   GetBlockResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBlockCommand,
-  serializeAws_restJson1GetBlockCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBlockCommand, se_GetBlockCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetBlockCommand}.
  */
 export interface GetBlockCommandInput extends GetBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBlockCommand}.
  */
 export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a block object at a specified address in a journal. Also returns a proof of the
  *          specified block for verification if <code>DigestTipAddress</code> is provided.</p>
  *          <p>For information about the data contents in a block, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html">Journal contents</a> in the
@@ -51,10 +53,21 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  * import { QLDBClient, GetBlockCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, GetBlockCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // GetBlockRequest
+ *   Name: "STRING_VALUE", // required
+ *   BlockAddress: { // ValueHolder
+ *     IonText: "STRING_VALUE",
+ *   },
+ *   DigestTipAddress: {
+ *     IonText: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBlockCommandInput - {@link GetBlockCommandInput}
+ * @returns {@link GetBlockCommandOutput}
  * @see {@link GetBlockCommandInput} for command's `input` shape.
  * @see {@link GetBlockCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -83,6 +96,9 @@ export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,12 +136,18 @@ export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBlockCommand(input, context);
+    return se_GetBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBlockCommandOutput> {
-    return deserializeAws_restJson1GetBlockCommand(output, context);
+    return de_GetBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

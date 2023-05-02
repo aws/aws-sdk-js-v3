@@ -15,21 +15,23 @@ import {
 
 import {
   DescribeOrganizationConfigurationRequest,
-  DescribeOrganizationConfigurationRequestFilterSensitiveLog,
   DescribeOrganizationConfigurationResponse,
-  DescribeOrganizationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_restJson1DescribeOrganizationConfigurationCommand,
-  serializeAws_restJson1DescribeOrganizationConfigurationCommand,
+  de_DescribeOrganizationConfigurationCommand,
+  se_DescribeOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationConfigurationCommand}.
  */
 export interface DescribeOrganizationConfigurationCommandInput extends DescribeOrganizationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationConfigurationCommand}.
  */
 export interface DescribeOrganizationConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the Organizations configuration for Security Hub. Can only be
  *          called from a Security Hub administrator account.</p>
  * @example
@@ -45,10 +48,13 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * import { SecurityHubClient, DescribeOrganizationConfigurationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DescribeOrganizationConfigurationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {};
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
+ * @returns {@link DescribeOrganizationConfigurationCommandOutput}
  * @see {@link DescribeOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -68,6 +74,22 @@ export interface DescribeOrganizationConfigurationCommandOutput
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To get information about Organizations configuration
+ * ```javascript
+ * // The following example returns details about the way in which AWS Organizations is configured for a Security Hub account that belongs to an organization. Only a Security Hub administrator account can call this operation.
+ * const input = {};
+ * const command = new DescribeOrganizationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AutoEnable": true,
+ *   "AutoEnableStandards": "DEFAULT",
+ *   "MemberAccountLimitReached": true
+ * }
+ * *\/
+ * // example id: to-get-information-about-organizations-configuration-1676059786304
+ * ```
+ *
  */
 export class DescribeOrganizationConfigurationCommand extends $Command<
   DescribeOrganizationConfigurationCommandInput,
@@ -86,6 +108,9 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +139,8 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +150,24 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrganizationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOrganizationConfigurationCommand(input, context);
+    return se_DescribeOrganizationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeOrganizationConfigurationCommand(output, context);
+    return de_DescribeOrganizationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

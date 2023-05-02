@@ -16,21 +16,23 @@ import {
 
 import {
   GetAccessPointPolicyForObjectLambdaRequest,
-  GetAccessPointPolicyForObjectLambdaRequestFilterSensitiveLog,
   GetAccessPointPolicyForObjectLambdaResult,
-  GetAccessPointPolicyForObjectLambdaResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommand,
-  serializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommand,
+  de_GetAccessPointPolicyForObjectLambdaCommand,
+  se_GetAccessPointPolicyForObjectLambdaCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessPointPolicyForObjectLambdaCommand}.
  */
 export interface GetAccessPointPolicyForObjectLambdaCommandInput extends GetAccessPointPolicyForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessPointPolicyForObjectLambdaCommand}.
  */
 export interface GetAccessPointPolicyForObjectLambdaCommandOutput
@@ -38,6 +40,7 @@ export interface GetAccessPointPolicyForObjectLambdaCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the resource policy for an Object Lambda Access Point.</p>
  *          <p>The following actions are related to
  *          <code>GetAccessPointPolicyForObjectLambda</code>:</p>
@@ -59,10 +62,16 @@ export interface GetAccessPointPolicyForObjectLambdaCommandOutput
  * import { S3ControlClient, GetAccessPointPolicyForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetAccessPointPolicyForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetAccessPointPolicyForObjectLambdaRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessPointPolicyForObjectLambdaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPointPolicyForObjectLambdaCommandInput - {@link GetAccessPointPolicyForObjectLambdaCommandInput}
+ * @returns {@link GetAccessPointPolicyForObjectLambdaCommandOutput}
  * @see {@link GetAccessPointPolicyForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointPolicyForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -89,6 +98,9 @@ export class GetAccessPointPolicyForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPointPolicyForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class GetAccessPointPolicyForObjectLambdaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessPointPolicyForObjectLambdaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessPointPolicyForObjectLambdaResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +141,24 @@ export class GetAccessPointPolicyForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAccessPointPolicyForObjectLambdaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommand(input, context);
+    return se_GetAccessPointPolicyForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAccessPointPolicyForObjectLambdaCommandOutput> {
-    return deserializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommand(output, context);
+    return de_GetAccessPointPolicyForObjectLambdaCommand(output, context);
   }
 
   // Start section: command_body_extra

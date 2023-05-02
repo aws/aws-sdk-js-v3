@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  GetBackendAuthRequest,
-  GetBackendAuthRequestFilterSensitiveLog,
-  GetBackendAuthResponse,
-  GetBackendAuthResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBackendAuthCommand,
-  serializeAws_restJson1GetBackendAuthCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBackendAuthRequest, GetBackendAuthResponse } from "../models/models_0";
+import { de_GetBackendAuthCommand, se_GetBackendAuthCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackendAuthCommand}.
  */
 export interface GetBackendAuthCommandInput extends GetBackendAuthRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBackendAuthCommand}.
  */
 export interface GetBackendAuthCommandOutput extends GetBackendAuthResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a backend auth details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetBackendAuthCommandOutput extends GetBackendAuthResponse, __M
  * import { AmplifyBackendClient, GetBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, GetBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // GetBackendAuthRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   ResourceName: "STRING_VALUE", // required
+ * };
  * const command = new GetBackendAuthCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackendAuthCommandInput - {@link GetBackendAuthCommandInput}
+ * @returns {@link GetBackendAuthCommandOutput}
  * @see {@link GetBackendAuthCommandInput} for command's `input` shape.
  * @see {@link GetBackendAuthCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +85,9 @@ export class GetBackendAuthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackendAuthCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class GetBackendAuthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBackendAuthRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBackendAuthResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class GetBackendAuthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackendAuthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackendAuthCommand(input, context);
+    return se_GetBackendAuthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackendAuthCommandOutput> {
-    return deserializeAws_restJson1GetBackendAuthCommand(output, context);
+    return de_GetBackendAuthCommand(output, context);
   }
 
   // Start section: command_body_extra

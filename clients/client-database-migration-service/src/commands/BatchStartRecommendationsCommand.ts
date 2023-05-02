@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  BatchStartRecommendationsRequest,
-  BatchStartRecommendationsRequestFilterSensitiveLog,
-  BatchStartRecommendationsResponse,
-  BatchStartRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchStartRecommendationsCommand,
-  serializeAws_json1_1BatchStartRecommendationsCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchStartRecommendationsRequest, BatchStartRecommendationsResponse } from "../models/models_0";
+import { de_BatchStartRecommendationsCommand, se_BatchStartRecommendationsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchStartRecommendationsCommand}.
  */
 export interface BatchStartRecommendationsCommandInput extends BatchStartRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchStartRecommendationsCommand}.
  */
 export interface BatchStartRecommendationsCommandOutput extends BatchStartRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the analysis of up to 20 source databases to recommend target engines for each
  *             source database. This is a batch version of <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html">StartRecommendations</a>.</p>
  *          <p>The result of analysis of each source database is reported individually in the
@@ -51,10 +48,23 @@ export interface BatchStartRecommendationsCommandOutput extends BatchStartRecomm
  * import { DatabaseMigrationServiceClient, BatchStartRecommendationsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, BatchStartRecommendationsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // BatchStartRecommendationsRequest
+ *   Data: [ // StartRecommendationsRequestEntryList
+ *     { // StartRecommendationsRequestEntry
+ *       DatabaseId: "STRING_VALUE", // required
+ *       Settings: { // RecommendationSettings
+ *         InstanceSizingType: "STRING_VALUE", // required
+ *         WorkloadType: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new BatchStartRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchStartRecommendationsCommandInput - {@link BatchStartRecommendationsCommandInput}
+ * @returns {@link BatchStartRecommendationsCommandOutput}
  * @see {@link BatchStartRecommendationsCommandInput} for command's `input` shape.
  * @see {@link BatchStartRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -88,6 +98,9 @@ export class BatchStartRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchStartRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +129,8 @@ export class BatchStartRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchStartRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchStartRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +140,21 @@ export class BatchStartRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchStartRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchStartRecommendationsCommand(input, context);
+    return se_BatchStartRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchStartRecommendationsCommandOutput> {
-    return deserializeAws_json1_1BatchStartRecommendationsCommand(output, context);
+    return de_BatchStartRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

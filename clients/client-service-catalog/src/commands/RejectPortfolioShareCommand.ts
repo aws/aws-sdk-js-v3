@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RejectPortfolioShareInput,
-  RejectPortfolioShareInputFilterSensitiveLog,
-  RejectPortfolioShareOutput,
-  RejectPortfolioShareOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RejectPortfolioShareCommand,
-  serializeAws_json1_1RejectPortfolioShareCommand,
-} from "../protocols/Aws_json1_1";
+import { RejectPortfolioShareInput, RejectPortfolioShareOutput } from "../models/models_0";
+import { de_RejectPortfolioShareCommand, se_RejectPortfolioShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link RejectPortfolioShareCommand}.
  */
 export interface RejectPortfolioShareCommandInput extends RejectPortfolioShareInput {}
 /**
+ * @public
+ *
  * The output of {@link RejectPortfolioShareCommand}.
  */
 export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects an offer to share the specified portfolio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareO
  * import { ServiceCatalogClient, RejectPortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, RejectPortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // RejectPortfolioShareInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   PortfolioShareType: "IMPORTED" || "AWS_SERVICECATALOG" || "AWS_ORGANIZATIONS",
+ * };
  * const command = new RejectPortfolioShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectPortfolioShareCommandInput - {@link RejectPortfolioShareCommandInput}
+ * @returns {@link RejectPortfolioShareCommandOutput}
  * @see {@link RejectPortfolioShareCommandInput} for command's `input` shape.
  * @see {@link RejectPortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -72,6 +76,9 @@ export class RejectPortfolioShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectPortfolioShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +107,8 @@ export class RejectPortfolioShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectPortfolioShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectPortfolioShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +118,18 @@ export class RejectPortfolioShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectPortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RejectPortfolioShareCommand(input, context);
+    return se_RejectPortfolioShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectPortfolioShareCommandOutput> {
-    return deserializeAws_json1_1RejectPortfolioShareCommand(output, context);
+    return de_RejectPortfolioShareCommand(output, context);
   }
 
   // Start section: command_body_extra

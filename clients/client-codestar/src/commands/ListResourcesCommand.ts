@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  ListResourcesRequest,
-  ListResourcesRequestFilterSensitiveLog,
-  ListResourcesResult,
-  ListResourcesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourcesCommand,
-  serializeAws_json1_1ListResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResourcesRequest, ListResourcesResult } from "../models/models_0";
+import { de_ListResourcesCommand, se_ListResourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourcesCommand}.
  */
 export interface ListResourcesCommandInput extends ListResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourcesCommand}.
  */
 export interface ListResourcesCommandOutput extends ListResourcesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists resources associated with a project in AWS CodeStar.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListResourcesCommandOutput extends ListResourcesResult, __Metad
  * import { CodeStarClient, ListResourcesCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, ListResourcesCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // ListResourcesRequest
+ *   projectId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
+ * @returns {@link ListResourcesCommandOutput}
  * @see {@link ListResourcesCommandInput} for command's `input` shape.
  * @see {@link ListResourcesCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -78,6 +82,9 @@ export class ListResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class ListResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourcesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class ListResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourcesCommand(input, context);
+    return se_ListResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcesCommandOutput> {
-    return deserializeAws_json1_1ListResourcesCommand(output, context);
+    return de_ListResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

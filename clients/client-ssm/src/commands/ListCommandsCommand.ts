@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCommandsRequest,
-  ListCommandsRequestFilterSensitiveLog,
-  ListCommandsResult,
-  ListCommandsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListCommandsCommand,
-  serializeAws_json1_1ListCommandsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCommandsRequest, ListCommandsResult, ListCommandsResultFilterSensitiveLog } from "../models/models_1";
+import { de_ListCommandsCommand, se_ListCommandsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCommandsCommand}.
  */
 export interface ListCommandsCommandInput extends ListCommandsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCommandsCommand}.
  */
 export interface ListCommandsCommandOutput extends ListCommandsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the commands requested by users of the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface ListCommandsCommandOutput extends ListCommandsResult, __Metadat
  * import { SSMClient, ListCommandsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListCommandsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListCommandsRequest
+ *   CommandId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // CommandFilterList
+ *     { // CommandFilter
+ *       key: "InvokedAfter" || "InvokedBefore" || "Status" || "ExecutionStage" || "DocumentName", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListCommandsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCommandsCommandInput - {@link ListCommandsCommandInput}
+ * @returns {@link ListCommandsCommandOutput}
  * @see {@link ListCommandsCommandInput} for command's `input` shape.
  * @see {@link ListCommandsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -101,6 +112,9 @@ export class ListCommandsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCommandsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,7 +141,7 @@ export class ListCommandsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCommandsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListCommandsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -138,12 +152,18 @@ export class ListCommandsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCommandsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCommandsCommand(input, context);
+    return se_ListCommandsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCommandsCommandOutput> {
-    return deserializeAws_json1_1ListCommandsCommand(output, context);
+    return de_ListCommandsCommand(output, context);
   }
 
   // Start section: command_body_extra

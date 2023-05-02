@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  RetryStageExecutionInput,
-  RetryStageExecutionInputFilterSensitiveLog,
-  RetryStageExecutionOutput,
-  RetryStageExecutionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RetryStageExecutionCommand,
-  serializeAws_json1_1RetryStageExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { RetryStageExecutionInput, RetryStageExecutionOutput } from "../models/models_0";
+import { de_RetryStageExecutionCommand, se_RetryStageExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RetryStageExecutionCommand}.
  */
 export interface RetryStageExecutionCommandInput extends RetryStageExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link RetryStageExecutionCommand}.
  */
 export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resumes the pipeline execution by retrying the last failed actions in a stage. You
  *             can retry a stage immediately if any of the actions in the stage fail. When you retry,
  *             all actions that are still in progress continue working, and failed actions are
@@ -45,10 +42,18 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * import { CodePipelineClient, RetryStageExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, RetryStageExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // RetryStageExecutionInput
+ *   pipelineName: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ *   pipelineExecutionId: "STRING_VALUE", // required
+ *   retryMode: "STRING_VALUE", // required
+ * };
  * const command = new RetryStageExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RetryStageExecutionCommandInput - {@link RetryStageExecutionCommandInput}
+ * @returns {@link RetryStageExecutionCommandOutput}
  * @see {@link RetryStageExecutionCommandInput} for command's `input` shape.
  * @see {@link RetryStageExecutionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -94,6 +99,9 @@ export class RetryStageExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetryStageExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +130,8 @@ export class RetryStageExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetryStageExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RetryStageExecutionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +141,18 @@ export class RetryStageExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetryStageExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RetryStageExecutionCommand(input, context);
+    return se_RetryStageExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryStageExecutionCommandOutput> {
-    return deserializeAws_json1_1RetryStageExecutionCommand(output, context);
+    return de_RetryStageExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

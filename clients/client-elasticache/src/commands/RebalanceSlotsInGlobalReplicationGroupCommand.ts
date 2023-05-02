@@ -16,21 +16,23 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import {
   RebalanceSlotsInGlobalReplicationGroupMessage,
-  RebalanceSlotsInGlobalReplicationGroupMessageFilterSensitiveLog,
   RebalanceSlotsInGlobalReplicationGroupResult,
-  RebalanceSlotsInGlobalReplicationGroupResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand,
-  serializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand,
+  de_RebalanceSlotsInGlobalReplicationGroupCommand,
+  se_RebalanceSlotsInGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RebalanceSlotsInGlobalReplicationGroupCommand}.
  */
 export interface RebalanceSlotsInGlobalReplicationGroupCommandInput
   extends RebalanceSlotsInGlobalReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link RebalanceSlotsInGlobalReplicationGroupCommand}.
  */
 export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
@@ -38,6 +40,7 @@ export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Redistribute slots to ensure uniform distribution across existing shards in the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,16 @@ export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, RebalanceSlotsInGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, RebalanceSlotsInGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // RebalanceSlotsInGlobalReplicationGroupMessage
+ *   GlobalReplicationGroupId: "STRING_VALUE", // required
+ *   ApplyImmediately: true || false, // required
+ * };
  * const command = new RebalanceSlotsInGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebalanceSlotsInGlobalReplicationGroupCommandInput - {@link RebalanceSlotsInGlobalReplicationGroupCommandInput}
+ * @returns {@link RebalanceSlotsInGlobalReplicationGroupCommandOutput}
  * @see {@link RebalanceSlotsInGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link RebalanceSlotsInGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -81,6 +90,9 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebalanceSlotsInGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +121,8 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebalanceSlotsInGlobalReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RebalanceSlotsInGlobalReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +132,24 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RebalanceSlotsInGlobalReplicationGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand(input, context);
+    return se_RebalanceSlotsInGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RebalanceSlotsInGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand(output, context);
+    return de_RebalanceSlotsInGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCallAnalyticsJobsRequest,
-  ListCallAnalyticsJobsRequestFilterSensitiveLog,
-  ListCallAnalyticsJobsResponse,
-  ListCallAnalyticsJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCallAnalyticsJobsCommand,
-  serializeAws_json1_1ListCallAnalyticsJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCallAnalyticsJobsRequest, ListCallAnalyticsJobsResponse } from "../models/models_0";
+import { de_ListCallAnalyticsJobsCommand, se_ListCallAnalyticsJobsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCallAnalyticsJobsCommand}.
  */
 export interface ListCallAnalyticsJobsCommandInput extends ListCallAnalyticsJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCallAnalyticsJobsCommand}.
  */
 export interface ListCallAnalyticsJobsCommandOutput extends ListCallAnalyticsJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of Call Analytics jobs that match the specified criteria. If no
  *             criteria are specified, all Call Analytics jobs are returned.</p>
  *          <p>To get detailed information about a specific Call Analytics job, use the  operation.</p>
@@ -44,10 +41,18 @@ export interface ListCallAnalyticsJobsCommandOutput extends ListCallAnalyticsJob
  * import { TranscribeClient, ListCallAnalyticsJobsCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListCallAnalyticsJobsCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // ListCallAnalyticsJobsRequest
+ *   Status: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ *   JobNameContains: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListCallAnalyticsJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCallAnalyticsJobsCommandInput - {@link ListCallAnalyticsJobsCommandInput}
+ * @returns {@link ListCallAnalyticsJobsCommandOutput}
  * @see {@link ListCallAnalyticsJobsCommandInput} for command's `input` shape.
  * @see {@link ListCallAnalyticsJobsCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -85,6 +90,9 @@ export class ListCallAnalyticsJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCallAnalyticsJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class ListCallAnalyticsJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCallAnalyticsJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCallAnalyticsJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +132,18 @@ export class ListCallAnalyticsJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCallAnalyticsJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCallAnalyticsJobsCommand(input, context);
+    return se_ListCallAnalyticsJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCallAnalyticsJobsCommandOutput> {
-    return deserializeAws_json1_1ListCallAnalyticsJobsCommand(output, context);
+    return de_ListCallAnalyticsJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

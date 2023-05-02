@@ -19,6 +19,17 @@ export const throwDefaultError = ({ output, parsedBody, exceptionCtor, errorCode
   throw decorateServiceException(response, parsedBody);
 };
 
+/**
+ * @internal
+ *
+ * Creates {@link throwDefaultError} with bound ExceptionCtor.
+ */
+export const withBaseException = (ExceptionCtor: { new (...args: any): any }): any => {
+  return ({ output, parsedBody, errorCode }: any) => {
+    throwDefaultError({ output, parsedBody, exceptionCtor: ExceptionCtor, errorCode });
+  };
+};
+
 const deserializeMetadata = (output: HttpResponse): ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:

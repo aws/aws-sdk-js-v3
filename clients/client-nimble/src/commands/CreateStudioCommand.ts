@@ -20,21 +20,23 @@ import {
   CreateStudioResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1CreateStudioCommand,
-  serializeAws_restJson1CreateStudioCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateStudioCommand, se_CreateStudioCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStudioCommand}.
  */
 export interface CreateStudioCommandInput extends CreateStudioRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStudioCommand}.
  */
 export interface CreateStudioCommandOutput extends CreateStudioResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new studio.</p>
  *         <p>When creating a studio, two IAM roles must be provided: the admin role
  *             and the user role. These roles are assumed by your users when they log in to the Nimble Studio portal.</p>
@@ -61,10 +63,26 @@ export interface CreateStudioCommandOutput extends CreateStudioResponse, __Metad
  * import { NimbleClient, CreateStudioCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, CreateStudioCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // CreateStudioRequest
+ *   adminRoleArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   displayName: "STRING_VALUE", // required
+ *   studioEncryptionConfiguration: { // StudioEncryptionConfiguration
+ *     keyArn: "STRING_VALUE",
+ *     keyType: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY", // required
+ *   },
+ *   studioName: "STRING_VALUE", // required
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   userRoleArn: "STRING_VALUE", // required
+ * };
  * const command = new CreateStudioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStudioCommandInput - {@link CreateStudioCommandInput}
+ * @returns {@link CreateStudioCommandOutput}
  * @see {@link CreateStudioCommandInput} for command's `input` shape.
  * @see {@link CreateStudioCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -112,6 +130,9 @@ export class CreateStudioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStudioCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,12 +170,18 @@ export class CreateStudioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateStudioCommand(input, context);
+    return se_CreateStudioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStudioCommandOutput> {
-    return deserializeAws_restJson1CreateStudioCommand(output, context);
+    return de_CreateStudioCommand(output, context);
   }
 
   // Start section: command_body_extra

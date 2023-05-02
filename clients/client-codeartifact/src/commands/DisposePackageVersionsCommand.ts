@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  DisposePackageVersionsRequest,
-  DisposePackageVersionsRequestFilterSensitiveLog,
-  DisposePackageVersionsResult,
-  DisposePackageVersionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisposePackageVersionsCommand,
-  serializeAws_restJson1DisposePackageVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { DisposePackageVersionsRequest, DisposePackageVersionsResult } from "../models/models_0";
+import { de_DisposePackageVersionsCommand, se_DisposePackageVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisposePackageVersionsCommand}.
  */
 export interface DisposePackageVersionsCommandInput extends DisposePackageVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisposePackageVersionsCommand}.
  */
 export interface DisposePackageVersionsCommandOutput extends DisposePackageVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>.
  *       A disposed package version cannot be restored in your repository because its assets are deleted.
@@ -53,10 +50,27 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  * import { CodeartifactClient, DisposePackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DisposePackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // DisposePackageVersionsRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   versions: [ // PackageVersionList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   versionRevisions: { // PackageVersionRevisionMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   expectedStatus: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ * };
  * const command = new DisposePackageVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisposePackageVersionsCommandInput - {@link DisposePackageVersionsCommandInput}
+ * @returns {@link DisposePackageVersionsCommandOutput}
  * @see {@link DisposePackageVersionsCommandInput} for command's `input` shape.
  * @see {@link DisposePackageVersionsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -108,6 +122,9 @@ export class DisposePackageVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisposePackageVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +153,8 @@ export class DisposePackageVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisposePackageVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisposePackageVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +164,18 @@ export class DisposePackageVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisposePackageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisposePackageVersionsCommand(input, context);
+    return se_DisposePackageVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisposePackageVersionsCommandOutput> {
-    return deserializeAws_restJson1DisposePackageVersionsCommand(output, context);
+    return de_DisposePackageVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

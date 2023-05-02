@@ -20,21 +20,23 @@ import {
   StartBotRecommendationResponse,
   StartBotRecommendationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartBotRecommendationCommand,
-  serializeAws_restJson1StartBotRecommendationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartBotRecommendationCommand, se_StartBotRecommendationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartBotRecommendationCommand}.
  */
 export interface StartBotRecommendationCommandInput extends StartBotRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartBotRecommendationCommand}.
  */
 export interface StartBotRecommendationCommandOutput extends StartBotRecommendationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this to provide your transcript data, and to start the bot
  *          recommendation process.</p>
  * @example
@@ -43,10 +45,42 @@ export interface StartBotRecommendationCommandOutput extends StartBotRecommendat
  * import { LexModelsV2Client, StartBotRecommendationCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, StartBotRecommendationCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // StartBotRecommendationRequest
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   transcriptSourceSetting: { // TranscriptSourceSetting
+ *     s3BucketTranscriptSource: { // S3BucketTranscriptSource
+ *       s3BucketName: "STRING_VALUE", // required
+ *       pathFormat: { // PathFormat
+ *         objectPrefixes: [ // ObjectPrefixes
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       transcriptFormat: "Lex", // required
+ *       transcriptFilter: { // TranscriptFilter
+ *         lexTranscriptFilter: { // LexTranscriptFilter
+ *           dateRangeFilter: { // DateRangeFilter
+ *             startDateTime: new Date("TIMESTAMP"), // required
+ *             endDateTime: new Date("TIMESTAMP"), // required
+ *           },
+ *         },
+ *       },
+ *       kmsKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   encryptionSetting: { // EncryptionSetting
+ *     kmsKeyArn: "STRING_VALUE",
+ *     botLocaleExportPassword: "STRING_VALUE",
+ *     associatedTranscriptsPassword: "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartBotRecommendationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBotRecommendationCommandInput - {@link StartBotRecommendationCommandInput}
+ * @returns {@link StartBotRecommendationCommandOutput}
  * @see {@link StartBotRecommendationCommandInput} for command's `input` shape.
  * @see {@link StartBotRecommendationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -99,6 +133,9 @@ export class StartBotRecommendationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBotRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,12 +175,18 @@ export class StartBotRecommendationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartBotRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartBotRecommendationCommand(input, context);
+    return se_StartBotRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBotRecommendationCommandOutput> {
-    return deserializeAws_restJson1StartBotRecommendationCommand(output, context);
+    return de_StartBotRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

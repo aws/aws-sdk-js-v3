@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  GetMapGlyphsRequest,
-  GetMapGlyphsRequestFilterSensitiveLog,
-  GetMapGlyphsResponse,
-  GetMapGlyphsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMapGlyphsCommand,
-  serializeAws_restJson1GetMapGlyphsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMapGlyphsRequest, GetMapGlyphsRequestFilterSensitiveLog, GetMapGlyphsResponse } from "../models/models_0";
+import { de_GetMapGlyphsCommand, se_GetMapGlyphsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMapGlyphsCommand}.
  */
 export interface GetMapGlyphsCommandInput extends GetMapGlyphsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMapGlyphsCommand}.
  */
 export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves glyphs used to display labels on a map.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __Metad
  * import { LocationClient, GetMapGlyphsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetMapGlyphsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // GetMapGlyphsRequest
+ *   MapName: "STRING_VALUE", // required
+ *   FontStack: "STRING_VALUE", // required
+ *   FontUnicodeRange: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE",
+ * };
  * const command = new GetMapGlyphsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMapGlyphsCommandInput - {@link GetMapGlyphsCommandInput}
+ * @returns {@link GetMapGlyphsCommandOutput}
  * @see {@link GetMapGlyphsCommandInput} for command's `input` shape.
  * @see {@link GetMapGlyphsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +90,9 @@ export class GetMapGlyphsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMapGlyphsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +120,7 @@ export class GetMapGlyphsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetMapGlyphsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMapGlyphsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +130,18 @@ export class GetMapGlyphsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMapGlyphsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMapGlyphsCommand(input, context);
+    return se_GetMapGlyphsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMapGlyphsCommandOutput> {
-    return deserializeAws_restJson1GetMapGlyphsCommand(output, context);
+    return de_GetMapGlyphsCommand(output, context);
   }
 
   // Start section: command_body_extra

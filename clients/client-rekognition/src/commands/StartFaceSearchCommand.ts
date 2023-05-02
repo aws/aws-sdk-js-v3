@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartFaceSearchRequest,
-  StartFaceSearchRequestFilterSensitiveLog,
-  StartFaceSearchResponse,
-  StartFaceSearchResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartFaceSearchCommand,
-  serializeAws_json1_1StartFaceSearchCommand,
-} from "../protocols/Aws_json1_1";
+import { StartFaceSearchRequest, StartFaceSearchResponse } from "../models/models_0";
+import { de_StartFaceSearchCommand, se_StartFaceSearchCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartFaceSearchCommand}.
  */
 export interface StartFaceSearchCommandInput extends StartFaceSearchRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFaceSearchCommand}.
  */
 export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.</p>
  *          <p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
  *       and the filename of the video. <code>StartFaceSearch</code>
@@ -52,10 +49,29 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  * import { RekognitionClient, StartFaceSearchCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartFaceSearchCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartFaceSearchRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   FaceMatchThreshold: Number("float"),
+ *   CollectionId: "STRING_VALUE", // required
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ * };
  * const command = new StartFaceSearchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFaceSearchCommandInput - {@link StartFaceSearchCommandInput}
+ * @returns {@link StartFaceSearchCommandOutput}
  * @see {@link StartFaceSearchCommandInput} for command's `input` shape.
  * @see {@link StartFaceSearchCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -115,6 +131,9 @@ export class StartFaceSearchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFaceSearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +162,8 @@ export class StartFaceSearchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFaceSearchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFaceSearchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +173,18 @@ export class StartFaceSearchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFaceSearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartFaceSearchCommand(input, context);
+    return se_StartFaceSearchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFaceSearchCommandOutput> {
-    return deserializeAws_json1_1StartFaceSearchCommand(output, context);
+    return de_StartFaceSearchCommand(output, context);
   }
 
   // Start section: command_body_extra

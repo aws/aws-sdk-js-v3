@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListFunctionsRequest,
-  ListFunctionsRequestFilterSensitiveLog,
-  ListFunctionsResult,
-  ListFunctionsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListFunctionsCommand,
-  serializeAws_restXmlListFunctionsCommand,
-} from "../protocols/Aws_restXml";
+import { ListFunctionsRequest, ListFunctionsResult } from "../models/models_1";
+import { de_ListFunctionsCommand, se_ListFunctionsCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListFunctionsCommand}.
  */
 export interface ListFunctionsCommandInput extends ListFunctionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFunctionsCommand}.
  */
 export interface ListFunctionsCommandOutput extends ListFunctionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all CloudFront functions in your Amazon Web Services account.</p>
  *          <p>You can optionally apply a filter to return only the functions that are in the
  * 			specified stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
@@ -49,10 +46,17 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResult, __Metad
  * import { CloudFrontClient, ListFunctionsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListFunctionsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListFunctionsRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   Stage: "DEVELOPMENT" || "LIVE",
+ * };
  * const command = new ListFunctionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionsCommandInput - {@link ListFunctionsCommandInput}
+ * @returns {@link ListFunctionsCommandOutput}
  * @see {@link ListFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -82,6 +86,9 @@ export class ListFunctionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class ListFunctionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFunctionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFunctionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class ListFunctionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFunctionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListFunctionsCommand(input, context);
+    return se_ListFunctionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionsCommandOutput> {
-    return deserializeAws_restXmlListFunctionsCommand(output, context);
+    return de_ListFunctionsCommand(output, context);
   }
 
   // Start section: command_body_extra

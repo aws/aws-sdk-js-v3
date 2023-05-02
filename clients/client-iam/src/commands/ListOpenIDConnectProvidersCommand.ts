@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListOpenIDConnectProvidersRequest,
-  ListOpenIDConnectProvidersRequestFilterSensitiveLog,
-  ListOpenIDConnectProvidersResponse,
-  ListOpenIDConnectProvidersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListOpenIDConnectProvidersCommand,
-  serializeAws_queryListOpenIDConnectProvidersCommand,
-} from "../protocols/Aws_query";
+import { ListOpenIDConnectProvidersRequest, ListOpenIDConnectProvidersResponse } from "../models/models_0";
+import { de_ListOpenIDConnectProvidersCommand, se_ListOpenIDConnectProvidersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListOpenIDConnectProvidersCommand}.
  */
 export interface ListOpenIDConnectProvidersCommandInput extends ListOpenIDConnectProvidersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOpenIDConnectProvidersCommand}.
  */
 export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConnectProvidersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects
  *             defined in the Amazon Web Services account.</p>
  *          <note>
@@ -47,10 +44,13 @@ export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConne
  * import { IAMClient, ListOpenIDConnectProvidersCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListOpenIDConnectProvidersCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {};
  * const command = new ListOpenIDConnectProvidersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOpenIDConnectProvidersCommandInput - {@link ListOpenIDConnectProvidersCommandInput}
+ * @returns {@link ListOpenIDConnectProvidersCommandOutput}
  * @see {@link ListOpenIDConnectProvidersCommandInput} for command's `input` shape.
  * @see {@link ListOpenIDConnectProvidersCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -78,6 +78,9 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOpenIDConnectProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +109,8 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOpenIDConnectProvidersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOpenIDConnectProvidersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +120,21 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOpenIDConnectProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListOpenIDConnectProvidersCommand(input, context);
+    return se_ListOpenIDConnectProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOpenIDConnectProvidersCommandOutput> {
-    return deserializeAws_queryListOpenIDConnectProvidersCommand(output, context);
+    return de_ListOpenIDConnectProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListFileSharesInput,
-  ListFileSharesInputFilterSensitiveLog,
-  ListFileSharesOutput,
-  ListFileSharesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFileSharesCommand,
-  serializeAws_json1_1ListFileSharesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListFileSharesInput, ListFileSharesOutput } from "../models/models_0";
+import { de_ListFileSharesCommand, se_ListFileSharesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFileSharesCommand}.
  */
 export interface ListFileSharesCommandInput extends ListFileSharesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListFileSharesCommand}.
  */
 export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the file shares for a specific S3 File Gateway, or the list of file
  *          shares that belong to the calling user account. This operation is only supported for S3
  *          File Gateways.</p>
@@ -44,10 +41,17 @@ export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __Met
  * import { StorageGatewayClient, ListFileSharesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListFileSharesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // ListFileSharesInput
+ *   GatewayARN: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListFileSharesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFileSharesCommandInput - {@link ListFileSharesCommandInput}
+ * @returns {@link ListFileSharesCommandOutput}
  * @see {@link ListFileSharesCommandInput} for command's `input` shape.
  * @see {@link ListFileSharesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -79,6 +83,9 @@ export class ListFileSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFileSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class ListFileSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFileSharesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFileSharesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class ListFileSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFileSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFileSharesCommand(input, context);
+    return se_ListFileSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFileSharesCommandOutput> {
-    return deserializeAws_json1_1ListFileSharesCommand(output, context);
+    return de_ListFileSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  ProvideAnomalyFeedbackRequest,
-  ProvideAnomalyFeedbackRequestFilterSensitiveLog,
-  ProvideAnomalyFeedbackResponse,
-  ProvideAnomalyFeedbackResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ProvideAnomalyFeedbackCommand,
-  serializeAws_json1_1ProvideAnomalyFeedbackCommand,
-} from "../protocols/Aws_json1_1";
+import { ProvideAnomalyFeedbackRequest, ProvideAnomalyFeedbackResponse } from "../models/models_0";
+import { de_ProvideAnomalyFeedbackCommand, se_ProvideAnomalyFeedbackCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ProvideAnomalyFeedbackCommand}.
  */
 export interface ProvideAnomalyFeedbackCommandInput extends ProvideAnomalyFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link ProvideAnomalyFeedbackCommand}.
  */
 export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the feedback property of a given cost anomaly. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedb
  * import { CostExplorerClient, ProvideAnomalyFeedbackCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, ProvideAnomalyFeedbackCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // ProvideAnomalyFeedbackRequest
+ *   AnomalyId: "STRING_VALUE", // required
+ *   Feedback: "YES" || "NO" || "PLANNED_ACTIVITY", // required
+ * };
  * const command = new ProvideAnomalyFeedbackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ProvideAnomalyFeedbackCommandInput - {@link ProvideAnomalyFeedbackCommandInput}
+ * @returns {@link ProvideAnomalyFeedbackCommandOutput}
  * @see {@link ProvideAnomalyFeedbackCommandInput} for command's `input` shape.
  * @see {@link ProvideAnomalyFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -72,6 +75,9 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ProvideAnomalyFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ProvideAnomalyFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ProvideAnomalyFeedbackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ProvideAnomalyFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ProvideAnomalyFeedbackCommand(input, context);
+    return se_ProvideAnomalyFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvideAnomalyFeedbackCommandOutput> {
-    return deserializeAws_json1_1ProvideAnomalyFeedbackCommand(output, context);
+    return de_ProvideAnomalyFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

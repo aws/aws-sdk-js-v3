@@ -14,40 +14,45 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListExecutorsRequest,
-  ListExecutorsRequestFilterSensitiveLog,
-  ListExecutorsResponse,
-  ListExecutorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListExecutorsCommand,
-  serializeAws_json1_1ListExecutorsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListExecutorsRequest, ListExecutorsResponse } from "../models/models_0";
+import { de_ListExecutorsCommand, se_ListExecutorsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExecutorsCommand}.
  */
 export interface ListExecutorsCommandInput extends ListExecutorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExecutorsCommand}.
  */
 export interface ListExecutorsCommandOutput extends ListExecutorsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists, in descending order, the executors that have been submitted to a session. Newer
- *             executors are listed first; older executors are listed later. The result can be
- *             optionally filtered by state.</p>
+ * @public
+ * <p>Lists, in descending order, the executors that joined a session. Newer executors are
+ *             listed first; older executors are listed later. The result can be optionally filtered by
+ *             state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, ListExecutorsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListExecutorsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListExecutorsRequest
+ *   SessionId: "STRING_VALUE", // required
+ *   ExecutorStateFilter: "CREATING" || "CREATED" || "REGISTERED" || "TERMINATING" || "TERMINATED" || "FAILED",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListExecutorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExecutorsCommandInput - {@link ListExecutorsCommandInput}
+ * @returns {@link ListExecutorsCommandOutput}
  * @see {@link ListExecutorsCommandInput} for command's `input` shape.
  * @see {@link ListExecutorsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -82,6 +87,9 @@ export class ListExecutorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExecutorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class ListExecutorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExecutorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExecutorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +127,18 @@ export class ListExecutorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExecutorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListExecutorsCommand(input, context);
+    return se_ListExecutorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExecutorsCommandOutput> {
-    return deserializeAws_json1_1ListExecutorsCommand(output, context);
+    return de_ListExecutorsCommand(output, context);
   }
 
   // Start section: command_body_extra

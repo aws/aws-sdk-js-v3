@@ -108,6 +108,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateIdentityPoolCommandInput
   | DeleteIdentitiesCommandInput
@@ -133,6 +136,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateIdentityPoolCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateIdentityPoolCommandOutput
   | DeleteIdentitiesCommandOutput
@@ -158,6 +164,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateIdentityPoolCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -165,7 +174,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -274,11 +283,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CognitoIdentityClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -289,10 +301,15 @@ type CognitoIdentityClientConfigType = Partial<__SmithyConfiguration<__HttpHandl
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CognitoIdentityClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CognitoIdentityClient class constructor that set the region, credentials and other options.
  */
 export interface CognitoIdentityClientConfig extends CognitoIdentityClientConfigType {}
 
+/**
+ * @public
+ */
 type CognitoIdentityClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -303,11 +320,14 @@ type CognitoIdentityClientResolvedConfigType = __SmithyResolvedConfiguration<__H
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CognitoIdentityClient class. This is resolved and normalized from the {@link CognitoIdentityClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CognitoIdentityClient class. This is resolved and normalized from the {@link CognitoIdentityClientConfig | constructor configuration interface}.
  */
 export interface CognitoIdentityClientResolvedConfig extends CognitoIdentityClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Cognito Federated Identities</fullname>
  *          <p>Amazon Cognito Federated Identities is a web service that delivers scoped temporary
  *          credentials to mobile devices and other untrusted environments. It uniquely identifies a

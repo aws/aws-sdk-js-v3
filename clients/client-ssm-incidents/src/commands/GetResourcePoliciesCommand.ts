@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResourcePoliciesInput,
-  GetResourcePoliciesInputFilterSensitiveLog,
-  GetResourcePoliciesOutput,
-  GetResourcePoliciesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourcePoliciesCommand,
-  serializeAws_restJson1GetResourcePoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetResourcePoliciesInput, GetResourcePoliciesOutput } from "../models/models_0";
+import { de_GetResourcePoliciesCommand, se_GetResourcePoliciesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePoliciesCommand}.
  */
 export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePoliciesCommand}.
  */
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource policies attached to the specified response plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesOut
  * import { SSMIncidentsClient, GetResourcePoliciesCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, GetResourcePoliciesCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // GetResourcePoliciesInput
+ *   resourceArn: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePoliciesCommandInput - {@link GetResourcePoliciesCommandInput}
+ * @returns {@link GetResourcePoliciesCommandOutput}
  * @see {@link GetResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -86,6 +90,9 @@ export class GetResourcePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class GetResourcePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourcePoliciesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourcePoliciesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class GetResourcePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourcePoliciesCommand(input, context);
+    return se_GetResourcePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePoliciesCommandOutput> {
-    return deserializeAws_restJson1GetResourcePoliciesCommand(output, context);
+    return de_GetResourcePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetApisRequest,
-  GetApisRequestFilterSensitiveLog,
-  GetApisResponse,
-  GetApisResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApisCommand,
-  serializeAws_restJson1GetApisCommand,
-} from "../protocols/Aws_restJson1";
+import { GetApisRequest, GetApisResponse } from "../models/models_0";
+import { de_GetApisCommand, se_GetApisCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApisCommand}.
  */
 export interface GetApisCommandInput extends GetApisRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApisCommand}.
  */
 export interface GetApisCommandOutput extends GetApisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a collection of Api resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetApisCommandOutput extends GetApisResponse, __MetadataBearer 
  * import { ApiGatewayV2Client, GetApisCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetApisCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetApisRequest
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetApisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApisCommandInput - {@link GetApisCommandInput}
+ * @returns {@link GetApisCommandOutput}
  * @see {@link GetApisCommandInput} for command's `input` shape.
  * @see {@link GetApisCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -78,6 +81,9 @@ export class GetApisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApisCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class GetApisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class GetApisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApisCommand(input, context);
+    return se_GetApisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApisCommandOutput> {
-    return deserializeAws_restJson1GetApisCommand(output, context);
+    return de_GetApisCommand(output, context);
   }
 
   // Start section: command_body_extra

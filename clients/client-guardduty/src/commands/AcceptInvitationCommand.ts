@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  AcceptInvitationRequest,
-  AcceptInvitationRequestFilterSensitiveLog,
-  AcceptInvitationResponse,
-  AcceptInvitationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AcceptInvitationCommand,
-  serializeAws_restJson1AcceptInvitationCommand,
-} from "../protocols/Aws_restJson1";
+import { AcceptInvitationRequest, AcceptInvitationResponse } from "../models/models_0";
+import { de_AcceptInvitationCommand, se_AcceptInvitationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptInvitationCommand}.
  */
 export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptInvitationCommand}.
  */
 export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
@@ -44,10 +41,17 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * import { GuardDutyClient, AcceptInvitationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, AcceptInvitationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // AcceptInvitationRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   MasterId: "STRING_VALUE", // required
+ *   InvitationId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptInvitationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptInvitationCommandInput - {@link AcceptInvitationCommandInput}
+ * @returns {@link AcceptInvitationCommandOutput}
  * @see {@link AcceptInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptInvitationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +81,9 @@ export class AcceptInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +112,8 @@ export class AcceptInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptInvitationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptInvitationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +123,18 @@ export class AcceptInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptInvitationCommand(input, context);
+    return se_AcceptInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptInvitationCommandOutput> {
-    return deserializeAws_restJson1AcceptInvitationCommand(output, context);
+    return de_AcceptInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

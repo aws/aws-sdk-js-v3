@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  StartQueryRequest,
-  StartQueryRequestFilterSensitiveLog,
-  StartQueryResponse,
-  StartQueryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartQueryCommand,
-  serializeAws_json1_1StartQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { StartQueryRequest, StartQueryResponse } from "../models/models_0";
+import { de_StartQueryCommand, se_StartQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartQueryCommand}.
  */
 export interface StartQueryCommandInput extends StartQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartQueryCommand}.
  */
 export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a CloudTrail Lake query. The required <code>QueryStatement</code>
  *          parameter provides your SQL query, enclosed in single quotation marks. Use the optional
  *             <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3
@@ -45,10 +42,16 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * import { CloudTrailClient, StartQueryCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, StartQueryCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // StartQueryRequest
+ *   QueryStatement: "STRING_VALUE", // required
+ *   DeliveryS3Uri: "STRING_VALUE",
+ * };
  * const command = new StartQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartQueryCommandInput - {@link StartQueryCommandInput}
+ * @returns {@link StartQueryCommandOutput}
  * @see {@link StartQueryCommandInput} for command's `input` shape.
  * @see {@link StartQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -120,6 +123,9 @@ export class StartQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +152,8 @@ export class StartQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartQueryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +163,18 @@ export class StartQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartQueryCommand(input, context);
+    return se_StartQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartQueryCommandOutput> {
-    return deserializeAws_json1_1StartQueryCommand(output, context);
+    return de_StartQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

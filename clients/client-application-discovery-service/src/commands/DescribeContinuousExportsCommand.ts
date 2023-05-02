@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  DescribeContinuousExportsRequest,
-  DescribeContinuousExportsRequestFilterSensitiveLog,
-  DescribeContinuousExportsResponse,
-  DescribeContinuousExportsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeContinuousExportsCommand,
-  serializeAws_json1_1DescribeContinuousExportsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeContinuousExportsRequest, DescribeContinuousExportsResponse } from "../models/models_0";
+import { de_DescribeContinuousExportsCommand, se_DescribeContinuousExportsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeContinuousExportsCommand}.
  */
 export interface DescribeContinuousExportsCommandInput extends DescribeContinuousExportsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeContinuousExportsCommand}.
  */
 export interface DescribeContinuousExportsCommandOutput extends DescribeContinuousExportsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists exports as specified by ID. All continuous exports associated with your user
  *       account can be listed if you call <code>DescribeContinuousExports</code> as is without passing
  *       any parameters.</p>
@@ -48,10 +45,19 @@ export interface DescribeContinuousExportsCommandOutput extends DescribeContinuo
  * import { ApplicationDiscoveryServiceClient, DescribeContinuousExportsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DescribeContinuousExportsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // DescribeContinuousExportsRequest
+ *   exportIds: [ // ContinuousExportIds
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeContinuousExportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeContinuousExportsCommandInput - {@link DescribeContinuousExportsCommandInput}
+ * @returns {@link DescribeContinuousExportsCommandOutput}
  * @see {@link DescribeContinuousExportsCommandInput} for command's `input` shape.
  * @see {@link DescribeContinuousExportsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -99,6 +105,9 @@ export class DescribeContinuousExportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeContinuousExportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +136,8 @@ export class DescribeContinuousExportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeContinuousExportsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeContinuousExportsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +147,21 @@ export class DescribeContinuousExportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeContinuousExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeContinuousExportsCommand(input, context);
+    return se_DescribeContinuousExportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeContinuousExportsCommandOutput> {
-    return deserializeAws_json1_1DescribeContinuousExportsCommand(output, context);
+    return de_DescribeContinuousExportsCommand(output, context);
   }
 
   // Start section: command_body_extra

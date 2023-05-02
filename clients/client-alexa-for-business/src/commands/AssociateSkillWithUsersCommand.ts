@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  AssociateSkillWithUsersRequest,
-  AssociateSkillWithUsersRequestFilterSensitiveLog,
-  AssociateSkillWithUsersResponse,
-  AssociateSkillWithUsersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateSkillWithUsersCommand,
-  serializeAws_json1_1AssociateSkillWithUsersCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateSkillWithUsersRequest, AssociateSkillWithUsersResponse } from "../models/models_0";
+import { de_AssociateSkillWithUsersCommand, se_AssociateSkillWithUsersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateSkillWithUsersCommand}.
  */
 export interface AssociateSkillWithUsersCommandInput extends AssociateSkillWithUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateSkillWithUsersCommand}.
  */
 export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWithUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Makes a private skill available for enrolled users to enable on their devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWith
  * import { AlexaForBusinessClient, AssociateSkillWithUsersCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateSkillWithUsersCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // AssociateSkillWithUsersRequest
+ *   SkillId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateSkillWithUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSkillWithUsersCommandInput - {@link AssociateSkillWithUsersCommandInput}
+ * @returns {@link AssociateSkillWithUsersCommandOutput}
  * @see {@link AssociateSkillWithUsersCommandInput} for command's `input` shape.
  * @see {@link AssociateSkillWithUsersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +77,9 @@ export class AssociateSkillWithUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSkillWithUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class AssociateSkillWithUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSkillWithUsersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSkillWithUsersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class AssociateSkillWithUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSkillWithUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateSkillWithUsersCommand(input, context);
+    return se_AssociateSkillWithUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSkillWithUsersCommandOutput> {
-    return deserializeAws_json1_1AssociateSkillWithUsersCommand(output, context);
+    return de_AssociateSkillWithUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

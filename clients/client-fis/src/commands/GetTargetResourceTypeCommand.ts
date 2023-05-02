@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
-import {
-  GetTargetResourceTypeRequest,
-  GetTargetResourceTypeRequestFilterSensitiveLog,
-  GetTargetResourceTypeResponse,
-  GetTargetResourceTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTargetResourceTypeCommand,
-  serializeAws_restJson1GetTargetResourceTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTargetResourceTypeRequest, GetTargetResourceTypeResponse } from "../models/models_0";
+import { de_GetTargetResourceTypeCommand, se_GetTargetResourceTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTargetResourceTypeCommand}.
  */
 export interface GetTargetResourceTypeCommandInput extends GetTargetResourceTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTargetResourceTypeCommand}.
  */
 export interface GetTargetResourceTypeCommandOutput extends GetTargetResourceTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified resource type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetTargetResourceTypeCommandOutput extends GetTargetResourceTyp
  * import { FisClient, GetTargetResourceTypeCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, GetTargetResourceTypeCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
+ * const input = { // GetTargetResourceTypeRequest
+ *   resourceType: "STRING_VALUE", // required
+ * };
  * const command = new GetTargetResourceTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTargetResourceTypeCommandInput - {@link GetTargetResourceTypeCommandInput}
+ * @returns {@link GetTargetResourceTypeCommandOutput}
  * @see {@link GetTargetResourceTypeCommandInput} for command's `input` shape.
  * @see {@link GetTargetResourceTypeCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
@@ -75,6 +77,9 @@ export class GetTargetResourceTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTargetResourceTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class GetTargetResourceTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTargetResourceTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTargetResourceTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class GetTargetResourceTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTargetResourceTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTargetResourceTypeCommand(input, context);
+    return se_GetTargetResourceTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTargetResourceTypeCommandOutput> {
-    return deserializeAws_restJson1GetTargetResourceTypeCommand(output, context);
+    return de_GetTargetResourceTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  CreatePolicyRequest,
-  CreatePolicyRequestFilterSensitiveLog,
-  CreatePolicyResponse,
-  CreatePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryCreatePolicyCommand, serializeAws_queryCreatePolicyCommand } from "../protocols/Aws_query";
+import { CreatePolicyRequest, CreatePolicyResponse } from "../models/models_0";
+import { de_CreatePolicyCommand, se_CreatePolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePolicyCommand}.
  */
 export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePolicyCommand}.
  */
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new managed policy for your Amazon Web Services account.</p>
  *          <p>This operation creates a policy version with a version identifier of <code>v1</code>
  *             and sets v1 as the policy's default version. For more information about policy versions,
@@ -49,10 +49,24 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * import { IAMClient, CreatePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreatePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // CreatePolicyRequest
+ *   PolicyName: "STRING_VALUE", // required
+ *   Path: "STRING_VALUE",
+ *   PolicyDocument: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePolicyCommandInput - {@link CreatePolicyCommandInput}
+ * @returns {@link CreatePolicyCommandOutput}
  * @see {@link CreatePolicyCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -100,6 +114,9 @@ export class CreatePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +143,8 @@ export class CreatePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +154,18 @@ export class CreatePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreatePolicyCommand(input, context);
+    return se_CreatePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyCommandOutput> {
-    return deserializeAws_queryCreatePolicyCommand(output, context);
+    return de_CreatePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

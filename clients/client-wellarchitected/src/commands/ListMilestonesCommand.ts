@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMilestonesInput,
-  ListMilestonesInputFilterSensitiveLog,
-  ListMilestonesOutput,
-  ListMilestonesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMilestonesCommand,
-  serializeAws_restJson1ListMilestonesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMilestonesInput, ListMilestonesOutput } from "../models/models_0";
+import { de_ListMilestonesCommand, se_ListMilestonesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMilestonesCommand}.
  */
 export interface ListMilestonesCommandInput extends ListMilestonesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListMilestonesCommand}.
  */
 export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all milestones for an existing workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __Met
  * import { WellArchitectedClient, ListMilestonesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListMilestonesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListMilestonesInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMilestonesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMilestonesCommandInput - {@link ListMilestonesCommandInput}
+ * @returns {@link ListMilestonesCommandOutput}
  * @see {@link ListMilestonesCommandInput} for command's `input` shape.
  * @see {@link ListMilestonesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +88,9 @@ export class ListMilestonesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMilestonesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class ListMilestonesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMilestonesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMilestonesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class ListMilestonesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMilestonesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMilestonesCommand(input, context);
+    return se_ListMilestonesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMilestonesCommandOutput> {
-    return deserializeAws_restJson1ListMilestonesCommand(output, context);
+    return de_ListMilestonesCommand(output, context);
   }
 
   // Start section: command_body_extra

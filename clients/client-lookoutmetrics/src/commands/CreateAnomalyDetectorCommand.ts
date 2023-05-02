@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  CreateAnomalyDetectorRequest,
-  CreateAnomalyDetectorRequestFilterSensitiveLog,
-  CreateAnomalyDetectorResponse,
-  CreateAnomalyDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAnomalyDetectorCommand,
-  serializeAws_restJson1CreateAnomalyDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAnomalyDetectorRequest, CreateAnomalyDetectorResponse } from "../models/models_0";
+import { de_CreateAnomalyDetectorCommand, se_CreateAnomalyDetectorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAnomalyDetectorCommand}.
  */
 export interface CreateAnomalyDetectorCommandInput extends CreateAnomalyDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAnomalyDetectorCommand}.
  */
 export interface CreateAnomalyDetectorCommandOutput extends CreateAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an anomaly detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface CreateAnomalyDetectorCommandOutput extends CreateAnomalyDetecto
  * import { LookoutMetricsClient, CreateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, CreateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = { // CreateAnomalyDetectorRequest
+ *   AnomalyDetectorName: "STRING_VALUE", // required
+ *   AnomalyDetectorDescription: "STRING_VALUE",
+ *   AnomalyDetectorConfig: { // AnomalyDetectorConfig
+ *     AnomalyDetectorFrequency: "STRING_VALUE",
+ *   },
+ *   KmsKeyArn: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAnomalyDetectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAnomalyDetectorCommandInput - {@link CreateAnomalyDetectorCommandInput}
+ * @returns {@link CreateAnomalyDetectorCommandOutput}
  * @see {@link CreateAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link CreateAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -88,6 +98,9 @@ export class CreateAnomalyDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAnomalyDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +129,8 @@ export class CreateAnomalyDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAnomalyDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAnomalyDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +140,18 @@ export class CreateAnomalyDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAnomalyDetectorCommand(input, context);
+    return se_CreateAnomalyDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAnomalyDetectorCommandOutput> {
-    return deserializeAws_restJson1CreateAnomalyDetectorCommand(output, context);
+    return de_CreateAnomalyDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

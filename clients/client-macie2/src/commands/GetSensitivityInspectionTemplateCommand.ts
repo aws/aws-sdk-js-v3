@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { GetSensitivityInspectionTemplateRequest, GetSensitivityInspectionTemplateResponse } from "../models/models_0";
 import {
-  GetSensitivityInspectionTemplateRequest,
-  GetSensitivityInspectionTemplateRequestFilterSensitiveLog,
-  GetSensitivityInspectionTemplateResponse,
-  GetSensitivityInspectionTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSensitivityInspectionTemplateCommand,
-  serializeAws_restJson1GetSensitivityInspectionTemplateCommand,
+  de_GetSensitivityInspectionTemplateCommand,
+  se_GetSensitivityInspectionTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSensitivityInspectionTemplateCommand}.
  */
 export interface GetSensitivityInspectionTemplateCommandInput extends GetSensitivityInspectionTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSensitivityInspectionTemplateCommand}.
  */
 export interface GetSensitivityInspectionTemplateCommandOutput
@@ -37,6 +36,7 @@ export interface GetSensitivityInspectionTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the settings for the sensitivity inspection template for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetSensitivityInspectionTemplateCommandOutput
  * import { Macie2Client, GetSensitivityInspectionTemplateCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetSensitivityInspectionTemplateCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // GetSensitivityInspectionTemplateRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetSensitivityInspectionTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSensitivityInspectionTemplateCommandInput - {@link GetSensitivityInspectionTemplateCommandInput}
+ * @returns {@link GetSensitivityInspectionTemplateCommandOutput}
  * @see {@link GetSensitivityInspectionTemplateCommandInput} for command's `input` shape.
  * @see {@link GetSensitivityInspectionTemplateCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -86,6 +91,9 @@ export class GetSensitivityInspectionTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSensitivityInspectionTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +122,8 @@ export class GetSensitivityInspectionTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSensitivityInspectionTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSensitivityInspectionTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +133,24 @@ export class GetSensitivityInspectionTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSensitivityInspectionTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSensitivityInspectionTemplateCommand(input, context);
+    return se_GetSensitivityInspectionTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSensitivityInspectionTemplateCommandOutput> {
-    return deserializeAws_restJson1GetSensitivityInspectionTemplateCommand(output, context);
+    return de_GetSensitivityInspectionTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

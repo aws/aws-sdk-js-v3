@@ -65,6 +65,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateEndpointCommandInput
   | DeleteEndpointCommandInput
@@ -72,6 +75,9 @@ export type ServiceInputTypes =
   | ListOutpostsWithS3CommandInput
   | ListSharedEndpointsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateEndpointCommandOutput
   | DeleteEndpointCommandOutput
@@ -79,6 +85,9 @@ export type ServiceOutputTypes =
   | ListOutpostsWithS3CommandOutput
   | ListSharedEndpointsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -86,7 +95,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -195,11 +204,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type S3OutpostsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -210,10 +222,15 @@ type S3OutpostsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of S3OutpostsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of S3OutpostsClient class constructor that set the region, credentials and other options.
  */
 export interface S3OutpostsClientConfig extends S3OutpostsClientConfigType {}
 
+/**
+ * @public
+ */
 type S3OutpostsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -224,11 +241,14 @@ type S3OutpostsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of S3OutpostsClient class. This is resolved and normalized from the {@link S3OutpostsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of S3OutpostsClient class. This is resolved and normalized from the {@link S3OutpostsClientConfig | constructor configuration interface}.
  */
 export interface S3OutpostsClientResolvedConfig extends S3OutpostsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>
  */
 export class S3OutpostsClient extends __Client<

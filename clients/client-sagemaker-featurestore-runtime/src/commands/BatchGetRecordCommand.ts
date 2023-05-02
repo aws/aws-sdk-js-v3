@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchGetRecordRequest,
-  BatchGetRecordRequestFilterSensitiveLog,
-  BatchGetRecordResponse,
-  BatchGetRecordResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetRecordCommand,
-  serializeAws_restJson1BatchGetRecordCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchGetRecordRequest, BatchGetRecordResponse } from "../models/models_0";
+import { de_BatchGetRecordCommand, se_BatchGetRecordCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerFeatureStoreRuntimeClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../SageMakerFeatureStoreRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetRecordCommand}.
  */
 export interface BatchGetRecordCommandInput extends BatchGetRecordRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetRecordCommand}.
  */
 export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a batch of <code>Records</code> from a <code>FeatureGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,25 @@ export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __M
  * import { SageMakerFeatureStoreRuntimeClient, BatchGetRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime"; // ES Modules import
  * // const { SageMakerFeatureStoreRuntimeClient, BatchGetRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime"); // CommonJS import
  * const client = new SageMakerFeatureStoreRuntimeClient(config);
+ * const input = { // BatchGetRecordRequest
+ *   Identifiers: [ // BatchGetRecordIdentifiers // required
+ *     { // BatchGetRecordIdentifier
+ *       FeatureGroupName: "STRING_VALUE", // required
+ *       RecordIdentifiersValueAsString: [ // RecordIdentifiers // required
+ *         "STRING_VALUE",
+ *       ],
+ *       FeatureNames: [ // FeatureNames
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new BatchGetRecordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetRecordCommandInput - {@link BatchGetRecordCommandInput}
+ * @returns {@link BatchGetRecordCommandOutput}
  * @see {@link BatchGetRecordCommandInput} for command's `input` shape.
  * @see {@link BatchGetRecordCommandOutput} for command's `response` shape.
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
@@ -58,8 +70,8 @@ export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __M
  *  <p>You do not have permission to perform an action.</p>
  *
  * @throws {@link InternalFailure} (server fault)
- *  <p>An internal failure occurred. Try your request again. If the problem
- *          persists, contact Amazon Web Services customer support.</p>
+ *  <p>An internal failure occurred. Try your request again. If the problem persists, contact
+ *             Amazon Web Services customer support.</p>
  *
  * @throws {@link ServiceUnavailable} (server fault)
  *  <p>The service is currently unavailable.</p>
@@ -86,6 +98,9 @@ export class BatchGetRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +129,8 @@ export class BatchGetRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetRecordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetRecordResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +140,18 @@ export class BatchGetRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetRecordCommand(input, context);
+    return se_BatchGetRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetRecordCommandOutput> {
-    return deserializeAws_restJson1BatchGetRecordCommand(output, context);
+    return de_BatchGetRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

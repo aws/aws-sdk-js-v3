@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeReportCreationInput,
-  DescribeReportCreationInputFilterSensitiveLog,
-  DescribeReportCreationOutput,
-  DescribeReportCreationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReportCreationCommand,
-  serializeAws_json1_1DescribeReportCreationCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeReportCreationInput, DescribeReportCreationOutput } from "../models/models_0";
+import { de_DescribeReportCreationCommand, se_DescribeReportCreationCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReportCreationCommand}.
  */
 export interface DescribeReportCreationCommandInput extends DescribeReportCreationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReportCreationCommand}.
  */
 export interface DescribeReportCreationCommandOutput extends DescribeReportCreationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status of the <code>StartReportCreation</code> operation. </p>
  *         <p>You can call this operation only from the organization's
  *     management account and from the us-east-1 Region.</p>
@@ -48,10 +45,13 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  * import { ResourceGroupsTaggingAPIClient, DescribeReportCreationCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, DescribeReportCreationCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const input = {};
  * const command = new DescribeReportCreationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReportCreationCommandInput - {@link DescribeReportCreationCommandInput}
+ * @returns {@link DescribeReportCreationCommandOutput}
  * @see {@link DescribeReportCreationCommandInput} for command's `input` shape.
  * @see {@link DescribeReportCreationCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -127,6 +127,9 @@ export class DescribeReportCreationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReportCreationCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,8 +158,8 @@ export class DescribeReportCreationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReportCreationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReportCreationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -166,12 +169,18 @@ export class DescribeReportCreationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReportCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReportCreationCommand(input, context);
+    return se_DescribeReportCreationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReportCreationCommandOutput> {
-    return deserializeAws_json1_1DescribeReportCreationCommand(output, context);
+    return de_DescribeReportCreationCommand(output, context);
   }
 
   // Start section: command_body_extra

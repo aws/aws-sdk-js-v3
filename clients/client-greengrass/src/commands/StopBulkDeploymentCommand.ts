@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  StopBulkDeploymentRequest,
-  StopBulkDeploymentRequestFilterSensitiveLog,
-  StopBulkDeploymentResponse,
-  StopBulkDeploymentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopBulkDeploymentCommand,
-  serializeAws_restJson1StopBulkDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { StopBulkDeploymentRequest, StopBulkDeploymentResponse } from "../models/models_0";
+import { de_StopBulkDeploymentCommand, se_StopBulkDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopBulkDeploymentCommand}.
  */
 export interface StopBulkDeploymentCommandInput extends StopBulkDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopBulkDeploymentCommand}.
  */
 export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Stops the execution of a bulk deployment. This action returns a status of ''Stopping'' until the deployment is stopped. You cannot start a new bulk deployment while a previous deployment is in the ''Stopping'' state. This action doesn't rollback completed deployments or cancel pending deployments.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentRespo
  * import { GreengrassClient, StopBulkDeploymentCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, StopBulkDeploymentCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // StopBulkDeploymentRequest
+ *   BulkDeploymentId: "STRING_VALUE", // required
+ * };
  * const command = new StopBulkDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopBulkDeploymentCommandInput - {@link StopBulkDeploymentCommandInput}
+ * @returns {@link StopBulkDeploymentCommandOutput}
  * @see {@link StopBulkDeploymentCommandInput} for command's `input` shape.
  * @see {@link StopBulkDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +74,9 @@ export class StopBulkDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopBulkDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class StopBulkDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopBulkDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopBulkDeploymentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +116,18 @@ export class StopBulkDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopBulkDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopBulkDeploymentCommand(input, context);
+    return se_StopBulkDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBulkDeploymentCommandOutput> {
-    return deserializeAws_restJson1StopBulkDeploymentCommand(output, context);
+    return de_StopBulkDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

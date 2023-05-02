@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import {
-  UpdateNotificationRequest,
-  UpdateNotificationRequestFilterSensitiveLog,
-  UpdateNotificationResponse,
-  UpdateNotificationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateNotificationCommand,
-  serializeAws_json1_1UpdateNotificationCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateNotificationRequest, UpdateNotificationResponse } from "../models/models_0";
+import { de_UpdateNotificationCommand, se_UpdateNotificationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNotificationCommand}.
  */
 export interface UpdateNotificationCommandInput extends UpdateNotificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNotificationCommand}.
  */
 export interface UpdateNotificationCommandOutput extends UpdateNotificationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a notification.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,30 @@ export interface UpdateNotificationCommandOutput extends UpdateNotificationRespo
  * import { BudgetsClient, UpdateNotificationCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, UpdateNotificationCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // UpdateNotificationRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   OldNotification: { // Notification
+ *     NotificationType: "STRING_VALUE", // required
+ *     ComparisonOperator: "STRING_VALUE", // required
+ *     Threshold: Number("double"), // required
+ *     ThresholdType: "STRING_VALUE",
+ *     NotificationState: "STRING_VALUE",
+ *   },
+ *   NewNotification: {
+ *     NotificationType: "STRING_VALUE", // required
+ *     ComparisonOperator: "STRING_VALUE", // required
+ *     Threshold: Number("double"), // required
+ *     ThresholdType: "STRING_VALUE",
+ *     NotificationState: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateNotificationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNotificationCommandInput - {@link UpdateNotificationCommandInput}
+ * @returns {@link UpdateNotificationCommandOutput}
  * @see {@link UpdateNotificationCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -89,6 +106,9 @@ export class UpdateNotificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNotificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +137,8 @@ export class UpdateNotificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNotificationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNotificationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +148,18 @@ export class UpdateNotificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNotificationCommand(input, context);
+    return se_UpdateNotificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNotificationCommandOutput> {
-    return deserializeAws_json1_1UpdateNotificationCommand(output, context);
+    return de_UpdateNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

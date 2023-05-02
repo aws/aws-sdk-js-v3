@@ -16,25 +16,26 @@ import {
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import {
   GetListElementsRequest,
-  GetListElementsRequestFilterSensitiveLog,
   GetListElementsResult,
   GetListElementsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetListElementsCommand,
-  serializeAws_json1_1GetListElementsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetListElementsCommand, se_GetListElementsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetListElementsCommand}.
  */
 export interface GetListElementsCommandInput extends GetListElementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetListElementsCommand}.
  */
 export interface GetListElementsCommandOutput extends GetListElementsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Gets all the elements in the specified list.
  *         </p>
@@ -44,10 +45,17 @@ export interface GetListElementsCommandOutput extends GetListElementsResult, __M
  * import { FraudDetectorClient, GetListElementsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetListElementsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // GetListElementsRequest
+ *   name: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetListElementsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetListElementsCommandInput - {@link GetListElementsCommandInput}
+ * @returns {@link GetListElementsCommandOutput}
  * @see {@link GetListElementsCommandInput} for command's `input` shape.
  * @see {@link GetListElementsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +94,9 @@ export class GetListElementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetListElementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,7 +125,7 @@ export class GetListElementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetListElementsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetListElementsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -125,12 +136,18 @@ export class GetListElementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetListElementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetListElementsCommand(input, context);
+    return se_GetListElementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetListElementsCommandOutput> {
-    return deserializeAws_json1_1GetListElementsCommand(output, context);
+    return de_GetListElementsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,22 +15,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { UnlinkDeveloperIdentityInput, UnlinkDeveloperIdentityInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UnlinkDeveloperIdentityCommand,
-  serializeAws_json1_1UnlinkDeveloperIdentityCommand,
-} from "../protocols/Aws_json1_1";
+import { UnlinkDeveloperIdentityInput } from "../models/models_0";
+import { de_UnlinkDeveloperIdentityCommand, se_UnlinkDeveloperIdentityCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UnlinkDeveloperIdentityCommand}.
  */
 export interface UnlinkDeveloperIdentityCommandInput extends UnlinkDeveloperIdentityInput {}
 /**
+ * @public
+ *
  * The output of {@link UnlinkDeveloperIdentityCommand}.
  */
 export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unlinks a <code>DeveloperUserIdentifier</code> from an existing identity. Unlinked
  *          developer users will be considered new identities next time they are seen. If, for a given
  *          Cognito identity, you remove all federated identities as well as the developer user
@@ -42,10 +44,18 @@ export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {
  * import { CognitoIdentityClient, UnlinkDeveloperIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, UnlinkDeveloperIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // UnlinkDeveloperIdentityInput
+ *   IdentityId: "STRING_VALUE", // required
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   DeveloperProviderName: "STRING_VALUE", // required
+ *   DeveloperUserIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new UnlinkDeveloperIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnlinkDeveloperIdentityCommandInput - {@link UnlinkDeveloperIdentityCommandInput}
+ * @returns {@link UnlinkDeveloperIdentityCommandOutput}
  * @see {@link UnlinkDeveloperIdentityCommandInput} for command's `input` shape.
  * @see {@link UnlinkDeveloperIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -89,6 +99,9 @@ export class UnlinkDeveloperIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnlinkDeveloperIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +131,8 @@ export class UnlinkDeveloperIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnlinkDeveloperIdentityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +142,18 @@ export class UnlinkDeveloperIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnlinkDeveloperIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UnlinkDeveloperIdentityCommand(input, context);
+    return se_UnlinkDeveloperIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnlinkDeveloperIdentityCommandOutput> {
-    return deserializeAws_json1_1UnlinkDeveloperIdentityCommand(output, context);
+    return de_UnlinkDeveloperIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

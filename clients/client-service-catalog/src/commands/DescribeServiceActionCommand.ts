@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeServiceActionInput,
-  DescribeServiceActionInputFilterSensitiveLog,
-  DescribeServiceActionOutput,
-  DescribeServiceActionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeServiceActionCommand,
-  serializeAws_json1_1DescribeServiceActionCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeServiceActionInput, DescribeServiceActionOutput } from "../models/models_0";
+import { de_DescribeServiceActionCommand, se_DescribeServiceActionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServiceActionCommand}.
  */
 export interface DescribeServiceActionCommandInput extends DescribeServiceActionInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServiceActionCommand}.
  */
 export interface DescribeServiceActionCommandOutput extends DescribeServiceActionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a self-service action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeServiceActionCommandOutput extends DescribeServiceActio
  * import { ServiceCatalogClient, DescribeServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeServiceActionInput
+ *   Id: "STRING_VALUE", // required
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new DescribeServiceActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServiceActionCommandInput - {@link DescribeServiceActionCommandInput}
+ * @returns {@link DescribeServiceActionCommandOutput}
  * @see {@link DescribeServiceActionCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -72,6 +75,9 @@ export class DescribeServiceActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServiceActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class DescribeServiceActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServiceActionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeServiceActionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class DescribeServiceActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServiceActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServiceActionCommand(input, context);
+    return se_DescribeServiceActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServiceActionCommandOutput> {
-    return deserializeAws_json1_1DescribeServiceActionCommand(output, context);
+    return de_DescribeServiceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

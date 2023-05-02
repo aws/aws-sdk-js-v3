@@ -16,20 +16,22 @@ import {
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import {
   DescribeReplicationConfigurationsRequest,
-  DescribeReplicationConfigurationsRequestFilterSensitiveLog,
   DescribeReplicationConfigurationsResponse,
-  DescribeReplicationConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeReplicationConfigurationsCommand,
-  serializeAws_restJson1DescribeReplicationConfigurationsCommand,
+  de_DescribeReplicationConfigurationsCommand,
+  se_DescribeReplicationConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationConfigurationsCommand}.
  */
 export interface DescribeReplicationConfigurationsCommandInput extends DescribeReplicationConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationConfigurationsCommand}.
  */
 export interface DescribeReplicationConfigurationsCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeReplicationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the replication configuration for a specific file system. If a file system is
  *       not specified, all of the replication configurations for the Amazon Web Services account in an
  *         Amazon Web Services Region are retrieved.</p>
@@ -46,10 +49,17 @@ export interface DescribeReplicationConfigurationsCommandOutput
  * import { EFSClient, DescribeReplicationConfigurationsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeReplicationConfigurationsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DescribeReplicationConfigurationsRequest
+ *   FileSystemId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeReplicationConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationConfigurationsCommandInput - {@link DescribeReplicationConfigurationsCommandInput}
+ * @returns {@link DescribeReplicationConfigurationsCommandOutput}
  * @see {@link DescribeReplicationConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -91,6 +101,9 @@ export class DescribeReplicationConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +132,8 @@ export class DescribeReplicationConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplicationConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +143,24 @@ export class DescribeReplicationConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeReplicationConfigurationsCommand(input, context);
+    return se_DescribeReplicationConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationConfigurationsCommandOutput> {
-    return deserializeAws_restJson1DescribeReplicationConfigurationsCommand(output, context);
+    return de_DescribeReplicationConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetFunctionDefinitionRequest,
-  GetFunctionDefinitionRequestFilterSensitiveLog,
-  GetFunctionDefinitionResponse,
-  GetFunctionDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFunctionDefinitionCommand,
-  serializeAws_restJson1GetFunctionDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFunctionDefinitionRequest, GetFunctionDefinitionResponse } from "../models/models_0";
+import { de_GetFunctionDefinitionCommand, se_GetFunctionDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFunctionDefinitionCommand}.
  */
 export interface GetFunctionDefinitionCommandInput extends GetFunctionDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFunctionDefinitionCommand}.
  */
 export interface GetFunctionDefinitionCommandOutput extends GetFunctionDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a Lambda function definition, including its creation time and latest version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetFunctionDefinitionCommandOutput extends GetFunctionDefinitio
  * import { GreengrassClient, GetFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetFunctionDefinitionRequest
+ *   FunctionDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new GetFunctionDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFunctionDefinitionCommandInput - {@link GetFunctionDefinitionCommandInput}
+ * @returns {@link GetFunctionDefinitionCommandOutput}
  * @see {@link GetFunctionDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetFunctionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +74,9 @@ export class GetFunctionDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFunctionDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class GetFunctionDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFunctionDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFunctionDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +116,18 @@ export class GetFunctionDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFunctionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFunctionDefinitionCommand(input, context);
+    return se_GetFunctionDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionDefinitionCommandOutput> {
-    return deserializeAws_restJson1GetFunctionDefinitionCommand(output, context);
+    return de_GetFunctionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

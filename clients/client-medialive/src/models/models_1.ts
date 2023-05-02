@@ -80,54 +80,136 @@ import {
   VpcOutputSettingsDescription,
 } from "./models_0";
 
-export enum HlsMode {
-  LIVE = "LIVE",
-  VOD = "VOD",
-}
-
-export enum HlsOutputSelection {
-  MANIFESTS_AND_SEGMENTS = "MANIFESTS_AND_SEGMENTS",
-  SEGMENTS_ONLY = "SEGMENTS_ONLY",
-  VARIANT_MANIFESTS_AND_SEGMENTS = "VARIANT_MANIFESTS_AND_SEGMENTS",
-}
-
-export enum HlsProgramDateTime {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum HlsProgramDateTimeClock {
-  INITIALIZE_FROM_OUTPUT_TIMECODE = "INITIALIZE_FROM_OUTPUT_TIMECODE",
-  SYSTEM_CLOCK = "SYSTEM_CLOCK",
-}
-
-export enum HlsRedundantManifest {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum HlsSegmentationMode {
-  USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
-  USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
-}
-
-export enum HlsStreamInfResolution {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum HlsTimedMetadataId3Frame {
-  NONE = "NONE",
-  PRIV = "PRIV",
-  TDRL = "TDRL",
-}
-
-export enum HlsTsFileMode {
-  SEGMENTED_FILES = "SEGMENTED_FILES",
-  SINGLE_FILE = "SINGLE_FILE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HlsMode = {
+  LIVE: "LIVE",
+  VOD: "VOD",
+} as const;
 
 /**
+ * @public
+ */
+export type HlsMode = (typeof HlsMode)[keyof typeof HlsMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsOutputSelection = {
+  MANIFESTS_AND_SEGMENTS: "MANIFESTS_AND_SEGMENTS",
+  SEGMENTS_ONLY: "SEGMENTS_ONLY",
+  VARIANT_MANIFESTS_AND_SEGMENTS: "VARIANT_MANIFESTS_AND_SEGMENTS",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsOutputSelection = (typeof HlsOutputSelection)[keyof typeof HlsOutputSelection];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsProgramDateTime = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsProgramDateTime = (typeof HlsProgramDateTime)[keyof typeof HlsProgramDateTime];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsProgramDateTimeClock = {
+  INITIALIZE_FROM_OUTPUT_TIMECODE: "INITIALIZE_FROM_OUTPUT_TIMECODE",
+  SYSTEM_CLOCK: "SYSTEM_CLOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsProgramDateTimeClock = (typeof HlsProgramDateTimeClock)[keyof typeof HlsProgramDateTimeClock];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsRedundantManifest = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsRedundantManifest = (typeof HlsRedundantManifest)[keyof typeof HlsRedundantManifest];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsSegmentationMode = {
+  USE_INPUT_SEGMENTATION: "USE_INPUT_SEGMENTATION",
+  USE_SEGMENT_DURATION: "USE_SEGMENT_DURATION",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsSegmentationMode = (typeof HlsSegmentationMode)[keyof typeof HlsSegmentationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsStreamInfResolution = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsStreamInfResolution = (typeof HlsStreamInfResolution)[keyof typeof HlsStreamInfResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsTimedMetadataId3Frame = {
+  NONE: "NONE",
+  PRIV: "PRIV",
+  TDRL: "TDRL",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsTimedMetadataId3Frame = (typeof HlsTimedMetadataId3Frame)[keyof typeof HlsTimedMetadataId3Frame];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsTsFileMode = {
+  SEGMENTED_FILES: "SEGMENTED_FILES",
+  SINGLE_FILE: "SINGLE_FILE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsTsFileMode = (typeof HlsTsFileMode)[keyof typeof HlsTsFileMode];
+
+/**
+ * @public
  * Hls Group Settings
  */
 export interface HlsGroupSettings {
@@ -383,6 +465,7 @@ export interface HlsGroupSettings {
 }
 
 /**
+ * @public
  * Media Package Group Settings
  */
 export interface MediaPackageGroupSettings {
@@ -392,54 +475,142 @@ export interface MediaPackageGroupSettings {
   Destination: OutputLocationRef | undefined;
 }
 
-export enum SmoothGroupAudioOnlyTimecodeControl {
-  PASSTHROUGH = "PASSTHROUGH",
-  USE_CONFIGURED_CLOCK = "USE_CONFIGURED_CLOCK",
-}
-
-export enum SmoothGroupCertificateMode {
-  SELF_SIGNED = "SELF_SIGNED",
-  VERIFY_AUTHENTICITY = "VERIFY_AUTHENTICITY",
-}
-
-export enum SmoothGroupEventIdMode {
-  NO_EVENT_ID = "NO_EVENT_ID",
-  USE_CONFIGURED = "USE_CONFIGURED",
-  USE_TIMESTAMP = "USE_TIMESTAMP",
-}
-
-export enum SmoothGroupEventStopBehavior {
-  NONE = "NONE",
-  SEND_EOS = "SEND_EOS",
-}
-
-export enum InputLossActionForMsSmoothOut {
-  EMIT_OUTPUT = "EMIT_OUTPUT",
-  PAUSE_OUTPUT = "PAUSE_OUTPUT",
-}
-
-export enum SmoothGroupSegmentationMode {
-  USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
-  USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
-}
-
-export enum SmoothGroupSparseTrackType {
-  NONE = "NONE",
-  SCTE_35 = "SCTE_35",
-  SCTE_35_WITHOUT_SEGMENTATION = "SCTE_35_WITHOUT_SEGMENTATION",
-}
-
-export enum SmoothGroupStreamManifestBehavior {
-  DO_NOT_SEND = "DO_NOT_SEND",
-  SEND = "SEND",
-}
-
-export enum SmoothGroupTimestampOffsetMode {
-  USE_CONFIGURED_OFFSET = "USE_CONFIGURED_OFFSET",
-  USE_EVENT_START_DATE = "USE_EVENT_START_DATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupAudioOnlyTimecodeControl = {
+  PASSTHROUGH: "PASSTHROUGH",
+  USE_CONFIGURED_CLOCK: "USE_CONFIGURED_CLOCK",
+} as const;
 
 /**
+ * @public
+ */
+export type SmoothGroupAudioOnlyTimecodeControl =
+  (typeof SmoothGroupAudioOnlyTimecodeControl)[keyof typeof SmoothGroupAudioOnlyTimecodeControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupCertificateMode = {
+  SELF_SIGNED: "SELF_SIGNED",
+  VERIFY_AUTHENTICITY: "VERIFY_AUTHENTICITY",
+} as const;
+
+/**
+ * @public
+ */
+export type SmoothGroupCertificateMode = (typeof SmoothGroupCertificateMode)[keyof typeof SmoothGroupCertificateMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupEventIdMode = {
+  NO_EVENT_ID: "NO_EVENT_ID",
+  USE_CONFIGURED: "USE_CONFIGURED",
+  USE_TIMESTAMP: "USE_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type SmoothGroupEventIdMode = (typeof SmoothGroupEventIdMode)[keyof typeof SmoothGroupEventIdMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupEventStopBehavior = {
+  NONE: "NONE",
+  SEND_EOS: "SEND_EOS",
+} as const;
+
+/**
+ * @public
+ */
+export type SmoothGroupEventStopBehavior =
+  (typeof SmoothGroupEventStopBehavior)[keyof typeof SmoothGroupEventStopBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputLossActionForMsSmoothOut = {
+  EMIT_OUTPUT: "EMIT_OUTPUT",
+  PAUSE_OUTPUT: "PAUSE_OUTPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type InputLossActionForMsSmoothOut =
+  (typeof InputLossActionForMsSmoothOut)[keyof typeof InputLossActionForMsSmoothOut];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupSegmentationMode = {
+  USE_INPUT_SEGMENTATION: "USE_INPUT_SEGMENTATION",
+  USE_SEGMENT_DURATION: "USE_SEGMENT_DURATION",
+} as const;
+
+/**
+ * @public
+ */
+export type SmoothGroupSegmentationMode =
+  (typeof SmoothGroupSegmentationMode)[keyof typeof SmoothGroupSegmentationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupSparseTrackType = {
+  NONE: "NONE",
+  SCTE_35: "SCTE_35",
+  SCTE_35_WITHOUT_SEGMENTATION: "SCTE_35_WITHOUT_SEGMENTATION",
+} as const;
+
+/**
+ * @public
+ */
+export type SmoothGroupSparseTrackType = (typeof SmoothGroupSparseTrackType)[keyof typeof SmoothGroupSparseTrackType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupStreamManifestBehavior = {
+  DO_NOT_SEND: "DO_NOT_SEND",
+  SEND: "SEND",
+} as const;
+
+/**
+ * @public
+ */
+export type SmoothGroupStreamManifestBehavior =
+  (typeof SmoothGroupStreamManifestBehavior)[keyof typeof SmoothGroupStreamManifestBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupTimestampOffsetMode = {
+  USE_CONFIGURED_OFFSET: "USE_CONFIGURED_OFFSET",
+  USE_EVENT_START_DATE: "USE_EVENT_START_DATE",
+} as const;
+
+/**
+ * @public
+ */
+export type SmoothGroupTimestampOffsetMode =
+  (typeof SmoothGroupTimestampOffsetMode)[keyof typeof SmoothGroupTimestampOffsetMode];
+
+/**
+ * @public
  * Ms Smooth Group Settings
  */
 export interface MsSmoothGroupSettings {
@@ -552,36 +723,83 @@ export interface MsSmoothGroupSettings {
 }
 
 /**
+ * @public
  * Multiplex Group Settings
  */
 export interface MultiplexGroupSettings {}
 
-export enum RtmpAdMarkers {
-  ON_CUE_POINT_SCTE35 = "ON_CUE_POINT_SCTE35",
-}
-
-export enum AuthenticationScheme {
-  AKAMAI = "AKAMAI",
-  COMMON = "COMMON",
-}
-
-export enum RtmpCacheFullBehavior {
-  DISCONNECT_IMMEDIATELY = "DISCONNECT_IMMEDIATELY",
-  WAIT_FOR_SERVER = "WAIT_FOR_SERVER",
-}
-
-export enum RtmpCaptionData {
-  ALL = "ALL",
-  FIELD1_608 = "FIELD1_608",
-  FIELD1_AND_FIELD2_608 = "FIELD1_AND_FIELD2_608",
-}
-
-export enum InputLossActionForRtmpOut {
-  EMIT_OUTPUT = "EMIT_OUTPUT",
-  PAUSE_OUTPUT = "PAUSE_OUTPUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RtmpAdMarkers = {
+  ON_CUE_POINT_SCTE35: "ON_CUE_POINT_SCTE35",
+} as const;
 
 /**
+ * @public
+ */
+export type RtmpAdMarkers = (typeof RtmpAdMarkers)[keyof typeof RtmpAdMarkers];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticationScheme = {
+  AKAMAI: "AKAMAI",
+  COMMON: "COMMON",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationScheme = (typeof AuthenticationScheme)[keyof typeof AuthenticationScheme];
+
+/**
+ * @public
+ * @enum
+ */
+export const RtmpCacheFullBehavior = {
+  DISCONNECT_IMMEDIATELY: "DISCONNECT_IMMEDIATELY",
+  WAIT_FOR_SERVER: "WAIT_FOR_SERVER",
+} as const;
+
+/**
+ * @public
+ */
+export type RtmpCacheFullBehavior = (typeof RtmpCacheFullBehavior)[keyof typeof RtmpCacheFullBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const RtmpCaptionData = {
+  ALL: "ALL",
+  FIELD1_608: "FIELD1_608",
+  FIELD1_AND_FIELD2_608: "FIELD1_AND_FIELD2_608",
+} as const;
+
+/**
+ * @public
+ */
+export type RtmpCaptionData = (typeof RtmpCaptionData)[keyof typeof RtmpCaptionData];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputLossActionForRtmpOut = {
+  EMIT_OUTPUT: "EMIT_OUTPUT",
+  PAUSE_OUTPUT: "PAUSE_OUTPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type InputLossActionForRtmpOut = (typeof InputLossActionForRtmpOut)[keyof typeof InputLossActionForRtmpOut];
+
+/**
+ * @public
  * Rtmp Group Settings
  */
 export interface RtmpGroupSettings {
@@ -624,19 +842,38 @@ export interface RtmpGroupSettings {
   RestartDelay?: number;
 }
 
-export enum InputLossActionForUdpOut {
-  DROP_PROGRAM = "DROP_PROGRAM",
-  DROP_TS = "DROP_TS",
-  EMIT_PROGRAM = "EMIT_PROGRAM",
-}
-
-export enum UdpTimedMetadataId3Frame {
-  NONE = "NONE",
-  PRIV = "PRIV",
-  TDRL = "TDRL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InputLossActionForUdpOut = {
+  DROP_PROGRAM: "DROP_PROGRAM",
+  DROP_TS: "DROP_TS",
+  EMIT_PROGRAM: "EMIT_PROGRAM",
+} as const;
 
 /**
+ * @public
+ */
+export type InputLossActionForUdpOut = (typeof InputLossActionForUdpOut)[keyof typeof InputLossActionForUdpOut];
+
+/**
+ * @public
+ * @enum
+ */
+export const UdpTimedMetadataId3Frame = {
+  NONE: "NONE",
+  PRIV: "PRIV",
+  TDRL: "TDRL",
+} as const;
+
+/**
+ * @public
+ */
+export type UdpTimedMetadataId3Frame = (typeof UdpTimedMetadataId3Frame)[keyof typeof UdpTimedMetadataId3Frame];
+
+/**
+ * @public
  * Udp Group Settings
  */
 export interface UdpGroupSettings {
@@ -657,6 +894,7 @@ export interface UdpGroupSettings {
 }
 
 /**
+ * @public
  * Output Group Settings
  */
 export interface OutputGroupSettings {
@@ -702,6 +940,7 @@ export interface OutputGroupSettings {
 }
 
 /**
+ * @public
  * Output groups for this Live Event. Output groups contain information about where streams should be distributed.
  */
 export interface OutputGroup {
@@ -722,6 +961,7 @@ export interface OutputGroup {
 }
 
 /**
+ * @public
  * Runtime details of a pipeline when a channel is running.
  */
 export interface PipelineDetail {
@@ -751,12 +991,22 @@ export interface PipelineDetail {
   PipelineId?: string;
 }
 
-export enum PipelineId {
-  PIPELINE_0 = "PIPELINE_0",
-  PIPELINE_1 = "PIPELINE_1",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PipelineId = {
+  PIPELINE_0: "PIPELINE_0",
+  PIPELINE_1: "PIPELINE_1",
+} as const;
 
 /**
+ * @public
+ */
+export type PipelineId = (typeof PipelineId)[keyof typeof PipelineId];
+
+/**
+ * @public
  * Settings for pausing a pipeline.
  */
 export interface PipelinePauseStateSettings {
@@ -766,13 +1016,24 @@ export interface PipelinePauseStateSettings {
   PipelineId: PipelineId | string | undefined;
 }
 
-export enum ReservationAutomaticRenewal {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReservationAutomaticRenewal = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type ReservationAutomaticRenewal =
+  (typeof ReservationAutomaticRenewal)[keyof typeof ReservationAutomaticRenewal];
+
+/**
+ * @public
  * The Renewal settings for Reservations
  */
 export interface RenewalSettings {
@@ -787,14 +1048,24 @@ export interface RenewalSettings {
   RenewalCount?: number;
 }
 
-export enum ReservationState {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  DELETED = "DELETED",
-  EXPIRED = "EXPIRED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReservationState = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  DELETED: "DELETED",
+  EXPIRED: "EXPIRED",
+} as const;
 
 /**
+ * @public
+ */
+export type ReservationState = (typeof ReservationState)[keyof typeof ReservationState];
+
+/**
+ * @public
  * Reserved resources available to use
  */
 export interface Reservation {
@@ -895,16 +1166,23 @@ export interface Reservation {
 }
 
 /**
+ * @public
  * Settings for the action to insert a user-defined ID3 tag in each HLS segment
  */
 export interface HlsId3SegmentTaggingScheduleActionSettings {
   /**
    * ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html
    */
-  Tag: string | undefined;
+  Tag?: string;
+
+  /**
+   * Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
+   */
+  Id3?: string;
 }
 
 /**
+ * @public
  * Settings for the action to emit HLS metadata
  */
 export interface HlsTimedMetadataScheduleActionSettings {
@@ -914,12 +1192,22 @@ export interface HlsTimedMetadataScheduleActionSettings {
   Id3: string | undefined;
 }
 
-export enum InputTimecodeSource {
-  EMBEDDED = "EMBEDDED",
-  ZEROBASED = "ZEROBASED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InputTimecodeSource = {
+  EMBEDDED: "EMBEDDED",
+  ZEROBASED: "ZEROBASED",
+} as const;
 
 /**
+ * @public
+ */
+export type InputTimecodeSource = (typeof InputTimecodeSource)[keyof typeof InputTimecodeSource];
+
+/**
+ * @public
  * Settings to identify the start of the clip.
  */
 export interface StartTimecode {
@@ -929,12 +1217,22 @@ export interface StartTimecode {
   Timecode?: string;
 }
 
-export enum LastFrameClippingBehavior {
-  EXCLUDE_LAST_FRAME = "EXCLUDE_LAST_FRAME",
-  INCLUDE_LAST_FRAME = "INCLUDE_LAST_FRAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LastFrameClippingBehavior = {
+  EXCLUDE_LAST_FRAME: "EXCLUDE_LAST_FRAME",
+  INCLUDE_LAST_FRAME: "INCLUDE_LAST_FRAME",
+} as const;
 
 /**
+ * @public
+ */
+export type LastFrameClippingBehavior = (typeof LastFrameClippingBehavior)[keyof typeof LastFrameClippingBehavior];
+
+/**
+ * @public
  * Settings to identify the end of the clip.
  */
 export interface StopTimecode {
@@ -950,6 +1248,7 @@ export interface StopTimecode {
 }
 
 /**
+ * @public
  * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
  */
 export interface InputClippingSettings {
@@ -970,6 +1269,7 @@ export interface InputClippingSettings {
 }
 
 /**
+ * @public
  * Action to prepare an input for a future immediate input switch.
  */
 export interface InputPrepareScheduleActionSettings {
@@ -990,6 +1290,7 @@ export interface InputPrepareScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings for the "switch input" action: to switch from ingesting one input to ingesting another input.
  */
 export interface InputSwitchScheduleActionSettings {
@@ -1010,6 +1311,7 @@ export interface InputSwitchScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings to specify the rendering of motion graphics into the video stream.
  */
 export interface MotionGraphicsActivateScheduleActionSettings {
@@ -1035,11 +1337,13 @@ export interface MotionGraphicsActivateScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings to specify the ending of rendering motion graphics into the video stream.
  */
 export interface MotionGraphicsDeactivateScheduleActionSettings {}
 
 /**
+ * @public
  * Settings for the action to set pause state of a channel.
  */
 export interface PauseStateScheduleActionSettings {
@@ -1049,12 +1353,22 @@ export interface PauseStateScheduleActionSettings {
   Pipelines?: PipelinePauseStateSettings[];
 }
 
-export enum Scte35InputMode {
-  FIXED = "FIXED",
-  FOLLOW_ACTIVE = "FOLLOW_ACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Scte35InputMode = {
+  FIXED: "FIXED",
+  FOLLOW_ACTIVE: "FOLLOW_ACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type Scte35InputMode = (typeof Scte35InputMode)[keyof typeof Scte35InputMode];
+
+/**
+ * @public
  * Scte35Input Schedule Action Settings
  */
 export interface Scte35InputScheduleActionSettings {
@@ -1070,6 +1384,7 @@ export interface Scte35InputScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings for a SCTE-35 return_to_network message.
  */
 export interface Scte35ReturnToNetworkScheduleActionSettings {
@@ -1080,6 +1395,7 @@ export interface Scte35ReturnToNetworkScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings for a SCTE-35 splice_insert message.
  */
 export interface Scte35SpliceInsertScheduleActionSettings {
@@ -1094,29 +1410,68 @@ export interface Scte35SpliceInsertScheduleActionSettings {
   SpliceEventId: number | undefined;
 }
 
-export enum Scte35ArchiveAllowedFlag {
-  ARCHIVE_ALLOWED = "ARCHIVE_ALLOWED",
-  ARCHIVE_NOT_ALLOWED = "ARCHIVE_NOT_ALLOWED",
-}
-
-export enum Scte35DeviceRestrictions {
-  NONE = "NONE",
-  RESTRICT_GROUP0 = "RESTRICT_GROUP0",
-  RESTRICT_GROUP1 = "RESTRICT_GROUP1",
-  RESTRICT_GROUP2 = "RESTRICT_GROUP2",
-}
-
-export enum Scte35NoRegionalBlackoutFlag {
-  NO_REGIONAL_BLACKOUT = "NO_REGIONAL_BLACKOUT",
-  REGIONAL_BLACKOUT = "REGIONAL_BLACKOUT",
-}
-
-export enum Scte35WebDeliveryAllowedFlag {
-  WEB_DELIVERY_ALLOWED = "WEB_DELIVERY_ALLOWED",
-  WEB_DELIVERY_NOT_ALLOWED = "WEB_DELIVERY_NOT_ALLOWED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Scte35ArchiveAllowedFlag = {
+  ARCHIVE_ALLOWED: "ARCHIVE_ALLOWED",
+  ARCHIVE_NOT_ALLOWED: "ARCHIVE_NOT_ALLOWED",
+} as const;
 
 /**
+ * @public
+ */
+export type Scte35ArchiveAllowedFlag = (typeof Scte35ArchiveAllowedFlag)[keyof typeof Scte35ArchiveAllowedFlag];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35DeviceRestrictions = {
+  NONE: "NONE",
+  RESTRICT_GROUP0: "RESTRICT_GROUP0",
+  RESTRICT_GROUP1: "RESTRICT_GROUP1",
+  RESTRICT_GROUP2: "RESTRICT_GROUP2",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35DeviceRestrictions = (typeof Scte35DeviceRestrictions)[keyof typeof Scte35DeviceRestrictions];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35NoRegionalBlackoutFlag = {
+  NO_REGIONAL_BLACKOUT: "NO_REGIONAL_BLACKOUT",
+  REGIONAL_BLACKOUT: "REGIONAL_BLACKOUT",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35NoRegionalBlackoutFlag =
+  (typeof Scte35NoRegionalBlackoutFlag)[keyof typeof Scte35NoRegionalBlackoutFlag];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35WebDeliveryAllowedFlag = {
+  WEB_DELIVERY_ALLOWED: "WEB_DELIVERY_ALLOWED",
+  WEB_DELIVERY_NOT_ALLOWED: "WEB_DELIVERY_NOT_ALLOWED",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35WebDeliveryAllowedFlag =
+  (typeof Scte35WebDeliveryAllowedFlag)[keyof typeof Scte35WebDeliveryAllowedFlag];
+
+/**
+ * @public
  * Corresponds to SCTE-35 delivery_not_restricted_flag parameter. To declare delivery restrictions, include this element and its four "restriction" flags. To declare that there are no restrictions, omit this element.
  */
 export interface Scte35DeliveryRestrictions {
@@ -1141,12 +1496,23 @@ export interface Scte35DeliveryRestrictions {
   WebDeliveryAllowedFlag: Scte35WebDeliveryAllowedFlag | string | undefined;
 }
 
-export enum Scte35SegmentationCancelIndicator {
-  SEGMENTATION_EVENT_CANCELED = "SEGMENTATION_EVENT_CANCELED",
-  SEGMENTATION_EVENT_NOT_CANCELED = "SEGMENTATION_EVENT_NOT_CANCELED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Scte35SegmentationCancelIndicator = {
+  SEGMENTATION_EVENT_CANCELED: "SEGMENTATION_EVENT_CANCELED",
+  SEGMENTATION_EVENT_NOT_CANCELED: "SEGMENTATION_EVENT_NOT_CANCELED",
+} as const;
 
 /**
+ * @public
+ */
+export type Scte35SegmentationCancelIndicator =
+  (typeof Scte35SegmentationCancelIndicator)[keyof typeof Scte35SegmentationCancelIndicator];
+
+/**
+ * @public
  * Corresponds to SCTE-35 segmentation_descriptor.
  */
 export interface Scte35SegmentationDescriptor {
@@ -1207,6 +1573,7 @@ export interface Scte35SegmentationDescriptor {
 }
 
 /**
+ * @public
  * SCTE-35 Descriptor settings.
  */
 export interface Scte35DescriptorSettings {
@@ -1217,6 +1584,7 @@ export interface Scte35DescriptorSettings {
 }
 
 /**
+ * @public
  * Holds one set of SCTE-35 Descriptor Settings.
  */
 export interface Scte35Descriptor {
@@ -1227,6 +1595,7 @@ export interface Scte35Descriptor {
 }
 
 /**
+ * @public
  * Settings for a SCTE-35 time_signal.
  */
 export interface Scte35TimeSignalScheduleActionSettings {
@@ -1237,6 +1606,7 @@ export interface Scte35TimeSignalScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings for the action to activate a static image.
  */
 export interface StaticImageActivateScheduleActionSettings {
@@ -1292,6 +1662,7 @@ export interface StaticImageActivateScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings for the action to deactivate the image in a specific layer.
  */
 export interface StaticImageDeactivateScheduleActionSettings {
@@ -1307,6 +1678,7 @@ export interface StaticImageDeactivateScheduleActionSettings {
 }
 
 /**
+ * @public
  * Holds the settings for a single schedule action.
  */
 export interface ScheduleActionSettings {
@@ -1377,6 +1749,7 @@ export interface ScheduleActionSettings {
 }
 
 /**
+ * @public
  * Start time for the action.
  */
 export interface FixedModeScheduleActionStartSettings {
@@ -1386,12 +1759,22 @@ export interface FixedModeScheduleActionStartSettings {
   Time: string | undefined;
 }
 
-export enum FollowPoint {
-  END = "END",
-  START = "START",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FollowPoint = {
+  END: "END",
+  START: "START",
+} as const;
 
 /**
+ * @public
+ */
+export type FollowPoint = (typeof FollowPoint)[keyof typeof FollowPoint];
+
+/**
+ * @public
  * Settings to specify if an action follows another.
  */
 export interface FollowModeScheduleActionStartSettings {
@@ -1407,11 +1790,13 @@ export interface FollowModeScheduleActionStartSettings {
 }
 
 /**
+ * @public
  * Settings to configure an action so that it occurs as soon as possible.
  */
 export interface ImmediateModeScheduleActionStartSettings {}
 
 /**
+ * @public
  * Settings to specify when an action should occur. Only one of the options must be selected.
  */
 export interface ScheduleActionStartSettings {
@@ -1432,6 +1817,7 @@ export interface ScheduleActionStartSettings {
 }
 
 /**
+ * @public
  * Contains information on a single schedule action.
  */
 export interface ScheduleAction {
@@ -1451,12 +1837,22 @@ export interface ScheduleAction {
   ScheduleActionStartSettings: ScheduleActionStartSettings | undefined;
 }
 
-export enum InputDeviceTransferType {
-  INCOMING = "INCOMING",
-  OUTGOING = "OUTGOING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InputDeviceTransferType = {
+  INCOMING: "INCOMING",
+  OUTGOING: "OUTGOING",
+} as const;
 
 /**
+ * @public
+ */
+export type InputDeviceTransferType = (typeof InputDeviceTransferType)[keyof typeof InputDeviceTransferType];
+
+/**
+ * @public
  * Details about the input device that is being transferred.
  */
 export interface TransferringInputDeviceSummary {
@@ -1482,6 +1878,7 @@ export interface TransferringInputDeviceSummary {
 }
 
 /**
+ * @public
  * Placeholder documentation for ValidationError
  */
 export interface ValidationError {
@@ -1496,31 +1893,59 @@ export interface ValidationError {
   ErrorMessage?: string;
 }
 
-export enum FrameCaptureIntervalUnit {
-  MILLISECONDS = "MILLISECONDS",
-  SECONDS = "SECONDS",
-}
-
-export enum TimecodeBurninFontSize {
-  EXTRA_SMALL_10 = "EXTRA_SMALL_10",
-  LARGE_48 = "LARGE_48",
-  MEDIUM_32 = "MEDIUM_32",
-  SMALL_16 = "SMALL_16",
-}
-
-export enum TimecodeBurninPosition {
-  BOTTOM_CENTER = "BOTTOM_CENTER",
-  BOTTOM_LEFT = "BOTTOM_LEFT",
-  BOTTOM_RIGHT = "BOTTOM_RIGHT",
-  MIDDLE_CENTER = "MIDDLE_CENTER",
-  MIDDLE_LEFT = "MIDDLE_LEFT",
-  MIDDLE_RIGHT = "MIDDLE_RIGHT",
-  TOP_CENTER = "TOP_CENTER",
-  TOP_LEFT = "TOP_LEFT",
-  TOP_RIGHT = "TOP_RIGHT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FrameCaptureIntervalUnit = {
+  MILLISECONDS: "MILLISECONDS",
+  SECONDS: "SECONDS",
+} as const;
 
 /**
+ * @public
+ */
+export type FrameCaptureIntervalUnit = (typeof FrameCaptureIntervalUnit)[keyof typeof FrameCaptureIntervalUnit];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimecodeBurninFontSize = {
+  EXTRA_SMALL_10: "EXTRA_SMALL_10",
+  LARGE_48: "LARGE_48",
+  MEDIUM_32: "MEDIUM_32",
+  SMALL_16: "SMALL_16",
+} as const;
+
+/**
+ * @public
+ */
+export type TimecodeBurninFontSize = (typeof TimecodeBurninFontSize)[keyof typeof TimecodeBurninFontSize];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimecodeBurninPosition = {
+  BOTTOM_CENTER: "BOTTOM_CENTER",
+  BOTTOM_LEFT: "BOTTOM_LEFT",
+  BOTTOM_RIGHT: "BOTTOM_RIGHT",
+  MIDDLE_CENTER: "MIDDLE_CENTER",
+  MIDDLE_LEFT: "MIDDLE_LEFT",
+  MIDDLE_RIGHT: "MIDDLE_RIGHT",
+  TOP_CENTER: "TOP_CENTER",
+  TOP_LEFT: "TOP_LEFT",
+  TOP_RIGHT: "TOP_RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type TimecodeBurninPosition = (typeof TimecodeBurninPosition)[keyof typeof TimecodeBurninPosition];
+
+/**
+ * @public
  * Timecode Burnin Settings
  */
 export interface TimecodeBurninSettings {
@@ -1541,6 +1966,7 @@ export interface TimecodeBurninSettings {
 }
 
 /**
+ * @public
  * Frame Capture Settings
  */
 export interface FrameCaptureSettings {
@@ -1560,43 +1986,74 @@ export interface FrameCaptureSettings {
   TimecodeBurninSettings?: TimecodeBurninSettings;
 }
 
-export enum H264AdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
-
-export enum AfdSignaling {
-  AUTO = "AUTO",
-  FIXED = "FIXED",
-  NONE = "NONE",
-}
-
-export enum H264ColorMetadata {
-  IGNORE = "IGNORE",
-  INSERT = "INSERT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const H264AdaptiveQuantization = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  HIGHER: "HIGHER",
+  LOW: "LOW",
+  MAX: "MAX",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
 /**
+ * @public
+ */
+export type H264AdaptiveQuantization = (typeof H264AdaptiveQuantization)[keyof typeof H264AdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const AfdSignaling = {
+  AUTO: "AUTO",
+  FIXED: "FIXED",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type AfdSignaling = (typeof AfdSignaling)[keyof typeof AfdSignaling];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264ColorMetadata = {
+  IGNORE: "IGNORE",
+  INSERT: "INSERT",
+} as const;
+
+/**
+ * @public
+ */
+export type H264ColorMetadata = (typeof H264ColorMetadata)[keyof typeof H264ColorMetadata];
+
+/**
+ * @public
  * Passthrough applies no color space conversion to the output
  */
 export interface ColorSpacePassthroughSettings {}
 
 /**
+ * @public
  * Rec601 Settings
  */
 export interface Rec601Settings {}
 
 /**
+ * @public
  * Rec709 Settings
  */
 export interface Rec709Settings {}
 
 /**
+ * @public
  * H264 Color Space Settings
  */
 export interface H264ColorSpaceSettings {
@@ -1616,38 +2073,67 @@ export interface H264ColorSpaceSettings {
   Rec709Settings?: Rec709Settings;
 }
 
-export enum H264EntropyEncoding {
-  CABAC = "CABAC",
-  CAVLC = "CAVLC",
-}
-
-export enum TemporalFilterPostFilterSharpening {
-  AUTO = "AUTO",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum TemporalFilterStrength {
-  AUTO = "AUTO",
-  STRENGTH_1 = "STRENGTH_1",
-  STRENGTH_10 = "STRENGTH_10",
-  STRENGTH_11 = "STRENGTH_11",
-  STRENGTH_12 = "STRENGTH_12",
-  STRENGTH_13 = "STRENGTH_13",
-  STRENGTH_14 = "STRENGTH_14",
-  STRENGTH_15 = "STRENGTH_15",
-  STRENGTH_16 = "STRENGTH_16",
-  STRENGTH_2 = "STRENGTH_2",
-  STRENGTH_3 = "STRENGTH_3",
-  STRENGTH_4 = "STRENGTH_4",
-  STRENGTH_5 = "STRENGTH_5",
-  STRENGTH_6 = "STRENGTH_6",
-  STRENGTH_7 = "STRENGTH_7",
-  STRENGTH_8 = "STRENGTH_8",
-  STRENGTH_9 = "STRENGTH_9",
-}
+/**
+ * @public
+ * @enum
+ */
+export const H264EntropyEncoding = {
+  CABAC: "CABAC",
+  CAVLC: "CAVLC",
+} as const;
 
 /**
+ * @public
+ */
+export type H264EntropyEncoding = (typeof H264EntropyEncoding)[keyof typeof H264EntropyEncoding];
+
+/**
+ * @public
+ * @enum
+ */
+export const TemporalFilterPostFilterSharpening = {
+  AUTO: "AUTO",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TemporalFilterPostFilterSharpening =
+  (typeof TemporalFilterPostFilterSharpening)[keyof typeof TemporalFilterPostFilterSharpening];
+
+/**
+ * @public
+ * @enum
+ */
+export const TemporalFilterStrength = {
+  AUTO: "AUTO",
+  STRENGTH_1: "STRENGTH_1",
+  STRENGTH_10: "STRENGTH_10",
+  STRENGTH_11: "STRENGTH_11",
+  STRENGTH_12: "STRENGTH_12",
+  STRENGTH_13: "STRENGTH_13",
+  STRENGTH_14: "STRENGTH_14",
+  STRENGTH_15: "STRENGTH_15",
+  STRENGTH_16: "STRENGTH_16",
+  STRENGTH_2: "STRENGTH_2",
+  STRENGTH_3: "STRENGTH_3",
+  STRENGTH_4: "STRENGTH_4",
+  STRENGTH_5: "STRENGTH_5",
+  STRENGTH_6: "STRENGTH_6",
+  STRENGTH_7: "STRENGTH_7",
+  STRENGTH_8: "STRENGTH_8",
+  STRENGTH_9: "STRENGTH_9",
+} as const;
+
+/**
+ * @public
+ */
+export type TemporalFilterStrength = (typeof TemporalFilterStrength)[keyof typeof TemporalFilterStrength];
+
+/**
+ * @public
  * Temporal Filter Settings
  */
 export interface TemporalFilterSettings {
@@ -1665,6 +2151,7 @@ export interface TemporalFilterSettings {
 }
 
 /**
+ * @public
  * H264 Filter Settings
  */
 export interface H264FilterSettings {
@@ -1674,133 +2161,306 @@ export interface H264FilterSettings {
   TemporalFilterSettings?: TemporalFilterSettings;
 }
 
-export enum FixedAfd {
-  AFD_0000 = "AFD_0000",
-  AFD_0010 = "AFD_0010",
-  AFD_0011 = "AFD_0011",
-  AFD_0100 = "AFD_0100",
-  AFD_1000 = "AFD_1000",
-  AFD_1001 = "AFD_1001",
-  AFD_1010 = "AFD_1010",
-  AFD_1011 = "AFD_1011",
-  AFD_1101 = "AFD_1101",
-  AFD_1110 = "AFD_1110",
-  AFD_1111 = "AFD_1111",
-}
-
-export enum H264FlickerAq {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264ForceFieldPictures {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264FramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum H264GopBReference {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264GopSizeUnits {
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
-
-export enum H264Level {
-  H264_LEVEL_1 = "H264_LEVEL_1",
-  H264_LEVEL_1_1 = "H264_LEVEL_1_1",
-  H264_LEVEL_1_2 = "H264_LEVEL_1_2",
-  H264_LEVEL_1_3 = "H264_LEVEL_1_3",
-  H264_LEVEL_2 = "H264_LEVEL_2",
-  H264_LEVEL_2_1 = "H264_LEVEL_2_1",
-  H264_LEVEL_2_2 = "H264_LEVEL_2_2",
-  H264_LEVEL_3 = "H264_LEVEL_3",
-  H264_LEVEL_3_1 = "H264_LEVEL_3_1",
-  H264_LEVEL_3_2 = "H264_LEVEL_3_2",
-  H264_LEVEL_4 = "H264_LEVEL_4",
-  H264_LEVEL_4_1 = "H264_LEVEL_4_1",
-  H264_LEVEL_4_2 = "H264_LEVEL_4_2",
-  H264_LEVEL_5 = "H264_LEVEL_5",
-  H264_LEVEL_5_1 = "H264_LEVEL_5_1",
-  H264_LEVEL_5_2 = "H264_LEVEL_5_2",
-  H264_LEVEL_AUTO = "H264_LEVEL_AUTO",
-}
-
-export enum H264LookAheadRateControl {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
-
-export enum H264ParControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum H264Profile {
-  BASELINE = "BASELINE",
-  HIGH = "HIGH",
-  HIGH_10BIT = "HIGH_10BIT",
-  HIGH_422 = "HIGH_422",
-  HIGH_422_10BIT = "HIGH_422_10BIT",
-  MAIN = "MAIN",
-}
-
-export enum H264QualityLevel {
-  ENHANCED_QUALITY = "ENHANCED_QUALITY",
-  STANDARD_QUALITY = "STANDARD_QUALITY",
-}
-
-export enum H264RateControlMode {
-  CBR = "CBR",
-  MULTIPLEX = "MULTIPLEX",
-  QVBR = "QVBR",
-  VBR = "VBR",
-}
-
-export enum H264ScanType {
-  INTERLACED = "INTERLACED",
-  PROGRESSIVE = "PROGRESSIVE",
-}
-
-export enum H264SceneChangeDetect {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264SpatialAq {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264SubGopLength {
-  DYNAMIC = "DYNAMIC",
-  FIXED = "FIXED",
-}
-
-export enum H264Syntax {
-  DEFAULT = "DEFAULT",
-  RP2027 = "RP2027",
-}
-
-export enum H264TemporalAq {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264TimecodeInsertionBehavior {
-  DISABLED = "DISABLED",
-  PIC_TIMING_SEI = "PIC_TIMING_SEI",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FixedAfd = {
+  AFD_0000: "AFD_0000",
+  AFD_0010: "AFD_0010",
+  AFD_0011: "AFD_0011",
+  AFD_0100: "AFD_0100",
+  AFD_1000: "AFD_1000",
+  AFD_1001: "AFD_1001",
+  AFD_1010: "AFD_1010",
+  AFD_1011: "AFD_1011",
+  AFD_1101: "AFD_1101",
+  AFD_1110: "AFD_1110",
+  AFD_1111: "AFD_1111",
+} as const;
 
 /**
+ * @public
+ */
+export type FixedAfd = (typeof FixedAfd)[keyof typeof FixedAfd];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264FlickerAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264FlickerAq = (typeof H264FlickerAq)[keyof typeof H264FlickerAq];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264ForceFieldPictures = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264ForceFieldPictures = (typeof H264ForceFieldPictures)[keyof typeof H264ForceFieldPictures];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264FramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264FramerateControl = (typeof H264FramerateControl)[keyof typeof H264FramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264GopBReference = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264GopBReference = (typeof H264GopBReference)[keyof typeof H264GopBReference];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264GopSizeUnits = {
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type H264GopSizeUnits = (typeof H264GopSizeUnits)[keyof typeof H264GopSizeUnits];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264Level = {
+  H264_LEVEL_1: "H264_LEVEL_1",
+  H264_LEVEL_1_1: "H264_LEVEL_1_1",
+  H264_LEVEL_1_2: "H264_LEVEL_1_2",
+  H264_LEVEL_1_3: "H264_LEVEL_1_3",
+  H264_LEVEL_2: "H264_LEVEL_2",
+  H264_LEVEL_2_1: "H264_LEVEL_2_1",
+  H264_LEVEL_2_2: "H264_LEVEL_2_2",
+  H264_LEVEL_3: "H264_LEVEL_3",
+  H264_LEVEL_3_1: "H264_LEVEL_3_1",
+  H264_LEVEL_3_2: "H264_LEVEL_3_2",
+  H264_LEVEL_4: "H264_LEVEL_4",
+  H264_LEVEL_4_1: "H264_LEVEL_4_1",
+  H264_LEVEL_4_2: "H264_LEVEL_4_2",
+  H264_LEVEL_5: "H264_LEVEL_5",
+  H264_LEVEL_5_1: "H264_LEVEL_5_1",
+  H264_LEVEL_5_2: "H264_LEVEL_5_2",
+  H264_LEVEL_AUTO: "H264_LEVEL_AUTO",
+} as const;
+
+/**
+ * @public
+ */
+export type H264Level = (typeof H264Level)[keyof typeof H264Level];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264LookAheadRateControl = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type H264LookAheadRateControl = (typeof H264LookAheadRateControl)[keyof typeof H264LookAheadRateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264ParControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264ParControl = (typeof H264ParControl)[keyof typeof H264ParControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264Profile = {
+  BASELINE: "BASELINE",
+  HIGH: "HIGH",
+  HIGH_10BIT: "HIGH_10BIT",
+  HIGH_422: "HIGH_422",
+  HIGH_422_10BIT: "HIGH_422_10BIT",
+  MAIN: "MAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type H264Profile = (typeof H264Profile)[keyof typeof H264Profile];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264QualityLevel = {
+  ENHANCED_QUALITY: "ENHANCED_QUALITY",
+  STANDARD_QUALITY: "STANDARD_QUALITY",
+} as const;
+
+/**
+ * @public
+ */
+export type H264QualityLevel = (typeof H264QualityLevel)[keyof typeof H264QualityLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264RateControlMode = {
+  CBR: "CBR",
+  MULTIPLEX: "MULTIPLEX",
+  QVBR: "QVBR",
+  VBR: "VBR",
+} as const;
+
+/**
+ * @public
+ */
+export type H264RateControlMode = (typeof H264RateControlMode)[keyof typeof H264RateControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264ScanType = {
+  INTERLACED: "INTERLACED",
+  PROGRESSIVE: "PROGRESSIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type H264ScanType = (typeof H264ScanType)[keyof typeof H264ScanType];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264SceneChangeDetect = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264SceneChangeDetect = (typeof H264SceneChangeDetect)[keyof typeof H264SceneChangeDetect];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264SpatialAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264SpatialAq = (typeof H264SpatialAq)[keyof typeof H264SpatialAq];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264SubGopLength = {
+  DYNAMIC: "DYNAMIC",
+  FIXED: "FIXED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264SubGopLength = (typeof H264SubGopLength)[keyof typeof H264SubGopLength];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264Syntax = {
+  DEFAULT: "DEFAULT",
+  RP2027: "RP2027",
+} as const;
+
+/**
+ * @public
+ */
+export type H264Syntax = (typeof H264Syntax)[keyof typeof H264Syntax];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264TemporalAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264TemporalAq = (typeof H264TemporalAq)[keyof typeof H264TemporalAq];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264TimecodeInsertionBehavior = {
+  DISABLED: "DISABLED",
+  PIC_TIMING_SEI: "PIC_TIMING_SEI",
+} as const;
+
+/**
+ * @public
+ */
+export type H264TimecodeInsertionBehavior =
+  (typeof H264TimecodeInsertionBehavior)[keyof typeof H264TimecodeInsertionBehavior];
+
+/**
+ * @public
  * H264 Settings
  */
 export interface H264Settings {
@@ -2046,32 +2706,62 @@ export interface H264Settings {
   TimecodeBurninSettings?: TimecodeBurninSettings;
 }
 
-export enum H265AdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
-
-export enum H265AlternativeTransferFunction {
-  INSERT = "INSERT",
-  OMIT = "OMIT",
-}
-
-export enum H265ColorMetadata {
-  IGNORE = "IGNORE",
-  INSERT = "INSERT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const H265AdaptiveQuantization = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  HIGHER: "HIGHER",
+  LOW: "LOW",
+  MAX: "MAX",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
 /**
+ * @public
+ */
+export type H265AdaptiveQuantization = (typeof H265AdaptiveQuantization)[keyof typeof H265AdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265AlternativeTransferFunction = {
+  INSERT: "INSERT",
+  OMIT: "OMIT",
+} as const;
+
+/**
+ * @public
+ */
+export type H265AlternativeTransferFunction =
+  (typeof H265AlternativeTransferFunction)[keyof typeof H265AlternativeTransferFunction];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265ColorMetadata = {
+  IGNORE: "IGNORE",
+  INSERT: "INSERT",
+} as const;
+
+/**
+ * @public
+ */
+export type H265ColorMetadata = (typeof H265ColorMetadata)[keyof typeof H265ColorMetadata];
+
+/**
+ * @public
  * Dolby Vision81 Settings
  */
 export interface DolbyVision81Settings {}
 
 /**
+ * @public
  * H265 Color Space Settings
  */
 export interface H265ColorSpaceSettings {
@@ -2102,6 +2792,7 @@ export interface H265ColorSpaceSettings {
 }
 
 /**
+ * @public
  * H265 Filter Settings
  */
 export interface H265FilterSettings {
@@ -2111,71 +2802,163 @@ export interface H265FilterSettings {
   TemporalFilterSettings?: TemporalFilterSettings;
 }
 
-export enum H265FlickerAq {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H265GopSizeUnits {
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
-
-export enum H265Level {
-  H265_LEVEL_1 = "H265_LEVEL_1",
-  H265_LEVEL_2 = "H265_LEVEL_2",
-  H265_LEVEL_2_1 = "H265_LEVEL_2_1",
-  H265_LEVEL_3 = "H265_LEVEL_3",
-  H265_LEVEL_3_1 = "H265_LEVEL_3_1",
-  H265_LEVEL_4 = "H265_LEVEL_4",
-  H265_LEVEL_4_1 = "H265_LEVEL_4_1",
-  H265_LEVEL_5 = "H265_LEVEL_5",
-  H265_LEVEL_5_1 = "H265_LEVEL_5_1",
-  H265_LEVEL_5_2 = "H265_LEVEL_5_2",
-  H265_LEVEL_6 = "H265_LEVEL_6",
-  H265_LEVEL_6_1 = "H265_LEVEL_6_1",
-  H265_LEVEL_6_2 = "H265_LEVEL_6_2",
-  H265_LEVEL_AUTO = "H265_LEVEL_AUTO",
-}
-
-export enum H265LookAheadRateControl {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
-
-export enum H265Profile {
-  MAIN = "MAIN",
-  MAIN_10BIT = "MAIN_10BIT",
-}
-
-export enum H265RateControlMode {
-  CBR = "CBR",
-  MULTIPLEX = "MULTIPLEX",
-  QVBR = "QVBR",
-}
-
-export enum H265ScanType {
-  INTERLACED = "INTERLACED",
-  PROGRESSIVE = "PROGRESSIVE",
-}
-
-export enum H265SceneChangeDetect {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H265Tier {
-  HIGH = "HIGH",
-  MAIN = "MAIN",
-}
-
-export enum H265TimecodeInsertionBehavior {
-  DISABLED = "DISABLED",
-  PIC_TIMING_SEI = "PIC_TIMING_SEI",
-}
+/**
+ * @public
+ * @enum
+ */
+export const H265FlickerAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type H265FlickerAq = (typeof H265FlickerAq)[keyof typeof H265FlickerAq];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265GopSizeUnits = {
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type H265GopSizeUnits = (typeof H265GopSizeUnits)[keyof typeof H265GopSizeUnits];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265Level = {
+  H265_LEVEL_1: "H265_LEVEL_1",
+  H265_LEVEL_2: "H265_LEVEL_2",
+  H265_LEVEL_2_1: "H265_LEVEL_2_1",
+  H265_LEVEL_3: "H265_LEVEL_3",
+  H265_LEVEL_3_1: "H265_LEVEL_3_1",
+  H265_LEVEL_4: "H265_LEVEL_4",
+  H265_LEVEL_4_1: "H265_LEVEL_4_1",
+  H265_LEVEL_5: "H265_LEVEL_5",
+  H265_LEVEL_5_1: "H265_LEVEL_5_1",
+  H265_LEVEL_5_2: "H265_LEVEL_5_2",
+  H265_LEVEL_6: "H265_LEVEL_6",
+  H265_LEVEL_6_1: "H265_LEVEL_6_1",
+  H265_LEVEL_6_2: "H265_LEVEL_6_2",
+  H265_LEVEL_AUTO: "H265_LEVEL_AUTO",
+} as const;
+
+/**
+ * @public
+ */
+export type H265Level = (typeof H265Level)[keyof typeof H265Level];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265LookAheadRateControl = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type H265LookAheadRateControl = (typeof H265LookAheadRateControl)[keyof typeof H265LookAheadRateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265Profile = {
+  MAIN: "MAIN",
+  MAIN_10BIT: "MAIN_10BIT",
+} as const;
+
+/**
+ * @public
+ */
+export type H265Profile = (typeof H265Profile)[keyof typeof H265Profile];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265RateControlMode = {
+  CBR: "CBR",
+  MULTIPLEX: "MULTIPLEX",
+  QVBR: "QVBR",
+} as const;
+
+/**
+ * @public
+ */
+export type H265RateControlMode = (typeof H265RateControlMode)[keyof typeof H265RateControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265ScanType = {
+  INTERLACED: "INTERLACED",
+  PROGRESSIVE: "PROGRESSIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type H265ScanType = (typeof H265ScanType)[keyof typeof H265ScanType];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265SceneChangeDetect = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265SceneChangeDetect = (typeof H265SceneChangeDetect)[keyof typeof H265SceneChangeDetect];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265Tier = {
+  HIGH: "HIGH",
+  MAIN: "MAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type H265Tier = (typeof H265Tier)[keyof typeof H265Tier];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265TimecodeInsertionBehavior = {
+  DISABLED: "DISABLED",
+  PIC_TIMING_SEI: "PIC_TIMING_SEI",
+} as const;
+
+/**
+ * @public
+ */
+export type H265TimecodeInsertionBehavior =
+  (typeof H265TimecodeInsertionBehavior)[keyof typeof H265TimecodeInsertionBehavior];
+
+/**
+ * @public
  * H265 Settings
  */
 export interface H265Settings {
@@ -2348,30 +3131,67 @@ export interface H265Settings {
   TimecodeBurninSettings?: TimecodeBurninSettings;
 }
 
-export enum Mpeg2AdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
-
-export enum Mpeg2ColorMetadata {
-  IGNORE = "IGNORE",
-  INSERT = "INSERT",
-}
-
-export enum Mpeg2ColorSpace {
-  AUTO = "AUTO",
-  PASSTHROUGH = "PASSTHROUGH",
-}
-
-export enum Mpeg2DisplayRatio {
-  DISPLAYRATIO16X9 = "DISPLAYRATIO16X9",
-  DISPLAYRATIO4X3 = "DISPLAYRATIO4X3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2AdaptiveQuantization = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
 /**
+ * @public
+ */
+export type Mpeg2AdaptiveQuantization = (typeof Mpeg2AdaptiveQuantization)[keyof typeof Mpeg2AdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2ColorMetadata = {
+  IGNORE: "IGNORE",
+  INSERT: "INSERT",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2ColorMetadata = (typeof Mpeg2ColorMetadata)[keyof typeof Mpeg2ColorMetadata];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2ColorSpace = {
+  AUTO: "AUTO",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2ColorSpace = (typeof Mpeg2ColorSpace)[keyof typeof Mpeg2ColorSpace];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2DisplayRatio = {
+  DISPLAYRATIO16X9: "DISPLAYRATIO16X9",
+  DISPLAYRATIO4X3: "DISPLAYRATIO4X3",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2DisplayRatio = (typeof Mpeg2DisplayRatio)[keyof typeof Mpeg2DisplayRatio];
+
+/**
+ * @public
  * Mpeg2 Filter Settings
  */
 export interface Mpeg2FilterSettings {
@@ -2381,27 +3201,65 @@ export interface Mpeg2FilterSettings {
   TemporalFilterSettings?: TemporalFilterSettings;
 }
 
-export enum Mpeg2GopSizeUnits {
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
-
-export enum Mpeg2ScanType {
-  INTERLACED = "INTERLACED",
-  PROGRESSIVE = "PROGRESSIVE",
-}
-
-export enum Mpeg2SubGopLength {
-  DYNAMIC = "DYNAMIC",
-  FIXED = "FIXED",
-}
-
-export enum Mpeg2TimecodeInsertionBehavior {
-  DISABLED = "DISABLED",
-  GOP_TIMECODE = "GOP_TIMECODE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2GopSizeUnits = {
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+} as const;
 
 /**
+ * @public
+ */
+export type Mpeg2GopSizeUnits = (typeof Mpeg2GopSizeUnits)[keyof typeof Mpeg2GopSizeUnits];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2ScanType = {
+  INTERLACED: "INTERLACED",
+  PROGRESSIVE: "PROGRESSIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2ScanType = (typeof Mpeg2ScanType)[keyof typeof Mpeg2ScanType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2SubGopLength = {
+  DYNAMIC: "DYNAMIC",
+  FIXED: "FIXED",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2SubGopLength = (typeof Mpeg2SubGopLength)[keyof typeof Mpeg2SubGopLength];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2TimecodeInsertionBehavior = {
+  DISABLED: "DISABLED",
+  GOP_TIMECODE: "GOP_TIMECODE",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2TimecodeInsertionBehavior =
+  (typeof Mpeg2TimecodeInsertionBehavior)[keyof typeof Mpeg2TimecodeInsertionBehavior];
+
+/**
+ * @public
  * Mpeg2 Settings
  */
 export interface Mpeg2Settings {
@@ -2505,6 +3363,7 @@ export interface Mpeg2Settings {
 }
 
 /**
+ * @public
  * Video Codec Settings
  */
 export interface VideoCodecSettings {
@@ -2529,18 +3388,39 @@ export interface VideoCodecSettings {
   Mpeg2Settings?: Mpeg2Settings;
 }
 
-export enum VideoDescriptionRespondToAfd {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-  RESPOND = "RESPOND",
-}
-
-export enum VideoDescriptionScalingBehavior {
-  DEFAULT = "DEFAULT",
-  STRETCH_TO_OUTPUT = "STRETCH_TO_OUTPUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VideoDescriptionRespondToAfd = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+  RESPOND: "RESPOND",
+} as const;
 
 /**
+ * @public
+ */
+export type VideoDescriptionRespondToAfd =
+  (typeof VideoDescriptionRespondToAfd)[keyof typeof VideoDescriptionRespondToAfd];
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoDescriptionScalingBehavior = {
+  DEFAULT: "DEFAULT",
+  STRETCH_TO_OUTPUT: "STRETCH_TO_OUTPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoDescriptionScalingBehavior =
+  (typeof VideoDescriptionScalingBehavior)[keyof typeof VideoDescriptionScalingBehavior];
+
+/**
+ * @public
  * Video settings for this stream.
  */
 export interface VideoDescription {
@@ -2583,11 +3463,21 @@ export interface VideoDescription {
   Width?: number;
 }
 
-export enum AcceptHeader {
-  image_jpeg = "image/jpeg",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AcceptHeader = {
+  image_jpeg: "image/jpeg",
+} as const;
 
 /**
+ * @public
+ */
+export type AcceptHeader = (typeof AcceptHeader)[keyof typeof AcceptHeader];
+
+/**
+ * @public
  * Placeholder documentation for AcceptInputDeviceTransferRequest
  */
 export interface AcceptInputDeviceTransferRequest {
@@ -2598,11 +3488,13 @@ export interface AcceptInputDeviceTransferRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for AcceptInputDeviceTransferResponse
  */
 export interface AcceptInputDeviceTransferResponse {}
 
 /**
+ * @public
  * Placeholder documentation for BadGatewayException
  */
 export class BadGatewayException extends __BaseException {
@@ -2627,6 +3519,7 @@ export class BadGatewayException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for BadRequestException
  */
 export class BadRequestException extends __BaseException {
@@ -2651,6 +3544,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for ConflictException
  */
 export class ConflictException extends __BaseException {
@@ -2675,6 +3569,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for ForbiddenException
  */
 export class ForbiddenException extends __BaseException {
@@ -2699,6 +3594,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for GatewayTimeoutException
  */
 export class GatewayTimeoutException extends __BaseException {
@@ -2723,6 +3619,7 @@ export class GatewayTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for InternalServerErrorException
  */
 export class InternalServerErrorException extends __BaseException {
@@ -2747,6 +3644,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for NotFoundException
  */
 export class NotFoundException extends __BaseException {
@@ -2771,6 +3669,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for TooManyRequestsException
  */
 export class TooManyRequestsException extends __BaseException {
@@ -2795,6 +3694,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for UnprocessableEntityException
  */
 export class UnprocessableEntityException extends __BaseException {
@@ -2824,12 +3724,22 @@ export class UnprocessableEntityException extends __BaseException {
   }
 }
 
-export enum AvailBlankingState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AvailBlankingState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type AvailBlankingState = (typeof AvailBlankingState)[keyof typeof AvailBlankingState];
+
+/**
+ * @public
  * Avail Blanking
  */
 export interface AvailBlanking {
@@ -2845,6 +3755,7 @@ export interface AvailBlanking {
 }
 
 /**
+ * @public
  * Esam
  */
 export interface Esam {
@@ -2879,17 +3790,38 @@ export interface Esam {
   ZoneIdentity?: string;
 }
 
-export enum Scte35SpliceInsertNoRegionalBlackoutBehavior {
-  FOLLOW = "FOLLOW",
-  IGNORE = "IGNORE",
-}
-
-export enum Scte35SpliceInsertWebDeliveryAllowedBehavior {
-  FOLLOW = "FOLLOW",
-  IGNORE = "IGNORE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Scte35SpliceInsertNoRegionalBlackoutBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+} as const;
 
 /**
+ * @public
+ */
+export type Scte35SpliceInsertNoRegionalBlackoutBehavior =
+  (typeof Scte35SpliceInsertNoRegionalBlackoutBehavior)[keyof typeof Scte35SpliceInsertNoRegionalBlackoutBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35SpliceInsertWebDeliveryAllowedBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35SpliceInsertWebDeliveryAllowedBehavior =
+  (typeof Scte35SpliceInsertWebDeliveryAllowedBehavior)[keyof typeof Scte35SpliceInsertWebDeliveryAllowedBehavior];
+
+/**
+ * @public
  * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
  */
 export interface Scte35SpliceInsert {
@@ -2909,17 +3841,38 @@ export interface Scte35SpliceInsert {
   WebDeliveryAllowedFlag?: Scte35SpliceInsertWebDeliveryAllowedBehavior | string;
 }
 
-export enum Scte35AposNoRegionalBlackoutBehavior {
-  FOLLOW = "FOLLOW",
-  IGNORE = "IGNORE",
-}
-
-export enum Scte35AposWebDeliveryAllowedBehavior {
-  FOLLOW = "FOLLOW",
-  IGNORE = "IGNORE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Scte35AposNoRegionalBlackoutBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+} as const;
 
 /**
+ * @public
+ */
+export type Scte35AposNoRegionalBlackoutBehavior =
+  (typeof Scte35AposNoRegionalBlackoutBehavior)[keyof typeof Scte35AposNoRegionalBlackoutBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35AposWebDeliveryAllowedBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35AposWebDeliveryAllowedBehavior =
+  (typeof Scte35AposWebDeliveryAllowedBehavior)[keyof typeof Scte35AposWebDeliveryAllowedBehavior];
+
+/**
+ * @public
  * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
  */
 export interface Scte35TimeSignalApos {
@@ -2940,6 +3893,7 @@ export interface Scte35TimeSignalApos {
 }
 
 /**
+ * @public
  * Avail Settings
  */
 export interface AvailSettings {
@@ -2960,6 +3914,7 @@ export interface AvailSettings {
 }
 
 /**
+ * @public
  * Avail Configuration
  */
 export interface AvailConfiguration {
@@ -2970,6 +3925,7 @@ export interface AvailConfiguration {
 }
 
 /**
+ * @public
  * A request to delete resources
  */
 export interface BatchDeleteRequest {
@@ -2995,6 +3951,7 @@ export interface BatchDeleteRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for BatchDeleteResponse
  */
 export interface BatchDeleteResponse {
@@ -3010,6 +3967,7 @@ export interface BatchDeleteResponse {
 }
 
 /**
+ * @public
  * A list of schedule actions to create (in a request) or that have been created (in a response).
  */
 export interface BatchScheduleActionCreateRequest {
@@ -3020,6 +3978,7 @@ export interface BatchScheduleActionCreateRequest {
 }
 
 /**
+ * @public
  * List of actions that have been created in the schedule.
  */
 export interface BatchScheduleActionCreateResult {
@@ -3030,6 +3989,7 @@ export interface BatchScheduleActionCreateResult {
 }
 
 /**
+ * @public
  * A list of schedule actions to delete.
  */
 export interface BatchScheduleActionDeleteRequest {
@@ -3040,6 +4000,7 @@ export interface BatchScheduleActionDeleteRequest {
 }
 
 /**
+ * @public
  * List of actions that have been deleted from the schedule.
  */
 export interface BatchScheduleActionDeleteResult {
@@ -3050,6 +4011,7 @@ export interface BatchScheduleActionDeleteResult {
 }
 
 /**
+ * @public
  * A request to start resources
  */
 export interface BatchStartRequest {
@@ -3065,6 +4027,7 @@ export interface BatchStartRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for BatchStartResponse
  */
 export interface BatchStartResponse {
@@ -3080,6 +4043,7 @@ export interface BatchStartResponse {
 }
 
 /**
+ * @public
  * A request to stop resources
  */
 export interface BatchStopRequest {
@@ -3095,6 +4059,7 @@ export interface BatchStopRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for BatchStopResponse
  */
 export interface BatchStopResponse {
@@ -3110,6 +4075,7 @@ export interface BatchStopResponse {
 }
 
 /**
+ * @public
  * List of actions to create and list of actions to delete.
  */
 export interface BatchUpdateScheduleRequest {
@@ -3130,6 +4096,7 @@ export interface BatchUpdateScheduleRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for BatchUpdateScheduleResponse
  */
 export interface BatchUpdateScheduleResponse {
@@ -3144,17 +4111,37 @@ export interface BatchUpdateScheduleResponse {
   Deletes?: BatchScheduleActionDeleteResult;
 }
 
-export enum BlackoutSlateNetworkEndBlackout {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum BlackoutSlateState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BlackoutSlateNetworkEndBlackout = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type BlackoutSlateNetworkEndBlackout =
+  (typeof BlackoutSlateNetworkEndBlackout)[keyof typeof BlackoutSlateNetworkEndBlackout];
+
+/**
+ * @public
+ * @enum
+ */
+export const BlackoutSlateState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type BlackoutSlateState = (typeof BlackoutSlateState)[keyof typeof BlackoutSlateState];
+
+/**
+ * @public
  * Blackout Slate
  */
 export interface BlackoutSlate {
@@ -3185,6 +4172,7 @@ export interface BlackoutSlate {
 }
 
 /**
+ * @public
  * Placeholder documentation for CancelInputDeviceTransferRequest
  */
 export interface CancelInputDeviceTransferRequest {
@@ -3195,16 +4183,28 @@ export interface CancelInputDeviceTransferRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for CancelInputDeviceTransferResponse
  */
 export interface CancelInputDeviceTransferResponse {}
 
-export enum FeatureActivationsInputPrepareScheduleActions {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FeatureActivationsInputPrepareScheduleActions = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type FeatureActivationsInputPrepareScheduleActions =
+  (typeof FeatureActivationsInputPrepareScheduleActions)[keyof typeof FeatureActivationsInputPrepareScheduleActions];
+
+/**
+ * @public
  * Feature Activations
  */
 export interface FeatureActivations {
@@ -3215,17 +4215,37 @@ export interface FeatureActivations {
   InputPrepareScheduleActions?: FeatureActivationsInputPrepareScheduleActions | string;
 }
 
-export enum GlobalConfigurationInputEndAction {
-  NONE = "NONE",
-  SWITCH_AND_LOOP_INPUTS = "SWITCH_AND_LOOP_INPUTS",
-}
-
-export enum InputLossImageType {
-  COLOR = "COLOR",
-  SLATE = "SLATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GlobalConfigurationInputEndAction = {
+  NONE: "NONE",
+  SWITCH_AND_LOOP_INPUTS: "SWITCH_AND_LOOP_INPUTS",
+} as const;
 
 /**
+ * @public
+ */
+export type GlobalConfigurationInputEndAction =
+  (typeof GlobalConfigurationInputEndAction)[keyof typeof GlobalConfigurationInputEndAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputLossImageType = {
+  COLOR: "COLOR",
+  SLATE: "SLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type InputLossImageType = (typeof InputLossImageType)[keyof typeof InputLossImageType];
+
+/**
+ * @public
  * Input Loss Behavior
  */
 export interface InputLossBehavior {
@@ -3255,22 +4275,53 @@ export interface InputLossBehavior {
   RepeatFrameMsec?: number;
 }
 
-export enum GlobalConfigurationOutputLockingMode {
-  EPOCH_LOCKING = "EPOCH_LOCKING",
-  PIPELINE_LOCKING = "PIPELINE_LOCKING",
-}
-
-export enum GlobalConfigurationOutputTimingSource {
-  INPUT_CLOCK = "INPUT_CLOCK",
-  SYSTEM_CLOCK = "SYSTEM_CLOCK",
-}
-
-export enum GlobalConfigurationLowFramerateInputs {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GlobalConfigurationOutputLockingMode = {
+  EPOCH_LOCKING: "EPOCH_LOCKING",
+  PIPELINE_LOCKING: "PIPELINE_LOCKING",
+} as const;
 
 /**
+ * @public
+ */
+export type GlobalConfigurationOutputLockingMode =
+  (typeof GlobalConfigurationOutputLockingMode)[keyof typeof GlobalConfigurationOutputLockingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalConfigurationOutputTimingSource = {
+  INPUT_CLOCK: "INPUT_CLOCK",
+  SYSTEM_CLOCK: "SYSTEM_CLOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type GlobalConfigurationOutputTimingSource =
+  (typeof GlobalConfigurationOutputTimingSource)[keyof typeof GlobalConfigurationOutputTimingSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalConfigurationLowFramerateInputs = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type GlobalConfigurationLowFramerateInputs =
+  (typeof GlobalConfigurationLowFramerateInputs)[keyof typeof GlobalConfigurationLowFramerateInputs];
+
+/**
+ * @public
  * Global Configuration
  */
 export interface GlobalConfiguration {
@@ -3308,17 +4359,28 @@ export interface GlobalConfiguration {
   SupportLowFramerateInputs?: GlobalConfigurationLowFramerateInputs | string;
 }
 
-export enum MotionGraphicsInsertion {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MotionGraphicsInsertion = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type MotionGraphicsInsertion = (typeof MotionGraphicsInsertion)[keyof typeof MotionGraphicsInsertion];
+
+/**
+ * @public
  * Html Motion Graphics Settings
  */
 export interface HtmlMotionGraphicsSettings {}
 
 /**
+ * @public
  * Motion Graphics Settings
  */
 export interface MotionGraphicsSettings {
@@ -3329,6 +4391,7 @@ export interface MotionGraphicsSettings {
 }
 
 /**
+ * @public
  * Motion Graphics Configuration
  */
 export interface MotionGraphicsConfiguration {
@@ -3343,12 +4406,23 @@ export interface MotionGraphicsConfiguration {
   MotionGraphicsSettings: MotionGraphicsSettings | undefined;
 }
 
-export enum NielsenPcmToId3TaggingState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NielsenPcmToId3TaggingState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type NielsenPcmToId3TaggingState =
+  (typeof NielsenPcmToId3TaggingState)[keyof typeof NielsenPcmToId3TaggingState];
+
+/**
+ * @public
  * Nielsen Configuration
  */
 export interface NielsenConfiguration {
@@ -3363,13 +4437,23 @@ export interface NielsenConfiguration {
   NielsenPcmToId3Tagging?: NielsenPcmToId3TaggingState | string;
 }
 
-export enum TimecodeConfigSource {
-  EMBEDDED = "EMBEDDED",
-  SYSTEMCLOCK = "SYSTEMCLOCK",
-  ZEROBASED = "ZEROBASED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TimecodeConfigSource = {
+  EMBEDDED: "EMBEDDED",
+  SYSTEMCLOCK: "SYSTEMCLOCK",
+  ZEROBASED: "ZEROBASED",
+} as const;
 
 /**
+ * @public
+ */
+export type TimecodeConfigSource = (typeof TimecodeConfigSource)[keyof typeof TimecodeConfigSource];
+
+/**
+ * @public
  * Timecode Config
  */
 export interface TimecodeConfig {
@@ -3388,6 +4472,7 @@ export interface TimecodeConfig {
 }
 
 /**
+ * @public
  * Encoder Settings
  */
 export interface EncoderSettings {
@@ -3453,6 +4538,7 @@ export interface EncoderSettings {
 }
 
 /**
+ * @public
  * Placeholder documentation for Channel
  */
 export interface Channel {
@@ -3550,6 +4636,7 @@ export interface Channel {
 }
 
 /**
+ * @public
  * A request to claim an AWS Elemental device that you have purchased from a third-party vendor.
  */
 export interface ClaimDeviceRequest {
@@ -3560,15 +4647,26 @@ export interface ClaimDeviceRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ClaimDeviceResponse
  */
 export interface ClaimDeviceResponse {}
 
-export enum ContentType {
-  image_jpeg = "image/jpeg",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContentType = {
+  image_jpeg: "image/jpeg",
+} as const;
 
 /**
+ * @public
+ */
+export type ContentType = (typeof ContentType)[keyof typeof ContentType];
+
+/**
+ * @public
  * Placeholder documentation for MaintenanceCreateSettings
  */
 export interface MaintenanceCreateSettings {
@@ -3584,6 +4682,7 @@ export interface MaintenanceCreateSettings {
 }
 
 /**
+ * @public
  * The properties for a private VPC Output
  * When this property is specified, the output egress addresses will be created in a user specified VPC
  */
@@ -3608,6 +4707,7 @@ export interface VpcOutputSettings {
 }
 
 /**
+ * @public
  * A request to create a channel
  */
 export interface CreateChannelRequest {
@@ -3686,6 +4786,7 @@ export interface CreateChannelRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreateChannelResponse
  */
 export interface CreateChannelResponse {
@@ -3696,6 +4797,7 @@ export interface CreateChannelResponse {
 }
 
 /**
+ * @public
  * Settings for a private VPC Input.
  * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
  * This property requires setting the roleArn property on Input creation.
@@ -3716,6 +4818,7 @@ export interface InputVpcRequest {
 }
 
 /**
+ * @public
  * The name of the input
  */
 export interface CreateInputRequest {
@@ -3784,6 +4887,7 @@ export interface CreateInputRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreateInputResponse
  */
 export interface CreateInputResponse {
@@ -3794,6 +4898,7 @@ export interface CreateInputResponse {
 }
 
 /**
+ * @public
  * The IPv4 CIDRs to whitelist for this Input Security Group
  */
 export interface CreateInputSecurityGroupRequest {
@@ -3809,6 +4914,7 @@ export interface CreateInputSecurityGroupRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreateInputSecurityGroupResponse
  */
 export interface CreateInputSecurityGroupResponse {
@@ -3819,6 +4925,7 @@ export interface CreateInputSecurityGroupResponse {
 }
 
 /**
+ * @public
  * Contains configuration for a Multiplex event
  */
 export interface MultiplexSettings {
@@ -3844,6 +4951,7 @@ export interface MultiplexSettings {
 }
 
 /**
+ * @public
  * A request to create a multiplex.
  */
 export interface CreateMultiplexRequest {
@@ -3875,6 +4983,7 @@ export interface CreateMultiplexRequest {
 }
 
 /**
+ * @public
  * The multiplex object.
  */
 export interface Multiplex {
@@ -3930,6 +5039,7 @@ export interface Multiplex {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreateMultiplexResponse
  */
 export interface CreateMultiplexResponse {
@@ -3939,13 +5049,23 @@ export interface CreateMultiplexResponse {
   Multiplex?: Multiplex;
 }
 
-export enum PreferredChannelPipeline {
-  CURRENTLY_ACTIVE = "CURRENTLY_ACTIVE",
-  PIPELINE_0 = "PIPELINE_0",
-  PIPELINE_1 = "PIPELINE_1",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PreferredChannelPipeline = {
+  CURRENTLY_ACTIVE: "CURRENTLY_ACTIVE",
+  PIPELINE_0: "PIPELINE_0",
+  PIPELINE_1: "PIPELINE_1",
+} as const;
 
 /**
+ * @public
+ */
+export type PreferredChannelPipeline = (typeof PreferredChannelPipeline)[keyof typeof PreferredChannelPipeline];
+
+/**
+ * @public
  * Transport stream service descriptor configuration for the Multiplex program.
  */
 export interface MultiplexProgramServiceDescriptor {
@@ -3961,6 +5081,7 @@ export interface MultiplexProgramServiceDescriptor {
 }
 
 /**
+ * @public
  * Statmux rate control settings
  */
 export interface MultiplexStatmuxVideoSettings {
@@ -3981,6 +5102,7 @@ export interface MultiplexStatmuxVideoSettings {
 }
 
 /**
+ * @public
  * The video configuration for each program in a multiplex.
  */
 export interface MultiplexVideoSettings {
@@ -3998,6 +5120,7 @@ export interface MultiplexVideoSettings {
 }
 
 /**
+ * @public
  * Multiplex Program settings configuration.
  */
 export interface MultiplexProgramSettings {
@@ -4023,6 +5146,7 @@ export interface MultiplexProgramSettings {
 }
 
 /**
+ * @public
  * A request to create a program in a multiplex.
  */
 export interface CreateMultiplexProgramRequest {
@@ -4049,6 +5173,7 @@ export interface CreateMultiplexProgramRequest {
 }
 
 /**
+ * @public
  * Packet identifiers map for a given Multiplex program.
  */
 export interface MultiplexProgramPacketIdentifiersMap {
@@ -4119,6 +5244,7 @@ export interface MultiplexProgramPacketIdentifiersMap {
 }
 
 /**
+ * @public
  * The multiplex program object.
  */
 export interface MultiplexProgram {
@@ -4149,6 +5275,7 @@ export interface MultiplexProgram {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreateMultiplexProgramResponse
  */
 export interface CreateMultiplexProgramResponse {
@@ -4159,6 +5286,7 @@ export interface CreateMultiplexProgramResponse {
 }
 
 /**
+ * @public
  * A request to create a partner input
  */
 export interface CreatePartnerInputRequest {
@@ -4180,6 +5308,7 @@ export interface CreatePartnerInputRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreatePartnerInputResponse
  */
 export interface CreatePartnerInputResponse {
@@ -4190,6 +5319,7 @@ export interface CreatePartnerInputResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreateTagsRequest
  */
 export interface CreateTagsRequest {
@@ -4205,6 +5335,7 @@ export interface CreateTagsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteChannelRequest
  */
 export interface DeleteChannelRequest {
@@ -4215,6 +5346,7 @@ export interface DeleteChannelRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteChannelResponse
  */
 export interface DeleteChannelResponse {
@@ -4312,6 +5444,7 @@ export interface DeleteChannelResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteInputRequest
  */
 export interface DeleteInputRequest {
@@ -4322,11 +5455,13 @@ export interface DeleteInputRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteInputResponse
  */
 export interface DeleteInputResponse {}
 
 /**
+ * @public
  * Placeholder documentation for DeleteInputSecurityGroupRequest
  */
 export interface DeleteInputSecurityGroupRequest {
@@ -4337,11 +5472,13 @@ export interface DeleteInputSecurityGroupRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteInputSecurityGroupResponse
  */
 export interface DeleteInputSecurityGroupResponse {}
 
 /**
+ * @public
  * Placeholder documentation for DeleteMultiplexRequest
  */
 export interface DeleteMultiplexRequest {
@@ -4352,6 +5489,7 @@ export interface DeleteMultiplexRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteMultiplexResponse
  */
 export interface DeleteMultiplexResponse {
@@ -4407,6 +5545,7 @@ export interface DeleteMultiplexResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteMultiplexProgramRequest
  */
 export interface DeleteMultiplexProgramRequest {
@@ -4422,6 +5561,7 @@ export interface DeleteMultiplexProgramRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteMultiplexProgramResponse
  */
 export interface DeleteMultiplexProgramResponse {
@@ -4452,6 +5592,7 @@ export interface DeleteMultiplexProgramResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteReservationRequest
  */
 export interface DeleteReservationRequest {
@@ -4462,6 +5603,7 @@ export interface DeleteReservationRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteReservationResponse
  */
 export interface DeleteReservationResponse {
@@ -4562,6 +5704,7 @@ export interface DeleteReservationResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteScheduleRequest
  */
 export interface DeleteScheduleRequest {
@@ -4572,11 +5715,13 @@ export interface DeleteScheduleRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteScheduleResponse
  */
 export interface DeleteScheduleResponse {}
 
 /**
+ * @public
  * Placeholder documentation for DeleteTagsRequest
  */
 export interface DeleteTagsRequest {
@@ -4592,6 +5737,7 @@ export interface DeleteTagsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeChannelRequest
  */
 export interface DescribeChannelRequest {
@@ -4602,6 +5748,7 @@ export interface DescribeChannelRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeChannelResponse
  */
 export interface DescribeChannelResponse {
@@ -4699,6 +5846,7 @@ export interface DescribeChannelResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputRequest
  */
 export interface DescribeInputRequest {
@@ -4709,6 +5857,7 @@ export interface DescribeInputRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputResponse
  */
 export interface DescribeInputResponse {
@@ -4796,6 +5945,7 @@ export interface DescribeInputResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputDeviceRequest
  */
 export interface DescribeInputDeviceRequest {
@@ -4806,6 +5956,7 @@ export interface DescribeInputDeviceRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputDeviceResponse
  */
 export interface DescribeInputDeviceResponse {
@@ -4868,9 +6019,15 @@ export interface DescribeInputDeviceResponse {
    * Settings that describe an input device that is type UHD.
    */
   UhdDeviceSettings?: InputDeviceUhdSettings;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputDeviceThumbnailRequest
  */
 export interface DescribeInputDeviceThumbnailRequest {
@@ -4886,6 +6043,7 @@ export interface DescribeInputDeviceThumbnailRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputDeviceThumbnailResponse
  */
 export interface DescribeInputDeviceThumbnailResponse {
@@ -4916,6 +6074,7 @@ export interface DescribeInputDeviceThumbnailResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputSecurityGroupRequest
  */
 export interface DescribeInputSecurityGroupRequest {
@@ -4926,6 +6085,7 @@ export interface DescribeInputSecurityGroupRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputSecurityGroupResponse
  */
 export interface DescribeInputSecurityGroupResponse {
@@ -4961,6 +6121,7 @@ export interface DescribeInputSecurityGroupResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeMultiplexRequest
  */
 export interface DescribeMultiplexRequest {
@@ -4971,6 +6132,7 @@ export interface DescribeMultiplexRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeMultiplexResponse
  */
 export interface DescribeMultiplexResponse {
@@ -5026,6 +6188,7 @@ export interface DescribeMultiplexResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeMultiplexProgramRequest
  */
 export interface DescribeMultiplexProgramRequest {
@@ -5041,6 +6204,7 @@ export interface DescribeMultiplexProgramRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeMultiplexProgramResponse
  */
 export interface DescribeMultiplexProgramResponse {
@@ -5071,6 +6235,7 @@ export interface DescribeMultiplexProgramResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeOfferingRequest
  */
 export interface DescribeOfferingRequest {
@@ -5081,6 +6246,7 @@ export interface DescribeOfferingRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeOfferingResponse
  */
 export interface DescribeOfferingResponse {
@@ -5141,6 +6307,7 @@ export interface DescribeOfferingResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeReservationRequest
  */
 export interface DescribeReservationRequest {
@@ -5151,6 +6318,7 @@ export interface DescribeReservationRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeReservationResponse
  */
 export interface DescribeReservationResponse {
@@ -5251,6 +6419,7 @@ export interface DescribeReservationResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeScheduleRequest
  */
 export interface DescribeScheduleRequest {
@@ -5271,6 +6440,7 @@ export interface DescribeScheduleRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeScheduleResponse
  */
 export interface DescribeScheduleResponse {
@@ -5286,6 +6456,7 @@ export interface DescribeScheduleResponse {
 }
 
 /**
+ * @public
  * Configurable settings for the input device.
  */
 export interface InputDeviceConfigurableSettings {
@@ -5306,6 +6477,7 @@ export interface InputDeviceConfigurableSettings {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListChannelsRequest
  */
 export interface ListChannelsRequest {
@@ -5321,6 +6493,7 @@ export interface ListChannelsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListChannelsResponse
  */
 export interface ListChannelsResponse {
@@ -5336,6 +6509,7 @@ export interface ListChannelsResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputDevicesRequest
  */
 export interface ListInputDevicesRequest {
@@ -5351,6 +6525,7 @@ export interface ListInputDevicesRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputDevicesResponse
  */
 export interface ListInputDevicesResponse {
@@ -5366,6 +6541,7 @@ export interface ListInputDevicesResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputDeviceTransfersRequest
  */
 export interface ListInputDeviceTransfersRequest {
@@ -5386,6 +6562,7 @@ export interface ListInputDeviceTransfersRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputDeviceTransfersResponse
  */
 export interface ListInputDeviceTransfersResponse {
@@ -5401,6 +6578,7 @@ export interface ListInputDeviceTransfersResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputsRequest
  */
 export interface ListInputsRequest {
@@ -5416,6 +6594,7 @@ export interface ListInputsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputsResponse
  */
 export interface ListInputsResponse {
@@ -5431,6 +6610,7 @@ export interface ListInputsResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputSecurityGroupsRequest
  */
 export interface ListInputSecurityGroupsRequest {
@@ -5446,6 +6626,7 @@ export interface ListInputSecurityGroupsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputSecurityGroupsResponse
  */
 export interface ListInputSecurityGroupsResponse {
@@ -5461,6 +6642,7 @@ export interface ListInputSecurityGroupsResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListMultiplexesRequest
  */
 export interface ListMultiplexesRequest {
@@ -5476,6 +6658,7 @@ export interface ListMultiplexesRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListMultiplexesResponse
  */
 export interface ListMultiplexesResponse {
@@ -5491,6 +6674,7 @@ export interface ListMultiplexesResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListMultiplexProgramsRequest
  */
 export interface ListMultiplexProgramsRequest {
@@ -5511,6 +6695,7 @@ export interface ListMultiplexProgramsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListMultiplexProgramsResponse
  */
 export interface ListMultiplexProgramsResponse {
@@ -5526,6 +6711,7 @@ export interface ListMultiplexProgramsResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListOfferingsRequest
  */
 export interface ListOfferingsRequest {
@@ -5591,6 +6777,7 @@ export interface ListOfferingsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListOfferingsResponse
  */
 export interface ListOfferingsResponse {
@@ -5606,6 +6793,7 @@ export interface ListOfferingsResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListReservationsRequest
  */
 export interface ListReservationsRequest {
@@ -5661,6 +6849,7 @@ export interface ListReservationsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListReservationsResponse
  */
 export interface ListReservationsResponse {
@@ -5676,6 +6865,7 @@ export interface ListReservationsResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListTagsForResourceRequest
  */
 export interface ListTagsForResourceRequest {
@@ -5686,6 +6876,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListTagsForResourceResponse
  */
 export interface ListTagsForResourceResponse {
@@ -5696,6 +6887,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for MaintenanceUpdateSettings
  */
 export interface MaintenanceUpdateSettings {
@@ -5716,6 +6908,7 @@ export interface MaintenanceUpdateSettings {
 }
 
 /**
+ * @public
  * Placeholder documentation for PurchaseOfferingRequest
  */
 export interface PurchaseOfferingRequest {
@@ -5756,6 +6949,7 @@ export interface PurchaseOfferingRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for PurchaseOfferingResponse
  */
 export interface PurchaseOfferingResponse {
@@ -5765,12 +6959,22 @@ export interface PurchaseOfferingResponse {
   Reservation?: Reservation;
 }
 
-export enum RebootInputDeviceForce {
-  NO = "NO",
-  YES = "YES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RebootInputDeviceForce = {
+  NO: "NO",
+  YES: "YES",
+} as const;
 
 /**
+ * @public
+ */
+export type RebootInputDeviceForce = (typeof RebootInputDeviceForce)[keyof typeof RebootInputDeviceForce];
+
+/**
+ * @public
  * A request to reboot an AWS Elemental device.
  */
 export interface RebootInputDeviceRequest {
@@ -5786,11 +6990,13 @@ export interface RebootInputDeviceRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for RebootInputDeviceResponse
  */
 export interface RebootInputDeviceResponse {}
 
 /**
+ * @public
  * Placeholder documentation for RejectInputDeviceTransferRequest
  */
 export interface RejectInputDeviceTransferRequest {
@@ -5801,11 +7007,13 @@ export interface RejectInputDeviceTransferRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for RejectInputDeviceTransferResponse
  */
 export interface RejectInputDeviceTransferResponse {}
 
 /**
+ * @public
  * Placeholder documentation for StartChannelRequest
  */
 export interface StartChannelRequest {
@@ -5816,6 +7024,7 @@ export interface StartChannelRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for StartChannelResponse
  */
 export interface StartChannelResponse {
@@ -5913,6 +7122,7 @@ export interface StartChannelResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for StartInputDeviceMaintenanceWindowRequest
  */
 export interface StartInputDeviceMaintenanceWindowRequest {
@@ -5925,1305 +7135,8 @@ export interface StartInputDeviceMaintenanceWindowRequest {
 /**
  * @internal
  */
-export const HlsGroupSettingsFilterSensitiveLog = (obj: HlsGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MediaPackageGroupSettingsFilterSensitiveLog = (obj: MediaPackageGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MsSmoothGroupSettingsFilterSensitiveLog = (obj: MsSmoothGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiplexGroupSettingsFilterSensitiveLog = (obj: MultiplexGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RtmpGroupSettingsFilterSensitiveLog = (obj: RtmpGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UdpGroupSettingsFilterSensitiveLog = (obj: UdpGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputGroupSettingsFilterSensitiveLog = (obj: OutputGroupSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputGroupFilterSensitiveLog = (obj: OutputGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelineDetailFilterSensitiveLog = (obj: PipelineDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelinePauseStateSettingsFilterSensitiveLog = (obj: PipelinePauseStateSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenewalSettingsFilterSensitiveLog = (obj: RenewalSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationFilterSensitiveLog = (obj: Reservation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsId3SegmentTaggingScheduleActionSettingsFilterSensitiveLog = (
-  obj: HlsId3SegmentTaggingScheduleActionSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsTimedMetadataScheduleActionSettingsFilterSensitiveLog = (
-  obj: HlsTimedMetadataScheduleActionSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartTimecodeFilterSensitiveLog = (obj: StartTimecode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopTimecodeFilterSensitiveLog = (obj: StopTimecode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputClippingSettingsFilterSensitiveLog = (obj: InputClippingSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputPrepareScheduleActionSettingsFilterSensitiveLog = (obj: InputPrepareScheduleActionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputSwitchScheduleActionSettingsFilterSensitiveLog = (obj: InputSwitchScheduleActionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MotionGraphicsActivateScheduleActionSettingsFilterSensitiveLog = (
-  obj: MotionGraphicsActivateScheduleActionSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MotionGraphicsDeactivateScheduleActionSettingsFilterSensitiveLog = (
-  obj: MotionGraphicsDeactivateScheduleActionSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PauseStateScheduleActionSettingsFilterSensitiveLog = (obj: PauseStateScheduleActionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Scte35InputScheduleActionSettingsFilterSensitiveLog = (obj: Scte35InputScheduleActionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Scte35ReturnToNetworkScheduleActionSettingsFilterSensitiveLog = (
-  obj: Scte35ReturnToNetworkScheduleActionSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Scte35SpliceInsertScheduleActionSettingsFilterSensitiveLog = (
-  obj: Scte35SpliceInsertScheduleActionSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Scte35DeliveryRestrictionsFilterSensitiveLog = (obj: Scte35DeliveryRestrictions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Scte35SegmentationDescriptorFilterSensitiveLog = (obj: Scte35SegmentationDescriptor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Scte35DescriptorSettingsFilterSensitiveLog = (obj: Scte35DescriptorSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Scte35DescriptorFilterSensitiveLog = (obj: Scte35Descriptor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Scte35TimeSignalScheduleActionSettingsFilterSensitiveLog = (
-  obj: Scte35TimeSignalScheduleActionSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StaticImageActivateScheduleActionSettingsFilterSensitiveLog = (
-  obj: StaticImageActivateScheduleActionSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StaticImageDeactivateScheduleActionSettingsFilterSensitiveLog = (
-  obj: StaticImageDeactivateScheduleActionSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleActionSettingsFilterSensitiveLog = (obj: ScheduleActionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FixedModeScheduleActionStartSettingsFilterSensitiveLog = (
-  obj: FixedModeScheduleActionStartSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FollowModeScheduleActionStartSettingsFilterSensitiveLog = (
-  obj: FollowModeScheduleActionStartSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImmediateModeScheduleActionStartSettingsFilterSensitiveLog = (
-  obj: ImmediateModeScheduleActionStartSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleActionStartSettingsFilterSensitiveLog = (obj: ScheduleActionStartSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleActionFilterSensitiveLog = (obj: ScheduleAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransferringInputDeviceSummaryFilterSensitiveLog = (obj: TransferringInputDeviceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationErrorFilterSensitiveLog = (obj: ValidationError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimecodeBurninSettingsFilterSensitiveLog = (obj: TimecodeBurninSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FrameCaptureSettingsFilterSensitiveLog = (obj: FrameCaptureSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColorSpacePassthroughSettingsFilterSensitiveLog = (obj: ColorSpacePassthroughSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Rec601SettingsFilterSensitiveLog = (obj: Rec601Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Rec709SettingsFilterSensitiveLog = (obj: Rec709Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const H264ColorSpaceSettingsFilterSensitiveLog = (obj: H264ColorSpaceSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemporalFilterSettingsFilterSensitiveLog = (obj: TemporalFilterSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const H264FilterSettingsFilterSensitiveLog = (obj: H264FilterSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const H264SettingsFilterSensitiveLog = (obj: H264Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DolbyVision81SettingsFilterSensitiveLog = (obj: DolbyVision81Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const H265ColorSpaceSettingsFilterSensitiveLog = (obj: H265ColorSpaceSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const H265FilterSettingsFilterSensitiveLog = (obj: H265FilterSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const H265SettingsFilterSensitiveLog = (obj: H265Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Mpeg2FilterSettingsFilterSensitiveLog = (obj: Mpeg2FilterSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Mpeg2SettingsFilterSensitiveLog = (obj: Mpeg2Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VideoCodecSettingsFilterSensitiveLog = (obj: VideoCodecSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VideoDescriptionFilterSensitiveLog = (obj: VideoDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptInputDeviceTransferRequestFilterSensitiveLog = (obj: AcceptInputDeviceTransferRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptInputDeviceTransferResponseFilterSensitiveLog = (obj: AcceptInputDeviceTransferResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailBlankingFilterSensitiveLog = (obj: AvailBlanking): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EsamFilterSensitiveLog = (obj: Esam): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Scte35SpliceInsertFilterSensitiveLog = (obj: Scte35SpliceInsert): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Scte35TimeSignalAposFilterSensitiveLog = (obj: Scte35TimeSignalApos): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailSettingsFilterSensitiveLog = (obj: AvailSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailConfigurationFilterSensitiveLog = (obj: AvailConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteRequestFilterSensitiveLog = (obj: BatchDeleteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteResponseFilterSensitiveLog = (obj: BatchDeleteResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchScheduleActionCreateRequestFilterSensitiveLog = (obj: BatchScheduleActionCreateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchScheduleActionCreateResultFilterSensitiveLog = (obj: BatchScheduleActionCreateResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchScheduleActionDeleteRequestFilterSensitiveLog = (obj: BatchScheduleActionDeleteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchScheduleActionDeleteResultFilterSensitiveLog = (obj: BatchScheduleActionDeleteResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchStartRequestFilterSensitiveLog = (obj: BatchStartRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchStartResponseFilterSensitiveLog = (obj: BatchStartResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchStopRequestFilterSensitiveLog = (obj: BatchStopRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchStopResponseFilterSensitiveLog = (obj: BatchStopResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdateScheduleRequestFilterSensitiveLog = (obj: BatchUpdateScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdateScheduleResponseFilterSensitiveLog = (obj: BatchUpdateScheduleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlackoutSlateFilterSensitiveLog = (obj: BlackoutSlate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelInputDeviceTransferRequestFilterSensitiveLog = (obj: CancelInputDeviceTransferRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelInputDeviceTransferResponseFilterSensitiveLog = (obj: CancelInputDeviceTransferResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeatureActivationsFilterSensitiveLog = (obj: FeatureActivations): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputLossBehaviorFilterSensitiveLog = (obj: InputLossBehavior): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlobalConfigurationFilterSensitiveLog = (obj: GlobalConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HtmlMotionGraphicsSettingsFilterSensitiveLog = (obj: HtmlMotionGraphicsSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MotionGraphicsSettingsFilterSensitiveLog = (obj: MotionGraphicsSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MotionGraphicsConfigurationFilterSensitiveLog = (obj: MotionGraphicsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NielsenConfigurationFilterSensitiveLog = (obj: NielsenConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimecodeConfigFilterSensitiveLog = (obj: TimecodeConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncoderSettingsFilterSensitiveLog = (obj: EncoderSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClaimDeviceRequestFilterSensitiveLog = (obj: ClaimDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClaimDeviceResponseFilterSensitiveLog = (obj: ClaimDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaintenanceCreateSettingsFilterSensitiveLog = (obj: MaintenanceCreateSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcOutputSettingsFilterSensitiveLog = (obj: VpcOutputSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputVpcRequestFilterSensitiveLog = (obj: InputVpcRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInputRequestFilterSensitiveLog = (obj: CreateInputRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInputResponseFilterSensitiveLog = (obj: CreateInputResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInputSecurityGroupRequestFilterSensitiveLog = (obj: CreateInputSecurityGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInputSecurityGroupResponseFilterSensitiveLog = (obj: CreateInputSecurityGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiplexSettingsFilterSensitiveLog = (obj: MultiplexSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMultiplexRequestFilterSensitiveLog = (obj: CreateMultiplexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiplexFilterSensitiveLog = (obj: Multiplex): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMultiplexResponseFilterSensitiveLog = (obj: CreateMultiplexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiplexProgramServiceDescriptorFilterSensitiveLog = (obj: MultiplexProgramServiceDescriptor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiplexStatmuxVideoSettingsFilterSensitiveLog = (obj: MultiplexStatmuxVideoSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiplexVideoSettingsFilterSensitiveLog = (obj: MultiplexVideoSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiplexProgramSettingsFilterSensitiveLog = (obj: MultiplexProgramSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMultiplexProgramRequestFilterSensitiveLog = (obj: CreateMultiplexProgramRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiplexProgramPacketIdentifiersMapFilterSensitiveLog = (
-  obj: MultiplexProgramPacketIdentifiersMap
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiplexProgramFilterSensitiveLog = (obj: MultiplexProgram): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMultiplexProgramResponseFilterSensitiveLog = (obj: CreateMultiplexProgramResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePartnerInputRequestFilterSensitiveLog = (obj: CreatePartnerInputRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePartnerInputResponseFilterSensitiveLog = (obj: CreatePartnerInputResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelResponseFilterSensitiveLog = (obj: DeleteChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInputRequestFilterSensitiveLog = (obj: DeleteInputRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInputResponseFilterSensitiveLog = (obj: DeleteInputResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInputSecurityGroupRequestFilterSensitiveLog = (obj: DeleteInputSecurityGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInputSecurityGroupResponseFilterSensitiveLog = (obj: DeleteInputSecurityGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMultiplexRequestFilterSensitiveLog = (obj: DeleteMultiplexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMultiplexResponseFilterSensitiveLog = (obj: DeleteMultiplexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMultiplexProgramRequestFilterSensitiveLog = (obj: DeleteMultiplexProgramRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMultiplexProgramResponseFilterSensitiveLog = (obj: DeleteMultiplexProgramResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReservationRequestFilterSensitiveLog = (obj: DeleteReservationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReservationResponseFilterSensitiveLog = (obj: DeleteReservationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScheduleRequestFilterSensitiveLog = (obj: DeleteScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScheduleResponseFilterSensitiveLog = (obj: DeleteScheduleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTagsRequestFilterSensitiveLog = (obj: DeleteTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeChannelRequestFilterSensitiveLog = (obj: DescribeChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeChannelResponseFilterSensitiveLog = (obj: DescribeChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInputRequestFilterSensitiveLog = (obj: DescribeInputRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInputResponseFilterSensitiveLog = (obj: DescribeInputResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInputDeviceRequestFilterSensitiveLog = (obj: DescribeInputDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInputDeviceResponseFilterSensitiveLog = (obj: DescribeInputDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInputDeviceThumbnailRequestFilterSensitiveLog = (
-  obj: DescribeInputDeviceThumbnailRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeInputDeviceThumbnailResponseFilterSensitiveLog = (
   obj: DescribeInputDeviceThumbnailResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInputSecurityGroupRequestFilterSensitiveLog = (obj: DescribeInputSecurityGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInputSecurityGroupResponseFilterSensitiveLog = (obj: DescribeInputSecurityGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMultiplexRequestFilterSensitiveLog = (obj: DescribeMultiplexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMultiplexResponseFilterSensitiveLog = (obj: DescribeMultiplexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMultiplexProgramRequestFilterSensitiveLog = (obj: DescribeMultiplexProgramRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMultiplexProgramResponseFilterSensitiveLog = (obj: DescribeMultiplexProgramResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOfferingRequestFilterSensitiveLog = (obj: DescribeOfferingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOfferingResponseFilterSensitiveLog = (obj: DescribeOfferingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservationRequestFilterSensitiveLog = (obj: DescribeReservationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservationResponseFilterSensitiveLog = (obj: DescribeReservationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduleRequestFilterSensitiveLog = (obj: DescribeScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduleResponseFilterSensitiveLog = (obj: DescribeScheduleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputDeviceConfigurableSettingsFilterSensitiveLog = (obj: InputDeviceConfigurableSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChannelsRequestFilterSensitiveLog = (obj: ListChannelsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInputDevicesRequestFilterSensitiveLog = (obj: ListInputDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInputDevicesResponseFilterSensitiveLog = (obj: ListInputDevicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInputDeviceTransfersRequestFilterSensitiveLog = (obj: ListInputDeviceTransfersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInputDeviceTransfersResponseFilterSensitiveLog = (obj: ListInputDeviceTransfersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInputsRequestFilterSensitiveLog = (obj: ListInputsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInputsResponseFilterSensitiveLog = (obj: ListInputsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInputSecurityGroupsRequestFilterSensitiveLog = (obj: ListInputSecurityGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInputSecurityGroupsResponseFilterSensitiveLog = (obj: ListInputSecurityGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMultiplexesRequestFilterSensitiveLog = (obj: ListMultiplexesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMultiplexesResponseFilterSensitiveLog = (obj: ListMultiplexesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMultiplexProgramsRequestFilterSensitiveLog = (obj: ListMultiplexProgramsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMultiplexProgramsResponseFilterSensitiveLog = (obj: ListMultiplexProgramsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOfferingsRequestFilterSensitiveLog = (obj: ListOfferingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOfferingsResponseFilterSensitiveLog = (obj: ListOfferingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReservationsRequestFilterSensitiveLog = (obj: ListReservationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReservationsResponseFilterSensitiveLog = (obj: ListReservationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaintenanceUpdateSettingsFilterSensitiveLog = (obj: MaintenanceUpdateSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseOfferingRequestFilterSensitiveLog = (obj: PurchaseOfferingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseOfferingResponseFilterSensitiveLog = (obj: PurchaseOfferingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootInputDeviceRequestFilterSensitiveLog = (obj: RebootInputDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootInputDeviceResponseFilterSensitiveLog = (obj: RebootInputDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectInputDeviceTransferRequestFilterSensitiveLog = (obj: RejectInputDeviceTransferRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectInputDeviceTransferResponseFilterSensitiveLog = (obj: RejectInputDeviceTransferResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartChannelRequestFilterSensitiveLog = (obj: StartChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartChannelResponseFilterSensitiveLog = (obj: StartChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartInputDeviceMaintenanceWindowRequestFilterSensitiveLog = (
-  obj: StartInputDeviceMaintenanceWindowRequest
 ): any => ({
   ...obj,
 });

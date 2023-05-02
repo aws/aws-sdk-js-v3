@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateWebACLRequest,
-  AssociateWebACLRequestFilterSensitiveLog,
-  AssociateWebACLResponse,
-  AssociateWebACLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateWebACLCommand,
-  serializeAws_json1_1AssociateWebACLCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateWebACLRequest, AssociateWebACLResponse } from "../models/models_0";
+import { de_AssociateWebACLCommand, se_AssociateWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateWebACLCommand}.
  */
 export interface AssociateWebACLCommandInput extends AssociateWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateWebACLCommand}.
  */
 export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic Regional</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -50,10 +47,16 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  * import { WAFRegionalClient, AssociateWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, AssociateWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // AssociateWebACLRequest
+ *   WebACLId: "STRING_VALUE", // required
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateWebACLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWebACLCommandInput - {@link AssociateWebACLCommandInput}
+ * @returns {@link AssociateWebACLCommandOutput}
  * @see {@link AssociateWebACLCommandInput} for command's `input` shape.
  * @see {@link AssociateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -130,6 +133,9 @@ export class AssociateWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,8 +164,8 @@ export class AssociateWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateWebACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateWebACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -169,12 +175,18 @@ export class AssociateWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateWebACLCommand(input, context);
+    return se_AssociateWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateWebACLCommandOutput> {
-    return deserializeAws_json1_1AssociateWebACLCommand(output, context);
+    return de_AssociateWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { GetWirelessGatewayTaskDefinitionRequest, GetWirelessGatewayTaskDefinitionResponse } from "../models/models_0";
 import {
-  GetWirelessGatewayTaskDefinitionRequest,
-  GetWirelessGatewayTaskDefinitionRequestFilterSensitiveLog,
-  GetWirelessGatewayTaskDefinitionResponse,
-  GetWirelessGatewayTaskDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand,
-  serializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand,
+  de_GetWirelessGatewayTaskDefinitionCommand,
+  se_GetWirelessGatewayTaskDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWirelessGatewayTaskDefinitionCommand}.
  */
 export interface GetWirelessGatewayTaskDefinitionCommandInput extends GetWirelessGatewayTaskDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWirelessGatewayTaskDefinitionCommand}.
  */
 export interface GetWirelessGatewayTaskDefinitionCommandOutput
@@ -37,6 +36,7 @@ export interface GetWirelessGatewayTaskDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a wireless gateway task definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetWirelessGatewayTaskDefinitionCommandOutput
  * import { IoTWirelessClient, GetWirelessGatewayTaskDefinitionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetWirelessGatewayTaskDefinitionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetWirelessGatewayTaskDefinitionRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetWirelessGatewayTaskDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWirelessGatewayTaskDefinitionCommandInput - {@link GetWirelessGatewayTaskDefinitionCommandInput}
+ * @returns {@link GetWirelessGatewayTaskDefinitionCommandOutput}
  * @see {@link GetWirelessGatewayTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +91,9 @@ export class GetWirelessGatewayTaskDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWirelessGatewayTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +122,8 @@ export class GetWirelessGatewayTaskDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWirelessGatewayTaskDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWirelessGatewayTaskDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +133,24 @@ export class GetWirelessGatewayTaskDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetWirelessGatewayTaskDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand(input, context);
+    return se_GetWirelessGatewayTaskDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetWirelessGatewayTaskDefinitionCommandOutput> {
-    return deserializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand(output, context);
+    return de_GetWirelessGatewayTaskDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

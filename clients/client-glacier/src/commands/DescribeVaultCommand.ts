@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  DescribeVaultInput,
-  DescribeVaultInputFilterSensitiveLog,
-  DescribeVaultOutput,
-  DescribeVaultOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeVaultCommand,
-  serializeAws_restJson1DescribeVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeVaultInput, DescribeVaultOutput } from "../models/models_0";
+import { de_DescribeVaultCommand, se_DescribeVaultCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVaultCommand}.
  */
 export interface DescribeVaultCommandInput extends DescribeVaultInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVaultCommand}.
  */
 export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns information about a vault, including the vault's Amazon
  *          Resource Name (ARN), the date the vault was created, the number of archives it contains,
  *          and the total size of all the archives in the vault. The number of archives and their total
@@ -59,10 +56,16 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * import { GlacierClient, DescribeVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, DescribeVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // DescribeVaultInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeVaultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVaultCommandInput - {@link DescribeVaultCommandInput}
+ * @returns {@link DescribeVaultCommandOutput}
  * @see {@link DescribeVaultCommandInput} for command's `input` shape.
  * @see {@link DescribeVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -120,6 +123,9 @@ export class DescribeVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +152,8 @@ export class DescribeVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVaultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVaultOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +163,18 @@ export class DescribeVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVaultCommand(input, context);
+    return se_DescribeVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVaultCommandOutput> {
-    return deserializeAws_restJson1DescribeVaultCommand(output, context);
+    return de_DescribeVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

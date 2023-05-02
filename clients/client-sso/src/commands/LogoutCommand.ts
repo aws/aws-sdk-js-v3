@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LogoutRequest, LogoutRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_restJson1LogoutCommand, serializeAws_restJson1LogoutCommand } from "../protocols/Aws_restJson1";
+import { de_LogoutCommand, se_LogoutCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
 /**
+ * @public
+ *
  * The input for {@link LogoutCommand}.
  */
 export interface LogoutCommandInput extends LogoutRequest {}
 /**
+ * @public
+ *
  * The output of {@link LogoutCommand}.
  */
 export interface LogoutCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the locally stored SSO tokens from the client-side cache and sends an API call to
  *       the IAM Identity Center service to invalidate the corresponding server-side IAM Identity Center sign in
  *       session.</p>
@@ -49,10 +54,15 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  * import { SSOClient, LogoutCommand } from "@aws-sdk/client-sso"; // ES Modules import
  * // const { SSOClient, LogoutCommand } = require("@aws-sdk/client-sso"); // CommonJS import
  * const client = new SSOClient(config);
+ * const input = { // LogoutRequest
+ *   accessToken: "STRING_VALUE", // required
+ * };
  * const command = new LogoutCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param LogoutCommandInput - {@link LogoutCommandInput}
+ * @returns {@link LogoutCommandOutput}
  * @see {@link LogoutCommandInput} for command's `input` shape.
  * @see {@link LogoutCommandOutput} for command's `response` shape.
  * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.
@@ -84,6 +94,9 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LogoutCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,7 +124,7 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
       clientName,
       commandName,
       inputFilterSensitiveLog: LogoutRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +134,18 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LogoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1LogoutCommand(input, context);
+    return se_LogoutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LogoutCommandOutput> {
-    return deserializeAws_restJson1LogoutCommand(output, context);
+    return de_LogoutCommand(output, context);
   }
 
   // Start section: command_body_extra

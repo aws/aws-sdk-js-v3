@@ -3,12 +3,22 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { EMRServerlessServiceException as __BaseException } from "./EMRServerlessServiceException";
 
-export enum Architecture {
-  ARM64 = "ARM64",
-  X86_64 = "X86_64",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Architecture = {
+  ARM64: "ARM64",
+  X86_64: "X86_64",
+} as const;
 
 /**
+ * @public
+ */
+export type Architecture = (typeof Architecture)[keyof typeof Architecture];
+
+/**
+ * @public
  * <p>The configuration for an application to automatically start on job submission.</p>
  */
 export interface AutoStartConfig {
@@ -20,6 +30,7 @@ export interface AutoStartConfig {
 }
 
 /**
+ * @public
  * <p>The configuration for an application to automatically stop after a certain amount of
  *          time being idle.</p>
  */
@@ -38,6 +49,7 @@ export interface AutoStopConfig {
 }
 
 /**
+ * @public
  * <p>The applied image configuration.</p>
  */
 export interface ImageConfiguration {
@@ -47,13 +59,14 @@ export interface ImageConfiguration {
   imageUri: string | undefined;
 
   /**
-   * <p>The SHA256 digest of the image URI. This indicates which specific image
-   *          the application is configured for. The image digest doesn't exist until an application has started.</p>
+   * <p>The SHA256 digest of the image URI. This indicates which specific image the application
+   *          is configured for. The image digest doesn't exist until an application has started.</p>
    */
   resolvedImageDigest?: string;
 }
 
 /**
+ * @public
  * <p>The cumulative configuration requirements for every worker instance of the worker
  *          type.</p>
  */
@@ -75,6 +88,7 @@ export interface WorkerResourceConfig {
 }
 
 /**
+ * @public
  * <p>The initial capacity configuration per worker.</p>
  */
 export interface InitialCapacityConfig {
@@ -90,6 +104,7 @@ export interface InitialCapacityConfig {
 }
 
 /**
+ * @public
  * <p>The maximum allowed cumulative resources for an application. No new resources will be
  *          created once the limit is hit.</p>
  */
@@ -111,6 +126,7 @@ export interface MaximumAllowedResources {
 }
 
 /**
+ * @public
  * <p>The network configuration for customer VPC connectivity.</p>
  */
 export interface NetworkConfiguration {
@@ -125,17 +141,27 @@ export interface NetworkConfiguration {
   securityGroupIds?: string[];
 }
 
-export enum ApplicationState {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  STARTED = "STARTED",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TERMINATED = "TERMINATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationState = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TERMINATED: "TERMINATED",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplicationState = (typeof ApplicationState)[keyof typeof ApplicationState];
+
+/**
+ * @public
  * <p>The specifications for a worker type.</p>
  */
 export interface WorkerTypeSpecification {
@@ -146,6 +172,7 @@ export interface WorkerTypeSpecification {
 }
 
 /**
+ * @public
  * <p>Information about an application. EMR Serverless uses applications to run jobs.</p>
  */
 export interface Application {
@@ -244,6 +271,7 @@ export interface Application {
 }
 
 /**
+ * @public
  * <p>The summary of attributes associated with an application.</p>
  */
 export interface ApplicationSummary {
@@ -299,6 +327,7 @@ export interface ApplicationSummary {
 }
 
 /**
+ * @public
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
  */
@@ -319,17 +348,20 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The image configuration.</p>
  */
 export interface ImageConfigurationInput {
   /**
-   * <p>The URI of an image in the Amazon ECR registry. This field is required when you create a new
-   *          application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.</p>
+   * <p>The URI of an image in the Amazon ECR registry. This field is required when you create a
+   *          new application. If you leave this field blank in an update, Amazon EMR will remove the
+   *          image configuration.</p>
    */
   imageUri?: string;
 }
 
 /**
+ * @public
  * <p>The specifications for a worker type.</p>
  */
 export interface WorkerTypeSpecificationInput {
@@ -339,6 +371,9 @@ export interface WorkerTypeSpecificationInput {
   imageConfiguration?: ImageConfigurationInput;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
    * <p>The name of the application.</p>
@@ -400,20 +435,27 @@ export interface CreateApplicationRequest {
   architecture?: Architecture | string;
 
   /**
-   * <p>The image configuration for all worker types. You can either set this parameter or <code>imageConfiguration</code>
-   *          for each worker type in <code>workerTypeSpecifications</code>.</p>
+   * <p>The image configuration for all worker types. You can either set this parameter or
+   *             <code>imageConfiguration</code> for each worker type in
+   *             <code>workerTypeSpecifications</code>.</p>
    */
   imageConfiguration?: ImageConfigurationInput;
 
   /**
-   * <p>The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid
-   *          worker types for a Spark or Hive application. Valid worker types include <code>Driver</code> and <code>Executor</code> for
-   *          Spark applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications. You can either set
-   *          image details in this parameter for each worker type, or in <code>imageConfiguration</code> for all worker types.</p>
+   * <p>The key-value pairs that specify worker type to
+   *             <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker
+   *          types for a Spark or Hive application. Valid worker types include <code>Driver</code> and
+   *             <code>Executor</code> for Spark applications and <code>HiveDriver</code> and
+   *             <code>TezTask</code> for Hive applications. You can either set image details in this
+   *          parameter for each worker type, or in <code>imageConfiguration</code> for all worker
+   *          types.</p>
    */
   workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationResponse {
   /**
    * <p>The output contains the application ID.</p>
@@ -432,6 +474,7 @@ export interface CreateApplicationResponse {
 }
 
 /**
+ * @public
  * <p>Request processing failed because of an error or failure with the service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -451,6 +494,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -470,7 +514,9 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * @public
+ * <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -488,6 +534,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>The ID of the application that will be deleted.</p>
@@ -495,8 +544,14 @@ export interface DeleteApplicationRequest {
   applicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface GetApplicationRequest {
   /**
    * <p>The ID of the application that will be described.</p>
@@ -504,6 +559,9 @@ export interface GetApplicationRequest {
   applicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationResponse {
   /**
    * <p>The output displays information about the specified application.</p>
@@ -511,6 +569,9 @@ export interface GetApplicationResponse {
   application: Application | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
    * <p>The token for the next set of application results.</p>
@@ -529,6 +590,9 @@ export interface ListApplicationsRequest {
   states?: (ApplicationState | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsResponse {
   /**
    * <p>The output lists the specified applications.</p>
@@ -543,6 +607,7 @@ export interface ListApplicationsResponse {
 }
 
 /**
+ * @public
  * <p>The maximum number of resources per account has been reached.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -561,6 +626,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartApplicationRequest {
   /**
    * <p>The ID of the application to start.</p>
@@ -568,8 +636,14 @@ export interface StartApplicationRequest {
   applicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface StopApplicationRequest {
   /**
    * <p>The ID of the application to stop.</p>
@@ -577,8 +651,14 @@ export interface StopApplicationRequest {
   applicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
    * <p>The ID of the application to update.</p>
@@ -625,20 +705,27 @@ export interface UpdateApplicationRequest {
   architecture?: Architecture | string;
 
   /**
-   * <p>The image configuration to be used for all worker types. You can either set this parameter or <code>imageConfiguration</code>
-   *          for each worker type in <code>WorkerTypeSpecificationInput</code>.</p>
+   * <p>The image configuration to be used for all worker types. You can either set this
+   *          parameter or <code>imageConfiguration</code> for each worker type in
+   *             <code>WorkerTypeSpecificationInput</code>.</p>
    */
   imageConfiguration?: ImageConfigurationInput;
 
   /**
-   * <p>The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid
-   *          worker types for a Spark or Hive application. Valid worker types include <code>Driver</code> and <code>Executor</code> for
-   *          Spark applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications. You can either set
-   *          image details in this parameter for each worker type, or in <code>imageConfiguration</code> for all worker types.</p>
+   * <p>The key-value pairs that specify worker type to
+   *             <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker
+   *          types for a Spark or Hive application. Valid worker types include <code>Driver</code> and
+   *             <code>Executor</code> for Spark applications and <code>HiveDriver</code> and
+   *             <code>TezTask</code> for Hive applications. You can either set image details in this
+   *          parameter for each worker type, or in <code>imageConfiguration</code> for all worker
+   *          types.</p>
    */
   workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationResponse {
   /**
    * <p>Information about the updated application.</p>
@@ -646,6 +733,9 @@ export interface UpdateApplicationResponse {
   application: Application | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobRunRequest {
   /**
    * <p>The ID of the application on which the job run will be canceled.</p>
@@ -658,6 +748,9 @@ export interface CancelJobRunRequest {
   jobRunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobRunResponse {
   /**
    * <p>The output contains the application ID on which the job run is cancelled.</p>
@@ -670,6 +763,9 @@ export interface CancelJobRunResponse {
   jobRunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDashboardForJobRunRequest {
   /**
    * <p>The ID of the application.</p>
@@ -682,6 +778,9 @@ export interface GetDashboardForJobRunRequest {
   jobRunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDashboardForJobRunResponse {
   /**
    * <p>The URL to view job run's dashboard.</p>
@@ -689,6 +788,9 @@ export interface GetDashboardForJobRunResponse {
   url?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetJobRunRequest {
   /**
    * <p>The ID of the application on which the job run is submitted.</p>
@@ -702,6 +804,31 @@ export interface GetJobRunRequest {
 }
 
 /**
+ * @public
+ * <p>The resource utilization for memory, storage, and vCPU for jobs.</p>
+ */
+export interface ResourceUtilization {
+  /**
+   * <p>The aggregated vCPU used per hour from the time the job starts executing until the job
+   *          is terminated.</p>
+   */
+  vCPUHour?: number;
+
+  /**
+   * <p>The aggregated memory used per hour from the time the job starts executing until the job
+   *          is terminated.</p>
+   */
+  memoryGBHour?: number;
+
+  /**
+   * <p>The aggregated storage used per hour from the time the job starts executing until the
+   *          job is terminated.</p>
+   */
+  storageGBHour?: number;
+}
+
+/**
+ * @public
  * <p>The managed log persistence configuration for a job run.</p>
  */
 export interface ManagedPersistenceMonitoringConfiguration {
@@ -718,6 +845,7 @@ export interface ManagedPersistenceMonitoringConfiguration {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 configuration for monitoring log publishing. You can configure your jobs
  *          to send log information to Amazon S3.</p>
  */
@@ -734,6 +862,7 @@ export interface S3MonitoringConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration setting for monitoring.</p>
  */
 export interface MonitoringConfiguration {
@@ -749,6 +878,7 @@ export interface MonitoringConfiguration {
 }
 
 /**
+ * @public
  * <p>The configurations for the Hive job driver.</p>
  */
 export interface Hive {
@@ -769,6 +899,7 @@ export interface Hive {
 }
 
 /**
+ * @public
  * <p>The configurations for the Spark submit job driver.</p>
  */
 export interface SparkSubmit {
@@ -789,10 +920,14 @@ export interface SparkSubmit {
 }
 
 /**
+ * @public
  * <p>The driver that the job runs on.</p>
  */
 export type JobDriver = JobDriver.HiveMember | JobDriver.SparkSubmitMember | JobDriver.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace JobDriver {
   /**
    * <p>The job driver parameters specified for Spark.</p>
@@ -831,18 +966,28 @@ export namespace JobDriver {
   };
 }
 
-export enum JobRunState {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SCHEDULED = "SCHEDULED",
-  SUBMITTED = "SUBMITTED",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobRunState = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SCHEDULED: "SCHEDULED",
+  SUBMITTED: "SUBMITTED",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type JobRunState = (typeof JobRunState)[keyof typeof JobRunState];
+
+/**
+ * @public
  * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing
  *          till the time job is terminated, rounded up to the nearest second.</p>
  */
@@ -866,6 +1011,9 @@ export interface TotalResourceUtilization {
   storageGBHour?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListJobRunsRequest {
   /**
    * <p>The ID of the application for which to list the job run.</p>
@@ -900,6 +1048,7 @@ export interface ListJobRunsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of attributes associated with a job run.</p>
  */
 export interface JobRunSummary {
@@ -964,6 +1113,9 @@ export interface JobRunSummary {
   type?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobRunsResponse {
   /**
    * <p>The output lists information about the specified job runs.</p>
@@ -977,6 +1129,9 @@ export interface ListJobRunsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRunResponse {
   /**
    * <p>This output displays the application ID on which the job run was submitted.</p>
@@ -989,11 +1144,14 @@ export interface StartJobRunResponse {
   jobRunId: string | undefined;
 
   /**
-   * <p>The output lists the execution role ARN of the job run.</p>
+   * <p>This output displays the ARN of the job run..</p>
    */
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
@@ -1003,6 +1161,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
@@ -1010,6 +1171,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
@@ -1024,8 +1188,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
@@ -1040,9 +1210,13 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>A configuration specification to be used when provisioning an application. A
  *          configuration consists of a classification, properties, and optional nested configurations.
  *          A classification refers to an application-specific configuration file. Properties are the
@@ -1066,6 +1240,7 @@ export interface Configuration {
 }
 
 /**
+ * @public
  * <p>A configuration specification to be used to override existing configurations.</p>
  */
 export interface ConfigurationOverrides {
@@ -1081,6 +1256,7 @@ export interface ConfigurationOverrides {
 }
 
 /**
+ * @public
  * <p>Information about a job run. A job run is a unit of work, such as a Spark JAR, Hive
  *          query, or SparkSQL query, that you submit to an EMR Serverless application.</p>
  */
@@ -1156,8 +1332,8 @@ export interface JobRun {
   tags?: Record<string, string>;
 
   /**
-   * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing
-   *          till the time job is terminated, rounded up to the nearest second.</p>
+   * <p>The aggregate vCPU, memory, and storage resources used from the time the job starts to
+   *          execute, until the time the job terminates, rounded up to the nearest second.</p>
    */
   totalResourceUtilization?: TotalResourceUtilization;
 
@@ -1172,8 +1348,25 @@ export interface JobRun {
    *          state.</p>
    */
   totalExecutionDurationSeconds?: number;
+
+  /**
+   * <p>Returns the job run timeout value from the <code>StartJobRun</code> call. If no timeout
+   *          was specified, then it returns the default timeout of 720 minutes.</p>
+   */
+  executionTimeoutMinutes?: number;
+
+  /**
+   * <p>The aggregate vCPU, memory, and storage that AWS has billed for the job run. The billed
+   *          resources include a 1-minute minimum usage for workers, plus additional storage over 20 GB
+   *          per worker. Note that billed resources do not include usage for idle pre-initialized
+   *          workers.</p>
+   */
+  billedResourceUtilization?: ResourceUtilization;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRunRequest {
   /**
    * <p>The ID of the application on which to run the job.</p>
@@ -1218,252 +1411,15 @@ export interface StartJobRunRequest {
   name?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetJobRunResponse {
   /**
    * <p>The output displays information about the job run.</p>
    */
   jobRun: JobRun | undefined;
 }
-
-/**
- * @internal
- */
-export const AutoStartConfigFilterSensitiveLog = (obj: AutoStartConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoStopConfigFilterSensitiveLog = (obj: AutoStopConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageConfigurationFilterSensitiveLog = (obj: ImageConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkerResourceConfigFilterSensitiveLog = (obj: WorkerResourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitialCapacityConfigFilterSensitiveLog = (obj: InitialCapacityConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaximumAllowedResourcesFilterSensitiveLog = (obj: MaximumAllowedResources): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkerTypeSpecificationFilterSensitiveLog = (obj: WorkerTypeSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageConfigurationInputFilterSensitiveLog = (obj: ImageConfigurationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkerTypeSpecificationInputFilterSensitiveLog = (obj: WorkerTypeSpecificationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApplicationResponseFilterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApplicationResponseFilterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationRequestFilterSensitiveLog = (obj: GetApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationResponseFilterSensitiveLog = (obj: GetApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartApplicationRequestFilterSensitiveLog = (obj: StartApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartApplicationResponseFilterSensitiveLog = (obj: StartApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopApplicationRequestFilterSensitiveLog = (obj: StopApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopApplicationResponseFilterSensitiveLog = (obj: StopApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationResponseFilterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJobRunRequestFilterSensitiveLog = (obj: CancelJobRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJobRunResponseFilterSensitiveLog = (obj: CancelJobRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDashboardForJobRunRequestFilterSensitiveLog = (obj: GetDashboardForJobRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDashboardForJobRunResponseFilterSensitiveLog = (obj: GetDashboardForJobRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobRunRequestFilterSensitiveLog = (obj: GetJobRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManagedPersistenceMonitoringConfigurationFilterSensitiveLog = (
-  obj: ManagedPersistenceMonitoringConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3MonitoringConfigurationFilterSensitiveLog = (obj: S3MonitoringConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringConfigurationFilterSensitiveLog = (obj: MonitoringConfiguration): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -1493,83 +1449,6 @@ export const JobDriverFilterSensitiveLog = (obj: JobDriver): any => {
   if (obj.hive !== undefined) return { hive: HiveFilterSensitiveLog(obj.hive) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-
-/**
- * @internal
- */
-export const TotalResourceUtilizationFilterSensitiveLog = (obj: TotalResourceUtilization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobRunsRequestFilterSensitiveLog = (obj: ListJobRunsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobRunSummaryFilterSensitiveLog = (obj: JobRunSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobRunsResponseFilterSensitiveLog = (obj: ListJobRunsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartJobRunResponseFilterSensitiveLog = (obj: StartJobRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
 
 /**
  * @internal

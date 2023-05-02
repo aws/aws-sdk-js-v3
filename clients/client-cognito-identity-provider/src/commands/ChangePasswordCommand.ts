@@ -22,23 +22,24 @@ import {
   ChangePasswordRequest,
   ChangePasswordRequestFilterSensitiveLog,
   ChangePasswordResponse,
-  ChangePasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ChangePasswordCommand,
-  serializeAws_json1_1ChangePasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ChangePasswordCommand, se_ChangePasswordCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ChangePasswordCommand}.
  */
 export interface ChangePasswordCommandInput extends ChangePasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChangePasswordCommand}.
  */
 export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the password for a specified user in a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +47,17 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  * import { CognitoIdentityProviderClient, ChangePasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ChangePasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // ChangePasswordRequest
+ *   PreviousPassword: "STRING_VALUE", // required
+ *   ProposedPassword: "STRING_VALUE", // required
+ *   AccessToken: "STRING_VALUE", // required
+ * };
  * const command = new ChangePasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangePasswordCommandInput - {@link ChangePasswordCommandInput}
+ * @returns {@link ChangePasswordCommandOutput}
  * @see {@link ChangePasswordCommandInput} for command's `input` shape.
  * @see {@link ChangePasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -110,6 +118,9 @@ export class ChangePasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangePasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,7 +150,7 @@ export class ChangePasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ChangePasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ChangePasswordResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +160,18 @@ export class ChangePasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangePasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ChangePasswordCommand(input, context);
+    return se_ChangePasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangePasswordCommandOutput> {
-    return deserializeAws_json1_1ChangePasswordCommand(output, context);
+    return de_ChangePasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

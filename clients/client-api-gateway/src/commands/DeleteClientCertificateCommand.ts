@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteClientCertificateRequest, DeleteClientCertificateRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteClientCertificateCommand,
-  serializeAws_restJson1DeleteClientCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteClientCertificateRequest } from "../models/models_0";
+import { de_DeleteClientCertificateCommand, se_DeleteClientCertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClientCertificateCommand}.
  */
 export interface DeleteClientCertificateCommandInput extends DeleteClientCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClientCertificateCommand}.
  */
 export interface DeleteClientCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the ClientCertificate resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteClientCertificateCommandOutput extends __MetadataBearer {
  * import { APIGatewayClient, DeleteClientCertificateCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteClientCertificateCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteClientCertificateRequest
+ *   clientCertificateId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClientCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClientCertificateCommandInput - {@link DeleteClientCertificateCommandInput}
+ * @returns {@link DeleteClientCertificateCommandOutput}
  * @see {@link DeleteClientCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteClientCertificateCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteClientCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClientCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +117,8 @@ export class DeleteClientCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClientCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +128,18 @@ export class DeleteClientCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClientCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteClientCertificateCommand(input, context);
+    return se_DeleteClientCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClientCertificateCommandOutput> {
-    return deserializeAws_restJson1DeleteClientCertificateCommand(output, context);
+    return de_DeleteClientCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

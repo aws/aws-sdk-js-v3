@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import {
-  GetOpenIdTokenInput,
-  GetOpenIdTokenInputFilterSensitiveLog,
-  GetOpenIdTokenResponse,
-  GetOpenIdTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOpenIdTokenCommand,
-  serializeAws_json1_1GetOpenIdTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { GetOpenIdTokenInput, GetOpenIdTokenResponse } from "../models/models_0";
+import { de_GetOpenIdTokenCommand, se_GetOpenIdTokenCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOpenIdTokenCommand}.
  */
 export interface GetOpenIdTokenCommandInput extends GetOpenIdTokenInput {}
 /**
+ * @public
+ *
  * The output of {@link GetOpenIdTokenCommand}.
  */
 export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by
  *             <a>GetId</a>. You can optionally add additional logins for the identity.
  *          Supplying multiple logins creates an implicit link.</p>
@@ -46,10 +43,18 @@ export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __M
  * import { CognitoIdentityClient, GetOpenIdTokenCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetOpenIdTokenCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // GetOpenIdTokenInput
+ *   IdentityId: "STRING_VALUE", // required
+ *   Logins: { // LoginsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetOpenIdTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOpenIdTokenCommandInput - {@link GetOpenIdTokenCommandInput}
+ * @returns {@link GetOpenIdTokenCommandOutput}
  * @see {@link GetOpenIdTokenCommandInput} for command's `input` shape.
  * @see {@link GetOpenIdTokenCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -97,6 +102,9 @@ export class GetOpenIdTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOpenIdTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +133,8 @@ export class GetOpenIdTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOpenIdTokenInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOpenIdTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +144,18 @@ export class GetOpenIdTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOpenIdTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOpenIdTokenCommand(input, context);
+    return se_GetOpenIdTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOpenIdTokenCommandOutput> {
-    return deserializeAws_json1_1GetOpenIdTokenCommand(output, context);
+    return de_GetOpenIdTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

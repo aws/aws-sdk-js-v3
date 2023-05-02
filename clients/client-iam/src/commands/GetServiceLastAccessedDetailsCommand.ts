@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { GetServiceLastAccessedDetailsRequest, GetServiceLastAccessedDetailsResponse } from "../models/models_0";
 import {
-  GetServiceLastAccessedDetailsRequest,
-  GetServiceLastAccessedDetailsRequestFilterSensitiveLog,
-  GetServiceLastAccessedDetailsResponse,
-  GetServiceLastAccessedDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetServiceLastAccessedDetailsCommand,
-  serializeAws_queryGetServiceLastAccessedDetailsCommand,
+  de_GetServiceLastAccessedDetailsCommand,
+  se_GetServiceLastAccessedDetailsCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceLastAccessedDetailsCommand}.
  */
 export interface GetServiceLastAccessedDetailsCommandInput extends GetServiceLastAccessedDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceLastAccessedDetailsCommand}.
  */
 export interface GetServiceLastAccessedDetailsCommandOutput
@@ -37,6 +36,7 @@ export interface GetServiceLastAccessedDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a service last accessed report that was created using the
  *                 <code>GenerateServiceLastAccessedDetails</code> operation. You can use the
  *                 <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code> to
@@ -95,10 +95,17 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  * import { IAMClient, GetServiceLastAccessedDetailsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetServiceLastAccessedDetailsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetServiceLastAccessedDetailsRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxItems: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new GetServiceLastAccessedDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceLastAccessedDetailsCommandInput - {@link GetServiceLastAccessedDetailsCommandInput}
+ * @returns {@link GetServiceLastAccessedDetailsCommandOutput}
  * @see {@link GetServiceLastAccessedDetailsCommandInput} for command's `input` shape.
  * @see {@link GetServiceLastAccessedDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -163,6 +170,9 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceLastAccessedDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -191,8 +201,8 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceLastAccessedDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceLastAccessedDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -202,15 +212,21 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceLastAccessedDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetServiceLastAccessedDetailsCommand(input, context);
+    return se_GetServiceLastAccessedDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceLastAccessedDetailsCommandOutput> {
-    return deserializeAws_queryGetServiceLastAccessedDetailsCommand(output, context);
+    return de_GetServiceLastAccessedDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

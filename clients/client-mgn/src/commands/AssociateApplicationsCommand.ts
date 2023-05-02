@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  AssociateApplicationsRequest,
-  AssociateApplicationsRequestFilterSensitiveLog,
-  AssociateApplicationsResponse,
-  AssociateApplicationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateApplicationsCommand,
-  serializeAws_restJson1AssociateApplicationsCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateApplicationsRequest, AssociateApplicationsResponse } from "../models/models_0";
+import { de_AssociateApplicationsCommand, se_AssociateApplicationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateApplicationsCommand}.
  */
 export interface AssociateApplicationsCommandInput extends AssociateApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateApplicationsCommand}.
  */
 export interface AssociateApplicationsCommandOutput extends AssociateApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate applications to wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  * import { MgnClient, AssociateApplicationsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, AssociateApplicationsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // AssociateApplicationsRequest
+ *   waveID: "STRING_VALUE", // required
+ *   applicationIDs: [ // ApplicationIDs // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AssociateApplicationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateApplicationsCommandInput - {@link AssociateApplicationsCommandInput}
+ * @returns {@link AssociateApplicationsCommandOutput}
  * @see {@link AssociateApplicationsCommandInput} for command's `input` shape.
  * @see {@link AssociateApplicationsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -81,6 +86,9 @@ export class AssociateApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class AssociateApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateApplicationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateApplicationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class AssociateApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateApplicationsCommand(input, context);
+    return se_AssociateApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateApplicationsCommandOutput> {
-    return deserializeAws_restJson1AssociateApplicationsCommand(output, context);
+    return de_AssociateApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetRoleRequest,
-  GetRoleRequestFilterSensitiveLog,
-  GetRoleResponse,
-  GetRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryGetRoleCommand, serializeAws_queryGetRoleCommand } from "../protocols/Aws_query";
+import { GetRoleRequest, GetRoleResponse } from "../models/models_0";
+import { de_GetRoleCommand, se_GetRoleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetRoleCommand}.
  */
 export interface GetRoleCommandInput extends GetRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRoleCommand}.
  */
 export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified role, including the role's path, GUID, ARN,
  *             and the role's trust policy that grants permission to assume the role. For more
  *             information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with roles</a>.</p>
@@ -48,10 +48,15 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  * import { IAMClient, GetRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetRoleRequest
+ *   RoleName: "STRING_VALUE", // required
+ * };
  * const command = new GetRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRoleCommandInput - {@link GetRoleCommandInput}
+ * @returns {@link GetRoleCommandOutput}
  * @see {@link GetRoleCommandInput} for command's `input` shape.
  * @see {@link GetRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -107,6 +112,9 @@ export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +141,8 @@ export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +152,18 @@ export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetRoleCommand(input, context);
+    return se_GetRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoleCommandOutput> {
-    return deserializeAws_queryGetRoleCommand(output, context);
+    return de_GetRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

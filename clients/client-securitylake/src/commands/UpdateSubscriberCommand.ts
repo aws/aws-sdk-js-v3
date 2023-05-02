@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSubscriberRequest,
-  UpdateSubscriberRequestFilterSensitiveLog,
-  UpdateSubscriberResponse,
-  UpdateSubscriberResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSubscriberCommand,
-  serializeAws_restJson1UpdateSubscriberCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateSubscriberRequest, UpdateSubscriberResponse } from "../models/models_0";
+import { de_UpdateSubscriberCommand, se_UpdateSubscriberCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSubscriberCommand}.
  */
 export interface UpdateSubscriberCommandInput extends UpdateSubscriberRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSubscriberCommand}.
  */
 export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing subscription for the given Amazon Security Lake account ID. You can update
  *          a subscriber by changing the sources that the subscriber consumes data from. </p>
  * @example
@@ -43,10 +40,24 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  * import { SecurityLakeClient, UpdateSubscriberCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, UpdateSubscriberCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // UpdateSubscriberRequest
+ *   id: "STRING_VALUE", // required
+ *   sourceTypes: [ // SourceTypeList // required
+ *     { // SourceType Union: only one key present
+ *       awsSourceType: "STRING_VALUE",
+ *       customSourceType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   externalId: "STRING_VALUE",
+ *   subscriberName: "STRING_VALUE",
+ *   subscriberDescription: "STRING_VALUE",
+ * };
  * const command = new UpdateSubscriberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSubscriberCommandInput - {@link UpdateSubscriberCommandInput}
+ * @returns {@link UpdateSubscriberCommandOutput}
  * @see {@link UpdateSubscriberCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriberCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -98,6 +109,9 @@ export class UpdateSubscriberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSubscriberCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +140,8 @@ export class UpdateSubscriberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSubscriberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubscriberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +151,18 @@ export class UpdateSubscriberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSubscriberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSubscriberCommand(input, context);
+    return se_UpdateSubscriberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSubscriberCommandOutput> {
-    return deserializeAws_restJson1UpdateSubscriberCommand(output, context);
+    return de_UpdateSubscriberCommand(output, context);
   }
 
   // Start section: command_body_extra

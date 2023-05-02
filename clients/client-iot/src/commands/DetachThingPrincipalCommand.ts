@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DetachThingPrincipalRequest,
-  DetachThingPrincipalRequestFilterSensitiveLog,
-  DetachThingPrincipalResponse,
-  DetachThingPrincipalResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DetachThingPrincipalCommand,
-  serializeAws_restJson1DetachThingPrincipalCommand,
-} from "../protocols/Aws_restJson1";
+import { DetachThingPrincipalRequest, DetachThingPrincipalResponse } from "../models/models_1";
+import { de_DetachThingPrincipalCommand, se_DetachThingPrincipalCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachThingPrincipalCommand}.
  */
 export interface DetachThingPrincipalCommandInput extends DetachThingPrincipalRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachThingPrincipalCommand}.
  */
 export interface DetachThingPrincipalCommandOutput extends DetachThingPrincipalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches the specified principal from the specified thing. A principal can be X.509
  * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * 			identities.</p>
@@ -49,10 +46,16 @@ export interface DetachThingPrincipalCommandOutput extends DetachThingPrincipalR
  * import { IoTClient, DetachThingPrincipalCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DetachThingPrincipalCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DetachThingPrincipalRequest
+ *   thingName: "STRING_VALUE", // required
+ *   principal: "STRING_VALUE", // required
+ * };
  * const command = new DetachThingPrincipalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachThingPrincipalCommandInput - {@link DetachThingPrincipalCommandInput}
+ * @returns {@link DetachThingPrincipalCommandOutput}
  * @see {@link DetachThingPrincipalCommandInput} for command's `input` shape.
  * @see {@link DetachThingPrincipalCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -94,6 +97,9 @@ export class DetachThingPrincipalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachThingPrincipalCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +128,8 @@ export class DetachThingPrincipalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachThingPrincipalRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachThingPrincipalResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +139,18 @@ export class DetachThingPrincipalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachThingPrincipalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DetachThingPrincipalCommand(input, context);
+    return se_DetachThingPrincipalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachThingPrincipalCommandOutput> {
-    return deserializeAws_restJson1DetachThingPrincipalCommand(output, context);
+    return de_DetachThingPrincipalCommand(output, context);
   }
 
   // Start section: command_body_extra

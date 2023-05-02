@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import {
-  DescribeEntityRequest,
-  DescribeEntityRequestFilterSensitiveLog,
-  DescribeEntityResponse,
-  DescribeEntityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeEntityCommand,
-  serializeAws_restJson1DescribeEntityCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeEntityRequest, DescribeEntityResponse } from "../models/models_0";
+import { de_DescribeEntityCommand, se_DescribeEntityCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEntityCommand}.
  */
 export interface DescribeEntityCommandInput extends DescribeEntityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEntityCommand}.
  */
 export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the metadata and content of the entity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,31 +43,42 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * import { MarketplaceCatalogClient, DescribeEntityCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, DescribeEntityCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
+ * const input = { // DescribeEntityRequest
+ *   Catalog: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEntityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEntityCommandInput - {@link DescribeEntityCommandInput}
+ * @returns {@link DescribeEntityCommandOutput}
  * @see {@link DescribeEntityCommandInput} for command's `input` shape.
  * @see {@link DescribeEntityCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access is denied.</p>
+ *          <p>HTTP status code: 403</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>There was an internal service exception.</p>
+ *          <p>HTTP status code: 500</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource wasn't found.</p>
+ *          <p>HTTP status code: 404</p>
  *
  * @throws {@link ResourceNotSupportedException} (client fault)
  *  <p>Currently, the specified resource is not supported.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Too many requests.</p>
+ *          <p>HTTP status code: 429</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An error occurred during validation.</p>
+ *          <p>HTTP status code: 422</p>
  *
  *
  */
@@ -91,6 +99,9 @@ export class DescribeEntityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEntityCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +130,8 @@ export class DescribeEntityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEntityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEntityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +141,18 @@ export class DescribeEntityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeEntityCommand(input, context);
+    return se_DescribeEntityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntityCommandOutput> {
-    return deserializeAws_restJson1DescribeEntityCommand(output, context);
+    return de_DescribeEntityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -125,6 +125,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DeleteEarthObservationJobCommandInput
   | DeleteVectorEnrichmentJobCommandInput
@@ -146,6 +149,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DeleteEarthObservationJobCommandOutput
   | DeleteVectorEnrichmentJobCommandOutput
@@ -167,6 +173,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -174,7 +183,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -283,7 +292,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
@@ -294,6 +303,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   sdkStreamMixin?: __SdkStreamMixinInjector;
 }
 
+/**
+ * @public
+ */
 type SageMakerGeospatialClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -304,10 +316,15 @@ type SageMakerGeospatialClientConfigType = Partial<__SmithyConfiguration<__HttpH
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of SageMakerGeospatialClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SageMakerGeospatialClient class constructor that set the region, credentials and other options.
  */
 export interface SageMakerGeospatialClientConfig extends SageMakerGeospatialClientConfigType {}
 
+/**
+ * @public
+ */
 type SageMakerGeospatialClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -318,11 +335,14 @@ type SageMakerGeospatialClientResolvedConfigType = __SmithyResolvedConfiguration
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SageMakerGeospatialClient class. This is resolved and normalized from the {@link SageMakerGeospatialClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SageMakerGeospatialClient class. This is resolved and normalized from the {@link SageMakerGeospatialClientConfig | constructor configuration interface}.
  */
 export interface SageMakerGeospatialClientResolvedConfig extends SageMakerGeospatialClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Provides APIs for creating and managing SageMaker geospatial resources.</p>
  */
 export class SageMakerGeospatialClient extends __Client<

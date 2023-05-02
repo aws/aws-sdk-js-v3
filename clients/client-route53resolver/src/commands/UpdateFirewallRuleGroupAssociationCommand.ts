@@ -15,21 +15,23 @@ import {
 
 import {
   UpdateFirewallRuleGroupAssociationRequest,
-  UpdateFirewallRuleGroupAssociationRequestFilterSensitiveLog,
   UpdateFirewallRuleGroupAssociationResponse,
-  UpdateFirewallRuleGroupAssociationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand,
-  serializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand,
+  de_UpdateFirewallRuleGroupAssociationCommand,
+  se_UpdateFirewallRuleGroupAssociationCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallRuleGroupAssociationCommand}.
  */
 export interface UpdateFirewallRuleGroupAssociationCommandInput extends UpdateFirewallRuleGroupAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallRuleGroupAssociationCommand}.
  */
 export interface UpdateFirewallRuleGroupAssociationCommandOutput
@@ -37,6 +39,7 @@ export interface UpdateFirewallRuleGroupAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the association of a <a>FirewallRuleGroup</a> with a VPC. The association enables DNS filtering for the VPC. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,18 @@ export interface UpdateFirewallRuleGroupAssociationCommandOutput
  * import { Route53ResolverClient, UpdateFirewallRuleGroupAssociationCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateFirewallRuleGroupAssociationCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // UpdateFirewallRuleGroupAssociationRequest
+ *   FirewallRuleGroupAssociationId: "STRING_VALUE", // required
+ *   Priority: Number("int"),
+ *   MutationProtection: "ENABLED" || "DISABLED",
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateFirewallRuleGroupAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallRuleGroupAssociationCommandInput - {@link UpdateFirewallRuleGroupAssociationCommandInput}
+ * @returns {@link UpdateFirewallRuleGroupAssociationCommandOutput}
  * @see {@link UpdateFirewallRuleGroupAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallRuleGroupAssociationCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -92,6 +103,9 @@ export class UpdateFirewallRuleGroupAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallRuleGroupAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +134,8 @@ export class UpdateFirewallRuleGroupAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallRuleGroupAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallRuleGroupAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +145,24 @@ export class UpdateFirewallRuleGroupAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateFirewallRuleGroupAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand(input, context);
+    return se_UpdateFirewallRuleGroupAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFirewallRuleGroupAssociationCommandOutput> {
-    return deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand(output, context);
+    return de_UpdateFirewallRuleGroupAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

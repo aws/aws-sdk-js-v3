@@ -10,7 +10,7 @@ import { NeptuneClient } from "../NeptuneClient";
 import { NeptunePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NeptuneClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeDBClusterEndpointsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeDBClusterEndpoints(
   config: NeptunePaginationConfiguration,
   input: DescribeDBClusterEndpointsCommandInput,

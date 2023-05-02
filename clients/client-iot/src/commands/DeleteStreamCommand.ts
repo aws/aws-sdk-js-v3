@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteStreamRequest,
-  DeleteStreamRequestFilterSensitiveLog,
-  DeleteStreamResponse,
-  DeleteStreamResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteStreamCommand,
-  serializeAws_restJson1DeleteStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteStreamRequest, DeleteStreamResponse } from "../models/models_1";
+import { de_DeleteStreamCommand, se_DeleteStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStreamCommand}.
  */
 export interface DeleteStreamCommandInput extends DeleteStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStreamCommand}.
  */
 export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a stream.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteStream</a> action.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __Metad
  * import { IoTClient, DeleteStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteStreamRequest
+ *   streamId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
+ * @returns {@link DeleteStreamCommandOutput}
  * @see {@link DeleteStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +94,9 @@ export class DeleteStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class DeleteStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStreamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class DeleteStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStreamCommand(input, context);
+    return se_DeleteStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamCommandOutput> {
-    return deserializeAws_restJson1DeleteStreamCommand(output, context);
+    return de_DeleteStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

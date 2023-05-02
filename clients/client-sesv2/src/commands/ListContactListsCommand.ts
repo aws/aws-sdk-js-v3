@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListContactListsRequest,
-  ListContactListsRequestFilterSensitiveLog,
-  ListContactListsResponse,
-  ListContactListsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListContactListsCommand,
-  serializeAws_restJson1ListContactListsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListContactListsRequest, ListContactListsResponse } from "../models/models_0";
+import { de_ListContactListsCommand, se_ListContactListsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListContactListsCommand}.
  */
 export interface ListContactListsCommandInput extends ListContactListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContactListsCommand}.
  */
 export interface ListContactListsCommandOutput extends ListContactListsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the contact lists available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListContactListsCommandOutput extends ListContactListsResponse,
  * import { SESv2Client, ListContactListsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListContactListsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // ListContactListsRequest
+ *   PageSize: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListContactListsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContactListsCommandInput - {@link ListContactListsCommandInput}
+ * @returns {@link ListContactListsCommandOutput}
  * @see {@link ListContactListsCommandInput} for command's `input` shape.
  * @see {@link ListContactListsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -75,6 +78,9 @@ export class ListContactListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContactListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class ListContactListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContactListsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContactListsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class ListContactListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContactListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListContactListsCommand(input, context);
+    return se_ListContactListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactListsCommandOutput> {
-    return deserializeAws_restJson1ListContactListsCommand(output, context);
+    return de_ListContactListsCommand(output, context);
   }
 
   // Start section: command_body_extra

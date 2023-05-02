@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteContentRequest,
-  DeleteContentRequestFilterSensitiveLog,
-  DeleteContentResponse,
-  DeleteContentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteContentCommand,
-  serializeAws_restJson1DeleteContentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteContentRequest, DeleteContentResponse } from "../models/models_0";
+import { de_DeleteContentCommand, se_DeleteContentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContentCommand}.
  */
 export interface DeleteContentCommandInput extends DeleteContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContentCommand}.
  */
 export interface DeleteContentCommandOutput extends DeleteContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteContentCommandOutput extends DeleteContentResponse, __Met
  * import { WisdomClient, DeleteContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, DeleteContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // DeleteContentRequest
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ *   contentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContentCommandInput - {@link DeleteContentCommandInput}
+ * @returns {@link DeleteContentCommandOutput}
  * @see {@link DeleteContentCommandInput} for command's `input` shape.
  * @see {@link DeleteContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +81,9 @@ export class DeleteContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class DeleteContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class DeleteContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteContentCommand(input, context);
+    return se_DeleteContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContentCommandOutput> {
-    return deserializeAws_restJson1DeleteContentCommand(output, context);
+    return de_DeleteContentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterDevicesRequest, DeregisterDevicesRequestFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_json1_1DeregisterDevicesCommand,
-  serializeAws_json1_1DeregisterDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { DeregisterDevicesRequest } from "../models/models_2";
+import { de_DeregisterDevicesCommand, se_DeregisterDevicesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterDevicesCommand}.
  */
 export interface DeregisterDevicesCommandInput extends DeregisterDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterDevicesCommand}.
  */
 export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified devices. After you deregister a device, you will need to re-register the devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,18 @@ export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeregisterDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeregisterDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeregisterDevicesRequest
+ *   DeviceFleetName: "STRING_VALUE", // required
+ *   DeviceNames: [ // DeviceNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeregisterDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterDevicesCommandInput - {@link DeregisterDevicesCommandInput}
+ * @returns {@link DeregisterDevicesCommandOutput}
  * @see {@link DeregisterDevicesCommandInput} for command's `input` shape.
  * @see {@link DeregisterDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -64,6 +74,9 @@ export class DeregisterDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +105,8 @@ export class DeregisterDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +116,18 @@ export class DeregisterDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterDevicesCommand(input, context);
+    return se_DeregisterDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterDevicesCommandOutput> {
-    return deserializeAws_json1_1DeregisterDevicesCommand(output, context);
+    return de_DeregisterDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

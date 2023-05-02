@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  DBClusterParameterGroupDetails,
-  DBClusterParameterGroupDetailsFilterSensitiveLog,
-  DescribeDBClusterParametersMessage,
-  DescribeDBClusterParametersMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBClusterParametersCommand,
-  serializeAws_queryDescribeDBClusterParametersCommand,
-} from "../protocols/Aws_query";
+import { DBClusterParameterGroupDetails, DescribeDBClusterParametersMessage } from "../models/models_0";
+import { de_DescribeDBClusterParametersCommand, se_DescribeDBClusterParametersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBClusterParametersCommand}.
  */
 export interface DescribeDBClusterParametersCommandInput extends DescribeDBClusterParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBClusterParametersCommand}.
  */
 export interface DescribeDBClusterParametersCommandOutput extends DBClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the detailed parameter list for a particular cluster parameter
  *             group.</p>
  * @example
@@ -43,10 +40,26 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * import { DocDBClient, DescribeDBClusterParametersCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBClusterParametersCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DescribeDBClusterParametersMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   Source: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBClusterParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBClusterParametersCommandInput - {@link DescribeDBClusterParametersCommandInput}
+ * @returns {@link DescribeDBClusterParametersCommandOutput}
  * @see {@link DescribeDBClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -74,6 +87,9 @@ export class DescribeDBClusterParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +118,8 @@ export class DescribeDBClusterParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClusterParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterParameterGroupDetailsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +129,21 @@ export class DescribeDBClusterParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBClusterParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterParametersCommand(input, context);
+    return se_DescribeDBClusterParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterParametersCommand(output, context);
+    return de_DescribeDBClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

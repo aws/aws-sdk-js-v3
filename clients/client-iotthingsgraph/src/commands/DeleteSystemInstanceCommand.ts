@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  DeleteSystemInstanceRequest,
-  DeleteSystemInstanceRequestFilterSensitiveLog,
-  DeleteSystemInstanceResponse,
-  DeleteSystemInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSystemInstanceCommand,
-  serializeAws_json1_1DeleteSystemInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSystemInstanceRequest, DeleteSystemInstanceResponse } from "../models/models_0";
+import { de_DeleteSystemInstanceCommand, se_DeleteSystemInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSystemInstanceCommand}.
  */
 export interface DeleteSystemInstanceCommandInput extends DeleteSystemInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSystemInstanceCommand}.
  */
 export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deletes a system instance.
@@ -46,10 +43,15 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
  * import { IoTThingsGraphClient, DeleteSystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeleteSystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // DeleteSystemInstanceRequest
+ *   id: "STRING_VALUE",
+ * };
  * const command = new DeleteSystemInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSystemInstanceCommandInput - {@link DeleteSystemInstanceCommandInput}
+ * @returns {@link DeleteSystemInstanceCommandOutput}
  * @see {@link DeleteSystemInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteSystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -85,6 +87,9 @@ export class DeleteSystemInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSystemInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteSystemInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSystemInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSystemInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteSystemInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSystemInstanceCommand(input, context);
+    return se_DeleteSystemInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSystemInstanceCommandOutput> {
-    return deserializeAws_json1_1DeleteSystemInstanceCommand(output, context);
+    return de_DeleteSystemInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

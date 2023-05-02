@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyNetworkInterfaceAttributeRequest } from "../models/models_6";
 import {
-  ModifyNetworkInterfaceAttributeRequest,
-  ModifyNetworkInterfaceAttributeRequestFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyNetworkInterfaceAttributeCommand,
-  serializeAws_ec2ModifyNetworkInterfaceAttributeCommand,
+  de_ModifyNetworkInterfaceAttributeCommand,
+  se_ModifyNetworkInterfaceAttributeCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyNetworkInterfaceAttributeCommand}.
  */
 export interface ModifyNetworkInterfaceAttributeCommandInput extends ModifyNetworkInterfaceAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyNetworkInterfaceAttributeCommand}.
  */
 export interface ModifyNetworkInterfaceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified network interface attribute. You can specify only one
  *             attribute at a time. You can use this action to attach and detach security groups from
  *             an existing EC2 instance.</p>
@@ -42,10 +44,35 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * import { EC2Client, ModifyNetworkInterfaceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyNetworkInterfaceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyNetworkInterfaceAttributeRequest
+ *   Attachment: { // NetworkInterfaceAttachmentChanges
+ *     AttachmentId: "STRING_VALUE",
+ *     DeleteOnTermination: true || false,
+ *   },
+ *   Description: { // AttributeValue
+ *     Value: "STRING_VALUE",
+ *   },
+ *   DryRun: true || false,
+ *   Groups: [ // SecurityGroupIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   SourceDestCheck: { // AttributeBooleanValue
+ *     Value: true || false,
+ *   },
+ *   EnaSrdSpecification: { // EnaSrdSpecification
+ *     EnaSrdEnabled: true || false,
+ *     EnaSrdUdpSpecification: { // EnaSrdUdpSpecification
+ *       EnaSrdUdpEnabled: true || false,
+ *     },
+ *   },
+ * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyNetworkInterfaceAttributeCommandInput - {@link ModifyNetworkInterfaceAttributeCommandInput}
+ * @returns {@link ModifyNetworkInterfaceAttributeCommandOutput}
  * @see {@link ModifyNetworkInterfaceAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -127,6 +154,9 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyNetworkInterfaceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,8 +185,8 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyNetworkInterfaceAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -166,18 +196,24 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyNetworkInterfaceAttributeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyNetworkInterfaceAttributeCommand(input, context);
+    return se_ModifyNetworkInterfaceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyNetworkInterfaceAttributeCommandOutput> {
-    return deserializeAws_ec2ModifyNetworkInterfaceAttributeCommand(output, context);
+    return de_ModifyNetworkInterfaceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

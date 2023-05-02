@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetBranchInput,
-  GetBranchInputFilterSensitiveLog,
-  GetBranchOutput,
-  GetBranchOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetBranchCommand, serializeAws_json1_1GetBranchCommand } from "../protocols/Aws_json1_1";
+import { GetBranchInput, GetBranchOutput } from "../models/models_0";
+import { de_GetBranchCommand, se_GetBranchCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBranchCommand}.
  */
 export interface GetBranchCommandInput extends GetBranchInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBranchCommand}.
  */
 export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a repository branch, including its name and the last commit ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,16 @@ export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBeare
  * import { CodeCommitClient, GetBranchCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetBranchCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetBranchInput
+ *   repositoryName: "STRING_VALUE",
+ *   branchName: "STRING_VALUE",
+ * };
  * const command = new GetBranchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBranchCommandInput - {@link GetBranchCommandInput}
+ * @returns {@link GetBranchCommandOutput}
  * @see {@link GetBranchCommandInput} for command's `input` shape.
  * @see {@link GetBranchCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -105,6 +111,9 @@ export class GetBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +140,8 @@ export class GetBranchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBranchInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBranchOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +151,18 @@ export class GetBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBranchCommand(input, context);
+    return se_GetBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBranchCommandOutput> {
-    return deserializeAws_json1_1GetBranchCommand(output, context);
+    return de_GetBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

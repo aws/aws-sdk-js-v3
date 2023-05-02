@@ -15,14 +15,10 @@ import {
 
 import {
   RestoreFromSnapshotRequest,
-  RestoreFromSnapshotRequestFilterSensitiveLog,
   RestoreFromSnapshotResponse,
   RestoreFromSnapshotResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreFromSnapshotCommand,
-  serializeAws_json1_1RestoreFromSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RestoreFromSnapshotCommand, se_RestoreFromSnapshotCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +26,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreFromSnapshotCommand}.
  */
 export interface RestoreFromSnapshotCommandInput extends RestoreFromSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreFromSnapshotCommand}.
  */
 export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a namespace from a snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +47,19 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * import { RedshiftServerlessClient, RestoreFromSnapshotCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, RestoreFromSnapshotCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // RestoreFromSnapshotRequest
+ *   namespaceName: "STRING_VALUE", // required
+ *   workgroupName: "STRING_VALUE", // required
+ *   snapshotName: "STRING_VALUE",
+ *   snapshotArn: "STRING_VALUE",
+ *   ownerAccount: "STRING_VALUE",
+ * };
  * const command = new RestoreFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreFromSnapshotCommandInput - {@link RestoreFromSnapshotCommandInput}
+ * @returns {@link RestoreFromSnapshotCommandOutput}
  * @see {@link RestoreFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -88,6 +98,9 @@ export class RestoreFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +129,7 @@ export class RestoreFromSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreFromSnapshotRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RestoreFromSnapshotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -127,12 +140,18 @@ export class RestoreFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreFromSnapshotCommand(input, context);
+    return se_RestoreFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreFromSnapshotCommandOutput> {
-    return deserializeAws_json1_1RestoreFromSnapshotCommand(output, context);
+    return de_RestoreFromSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

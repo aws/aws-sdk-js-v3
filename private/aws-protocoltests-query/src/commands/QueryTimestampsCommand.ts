@@ -12,23 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { QueryTimestampsInput, QueryTimestampsInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryQueryTimestampsCommand,
-  serializeAws_queryQueryTimestampsCommand,
-} from "../protocols/Aws_query";
+import { QueryTimestampsInput } from "../models/models_0";
+import { de_QueryTimestampsCommand, se_QueryTimestampsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link QueryTimestampsCommand}.
  */
 export interface QueryTimestampsCommandInput extends QueryTimestampsInput {}
 /**
+ * @public
+ *
  * The output of {@link QueryTimestampsCommand}.
  */
 export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * This test serializes timestamps.
  *
  * 1. Timestamps are serialized as RFC 3339 date-time values by default.
@@ -40,10 +42,17 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * import { QueryProtocolClient, QueryTimestampsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, QueryTimestampsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = { // QueryTimestampsInput
+ *   normalFormat: new Date("TIMESTAMP"),
+ *   epochMember: new Date("TIMESTAMP"),
+ *   epochTarget: new Date("TIMESTAMP"),
+ * };
  * const command = new QueryTimestampsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryTimestampsCommandInput - {@link QueryTimestampsCommandInput}
+ * @returns {@link QueryTimestampsCommandOutput}
  * @see {@link QueryTimestampsCommandInput} for command's `input` shape.
  * @see {@link QueryTimestampsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
@@ -58,6 +67,9 @@ export class QueryTimestampsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryTimestampsCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,8 +95,8 @@ export class QueryTimestampsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryTimestampsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +106,18 @@ export class QueryTimestampsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryTimestampsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryQueryTimestampsCommand(input, context);
+    return se_QueryTimestampsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryTimestampsCommandOutput> {
-    return deserializeAws_queryQueryTimestampsCommand(output, context);
+    return de_QueryTimestampsCommand(output, context);
   }
 
   // Start section: command_body_extra

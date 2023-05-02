@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  CreateClusterRequest,
-  CreateClusterRequestFilterSensitiveLog,
-  CreateClusterResponse,
-  CreateClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateClusterCommand,
-  serializeAws_json1_1CreateClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateClusterRequest, CreateClusterResponse } from "../models/models_0";
+import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandInput extends CreateClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code>
  * 			cluster when you launch your first container instance. However, you can create your own
  * 			cluster with a unique name with the <code>CreateCluster</code> action.</p>
@@ -52,10 +49,53 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { ECSClient, CreateClusterCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateClusterCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // CreateClusterRequest
+ *   clusterName: "STRING_VALUE",
+ *   tags: [ // Tags
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   settings: [ // ClusterSettings
+ *     { // ClusterSetting
+ *       name: "containerInsights",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   configuration: { // ClusterConfiguration
+ *     executeCommandConfiguration: { // ExecuteCommandConfiguration
+ *       kmsKeyId: "STRING_VALUE",
+ *       logging: "NONE" || "DEFAULT" || "OVERRIDE",
+ *       logConfiguration: { // ExecuteCommandLogConfiguration
+ *         cloudWatchLogGroupName: "STRING_VALUE",
+ *         cloudWatchEncryptionEnabled: true || false,
+ *         s3BucketName: "STRING_VALUE",
+ *         s3EncryptionEnabled: true || false,
+ *         s3KeyPrefix: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   capacityProviders: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   defaultCapacityProviderStrategy: [ // CapacityProviderStrategy
+ *     { // CapacityProviderStrategyItem
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ *   serviceConnectDefaults: { // ClusterServiceConnectDefaultsRequest
+ *     namespace: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
+ * @returns {@link CreateClusterCommandOutput}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -115,6 +155,9 @@ export class CreateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +184,8 @@ export class CreateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +195,18 @@ export class CreateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateClusterCommand(input, context);
+    return se_CreateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
-    return deserializeAws_json1_1CreateClusterCommand(output, context);
+    return de_CreateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,23 +15,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketVersioningRequest, PutBucketVersioningRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketVersioningCommand,
-  serializeAws_restXmlPutBucketVersioningCommand,
-} from "../protocols/Aws_restXml";
+import { PutBucketVersioningRequest } from "../models/models_0";
+import { de_PutBucketVersioningCommand, se_PutBucketVersioningCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketVersioningCommand}.
  */
 export interface PutBucketVersioningCommandInput extends PutBucketVersioningRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketVersioningCommand}.
  */
 export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This operation sets the versioning state
  *             for
@@ -100,10 +102,21 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, PutBucketVersioningCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutBucketVersioningCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // PutBucketVersioningRequest
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ *   MFA: "STRING_VALUE",
+ *   VersioningConfiguration: { // VersioningConfiguration
+ *     MFADelete: "Enabled" || "Disabled",
+ *     Status: "Enabled" || "Suspended",
+ *   },
+ * };
  * const command = new PutBucketVersioningCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketVersioningCommandInput - {@link PutBucketVersioningCommandInput}
+ * @returns {@link PutBucketVersioningCommandOutput}
  * @see {@link PutBucketVersioningCommandInput} for command's `input` shape.
  * @see {@link PutBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -131,6 +144,9 @@ export class PutBucketVersioningCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketVersioningCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,8 +177,8 @@ export class PutBucketVersioningCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketVersioningRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -172,12 +188,18 @@ export class PutBucketVersioningCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketVersioningCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketVersioningCommand(input, context);
+    return se_PutBucketVersioningCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketVersioningCommandOutput> {
-    return deserializeAws_restXmlPutBucketVersioningCommand(output, context);
+    return de_PutBucketVersioningCommand(output, context);
   }
 
   // Start section: command_body_extra

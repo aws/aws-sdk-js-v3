@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  ListTrackerConsumersRequest,
-  ListTrackerConsumersRequestFilterSensitiveLog,
-  ListTrackerConsumersResponse,
-  ListTrackerConsumersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTrackerConsumersCommand,
-  serializeAws_restJson1ListTrackerConsumersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTrackerConsumersRequest, ListTrackerConsumersResponse } from "../models/models_0";
+import { de_ListTrackerConsumersCommand, se_ListTrackerConsumersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrackerConsumersCommand}.
  */
 export interface ListTrackerConsumersCommandInput extends ListTrackerConsumersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrackerConsumersCommand}.
  */
 export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists geofence collections currently associated to the given tracker resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersR
  * import { LocationClient, ListTrackerConsumersCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListTrackerConsumersCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // ListTrackerConsumersRequest
+ *   TrackerName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTrackerConsumersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrackerConsumersCommandInput - {@link ListTrackerConsumersCommandInput}
+ * @returns {@link ListTrackerConsumersCommandOutput}
  * @see {@link ListTrackerConsumersCommandInput} for command's `input` shape.
  * @see {@link ListTrackerConsumersCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListTrackerConsumersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrackerConsumersCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class ListTrackerConsumersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrackerConsumersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrackerConsumersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class ListTrackerConsumersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrackerConsumersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTrackerConsumersCommand(input, context);
+    return se_ListTrackerConsumersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrackerConsumersCommandOutput> {
-    return deserializeAws_restJson1ListTrackerConsumersCommand(output, context);
+    return de_ListTrackerConsumersCommand(output, context);
   }
 
   // Start section: command_body_extra

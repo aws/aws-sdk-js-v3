@@ -6,7 +6,7 @@ import { SWFClient } from "../SWFClient";
 import { SWFPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SWFClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDomainsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDomains(
   config: SWFPaginationConfiguration,
   input: ListDomainsCommandInput,

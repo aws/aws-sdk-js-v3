@@ -10,7 +10,7 @@ import { MemoryDBClient } from "../MemoryDBClient";
 import { MemoryDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MemoryDBClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeReservedNodesOfferingsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeReservedNodesOfferings(
   config: MemoryDBPaginationConfiguration,
   input: DescribeReservedNodesOfferingsCommandInput,

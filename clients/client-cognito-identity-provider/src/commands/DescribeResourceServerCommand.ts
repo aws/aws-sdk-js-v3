@@ -19,27 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  DescribeResourceServerRequest,
-  DescribeResourceServerRequestFilterSensitiveLog,
-  DescribeResourceServerResponse,
-  DescribeResourceServerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeResourceServerCommand,
-  serializeAws_json1_1DescribeResourceServerCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeResourceServerRequest, DescribeResourceServerResponse } from "../models/models_0";
+import { de_DescribeResourceServerCommand, se_DescribeResourceServerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeResourceServerCommand}.
  */
 export interface DescribeResourceServerCommandInput extends DescribeResourceServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeResourceServerCommand}.
  */
 export interface DescribeResourceServerCommandOutput extends DescribeResourceServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a resource server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,10 +44,16 @@ export interface DescribeResourceServerCommandOutput extends DescribeResourceSer
  * import { CognitoIdentityProviderClient, DescribeResourceServerCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DescribeResourceServerCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // DescribeResourceServerRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeResourceServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResourceServerCommandInput - {@link DescribeResourceServerCommandInput}
+ * @returns {@link DescribeResourceServerCommandOutput}
  * @see {@link DescribeResourceServerCommandInput} for command's `input` shape.
  * @see {@link DescribeResourceServerCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -92,6 +95,9 @@ export class DescribeResourceServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourceServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DescribeResourceServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeResourceServerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeResourceServerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class DescribeResourceServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeResourceServerCommand(input, context);
+    return se_DescribeResourceServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourceServerCommandOutput> {
-    return deserializeAws_json1_1DescribeResourceServerCommand(output, context);
+    return de_DescribeResourceServerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import { DeleteConfiguredTableAssociationInput, DeleteConfiguredTableAssociationOutput } from "../models/models_0";
 import {
-  DeleteConfiguredTableAssociationInput,
-  DeleteConfiguredTableAssociationInputFilterSensitiveLog,
-  DeleteConfiguredTableAssociationOutput,
-  DeleteConfiguredTableAssociationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteConfiguredTableAssociationCommand,
-  serializeAws_restJson1DeleteConfiguredTableAssociationCommand,
+  de_DeleteConfiguredTableAssociationCommand,
+  se_DeleteConfiguredTableAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfiguredTableAssociationCommand}.
  */
 export interface DeleteConfiguredTableAssociationCommandInput extends DeleteConfiguredTableAssociationInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfiguredTableAssociationCommand}.
  */
 export interface DeleteConfiguredTableAssociationCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteConfiguredTableAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a configured table association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DeleteConfiguredTableAssociationCommandOutput
  * import { CleanRoomsClient, DeleteConfiguredTableAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, DeleteConfiguredTableAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // DeleteConfiguredTableAssociationInput
+ *   configuredTableAssociationIdentifier: "STRING_VALUE", // required
+ *   membershipIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfiguredTableAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfiguredTableAssociationCommandInput - {@link DeleteConfiguredTableAssociationCommandInput}
+ * @returns {@link DeleteConfiguredTableAssociationCommandOutput}
  * @see {@link DeleteConfiguredTableAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteConfiguredTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -89,6 +95,9 @@ export class DeleteConfiguredTableAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfiguredTableAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +126,8 @@ export class DeleteConfiguredTableAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfiguredTableAssociationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfiguredTableAssociationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +137,24 @@ export class DeleteConfiguredTableAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteConfiguredTableAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConfiguredTableAssociationCommand(input, context);
+    return se_DeleteConfiguredTableAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfiguredTableAssociationCommandOutput> {
-    return deserializeAws_restJson1DeleteConfiguredTableAssociationCommand(output, context);
+    return de_DeleteConfiguredTableAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

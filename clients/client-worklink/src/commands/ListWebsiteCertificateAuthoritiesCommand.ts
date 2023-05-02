@@ -15,21 +15,23 @@ import {
 
 import {
   ListWebsiteCertificateAuthoritiesRequest,
-  ListWebsiteCertificateAuthoritiesRequestFilterSensitiveLog,
   ListWebsiteCertificateAuthoritiesResponse,
-  ListWebsiteCertificateAuthoritiesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand,
-  serializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand,
+  de_ListWebsiteCertificateAuthoritiesCommand,
+  se_ListWebsiteCertificateAuthoritiesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWebsiteCertificateAuthoritiesCommand}.
  */
 export interface ListWebsiteCertificateAuthoritiesCommandInput extends ListWebsiteCertificateAuthoritiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWebsiteCertificateAuthoritiesCommand}.
  */
 export interface ListWebsiteCertificateAuthoritiesCommandOutput
@@ -37,6 +39,7 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Retrieves a list of certificate authorities added for the current account and
@@ -47,10 +50,17 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
  * import { WorkLinkClient, ListWebsiteCertificateAuthoritiesCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, ListWebsiteCertificateAuthoritiesCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // ListWebsiteCertificateAuthoritiesRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListWebsiteCertificateAuthoritiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWebsiteCertificateAuthoritiesCommandInput - {@link ListWebsiteCertificateAuthoritiesCommandInput}
+ * @returns {@link ListWebsiteCertificateAuthoritiesCommandOutput}
  * @see {@link ListWebsiteCertificateAuthoritiesCommandInput} for command's `input` shape.
  * @see {@link ListWebsiteCertificateAuthoritiesCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -86,6 +96,9 @@ export class ListWebsiteCertificateAuthoritiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWebsiteCertificateAuthoritiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +127,8 @@ export class ListWebsiteCertificateAuthoritiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWebsiteCertificateAuthoritiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWebsiteCertificateAuthoritiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +138,24 @@ export class ListWebsiteCertificateAuthoritiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListWebsiteCertificateAuthoritiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand(input, context);
+    return se_ListWebsiteCertificateAuthoritiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput> {
-    return deserializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand(output, context);
+    return de_ListWebsiteCertificateAuthoritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

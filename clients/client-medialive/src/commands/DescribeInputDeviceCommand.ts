@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DescribeInputDeviceRequest,
-  DescribeInputDeviceRequestFilterSensitiveLog,
-  DescribeInputDeviceResponse,
-  DescribeInputDeviceResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeInputDeviceCommand,
-  serializeAws_restJson1DescribeInputDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeInputDeviceRequest, DescribeInputDeviceResponse } from "../models/models_1";
+import { de_DescribeInputDeviceCommand, se_DescribeInputDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInputDeviceCommand}.
  */
 export interface DescribeInputDeviceCommandInput extends DescribeInputDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInputDeviceCommand}.
  */
 export interface DescribeInputDeviceCommandOutput extends DescribeInputDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Gets the details for the input device
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeInputDeviceCommandOutput extends DescribeInputDeviceRes
  * import { MediaLiveClient, DescribeInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // DescribeInputDeviceRequest
+ *   InputDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInputDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInputDeviceCommandInput - {@link DescribeInputDeviceCommandInput}
+ * @returns {@link DescribeInputDeviceCommandOutput}
  * @see {@link DescribeInputDeviceCommandInput} for command's `input` shape.
  * @see {@link DescribeInputDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +92,9 @@ export class DescribeInputDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInputDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class DescribeInputDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInputDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInputDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class DescribeInputDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInputDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInputDeviceCommand(input, context);
+    return se_DescribeInputDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInputDeviceCommandOutput> {
-    return deserializeAws_restJson1DescribeInputDeviceCommand(output, context);
+    return de_DescribeInputDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

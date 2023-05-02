@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  DescribeConnectorsRequest,
-  DescribeConnectorsRequestFilterSensitiveLog,
-  DescribeConnectorsResponse,
-  DescribeConnectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeConnectorsCommand,
-  serializeAws_restJson1DescribeConnectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeConnectorsRequest, DescribeConnectorsResponse } from "../models/models_0";
+import { de_DescribeConnectorsCommand, se_DescribeConnectorsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectorsCommand}.
  */
 export interface DescribeConnectorsCommandInput extends DescribeConnectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectorsCommand}.
  */
 export interface DescribeConnectorsCommandOutput extends DescribeConnectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Describes the connectors vended by Amazon AppFlow for specified connector types. If
  *       you don't specify a connector type, this operation describes all connectors vended by Amazon AppFlow. If there are more connectors than can be returned in one page, the response
  *       contains a <code>nextToken</code> object, which can be be passed in to the next call to the
@@ -45,10 +42,19 @@ export interface DescribeConnectorsCommandOutput extends DescribeConnectorsRespo
  * import { AppflowClient, DescribeConnectorsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DescribeConnectorsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = { // DescribeConnectorsRequest
+ *   connectorTypes: [ // ConnectorTypeList
+ *     "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeConnectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectorsCommandInput - {@link DescribeConnectorsCommandInput}
+ * @returns {@link DescribeConnectorsCommandOutput}
  * @see {@link DescribeConnectorsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorsCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -79,6 +85,9 @@ export class DescribeConnectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +116,8 @@ export class DescribeConnectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConnectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +127,18 @@ export class DescribeConnectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeConnectorsCommand(input, context);
+    return se_DescribeConnectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectorsCommandOutput> {
-    return deserializeAws_restJson1DescribeConnectorsCommand(output, context);
+    return de_DescribeConnectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

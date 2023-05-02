@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  DeleteSyncJobRequest,
-  DeleteSyncJobRequestFilterSensitiveLog,
-  DeleteSyncJobResponse,
-  DeleteSyncJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSyncJobCommand,
-  serializeAws_restJson1DeleteSyncJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSyncJobRequest, DeleteSyncJobResponse } from "../models/models_0";
+import { de_DeleteSyncJobCommand, se_DeleteSyncJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSyncJobCommand}.
  */
 export interface DeleteSyncJobCommandInput extends DeleteSyncJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSyncJobCommand}.
  */
 export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the SyncJob.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __Met
  * import { IoTTwinMakerClient, DeleteSyncJobCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, DeleteSyncJobCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // DeleteSyncJobRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   syncSource: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSyncJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSyncJobCommandInput - {@link DeleteSyncJobCommandInput}
+ * @returns {@link DeleteSyncJobCommandOutput}
  * @see {@link DeleteSyncJobCommandInput} for command's `input` shape.
  * @see {@link DeleteSyncJobCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -87,6 +90,9 @@ export class DeleteSyncJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSyncJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class DeleteSyncJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSyncJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSyncJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class DeleteSyncJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSyncJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSyncJobCommand(input, context);
+    return se_DeleteSyncJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSyncJobCommandOutput> {
-    return deserializeAws_restJson1DeleteSyncJobCommand(output, context);
+    return de_DeleteSyncJobCommand(output, context);
   }
 
   // Start section: command_body_extra

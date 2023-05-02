@@ -1,3 +1,6 @@
+/**
+ * @internal
+ */
 export interface RetryableProvider<T> {
   (): Promise<T>;
 }

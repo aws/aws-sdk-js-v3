@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartAppReplicationRequest,
-  StartAppReplicationRequestFilterSensitiveLog,
-  StartAppReplicationResponse,
-  StartAppReplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartAppReplicationCommand,
-  serializeAws_json1_1StartAppReplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { StartAppReplicationRequest, StartAppReplicationResponse } from "../models/models_0";
+import { de_StartAppReplicationCommand, se_StartAppReplicationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartAppReplicationCommand}.
  */
 export interface StartAppReplicationCommandInput extends StartAppReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAppReplicationCommand}.
  */
 export interface StartAppReplicationCommandOutput extends StartAppReplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts replicating the specified application by creating replication jobs for each server in the
  *             application.</p>
  * @example
@@ -43,10 +40,15 @@ export interface StartAppReplicationCommandOutput extends StartAppReplicationRes
  * import { SMSClient, StartAppReplicationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, StartAppReplicationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // StartAppReplicationRequest
+ *   appId: "STRING_VALUE",
+ * };
  * const command = new StartAppReplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAppReplicationCommandInput - {@link StartAppReplicationCommandInput}
+ * @returns {@link StartAppReplicationCommandOutput}
  * @see {@link StartAppReplicationCommandInput} for command's `input` shape.
  * @see {@link StartAppReplicationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -86,6 +88,9 @@ export class StartAppReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAppReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class StartAppReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAppReplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartAppReplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class StartAppReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAppReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartAppReplicationCommand(input, context);
+    return se_StartAppReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAppReplicationCommandOutput> {
-    return deserializeAws_json1_1StartAppReplicationCommand(output, context);
+    return de_StartAppReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

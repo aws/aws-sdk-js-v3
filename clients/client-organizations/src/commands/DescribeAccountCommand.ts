@@ -15,26 +15,27 @@ import {
 
 import {
   DescribeAccountRequest,
-  DescribeAccountRequestFilterSensitiveLog,
   DescribeAccountResponse,
   DescribeAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DescribeAccountCommand,
-  serializeAws_json1_1DescribeAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAccountCommand, se_DescribeAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountCommand}.
  */
 export interface DescribeAccountCommandInput extends DescribeAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountCommand}.
  */
 export interface DescribeAccountCommandOutput extends DescribeAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves Organizations-related information about the specified account.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -44,10 +45,15 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  * import { OrganizationsClient, DescribeAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // DescribeAccountRequest
+ *   AccountId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountCommandInput - {@link DescribeAccountCommandInput}
+ * @returns {@link DescribeAccountCommandOutput}
  * @see {@link DescribeAccountCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -223,6 +229,9 @@ export class DescribeAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -251,7 +260,7 @@ export class DescribeAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -262,12 +271,18 @@ export class DescribeAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAccountCommand(input, context);
+    return se_DescribeAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountCommandOutput> {
-    return deserializeAws_json1_1DescribeAccountCommand(output, context);
+    return de_DescribeAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

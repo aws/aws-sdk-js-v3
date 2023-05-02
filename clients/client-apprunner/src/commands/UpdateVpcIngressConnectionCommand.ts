@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  UpdateVpcIngressConnectionRequest,
-  UpdateVpcIngressConnectionRequestFilterSensitiveLog,
-  UpdateVpcIngressConnectionResponse,
-  UpdateVpcIngressConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateVpcIngressConnectionCommand,
-  serializeAws_json1_0UpdateVpcIngressConnectionCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateVpcIngressConnectionRequest, UpdateVpcIngressConnectionResponse } from "../models/models_0";
+import { de_UpdateVpcIngressConnectionCommand, se_UpdateVpcIngressConnectionCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVpcIngressConnectionCommand}.
  */
 export interface UpdateVpcIngressConnectionCommandInput extends UpdateVpcIngressConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVpcIngressConnectionCommand}.
  */
 export interface UpdateVpcIngressConnectionCommandOutput extends UpdateVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an existing App Runner VPC Ingress Connection resource. The VPC Ingress Connection must be in one of the following states to be updated:</p>
  *          <ul>
  *             <li>
@@ -59,10 +56,19 @@ export interface UpdateVpcIngressConnectionCommandOutput extends UpdateVpcIngres
  * import { AppRunnerClient, UpdateVpcIngressConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, UpdateVpcIngressConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // UpdateVpcIngressConnectionRequest
+ *   VpcIngressConnectionArn: "STRING_VALUE", // required
+ *   IngressVpcConfiguration: { // IngressVpcConfiguration
+ *     VpcId: "STRING_VALUE",
+ *     VpcEndpointId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateVpcIngressConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVpcIngressConnectionCommandInput - {@link UpdateVpcIngressConnectionCommandInput}
+ * @returns {@link UpdateVpcIngressConnectionCommandOutput}
  * @see {@link UpdateVpcIngressConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcIngressConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -98,6 +104,9 @@ export class UpdateVpcIngressConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVpcIngressConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +135,8 @@ export class UpdateVpcIngressConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVpcIngressConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVpcIngressConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,15 +146,21 @@ export class UpdateVpcIngressConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVpcIngressConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateVpcIngressConnectionCommand(input, context);
+    return se_UpdateVpcIngressConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateVpcIngressConnectionCommandOutput> {
-    return deserializeAws_json1_0UpdateVpcIngressConnectionCommand(output, context);
+    return de_UpdateVpcIngressConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

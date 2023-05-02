@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient";
-import {
-  GetRecordsInput,
-  GetRecordsInputFilterSensitiveLog,
-  GetRecordsOutput,
-  GetRecordsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetRecordsCommand,
-  serializeAws_json1_0GetRecordsCommand,
-} from "../protocols/Aws_json1_0";
+import { GetRecordsInput, GetRecordsOutput } from "../models/models_0";
+import { de_GetRecordsCommand, se_GetRecordsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecordsCommand}.
  */
 export interface GetRecordsCommandInput extends GetRecordsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetRecordsCommand}.
  */
 export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the stream records from a given shard.</p>
  *          <p>Specify a shard iterator using the <code>ShardIterator</code> parameter. The shard iterator
  *       specifies the position in the shard from which you want to start reading stream records
@@ -52,10 +49,16 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * import { DynamoDBStreamsClient, GetRecordsCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
  * // const { DynamoDBStreamsClient, GetRecordsCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
  * const client = new DynamoDBStreamsClient(config);
+ * const input = { // GetRecordsInput
+ *   ShardIterator: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ * };
  * const command = new GetRecordsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecordsCommandInput - {@link GetRecordsCommandInput}
+ * @returns {@link GetRecordsCommandOutput}
  * @see {@link GetRecordsCommandInput} for command's `input` shape.
  * @see {@link GetRecordsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
@@ -200,6 +203,9 @@ export class GetRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -226,8 +232,8 @@ export class GetRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecordsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecordsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -237,12 +243,18 @@ export class GetRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetRecordsCommand(input, context);
+    return se_GetRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecordsCommandOutput> {
-    return deserializeAws_json1_0GetRecordsCommand(output, context);
+    return de_GetRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,26 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateEdgeDeploymentStageRequest,
-  CreateEdgeDeploymentStageRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEdgeDeploymentStageCommand,
-  serializeAws_json1_1CreateEdgeDeploymentStageCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateEdgeDeploymentStageRequest } from "../models/models_0";
+import { de_CreateEdgeDeploymentStageCommand, se_CreateEdgeDeploymentStageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEdgeDeploymentStageCommand}.
  */
 export interface CreateEdgeDeploymentStageCommandInput extends CreateEdgeDeploymentStageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEdgeDeploymentStageCommand}.
  */
 export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new stage in an existing edge deployment plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +39,31 @@ export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer
  * import { SageMakerClient, CreateEdgeDeploymentStageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateEdgeDeploymentStageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateEdgeDeploymentStageRequest
+ *   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ *   Stages: [ // DeploymentStages // required
+ *     { // DeploymentStage
+ *       StageName: "STRING_VALUE", // required
+ *       DeviceSelectionConfig: { // DeviceSelectionConfig
+ *         DeviceSubsetType: "PERCENTAGE" || "SELECTION" || "NAMECONTAINS", // required
+ *         Percentage: Number("int"),
+ *         DeviceNames: [ // DeviceNames
+ *           "STRING_VALUE",
+ *         ],
+ *         DeviceNameContains: "STRING_VALUE",
+ *       },
+ *       DeploymentConfig: { // EdgeDeploymentConfig
+ *         FailureHandlingPolicy: "ROLLBACK_ON_FAILURE" || "DO_NOTHING", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreateEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEdgeDeploymentStageCommandInput - {@link CreateEdgeDeploymentStageCommandInput}
+ * @returns {@link CreateEdgeDeploymentStageCommandOutput}
  * @see {@link CreateEdgeDeploymentStageCommandInput} for command's `input` shape.
  * @see {@link CreateEdgeDeploymentStageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +91,9 @@ export class CreateEdgeDeploymentStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEdgeDeploymentStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +122,8 @@ export class CreateEdgeDeploymentStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEdgeDeploymentStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +133,21 @@ export class CreateEdgeDeploymentStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEdgeDeploymentStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEdgeDeploymentStageCommand(input, context);
+    return se_CreateEdgeDeploymentStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEdgeDeploymentStageCommandOutput> {
-    return deserializeAws_json1_1CreateEdgeDeploymentStageCommand(output, context);
+    return de_CreateEdgeDeploymentStageCommand(output, context);
   }
 
   // Start section: command_body_extra

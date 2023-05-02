@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  PutInsightRuleInput,
-  PutInsightRuleInputFilterSensitiveLog,
-  PutInsightRuleOutput,
-  PutInsightRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryPutInsightRuleCommand,
-  serializeAws_queryPutInsightRuleCommand,
-} from "../protocols/Aws_query";
+import { PutInsightRuleInput, PutInsightRuleOutput } from "../models/models_0";
+import { de_PutInsightRuleCommand, se_PutInsightRuleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutInsightRuleCommand}.
  */
 export interface PutInsightRuleCommandInput extends PutInsightRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link PutInsightRuleCommand}.
  */
 export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Contributor Insights rule. Rules evaluate log events in a
  * 		CloudWatch Logs log group, enabling you to find contributor data for the log events in that log group. For more information,
  * 		see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
@@ -46,10 +43,23 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  * import { CloudWatchClient, PutInsightRuleCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutInsightRuleCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // PutInsightRuleInput
+ *   RuleName: "STRING_VALUE", // required
+ *   RuleState: "STRING_VALUE",
+ *   RuleDefinition: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutInsightRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutInsightRuleCommandInput - {@link PutInsightRuleCommandInput}
+ * @returns {@link PutInsightRuleCommandOutput}
  * @see {@link PutInsightRuleCommandInput} for command's `input` shape.
  * @see {@link PutInsightRuleCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -82,6 +92,9 @@ export class PutInsightRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutInsightRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +123,8 @@ export class PutInsightRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutInsightRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutInsightRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +134,18 @@ export class PutInsightRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutInsightRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutInsightRuleCommand(input, context);
+    return se_PutInsightRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutInsightRuleCommandOutput> {
-    return deserializeAws_queryPutInsightRuleCommand(output, context);
+    return de_PutInsightRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

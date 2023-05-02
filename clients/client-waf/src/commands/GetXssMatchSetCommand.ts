@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetXssMatchSetRequest,
-  GetXssMatchSetRequestFilterSensitiveLog,
-  GetXssMatchSetResponse,
-  GetXssMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetXssMatchSetCommand,
-  serializeAws_json1_1GetXssMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { GetXssMatchSetRequest, GetXssMatchSetResponse } from "../models/models_0";
+import { de_GetXssMatchSetCommand, se_GetXssMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetXssMatchSetCommand}.
  */
 export interface GetXssMatchSetCommandInput extends GetXssMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetXssMatchSetCommand}.
  */
 export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -50,10 +47,15 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  * import { WAFClient, GetXssMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetXssMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // GetXssMatchSetRequest
+ *   XssMatchSetId: "STRING_VALUE", // required
+ * };
  * const command = new GetXssMatchSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetXssMatchSetCommandInput - {@link GetXssMatchSetCommandInput}
+ * @returns {@link GetXssMatchSetCommandOutput}
  * @see {@link GetXssMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -113,6 +115,9 @@ export class GetXssMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetXssMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +146,8 @@ export class GetXssMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetXssMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetXssMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +157,18 @@ export class GetXssMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetXssMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetXssMatchSetCommand(input, context);
+    return se_GetXssMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetXssMatchSetCommandOutput> {
-    return deserializeAws_json1_1GetXssMatchSetCommand(output, context);
+    return de_GetXssMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DeleteRetentionConfigurationRequest } from "../models/models_0";
 import {
-  DeleteRetentionConfigurationRequest,
-  DeleteRetentionConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRetentionConfigurationCommand,
-  serializeAws_json1_1DeleteRetentionConfigurationCommand,
+  de_DeleteRetentionConfigurationCommand,
+  se_DeleteRetentionConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRetentionConfigurationCommand}.
  */
 export interface DeleteRetentionConfigurationCommandInput extends DeleteRetentionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRetentionConfigurationCommand}.
  */
 export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the retention configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,15 @@ export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBea
  * import { ConfigServiceClient, DeleteRetentionConfigurationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteRetentionConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeleteRetentionConfigurationRequest
+ *   RetentionConfigurationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRetentionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRetentionConfigurationCommandInput - {@link DeleteRetentionConfigurationCommandInput}
+ * @returns {@link DeleteRetentionConfigurationCommandOutput}
  * @see {@link DeleteRetentionConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRetentionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteRetentionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRetentionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +112,8 @@ export class DeleteRetentionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRetentionConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +123,21 @@ export class DeleteRetentionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRetentionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRetentionConfigurationCommand(input, context);
+    return se_DeleteRetentionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRetentionConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteRetentionConfigurationCommand(output, context);
+    return de_DeleteRetentionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

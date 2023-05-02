@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DeleteStorageVirtualMachineRequest,
-  DeleteStorageVirtualMachineRequestFilterSensitiveLog,
-  DeleteStorageVirtualMachineResponse,
-  DeleteStorageVirtualMachineResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteStorageVirtualMachineCommand,
-  serializeAws_json1_1DeleteStorageVirtualMachineCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteStorageVirtualMachineRequest, DeleteStorageVirtualMachineResponse } from "../models/models_0";
+import { de_DeleteStorageVirtualMachineCommand, se_DeleteStorageVirtualMachineCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStorageVirtualMachineCommand}.
  */
 export interface DeleteStorageVirtualMachineCommandInput extends DeleteStorageVirtualMachineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStorageVirtualMachineCommand}.
  */
 export interface DeleteStorageVirtualMachineCommandOutput
@@ -37,6 +33,7 @@ export interface DeleteStorageVirtualMachineCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior
  *         to deleting an SVM, you must delete all non-root volumes in the SVM, otherwise the operation will fail.</p>
  * @example
@@ -45,10 +42,16 @@ export interface DeleteStorageVirtualMachineCommandOutput
  * import { FSxClient, DeleteStorageVirtualMachineCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteStorageVirtualMachineCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DeleteStorageVirtualMachineRequest
+ *   ClientRequestToken: "STRING_VALUE",
+ *   StorageVirtualMachineId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStorageVirtualMachineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStorageVirtualMachineCommandInput - {@link DeleteStorageVirtualMachineCommandInput}
+ * @returns {@link DeleteStorageVirtualMachineCommandOutput}
  * @see {@link DeleteStorageVirtualMachineCommandInput} for command's `input` shape.
  * @see {@link DeleteStorageVirtualMachineCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -86,6 +89,9 @@ export class DeleteStorageVirtualMachineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStorageVirtualMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class DeleteStorageVirtualMachineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStorageVirtualMachineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStorageVirtualMachineResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +131,21 @@ export class DeleteStorageVirtualMachineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStorageVirtualMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStorageVirtualMachineCommand(input, context);
+    return se_DeleteStorageVirtualMachineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteStorageVirtualMachineCommandOutput> {
-    return deserializeAws_json1_1DeleteStorageVirtualMachineCommand(output, context);
+    return de_DeleteStorageVirtualMachineCommand(output, context);
   }
 
   // Start section: command_body_extra

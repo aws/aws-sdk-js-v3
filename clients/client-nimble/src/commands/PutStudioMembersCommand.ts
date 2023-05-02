@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutStudioMembersRequest,
-  PutStudioMembersRequestFilterSensitiveLog,
-  PutStudioMembersResponse,
-  PutStudioMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutStudioMembersRequest, PutStudioMembersResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1PutStudioMembersCommand,
-  serializeAws_restJson1PutStudioMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutStudioMembersCommand, se_PutStudioMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutStudioMembersCommand}.
  */
 export interface PutStudioMembersCommandInput extends PutStudioMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutStudioMembersCommand}.
  */
 export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add/update users with given persona to studio membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse,
  * import { NimbleClient, PutStudioMembersCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, PutStudioMembersCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // PutStudioMembersRequest
+ *   clientToken: "STRING_VALUE",
+ *   identityStoreId: "STRING_VALUE", // required
+ *   members: [ // NewStudioMemberList // required
+ *     { // NewStudioMember
+ *       persona: "ADMINISTRATOR", // required
+ *       principalId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new PutStudioMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutStudioMembersCommandInput - {@link PutStudioMembersCommandInput}
+ * @returns {@link PutStudioMembersCommandOutput}
  * @see {@link PutStudioMembersCommandInput} for command's `input` shape.
  * @see {@link PutStudioMembersCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +103,9 @@ export class PutStudioMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutStudioMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +134,8 @@ export class PutStudioMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutStudioMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutStudioMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +145,18 @@ export class PutStudioMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutStudioMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutStudioMembersCommand(input, context);
+    return se_PutStudioMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutStudioMembersCommandOutput> {
-    return deserializeAws_restJson1PutStudioMembersCommand(output, context);
+    return de_PutStudioMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

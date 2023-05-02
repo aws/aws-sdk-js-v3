@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  CreateLocationEfsRequest,
-  CreateLocationEfsRequestFilterSensitiveLog,
-  CreateLocationEfsResponse,
-  CreateLocationEfsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationEfsCommand,
-  serializeAws_json1_1CreateLocationEfsCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLocationEfsRequest, CreateLocationEfsResponse } from "../models/models_0";
+import { de_CreateLocationEfsCommand, se_CreateLocationEfsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationEfsCommand}.
  */
 export interface CreateLocationEfsCommandInput extends CreateLocationEfsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationEfsCommand}.
  */
 export interface CreateLocationEfsCommandOutput extends CreateLocationEfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for an Amazon EFS file system that DataSync
  *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html">Creating a location for Amazon EFS</a>.</p>
  * @example
@@ -43,16 +40,38 @@ export interface CreateLocationEfsCommandOutput extends CreateLocationEfsRespons
  * import { DataSyncClient, CreateLocationEfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationEfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateLocationEfsRequest
+ *   Subdirectory: "STRING_VALUE",
+ *   EfsFilesystemArn: "STRING_VALUE", // required
+ *   Ec2Config: { // Ec2Config
+ *     SubnetArn: "STRING_VALUE", // required
+ *     SecurityGroupArns: [ // Ec2SecurityGroupArnList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AccessPointArn: "STRING_VALUE",
+ *   FileSystemAccessRoleArn: "STRING_VALUE",
+ *   InTransitEncryption: "NONE" || "TLS1_2",
+ * };
  * const command = new CreateLocationEfsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationEfsCommandInput - {@link CreateLocationEfsCommandInput}
+ * @returns {@link CreateLocationEfsCommandOutput}
  * @see {@link CreateLocationEfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationEfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
@@ -76,6 +95,9 @@ export class CreateLocationEfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationEfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +126,8 @@ export class CreateLocationEfsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationEfsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationEfsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +137,18 @@ export class CreateLocationEfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationEfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationEfsCommand(input, context);
+    return se_CreateLocationEfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationEfsCommandOutput> {
-    return deserializeAws_json1_1CreateLocationEfsCommand(output, context);
+    return de_CreateLocationEfsCommand(output, context);
   }
 
   // Start section: command_body_extra

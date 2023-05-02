@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendTextMessageRequest,
-  SendTextMessageRequestFilterSensitiveLog,
-  SendTextMessageResult,
-  SendTextMessageResultFilterSensitiveLog,
-} from "../models/models_0";
+import { SendTextMessageRequest, SendTextMessageResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0SendTextMessageCommand,
-  serializeAws_json1_0SendTextMessageCommand,
-} from "../protocols/Aws_json1_0";
+import { de_SendTextMessageCommand, se_SendTextMessageCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link SendTextMessageCommand}.
  */
 export interface SendTextMessageCommandInput extends SendTextMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendTextMessageCommand}.
  */
 export interface SendTextMessageCommandOutput extends SendTextMessageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new text message and sends it to a recipient's phone number.</p>
  *         <p>SMS throughput limits are measured in Message Parts per Second (MPS). Your MPS limit
  *             depends on the destination country of your messages, as well as the type of phone number
@@ -51,10 +48,29 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  * import { PinpointSMSVoiceV2Client, SendTextMessageCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, SendTextMessageCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // SendTextMessageRequest
+ *   DestinationPhoneNumber: "STRING_VALUE", // required
+ *   OriginationIdentity: "STRING_VALUE",
+ *   MessageBody: "STRING_VALUE",
+ *   MessageType: "STRING_VALUE",
+ *   Keyword: "STRING_VALUE",
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   MaxPrice: "STRING_VALUE",
+ *   TimeToLive: Number("int"),
+ *   Context: { // ContextMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   DestinationCountryParameters: { // DestinationCountryParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   DryRun: true || false,
+ * };
  * const command = new SendTextMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendTextMessageCommandInput - {@link SendTextMessageCommandInput}
+ * @returns {@link SendTextMessageCommandOutput}
  * @see {@link SendTextMessageCommandInput} for command's `input` shape.
  * @see {@link SendTextMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -105,6 +121,9 @@ export class SendTextMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendTextMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +152,8 @@ export class SendTextMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendTextMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendTextMessageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +163,18 @@ export class SendTextMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendTextMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0SendTextMessageCommand(input, context);
+    return se_SendTextMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTextMessageCommandOutput> {
-    return deserializeAws_json1_0SendTextMessageCommand(output, context);
+    return de_SendTextMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteRegistrationCodeRequest,
-  DeleteRegistrationCodeRequestFilterSensitiveLog,
-  DeleteRegistrationCodeResponse,
-  DeleteRegistrationCodeResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteRegistrationCodeCommand,
-  serializeAws_restJson1DeleteRegistrationCodeCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRegistrationCodeRequest, DeleteRegistrationCodeResponse } from "../models/models_1";
+import { de_DeleteRegistrationCodeCommand, se_DeleteRegistrationCodeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRegistrationCodeCommand}.
  */
 export interface DeleteRegistrationCodeCommandInput extends DeleteRegistrationCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRegistrationCodeCommand}.
  */
 export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationCodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a CA certificate registration code.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteRegistrationCode</a> action.</p>
  * @example
@@ -43,10 +40,13 @@ export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationC
  * import { IoTClient, DeleteRegistrationCodeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteRegistrationCodeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {};
  * const command = new DeleteRegistrationCodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRegistrationCodeCommandInput - {@link DeleteRegistrationCodeCommandInput}
+ * @returns {@link DeleteRegistrationCodeCommandOutput}
  * @see {@link DeleteRegistrationCodeCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistrationCodeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +85,9 @@ export class DeleteRegistrationCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRegistrationCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +116,8 @@ export class DeleteRegistrationCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRegistrationCodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRegistrationCodeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +127,18 @@ export class DeleteRegistrationCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRegistrationCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRegistrationCodeCommand(input, context);
+    return se_DeleteRegistrationCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistrationCodeCommandOutput> {
-    return deserializeAws_restJson1DeleteRegistrationCodeCommand(output, context);
+    return de_DeleteRegistrationCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  UpdateSiteRequest,
-  UpdateSiteRequestFilterSensitiveLog,
-  UpdateSiteResponse,
-  UpdateSiteResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSiteCommand,
-  serializeAws_restJson1UpdateSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateSiteRequest, UpdateSiteResponse } from "../models/models_0";
+import { de_UpdateSiteCommand, se_UpdateSiteCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSiteCommand}.
  */
 export interface UpdateSiteCommandInput extends UpdateSiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSiteCommand}.
  */
 export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to update a site
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * import { IoTRoboRunnerClient, UpdateSiteCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, UpdateSiteCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // UpdateSiteRequest
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   countryCode: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateSiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSiteCommandInput - {@link UpdateSiteCommandInput}
+ * @returns {@link UpdateSiteCommandOutput}
  * @see {@link UpdateSiteCommandInput} for command's `input` shape.
  * @see {@link UpdateSiteCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -84,6 +89,9 @@ export class UpdateSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +118,8 @@ export class UpdateSiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSiteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSiteResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +129,18 @@ export class UpdateSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSiteCommand(input, context);
+    return se_UpdateSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSiteCommandOutput> {
-    return deserializeAws_restJson1UpdateSiteCommand(output, context);
+    return de_UpdateSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

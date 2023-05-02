@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import {
-  DescribeEventsRequest,
-  DescribeEventsRequestFilterSensitiveLog,
-  DescribeEventsResponse,
-  DescribeEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventsCommand,
-  serializeAws_json1_1DescribeEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEventsRequest, DescribeEventsResponse } from "../models/models_0";
+import { de_DescribeEventsCommand, se_DescribeEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandInput extends DescribeEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns information about events that meet the specified filter criteria. Events are
  *          returned in a summary form and do not include the detailed description, any additional
  *          metadata that depends on the event type, or any affected resources. To retrieve that
@@ -64,10 +61,69 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * import { HealthClient, DescribeEventsCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventsCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = { // DescribeEventsRequest
+ *   filter: { // EventFilter
+ *     eventArns: [ // eventArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCodes: [ // eventTypeList2
+ *       "STRING_VALUE",
+ *     ],
+ *     services: [ // serviceList
+ *       "STRING_VALUE",
+ *     ],
+ *     regions: [ // regionList
+ *       "STRING_VALUE",
+ *     ],
+ *     availabilityZones: [ // availabilityZones
+ *       "STRING_VALUE",
+ *     ],
+ *     startTimes: [ // dateTimeRangeList
+ *       { // DateTimeRange
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     endTimes: [
+ *       {
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     lastUpdatedTimes: [
+ *       {
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     entityArns: [ // entityArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     entityValues: [ // entityValueList
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCategories: [ // eventTypeCategoryList2
+ *       "STRING_VALUE",
+ *     ],
+ *     tags: [ // tagFilter
+ *       { // tagSet
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     ],
+ *     eventStatusCodes: [ // eventStatusCodeList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
+ * @returns {@link DescribeEventsCommandOutput}
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -97,6 +153,9 @@ export class DescribeEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +184,8 @@ export class DescribeEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +195,18 @@ export class DescribeEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventsCommand(input, context);
+    return se_DescribeEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventsCommandOutput> {
-    return deserializeAws_json1_1DescribeEventsCommand(output, context);
+    return de_DescribeEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

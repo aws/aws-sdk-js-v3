@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisableSecurityHubRequest,
-  DisableSecurityHubRequestFilterSensitiveLog,
-  DisableSecurityHubResponse,
-  DisableSecurityHubResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DisableSecurityHubCommand,
-  serializeAws_restJson1DisableSecurityHubCommand,
-} from "../protocols/Aws_restJson1";
+import { DisableSecurityHubRequest, DisableSecurityHubResponse } from "../models/models_2";
+import { de_DisableSecurityHubCommand, se_DisableSecurityHubCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableSecurityHubCommand}.
  */
 export interface DisableSecurityHubCommandInput extends DisableSecurityHubRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableSecurityHubCommand}.
  */
 export interface DisableSecurityHubCommandOutput extends DisableSecurityHubResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all
  *          Regions, you must submit one request per Region where you have enabled Security Hub.</p>
  *          <p>When you disable Security Hub for an administrator account, it doesn't disable Security Hub for any associated
@@ -50,10 +47,13 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  * import { SecurityHubClient, DisableSecurityHubCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisableSecurityHubCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {};
  * const command = new DisableSecurityHubCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableSecurityHubCommandInput - {@link DisableSecurityHubCommandInput}
+ * @returns {@link DisableSecurityHubCommandOutput}
  * @see {@link DisableSecurityHubCommandInput} for command's `input` shape.
  * @see {@link DisableSecurityHubCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -71,6 +71,15 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ *
+ * @example To deactivate Security Hub
+ * ```javascript
+ * // The following example deactivates Security Hub for the current account and Region.
+ * const input = undefined;
+ * const command = new DisableSecurityHubCommand(input);
+ * await client.send(command);
+ * // example id: to-deactivate-security-hub-1676583894245
+ * ```
  *
  */
 export class DisableSecurityHubCommand extends $Command<
@@ -90,6 +99,9 @@ export class DisableSecurityHubCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableSecurityHubCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class DisableSecurityHubCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableSecurityHubRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableSecurityHubResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +141,18 @@ export class DisableSecurityHubCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableSecurityHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableSecurityHubCommand(input, context);
+    return se_DisableSecurityHubCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableSecurityHubCommandOutput> {
-    return deserializeAws_restJson1DisableSecurityHubCommand(output, context);
+    return de_DisableSecurityHubCommand(output, context);
   }
 
   // Start section: command_body_extra

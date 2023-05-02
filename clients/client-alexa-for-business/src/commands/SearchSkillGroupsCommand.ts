@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  SearchSkillGroupsRequest,
-  SearchSkillGroupsRequestFilterSensitiveLog,
-  SearchSkillGroupsResponse,
-  SearchSkillGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchSkillGroupsCommand,
-  serializeAws_json1_1SearchSkillGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchSkillGroupsRequest, SearchSkillGroupsResponse } from "../models/models_0";
+import { de_SearchSkillGroupsCommand, se_SearchSkillGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchSkillGroupsCommand}.
  */
 export interface SearchSkillGroupsCommandInput extends SearchSkillGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchSkillGroupsCommand}.
  */
 export interface SearchSkillGroupsCommandOutput extends SearchSkillGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches skill groups and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -43,10 +40,30 @@ export interface SearchSkillGroupsCommandOutput extends SearchSkillGroupsRespons
  * import { AlexaForBusinessClient, SearchSkillGroupsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SearchSkillGroupsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // SearchSkillGroupsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   SortCriteria: [ // SortList
+ *     { // Sort
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SearchSkillGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchSkillGroupsCommandInput - {@link SearchSkillGroupsCommandInput}
+ * @returns {@link SearchSkillGroupsCommandOutput}
  * @see {@link SearchSkillGroupsCommandInput} for command's `input` shape.
  * @see {@link SearchSkillGroupsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -70,6 +87,9 @@ export class SearchSkillGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchSkillGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +118,8 @@ export class SearchSkillGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchSkillGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchSkillGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +129,18 @@ export class SearchSkillGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchSkillGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchSkillGroupsCommand(input, context);
+    return se_SearchSkillGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSkillGroupsCommandOutput> {
-    return deserializeAws_json1_1SearchSkillGroupsCommand(output, context);
+    return de_SearchSkillGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

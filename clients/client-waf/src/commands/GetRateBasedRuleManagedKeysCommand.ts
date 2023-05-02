@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRateBasedRuleManagedKeysRequest,
-  GetRateBasedRuleManagedKeysRequestFilterSensitiveLog,
-  GetRateBasedRuleManagedKeysResponse,
-  GetRateBasedRuleManagedKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRateBasedRuleManagedKeysCommand,
-  serializeAws_json1_1GetRateBasedRuleManagedKeysCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRateBasedRuleManagedKeysRequest, GetRateBasedRuleManagedKeysResponse } from "../models/models_0";
+import { de_GetRateBasedRuleManagedKeysCommand, se_GetRateBasedRuleManagedKeysCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRateBasedRuleManagedKeysCommand}.
  */
 export interface GetRateBasedRuleManagedKeysCommandInput extends GetRateBasedRuleManagedKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRateBasedRuleManagedKeysCommand}.
  */
 export interface GetRateBasedRuleManagedKeysCommandOutput
@@ -37,6 +33,7 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,10 +51,16 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
  * import { WAFClient, GetRateBasedRuleManagedKeysCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetRateBasedRuleManagedKeysCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // GetRateBasedRuleManagedKeysRequest
+ *   RuleId: "STRING_VALUE", // required
+ *   NextMarker: "STRING_VALUE",
+ * };
  * const command = new GetRateBasedRuleManagedKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRateBasedRuleManagedKeysCommandInput - {@link GetRateBasedRuleManagedKeysCommandInput}
+ * @returns {@link GetRateBasedRuleManagedKeysCommandOutput}
  * @see {@link GetRateBasedRuleManagedKeysCommandInput} for command's `input` shape.
  * @see {@link GetRateBasedRuleManagedKeysCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -130,6 +133,9 @@ export class GetRateBasedRuleManagedKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRateBasedRuleManagedKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,8 +164,8 @@ export class GetRateBasedRuleManagedKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRateBasedRuleManagedKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRateBasedRuleManagedKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -169,15 +175,21 @@ export class GetRateBasedRuleManagedKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRateBasedRuleManagedKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRateBasedRuleManagedKeysCommand(input, context);
+    return se_GetRateBasedRuleManagedKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRateBasedRuleManagedKeysCommandOutput> {
-    return deserializeAws_json1_1GetRateBasedRuleManagedKeysCommand(output, context);
+    return de_GetRateBasedRuleManagedKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

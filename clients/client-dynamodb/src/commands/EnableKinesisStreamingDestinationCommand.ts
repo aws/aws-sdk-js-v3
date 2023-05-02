@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
+import { KinesisStreamingDestinationInput, KinesisStreamingDestinationOutput } from "../models/models_0";
 import {
-  KinesisStreamingDestinationInput,
-  KinesisStreamingDestinationInputFilterSensitiveLog,
-  KinesisStreamingDestinationOutput,
-  KinesisStreamingDestinationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0EnableKinesisStreamingDestinationCommand,
-  serializeAws_json1_0EnableKinesisStreamingDestinationCommand,
+  de_EnableKinesisStreamingDestinationCommand,
+  se_EnableKinesisStreamingDestinationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link EnableKinesisStreamingDestinationCommand}.
  */
 export interface EnableKinesisStreamingDestinationCommandInput extends KinesisStreamingDestinationInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableKinesisStreamingDestinationCommand}.
  */
 export interface EnableKinesisStreamingDestinationCommandOutput
@@ -37,6 +36,7 @@ export interface EnableKinesisStreamingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts table data replication to the specified Kinesis data stream at a timestamp
  *             chosen during the enable workflow. If this operation doesn't return results immediately,
  *             use DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream
@@ -47,10 +47,16 @@ export interface EnableKinesisStreamingDestinationCommandOutput
  * import { DynamoDBClient, EnableKinesisStreamingDestinationCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, EnableKinesisStreamingDestinationCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // KinesisStreamingDestinationInput
+ *   TableName: "STRING_VALUE", // required
+ *   StreamArn: "STRING_VALUE", // required
+ * };
  * const command = new EnableKinesisStreamingDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableKinesisStreamingDestinationCommandInput - {@link EnableKinesisStreamingDestinationCommandInput}
+ * @returns {@link EnableKinesisStreamingDestinationCommandOutput}
  * @see {@link EnableKinesisStreamingDestinationCommandInput} for command's `input` shape.
  * @see {@link EnableKinesisStreamingDestinationCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -101,6 +107,9 @@ export class EnableKinesisStreamingDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableKinesisStreamingDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +138,8 @@ export class EnableKinesisStreamingDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: KinesisStreamingDestinationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: KinesisStreamingDestinationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +149,24 @@ export class EnableKinesisStreamingDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableKinesisStreamingDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0EnableKinesisStreamingDestinationCommand(input, context);
+    return se_EnableKinesisStreamingDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableKinesisStreamingDestinationCommandOutput> {
-    return deserializeAws_json1_0EnableKinesisStreamingDestinationCommand(output, context);
+    return de_EnableKinesisStreamingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

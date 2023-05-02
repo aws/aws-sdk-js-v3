@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAppInput,
-  DeleteAppInputFilterSensitiveLog,
-  DeleteAppOutput,
-  DeleteAppOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAppCommand,
-  serializeAws_restJson1DeleteAppCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAppInput, DeleteAppOutput } from "../models/models_0";
+import { de_DeleteAppCommand, se_DeleteAppCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppCommand}.
  */
 export interface DeleteAppCommandInput extends DeleteAppInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppCommand}.
  */
 export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the instance of the given custom app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBeare
  * import { SimSpaceWeaverClient, DeleteAppCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, DeleteAppCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
+ * const input = { // DeleteAppInput
+ *   Simulation: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE", // required
+ *   App: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
+ * @returns {@link DeleteAppCommandOutput}
  * @see {@link DeleteAppCommandInput} for command's `input` shape.
  * @see {@link DeleteAppCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -84,6 +88,9 @@ export class DeleteAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class DeleteAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class DeleteAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppCommand(input, context);
+    return se_DeleteAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppCommandOutput> {
-    return deserializeAws_restJson1DeleteAppCommand(output, context);
+    return de_DeleteAppCommand(output, context);
   }
 
   // Start section: command_body_extra

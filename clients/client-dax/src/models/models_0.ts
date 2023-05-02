@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { DAXServiceException as __BaseException } from "./DAXServiceException";
 
 /**
+ * @public
  * <p>You already have a DAX cluster with the given identifier.</p>
  */
 export class ClusterAlreadyExistsFault extends __BaseException {
@@ -23,6 +24,7 @@ export class ClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have attempted to exceed the maximum number of DAX clusters for your AWS
  *             account.</p>
  */
@@ -42,12 +44,23 @@ export class ClusterQuotaForCustomerExceededFault extends __BaseException {
   }
 }
 
-export enum ClusterEndpointEncryptionType {
-  NONE = "NONE",
-  TLS = "TLS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClusterEndpointEncryptionType = {
+  NONE: "NONE",
+  TLS: "TLS",
+} as const;
 
 /**
+ * @public
+ */
+export type ClusterEndpointEncryptionType =
+  (typeof ClusterEndpointEncryptionType)[keyof typeof ClusterEndpointEncryptionType];
+
+/**
+ * @public
  * <p>Represents the settings used to enable server-side encryption.</p>
  */
 export interface SSESpecification {
@@ -58,6 +71,7 @@ export interface SSESpecification {
 }
 
 /**
+ * @public
  * <p>A description of a tag.  Every tag is a key-value pair. You can add up to 50 tags to a single
  *             DAX cluster.</p>
  *         <p>AWS-assigned tag names and values are automatically assigned the <code>aws:</code>
@@ -79,6 +93,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterRequest {
   /**
    * <p>The cluster identifier. This parameter is stored as a lowercase
@@ -248,6 +265,7 @@ export interface CreateClusterRequest {
 }
 
 /**
+ * @public
  * <p>Represents the information required for client programs to connect to the
  *             endpoint for a DAX cluster.</p>
  */
@@ -270,6 +288,7 @@ export interface Endpoint {
 }
 
 /**
+ * @public
  * <p>Represents an individual node within a DAX cluster.</p>
  */
 export interface Node {
@@ -309,6 +328,7 @@ export interface Node {
 }
 
 /**
+ * @public
  * <p>Describes a notification topic and its status. Notification topics are used for
  *             publishing DAX events to subscribers using Amazon Simple Notification Service
  *             (SNS).</p>
@@ -328,6 +348,7 @@ export interface NotificationConfiguration {
 }
 
 /**
+ * @public
  * <p>The status of a parameter group.</p>
  */
 export interface ParameterGroupStatus {
@@ -348,6 +369,7 @@ export interface ParameterGroupStatus {
 }
 
 /**
+ * @public
  * <p>An individual VPC security group and its status.</p>
  */
 export interface SecurityGroupMembership {
@@ -362,9 +384,13 @@ export interface SecurityGroupMembership {
   Status?: string;
 }
 
+/**
+ * @public
+ */
 export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
 
 /**
+ * @public
  * <p>The description of the server-side encryption status on the specified DAX cluster.</p>
  */
 export interface SSEDescription {
@@ -393,6 +419,7 @@ export interface SSEDescription {
 }
 
 /**
+ * @public
  * <p>Contains all of the attributes of a specific DAX cluster.</p>
  */
 export interface Cluster {
@@ -506,6 +533,9 @@ export interface Cluster {
   ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterResponse {
   /**
    * <p>A description of the DAX cluster that you have created.</p>
@@ -514,6 +544,7 @@ export interface CreateClusterResponse {
 }
 
 /**
+ * @public
  * <p>There are not enough system resources to create the cluster you requested (or to
  *             resize an already-existing cluster). </p>
  */
@@ -534,6 +565,7 @@ export class InsufficientClusterCapacityFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested DAX cluster is not in the <i>available</i>
  *             state.</p>
  */
@@ -554,6 +586,7 @@ export class InvalidClusterStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Two or more incompatible parameters were specified.</p>
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -573,6 +606,7 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more parameters in a parameter group are in an invalid state.</p>
  */
 export class InvalidParameterGroupStateFault extends __BaseException {
@@ -592,6 +626,7 @@ export class InvalidParameterGroupStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The value for a parameter is invalid.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -611,6 +646,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The VPC network is in an invalid state.</p>
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
@@ -630,6 +666,7 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have attempted to exceed the maximum number of nodes for a DAX
  *             cluster.</p>
  */
@@ -650,6 +687,7 @@ export class NodeQuotaForClusterExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have attempted to exceed the maximum number of nodes for your AWS
  *             account.</p>
  */
@@ -670,6 +708,7 @@ export class NodeQuotaForCustomerExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified parameter group does not exist.</p>
  */
 export class ParameterGroupNotFoundFault extends __BaseException {
@@ -689,6 +728,7 @@ export class ParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified service linked role (SLR) was not found.</p>
  */
 export class ServiceLinkedRoleNotFoundFault extends __BaseException {
@@ -708,6 +748,7 @@ export class ServiceLinkedRoleNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of x509 certificates that can be created for
  *             encrypted clusters in a 30 day period. Contact AWS customer support to discuss options
  *             for continuing to create encrypted clusters.</p>
@@ -729,6 +770,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested subnet group name does not refer to an existing subnet
  *             group.</p>
  */
@@ -749,6 +791,7 @@ export class SubnetGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
  */
 export class TagQuotaPerResourceExceeded extends __BaseException {
@@ -767,6 +810,9 @@ export class TagQuotaPerResourceExceeded extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateParameterGroupRequest {
   /**
    * <p>The name of the parameter group to apply to all of the clusters in this replication
@@ -781,6 +827,7 @@ export interface CreateParameterGroupRequest {
 }
 
 /**
+ * @public
  * <p>A named set of parameters that are applied to all of the nodes in a DAX
  *             cluster.</p>
  */
@@ -796,6 +843,9 @@ export interface ParameterGroup {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateParameterGroupResponse {
   /**
    * <p>Represents the output of a <i>CreateParameterGroup</i>
@@ -805,6 +855,7 @@ export interface CreateParameterGroupResponse {
 }
 
 /**
+ * @public
  * <p>The specified parameter group already exists.</p>
  */
 export class ParameterGroupAlreadyExistsFault extends __BaseException {
@@ -824,6 +875,7 @@ export class ParameterGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have attempted to exceed the maximum number of parameter groups.</p>
  */
 export class ParameterGroupQuotaExceededFault extends __BaseException {
@@ -842,6 +894,9 @@ export class ParameterGroupQuotaExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateSubnetGroupRequest {
   /**
    * <p>A name for the subnet group. This value is stored as a lowercase string. </p>
@@ -860,6 +915,7 @@ export interface CreateSubnetGroupRequest {
 }
 
 /**
+ * @public
  * <p>Represents the subnet associated with a DAX cluster. This parameter refers to
  *             subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with
  *             DAX.</p>
@@ -877,6 +933,7 @@ export interface Subnet {
 }
 
 /**
+ * @public
  * <p>Represents the output of one of the following actions:</p>
  *         <ul>
  *             <li>
@@ -913,6 +970,9 @@ export interface SubnetGroup {
   Subnets?: Subnet[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSubnetGroupResponse {
   /**
    * <p>Represents the output of a <i>CreateSubnetGroup</i>
@@ -922,6 +982,7 @@ export interface CreateSubnetGroupResponse {
 }
 
 /**
+ * @public
  * <p>An invalid subnet identifier was specified.</p>
  */
 export class InvalidSubnet extends __BaseException {
@@ -941,6 +1002,7 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified subnet group already exists.</p>
  */
 export class SubnetGroupAlreadyExistsFault extends __BaseException {
@@ -960,6 +1022,7 @@ export class SubnetGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the allowed number of
  *             subnets in a subnet group.</p>
  */
@@ -980,6 +1043,7 @@ export class SubnetGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the allowed number of
  *             subnets in a subnet group.</p>
  */
@@ -1000,6 +1064,7 @@ export class SubnetQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
  */
 export class ClusterNotFoundFault extends __BaseException {
@@ -1018,6 +1083,9 @@ export class ClusterNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DecreaseReplicationFactorRequest {
   /**
    * <p>The name of the DAX cluster from which you want to remove nodes.</p>
@@ -1040,6 +1108,9 @@ export interface DecreaseReplicationFactorRequest {
   NodeIdsToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DecreaseReplicationFactorResponse {
   /**
    * <p>A description of the DAX cluster, after you have decreased its replication
@@ -1049,6 +1120,7 @@ export interface DecreaseReplicationFactorResponse {
 }
 
 /**
+ * @public
  * <p>None of the nodes in the cluster have the given node ID.</p>
  */
 export class NodeNotFoundFault extends __BaseException {
@@ -1067,6 +1139,9 @@ export class NodeNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterRequest {
   /**
    * <p>The name of the cluster to be deleted.</p>
@@ -1074,6 +1149,9 @@ export interface DeleteClusterRequest {
   ClusterName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterResponse {
   /**
    * <p>A description of the DAX cluster that is being deleted.</p>
@@ -1081,6 +1159,9 @@ export interface DeleteClusterResponse {
   Cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface DeleteParameterGroupRequest {
   /**
    * <p>The name of the parameter group to delete.</p>
@@ -1088,6 +1169,9 @@ export interface DeleteParameterGroupRequest {
   ParameterGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteParameterGroupResponse {
   /**
    * <p>A user-specified message for this action (i.e., a reason for deleting the parameter
@@ -1096,6 +1180,9 @@ export interface DeleteParameterGroupResponse {
   DeletionMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubnetGroupRequest {
   /**
    * <p>The name of the subnet group to delete.</p>
@@ -1103,6 +1190,9 @@ export interface DeleteSubnetGroupRequest {
   SubnetGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubnetGroupResponse {
   /**
    * <p>A user-specified message for this action (i.e., a reason for deleting the subnet
@@ -1112,6 +1202,7 @@ export interface DeleteSubnetGroupResponse {
 }
 
 /**
+ * @public
  * <p>The specified subnet group is currently in use.</p>
  */
 export class SubnetGroupInUseFault extends __BaseException {
@@ -1130,6 +1221,9 @@ export class SubnetGroupInUseFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeClustersRequest {
   /**
    * <p>The names of the DAX clusters being described.</p>
@@ -1153,6 +1247,9 @@ export interface DescribeClustersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClustersResponse {
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1166,6 +1263,9 @@ export interface DescribeClustersResponse {
   Clusters?: Cluster[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeDefaultParametersRequest {
   /**
    * <p>The maximum number of results to include in the response. If more results exist
@@ -1184,11 +1284,18 @@ export interface DescribeDefaultParametersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export type ChangeType = "IMMEDIATE" | "REQUIRES_REBOOT";
 
+/**
+ * @public
+ */
 export type IsModifiable = "CONDITIONAL" | "FALSE" | "TRUE";
 
 /**
+ * @public
  * <p>Represents a parameter value that is applicable to a particular node
  *             type.</p>
  */
@@ -1204,9 +1311,13 @@ export interface NodeTypeSpecificValue {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export type ParameterType = "DEFAULT" | "NODE_TYPE_SPECIFIC";
 
 /**
+ * @public
  * <p>Describes an individual setting that controls some aspect of DAX
  *             behavior.</p>
  */
@@ -1266,6 +1377,9 @@ export interface Parameter {
   ChangeType?: ChangeType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDefaultParametersResponse {
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1278,8 +1392,14 @@ export interface DescribeDefaultParametersResponse {
   Parameters?: Parameter[];
 }
 
+/**
+ * @public
+ */
 export type SourceType = "CLUSTER" | "PARAMETER_GROUP" | "SUBNET_GROUP";
 
+/**
+ * @public
+ */
 export interface DescribeEventsRequest {
   /**
    * <p>The identifier of the event source for which events will be returned. If not
@@ -1328,6 +1448,7 @@ export interface DescribeEventsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a single occurrence of something interesting within the system. Some
  *             examples of events are creating a DAX cluster, adding or removing a node, or rebooting
  *             a node.</p>
@@ -1356,6 +1477,9 @@ export interface Event {
   Date?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventsResponse {
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1368,6 +1492,9 @@ export interface DescribeEventsResponse {
   Events?: Event[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeParameterGroupsRequest {
   /**
    * <p>The names of the parameter groups.</p>
@@ -1391,6 +1518,9 @@ export interface DescribeParameterGroupsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeParameterGroupsResponse {
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1403,6 +1533,9 @@ export interface DescribeParameterGroupsResponse {
   ParameterGroups?: ParameterGroup[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeParametersRequest {
   /**
    * <p>The name of the parameter group.</p>
@@ -1432,6 +1565,9 @@ export interface DescribeParametersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeParametersResponse {
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1444,6 +1580,9 @@ export interface DescribeParametersResponse {
   Parameters?: Parameter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubnetGroupsRequest {
   /**
    * <p>The name of the subnet group.</p>
@@ -1467,6 +1606,9 @@ export interface DescribeSubnetGroupsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubnetGroupsResponse {
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1479,6 +1621,9 @@ export interface DescribeSubnetGroupsResponse {
   SubnetGroups?: SubnetGroup[];
 }
 
+/**
+ * @public
+ */
 export interface IncreaseReplicationFactorRequest {
   /**
    * <p>The name of the DAX cluster that will receive additional nodes.</p>
@@ -1498,6 +1643,9 @@ export interface IncreaseReplicationFactorRequest {
   AvailabilityZones?: string[];
 }
 
+/**
+ * @public
+ */
 export interface IncreaseReplicationFactorResponse {
   /**
    * <p>A description of the DAX cluster. with its new replication factor.</p>
@@ -1506,6 +1654,7 @@ export interface IncreaseReplicationFactorResponse {
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
  */
 export class InvalidARNFault extends __BaseException {
@@ -1524,6 +1673,9 @@ export class InvalidARNFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsRequest {
   /**
    * <p>The name of the DAX resource to which the tags belong.</p>
@@ -1538,6 +1690,9 @@ export interface ListTagsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsResponse {
   /**
    * <p>A list of tags currently associated with the DAX cluster.</p>
@@ -1551,6 +1706,9 @@ export interface ListTagsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RebootNodeRequest {
   /**
    * <p>The name of the DAX cluster containing the node to be rebooted.</p>
@@ -1563,6 +1721,9 @@ export interface RebootNodeRequest {
   NodeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebootNodeResponse {
   /**
    * <p>A description of the DAX cluster after a node has been rebooted.</p>
@@ -1570,6 +1731,9 @@ export interface RebootNodeResponse {
   Cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The name of the DAX resource to which tags should be added.</p>
@@ -1582,6 +1746,9 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {
   /**
    * <p>The list of tags that are associated with the DAX resource.</p>
@@ -1590,6 +1757,7 @@ export interface TagResourceResponse {
 }
 
 /**
+ * @public
  * <p>The tag does not exist.</p>
  */
 export class TagNotFoundFault extends __BaseException {
@@ -1608,6 +1776,9 @@ export class TagNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The name of the DAX resource from which the tags should be removed.</p>
@@ -1620,6 +1791,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {
   /**
    * <p>The tag keys that have been removed from the cluster.</p>
@@ -1627,6 +1801,9 @@ export interface UntagResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterRequest {
   /**
    * <p>The name of the DAX cluster to be modified.</p>
@@ -1669,6 +1846,9 @@ export interface UpdateClusterRequest {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterResponse {
   /**
    * <p>A description of the DAX cluster, after it has been modified.</p>
@@ -1677,6 +1857,7 @@ export interface UpdateClusterResponse {
 }
 
 /**
+ * @public
  * <p>An individual DAX parameter.</p>
  */
 export interface ParameterNameValue {
@@ -1691,6 +1872,9 @@ export interface ParameterNameValue {
   ParameterValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateParameterGroupRequest {
   /**
    * <p>The name of the parameter group.</p>
@@ -1708,6 +1892,9 @@ export interface UpdateParameterGroupRequest {
   ParameterNameValues: ParameterNameValue[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateParameterGroupResponse {
   /**
    * <p>The parameter group that has been modified.</p>
@@ -1716,6 +1903,7 @@ export interface UpdateParameterGroupResponse {
 }
 
 /**
+ * @public
  * <p>The requested subnet is being used by another subnet group.</p>
  */
 export class SubnetInUse extends __BaseException {
@@ -1734,6 +1922,9 @@ export class SubnetInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubnetGroupRequest {
   /**
    * <p>The name of the subnet group.</p>
@@ -1751,415 +1942,12 @@ export interface UpdateSubnetGroupRequest {
   SubnetIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubnetGroupResponse {
   /**
    * <p>The subnet group that has been modified.</p>
    */
   SubnetGroup?: SubnetGroup;
 }
-
-/**
- * @internal
- */
-export const SSESpecificationFilterSensitiveLog = (obj: SSESpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterRequestFilterSensitiveLog = (obj: CreateClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeFilterSensitiveLog = (obj: Node): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationConfigurationFilterSensitiveLog = (obj: NotificationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterGroupStatusFilterSensitiveLog = (obj: ParameterGroupStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityGroupMembershipFilterSensitiveLog = (obj: SecurityGroupMembership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SSEDescriptionFilterSensitiveLog = (obj: SSEDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterResponseFilterSensitiveLog = (obj: CreateClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateParameterGroupRequestFilterSensitiveLog = (obj: CreateParameterGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterGroupFilterSensitiveLog = (obj: ParameterGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateParameterGroupResponseFilterSensitiveLog = (obj: CreateParameterGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSubnetGroupRequestFilterSensitiveLog = (obj: CreateSubnetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetGroupFilterSensitiveLog = (obj: SubnetGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSubnetGroupResponseFilterSensitiveLog = (obj: CreateSubnetGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DecreaseReplicationFactorRequestFilterSensitiveLog = (obj: DecreaseReplicationFactorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DecreaseReplicationFactorResponseFilterSensitiveLog = (obj: DecreaseReplicationFactorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterRequestFilterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterResponseFilterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteParameterGroupRequestFilterSensitiveLog = (obj: DeleteParameterGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteParameterGroupResponseFilterSensitiveLog = (obj: DeleteParameterGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubnetGroupRequestFilterSensitiveLog = (obj: DeleteSubnetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubnetGroupResponseFilterSensitiveLog = (obj: DeleteSubnetGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClustersRequestFilterSensitiveLog = (obj: DescribeClustersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClustersResponseFilterSensitiveLog = (obj: DescribeClustersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDefaultParametersRequestFilterSensitiveLog = (obj: DescribeDefaultParametersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeTypeSpecificValueFilterSensitiveLog = (obj: NodeTypeSpecificValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterFilterSensitiveLog = (obj: Parameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDefaultParametersResponseFilterSensitiveLog = (obj: DescribeDefaultParametersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventsRequestFilterSensitiveLog = (obj: DescribeEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventFilterSensitiveLog = (obj: Event): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventsResponseFilterSensitiveLog = (obj: DescribeEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeParameterGroupsRequestFilterSensitiveLog = (obj: DescribeParameterGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeParameterGroupsResponseFilterSensitiveLog = (obj: DescribeParameterGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeParametersRequestFilterSensitiveLog = (obj: DescribeParametersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeParametersResponseFilterSensitiveLog = (obj: DescribeParametersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSubnetGroupsRequestFilterSensitiveLog = (obj: DescribeSubnetGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSubnetGroupsResponseFilterSensitiveLog = (obj: DescribeSubnetGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IncreaseReplicationFactorRequestFilterSensitiveLog = (obj: IncreaseReplicationFactorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IncreaseReplicationFactorResponseFilterSensitiveLog = (obj: IncreaseReplicationFactorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootNodeRequestFilterSensitiveLog = (obj: RebootNodeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootNodeResponseFilterSensitiveLog = (obj: RebootNodeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClusterRequestFilterSensitiveLog = (obj: UpdateClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClusterResponseFilterSensitiveLog = (obj: UpdateClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterNameValueFilterSensitiveLog = (obj: ParameterNameValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateParameterGroupRequestFilterSensitiveLog = (obj: UpdateParameterGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateParameterGroupResponseFilterSensitiveLog = (obj: UpdateParameterGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSubnetGroupRequestFilterSensitiveLog = (obj: UpdateSubnetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSubnetGroupResponseFilterSensitiveLog = (obj: UpdateSubnetGroupResponse): any => ({
-  ...obj,
-});

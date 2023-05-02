@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  ListNetworksInput,
-  ListNetworksInputFilterSensitiveLog,
-  ListNetworksOutput,
-  ListNetworksOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNetworksCommand,
-  serializeAws_restJson1ListNetworksCommand,
-} from "../protocols/Aws_restJson1";
+import { ListNetworksInput, ListNetworksOutput } from "../models/models_0";
+import { de_ListNetworksCommand, se_ListNetworksCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNetworksCommand}.
  */
 export interface ListNetworksCommandInput extends ListNetworksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListNetworksCommand}.
  */
 export interface ListNetworksCommandOutput extends ListNetworksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the networks in which the current Amazon Web Services account participates.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -47,10 +44,19 @@ export interface ListNetworksCommandOutput extends ListNetworksOutput, __Metadat
  * import { ManagedBlockchainClient, ListNetworksCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListNetworksCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // ListNetworksInput
+ *   Name: "STRING_VALUE",
+ *   Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM",
+ *   Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "DELETING" || "DELETED",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListNetworksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNetworksCommandInput - {@link ListNetworksCommandInput}
+ * @returns {@link ListNetworksCommandOutput}
  * @see {@link ListNetworksCommandInput} for command's `input` shape.
  * @see {@link ListNetworksCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -89,6 +95,9 @@ export class ListNetworksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNetworksCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +124,8 @@ export class ListNetworksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNetworksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNetworksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +135,18 @@ export class ListNetworksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNetworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNetworksCommand(input, context);
+    return se_ListNetworksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNetworksCommandOutput> {
-    return deserializeAws_restJson1ListNetworksCommand(output, context);
+    return de_ListNetworksCommand(output, context);
   }
 
   // Start section: command_body_extra

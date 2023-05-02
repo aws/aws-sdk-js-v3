@@ -10,7 +10,7 @@ import { NetworkFirewallClient } from "../NetworkFirewallClient";
 import { NetworkFirewallPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NetworkFirewallClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTagsForResourceCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTagsForResource(
   config: NetworkFirewallPaginationConfiguration,
   input: ListTagsForResourceCommandInput,

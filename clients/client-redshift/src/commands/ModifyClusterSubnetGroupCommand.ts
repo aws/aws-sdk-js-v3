@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyClusterSubnetGroupMessage,
-  ModifyClusterSubnetGroupMessageFilterSensitiveLog,
-  ModifyClusterSubnetGroupResult,
-  ModifyClusterSubnetGroupResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyClusterSubnetGroupCommand,
-  serializeAws_queryModifyClusterSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { ModifyClusterSubnetGroupMessage, ModifyClusterSubnetGroupResult } from "../models/models_1";
+import { de_ModifyClusterSubnetGroupCommand, se_ModifyClusterSubnetGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterSubnetGroupCommand}.
  */
 export interface ModifyClusterSubnetGroupCommandInput extends ModifyClusterSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterSubnetGroupCommand}.
  */
 export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubnetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a cluster subnet group to include the specified list of VPC subnets. The
  *             operation replaces the existing list of subnets with the new list of subnets.</p>
  * @example
@@ -43,10 +40,19 @@ export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubn
  * import { RedshiftClient, ModifyClusterSubnetGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterSubnetGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ModifyClusterSubnetGroupMessage
+ *   ClusterSubnetGroupName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   SubnetIds: [ // SubnetIdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyClusterSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterSubnetGroupCommandInput - {@link ModifyClusterSubnetGroupCommandInput}
+ * @returns {@link ModifyClusterSubnetGroupCommandOutput}
  * @see {@link ModifyClusterSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -95,6 +101,9 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +132,8 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterSubnetGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +143,18 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterSubnetGroupCommand(input, context);
+    return se_ModifyClusterSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterSubnetGroupCommandOutput> {
-    return deserializeAws_queryModifyClusterSubnetGroupCommand(output, context);
+    return de_ModifyClusterSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

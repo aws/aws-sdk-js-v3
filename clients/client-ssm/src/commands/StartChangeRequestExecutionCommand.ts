@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartChangeRequestExecutionRequest,
-  StartChangeRequestExecutionRequestFilterSensitiveLog,
-  StartChangeRequestExecutionResult,
-  StartChangeRequestExecutionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1StartChangeRequestExecutionCommand,
-  serializeAws_json1_1StartChangeRequestExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartChangeRequestExecutionRequest, StartChangeRequestExecutionResult } from "../models/models_1";
+import { de_StartChangeRequestExecutionCommand, se_StartChangeRequestExecutionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartChangeRequestExecutionCommand}.
  */
 export interface StartChangeRequestExecutionCommandInput extends StartChangeRequestExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartChangeRequestExecutionCommand}.
  */
 export interface StartChangeRequestExecutionCommandOutput extends StartChangeRequestExecutionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a change request for Change Manager. The Automation runbooks specified in the
  *    change request run only after all required approvals for the change request have been
  *    received.</p>
@@ -44,10 +41,83 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  * import { SSMClient, StartChangeRequestExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, StartChangeRequestExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // StartChangeRequestExecutionRequest
+ *   ScheduledTime: new Date("TIMESTAMP"),
+ *   DocumentName: "STRING_VALUE", // required
+ *   DocumentVersion: "STRING_VALUE",
+ *   Parameters: { // AutomationParameterMap
+ *     "<keys>": [ // AutomationParameterValueList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ChangeRequestName: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   AutoApprove: true || false,
+ *   Runbooks: [ // Runbooks // required
+ *     { // Runbook
+ *       DocumentName: "STRING_VALUE", // required
+ *       DocumentVersion: "STRING_VALUE",
+ *       Parameters: {
+ *         "<keys>": [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       TargetParameterName: "STRING_VALUE",
+ *       Targets: [ // Targets
+ *         { // Target
+ *           Key: "STRING_VALUE",
+ *           Values: [ // TargetValues
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       TargetMaps: [ // TargetMaps
+ *         { // TargetMap
+ *           "<keys>": [ // TargetMapValueList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       MaxConcurrency: "STRING_VALUE",
+ *       MaxErrors: "STRING_VALUE",
+ *       TargetLocations: [ // TargetLocations
+ *         { // TargetLocation
+ *           Accounts: [ // Accounts
+ *             "STRING_VALUE",
+ *           ],
+ *           Regions: [ // Regions
+ *             "STRING_VALUE",
+ *           ],
+ *           TargetLocationMaxConcurrency: "STRING_VALUE",
+ *           TargetLocationMaxErrors: "STRING_VALUE",
+ *           ExecutionRoleName: "STRING_VALUE",
+ *           TargetLocationAlarmConfiguration: { // AlarmConfiguration
+ *             IgnorePollAlarmFailure: true || false,
+ *             Alarms: [ // AlarmList // required
+ *               { // Alarm
+ *                 Name: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ScheduledEndTime: new Date("TIMESTAMP"),
+ *   ChangeDetails: "STRING_VALUE",
+ * };
  * const command = new StartChangeRequestExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartChangeRequestExecutionCommandInput - {@link StartChangeRequestExecutionCommandInput}
+ * @returns {@link StartChangeRequestExecutionCommandOutput}
  * @see {@link StartChangeRequestExecutionCommandInput} for command's `input` shape.
  * @see {@link StartChangeRequestExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -97,6 +167,9 @@ export class StartChangeRequestExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartChangeRequestExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +198,8 @@ export class StartChangeRequestExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartChangeRequestExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartChangeRequestExecutionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,15 +209,21 @@ export class StartChangeRequestExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartChangeRequestExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartChangeRequestExecutionCommand(input, context);
+    return se_StartChangeRequestExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartChangeRequestExecutionCommandOutput> {
-    return deserializeAws_json1_1StartChangeRequestExecutionCommand(output, context);
+    return de_StartChangeRequestExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

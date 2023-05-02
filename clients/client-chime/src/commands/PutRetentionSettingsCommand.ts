@@ -14,32 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  PutRetentionSettingsRequest,
-  PutRetentionSettingsRequestFilterSensitiveLog,
-  PutRetentionSettingsResponse,
-  PutRetentionSettingsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1PutRetentionSettingsCommand,
-  serializeAws_restJson1PutRetentionSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { PutRetentionSettingsRequest, PutRetentionSettingsResponse } from "../models/models_1";
+import { de_PutRetentionSettingsCommand, se_PutRetentionSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRetentionSettingsCommand}.
  */
 export interface PutRetentionSettingsCommandInput extends PutRetentionSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRetentionSettingsCommand}.
  */
 export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Puts retention settings for the specified Amazon Chime Enterprise account. We recommend using AWS CloudTrail to monitor usage of this API for your account. For more information, see
  * <a href="https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html">Logging Amazon Chime API Calls with AWS CloudTrail</a>
  * in the <i>Amazon Chime Administration Guide</i>.</p>
- *
  *          <p>
  * To turn off existing retention settings, remove the number of days from the corresponding
  * <b>RetentionDays</b>
@@ -54,10 +50,23 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * import { ChimeClient, PutRetentionSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutRetentionSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // PutRetentionSettingsRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   RetentionSettings: { // RetentionSettings
+ *     RoomRetentionSettings: { // RoomRetentionSettings
+ *       RetentionDays: Number("int"),
+ *     },
+ *     ConversationRetentionSettings: { // ConversationRetentionSettings
+ *       RetentionDays: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new PutRetentionSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRetentionSettingsCommandInput - {@link PutRetentionSettingsCommandInput}
+ * @returns {@link PutRetentionSettingsCommandOutput}
  * @see {@link PutRetentionSettingsCommandInput} for command's `input` shape.
  * @see {@link PutRetentionSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -106,6 +115,9 @@ export class PutRetentionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRetentionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +146,8 @@ export class PutRetentionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRetentionSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRetentionSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +157,18 @@ export class PutRetentionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRetentionSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRetentionSettingsCommand(input, context);
+    return se_PutRetentionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRetentionSettingsCommandOutput> {
-    return deserializeAws_restJson1PutRetentionSettingsCommand(output, context);
+    return de_PutRetentionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

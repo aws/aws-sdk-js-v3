@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeAuditSuppressionRequest,
-  DescribeAuditSuppressionRequestFilterSensitiveLog,
-  DescribeAuditSuppressionResponse,
-  DescribeAuditSuppressionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeAuditSuppressionCommand,
-  serializeAws_restJson1DescribeAuditSuppressionCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAuditSuppressionRequest, DescribeAuditSuppressionResponse } from "../models/models_1";
+import { de_DescribeAuditSuppressionCommand, se_DescribeAuditSuppressionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAuditSuppressionCommand}.
  */
 export interface DescribeAuditSuppressionCommandInput extends DescribeAuditSuppressionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAuditSuppressionCommand}.
  */
 export interface DescribeAuditSuppressionCommandOutput extends DescribeAuditSuppressionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Gets information about a Device Defender audit suppression.
  *     </p>
@@ -44,10 +41,34 @@ export interface DescribeAuditSuppressionCommandOutput extends DescribeAuditSupp
  * import { IoTClient, DescribeAuditSuppressionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeAuditSuppressionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeAuditSuppressionRequest
+ *   checkName: "STRING_VALUE", // required
+ *   resourceIdentifier: { // ResourceIdentifier
+ *     deviceCertificateId: "STRING_VALUE",
+ *     caCertificateId: "STRING_VALUE",
+ *     cognitoIdentityPoolId: "STRING_VALUE",
+ *     clientId: "STRING_VALUE",
+ *     policyVersionIdentifier: { // PolicyVersionIdentifier
+ *       policyName: "STRING_VALUE",
+ *       policyVersionId: "STRING_VALUE",
+ *     },
+ *     account: "STRING_VALUE",
+ *     iamRoleArn: "STRING_VALUE",
+ *     roleAliasArn: "STRING_VALUE",
+ *     issuerCertificateIdentifier: { // IssuerCertificateIdentifier
+ *       issuerCertificateSubject: "STRING_VALUE",
+ *       issuerId: "STRING_VALUE",
+ *       issuerCertificateSerialNumber: "STRING_VALUE",
+ *     },
+ *     deviceCertificateArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DescribeAuditSuppressionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAuditSuppressionCommandInput - {@link DescribeAuditSuppressionCommandInput}
+ * @returns {@link DescribeAuditSuppressionCommandOutput}
  * @see {@link DescribeAuditSuppressionCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditSuppressionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -83,6 +104,9 @@ export class DescribeAuditSuppressionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAuditSuppressionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +135,8 @@ export class DescribeAuditSuppressionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAuditSuppressionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAuditSuppressionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +146,18 @@ export class DescribeAuditSuppressionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAuditSuppressionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAuditSuppressionCommand(input, context);
+    return se_DescribeAuditSuppressionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAuditSuppressionCommandOutput> {
-    return deserializeAws_restJson1DescribeAuditSuppressionCommand(output, context);
+    return de_DescribeAuditSuppressionCommand(output, context);
   }
 
   // Start section: command_body_extra

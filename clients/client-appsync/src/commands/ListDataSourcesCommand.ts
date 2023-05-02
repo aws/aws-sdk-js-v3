@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  ListDataSourcesRequest,
-  ListDataSourcesRequestFilterSensitiveLog,
-  ListDataSourcesResponse,
-  ListDataSourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDataSourcesCommand,
-  serializeAws_restJson1ListDataSourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDataSourcesRequest, ListDataSourcesResponse } from "../models/models_0";
+import { de_ListDataSourcesCommand, se_ListDataSourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataSourcesCommand}.
  */
 export interface ListDataSourcesCommandInput extends ListDataSourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataSourcesCommand}.
  */
 export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the data sources for a given API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * import { AppSyncClient, ListDataSourcesCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListDataSourcesCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // ListDataSourcesRequest
+ *   apiId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDataSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataSourcesCommandInput - {@link ListDataSourcesCommandInput}
+ * @returns {@link ListDataSourcesCommandOutput}
  * @see {@link ListDataSourcesCommandInput} for command's `input` shape.
  * @see {@link ListDataSourcesCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -82,6 +86,9 @@ export class ListDataSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class ListDataSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataSourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataSourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class ListDataSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataSourcesCommand(input, context);
+    return se_ListDataSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSourcesCommandOutput> {
-    return deserializeAws_restJson1ListDataSourcesCommand(output, context);
+    return de_ListDataSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

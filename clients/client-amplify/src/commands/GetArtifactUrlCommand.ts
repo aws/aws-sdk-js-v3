@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  GetArtifactUrlRequest,
-  GetArtifactUrlRequestFilterSensitiveLog,
-  GetArtifactUrlResult,
-  GetArtifactUrlResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetArtifactUrlCommand,
-  serializeAws_restJson1GetArtifactUrlCommand,
-} from "../protocols/Aws_restJson1";
+import { GetArtifactUrlRequest, GetArtifactUrlResult } from "../models/models_0";
+import { de_GetArtifactUrlCommand, se_GetArtifactUrlCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetArtifactUrlCommand}.
  */
 export interface GetArtifactUrlCommandInput extends GetArtifactUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetArtifactUrlCommand}.
  */
 export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the artifact info that corresponds to an artifact id. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
  * import { AmplifyClient, GetArtifactUrlCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetArtifactUrlCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // GetArtifactUrlRequest
+ *   artifactId: "STRING_VALUE", // required
+ * };
  * const command = new GetArtifactUrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetArtifactUrlCommandInput - {@link GetArtifactUrlCommandInput}
+ * @returns {@link GetArtifactUrlCommandOutput}
  * @see {@link GetArtifactUrlCommandInput} for command's `input` shape.
  * @see {@link GetArtifactUrlCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetArtifactUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetArtifactUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class GetArtifactUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetArtifactUrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetArtifactUrlResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class GetArtifactUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetArtifactUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetArtifactUrlCommand(input, context);
+    return se_GetArtifactUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetArtifactUrlCommandOutput> {
-    return deserializeAws_restJson1GetArtifactUrlCommand(output, context);
+    return de_GetArtifactUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

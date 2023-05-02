@@ -14,27 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { GetBackupVaultNotificationsInput, GetBackupVaultNotificationsOutput } from "../models/models_0";
 import {
-  GetBackupVaultNotificationsInput,
-  GetBackupVaultNotificationsInputFilterSensitiveLog,
-  GetBackupVaultNotificationsOutput,
-  GetBackupVaultNotificationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBackupVaultNotificationsCommand,
-  serializeAws_restJson1GetBackupVaultNotificationsCommand,
+  de_GetBackupVaultNotificationsCommand,
+  se_GetBackupVaultNotificationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackupVaultNotificationsCommand}.
  */
 export interface GetBackupVaultNotificationsCommandInput extends GetBackupVaultNotificationsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBackupVaultNotificationsCommand}.
  */
 export interface GetBackupVaultNotificationsCommandOutput extends GetBackupVaultNotificationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns event notifications for the specified backup vault.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +42,15 @@ export interface GetBackupVaultNotificationsCommandOutput extends GetBackupVault
  * import { BackupClient, GetBackupVaultNotificationsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetBackupVaultNotificationsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // GetBackupVaultNotificationsInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ * };
  * const command = new GetBackupVaultNotificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackupVaultNotificationsCommandInput - {@link GetBackupVaultNotificationsCommandInput}
+ * @returns {@link GetBackupVaultNotificationsCommandOutput}
  * @see {@link GetBackupVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link GetBackupVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -82,6 +87,9 @@ export class GetBackupVaultNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackupVaultNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +118,8 @@ export class GetBackupVaultNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBackupVaultNotificationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBackupVaultNotificationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +129,21 @@ export class GetBackupVaultNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackupVaultNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackupVaultNotificationsCommand(input, context);
+    return se_GetBackupVaultNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBackupVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1GetBackupVaultNotificationsCommand(output, context);
+    return de_GetBackupVaultNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  EnableImageDeprecationRequest,
-  EnableImageDeprecationRequestFilterSensitiveLog,
-  EnableImageDeprecationResult,
-  EnableImageDeprecationResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2EnableImageDeprecationCommand,
-  serializeAws_ec2EnableImageDeprecationCommand,
-} from "../protocols/Aws_ec2";
+import { EnableImageDeprecationRequest, EnableImageDeprecationResult } from "../models/models_5";
+import { de_EnableImageDeprecationCommand, se_EnableImageDeprecationCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableImageDeprecationCommand}.
  */
 export interface EnableImageDeprecationCommandInput extends EnableImageDeprecationRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableImageDeprecationCommand}.
  */
 export interface EnableImageDeprecationCommandOutput extends EnableImageDeprecationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables deprecation of the specified AMI at the specified date and time.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -43,10 +40,17 @@ export interface EnableImageDeprecationCommandOutput extends EnableImageDeprecat
  * import { EC2Client, EnableImageDeprecationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableImageDeprecationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableImageDeprecationRequest
+ *   ImageId: "STRING_VALUE", // required
+ *   DeprecateAt: new Date("TIMESTAMP"), // required
+ *   DryRun: true || false,
+ * };
  * const command = new EnableImageDeprecationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableImageDeprecationCommandInput - {@link EnableImageDeprecationCommandInput}
+ * @returns {@link EnableImageDeprecationCommandOutput}
  * @see {@link EnableImageDeprecationCommandInput} for command's `input` shape.
  * @see {@link EnableImageDeprecationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +74,9 @@ export class EnableImageDeprecationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableImageDeprecationCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +105,8 @@ export class EnableImageDeprecationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableImageDeprecationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableImageDeprecationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +116,18 @@ export class EnableImageDeprecationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableImageDeprecationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableImageDeprecationCommand(input, context);
+    return se_EnableImageDeprecationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableImageDeprecationCommandOutput> {
-    return deserializeAws_ec2EnableImageDeprecationCommand(output, context);
+    return de_EnableImageDeprecationCommand(output, context);
   }
 
   // Start section: command_body_extra

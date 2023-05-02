@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  DescribeDatasetImportJobRequest,
-  DescribeDatasetImportJobRequestFilterSensitiveLog,
-  DescribeDatasetImportJobResponse,
-  DescribeDatasetImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDatasetImportJobCommand,
-  serializeAws_json1_1DescribeDatasetImportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDatasetImportJobRequest, DescribeDatasetImportJobResponse } from "../models/models_0";
+import { de_DescribeDatasetImportJobCommand, se_DescribeDatasetImportJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDatasetImportJobCommand}.
  */
 export interface DescribeDatasetImportJobCommandInput extends DescribeDatasetImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDatasetImportJobCommand}.
  */
 export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a dataset import job created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
  *       operation.</p>
  *          <p>In addition to listing the parameters provided in the <code>CreateDatasetImportJob</code>
@@ -76,10 +73,15 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  * import { ForecastClient, DescribeDatasetImportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeDatasetImportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DescribeDatasetImportJobRequest
+ *   DatasetImportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDatasetImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatasetImportJobCommandInput - {@link DescribeDatasetImportJobCommandInput}
+ * @returns {@link DescribeDatasetImportJobCommandOutput}
  * @see {@link DescribeDatasetImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetImportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -111,6 +113,9 @@ export class DescribeDatasetImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatasetImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +144,8 @@ export class DescribeDatasetImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatasetImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatasetImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +155,18 @@ export class DescribeDatasetImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatasetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDatasetImportJobCommand(input, context);
+    return se_DescribeDatasetImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetImportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeDatasetImportJobCommand(output, context);
+    return de_DescribeDatasetImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

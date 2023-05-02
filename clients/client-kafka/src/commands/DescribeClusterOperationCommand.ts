@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  DescribeClusterOperationRequest,
-  DescribeClusterOperationRequestFilterSensitiveLog,
-  DescribeClusterOperationResponse,
-  DescribeClusterOperationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeClusterOperationCommand,
-  serializeAws_restJson1DescribeClusterOperationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeClusterOperationRequest, DescribeClusterOperationResponse } from "../models/models_0";
+import { de_DescribeClusterOperationCommand, se_DescribeClusterOperationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterOperationCommand}.
  */
 export interface DescribeClusterOperationCommandInput extends DescribeClusterOperationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterOperationCommand}.
  */
 export interface DescribeClusterOperationCommandOutput extends DescribeClusterOperationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of the cluster operation specified by the ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeClusterOperationCommandOutput extends DescribeClusterOp
  * import { KafkaClient, DescribeClusterOperationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DescribeClusterOperationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // DescribeClusterOperationRequest
+ *   ClusterOperationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeClusterOperationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterOperationCommandInput - {@link DescribeClusterOperationCommandInput}
+ * @returns {@link DescribeClusterOperationCommandOutput}
  * @see {@link DescribeClusterOperationCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterOperationCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -84,6 +86,9 @@ export class DescribeClusterOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DescribeClusterOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterOperationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClusterOperationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DescribeClusterOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeClusterOperationCommand(input, context);
+    return se_DescribeClusterOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterOperationCommandOutput> {
-    return deserializeAws_restJson1DescribeClusterOperationCommand(output, context);
+    return de_DescribeClusterOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

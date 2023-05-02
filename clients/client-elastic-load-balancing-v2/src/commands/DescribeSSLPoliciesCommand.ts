@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DescribeSSLPoliciesInput,
-  DescribeSSLPoliciesInputFilterSensitiveLog,
-  DescribeSSLPoliciesOutput,
-  DescribeSSLPoliciesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeSSLPoliciesCommand,
-  serializeAws_queryDescribeSSLPoliciesCommand,
-} from "../protocols/Aws_query";
+import { DescribeSSLPoliciesInput, DescribeSSLPoliciesOutput } from "../models/models_0";
+import { de_DescribeSSLPoliciesCommand, se_DescribeSSLPoliciesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSSLPoliciesCommand}.
  */
 export interface DescribeSSLPoliciesCommandInput extends DescribeSSLPoliciesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSSLPoliciesCommand}.
  */
 export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified policies or all policies used for SSL negotiation.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> or
  *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
@@ -48,10 +45,20 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * import { ElasticLoadBalancingV2Client, DescribeSSLPoliciesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeSSLPoliciesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DescribeSSLPoliciesInput
+ *   Names: [ // SslPolicyNames
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ *   LoadBalancerType: "application" || "network" || "gateway",
+ * };
  * const command = new DescribeSSLPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSSLPoliciesCommandInput - {@link DescribeSSLPoliciesCommandInput}
+ * @returns {@link DescribeSSLPoliciesCommandOutput}
  * @see {@link DescribeSSLPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeSSLPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -183,6 +190,9 @@ export class DescribeSSLPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSSLPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -211,8 +221,8 @@ export class DescribeSSLPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSSLPoliciesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSSLPoliciesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -222,12 +232,18 @@ export class DescribeSSLPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSSLPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeSSLPoliciesCommand(input, context);
+    return se_DescribeSSLPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSSLPoliciesCommandOutput> {
-    return deserializeAws_queryDescribeSSLPoliciesCommand(output, context);
+    return de_DescribeSSLPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

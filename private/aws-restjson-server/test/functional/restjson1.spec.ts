@@ -2835,52 +2835,6 @@ it("RestJsonHttpPrefixHeadersArePresent:ServerRequest", async () => {
 });
 
 /**
- * No prefix headers are serialized because the value is empty
- */
-it("RestJsonHttpPrefixHeadersAreNotPresent:ServerRequest", async () => {
-  const testFunction = jest.fn();
-  testFunction.mockReturnValue(Promise.resolve({}));
-  const testService: Partial<RestJsonService<{}>> = {
-    HttpPrefixHeaders: testFunction as HttpPrefixHeaders<{}>,
-  };
-  const handler = getRestJsonServiceHandler(
-    testService as RestJsonService<{}>,
-    (ctx: {}, failures: __ValidationFailure[]) => {
-      if (failures) {
-        throw failures;
-      }
-      return undefined;
-    }
-  );
-  const request = new HttpRequest({
-    method: "GET",
-    hostname: "foo.example.com",
-    path: "/HttpPrefixHeaders",
-    query: {},
-    headers: {
-      "x-foo": "Foo",
-    },
-    body: Readable.from([""]),
-  });
-  await handler.handle(request, {});
-
-  expect(testFunction.mock.calls.length).toBe(1);
-  const r: any = testFunction.mock.calls[0][0];
-
-  const paramsToValidate: any = [
-    {
-      foo: "Foo",
-
-      fooMap: {},
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-  });
-});
-
-/**
  * Adds headers by prefix
  */
 it("RestJsonHttpPrefixHeadersArePresent:ServerResponse", async () => {

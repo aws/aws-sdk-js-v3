@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeAvailabilityZonesRequest,
-  DescribeAvailabilityZonesRequestFilterSensitiveLog,
-  DescribeAvailabilityZonesResult,
-  DescribeAvailabilityZonesResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeAvailabilityZonesCommand,
-  serializeAws_ec2DescribeAvailabilityZonesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeAvailabilityZonesRequest, DescribeAvailabilityZonesResult } from "../models/models_3";
+import { de_DescribeAvailabilityZonesCommand, se_DescribeAvailabilityZonesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAvailabilityZonesCommand}.
  */
 export interface DescribeAvailabilityZonesCommandInput extends DescribeAvailabilityZonesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAvailabilityZonesCommand}.
  */
 export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabilityZonesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to
  *       you. If there is an event impacting a zone, you can use this request to view the state and any
  *       provided messages for that zone.</p>
@@ -47,10 +44,30 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * import { EC2Client, DescribeAvailabilityZonesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeAvailabilityZonesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeAvailabilityZonesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ZoneNames: [ // ZoneNameStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   ZoneIds: [ // ZoneIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   AllAvailabilityZones: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeAvailabilityZonesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAvailabilityZonesCommandInput - {@link DescribeAvailabilityZonesCommandInput}
+ * @returns {@link DescribeAvailabilityZonesCommandOutput}
  * @see {@link DescribeAvailabilityZonesCommandInput} for command's `input` shape.
  * @see {@link DescribeAvailabilityZonesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -113,6 +130,9 @@ export class DescribeAvailabilityZonesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAvailabilityZonesCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +161,8 @@ export class DescribeAvailabilityZonesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAvailabilityZonesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAvailabilityZonesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,15 +172,21 @@ export class DescribeAvailabilityZonesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAvailabilityZonesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeAvailabilityZonesCommand(input, context);
+    return se_DescribeAvailabilityZonesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAvailabilityZonesCommandOutput> {
-    return deserializeAws_ec2DescribeAvailabilityZonesCommand(output, context);
+    return de_DescribeAvailabilityZonesCommand(output, context);
   }
 
   // Start section: command_body_extra

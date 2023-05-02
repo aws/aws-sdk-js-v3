@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  ListCasesForContactRequest,
-  ListCasesForContactRequestFilterSensitiveLog,
-  ListCasesForContactResponse,
-  ListCasesForContactResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCasesForContactCommand,
-  serializeAws_restJson1ListCasesForContactCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCasesForContactRequest, ListCasesForContactResponse } from "../models/models_0";
+import { de_ListCasesForContactCommand, se_ListCasesForContactCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCasesForContactCommand}.
  */
 export interface ListCasesForContactCommandInput extends ListCasesForContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCasesForContactCommand}.
  */
 export interface ListCasesForContactCommandOutput extends ListCasesForContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists cases for a given contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListCasesForContactCommandOutput extends ListCasesForContactRes
  * import { ConnectCasesClient, ListCasesForContactCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, ListCasesForContactCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // ListCasesForContactRequest
+ *   domainId: "STRING_VALUE", // required
+ *   contactArn: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListCasesForContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCasesForContactCommandInput - {@link ListCasesForContactCommandInput}
+ * @returns {@link ListCasesForContactCommandOutput}
  * @see {@link ListCasesForContactCommandInput} for command's `input` shape.
  * @see {@link ListCasesForContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +91,9 @@ export class ListCasesForContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCasesForContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +122,8 @@ export class ListCasesForContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCasesForContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCasesForContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +133,18 @@ export class ListCasesForContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCasesForContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCasesForContactCommand(input, context);
+    return se_ListCasesForContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCasesForContactCommandOutput> {
-    return deserializeAws_restJson1ListCasesForContactCommand(output, context);
+    return de_ListCasesForContactCommand(output, context);
   }
 
   // Start section: command_body_extra

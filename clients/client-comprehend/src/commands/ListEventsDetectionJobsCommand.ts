@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  ListEventsDetectionJobsRequest,
-  ListEventsDetectionJobsRequestFilterSensitiveLog,
-  ListEventsDetectionJobsResponse,
-  ListEventsDetectionJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEventsDetectionJobsCommand,
-  serializeAws_json1_1ListEventsDetectionJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEventsDetectionJobsRequest, ListEventsDetectionJobsResponse } from "../models/models_0";
+import { de_ListEventsDetectionJobsCommand, se_ListEventsDetectionJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventsDetectionJobsCommand}.
  */
 export interface ListEventsDetectionJobsCommandInput extends ListEventsDetectionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventsDetectionJobsCommand}.
  */
 export interface ListEventsDetectionJobsCommandOutput extends ListEventsDetectionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the events detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ListEventsDetectionJobsCommandOutput extends ListEventsDetectio
  * import { ComprehendClient, ListEventsDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListEventsDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListEventsDetectionJobsRequest
+ *   Filter: { // EventsDetectionJobFilter
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     SubmitTimeBefore: new Date("TIMESTAMP"),
+ *     SubmitTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEventsDetectionJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventsDetectionJobsCommandInput - {@link ListEventsDetectionJobsCommandInput}
+ * @returns {@link ListEventsDetectionJobsCommandOutput}
  * @see {@link ListEventsDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListEventsDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -82,6 +91,9 @@ export class ListEventsDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventsDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +122,8 @@ export class ListEventsDetectionJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventsDetectionJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventsDetectionJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +133,18 @@ export class ListEventsDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventsDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEventsDetectionJobsCommand(input, context);
+    return se_ListEventsDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventsDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListEventsDetectionJobsCommand(output, context);
+    return de_ListEventsDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

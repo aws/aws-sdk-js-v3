@@ -12,22 +12,24 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  deserializeAws_restXmlNoInputAndNoOutputCommand,
-  serializeAws_restXmlNoInputAndNoOutputCommand,
-} from "../protocols/Aws_restXml";
+import { de_NoInputAndNoOutputCommand, se_NoInputAndNoOutputCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link NoInputAndNoOutputCommand}.
  */
 export interface NoInputAndNoOutputCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link NoInputAndNoOutputCommand}.
  */
 export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * The example tests how requests and responses are serialized when there's
  * no request or response payload because the operation has no input or output.
  * While this should be rare, code generators must support this.
@@ -37,10 +39,13 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  * import { RestXmlProtocolClient, NoInputAndNoOutputCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, NoInputAndNoOutputCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {};
  * const command = new NoInputAndNoOutputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param NoInputAndNoOutputCommandInput - {@link NoInputAndNoOutputCommandInput}
+ * @returns {@link NoInputAndNoOutputCommandOutput}
  * @see {@link NoInputAndNoOutputCommandInput} for command's `input` shape.
  * @see {@link NoInputAndNoOutputCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -55,6 +60,9 @@ export class NoInputAndNoOutputCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: NoInputAndNoOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,8 +88,8 @@ export class NoInputAndNoOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +99,18 @@ export class NoInputAndNoOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NoInputAndNoOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlNoInputAndNoOutputCommand(input, context);
+    return se_NoInputAndNoOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NoInputAndNoOutputCommandOutput> {
-    return deserializeAws_restXmlNoInputAndNoOutputCommand(output, context);
+    return de_NoInputAndNoOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

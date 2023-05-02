@@ -19,22 +19,24 @@ import {
   UpdateIdentityProviderResponse,
   UpdateIdentityProviderResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateIdentityProviderCommand,
-  serializeAws_restJson1UpdateIdentityProviderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateIdentityProviderCommand, se_UpdateIdentityProviderCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIdentityProviderCommand}.
  */
 export interface UpdateIdentityProviderCommandInput extends UpdateIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIdentityProviderCommand}.
  */
 export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the identity provider. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,21 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * import { WorkSpacesWebClient, UpdateIdentityProviderCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateIdentityProviderCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // UpdateIdentityProviderRequest
+ *   identityProviderArn: "STRING_VALUE", // required
+ *   identityProviderName: "STRING_VALUE",
+ *   identityProviderType: "STRING_VALUE",
+ *   identityProviderDetails: { // IdentityProviderDetails
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateIdentityProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIdentityProviderCommandInput - {@link UpdateIdentityProviderCommandInput}
+ * @returns {@link UpdateIdentityProviderCommandOutput}
  * @see {@link UpdateIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +97,9 @@ export class UpdateIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,12 +139,18 @@ export class UpdateIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIdentityProviderCommand(input, context);
+    return se_UpdateIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIdentityProviderCommandOutput> {
-    return deserializeAws_restJson1UpdateIdentityProviderCommand(output, context);
+    return de_UpdateIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

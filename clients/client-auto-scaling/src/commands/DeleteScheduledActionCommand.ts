@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DeleteScheduledActionType, DeleteScheduledActionTypeFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteScheduledActionCommand,
-  serializeAws_queryDeleteScheduledActionCommand,
-} from "../protocols/Aws_query";
+import { DeleteScheduledActionType } from "../models/models_0";
+import { de_DeleteScheduledActionCommand, se_DeleteScheduledActionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScheduledActionCommand}.
  */
 export interface DeleteScheduledActionCommandInput extends DeleteScheduledActionType {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScheduledActionCommand}.
  */
 export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified scheduled action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, DeleteScheduledActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteScheduledActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DeleteScheduledActionType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ScheduledActionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteScheduledActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScheduledActionCommandInput - {@link DeleteScheduledActionCommandInput}
+ * @returns {@link DeleteScheduledActionCommandOutput}
  * @see {@link DeleteScheduledActionCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -80,6 +88,9 @@ export class DeleteScheduledActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +119,8 @@ export class DeleteScheduledActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduledActionTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +130,18 @@ export class DeleteScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteScheduledActionCommand(input, context);
+    return se_DeleteScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduledActionCommandOutput> {
-    return deserializeAws_queryDeleteScheduledActionCommand(output, context);
+    return de_DeleteScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

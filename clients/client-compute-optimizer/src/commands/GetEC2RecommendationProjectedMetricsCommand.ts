@@ -16,20 +16,22 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   GetEC2RecommendationProjectedMetricsRequest,
-  GetEC2RecommendationProjectedMetricsRequestFilterSensitiveLog,
   GetEC2RecommendationProjectedMetricsResponse,
-  GetEC2RecommendationProjectedMetricsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand,
-  serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand,
+  de_GetEC2RecommendationProjectedMetricsCommand,
+  se_GetEC2RecommendationProjectedMetricsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetEC2RecommendationProjectedMetricsCommand}.
  */
 export interface GetEC2RecommendationProjectedMetricsCommandInput extends GetEC2RecommendationProjectedMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEC2RecommendationProjectedMetricsCommand}.
  */
 export interface GetEC2RecommendationProjectedMetricsCommandOutput
@@ -37,6 +39,7 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the projected utilization metrics of Amazon EC2 instance
  *             recommendations.</p>
  *          <note>
@@ -51,10 +54,24 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
  * import { ComputeOptimizerClient, GetEC2RecommendationProjectedMetricsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEC2RecommendationProjectedMetricsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetEC2RecommendationProjectedMetricsRequest
+ *   instanceArn: "STRING_VALUE", // required
+ *   stat: "Maximum" || "Average", // required
+ *   period: Number("int"), // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   recommendationPreferences: { // RecommendationPreferences
+ *     cpuVendorArchitectures: [ // CpuVendorArchitectures
+ *       "AWS_ARM64" || "CURRENT",
+ *     ],
+ *   },
+ * };
  * const command = new GetEC2RecommendationProjectedMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEC2RecommendationProjectedMetricsCommandInput - {@link GetEC2RecommendationProjectedMetricsCommandInput}
+ * @returns {@link GetEC2RecommendationProjectedMetricsCommandOutput}
  * @see {@link GetEC2RecommendationProjectedMetricsCommandInput} for command's `input` shape.
  * @see {@link GetEC2RecommendationProjectedMetricsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -103,6 +120,9 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEC2RecommendationProjectedMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +151,8 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEC2RecommendationProjectedMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEC2RecommendationProjectedMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,18 +162,24 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEC2RecommendationProjectedMetricsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand(input, context);
+    return se_GetEC2RecommendationProjectedMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> {
-    return deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand(output, context);
+    return de_GetEC2RecommendationProjectedMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

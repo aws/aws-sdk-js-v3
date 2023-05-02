@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  ArchiveWaveRequest,
-  ArchiveWaveRequestFilterSensitiveLog,
-  Wave,
-  WaveFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ArchiveWaveCommand,
-  serializeAws_restJson1ArchiveWaveCommand,
-} from "../protocols/Aws_restJson1";
+import { ArchiveWaveRequest, Wave, WaveFilterSensitiveLog } from "../models/models_0";
+import { de_ArchiveWaveCommand, se_ArchiveWaveCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ArchiveWaveCommand}.
  */
 export interface ArchiveWaveCommandInput extends ArchiveWaveRequest {}
 /**
+ * @public
+ *
  * The output of {@link ArchiveWaveCommand}.
  */
 export interface ArchiveWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Archive wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface ArchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * import { MgnClient, ArchiveWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ArchiveWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // ArchiveWaveRequest
+ *   waveID: "STRING_VALUE", // required
+ * };
  * const command = new ArchiveWaveCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ArchiveWaveCommandInput - {@link ArchiveWaveCommandInput}
+ * @returns {@link ArchiveWaveCommandOutput}
  * @see {@link ArchiveWaveCommandInput} for command's `input` shape.
  * @see {@link ArchiveWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -81,6 +83,9 @@ export class ArchiveWaveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ArchiveWaveCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,7 +112,7 @@ export class ArchiveWaveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ArchiveWaveRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: WaveFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -118,12 +123,18 @@ export class ArchiveWaveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ArchiveWaveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ArchiveWaveCommand(input, context);
+    return se_ArchiveWaveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ArchiveWaveCommandOutput> {
-    return deserializeAws_restJson1ArchiveWaveCommand(output, context);
+    return de_ArchiveWaveCommand(output, context);
   }
 
   // Start section: command_body_extra

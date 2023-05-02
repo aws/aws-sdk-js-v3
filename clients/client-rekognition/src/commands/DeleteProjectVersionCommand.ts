@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteProjectVersionRequest,
-  DeleteProjectVersionRequestFilterSensitiveLog,
-  DeleteProjectVersionResponse,
-  DeleteProjectVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProjectVersionCommand,
-  serializeAws_json1_1DeleteProjectVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteProjectVersionRequest, DeleteProjectVersionResponse } from "../models/models_0";
+import { de_DeleteProjectVersionCommand, se_DeleteProjectVersionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProjectVersionCommand}.
  */
 export interface DeleteProjectVersionCommandInput extends DeleteProjectVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProjectVersionCommand}.
  */
 export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Rekognition Custom Labels model.  </p>
  *          <p>You can't delete a model if it is running or if it is training.
  *           To check the status of a model, use the <code>Status</code> field returned
@@ -49,10 +46,15 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  * import { RekognitionClient, DeleteProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DeleteProjectVersionRequest
+ *   ProjectVersionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProjectVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProjectVersionCommandInput - {@link DeleteProjectVersionCommandInput}
+ * @returns {@link DeleteProjectVersionCommandOutput}
  * @see {@link DeleteProjectVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -99,6 +101,9 @@ export class DeleteProjectVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProjectVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +132,8 @@ export class DeleteProjectVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProjectVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProjectVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +143,18 @@ export class DeleteProjectVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProjectVersionCommand(input, context);
+    return se_DeleteProjectVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectVersionCommandOutput> {
-    return deserializeAws_json1_1DeleteProjectVersionCommand(output, context);
+    return de_DeleteProjectVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

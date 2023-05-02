@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { NimbleServiceException as __BaseException } from "./NimbleServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptEulasRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -23,6 +26,7 @@ export interface AcceptEulasRequest {
 }
 
 /**
+ * @public
  * <p>The acceptance of a EULA, required to use Amazon-provided streaming images.</p>
  */
 export interface EulaAcceptance {
@@ -52,6 +56,9 @@ export interface EulaAcceptance {
   eulaId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptEulasResponse {
   /**
    * <p>A collection of EULA acceptances.</p>
@@ -60,6 +67,7 @@ export interface AcceptEulasResponse {
 }
 
 /**
+ * @public
  * <p>You are not authorized to perform this operation. Check your IAM
  *             policies, and ensure that you are using the correct access keys.</p>
  */
@@ -92,6 +100,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Another operation is in progress. </p>
  */
 export class ConflictException extends __BaseException {
@@ -123,6 +132,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal error has occurred. Please retry your request.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -155,6 +165,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -186,6 +197,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your current quota does not allow you to perform the request action. You can request
  *             increases for some quotas, and other quotas cannot be increased.</p>
  *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
@@ -219,6 +231,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request throughput limit was exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -251,6 +264,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One of the parameters in the request is invalid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -282,6 +296,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
  *             pair.</p>
  */
@@ -298,6 +313,7 @@ export interface ActiveDirectoryComputerAttribute {
 }
 
 /**
+ * @public
  * <p>The configuration for a Directory Service for Microsoft Active Directory studio resource.</p>
  */
 export interface ActiveDirectoryConfiguration {
@@ -319,12 +335,22 @@ export interface ActiveDirectoryConfiguration {
   organizationalUnitDistinguishedName?: string;
 }
 
-export enum AutomaticTerminationMode {
-  ACTIVATED = "ACTIVATED",
-  DEACTIVATED = "DEACTIVATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutomaticTerminationMode = {
+  ACTIVATED: "ACTIVATED",
+  DEACTIVATED: "DEACTIVATED",
+} as const;
 
 /**
+ * @public
+ */
+export type AutomaticTerminationMode = (typeof AutomaticTerminationMode)[keyof typeof AutomaticTerminationMode];
+
+/**
+ * @public
  * <p>The configuration for a render farm that is associated with a studio resource.</p>
  */
 export interface ComputeFarmConfiguration {
@@ -341,33 +367,61 @@ export interface ComputeFarmConfiguration {
   endpoint?: string;
 }
 
-export enum StreamingClipboardMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum StreamingInstanceType {
-  g3_4xlarge = "g3.4xlarge",
-  g3s_xlarge = "g3s.xlarge",
-  g4dn_12xlarge = "g4dn.12xlarge",
-  g4dn_16xlarge = "g4dn.16xlarge",
-  g4dn_2xlarge = "g4dn.2xlarge",
-  g4dn_4xlarge = "g4dn.4xlarge",
-  g4dn_8xlarge = "g4dn.8xlarge",
-  g4dn_xlarge = "g4dn.xlarge",
-  g5_16xlarge = "g5.16xlarge",
-  g5_2xlarge = "g5.2xlarge",
-  g5_4xlarge = "g5.4xlarge",
-  g5_8xlarge = "g5.8xlarge",
-  g5_xlarge = "g5.xlarge",
-}
-
-export enum SessionBackupMode {
-  AUTOMATIC = "AUTOMATIC",
-  DEACTIVATED = "DEACTIVATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StreamingClipboardMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type StreamingClipboardMode = (typeof StreamingClipboardMode)[keyof typeof StreamingClipboardMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamingInstanceType = {
+  g3_4xlarge: "g3.4xlarge",
+  g3s_xlarge: "g3s.xlarge",
+  g4dn_12xlarge: "g4dn.12xlarge",
+  g4dn_16xlarge: "g4dn.16xlarge",
+  g4dn_2xlarge: "g4dn.2xlarge",
+  g4dn_4xlarge: "g4dn.4xlarge",
+  g4dn_8xlarge: "g4dn.8xlarge",
+  g4dn_xlarge: "g4dn.xlarge",
+  g5_16xlarge: "g5.16xlarge",
+  g5_2xlarge: "g5.2xlarge",
+  g5_4xlarge: "g5.4xlarge",
+  g5_8xlarge: "g5.8xlarge",
+  g5_xlarge: "g5.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingInstanceType = (typeof StreamingInstanceType)[keyof typeof StreamingInstanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionBackupMode = {
+  AUTOMATIC: "AUTOMATIC",
+  DEACTIVATED: "DEACTIVATED",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionBackupMode = (typeof SessionBackupMode)[keyof typeof SessionBackupMode];
+
+/**
+ * @public
  * <p>Configures how streaming sessions are backed up when launched from this launch
  *             profile.</p>
  */
@@ -387,16 +441,36 @@ export interface StreamConfigurationSessionBackup {
   maxBackupsToRetain?: number;
 }
 
-export enum SessionPersistenceMode {
-  ACTIVATED = "ACTIVATED",
-  DEACTIVATED = "DEACTIVATED",
-}
-
-export enum StreamingSessionStorageMode {
-  UPLOAD = "UPLOAD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SessionPersistenceMode = {
+  ACTIVATED: "ACTIVATED",
+  DEACTIVATED: "DEACTIVATED",
+} as const;
 
 /**
+ * @public
+ */
+export type SessionPersistenceMode = (typeof SessionPersistenceMode)[keyof typeof SessionPersistenceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamingSessionStorageMode = {
+  UPLOAD: "UPLOAD",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingSessionStorageMode =
+  (typeof StreamingSessionStorageMode)[keyof typeof StreamingSessionStorageMode];
+
+/**
+ * @public
  * <p>The upload storage root location (folder) on streaming workstations where files are
  *             uploaded.</p>
  */
@@ -413,6 +487,7 @@ export interface StreamingSessionStorageRoot {
 }
 
 /**
+ * @public
  * <p>The configuration for a streaming session’s upload storage.</p>
  */
 export interface StreamConfigurationSessionStorage {
@@ -429,6 +504,7 @@ export interface StreamConfigurationSessionStorage {
 }
 
 /**
+ * @public
  * <p>Custom volume configuration for the root volumes that are attached to streaming
  *             sessions.</p>
  *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
@@ -455,6 +531,7 @@ export interface VolumeConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration for streaming workstations created using this launch profile.</p>
  */
 export interface StreamConfigurationCreate {
@@ -553,6 +630,9 @@ export interface StreamConfigurationCreate {
   automaticTerminationMode?: AutomaticTerminationMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchProfileRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -606,36 +686,55 @@ export interface CreateLaunchProfileRequest {
   tags?: Record<string, string>;
 }
 
-export enum LaunchProfileState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
-
-export enum LaunchProfileStatusCode {
-  ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
-  ENCRYPTION_KEY_NOT_FOUND = "ENCRYPTION_KEY_NOT_FOUND",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_INSTANCE_TYPES_PROVIDED = "INVALID_INSTANCE_TYPES_PROVIDED",
-  INVALID_SUBNETS_COMBINATION = "INVALID_SUBNETS_COMBINATION",
-  INVALID_SUBNETS_PROVIDED = "INVALID_SUBNETS_PROVIDED",
-  LAUNCH_PROFILE_CREATED = "LAUNCH_PROFILE_CREATED",
-  LAUNCH_PROFILE_CREATE_IN_PROGRESS = "LAUNCH_PROFILE_CREATE_IN_PROGRESS",
-  LAUNCH_PROFILE_DELETED = "LAUNCH_PROFILE_DELETED",
-  LAUNCH_PROFILE_DELETE_IN_PROGRESS = "LAUNCH_PROFILE_DELETE_IN_PROGRESS",
-  LAUNCH_PROFILE_UPDATED = "LAUNCH_PROFILE_UPDATED",
-  LAUNCH_PROFILE_UPDATE_IN_PROGRESS = "LAUNCH_PROFILE_UPDATE_IN_PROGRESS",
-  LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED = "LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED",
-  STREAMING_IMAGE_NOT_FOUND = "STREAMING_IMAGE_NOT_FOUND",
-  STREAMING_IMAGE_NOT_READY = "STREAMING_IMAGE_NOT_READY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchProfileState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchProfileState = (typeof LaunchProfileState)[keyof typeof LaunchProfileState];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchProfileStatusCode = {
+  ENCRYPTION_KEY_ACCESS_DENIED: "ENCRYPTION_KEY_ACCESS_DENIED",
+  ENCRYPTION_KEY_NOT_FOUND: "ENCRYPTION_KEY_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_INSTANCE_TYPES_PROVIDED: "INVALID_INSTANCE_TYPES_PROVIDED",
+  INVALID_SUBNETS_COMBINATION: "INVALID_SUBNETS_COMBINATION",
+  INVALID_SUBNETS_PROVIDED: "INVALID_SUBNETS_PROVIDED",
+  LAUNCH_PROFILE_CREATED: "LAUNCH_PROFILE_CREATED",
+  LAUNCH_PROFILE_CREATE_IN_PROGRESS: "LAUNCH_PROFILE_CREATE_IN_PROGRESS",
+  LAUNCH_PROFILE_DELETED: "LAUNCH_PROFILE_DELETED",
+  LAUNCH_PROFILE_DELETE_IN_PROGRESS: "LAUNCH_PROFILE_DELETE_IN_PROGRESS",
+  LAUNCH_PROFILE_UPDATED: "LAUNCH_PROFILE_UPDATED",
+  LAUNCH_PROFILE_UPDATE_IN_PROGRESS: "LAUNCH_PROFILE_UPDATE_IN_PROGRESS",
+  LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED: "LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED",
+  STREAMING_IMAGE_NOT_FOUND: "STREAMING_IMAGE_NOT_FOUND",
+  STREAMING_IMAGE_NOT_READY: "STREAMING_IMAGE_NOT_READY",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchProfileStatusCode = (typeof LaunchProfileStatusCode)[keyof typeof LaunchProfileStatusCode];
+
+/**
+ * @public
  * <p>A configuration for a streaming session.</p>
  */
 export interface StreamConfiguration {
@@ -732,34 +831,65 @@ export interface StreamConfiguration {
   automaticTerminationMode?: AutomaticTerminationMode | string;
 }
 
-export enum LaunchProfileValidationState {
-  VALIDATION_FAILED = "VALIDATION_FAILED",
-  VALIDATION_FAILED_INTERNAL_SERVER_ERROR = "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
-  VALIDATION_IN_PROGRESS = "VALIDATION_IN_PROGRESS",
-  VALIDATION_NOT_STARTED = "VALIDATION_NOT_STARTED",
-  VALIDATION_SUCCESS = "VALIDATION_SUCCESS",
-}
-
-export enum LaunchProfileValidationStatusCode {
-  VALIDATION_FAILED_INTERNAL_SERVER_ERROR = "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
-  VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY = "VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY",
-  VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION = "VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION",
-  VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION = "VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION",
-  VALIDATION_FAILED_SUBNET_NOT_FOUND = "VALIDATION_FAILED_SUBNET_NOT_FOUND",
-  VALIDATION_FAILED_UNAUTHORIZED = "VALIDATION_FAILED_UNAUTHORIZED",
-  VALIDATION_IN_PROGRESS = "VALIDATION_IN_PROGRESS",
-  VALIDATION_NOT_STARTED = "VALIDATION_NOT_STARTED",
-  VALIDATION_SUCCESS = "VALIDATION_SUCCESS",
-}
-
-export enum LaunchProfileValidationType {
-  VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT = "VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT",
-  VALIDATE_NETWORK_ACL_ASSOCIATION = "VALIDATE_NETWORK_ACL_ASSOCIATION",
-  VALIDATE_SECURITY_GROUP_ASSOCIATION = "VALIDATE_SECURITY_GROUP_ASSOCIATION",
-  VALIDATE_SUBNET_ASSOCIATION = "VALIDATE_SUBNET_ASSOCIATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchProfileValidationState = {
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+  VALIDATION_FAILED_INTERNAL_SERVER_ERROR: "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
+  VALIDATION_IN_PROGRESS: "VALIDATION_IN_PROGRESS",
+  VALIDATION_NOT_STARTED: "VALIDATION_NOT_STARTED",
+  VALIDATION_SUCCESS: "VALIDATION_SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchProfileValidationState =
+  (typeof LaunchProfileValidationState)[keyof typeof LaunchProfileValidationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchProfileValidationStatusCode = {
+  VALIDATION_FAILED_INTERNAL_SERVER_ERROR: "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
+  VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY: "VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY",
+  VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION: "VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION",
+  VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION: "VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION",
+  VALIDATION_FAILED_SUBNET_NOT_FOUND: "VALIDATION_FAILED_SUBNET_NOT_FOUND",
+  VALIDATION_FAILED_UNAUTHORIZED: "VALIDATION_FAILED_UNAUTHORIZED",
+  VALIDATION_IN_PROGRESS: "VALIDATION_IN_PROGRESS",
+  VALIDATION_NOT_STARTED: "VALIDATION_NOT_STARTED",
+  VALIDATION_SUCCESS: "VALIDATION_SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchProfileValidationStatusCode =
+  (typeof LaunchProfileValidationStatusCode)[keyof typeof LaunchProfileValidationStatusCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchProfileValidationType = {
+  VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT: "VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT",
+  VALIDATE_NETWORK_ACL_ASSOCIATION: "VALIDATE_NETWORK_ACL_ASSOCIATION",
+  VALIDATE_SECURITY_GROUP_ASSOCIATION: "VALIDATE_SECURITY_GROUP_ASSOCIATION",
+  VALIDATE_SUBNET_ASSOCIATION: "VALIDATE_SUBNET_ASSOCIATION",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchProfileValidationType =
+  (typeof LaunchProfileValidationType)[keyof typeof LaunchProfileValidationType];
+
+/**
+ * @public
  * <p>The launch profile validation result.</p>
  */
 export interface ValidationResult {
@@ -786,6 +916,7 @@ export interface ValidationResult {
 }
 
 /**
+ * @public
  * <p>A launch profile controls your artist workforce’s access to studio components, like
  *             compute farms, shared file systems, managed file systems, and license server
  *             configurations, as well as instance types and Amazon Machine Images (AMIs). </p>
@@ -885,6 +1016,9 @@ export interface LaunchProfile {
   validationResults?: ValidationResult[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -892,6 +1026,9 @@ export interface CreateLaunchProfileResponse {
   launchProfile?: LaunchProfile;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingImageRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -927,11 +1064,22 @@ export interface CreateStreamingImageRequest {
   tags?: Record<string, string>;
 }
 
-export enum StreamingImageEncryptionConfigurationKeyType {
-  CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StreamingImageEncryptionConfigurationKeyType = {
+  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
+} as const;
 
 /**
+ * @public
+ */
+export type StreamingImageEncryptionConfigurationKeyType =
+  (typeof StreamingImageEncryptionConfigurationKeyType)[keyof typeof StreamingImageEncryptionConfigurationKeyType];
+
+/**
+ * @public
  * <p>Specifies how a streaming image is encrypted.</p>
  */
 export interface StreamingImageEncryptionConfiguration {
@@ -946,28 +1094,47 @@ export interface StreamingImageEncryptionConfiguration {
   keyType: StreamingImageEncryptionConfigurationKeyType | string | undefined;
 }
 
-export enum StreamingImageState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
-
-export enum StreamingImageStatusCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STREAMING_IMAGE_CREATE_IN_PROGRESS = "STREAMING_IMAGE_CREATE_IN_PROGRESS",
-  STREAMING_IMAGE_DELETED = "STREAMING_IMAGE_DELETED",
-  STREAMING_IMAGE_DELETE_IN_PROGRESS = "STREAMING_IMAGE_DELETE_IN_PROGRESS",
-  STREAMING_IMAGE_READY = "STREAMING_IMAGE_READY",
-  STREAMING_IMAGE_UPDATE_IN_PROGRESS = "STREAMING_IMAGE_UPDATE_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StreamingImageState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type StreamingImageState = (typeof StreamingImageState)[keyof typeof StreamingImageState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamingImageStatusCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  STREAMING_IMAGE_CREATE_IN_PROGRESS: "STREAMING_IMAGE_CREATE_IN_PROGRESS",
+  STREAMING_IMAGE_DELETED: "STREAMING_IMAGE_DELETED",
+  STREAMING_IMAGE_DELETE_IN_PROGRESS: "STREAMING_IMAGE_DELETE_IN_PROGRESS",
+  STREAMING_IMAGE_READY: "STREAMING_IMAGE_READY",
+  STREAMING_IMAGE_UPDATE_IN_PROGRESS: "STREAMING_IMAGE_UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingImageStatusCode = (typeof StreamingImageStatusCode)[keyof typeof StreamingImageStatusCode];
+
+/**
+ * @public
  * <p>Represents a streaming image resource.</p>
  *         <p>Streaming images are used by studio users to select which operating system and
  *             software they want to use in a Nimble Studio streaming session.</p>
@@ -1048,6 +1215,9 @@ export interface StreamingImage {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
@@ -1055,6 +1225,9 @@ export interface CreateStreamingImageResponse {
   streamingImage?: StreamingImage;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1097,45 +1270,73 @@ export interface CreateStreamingSessionRequest {
   tags?: Record<string, string>;
 }
 
-export enum StreamingSessionState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  START_FAILED = "START_FAILED",
-  START_IN_PROGRESS = "START_IN_PROGRESS",
-  STOPPED = "STOPPED",
-  STOP_FAILED = "STOP_FAILED",
-  STOP_IN_PROGRESS = "STOP_IN_PROGRESS",
-}
-
-export enum StreamingSessionStatusCode {
-  ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR = "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR",
-  AMI_VALIDATION_ERROR = "AMI_VALIDATION_ERROR",
-  DECRYPT_STREAMING_IMAGE_ERROR = "DECRYPT_STREAMING_IMAGE_ERROR",
-  INITIALIZATION_SCRIPT_ERROR = "INITIALIZATION_SCRIPT_ERROR",
-  INSUFFICIENT_CAPACITY = "INSUFFICIENT_CAPACITY",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  NETWORK_CONNECTION_ERROR = "NETWORK_CONNECTION_ERROR",
-  NETWORK_INTERFACE_ERROR = "NETWORK_INTERFACE_ERROR",
-  STREAMING_SESSION_CREATE_IN_PROGRESS = "STREAMING_SESSION_CREATE_IN_PROGRESS",
-  STREAMING_SESSION_DELETED = "STREAMING_SESSION_DELETED",
-  STREAMING_SESSION_DELETE_IN_PROGRESS = "STREAMING_SESSION_DELETE_IN_PROGRESS",
-  STREAMING_SESSION_READY = "STREAMING_SESSION_READY",
-  STREAMING_SESSION_STARTED = "STREAMING_SESSION_STARTED",
-  STREAMING_SESSION_START_IN_PROGRESS = "STREAMING_SESSION_START_IN_PROGRESS",
-  STREAMING_SESSION_STOPPED = "STREAMING_SESSION_STOPPED",
-  STREAMING_SESSION_STOP_IN_PROGRESS = "STREAMING_SESSION_STOP_IN_PROGRESS",
-}
-
-export enum VolumeRetentionMode {
-  DELETE = "DELETE",
-  RETAIN = "RETAIN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StreamingSessionState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  START_FAILED: "START_FAILED",
+  START_IN_PROGRESS: "START_IN_PROGRESS",
+  STOPPED: "STOPPED",
+  STOP_FAILED: "STOP_FAILED",
+  STOP_IN_PROGRESS: "STOP_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type StreamingSessionState = (typeof StreamingSessionState)[keyof typeof StreamingSessionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamingSessionStatusCode = {
+  ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR: "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR",
+  AMI_VALIDATION_ERROR: "AMI_VALIDATION_ERROR",
+  DECRYPT_STREAMING_IMAGE_ERROR: "DECRYPT_STREAMING_IMAGE_ERROR",
+  INITIALIZATION_SCRIPT_ERROR: "INITIALIZATION_SCRIPT_ERROR",
+  INSUFFICIENT_CAPACITY: "INSUFFICIENT_CAPACITY",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NETWORK_CONNECTION_ERROR: "NETWORK_CONNECTION_ERROR",
+  NETWORK_INTERFACE_ERROR: "NETWORK_INTERFACE_ERROR",
+  STREAMING_SESSION_CREATE_IN_PROGRESS: "STREAMING_SESSION_CREATE_IN_PROGRESS",
+  STREAMING_SESSION_DELETED: "STREAMING_SESSION_DELETED",
+  STREAMING_SESSION_DELETE_IN_PROGRESS: "STREAMING_SESSION_DELETE_IN_PROGRESS",
+  STREAMING_SESSION_READY: "STREAMING_SESSION_READY",
+  STREAMING_SESSION_STARTED: "STREAMING_SESSION_STARTED",
+  STREAMING_SESSION_START_IN_PROGRESS: "STREAMING_SESSION_START_IN_PROGRESS",
+  STREAMING_SESSION_STOPPED: "STREAMING_SESSION_STOPPED",
+  STREAMING_SESSION_STOP_IN_PROGRESS: "STREAMING_SESSION_STOP_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingSessionStatusCode = (typeof StreamingSessionStatusCode)[keyof typeof StreamingSessionStatusCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeRetentionMode = {
+  DELETE: "DELETE",
+  RETAIN: "RETAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeRetentionMode = (typeof VolumeRetentionMode)[keyof typeof VolumeRetentionMode];
+
+/**
+ * @public
  * <p>A streaming session is a virtual workstation created using a particular launch
  *             profile.</p>
  */
@@ -1305,6 +1506,9 @@ export interface StreamingSession {
   automaticTerminationMode?: AutomaticTerminationMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingSessionResponse {
   /**
    * <p>The session.</p>
@@ -1312,6 +1516,9 @@ export interface CreateStreamingSessionResponse {
   session?: StreamingSession;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingSessionStreamRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1336,25 +1543,46 @@ export interface CreateStreamingSessionStreamRequest {
   studioId: string | undefined;
 }
 
-export enum StreamingSessionStreamState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-}
-
-export enum StreamingSessionStreamStatusCode {
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  NETWORK_CONNECTION_ERROR = "NETWORK_CONNECTION_ERROR",
-  STREAM_CREATE_IN_PROGRESS = "STREAM_CREATE_IN_PROGRESS",
-  STREAM_DELETED = "STREAM_DELETED",
-  STREAM_DELETE_IN_PROGRESS = "STREAM_DELETE_IN_PROGRESS",
-  STREAM_READY = "STREAM_READY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StreamingSessionStreamState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+} as const;
 
 /**
+ * @public
+ */
+export type StreamingSessionStreamState =
+  (typeof StreamingSessionStreamState)[keyof typeof StreamingSessionStreamState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamingSessionStreamStatusCode = {
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NETWORK_CONNECTION_ERROR: "NETWORK_CONNECTION_ERROR",
+  STREAM_CREATE_IN_PROGRESS: "STREAM_CREATE_IN_PROGRESS",
+  STREAM_DELETED: "STREAM_DELETED",
+  STREAM_DELETE_IN_PROGRESS: "STREAM_DELETE_IN_PROGRESS",
+  STREAM_READY: "STREAM_READY",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingSessionStreamStatusCode =
+  (typeof StreamingSessionStreamStatusCode)[keyof typeof StreamingSessionStreamStatusCode];
+
+/**
+ * @public
  * <p>A stream is an active connection to a streaming session, enabling a studio user to
  *             control the streaming session using a compatible client. Streaming session streams are
  *             compatible with the NICE DCV web client, included in the Nimble Studio portal, or
@@ -1404,6 +1632,9 @@ export interface StreamingSessionStream {
   url?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingSessionStreamResponse {
   /**
    * <p>The stream.</p>
@@ -1411,12 +1642,23 @@ export interface CreateStreamingSessionStreamResponse {
   stream?: StreamingSessionStream;
 }
 
-export enum StudioEncryptionConfigurationKeyType {
-  AWS_OWNED_KEY = "AWS_OWNED_KEY",
-  CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StudioEncryptionConfigurationKeyType = {
+  AWS_OWNED_KEY: "AWS_OWNED_KEY",
+  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
+} as const;
 
 /**
+ * @public
+ */
+export type StudioEncryptionConfigurationKeyType =
+  (typeof StudioEncryptionConfigurationKeyType)[keyof typeof StudioEncryptionConfigurationKeyType];
+
+/**
+ * @public
  * <p>Configuration of the encryption method that is used for the studio.</p>
  */
 export interface StudioEncryptionConfiguration {
@@ -1431,6 +1673,9 @@ export interface StudioEncryptionConfiguration {
   keyType: StudioEncryptionConfigurationKeyType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateStudioRequest {
   /**
    * <p>The IAM role that studio admins will assume when logging in to the
@@ -1474,40 +1719,59 @@ export interface CreateStudioRequest {
   userRoleArn: string | undefined;
 }
 
-export enum StudioState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
-
-export enum StudioStatusCode {
-  AWS_SSO_ACCESS_DENIED = "AWS_SSO_ACCESS_DENIED",
-  AWS_SSO_CONFIGURATION_REPAIRED = "AWS_SSO_CONFIGURATION_REPAIRED",
-  AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS = "AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS",
-  AWS_SSO_NOT_ENABLED = "AWS_SSO_NOT_ENABLED",
-  AWS_STS_REGION_DISABLED = "AWS_STS_REGION_DISABLED",
-  ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
-  ENCRYPTION_KEY_NOT_FOUND = "ENCRYPTION_KEY_NOT_FOUND",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  ROLE_COULD_NOT_BE_ASSUMED = "ROLE_COULD_NOT_BE_ASSUMED",
-  ROLE_NOT_OWNED_BY_STUDIO_OWNER = "ROLE_NOT_OWNED_BY_STUDIO_OWNER",
-  STUDIO_CREATED = "STUDIO_CREATED",
-  STUDIO_CREATE_IN_PROGRESS = "STUDIO_CREATE_IN_PROGRESS",
-  STUDIO_DELETED = "STUDIO_DELETED",
-  STUDIO_DELETE_IN_PROGRESS = "STUDIO_DELETE_IN_PROGRESS",
-  STUDIO_UPDATED = "STUDIO_UPDATED",
-  STUDIO_UPDATE_IN_PROGRESS = "STUDIO_UPDATE_IN_PROGRESS",
-  STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED = "STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED",
-  STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED = "STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED",
-  STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED = "STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StudioState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type StudioState = (typeof StudioState)[keyof typeof StudioState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StudioStatusCode = {
+  AWS_SSO_ACCESS_DENIED: "AWS_SSO_ACCESS_DENIED",
+  AWS_SSO_CONFIGURATION_REPAIRED: "AWS_SSO_CONFIGURATION_REPAIRED",
+  AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS: "AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS",
+  AWS_SSO_NOT_ENABLED: "AWS_SSO_NOT_ENABLED",
+  AWS_STS_REGION_DISABLED: "AWS_STS_REGION_DISABLED",
+  ENCRYPTION_KEY_ACCESS_DENIED: "ENCRYPTION_KEY_ACCESS_DENIED",
+  ENCRYPTION_KEY_NOT_FOUND: "ENCRYPTION_KEY_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  ROLE_COULD_NOT_BE_ASSUMED: "ROLE_COULD_NOT_BE_ASSUMED",
+  ROLE_NOT_OWNED_BY_STUDIO_OWNER: "ROLE_NOT_OWNED_BY_STUDIO_OWNER",
+  STUDIO_CREATED: "STUDIO_CREATED",
+  STUDIO_CREATE_IN_PROGRESS: "STUDIO_CREATE_IN_PROGRESS",
+  STUDIO_DELETED: "STUDIO_DELETED",
+  STUDIO_DELETE_IN_PROGRESS: "STUDIO_DELETE_IN_PROGRESS",
+  STUDIO_UPDATED: "STUDIO_UPDATED",
+  STUDIO_UPDATE_IN_PROGRESS: "STUDIO_UPDATE_IN_PROGRESS",
+  STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED: "STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED",
+  STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED: "STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED",
+  STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED: "STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED",
+} as const;
+
+/**
+ * @public
+ */
+export type StudioStatusCode = (typeof StudioStatusCode)[keyof typeof StudioStatusCode];
+
+/**
+ * @public
  * <p>Represents a studio resource.</p>
  *         <p>A studio is the core resource used with Nimble Studio. You must create a studio
  *             first, before any other resource type can be created. All other resources you create and
@@ -1608,6 +1872,9 @@ export interface Studio {
   userRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -1616,6 +1883,7 @@ export interface CreateStudioResponse {
 }
 
 /**
+ * @public
  * <p>The configuration for a license service that is associated with a studio
  *             resource.</p>
  */
@@ -1628,6 +1896,7 @@ export interface LicenseServiceConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for a shared file storage system that is associated with a studio
  *             resource.</p>
  */
@@ -1660,6 +1929,7 @@ export interface SharedFileSystemConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of the studio component, based on component type.</p>
  */
 export interface StudioComponentConfiguration {
@@ -1686,17 +1956,37 @@ export interface StudioComponentConfiguration {
   sharedFileSystemConfiguration?: SharedFileSystemConfiguration;
 }
 
-export enum LaunchProfilePlatform {
-  LINUX = "LINUX",
-  WINDOWS = "WINDOWS",
-}
-
-export enum StudioComponentInitializationScriptRunContext {
-  SYSTEM_INITIALIZATION = "SYSTEM_INITIALIZATION",
-  USER_INITIALIZATION = "USER_INITIALIZATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchProfilePlatform = {
+  LINUX: "LINUX",
+  WINDOWS: "WINDOWS",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchProfilePlatform = (typeof LaunchProfilePlatform)[keyof typeof LaunchProfilePlatform];
+
+/**
+ * @public
+ * @enum
+ */
+export const StudioComponentInitializationScriptRunContext = {
+  SYSTEM_INITIALIZATION: "SYSTEM_INITIALIZATION",
+  USER_INITIALIZATION: "USER_INITIALIZATION",
+} as const;
+
+/**
+ * @public
+ */
+export type StudioComponentInitializationScriptRunContext =
+  (typeof StudioComponentInitializationScriptRunContext)[keyof typeof StudioComponentInitializationScriptRunContext];
+
+/**
+ * @public
  * <p>Initialization scripts for studio components.</p>
  */
 export interface StudioComponentInitializationScript {
@@ -1723,6 +2013,7 @@ export interface StudioComponentInitializationScript {
 }
 
 /**
+ * @public
  * <p>A parameter for a studio component script, in the form of a key-value pair.</p>
  */
 export interface ScriptParameterKeyValue {
@@ -1737,21 +2028,42 @@ export interface ScriptParameterKeyValue {
   value?: string;
 }
 
-export enum StudioComponentSubtype {
-  AMAZON_FSX_FOR_LUSTRE = "AMAZON_FSX_FOR_LUSTRE",
-  AMAZON_FSX_FOR_WINDOWS = "AMAZON_FSX_FOR_WINDOWS",
-  AWS_MANAGED_MICROSOFT_AD = "AWS_MANAGED_MICROSOFT_AD",
-  CUSTOM = "CUSTOM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StudioComponentSubtype = {
+  AMAZON_FSX_FOR_LUSTRE: "AMAZON_FSX_FOR_LUSTRE",
+  AMAZON_FSX_FOR_WINDOWS: "AMAZON_FSX_FOR_WINDOWS",
+  AWS_MANAGED_MICROSOFT_AD: "AWS_MANAGED_MICROSOFT_AD",
+  CUSTOM: "CUSTOM",
+} as const;
 
-export enum StudioComponentType {
-  ACTIVE_DIRECTORY = "ACTIVE_DIRECTORY",
-  COMPUTE_FARM = "COMPUTE_FARM",
-  CUSTOM = "CUSTOM",
-  LICENSE_SERVICE = "LICENSE_SERVICE",
-  SHARED_FILE_SYSTEM = "SHARED_FILE_SYSTEM",
-}
+/**
+ * @public
+ */
+export type StudioComponentSubtype = (typeof StudioComponentSubtype)[keyof typeof StudioComponentSubtype];
 
+/**
+ * @public
+ * @enum
+ */
+export const StudioComponentType = {
+  ACTIVE_DIRECTORY: "ACTIVE_DIRECTORY",
+  COMPUTE_FARM: "COMPUTE_FARM",
+  CUSTOM: "CUSTOM",
+  LICENSE_SERVICE: "LICENSE_SERVICE",
+  SHARED_FILE_SYSTEM: "SHARED_FILE_SYSTEM",
+} as const;
+
+/**
+ * @public
+ */
+export type StudioComponentType = (typeof StudioComponentType)[keyof typeof StudioComponentType];
+
+/**
+ * @public
+ */
 export interface CreateStudioComponentRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1826,31 +2138,50 @@ export interface CreateStudioComponentRequest {
   runtimeRoleArn?: string;
 }
 
-export enum StudioComponentState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
-
-export enum StudioComponentStatusCode {
-  ACTIVE_DIRECTORY_ALREADY_EXISTS = "ACTIVE_DIRECTORY_ALREADY_EXISTS",
-  ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
-  ENCRYPTION_KEY_NOT_FOUND = "ENCRYPTION_KEY_NOT_FOUND",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STUDIO_COMPONENT_CREATED = "STUDIO_COMPONENT_CREATED",
-  STUDIO_COMPONENT_CREATE_IN_PROGRESS = "STUDIO_COMPONENT_CREATE_IN_PROGRESS",
-  STUDIO_COMPONENT_DELETED = "STUDIO_COMPONENT_DELETED",
-  STUDIO_COMPONENT_DELETE_IN_PROGRESS = "STUDIO_COMPONENT_DELETE_IN_PROGRESS",
-  STUDIO_COMPONENT_UPDATED = "STUDIO_COMPONENT_UPDATED",
-  STUDIO_COMPONENT_UPDATE_IN_PROGRESS = "STUDIO_COMPONENT_UPDATE_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StudioComponentState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type StudioComponentState = (typeof StudioComponentState)[keyof typeof StudioComponentState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StudioComponentStatusCode = {
+  ACTIVE_DIRECTORY_ALREADY_EXISTS: "ACTIVE_DIRECTORY_ALREADY_EXISTS",
+  ENCRYPTION_KEY_ACCESS_DENIED: "ENCRYPTION_KEY_ACCESS_DENIED",
+  ENCRYPTION_KEY_NOT_FOUND: "ENCRYPTION_KEY_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  STUDIO_COMPONENT_CREATED: "STUDIO_COMPONENT_CREATED",
+  STUDIO_COMPONENT_CREATE_IN_PROGRESS: "STUDIO_COMPONENT_CREATE_IN_PROGRESS",
+  STUDIO_COMPONENT_DELETED: "STUDIO_COMPONENT_DELETED",
+  STUDIO_COMPONENT_DELETE_IN_PROGRESS: "STUDIO_COMPONENT_DELETE_IN_PROGRESS",
+  STUDIO_COMPONENT_UPDATED: "STUDIO_COMPONENT_UPDATED",
+  STUDIO_COMPONENT_UPDATE_IN_PROGRESS: "STUDIO_COMPONENT_UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type StudioComponentStatusCode = (typeof StudioComponentStatusCode)[keyof typeof StudioComponentStatusCode];
+
+/**
+ * @public
  * <p>A studio component represents a network resource to be used by a studio's users and
  *             workflows. A typical studio contains studio components for each of the following: render
  *             farm, Active Directory, licensing, and file system.</p>
@@ -1969,6 +2300,9 @@ export interface StudioComponent {
   runtimeRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -1976,6 +2310,9 @@ export interface CreateStudioComponentResponse {
   studioComponent?: StudioComponent;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchProfileRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1995,6 +2332,9 @@ export interface DeleteLaunchProfileRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -2002,6 +2342,9 @@ export interface DeleteLaunchProfileResponse {
   launchProfile?: LaunchProfile;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchProfileMemberRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2026,8 +2369,14 @@ export interface DeleteLaunchProfileMemberRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchProfileMemberResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteStreamingImageRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2047,6 +2396,9 @@ export interface DeleteStreamingImageRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
@@ -2054,6 +2406,9 @@ export interface DeleteStreamingImageResponse {
   streamingImage?: StreamingImage;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2073,6 +2428,9 @@ export interface DeleteStreamingSessionRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamingSessionResponse {
   /**
    * <p>The session.</p>
@@ -2080,6 +2438,9 @@ export interface DeleteStreamingSessionResponse {
   session?: StreamingSession;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2094,6 +2455,9 @@ export interface DeleteStudioRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -2101,6 +2465,9 @@ export interface DeleteStudioResponse {
   studio: Studio | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioComponentRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2120,6 +2487,9 @@ export interface DeleteStudioComponentRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -2127,6 +2497,9 @@ export interface DeleteStudioComponentResponse {
   studioComponent?: StudioComponent;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioMemberRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2146,9 +2519,13 @@ export interface DeleteStudioMemberRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioMemberResponse {}
 
 /**
+ * @public
  * <p>Represents a EULA resource.</p>
  */
 export interface Eula {
@@ -2178,6 +2555,9 @@ export interface Eula {
   updatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEulaAcceptancesRequest {
   /**
    * <p>The list of EULA IDs that have been previously accepted.</p>
@@ -2195,6 +2575,9 @@ export interface ListEulaAcceptancesRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEulaAcceptancesResponse {
   /**
    * <p>A collection of EULA acceptances.</p>
@@ -2207,6 +2590,9 @@ export interface ListEulaAcceptancesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEulaRequest {
   /**
    * <p>The EULA ID.</p>
@@ -2214,6 +2600,9 @@ export interface GetEulaRequest {
   eulaId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEulaResponse {
   /**
    * <p>The EULA.</p>
@@ -2221,6 +2610,9 @@ export interface GetEulaResponse {
   eula?: Eula;
 }
 
+/**
+ * @public
+ */
 export interface ListEulasRequest {
   /**
    * <p>The list of EULA IDs that should be returned</p>
@@ -2233,6 +2625,9 @@ export interface ListEulasRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEulasResponse {
   /**
    * <p>A collection of EULA resources.</p>
@@ -2245,6 +2640,9 @@ export interface ListEulasResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileRequest {
   /**
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
@@ -2257,6 +2655,9 @@ export interface GetLaunchProfileRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -2264,6 +2665,9 @@ export interface GetLaunchProfileResponse {
   launchProfile?: LaunchProfile;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileDetailsRequest {
   /**
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
@@ -2277,6 +2681,7 @@ export interface GetLaunchProfileDetailsRequest {
 }
 
 /**
+ * @public
  * <p>The studio component's summary.</p>
  */
 export interface StudioComponentSummary {
@@ -2326,6 +2731,9 @@ export interface StudioComponentSummary {
   updatedBy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileDetailsResponse {
   /**
    * <p>The launch profile.</p>
@@ -2343,6 +2751,9 @@ export interface GetLaunchProfileDetailsResponse {
   studioComponentSummaries?: StudioComponentSummary[];
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileInitializationRequest {
   /**
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
@@ -2371,6 +2782,7 @@ export interface GetLaunchProfileInitializationRequest {
 }
 
 /**
+ * @public
  * <p>The launch profile initialization Active Directory contains information required for
  *             the launch profile to connect to the Active Directory.</p>
  */
@@ -2413,6 +2825,7 @@ export interface LaunchProfileInitializationActiveDirectory {
 }
 
 /**
+ * @public
  * <p>The launch profile initialization script is used when start streaming session
  *             runs.</p>
  */
@@ -2448,6 +2861,7 @@ export interface LaunchProfileInitializationScript {
 }
 
 /**
+ * @public
  * <p>A launch profile initialization contains information required for a workstation or
  *             server to connect to a launch profile.</p>
  *         <p>This includes scripts, endpoints, security groups, subnets, and other
@@ -2501,6 +2915,9 @@ export interface LaunchProfileInitialization {
   userInitializationScripts?: LaunchProfileInitializationScript[];
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileInitializationResponse {
   /**
    * <p>The launch profile initialization.</p>
@@ -2508,6 +2925,9 @@ export interface GetLaunchProfileInitializationResponse {
   launchProfileInitialization?: LaunchProfileInitialization;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileMemberRequest {
   /**
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
@@ -2525,11 +2945,21 @@ export interface GetLaunchProfileMemberRequest {
   studioId: string | undefined;
 }
 
-export enum LaunchProfilePersona {
-  USER = "USER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchProfilePersona = {
+  USER: "USER",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchProfilePersona = (typeof LaunchProfilePersona)[keyof typeof LaunchProfilePersona];
+
+/**
+ * @public
  * <p>Studio admins can use launch profile membership to delegate launch profile access to
  *             studio users in the Nimble Studio portal without writing or maintaining complex
  *                 IAM policies. A launch profile member is a user association from your
@@ -2579,6 +3009,9 @@ export interface LaunchProfileMembership {
   sid?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileMemberResponse {
   /**
    * <p>The member.</p>
@@ -2586,6 +3019,9 @@ export interface GetLaunchProfileMemberResponse {
   member?: LaunchProfileMembership;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingImageRequest {
   /**
    * <p>The streaming image ID.</p>
@@ -2598,6 +3034,9 @@ export interface GetStreamingImageRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
@@ -2605,6 +3044,9 @@ export interface GetStreamingImageResponse {
   streamingImage?: StreamingImage;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingSessionRequest {
   /**
    * <p>The streaming session ID.</p>
@@ -2617,6 +3059,9 @@ export interface GetStreamingSessionRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingSessionResponse {
   /**
    * <p>The session.</p>
@@ -2624,6 +3069,9 @@ export interface GetStreamingSessionResponse {
   session?: StreamingSession;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingSessionBackupRequest {
   /**
    * <p>The ID of the backup.</p>
@@ -2637,6 +3085,7 @@ export interface GetStreamingSessionBackupRequest {
 }
 
 /**
+ * @public
  * <p>Information about the streaming session backup.</p>
  */
 export interface StreamingSessionBackup {
@@ -2694,6 +3143,9 @@ export interface StreamingSessionBackup {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingSessionBackupResponse {
   /**
    * <p>Information about the streaming session backup.</p>
@@ -2701,6 +3153,9 @@ export interface GetStreamingSessionBackupResponse {
   streamingSessionBackup?: StreamingSessionBackup;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingSessionStreamRequest {
   /**
    * <p>The streaming session ID.</p>
@@ -2718,6 +3173,9 @@ export interface GetStreamingSessionStreamRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingSessionStreamResponse {
   /**
    * <p>The stream.</p>
@@ -2725,6 +3183,9 @@ export interface GetStreamingSessionStreamResponse {
   stream?: StreamingSessionStream;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioRequest {
   /**
    * <p>The studio ID. </p>
@@ -2732,6 +3193,9 @@ export interface GetStudioRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -2739,6 +3203,9 @@ export interface GetStudioResponse {
   studio: Studio | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioComponentRequest {
   /**
    * <p>The studio component ID.</p>
@@ -2751,6 +3218,9 @@ export interface GetStudioComponentRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -2758,6 +3228,9 @@ export interface GetStudioComponentResponse {
   studioComponent?: StudioComponent;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioMemberRequest {
   /**
    * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
@@ -2770,11 +3243,21 @@ export interface GetStudioMemberRequest {
   studioId: string | undefined;
 }
 
-export enum StudioPersona {
-  ADMINISTRATOR = "ADMINISTRATOR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StudioPersona = {
+  ADMINISTRATOR: "ADMINISTRATOR",
+} as const;
 
 /**
+ * @public
+ */
+export type StudioPersona = (typeof StudioPersona)[keyof typeof StudioPersona];
+
+/**
+ * @public
  * <p>A studio member is an association of a user from your studio identity source to
  *             elevated permissions that they are granted in the studio.</p>
  *         <p>When you add a user to your studio using the Nimble Studio console, they are
@@ -2808,6 +3291,9 @@ export interface StudioMembership {
   sid?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioMemberResponse {
   /**
    * <p>The member.</p>
@@ -2815,6 +3301,9 @@ export interface GetStudioMemberResponse {
   member?: StudioMembership;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchProfileMembersRequest {
   /**
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
@@ -2837,6 +3326,9 @@ export interface ListLaunchProfileMembersRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchProfileMembersResponse {
   /**
    * <p>A list of members.</p>
@@ -2849,6 +3341,9 @@ export interface ListLaunchProfileMembersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchProfilesRequest {
   /**
    * <p>The max number of results to return in the response.</p>
@@ -2876,6 +3371,9 @@ export interface ListLaunchProfilesRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchProfilesResponse {
   /**
    * <p>A collection of launch profiles.</p>
@@ -2889,6 +3387,7 @@ export interface ListLaunchProfilesResponse {
 }
 
 /**
+ * @public
  * <p>A new member that is added to a launch profile.</p>
  */
 export interface NewLaunchProfileMember {
@@ -2903,6 +3402,9 @@ export interface NewLaunchProfileMember {
   principalId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLaunchProfileMembersRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2932,8 +3434,14 @@ export interface PutLaunchProfileMembersRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLaunchProfileMembersResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLaunchProfileRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2980,6 +3488,9 @@ export interface UpdateLaunchProfileRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -2987,6 +3498,9 @@ export interface UpdateLaunchProfileResponse {
   launchProfile?: LaunchProfile;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchProfileMemberRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3016,6 +3530,9 @@ export interface UpdateLaunchProfileMemberRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchProfileMemberResponse {
   /**
    * <p>The updated member. </p>
@@ -3023,6 +3540,9 @@ export interface UpdateLaunchProfileMemberResponse {
   member?: LaunchProfileMembership;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamingImagesRequest {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3040,6 +3560,9 @@ export interface ListStreamingImagesRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamingImagesResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3052,6 +3575,9 @@ export interface ListStreamingImagesResponse {
   streamingImages?: StreamingImage[];
 }
 
+/**
+ * @public
+ */
 export interface ListStreamingSessionBackupsRequest {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3069,6 +3595,9 @@ export interface ListStreamingSessionBackupsRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamingSessionBackupsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3081,6 +3610,9 @@ export interface ListStreamingSessionBackupsResponse {
   streamingSessionBackups?: StreamingSessionBackup[];
 }
 
+/**
+ * @public
+ */
 export interface ListStreamingSessionsRequest {
   /**
    * <p>Filters the request to streaming sessions created by the given user.</p>
@@ -3108,6 +3640,9 @@ export interface ListStreamingSessionsRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamingSessionsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3120,6 +3655,9 @@ export interface ListStreamingSessionsResponse {
   sessions?: StreamingSession[];
 }
 
+/**
+ * @public
+ */
 export interface ListStudioComponentsRequest {
   /**
    * <p>The max number of results to return in the response.</p>
@@ -3147,6 +3685,9 @@ export interface ListStudioComponentsRequest {
   types?: (StudioComponentType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListStudioComponentsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3159,6 +3700,9 @@ export interface ListStudioComponentsResponse {
   studioComponents?: StudioComponent[];
 }
 
+/**
+ * @public
+ */
 export interface ListStudioMembersRequest {
   /**
    * <p>The max number of results to return in the response.</p>
@@ -3176,6 +3720,9 @@ export interface ListStudioMembersRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListStudioMembersResponse {
   /**
    * <p>A list of admin members.</p>
@@ -3188,6 +3735,9 @@ export interface ListStudioMembersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStudiosRequest {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3195,6 +3745,9 @@ export interface ListStudiosRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStudiosResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3207,6 +3760,9 @@ export interface ListStudiosResponse {
   studios: Studio[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</p>
@@ -3214,6 +3770,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
@@ -3223,6 +3782,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>A new studio user's membership.</p>
  */
 export interface NewStudioMember {
@@ -3237,6 +3797,9 @@ export interface NewStudioMember {
   principalId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamingImageRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3266,6 +3829,9 @@ export interface UpdateStreamingImageRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamingImageResponse {
   /**
    * <p>Represents a streaming image resource.</p>
@@ -3280,6 +3846,9 @@ export interface UpdateStreamingImageResponse {
   streamingImage?: StreamingImage;
 }
 
+/**
+ * @public
+ */
 export interface StartStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3304,6 +3873,9 @@ export interface StartStreamingSessionRequest {
   backupId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartStreamingSessionResponse {
   /**
    * <p>A streaming session is a virtual workstation created using a particular launch
@@ -3312,6 +3884,9 @@ export interface StartStreamingSessionResponse {
   session?: StreamingSession;
 }
 
+/**
+ * @public
+ */
 export interface StopStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3337,6 +3912,9 @@ export interface StopStreamingSessionRequest {
   volumeRetentionMode?: VolumeRetentionMode | string;
 }
 
+/**
+ * @public
+ */
 export interface StopStreamingSessionResponse {
   /**
    * <p>A streaming session is a virtual workstation created using a particular launch
@@ -3345,6 +3923,9 @@ export interface StopStreamingSessionResponse {
   session?: StreamingSession;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStudioComponentRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3418,6 +3999,9 @@ export interface UpdateStudioComponentRequest {
   runtimeRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -3425,6 +4009,9 @@ export interface UpdateStudioComponentResponse {
   studioComponent?: StudioComponent;
 }
 
+/**
+ * @public
+ */
 export interface PutStudioMembersRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3449,8 +4036,14 @@ export interface PutStudioMembersRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutStudioMembersResponse {}
 
+/**
+ * @public
+ */
 export interface StartStudioSSOConfigurationRepairRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3465,6 +4058,9 @@ export interface StartStudioSSOConfigurationRepairRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartStudioSSOConfigurationRepairResponse {
   /**
    * <p>Information about a studio.</p>
@@ -3472,6 +4068,9 @@ export interface StartStudioSSOConfigurationRepairResponse {
   studio: Studio | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStudioRequest {
   /**
    * <p>The IAM role that Studio Admins will assume when logging in to the
@@ -3503,6 +4102,9 @@ export interface UpdateStudioRequest {
   userRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -3510,6 +4112,9 @@ export interface UpdateStudioResponse {
   studio: Studio | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you want to add tags to. </p>
@@ -3523,8 +4128,14 @@ export interface TagResourceRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>Identifies the Amazon Resource Name(ARN) key from which you are removing tags. </p>
@@ -3537,35 +4148,10 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const AcceptEulasRequestFilterSensitiveLog = (obj: AcceptEulasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EulaAcceptanceFilterSensitiveLog = (obj: EulaAcceptance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptEulasResponseFilterSensitiveLog = (obj: AcceptEulasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActiveDirectoryComputerAttributeFilterSensitiveLog = (obj: ActiveDirectoryComputerAttribute): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -3586,13 +4172,6 @@ export const ComputeFarmConfigurationFilterSensitiveLog = (obj: ComputeFarmConfi
 /**
  * @internal
  */
-export const StreamConfigurationSessionBackupFilterSensitiveLog = (obj: StreamConfigurationSessionBackup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StreamingSessionStorageRootFilterSensitiveLog = (obj: StreamingSessionStorageRoot): any => ({
   ...obj,
   ...(obj.linux && { linux: SENSITIVE_STRING }),
@@ -3605,13 +4184,6 @@ export const StreamingSessionStorageRootFilterSensitiveLog = (obj: StreamingSess
 export const StreamConfigurationSessionStorageFilterSensitiveLog = (obj: StreamConfigurationSessionStorage): any => ({
   ...obj,
   ...(obj.root && { root: StreamingSessionStorageRootFilterSensitiveLog(obj.root) }),
-});
-
-/**
- * @internal
- */
-export const VolumeConfigurationFilterSensitiveLog = (obj: VolumeConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -3649,13 +4221,6 @@ export const StreamConfigurationFilterSensitiveLog = (obj: StreamConfiguration):
 /**
  * @internal
  */
-export const ValidationResultFilterSensitiveLog = (obj: ValidationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const LaunchProfileFilterSensitiveLog = (obj: LaunchProfile): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -3685,15 +4250,6 @@ export const CreateStreamingImageRequestFilterSensitiveLog = (obj: CreateStreami
 /**
  * @internal
  */
-export const StreamingImageEncryptionConfigurationFilterSensitiveLog = (
-  obj: StreamingImageEncryptionConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StreamingImageFilterSensitiveLog = (obj: StreamingImage): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -3706,36 +4262,6 @@ export const StreamingImageFilterSensitiveLog = (obj: StreamingImage): any => ({
 export const CreateStreamingImageResponseFilterSensitiveLog = (obj: CreateStreamingImageResponse): any => ({
   ...obj,
   ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
-});
-
-/**
- * @internal
- */
-export const CreateStreamingSessionRequestFilterSensitiveLog = (obj: CreateStreamingSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingSessionFilterSensitiveLog = (obj: StreamingSession): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingSessionResponseFilterSensitiveLog = (obj: CreateStreamingSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingSessionStreamRequestFilterSensitiveLog = (
-  obj: CreateStreamingSessionStreamRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3754,13 +4280,6 @@ export const CreateStreamingSessionStreamResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.stream && { stream: StreamingSessionStreamFilterSensitiveLog(obj.stream) }),
-});
-
-/**
- * @internal
- */
-export const StudioEncryptionConfigurationFilterSensitiveLog = (obj: StudioEncryptionConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -3837,13 +4356,6 @@ export const StudioComponentInitializationScriptFilterSensitiveLog = (
 /**
  * @internal
  */
-export const ScriptParameterKeyValueFilterSensitiveLog = (obj: ScriptParameterKeyValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateStudioComponentRequestFilterSensitiveLog = (obj: CreateStudioComponentRequest): any => ({
   ...obj,
   ...(obj.configuration && { configuration: StudioComponentConfigurationFilterSensitiveLog(obj.configuration) }),
@@ -3884,37 +4396,9 @@ export const CreateStudioComponentResponseFilterSensitiveLog = (obj: CreateStudi
 /**
  * @internal
  */
-export const DeleteLaunchProfileRequestFilterSensitiveLog = (obj: DeleteLaunchProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteLaunchProfileResponseFilterSensitiveLog = (obj: DeleteLaunchProfileResponse): any => ({
   ...obj,
   ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
-});
-
-/**
- * @internal
- */
-export const DeleteLaunchProfileMemberRequestFilterSensitiveLog = (obj: DeleteLaunchProfileMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLaunchProfileMemberResponseFilterSensitiveLog = (obj: DeleteLaunchProfileMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStreamingImageRequestFilterSensitiveLog = (obj: DeleteStreamingImageRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3928,37 +4412,9 @@ export const DeleteStreamingImageResponseFilterSensitiveLog = (obj: DeleteStream
 /**
  * @internal
  */
-export const DeleteStreamingSessionRequestFilterSensitiveLog = (obj: DeleteStreamingSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStreamingSessionResponseFilterSensitiveLog = (obj: DeleteStreamingSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStudioRequestFilterSensitiveLog = (obj: DeleteStudioRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteStudioResponseFilterSensitiveLog = (obj: DeleteStudioResponse): any => ({
   ...obj,
   ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
-});
-
-/**
- * @internal
- */
-export const DeleteStudioComponentRequestFilterSensitiveLog = (obj: DeleteStudioComponentRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3972,86 +4428,9 @@ export const DeleteStudioComponentResponseFilterSensitiveLog = (obj: DeleteStudi
 /**
  * @internal
  */
-export const DeleteStudioMemberRequestFilterSensitiveLog = (obj: DeleteStudioMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStudioMemberResponseFilterSensitiveLog = (obj: DeleteStudioMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EulaFilterSensitiveLog = (obj: Eula): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEulaAcceptancesRequestFilterSensitiveLog = (obj: ListEulaAcceptancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEulaAcceptancesResponseFilterSensitiveLog = (obj: ListEulaAcceptancesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEulaRequestFilterSensitiveLog = (obj: GetEulaRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEulaResponseFilterSensitiveLog = (obj: GetEulaResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEulasRequestFilterSensitiveLog = (obj: ListEulasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEulasResponseFilterSensitiveLog = (obj: ListEulasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLaunchProfileRequestFilterSensitiveLog = (obj: GetLaunchProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetLaunchProfileResponseFilterSensitiveLog = (obj: GetLaunchProfileResponse): any => ({
   ...obj,
   ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
-});
-
-/**
- * @internal
- */
-export const GetLaunchProfileDetailsRequestFilterSensitiveLog = (obj: GetLaunchProfileDetailsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4077,15 +4456,6 @@ export const GetLaunchProfileDetailsResponseFilterSensitiveLog = (obj: GetLaunch
       StudioComponentSummaryFilterSensitiveLog(item)
     ),
   }),
-});
-
-/**
- * @internal
- */
-export const GetLaunchProfileInitializationRequestFilterSensitiveLog = (
-  obj: GetLaunchProfileInitializationRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -4144,79 +4514,9 @@ export const GetLaunchProfileInitializationResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const GetLaunchProfileMemberRequestFilterSensitiveLog = (obj: GetLaunchProfileMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchProfileMembershipFilterSensitiveLog = (obj: LaunchProfileMembership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLaunchProfileMemberResponseFilterSensitiveLog = (obj: GetLaunchProfileMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingImageRequestFilterSensitiveLog = (obj: GetStreamingImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetStreamingImageResponseFilterSensitiveLog = (obj: GetStreamingImageResponse): any => ({
   ...obj,
   ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
-});
-
-/**
- * @internal
- */
-export const GetStreamingSessionRequestFilterSensitiveLog = (obj: GetStreamingSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingSessionResponseFilterSensitiveLog = (obj: GetStreamingSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingSessionBackupRequestFilterSensitiveLog = (obj: GetStreamingSessionBackupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingSessionBackupFilterSensitiveLog = (obj: StreamingSessionBackup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingSessionBackupResponseFilterSensitiveLog = (obj: GetStreamingSessionBackupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingSessionStreamRequestFilterSensitiveLog = (obj: GetStreamingSessionStreamRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4230,23 +4530,9 @@ export const GetStreamingSessionStreamResponseFilterSensitiveLog = (obj: GetStre
 /**
  * @internal
  */
-export const GetStudioRequestFilterSensitiveLog = (obj: GetStudioRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetStudioResponseFilterSensitiveLog = (obj: GetStudioResponse): any => ({
   ...obj,
   ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
-});
-
-/**
- * @internal
- */
-export const GetStudioComponentRequestFilterSensitiveLog = (obj: GetStudioComponentRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4260,74 +4546,11 @@ export const GetStudioComponentResponseFilterSensitiveLog = (obj: GetStudioCompo
 /**
  * @internal
  */
-export const GetStudioMemberRequestFilterSensitiveLog = (obj: GetStudioMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StudioMembershipFilterSensitiveLog = (obj: StudioMembership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStudioMemberResponseFilterSensitiveLog = (obj: GetStudioMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLaunchProfileMembersRequestFilterSensitiveLog = (obj: ListLaunchProfileMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLaunchProfileMembersResponseFilterSensitiveLog = (obj: ListLaunchProfileMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLaunchProfilesRequestFilterSensitiveLog = (obj: ListLaunchProfilesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListLaunchProfilesResponseFilterSensitiveLog = (obj: ListLaunchProfilesResponse): any => ({
   ...obj,
   ...(obj.launchProfiles && {
     launchProfiles: obj.launchProfiles.map((item) => LaunchProfileFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const NewLaunchProfileMemberFilterSensitiveLog = (obj: NewLaunchProfileMember): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutLaunchProfileMembersRequestFilterSensitiveLog = (obj: PutLaunchProfileMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutLaunchProfileMembersResponseFilterSensitiveLog = (obj: PutLaunchProfileMembersResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -4353,69 +4576,11 @@ export const UpdateLaunchProfileResponseFilterSensitiveLog = (obj: UpdateLaunchP
 /**
  * @internal
  */
-export const UpdateLaunchProfileMemberRequestFilterSensitiveLog = (obj: UpdateLaunchProfileMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLaunchProfileMemberResponseFilterSensitiveLog = (obj: UpdateLaunchProfileMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamingImagesRequestFilterSensitiveLog = (obj: ListStreamingImagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListStreamingImagesResponseFilterSensitiveLog = (obj: ListStreamingImagesResponse): any => ({
   ...obj,
   ...(obj.streamingImages && {
     streamingImages: obj.streamingImages.map((item) => StreamingImageFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListStreamingSessionBackupsRequestFilterSensitiveLog = (obj: ListStreamingSessionBackupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamingSessionBackupsResponseFilterSensitiveLog = (
-  obj: ListStreamingSessionBackupsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamingSessionsRequestFilterSensitiveLog = (obj: ListStreamingSessionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamingSessionsResponseFilterSensitiveLog = (obj: ListStreamingSessionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStudioComponentsRequestFilterSensitiveLog = (obj: ListStudioComponentsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4431,51 +4596,9 @@ export const ListStudioComponentsResponseFilterSensitiveLog = (obj: ListStudioCo
 /**
  * @internal
  */
-export const ListStudioMembersRequestFilterSensitiveLog = (obj: ListStudioMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStudioMembersResponseFilterSensitiveLog = (obj: ListStudioMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStudiosRequestFilterSensitiveLog = (obj: ListStudiosRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListStudiosResponseFilterSensitiveLog = (obj: ListStudiosResponse): any => ({
   ...obj,
   ...(obj.studios && { studios: obj.studios.map((item) => StudioFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NewStudioMemberFilterSensitiveLog = (obj: NewStudioMember): any => ({
-  ...obj,
 });
 
 /**
@@ -4493,34 +4616,6 @@ export const UpdateStreamingImageRequestFilterSensitiveLog = (obj: UpdateStreami
 export const UpdateStreamingImageResponseFilterSensitiveLog = (obj: UpdateStreamingImageResponse): any => ({
   ...obj,
   ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
-});
-
-/**
- * @internal
- */
-export const StartStreamingSessionRequestFilterSensitiveLog = (obj: StartStreamingSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartStreamingSessionResponseFilterSensitiveLog = (obj: StartStreamingSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopStreamingSessionRequestFilterSensitiveLog = (obj: StopStreamingSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopStreamingSessionResponseFilterSensitiveLog = (obj: StopStreamingSessionResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -4550,29 +4645,6 @@ export const UpdateStudioComponentResponseFilterSensitiveLog = (obj: UpdateStudi
 /**
  * @internal
  */
-export const PutStudioMembersRequestFilterSensitiveLog = (obj: PutStudioMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutStudioMembersResponseFilterSensitiveLog = (obj: PutStudioMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartStudioSSOConfigurationRepairRequestFilterSensitiveLog = (
-  obj: StartStudioSSOConfigurationRepairRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StartStudioSSOConfigurationRepairResponseFilterSensitiveLog = (
   obj: StartStudioSSOConfigurationRepairResponse
 ): any => ({
@@ -4594,32 +4666,4 @@ export const UpdateStudioRequestFilterSensitiveLog = (obj: UpdateStudioRequest):
 export const UpdateStudioResponseFilterSensitiveLog = (obj: UpdateStudioResponse): any => ({
   ...obj,
   ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
 });

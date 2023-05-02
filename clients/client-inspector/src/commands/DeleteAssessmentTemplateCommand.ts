@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { DeleteAssessmentTemplateRequest, DeleteAssessmentTemplateRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAssessmentTemplateCommand,
-  serializeAws_json1_1DeleteAssessmentTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAssessmentTemplateRequest } from "../models/models_0";
+import { de_DeleteAssessmentTemplateCommand, se_DeleteAssessmentTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssessmentTemplateCommand}.
  */
 export interface DeleteAssessmentTemplateCommandInput extends DeleteAssessmentTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssessmentTemplateCommand}.
  */
 export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the assessment template that is specified by the ARN of the assessment
  *          template.</p>
  * @example
@@ -38,10 +40,15 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  * import { InspectorClient, DeleteAssessmentTemplateCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DeleteAssessmentTemplateCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // DeleteAssessmentTemplateRequest
+ *   assessmentTemplateArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAssessmentTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssessmentTemplateCommandInput - {@link DeleteAssessmentTemplateCommandInput}
+ * @returns {@link DeleteAssessmentTemplateCommandOutput}
  * @see {@link DeleteAssessmentTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteAssessmentTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssessmentTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +135,8 @@ export class DeleteAssessmentTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssessmentTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +146,18 @@ export class DeleteAssessmentTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssessmentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAssessmentTemplateCommand(input, context);
+    return se_DeleteAssessmentTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssessmentTemplateCommandOutput> {
-    return deserializeAws_json1_1DeleteAssessmentTemplateCommand(output, context);
+    return de_DeleteAssessmentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

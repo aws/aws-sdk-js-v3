@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeVpcEndpointConnectionsRequest, DescribeVpcEndpointConnectionsResult } from "../models/models_5";
 import {
-  DescribeVpcEndpointConnectionsRequest,
-  DescribeVpcEndpointConnectionsRequestFilterSensitiveLog,
-  DescribeVpcEndpointConnectionsResult,
-  DescribeVpcEndpointConnectionsResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2DescribeVpcEndpointConnectionsCommand,
-  serializeAws_ec2DescribeVpcEndpointConnectionsCommand,
+  de_DescribeVpcEndpointConnectionsCommand,
+  se_DescribeVpcEndpointConnectionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcEndpointConnectionsCommand}.
  */
 export interface DescribeVpcEndpointConnectionsCommandInput extends DescribeVpcEndpointConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcEndpointConnectionsCommand}.
  */
 export interface DescribeVpcEndpointConnectionsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the VPC endpoint connections to your VPC endpoint services, including any
  *             endpoints that are pending your acceptance.</p>
  * @example
@@ -45,10 +45,25 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
  * import { EC2Client, DescribeVpcEndpointConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcEndpointConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVpcEndpointConnectionsRequest
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeVpcEndpointConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcEndpointConnectionsCommandInput - {@link DescribeVpcEndpointConnectionsCommandInput}
+ * @returns {@link DescribeVpcEndpointConnectionsCommandOutput}
  * @see {@link DescribeVpcEndpointConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +87,9 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcEndpointConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +118,8 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcEndpointConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcEndpointConnectionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +129,24 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVpcEndpointConnectionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcEndpointConnectionsCommand(input, context);
+    return se_DescribeVpcEndpointConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcEndpointConnectionsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcEndpointConnectionsCommand(output, context);
+    return de_DescribeVpcEndpointConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

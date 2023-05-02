@@ -10,7 +10,7 @@ import { EvidentlyClient } from "../EvidentlyClient";
 import { EvidentlyPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EvidentlyClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSegmentReferencesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSegmentReferences(
   config: EvidentlyPaginationConfiguration,
   input: ListSegmentReferencesCommandInput,

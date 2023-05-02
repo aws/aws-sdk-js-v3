@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  DescribeDatasetRequest,
-  DescribeDatasetRequestFilterSensitiveLog,
-  DescribeDatasetResponse,
-  DescribeDatasetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDatasetCommand,
-  serializeAws_restJson1DescribeDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/models_0";
+import { de_DescribeDatasetCommand, se_DescribeDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDatasetCommand}.
  */
 export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDatasetCommand}.
  */
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the definition of a specific DataBrew dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * import { DataBrewClient, DescribeDatasetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeDatasetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // DescribeDatasetRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
+ * @returns {@link DescribeDatasetCommandOutput}
  * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -75,6 +77,9 @@ export class DescribeDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DescribeDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatasetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DescribeDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDatasetCommand(input, context);
+    return se_DescribeDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetCommandOutput> {
-    return deserializeAws_restJson1DescribeDatasetCommand(output, context);
+    return de_DescribeDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

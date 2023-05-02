@@ -30,6 +30,7 @@ import {
   UserIdGroupPair,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
+  VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 import {
   AttributeValue,
@@ -68,7 +69,6 @@ import {
   PlacementGroup,
   PlatformValues,
   PrivateIpAddressSpecification,
-  ReplaceRootVolumeTask,
   SpotInstanceType,
   StateReason,
   Subnet,
@@ -76,6 +76,7 @@ import {
   Tenancy,
 } from "./models_1";
 import {
+  ReplaceRootVolumeTask,
   RouteTable,
   Snapshot,
   SnapshotState,
@@ -116,13 +117,29 @@ import {
   InstanceMaintenanceOptions,
   InstanceMetadataOptionsResponse,
   LicenseConfiguration,
-  MonitoringState,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_3";
 
 /**
+ * @public
+ * @enum
+ */
+export const MonitoringState = {
+  disabled: "disabled",
+  disabling: "disabling",
+  enabled: "enabled",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringState = (typeof MonitoringState)[keyof typeof MonitoringState];
+
+/**
+ * @public
  * <p>Describes the monitoring of an instance.</p>
  */
 export interface Monitoring {
@@ -134,6 +151,7 @@ export interface Monitoring {
 }
 
 /**
+ * @public
  * <p>Describes association information for an Elastic IP address (IPv4).</p>
  */
 export interface InstanceNetworkInterfaceAssociation {
@@ -164,6 +182,7 @@ export interface InstanceNetworkInterfaceAssociation {
 }
 
 /**
+ * @public
  * <p>Describes a network interface attachment.</p>
  */
 export interface InstanceNetworkInterfaceAttachment {
@@ -199,6 +218,7 @@ export interface InstanceNetworkInterfaceAttachment {
 }
 
 /**
+ * @public
  * <p>Information about an IPv4 prefix.</p>
  */
 export interface InstanceIpv4Prefix {
@@ -209,6 +229,7 @@ export interface InstanceIpv4Prefix {
 }
 
 /**
+ * @public
  * <p>Information about an IPv6 prefix.</p>
  */
 export interface InstanceIpv6Prefix {
@@ -219,6 +240,7 @@ export interface InstanceIpv6Prefix {
 }
 
 /**
+ * @public
  * <p>Describes a private IPv4 address.</p>
  */
 export interface InstancePrivateIpAddress {
@@ -244,6 +266,7 @@ export interface InstancePrivateIpAddress {
 }
 
 /**
+ * @public
  * <p>Describes a network interface.</p>
  */
 export interface InstanceNetworkInterface {
@@ -342,6 +365,7 @@ export interface InstanceNetworkInterface {
 }
 
 /**
+ * @public
  * <p>Describes the options for instance hostnames.</p>
  */
 export interface PrivateDnsNameOptionsResponse {
@@ -363,16 +387,26 @@ export interface PrivateDnsNameOptionsResponse {
   EnableResourceNameDnsAAAARecord?: boolean;
 }
 
-export enum InstanceStateName {
-  pending = "pending",
-  running = "running",
-  shutting_down = "shutting-down",
-  stopped = "stopped",
-  stopping = "stopping",
-  terminated = "terminated",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceStateName = {
+  pending: "pending",
+  running: "running",
+  shutting_down: "shutting-down",
+  stopped: "stopped",
+  stopping: "stopping",
+  terminated: "terminated",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceStateName = (typeof InstanceStateName)[keyof typeof InstanceStateName];
+
+/**
+ * @public
  * <p>Describes the current state of an instance.</p>
  */
 export interface InstanceState {
@@ -429,6 +463,7 @@ export interface InstanceState {
 }
 
 /**
+ * @public
  * <p>Describes an instance.</p>
  */
 export interface Instance {
@@ -485,10 +520,10 @@ export interface Instance {
   Platform?: PlatformValues | string;
 
   /**
-   * <p>(IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname
+   * <p>[IPv4 only] The private DNS hostname name assigned to the instance. This DNS hostname
    *             can only be used inside the Amazon EC2 network. This name is not available until the
    *             instance enters the <code>running</code> state. </p>
-   *          <p>[EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS
+   *          <p>The Amazon-provided DNS server resolves Amazon-provided private DNS
    *             hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not
    *             using the Amazon-provided DNS server in your VPC, your custom domain name servers must
    *             resolve the hostname as appropriate.</p>
@@ -506,8 +541,8 @@ export interface Instance {
   ProductCodes?: ProductCode[];
 
   /**
-   * <p>(IPv4 only) The public DNS name assigned to the instance. This name is not available
-   *             until the instance enters the <code>running</code> state. For EC2-VPC, this name is only
+   * <p>[IPv4 only] The public DNS name assigned to the instance. This name is not available
+   *             until the instance enters the <code>running</code> state. This name is only
    *             available if you've enabled DNS hostnames for your VPC.</p>
    */
   PublicDnsName?: string;
@@ -536,12 +571,12 @@ export interface Instance {
   StateTransitionReason?: string;
 
   /**
-   * <p>[EC2-VPC] The ID of the subnet in which the instance is running.</p>
+   * <p>The ID of the subnet in which the instance is running.</p>
    */
   SubnetId?: string;
 
   /**
-   * <p>[EC2-VPC] The ID of the VPC in which the instance is running.</p>
+   * <p>The ID of the VPC in which the instance is running.</p>
    */
   VpcId?: string;
 
@@ -597,12 +632,12 @@ export interface Instance {
   ElasticGpuAssociations?: ElasticGpuAssociation[];
 
   /**
-   * <p> The elastic inference accelerator associated with the instance.</p>
+   * <p>The elastic inference accelerator associated with the instance.</p>
    */
   ElasticInferenceAcceleratorAssociations?: ElasticInferenceAcceleratorAssociation[];
 
   /**
-   * <p>[EC2-VPC] The network interfaces for the instance.</p>
+   * <p>The network interfaces for the instance.</p>
    */
   NetworkInterfaces?: InstanceNetworkInterface[];
 
@@ -756,13 +791,14 @@ export interface Instance {
 }
 
 /**
+ * @public
  * <p>Describes a launch request for one or more instances, and includes owner, requester,
  *             and security group information that applies to all instances in the launch
  *             request.</p>
  */
 export interface Reservation {
   /**
-   * <p>[EC2-Classic only] The security groups.</p>
+   * <p>Not supported.</p>
    */
   Groups?: GroupIdentifier[];
 
@@ -788,6 +824,9 @@ export interface Reservation {
   ReservationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancesResult {
   /**
    * <p>Information about the reservations.</p>
@@ -801,6 +840,9 @@ export interface DescribeInstancesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceStatusRequest {
   /**
    * <p>The filters.</p>
@@ -919,15 +961,25 @@ export interface DescribeInstanceStatusRequest {
   IncludeAllInstances?: boolean;
 }
 
-export enum EventCode {
-  instance_reboot = "instance-reboot",
-  instance_retirement = "instance-retirement",
-  instance_stop = "instance-stop",
-  system_maintenance = "system-maintenance",
-  system_reboot = "system-reboot",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventCode = {
+  instance_reboot: "instance-reboot",
+  instance_retirement: "instance-retirement",
+  instance_stop: "instance-stop",
+  system_maintenance: "system-maintenance",
+  system_reboot: "system-reboot",
+} as const;
 
 /**
+ * @public
+ */
+export type EventCode = (typeof EventCode)[keyof typeof EventCode];
+
+/**
+ * @public
  * <p>Describes a scheduled event for an instance.</p>
  */
 export interface InstanceStatusEvent {
@@ -965,18 +1017,37 @@ export interface InstanceStatusEvent {
   NotBeforeDeadline?: Date;
 }
 
-export enum StatusName {
-  reachability = "reachability",
-}
-
-export enum StatusType {
-  failed = "failed",
-  initializing = "initializing",
-  insufficient_data = "insufficient-data",
-  passed = "passed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StatusName = {
+  reachability: "reachability",
+} as const;
 
 /**
+ * @public
+ */
+export type StatusName = (typeof StatusName)[keyof typeof StatusName];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusType = {
+  failed: "failed",
+  initializing: "initializing",
+  insufficient_data: "insufficient-data",
+  passed: "passed",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
+
+/**
+ * @public
  * <p>Describes the instance status.</p>
  */
 export interface InstanceStatusDetails {
@@ -997,15 +1068,25 @@ export interface InstanceStatusDetails {
   Status?: StatusType | string;
 }
 
-export enum SummaryStatus {
-  impaired = "impaired",
-  initializing = "initializing",
-  insufficient_data = "insufficient-data",
-  not_applicable = "not-applicable",
-  ok = "ok",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SummaryStatus = {
+  impaired: "impaired",
+  initializing: "initializing",
+  insufficient_data: "insufficient-data",
+  not_applicable: "not-applicable",
+  ok: "ok",
+} as const;
 
 /**
+ * @public
+ */
+export type SummaryStatus = (typeof SummaryStatus)[keyof typeof SummaryStatus];
+
+/**
+ * @public
  * <p>Describes the status of an instance.</p>
  */
 export interface InstanceStatusSummary {
@@ -1021,6 +1102,7 @@ export interface InstanceStatusSummary {
 }
 
 /**
+ * @public
  * <p>Describes the status of an instance.</p>
  */
 export interface InstanceStatus {
@@ -1063,6 +1145,9 @@ export interface InstanceStatus {
   SystemStatus?: InstanceStatusSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceStatusResult {
   /**
    * <p>Information about the status of the instances.</p>
@@ -1076,12 +1161,24 @@ export interface DescribeInstanceStatusResult {
   NextToken?: string;
 }
 
-export enum LocationType {
-  availability_zone = "availability-zone",
-  availability_zone_id = "availability-zone-id",
-  region = "region",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LocationType = {
+  availability_zone: "availability-zone",
+  availability_zone_id: "availability-zone-id",
+  region: "region",
+} as const;
 
+/**
+ * @public
+ */
+export type LocationType = (typeof LocationType)[keyof typeof LocationType];
+
+/**
+ * @public
+ */
 export interface DescribeInstanceTypeOfferingsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1126,6 +1223,7 @@ export interface DescribeInstanceTypeOfferingsRequest {
 }
 
 /**
+ * @public
  * <p>The instance types offered.</p>
  */
 export interface InstanceTypeOffering {
@@ -1146,6 +1244,9 @@ export interface InstanceTypeOffering {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceTypeOfferingsResult {
   /**
    * <p>The instance types offered.</p>
@@ -1159,6 +1260,9 @@ export interface DescribeInstanceTypeOfferingsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceTypesRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1177,7 +1281,7 @@ export interface DescribeInstanceTypesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported  (<code>true</code> | <code>false</code>).</p>
+   *                   <code>auto-recovery-supported</code> - Indicates whether Amazon CloudWatch action based recovery is supported  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1414,6 +1518,7 @@ export interface DescribeInstanceTypesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the optimized EBS performance for supported instance types.</p>
  */
 export interface EbsOptimizedInfo {
@@ -1448,24 +1553,52 @@ export interface EbsOptimizedInfo {
   MaximumIops?: number;
 }
 
-export enum EbsOptimizedSupport {
-  default = "default",
-  supported = "supported",
-  unsupported = "unsupported",
-}
-
-export enum EbsEncryptionSupport {
-  supported = "supported",
-  unsupported = "unsupported",
-}
-
-export enum EbsNvmeSupport {
-  REQUIRED = "required",
-  SUPPORTED = "supported",
-  UNSUPPORTED = "unsupported",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EbsOptimizedSupport = {
+  default: "default",
+  supported: "supported",
+  unsupported: "unsupported",
+} as const;
 
 /**
+ * @public
+ */
+export type EbsOptimizedSupport = (typeof EbsOptimizedSupport)[keyof typeof EbsOptimizedSupport];
+
+/**
+ * @public
+ * @enum
+ */
+export const EbsEncryptionSupport = {
+  supported: "supported",
+  unsupported: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type EbsEncryptionSupport = (typeof EbsEncryptionSupport)[keyof typeof EbsEncryptionSupport];
+
+/**
+ * @public
+ * @enum
+ */
+export const EbsNvmeSupport = {
+  REQUIRED: "required",
+  SUPPORTED: "supported",
+  UNSUPPORTED: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type EbsNvmeSupport = (typeof EbsNvmeSupport)[keyof typeof EbsNvmeSupport];
+
+/**
+ * @public
  * <p>Describes the Amazon EBS features supported by the instance type.</p>
  */
 export interface EbsInfo {
@@ -1492,6 +1625,7 @@ export interface EbsInfo {
 }
 
 /**
+ * @public
  * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
  */
 export interface FpgaDeviceMemoryInfo {
@@ -1502,6 +1636,7 @@ export interface FpgaDeviceMemoryInfo {
 }
 
 /**
+ * @public
  * <p>Describes the FPGA accelerator for the instance type.</p>
  */
 export interface FpgaDeviceInfo {
@@ -1527,6 +1662,7 @@ export interface FpgaDeviceInfo {
 }
 
 /**
+ * @public
  * <p>Describes the FPGAs for the instance type.</p>
  */
 export interface FpgaInfo {
@@ -1542,6 +1678,7 @@ export interface FpgaInfo {
 }
 
 /**
+ * @public
  * <p>Describes the memory available to the GPU accelerator.</p>
  */
 export interface GpuDeviceMemoryInfo {
@@ -1552,6 +1689,7 @@ export interface GpuDeviceMemoryInfo {
 }
 
 /**
+ * @public
  * <p>Describes the GPU accelerators for the instance type.</p>
  */
 export interface GpuDeviceInfo {
@@ -1577,6 +1715,7 @@ export interface GpuDeviceInfo {
 }
 
 /**
+ * @public
  * <p>Describes the GPU accelerators for the instance type.</p>
  */
 export interface GpuInfo {
@@ -1591,12 +1730,22 @@ export interface GpuInfo {
   TotalGpuMemoryInMiB?: number;
 }
 
-export enum InstanceTypeHypervisor {
-  NITRO = "nitro",
-  XEN = "xen",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceTypeHypervisor = {
+  NITRO: "nitro",
+  XEN: "xen",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceTypeHypervisor = (typeof InstanceTypeHypervisor)[keyof typeof InstanceTypeHypervisor];
+
+/**
+ * @public
  * <p>Describes the Inference accelerators for the instance type.</p>
  */
 export interface InferenceDeviceInfo {
@@ -1617,6 +1766,7 @@ export interface InferenceDeviceInfo {
 }
 
 /**
+ * @public
  * <p>Describes the Inference accelerators for the instance type.</p>
  */
 export interface InferenceAcceleratorInfo {
@@ -1626,12 +1776,22 @@ export interface InferenceAcceleratorInfo {
   Accelerators?: InferenceDeviceInfo[];
 }
 
-export enum DiskType {
-  hdd = "hdd",
-  ssd = "ssd",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DiskType = {
+  hdd: "hdd",
+  ssd: "ssd",
+} as const;
 
 /**
+ * @public
+ */
+export type DiskType = (typeof DiskType)[keyof typeof DiskType];
+
+/**
+ * @public
  * <p>Describes a disk.</p>
  */
 export interface DiskInfo {
@@ -1651,18 +1811,38 @@ export interface DiskInfo {
   Type?: DiskType | string;
 }
 
-export enum InstanceStorageEncryptionSupport {
-  required = "required",
-  unsupported = "unsupported",
-}
-
-export enum EphemeralNvmeSupport {
-  REQUIRED = "required",
-  SUPPORTED = "supported",
-  UNSUPPORTED = "unsupported",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceStorageEncryptionSupport = {
+  required: "required",
+  unsupported: "unsupported",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceStorageEncryptionSupport =
+  (typeof InstanceStorageEncryptionSupport)[keyof typeof InstanceStorageEncryptionSupport];
+
+/**
+ * @public
+ * @enum
+ */
+export const EphemeralNvmeSupport = {
+  REQUIRED: "required",
+  SUPPORTED: "supported",
+  UNSUPPORTED: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type EphemeralNvmeSupport = (typeof EphemeralNvmeSupport)[keyof typeof EphemeralNvmeSupport];
+
+/**
+ * @public
  * <p>Describes the instance store features that are supported by the instance type.</p>
  */
 export interface InstanceStorageInfo {
@@ -1688,6 +1868,7 @@ export interface InstanceStorageInfo {
 }
 
 /**
+ * @public
  * <p>Describes the memory for the instance type.</p>
  */
 export interface MemoryInfo {
@@ -1698,6 +1879,7 @@ export interface MemoryInfo {
 }
 
 /**
+ * @public
  * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
  */
 export interface EfaInfo {
@@ -1707,13 +1889,23 @@ export interface EfaInfo {
   MaximumEfaInterfaces?: number;
 }
 
-export enum EnaSupport {
-  required = "required",
-  supported = "supported",
-  unsupported = "unsupported",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnaSupport = {
+  required: "required",
+  supported: "supported",
+  unsupported: "unsupported",
+} as const;
 
 /**
+ * @public
+ */
+export type EnaSupport = (typeof EnaSupport)[keyof typeof EnaSupport];
+
+/**
+ * @public
  * <p>Describes the network card support of the instance type.</p>
  */
 export interface NetworkCardInfo {
@@ -1734,6 +1926,7 @@ export interface NetworkCardInfo {
 }
 
 /**
+ * @public
  * <p>Describes the networking features of the instance type.</p>
  */
 export interface NetworkInfo {
@@ -1805,13 +1998,23 @@ export interface NetworkInfo {
   EnaSrdSupported?: boolean;
 }
 
-export enum PlacementGroupStrategy {
-  cluster = "cluster",
-  partition = "partition",
-  spread = "spread",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlacementGroupStrategy = {
+  cluster: "cluster",
+  partition: "partition",
+  spread: "spread",
+} as const;
 
 /**
+ * @public
+ */
+export type PlacementGroupStrategy = (typeof PlacementGroupStrategy)[keyof typeof PlacementGroupStrategy];
+
+/**
+ * @public
  * <p>Describes the placement group support of the instance type.</p>
  */
 export interface PlacementGroupInfo {
@@ -1821,15 +2024,39 @@ export interface PlacementGroupInfo {
   SupportedStrategies?: (PlacementGroupStrategy | string)[];
 }
 
-export enum ArchitectureType {
-  arm64 = "arm64",
-  arm64_mac = "arm64_mac",
-  i386 = "i386",
-  x86_64 = "x86_64",
-  x86_64_mac = "x86_64_mac",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ArchitectureType = {
+  arm64: "arm64",
+  arm64_mac: "arm64_mac",
+  i386: "i386",
+  x86_64: "x86_64",
+  x86_64_mac: "x86_64_mac",
+} as const;
 
 /**
+ * @public
+ */
+export type ArchitectureType = (typeof ArchitectureType)[keyof typeof ArchitectureType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SupportedAdditionalProcessorFeature = {
+  AMD_SEV_SNP: "amd-sev-snp",
+} as const;
+
+/**
+ * @public
+ */
+export type SupportedAdditionalProcessorFeature =
+  (typeof SupportedAdditionalProcessorFeature)[keyof typeof SupportedAdditionalProcessorFeature];
+
+/**
+ * @public
  * <p>Describes the processor used by the instance type.</p>
  */
 export interface ProcessorInfo {
@@ -1842,24 +2069,58 @@ export interface ProcessorInfo {
    * <p>The speed of the processor, in GHz.</p>
    */
   SustainedClockSpeedInGhz?: number;
-}
 
-export enum BootModeType {
-  legacy_bios = "legacy-bios",
-  uefi = "uefi",
-}
-
-export enum RootDeviceType {
-  ebs = "ebs",
-  instance_store = "instance-store",
-}
-
-export enum UsageClassType {
-  on_demand = "on-demand",
-  spot = "spot",
+  /**
+   * <p>Indicates whether the instance type supports AMD SEV-SNP. If the request returns
+   *    <code>amd-sev-snp</code>, AMD SEV-SNP is supported. Otherwise, it is not supported.</p>
+   */
+  SupportedFeatures?: (SupportedAdditionalProcessorFeature | string)[];
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const BootModeType = {
+  legacy_bios: "legacy-bios",
+  uefi: "uefi",
+} as const;
+
+/**
+ * @public
+ */
+export type BootModeType = (typeof BootModeType)[keyof typeof BootModeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RootDeviceType = {
+  ebs: "ebs",
+  instance_store: "instance-store",
+} as const;
+
+/**
+ * @public
+ */
+export type RootDeviceType = (typeof RootDeviceType)[keyof typeof RootDeviceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UsageClassType = {
+  on_demand: "on-demand",
+  spot: "spot",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageClassType = (typeof UsageClassType)[keyof typeof UsageClassType];
+
+/**
+ * @public
  * <p>Describes the vCPU configurations for the instance type.</p>
  */
 export interface VCpuInfo {
@@ -1890,6 +2151,7 @@ export interface VCpuInfo {
 }
 
 /**
+ * @public
  * <p>Describes the instance type.</p>
  */
 export interface InstanceTypeInfo {
@@ -2004,7 +2266,7 @@ export interface InstanceTypeInfo {
   DedicatedHostsSupported?: boolean;
 
   /**
-   * <p>Indicates whether auto recovery is supported.</p>
+   * <p>Indicates whether Amazon CloudWatch action based recovery is supported.</p>
    */
   AutoRecoverySupported?: boolean;
 
@@ -2015,6 +2277,9 @@ export interface InstanceTypeInfo {
   SupportedBootModes?: (BootModeType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceTypesResult {
   /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -2028,6 +2293,9 @@ export interface DescribeInstanceTypesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInternetGatewaysRequest {
   /**
    * <p>One or more filters.</p>
@@ -2088,6 +2356,9 @@ export interface DescribeInternetGatewaysRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInternetGatewaysResult {
   /**
    * <p>Information about one or more internet gateways.</p>
@@ -2100,6 +2371,9 @@ export interface DescribeInternetGatewaysResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpamPoolsRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -2129,6 +2403,9 @@ export interface DescribeIpamPoolsRequest {
   IpamPoolIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpamPoolsResult {
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -2141,6 +2418,9 @@ export interface DescribeIpamPoolsResult {
   IpamPools?: IpamPool[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpamResourceDiscoveriesRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -2170,6 +2450,9 @@ export interface DescribeIpamResourceDiscoveriesRequest {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpamResourceDiscoveriesResult {
   /**
    * <p>The resource discoveries.</p>
@@ -2182,6 +2465,9 @@ export interface DescribeIpamResourceDiscoveriesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpamResourceDiscoveryAssociationsRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -2211,6 +2497,9 @@ export interface DescribeIpamResourceDiscoveryAssociationsRequest {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpamResourceDiscoveryAssociationsResult {
   /**
    * <p>The resource discovery associations.</p>
@@ -2223,6 +2512,9 @@ export interface DescribeIpamResourceDiscoveryAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpamsRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -2252,6 +2544,9 @@ export interface DescribeIpamsRequest {
   IpamIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpamsResult {
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -2264,6 +2559,9 @@ export interface DescribeIpamsResult {
   Ipams?: Ipam[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpamScopesRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -2293,6 +2591,9 @@ export interface DescribeIpamScopesRequest {
   IpamScopeIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpamScopesResult {
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -2305,6 +2606,9 @@ export interface DescribeIpamScopesResult {
   IpamScopes?: IpamScope[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpv6PoolsRequest {
   /**
    * <p>The IDs of the IPv6 address pools.</p>
@@ -2347,6 +2651,7 @@ export interface DescribeIpv6PoolsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a CIDR block for an address pool.</p>
  */
 export interface PoolCidrBlock {
@@ -2357,6 +2662,7 @@ export interface PoolCidrBlock {
 }
 
 /**
+ * @public
  * <p>Describes an IPv6 address pool.</p>
  */
 export interface Ipv6Pool {
@@ -2381,6 +2687,9 @@ export interface Ipv6Pool {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpv6PoolsResult {
   /**
    * <p>Information about the IPv6 address pools.</p>
@@ -2393,6 +2702,9 @@ export interface DescribeIpv6PoolsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeKeyPairsRequest {
   /**
    * <p>The filters.</p>
@@ -2449,6 +2761,7 @@ export interface DescribeKeyPairsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a key pair.</p>
  */
 export interface KeyPairInfo {
@@ -2512,6 +2825,9 @@ export interface KeyPairInfo {
   CreateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeKeyPairsResult {
   /**
    * <p>Information about the key pairs.</p>
@@ -2519,6 +2835,9 @@ export interface DescribeKeyPairsResult {
   KeyPairs?: KeyPairInfo[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLaunchTemplatesRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -2575,6 +2894,9 @@ export interface DescribeLaunchTemplatesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLaunchTemplatesResult {
   /**
    * <p>Information about the launch templates.</p>
@@ -2588,6 +2910,9 @@ export interface DescribeLaunchTemplatesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLaunchTemplateVersionsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -2739,6 +3064,9 @@ export interface DescribeLaunchTemplateVersionsRequest {
   ResolveAlias?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLaunchTemplateVersionsResult {
   /**
    * <p>Information about the launch template versions.</p>
@@ -2752,6 +3080,9 @@ export interface DescribeLaunchTemplateVersionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocalGatewayRouteTablesRequest {
   /**
    * <p>The IDs of the local gateway route tables.</p>
@@ -2809,6 +3140,9 @@ export interface DescribeLocalGatewayRouteTablesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocalGatewayRouteTablesResult {
   /**
    * <p>Information about the local gateway route tables.</p>
@@ -2821,6 +3155,9 @@ export interface DescribeLocalGatewayRouteTablesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {
   /**
    * <p>The IDs of the associations.</p>
@@ -2883,6 +3220,9 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult {
   /**
    * <p>Information about the associations.</p>
@@ -2895,6 +3235,9 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocalGatewayRouteTableVpcAssociationsRequest {
   /**
    * <p>The IDs of the associations.</p>
@@ -2957,6 +3300,9 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocalGatewayRouteTableVpcAssociationsResult {
   /**
    * <p>Information about the associations.</p>
@@ -2969,6 +3315,9 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocalGatewaysRequest {
   /**
    * <p>The IDs of the local gateways.</p>
@@ -3018,6 +3367,7 @@ export interface DescribeLocalGatewaysRequest {
 }
 
 /**
+ * @public
  * <p>Describes a local gateway.</p>
  */
 export interface LocalGateway {
@@ -3047,6 +3397,9 @@ export interface LocalGateway {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocalGatewaysResult {
   /**
    * <p>Information about the local gateways.</p>
@@ -3059,6 +3412,9 @@ export interface DescribeLocalGatewaysResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
   /**
    * <p>The IDs of the virtual interface groups.</p>
@@ -3108,6 +3464,7 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a local gateway virtual interface group.</p>
  */
 export interface LocalGatewayVirtualInterfaceGroup {
@@ -3137,6 +3494,9 @@ export interface LocalGatewayVirtualInterfaceGroup {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
   /**
    * <p>The virtual interface groups.</p>
@@ -3149,6 +3509,9 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocalGatewayVirtualInterfacesRequest {
   /**
    * <p>The IDs of the virtual interfaces.</p>
@@ -3215,6 +3578,7 @@ export interface DescribeLocalGatewayVirtualInterfacesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a local gateway virtual interface.</p>
  */
 export interface LocalGatewayVirtualInterface {
@@ -3264,6 +3628,9 @@ export interface LocalGatewayVirtualInterface {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocalGatewayVirtualInterfacesResult {
   /**
    * <p>Information about the virtual interfaces.</p>
@@ -3276,6 +3643,9 @@ export interface DescribeLocalGatewayVirtualInterfacesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeManagedPrefixListsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3320,6 +3690,9 @@ export interface DescribeManagedPrefixListsRequest {
   PrefixListIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeManagedPrefixListsResult {
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -3332,6 +3705,9 @@ export interface DescribeManagedPrefixListsResult {
   PrefixLists?: ManagedPrefixList[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeMovingAddressesRequest {
   /**
    * <p>One or more filters.</p>
@@ -3372,12 +3748,22 @@ export interface DescribeMovingAddressesRequest {
   PublicIps?: string[];
 }
 
-export enum MoveStatus {
-  movingToVpc = "movingToVpc",
-  restoringToClassic = "restoringToClassic",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MoveStatus = {
+  movingToVpc: "movingToVpc",
+  restoringToClassic: "restoringToClassic",
+} as const;
 
 /**
+ * @public
+ */
+export type MoveStatus = (typeof MoveStatus)[keyof typeof MoveStatus];
+
+/**
+ * @public
  * <p>Describes the status of a moving Elastic IP address.</p>
  *          <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -3395,6 +3781,9 @@ export interface MovingAddressStatus {
   PublicIp?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMovingAddressesResult {
   /**
    * <p>The status for each Elastic IP address.</p>
@@ -3407,6 +3796,9 @@ export interface DescribeMovingAddressesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNatGatewaysRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3466,6 +3858,9 @@ export interface DescribeNatGatewaysRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNatGatewaysResult {
   /**
    * <p>Information about the NAT gateways.</p>
@@ -3478,6 +3873,9 @@ export interface DescribeNatGatewaysResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNetworkAclsRequest {
   /**
    * <p>One or more filters.</p>
@@ -3591,6 +3989,9 @@ export interface DescribeNetworkAclsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNetworkAclsResult {
   /**
    * <p>Information about one or more network ACLs.</p>
@@ -3603,6 +4004,9 @@ export interface DescribeNetworkAclsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNetworkInsightsAccessScopeAnalysesRequest {
   /**
    * <p>The IDs of the Network Access Scope analyses.</p>
@@ -3648,19 +4052,38 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesRequest {
   NextToken?: string;
 }
 
-export enum FindingsFound {
-  false = "false",
-  true = "true",
-  unknown = "unknown",
-}
-
-export enum AnalysisStatus {
-  failed = "failed",
-  running = "running",
-  succeeded = "succeeded",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FindingsFound = {
+  false: "false",
+  true: "true",
+  unknown: "unknown",
+} as const;
 
 /**
+ * @public
+ */
+export type FindingsFound = (typeof FindingsFound)[keyof typeof FindingsFound];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisStatus = {
+  failed: "failed",
+  running: "running",
+  succeeded: "succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisStatus = (typeof AnalysisStatus)[keyof typeof AnalysisStatus];
+
+/**
+ * @public
  * <p>Describes a Network Access Scope analysis.</p>
  */
 export interface NetworkInsightsAccessScopeAnalysis {
@@ -3720,6 +4143,9 @@ export interface NetworkInsightsAccessScopeAnalysis {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeNetworkInsightsAccessScopeAnalysesResult {
   /**
    * <p>The Network Access Scope analyses.</p>
@@ -3732,6 +4158,9 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNetworkInsightsAccessScopesRequest {
   /**
    * <p>The IDs of the Network Access Scopes.</p>
@@ -3762,6 +4191,9 @@ export interface DescribeNetworkInsightsAccessScopesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNetworkInsightsAccessScopesResult {
   /**
    * <p>The Network Access Scopes.</p>
@@ -3774,6 +4206,9 @@ export interface DescribeNetworkInsightsAccessScopesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNetworkInsightsAnalysesRequest {
   /**
    * <p>The ID of the network insights analyses. You must specify either analysis IDs or a path ID.</p>
@@ -3828,6 +4263,7 @@ export interface DescribeNetworkInsightsAnalysesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a network insights analysis.</p>
  */
 export interface NetworkInsightsAnalysis {
@@ -3912,6 +4348,9 @@ export interface NetworkInsightsAnalysis {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeNetworkInsightsAnalysesResult {
   /**
    * <p>Information about the network insights analyses.</p>
@@ -3924,6 +4363,9 @@ export interface DescribeNetworkInsightsAnalysesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNetworkInsightsPathsRequest {
   /**
    * <p>The IDs of the paths.</p>
@@ -3989,6 +4431,9 @@ export interface DescribeNetworkInsightsPathsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNetworkInsightsPathsResult {
   /**
    * <p>Information about the paths.</p>
@@ -4001,14 +4446,24 @@ export interface DescribeNetworkInsightsPathsResult {
   NextToken?: string;
 }
 
-export enum NetworkInterfaceAttribute {
-  attachment = "attachment",
-  description = "description",
-  groupSet = "groupSet",
-  sourceDestCheck = "sourceDestCheck",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfaceAttribute = {
+  attachment: "attachment",
+  description: "description",
+  groupSet: "groupSet",
+  sourceDestCheck: "sourceDestCheck",
+} as const;
 
 /**
+ * @public
+ */
+export type NetworkInterfaceAttribute = (typeof NetworkInterfaceAttribute)[keyof typeof NetworkInterfaceAttribute];
+
+/**
+ * @public
  * <p>Contains the parameters for DescribeNetworkInterfaceAttribute.</p>
  */
 export interface DescribeNetworkInterfaceAttributeRequest {
@@ -4031,6 +4486,7 @@ export interface DescribeNetworkInterfaceAttributeRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeNetworkInterfaceAttribute.</p>
  */
 export interface DescribeNetworkInterfaceAttributeResult {
@@ -4061,6 +4517,7 @@ export interface DescribeNetworkInterfaceAttributeResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeNetworkInterfacePermissions.</p>
  */
 export interface DescribeNetworkInterfacePermissionsRequest {
@@ -4116,6 +4573,7 @@ export interface DescribeNetworkInterfacePermissionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output for DescribeNetworkInterfacePermissions.</p>
  */
 export interface DescribeNetworkInterfacePermissionsResult {
@@ -4132,6 +4590,7 @@ export interface DescribeNetworkInterfacePermissionsResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeNetworkInterfaces.</p>
  */
 export interface DescribeNetworkInterfacesRequest {
@@ -4331,6 +4790,9 @@ export interface DescribeNetworkInterfacesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNetworkInterfacesResult {
   /**
    * <p>Information about one or more network interfaces.</p>
@@ -4344,6 +4806,9 @@ export interface DescribeNetworkInterfacesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlacementGroupsRequest {
   /**
    * <p>The filters.</p>
@@ -4407,6 +4872,9 @@ export interface DescribePlacementGroupsRequest {
   GroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePlacementGroupsResult {
   /**
    * <p>Information about the placement groups.</p>
@@ -4414,6 +4882,9 @@ export interface DescribePlacementGroupsResult {
   PlacementGroups?: PlacementGroup[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePrefixListsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4455,6 +4926,7 @@ export interface DescribePrefixListsRequest {
 }
 
 /**
+ * @public
  * <p>Describes prefixes for Amazon Web Services services.</p>
  */
 export interface PrefixList {
@@ -4474,6 +4946,9 @@ export interface PrefixList {
   PrefixListName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePrefixListsResult {
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -4486,6 +4961,9 @@ export interface DescribePrefixListsResult {
   PrefixLists?: PrefixList[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePrincipalIdFormatRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4525,6 +5003,7 @@ export interface DescribePrincipalIdFormatRequest {
 }
 
 /**
+ * @public
  * <p>PrincipalIdFormat description</p>
  */
 export interface PrincipalIdFormat {
@@ -4539,6 +5018,9 @@ export interface PrincipalIdFormat {
   Statuses?: IdFormat[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePrincipalIdFormatResult {
   /**
    * <p>Information about the ID format settings for the ARN.</p>
@@ -4551,6 +5033,9 @@ export interface DescribePrincipalIdFormatResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePublicIpv4PoolsRequest {
   /**
    * <p>The IDs of the address pools.</p>
@@ -4586,6 +5071,7 @@ export interface DescribePublicIpv4PoolsRequest {
 }
 
 /**
+ * @public
  * <p>Describes an address range of an IPv4 address pool.</p>
  */
 export interface PublicIpv4PoolRange {
@@ -4611,6 +5097,7 @@ export interface PublicIpv4PoolRange {
 }
 
 /**
+ * @public
  * <p>Describes an IPv4 address pool.</p>
  */
 export interface PublicIpv4Pool {
@@ -4652,6 +5139,9 @@ export interface PublicIpv4Pool {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePublicIpv4PoolsResult {
   /**
    * <p>Information about the address pools.</p>
@@ -4664,6 +5154,9 @@ export interface DescribePublicIpv4PoolsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRegionsRequest {
   /**
    * <p>The filters.</p>
@@ -4704,6 +5197,7 @@ export interface DescribeRegionsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a Region.</p>
  */
 export interface Region {
@@ -4724,6 +5218,9 @@ export interface Region {
   OptInStatus?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRegionsResult {
   /**
    * <p>Information about the Regions.</p>
@@ -4731,6 +5228,9 @@ export interface DescribeRegionsResult {
   Regions?: Region[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplaceRootVolumeTasksRequest {
   /**
    * <p>The ID of the root volume replacement task to view.</p>
@@ -4769,6 +5269,9 @@ export interface DescribeReplaceRootVolumeTasksRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplaceRootVolumeTasksResult {
   /**
    * <p>Information about the root volume replacement task.</p>
@@ -4782,21 +5285,40 @@ export interface DescribeReplaceRootVolumeTasksResult {
   NextToken?: string;
 }
 
-export enum OfferingClassType {
-  CONVERTIBLE = "convertible",
-  STANDARD = "standard",
-}
-
-export enum OfferingTypeValues {
-  All_Upfront = "All Upfront",
-  Heavy_Utilization = "Heavy Utilization",
-  Light_Utilization = "Light Utilization",
-  Medium_Utilization = "Medium Utilization",
-  No_Upfront = "No Upfront",
-  Partial_Upfront = "Partial Upfront",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OfferingClassType = {
+  CONVERTIBLE: "convertible",
+  STANDARD: "standard",
+} as const;
 
 /**
+ * @public
+ */
+export type OfferingClassType = (typeof OfferingClassType)[keyof typeof OfferingClassType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OfferingTypeValues = {
+  All_Upfront: "All Upfront",
+  Heavy_Utilization: "Heavy Utilization",
+  Light_Utilization: "Light Utilization",
+  Medium_Utilization: "Medium Utilization",
+  No_Upfront: "No Upfront",
+  Partial_Upfront: "Partial Upfront",
+} as const;
+
+/**
+ * @public
+ */
+export type OfferingTypeValues = (typeof OfferingTypeValues)[keyof typeof OfferingTypeValues];
+
+/**
+ * @public
  * <p>Contains the parameters for DescribeReservedInstances.</p>
  */
 export interface DescribeReservedInstancesRequest {
@@ -4829,18 +5351,13 @@ export interface DescribeReservedInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>product-description</code> - The Reserved Instance product platform
-   *           description. Instances that include <code>(Amazon VPC)</code> in the product platform
-   *           description will only be displayed to EC2-Classic account holders and are for use with
-   *           Amazon VPC (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE
-   *             Linux</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Red Hat Enterprise
-   *             Linux</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> | <code>Red Hat
-   *             Enterprise Linux with HA (Amazon VPC)</code> | <code>Windows</code> | <code>Windows
-   *             (Amazon VPC)</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with
-   *             SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code> |
-   *             <code>Windows with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL Server
-   *             Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon
-   *           VPC)</code>).</p>
+   *                   <code>product-description</code> - The Reserved Instance product platform description
+   *              (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> |
+   *               <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> |
+   *               <code>SUSE Linux</code> |
+   *               <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> |
+   *               <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
+   *               <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4897,18 +5414,37 @@ export interface DescribeReservedInstancesRequest {
   OfferingType?: OfferingTypeValues | string;
 }
 
-export enum RIProductDescription {
-  Linux_UNIX = "Linux/UNIX",
-  Linux_UNIX_Amazon_VPC_ = "Linux/UNIX (Amazon VPC)",
-  Windows = "Windows",
-  Windows_Amazon_VPC_ = "Windows (Amazon VPC)",
-}
-
-export enum RecurringChargeFrequency {
-  Hourly = "Hourly",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RIProductDescription = {
+  Linux_UNIX: "Linux/UNIX",
+  Linux_UNIX_Amazon_VPC_: "Linux/UNIX (Amazon VPC)",
+  Windows: "Windows",
+  Windows_Amazon_VPC_: "Windows (Amazon VPC)",
+} as const;
 
 /**
+ * @public
+ */
+export type RIProductDescription = (typeof RIProductDescription)[keyof typeof RIProductDescription];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecurringChargeFrequency = {
+  Hourly: "Hourly",
+} as const;
+
+/**
+ * @public
+ */
+export type RecurringChargeFrequency = (typeof RecurringChargeFrequency)[keyof typeof RecurringChargeFrequency];
+
+/**
+ * @public
  * <p>Describes a recurring charge.</p>
  */
 export interface RecurringCharge {
@@ -4923,21 +5459,40 @@ export interface RecurringCharge {
   Frequency?: RecurringChargeFrequency | string;
 }
 
-export enum Scope {
-  AVAILABILITY_ZONE = "Availability Zone",
-  REGIONAL = "Region",
-}
-
-export enum ReservedInstanceState {
-  active = "active",
-  payment_failed = "payment-failed",
-  payment_pending = "payment-pending",
-  queued = "queued",
-  queued_deleted = "queued-deleted",
-  retired = "retired",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Scope = {
+  AVAILABILITY_ZONE: "Availability Zone",
+  REGIONAL: "Region",
+} as const;
 
 /**
+ * @public
+ */
+export type Scope = (typeof Scope)[keyof typeof Scope];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservedInstanceState = {
+  active: "active",
+  payment_failed: "payment-failed",
+  payment_pending: "payment-pending",
+  queued: "queued",
+  queued_deleted: "queued-deleted",
+  retired: "retired",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservedInstanceState = (typeof ReservedInstanceState)[keyof typeof ReservedInstanceState];
+
+/**
+ * @public
  * <p>Describes a Reserved Instance.</p>
  */
 export interface ReservedInstances {
@@ -5034,6 +5589,7 @@ export interface ReservedInstances {
 }
 
 /**
+ * @public
  * <p>Contains the output for DescribeReservedInstances.</p>
  */
 export interface DescribeReservedInstancesResult {
@@ -5044,6 +5600,7 @@ export interface DescribeReservedInstancesResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeReservedInstancesListings.</p>
  */
 export interface DescribeReservedInstancesListingsRequest {
@@ -5083,6 +5640,7 @@ export interface DescribeReservedInstancesListingsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeReservedInstancesListings.</p>
  */
 export interface DescribeReservedInstancesListingsResult {
@@ -5093,6 +5651,7 @@ export interface DescribeReservedInstancesListingsResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeReservedInstancesModifications.</p>
  */
 export interface DescribeReservedInstancesModificationsRequest {
@@ -5126,10 +5685,6 @@ export interface DescribeReservedInstancesModificationsRequest {
    *             <li>
    *                <p>
    *                   <code>modification-result.target-configuration.instance-type</code> - The instance type of the new Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.target-configuration.platform</code> - The network platform of the new Reserved Instances (<code>EC2-Classic</code> | <code>EC2-VPC</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5168,6 +5723,7 @@ export interface DescribeReservedInstancesModificationsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the configuration settings for the modified Reserved Instances.</p>
  */
 export interface ReservedInstancesConfiguration {
@@ -5190,7 +5746,7 @@ export interface ReservedInstancesConfiguration {
   InstanceType?: _InstanceType | string;
 
   /**
-   * <p>The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.</p>
+   * <p>The network platform of the modified Reserved Instances.</p>
    */
   Platform?: string;
 
@@ -5201,6 +5757,7 @@ export interface ReservedInstancesConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the modification request/s.</p>
  */
 export interface ReservedInstancesModificationResult {
@@ -5216,6 +5773,7 @@ export interface ReservedInstancesModificationResult {
 }
 
 /**
+ * @public
  * <p>Describes the ID of a Reserved Instance.</p>
  */
 export interface ReservedInstancesId {
@@ -5226,6 +5784,7 @@ export interface ReservedInstancesId {
 }
 
 /**
+ * @public
  * <p>Describes a Reserved Instance modification.</p>
  */
 export interface ReservedInstancesModification {
@@ -5278,6 +5837,7 @@ export interface ReservedInstancesModification {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeReservedInstancesModifications.</p>
  */
 export interface DescribeReservedInstancesModificationsResult {
@@ -5294,6 +5854,7 @@ export interface DescribeReservedInstancesModificationsResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeReservedInstancesOfferings.</p>
  */
 export interface DescribeReservedInstancesOfferingsRequest {
@@ -5333,17 +5894,13 @@ export interface DescribeReservedInstancesOfferingsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>product-description</code> - The Reserved Instance product platform description.
-   *           Instances that include <code>(Amazon VPC)</code> in the product platform description will
-   *           only be displayed to EC2-Classic account holders and are for use with Amazon VPC.
-   *             (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE
-   *             Linux</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Red Hat Enterprise
-   *             Linux</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> | <code>Red Hat
-   *             Enterprise Linux with HA (Amazon VPC)</code> | <code>Windows</code> | <code>Windows
-   *             (Amazon VPC)</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with
-   *             SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code> |
-   *             <code> Windows with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL Server
-   *             Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon VPC)</code>) </p>
+   *                   <code>product-description</code> - The Reserved Instance product platform description
+   *           (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> |
+   *           <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> |
+   *           <code>SUSE Linux</code> |
+   *           <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> |
+   *           <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
+   *           <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5450,6 +6007,7 @@ export interface DescribeReservedInstancesOfferingsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a Reserved Instance offering.</p>
  */
 export interface PricingDetail {
@@ -5465,6 +6023,7 @@ export interface PricingDetail {
 }
 
 /**
+ * @public
  * <p>Describes a Reserved Instance offering.</p>
  */
 export interface ReservedInstancesOffering {
@@ -5551,6 +6110,7 @@ export interface ReservedInstancesOffering {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeReservedInstancesOfferings.</p>
  */
 export interface DescribeReservedInstancesOfferingsResult {
@@ -5566,6 +6126,9 @@ export interface DescribeReservedInstancesOfferingsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRouteTablesRequest {
   /**
    * <p>One or more filters.</p>
@@ -5700,6 +6263,7 @@ export interface DescribeRouteTablesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeRouteTables.</p>
  */
 export interface DescribeRouteTablesResult {
@@ -5715,6 +6279,7 @@ export interface DescribeRouteTablesResult {
 }
 
 /**
+ * @public
  * <p>Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.</p>
  */
 export interface SlotDateTimeRangeRequest {
@@ -5730,6 +6295,7 @@ export interface SlotDateTimeRangeRequest {
 }
 
 /**
+ * @public
  * <p>Describes the recurring schedule for a Scheduled Instance.</p>
  */
 export interface ScheduledInstanceRecurrenceRequest {
@@ -5764,6 +6330,7 @@ export interface ScheduledInstanceRecurrenceRequest {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeScheduledInstanceAvailability.</p>
  */
 export interface DescribeScheduledInstanceAvailabilityRequest {
@@ -5784,10 +6351,6 @@ export interface DescribeScheduledInstanceAvailabilityRequest {
    *             <li>
    *                <p>
    *                   <code>instance-type</code> - The instance type (for example, <code>c4.large</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-platform</code> - The network platform (<code>EC2-Classic</code> or <code>EC2-VPC</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5833,6 +6396,7 @@ export interface DescribeScheduledInstanceAvailabilityRequest {
 }
 
 /**
+ * @public
  * <p>Describes the recurring schedule for a Scheduled Instance.</p>
  */
 export interface ScheduledInstanceRecurrence {
@@ -5864,6 +6428,7 @@ export interface ScheduledInstanceRecurrence {
 }
 
 /**
+ * @public
  * <p>Describes a schedule that is available for your Scheduled Instances.</p>
  */
 export interface ScheduledInstanceAvailability {
@@ -5903,7 +6468,7 @@ export interface ScheduledInstanceAvailability {
   MinTermDurationInDays?: number;
 
   /**
-   * <p>The network platform (<code>EC2-Classic</code> or <code>EC2-VPC</code>).</p>
+   * <p>The network platform.</p>
    */
   NetworkPlatform?: string;
 
@@ -5934,6 +6499,7 @@ export interface ScheduledInstanceAvailability {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeScheduledInstanceAvailability.</p>
  */
 export interface DescribeScheduledInstanceAvailabilityResult {
@@ -5949,6 +6515,7 @@ export interface DescribeScheduledInstanceAvailabilityResult {
 }
 
 /**
+ * @public
  * <p>Describes the time period for a Scheduled Instance to start its first schedule.</p>
  */
 export interface SlotStartTimeRangeRequest {
@@ -5964,6 +6531,7 @@ export interface SlotStartTimeRangeRequest {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeScheduledInstances.</p>
  */
 export interface DescribeScheduledInstancesRequest {
@@ -5984,10 +6552,6 @@ export interface DescribeScheduledInstancesRequest {
    *             <li>
    *                <p>
    *                   <code>instance-type</code> - The instance type (for example, <code>c4.large</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-platform</code> - The network platform (<code>EC2-Classic</code> or <code>EC2-VPC</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6022,6 +6586,7 @@ export interface DescribeScheduledInstancesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a Scheduled Instance.</p>
  */
 export interface ScheduledInstance {
@@ -6051,7 +6616,7 @@ export interface ScheduledInstance {
   InstanceType?: string;
 
   /**
-   * <p>The network platform (<code>EC2-Classic</code> or <code>EC2-VPC</code>).</p>
+   * <p>The network platform.</p>
    */
   NetworkPlatform?: string;
 
@@ -6102,6 +6667,7 @@ export interface ScheduledInstance {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeScheduledInstances.</p>
  */
 export interface DescribeScheduledInstancesResult {
@@ -6116,6 +6682,9 @@ export interface DescribeScheduledInstancesResult {
   ScheduledInstanceSet?: ScheduledInstance[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecurityGroupReferencesRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6131,6 +6700,7 @@ export interface DescribeSecurityGroupReferencesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a VPC with a security group that references your security group.</p>
  */
 export interface SecurityGroupReference {
@@ -6150,6 +6720,9 @@ export interface SecurityGroupReference {
   VpcPeeringConnectionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecurityGroupReferencesResult {
   /**
    * <p>Information about the VPCs with the referencing security groups.</p>
@@ -6157,6 +6730,9 @@ export interface DescribeSecurityGroupReferencesResult {
   SecurityGroupReferenceSet?: SecurityGroupReference[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecurityGroupRulesRequest {
   /**
    * <p>One or more filters.</p>
@@ -6205,6 +6781,9 @@ export interface DescribeSecurityGroupRulesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecurityGroupRulesResult {
   /**
    * <p>Information about security group rules.</p>
@@ -6218,6 +6797,9 @@ export interface DescribeSecurityGroupRulesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecurityGroupsRequest {
   /**
    * <p>The filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.</p>
@@ -6383,6 +6965,7 @@ export interface DescribeSecurityGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a security group.</p>
  */
 export interface SecurityGroup {
@@ -6427,6 +7010,9 @@ export interface SecurityGroup {
   VpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecurityGroupsResult {
   /**
    * <p>Information about the security groups.</p>
@@ -6440,11 +7026,23 @@ export interface DescribeSecurityGroupsResult {
   NextToken?: string;
 }
 
-export enum SnapshotAttributeName {
-  createVolumePermission = "createVolumePermission",
-  productCodes = "productCodes",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotAttributeName = {
+  createVolumePermission: "createVolumePermission",
+  productCodes: "productCodes",
+} as const;
 
+/**
+ * @public
+ */
+export type SnapshotAttributeName = (typeof SnapshotAttributeName)[keyof typeof SnapshotAttributeName];
+
+/**
+ * @public
+ */
 export interface DescribeSnapshotAttributeRequest {
   /**
    * <p>The snapshot attribute you would like to view.</p>
@@ -6465,6 +7063,7 @@ export interface DescribeSnapshotAttributeRequest {
 }
 
 /**
+ * @public
  * <p>Describes the user or group to be added or removed from the list of create volume
  *       permissions for a volume.</p>
  */
@@ -6480,6 +7079,9 @@ export interface CreateVolumePermission {
   UserId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSnapshotAttributeResult {
   /**
    * <p>The users and groups that have the permissions for creating volumes from the
@@ -6498,6 +7100,9 @@ export interface DescribeSnapshotAttributeResult {
   SnapshotId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSnapshotsRequest {
   /**
    * <p>The filters.</p>
@@ -6607,6 +7212,9 @@ export interface DescribeSnapshotsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSnapshotsResult {
   /**
    * <p>Information about the snapshots.</p>
@@ -6620,6 +7228,9 @@ export interface DescribeSnapshotsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSnapshotTierStatusRequest {
   /**
    * <p>The filters.</p>
@@ -6663,19 +7274,29 @@ export interface DescribeSnapshotTierStatusRequest {
   MaxResults?: number;
 }
 
-export enum TieringOperationStatus {
-  archival_completed = "archival-completed",
-  archival_failed = "archival-failed",
-  archival_in_progress = "archival-in-progress",
-  permanent_restore_completed = "permanent-restore-completed",
-  permanent_restore_failed = "permanent-restore-failed",
-  permanent_restore_in_progress = "permanent-restore-in-progress",
-  temporary_restore_completed = "temporary-restore-completed",
-  temporary_restore_failed = "temporary-restore-failed",
-  temporary_restore_in_progress = "temporary-restore-in-progress",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TieringOperationStatus = {
+  archival_completed: "archival-completed",
+  archival_failed: "archival-failed",
+  archival_in_progress: "archival-in-progress",
+  permanent_restore_completed: "permanent-restore-completed",
+  permanent_restore_failed: "permanent-restore-failed",
+  permanent_restore_in_progress: "permanent-restore-in-progress",
+  temporary_restore_completed: "temporary-restore-completed",
+  temporary_restore_failed: "temporary-restore-failed",
+  temporary_restore_in_progress: "temporary-restore-in-progress",
+} as const;
 
 /**
+ * @public
+ */
+export type TieringOperationStatus = (typeof TieringOperationStatus)[keyof typeof TieringOperationStatus];
+
+/**
+ * @public
  * <p>Provides information about a snapshot's storage tier.</p>
  */
 export interface SnapshotTierStatus {
@@ -6744,6 +7365,9 @@ export interface SnapshotTierStatus {
   RestoreExpiryTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSnapshotTierStatusResult {
   /**
    * <p>Information about the snapshot's storage tier.</p>
@@ -6758,6 +7382,7 @@ export interface DescribeSnapshotTierStatusResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeSpotDatafeedSubscription.</p>
  */
 export interface DescribeSpotDatafeedSubscriptionRequest {
@@ -6771,6 +7396,7 @@ export interface DescribeSpotDatafeedSubscriptionRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeSpotDatafeedSubscription.</p>
  */
 export interface DescribeSpotDatafeedSubscriptionResult {
@@ -6781,6 +7407,7 @@ export interface DescribeSpotDatafeedSubscriptionResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeSpotFleetInstances.</p>
  */
 export interface DescribeSpotFleetInstancesRequest {
@@ -6812,6 +7439,7 @@ export interface DescribeSpotFleetInstancesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeSpotFleetInstances.</p>
  */
 export interface DescribeSpotFleetInstancesResponse {
@@ -6833,14 +7461,24 @@ export interface DescribeSpotFleetInstancesResponse {
   SpotFleetRequestId?: string;
 }
 
-export enum EventType {
-  BATCH_CHANGE = "fleetRequestChange",
-  ERROR = "error",
-  INFORMATION = "information",
-  INSTANCE_CHANGE = "instanceChange",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  BATCH_CHANGE: "fleetRequestChange",
+  ERROR: "error",
+  INFORMATION: "information",
+  INSTANCE_CHANGE: "instanceChange",
+} as const;
 
 /**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * @public
  * <p>Contains the parameters for DescribeSpotFleetRequestHistory.</p>
  */
 export interface DescribeSpotFleetRequestHistoryRequest {
@@ -6883,6 +7521,7 @@ export interface DescribeSpotFleetRequestHistoryRequest {
 }
 
 /**
+ * @public
  * <p>Describes an event in the history of the Spot Fleet request.</p>
  */
 export interface HistoryRecord {
@@ -6923,6 +7562,7 @@ export interface HistoryRecord {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeSpotFleetRequestHistory.</p>
  */
 export interface DescribeSpotFleetRequestHistoryResponse {
@@ -6959,6 +7599,7 @@ export interface DescribeSpotFleetRequestHistoryResponse {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeSpotFleetRequests.</p>
  */
 export interface DescribeSpotFleetRequestsRequest {
@@ -6989,12 +7630,23 @@ export interface DescribeSpotFleetRequestsRequest {
   SpotFleetRequestIds?: string[];
 }
 
-export enum ExcessCapacityTerminationPolicy {
-  DEFAULT = "default",
-  NO_TERMINATION = "noTermination",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExcessCapacityTerminationPolicy = {
+  DEFAULT: "default",
+  NO_TERMINATION: "noTermination",
+} as const;
 
 /**
+ * @public
+ */
+export type ExcessCapacityTerminationPolicy =
+  (typeof ExcessCapacityTerminationPolicy)[keyof typeof ExcessCapacityTerminationPolicy];
+
+/**
+ * @public
  * <p>Describes whether monitoring is enabled.</p>
  */
 export interface SpotFleetMonitoring {
@@ -7007,6 +7659,7 @@ export interface SpotFleetMonitoring {
 }
 
 /**
+ * @public
  * <p>Describes a network interface.</p>
  */
 export interface InstanceNetworkInterfaceSpecification {
@@ -7140,6 +7793,7 @@ export interface InstanceNetworkInterfaceSpecification {
 }
 
 /**
+ * @public
  * <p>Describes Spot Instance placement.</p>
  */
 export interface SpotPlacement {
@@ -7164,6 +7818,7 @@ export interface SpotPlacement {
 }
 
 /**
+ * @public
  * <p>The tags for a Spot Fleet resource.</p>
  */
 export interface SpotFleetTagSpecification {
@@ -7183,13 +7838,14 @@ export interface SpotFleetTagSpecification {
 }
 
 /**
+ * @public
  * <p>Describes the launch specification for one or more Spot Instances. If you include
  *           On-Demand capacity in your fleet request or want to specify an EFA network device, you
  *           can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
  */
 export interface SpotFleetLaunchSpecification {
   /**
-   * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
+   * <p>The security groups.</p>
    */
   SecurityGroups?: GroupIdentifier[];
 
@@ -7308,6 +7964,7 @@ export interface SpotFleetLaunchSpecification {
 }
 
 /**
+ * @public
  * <p>Describes overrides for a launch template.</p>
  */
 export interface LaunchTemplateOverrides {
@@ -7370,6 +8027,7 @@ export interface LaunchTemplateOverrides {
 }
 
 /**
+ * @public
  * <p>Describes a launch template and overrides.</p>
  */
 export interface LaunchTemplateConfig {
@@ -7386,6 +8044,7 @@ export interface LaunchTemplateConfig {
 }
 
 /**
+ * @public
  * <p>Describes a Classic Load Balancer.</p>
  */
 export interface ClassicLoadBalancer {
@@ -7396,6 +8055,7 @@ export interface ClassicLoadBalancer {
 }
 
 /**
+ * @public
  * <p>Describes the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers
  *             the running Spot Instances with these Classic Load Balancers.</p>
  */
@@ -7407,6 +8067,7 @@ export interface ClassicLoadBalancersConfig {
 }
 
 /**
+ * @public
  * <p>Describes a load balancer target group.</p>
  */
 export interface TargetGroup {
@@ -7417,6 +8078,7 @@ export interface TargetGroup {
 }
 
 /**
+ * @public
  * <p>Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the
  *             running Spot Instances with these target groups.</p>
  */
@@ -7428,6 +8090,7 @@ export interface TargetGroupsConfig {
 }
 
 /**
+ * @public
  * <p>Describes the Classic Load Balancers and target groups to attach to a Spot Fleet
  *             request.</p>
  */
@@ -7443,17 +8106,36 @@ export interface LoadBalancersConfig {
   TargetGroupsConfig?: TargetGroupsConfig;
 }
 
-export enum OnDemandAllocationStrategy {
-  LOWEST_PRICE = "lowestPrice",
-  PRIORITIZED = "prioritized",
-}
-
-export enum ReplacementStrategy {
-  LAUNCH = "launch",
-  LAUNCH_BEFORE_TERMINATE = "launch-before-terminate",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OnDemandAllocationStrategy = {
+  LOWEST_PRICE: "lowestPrice",
+  PRIORITIZED: "prioritized",
+} as const;
 
 /**
+ * @public
+ */
+export type OnDemandAllocationStrategy = (typeof OnDemandAllocationStrategy)[keyof typeof OnDemandAllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplacementStrategy = {
+  LAUNCH: "launch",
+  LAUNCH_BEFORE_TERMINATE: "launch-before-terminate",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplacementStrategy = (typeof ReplacementStrategy)[keyof typeof ReplacementStrategy];
+
+/**
+ * @public
  * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
  *             Spot Instance is at an elevated risk of being interrupted. For more information, see
  *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
@@ -7487,6 +8169,7 @@ export interface SpotCapacityRebalance {
 }
 
 /**
+ * @public
  * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
  *             interrupted.</p>
  */
@@ -7500,6 +8183,7 @@ export interface SpotMaintenanceStrategies {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of a Spot Fleet request.</p>
  */
 export interface SpotFleetRequestConfigData {
@@ -7765,6 +8449,7 @@ export interface SpotFleetRequestConfigData {
 }
 
 /**
+ * @public
  * <p>Describes a Spot Fleet request.</p>
  */
 export interface SpotFleetRequestConfig {
@@ -7805,6 +8490,7 @@ export interface SpotFleetRequestConfig {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeSpotFleetRequests.</p>
  */
 export interface DescribeSpotFleetRequestsResponse {
@@ -7821,11 +8507,12 @@ export interface DescribeSpotFleetRequestsResponse {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeSpotInstanceRequests.</p>
  */
 export interface DescribeSpotInstanceRequestsRequest {
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -8031,7 +8718,7 @@ export interface DescribeSpotInstanceRequestsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more Spot Instance request IDs.</p>
+   * <p>The IDs of the Spot Instance requests.</p>
    */
   SpotInstanceRequestIds?: string[];
 
@@ -8049,6 +8736,7 @@ export interface DescribeSpotInstanceRequestsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the monitoring of an instance.</p>
  */
 export interface RunInstancesMonitoringEnabled {
@@ -8060,6 +8748,7 @@ export interface RunInstancesMonitoringEnabled {
 }
 
 /**
+ * @public
  * <p>Describes the launch specification for an instance.</p>
  */
 export interface LaunchSpecification {
@@ -8069,7 +8758,7 @@ export interface LaunchSpecification {
   UserData?: string;
 
   /**
-   * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
+   * <p>The IDs of the security groups.</p>
    */
   SecurityGroups?: GroupIdentifier[];
 
@@ -8079,7 +8768,7 @@ export interface LaunchSpecification {
   AddressingType?: string;
 
   /**
-   * <p>One or more block device mapping entries.</p>
+   * <p>The block device mapping entries.</p>
    */
   BlockDeviceMappings?: BlockDeviceMapping[];
 
@@ -8116,7 +8805,7 @@ export interface LaunchSpecification {
   KeyName?: string;
 
   /**
-   * <p>One or more network interfaces. If you specify a network interface, you must specify
+   * <p>The network interfaces. If you specify a network interface, you must specify
    *            subnet IDs and security group IDs using the network interface.</p>
    */
   NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
@@ -8142,15 +8831,25 @@ export interface LaunchSpecification {
   Monitoring?: RunInstancesMonitoringEnabled;
 }
 
-export enum SpotInstanceState {
-  active = "active",
-  cancelled = "cancelled",
-  closed = "closed",
-  failed = "failed",
-  open = "open",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SpotInstanceState = {
+  active: "active",
+  cancelled: "cancelled",
+  closed: "closed",
+  failed: "failed",
+  open: "open",
+} as const;
 
 /**
+ * @public
+ */
+export type SpotInstanceState = (typeof SpotInstanceState)[keyof typeof SpotInstanceState];
+
+/**
+ * @public
  * <p>Describes the status of a Spot Instance request.</p>
  */
 export interface SpotInstanceStatus {
@@ -8172,6 +8871,7 @@ export interface SpotInstanceStatus {
 }
 
 /**
+ * @public
  * <p>Describes a Spot Instance request.</p>
  */
 export interface SpotInstanceRequest {
@@ -8293,11 +8993,12 @@ export interface SpotInstanceRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeSpotInstanceRequests.</p>
  */
 export interface DescribeSpotInstanceRequestsResult {
   /**
-   * <p>One or more Spot Instance requests.</p>
+   * <p>The Spot Instance requests.</p>
    */
   SpotInstanceRequests?: SpotInstanceRequest[];
 
@@ -8309,11 +9010,12 @@ export interface DescribeSpotInstanceRequestsResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeSpotPriceHistory.</p>
  */
 export interface DescribeSpotPriceHistoryRequest {
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -8402,6 +9104,7 @@ export interface DescribeSpotPriceHistoryRequest {
 }
 
 /**
+ * @public
  * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
  *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
  *          <important>
@@ -8441,6 +9144,7 @@ export interface SpotPrice {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeSpotPriceHistory.</p>
  */
 export interface DescribeSpotPriceHistoryResult {
@@ -8456,6 +9160,9 @@ export interface DescribeSpotPriceHistoryResult {
   SpotPriceHistory?: SpotPrice[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeStaleSecurityGroupsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -8484,6 +9191,7 @@ export interface DescribeStaleSecurityGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a stale rule in a security group.</p>
  */
 export interface StaleIpPermission {
@@ -8521,6 +9229,7 @@ export interface StaleIpPermission {
 }
 
 /**
+ * @public
  * <p>Describes a stale security group (a security group that contains stale rules).</p>
  */
 export interface StaleSecurityGroup {
@@ -8555,6 +9264,9 @@ export interface StaleSecurityGroup {
   VpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStaleSecurityGroupsResult {
   /**
    * <p>The token to include in another request to get the next page of items.
@@ -8568,6 +9280,9 @@ export interface DescribeStaleSecurityGroupsResult {
   StaleSecurityGroupSet?: StaleSecurityGroup[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeStoreImageTasksRequest {
   /**
    * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a request.</p>
@@ -8614,6 +9329,7 @@ export interface DescribeStoreImageTasksRequest {
 }
 
 /**
+ * @public
  * <p>The information about the AMI store task, including the progress of the task.</p>
  */
 export interface StoreImageTaskResult {
@@ -8655,6 +9371,9 @@ export interface StoreImageTaskResult {
   StoreTaskFailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStoreImageTasksResult {
   /**
    * <p>The information about the AMI store tasks.</p>
@@ -8668,6 +9387,9 @@ export interface DescribeStoreImageTasksResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubnetsRequest {
   /**
    * <p>One or more filters.</p>
@@ -8833,6 +9555,9 @@ export interface DescribeSubnetsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubnetsResult {
   /**
    * <p>Information about one or more subnets.</p>
@@ -8845,6 +9570,9 @@ export interface DescribeSubnetsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -8897,6 +9625,7 @@ export interface DescribeTagsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a tag.</p>
  */
 export interface TagDescription {
@@ -8921,6 +9650,9 @@ export interface TagDescription {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagsResult {
   /**
    * <p>The token to include in another request to get the next page of items.
@@ -8934,6 +9666,9 @@ export interface DescribeTagsResult {
   Tags?: TagDescription[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrafficMirrorFiltersRequest {
   /**
    * <p>The ID of the Traffic Mirror filter.</p>
@@ -8974,6 +9709,9 @@ export interface DescribeTrafficMirrorFiltersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrafficMirrorFiltersResult {
   /**
    * <p>Information about one or more Traffic Mirror filters.</p>
@@ -8986,6 +9724,9 @@ export interface DescribeTrafficMirrorFiltersResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrafficMirrorSessionsRequest {
   /**
    * <p>The ID of the Traffic Mirror session.</p>
@@ -9054,6 +9795,9 @@ export interface DescribeTrafficMirrorSessionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrafficMirrorSessionsResult {
   /**
    * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
@@ -9066,6 +9810,9 @@ export interface DescribeTrafficMirrorSessionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrafficMirrorTargetsRequest {
   /**
    * <p>The ID of the Traffic Mirror targets.</p>
@@ -9118,6 +9865,9 @@ export interface DescribeTrafficMirrorTargetsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrafficMirrorTargetsResult {
   /**
    * <p>Information about one or more Traffic Mirror targets.</p>
@@ -9130,6 +9880,9 @@ export interface DescribeTrafficMirrorTargetsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayAttachmentsRequest {
   /**
    * <p>The IDs of the attachments.</p>
@@ -9202,6 +9955,7 @@ export interface DescribeTransitGatewayAttachmentsRequest {
 }
 
 /**
+ * @public
  * <p>Describes an association.</p>
  */
 export interface TransitGatewayAttachmentAssociation {
@@ -9217,6 +9971,7 @@ export interface TransitGatewayAttachmentAssociation {
 }
 
 /**
+ * @public
  * <p>Describes an attachment between a resource and a transit gateway.</p>
  */
 export interface TransitGatewayAttachment {
@@ -9271,6 +10026,9 @@ export interface TransitGatewayAttachment {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayAttachmentsResult {
   /**
    * <p>Information about the attachments.</p>
@@ -9283,6 +10041,9 @@ export interface DescribeTransitGatewayAttachmentsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayConnectPeersRequest {
   /**
    * <p>The IDs of the Connect peers.</p>
@@ -9329,6 +10090,9 @@ export interface DescribeTransitGatewayConnectPeersRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayConnectPeersResult {
   /**
    * <p>Information about the Connect peers.</p>
@@ -9341,6 +10105,9 @@ export interface DescribeTransitGatewayConnectPeersResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayConnectsRequest {
   /**
    * <p>The IDs of the attachments.</p>
@@ -9399,6 +10166,9 @@ export interface DescribeTransitGatewayConnectsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayConnectsResult {
   /**
    * <p>Information about the Connect attachments.</p>
@@ -9411,6 +10181,9 @@ export interface DescribeTransitGatewayConnectsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayMulticastDomainsRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -9455,6 +10228,9 @@ export interface DescribeTransitGatewayMulticastDomainsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayMulticastDomainsResult {
   /**
    * <p>Information about the transit gateway multicast domains.</p>
@@ -9467,6 +10243,9 @@ export interface DescribeTransitGatewayMulticastDomainsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayPeeringAttachmentsRequest {
   /**
    * <p>One or more IDs of the transit gateway peering attachments.</p>
@@ -9528,6 +10307,9 @@ export interface DescribeTransitGatewayPeeringAttachmentsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayPeeringAttachmentsResult {
   /**
    * <p>The transit gateway peering attachments.</p>
@@ -9540,6 +10322,9 @@ export interface DescribeTransitGatewayPeeringAttachmentsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayPolicyTablesRequest {
   /**
    * <p>The IDs of the transit gateway policy tables.</p>
@@ -9570,6 +10355,9 @@ export interface DescribeTransitGatewayPolicyTablesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayPolicyTablesResult {
   /**
    * <p>Describes the transit gateway policy tables.</p>
@@ -9582,6 +10370,9 @@ export interface DescribeTransitGatewayPolicyTablesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayRouteTableAnnouncementsRequest {
   /**
    * <p>The IDs of the transit gateway route tables that are being advertised.</p>
@@ -9612,6 +10403,9 @@ export interface DescribeTransitGatewayRouteTableAnnouncementsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayRouteTableAnnouncementsResult {
   /**
    * <p>Describes the transit gateway route table announcement.</p>
@@ -9624,6 +10418,9 @@ export interface DescribeTransitGatewayRouteTableAnnouncementsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayRouteTablesRequest {
   /**
    * <p>The IDs of the transit gateway route tables.</p>
@@ -9678,6 +10475,9 @@ export interface DescribeTransitGatewayRouteTablesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayRouteTablesResult {
   /**
    * <p>Information about the transit gateway route tables.</p>
@@ -9690,6 +10490,9 @@ export interface DescribeTransitGatewayRouteTablesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewaysRequest {
   /**
    * <p>The IDs of the transit gateways.</p>
@@ -9768,6 +10571,9 @@ export interface DescribeTransitGatewaysRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewaysResult {
   /**
    * <p>Information about the transit gateways.</p>
@@ -9780,6 +10586,9 @@ export interface DescribeTransitGatewaysResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayVpcAttachmentsRequest {
   /**
    * <p>The IDs of the attachments.</p>
@@ -9828,6 +10637,9 @@ export interface DescribeTransitGatewayVpcAttachmentsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransitGatewayVpcAttachmentsResult {
   /**
    * <p>Information about the VPC attachments.</p>
@@ -9840,6 +10652,9 @@ export interface DescribeTransitGatewayVpcAttachmentsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrunkInterfaceAssociationsRequest {
   /**
    * <p>The IDs of the associations.</p>
@@ -9880,6 +10695,9 @@ export interface DescribeTrunkInterfaceAssociationsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrunkInterfaceAssociationsResult {
   /**
    * <p>Information about the trunk associations.</p>
@@ -9892,19 +10710,22 @@ export interface DescribeTrunkInterfaceAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVerifiedAccessEndpointsRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpointIds?: string[];
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId?: string;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId?: string;
 
@@ -9932,9 +10753,12 @@ export interface DescribeVerifiedAccessEndpointsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVerifiedAccessEndpointsResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpoints?: VerifiedAccessEndpoint[];
 
@@ -9944,14 +10768,17 @@ export interface DescribeVerifiedAccessEndpointsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVerifiedAccessGroupsRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access groups.</p>
+   * <p>The ID of the Verified Access groups.</p>
    */
   VerifiedAccessGroupIds?: string[];
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId?: string;
 
@@ -9979,6 +10806,9 @@ export interface DescribeVerifiedAccessGroupsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVerifiedAccessGroupsResult {
   /**
    * <p>The ID of the Verified Access group.</p>
@@ -9991,9 +10821,12 @@ export interface DescribeVerifiedAccessGroupsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {
   /**
-   * <p>The IDs of the Amazon Web Services Verified Access instances.</p>
+   * <p>The IDs of the Verified Access instances.</p>
    */
   VerifiedAccessInstanceIds?: string[];
 
@@ -10021,12 +10854,23 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {
   DryRun?: boolean;
 }
 
-export enum VerifiedAccessLogDeliveryStatusCode {
-  FAILED = "failed",
-  SUCCESS = "success",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VerifiedAccessLogDeliveryStatusCode = {
+  FAILED: "failed",
+  SUCCESS: "success",
+} as const;
 
 /**
+ * @public
+ */
+export type VerifiedAccessLogDeliveryStatusCode =
+  (typeof VerifiedAccessLogDeliveryStatusCode)[keyof typeof VerifiedAccessLogDeliveryStatusCode];
+
+/**
+ * @public
  * <p>Describes a log delivery status.</p>
  */
 export interface VerifiedAccessLogDeliveryStatus {
@@ -10042,6 +10886,7 @@ export interface VerifiedAccessLogDeliveryStatus {
 }
 
 /**
+ * @public
  * <p>Options for CloudWatch Logs as a logging destination.</p>
  */
 export interface VerifiedAccessLogCloudWatchLogsDestination {
@@ -10062,6 +10907,7 @@ export interface VerifiedAccessLogCloudWatchLogsDestination {
 }
 
 /**
+ * @public
  * <p>Options for Kinesis as a logging destination.</p>
  */
 export interface VerifiedAccessLogKinesisDataFirehoseDestination {
@@ -10082,6 +10928,7 @@ export interface VerifiedAccessLogKinesisDataFirehoseDestination {
 }
 
 /**
+ * @public
  * <p>Options for Amazon S3 as a logging destination.</p>
  */
 export interface VerifiedAccessLogS3Destination {
@@ -10112,6 +10959,7 @@ export interface VerifiedAccessLogS3Destination {
 }
 
 /**
+ * @public
  * <p>Describes the destinations for Verified Access logs.</p>
  */
 export interface VerifiedAccessLogs {
@@ -10132,6 +10980,7 @@ export interface VerifiedAccessLogs {
 }
 
 /**
+ * @public
  * <p>Describes logging options for an Amazon Web Services Verified Access instance.</p>
  */
 export interface VerifiedAccessInstanceLoggingConfiguration {
@@ -10146,9 +10995,12 @@ export interface VerifiedAccessInstanceLoggingConfiguration {
   AccessLogs?: VerifiedAccessLogs;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsResult {
   /**
-   * <p>The current logging configuration for the Amazon Web Services Verified Access instances.</p>
+   * <p>The current logging configuration for the Verified Access instances.</p>
    */
   LoggingConfigurations?: VerifiedAccessInstanceLoggingConfiguration[];
 
@@ -10158,9 +11010,12 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVerifiedAccessInstancesRequest {
   /**
-   * <p>The IDs of the Amazon Web Services Verified Access instances.</p>
+   * <p>The IDs of the Verified Access instances.</p>
    */
   VerifiedAccessInstanceIds?: string[];
 
@@ -10188,9 +11043,12 @@ export interface DescribeVerifiedAccessInstancesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVerifiedAccessInstancesResult {
   /**
-   * <p>The IDs of the Amazon Web Services Verified Access instances.</p>
+   * <p>The IDs of the Verified Access instances.</p>
    */
   VerifiedAccessInstances?: VerifiedAccessInstance[];
 
@@ -10200,9 +11058,12 @@ export interface DescribeVerifiedAccessInstancesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVerifiedAccessTrustProvidersRequest {
   /**
-   * <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
+   * <p>The IDs of the Verified Access trust providers.</p>
    */
   VerifiedAccessTrustProviderIds?: string[];
 
@@ -10230,9 +11091,12 @@ export interface DescribeVerifiedAccessTrustProvidersRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVerifiedAccessTrustProvidersResult {
   /**
-   * <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
+   * <p>The IDs of the Verified Access trust providers.</p>
    */
   VerifiedAccessTrustProviders?: VerifiedAccessTrustProvider[];
 
@@ -10242,11 +11106,23 @@ export interface DescribeVerifiedAccessTrustProvidersResult {
   NextToken?: string;
 }
 
-export enum VolumeAttributeName {
-  autoEnableIO = "autoEnableIO",
-  productCodes = "productCodes",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VolumeAttributeName = {
+  autoEnableIO: "autoEnableIO",
+  productCodes: "productCodes",
+} as const;
 
+/**
+ * @public
+ */
+export type VolumeAttributeName = (typeof VolumeAttributeName)[keyof typeof VolumeAttributeName];
+
+/**
+ * @public
+ */
 export interface DescribeVolumeAttributeRequest {
   /**
    * <p>The attribute of the volume. This parameter is required.</p>
@@ -10266,611 +11142,6 @@ export interface DescribeVolumeAttributeRequest {
   DryRun?: boolean;
 }
 
-export interface DescribeVolumeAttributeResult {
-  /**
-   * <p>The state of <code>autoEnableIO</code> attribute.</p>
-   */
-  AutoEnableIO?: AttributeBooleanValue;
-
-  /**
-   * <p>A list of product codes.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId?: string;
-}
-
-export interface DescribeVolumesRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.attach-time</code> - The time stamp when the attachment
-   *           initiated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.delete-on-termination</code> - Whether the volume is deleted on
-   *           instance termination.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.device</code> - The device name specified in the block device mapping
-   *           (for example, <code>/dev/sda1</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.instance-id</code> - The ID of the instance the volume is attached
-   *           to.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.status</code> - The attachment state (<code>attaching</code> |
-   *             <code>attached</code> | <code>detaching</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone in which the volume was
-   *           created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>create-time</code> - The time stamp when the volume was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code>
-   *           | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach (<code>true</code>
-   *     			| <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fast-restored</code> - Indicates whether the volume was created from a
-   *           snapshot that is enabled for fast snapshot restore (<code>true</code> |
-   *           <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>size</code> - The size of the volume, in GiB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>snapshot-id</code> - The snapshot from which the volume was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status</code> - The state of the volume (<code>creating</code> |
-   *             <code>available</code> | <code>in-use</code> | <code>deleting</code> |
-   *             <code>deleted</code> | <code>error</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-id</code> - The volume ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-type</code> - The Amazon EBS volume type (<code>gp2</code> | <code>gp3</code> | <code>io1</code> | <code>io2</code> |
-   *           <code>st1</code> | <code>sc1</code>| <code>standard</code>)</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The volume IDs.</p>
-   */
-  VolumeIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of volumes to return for this request.
-   *       This value can be between 5 and 500; if you specify a value larger than 500, only 500 items are returned.
-   *       If this parameter is not used, then all items are returned. You cannot specify this parameter and the
-   *       volume IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *       Pagination continues from the end of the items returned from the previous request.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @internal
- */
-export const MonitoringFilterSensitiveLog = (obj: Monitoring): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceNetworkInterfaceAssociationFilterSensitiveLog = (
-  obj: InstanceNetworkInterfaceAssociation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceNetworkInterfaceAttachmentFilterSensitiveLog = (obj: InstanceNetworkInterfaceAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceIpv4PrefixFilterSensitiveLog = (obj: InstanceIpv4Prefix): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceIpv6PrefixFilterSensitiveLog = (obj: InstanceIpv6Prefix): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstancePrivateIpAddressFilterSensitiveLog = (obj: InstancePrivateIpAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceNetworkInterfaceFilterSensitiveLog = (obj: InstanceNetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrivateDnsNameOptionsResponseFilterSensitiveLog = (obj: PrivateDnsNameOptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStateFilterSensitiveLog = (obj: InstanceState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationFilterSensitiveLog = (obj: Reservation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancesResultFilterSensitiveLog = (obj: DescribeInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceStatusRequestFilterSensitiveLog = (obj: DescribeInstanceStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStatusEventFilterSensitiveLog = (obj: InstanceStatusEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStatusDetailsFilterSensitiveLog = (obj: InstanceStatusDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStatusSummaryFilterSensitiveLog = (obj: InstanceStatusSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStatusFilterSensitiveLog = (obj: InstanceStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceStatusResultFilterSensitiveLog = (obj: DescribeInstanceStatusResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceTypeOfferingsRequestFilterSensitiveLog = (
-  obj: DescribeInstanceTypeOfferingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceTypeOfferingFilterSensitiveLog = (obj: InstanceTypeOffering): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceTypeOfferingsResultFilterSensitiveLog = (
-  obj: DescribeInstanceTypeOfferingsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceTypesRequestFilterSensitiveLog = (obj: DescribeInstanceTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsOptimizedInfoFilterSensitiveLog = (obj: EbsOptimizedInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsInfoFilterSensitiveLog = (obj: EbsInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FpgaDeviceMemoryInfoFilterSensitiveLog = (obj: FpgaDeviceMemoryInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FpgaDeviceInfoFilterSensitiveLog = (obj: FpgaDeviceInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FpgaInfoFilterSensitiveLog = (obj: FpgaInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GpuDeviceMemoryInfoFilterSensitiveLog = (obj: GpuDeviceMemoryInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GpuDeviceInfoFilterSensitiveLog = (obj: GpuDeviceInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GpuInfoFilterSensitiveLog = (obj: GpuInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InferenceDeviceInfoFilterSensitiveLog = (obj: InferenceDeviceInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InferenceAcceleratorInfoFilterSensitiveLog = (obj: InferenceAcceleratorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DiskInfoFilterSensitiveLog = (obj: DiskInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStorageInfoFilterSensitiveLog = (obj: InstanceStorageInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemoryInfoFilterSensitiveLog = (obj: MemoryInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EfaInfoFilterSensitiveLog = (obj: EfaInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkCardInfoFilterSensitiveLog = (obj: NetworkCardInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInfoFilterSensitiveLog = (obj: NetworkInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementGroupInfoFilterSensitiveLog = (obj: PlacementGroupInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessorInfoFilterSensitiveLog = (obj: ProcessorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VCpuInfoFilterSensitiveLog = (obj: VCpuInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceTypeInfoFilterSensitiveLog = (obj: InstanceTypeInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceTypesResultFilterSensitiveLog = (obj: DescribeInstanceTypesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInternetGatewaysRequestFilterSensitiveLog = (obj: DescribeInternetGatewaysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInternetGatewaysResultFilterSensitiveLog = (obj: DescribeInternetGatewaysResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamPoolsRequestFilterSensitiveLog = (obj: DescribeIpamPoolsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamPoolsResultFilterSensitiveLog = (obj: DescribeIpamPoolsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamResourceDiscoveriesRequestFilterSensitiveLog = (
-  obj: DescribeIpamResourceDiscoveriesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamResourceDiscoveriesResultFilterSensitiveLog = (
-  obj: DescribeIpamResourceDiscoveriesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamResourceDiscoveryAssociationsRequestFilterSensitiveLog = (
-  obj: DescribeIpamResourceDiscoveryAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamResourceDiscoveryAssociationsResultFilterSensitiveLog = (
-  obj: DescribeIpamResourceDiscoveryAssociationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamsRequestFilterSensitiveLog = (obj: DescribeIpamsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamsResultFilterSensitiveLog = (obj: DescribeIpamsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamScopesRequestFilterSensitiveLog = (obj: DescribeIpamScopesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamScopesResultFilterSensitiveLog = (obj: DescribeIpamScopesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpv6PoolsRequestFilterSensitiveLog = (obj: DescribeIpv6PoolsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PoolCidrBlockFilterSensitiveLog = (obj: PoolCidrBlock): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ipv6PoolFilterSensitiveLog = (obj: Ipv6Pool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpv6PoolsResultFilterSensitiveLog = (obj: DescribeIpv6PoolsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeKeyPairsRequestFilterSensitiveLog = (obj: DescribeKeyPairsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyPairInfoFilterSensitiveLog = (obj: KeyPairInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeKeyPairsResultFilterSensitiveLog = (obj: DescribeKeyPairsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLaunchTemplatesRequestFilterSensitiveLog = (obj: DescribeLaunchTemplatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLaunchTemplatesResultFilterSensitiveLog = (obj: DescribeLaunchTemplatesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLaunchTemplateVersionsRequestFilterSensitiveLog = (
-  obj: DescribeLaunchTemplateVersionsRequest
-): any => ({
-  ...obj,
-});
-
 /**
  * @internal
  */
@@ -10886,941 +11157,9 @@ export const DescribeLaunchTemplateVersionsResultFilterSensitiveLog = (
 /**
  * @internal
  */
-export const DescribeLocalGatewayRouteTablesRequestFilterSensitiveLog = (
-  obj: DescribeLocalGatewayRouteTablesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayRouteTablesResultFilterSensitiveLog = (
-  obj: DescribeLocalGatewayRouteTablesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestFilterSensitiveLog = (
-  obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultFilterSensitiveLog = (
-  obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayRouteTableVpcAssociationsRequestFilterSensitiveLog = (
-  obj: DescribeLocalGatewayRouteTableVpcAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayRouteTableVpcAssociationsResultFilterSensitiveLog = (
-  obj: DescribeLocalGatewayRouteTableVpcAssociationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewaysRequestFilterSensitiveLog = (obj: DescribeLocalGatewaysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalGatewayFilterSensitiveLog = (obj: LocalGateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewaysResultFilterSensitiveLog = (obj: DescribeLocalGatewaysResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayVirtualInterfaceGroupsRequestFilterSensitiveLog = (
-  obj: DescribeLocalGatewayVirtualInterfaceGroupsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalGatewayVirtualInterfaceGroupFilterSensitiveLog = (obj: LocalGatewayVirtualInterfaceGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayVirtualInterfaceGroupsResultFilterSensitiveLog = (
-  obj: DescribeLocalGatewayVirtualInterfaceGroupsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayVirtualInterfacesRequestFilterSensitiveLog = (
-  obj: DescribeLocalGatewayVirtualInterfacesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalGatewayVirtualInterfaceFilterSensitiveLog = (obj: LocalGatewayVirtualInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayVirtualInterfacesResultFilterSensitiveLog = (
-  obj: DescribeLocalGatewayVirtualInterfacesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeManagedPrefixListsRequestFilterSensitiveLog = (obj: DescribeManagedPrefixListsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeManagedPrefixListsResultFilterSensitiveLog = (obj: DescribeManagedPrefixListsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMovingAddressesRequestFilterSensitiveLog = (obj: DescribeMovingAddressesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MovingAddressStatusFilterSensitiveLog = (obj: MovingAddressStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMovingAddressesResultFilterSensitiveLog = (obj: DescribeMovingAddressesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNatGatewaysRequestFilterSensitiveLog = (obj: DescribeNatGatewaysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNatGatewaysResultFilterSensitiveLog = (obj: DescribeNatGatewaysResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkAclsRequestFilterSensitiveLog = (obj: DescribeNetworkAclsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkAclsResultFilterSensitiveLog = (obj: DescribeNetworkAclsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInsightsAccessScopeAnalysesRequestFilterSensitiveLog = (
-  obj: DescribeNetworkInsightsAccessScopeAnalysesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInsightsAccessScopeAnalysisFilterSensitiveLog = (obj: NetworkInsightsAccessScopeAnalysis): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInsightsAccessScopeAnalysesResultFilterSensitiveLog = (
-  obj: DescribeNetworkInsightsAccessScopeAnalysesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInsightsAccessScopesRequestFilterSensitiveLog = (
-  obj: DescribeNetworkInsightsAccessScopesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInsightsAccessScopesResultFilterSensitiveLog = (
-  obj: DescribeNetworkInsightsAccessScopesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInsightsAnalysesRequestFilterSensitiveLog = (
-  obj: DescribeNetworkInsightsAnalysesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInsightsAnalysisFilterSensitiveLog = (obj: NetworkInsightsAnalysis): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInsightsAnalysesResultFilterSensitiveLog = (
-  obj: DescribeNetworkInsightsAnalysesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInsightsPathsRequestFilterSensitiveLog = (
-  obj: DescribeNetworkInsightsPathsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInsightsPathsResultFilterSensitiveLog = (obj: DescribeNetworkInsightsPathsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInterfaceAttributeRequestFilterSensitiveLog = (
-  obj: DescribeNetworkInterfaceAttributeRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInterfaceAttributeResultFilterSensitiveLog = (
-  obj: DescribeNetworkInterfaceAttributeResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInterfacePermissionsRequestFilterSensitiveLog = (
-  obj: DescribeNetworkInterfacePermissionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInterfacePermissionsResultFilterSensitiveLog = (
-  obj: DescribeNetworkInterfacePermissionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInterfacesRequestFilterSensitiveLog = (obj: DescribeNetworkInterfacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInterfacesResultFilterSensitiveLog = (obj: DescribeNetworkInterfacesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePlacementGroupsRequestFilterSensitiveLog = (obj: DescribePlacementGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePlacementGroupsResultFilterSensitiveLog = (obj: DescribePlacementGroupsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePrefixListsRequestFilterSensitiveLog = (obj: DescribePrefixListsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrefixListFilterSensitiveLog = (obj: PrefixList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePrefixListsResultFilterSensitiveLog = (obj: DescribePrefixListsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePrincipalIdFormatRequestFilterSensitiveLog = (obj: DescribePrincipalIdFormatRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrincipalIdFormatFilterSensitiveLog = (obj: PrincipalIdFormat): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePrincipalIdFormatResultFilterSensitiveLog = (obj: DescribePrincipalIdFormatResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePublicIpv4PoolsRequestFilterSensitiveLog = (obj: DescribePublicIpv4PoolsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublicIpv4PoolRangeFilterSensitiveLog = (obj: PublicIpv4PoolRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublicIpv4PoolFilterSensitiveLog = (obj: PublicIpv4Pool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePublicIpv4PoolsResultFilterSensitiveLog = (obj: DescribePublicIpv4PoolsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRegionsRequestFilterSensitiveLog = (obj: DescribeRegionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegionFilterSensitiveLog = (obj: Region): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRegionsResultFilterSensitiveLog = (obj: DescribeRegionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplaceRootVolumeTasksRequestFilterSensitiveLog = (
-  obj: DescribeReplaceRootVolumeTasksRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplaceRootVolumeTasksResultFilterSensitiveLog = (
-  obj: DescribeReplaceRootVolumeTasksResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedInstancesRequestFilterSensitiveLog = (obj: DescribeReservedInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecurringChargeFilterSensitiveLog = (obj: RecurringCharge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedInstancesFilterSensitiveLog = (obj: ReservedInstances): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedInstancesResultFilterSensitiveLog = (obj: DescribeReservedInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedInstancesListingsRequestFilterSensitiveLog = (
-  obj: DescribeReservedInstancesListingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedInstancesListingsResultFilterSensitiveLog = (
-  obj: DescribeReservedInstancesListingsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedInstancesModificationsRequestFilterSensitiveLog = (
-  obj: DescribeReservedInstancesModificationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedInstancesConfigurationFilterSensitiveLog = (obj: ReservedInstancesConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedInstancesModificationResultFilterSensitiveLog = (
-  obj: ReservedInstancesModificationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedInstancesIdFilterSensitiveLog = (obj: ReservedInstancesId): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedInstancesModificationFilterSensitiveLog = (obj: ReservedInstancesModification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedInstancesModificationsResultFilterSensitiveLog = (
-  obj: DescribeReservedInstancesModificationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedInstancesOfferingsRequestFilterSensitiveLog = (
-  obj: DescribeReservedInstancesOfferingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PricingDetailFilterSensitiveLog = (obj: PricingDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedInstancesOfferingFilterSensitiveLog = (obj: ReservedInstancesOffering): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedInstancesOfferingsResultFilterSensitiveLog = (
-  obj: DescribeReservedInstancesOfferingsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRouteTablesRequestFilterSensitiveLog = (obj: DescribeRouteTablesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRouteTablesResultFilterSensitiveLog = (obj: DescribeRouteTablesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SlotDateTimeRangeRequestFilterSensitiveLog = (obj: SlotDateTimeRangeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledInstanceRecurrenceRequestFilterSensitiveLog = (obj: ScheduledInstanceRecurrenceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduledInstanceAvailabilityRequestFilterSensitiveLog = (
-  obj: DescribeScheduledInstanceAvailabilityRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledInstanceRecurrenceFilterSensitiveLog = (obj: ScheduledInstanceRecurrence): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledInstanceAvailabilityFilterSensitiveLog = (obj: ScheduledInstanceAvailability): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduledInstanceAvailabilityResultFilterSensitiveLog = (
-  obj: DescribeScheduledInstanceAvailabilityResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SlotStartTimeRangeRequestFilterSensitiveLog = (obj: SlotStartTimeRangeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduledInstancesRequestFilterSensitiveLog = (obj: DescribeScheduledInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledInstanceFilterSensitiveLog = (obj: ScheduledInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduledInstancesResultFilterSensitiveLog = (obj: DescribeScheduledInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSecurityGroupReferencesRequestFilterSensitiveLog = (
-  obj: DescribeSecurityGroupReferencesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityGroupReferenceFilterSensitiveLog = (obj: SecurityGroupReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSecurityGroupReferencesResultFilterSensitiveLog = (
-  obj: DescribeSecurityGroupReferencesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSecurityGroupRulesRequestFilterSensitiveLog = (obj: DescribeSecurityGroupRulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSecurityGroupRulesResultFilterSensitiveLog = (obj: DescribeSecurityGroupRulesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSecurityGroupsRequestFilterSensitiveLog = (obj: DescribeSecurityGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityGroupFilterSensitiveLog = (obj: SecurityGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSecurityGroupsResultFilterSensitiveLog = (obj: DescribeSecurityGroupsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSnapshotAttributeRequestFilterSensitiveLog = (obj: DescribeSnapshotAttributeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVolumePermissionFilterSensitiveLog = (obj: CreateVolumePermission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSnapshotAttributeResultFilterSensitiveLog = (obj: DescribeSnapshotAttributeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSnapshotsRequestFilterSensitiveLog = (obj: DescribeSnapshotsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSnapshotsResultFilterSensitiveLog = (obj: DescribeSnapshotsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSnapshotTierStatusRequestFilterSensitiveLog = (obj: DescribeSnapshotTierStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotTierStatusFilterSensitiveLog = (obj: SnapshotTierStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSnapshotTierStatusResultFilterSensitiveLog = (obj: DescribeSnapshotTierStatusResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSpotDatafeedSubscriptionRequestFilterSensitiveLog = (
-  obj: DescribeSpotDatafeedSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSpotDatafeedSubscriptionResultFilterSensitiveLog = (
-  obj: DescribeSpotDatafeedSubscriptionResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSpotFleetInstancesRequestFilterSensitiveLog = (obj: DescribeSpotFleetInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSpotFleetInstancesResponseFilterSensitiveLog = (obj: DescribeSpotFleetInstancesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSpotFleetRequestHistoryRequestFilterSensitiveLog = (
-  obj: DescribeSpotFleetRequestHistoryRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HistoryRecordFilterSensitiveLog = (obj: HistoryRecord): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSpotFleetRequestHistoryResponseFilterSensitiveLog = (
-  obj: DescribeSpotFleetRequestHistoryResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSpotFleetRequestsRequestFilterSensitiveLog = (obj: DescribeSpotFleetRequestsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpotFleetMonitoringFilterSensitiveLog = (obj: SpotFleetMonitoring): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceNetworkInterfaceSpecificationFilterSensitiveLog = (
-  obj: InstanceNetworkInterfaceSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpotPlacementFilterSensitiveLog = (obj: SpotPlacement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpotFleetTagSpecificationFilterSensitiveLog = (obj: SpotFleetTagSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SpotFleetLaunchSpecificationFilterSensitiveLog = (obj: SpotFleetLaunchSpecification): any => ({
   ...obj,
   ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateOverridesFilterSensitiveLog = (obj: LaunchTemplateOverrides): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateConfigFilterSensitiveLog = (obj: LaunchTemplateConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClassicLoadBalancerFilterSensitiveLog = (obj: ClassicLoadBalancer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClassicLoadBalancersConfigFilterSensitiveLog = (obj: ClassicLoadBalancersConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetGroupFilterSensitiveLog = (obj: TargetGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetGroupsConfigFilterSensitiveLog = (obj: TargetGroupsConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancersConfigFilterSensitiveLog = (obj: LoadBalancersConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpotCapacityRebalanceFilterSensitiveLog = (obj: SpotCapacityRebalance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpotMaintenanceStrategiesFilterSensitiveLog = (obj: SpotMaintenanceStrategies): any => ({
-  ...obj,
 });
 
 /**
@@ -11853,32 +11192,9 @@ export const DescribeSpotFleetRequestsResponseFilterSensitiveLog = (obj: Describ
 /**
  * @internal
  */
-export const DescribeSpotInstanceRequestsRequestFilterSensitiveLog = (
-  obj: DescribeSpotInstanceRequestsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunInstancesMonitoringEnabledFilterSensitiveLog = (obj: RunInstancesMonitoringEnabled): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const LaunchSpecificationFilterSensitiveLog = (obj: LaunchSpecification): any => ({
   ...obj,
   ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SpotInstanceStatusFilterSensitiveLog = (obj: SpotInstanceStatus): any => ({
-  ...obj,
 });
 
 /**
@@ -11904,521 +11220,13 @@ export const DescribeSpotInstanceRequestsResultFilterSensitiveLog = (obj: Descri
 /**
  * @internal
  */
-export const DescribeSpotPriceHistoryRequestFilterSensitiveLog = (obj: DescribeSpotPriceHistoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpotPriceFilterSensitiveLog = (obj: SpotPrice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSpotPriceHistoryResultFilterSensitiveLog = (obj: DescribeSpotPriceHistoryResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStaleSecurityGroupsRequestFilterSensitiveLog = (obj: DescribeStaleSecurityGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StaleIpPermissionFilterSensitiveLog = (obj: StaleIpPermission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StaleSecurityGroupFilterSensitiveLog = (obj: StaleSecurityGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStaleSecurityGroupsResultFilterSensitiveLog = (obj: DescribeStaleSecurityGroupsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStoreImageTasksRequestFilterSensitiveLog = (obj: DescribeStoreImageTasksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StoreImageTaskResultFilterSensitiveLog = (obj: StoreImageTaskResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStoreImageTasksResultFilterSensitiveLog = (obj: DescribeStoreImageTasksResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSubnetsRequestFilterSensitiveLog = (obj: DescribeSubnetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSubnetsResultFilterSensitiveLog = (obj: DescribeSubnetsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagsRequestFilterSensitiveLog = (obj: DescribeTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagDescriptionFilterSensitiveLog = (obj: TagDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagsResultFilterSensitiveLog = (obj: DescribeTagsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrafficMirrorFiltersRequestFilterSensitiveLog = (
-  obj: DescribeTrafficMirrorFiltersRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrafficMirrorFiltersResultFilterSensitiveLog = (obj: DescribeTrafficMirrorFiltersResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrafficMirrorSessionsRequestFilterSensitiveLog = (
-  obj: DescribeTrafficMirrorSessionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrafficMirrorSessionsResultFilterSensitiveLog = (
-  obj: DescribeTrafficMirrorSessionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrafficMirrorTargetsRequestFilterSensitiveLog = (
-  obj: DescribeTrafficMirrorTargetsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrafficMirrorTargetsResultFilterSensitiveLog = (obj: DescribeTrafficMirrorTargetsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayAttachmentsRequestFilterSensitiveLog = (
-  obj: DescribeTransitGatewayAttachmentsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayAttachmentAssociationFilterSensitiveLog = (
-  obj: TransitGatewayAttachmentAssociation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayAttachmentFilterSensitiveLog = (obj: TransitGatewayAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayAttachmentsResultFilterSensitiveLog = (
-  obj: DescribeTransitGatewayAttachmentsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayConnectPeersRequestFilterSensitiveLog = (
-  obj: DescribeTransitGatewayConnectPeersRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayConnectPeersResultFilterSensitiveLog = (
-  obj: DescribeTransitGatewayConnectPeersResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayConnectsRequestFilterSensitiveLog = (
-  obj: DescribeTransitGatewayConnectsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayConnectsResultFilterSensitiveLog = (
-  obj: DescribeTransitGatewayConnectsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayMulticastDomainsRequestFilterSensitiveLog = (
-  obj: DescribeTransitGatewayMulticastDomainsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayMulticastDomainsResultFilterSensitiveLog = (
-  obj: DescribeTransitGatewayMulticastDomainsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayPeeringAttachmentsRequestFilterSensitiveLog = (
-  obj: DescribeTransitGatewayPeeringAttachmentsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayPeeringAttachmentsResultFilterSensitiveLog = (
-  obj: DescribeTransitGatewayPeeringAttachmentsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayPolicyTablesRequestFilterSensitiveLog = (
-  obj: DescribeTransitGatewayPolicyTablesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayPolicyTablesResultFilterSensitiveLog = (
-  obj: DescribeTransitGatewayPolicyTablesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayRouteTableAnnouncementsRequestFilterSensitiveLog = (
-  obj: DescribeTransitGatewayRouteTableAnnouncementsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayRouteTableAnnouncementsResultFilterSensitiveLog = (
-  obj: DescribeTransitGatewayRouteTableAnnouncementsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayRouteTablesRequestFilterSensitiveLog = (
-  obj: DescribeTransitGatewayRouteTablesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayRouteTablesResultFilterSensitiveLog = (
-  obj: DescribeTransitGatewayRouteTablesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewaysRequestFilterSensitiveLog = (obj: DescribeTransitGatewaysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewaysResultFilterSensitiveLog = (obj: DescribeTransitGatewaysResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayVpcAttachmentsRequestFilterSensitiveLog = (
-  obj: DescribeTransitGatewayVpcAttachmentsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransitGatewayVpcAttachmentsResultFilterSensitiveLog = (
-  obj: DescribeTransitGatewayVpcAttachmentsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrunkInterfaceAssociationsRequestFilterSensitiveLog = (
-  obj: DescribeTrunkInterfaceAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrunkInterfaceAssociationsResultFilterSensitiveLog = (
-  obj: DescribeTrunkInterfaceAssociationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVerifiedAccessEndpointsRequestFilterSensitiveLog = (
-  obj: DescribeVerifiedAccessEndpointsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVerifiedAccessEndpointsResultFilterSensitiveLog = (
-  obj: DescribeVerifiedAccessEndpointsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVerifiedAccessGroupsRequestFilterSensitiveLog = (
-  obj: DescribeVerifiedAccessGroupsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVerifiedAccessGroupsResultFilterSensitiveLog = (obj: DescribeVerifiedAccessGroupsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVerifiedAccessInstanceLoggingConfigurationsRequestFilterSensitiveLog = (
-  obj: DescribeVerifiedAccessInstanceLoggingConfigurationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifiedAccessLogDeliveryStatusFilterSensitiveLog = (obj: VerifiedAccessLogDeliveryStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifiedAccessLogCloudWatchLogsDestinationFilterSensitiveLog = (
-  obj: VerifiedAccessLogCloudWatchLogsDestination
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifiedAccessLogKinesisDataFirehoseDestinationFilterSensitiveLog = (
-  obj: VerifiedAccessLogKinesisDataFirehoseDestination
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifiedAccessLogS3DestinationFilterSensitiveLog = (obj: VerifiedAccessLogS3Destination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifiedAccessLogsFilterSensitiveLog = (obj: VerifiedAccessLogs): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifiedAccessInstanceLoggingConfigurationFilterSensitiveLog = (
-  obj: VerifiedAccessInstanceLoggingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVerifiedAccessInstanceLoggingConfigurationsResultFilterSensitiveLog = (
-  obj: DescribeVerifiedAccessInstanceLoggingConfigurationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVerifiedAccessInstancesRequestFilterSensitiveLog = (
-  obj: DescribeVerifiedAccessInstancesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVerifiedAccessInstancesResultFilterSensitiveLog = (
-  obj: DescribeVerifiedAccessInstancesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVerifiedAccessTrustProvidersRequestFilterSensitiveLog = (
-  obj: DescribeVerifiedAccessTrustProvidersRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog = (
   obj: DescribeVerifiedAccessTrustProvidersResult
 ): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumeAttributeRequestFilterSensitiveLog = (obj: DescribeVolumeAttributeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumeAttributeResultFilterSensitiveLog = (obj: DescribeVolumeAttributeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumesRequestFilterSensitiveLog = (obj: DescribeVolumesRequest): any => ({
-  ...obj,
+  ...(obj.VerifiedAccessTrustProviders && {
+    VerifiedAccessTrustProviders: obj.VerifiedAccessTrustProviders.map((item) =>
+      VerifiedAccessTrustProviderFilterSensitiveLog(item)
+    ),
+  }),
 });

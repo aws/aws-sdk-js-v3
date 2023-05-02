@@ -68,10 +68,19 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes = GetIceServerConfigCommandInput | SendAlexaOfferToMasterCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes = GetIceServerConfigCommandOutput | SendAlexaOfferToMasterCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -79,7 +88,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -188,11 +197,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type KinesisVideoSignalingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -203,10 +215,15 @@ type KinesisVideoSignalingClientConfigType = Partial<__SmithyConfiguration<__Htt
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of KinesisVideoSignalingClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of KinesisVideoSignalingClient class constructor that set the region, credentials and other options.
  */
 export interface KinesisVideoSignalingClientConfig extends KinesisVideoSignalingClientConfigType {}
 
+/**
+ * @public
+ */
 type KinesisVideoSignalingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -217,11 +234,14 @@ type KinesisVideoSignalingClientResolvedConfigType = __SmithyResolvedConfigurati
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of KinesisVideoSignalingClient class. This is resolved and normalized from the {@link KinesisVideoSignalingClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of KinesisVideoSignalingClient class. This is resolved and normalized from the {@link KinesisVideoSignalingClientConfig | constructor configuration interface}.
  */
 export interface KinesisVideoSignalingClientResolvedConfig extends KinesisVideoSignalingClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Kinesis Video Streams Signaling Service is a intermediate service that establishes a
  *             communication channel for discovering peers, transmitting offers and answers in order to
  *             establish peer-to-peer connection in webRTC technology.</p>

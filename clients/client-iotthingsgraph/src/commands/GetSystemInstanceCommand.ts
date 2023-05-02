@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  GetSystemInstanceRequest,
-  GetSystemInstanceRequestFilterSensitiveLog,
-  GetSystemInstanceResponse,
-  GetSystemInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSystemInstanceCommand,
-  serializeAws_json1_1GetSystemInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSystemInstanceRequest, GetSystemInstanceResponse } from "../models/models_0";
+import { de_GetSystemInstanceCommand, se_GetSystemInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSystemInstanceCommand}.
  */
 export interface GetSystemInstanceCommandInput extends GetSystemInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSystemInstanceCommand}.
  */
 export interface GetSystemInstanceCommandOutput extends GetSystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets a system instance.</p>
@@ -44,10 +41,15 @@ export interface GetSystemInstanceCommandOutput extends GetSystemInstanceRespons
  * import { IoTThingsGraphClient, GetSystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, GetSystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // GetSystemInstanceRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetSystemInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSystemInstanceCommandInput - {@link GetSystemInstanceCommandInput}
+ * @returns {@link GetSystemInstanceCommandOutput}
  * @see {@link GetSystemInstanceCommandInput} for command's `input` shape.
  * @see {@link GetSystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -83,6 +85,9 @@ export class GetSystemInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSystemInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class GetSystemInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSystemInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSystemInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class GetSystemInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSystemInstanceCommand(input, context);
+    return se_GetSystemInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSystemInstanceCommandOutput> {
-    return deserializeAws_json1_1GetSystemInstanceCommand(output, context);
+    return de_GetSystemInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

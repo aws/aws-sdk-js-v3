@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  ListGeneratedCodeJobsRequest,
-  ListGeneratedCodeJobsRequestFilterSensitiveLog,
-  ListGeneratedCodeJobsResult,
-  ListGeneratedCodeJobsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGeneratedCodeJobsCommand,
-  serializeAws_restJson1ListGeneratedCodeJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListGeneratedCodeJobsRequest, ListGeneratedCodeJobsResult } from "../models/models_0";
+import { de_ListGeneratedCodeJobsCommand, se_ListGeneratedCodeJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGeneratedCodeJobsCommand}.
  */
 export interface ListGeneratedCodeJobsCommandInput extends ListGeneratedCodeJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGeneratedCodeJobsCommand}.
  */
 export interface ListGeneratedCodeJobsCommandOutput extends ListGeneratedCodeJobsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a paginated list of code generation jobs for a snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListGeneratedCodeJobsCommandOutput extends ListGeneratedCodeJob
  * import { GameSparksClient, ListGeneratedCodeJobsCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ListGeneratedCodeJobsCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // ListGeneratedCodeJobsRequest
+ *   GameName: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListGeneratedCodeJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGeneratedCodeJobsCommandInput - {@link ListGeneratedCodeJobsCommandInput}
+ * @returns {@link ListGeneratedCodeJobsCommandOutput}
  * @see {@link ListGeneratedCodeJobsCommandInput} for command's `input` shape.
  * @see {@link ListGeneratedCodeJobsCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +89,9 @@ export class ListGeneratedCodeJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGeneratedCodeJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class ListGeneratedCodeJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGeneratedCodeJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGeneratedCodeJobsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class ListGeneratedCodeJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGeneratedCodeJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGeneratedCodeJobsCommand(input, context);
+    return se_ListGeneratedCodeJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGeneratedCodeJobsCommandOutput> {
-    return deserializeAws_restJson1ListGeneratedCodeJobsCommand(output, context);
+    return de_ListGeneratedCodeJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

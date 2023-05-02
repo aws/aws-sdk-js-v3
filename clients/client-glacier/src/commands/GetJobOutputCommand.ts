@@ -17,27 +17,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  GetJobOutputInput,
-  GetJobOutputInputFilterSensitiveLog,
-  GetJobOutputOutput,
-  GetJobOutputOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetJobOutputCommand,
-  serializeAws_restJson1GetJobOutputCommand,
-} from "../protocols/Aws_restJson1";
+import { GetJobOutputInput, GetJobOutputOutput, GetJobOutputOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetJobOutputCommand, se_GetJobOutputCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobOutputCommand}.
  */
 export interface GetJobOutputCommandInput extends GetJobOutputInput {}
 /**
+ * @public
+ *
  * The output of {@link GetJobOutputCommand}.
  */
 export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOutputOutput, "body">, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation downloads the output of the job you initiated using <a>InitiateJob</a>. Depending on the job type you specified when you initiated the
  *          job, the output will be either the content of an archive or a vault inventory.</p>
  *
@@ -81,10 +78,18 @@ export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOu
  * import { GlacierClient, GetJobOutputCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, GetJobOutputCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // GetJobOutputInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
+ *   range: "STRING_VALUE",
+ * };
  * const command = new GetJobOutputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobOutputCommandInput - {@link GetJobOutputCommandInput}
+ * @returns {@link GetJobOutputCommandOutput}
  * @see {@link GetJobOutputCommandInput} for command's `input` shape.
  * @see {@link GetJobOutputCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -143,6 +148,9 @@ export class GetJobOutputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,7 +177,7 @@ export class GetJobOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobOutputInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetJobOutputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -180,15 +188,21 @@ export class GetJobOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJobOutputCommand(input, context);
+    return se_GetJobOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetJobOutputCommandOutput> {
-    return deserializeAws_restJson1GetJobOutputCommand(output, context);
+    return de_GetJobOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTagsForResourcesRequest,
-  ListTagsForResourcesRequestFilterSensitiveLog,
-  ListTagsForResourcesResponse,
-  ListTagsForResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTagsForResourcesCommand,
-  serializeAws_restJson1ListTagsForResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTagsForResourcesRequest, ListTagsForResourcesResponse } from "../models/models_0";
+import { de_ListTagsForResourcesCommand, se_ListTagsForResourcesCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForResourcesCommand}.
  */
 export interface ListTagsForResourcesCommandInput extends ListTagsForResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForResourcesCommand}.
  */
 export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags for a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * import { Route53RecoveryReadinessClient, ListTagsForResourcesCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, ListTagsForResourcesCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // ListTagsForResourcesRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForResourcesCommandInput - {@link ListTagsForResourcesCommandInput}
+ * @returns {@link ListTagsForResourcesCommandOutput}
  * @see {@link ListTagsForResourcesCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourcesCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -82,6 +84,9 @@ export class ListTagsForResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class ListTagsForResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class ListTagsForResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTagsForResourcesCommand(input, context);
+    return se_ListTagsForResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourcesCommandOutput> {
-    return deserializeAws_restJson1ListTagsForResourcesCommand(output, context);
+    return de_ListTagsForResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

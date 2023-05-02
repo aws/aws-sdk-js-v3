@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartPersonTrackingRequest,
-  StartPersonTrackingRequestFilterSensitiveLog,
-  StartPersonTrackingResponse,
-  StartPersonTrackingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartPersonTrackingCommand,
-  serializeAws_json1_1StartPersonTrackingCommand,
-} from "../protocols/Aws_json1_1";
+import { StartPersonTrackingRequest, StartPersonTrackingResponse } from "../models/models_0";
+import { de_StartPersonTrackingCommand, se_StartPersonTrackingCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartPersonTrackingCommand}.
  */
 export interface StartPersonTrackingCommandInput extends StartPersonTrackingRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartPersonTrackingCommand}.
  */
 export interface StartPersonTrackingCommandOutput extends StartPersonTrackingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the asynchronous tracking of a person's path in a stored video.</p>
  *          <p>Amazon Rekognition Video can track the path of people in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
  *        and the filename of the video. <code>StartPersonTracking</code>
@@ -50,10 +47,27 @@ export interface StartPersonTrackingCommandOutput extends StartPersonTrackingRes
  * import { RekognitionClient, StartPersonTrackingCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartPersonTrackingCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartPersonTrackingRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ * };
  * const command = new StartPersonTrackingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartPersonTrackingCommandInput - {@link StartPersonTrackingCommandInput}
+ * @returns {@link StartPersonTrackingCommandOutput}
  * @see {@link StartPersonTrackingCommandInput} for command's `input` shape.
  * @see {@link StartPersonTrackingCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -110,6 +124,9 @@ export class StartPersonTrackingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartPersonTrackingCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +155,8 @@ export class StartPersonTrackingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartPersonTrackingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartPersonTrackingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +166,18 @@ export class StartPersonTrackingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartPersonTrackingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartPersonTrackingCommand(input, context);
+    return se_StartPersonTrackingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPersonTrackingCommandOutput> {
-    return deserializeAws_json1_1StartPersonTrackingCommand(output, context);
+    return de_StartPersonTrackingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAccountSettingsInput,
-  UpdateAccountSettingsInputFilterSensitiveLog,
-  UpdateAccountSettingsOutput,
-  UpdateAccountSettingsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAccountSettingsCommand,
-  serializeAws_restJson1UpdateAccountSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateAccountSettingsInput, UpdateAccountSettingsOutput } from "../models/models_0";
+import { de_UpdateAccountSettingsCommand, se_UpdateAccountSettingsCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountSettingsCommand}.
  */
 export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountSettingsCommand}.
  */
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Turns on or turns off optional features in Resource Groups.</p>
  *          <p>The preceding example shows that the request to turn on group lifecycle events is
  *                 <code>IN_PROGRESS</code>. You can call the <a>GetAccountSettings</a>
@@ -46,10 +43,15 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * import { ResourceGroupsClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // UpdateAccountSettingsInput
+ *   GroupLifecycleEventsDesiredStatus: "ACTIVE" || "INACTIVE",
+ * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
+ * @returns {@link UpdateAccountSettingsCommandOutput}
  * @see {@link UpdateAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -89,6 +91,9 @@ export class UpdateAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class UpdateAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccountSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAccountSettingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class UpdateAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAccountSettingsCommand(input, context);
+    return se_UpdateAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccountSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateAccountSettingsCommand(output, context);
+    return de_UpdateAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

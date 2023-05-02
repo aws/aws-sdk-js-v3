@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListJobsRequest,
-  ListJobsRequestFilterSensitiveLog,
-  ListJobsResult,
-  ListJobsResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ListJobsCommand, serializeAws_json1_1ListJobsCommand } from "../protocols/Aws_json1_1";
+import { ListJobsRequest, ListJobsResult } from "../models/models_0";
+import { de_ListJobsCommand, se_ListJobsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobsCommand}.
  */
 export interface ListJobsCommandInput extends ListJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJobsCommand}.
  */
 export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>JobListEntry</code> objects of the specified length. Each
  *         <code>JobListEntry</code> object contains a job's state, a job's ID, and a value that
  *       indicates whether the job is a job part, in the case of export jobs. Calling this API action
@@ -43,10 +43,16 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * import { SnowballClient, ListJobsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListJobsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // ListJobsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobsCommandInput - {@link ListJobsCommandInput}
+ * @returns {@link ListJobsCommandOutput}
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -99,6 +105,9 @@ export class ListJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +134,8 @@ export class ListJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJobsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +145,18 @@ export class ListJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListJobsCommand(input, context);
+    return se_ListJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobsCommandOutput> {
-    return deserializeAws_json1_1ListJobsCommand(output, context);
+    return de_ListJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

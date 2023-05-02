@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
-import {
-  RescoreRequest,
-  RescoreRequestFilterSensitiveLog,
-  RescoreResult,
-  RescoreResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_0RescoreCommand, serializeAws_json1_0RescoreCommand } from "../protocols/Aws_json1_0";
+import { RescoreRequest, RescoreResult } from "../models/models_0";
+import { de_RescoreCommand, se_RescoreCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link RescoreCommand}.
  */
 export interface RescoreCommandInput extends RescoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link RescoreCommand}.
  */
 export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rescores or re-ranks search results from a search service
  *             such as OpenSearch (self managed). You use the semantic search
  *             capabilities of Amazon Kendra Intelligent Ranking to
@@ -42,10 +42,31 @@ export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
  * import { KendraRankingClient, RescoreCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
  * // const { KendraRankingClient, RescoreCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
  * const client = new KendraRankingClient(config);
+ * const input = { // RescoreRequest
+ *   RescoreExecutionPlanId: "STRING_VALUE", // required
+ *   SearchQuery: "STRING_VALUE", // required
+ *   Documents: [ // DocumentList // required
+ *     { // Document
+ *       Id: "STRING_VALUE", // required
+ *       GroupId: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Body: "STRING_VALUE",
+ *       TokenizedTitle: [ // TitleTokensList
+ *         "STRING_VALUE",
+ *       ],
+ *       TokenizedBody: [ // BodyTokensList
+ *         "STRING_VALUE",
+ *       ],
+ *       OriginalScore: Number("float"), // required
+ *     },
+ *   ],
+ * };
  * const command = new RescoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RescoreCommandInput - {@link RescoreCommandInput}
+ * @returns {@link RescoreCommandOutput}
  * @see {@link RescoreCommandInput} for command's `input` shape.
  * @see {@link RescoreCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.
@@ -98,6 +119,9 @@ export class RescoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RescoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +148,8 @@ export class RescoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RescoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RescoreResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +159,18 @@ export class RescoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RescoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RescoreCommand(input, context);
+    return se_RescoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RescoreCommandOutput> {
-    return deserializeAws_json1_0RescoreCommand(output, context);
+    return de_RescoreCommand(output, context);
   }
 
   // Start section: command_body_extra

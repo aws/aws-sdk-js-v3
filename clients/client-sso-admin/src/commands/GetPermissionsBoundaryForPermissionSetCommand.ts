@@ -15,22 +15,24 @@ import {
 
 import {
   GetPermissionsBoundaryForPermissionSetRequest,
-  GetPermissionsBoundaryForPermissionSetRequestFilterSensitiveLog,
   GetPermissionsBoundaryForPermissionSetResponse,
-  GetPermissionsBoundaryForPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand,
-  serializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand,
+  de_GetPermissionsBoundaryForPermissionSetCommand,
+  se_GetPermissionsBoundaryForPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPermissionsBoundaryForPermissionSetCommand}.
  */
 export interface GetPermissionsBoundaryForPermissionSetCommandInput
   extends GetPermissionsBoundaryForPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPermissionsBoundaryForPermissionSetCommand}.
  */
 export interface GetPermissionsBoundaryForPermissionSetCommandOutput
@@ -38,6 +40,7 @@ export interface GetPermissionsBoundaryForPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtains the permissions boundary for a specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,16 @@ export interface GetPermissionsBoundaryForPermissionSetCommandOutput
  * import { SSOAdminClient, GetPermissionsBoundaryForPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, GetPermissionsBoundaryForPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // GetPermissionsBoundaryForPermissionSetRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ * };
  * const command = new GetPermissionsBoundaryForPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPermissionsBoundaryForPermissionSetCommandInput - {@link GetPermissionsBoundaryForPermissionSetCommandInput}
+ * @returns {@link GetPermissionsBoundaryForPermissionSetCommandOutput}
  * @see {@link GetPermissionsBoundaryForPermissionSetCommandInput} for command's `input` shape.
  * @see {@link GetPermissionsBoundaryForPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +98,9 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPermissionsBoundaryForPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +129,8 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPermissionsBoundaryForPermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPermissionsBoundaryForPermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +140,24 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetPermissionsBoundaryForPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand(input, context);
+    return se_GetPermissionsBoundaryForPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPermissionsBoundaryForPermissionSetCommandOutput> {
-    return deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand(output, context);
+    return de_GetPermissionsBoundaryForPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetCoreDefinitionVersionRequest,
-  GetCoreDefinitionVersionRequestFilterSensitiveLog,
-  GetCoreDefinitionVersionResponse,
-  GetCoreDefinitionVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCoreDefinitionVersionCommand,
-  serializeAws_restJson1GetCoreDefinitionVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetCoreDefinitionVersionRequest, GetCoreDefinitionVersionResponse } from "../models/models_0";
+import { de_GetCoreDefinitionVersionCommand, se_GetCoreDefinitionVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCoreDefinitionVersionCommand}.
  */
 export interface GetCoreDefinitionVersionCommandInput extends GetCoreDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCoreDefinitionVersionCommand}.
  */
 export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinitionVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a core definition version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinition
  * import { GreengrassClient, GetCoreDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetCoreDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetCoreDefinitionVersionRequest
+ *   CoreDefinitionId: "STRING_VALUE", // required
+ *   CoreDefinitionVersionId: "STRING_VALUE", // required
+ * };
  * const command = new GetCoreDefinitionVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCoreDefinitionVersionCommandInput - {@link GetCoreDefinitionVersionCommandInput}
+ * @returns {@link GetCoreDefinitionVersionCommandOutput}
  * @see {@link GetCoreDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetCoreDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +75,9 @@ export class GetCoreDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCoreDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class GetCoreDefinitionVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCoreDefinitionVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCoreDefinitionVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class GetCoreDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCoreDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCoreDefinitionVersionCommand(input, context);
+    return se_GetCoreDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1GetCoreDefinitionVersionCommand(output, context);
+    return de_GetCoreDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

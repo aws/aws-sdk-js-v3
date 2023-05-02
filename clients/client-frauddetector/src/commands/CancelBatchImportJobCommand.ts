@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  CancelBatchImportJobRequest,
-  CancelBatchImportJobRequestFilterSensitiveLog,
-  CancelBatchImportJobResult,
-  CancelBatchImportJobResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelBatchImportJobCommand,
-  serializeAws_json1_1CancelBatchImportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelBatchImportJobRequest, CancelBatchImportJobResult } from "../models/models_0";
+import { de_CancelBatchImportJobCommand, se_CancelBatchImportJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelBatchImportJobCommand}.
  */
 export interface CancelBatchImportJobCommandInput extends CancelBatchImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelBatchImportJobCommand}.
  */
 export interface CancelBatchImportJobCommandOutput extends CancelBatchImportJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Cancels an in-progress batch import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface CancelBatchImportJobCommandOutput extends CancelBatchImportJobR
  * import { FraudDetectorClient, CancelBatchImportJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CancelBatchImportJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // CancelBatchImportJobRequest
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new CancelBatchImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelBatchImportJobCommandInput - {@link CancelBatchImportJobCommandInput}
+ * @returns {@link CancelBatchImportJobCommandOutput}
  * @see {@link CancelBatchImportJobCommandInput} for command's `input` shape.
  * @see {@link CancelBatchImportJobCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +86,9 @@ export class CancelBatchImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelBatchImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class CancelBatchImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelBatchImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelBatchImportJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class CancelBatchImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelBatchImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelBatchImportJobCommand(input, context);
+    return se_CancelBatchImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelBatchImportJobCommandOutput> {
-    return deserializeAws_json1_1CancelBatchImportJobCommand(output, context);
+    return de_CancelBatchImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

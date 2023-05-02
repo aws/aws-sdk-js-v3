@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { DeregisterOnPremisesInstanceInput } from "../models/models_0";
 import {
-  DeregisterOnPremisesInstanceInput,
-  DeregisterOnPremisesInstanceInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterOnPremisesInstanceCommand,
-  serializeAws_json1_1DeregisterOnPremisesInstanceCommand,
+  de_DeregisterOnPremisesInstanceCommand,
+  se_DeregisterOnPremisesInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterOnPremisesInstanceCommand}.
  */
 export interface DeregisterOnPremisesInstanceCommandInput extends DeregisterOnPremisesInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterOnPremisesInstanceCommand}.
  */
 export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an on-premises instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,15 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * import { CodeDeployClient, DeregisterOnPremisesInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, DeregisterOnPremisesInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // DeregisterOnPremisesInstanceInput
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterOnPremisesInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterOnPremisesInstanceCommandInput - {@link DeregisterOnPremisesInstanceCommandInput}
+ * @returns {@link DeregisterOnPremisesInstanceCommandOutput}
  * @see {@link DeregisterOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -73,6 +80,9 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterOnPremisesInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +111,8 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterOnPremisesInstanceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,15 +122,21 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterOnPremisesInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterOnPremisesInstanceCommand(input, context);
+    return se_DeregisterOnPremisesInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterOnPremisesInstanceCommandOutput> {
-    return deserializeAws_json1_1DeregisterOnPremisesInstanceCommand(output, context);
+    return de_DeregisterOnPremisesInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

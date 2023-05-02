@@ -10,7 +10,7 @@ import { WellArchitectedClient } from "../WellArchitectedClient";
 import { WellArchitectedPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WellArchitectedClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMilestonesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMilestones(
   config: WellArchitectedPaginationConfiguration,
   input: ListMilestonesCommandInput,

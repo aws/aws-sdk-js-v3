@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListAccountSettingsRequest,
-  ListAccountSettingsRequestFilterSensitiveLog,
-  ListAccountSettingsResponse,
-  ListAccountSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAccountSettingsCommand,
-  serializeAws_json1_1ListAccountSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAccountSettingsRequest, ListAccountSettingsResponse } from "../models/models_0";
+import { de_ListAccountSettingsCommand, se_ListAccountSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountSettingsCommand}.
  */
 export interface ListAccountSettingsCommandInput extends ListAccountSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountSettingsCommand}.
  */
 export interface ListAccountSettingsCommandOutput extends ListAccountSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the account settings for a specified principal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * import { ECSClient, ListAccountSettingsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListAccountSettingsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // ListAccountSettingsRequest
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
+ *   value: "STRING_VALUE",
+ *   principalArn: "STRING_VALUE",
+ *   effectiveSettings: true || false,
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountSettingsCommandInput - {@link ListAccountSettingsCommandInput}
+ * @returns {@link ListAccountSettingsCommandOutput}
  * @see {@link ListAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link ListAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -146,6 +153,9 @@ export class ListAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,8 +184,8 @@ export class ListAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -185,12 +195,18 @@ export class ListAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccountSettingsCommand(input, context);
+    return se_ListAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountSettingsCommandOutput> {
-    return deserializeAws_json1_1ListAccountSettingsCommand(output, context);
+    return de_ListAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

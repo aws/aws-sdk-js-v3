@@ -16,20 +16,22 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import {
   DescribeQuerySuggestionsBlockListRequest,
-  DescribeQuerySuggestionsBlockListRequestFilterSensitiveLog,
   DescribeQuerySuggestionsBlockListResponse,
-  DescribeQuerySuggestionsBlockListResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeQuerySuggestionsBlockListCommand,
-  serializeAws_json1_1DescribeQuerySuggestionsBlockListCommand,
+  de_DescribeQuerySuggestionsBlockListCommand,
+  se_DescribeQuerySuggestionsBlockListCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeQuerySuggestionsBlockListCommand}.
  */
 export interface DescribeQuerySuggestionsBlockListCommandInput extends DescribeQuerySuggestionsBlockListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeQuerySuggestionsBlockListCommand}.
  */
 export interface DescribeQuerySuggestionsBlockListCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeQuerySuggestionsBlockListCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a block list used for query suggestions for
  *             an index.</p>
  *          <p>This is used to check the current settings that are applied to a
@@ -50,10 +53,16 @@ export interface DescribeQuerySuggestionsBlockListCommandOutput
  * import { KendraClient, DescribeQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DescribeQuerySuggestionsBlockListRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQuerySuggestionsBlockListCommandInput - {@link DescribeQuerySuggestionsBlockListCommandInput}
+ * @returns {@link DescribeQuerySuggestionsBlockListCommandOutput}
  * @see {@link DescribeQuerySuggestionsBlockListCommandInput} for command's `input` shape.
  * @see {@link DescribeQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -64,7 +73,7 @@ export interface DescribeQuerySuggestionsBlockListCommandOutput
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -97,6 +106,9 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQuerySuggestionsBlockListCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +137,8 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQuerySuggestionsBlockListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQuerySuggestionsBlockListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +148,24 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeQuerySuggestionsBlockListCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQuerySuggestionsBlockListCommand(input, context);
+    return se_DescribeQuerySuggestionsBlockListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeQuerySuggestionsBlockListCommandOutput> {
-    return deserializeAws_json1_1DescribeQuerySuggestionsBlockListCommand(output, context);
+    return de_DescribeQuerySuggestionsBlockListCommand(output, context);
   }
 
   // Start section: command_body_extra

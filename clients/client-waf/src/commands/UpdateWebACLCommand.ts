@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateWebACLRequest,
-  UpdateWebACLRequestFilterSensitiveLog,
-  UpdateWebACLResponse,
-  UpdateWebACLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateWebACLCommand,
-  serializeAws_json1_1UpdateWebACLCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateWebACLRequest, UpdateWebACLResponse } from "../models/models_0";
+import { de_UpdateWebACLCommand, se_UpdateWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWebACLCommand}.
  */
 export interface UpdateWebACLCommandInput extends UpdateWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWebACLCommand}.
  */
 export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -121,10 +118,40 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * import { WAFClient, UpdateWebACLCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateWebACLCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // UpdateWebACLRequest
+ *   WebACLId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // WebACLUpdates
+ *     { // WebACLUpdate
+ *       Action: "STRING_VALUE", // required
+ *       ActivatedRule: { // ActivatedRule
+ *         Priority: Number("int"), // required
+ *         RuleId: "STRING_VALUE", // required
+ *         Action: { // WafAction
+ *           Type: "STRING_VALUE", // required
+ *         },
+ *         OverrideAction: { // WafOverrideAction
+ *           Type: "STRING_VALUE", // required
+ *         },
+ *         Type: "STRING_VALUE",
+ *         ExcludedRules: [ // ExcludedRules
+ *           { // ExcludedRule
+ *             RuleId: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   DefaultAction: {
+ *     Type: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateWebACLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWebACLCommandInput - {@link UpdateWebACLCommandInput}
+ * @returns {@link UpdateWebACLCommandOutput}
  * @see {@link UpdateWebACLCommandInput} for command's `input` shape.
  * @see {@link UpdateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -292,6 +319,9 @@ export class UpdateWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -318,8 +348,8 @@ export class UpdateWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWebACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWebACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -329,12 +359,18 @@ export class UpdateWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWebACLCommand(input, context);
+    return se_UpdateWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWebACLCommandOutput> {
-    return deserializeAws_json1_1UpdateWebACLCommand(output, context);
+    return de_UpdateWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

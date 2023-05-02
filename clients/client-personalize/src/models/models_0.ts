@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { PersonalizeServiceException as __BaseException } from "./PersonalizeServiceException";
 
 /**
+ * @public
  * <p>Describes an algorithm image.</p>
  */
 export interface AlgorithmImage {
@@ -19,6 +20,7 @@ export interface AlgorithmImage {
 }
 
 /**
+ * @public
  * <p>Provides the name and default range of a categorical hyperparameter
  *       and whether the hyperparameter is tunable. A tunable hyperparameter can
  *       have its value determined during hyperparameter optimization (HPO).</p>
@@ -41,6 +43,7 @@ export interface DefaultCategoricalHyperParameterRange {
 }
 
 /**
+ * @public
  * <p>Provides the name and default range of a continuous hyperparameter
  *       and whether the hyperparameter is tunable. A tunable hyperparameter can
  *       have its value determined during hyperparameter optimization (HPO).</p>
@@ -68,6 +71,7 @@ export interface DefaultContinuousHyperParameterRange {
 }
 
 /**
+ * @public
  * <p>Provides the name and default range of a integer-valued hyperparameter
  *       and whether the hyperparameter is tunable. A tunable hyperparameter can
  *       have its value determined during hyperparameter optimization (HPO).</p>
@@ -95,6 +99,7 @@ export interface DefaultIntegerHyperParameterRange {
 }
 
 /**
+ * @public
  * <p>Specifies the hyperparameters and their default ranges.
  *     Hyperparameters can be categorical, continuous, or integer-valued.</p>
  */
@@ -116,6 +121,7 @@ export interface DefaultHyperParameterRanges {
 }
 
 /**
+ * @public
  * <p>Describes a custom algorithm.</p>
  */
 export interface Algorithm {
@@ -173,6 +179,7 @@ export interface Algorithm {
 }
 
 /**
+ * @public
  * <p>The configuration details of a batch inference job.</p>
  */
 export interface BatchInferenceJobConfig {
@@ -186,6 +193,7 @@ export interface BatchInferenceJobConfig {
 }
 
 /**
+ * @public
  * <p>The configuration details of an Amazon S3 input or output bucket.</p>
  */
 export interface S3DataConfig {
@@ -202,6 +210,7 @@ export interface S3DataConfig {
 }
 
 /**
+ * @public
  * <p>The input configuration of a batch inference job.</p>
  */
 export interface BatchInferenceJobInput {
@@ -213,6 +222,7 @@ export interface BatchInferenceJobInput {
 }
 
 /**
+ * @public
  * <p>The output configuration parameters of a batch inference job.</p>
  */
 export interface BatchInferenceJobOutput {
@@ -223,6 +233,7 @@ export interface BatchInferenceJobOutput {
 }
 
 /**
+ * @public
  * <p>The optional metadata that you apply to resources to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
  *       For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">Tagging Personalize resources</a>.
  *     </p>
@@ -239,6 +250,9 @@ export interface Tag {
   tagValue: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBatchInferenceJobRequest {
   /**
    * <p>The name of the batch inference job to create.</p>
@@ -291,6 +305,9 @@ export interface CreateBatchInferenceJobRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateBatchInferenceJobResponse {
   /**
    * <p>The ARN of the batch inference job.</p>
@@ -299,6 +316,7 @@ export interface CreateBatchInferenceJobResponse {
 }
 
 /**
+ * @public
  * <p>Provide a valid value for the field or parameter.</p>
  */
 export class InvalidInputException extends __BaseException {
@@ -318,6 +336,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The limit on the number of requests per second has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -337,6 +356,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -356,6 +376,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource is in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -375,6 +396,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Could not find the specified resource.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -394,6 +416,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -413,6 +436,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input configuration of a batch segment job.</p>
  */
 export interface BatchSegmentJobInput {
@@ -423,6 +447,7 @@ export interface BatchSegmentJobInput {
 }
 
 /**
+ * @public
  * <p>The output configuration parameters of a batch segment job.</p>
  */
 export interface BatchSegmentJobOutput {
@@ -432,6 +457,9 @@ export interface BatchSegmentJobOutput {
   s3DataDestination: S3DataConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBatchSegmentJobRequest {
   /**
    * <p>The name of the batch segment job to create.</p>
@@ -477,6 +505,9 @@ export interface CreateBatchSegmentJobRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateBatchSegmentJobResponse {
   /**
    * <p>The ARN of the batch segment job.</p>
@@ -485,6 +516,7 @@ export interface CreateBatchSegmentJobResponse {
 }
 
 /**
+ * @public
  * <p>The configuration details of a campaign.</p>
  */
 export interface CampaignConfig {
@@ -497,6 +529,9 @@ export interface CampaignConfig {
   itemExplorationConfig?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateCampaignRequest {
   /**
    * <p>A name for the new campaign. The campaign name must be unique within your account.</p>
@@ -525,6 +560,9 @@ export interface CreateCampaignRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCampaignResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign.</p>
@@ -532,6 +570,9 @@ export interface CreateCampaignResponse {
   campaignArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetRequest {
   /**
    * <p>The name for the dataset.</p>
@@ -573,6 +614,9 @@ export interface CreateDatasetRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetResponse {
   /**
    * <p>The ARN of the dataset.</p>
@@ -580,13 +624,23 @@ export interface CreateDatasetResponse {
   datasetArn?: string;
 }
 
-export enum IngestionMode {
-  ALL = "ALL",
-  BULK = "BULK",
-  PUT = "PUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IngestionMode = {
+  ALL: "ALL",
+  BULK: "BULK",
+  PUT: "PUT",
+} as const;
 
 /**
+ * @public
+ */
+export type IngestionMode = (typeof IngestionMode)[keyof typeof IngestionMode];
+
+/**
+ * @public
  * <p>The output configuration parameters of a dataset export job.</p>
  */
 export interface DatasetExportJobOutput {
@@ -596,6 +650,9 @@ export interface DatasetExportJobOutput {
   s3DataDestination: S3DataConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetExportJobRequest {
   /**
    * <p>The name for the dataset export job.</p>
@@ -635,6 +692,9 @@ export interface CreateDatasetExportJobRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset export job.</p>
@@ -642,11 +702,23 @@ export interface CreateDatasetExportJobResponse {
   datasetExportJobArn?: string;
 }
 
-export enum Domain {
-  ECOMMERCE = "ECOMMERCE",
-  VIDEO_ON_DEMAND = "VIDEO_ON_DEMAND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Domain = {
+  ECOMMERCE: "ECOMMERCE",
+  VIDEO_ON_DEMAND: "VIDEO_ON_DEMAND",
+} as const;
 
+/**
+ * @public
+ */
+export type Domain = (typeof Domain)[keyof typeof Domain];
+
+/**
+ * @public
+ */
 export interface CreateDatasetGroupRequest {
   /**
    * <p>The name for the new dataset group.</p>
@@ -681,6 +753,9 @@ export interface CreateDatasetGroupRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetGroupResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the new dataset group.</p>
@@ -694,6 +769,7 @@ export interface CreateDatasetGroupResponse {
 }
 
 /**
+ * @public
  * <p>Describes the data source that contains the data to upload to a
  *       dataset.</p>
  */
@@ -708,11 +784,23 @@ export interface DataSource {
   dataLocation?: string;
 }
 
-export enum ImportMode {
-  FULL = "FULL",
-  INCREMENTAL = "INCREMENTAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImportMode = {
+  FULL: "FULL",
+  INCREMENTAL: "INCREMENTAL",
+} as const;
 
+/**
+ * @public
+ */
+export type ImportMode = (typeof ImportMode)[keyof typeof ImportMode];
+
+/**
+ * @public
+ */
 export interface CreateDatasetImportJobRequest {
   /**
    * <p>The name for the dataset import job.</p>
@@ -764,6 +852,9 @@ export interface CreateDatasetImportJobRequest {
   publishAttributionMetricsToS3?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetImportJobResponse {
   /**
    * <p>The ARN of the dataset import job.</p>
@@ -771,6 +862,9 @@ export interface CreateDatasetImportJobResponse {
   datasetImportJobArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEventTrackerRequest {
   /**
    * <p>The name for the event tracker.</p>
@@ -788,6 +882,9 @@ export interface CreateEventTrackerRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateEventTrackerResponse {
   /**
    * <p>The ARN of the event tracker.</p>
@@ -801,6 +898,9 @@ export interface CreateEventTrackerResponse {
   trackingId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFilterRequest {
   /**
    * <p>The name of the filter to create.</p>
@@ -825,6 +925,9 @@ export interface CreateFilterRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFilterResponse {
   /**
    * <p>The ARN of the new filter.</p>
@@ -833,6 +936,7 @@ export interface CreateFilterResponse {
 }
 
 /**
+ * @public
  * <p>Contains information on a metric that a metric attribution reports on. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
  */
 export interface MetricAttribute {
@@ -854,6 +958,7 @@ export interface MetricAttribute {
 }
 
 /**
+ * @public
  * <p>The output configuration details for a metric attribution.</p>
  */
 export interface MetricAttributionOutput {
@@ -868,6 +973,9 @@ export interface MetricAttributionOutput {
   roleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMetricAttributionRequest {
   /**
    * <p>A name for the metric attribution.</p>
@@ -892,6 +1000,9 @@ export interface CreateMetricAttributionRequest {
   metricsOutputConfig: MetricAttributionOutput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMetricAttributionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the new metric attribution.</p>
@@ -900,6 +1011,7 @@ export interface CreateMetricAttributionResponse {
 }
 
 /**
+ * @public
  * <p>The configuration details of the recommender.</p>
  */
 export interface RecommenderConfig {
@@ -918,6 +1030,9 @@ export interface RecommenderConfig {
   minRecommendationRequestsPerSecond?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateRecommenderRequest {
   /**
    * <p>The name of the recommender.</p>
@@ -947,6 +1062,9 @@ export interface CreateRecommenderRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRecommenderResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender.</p>
@@ -954,6 +1072,9 @@ export interface CreateRecommenderResponse {
   recommenderArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSchemaRequest {
   /**
    * <p>The name for the schema.</p>
@@ -972,6 +1093,9 @@ export interface CreateSchemaRequest {
   domain?: Domain | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSchemaResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the created schema.</p>
@@ -980,6 +1104,7 @@ export interface CreateSchemaResponse {
 }
 
 /**
+ * @public
  * <p>When the solution performs AutoML (<code>performAutoML</code> is true in
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>), Amazon Personalize
  *       determines which recipe, from the specified list, optimizes the given metric.
@@ -998,6 +1123,7 @@ export interface AutoMLConfig {
 }
 
 /**
+ * @public
  * <p>Provides the name and range of a categorical hyperparameter.</p>
  */
 export interface CategoricalHyperParameterRange {
@@ -1013,6 +1139,7 @@ export interface CategoricalHyperParameterRange {
 }
 
 /**
+ * @public
  * <p>Provides the name and range of a continuous hyperparameter.</p>
  */
 export interface ContinuousHyperParameterRange {
@@ -1033,6 +1160,7 @@ export interface ContinuousHyperParameterRange {
 }
 
 /**
+ * @public
  * <p>Provides the name and range of an integer-valued hyperparameter.</p>
  */
 export interface IntegerHyperParameterRange {
@@ -1053,6 +1181,7 @@ export interface IntegerHyperParameterRange {
 }
 
 /**
+ * @public
  * <p>Specifies the hyperparameters and their ranges.
  *     Hyperparameters can be categorical, continuous, or integer-valued.</p>
  */
@@ -1074,6 +1203,7 @@ export interface HyperParameterRanges {
 }
 
 /**
+ * @public
  * <p>The metric to optimize during hyperparameter optimization (HPO).</p>
  *          <note>
  *             <p>Amazon Personalize doesn't support configuring the <code>hpoObjective</code>
@@ -1098,6 +1228,7 @@ export interface HPOObjective {
 }
 
 /**
+ * @public
  * <p>Describes the resource configuration for hyperparameter optimization (HPO).</p>
  */
 export interface HPOResourceConfig {
@@ -1123,6 +1254,7 @@ export interface HPOResourceConfig {
 }
 
 /**
+ * @public
  * <p>Describes the properties for hyperparameter optimization (HPO).</p>
  */
 export interface HPOConfig {
@@ -1146,14 +1278,24 @@ export interface HPOConfig {
   algorithmHyperParameterRanges?: HyperParameterRanges;
 }
 
-export enum ObjectiveSensitivity {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ObjectiveSensitivity = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
 /**
+ * @public
+ */
+export type ObjectiveSensitivity = (typeof ObjectiveSensitivity)[keyof typeof ObjectiveSensitivity];
+
+/**
+ * @public
  * <p>Describes the additional objective for the solution, such as maximizing streaming
  *       minutes or increasing revenue. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html">Optimizing a solution</a>.</p>
  */
@@ -1170,6 +1312,7 @@ export interface OptimizationObjective {
 }
 
 /**
+ * @public
  * <p>Describes the configuration properties for the solution.</p>
  */
 export interface SolutionConfig {
@@ -1207,6 +1350,9 @@ export interface SolutionConfig {
   optimizationObjective?: OptimizationObjective;
 }
 
+/**
+ * @public
+ */
 export interface CreateSolutionRequest {
   /**
    * <p>The name for the solution.</p>
@@ -1269,6 +1415,9 @@ export interface CreateSolutionRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSolutionResponse {
   /**
    * <p>The ARN of the solution.</p>
@@ -1276,11 +1425,23 @@ export interface CreateSolutionResponse {
   solutionArn?: string;
 }
 
-export enum TrainingMode {
-  FULL = "FULL",
-  UPDATE = "UPDATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TrainingMode = {
+  FULL: "FULL",
+  UPDATE: "UPDATE",
+} as const;
 
+/**
+ * @public
+ */
+export type TrainingMode = (typeof TrainingMode)[keyof typeof TrainingMode];
+
+/**
+ * @public
+ */
 export interface CreateSolutionVersionRequest {
   /**
    * <p>The name of the solution version.</p>
@@ -1316,6 +1477,9 @@ export interface CreateSolutionVersionRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSolutionVersionResponse {
   /**
    * <p>The ARN of the new solution version.</p>
@@ -1323,6 +1487,9 @@ export interface CreateSolutionVersionResponse {
   solutionVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCampaignRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign to delete.</p>
@@ -1330,6 +1497,9 @@ export interface DeleteCampaignRequest {
   campaignArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset to delete.</p>
@@ -1337,6 +1507,9 @@ export interface DeleteDatasetRequest {
   datasetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetGroupRequest {
   /**
    * <p>The ARN of the dataset group to delete.</p>
@@ -1344,6 +1517,9 @@ export interface DeleteDatasetGroupRequest {
   datasetGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventTrackerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the event tracker to delete.</p>
@@ -1351,6 +1527,9 @@ export interface DeleteEventTrackerRequest {
   eventTrackerArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFilterRequest {
   /**
    * <p>The ARN of the filter to delete.</p>
@@ -1358,6 +1537,9 @@ export interface DeleteFilterRequest {
   filterArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMetricAttributionRequest {
   /**
    * <p>The metric attribution's Amazon Resource Name (ARN).</p>
@@ -1365,6 +1547,9 @@ export interface DeleteMetricAttributionRequest {
   metricAttributionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRecommenderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender to delete.</p>
@@ -1372,6 +1557,9 @@ export interface DeleteRecommenderRequest {
   recommenderArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSchemaRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the schema to delete.</p>
@@ -1379,6 +1567,9 @@ export interface DeleteSchemaRequest {
   schemaArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSolutionRequest {
   /**
    * <p>The ARN of the solution to delete.</p>
@@ -1386,6 +1577,9 @@ export interface DeleteSolutionRequest {
   solutionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAlgorithmRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the algorithm to describe.</p>
@@ -1393,6 +1587,9 @@ export interface DescribeAlgorithmRequest {
   algorithmArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAlgorithmResponse {
   /**
    * <p>A listing of the properties of the algorithm.</p>
@@ -1400,6 +1597,9 @@ export interface DescribeAlgorithmResponse {
   algorithm?: Algorithm;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBatchInferenceJobRequest {
   /**
    * <p>The ARN of the batch inference job to describe.</p>
@@ -1408,6 +1608,7 @@ export interface DescribeBatchInferenceJobRequest {
 }
 
 /**
+ * @public
  * <p>Contains information on a batch inference job.</p>
  */
 export interface BatchInferenceJob {
@@ -1494,6 +1695,9 @@ export interface BatchInferenceJob {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBatchInferenceJobResponse {
   /**
    * <p>Information on the specified batch inference job.</p>
@@ -1501,6 +1705,9 @@ export interface DescribeBatchInferenceJobResponse {
   batchInferenceJob?: BatchInferenceJob;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBatchSegmentJobRequest {
   /**
    * <p>The ARN of the batch segment job to describe.</p>
@@ -1509,6 +1716,7 @@ export interface DescribeBatchSegmentJobRequest {
 }
 
 /**
+ * @public
  * <p>Contains information on a batch segment job.</p>
  */
 export interface BatchSegmentJob {
@@ -1587,6 +1795,9 @@ export interface BatchSegmentJob {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBatchSegmentJobResponse {
   /**
    * <p>Information on the specified batch segment job.</p>
@@ -1594,6 +1805,9 @@ export interface DescribeBatchSegmentJobResponse {
   batchSegmentJob?: BatchSegmentJob;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCampaignRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign.</p>
@@ -1602,6 +1816,7 @@ export interface DescribeCampaignRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> API.</p>
  */
@@ -1653,6 +1868,7 @@ export interface CampaignUpdateSummary {
 }
 
 /**
+ * @public
  * <p>An object that describes the deployment of a solution version.
  *       For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
  */
@@ -1718,6 +1934,9 @@ export interface Campaign {
   latestCampaignUpdate?: CampaignUpdateSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCampaignResponse {
   /**
    * <p>The properties of the campaign.</p>
@@ -1725,6 +1944,9 @@ export interface DescribeCampaignResponse {
   campaign?: Campaign;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset to describe.</p>
@@ -1733,6 +1955,7 @@ export interface DescribeDatasetRequest {
 }
 
 /**
+ * @public
  * <p>Provides metadata for a dataset.</p>
  */
 export interface Dataset {
@@ -1799,6 +2022,9 @@ export interface Dataset {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetResponse {
   /**
    * <p>A listing of the dataset's properties.</p>
@@ -1806,6 +2032,9 @@ export interface DescribeDatasetResponse {
   dataset?: Dataset;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset export job to
@@ -1815,6 +2044,7 @@ export interface DescribeDatasetExportJobRequest {
 }
 
 /**
+ * @public
  * <p>Describes a job that exports a dataset to an Amazon S3 bucket. For more
  *       information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>.</p>
  *          <p>A dataset export job can be in one of the following states:</p>
@@ -1895,6 +2125,9 @@ export interface DatasetExportJob {
   failureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetExportJobResponse {
   /**
    * <p>Information about the dataset export job, including the status.</p>
@@ -1917,6 +2150,9 @@ export interface DescribeDatasetExportJobResponse {
   datasetExportJob?: DatasetExportJob;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetGroupRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group to
@@ -1926,6 +2162,7 @@ export interface DescribeDatasetGroupRequest {
 }
 
 /**
+ * @public
  * <p>A dataset group is a collection of related datasets (Interactions,
  *       User, and Item). You create a dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>. You then create a dataset and add it to a
  *       dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>. The dataset group is used to create and train a
@@ -1994,6 +2231,9 @@ export interface DatasetGroup {
   domain?: Domain | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetGroupResponse {
   /**
    * <p>A listing of the dataset group's properties.</p>
@@ -2001,6 +2241,9 @@ export interface DescribeDatasetGroupResponse {
   datasetGroup?: DatasetGroup;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetImportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job to
@@ -2010,6 +2253,7 @@ export interface DescribeDatasetImportJobRequest {
 }
 
 /**
+ * @public
  * <p>Describes a job that imports training data from a data source (Amazon S3
  *       bucket) to an Amazon Personalize dataset. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>.</p>
  *          <p>A dataset import job can be in one of the following states:</p>
@@ -2088,6 +2332,9 @@ export interface DatasetImportJob {
   publishAttributionMetricsToS3?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetImportJobResponse {
   /**
    * <p>Information about the dataset import job, including the status.</p>
@@ -2110,6 +2357,9 @@ export interface DescribeDatasetImportJobResponse {
   datasetImportJob?: DatasetImportJob;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventTrackerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the event tracker to describe.</p>
@@ -2118,6 +2368,7 @@ export interface DescribeEventTrackerRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about an event tracker.</p>
  */
 export interface EventTracker {
@@ -2172,6 +2423,9 @@ export interface EventTracker {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventTrackerResponse {
   /**
    * <p>An object that describes the event tracker.</p>
@@ -2179,6 +2433,9 @@ export interface DescribeEventTrackerResponse {
   eventTracker?: EventTracker;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFeatureTransformationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the feature transformation to describe.</p>
@@ -2187,6 +2444,7 @@ export interface DescribeFeatureTransformationRequest {
 }
 
 /**
+ * @public
  * <p>Provides feature transformation information. Feature transformation is the process
  *       of modifying raw input data into a form more suitable for model training.</p>
  */
@@ -2228,6 +2486,9 @@ export interface FeatureTransformation {
   status?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFeatureTransformationResponse {
   /**
    * <p>A listing of the FeatureTransformation properties.</p>
@@ -2235,6 +2496,9 @@ export interface DescribeFeatureTransformationResponse {
   featureTransformation?: FeatureTransformation;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFilterRequest {
   /**
    * <p>The ARN of the filter to describe.</p>
@@ -2243,6 +2507,7 @@ export interface DescribeFilterRequest {
 }
 
 /**
+ * @public
  * <p>Contains information on a recommendation filter, including its ARN, status, and filter
  *             expression.</p>
  */
@@ -2290,6 +2555,9 @@ export interface Filter {
   status?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFilterResponse {
   /**
    * <p>The filter's details.</p>
@@ -2297,6 +2565,9 @@ export interface DescribeFilterResponse {
   filter?: Filter;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMetricAttributionRequest {
   /**
    * <p>The metric attribution's Amazon Resource Name (ARN).</p>
@@ -2305,6 +2576,7 @@ export interface DescribeMetricAttributionRequest {
 }
 
 /**
+ * @public
  * <p>Contains information on a metric attribution. A metric attribution creates reports on the data that you import into Amazon Personalize.
  *       Depending on how you import the data, you can view reports in Amazon CloudWatch or Amazon S3.
  *       For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
@@ -2351,6 +2623,9 @@ export interface MetricAttribution {
   failureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMetricAttributionResponse {
   /**
    * <p>The details of the metric attribution.</p>
@@ -2358,6 +2633,9 @@ export interface DescribeMetricAttributionResponse {
   metricAttribution?: MetricAttribution;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecipeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the recipe to describe.</p>
@@ -2366,6 +2644,7 @@ export interface DescribeRecipeRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a recipe. Each recipe provides an algorithm
  *       that Amazon Personalize uses in model training when you use the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
  *       operation. </p>
@@ -2429,6 +2708,9 @@ export interface Recipe {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecipeResponse {
   /**
    * <p>An object that describes the recipe.</p>
@@ -2436,6 +2718,9 @@ export interface DescribeRecipeResponse {
   recipe?: Recipe;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecommenderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender to describe.</p>
@@ -2444,6 +2729,7 @@ export interface DescribeRecommenderRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of a recommender update. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a> API.</p>
  */
@@ -2487,6 +2773,7 @@ export interface RecommenderUpdateSummary {
 }
 
 /**
+ * @public
  * <p>Describes a recommendation generator for a Domain dataset group. You create a recommender in a Domain dataset group
  *       for a specific domain use case (domain recipe), and specify the recommender in a <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a> request.</p>
  */
@@ -2563,6 +2850,9 @@ export interface Recommender {
   modelMetrics?: Record<string, number>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecommenderResponse {
   /**
    * <p>The properties of the recommender.</p>
@@ -2570,6 +2860,9 @@ export interface DescribeRecommenderResponse {
   recommender?: Recommender;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSchemaRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the schema to retrieve.</p>
@@ -2578,6 +2871,7 @@ export interface DescribeSchemaRequest {
 }
 
 /**
+ * @public
  * <p>Describes the schema for a dataset. For more information on schemas, see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
  */
@@ -2613,6 +2907,9 @@ export interface DatasetSchema {
   domain?: Domain | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSchemaResponse {
   /**
    * <p>The requested schema.</p>
@@ -2620,6 +2917,9 @@ export interface DescribeSchemaResponse {
   schema?: DatasetSchema;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSolutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the solution to describe.</p>
@@ -2628,6 +2928,7 @@ export interface DescribeSolutionRequest {
 }
 
 /**
+ * @public
  * <p>When the solution performs AutoML (<code>performAutoML</code> is true in
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>), specifies the recipe that best optimized the
  *       specified metric.</p>
@@ -2640,6 +2941,7 @@ export interface AutoMLResult {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of a solution version. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a> API.</p>
  */
@@ -2677,6 +2979,7 @@ export interface SolutionVersionSummary {
 }
 
 /**
+ * @public
  * <p>An object that provides information about a solution. A solution is a trained model
  *       that can be deployed as a campaign.</p>
  */
@@ -2761,6 +3064,9 @@ export interface Solution {
   latestSolutionVersion?: SolutionVersionSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSolutionResponse {
   /**
    * <p>An object that describes the solution.</p>
@@ -2768,6 +3074,9 @@ export interface DescribeSolutionResponse {
   solution?: Solution;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSolutionVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version.</p>
@@ -2776,6 +3085,7 @@ export interface DescribeSolutionVersionRequest {
 }
 
 /**
+ * @public
  * <p>If hyperparameter optimization (HPO) was performed, contains the hyperparameter values of
  *       the best performing model.</p>
  */
@@ -2787,6 +3097,7 @@ export interface TunedHPOParams {
 }
 
 /**
+ * @public
  * <p>An object that provides information about a specific version of a <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_Solution.html">Solution</a> in a Custom dataset group.</p>
  */
 export interface SolutionVersion {
@@ -2913,6 +3224,9 @@ export interface SolutionVersion {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSolutionVersionResponse {
   /**
    * <p>The solution version.</p>
@@ -2920,6 +3234,9 @@ export interface DescribeSolutionVersionResponse {
   solutionVersion?: SolutionVersion;
 }
 
+/**
+ * @public
+ */
 export interface GetSolutionMetricsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version for which to get metrics.</p>
@@ -2927,6 +3244,9 @@ export interface GetSolutionMetricsRequest {
   solutionVersionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSolutionMetricsResponse {
   /**
    * <p>The same solution version ARN as specified in the request.</p>
@@ -2943,6 +3263,7 @@ export interface GetSolutionMetricsResponse {
 }
 
 /**
+ * @public
  * <p>The token is not valid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -2961,6 +3282,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListBatchInferenceJobsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference jobs
@@ -2981,6 +3305,7 @@ export interface ListBatchInferenceJobsRequest {
 }
 
 /**
+ * @public
  * <p>A truncated version of the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_BatchInferenceJob.html">BatchInferenceJob</a>. The
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListBatchInferenceJobs.html">ListBatchInferenceJobs</a> operation returns a list of batch inference job
  *       summaries.</p>
@@ -3036,6 +3361,9 @@ export interface BatchInferenceJobSummary {
   solutionVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBatchInferenceJobsResponse {
   /**
    * <p>A list containing information on each job that is returned.</p>
@@ -3049,6 +3377,9 @@ export interface ListBatchInferenceJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBatchSegmentJobsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version that the batch segment jobs used to generate batch segments.</p>
@@ -3068,6 +3399,7 @@ export interface ListBatchSegmentJobsRequest {
 }
 
 /**
+ * @public
  * <p>A truncated version of the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_BatchSegmentJob.html">BatchSegmentJob</a> datatype.
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListBatchSegmentJobs.html">ListBatchSegmentJobs</a> operation returns a list of batch segment job
  *       summaries.</p>
@@ -3123,6 +3455,9 @@ export interface BatchSegmentJobSummary {
   solutionVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBatchSegmentJobsResponse {
   /**
    * <p>A list containing information on each job that is returned.</p>
@@ -3136,6 +3471,9 @@ export interface ListBatchSegmentJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCampaignsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the solution to list the campaigns for. When
@@ -3156,6 +3494,7 @@ export interface ListCampaignsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of a campaign. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> API.</p>
  */
@@ -3200,6 +3539,9 @@ export interface CampaignSummary {
   failureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCampaignsResponse {
   /**
    * <p>A list of the campaigns.</p>
@@ -3212,6 +3554,9 @@ export interface ListCampaignsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetExportJobsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset to list the dataset
@@ -3233,6 +3578,7 @@ export interface ListDatasetExportJobsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of a dataset export job. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html">DescribeDatasetExportJob</a> API.</p>
  */
@@ -3274,6 +3620,9 @@ export interface DatasetExportJobSummary {
   failureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetExportJobsResponse {
   /**
    * <p>The list of dataset export jobs.</p>
@@ -3287,6 +3636,9 @@ export interface ListDatasetExportJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetGroupsRequest {
   /**
    * <p>A token returned from the previous call to
@@ -3302,6 +3654,7 @@ export interface ListDatasetGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of a dataset group. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a> API.</p>
  */
@@ -3351,6 +3704,9 @@ export interface DatasetGroupSummary {
   domain?: Domain | string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetGroupsResponse {
   /**
    * <p>The list of your dataset groups.</p>
@@ -3364,6 +3720,9 @@ export interface ListDatasetGroupsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetImportJobsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset to list the dataset
@@ -3385,6 +3744,7 @@ export interface ListDatasetImportJobsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of a dataset import job. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a> API.</p>
  */
@@ -3434,6 +3794,9 @@ export interface DatasetImportJobSummary {
   importMode?: ImportMode | string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetImportJobsResponse {
   /**
    * <p>The list of dataset import jobs.</p>
@@ -3447,6 +3810,9 @@ export interface ListDatasetImportJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group that contains the
@@ -3468,6 +3834,7 @@ export interface ListDatasetsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of a dataset. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html">DescribeDataset</a> API.</p>
  */
@@ -3526,6 +3893,9 @@ export interface DatasetSummary {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetsResponse {
   /**
    * <p>An array of <code>Dataset</code> objects. Each object provides
@@ -3539,6 +3909,9 @@ export interface ListDatasetsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventTrackersRequest {
   /**
    * <p>The ARN of a dataset group used to filter the response.</p>
@@ -3558,6 +3931,7 @@ export interface ListEventTrackersRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of an event tracker. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html">DescribeEventTracker</a> API.</p>
  */
@@ -3597,6 +3971,9 @@ export interface EventTrackerSummary {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEventTrackersResponse {
   /**
    * <p>A list of event trackers.</p>
@@ -3609,6 +3986,9 @@ export interface ListEventTrackersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFiltersRequest {
   /**
    * <p>The ARN of the dataset group that contains the filters.</p>
@@ -3628,6 +4008,7 @@ export interface ListFiltersRequest {
 }
 
 /**
+ * @public
  * <p>A short summary of a filter's attributes.</p>
  */
 export interface FilterSummary {
@@ -3667,6 +4048,9 @@ export interface FilterSummary {
   status?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFiltersResponse {
   /**
    * <p>A list of returned filters.</p>
@@ -3679,6 +4063,9 @@ export interface ListFiltersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMetricAttributionMetricsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the metric attribution to retrieve attributes for.</p>
@@ -3696,6 +4083,9 @@ export interface ListMetricAttributionMetricsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListMetricAttributionMetricsResponse {
   /**
    * <p>The metrics for the specified metric attribution.</p>
@@ -3708,6 +4098,9 @@ export interface ListMetricAttributionMetricsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMetricAttributionsRequest {
   /**
    * <p>The metric attributions' dataset group Amazon Resource Name (ARN).</p>
@@ -3726,6 +4119,7 @@ export interface ListMetricAttributionsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of a metric attribution. For a complete listing, call the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeMetricAttribution.html">DescribeMetricAttribution</a>.</p>
  */
 export interface MetricAttributionSummary {
@@ -3760,6 +4154,9 @@ export interface MetricAttributionSummary {
   failureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMetricAttributionsResponse {
   /**
    * <p>The list of metric attributions.</p>
@@ -3772,10 +4169,22 @@ export interface ListMetricAttributionsResponse {
   nextToken?: string;
 }
 
-export enum RecipeProvider {
-  SERVICE = "SERVICE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecipeProvider = {
+  SERVICE: "SERVICE",
+} as const;
 
+/**
+ * @public
+ */
+export type RecipeProvider = (typeof RecipeProvider)[keyof typeof RecipeProvider];
+
+/**
+ * @public
+ */
 export interface ListRecipesRequest {
   /**
    * <p>The default is <code>SERVICE</code>.</p>
@@ -3803,6 +4212,7 @@ export interface ListRecipesRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of a recipe. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecipe.html">DescribeRecipe</a> API.</p>
  */
@@ -3838,6 +4248,9 @@ export interface RecipeSummary {
   domain?: Domain | string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecipesResponse {
   /**
    * <p>The list of available recipes.</p>
@@ -3850,6 +4263,9 @@ export interface ListRecipesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecommendersRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Domain dataset group to list the recommenders for. When
@@ -3870,6 +4286,7 @@ export interface ListRecommendersRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of the recommender.</p>
  */
 export interface RecommenderSummary {
@@ -3925,6 +4342,9 @@ export interface RecommenderSummary {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListRecommendersResponse {
   /**
    * <p>A list of the recommenders.</p>
@@ -3937,6 +4357,9 @@ export interface ListRecommendersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemasRequest {
   /**
    * <p>A token returned from the previous call to <code>ListSchemas</code> for getting
@@ -3951,6 +4374,7 @@ export interface ListSchemasRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of a dataset schema. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html">DescribeSchema</a> API.</p>
  */
@@ -3981,6 +4405,9 @@ export interface DatasetSchemaSummary {
   domain?: Domain | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemasResponse {
   /**
    * <p>A list of schemas.</p>
@@ -3993,6 +4420,9 @@ export interface ListSchemasResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSolutionsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
@@ -4012,6 +4442,7 @@ export interface ListSolutionsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the properties of a solution. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a> API.</p>
  */
@@ -4056,6 +4487,9 @@ export interface SolutionSummary {
   recipeArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSolutionsResponse {
   /**
    * <p>A list of the current solutions.</p>
@@ -4068,6 +4502,9 @@ export interface ListSolutionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSolutionVersionsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the solution.</p>
@@ -4086,6 +4523,9 @@ export interface ListSolutionVersionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSolutionVersionsResponse {
   /**
    * <p>A list of solution versions describing the version properties.</p>
@@ -4098,6 +4538,9 @@ export interface ListSolutionVersionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource's Amazon Resource Name.</p>
@@ -4105,6 +4548,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The resource's tags.</p>
@@ -4112,6 +4558,9 @@ export interface ListTagsForResourceResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartRecommenderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender to start.</p>
@@ -4119,6 +4568,9 @@ export interface StartRecommenderRequest {
   recommenderArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartRecommenderResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender you started.</p>
@@ -4126,6 +4578,9 @@ export interface StartRecommenderResponse {
   recommenderArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopRecommenderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender to stop.</p>
@@ -4133,6 +4588,9 @@ export interface StopRecommenderRequest {
   recommenderArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopRecommenderResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender you stopped.</p>
@@ -4140,6 +4598,9 @@ export interface StopRecommenderResponse {
   recommenderArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopSolutionVersionCreationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version you want to stop creating.</p>
@@ -4147,6 +4608,9 @@ export interface StopSolutionVersionCreationRequest {
   solutionVersionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The resource's Amazon Resource Name (ARN).</p>
@@ -4159,9 +4623,13 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>The request contains more tag keys than can be associated with a resource (50 tag keys per resource). </p>
  */
 export class TooManyTagKeysException extends __BaseException {
@@ -4180,6 +4648,9 @@ export class TooManyTagKeysException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The resource's Amazon Resource Name (ARN).</p>
@@ -4192,8 +4663,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateCampaignRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign.</p>
@@ -4217,6 +4694,9 @@ export interface UpdateCampaignRequest {
   campaignConfig?: CampaignConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCampaignResponse {
   /**
    * <p>The same campaign ARN as given in the request.</p>
@@ -4224,6 +4704,9 @@ export interface UpdateCampaignResponse {
   campaignArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMetricAttributionRequest {
   /**
    * <p>Add new metric attributes to the metric attribution.</p>
@@ -4246,6 +4729,9 @@ export interface UpdateMetricAttributionRequest {
   metricAttributionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMetricAttributionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the metric attribution that you updated.</p>
@@ -4253,6 +4739,9 @@ export interface UpdateMetricAttributionResponse {
   metricAttributionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRecommenderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender to modify.</p>
@@ -4265,6 +4754,9 @@ export interface UpdateRecommenderRequest {
   recommenderConfig: RecommenderConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRecommenderResponse {
   /**
    * <p>The same recommender Amazon Resource Name (ARN) as given in the request.</p>
@@ -4275,689 +4767,9 @@ export interface UpdateRecommenderResponse {
 /**
  * @internal
  */
-export const AlgorithmImageFilterSensitiveLog = (obj: AlgorithmImage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultCategoricalHyperParameterRangeFilterSensitiveLog = (
-  obj: DefaultCategoricalHyperParameterRange
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultContinuousHyperParameterRangeFilterSensitiveLog = (
-  obj: DefaultContinuousHyperParameterRange
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultIntegerHyperParameterRangeFilterSensitiveLog = (obj: DefaultIntegerHyperParameterRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultHyperParameterRangesFilterSensitiveLog = (obj: DefaultHyperParameterRanges): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlgorithmFilterSensitiveLog = (obj: Algorithm): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchInferenceJobConfigFilterSensitiveLog = (obj: BatchInferenceJobConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DataConfigFilterSensitiveLog = (obj: S3DataConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchInferenceJobInputFilterSensitiveLog = (obj: BatchInferenceJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchInferenceJobOutputFilterSensitiveLog = (obj: BatchInferenceJobOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBatchInferenceJobRequestFilterSensitiveLog = (obj: CreateBatchInferenceJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBatchInferenceJobResponseFilterSensitiveLog = (obj: CreateBatchInferenceJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchSegmentJobInputFilterSensitiveLog = (obj: BatchSegmentJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchSegmentJobOutputFilterSensitiveLog = (obj: BatchSegmentJobOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBatchSegmentJobRequestFilterSensitiveLog = (obj: CreateBatchSegmentJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBatchSegmentJobResponseFilterSensitiveLog = (obj: CreateBatchSegmentJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignConfigFilterSensitiveLog = (obj: CampaignConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCampaignRequestFilterSensitiveLog = (obj: CreateCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCampaignResponseFilterSensitiveLog = (obj: CreateCampaignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatasetRequestFilterSensitiveLog = (obj: CreateDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatasetResponseFilterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetExportJobOutputFilterSensitiveLog = (obj: DatasetExportJobOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatasetExportJobRequestFilterSensitiveLog = (obj: CreateDatasetExportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatasetExportJobResponseFilterSensitiveLog = (obj: CreateDatasetExportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatasetGroupRequestFilterSensitiveLog = (obj: CreateDatasetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatasetGroupResponseFilterSensitiveLog = (obj: CreateDatasetGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatasetImportJobRequestFilterSensitiveLog = (obj: CreateDatasetImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatasetImportJobResponseFilterSensitiveLog = (obj: CreateDatasetImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventTrackerRequestFilterSensitiveLog = (obj: CreateEventTrackerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventTrackerResponseFilterSensitiveLog = (obj: CreateEventTrackerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateFilterRequestFilterSensitiveLog = (obj: CreateFilterRequest): any => ({
   ...obj,
   ...(obj.filterExpression && { filterExpression: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateFilterResponseFilterSensitiveLog = (obj: CreateFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricAttributeFilterSensitiveLog = (obj: MetricAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricAttributionOutputFilterSensitiveLog = (obj: MetricAttributionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMetricAttributionRequestFilterSensitiveLog = (obj: CreateMetricAttributionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMetricAttributionResponseFilterSensitiveLog = (obj: CreateMetricAttributionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommenderConfigFilterSensitiveLog = (obj: RecommenderConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRecommenderRequestFilterSensitiveLog = (obj: CreateRecommenderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRecommenderResponseFilterSensitiveLog = (obj: CreateRecommenderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSchemaRequestFilterSensitiveLog = (obj: CreateSchemaRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSchemaResponseFilterSensitiveLog = (obj: CreateSchemaResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLConfigFilterSensitiveLog = (obj: AutoMLConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CategoricalHyperParameterRangeFilterSensitiveLog = (obj: CategoricalHyperParameterRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContinuousHyperParameterRangeFilterSensitiveLog = (obj: ContinuousHyperParameterRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IntegerHyperParameterRangeFilterSensitiveLog = (obj: IntegerHyperParameterRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HyperParameterRangesFilterSensitiveLog = (obj: HyperParameterRanges): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HPOObjectiveFilterSensitiveLog = (obj: HPOObjective): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HPOResourceConfigFilterSensitiveLog = (obj: HPOResourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HPOConfigFilterSensitiveLog = (obj: HPOConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OptimizationObjectiveFilterSensitiveLog = (obj: OptimizationObjective): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SolutionConfigFilterSensitiveLog = (obj: SolutionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSolutionRequestFilterSensitiveLog = (obj: CreateSolutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSolutionResponseFilterSensitiveLog = (obj: CreateSolutionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSolutionVersionRequestFilterSensitiveLog = (obj: CreateSolutionVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSolutionVersionResponseFilterSensitiveLog = (obj: CreateSolutionVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCampaignRequestFilterSensitiveLog = (obj: DeleteCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetGroupRequestFilterSensitiveLog = (obj: DeleteDatasetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventTrackerRequestFilterSensitiveLog = (obj: DeleteEventTrackerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFilterRequestFilterSensitiveLog = (obj: DeleteFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMetricAttributionRequestFilterSensitiveLog = (obj: DeleteMetricAttributionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRecommenderRequestFilterSensitiveLog = (obj: DeleteRecommenderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSchemaRequestFilterSensitiveLog = (obj: DeleteSchemaRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSolutionRequestFilterSensitiveLog = (obj: DeleteSolutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlgorithmRequestFilterSensitiveLog = (obj: DescribeAlgorithmRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlgorithmResponseFilterSensitiveLog = (obj: DescribeAlgorithmResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBatchInferenceJobRequestFilterSensitiveLog = (obj: DescribeBatchInferenceJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchInferenceJobFilterSensitiveLog = (obj: BatchInferenceJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBatchInferenceJobResponseFilterSensitiveLog = (obj: DescribeBatchInferenceJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBatchSegmentJobRequestFilterSensitiveLog = (obj: DescribeBatchSegmentJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchSegmentJobFilterSensitiveLog = (obj: BatchSegmentJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBatchSegmentJobResponseFilterSensitiveLog = (obj: DescribeBatchSegmentJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCampaignRequestFilterSensitiveLog = (obj: DescribeCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignUpdateSummaryFilterSensitiveLog = (obj: CampaignUpdateSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignFilterSensitiveLog = (obj: Campaign): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCampaignResponseFilterSensitiveLog = (obj: DescribeCampaignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetRequestFilterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetFilterSensitiveLog = (obj: Dataset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetResponseFilterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetExportJobRequestFilterSensitiveLog = (obj: DescribeDatasetExportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetExportJobFilterSensitiveLog = (obj: DatasetExportJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetExportJobResponseFilterSensitiveLog = (obj: DescribeDatasetExportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetGroupRequestFilterSensitiveLog = (obj: DescribeDatasetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetGroupFilterSensitiveLog = (obj: DatasetGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetGroupResponseFilterSensitiveLog = (obj: DescribeDatasetGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetImportJobRequestFilterSensitiveLog = (obj: DescribeDatasetImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetImportJobFilterSensitiveLog = (obj: DatasetImportJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetImportJobResponseFilterSensitiveLog = (obj: DescribeDatasetImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventTrackerRequestFilterSensitiveLog = (obj: DescribeEventTrackerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventTrackerFilterSensitiveLog = (obj: EventTracker): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventTrackerResponseFilterSensitiveLog = (obj: DescribeEventTrackerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFeatureTransformationRequestFilterSensitiveLog = (
-  obj: DescribeFeatureTransformationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeatureTransformationFilterSensitiveLog = (obj: FeatureTransformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFeatureTransformationResponseFilterSensitiveLog = (
-  obj: DescribeFeatureTransformationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFilterRequestFilterSensitiveLog = (obj: DescribeFilterRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4974,617 +4786,4 @@ export const FilterFilterSensitiveLog = (obj: Filter): any => ({
 export const DescribeFilterResponseFilterSensitiveLog = (obj: DescribeFilterResponse): any => ({
   ...obj,
   ...(obj.filter && { filter: FilterFilterSensitiveLog(obj.filter) }),
-});
-
-/**
- * @internal
- */
-export const DescribeMetricAttributionRequestFilterSensitiveLog = (obj: DescribeMetricAttributionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricAttributionFilterSensitiveLog = (obj: MetricAttribution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMetricAttributionResponseFilterSensitiveLog = (obj: DescribeMetricAttributionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecipeRequestFilterSensitiveLog = (obj: DescribeRecipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecipeFilterSensitiveLog = (obj: Recipe): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecipeResponseFilterSensitiveLog = (obj: DescribeRecipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecommenderRequestFilterSensitiveLog = (obj: DescribeRecommenderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommenderUpdateSummaryFilterSensitiveLog = (obj: RecommenderUpdateSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommenderFilterSensitiveLog = (obj: Recommender): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecommenderResponseFilterSensitiveLog = (obj: DescribeRecommenderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSchemaRequestFilterSensitiveLog = (obj: DescribeSchemaRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetSchemaFilterSensitiveLog = (obj: DatasetSchema): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSchemaResponseFilterSensitiveLog = (obj: DescribeSchemaResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSolutionRequestFilterSensitiveLog = (obj: DescribeSolutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLResultFilterSensitiveLog = (obj: AutoMLResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SolutionVersionSummaryFilterSensitiveLog = (obj: SolutionVersionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SolutionFilterSensitiveLog = (obj: Solution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSolutionResponseFilterSensitiveLog = (obj: DescribeSolutionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSolutionVersionRequestFilterSensitiveLog = (obj: DescribeSolutionVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TunedHPOParamsFilterSensitiveLog = (obj: TunedHPOParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SolutionVersionFilterSensitiveLog = (obj: SolutionVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSolutionVersionResponseFilterSensitiveLog = (obj: DescribeSolutionVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolutionMetricsRequestFilterSensitiveLog = (obj: GetSolutionMetricsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolutionMetricsResponseFilterSensitiveLog = (obj: GetSolutionMetricsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBatchInferenceJobsRequestFilterSensitiveLog = (obj: ListBatchInferenceJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchInferenceJobSummaryFilterSensitiveLog = (obj: BatchInferenceJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBatchInferenceJobsResponseFilterSensitiveLog = (obj: ListBatchInferenceJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBatchSegmentJobsRequestFilterSensitiveLog = (obj: ListBatchSegmentJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchSegmentJobSummaryFilterSensitiveLog = (obj: BatchSegmentJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBatchSegmentJobsResponseFilterSensitiveLog = (obj: ListBatchSegmentJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCampaignsRequestFilterSensitiveLog = (obj: ListCampaignsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignSummaryFilterSensitiveLog = (obj: CampaignSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCampaignsResponseFilterSensitiveLog = (obj: ListCampaignsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetExportJobsRequestFilterSensitiveLog = (obj: ListDatasetExportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetExportJobSummaryFilterSensitiveLog = (obj: DatasetExportJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetExportJobsResponseFilterSensitiveLog = (obj: ListDatasetExportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetGroupsRequestFilterSensitiveLog = (obj: ListDatasetGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetGroupSummaryFilterSensitiveLog = (obj: DatasetGroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetGroupsResponseFilterSensitiveLog = (obj: ListDatasetGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetImportJobsRequestFilterSensitiveLog = (obj: ListDatasetImportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetImportJobSummaryFilterSensitiveLog = (obj: DatasetImportJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetImportJobsResponseFilterSensitiveLog = (obj: ListDatasetImportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetsRequestFilterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetSummaryFilterSensitiveLog = (obj: DatasetSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetsResponseFilterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventTrackersRequestFilterSensitiveLog = (obj: ListEventTrackersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventTrackerSummaryFilterSensitiveLog = (obj: EventTrackerSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventTrackersResponseFilterSensitiveLog = (obj: ListEventTrackersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFiltersRequestFilterSensitiveLog = (obj: ListFiltersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterSummaryFilterSensitiveLog = (obj: FilterSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFiltersResponseFilterSensitiveLog = (obj: ListFiltersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMetricAttributionMetricsRequestFilterSensitiveLog = (
-  obj: ListMetricAttributionMetricsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMetricAttributionMetricsResponseFilterSensitiveLog = (
-  obj: ListMetricAttributionMetricsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMetricAttributionsRequestFilterSensitiveLog = (obj: ListMetricAttributionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricAttributionSummaryFilterSensitiveLog = (obj: MetricAttributionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMetricAttributionsResponseFilterSensitiveLog = (obj: ListMetricAttributionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecipesRequestFilterSensitiveLog = (obj: ListRecipesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecipeSummaryFilterSensitiveLog = (obj: RecipeSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecipesResponseFilterSensitiveLog = (obj: ListRecipesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecommendersRequestFilterSensitiveLog = (obj: ListRecommendersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommenderSummaryFilterSensitiveLog = (obj: RecommenderSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecommendersResponseFilterSensitiveLog = (obj: ListRecommendersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSchemasRequestFilterSensitiveLog = (obj: ListSchemasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetSchemaSummaryFilterSensitiveLog = (obj: DatasetSchemaSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSchemasResponseFilterSensitiveLog = (obj: ListSchemasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolutionsRequestFilterSensitiveLog = (obj: ListSolutionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SolutionSummaryFilterSensitiveLog = (obj: SolutionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolutionsResponseFilterSensitiveLog = (obj: ListSolutionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolutionVersionsRequestFilterSensitiveLog = (obj: ListSolutionVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolutionVersionsResponseFilterSensitiveLog = (obj: ListSolutionVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRecommenderRequestFilterSensitiveLog = (obj: StartRecommenderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRecommenderResponseFilterSensitiveLog = (obj: StartRecommenderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopRecommenderRequestFilterSensitiveLog = (obj: StopRecommenderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopRecommenderResponseFilterSensitiveLog = (obj: StopRecommenderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopSolutionVersionCreationRequestFilterSensitiveLog = (obj: StopSolutionVersionCreationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCampaignRequestFilterSensitiveLog = (obj: UpdateCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCampaignResponseFilterSensitiveLog = (obj: UpdateCampaignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMetricAttributionRequestFilterSensitiveLog = (obj: UpdateMetricAttributionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMetricAttributionResponseFilterSensitiveLog = (obj: UpdateMetricAttributionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRecommenderRequestFilterSensitiveLog = (obj: UpdateRecommenderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRecommenderResponseFilterSensitiveLog = (obj: UpdateRecommenderResponse): any => ({
-  ...obj,
 });

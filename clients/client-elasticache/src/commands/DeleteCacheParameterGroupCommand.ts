@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DeleteCacheParameterGroupMessage,
-  DeleteCacheParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteCacheParameterGroupCommand,
-  serializeAws_queryDeleteCacheParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteCacheParameterGroupMessage } from "../models/models_0";
+import { de_DeleteCacheParameterGroupCommand, se_DeleteCacheParameterGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCacheParameterGroupCommand}.
  */
 export interface DeleteCacheParameterGroupCommandInput extends DeleteCacheParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCacheParameterGroupCommand}.
  */
 export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified cache parameter
  *             group. You cannot delete a cache parameter group if it is associated with any cache
  *             clusters. You cannot delete the default cache parameter groups in your account.</p>
@@ -42,10 +41,15 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  * import { ElastiCacheClient, DeleteCacheParameterGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteCacheParameterGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DeleteCacheParameterGroupMessage
+ *   CacheParameterGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCacheParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCacheParameterGroupCommandInput - {@link DeleteCacheParameterGroupCommandInput}
+ * @returns {@link DeleteCacheParameterGroupCommandOutput}
  * @see {@link DeleteCacheParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -92,6 +96,9 @@ export class DeleteCacheParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCacheParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +127,8 @@ export class DeleteCacheParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCacheParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +138,21 @@ export class DeleteCacheParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCacheParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteCacheParameterGroupCommand(input, context);
+    return se_DeleteCacheParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCacheParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteCacheParameterGroupCommand(output, context);
+    return de_DeleteCacheParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

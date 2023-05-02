@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DeleteDirectoryRequest,
-  DeleteDirectoryRequestFilterSensitiveLog,
-  DeleteDirectoryResult,
-  DeleteDirectoryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDirectoryCommand,
-  serializeAws_json1_1DeleteDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDirectoryRequest, DeleteDirectoryResult } from "../models/models_0";
+import { de_DeleteDirectoryCommand, se_DeleteDirectoryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDirectoryCommand}.
  */
 export interface DeleteDirectoryCommandInput extends DeleteDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDirectoryCommand}.
  */
 export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Directory Service directory.</p>
  *          <p>Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions
  *       have been explicitly granted through a policy. For details about what permissions are required
@@ -46,10 +43,15 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  * import { DirectoryServiceClient, DeleteDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeleteDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DeleteDirectoryRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDirectoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDirectoryCommandInput - {@link DeleteDirectoryCommandInput}
+ * @returns {@link DeleteDirectoryCommandOutput}
  * @see {@link DeleteDirectoryCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -82,6 +84,9 @@ export class DeleteDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DeleteDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDirectoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DeleteDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDirectoryCommand(input, context);
+    return se_DeleteDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDirectoryCommandOutput> {
-    return deserializeAws_json1_1DeleteDirectoryCommand(output, context);
+    return de_DeleteDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

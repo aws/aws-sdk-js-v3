@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CreateReplicationGroupMessage,
-  CreateReplicationGroupMessageFilterSensitiveLog,
-  CreateReplicationGroupResult,
-  CreateReplicationGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateReplicationGroupCommand,
-  serializeAws_queryCreateReplicationGroupCommand,
-} from "../protocols/Aws_query";
+import { CreateReplicationGroupMessage, CreateReplicationGroupResult } from "../models/models_0";
+import { de_CreateReplicationGroupCommand, se_CreateReplicationGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReplicationGroupCommand}.
  */
 export interface CreateReplicationGroupCommandInput extends CreateReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateReplicationGroupCommand}.
  */
 export interface CreateReplicationGroupCommandOutput extends CreateReplicationGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group.</p>
  *          <p>This API can be used to create a standalone regional replication group or a secondary replication group associated with a Global datastore.</p>
  *          <p>A Redis (cluster mode disabled) replication group is a collection of clusters,
@@ -66,10 +63,95 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * import { ElastiCacheClient, CreateReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // CreateReplicationGroupMessage
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   ReplicationGroupDescription: "STRING_VALUE", // required
+ *   GlobalReplicationGroupId: "STRING_VALUE",
+ *   PrimaryClusterId: "STRING_VALUE",
+ *   AutomaticFailoverEnabled: true || false,
+ *   MultiAZEnabled: true || false,
+ *   NumCacheClusters: Number("int"),
+ *   PreferredCacheClusterAZs: [ // AvailabilityZonesList
+ *     "STRING_VALUE",
+ *   ],
+ *   NumNodeGroups: Number("int"),
+ *   ReplicasPerNodeGroup: Number("int"),
+ *   NodeGroupConfiguration: [ // NodeGroupConfigurationList
+ *     { // NodeGroupConfiguration
+ *       NodeGroupId: "STRING_VALUE",
+ *       Slots: "STRING_VALUE",
+ *       ReplicaCount: Number("int"),
+ *       PrimaryAvailabilityZone: "STRING_VALUE",
+ *       ReplicaAvailabilityZones: [
+ *         "STRING_VALUE",
+ *       ],
+ *       PrimaryOutpostArn: "STRING_VALUE",
+ *       ReplicaOutpostArns: [ // OutpostArnsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   CacheNodeType: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   CacheParameterGroupName: "STRING_VALUE",
+ *   CacheSubnetGroupName: "STRING_VALUE",
+ *   CacheSecurityGroupNames: [ // CacheSecurityGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [ // SecurityGroupIdsList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SnapshotArns: [ // SnapshotArnsList
+ *     "STRING_VALUE",
+ *   ],
+ *   SnapshotName: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   NotificationTopicArn: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   SnapshotRetentionLimit: Number("int"),
+ *   SnapshotWindow: "STRING_VALUE",
+ *   AuthToken: "STRING_VALUE",
+ *   TransitEncryptionEnabled: true || false,
+ *   AtRestEncryptionEnabled: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   UserGroupIds: [ // UserGroupIdListInput
+ *     "STRING_VALUE",
+ *   ],
+ *   LogDeliveryConfigurations: [ // LogDeliveryConfigurationRequestList
+ *     { // LogDeliveryConfigurationRequest
+ *       LogType: "slow-log" || "engine-log",
+ *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
+ *       DestinationDetails: { // DestinationDetails
+ *         CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
+ *           LogGroup: "STRING_VALUE",
+ *         },
+ *         KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
+ *           DeliveryStream: "STRING_VALUE",
+ *         },
+ *       },
+ *       LogFormat: "text" || "json",
+ *       Enabled: true || false,
+ *     },
+ *   ],
+ *   DataTieringEnabled: true || false,
+ *   NetworkType: "ipv4" || "ipv6" || "dual_stack",
+ *   IpDiscovery: "ipv4" || "ipv6",
+ *   TransitEncryptionMode: "preferred" || "required",
+ * };
  * const command = new CreateReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationGroupCommandInput - {@link CreateReplicationGroupCommandInput}
+ * @returns {@link CreateReplicationGroupCommandOutput}
  * @see {@link CreateReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -245,6 +327,9 @@ export class CreateReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -273,8 +358,8 @@ export class CreateReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -284,12 +369,18 @@ export class CreateReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateReplicationGroupCommand(input, context);
+    return se_CreateReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationGroupCommandOutput> {
-    return deserializeAws_queryCreateReplicationGroupCommand(output, context);
+    return de_CreateReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

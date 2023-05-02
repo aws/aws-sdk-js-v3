@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  UpdateRouteRequest,
-  UpdateRouteRequestFilterSensitiveLog,
-  UpdateRouteResult,
-  UpdateRouteResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRouteCommand,
-  serializeAws_restJson1UpdateRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRouteRequest, UpdateRouteResult } from "../models/models_0";
+import { de_UpdateRouteCommand, se_UpdateRouteCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRouteCommand}.
  */
 export interface UpdateRouteCommandInput extends UpdateRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRouteCommand}.
  */
 export interface UpdateRouteCommandOutput extends UpdateRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,35 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResult, __MetadataB
  * import { ApiGatewayV2Client, UpdateRouteCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateRouteCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // UpdateRouteRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   ApiKeyRequired: true || false,
+ *   AuthorizationScopes: [ // AuthorizationScopes
+ *     "STRING_VALUE",
+ *   ],
+ *   AuthorizationType: "STRING_VALUE",
+ *   AuthorizerId: "STRING_VALUE",
+ *   ModelSelectionExpression: "STRING_VALUE",
+ *   OperationName: "STRING_VALUE",
+ *   RequestModels: { // RouteModels
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   RequestParameters: { // RouteParameters
+ *     "<keys>": { // ParameterConstraints
+ *       Required: true || false,
+ *     },
+ *   },
+ *   RouteId: "STRING_VALUE", // required
+ *   RouteKey: "STRING_VALUE",
+ *   RouteResponseSelectionExpression: "STRING_VALUE",
+ *   Target: "STRING_VALUE",
+ * };
  * const command = new UpdateRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRouteCommandInput - {@link UpdateRouteCommandInput}
+ * @returns {@link UpdateRouteCommandOutput}
  * @see {@link UpdateRouteCommandInput} for command's `input` shape.
  * @see {@link UpdateRouteCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +103,9 @@ export class UpdateRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +132,8 @@ export class UpdateRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRouteResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +143,18 @@ export class UpdateRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRouteCommand(input, context);
+    return se_UpdateRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRouteCommandOutput> {
-    return deserializeAws_restJson1UpdateRouteCommand(output, context);
+    return de_UpdateRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

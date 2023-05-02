@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  ListEntitiesRequest,
-  ListEntitiesRequestFilterSensitiveLog,
-  ListEntitiesResponse,
-  ListEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEntitiesCommand,
-  serializeAws_restJson1ListEntitiesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEntitiesRequest, ListEntitiesResponse } from "../models/models_0";
+import { de_ListEntitiesCommand, se_ListEntitiesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntitiesCommand}.
  */
 export interface ListEntitiesCommandInput extends ListEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntitiesCommand}.
  */
 export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all entities in a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * import { IoTTwinMakerClient, ListEntitiesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, ListEntitiesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // ListEntitiesRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   filters: [ // ListEntitiesFilters
+ *     { // ListEntitiesFilter Union: only one key present
+ *       parentEntityId: "STRING_VALUE",
+ *       componentTypeId: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntitiesCommandInput - {@link ListEntitiesCommandInput}
+ * @returns {@link ListEntitiesCommandOutput}
  * @see {@link ListEntitiesCommandInput} for command's `input` shape.
  * @see {@link ListEntitiesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -81,6 +92,9 @@ export class ListEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +121,8 @@ export class ListEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +132,18 @@ export class ListEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEntitiesCommand(input, context);
+    return se_ListEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitiesCommandOutput> {
-    return deserializeAws_restJson1ListEntitiesCommand(output, context);
+    return de_ListEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

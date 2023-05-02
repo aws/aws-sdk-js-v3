@@ -10,7 +10,7 @@ import {
 import { CodeCatalystPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeCatalystClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSourceRepositoryBranchesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSourceRepositoryBranches(
   config: CodeCatalystPaginationConfiguration,
   input: ListSourceRepositoryBranchesCommandInput,

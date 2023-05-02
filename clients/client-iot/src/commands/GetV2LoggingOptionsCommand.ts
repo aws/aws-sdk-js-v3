@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetV2LoggingOptionsRequest,
-  GetV2LoggingOptionsRequestFilterSensitiveLog,
-  GetV2LoggingOptionsResponse,
-  GetV2LoggingOptionsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1GetV2LoggingOptionsCommand,
-  serializeAws_restJson1GetV2LoggingOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetV2LoggingOptionsRequest, GetV2LoggingOptionsResponse } from "../models/models_1";
+import { de_GetV2LoggingOptionsCommand, se_GetV2LoggingOptionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetV2LoggingOptionsCommand}.
  */
 export interface GetV2LoggingOptionsCommandInput extends GetV2LoggingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetV2LoggingOptionsCommand}.
  */
 export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the fine grained logging options.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetV2LoggingOptions</a> action.</p>
  * @example
@@ -43,10 +40,13 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * import { IoTClient, GetV2LoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetV2LoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {};
  * const command = new GetV2LoggingOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetV2LoggingOptionsCommandInput - {@link GetV2LoggingOptionsCommandInput}
+ * @returns {@link GetV2LoggingOptionsCommandOutput}
  * @see {@link GetV2LoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link GetV2LoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -79,6 +79,9 @@ export class GetV2LoggingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetV2LoggingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +110,8 @@ export class GetV2LoggingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetV2LoggingOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetV2LoggingOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +121,18 @@ export class GetV2LoggingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetV2LoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetV2LoggingOptionsCommand(input, context);
+    return se_GetV2LoggingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetV2LoggingOptionsCommandOutput> {
-    return deserializeAws_restJson1GetV2LoggingOptionsCommand(output, context);
+    return de_GetV2LoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

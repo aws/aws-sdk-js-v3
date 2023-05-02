@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  CreateArchiveRequest,
-  CreateArchiveRequestFilterSensitiveLog,
-  CreateArchiveResponse,
-  CreateArchiveResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateArchiveCommand,
-  serializeAws_json1_1CreateArchiveCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateArchiveRequest, CreateArchiveResponse } from "../models/models_0";
+import { de_CreateArchiveCommand, se_CreateArchiveCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateArchiveCommand}.
  */
 export interface CreateArchiveCommandInput extends CreateArchiveRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateArchiveCommand}.
  */
 export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an archive of events with the specified settings. When you create an archive,
  *       incoming events might not immediately start being sent to the archive. Allow a short period of
  *       time for changes to take effect. If you do not specify a pattern to filter events sent to the
@@ -46,10 +43,19 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  * import { CloudWatchEventsClient, CreateArchiveCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, CreateArchiveCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // CreateArchiveRequest
+ *   ArchiveName: "STRING_VALUE", // required
+ *   EventSourceArn: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   EventPattern: "STRING_VALUE",
+ *   RetentionDays: Number("int"),
+ * };
  * const command = new CreateArchiveCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateArchiveCommandInput - {@link CreateArchiveCommandInput}
+ * @returns {@link CreateArchiveCommandOutput}
  * @see {@link CreateArchiveCommandInput} for command's `input` shape.
  * @see {@link CreateArchiveCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -92,6 +98,9 @@ export class CreateArchiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateArchiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +127,8 @@ export class CreateArchiveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateArchiveRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateArchiveResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +138,18 @@ export class CreateArchiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateArchiveCommand(input, context);
+    return se_CreateArchiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateArchiveCommandOutput> {
-    return deserializeAws_json1_1CreateArchiveCommand(output, context);
+    return de_CreateArchiveCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { ListFieldLevelEncryptionConfigsRequest, ListFieldLevelEncryptionConfigsResult } from "../models/models_1";
 import {
-  ListFieldLevelEncryptionConfigsRequest,
-  ListFieldLevelEncryptionConfigsRequestFilterSensitiveLog,
-  ListFieldLevelEncryptionConfigsResult,
-  ListFieldLevelEncryptionConfigsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand,
-  serializeAws_restXmlListFieldLevelEncryptionConfigsCommand,
+  de_ListFieldLevelEncryptionConfigsCommand,
+  se_ListFieldLevelEncryptionConfigsCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListFieldLevelEncryptionConfigsCommand}.
  */
 export interface ListFieldLevelEncryptionConfigsCommandInput extends ListFieldLevelEncryptionConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFieldLevelEncryptionConfigsCommand}.
  */
 export interface ListFieldLevelEncryptionConfigsCommandOutput
@@ -37,6 +36,7 @@ export interface ListFieldLevelEncryptionConfigsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all field-level encryption configurations that have been created in CloudFront for this
  * 			account.</p>
  * @example
@@ -45,10 +45,16 @@ export interface ListFieldLevelEncryptionConfigsCommandOutput
  * import { CloudFrontClient, ListFieldLevelEncryptionConfigsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListFieldLevelEncryptionConfigsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListFieldLevelEncryptionConfigsRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListFieldLevelEncryptionConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFieldLevelEncryptionConfigsCommandInput - {@link ListFieldLevelEncryptionConfigsCommandInput}
+ * @returns {@link ListFieldLevelEncryptionConfigsCommandOutput}
  * @see {@link ListFieldLevelEncryptionConfigsCommandInput} for command's `input` shape.
  * @see {@link ListFieldLevelEncryptionConfigsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -75,6 +81,9 @@ export class ListFieldLevelEncryptionConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFieldLevelEncryptionConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +112,8 @@ export class ListFieldLevelEncryptionConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFieldLevelEncryptionConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFieldLevelEncryptionConfigsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +123,24 @@ export class ListFieldLevelEncryptionConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListFieldLevelEncryptionConfigsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListFieldLevelEncryptionConfigsCommand(input, context);
+    return se_ListFieldLevelEncryptionConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFieldLevelEncryptionConfigsCommandOutput> {
-    return deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand(output, context);
+    return de_ListFieldLevelEncryptionConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

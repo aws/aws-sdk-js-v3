@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  CreateProposalInput,
-  CreateProposalInputFilterSensitiveLog,
-  CreateProposalOutput,
-  CreateProposalOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProposalCommand,
-  serializeAws_restJson1CreateProposalCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateProposalInput, CreateProposalOutput } from "../models/models_0";
+import { de_CreateProposalCommand, se_CreateProposalCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProposalCommand}.
  */
 export interface CreateProposalCommandInput extends CreateProposalInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateProposalCommand}.
  */
 export interface CreateProposalCommandOutput extends CreateProposalOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -47,10 +44,33 @@ export interface CreateProposalCommandOutput extends CreateProposalOutput, __Met
  * import { ManagedBlockchainClient, CreateProposalCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateProposalCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // CreateProposalInput
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   NetworkId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE", // required
+ *   Actions: { // ProposalActions
+ *     Invitations: [ // InviteActionList
+ *       { // InviteAction
+ *         Principal: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     Removals: [ // RemoveActionList
+ *       { // RemoveAction
+ *         MemberId: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   Description: "STRING_VALUE",
+ *   Tags: { // InputTagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateProposalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProposalCommandInput - {@link CreateProposalCommandInput}
+ * @returns {@link CreateProposalCommandOutput}
  * @see {@link CreateProposalCommandInput} for command's `input` shape.
  * @see {@link CreateProposalCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -98,6 +118,9 @@ export class CreateProposalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProposalCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +149,8 @@ export class CreateProposalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProposalInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProposalOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +160,18 @@ export class CreateProposalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProposalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProposalCommand(input, context);
+    return se_CreateProposalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProposalCommandOutput> {
-    return deserializeAws_restJson1CreateProposalCommand(output, context);
+    return de_CreateProposalCommand(output, context);
   }
 
   // Start section: command_body_extra

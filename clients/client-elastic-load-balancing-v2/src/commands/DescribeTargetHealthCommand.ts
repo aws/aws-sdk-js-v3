@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DescribeTargetHealthInput,
-  DescribeTargetHealthInputFilterSensitiveLog,
-  DescribeTargetHealthOutput,
-  DescribeTargetHealthOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeTargetHealthCommand,
-  serializeAws_queryDescribeTargetHealthCommand,
-} from "../protocols/Aws_query";
+import { DescribeTargetHealthInput, DescribeTargetHealthOutput } from "../models/models_0";
+import { de_DescribeTargetHealthCommand, se_DescribeTargetHealthCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTargetHealthCommand}.
  */
 export interface DescribeTargetHealthCommandInput extends DescribeTargetHealthInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTargetHealthCommand}.
  */
 export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the health of the specified targets or all of your targets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,22 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * import { ElasticLoadBalancingV2Client, DescribeTargetHealthCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeTargetHealthCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DescribeTargetHealthInput
+ *   TargetGroupArn: "STRING_VALUE", // required
+ *   Targets: [ // TargetDescriptions
+ *     { // TargetDescription
+ *       Id: "STRING_VALUE", // required
+ *       Port: Number("int"),
+ *       AvailabilityZone: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DescribeTargetHealthCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTargetHealthCommandInput - {@link DescribeTargetHealthCommandInput}
+ * @returns {@link DescribeTargetHealthCommandOutput}
  * @see {@link DescribeTargetHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeTargetHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -155,6 +164,9 @@ export class DescribeTargetHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTargetHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,8 +195,8 @@ export class DescribeTargetHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTargetHealthInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTargetHealthOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -194,12 +206,18 @@ export class DescribeTargetHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTargetHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTargetHealthCommand(input, context);
+    return se_DescribeTargetHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTargetHealthCommandOutput> {
-    return deserializeAws_queryDescribeTargetHealthCommand(output, context);
+    return de_DescribeTargetHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { WorkMailClient } from "../WorkMailClient";
 import { WorkMailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkMailClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMobileDeviceAccessOverridesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMobileDeviceAccessOverrides(
   config: WorkMailPaginationConfiguration,
   input: ListMobileDeviceAccessOverridesCommandInput,

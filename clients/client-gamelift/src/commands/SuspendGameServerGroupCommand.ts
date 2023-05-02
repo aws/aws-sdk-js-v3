@@ -14,36 +14,33 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  SuspendGameServerGroupInput,
-  SuspendGameServerGroupInputFilterSensitiveLog,
-  SuspendGameServerGroupOutput,
-  SuspendGameServerGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SuspendGameServerGroupCommand,
-  serializeAws_json1_1SuspendGameServerGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { SuspendGameServerGroupInput, SuspendGameServerGroupOutput } from "../models/models_0";
+import { de_SuspendGameServerGroupCommand, se_SuspendGameServerGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SuspendGameServerGroupCommand}.
  */
 export interface SuspendGameServerGroupCommandInput extends SuspendGameServerGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link SuspendGameServerGroupCommand}.
  */
 export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
- *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Temporarily stops activity on
  *             a game server group without terminating instances or the game server group. You can
  *             restart activity by calling <a href="gamelift/latest/apireference/API_ResumeGameServerGroup.html">ResumeGameServerGroup</a>. You can suspend the following activity:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Instance type replacement</b> - This activity
  *                     evaluates the current game hosting viability of all Spot instance types that are
  *                     defined for the game server group. It updates the Auto Scaling group to remove
@@ -55,26 +52,34 @@ export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGr
  *                     active. </p>
  *             </li>
  *          </ul>
- *         <p>To suspend activity, specify a game server group ARN and the type of activity to be
+ *          <p>To suspend activity, specify a game server group ARN and the type of activity to be
  *             suspended. If successful, a <code>GameServerGroup</code> object is returned showing that
  *             the activity is listed in <code>SuspendedActions</code>.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
  *                 Guide</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GameLiftClient, SuspendGameServerGroupCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, SuspendGameServerGroupCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // SuspendGameServerGroupInput
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   SuspendActions: [ // GameServerGroupActions // required
+ *     "REPLACE_INSTANCE_TYPES",
+ *   ],
+ * };
  * const command = new SuspendGameServerGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SuspendGameServerGroupCommandInput - {@link SuspendGameServerGroupCommandInput}
+ * @returns {@link SuspendGameServerGroupCommandOutput}
  * @see {@link SuspendGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link SuspendGameServerGroupCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -112,6 +117,9 @@ export class SuspendGameServerGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SuspendGameServerGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +148,8 @@ export class SuspendGameServerGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SuspendGameServerGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SuspendGameServerGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,12 +159,18 @@ export class SuspendGameServerGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SuspendGameServerGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SuspendGameServerGroupCommand(input, context);
+    return se_SuspendGameServerGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SuspendGameServerGroupCommandOutput> {
-    return deserializeAws_json1_1SuspendGameServerGroupCommand(output, context);
+    return de_SuspendGameServerGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateDashboardPublishedVersionRequest, UpdateDashboardPublishedVersionResponse } from "../models/models_3";
 import {
-  UpdateDashboardPublishedVersionRequest,
-  UpdateDashboardPublishedVersionRequestFilterSensitiveLog,
-  UpdateDashboardPublishedVersionResponse,
-  UpdateDashboardPublishedVersionResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateDashboardPublishedVersionCommand,
-  serializeAws_restJson1UpdateDashboardPublishedVersionCommand,
+  de_UpdateDashboardPublishedVersionCommand,
+  se_UpdateDashboardPublishedVersionCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDashboardPublishedVersionCommand}.
  */
 export interface UpdateDashboardPublishedVersionCommandInput extends UpdateDashboardPublishedVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDashboardPublishedVersionCommand}.
  */
 export interface UpdateDashboardPublishedVersionCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateDashboardPublishedVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the published version of a dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface UpdateDashboardPublishedVersionCommandOutput
  * import { QuickSightClient, UpdateDashboardPublishedVersionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateDashboardPublishedVersionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // UpdateDashboardPublishedVersionRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DashboardId: "STRING_VALUE", // required
+ *   VersionNumber: Number("long"), // required
+ * };
  * const command = new UpdateDashboardPublishedVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDashboardPublishedVersionCommandInput - {@link UpdateDashboardPublishedVersionCommandInput}
+ * @returns {@link UpdateDashboardPublishedVersionCommandOutput}
  * @see {@link UpdateDashboardPublishedVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDashboardPublishedVersionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDashboardPublishedVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +130,8 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDashboardPublishedVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDashboardPublishedVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +141,24 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateDashboardPublishedVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDashboardPublishedVersionCommand(input, context);
+    return se_UpdateDashboardPublishedVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDashboardPublishedVersionCommandOutput> {
-    return deserializeAws_restJson1UpdateDashboardPublishedVersionCommand(output, context);
+    return de_UpdateDashboardPublishedVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

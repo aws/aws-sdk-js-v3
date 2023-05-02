@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
-import {
-  DeleteRescoreExecutionPlanRequest,
-  DeleteRescoreExecutionPlanRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteRescoreExecutionPlanCommand,
-  serializeAws_json1_0DeleteRescoreExecutionPlanCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteRescoreExecutionPlanRequest } from "../models/models_0";
+import { de_DeleteRescoreExecutionPlanCommand, se_DeleteRescoreExecutionPlanCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRescoreExecutionPlanCommand}.
  */
 export interface DeleteRescoreExecutionPlanCommandInput extends DeleteRescoreExecutionPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRescoreExecutionPlanCommand}.
  */
 export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a rescore execution plan. A rescore execution
  *             plan is an Amazon Kendra Intelligent Ranking resource
  *             used for provisioning the <code>Rescore</code> API.</p>
@@ -42,10 +41,15 @@ export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * import { KendraRankingClient, DeleteRescoreExecutionPlanCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
  * // const { KendraRankingClient, DeleteRescoreExecutionPlanCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
  * const client = new KendraRankingClient(config);
+ * const input = { // DeleteRescoreExecutionPlanRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRescoreExecutionPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRescoreExecutionPlanCommandInput - {@link DeleteRescoreExecutionPlanCommandInput}
+ * @returns {@link DeleteRescoreExecutionPlanCommandOutput}
  * @see {@link DeleteRescoreExecutionPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteRescoreExecutionPlanCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.
@@ -98,6 +102,9 @@ export class DeleteRescoreExecutionPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRescoreExecutionPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +133,8 @@ export class DeleteRescoreExecutionPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRescoreExecutionPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,15 +144,21 @@ export class DeleteRescoreExecutionPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRescoreExecutionPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteRescoreExecutionPlanCommand(input, context);
+    return se_DeleteRescoreExecutionPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRescoreExecutionPlanCommandOutput> {
-    return deserializeAws_json1_0DeleteRescoreExecutionPlanCommand(output, context);
+    return de_DeleteRescoreExecutionPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

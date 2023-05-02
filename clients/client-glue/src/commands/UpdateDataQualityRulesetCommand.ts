@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateDataQualityRulesetRequest,
-  UpdateDataQualityRulesetRequestFilterSensitiveLog,
-  UpdateDataQualityRulesetResponse,
-  UpdateDataQualityRulesetResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateDataQualityRulesetCommand,
-  serializeAws_json1_1UpdateDataQualityRulesetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDataQualityRulesetRequest, UpdateDataQualityRulesetResponse } from "../models/models_2";
+import { de_UpdateDataQualityRulesetCommand, se_UpdateDataQualityRulesetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataQualityRulesetCommand}.
  */
 export interface UpdateDataQualityRulesetCommandInput extends UpdateDataQualityRulesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataQualityRulesetCommand}.
  */
 export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQualityRulesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified data quality ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQuality
  * import { GlueClient, UpdateDataQualityRulesetCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateDataQualityRulesetCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateDataQualityRulesetRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Ruleset: "STRING_VALUE",
+ * };
  * const command = new UpdateDataQualityRulesetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataQualityRulesetCommandInput - {@link UpdateDataQualityRulesetCommandInput}
+ * @returns {@link UpdateDataQualityRulesetCommandOutput}
  * @see {@link UpdateDataQualityRulesetCommandInput} for command's `input` shape.
  * @see {@link UpdateDataQualityRulesetCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -90,6 +94,9 @@ export class UpdateDataQualityRulesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataQualityRulesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class UpdateDataQualityRulesetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDataQualityRulesetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataQualityRulesetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class UpdateDataQualityRulesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataQualityRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDataQualityRulesetCommand(input, context);
+    return se_UpdateDataQualityRulesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataQualityRulesetCommandOutput> {
-    return deserializeAws_json1_1UpdateDataQualityRulesetCommand(output, context);
+    return de_UpdateDataQualityRulesetCommand(output, context);
   }
 
   // Start section: command_body_extra

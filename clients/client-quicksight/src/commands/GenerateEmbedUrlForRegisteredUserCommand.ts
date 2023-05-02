@@ -15,21 +15,24 @@ import {
 
 import {
   GenerateEmbedUrlForRegisteredUserRequest,
-  GenerateEmbedUrlForRegisteredUserRequestFilterSensitiveLog,
   GenerateEmbedUrlForRegisteredUserResponse,
   GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
-  deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand,
-  serializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand,
+  de_GenerateEmbedUrlForRegisteredUserCommand,
+  se_GenerateEmbedUrlForRegisteredUserCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateEmbedUrlForRegisteredUserCommand}.
  */
 export interface GenerateEmbedUrlForRegisteredUserCommandInput extends GenerateEmbedUrlForRegisteredUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateEmbedUrlForRegisteredUserCommand}.
  */
 export interface GenerateEmbedUrlForRegisteredUserCommandOutput
@@ -37,6 +40,7 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates an embed URL that you can use to embed an Amazon QuickSight experience in your website. This action can be used for any type of user registered in an Amazon QuickSight account.
  *             Before you use this action, make sure that you have configured the relevant Amazon QuickSight resource and permissions.</p>
  *          <p>The following rules apply to the generated URL:</p>
@@ -64,10 +68,48 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  * import { QuickSightClient, GenerateEmbedUrlForRegisteredUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, GenerateEmbedUrlForRegisteredUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // GenerateEmbedUrlForRegisteredUserRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   SessionLifetimeInMinutes: Number("long"),
+ *   UserArn: "STRING_VALUE", // required
+ *   ExperienceConfiguration: { // RegisteredUserEmbeddingExperienceConfiguration
+ *     Dashboard: { // RegisteredUserDashboardEmbeddingConfiguration
+ *       InitialDashboardId: "STRING_VALUE", // required
+ *       FeatureConfigurations: { // RegisteredUserDashboardFeatureConfigurations
+ *         StatePersistence: { // StatePersistenceConfigurations
+ *           Enabled: true || false, // required
+ *         },
+ *       },
+ *     },
+ *     QuickSightConsole: { // RegisteredUserQuickSightConsoleEmbeddingConfiguration
+ *       InitialPath: "STRING_VALUE",
+ *       FeatureConfigurations: { // RegisteredUserConsoleFeatureConfigurations
+ *         StatePersistence: {
+ *           Enabled: true || false, // required
+ *         },
+ *       },
+ *     },
+ *     QSearchBar: { // RegisteredUserQSearchBarEmbeddingConfiguration
+ *       InitialTopicId: "STRING_VALUE",
+ *     },
+ *     DashboardVisual: { // RegisteredUserDashboardVisualEmbeddingConfiguration
+ *       InitialDashboardVisualId: { // DashboardVisualId
+ *         DashboardId: "STRING_VALUE", // required
+ *         SheetId: "STRING_VALUE", // required
+ *         VisualId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   AllowedDomains: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GenerateEmbedUrlForRegisteredUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateEmbedUrlForRegisteredUserCommandInput - {@link GenerateEmbedUrlForRegisteredUserCommandInput}
+ * @returns {@link GenerateEmbedUrlForRegisteredUserCommandOutput}
  * @see {@link GenerateEmbedUrlForRegisteredUserCommandInput} for command's `input` shape.
  * @see {@link GenerateEmbedUrlForRegisteredUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -135,6 +177,9 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateEmbedUrlForRegisteredUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,7 +208,7 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateEmbedUrlForRegisteredUserRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -174,18 +219,24 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateEmbedUrlForRegisteredUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand(input, context);
+    return se_GenerateEmbedUrlForRegisteredUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateEmbedUrlForRegisteredUserCommandOutput> {
-    return deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand(output, context);
+    return de_GenerateEmbedUrlForRegisteredUserCommand(output, context);
   }
 
   // Start section: command_body_extra

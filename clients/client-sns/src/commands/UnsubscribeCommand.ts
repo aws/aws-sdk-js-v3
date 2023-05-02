@@ -13,20 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UnsubscribeInput, UnsubscribeInputFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryUnsubscribeCommand, serializeAws_queryUnsubscribeCommand } from "../protocols/Aws_query";
+import { UnsubscribeInput } from "../models/models_0";
+import { de_UnsubscribeCommand, se_UnsubscribeCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link UnsubscribeCommand}.
  */
 export interface UnsubscribeCommandInput extends UnsubscribeInput {}
 /**
+ * @public
+ *
  * The output of {@link UnsubscribeCommand}.
  */
 export interface UnsubscribeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a subscription. If the subscription requires authentication for deletion, only
  *             the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services
  *             signature is required. If the <code>Unsubscribe</code> call does not require
@@ -45,10 +50,15 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
  * import { SNSClient, UnsubscribeCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, UnsubscribeCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // UnsubscribeInput
+ *   SubscriptionArn: "STRING_VALUE", // required
+ * };
  * const command = new UnsubscribeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnsubscribeCommandInput - {@link UnsubscribeCommandInput}
+ * @returns {@link UnsubscribeCommandOutput}
  * @see {@link UnsubscribeCommandInput} for command's `input` shape.
  * @see {@link UnsubscribeCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -89,6 +99,9 @@ export class UnsubscribeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnsubscribeCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +128,8 @@ export class UnsubscribeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnsubscribeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +139,18 @@ export class UnsubscribeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnsubscribeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUnsubscribeCommand(input, context);
+    return se_UnsubscribeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeCommandOutput> {
-    return deserializeAws_queryUnsubscribeCommand(output, context);
+    return de_UnsubscribeCommand(output, context);
   }
 
   // Start section: command_body_extra

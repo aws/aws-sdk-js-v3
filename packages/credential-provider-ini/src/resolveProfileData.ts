@@ -8,6 +8,9 @@ import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
 import { isStaticCredsProfile, resolveStaticCredentials } from "./resolveStaticCredentials";
 import { isWebIdentityProfile, resolveWebIdentityCredentials } from "./resolveWebIdentityCredentials";
 
+/**
+ * @internal
+ */
 export const resolveProfileData = async (
   profileName: string,
   profiles: ParsedIniData,

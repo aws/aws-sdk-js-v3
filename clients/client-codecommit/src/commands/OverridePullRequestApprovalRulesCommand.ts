@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { OverridePullRequestApprovalRulesInput } from "../models/models_1";
 import {
-  OverridePullRequestApprovalRulesInput,
-  OverridePullRequestApprovalRulesInputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1OverridePullRequestApprovalRulesCommand,
-  serializeAws_json1_1OverridePullRequestApprovalRulesCommand,
+  de_OverridePullRequestApprovalRulesCommand,
+  se_OverridePullRequestApprovalRulesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link OverridePullRequestApprovalRulesCommand}.
  */
 export interface OverridePullRequestApprovalRulesCommandInput extends OverridePullRequestApprovalRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link OverridePullRequestApprovalRulesCommand}.
  */
 export interface OverridePullRequestApprovalRulesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets aside (overrides) all approval rule requirements for a specified pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,17 @@ export interface OverridePullRequestApprovalRulesCommandOutput extends __Metadat
  * import { CodeCommitClient, OverridePullRequestApprovalRulesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, OverridePullRequestApprovalRulesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // OverridePullRequestApprovalRulesInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE", // required
+ *   overrideStatus: "STRING_VALUE", // required
+ * };
  * const command = new OverridePullRequestApprovalRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param OverridePullRequestApprovalRulesCommandInput - {@link OverridePullRequestApprovalRulesCommandInput}
+ * @returns {@link OverridePullRequestApprovalRulesCommandOutput}
  * @see {@link OverridePullRequestApprovalRulesCommandInput} for command's `input` shape.
  * @see {@link OverridePullRequestApprovalRulesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -112,6 +121,9 @@ export class OverridePullRequestApprovalRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: OverridePullRequestApprovalRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +152,8 @@ export class OverridePullRequestApprovalRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OverridePullRequestApprovalRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,18 +163,24 @@ export class OverridePullRequestApprovalRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: OverridePullRequestApprovalRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1OverridePullRequestApprovalRulesCommand(input, context);
+    return se_OverridePullRequestApprovalRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<OverridePullRequestApprovalRulesCommandOutput> {
-    return deserializeAws_json1_1OverridePullRequestApprovalRulesCommand(output, context);
+    return de_OverridePullRequestApprovalRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

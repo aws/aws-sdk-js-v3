@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  CreateClusterV2Request,
-  CreateClusterV2RequestFilterSensitiveLog,
-  CreateClusterV2Response,
-  CreateClusterV2ResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateClusterV2Command,
-  serializeAws_restJson1CreateClusterV2Command,
-} from "../protocols/Aws_restJson1";
+import { CreateClusterV2Request, CreateClusterV2Response } from "../models/models_0";
+import { de_CreateClusterV2Command, se_CreateClusterV2Command } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterV2Command}.
  */
 export interface CreateClusterV2CommandInput extends CreateClusterV2Request {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterV2Command}.
  */
 export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,142 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  * import { KafkaClient, CreateClusterV2Command } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, CreateClusterV2Command } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // CreateClusterV2Request
+ *   ClusterName: "STRING_VALUE", // required
+ *   Tags: { // __mapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Provisioned: { // ProvisionedRequest
+ *     BrokerNodeGroupInfo: { // BrokerNodeGroupInfo
+ *       BrokerAZDistribution: "DEFAULT",
+ *       ClientSubnets: [ // __listOf__string // required
+ *         "STRING_VALUE",
+ *       ],
+ *       InstanceType: "STRING_VALUE", // required
+ *       SecurityGroups: [
+ *         "STRING_VALUE",
+ *       ],
+ *       StorageInfo: { // StorageInfo
+ *         EbsStorageInfo: { // EBSStorageInfo
+ *           ProvisionedThroughput: { // ProvisionedThroughput
+ *             Enabled: true || false,
+ *             VolumeThroughput: Number("int"),
+ *           },
+ *           VolumeSize: Number("int"),
+ *         },
+ *       },
+ *       ConnectivityInfo: { // ConnectivityInfo
+ *         PublicAccess: { // PublicAccess
+ *           Type: "STRING_VALUE",
+ *         },
+ *         VpcConnectivity: { // VpcConnectivity
+ *           ClientAuthentication: { // VpcConnectivityClientAuthentication
+ *             Sasl: { // VpcConnectivitySasl
+ *               Scram: { // VpcConnectivityScram
+ *                 Enabled: true || false,
+ *               },
+ *               Iam: { // VpcConnectivityIam
+ *                 Enabled: true || false,
+ *               },
+ *             },
+ *             Tls: { // VpcConnectivityTls
+ *               Enabled: true || false,
+ *             },
+ *           },
+ *         },
+ *       },
+ *       ZoneIds: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ClientAuthentication: { // ClientAuthentication
+ *       Sasl: { // Sasl
+ *         Scram: { // Scram
+ *           Enabled: true || false,
+ *         },
+ *         Iam: { // Iam
+ *           Enabled: true || false,
+ *         },
+ *       },
+ *       Tls: { // Tls
+ *         CertificateAuthorityArnList: [
+ *           "STRING_VALUE",
+ *         ],
+ *         Enabled: true || false,
+ *       },
+ *       Unauthenticated: { // Unauthenticated
+ *         Enabled: true || false,
+ *       },
+ *     },
+ *     ConfigurationInfo: { // ConfigurationInfo
+ *       Arn: "STRING_VALUE", // required
+ *       Revision: Number("long"), // required
+ *     },
+ *     EncryptionInfo: { // EncryptionInfo
+ *       EncryptionAtRest: { // EncryptionAtRest
+ *         DataVolumeKMSKeyId: "STRING_VALUE", // required
+ *       },
+ *       EncryptionInTransit: { // EncryptionInTransit
+ *         ClientBroker: "TLS" || "TLS_PLAINTEXT" || "PLAINTEXT",
+ *         InCluster: true || false,
+ *       },
+ *     },
+ *     EnhancedMonitoring: "DEFAULT" || "PER_BROKER" || "PER_TOPIC_PER_BROKER" || "PER_TOPIC_PER_PARTITION",
+ *     OpenMonitoring: { // OpenMonitoringInfo
+ *       Prometheus: { // PrometheusInfo
+ *         JmxExporter: { // JmxExporterInfo
+ *           EnabledInBroker: true || false, // required
+ *         },
+ *         NodeExporter: { // NodeExporterInfo
+ *           EnabledInBroker: true || false, // required
+ *         },
+ *       },
+ *     },
+ *     KafkaVersion: "STRING_VALUE", // required
+ *     LoggingInfo: { // LoggingInfo
+ *       BrokerLogs: { // BrokerLogs
+ *         CloudWatchLogs: { // CloudWatchLogs
+ *           Enabled: true || false, // required
+ *           LogGroup: "STRING_VALUE",
+ *         },
+ *         Firehose: { // Firehose
+ *           DeliveryStream: "STRING_VALUE",
+ *           Enabled: true || false, // required
+ *         },
+ *         S3: { // S3
+ *           Bucket: "STRING_VALUE",
+ *           Enabled: true || false, // required
+ *           Prefix: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     NumberOfBrokerNodes: Number("int"), // required
+ *     StorageMode: "LOCAL" || "TIERED",
+ *   },
+ *   Serverless: { // ServerlessRequest
+ *     VpcConfigs: [ // __listOfVpcConfig // required
+ *       { // VpcConfig
+ *         SubnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: "<__listOf__string>",
+ *       },
+ *     ],
+ *     ClientAuthentication: { // ServerlessClientAuthentication
+ *       Sasl: { // ServerlessSasl
+ *         Iam: {
+ *           Enabled: true || false,
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreateClusterV2Command(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterV2CommandInput - {@link CreateClusterV2CommandInput}
+ * @returns {@link CreateClusterV2CommandOutput}
  * @see {@link CreateClusterV2CommandInput} for command's `input` shape.
  * @see {@link CreateClusterV2CommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -90,6 +219,9 @@ export class CreateClusterV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +250,8 @@ export class CreateClusterV2Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterV2RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterV2ResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +261,18 @@ export class CreateClusterV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateClusterV2Command(input, context);
+    return se_CreateClusterV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterV2CommandOutput> {
-    return deserializeAws_restJson1CreateClusterV2Command(output, context);
+    return de_CreateClusterV2Command(output, context);
   }
 
   // Start section: command_body_extra

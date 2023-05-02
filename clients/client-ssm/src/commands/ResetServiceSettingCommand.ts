@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ResetServiceSettingRequest,
-  ResetServiceSettingRequestFilterSensitiveLog,
-  ResetServiceSettingResult,
-  ResetServiceSettingResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ResetServiceSettingCommand,
-  serializeAws_json1_1ResetServiceSettingCommand,
-} from "../protocols/Aws_json1_1";
+import { ResetServiceSettingRequest, ResetServiceSettingResult } from "../models/models_1";
+import { de_ResetServiceSettingCommand, se_ResetServiceSettingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResetServiceSettingCommand}.
  */
 export interface ResetServiceSettingCommandInput extends ResetServiceSettingRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetServiceSettingCommand}.
  */
 export interface ResetServiceSettingCommandOutput extends ResetServiceSettingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
  *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -56,10 +53,15 @@ export interface ResetServiceSettingCommandOutput extends ResetServiceSettingRes
  * import { SSMClient, ResetServiceSettingCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ResetServiceSettingCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ResetServiceSettingRequest
+ *   SettingId: "STRING_VALUE", // required
+ * };
  * const command = new ResetServiceSettingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetServiceSettingCommandInput - {@link ResetServiceSettingCommandInput}
+ * @returns {@link ResetServiceSettingCommandOutput}
  * @see {@link ResetServiceSettingCommandInput} for command's `input` shape.
  * @see {@link ResetServiceSettingCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -93,6 +95,9 @@ export class ResetServiceSettingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetServiceSettingCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +126,8 @@ export class ResetServiceSettingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetServiceSettingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResetServiceSettingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +137,18 @@ export class ResetServiceSettingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetServiceSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResetServiceSettingCommand(input, context);
+    return se_ResetServiceSettingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetServiceSettingCommandOutput> {
-    return deserializeAws_json1_1ResetServiceSettingCommand(output, context);
+    return de_ResetServiceSettingCommand(output, context);
   }
 
   // Start section: command_body_extra

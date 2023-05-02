@@ -21,15 +21,19 @@ import {
   ListAppInstanceUserEndpointsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAppInstanceUserEndpointsCommand,
-  serializeAws_restJson1ListAppInstanceUserEndpointsCommand,
+  de_ListAppInstanceUserEndpointsCommand,
+  se_ListAppInstanceUserEndpointsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppInstanceUserEndpointsCommand}.
  */
 export interface ListAppInstanceUserEndpointsCommandInput extends ListAppInstanceUserEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppInstanceUserEndpointsCommand}.
  */
 export interface ListAppInstanceUserEndpointsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAppInstanceUserEndpointsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the <code>AppInstanceUserEndpoints</code> created under a single <code>AppInstanceUser</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +49,17 @@ export interface ListAppInstanceUserEndpointsCommandOutput
  * import { ChimeSDKIdentityClient, ListAppInstanceUserEndpointsCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, ListAppInstanceUserEndpointsCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = { // ListAppInstanceUserEndpointsRequest
+ *   AppInstanceUserArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAppInstanceUserEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppInstanceUserEndpointsCommandInput - {@link ListAppInstanceUserEndpointsCommandInput}
+ * @returns {@link ListAppInstanceUserEndpointsCommandOutput}
  * @see {@link ListAppInstanceUserEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListAppInstanceUserEndpointsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -89,6 +101,9 @@ export class ListAppInstanceUserEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppInstanceUserEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,15 +143,21 @@ export class ListAppInstanceUserEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppInstanceUserEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppInstanceUserEndpointsCommand(input, context);
+    return se_ListAppInstanceUserEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAppInstanceUserEndpointsCommandOutput> {
-    return deserializeAws_restJson1ListAppInstanceUserEndpointsCommand(output, context);
+    return de_ListAppInstanceUserEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  DeleteWorkGroupInput,
-  DeleteWorkGroupInputFilterSensitiveLog,
-  DeleteWorkGroupOutput,
-  DeleteWorkGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWorkGroupCommand,
-  serializeAws_json1_1DeleteWorkGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteWorkGroupInput, DeleteWorkGroupOutput } from "../models/models_0";
+import { de_DeleteWorkGroupCommand, se_DeleteWorkGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkGroupCommand}.
  */
 export interface DeleteWorkGroupCommandInput extends DeleteWorkGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkGroupCommand}.
  */
 export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the workgroup with the specified name. The primary workgroup cannot be
  *             deleted.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __M
  * import { AthenaClient, DeleteWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeleteWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // DeleteWorkGroupInput
+ *   WorkGroup: "STRING_VALUE", // required
+ *   RecursiveDeleteOption: true || false,
+ * };
  * const command = new DeleteWorkGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkGroupCommandInput - {@link DeleteWorkGroupCommandInput}
+ * @returns {@link DeleteWorkGroupCommandOutput}
  * @see {@link DeleteWorkGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkGroupCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -78,6 +81,9 @@ export class DeleteWorkGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class DeleteWorkGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class DeleteWorkGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWorkGroupCommand(input, context);
+    return se_DeleteWorkGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteWorkGroupCommand(output, context);
+    return de_DeleteWorkGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

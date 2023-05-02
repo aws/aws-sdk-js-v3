@@ -18,24 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  SignUpRequest,
-  SignUpRequestFilterSensitiveLog,
-  SignUpResponse,
-  SignUpResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_json1_1SignUpCommand, serializeAws_json1_1SignUpCommand } from "../protocols/Aws_json1_1";
+import { SignUpRequest, SignUpRequestFilterSensitiveLog, SignUpResponse } from "../models/models_1";
+import { de_SignUpCommand, se_SignUpCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SignUpCommand}.
  */
 export interface SignUpCommandInput extends SignUpRequest {}
 /**
+ * @public
+ *
  * The output of {@link SignUpCommand}.
  */
 export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers the user in the specified user pool and creates a user name, password, and
  *             user attributes.</p>
  *
@@ -62,10 +62,40 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * import { CognitoIdentityProviderClient, SignUpCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SignUpCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // SignUpRequest
+ *   ClientId: "STRING_VALUE", // required
+ *   SecretHash: "STRING_VALUE",
+ *   Username: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ *   UserAttributes: [ // AttributeListType
+ *     { // AttributeType
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ValidationData: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
+ *     AnalyticsEndpointId: "STRING_VALUE",
+ *   },
+ *   UserContextData: { // UserContextDataType
+ *     IpAddress: "STRING_VALUE",
+ *     EncodedData: "STRING_VALUE",
+ *   },
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new SignUpCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SignUpCommandInput - {@link SignUpCommandInput}
+ * @returns {@link SignUpCommandOutput}
  * @see {@link SignUpCommandInput} for command's `input` shape.
  * @see {@link SignUpCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -146,6 +176,9 @@ export class SignUpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SignUpCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,7 +206,7 @@ export class SignUpCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SignUpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SignUpResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -183,12 +216,18 @@ export class SignUpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SignUpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SignUpCommand(input, context);
+    return se_SignUpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignUpCommandOutput> {
-    return deserializeAws_json1_1SignUpCommand(output, context);
+    return de_SignUpCommand(output, context);
   }
 
   // Start section: command_body_extra

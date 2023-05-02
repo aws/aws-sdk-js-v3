@@ -15,21 +15,23 @@ import {
 
 import {
   CreateSimulationApplicationVersionRequest,
-  CreateSimulationApplicationVersionRequestFilterSensitiveLog,
   CreateSimulationApplicationVersionResponse,
-  CreateSimulationApplicationVersionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateSimulationApplicationVersionCommand,
-  serializeAws_restJson1CreateSimulationApplicationVersionCommand,
+  de_CreateSimulationApplicationVersionCommand,
+  se_CreateSimulationApplicationVersionCommand,
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSimulationApplicationVersionCommand}.
  */
 export interface CreateSimulationApplicationVersionCommandInput extends CreateSimulationApplicationVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSimulationApplicationVersionCommand}.
  */
 export interface CreateSimulationApplicationVersionCommandOutput
@@ -37,6 +39,7 @@ export interface CreateSimulationApplicationVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a simulation application with a specific revision id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,20 @@ export interface CreateSimulationApplicationVersionCommandOutput
  * import { RoboMakerClient, CreateSimulationApplicationVersionCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateSimulationApplicationVersionCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // CreateSimulationApplicationVersionRequest
+ *   application: "STRING_VALUE", // required
+ *   currentRevisionId: "STRING_VALUE",
+ *   s3Etags: [ // S3Etags
+ *     "STRING_VALUE",
+ *   ],
+ *   imageDigest: "STRING_VALUE",
+ * };
  * const command = new CreateSimulationApplicationVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSimulationApplicationVersionCommandInput - {@link CreateSimulationApplicationVersionCommandInput}
+ * @returns {@link CreateSimulationApplicationVersionCommandOutput}
  * @see {@link CreateSimulationApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateSimulationApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -89,6 +102,9 @@ export class CreateSimulationApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSimulationApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +133,8 @@ export class CreateSimulationApplicationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSimulationApplicationVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSimulationApplicationVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +144,24 @@ export class CreateSimulationApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateSimulationApplicationVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSimulationApplicationVersionCommand(input, context);
+    return se_CreateSimulationApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSimulationApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1CreateSimulationApplicationVersionCommand(output, context);
+    return de_CreateSimulationApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

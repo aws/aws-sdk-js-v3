@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutAppReplicationConfigurationRequest, PutAppReplicationConfigurationResponse } from "../models/models_0";
 import {
-  PutAppReplicationConfigurationRequest,
-  PutAppReplicationConfigurationRequestFilterSensitiveLog,
-  PutAppReplicationConfigurationResponse,
-  PutAppReplicationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAppReplicationConfigurationCommand,
-  serializeAws_json1_1PutAppReplicationConfigurationCommand,
+  de_PutAppReplicationConfigurationCommand,
+  se_PutAppReplicationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutAppReplicationConfigurationCommand}.
  */
 export interface PutAppReplicationConfigurationCommandInput extends PutAppReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAppReplicationConfigurationCommand}.
  */
 export interface PutAppReplicationConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface PutAppReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the replication configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,49 @@ export interface PutAppReplicationConfigurationCommandOutput
  * import { SMSClient, PutAppReplicationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, PutAppReplicationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // PutAppReplicationConfigurationRequest
+ *   appId: "STRING_VALUE",
+ *   serverGroupReplicationConfigurations: [ // ServerGroupReplicationConfigurations
+ *     { // ServerGroupReplicationConfiguration
+ *       serverGroupId: "STRING_VALUE",
+ *       serverReplicationConfigurations: [ // ServerReplicationConfigurations
+ *         { // ServerReplicationConfiguration
+ *           server: { // Server
+ *             serverId: "STRING_VALUE",
+ *             serverType: "VIRTUAL_MACHINE",
+ *             vmServer: { // VmServer
+ *               vmServerAddress: { // VmServerAddress
+ *                 vmManagerId: "STRING_VALUE",
+ *                 vmId: "STRING_VALUE",
+ *               },
+ *               vmName: "STRING_VALUE",
+ *               vmManagerName: "STRING_VALUE",
+ *               vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
+ *               vmPath: "STRING_VALUE",
+ *             },
+ *             replicationJobId: "STRING_VALUE",
+ *             replicationJobTerminated: true || false,
+ *           },
+ *           serverReplicationParameters: { // ServerReplicationParameters
+ *             seedTime: new Date("TIMESTAMP"),
+ *             frequency: Number("int"),
+ *             runOnce: true || false,
+ *             licenseType: "AWS" || "BYOL",
+ *             numberOfRecentAmisToKeep: Number("int"),
+ *             encrypted: true || false,
+ *             kmsKeyId: "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutAppReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAppReplicationConfigurationCommandInput - {@link PutAppReplicationConfigurationCommandInput}
+ * @returns {@link PutAppReplicationConfigurationCommandOutput}
  * @see {@link PutAppReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAppReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -87,6 +126,9 @@ export class PutAppReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAppReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +157,8 @@ export class PutAppReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAppReplicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAppReplicationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +168,24 @@ export class PutAppReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutAppReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAppReplicationConfigurationCommand(input, context);
+    return se_PutAppReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAppReplicationConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutAppReplicationConfigurationCommand(output, context);
+    return de_PutAppReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,21 +20,23 @@ import {
   UpdateCustomLineItemOutput,
   UpdateCustomLineItemOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateCustomLineItemCommand,
-  serializeAws_restJson1UpdateCustomLineItemCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateCustomLineItemCommand, se_UpdateCustomLineItemCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCustomLineItemCommand}.
  */
 export interface UpdateCustomLineItemCommandInput extends UpdateCustomLineItemInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCustomLineItemCommand}.
  */
 export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Update an existing custom line item in the current or previous billing period.
  *     </p>
@@ -44,10 +46,29 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * import { BillingconductorClient, UpdateCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, UpdateCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // UpdateCustomLineItemInput
+ *   Arn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ChargeDetails: { // UpdateCustomLineItemChargeDetails
+ *     Flat: { // UpdateCustomLineItemFlatChargeDetails
+ *       ChargeValue: Number("double"), // required
+ *     },
+ *     Percentage: { // UpdateCustomLineItemPercentageChargeDetails
+ *       PercentageValue: Number("double"), // required
+ *     },
+ *   },
+ *   BillingPeriodRange: { // CustomLineItemBillingPeriodRange
+ *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
+ *     ExclusiveEndBillingPeriod: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateCustomLineItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCustomLineItemCommandInput - {@link UpdateCustomLineItemCommandInput}
+ * @returns {@link UpdateCustomLineItemCommandOutput}
  * @see {@link UpdateCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -90,6 +111,9 @@ export class UpdateCustomLineItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCustomLineItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,12 +153,18 @@ export class UpdateCustomLineItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCustomLineItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCustomLineItemCommand(input, context);
+    return se_UpdateCustomLineItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCustomLineItemCommandOutput> {
-    return deserializeAws_restJson1UpdateCustomLineItemCommand(output, context);
+    return de_UpdateCustomLineItemCommand(output, context);
   }
 
   // Start section: command_body_extra

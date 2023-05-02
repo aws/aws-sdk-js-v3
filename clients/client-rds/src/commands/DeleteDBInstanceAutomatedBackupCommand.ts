@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteDBInstanceAutomatedBackupMessage, DeleteDBInstanceAutomatedBackupResult } from "../models/models_0";
 import {
-  DeleteDBInstanceAutomatedBackupMessage,
-  DeleteDBInstanceAutomatedBackupMessageFilterSensitiveLog,
-  DeleteDBInstanceAutomatedBackupResult,
-  DeleteDBInstanceAutomatedBackupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBInstanceAutomatedBackupCommand,
-  serializeAws_queryDeleteDBInstanceAutomatedBackupCommand,
+  de_DeleteDBInstanceAutomatedBackupCommand,
+  se_DeleteDBInstanceAutomatedBackupCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBInstanceAutomatedBackupCommand}.
  */
 export interface DeleteDBInstanceAutomatedBackupCommandInput extends DeleteDBInstanceAutomatedBackupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBInstanceAutomatedBackupCommand}.
  */
 export interface DeleteDBInstanceAutomatedBackupCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes automated backups using the <code>DbiResourceId</code> value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  * import { RDSClient, DeleteDBInstanceAutomatedBackupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBInstanceAutomatedBackupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteDBInstanceAutomatedBackupMessage
+ *   DbiResourceId: "STRING_VALUE",
+ *   DBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ * };
  * const command = new DeleteDBInstanceAutomatedBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBInstanceAutomatedBackupCommandInput - {@link DeleteDBInstanceAutomatedBackupCommandInput}
+ * @returns {@link DeleteDBInstanceAutomatedBackupCommandOutput}
  * @see {@link DeleteDBInstanceAutomatedBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBInstanceAutomatedBackupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -59,6 +65,44 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  *  <p>The automated backup is in an invalid state.
  *             For example, this automated backup is associated with an active instance.</p>
  *
+ *
+ * @example To delete a replicated automated backup from a Region
+ * ```javascript
+ * // The following example deletes the automated backup with the specified Amazon Resource Name (ARN).
+ * const input = {
+ *   "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example"
+ * };
+ * const command = new DeleteDBInstanceAutomatedBackupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstanceAutomatedBackup": {
+ *     "AllocatedStorage": 20,
+ *     "AvailabilityZone": "us-east-1b",
+ *     "BackupRetentionPeriod": 7,
+ *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db",
+ *     "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example",
+ *     "DBInstanceIdentifier": "new-orcl-db",
+ *     "DbiResourceId": "db-JKIB2GFQ5RV7REPLZA4EXAMPLE",
+ *     "Encrypted": false,
+ *     "Engine": "oracle-se2",
+ *     "EngineVersion": "12.1.0.2.v21",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "InstanceCreateTime": "2020-12-04T15:28:31Z",
+ *     "LicenseModel": "bring-your-own-license",
+ *     "MasterUsername": "admin",
+ *     "OptionGroupName": "default:oracle-se2-12-1",
+ *     "Port": 1521,
+ *     "Region": "us-east-1",
+ *     "RestoreWindow": {},
+ *     "Status": "deleting",
+ *     "StorageType": "gp2",
+ *     "VpcId": "vpc-########"
+ *   }
+ * }
+ * *\/
+ * // example id: to-delete-a-replicated-automated-backup-from-a-region-1679963187406
+ * ```
  *
  */
 export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
@@ -78,6 +122,9 @@ export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBInstanceAutomatedBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +153,8 @@ export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBInstanceAutomatedBackupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBInstanceAutomatedBackupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +164,24 @@ export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDBInstanceAutomatedBackupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBInstanceAutomatedBackupCommand(input, context);
+    return se_DeleteDBInstanceAutomatedBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDBInstanceAutomatedBackupCommandOutput> {
-    return deserializeAws_queryDeleteDBInstanceAutomatedBackupCommand(output, context);
+    return de_DeleteDBInstanceAutomatedBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

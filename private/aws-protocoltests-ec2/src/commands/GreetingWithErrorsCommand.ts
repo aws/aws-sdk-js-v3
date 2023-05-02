@@ -13,22 +13,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { GreetingWithErrorsOutput, GreetingWithErrorsOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_ec2GreetingWithErrorsCommand,
-  serializeAws_ec2GreetingWithErrorsCommand,
-} from "../protocols/Aws_ec2";
+import { GreetingWithErrorsOutput } from "../models/models_0";
+import { de_GreetingWithErrorsCommand, se_GreetingWithErrorsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GreetingWithErrorsCommand}.
  */
 export interface GreetingWithErrorsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GreetingWithErrorsCommand}.
  */
 export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This operation has three possible return values:
  *
  * 1. A successful response in the form of GreetingWithErrorsOutput
@@ -40,10 +42,13 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * import { EC2ProtocolClient, GreetingWithErrorsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, GreetingWithErrorsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
+ * const input = {};
  * const command = new GreetingWithErrorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GreetingWithErrorsCommandInput - {@link GreetingWithErrorsCommandInput}
+ * @returns {@link GreetingWithErrorsCommandOutput}
  * @see {@link GreetingWithErrorsCommandInput} for command's `input` shape.
  * @see {@link GreetingWithErrorsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
@@ -64,6 +69,9 @@ export class GreetingWithErrorsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: GreetingWithErrorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +97,8 @@ export class GreetingWithErrorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GreetingWithErrorsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +108,18 @@ export class GreetingWithErrorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GreetingWithErrorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GreetingWithErrorsCommand(input, context);
+    return se_GreetingWithErrorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GreetingWithErrorsCommandOutput> {
-    return deserializeAws_ec2GreetingWithErrorsCommand(output, context);
+    return de_GreetingWithErrorsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListAttachedIndicesRequest,
-  ListAttachedIndicesRequestFilterSensitiveLog,
-  ListAttachedIndicesResponse,
-  ListAttachedIndicesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAttachedIndicesCommand,
-  serializeAws_restJson1ListAttachedIndicesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAttachedIndicesRequest, ListAttachedIndicesResponse } from "../models/models_0";
+import { de_ListAttachedIndicesCommand, se_ListAttachedIndicesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttachedIndicesCommand}.
  */
 export interface ListAttachedIndicesCommandInput extends ListAttachedIndicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttachedIndicesCommand}.
  */
 export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists indices attached to the specified object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesRes
  * import { CloudDirectoryClient, ListAttachedIndicesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListAttachedIndicesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListAttachedIndicesRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   TargetReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ * };
  * const command = new ListAttachedIndicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttachedIndicesCommandInput - {@link ListAttachedIndicesCommandInput}
+ * @returns {@link ListAttachedIndicesCommandOutput}
  * @see {@link ListAttachedIndicesCommandInput} for command's `input` shape.
  * @see {@link ListAttachedIndicesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -94,6 +102,9 @@ export class ListAttachedIndicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttachedIndicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +133,8 @@ export class ListAttachedIndicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttachedIndicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAttachedIndicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +144,18 @@ export class ListAttachedIndicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttachedIndicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAttachedIndicesCommand(input, context);
+    return se_ListAttachedIndicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttachedIndicesCommandOutput> {
-    return deserializeAws_restJson1ListAttachedIndicesCommand(output, context);
+    return de_ListAttachedIndicesCommand(output, context);
   }
 
   // Start section: command_body_extra

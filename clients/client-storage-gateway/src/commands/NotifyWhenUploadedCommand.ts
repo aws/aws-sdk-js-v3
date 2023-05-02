@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  NotifyWhenUploadedInput,
-  NotifyWhenUploadedInputFilterSensitiveLog,
-  NotifyWhenUploadedOutput,
-  NotifyWhenUploadedOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1NotifyWhenUploadedCommand,
-  serializeAws_json1_1NotifyWhenUploadedCommand,
-} from "../protocols/Aws_json1_1";
+import { NotifyWhenUploadedInput, NotifyWhenUploadedOutput } from "../models/models_0";
+import { de_NotifyWhenUploadedCommand, se_NotifyWhenUploadedCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link NotifyWhenUploadedCommand}.
  */
 export interface NotifyWhenUploadedCommandInput extends NotifyWhenUploadedInput {}
 /**
+ * @public
+ *
  * The output of {@link NotifyWhenUploadedCommand}.
  */
 export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends you notification through CloudWatch Events when all files written to your file
  *          share have been uploaded to S3. Amazon S3.</p>
  *
@@ -54,10 +51,15 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  * import { StorageGatewayClient, NotifyWhenUploadedCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, NotifyWhenUploadedCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // NotifyWhenUploadedInput
+ *   FileShareARN: "STRING_VALUE", // required
+ * };
  * const command = new NotifyWhenUploadedCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param NotifyWhenUploadedCommandInput - {@link NotifyWhenUploadedCommandInput}
+ * @returns {@link NotifyWhenUploadedCommandOutput}
  * @see {@link NotifyWhenUploadedCommandInput} for command's `input` shape.
  * @see {@link NotifyWhenUploadedCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -89,6 +91,9 @@ export class NotifyWhenUploadedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyWhenUploadedCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class NotifyWhenUploadedCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NotifyWhenUploadedInputFilterSensitiveLog,
-      outputFilterSensitiveLog: NotifyWhenUploadedOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class NotifyWhenUploadedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyWhenUploadedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1NotifyWhenUploadedCommand(input, context);
+    return se_NotifyWhenUploadedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyWhenUploadedCommandOutput> {
-    return deserializeAws_json1_1NotifyWhenUploadedCommand(output, context);
+    return de_NotifyWhenUploadedCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,21 +20,23 @@ import {
   UpdateUserResponse,
   UpdateUserResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateUserCommand,
-  serializeAws_restJson1UpdateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateUserCommand, se_UpdateUserCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserCommand}.
  */
 export interface UpdateUserCommandInput extends UpdateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserCommand}.
  */
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates user details for a specified user ID. Currently, only <code>LicenseType</code> updates are supported for this action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,22 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * import { ChimeClient, UpdateUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // UpdateUserRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ *   LicenseType: "Basic" || "Plus" || "Pro" || "ProTrial",
+ *   UserType: "PrivateUser" || "SharedDevice",
+ *   AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
+ *     IsAlexaForBusinessEnabled: true || false,
+ *     AlexaForBusinessRoomArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
+ * @returns {@link UpdateUserCommandOutput}
  * @see {@link UpdateUserCommandInput} for command's `input` shape.
  * @see {@link UpdateUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +104,9 @@ export class UpdateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,12 +144,18 @@ export class UpdateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserCommand(input, context);
+    return se_UpdateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserCommandOutput> {
-    return deserializeAws_restJson1UpdateUserCommand(output, context);
+    return de_UpdateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

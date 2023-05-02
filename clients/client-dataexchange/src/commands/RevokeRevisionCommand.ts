@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  RevokeRevisionRequest,
-  RevokeRevisionRequestFilterSensitiveLog,
-  RevokeRevisionResponse,
-  RevokeRevisionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RevokeRevisionCommand,
-  serializeAws_restJson1RevokeRevisionCommand,
-} from "../protocols/Aws_restJson1";
+import { RevokeRevisionRequest, RevokeRevisionResponse } from "../models/models_0";
+import { de_RevokeRevisionCommand, se_RevokeRevisionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeRevisionCommand}.
  */
 export interface RevokeRevisionCommandInput extends RevokeRevisionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeRevisionCommand}.
  */
 export interface RevokeRevisionCommandOutput extends RevokeRevisionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation revokes subscribers' access to a revision.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface RevokeRevisionCommandOutput extends RevokeRevisionResponse, __M
  * import { DataExchangeClient, RevokeRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, RevokeRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // RevokeRevisionRequest
+ *   DataSetId: "STRING_VALUE", // required
+ *   RevisionId: "STRING_VALUE", // required
+ *   RevocationComment: "STRING_VALUE", // required
+ * };
  * const command = new RevokeRevisionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeRevisionCommandInput - {@link RevokeRevisionCommandInput}
+ * @returns {@link RevokeRevisionCommandOutput}
  * @see {@link RevokeRevisionCommandInput} for command's `input` shape.
  * @see {@link RevokeRevisionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -87,6 +91,9 @@ export class RevokeRevisionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class RevokeRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeRevisionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeRevisionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class RevokeRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RevokeRevisionCommand(input, context);
+    return se_RevokeRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeRevisionCommandOutput> {
-    return deserializeAws_restJson1RevokeRevisionCommand(output, context);
+    return de_RevokeRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,22 +15,24 @@ import {
 
 import {
   DisableApplicationLayerAutomaticResponseRequest,
-  DisableApplicationLayerAutomaticResponseRequestFilterSensitiveLog,
   DisableApplicationLayerAutomaticResponseResponse,
-  DisableApplicationLayerAutomaticResponseResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisableApplicationLayerAutomaticResponseCommand,
-  serializeAws_json1_1DisableApplicationLayerAutomaticResponseCommand,
+  de_DisableApplicationLayerAutomaticResponseCommand,
+  se_DisableApplicationLayerAutomaticResponseCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableApplicationLayerAutomaticResponseCommand}.
  */
 export interface DisableApplicationLayerAutomaticResponseCommandInput
   extends DisableApplicationLayerAutomaticResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableApplicationLayerAutomaticResponseCommand}.
  */
 export interface DisableApplicationLayerAutomaticResponseCommandOutput
@@ -38,6 +40,7 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disable the Shield Advanced automatic application layer DDoS mitigation feature for the protected resource. This
  *        stops Shield Advanced from creating, verifying, and applying WAF rules for attacks that it detects for the resource. </p>
  * @example
@@ -46,10 +49,15 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput
  * import { ShieldClient, DisableApplicationLayerAutomaticResponseCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DisableApplicationLayerAutomaticResponseCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // DisableApplicationLayerAutomaticResponseRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DisableApplicationLayerAutomaticResponseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableApplicationLayerAutomaticResponseCommandInput - {@link DisableApplicationLayerAutomaticResponseCommandInput}
+ * @returns {@link DisableApplicationLayerAutomaticResponseCommandOutput}
  * @see {@link DisableApplicationLayerAutomaticResponseCommandInput} for command's `input` shape.
  * @see {@link DisableApplicationLayerAutomaticResponseCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -89,6 +97,9 @@ export class DisableApplicationLayerAutomaticResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableApplicationLayerAutomaticResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +134,8 @@ export class DisableApplicationLayerAutomaticResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableApplicationLayerAutomaticResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableApplicationLayerAutomaticResponseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +145,24 @@ export class DisableApplicationLayerAutomaticResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableApplicationLayerAutomaticResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableApplicationLayerAutomaticResponseCommand(input, context);
+    return se_DisableApplicationLayerAutomaticResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableApplicationLayerAutomaticResponseCommandOutput> {
-    return deserializeAws_json1_1DisableApplicationLayerAutomaticResponseCommand(output, context);
+    return de_DisableApplicationLayerAutomaticResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

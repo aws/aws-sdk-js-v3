@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CreateCertificateRequest,
-  CreateCertificateRequestFilterSensitiveLog,
-  CreateCertificateResult,
-  CreateCertificateResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCertificateCommand,
-  serializeAws_json1_1CreateCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateCertificateRequest, CreateCertificateResult } from "../models/models_0";
+import { de_CreateCertificateCommand, se_CreateCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCertificateCommand}.
  */
 export interface CreateCertificateCommandInput extends CreateCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCertificateCommand}.
  */
 export interface CreateCertificateCommandOutput extends CreateCertificateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an SSL/TLS certificate for an Amazon Lightsail content delivery network (CDN)
  *       distribution and a container service.</p>
  *          <p>After the certificate is valid, use the <code>AttachCertificateToDistribution</code>
@@ -54,10 +51,25 @@ export interface CreateCertificateCommandOutput extends CreateCertificateResult,
  * import { LightsailClient, CreateCertificateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateCertificateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateCertificateRequest
+ *   certificateName: "STRING_VALUE", // required
+ *   domainName: "STRING_VALUE", // required
+ *   subjectAlternativeNames: [ // SubjectAlternativeNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCertificateCommandInput - {@link CreateCertificateCommandInput}
+ * @returns {@link CreateCertificateCommandOutput}
  * @see {@link CreateCertificateCommandInput} for command's `input` shape.
  * @see {@link CreateCertificateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +116,9 @@ export class CreateCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +147,8 @@ export class CreateCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCertificateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +158,18 @@ export class CreateCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCertificateCommand(input, context);
+    return se_CreateCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCertificateCommandOutput> {
-    return deserializeAws_json1_1CreateCertificateCommand(output, context);
+    return de_CreateCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

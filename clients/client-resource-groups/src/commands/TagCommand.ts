@@ -13,20 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TagInput, TagInputFilterSensitiveLog, TagOutput, TagOutputFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_restJson1TagCommand, serializeAws_restJson1TagCommand } from "../protocols/Aws_restJson1";
+import { TagInput, TagOutput } from "../models/models_0";
+import { de_TagCommand, se_TagCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link TagCommand}.
  */
 export interface TagCommandInput extends TagInput {}
 /**
+ * @public
+ *
  * The output of {@link TagCommand}.
  */
 export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource
  *             group are not changed if they are not specified in the request parameters.</p>
  *          <important>
@@ -52,10 +57,18 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  * import { ResourceGroupsClient, TagCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, TagCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // TagInput
+ *   Arn: "STRING_VALUE", // required
+ *   Tags: { // Tags // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagCommandInput - {@link TagCommandInput}
+ * @returns {@link TagCommandOutput}
  * @see {@link TagCommandInput} for command's `input` shape.
  * @see {@link TagCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -94,6 +107,9 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +136,8 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TagOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +147,18 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagCommand(input, context);
+    return se_TagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagCommandOutput> {
-    return deserializeAws_restJson1TagCommand(output, context);
+    return de_TagCommand(output, context);
   }
 
   // Start section: command_body_extra

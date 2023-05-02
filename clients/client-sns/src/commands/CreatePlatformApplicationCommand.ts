@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePlatformApplicationInput,
-  CreatePlatformApplicationInputFilterSensitiveLog,
-  CreatePlatformApplicationResponse,
-  CreatePlatformApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreatePlatformApplicationCommand,
-  serializeAws_queryCreatePlatformApplicationCommand,
-} from "../protocols/Aws_query";
+import { CreatePlatformApplicationInput, CreatePlatformApplicationResponse } from "../models/models_0";
+import { de_CreatePlatformApplicationCommand, se_CreatePlatformApplicationCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePlatformApplicationCommand}.
  */
 export interface CreatePlatformApplicationCommandInput extends CreatePlatformApplicationInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePlatformApplicationCommand}.
  */
 export interface CreatePlatformApplicationCommandOutput extends CreatePlatformApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a platform application object for one of the supported push notification
  *             services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile
  *             apps may register. You must specify <code>PlatformPrincipal</code> and
@@ -86,10 +83,19 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  * import { SNSClient, CreatePlatformApplicationCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, CreatePlatformApplicationCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // CreatePlatformApplicationInput
+ *   Name: "STRING_VALUE", // required
+ *   Platform: "STRING_VALUE", // required
+ *   Attributes: { // MapStringToString // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePlatformApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlatformApplicationCommandInput - {@link CreatePlatformApplicationCommandInput}
+ * @returns {@link CreatePlatformApplicationCommandOutput}
  * @see {@link CreatePlatformApplicationCommandInput} for command's `input` shape.
  * @see {@link CreatePlatformApplicationCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -123,6 +129,9 @@ export class CreatePlatformApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlatformApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,8 +160,8 @@ export class CreatePlatformApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePlatformApplicationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePlatformApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,15 +171,21 @@ export class CreatePlatformApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlatformApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreatePlatformApplicationCommand(input, context);
+    return se_CreatePlatformApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePlatformApplicationCommandOutput> {
-    return deserializeAws_queryCreatePlatformApplicationCommand(output, context);
+    return de_CreatePlatformApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

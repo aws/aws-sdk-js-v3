@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  StartLaunchRequest,
-  StartLaunchRequestFilterSensitiveLog,
-  StartLaunchResponse,
-  StartLaunchResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartLaunchCommand,
-  serializeAws_restJson1StartLaunchCommand,
-} from "../protocols/Aws_restJson1";
+import { StartLaunchRequest, StartLaunchResponse } from "../models/models_0";
+import { de_StartLaunchCommand, se_StartLaunchCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartLaunchCommand}.
  */
 export interface StartLaunchCommandInput extends StartLaunchRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartLaunchCommand}.
  */
 export interface StartLaunchCommandOutput extends StartLaunchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an existing launch. To create a launch,
  *        use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateLaunch.html">CreateLaunch</a>.</p>
  * @example
@@ -43,10 +40,16 @@ export interface StartLaunchCommandOutput extends StartLaunchResponse, __Metadat
  * import { EvidentlyClient, StartLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, StartLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // StartLaunchRequest
+ *   project: "STRING_VALUE", // required
+ *   launch: "STRING_VALUE", // required
+ * };
  * const command = new StartLaunchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartLaunchCommandInput - {@link StartLaunchCommandInput}
+ * @returns {@link StartLaunchCommandOutput}
  * @see {@link StartLaunchCommandInput} for command's `input` shape.
  * @see {@link StartLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -88,6 +91,9 @@ export class StartLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class StartLaunchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartLaunchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartLaunchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class StartLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartLaunchCommand(input, context);
+    return se_StartLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartLaunchCommandOutput> {
-    return deserializeAws_restJson1StartLaunchCommand(output, context);
+    return de_StartLaunchCommand(output, context);
   }
 
   // Start section: command_body_extra

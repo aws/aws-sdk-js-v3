@@ -17,24 +17,25 @@ import {
   RegisterApplicationInput,
   RegisterApplicationInputFilterSensitiveLog,
   RegisterApplicationOutput,
-  RegisterApplicationOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterApplicationCommand,
-  serializeAws_restJson1RegisterApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RegisterApplicationCommand, se_RegisterApplicationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterApplicationCommand}.
  */
 export interface RegisterApplicationCommandInput extends RegisterApplicationInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterApplicationCommand}.
  */
 export interface RegisterApplicationCommandOutput extends RegisterApplicationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Register an SAP application with AWS Systems Manager for SAP. You must meet the
  *          following requirements before registering. </p>
  *          <p>The SAP application you want to register with AWS Systems Manager for SAP is running
@@ -49,10 +50,31 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * import { SsmSapClient, RegisterApplicationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, RegisterApplicationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // RegisterApplicationInput
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationType: "STRING_VALUE", // required
+ *   Instances: [ // InstanceList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   SapInstanceNumber: "STRING_VALUE",
+ *   Sid: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Credentials: [ // ApplicationCredentialList // required
+ *     { // ApplicationCredential
+ *       DatabaseName: "STRING_VALUE", // required
+ *       CredentialType: "STRING_VALUE", // required
+ *       SecretId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new RegisterApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterApplicationCommandInput - {@link RegisterApplicationCommandInput}
+ * @returns {@link RegisterApplicationCommandOutput}
  * @see {@link RegisterApplicationCommandInput} for command's `input` shape.
  * @see {@link RegisterApplicationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -85,6 +107,9 @@ export class RegisterApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,7 +139,7 @@ export class RegisterApplicationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RegisterApplicationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterApplicationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +149,18 @@ export class RegisterApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterApplicationCommand(input, context);
+    return se_RegisterApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterApplicationCommandOutput> {
-    return deserializeAws_restJson1RegisterApplicationCommand(output, context);
+    return de_RegisterApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

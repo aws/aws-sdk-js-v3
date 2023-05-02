@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeDefaultClusterParametersMessage, DescribeDefaultClusterParametersResult } from "../models/models_0";
 import {
-  DescribeDefaultClusterParametersMessage,
-  DescribeDefaultClusterParametersMessageFilterSensitiveLog,
-  DescribeDefaultClusterParametersResult,
-  DescribeDefaultClusterParametersResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDefaultClusterParametersCommand,
-  serializeAws_queryDescribeDefaultClusterParametersCommand,
+  de_DescribeDefaultClusterParametersCommand,
+  se_DescribeDefaultClusterParametersCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDefaultClusterParametersCommand}.
  */
 export interface DescribeDefaultClusterParametersCommandInput extends DescribeDefaultClusterParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDefaultClusterParametersCommand}.
  */
 export interface DescribeDefaultClusterParametersCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeDefaultClusterParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of parameter settings for the specified parameter group
  *             family.</p>
  *          <p>
@@ -49,10 +49,17 @@ export interface DescribeDefaultClusterParametersCommandOutput
  * import { RedshiftClient, DescribeDefaultClusterParametersCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeDefaultClusterParametersCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeDefaultClusterParametersMessage
+ *   ParameterGroupFamily: "STRING_VALUE", // required
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDefaultClusterParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDefaultClusterParametersCommandInput - {@link DescribeDefaultClusterParametersCommandInput}
+ * @returns {@link DescribeDefaultClusterParametersCommandOutput}
  * @see {@link DescribeDefaultClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDefaultClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDefaultClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +114,8 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDefaultClusterParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDefaultClusterParametersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,18 +125,24 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDefaultClusterParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDefaultClusterParametersCommand(input, context);
+    return se_DescribeDefaultClusterParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDefaultClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeDefaultClusterParametersCommand(output, context);
+    return de_DescribeDefaultClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

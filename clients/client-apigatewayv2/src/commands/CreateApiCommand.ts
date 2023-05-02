@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  CreateApiRequest,
-  CreateApiRequestFilterSensitiveLog,
-  CreateApiResponse,
-  CreateApiResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateApiCommand,
-  serializeAws_restJson1CreateApiCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateApiRequest, CreateApiResponse } from "../models/models_0";
+import { de_CreateApiCommand, se_CreateApiCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApiCommand}.
  */
 export interface CreateApiCommandInput extends CreateApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApiCommand}.
  */
 export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Api resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,44 @@ export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBea
  * import { ApiGatewayV2Client, CreateApiCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateApiCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // CreateApiRequest
+ *   ApiKeySelectionExpression: "STRING_VALUE",
+ *   CorsConfiguration: { // Cors
+ *     AllowCredentials: true || false,
+ *     AllowHeaders: [ // CorsHeaderList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowMethods: [ // CorsMethodList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowOrigins: [ // CorsOriginList
+ *       "STRING_VALUE",
+ *     ],
+ *     ExposeHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     MaxAge: Number("int"),
+ *   },
+ *   CredentialsArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DisableSchemaValidation: true || false,
+ *   DisableExecuteApiEndpoint: true || false,
+ *   Name: "STRING_VALUE", // required
+ *   ProtocolType: "STRING_VALUE", // required
+ *   RouteKey: "STRING_VALUE",
+ *   RouteSelectionExpression: "STRING_VALUE",
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Target: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new CreateApiCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApiCommandInput - {@link CreateApiCommandInput}
+ * @returns {@link CreateApiCommandOutput}
  * @see {@link CreateApiCommandInput} for command's `input` shape.
  * @see {@link CreateApiCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +112,9 @@ export class CreateApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +141,8 @@ export class CreateApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +152,18 @@ export class CreateApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApiCommand(input, context);
+    return se_CreateApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiCommandOutput> {
-    return deserializeAws_restJson1CreateApiCommand(output, context);
+    return de_CreateApiCommand(output, context);
   }
 
   // Start section: command_body_extra

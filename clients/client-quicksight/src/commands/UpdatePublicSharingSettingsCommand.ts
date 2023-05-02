@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdatePublicSharingSettingsRequest, UpdatePublicSharingSettingsResponse } from "../models/models_3";
 import {
-  UpdatePublicSharingSettingsRequest,
-  UpdatePublicSharingSettingsRequestFilterSensitiveLog,
-  UpdatePublicSharingSettingsResponse,
-  UpdatePublicSharingSettingsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdatePublicSharingSettingsCommand,
-  serializeAws_restJson1UpdatePublicSharingSettingsCommand,
+  de_UpdatePublicSharingSettingsCommand,
+  se_UpdatePublicSharingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePublicSharingSettingsCommand}.
  */
 export interface UpdatePublicSharingSettingsCommandInput extends UpdatePublicSharingSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePublicSharingSettingsCommand}.
  */
 export interface UpdatePublicSharingSettingsCommandOutput
@@ -37,6 +36,7 @@ export interface UpdatePublicSharingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the <code>UpdatePublicSharingSettings</code> operation to turn on or turn off the
  *             public sharing settings of an Amazon QuickSight dashboard.</p>
  *          <p>To use this operation, turn on session capacity pricing for your Amazon QuickSight
@@ -52,10 +52,16 @@ export interface UpdatePublicSharingSettingsCommandOutput
  * import { QuickSightClient, UpdatePublicSharingSettingsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdatePublicSharingSettingsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // UpdatePublicSharingSettingsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   PublicSharingEnabled: true || false,
+ * };
  * const command = new UpdatePublicSharingSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePublicSharingSettingsCommandInput - {@link UpdatePublicSharingSettingsCommandInput}
+ * @returns {@link UpdatePublicSharingSettingsCommandOutput}
  * @see {@link UpdatePublicSharingSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdatePublicSharingSettingsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -108,6 +114,9 @@ export class UpdatePublicSharingSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePublicSharingSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +145,8 @@ export class UpdatePublicSharingSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePublicSharingSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePublicSharingSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,15 +156,21 @@ export class UpdatePublicSharingSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePublicSharingSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePublicSharingSettingsCommand(input, context);
+    return se_UpdatePublicSharingSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePublicSharingSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdatePublicSharingSettingsCommand(output, context);
+    return de_UpdatePublicSharingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

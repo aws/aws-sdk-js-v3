@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateClusterRequest,
-  UpdateClusterRequestFilterSensitiveLog,
-  UpdateClusterResult,
-  UpdateClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateClusterCommand,
-  serializeAws_json1_1UpdateClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateClusterRequest, UpdateClusterResult } from "../models/models_0";
+import { de_UpdateClusterCommand, se_UpdateClusterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClusterCommand}.
  */
 export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClusterCommand}.
  */
 export interface UpdateClusterCommandOutput extends UpdateClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>While a cluster's <code>ClusterState</code> value is in the <code>AwaitingQuorum</code>
  *       state, you can update some of the information associated with a cluster. Once the cluster
  *       changes to a different job state, usually 60 minutes after the cluster being created, this
@@ -45,16 +42,86 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  * import { SnowballClient, UpdateClusterCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, UpdateClusterCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // UpdateClusterRequest
+ *   ClusterId: "STRING_VALUE", // required
+ *   RoleARN: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Resources: { // JobResource
+ *     S3Resources: [ // S3ResourceList
+ *       { // S3Resource
+ *         BucketArn: "STRING_VALUE",
+ *         KeyRange: { // KeyRange
+ *           BeginMarker: "STRING_VALUE",
+ *           EndMarker: "STRING_VALUE",
+ *         },
+ *         TargetOnDeviceServices: [ // TargetOnDeviceServiceList
+ *           { // TargetOnDeviceService
+ *             ServiceName: "NFS_ON_DEVICE_SERVICE" || "S3_ON_DEVICE_SERVICE",
+ *             TransferOption: "IMPORT" || "EXPORT" || "LOCAL_USE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     LambdaResources: [ // LambdaResourceList
+ *       { // LambdaResource
+ *         LambdaArn: "STRING_VALUE",
+ *         EventTriggers: [ // EventTriggerDefinitionList
+ *           { // EventTriggerDefinition
+ *             EventResourceARN: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Ec2AmiResources: [ // Ec2AmiResourceList
+ *       { // Ec2AmiResource
+ *         AmiId: "STRING_VALUE", // required
+ *         SnowballAmiId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   OnDeviceServiceConfiguration: { // OnDeviceServiceConfiguration
+ *     NFSOnDeviceService: { // NFSOnDeviceServiceConfiguration
+ *       StorageLimit: Number("int"),
+ *       StorageUnit: "TB",
+ *     },
+ *     TGWOnDeviceService: { // TGWOnDeviceServiceConfiguration
+ *       StorageLimit: Number("int"),
+ *       StorageUnit: "TB",
+ *     },
+ *     EKSOnDeviceService: { // EKSOnDeviceServiceConfiguration
+ *       KubernetesVersion: "STRING_VALUE",
+ *       EKSAnywhereVersion: "STRING_VALUE",
+ *     },
+ *     S3OnDeviceService: { // S3OnDeviceServiceConfiguration
+ *       StorageLimit: Number("double"),
+ *       StorageUnit: "TB",
+ *       ServiceSize: Number("int"),
+ *       FaultTolerance: Number("int"),
+ *     },
+ *   },
+ *   AddressId: "STRING_VALUE",
+ *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD",
+ *   Notification: { // Notification
+ *     SnsTopicARN: "STRING_VALUE",
+ *     JobStatesToNotify: [ // JobStateList
+ *       "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
+ *     ],
+ *     NotifyAll: true || false,
+ *   },
+ *   ForwardingAddressId: "STRING_VALUE",
+ * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
+ * @returns {@link UpdateClusterCommandOutput}
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
  *       action.</p>
  *
  * @throws {@link InvalidInputCombinationException} (client fault)
@@ -104,6 +171,9 @@ export class UpdateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +200,8 @@ export class UpdateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +211,18 @@ export class UpdateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateClusterCommand(input, context);
+    return se_UpdateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterCommandOutput> {
-    return deserializeAws_json1_1UpdateClusterCommand(output, context);
+    return de_UpdateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

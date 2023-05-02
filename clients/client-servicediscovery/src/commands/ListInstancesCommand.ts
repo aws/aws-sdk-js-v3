@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListInstancesRequest,
-  ListInstancesRequestFilterSensitiveLog,
-  ListInstancesResponse,
-  ListInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListInstancesCommand,
-  serializeAws_json1_1ListInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListInstancesRequest, ListInstancesResponse } from "../models/models_0";
+import { de_ListInstancesCommand, se_ListInstancesCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstancesCommand}.
  */
 export interface ListInstancesCommandInput extends ListInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstancesCommand}.
  */
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists summary information about the instances that you registered by using a specified
  *    service.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * import { ServiceDiscoveryClient, ListInstancesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, ListInstancesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // ListInstancesRequest
+ *   ServiceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
+ * @returns {@link ListInstancesCommandOutput}
  * @see {@link ListInstancesCommandInput} for command's `input` shape.
  * @see {@link ListInstancesCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -55,11 +59,6 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
  *    numeric value might be outside the allowed range, or a string value might exceed length
  *    constraints.</p>
- *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
  *
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
@@ -107,6 +106,9 @@ export class ListInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +135,8 @@ export class ListInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +146,18 @@ export class ListInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListInstancesCommand(input, context);
+    return se_ListInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstancesCommandOutput> {
-    return deserializeAws_json1_1ListInstancesCommand(output, context);
+    return de_ListInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

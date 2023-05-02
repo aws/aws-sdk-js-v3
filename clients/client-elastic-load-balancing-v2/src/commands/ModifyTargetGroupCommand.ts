@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  ModifyTargetGroupInput,
-  ModifyTargetGroupInputFilterSensitiveLog,
-  ModifyTargetGroupOutput,
-  ModifyTargetGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyTargetGroupCommand,
-  serializeAws_queryModifyTargetGroupCommand,
-} from "../protocols/Aws_query";
+import { ModifyTargetGroupInput, ModifyTargetGroupOutput } from "../models/models_0";
+import { de_ModifyTargetGroupCommand, se_ModifyTargetGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyTargetGroupCommand}.
  */
 export interface ModifyTargetGroupCommandInput extends ModifyTargetGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link ModifyTargetGroupCommand}.
  */
 export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the health checks used when evaluating the health state of the targets in the
  *       specified target group.</p>
  * @example
@@ -47,10 +44,27 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * import { ElasticLoadBalancingV2Client, ModifyTargetGroupCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyTargetGroupCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // ModifyTargetGroupInput
+ *   TargetGroupArn: "STRING_VALUE", // required
+ *   HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ *   HealthCheckPort: "STRING_VALUE",
+ *   HealthCheckPath: "STRING_VALUE",
+ *   HealthCheckEnabled: true || false,
+ *   HealthCheckIntervalSeconds: Number("int"),
+ *   HealthCheckTimeoutSeconds: Number("int"),
+ *   HealthyThresholdCount: Number("int"),
+ *   UnhealthyThresholdCount: Number("int"),
+ *   Matcher: { // Matcher
+ *     HttpCode: "STRING_VALUE",
+ *     GrpcCode: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ModifyTargetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTargetGroupCommandInput - {@link ModifyTargetGroupCommandInput}
+ * @returns {@link ModifyTargetGroupCommandOutput}
  * @see {@link ModifyTargetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -118,6 +132,9 @@ export class ModifyTargetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTargetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +163,8 @@ export class ModifyTargetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyTargetGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyTargetGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +174,18 @@ export class ModifyTargetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyTargetGroupCommand(input, context);
+    return se_ModifyTargetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyTargetGroupCommandOutput> {
-    return deserializeAws_queryModifyTargetGroupCommand(output, context);
+    return de_ModifyTargetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

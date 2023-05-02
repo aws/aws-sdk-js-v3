@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  ListAnomalousLogGroupsRequest,
-  ListAnomalousLogGroupsRequestFilterSensitiveLog,
-  ListAnomalousLogGroupsResponse,
-  ListAnomalousLogGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAnomalousLogGroupsCommand,
-  serializeAws_restJson1ListAnomalousLogGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAnomalousLogGroupsRequest, ListAnomalousLogGroupsResponse } from "../models/models_0";
+import { de_ListAnomalousLogGroupsCommand, se_ListAnomalousLogGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnomalousLogGroupsCommand}.
  */
 export interface ListAnomalousLogGroupsCommandInput extends ListAnomalousLogGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnomalousLogGroupsCommand}.
  */
 export interface ListAnomalousLogGroupsCommandOutput extends ListAnomalousLogGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * 			Returns the list of log groups that contain log anomalies.
  * 		</p>
@@ -44,10 +41,17 @@ export interface ListAnomalousLogGroupsCommandOutput extends ListAnomalousLogGro
  * import { DevOpsGuruClient, ListAnomalousLogGroupsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListAnomalousLogGroupsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // ListAnomalousLogGroupsRequest
+ *   InsightId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAnomalousLogGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnomalousLogGroupsCommandInput - {@link ListAnomalousLogGroupsCommandInput}
+ * @returns {@link ListAnomalousLogGroupsCommandOutput}
  * @see {@link ListAnomalousLogGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAnomalousLogGroupsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -90,6 +94,9 @@ export class ListAnomalousLogGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnomalousLogGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class ListAnomalousLogGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAnomalousLogGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAnomalousLogGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class ListAnomalousLogGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnomalousLogGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAnomalousLogGroupsCommand(input, context);
+    return se_ListAnomalousLogGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnomalousLogGroupsCommandOutput> {
-    return deserializeAws_restJson1ListAnomalousLogGroupsCommand(output, context);
+    return de_ListAnomalousLogGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

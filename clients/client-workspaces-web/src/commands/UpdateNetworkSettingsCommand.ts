@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateNetworkSettingsRequest,
-  UpdateNetworkSettingsRequestFilterSensitiveLog,
-  UpdateNetworkSettingsResponse,
-  UpdateNetworkSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateNetworkSettingsCommand,
-  serializeAws_restJson1UpdateNetworkSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateNetworkSettingsRequest, UpdateNetworkSettingsResponse } from "../models/models_0";
+import { de_UpdateNetworkSettingsCommand, se_UpdateNetworkSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNetworkSettingsCommand}.
  */
 export interface UpdateNetworkSettingsCommandInput extends UpdateNetworkSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNetworkSettingsCommand}.
  */
 export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates network settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  * import { WorkSpacesWebClient, UpdateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // UpdateNetworkSettingsRequest
+ *   networkSettingsArn: "STRING_VALUE", // required
+ *   vpcId: "STRING_VALUE",
+ *   subnetIds: [ // SubnetIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   securityGroupIds: [ // SecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateNetworkSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNetworkSettingsCommandInput - {@link UpdateNetworkSettingsCommandInput}
+ * @returns {@link UpdateNetworkSettingsCommandOutput}
  * @see {@link UpdateNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +94,9 @@ export class UpdateNetworkSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +125,8 @@ export class UpdateNetworkSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNetworkSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNetworkSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +136,18 @@ export class UpdateNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNetworkSettingsCommand(input, context);
+    return se_UpdateNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateNetworkSettingsCommand(output, context);
+    return de_UpdateNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

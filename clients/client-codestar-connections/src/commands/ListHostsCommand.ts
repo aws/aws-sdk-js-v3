@@ -18,24 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import {
-  ListHostsInput,
-  ListHostsInputFilterSensitiveLog,
-  ListHostsOutput,
-  ListHostsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_0ListHostsCommand, serializeAws_json1_0ListHostsCommand } from "../protocols/Aws_json1_0";
+import { ListHostsInput, ListHostsOutput } from "../models/models_0";
+import { de_ListHostsCommand, se_ListHostsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListHostsCommand}.
  */
 export interface ListHostsCommandInput extends ListHostsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListHostsCommand}.
  */
 export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the hosts associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,10 +43,16 @@ export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBeare
  * import { CodeStarConnectionsClient, ListHostsCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, ListHostsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = { // ListHostsInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListHostsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHostsCommandInput - {@link ListHostsCommandInput}
+ * @returns {@link ListHostsCommandOutput}
  * @see {@link ListHostsCommandInput} for command's `input` shape.
  * @see {@link ListHostsCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
@@ -70,6 +76,9 @@ export class ListHostsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +105,8 @@ export class ListHostsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHostsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListHostsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +116,18 @@ export class ListHostsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListHostsCommand(input, context);
+    return se_ListHostsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostsCommandOutput> {
-    return deserializeAws_json1_0ListHostsCommand(output, context);
+    return de_ListHostsCommand(output, context);
   }
 
   // Start section: command_body_extra

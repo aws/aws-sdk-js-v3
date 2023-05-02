@@ -15,26 +15,27 @@ import {
 
 import {
   GetLaunchProfileRequest,
-  GetLaunchProfileRequestFilterSensitiveLog,
   GetLaunchProfileResponse,
   GetLaunchProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1GetLaunchProfileCommand,
-  serializeAws_restJson1GetLaunchProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLaunchProfileCommand, se_GetLaunchProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLaunchProfileCommand}.
  */
 export interface GetLaunchProfileCommandInput extends GetLaunchProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLaunchProfileCommand}.
  */
 export interface GetLaunchProfileCommandOutput extends GetLaunchProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a launch profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface GetLaunchProfileCommandOutput extends GetLaunchProfileResponse,
  * import { NimbleClient, GetLaunchProfileCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetLaunchProfileCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // GetLaunchProfileRequest
+ *   launchProfileId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetLaunchProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLaunchProfileCommandInput - {@link GetLaunchProfileCommandInput}
+ * @returns {@link GetLaunchProfileCommandOutput}
  * @see {@link GetLaunchProfileCommandInput} for command's `input` shape.
  * @see {@link GetLaunchProfileCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetLaunchProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLaunchProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,7 +131,7 @@ export class GetLaunchProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLaunchProfileRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetLaunchProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -132,12 +142,18 @@ export class GetLaunchProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLaunchProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLaunchProfileCommand(input, context);
+    return se_GetLaunchProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLaunchProfileCommandOutput> {
-    return deserializeAws_restJson1GetLaunchProfileCommand(output, context);
+    return de_GetLaunchProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

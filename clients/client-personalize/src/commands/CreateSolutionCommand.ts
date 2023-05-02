@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSolutionRequest,
-  CreateSolutionRequestFilterSensitiveLog,
-  CreateSolutionResponse,
-  CreateSolutionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSolutionRequest, CreateSolutionResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateSolutionCommand,
-  serializeAws_json1_1CreateSolutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateSolutionCommand, se_CreateSolutionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSolutionCommand}.
  */
 export interface CreateSolutionCommandInput extends CreateSolutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSolutionCommand}.
  */
 export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the configuration for training a model. A trained model is known as
  *       a solution. After the configuration is created, you train the model (create a solution)
  *       by calling the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a> operation. Every time you call
@@ -114,10 +111,80 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  * import { PersonalizeClient, CreateSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateSolutionRequest
+ *   name: "STRING_VALUE", // required
+ *   performHPO: true || false,
+ *   performAutoML: true || false,
+ *   recipeArn: "STRING_VALUE",
+ *   datasetGroupArn: "STRING_VALUE", // required
+ *   eventType: "STRING_VALUE",
+ *   solutionConfig: { // SolutionConfig
+ *     eventValueThreshold: "STRING_VALUE",
+ *     hpoConfig: { // HPOConfig
+ *       hpoObjective: { // HPOObjective
+ *         type: "STRING_VALUE",
+ *         metricName: "STRING_VALUE",
+ *         metricRegex: "STRING_VALUE",
+ *       },
+ *       hpoResourceConfig: { // HPOResourceConfig
+ *         maxNumberOfTrainingJobs: "STRING_VALUE",
+ *         maxParallelTrainingJobs: "STRING_VALUE",
+ *       },
+ *       algorithmHyperParameterRanges: { // HyperParameterRanges
+ *         integerHyperParameterRanges: [ // IntegerHyperParameterRanges
+ *           { // IntegerHyperParameterRange
+ *             name: "STRING_VALUE",
+ *             minValue: Number("int"),
+ *             maxValue: Number("int"),
+ *           },
+ *         ],
+ *         continuousHyperParameterRanges: [ // ContinuousHyperParameterRanges
+ *           { // ContinuousHyperParameterRange
+ *             name: "STRING_VALUE",
+ *             minValue: Number("double"),
+ *             maxValue: Number("double"),
+ *           },
+ *         ],
+ *         categoricalHyperParameterRanges: [ // CategoricalHyperParameterRanges
+ *           { // CategoricalHyperParameterRange
+ *             name: "STRING_VALUE",
+ *             values: [ // CategoricalValues
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     algorithmHyperParameters: { // HyperParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     featureTransformationParameters: { // FeatureTransformationParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     autoMLConfig: { // AutoMLConfig
+ *       metricName: "STRING_VALUE",
+ *       recipeList: [ // ArnList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     optimizationObjective: { // OptimizationObjective
+ *       itemAttribute: "STRING_VALUE",
+ *       objectiveSensitivity: "LOW" || "MEDIUM" || "HIGH" || "OFF",
+ *     },
+ *   },
+ *   tags: [ // Tags
+ *     { // Tag
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSolutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSolutionCommandInput - {@link CreateSolutionCommandInput}
+ * @returns {@link CreateSolutionCommandOutput}
  * @see {@link CreateSolutionCommandInput} for command's `input` shape.
  * @see {@link CreateSolutionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -159,6 +226,9 @@ export class CreateSolutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSolutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,8 +257,8 @@ export class CreateSolutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSolutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSolutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -198,12 +268,18 @@ export class CreateSolutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSolutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSolutionCommand(input, context);
+    return se_CreateSolutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSolutionCommandOutput> {
-    return deserializeAws_json1_1CreateSolutionCommand(output, context);
+    return de_CreateSolutionCommand(output, context);
   }
 
   // Start section: command_body_extra

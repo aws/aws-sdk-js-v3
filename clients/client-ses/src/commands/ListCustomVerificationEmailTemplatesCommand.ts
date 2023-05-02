@@ -15,21 +15,23 @@ import {
 
 import {
   ListCustomVerificationEmailTemplatesRequest,
-  ListCustomVerificationEmailTemplatesRequestFilterSensitiveLog,
   ListCustomVerificationEmailTemplatesResponse,
-  ListCustomVerificationEmailTemplatesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryListCustomVerificationEmailTemplatesCommand,
-  serializeAws_queryListCustomVerificationEmailTemplatesCommand,
+  de_ListCustomVerificationEmailTemplatesCommand,
+  se_ListCustomVerificationEmailTemplatesCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomVerificationEmailTemplatesCommand}.
  */
 export interface ListCustomVerificationEmailTemplatesCommandInput extends ListCustomVerificationEmailTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomVerificationEmailTemplatesCommand}.
  */
 export interface ListCustomVerificationEmailTemplatesCommandOutput
@@ -37,6 +39,7 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the existing custom verification email templates for your account in the current
  *             AWS Region.</p>
  *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
@@ -48,10 +51,16 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  * import { SESClient, ListCustomVerificationEmailTemplatesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListCustomVerificationEmailTemplatesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // ListCustomVerificationEmailTemplatesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListCustomVerificationEmailTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomVerificationEmailTemplatesCommandInput - {@link ListCustomVerificationEmailTemplatesCommandInput}
+ * @returns {@link ListCustomVerificationEmailTemplatesCommandOutput}
  * @see {@link ListCustomVerificationEmailTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListCustomVerificationEmailTemplatesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -75,6 +84,9 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomVerificationEmailTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +115,8 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomVerificationEmailTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomVerificationEmailTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +126,24 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListCustomVerificationEmailTemplatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListCustomVerificationEmailTemplatesCommand(input, context);
+    return se_ListCustomVerificationEmailTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> {
-    return deserializeAws_queryListCustomVerificationEmailTemplatesCommand(output, context);
+    return de_ListCustomVerificationEmailTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

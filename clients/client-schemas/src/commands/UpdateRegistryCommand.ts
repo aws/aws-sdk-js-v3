@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRegistryRequest,
-  UpdateRegistryRequestFilterSensitiveLog,
-  UpdateRegistryResponse,
-  UpdateRegistryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRegistryCommand,
-  serializeAws_restJson1UpdateRegistryCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRegistryRequest, UpdateRegistryResponse } from "../models/models_0";
+import { de_UpdateRegistryCommand, se_UpdateRegistryCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRegistryCommand}.
  */
 export interface UpdateRegistryCommandInput extends UpdateRegistryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRegistryCommand}.
  */
 export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * import { SchemasClient, UpdateRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, UpdateRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // UpdateRegistryRequest
+ *   Description: "STRING_VALUE",
+ *   RegistryName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRegistryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRegistryCommandInput - {@link UpdateRegistryCommandInput}
+ * @returns {@link UpdateRegistryCommandOutput}
  * @see {@link UpdateRegistryCommandInput} for command's `input` shape.
  * @see {@link UpdateRegistryCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +84,9 @@ export class UpdateRegistryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRegistryCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class UpdateRegistryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRegistryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRegistryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class UpdateRegistryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRegistryCommand(input, context);
+    return se_UpdateRegistryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegistryCommandOutput> {
-    return deserializeAws_restJson1UpdateRegistryCommand(output, context);
+    return de_UpdateRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

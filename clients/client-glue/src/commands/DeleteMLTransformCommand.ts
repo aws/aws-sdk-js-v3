@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteMLTransformRequest,
-  DeleteMLTransformRequestFilterSensitiveLog,
-  DeleteMLTransformResponse,
-  DeleteMLTransformResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteMLTransformCommand,
-  serializeAws_json1_1DeleteMLTransformCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteMLTransformRequest, DeleteMLTransformResponse } from "../models/models_1";
+import { de_DeleteMLTransformCommand, se_DeleteMLTransformCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMLTransformCommand}.
  */
 export interface DeleteMLTransformCommandInput extends DeleteMLTransformRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMLTransformCommand}.
  */
 export interface DeleteMLTransformCommandOutput extends DeleteMLTransformResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Glue machine learning transform. Machine learning transforms are a special
  *       type of transform that use machine learning to learn the details of the transformation to be
  *       performed by learning from examples provided by humans. These transformations are then saved
@@ -47,10 +44,15 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  * import { GlueClient, DeleteMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteMLTransformRequest
+ *   TransformId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMLTransformCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMLTransformCommandInput - {@link DeleteMLTransformCommandInput}
+ * @returns {@link DeleteMLTransformCommandOutput}
  * @see {@link DeleteMLTransformCommandInput} for command's `input` shape.
  * @see {@link DeleteMLTransformCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -86,6 +88,9 @@ export class DeleteMLTransformCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMLTransformCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class DeleteMLTransformCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMLTransformRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMLTransformResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class DeleteMLTransformCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMLTransformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMLTransformCommand(input, context);
+    return se_DeleteMLTransformCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMLTransformCommandOutput> {
-    return deserializeAws_json1_1DeleteMLTransformCommand(output, context);
+    return de_DeleteMLTransformCommand(output, context);
   }
 
   // Start section: command_body_extra

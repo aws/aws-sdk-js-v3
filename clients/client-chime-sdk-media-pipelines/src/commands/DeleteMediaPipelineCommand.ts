@@ -18,22 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
-import { DeleteMediaPipelineRequest, DeleteMediaPipelineRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMediaPipelineCommand,
-  serializeAws_restJson1DeleteMediaPipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMediaPipelineRequest } from "../models/models_0";
+import { de_DeleteMediaPipelineCommand, se_DeleteMediaPipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMediaPipelineCommand}.
  */
 export interface DeleteMediaPipelineCommandInput extends DeleteMediaPipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMediaPipelineCommand}.
  */
 export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the media pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,10 +43,15 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKMediaPipelinesClient, DeleteMediaPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, DeleteMediaPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
+ * const input = { // DeleteMediaPipelineRequest
+ *   MediaPipelineId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMediaPipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMediaPipelineCommandInput - {@link DeleteMediaPipelineCommandInput}
+ * @returns {@link DeleteMediaPipelineCommandOutput}
  * @see {@link DeleteMediaPipelineCommandInput} for command's `input` shape.
  * @see {@link DeleteMediaPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteMediaPipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMediaPipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class DeleteMediaPipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMediaPipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +138,18 @@ export class DeleteMediaPipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMediaPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMediaPipelineCommand(input, context);
+    return se_DeleteMediaPipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMediaPipelineCommandOutput> {
-    return deserializeAws_restJson1DeleteMediaPipelineCommand(output, context);
+    return de_DeleteMediaPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { IotDeviceAdvisorClient } from "../IotDeviceAdvisorClient";
 import { IotDeviceAdvisorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IotDeviceAdvisorClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSuiteRunsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSuiteRuns(
   config: IotDeviceAdvisorPaginationConfiguration,
   input: ListSuiteRunsCommandInput,

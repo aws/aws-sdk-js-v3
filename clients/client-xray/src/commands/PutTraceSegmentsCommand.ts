@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutTraceSegmentsRequest,
-  PutTraceSegmentsRequestFilterSensitiveLog,
-  PutTraceSegmentsResult,
-  PutTraceSegmentsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutTraceSegmentsCommand,
-  serializeAws_restJson1PutTraceSegmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { PutTraceSegmentsRequest, PutTraceSegmentsResult } from "../models/models_0";
+import { de_PutTraceSegmentsCommand, se_PutTraceSegmentsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutTraceSegmentsCommand}.
  */
 export interface PutTraceSegmentsCommandInput extends PutTraceSegmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutTraceSegmentsCommand}.
  */
 export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads segment documents to Amazon Web Services X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and sends them to the X-Ray daemon, which uploads them in
  *       batches. A segment document can be a completed segment, an in-progress segment, or an array of
  *       subsegments.</p>
@@ -104,10 +101,17 @@ export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, _
  * import { XRayClient, PutTraceSegmentsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, PutTraceSegmentsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // PutTraceSegmentsRequest
+ *   TraceSegmentDocuments: [ // TraceSegmentDocumentList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new PutTraceSegmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutTraceSegmentsCommandInput - {@link PutTraceSegmentsCommandInput}
+ * @returns {@link PutTraceSegmentsCommandOutput}
  * @see {@link PutTraceSegmentsCommandInput} for command's `input` shape.
  * @see {@link PutTraceSegmentsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -137,6 +141,9 @@ export class PutTraceSegmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutTraceSegmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,8 +172,8 @@ export class PutTraceSegmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutTraceSegmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutTraceSegmentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -176,12 +183,18 @@ export class PutTraceSegmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutTraceSegmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutTraceSegmentsCommand(input, context);
+    return se_PutTraceSegmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTraceSegmentsCommandOutput> {
-    return deserializeAws_restJson1PutTraceSegmentsCommand(output, context);
+    return de_PutTraceSegmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

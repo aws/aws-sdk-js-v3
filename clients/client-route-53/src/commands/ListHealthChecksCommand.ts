@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListHealthChecksRequest,
-  ListHealthChecksRequestFilterSensitiveLog,
-  ListHealthChecksResponse,
-  ListHealthChecksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListHealthChecksCommand,
-  serializeAws_restXmlListHealthChecksCommand,
-} from "../protocols/Aws_restXml";
+import { ListHealthChecksRequest, ListHealthChecksResponse } from "../models/models_0";
+import { de_ListHealthChecksCommand, se_ListHealthChecksCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListHealthChecksCommand}.
  */
 export interface ListHealthChecksCommandInput extends ListHealthChecksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHealthChecksCommand}.
  */
 export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve a list of the health checks that are associated with the current Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse,
  * import { Route53Client, ListHealthChecksCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListHealthChecksCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListHealthChecksRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListHealthChecksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHealthChecksCommandInput - {@link ListHealthChecksCommandInput}
+ * @returns {@link ListHealthChecksCommandOutput}
  * @see {@link ListHealthChecksCommandInput} for command's `input` shape.
  * @see {@link ListHealthChecksCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -76,6 +79,9 @@ export class ListHealthChecksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHealthChecksCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class ListHealthChecksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHealthChecksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListHealthChecksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class ListHealthChecksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHealthChecksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListHealthChecksCommand(input, context);
+    return se_ListHealthChecksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHealthChecksCommandOutput> {
-    return deserializeAws_restXmlListHealthChecksCommand(output, context);
+    return de_ListHealthChecksCommand(output, context);
   }
 
   // Start section: command_body_extra

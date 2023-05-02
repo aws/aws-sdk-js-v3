@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  GetProposalInput,
-  GetProposalInputFilterSensitiveLog,
-  GetProposalOutput,
-  GetProposalOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetProposalCommand,
-  serializeAws_restJson1GetProposalCommand,
-} from "../protocols/Aws_restJson1";
+import { GetProposalInput, GetProposalOutput } from "../models/models_0";
+import { de_GetProposalCommand, se_GetProposalCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProposalCommand}.
  */
 export interface GetProposalCommandInput extends GetProposalInput {}
 /**
+ * @public
+ *
  * The output of {@link GetProposalCommand}.
  */
 export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about a proposal.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -47,10 +44,16 @@ export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataB
  * import { ManagedBlockchainClient, GetProposalCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, GetProposalCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // GetProposalInput
+ *   NetworkId: "STRING_VALUE", // required
+ *   ProposalId: "STRING_VALUE", // required
+ * };
  * const command = new GetProposalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProposalCommandInput - {@link GetProposalCommandInput}
+ * @returns {@link GetProposalCommandOutput}
  * @see {@link GetProposalCommandInput} for command's `input` shape.
  * @see {@link GetProposalCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -92,6 +95,9 @@ export class GetProposalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProposalCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class GetProposalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProposalInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProposalOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class GetProposalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProposalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProposalCommand(input, context);
+    return se_GetProposalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProposalCommandOutput> {
-    return deserializeAws_restJson1GetProposalCommand(output, context);
+    return de_GetProposalCommand(output, context);
   }
 
   // Start section: command_body_extra

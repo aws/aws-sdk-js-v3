@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTranscriptionJobsRequest,
-  ListTranscriptionJobsRequestFilterSensitiveLog,
-  ListTranscriptionJobsResponse,
-  ListTranscriptionJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTranscriptionJobsCommand,
-  serializeAws_json1_1ListTranscriptionJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTranscriptionJobsRequest, ListTranscriptionJobsResponse } from "../models/models_0";
+import { de_ListTranscriptionJobsCommand, se_ListTranscriptionJobsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTranscriptionJobsCommand}.
  */
 export interface ListTranscriptionJobsCommandInput extends ListTranscriptionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTranscriptionJobsCommand}.
  */
 export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of transcription jobs that match the specified criteria. If no
  *             criteria are specified, all transcription jobs are returned.</p>
  *          <p>To get detailed information about a specific transcription job, use the  operation.</p>
@@ -44,10 +41,18 @@ export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJob
  * import { TranscribeClient, ListTranscriptionJobsCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListTranscriptionJobsCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // ListTranscriptionJobsRequest
+ *   Status: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ *   JobNameContains: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTranscriptionJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTranscriptionJobsCommandInput - {@link ListTranscriptionJobsCommandInput}
+ * @returns {@link ListTranscriptionJobsCommandOutput}
  * @see {@link ListTranscriptionJobsCommandInput} for command's `input` shape.
  * @see {@link ListTranscriptionJobsCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -85,6 +90,9 @@ export class ListTranscriptionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTranscriptionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class ListTranscriptionJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTranscriptionJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTranscriptionJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +132,18 @@ export class ListTranscriptionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTranscriptionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTranscriptionJobsCommand(input, context);
+    return se_ListTranscriptionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTranscriptionJobsCommandOutput> {
-    return deserializeAws_json1_1ListTranscriptionJobsCommand(output, context);
+    return de_ListTranscriptionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

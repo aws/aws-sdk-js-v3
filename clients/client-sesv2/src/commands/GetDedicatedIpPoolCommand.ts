@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDedicatedIpPoolRequest,
-  GetDedicatedIpPoolRequestFilterSensitiveLog,
-  GetDedicatedIpPoolResponse,
-  GetDedicatedIpPoolResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDedicatedIpPoolCommand,
-  serializeAws_restJson1GetDedicatedIpPoolCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDedicatedIpPoolRequest, GetDedicatedIpPoolResponse } from "../models/models_0";
+import { de_GetDedicatedIpPoolCommand, se_GetDedicatedIpPoolCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetDedicatedIpPoolCommand}.
  */
 export interface GetDedicatedIpPoolCommandInput extends GetDedicatedIpPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDedicatedIpPoolCommand}.
  */
 export interface GetDedicatedIpPoolCommandOutput extends GetDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve information about the dedicated pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetDedicatedIpPoolCommandOutput extends GetDedicatedIpPoolRespo
  * import { SESv2Client, GetDedicatedIpPoolCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetDedicatedIpPoolCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // GetDedicatedIpPoolRequest
+ *   PoolName: "STRING_VALUE", // required
+ * };
  * const command = new GetDedicatedIpPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDedicatedIpPoolCommandInput - {@link GetDedicatedIpPoolCommandInput}
+ * @returns {@link GetDedicatedIpPoolCommandOutput}
  * @see {@link GetDedicatedIpPoolCommandInput} for command's `input` shape.
  * @see {@link GetDedicatedIpPoolCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -78,6 +80,9 @@ export class GetDedicatedIpPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDedicatedIpPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class GetDedicatedIpPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDedicatedIpPoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDedicatedIpPoolResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class GetDedicatedIpPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDedicatedIpPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDedicatedIpPoolCommand(input, context);
+    return se_GetDedicatedIpPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDedicatedIpPoolCommandOutput> {
-    return deserializeAws_restJson1GetDedicatedIpPoolCommand(output, context);
+    return de_GetDedicatedIpPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

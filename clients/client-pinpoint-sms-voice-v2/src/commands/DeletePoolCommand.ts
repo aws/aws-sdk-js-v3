@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeletePoolRequest,
-  DeletePoolRequestFilterSensitiveLog,
-  DeletePoolResult,
-  DeletePoolResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePoolRequest, DeletePoolResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DeletePoolCommand,
-  serializeAws_json1_0DeletePoolCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeletePoolCommand, se_DeletePoolCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePoolCommand}.
  */
 export interface DeletePoolCommandInput extends DeletePoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePoolCommand}.
  */
 export interface DeletePoolCommandOutput extends DeletePoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing pool. Deleting a pool disassociates all origination identities
  *             from that pool.</p>
  *         <p>If the pool status isn't active or if deletion protection is enabled, an Error is
@@ -52,10 +49,15 @@ export interface DeletePoolCommandOutput extends DeletePoolResult, __MetadataBea
  * import { PinpointSMSVoiceV2Client, DeletePoolCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DeletePoolCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DeletePoolRequest
+ *   PoolId: "STRING_VALUE", // required
+ * };
  * const command = new DeletePoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePoolCommandInput - {@link DeletePoolCommandInput}
+ * @returns {@link DeletePoolCommandOutput}
  * @see {@link DeletePoolCommandInput} for command's `input` shape.
  * @see {@link DeletePoolCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -103,6 +105,9 @@ export class DeletePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +134,8 @@ export class DeletePoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +145,18 @@ export class DeletePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeletePoolCommand(input, context);
+    return se_DeletePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePoolCommandOutput> {
-    return deserializeAws_json1_0DeletePoolCommand(output, context);
+    return de_DeletePoolCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  UpdateFleetRequest,
-  UpdateFleetRequestFilterSensitiveLog,
-  UpdateFleetResult,
-  UpdateFleetResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFleetCommand,
-  serializeAws_json1_1UpdateFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateFleetRequest, UpdateFleetResult } from "../models/models_0";
+import { de_UpdateFleetCommand, se_UpdateFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFleetCommand}.
  */
 export interface UpdateFleetCommandInput extends UpdateFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFleetCommand}.
  */
 export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified fleet.</p>
  *          <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except
  *             the fleet name.</p>
@@ -63,10 +60,54 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  * import { AppStreamClient, UpdateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // UpdateFleetRequest
+ *   ImageName: "STRING_VALUE",
+ *   ImageArn: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   InstanceType: "STRING_VALUE",
+ *   ComputeCapacity: { // ComputeCapacity
+ *     DesiredInstances: Number("int"), // required
+ *   },
+ *   VpcConfig: { // VpcConfig
+ *     SubnetIds: [ // SubnetIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [ // SecurityGroupIdList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   MaxUserDurationInSeconds: Number("int"),
+ *   DisconnectTimeoutInSeconds: Number("int"),
+ *   DeleteVpcConfig: true || false,
+ *   Description: "STRING_VALUE",
+ *   DisplayName: "STRING_VALUE",
+ *   EnableDefaultInternetAccess: true || false,
+ *   DomainJoinInfo: { // DomainJoinInfo
+ *     DirectoryName: "STRING_VALUE",
+ *     OrganizationalUnitDistinguishedName: "STRING_VALUE",
+ *   },
+ *   IdleDisconnectTimeoutInSeconds: Number("int"),
+ *   AttributesToDelete: [ // FleetAttributes
+ *     "VPC_CONFIGURATION" || "VPC_CONFIGURATION_SECURITY_GROUP_IDS" || "DOMAIN_JOIN_INFO" || "IAM_ROLE_ARN" || "USB_DEVICE_FILTER_STRINGS" || "SESSION_SCRIPT_S3_LOCATION",
+ *   ],
+ *   IamRoleArn: "STRING_VALUE",
+ *   StreamView: "APP" || "DESKTOP",
+ *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
+ *   MaxConcurrentSessions: Number("int"),
+ *   UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
+ *     "STRING_VALUE",
+ *   ],
+ *   SessionScriptS3Location: { // S3Location
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFleetCommandInput - {@link UpdateFleetCommandInput}
+ * @returns {@link UpdateFleetCommandOutput}
  * @see {@link UpdateFleetCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -123,6 +164,9 @@ export class UpdateFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +193,8 @@ export class UpdateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,12 +204,18 @@ export class UpdateFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFleetCommand(input, context);
+    return se_UpdateFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetCommandOutput> {
-    return deserializeAws_json1_1UpdateFleetCommand(output, context);
+    return de_UpdateFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,40 +13,45 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListProjectPoliciesRequest,
-  ListProjectPoliciesRequestFilterSensitiveLog,
-  ListProjectPoliciesResponse,
-  ListProjectPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProjectPoliciesCommand,
-  serializeAws_json1_1ListProjectPoliciesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListProjectPoliciesRequest, ListProjectPoliciesResponse } from "../models/models_0";
+import { de_ListProjectPoliciesCommand, se_ListProjectPoliciesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProjectPoliciesCommand}.
  */
 export interface ListProjectPoliciesCommandInput extends ListProjectPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProjectPoliciesCommand}.
  */
 export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the project policies attached to a project.</p>
  *          <p>To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.</p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:ListProjectPolicies</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, ListProjectPoliciesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListProjectPoliciesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // ListProjectPoliciesRequest
+ *   ProjectArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListProjectPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProjectPoliciesCommandInput - {@link ListProjectPoliciesCommandInput}
+ * @returns {@link ListProjectPoliciesCommandOutput}
  * @see {@link ListProjectPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListProjectPoliciesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -121,6 +126,9 @@ export class ListProjectPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProjectPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +157,8 @@ export class ListProjectPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProjectPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProjectPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,12 +168,18 @@ export class ListProjectPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProjectPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProjectPoliciesCommand(input, context);
+    return se_ListProjectPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProjectPoliciesCommandOutput> {
-    return deserializeAws_json1_1ListProjectPoliciesCommand(output, context);
+    return de_ListProjectPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

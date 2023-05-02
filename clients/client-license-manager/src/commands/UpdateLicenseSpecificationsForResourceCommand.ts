@@ -16,21 +16,23 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   UpdateLicenseSpecificationsForResourceRequest,
-  UpdateLicenseSpecificationsForResourceRequestFilterSensitiveLog,
   UpdateLicenseSpecificationsForResourceResponse,
-  UpdateLicenseSpecificationsForResourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand,
-  serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand,
+  de_UpdateLicenseSpecificationsForResourceCommand,
+  se_UpdateLicenseSpecificationsForResourceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLicenseSpecificationsForResourceCommand}.
  */
 export interface UpdateLicenseSpecificationsForResourceCommandInput
   extends UpdateLicenseSpecificationsForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLicenseSpecificationsForResourceCommand}.
  */
 export interface UpdateLicenseSpecificationsForResourceCommandOutput
@@ -38,6 +40,7 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or removes the specified license configurations for the specified Amazon Web Services resource.</p>
  *          <p>You can update the license specifications of AMIs, instances, and hosts.
  *          You cannot update the license specifications for launch templates and CloudFormation templates,
@@ -48,10 +51,27 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
  * import { LicenseManagerClient, UpdateLicenseSpecificationsForResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, UpdateLicenseSpecificationsForResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // UpdateLicenseSpecificationsForResourceRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   AddLicenseSpecifications: [ // LicenseSpecifications
+ *     { // LicenseSpecification
+ *       LicenseConfigurationArn: "STRING_VALUE", // required
+ *       AmiAssociationScope: "STRING_VALUE",
+ *     },
+ *   ],
+ *   RemoveLicenseSpecifications: [
+ *     {
+ *       LicenseConfigurationArn: "STRING_VALUE", // required
+ *       AmiAssociationScope: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateLicenseSpecificationsForResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLicenseSpecificationsForResourceCommandInput - {@link UpdateLicenseSpecificationsForResourceCommandInput}
+ * @returns {@link UpdateLicenseSpecificationsForResourceCommandOutput}
  * @see {@link UpdateLicenseSpecificationsForResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateLicenseSpecificationsForResourceCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -99,6 +119,9 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLicenseSpecificationsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +150,8 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLicenseSpecificationsForResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLicenseSpecificationsForResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,18 +161,24 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateLicenseSpecificationsForResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand(input, context);
+    return se_UpdateLicenseSpecificationsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> {
-    return deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand(output, context);
+    return de_UpdateLicenseSpecificationsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

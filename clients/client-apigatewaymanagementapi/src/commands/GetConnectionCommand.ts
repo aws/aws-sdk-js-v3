@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient";
-import {
-  GetConnectionRequest,
-  GetConnectionRequestFilterSensitiveLog,
-  GetConnectionResponse,
-  GetConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConnectionCommand,
-  serializeAws_restJson1GetConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetConnectionRequest, GetConnectionResponse } from "../models/models_0";
+import { de_GetConnectionCommand, se_GetConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectionCommand}.
  */
 export interface GetConnectionCommandInput extends GetConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectionCommand}.
  */
 export interface GetConnectionCommandOutput extends GetConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about the connection with the provided id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * import { ApiGatewayManagementApiClient, GetConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi"; // ES Modules import
  * // const { ApiGatewayManagementApiClient, GetConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi"); // CommonJS import
  * const client = new ApiGatewayManagementApiClient(config);
+ * const input = { // GetConnectionRequest
+ *   ConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new GetConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectionCommandInput - {@link GetConnectionCommandInput}
+ * @returns {@link GetConnectionCommandOutput}
  * @see {@link GetConnectionCommandInput} for command's `input` shape.
  * @see {@link GetConnectionCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayManagementApiClientResolvedConfig | config} for ApiGatewayManagementApiClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class GetConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class GetConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectionCommand(input, context);
+    return se_GetConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionCommandOutput> {
-    return deserializeAws_restJson1GetConnectionCommand(output, context);
+    return de_GetConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

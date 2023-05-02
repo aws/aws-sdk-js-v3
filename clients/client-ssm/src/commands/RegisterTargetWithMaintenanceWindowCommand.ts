@@ -17,19 +17,22 @@ import {
   RegisterTargetWithMaintenanceWindowRequest,
   RegisterTargetWithMaintenanceWindowRequestFilterSensitiveLog,
   RegisterTargetWithMaintenanceWindowResult,
-  RegisterTargetWithMaintenanceWindowResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand,
-  serializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand,
+  de_RegisterTargetWithMaintenanceWindowCommand,
+  se_RegisterTargetWithMaintenanceWindowCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterTargetWithMaintenanceWindowCommand}.
  */
 export interface RegisterTargetWithMaintenanceWindowCommandInput extends RegisterTargetWithMaintenanceWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterTargetWithMaintenanceWindowCommand}.
  */
 export interface RegisterTargetWithMaintenanceWindowCommandOutput
@@ -37,6 +40,7 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a target with a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +48,28 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
  * import { SSMClient, RegisterTargetWithMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, RegisterTargetWithMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // RegisterTargetWithMaintenanceWindowRequest
+ *   WindowId: "STRING_VALUE", // required
+ *   ResourceType: "INSTANCE" || "RESOURCE_GROUP", // required
+ *   Targets: [ // Targets // required
+ *     { // Target
+ *       Key: "STRING_VALUE",
+ *       Values: [ // TargetValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   OwnerInformation: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new RegisterTargetWithMaintenanceWindowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterTargetWithMaintenanceWindowCommandInput - {@link RegisterTargetWithMaintenanceWindowCommandInput}
+ * @returns {@link RegisterTargetWithMaintenanceWindowCommandOutput}
  * @see {@link RegisterTargetWithMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link RegisterTargetWithMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -90,6 +112,9 @@ export class RegisterTargetWithMaintenanceWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterTargetWithMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,7 +144,7 @@ export class RegisterTargetWithMaintenanceWindowCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RegisterTargetWithMaintenanceWindowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterTargetWithMaintenanceWindowResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +154,24 @@ export class RegisterTargetWithMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterTargetWithMaintenanceWindowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand(input, context);
+    return se_RegisterTargetWithMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterTargetWithMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand(output, context);
+    return de_RegisterTargetWithMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

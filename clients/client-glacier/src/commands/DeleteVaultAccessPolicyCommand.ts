@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { DeleteVaultAccessPolicyInput, DeleteVaultAccessPolicyInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVaultAccessPolicyCommand,
-  serializeAws_restJson1DeleteVaultAccessPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVaultAccessPolicyInput } from "../models/models_0";
+import { de_DeleteVaultAccessPolicyCommand, se_DeleteVaultAccessPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVaultAccessPolicyCommand}.
  */
 export interface DeleteVaultAccessPolicyCommandInput extends DeleteVaultAccessPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVaultAccessPolicyCommand}.
  */
 export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes the access policy associated with the specified vault. The
  *          operation is eventually consistent; that is, it might take some time for Amazon S3 Glacier to
  *          completely remove the access policy, and you might still see the effect of the policy for a
@@ -43,10 +45,16 @@ export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {
  * import { GlacierClient, DeleteVaultAccessPolicyCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, DeleteVaultAccessPolicyCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // DeleteVaultAccessPolicyInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVaultAccessPolicyCommandInput - {@link DeleteVaultAccessPolicyCommandInput}
+ * @returns {@link DeleteVaultAccessPolicyCommandOutput}
  * @see {@link DeleteVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -95,6 +103,9 @@ export class DeleteVaultAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVaultAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +134,8 @@ export class DeleteVaultAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVaultAccessPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +145,18 @@ export class DeleteVaultAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVaultAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVaultAccessPolicyCommand(input, context);
+    return se_DeleteVaultAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteVaultAccessPolicyCommand(output, context);
+    return de_DeleteVaultAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

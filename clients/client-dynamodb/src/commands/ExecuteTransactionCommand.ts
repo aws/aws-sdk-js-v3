@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  ExecuteTransactionInput,
-  ExecuteTransactionInputFilterSensitiveLog,
-  ExecuteTransactionOutput,
-  ExecuteTransactionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ExecuteTransactionCommand,
-  serializeAws_json1_0ExecuteTransactionCommand,
-} from "../protocols/Aws_json1_0";
+import { ExecuteTransactionInput, ExecuteTransactionOutput } from "../models/models_0";
+import { de_ExecuteTransactionCommand, se_ExecuteTransactionCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteTransactionCommand}.
  */
 export interface ExecuteTransactionCommandInput extends ExecuteTransactionInput {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteTransactionCommand}.
  */
 export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation allows you to perform transactional reads or writes on data stored in
  *             DynamoDB, using PartiQL.</p>
  *          <note>
@@ -49,10 +46,66 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  * import { DynamoDBClient, ExecuteTransactionCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ExecuteTransactionCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // ExecuteTransactionInput
+ *   TransactStatements: [ // ParameterizedStatements // required
+ *     { // ParameterizedStatement
+ *       Statement: "STRING_VALUE", // required
+ *       Parameters: [ // PreparedStatementParameters
+ *         { // AttributeValue Union: only one key present
+ *           S: "STRING_VALUE",
+ *           N: "STRING_VALUE",
+ *           B: "BLOB_VALUE",
+ *           SS: [ // StringSetAttributeValue
+ *             "STRING_VALUE",
+ *           ],
+ *           NS: [ // NumberSetAttributeValue
+ *             "STRING_VALUE",
+ *           ],
+ *           BS: [ // BinarySetAttributeValue
+ *             "BLOB_VALUE",
+ *           ],
+ *           M: { // MapAttributeValue
+ *             "<keys>": {//  Union: only one key present
+ *               S: "STRING_VALUE",
+ *               N: "STRING_VALUE",
+ *               B: "BLOB_VALUE",
+ *               SS: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               NS: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               BS: [
+ *                 "BLOB_VALUE",
+ *               ],
+ *               M: {
+ *                 "<keys>": "<AttributeValue>",
+ *               },
+ *               L: [ // ListAttributeValue
+ *                 "<AttributeValue>",
+ *               ],
+ *               NULL: true || false,
+ *               BOOL: true || false,
+ *             },
+ *           },
+ *           L: [
+ *             "<AttributeValue>",
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ * };
  * const command = new ExecuteTransactionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteTransactionCommandInput - {@link ExecuteTransactionCommandInput}
+ * @returns {@link ExecuteTransactionCommandOutput}
  * @see {@link ExecuteTransactionCommandInput} for command's `input` shape.
  * @see {@link ExecuteTransactionCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -396,6 +449,9 @@ export class ExecuteTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -424,8 +480,8 @@ export class ExecuteTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteTransactionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteTransactionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -435,12 +491,18 @@ export class ExecuteTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExecuteTransactionCommand(input, context);
+    return se_ExecuteTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteTransactionCommandOutput> {
-    return deserializeAws_json1_0ExecuteTransactionCommand(output, context);
+    return de_ExecuteTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

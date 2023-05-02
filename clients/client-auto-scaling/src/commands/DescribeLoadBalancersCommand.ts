@@ -14,29 +14,34 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DescribeLoadBalancersRequest,
-  DescribeLoadBalancersRequestFilterSensitiveLog,
-  DescribeLoadBalancersResponse,
-  DescribeLoadBalancersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeLoadBalancersCommand,
-  serializeAws_queryDescribeLoadBalancersCommand,
-} from "../protocols/Aws_query";
+import { DescribeLoadBalancersRequest, DescribeLoadBalancersResponse } from "../models/models_0";
+import { de_DescribeLoadBalancersCommand, se_DescribeLoadBalancersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoadBalancersCommand}.
  */
 export interface DescribeLoadBalancersCommandInput extends DescribeLoadBalancersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoadBalancersCommand}.
  */
 export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancersResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about the load balancers for the specified Auto Scaling group.</p>
- *          <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the
+ * @public
+ * <note>
+ *             <p>This API operation is superseded by <a>DescribeTrafficSources</a>,
+ *                 which can describe multiple traffic sources types. We recommend using
+ *                     <code>DescribeTrafficSources</code> to simplify how you manage traffic sources.
+ *                 However, we continue to support <code>DescribeLoadBalancers</code>. You can use both
+ *                 the original <code>DescribeLoadBalancers</code> API operation and
+ *                     <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p>
+ *          </note>
+ *          <p>Gets information about the load balancers for the specified Auto Scaling group.</p>
+ *          <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the
  *                 <a>DescribeLoadBalancerTargetGroups</a> API instead.</p>
  *          <p>To determine the attachment status of the load balancer, use the <code>State</code>
  *             element in the response. When you attach a load balancer to an Auto Scaling group, the initial
@@ -64,10 +69,17 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * import { AutoScalingClient, DescribeLoadBalancersCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeLoadBalancersCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DescribeLoadBalancersRequest
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeLoadBalancersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBalancersCommandInput - {@link DescribeLoadBalancersCommandInput}
+ * @returns {@link DescribeLoadBalancersCommandOutput}
  * @see {@link DescribeLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -119,6 +131,9 @@ export class DescribeLoadBalancersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBalancersCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +162,8 @@ export class DescribeLoadBalancersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoadBalancersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoadBalancersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,12 +173,18 @@ export class DescribeLoadBalancersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoadBalancersCommand(input, context);
+    return se_DescribeLoadBalancersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoadBalancersCommandOutput> {
-    return deserializeAws_queryDescribeLoadBalancersCommand(output, context);
+    return de_DescribeLoadBalancersCommand(output, context);
   }
 
   // Start section: command_body_extra

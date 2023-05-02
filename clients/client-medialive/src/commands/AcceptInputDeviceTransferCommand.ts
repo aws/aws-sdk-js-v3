@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  AcceptInputDeviceTransferRequest,
-  AcceptInputDeviceTransferRequestFilterSensitiveLog,
-  AcceptInputDeviceTransferResponse,
-  AcceptInputDeviceTransferResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1AcceptInputDeviceTransferCommand,
-  serializeAws_restJson1AcceptInputDeviceTransferCommand,
-} from "../protocols/Aws_restJson1";
+import { AcceptInputDeviceTransferRequest, AcceptInputDeviceTransferResponse } from "../models/models_1";
+import { de_AcceptInputDeviceTransferCommand, se_AcceptInputDeviceTransferCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptInputDeviceTransferCommand}.
  */
 export interface AcceptInputDeviceTransferCommandInput extends AcceptInputDeviceTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptInputDeviceTransferCommand}.
  */
 export interface AcceptInputDeviceTransferCommandOutput extends AcceptInputDeviceTransferResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Accept an incoming input device transfer. The ownership of the device will transfer to your AWS account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface AcceptInputDeviceTransferCommandOutput extends AcceptInputDevic
  * import { MediaLiveClient, AcceptInputDeviceTransferCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, AcceptInputDeviceTransferCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // AcceptInputDeviceTransferRequest
+ *   InputDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptInputDeviceTransferCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptInputDeviceTransferCommandInput - {@link AcceptInputDeviceTransferCommandInput}
+ * @returns {@link AcceptInputDeviceTransferCommandOutput}
  * @see {@link AcceptInputDeviceTransferCommandInput} for command's `input` shape.
  * @see {@link AcceptInputDeviceTransferCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -96,6 +98,9 @@ export class AcceptInputDeviceTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptInputDeviceTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +129,8 @@ export class AcceptInputDeviceTransferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptInputDeviceTransferRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptInputDeviceTransferResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,15 +140,21 @@ export class AcceptInputDeviceTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptInputDeviceTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptInputDeviceTransferCommand(input, context);
+    return se_AcceptInputDeviceTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptInputDeviceTransferCommandOutput> {
-    return deserializeAws_restJson1AcceptInputDeviceTransferCommand(output, context);
+    return de_AcceptInputDeviceTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

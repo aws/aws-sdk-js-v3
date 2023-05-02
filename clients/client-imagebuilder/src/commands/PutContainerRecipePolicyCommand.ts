@@ -14,38 +14,48 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  PutContainerRecipePolicyRequest,
-  PutContainerRecipePolicyRequestFilterSensitiveLog,
-  PutContainerRecipePolicyResponse,
-  PutContainerRecipePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutContainerRecipePolicyCommand,
-  serializeAws_restJson1PutContainerRecipePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { PutContainerRecipePolicyRequest, PutContainerRecipePolicyResponse } from "../models/models_0";
+import { de_PutContainerRecipePolicyCommand, se_PutContainerRecipePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutContainerRecipePolicyCommand}.
  */
 export interface PutContainerRecipePolicyCommandInput extends PutContainerRecipePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutContainerRecipePolicyCommand}.
  */
 export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecipePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Applies a policy to a container image. We recommend that you call the RAM API CreateResourceShare (https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API <code>PutContainerImagePolicy</code>, you must also call the RAM API PromoteResourceShareCreatedFromPolicy (https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html) in order for the resource to be visible to all principals with whom the resource is shared.</p>
+ * @public
+ * <p>Applies a policy to a container image. We recommend that you call the RAM API
+ * 			CreateResourceShare
+ * 			(https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html) to share
+ * 			resources. If you call the Image Builder API <code>PutContainerImagePolicy</code>, you must also
+ * 			call the RAM API PromoteResourceShareCreatedFromPolicy
+ * 			(https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
+ * 			in order for the resource to be visible to all principals with whom the resource is
+ * 			shared.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, PutContainerRecipePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, PutContainerRecipePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // PutContainerRecipePolicyRequest
+ *   containerRecipeArn: "STRING_VALUE", // required
+ *   policy: "STRING_VALUE", // required
+ * };
  * const command = new PutContainerRecipePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutContainerRecipePolicyCommandInput - {@link PutContainerRecipePolicyCommandInput}
+ * @returns {@link PutContainerRecipePolicyCommandOutput}
  * @see {@link PutContainerRecipePolicyCommandInput} for command's `input` shape.
  * @see {@link PutContainerRecipePolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -54,9 +64,9 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -65,13 +75,14 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
  *  <p>The value that you provided for the specified parameter is invalid.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -95,6 +106,9 @@ export class PutContainerRecipePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutContainerRecipePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +137,8 @@ export class PutContainerRecipePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutContainerRecipePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutContainerRecipePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +148,18 @@ export class PutContainerRecipePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutContainerRecipePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutContainerRecipePolicyCommand(input, context);
+    return se_PutContainerRecipePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutContainerRecipePolicyCommandOutput> {
-    return deserializeAws_restJson1PutContainerRecipePolicyCommand(output, context);
+    return de_PutContainerRecipePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

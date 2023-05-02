@@ -10,7 +10,7 @@ import { TranscribeClient } from "../TranscribeClient";
 import { TranscribePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TranscribeClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCallAnalyticsCategoriesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCallAnalyticsCategories(
   config: TranscribePaginationConfiguration,
   input: ListCallAnalyticsCategoriesCommandInput,

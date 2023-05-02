@@ -3,20 +3,39 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { MediaStoreServiceException as __BaseException } from "./MediaStoreServiceException";
 
-export enum MethodName {
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  PUT = "PUT",
-}
-
-export enum ContainerStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MethodName = {
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  PUT: "PUT",
+} as const;
 
 /**
+ * @public
+ */
+export type MethodName = (typeof MethodName)[keyof typeof MethodName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerStatus = (typeof ContainerStatus)[keyof typeof ContainerStatus];
+
+/**
+ * @public
  * <p>This section describes operations that you can perform on an AWS Elemental MediaStore
  *          container.</p>
  */
@@ -62,6 +81,7 @@ export interface Container {
 }
 
 /**
+ * @public
  * <p>The container that you specified in the request already exists or is being
  *          updated.</p>
  */
@@ -83,12 +103,22 @@ export class ContainerInUseException extends __BaseException {
   }
 }
 
-export enum ContainerLevelMetrics {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContainerLevelMetrics = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type ContainerLevelMetrics = (typeof ContainerLevelMetrics)[keyof typeof ContainerLevelMetrics];
+
+/**
+ * @public
  * <p>The container that you specified in the request does not exist.</p>
  */
 export class ContainerNotFoundException extends __BaseException {
@@ -110,6 +140,7 @@ export class ContainerNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A rule for a CORS policy. You can add up to 100 rules to a CORS policy. If more than
  *          one rule applies, the service uses the first applicable rule listed.</p>
  */
@@ -158,6 +189,7 @@ export interface CorsRule {
 }
 
 /**
+ * @public
  * <p>The CORS policy that you specified in the request does not exist.</p>
  */
 export class CorsPolicyNotFoundException extends __BaseException {
@@ -179,6 +211,7 @@ export class CorsPolicyNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A collection of tags associated with a container. Each tag consists of a key:value pair, which can be anything you define. Typically, the tag key
  *             represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or
  *             "production"). You can add up to 50
@@ -198,6 +231,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateContainerInput {
   /**
    * <p>The name for the container. The name must be from 1 to 255 characters. Container
@@ -215,6 +251,9 @@ export interface CreateContainerInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateContainerOutput {
   /**
    * <p>ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN
@@ -234,6 +273,7 @@ export interface CreateContainerOutput {
 }
 
 /**
+ * @public
  * <p>The service is temporarily unavailable.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -255,6 +295,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A service limit has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -275,6 +316,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteContainerInput {
   /**
    * <p>The name of the container to delete. </p>
@@ -282,8 +326,14 @@ export interface DeleteContainerInput {
   ContainerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContainerOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteContainerPolicyInput {
   /**
    * <p>The name of the container that holds the policy.</p>
@@ -291,9 +341,13 @@ export interface DeleteContainerPolicyInput {
   ContainerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContainerPolicyOutput {}
 
 /**
+ * @public
  * <p>The policy that you specified in the request does not exist.</p>
  */
 export class PolicyNotFoundException extends __BaseException {
@@ -314,6 +368,9 @@ export class PolicyNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCorsPolicyInput {
   /**
    * <p>The name of the container to remove the policy from.</p>
@@ -321,8 +378,14 @@ export interface DeleteCorsPolicyInput {
   ContainerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCorsPolicyOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteLifecyclePolicyInput {
   /**
    * <p>The name of the container that holds the object lifecycle policy.</p>
@@ -330,8 +393,14 @@ export interface DeleteLifecyclePolicyInput {
   ContainerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLifecyclePolicyOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteMetricPolicyInput {
   /**
    * <p>The name of the container that is associated with the metric policy that you want to delete.</p>
@@ -339,8 +408,14 @@ export interface DeleteMetricPolicyInput {
   ContainerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMetricPolicyOutput {}
 
+/**
+ * @public
+ */
 export interface DescribeContainerInput {
   /**
    * <p>The name of the container to query.</p>
@@ -348,6 +423,9 @@ export interface DescribeContainerInput {
   ContainerName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContainerOutput {
   /**
    * <p>The name of the queried container.</p>
@@ -355,6 +433,9 @@ export interface DescribeContainerOutput {
   Container?: Container;
 }
 
+/**
+ * @public
+ */
 export interface GetContainerPolicyInput {
   /**
    * <p>The name of the container. </p>
@@ -362,6 +443,9 @@ export interface GetContainerPolicyInput {
   ContainerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContainerPolicyOutput {
   /**
    * <p>The contents of the access policy.</p>
@@ -369,6 +453,9 @@ export interface GetContainerPolicyOutput {
   Policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCorsPolicyInput {
   /**
    * <p>The name of the container that the policy is assigned to.</p>
@@ -376,6 +463,9 @@ export interface GetCorsPolicyInput {
   ContainerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCorsPolicyOutput {
   /**
    * <p>The CORS policy assigned to the container.</p>
@@ -383,6 +473,9 @@ export interface GetCorsPolicyOutput {
   CorsPolicy: CorsRule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLifecyclePolicyInput {
   /**
    * <p>The name of the container that the object lifecycle policy is assigned to.</p>
@@ -390,6 +483,9 @@ export interface GetLifecyclePolicyInput {
   ContainerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLifecyclePolicyOutput {
   /**
    * <p>The object lifecycle policy that is assigned to the container.</p>
@@ -397,6 +493,9 @@ export interface GetLifecyclePolicyOutput {
   LifecyclePolicy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMetricPolicyInput {
   /**
    * <p>The name of the container that is associated with the metric policy.</p>
@@ -405,6 +504,7 @@ export interface GetMetricPolicyInput {
 }
 
 /**
+ * @public
  * <p>A setting that enables metrics at the object level. Each rule contains an object group and an object group name. If the policy includes the MetricPolicyRules parameter, you must include at least one rule. Each metric policy can include up to five rules by default. You can also <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas">request a quota increase</a> to allow up to 300 rules per policy.</p>
  */
 export interface MetricPolicyRule {
@@ -420,6 +520,7 @@ export interface MetricPolicyRule {
 }
 
 /**
+ * @public
  * <p>The metric policy that is associated with the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include rules to define groups of objects that you want MediaStore to send object-level metrics for.</p>
  *          <p>To view examples of how to construct a metric policy for your use case, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/policies-metric-examples.html">Example Metric Policies</a>.</p>
  */
@@ -435,6 +536,9 @@ export interface MetricPolicy {
   MetricPolicyRules?: MetricPolicyRule[];
 }
 
+/**
+ * @public
+ */
 export interface GetMetricPolicyOutput {
   /**
    * <p>The metric policy that is associated with the specific container.</p>
@@ -442,6 +546,9 @@ export interface GetMetricPolicyOutput {
   MetricPolicy: MetricPolicy | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListContainersInput {
   /**
    * <p>Only if you used <code>MaxResults</code> in the first command, enter the token (which
@@ -457,6 +564,9 @@ export interface ListContainersInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListContainersOutput {
   /**
    * <p>The names of the containers.</p>
@@ -472,6 +582,9 @@ export interface ListContainersOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the container.</p>
@@ -479,6 +592,9 @@ export interface ListTagsForResourceInput {
   Resource: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>An array of key:value pairs that are assigned to the container.</p>
@@ -486,6 +602,9 @@ export interface ListTagsForResourceOutput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutContainerPolicyInput {
   /**
    * <p>The name of the container.</p>
@@ -507,8 +626,14 @@ export interface PutContainerPolicyInput {
   Policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutContainerPolicyOutput {}
 
+/**
+ * @public
+ */
 export interface PutCorsPolicyInput {
   /**
    * <p>The name of the container that you want to assign the CORS policy to.</p>
@@ -521,8 +646,14 @@ export interface PutCorsPolicyInput {
   CorsPolicy: CorsRule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutCorsPolicyOutput {}
 
+/**
+ * @public
+ */
 export interface PutLifecyclePolicyInput {
   /**
    * <p>The name of the container that you want to assign the object lifecycle policy to.</p>
@@ -535,8 +666,14 @@ export interface PutLifecyclePolicyInput {
   LifecyclePolicy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLifecyclePolicyOutput {}
 
+/**
+ * @public
+ */
 export interface PutMetricPolicyInput {
   /**
    * <p>The name of the container that you want to add the metric policy to.</p>
@@ -557,8 +694,14 @@ export interface PutMetricPolicyInput {
   MetricPolicy: MetricPolicy | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutMetricPolicyOutput {}
 
+/**
+ * @public
+ */
 export interface StartAccessLoggingInput {
   /**
    * <p>The name of the container that you want to start access logging on.</p>
@@ -566,8 +709,14 @@ export interface StartAccessLoggingInput {
   ContainerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartAccessLoggingOutput {}
 
+/**
+ * @public
+ */
 export interface StopAccessLoggingInput {
   /**
    * <p>The name of the container that you want to stop access logging on.</p>
@@ -575,8 +724,14 @@ export interface StopAccessLoggingInput {
   ContainerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopAccessLoggingOutput {}
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the container. </p>
@@ -592,8 +747,14 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the container.</p>
@@ -608,333 +769,7 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
-
-/**
- * @internal
- */
-export const ContainerFilterSensitiveLog = (obj: Container): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CorsRuleFilterSensitiveLog = (obj: CorsRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateContainerInputFilterSensitiveLog = (obj: CreateContainerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateContainerOutputFilterSensitiveLog = (obj: CreateContainerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteContainerInputFilterSensitiveLog = (obj: DeleteContainerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteContainerOutputFilterSensitiveLog = (obj: DeleteContainerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteContainerPolicyInputFilterSensitiveLog = (obj: DeleteContainerPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteContainerPolicyOutputFilterSensitiveLog = (obj: DeleteContainerPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCorsPolicyInputFilterSensitiveLog = (obj: DeleteCorsPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCorsPolicyOutputFilterSensitiveLog = (obj: DeleteCorsPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLifecyclePolicyInputFilterSensitiveLog = (obj: DeleteLifecyclePolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLifecyclePolicyOutputFilterSensitiveLog = (obj: DeleteLifecyclePolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMetricPolicyInputFilterSensitiveLog = (obj: DeleteMetricPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMetricPolicyOutputFilterSensitiveLog = (obj: DeleteMetricPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeContainerInputFilterSensitiveLog = (obj: DescribeContainerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeContainerOutputFilterSensitiveLog = (obj: DescribeContainerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContainerPolicyInputFilterSensitiveLog = (obj: GetContainerPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContainerPolicyOutputFilterSensitiveLog = (obj: GetContainerPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCorsPolicyInputFilterSensitiveLog = (obj: GetCorsPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCorsPolicyOutputFilterSensitiveLog = (obj: GetCorsPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLifecyclePolicyInputFilterSensitiveLog = (obj: GetLifecyclePolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLifecyclePolicyOutputFilterSensitiveLog = (obj: GetLifecyclePolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMetricPolicyInputFilterSensitiveLog = (obj: GetMetricPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricPolicyRuleFilterSensitiveLog = (obj: MetricPolicyRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricPolicyFilterSensitiveLog = (obj: MetricPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMetricPolicyOutputFilterSensitiveLog = (obj: GetMetricPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContainersInputFilterSensitiveLog = (obj: ListContainersInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContainersOutputFilterSensitiveLog = (obj: ListContainersOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutContainerPolicyInputFilterSensitiveLog = (obj: PutContainerPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutContainerPolicyOutputFilterSensitiveLog = (obj: PutContainerPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutCorsPolicyInputFilterSensitiveLog = (obj: PutCorsPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutCorsPolicyOutputFilterSensitiveLog = (obj: PutCorsPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutLifecyclePolicyInputFilterSensitiveLog = (obj: PutLifecyclePolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutLifecyclePolicyOutputFilterSensitiveLog = (obj: PutLifecyclePolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutMetricPolicyInputFilterSensitiveLog = (obj: PutMetricPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutMetricPolicyOutputFilterSensitiveLog = (obj: PutMetricPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAccessLoggingInputFilterSensitiveLog = (obj: StartAccessLoggingInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAccessLoggingOutputFilterSensitiveLog = (obj: StartAccessLoggingOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopAccessLoggingInputFilterSensitiveLog = (obj: StopAccessLoggingInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopAccessLoggingOutputFilterSensitiveLog = (obj: StopAccessLoggingOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});

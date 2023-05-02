@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  DeleteAlertRequest,
-  DeleteAlertRequestFilterSensitiveLog,
-  DeleteAlertResponse,
-  DeleteAlertResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAlertCommand,
-  serializeAws_restJson1DeleteAlertCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAlertRequest, DeleteAlertResponse } from "../models/models_0";
+import { de_DeleteAlertCommand, se_DeleteAlertCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAlertCommand}.
  */
 export interface DeleteAlertCommandInput extends DeleteAlertRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAlertCommand}.
  */
 export interface DeleteAlertCommandOutput extends DeleteAlertResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an alert.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteAlertCommandOutput extends DeleteAlertResponse, __Metadat
  * import { LookoutMetricsClient, DeleteAlertCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, DeleteAlertCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = { // DeleteAlertRequest
+ *   AlertArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAlertCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAlertCommandInput - {@link DeleteAlertCommandInput}
+ * @returns {@link DeleteAlertCommandOutput}
  * @see {@link DeleteAlertCommandInput} for command's `input` shape.
  * @see {@link DeleteAlertCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -85,6 +87,9 @@ export class DeleteAlertCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAlertCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DeleteAlertCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAlertRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAlertResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DeleteAlertCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAlertCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAlertCommand(input, context);
+    return se_DeleteAlertCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAlertCommandOutput> {
-    return deserializeAws_restJson1DeleteAlertCommand(output, context);
+    return de_DeleteAlertCommand(output, context);
   }
 
   // Start section: command_body_extra

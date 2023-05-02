@@ -13,13 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchInput,
-  SearchInputFilterSensitiveLog,
-  SearchOutput,
-  SearchOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_restJson1SearchCommand, serializeAws_restJson1SearchCommand } from "../protocols/Aws_restJson1";
+import { SearchInput, SearchInputFilterSensitiveLog, SearchOutput } from "../models/models_0";
+import { de_SearchCommand, se_SearchCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -27,15 +22,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link SearchCommand}.
  */
 export interface SearchCommandInput extends SearchInput {}
 /**
+ * @public
+ *
  * The output of {@link SearchCommand}.
  */
 export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for resources and displays details about all resources that match the
  *             specified criteria. You must specify a query string.</p>
  *          <p>All search queries must use a view. If you don't explicitly specify a view, then
@@ -55,10 +55,18 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * import { ResourceExplorer2Client, SearchCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, SearchCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = { // SearchInput
+ *   QueryString: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   ViewArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchCommandInput - {@link SearchCommandInput}
+ * @returns {@link SearchCommandOutput}
  * @see {@link SearchCommandInput} for command's `input` shape.
  * @see {@link SearchCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -105,6 +113,9 @@ export class SearchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,7 +143,7 @@ export class SearchCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SearchInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +153,18 @@ export class SearchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchCommand(input, context);
+    return se_SearchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> {
-    return deserializeAws_restJson1SearchCommand(output, context);
+    return de_SearchCommand(output, context);
   }
 
   // Start section: command_body_extra

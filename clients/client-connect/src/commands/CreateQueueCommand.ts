@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateQueueRequest,
-  CreateQueueRequestFilterSensitiveLog,
-  CreateQueueResponse,
-  CreateQueueResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateQueueCommand,
-  serializeAws_restJson1CreateQueueCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateQueueRequest, CreateQueueResponse } from "../models/models_0";
+import { de_CreateQueueCommand, se_CreateQueueCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateQueueCommand}.
  */
 export interface CreateQueueCommandInput extends CreateQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateQueueCommand}.
  */
 export interface CreateQueueCommandOutput extends CreateQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Creates a new queue for the specified Amazon Connect instance.</p>
  *          <important>
@@ -54,10 +51,30 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * import { ConnectClient, CreateQueueCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateQueueCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // CreateQueueRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   OutboundCallerConfig: { // OutboundCallerConfig
+ *     OutboundCallerIdName: "STRING_VALUE",
+ *     OutboundCallerIdNumberId: "STRING_VALUE",
+ *     OutboundFlowId: "STRING_VALUE",
+ *   },
+ *   HoursOfOperationId: "STRING_VALUE", // required
+ *   MaxContacts: Number("int"),
+ *   QuickConnectIds: [ // QuickConnectsList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQueueCommandInput - {@link CreateQueueCommandInput}
+ * @returns {@link CreateQueueCommandOutput}
  * @see {@link CreateQueueCommandInput} for command's `input` shape.
  * @see {@link CreateQueueCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -102,6 +119,9 @@ export class CreateQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +148,8 @@ export class CreateQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateQueueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +159,18 @@ export class CreateQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateQueueCommand(input, context);
+    return se_CreateQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQueueCommandOutput> {
-    return deserializeAws_restJson1CreateQueueCommand(output, context);
+    return de_CreateQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListGeoMatchSetsRequest,
-  ListGeoMatchSetsRequestFilterSensitiveLog,
-  ListGeoMatchSetsResponse,
-  ListGeoMatchSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGeoMatchSetsCommand,
-  serializeAws_json1_1ListGeoMatchSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListGeoMatchSetsRequest, ListGeoMatchSetsResponse } from "../models/models_0";
+import { de_ListGeoMatchSetsCommand, se_ListGeoMatchSetsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListGeoMatchSetsCommand}.
  */
 export interface ListGeoMatchSetsCommandInput extends ListGeoMatchSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGeoMatchSetsCommand}.
  */
 export interface ListGeoMatchSetsCommandOutput extends ListGeoMatchSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -50,10 +47,16 @@ export interface ListGeoMatchSetsCommandOutput extends ListGeoMatchSetsResponse,
  * import { WAFClient, ListGeoMatchSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListGeoMatchSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // ListGeoMatchSetsRequest
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListGeoMatchSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGeoMatchSetsCommandInput - {@link ListGeoMatchSetsCommandInput}
+ * @returns {@link ListGeoMatchSetsCommandOutput}
  * @see {@link ListGeoMatchSetsCommandInput} for command's `input` shape.
  * @see {@link ListGeoMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -83,6 +86,9 @@ export class ListGeoMatchSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGeoMatchSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class ListGeoMatchSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGeoMatchSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGeoMatchSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class ListGeoMatchSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGeoMatchSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGeoMatchSetsCommand(input, context);
+    return se_ListGeoMatchSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGeoMatchSetsCommandOutput> {
-    return deserializeAws_json1_1ListGeoMatchSetsCommand(output, context);
+    return de_ListGeoMatchSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

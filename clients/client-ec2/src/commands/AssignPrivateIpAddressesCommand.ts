@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssignPrivateIpAddressesRequest,
-  AssignPrivateIpAddressesRequestFilterSensitiveLog,
-  AssignPrivateIpAddressesResult,
-  AssignPrivateIpAddressesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AssignPrivateIpAddressesCommand,
-  serializeAws_ec2AssignPrivateIpAddressesCommand,
-} from "../protocols/Aws_ec2";
+import { AssignPrivateIpAddressesRequest, AssignPrivateIpAddressesResult } from "../models/models_0";
+import { de_AssignPrivateIpAddressesCommand, se_AssignPrivateIpAddressesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssignPrivateIpAddressesCommand}.
  */
 export interface AssignPrivateIpAddressesCommandInput extends AssignPrivateIpAddressesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssignPrivateIpAddressesCommand}.
  */
 export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAddressesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns one or more secondary private IP addresses to the specified network interface.</p>
  *          <p>You can specify one or more specific secondary IP addresses, or you can specify the number
  *             of secondary IP addresses to be automatically assigned within the subnet's CIDR block range.
@@ -57,10 +54,24 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * import { EC2Client, AssignPrivateIpAddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssignPrivateIpAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssignPrivateIpAddressesRequest
+ *   AllowReassignment: true || false,
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   PrivateIpAddresses: [ // PrivateIpAddressStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   SecondaryPrivateIpAddressCount: Number("int"),
+ *   Ipv4Prefixes: [ // IpPrefixList
+ *     "STRING_VALUE",
+ *   ],
+ *   Ipv4PrefixCount: Number("int"),
+ * };
  * const command = new AssignPrivateIpAddressesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssignPrivateIpAddressesCommandInput - {@link AssignPrivateIpAddressesCommandInput}
+ * @returns {@link AssignPrivateIpAddressesCommandOutput}
  * @see {@link AssignPrivateIpAddressesCommandInput} for command's `input` shape.
  * @see {@link AssignPrivateIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -110,6 +121,9 @@ export class AssignPrivateIpAddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssignPrivateIpAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +152,8 @@ export class AssignPrivateIpAddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssignPrivateIpAddressesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssignPrivateIpAddressesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +163,18 @@ export class AssignPrivateIpAddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssignPrivateIpAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssignPrivateIpAddressesCommand(input, context);
+    return se_AssignPrivateIpAddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignPrivateIpAddressesCommandOutput> {
-    return deserializeAws_ec2AssignPrivateIpAddressesCommand(output, context);
+    return de_AssignPrivateIpAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

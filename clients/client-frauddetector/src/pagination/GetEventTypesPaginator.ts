@@ -10,7 +10,7 @@ import { FraudDetectorClient } from "../FraudDetectorClient";
 import { FraudDetectorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FraudDetectorClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetEventTypesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetEventTypes(
   config: FraudDetectorPaginationConfiguration,
   input: GetEventTypesCommandInput,

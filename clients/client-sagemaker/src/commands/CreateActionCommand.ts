@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateActionRequest,
-  CreateActionRequestFilterSensitiveLog,
-  CreateActionResponse,
-  CreateActionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateActionCommand,
-  serializeAws_json1_1CreateActionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateActionRequest, CreateActionResponse } from "../models/models_0";
+import { de_CreateActionCommand, se_CreateActionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateActionCommand}.
  */
 export interface CreateActionCommandInput extends CreateActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateActionCommand}.
  */
 export interface CreateActionCommandOutput extends CreateActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an <i>action</i>. An action is a lineage tracking entity that
  *         represents an action or activity. For example, a model deployment or an HPO job.
  *         Generally, an action involves at least one input or output artifact. For more information, see
@@ -46,10 +43,38 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  * import { SageMakerClient, CreateActionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateActionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateActionRequest
+ *   ActionName: "STRING_VALUE", // required
+ *   Source: { // ActionSource
+ *     SourceUri: "STRING_VALUE", // required
+ *     SourceType: "STRING_VALUE",
+ *     SourceId: "STRING_VALUE",
+ *   },
+ *   ActionType: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Status: "Unknown" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *   Properties: { // LineageEntityParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   MetadataProperties: { // MetadataProperties
+ *     CommitId: "STRING_VALUE",
+ *     Repository: "STRING_VALUE",
+ *     GeneratedBy: "STRING_VALUE",
+ *     ProjectId: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateActionCommandInput - {@link CreateActionCommandInput}
+ * @returns {@link CreateActionCommandOutput}
  * @see {@link CreateActionCommandInput} for command's `input` shape.
  * @see {@link CreateActionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -77,6 +102,9 @@ export class CreateActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +131,8 @@ export class CreateActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +142,18 @@ export class CreateActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateActionCommand(input, context);
+    return se_CreateActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateActionCommandOutput> {
-    return deserializeAws_json1_1CreateActionCommand(output, context);
+    return de_CreateActionCommand(output, context);
   }
 
   // Start section: command_body_extra

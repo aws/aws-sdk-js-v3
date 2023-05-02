@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  CreateTaskSetRequest,
-  CreateTaskSetRequestFilterSensitiveLog,
-  CreateTaskSetResponse,
-  CreateTaskSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTaskSetCommand,
-  serializeAws_json1_1CreateTaskSetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTaskSetRequest, CreateTaskSetResponse } from "../models/models_0";
+import { de_CreateTaskSetCommand, se_CreateTaskSetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTaskSetCommand}.
  */
 export interface CreateTaskSetCommandInput extends CreateTaskSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTaskSetCommand}.
  */
 export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a task set in the specified cluster and service. This is used when a service
  * 			uses the <code>EXTERNAL</code> deployment controller type. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment
@@ -45,10 +42,65 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * import { ECSClient, CreateTaskSetCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateTaskSetCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // CreateTaskSetRequest
+ *   service: "STRING_VALUE", // required
+ *   cluster: "STRING_VALUE", // required
+ *   externalId: "STRING_VALUE",
+ *   taskDefinition: "STRING_VALUE", // required
+ *   networkConfiguration: { // NetworkConfiguration
+ *     awsvpcConfiguration: { // AwsVpcConfiguration
+ *       subnets: [ // StringList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroups: [
+ *         "STRING_VALUE",
+ *       ],
+ *       assignPublicIp: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ *   loadBalancers: [ // LoadBalancers
+ *     { // LoadBalancer
+ *       targetGroupArn: "STRING_VALUE",
+ *       loadBalancerName: "STRING_VALUE",
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   serviceRegistries: [ // ServiceRegistries
+ *     { // ServiceRegistry
+ *       registryArn: "STRING_VALUE",
+ *       port: Number("int"),
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   capacityProviderStrategy: [ // CapacityProviderStrategy
+ *     { // CapacityProviderStrategyItem
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ *   platformVersion: "STRING_VALUE",
+ *   scale: { // Scale
+ *     value: Number("double"),
+ *     unit: "PERCENT",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   tags: [ // Tags
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateTaskSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTaskSetCommandInput - {@link CreateTaskSetCommandInput}
+ * @returns {@link CreateTaskSetCommandOutput}
  * @see {@link CreateTaskSetCommandInput} for command's `input` shape.
  * @see {@link CreateTaskSetCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -111,6 +163,9 @@ export class CreateTaskSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTaskSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +192,8 @@ export class CreateTaskSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTaskSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTaskSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +203,18 @@ export class CreateTaskSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTaskSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTaskSetCommand(input, context);
+    return se_CreateTaskSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTaskSetCommandOutput> {
-    return deserializeAws_json1_1CreateTaskSetCommand(output, context);
+    return de_CreateTaskSetCommand(output, context);
   }
 
   // Start section: command_body_extra

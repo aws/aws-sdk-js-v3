@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  DescribeUserRequest,
-  DescribeUserRequestFilterSensitiveLog,
-  DescribeUserResponse,
-  DescribeUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeUserCommand,
-  serializeAws_json1_1DescribeUserCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeUserRequest, DescribeUserResponse, DescribeUserResponseFilterSensitiveLog } from "../models/models_0";
+import { de_DescribeUserCommand, se_DescribeUserCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserCommand}.
  */
 export interface DescribeUserCommandInput extends DescribeUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserCommand}.
  */
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * import { IdentitystoreClient, DescribeUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, DescribeUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = { // DescribeUserRequest
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
+ * @returns {@link DescribeUserCommandOutput}
  * @see {@link DescribeUserCommandInput} for command's `input` shape.
  * @see {@link DescribeUserCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -84,6 +87,9 @@ export class DescribeUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +116,7 @@ export class DescribeUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -121,12 +127,18 @@ export class DescribeUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserCommand(input, context);
+    return se_DescribeUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserCommandOutput> {
-    return deserializeAws_json1_1DescribeUserCommand(output, context);
+    return de_DescribeUserCommand(output, context);
   }
 
   // Start section: command_body_extra

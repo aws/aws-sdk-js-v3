@@ -6,7 +6,7 @@ import { EKSClient } from "../EKSClient";
 import { EKSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EKSClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListUpdatesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListUpdates(
   config: EKSPaginationConfiguration,
   input: ListUpdatesCommandInput,

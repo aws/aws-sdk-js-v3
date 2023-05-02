@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetGroupConfigurationInput,
-  GetGroupConfigurationInputFilterSensitiveLog,
-  GetGroupConfigurationOutput,
-  GetGroupConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGroupConfigurationCommand,
-  serializeAws_restJson1GetGroupConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGroupConfigurationInput, GetGroupConfigurationOutput } from "../models/models_0";
+import { de_GetGroupConfigurationCommand, se_GetGroupConfigurationCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupConfigurationCommand}.
  */
 export interface GetGroupConfigurationCommandInput extends GetGroupConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupConfigurationCommand}.
  */
 export interface GetGroupConfigurationCommandOutput extends GetGroupConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the service configuration associated with the specified resource group. For
  *             details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for Resource Groups</a>.</p>
  *          <p>
@@ -54,10 +51,15 @@ export interface GetGroupConfigurationCommandOutput extends GetGroupConfiguratio
  * import { ResourceGroupsClient, GetGroupConfigurationCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GetGroupConfigurationCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // GetGroupConfigurationInput
+ *   Group: "STRING_VALUE",
+ * };
  * const command = new GetGroupConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupConfigurationCommandInput - {@link GetGroupConfigurationCommandInput}
+ * @returns {@link GetGroupConfigurationCommandOutput}
  * @see {@link GetGroupConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetGroupConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -100,6 +102,9 @@ export class GetGroupConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +133,8 @@ export class GetGroupConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +144,18 @@ export class GetGroupConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGroupConfigurationCommand(input, context);
+    return se_GetGroupConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetGroupConfigurationCommand(output, context);
+    return de_GetGroupConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

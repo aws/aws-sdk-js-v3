@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchStopJobRunRequest,
-  BatchStopJobRunRequestFilterSensitiveLog,
-  BatchStopJobRunResponse,
-  BatchStopJobRunResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchStopJobRunCommand,
-  serializeAws_json1_1BatchStopJobRunCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchStopJobRunRequest, BatchStopJobRunResponse } from "../models/models_0";
+import { de_BatchStopJobRunCommand, se_BatchStopJobRunCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchStopJobRunCommand}.
  */
 export interface BatchStopJobRunCommandInput extends BatchStopJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchStopJobRunCommand}.
  */
 export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops one or more job runs for a specified job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
  * import { GlueClient, BatchStopJobRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchStopJobRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // BatchStopJobRunRequest
+ *   JobName: "STRING_VALUE", // required
+ *   JobRunIds: [ // BatchStopJobRunJobRunIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchStopJobRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchStopJobRunCommandInput - {@link BatchStopJobRunCommandInput}
+ * @returns {@link BatchStopJobRunCommandOutput}
  * @see {@link BatchStopJobRunCommandInput} for command's `input` shape.
  * @see {@link BatchStopJobRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +83,9 @@ export class BatchStopJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchStopJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +114,8 @@ export class BatchStopJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchStopJobRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchStopJobRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +125,18 @@ export class BatchStopJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchStopJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchStopJobRunCommand(input, context);
+    return se_BatchStopJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchStopJobRunCommandOutput> {
-    return deserializeAws_json1_1BatchStopJobRunCommand(output, context);
+    return de_BatchStopJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

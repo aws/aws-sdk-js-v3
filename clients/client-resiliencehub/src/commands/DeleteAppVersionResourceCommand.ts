@@ -13,39 +13,36 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAppVersionResourceRequest,
-  DeleteAppVersionResourceRequestFilterSensitiveLog,
-  DeleteAppVersionResourceResponse,
-  DeleteAppVersionResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAppVersionResourceCommand,
-  serializeAws_restJson1DeleteAppVersionResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAppVersionResourceRequest, DeleteAppVersionResourceResponse } from "../models/models_0";
+import { de_DeleteAppVersionResourceCommand, se_DeleteAppVersionResourceCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppVersionResourceCommand}.
  */
 export interface DeleteAppVersionResourceCommandInput extends DeleteAppVersionResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppVersionResourceCommand}.
  */
 export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a resource from the AWS Resilience Hub application.</p>
+ * @public
+ * <p>Deletes a resource from the Resilience Hub application.</p>
  *          <note>
  *             <ul>
  *                <li>
  *                   <p>You can only delete a manually added resource. To exclude non-manually added resources, use the <code>UpdateAppVersionResource</code> API.</p>
  *                </li>
  *                <li>
- *                   <p>This action has no effect outside AWS Resilience Hub.</p>
+ *                   <p>This action has no effect outside Resilience Hub.</p>
  *                </li>
  *                <li>
- *                   <p>This API updates the AWS Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *                   <p>This API updates the Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
  *                </li>
  *             </ul>
  *          </note>
@@ -55,10 +52,27 @@ export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionR
  * import { ResiliencehubClient, DeleteAppVersionResourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteAppVersionResourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // DeleteAppVersionResourceRequest
+ *   appArn: "STRING_VALUE", // required
+ *   resourceName: "STRING_VALUE",
+ *   logicalResourceId: { // LogicalResourceId
+ *     identifier: "STRING_VALUE", // required
+ *     logicalStackName: "STRING_VALUE",
+ *     resourceGroupName: "STRING_VALUE",
+ *     terraformSourceName: "STRING_VALUE",
+ *     eksSourceName: "STRING_VALUE",
+ *   },
+ *   physicalResourceId: "STRING_VALUE",
+ *   awsRegion: "STRING_VALUE",
+ *   awsAccountId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteAppVersionResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppVersionResourceCommandInput - {@link DeleteAppVersionResourceCommandInput}
+ * @returns {@link DeleteAppVersionResourceCommandOutput}
  * @see {@link DeleteAppVersionResourceCommandInput} for command's `input` shape.
  * @see {@link DeleteAppVersionResourceCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -75,7 +89,7 @@ export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionR
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -106,6 +120,9 @@ export class DeleteAppVersionResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppVersionResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +151,8 @@ export class DeleteAppVersionResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppVersionResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppVersionResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +162,18 @@ export class DeleteAppVersionResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppVersionResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppVersionResourceCommand(input, context);
+    return se_DeleteAppVersionResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppVersionResourceCommandOutput> {
-    return deserializeAws_restJson1DeleteAppVersionResourceCommand(output, context);
+    return de_DeleteAppVersionResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

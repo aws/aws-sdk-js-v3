@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateTagsRequest, CreateTagsRequestFilterSensitiveLog } from "../models/models_2";
-import { deserializeAws_ec2CreateTagsCommand, serializeAws_ec2CreateTagsCommand } from "../protocols/Aws_ec2";
+import { CreateTagsRequest } from "../models/models_2";
+import { de_CreateTagsCommand, se_CreateTagsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTagsCommand}.
  */
 export interface CreateTagsCommandInput extends CreateTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTagsCommand}.
  */
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or
  *          resources. When you specify an existing tag key, the value is overwritten with
  *          the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and
@@ -42,10 +47,24 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * import { EC2Client, CreateTagsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateTagsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateTagsRequest
+ *   DryRun: true || false,
+ *   Resources: [ // ResourceIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTagsCommandInput - {@link CreateTagsCommandInput}
+ * @returns {@link CreateTagsCommandOutput}
  * @see {@link CreateTagsCommandInput} for command's `input` shape.
  * @see {@link CreateTagsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -88,6 +107,9 @@ export class CreateTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +136,8 @@ export class CreateTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +147,18 @@ export class CreateTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateTagsCommand(input, context);
+    return se_CreateTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTagsCommandOutput> {
-    return deserializeAws_ec2CreateTagsCommand(output, context);
+    return de_CreateTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,22 +3,32 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { LicenseManagerLinuxSubscriptionsServiceException as __BaseException } from "./LicenseManagerLinuxSubscriptionsServiceException";
 
-export enum Operator {
+/**
+ * @public
+ * @enum
+ */
+export const Operator = {
   /**
    * Contains operator
    */
-  CONTAINS = "Contains",
+  CONTAINS: "Contains",
   /**
    * Equal operator
    */
-  EQUAL = "Equal",
+  EQUAL: "Equal",
   /**
    * Not equal operator
    */
-  NOT_EQUAL = "NotEqual",
-}
+  NOT_EQUAL: "NotEqual",
+} as const;
 
 /**
+ * @public
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
+
+/**
+ * @public
  * <p>A filter object that is used to return more specific results from a describe operation.
  *       Filters can be used to match a set of resources by specific criteria.</p>
  */
@@ -39,31 +49,54 @@ export interface Filter {
   Operator?: Operator | string;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceSettingsRequest {}
 
-export enum LinuxSubscriptionsDiscovery {
+/**
+ * @public
+ * @enum
+ */
+export const LinuxSubscriptionsDiscovery = {
   /**
    * Disabled LinuxSubscriptionsDiscovery
    */
-  Disabled = "Disabled",
+  Disabled: "Disabled",
   /**
    * Enabled LinuxSubscriptionsDiscovery
    */
-  Enabled = "Enabled",
-}
+  Enabled: "Enabled",
+} as const;
 
-export enum OrganizationIntegration {
+/**
+ * @public
+ */
+export type LinuxSubscriptionsDiscovery =
+  (typeof LinuxSubscriptionsDiscovery)[keyof typeof LinuxSubscriptionsDiscovery];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationIntegration = {
   /**
    * Disabled OrganizationIntegration
    */
-  Disabled = "Disabled",
+  Disabled: "Disabled",
   /**
    * Enabled OrganizationIntegration
    */
-  Enabled = "Enabled",
-}
+  Enabled: "Enabled",
+} as const;
 
 /**
+ * @public
+ */
+export type OrganizationIntegration = (typeof OrganizationIntegration)[keyof typeof OrganizationIntegration];
+
+/**
+ * @public
  * <p>Lists the settings defined for discovering Linux subscriptions.</p>
  */
 export interface LinuxSubscriptionsDiscoverySettings {
@@ -78,25 +111,37 @@ export interface LinuxSubscriptionsDiscoverySettings {
   OrganizationIntegration: OrganizationIntegration | string | undefined;
 }
 
-export enum Status {
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
   /**
    * Completed status
    */
-  Completed = "Completed",
+  Completed: "Completed",
   /**
    * Failed status
    */
-  Failed = "Failed",
+  Failed: "Failed",
   /**
    * InProgress status
    */
-  InProgress = "InProgress",
+  InProgress: "InProgress",
   /**
    * Successful status
    */
-  Successful = "Successful",
-}
+  Successful: "Successful",
+} as const;
 
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ */
 export interface GetServiceSettingsResponse {
   /**
    * <p>Lists if discovery has been enabled for Linux subscriptions.</p>
@@ -127,6 +172,7 @@ export interface GetServiceSettingsResponse {
 }
 
 /**
+ * @public
  * <p>An exception occurred with the service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -146,6 +192,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -165,6 +212,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided input is not valid. Try your request again.</p>
  */
 export class ValidationException extends __BaseException {
@@ -184,6 +232,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Details discovered information about a running instance using Linux subscriptions.</p>
  */
 export interface Instance {
@@ -242,6 +291,7 @@ export interface Instance {
 }
 
 /**
+ * @public
  * NextToken length limit is half of ddb accepted limit.
  * Increase this limit if parameters in request increases.
  */
@@ -326,6 +376,9 @@ export interface ListLinuxSubscriptionInstancesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLinuxSubscriptionInstancesResponse {
   /**
    * <p>An array that contains instance objects.</p>
@@ -339,6 +392,7 @@ export interface ListLinuxSubscriptionInstancesResponse {
 }
 
 /**
+ * @public
  * NextToken length limit is half of ddb accepted limit.
  * Increase this limit if parameters in request increases.
  */
@@ -389,6 +443,7 @@ export interface ListLinuxSubscriptionsRequest {
 }
 
 /**
+ * @public
  * <p>An object which details a discovered Linux subscription.</p>
  */
 export interface Subscription {
@@ -410,6 +465,9 @@ export interface Subscription {
   InstanceCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListLinuxSubscriptionsResponse {
   /**
    * <p>An array that contains subscription objects.</p>
@@ -422,6 +480,9 @@ export interface ListLinuxSubscriptionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceSettingsRequest {
   /**
    * <p>Describes if the discovery of Linux subscriptions is enabled.</p>
@@ -441,6 +502,9 @@ export interface UpdateServiceSettingsRequest {
   AllowUpdate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceSettingsResponse {
   /**
    * <p>Lists if discovery has been enabled for Linux subscriptions.</p>
@@ -469,93 +533,3 @@ export interface UpdateServiceSettingsResponse {
    */
   HomeRegions?: string[];
 }
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetServiceSettingsRequestFilterSensitiveLog = (obj: GetServiceSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LinuxSubscriptionsDiscoverySettingsFilterSensitiveLog = (
-  obj: LinuxSubscriptionsDiscoverySettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetServiceSettingsResponseFilterSensitiveLog = (obj: GetServiceSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLinuxSubscriptionInstancesRequestFilterSensitiveLog = (
-  obj: ListLinuxSubscriptionInstancesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLinuxSubscriptionInstancesResponseFilterSensitiveLog = (
-  obj: ListLinuxSubscriptionInstancesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLinuxSubscriptionsRequestFilterSensitiveLog = (obj: ListLinuxSubscriptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubscriptionFilterSensitiveLog = (obj: Subscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLinuxSubscriptionsResponseFilterSensitiveLog = (obj: ListLinuxSubscriptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceSettingsRequestFilterSensitiveLog = (obj: UpdateServiceSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceSettingsResponseFilterSensitiveLog = (obj: UpdateServiceSettingsResponse): any => ({
-  ...obj,
-});

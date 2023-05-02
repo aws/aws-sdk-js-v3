@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  DescribeACLsRequest,
-  DescribeACLsRequestFilterSensitiveLog,
-  DescribeACLsResponse,
-  DescribeACLsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeACLsCommand,
-  serializeAws_json1_1DescribeACLsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeACLsRequest, DescribeACLsResponse } from "../models/models_0";
+import { de_DescribeACLsCommand, se_DescribeACLsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeACLsCommand}.
  */
 export interface DescribeACLsCommandInput extends DescribeACLsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeACLsCommand}.
  */
 export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of ACLs</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  * import { MemoryDBClient, DescribeACLsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeACLsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // DescribeACLsRequest
+ *   ACLName: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeACLsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeACLsCommandInput - {@link DescribeACLsCommandInput}
+ * @returns {@link DescribeACLsCommandOutput}
  * @see {@link DescribeACLsCommandInput} for command's `input` shape.
  * @see {@link DescribeACLsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -75,6 +79,9 @@ export class DescribeACLsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeACLsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +108,8 @@ export class DescribeACLsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeACLsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeACLsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +119,18 @@ export class DescribeACLsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeACLsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeACLsCommand(input, context);
+    return se_DescribeACLsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeACLsCommandOutput> {
-    return deserializeAws_json1_1DescribeACLsCommand(output, context);
+    return de_DescribeACLsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetJourneyExecutionMetricsRequest,
-  GetJourneyExecutionMetricsRequestFilterSensitiveLog,
-  GetJourneyExecutionMetricsResponse,
-  GetJourneyExecutionMetricsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetJourneyExecutionMetricsRequest, GetJourneyExecutionMetricsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetJourneyExecutionMetricsCommand,
-  serializeAws_restJson1GetJourneyExecutionMetricsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetJourneyExecutionMetricsCommand, se_GetJourneyExecutionMetricsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJourneyExecutionMetricsCommand}.
  */
 export interface GetJourneyExecutionMetricsCommandInput extends GetJourneyExecutionMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJourneyExecutionMetricsCommand}.
  */
 export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecutionMetricsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecu
  * import { PinpointClient, GetJourneyExecutionMetricsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetJourneyExecutionMetricsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetJourneyExecutionMetricsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   JourneyId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: "STRING_VALUE",
+ * };
  * const command = new GetJourneyExecutionMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJourneyExecutionMetricsCommandInput - {@link GetJourneyExecutionMetricsCommandInput}
+ * @returns {@link GetJourneyExecutionMetricsCommandOutput}
  * @see {@link GetJourneyExecutionMetricsCommandInput} for command's `input` shape.
  * @see {@link GetJourneyExecutionMetricsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +95,9 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJourneyExecutionMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJourneyExecutionMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJourneyExecutionMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +137,21 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJourneyExecutionMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJourneyExecutionMetricsCommand(input, context);
+    return se_GetJourneyExecutionMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetJourneyExecutionMetricsCommandOutput> {
-    return deserializeAws_restJson1GetJourneyExecutionMetricsCommand(output, context);
+    return de_GetJourneyExecutionMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

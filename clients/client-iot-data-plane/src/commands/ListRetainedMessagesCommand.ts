@@ -14,33 +14,30 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import {
-  ListRetainedMessagesRequest,
-  ListRetainedMessagesRequestFilterSensitiveLog,
-  ListRetainedMessagesResponse,
-  ListRetainedMessagesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRetainedMessagesCommand,
-  serializeAws_restJson1ListRetainedMessagesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRetainedMessagesRequest, ListRetainedMessagesResponse } from "../models/models_0";
+import { de_ListRetainedMessagesCommand, se_ListRetainedMessagesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRetainedMessagesCommand}.
  */
 export interface ListRetainedMessagesCommandInput extends ListRetainedMessagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRetainedMessagesCommand}.
  */
 export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists summary information about the retained messages stored for the account.</p>
  *          <p>This action returns only the topic names of the retained messages. It doesn't
  *       return any message payloads. Although this action doesn't return a message payload,
  *       it can still incur messaging costs.</p>
  *          <p>To get the message payload of a retained message, call
- *       <a href="https://docs.aws.amazon.com/iot/latest/developerguide/API_iotdata_GetRetainedMessage.html">GetRetainedMessage</a>
+ *       <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_GetRetainedMessage.html">GetRetainedMessage</a>
  *       with the topic name of the retained message.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">ListRetainedMessages</a> action.</p>
  *          <p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core
@@ -51,10 +48,16 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  * import { IoTDataPlaneClient, ListRetainedMessagesCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, ListRetainedMessagesCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
+ * const input = { // ListRetainedMessagesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRetainedMessagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRetainedMessagesCommandInput - {@link ListRetainedMessagesCommandInput}
+ * @returns {@link ListRetainedMessagesCommandOutput}
  * @see {@link ListRetainedMessagesCommandInput} for command's `input` shape.
  * @see {@link ListRetainedMessagesCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
@@ -96,6 +99,9 @@ export class ListRetainedMessagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRetainedMessagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +130,8 @@ export class ListRetainedMessagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRetainedMessagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRetainedMessagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +141,18 @@ export class ListRetainedMessagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRetainedMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRetainedMessagesCommand(input, context);
+    return se_ListRetainedMessagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRetainedMessagesCommandOutput> {
-    return deserializeAws_restJson1ListRetainedMessagesCommand(output, context);
+    return de_ListRetainedMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

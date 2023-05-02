@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  AddAttributesToFindingsRequest,
-  AddAttributesToFindingsRequestFilterSensitiveLog,
-  AddAttributesToFindingsResponse,
-  AddAttributesToFindingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddAttributesToFindingsCommand,
-  serializeAws_json1_1AddAttributesToFindingsCommand,
-} from "../protocols/Aws_json1_1";
+import { AddAttributesToFindingsRequest, AddAttributesToFindingsResponse } from "../models/models_0";
+import { de_AddAttributesToFindingsCommand, se_AddAttributesToFindingsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddAttributesToFindingsCommand}.
  */
 export interface AddAttributesToFindingsCommandInput extends AddAttributesToFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddAttributesToFindingsCommand}.
  */
 export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns attributes (key and value pairs) to the findings that are specified by the
  *          ARNs of the findings.</p>
  * @example
@@ -43,10 +40,23 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  * import { InspectorClient, AddAttributesToFindingsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, AddAttributesToFindingsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // AddAttributesToFindingsRequest
+ *   findingArns: [ // AddRemoveAttributesFindingArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   attributes: [ // UserAttributeList // required
+ *     { // Attribute
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AddAttributesToFindingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddAttributesToFindingsCommandInput - {@link AddAttributesToFindingsCommandInput}
+ * @returns {@link AddAttributesToFindingsCommandOutput}
  * @see {@link AddAttributesToFindingsCommandInput} for command's `input` shape.
  * @see {@link AddAttributesToFindingsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -111,6 +121,9 @@ export class AddAttributesToFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddAttributesToFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +152,8 @@ export class AddAttributesToFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddAttributesToFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddAttributesToFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +163,18 @@ export class AddAttributesToFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddAttributesToFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddAttributesToFindingsCommand(input, context);
+    return se_AddAttributesToFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddAttributesToFindingsCommandOutput> {
-    return deserializeAws_json1_1AddAttributesToFindingsCommand(output, context);
+    return de_AddAttributesToFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

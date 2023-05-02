@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RotateEncryptionKeyMessage,
-  RotateEncryptionKeyMessageFilterSensitiveLog,
-  RotateEncryptionKeyResult,
-  RotateEncryptionKeyResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRotateEncryptionKeyCommand,
-  serializeAws_queryRotateEncryptionKeyCommand,
-} from "../protocols/Aws_query";
+import { RotateEncryptionKeyMessage, RotateEncryptionKeyResult } from "../models/models_1";
+import { de_RotateEncryptionKeyCommand, se_RotateEncryptionKeyCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link RotateEncryptionKeyCommand}.
  */
 export interface RotateEncryptionKeyCommandInput extends RotateEncryptionKeyMessage {}
 /**
+ * @public
+ *
  * The output of {@link RotateEncryptionKeyCommand}.
  */
 export interface RotateEncryptionKeyCommandOutput extends RotateEncryptionKeyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rotates the encryption keys for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface RotateEncryptionKeyCommandOutput extends RotateEncryptionKeyRes
  * import { RedshiftClient, RotateEncryptionKeyCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RotateEncryptionKeyCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // RotateEncryptionKeyMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new RotateEncryptionKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RotateEncryptionKeyCommandInput - {@link RotateEncryptionKeyCommandInput}
+ * @returns {@link RotateEncryptionKeyCommandOutput}
  * @see {@link RotateEncryptionKeyCommandInput} for command's `input` shape.
  * @see {@link RotateEncryptionKeyCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -80,6 +82,9 @@ export class RotateEncryptionKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RotateEncryptionKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class RotateEncryptionKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RotateEncryptionKeyMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RotateEncryptionKeyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class RotateEncryptionKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RotateEncryptionKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRotateEncryptionKeyCommand(input, context);
+    return se_RotateEncryptionKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RotateEncryptionKeyCommandOutput> {
-    return deserializeAws_queryRotateEncryptionKeyCommand(output, context);
+    return de_RotateEncryptionKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

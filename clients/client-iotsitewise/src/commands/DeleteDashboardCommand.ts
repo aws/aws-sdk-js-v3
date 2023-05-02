@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DeleteDashboardRequest,
-  DeleteDashboardRequestFilterSensitiveLog,
-  DeleteDashboardResponse,
-  DeleteDashboardResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDashboardCommand,
-  serializeAws_restJson1DeleteDashboardCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDashboardRequest, DeleteDashboardResponse } from "../models/models_0";
+import { de_DeleteDashboardCommand, se_DeleteDashboardCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDashboardCommand}.
  */
 export interface DeleteDashboardCommandInput extends DeleteDashboardRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDashboardCommand}.
  */
 export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a dashboard from IoT SiteWise Monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, _
  * import { IoTSiteWiseClient, DeleteDashboardCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteDashboardCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DeleteDashboardRequest
+ *   dashboardId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteDashboardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDashboardCommandInput - {@link DeleteDashboardCommandInput}
+ * @returns {@link DeleteDashboardCommandOutput}
  * @see {@link DeleteDashboardCommandInput} for command's `input` shape.
  * @see {@link DeleteDashboardCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +88,9 @@ export class DeleteDashboardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class DeleteDashboardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDashboardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDashboardResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class DeleteDashboardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDashboardCommand(input, context);
+    return se_DeleteDashboardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDashboardCommandOutput> {
-    return deserializeAws_restJson1DeleteDashboardCommand(output, context);
+    return de_DeleteDashboardCommand(output, context);
   }
 
   // Start section: command_body_extra

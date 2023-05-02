@@ -14,26 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { UpdateOpenIDConnectProviderThumbprintRequest } from "../models/models_1";
 import {
-  UpdateOpenIDConnectProviderThumbprintRequest,
-  UpdateOpenIDConnectProviderThumbprintRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand,
-  serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand,
+  de_UpdateOpenIDConnectProviderThumbprintCommand,
+  se_UpdateOpenIDConnectProviderThumbprintCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOpenIDConnectProviderThumbprintCommand}.
  */
 export interface UpdateOpenIDConnectProviderThumbprintCommandInput
   extends UpdateOpenIDConnectProviderThumbprintRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOpenIDConnectProviderThumbprintCommand}.
  */
 export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the existing list of server certificate thumbprints associated with an OpenID
  *             Connect (OIDC) provider resource object with a new list of thumbprints.</p>
  *          <p>The list that you pass with this operation completely replaces the existing list of
@@ -63,10 +65,18 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  * import { IAMClient, UpdateOpenIDConnectProviderThumbprintCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateOpenIDConnectProviderThumbprintCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UpdateOpenIDConnectProviderThumbprintRequest
+ *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ *   ThumbprintList: [ // thumbprintListType // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateOpenIDConnectProviderThumbprintCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOpenIDConnectProviderThumbprintCommandInput - {@link UpdateOpenIDConnectProviderThumbprintCommandInput}
+ * @returns {@link UpdateOpenIDConnectProviderThumbprintCommandOutput}
  * @see {@link UpdateOpenIDConnectProviderThumbprintCommandInput} for command's `input` shape.
  * @see {@link UpdateOpenIDConnectProviderThumbprintCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -102,6 +112,9 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOpenIDConnectProviderThumbprintCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +143,8 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOpenIDConnectProviderThumbprintRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,18 +154,24 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateOpenIDConnectProviderThumbprintCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(input, context);
+    return se_UpdateOpenIDConnectProviderThumbprintCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput> {
-    return deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(output, context);
+    return de_UpdateOpenIDConnectProviderThumbprintCommand(output, context);
   }
 
   // Start section: command_body_extra

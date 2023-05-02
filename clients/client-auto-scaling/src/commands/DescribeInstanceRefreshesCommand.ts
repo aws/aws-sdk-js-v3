@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DescribeInstanceRefreshesAnswer,
-  DescribeInstanceRefreshesAnswerFilterSensitiveLog,
-  DescribeInstanceRefreshesType,
-  DescribeInstanceRefreshesTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeInstanceRefreshesCommand,
-  serializeAws_queryDescribeInstanceRefreshesCommand,
-} from "../protocols/Aws_query";
+import { DescribeInstanceRefreshesAnswer, DescribeInstanceRefreshesType } from "../models/models_0";
+import { de_DescribeInstanceRefreshesCommand, se_DescribeInstanceRefreshesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceRefreshesCommand}.
  */
 export interface DescribeInstanceRefreshesCommandInput extends DescribeInstanceRefreshesType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceRefreshesCommand}.
  */
 export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstanceRefreshesAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the instance refreshes for the specified Auto Scaling group.</p>
  *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
  *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
@@ -51,10 +48,20 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * import { AutoScalingClient, DescribeInstanceRefreshesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeInstanceRefreshesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DescribeInstanceRefreshesType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   InstanceRefreshIds: [ // InstanceRefreshIds
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeInstanceRefreshesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceRefreshesCommandInput - {@link DescribeInstanceRefreshesCommandInput}
+ * @returns {@link DescribeInstanceRefreshesCommandOutput}
  * @see {@link DescribeInstanceRefreshesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceRefreshesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -119,6 +126,9 @@ export class DescribeInstanceRefreshesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceRefreshesCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +157,8 @@ export class DescribeInstanceRefreshesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceRefreshesTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceRefreshesAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,15 +168,21 @@ export class DescribeInstanceRefreshesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceRefreshesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeInstanceRefreshesCommand(input, context);
+    return se_DescribeInstanceRefreshesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceRefreshesCommandOutput> {
-    return deserializeAws_queryDescribeInstanceRefreshesCommand(output, context);
+    return de_DescribeInstanceRefreshesCommand(output, context);
   }
 
   // Start section: command_body_extra

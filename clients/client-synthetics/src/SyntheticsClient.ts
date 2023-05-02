@@ -93,6 +93,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateResourceCommandInput
   | CreateCanaryCommandInput
@@ -116,6 +119,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateCanaryCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateResourceCommandOutput
   | CreateCanaryCommandOutput
@@ -139,6 +145,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateCanaryCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -146,7 +155,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -255,11 +264,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type SyntheticsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -270,10 +282,15 @@ type SyntheticsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of SyntheticsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SyntheticsClient class constructor that set the region, credentials and other options.
  */
 export interface SyntheticsClientConfig extends SyntheticsClientConfigType {}
 
+/**
+ * @public
+ */
 type SyntheticsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -284,11 +301,14 @@ type SyntheticsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SyntheticsClient class. This is resolved and normalized from the {@link SyntheticsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SyntheticsClient class. This is resolved and normalized from the {@link SyntheticsClientConfig | constructor configuration interface}.
  */
 export interface SyntheticsClientResolvedConfig extends SyntheticsClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon CloudWatch Synthetics</fullname>
  *          <p>You can use Amazon CloudWatch Synthetics to continually monitor your services. You can
  *          create and manage <i>canaries</i>, which are modular, lightweight scripts

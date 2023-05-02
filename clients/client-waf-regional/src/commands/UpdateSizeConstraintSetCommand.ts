@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSizeConstraintSetRequest,
-  UpdateSizeConstraintSetRequestFilterSensitiveLog,
-  UpdateSizeConstraintSetResponse,
-  UpdateSizeConstraintSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSizeConstraintSetCommand,
-  serializeAws_json1_1UpdateSizeConstraintSetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSizeConstraintSetRequest, UpdateSizeConstraintSetResponse } from "../models/models_0";
+import { de_UpdateSizeConstraintSetCommand, se_UpdateSizeConstraintSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSizeConstraintSetCommand}.
  */
 export interface UpdateSizeConstraintSetCommandInput extends UpdateSizeConstraintSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSizeConstraintSetCommand}.
  */
 export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstraintSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -92,10 +89,30 @@ export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstrai
  * import { WAFRegionalClient, UpdateSizeConstraintSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateSizeConstraintSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // UpdateSizeConstraintSetRequest
+ *   SizeConstraintSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // SizeConstraintSetUpdates // required
+ *     { // SizeConstraintSetUpdate
+ *       Action: "STRING_VALUE", // required
+ *       SizeConstraint: { // SizeConstraint
+ *         FieldToMatch: { // FieldToMatch
+ *           Type: "STRING_VALUE", // required
+ *           Data: "STRING_VALUE",
+ *         },
+ *         TextTransformation: "STRING_VALUE", // required
+ *         ComparisonOperator: "STRING_VALUE", // required
+ *         Size: Number("long"), // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateSizeConstraintSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSizeConstraintSetCommandInput - {@link UpdateSizeConstraintSetCommandInput}
+ * @returns {@link UpdateSizeConstraintSetCommandOutput}
  * @see {@link UpdateSizeConstraintSetCommandInput} for command's `input` shape.
  * @see {@link UpdateSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -258,6 +275,9 @@ export class UpdateSizeConstraintSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSizeConstraintSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -286,8 +306,8 @@ export class UpdateSizeConstraintSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSizeConstraintSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSizeConstraintSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -297,12 +317,18 @@ export class UpdateSizeConstraintSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSizeConstraintSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSizeConstraintSetCommand(input, context);
+    return se_UpdateSizeConstraintSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSizeConstraintSetCommandOutput> {
-    return deserializeAws_json1_1UpdateSizeConstraintSetCommand(output, context);
+    return de_UpdateSizeConstraintSetCommand(output, context);
   }
 
   // Start section: command_body_extra

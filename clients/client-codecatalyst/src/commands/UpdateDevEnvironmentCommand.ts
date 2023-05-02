@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  UpdateDevEnvironmentRequest,
-  UpdateDevEnvironmentRequestFilterSensitiveLog,
-  UpdateDevEnvironmentResponse,
-  UpdateDevEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDevEnvironmentCommand,
-  serializeAws_restJson1UpdateDevEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDevEnvironmentRequest, UpdateDevEnvironmentResponse } from "../models/models_0";
+import { de_UpdateDevEnvironmentCommand, se_UpdateDevEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDevEnvironmentCommand}.
  */
 export interface UpdateDevEnvironmentCommandInput extends UpdateDevEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDevEnvironmentCommand}.
  */
 export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes one or more values for a Dev Environment. Updating certain values of the Dev Environment will cause a restart.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentR
  * import { CodeCatalystClient, UpdateDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, UpdateDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // UpdateDevEnvironmentRequest
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   alias: "STRING_VALUE",
+ *   ides: [ // IdeConfigurationList
+ *     { // IdeConfiguration
+ *       runtime: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   instanceType: "STRING_VALUE",
+ *   inactivityTimeoutMinutes: Number("int"),
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateDevEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDevEnvironmentCommandInput - {@link UpdateDevEnvironmentCommandInput}
+ * @returns {@link UpdateDevEnvironmentCommandOutput}
  * @see {@link UpdateDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +102,9 @@ export class UpdateDevEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDevEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +133,8 @@ export class UpdateDevEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDevEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDevEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +144,18 @@ export class UpdateDevEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDevEnvironmentCommand(input, context);
+    return se_UpdateDevEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDevEnvironmentCommandOutput> {
-    return deserializeAws_restJson1UpdateDevEnvironmentCommand(output, context);
+    return de_UpdateDevEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

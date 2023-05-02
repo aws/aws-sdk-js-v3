@@ -18,23 +18,24 @@ import {
   FunctionConfiguration,
   FunctionConfigurationFilterSensitiveLog,
   GetFunctionConfigurationRequest,
-  GetFunctionConfigurationRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFunctionConfigurationCommand,
-  serializeAws_restJson1GetFunctionConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetFunctionConfigurationCommand, se_GetFunctionConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFunctionConfigurationCommand}.
  */
 export interface GetFunctionConfigurationCommandInput extends GetFunctionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFunctionConfigurationCommand}.
  */
 export interface GetFunctionConfigurationCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the version-specific settings of a Lambda function or version. The output includes only options that
  *       can vary between versions of a function. To modify these settings, use <a>UpdateFunctionConfiguration</a>.</p>
  *          <p>To get all of a function's details, including function-level settings, use <a>GetFunction</a>.</p>
@@ -44,10 +45,16 @@ export interface GetFunctionConfigurationCommandOutput extends FunctionConfigura
  * import { LambdaClient, GetFunctionConfigurationCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetFunctionConfigurationCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // GetFunctionConfigurationRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ * };
  * const command = new GetFunctionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFunctionConfigurationCommandInput - {@link GetFunctionConfigurationCommandInput}
+ * @returns {@link GetFunctionConfigurationCommandOutput}
  * @see {@link GetFunctionConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetFunctionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetFunctionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFunctionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,7 +121,7 @@ export class GetFunctionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFunctionConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: FunctionConfigurationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -122,12 +132,18 @@ export class GetFunctionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFunctionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFunctionConfigurationCommand(input, context);
+    return se_GetFunctionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetFunctionConfigurationCommand(output, context);
+    return de_GetFunctionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

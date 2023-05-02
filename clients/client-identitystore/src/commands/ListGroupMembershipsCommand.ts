@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  ListGroupMembershipsRequest,
-  ListGroupMembershipsRequestFilterSensitiveLog,
-  ListGroupMembershipsResponse,
-  ListGroupMembershipsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGroupMembershipsCommand,
-  serializeAws_json1_1ListGroupMembershipsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListGroupMembershipsRequest, ListGroupMembershipsResponse } from "../models/models_0";
+import { de_ListGroupMembershipsCommand, se_ListGroupMembershipsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupMembershipsCommand}.
  */
 export interface ListGroupMembershipsCommandInput extends ListGroupMembershipsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupMembershipsCommand}.
  */
 export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For the specified group in the specified identity store, returns the list of all <code>GroupMembership</code> objects and returns results in paginated form.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * import { IdentitystoreClient, ListGroupMembershipsCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, ListGroupMembershipsCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = { // ListGroupMembershipsRequest
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListGroupMembershipsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupMembershipsCommandInput - {@link ListGroupMembershipsCommandInput}
+ * @returns {@link ListGroupMembershipsCommandOutput}
  * @see {@link ListGroupMembershipsCommandInput} for command's `input` shape.
  * @see {@link ListGroupMembershipsCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -84,6 +89,9 @@ export class ListGroupMembershipsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupMembershipsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class ListGroupMembershipsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupMembershipsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupMembershipsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class ListGroupMembershipsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupMembershipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGroupMembershipsCommand(input, context);
+    return se_ListGroupMembershipsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupMembershipsCommandOutput> {
-    return deserializeAws_json1_1ListGroupMembershipsCommand(output, context);
+    return de_ListGroupMembershipsCommand(output, context);
   }
 
   // Start section: command_body_extra

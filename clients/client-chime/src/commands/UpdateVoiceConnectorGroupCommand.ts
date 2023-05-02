@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  UpdateVoiceConnectorGroupRequest,
-  UpdateVoiceConnectorGroupRequestFilterSensitiveLog,
-  UpdateVoiceConnectorGroupResponse,
-  UpdateVoiceConnectorGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateVoiceConnectorGroupCommand,
-  serializeAws_restJson1UpdateVoiceConnectorGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateVoiceConnectorGroupRequest, UpdateVoiceConnectorGroupResponse } from "../models/models_1";
+import { de_UpdateVoiceConnectorGroupCommand, se_UpdateVoiceConnectorGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVoiceConnectorGroupCommand}.
  */
 export interface UpdateVoiceConnectorGroupCommandInput extends UpdateVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVoiceConnectorGroupCommand}.
  */
 export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates details of the specified Amazon Chime Voice Connector group, such as the name and
  *             Amazon Chime Voice Connector priority ranking.</p>
  * @example
@@ -43,10 +40,22 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  * import { ChimeClient, UpdateVoiceConnectorGroupCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // UpdateVoiceConnectorGroupRequest
+ *   VoiceConnectorGroupId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   VoiceConnectorItems: [ // VoiceConnectorItemList // required
+ *     { // VoiceConnectorItem
+ *       VoiceConnectorId: "STRING_VALUE", // required
+ *       Priority: Number("int"), // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVoiceConnectorGroupCommandInput - {@link UpdateVoiceConnectorGroupCommandInput}
+ * @returns {@link UpdateVoiceConnectorGroupCommandOutput}
  * @see {@link UpdateVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -95,6 +104,9 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +135,8 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVoiceConnectorGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVoiceConnectorGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,15 +146,21 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVoiceConnectorGroupCommand(input, context);
+    return se_UpdateVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateVoiceConnectorGroupCommand(output, context);
+    return de_UpdateVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

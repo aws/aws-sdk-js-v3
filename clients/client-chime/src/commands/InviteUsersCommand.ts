@@ -20,21 +20,23 @@ import {
   InviteUsersResponse,
   InviteUsersResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1InviteUsersCommand,
-  serializeAws_restJson1InviteUsersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_InviteUsersCommand, se_InviteUsersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InviteUsersCommand}.
  */
 export interface InviteUsersCommandInput extends InviteUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link InviteUsersCommand}.
  */
 export interface InviteUsersCommandOutput extends InviteUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends email to a maximum of 50 users, inviting them to the specified Amazon Chime
  *                 <code>Team</code> account. Only <code>Team</code> account types are currently
  *             supported for this action.</p>
@@ -44,10 +46,19 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  * import { ChimeClient, InviteUsersCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, InviteUsersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // InviteUsersRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   UserEmailList: [ // UserEmailList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   UserType: "PrivateUser" || "SharedDevice",
+ * };
  * const command = new InviteUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InviteUsersCommandInput - {@link InviteUsersCommandInput}
+ * @returns {@link InviteUsersCommandOutput}
  * @see {@link InviteUsersCommandInput} for command's `input` shape.
  * @see {@link InviteUsersCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +103,9 @@ export class InviteUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InviteUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,12 +143,18 @@ export class InviteUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InviteUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InviteUsersCommand(input, context);
+    return se_InviteUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InviteUsersCommandOutput> {
-    return deserializeAws_restJson1InviteUsersCommand(output, context);
+    return de_InviteUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

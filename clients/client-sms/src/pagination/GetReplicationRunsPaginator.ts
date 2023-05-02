@@ -10,7 +10,7 @@ import { SMSClient } from "../SMSClient";
 import { SMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SMSClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetReplicationRunsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetReplicationRuns(
   config: SMSPaginationConfiguration,
   input: GetReplicationRunsCommandInput,

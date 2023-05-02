@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeScheduledAuditRequest,
-  DescribeScheduledAuditRequestFilterSensitiveLog,
-  DescribeScheduledAuditResponse,
-  DescribeScheduledAuditResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeScheduledAuditCommand,
-  serializeAws_restJson1DescribeScheduledAuditCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeScheduledAuditRequest, DescribeScheduledAuditResponse } from "../models/models_1";
+import { de_DescribeScheduledAuditCommand, se_DescribeScheduledAuditCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduledAuditCommand}.
  */
 export interface DescribeScheduledAuditCommandInput extends DescribeScheduledAuditRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduledAuditCommand}.
  */
 export interface DescribeScheduledAuditCommandOutput extends DescribeScheduledAuditResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a scheduled audit.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeScheduledAudit</a> action.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeScheduledAuditCommandOutput extends DescribeScheduledAu
  * import { IoTClient, DescribeScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeScheduledAuditRequest
+ *   scheduledAuditName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeScheduledAuditCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduledAuditCommandInput - {@link DescribeScheduledAuditCommandInput}
+ * @returns {@link DescribeScheduledAuditCommandOutput}
  * @see {@link DescribeScheduledAuditCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledAuditCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +84,9 @@ export class DescribeScheduledAuditCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduledAuditCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DescribeScheduledAuditCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduledAuditRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScheduledAuditResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DescribeScheduledAuditCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScheduledAuditCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeScheduledAuditCommand(input, context);
+    return se_DescribeScheduledAuditCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduledAuditCommandOutput> {
-    return deserializeAws_restJson1DescribeScheduledAuditCommand(output, context);
+    return de_DescribeScheduledAuditCommand(output, context);
   }
 
   // Start section: command_body_extra

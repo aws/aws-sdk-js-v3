@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  DetectEntitiesRequest,
-  DetectEntitiesRequestFilterSensitiveLog,
-  DetectEntitiesResponse,
-  DetectEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectEntitiesCommand,
-  serializeAws_json1_1DetectEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { DetectEntitiesRequest, DetectEntitiesResponse } from "../models/models_0";
+import { de_DetectEntitiesCommand, se_DetectEntitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectEntitiesCommand}.
  */
 export interface DetectEntitiesCommandInput extends DetectEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectEntitiesCommand}.
  */
 export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>The <code>DetectEntities</code> operation is deprecated. You should use the <a>DetectEntitiesV2</a> operation instead.</p>
@@ -51,10 +48,15 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * import { ComprehendMedicalClient, DetectEntitiesCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DetectEntitiesCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // DetectEntitiesRequest
+ *   Text: "STRING_VALUE", // required
+ * };
  * const command = new DetectEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectEntitiesCommandInput - {@link DetectEntitiesCommandInput}
+ * @returns {@link DetectEntitiesCommandOutput}
  * @see {@link DetectEntitiesCommandInput} for command's `input` shape.
  * @see {@link DetectEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -102,6 +104,9 @@ export class DetectEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +135,8 @@ export class DetectEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +146,18 @@ export class DetectEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectEntitiesCommand(input, context);
+    return se_DetectEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectEntitiesCommandOutput> {
-    return deserializeAws_json1_1DetectEntitiesCommand(output, context);
+    return de_DetectEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

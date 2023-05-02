@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateCrawlerRequest,
-  UpdateCrawlerRequestFilterSensitiveLog,
-  UpdateCrawlerResponse,
-  UpdateCrawlerResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateCrawlerCommand,
-  serializeAws_json1_1UpdateCrawlerCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateCrawlerRequest, UpdateCrawlerResponse } from "../models/models_2";
+import { de_UpdateCrawlerCommand, se_UpdateCrawlerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCrawlerCommand}.
  */
 export interface UpdateCrawlerCommandInput extends UpdateCrawlerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCrawlerCommand}.
  */
 export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a crawler. If a crawler is
  *       running, you must stop it using <code>StopCrawler</code> before updating
  *       it.</p>
@@ -44,10 +41,100 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  * import { GlueClient, UpdateCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateCrawlerRequest
+ *   Name: "STRING_VALUE", // required
+ *   Role: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Targets: { // CrawlerTargets
+ *     S3Targets: [ // S3TargetList
+ *       { // S3Target
+ *         Path: "STRING_VALUE",
+ *         Exclusions: [ // PathList
+ *           "STRING_VALUE",
+ *         ],
+ *         ConnectionName: "STRING_VALUE",
+ *         SampleSize: Number("int"),
+ *         EventQueueArn: "STRING_VALUE",
+ *         DlqEventQueueArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *     JdbcTargets: [ // JdbcTargetList
+ *       { // JdbcTarget
+ *         ConnectionName: "STRING_VALUE",
+ *         Path: "STRING_VALUE",
+ *         Exclusions: [
+ *           "STRING_VALUE",
+ *         ],
+ *         EnableAdditionalMetadata: [ // EnableAdditionalMetadata
+ *           "COMMENTS" || "RAWTYPES",
+ *         ],
+ *       },
+ *     ],
+ *     MongoDBTargets: [ // MongoDBTargetList
+ *       { // MongoDBTarget
+ *         ConnectionName: "STRING_VALUE",
+ *         Path: "STRING_VALUE",
+ *         ScanAll: true || false,
+ *       },
+ *     ],
+ *     DynamoDBTargets: [ // DynamoDBTargetList
+ *       { // DynamoDBTarget
+ *         Path: "STRING_VALUE",
+ *         scanAll: true || false,
+ *         scanRate: Number("double"),
+ *       },
+ *     ],
+ *     CatalogTargets: [ // CatalogTargetList
+ *       { // CatalogTarget
+ *         DatabaseName: "STRING_VALUE", // required
+ *         Tables: [ // CatalogTablesList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         ConnectionName: "STRING_VALUE",
+ *         EventQueueArn: "STRING_VALUE",
+ *         DlqEventQueueArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *     DeltaTargets: [ // DeltaTargetList
+ *       { // DeltaTarget
+ *         DeltaTables: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ConnectionName: "STRING_VALUE",
+ *         WriteManifest: true || false,
+ *         CreateNativeDeltaTable: true || false,
+ *       },
+ *     ],
+ *   },
+ *   Schedule: "STRING_VALUE",
+ *   Classifiers: [ // ClassifierNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   TablePrefix: "STRING_VALUE",
+ *   SchemaChangePolicy: { // SchemaChangePolicy
+ *     UpdateBehavior: "LOG" || "UPDATE_IN_DATABASE",
+ *     DeleteBehavior: "LOG" || "DELETE_FROM_DATABASE" || "DEPRECATE_IN_DATABASE",
+ *   },
+ *   RecrawlPolicy: { // RecrawlPolicy
+ *     RecrawlBehavior: "CRAWL_EVERYTHING" || "CRAWL_NEW_FOLDERS_ONLY" || "CRAWL_EVENT_MODE",
+ *   },
+ *   LineageConfiguration: { // LineageConfiguration
+ *     CrawlerLineageSettings: "ENABLE" || "DISABLE",
+ *   },
+ *   LakeFormationConfiguration: { // LakeFormationConfiguration
+ *     UseLakeFormationCredentials: true || false,
+ *     AccountId: "STRING_VALUE",
+ *   },
+ *   Configuration: "STRING_VALUE",
+ *   CrawlerSecurityConfiguration: "STRING_VALUE",
+ * };
  * const command = new UpdateCrawlerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCrawlerCommandInput - {@link UpdateCrawlerCommandInput}
+ * @returns {@link UpdateCrawlerCommandOutput}
  * @see {@link UpdateCrawlerCommandInput} for command's `input` shape.
  * @see {@link UpdateCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -86,6 +173,9 @@ export class UpdateCrawlerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCrawlerCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +202,8 @@ export class UpdateCrawlerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCrawlerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCrawlerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +213,18 @@ export class UpdateCrawlerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCrawlerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCrawlerCommand(input, context);
+    return se_UpdateCrawlerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCrawlerCommandOutput> {
-    return deserializeAws_json1_1UpdateCrawlerCommand(output, context);
+    return de_UpdateCrawlerCommand(output, context);
   }
 
   // Start section: command_body_extra

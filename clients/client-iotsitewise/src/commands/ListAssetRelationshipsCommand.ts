@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListAssetRelationshipsRequest,
-  ListAssetRelationshipsRequestFilterSensitiveLog,
-  ListAssetRelationshipsResponse,
-  ListAssetRelationshipsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssetRelationshipsCommand,
-  serializeAws_restJson1ListAssetRelationshipsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAssetRelationshipsRequest, ListAssetRelationshipsResponse } from "../models/models_0";
+import { de_ListAssetRelationshipsCommand, se_ListAssetRelationshipsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssetRelationshipsCommand}.
  */
 export interface ListAssetRelationshipsCommandInput extends ListAssetRelationshipsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssetRelationshipsCommand}.
  */
 export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationshipsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of asset relationships for an asset. You can use this operation
  *       to identify an asset's root asset and all associated assets between that asset and its
  *       root.</p>
@@ -44,10 +41,18 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  * import { IoTSiteWiseClient, ListAssetRelationshipsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAssetRelationshipsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // ListAssetRelationshipsRequest
+ *   assetId: "STRING_VALUE", // required
+ *   traversalType: "PATH_TO_ROOT", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssetRelationshipsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssetRelationshipsCommandInput - {@link ListAssetRelationshipsCommandInput}
+ * @returns {@link ListAssetRelationshipsCommandOutput}
  * @see {@link ListAssetRelationshipsCommandInput} for command's `input` shape.
  * @see {@link ListAssetRelationshipsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -87,6 +92,9 @@ export class ListAssetRelationshipsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssetRelationshipsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class ListAssetRelationshipsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssetRelationshipsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssetRelationshipsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +134,18 @@ export class ListAssetRelationshipsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssetRelationshipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssetRelationshipsCommand(input, context);
+    return se_ListAssetRelationshipsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetRelationshipsCommandOutput> {
-    return deserializeAws_restJson1ListAssetRelationshipsCommand(output, context);
+    return de_ListAssetRelationshipsCommand(output, context);
   }
 
   // Start section: command_body_extra

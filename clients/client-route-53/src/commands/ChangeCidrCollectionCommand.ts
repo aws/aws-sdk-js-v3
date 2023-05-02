@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ChangeCidrCollectionRequest,
-  ChangeCidrCollectionRequestFilterSensitiveLog,
-  ChangeCidrCollectionResponse,
-  ChangeCidrCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlChangeCidrCollectionCommand,
-  serializeAws_restXmlChangeCidrCollectionCommand,
-} from "../protocols/Aws_restXml";
+import { ChangeCidrCollectionRequest, ChangeCidrCollectionResponse } from "../models/models_0";
+import { de_ChangeCidrCollectionCommand, se_ChangeCidrCollectionCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ChangeCidrCollectionCommand}.
  */
 export interface ChangeCidrCollectionCommandInput extends ChangeCidrCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChangeCidrCollectionCommand}.
  */
 export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates, changes, or deletes CIDR blocks within a collection. Contains authoritative
  * 			IP information mapping blocks to one or multiple locations.</p>
  *          <p>A change request can update multiple locations in a collection at a time, which is
@@ -67,10 +64,25 @@ export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionR
  * import { Route53Client, ChangeCidrCollectionCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ChangeCidrCollectionCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ChangeCidrCollectionRequest
+ *   Id: "STRING_VALUE", // required
+ *   CollectionVersion: Number("long"),
+ *   Changes: [ // CidrCollectionChanges // required
+ *     { // CidrCollectionChange
+ *       LocationName: "STRING_VALUE", // required
+ *       Action: "PUT" || "DELETE_IF_EXISTS", // required
+ *       CidrList: [ // CidrList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ChangeCidrCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangeCidrCollectionCommandInput - {@link ChangeCidrCollectionCommandInput}
+ * @returns {@link ChangeCidrCollectionCommandOutput}
  * @see {@link ChangeCidrCollectionCommandInput} for command's `input` shape.
  * @see {@link ChangeCidrCollectionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -116,6 +128,9 @@ export class ChangeCidrCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangeCidrCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +160,8 @@ export class ChangeCidrCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ChangeCidrCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ChangeCidrCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +171,18 @@ export class ChangeCidrCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangeCidrCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlChangeCidrCollectionCommand(input, context);
+    return se_ChangeCidrCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeCidrCollectionCommandOutput> {
-    return deserializeAws_restXmlChangeCidrCollectionCommand(output, context);
+    return de_ChangeCidrCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

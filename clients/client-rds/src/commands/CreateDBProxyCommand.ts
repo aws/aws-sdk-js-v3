@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDBProxyRequest,
-  CreateDBProxyRequestFilterSensitiveLog,
-  CreateDBProxyResponse,
-  CreateDBProxyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBProxyCommand,
-  serializeAws_queryCreateDBProxyCommand,
-} from "../protocols/Aws_query";
+import { CreateDBProxyRequest, CreateDBProxyResponse } from "../models/models_0";
+import { de_CreateDBProxyCommand, se_CreateDBProxyCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBProxyCommand}.
  */
 export interface CreateDBProxyCommandInput extends CreateDBProxyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBProxyCommand}.
  */
 export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB proxy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,42 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * import { RDSClient, CreateDBProxyCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBProxyCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CreateDBProxyRequest
+ *   DBProxyName: "STRING_VALUE", // required
+ *   EngineFamily: "MYSQL" || "POSTGRESQL" || "SQLSERVER", // required
+ *   Auth: [ // UserAuthConfigList // required
+ *     { // UserAuthConfig
+ *       Description: "STRING_VALUE",
+ *       UserName: "STRING_VALUE",
+ *       AuthScheme: "SECRETS",
+ *       SecretArn: "STRING_VALUE",
+ *       IAMAuth: "DISABLED" || "REQUIRED" || "ENABLED",
+ *       ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
+ *     },
+ *   ],
+ *   RoleArn: "STRING_VALUE", // required
+ *   VpcSubnetIds: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RequireTLS: true || false,
+ *   IdleClientTimeout: Number("int"),
+ *   DebugLogging: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBProxyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBProxyCommandInput - {@link CreateDBProxyCommandInput}
+ * @returns {@link CreateDBProxyCommandOutput}
  * @see {@link CreateDBProxyCommandInput} for command's `input` shape.
  * @see {@link CreateDBProxyCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -78,6 +107,9 @@ export class CreateDBProxyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBProxyCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +136,8 @@ export class CreateDBProxyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBProxyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBProxyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +147,18 @@ export class CreateDBProxyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBProxyCommand(input, context);
+    return se_CreateDBProxyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBProxyCommandOutput> {
-    return deserializeAws_queryCreateDBProxyCommand(output, context);
+    return de_CreateDBProxyCommand(output, context);
   }
 
   // Start section: command_body_extra

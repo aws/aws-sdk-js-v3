@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  ListActionTypesInput,
-  ListActionTypesInputFilterSensitiveLog,
-  ListActionTypesOutput,
-  ListActionTypesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListActionTypesCommand,
-  serializeAws_json1_1ListActionTypesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListActionTypesInput, ListActionTypesOutput } from "../models/models_0";
+import { de_ListActionTypesCommand, se_ListActionTypesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListActionTypesCommand}.
  */
 export interface ListActionTypesCommandInput extends ListActionTypesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListActionTypesCommand}.
  */
 export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a summary of all AWS CodePipeline action types associated with your
  *             account.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * import { CodePipelineClient, ListActionTypesCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, ListActionTypesCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // ListActionTypesInput
+ *   actionOwnerFilter: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   regionFilter: "STRING_VALUE",
+ * };
  * const command = new ListActionTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListActionTypesCommandInput - {@link ListActionTypesCommandInput}
+ * @returns {@link ListActionTypesCommandOutput}
  * @see {@link ListActionTypesCommandInput} for command's `input` shape.
  * @see {@link ListActionTypesCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -77,6 +81,9 @@ export class ListActionTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListActionTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +112,8 @@ export class ListActionTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListActionTypesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListActionTypesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +123,18 @@ export class ListActionTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListActionTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListActionTypesCommand(input, context);
+    return se_ListActionTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActionTypesCommandOutput> {
-    return deserializeAws_json1_1ListActionTypesCommand(output, context);
+    return de_ListActionTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

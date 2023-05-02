@@ -21,15 +21,19 @@ import {
   ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVerifiedAccessTrustProviderCommand,
-  serializeAws_ec2ModifyVerifiedAccessTrustProviderCommand,
+  de_ModifyVerifiedAccessTrustProviderCommand,
+  se_ModifyVerifiedAccessTrustProviderCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVerifiedAccessTrustProviderCommand}.
  */
 export interface ModifyVerifiedAccessTrustProviderCommandInput extends ModifyVerifiedAccessTrustProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVerifiedAccessTrustProviderCommand}.
  */
 export interface ModifyVerifiedAccessTrustProviderCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +49,27 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * import { EC2Client, ModifyVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVerifiedAccessTrustProviderRequest
+ *   VerifiedAccessTrustProviderId: "STRING_VALUE", // required
+ *   OidcOptions: { // ModifyVerifiedAccessTrustProviderOidcOptions
+ *     Issuer: "STRING_VALUE",
+ *     AuthorizationEndpoint: "STRING_VALUE",
+ *     TokenEndpoint: "STRING_VALUE",
+ *     UserInfoEndpoint: "STRING_VALUE",
+ *     ClientId: "STRING_VALUE",
+ *     ClientSecret: "STRING_VALUE",
+ *     Scope: "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new ModifyVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVerifiedAccessTrustProviderCommandInput - {@link ModifyVerifiedAccessTrustProviderCommandInput}
+ * @returns {@link ModifyVerifiedAccessTrustProviderCommandOutput}
  * @see {@link ModifyVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +93,9 @@ export class ModifyVerifiedAccessTrustProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVerifiedAccessTrustProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,18 +135,24 @@ export class ModifyVerifiedAccessTrustProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVerifiedAccessTrustProviderCommand(input, context);
+    return se_ModifyVerifiedAccessTrustProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVerifiedAccessTrustProviderCommandOutput> {
-    return deserializeAws_ec2ModifyVerifiedAccessTrustProviderCommand(output, context);
+    return de_ModifyVerifiedAccessTrustProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

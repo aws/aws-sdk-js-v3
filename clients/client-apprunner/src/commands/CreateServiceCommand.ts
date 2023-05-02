@@ -20,21 +20,23 @@ import {
   CreateServiceResponse,
   CreateServiceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateServiceCommand,
-  serializeAws_json1_0CreateServiceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateServiceCommand, se_CreateServiceCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServiceCommand}.
  */
 export interface CreateServiceCommandInput extends CreateServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateServiceCommand}.
  */
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an App Runner service. After the service is created, the action also automatically starts a deployment.</p>
  *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ListOperations.html">ListOperations</a> call to track the operation's progress.</p>
  * @example
@@ -43,10 +45,94 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * import { AppRunnerClient, CreateServiceCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, CreateServiceCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // CreateServiceRequest
+ *   ServiceName: "STRING_VALUE", // required
+ *   SourceConfiguration: { // SourceConfiguration
+ *     CodeRepository: { // CodeRepository
+ *       RepositoryUrl: "STRING_VALUE", // required
+ *       SourceCodeVersion: { // SourceCodeVersion
+ *         Type: "BRANCH", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *       CodeConfiguration: { // CodeConfiguration
+ *         ConfigurationSource: "REPOSITORY" || "API", // required
+ *         CodeConfigurationValues: { // CodeConfigurationValues
+ *           Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31", // required
+ *           BuildCommand: "STRING_VALUE",
+ *           StartCommand: "STRING_VALUE",
+ *           Port: "STRING_VALUE",
+ *           RuntimeEnvironmentVariables: { // RuntimeEnvironmentVariables
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           RuntimeEnvironmentSecrets: { // RuntimeEnvironmentSecrets
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *     ImageRepository: { // ImageRepository
+ *       ImageIdentifier: "STRING_VALUE", // required
+ *       ImageConfiguration: { // ImageConfiguration
+ *         RuntimeEnvironmentVariables: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         StartCommand: "STRING_VALUE",
+ *         Port: "STRING_VALUE",
+ *         RuntimeEnvironmentSecrets: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       ImageRepositoryType: "ECR" || "ECR_PUBLIC", // required
+ *     },
+ *     AutoDeploymentsEnabled: true || false,
+ *     AuthenticationConfiguration: { // AuthenticationConfiguration
+ *       ConnectionArn: "STRING_VALUE",
+ *       AccessRoleArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   InstanceConfiguration: { // InstanceConfiguration
+ *     Cpu: "STRING_VALUE",
+ *     Memory: "STRING_VALUE",
+ *     InstanceRoleArn: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     KmsKey: "STRING_VALUE", // required
+ *   },
+ *   HealthCheckConfiguration: { // HealthCheckConfiguration
+ *     Protocol: "TCP" || "HTTP",
+ *     Path: "STRING_VALUE",
+ *     Interval: Number("int"),
+ *     Timeout: Number("int"),
+ *     HealthyThreshold: Number("int"),
+ *     UnhealthyThreshold: Number("int"),
+ *   },
+ *   AutoScalingConfigurationArn: "STRING_VALUE",
+ *   NetworkConfiguration: { // NetworkConfiguration
+ *     EgressConfiguration: { // EgressConfiguration
+ *       EgressType: "DEFAULT" || "VPC",
+ *       VpcConnectorArn: "STRING_VALUE",
+ *     },
+ *     IngressConfiguration: { // IngressConfiguration
+ *       IsPubliclyAccessible: true || false,
+ *     },
+ *   },
+ *   ObservabilityConfiguration: { // ServiceObservabilityConfiguration
+ *     ObservabilityEnabled: true || false, // required
+ *     ObservabilityConfigurationArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
+ * @returns {@link CreateServiceCommandOutput}
  * @see {@link CreateServiceCommandInput} for command's `input` shape.
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -81,6 +167,9 @@ export class CreateServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,12 +207,18 @@ export class CreateServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateServiceCommand(input, context);
+    return se_CreateServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceCommandOutput> {
-    return deserializeAws_json1_0CreateServiceCommand(output, context);
+    return de_CreateServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

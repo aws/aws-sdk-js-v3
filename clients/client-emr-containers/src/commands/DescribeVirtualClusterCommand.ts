@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import {
-  DescribeVirtualClusterRequest,
-  DescribeVirtualClusterRequestFilterSensitiveLog,
-  DescribeVirtualClusterResponse,
-  DescribeVirtualClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeVirtualClusterCommand,
-  serializeAws_restJson1DescribeVirtualClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeVirtualClusterRequest, DescribeVirtualClusterResponse } from "../models/models_0";
+import { de_DescribeVirtualClusterCommand, se_DescribeVirtualClusterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVirtualClusterCommand}.
  */
 export interface DescribeVirtualClusterCommandInput extends DescribeVirtualClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVirtualClusterCommand}.
  */
 export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays detailed information about a specified virtual cluster. Virtual cluster is a
  *          managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual
  *          clusters. They do not consume any additional resource in your system. A single virtual
@@ -47,10 +44,15 @@ export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClus
  * import { EMRContainersClient, DescribeVirtualClusterCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, DescribeVirtualClusterCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = { // DescribeVirtualClusterRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeVirtualClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVirtualClusterCommandInput - {@link DescribeVirtualClusterCommandInput}
+ * @returns {@link DescribeVirtualClusterCommandOutput}
  * @see {@link DescribeVirtualClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualClusterCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -83,6 +85,9 @@ export class DescribeVirtualClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVirtualClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DescribeVirtualClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVirtualClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVirtualClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DescribeVirtualClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVirtualClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVirtualClusterCommand(input, context);
+    return se_DescribeVirtualClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVirtualClusterCommandOutput> {
-    return deserializeAws_restJson1DescribeVirtualClusterCommand(output, context);
+    return de_DescribeVirtualClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateLabelingJobRequest,
-  CreateLabelingJobRequestFilterSensitiveLog,
-  CreateLabelingJobResponse,
-  CreateLabelingJobResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateLabelingJobCommand,
-  serializeAws_json1_1CreateLabelingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLabelingJobRequest, CreateLabelingJobResponse } from "../models/models_1";
+import { de_CreateLabelingJobCommand, se_CreateLabelingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLabelingJobCommand}.
  */
 export interface CreateLabelingJobCommandInput extends CreateLabelingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLabelingJobCommand}.
  */
 export interface CreateLabelingJobCommandOutput extends CreateLabelingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a job that uses workers to label the data objects in your input dataset. You
  *             can use the labeled data to train machine learning models. </p>
  *          <p>You can select your workforce from one of three providers:</p>
@@ -79,10 +76,90 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  * import { SageMakerClient, CreateLabelingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateLabelingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateLabelingJobRequest
+ *   LabelingJobName: "STRING_VALUE", // required
+ *   LabelAttributeName: "STRING_VALUE", // required
+ *   InputConfig: { // LabelingJobInputConfig
+ *     DataSource: { // LabelingJobDataSource
+ *       S3DataSource: { // LabelingJobS3DataSource
+ *         ManifestS3Uri: "STRING_VALUE", // required
+ *       },
+ *       SnsDataSource: { // LabelingJobSnsDataSource
+ *         SnsTopicArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     DataAttributes: { // LabelingJobDataAttributes
+ *       ContentClassifiers: [ // ContentClassifiers
+ *         "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
+ *       ],
+ *     },
+ *   },
+ *   OutputConfig: { // LabelingJobOutputConfig
+ *     S3OutputPath: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *     SnsTopicArn: "STRING_VALUE",
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   LabelCategoryConfigS3Uri: "STRING_VALUE",
+ *   StoppingConditions: { // LabelingJobStoppingConditions
+ *     MaxHumanLabeledObjectCount: Number("int"),
+ *     MaxPercentageOfInputDatasetLabeled: Number("int"),
+ *   },
+ *   LabelingJobAlgorithmsConfig: { // LabelingJobAlgorithmsConfig
+ *     LabelingJobAlgorithmSpecificationArn: "STRING_VALUE", // required
+ *     InitialActiveLearningModelArn: "STRING_VALUE",
+ *     LabelingJobResourceConfig: { // LabelingJobResourceConfig
+ *       VolumeKmsKeyId: "STRING_VALUE",
+ *       VpcConfig: { // VpcConfig
+ *         SecurityGroupIds: [ // VpcSecurityGroupIds // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Subnets: [ // Subnets // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   HumanTaskConfig: { // HumanTaskConfig
+ *     WorkteamArn: "STRING_VALUE", // required
+ *     UiConfig: { // UiConfig
+ *       UiTemplateS3Uri: "STRING_VALUE",
+ *       HumanTaskUiArn: "STRING_VALUE",
+ *     },
+ *     PreHumanTaskLambdaArn: "STRING_VALUE", // required
+ *     TaskKeywords: [ // TaskKeywords
+ *       "STRING_VALUE",
+ *     ],
+ *     TaskTitle: "STRING_VALUE", // required
+ *     TaskDescription: "STRING_VALUE", // required
+ *     NumberOfHumanWorkersPerDataObject: Number("int"), // required
+ *     TaskTimeLimitInSeconds: Number("int"), // required
+ *     TaskAvailabilityLifetimeInSeconds: Number("int"),
+ *     MaxConcurrentTaskCount: Number("int"),
+ *     AnnotationConsolidationConfig: { // AnnotationConsolidationConfig
+ *       AnnotationConsolidationLambdaArn: "STRING_VALUE", // required
+ *     },
+ *     PublicWorkforceTaskPrice: { // PublicWorkforceTaskPrice
+ *       AmountInUsd: { // USD
+ *         Dollars: Number("int"),
+ *         Cents: Number("int"),
+ *         TenthFractionsOfACent: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateLabelingJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLabelingJobCommandInput - {@link CreateLabelingJobCommandInput}
+ * @returns {@link CreateLabelingJobCommandOutput}
  * @see {@link CreateLabelingJobCommandInput} for command's `input` shape.
  * @see {@link CreateLabelingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -113,6 +190,9 @@ export class CreateLabelingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLabelingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +221,8 @@ export class CreateLabelingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLabelingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLabelingJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +232,18 @@ export class CreateLabelingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLabelingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLabelingJobCommand(input, context);
+    return se_CreateLabelingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLabelingJobCommandOutput> {
-    return deserializeAws_json1_1CreateLabelingJobCommand(output, context);
+    return de_CreateLabelingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

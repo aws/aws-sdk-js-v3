@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  DescribeDataSourcesInput,
-  DescribeDataSourcesInputFilterSensitiveLog,
-  DescribeDataSourcesOutput,
-  DescribeDataSourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDataSourcesCommand,
-  serializeAws_json1_1DescribeDataSourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDataSourcesInput, DescribeDataSourcesOutput } from "../models/models_0";
+import { de_DescribeDataSourcesCommand, se_DescribeDataSourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataSourcesCommand}.
  */
 export interface DescribeDataSourcesCommandInput extends DescribeDataSourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataSourcesCommand}.
  */
 export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DataSource</code> that match the search criteria in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOut
  * import { MachineLearningClient, DescribeDataSourcesCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DescribeDataSourcesCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // DescribeDataSourcesInput
+ *   FilterVariable: "STRING_VALUE",
+ *   EQ: "STRING_VALUE",
+ *   GT: "STRING_VALUE",
+ *   LT: "STRING_VALUE",
+ *   GE: "STRING_VALUE",
+ *   LE: "STRING_VALUE",
+ *   NE: "STRING_VALUE",
+ *   Prefix: "STRING_VALUE",
+ *   SortOrder: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeDataSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSourcesCommandInput - {@link DescribeDataSourcesCommandInput}
+ * @returns {@link DescribeDataSourcesCommandOutput}
  * @see {@link DescribeDataSourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSourcesCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -75,6 +87,9 @@ export class DescribeDataSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +118,8 @@ export class DescribeDataSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataSourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataSourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +129,18 @@ export class DescribeDataSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDataSourcesCommand(input, context);
+    return se_DescribeDataSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSourcesCommandOutput> {
-    return deserializeAws_json1_1DescribeDataSourcesCommand(output, context);
+    return de_DescribeDataSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

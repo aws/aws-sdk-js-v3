@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListSlackChannelConfigurationsRequest, ListSlackChannelConfigurationsResult } from "../models/models_0";
 import {
-  ListSlackChannelConfigurationsRequest,
-  ListSlackChannelConfigurationsRequestFilterSensitiveLog,
-  ListSlackChannelConfigurationsResult,
-  ListSlackChannelConfigurationsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSlackChannelConfigurationsCommand,
-  serializeAws_restJson1ListSlackChannelConfigurationsCommand,
+  de_ListSlackChannelConfigurationsCommand,
+  se_ListSlackChannelConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSlackChannelConfigurationsCommand}.
  */
 export interface ListSlackChannelConfigurationsCommandInput extends ListSlackChannelConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSlackChannelConfigurationsCommand}.
  */
 export interface ListSlackChannelConfigurationsCommandOutput
@@ -37,6 +36,7 @@ export interface ListSlackChannelConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Slack channel configurations for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface ListSlackChannelConfigurationsCommandOutput
  * import { SupportAppClient, ListSlackChannelConfigurationsCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, ListSlackChannelConfigurationsCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = { // ListSlackChannelConfigurationsRequest
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSlackChannelConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSlackChannelConfigurationsCommandInput - {@link ListSlackChannelConfigurationsCommandInput}
+ * @returns {@link ListSlackChannelConfigurationsCommandOutput}
  * @see {@link ListSlackChannelConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListSlackChannelConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -77,6 +82,9 @@ export class ListSlackChannelConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSlackChannelConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class ListSlackChannelConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSlackChannelConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSlackChannelConfigurationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +124,24 @@ export class ListSlackChannelConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSlackChannelConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSlackChannelConfigurationsCommand(input, context);
+    return se_ListSlackChannelConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSlackChannelConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListSlackChannelConfigurationsCommand(output, context);
+    return de_ListSlackChannelConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

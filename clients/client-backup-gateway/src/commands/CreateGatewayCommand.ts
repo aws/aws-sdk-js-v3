@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  CreateGatewayInput,
-  CreateGatewayInputFilterSensitiveLog,
-  CreateGatewayOutput,
-  CreateGatewayOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateGatewayCommand,
-  serializeAws_json1_0CreateGatewayCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateGatewayInput, CreateGatewayOutput } from "../models/models_0";
+import { de_CreateGatewayCommand, se_CreateGatewayCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGatewayCommand}.
  */
 export interface CreateGatewayCommandInput extends CreateGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateGatewayCommand}.
  */
 export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a backup gateway. After you create a gateway, you can associate it with a server
  *       using the <code>AssociateGatewayToServer</code> operation.</p>
  * @example
@@ -43,10 +40,23 @@ export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __Metad
  * import { BackupGatewayClient, CreateGatewayCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, CreateGatewayCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // CreateGatewayInput
+ *   ActivationKey: "STRING_VALUE", // required
+ *   GatewayDisplayName: "STRING_VALUE", // required
+ *   GatewayType: "STRING_VALUE", // required
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGatewayCommandInput - {@link CreateGatewayCommandInput}
+ * @returns {@link CreateGatewayCommandOutput}
  * @see {@link CreateGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateGatewayCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -80,6 +90,9 @@ export class CreateGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +119,8 @@ export class CreateGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGatewayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGatewayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +130,18 @@ export class CreateGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateGatewayCommand(input, context);
+    return se_CreateGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGatewayCommandOutput> {
-    return deserializeAws_json1_0CreateGatewayCommand(output, context);
+    return de_CreateGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

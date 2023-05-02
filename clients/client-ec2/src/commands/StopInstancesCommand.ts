@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  StopInstancesRequest,
-  StopInstancesRequestFilterSensitiveLog,
-  StopInstancesResult,
-  StopInstancesResultFilterSensitiveLog,
-} from "../models/models_7";
-import { deserializeAws_ec2StopInstancesCommand, serializeAws_ec2StopInstancesCommand } from "../protocols/Aws_ec2";
+import { StopInstancesRequest, StopInstancesResult } from "../models/models_7";
+import { de_StopInstancesCommand, se_StopInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link StopInstancesCommand}.
  */
 export interface StopInstancesCommandInput extends StopInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopInstancesCommand}.
  */
 export interface StopInstancesCommandOutput extends StopInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an Amazon EBS-backed instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start
  *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for
@@ -69,10 +69,20 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  * import { EC2Client, StopInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, StopInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // StopInstancesRequest
+ *   InstanceIds: [ // InstanceIdStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Hibernate: true || false,
+ *   DryRun: true || false,
+ *   Force: true || false,
+ * };
  * const command = new StopInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopInstancesCommandInput - {@link StopInstancesCommandInput}
+ * @returns {@link StopInstancesCommandOutput}
  * @see {@link StopInstancesCommandInput} for command's `input` shape.
  * @see {@link StopInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -126,6 +136,9 @@ export class StopInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,8 +165,8 @@ export class StopInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -163,12 +176,18 @@ export class StopInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2StopInstancesCommand(input, context);
+    return se_StopInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInstancesCommandOutput> {
-    return deserializeAws_ec2StopInstancesCommand(output, context);
+    return de_StopInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

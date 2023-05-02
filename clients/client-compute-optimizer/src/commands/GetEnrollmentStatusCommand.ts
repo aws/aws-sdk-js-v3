@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import {
-  GetEnrollmentStatusRequest,
-  GetEnrollmentStatusRequestFilterSensitiveLog,
-  GetEnrollmentStatusResponse,
-  GetEnrollmentStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetEnrollmentStatusCommand,
-  serializeAws_json1_0GetEnrollmentStatusCommand,
-} from "../protocols/Aws_json1_0";
+import { GetEnrollmentStatusRequest, GetEnrollmentStatusResponse } from "../models/models_0";
+import { de_GetEnrollmentStatusCommand, se_GetEnrollmentStatusCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetEnrollmentStatusCommand}.
  */
 export interface GetEnrollmentStatusCommandInput extends GetEnrollmentStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEnrollmentStatusCommand}.
  */
 export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the enrollment (opt in) status of an account to the Compute Optimizer
  *             service.</p>
  *          <p>If the account is the management account of an organization, this action also confirms
@@ -46,10 +43,13 @@ export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusRes
  * import { ComputeOptimizerClient, GetEnrollmentStatusCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEnrollmentStatusCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = {};
  * const command = new GetEnrollmentStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnrollmentStatusCommandInput - {@link GetEnrollmentStatusCommandInput}
+ * @returns {@link GetEnrollmentStatusCommandOutput}
  * @see {@link GetEnrollmentStatusCommandInput} for command's `input` shape.
  * @see {@link GetEnrollmentStatusCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -92,6 +92,9 @@ export class GetEnrollmentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnrollmentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +123,8 @@ export class GetEnrollmentStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnrollmentStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEnrollmentStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +134,18 @@ export class GetEnrollmentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEnrollmentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEnrollmentStatusCommand(input, context);
+    return se_GetEnrollmentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnrollmentStatusCommandOutput> {
-    return deserializeAws_json1_0GetEnrollmentStatusCommand(output, context);
+    return de_GetEnrollmentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

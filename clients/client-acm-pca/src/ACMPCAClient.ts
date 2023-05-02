@@ -119,6 +119,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateCertificateAuthorityAuditReportCommandInput
   | CreateCertificateAuthorityCommandInput
@@ -144,6 +147,9 @@ export type ServiceInputTypes =
   | UntagCertificateAuthorityCommandInput
   | UpdateCertificateAuthorityCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateCertificateAuthorityAuditReportCommandOutput
   | CreateCertificateAuthorityCommandOutput
@@ -169,6 +175,9 @@ export type ServiceOutputTypes =
   | UntagCertificateAuthorityCommandOutput
   | UpdateCertificateAuthorityCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -176,7 +185,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -285,11 +294,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ACMPCAClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -300,10 +312,15 @@ type ACMPCAClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ACMPCAClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ACMPCAClient class constructor that set the region, credentials and other options.
  */
 export interface ACMPCAClientConfig extends ACMPCAClientConfigType {}
 
+/**
+ * @public
+ */
 type ACMPCAClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -314,11 +331,14 @@ type ACMPCAClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ACMPCAClient class. This is resolved and normalized from the {@link ACMPCAClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ACMPCAClient class. This is resolved and normalized from the {@link ACMPCAClientConfig | constructor configuration interface}.
  */
 export interface ACMPCAClientResolvedConfig extends ACMPCAClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>This is the <i>Amazon Web Services Private Certificate Authority API Reference</i>. It provides descriptions,
  * 			syntax, and usage examples for each of the actions and data types involved in creating
  * 			and managing a private certificate authority (CA) for your organization.</p>

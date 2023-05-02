@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListGroupsInput,
-  ListGroupsInputFilterSensitiveLog,
-  ListGroupsOutput,
-  ListGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGroupsCommand,
-  serializeAws_restJson1ListGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListGroupsInput, ListGroupsOutput } from "../models/models_0";
+import { de_ListGroupsCommand, se_ListGroupsCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupsCommand}.
  */
 export interface ListGroupsCommandInput extends ListGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupsCommand}.
  */
 export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing Resource Groups in your account.</p>
  *          <p>
  *             <b>Minimum permissions</b>
@@ -53,10 +50,24 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  * import { ResourceGroupsClient, ListGroupsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, ListGroupsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // ListGroupsInput
+ *   Filters: [ // GroupFilterList
+ *     { // GroupFilter
+ *       Name: "resource-type" || "configuration-type", // required
+ *       Values: [ // GroupFilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
+ * @returns {@link ListGroupsCommandOutput}
  * @see {@link ListGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -96,6 +107,9 @@ export class ListGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +136,8 @@ export class ListGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +147,18 @@ export class ListGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGroupsCommand(input, context);
+    return se_ListGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupsCommandOutput> {
-    return deserializeAws_restJson1ListGroupsCommand(output, context);
+    return de_ListGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

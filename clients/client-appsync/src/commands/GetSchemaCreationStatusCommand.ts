@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  GetSchemaCreationStatusRequest,
-  GetSchemaCreationStatusRequestFilterSensitiveLog,
-  GetSchemaCreationStatusResponse,
-  GetSchemaCreationStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSchemaCreationStatusCommand,
-  serializeAws_restJson1GetSchemaCreationStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSchemaCreationStatusRequest, GetSchemaCreationStatusResponse } from "../models/models_0";
+import { de_GetSchemaCreationStatusCommand, se_GetSchemaCreationStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSchemaCreationStatusCommand}.
  */
 export interface GetSchemaCreationStatusCommandInput extends GetSchemaCreationStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSchemaCreationStatusCommand}.
  */
 export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current status of a schema creation operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
  * import { AppSyncClient, GetSchemaCreationStatusCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetSchemaCreationStatusCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // GetSchemaCreationStatusRequest
+ *   apiId: "STRING_VALUE", // required
+ * };
  * const command = new GetSchemaCreationStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSchemaCreationStatusCommandInput - {@link GetSchemaCreationStatusCommandInput}
+ * @returns {@link GetSchemaCreationStatusCommandOutput}
  * @see {@link GetSchemaCreationStatusCommandInput} for command's `input` shape.
  * @see {@link GetSchemaCreationStatusCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetSchemaCreationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSchemaCreationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetSchemaCreationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSchemaCreationStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSchemaCreationStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetSchemaCreationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSchemaCreationStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSchemaCreationStatusCommand(input, context);
+    return se_GetSchemaCreationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaCreationStatusCommandOutput> {
-    return deserializeAws_restJson1GetSchemaCreationStatusCommand(output, context);
+    return de_GetSchemaCreationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

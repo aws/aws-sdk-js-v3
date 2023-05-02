@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CancelAuditTaskRequest,
-  CancelAuditTaskRequestFilterSensitiveLog,
-  CancelAuditTaskResponse,
-  CancelAuditTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelAuditTaskCommand,
-  serializeAws_restJson1CancelAuditTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelAuditTaskRequest, CancelAuditTaskResponse } from "../models/models_0";
+import { de_CancelAuditTaskCommand, se_CancelAuditTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelAuditTaskCommand}.
  */
 export interface CancelAuditTaskCommandInput extends CancelAuditTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelAuditTaskCommand}.
  */
 export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelAuditTask</a> action.</p>
  * @example
@@ -43,10 +40,15 @@ export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, _
  * import { IoTClient, CancelAuditTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CancelAuditTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CancelAuditTaskRequest
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new CancelAuditTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelAuditTaskCommandInput - {@link CancelAuditTaskCommandInput}
+ * @returns {@link CancelAuditTaskCommandOutput}
  * @see {@link CancelAuditTaskCommandInput} for command's `input` shape.
  * @see {@link CancelAuditTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +84,9 @@ export class CancelAuditTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelAuditTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class CancelAuditTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelAuditTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelAuditTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class CancelAuditTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelAuditTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelAuditTaskCommand(input, context);
+    return se_CancelAuditTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelAuditTaskCommandOutput> {
-    return deserializeAws_restJson1CancelAuditTaskCommand(output, context);
+    return de_CancelAuditTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -86,6 +86,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddPermissionCommandInput
   | ChangeMessageVisibilityBatchCommandInput
@@ -108,6 +111,9 @@ export type ServiceInputTypes =
   | TagQueueCommandInput
   | UntagQueueCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddPermissionCommandOutput
   | ChangeMessageVisibilityBatchCommandOutput
@@ -130,6 +136,9 @@ export type ServiceOutputTypes =
   | TagQueueCommandOutput
   | UntagQueueCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -137,7 +146,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -253,11 +262,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type SQSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -268,10 +280,15 @@ type SQSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of SQSClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SQSClient class constructor that set the region, credentials and other options.
  */
 export interface SQSClientConfig extends SQSClientConfigType {}
 
+/**
+ * @public
+ */
 type SQSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -282,11 +299,14 @@ type SQSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SQSClient class. This is resolved and normalized from the {@link SQSClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SQSClient class. This is resolved and normalized from the {@link SQSClientConfig | constructor configuration interface}.
  */
 export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Welcome to the <i>Amazon SQS API Reference</i>.</p>
  *         <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.</p>
  *         <p>For information on the permissions you need to use this API, see

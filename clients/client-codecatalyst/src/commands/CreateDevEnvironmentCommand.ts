@@ -14,29 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  CreateDevEnvironmentRequest,
-  CreateDevEnvironmentRequestFilterSensitiveLog,
-  CreateDevEnvironmentResponse,
-  CreateDevEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDevEnvironmentCommand,
-  serializeAws_restJson1CreateDevEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDevEnvironmentRequest, CreateDevEnvironmentResponse } from "../models/models_0";
+import { de_CreateDevEnvironmentCommand, se_CreateDevEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDevEnvironmentCommand}.
  */
 export interface CreateDevEnvironmentCommandInput extends CreateDevEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDevEnvironmentCommand}.
  */
 export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development Dev Environment that you can use to quickly work on the code stored in the source repositories of your project.
- *       </p>
+ * @public
+ * <p>Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development environment that you can use to quickly work on the code stored
+ *       in the source repositories of your project.       </p>
  *          <note>
  *             <p>When created in the Amazon CodeCatalyst console, by default a Dev Environment is configured to have a 2 core processor, 4GB of RAM, and 16GB of persistent storage. None of these
  *       defaults apply to a Dev Environment created programmatically.</p>
@@ -47,10 +44,35 @@ export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentR
  * import { CodeCatalystClient, CreateDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, CreateDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // CreateDevEnvironmentRequest
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   repositories: [ // RepositoriesInput
+ *     { // RepositoryInput
+ *       repositoryName: "STRING_VALUE", // required
+ *       branchName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ *   alias: "STRING_VALUE",
+ *   ides: [ // IdeConfigurationList
+ *     { // IdeConfiguration
+ *       runtime: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   instanceType: "STRING_VALUE", // required
+ *   inactivityTimeoutMinutes: Number("int"),
+ *   persistentStorage: { // PersistentStorageConfiguration
+ *     sizeInGiB: Number("int"), // required
+ *   },
+ * };
  * const command = new CreateDevEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDevEnvironmentCommandInput - {@link CreateDevEnvironmentCommandInput}
+ * @returns {@link CreateDevEnvironmentCommandOutput}
  * @see {@link CreateDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -93,6 +115,9 @@ export class CreateDevEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDevEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +146,8 @@ export class CreateDevEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDevEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDevEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +157,18 @@ export class CreateDevEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDevEnvironmentCommand(input, context);
+    return se_CreateDevEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDevEnvironmentCommandOutput> {
-    return deserializeAws_restJson1CreateDevEnvironmentCommand(output, context);
+    return de_CreateDevEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

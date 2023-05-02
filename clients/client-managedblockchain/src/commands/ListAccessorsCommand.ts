@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  ListAccessorsInput,
-  ListAccessorsInputFilterSensitiveLog,
-  ListAccessorsOutput,
-  ListAccessorsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAccessorsCommand,
-  serializeAws_restJson1ListAccessorsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAccessorsInput, ListAccessorsOutput } from "../models/models_0";
+import { de_ListAccessorsCommand, se_ListAccessorsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessorsCommand}.
  */
 export interface ListAccessorsCommandInput extends ListAccessorsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessorsCommand}.
  */
 export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the accessors and their properties. Accessor objects are containers that have the
  *          information required for token based access to your Ethereum nodes.</p>
  * @example
@@ -47,10 +44,16 @@ export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __Metad
  * import { ManagedBlockchainClient, ListAccessorsCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListAccessorsCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // ListAccessorsInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAccessorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessorsCommandInput - {@link ListAccessorsCommandInput}
+ * @returns {@link ListAccessorsCommandOutput}
  * @see {@link ListAccessorsCommandInput} for command's `input` shape.
  * @see {@link ListAccessorsCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -89,6 +92,9 @@ export class ListAccessorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class ListAccessorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessorsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessorsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class ListAccessorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAccessorsCommand(input, context);
+    return se_ListAccessorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessorsCommandOutput> {
-    return deserializeAws_restJson1ListAccessorsCommand(output, context);
+    return de_ListAccessorsCommand(output, context);
   }
 
   // Start section: command_body_extra

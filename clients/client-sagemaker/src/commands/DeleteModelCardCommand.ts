@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteModelCardRequest, DeleteModelCardRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteModelCardCommand,
-  serializeAws_json1_1DeleteModelCardCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteModelCardRequest } from "../models/models_1";
+import { de_DeleteModelCardCommand, se_DeleteModelCardCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelCardCommand}.
  */
 export interface DeleteModelCardCommandInput extends DeleteModelCardRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelCardCommand}.
  */
 export interface DeleteModelCardCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon SageMaker Model Card.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteModelCardCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteModelCardCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteModelCardCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteModelCardRequest
+ *   ModelCardName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteModelCardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelCardCommandInput - {@link DeleteModelCardCommandInput}
+ * @returns {@link DeleteModelCardCommandOutput}
  * @see {@link DeleteModelCardCommandInput} for command's `input` shape.
  * @see {@link DeleteModelCardCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteModelCardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelCardCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +109,8 @@ export class DeleteModelCardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelCardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +120,18 @@ export class DeleteModelCardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelCardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteModelCardCommand(input, context);
+    return se_DeleteModelCardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelCardCommandOutput> {
-    return deserializeAws_json1_1DeleteModelCardCommand(output, context);
+    return de_DeleteModelCardCommand(output, context);
   }
 
   // Start section: command_body_extra

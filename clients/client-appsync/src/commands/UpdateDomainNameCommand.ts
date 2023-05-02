@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  UpdateDomainNameRequest,
-  UpdateDomainNameRequestFilterSensitiveLog,
-  UpdateDomainNameResponse,
-  UpdateDomainNameResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDomainNameCommand,
-  serializeAws_restJson1UpdateDomainNameCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDomainNameRequest, UpdateDomainNameResponse } from "../models/models_0";
+import { de_UpdateDomainNameCommand, se_UpdateDomainNameCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainNameCommand}.
  */
 export interface UpdateDomainNameCommandInput extends UpdateDomainNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainNameCommand}.
  */
 export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a custom <code>DomainName</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * import { AppSyncClient, UpdateDomainNameCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateDomainNameCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // UpdateDomainNameRequest
+ *   domainName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateDomainNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainNameCommandInput - {@link UpdateDomainNameCommandInput}
+ * @returns {@link UpdateDomainNameCommandOutput}
  * @see {@link UpdateDomainNameCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainNameCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +89,9 @@ export class UpdateDomainNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class UpdateDomainNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainNameResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class UpdateDomainNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDomainNameCommand(input, context);
+    return se_UpdateDomainNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainNameCommandOutput> {
-    return deserializeAws_restJson1UpdateDomainNameCommand(output, context);
+    return de_UpdateDomainNameCommand(output, context);
   }
 
   // Start section: command_body_extra

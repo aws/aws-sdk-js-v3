@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeTransitGatewayRouteTableAnnouncementsRequest,
-  DescribeTransitGatewayRouteTableAnnouncementsRequestFilterSensitiveLog,
   DescribeTransitGatewayRouteTableAnnouncementsResult,
-  DescribeTransitGatewayRouteTableAnnouncementsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand,
-  serializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand,
+  de_DescribeTransitGatewayRouteTableAnnouncementsCommand,
+  se_DescribeTransitGatewayRouteTableAnnouncementsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransitGatewayRouteTableAnnouncementsCommand}.
  */
 export interface DescribeTransitGatewayRouteTableAnnouncementsCommandInput
   extends DescribeTransitGatewayRouteTableAnnouncementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransitGatewayRouteTableAnnouncementsCommand}.
  */
 export interface DescribeTransitGatewayRouteTableAnnouncementsCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeTransitGatewayRouteTableAnnouncementsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more transit gateway route table advertisements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,28 @@ export interface DescribeTransitGatewayRouteTableAnnouncementsCommandOutput
  * import { EC2Client, DescribeTransitGatewayRouteTableAnnouncementsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTransitGatewayRouteTableAnnouncementsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeTransitGatewayRouteTableAnnouncementsRequest
+ *   TransitGatewayRouteTableAnnouncementIds: [ // TransitGatewayRouteTableAnnouncementIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeTransitGatewayRouteTableAnnouncementsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayRouteTableAnnouncementsCommandInput - {@link DescribeTransitGatewayRouteTableAnnouncementsCommandInput}
+ * @returns {@link DescribeTransitGatewayRouteTableAnnouncementsCommandOutput}
  * @see {@link DescribeTransitGatewayRouteTableAnnouncementsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayRouteTableAnnouncementsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +93,9 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayRouteTableAnnouncementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +130,8 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTransitGatewayRouteTableAnnouncementsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTransitGatewayRouteTableAnnouncementsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +141,24 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand(input, context);
+    return se_DescribeTransitGatewayRouteTableAnnouncementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayRouteTableAnnouncementsCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand(output, context);
+    return de_DescribeTransitGatewayRouteTableAnnouncementsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLocalDisksInput,
-  ListLocalDisksInputFilterSensitiveLog,
-  ListLocalDisksOutput,
-  ListLocalDisksOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLocalDisksCommand,
-  serializeAws_json1_1ListLocalDisksCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLocalDisksInput, ListLocalDisksOutput } from "../models/models_0";
+import { de_ListLocalDisksCommand, se_ListLocalDisksCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLocalDisksCommand}.
  */
 export interface ListLocalDisksCommandInput extends ListLocalDisksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLocalDisksCommand}.
  */
 export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the gateway's local disks. To specify which gateway to describe,
  *          you use the Amazon Resource Name (ARN) of the gateway in the body of the request.</p>
  *
@@ -50,10 +47,15 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  * import { StorageGatewayClient, ListLocalDisksCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListLocalDisksCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // ListLocalDisksInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new ListLocalDisksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLocalDisksCommandInput - {@link ListLocalDisksCommandInput}
+ * @returns {@link ListLocalDisksCommandOutput}
  * @see {@link ListLocalDisksCommandInput} for command's `input` shape.
  * @see {@link ListLocalDisksCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -120,6 +122,9 @@ export class ListLocalDisksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLocalDisksCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +153,8 @@ export class ListLocalDisksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLocalDisksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLocalDisksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +164,18 @@ export class ListLocalDisksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLocalDisksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLocalDisksCommand(input, context);
+    return se_ListLocalDisksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLocalDisksCommandOutput> {
-    return deserializeAws_json1_1ListLocalDisksCommand(output, context);
+    return de_ListLocalDisksCommand(output, context);
   }
 
   // Start section: command_body_extra

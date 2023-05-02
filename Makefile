@@ -20,11 +20,17 @@ turbo-build:
 	npx turbo run build --api="http://localhost:3000" --team="aws-sdk-js" --token="xyz"
 	node scripts/remote-cache/ stop
 
-# Runs single-client codegen for all clients using Turborepo
-turbo-generate-clients:
-	(cd scripts/remote-cache && yarn)
+protocols:
+	yarn generate-clients -g codegen/sdk-codegen/aws-models/rekognitionstreaming.json
+	git checkout HEAD clients/client-rekognitionstreaming
+	yarn test:protocols
+
+server-protocols:
+	yarn generate-clients -s
+	yarn test:server-protocols
+
+bytes-cjs:
+	make turbo-build
 	node scripts/remote-cache/ start&
-	sleep 3
-	npx turbo run generate:client --filter=@aws-sdk/client-* --api="http://localhost:3000" --team="aws-sdk-js" --token="xyz"
+	npx turbo run build:cjs --api="http://localhost:3000" --team="aws-sdk-js" --token="xyz"
 	node scripts/remote-cache/ stop
-	

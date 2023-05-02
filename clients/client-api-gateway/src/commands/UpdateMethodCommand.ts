@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  Method,
-  MethodFilterSensitiveLog,
-  UpdateMethodRequest,
-  UpdateMethodRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMethodCommand,
-  serializeAws_restJson1UpdateMethodCommand,
-} from "../protocols/Aws_restJson1";
+import { Method, UpdateMethodRequest } from "../models/models_0";
+import { de_UpdateMethodCommand, se_UpdateMethodCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMethodCommand}.
  */
 export interface UpdateMethodCommandInput extends UpdateMethodRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMethodCommand}.
  */
 export interface UpdateMethodCommandOutput extends Method, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing Method resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface UpdateMethodCommandOutput extends Method, __MetadataBearer {}
  * import { APIGatewayClient, UpdateMethodCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateMethodCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // UpdateMethodRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
+ *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
+ *       path: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       from: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateMethodCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMethodCommandInput - {@link UpdateMethodCommandInput}
+ * @returns {@link UpdateMethodCommandOutput}
  * @see {@link UpdateMethodCommandInput} for command's `input` shape.
  * @see {@link UpdateMethodCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -84,6 +96,9 @@ export class UpdateMethodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMethodCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +125,8 @@ export class UpdateMethodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMethodRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MethodFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +136,18 @@ export class UpdateMethodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMethodCommand(input, context);
+    return se_UpdateMethodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMethodCommandOutput> {
-    return deserializeAws_restJson1UpdateMethodCommand(output, context);
+    return de_UpdateMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

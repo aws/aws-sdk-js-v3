@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ImportKeyMaterialRequest,
-  ImportKeyMaterialRequestFilterSensitiveLog,
-  ImportKeyMaterialResponse,
-  ImportKeyMaterialResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportKeyMaterialCommand,
-  serializeAws_json1_1ImportKeyMaterialCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportKeyMaterialRequest, ImportKeyMaterialResponse } from "../models/models_0";
+import { de_ImportKeyMaterialCommand, se_ImportKeyMaterialCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportKeyMaterialCommand}.
  */
 export interface ImportKeyMaterialCommandInput extends ImportKeyMaterialRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportKeyMaterialCommand}.
  */
 export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports key material into an existing symmetric encryption KMS key that was created
  *       without key material. After you successfully import key material into a KMS key, you can
  *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the same key material</a> into that KMS key, but you cannot import different
@@ -105,10 +102,19 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * import { KMSClient, ImportKeyMaterialCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ImportKeyMaterialCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ImportKeyMaterialRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   ImportToken: "BLOB_VALUE", // required
+ *   EncryptedKeyMaterial: "BLOB_VALUE", // required
+ *   ValidTo: new Date("TIMESTAMP"),
+ *   ExpirationModel: "KEY_MATERIAL_EXPIRES" || "KEY_MATERIAL_DOES_NOT_EXPIRE",
+ * };
  * const command = new ImportKeyMaterialCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportKeyMaterialCommandInput - {@link ImportKeyMaterialCommandInput}
+ * @returns {@link ImportKeyMaterialCommandOutput}
  * @see {@link ImportKeyMaterialCommandInput} for command's `input` shape.
  * @see {@link ImportKeyMaterialCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -204,6 +210,9 @@ export class ImportKeyMaterialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportKeyMaterialCommandInput) {
     // Start section: command_constructor
     super();
@@ -232,8 +241,8 @@ export class ImportKeyMaterialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportKeyMaterialRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportKeyMaterialResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -243,12 +252,18 @@ export class ImportKeyMaterialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportKeyMaterialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportKeyMaterialCommand(input, context);
+    return se_ImportKeyMaterialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportKeyMaterialCommandOutput> {
-    return deserializeAws_json1_1ImportKeyMaterialCommand(output, context);
+    return de_ImportKeyMaterialCommand(output, context);
   }
 
   // Start section: command_body_extra

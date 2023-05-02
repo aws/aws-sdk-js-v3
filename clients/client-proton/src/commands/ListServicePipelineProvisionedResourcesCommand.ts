@@ -15,22 +15,24 @@ import {
 
 import {
   ListServicePipelineProvisionedResourcesInput,
-  ListServicePipelineProvisionedResourcesInputFilterSensitiveLog,
   ListServicePipelineProvisionedResourcesOutput,
-  ListServicePipelineProvisionedResourcesOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0ListServicePipelineProvisionedResourcesCommand,
-  serializeAws_json1_0ListServicePipelineProvisionedResourcesCommand,
+  de_ListServicePipelineProvisionedResourcesCommand,
+  se_ListServicePipelineProvisionedResourcesCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServicePipelineProvisionedResourcesCommand}.
  */
 export interface ListServicePipelineProvisionedResourcesCommandInput
   extends ListServicePipelineProvisionedResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListServicePipelineProvisionedResourcesCommand}.
  */
 export interface ListServicePipelineProvisionedResourcesCommandOutput
@@ -38,6 +40,7 @@ export interface ListServicePipelineProvisionedResourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List provisioned resources for a service and pipeline with details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,16 @@ export interface ListServicePipelineProvisionedResourcesCommandOutput
  * import { ProtonClient, ListServicePipelineProvisionedResourcesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServicePipelineProvisionedResourcesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // ListServicePipelineProvisionedResourcesInput
+ *   serviceName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListServicePipelineProvisionedResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServicePipelineProvisionedResourcesCommandInput - {@link ListServicePipelineProvisionedResourcesCommandInput}
+ * @returns {@link ListServicePipelineProvisionedResourcesCommandOutput}
  * @see {@link ListServicePipelineProvisionedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListServicePipelineProvisionedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -87,6 +96,9 @@ export class ListServicePipelineProvisionedResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServicePipelineProvisionedResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +133,8 @@ export class ListServicePipelineProvisionedResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServicePipelineProvisionedResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServicePipelineProvisionedResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,18 +144,24 @@ export class ListServicePipelineProvisionedResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListServicePipelineProvisionedResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListServicePipelineProvisionedResourcesCommand(input, context);
+    return se_ListServicePipelineProvisionedResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServicePipelineProvisionedResourcesCommandOutput> {
-    return deserializeAws_json1_0ListServicePipelineProvisionedResourcesCommand(output, context);
+    return de_ListServicePipelineProvisionedResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

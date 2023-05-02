@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RegisterDevicesRequest, RegisterDevicesRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1RegisterDevicesCommand,
-  serializeAws_json1_1RegisterDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterDevicesRequest } from "../models/models_3";
+import { de_RegisterDevicesCommand, se_RegisterDevicesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterDevicesCommand}.
  */
 export interface RegisterDevicesCommandInput extends RegisterDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterDevicesCommand}.
  */
 export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Register devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,28 @@ export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, RegisterDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, RegisterDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // RegisterDevicesRequest
+ *   DeviceFleetName: "STRING_VALUE", // required
+ *   Devices: [ // Devices // required
+ *     { // Device
+ *       DeviceName: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE",
+ *       IotThingName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new RegisterDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterDevicesCommandInput - {@link RegisterDevicesCommandInput}
+ * @returns {@link RegisterDevicesCommandOutput}
  * @see {@link RegisterDevicesCommandInput} for command's `input` shape.
  * @see {@link RegisterDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -68,6 +88,9 @@ export class RegisterDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +119,8 @@ export class RegisterDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +130,18 @@ export class RegisterDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterDevicesCommand(input, context);
+    return se_RegisterDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterDevicesCommandOutput> {
-    return deserializeAws_json1_1RegisterDevicesCommand(output, context);
+    return de_RegisterDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

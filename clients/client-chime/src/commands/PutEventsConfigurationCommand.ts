@@ -20,21 +20,23 @@ import {
   PutEventsConfigurationResponse,
   PutEventsConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1PutEventsConfigurationCommand,
-  serializeAws_restJson1PutEventsConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutEventsConfigurationCommand, se_PutEventsConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutEventsConfigurationCommand}.
  */
 export interface PutEventsConfigurationCommandInput extends PutEventsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEventsConfigurationCommand}.
  */
 export interface PutEventsConfigurationCommandOutput extends PutEventsConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an events configuration that allows a bot to receive outgoing events sent by Amazon
  *             Chime. Choose either an HTTPS endpoint or a Lambda function ARN. For more information,
  *             see <a>Bot</a>.</p>
@@ -44,10 +46,18 @@ export interface PutEventsConfigurationCommandOutput extends PutEventsConfigurat
  * import { ChimeClient, PutEventsConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutEventsConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // PutEventsConfigurationRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BotId: "STRING_VALUE", // required
+ *   OutboundEventsHTTPSEndpoint: "STRING_VALUE",
+ *   LambdaFunctionArn: "STRING_VALUE",
+ * };
  * const command = new PutEventsConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEventsConfigurationCommandInput - {@link PutEventsConfigurationCommandInput}
+ * @returns {@link PutEventsConfigurationCommandOutput}
  * @see {@link PutEventsConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutEventsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +102,9 @@ export class PutEventsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEventsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,12 +144,18 @@ export class PutEventsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEventsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutEventsConfigurationCommand(input, context);
+    return se_PutEventsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventsConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutEventsConfigurationCommand(output, context);
+    return de_PutEventsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteRateBasedRuleRequest,
-  DeleteRateBasedRuleRequestFilterSensitiveLog,
-  DeleteRateBasedRuleResponse,
-  DeleteRateBasedRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRateBasedRuleCommand,
-  serializeAws_json1_1DeleteRateBasedRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRateBasedRuleRequest, DeleteRateBasedRuleResponse } from "../models/models_0";
+import { de_DeleteRateBasedRuleCommand, se_DeleteRateBasedRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRateBasedRuleCommand}.
  */
 export interface DeleteRateBasedRuleCommandInput extends DeleteRateBasedRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRateBasedRuleCommand}.
  */
 export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -69,10 +66,16 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  * import { WAFClient, DeleteRateBasedRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, DeleteRateBasedRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // DeleteRateBasedRuleRequest
+ *   RuleId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRateBasedRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRateBasedRuleCommandInput - {@link DeleteRateBasedRuleCommandInput}
+ * @returns {@link DeleteRateBasedRuleCommandOutput}
  * @see {@link DeleteRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRateBasedRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -143,6 +146,9 @@ export class DeleteRateBasedRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRateBasedRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,8 +177,8 @@ export class DeleteRateBasedRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRateBasedRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRateBasedRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -182,12 +188,18 @@ export class DeleteRateBasedRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRateBasedRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRateBasedRuleCommand(input, context);
+    return se_DeleteRateBasedRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRateBasedRuleCommandOutput> {
-    return deserializeAws_json1_1DeleteRateBasedRuleCommand(output, context);
+    return de_DeleteRateBasedRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

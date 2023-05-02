@@ -10,7 +10,7 @@ import { Macie2Client } from "../Macie2Client";
 import { Macie2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Macie2Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListOrganizationAdminAccountsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListOrganizationAdminAccounts(
   config: Macie2PaginationConfiguration,
   input: ListOrganizationAdminAccountsCommandInput,

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  DeleteVpcConnectorRequest,
-  DeleteVpcConnectorRequestFilterSensitiveLog,
-  DeleteVpcConnectorResponse,
-  DeleteVpcConnectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteVpcConnectorCommand,
-  serializeAws_json1_0DeleteVpcConnectorCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteVpcConnectorRequest, DeleteVpcConnectorResponse } from "../models/models_0";
+import { de_DeleteVpcConnectorCommand, se_DeleteVpcConnectorCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcConnectorCommand}.
  */
 export interface DeleteVpcConnectorCommandInput extends DeleteVpcConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcConnectorCommand}.
  */
 export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an App Runner VPC connector resource. You can't delete a
  *       connector that's used by one or more App Runner services.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorRespo
  * import { AppRunnerClient, DeleteVpcConnectorCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DeleteVpcConnectorCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // DeleteVpcConnectorRequest
+ *   VpcConnectorArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpcConnectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcConnectorCommandInput - {@link DeleteVpcConnectorCommandInput}
+ * @returns {@link DeleteVpcConnectorCommandOutput}
  * @see {@link DeleteVpcConnectorCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcConnectorCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -79,6 +81,9 @@ export class DeleteVpcConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class DeleteVpcConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcConnectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class DeleteVpcConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteVpcConnectorCommand(input, context);
+    return se_DeleteVpcConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcConnectorCommandOutput> {
-    return deserializeAws_json1_0DeleteVpcConnectorCommand(output, context);
+    return de_DeleteVpcConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetBucketAnalyticsConfigurationOutput, GetBucketAnalyticsConfigurationRequest } from "../models/models_0";
 import {
-  GetBucketAnalyticsConfigurationOutput,
-  GetBucketAnalyticsConfigurationOutputFilterSensitiveLog,
-  GetBucketAnalyticsConfigurationRequest,
-  GetBucketAnalyticsConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketAnalyticsConfigurationCommand,
-  serializeAws_restXmlGetBucketAnalyticsConfigurationCommand,
+  de_GetBucketAnalyticsConfigurationCommand,
+  se_GetBucketAnalyticsConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketAnalyticsConfigurationCommand}.
  */
 export interface GetBucketAnalyticsConfigurationCommandInput extends GetBucketAnalyticsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketAnalyticsConfigurationCommand}.
  */
 export interface GetBucketAnalyticsConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface GetBucketAnalyticsConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This implementation of the GET action returns an analytics configuration (identified
  *          by the analytics configuration ID) from the bucket.</p>
  *          <p>To use this operation, you must have permissions to perform the
@@ -72,10 +72,17 @@ export interface GetBucketAnalyticsConfigurationCommandOutput
  * import { S3Client, GetBucketAnalyticsConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketAnalyticsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketAnalyticsConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketAnalyticsConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketAnalyticsConfigurationCommandInput - {@link GetBucketAnalyticsConfigurationCommandInput}
+ * @returns {@link GetBucketAnalyticsConfigurationCommandOutput}
  * @see {@link GetBucketAnalyticsConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketAnalyticsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -105,6 +112,9 @@ export class GetBucketAnalyticsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketAnalyticsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +143,8 @@ export class GetBucketAnalyticsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketAnalyticsConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketAnalyticsConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,18 +154,24 @@ export class GetBucketAnalyticsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketAnalyticsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketAnalyticsConfigurationCommand(input, context);
+    return se_GetBucketAnalyticsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketAnalyticsConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketAnalyticsConfigurationCommand(output, context);
+    return de_GetBucketAnalyticsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

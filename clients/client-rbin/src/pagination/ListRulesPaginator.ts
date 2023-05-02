@@ -6,7 +6,7 @@ import { RbinClient } from "../RbinClient";
 import { RbinPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RbinClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRulesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListRules(
   config: RbinPaginationConfiguration,
   input: ListRulesCommandInput,

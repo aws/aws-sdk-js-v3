@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  UpdateEventDataStoreRequest,
-  UpdateEventDataStoreRequestFilterSensitiveLog,
-  UpdateEventDataStoreResponse,
-  UpdateEventDataStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateEventDataStoreCommand,
-  serializeAws_json1_1UpdateEventDataStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateEventDataStoreRequest, UpdateEventDataStoreResponse } from "../models/models_0";
+import { de_UpdateEventDataStoreCommand, se_UpdateEventDataStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEventDataStoreCommand}.
  */
 export interface UpdateEventDataStoreCommandInput extends UpdateEventDataStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEventDataStoreCommand}.
  */
 export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or
  *          the ID portion of the ARN. Other parameters are optional, but at least one optional
  *          parameter must be specified, or CloudTrail throws an error.
@@ -52,10 +49,47 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * import { CloudTrailClient, UpdateEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, UpdateEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // UpdateEventDataStoreRequest
+ *   EventDataStore: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   AdvancedEventSelectors: [ // AdvancedEventSelectors
+ *     { // AdvancedEventSelector
+ *       Name: "STRING_VALUE",
+ *       FieldSelectors: [ // AdvancedFieldSelectors // required
+ *         { // AdvancedFieldSelector
+ *           Field: "STRING_VALUE", // required
+ *           Equals: [ // Operator
+ *             "STRING_VALUE",
+ *           ],
+ *           StartsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           EndsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotEquals: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotStartsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotEndsWith: "<Operator>",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MultiRegionEnabled: true || false,
+ *   OrganizationEnabled: true || false,
+ *   RetentionPeriod: Number("int"),
+ *   TerminationProtectionEnabled: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ * };
  * const command = new UpdateEventDataStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventDataStoreCommandInput - {@link UpdateEventDataStoreCommandInput}
+ * @returns {@link UpdateEventDataStoreCommandOutput}
  * @see {@link UpdateEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -175,6 +209,9 @@ export class UpdateEventDataStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -203,8 +240,8 @@ export class UpdateEventDataStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEventDataStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEventDataStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -214,12 +251,18 @@ export class UpdateEventDataStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEventDataStoreCommand(input, context);
+    return se_UpdateEventDataStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventDataStoreCommandOutput> {
-    return deserializeAws_json1_1UpdateEventDataStoreCommand(output, context);
+    return de_UpdateEventDataStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

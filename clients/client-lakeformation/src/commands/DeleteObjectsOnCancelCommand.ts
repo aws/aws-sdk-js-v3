@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  DeleteObjectsOnCancelRequest,
-  DeleteObjectsOnCancelRequestFilterSensitiveLog,
-  DeleteObjectsOnCancelResponse,
-  DeleteObjectsOnCancelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteObjectsOnCancelCommand,
-  serializeAws_restJson1DeleteObjectsOnCancelCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteObjectsOnCancelRequest, DeleteObjectsOnCancelResponse } from "../models/models_0";
+import { de_DeleteObjectsOnCancelCommand, se_DeleteObjectsOnCancelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteObjectsOnCancelCommand}.
  */
 export interface DeleteObjectsOnCancelCommandInput extends DeleteObjectsOnCancelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteObjectsOnCancelCommand}.
  */
 export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCancelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a specific governed table, provides a list of Amazon S3 objects that will be written during the current transaction and that can be automatically deleted
  *       if the transaction is canceled. Without this call, no Amazon S3 objects are automatically deleted when a transaction cancels.
  *     </p>
@@ -49,10 +46,24 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  * import { LakeFormationClient, DeleteObjectsOnCancelCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DeleteObjectsOnCancelCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // DeleteObjectsOnCancelRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   TransactionId: "STRING_VALUE", // required
+ *   Objects: [ // VirtualObjectList // required
+ *     { // VirtualObject
+ *       Uri: "STRING_VALUE", // required
+ *       ETag: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DeleteObjectsOnCancelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteObjectsOnCancelCommandInput - {@link DeleteObjectsOnCancelCommandInput}
+ * @returns {@link DeleteObjectsOnCancelCommandOutput}
  * @see {@link DeleteObjectsOnCancelCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectsOnCancelCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -61,7 +72,7 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  *  <p>Two processes are trying to modify a resource simultaneously.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -100,6 +111,9 @@ export class DeleteObjectsOnCancelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteObjectsOnCancelCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +142,8 @@ export class DeleteObjectsOnCancelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteObjectsOnCancelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteObjectsOnCancelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +153,18 @@ export class DeleteObjectsOnCancelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteObjectsOnCancelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteObjectsOnCancelCommand(input, context);
+    return se_DeleteObjectsOnCancelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectsOnCancelCommandOutput> {
-    return deserializeAws_restJson1DeleteObjectsOnCancelCommand(output, context);
+    return de_DeleteObjectsOnCancelCommand(output, context);
   }
 
   // Start section: command_body_extra

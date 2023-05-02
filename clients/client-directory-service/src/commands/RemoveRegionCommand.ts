@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  RemoveRegionRequest,
-  RemoveRegionRequestFilterSensitiveLog,
-  RemoveRegionResult,
-  RemoveRegionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveRegionCommand,
-  serializeAws_json1_1RemoveRegionCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveRegionRequest, RemoveRegionResult } from "../models/models_0";
+import { de_RemoveRegionCommand, se_RemoveRegionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveRegionCommand}.
  */
 export interface RemoveRegionCommandInput extends RemoveRegionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveRegionCommand}.
  */
 export interface RemoveRegionCommandOutput extends RemoveRegionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops all replication and removes the domain controllers from the specified Region. You
  *       cannot remove the primary Region with this operation. Instead, use the
  *         <code>DeleteDirectory</code> API.</p>
@@ -44,10 +41,15 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  * import { DirectoryServiceClient, RemoveRegionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RemoveRegionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // RemoveRegionRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ * };
  * const command = new RemoveRegionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveRegionCommandInput - {@link RemoveRegionCommandInput}
+ * @returns {@link RemoveRegionCommandOutput}
  * @see {@link RemoveRegionCommandInput} for command's `input` shape.
  * @see {@link RemoveRegionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -89,6 +91,9 @@ export class RemoveRegionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveRegionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class RemoveRegionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveRegionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveRegionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class RemoveRegionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveRegionCommand(input, context);
+    return se_RemoveRegionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveRegionCommandOutput> {
-    return deserializeAws_json1_1RemoveRegionCommand(output, context);
+    return de_RemoveRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

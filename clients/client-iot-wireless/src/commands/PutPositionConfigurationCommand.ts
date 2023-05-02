@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  PutPositionConfigurationRequest,
-  PutPositionConfigurationRequestFilterSensitiveLog,
-  PutPositionConfigurationResponse,
-  PutPositionConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutPositionConfigurationCommand,
-  serializeAws_restJson1PutPositionConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { PutPositionConfigurationRequest, PutPositionConfigurationResponse } from "../models/models_1";
+import { de_PutPositionConfigurationCommand, se_PutPositionConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutPositionConfigurationCommand}.
  */
 export interface PutPositionConfigurationCommandInput extends PutPositionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPositionConfigurationCommand}.
  */
 export interface PutPositionConfigurationCommandOutput extends PutPositionConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Put position configuration for a given resource.</p>
@@ -48,10 +45,23 @@ export interface PutPositionConfigurationCommandOutput extends PutPositionConfig
  * import { IoTWirelessClient, PutPositionConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, PutPositionConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // PutPositionConfigurationRequest
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
+ *   Solvers: { // PositionSolverConfigurations
+ *     SemtechGnss: { // SemtechGnssConfiguration
+ *       Status: "Enabled" || "Disabled", // required
+ *       Fec: "ROSE" || "NONE", // required
+ *     },
+ *   },
+ *   Destination: "STRING_VALUE",
+ * };
  * const command = new PutPositionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPositionConfigurationCommandInput - {@link PutPositionConfigurationCommandInput}
+ * @returns {@link PutPositionConfigurationCommandOutput}
  * @see {@link PutPositionConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutPositionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -90,6 +100,9 @@ export class PutPositionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPositionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +131,8 @@ export class PutPositionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPositionConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPositionConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +142,18 @@ export class PutPositionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPositionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutPositionConfigurationCommand(input, context);
+    return se_PutPositionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPositionConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutPositionConfigurationCommand(output, context);
+    return de_PutPositionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

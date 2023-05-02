@@ -16,21 +16,23 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
   ListPricingPlansAssociatedWithPricingRuleInput,
-  ListPricingPlansAssociatedWithPricingRuleInputFilterSensitiveLog,
   ListPricingPlansAssociatedWithPricingRuleOutput,
-  ListPricingPlansAssociatedWithPricingRuleOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand,
-  serializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand,
+  de_ListPricingPlansAssociatedWithPricingRuleCommand,
+  se_ListPricingPlansAssociatedWithPricingRuleCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPricingPlansAssociatedWithPricingRuleCommand}.
  */
 export interface ListPricingPlansAssociatedWithPricingRuleCommandInput
   extends ListPricingPlansAssociatedWithPricingRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPricingPlansAssociatedWithPricingRuleCommand}.
  */
 export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
@@ -38,6 +40,7 @@ export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       A list of the pricing plans that are associated with a pricing rule.
  *     </p>
@@ -47,10 +50,18 @@ export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
  * import { BillingconductorClient, ListPricingPlansAssociatedWithPricingRuleCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListPricingPlansAssociatedWithPricingRuleCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // ListPricingPlansAssociatedWithPricingRuleInput
+ *   BillingPeriod: "STRING_VALUE",
+ *   PricingRuleArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPricingPlansAssociatedWithPricingRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPricingPlansAssociatedWithPricingRuleCommandInput - {@link ListPricingPlansAssociatedWithPricingRuleCommandInput}
+ * @returns {@link ListPricingPlansAssociatedWithPricingRuleCommandOutput}
  * @see {@link ListPricingPlansAssociatedWithPricingRuleCommandInput} for command's `input` shape.
  * @see {@link ListPricingPlansAssociatedWithPricingRuleCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -93,6 +104,9 @@ export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPricingPlansAssociatedWithPricingRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +141,8 @@ export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPricingPlansAssociatedWithPricingRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPricingPlansAssociatedWithPricingRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,18 +152,24 @@ export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPricingPlansAssociatedWithPricingRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand(input, context);
+    return se_ListPricingPlansAssociatedWithPricingRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPricingPlansAssociatedWithPricingRuleCommandOutput> {
-    return deserializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand(output, context);
+    return de_ListPricingPlansAssociatedWithPricingRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

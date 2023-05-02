@@ -16,25 +16,26 @@ import {
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import {
   DisassociateLicenseRequest,
-  DisassociateLicenseRequestFilterSensitiveLog,
   DisassociateLicenseResponse,
   DisassociateLicenseResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateLicenseCommand,
-  serializeAws_restJson1DisassociateLicenseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateLicenseCommand, se_DisassociateLicenseCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateLicenseCommand}.
  */
 export interface DisassociateLicenseCommandInput extends DisassociateLicenseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateLicenseCommand}.
  */
 export interface DisassociateLicenseCommandOutput extends DisassociateLicenseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the Grafana Enterprise license from a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface DisassociateLicenseCommandOutput extends DisassociateLicenseRes
  * import { GrafanaClient, DisassociateLicenseCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, DisassociateLicenseCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // DisassociateLicenseRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   licenseType: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateLicenseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateLicenseCommandInput - {@link DisassociateLicenseCommandInput}
+ * @returns {@link DisassociateLicenseCommandOutput}
  * @see {@link DisassociateLicenseCommandInput} for command's `input` shape.
  * @see {@link DisassociateLicenseCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisassociateLicenseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateLicenseCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +122,7 @@ export class DisassociateLicenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateLicenseRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DisassociateLicenseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,12 +133,18 @@ export class DisassociateLicenseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateLicenseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateLicenseCommand(input, context);
+    return se_DisassociateLicenseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateLicenseCommandOutput> {
-    return deserializeAws_restJson1DisassociateLicenseCommand(output, context);
+    return de_DisassociateLicenseCommand(output, context);
   }
 
   // Start section: command_body_extra

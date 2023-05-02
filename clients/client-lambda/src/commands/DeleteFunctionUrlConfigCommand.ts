@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteFunctionUrlConfigRequest, DeleteFunctionUrlConfigRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFunctionUrlConfigCommand,
-  serializeAws_restJson1DeleteFunctionUrlConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFunctionUrlConfigRequest } from "../models/models_0";
+import { de_DeleteFunctionUrlConfigCommand, se_DeleteFunctionUrlConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFunctionUrlConfigCommand}.
  */
 export interface DeleteFunctionUrlConfigCommandInput extends DeleteFunctionUrlConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFunctionUrlConfigCommand}.
  */
 export interface DeleteFunctionUrlConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Lambda function URL. When you delete a function URL, you
  *       can't recover it. Creating a new function URL results in a different URL address.</p>
  * @example
@@ -38,10 +40,16 @@ export interface DeleteFunctionUrlConfigCommandOutput extends __MetadataBearer {
  * import { LambdaClient, DeleteFunctionUrlConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteFunctionUrlConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // DeleteFunctionUrlConfigRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ * };
  * const command = new DeleteFunctionUrlConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFunctionUrlConfigCommandInput - {@link DeleteFunctionUrlConfigCommandInput}
+ * @returns {@link DeleteFunctionUrlConfigCommandOutput}
  * @see {@link DeleteFunctionUrlConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionUrlConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -77,6 +85,9 @@ export class DeleteFunctionUrlConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFunctionUrlConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +116,8 @@ export class DeleteFunctionUrlConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFunctionUrlConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +127,18 @@ export class DeleteFunctionUrlConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFunctionUrlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFunctionUrlConfigCommand(input, context);
+    return se_DeleteFunctionUrlConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFunctionUrlConfigCommandOutput> {
-    return deserializeAws_restJson1DeleteFunctionUrlConfigCommand(output, context);
+    return de_DeleteFunctionUrlConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,27 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  UpdateResourceServerRequest,
-  UpdateResourceServerRequestFilterSensitiveLog,
-  UpdateResourceServerResponse,
-  UpdateResourceServerResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateResourceServerCommand,
-  serializeAws_json1_1UpdateResourceServerCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateResourceServerRequest, UpdateResourceServerResponse } from "../models/models_1";
+import { de_UpdateResourceServerCommand, se_UpdateResourceServerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceServerCommand}.
  */
 export interface UpdateResourceServerCommandInput extends UpdateResourceServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceServerCommand}.
  */
 export interface UpdateResourceServerCommandOutput extends UpdateResourceServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
  *         <important>
  *             <p>If you don't provide a value for an attribute, it is set to the default
@@ -51,10 +48,23 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  * import { CognitoIdentityProviderClient, UpdateResourceServerCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateResourceServerCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // UpdateResourceServerRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Identifier: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Scopes: [ // ResourceServerScopeListType
+ *     { // ResourceServerScopeType
+ *       ScopeName: "STRING_VALUE", // required
+ *       ScopeDescription: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateResourceServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceServerCommandInput - {@link UpdateResourceServerCommandInput}
+ * @returns {@link UpdateResourceServerCommandOutput}
  * @see {@link UpdateResourceServerCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceServerCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -96,6 +106,9 @@ export class UpdateResourceServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +138,8 @@ export class UpdateResourceServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourceServerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResourceServerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +149,18 @@ export class UpdateResourceServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateResourceServerCommand(input, context);
+    return se_UpdateResourceServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceServerCommandOutput> {
-    return deserializeAws_json1_1UpdateResourceServerCommand(output, context);
+    return de_UpdateResourceServerCommand(output, context);
   }
 
   // Start section: command_body_extra

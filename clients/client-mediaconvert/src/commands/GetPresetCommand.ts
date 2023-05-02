@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  GetPresetRequest,
-  GetPresetRequestFilterSensitiveLog,
-  GetPresetResponse,
-  GetPresetResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1GetPresetCommand,
-  serializeAws_restJson1GetPresetCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPresetRequest, GetPresetResponse } from "../models/models_2";
+import { de_GetPresetCommand, se_GetPresetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPresetCommand}.
  */
 export interface GetPresetCommandInput extends GetPresetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPresetCommand}.
  */
 export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve the JSON for a specific preset.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBea
  * import { MediaConvertClient, GetPresetCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, GetPresetCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = { // GetPresetRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetPresetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPresetCommandInput - {@link GetPresetCommandInput}
+ * @returns {@link GetPresetCommandOutput}
  * @see {@link GetPresetCommandInput} for command's `input` shape.
  * @see {@link GetPresetCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +89,9 @@ export class GetPresetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPresetCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class GetPresetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPresetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPresetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class GetPresetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPresetCommand(input, context);
+    return se_GetPresetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPresetCommandOutput> {
-    return deserializeAws_restJson1GetPresetCommand(output, context);
+    return de_GetPresetCommand(output, context);
   }
 
   // Start section: command_body_extra

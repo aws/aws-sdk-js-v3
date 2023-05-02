@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetBucketMetricDataRequest,
-  GetBucketMetricDataRequestFilterSensitiveLog,
-  GetBucketMetricDataResult,
-  GetBucketMetricDataResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetBucketMetricDataCommand,
-  serializeAws_json1_1GetBucketMetricDataCommand,
-} from "../protocols/Aws_json1_1";
+import { GetBucketMetricDataRequest, GetBucketMetricDataResult } from "../models/models_0";
+import { de_GetBucketMetricDataCommand, se_GetBucketMetricDataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketMetricDataCommand}.
  */
 export interface GetBucketMetricDataCommandInput extends GetBucketMetricDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketMetricDataCommand}.
  */
 export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the data points of a specific metric for an Amazon Lightsail bucket.</p>
  *          <p>Metrics report the utilization of a bucket. View and collect metric data regularly to
  *       monitor the number of objects stored in a bucket (including object versions) and the storage
@@ -45,10 +42,23 @@ export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataRes
  * import { LightsailClient, GetBucketMetricDataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBucketMetricDataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetBucketMetricDataRequest
+ *   bucketName: "STRING_VALUE", // required
+ *   metricName: "BucketSizeBytes" || "NumberOfObjects", // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   period: Number("int"), // required
+ *   statistics: [ // MetricStatisticList // required
+ *     "Minimum" || "Maximum" || "Sum" || "Average" || "SampleCount",
+ *   ],
+ *   unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None", // required
+ * };
  * const command = new GetBucketMetricDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketMetricDataCommandInput - {@link GetBucketMetricDataCommandInput}
+ * @returns {@link GetBucketMetricDataCommandOutput}
  * @see {@link GetBucketMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetBucketMetricDataCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -95,6 +105,9 @@ export class GetBucketMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +136,8 @@ export class GetBucketMetricDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketMetricDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketMetricDataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +147,18 @@ export class GetBucketMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBucketMetricDataCommand(input, context);
+    return se_GetBucketMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketMetricDataCommandOutput> {
-    return deserializeAws_json1_1GetBucketMetricDataCommand(output, context);
+    return de_GetBucketMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

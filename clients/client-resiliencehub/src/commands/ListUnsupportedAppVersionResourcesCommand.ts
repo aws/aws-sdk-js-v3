@@ -15,21 +15,23 @@ import {
 
 import {
   ListUnsupportedAppVersionResourcesRequest,
-  ListUnsupportedAppVersionResourcesRequestFilterSensitiveLog,
   ListUnsupportedAppVersionResourcesResponse,
-  ListUnsupportedAppVersionResourcesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListUnsupportedAppVersionResourcesCommand,
-  serializeAws_restJson1ListUnsupportedAppVersionResourcesCommand,
+  de_ListUnsupportedAppVersionResourcesCommand,
+  se_ListUnsupportedAppVersionResourcesCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListUnsupportedAppVersionResourcesCommand}.
  */
 export interface ListUnsupportedAppVersionResourcesCommandInput extends ListUnsupportedAppVersionResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUnsupportedAppVersionResourcesCommand}.
  */
 export interface ListUnsupportedAppVersionResourcesCommandOutput
@@ -37,19 +39,29 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the resources that are not currently supported in AWS Resilience Hub. An unsupported
+ * @public
+ * <p>Lists the resources that are not currently supported in Resilience Hub. An unsupported
  *       resource is a resource that exists in the object that was used to create an app, but is not
- *       supported by AWS Resilience Hub.</p>
+ *       supported by Resilience Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, ListUnsupportedAppVersionResourcesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListUnsupportedAppVersionResourcesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListUnsupportedAppVersionResourcesRequest
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   resolutionId: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListUnsupportedAppVersionResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUnsupportedAppVersionResourcesCommandInput - {@link ListUnsupportedAppVersionResourcesCommandInput}
+ * @returns {@link ListUnsupportedAppVersionResourcesCommandOutput}
  * @see {@link ListUnsupportedAppVersionResourcesCommandInput} for command's `input` shape.
  * @see {@link ListUnsupportedAppVersionResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -66,7 +78,7 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -97,6 +109,9 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUnsupportedAppVersionResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +140,8 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUnsupportedAppVersionResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUnsupportedAppVersionResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +151,24 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListUnsupportedAppVersionResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUnsupportedAppVersionResourcesCommand(input, context);
+    return se_ListUnsupportedAppVersionResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListUnsupportedAppVersionResourcesCommandOutput> {
-    return deserializeAws_restJson1ListUnsupportedAppVersionResourcesCommand(output, context);
+    return de_ListUnsupportedAppVersionResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

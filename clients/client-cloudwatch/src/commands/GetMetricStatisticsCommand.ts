@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  GetMetricStatisticsInput,
-  GetMetricStatisticsInputFilterSensitiveLog,
-  GetMetricStatisticsOutput,
-  GetMetricStatisticsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetMetricStatisticsCommand,
-  serializeAws_queryGetMetricStatisticsCommand,
-} from "../protocols/Aws_query";
+import { GetMetricStatisticsInput, GetMetricStatisticsOutput } from "../models/models_0";
+import { de_GetMetricStatisticsCommand, se_GetMetricStatisticsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetMetricStatisticsCommand}.
  */
 export interface GetMetricStatisticsCommandInput extends GetMetricStatisticsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMetricStatisticsCommand}.
  */
 export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets statistics for the specified metric.</p>
  *          <p>The maximum number of data points returned from a single call is 1,440. If
  * 			you request more than 1,440 data points, CloudWatch returns an error.
@@ -88,10 +85,32 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  * import { CloudWatchClient, GetMetricStatisticsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetMetricStatisticsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // GetMetricStatisticsInput
+ *   Namespace: "STRING_VALUE", // required
+ *   MetricName: "STRING_VALUE", // required
+ *   Dimensions: [ // Dimensions
+ *     { // Dimension
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   Period: Number("int"), // required
+ *   Statistics: [ // Statistics
+ *     "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
+ *   ],
+ *   ExtendedStatistics: [ // ExtendedStatistics
+ *     "STRING_VALUE",
+ *   ],
+ *   Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * };
  * const command = new GetMetricStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricStatisticsCommandInput - {@link GetMetricStatisticsCommandInput}
+ * @returns {@link GetMetricStatisticsCommandOutput}
  * @see {@link GetMetricStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetMetricStatisticsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -127,6 +146,9 @@ export class GetMetricStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,8 +177,8 @@ export class GetMetricStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMetricStatisticsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMetricStatisticsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -166,12 +188,18 @@ export class GetMetricStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetMetricStatisticsCommand(input, context);
+    return se_GetMetricStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricStatisticsCommandOutput> {
-    return deserializeAws_queryGetMetricStatisticsCommand(output, context);
+    return de_GetMetricStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

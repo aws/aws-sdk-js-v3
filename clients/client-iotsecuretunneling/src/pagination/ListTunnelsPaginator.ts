@@ -6,7 +6,7 @@ import { IoTSecureTunnelingClient } from "../IoTSecureTunnelingClient";
 import { IoTSecureTunnelingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTSecureTunnelingClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTunnelsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTunnels(
   config: IoTSecureTunnelingPaginationConfiguration,
   input: ListTunnelsCommandInput,

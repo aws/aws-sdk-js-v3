@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteConnectionAliasRequest,
-  DeleteConnectionAliasRequestFilterSensitiveLog,
-  DeleteConnectionAliasResult,
-  DeleteConnectionAliasResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConnectionAliasCommand,
-  serializeAws_json1_1DeleteConnectionAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteConnectionAliasRequest, DeleteConnectionAliasResult } from "../models/models_0";
+import { de_DeleteConnectionAliasCommand, se_DeleteConnectionAliasCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConnectionAliasCommand}.
  */
 export interface DeleteConnectionAliasCommandInput extends DeleteConnectionAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConnectionAliasCommand}.
  */
 export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
  *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
  *          <important>
@@ -57,10 +54,15 @@ export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAlia
  * import { WorkSpacesClient, DeleteConnectionAliasCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteConnectionAliasCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DeleteConnectionAliasRequest
+ *   AliasId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConnectionAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConnectionAliasCommandInput - {@link DeleteConnectionAliasCommandInput}
+ * @returns {@link DeleteConnectionAliasCommandOutput}
  * @see {@link DeleteConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -102,6 +104,9 @@ export class DeleteConnectionAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectionAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +135,8 @@ export class DeleteConnectionAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectionAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConnectionAliasResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +146,18 @@ export class DeleteConnectionAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectionAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConnectionAliasCommand(input, context);
+    return se_DeleteConnectionAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectionAliasCommandOutput> {
-    return deserializeAws_json1_1DeleteConnectionAliasCommand(output, context);
+    return de_DeleteConnectionAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

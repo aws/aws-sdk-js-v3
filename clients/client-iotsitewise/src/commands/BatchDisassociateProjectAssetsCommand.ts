@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { BatchDisassociateProjectAssetsRequest, BatchDisassociateProjectAssetsResponse } from "../models/models_0";
 import {
-  BatchDisassociateProjectAssetsRequest,
-  BatchDisassociateProjectAssetsRequestFilterSensitiveLog,
-  BatchDisassociateProjectAssetsResponse,
-  BatchDisassociateProjectAssetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDisassociateProjectAssetsCommand,
-  serializeAws_restJson1BatchDisassociateProjectAssetsCommand,
+  de_BatchDisassociateProjectAssetsCommand,
+  se_BatchDisassociateProjectAssetsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisassociateProjectAssetsCommand}.
  */
 export interface BatchDisassociateProjectAssetsCommandInput extends BatchDisassociateProjectAssetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisassociateProjectAssetsCommand}.
  */
 export interface BatchDisassociateProjectAssetsCommandOutput
@@ -37,6 +36,7 @@ export interface BatchDisassociateProjectAssetsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,19 @@ export interface BatchDisassociateProjectAssetsCommandOutput
  * import { IoTSiteWiseClient, BatchDisassociateProjectAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, BatchDisassociateProjectAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // BatchDisassociateProjectAssetsRequest
+ *   projectId: "STRING_VALUE", // required
+ *   assetIds: [ // IDs // required
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new BatchDisassociateProjectAssetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateProjectAssetsCommandInput - {@link BatchDisassociateProjectAssetsCommandInput}
+ * @returns {@link BatchDisassociateProjectAssetsCommandOutput}
  * @see {@link BatchDisassociateProjectAssetsCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateProjectAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -87,6 +96,9 @@ export class BatchDisassociateProjectAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateProjectAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +127,8 @@ export class BatchDisassociateProjectAssetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisassociateProjectAssetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisassociateProjectAssetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +138,24 @@ export class BatchDisassociateProjectAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDisassociateProjectAssetsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDisassociateProjectAssetsCommand(input, context);
+    return se_BatchDisassociateProjectAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateProjectAssetsCommandOutput> {
-    return deserializeAws_restJson1BatchDisassociateProjectAssetsCommand(output, context);
+    return de_BatchDisassociateProjectAssetsCommand(output, context);
   }
 
   // Start section: command_body_extra

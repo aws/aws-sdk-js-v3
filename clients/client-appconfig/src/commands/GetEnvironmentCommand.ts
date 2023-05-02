@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  Environment,
-  EnvironmentFilterSensitiveLog,
-  GetEnvironmentRequest,
-  GetEnvironmentRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEnvironmentCommand,
-  serializeAws_restJson1GetEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { Environment, GetEnvironmentRequest } from "../models/models_0";
+import { de_GetEnvironmentCommand, se_GetEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEnvironmentCommand}.
  */
 export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEnvironmentCommand}.
  */
 export interface GetEnvironmentCommandOutput extends Environment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an environment. An environment is a deployment group of
  *             AppConfig applications, such as applications in a <code>Production</code>
  *          environment or in an <code>EU_Region</code> environment. Each configuration deployment
@@ -47,10 +44,16 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  * import { AppConfigClient, GetEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // GetEnvironmentRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EnvironmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
+ * @returns {@link GetEnvironmentCommandOutput}
  * @see {@link GetEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -103,6 +106,9 @@ export class GetEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +137,8 @@ export class GetEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnvironmentFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +148,18 @@ export class GetEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEnvironmentCommand(input, context);
+    return se_GetEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnvironmentCommandOutput> {
-    return deserializeAws_restJson1GetEnvironmentCommand(output, context);
+    return de_GetEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

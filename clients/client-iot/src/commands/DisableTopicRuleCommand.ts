@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DisableTopicRuleRequest, DisableTopicRuleRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1DisableTopicRuleCommand,
-  serializeAws_restJson1DisableTopicRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { DisableTopicRuleRequest } from "../models/models_1";
+import { de_DisableTopicRuleCommand, se_DisableTopicRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableTopicRuleCommand}.
  */
 export interface DisableTopicRuleCommandInput extends DisableTopicRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableTopicRuleCommand}.
  */
 export interface DisableTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the rule.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DisableTopicRule</a> action.</p>
  * @example
@@ -38,10 +40,15 @@ export interface DisableTopicRuleCommandOutput extends __MetadataBearer {}
  * import { IoTClient, DisableTopicRuleCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DisableTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DisableTopicRuleRequest
+ *   ruleName: "STRING_VALUE", // required
+ * };
  * const command = new DisableTopicRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableTopicRuleCommandInput - {@link DisableTopicRuleCommandInput}
+ * @returns {@link DisableTopicRuleCommandOutput}
  * @see {@link DisableTopicRuleCommandInput} for command's `input` shape.
  * @see {@link DisableTopicRuleCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -81,6 +88,9 @@ export class DisableTopicRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableTopicRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +119,8 @@ export class DisableTopicRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableTopicRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class DisableTopicRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableTopicRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableTopicRuleCommand(input, context);
+    return se_DisableTopicRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableTopicRuleCommandOutput> {
-    return deserializeAws_restJson1DisableTopicRuleCommand(output, context);
+    return de_DisableTopicRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

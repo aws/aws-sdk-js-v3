@@ -15,21 +15,23 @@ import {
 
 import {
   AssociateProactiveEngagementDetailsRequest,
-  AssociateProactiveEngagementDetailsRequestFilterSensitiveLog,
   AssociateProactiveEngagementDetailsResponse,
-  AssociateProactiveEngagementDetailsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateProactiveEngagementDetailsCommand,
-  serializeAws_json1_1AssociateProactiveEngagementDetailsCommand,
+  de_AssociateProactiveEngagementDetailsCommand,
+  se_AssociateProactiveEngagementDetailsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateProactiveEngagementDetailsCommand}.
  */
 export interface AssociateProactiveEngagementDetailsCommandInput extends AssociateProactiveEngagementDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateProactiveEngagementDetailsCommand}.
  */
 export interface AssociateProactiveEngagementDetailsCommandOutput
@@ -37,6 +39,7 @@ export interface AssociateProactiveEngagementDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initializes proactive engagement and sets the list of contacts for the Shield Response Team (SRT) to use. You must provide at least one phone number in the emergency contact list. </p>
  *          <p>After you have initialized proactive engagement using this call, to disable or enable proactive engagement, use the calls <code>DisableProactiveEngagement</code> and <code>EnableProactiveEngagement</code>.  </p>
  *          <note>
@@ -49,10 +52,21 @@ export interface AssociateProactiveEngagementDetailsCommandOutput
  * import { ShieldClient, AssociateProactiveEngagementDetailsCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, AssociateProactiveEngagementDetailsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // AssociateProactiveEngagementDetailsRequest
+ *   EmergencyContactList: [ // EmergencyContactList // required
+ *     { // EmergencyContact
+ *       EmailAddress: "STRING_VALUE", // required
+ *       PhoneNumber: "STRING_VALUE",
+ *       ContactNotes: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AssociateProactiveEngagementDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateProactiveEngagementDetailsCommandInput - {@link AssociateProactiveEngagementDetailsCommandInput}
+ * @returns {@link AssociateProactiveEngagementDetailsCommandOutput}
  * @see {@link AssociateProactiveEngagementDetailsCommandInput} for command's `input` shape.
  * @see {@link AssociateProactiveEngagementDetailsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -92,6 +106,9 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateProactiveEngagementDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +137,8 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateProactiveEngagementDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateProactiveEngagementDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +148,24 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateProactiveEngagementDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateProactiveEngagementDetailsCommand(input, context);
+    return se_AssociateProactiveEngagementDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateProactiveEngagementDetailsCommandOutput> {
-    return deserializeAws_json1_1AssociateProactiveEngagementDetailsCommand(output, context);
+    return de_AssociateProactiveEngagementDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

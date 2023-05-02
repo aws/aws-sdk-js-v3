@@ -10,7 +10,7 @@ import {
 import { ChimeSDKVoicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeSDKVoiceClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListVoiceConnectorGroupsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListVoiceConnectorGroups(
   config: ChimeSDKVoicePaginationConfiguration,
   input: ListVoiceConnectorGroupsCommandInput,

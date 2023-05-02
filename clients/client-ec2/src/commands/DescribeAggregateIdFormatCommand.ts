@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeAggregateIdFormatRequest,
-  DescribeAggregateIdFormatRequestFilterSensitiveLog,
-  DescribeAggregateIdFormatResult,
-  DescribeAggregateIdFormatResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeAggregateIdFormatCommand,
-  serializeAws_ec2DescribeAggregateIdFormatCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeAggregateIdFormatRequest, DescribeAggregateIdFormatResult } from "../models/models_3";
+import { de_DescribeAggregateIdFormatCommand, se_DescribeAggregateIdFormatCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAggregateIdFormatCommand}.
  */
 export interface DescribeAggregateIdFormatCommandInput extends DescribeAggregateIdFormatRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAggregateIdFormatCommand}.
  */
 export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregateIdFormatResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the longer ID format settings for all resource types in a specific
  *          Region. This request is useful for performing a quick audit to determine whether a
  *          specific Region is fully opted in for longer IDs (17-character IDs).</p>
@@ -58,10 +55,15 @@ export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregat
  * import { EC2Client, DescribeAggregateIdFormatCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeAggregateIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeAggregateIdFormatRequest
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeAggregateIdFormatCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAggregateIdFormatCommandInput - {@link DescribeAggregateIdFormatCommandInput}
+ * @returns {@link DescribeAggregateIdFormatCommandOutput}
  * @see {@link DescribeAggregateIdFormatCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregateIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -85,6 +87,9 @@ export class DescribeAggregateIdFormatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAggregateIdFormatCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DescribeAggregateIdFormatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAggregateIdFormatRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAggregateIdFormatResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +129,21 @@ export class DescribeAggregateIdFormatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAggregateIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeAggregateIdFormatCommand(input, context);
+    return se_DescribeAggregateIdFormatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAggregateIdFormatCommandOutput> {
-    return deserializeAws_ec2DescribeAggregateIdFormatCommand(output, context);
+    return de_DescribeAggregateIdFormatCommand(output, context);
   }
 
   // Start section: command_body_extra

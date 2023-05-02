@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  CreateStorageLocationResultMessage,
-  CreateStorageLocationResultMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateStorageLocationCommand,
-  serializeAws_queryCreateStorageLocationCommand,
-} from "../protocols/Aws_query";
+import { CreateStorageLocationResultMessage } from "../models/models_0";
+import { de_CreateStorageLocationCommand, se_CreateStorageLocationCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStorageLocationCommand}.
  */
 export interface CreateStorageLocationCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStorageLocationCommand}.
  */
 export interface CreateStorageLocationCommandOutput extends CreateStorageLocationResultMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a bucket in Amazon S3 to store application versions, logs, and other files used
  *       by Elastic Beanstalk environments. The Elastic Beanstalk console and EB CLI call this API the
  *       first time you create an environment in a region. If the storage location already exists,
@@ -44,10 +43,13 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  * import { ElasticBeanstalkClient, CreateStorageLocationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CreateStorageLocationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {};
  * const command = new CreateStorageLocationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStorageLocationCommandInput - {@link CreateStorageLocationCommandInput}
+ * @returns {@link CreateStorageLocationCommandOutput}
  * @see {@link CreateStorageLocationCommandInput} for command's `input` shape.
  * @see {@link CreateStorageLocationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -95,6 +97,9 @@ export class CreateStorageLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStorageLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +128,8 @@ export class CreateStorageLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: CreateStorageLocationResultMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +139,18 @@ export class CreateStorageLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStorageLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateStorageLocationCommand(input, context);
+    return se_CreateStorageLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStorageLocationCommandOutput> {
-    return deserializeAws_queryCreateStorageLocationCommand(output, context);
+    return de_CreateStorageLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

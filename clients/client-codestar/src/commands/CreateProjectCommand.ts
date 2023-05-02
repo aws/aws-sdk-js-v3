@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  CreateProjectRequest,
-  CreateProjectRequestFilterSensitiveLog,
-  CreateProjectResult,
-  CreateProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateProjectCommand,
-  serializeAws_json1_1CreateProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateProjectRequest, CreateProjectRequestFilterSensitiveLog, CreateProjectResult } from "../models/models_0";
+import { de_CreateProjectCommand, se_CreateProjectCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProjectCommand}.
  */
 export interface CreateProjectCommandInput extends CreateProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProjectCommand}.
  */
 export interface CreateProjectCommandOutput extends CreateProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a project, including project resources. This action creates a project based on
  *       a submitted project request. A set of source code files and a toolchain template file
  *       can be included with the project request. If these are not provided, an empty project is created.</p>
@@ -44,10 +41,57 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * import { CodeStarClient, CreateProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, CreateProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // CreateProjectRequest
+ *   name: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   clientRequestToken: "STRING_VALUE",
+ *   sourceCode: [ // SourceCode
+ *     { // Code
+ *       source: { // CodeSource
+ *         s3: { // S3Location
+ *           bucketName: "STRING_VALUE",
+ *           bucketKey: "STRING_VALUE",
+ *         },
+ *       },
+ *       destination: { // CodeDestination
+ *         codeCommit: { // CodeCommitCodeDestination
+ *           name: "STRING_VALUE", // required
+ *         },
+ *         gitHub: { // GitHubCodeDestination
+ *           name: "STRING_VALUE", // required
+ *           description: "STRING_VALUE",
+ *           type: "STRING_VALUE", // required
+ *           owner: "STRING_VALUE", // required
+ *           privateRepository: true || false, // required
+ *           issuesEnabled: true || false, // required
+ *           token: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   toolchain: { // Toolchain
+ *     source: { // ToolchainSource
+ *       s3: {
+ *         bucketName: "STRING_VALUE",
+ *         bucketKey: "STRING_VALUE",
+ *       },
+ *     },
+ *     roleArn: "STRING_VALUE",
+ *     stackParameters: { // TemplateParameterMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
+ * @returns {@link CreateProjectCommandOutput}
  * @see {@link CreateProjectCommandInput} for command's `input` shape.
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -95,6 +139,9 @@ export class CreateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,7 +169,7 @@ export class CreateProjectCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProjectResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +179,18 @@ export class CreateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProjectCommand(input, context);
+    return se_CreateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProjectCommandOutput> {
-    return deserializeAws_json1_1CreateProjectCommand(output, context);
+    return de_CreateProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

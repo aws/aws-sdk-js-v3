@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../EC2InstanceConnectClient";
+import { SendSerialConsoleSSHPublicKeyRequest, SendSerialConsoleSSHPublicKeyResponse } from "../models/models_0";
 import {
-  SendSerialConsoleSSHPublicKeyRequest,
-  SendSerialConsoleSSHPublicKeyRequestFilterSensitiveLog,
-  SendSerialConsoleSSHPublicKeyResponse,
-  SendSerialConsoleSSHPublicKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand,
-  serializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand,
+  de_SendSerialConsoleSSHPublicKeyCommand,
+  se_SendSerialConsoleSSHPublicKeyCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SendSerialConsoleSSHPublicKeyCommand}.
  */
 export interface SendSerialConsoleSSHPublicKeyCommandInput extends SendSerialConsoleSSHPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendSerialConsoleSSHPublicKeyCommand}.
  */
 export interface SendSerialConsoleSSHPublicKeyCommandOutput
@@ -41,6 +40,7 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Pushes an SSH public key to the specified EC2 instance. The key remains for 60
  *             seconds, which gives you 60 seconds to establish a serial console connection to the
  *             instance using SSH. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-serial-console.html">EC2 Serial Console</a> in
@@ -51,10 +51,17 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  * import { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect"; // ES Modules import
  * // const { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } = require("@aws-sdk/client-ec2-instance-connect"); // CommonJS import
  * const client = new EC2InstanceConnectClient(config);
+ * const input = { // SendSerialConsoleSSHPublicKeyRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   SerialPort: Number("int"),
+ *   SSHPublicKey: "STRING_VALUE", // required
+ * };
  * const command = new SendSerialConsoleSSHPublicKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendSerialConsoleSSHPublicKeyCommandInput - {@link SendSerialConsoleSSHPublicKeyCommandInput}
+ * @returns {@link SendSerialConsoleSSHPublicKeyCommandOutput}
  * @see {@link SendSerialConsoleSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link SendSerialConsoleSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link EC2InstanceConnectClientResolvedConfig | config} for EC2InstanceConnectClient's `config` shape.
@@ -117,6 +124,9 @@ export class SendSerialConsoleSSHPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendSerialConsoleSSHPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +155,8 @@ export class SendSerialConsoleSSHPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendSerialConsoleSSHPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendSerialConsoleSSHPublicKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,15 +166,21 @@ export class SendSerialConsoleSSHPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendSerialConsoleSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand(input, context);
+    return se_SendSerialConsoleSSHPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendSerialConsoleSSHPublicKeyCommandOutput> {
-    return deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand(output, context);
+    return de_SendSerialConsoleSSHPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

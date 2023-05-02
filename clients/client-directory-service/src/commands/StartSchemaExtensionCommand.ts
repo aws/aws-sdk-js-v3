@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  StartSchemaExtensionRequest,
-  StartSchemaExtensionRequestFilterSensitiveLog,
-  StartSchemaExtensionResult,
-  StartSchemaExtensionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartSchemaExtensionCommand,
-  serializeAws_json1_1StartSchemaExtensionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartSchemaExtensionRequest, StartSchemaExtensionResult } from "../models/models_0";
+import { de_StartSchemaExtensionCommand, se_StartSchemaExtensionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSchemaExtensionCommand}.
  */
 export interface StartSchemaExtensionCommandInput extends StartSchemaExtensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSchemaExtensionCommand}.
  */
 export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a schema extension to a Microsoft AD directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  * import { DirectoryServiceClient, StartSchemaExtensionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, StartSchemaExtensionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // StartSchemaExtensionRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   CreateSnapshotBeforeSchemaExtension: true || false, // required
+ *   LdifContent: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ * };
  * const command = new StartSchemaExtensionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSchemaExtensionCommandInput - {@link StartSchemaExtensionCommandInput}
+ * @returns {@link StartSchemaExtensionCommandOutput}
  * @see {@link StartSchemaExtensionCommandInput} for command's `input` shape.
  * @see {@link StartSchemaExtensionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -89,6 +94,9 @@ export class StartSchemaExtensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSchemaExtensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class StartSchemaExtensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSchemaExtensionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSchemaExtensionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +136,18 @@ export class StartSchemaExtensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSchemaExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartSchemaExtensionCommand(input, context);
+    return se_StartSchemaExtensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSchemaExtensionCommandOutput> {
-    return deserializeAws_json1_1StartSchemaExtensionCommand(output, context);
+    return de_StartSchemaExtensionCommand(output, context);
   }
 
   // Start section: command_body_extra

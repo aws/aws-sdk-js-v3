@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  DescribePlatformVersionRequest,
-  DescribePlatformVersionRequestFilterSensitiveLog,
-  DescribePlatformVersionResult,
-  DescribePlatformVersionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribePlatformVersionCommand,
-  serializeAws_queryDescribePlatformVersionCommand,
-} from "../protocols/Aws_query";
+import { DescribePlatformVersionRequest, DescribePlatformVersionResult } from "../models/models_0";
+import { de_DescribePlatformVersionCommand, se_DescribePlatformVersionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePlatformVersionCommand}.
  */
 export interface DescribePlatformVersionCommandInput extends DescribePlatformVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePlatformVersionCommand}.
  */
 export interface DescribePlatformVersionCommandOutput extends DescribePlatformVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a platform version. Provides full details. Compare to <a>ListPlatformVersions</a>, which provides summary information about a list of
  *       platform versions.</p>
  *          <p>For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
@@ -45,10 +42,15 @@ export interface DescribePlatformVersionCommandOutput extends DescribePlatformVe
  * import { ElasticBeanstalkClient, DescribePlatformVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribePlatformVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DescribePlatformVersionRequest
+ *   PlatformArn: "STRING_VALUE",
+ * };
  * const command = new DescribePlatformVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePlatformVersionCommandInput - {@link DescribePlatformVersionCommandInput}
+ * @returns {@link DescribePlatformVersionCommandOutput}
  * @see {@link DescribePlatformVersionCommandInput} for command's `input` shape.
  * @see {@link DescribePlatformVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -79,6 +81,9 @@ export class DescribePlatformVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePlatformVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class DescribePlatformVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePlatformVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePlatformVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class DescribePlatformVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePlatformVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribePlatformVersionCommand(input, context);
+    return se_DescribePlatformVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePlatformVersionCommandOutput> {
-    return deserializeAws_queryDescribePlatformVersionCommand(output, context);
+    return de_DescribePlatformVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

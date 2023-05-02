@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListAuthorizersRequest,
-  ListAuthorizersRequestFilterSensitiveLog,
-  ListAuthorizersResponse,
-  ListAuthorizersResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListAuthorizersCommand,
-  serializeAws_restJson1ListAuthorizersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAuthorizersRequest, ListAuthorizersResponse } from "../models/models_1";
+import { de_ListAuthorizersCommand, se_ListAuthorizersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAuthorizersCommand}.
  */
 export interface ListAuthorizersCommandInput extends ListAuthorizersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAuthorizersCommand}.
  */
 export interface ListAuthorizersCommandOutput extends ListAuthorizersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the authorizers registered in your account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuthorizers</a> action.</p>
  * @example
@@ -43,10 +40,18 @@ export interface ListAuthorizersCommandOutput extends ListAuthorizersResponse, _
  * import { IoTClient, ListAuthorizersCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListAuthorizersCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListAuthorizersRequest
+ *   pageSize: Number("int"),
+ *   marker: "STRING_VALUE",
+ *   ascendingOrder: true || false,
+ *   status: "ACTIVE" || "INACTIVE",
+ * };
  * const command = new ListAuthorizersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAuthorizersCommandInput - {@link ListAuthorizersCommandInput}
+ * @returns {@link ListAuthorizersCommandOutput}
  * @see {@link ListAuthorizersCommandInput} for command's `input` shape.
  * @see {@link ListAuthorizersCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +90,9 @@ export class ListAuthorizersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAuthorizersCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class ListAuthorizersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAuthorizersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAuthorizersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +132,18 @@ export class ListAuthorizersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAuthorizersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAuthorizersCommand(input, context);
+    return se_ListAuthorizersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAuthorizersCommandOutput> {
-    return deserializeAws_restJson1ListAuthorizersCommand(output, context);
+    return de_ListAuthorizersCommand(output, context);
   }
 
   // Start section: command_body_extra

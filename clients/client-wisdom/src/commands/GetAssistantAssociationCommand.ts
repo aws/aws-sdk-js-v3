@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAssistantAssociationRequest,
-  GetAssistantAssociationRequestFilterSensitiveLog,
-  GetAssistantAssociationResponse,
-  GetAssistantAssociationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssistantAssociationCommand,
-  serializeAws_restJson1GetAssistantAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAssistantAssociationRequest, GetAssistantAssociationResponse } from "../models/models_0";
+import { de_GetAssistantAssociationCommand, se_GetAssistantAssociationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssistantAssociationCommand}.
  */
 export interface GetAssistantAssociationCommandInput extends GetAssistantAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssistantAssociationCommand}.
  */
 export interface GetAssistantAssociationCommandOutput extends GetAssistantAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an assistant association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetAssistantAssociationCommandOutput extends GetAssistantAssoci
  * import { WisdomClient, GetAssistantAssociationCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetAssistantAssociationCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // GetAssistantAssociationRequest
+ *   assistantAssociationId: "STRING_VALUE", // required
+ *   assistantId: "STRING_VALUE", // required
+ * };
  * const command = new GetAssistantAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssistantAssociationCommandInput - {@link GetAssistantAssociationCommandInput}
+ * @returns {@link GetAssistantAssociationCommandOutput}
  * @see {@link GetAssistantAssociationCommandInput} for command's `input` shape.
  * @see {@link GetAssistantAssociationCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +81,9 @@ export class GetAssistantAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssistantAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class GetAssistantAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssistantAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssistantAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class GetAssistantAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssistantAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssistantAssociationCommand(input, context);
+    return se_GetAssistantAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssistantAssociationCommandOutput> {
-    return deserializeAws_restJson1GetAssistantAssociationCommand(output, context);
+    return de_GetAssistantAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

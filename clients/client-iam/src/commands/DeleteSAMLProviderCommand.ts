@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteSAMLProviderRequest, DeleteSAMLProviderRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSAMLProviderCommand,
-  serializeAws_queryDeleteSAMLProviderCommand,
-} from "../protocols/Aws_query";
+import { DeleteSAMLProviderRequest } from "../models/models_0";
+import { de_DeleteSAMLProviderCommand, se_DeleteSAMLProviderCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSAMLProviderCommand}.
  */
 export interface DeleteSAMLProviderCommandInput extends DeleteSAMLProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSAMLProviderCommand}.
  */
 export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a SAML provider resource in IAM.</p>
  *          <p>Deleting the provider resource from IAM does not update any roles that reference the
  *             SAML provider resource's ARN as a principal in their trust policies. Any attempt to
@@ -43,10 +45,15 @@ export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteSAMLProviderRequest
+ *   SAMLProviderArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSAMLProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSAMLProviderCommandInput - {@link DeleteSAMLProviderCommandInput}
+ * @returns {@link DeleteSAMLProviderCommandOutput}
  * @see {@link DeleteSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteSAMLProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSAMLProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +124,8 @@ export class DeleteSAMLProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSAMLProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +135,18 @@ export class DeleteSAMLProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSAMLProviderCommand(input, context);
+    return se_DeleteSAMLProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSAMLProviderCommandOutput> {
-    return deserializeAws_queryDeleteSAMLProviderCommand(output, context);
+    return de_DeleteSAMLProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

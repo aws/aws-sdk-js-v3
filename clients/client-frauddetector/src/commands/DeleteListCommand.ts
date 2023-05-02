@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  DeleteListRequest,
-  DeleteListRequestFilterSensitiveLog,
-  DeleteListResult,
-  DeleteListResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteListCommand,
-  serializeAws_json1_1DeleteListCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteListRequest, DeleteListResult } from "../models/models_0";
+import { de_DeleteListCommand, se_DeleteListCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteListCommand}.
  */
 export interface DeleteListCommandInput extends DeleteListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteListCommand}.
  */
 export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Deletes the list, provided it is not used in a rule.
  *         </p>
@@ -45,10 +42,15 @@ export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBea
  * import { FraudDetectorClient, DeleteListCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteListCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // DeleteListRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteListCommandInput - {@link DeleteListCommandInput}
+ * @returns {@link DeleteListCommandOutput}
  * @see {@link DeleteListCommandInput} for command's `input` shape.
  * @see {@link DeleteListCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteListCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteListResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteListCommand(input, context);
+    return se_DeleteListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteListCommandOutput> {
-    return deserializeAws_json1_1DeleteListCommand(output, context);
+    return de_DeleteListCommand(output, context);
   }
 
   // Start section: command_body_extra

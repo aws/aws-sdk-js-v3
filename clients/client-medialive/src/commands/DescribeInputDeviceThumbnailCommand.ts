@@ -19,20 +19,23 @@ import {
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import {
   DescribeInputDeviceThumbnailRequest,
-  DescribeInputDeviceThumbnailRequestFilterSensitiveLog,
   DescribeInputDeviceThumbnailResponse,
   DescribeInputDeviceThumbnailResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1DescribeInputDeviceThumbnailCommand,
-  serializeAws_restJson1DescribeInputDeviceThumbnailCommand,
+  de_DescribeInputDeviceThumbnailCommand,
+  se_DescribeInputDeviceThumbnailCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInputDeviceThumbnailCommand}.
  */
 export interface DescribeInputDeviceThumbnailCommandInput extends DescribeInputDeviceThumbnailRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInputDeviceThumbnailCommand}.
  */
 export interface DescribeInputDeviceThumbnailCommandOutput
@@ -40,6 +43,7 @@ export interface DescribeInputDeviceThumbnailCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Get the latest thumbnail data for the input device.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,10 +51,16 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  * import { MediaLiveClient, DescribeInputDeviceThumbnailCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeInputDeviceThumbnailCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // DescribeInputDeviceThumbnailRequest
+ *   InputDeviceId: "STRING_VALUE", // required
+ *   Accept: "image/jpeg", // required
+ * };
  * const command = new DescribeInputDeviceThumbnailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInputDeviceThumbnailCommandInput - {@link DescribeInputDeviceThumbnailCommandInput}
+ * @returns {@link DescribeInputDeviceThumbnailCommandOutput}
  * @see {@link DescribeInputDeviceThumbnailCommandInput} for command's `input` shape.
  * @see {@link DescribeInputDeviceThumbnailCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -95,6 +105,9 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInputDeviceThumbnailCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,7 +136,7 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInputDeviceThumbnailRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeInputDeviceThumbnailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -134,15 +147,21 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInputDeviceThumbnailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInputDeviceThumbnailCommand(input, context);
+    return se_DescribeInputDeviceThumbnailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<DescribeInputDeviceThumbnailCommandOutput> {
-    return deserializeAws_restJson1DescribeInputDeviceThumbnailCommand(output, context);
+    return de_DescribeInputDeviceThumbnailCommand(output, context);
   }
 
   // Start section: command_body_extra

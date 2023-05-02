@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBSnapshotAttributeMessage,
-  ModifyDBSnapshotAttributeMessageFilterSensitiveLog,
-  ModifyDBSnapshotAttributeResult,
-  ModifyDBSnapshotAttributeResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBSnapshotAttributeCommand,
-  serializeAws_queryModifyDBSnapshotAttributeCommand,
-} from "../protocols/Aws_query";
+import { ModifyDBSnapshotAttributeMessage, ModifyDBSnapshotAttributeResult } from "../models/models_1";
+import { de_ModifyDBSnapshotAttributeCommand, se_ModifyDBSnapshotAttributeCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBSnapshotAttributeCommand}.
  */
 export interface ModifyDBSnapshotAttributeCommandInput extends ModifyDBSnapshotAttributeMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBSnapshotAttributeCommand}.
  */
 export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshotAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.</p>
  *          <p>To share a manual DB snapshot with other Amazon Web Services accounts, specify <code>restore</code>
  *             as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
@@ -58,10 +55,22 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  * import { RDSClient, ModifyDBSnapshotAttributeCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBSnapshotAttributeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyDBSnapshotAttributeMessage
+ *   DBSnapshotIdentifier: "STRING_VALUE", // required
+ *   AttributeName: "STRING_VALUE", // required
+ *   ValuesToAdd: [ // AttributeValueList
+ *     "STRING_VALUE",
+ *   ],
+ *   ValuesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyDBSnapshotAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBSnapshotAttributeCommandInput - {@link ModifyDBSnapshotAttributeCommandInput}
+ * @returns {@link ModifyDBSnapshotAttributeCommandOutput}
  * @see {@link ModifyDBSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyDBSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -77,24 +86,66 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  *  <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
  *
  *
- * @example To change DB snapshot attributes
+ * @example To allow two AWS accounts to restore a DB snapshot
  * ```javascript
- * // This example adds the specified attribute for the specified DB snapshot.
+ * // The following example grants permission to two AWS accounts, with the identifiers 111122223333 and 444455556666, to restore the DB snapshot named mydbsnapshot.
  * const input = {
  *   "AttributeName": "restore",
  *   "DBSnapshotIdentifier": "mydbsnapshot",
  *   "ValuesToAdd": [
- *     "all"
+ *     "111122223333",
+ *     "444455556666"
  *   ]
  * };
  * const command = new ModifyDBSnapshotAttributeCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBSnapshotAttributesResult": {}
+ *   "DBSnapshotAttributesResult": {
+ *     "DBSnapshotAttributes": [
+ *       {
+ *         "AttributeName": "restore",
+ *         "AttributeValues": [
+ *           "111122223333",
+ *           "444455556666"
+ *         ]
+ *       }
+ *     ],
+ *     "DBSnapshotIdentifier": "mydbsnapshot"
+ *   }
  * }
  * *\/
- * // example id: modify-db-snapshot-attribute-2e66f120-2b21-4a7c-890b-4474da88bde6
+ * // example id: to-allow-two-aws-accounts-to-restore-a-db-snapshot-1680389647513
+ * ```
+ *
+ * @example To prevent an AWS account from restoring a DB snapshot
+ * ```javascript
+ * // The following example removes permission from the AWS account with the identifier 444455556666 to restore the DB snapshot named mydbsnapshot.
+ * const input = {
+ *   "AttributeName": "restore",
+ *   "DBSnapshotIdentifier": "mydbsnapshot",
+ *   "ValuesToRemove": [
+ *     "444455556666"
+ *   ]
+ * };
+ * const command = new ModifyDBSnapshotAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSnapshotAttributesResult": {
+ *     "DBSnapshotAttributes": [
+ *       {
+ *         "AttributeName": "restore",
+ *         "AttributeValues": [
+ *           "111122223333"
+ *         ]
+ *       }
+ *     ],
+ *     "DBSnapshotIdentifier": "mydbsnapshot"
+ *   }
+ * }
+ * *\/
+ * // example id: to-prevent-an-aws-account-from-restoring-a-db-snapshot-1680389850879
  * ```
  *
  */
@@ -115,6 +166,9 @@ export class ModifyDBSnapshotAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBSnapshotAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +197,8 @@ export class ModifyDBSnapshotAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBSnapshotAttributeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBSnapshotAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,15 +208,21 @@ export class ModifyDBSnapshotAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBSnapshotAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBSnapshotAttributeCommand(input, context);
+    return se_ModifyDBSnapshotAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBSnapshotAttributeCommandOutput> {
-    return deserializeAws_queryModifyDBSnapshotAttributeCommand(output, context);
+    return de_ModifyDBSnapshotAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

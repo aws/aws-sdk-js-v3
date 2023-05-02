@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRegexPatternSetRequest,
-  UpdateRegexPatternSetRequestFilterSensitiveLog,
-  UpdateRegexPatternSetResponse,
-  UpdateRegexPatternSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRegexPatternSetCommand,
-  serializeAws_json1_1UpdateRegexPatternSetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse } from "../models/models_0";
+import { de_UpdateRegexPatternSetCommand, se_UpdateRegexPatternSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRegexPatternSetCommand}.
  */
 export interface UpdateRegexPatternSetCommandInput extends UpdateRegexPatternSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRegexPatternSetCommand}.
  */
 export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified <a>RegexPatternSet</a>.</p>
  *          <note>
  *             <p>This operation completely replaces the mutable specifications that you already have for the regex pattern set with the ones that you provide to this call. </p>
@@ -59,10 +56,24 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * import { WAFV2Client, UpdateRegexPatternSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, UpdateRegexPatternSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // UpdateRegexPatternSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Id: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   RegularExpressionList: [ // RegularExpressionList // required
+ *     { // Regex
+ *       RegexString: "STRING_VALUE",
+ *     },
+ *   ],
+ *   LockToken: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRegexPatternSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRegexPatternSetCommandInput - {@link UpdateRegexPatternSetCommandInput}
+ * @returns {@link UpdateRegexPatternSetCommandOutput}
  * @see {@link UpdateRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link UpdateRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -135,6 +146,9 @@ export class UpdateRegexPatternSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRegexPatternSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,8 +177,8 @@ export class UpdateRegexPatternSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRegexPatternSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRegexPatternSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -174,12 +188,18 @@ export class UpdateRegexPatternSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRegexPatternSetCommand(input, context);
+    return se_UpdateRegexPatternSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegexPatternSetCommandOutput> {
-    return deserializeAws_json1_1UpdateRegexPatternSetCommand(output, context);
+    return de_UpdateRegexPatternSetCommand(output, context);
   }
 
   // Start section: command_body_extra

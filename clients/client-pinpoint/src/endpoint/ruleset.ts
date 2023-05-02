@@ -6,24 +6,29 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/pinpoint.json */
 
-const p="required",
-q="fn",
-r="argv",
-s="ref";
-const a="PartitionResult",
+const u="required",
+v="fn",
+w="argv",
+x="ref";
+const a="isSet",
 b="tree",
 c="error",
 d="endpoint",
-e={[p]:false,"type":"String"},
-f={[p]:true,"default":false,"type":"Boolean"},
-g={[s]:"Endpoint"},
-h={[q]:"booleanEquals",[r]:[{[s]:"UseFIPS"},true]},
-i={[q]:"booleanEquals",[r]:[{[s]:"UseDualStack"},true]},
-j={},
-k={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsFIPS"]}]},
-l={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsDualStack"]}]},
-m=[g],
-n=[h],
-o=[i];
-const _data={version:"1.0",parameters:{Region:e,UseDualStack:f,UseFIPS:f,Endpoint:e},rules:[{conditions:[{[q]:"aws.partition",[r]:[{[s]:"Region"}],assign:a}],type:b,rules:[{conditions:[{[q]:"isSet",[r]:m},{[q]:"parseURL",[r]:m,assign:"url"}],type:b,rules:[{conditions:n,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:o,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:g,properties:j,headers:j},type:d}]}]},{conditions:[h,i],type:b,rules:[{conditions:[k,l],type:b,rules:[{endpoint:{url:"https://pinpoint-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:n,type:b,rules:[{conditions:[k],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://pinpoint-fips.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:o,type:b,rules:[{conditions:[l],type:b,rules:[{endpoint:{url:"https://pinpoint.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{endpoint:{url:"https://pinpoint.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]};
+e="PartitionResult",
+f="stringEquals",
+g={[u]:false,"type":"String"},
+h={[u]:true,"default":false,"type":"Boolean"},
+i={[x]:"Endpoint"},
+j={[v]:"booleanEquals",[w]:[{[x]:"UseFIPS"},true]},
+k={[v]:"booleanEquals",[w]:[{[x]:"UseDualStack"},true]},
+l={},
+m={[x]:"Region"},
+n={[v]:"booleanEquals",[w]:[true,{[v]:"getAttr",[w]:[{[x]:e},"supportsFIPS"]}]},
+o={[v]:"booleanEquals",[w]:[true,{[v]:"getAttr",[w]:[{[x]:e},"supportsDualStack"]}]},
+p={[v]:"getAttr",[w]:[{[x]:e},"name"]},
+q={"url":"https://pinpoint.{Region}.amazonaws.com","properties":{},"headers":{}},
+r=[j],
+s=[k],
+t=[m];
+const _data={version:"1.0",parameters:{Region:g,UseDualStack:h,UseFIPS:h,Endpoint:g},rules:[{conditions:[{[v]:a,[w]:[i]}],type:b,rules:[{conditions:r,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:s,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:i,properties:l,headers:l},type:d}]}]},{type:b,rules:[{conditions:[{[v]:a,[w]:t}],type:b,rules:[{conditions:[{[v]:"aws.partition",[w]:t,assign:e}],type:b,rules:[{conditions:[j,k],type:b,rules:[{conditions:[n,o],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://pinpoint-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:d}]}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:r,type:b,rules:[{conditions:[n],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://pinpoint-fips.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:d}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:s,type:b,rules:[{conditions:[o],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://pinpoint.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:d}]}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{type:b,rules:[{conditions:[{[v]:f,[w]:[m,"us-east-1"]}],endpoint:{url:"https://pinpoint.us-east-1.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[v]:f,[w]:[m,"us-west-2"]}],endpoint:{url:"https://pinpoint.us-west-2.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[v]:f,[w]:[m,"us-gov-west-1"]}],endpoint:{url:"https://pinpoint.us-gov-west-1.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[v]:f,[w]:["aws",p]}],endpoint:q,type:d},{conditions:[{[v]:f,[w]:["aws-us-gov",p]}],endpoint:q,type:d},{endpoint:{url:"https://pinpoint.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:d}]}]}]},{error:"Invalid Configuration: Missing Region",type:c}]}]};
 export const ruleSet: RuleSetObject = _data;

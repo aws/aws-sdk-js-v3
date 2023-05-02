@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { DeleteAccessControlConfigurationRequest, DeleteAccessControlConfigurationResponse } from "../models/models_0";
 import {
-  DeleteAccessControlConfigurationRequest,
-  DeleteAccessControlConfigurationRequestFilterSensitiveLog,
-  DeleteAccessControlConfigurationResponse,
-  DeleteAccessControlConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAccessControlConfigurationCommand,
-  serializeAws_json1_1DeleteAccessControlConfigurationCommand,
+  de_DeleteAccessControlConfigurationCommand,
+  se_DeleteAccessControlConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessControlConfigurationCommand}.
  */
 export interface DeleteAccessControlConfigurationCommandInput extends DeleteAccessControlConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessControlConfigurationCommand}.
  */
 export interface DeleteAccessControlConfigurationCommandOutput
@@ -37,20 +36,27 @@ export interface DeleteAccessControlConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes an access control configuration that you created for your
- *             documents in an index. This includes user and group access information
- *             for your documents. This is useful for user context filtering, where search
- *             results are filtered based on the user or their group access to documents.</p>
+ * @public
+ * <p>Deletes an access control configuration that you created for your documents in an
+ *             index. This includes user and group access information for your documents. This is
+ *             useful for user context filtering, where search results are filtered based on the user
+ *             or their group access to documents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, DeleteAccessControlConfigurationCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteAccessControlConfigurationCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DeleteAccessControlConfigurationRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessControlConfigurationCommandInput - {@link DeleteAccessControlConfigurationCommandInput}
+ * @returns {@link DeleteAccessControlConfigurationCommandOutput}
  * @see {@link DeleteAccessControlConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessControlConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -65,7 +71,7 @@ export interface DeleteAccessControlConfigurationCommandOutput
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -98,6 +104,9 @@ export class DeleteAccessControlConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessControlConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +135,8 @@ export class DeleteAccessControlConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessControlConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccessControlConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,18 +146,24 @@ export class DeleteAccessControlConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAccessControlConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAccessControlConfigurationCommand(input, context);
+    return se_DeleteAccessControlConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccessControlConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteAccessControlConfigurationCommand(output, context);
+    return de_DeleteAccessControlConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

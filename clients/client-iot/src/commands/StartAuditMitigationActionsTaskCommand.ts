@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { StartAuditMitigationActionsTaskRequest, StartAuditMitigationActionsTaskResponse } from "../models/models_2";
 import {
-  StartAuditMitigationActionsTaskRequest,
-  StartAuditMitigationActionsTaskRequestFilterSensitiveLog,
-  StartAuditMitigationActionsTaskResponse,
-  StartAuditMitigationActionsTaskResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1StartAuditMitigationActionsTaskCommand,
-  serializeAws_restJson1StartAuditMitigationActionsTaskCommand,
+  de_StartAuditMitigationActionsTaskCommand,
+  se_StartAuditMitigationActionsTaskCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartAuditMitigationActionsTaskCommand}.
  */
 export interface StartAuditMitigationActionsTaskCommandInput extends StartAuditMitigationActionsTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAuditMitigationActionsTaskCommand}.
  */
 export interface StartAuditMitigationActionsTaskCommandOutput
@@ -37,6 +36,7 @@ export interface StartAuditMitigationActionsTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartAuditMitigationActionsTask</a> action.</p>
  * @example
@@ -45,10 +45,32 @@ export interface StartAuditMitigationActionsTaskCommandOutput
  * import { IoTClient, StartAuditMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, StartAuditMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // StartAuditMitigationActionsTaskRequest
+ *   taskId: "STRING_VALUE", // required
+ *   target: { // AuditMitigationActionsTaskTarget
+ *     auditTaskId: "STRING_VALUE",
+ *     findingIds: [ // FindingIds
+ *       "STRING_VALUE",
+ *     ],
+ *     auditCheckToReasonCodeFilter: { // AuditCheckToReasonCodeFilter
+ *       "<keys>": [ // ReasonForNonComplianceCodes
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   auditCheckToActionsMapping: { // AuditCheckToActionsMapping // required
+ *     "<keys>": [ // MitigationActionNameList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   clientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new StartAuditMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAuditMitigationActionsTaskCommandInput - {@link StartAuditMitigationActionsTaskCommandInput}
+ * @returns {@link StartAuditMitigationActionsTaskCommandOutput}
  * @see {@link StartAuditMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link StartAuditMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -89,6 +111,9 @@ export class StartAuditMitigationActionsTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAuditMitigationActionsTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +142,8 @@ export class StartAuditMitigationActionsTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAuditMitigationActionsTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartAuditMitigationActionsTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +153,24 @@ export class StartAuditMitigationActionsTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartAuditMitigationActionsTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartAuditMitigationActionsTaskCommand(input, context);
+    return se_StartAuditMitigationActionsTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartAuditMitigationActionsTaskCommandOutput> {
-    return deserializeAws_restJson1StartAuditMitigationActionsTaskCommand(output, context);
+    return de_StartAuditMitigationActionsTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

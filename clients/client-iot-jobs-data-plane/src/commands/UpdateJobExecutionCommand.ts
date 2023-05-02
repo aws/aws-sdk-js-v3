@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
-import {
-  UpdateJobExecutionRequest,
-  UpdateJobExecutionRequestFilterSensitiveLog,
-  UpdateJobExecutionResponse,
-  UpdateJobExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateJobExecutionCommand,
-  serializeAws_restJson1UpdateJobExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateJobExecutionRequest, UpdateJobExecutionResponse } from "../models/models_0";
+import { de_UpdateJobExecutionCommand, se_UpdateJobExecutionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJobExecutionCommand}.
  */
 export interface UpdateJobExecutionCommandInput extends UpdateJobExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJobExecutionCommand}.
  */
 export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status of a job execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * import { IoTJobsDataPlaneClient, UpdateJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
  * // const { IoTJobsDataPlaneClient, UpdateJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
+ * const input = { // UpdateJobExecutionRequest
+ *   jobId: "STRING_VALUE", // required
+ *   thingName: "STRING_VALUE", // required
+ *   status: "STRING_VALUE", // required
+ *   statusDetails: { // DetailsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   stepTimeoutInMinutes: Number("long"),
+ *   expectedVersion: Number("long"),
+ *   includeJobExecutionState: true || false,
+ *   includeJobDocument: true || false,
+ *   executionNumber: Number("long"),
+ * };
  * const command = new UpdateJobExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobExecutionCommandInput - {@link UpdateJobExecutionCommandInput}
+ * @returns {@link UpdateJobExecutionCommandOutput}
  * @see {@link UpdateJobExecutionCommandInput} for command's `input` shape.
  * @see {@link UpdateJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
@@ -89,6 +101,9 @@ export class UpdateJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +132,8 @@ export class UpdateJobExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +143,18 @@ export class UpdateJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateJobExecutionCommand(input, context);
+    return se_UpdateJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobExecutionCommandOutput> {
-    return deserializeAws_restJson1UpdateJobExecutionCommand(output, context);
+    return de_UpdateJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

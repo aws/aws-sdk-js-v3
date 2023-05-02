@@ -17,24 +17,25 @@ import {
   DeleteCustomMetadataRequest,
   DeleteCustomMetadataRequestFilterSensitiveLog,
   DeleteCustomMetadataResponse,
-  DeleteCustomMetadataResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCustomMetadataCommand,
-  serializeAws_restJson1DeleteCustomMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCustomMetadataCommand, se_DeleteCustomMetadataCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomMetadataCommand}.
  */
 export interface DeleteCustomMetadataCommandInput extends DeleteCustomMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomMetadataCommand}.
  */
 export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes custom metadata from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,21 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
  * import { WorkDocsClient, DeleteCustomMetadataCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteCustomMetadataCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DeleteCustomMetadataRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   Keys: [ // CustomMetadataKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   DeleteAll: true || false,
+ * };
  * const command = new DeleteCustomMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomMetadataCommandInput - {@link DeleteCustomMetadataCommandInput}
+ * @returns {@link DeleteCustomMetadataCommandOutput}
  * @see {@link DeleteCustomMetadataCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -89,6 +101,9 @@ export class DeleteCustomMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +133,7 @@ export class DeleteCustomMetadataCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteCustomMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomMetadataResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +143,18 @@ export class DeleteCustomMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCustomMetadataCommand(input, context);
+    return se_DeleteCustomMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomMetadataCommandOutput> {
-    return deserializeAws_restJson1DeleteCustomMetadataCommand(output, context);
+    return de_DeleteCustomMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

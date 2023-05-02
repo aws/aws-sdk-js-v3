@@ -25,21 +25,23 @@ import {
   DescribeRiskConfigurationResponse,
   DescribeRiskConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRiskConfigurationCommand,
-  serializeAws_json1_1DescribeRiskConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRiskConfigurationCommand, se_DescribeRiskConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRiskConfigurationCommand}.
  */
 export interface DescribeRiskConfigurationCommandInput extends DescribeRiskConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRiskConfigurationCommand}.
  */
 export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the risk configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,10 +49,16 @@ export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConf
  * import { CognitoIdentityProviderClient, DescribeRiskConfigurationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DescribeRiskConfigurationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // DescribeRiskConfigurationRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE",
+ * };
  * const command = new DescribeRiskConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRiskConfigurationCommandInput - {@link DescribeRiskConfigurationCommandInput}
+ * @returns {@link DescribeRiskConfigurationCommandOutput}
  * @see {@link DescribeRiskConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeRiskConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -95,6 +103,9 @@ export class DescribeRiskConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRiskConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,15 +146,21 @@ export class DescribeRiskConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRiskConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRiskConfigurationCommand(input, context);
+    return se_DescribeRiskConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRiskConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeRiskConfigurationCommand(output, context);
+    return de_DescribeRiskConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

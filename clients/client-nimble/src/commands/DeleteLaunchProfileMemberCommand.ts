@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteLaunchProfileMemberRequest,
-  DeleteLaunchProfileMemberRequestFilterSensitiveLog,
-  DeleteLaunchProfileMemberResponse,
-  DeleteLaunchProfileMemberResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteLaunchProfileMemberRequest, DeleteLaunchProfileMemberResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1DeleteLaunchProfileMemberCommand,
-  serializeAws_restJson1DeleteLaunchProfileMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLaunchProfileMemberCommand, se_DeleteLaunchProfileMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLaunchProfileMemberCommand}.
  */
 export interface DeleteLaunchProfileMemberCommandInput extends DeleteLaunchProfileMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLaunchProfileMemberCommand}.
  */
 export interface DeleteLaunchProfileMemberCommandOutput extends DeleteLaunchProfileMemberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a user from launch profile membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DeleteLaunchProfileMemberCommandOutput extends DeleteLaunchProf
  * import { NimbleClient, DeleteLaunchProfileMemberCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, DeleteLaunchProfileMemberCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // DeleteLaunchProfileMemberRequest
+ *   clientToken: "STRING_VALUE",
+ *   launchProfileId: "STRING_VALUE", // required
+ *   principalId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLaunchProfileMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLaunchProfileMemberCommandInput - {@link DeleteLaunchProfileMemberCommandInput}
+ * @returns {@link DeleteLaunchProfileMemberCommandOutput}
  * @see {@link DeleteLaunchProfileMemberCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchProfileMemberCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +98,9 @@ export class DeleteLaunchProfileMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLaunchProfileMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +129,8 @@ export class DeleteLaunchProfileMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLaunchProfileMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLaunchProfileMemberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +140,21 @@ export class DeleteLaunchProfileMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLaunchProfileMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLaunchProfileMemberCommand(input, context);
+    return se_DeleteLaunchProfileMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLaunchProfileMemberCommandOutput> {
-    return deserializeAws_restJson1DeleteLaunchProfileMemberCommand(output, context);
+    return de_DeleteLaunchProfileMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

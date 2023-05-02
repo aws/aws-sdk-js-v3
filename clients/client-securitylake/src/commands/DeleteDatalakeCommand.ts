@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDatalakeRequest,
-  DeleteDatalakeRequestFilterSensitiveLog,
-  DeleteDatalakeResponse,
-  DeleteDatalakeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDatalakeCommand,
-  serializeAws_restJson1DeleteDatalakeCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDatalakeRequest, DeleteDatalakeResponse } from "../models/models_0";
+import { de_DeleteDatalakeCommand, se_DeleteDatalakeCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatalakeCommand}.
  */
 export interface DeleteDatalakeCommandInput extends DeleteDatalakeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatalakeCommand}.
  */
 export interface DeleteDatalakeCommandOutput extends DeleteDatalakeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When you delete Amazon Security Lake from your account, Security Lake is disabled in all Amazon Web Services Regions. Also, this API automatically takes steps to remove the account from
  *          Security Lake . </p>
  *          <p>This operation disables security data collection from sources, deletes data stored, and
@@ -49,10 +46,13 @@ export interface DeleteDatalakeCommandOutput extends DeleteDatalakeResponse, __M
  * import { SecurityLakeClient, DeleteDatalakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteDatalakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {};
  * const command = new DeleteDatalakeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatalakeCommandInput - {@link DeleteDatalakeCommandInput}
+ * @returns {@link DeleteDatalakeCommandOutput}
  * @see {@link DeleteDatalakeCommandInput} for command's `input` shape.
  * @see {@link DeleteDatalakeCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -105,6 +105,9 @@ export class DeleteDatalakeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatalakeCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +136,8 @@ export class DeleteDatalakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatalakeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDatalakeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +147,18 @@ export class DeleteDatalakeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatalakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDatalakeCommand(input, context);
+    return se_DeleteDatalakeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatalakeCommandOutput> {
-    return deserializeAws_restJson1DeleteDatalakeCommand(output, context);
+    return de_DeleteDatalakeCommand(output, context);
   }
 
   // Start section: command_body_extra

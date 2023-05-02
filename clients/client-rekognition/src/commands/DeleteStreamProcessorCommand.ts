@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteStreamProcessorRequest,
-  DeleteStreamProcessorRequestFilterSensitiveLog,
-  DeleteStreamProcessorResponse,
-  DeleteStreamProcessorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteStreamProcessorCommand,
-  serializeAws_json1_1DeleteStreamProcessorCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteStreamProcessorRequest, DeleteStreamProcessorResponse } from "../models/models_0";
+import { de_DeleteStreamProcessorCommand, se_DeleteStreamProcessorCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStreamProcessorCommand}.
  */
 export interface DeleteStreamProcessorCommandInput extends DeleteStreamProcessorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStreamProcessorCommand}.
  */
 export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcessorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the stream processor identified by <code>Name</code>. You assign the value for <code>Name</code> when you create the stream processor with
  *             <a>CreateStreamProcessor</a>. You might not be able to use the same name for a stream processor for a few seconds after calling <code>DeleteStreamProcessor</code>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcesso
  * import { RekognitionClient, DeleteStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DeleteStreamProcessorRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStreamProcessorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStreamProcessorCommandInput - {@link DeleteStreamProcessorCommandInput}
+ * @returns {@link DeleteStreamProcessorCommandOutput}
  * @see {@link DeleteStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -93,6 +95,9 @@ export class DeleteStreamProcessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStreamProcessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +126,8 @@ export class DeleteStreamProcessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamProcessorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStreamProcessorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +137,18 @@ export class DeleteStreamProcessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStreamProcessorCommand(input, context);
+    return se_DeleteStreamProcessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamProcessorCommandOutput> {
-    return deserializeAws_json1_1DeleteStreamProcessorCommand(output, context);
+    return de_DeleteStreamProcessorCommand(output, context);
   }
 
   // Start section: command_body_extra

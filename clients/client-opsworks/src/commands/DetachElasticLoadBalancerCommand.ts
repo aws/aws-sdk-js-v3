@@ -13,26 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DetachElasticLoadBalancerRequest,
-  DetachElasticLoadBalancerRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DetachElasticLoadBalancerRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DetachElasticLoadBalancerCommand,
-  serializeAws_json1_1DetachElasticLoadBalancerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetachElasticLoadBalancerCommand, se_DetachElasticLoadBalancerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachElasticLoadBalancerCommand}.
  */
 export interface DetachElasticLoadBalancerCommandInput extends DetachElasticLoadBalancerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachElasticLoadBalancerCommand}.
  */
 export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a specified Elastic Load Balancing instance from its layer.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -45,10 +44,16 @@ export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * import { OpsWorksClient, DetachElasticLoadBalancerCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DetachElasticLoadBalancerCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DetachElasticLoadBalancerRequest
+ *   ElasticLoadBalancerName: "STRING_VALUE", // required
+ *   LayerId: "STRING_VALUE", // required
+ * };
  * const command = new DetachElasticLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachElasticLoadBalancerCommandInput - {@link DetachElasticLoadBalancerCommandInput}
+ * @returns {@link DetachElasticLoadBalancerCommandOutput}
  * @see {@link DetachElasticLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DetachElasticLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -75,6 +80,9 @@ export class DetachElasticLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachElasticLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +111,8 @@ export class DetachElasticLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachElasticLoadBalancerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +122,21 @@ export class DetachElasticLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachElasticLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachElasticLoadBalancerCommand(input, context);
+    return se_DetachElasticLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachElasticLoadBalancerCommandOutput> {
-    return deserializeAws_json1_1DetachElasticLoadBalancerCommand(output, context);
+    return de_DetachElasticLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  ListCostAllocationTagsRequest,
-  ListCostAllocationTagsRequestFilterSensitiveLog,
-  ListCostAllocationTagsResponse,
-  ListCostAllocationTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCostAllocationTagsCommand,
-  serializeAws_json1_1ListCostAllocationTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCostAllocationTagsRequest, ListCostAllocationTagsResponse } from "../models/models_0";
+import { de_ListCostAllocationTagsCommand, se_ListCostAllocationTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCostAllocationTagsCommand}.
  */
 export interface ListCostAllocationTagsCommandInput extends ListCostAllocationTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCostAllocationTagsCommand}.
  */
 export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a list of cost allocation tags. All inputs in the API are optional and serve as
  *       filters. By default, all cost allocation tags are returned. </p>
  * @example
@@ -43,10 +40,21 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  * import { CostExplorerClient, ListCostAllocationTagsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, ListCostAllocationTagsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // ListCostAllocationTagsRequest
+ *   Status: "Active" || "Inactive",
+ *   TagKeys: [ // CostAllocationTagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   Type: "AWSGenerated" || "UserDefined",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListCostAllocationTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCostAllocationTagsCommandInput - {@link ListCostAllocationTagsCommandInput}
+ * @returns {@link ListCostAllocationTagsCommandOutput}
  * @see {@link ListCostAllocationTagsCommandInput} for command's `input` shape.
  * @see {@link ListCostAllocationTagsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -76,6 +84,9 @@ export class ListCostAllocationTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCostAllocationTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +115,8 @@ export class ListCostAllocationTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCostAllocationTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCostAllocationTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +126,18 @@ export class ListCostAllocationTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCostAllocationTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCostAllocationTagsCommand(input, context);
+    return se_ListCostAllocationTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCostAllocationTagsCommandOutput> {
-    return deserializeAws_json1_1ListCostAllocationTagsCommand(output, context);
+    return de_ListCostAllocationTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

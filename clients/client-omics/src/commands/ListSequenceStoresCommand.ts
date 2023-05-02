@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSequenceStoresRequest,
-  ListSequenceStoresRequestFilterSensitiveLog,
-  ListSequenceStoresResponse,
-  ListSequenceStoresResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSequenceStoresRequest, ListSequenceStoresResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListSequenceStoresCommand,
-  serializeAws_restJson1ListSequenceStoresCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSequenceStoresCommand, se_ListSequenceStoresCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSequenceStoresCommand}.
  */
 export interface ListSequenceStoresCommandInput extends ListSequenceStoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSequenceStoresCommand}.
  */
 export interface ListSequenceStoresCommandOutput extends ListSequenceStoresResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of sequence stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  * import { OmicsClient, ListSequenceStoresCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListSequenceStoresCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // ListSequenceStoresRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filter: { // SequenceStoreFilter
+ *     name: "STRING_VALUE",
+ *     createdAfter: new Date("TIMESTAMP"),
+ *     createdBefore: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new ListSequenceStoresCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSequenceStoresCommandInput - {@link ListSequenceStoresCommandInput}
+ * @returns {@link ListSequenceStoresCommandOutput}
  * @see {@link ListSequenceStoresCommandInput} for command's `input` shape.
  * @see {@link ListSequenceStoresCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -84,6 +92,9 @@ export class ListSequenceStoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSequenceStoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +123,8 @@ export class ListSequenceStoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSequenceStoresRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSequenceStoresResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +134,18 @@ export class ListSequenceStoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSequenceStoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSequenceStoresCommand(input, context);
+    return se_ListSequenceStoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSequenceStoresCommandOutput> {
-    return deserializeAws_restJson1ListSequenceStoresCommand(output, context);
+    return de_ListSequenceStoresCommand(output, context);
   }
 
   // Start section: command_body_extra

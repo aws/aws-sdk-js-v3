@@ -2,6 +2,9 @@ import { StandardRetryBackoffStrategy } from "@aws-sdk/types";
 
 import { DEFAULT_RETRY_DELAY_BASE, MAXIMUM_RETRY_DELAY } from "./constants";
 
+/**
+ * @internal
+ */
 export const getDefaultRetryBackoffStrategy = (): StandardRetryBackoffStrategy => {
   let delayBase: number = DEFAULT_RETRY_DELAY_BASE;
 

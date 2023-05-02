@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  TerminateInstancesRequest,
-  TerminateInstancesRequestFilterSensitiveLog,
-  TerminateInstancesResult,
-  TerminateInstancesResultFilterSensitiveLog,
-} from "../models/models_7";
-import {
-  deserializeAws_ec2TerminateInstancesCommand,
-  serializeAws_ec2TerminateInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_7";
+import { de_TerminateInstancesCommand, se_TerminateInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateInstancesCommand}.
  */
 export interface TerminateInstancesCommandInput extends TerminateInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link TerminateInstancesCommand}.
  */
 export interface TerminateInstancesCommandOutput extends TerminateInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shuts down the specified instances. This operation is idempotent; if you terminate an
  *             instance more than once, each call succeeds. </p>
  *          <p>If you specify multiple instances and the request fails (for example, because of a
@@ -101,10 +98,18 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  * import { EC2Client, TerminateInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, TerminateInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // TerminateInstancesRequest
+ *   InstanceIds: [ // InstanceIdStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new TerminateInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateInstancesCommandInput - {@link TerminateInstancesCommandInput}
+ * @returns {@link TerminateInstancesCommandOutput}
  * @see {@link TerminateInstancesCommandInput} for command's `input` shape.
  * @see {@link TerminateInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -158,6 +163,9 @@ export class TerminateInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,8 +194,8 @@ export class TerminateInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TerminateInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -197,12 +205,18 @@ export class TerminateInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2TerminateInstancesCommand(input, context);
+    return se_TerminateInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateInstancesCommandOutput> {
-    return deserializeAws_ec2TerminateInstancesCommand(output, context);
+    return de_TerminateInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

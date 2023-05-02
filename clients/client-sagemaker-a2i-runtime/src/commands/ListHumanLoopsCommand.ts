@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListHumanLoopsRequest,
-  ListHumanLoopsRequestFilterSensitiveLog,
-  ListHumanLoopsResponse,
-  ListHumanLoopsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListHumanLoopsCommand,
-  serializeAws_restJson1ListHumanLoopsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListHumanLoopsRequest, ListHumanLoopsResponse } from "../models/models_0";
+import { de_ListHumanLoopsCommand, se_ListHumanLoopsCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../SageMakerA2IRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListHumanLoopsCommand}.
  */
 export interface ListHumanLoopsCommandInput extends ListHumanLoopsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHumanLoopsCommand}.
  */
 export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about human loops, given the specified parameters. If a human loop was deleted, it will not be included.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,20 @@ export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __M
  * import { SageMakerA2IRuntimeClient, ListHumanLoopsCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
  * // const { SageMakerA2IRuntimeClient, ListHumanLoopsCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
  * const client = new SageMakerA2IRuntimeClient(config);
+ * const input = { // ListHumanLoopsRequest
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   FlowDefinitionArn: "STRING_VALUE", // required
+ *   SortOrder: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListHumanLoopsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHumanLoopsCommandInput - {@link ListHumanLoopsCommandInput}
+ * @returns {@link ListHumanLoopsCommandOutput}
  * @see {@link ListHumanLoopsCommandInput} for command's `input` shape.
  * @see {@link ListHumanLoopsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListHumanLoopsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHumanLoopsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +128,8 @@ export class ListHumanLoopsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHumanLoopsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListHumanLoopsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +139,18 @@ export class ListHumanLoopsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHumanLoopsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListHumanLoopsCommand(input, context);
+    return se_ListHumanLoopsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHumanLoopsCommandOutput> {
-    return deserializeAws_restJson1ListHumanLoopsCommand(output, context);
+    return de_ListHumanLoopsCommand(output, context);
   }
 
   // Start section: command_body_extra

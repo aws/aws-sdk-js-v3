@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  PutSourceServerActionRequest,
-  PutSourceServerActionRequestFilterSensitiveLog,
-  SourceServerActionDocument,
-  SourceServerActionDocumentFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSourceServerActionCommand,
-  serializeAws_restJson1PutSourceServerActionCommand,
-} from "../protocols/Aws_restJson1";
+import { PutSourceServerActionRequest, SourceServerActionDocument } from "../models/models_0";
+import { de_PutSourceServerActionCommand, se_PutSourceServerActionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSourceServerActionCommand}.
  */
 export interface PutSourceServerActionCommandInput extends PutSourceServerActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSourceServerActionCommand}.
  */
 export interface PutSourceServerActionCommandOutput extends SourceServerActionDocument, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Put source server post migration custom action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,38 @@ export interface PutSourceServerActionCommandOutput extends SourceServerActionDo
  * import { MgnClient, PutSourceServerActionCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, PutSourceServerActionCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // PutSourceServerActionRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ *   actionName: "STRING_VALUE", // required
+ *   documentIdentifier: "STRING_VALUE", // required
+ *   order: Number("int"), // required
+ *   actionID: "STRING_VALUE", // required
+ *   documentVersion: "STRING_VALUE",
+ *   active: true || false,
+ *   timeoutSeconds: Number("int"),
+ *   mustSucceedForCutover: true || false,
+ *   parameters: { // SsmDocumentParameters
+ *     "<keys>": [ // SsmParameterStoreParameters
+ *       { // SsmParameterStoreParameter
+ *         parameterType: "STRING_VALUE", // required
+ *         parameterName: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   externalParameters: { // SsmDocumentExternalParameters
+ *     "<keys>": { // SsmExternalParameter Union: only one key present
+ *       dynamicPath: "STRING_VALUE",
+ *     },
+ *   },
+ *   description: "STRING_VALUE",
+ *   category: "STRING_VALUE",
+ * };
  * const command = new PutSourceServerActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSourceServerActionCommandInput - {@link PutSourceServerActionCommandInput}
+ * @returns {@link PutSourceServerActionCommandOutput}
  * @see {@link PutSourceServerActionCommandInput} for command's `input` shape.
  * @see {@link PutSourceServerActionCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -81,6 +106,9 @@ export class PutSourceServerActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSourceServerActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +137,8 @@ export class PutSourceServerActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSourceServerActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SourceServerActionDocumentFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +148,18 @@ export class PutSourceServerActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSourceServerActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSourceServerActionCommand(input, context);
+    return se_PutSourceServerActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSourceServerActionCommandOutput> {
-    return deserializeAws_restJson1PutSourceServerActionCommand(output, context);
+    return de_PutSourceServerActionCommand(output, context);
   }
 
   // Start section: command_body_extra

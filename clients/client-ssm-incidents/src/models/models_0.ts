@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SSMIncidentsServiceException as __BaseException } from "./SSMIncidentsServiceException";
 
 /**
+ * @public
  * <p>You don't have sufficient access to perform this operation.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,22 +23,35 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum VariableType {
-  INCIDENT_RECORD_ARN = "INCIDENT_RECORD_ARN",
-  INVOLVED_RESOURCES = "INVOLVED_RESOURCES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VariableType = {
+  INCIDENT_RECORD_ARN: "INCIDENT_RECORD_ARN",
+  INVOLVED_RESOURCES: "INVOLVED_RESOURCES",
+} as const;
 
 /**
+ * @public
+ */
+export type VariableType = (typeof VariableType)[keyof typeof VariableType];
+
+/**
+ * @public
  * <p>The dynamic SSM parameter value.</p>
  */
 export type DynamicSsmParameterValue =
   | DynamicSsmParameterValue.VariableMember
   | DynamicSsmParameterValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace DynamicSsmParameterValue {
   /**
    * <p>Variable dynamic parameters. A parameter value is determined when an incident is
-   *          created.</p>
+   *       created.</p>
    */
   export interface VariableMember {
     variable: VariableType | string;
@@ -60,19 +74,29 @@ export namespace DynamicSsmParameterValue {
   };
 }
 
-export enum SsmTargetAccount {
-  IMPACTED_ACCOUNT = "IMPACTED_ACCOUNT",
-  RESPONSE_PLAN_OWNER_ACCOUNT = "RESPONSE_PLAN_OWNER_ACCOUNT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SsmTargetAccount = {
+  IMPACTED_ACCOUNT: "IMPACTED_ACCOUNT",
+  RESPONSE_PLAN_OWNER_ACCOUNT: "RESPONSE_PLAN_OWNER_ACCOUNT",
+} as const;
 
 /**
+ * @public
+ */
+export type SsmTargetAccount = (typeof SsmTargetAccount)[keyof typeof SsmTargetAccount];
+
+/**
+ * @public
  * <p>Details about the Systems Manager automation document that will be used as a runbook
- *          during an incident.</p>
+ *       during an incident.</p>
  */
 export interface SsmAutomation {
   /**
    * <p>The Amazon Resource Name (ARN) of the role that the automation document will assume when
-   *          running commands.</p>
+   *       running commands.</p>
    */
   roleArn: string | undefined;
 
@@ -88,7 +112,7 @@ export interface SsmAutomation {
 
   /**
    * <p>The account that the automation document will be run in. This can be in either the
-   *          management account or an application account.</p>
+   *       management account or an application account.</p>
    */
   targetAccount?: SsmTargetAccount | string;
 
@@ -98,22 +122,26 @@ export interface SsmAutomation {
   parameters?: Record<string, string[]>;
 
   /**
-   * <p>The key-value pair to resolve dynamic parameter values when processing a Systems Manager
-   *          Automation runbook.</p>
+   * <p>The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation
+   *       runbook.</p>
    */
   dynamicParameters?: Record<string, DynamicSsmParameterValue>;
 }
 
 /**
+ * @public
  * <p>The action that starts at the beginning of an incident. The response plan defines the
- *          action.</p>
+ *       action.</p>
  */
 export type Action = Action.SsmAutomationMember | Action.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Action {
   /**
-   * <p>The Systems Manager automation document to start as the runbook at the beginning of
-   *          the incident.</p>
+   * <p>The Systems Manager automation document to start as the runbook at the beginning of the
+   *       incident.</p>
    */
   export interface SsmAutomationMember {
     ssmAutomation: SsmAutomation;
@@ -137,8 +165,9 @@ export namespace Action {
 }
 
 /**
- * <p>Defines the Amazon Web Services Region and KMS key to add to the
- *          replication set. </p>
+ * @public
+ * <p>Defines the Amazon Web Services Region and KMS key to add to the replication
+ *       set. </p>
  */
 export interface AddRegionAction {
   /**
@@ -153,6 +182,7 @@ export interface AddRegionAction {
 }
 
 /**
+ * @public
  * <p>Use the AttributeValueList to filter by string or integer values.</p>
  */
 export type AttributeValueList =
@@ -160,6 +190,9 @@ export type AttributeValueList =
   | AttributeValueList.StringValuesMember
   | AttributeValueList.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AttributeValueList {
   /**
    * <p>The list of string values that the filter matches.</p>
@@ -199,11 +232,15 @@ export namespace AttributeValueList {
 }
 
 /**
+ * @public
  * <p>The Systems Manager automation document process to start as the runbook at the
- *          beginning of the incident.</p>
+ *       beginning of the incident.</p>
  */
 export type AutomationExecution = AutomationExecution.SsmExecutionArnMember | AutomationExecution.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AutomationExecution {
   /**
    * <p>The Amazon Resource Name (ARN) of the automation process.</p>
@@ -230,16 +267,20 @@ export namespace AutomationExecution {
 }
 
 /**
+ * @public
  * <p>Used to remove the chat channel from an incident record or response plan.</p>
  */
 export interface EmptyChatChannel {}
 
 /**
- * <p>The Chatbot chat channel used for collaboration during an
- *          incident.</p>
+ * @public
+ * <p>The Chatbot chat channel used for collaboration during an incident.</p>
  */
 export type ChatChannel = ChatChannel.ChatbotSnsMember | ChatChannel.EmptyMember | ChatChannel.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ChatChannel {
   /**
    * <p>Used to remove the chat channel from an incident record or response plan.</p>
@@ -251,9 +292,9 @@ export namespace ChatChannel {
   }
 
   /**
-   * <p>The Amazon SNS targets that Chatbot uses to notify the chat channel
-   *          of updates to an incident. You can also make updates to the incident through the chat
-   *          channel by using the Amazon SNS topics. </p>
+   * <p>The Amazon SNS targets that Chatbot uses to notify the chat channel of
+   *       updates to an incident. You can also make updates to the incident through the chat channel by
+   *       using the Amazon SNS topics. </p>
    */
   export interface ChatbotSnsMember {
     empty?: never;
@@ -281,10 +322,11 @@ export namespace ChatChannel {
 }
 
 /**
+ * @public
  * <p>A conditional statement with which to compare a value, after a timestamp, before a
- *          timestamp, or equal to a string or integer. If multiple conditions are specified, the
- *          conditionals become an <code>AND</code>ed statement. If multiple values are specified for a
- *          conditional, the values are <code>OR</code>d.</p>
+ *       timestamp, or equal to a string or integer. If multiple conditions are specified, the
+ *       conditionals become an <code>AND</code>ed statement. If multiple values are specified for a
+ *       conditional, the values are <code>OR</code>d.</p>
  */
 export type Condition =
   | Condition.AfterMember
@@ -292,6 +334,9 @@ export type Condition =
   | Condition.EqualsMember
   | Condition.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Condition {
   /**
    * <p>Before the specified timestamp</p>
@@ -345,15 +390,25 @@ export namespace Condition {
   };
 }
 
-export enum ResourceType {
-  INCIDENT_RECORD = "INCIDENT_RECORD",
-  REPLICATION_SET = "REPLICATION_SET",
-  RESOURCE_POLICY = "RESOURCE_POLICY",
-  RESPONSE_PLAN = "RESPONSE_PLAN",
-  TIMELINE_EVENT = "TIMELINE_EVENT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  INCIDENT_RECORD: "INCIDENT_RECORD",
+  REPLICATION_SET: "REPLICATION_SET",
+  RESOURCE_POLICY: "RESOURCE_POLICY",
+  RESPONSE_PLAN: "RESPONSE_PLAN",
+  TIMELINE_EVENT: "TIMELINE_EVENT",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>Updating or deleting a resource causes an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -391,8 +446,9 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The mapping between a Amazon Web Services Region and the key that's used to encrypt the
- *          data.</p>
+ *       data.</p>
  */
 export interface RegionMapInputValue {
   /**
@@ -401,16 +457,19 @@ export interface RegionMapInputValue {
   sseKmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateReplicationSetInput {
   /**
-   * <p>The Regions that Incident Manager replicates your data to. You can have up to three Regions
-   *             in your replication set.</p>
+   * <p>The Regions that Incident Manager replicates your data to. You can have up to three Regions in
+   *       your replication set.</p>
    */
   regions: Record<string, RegionMapInputValue> | undefined;
 
   /**
    * <p>A token that ensures that the operation is called only once with the specified
-   *             details.</p>
+   *       details.</p>
    */
   clientToken?: string;
 
@@ -420,6 +479,9 @@ export interface CreateReplicationSetInput {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateReplicationSetOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication set. </p>
@@ -428,6 +490,7 @@ export interface CreateReplicationSetOutput {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  */
@@ -447,11 +510,21 @@ export class InternalServerException extends __BaseException {
   }
 }
 
-export enum ServiceCode {
-  SSM_INCIDENTS = "ssm-incidents",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceCode = {
+  SSM_INCIDENTS: "ssm-incidents",
+} as const;
 
 /**
+ * @public
+ */
+export type ServiceCode = (typeof ServiceCode)[keyof typeof ServiceCode];
+
+/**
+ * @public
  * <p>Request would cause a service quota to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -495,6 +568,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -526,6 +600,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  */
@@ -546,10 +621,14 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The SNS targets that are notified when updates are made to an incident.</p>
  */
 export type NotificationTargetItem = NotificationTargetItem.SnsTopicArnMember | NotificationTargetItem.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace NotificationTargetItem {
   /**
    * <p>The Amazon Resource Name (ARN) of the SNS topic.</p>
@@ -576,8 +655,9 @@ export namespace NotificationTargetItem {
 }
 
 /**
+ * @public
  * <p>Basic details used in creating a response plan. The response plan is then used to create
- *          an incident record.</p>
+ *       an incident record.</p>
  */
 export interface IncidentTemplate {
   /**
@@ -592,42 +672,43 @@ export interface IncidentTemplate {
 
   /**
    * <p>The summary of the incident. The summary is a brief synopsis of what occurred, what's
-   *          currently happening, and context.</p>
+   *       currently happening, and context.</p>
    */
   summary?: string;
 
   /**
    * <p>Used to stop Incident Manager from creating multiple incident records for the same incident.
-   *       </p>
+   *     </p>
    */
   dedupeString?: string;
 
   /**
    * <p>The Amazon SNS targets that are notified when updates are made to an
-   *          incident.</p>
+   *       incident.</p>
    */
   notificationTargets?: NotificationTargetItem[];
 
   /**
-   * <p>Tags to assign to the template. When the <code>StartIncident</code> API action is
-   *          called, Incident Manager assigns the tags specified in the template to the incident.</p>
+   * <p>Tags to assign to the template. When the <code>StartIncident</code> API action is called,
+   *       Incident Manager assigns the tags specified in the template to the incident.</p>
    */
   incidentTags?: Record<string, string>;
 }
 
 /**
- * <p>Details about the PagerDuty service where the response plan creates an
- *             incident.</p>
+ * @public
+ * <p>Details about the PagerDuty service where the response plan creates an incident.</p>
  */
 export interface PagerDutyIncidentConfiguration {
   /**
-   * <p>The ID of the PagerDuty service that the response plan associates with an incident
-   *             when it launches.</p>
+   * <p>The ID of the PagerDuty service that the response plan associates with an incident when it
+   *       launches.</p>
    */
   serviceId: string | undefined;
 }
 
 /**
+ * @public
  * <p>Details about the PagerDuty configuration for a response plan.</p>
  */
 export interface PagerDutyConfiguration {
@@ -638,7 +719,7 @@ export interface PagerDutyConfiguration {
 
   /**
    * <p>The ID of the Amazon Web Services Secrets Manager secret that stores your PagerDuty key, either a General Access REST API Key or
-   *             User Token REST API Key, and other user credentials.</p>
+   *       User Token REST API Key, and other user credentials.</p>
    */
   secretId: string | undefined;
 
@@ -649,14 +730,18 @@ export interface PagerDutyConfiguration {
 }
 
 /**
+ * @public
  * <p>Information about third-party services integrated into a response plan.</p>
  */
 export type Integration = Integration.PagerDutyConfigurationMember | Integration.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Integration {
   /**
    * <p>Information about the PagerDuty service where the response plan creates an
-   *             incident.</p>
+   *       incident.</p>
    */
   export interface PagerDutyConfigurationMember {
     pagerDutyConfiguration: PagerDutyConfiguration;
@@ -679,10 +764,12 @@ export namespace Integration {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateResponsePlanInput {
   /**
-   * <p>A token ensuring that the operation is called only once with the specified
-   *             details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified details.</p>
    */
   clientToken?: string;
 
@@ -702,14 +789,13 @@ export interface CreateResponsePlanInput {
   incidentTemplate: IncidentTemplate | undefined;
 
   /**
-   * <p>The Chatbot chat channel used for collaboration during an
-   *             incident.</p>
+   * <p>The Chatbot chat channel used for collaboration during an incident.</p>
    */
   chatChannel?: ChatChannel;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
-   *             plan engages during an incident.</p>
+   *       plan engages during an incident.</p>
    */
   engagements?: string[];
 
@@ -729,6 +815,9 @@ export interface CreateResponsePlanInput {
   integrations?: Integration[];
 }
 
+/**
+ * @public
+ */
 export interface CreateResponsePlanOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan.</p>
@@ -737,6 +826,7 @@ export interface CreateResponsePlanOutput {
 }
 
 /**
+ * @public
  * <p>Request references a resource which doesn't exist. </p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -768,18 +858,22 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An item referenced in a <code>TimelineEvent</code> that is involved in or somehow
- *          associated with an incident. You can specify an Amazon Resource Name (ARN) for an Amazon Web Services resource or a <code>RelatedItem</code> ID.</p>
+ *       associated with an incident. You can specify an Amazon Resource Name (ARN) for an Amazon Web Services resource or a <code>RelatedItem</code> ID.</p>
  */
 export type EventReference =
   | EventReference.RelatedItemIdMember
   | EventReference.ResourceMember
   | EventReference.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace EventReference {
   /**
    * <p>The Amazon Resource Name (ARN) of an Amazon Web Services resource referenced in a
-   *             <code>TimelineEvent</code>.</p>
+   *         <code>TimelineEvent</code>.</p>
    */
   export interface ResourceMember {
     resource: string;
@@ -815,16 +909,19 @@ export namespace EventReference {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateTimelineEventInput {
   /**
-   * <p>A token ensuring that the action is called only once with the specified
-   *             details.</p>
+   * <p>A token that ensures that a client calls the action only once with the specified
+   *       details.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident record to which the event will be
-   *             added.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident record that the action adds the incident
+   *       to.</p>
    */
   incidentRecordArn: string | undefined;
 
@@ -834,8 +931,8 @@ export interface CreateTimelineEventInput {
   eventTime: Date | undefined;
 
   /**
-   * <p>The type of the event. You can create timeline events of type <code>Custom
-   *                 Event</code>.</p>
+   * <p>The type of event. You can create timeline events of type <code>Custom
+   *       Event</code>.</p>
    */
   eventType: string | undefined;
 
@@ -845,17 +942,18 @@ export interface CreateTimelineEventInput {
   eventData: string | undefined;
 
   /**
-   * <p>Adds one or more references to the <code>TimelineEvent</code>. A reference can be an
-   *                 Amazon Web Services resource involved in the incident or in some way associated with
-   *             it. When you specify a reference, you enter the Amazon Resource Name (ARN) of the
-   *             resource. You can also specify a related item. As an example, you could specify the ARN
-   *             of an Amazon DynamoDB (DynamoDB) table. The table for this example is
-   *             the resource. You could also specify a Amazon CloudWatch metric for that table. The
-   *             metric is the related item.</p>
+   * <p>Adds one or more references to the <code>TimelineEvent</code>. A reference is an Amazon Web Services resource involved or associated with the incident. To specify a reference, enter
+   *       its Amazon Resource Name (ARN). You can also specify a related item associated with a
+   *       resource. For example, to specify an Amazon DynamoDB (DynamoDB) table as a
+   *       resource, use the table's ARN. You can also specify an Amazon CloudWatch metric associated
+   *       with the DynamoDB table as a related item.</p>
    */
   eventReferences?: EventReference[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTimelineEventOutput {
   /**
    * <p>The ARN of the incident record that you added the event to.</p>
@@ -868,6 +966,9 @@ export interface CreateTimelineEventOutput {
   eventId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIncidentRecordInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the incident record you are deleting.</p>
@@ -875,20 +976,26 @@ export interface DeleteIncidentRecordInput {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIncidentRecordOutput {}
 
 /**
+ * @public
  * <p>Defines the information about the Amazon Web Services Region you're deleting from your
- *          replication set.</p>
+ *       replication set.</p>
  */
 export interface DeleteRegionAction {
   /**
-   * <p>The name of the Amazon Web Services Region you're deleting from the replication
-   *          set.</p>
+   * <p>The name of the Amazon Web Services Region you're deleting from the replication set.</p>
    */
   regionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationSetInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication set you're deleting.</p>
@@ -896,8 +1003,14 @@ export interface DeleteReplicationSetInput {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationSetOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you're deleting the policy from.</p>
@@ -910,8 +1023,14 @@ export interface DeleteResourcePolicyInput {
   policyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteResponsePlanInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan.</p>
@@ -919,25 +1038,34 @@ export interface DeleteResponsePlanInput {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResponsePlanOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteTimelineEventInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline
-   *             event.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</p>
    */
   incidentRecordArn: string | undefined;
 
   /**
-   * <p>The ID of the event you are updating. You can find this by using
-   *                 <code>ListTimelineEvents</code>.</p>
+   * <p>The ID of the event to update. You can use <code>ListTimelineEvents</code> to find an
+   *       event's ID.</p>
    */
   eventId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTimelineEventOutput {}
 
 /**
+ * @public
  * <p>Details about a timeline event during an incident.</p>
  */
 export interface EventSummary {
@@ -973,6 +1101,7 @@ export interface EventSummary {
 }
 
 /**
+ * @public
  * <p>Filter the selection by using a condition.</p>
  */
 export interface Filter {
@@ -982,12 +1111,15 @@ export interface Filter {
   key: string | undefined;
 
   /**
-   * <p>The condition accepts before or after a specified time, equal to a string, or equal to
-   *          an integer.</p>
+   * <p>The condition accepts before or after a specified time, equal to a string, or equal to an
+   *       integer.</p>
    */
   condition: Condition | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetIncidentRecordInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the incident record.</p>
@@ -996,6 +1128,7 @@ export interface GetIncidentRecordInput {
 }
 
 /**
+ * @public
  * <p>Details about what created the incident record and when it was created.</p>
  */
 export interface IncidentRecordSource {
@@ -1006,7 +1139,7 @@ export interface IncidentRecordSource {
 
   /**
    * <p>The service principal that assumed the role specified in <code>createdBy</code>. If no
-   *          service principal assumed the role this will be left blank.</p>
+   *       service principal assumed the role this will be left blank.</p>
    */
   invokedBy?: string;
 
@@ -1017,18 +1150,28 @@ export interface IncidentRecordSource {
 
   /**
    * <p>The service that started the incident. This can be manually created from Incident Manager,
-   *          automatically created using an Amazon CloudWatch alarm, or Amazon EventBridge
-   *          event.</p>
+   *       automatically created using an Amazon CloudWatch alarm, or Amazon EventBridge
+   *       event.</p>
    */
   source: string | undefined;
 }
 
-export enum IncidentRecordStatus {
-  OPEN = "OPEN",
-  RESOLVED = "RESOLVED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IncidentRecordStatus = {
+  OPEN: "OPEN",
+  RESOLVED: "RESOLVED",
+} as const;
 
 /**
+ * @public
+ */
+export type IncidentRecordStatus = (typeof IncidentRecordStatus)[keyof typeof IncidentRecordStatus];
+
+/**
+ * @public
  * <p>The record of the incident that's created when an incident occurs.</p>
  */
 export interface IncidentRecord {
@@ -1044,7 +1187,7 @@ export interface IncidentRecord {
 
   /**
    * <p>The summary of the incident. The summary is a brief synopsis of what occurred, what's
-   *          currently happening, and context of the incident.</p>
+   *       currently happening, and context of the incident.</p>
    */
   summary?: string;
 
@@ -1089,8 +1232,8 @@ export interface IncidentRecord {
   incidentRecordSource: IncidentRecordSource | undefined;
 
   /**
-   * <p>The string Incident Manager uses to prevent duplicate incidents from being created by the
-   *          same incident in the same account.</p>
+   * <p>The string Incident Manager uses to prevent duplicate incidents from being created by the same
+   *       incident in the same account.</p>
    */
   dedupeString: string | undefined;
 
@@ -1101,11 +1244,14 @@ export interface IncidentRecord {
 
   /**
    * <p>The Amazon SNS targets that are notified when updates are made to an
-   *          incident.</p>
+   *       incident.</p>
    */
   notificationTargets?: NotificationTargetItem[];
 }
 
+/**
+ * @public
+ */
 export interface GetIncidentRecordOutput {
   /**
    * <p>Details the structure of the incident record.</p>
@@ -1113,6 +1259,9 @@ export interface GetIncidentRecordOutput {
   incidentRecord: IncidentRecord | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationSetInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication set you want to retrieve.</p>
@@ -1120,26 +1269,36 @@ export interface GetReplicationSetInput {
   arn: string | undefined;
 }
 
-export enum RegionStatus {
+/**
+ * @public
+ * @enum
+ */
+export const RegionStatus = {
   /**
    * All operations have completed successfully and the region is ready to use
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * The region is in the process of being created.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * The region is in the process of being deleted.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * The region is not healthy and we cannot automatically fix it.
    */
-  FAILED = "FAILED",
-}
+  FAILED: "FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type RegionStatus = (typeof RegionStatus)[keyof typeof RegionStatus];
+
+/**
+ * @public
  * <p>Information about a Amazon Web Services Region in your replication set.</p>
  */
 export interface RegionInfo {
@@ -1164,32 +1323,42 @@ export interface RegionInfo {
   statusUpdateDateTime: Date | undefined;
 }
 
-export enum ReplicationSetStatus {
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationSetStatus = {
   /**
    * All operations have completed successfully and the replication set is ready to use
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Replication set is in the process of being created.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Replication set is in the process of being deleted.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Replication set is not healthy and we cannot fix it.
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * Replication set is in the process of being updated.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
 
 /**
- * <p>The set of Amazon Web Services Region that your Incident Manager data will be replicated to
- *          and the KMS key used to encrypt the data. </p>
+ * @public
+ */
+export type ReplicationSetStatus = (typeof ReplicationSetStatus)[keyof typeof ReplicationSetStatus];
+
+/**
+ * @public
+ * <p>The set of Amazon Web Services Region that your Incident Manager data will be replicated to and
+ *       the KMS key used to encrypt the data. </p>
  */
 export interface ReplicationSet {
   /**
@@ -1203,15 +1372,15 @@ export interface ReplicationSet {
   regionMap: Record<string, RegionInfo> | undefined;
 
   /**
-   * <p>The status of the replication set. If the replication set is still pending, you can't
-   *          use Incident Manager functionality.</p>
+   * <p>The status of the replication set. If the replication set is still pending, you can't use
+   *       Incident Manager functionality.</p>
    */
   status: ReplicationSetStatus | string | undefined;
 
   /**
    * <p>Determines if the replication set deletion protection is enabled or not. If deletion
-   *          protection is enabled, you can't delete the last Amazon Web Services Region in the
-   *          replication set. </p>
+   *       protection is enabled, you can't delete the last Amazon Web Services Region in the replication
+   *       set. </p>
    */
   deletionProtected: boolean | undefined;
 
@@ -1236,6 +1405,9 @@ export interface ReplicationSet {
   lastModifiedBy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationSetOutput {
   /**
    * <p>Details of the replication set.</p>
@@ -1243,10 +1415,13 @@ export interface GetReplicationSetOutput {
   replicationSet: ReplicationSet | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePoliciesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan with the attached resource policy.
-   *         </p>
+   *     </p>
    */
   resourceArn: string | undefined;
 
@@ -1262,8 +1437,9 @@ export interface GetResourcePoliciesInput {
 }
 
 /**
+ * @public
  * <p>The resource policy that allows Incident Manager to perform actions on resources on your
- *          behalf.</p>
+ *       behalf.</p>
  */
 export interface ResourcePolicy {
   /**
@@ -1282,6 +1458,9 @@ export interface ResourcePolicy {
   ramResourceShareRegion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePoliciesOutput {
   /**
    * <p>Details about the resource policy attached to the response plan.</p>
@@ -1294,6 +1473,9 @@ export interface GetResourcePoliciesOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResponsePlanInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan.</p>
@@ -1301,6 +1483,9 @@ export interface GetResponsePlanInput {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResponsePlanOutput {
   /**
    * <p>The ARN of the response plan.</p>
@@ -1323,14 +1508,13 @@ export interface GetResponsePlanOutput {
   incidentTemplate: IncidentTemplate | undefined;
 
   /**
-   * <p>The Chatbot chat channel used for collaboration during an
-   *             incident.</p>
+   * <p>The Chatbot chat channel used for collaboration during an incident.</p>
    */
   chatChannel?: ChatChannel;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
-   *             plan engages during an incident.</p>
+   *       plan engages during an incident.</p>
    */
   engagements?: string[];
 
@@ -1341,26 +1525,29 @@ export interface GetResponsePlanOutput {
 
   /**
    * <p>Information about third-party services integrated into the Incident Manager response
-   *             plan.</p>
+   *       plan.</p>
    */
   integrations?: Integration[];
 }
 
+/**
+ * @public
+ */
 export interface GetTimelineEventInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline
-   *             event.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</p>
    */
   incidentRecordArn: string | undefined;
 
   /**
    * <p>The ID of the event. You can get an event's ID when you create it, or by using
-   *                 <code>ListTimelineEvents</code>.</p>
+   *         <code>ListTimelineEvents</code>.</p>
    */
   eventId: string | undefined;
 }
 
 /**
+ * @public
  * <p>A significant event that happened during the incident. </p>
  */
 export interface TimelineEvent {
@@ -1386,7 +1573,7 @@ export interface TimelineEvent {
 
   /**
    * <p>The type of event that occurred. Currently Incident Manager supports only the <code>Custom
-   *             Event</code> type.</p>
+   *         Event</code> type.</p>
    */
   eventType: string | undefined;
 
@@ -1401,6 +1588,9 @@ export interface TimelineEvent {
   eventReferences?: EventReference[];
 }
 
+/**
+ * @public
+ */
 export interface GetTimelineEventOutput {
   /**
    * <p>Details about the timeline event.</p>
@@ -1409,6 +1599,7 @@ export interface GetTimelineEventOutput {
 }
 
 /**
+ * @public
  * <p>Details describing an incident record.</p>
  */
 export interface IncidentRecordSummary {
@@ -1419,7 +1610,7 @@ export interface IncidentRecordSummary {
 
   /**
    * <p>The title of the incident. This value is either provided by the response plan or
-   *          overwritten on creation.</p>
+   *       overwritten on creation.</p>
    */
   title: string | undefined;
 
@@ -1449,43 +1640,53 @@ export interface IncidentRecordSummary {
   incidentRecordSource: IncidentRecordSource | undefined;
 }
 
-export enum ItemType {
-  ANALYSIS = "ANALYSIS",
-  ATTACHMENT = "ATTACHMENT",
-  AUTOMATION = "AUTOMATION",
-  INCIDENT = "INCIDENT",
-  INVOLVED_RESOURCE = "INVOLVED_RESOURCE",
-  METRIC = "METRIC",
-  OTHER = "OTHER",
-  PARENT = "PARENT",
-  TASK = "TASK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ItemType = {
+  ANALYSIS: "ANALYSIS",
+  ATTACHMENT: "ATTACHMENT",
+  AUTOMATION: "AUTOMATION",
+  INCIDENT: "INCIDENT",
+  INVOLVED_RESOURCE: "INVOLVED_RESOURCE",
+  METRIC: "METRIC",
+  OTHER: "OTHER",
+  PARENT: "PARENT",
+  TASK: "TASK",
+} as const;
 
 /**
- * <p>Details about the PagerDuty incident associated with an incident created by an
- *             Incident Manager response plan.</p>
+ * @public
+ */
+export type ItemType = (typeof ItemType)[keyof typeof ItemType];
+
+/**
+ * @public
+ * <p>Details about the PagerDuty incident associated with an incident created by an Incident Manager
+ *       response plan.</p>
  */
 export interface PagerDutyIncidentDetail {
   /**
-   * <p>The ID of the incident associated with the PagerDuty service for the response
-   *             plan.</p>
+   * <p>The ID of the incident associated with the PagerDuty service for the response plan.</p>
    */
   id: string | undefined;
 
   /**
    * <p>Indicates whether to resolve the PagerDuty incident when you resolve the associated
-   *             Incident Manager incident.</p>
+   *       Incident Manager incident.</p>
    */
   autoResolve?: boolean;
 
   /**
    * <p>The ID of the Amazon Web Services Secrets Manager secret that stores your PagerDuty key, either a General Access REST API Key or
-   *             User Token REST API Key, and other user credentials.</p>
+   *       User Token REST API Key, and other user credentials.</p>
    */
   secretId?: string;
 }
 
 /**
+ * @public
  * <p>Describes a related item.</p>
  */
 export type ItemValue =
@@ -1495,10 +1696,13 @@ export type ItemValue =
   | ItemValue.UrlMember
   | ItemValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ItemValue {
   /**
    * <p>The Amazon Resource Name (ARN) of the related item, if the related item is an Amazon
-   *          resource.</p>
+   *       resource.</p>
    */
   export interface ArnMember {
     arn: string;
@@ -1568,6 +1772,7 @@ export namespace ItemValue {
 }
 
 /**
+ * @public
  * <p>Details and type of a related item.</p>
  */
 export interface ItemIdentifier {
@@ -1582,45 +1787,47 @@ export interface ItemIdentifier {
   type: ItemType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListIncidentRecordsInput {
   /**
-   * <p>Filters the list of incident records through which you are searching. You can filter
-   *             on the following keys:</p>
-   *         <ul>
+   * <p>Filters the list of incident records you want to search through. You can filter on the
+   *       following keys:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>creationTime</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>impact</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>status</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>createdBy</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>Note the following when deciding how to use Filters:</p>
-   *         <ul>
+   *          <p>Note the following when when you use Filters:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If you don't specify a Filter, the response includes all incident
-   *                     records.</p>
+   *                <p>If you don't specify a Filter, the response includes all incident records.</p>
    *             </li>
    *             <li>
-   *                 <p>If you specify more than one filter in a single request, the response returns
-   *                     incident records that match all filters.</p>
+   *                <p>If you specify more than one filter in a single request, the response returns incident
+   *           records that match all filters.</p>
    *             </li>
    *             <li>
-   *                 <p>If you specify a filter with more than one value, the response returns
-   *                     incident records that match any of the values provided.</p>
+   *                <p>If you specify a filter with more than one value, the response returns incident
+   *           records that match any of the values provided.</p>
    *             </li>
    *          </ul>
    */
@@ -1637,6 +1844,9 @@ export interface ListIncidentRecordsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIncidentRecordsOutput {
   /**
    * <p>The details of each listed incident record.</p>
@@ -1649,10 +1859,13 @@ export interface ListIncidentRecordsOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRelatedItemsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the incident record containing the listed related
-   *             items.</p>
+   *       items.</p>
    */
   incidentRecordArn: string | undefined;
 
@@ -1668,6 +1881,7 @@ export interface ListRelatedItemsInput {
 }
 
 /**
+ * @public
  * <p>Resources that responders use to triage and mitigate the incident.</p>
  */
 export interface RelatedItem {
@@ -1684,13 +1898,15 @@ export interface RelatedItem {
   /**
    * <p>A unique ID for a <code>RelatedItem</code>.</p>
    *          <important>
-   *             <p>Don't specify this parameter when you add a <code>RelatedItem</code> by using the
-   *                <a>UpdateRelatedItems</a> API action.</p>
+   *             <p>Don't specify this parameter when you add a <code>RelatedItem</code> by using the <a>UpdateRelatedItems</a> API action.</p>
    *          </important>
    */
   generatedId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRelatedItemsOutput {
   /**
    * <p>Details about each related item.</p>
@@ -1703,6 +1919,9 @@ export interface ListRelatedItemsOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListReplicationSetsInput {
   /**
    * <p>The maximum number of results per page. </p>
@@ -1715,6 +1934,9 @@ export interface ListReplicationSetsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListReplicationSetsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the list replication set.</p>
@@ -1727,6 +1949,9 @@ export interface ListReplicationSetsOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResponsePlansInput {
   /**
    * <p>The maximum number of response plans per page.</p>
@@ -1740,6 +1965,7 @@ export interface ListResponsePlansInput {
 }
 
 /**
+ * @public
  * <p>Details of the response plan that are used when creating an incident.</p>
  */
 export interface ResponsePlanSummary {
@@ -1759,6 +1985,9 @@ export interface ResponsePlanSummary {
   displayName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResponsePlansOutput {
   /**
    * <p>Details of each response plan.</p>
@@ -1771,6 +2000,9 @@ export interface ListResponsePlansOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan.</p>
@@ -1778,6 +2010,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags for the response plan.</p>
@@ -1785,63 +2020,82 @@ export interface ListTagsForResourceResponse {
   tags: Record<string, string> | undefined;
 }
 
-export enum TimelineEventSort {
-  EVENT_TIME = "EVENT_TIME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TimelineEventSort = {
+  EVENT_TIME: "EVENT_TIME",
+} as const;
 
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ */
+export type TimelineEventSort = (typeof TimelineEventSort)[keyof typeof TimelineEventSort];
 
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
 export interface ListTimelineEventsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline
-   *             event.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</p>
    */
   incidentRecordArn: string | undefined;
 
   /**
    * <p>Filters the timeline events based on the provided conditional values. You can filter
-   *             timeline events using the following keys:</p>
-   *         <ul>
+   *       timeline events with the following keys:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>eventTime</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>eventType</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>Note the following when deciding how to use Filters:</p>
-   *         <ul>
+   *          <p>Note the following when deciding how to use Filters:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If you don't specify a Filter, the response includes all timeline
-   *                     events.</p>
+   *                <p>If you don't specify a Filter, the response includes all timeline events.</p>
    *             </li>
    *             <li>
-   *                 <p>If you specify more than one filter in a single request, the response returns
-   *                     timeline events that match all filters.</p>
+   *                <p>If you specify more than one filter in a single request, the response returns timeline
+   *           events that match all filters.</p>
    *             </li>
    *             <li>
-   *                 <p>If you specify a filter with more than one value, the response returns
-   *                     timeline events that match any of the values provided.</p>
+   *                <p>If you specify a filter with more than one value, the response returns timeline events
+   *           that match any of the values provided.</p>
    *             </li>
    *          </ul>
    */
   filters?: Filter[];
 
   /**
-   * <p>Sort by the specified key value pair.</p>
+   * <p>Sort timeline events by the specified key value pair.</p>
    */
   sortBy?: TimelineEventSort | string;
 
   /**
    * <p>Sorts the order of timeline events by the value specified in the <code>sortBy</code>
-   *             field.</p>
+   *       field.</p>
    */
   sortOrder?: SortOrder | string;
 
@@ -1856,6 +2110,9 @@ export interface ListTimelineEventsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTimelineEventsOutput {
   /**
    * <p>Details about each event that occurred during the incident.</p>
@@ -1868,10 +2125,12 @@ export interface ListTimelineEventsOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the response plan to add the resource policy
-   *             to.</p>
+   * <p>The Amazon Resource Name (ARN) of the response plan to add the resource policy to.</p>
    */
   resourceArn: string | undefined;
 
@@ -1881,6 +2140,9 @@ export interface PutResourcePolicyInput {
   policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyOutput {
   /**
    * <p>The ID of the resource policy.</p>
@@ -1889,6 +2151,7 @@ export interface PutResourcePolicyOutput {
 }
 
 /**
+ * @public
  * <p>Details about the related item you're adding.</p>
  */
 export type RelatedItemsUpdate =
@@ -1896,6 +2159,9 @@ export type RelatedItemsUpdate =
   | RelatedItemsUpdate.ItemToRemoveMember
   | RelatedItemsUpdate.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace RelatedItemsUpdate {
   /**
    * <p>Details about the related item you're adding.</p>
@@ -1935,13 +2201,14 @@ export namespace RelatedItemsUpdate {
 }
 
 /**
+ * @public
  * <p>Details about what caused the incident to be created in Incident Manager.</p>
  */
 export interface TriggerDetails {
   /**
-   * <p>Identifies the service that sourced the event. All events sourced from within Amazon Web Services begin with "<code>aws.</code>" Customer-generated events can have any value
-   *          here, as long as it doesn't begin with "<code>aws.</code>" We recommend the use of Java
-   *          package-name style reverse domain-name strings. </p>
+   * <p>Identifies the service that sourced the event. All events sourced from within Amazon Web Services begin with "<code>aws.</code>" Customer-generated events can have any value here,
+   *       as long as it doesn't begin with "<code>aws.</code>" We recommend the use of Java package-name
+   *       style reverse domain-name strings. </p>
    */
   source: string | undefined;
 
@@ -1961,57 +2228,57 @@ export interface TriggerDetails {
   rawData?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartIncidentInput {
   /**
-   * <p>A token ensuring that the operation is called only once with the specified
-   *             details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified details.</p>
    */
   clientToken?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan that pre-defines summary, chat
-   *             channels, Amazon SNS topics, runbooks, title, and impact of the incident.
-   *         </p>
+   *       channels, Amazon SNS topics, runbooks, title, and impact of the incident. </p>
    */
   responsePlanArn: string | undefined;
 
   /**
-   * <p>Provide a title for the incident. Providing a title overwrites the title provided by
-   *             the response plan. </p>
+   * <p>Provide a title for the incident. Providing a title overwrites the title provided by the
+   *       response plan. </p>
    */
   title?: string;
 
   /**
-   * <p>Defines the impact to the customers. Providing an impact overwrites the impact
-   *             provided by a response plan.</p>
-   *         <p class="title">
+   * <p>Defines the impact to the customers. Providing an impact overwrites the impact provided by
+   *       a response plan.</p>
+   *          <p class="title">
    *             <b>Possible impacts:</b>
    *          </p>
    *          <ul>
    *             <li>
-   *                 <p>
-   *                   <code>1</code> - Critical impact, this typically relates to full application
-   *                     failure that impacts many to all customers. </p>
+   *                <p>
+   *                   <code>1</code> - Critical impact, this typically relates to full application failure
+   *           that impacts many to all customers. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>2</code> - High impact, partial application failure with impact to many
-   *                     customers.</p>
+   *           customers.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>3</code> - Medium impact, the application is providing reduced service
-   *                     to customers.</p>
+   *                <p>
+   *                   <code>3</code> - Medium impact, the application is providing reduced service to
+   *           customers.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>4</code> - Low impact, customer might aren't impacted by the problem
-   *                     yet.</p>
+   *                <p>
+   *                   <code>4</code> - Low impact, customer might aren't impacted by the problem yet.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>5</code> - No impact, customers aren't currently impacted but urgent
-   *                     action is needed to avoid impact.</p>
+   *                <p>
+   *                   <code>5</code> - No impact, customers aren't currently impacted but urgent action is
+   *           needed to avoid impact.</p>
    *             </li>
    *          </ul>
    */
@@ -2023,12 +2290,15 @@ export interface StartIncidentInput {
   triggerDetails?: TriggerDetails;
 
   /**
-   * <p>Add related items to the incident for other responders to use. Related items are AWS
-   *             resources, external links, or files uploaded to an Amazon S3 bucket. </p>
+   * <p>Add related items to the incident for other responders to use. Related items are Amazon Web Services
+   *       resources, external links, or files uploaded to an Amazon S3 bucket. </p>
    */
   relatedItems?: RelatedItem[];
 }
 
+/**
+ * @public
+ */
 export interface StartIncidentOutput {
   /**
    * <p>The ARN of the newly created incident record.</p>
@@ -2036,6 +2306,9 @@ export interface StartIncidentOutput {
   incidentRecordArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan you're adding the tags to.</p>
@@ -2048,8 +2321,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan you're removing a tag from.</p>
@@ -2062,8 +2341,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDeletionProtectionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication set to update.</p>
@@ -2077,17 +2362,23 @@ export interface UpdateDeletionProtectionInput {
 
   /**
    * <p>A token that ensures that the operation is called only once with the specified
-   *             details.</p>
+   *       details.</p>
    */
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeletionProtectionOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateIncidentRecordInput {
   /**
-   * <p>A token that ensures that the operation is called only once with the specified
-   *             details.</p>
+   * <p>A token that ensures that a client calls the operation only once with the specified
+   *       details.</p>
    */
   clientToken?: string;
 
@@ -2107,44 +2398,43 @@ export interface UpdateIncidentRecordInput {
   summary?: string;
 
   /**
-   * <p>Defines the impact of the incident to customers and applications. Providing an impact
-   *             overwrites the impact provided by the response plan.</p>
-   *         <p class="title">
+   * <p>Defines the impact of the incident to customers and applications. If you provide an impact
+   *       for an incident, it overwrites the impact provided by the response plan.</p>
+   *          <p class="title">
    *             <b>Possible impacts:</b>
    *          </p>
    *          <ul>
    *             <li>
-   *                 <p>
-   *                   <code>1</code> - Critical impact, full application failure that impacts many
-   *                     to all customers. </p>
+   *                <p>
+   *                   <code>1</code> - Critical impact, full application failure that impacts many to all
+   *           customers. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>2</code> - High impact, partial application failure with impact to many
-   *                     customers.</p>
+   *           customers.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>3</code> - Medium impact, the application is providing reduced service
-   *                     to customers.</p>
+   *                <p>
+   *                   <code>3</code> - Medium impact, the application is providing reduced service to
+   *           customers.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>4</code> - Low impact, customer aren't impacted by the problem
-   *                     yet.</p>
+   *                <p>
+   *                   <code>4</code> - Low impact, customer aren't impacted by the problem yet.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>5</code> - No impact, customers aren't currently impacted but urgent
-   *                     action is needed to avoid impact.</p>
+   *                <p>
+   *                   <code>5</code> - No impact, customers aren't currently impacted but urgent action is
+   *           needed to avoid impact.</p>
    *             </li>
    *          </ul>
    */
   impact?: number;
 
   /**
-   * <p>The status of the incident. An incident can be <code>Open</code> or
-   *                 <code>Resolved</code>.</p>
+   * <p>The status of the incident. Possible statuses are <code>Open</code> or
+   *         <code>Resolved</code>.</p>
    */
   status?: IncidentRecordStatus | string;
 
@@ -2154,38 +2444,48 @@ export interface UpdateIncidentRecordInput {
   chatChannel?: ChatChannel;
 
   /**
-   * <p>The Amazon SNS targets that are notified when updates are made to an
-   *             incident.</p>
-   *         <p>Using multiple SNS topics creates redundancy in the event that a Region is down during
-   *             the incident.</p>
+   * <p>The Amazon SNS targets that Incident Manager notifies when a client updates an
+   *       incident.</p>
+   *          <p>Using multiple SNS topics creates redundancy in the event that a Region is down during the
+   *       incident.</p>
    */
   notificationTargets?: NotificationTargetItem[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateIncidentRecordOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateRelatedItemsInput {
   /**
-   * <p>A token ensuring that the operation is called only once with the specified
-   *             details.</p>
+   * <p>A token that ensures that a client calls the operation only once with the specified
+   *       details.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident record containing the related items you
-   *             are updating.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident record that contains the related items that
+   *       you update.</p>
    */
   incidentRecordArn: string | undefined;
 
   /**
-   * <p>Details about the item you are adding or deleting.</p>
+   * <p>Details about the item that you are add to, or delete from, an incident.</p>
    */
   relatedItemsUpdate: RelatedItemsUpdate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRelatedItemsOutput {}
 
 /**
+ * @public
  * <p>Details used when updating the replication set.</p>
  */
 export type UpdateReplicationSetAction =
@@ -2193,10 +2493,13 @@ export type UpdateReplicationSetAction =
   | UpdateReplicationSetAction.DeleteRegionActionMember
   | UpdateReplicationSetAction.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace UpdateReplicationSetAction {
   /**
    * <p>Details about the Amazon Web Services Region that you're adding to the replication
-   *          set.</p>
+   *       set.</p>
    */
   export interface AddRegionActionMember {
     addRegionAction: AddRegionAction;
@@ -2206,7 +2509,7 @@ export namespace UpdateReplicationSetAction {
 
   /**
    * <p>Details about the Amazon Web Services Region that you're deleting to the replication
-   *          set.</p>
+   *       set.</p>
    */
   export interface DeleteRegionActionMember {
     addRegionAction?: never;
@@ -2233,6 +2536,9 @@ export namespace UpdateReplicationSetAction {
   };
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationSetInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication set you're updating.</p>
@@ -2246,17 +2552,22 @@ export interface UpdateReplicationSetInput {
 
   /**
    * <p>A token that ensures that the operation is called only once with the specified
-   *             details.</p>
+   *       details.</p>
    */
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationSetOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateResponsePlanInput {
   /**
-   * <p>A token ensuring that the operation is called only once with the specified
-   *             details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified details.</p>
    */
   clientToken?: string;
 
@@ -2266,8 +2577,7 @@ export interface UpdateResponsePlanInput {
   arn: string | undefined;
 
   /**
-   * <p>The long format name of the response plan. The display name can't contain
-   *             spaces.</p>
+   * <p>The long format name of the response plan. The display name can't contain spaces.</p>
    */
   displayName?: string;
 
@@ -2277,30 +2587,30 @@ export interface UpdateResponsePlanInput {
   incidentTemplateTitle?: string;
 
   /**
-   * <p>Defines the impact to the customers. Providing an impact overwrites the impact
-   *             provided by a response plan.</p>
-   *         <p class="title">
+   * <p>Defines the impact to the customers. Providing an impact overwrites the impact provided by
+   *       a response plan.</p>
+   *          <p class="title">
    *             <b>Possible impacts:</b>
    *          </p>
    *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>5</code> - Severe impact</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>4</code> - High impact</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>3</code> - Medium impact</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>2</code> - Low impact</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>1</code> - No impact</p>
    *             </li>
    *          </ul>
@@ -2309,32 +2619,31 @@ export interface UpdateResponsePlanInput {
 
   /**
    * <p>A brief summary of the incident. This typically contains what has happened, what's
-   *             currently happening, and next steps.</p>
+   *       currently happening, and next steps.</p>
    */
   incidentTemplateSummary?: string;
 
   /**
-   * <p>The string Incident Manager uses to prevent duplicate incidents from being created by the
-   *             same incident in the same account.</p>
+   * <p>The string Incident Manager uses to prevent duplicate incidents from being created by the same
+   *       incident in the same account.</p>
    */
   incidentTemplateDedupeString?: string;
 
   /**
    * <p>The Amazon SNS targets that are notified when updates are made to an
-   *             incident.</p>
+   *       incident.</p>
    */
   incidentTemplateNotificationTargets?: NotificationTargetItem[];
 
   /**
-   * <p>The Chatbot chat channel used for collaboration during an
-   *             incident.</p>
-   *         <p>Use the empty structure to remove the chat channel from the response plan.</p>
+   * <p>The Chatbot chat channel used for collaboration during an incident.</p>
+   *          <p>Use the empty structure to remove the chat channel from the response plan.</p>
    */
   chatChannel?: ChatChannel;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
-   *             plan engages during an incident.</p>
+   *       plan engages during an incident.</p>
    */
   engagements?: string[];
 
@@ -2344,10 +2653,10 @@ export interface UpdateResponsePlanInput {
   actions?: Action[];
 
   /**
-   * <p>Tags to assign to the template. When the <code>StartIncident</code> API action is
-   *             called, Incident Manager assigns the tags specified in the template to the
-   *             incident. To call this action, you must also have permission to call the
-   *                 <code>TagResource</code> API action for the incident record resource.</p>
+   * <p>Tags to assign to the template. When the <code>StartIncident</code> API action is called,
+   *       Incident Manager assigns the tags specified in the template to the incident. To call this action,
+   *       you must also have permission to call the <code>TagResource</code> API action for the incident
+   *       record resource.</p>
    */
   incidentTemplateTags?: Record<string, string>;
 
@@ -2357,24 +2666,29 @@ export interface UpdateResponsePlanInput {
   integrations?: Integration[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateResponsePlanOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateTimelineEventInput {
   /**
-   * <p>A token ensuring that the operation is called only once with the specified
-   *             details.</p>
+   * <p>A token that ensures that a client calls the operation only once with the specified
+   *       details.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline
-   *             event.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</p>
    */
   incidentRecordArn: string | undefined;
 
   /**
-   * <p>The ID of the event you are updating. You can find this by using
-   *                 <code>ListTimelineEvents</code>.</p>
+   * <p>The ID of the event to update. You can use <code>ListTimelineEvents</code> to find an
+   *       event's ID.</p>
    */
   eventId: string | undefined;
 
@@ -2384,7 +2698,7 @@ export interface UpdateTimelineEventInput {
   eventTime?: Date;
 
   /**
-   * <p>The type of the event. You can update events of type <code>Custom Event</code>.</p>
+   * <p>The type of event. You can update events of type <code>Custom Event</code>.</p>
    */
   eventType?: string;
 
@@ -2394,752 +2708,21 @@ export interface UpdateTimelineEventInput {
   eventData?: string;
 
   /**
-   * <p>Updates all existing references in a <code>TimelineEvent</code>. A reference can be an
-   *                 Amazon Web Services resource involved in the incident or in some way associated with
-   *             it. When you specify a reference, you enter the Amazon Resource Name (ARN) of the
-   *             resource. You can also specify a related item. As an example, you could specify the ARN
-   *             of an Amazon DynamoDB (DynamoDB) table. The table for this example is
-   *             the resource. You could also specify a Amazon CloudWatch metric for that table. The
-   *             metric is the related item.</p>
-   *         <important>
+   * <p>Updates all existing references in a <code>TimelineEvent</code>. A reference is an Amazon Web Services resource involved or associated with the incident. To specify a reference, enter
+   *       its Amazon Resource Name (ARN). You can also specify a related item associated with that
+   *       resource. For example, to specify an Amazon DynamoDB (DynamoDB) table as a
+   *       resource, use its ARN. You can also specify an Amazon CloudWatch metric associated with
+   *       the DynamoDB table as a related item.</p>
+   *          <important>
    *             <p>This update action overrides all existing references. If you want to keep existing
-   *                 references, you must specify them in the call. If you don't, this action removes
-   *                 them and enters only new references.</p>
-   *         </important>
+   *         references, you must specify them in the call. If you don't, this action removes any
+   *         existing references and enters only new references.</p>
+   *          </important>
    */
   eventReferences?: EventReference[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTimelineEventOutput {}
-
-/**
- * @internal
- */
-export const DynamicSsmParameterValueFilterSensitiveLog = (obj: DynamicSsmParameterValue): any => {
-  if (obj.variable !== undefined) return { variable: obj.variable };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SsmAutomationFilterSensitiveLog = (obj: SsmAutomation): any => ({
-  ...obj,
-  ...(obj.dynamicParameters && {
-    dynamicParameters: Object.entries(obj.dynamicParameters).reduce(
-      (acc: any, [key, value]: [string, DynamicSsmParameterValue]) => (
-        (acc[key] = DynamicSsmParameterValueFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const ActionFilterSensitiveLog = (obj: Action): any => {
-  if (obj.ssmAutomation !== undefined) return { ssmAutomation: SsmAutomationFilterSensitiveLog(obj.ssmAutomation) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const AddRegionActionFilterSensitiveLog = (obj: AddRegionAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeValueListFilterSensitiveLog = (obj: AttributeValueList): any => {
-  if (obj.stringValues !== undefined) return { stringValues: obj.stringValues };
-  if (obj.integerValues !== undefined) return { integerValues: obj.integerValues };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const AutomationExecutionFilterSensitiveLog = (obj: AutomationExecution): any => {
-  if (obj.ssmExecutionArn !== undefined) return { ssmExecutionArn: obj.ssmExecutionArn };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const EmptyChatChannelFilterSensitiveLog = (obj: EmptyChatChannel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChatChannelFilterSensitiveLog = (obj: ChatChannel): any => {
-  if (obj.empty !== undefined) return { empty: EmptyChatChannelFilterSensitiveLog(obj.empty) };
-  if (obj.chatbotSns !== undefined) return { chatbotSns: obj.chatbotSns };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ConditionFilterSensitiveLog = (obj: Condition): any => {
-  if (obj.before !== undefined) return { before: obj.before };
-  if (obj.after !== undefined) return { after: obj.after };
-  if (obj.equals !== undefined) return { equals: AttributeValueListFilterSensitiveLog(obj.equals) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const RegionMapInputValueFilterSensitiveLog = (obj: RegionMapInputValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplicationSetInputFilterSensitiveLog = (obj: CreateReplicationSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplicationSetOutputFilterSensitiveLog = (obj: CreateReplicationSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationTargetItemFilterSensitiveLog = (obj: NotificationTargetItem): any => {
-  if (obj.snsTopicArn !== undefined) return { snsTopicArn: obj.snsTopicArn };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const IncidentTemplateFilterSensitiveLog = (obj: IncidentTemplate): any => ({
-  ...obj,
-  ...(obj.notificationTargets && {
-    notificationTargets: obj.notificationTargets.map((item) => NotificationTargetItemFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const PagerDutyIncidentConfigurationFilterSensitiveLog = (obj: PagerDutyIncidentConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PagerDutyConfigurationFilterSensitiveLog = (obj: PagerDutyConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IntegrationFilterSensitiveLog = (obj: Integration): any => {
-  if (obj.pagerDutyConfiguration !== undefined)
-    return { pagerDutyConfiguration: PagerDutyConfigurationFilterSensitiveLog(obj.pagerDutyConfiguration) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateResponsePlanInputFilterSensitiveLog = (obj: CreateResponsePlanInput): any => ({
-  ...obj,
-  ...(obj.incidentTemplate && { incidentTemplate: IncidentTemplateFilterSensitiveLog(obj.incidentTemplate) }),
-  ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
-  ...(obj.actions && { actions: obj.actions.map((item) => ActionFilterSensitiveLog(item)) }),
-  ...(obj.integrations && { integrations: obj.integrations.map((item) => IntegrationFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateResponsePlanOutputFilterSensitiveLog = (obj: CreateResponsePlanOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventReferenceFilterSensitiveLog = (obj: EventReference): any => {
-  if (obj.resource !== undefined) return { resource: obj.resource };
-  if (obj.relatedItemId !== undefined) return { relatedItemId: obj.relatedItemId };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateTimelineEventInputFilterSensitiveLog = (obj: CreateTimelineEventInput): any => ({
-  ...obj,
-  ...(obj.eventReferences && {
-    eventReferences: obj.eventReferences.map((item) => EventReferenceFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateTimelineEventOutputFilterSensitiveLog = (obj: CreateTimelineEventOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIncidentRecordInputFilterSensitiveLog = (obj: DeleteIncidentRecordInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIncidentRecordOutputFilterSensitiveLog = (obj: DeleteIncidentRecordOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRegionActionFilterSensitiveLog = (obj: DeleteRegionAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationSetInputFilterSensitiveLog = (obj: DeleteReplicationSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationSetOutputFilterSensitiveLog = (obj: DeleteReplicationSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyInputFilterSensitiveLog = (obj: DeleteResourcePolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyOutputFilterSensitiveLog = (obj: DeleteResourcePolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResponsePlanInputFilterSensitiveLog = (obj: DeleteResponsePlanInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResponsePlanOutputFilterSensitiveLog = (obj: DeleteResponsePlanOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTimelineEventInputFilterSensitiveLog = (obj: DeleteTimelineEventInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTimelineEventOutputFilterSensitiveLog = (obj: DeleteTimelineEventOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventSummaryFilterSensitiveLog = (obj: EventSummary): any => ({
-  ...obj,
-  ...(obj.eventReferences && {
-    eventReferences: obj.eventReferences.map((item) => EventReferenceFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-  ...(obj.condition && { condition: ConditionFilterSensitiveLog(obj.condition) }),
-});
-
-/**
- * @internal
- */
-export const GetIncidentRecordInputFilterSensitiveLog = (obj: GetIncidentRecordInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IncidentRecordSourceFilterSensitiveLog = (obj: IncidentRecordSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IncidentRecordFilterSensitiveLog = (obj: IncidentRecord): any => ({
-  ...obj,
-  ...(obj.automationExecutions && {
-    automationExecutions: obj.automationExecutions.map((item) => AutomationExecutionFilterSensitiveLog(item)),
-  }),
-  ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
-  ...(obj.notificationTargets && {
-    notificationTargets: obj.notificationTargets.map((item) => NotificationTargetItemFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetIncidentRecordOutputFilterSensitiveLog = (obj: GetIncidentRecordOutput): any => ({
-  ...obj,
-  ...(obj.incidentRecord && { incidentRecord: IncidentRecordFilterSensitiveLog(obj.incidentRecord) }),
-});
-
-/**
- * @internal
- */
-export const GetReplicationSetInputFilterSensitiveLog = (obj: GetReplicationSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegionInfoFilterSensitiveLog = (obj: RegionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationSetFilterSensitiveLog = (obj: ReplicationSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReplicationSetOutputFilterSensitiveLog = (obj: GetReplicationSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePoliciesInputFilterSensitiveLog = (obj: GetResourcePoliciesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourcePolicyFilterSensitiveLog = (obj: ResourcePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePoliciesOutputFilterSensitiveLog = (obj: GetResourcePoliciesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResponsePlanInputFilterSensitiveLog = (obj: GetResponsePlanInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResponsePlanOutputFilterSensitiveLog = (obj: GetResponsePlanOutput): any => ({
-  ...obj,
-  ...(obj.incidentTemplate && { incidentTemplate: IncidentTemplateFilterSensitiveLog(obj.incidentTemplate) }),
-  ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
-  ...(obj.actions && { actions: obj.actions.map((item) => ActionFilterSensitiveLog(item)) }),
-  ...(obj.integrations && { integrations: obj.integrations.map((item) => IntegrationFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetTimelineEventInputFilterSensitiveLog = (obj: GetTimelineEventInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimelineEventFilterSensitiveLog = (obj: TimelineEvent): any => ({
-  ...obj,
-  ...(obj.eventReferences && {
-    eventReferences: obj.eventReferences.map((item) => EventReferenceFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetTimelineEventOutputFilterSensitiveLog = (obj: GetTimelineEventOutput): any => ({
-  ...obj,
-  ...(obj.event && { event: TimelineEventFilterSensitiveLog(obj.event) }),
-});
-
-/**
- * @internal
- */
-export const IncidentRecordSummaryFilterSensitiveLog = (obj: IncidentRecordSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PagerDutyIncidentDetailFilterSensitiveLog = (obj: PagerDutyIncidentDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ItemValueFilterSensitiveLog = (obj: ItemValue): any => {
-  if (obj.arn !== undefined) return { arn: obj.arn };
-  if (obj.url !== undefined) return { url: obj.url };
-  if (obj.metricDefinition !== undefined) return { metricDefinition: obj.metricDefinition };
-  if (obj.pagerDutyIncidentDetail !== undefined)
-    return { pagerDutyIncidentDetail: PagerDutyIncidentDetailFilterSensitiveLog(obj.pagerDutyIncidentDetail) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ItemIdentifierFilterSensitiveLog = (obj: ItemIdentifier): any => ({
-  ...obj,
-  ...(obj.value && { value: ItemValueFilterSensitiveLog(obj.value) }),
-});
-
-/**
- * @internal
- */
-export const ListIncidentRecordsInputFilterSensitiveLog = (obj: ListIncidentRecordsInput): any => ({
-  ...obj,
-  ...(obj.filters && { filters: obj.filters.map((item) => FilterFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListIncidentRecordsOutputFilterSensitiveLog = (obj: ListIncidentRecordsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRelatedItemsInputFilterSensitiveLog = (obj: ListRelatedItemsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelatedItemFilterSensitiveLog = (obj: RelatedItem): any => ({
-  ...obj,
-  ...(obj.identifier && { identifier: ItemIdentifierFilterSensitiveLog(obj.identifier) }),
-});
-
-/**
- * @internal
- */
-export const ListRelatedItemsOutputFilterSensitiveLog = (obj: ListRelatedItemsOutput): any => ({
-  ...obj,
-  ...(obj.relatedItems && { relatedItems: obj.relatedItems.map((item) => RelatedItemFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListReplicationSetsInputFilterSensitiveLog = (obj: ListReplicationSetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReplicationSetsOutputFilterSensitiveLog = (obj: ListReplicationSetsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResponsePlansInputFilterSensitiveLog = (obj: ListResponsePlansInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResponsePlanSummaryFilterSensitiveLog = (obj: ResponsePlanSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResponsePlansOutputFilterSensitiveLog = (obj: ListResponsePlansOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTimelineEventsInputFilterSensitiveLog = (obj: ListTimelineEventsInput): any => ({
-  ...obj,
-  ...(obj.filters && { filters: obj.filters.map((item) => FilterFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListTimelineEventsOutputFilterSensitiveLog = (obj: ListTimelineEventsOutput): any => ({
-  ...obj,
-  ...(obj.eventSummaries && { eventSummaries: obj.eventSummaries.map((item) => EventSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyInputFilterSensitiveLog = (obj: PutResourcePolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyOutputFilterSensitiveLog = (obj: PutResourcePolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelatedItemsUpdateFilterSensitiveLog = (obj: RelatedItemsUpdate): any => {
-  if (obj.itemToAdd !== undefined) return { itemToAdd: RelatedItemFilterSensitiveLog(obj.itemToAdd) };
-  if (obj.itemToRemove !== undefined) return { itemToRemove: ItemIdentifierFilterSensitiveLog(obj.itemToRemove) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const TriggerDetailsFilterSensitiveLog = (obj: TriggerDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartIncidentInputFilterSensitiveLog = (obj: StartIncidentInput): any => ({
-  ...obj,
-  ...(obj.relatedItems && { relatedItems: obj.relatedItems.map((item) => RelatedItemFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const StartIncidentOutputFilterSensitiveLog = (obj: StartIncidentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeletionProtectionInputFilterSensitiveLog = (obj: UpdateDeletionProtectionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeletionProtectionOutputFilterSensitiveLog = (obj: UpdateDeletionProtectionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIncidentRecordInputFilterSensitiveLog = (obj: UpdateIncidentRecordInput): any => ({
-  ...obj,
-  ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
-  ...(obj.notificationTargets && {
-    notificationTargets: obj.notificationTargets.map((item) => NotificationTargetItemFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateIncidentRecordOutputFilterSensitiveLog = (obj: UpdateIncidentRecordOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRelatedItemsInputFilterSensitiveLog = (obj: UpdateRelatedItemsInput): any => ({
-  ...obj,
-  ...(obj.relatedItemsUpdate && { relatedItemsUpdate: RelatedItemsUpdateFilterSensitiveLog(obj.relatedItemsUpdate) }),
-});
-
-/**
- * @internal
- */
-export const UpdateRelatedItemsOutputFilterSensitiveLog = (obj: UpdateRelatedItemsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateReplicationSetActionFilterSensitiveLog = (obj: UpdateReplicationSetAction): any => {
-  if (obj.addRegionAction !== undefined)
-    return { addRegionAction: AddRegionActionFilterSensitiveLog(obj.addRegionAction) };
-  if (obj.deleteRegionAction !== undefined)
-    return { deleteRegionAction: DeleteRegionActionFilterSensitiveLog(obj.deleteRegionAction) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const UpdateReplicationSetInputFilterSensitiveLog = (obj: UpdateReplicationSetInput): any => ({
-  ...obj,
-  ...(obj.actions && { actions: obj.actions.map((item) => UpdateReplicationSetActionFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateReplicationSetOutputFilterSensitiveLog = (obj: UpdateReplicationSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResponsePlanInputFilterSensitiveLog = (obj: UpdateResponsePlanInput): any => ({
-  ...obj,
-  ...(obj.incidentTemplateNotificationTargets && {
-    incidentTemplateNotificationTargets: obj.incidentTemplateNotificationTargets.map((item) =>
-      NotificationTargetItemFilterSensitiveLog(item)
-    ),
-  }),
-  ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
-  ...(obj.actions && { actions: obj.actions.map((item) => ActionFilterSensitiveLog(item)) }),
-  ...(obj.integrations && { integrations: obj.integrations.map((item) => IntegrationFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateResponsePlanOutputFilterSensitiveLog = (obj: UpdateResponsePlanOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTimelineEventInputFilterSensitiveLog = (obj: UpdateTimelineEventInput): any => ({
-  ...obj,
-  ...(obj.eventReferences && {
-    eventReferences: obj.eventReferences.map((item) => EventReferenceFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateTimelineEventOutputFilterSensitiveLog = (obj: UpdateTimelineEventOutput): any => ({
-  ...obj,
-});

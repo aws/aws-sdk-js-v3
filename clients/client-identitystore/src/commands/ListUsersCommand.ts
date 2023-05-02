@@ -20,18 +20,23 @@ import {
   ListUsersResponse,
   ListUsersResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { deserializeAws_json1_1ListUsersCommand, serializeAws_json1_1ListUsersCommand } from "../protocols/Aws_json1_1";
+import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUsersCommand}.
  */
 export interface ListUsersCommandInput extends ListUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUsersCommand}.
  */
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all users in the identity store. Returns a paginated list of complete <code>User</code> objects.
  *          Filtering for a <code>User</code> by the <code>UserName</code> attribute is deprecated. Instead, use the <code>GetUserId</code> API action.</p>
  * @example
@@ -40,10 +45,23 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * import { IdentitystoreClient, ListUsersCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, ListUsersCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = { // ListUsersRequest
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       AttributePath: "STRING_VALUE", // required
+ *       AttributeValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUsersCommandInput - {@link ListUsersCommandInput}
+ * @returns {@link ListUsersCommandOutput}
  * @see {@link ListUsersCommandInput} for command's `input` shape.
  * @see {@link ListUsersCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -82,6 +100,9 @@ export class ListUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,12 +140,18 @@ export class ListUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUsersCommand(input, context);
+    return se_ListUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsersCommandOutput> {
-    return deserializeAws_json1_1ListUsersCommand(output, context);
+    return de_ListUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

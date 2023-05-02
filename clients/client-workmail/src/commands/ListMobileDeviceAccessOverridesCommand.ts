@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListMobileDeviceAccessOverridesRequest, ListMobileDeviceAccessOverridesResponse } from "../models/models_0";
 import {
-  ListMobileDeviceAccessOverridesRequest,
-  ListMobileDeviceAccessOverridesRequestFilterSensitiveLog,
-  ListMobileDeviceAccessOverridesResponse,
-  ListMobileDeviceAccessOverridesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMobileDeviceAccessOverridesCommand,
-  serializeAws_json1_1ListMobileDeviceAccessOverridesCommand,
+  de_ListMobileDeviceAccessOverridesCommand,
+  se_ListMobileDeviceAccessOverridesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMobileDeviceAccessOverridesCommand}.
  */
 export interface ListMobileDeviceAccessOverridesCommandInput extends ListMobileDeviceAccessOverridesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMobileDeviceAccessOverridesCommand}.
  */
 export interface ListMobileDeviceAccessOverridesCommandOutput
@@ -37,6 +36,7 @@ export interface ListMobileDeviceAccessOverridesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the mobile device access overrides for any given combination of WorkMail organization, user, or device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,19 @@ export interface ListMobileDeviceAccessOverridesCommandOutput
  * import { WorkMailClient, ListMobileDeviceAccessOverridesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListMobileDeviceAccessOverridesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ListMobileDeviceAccessOverridesRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE",
+ *   DeviceId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMobileDeviceAccessOverridesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMobileDeviceAccessOverridesCommandInput - {@link ListMobileDeviceAccessOverridesCommandInput}
+ * @returns {@link ListMobileDeviceAccessOverridesCommandOutput}
  * @see {@link ListMobileDeviceAccessOverridesCommandInput} for command's `input` shape.
  * @see {@link ListMobileDeviceAccessOverridesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -86,6 +95,9 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMobileDeviceAccessOverridesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +126,8 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMobileDeviceAccessOverridesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMobileDeviceAccessOverridesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +137,24 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListMobileDeviceAccessOverridesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMobileDeviceAccessOverridesCommand(input, context);
+    return se_ListMobileDeviceAccessOverridesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMobileDeviceAccessOverridesCommandOutput> {
-    return deserializeAws_json1_1ListMobileDeviceAccessOverridesCommand(output, context);
+    return de_ListMobileDeviceAccessOverridesCommand(output, context);
   }
 
   // Start section: command_body_extra

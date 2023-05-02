@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  CreateVirtualRouterInput,
-  CreateVirtualRouterInputFilterSensitiveLog,
-  CreateVirtualRouterOutput,
-  CreateVirtualRouterOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVirtualRouterCommand,
-  serializeAws_restJson1CreateVirtualRouterCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateVirtualRouterInput, CreateVirtualRouterOutput } from "../models/models_0";
+import { de_CreateVirtualRouterCommand, se_CreateVirtualRouterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVirtualRouterCommand}.
  */
 export interface CreateVirtualRouterCommandInput extends CreateVirtualRouterInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateVirtualRouterCommand}.
  */
 export interface CreateVirtualRouterCommandOutput extends CreateVirtualRouterOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a virtual router within a service mesh.</p>
  *          <p>Specify a <code>listener</code> for any inbound traffic that your virtual router
  *          receives. Create a virtual router for each protocol and port that you need to route.
@@ -48,10 +45,34 @@ export interface CreateVirtualRouterCommandOutput extends CreateVirtualRouterOut
  * import { AppMeshClient, CreateVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // CreateVirtualRouterInput
+ *   virtualRouterName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   spec: { // VirtualRouterSpec
+ *     listeners: [ // VirtualRouterListeners
+ *       { // VirtualRouterListener
+ *         portMapping: { // PortMapping
+ *           port: Number("int"), // required
+ *           protocol: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   tags: [ // TagList
+ *     { // TagRef
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new CreateVirtualRouterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVirtualRouterCommandInput - {@link CreateVirtualRouterCommandInput}
+ * @returns {@link CreateVirtualRouterCommandOutput}
  * @see {@link CreateVirtualRouterCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualRouterCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -104,6 +125,9 @@ export class CreateVirtualRouterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVirtualRouterCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +156,8 @@ export class CreateVirtualRouterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVirtualRouterInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVirtualRouterOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +167,18 @@ export class CreateVirtualRouterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVirtualRouterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVirtualRouterCommand(input, context);
+    return se_CreateVirtualRouterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1CreateVirtualRouterCommand(output, context);
+    return de_CreateVirtualRouterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  DeleteMemberInput,
-  DeleteMemberInputFilterSensitiveLog,
-  DeleteMemberOutput,
-  DeleteMemberOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMemberCommand,
-  serializeAws_restJson1DeleteMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMemberInput, DeleteMemberOutput } from "../models/models_0";
+import { de_DeleteMemberCommand, se_DeleteMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMemberCommand}.
  */
 export interface DeleteMemberCommandInput extends DeleteMemberInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMemberCommand}.
  */
 export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the Amazon Web Services account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last Amazon Web Services account, the network is deleted also.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -47,10 +44,16 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * import { ManagedBlockchainClient, DeleteMemberCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, DeleteMemberCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // DeleteMemberInput
+ *   NetworkId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMemberCommandInput - {@link DeleteMemberCommandInput}
+ * @returns {@link DeleteMemberCommandOutput}
  * @see {@link DeleteMemberCommandInput} for command's `input` shape.
  * @see {@link DeleteMemberCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -95,6 +98,9 @@ export class DeleteMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DeleteMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMemberInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMemberOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class DeleteMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMemberCommand(input, context);
+    return se_DeleteMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMemberCommandOutput> {
-    return deserializeAws_restJson1DeleteMemberCommand(output, context);
+    return de_DeleteMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  ListSignalingChannelsInput,
-  ListSignalingChannelsInputFilterSensitiveLog,
-  ListSignalingChannelsOutput,
-  ListSignalingChannelsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSignalingChannelsCommand,
-  serializeAws_restJson1ListSignalingChannelsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSignalingChannelsInput, ListSignalingChannelsOutput } from "../models/models_0";
+import { de_ListSignalingChannelsCommand, se_ListSignalingChannelsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSignalingChannelsCommand}.
  */
 export interface ListSignalingChannelsCommandInput extends ListSignalingChannelsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSignalingChannelsCommand}.
  */
 export interface ListSignalingChannelsCommandOutput extends ListSignalingChannelsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>ChannelInfo</code> objects. Each object describes a
  *             signaling channel. To retrieve only those channels that satisfy a specific condition,
  *             you can specify a <code>ChannelNameCondition</code>.</p>
@@ -44,10 +41,20 @@ export interface ListSignalingChannelsCommandOutput extends ListSignalingChannel
  * import { KinesisVideoClient, ListSignalingChannelsCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, ListSignalingChannelsCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // ListSignalingChannelsInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChannelNameCondition: { // ChannelNameCondition
+ *     ComparisonOperator: "BEGINS_WITH",
+ *     ComparisonValue: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListSignalingChannelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSignalingChannelsCommandInput - {@link ListSignalingChannelsCommandInput}
+ * @returns {@link ListSignalingChannelsCommandOutput}
  * @see {@link ListSignalingChannelsCommandInput} for command's `input` shape.
  * @see {@link ListSignalingChannelsCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListSignalingChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSignalingChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +119,8 @@ export class ListSignalingChannelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSignalingChannelsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSignalingChannelsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class ListSignalingChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSignalingChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSignalingChannelsCommand(input, context);
+    return se_ListSignalingChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSignalingChannelsCommandOutput> {
-    return deserializeAws_restJson1ListSignalingChannelsCommand(output, context);
+    return de_ListSignalingChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

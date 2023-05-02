@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ACMPCAServiceException as __BaseException } from "./ACMPCAServiceException";
 
 /**
+ * @public
  * <p>Defines the X.500 relative distinguished name (RDN).</p>
  */
 export interface CustomAttribute {
@@ -21,6 +22,7 @@ export interface CustomAttribute {
 }
 
 /**
+ * @public
  * <p>Contains information about the certificate subject. The <code>Subject</code> field in
  * 			the certificate identifies the entity that owns or controls the public key in the
  * 			certificate. The entity can be a user, computer, device, or service. The <code>Subject
@@ -124,6 +126,7 @@ export interface ASN1Subject {
 }
 
 /**
+ * @public
  * <p>Describes an Electronic Data Interchange (EDI) entity as described in as defined in
  * 				<a href="https://datatracker.ietf.org/doc/html/rfc5280">Subject Alternative
  * 				Name</a> in RFC 5280.</p>
@@ -141,6 +144,7 @@ export interface EdiPartyName {
 }
 
 /**
+ * @public
  * <p>Defines a custom ASN.1 X.400 <code>GeneralName</code> using an object identifier (OID)
  * 			and value. The OID must satisfy the regular expression shown below. For more
  * 			information, see NIST's definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier
@@ -159,6 +163,7 @@ export interface OtherName {
 }
 
 /**
+ * @public
  * <p>Describes an ASN.1 X.400 <code>GeneralName</code> as defined in <a href="https://datatracker.ietf.org/doc/html/rfc5280">RFC 5280</a>. Only one of
  * 			the following naming options should be provided. Providing more than one option results
  * 			in an <code>InvalidArgsException</code> error.</p>
@@ -210,13 +215,23 @@ export interface GeneralName {
   RegisteredId?: string;
 }
 
-export enum AccessMethodType {
-  CA_REPOSITORY = "CA_REPOSITORY",
-  RESOURCE_PKI_MANIFEST = "RESOURCE_PKI_MANIFEST",
-  RESOURCE_PKI_NOTIFY = "RESOURCE_PKI_NOTIFY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccessMethodType = {
+  CA_REPOSITORY: "CA_REPOSITORY",
+  RESOURCE_PKI_MANIFEST: "RESOURCE_PKI_MANIFEST",
+  RESOURCE_PKI_NOTIFY: "RESOURCE_PKI_NOTIFY",
+} as const;
 
 /**
+ * @public
+ */
+export type AccessMethodType = (typeof AccessMethodType)[keyof typeof AccessMethodType];
+
+/**
+ * @public
  * <p>Describes the type and format of extension access. Only one of
  * 				<code>CustomObjectIdentifier</code> or <code>AccessMethodType</code> may be
  * 			provided. Providing both results in <code>InvalidArgsException</code>.</p>
@@ -237,6 +252,7 @@ export interface AccessMethod {
 }
 
 /**
+ * @public
  * <p>Provides access information used by the <code>authorityInfoAccess</code> and
  * 				<code>subjectInfoAccess</code> extensions described in <a href="https://datatracker.ietf.org/doc/html/rfc5280">RFC 5280</a>.</p>
  */
@@ -253,6 +269,7 @@ export interface AccessDescription {
 }
 
 /**
+ * @public
  * <p>Defines one or more purposes for which the key contained in the certificate can be
  * 			used. Default value for each option is false.</p>
  */
@@ -304,6 +321,7 @@ export interface KeyUsage {
 }
 
 /**
+ * @public
  * <p>Describes the certificate extensions to be added to the certificate signing request
  * 			(CSR).</p>
  */
@@ -322,23 +340,42 @@ export interface CsrExtensions {
   SubjectInformationAccess?: AccessDescription[];
 }
 
-export enum KeyAlgorithm {
-  EC_prime256v1 = "EC_prime256v1",
-  EC_secp384r1 = "EC_secp384r1",
-  RSA_2048 = "RSA_2048",
-  RSA_4096 = "RSA_4096",
-}
-
-export enum SigningAlgorithm {
-  SHA256WITHECDSA = "SHA256WITHECDSA",
-  SHA256WITHRSA = "SHA256WITHRSA",
-  SHA384WITHECDSA = "SHA384WITHECDSA",
-  SHA384WITHRSA = "SHA384WITHRSA",
-  SHA512WITHECDSA = "SHA512WITHECDSA",
-  SHA512WITHRSA = "SHA512WITHRSA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const KeyAlgorithm = {
+  EC_prime256v1: "EC_prime256v1",
+  EC_secp384r1: "EC_secp384r1",
+  RSA_2048: "RSA_2048",
+  RSA_4096: "RSA_4096",
+} as const;
 
 /**
+ * @public
+ */
+export type KeyAlgorithm = (typeof KeyAlgorithm)[keyof typeof KeyAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const SigningAlgorithm = {
+  SHA256WITHECDSA: "SHA256WITHECDSA",
+  SHA256WITHRSA: "SHA256WITHRSA",
+  SHA384WITHECDSA: "SHA384WITHECDSA",
+  SHA384WITHRSA: "SHA384WITHRSA",
+  SHA512WITHECDSA: "SHA512WITHECDSA",
+  SHA512WITHRSA: "SHA512WITHRSA",
+} as const;
+
+/**
+ * @public
+ */
+export type SigningAlgorithm = (typeof SigningAlgorithm)[keyof typeof SigningAlgorithm];
+
+/**
+ * @public
  * <p>Contains configuration information for your private certificate authority (CA). This
  * 			includes information about the class of public key algorithm and the key pair that your
  * 			private CA creates when it issues a certificate. It also includes the signature
@@ -373,22 +410,50 @@ export interface CertificateAuthorityConfiguration {
   CsrExtensions?: CsrExtensions;
 }
 
-export enum CertificateAuthorityType {
-  ROOT = "ROOT",
-  SUBORDINATE = "SUBORDINATE",
-}
-
-export enum KeyStorageSecurityStandard {
-  FIPS_140_2_LEVEL_2_OR_HIGHER = "FIPS_140_2_LEVEL_2_OR_HIGHER",
-  FIPS_140_2_LEVEL_3_OR_HIGHER = "FIPS_140_2_LEVEL_3_OR_HIGHER",
-}
-
-export enum S3ObjectAcl {
-  BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
-  PUBLIC_READ = "PUBLIC_READ",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CertificateAuthorityType = {
+  ROOT: "ROOT",
+  SUBORDINATE: "SUBORDINATE",
+} as const;
 
 /**
+ * @public
+ */
+export type CertificateAuthorityType = (typeof CertificateAuthorityType)[keyof typeof CertificateAuthorityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyStorageSecurityStandard = {
+  FIPS_140_2_LEVEL_2_OR_HIGHER: "FIPS_140_2_LEVEL_2_OR_HIGHER",
+  FIPS_140_2_LEVEL_3_OR_HIGHER: "FIPS_140_2_LEVEL_3_OR_HIGHER",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyStorageSecurityStandard = (typeof KeyStorageSecurityStandard)[keyof typeof KeyStorageSecurityStandard];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3ObjectAcl = {
+  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
+  PUBLIC_READ: "PUBLIC_READ",
+} as const;
+
+/**
+ * @public
+ */
+export type S3ObjectAcl = (typeof S3ObjectAcl)[keyof typeof S3ObjectAcl];
+
+/**
+ * @public
  * <p>Contains configuration information for a certificate revocation list (CRL). Your
  * 			private certificate authority (CA) creates base CRLs. Delta CRLs are not supported. You
  * 			can enable CRLs for your new or an existing private CA by setting the <b>Enabled</b> parameter to <code>true</code>. Your private CA
@@ -563,6 +628,7 @@ export interface CrlConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains information to enable and configure Online Certificate Status Protocol (OCSP)
  * 			for validating certificate revocation status.</p>
  *          <p>When you revoke a certificate, OCSP responses may take up to 60 minutes
@@ -591,6 +657,7 @@ export interface OcspConfiguration {
 }
 
 /**
+ * @public
  * <p>Certificate revocation information used by the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a> actions. Your private certificate authority (CA)
  * 			can configure Online Certificate Status Protocol (OCSP) support and/or maintain a
  * 			certificate revocation list (CRL). OCSP returns validation information about
@@ -617,6 +684,7 @@ export interface RevocationConfiguration {
 }
 
 /**
+ * @public
  * <p>Tags are labels that you can use to identify and organize your private CAs. Each tag
  * 			consists of a key and an optional value. You can associate up to 50 tags with a private
  * 			CA. To add one or more tags to a private CA, call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html">TagCertificateAuthority</a>
@@ -634,11 +702,24 @@ export interface Tag {
   Value?: string;
 }
 
-export enum CertificateAuthorityUsageMode {
-  GENERAL_PURPOSE = "GENERAL_PURPOSE",
-  SHORT_LIVED_CERTIFICATE = "SHORT_LIVED_CERTIFICATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CertificateAuthorityUsageMode = {
+  GENERAL_PURPOSE: "GENERAL_PURPOSE",
+  SHORT_LIVED_CERTIFICATE: "SHORT_LIVED_CERTIFICATE",
+} as const;
 
+/**
+ * @public
+ */
+export type CertificateAuthorityUsageMode =
+  (typeof CertificateAuthorityUsageMode)[keyof typeof CertificateAuthorityUsageMode];
+
+/**
+ * @public
+ */
 export interface CreateCertificateAuthorityRequest {
   /**
    * <p>Name and bit size of the private key algorithm, the name of the signing algorithm, and
@@ -736,6 +817,9 @@ export interface CreateCertificateAuthorityRequest {
   UsageMode?: CertificateAuthorityUsageMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCertificateAuthorityResponse {
   /**
    * <p>If successful, the Amazon Resource Name (ARN) of the certificate authority (CA). This
@@ -749,6 +833,7 @@ export interface CreateCertificateAuthorityResponse {
 }
 
 /**
+ * @public
  * <p>One or more of the specified arguments was not valid.</p>
  */
 export class InvalidArgsException extends __BaseException {
@@ -768,6 +853,7 @@ export class InvalidArgsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource policy is invalid or is missing a required statement. For general
  * 			information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview of JSON Policies</a>.</p>
  */
@@ -788,6 +874,7 @@ export class InvalidPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The tag associated with the CA is not valid. The invalid argument is contained in the
  * 			message field.</p>
  */
@@ -808,6 +895,7 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine
  * 			the quota that was exceeded.</p>
  */
@@ -827,11 +915,23 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
-export enum AuditReportResponseFormat {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuditReportResponseFormat = {
+  CSV: "CSV",
+  JSON: "JSON",
+} as const;
 
+/**
+ * @public
+ */
+export type AuditReportResponseFormat = (typeof AuditReportResponseFormat)[keyof typeof AuditReportResponseFormat];
+
+/**
+ * @public
+ */
 export interface CreateCertificateAuthorityAuditReportRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the CA to be audited. This is of the form:</p>
@@ -852,6 +952,9 @@ export interface CreateCertificateAuthorityAuditReportRequest {
   AuditReportResponseFormat: AuditReportResponseFormat | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCertificateAuthorityAuditReportResponse {
   /**
    * <p>An alphanumeric string that contains a report identifier.</p>
@@ -866,6 +969,7 @@ export interface CreateCertificateAuthorityAuditReportResponse {
 }
 
 /**
+ * @public
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing
  * 			resource.</p>
  */
@@ -886,6 +990,7 @@ export class InvalidArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The state of the private CA does not allow this action to occur.</p>
  */
 export class InvalidStateException extends __BaseException {
@@ -905,6 +1010,7 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request has failed for an unspecified reason.</p>
  */
 export class RequestFailedException extends __BaseException {
@@ -924,6 +1030,7 @@ export class RequestFailedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request is already in progress.</p>
  */
 export class RequestInProgressException extends __BaseException {
@@ -943,6 +1050,7 @@ export class RequestInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  */
@@ -962,12 +1070,24 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
-export enum ActionType {
-  GetCertificate = "GetCertificate",
-  IssueCertificate = "IssueCertificate",
-  ListPermissions = "ListPermissions",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActionType = {
+  GetCertificate: "GetCertificate",
+  IssueCertificate: "IssueCertificate",
+  ListPermissions: "ListPermissions",
+} as const;
 
+/**
+ * @public
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+/**
+ * @public
+ */
 export interface CreatePermissionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the
@@ -999,6 +1119,7 @@ export interface CreatePermissionRequest {
 }
 
 /**
+ * @public
  * <p>The designated permission has already been given to the user.</p>
  */
 export class PermissionAlreadyExistsException extends __BaseException {
@@ -1018,6 +1139,7 @@ export class PermissionAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A previous update to your private CA is still ongoing.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -1036,6 +1158,9 @@ export class ConcurrentModificationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCertificateAuthorityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must have the following form: </p>
@@ -1053,6 +1178,9 @@ export interface DeleteCertificateAuthorityRequest {
   PermanentDeletionTimeInDays?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeletePermissionRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the private CA that issued the permissions. You
@@ -1077,6 +1205,9 @@ export interface DeletePermissionRequest {
   SourceAccount?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePolicyRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the private CA that will have its policy deleted.
@@ -1088,6 +1219,7 @@ export interface DeletePolicyRequest {
 }
 
 /**
+ * @public
  * <p>The current action was prevented because it would lock the caller out from performing
  * 			subsequent actions. Verify that the specified parameters would not result in the caller
  * 			being denied access to the resource. </p>
@@ -1108,6 +1240,9 @@ export class LockoutPreventedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificateAuthorityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
@@ -1119,23 +1254,42 @@ export interface DescribeCertificateAuthorityRequest {
   CertificateAuthorityArn: string | undefined;
 }
 
-export enum FailureReason {
-  OTHER = "OTHER",
-  REQUEST_TIMED_OUT = "REQUEST_TIMED_OUT",
-  UNSUPPORTED_ALGORITHM = "UNSUPPORTED_ALGORITHM",
-}
-
-export enum CertificateAuthorityStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  PENDING_CERTIFICATE = "PENDING_CERTIFICATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FailureReason = {
+  OTHER: "OTHER",
+  REQUEST_TIMED_OUT: "REQUEST_TIMED_OUT",
+  UNSUPPORTED_ALGORITHM: "UNSUPPORTED_ALGORITHM",
+} as const;
 
 /**
+ * @public
+ */
+export type FailureReason = (typeof FailureReason)[keyof typeof FailureReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const CertificateAuthorityStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  PENDING_CERTIFICATE: "PENDING_CERTIFICATE",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateAuthorityStatus = (typeof CertificateAuthorityStatus)[keyof typeof CertificateAuthorityStatus];
+
+/**
+ * @public
  * <p>Contains information about your private certificate authority (CA). Your private CA
  * 			can issue and revoke X.509 digital certificates. Digital certificates verify that the
  * 			entity named in the certificate <b>Subject</b> field owns or
@@ -1238,6 +1392,9 @@ export interface CertificateAuthority {
   UsageMode?: CertificateAuthorityUsageMode | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificateAuthorityResponse {
   /**
    * <p>A <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthority.html">CertificateAuthority</a> structure that contains information about your private
@@ -1246,6 +1403,9 @@ export interface DescribeCertificateAuthorityResponse {
   CertificateAuthority?: CertificateAuthority;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificateAuthorityAuditReportRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the private CA. This must be of the form:</p>
@@ -1262,12 +1422,24 @@ export interface DescribeCertificateAuthorityAuditReportRequest {
   AuditReportId: string | undefined;
 }
 
-export enum AuditReportStatus {
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuditReportStatus = {
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  SUCCESS: "SUCCESS",
+} as const;
 
+/**
+ * @public
+ */
+export type AuditReportStatus = (typeof AuditReportStatus)[keyof typeof AuditReportStatus];
+
+/**
+ * @public
+ */
 export interface DescribeCertificateAuthorityAuditReportResponse {
   /**
    * <p>Specifies whether report creation is in progress, has succeeded, or has failed.</p>
@@ -1291,6 +1463,9 @@ export interface DescribeCertificateAuthorityAuditReportResponse {
   CreatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetCertificateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
@@ -1312,6 +1487,9 @@ export interface GetCertificateRequest {
   CertificateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCertificateResponse {
   /**
    * <p>The base64 PEM-encoded certificate specified by the <code>CertificateArn</code>
@@ -1326,6 +1504,9 @@ export interface GetCertificateResponse {
   CertificateChain?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCertificateAuthorityCertificateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of your private CA. This is of the form:</p>
@@ -1337,6 +1518,9 @@ export interface GetCertificateAuthorityCertificateRequest {
   CertificateAuthorityArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCertificateAuthorityCertificateResponse {
   /**
    * <p>Base64-encoded certificate authority (CA) certificate.</p>
@@ -1352,6 +1536,9 @@ export interface GetCertificateAuthorityCertificateResponse {
   CertificateChain?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCertificateAuthorityCsrRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p>
@@ -1363,6 +1550,9 @@ export interface GetCertificateAuthorityCsrRequest {
   CertificateAuthorityArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCertificateAuthorityCsrResponse {
   /**
    * <p>The base64 PEM-encoded certificate signing request (CSR) for your private CA
@@ -1371,6 +1561,9 @@ export interface GetCertificateAuthorityCsrResponse {
   Csr?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPolicyRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the private CA that will have its policy
@@ -1381,6 +1574,9 @@ export interface GetPolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPolicyResponse {
   /**
    * <p>The policy attached to the private CA as a JSON document.</p>
@@ -1389,6 +1585,7 @@ export interface GetPolicyResponse {
 }
 
 /**
+ * @public
  * <p>The certificate authority certificate you are importing does not comply with
  * 			conditions specified in the certificate that signed it.</p>
  */
@@ -1408,6 +1605,9 @@ export class CertificateMismatchException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ImportCertificateAuthorityCertificateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
@@ -1436,6 +1636,7 @@ export interface ImportCertificateAuthorityCertificateRequest {
 }
 
 /**
+ * @public
  * <p>The request action cannot be performed or is prohibited.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -1455,6 +1656,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more fields in the certificate are invalid.</p>
  */
 export class MalformedCertificateException extends __BaseException {
@@ -1473,11 +1675,21 @@ export class MalformedCertificateException extends __BaseException {
   }
 }
 
-export enum PolicyQualifierId {
-  CPS = "CPS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PolicyQualifierId = {
+  CPS: "CPS",
+} as const;
 
 /**
+ * @public
+ */
+export type PolicyQualifierId = (typeof PolicyQualifierId)[keyof typeof PolicyQualifierId];
+
+/**
+ * @public
  * <p>Defines a <code>PolicyInformation</code> qualifier. Amazon Web Services Private CA supports the <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4">certification
  * 				practice statement (CPS) qualifier</a> defined in RFC 5280. </p>
  */
@@ -1490,6 +1702,7 @@ export interface Qualifier {
 }
 
 /**
+ * @public
  * <p>Modifies the <code>CertPolicyId</code> of a <code>PolicyInformation</code> object with
  * 			a qualifier. Amazon Web Services Private CA supports the certification practice statement (CPS)
  * 			qualifier.</p>
@@ -1508,6 +1721,7 @@ export interface PolicyQualifierInfo {
 }
 
 /**
+ * @public
  * <p>Defines the X.509 <code>CertificatePolicies</code> extension.</p>
  */
 export interface PolicyInformation {
@@ -1526,6 +1740,7 @@ export interface PolicyInformation {
 }
 
 /**
+ * @public
  * <p></p>
  *          <p>Specifies the X.509 extension information for a certificate.</p>
  *          <p>Extensions present in <code>CustomExtensions</code> follow the
@@ -1555,19 +1770,29 @@ export interface CustomExtension {
   Critical?: boolean;
 }
 
-export enum ExtendedKeyUsageType {
-  CERTIFICATE_TRANSPARENCY = "CERTIFICATE_TRANSPARENCY",
-  CLIENT_AUTH = "CLIENT_AUTH",
-  CODE_SIGNING = "CODE_SIGNING",
-  DOCUMENT_SIGNING = "DOCUMENT_SIGNING",
-  EMAIL_PROTECTION = "EMAIL_PROTECTION",
-  OCSP_SIGNING = "OCSP_SIGNING",
-  SERVER_AUTH = "SERVER_AUTH",
-  SMART_CARD_LOGIN = "SMART_CARD_LOGIN",
-  TIME_STAMPING = "TIME_STAMPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExtendedKeyUsageType = {
+  CERTIFICATE_TRANSPARENCY: "CERTIFICATE_TRANSPARENCY",
+  CLIENT_AUTH: "CLIENT_AUTH",
+  CODE_SIGNING: "CODE_SIGNING",
+  DOCUMENT_SIGNING: "DOCUMENT_SIGNING",
+  EMAIL_PROTECTION: "EMAIL_PROTECTION",
+  OCSP_SIGNING: "OCSP_SIGNING",
+  SERVER_AUTH: "SERVER_AUTH",
+  SMART_CARD_LOGIN: "SMART_CARD_LOGIN",
+  TIME_STAMPING: "TIME_STAMPING",
+} as const;
 
 /**
+ * @public
+ */
+export type ExtendedKeyUsageType = (typeof ExtendedKeyUsageType)[keyof typeof ExtendedKeyUsageType];
+
+/**
+ * @public
  * <p>Specifies additional purposes for which the certified public key may be used other
  * 			than basic purposes indicated in the <code>KeyUsage</code> extension.</p>
  */
@@ -1586,6 +1811,7 @@ export interface ExtendedKeyUsage {
 }
 
 /**
+ * @public
  * <p>Contains X.509 extension information for a certificate.</p>
  */
 export interface Extensions {
@@ -1632,6 +1858,7 @@ export interface Extensions {
 }
 
 /**
+ * @public
  * <p>Contains X.509 certificate information to be placed in an issued certificate. An
  * 				<code>APIPassthrough</code> or <code>APICSRPassthrough</code> template variant must
  * 			be selected, or else this parameter is ignored. </p>
@@ -1655,15 +1882,25 @@ export interface ApiPassthrough {
   Subject?: ASN1Subject;
 }
 
-export enum ValidityPeriodType {
-  ABSOLUTE = "ABSOLUTE",
-  DAYS = "DAYS",
-  END_DATE = "END_DATE",
-  MONTHS = "MONTHS",
-  YEARS = "YEARS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidityPeriodType = {
+  ABSOLUTE: "ABSOLUTE",
+  DAYS: "DAYS",
+  END_DATE: "END_DATE",
+  MONTHS: "MONTHS",
+  YEARS: "YEARS",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidityPeriodType = (typeof ValidityPeriodType)[keyof typeof ValidityPeriodType];
+
+/**
+ * @public
  * <p>Validity specifies the period of time during which a certificate is valid. Validity
  * 			can be expressed as an explicit date and time when the validity of a certificate starts
  * 			or expires, or as a span of time after issuance, stated in days, months, or years. For
@@ -1730,6 +1967,9 @@ export interface Validity {
   Type: ValidityPeriodType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface IssueCertificateRequest {
   /**
    * <p>Specifies X.509 certificate information to be included in the issued certificate. An
@@ -1842,6 +2082,9 @@ export interface IssueCertificateRequest {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface IssueCertificateResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the issued certificate and the certificate serial
@@ -1855,6 +2098,7 @@ export interface IssueCertificateResponse {
 }
 
 /**
+ * @public
  * <p>The certificate signing request is invalid.</p>
  */
 export class MalformedCSRException extends __BaseException {
@@ -1874,6 +2118,7 @@ export class MalformedCSRException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The token specified in the <code>NextToken</code> argument is not valid. Use the token
  * 			returned from your previous call to <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>.</p>
  */
@@ -1893,11 +2138,23 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
-export enum ResourceOwner {
-  OTHER_ACCOUNTS = "OTHER_ACCOUNTS",
-  SELF = "SELF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceOwner = {
+  OTHER_ACCOUNTS: "OTHER_ACCOUNTS",
+  SELF: "SELF",
+} as const;
 
+/**
+ * @public
+ */
+export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
+
+/**
+ * @public
+ */
 export interface ListCertificateAuthoritiesRequest {
   /**
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
@@ -1922,6 +2179,9 @@ export interface ListCertificateAuthoritiesRequest {
   ResourceOwner?: ResourceOwner | string;
 }
 
+/**
+ * @public
+ */
 export interface ListCertificateAuthoritiesResponse {
   /**
    * <p>Summary information about each certificate authority you have created.</p>
@@ -1935,6 +2195,9 @@ export interface ListCertificateAuthoritiesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionsRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by
@@ -1961,6 +2224,7 @@ export interface ListPermissionsRequest {
 }
 
 /**
+ * @public
  * <p>Permissions designate which private CA actions can be performed by an Amazon Web Services service or
  * 			entity. In order for ACM to automatically renew private certificates, you must give
  * 			the ACM service principal all available permissions (<code>IssueCertificate</code>,
@@ -2003,6 +2267,9 @@ export interface Permission {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionsResponse {
   /**
    * <p>Summary information about each permission assigned by the specified private CA,
@@ -2017,6 +2284,9 @@ export interface ListPermissionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p>
@@ -2043,6 +2313,9 @@ export interface ListTagsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsResponse {
   /**
    * <p>The tags associated with your private CA.</p>
@@ -2056,6 +2329,9 @@ export interface ListTagsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutPolicyRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the private CA to associate with the policy. The
@@ -2074,6 +2350,9 @@ export interface PutPolicyRequest {
   Policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestoreCertificateAuthorityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p>
@@ -2086,6 +2365,7 @@ export interface RestoreCertificateAuthorityRequest {
 }
 
 /**
+ * @public
  * <p>Your request has already been completed.</p>
  */
 export class RequestAlreadyProcessedException extends __BaseException {
@@ -2104,17 +2384,29 @@ export class RequestAlreadyProcessedException extends __BaseException {
   }
 }
 
-export enum RevocationReason {
-  AFFILIATION_CHANGED = "AFFILIATION_CHANGED",
-  A_A_COMPROMISE = "A_A_COMPROMISE",
-  CERTIFICATE_AUTHORITY_COMPROMISE = "CERTIFICATE_AUTHORITY_COMPROMISE",
-  CESSATION_OF_OPERATION = "CESSATION_OF_OPERATION",
-  KEY_COMPROMISE = "KEY_COMPROMISE",
-  PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN",
-  SUPERSEDED = "SUPERSEDED",
-  UNSPECIFIED = "UNSPECIFIED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RevocationReason = {
+  AFFILIATION_CHANGED: "AFFILIATION_CHANGED",
+  A_A_COMPROMISE: "A_A_COMPROMISE",
+  CERTIFICATE_AUTHORITY_COMPROMISE: "CERTIFICATE_AUTHORITY_COMPROMISE",
+  CESSATION_OF_OPERATION: "CESSATION_OF_OPERATION",
+  KEY_COMPROMISE: "KEY_COMPROMISE",
+  PRIVILEGE_WITHDRAWN: "PRIVILEGE_WITHDRAWN",
+  SUPERSEDED: "SUPERSEDED",
+  UNSPECIFIED: "UNSPECIFIED",
+} as const;
 
+/**
+ * @public
+ */
+export type RevocationReason = (typeof RevocationReason)[keyof typeof RevocationReason];
+
+/**
+ * @public
+ */
 export interface RevokeCertificateRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to be
@@ -2147,6 +2439,9 @@ export interface RevokeCertificateRequest {
   RevocationReason: RevocationReason | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagCertificateAuthorityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
@@ -2164,6 +2459,7 @@ export interface TagCertificateAuthorityRequest {
 }
 
 /**
+ * @public
  * <p>You can associate up to 50 tags with a private CA. Exception information is contained
  * 			in the exception message field.</p>
  */
@@ -2183,6 +2479,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagCertificateAuthorityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
@@ -2199,6 +2498,9 @@ export interface UntagCertificateAuthorityRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCertificateAuthorityRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to be
@@ -2247,434 +2549,3 @@ export interface UpdateCertificateAuthorityRequest {
    */
   Status?: CertificateAuthorityStatus | string;
 }
-
-/**
- * @internal
- */
-export const CustomAttributeFilterSensitiveLog = (obj: CustomAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ASN1SubjectFilterSensitiveLog = (obj: ASN1Subject): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdiPartyNameFilterSensitiveLog = (obj: EdiPartyName): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OtherNameFilterSensitiveLog = (obj: OtherName): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeneralNameFilterSensitiveLog = (obj: GeneralName): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessMethodFilterSensitiveLog = (obj: AccessMethod): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessDescriptionFilterSensitiveLog = (obj: AccessDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyUsageFilterSensitiveLog = (obj: KeyUsage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CsrExtensionsFilterSensitiveLog = (obj: CsrExtensions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificateAuthorityConfigurationFilterSensitiveLog = (obj: CertificateAuthorityConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrlConfigurationFilterSensitiveLog = (obj: CrlConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OcspConfigurationFilterSensitiveLog = (obj: OcspConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevocationConfigurationFilterSensitiveLog = (obj: RevocationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCertificateAuthorityRequestFilterSensitiveLog = (obj: CreateCertificateAuthorityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCertificateAuthorityResponseFilterSensitiveLog = (obj: CreateCertificateAuthorityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCertificateAuthorityAuditReportRequestFilterSensitiveLog = (
-  obj: CreateCertificateAuthorityAuditReportRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCertificateAuthorityAuditReportResponseFilterSensitiveLog = (
-  obj: CreateCertificateAuthorityAuditReportResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePermissionRequestFilterSensitiveLog = (obj: CreatePermissionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCertificateAuthorityRequestFilterSensitiveLog = (obj: DeleteCertificateAuthorityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePermissionRequestFilterSensitiveLog = (obj: DeletePermissionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePolicyRequestFilterSensitiveLog = (obj: DeletePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCertificateAuthorityRequestFilterSensitiveLog = (
-  obj: DescribeCertificateAuthorityRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificateAuthorityFilterSensitiveLog = (obj: CertificateAuthority): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCertificateAuthorityResponseFilterSensitiveLog = (
-  obj: DescribeCertificateAuthorityResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCertificateAuthorityAuditReportRequestFilterSensitiveLog = (
-  obj: DescribeCertificateAuthorityAuditReportRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCertificateAuthorityAuditReportResponseFilterSensitiveLog = (
-  obj: DescribeCertificateAuthorityAuditReportResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCertificateRequestFilterSensitiveLog = (obj: GetCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCertificateResponseFilterSensitiveLog = (obj: GetCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCertificateAuthorityCertificateRequestFilterSensitiveLog = (
-  obj: GetCertificateAuthorityCertificateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCertificateAuthorityCertificateResponseFilterSensitiveLog = (
-  obj: GetCertificateAuthorityCertificateResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCertificateAuthorityCsrRequestFilterSensitiveLog = (obj: GetCertificateAuthorityCsrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCertificateAuthorityCsrResponseFilterSensitiveLog = (obj: GetCertificateAuthorityCsrResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPolicyResponseFilterSensitiveLog = (obj: GetPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportCertificateAuthorityCertificateRequestFilterSensitiveLog = (
-  obj: ImportCertificateAuthorityCertificateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QualifierFilterSensitiveLog = (obj: Qualifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyQualifierInfoFilterSensitiveLog = (obj: PolicyQualifierInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyInformationFilterSensitiveLog = (obj: PolicyInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomExtensionFilterSensitiveLog = (obj: CustomExtension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtendedKeyUsageFilterSensitiveLog = (obj: ExtendedKeyUsage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtensionsFilterSensitiveLog = (obj: Extensions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApiPassthroughFilterSensitiveLog = (obj: ApiPassthrough): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidityFilterSensitiveLog = (obj: Validity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IssueCertificateRequestFilterSensitiveLog = (obj: IssueCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IssueCertificateResponseFilterSensitiveLog = (obj: IssueCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCertificateAuthoritiesRequestFilterSensitiveLog = (obj: ListCertificateAuthoritiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCertificateAuthoritiesResponseFilterSensitiveLog = (obj: ListCertificateAuthoritiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPermissionsRequestFilterSensitiveLog = (obj: ListPermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PermissionFilterSensitiveLog = (obj: Permission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPermissionsResponseFilterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutPolicyRequestFilterSensitiveLog = (obj: PutPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreCertificateAuthorityRequestFilterSensitiveLog = (obj: RestoreCertificateAuthorityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeCertificateRequestFilterSensitiveLog = (obj: RevokeCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagCertificateAuthorityRequestFilterSensitiveLog = (obj: TagCertificateAuthorityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagCertificateAuthorityRequestFilterSensitiveLog = (obj: UntagCertificateAuthorityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCertificateAuthorityRequestFilterSensitiveLog = (obj: UpdateCertificateAuthorityRequest): any => ({
-  ...obj,
-});

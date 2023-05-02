@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  ListCampaignsRequest,
-  ListCampaignsRequestFilterSensitiveLog,
-  ListCampaignsResponse,
-  ListCampaignsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListCampaignsCommand,
-  serializeAws_json1_0ListCampaignsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListCampaignsRequest, ListCampaignsResponse } from "../models/models_0";
+import { de_ListCampaignsCommand, se_ListCampaignsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListCampaignsCommand}.
  */
 export interface ListCampaignsCommandInput extends ListCampaignsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCampaignsCommand}.
  */
 export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists information about created campaigns. </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -45,10 +42,17 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * import { IoTFleetWiseClient, ListCampaignsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListCampaignsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // ListCampaignsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   status: "STRING_VALUE",
+ * };
  * const command = new ListCampaignsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCampaignsCommandInput - {@link ListCampaignsCommandInput}
+ * @returns {@link ListCampaignsCommandOutput}
  * @see {@link ListCampaignsCommandInput} for command's `input` shape.
  * @see {@link ListCampaignsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -84,6 +88,9 @@ export class ListCampaignsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCampaignsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class ListCampaignsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCampaignsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCampaignsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class ListCampaignsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCampaignsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListCampaignsCommand(input, context);
+    return se_ListCampaignsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCampaignsCommandOutput> {
-    return deserializeAws_json1_0ListCampaignsCommand(output, context);
+    return de_ListCampaignsCommand(output, context);
   }
 
   // Start section: command_body_extra

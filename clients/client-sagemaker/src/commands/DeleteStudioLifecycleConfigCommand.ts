@@ -13,26 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteStudioLifecycleConfigRequest,
-  DeleteStudioLifecycleConfigRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteStudioLifecycleConfigCommand,
-  serializeAws_json1_1DeleteStudioLifecycleConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteStudioLifecycleConfigRequest } from "../models/models_1";
+import { de_DeleteStudioLifecycleConfigCommand, se_DeleteStudioLifecycleConfigCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStudioLifecycleConfigCommand}.
  */
 export interface DeleteStudioLifecycleConfigCommandInput extends DeleteStudioLifecycleConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStudioLifecycleConfigCommand}.
  */
 export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the Studio Lifecycle Configuration. In order to delete the Lifecycle Configuration, there must be no running apps using the Lifecycle Configuration. You must also remove the Lifecycle Configuration from UserSettings in all Domains and UserProfiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +39,15 @@ export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBear
  * import { SageMakerClient, DeleteStudioLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteStudioLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteStudioLifecycleConfigRequest
+ *   StudioLifecycleConfigName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStudioLifecycleConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStudioLifecycleConfigCommandInput - {@link DeleteStudioLifecycleConfigCommandInput}
+ * @returns {@link DeleteStudioLifecycleConfigCommandOutput}
  * @see {@link DeleteStudioLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +77,9 @@ export class DeleteStudioLifecycleConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStudioLifecycleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +108,8 @@ export class DeleteStudioLifecycleConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStudioLifecycleConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,15 +119,21 @@ export class DeleteStudioLifecycleConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStudioLifecycleConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStudioLifecycleConfigCommand(input, context);
+    return se_DeleteStudioLifecycleConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteStudioLifecycleConfigCommandOutput> {
-    return deserializeAws_json1_1DeleteStudioLifecycleConfigCommand(output, context);
+    return de_DeleteStudioLifecycleConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

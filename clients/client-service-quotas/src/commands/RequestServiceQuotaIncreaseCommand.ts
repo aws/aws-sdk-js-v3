@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RequestServiceQuotaIncreaseRequest,
-  RequestServiceQuotaIncreaseRequestFilterSensitiveLog,
-  RequestServiceQuotaIncreaseResponse,
-  RequestServiceQuotaIncreaseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RequestServiceQuotaIncreaseCommand,
-  serializeAws_json1_1RequestServiceQuotaIncreaseCommand,
-} from "../protocols/Aws_json1_1";
+import { RequestServiceQuotaIncreaseRequest, RequestServiceQuotaIncreaseResponse } from "../models/models_0";
+import { de_RequestServiceQuotaIncreaseCommand, se_RequestServiceQuotaIncreaseCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link RequestServiceQuotaIncreaseCommand}.
  */
 export interface RequestServiceQuotaIncreaseCommandInput extends RequestServiceQuotaIncreaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link RequestServiceQuotaIncreaseCommand}.
  */
 export interface RequestServiceQuotaIncreaseCommandOutput
@@ -37,6 +33,7 @@ export interface RequestServiceQuotaIncreaseCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits a quota increase request for the specified quota.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,17 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  * import { ServiceQuotasClient, RequestServiceQuotaIncreaseCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, RequestServiceQuotaIncreaseCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = { // RequestServiceQuotaIncreaseRequest
+ *   ServiceCode: "STRING_VALUE", // required
+ *   QuotaCode: "STRING_VALUE", // required
+ *   DesiredValue: Number("double"), // required
+ * };
  * const command = new RequestServiceQuotaIncreaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestServiceQuotaIncreaseCommandInput - {@link RequestServiceQuotaIncreaseCommandInput}
+ * @returns {@link RequestServiceQuotaIncreaseCommandOutput}
  * @see {@link RequestServiceQuotaIncreaseCommandInput} for command's `input` shape.
  * @see {@link RequestServiceQuotaIncreaseCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -100,6 +104,9 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestServiceQuotaIncreaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +135,8 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RequestServiceQuotaIncreaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RequestServiceQuotaIncreaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +146,21 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestServiceQuotaIncreaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RequestServiceQuotaIncreaseCommand(input, context);
+    return se_RequestServiceQuotaIncreaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RequestServiceQuotaIncreaseCommandOutput> {
-    return deserializeAws_json1_1RequestServiceQuotaIncreaseCommand(output, context);
+    return de_RequestServiceQuotaIncreaseCommand(output, context);
   }
 
   // Start section: command_body_extra

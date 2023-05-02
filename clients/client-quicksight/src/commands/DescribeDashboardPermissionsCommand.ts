@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeDashboardPermissionsRequest, DescribeDashboardPermissionsResponse } from "../models/models_2";
 import {
-  DescribeDashboardPermissionsRequest,
-  DescribeDashboardPermissionsRequestFilterSensitiveLog,
-  DescribeDashboardPermissionsResponse,
-  DescribeDashboardPermissionsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeDashboardPermissionsCommand,
-  serializeAws_restJson1DescribeDashboardPermissionsCommand,
+  de_DescribeDashboardPermissionsCommand,
+  se_DescribeDashboardPermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDashboardPermissionsCommand}.
  */
 export interface DescribeDashboardPermissionsCommandInput extends DescribeDashboardPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDashboardPermissionsCommand}.
  */
 export interface DescribeDashboardPermissionsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeDashboardPermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes read and write permissions for a dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DescribeDashboardPermissionsCommandOutput
  * import { QuickSightClient, DescribeDashboardPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeDashboardPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeDashboardPermissionsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DashboardId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDashboardPermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDashboardPermissionsCommandInput - {@link DescribeDashboardPermissionsCommandInput}
+ * @returns {@link DescribeDashboardPermissionsCommandOutput}
  * @see {@link DescribeDashboardPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDashboardPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -89,6 +95,9 @@ export class DescribeDashboardPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDashboardPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +126,8 @@ export class DescribeDashboardPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDashboardPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDashboardPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +137,21 @@ export class DescribeDashboardPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDashboardPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDashboardPermissionsCommand(input, context);
+    return se_DescribeDashboardPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDashboardPermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeDashboardPermissionsCommand(output, context);
+    return de_DescribeDashboardPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

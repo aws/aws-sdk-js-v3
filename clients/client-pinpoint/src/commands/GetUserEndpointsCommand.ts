@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetUserEndpointsRequest,
-  GetUserEndpointsRequestFilterSensitiveLog,
-  GetUserEndpointsResponse,
-  GetUserEndpointsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetUserEndpointsRequest, GetUserEndpointsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetUserEndpointsCommand,
-  serializeAws_restJson1GetUserEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUserEndpointsCommand, se_GetUserEndpointsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserEndpointsCommand}.
  */
 export interface GetUserEndpointsCommandInput extends GetUserEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserEndpointsCommand}.
  */
 export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about all the endpoints that are associated with a specific user ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse,
  * import { PinpointClient, GetUserEndpointsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetUserEndpointsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetUserEndpointsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ * };
  * const command = new GetUserEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserEndpointsCommandInput - {@link GetUserEndpointsCommandInput}
+ * @returns {@link GetUserEndpointsCommandOutput}
  * @see {@link GetUserEndpointsCommandInput} for command's `input` shape.
  * @see {@link GetUserEndpointsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +93,9 @@ export class GetUserEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class GetUserEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class GetUserEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUserEndpointsCommand(input, context);
+    return se_GetUserEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserEndpointsCommandOutput> {
-    return deserializeAws_restJson1GetUserEndpointsCommand(output, context);
+    return de_GetUserEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

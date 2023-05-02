@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  ListIndicesRequest,
-  ListIndicesRequestFilterSensitiveLog,
-  ListIndicesResponse,
-  ListIndicesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListIndicesCommand,
-  serializeAws_json1_1ListIndicesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListIndicesRequest, ListIndicesResponse } from "../models/models_0";
+import { de_ListIndicesCommand, se_ListIndicesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIndicesCommand}.
  */
 export interface ListIndicesCommandInput extends ListIndicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIndicesCommand}.
  */
 export interface ListIndicesCommandOutput extends ListIndicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon Kendra indexes that you created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * import { KendraClient, ListIndicesCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListIndicesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // ListIndicesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListIndicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIndicesCommandInput - {@link ListIndicesCommandInput}
+ * @returns {@link ListIndicesCommandOutput}
  * @see {@link ListIndicesCommandInput} for command's `input` shape.
  * @see {@link ListIndicesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -56,7 +59,7 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. Please reduce the number of requests
@@ -85,6 +88,9 @@ export class ListIndicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIndicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class ListIndicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIndicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIndicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class ListIndicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIndicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListIndicesCommand(input, context);
+    return se_ListIndicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIndicesCommandOutput> {
-    return deserializeAws_json1_1ListIndicesCommand(output, context);
+    return de_ListIndicesCommand(output, context);
   }
 
   // Start section: command_body_extra

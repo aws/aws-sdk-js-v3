@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  UpdateVodSourceRequest,
-  UpdateVodSourceRequestFilterSensitiveLog,
-  UpdateVodSourceResponse,
-  UpdateVodSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateVodSourceCommand,
-  serializeAws_restJson1UpdateVodSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateVodSourceRequest, UpdateVodSourceResponse } from "../models/models_0";
+import { de_UpdateVodSourceCommand, se_UpdateVodSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVodSourceCommand}.
  */
 export interface UpdateVodSourceCommandInput extends UpdateVodSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVodSourceCommand}.
  */
 export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a VOD source's configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, _
  * import { MediaTailorClient, UpdateVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, UpdateVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // UpdateVodSourceRequest
+ *   HttpPackageConfigurations: [ // HttpPackageConfigurations // required
+ *     { // HttpPackageConfiguration
+ *       Path: "STRING_VALUE", // required
+ *       SourceGroup: "STRING_VALUE", // required
+ *       Type: "DASH" || "HLS", // required
+ *     },
+ *   ],
+ *   SourceLocationName: "STRING_VALUE", // required
+ *   VodSourceName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateVodSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVodSourceCommandInput - {@link UpdateVodSourceCommandInput}
+ * @returns {@link UpdateVodSourceCommandOutput}
  * @see {@link UpdateVodSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +79,9 @@ export class UpdateVodSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVodSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +110,8 @@ export class UpdateVodSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVodSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVodSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +121,18 @@ export class UpdateVodSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVodSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVodSourceCommand(input, context);
+    return se_UpdateVodSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVodSourceCommandOutput> {
-    return deserializeAws_restJson1UpdateVodSourceCommand(output, context);
+    return de_UpdateVodSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

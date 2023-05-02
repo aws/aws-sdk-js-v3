@@ -20,21 +20,23 @@ import {
   CreateNetworkResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1CreateNetworkCommand,
-  serializeAws_restJson1CreateNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateNetworkCommand, se_CreateNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNetworkCommand}.
  */
 export interface CreateNetworkCommandInput extends CreateNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNetworkCommand}.
  */
 export interface CreateNetworkCommandOutput extends CreateNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,20 @@ export interface CreateNetworkCommandOutput extends CreateNetworkResponse, __Met
  * import { PrivateNetworksClient, CreateNetworkCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, CreateNetworkCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // CreateNetworkRequest
+ *   networkName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateNetworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkCommandInput - {@link CreateNetworkCommandInput}
+ * @returns {@link CreateNetworkCommandOutput}
  * @see {@link CreateNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -78,6 +90,9 @@ export class CreateNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,12 +130,18 @@ export class CreateNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNetworkCommand(input, context);
+    return se_CreateNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkCommandOutput> {
-    return deserializeAws_restJson1CreateNetworkCommand(output, context);
+    return de_CreateNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

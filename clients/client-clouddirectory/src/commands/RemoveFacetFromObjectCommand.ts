@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  RemoveFacetFromObjectRequest,
-  RemoveFacetFromObjectRequestFilterSensitiveLog,
-  RemoveFacetFromObjectResponse,
-  RemoveFacetFromObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveFacetFromObjectCommand,
-  serializeAws_restJson1RemoveFacetFromObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveFacetFromObjectRequest, RemoveFacetFromObjectResponse } from "../models/models_0";
+import { de_RemoveFacetFromObjectCommand, se_RemoveFacetFromObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveFacetFromObjectCommand}.
  */
 export interface RemoveFacetFromObjectCommandInput extends RemoveFacetFromObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveFacetFromObjectCommand}.
  */
 export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified facet from the specified object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  * import { CloudDirectoryClient, RemoveFacetFromObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, RemoveFacetFromObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // RemoveFacetFromObjectRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   SchemaFacet: { // SchemaFacet
+ *     SchemaArn: "STRING_VALUE",
+ *     FacetName: "STRING_VALUE",
+ *   },
+ *   ObjectReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ * };
  * const command = new RemoveFacetFromObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveFacetFromObjectCommandInput - {@link RemoveFacetFromObjectCommandInput}
+ * @returns {@link RemoveFacetFromObjectCommandOutput}
  * @see {@link RemoveFacetFromObjectCommandInput} for command's `input` shape.
  * @see {@link RemoveFacetFromObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +107,9 @@ export class RemoveFacetFromObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveFacetFromObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +138,8 @@ export class RemoveFacetFromObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveFacetFromObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveFacetFromObjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +149,18 @@ export class RemoveFacetFromObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveFacetFromObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveFacetFromObjectCommand(input, context);
+    return se_RemoveFacetFromObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFacetFromObjectCommandOutput> {
-    return deserializeAws_restJson1RemoveFacetFromObjectCommand(output, context);
+    return de_RemoveFacetFromObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

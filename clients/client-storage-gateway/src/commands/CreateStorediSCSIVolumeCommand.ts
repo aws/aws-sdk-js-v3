@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateStorediSCSIVolumeInput,
-  CreateStorediSCSIVolumeInputFilterSensitiveLog,
-  CreateStorediSCSIVolumeOutput,
-  CreateStorediSCSIVolumeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateStorediSCSIVolumeCommand,
-  serializeAws_json1_1CreateStorediSCSIVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateStorediSCSIVolumeInput, CreateStorediSCSIVolumeOutput } from "../models/models_0";
+import { de_CreateStorediSCSIVolumeCommand, se_CreateStorediSCSIVolumeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStorediSCSIVolumeCommand}.
  */
 export interface CreateStorediSCSIVolumeCommandInput extends CreateStorediSCSIVolumeInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStorediSCSIVolumeCommand}.
  */
 export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIVolumeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a volume on a specified gateway. This operation is only supported in the stored
  *          volume gateway type.</p>
  *
@@ -53,10 +50,28 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  * import { StorageGatewayClient, CreateStorediSCSIVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateStorediSCSIVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // CreateStorediSCSIVolumeInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   DiskId: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE",
+ *   PreserveExistingData: true || false, // required
+ *   TargetName: "STRING_VALUE", // required
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   KMSEncrypted: true || false,
+ *   KMSKey: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateStorediSCSIVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStorediSCSIVolumeCommandInput - {@link CreateStorediSCSIVolumeCommandInput}
+ * @returns {@link CreateStorediSCSIVolumeCommandOutput}
  * @see {@link CreateStorediSCSIVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateStorediSCSIVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -111,6 +126,9 @@ export class CreateStorediSCSIVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStorediSCSIVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +157,8 @@ export class CreateStorediSCSIVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStorediSCSIVolumeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStorediSCSIVolumeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +168,18 @@ export class CreateStorediSCSIVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStorediSCSIVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStorediSCSIVolumeCommand(input, context);
+    return se_CreateStorediSCSIVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStorediSCSIVolumeCommandOutput> {
-    return deserializeAws_json1_1CreateStorediSCSIVolumeCommand(output, context);
+    return de_CreateStorediSCSIVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

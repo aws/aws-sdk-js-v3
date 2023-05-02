@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateQuickConnectConfigRequest, UpdateQuickConnectConfigRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateQuickConnectConfigCommand,
-  serializeAws_restJson1UpdateQuickConnectConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateQuickConnectConfigRequest } from "../models/models_1";
+import { de_UpdateQuickConnectConfigCommand, se_UpdateQuickConnectConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQuickConnectConfigCommand}.
  */
 export interface UpdateQuickConnectConfigCommandInput extends UpdateQuickConnectConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQuickConnectConfigCommand}.
  */
 export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration settings for the specified quick connect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,30 @@ export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer 
  * import { ConnectClient, UpdateQuickConnectConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQuickConnectConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateQuickConnectConfigRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   QuickConnectId: "STRING_VALUE", // required
+ *   QuickConnectConfig: { // QuickConnectConfig
+ *     QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER", // required
+ *     UserConfig: { // UserQuickConnectConfig
+ *       UserId: "STRING_VALUE", // required
+ *       ContactFlowId: "STRING_VALUE", // required
+ *     },
+ *     QueueConfig: { // QueueQuickConnectConfig
+ *       QueueId: "STRING_VALUE", // required
+ *       ContactFlowId: "STRING_VALUE", // required
+ *     },
+ *     PhoneConfig: { // PhoneNumberQuickConnectConfig
+ *       PhoneNumber: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateQuickConnectConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQuickConnectConfigCommandInput - {@link UpdateQuickConnectConfigCommandInput}
+ * @returns {@link UpdateQuickConnectConfigCommandOutput}
  * @see {@link UpdateQuickConnectConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateQuickConnectConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -79,6 +101,9 @@ export class UpdateQuickConnectConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQuickConnectConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +132,8 @@ export class UpdateQuickConnectConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQuickConnectConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +143,18 @@ export class UpdateQuickConnectConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQuickConnectConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateQuickConnectConfigCommand(input, context);
+    return se_UpdateQuickConnectConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQuickConnectConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateQuickConnectConfigCommand(output, context);
+    return de_UpdateQuickConnectConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

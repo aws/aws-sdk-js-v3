@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DeleteRemediationConfigurationRequest, DeleteRemediationConfigurationResponse } from "../models/models_0";
 import {
-  DeleteRemediationConfigurationRequest,
-  DeleteRemediationConfigurationRequestFilterSensitiveLog,
-  DeleteRemediationConfigurationResponse,
-  DeleteRemediationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRemediationConfigurationCommand,
-  serializeAws_json1_1DeleteRemediationConfigurationCommand,
+  de_DeleteRemediationConfigurationCommand,
+  se_DeleteRemediationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRemediationConfigurationCommand}.
  */
 export interface DeleteRemediationConfigurationCommandInput extends DeleteRemediationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRemediationConfigurationCommand}.
  */
 export interface DeleteRemediationConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteRemediationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the remediation configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DeleteRemediationConfigurationCommandOutput
  * import { ConfigServiceClient, DeleteRemediationConfigurationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteRemediationConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeleteRemediationConfigurationRequest
+ *   ConfigRuleName: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE",
+ * };
  * const command = new DeleteRemediationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRemediationConfigurationCommandInput - {@link DeleteRemediationConfigurationCommandInput}
+ * @returns {@link DeleteRemediationConfigurationCommandOutput}
  * @see {@link DeleteRemediationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRemediationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -106,6 +112,9 @@ export class DeleteRemediationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRemediationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +143,8 @@ export class DeleteRemediationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRemediationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRemediationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +154,24 @@ export class DeleteRemediationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteRemediationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRemediationConfigurationCommand(input, context);
+    return se_DeleteRemediationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRemediationConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteRemediationConfigurationCommand(output, context);
+    return de_DeleteRemediationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,26 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeOperatingSystemsResponse,
-  DescribeOperatingSystemsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeOperatingSystemsResponse } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeOperatingSystemsCommand,
-  serializeAws_json1_1DescribeOperatingSystemsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeOperatingSystemsCommand, se_DescribeOperatingSystemsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOperatingSystemsCommand}.
  */
 export interface DescribeOperatingSystemsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOperatingSystemsCommand}.
  */
 export interface DescribeOperatingSystemsCommandOutput extends DescribeOperatingSystemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the operating systems that are supported by AWS OpsWorks Stacks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +39,13 @@ export interface DescribeOperatingSystemsCommandOutput extends DescribeOperating
  * import { OpsWorksClient, DescribeOperatingSystemsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeOperatingSystemsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {};
  * const command = new DescribeOperatingSystemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOperatingSystemsCommandInput - {@link DescribeOperatingSystemsCommandInput}
+ * @returns {@link DescribeOperatingSystemsCommandOutput}
  * @see {@link DescribeOperatingSystemsCommandInput} for command's `input` shape.
  * @see {@link DescribeOperatingSystemsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -67,6 +69,9 @@ export class DescribeOperatingSystemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOperatingSystemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +100,8 @@ export class DescribeOperatingSystemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeOperatingSystemsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +111,18 @@ export class DescribeOperatingSystemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOperatingSystemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOperatingSystemsCommand(input, context);
+    return se_DescribeOperatingSystemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOperatingSystemsCommandOutput> {
-    return deserializeAws_json1_1DescribeOperatingSystemsCommand(output, context);
+    return de_DescribeOperatingSystemsCommand(output, context);
   }
 
   // Start section: command_body_extra

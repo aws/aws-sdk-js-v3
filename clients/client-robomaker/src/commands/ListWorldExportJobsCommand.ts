@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorldExportJobsRequest,
-  ListWorldExportJobsRequestFilterSensitiveLog,
-  ListWorldExportJobsResponse,
-  ListWorldExportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorldExportJobsCommand,
-  serializeAws_restJson1ListWorldExportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWorldExportJobsRequest, ListWorldExportJobsResponse } from "../models/models_0";
+import { de_ListWorldExportJobsCommand, se_ListWorldExportJobsCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorldExportJobsCommand}.
  */
 export interface ListWorldExportJobsCommandInput extends ListWorldExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorldExportJobsCommand}.
  */
 export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists world export jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsRes
  * import { RoboMakerClient, ListWorldExportJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListWorldExportJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // ListWorldExportJobsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListWorldExportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorldExportJobsCommandInput - {@link ListWorldExportJobsCommandInput}
+ * @returns {@link ListWorldExportJobsCommandOutput}
  * @see {@link ListWorldExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListWorldExportJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -79,6 +90,9 @@ export class ListWorldExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorldExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +121,8 @@ export class ListWorldExportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorldExportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorldExportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +132,18 @@ export class ListWorldExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorldExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorldExportJobsCommand(input, context);
+    return se_ListWorldExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorldExportJobsCommandOutput> {
-    return deserializeAws_restJson1ListWorldExportJobsCommand(output, context);
+    return de_ListWorldExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

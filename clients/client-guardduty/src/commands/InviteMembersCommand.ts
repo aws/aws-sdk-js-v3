@@ -14,40 +14,47 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  InviteMembersRequest,
-  InviteMembersRequestFilterSensitiveLog,
-  InviteMembersResponse,
-  InviteMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1InviteMembersCommand,
-  serializeAws_restJson1InviteMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { InviteMembersRequest, InviteMembersResponse } from "../models/models_0";
+import { de_InviteMembersCommand, se_InviteMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InviteMembersCommand}.
  */
 export interface InviteMembersCommandInput extends InviteMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link InviteMembersCommand}.
  */
 export interface InviteMembersCommandOutput extends InviteMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Invites other Amazon Web Services accounts (created as members of the current Amazon Web Services account by
- *       CreateMembers) to enable GuardDuty, and allow the current Amazon Web Services account to view and manage these
- *       accounts' findings on their behalf as the GuardDuty administrator account.</p>
+ *       CreateMembers) to enable GuardDuty, and allow the current Amazon Web Services account to view and manage
+ *       these accounts' findings on their behalf as the GuardDuty administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, InviteMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, InviteMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // InviteMembersRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   AccountIds: [ // AccountIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DisableEmailNotification: true || false,
+ *   Message: "STRING_VALUE",
+ * };
  * const command = new InviteMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InviteMembersCommandInput - {@link InviteMembersCommandInput}
+ * @returns {@link InviteMembersCommandOutput}
  * @see {@link InviteMembersCommandInput} for command's `input` shape.
  * @see {@link InviteMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +84,9 @@ export class InviteMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InviteMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +113,8 @@ export class InviteMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InviteMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InviteMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +124,18 @@ export class InviteMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InviteMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InviteMembersCommand(input, context);
+    return se_InviteMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InviteMembersCommandOutput> {
-    return deserializeAws_restJson1InviteMembersCommand(output, context);
+    return de_InviteMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

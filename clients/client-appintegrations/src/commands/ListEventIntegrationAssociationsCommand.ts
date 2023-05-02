@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
+import { ListEventIntegrationAssociationsRequest, ListEventIntegrationAssociationsResponse } from "../models/models_0";
 import {
-  ListEventIntegrationAssociationsRequest,
-  ListEventIntegrationAssociationsRequestFilterSensitiveLog,
-  ListEventIntegrationAssociationsResponse,
-  ListEventIntegrationAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEventIntegrationAssociationsCommand,
-  serializeAws_restJson1ListEventIntegrationAssociationsCommand,
+  de_ListEventIntegrationAssociationsCommand,
+  se_ListEventIntegrationAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventIntegrationAssociationsCommand}.
  */
 export interface ListEventIntegrationAssociationsCommandInput extends ListEventIntegrationAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventIntegrationAssociationsCommand}.
  */
 export interface ListEventIntegrationAssociationsCommandOutput
@@ -37,6 +36,7 @@ export interface ListEventIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of event integration associations in the account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface ListEventIntegrationAssociationsCommandOutput
  * import { AppIntegrationsClient, ListEventIntegrationAssociationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, ListEventIntegrationAssociationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = { // ListEventIntegrationAssociationsRequest
+ *   EventIntegrationName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEventIntegrationAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventIntegrationAssociationsCommandInput - {@link ListEventIntegrationAssociationsCommandInput}
+ * @returns {@link ListEventIntegrationAssociationsCommandOutput}
  * @see {@link ListEventIntegrationAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListEventIntegrationAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListEventIntegrationAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventIntegrationAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +124,8 @@ export class ListEventIntegrationAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventIntegrationAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventIntegrationAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +135,24 @@ export class ListEventIntegrationAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListEventIntegrationAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEventIntegrationAssociationsCommand(input, context);
+    return se_ListEventIntegrationAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEventIntegrationAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListEventIntegrationAssociationsCommand(output, context);
+    return de_ListEventIntegrationAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

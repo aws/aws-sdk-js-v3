@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { UpdateDatasourcePackagesRequest, UpdateDatasourcePackagesRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDatasourcePackagesCommand,
-  serializeAws_restJson1UpdateDatasourcePackagesCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDatasourcePackagesRequest } from "../models/models_0";
+import { de_UpdateDatasourcePackagesCommand, se_UpdateDatasourcePackagesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDatasourcePackagesCommand}.
  */
 export interface UpdateDatasourcePackagesCommandInput extends UpdateDatasourcePackagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDatasourcePackagesCommand}.
  */
 export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a data source packages for the behavior graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,18 @@ export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer 
  * import { DetectiveClient, UpdateDatasourcePackagesCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, UpdateDatasourcePackagesCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // UpdateDatasourcePackagesRequest
+ *   GraphArn: "STRING_VALUE", // required
+ *   DatasourcePackages: [ // DatasourcePackageList // required
+ *     "DETECTIVE_CORE" || "EKS_AUDIT",
+ *   ],
+ * };
  * const command = new UpdateDatasourcePackagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatasourcePackagesCommandInput - {@link UpdateDatasourcePackagesCommandInput}
+ * @returns {@link UpdateDatasourcePackagesCommandOutput}
  * @see {@link UpdateDatasourcePackagesCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasourcePackagesCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -95,6 +105,9 @@ export class UpdateDatasourcePackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatasourcePackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +136,8 @@ export class UpdateDatasourcePackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatasourcePackagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +147,18 @@ export class UpdateDatasourcePackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatasourcePackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDatasourcePackagesCommand(input, context);
+    return se_UpdateDatasourcePackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasourcePackagesCommandOutput> {
-    return deserializeAws_restJson1UpdateDatasourcePackagesCommand(output, context);
+    return de_UpdateDatasourcePackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

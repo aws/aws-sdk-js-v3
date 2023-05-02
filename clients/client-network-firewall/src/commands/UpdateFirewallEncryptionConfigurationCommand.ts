@@ -15,22 +15,24 @@ import {
 
 import {
   UpdateFirewallEncryptionConfigurationRequest,
-  UpdateFirewallEncryptionConfigurationRequestFilterSensitiveLog,
   UpdateFirewallEncryptionConfigurationResponse,
-  UpdateFirewallEncryptionConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
-  deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand,
-  serializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand,
+  de_UpdateFirewallEncryptionConfigurationCommand,
+  se_UpdateFirewallEncryptionConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallEncryptionConfigurationCommand}.
  */
 export interface UpdateFirewallEncryptionConfigurationCommandInput
   extends UpdateFirewallEncryptionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallEncryptionConfigurationCommand}.
  */
 export interface UpdateFirewallEncryptionConfigurationCommandOutput
@@ -38,6 +40,7 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>A complex type that contains settings for encryption of your firewall resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,21 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput
  * import { NetworkFirewallClient, UpdateFirewallEncryptionConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateFirewallEncryptionConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // UpdateFirewallEncryptionConfigurationRequest
+ *   UpdateToken: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     KeyId: "STRING_VALUE",
+ *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ *   },
+ * };
  * const command = new UpdateFirewallEncryptionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallEncryptionConfigurationCommandInput - {@link UpdateFirewallEncryptionConfigurationCommandInput}
+ * @returns {@link UpdateFirewallEncryptionConfigurationCommandOutput}
  * @see {@link UpdateFirewallEncryptionConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallEncryptionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -104,6 +118,9 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallEncryptionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +149,8 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallEncryptionConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallEncryptionConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,18 +160,24 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateFirewallEncryptionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand(input, context);
+    return se_UpdateFirewallEncryptionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFirewallEncryptionConfigurationCommandOutput> {
-    return deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand(output, context);
+    return de_UpdateFirewallEncryptionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DisassociateIamInstanceProfileRequest, DisassociateIamInstanceProfileResult } from "../models/models_5";
 import {
-  DisassociateIamInstanceProfileRequest,
-  DisassociateIamInstanceProfileRequestFilterSensitiveLog,
-  DisassociateIamInstanceProfileResult,
-  DisassociateIamInstanceProfileResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2DisassociateIamInstanceProfileCommand,
-  serializeAws_ec2DisassociateIamInstanceProfileCommand,
+  de_DisassociateIamInstanceProfileCommand,
+  se_DisassociateIamInstanceProfileCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateIamInstanceProfileCommand}.
  */
 export interface DisassociateIamInstanceProfileCommandInput extends DisassociateIamInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateIamInstanceProfileCommand}.
  */
 export interface DisassociateIamInstanceProfileCommandOutput
@@ -37,6 +36,7 @@ export interface DisassociateIamInstanceProfileCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>
  *          <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
  *             ID.</p>
@@ -46,10 +46,15 @@ export interface DisassociateIamInstanceProfileCommandOutput
  * import { EC2Client, DisassociateIamInstanceProfileCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateIamInstanceProfileCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisassociateIamInstanceProfileRequest
+ *   AssociationId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateIamInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateIamInstanceProfileCommandInput - {@link DisassociateIamInstanceProfileCommandInput}
+ * @returns {@link DisassociateIamInstanceProfileCommandOutput}
  * @see {@link DisassociateIamInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link DisassociateIamInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -97,6 +102,9 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateIamInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +133,8 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateIamInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateIamInstanceProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +144,24 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateIamInstanceProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateIamInstanceProfileCommand(input, context);
+    return se_DisassociateIamInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateIamInstanceProfileCommandOutput> {
-    return deserializeAws_ec2DisassociateIamInstanceProfileCommand(output, context);
+    return de_DisassociateIamInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

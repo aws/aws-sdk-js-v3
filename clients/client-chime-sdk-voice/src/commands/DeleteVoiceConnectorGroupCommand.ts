@@ -14,24 +14,72 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import {
-  DeleteVoiceConnectorGroupRequest,
-  DeleteVoiceConnectorGroupRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVoiceConnectorGroupCommand,
-  serializeAws_restJson1DeleteVoiceConnectorGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVoiceConnectorGroupRequest } from "../models/models_0";
+import { de_DeleteVoiceConnectorGroupCommand, se_DeleteVoiceConnectorGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceConnectorGroupCommand}.
  */
 export interface DeleteVoiceConnectorGroupCommandInput extends DeleteVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceConnectorGroupCommand}.
  */
 export interface DeleteVoiceConnectorGroupCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Deletes an Amazon Chime SDK Voice Connector group. Any <code>VoiceConnectorItems</code>
+ *          and phone numbers associated with the group must be removed before it can be
+ *          deleted.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, DeleteVoiceConnectorGroupCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, DeleteVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // DeleteVoiceConnectorGroupRequest
+ *   VoiceConnectorGroupId: "STRING_VALUE", // required
+ * };
+ * const command = new DeleteVoiceConnectorGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param DeleteVoiceConnectorGroupCommandInput - {@link DeleteVoiceConnectorGroupCommandInput}
+ * @returns {@link DeleteVoiceConnectorGroupCommandOutput}
+ * @see {@link DeleteVoiceConnectorGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteVoiceConnectorGroupCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Multiple instances of the same request were made simultaneously.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class DeleteVoiceConnectorGroupCommand extends $Command<
   DeleteVoiceConnectorGroupCommandInput,
   DeleteVoiceConnectorGroupCommandOutput,
@@ -49,6 +97,9 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,8 +128,8 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVoiceConnectorGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,15 +139,21 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVoiceConnectorGroupCommand(input, context);
+    return se_DeleteVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteVoiceConnectorGroupCommand(output, context);
+    return de_DeleteVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

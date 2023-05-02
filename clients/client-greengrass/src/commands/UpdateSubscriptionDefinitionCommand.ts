@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { UpdateSubscriptionDefinitionRequest, UpdateSubscriptionDefinitionResponse } from "../models/models_0";
 import {
-  UpdateSubscriptionDefinitionRequest,
-  UpdateSubscriptionDefinitionRequestFilterSensitiveLog,
-  UpdateSubscriptionDefinitionResponse,
-  UpdateSubscriptionDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSubscriptionDefinitionCommand,
-  serializeAws_restJson1UpdateSubscriptionDefinitionCommand,
+  de_UpdateSubscriptionDefinitionCommand,
+  se_UpdateSubscriptionDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSubscriptionDefinitionCommand}.
  */
 export interface UpdateSubscriptionDefinitionCommandInput extends UpdateSubscriptionDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSubscriptionDefinitionCommand}.
  */
 export interface UpdateSubscriptionDefinitionCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateSubscriptionDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Updates a subscription definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface UpdateSubscriptionDefinitionCommandOutput
  * import { GreengrassClient, UpdateSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // UpdateSubscriptionDefinitionRequest
+ *   Name: "STRING_VALUE",
+ *   SubscriptionDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSubscriptionDefinitionCommandInput - {@link UpdateSubscriptionDefinitionCommandInput}
+ * @returns {@link UpdateSubscriptionDefinitionCommandOutput}
  * @see {@link UpdateSubscriptionDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriptionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +80,9 @@ export class UpdateSubscriptionDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSubscriptionDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +111,8 @@ export class UpdateSubscriptionDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSubscriptionDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubscriptionDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +122,21 @@ export class UpdateSubscriptionDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSubscriptionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSubscriptionDefinitionCommand(input, context);
+    return se_UpdateSubscriptionDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSubscriptionDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateSubscriptionDefinitionCommand(output, context);
+    return de_UpdateSubscriptionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

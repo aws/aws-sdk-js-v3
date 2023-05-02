@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { CreateMonitoringSubscriptionRequest, CreateMonitoringSubscriptionResult } from "../models/models_0";
 import {
-  CreateMonitoringSubscriptionRequest,
-  CreateMonitoringSubscriptionRequestFilterSensitiveLog,
-  CreateMonitoringSubscriptionResult,
-  CreateMonitoringSubscriptionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateMonitoringSubscriptionCommand,
-  serializeAws_restXmlCreateMonitoringSubscriptionCommand,
+  de_CreateMonitoringSubscriptionCommand,
+  se_CreateMonitoringSubscriptionCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMonitoringSubscriptionCommand}.
  */
 export interface CreateMonitoringSubscriptionCommandInput extends CreateMonitoringSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMonitoringSubscriptionCommand}.
  */
 export interface CreateMonitoringSubscriptionCommandOutput
@@ -37,6 +36,7 @@ export interface CreateMonitoringSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables additional CloudWatch metrics for the specified CloudFront distribution. The
  * 			additional metrics incur an additional cost.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional">Viewing additional CloudFront distribution metrics</a> in
@@ -47,10 +47,20 @@ export interface CreateMonitoringSubscriptionCommandOutput
  * import { CloudFrontClient, CreateMonitoringSubscriptionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateMonitoringSubscriptionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreateMonitoringSubscriptionRequest
+ *   DistributionId: "STRING_VALUE", // required
+ *   MonitoringSubscription: { // MonitoringSubscription
+ *     RealtimeMetricsSubscriptionConfig: { // RealtimeMetricsSubscriptionConfig
+ *       RealtimeMetricsSubscriptionStatus: "Enabled" || "Disabled", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateMonitoringSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMonitoringSubscriptionCommandInput - {@link CreateMonitoringSubscriptionCommandInput}
+ * @returns {@link CreateMonitoringSubscriptionCommandOutput}
  * @see {@link CreateMonitoringSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateMonitoringSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -86,6 +96,9 @@ export class CreateMonitoringSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMonitoringSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +127,8 @@ export class CreateMonitoringSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMonitoringSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMonitoringSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +138,21 @@ export class CreateMonitoringSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMonitoringSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateMonitoringSubscriptionCommand(input, context);
+    return se_CreateMonitoringSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMonitoringSubscriptionCommandOutput> {
-    return deserializeAws_restXmlCreateMonitoringSubscriptionCommand(output, context);
+    return de_CreateMonitoringSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

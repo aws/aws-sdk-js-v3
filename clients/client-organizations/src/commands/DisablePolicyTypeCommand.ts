@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisablePolicyTypeRequest,
-  DisablePolicyTypeRequestFilterSensitiveLog,
-  DisablePolicyTypeResponse,
-  DisablePolicyTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisablePolicyTypeRequest, DisablePolicyTypeResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DisablePolicyTypeCommand,
-  serializeAws_json1_1DisablePolicyTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisablePolicyTypeCommand, se_DisablePolicyTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisablePolicyTypeCommand}.
  */
 export interface DisablePolicyTypeCommandInput extends DisablePolicyTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisablePolicyTypeCommand}.
  */
 export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables an organizational policy type in a root. A policy of a certain type can be
  *             attached to entities in a root only if that type is enabled in the root. After you
  *             perform this operation, you no longer can attach policies of the specified type to that
@@ -52,10 +49,16 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  * import { OrganizationsClient, DisablePolicyTypeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DisablePolicyTypeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // DisablePolicyTypeRequest
+ *   RootId: "STRING_VALUE", // required
+ *   PolicyType: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
+ * };
  * const command = new DisablePolicyTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisablePolicyTypeCommandInput - {@link DisablePolicyTypeCommandInput}
+ * @returns {@link DisablePolicyTypeCommandOutput}
  * @see {@link DisablePolicyTypeCommandInput} for command's `input` shape.
  * @see {@link DisablePolicyTypeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -445,6 +448,9 @@ export class DisablePolicyTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisablePolicyTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -473,8 +479,8 @@ export class DisablePolicyTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisablePolicyTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisablePolicyTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -484,12 +490,18 @@ export class DisablePolicyTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisablePolicyTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisablePolicyTypeCommand(input, context);
+    return se_DisablePolicyTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisablePolicyTypeCommandOutput> {
-    return deserializeAws_json1_1DisablePolicyTypeCommand(output, context);
+    return de_DisablePolicyTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSecretVersionStageRequest,
-  UpdateSecretVersionStageRequestFilterSensitiveLog,
-  UpdateSecretVersionStageResponse,
-  UpdateSecretVersionStageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSecretVersionStageCommand,
-  serializeAws_json1_1UpdateSecretVersionStageCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSecretVersionStageRequest, UpdateSecretVersionStageResponse } from "../models/models_0";
+import { de_UpdateSecretVersionStageCommand, se_UpdateSecretVersionStageCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecretVersionStageCommand}.
  */
 export interface UpdateSecretVersionStageCommandInput extends UpdateSecretVersionStageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecretVersionStageCommand}.
  */
 export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersionStageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the staging labels attached to a version of a secret. Secrets Manager uses staging labels to
  *       track a version as it progresses through the secret rotation process. Each staging label can be
  *       attached to only one version at a time. To add a staging label to a version when it is already
@@ -63,10 +60,18 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  * import { SecretsManagerClient, UpdateSecretVersionStageCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, UpdateSecretVersionStageCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // UpdateSecretVersionStageRequest
+ *   SecretId: "STRING_VALUE", // required
+ *   VersionStage: "STRING_VALUE", // required
+ *   RemoveFromVersionId: "STRING_VALUE",
+ *   MoveToVersionId: "STRING_VALUE",
+ * };
  * const command = new UpdateSecretVersionStageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecretVersionStageCommandInput - {@link UpdateSecretVersionStageCommandInput}
+ * @returns {@link UpdateSecretVersionStageCommandOutput}
  * @see {@link UpdateSecretVersionStageCommandInput} for command's `input` shape.
  * @see {@link UpdateSecretVersionStageCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -178,6 +183,9 @@ export class UpdateSecretVersionStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecretVersionStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -206,8 +214,8 @@ export class UpdateSecretVersionStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSecretVersionStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSecretVersionStageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -217,12 +225,18 @@ export class UpdateSecretVersionStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSecretVersionStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSecretVersionStageCommand(input, context);
+    return se_UpdateSecretVersionStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecretVersionStageCommandOutput> {
-    return deserializeAws_json1_1UpdateSecretVersionStageCommand(output, context);
+    return de_UpdateSecretVersionStageCommand(output, context);
   }
 
   // Start section: command_body_extra

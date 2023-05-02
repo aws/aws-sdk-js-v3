@@ -14,30 +14,35 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DetachLoadBalancersResultType,
-  DetachLoadBalancersResultTypeFilterSensitiveLog,
-  DetachLoadBalancersType,
-  DetachLoadBalancersTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDetachLoadBalancersCommand,
-  serializeAws_queryDetachLoadBalancersCommand,
-} from "../protocols/Aws_query";
+import { DetachLoadBalancersResultType, DetachLoadBalancersType } from "../models/models_0";
+import { de_DetachLoadBalancersCommand, se_DetachLoadBalancersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetachLoadBalancersCommand}.
  */
 export interface DetachLoadBalancersCommandInput extends DetachLoadBalancersType {}
 /**
+ * @public
+ *
  * The output of {@link DetachLoadBalancersCommand}.
  */
 export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersResultType, __MetadataBearer {}
 
 /**
- * <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
+ * @public
+ * <note>
+ *             <p>This API operation is superseded by <a>DetachTrafficSources</a>, which
+ *                 can detach multiple traffic sources types. We recommend using
+ *                     <code>DetachTrafficSources</code> to simplify how you manage traffic sources.
+ *                 However, we continue to support <code>DetachLoadBalancers</code>. You can use both
+ *                 the original <code>DetachLoadBalancers</code> API operation and
+ *                     <code>DetachTrafficSources</code> on the same Auto Scaling group.</p>
+ *          </note>
+ *          <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
  *          <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or
- *             Gateway Load Balancer, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p>
+ *             Gateway Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p>
  *          <p>When you detach a load balancer, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
  *             can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p>
@@ -47,10 +52,18 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  * import { AutoScalingClient, DetachLoadBalancersCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DetachLoadBalancersCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DetachLoadBalancersType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   LoadBalancerNames: [ // LoadBalancerNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DetachLoadBalancersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachLoadBalancersCommandInput - {@link DetachLoadBalancersCommandInput}
+ * @returns {@link DetachLoadBalancersCommandOutput}
  * @see {@link DetachLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DetachLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -92,6 +105,9 @@ export class DetachLoadBalancersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachLoadBalancersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +136,8 @@ export class DetachLoadBalancersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachLoadBalancersTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachLoadBalancersResultTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +147,18 @@ export class DetachLoadBalancersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetachLoadBalancersCommand(input, context);
+    return se_DetachLoadBalancersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachLoadBalancersCommandOutput> {
-    return deserializeAws_queryDetachLoadBalancersCommand(output, context);
+    return de_DetachLoadBalancersCommand(output, context);
   }
 
   // Start section: command_body_extra

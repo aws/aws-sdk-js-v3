@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  UpdateVirtualRouterInput,
-  UpdateVirtualRouterInputFilterSensitiveLog,
-  UpdateVirtualRouterOutput,
-  UpdateVirtualRouterOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateVirtualRouterCommand,
-  serializeAws_restJson1UpdateVirtualRouterCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateVirtualRouterInput, UpdateVirtualRouterOutput } from "../models/models_0";
+import { de_UpdateVirtualRouterCommand, se_UpdateVirtualRouterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVirtualRouterCommand}.
  */
 export interface UpdateVirtualRouterCommandInput extends UpdateVirtualRouterInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVirtualRouterCommand}.
  */
 export interface UpdateVirtualRouterCommandOutput extends UpdateVirtualRouterOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing virtual router in a specified service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface UpdateVirtualRouterCommandOutput extends UpdateVirtualRouterOut
  * import { AppMeshClient, UpdateVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // UpdateVirtualRouterInput
+ *   virtualRouterName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   spec: { // VirtualRouterSpec
+ *     listeners: [ // VirtualRouterListeners
+ *       { // VirtualRouterListener
+ *         portMapping: { // PortMapping
+ *           port: Number("int"), // required
+ *           protocol: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new UpdateVirtualRouterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVirtualRouterCommandInput - {@link UpdateVirtualRouterCommandInput}
+ * @returns {@link UpdateVirtualRouterCommandOutput}
  * @see {@link UpdateVirtualRouterCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualRouterCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -98,6 +113,9 @@ export class UpdateVirtualRouterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVirtualRouterCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +144,8 @@ export class UpdateVirtualRouterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVirtualRouterInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVirtualRouterOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +155,18 @@ export class UpdateVirtualRouterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVirtualRouterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVirtualRouterCommand(input, context);
+    return se_UpdateVirtualRouterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1UpdateVirtualRouterCommand(output, context);
+    return de_UpdateVirtualRouterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteUserRequest, DeleteUserRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryDeleteUserCommand, serializeAws_queryDeleteUserCommand } from "../protocols/Aws_query";
+import { DeleteUserRequest } from "../models/models_0";
+import { de_DeleteUserCommand, se_DeleteUserCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserCommand}.
  */
 export interface DeleteUserCommandInput extends DeleteUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserCommand}.
  */
 export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified IAM user. Unlike the Amazon Web Services Management Console, when you delete a user
  *             programmatically, you must delete the items attached to the user manually, or the
  *             deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli">Deleting an IAM
@@ -66,10 +71,15 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteUserRequest
+ *   UserName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
+ * @returns {@link DeleteUserCommandOutput}
  * @see {@link DeleteUserCommandInput} for command's `input` shape.
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -124,6 +134,9 @@ export class DeleteUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,8 +163,8 @@ export class DeleteUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -161,12 +174,18 @@ export class DeleteUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteUserCommand(input, context);
+    return se_DeleteUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserCommandOutput> {
-    return deserializeAws_queryDeleteUserCommand(output, context);
+    return de_DeleteUserCommand(output, context);
   }
 
   // Start section: command_body_extra

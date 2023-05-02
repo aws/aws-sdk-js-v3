@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  CreateCampaignRequest,
-  CreateCampaignRequestFilterSensitiveLog,
-  CreateCampaignResponse,
-  CreateCampaignResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateCampaignCommand,
-  serializeAws_json1_0CreateCampaignCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateCampaignRequest, CreateCampaignResponse } from "../models/models_0";
+import { de_CreateCampaignCommand, se_CreateCampaignCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCampaignCommand}.
  */
 export interface CreateCampaignCommandInput extends CreateCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCampaignCommand}.
  */
 export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an orchestration of data collection rules. The Amazon Web Services IoT FleetWise Edge Agent software
  *             running in vehicles uses campaigns to decide how to collect and transfer data to the
  *             cloud. You create campaigns in the cloud. After you or your team approve campaigns,
@@ -47,10 +44,52 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * import { IoTFleetWiseClient, CreateCampaignCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateCampaignCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // CreateCampaignRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   signalCatalogArn: "STRING_VALUE", // required
+ *   targetArn: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"),
+ *   expiryTime: new Date("TIMESTAMP"),
+ *   postTriggerCollectionDuration: Number("long"),
+ *   diagnosticsMode: "STRING_VALUE",
+ *   spoolingMode: "STRING_VALUE",
+ *   compression: "STRING_VALUE",
+ *   priority: Number("int"),
+ *   signalsToCollect: [ // SignalInformationList
+ *     { // SignalInformation
+ *       name: "STRING_VALUE", // required
+ *       maxSampleCount: Number("long"),
+ *       minimumSamplingIntervalMs: Number("long"),
+ *     },
+ *   ],
+ *   collectionScheme: { // CollectionScheme Union: only one key present
+ *     timeBasedCollectionScheme: { // TimeBasedCollectionScheme
+ *       periodMs: Number("long"), // required
+ *     },
+ *     conditionBasedCollectionScheme: { // ConditionBasedCollectionScheme
+ *       expression: "STRING_VALUE", // required
+ *       minimumTriggerIntervalMs: Number("long"),
+ *       triggerMode: "STRING_VALUE",
+ *       conditionLanguageVersion: Number("int"),
+ *     },
+ *   },
+ *   dataExtraDimensions: [ // DataExtraDimensionNodePathList
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCampaignCommandInput - {@link CreateCampaignCommandInput}
+ * @returns {@link CreateCampaignCommandOutput}
  * @see {@link CreateCampaignCommandInput} for command's `input` shape.
  * @see {@link CreateCampaignCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -96,6 +135,9 @@ export class CreateCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +166,8 @@ export class CreateCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCampaignResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +177,18 @@ export class CreateCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateCampaignCommand(input, context);
+    return se_CreateCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCampaignCommandOutput> {
-    return deserializeAws_json1_0CreateCampaignCommand(output, context);
+    return de_CreateCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

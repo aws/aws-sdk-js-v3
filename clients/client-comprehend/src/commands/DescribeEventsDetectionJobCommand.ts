@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DescribeEventsDetectionJobRequest,
-  DescribeEventsDetectionJobRequestFilterSensitiveLog,
-  DescribeEventsDetectionJobResponse,
-  DescribeEventsDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventsDetectionJobCommand,
-  serializeAws_json1_1DescribeEventsDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEventsDetectionJobRequest, DescribeEventsDetectionJobResponse } from "../models/models_0";
+import { de_DescribeEventsDetectionJobCommand, se_DescribeEventsDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventsDetectionJobCommand}.
  */
 export interface DescribeEventsDetectionJobCommandInput extends DescribeEventsDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventsDetectionJobCommand}.
  */
 export interface DescribeEventsDetectionJobCommandOutput extends DescribeEventsDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status and details of an events detection job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeEventsDetectionJobCommandOutput extends DescribeEventsD
  * import { ComprehendClient, DescribeEventsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeEventsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribeEventsDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEventsDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventsDetectionJobCommandInput - {@link DescribeEventsDetectionJobCommandInput}
+ * @returns {@link DescribeEventsDetectionJobCommandOutput}
  * @see {@link DescribeEventsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -81,6 +83,9 @@ export class DescribeEventsDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventsDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DescribeEventsDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventsDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventsDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +125,21 @@ export class DescribeEventsDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventsDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventsDetectionJobCommand(input, context);
+    return se_DescribeEventsDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventsDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeEventsDetectionJobCommand(output, context);
+    return de_DescribeEventsDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

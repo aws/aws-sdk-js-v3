@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import {
-  CreateThemeRequest,
-  CreateThemeRequestFilterSensitiveLog,
-  CreateThemeResponse,
-  CreateThemeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateThemeCommand,
-  serializeAws_restJson1CreateThemeCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateThemeRequest, CreateThemeResponse } from "../models/models_0";
+import { de_CreateThemeCommand, se_CreateThemeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateThemeCommand}.
  */
 export interface CreateThemeCommandInput extends CreateThemeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateThemeCommand}.
  */
 export interface CreateThemeCommandOutput extends CreateThemeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a theme to apply to the components in an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,41 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  * import { AmplifyUIBuilderClient, CreateThemeCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, CreateThemeCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = { // CreateThemeRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   themeToCreate: { // CreateThemeData
+ *     name: "STRING_VALUE", // required
+ *     values: [ // ThemeValuesList // required
+ *       { // ThemeValues
+ *         key: "STRING_VALUE",
+ *         value: { // ThemeValue
+ *           value: "STRING_VALUE",
+ *           children: [
+ *             {
+ *               key: "STRING_VALUE",
+ *               value: {
+ *                 value: "STRING_VALUE",
+ *                 children: "<ThemeValuesList>",
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     overrides: "<ThemeValuesList>",
+ *     tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateThemeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateThemeCommandInput - {@link CreateThemeCommandInput}
+ * @returns {@link CreateThemeCommandOutput}
  * @see {@link CreateThemeCommandInput} for command's `input` shape.
  * @see {@link CreateThemeCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -82,6 +110,9 @@ export class CreateThemeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateThemeCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +139,8 @@ export class CreateThemeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateThemeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateThemeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +150,18 @@ export class CreateThemeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateThemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateThemeCommand(input, context);
+    return se_CreateThemeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThemeCommandOutput> {
-    return deserializeAws_restJson1CreateThemeCommand(output, context);
+    return de_CreateThemeCommand(output, context);
   }
 
   // Start section: command_body_extra

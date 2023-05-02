@@ -16,21 +16,23 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   UpdateEventConfigurationByResourceTypesRequest,
-  UpdateEventConfigurationByResourceTypesRequestFilterSensitiveLog,
   UpdateEventConfigurationByResourceTypesResponse,
-  UpdateEventConfigurationByResourceTypesResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand,
-  serializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand,
+  de_UpdateEventConfigurationByResourceTypesCommand,
+  se_UpdateEventConfigurationByResourceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEventConfigurationByResourceTypesCommand}.
  */
 export interface UpdateEventConfigurationByResourceTypesCommandInput
   extends UpdateEventConfigurationByResourceTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEventConfigurationByResourceTypesCommand}.
  */
 export interface UpdateEventConfigurationByResourceTypesCommandOutput
@@ -38,6 +40,7 @@ export interface UpdateEventConfigurationByResourceTypesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the event configuration based on resource types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,39 @@ export interface UpdateEventConfigurationByResourceTypesCommandOutput
  * import { IoTWirelessClient, UpdateEventConfigurationByResourceTypesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateEventConfigurationByResourceTypesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // UpdateEventConfigurationByResourceTypesRequest
+ *   DeviceRegistrationState: { // DeviceRegistrationStateResourceTypeEventConfiguration
+ *     Sidewalk: { // SidewalkResourceTypeEventConfiguration
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   Proximity: { // ProximityResourceTypeEventConfiguration
+ *     Sidewalk: {
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   Join: { // JoinResourceTypeEventConfiguration
+ *     LoRaWAN: { // LoRaWANJoinResourceTypeEventConfiguration
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   ConnectionStatus: { // ConnectionStatusResourceTypeEventConfiguration
+ *     LoRaWAN: { // LoRaWANConnectionStatusResourceTypeEventConfiguration
+ *       WirelessGatewayEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   MessageDeliveryStatus: { // MessageDeliveryStatusResourceTypeEventConfiguration
+ *     Sidewalk: {
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ * };
  * const command = new UpdateEventConfigurationByResourceTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventConfigurationByResourceTypesCommandInput - {@link UpdateEventConfigurationByResourceTypesCommandInput}
+ * @returns {@link UpdateEventConfigurationByResourceTypesCommandOutput}
  * @see {@link UpdateEventConfigurationByResourceTypesCommandInput} for command's `input` shape.
  * @see {@link UpdateEventConfigurationByResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +116,9 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventConfigurationByResourceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +153,8 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEventConfigurationByResourceTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEventConfigurationByResourceTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +164,24 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateEventConfigurationByResourceTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand(input, context);
+    return se_UpdateEventConfigurationByResourceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEventConfigurationByResourceTypesCommandOutput> {
-    return deserializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand(output, context);
+    return de_UpdateEventConfigurationByResourceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

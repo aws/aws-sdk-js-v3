@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteForecastExportJobRequest, DeleteForecastExportJobRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteForecastExportJobCommand,
-  serializeAws_json1_1DeleteForecastExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteForecastExportJobRequest } from "../models/models_0";
+import { de_DeleteForecastExportJobCommand, se_DeleteForecastExportJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteForecastExportJobCommand}.
  */
 export interface DeleteForecastExportJobCommandInput extends DeleteForecastExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteForecastExportJobCommand}.
  */
 export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a forecast export job created using the <a>CreateForecastExportJob</a>
  *       operation. You can delete only export jobs that have a status of <code>ACTIVE</code> or
  *         <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeForecastExportJob</a> operation.</p>
@@ -39,10 +41,15 @@ export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {
  * import { ForecastClient, DeleteForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DeleteForecastExportJobRequest
+ *   ForecastExportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteForecastExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteForecastExportJobCommandInput - {@link DeleteForecastExportJobCommandInput}
+ * @returns {@link DeleteForecastExportJobCommandOutput}
  * @see {@link DeleteForecastExportJobCommandInput} for command's `input` shape.
  * @see {@link DeleteForecastExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteForecastExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteForecastExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +115,8 @@ export class DeleteForecastExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteForecastExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +126,18 @@ export class DeleteForecastExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteForecastExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteForecastExportJobCommand(input, context);
+    return se_DeleteForecastExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteForecastExportJobCommandOutput> {
-    return deserializeAws_json1_1DeleteForecastExportJobCommand(output, context);
+    return de_DeleteForecastExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOutpostsInput,
-  ListOutpostsInputFilterSensitiveLog,
-  ListOutpostsOutput,
-  ListOutpostsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListOutpostsInput, ListOutpostsOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1ListOutpostsCommand,
-  serializeAws_restJson1ListOutpostsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListOutpostsCommand, se_ListOutpostsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOutpostsCommand}.
  */
 export interface ListOutpostsCommandInput extends ListOutpostsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListOutpostsCommand}.
  */
 export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Outposts for your Amazon Web Services account.</p>
  *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  *  all of the specified filters. For a filter where you can specify multiple values, the results include
@@ -45,10 +42,25 @@ export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __Metadat
  * import { OutpostsClient, ListOutpostsCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListOutpostsCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // ListOutpostsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   LifeCycleStatusFilter: [ // LifeCycleStatusList
+ *     "STRING_VALUE",
+ *   ],
+ *   AvailabilityZoneFilter: [ // AvailabilityZoneList
+ *     "STRING_VALUE",
+ *   ],
+ *   AvailabilityZoneIdFilter: [ // AvailabilityZoneIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListOutpostsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOutpostsCommandInput - {@link ListOutpostsCommandInput}
+ * @returns {@link ListOutpostsCommandOutput}
  * @see {@link ListOutpostsCommandInput} for command's `input` shape.
  * @see {@link ListOutpostsCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -81,6 +93,9 @@ export class ListOutpostsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOutpostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +122,8 @@ export class ListOutpostsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOutpostsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOutpostsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +133,18 @@ export class ListOutpostsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOutpostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOutpostsCommand(input, context);
+    return se_ListOutpostsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOutpostsCommandOutput> {
-    return deserializeAws_restJson1ListOutpostsCommand(output, context);
+    return de_ListOutpostsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOutpostsWithS3Request,
-  ListOutpostsWithS3RequestFilterSensitiveLog,
-  ListOutpostsWithS3Result,
-  ListOutpostsWithS3ResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListOutpostsWithS3Command,
-  serializeAws_restJson1ListOutpostsWithS3Command,
-} from "../protocols/Aws_restJson1";
+import { ListOutpostsWithS3Request, ListOutpostsWithS3Result } from "../models/models_0";
+import { de_ListOutpostsWithS3Command, se_ListOutpostsWithS3Command } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOutpostsWithS3Command}.
  */
 export interface ListOutpostsWithS3CommandInput extends ListOutpostsWithS3Request {}
 /**
+ * @public
+ *
  * The output of {@link ListOutpostsWithS3Command}.
  */
 export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Result, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services account.
  *             Includes S3 on Outposts that you have access to as the Outposts owner, or as a shared user
  *             from Resource Access Manager (RAM). </p>
@@ -44,10 +41,16 @@ export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Resul
  * import { S3OutpostsClient, ListOutpostsWithS3Command } from "@aws-sdk/client-s3outposts"; // ES Modules import
  * // const { S3OutpostsClient, ListOutpostsWithS3Command } = require("@aws-sdk/client-s3outposts"); // CommonJS import
  * const client = new S3OutpostsClient(config);
+ * const input = { // ListOutpostsWithS3Request
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListOutpostsWithS3Command(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOutpostsWithS3CommandInput - {@link ListOutpostsWithS3CommandInput}
+ * @returns {@link ListOutpostsWithS3CommandOutput}
  * @see {@link ListOutpostsWithS3CommandInput} for command's `input` shape.
  * @see {@link ListOutpostsWithS3CommandOutput} for command's `response` shape.
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.
@@ -83,6 +86,9 @@ export class ListOutpostsWithS3Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOutpostsWithS3CommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class ListOutpostsWithS3Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOutpostsWithS3RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOutpostsWithS3ResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class ListOutpostsWithS3Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOutpostsWithS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOutpostsWithS3Command(input, context);
+    return se_ListOutpostsWithS3Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOutpostsWithS3CommandOutput> {
-    return deserializeAws_restJson1ListOutpostsWithS3Command(output, context);
+    return de_ListOutpostsWithS3Command(output, context);
   }
 
   // Start section: command_body_extra

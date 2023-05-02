@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateThingGroupsForThingRequest,
-  UpdateThingGroupsForThingRequestFilterSensitiveLog,
-  UpdateThingGroupsForThingResponse,
-  UpdateThingGroupsForThingResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateThingGroupsForThingCommand,
-  serializeAws_restJson1UpdateThingGroupsForThingCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateThingGroupsForThingRequest, UpdateThingGroupsForThingResponse } from "../models/models_2";
+import { de_UpdateThingGroupsForThingCommand, se_UpdateThingGroupsForThingCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateThingGroupsForThingCommand}.
  */
 export interface UpdateThingGroupsForThingCommandInput extends UpdateThingGroupsForThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateThingGroupsForThingCommand}.
  */
 export interface UpdateThingGroupsForThingCommandOutput extends UpdateThingGroupsForThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the groups to which the thing belongs.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThingGroupsForThing</a> action.</p>
  * @example
@@ -43,10 +40,22 @@ export interface UpdateThingGroupsForThingCommandOutput extends UpdateThingGroup
  * import { IoTClient, UpdateThingGroupsForThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateThingGroupsForThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateThingGroupsForThingRequest
+ *   thingName: "STRING_VALUE",
+ *   thingGroupsToAdd: [ // ThingGroupList
+ *     "STRING_VALUE",
+ *   ],
+ *   thingGroupsToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   overrideDynamicGroups: true || false,
+ * };
  * const command = new UpdateThingGroupsForThingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateThingGroupsForThingCommandInput - {@link UpdateThingGroupsForThingCommandInput}
+ * @returns {@link UpdateThingGroupsForThingCommandOutput}
  * @see {@link UpdateThingGroupsForThingCommandInput} for command's `input` shape.
  * @see {@link UpdateThingGroupsForThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +91,9 @@ export class UpdateThingGroupsForThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateThingGroupsForThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +122,8 @@ export class UpdateThingGroupsForThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateThingGroupsForThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateThingGroupsForThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +133,21 @@ export class UpdateThingGroupsForThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateThingGroupsForThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateThingGroupsForThingCommand(input, context);
+    return se_UpdateThingGroupsForThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateThingGroupsForThingCommandOutput> {
-    return deserializeAws_restJson1UpdateThingGroupsForThingCommand(output, context);
+    return de_UpdateThingGroupsForThingCommand(output, context);
   }
 
   // Start section: command_body_extra

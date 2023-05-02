@@ -19,22 +19,24 @@ import {
   UpdateUserResponse,
   UpdateUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateUserCommand,
-  serializeAws_restJson1UpdateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateUserCommand, se_UpdateUserCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserCommand}.
  */
 export interface UpdateUserCommandInput extends UpdateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserCommand}.
  */
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified attributes of the specified user, and grants or revokes
  *             administrative privileges to the Amazon WorkDocs site.</p>
  * @example
@@ -43,10 +45,26 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * import { WorkDocsClient, UpdateUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, UpdateUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // UpdateUserRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   UserId: "STRING_VALUE", // required
+ *   GivenName: "STRING_VALUE",
+ *   Surname: "STRING_VALUE",
+ *   Type: "USER" || "ADMIN" || "POWERUSER" || "MINIMALUSER" || "WORKSPACESUSER",
+ *   StorageRule: { // StorageRuleType
+ *     StorageAllocatedInBytes: Number("long"),
+ *     StorageType: "UNLIMITED" || "QUOTA",
+ *   },
+ *   TimeZoneId: "STRING_VALUE",
+ *   Locale: "en" || "fr" || "ko" || "de" || "es" || "ja" || "ru" || "zh_CN" || "zh_TW" || "pt_BR" || "default",
+ *   GrantPoweruserPrivileges: "TRUE" || "FALSE",
+ * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
+ * @returns {@link UpdateUserCommandOutput}
  * @see {@link UpdateUserCommandInput} for command's `input` shape.
  * @see {@link UpdateUserCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -99,6 +117,9 @@ export class UpdateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,12 +157,18 @@ export class UpdateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserCommand(input, context);
+    return se_UpdateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserCommandOutput> {
-    return deserializeAws_restJson1UpdateUserCommand(output, context);
+    return de_UpdateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

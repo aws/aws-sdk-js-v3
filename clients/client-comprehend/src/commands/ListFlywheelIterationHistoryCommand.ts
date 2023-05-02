@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { ListFlywheelIterationHistoryRequest, ListFlywheelIterationHistoryResponse } from "../models/models_0";
 import {
-  ListFlywheelIterationHistoryRequest,
-  ListFlywheelIterationHistoryRequestFilterSensitiveLog,
-  ListFlywheelIterationHistoryResponse,
-  ListFlywheelIterationHistoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFlywheelIterationHistoryCommand,
-  serializeAws_json1_1ListFlywheelIterationHistoryCommand,
+  de_ListFlywheelIterationHistoryCommand,
+  se_ListFlywheelIterationHistoryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFlywheelIterationHistoryCommand}.
  */
 export interface ListFlywheelIterationHistoryCommandInput extends ListFlywheelIterationHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFlywheelIterationHistoryCommand}.
  */
 export interface ListFlywheelIterationHistoryCommandOutput
@@ -37,6 +36,7 @@ export interface ListFlywheelIterationHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information about the history of a flywheel iteration.
  *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
@@ -46,10 +46,21 @@ export interface ListFlywheelIterationHistoryCommandOutput
  * import { ComprehendClient, ListFlywheelIterationHistoryCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListFlywheelIterationHistoryCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListFlywheelIterationHistoryRequest
+ *   FlywheelArn: "STRING_VALUE", // required
+ *   Filter: { // FlywheelIterationFilter
+ *     CreationTimeAfter: new Date("TIMESTAMP"),
+ *     CreationTimeBefore: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFlywheelIterationHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFlywheelIterationHistoryCommandInput - {@link ListFlywheelIterationHistoryCommandInput}
+ * @returns {@link ListFlywheelIterationHistoryCommandOutput}
  * @see {@link ListFlywheelIterationHistoryCommandInput} for command's `input` shape.
  * @see {@link ListFlywheelIterationHistoryCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -89,6 +100,9 @@ export class ListFlywheelIterationHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFlywheelIterationHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +131,8 @@ export class ListFlywheelIterationHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFlywheelIterationHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFlywheelIterationHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +142,21 @@ export class ListFlywheelIterationHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFlywheelIterationHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFlywheelIterationHistoryCommand(input, context);
+    return se_ListFlywheelIterationHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFlywheelIterationHistoryCommandOutput> {
-    return deserializeAws_json1_1ListFlywheelIterationHistoryCommand(output, context);
+    return de_ListFlywheelIterationHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

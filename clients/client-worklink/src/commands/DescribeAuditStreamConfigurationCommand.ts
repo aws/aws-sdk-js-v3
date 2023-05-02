@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeAuditStreamConfigurationRequest, DescribeAuditStreamConfigurationResponse } from "../models/models_0";
 import {
-  DescribeAuditStreamConfigurationRequest,
-  DescribeAuditStreamConfigurationRequestFilterSensitiveLog,
-  DescribeAuditStreamConfigurationResponse,
-  DescribeAuditStreamConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAuditStreamConfigurationCommand,
-  serializeAws_restJson1DescribeAuditStreamConfigurationCommand,
+  de_DescribeAuditStreamConfigurationCommand,
+  se_DescribeAuditStreamConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAuditStreamConfigurationCommand}.
  */
 export interface DescribeAuditStreamConfigurationCommandInput extends DescribeAuditStreamConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAuditStreamConfigurationCommand}.
  */
 export interface DescribeAuditStreamConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeAuditStreamConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Describes the configuration for delivering audit streams to the customer account.</p>
@@ -46,10 +46,15 @@ export interface DescribeAuditStreamConfigurationCommandOutput
  * import { WorkLinkClient, DescribeAuditStreamConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DescribeAuditStreamConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // DescribeAuditStreamConfigurationRequest
+ *   FleetArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAuditStreamConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAuditStreamConfigurationCommandInput - {@link DescribeAuditStreamConfigurationCommandInput}
+ * @returns {@link DescribeAuditStreamConfigurationCommandOutput}
  * @see {@link DescribeAuditStreamConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditStreamConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -88,6 +93,9 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAuditStreamConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +124,8 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAuditStreamConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAuditStreamConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +135,24 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAuditStreamConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAuditStreamConfigurationCommand(input, context);
+    return se_DescribeAuditStreamConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAuditStreamConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeAuditStreamConfigurationCommand(output, context);
+    return de_DescribeAuditStreamConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

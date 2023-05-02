@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  GetDestinationRequest,
-  GetDestinationRequestFilterSensitiveLog,
-  GetDestinationResponse,
-  GetDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDestinationCommand,
-  serializeAws_restJson1GetDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDestinationRequest, GetDestinationResponse } from "../models/models_0";
+import { de_GetDestinationCommand, se_GetDestinationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDestinationCommand}.
  */
 export interface GetDestinationCommandInput extends GetDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDestinationCommand}.
  */
 export interface GetDestinationCommandOutput extends GetDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  * import { IoTWirelessClient, GetDestinationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetDestinationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetDestinationRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDestinationCommandInput - {@link GetDestinationCommandInput}
+ * @returns {@link GetDestinationCommandOutput}
  * @see {@link GetDestinationCommandInput} for command's `input` shape.
  * @see {@link GetDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class GetDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class GetDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDestinationCommand(input, context);
+    return se_GetDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDestinationCommandOutput> {
-    return deserializeAws_restJson1GetDestinationCommand(output, context);
+    return de_GetDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

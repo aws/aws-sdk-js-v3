@@ -3,6 +3,9 @@ import { PaginationConfiguration } from "@aws-sdk/types";
 
 import { QuickSightClient } from "../QuickSightClient";
 
+/**
+ * @public
+ */
 export interface QuickSightPaginationConfiguration extends PaginationConfiguration {
   client: QuickSightClient;
 }

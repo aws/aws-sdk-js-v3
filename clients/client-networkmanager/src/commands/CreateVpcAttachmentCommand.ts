@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateVpcAttachmentRequest,
-  CreateVpcAttachmentRequestFilterSensitiveLog,
-  CreateVpcAttachmentResponse,
-  CreateVpcAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateVpcAttachmentRequest, CreateVpcAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1CreateVpcAttachmentCommand,
-  serializeAws_restJson1CreateVpcAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateVpcAttachmentCommand, se_CreateVpcAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcAttachmentCommand}.
  */
 export interface CreateVpcAttachmentCommandInput extends CreateVpcAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcAttachmentCommand}.
  */
 export interface CreateVpcAttachmentCommandOutput extends CreateVpcAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a VPC attachment on an edge location of a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,30 @@ export interface CreateVpcAttachmentCommandOutput extends CreateVpcAttachmentRes
  * import { NetworkManagerClient, CreateVpcAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateVpcAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // CreateVpcAttachmentRequest
+ *   CoreNetworkId: "STRING_VALUE", // required
+ *   VpcArn: "STRING_VALUE", // required
+ *   SubnetArns: [ // SubnetArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Options: { // VpcOptions
+ *     Ipv6Support: true || false,
+ *     ApplianceModeSupport: true || false,
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateVpcAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcAttachmentCommandInput - {@link CreateVpcAttachmentCommandInput}
+ * @returns {@link CreateVpcAttachmentCommandOutput}
  * @see {@link CreateVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +105,9 @@ export class CreateVpcAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +136,8 @@ export class CreateVpcAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +147,18 @@ export class CreateVpcAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVpcAttachmentCommand(input, context);
+    return se_CreateVpcAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcAttachmentCommandOutput> {
-    return deserializeAws_restJson1CreateVpcAttachmentCommand(output, context);
+    return de_CreateVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

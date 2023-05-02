@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateCrawlerScheduleRequest,
-  UpdateCrawlerScheduleRequestFilterSensitiveLog,
-  UpdateCrawlerScheduleResponse,
-  UpdateCrawlerScheduleResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateCrawlerScheduleCommand,
-  serializeAws_json1_1UpdateCrawlerScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateCrawlerScheduleRequest, UpdateCrawlerScheduleResponse } from "../models/models_2";
+import { de_UpdateCrawlerScheduleCommand, se_UpdateCrawlerScheduleCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCrawlerScheduleCommand}.
  */
 export interface UpdateCrawlerScheduleCommandInput extends UpdateCrawlerScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCrawlerScheduleCommand}.
  */
 export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the schedule of a crawler using a <code>cron</code> expression. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  * import { GlueClient, UpdateCrawlerScheduleCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateCrawlerScheduleCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateCrawlerScheduleRequest
+ *   CrawlerName: "STRING_VALUE", // required
+ *   Schedule: "STRING_VALUE",
+ * };
  * const command = new UpdateCrawlerScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCrawlerScheduleCommandInput - {@link UpdateCrawlerScheduleCommandInput}
+ * @returns {@link UpdateCrawlerScheduleCommandOutput}
  * @see {@link UpdateCrawlerScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateCrawlerScheduleCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +87,9 @@ export class UpdateCrawlerScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCrawlerScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class UpdateCrawlerScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCrawlerScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCrawlerScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class UpdateCrawlerScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCrawlerScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCrawlerScheduleCommand(input, context);
+    return se_UpdateCrawlerScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCrawlerScheduleCommandOutput> {
-    return deserializeAws_json1_1UpdateCrawlerScheduleCommand(output, context);
+    return de_UpdateCrawlerScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

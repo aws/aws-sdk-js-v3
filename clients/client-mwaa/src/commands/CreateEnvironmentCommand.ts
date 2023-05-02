@@ -17,24 +17,25 @@ import {
   CreateEnvironmentInput,
   CreateEnvironmentInputFilterSensitiveLog,
   CreateEnvironmentOutput,
-  CreateEnvironmentOutputFilterSensitiveLog,
 } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import {
-  deserializeAws_restJson1CreateEnvironmentCommand,
-  serializeAws_restJson1CreateEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateEnvironmentCommand, se_CreateEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEnvironmentCommand}.
  */
 export interface CreateEnvironmentCommandInput extends CreateEnvironmentInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateEnvironmentCommand}.
  */
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,68 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * import { MWAAClient, CreateEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, CreateEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
+ * const input = { // CreateEnvironmentInput
+ *   Name: "STRING_VALUE", // required
+ *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   SourceBucketArn: "STRING_VALUE", // required
+ *   DagS3Path: "STRING_VALUE", // required
+ *   NetworkConfiguration: { // NetworkConfiguration
+ *     SubnetIds: [ // SubnetList
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [ // SecurityGroupList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   PluginsS3Path: "STRING_VALUE",
+ *   PluginsS3ObjectVersion: "STRING_VALUE",
+ *   RequirementsS3Path: "STRING_VALUE",
+ *   RequirementsS3ObjectVersion: "STRING_VALUE",
+ *   StartupScriptS3Path: "STRING_VALUE",
+ *   StartupScriptS3ObjectVersion: "STRING_VALUE",
+ *   AirflowConfigurationOptions: { // AirflowConfigurationOptions
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   EnvironmentClass: "STRING_VALUE",
+ *   MaxWorkers: Number("int"),
+ *   KmsKey: "STRING_VALUE",
+ *   AirflowVersion: "STRING_VALUE",
+ *   LoggingConfiguration: { // LoggingConfigurationInput
+ *     DagProcessingLogs: { // ModuleLoggingConfigurationInput
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *     SchedulerLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *     WebserverLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *     WorkerLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *     TaskLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   WeeklyMaintenanceWindowStart: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   WebserverAccessMode: "STRING_VALUE",
+ *   MinWorkers: Number("int"),
+ *   Schedulers: Number("int"),
+ * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
+ * @returns {@link CreateEnvironmentCommandOutput}
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
@@ -75,6 +134,9 @@ export class CreateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,7 +166,7 @@ export class CreateEnvironmentCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateEnvironmentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEnvironmentOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +176,18 @@ export class CreateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEnvironmentCommand(input, context);
+    return se_CreateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
-    return deserializeAws_restJson1CreateEnvironmentCommand(output, context);
+    return de_CreateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

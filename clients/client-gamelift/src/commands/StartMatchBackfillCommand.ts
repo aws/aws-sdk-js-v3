@@ -14,34 +14,31 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  StartMatchBackfillInput,
-  StartMatchBackfillInputFilterSensitiveLog,
-  StartMatchBackfillOutput,
-  StartMatchBackfillOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartMatchBackfillCommand,
-  serializeAws_json1_1StartMatchBackfillCommand,
-} from "../protocols/Aws_json1_1";
+import { StartMatchBackfillInput, StartMatchBackfillOutput } from "../models/models_0";
+import { de_StartMatchBackfillCommand, se_StartMatchBackfillCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMatchBackfillCommand}.
  */
 export interface StartMatchBackfillCommandInput extends StartMatchBackfillInput {}
 /**
+ * @public
+ *
  * The output of {@link StartMatchBackfillCommand}.
  */
 export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Finds new players to fill open slots in currently running game sessions. The backfill
  *             match process is essentially identical to the process of forming new matches. Backfill
  *             requests use the same matchmaker that was used to make the original match, and they
  *             provide matchmaking data for all players currently in the game session. FlexMatch uses
  *             this information to select new players so that backfilled match continues to meet the
  *             original match requirements. </p>
- *         <p>When using FlexMatch with GameLift managed hosting, you can request a backfill match from
+ *          <p>When using FlexMatch with Amazon GameLift managed hosting, you can request a backfill match from
  *             a client service by calling this operation with a <code>GameSessions</code> ID. You also
  *             have the option of making backfill requests directly from your game server. In response
  *             to a request, FlexMatch creates player sessions for the new players, updates the
@@ -49,29 +46,29 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  *             server. You can request a backfill match at any point after a game session is started.
  *             Each game session can have only one active backfill request at a time; a subsequent
  *             request automatically replaces the earlier request.</p>
- *         <p>When using FlexMatch as a standalone component, request a backfill match by calling this
+ *          <p>When using FlexMatch as a standalone component, request a backfill match by calling this
  *             operation without a game session identifier. As with newly formed matches, matchmaking
  *             results are returned in a matchmaking event so that your game can update the game
  *             session that is being backfilled.</p>
- *         <p>To request a backfill match, specify a unique ticket ID, the original matchmaking
+ *          <p>To request a backfill match, specify a unique ticket ID, the original matchmaking
  *             configuration, and matchmaking data for all current players in the game session being
  *             backfilled. Optionally, specify the <code>GameSession</code> ARN. If successful, a match
  *             backfill ticket is created and returned with status set to QUEUED. Track the status of
  *             backfill tickets using the same method for tracking tickets for new matches.</p>
- *         <p>Only game sessions created by FlexMatch are supported for match backfill.</p>
- *         <p>
+ *          <p>Only game sessions created by FlexMatch are supported for match backfill.</p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
  *                 Backfill existing games with FlexMatch</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html">
  *                 Matchmaking events</a> (reference)</p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
- *                 How GameLift FlexMatch works</a>
+ *                 How Amazon GameLift FlexMatch works</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,10 +76,38 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  * import { GameLiftClient, StartMatchBackfillCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StartMatchBackfillCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // StartMatchBackfillInput
+ *   TicketId: "STRING_VALUE",
+ *   ConfigurationName: "STRING_VALUE", // required
+ *   GameSessionArn: "STRING_VALUE",
+ *   Players: [ // PlayerList // required
+ *     { // Player
+ *       PlayerId: "STRING_VALUE",
+ *       PlayerAttributes: { // PlayerAttributeMap
+ *         "<keys>": { // AttributeValue
+ *           S: "STRING_VALUE",
+ *           N: Number("double"),
+ *           SL: [ // PlayerAttributeStringList
+ *             "STRING_VALUE",
+ *           ],
+ *           SDM: { // PlayerAttributeStringDoubleMap
+ *             "<keys>": Number("double"),
+ *           },
+ *         },
+ *       },
+ *       Team: "STRING_VALUE",
+ *       LatencyInMs: { // LatencyMap
+ *         "<keys>": Number("int"),
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new StartMatchBackfillCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMatchBackfillCommandInput - {@link StartMatchBackfillCommandInput}
+ * @returns {@link StartMatchBackfillCommandOutput}
  * @see {@link StartMatchBackfillCommandInput} for command's `input` shape.
  * @see {@link StartMatchBackfillCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -120,6 +145,9 @@ export class StartMatchBackfillCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMatchBackfillCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +176,8 @@ export class StartMatchBackfillCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMatchBackfillInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMatchBackfillOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +187,18 @@ export class StartMatchBackfillCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMatchBackfillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMatchBackfillCommand(input, context);
+    return se_StartMatchBackfillCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMatchBackfillCommandOutput> {
-    return deserializeAws_json1_1StartMatchBackfillCommand(output, context);
+    return de_StartMatchBackfillCommand(output, context);
   }
 
   // Start section: command_body_extra

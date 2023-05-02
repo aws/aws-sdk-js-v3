@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { RemovePermissionRequest, RemovePermissionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1RemovePermissionCommand,
-  serializeAws_json1_1RemovePermissionCommand,
-} from "../protocols/Aws_json1_1";
+import { RemovePermissionRequest } from "../models/models_0";
+import { de_RemovePermissionCommand, se_RemovePermissionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemovePermissionCommand}.
  */
 export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemovePermissionCommand}.
  */
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes the permission of another Amazon Web Services account to be able to put events to the specified
  *       event bus. Specify the account to revoke by the <code>StatementId</code> value that you
  *       associated with the account when you granted it permission with <code>PutPermission</code>.
@@ -40,10 +42,17 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * import { CloudWatchEventsClient, RemovePermissionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, RemovePermissionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // RemovePermissionRequest
+ *   StatementId: "STRING_VALUE",
+ *   RemoveAllPermissions: true || false,
+ *   EventBusName: "STRING_VALUE",
+ * };
  * const command = new RemovePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
+ * @returns {@link RemovePermissionCommandOutput}
  * @see {@link RemovePermissionCommandInput} for command's `input` shape.
  * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -79,6 +88,9 @@ export class RemovePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemovePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +119,8 @@ export class RemovePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemovePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +130,18 @@ export class RemovePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemovePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemovePermissionCommand(input, context);
+    return se_RemovePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemovePermissionCommandOutput> {
-    return deserializeAws_json1_1RemovePermissionCommand(output, context);
+    return de_RemovePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { DisassociatePersonasFromEntitiesRequest, DisassociatePersonasFromEntitiesResponse } from "../models/models_0";
 import {
-  DisassociatePersonasFromEntitiesRequest,
-  DisassociatePersonasFromEntitiesRequestFilterSensitiveLog,
-  DisassociatePersonasFromEntitiesResponse,
-  DisassociatePersonasFromEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociatePersonasFromEntitiesCommand,
-  serializeAws_json1_1DisassociatePersonasFromEntitiesCommand,
+  de_DisassociatePersonasFromEntitiesCommand,
+  se_DisassociatePersonasFromEntitiesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociatePersonasFromEntitiesCommand}.
  */
 export interface DisassociatePersonasFromEntitiesCommandInput extends DisassociatePersonasFromEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociatePersonasFromEntitiesCommand}.
  */
 export interface DisassociatePersonasFromEntitiesCommandOutput
@@ -37,6 +36,7 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specific permissions of users or groups in your IAM Identity Center
  *             identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
  *             experience such as a search application. For more information on creating a
@@ -48,10 +48,19 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
  * import { KendraClient, DisassociatePersonasFromEntitiesCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DisassociatePersonasFromEntitiesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DisassociatePersonasFromEntitiesRequest
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ *   EntityIds: [ // EntityIdsList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociatePersonasFromEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociatePersonasFromEntitiesCommandInput - {@link DisassociatePersonasFromEntitiesCommandInput}
+ * @returns {@link DisassociatePersonasFromEntitiesCommandOutput}
  * @see {@link DisassociatePersonasFromEntitiesCommandInput} for command's `input` shape.
  * @see {@link DisassociatePersonasFromEntitiesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -62,7 +71,7 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -95,6 +104,9 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociatePersonasFromEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +135,8 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociatePersonasFromEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociatePersonasFromEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +146,24 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociatePersonasFromEntitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociatePersonasFromEntitiesCommand(input, context);
+    return se_DisassociatePersonasFromEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePersonasFromEntitiesCommandOutput> {
-    return deserializeAws_json1_1DisassociatePersonasFromEntitiesCommand(output, context);
+    return de_DisassociatePersonasFromEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

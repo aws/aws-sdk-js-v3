@@ -14,38 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  DeleteImageRecipeRequest,
-  DeleteImageRecipeRequestFilterSensitiveLog,
-  DeleteImageRecipeResponse,
-  DeleteImageRecipeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteImageRecipeCommand,
-  serializeAws_restJson1DeleteImageRecipeCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteImageRecipeRequest, DeleteImageRecipeResponse } from "../models/models_0";
+import { de_DeleteImageRecipeCommand, se_DeleteImageRecipeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImageRecipeCommand}.
  */
 export interface DeleteImageRecipeCommandInput extends DeleteImageRecipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImageRecipeCommand}.
  */
 export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeResponse, __MetadataBearer {}
 
 /**
- * <p> Deletes an image recipe.</p>
+ * @public
+ * <p>Deletes an image recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, DeleteImageRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteImageRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // DeleteImageRecipeRequest
+ *   imageRecipeArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteImageRecipeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImageRecipeCommandInput - {@link DeleteImageRecipeCommandInput}
+ * @returns {@link DeleteImageRecipeCommandOutput}
  * @see {@link DeleteImageRecipeCommandInput} for command's `input` shape.
  * @see {@link DeleteImageRecipeCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -54,22 +56,23 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceDependencyException} (client fault)
- *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits this
- * 			action. See the error message for more details.</p>
+ *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits
+ * 			this action. See the error message for more details.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -93,6 +96,9 @@ export class DeleteImageRecipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImageRecipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DeleteImageRecipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteImageRecipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteImageRecipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class DeleteImageRecipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImageRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteImageRecipeCommand(input, context);
+    return se_DeleteImageRecipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImageRecipeCommandOutput> {
-    return deserializeAws_restJson1DeleteImageRecipeCommand(output, context);
+    return de_DeleteImageRecipeCommand(output, context);
   }
 
   // Start section: command_body_extra

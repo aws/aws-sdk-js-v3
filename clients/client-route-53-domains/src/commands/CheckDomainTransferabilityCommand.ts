@@ -17,24 +17,25 @@ import {
   CheckDomainTransferabilityRequest,
   CheckDomainTransferabilityRequestFilterSensitiveLog,
   CheckDomainTransferabilityResponse,
-  CheckDomainTransferabilityResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CheckDomainTransferabilityCommand,
-  serializeAws_json1_1CheckDomainTransferabilityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CheckDomainTransferabilityCommand, se_CheckDomainTransferabilityCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CheckDomainTransferabilityCommand}.
  */
 export interface CheckDomainTransferabilityCommandInput extends CheckDomainTransferabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CheckDomainTransferabilityCommand}.
  */
 export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTransferabilityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks whether a domain name can be transferred to Amazon Route 53. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  * import { Route53DomainsClient, CheckDomainTransferabilityCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, CheckDomainTransferabilityCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // CheckDomainTransferabilityRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   AuthCode: "STRING_VALUE",
+ * };
  * const command = new CheckDomainTransferabilityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckDomainTransferabilityCommandInput - {@link CheckDomainTransferabilityCommandInput}
+ * @returns {@link CheckDomainTransferabilityCommandOutput}
  * @see {@link CheckDomainTransferabilityCommandInput} for command's `input` shape.
  * @see {@link CheckDomainTransferabilityCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -78,6 +85,9 @@ export class CheckDomainTransferabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckDomainTransferabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,7 +117,7 @@ export class CheckDomainTransferabilityCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CheckDomainTransferabilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CheckDomainTransferabilityResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +127,21 @@ export class CheckDomainTransferabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckDomainTransferabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CheckDomainTransferabilityCommand(input, context);
+    return se_CheckDomainTransferabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CheckDomainTransferabilityCommandOutput> {
-    return deserializeAws_json1_1CheckDomainTransferabilityCommand(output, context);
+    return de_CheckDomainTransferabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

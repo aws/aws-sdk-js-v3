@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBuiltinSlotTypesRequest,
-  GetBuiltinSlotTypesRequestFilterSensitiveLog,
-  GetBuiltinSlotTypesResponse,
-  GetBuiltinSlotTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBuiltinSlotTypesCommand,
-  serializeAws_restJson1GetBuiltinSlotTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBuiltinSlotTypesRequest, GetBuiltinSlotTypesResponse } from "../models/models_0";
+import { de_GetBuiltinSlotTypesCommand, se_GetBuiltinSlotTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBuiltinSlotTypesCommand}.
  */
 export interface GetBuiltinSlotTypesCommandInput extends GetBuiltinSlotTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBuiltinSlotTypesCommand}.
  */
 export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of built-in slot types that meet the specified
  *       criteria.</p>
  *          <p>For a list of built-in slot types, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference">Slot Type Reference</a> in the <i>Alexa Skills
@@ -52,10 +49,18 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  * import { LexModelBuildingServiceClient, GetBuiltinSlotTypesCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBuiltinSlotTypesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetBuiltinSlotTypesRequest
+ *   locale: "STRING_VALUE",
+ *   signatureContains: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetBuiltinSlotTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBuiltinSlotTypesCommandInput - {@link GetBuiltinSlotTypesCommandInput}
+ * @returns {@link GetBuiltinSlotTypesCommandOutput}
  * @see {@link GetBuiltinSlotTypesCommandInput} for command's `input` shape.
  * @see {@link GetBuiltinSlotTypesCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -90,6 +95,9 @@ export class GetBuiltinSlotTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBuiltinSlotTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class GetBuiltinSlotTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBuiltinSlotTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBuiltinSlotTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +137,18 @@ export class GetBuiltinSlotTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBuiltinSlotTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBuiltinSlotTypesCommand(input, context);
+    return se_GetBuiltinSlotTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBuiltinSlotTypesCommandOutput> {
-    return deserializeAws_restJson1GetBuiltinSlotTypesCommand(output, context);
+    return de_GetBuiltinSlotTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import {
-  GetQuantumTaskRequest,
-  GetQuantumTaskRequestFilterSensitiveLog,
-  GetQuantumTaskResponse,
-  GetQuantumTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetQuantumTaskCommand,
-  serializeAws_restJson1GetQuantumTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { GetQuantumTaskRequest, GetQuantumTaskResponse } from "../models/models_0";
+import { de_GetQuantumTaskCommand, se_GetQuantumTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQuantumTaskCommand}.
  */
 export interface GetQuantumTaskCommandInput extends GetQuantumTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQuantumTaskCommand}.
  */
 export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified quantum task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  * import { BraketClient, GetQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, GetQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
+ * const input = { // GetQuantumTaskRequest
+ *   quantumTaskArn: "STRING_VALUE", // required
+ * };
  * const command = new GetQuantumTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQuantumTaskCommandInput - {@link GetQuantumTaskCommandInput}
+ * @returns {@link GetQuantumTaskCommandOutput}
  * @see {@link GetQuantumTaskCommandInput} for command's `input` shape.
  * @see {@link GetQuantumTaskCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
@@ -85,6 +87,9 @@ export class GetQuantumTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQuantumTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class GetQuantumTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQuantumTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQuantumTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class GetQuantumTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQuantumTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetQuantumTaskCommand(input, context);
+    return se_GetQuantumTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQuantumTaskCommandOutput> {
-    return deserializeAws_restJson1GetQuantumTaskCommand(output, context);
+    return de_GetQuantumTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

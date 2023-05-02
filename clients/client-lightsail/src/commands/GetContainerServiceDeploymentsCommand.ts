@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetContainerServiceDeploymentsRequest, GetContainerServiceDeploymentsResult } from "../models/models_0";
 import {
-  GetContainerServiceDeploymentsRequest,
-  GetContainerServiceDeploymentsRequestFilterSensitiveLog,
-  GetContainerServiceDeploymentsResult,
-  GetContainerServiceDeploymentsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetContainerServiceDeploymentsCommand,
-  serializeAws_json1_1GetContainerServiceDeploymentsCommand,
+  de_GetContainerServiceDeploymentsCommand,
+  se_GetContainerServiceDeploymentsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContainerServiceDeploymentsCommand}.
  */
 export interface GetContainerServiceDeploymentsCommandInput extends GetContainerServiceDeploymentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContainerServiceDeploymentsCommand}.
  */
 export interface GetContainerServiceDeploymentsCommandOutput
@@ -37,6 +36,7 @@ export interface GetContainerServiceDeploymentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the deployments for your Amazon Lightsail container service</p>
  *          <p>A deployment specifies the settings, such as the ports and launch command, of containers
  *       that are deployed to your container service.</p>
@@ -54,10 +54,15 @@ export interface GetContainerServiceDeploymentsCommandOutput
  * import { LightsailClient, GetContainerServiceDeploymentsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerServiceDeploymentsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetContainerServiceDeploymentsRequest
+ *   serviceName: "STRING_VALUE", // required
+ * };
  * const command = new GetContainerServiceDeploymentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerServiceDeploymentsCommandInput - {@link GetContainerServiceDeploymentsCommandInput}
+ * @returns {@link GetContainerServiceDeploymentsCommandOutput}
  * @see {@link GetContainerServiceDeploymentsCommandInput} for command's `input` shape.
  * @see {@link GetContainerServiceDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +109,9 @@ export class GetContainerServiceDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerServiceDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +140,8 @@ export class GetContainerServiceDeploymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContainerServiceDeploymentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContainerServiceDeploymentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,18 +151,24 @@ export class GetContainerServiceDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetContainerServiceDeploymentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContainerServiceDeploymentsCommand(input, context);
+    return se_GetContainerServiceDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContainerServiceDeploymentsCommandOutput> {
-    return deserializeAws_json1_1GetContainerServiceDeploymentsCommand(output, context);
+    return de_GetContainerServiceDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

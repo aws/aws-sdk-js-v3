@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTapeArchiveInput,
-  DeleteTapeArchiveInputFilterSensitiveLog,
-  DeleteTapeArchiveOutput,
-  DeleteTapeArchiveOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTapeArchiveCommand,
-  serializeAws_json1_1DeleteTapeArchiveCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTapeArchiveInput, DeleteTapeArchiveOutput } from "../models/models_0";
+import { de_DeleteTapeArchiveCommand, se_DeleteTapeArchiveCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTapeArchiveCommand}.
  */
 export interface DeleteTapeArchiveCommandInput extends DeleteTapeArchiveInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTapeArchiveCommand}.
  */
 export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified virtual tape from the virtual tape shelf (VTS). This operation is
  *          only supported in the tape gateway type.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput,
  * import { StorageGatewayClient, DeleteTapeArchiveCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteTapeArchiveCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DeleteTapeArchiveInput
+ *   TapeARN: "STRING_VALUE", // required
+ *   BypassGovernanceRetention: true || false,
+ * };
  * const command = new DeleteTapeArchiveCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTapeArchiveCommandInput - {@link DeleteTapeArchiveCommandInput}
+ * @returns {@link DeleteTapeArchiveCommandOutput}
  * @see {@link DeleteTapeArchiveCommandInput} for command's `input` shape.
  * @see {@link DeleteTapeArchiveCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -94,6 +97,9 @@ export class DeleteTapeArchiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTapeArchiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +128,8 @@ export class DeleteTapeArchiveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTapeArchiveInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTapeArchiveOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +139,18 @@ export class DeleteTapeArchiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTapeArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTapeArchiveCommand(input, context);
+    return se_DeleteTapeArchiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTapeArchiveCommandOutput> {
-    return deserializeAws_json1_1DeleteTapeArchiveCommand(output, context);
+    return de_DeleteTapeArchiveCommand(output, context);
   }
 
   // Start section: command_body_extra

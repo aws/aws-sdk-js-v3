@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RemoveAccountFromOrganizationRequest,
-  RemoveAccountFromOrganizationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveAccountFromOrganizationRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1RemoveAccountFromOrganizationCommand,
-  serializeAws_json1_1RemoveAccountFromOrganizationCommand,
+  de_RemoveAccountFromOrganizationCommand,
+  se_RemoveAccountFromOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveAccountFromOrganizationCommand}.
  */
 export interface RemoveAccountFromOrganizationCommandInput extends RemoveAccountFromOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveAccountFromOrganizationCommand}.
  */
 export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified account from the organization.</p>
  *          <p>The removed account becomes a standalone account that isn't a member of any
  *             organization. It's no longer subject to any policies and is responsible for its own bill
@@ -77,10 +79,15 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  * import { OrganizationsClient, RemoveAccountFromOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, RemoveAccountFromOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // RemoveAccountFromOrganizationRequest
+ *   AccountId: "STRING_VALUE", // required
+ * };
  * const command = new RemoveAccountFromOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveAccountFromOrganizationCommandInput - {@link RemoveAccountFromOrganizationCommandInput}
+ * @returns {@link RemoveAccountFromOrganizationCommandOutput}
  * @see {@link RemoveAccountFromOrganizationCommandInput} for command's `input` shape.
  * @see {@link RemoveAccountFromOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -452,6 +459,9 @@ export class RemoveAccountFromOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveAccountFromOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -480,8 +490,8 @@ export class RemoveAccountFromOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveAccountFromOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -491,15 +501,21 @@ export class RemoveAccountFromOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveAccountFromOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveAccountFromOrganizationCommand(input, context);
+    return se_RemoveAccountFromOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveAccountFromOrganizationCommandOutput> {
-    return deserializeAws_json1_1RemoveAccountFromOrganizationCommand(output, context);
+    return de_RemoveAccountFromOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

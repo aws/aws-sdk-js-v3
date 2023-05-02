@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateResourceShareRequest,
-  AssociateResourceShareRequestFilterSensitiveLog,
-  AssociateResourceShareResponse,
-  AssociateResourceShareResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateResourceShareCommand,
-  serializeAws_restJson1AssociateResourceShareCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateResourceShareRequest, AssociateResourceShareResponse } from "../models/models_0";
+import { de_AssociateResourceShareCommand, se_AssociateResourceShareCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateResourceShareCommand}.
  */
 export interface AssociateResourceShareCommandInput extends AssociateResourceShareRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateResourceShareCommand}.
  */
 export interface AssociateResourceShareCommandOutput extends AssociateResourceShareResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified list of principals and list of resources to a resource share. Principals that
  *             already have access to this resource share immediately receive access to the added resources.
  *             Newly added principals immediately receive access to the resources shared in this resource share. </p>
@@ -44,49 +41,66 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  * import { RAMClient, AssociateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, AssociateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // AssociateResourceShareRequest
+ *   resourceShareArn: "STRING_VALUE", // required
+ *   resourceArns: [ // ResourceArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   principals: [ // PrincipalArnOrIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new AssociateResourceShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateResourceShareCommandInput - {@link AssociateResourceShareCommandInput}
+ * @returns {@link AssociateResourceShareCommandOutput}
  * @see {@link AssociateResourceShareCommandInput} for command's `input` shape.
  * @see {@link AssociateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>The client token input parameter was matched one used with a previous call to the
- *             operation, but at least one of the other input parameters is different from the previous
- *             call.</p>
+ *  <p>The operation failed because the client token input parameter matched one that was
+ *             used with a previous call to the operation, but at least one of the other input
+ *             parameters is different from the previous call.</p>
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The client token is not valid.</p>
+ *  <p>The operation failed because the specified client token isn't valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
  * @throws {@link InvalidStateTransitionException} (client fault)
- *  <p>The requested state transition is not valid.</p>
+ *  <p>The operation failed because the requested operation isn't valid for the resource
+ *             share in its current state.</p>
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
+ *             valid.</p>
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The requested operation is not permitted.</p>
+ *  <p>The operation failed because the requested operation isn't permitted.</p>
  *
  * @throws {@link ResourceShareLimitExceededException} (client fault)
- *  <p>This request would exceed the limit for resource shares for your account.</p>
+ *  <p>The operation failed because it would exceed the limit for resource shares for your account. To
+ *             view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the Service Quotas
+ *                 console</a>.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *  <p>The operation failed because the service could not respond to the request due to an
+ *             internal problem. Try again later.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is not available.</p>
+ *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You exceeded the rate at which you are allowed to perform this operation. Please try
- *             again later.</p>
+ *  <p>The operation failed because it exceeded the rate at which you are allowed to perform
+ *             this operation. Please try again later.</p>
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>A specified resource was not found.</p>
+ *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
  *
  */
@@ -107,6 +121,9 @@ export class AssociateResourceShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateResourceShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +152,8 @@ export class AssociateResourceShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateResourceShareRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateResourceShareResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +163,18 @@ export class AssociateResourceShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateResourceShareCommand(input, context);
+    return se_AssociateResourceShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateResourceShareCommandOutput> {
-    return deserializeAws_restJson1AssociateResourceShareCommand(output, context);
+    return de_AssociateResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

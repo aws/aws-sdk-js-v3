@@ -16,25 +16,26 @@ import {
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
 import {
   DescribeAppInstanceAdminRequest,
-  DescribeAppInstanceAdminRequestFilterSensitiveLog,
   DescribeAppInstanceAdminResponse,
   DescribeAppInstanceAdminResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAppInstanceAdminCommand,
-  serializeAws_restJson1DescribeAppInstanceAdminCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAppInstanceAdminCommand, se_DescribeAppInstanceAdminCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppInstanceAdminCommand}.
  */
 export interface DescribeAppInstanceAdminCommandInput extends DescribeAppInstanceAdminRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppInstanceAdminCommand}.
  */
 export interface DescribeAppInstanceAdminCommandOutput extends DescribeAppInstanceAdminResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of an <code>AppInstanceAdmin</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface DescribeAppInstanceAdminCommandOutput extends DescribeAppInstan
  * import { ChimeSDKIdentityClient, DescribeAppInstanceAdminCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, DescribeAppInstanceAdminCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = { // DescribeAppInstanceAdminRequest
+ *   AppInstanceAdminArn: "STRING_VALUE", // required
+ *   AppInstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAppInstanceAdminCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppInstanceAdminCommandInput - {@link DescribeAppInstanceAdminCommandInput}
+ * @returns {@link DescribeAppInstanceAdminCommandOutput}
  * @see {@link DescribeAppInstanceAdminCommandInput} for command's `input` shape.
  * @see {@link DescribeAppInstanceAdminCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeAppInstanceAdminCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppInstanceAdminCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +125,7 @@ export class DescribeAppInstanceAdminCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppInstanceAdminRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAppInstanceAdminResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,12 +136,18 @@ export class DescribeAppInstanceAdminCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppInstanceAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppInstanceAdminCommand(input, context);
+    return se_DescribeAppInstanceAdminCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppInstanceAdminCommandOutput> {
-    return deserializeAws_restJson1DescribeAppInstanceAdminCommand(output, context);
+    return de_DescribeAppInstanceAdminCommand(output, context);
   }
 
   // Start section: command_body_extra

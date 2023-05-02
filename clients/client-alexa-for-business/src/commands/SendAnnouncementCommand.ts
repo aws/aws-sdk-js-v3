@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  SendAnnouncementRequest,
-  SendAnnouncementRequestFilterSensitiveLog,
-  SendAnnouncementResponse,
-  SendAnnouncementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SendAnnouncementCommand,
-  serializeAws_json1_1SendAnnouncementCommand,
-} from "../protocols/Aws_json1_1";
+import { SendAnnouncementRequest, SendAnnouncementResponse } from "../models/models_0";
+import { de_SendAnnouncementCommand, se_SendAnnouncementCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SendAnnouncementCommand}.
  */
 export interface SendAnnouncementCommandInput extends SendAnnouncementRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendAnnouncementCommand}.
  */
 export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Triggers an asynchronous flow to send text, SSML, or audio announcements to rooms that
  *          are identified by a search or filter. </p>
  * @example
@@ -43,10 +40,44 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
  * import { AlexaForBusinessClient, SendAnnouncementCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SendAnnouncementCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // SendAnnouncementRequest
+ *   RoomFilters: [ // FilterList // required
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Content: { // Content
+ *     TextList: [ // TextList
+ *       { // Text
+ *         Locale: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     SsmlList: [ // SsmlList
+ *       { // Ssml
+ *         Locale: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     AudioList: [ // AudioList
+ *       { // Audio
+ *         Locale: "STRING_VALUE", // required
+ *         Location: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   TimeToLiveInSeconds: Number("int"),
+ *   ClientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new SendAnnouncementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendAnnouncementCommandInput - {@link SendAnnouncementCommandInput}
+ * @returns {@link SendAnnouncementCommandOutput}
  * @see {@link SendAnnouncementCommandInput} for command's `input` shape.
  * @see {@link SendAnnouncementCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -76,6 +107,9 @@ export class SendAnnouncementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendAnnouncementCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +138,8 @@ export class SendAnnouncementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendAnnouncementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendAnnouncementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +149,18 @@ export class SendAnnouncementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendAnnouncementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendAnnouncementCommand(input, context);
+    return se_SendAnnouncementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendAnnouncementCommandOutput> {
-    return deserializeAws_json1_1SendAnnouncementCommand(output, context);
+    return de_SendAnnouncementCommand(output, context);
   }
 
   // Start section: command_body_extra

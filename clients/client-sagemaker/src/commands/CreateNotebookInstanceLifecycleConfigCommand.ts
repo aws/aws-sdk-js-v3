@@ -15,21 +15,23 @@ import {
 
 import {
   CreateNotebookInstanceLifecycleConfigInput,
-  CreateNotebookInstanceLifecycleConfigInputFilterSensitiveLog,
   CreateNotebookInstanceLifecycleConfigOutput,
-  CreateNotebookInstanceLifecycleConfigOutputFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand,
-  serializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand,
+  de_CreateNotebookInstanceLifecycleConfigCommand,
+  se_CreateNotebookInstanceLifecycleConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNotebookInstanceLifecycleConfigCommand}.
  */
 export interface CreateNotebookInstanceLifecycleConfigCommandInput extends CreateNotebookInstanceLifecycleConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateNotebookInstanceLifecycleConfigCommand}.
  */
 export interface CreateNotebookInstanceLifecycleConfigCommandOutput
@@ -37,6 +39,7 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a lifecycle configuration that you can associate with a notebook instance. A
  *                 <i>lifecycle configuration</i> is a collection of shell scripts that
  *             run when you create or start a notebook instance.</p>
@@ -57,10 +60,25 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
  * import { SageMakerClient, CreateNotebookInstanceLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateNotebookInstanceLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateNotebookInstanceLifecycleConfigInput
+ *   NotebookInstanceLifecycleConfigName: "STRING_VALUE", // required
+ *   OnCreate: [ // NotebookInstanceLifecycleConfigList
+ *     { // NotebookInstanceLifecycleHook
+ *       Content: "STRING_VALUE",
+ *     },
+ *   ],
+ *   OnStart: [
+ *     {
+ *       Content: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNotebookInstanceLifecycleConfigCommandInput - {@link CreateNotebookInstanceLifecycleConfigCommandInput}
+ * @returns {@link CreateNotebookInstanceLifecycleConfigCommandOutput}
  * @see {@link CreateNotebookInstanceLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link CreateNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -88,6 +106,9 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNotebookInstanceLifecycleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +137,8 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNotebookInstanceLifecycleConfigInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNotebookInstanceLifecycleConfigOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +148,24 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateNotebookInstanceLifecycleConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand(input, context);
+    return se_CreateNotebookInstanceLifecycleConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateNotebookInstanceLifecycleConfigCommandOutput> {
-    return deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand(output, context);
+    return de_CreateNotebookInstanceLifecycleConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateKnowledgeBaseRequest,
-  CreateKnowledgeBaseRequestFilterSensitiveLog,
-  CreateKnowledgeBaseResponse,
-  CreateKnowledgeBaseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateKnowledgeBaseCommand,
-  serializeAws_restJson1CreateKnowledgeBaseCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateKnowledgeBaseRequest, CreateKnowledgeBaseResponse } from "../models/models_0";
+import { de_CreateKnowledgeBaseCommand, se_CreateKnowledgeBaseCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateKnowledgeBaseCommand}.
  */
 export interface CreateKnowledgeBaseCommandInput extends CreateKnowledgeBaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateKnowledgeBaseCommand}.
  */
 export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a knowledge base.</p>
  *          <note>
  *             <p>When using this API, you cannot reuse <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon AppIntegrations</a>
@@ -65,10 +62,35 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * import { WisdomClient, CreateKnowledgeBaseCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateKnowledgeBaseCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // CreateKnowledgeBaseRequest
+ *   clientToken: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
+ *   knowledgeBaseType: "STRING_VALUE", // required
+ *   sourceConfiguration: { // SourceConfiguration Union: only one key present
+ *     appIntegrations: { // AppIntegrationsConfiguration
+ *       appIntegrationArn: "STRING_VALUE", // required
+ *       objectFields: [ // ObjectFieldsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   renderingConfiguration: { // RenderingConfiguration
+ *     templateUri: "STRING_VALUE",
+ *   },
+ *   serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ *     kmsKeyId: "STRING_VALUE",
+ *   },
+ *   description: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateKnowledgeBaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKnowledgeBaseCommandInput - {@link CreateKnowledgeBaseCommandInput}
+ * @returns {@link CreateKnowledgeBaseCommandOutput}
  * @see {@link CreateKnowledgeBaseCommandInput} for command's `input` shape.
  * @see {@link CreateKnowledgeBaseCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -108,6 +130,9 @@ export class CreateKnowledgeBaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKnowledgeBaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +161,8 @@ export class CreateKnowledgeBaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateKnowledgeBaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateKnowledgeBaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +172,18 @@ export class CreateKnowledgeBaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKnowledgeBaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateKnowledgeBaseCommand(input, context);
+    return se_CreateKnowledgeBaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKnowledgeBaseCommandOutput> {
-    return deserializeAws_restJson1CreateKnowledgeBaseCommand(output, context);
+    return de_CreateKnowledgeBaseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  BasePathMapping,
-  BasePathMappingFilterSensitiveLog,
-  GetBasePathMappingRequest,
-  GetBasePathMappingRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBasePathMappingCommand,
-  serializeAws_restJson1GetBasePathMappingCommand,
-} from "../protocols/Aws_restJson1";
+import { BasePathMapping, GetBasePathMappingRequest } from "../models/models_0";
+import { de_GetBasePathMappingCommand, se_GetBasePathMappingCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBasePathMappingCommand}.
  */
 export interface GetBasePathMappingCommandInput extends GetBasePathMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBasePathMappingCommand}.
  */
 export interface GetBasePathMappingCommandOutput extends BasePathMapping, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe a BasePathMapping resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetBasePathMappingCommandOutput extends BasePathMapping, __Meta
  * import { APIGatewayClient, GetBasePathMappingCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetBasePathMappingCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetBasePathMappingRequest
+ *   domainName: "STRING_VALUE", // required
+ *   basePath: "STRING_VALUE", // required
+ * };
  * const command = new GetBasePathMappingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBasePathMappingCommandInput - {@link GetBasePathMappingCommandInput}
+ * @returns {@link GetBasePathMappingCommandOutput}
  * @see {@link GetBasePathMappingCommandInput} for command's `input` shape.
  * @see {@link GetBasePathMappingCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +84,9 @@ export class GetBasePathMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBasePathMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class GetBasePathMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBasePathMappingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BasePathMappingFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class GetBasePathMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBasePathMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBasePathMappingCommand(input, context);
+    return se_GetBasePathMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBasePathMappingCommandOutput> {
-    return deserializeAws_restJson1GetBasePathMappingCommand(output, context);
+    return de_GetBasePathMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

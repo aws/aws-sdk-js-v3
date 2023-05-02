@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteNotificationSubscriptionRequest } from "../models/models_0";
 import {
-  DeleteNotificationSubscriptionRequest,
-  DeleteNotificationSubscriptionRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteNotificationSubscriptionCommand,
-  serializeAws_restJson1DeleteNotificationSubscriptionCommand,
+  de_DeleteNotificationSubscriptionCommand,
+  se_DeleteNotificationSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNotificationSubscriptionCommand}.
  */
 export interface DeleteNotificationSubscriptionCommandInput extends DeleteNotificationSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNotificationSubscriptionCommand}.
  */
 export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified subscription from the specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,16 @@ export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataB
  * import { WorkDocsClient, DeleteNotificationSubscriptionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteNotificationSubscriptionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DeleteNotificationSubscriptionRequest
+ *   SubscriptionId: "STRING_VALUE", // required
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNotificationSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotificationSubscriptionCommandInput - {@link DeleteNotificationSubscriptionCommandInput}
+ * @returns {@link DeleteNotificationSubscriptionCommandOutput}
  * @see {@link DeleteNotificationSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -79,6 +87,9 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotificationSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +118,8 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNotificationSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +129,24 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNotificationSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNotificationSubscriptionCommand(input, context);
+    return se_DeleteNotificationSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNotificationSubscriptionCommandOutput> {
-    return deserializeAws_restJson1DeleteNotificationSubscriptionCommand(output, context);
+    return de_DeleteNotificationSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

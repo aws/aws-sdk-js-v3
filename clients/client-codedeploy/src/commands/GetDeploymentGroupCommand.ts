@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  GetDeploymentGroupInput,
-  GetDeploymentGroupInputFilterSensitiveLog,
-  GetDeploymentGroupOutput,
-  GetDeploymentGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDeploymentGroupCommand,
-  serializeAws_json1_1GetDeploymentGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDeploymentGroupInput, GetDeploymentGroupOutput } from "../models/models_0";
+import { de_GetDeploymentGroupCommand, se_GetDeploymentGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeploymentGroupCommand}.
  */
 export interface GetDeploymentGroupCommandInput extends GetDeploymentGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDeploymentGroupCommand}.
  */
 export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a deployment group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  * import { CodeDeployClient, GetDeploymentGroupCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetDeploymentGroupCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // GetDeploymentGroupInput
+ *   applicationName: "STRING_VALUE", // required
+ *   deploymentGroupName: "STRING_VALUE", // required
+ * };
  * const command = new GetDeploymentGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentGroupCommandInput - {@link GetDeploymentGroupCommandInput}
+ * @returns {@link GetDeploymentGroupCommandOutput}
  * @see {@link GetDeploymentGroupCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -91,6 +94,9 @@ export class GetDeploymentGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class GetDeploymentGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeploymentGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeploymentGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +136,18 @@ export class GetDeploymentGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDeploymentGroupCommand(input, context);
+    return se_GetDeploymentGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentGroupCommandOutput> {
-    return deserializeAws_json1_1GetDeploymentGroupCommand(output, context);
+    return de_GetDeploymentGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

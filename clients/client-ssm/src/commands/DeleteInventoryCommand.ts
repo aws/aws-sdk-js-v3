@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteInventoryRequest,
-  DeleteInventoryRequestFilterSensitiveLog,
-  DeleteInventoryResult,
-  DeleteInventoryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteInventoryCommand,
-  serializeAws_json1_1DeleteInventoryCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteInventoryRequest, DeleteInventoryResult } from "../models/models_0";
+import { de_DeleteInventoryCommand, se_DeleteInventoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInventoryCommand}.
  */
 export interface DeleteInventoryCommandInput extends DeleteInventoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInventoryCommand}.
  */
 export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a custom inventory type or the data associated with a custom Inventory type. Deleting
  *    a custom inventory type is also referred to as deleting a custom inventory schema.</p>
  * @example
@@ -43,10 +40,18 @@ export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __M
  * import { SSMClient, DeleteInventoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteInventoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DeleteInventoryRequest
+ *   TypeName: "STRING_VALUE", // required
+ *   SchemaDeleteOption: "DisableSchema" || "DeleteSchema",
+ *   DryRun: true || false,
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteInventoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInventoryCommandInput - {@link DeleteInventoryCommandInput}
+ * @returns {@link DeleteInventoryCommandOutput}
  * @see {@link DeleteInventoryCommandInput} for command's `input` shape.
  * @see {@link DeleteInventoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -86,6 +91,9 @@ export class DeleteInventoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInventoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +122,8 @@ export class DeleteInventoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInventoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInventoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +133,18 @@ export class DeleteInventoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInventoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInventoryCommand(input, context);
+    return se_DeleteInventoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInventoryCommandOutput> {
-    return deserializeAws_json1_1DeleteInventoryCommand(output, context);
+    return de_DeleteInventoryCommand(output, context);
   }
 
   // Start section: command_body_extra

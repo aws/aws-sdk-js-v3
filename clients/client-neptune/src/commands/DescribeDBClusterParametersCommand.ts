@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBClusterParameterGroupDetails,
-  DBClusterParameterGroupDetailsFilterSensitiveLog,
-  DescribeDBClusterParametersMessage,
-  DescribeDBClusterParametersMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DBClusterParameterGroupDetails, DescribeDBClusterParametersMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDescribeDBClusterParametersCommand,
-  serializeAws_queryDescribeDBClusterParametersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBClusterParametersCommand, se_DescribeDBClusterParametersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBClusterParametersCommand}.
  */
 export interface DescribeDBClusterParametersCommandInput extends DescribeDBClusterParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBClusterParametersCommand}.
  */
 export interface DescribeDBClusterParametersCommandOutput extends DBClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * import { NeptuneClient, DescribeDBClusterParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBClusterParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DescribeDBClusterParametersMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   Source: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBClusterParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBClusterParametersCommandInput - {@link DescribeDBClusterParametersCommandInput}
+ * @returns {@link DescribeDBClusterParametersCommandOutput}
  * @see {@link DescribeDBClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -74,6 +87,9 @@ export class DescribeDBClusterParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +118,8 @@ export class DescribeDBClusterParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClusterParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterParameterGroupDetailsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +129,21 @@ export class DescribeDBClusterParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBClusterParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterParametersCommand(input, context);
+    return se_DescribeDBClusterParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterParametersCommand(output, context);
+    return de_DescribeDBClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

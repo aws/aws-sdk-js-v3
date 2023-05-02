@@ -1,13 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -19,17 +21,18 @@ import { PutAuditEventsCommandInput, PutAuditEventsCommandOutput } from "../comm
 import { CloudTrailDataServiceException as __BaseException } from "../models/CloudTrailDataServiceException";
 import {
   AuditEvent,
-  AuditEventResultEntry,
   ChannelInsufficientPermission,
   ChannelNotFound,
   ChannelUnsupportedSchema,
   DuplicatedAuditEventId,
   InvalidChannelARN,
-  ResultErrorEntry,
   UnsupportedOperationException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1PutAuditEventsCommand = async (
+/**
+ * serializeAws_restJson1PutAuditEventsCommand
+ */
+export const se_PutAuditEventsCommand = async (
   input: PutAuditEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -43,9 +46,11 @@ export const serializeAws_restJson1PutAuditEventsCommand = async (
     externalId: [, input.externalId!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.auditEvents != null && { auditEvents: serializeAws_restJson1AuditEvents(input.auditEvents, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      auditEvents: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -58,27 +63,32 @@ export const serializeAws_restJson1PutAuditEventsCommand = async (
   });
 };
 
-export const deserializeAws_restJson1PutAuditEventsCommand = async (
+/**
+ * deserializeAws_restJson1PutAuditEventsCommand
+ */
+export const de_PutAuditEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAuditEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutAuditEventsCommandError(output, context);
+    return de_PutAuditEventsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failed != null) {
-    contents.failed = deserializeAws_restJson1ResultErrorEntries(data.failed, context);
-  }
-  if (data.successful != null) {
-    contents.successful = deserializeAws_restJson1AuditEventResultEntries(data.successful, context);
-  }
+  const doc = take(data, {
+    failed: _json,
+    successful: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1PutAuditEventsCommandError = async (
+/**
+ * deserializeAws_restJson1PutAuditEventsCommandError
+ */
+const de_PutAuditEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAuditEventsCommandOutput> => {
@@ -90,43 +100,46 @@ const deserializeAws_restJson1PutAuditEventsCommandError = async (
   switch (errorCode) {
     case "ChannelInsufficientPermission":
     case "com.amazonaws.cloudtraildata#ChannelInsufficientPermission":
-      throw await deserializeAws_restJson1ChannelInsufficientPermissionResponse(parsedOutput, context);
+      throw await de_ChannelInsufficientPermissionRes(parsedOutput, context);
     case "ChannelNotFound":
     case "com.amazonaws.cloudtraildata#ChannelNotFound":
-      throw await deserializeAws_restJson1ChannelNotFoundResponse(parsedOutput, context);
+      throw await de_ChannelNotFoundRes(parsedOutput, context);
     case "ChannelUnsupportedSchema":
     case "com.amazonaws.cloudtraildata#ChannelUnsupportedSchema":
-      throw await deserializeAws_restJson1ChannelUnsupportedSchemaResponse(parsedOutput, context);
+      throw await de_ChannelUnsupportedSchemaRes(parsedOutput, context);
     case "DuplicatedAuditEventId":
     case "com.amazonaws.cloudtraildata#DuplicatedAuditEventId":
-      throw await deserializeAws_restJson1DuplicatedAuditEventIdResponse(parsedOutput, context);
+      throw await de_DuplicatedAuditEventIdRes(parsedOutput, context);
     case "InvalidChannelARN":
     case "com.amazonaws.cloudtraildata#InvalidChannelARN":
-      throw await deserializeAws_restJson1InvalidChannelARNResponse(parsedOutput, context);
+      throw await de_InvalidChannelARNRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtraildata#UnsupportedOperationException":
-      throw await deserializeAws_restJson1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1ChannelInsufficientPermissionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1ChannelInsufficientPermissionRes
+ */
+const de_ChannelInsufficientPermissionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ChannelInsufficientPermission> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ChannelInsufficientPermission({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -134,15 +147,16 @@ const deserializeAws_restJson1ChannelInsufficientPermissionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ChannelNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ChannelNotFound> => {
+/**
+ * deserializeAws_restJson1ChannelNotFoundRes
+ */
+const de_ChannelNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<ChannelNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ChannelNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -150,15 +164,19 @@ const deserializeAws_restJson1ChannelNotFoundResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ChannelUnsupportedSchemaResponse = async (
+/**
+ * deserializeAws_restJson1ChannelUnsupportedSchemaRes
+ */
+const de_ChannelUnsupportedSchemaRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ChannelUnsupportedSchema> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ChannelUnsupportedSchema({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -166,15 +184,19 @@ const deserializeAws_restJson1ChannelUnsupportedSchemaResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DuplicatedAuditEventIdResponse = async (
+/**
+ * deserializeAws_restJson1DuplicatedAuditEventIdRes
+ */
+const de_DuplicatedAuditEventIdRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicatedAuditEventId> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DuplicatedAuditEventId({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -182,15 +204,16 @@ const deserializeAws_restJson1DuplicatedAuditEventIdResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidChannelARNResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidChannelARN> => {
+/**
+ * deserializeAws_restJson1InvalidChannelARNRes
+ */
+const de_InvalidChannelARNRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidChannelARN> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidChannelARN({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -198,15 +221,19 @@ const deserializeAws_restJson1InvalidChannelARNResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnsupportedOperationExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnsupportedOperationExceptionRes
+ */
+const de_UnsupportedOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -214,63 +241,17 @@ const deserializeAws_restJson1UnsupportedOperationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AuditEvent = (input: AuditEvent, context: __SerdeContext): any => {
-  return {
-    ...(input.eventData != null && { eventData: input.eventData }),
-    ...(input.eventDataChecksum != null && { eventDataChecksum: input.eventDataChecksum }),
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_AuditEvent omitted.
 
-const serializeAws_restJson1AuditEvents = (input: AuditEvent[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1AuditEvent(entry, context);
-    });
-};
+// se_AuditEvents omitted.
 
-const deserializeAws_restJson1AuditEventResultEntries = (
-  output: any,
-  context: __SerdeContext
-): AuditEventResultEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AuditEventResultEntry(entry, context);
-    });
-  return retVal;
-};
+// de_AuditEventResultEntries omitted.
 
-const deserializeAws_restJson1AuditEventResultEntry = (output: any, context: __SerdeContext): AuditEventResultEntry => {
-  return {
-    eventID: __expectString(output.eventID),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_AuditEventResultEntry omitted.
 
-const deserializeAws_restJson1ResultErrorEntries = (output: any, context: __SerdeContext): ResultErrorEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ResultErrorEntry(entry, context);
-    });
-  return retVal;
-};
+// de_ResultErrorEntries omitted.
 
-const deserializeAws_restJson1ResultErrorEntry = (output: any, context: __SerdeContext): ResultErrorEntry => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    id: __expectString(output.id),
-  } as any;
-};
+// de_ResultErrorEntry omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

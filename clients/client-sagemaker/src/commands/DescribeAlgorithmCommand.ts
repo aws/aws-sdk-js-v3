@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAlgorithmInput,
-  DescribeAlgorithmInputFilterSensitiveLog,
-  DescribeAlgorithmOutput,
-  DescribeAlgorithmOutputFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeAlgorithmCommand,
-  serializeAws_json1_1DescribeAlgorithmCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeAlgorithmInput, DescribeAlgorithmOutput } from "../models/models_2";
+import { de_DescribeAlgorithmCommand, se_DescribeAlgorithmCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAlgorithmCommand}.
  */
 export interface DescribeAlgorithmCommandInput extends DescribeAlgorithmInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAlgorithmCommand}.
  */
 export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of the specified algorithm that is in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  * import { SageMakerClient, DescribeAlgorithmCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeAlgorithmCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeAlgorithmInput
+ *   AlgorithmName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAlgorithmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlgorithmCommandInput - {@link DescribeAlgorithmCommandInput}
+ * @returns {@link DescribeAlgorithmCommandOutput}
  * @see {@link DescribeAlgorithmCommandInput} for command's `input` shape.
  * @see {@link DescribeAlgorithmCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +71,9 @@ export class DescribeAlgorithmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlgorithmCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +102,8 @@ export class DescribeAlgorithmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAlgorithmInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAlgorithmOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +113,18 @@ export class DescribeAlgorithmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAlgorithmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAlgorithmCommand(input, context);
+    return se_DescribeAlgorithmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlgorithmCommandOutput> {
-    return deserializeAws_json1_1DescribeAlgorithmCommand(output, context);
+    return de_DescribeAlgorithmCommand(output, context);
   }
 
   // Start section: command_body_extra

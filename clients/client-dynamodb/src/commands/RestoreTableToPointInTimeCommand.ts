@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  RestoreTableToPointInTimeInput,
-  RestoreTableToPointInTimeInputFilterSensitiveLog,
-  RestoreTableToPointInTimeOutput,
-  RestoreTableToPointInTimeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0RestoreTableToPointInTimeCommand,
-  serializeAws_json1_0RestoreTableToPointInTimeCommand,
-} from "../protocols/Aws_json1_0";
+import { RestoreTableToPointInTimeInput, RestoreTableToPointInTimeOutput } from "../models/models_0";
+import { de_RestoreTableToPointInTimeCommand, se_RestoreTableToPointInTimeCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreTableToPointInTimeCommand}.
  */
 export interface RestoreTableToPointInTimeCommandInput extends RestoreTableToPointInTimeInput {}
 /**
+ * @public
+ *
  * The output of {@link RestoreTableToPointInTimeCommand}.
  */
 export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPointInTimeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores the specified table to the specified point in time within
  *                 <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
  *             You can restore your table to any point in time during the last 35 days. Any number of
@@ -91,10 +88,67 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * import { DynamoDBClient, RestoreTableToPointInTimeCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, RestoreTableToPointInTimeCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // RestoreTableToPointInTimeInput
+ *   SourceTableArn: "STRING_VALUE",
+ *   SourceTableName: "STRING_VALUE",
+ *   TargetTableName: "STRING_VALUE", // required
+ *   UseLatestRestorableTime: true || false,
+ *   RestoreDateTime: new Date("TIMESTAMP"),
+ *   BillingModeOverride: "PROVISIONED" || "PAY_PER_REQUEST",
+ *   GlobalSecondaryIndexOverride: [ // GlobalSecondaryIndexList
+ *     { // GlobalSecondaryIndex
+ *       IndexName: "STRING_VALUE", // required
+ *       KeySchema: [ // KeySchema // required
+ *         { // KeySchemaElement
+ *           AttributeName: "STRING_VALUE", // required
+ *           KeyType: "HASH" || "RANGE", // required
+ *         },
+ *       ],
+ *       Projection: { // Projection
+ *         ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *         NonKeyAttributes: [ // NonKeyAttributeNameList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ProvisionedThroughput: { // ProvisionedThroughput
+ *         ReadCapacityUnits: Number("long"), // required
+ *         WriteCapacityUnits: Number("long"), // required
+ *       },
+ *     },
+ *   ],
+ *   LocalSecondaryIndexOverride: [ // LocalSecondaryIndexList
+ *     { // LocalSecondaryIndex
+ *       IndexName: "STRING_VALUE", // required
+ *       KeySchema: [ // required
+ *         {
+ *           AttributeName: "STRING_VALUE", // required
+ *           KeyType: "HASH" || "RANGE", // required
+ *         },
+ *       ],
+ *       Projection: {
+ *         ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *         NonKeyAttributes: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   ProvisionedThroughputOverride: {
+ *     ReadCapacityUnits: Number("long"), // required
+ *     WriteCapacityUnits: Number("long"), // required
+ *   },
+ *   SSESpecificationOverride: { // SSESpecification
+ *     Enabled: true || false,
+ *     SSEType: "AES256" || "KMS",
+ *     KMSMasterKeyId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new RestoreTableToPointInTimeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreTableToPointInTimeCommandInput - {@link RestoreTableToPointInTimeCommandInput}
+ * @returns {@link RestoreTableToPointInTimeCommandOutput}
  * @see {@link RestoreTableToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreTableToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -154,6 +208,9 @@ export class RestoreTableToPointInTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreTableToPointInTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,8 +239,8 @@ export class RestoreTableToPointInTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreTableToPointInTimeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreTableToPointInTimeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -193,15 +250,21 @@ export class RestoreTableToPointInTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreTableToPointInTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RestoreTableToPointInTimeCommand(input, context);
+    return se_RestoreTableToPointInTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreTableToPointInTimeCommandOutput> {
-    return deserializeAws_json1_0RestoreTableToPointInTimeCommand(output, context);
+    return de_RestoreTableToPointInTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

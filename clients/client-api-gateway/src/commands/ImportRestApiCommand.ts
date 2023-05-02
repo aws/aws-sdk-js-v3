@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  ImportRestApiRequest,
-  ImportRestApiRequestFilterSensitiveLog,
-  RestApi,
-  RestApiFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportRestApiCommand,
-  serializeAws_restJson1ImportRestApiCommand,
-} from "../protocols/Aws_restJson1";
+import { ImportRestApiRequest, RestApi } from "../models/models_0";
+import { de_ImportRestApiCommand, se_ImportRestApiCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportRestApiCommand}.
  */
 export interface ImportRestApiCommandInput extends ImportRestApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportRestApiCommand}.
  */
 export interface ImportRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A feature of the API Gateway control service for creating a new API from an external API definition file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ImportRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * import { APIGatewayClient, ImportRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, ImportRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // ImportRestApiRequest
+ *   failOnWarnings: true || false,
+ *   parameters: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   body: "BLOB_VALUE", // required
+ * };
  * const command = new ImportRestApiCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportRestApiCommandInput - {@link ImportRestApiCommandInput}
+ * @returns {@link ImportRestApiCommandOutput}
  * @see {@link ImportRestApiCommandInput} for command's `input` shape.
  * @see {@link ImportRestApiCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +93,9 @@ export class ImportRestApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportRestApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class ImportRestApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportRestApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestApiFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class ImportRestApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportRestApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportRestApiCommand(input, context);
+    return se_ImportRestApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportRestApiCommandOutput> {
-    return deserializeAws_restJson1ImportRestApiCommand(output, context);
+    return de_ImportRestApiCommand(output, context);
   }
 
   // Start section: command_body_extra

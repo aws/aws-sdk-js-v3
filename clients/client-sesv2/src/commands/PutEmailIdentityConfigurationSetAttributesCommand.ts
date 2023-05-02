@@ -15,22 +15,24 @@ import {
 
 import {
   PutEmailIdentityConfigurationSetAttributesRequest,
-  PutEmailIdentityConfigurationSetAttributesRequestFilterSensitiveLog,
   PutEmailIdentityConfigurationSetAttributesResponse,
-  PutEmailIdentityConfigurationSetAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommand,
-  serializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommand,
+  de_PutEmailIdentityConfigurationSetAttributesCommand,
+  se_PutEmailIdentityConfigurationSetAttributesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutEmailIdentityConfigurationSetAttributesCommand}.
  */
 export interface PutEmailIdentityConfigurationSetAttributesCommandInput
   extends PutEmailIdentityConfigurationSetAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEmailIdentityConfigurationSetAttributesCommand}.
  */
 export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
@@ -38,6 +40,7 @@ export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to associate a configuration set with an email identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,16 @@ export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
  * import { SESv2Client, PutEmailIdentityConfigurationSetAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutEmailIdentityConfigurationSetAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // PutEmailIdentityConfigurationSetAttributesRequest
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   ConfigurationSetName: "STRING_VALUE",
+ * };
  * const command = new PutEmailIdentityConfigurationSetAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEmailIdentityConfigurationSetAttributesCommandInput - {@link PutEmailIdentityConfigurationSetAttributesCommandInput}
+ * @returns {@link PutEmailIdentityConfigurationSetAttributesCommandOutput}
  * @see {@link PutEmailIdentityConfigurationSetAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityConfigurationSetAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +90,9 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEmailIdentityConfigurationSetAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +127,8 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEmailIdentityConfigurationSetAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEmailIdentityConfigurationSetAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +138,24 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutEmailIdentityConfigurationSetAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommand(input, context);
+    return se_PutEmailIdentityConfigurationSetAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailIdentityConfigurationSetAttributesCommandOutput> {
-    return deserializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommand(output, context);
+    return de_PutEmailIdentityConfigurationSetAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

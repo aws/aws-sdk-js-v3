@@ -10,7 +10,7 @@ import { EMRContainersClient } from "../EMRContainersClient";
 import { EMRContainersPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EMRContainersClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListVirtualClustersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListVirtualClusters(
   config: EMRContainersPaginationConfiguration,
   input: ListVirtualClustersCommandInput,

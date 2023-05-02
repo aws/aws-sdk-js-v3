@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetColumnStatisticsForTableRequest,
-  GetColumnStatisticsForTableRequestFilterSensitiveLog,
-  GetColumnStatisticsForTableResponse,
-  GetColumnStatisticsForTableResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetColumnStatisticsForTableCommand,
-  serializeAws_json1_1GetColumnStatisticsForTableCommand,
-} from "../protocols/Aws_json1_1";
+import { GetColumnStatisticsForTableRequest, GetColumnStatisticsForTableResponse } from "../models/models_1";
+import { de_GetColumnStatisticsForTableCommand, se_GetColumnStatisticsForTableCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetColumnStatisticsForTableCommand}.
  */
 export interface GetColumnStatisticsForTableCommandInput extends GetColumnStatisticsForTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetColumnStatisticsForTableCommand}.
  */
 export interface GetColumnStatisticsForTableCommandOutput
@@ -37,6 +33,7 @@ export interface GetColumnStatisticsForTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves table statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetTable</code>.</p>
  * @example
@@ -45,10 +42,20 @@ export interface GetColumnStatisticsForTableCommandOutput
  * import { GlueClient, GetColumnStatisticsForTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetColumnStatisticsForTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetColumnStatisticsForTableRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   ColumnNames: [ // GetColumnNamesList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetColumnStatisticsForTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetColumnStatisticsForTableCommandInput - {@link GetColumnStatisticsForTableCommandInput}
+ * @returns {@link GetColumnStatisticsForTableCommandOutput}
  * @see {@link GetColumnStatisticsForTableCommandInput} for command's `input` shape.
  * @see {@link GetColumnStatisticsForTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetColumnStatisticsForTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetColumnStatisticsForTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +125,8 @@ export class GetColumnStatisticsForTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetColumnStatisticsForTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetColumnStatisticsForTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +136,21 @@ export class GetColumnStatisticsForTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetColumnStatisticsForTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetColumnStatisticsForTableCommand(input, context);
+    return se_GetColumnStatisticsForTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetColumnStatisticsForTableCommandOutput> {
-    return deserializeAws_json1_1GetColumnStatisticsForTableCommand(output, context);
+    return de_GetColumnStatisticsForTableCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  DeleteReportGroupInput,
-  DeleteReportGroupInputFilterSensitiveLog,
-  DeleteReportGroupOutput,
-  DeleteReportGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteReportGroupCommand,
-  serializeAws_json1_1DeleteReportGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteReportGroupInput, DeleteReportGroupOutput } from "../models/models_0";
+import { de_DeleteReportGroupCommand, se_DeleteReportGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReportGroupCommand}.
  */
 export interface DeleteReportGroupCommandInput extends DeleteReportGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReportGroupCommand}.
  */
 export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a report group. Before you delete a report group, you must delete its reports. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput,
  * import { CodeBuildClient, DeleteReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // DeleteReportGroupInput
+ *   arn: "STRING_VALUE", // required
+ *   deleteReports: true || false,
+ * };
  * const command = new DeleteReportGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReportGroupCommandInput - {@link DeleteReportGroupCommandInput}
+ * @returns {@link DeleteReportGroupCommandOutput}
  * @see {@link DeleteReportGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteReportGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -72,6 +75,9 @@ export class DeleteReportGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReportGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class DeleteReportGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReportGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReportGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class DeleteReportGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReportGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteReportGroupCommand(input, context);
+    return se_DeleteReportGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteReportGroupCommand(output, context);
+    return de_DeleteReportGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

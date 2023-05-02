@@ -4,16 +4,26 @@ import { DocumentType as __DocumentType } from "@aws-sdk/types";
 
 import { OpenSearchServerlessServiceException as __BaseException } from "./OpenSearchServerlessServiceException";
 
-export enum AccessPolicyType {
+/**
+ * @public
+ * @enum
+ */
+export const AccessPolicyType = {
   /**
    * data policy type
    */
-  data = "data",
-}
+  data: "data",
+} as const;
 
 /**
- * <p>When creating a collection, thrown when a collection with the same name already exists
- *             or is being created. When deleting a collection, thrown when the collection is not in
+ * @public
+ */
+export type AccessPolicyType = (typeof AccessPolicyType)[keyof typeof AccessPolicyType];
+
+/**
+ * @public
+ * <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
  *             the ACTIVE or FAILED state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -32,6 +42,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessPolicyRequest {
   /**
    * <p>The type of policy.</p>
@@ -61,6 +74,7 @@ export interface CreateAccessPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Details about an OpenSearch Serverless access policy.</p>
  */
 export interface AccessPolicyDetail {
@@ -100,6 +114,9 @@ export interface AccessPolicyDetail {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessPolicyResponse {
   /**
    * <p>Details about the created access policy.</p>
@@ -108,6 +125,7 @@ export interface CreateAccessPolicyResponse {
 }
 
 /**
+ * @public
  * <p>Thrown when an error internal to the service occurs while processing a request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -127,6 +145,51 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
+ * <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * Identifier of the resource affected.
+   */
+  resourceId?: string;
+
+  /**
+   * Type of the resource affected.
+   */
+  resourceType?: string;
+
+  /**
+   * Service Quotas requirement to identify originating service.
+   */
+  serviceCode: string | undefined;
+
+  /**
+   * Service Quotas requirement to identify originating quota.
+   */
+  quotaCode?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+  }
+}
+
+/**
+ * @public
  * <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  */
@@ -146,6 +209,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessPolicyRequest {
   /**
    * <p>The type of policy.</p>
@@ -163,9 +229,13 @@ export interface DeleteAccessPolicyRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessPolicyResponse {}
 
 /**
+ * @public
  * <p>Thrown when accessing or deleting a resource that does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -184,6 +254,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPolicyRequest {
   /**
    * <p>Tye type of policy. Currently the only supported value is <code>data</code>.</p>
@@ -196,6 +269,9 @@ export interface GetAccessPolicyRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPolicyResponse {
   /**
    * <p>Details about the requested access policy.</p>
@@ -203,6 +279,9 @@ export interface GetAccessPolicyResponse {
   accessPolicyDetail?: AccessPolicyDetail;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessPoliciesRequest {
   /**
    * <p>The type of access policy.</p>
@@ -210,7 +289,7 @@ export interface ListAccessPoliciesRequest {
   type: AccessPolicyType | string | undefined;
 
   /**
-   * <p>Resource filters (can be collection or indexes) that policies can apply to.</p>
+   * <p>Resource filters (can be collections or indexes) that policies can apply to.</p>
    */
   resource?: string[];
 
@@ -230,6 +309,7 @@ export interface ListAccessPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the data access policy.</p>
  */
 export interface AccessPolicySummary {
@@ -264,6 +344,9 @@ export interface AccessPolicySummary {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessPoliciesResponse {
   /**
    * <p>Details about the requested access policies.</p>
@@ -278,6 +361,9 @@ export interface ListAccessPoliciesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccessPolicyRequest {
   /**
    * <p>The type of policy.</p>
@@ -311,6 +397,9 @@ export interface UpdateAccessPolicyRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccessPolicyResponse {
   /**
    * <p>Details about the updated access policy.</p>
@@ -319,6 +408,7 @@ export interface UpdateAccessPolicyResponse {
 }
 
 /**
+ * @public
  * <p>Statistics for an OpenSearch Serverless access policy.</p>
  */
 export interface AccessPolicyStats {
@@ -329,9 +419,11 @@ export interface AccessPolicyStats {
 }
 
 /**
+ * @public
  * <p>The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units
  *             (OCUs). These limits are used to scale your collections based on the current workload.
- *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling">Autoscaling</a>.</p>
+ *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing
+ *                 capacity limits for Amazon OpenSearch Serverless</a>.</p>
  */
 export interface CapacityLimits {
   /**
@@ -346,17 +438,22 @@ export interface CapacityLimits {
 }
 
 /**
+ * @public
  * <p>OpenSearch Serverless-related information for the current account.</p>
  */
 export interface AccountSettingsDetail {
   /**
    * <p>The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units
    *             (OCUs). These limits are used to scale your collections based on the current workload.
-   *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling">Autoscaling</a>.</p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing
+   *                 capacity limits for Amazon OpenSearch Serverless</a>.</p>
    */
   capacityLimits?: CapacityLimits;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCollectionRequest {
   /**
    * <p>A list of collection IDs. You can't provide names and IDs in the same request. The ID
@@ -370,37 +467,56 @@ export interface BatchGetCollectionRequest {
   names?: string[];
 }
 
-export enum CollectionStatus {
+/**
+ * @public
+ * @enum
+ */
+export const CollectionStatus = {
   /**
    * Collection resource is ready to use
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Creating collection resource
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Deleting collection resource
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Collection resource create or delete failed
    */
-  FAILED = "FAILED",
-}
+  FAILED: "FAILED",
+} as const;
 
-export enum CollectionType {
+/**
+ * @public
+ */
+export type CollectionStatus = (typeof CollectionStatus)[keyof typeof CollectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CollectionType = {
   /**
    * Search collection type
    */
-  SEARCH = "SEARCH",
+  SEARCH: "SEARCH",
   /**
    * Timeseries collection type
    */
-  TIMESERIES = "TIMESERIES",
-}
+  TIMESERIES: "TIMESERIES",
+} as const;
 
 /**
+ * @public
+ */
+export type CollectionType = (typeof CollectionType)[keyof typeof CollectionType];
+
+/**
+ * @public
  * <p>Details about each OpenSearch Serverless collection, including the collection endpoint and the
  *             OpenSearch Dashboards endpoint.</p>
  */
@@ -463,6 +579,7 @@ export interface CollectionDetail {
 }
 
 /**
+ * @public
  * <p>Error information for an OpenSearch Serverless request.</p>
  */
 export interface CollectionErrorDetail {
@@ -491,6 +608,9 @@ export interface CollectionErrorDetail {
   errorCode?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCollectionResponse {
   /**
    * <p>Details about each collection.</p>
@@ -503,6 +623,9 @@ export interface BatchGetCollectionResponse {
   collectionErrorDetails?: CollectionErrorDetail[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetVpcEndpointRequest {
   /**
    * <p>A list of VPC endpoint identifiers.</p>
@@ -510,26 +633,36 @@ export interface BatchGetVpcEndpointRequest {
   ids: string[] | undefined;
 }
 
-export enum VpcEndpointStatus {
+/**
+ * @public
+ * @enum
+ */
+export const VpcEndpointStatus = {
   /**
    * VPCEndpoint resource is ready to use
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Deleting VPCEndpoint resource
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * VPCEndpoint resource create or delete failed
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * Pending VPCEndpoint resource
    */
-  PENDING = "PENDING",
-}
+  PENDING: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type VpcEndpointStatus = (typeof VpcEndpointStatus)[keyof typeof VpcEndpointStatus];
+
+/**
+ * @public
  * <p>Details about an OpenSearch Serverless-managed interface endpoint.</p>
  */
 export interface VpcEndpointDetail {
@@ -544,7 +677,7 @@ export interface VpcEndpointDetail {
   name?: string;
 
   /**
-   * <p>The ID of the VPC from which you access OpenSearch Serverless</p>
+   * <p>The ID of the VPC from which you access OpenSearch Serverless.</p>
    */
   vpcId?: string;
 
@@ -571,6 +704,7 @@ export interface VpcEndpointDetail {
 }
 
 /**
+ * @public
  * <p>Error information for a failed <code>BatchGetVpcEndpoint</code> request.</p>
  */
 export interface VpcEndpointErrorDetail {
@@ -590,6 +724,9 @@ export interface VpcEndpointErrorDetail {
   errorCode?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetVpcEndpointResponse {
   /**
    * <p>Details about the specified VPC endpoint.</p>
@@ -603,6 +740,7 @@ export interface BatchGetVpcEndpointResponse {
 }
 
 /**
+ * @public
  * <p>A map of key-value pairs associated to an OpenSearch Serverless resource.</p>
  */
 export interface Tag {
@@ -617,6 +755,9 @@ export interface Tag {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCollectionRequest {
   /**
    * <p>Name of the collection.</p>
@@ -645,6 +786,7 @@ export interface CreateCollectionRequest {
 }
 
 /**
+ * @public
  * <p>Details about the created OpenSearch Serverless collection.</p>
  */
 export interface CreateCollectionDetail {
@@ -694,6 +836,9 @@ export interface CreateCollectionDetail {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateCollectionResponse {
   /**
    * <p>Details about the collection.</p>
@@ -701,6 +846,29 @@ export interface CreateCollectionResponse {
   createCollectionDetail?: CreateCollectionDetail;
 }
 
+/**
+ * @public
+ * OCU Limit Exceeded for service limits
+ */
+export class OcuLimitExceededException extends __BaseException {
+  readonly name: "OcuLimitExceededException" = "OcuLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OcuLimitExceededException, __BaseException>) {
+    super({
+      name: "OcuLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OcuLimitExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
 export interface DeleteCollectionRequest {
   /**
    * <p>The unique identifier of the collection. For example, <code>1iu5usc406kd</code>. The
@@ -715,6 +883,7 @@ export interface DeleteCollectionRequest {
 }
 
 /**
+ * @public
  * <p>Details about a deleted OpenSearch Serverless collection.</p>
  */
 export interface DeleteCollectionDetail {
@@ -734,6 +903,9 @@ export interface DeleteCollectionDetail {
   status?: CollectionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCollectionResponse {
   /**
    * <p>Details of the deleted collection.</p>
@@ -742,6 +914,7 @@ export interface DeleteCollectionResponse {
 }
 
 /**
+ * @public
  * <p>List of filter keys that you can use for LIST, UPDATE, and DELETE requests to OpenSearch Serverless
  *             collections.</p>
  */
@@ -757,6 +930,9 @@ export interface CollectionFilters {
   status?: CollectionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListCollectionsRequest {
   /**
    * <p>List of filter names and values that you can use for requests.</p>
@@ -778,6 +954,7 @@ export interface ListCollectionsRequest {
 }
 
 /**
+ * @public
  * <p>Details about each OpenSearch Serverless collection.</p>
  */
 export interface CollectionSummary {
@@ -802,6 +979,9 @@ export interface CollectionSummary {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCollectionsResponse {
   /**
    * <p>Details about each collection.</p>
@@ -816,6 +996,9 @@ export interface ListCollectionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCollectionRequest {
   /**
    * <p>The unique identifier of the collection.</p>
@@ -834,6 +1017,7 @@ export interface UpdateCollectionRequest {
 }
 
 /**
+ * @public
  * <p>Details about an updated OpenSearch Serverless collection.</p>
  */
 export interface UpdateCollectionDetail {
@@ -878,6 +1062,9 @@ export interface UpdateCollectionDetail {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCollectionResponse {
   /**
    * <p>Details about the updated collection.</p>
@@ -886,6 +1073,7 @@ export interface UpdateCollectionResponse {
 }
 
 /**
+ * @public
  * <p>Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value
  *             map.</p>
  */
@@ -906,19 +1094,30 @@ export interface SamlConfigOptions {
   groupAttribute?: string;
 
   /**
-   * <p>The session timeout, in minutes. Minimum is 15 minutes and maximum is 1440 minutes (24
-   *             hours or 1 day). Default is 60 minutes.</p>
+   * <p>The session timeout, in minutes. Default is 60 minutes (12 hours).</p>
    */
   sessionTimeout?: number;
 }
 
-export enum SecurityConfigType {
+/**
+ * @public
+ * @enum
+ */
+export const SecurityConfigType = {
   /**
    * saml provider
    */
-  saml = "saml",
-}
+  saml: "saml",
+} as const;
 
+/**
+ * @public
+ */
+export type SecurityConfigType = (typeof SecurityConfigType)[keyof typeof SecurityConfigType];
+
+/**
+ * @public
+ */
 export interface CreateSecurityConfigRequest {
   /**
    * <p>The type of security configuration.</p>
@@ -936,7 +1135,8 @@ export interface CreateSecurityConfigRequest {
   description?: string;
 
   /**
-   * <p>Describes SAML options in in the form of a key-value map.</p>
+   * <p>Describes SAML options in in the form of a key-value map. This field is required if
+   *             you specify <code>saml</code> for the <code>type</code> parameter.</p>
    */
   samlOptions?: SamlConfigOptions;
 
@@ -947,6 +1147,7 @@ export interface CreateSecurityConfigRequest {
 }
 
 /**
+ * @public
  * <p>Details about a security configuration for OpenSearch Serverless. </p>
  */
 export interface SecurityConfigDetail {
@@ -986,6 +1187,9 @@ export interface SecurityConfigDetail {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityConfigResponse {
   /**
    * <p>Details about the created security configuration. </p>
@@ -993,17 +1197,29 @@ export interface CreateSecurityConfigResponse {
   securityConfigDetail?: SecurityConfigDetail;
 }
 
-export enum SecurityPolicyType {
+/**
+ * @public
+ * @enum
+ */
+export const SecurityPolicyType = {
   /**
    * encryption policy type
    */
-  encryption = "encryption",
+  encryption: "encryption",
   /**
    * network policy type
    */
-  network = "network",
-}
+  network: "network",
+} as const;
 
+/**
+ * @public
+ */
+export type SecurityPolicyType = (typeof SecurityPolicyType)[keyof typeof SecurityPolicyType];
+
+/**
+ * @public
+ */
 export interface CreateSecurityPolicyRequest {
   /**
    * <p>The type of security policy.</p>
@@ -1033,6 +1249,7 @@ export interface CreateSecurityPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Details about an OpenSearch Serverless security policy.</p>
  */
 export interface SecurityPolicyDetail {
@@ -1072,6 +1289,9 @@ export interface SecurityPolicyDetail {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityPolicyResponse {
   /**
    * <p>Details about the created security policy.</p>
@@ -1079,6 +1299,9 @@ export interface CreateSecurityPolicyResponse {
   securityPolicyDetail?: SecurityPolicyDetail;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcEndpointRequest {
   /**
    * <p>The name of the interface endpoint.</p>
@@ -1108,6 +1331,7 @@ export interface CreateVpcEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Creation details for an OpenSearch Serverless-managed interface endpoint. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
  */
@@ -1128,6 +1352,9 @@ export interface CreateVpcEndpointDetail {
   status?: VpcEndpointStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcEndpointResponse {
   /**
    * <p>Details about the created interface VPC endpoint.</p>
@@ -1135,6 +1362,9 @@ export interface CreateVpcEndpointResponse {
   createVpcEndpointDetail?: CreateVpcEndpointDetail;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecurityConfigRequest {
   /**
    * <p>The security configuration identifier. For SAML the ID will be
@@ -1149,8 +1379,14 @@ export interface DeleteSecurityConfigRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecurityConfigResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSecurityPolicyRequest {
   /**
    * <p>The type of policy.</p>
@@ -1168,8 +1404,14 @@ export interface DeleteSecurityPolicyRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecurityPolicyResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointRequest {
   /**
    * <p>The VPC endpoint identifier.</p>
@@ -1183,6 +1425,7 @@ export interface DeleteVpcEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Deletion details for an OpenSearch Serverless-managed interface endpoint.</p>
  */
 export interface DeleteVpcEndpointDetail {
@@ -1202,6 +1445,9 @@ export interface DeleteVpcEndpointDetail {
   status?: VpcEndpointStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointResponse {
   /**
    * <p>Details about the deleted endpoint.</p>
@@ -1209,8 +1455,14 @@ export interface DeleteVpcEndpointResponse {
   deleteVpcEndpointDetail?: DeleteVpcEndpointDetail;
 }
 
+/**
+ * @public
+ */
 export interface GetAccountSettingsRequest {}
 
+/**
+ * @public
+ */
 export interface GetAccountSettingsResponse {
   /**
    * <p>OpenSearch Serverless-related details for the current account.</p>
@@ -1218,9 +1470,13 @@ export interface GetAccountSettingsResponse {
   accountSettingsDetail?: AccountSettingsDetail;
 }
 
+/**
+ * @public
+ */
 export interface GetPoliciesStatsRequest {}
 
 /**
+ * @public
  * <p>Statistics for an OpenSearch Serverless security configuration.</p>
  */
 export interface SecurityConfigStats {
@@ -1231,6 +1487,7 @@ export interface SecurityConfigStats {
 }
 
 /**
+ * @public
  * <p>Statistics for an OpenSearch Serverless security policy.</p>
  */
 export interface SecurityPolicyStats {
@@ -1245,6 +1502,9 @@ export interface SecurityPolicyStats {
   NetworkPolicyCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetPoliciesStatsResponse {
   /**
    * <p>Information about the data access policies in your account.</p>
@@ -1268,6 +1528,9 @@ export interface GetPoliciesStatsResponse {
   TotalPolicyCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSecurityConfigRequest {
   /**
    * <p>The unique identifier of the security configuration.</p>
@@ -1275,6 +1538,9 @@ export interface GetSecurityConfigRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSecurityConfigResponse {
   /**
    * <p>Details of the requested security configuration.</p>
@@ -1282,6 +1548,9 @@ export interface GetSecurityConfigResponse {
   securityConfigDetail?: SecurityConfigDetail;
 }
 
+/**
+ * @public
+ */
 export interface GetSecurityPolicyRequest {
   /**
    * <p>The type of security policy.</p>
@@ -1294,6 +1563,9 @@ export interface GetSecurityPolicyRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSecurityPolicyResponse {
   /**
    * <p>Details about the requested security policy.</p>
@@ -1301,6 +1573,9 @@ export interface GetSecurityPolicyResponse {
   securityPolicyDetail?: SecurityPolicyDetail;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityConfigsRequest {
   /**
    * <p>The type of security configuration.</p>
@@ -1323,6 +1598,7 @@ export interface ListSecurityConfigsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a security configuration for OpenSearch Serverless.</p>
  */
 export interface SecurityConfigSummary {
@@ -1357,6 +1633,9 @@ export interface SecurityConfigSummary {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityConfigsResponse {
   /**
    * <p>Details about the security configurations in your account.</p>
@@ -1371,6 +1650,9 @@ export interface ListSecurityConfigsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityPoliciesRequest {
   /**
    * <p>The type of policy.</p>
@@ -1398,6 +1680,7 @@ export interface ListSecurityPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a security policy for OpenSearch Serverless.</p>
  */
 export interface SecurityPolicySummary {
@@ -1432,6 +1715,9 @@ export interface SecurityPolicySummary {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityPoliciesResponse {
   /**
    * <p>Details about the security policies in your account.</p>
@@ -1446,6 +1732,9 @@ export interface ListSecurityPoliciesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. The resource must be active (not in
@@ -1455,6 +1744,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
@@ -1463,6 +1755,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>Filter the results of a <code>ListVpcEndpoints</code> request.</p>
  */
 export interface VpcEndpointFilters {
@@ -1472,6 +1765,9 @@ export interface VpcEndpointFilters {
   status?: VpcEndpointStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcEndpointsRequest {
   /**
    * <p>Filter the results according to the current status of the VPC endpoint. Possible
@@ -1496,6 +1792,7 @@ export interface ListVpcEndpointsRequest {
 }
 
 /**
+ * @public
  * <p>The VPC endpoint object.</p>
  */
 export interface VpcEndpointSummary {
@@ -1515,6 +1812,9 @@ export interface VpcEndpointSummary {
   status?: VpcEndpointStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcEndpointsResponse {
   /**
    * <p>Details about each VPC endpoint, including the name and current status.</p>
@@ -1529,6 +1829,9 @@ export interface ListVpcEndpointsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityConfigRequest {
   /**
    * <p>The security configuration identifier. For SAML the ID will be
@@ -1560,6 +1863,9 @@ export interface UpdateSecurityConfigRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityConfigResponse {
   /**
    * <p>Details about the updated security configuration. </p>
@@ -1567,6 +1873,9 @@ export interface UpdateSecurityConfigResponse {
   securityConfigDetail?: SecurityConfigDetail;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityPolicyRequest {
   /**
    * <p>The type of access policy.</p>
@@ -1600,6 +1909,9 @@ export interface UpdateSecurityPolicyRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityPolicyResponse {
   /**
    * <p>Details about the updated security policy.</p>
@@ -1607,6 +1919,9 @@ export interface UpdateSecurityPolicyResponse {
   securityPolicyDetail?: SecurityPolicyDetail;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. The resource must be active (not in
@@ -1622,8 +1937,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to remove tags from. The resource must
@@ -1639,17 +1960,27 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAccountSettingsRequest {
   /**
    * <p>The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units
    *             (OCUs). These limits are used to scale your collections based on the current workload.
-   *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling">Autoscaling</a>.</p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing
+   *                 capacity limits for Amazon OpenSearch Serverless</a>.</p>
    */
   capacityLimits?: CapacityLimits;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccountSettingsResponse {
   /**
    * <p>OpenSearch Serverless-related settings for the current Amazon Web Services account. </p>
@@ -1657,6 +1988,9 @@ export interface UpdateAccountSettingsResponse {
   accountSettingsDetail?: AccountSettingsDetail;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVpcEndpointRequest {
   /**
    * <p>The unique identifier of the interface endpoint to update.</p>
@@ -1692,6 +2026,7 @@ export interface UpdateVpcEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Update details for an OpenSearch Serverless-managed interface endpoint.</p>
  */
 export interface UpdateVpcEndpointDetail {
@@ -1727,632 +2062,12 @@ export interface UpdateVpcEndpointDetail {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVpcEndpointResponse {
   /**
    * <p>Details about the updated VPC endpoint.</p>
    */
   UpdateVpcEndpointDetail?: UpdateVpcEndpointDetail;
 }
-
-/**
- * @internal
- */
-export const CreateAccessPolicyRequestFilterSensitiveLog = (obj: CreateAccessPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessPolicyDetailFilterSensitiveLog = (obj: AccessPolicyDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccessPolicyResponseFilterSensitiveLog = (obj: CreateAccessPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccessPolicyRequestFilterSensitiveLog = (obj: DeleteAccessPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccessPolicyResponseFilterSensitiveLog = (obj: DeleteAccessPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccessPolicyRequestFilterSensitiveLog = (obj: GetAccessPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccessPolicyResponseFilterSensitiveLog = (obj: GetAccessPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccessPoliciesRequestFilterSensitiveLog = (obj: ListAccessPoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessPolicySummaryFilterSensitiveLog = (obj: AccessPolicySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccessPoliciesResponseFilterSensitiveLog = (obj: ListAccessPoliciesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAccessPolicyRequestFilterSensitiveLog = (obj: UpdateAccessPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAccessPolicyResponseFilterSensitiveLog = (obj: UpdateAccessPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessPolicyStatsFilterSensitiveLog = (obj: AccessPolicyStats): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityLimitsFilterSensitiveLog = (obj: CapacityLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountSettingsDetailFilterSensitiveLog = (obj: AccountSettingsDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetCollectionRequestFilterSensitiveLog = (obj: BatchGetCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CollectionDetailFilterSensitiveLog = (obj: CollectionDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CollectionErrorDetailFilterSensitiveLog = (obj: CollectionErrorDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetCollectionResponseFilterSensitiveLog = (obj: BatchGetCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetVpcEndpointRequestFilterSensitiveLog = (obj: BatchGetVpcEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointDetailFilterSensitiveLog = (obj: VpcEndpointDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointErrorDetailFilterSensitiveLog = (obj: VpcEndpointErrorDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetVpcEndpointResponseFilterSensitiveLog = (obj: BatchGetVpcEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCollectionRequestFilterSensitiveLog = (obj: CreateCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCollectionDetailFilterSensitiveLog = (obj: CreateCollectionDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCollectionResponseFilterSensitiveLog = (obj: CreateCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCollectionRequestFilterSensitiveLog = (obj: DeleteCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCollectionDetailFilterSensitiveLog = (obj: DeleteCollectionDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCollectionResponseFilterSensitiveLog = (obj: DeleteCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CollectionFiltersFilterSensitiveLog = (obj: CollectionFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCollectionsRequestFilterSensitiveLog = (obj: ListCollectionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CollectionSummaryFilterSensitiveLog = (obj: CollectionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCollectionsResponseFilterSensitiveLog = (obj: ListCollectionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCollectionRequestFilterSensitiveLog = (obj: UpdateCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCollectionDetailFilterSensitiveLog = (obj: UpdateCollectionDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCollectionResponseFilterSensitiveLog = (obj: UpdateCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SamlConfigOptionsFilterSensitiveLog = (obj: SamlConfigOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSecurityConfigRequestFilterSensitiveLog = (obj: CreateSecurityConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityConfigDetailFilterSensitiveLog = (obj: SecurityConfigDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSecurityConfigResponseFilterSensitiveLog = (obj: CreateSecurityConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSecurityPolicyRequestFilterSensitiveLog = (obj: CreateSecurityPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityPolicyDetailFilterSensitiveLog = (obj: SecurityPolicyDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSecurityPolicyResponseFilterSensitiveLog = (obj: CreateSecurityPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcEndpointRequestFilterSensitiveLog = (obj: CreateVpcEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcEndpointDetailFilterSensitiveLog = (obj: CreateVpcEndpointDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcEndpointResponseFilterSensitiveLog = (obj: CreateVpcEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSecurityConfigRequestFilterSensitiveLog = (obj: DeleteSecurityConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSecurityConfigResponseFilterSensitiveLog = (obj: DeleteSecurityConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSecurityPolicyRequestFilterSensitiveLog = (obj: DeleteSecurityPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSecurityPolicyResponseFilterSensitiveLog = (obj: DeleteSecurityPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointRequestFilterSensitiveLog = (obj: DeleteVpcEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointDetailFilterSensitiveLog = (obj: DeleteVpcEndpointDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointResponseFilterSensitiveLog = (obj: DeleteVpcEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountSettingsRequestFilterSensitiveLog = (obj: GetAccountSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountSettingsResponseFilterSensitiveLog = (obj: GetAccountSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPoliciesStatsRequestFilterSensitiveLog = (obj: GetPoliciesStatsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityConfigStatsFilterSensitiveLog = (obj: SecurityConfigStats): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityPolicyStatsFilterSensitiveLog = (obj: SecurityPolicyStats): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPoliciesStatsResponseFilterSensitiveLog = (obj: GetPoliciesStatsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSecurityConfigRequestFilterSensitiveLog = (obj: GetSecurityConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSecurityConfigResponseFilterSensitiveLog = (obj: GetSecurityConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSecurityPolicyRequestFilterSensitiveLog = (obj: GetSecurityPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSecurityPolicyResponseFilterSensitiveLog = (obj: GetSecurityPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSecurityConfigsRequestFilterSensitiveLog = (obj: ListSecurityConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityConfigSummaryFilterSensitiveLog = (obj: SecurityConfigSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSecurityConfigsResponseFilterSensitiveLog = (obj: ListSecurityConfigsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSecurityPoliciesRequestFilterSensitiveLog = (obj: ListSecurityPoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityPolicySummaryFilterSensitiveLog = (obj: SecurityPolicySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSecurityPoliciesResponseFilterSensitiveLog = (obj: ListSecurityPoliciesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointFiltersFilterSensitiveLog = (obj: VpcEndpointFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointsRequestFilterSensitiveLog = (obj: ListVpcEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointSummaryFilterSensitiveLog = (obj: VpcEndpointSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointsResponseFilterSensitiveLog = (obj: ListVpcEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityConfigRequestFilterSensitiveLog = (obj: UpdateSecurityConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityConfigResponseFilterSensitiveLog = (obj: UpdateSecurityConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityPolicyRequestFilterSensitiveLog = (obj: UpdateSecurityPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityPolicyResponseFilterSensitiveLog = (obj: UpdateSecurityPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAccountSettingsRequestFilterSensitiveLog = (obj: UpdateAccountSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAccountSettingsResponseFilterSensitiveLog = (obj: UpdateAccountSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVpcEndpointRequestFilterSensitiveLog = (obj: UpdateVpcEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVpcEndpointDetailFilterSensitiveLog = (obj: UpdateVpcEndpointDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVpcEndpointResponseFilterSensitiveLog = (obj: UpdateVpcEndpointResponse): any => ({
-  ...obj,
-});

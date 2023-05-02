@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteBucketWebsiteRequest, DeleteBucketWebsiteRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketWebsiteCommand,
-  serializeAws_restXmlDeleteBucketWebsiteCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteBucketWebsiteRequest } from "../models/models_0";
+import { de_DeleteBucketWebsiteCommand, se_DeleteBucketWebsiteCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketWebsiteCommand}.
  */
 export interface DeleteBucketWebsiteCommandInput extends DeleteBucketWebsiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketWebsiteCommand}.
  */
 export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action removes the website configuration for a bucket. Amazon S3 returns a <code>200
  *             OK</code> response upon successfully deleting a website configuration on the specified
  *          bucket. You will get a <code>200 OK</code> response if the website configuration you are
@@ -60,10 +62,16 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  * import { S3Client, DeleteBucketWebsiteCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteBucketWebsiteCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // DeleteBucketWebsiteRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteBucketWebsiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketWebsiteCommandInput - {@link DeleteBucketWebsiteCommandInput}
+ * @returns {@link DeleteBucketWebsiteCommandOutput}
  * @see {@link DeleteBucketWebsiteCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketWebsiteCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -104,6 +112,9 @@ export class DeleteBucketWebsiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketWebsiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +143,8 @@ export class DeleteBucketWebsiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketWebsiteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +154,18 @@ export class DeleteBucketWebsiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketWebsiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketWebsiteCommand(input, context);
+    return se_DeleteBucketWebsiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketWebsiteCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketWebsiteCommand(output, context);
+    return de_DeleteBucketWebsiteCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSubnetChangeProtectionRequest,
-  UpdateSubnetChangeProtectionRequestFilterSensitiveLog,
-  UpdateSubnetChangeProtectionResponse,
-  UpdateSubnetChangeProtectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSubnetChangeProtectionRequest, UpdateSubnetChangeProtectionResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
-  deserializeAws_json1_0UpdateSubnetChangeProtectionCommand,
-  serializeAws_json1_0UpdateSubnetChangeProtectionCommand,
+  de_UpdateSubnetChangeProtectionCommand,
+  se_UpdateSubnetChangeProtectionCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSubnetChangeProtectionCommand}.
  */
 export interface UpdateSubnetChangeProtectionCommandInput extends UpdateSubnetChangeProtectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSubnetChangeProtectionCommand}.
  */
 export interface UpdateSubnetChangeProtectionCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateSubnetChangeProtectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,18 @@ export interface UpdateSubnetChangeProtectionCommandOutput
  * import { NetworkFirewallClient, UpdateSubnetChangeProtectionCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateSubnetChangeProtectionCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // UpdateSubnetChangeProtectionRequest
+ *   UpdateToken: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   SubnetChangeProtection: true || false, // required
+ * };
  * const command = new UpdateSubnetChangeProtectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSubnetChangeProtectionCommandInput - {@link UpdateSubnetChangeProtectionCommandInput}
+ * @returns {@link UpdateSubnetChangeProtectionCommandOutput}
  * @see {@link UpdateSubnetChangeProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateSubnetChangeProtectionCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -103,6 +111,9 @@ export class UpdateSubnetChangeProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSubnetChangeProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +142,8 @@ export class UpdateSubnetChangeProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSubnetChangeProtectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubnetChangeProtectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,15 +153,21 @@ export class UpdateSubnetChangeProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSubnetChangeProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateSubnetChangeProtectionCommand(input, context);
+    return se_UpdateSubnetChangeProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSubnetChangeProtectionCommandOutput> {
-    return deserializeAws_json1_0UpdateSubnetChangeProtectionCommand(output, context);
+    return de_UpdateSubnetChangeProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,27 +16,27 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   CreateChannelModeratorRequest,
-  CreateChannelModeratorRequestFilterSensitiveLog,
   CreateChannelModeratorResponse,
   CreateChannelModeratorResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateChannelModeratorCommand,
-  serializeAws_restJson1CreateChannelModeratorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateChannelModeratorCommand, se_CreateChannelModeratorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChannelModeratorCommand}.
  */
 export interface CreateChannelModeratorCommandInput extends CreateChannelModeratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChannelModeratorCommand}.
  */
 export interface CreateChannelModeratorCommandOutput extends CreateChannelModeratorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>
- *
  *          <ul>
  *             <li>
  *                <p>Add and remove other members of the channel.</p>
@@ -54,7 +54,6 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  *                <p>List messages in the channel.</p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
@@ -66,10 +65,17 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  * import { ChimeClient, CreateChannelModeratorCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateChannelModeratorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateChannelModeratorRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChannelModeratorArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new CreateChannelModeratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChannelModeratorCommandInput - {@link CreateChannelModeratorCommandInput}
+ * @returns {@link CreateChannelModeratorCommandOutput}
  * @see {@link CreateChannelModeratorCommandInput} for command's `input` shape.
  * @see {@link CreateChannelModeratorCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -118,6 +124,9 @@ export class CreateChannelModeratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChannelModeratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,7 +155,7 @@ export class CreateChannelModeratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChannelModeratorRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateChannelModeratorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -157,12 +166,18 @@ export class CreateChannelModeratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChannelModeratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateChannelModeratorCommand(input, context);
+    return se_CreateChannelModeratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelModeratorCommandOutput> {
-    return deserializeAws_restJson1CreateChannelModeratorCommand(output, context);
+    return de_CreateChannelModeratorCommand(output, context);
   }
 
   // Start section: command_body_extra

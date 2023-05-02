@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResolverRuleRequest,
-  GetResolverRuleRequestFilterSensitiveLog,
-  GetResolverRuleResponse,
-  GetResolverRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetResolverRuleCommand,
-  serializeAws_json1_1GetResolverRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { GetResolverRuleRequest, GetResolverRuleResponse } from "../models/models_0";
+import { de_GetResolverRuleCommand, se_GetResolverRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverRuleCommand}.
  */
 export interface GetResolverRuleCommandInput extends GetResolverRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverRuleCommand}.
  */
 export interface GetResolverRuleCommandOutput extends GetResolverRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified Resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the
  * 			outbound Resolver endpoint that the rule is associated with.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetResolverRuleCommandOutput extends GetResolverRuleResponse, _
  * import { Route53ResolverClient, GetResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // GetResolverRuleRequest
+ *   ResolverRuleId: "STRING_VALUE", // required
+ * };
  * const command = new GetResolverRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverRuleCommandInput - {@link GetResolverRuleCommandInput}
+ * @returns {@link GetResolverRuleCommandOutput}
  * @see {@link GetResolverRuleCommandInput} for command's `input` shape.
  * @see {@link GetResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetResolverRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetResolverRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResolverRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResolverRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetResolverRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResolverRuleCommand(input, context);
+    return se_GetResolverRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResolverRuleCommandOutput> {
-    return deserializeAws_json1_1GetResolverRuleCommand(output, context);
+    return de_GetResolverRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

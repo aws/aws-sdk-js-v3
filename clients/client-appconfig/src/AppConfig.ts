@@ -1,7 +1,8 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
-import { AppConfigClient } from "./AppConfigClient";
+import { AppConfigClient, AppConfigClientConfig } from "./AppConfigClient";
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
@@ -214,7 +215,736 @@ import {
   ValidateConfigurationCommandOutput,
 } from "./commands/ValidateConfigurationCommand";
 
+const commands = {
+  CreateApplicationCommand,
+  CreateConfigurationProfileCommand,
+  CreateDeploymentStrategyCommand,
+  CreateEnvironmentCommand,
+  CreateExtensionCommand,
+  CreateExtensionAssociationCommand,
+  CreateHostedConfigurationVersionCommand,
+  DeleteApplicationCommand,
+  DeleteConfigurationProfileCommand,
+  DeleteDeploymentStrategyCommand,
+  DeleteEnvironmentCommand,
+  DeleteExtensionCommand,
+  DeleteExtensionAssociationCommand,
+  DeleteHostedConfigurationVersionCommand,
+  GetApplicationCommand,
+  GetConfigurationCommand,
+  GetConfigurationProfileCommand,
+  GetDeploymentCommand,
+  GetDeploymentStrategyCommand,
+  GetEnvironmentCommand,
+  GetExtensionCommand,
+  GetExtensionAssociationCommand,
+  GetHostedConfigurationVersionCommand,
+  ListApplicationsCommand,
+  ListConfigurationProfilesCommand,
+  ListDeploymentsCommand,
+  ListDeploymentStrategiesCommand,
+  ListEnvironmentsCommand,
+  ListExtensionAssociationsCommand,
+  ListExtensionsCommand,
+  ListHostedConfigurationVersionsCommand,
+  ListTagsForResourceCommand,
+  StartDeploymentCommand,
+  StopDeploymentCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateApplicationCommand,
+  UpdateConfigurationProfileCommand,
+  UpdateDeploymentStrategyCommand,
+  UpdateEnvironmentCommand,
+  UpdateExtensionCommand,
+  UpdateExtensionAssociationCommand,
+  ValidateConfigurationCommand,
+};
+
+export interface AppConfig {
+  /**
+   * @see {@link CreateApplicationCommand}
+   */
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationCommandOutput>;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateConfigurationProfileCommand}
+   */
+  createConfigurationProfile(
+    args: CreateConfigurationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConfigurationProfileCommandOutput>;
+  createConfigurationProfile(
+    args: CreateConfigurationProfileCommandInput,
+    cb: (err: any, data?: CreateConfigurationProfileCommandOutput) => void
+  ): void;
+  createConfigurationProfile(
+    args: CreateConfigurationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConfigurationProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDeploymentStrategyCommand}
+   */
+  createDeploymentStrategy(
+    args: CreateDeploymentStrategyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDeploymentStrategyCommandOutput>;
+  createDeploymentStrategy(
+    args: CreateDeploymentStrategyCommandInput,
+    cb: (err: any, data?: CreateDeploymentStrategyCommandOutput) => void
+  ): void;
+  createDeploymentStrategy(
+    args: CreateDeploymentStrategyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDeploymentStrategyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEnvironmentCommand}
+   */
+  createEnvironment(
+    args: CreateEnvironmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEnvironmentCommandOutput>;
+  createEnvironment(
+    args: CreateEnvironmentCommandInput,
+    cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
+  ): void;
+  createEnvironment(
+    args: CreateEnvironmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateExtensionCommand}
+   */
+  createExtension(
+    args: CreateExtensionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExtensionCommandOutput>;
+  createExtension(args: CreateExtensionCommandInput, cb: (err: any, data?: CreateExtensionCommandOutput) => void): void;
+  createExtension(
+    args: CreateExtensionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExtensionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateExtensionAssociationCommand}
+   */
+  createExtensionAssociation(
+    args: CreateExtensionAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExtensionAssociationCommandOutput>;
+  createExtensionAssociation(
+    args: CreateExtensionAssociationCommandInput,
+    cb: (err: any, data?: CreateExtensionAssociationCommandOutput) => void
+  ): void;
+  createExtensionAssociation(
+    args: CreateExtensionAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExtensionAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateHostedConfigurationVersionCommand}
+   */
+  createHostedConfigurationVersion(
+    args: CreateHostedConfigurationVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHostedConfigurationVersionCommandOutput>;
+  createHostedConfigurationVersion(
+    args: CreateHostedConfigurationVersionCommandInput,
+    cb: (err: any, data?: CreateHostedConfigurationVersionCommandOutput) => void
+  ): void;
+  createHostedConfigurationVersion(
+    args: CreateHostedConfigurationVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateHostedConfigurationVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteApplicationCommand}
+   */
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationCommandOutput>;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConfigurationProfileCommand}
+   */
+  deleteConfigurationProfile(
+    args: DeleteConfigurationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConfigurationProfileCommandOutput>;
+  deleteConfigurationProfile(
+    args: DeleteConfigurationProfileCommandInput,
+    cb: (err: any, data?: DeleteConfigurationProfileCommandOutput) => void
+  ): void;
+  deleteConfigurationProfile(
+    args: DeleteConfigurationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConfigurationProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDeploymentStrategyCommand}
+   */
+  deleteDeploymentStrategy(
+    args: DeleteDeploymentStrategyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeploymentStrategyCommandOutput>;
+  deleteDeploymentStrategy(
+    args: DeleteDeploymentStrategyCommandInput,
+    cb: (err: any, data?: DeleteDeploymentStrategyCommandOutput) => void
+  ): void;
+  deleteDeploymentStrategy(
+    args: DeleteDeploymentStrategyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeploymentStrategyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEnvironmentCommand}
+   */
+  deleteEnvironment(
+    args: DeleteEnvironmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEnvironmentCommandOutput>;
+  deleteEnvironment(
+    args: DeleteEnvironmentCommandInput,
+    cb: (err: any, data?: DeleteEnvironmentCommandOutput) => void
+  ): void;
+  deleteEnvironment(
+    args: DeleteEnvironmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteExtensionCommand}
+   */
+  deleteExtension(
+    args: DeleteExtensionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExtensionCommandOutput>;
+  deleteExtension(args: DeleteExtensionCommandInput, cb: (err: any, data?: DeleteExtensionCommandOutput) => void): void;
+  deleteExtension(
+    args: DeleteExtensionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteExtensionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteExtensionAssociationCommand}
+   */
+  deleteExtensionAssociation(
+    args: DeleteExtensionAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExtensionAssociationCommandOutput>;
+  deleteExtensionAssociation(
+    args: DeleteExtensionAssociationCommandInput,
+    cb: (err: any, data?: DeleteExtensionAssociationCommandOutput) => void
+  ): void;
+  deleteExtensionAssociation(
+    args: DeleteExtensionAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteExtensionAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteHostedConfigurationVersionCommand}
+   */
+  deleteHostedConfigurationVersion(
+    args: DeleteHostedConfigurationVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHostedConfigurationVersionCommandOutput>;
+  deleteHostedConfigurationVersion(
+    args: DeleteHostedConfigurationVersionCommandInput,
+    cb: (err: any, data?: DeleteHostedConfigurationVersionCommandOutput) => void
+  ): void;
+  deleteHostedConfigurationVersion(
+    args: DeleteHostedConfigurationVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHostedConfigurationVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetApplicationCommand}
+   */
+  getApplication(
+    args: GetApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApplicationCommandOutput>;
+  getApplication(args: GetApplicationCommandInput, cb: (err: any, data?: GetApplicationCommandOutput) => void): void;
+  getApplication(
+    args: GetApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConfigurationCommand}
+   */
+  getConfiguration(
+    args: GetConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationCommandOutput>;
+  getConfiguration(
+    args: GetConfigurationCommandInput,
+    cb: (err: any, data?: GetConfigurationCommandOutput) => void
+  ): void;
+  getConfiguration(
+    args: GetConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConfigurationProfileCommand}
+   */
+  getConfigurationProfile(
+    args: GetConfigurationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationProfileCommandOutput>;
+  getConfigurationProfile(
+    args: GetConfigurationProfileCommandInput,
+    cb: (err: any, data?: GetConfigurationProfileCommandOutput) => void
+  ): void;
+  getConfigurationProfile(
+    args: GetConfigurationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeploymentCommand}
+   */
+  getDeployment(args: GetDeploymentCommandInput, options?: __HttpHandlerOptions): Promise<GetDeploymentCommandOutput>;
+  getDeployment(args: GetDeploymentCommandInput, cb: (err: any, data?: GetDeploymentCommandOutput) => void): void;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeploymentStrategyCommand}
+   */
+  getDeploymentStrategy(
+    args: GetDeploymentStrategyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeploymentStrategyCommandOutput>;
+  getDeploymentStrategy(
+    args: GetDeploymentStrategyCommandInput,
+    cb: (err: any, data?: GetDeploymentStrategyCommandOutput) => void
+  ): void;
+  getDeploymentStrategy(
+    args: GetDeploymentStrategyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeploymentStrategyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEnvironmentCommand}
+   */
+  getEnvironment(
+    args: GetEnvironmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEnvironmentCommandOutput>;
+  getEnvironment(args: GetEnvironmentCommandInput, cb: (err: any, data?: GetEnvironmentCommandOutput) => void): void;
+  getEnvironment(
+    args: GetEnvironmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetExtensionCommand}
+   */
+  getExtension(args: GetExtensionCommandInput, options?: __HttpHandlerOptions): Promise<GetExtensionCommandOutput>;
+  getExtension(args: GetExtensionCommandInput, cb: (err: any, data?: GetExtensionCommandOutput) => void): void;
+  getExtension(
+    args: GetExtensionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExtensionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetExtensionAssociationCommand}
+   */
+  getExtensionAssociation(
+    args: GetExtensionAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExtensionAssociationCommandOutput>;
+  getExtensionAssociation(
+    args: GetExtensionAssociationCommandInput,
+    cb: (err: any, data?: GetExtensionAssociationCommandOutput) => void
+  ): void;
+  getExtensionAssociation(
+    args: GetExtensionAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExtensionAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetHostedConfigurationVersionCommand}
+   */
+  getHostedConfigurationVersion(
+    args: GetHostedConfigurationVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetHostedConfigurationVersionCommandOutput>;
+  getHostedConfigurationVersion(
+    args: GetHostedConfigurationVersionCommandInput,
+    cb: (err: any, data?: GetHostedConfigurationVersionCommandOutput) => void
+  ): void;
+  getHostedConfigurationVersion(
+    args: GetHostedConfigurationVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetHostedConfigurationVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   */
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationsCommandOutput>;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConfigurationProfilesCommand}
+   */
+  listConfigurationProfiles(
+    args: ListConfigurationProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationProfilesCommandOutput>;
+  listConfigurationProfiles(
+    args: ListConfigurationProfilesCommandInput,
+    cb: (err: any, data?: ListConfigurationProfilesCommandOutput) => void
+  ): void;
+  listConfigurationProfiles(
+    args: ListConfigurationProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDeploymentsCommand}
+   */
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeploymentsCommandOutput>;
+  listDeployments(args: ListDeploymentsCommandInput, cb: (err: any, data?: ListDeploymentsCommandOutput) => void): void;
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDeploymentStrategiesCommand}
+   */
+  listDeploymentStrategies(
+    args: ListDeploymentStrategiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeploymentStrategiesCommandOutput>;
+  listDeploymentStrategies(
+    args: ListDeploymentStrategiesCommandInput,
+    cb: (err: any, data?: ListDeploymentStrategiesCommandOutput) => void
+  ): void;
+  listDeploymentStrategies(
+    args: ListDeploymentStrategiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeploymentStrategiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEnvironmentsCommand}
+   */
+  listEnvironments(
+    args: ListEnvironmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEnvironmentsCommandOutput>;
+  listEnvironments(
+    args: ListEnvironmentsCommandInput,
+    cb: (err: any, data?: ListEnvironmentsCommandOutput) => void
+  ): void;
+  listEnvironments(
+    args: ListEnvironmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEnvironmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExtensionAssociationsCommand}
+   */
+  listExtensionAssociations(
+    args: ListExtensionAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExtensionAssociationsCommandOutput>;
+  listExtensionAssociations(
+    args: ListExtensionAssociationsCommandInput,
+    cb: (err: any, data?: ListExtensionAssociationsCommandOutput) => void
+  ): void;
+  listExtensionAssociations(
+    args: ListExtensionAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExtensionAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExtensionsCommand}
+   */
+  listExtensions(
+    args: ListExtensionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExtensionsCommandOutput>;
+  listExtensions(args: ListExtensionsCommandInput, cb: (err: any, data?: ListExtensionsCommandOutput) => void): void;
+  listExtensions(
+    args: ListExtensionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExtensionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListHostedConfigurationVersionsCommand}
+   */
+  listHostedConfigurationVersions(
+    args: ListHostedConfigurationVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHostedConfigurationVersionsCommandOutput>;
+  listHostedConfigurationVersions(
+    args: ListHostedConfigurationVersionsCommandInput,
+    cb: (err: any, data?: ListHostedConfigurationVersionsCommandOutput) => void
+  ): void;
+  listHostedConfigurationVersions(
+    args: ListHostedConfigurationVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHostedConfigurationVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartDeploymentCommand}
+   */
+  startDeployment(
+    args: StartDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDeploymentCommandOutput>;
+  startDeployment(args: StartDeploymentCommandInput, cb: (err: any, data?: StartDeploymentCommandOutput) => void): void;
+  startDeployment(
+    args: StartDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopDeploymentCommand}
+   */
+  stopDeployment(
+    args: StopDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopDeploymentCommandOutput>;
+  stopDeployment(args: StopDeploymentCommandInput, cb: (err: any, data?: StopDeploymentCommandOutput) => void): void;
+  stopDeployment(
+    args: StopDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateApplicationCommand}
+   */
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationCommandOutput>;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateConfigurationProfileCommand}
+   */
+  updateConfigurationProfile(
+    args: UpdateConfigurationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConfigurationProfileCommandOutput>;
+  updateConfigurationProfile(
+    args: UpdateConfigurationProfileCommandInput,
+    cb: (err: any, data?: UpdateConfigurationProfileCommandOutput) => void
+  ): void;
+  updateConfigurationProfile(
+    args: UpdateConfigurationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConfigurationProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDeploymentStrategyCommand}
+   */
+  updateDeploymentStrategy(
+    args: UpdateDeploymentStrategyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDeploymentStrategyCommandOutput>;
+  updateDeploymentStrategy(
+    args: UpdateDeploymentStrategyCommandInput,
+    cb: (err: any, data?: UpdateDeploymentStrategyCommandOutput) => void
+  ): void;
+  updateDeploymentStrategy(
+    args: UpdateDeploymentStrategyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDeploymentStrategyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEnvironmentCommand}
+   */
+  updateEnvironment(
+    args: UpdateEnvironmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEnvironmentCommandOutput>;
+  updateEnvironment(
+    args: UpdateEnvironmentCommandInput,
+    cb: (err: any, data?: UpdateEnvironmentCommandOutput) => void
+  ): void;
+  updateEnvironment(
+    args: UpdateEnvironmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateExtensionCommand}
+   */
+  updateExtension(
+    args: UpdateExtensionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateExtensionCommandOutput>;
+  updateExtension(args: UpdateExtensionCommandInput, cb: (err: any, data?: UpdateExtensionCommandOutput) => void): void;
+  updateExtension(
+    args: UpdateExtensionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateExtensionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateExtensionAssociationCommand}
+   */
+  updateExtensionAssociation(
+    args: UpdateExtensionAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateExtensionAssociationCommandOutput>;
+  updateExtensionAssociation(
+    args: UpdateExtensionAssociationCommandInput,
+    cb: (err: any, data?: UpdateExtensionAssociationCommandOutput) => void
+  ): void;
+  updateExtensionAssociation(
+    args: UpdateExtensionAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateExtensionAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ValidateConfigurationCommand}
+   */
+  validateConfiguration(
+    args: ValidateConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidateConfigurationCommandOutput>;
+  validateConfiguration(
+    args: ValidateConfigurationCommandInput,
+    cb: (err: any, data?: ValidateConfigurationCommandOutput) => void
+  ): void;
+  validateConfiguration(
+    args: ValidateConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidateConfigurationCommandOutput) => void
+  ): void;
+}
+
 /**
+ * @public
  * <p>Use AppConfig, a capability of Amazon Web Services Systems Manager, to create, manage, and quickly
  *          deploy application configurations. AppConfig supports controlled deployments to
  *          applications of any size and includes built-in validation checks and monitoring. You can
@@ -262,1497 +992,5 @@ import {
  *          <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html">AppConfig User
  *          Guide</a>.</p>
  */
-export class AppConfig extends AppConfigClient {
-  /**
-   * <p>Creates an application. In AppConfig, an application is simply an
-   *          organizational construct like a folder. This organizational construct has a relationship
-   *          with some unit of executable code. For example, you could create an application called
-   *          MyMobileApp to organize and manage configuration data for a mobile application installed by
-   *          your users.</p>
-   */
-  public createApplication(
-    args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateApplicationCommandOutput>;
-  public createApplication(
-    args: CreateApplicationCommandInput,
-    cb: (err: any, data?: CreateApplicationCommandOutput) => void
-  ): void;
-  public createApplication(
-    args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateApplicationCommandOutput) => void
-  ): void;
-  public createApplication(
-    args: CreateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationCommandOutput) => void),
-    cb?: (err: any, data?: CreateApplicationCommandOutput) => void
-  ): Promise<CreateApplicationCommandOutput> | void {
-    const command = new CreateApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a configuration profile, which is information that enables AppConfig
-   *          to access the configuration source. Valid configuration sources include the
-   *          following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Configuration data in YAML, JSON, and other formats stored in the AppConfig hosted configuration store</p>
-   *             </li>
-   *             <li>
-   *                <p>Configuration data stored as objects in an Amazon Simple Storage Service (Amazon S3)
-   *                bucket</p>
-   *             </li>
-   *             <li>
-   *                <p>Pipelines stored in CodePipeline</p>
-   *             </li>
-   *             <li>
-   *                <p>Secrets stored in Secrets Manager</p>
-   *             </li>
-   *             <li>
-   *                <p>Standard and secure string parameters stored in Amazon Web Services Systems Manager Parameter Store</p>
-   *             </li>
-   *             <li>
-   *                <p>Configuration data in SSM documents stored in the Systems Manager document store</p>
-   *             </li>
-   *          </ul>
-   *          <p>A configuration profile includes the following information:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The URI location of the configuration data.</p>
-   *             </li>
-   *             <li>
-   *                <p>The Identity and Access Management (IAM) role that provides access to the configuration data.</p>
-   *             </li>
-   *             <li>
-   *                <p>A validator for the configuration data. Available validators include either a JSON
-   *                Schema or an Amazon Web Services Lambda function.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html">Create a
-   *             Configuration and a Configuration Profile</a> in the <i>AppConfig
-   *             User Guide</i>.</p>
-   */
-  public createConfigurationProfile(
-    args: CreateConfigurationProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateConfigurationProfileCommandOutput>;
-  public createConfigurationProfile(
-    args: CreateConfigurationProfileCommandInput,
-    cb: (err: any, data?: CreateConfigurationProfileCommandOutput) => void
-  ): void;
-  public createConfigurationProfile(
-    args: CreateConfigurationProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateConfigurationProfileCommandOutput) => void
-  ): void;
-  public createConfigurationProfile(
-    args: CreateConfigurationProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConfigurationProfileCommandOutput) => void),
-    cb?: (err: any, data?: CreateConfigurationProfileCommandOutput) => void
-  ): Promise<CreateConfigurationProfileCommandOutput> | void {
-    const command = new CreateConfigurationProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a deployment strategy that defines important criteria for rolling out your
-   *          configuration to the designated targets. A deployment strategy includes the overall
-   *          duration required, a percentage of targets to receive the deployment during each interval,
-   *          an algorithm that defines how percentage grows, and bake time.</p>
-   */
-  public createDeploymentStrategy(
-    args: CreateDeploymentStrategyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDeploymentStrategyCommandOutput>;
-  public createDeploymentStrategy(
-    args: CreateDeploymentStrategyCommandInput,
-    cb: (err: any, data?: CreateDeploymentStrategyCommandOutput) => void
-  ): void;
-  public createDeploymentStrategy(
-    args: CreateDeploymentStrategyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDeploymentStrategyCommandOutput) => void
-  ): void;
-  public createDeploymentStrategy(
-    args: CreateDeploymentStrategyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentStrategyCommandOutput) => void),
-    cb?: (err: any, data?: CreateDeploymentStrategyCommandOutput) => void
-  ): Promise<CreateDeploymentStrategyCommandOutput> | void {
-    const command = new CreateDeploymentStrategyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates an environment. For each application, you define one or more environments. An
-   *          environment is a deployment group of AppConfig targets, such as applications in a
-   *             <code>Beta</code> or <code>Production</code> environment. You can also define
-   *          environments for application subcomponents such as the <code>Web</code>,
-   *             <code>Mobile</code> and <code>Back-end</code> components for your application. You can
-   *          configure Amazon CloudWatch alarms for each environment. The system monitors alarms during a
-   *          configuration deployment. If an alarm is triggered, the system rolls back the
-   *          configuration.</p>
-   */
-  public createEnvironment(
-    args: CreateEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateEnvironmentCommandOutput>;
-  public createEnvironment(
-    args: CreateEnvironmentCommandInput,
-    cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
-  ): void;
-  public createEnvironment(
-    args: CreateEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
-  ): void;
-  public createEnvironment(
-    args: CreateEnvironmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEnvironmentCommandOutput) => void),
-    cb?: (err: any, data?: CreateEnvironmentCommandOutput) => void
-  ): Promise<CreateEnvironmentCommandOutput> | void {
-    const command = new CreateEnvironmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates an AppConfig extension. An extension augments your ability to inject
-   *          logic or behavior at different points during the AppConfig workflow of creating
-   *          or deploying a configuration.</p>
-   *          <p>You can create your own extensions or use the Amazon Web Services authored extensions provided by
-   *             AppConfig. For most use cases, to create your own extension, you must create
-   *          an Lambda function to perform any computation and processing defined in the
-   *          extension. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
-   *                AppConfig extensions</a> in the
-   *          <i>AppConfig User Guide</i>.</p>
-   */
-  public createExtension(
-    args: CreateExtensionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateExtensionCommandOutput>;
-  public createExtension(
-    args: CreateExtensionCommandInput,
-    cb: (err: any, data?: CreateExtensionCommandOutput) => void
-  ): void;
-  public createExtension(
-    args: CreateExtensionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateExtensionCommandOutput) => void
-  ): void;
-  public createExtension(
-    args: CreateExtensionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExtensionCommandOutput) => void),
-    cb?: (err: any, data?: CreateExtensionCommandOutput) => void
-  ): Promise<CreateExtensionCommandOutput> | void {
-    const command = new CreateExtensionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>When you create an extension or configure an Amazon Web Services authored extension, you
-   *          associate the extension with an AppConfig application, environment, or
-   *          configuration profile. For example, you can choose to run the <code>AppConfig
-   *             deployment events to Amazon SNS</code>
-   *          Amazon Web Services authored extension and receive notifications on an Amazon SNS
-   *          topic anytime a configuration deployment is started for a specific application. Defining
-   *          which extension to associate with an AppConfig resource is called an
-   *             <i>extension association</i>. An extension association is a specified
-   *          relationship between an extension and an AppConfig resource, such as an
-   *          application or a configuration profile. For more information about extensions and
-   *          associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
-   *                AppConfig extensions</a> in the
-   *          <i>AppConfig User Guide</i>.</p>
-   */
-  public createExtensionAssociation(
-    args: CreateExtensionAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateExtensionAssociationCommandOutput>;
-  public createExtensionAssociation(
-    args: CreateExtensionAssociationCommandInput,
-    cb: (err: any, data?: CreateExtensionAssociationCommandOutput) => void
-  ): void;
-  public createExtensionAssociation(
-    args: CreateExtensionAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateExtensionAssociationCommandOutput) => void
-  ): void;
-  public createExtensionAssociation(
-    args: CreateExtensionAssociationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExtensionAssociationCommandOutput) => void),
-    cb?: (err: any, data?: CreateExtensionAssociationCommandOutput) => void
-  ): Promise<CreateExtensionAssociationCommandOutput> | void {
-    const command = new CreateExtensionAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a new configuration in the AppConfig hosted configuration
-   *          store.</p>
-   */
-  public createHostedConfigurationVersion(
-    args: CreateHostedConfigurationVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateHostedConfigurationVersionCommandOutput>;
-  public createHostedConfigurationVersion(
-    args: CreateHostedConfigurationVersionCommandInput,
-    cb: (err: any, data?: CreateHostedConfigurationVersionCommandOutput) => void
-  ): void;
-  public createHostedConfigurationVersion(
-    args: CreateHostedConfigurationVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateHostedConfigurationVersionCommandOutput) => void
-  ): void;
-  public createHostedConfigurationVersion(
-    args: CreateHostedConfigurationVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHostedConfigurationVersionCommandOutput) => void),
-    cb?: (err: any, data?: CreateHostedConfigurationVersionCommandOutput) => void
-  ): Promise<CreateHostedConfigurationVersionCommandOutput> | void {
-    const command = new CreateHostedConfigurationVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes an application. Deleting an application does not delete a configuration from a
-   *          host.</p>
-   */
-  public deleteApplication(
-    args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteApplicationCommandOutput>;
-  public deleteApplication(
-    args: DeleteApplicationCommandInput,
-    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
-  ): void;
-  public deleteApplication(
-    args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
-  ): void;
-  public deleteApplication(
-    args: DeleteApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteApplicationCommandOutput) => void
-  ): Promise<DeleteApplicationCommandOutput> | void {
-    const command = new DeleteApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a configuration profile. Deleting a configuration profile does not delete a
-   *          configuration from a host.</p>
-   */
-  public deleteConfigurationProfile(
-    args: DeleteConfigurationProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteConfigurationProfileCommandOutput>;
-  public deleteConfigurationProfile(
-    args: DeleteConfigurationProfileCommandInput,
-    cb: (err: any, data?: DeleteConfigurationProfileCommandOutput) => void
-  ): void;
-  public deleteConfigurationProfile(
-    args: DeleteConfigurationProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteConfigurationProfileCommandOutput) => void
-  ): void;
-  public deleteConfigurationProfile(
-    args: DeleteConfigurationProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigurationProfileCommandOutput) => void),
-    cb?: (err: any, data?: DeleteConfigurationProfileCommandOutput) => void
-  ): Promise<DeleteConfigurationProfileCommandOutput> | void {
-    const command = new DeleteConfigurationProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a deployment strategy. Deleting a deployment strategy does not delete a
-   *          configuration from a host.</p>
-   */
-  public deleteDeploymentStrategy(
-    args: DeleteDeploymentStrategyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDeploymentStrategyCommandOutput>;
-  public deleteDeploymentStrategy(
-    args: DeleteDeploymentStrategyCommandInput,
-    cb: (err: any, data?: DeleteDeploymentStrategyCommandOutput) => void
-  ): void;
-  public deleteDeploymentStrategy(
-    args: DeleteDeploymentStrategyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDeploymentStrategyCommandOutput) => void
-  ): void;
-  public deleteDeploymentStrategy(
-    args: DeleteDeploymentStrategyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeploymentStrategyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDeploymentStrategyCommandOutput) => void
-  ): Promise<DeleteDeploymentStrategyCommandOutput> | void {
-    const command = new DeleteDeploymentStrategyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes an environment. Deleting an environment does not delete a configuration from a
-   *          host.</p>
-   */
-  public deleteEnvironment(
-    args: DeleteEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteEnvironmentCommandOutput>;
-  public deleteEnvironment(
-    args: DeleteEnvironmentCommandInput,
-    cb: (err: any, data?: DeleteEnvironmentCommandOutput) => void
-  ): void;
-  public deleteEnvironment(
-    args: DeleteEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteEnvironmentCommandOutput) => void
-  ): void;
-  public deleteEnvironment(
-    args: DeleteEnvironmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEnvironmentCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEnvironmentCommandOutput) => void
-  ): Promise<DeleteEnvironmentCommandOutput> | void {
-    const command = new DeleteEnvironmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes an AppConfig extension. You must delete all associations to an
-   *          extension before you delete the extension.</p>
-   */
-  public deleteExtension(
-    args: DeleteExtensionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteExtensionCommandOutput>;
-  public deleteExtension(
-    args: DeleteExtensionCommandInput,
-    cb: (err: any, data?: DeleteExtensionCommandOutput) => void
-  ): void;
-  public deleteExtension(
-    args: DeleteExtensionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteExtensionCommandOutput) => void
-  ): void;
-  public deleteExtension(
-    args: DeleteExtensionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteExtensionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteExtensionCommandOutput) => void
-  ): Promise<DeleteExtensionCommandOutput> | void {
-    const command = new DeleteExtensionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes an extension association. This action doesn't delete extensions defined in the
-   *          association.</p>
-   */
-  public deleteExtensionAssociation(
-    args: DeleteExtensionAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteExtensionAssociationCommandOutput>;
-  public deleteExtensionAssociation(
-    args: DeleteExtensionAssociationCommandInput,
-    cb: (err: any, data?: DeleteExtensionAssociationCommandOutput) => void
-  ): void;
-  public deleteExtensionAssociation(
-    args: DeleteExtensionAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteExtensionAssociationCommandOutput) => void
-  ): void;
-  public deleteExtensionAssociation(
-    args: DeleteExtensionAssociationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteExtensionAssociationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteExtensionAssociationCommandOutput) => void
-  ): Promise<DeleteExtensionAssociationCommandOutput> | void {
-    const command = new DeleteExtensionAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a version of a configuration from the AppConfig hosted configuration
-   *          store.</p>
-   */
-  public deleteHostedConfigurationVersion(
-    args: DeleteHostedConfigurationVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteHostedConfigurationVersionCommandOutput>;
-  public deleteHostedConfigurationVersion(
-    args: DeleteHostedConfigurationVersionCommandInput,
-    cb: (err: any, data?: DeleteHostedConfigurationVersionCommandOutput) => void
-  ): void;
-  public deleteHostedConfigurationVersion(
-    args: DeleteHostedConfigurationVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteHostedConfigurationVersionCommandOutput) => void
-  ): void;
-  public deleteHostedConfigurationVersion(
-    args: DeleteHostedConfigurationVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHostedConfigurationVersionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteHostedConfigurationVersionCommandOutput) => void
-  ): Promise<DeleteHostedConfigurationVersionCommandOutput> | void {
-    const command = new DeleteHostedConfigurationVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves information about an application.</p>
-   */
-  public getApplication(
-    args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetApplicationCommandOutput>;
-  public getApplication(
-    args: GetApplicationCommandInput,
-    cb: (err: any, data?: GetApplicationCommandOutput) => void
-  ): void;
-  public getApplication(
-    args: GetApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetApplicationCommandOutput) => void
-  ): void;
-  public getApplication(
-    args: GetApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationCommandOutput) => void),
-    cb?: (err: any, data?: GetApplicationCommandOutput) => void
-  ): Promise<GetApplicationCommandOutput> | void {
-    const command = new GetApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @deprecated
-   *
-   * <p>(Deprecated) Retrieves the latest deployed configuration.</p>
-   *          <important>
-   *             <p>Note the following important information.</p>
-   *             <ul>
-   *                <li>
-   *                   <p>This API action is deprecated. Calls to receive configuration data should use
-   *                   the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> APIs instead. </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <code>GetConfiguration</code> is a priced call. For more information, see
-   *                      <a href="https://aws.amazon.com/systems-manager/pricing/">Pricing</a>.</p>
-   *                </li>
-   *             </ul>
-   *          </important>
-   */
-  public getConfiguration(
-    args: GetConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetConfigurationCommandOutput>;
-  public getConfiguration(
-    args: GetConfigurationCommandInput,
-    cb: (err: any, data?: GetConfigurationCommandOutput) => void
-  ): void;
-  public getConfiguration(
-    args: GetConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetConfigurationCommandOutput) => void
-  ): void;
-  public getConfiguration(
-    args: GetConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetConfigurationCommandOutput) => void
-  ): Promise<GetConfigurationCommandOutput> | void {
-    const command = new GetConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves information about a configuration profile.</p>
-   */
-  public getConfigurationProfile(
-    args: GetConfigurationProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetConfigurationProfileCommandOutput>;
-  public getConfigurationProfile(
-    args: GetConfigurationProfileCommandInput,
-    cb: (err: any, data?: GetConfigurationProfileCommandOutput) => void
-  ): void;
-  public getConfigurationProfile(
-    args: GetConfigurationProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetConfigurationProfileCommandOutput) => void
-  ): void;
-  public getConfigurationProfile(
-    args: GetConfigurationProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigurationProfileCommandOutput) => void),
-    cb?: (err: any, data?: GetConfigurationProfileCommandOutput) => void
-  ): Promise<GetConfigurationProfileCommandOutput> | void {
-    const command = new GetConfigurationProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves information about a configuration deployment.</p>
-   */
-  public getDeployment(
-    args: GetDeploymentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDeploymentCommandOutput>;
-  public getDeployment(
-    args: GetDeploymentCommandInput,
-    cb: (err: any, data?: GetDeploymentCommandOutput) => void
-  ): void;
-  public getDeployment(
-    args: GetDeploymentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDeploymentCommandOutput) => void
-  ): void;
-  public getDeployment(
-    args: GetDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: GetDeploymentCommandOutput) => void
-  ): Promise<GetDeploymentCommandOutput> | void {
-    const command = new GetDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves information about a deployment strategy. A deployment strategy defines
-   *          important criteria for rolling out your configuration to the designated targets. A
-   *          deployment strategy includes the overall duration required, a percentage of targets to
-   *          receive the deployment during each interval, an algorithm that defines how percentage
-   *          grows, and bake time.</p>
-   */
-  public getDeploymentStrategy(
-    args: GetDeploymentStrategyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDeploymentStrategyCommandOutput>;
-  public getDeploymentStrategy(
-    args: GetDeploymentStrategyCommandInput,
-    cb: (err: any, data?: GetDeploymentStrategyCommandOutput) => void
-  ): void;
-  public getDeploymentStrategy(
-    args: GetDeploymentStrategyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDeploymentStrategyCommandOutput) => void
-  ): void;
-  public getDeploymentStrategy(
-    args: GetDeploymentStrategyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentStrategyCommandOutput) => void),
-    cb?: (err: any, data?: GetDeploymentStrategyCommandOutput) => void
-  ): Promise<GetDeploymentStrategyCommandOutput> | void {
-    const command = new GetDeploymentStrategyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves information about an environment. An environment is a deployment group of
-   *             AppConfig applications, such as applications in a <code>Production</code>
-   *          environment or in an <code>EU_Region</code> environment. Each configuration deployment
-   *          targets an environment. You can enable one or more Amazon CloudWatch alarms for an environment. If
-   *          an alarm is triggered during a deployment, AppConfig roles back the
-   *          configuration.</p>
-   */
-  public getEnvironment(
-    args: GetEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetEnvironmentCommandOutput>;
-  public getEnvironment(
-    args: GetEnvironmentCommandInput,
-    cb: (err: any, data?: GetEnvironmentCommandOutput) => void
-  ): void;
-  public getEnvironment(
-    args: GetEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetEnvironmentCommandOutput) => void
-  ): void;
-  public getEnvironment(
-    args: GetEnvironmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEnvironmentCommandOutput) => void),
-    cb?: (err: any, data?: GetEnvironmentCommandOutput) => void
-  ): Promise<GetEnvironmentCommandOutput> | void {
-    const command = new GetEnvironmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about an AppConfig extension.</p>
-   */
-  public getExtension(
-    args: GetExtensionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetExtensionCommandOutput>;
-  public getExtension(args: GetExtensionCommandInput, cb: (err: any, data?: GetExtensionCommandOutput) => void): void;
-  public getExtension(
-    args: GetExtensionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetExtensionCommandOutput) => void
-  ): void;
-  public getExtension(
-    args: GetExtensionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExtensionCommandOutput) => void),
-    cb?: (err: any, data?: GetExtensionCommandOutput) => void
-  ): Promise<GetExtensionCommandOutput> | void {
-    const command = new GetExtensionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about an AppConfig extension association. For more
-   *          information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
-   *                AppConfig extensions</a> in the
-   *          <i>AppConfig User Guide</i>.</p>
-   */
-  public getExtensionAssociation(
-    args: GetExtensionAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetExtensionAssociationCommandOutput>;
-  public getExtensionAssociation(
-    args: GetExtensionAssociationCommandInput,
-    cb: (err: any, data?: GetExtensionAssociationCommandOutput) => void
-  ): void;
-  public getExtensionAssociation(
-    args: GetExtensionAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetExtensionAssociationCommandOutput) => void
-  ): void;
-  public getExtensionAssociation(
-    args: GetExtensionAssociationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExtensionAssociationCommandOutput) => void),
-    cb?: (err: any, data?: GetExtensionAssociationCommandOutput) => void
-  ): Promise<GetExtensionAssociationCommandOutput> | void {
-    const command = new GetExtensionAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves information about a specific configuration version.</p>
-   */
-  public getHostedConfigurationVersion(
-    args: GetHostedConfigurationVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetHostedConfigurationVersionCommandOutput>;
-  public getHostedConfigurationVersion(
-    args: GetHostedConfigurationVersionCommandInput,
-    cb: (err: any, data?: GetHostedConfigurationVersionCommandOutput) => void
-  ): void;
-  public getHostedConfigurationVersion(
-    args: GetHostedConfigurationVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetHostedConfigurationVersionCommandOutput) => void
-  ): void;
-  public getHostedConfigurationVersion(
-    args: GetHostedConfigurationVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHostedConfigurationVersionCommandOutput) => void),
-    cb?: (err: any, data?: GetHostedConfigurationVersionCommandOutput) => void
-  ): Promise<GetHostedConfigurationVersionCommandOutput> | void {
-    const command = new GetHostedConfigurationVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists all applications in your Amazon Web Services account.</p>
-   */
-  public listApplications(
-    args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListApplicationsCommandOutput>;
-  public listApplications(
-    args: ListApplicationsCommandInput,
-    cb: (err: any, data?: ListApplicationsCommandOutput) => void
-  ): void;
-  public listApplications(
-    args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListApplicationsCommandOutput) => void
-  ): void;
-  public listApplications(
-    args: ListApplicationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
-    cb?: (err: any, data?: ListApplicationsCommandOutput) => void
-  ): Promise<ListApplicationsCommandOutput> | void {
-    const command = new ListApplicationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the configuration profiles for an application.</p>
-   */
-  public listConfigurationProfiles(
-    args: ListConfigurationProfilesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListConfigurationProfilesCommandOutput>;
-  public listConfigurationProfiles(
-    args: ListConfigurationProfilesCommandInput,
-    cb: (err: any, data?: ListConfigurationProfilesCommandOutput) => void
-  ): void;
-  public listConfigurationProfiles(
-    args: ListConfigurationProfilesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListConfigurationProfilesCommandOutput) => void
-  ): void;
-  public listConfigurationProfiles(
-    args: ListConfigurationProfilesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConfigurationProfilesCommandOutput) => void),
-    cb?: (err: any, data?: ListConfigurationProfilesCommandOutput) => void
-  ): Promise<ListConfigurationProfilesCommandOutput> | void {
-    const command = new ListConfigurationProfilesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the deployments for an environment in descending deployment number order.</p>
-   */
-  public listDeployments(
-    args: ListDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDeploymentsCommandOutput>;
-  public listDeployments(
-    args: ListDeploymentsCommandInput,
-    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
-  ): void;
-  public listDeployments(
-    args: ListDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
-  ): void;
-  public listDeployments(
-    args: ListDeploymentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentsCommandOutput) => void),
-    cb?: (err: any, data?: ListDeploymentsCommandOutput) => void
-  ): Promise<ListDeploymentsCommandOutput> | void {
-    const command = new ListDeploymentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists deployment strategies.</p>
-   */
-  public listDeploymentStrategies(
-    args: ListDeploymentStrategiesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDeploymentStrategiesCommandOutput>;
-  public listDeploymentStrategies(
-    args: ListDeploymentStrategiesCommandInput,
-    cb: (err: any, data?: ListDeploymentStrategiesCommandOutput) => void
-  ): void;
-  public listDeploymentStrategies(
-    args: ListDeploymentStrategiesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDeploymentStrategiesCommandOutput) => void
-  ): void;
-  public listDeploymentStrategies(
-    args: ListDeploymentStrategiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentStrategiesCommandOutput) => void),
-    cb?: (err: any, data?: ListDeploymentStrategiesCommandOutput) => void
-  ): Promise<ListDeploymentStrategiesCommandOutput> | void {
-    const command = new ListDeploymentStrategiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the environments for an application.</p>
-   */
-  public listEnvironments(
-    args: ListEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListEnvironmentsCommandOutput>;
-  public listEnvironments(
-    args: ListEnvironmentsCommandInput,
-    cb: (err: any, data?: ListEnvironmentsCommandOutput) => void
-  ): void;
-  public listEnvironments(
-    args: ListEnvironmentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListEnvironmentsCommandOutput) => void
-  ): void;
-  public listEnvironments(
-    args: ListEnvironmentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnvironmentsCommandOutput) => void),
-    cb?: (err: any, data?: ListEnvironmentsCommandOutput) => void
-  ): Promise<ListEnvironmentsCommandOutput> | void {
-    const command = new ListEnvironmentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists all AppConfig extension associations in the account. For more
-   *          information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
-   *                AppConfig extensions</a> in the
-   *          <i>AppConfig User Guide</i>.</p>
-   */
-  public listExtensionAssociations(
-    args: ListExtensionAssociationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListExtensionAssociationsCommandOutput>;
-  public listExtensionAssociations(
-    args: ListExtensionAssociationsCommandInput,
-    cb: (err: any, data?: ListExtensionAssociationsCommandOutput) => void
-  ): void;
-  public listExtensionAssociations(
-    args: ListExtensionAssociationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListExtensionAssociationsCommandOutput) => void
-  ): void;
-  public listExtensionAssociations(
-    args: ListExtensionAssociationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExtensionAssociationsCommandOutput) => void),
-    cb?: (err: any, data?: ListExtensionAssociationsCommandOutput) => void
-  ): Promise<ListExtensionAssociationsCommandOutput> | void {
-    const command = new ListExtensionAssociationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists all custom and Amazon Web Services authored AppConfig extensions in the
-   *          account. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
-   *                AppConfig extensions</a> in the
-   *          <i>AppConfig User Guide</i>.</p>
-   */
-  public listExtensions(
-    args: ListExtensionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListExtensionsCommandOutput>;
-  public listExtensions(
-    args: ListExtensionsCommandInput,
-    cb: (err: any, data?: ListExtensionsCommandOutput) => void
-  ): void;
-  public listExtensions(
-    args: ListExtensionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListExtensionsCommandOutput) => void
-  ): void;
-  public listExtensions(
-    args: ListExtensionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExtensionsCommandOutput) => void),
-    cb?: (err: any, data?: ListExtensionsCommandOutput) => void
-  ): Promise<ListExtensionsCommandOutput> | void {
-    const command = new ListExtensionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists configurations stored in the AppConfig hosted configuration store by
-   *          version.</p>
-   */
-  public listHostedConfigurationVersions(
-    args: ListHostedConfigurationVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListHostedConfigurationVersionsCommandOutput>;
-  public listHostedConfigurationVersions(
-    args: ListHostedConfigurationVersionsCommandInput,
-    cb: (err: any, data?: ListHostedConfigurationVersionsCommandOutput) => void
-  ): void;
-  public listHostedConfigurationVersions(
-    args: ListHostedConfigurationVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListHostedConfigurationVersionsCommandOutput) => void
-  ): void;
-  public listHostedConfigurationVersions(
-    args: ListHostedConfigurationVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHostedConfigurationVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListHostedConfigurationVersionsCommandOutput) => void
-  ): Promise<ListHostedConfigurationVersionsCommandOutput> | void {
-    const command = new ListHostedConfigurationVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves the list of key-value tags assigned to the resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Starts a deployment.</p>
-   */
-  public startDeployment(
-    args: StartDeploymentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartDeploymentCommandOutput>;
-  public startDeployment(
-    args: StartDeploymentCommandInput,
-    cb: (err: any, data?: StartDeploymentCommandOutput) => void
-  ): void;
-  public startDeployment(
-    args: StartDeploymentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartDeploymentCommandOutput) => void
-  ): void;
-  public startDeployment(
-    args: StartDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: StartDeploymentCommandOutput) => void
-  ): Promise<StartDeploymentCommandOutput> | void {
-    const command = new StartDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Stops a deployment. This API action works only on deployments that have a status of
-   *             <code>DEPLOYING</code>. This action moves the deployment to a status of
-   *             <code>ROLLED_BACK</code>.</p>
-   */
-  public stopDeployment(
-    args: StopDeploymentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopDeploymentCommandOutput>;
-  public stopDeployment(
-    args: StopDeploymentCommandInput,
-    cb: (err: any, data?: StopDeploymentCommandOutput) => void
-  ): void;
-  public stopDeployment(
-    args: StopDeploymentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopDeploymentCommandOutput) => void
-  ): void;
-  public stopDeployment(
-    args: StopDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: StopDeploymentCommandOutput) => void
-  ): Promise<StopDeploymentCommandOutput> | void {
-    const command = new StopDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Assigns metadata to an AppConfig resource. Tags help organize and categorize
-   *          your AppConfig resources. Each tag consists of a key and an optional value, both
-   *          of which you define. You can specify a maximum of 50 tags for a resource.</p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a tag key and value from an AppConfig resource.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates an application.</p>
-   */
-  public updateApplication(
-    args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateApplicationCommandOutput>;
-  public updateApplication(
-    args: UpdateApplicationCommandInput,
-    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
-  ): void;
-  public updateApplication(
-    args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
-  ): void;
-  public updateApplication(
-    args: UpdateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
-  ): Promise<UpdateApplicationCommandOutput> | void {
-    const command = new UpdateApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates a configuration profile.</p>
-   */
-  public updateConfigurationProfile(
-    args: UpdateConfigurationProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateConfigurationProfileCommandOutput>;
-  public updateConfigurationProfile(
-    args: UpdateConfigurationProfileCommandInput,
-    cb: (err: any, data?: UpdateConfigurationProfileCommandOutput) => void
-  ): void;
-  public updateConfigurationProfile(
-    args: UpdateConfigurationProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateConfigurationProfileCommandOutput) => void
-  ): void;
-  public updateConfigurationProfile(
-    args: UpdateConfigurationProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConfigurationProfileCommandOutput) => void),
-    cb?: (err: any, data?: UpdateConfigurationProfileCommandOutput) => void
-  ): Promise<UpdateConfigurationProfileCommandOutput> | void {
-    const command = new UpdateConfigurationProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates a deployment strategy.</p>
-   */
-  public updateDeploymentStrategy(
-    args: UpdateDeploymentStrategyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDeploymentStrategyCommandOutput>;
-  public updateDeploymentStrategy(
-    args: UpdateDeploymentStrategyCommandInput,
-    cb: (err: any, data?: UpdateDeploymentStrategyCommandOutput) => void
-  ): void;
-  public updateDeploymentStrategy(
-    args: UpdateDeploymentStrategyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDeploymentStrategyCommandOutput) => void
-  ): void;
-  public updateDeploymentStrategy(
-    args: UpdateDeploymentStrategyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeploymentStrategyCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDeploymentStrategyCommandOutput) => void
-  ): Promise<UpdateDeploymentStrategyCommandOutput> | void {
-    const command = new UpdateDeploymentStrategyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates an environment.</p>
-   */
-  public updateEnvironment(
-    args: UpdateEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateEnvironmentCommandOutput>;
-  public updateEnvironment(
-    args: UpdateEnvironmentCommandInput,
-    cb: (err: any, data?: UpdateEnvironmentCommandOutput) => void
-  ): void;
-  public updateEnvironment(
-    args: UpdateEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateEnvironmentCommandOutput) => void
-  ): void;
-  public updateEnvironment(
-    args: UpdateEnvironmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEnvironmentCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEnvironmentCommandOutput) => void
-  ): Promise<UpdateEnvironmentCommandOutput> | void {
-    const command = new UpdateEnvironmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates an AppConfig extension. For more information about extensions, see
-   *             <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
-   *                AppConfig extensions</a> in the
-   *          <i>AppConfig User Guide</i>.</p>
-   */
-  public updateExtension(
-    args: UpdateExtensionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateExtensionCommandOutput>;
-  public updateExtension(
-    args: UpdateExtensionCommandInput,
-    cb: (err: any, data?: UpdateExtensionCommandOutput) => void
-  ): void;
-  public updateExtension(
-    args: UpdateExtensionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateExtensionCommandOutput) => void
-  ): void;
-  public updateExtension(
-    args: UpdateExtensionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateExtensionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateExtensionCommandOutput) => void
-  ): Promise<UpdateExtensionCommandOutput> | void {
-    const command = new UpdateExtensionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates an association. For more information about extensions and associations, see
-   *             <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
-   *                AppConfig extensions</a> in the
-   *          <i>AppConfig User Guide</i>.</p>
-   */
-  public updateExtensionAssociation(
-    args: UpdateExtensionAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateExtensionAssociationCommandOutput>;
-  public updateExtensionAssociation(
-    args: UpdateExtensionAssociationCommandInput,
-    cb: (err: any, data?: UpdateExtensionAssociationCommandOutput) => void
-  ): void;
-  public updateExtensionAssociation(
-    args: UpdateExtensionAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateExtensionAssociationCommandOutput) => void
-  ): void;
-  public updateExtensionAssociation(
-    args: UpdateExtensionAssociationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateExtensionAssociationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateExtensionAssociationCommandOutput) => void
-  ): Promise<UpdateExtensionAssociationCommandOutput> | void {
-    const command = new UpdateExtensionAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Uses the validators in a configuration profile to validate a configuration.</p>
-   */
-  public validateConfiguration(
-    args: ValidateConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ValidateConfigurationCommandOutput>;
-  public validateConfiguration(
-    args: ValidateConfigurationCommandInput,
-    cb: (err: any, data?: ValidateConfigurationCommandOutput) => void
-  ): void;
-  public validateConfiguration(
-    args: ValidateConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ValidateConfigurationCommandOutput) => void
-  ): void;
-  public validateConfiguration(
-    args: ValidateConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ValidateConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: ValidateConfigurationCommandOutput) => void
-  ): Promise<ValidateConfigurationCommandOutput> | void {
-    const command = new ValidateConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class AppConfig extends AppConfigClient implements AppConfig {}
+createAggregatedClient(commands, AppConfig);

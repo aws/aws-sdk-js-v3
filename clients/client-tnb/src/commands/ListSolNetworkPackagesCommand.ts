@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSolNetworkPackagesInput,
-  ListSolNetworkPackagesInputFilterSensitiveLog,
-  ListSolNetworkPackagesOutput,
-  ListSolNetworkPackagesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSolNetworkPackagesCommand,
-  serializeAws_restJson1ListSolNetworkPackagesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSolNetworkPackagesInput, ListSolNetworkPackagesOutput } from "../models/models_0";
+import { de_ListSolNetworkPackagesCommand, se_ListSolNetworkPackagesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSolNetworkPackagesCommand}.
  */
 export interface ListSolNetworkPackagesCommandInput extends ListSolNetworkPackagesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSolNetworkPackagesCommand}.
  */
 export interface ListSolNetworkPackagesCommandOutput extends ListSolNetworkPackagesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists network packages.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListSolNetworkPackagesCommandOutput extends ListSolNetworkPacka
  * import { TnbClient, ListSolNetworkPackagesCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ListSolNetworkPackagesCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // ListSolNetworkPackagesInput
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSolNetworkPackagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSolNetworkPackagesCommandInput - {@link ListSolNetworkPackagesCommandInput}
+ * @returns {@link ListSolNetworkPackagesCommandOutput}
  * @see {@link ListSolNetworkPackagesCommandInput} for command's `input` shape.
  * @see {@link ListSolNetworkPackagesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListSolNetworkPackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSolNetworkPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class ListSolNetworkPackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSolNetworkPackagesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSolNetworkPackagesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class ListSolNetworkPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSolNetworkPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSolNetworkPackagesCommand(input, context);
+    return se_ListSolNetworkPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolNetworkPackagesCommandOutput> {
-    return deserializeAws_restJson1ListSolNetworkPackagesCommand(output, context);
+    return de_ListSolNetworkPackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

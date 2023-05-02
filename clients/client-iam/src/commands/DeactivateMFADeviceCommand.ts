@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeactivateMFADeviceRequest, DeactivateMFADeviceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeactivateMFADeviceCommand,
-  serializeAws_queryDeactivateMFADeviceCommand,
-} from "../protocols/Aws_query";
+import { DeactivateMFADeviceRequest } from "../models/models_0";
+import { de_DeactivateMFADeviceCommand, se_DeactivateMFADeviceCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivateMFADeviceCommand}.
  */
 export interface DeactivateMFADeviceCommandInput extends DeactivateMFADeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeactivateMFADeviceCommand}.
  */
 export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates the specified MFA device and removes it from association with the user
  *             name for which it was originally enabled.</p>
  *          <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a virtual
@@ -41,10 +43,16 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeactivateMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeactivateMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeactivateMFADeviceRequest
+ *   UserName: "STRING_VALUE", // required
+ *   SerialNumber: "STRING_VALUE", // required
+ * };
  * const command = new DeactivateMFADeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateMFADeviceCommandInput - {@link DeactivateMFADeviceCommandInput}
+ * @returns {@link DeactivateMFADeviceCommandOutput}
  * @see {@link DeactivateMFADeviceCommandInput} for command's `input` shape.
  * @see {@link DeactivateMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -86,6 +94,9 @@ export class DeactivateMFADeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +125,8 @@ export class DeactivateMFADeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivateMFADeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +136,18 @@ export class DeactivateMFADeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeactivateMFADeviceCommand(input, context);
+    return se_DeactivateMFADeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateMFADeviceCommandOutput> {
-    return deserializeAws_queryDeactivateMFADeviceCommand(output, context);
+    return de_DeactivateMFADeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

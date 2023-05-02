@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReviewableHITsRequest,
-  ListReviewableHITsRequestFilterSensitiveLog,
-  ListReviewableHITsResponse,
-  ListReviewableHITsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListReviewableHITsRequest, ListReviewableHITsResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1ListReviewableHITsCommand,
-  serializeAws_json1_1ListReviewableHITsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListReviewableHITsCommand, se_ListReviewableHITsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReviewableHITsCommand}.
  */
 export interface ListReviewableHITsCommandInput extends ListReviewableHITsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReviewableHITsCommand}.
  */
 export interface ListReviewableHITsCommandOutput extends ListReviewableHITsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>ListReviewableHITs</code> operation retrieves the HITs with Status equal to
  *             Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
@@ -45,10 +42,18 @@ export interface ListReviewableHITsCommandOutput extends ListReviewableHITsRespo
  * import { MTurkClient, ListReviewableHITsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListReviewableHITsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // ListReviewableHITsRequest
+ *   HITTypeId: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListReviewableHITsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReviewableHITsCommandInput - {@link ListReviewableHITsCommandInput}
+ * @returns {@link ListReviewableHITsCommandOutput}
  * @see {@link ListReviewableHITsCommandInput} for command's `input` shape.
  * @see {@link ListReviewableHITsCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -78,6 +83,9 @@ export class ListReviewableHITsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReviewableHITsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +114,8 @@ export class ListReviewableHITsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReviewableHITsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReviewableHITsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +125,18 @@ export class ListReviewableHITsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReviewableHITsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReviewableHITsCommand(input, context);
+    return se_ListReviewableHITsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReviewableHITsCommandOutput> {
-    return deserializeAws_json1_1ListReviewableHITsCommand(output, context);
+    return de_ListReviewableHITsCommand(output, context);
   }
 
   // Start section: command_body_extra

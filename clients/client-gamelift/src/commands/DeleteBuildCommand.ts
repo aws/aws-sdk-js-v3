@@ -14,35 +14,37 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteBuildInput, DeleteBuildInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBuildCommand,
-  serializeAws_json1_1DeleteBuildCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteBuildInput } from "../models/models_0";
+import { de_DeleteBuildCommand, se_DeleteBuildCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBuildCommand}.
  */
 export interface DeleteBuildCommandInput extends DeleteBuildInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBuildCommand}.
  */
 export interface DeleteBuildCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a build. This operation permanently deletes the build resource and any
  *             uploaded build files. Deleting a build does not affect the status of any active fleets
  *             using the build, but you can no longer create new fleets with the deleted build.</p>
- *         <p>To delete a build, specify the build ID. </p>
- *         <p>
+ *          <p>To delete a build, specify the build ID. </p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html"> Upload a Custom
  *                 Server Build</a>
  *          </p>
  *          <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,10 +52,15 @@ export interface DeleteBuildCommandOutput extends __MetadataBearer {}
  * import { GameLiftClient, DeleteBuildCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteBuildCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DeleteBuildInput
+ *   BuildId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBuildCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBuildCommandInput - {@link DeleteBuildCommandInput}
+ * @returns {@link DeleteBuildCommandOutput}
  * @see {@link DeleteBuildCommandInput} for command's `input` shape.
  * @see {@link DeleteBuildCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteBuildCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBuildCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +132,8 @@ export class DeleteBuildCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBuildInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +143,18 @@ export class DeleteBuildCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBuildCommand(input, context);
+    return se_DeleteBuildCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBuildCommandOutput> {
-    return deserializeAws_json1_1DeleteBuildCommand(output, context);
+    return de_DeleteBuildCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ExecuteProvisionedProductPlanInput, ExecuteProvisionedProductPlanOutput } from "../models/models_0";
 import {
-  ExecuteProvisionedProductPlanInput,
-  ExecuteProvisionedProductPlanInputFilterSensitiveLog,
-  ExecuteProvisionedProductPlanOutput,
-  ExecuteProvisionedProductPlanOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ExecuteProvisionedProductPlanCommand,
-  serializeAws_json1_1ExecuteProvisionedProductPlanCommand,
+  de_ExecuteProvisionedProductPlanCommand,
+  se_ExecuteProvisionedProductPlanCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteProvisionedProductPlanCommand}.
  */
 export interface ExecuteProvisionedProductPlanCommandInput extends ExecuteProvisionedProductPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteProvisionedProductPlanCommand}.
  */
 export interface ExecuteProvisionedProductPlanCommandOutput
@@ -37,6 +36,7 @@ export interface ExecuteProvisionedProductPlanCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions or modifies a product based on the resource changes for the specified plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface ExecuteProvisionedProductPlanCommandOutput
  * import { ServiceCatalogClient, ExecuteProvisionedProductPlanCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ExecuteProvisionedProductPlanCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ExecuteProvisionedProductPlanInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PlanId: "STRING_VALUE", // required
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new ExecuteProvisionedProductPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteProvisionedProductPlanCommandInput - {@link ExecuteProvisionedProductPlanCommandInput}
+ * @returns {@link ExecuteProvisionedProductPlanCommandOutput}
  * @see {@link ExecuteProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link ExecuteProvisionedProductPlanCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +88,9 @@ export class ExecuteProvisionedProductPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteProvisionedProductPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +119,8 @@ export class ExecuteProvisionedProductPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteProvisionedProductPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteProvisionedProductPlanOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +130,21 @@ export class ExecuteProvisionedProductPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteProvisionedProductPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExecuteProvisionedProductPlanCommand(input, context);
+    return se_ExecuteProvisionedProductPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExecuteProvisionedProductPlanCommandOutput> {
-    return deserializeAws_json1_1ExecuteProvisionedProductPlanCommand(output, context);
+    return de_ExecuteProvisionedProductPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

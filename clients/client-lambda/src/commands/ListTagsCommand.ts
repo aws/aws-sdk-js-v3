@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  ListTagsRequest,
-  ListTagsRequestFilterSensitiveLog,
-  ListTagsResponse,
-  ListTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTagsCommand,
-  serializeAws_restJson1ListTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTagsRequest, ListTagsResponse } from "../models/models_0";
+import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsCommand}.
  */
 export interface ListTagsCommandInput extends ListTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsCommand}.
  */
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. You can
  *       also view tags with <a>GetFunction</a>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * import { LambdaClient, ListTagsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListTagsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // ListTagsRequest
+ *   Resource: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsCommandInput - {@link ListTagsCommandInput}
+ * @returns {@link ListTagsCommandOutput}
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -78,6 +80,9 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTagsCommand(input, context);
+    return se_ListTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsCommandOutput> {
-    return deserializeAws_restJson1ListTagsCommand(output, context);
+    return de_ListTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

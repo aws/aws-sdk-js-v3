@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListBatchLoadTasksRequest,
-  ListBatchLoadTasksRequestFilterSensitiveLog,
-  ListBatchLoadTasksResponse,
-  ListBatchLoadTasksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListBatchLoadTasksCommand,
-  serializeAws_json1_0ListBatchLoadTasksCommand,
-} from "../protocols/Aws_json1_0";
+import { ListBatchLoadTasksRequest, ListBatchLoadTasksResponse } from "../models/models_0";
+import { de_ListBatchLoadTasksCommand, se_ListBatchLoadTasksCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListBatchLoadTasksCommand}.
  */
 export interface ListBatchLoadTasksCommandInput extends ListBatchLoadTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBatchLoadTasksCommand}.
  */
 export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of batch load tasks, along with the name, status, when the task is
  *          resumable until, and other details. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-batch-load-tasks.html">code
  *             sample</a> for details.</p>
@@ -45,10 +42,17 @@ export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksRespo
  * import { TimestreamWriteClient, ListBatchLoadTasksCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, ListBatchLoadTasksCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = { // ListBatchLoadTasksRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   TaskStatus: "CREATED" || "IN_PROGRESS" || "FAILED" || "SUCCEEDED" || "PROGRESS_STOPPED" || "PENDING_RESUME",
+ * };
  * const command = new ListBatchLoadTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBatchLoadTasksCommandInput - {@link ListBatchLoadTasksCommandInput}
+ * @returns {@link ListBatchLoadTasksCommandOutput}
  * @see {@link ListBatchLoadTasksCommandInput} for command's `input` shape.
  * @see {@link ListBatchLoadTasksCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -90,6 +94,9 @@ export class ListBatchLoadTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBatchLoadTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +128,8 @@ export class ListBatchLoadTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBatchLoadTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBatchLoadTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +139,18 @@ export class ListBatchLoadTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBatchLoadTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListBatchLoadTasksCommand(input, context);
+    return se_ListBatchLoadTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchLoadTasksCommandOutput> {
-    return deserializeAws_json1_0ListBatchLoadTasksCommand(output, context);
+    return de_ListBatchLoadTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

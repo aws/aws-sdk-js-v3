@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListRunsRequest,
-  ListRunsRequestFilterSensitiveLog,
-  ListRunsResult,
-  ListRunsResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ListRunsCommand, serializeAws_json1_1ListRunsCommand } from "../protocols/Aws_json1_1";
+import { ListRunsRequest, ListRunsResult } from "../models/models_0";
+import { de_ListRunsCommand, se_ListRunsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRunsCommand}.
  */
 export interface ListRunsCommandInput extends ListRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRunsCommand}.
  */
 export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about runs, given an AWS Device Farm project ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,16 @@ export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer 
  * import { DeviceFarmClient, ListRunsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListRunsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListRunsRequest
+ *   arn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRunsCommandInput - {@link ListRunsCommandInput}
+ * @returns {@link ListRunsCommandOutput}
  * @see {@link ListRunsCommandInput} for command's `input` shape.
  * @see {@link ListRunsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -122,6 +128,9 @@ export class ListRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +157,8 @@ export class ListRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRunsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRunsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +168,18 @@ export class ListRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRunsCommand(input, context);
+    return se_ListRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRunsCommandOutput> {
-    return deserializeAws_json1_1ListRunsCommand(output, context);
+    return de_ListRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

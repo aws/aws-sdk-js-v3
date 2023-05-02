@@ -13,41 +13,46 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteInvitationsRequest,
-  DeleteInvitationsRequestFilterSensitiveLog,
-  DeleteInvitationsResponse,
-  DeleteInvitationsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteInvitationsCommand,
-  serializeAws_restJson1DeleteInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteInvitationsRequest, DeleteInvitationsResponse } from "../models/models_2";
+import { de_DeleteInvitationsCommand, se_DeleteInvitationsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInvitationsCommand}.
  */
 export interface DeleteInvitationsCommandInput extends DeleteInvitationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInvitationsCommand}.
  */
 export interface DeleteInvitationsCommandOutput extends DeleteInvitationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes invitations received by the Amazon Web Services account to become a member account.</p>
- *          <p>This operation is only used by accounts that are not part of an organization.
- *          Organization accounts do not receive invitations.</p>
+ *          <p>A Security Hub administrator account can use this operation to delete invitations sent to one or more member accounts.</p>
+ *          <p>This operation is only used to delete invitations that are sent to member accounts that aren't part of an organization.
+ *          Organization accounts don't receive invitations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, DeleteInvitationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeleteInvitationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DeleteInvitationsRequest
+ *   AccountIds: [ // AccountIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInvitationsCommandInput - {@link DeleteInvitationsCommandInput}
+ * @returns {@link DeleteInvitationsCommandOutput}
  * @see {@link DeleteInvitationsCommandInput} for command's `input` shape.
  * @see {@link DeleteInvitationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -70,6 +75,24 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To delete a custom insight
+ * ```javascript
+ * // The following example deletes an invitation sent by the Security Hub administrator account to a prospective member account. This operation is used only for invitations sent to accounts that aren't part of an organization. Organization accounts don't receive invitations.
+ * const input = {
+ *   "AccountIds": [
+ *     "123456789012"
+ *   ]
+ * };
+ * const command = new DeleteInvitationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "UnprocessedAccounts": []
+ * }
+ * *\/
+ * // example id: to-delete-a-custom-insight-1675702697204
+ * ```
+ *
  */
 export class DeleteInvitationsCommand extends $Command<
   DeleteInvitationsCommandInput,
@@ -88,6 +111,9 @@ export class DeleteInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +142,8 @@ export class DeleteInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInvitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInvitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +153,18 @@ export class DeleteInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInvitationsCommand(input, context);
+    return se_DeleteInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInvitationsCommandOutput> {
-    return deserializeAws_restJson1DeleteInvitationsCommand(output, context);
+    return de_DeleteInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

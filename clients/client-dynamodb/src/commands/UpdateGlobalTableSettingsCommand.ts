@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  UpdateGlobalTableSettingsInput,
-  UpdateGlobalTableSettingsInputFilterSensitiveLog,
-  UpdateGlobalTableSettingsOutput,
-  UpdateGlobalTableSettingsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateGlobalTableSettingsCommand,
-  serializeAws_json1_0UpdateGlobalTableSettingsCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateGlobalTableSettingsInput, UpdateGlobalTableSettingsOutput } from "../models/models_0";
+import { de_UpdateGlobalTableSettingsCommand, se_UpdateGlobalTableSettingsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGlobalTableSettingsCommand}.
  */
 export interface UpdateGlobalTableSettingsCommandInput extends UpdateGlobalTableSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGlobalTableSettingsCommand}.
  */
 export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTableSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates settings for a global table.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -54,10 +51,82 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  * import { DynamoDBClient, UpdateGlobalTableSettingsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateGlobalTableSettingsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // UpdateGlobalTableSettingsInput
+ *   GlobalTableName: "STRING_VALUE", // required
+ *   GlobalTableBillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
+ *   GlobalTableProvisionedWriteCapacityUnits: Number("long"),
+ *   GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: { // AutoScalingSettingsUpdate
+ *     MinimumUnits: Number("long"),
+ *     MaximumUnits: Number("long"),
+ *     AutoScalingDisabled: true || false,
+ *     AutoScalingRoleArn: "STRING_VALUE",
+ *     ScalingPolicyUpdate: { // AutoScalingPolicyUpdate
+ *       PolicyName: "STRING_VALUE",
+ *       TargetTrackingScalingPolicyConfiguration: { // AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+ *         DisableScaleIn: true || false,
+ *         ScaleInCooldown: Number("int"),
+ *         ScaleOutCooldown: Number("int"),
+ *         TargetValue: Number("double"), // required
+ *       },
+ *     },
+ *   },
+ *   GlobalTableGlobalSecondaryIndexSettingsUpdate: [ // GlobalTableGlobalSecondaryIndexSettingsUpdateList
+ *     { // GlobalTableGlobalSecondaryIndexSettingsUpdate
+ *       IndexName: "STRING_VALUE", // required
+ *       ProvisionedWriteCapacityUnits: Number("long"),
+ *       ProvisionedWriteCapacityAutoScalingSettingsUpdate: {
+ *         MinimumUnits: Number("long"),
+ *         MaximumUnits: Number("long"),
+ *         AutoScalingDisabled: true || false,
+ *         AutoScalingRoleArn: "STRING_VALUE",
+ *         ScalingPolicyUpdate: {
+ *           PolicyName: "STRING_VALUE",
+ *           TargetTrackingScalingPolicyConfiguration: {
+ *             DisableScaleIn: true || false,
+ *             ScaleInCooldown: Number("int"),
+ *             ScaleOutCooldown: Number("int"),
+ *             TargetValue: Number("double"), // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   ReplicaSettingsUpdate: [ // ReplicaSettingsUpdateList
+ *     { // ReplicaSettingsUpdate
+ *       RegionName: "STRING_VALUE", // required
+ *       ReplicaProvisionedReadCapacityUnits: Number("long"),
+ *       ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate: {
+ *         MinimumUnits: Number("long"),
+ *         MaximumUnits: Number("long"),
+ *         AutoScalingDisabled: true || false,
+ *         AutoScalingRoleArn: "STRING_VALUE",
+ *         ScalingPolicyUpdate: {
+ *           PolicyName: "STRING_VALUE",
+ *           TargetTrackingScalingPolicyConfiguration: {
+ *             DisableScaleIn: true || false,
+ *             ScaleInCooldown: Number("int"),
+ *             ScaleOutCooldown: Number("int"),
+ *             TargetValue: Number("double"), // required
+ *           },
+ *         },
+ *       },
+ *       ReplicaGlobalSecondaryIndexSettingsUpdate: [ // ReplicaGlobalSecondaryIndexSettingsUpdateList
+ *         { // ReplicaGlobalSecondaryIndexSettingsUpdate
+ *           IndexName: "STRING_VALUE", // required
+ *           ProvisionedReadCapacityUnits: Number("long"),
+ *           ProvisionedReadCapacityAutoScalingSettingsUpdate: "<AutoScalingSettingsUpdate>",
+ *         },
+ *       ],
+ *       ReplicaTableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateGlobalTableSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGlobalTableSettingsCommandInput - {@link UpdateGlobalTableSettingsCommandInput}
+ * @returns {@link UpdateGlobalTableSettingsCommandOutput}
  * @see {@link UpdateGlobalTableSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalTableSettingsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -113,6 +182,9 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGlobalTableSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +213,8 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGlobalTableSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGlobalTableSettingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,15 +224,21 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGlobalTableSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateGlobalTableSettingsCommand(input, context);
+    return se_UpdateGlobalTableSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateGlobalTableSettingsCommandOutput> {
-    return deserializeAws_json1_0UpdateGlobalTableSettingsCommand(output, context);
+    return de_UpdateGlobalTableSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

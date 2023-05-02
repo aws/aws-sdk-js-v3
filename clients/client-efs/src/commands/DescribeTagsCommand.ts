@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  DescribeTagsRequest,
-  DescribeTagsRequestFilterSensitiveLog,
-  DescribeTagsResponse,
-  DescribeTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeTagsCommand,
-  serializeAws_restJson1DescribeTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeTagsRequest, DescribeTagsResponse } from "../models/models_0";
+import { de_DescribeTagsCommand, se_DescribeTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <note>
@@ -53,10 +50,17 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * import { EFSClient, DescribeTagsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeTagsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DescribeTagsRequest
+ *   MaxItems: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   FileSystemId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
+ * @returns {@link DescribeTagsCommandOutput}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -112,6 +116,9 @@ export class DescribeTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +145,8 @@ export class DescribeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +156,18 @@ export class DescribeTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTagsCommand(input, context);
+    return se_DescribeTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
-    return deserializeAws_restJson1DescribeTagsCommand(output, context);
+    return de_DescribeTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

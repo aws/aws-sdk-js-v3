@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -123,943 +124,486 @@ import {
   UpdateMetricSetCommandInput,
   UpdateMetricSetCommandOutput,
 } from "./commands/UpdateMetricSetCommand";
-import { LookoutMetricsClient } from "./LookoutMetricsClient";
+import { LookoutMetricsClient, LookoutMetricsClientConfig } from "./LookoutMetricsClient";
 
-/**
- * <p>This is the <i>Amazon Lookout for Metrics API Reference</i>. For an introduction to the service
- *       with tutorials for getting started, visit <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev">Amazon
- *         Lookout for Metrics Developer Guide</a>.</p>
- */
-export class LookoutMetrics extends LookoutMetricsClient {
+const commands = {
+  ActivateAnomalyDetectorCommand,
+  BackTestAnomalyDetectorCommand,
+  CreateAlertCommand,
+  CreateAnomalyDetectorCommand,
+  CreateMetricSetCommand,
+  DeactivateAnomalyDetectorCommand,
+  DeleteAlertCommand,
+  DeleteAnomalyDetectorCommand,
+  DescribeAlertCommand,
+  DescribeAnomalyDetectionExecutionsCommand,
+  DescribeAnomalyDetectorCommand,
+  DescribeMetricSetCommand,
+  DetectMetricSetConfigCommand,
+  GetAnomalyGroupCommand,
+  GetDataQualityMetricsCommand,
+  GetFeedbackCommand,
+  GetSampleDataCommand,
+  ListAlertsCommand,
+  ListAnomalyDetectorsCommand,
+  ListAnomalyGroupRelatedMetricsCommand,
+  ListAnomalyGroupSummariesCommand,
+  ListAnomalyGroupTimeSeriesCommand,
+  ListMetricSetsCommand,
+  ListTagsForResourceCommand,
+  PutFeedbackCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateAlertCommand,
+  UpdateAnomalyDetectorCommand,
+  UpdateMetricSetCommand,
+};
+
+export interface LookoutMetrics {
   /**
-   * <p>Activates an anomaly detector.</p>
+   * @see {@link ActivateAnomalyDetectorCommand}
    */
-  public activateAnomalyDetector(
+  activateAnomalyDetector(
     args: ActivateAnomalyDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ActivateAnomalyDetectorCommandOutput>;
-  public activateAnomalyDetector(
+  activateAnomalyDetector(
     args: ActivateAnomalyDetectorCommandInput,
     cb: (err: any, data?: ActivateAnomalyDetectorCommandOutput) => void
   ): void;
-  public activateAnomalyDetector(
+  activateAnomalyDetector(
     args: ActivateAnomalyDetectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ActivateAnomalyDetectorCommandOutput) => void
   ): void;
-  public activateAnomalyDetector(
-    args: ActivateAnomalyDetectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ActivateAnomalyDetectorCommandOutput) => void),
-    cb?: (err: any, data?: ActivateAnomalyDetectorCommandOutput) => void
-  ): Promise<ActivateAnomalyDetectorCommandOutput> | void {
-    const command = new ActivateAnomalyDetectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Runs a backtest for anomaly detection for the specified resource.</p>
+   * @see {@link BackTestAnomalyDetectorCommand}
    */
-  public backTestAnomalyDetector(
+  backTestAnomalyDetector(
     args: BackTestAnomalyDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BackTestAnomalyDetectorCommandOutput>;
-  public backTestAnomalyDetector(
+  backTestAnomalyDetector(
     args: BackTestAnomalyDetectorCommandInput,
     cb: (err: any, data?: BackTestAnomalyDetectorCommandOutput) => void
   ): void;
-  public backTestAnomalyDetector(
+  backTestAnomalyDetector(
     args: BackTestAnomalyDetectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BackTestAnomalyDetectorCommandOutput) => void
   ): void;
-  public backTestAnomalyDetector(
-    args: BackTestAnomalyDetectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BackTestAnomalyDetectorCommandOutput) => void),
-    cb?: (err: any, data?: BackTestAnomalyDetectorCommandOutput) => void
-  ): Promise<BackTestAnomalyDetectorCommandOutput> | void {
-    const command = new BackTestAnomalyDetectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates an alert for an anomaly detector.</p>
+   * @see {@link CreateAlertCommand}
    */
-  public createAlert(args: CreateAlertCommandInput, options?: __HttpHandlerOptions): Promise<CreateAlertCommandOutput>;
-  public createAlert(args: CreateAlertCommandInput, cb: (err: any, data?: CreateAlertCommandOutput) => void): void;
-  public createAlert(
+  createAlert(args: CreateAlertCommandInput, options?: __HttpHandlerOptions): Promise<CreateAlertCommandOutput>;
+  createAlert(args: CreateAlertCommandInput, cb: (err: any, data?: CreateAlertCommandOutput) => void): void;
+  createAlert(
     args: CreateAlertCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAlertCommandOutput) => void
   ): void;
-  public createAlert(
-    args: CreateAlertCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAlertCommandOutput) => void),
-    cb?: (err: any, data?: CreateAlertCommandOutput) => void
-  ): Promise<CreateAlertCommandOutput> | void {
-    const command = new CreateAlertCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates an anomaly detector.</p>
+   * @see {@link CreateAnomalyDetectorCommand}
    */
-  public createAnomalyDetector(
+  createAnomalyDetector(
     args: CreateAnomalyDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateAnomalyDetectorCommandOutput>;
-  public createAnomalyDetector(
+  createAnomalyDetector(
     args: CreateAnomalyDetectorCommandInput,
     cb: (err: any, data?: CreateAnomalyDetectorCommandOutput) => void
   ): void;
-  public createAnomalyDetector(
+  createAnomalyDetector(
     args: CreateAnomalyDetectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAnomalyDetectorCommandOutput) => void
   ): void;
-  public createAnomalyDetector(
-    args: CreateAnomalyDetectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAnomalyDetectorCommandOutput) => void),
-    cb?: (err: any, data?: CreateAnomalyDetectorCommandOutput) => void
-  ): Promise<CreateAnomalyDetectorCommandOutput> | void {
-    const command = new CreateAnomalyDetectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a dataset.</p>
+   * @see {@link CreateMetricSetCommand}
    */
-  public createMetricSet(
+  createMetricSet(
     args: CreateMetricSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateMetricSetCommandOutput>;
-  public createMetricSet(
-    args: CreateMetricSetCommandInput,
-    cb: (err: any, data?: CreateMetricSetCommandOutput) => void
-  ): void;
-  public createMetricSet(
+  createMetricSet(args: CreateMetricSetCommandInput, cb: (err: any, data?: CreateMetricSetCommandOutput) => void): void;
+  createMetricSet(
     args: CreateMetricSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateMetricSetCommandOutput) => void
   ): void;
-  public createMetricSet(
-    args: CreateMetricSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMetricSetCommandOutput) => void),
-    cb?: (err: any, data?: CreateMetricSetCommandOutput) => void
-  ): Promise<CreateMetricSetCommandOutput> | void {
-    const command = new CreateMetricSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deactivates an anomaly detector.</p>
+   * @see {@link DeactivateAnomalyDetectorCommand}
    */
-  public deactivateAnomalyDetector(
+  deactivateAnomalyDetector(
     args: DeactivateAnomalyDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeactivateAnomalyDetectorCommandOutput>;
-  public deactivateAnomalyDetector(
+  deactivateAnomalyDetector(
     args: DeactivateAnomalyDetectorCommandInput,
     cb: (err: any, data?: DeactivateAnomalyDetectorCommandOutput) => void
   ): void;
-  public deactivateAnomalyDetector(
+  deactivateAnomalyDetector(
     args: DeactivateAnomalyDetectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeactivateAnomalyDetectorCommandOutput) => void
   ): void;
-  public deactivateAnomalyDetector(
-    args: DeactivateAnomalyDetectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeactivateAnomalyDetectorCommandOutput) => void),
-    cb?: (err: any, data?: DeactivateAnomalyDetectorCommandOutput) => void
-  ): Promise<DeactivateAnomalyDetectorCommandOutput> | void {
-    const command = new DeactivateAnomalyDetectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes an alert.</p>
+   * @see {@link DeleteAlertCommand}
    */
-  public deleteAlert(args: DeleteAlertCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAlertCommandOutput>;
-  public deleteAlert(args: DeleteAlertCommandInput, cb: (err: any, data?: DeleteAlertCommandOutput) => void): void;
-  public deleteAlert(
+  deleteAlert(args: DeleteAlertCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAlertCommandOutput>;
+  deleteAlert(args: DeleteAlertCommandInput, cb: (err: any, data?: DeleteAlertCommandOutput) => void): void;
+  deleteAlert(
     args: DeleteAlertCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAlertCommandOutput) => void
   ): void;
-  public deleteAlert(
-    args: DeleteAlertCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAlertCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAlertCommandOutput) => void
-  ): Promise<DeleteAlertCommandOutput> | void {
-    const command = new DeleteAlertCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a detector. Deleting an anomaly detector will delete all of its corresponding resources including any
-   *       configured datasets and alerts.</p>
+   * @see {@link DeleteAnomalyDetectorCommand}
    */
-  public deleteAnomalyDetector(
+  deleteAnomalyDetector(
     args: DeleteAnomalyDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAnomalyDetectorCommandOutput>;
-  public deleteAnomalyDetector(
+  deleteAnomalyDetector(
     args: DeleteAnomalyDetectorCommandInput,
     cb: (err: any, data?: DeleteAnomalyDetectorCommandOutput) => void
   ): void;
-  public deleteAnomalyDetector(
+  deleteAnomalyDetector(
     args: DeleteAnomalyDetectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAnomalyDetectorCommandOutput) => void
   ): void;
-  public deleteAnomalyDetector(
-    args: DeleteAnomalyDetectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAnomalyDetectorCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAnomalyDetectorCommandOutput) => void
-  ): Promise<DeleteAnomalyDetectorCommandOutput> | void {
-    const command = new DeleteAnomalyDetectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Describes an alert.</p>
-   *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
-   *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
+   * @see {@link DescribeAlertCommand}
    */
-  public describeAlert(
-    args: DescribeAlertCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAlertCommandOutput>;
-  public describeAlert(
-    args: DescribeAlertCommandInput,
-    cb: (err: any, data?: DescribeAlertCommandOutput) => void
-  ): void;
-  public describeAlert(
+  describeAlert(args: DescribeAlertCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAlertCommandOutput>;
+  describeAlert(args: DescribeAlertCommandInput, cb: (err: any, data?: DescribeAlertCommandOutput) => void): void;
+  describeAlert(
     args: DescribeAlertCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAlertCommandOutput) => void
   ): void;
-  public describeAlert(
-    args: DescribeAlertCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAlertCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAlertCommandOutput) => void
-  ): Promise<DescribeAlertCommandOutput> | void {
-    const command = new DescribeAlertCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about the status of the specified anomaly detection jobs.</p>
+   * @see {@link DescribeAnomalyDetectionExecutionsCommand}
    */
-  public describeAnomalyDetectionExecutions(
+  describeAnomalyDetectionExecutions(
     args: DescribeAnomalyDetectionExecutionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeAnomalyDetectionExecutionsCommandOutput>;
-  public describeAnomalyDetectionExecutions(
+  describeAnomalyDetectionExecutions(
     args: DescribeAnomalyDetectionExecutionsCommandInput,
     cb: (err: any, data?: DescribeAnomalyDetectionExecutionsCommandOutput) => void
   ): void;
-  public describeAnomalyDetectionExecutions(
+  describeAnomalyDetectionExecutions(
     args: DescribeAnomalyDetectionExecutionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAnomalyDetectionExecutionsCommandOutput) => void
   ): void;
-  public describeAnomalyDetectionExecutions(
-    args: DescribeAnomalyDetectionExecutionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAnomalyDetectionExecutionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAnomalyDetectionExecutionsCommandOutput) => void
-  ): Promise<DescribeAnomalyDetectionExecutionsCommandOutput> | void {
-    const command = new DescribeAnomalyDetectionExecutionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Describes a detector.</p>
-   *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
-   *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
+   * @see {@link DescribeAnomalyDetectorCommand}
    */
-  public describeAnomalyDetector(
+  describeAnomalyDetector(
     args: DescribeAnomalyDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeAnomalyDetectorCommandOutput>;
-  public describeAnomalyDetector(
+  describeAnomalyDetector(
     args: DescribeAnomalyDetectorCommandInput,
     cb: (err: any, data?: DescribeAnomalyDetectorCommandOutput) => void
   ): void;
-  public describeAnomalyDetector(
+  describeAnomalyDetector(
     args: DescribeAnomalyDetectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAnomalyDetectorCommandOutput) => void
   ): void;
-  public describeAnomalyDetector(
-    args: DescribeAnomalyDetectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAnomalyDetectorCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAnomalyDetectorCommandOutput) => void
-  ): Promise<DescribeAnomalyDetectorCommandOutput> | void {
-    const command = new DescribeAnomalyDetectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Describes a dataset.</p>
-   *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
-   *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
+   * @see {@link DescribeMetricSetCommand}
    */
-  public describeMetricSet(
+  describeMetricSet(
     args: DescribeMetricSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeMetricSetCommandOutput>;
-  public describeMetricSet(
+  describeMetricSet(
     args: DescribeMetricSetCommandInput,
     cb: (err: any, data?: DescribeMetricSetCommandOutput) => void
   ): void;
-  public describeMetricSet(
+  describeMetricSet(
     args: DescribeMetricSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeMetricSetCommandOutput) => void
   ): void;
-  public describeMetricSet(
-    args: DescribeMetricSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMetricSetCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMetricSetCommandOutput) => void
-  ): Promise<DescribeMetricSetCommandOutput> | void {
-    const command = new DescribeMetricSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Detects an Amazon S3 dataset's file format, interval, and offset.</p>
+   * @see {@link DetectMetricSetConfigCommand}
    */
-  public detectMetricSetConfig(
+  detectMetricSetConfig(
     args: DetectMetricSetConfigCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetectMetricSetConfigCommandOutput>;
-  public detectMetricSetConfig(
+  detectMetricSetConfig(
     args: DetectMetricSetConfigCommandInput,
     cb: (err: any, data?: DetectMetricSetConfigCommandOutput) => void
   ): void;
-  public detectMetricSetConfig(
+  detectMetricSetConfig(
     args: DetectMetricSetConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetectMetricSetConfigCommandOutput) => void
   ): void;
-  public detectMetricSetConfig(
-    args: DetectMetricSetConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectMetricSetConfigCommandOutput) => void),
-    cb?: (err: any, data?: DetectMetricSetConfigCommandOutput) => void
-  ): Promise<DetectMetricSetConfigCommandOutput> | void {
-    const command = new DetectMetricSetConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns details about a group of anomalous metrics.</p>
+   * @see {@link GetAnomalyGroupCommand}
    */
-  public getAnomalyGroup(
+  getAnomalyGroup(
     args: GetAnomalyGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAnomalyGroupCommandOutput>;
-  public getAnomalyGroup(
-    args: GetAnomalyGroupCommandInput,
-    cb: (err: any, data?: GetAnomalyGroupCommandOutput) => void
-  ): void;
-  public getAnomalyGroup(
+  getAnomalyGroup(args: GetAnomalyGroupCommandInput, cb: (err: any, data?: GetAnomalyGroupCommandOutput) => void): void;
+  getAnomalyGroup(
     args: GetAnomalyGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAnomalyGroupCommandOutput) => void
   ): void;
-  public getAnomalyGroup(
-    args: GetAnomalyGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAnomalyGroupCommandOutput) => void),
-    cb?: (err: any, data?: GetAnomalyGroupCommandOutput) => void
-  ): Promise<GetAnomalyGroupCommandOutput> | void {
-    const command = new GetAnomalyGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns details about the requested data quality metrics.</p>
+   * @see {@link GetDataQualityMetricsCommand}
    */
-  public getDataQualityMetrics(
+  getDataQualityMetrics(
     args: GetDataQualityMetricsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDataQualityMetricsCommandOutput>;
-  public getDataQualityMetrics(
+  getDataQualityMetrics(
     args: GetDataQualityMetricsCommandInput,
     cb: (err: any, data?: GetDataQualityMetricsCommandOutput) => void
   ): void;
-  public getDataQualityMetrics(
+  getDataQualityMetrics(
     args: GetDataQualityMetricsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDataQualityMetricsCommandOutput) => void
   ): void;
-  public getDataQualityMetrics(
-    args: GetDataQualityMetricsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataQualityMetricsCommandOutput) => void),
-    cb?: (err: any, data?: GetDataQualityMetricsCommandOutput) => void
-  ): Promise<GetDataQualityMetricsCommandOutput> | void {
-    const command = new GetDataQualityMetricsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Get feedback for an anomaly group.</p>
+   * @see {@link GetFeedbackCommand}
    */
-  public getFeedback(args: GetFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<GetFeedbackCommandOutput>;
-  public getFeedback(args: GetFeedbackCommandInput, cb: (err: any, data?: GetFeedbackCommandOutput) => void): void;
-  public getFeedback(
+  getFeedback(args: GetFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<GetFeedbackCommandOutput>;
+  getFeedback(args: GetFeedbackCommandInput, cb: (err: any, data?: GetFeedbackCommandOutput) => void): void;
+  getFeedback(
     args: GetFeedbackCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFeedbackCommandOutput) => void
   ): void;
-  public getFeedback(
-    args: GetFeedbackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFeedbackCommandOutput) => void),
-    cb?: (err: any, data?: GetFeedbackCommandOutput) => void
-  ): Promise<GetFeedbackCommandOutput> | void {
-    const command = new GetFeedbackCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a selection of sample records from an Amazon S3 datasource.</p>
+   * @see {@link GetSampleDataCommand}
    */
-  public getSampleData(
-    args: GetSampleDataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSampleDataCommandOutput>;
-  public getSampleData(
-    args: GetSampleDataCommandInput,
-    cb: (err: any, data?: GetSampleDataCommandOutput) => void
-  ): void;
-  public getSampleData(
+  getSampleData(args: GetSampleDataCommandInput, options?: __HttpHandlerOptions): Promise<GetSampleDataCommandOutput>;
+  getSampleData(args: GetSampleDataCommandInput, cb: (err: any, data?: GetSampleDataCommandOutput) => void): void;
+  getSampleData(
     args: GetSampleDataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSampleDataCommandOutput) => void
   ): void;
-  public getSampleData(
-    args: GetSampleDataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSampleDataCommandOutput) => void),
-    cb?: (err: any, data?: GetSampleDataCommandOutput) => void
-  ): Promise<GetSampleDataCommandOutput> | void {
-    const command = new GetSampleDataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the alerts attached to a detector.</p>
-   *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
-   *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
+   * @see {@link ListAlertsCommand}
    */
-  public listAlerts(args: ListAlertsCommandInput, options?: __HttpHandlerOptions): Promise<ListAlertsCommandOutput>;
-  public listAlerts(args: ListAlertsCommandInput, cb: (err: any, data?: ListAlertsCommandOutput) => void): void;
-  public listAlerts(
+  listAlerts(args: ListAlertsCommandInput, options?: __HttpHandlerOptions): Promise<ListAlertsCommandOutput>;
+  listAlerts(args: ListAlertsCommandInput, cb: (err: any, data?: ListAlertsCommandOutput) => void): void;
+  listAlerts(
     args: ListAlertsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAlertsCommandOutput) => void
   ): void;
-  public listAlerts(
-    args: ListAlertsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAlertsCommandOutput) => void),
-    cb?: (err: any, data?: ListAlertsCommandOutput) => void
-  ): Promise<ListAlertsCommandOutput> | void {
-    const command = new ListAlertsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the detectors in the current AWS Region.</p>
-   *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
-   *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
+   * @see {@link ListAnomalyDetectorsCommand}
    */
-  public listAnomalyDetectors(
+  listAnomalyDetectors(
     args: ListAnomalyDetectorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAnomalyDetectorsCommandOutput>;
-  public listAnomalyDetectors(
+  listAnomalyDetectors(
     args: ListAnomalyDetectorsCommandInput,
     cb: (err: any, data?: ListAnomalyDetectorsCommandOutput) => void
   ): void;
-  public listAnomalyDetectors(
+  listAnomalyDetectors(
     args: ListAnomalyDetectorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAnomalyDetectorsCommandOutput) => void
   ): void;
-  public listAnomalyDetectors(
-    args: ListAnomalyDetectorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAnomalyDetectorsCommandOutput) => void),
-    cb?: (err: any, data?: ListAnomalyDetectorsCommandOutput) => void
-  ): Promise<ListAnomalyDetectorsCommandOutput> | void {
-    const command = new ListAnomalyDetectorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of measures that are potential causes or effects of an
-   *             anomaly group.</p>
+   * @see {@link ListAnomalyGroupRelatedMetricsCommand}
    */
-  public listAnomalyGroupRelatedMetrics(
+  listAnomalyGroupRelatedMetrics(
     args: ListAnomalyGroupRelatedMetricsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAnomalyGroupRelatedMetricsCommandOutput>;
-  public listAnomalyGroupRelatedMetrics(
+  listAnomalyGroupRelatedMetrics(
     args: ListAnomalyGroupRelatedMetricsCommandInput,
     cb: (err: any, data?: ListAnomalyGroupRelatedMetricsCommandOutput) => void
   ): void;
-  public listAnomalyGroupRelatedMetrics(
+  listAnomalyGroupRelatedMetrics(
     args: ListAnomalyGroupRelatedMetricsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAnomalyGroupRelatedMetricsCommandOutput) => void
   ): void;
-  public listAnomalyGroupRelatedMetrics(
-    args: ListAnomalyGroupRelatedMetricsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAnomalyGroupRelatedMetricsCommandOutput) => void),
-    cb?: (err: any, data?: ListAnomalyGroupRelatedMetricsCommandOutput) => void
-  ): Promise<ListAnomalyGroupRelatedMetricsCommandOutput> | void {
-    const command = new ListAnomalyGroupRelatedMetricsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of anomaly groups.</p>
+   * @see {@link ListAnomalyGroupSummariesCommand}
    */
-  public listAnomalyGroupSummaries(
+  listAnomalyGroupSummaries(
     args: ListAnomalyGroupSummariesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAnomalyGroupSummariesCommandOutput>;
-  public listAnomalyGroupSummaries(
+  listAnomalyGroupSummaries(
     args: ListAnomalyGroupSummariesCommandInput,
     cb: (err: any, data?: ListAnomalyGroupSummariesCommandOutput) => void
   ): void;
-  public listAnomalyGroupSummaries(
+  listAnomalyGroupSummaries(
     args: ListAnomalyGroupSummariesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAnomalyGroupSummariesCommandOutput) => void
   ): void;
-  public listAnomalyGroupSummaries(
-    args: ListAnomalyGroupSummariesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAnomalyGroupSummariesCommandOutput) => void),
-    cb?: (err: any, data?: ListAnomalyGroupSummariesCommandOutput) => void
-  ): Promise<ListAnomalyGroupSummariesCommandOutput> | void {
-    const command = new ListAnomalyGroupSummariesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of anomalous metrics for a measure in an anomaly group.</p>
+   * @see {@link ListAnomalyGroupTimeSeriesCommand}
    */
-  public listAnomalyGroupTimeSeries(
+  listAnomalyGroupTimeSeries(
     args: ListAnomalyGroupTimeSeriesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAnomalyGroupTimeSeriesCommandOutput>;
-  public listAnomalyGroupTimeSeries(
+  listAnomalyGroupTimeSeries(
     args: ListAnomalyGroupTimeSeriesCommandInput,
     cb: (err: any, data?: ListAnomalyGroupTimeSeriesCommandOutput) => void
   ): void;
-  public listAnomalyGroupTimeSeries(
+  listAnomalyGroupTimeSeries(
     args: ListAnomalyGroupTimeSeriesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAnomalyGroupTimeSeriesCommandOutput) => void
   ): void;
-  public listAnomalyGroupTimeSeries(
-    args: ListAnomalyGroupTimeSeriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAnomalyGroupTimeSeriesCommandOutput) => void),
-    cb?: (err: any, data?: ListAnomalyGroupTimeSeriesCommandOutput) => void
-  ): Promise<ListAnomalyGroupTimeSeriesCommandOutput> | void {
-    const command = new ListAnomalyGroupTimeSeriesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the datasets in the current AWS Region.</p>
-   *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
-   *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
+   * @see {@link ListMetricSetsCommand}
    */
-  public listMetricSets(
+  listMetricSets(
     args: ListMetricSetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListMetricSetsCommandOutput>;
-  public listMetricSets(
-    args: ListMetricSetsCommandInput,
-    cb: (err: any, data?: ListMetricSetsCommandOutput) => void
-  ): void;
-  public listMetricSets(
+  listMetricSets(args: ListMetricSetsCommandInput, cb: (err: any, data?: ListMetricSetsCommandOutput) => void): void;
+  listMetricSets(
     args: ListMetricSetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListMetricSetsCommandOutput) => void
   ): void;
-  public listMetricSets(
-    args: ListMetricSetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMetricSetsCommandOutput) => void),
-    cb?: (err: any, data?: ListMetricSetsCommandOutput) => void
-  ): Promise<ListMetricSetsCommandOutput> | void {
-    const command = new ListMetricSetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> for a detector, dataset, or alert.</p>
+   * @see {@link ListTagsForResourceCommand}
    */
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Add feedback for an anomalous metric.</p>
+   * @see {@link PutFeedbackCommand}
    */
-  public putFeedback(args: PutFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<PutFeedbackCommandOutput>;
-  public putFeedback(args: PutFeedbackCommandInput, cb: (err: any, data?: PutFeedbackCommandOutput) => void): void;
-  public putFeedback(
+  putFeedback(args: PutFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<PutFeedbackCommandOutput>;
+  putFeedback(args: PutFeedbackCommandInput, cb: (err: any, data?: PutFeedbackCommandOutput) => void): void;
+  putFeedback(
     args: PutFeedbackCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutFeedbackCommandOutput) => void
   ): void;
-  public putFeedback(
-    args: PutFeedbackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutFeedbackCommandOutput) => void),
-    cb?: (err: any, data?: PutFeedbackCommandOutput) => void
-  ): Promise<PutFeedbackCommandOutput> | void {
-    const command = new PutFeedbackCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Adds <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> to a detector, dataset, or alert.</p>
+   * @see {@link TagResourceCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Removes <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> from a detector, dataset, or alert.</p>
+   * @see {@link UntagResourceCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Make changes to an existing alert.</p>
+   * @see {@link UpdateAlertCommand}
    */
-  public updateAlert(args: UpdateAlertCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAlertCommandOutput>;
-  public updateAlert(args: UpdateAlertCommandInput, cb: (err: any, data?: UpdateAlertCommandOutput) => void): void;
-  public updateAlert(
+  updateAlert(args: UpdateAlertCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAlertCommandOutput>;
+  updateAlert(args: UpdateAlertCommandInput, cb: (err: any, data?: UpdateAlertCommandOutput) => void): void;
+  updateAlert(
     args: UpdateAlertCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAlertCommandOutput) => void
   ): void;
-  public updateAlert(
-    args: UpdateAlertCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAlertCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAlertCommandOutput) => void
-  ): Promise<UpdateAlertCommandOutput> | void {
-    const command = new UpdateAlertCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a detector. After activation, you can only change a detector's ingestion delay and description.</p>
+   * @see {@link UpdateAnomalyDetectorCommand}
    */
-  public updateAnomalyDetector(
+  updateAnomalyDetector(
     args: UpdateAnomalyDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateAnomalyDetectorCommandOutput>;
-  public updateAnomalyDetector(
+  updateAnomalyDetector(
     args: UpdateAnomalyDetectorCommandInput,
     cb: (err: any, data?: UpdateAnomalyDetectorCommandOutput) => void
   ): void;
-  public updateAnomalyDetector(
+  updateAnomalyDetector(
     args: UpdateAnomalyDetectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAnomalyDetectorCommandOutput) => void
   ): void;
-  public updateAnomalyDetector(
-    args: UpdateAnomalyDetectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAnomalyDetectorCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAnomalyDetectorCommandOutput) => void
-  ): Promise<UpdateAnomalyDetectorCommandOutput> | void {
-    const command = new UpdateAnomalyDetectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a dataset.</p>
+   * @see {@link UpdateMetricSetCommand}
    */
-  public updateMetricSet(
+  updateMetricSet(
     args: UpdateMetricSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateMetricSetCommandOutput>;
-  public updateMetricSet(
-    args: UpdateMetricSetCommandInput,
-    cb: (err: any, data?: UpdateMetricSetCommandOutput) => void
-  ): void;
-  public updateMetricSet(
+  updateMetricSet(args: UpdateMetricSetCommandInput, cb: (err: any, data?: UpdateMetricSetCommandOutput) => void): void;
+  updateMetricSet(
     args: UpdateMetricSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateMetricSetCommandOutput) => void
   ): void;
-  public updateMetricSet(
-    args: UpdateMetricSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMetricSetCommandOutput) => void),
-    cb?: (err: any, data?: UpdateMetricSetCommandOutput) => void
-  ): Promise<UpdateMetricSetCommandOutput> | void {
-    const command = new UpdateMetricSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>This is the <i>Amazon Lookout for Metrics API Reference</i>. For an introduction to the service
+ *       with tutorials for getting started, visit <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev">Amazon
+ *         Lookout for Metrics Developer Guide</a>.</p>
+ */
+export class LookoutMetrics extends LookoutMetricsClient implements LookoutMetrics {}
+createAggregatedClient(commands, LookoutMetrics);

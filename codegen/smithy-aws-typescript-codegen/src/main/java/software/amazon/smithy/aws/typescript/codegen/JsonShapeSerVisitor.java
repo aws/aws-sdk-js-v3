@@ -37,6 +37,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.typescript.codegen.validation.UnaryFunctionCall;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -84,15 +85,21 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
             potentialFilter = ".filter((e: any) => e != null)";
         }
 
-        writer.openBlock("return input$L.map(entry => {", "});", potentialFilter, () -> {
-            // Short circuit null values from serialization.
-            if (hasSparseTrait) {
-                writer.write("if (entry === null) { return null as any; }");
-            }
+        String returnedExpression = target.accept(getMemberVisitor("entry"));
 
-            // Dispatch to the input value provider for any additional handling.
-            writer.write("return $L;", target.accept(getMemberVisitor("entry")));
-        });
+        if (returnedExpression.equals("entry")) {
+          writer.write("return input$L;", potentialFilter);
+        } else {
+          writer.openBlock("return input$L.map(entry => {", "});", potentialFilter, () -> {
+              // Short circuit null values from serialization.
+              if (hasSparseTrait) {
+                  writer.write("if (entry === null) { return null as any; }");
+              }
+
+              // Dispatch to the input value provider for any additional handling.
+              writer.write("return $L;", target.accept(getMemberVisitor("entry")));
+          });
+        }
     }
 
     @Override
@@ -133,26 +140,49 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     @Override
     public void serializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
-
-        writer.openBlock("return {", "};", () -> {
+        writer.addImport("take", null, "@aws-sdk/smithy-client");
+        writer.openBlock("return take(input, {", "});", () -> {
             // Use a TreeMap to sort the members.
             Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
             members.forEach((memberName, memberShape) -> {
-                String locationName = memberNameStrategy.apply(memberShape, memberName);
+                String wireName = memberNameStrategy.apply(memberShape, memberName);
+                boolean hasJsonName = memberShape.hasTrait(JsonNameTrait.class);
                 Shape target = context.getModel().expectShape(memberShape.getTarget());
                 String inputLocation = "input." + memberName;
 
                 // Handle @timestampFormat on members not just the targeted shape.
-                String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)
-                        ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                                TIMESTAMP_FORMAT, inputLocation)
-                        : target.accept(getMemberVisitor(inputLocation));
+                String valueExpression = (memberShape.hasTrait(TimestampFormatTrait.class)
+                    ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
+                            TIMESTAMP_FORMAT, "_")
+                    : target.accept(getMemberVisitor("_")));
+                String valueProvider = "_ => " + valueExpression;
+                boolean isUnaryCall = UnaryFunctionCall.check(valueExpression);
 
-                if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                    writer.write("'$L': $L ?? generateIdempotencyToken(),", locationName, valueProvider);
+                if (hasJsonName) {
+                    if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
+                        writer.write("'$L': [true, _ => _ ?? generateIdempotencyToken(), `$L`],", wireName, memberName);
+                    } else {
+                        if (valueProvider.equals("_ => _")) {
+                            writer.write("'$L': [,,`$L`],", wireName, memberName);
+                        } else if (isUnaryCall) {
+                            writer.write("'$L': [,$L,`$L`],", wireName,
+                                UnaryFunctionCall.toRef(valueExpression), memberName);
+                        } else {
+                            writer.write("'$L': [,$L,`$L`],", wireName, valueProvider, memberName);
+                        }
+                    }
                 } else {
-                    writer.write("...($1L != null && { $2S: $3L }),",
-                            inputLocation, locationName, valueProvider);
+                    if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
+                        writer.write("'$L': [true, _ => _ ?? generateIdempotencyToken()],", memberName);
+                    } else {
+                        if (valueProvider.equals("_ => _")) {
+                            writer.write("'$1L': [],", memberName);
+                        } else if (isUnaryCall) {
+                            writer.write("'$1L': $2L,", memberName, UnaryFunctionCall.toRef(valueExpression));
+                        } else {
+                            writer.write("'$1L': $2L,", memberName, valueProvider);
+                        }
+                    }
                 }
             });
 

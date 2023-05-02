@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAccountAttributesRequest,
-  DescribeAccountAttributesRequestFilterSensitiveLog,
-  DescribeAccountAttributesResult,
-  DescribeAccountAttributesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAccountAttributesRequest, DescribeAccountAttributesResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribeAccountAttributesCommand,
-  serializeAws_json1_0DescribeAccountAttributesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeAccountAttributesCommand, se_DescribeAccountAttributesCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountAttributesCommand}.
  */
 export interface DescribeAccountAttributesCommandInput extends DescribeAccountAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountAttributesCommand}.
  */
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes attributes of your Amazon Web Services account. The supported account
  *             attributes include account tier, which indicates whether your account is in the sandbox
  *             or production environment. When you're ready to move your account out of the sandbox,
@@ -52,10 +49,16 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * import { PinpointSMSVoiceV2Client, DescribeAccountAttributesCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribeAccountAttributesCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DescribeAccountAttributesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
+ * @returns {@link DescribeAccountAttributesCommandOutput}
  * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -94,6 +97,9 @@ export class DescribeAccountAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +128,8 @@ export class DescribeAccountAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountAttributesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,15 +139,21 @@ export class DescribeAccountAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeAccountAttributesCommand(input, context);
+    return se_DescribeAccountAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountAttributesCommandOutput> {
-    return deserializeAws_json1_0DescribeAccountAttributesCommand(output, context);
+    return de_DescribeAccountAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  DescribeConnectorProfilesRequest,
-  DescribeConnectorProfilesRequestFilterSensitiveLog,
-  DescribeConnectorProfilesResponse,
-  DescribeConnectorProfilesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeConnectorProfilesCommand,
-  serializeAws_restJson1DescribeConnectorProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeConnectorProfilesRequest, DescribeConnectorProfilesResponse } from "../models/models_0";
+import { de_DescribeConnectorProfilesCommand, se_DescribeConnectorProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectorProfilesCommand}.
  */
 export interface DescribeConnectorProfilesCommandInput extends DescribeConnectorProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectorProfilesCommand}.
  */
 export interface DescribeConnectorProfilesCommandOutput extends DescribeConnectorProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of <code>connector-profile</code> details matching the provided
  *         <code>connector-profile</code> names and <code>connector-types</code>. Both input lists are
  *       optional, and you can use them to filter the result. </p>
@@ -46,10 +43,21 @@ export interface DescribeConnectorProfilesCommandOutput extends DescribeConnecto
  * import { AppflowClient, DescribeConnectorProfilesCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DescribeConnectorProfilesCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = { // DescribeConnectorProfilesRequest
+ *   connectorProfileNames: [ // ConnectorProfileNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   connectorType: "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot",
+ *   connectorLabel: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeConnectorProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectorProfilesCommandInput - {@link DescribeConnectorProfilesCommandInput}
+ * @returns {@link DescribeConnectorProfilesCommandOutput}
  * @see {@link DescribeConnectorProfilesCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorProfilesCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -80,6 +88,9 @@ export class DescribeConnectorProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectorProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +119,8 @@ export class DescribeConnectorProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectorProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConnectorProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +130,21 @@ export class DescribeConnectorProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectorProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeConnectorProfilesCommand(input, context);
+    return se_DescribeConnectorProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConnectorProfilesCommandOutput> {
-    return deserializeAws_restJson1DescribeConnectorProfilesCommand(output, context);
+    return de_DescribeConnectorProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

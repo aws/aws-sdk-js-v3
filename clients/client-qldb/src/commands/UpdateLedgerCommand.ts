@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateLedgerRequest,
-  UpdateLedgerRequestFilterSensitiveLog,
-  UpdateLedgerResponse,
-  UpdateLedgerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLedgerCommand,
-  serializeAws_restJson1UpdateLedgerCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateLedgerRequest, UpdateLedgerResponse } from "../models/models_0";
+import { de_UpdateLedgerCommand, se_UpdateLedgerCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLedgerCommand}.
  */
 export interface UpdateLedgerCommandInput extends UpdateLedgerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLedgerCommand}.
  */
 export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates properties on a ledger.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
  * import { QLDBClient, UpdateLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, UpdateLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // UpdateLedgerRequest
+ *   Name: "STRING_VALUE", // required
+ *   DeletionProtection: true || false,
+ *   KmsKey: "STRING_VALUE",
+ * };
  * const command = new UpdateLedgerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLedgerCommandInput - {@link UpdateLedgerCommandInput}
+ * @returns {@link UpdateLedgerCommandOutput}
  * @see {@link UpdateLedgerCommandInput} for command's `input` shape.
  * @see {@link UpdateLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -75,6 +79,9 @@ export class UpdateLedgerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +108,8 @@ export class UpdateLedgerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLedgerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLedgerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +119,18 @@ export class UpdateLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLedgerCommand(input, context);
+    return se_UpdateLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLedgerCommandOutput> {
-    return deserializeAws_restJson1UpdateLedgerCommand(output, context);
+    return de_UpdateLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

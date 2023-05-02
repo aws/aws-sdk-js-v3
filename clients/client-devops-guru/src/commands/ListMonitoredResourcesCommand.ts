@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  ListMonitoredResourcesRequest,
-  ListMonitoredResourcesRequestFilterSensitiveLog,
-  ListMonitoredResourcesResponse,
-  ListMonitoredResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMonitoredResourcesCommand,
-  serializeAws_restJson1ListMonitoredResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMonitoredResourcesRequest, ListMonitoredResourcesResponse } from "../models/models_0";
+import { de_ListMonitoredResourcesCommand, se_ListMonitoredResourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMonitoredResourcesCommand}.
  */
 export interface ListMonitoredResourcesCommandInput extends ListMonitoredResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMonitoredResourcesCommand}.
  */
 export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * 			Returns the list of all log groups that are being monitored and tagged by DevOps Guru.
  * 		</p>
@@ -44,10 +41,22 @@ export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResour
  * import { DevOpsGuruClient, ListMonitoredResourcesCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListMonitoredResourcesCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // ListMonitoredResourcesRequest
+ *   Filters: { // ListMonitoredResourcesFilters
+ *     ResourcePermission: "FULL_PERMISSION" || "MISSING_PERMISSION", // required
+ *     ResourceTypeFilters: [ // ResourceTypeFilters // required
+ *       "LOG_GROUPS" || "CLOUDFRONT_DISTRIBUTION" || "DYNAMODB_TABLE" || "EC2_NAT_GATEWAY" || "ECS_CLUSTER" || "ECS_SERVICE" || "EKS_CLUSTER" || "ELASTIC_BEANSTALK_ENVIRONMENT" || "ELASTIC_LOAD_BALANCER_LOAD_BALANCER" || "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER" || "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP" || "ELASTICACHE_CACHE_CLUSTER" || "ELASTICSEARCH_DOMAIN" || "KINESIS_STREAM" || "LAMBDA_FUNCTION" || "OPEN_SEARCH_SERVICE_DOMAIN" || "RDS_DB_INSTANCE" || "RDS_DB_CLUSTER" || "REDSHIFT_CLUSTER" || "ROUTE53_HOSTED_ZONE" || "ROUTE53_HEALTH_CHECK" || "S3_BUCKET" || "SAGEMAKER_ENDPOINT" || "SNS_TOPIC" || "SQS_QUEUE" || "STEP_FUNCTIONS_ACTIVITY" || "STEP_FUNCTIONS_STATE_MACHINE",
+ *     ],
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListMonitoredResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMonitoredResourcesCommandInput - {@link ListMonitoredResourcesCommandInput}
+ * @returns {@link ListMonitoredResourcesCommandOutput}
  * @see {@link ListMonitoredResourcesCommandInput} for command's `input` shape.
  * @see {@link ListMonitoredResourcesCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -84,6 +93,9 @@ export class ListMonitoredResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMonitoredResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +124,8 @@ export class ListMonitoredResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMonitoredResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMonitoredResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +135,18 @@ export class ListMonitoredResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMonitoredResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMonitoredResourcesCommand(input, context);
+    return se_ListMonitoredResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitoredResourcesCommandOutput> {
-    return deserializeAws_restJson1ListMonitoredResourcesCommand(output, context);
+    return de_ListMonitoredResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCrlsResponse,
-  ListCrlsResponseFilterSensitiveLog,
-  ListRequest,
-  ListRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCrlsCommand,
-  serializeAws_restJson1ListCrlsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCrlsResponse, ListRequest } from "../models/models_0";
+import { de_ListCrlsCommand, se_ListCrlsCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCrlsCommand}.
  */
 export interface ListCrlsCommandInput extends ListRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCrlsCommand}.
  */
 export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Crls in the authenticated account and Amazon Web Services Region.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -46,10 +43,16 @@ export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBeare
  * import { RolesAnywhereClient, ListCrlsCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, ListCrlsCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ListRequest
+ *   nextToken: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListCrlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCrlsCommandInput - {@link ListCrlsCommandInput}
+ * @returns {@link ListCrlsCommandOutput}
  * @see {@link ListCrlsCommandInput} for command's `input` shape.
  * @see {@link ListCrlsCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +82,9 @@ export class ListCrlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCrlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +111,8 @@ export class ListCrlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCrlsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +122,18 @@ export class ListCrlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCrlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCrlsCommand(input, context);
+    return se_ListCrlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCrlsCommandOutput> {
-    return deserializeAws_restJson1ListCrlsCommand(output, context);
+    return de_ListCrlsCommand(output, context);
   }
 
   // Start section: command_body_extra

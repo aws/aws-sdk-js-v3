@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteThingRequest,
-  DeleteThingRequestFilterSensitiveLog,
-  DeleteThingResponse,
-  DeleteThingResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteThingCommand,
-  serializeAws_restJson1DeleteThingCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteThingRequest, DeleteThingResponse } from "../models/models_1";
+import { de_DeleteThingCommand, se_DeleteThingCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteThingCommand}.
  */
 export interface DeleteThingCommandInput extends DeleteThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteThingCommand}.
  */
 export interface DeleteThingCommandOutput extends DeleteThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified thing. Returns successfully with no error if the deletion is
  * 			successful or you specify a thing that doesn't exist.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThing</a> action.</p>
@@ -44,10 +41,16 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
  * import { IoTClient, DeleteThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteThingRequest
+ *   thingName: "STRING_VALUE", // required
+ *   expectedVersion: Number("long"),
+ * };
  * const command = new DeleteThingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteThingCommandInput - {@link DeleteThingCommandInput}
+ * @returns {@link DeleteThingCommandOutput}
  * @see {@link DeleteThingCommandInput} for command's `input` shape.
  * @see {@link DeleteThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -94,6 +97,9 @@ export class DeleteThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +126,8 @@ export class DeleteThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +137,18 @@ export class DeleteThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteThingCommand(input, context);
+    return se_DeleteThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThingCommandOutput> {
-    return deserializeAws_restJson1DeleteThingCommand(output, context);
+    return de_DeleteThingCommand(output, context);
   }
 
   // Start section: command_body_extra

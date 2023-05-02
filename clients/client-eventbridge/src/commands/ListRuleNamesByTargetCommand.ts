@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  ListRuleNamesByTargetRequest,
-  ListRuleNamesByTargetRequestFilterSensitiveLog,
-  ListRuleNamesByTargetResponse,
-  ListRuleNamesByTargetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRuleNamesByTargetCommand,
-  serializeAws_json1_1ListRuleNamesByTargetCommand,
-} from "../protocols/Aws_json1_1";
+import { ListRuleNamesByTargetRequest, ListRuleNamesByTargetResponse } from "../models/models_0";
+import { de_ListRuleNamesByTargetCommand, se_ListRuleNamesByTargetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRuleNamesByTargetCommand}.
  */
 export interface ListRuleNamesByTargetCommandInput extends ListRuleNamesByTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRuleNamesByTargetCommand}.
  */
 export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTargetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the rules for the specified target. You can see which of the rules in Amazon
  *       EventBridge can invoke a specific target in your account.</p>
  * @example
@@ -43,10 +40,18 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * import { EventBridgeClient, ListRuleNamesByTargetCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListRuleNamesByTargetCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // ListRuleNamesByTargetRequest
+ *   TargetArn: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRuleNamesByTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRuleNamesByTargetCommandInput - {@link ListRuleNamesByTargetCommandInput}
+ * @returns {@link ListRuleNamesByTargetCommandOutput}
  * @see {@link ListRuleNamesByTargetCommandInput} for command's `input` shape.
  * @see {@link ListRuleNamesByTargetCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -76,6 +81,9 @@ export class ListRuleNamesByTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRuleNamesByTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +112,8 @@ export class ListRuleNamesByTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRuleNamesByTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRuleNamesByTargetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +123,18 @@ export class ListRuleNamesByTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRuleNamesByTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRuleNamesByTargetCommand(input, context);
+    return se_ListRuleNamesByTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRuleNamesByTargetCommandOutput> {
-    return deserializeAws_json1_1ListRuleNamesByTargetCommand(output, context);
+    return de_ListRuleNamesByTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

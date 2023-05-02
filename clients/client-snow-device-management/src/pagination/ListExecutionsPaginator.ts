@@ -10,7 +10,7 @@ import { SnowDeviceManagementClient } from "../SnowDeviceManagementClient";
 import { SnowDeviceManagementPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SnowDeviceManagementClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListExecutionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListExecutions(
   config: SnowDeviceManagementPaginationConfiguration,
   input: ListExecutionsCommandInput,

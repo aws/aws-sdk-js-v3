@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  DeleteFargateProfileRequest,
-  DeleteFargateProfileRequestFilterSensitiveLog,
-  DeleteFargateProfileResponse,
-  DeleteFargateProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFargateProfileCommand,
-  serializeAws_restJson1DeleteFargateProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFargateProfileRequest, DeleteFargateProfileResponse } from "../models/models_0";
+import { de_DeleteFargateProfileCommand, se_DeleteFargateProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFargateProfileCommand}.
  */
 export interface DeleteFargateProfileCommandInput extends DeleteFargateProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFargateProfileCommand}.
  */
 export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Fargate profile.</p>
  *          <p>When you delete a Fargate profile, any pods running on Fargate that were created with the profile are deleted. If those pods match
  *             another Fargate profile, then they are scheduled on Fargate with that profile. If they no longer match any Fargate profiles, then
@@ -50,10 +47,16 @@ export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileR
  * import { EKSClient, DeleteFargateProfileCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DeleteFargateProfileCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // DeleteFargateProfileRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   fargateProfileName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFargateProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFargateProfileCommandInput - {@link DeleteFargateProfileCommandInput}
+ * @returns {@link DeleteFargateProfileCommandOutput}
  * @see {@link DeleteFargateProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteFargateProfileCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -95,6 +98,9 @@ export class DeleteFargateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFargateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class DeleteFargateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFargateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFargateProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class DeleteFargateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFargateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFargateProfileCommand(input, context);
+    return se_DeleteFargateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFargateProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteFargateProfileCommand(output, context);
+    return de_DeleteFargateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

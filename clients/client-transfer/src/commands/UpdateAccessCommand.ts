@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAccessRequest,
-  UpdateAccessRequestFilterSensitiveLog,
-  UpdateAccessResponse,
-  UpdateAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAccessCommand,
-  serializeAws_json1_1UpdateAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateAccessRequest, UpdateAccessResponse } from "../models/models_0";
+import { de_UpdateAccessCommand, se_UpdateAccessCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccessCommand}.
  */
 export interface UpdateAccessCommandInput extends UpdateAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccessCommand}.
  */
 export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to update parameters for the access specified in the <code>ServerID</code> and
  *       <code>ExternalID</code> parameters.</p>
  * @example
@@ -43,10 +40,33 @@ export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __Metad
  * import { TransferClient, UpdateAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // UpdateAccessRequest
+ *   HomeDirectory: "STRING_VALUE",
+ *   HomeDirectoryType: "PATH" || "LOGICAL",
+ *   HomeDirectoryMappings: [ // HomeDirectoryMappings
+ *     { // HomeDirectoryMapEntry
+ *       Entry: "STRING_VALUE", // required
+ *       Target: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Policy: "STRING_VALUE",
+ *   PosixProfile: { // PosixProfile
+ *     Uid: Number("long"), // required
+ *     Gid: Number("long"), // required
+ *     SecondaryGids: [ // SecondaryGids
+ *       Number("long"),
+ *     ],
+ *   },
+ *   Role: "STRING_VALUE",
+ *   ServerId: "STRING_VALUE", // required
+ *   ExternalId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccessCommandInput - {@link UpdateAccessCommandInput}
+ * @returns {@link UpdateAccessCommandOutput}
  * @see {@link UpdateAccessCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -89,6 +109,9 @@ export class UpdateAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +138,8 @@ export class UpdateAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +149,18 @@ export class UpdateAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAccessCommand(input, context);
+    return se_UpdateAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccessCommandOutput> {
-    return deserializeAws_json1_1UpdateAccessCommand(output, context);
+    return de_UpdateAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

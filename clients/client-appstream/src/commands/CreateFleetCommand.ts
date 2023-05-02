@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  CreateFleetRequest,
-  CreateFleetRequestFilterSensitiveLog,
-  CreateFleetResult,
-  CreateFleetResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFleetCommand,
-  serializeAws_json1_1CreateFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateFleetRequest, CreateFleetResult } from "../models/models_0";
+import { de_CreateFleetCommand, se_CreateFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFleetCommand}.
  */
 export interface CreateFleetCommandInput extends CreateFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFleetCommand}.
  */
 export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a fleet. A fleet consists of streaming instances that your users access for their applications and desktops.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,54 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * import { AppStreamClient, CreateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // CreateFleetRequest
+ *   Name: "STRING_VALUE", // required
+ *   ImageName: "STRING_VALUE",
+ *   ImageArn: "STRING_VALUE",
+ *   InstanceType: "STRING_VALUE", // required
+ *   FleetType: "ALWAYS_ON" || "ON_DEMAND" || "ELASTIC",
+ *   ComputeCapacity: { // ComputeCapacity
+ *     DesiredInstances: Number("int"), // required
+ *   },
+ *   VpcConfig: { // VpcConfig
+ *     SubnetIds: [ // SubnetIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [ // SecurityGroupIdList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   MaxUserDurationInSeconds: Number("int"),
+ *   DisconnectTimeoutInSeconds: Number("int"),
+ *   Description: "STRING_VALUE",
+ *   DisplayName: "STRING_VALUE",
+ *   EnableDefaultInternetAccess: true || false,
+ *   DomainJoinInfo: { // DomainJoinInfo
+ *     DirectoryName: "STRING_VALUE",
+ *     OrganizationalUnitDistinguishedName: "STRING_VALUE",
+ *   },
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   IdleDisconnectTimeoutInSeconds: Number("int"),
+ *   IamRoleArn: "STRING_VALUE",
+ *   StreamView: "APP" || "DESKTOP",
+ *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
+ *   MaxConcurrentSessions: Number("int"),
+ *   UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
+ *     "STRING_VALUE",
+ *   ],
+ *   SessionScriptS3Location: { // S3Location
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFleetCommandInput - {@link CreateFleetCommandInput}
+ * @returns {@link CreateFleetCommandOutput}
  * @see {@link CreateFleetCommandInput} for command's `input` shape.
  * @see {@link CreateFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -102,6 +143,9 @@ export class CreateFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +172,8 @@ export class CreateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +183,18 @@ export class CreateFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFleetCommand(input, context);
+    return se_CreateFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFleetCommandOutput> {
-    return deserializeAws_json1_1CreateFleetCommand(output, context);
+    return de_CreateFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

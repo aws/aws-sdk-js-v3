@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  ResolveComponentCandidatesRequest,
-  ResolveComponentCandidatesRequestFilterSensitiveLog,
-  ResolveComponentCandidatesResponse,
-  ResolveComponentCandidatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ResolveComponentCandidatesCommand,
-  serializeAws_restJson1ResolveComponentCandidatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ResolveComponentCandidatesRequest, ResolveComponentCandidatesResponse } from "../models/models_0";
+import { de_ResolveComponentCandidatesCommand, se_ResolveComponentCandidatesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ResolveComponentCandidatesCommand}.
  */
 export interface ResolveComponentCandidatesCommandInput extends ResolveComponentCandidatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResolveComponentCandidatesCommand}.
  */
 export interface ResolveComponentCandidatesCommandOutput extends ResolveComponentCandidatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of components that meet the component, version, and platform requirements
  *       of a deployment. Greengrass core devices call this operation when they receive a deployment to
  *       identify the components to install.</p>
@@ -44,8 +41,8 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  *         <code>>2.0.0</code> and component <code>B</code> requires version <code><2.0.0</code>
  *       of a component dependency.</p>
  *          <p>When you specify the component candidates to resolve, IoT Greengrass compares each component's
- *       digest from the core device with the component's digest in the Amazon Web Services Cloud. If the digests don't
- *       match, then IoT Greengrass specifies to use the version from the Amazon Web Services Cloud.</p>
+ *       digest from the core device with the component's digest in the Amazon Web Services Cloud. If the digests
+ *       don't match, then IoT Greengrass specifies to use the version from the Amazon Web Services Cloud.</p>
  *          <important>
  *             <p>To use this operation, you must use the data plane API endpoint and authenticate with an
  *         IoT device certificate. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/greengrass.html">IoT Greengrass endpoints and quotas</a>.</p>
@@ -56,10 +53,29 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  * import { GreengrassV2Client, ResolveComponentCandidatesCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ResolveComponentCandidatesCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // ResolveComponentCandidatesRequest
+ *   platform: { // ComponentPlatform
+ *     name: "STRING_VALUE",
+ *     attributes: { // PlatformAttributesMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   componentCandidates: [ // ComponentCandidateList
+ *     { // ComponentCandidate
+ *       componentName: "STRING_VALUE",
+ *       componentVersion: "STRING_VALUE",
+ *       versionRequirements: { // ComponentVersionRequirementMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new ResolveComponentCandidatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResolveComponentCandidatesCommandInput - {@link ResolveComponentCandidatesCommandInput}
+ * @returns {@link ResolveComponentCandidatesCommandOutput}
  * @see {@link ResolveComponentCandidatesCommandInput} for command's `input` shape.
  * @see {@link ResolveComponentCandidatesCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -104,6 +120,9 @@ export class ResolveComponentCandidatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResolveComponentCandidatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +151,8 @@ export class ResolveComponentCandidatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResolveComponentCandidatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResolveComponentCandidatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,15 +162,21 @@ export class ResolveComponentCandidatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResolveComponentCandidatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ResolveComponentCandidatesCommand(input, context);
+    return se_ResolveComponentCandidatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResolveComponentCandidatesCommandOutput> {
-    return deserializeAws_restJson1ResolveComponentCandidatesCommand(output, context);
+    return de_ResolveComponentCandidatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import {
-  GetGeneratedPolicyRequest,
-  GetGeneratedPolicyRequestFilterSensitiveLog,
-  GetGeneratedPolicyResponse,
-  GetGeneratedPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGeneratedPolicyCommand,
-  serializeAws_restJson1GetGeneratedPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGeneratedPolicyRequest, GetGeneratedPolicyResponse } from "../models/models_0";
+import { de_GetGeneratedPolicyCommand, se_GetGeneratedPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGeneratedPolicyCommand}.
  */
 export interface GetGeneratedPolicyCommandInput extends GetGeneratedPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGeneratedPolicyCommand}.
  */
 export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the policy that was generated using <code>StartPolicyGeneration</code>.
  *       </p>
  * @example
@@ -43,10 +40,17 @@ export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyRespo
  * import { AccessAnalyzerClient, GetGeneratedPolicyCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GetGeneratedPolicyCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = { // GetGeneratedPolicyRequest
+ *   jobId: "STRING_VALUE", // required
+ *   includeResourcePlaceholders: true || false,
+ *   includeServiceLevelTemplate: true || false,
+ * };
  * const command = new GetGeneratedPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGeneratedPolicyCommandInput - {@link GetGeneratedPolicyCommandInput}
+ * @returns {@link GetGeneratedPolicyCommandOutput}
  * @see {@link GetGeneratedPolicyCommandInput} for command's `input` shape.
  * @see {@link GetGeneratedPolicyCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -82,6 +86,9 @@ export class GetGeneratedPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGeneratedPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class GetGeneratedPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGeneratedPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGeneratedPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class GetGeneratedPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGeneratedPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGeneratedPolicyCommand(input, context);
+    return se_GetGeneratedPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGeneratedPolicyCommandOutput> {
-    return deserializeAws_restJson1GetGeneratedPolicyCommand(output, context);
+    return de_GetGeneratedPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

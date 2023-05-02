@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DeleteFlywheelRequest,
-  DeleteFlywheelRequestFilterSensitiveLog,
-  DeleteFlywheelResponse,
-  DeleteFlywheelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFlywheelCommand,
-  serializeAws_json1_1DeleteFlywheelCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteFlywheelRequest, DeleteFlywheelResponse } from "../models/models_0";
+import { de_DeleteFlywheelCommand, se_DeleteFlywheelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFlywheelCommand}.
  */
 export interface DeleteFlywheelCommandInput extends DeleteFlywheelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFlywheelCommand}.
  */
 export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a flywheel. When you delete the flywheel, Amazon Comprehend
  *       does not delete the data lake or the model associated with the flywheel.</p>
  *          <p>For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
@@ -45,10 +42,15 @@ export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __M
  * import { ComprehendClient, DeleteFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DeleteFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DeleteFlywheelRequest
+ *   FlywheelArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFlywheelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFlywheelCommandInput - {@link DeleteFlywheelCommandInput}
+ * @returns {@link DeleteFlywheelCommandOutput}
  * @see {@link DeleteFlywheelCommandInput} for command's `input` shape.
  * @see {@link DeleteFlywheelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -92,6 +94,9 @@ export class DeleteFlywheelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFlywheelCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +125,8 @@ export class DeleteFlywheelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFlywheelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFlywheelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +136,18 @@ export class DeleteFlywheelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFlywheelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFlywheelCommand(input, context);
+    return se_DeleteFlywheelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlywheelCommandOutput> {
-    return deserializeAws_json1_1DeleteFlywheelCommand(output, context);
+    return de_DeleteFlywheelCommand(output, context);
   }
 
   // Start section: command_body_extra

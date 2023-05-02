@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDeviceFleetRequest, UpdateDeviceFleetRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1UpdateDeviceFleetCommand,
-  serializeAws_json1_1UpdateDeviceFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDeviceFleetRequest } from "../models/models_4";
+import { de_UpdateDeviceFleetCommand, se_UpdateDeviceFleetCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeviceFleetCommand}.
  */
 export interface UpdateDeviceFleetCommandInput extends UpdateDeviceFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeviceFleetCommand}.
  */
 export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a fleet of devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,24 @@ export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, UpdateDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateDeviceFleetRequest
+ *   DeviceFleetName: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   OutputConfig: { // EdgeOutputConfig
+ *     S3OutputLocation: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *     PresetDeploymentType: "GreengrassV2Component",
+ *     PresetDeploymentConfig: "STRING_VALUE",
+ *   },
+ *   EnableIotRoleAlias: true || false,
+ * };
  * const command = new UpdateDeviceFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeviceFleetCommandInput - {@link UpdateDeviceFleetCommandInput}
+ * @returns {@link UpdateDeviceFleetCommandOutput}
  * @see {@link UpdateDeviceFleetCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceFleetCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +83,9 @@ export class UpdateDeviceFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeviceFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +114,8 @@ export class UpdateDeviceFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeviceFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +125,18 @@ export class UpdateDeviceFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeviceFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDeviceFleetCommand(input, context);
+    return se_UpdateDeviceFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceFleetCommandOutput> {
-    return deserializeAws_json1_1UpdateDeviceFleetCommand(output, context);
+    return de_UpdateDeviceFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

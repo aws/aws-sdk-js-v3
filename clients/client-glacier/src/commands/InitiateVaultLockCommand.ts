@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  InitiateVaultLockInput,
-  InitiateVaultLockInputFilterSensitiveLog,
-  InitiateVaultLockOutput,
-  InitiateVaultLockOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1InitiateVaultLockCommand,
-  serializeAws_restJson1InitiateVaultLockCommand,
-} from "../protocols/Aws_restJson1";
+import { InitiateVaultLockInput, InitiateVaultLockOutput } from "../models/models_0";
+import { de_InitiateVaultLockCommand, se_InitiateVaultLockCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InitiateVaultLockCommand}.
  */
 export interface InitiateVaultLockCommandInput extends InitiateVaultLockInput {}
 /**
+ * @public
+ *
  * The output of {@link InitiateVaultLockCommand}.
  */
 export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation initiates the vault locking process by doing the following:</p>
  *          <ul>
  *             <li>
@@ -76,10 +73,19 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  * import { GlacierClient, InitiateVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, InitiateVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // InitiateVaultLockInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   policy: { // VaultLockPolicy
+ *     Policy: "STRING_VALUE",
+ *   },
+ * };
  * const command = new InitiateVaultLockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InitiateVaultLockCommandInput - {@link InitiateVaultLockCommandInput}
+ * @returns {@link InitiateVaultLockCommandOutput}
  * @see {@link InitiateVaultLockCommandInput} for command's `input` shape.
  * @see {@link InitiateVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -136,6 +142,9 @@ export class InitiateVaultLockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitiateVaultLockCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,8 +173,8 @@ export class InitiateVaultLockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InitiateVaultLockInputFilterSensitiveLog,
-      outputFilterSensitiveLog: InitiateVaultLockOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -175,12 +184,18 @@ export class InitiateVaultLockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitiateVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InitiateVaultLockCommand(input, context);
+    return se_InitiateVaultLockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateVaultLockCommandOutput> {
-    return deserializeAws_restJson1InitiateVaultLockCommand(output, context);
+    return de_InitiateVaultLockCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,16 +20,20 @@ import {
   CreateEnvironmentTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0CreateEnvironmentTemplateVersionCommand,
-  serializeAws_json1_0CreateEnvironmentTemplateVersionCommand,
+  de_CreateEnvironmentTemplateVersionCommand,
+  se_CreateEnvironmentTemplateVersionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEnvironmentTemplateVersionCommand}.
  */
 export interface CreateEnvironmentTemplateVersionCommandInput extends CreateEnvironmentTemplateVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateEnvironmentTemplateVersionCommand}.
  */
 export interface CreateEnvironmentTemplateVersionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateEnvironmentTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new major or minor version of an environment template. A major version of an environment template is a version that
  *         <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its major
  *       version.</p>
@@ -46,10 +51,30 @@ export interface CreateEnvironmentTemplateVersionCommandOutput
  * import { ProtonClient, CreateEnvironmentTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateEnvironmentTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // CreateEnvironmentTemplateVersionInput
+ *   clientToken: "STRING_VALUE",
+ *   templateName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   majorVersion: "STRING_VALUE",
+ *   source: { // TemplateVersionSourceInput Union: only one key present
+ *     s3: { // S3ObjectSource
+ *       bucket: "STRING_VALUE", // required
+ *       key: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateEnvironmentTemplateVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentTemplateVersionCommandInput - {@link CreateEnvironmentTemplateVersionCommandInput}
+ * @returns {@link CreateEnvironmentTemplateVersionCommandOutput}
  * @see {@link CreateEnvironmentTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -95,6 +120,9 @@ export class CreateEnvironmentTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,18 +162,24 @@ export class CreateEnvironmentTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateEnvironmentTemplateVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateEnvironmentTemplateVersionCommand(input, context);
+    return se_CreateEnvironmentTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEnvironmentTemplateVersionCommandOutput> {
-    return deserializeAws_json1_0CreateEnvironmentTemplateVersionCommand(output, context);
+    return de_CreateEnvironmentTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDeviceMetadataRequest,
-  UpdateDeviceMetadataRequestFilterSensitiveLog,
-  UpdateDeviceMetadataResponse,
-  UpdateDeviceMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDeviceMetadataRequest, UpdateDeviceMetadataResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1UpdateDeviceMetadataCommand,
-  serializeAws_restJson1UpdateDeviceMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDeviceMetadataCommand, se_UpdateDeviceMetadataCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeviceMetadataCommand}.
  */
 export interface UpdateDeviceMetadataCommandInput extends UpdateDeviceMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeviceMetadataCommand}.
  */
 export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a device's metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataR
  * import { PanoramaClient, UpdateDeviceMetadataCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, UpdateDeviceMetadataCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // UpdateDeviceMetadataRequest
+ *   DeviceId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateDeviceMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeviceMetadataCommandInput - {@link UpdateDeviceMetadataCommandInput}
+ * @returns {@link UpdateDeviceMetadataCommandOutput}
  * @see {@link UpdateDeviceMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceMetadataCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -84,6 +87,9 @@ export class UpdateDeviceMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeviceMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class UpdateDeviceMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeviceMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeviceMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class UpdateDeviceMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeviceMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDeviceMetadataCommand(input, context);
+    return se_UpdateDeviceMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceMetadataCommandOutput> {
-    return deserializeAws_restJson1UpdateDeviceMetadataCommand(output, context);
+    return de_UpdateDeviceMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

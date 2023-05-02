@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import {
-  SearchDevicesRequest,
-  SearchDevicesRequestFilterSensitiveLog,
-  SearchDevicesResponse,
-  SearchDevicesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchDevicesCommand,
-  serializeAws_restJson1SearchDevicesCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchDevicesRequest, SearchDevicesResponse } from "../models/models_0";
+import { de_SearchDevicesCommand, se_SearchDevicesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchDevicesCommand}.
  */
 export interface SearchDevicesCommandInput extends SearchDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchDevicesCommand}.
  */
 export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for devices using the specified filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * import { BraketClient, SearchDevicesCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, SearchDevicesCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
+ * const input = { // SearchDevicesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // SearchDevicesFilterList // required
+ *     { // SearchDevicesFilter
+ *       name: "STRING_VALUE", // required
+ *       values: [ // String256List // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new SearchDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchDevicesCommandInput - {@link SearchDevicesCommandInput}
+ * @returns {@link SearchDevicesCommandOutput}
  * @see {@link SearchDevicesCommandInput} for command's `input` shape.
  * @see {@link SearchDevicesCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
@@ -82,6 +93,9 @@ export class SearchDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +122,8 @@ export class SearchDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchDevicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +133,18 @@ export class SearchDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchDevicesCommand(input, context);
+    return se_SearchDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDevicesCommandOutput> {
-    return deserializeAws_restJson1SearchDevicesCommand(output, context);
+    return de_SearchDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

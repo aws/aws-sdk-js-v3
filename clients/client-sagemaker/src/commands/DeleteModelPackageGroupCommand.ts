@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteModelPackageGroupInput, DeleteModelPackageGroupInputFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteModelPackageGroupCommand,
-  serializeAws_json1_1DeleteModelPackageGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteModelPackageGroupInput } from "../models/models_1";
+import { de_DeleteModelPackageGroupCommand, se_DeleteModelPackageGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelPackageGroupCommand}.
  */
 export interface DeleteModelPackageGroupCommandInput extends DeleteModelPackageGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelPackageGroupCommand}.
  */
 export interface DeleteModelPackageGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified model group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteModelPackageGroupCommandOutput extends __MetadataBearer {
  * import { SageMakerClient, DeleteModelPackageGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteModelPackageGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteModelPackageGroupInput
+ *   ModelPackageGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteModelPackageGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelPackageGroupCommandInput - {@link DeleteModelPackageGroupCommandInput}
+ * @returns {@link DeleteModelPackageGroupCommandOutput}
  * @see {@link DeleteModelPackageGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteModelPackageGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -68,6 +75,9 @@ export class DeleteModelPackageGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelPackageGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +106,8 @@ export class DeleteModelPackageGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelPackageGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +117,18 @@ export class DeleteModelPackageGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelPackageGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteModelPackageGroupCommand(input, context);
+    return se_DeleteModelPackageGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelPackageGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteModelPackageGroupCommand(output, context);
+    return de_DeleteModelPackageGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

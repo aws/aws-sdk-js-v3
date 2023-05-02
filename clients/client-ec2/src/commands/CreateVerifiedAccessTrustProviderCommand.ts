@@ -21,15 +21,19 @@ import {
   CreateVerifiedAccessTrustProviderResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2CreateVerifiedAccessTrustProviderCommand,
-  serializeAws_ec2CreateVerifiedAccessTrustProviderCommand,
+  de_CreateVerifiedAccessTrustProviderCommand,
+  se_CreateVerifiedAccessTrustProviderCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVerifiedAccessTrustProviderCommand}.
  */
 export interface CreateVerifiedAccessTrustProviderCommandInput extends CreateVerifiedAccessTrustProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVerifiedAccessTrustProviderCommand}.
  */
 export interface CreateVerifiedAccessTrustProviderCommandOutput
@@ -37,9 +41,10 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
  *          information for users and devices. When an application request is made, the identity
- *          information sent by the trust provider will be evaluated by Amazon Web Services Verified Access, before allowing or
+ *          information sent by the trust provider is evaluated by Verified Access before allowing or
  *          denying the application request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,10 +52,44 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
  * import { EC2Client, CreateVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateVerifiedAccessTrustProviderRequest
+ *   TrustProviderType: "user" || "device", // required
+ *   UserTrustProviderType: "iam-identity-center" || "oidc",
+ *   DeviceTrustProviderType: "jamf" || "crowdstrike",
+ *   OidcOptions: { // CreateVerifiedAccessTrustProviderOidcOptions
+ *     Issuer: "STRING_VALUE",
+ *     AuthorizationEndpoint: "STRING_VALUE",
+ *     TokenEndpoint: "STRING_VALUE",
+ *     UserInfoEndpoint: "STRING_VALUE",
+ *     ClientId: "STRING_VALUE",
+ *     ClientSecret: "STRING_VALUE",
+ *     Scope: "STRING_VALUE",
+ *   },
+ *   DeviceOptions: { // CreateVerifiedAccessTrustProviderDeviceOptions
+ *     TenantId: "STRING_VALUE",
+ *   },
+ *   PolicyReferenceName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new CreateVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVerifiedAccessTrustProviderCommandInput - {@link CreateVerifiedAccessTrustProviderCommandInput}
+ * @returns {@link CreateVerifiedAccessTrustProviderCommandOutput}
  * @see {@link CreateVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link CreateVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +113,9 @@ export class CreateVerifiedAccessTrustProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVerifiedAccessTrustProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,18 +155,24 @@ export class CreateVerifiedAccessTrustProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVerifiedAccessTrustProviderCommand(input, context);
+    return se_CreateVerifiedAccessTrustProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVerifiedAccessTrustProviderCommandOutput> {
-    return deserializeAws_ec2CreateVerifiedAccessTrustProviderCommand(output, context);
+    return de_CreateVerifiedAccessTrustProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

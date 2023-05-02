@@ -14,21 +14,23 @@ import {
 } from "@aws-sdk/types";
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1LeaveOrganizationCommand,
-  serializeAws_json1_1LeaveOrganizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_LeaveOrganizationCommand, se_LeaveOrganizationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link LeaveOrganizationCommand}.
  */
 export interface LeaveOrganizationCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link LeaveOrganizationCommand}.
  */
 export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a member account from its parent organization. This version of the operation
  *             is performed by the account that wants to leave. To remove a member account as a user in
  *             the management account, use <a>RemoveAccountFromOrganization</a>
@@ -100,10 +102,13 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, LeaveOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, LeaveOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {};
  * const command = new LeaveOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param LeaveOrganizationCommandInput - {@link LeaveOrganizationCommandInput}
+ * @returns {@link LeaveOrganizationCommandOutput}
  * @see {@link LeaveOrganizationCommandInput} for command's `input` shape.
  * @see {@link LeaveOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -473,6 +478,9 @@ export class LeaveOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LeaveOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -501,8 +509,8 @@ export class LeaveOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -512,12 +520,18 @@ export class LeaveOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LeaveOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1LeaveOrganizationCommand(input, context);
+    return se_LeaveOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LeaveOrganizationCommandOutput> {
-    return deserializeAws_json1_1LeaveOrganizationCommand(output, context);
+    return de_LeaveOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

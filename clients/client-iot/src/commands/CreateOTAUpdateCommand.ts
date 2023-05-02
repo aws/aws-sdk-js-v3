@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateOTAUpdateRequest,
-  CreateOTAUpdateRequestFilterSensitiveLog,
-  CreateOTAUpdateResponse,
-  CreateOTAUpdateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateOTAUpdateCommand,
-  serializeAws_restJson1CreateOTAUpdateCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateOTAUpdateRequest, CreateOTAUpdateResponse } from "../models/models_0";
+import { de_CreateOTAUpdateCommand, se_CreateOTAUpdateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOTAUpdateCommand}.
  */
 export interface CreateOTAUpdateCommandInput extends CreateOTAUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOTAUpdateCommand}.
  */
 export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IoT OTA update on a target group of things or groups.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateOTAUpdate</a> action.</p>
  * @example
@@ -43,10 +40,109 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  * import { IoTClient, CreateOTAUpdateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateOTAUpdateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateOTAUpdateRequest
+ *   otaUpdateId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   targets: [ // Targets // required
+ *     "STRING_VALUE",
+ *   ],
+ *   protocols: [ // Protocols
+ *     "MQTT" || "HTTP",
+ *   ],
+ *   targetSelection: "CONTINUOUS" || "SNAPSHOT",
+ *   awsJobExecutionsRolloutConfig: { // AwsJobExecutionsRolloutConfig
+ *     maximumPerMinute: Number("int"),
+ *     exponentialRate: { // AwsJobExponentialRolloutRate
+ *       baseRatePerMinute: Number("int"), // required
+ *       incrementFactor: Number("double"), // required
+ *       rateIncreaseCriteria: { // AwsJobRateIncreaseCriteria
+ *         numberOfNotifiedThings: Number("int"),
+ *         numberOfSucceededThings: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   awsJobPresignedUrlConfig: { // AwsJobPresignedUrlConfig
+ *     expiresInSec: Number("long"),
+ *   },
+ *   awsJobAbortConfig: { // AwsJobAbortConfig
+ *     abortCriteriaList: [ // AwsJobAbortCriteriaList // required
+ *       { // AwsJobAbortCriteria
+ *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
+ *         action: "CANCEL", // required
+ *         thresholdPercentage: Number("double"), // required
+ *         minNumberOfExecutedThings: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ *   awsJobTimeoutConfig: { // AwsJobTimeoutConfig
+ *     inProgressTimeoutInMinutes: Number("long"),
+ *   },
+ *   files: [ // OTAUpdateFiles // required
+ *     { // OTAUpdateFile
+ *       fileName: "STRING_VALUE",
+ *       fileType: Number("int"),
+ *       fileVersion: "STRING_VALUE",
+ *       fileLocation: { // FileLocation
+ *         stream: { // Stream
+ *           streamId: "STRING_VALUE",
+ *           fileId: Number("int"),
+ *         },
+ *         s3Location: { // S3Location
+ *           bucket: "STRING_VALUE",
+ *           key: "STRING_VALUE",
+ *           version: "STRING_VALUE",
+ *         },
+ *       },
+ *       codeSigning: { // CodeSigning
+ *         awsSignerJobId: "STRING_VALUE",
+ *         startSigningJobParameter: { // StartSigningJobParameter
+ *           signingProfileParameter: { // SigningProfileParameter
+ *             certificateArn: "STRING_VALUE",
+ *             platform: "STRING_VALUE",
+ *             certificatePathOnDevice: "STRING_VALUE",
+ *           },
+ *           signingProfileName: "STRING_VALUE",
+ *           destination: { // Destination
+ *             s3Destination: { // S3Destination
+ *               bucket: "STRING_VALUE",
+ *               prefix: "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *         customCodeSigning: { // CustomCodeSigning
+ *           signature: { // CodeSigningSignature
+ *             inlineDocument: "BLOB_VALUE",
+ *           },
+ *           certificateChain: { // CodeSigningCertificateChain
+ *             certificateName: "STRING_VALUE",
+ *             inlineDocument: "STRING_VALUE",
+ *           },
+ *           hashAlgorithm: "STRING_VALUE",
+ *           signatureAlgorithm: "STRING_VALUE",
+ *         },
+ *       },
+ *       attributes: { // AttributesMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   roleArn: "STRING_VALUE", // required
+ *   additionalParameters: { // AdditionalParameterMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateOTAUpdateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOTAUpdateCommandInput - {@link CreateOTAUpdateCommandInput}
+ * @returns {@link CreateOTAUpdateCommandOutput}
  * @see {@link CreateOTAUpdateCommandInput} for command's `input` shape.
  * @see {@link CreateOTAUpdateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -94,6 +190,9 @@ export class CreateOTAUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOTAUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +221,8 @@ export class CreateOTAUpdateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOTAUpdateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOTAUpdateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +232,18 @@ export class CreateOTAUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOTAUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateOTAUpdateCommand(input, context);
+    return se_CreateOTAUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOTAUpdateCommandOutput> {
-    return deserializeAws_restJson1CreateOTAUpdateCommand(output, context);
+    return de_CreateOTAUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

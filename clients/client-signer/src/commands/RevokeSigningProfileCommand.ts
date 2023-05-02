@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RevokeSigningProfileRequest, RevokeSigningProfileRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1RevokeSigningProfileCommand,
-  serializeAws_restJson1RevokeSigningProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { RevokeSigningProfileRequest } from "../models/models_0";
+import { de_RevokeSigningProfileCommand, se_RevokeSigningProfileCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeSigningProfileCommand}.
  */
 export interface RevokeSigningProfileCommandInput extends RevokeSigningProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeSigningProfileCommand}.
  */
 export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the state of a signing profile to REVOKED. This indicates that signatures
  * 			generated using the signing profile after an effective start date are no longer
  * 			valid.</p>
@@ -39,10 +41,18 @@ export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
  * import { SignerClient, RevokeSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, RevokeSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = { // RevokeSigningProfileRequest
+ *   profileName: "STRING_VALUE", // required
+ *   profileVersion: "STRING_VALUE", // required
+ *   reason: "STRING_VALUE", // required
+ *   effectiveTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new RevokeSigningProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeSigningProfileCommandInput - {@link RevokeSigningProfileCommandInput}
+ * @returns {@link RevokeSigningProfileCommandOutput}
  * @see {@link RevokeSigningProfileCommandInput} for command's `input` shape.
  * @see {@link RevokeSigningProfileCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -82,6 +92,9 @@ export class RevokeSigningProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeSigningProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +123,8 @@ export class RevokeSigningProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeSigningProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +134,18 @@ export class RevokeSigningProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeSigningProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RevokeSigningProfileCommand(input, context);
+    return se_RevokeSigningProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeSigningProfileCommandOutput> {
-    return deserializeAws_restJson1RevokeSigningProfileCommand(output, context);
+    return de_RevokeSigningProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

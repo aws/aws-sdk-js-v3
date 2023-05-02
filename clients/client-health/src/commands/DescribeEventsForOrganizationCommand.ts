@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
+import { DescribeEventsForOrganizationRequest, DescribeEventsForOrganizationResponse } from "../models/models_0";
 import {
-  DescribeEventsForOrganizationRequest,
-  DescribeEventsForOrganizationRequestFilterSensitiveLog,
-  DescribeEventsForOrganizationResponse,
-  DescribeEventsForOrganizationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventsForOrganizationCommand,
-  serializeAws_json1_1DescribeEventsForOrganizationCommand,
+  de_DescribeEventsForOrganizationCommand,
+  se_DescribeEventsForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventsForOrganizationCommand}.
  */
 export interface DescribeEventsForOrganizationCommandInput extends DescribeEventsForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventsForOrganizationCommand}.
  */
 export interface DescribeEventsForOrganizationCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeEventsForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about events across your organization in Organizations. You can use
  *             the<code>filters</code> parameter to specify the events that you want to return. Events
  *          are returned in a summary form and don't include the affected accounts, detailed
@@ -75,10 +75,55 @@ export interface DescribeEventsForOrganizationCommandOutput
  * import { HealthClient, DescribeEventsForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventsForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = { // DescribeEventsForOrganizationRequest
+ *   filter: { // OrganizationEventFilter
+ *     eventTypeCodes: [ // eventTypeList2
+ *       "STRING_VALUE",
+ *     ],
+ *     awsAccountIds: [ // awsAccountIdsList
+ *       "STRING_VALUE",
+ *     ],
+ *     services: [ // serviceList
+ *       "STRING_VALUE",
+ *     ],
+ *     regions: [ // regionList
+ *       "STRING_VALUE",
+ *     ],
+ *     startTime: { // DateTimeRange
+ *       from: new Date("TIMESTAMP"),
+ *       to: new Date("TIMESTAMP"),
+ *     },
+ *     endTime: {
+ *       from: new Date("TIMESTAMP"),
+ *       to: new Date("TIMESTAMP"),
+ *     },
+ *     lastUpdatedTime: {
+ *       from: new Date("TIMESTAMP"),
+ *       to: new Date("TIMESTAMP"),
+ *     },
+ *     entityArns: [ // entityArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     entityValues: [ // entityValueList
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCategories: [ // eventTypeCategoryList2
+ *       "STRING_VALUE",
+ *     ],
+ *     eventStatusCodes: [ // eventStatusCodeList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new DescribeEventsForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventsForOrganizationCommandInput - {@link DescribeEventsForOrganizationCommandInput}
+ * @returns {@link DescribeEventsForOrganizationCommandOutput}
  * @see {@link DescribeEventsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -108,6 +153,9 @@ export class DescribeEventsForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventsForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +184,8 @@ export class DescribeEventsForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventsForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventsForOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,15 +195,21 @@ export class DescribeEventsForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventsForOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventsForOrganizationCommand(input, context);
+    return se_DescribeEventsForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventsForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeEventsForOrganizationCommand(output, context);
+    return de_DescribeEventsForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

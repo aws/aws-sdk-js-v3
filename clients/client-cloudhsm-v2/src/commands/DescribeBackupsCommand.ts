@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import {
-  DescribeBackupsRequest,
-  DescribeBackupsRequestFilterSensitiveLog,
-  DescribeBackupsResponse,
-  DescribeBackupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBackupsCommand,
-  serializeAws_json1_1DescribeBackupsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/models_0";
+import { de_DescribeBackupsCommand, se_DescribeBackupsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBackupsCommand}.
  */
 export interface DescribeBackupsCommandInput extends DescribeBackupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBackupsCommand}.
  */
 export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about backups of AWS CloudHSM clusters.</p>
  *          <p>This is a paginated operation, which means that each response might contain only a
  *       subset of all the backups. When the response contains only a subset of backups, it includes a
@@ -47,10 +44,22 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * import { CloudHSMV2Client, DescribeBackupsCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, DescribeBackupsCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = { // DescribeBackupsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: { // Filters
+ *     "<keys>": [ // Strings
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   SortAscending: true || false,
+ * };
  * const command = new DescribeBackupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBackupsCommandInput - {@link DescribeBackupsCommandInput}
+ * @returns {@link DescribeBackupsCommandOutput}
  * @see {@link DescribeBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupsCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
@@ -95,6 +104,9 @@ export class DescribeBackupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBackupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +135,8 @@ export class DescribeBackupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBackupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBackupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +146,18 @@ export class DescribeBackupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBackupsCommand(input, context);
+    return se_DescribeBackupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBackupsCommandOutput> {
-    return deserializeAws_json1_1DescribeBackupsCommand(output, context);
+    return de_DescribeBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

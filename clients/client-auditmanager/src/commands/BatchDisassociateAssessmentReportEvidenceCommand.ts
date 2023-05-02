@@ -16,21 +16,23 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   BatchDisassociateAssessmentReportEvidenceRequest,
-  BatchDisassociateAssessmentReportEvidenceRequestFilterSensitiveLog,
   BatchDisassociateAssessmentReportEvidenceResponse,
-  BatchDisassociateAssessmentReportEvidenceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand,
-  serializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand,
+  de_BatchDisassociateAssessmentReportEvidenceCommand,
+  se_BatchDisassociateAssessmentReportEvidenceCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisassociateAssessmentReportEvidenceCommand}.
  */
 export interface BatchDisassociateAssessmentReportEvidenceCommandInput
   extends BatchDisassociateAssessmentReportEvidenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisassociateAssessmentReportEvidenceCommand}.
  */
 export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
@@ -38,6 +40,7 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Disassociates a list of evidence from an assessment report in Audit Manager.
  *       </p>
  * @example
@@ -46,10 +49,19 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
  * import { AuditManagerClient, BatchDisassociateAssessmentReportEvidenceCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, BatchDisassociateAssessmentReportEvidenceCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // BatchDisassociateAssessmentReportEvidenceRequest
+ *   assessmentId: "STRING_VALUE", // required
+ *   evidenceFolderId: "STRING_VALUE", // required
+ *   evidenceIds: [ // EvidenceIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDisassociateAssessmentReportEvidenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateAssessmentReportEvidenceCommandInput - {@link BatchDisassociateAssessmentReportEvidenceCommandInput}
+ * @returns {@link BatchDisassociateAssessmentReportEvidenceCommandOutput}
  * @see {@link BatchDisassociateAssessmentReportEvidenceCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateAssessmentReportEvidenceCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -87,6 +99,9 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateAssessmentReportEvidenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +136,8 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisassociateAssessmentReportEvidenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisassociateAssessmentReportEvidenceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,18 +147,24 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDisassociateAssessmentReportEvidenceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand(input, context);
+    return se_BatchDisassociateAssessmentReportEvidenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateAssessmentReportEvidenceCommandOutput> {
-    return deserializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand(output, context);
+    return de_BatchDisassociateAssessmentReportEvidenceCommand(output, context);
   }
 
   // Start section: command_body_extra

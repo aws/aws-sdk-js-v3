@@ -22,23 +22,24 @@ import {
   UpdateChannelFlowRequest,
   UpdateChannelFlowRequestFilterSensitiveLog,
   UpdateChannelFlowResponse,
-  UpdateChannelFlowResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateChannelFlowCommand,
-  serializeAws_restJson1UpdateChannelFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateChannelFlowCommand, se_UpdateChannelFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateChannelFlowCommand}.
  */
 export interface UpdateChannelFlowCommandInput extends UpdateChannelFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateChannelFlowCommand}.
  */
 export interface UpdateChannelFlowCommandOutput extends UpdateChannelFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates channel flow attributes. This is a developer API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +47,29 @@ export interface UpdateChannelFlowCommandOutput extends UpdateChannelFlowRespons
  * import { ChimeSDKMessagingClient, UpdateChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, UpdateChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // UpdateChannelFlowRequest
+ *   ChannelFlowArn: "STRING_VALUE", // required
+ *   Processors: [ // ProcessorList // required
+ *     { // Processor
+ *       Name: "STRING_VALUE", // required
+ *       Configuration: { // ProcessorConfiguration
+ *         Lambda: { // LambdaConfiguration
+ *           ResourceArn: "STRING_VALUE", // required
+ *           InvocationType: "ASYNC", // required
+ *         },
+ *       },
+ *       ExecutionOrder: Number("int"), // required
+ *       FallbackAction: "CONTINUE" || "ABORT", // required
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new UpdateChannelFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChannelFlowCommandInput - {@link UpdateChannelFlowCommandInput}
+ * @returns {@link UpdateChannelFlowCommandOutput}
  * @see {@link UpdateChannelFlowCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -95,6 +115,9 @@ export class UpdateChannelFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,7 +147,7 @@ export class UpdateChannelFlowCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateChannelFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChannelFlowResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +157,18 @@ export class UpdateChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateChannelFlowCommand(input, context);
+    return se_UpdateChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelFlowCommandOutput> {
-    return deserializeAws_restJson1UpdateChannelFlowCommand(output, context);
+    return de_UpdateChannelFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

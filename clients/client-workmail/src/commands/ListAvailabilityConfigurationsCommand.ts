@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListAvailabilityConfigurationsRequest, ListAvailabilityConfigurationsResponse } from "../models/models_0";
 import {
-  ListAvailabilityConfigurationsRequest,
-  ListAvailabilityConfigurationsRequestFilterSensitiveLog,
-  ListAvailabilityConfigurationsResponse,
-  ListAvailabilityConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAvailabilityConfigurationsCommand,
-  serializeAws_json1_1ListAvailabilityConfigurationsCommand,
+  de_ListAvailabilityConfigurationsCommand,
+  se_ListAvailabilityConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailabilityConfigurationsCommand}.
  */
 export interface ListAvailabilityConfigurationsCommandInput extends ListAvailabilityConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailabilityConfigurationsCommand}.
  */
 export interface ListAvailabilityConfigurationsCommandOutput
@@ -37,6 +36,7 @@ export interface ListAvailabilityConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all the <code>AvailabilityConfiguration</code>'s for the given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface ListAvailabilityConfigurationsCommandOutput
  * import { WorkMailClient, ListAvailabilityConfigurationsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListAvailabilityConfigurationsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ListAvailabilityConfigurationsRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAvailabilityConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailabilityConfigurationsCommandInput - {@link ListAvailabilityConfigurationsCommandInput}
+ * @returns {@link ListAvailabilityConfigurationsCommandOutput}
  * @see {@link ListAvailabilityConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListAvailabilityConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListAvailabilityConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailabilityConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +117,8 @@ export class ListAvailabilityConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAvailabilityConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAvailabilityConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +128,24 @@ export class ListAvailabilityConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAvailabilityConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailabilityConfigurationsCommand(input, context);
+    return se_ListAvailabilityConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailabilityConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListAvailabilityConfigurationsCommand(output, context);
+    return de_ListAvailabilityConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

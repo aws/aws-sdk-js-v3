@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDBProxyTargetGroupsRequest,
-  DescribeDBProxyTargetGroupsRequestFilterSensitiveLog,
-  DescribeDBProxyTargetGroupsResponse,
-  DescribeDBProxyTargetGroupsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBProxyTargetGroupsCommand,
-  serializeAws_queryDescribeDBProxyTargetGroupsCommand,
-} from "../protocols/Aws_query";
+import { DescribeDBProxyTargetGroupsRequest, DescribeDBProxyTargetGroupsResponse } from "../models/models_1";
+import { de_DescribeDBProxyTargetGroupsCommand, se_DescribeDBProxyTargetGroupsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBProxyTargetGroupsCommand}.
  */
 export interface DescribeDBProxyTargetGroupsCommandInput extends DescribeDBProxyTargetGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBProxyTargetGroupsCommand}.
  */
 export interface DescribeDBProxyTargetGroupsCommandOutput
@@ -37,6 +33,7 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,26 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
  * import { RDSClient, DescribeDBProxyTargetGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBProxyTargetGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeDBProxyTargetGroupsRequest
+ *   DBProxyName: "STRING_VALUE", // required
+ *   TargetGroupName: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeDBProxyTargetGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBProxyTargetGroupsCommandInput - {@link DescribeDBProxyTargetGroupsCommandInput}
+ * @returns {@link DescribeDBProxyTargetGroupsCommandOutput}
  * @see {@link DescribeDBProxyTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBProxyTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -80,6 +93,9 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBProxyTargetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +124,8 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBProxyTargetGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBProxyTargetGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +135,21 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBProxyTargetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBProxyTargetGroupsCommand(input, context);
+    return se_DescribeDBProxyTargetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBProxyTargetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBProxyTargetGroupsCommand(output, context);
+    return de_DescribeDBProxyTargetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,38 +14,72 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  RegisterAgentRequest,
-  RegisterAgentRequestFilterSensitiveLog,
-  RegisterAgentResponse,
-  RegisterAgentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterAgentCommand,
-  serializeAws_restJson1RegisterAgentCommand,
-} from "../protocols/Aws_restJson1";
+import { RegisterAgentRequest, RegisterAgentResponse } from "../models/models_0";
+import { de_RegisterAgentCommand, se_RegisterAgentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterAgentCommand}.
  */
 export interface RegisterAgentCommandInput extends RegisterAgentRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterAgentCommand}.
  */
 export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a new agent with AWS Groundstation.</p>
+ * @public
+ * <note>
+ *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
+ *          </note>
+ *          <p> Registers a new agent with AWS Ground Station. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GroundStationClient, RegisterAgentCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, RegisterAgentCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // RegisterAgentRequest
+ *   discoveryData: { // DiscoveryData
+ *     publicIpAddresses: [ // IpAddressList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     privateIpAddresses: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     capabilityArns: [ // CapabilityArnList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   agentDetails: { // AgentDetails
+ *     agentVersion: "STRING_VALUE", // required
+ *     instanceId: "STRING_VALUE", // required
+ *     instanceType: "STRING_VALUE", // required
+ *     reservedCpuCores: [ // AgentCpuCoresList
+ *       Number("int"),
+ *     ],
+ *     agentCpuCores: [
+ *       Number("int"),
+ *     ],
+ *     componentVersions: [ // ComponentVersionList // required
+ *       { // ComponentVersion
+ *         componentType: "STRING_VALUE", // required
+ *         versions: [ // VersionStringList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new RegisterAgentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterAgentCommandInput - {@link RegisterAgentCommandInput}
+ * @returns {@link RegisterAgentCommandOutput}
  * @see {@link RegisterAgentCommandInput} for command's `input` shape.
  * @see {@link RegisterAgentCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +112,9 @@ export class RegisterAgentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +141,8 @@ export class RegisterAgentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterAgentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterAgentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +152,18 @@ export class RegisterAgentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterAgentCommand(input, context);
+    return se_RegisterAgentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterAgentCommandOutput> {
-    return deserializeAws_restJson1RegisterAgentCommand(output, context);
+    return de_RegisterAgentCommand(output, context);
   }
 
   // Start section: command_body_extra

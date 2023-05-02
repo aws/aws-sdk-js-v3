@@ -15,22 +15,24 @@ import {
 
 import {
   AttachCustomerManagedPolicyReferenceToPermissionSetRequest,
-  AttachCustomerManagedPolicyReferenceToPermissionSetRequestFilterSensitiveLog,
   AttachCustomerManagedPolicyReferenceToPermissionSetResponse,
-  AttachCustomerManagedPolicyReferenceToPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
-  serializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
+  de_AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
+  se_AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommand}.
  */
 export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput
   extends AttachCustomerManagedPolicyReferenceToPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommand}.
  */
 export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput
@@ -38,6 +40,7 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches the specified customer managed policy to the specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,20 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
  * import { SSOAdminClient, AttachCustomerManagedPolicyReferenceToPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, AttachCustomerManagedPolicyReferenceToPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // AttachCustomerManagedPolicyReferenceToPermissionSetRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   CustomerManagedPolicyReference: { // CustomerManagedPolicyReference
+ *     Name: "STRING_VALUE", // required
+ *     Path: "STRING_VALUE",
+ *   },
+ * };
  * const command = new AttachCustomerManagedPolicyReferenceToPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput - {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput}
+ * @returns {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput}
  * @see {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput} for command's `input` shape.
  * @see {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -99,6 +112,9 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +149,8 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachCustomerManagedPolicyReferenceToPermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachCustomerManagedPolicyReferenceToPermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,18 +160,24 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommand(input, context);
+    return se_AttachCustomerManagedPolicyReferenceToPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput> {
-    return deserializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommand(output, context);
+    return de_AttachCustomerManagedPolicyReferenceToPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

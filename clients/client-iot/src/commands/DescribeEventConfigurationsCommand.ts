@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DescribeEventConfigurationsRequest, DescribeEventConfigurationsResponse } from "../models/models_1";
 import {
-  DescribeEventConfigurationsRequest,
-  DescribeEventConfigurationsRequestFilterSensitiveLog,
-  DescribeEventConfigurationsResponse,
-  DescribeEventConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeEventConfigurationsCommand,
-  serializeAws_restJson1DescribeEventConfigurationsCommand,
+  de_DescribeEventConfigurationsCommand,
+  se_DescribeEventConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventConfigurationsCommand}.
  */
 export interface DescribeEventConfigurationsCommandInput extends DescribeEventConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventConfigurationsCommand}.
  */
 export interface DescribeEventConfigurationsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeEventConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes event configurations.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEventConfigurations</a> action.</p>
  * @example
@@ -45,10 +45,13 @@ export interface DescribeEventConfigurationsCommandOutput
  * import { IoTClient, DescribeEventConfigurationsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeEventConfigurationsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {};
  * const command = new DescribeEventConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventConfigurationsCommandInput - {@link DescribeEventConfigurationsCommandInput}
+ * @returns {@link DescribeEventConfigurationsCommandOutput}
  * @see {@link DescribeEventConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -78,6 +81,9 @@ export class DescribeEventConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class DescribeEventConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +123,21 @@ export class DescribeEventConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeEventConfigurationsCommand(input, context);
+    return se_DescribeEventConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventConfigurationsCommandOutput> {
-    return deserializeAws_restJson1DescribeEventConfigurationsCommand(output, context);
+    return de_DescribeEventConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

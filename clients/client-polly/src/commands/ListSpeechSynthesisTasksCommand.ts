@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSpeechSynthesisTasksInput,
-  ListSpeechSynthesisTasksInputFilterSensitiveLog,
-  ListSpeechSynthesisTasksOutput,
-  ListSpeechSynthesisTasksOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSpeechSynthesisTasksInput, ListSpeechSynthesisTasksOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1ListSpeechSynthesisTasksCommand,
-  serializeAws_restJson1ListSpeechSynthesisTasksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSpeechSynthesisTasksCommand, se_ListSpeechSynthesisTasksCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSpeechSynthesisTasksCommand}.
  */
 export interface ListSpeechSynthesisTasksCommandInput extends ListSpeechSynthesisTasksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSpeechSynthesisTasksCommand}.
  */
 export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthesisTasksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of SpeechSynthesisTask objects ordered by their
  *       creation date. This operation can filter the tasks by their status, for
  *       example, allowing users to list only tasks that are completed.</p>
@@ -44,10 +41,17 @@ export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthes
  * import { PollyClient, ListSpeechSynthesisTasksCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, ListSpeechSynthesisTasksCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
+ * const input = { // ListSpeechSynthesisTasksInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Status: "scheduled" || "inProgress" || "completed" || "failed",
+ * };
  * const command = new ListSpeechSynthesisTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSpeechSynthesisTasksCommandInput - {@link ListSpeechSynthesisTasksCommandInput}
+ * @returns {@link ListSpeechSynthesisTasksCommandOutput}
  * @see {@link ListSpeechSynthesisTasksCommandInput} for command's `input` shape.
  * @see {@link ListSpeechSynthesisTasksCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -78,6 +82,9 @@ export class ListSpeechSynthesisTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSpeechSynthesisTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class ListSpeechSynthesisTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSpeechSynthesisTasksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSpeechSynthesisTasksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class ListSpeechSynthesisTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSpeechSynthesisTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSpeechSynthesisTasksCommand(input, context);
+    return se_ListSpeechSynthesisTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSpeechSynthesisTasksCommandOutput> {
-    return deserializeAws_restJson1ListSpeechSynthesisTasksCommand(output, context);
+    return de_ListSpeechSynthesisTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

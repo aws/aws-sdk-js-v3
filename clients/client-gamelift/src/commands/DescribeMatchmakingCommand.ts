@@ -14,46 +14,43 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeMatchmakingInput,
-  DescribeMatchmakingInputFilterSensitiveLog,
-  DescribeMatchmakingOutput,
-  DescribeMatchmakingOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMatchmakingCommand,
-  serializeAws_json1_1DescribeMatchmakingCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeMatchmakingInput, DescribeMatchmakingOutput } from "../models/models_0";
+import { de_DescribeMatchmakingCommand, se_DescribeMatchmakingCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMatchmakingCommand}.
  */
 export interface DescribeMatchmakingCommandInput extends DescribeMatchmakingInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMatchmakingCommand}.
  */
 export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket
  *             information, including--after a successful match is made--connection information for the
  *             resulting new game session. </p>
- *         <p>To request matchmaking tickets, provide a list of up to 10 ticket IDs. If the request
+ *          <p>To request matchmaking tickets, provide a list of up to 10 ticket IDs. If the request
  *             is successful, a ticket object is returned for each requested ID that currently
  *             exists.</p>
- *         <p>This operation is not designed to be continually called to track matchmaking ticket
+ *          <p>This operation is not designed to be continually called to track matchmaking ticket
  *             status. This practice can cause you to exceed your API limit, which results in errors.
  *             Instead, as a best practice, set up an Amazon Simple Notification Service to receive notifications, and provide
  *             the topic ARN in the matchmaking configuration.</p>
- *         <p></p>
- *         <p>
+ *          <p></p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
  *                 Add FlexMatch to a game client</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html"> Set Up FlexMatch event
  *                 notification</a>
  *          </p>
@@ -63,10 +60,17 @@ export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOut
  * import { GameLiftClient, DescribeMatchmakingCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeMatchmakingCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeMatchmakingInput
+ *   TicketIds: [ // MatchmakingIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeMatchmakingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMatchmakingCommandInput - {@link DescribeMatchmakingCommandInput}
+ * @returns {@link DescribeMatchmakingCommandOutput}
  * @see {@link DescribeMatchmakingCommandInput} for command's `input` shape.
  * @see {@link DescribeMatchmakingCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -101,6 +105,9 @@ export class DescribeMatchmakingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMatchmakingCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +136,8 @@ export class DescribeMatchmakingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMatchmakingInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMatchmakingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +147,18 @@ export class DescribeMatchmakingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMatchmakingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMatchmakingCommand(input, context);
+    return se_DescribeMatchmakingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMatchmakingCommandOutput> {
-    return deserializeAws_json1_1DescribeMatchmakingCommand(output, context);
+    return de_DescribeMatchmakingCommand(output, context);
   }
 
   // Start section: command_body_extra

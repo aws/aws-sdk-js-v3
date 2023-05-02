@@ -16,20 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DetachVerifiedAccessTrustProviderRequest,
-  DetachVerifiedAccessTrustProviderRequestFilterSensitiveLog,
   DetachVerifiedAccessTrustProviderResult,
   DetachVerifiedAccessTrustProviderResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DetachVerifiedAccessTrustProviderCommand,
-  serializeAws_ec2DetachVerifiedAccessTrustProviderCommand,
+  de_DetachVerifiedAccessTrustProviderCommand,
+  se_DetachVerifiedAccessTrustProviderCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DetachVerifiedAccessTrustProviderCommand}.
  */
 export interface DetachVerifiedAccessTrustProviderCommandInput extends DetachVerifiedAccessTrustProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachVerifiedAccessTrustProviderCommand}.
  */
 export interface DetachVerifiedAccessTrustProviderCommandOutput
@@ -37,17 +40,26 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Detach a trust provider from an Amazon Web Services Verified Access instance.</p>
+ * @public
+ * <p>Detaches the specified Amazon Web Services Verified Access trust provider from the specified Amazon Web Services Verified Access instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DetachVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DetachVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DetachVerifiedAccessTrustProviderRequest
+ *   VerifiedAccessInstanceId: "STRING_VALUE", // required
+ *   VerifiedAccessTrustProviderId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DetachVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachVerifiedAccessTrustProviderCommandInput - {@link DetachVerifiedAccessTrustProviderCommandInput}
+ * @returns {@link DetachVerifiedAccessTrustProviderCommandOutput}
  * @see {@link DetachVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link DetachVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +83,9 @@ export class DetachVerifiedAccessTrustProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachVerifiedAccessTrustProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,7 +114,7 @@ export class DetachVerifiedAccessTrustProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachVerifiedAccessTrustProviderRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DetachVerifiedAccessTrustProviderResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -110,18 +125,24 @@ export class DetachVerifiedAccessTrustProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DetachVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DetachVerifiedAccessTrustProviderCommand(input, context);
+    return se_DetachVerifiedAccessTrustProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachVerifiedAccessTrustProviderCommandOutput> {
-    return deserializeAws_ec2DetachVerifiedAccessTrustProviderCommand(output, context);
+    return de_DetachVerifiedAccessTrustProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

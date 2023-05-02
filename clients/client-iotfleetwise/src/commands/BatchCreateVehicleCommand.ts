@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  BatchCreateVehicleRequest,
-  BatchCreateVehicleRequestFilterSensitiveLog,
-  BatchCreateVehicleResponse,
-  BatchCreateVehicleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0BatchCreateVehicleCommand,
-  serializeAws_json1_0BatchCreateVehicleCommand,
-} from "../protocols/Aws_json1_0";
+import { BatchCreateVehicleRequest, BatchCreateVehicleResponse } from "../models/models_0";
+import { de_BatchCreateVehicleCommand, se_BatchCreateVehicleCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCreateVehicleCommand}.
  */
 export interface BatchCreateVehicleCommandInput extends BatchCreateVehicleRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCreateVehicleCommand}.
  */
 export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a group, or batch, of vehicles. </p>
  *         <note>
  *             <p> You must specify a decoder manifest and a vehicle model (model manifest) for each
@@ -48,10 +45,31 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  * import { IoTFleetWiseClient, BatchCreateVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, BatchCreateVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // BatchCreateVehicleRequest
+ *   vehicles: [ // createVehicleRequestItems // required
+ *     { // CreateVehicleRequestItem
+ *       vehicleName: "STRING_VALUE", // required
+ *       modelManifestArn: "STRING_VALUE", // required
+ *       decoderManifestArn: "STRING_VALUE", // required
+ *       attributes: { // attributesMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       associationBehavior: "STRING_VALUE",
+ *       tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new BatchCreateVehicleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCreateVehicleCommandInput - {@link BatchCreateVehicleCommandInput}
+ * @returns {@link BatchCreateVehicleCommandOutput}
  * @see {@link BatchCreateVehicleCommandInput} for command's `input` shape.
  * @see {@link BatchCreateVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -90,6 +108,9 @@ export class BatchCreateVehicleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCreateVehicleCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +139,8 @@ export class BatchCreateVehicleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCreateVehicleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchCreateVehicleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +150,18 @@ export class BatchCreateVehicleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchCreateVehicleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0BatchCreateVehicleCommand(input, context);
+    return se_BatchCreateVehicleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchCreateVehicleCommandOutput> {
-    return deserializeAws_json1_0BatchCreateVehicleCommand(output, context);
+    return de_BatchCreateVehicleCommand(output, context);
   }
 
   // Start section: command_body_extra

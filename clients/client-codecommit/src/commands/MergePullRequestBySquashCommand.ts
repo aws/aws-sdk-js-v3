@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  MergePullRequestBySquashInput,
-  MergePullRequestBySquashInputFilterSensitiveLog,
-  MergePullRequestBySquashOutput,
-  MergePullRequestBySquashOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1MergePullRequestBySquashCommand,
-  serializeAws_json1_1MergePullRequestBySquashCommand,
-} from "../protocols/Aws_json1_1";
+import { MergePullRequestBySquashInput, MergePullRequestBySquashOutput } from "../models/models_1";
+import { de_MergePullRequestBySquashCommand, se_MergePullRequestBySquashCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergePullRequestBySquashCommand}.
  */
 export interface MergePullRequestBySquashCommandInput extends MergePullRequestBySquashInput {}
 /**
+ * @public
+ *
  * The output of {@link MergePullRequestBySquashCommand}.
  */
 export interface MergePullRequestBySquashCommandOutput extends MergePullRequestBySquashOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to merge the source commit of a pull request into the specified destination
  *             branch for that pull request at the specified commit using the squash merge strategy. If the merge is successful, it closes the pull request.</p>
  * @example
@@ -43,10 +40,44 @@ export interface MergePullRequestBySquashCommandOutput extends MergePullRequestB
  * import { CodeCommitClient, MergePullRequestBySquashCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergePullRequestBySquashCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // MergePullRequestBySquashInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   repositoryName: "STRING_VALUE", // required
+ *   sourceCommitId: "STRING_VALUE",
+ *   conflictDetailLevel: "STRING_VALUE",
+ *   conflictResolutionStrategy: "STRING_VALUE",
+ *   commitMessage: "STRING_VALUE",
+ *   authorName: "STRING_VALUE",
+ *   email: "STRING_VALUE",
+ *   keepEmptyFolders: true || false,
+ *   conflictResolution: { // ConflictResolution
+ *     replaceContents: [ // ReplaceContentEntries
+ *       { // ReplaceContentEntry
+ *         filePath: "STRING_VALUE", // required
+ *         replacementType: "STRING_VALUE", // required
+ *         content: "BLOB_VALUE",
+ *         fileMode: "STRING_VALUE",
+ *       },
+ *     ],
+ *     deleteFiles: [ // DeleteFileEntries
+ *       { // DeleteFileEntry
+ *         filePath: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     setFileModes: [ // SetFileModeEntries
+ *       { // SetFileModeEntry
+ *         filePath: "STRING_VALUE", // required
+ *         fileMode: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new MergePullRequestBySquashCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MergePullRequestBySquashCommandInput - {@link MergePullRequestBySquashCommandInput}
+ * @returns {@link MergePullRequestBySquashCommandOutput}
  * @see {@link MergePullRequestBySquashCommandInput} for command's `input` shape.
  * @see {@link MergePullRequestBySquashCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -197,6 +228,9 @@ export class MergePullRequestBySquashCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergePullRequestBySquashCommandInput) {
     // Start section: command_constructor
     super();
@@ -225,8 +259,8 @@ export class MergePullRequestBySquashCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergePullRequestBySquashInputFilterSensitiveLog,
-      outputFilterSensitiveLog: MergePullRequestBySquashOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -236,12 +270,18 @@ export class MergePullRequestBySquashCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergePullRequestBySquashCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergePullRequestBySquashCommand(input, context);
+    return se_MergePullRequestBySquashCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergePullRequestBySquashCommandOutput> {
-    return deserializeAws_json1_1MergePullRequestBySquashCommand(output, context);
+    return de_MergePullRequestBySquashCommand(output, context);
   }
 
   // Start section: command_body_extra

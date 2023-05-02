@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  UpdateDatasetGroupRequest,
-  UpdateDatasetGroupRequestFilterSensitiveLog,
-  UpdateDatasetGroupResponse,
-  UpdateDatasetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDatasetGroupCommand,
-  serializeAws_json1_1UpdateDatasetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDatasetGroupRequest, UpdateDatasetGroupResponse } from "../models/models_0";
+import { de_UpdateDatasetGroupCommand, se_UpdateDatasetGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDatasetGroupCommand}.
  */
 export interface UpdateDatasetGroupCommandInput extends UpdateDatasetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDatasetGroupCommand}.
  */
 export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the datasets in a dataset group with the specified datasets.</p>
  *          <note>
  *             <p>The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before you can
@@ -47,10 +44,18 @@ export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupRespo
  * import { ForecastClient, UpdateDatasetGroupCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, UpdateDatasetGroupCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // UpdateDatasetGroupRequest
+ *   DatasetGroupArn: "STRING_VALUE", // required
+ *   DatasetArns: [ // ArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateDatasetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatasetGroupCommandInput - {@link UpdateDatasetGroupCommandInput}
+ * @returns {@link UpdateDatasetGroupCommandOutput}
  * @see {@link UpdateDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -85,6 +90,9 @@ export class UpdateDatasetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatasetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class UpdateDatasetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatasetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDatasetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +132,18 @@ export class UpdateDatasetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDatasetGroupCommand(input, context);
+    return se_UpdateDatasetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasetGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateDatasetGroupCommand(output, context);
+    return de_UpdateDatasetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

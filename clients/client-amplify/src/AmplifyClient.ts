@@ -124,6 +124,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateAppCommandInput
   | CreateBackendEnvironmentCommandInput
@@ -163,6 +166,9 @@ export type ServiceInputTypes =
   | UpdateDomainAssociationCommandInput
   | UpdateWebhookCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateAppCommandOutput
   | CreateBackendEnvironmentCommandOutput
@@ -202,6 +208,9 @@ export type ServiceOutputTypes =
   | UpdateDomainAssociationCommandOutput
   | UpdateWebhookCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -209,7 +218,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -318,11 +327,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AmplifyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -333,10 +345,15 @@ type AmplifyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOption
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AmplifyClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AmplifyClient class constructor that set the region, credentials and other options.
  */
 export interface AmplifyClientConfig extends AmplifyClientConfigType {}
 
+/**
+ * @public
+ */
 type AmplifyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -347,11 +364,14 @@ type AmplifyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AmplifyClient class. This is resolved and normalized from the {@link AmplifyClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AmplifyClient class. This is resolved and normalized from the {@link AmplifyClientConfig | constructor configuration interface}.
  */
 export interface AmplifyClientResolvedConfig extends AmplifyClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amplify enables developers to develop and deploy cloud-powered mobile and web apps.
  *             The Amplify Console provides a continuous delivery and hosting service for web
  *             applications. For more information, see the <a href="https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html">Amplify Console User Guide</a>. The

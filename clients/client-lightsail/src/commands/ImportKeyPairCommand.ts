@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  ImportKeyPairRequest,
-  ImportKeyPairRequestFilterSensitiveLog,
-  ImportKeyPairResult,
-  ImportKeyPairResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ImportKeyPairCommand,
-  serializeAws_json1_1ImportKeyPairCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportKeyPairRequest, ImportKeyPairResult } from "../models/models_1";
+import { de_ImportKeyPairCommand, se_ImportKeyPairCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportKeyPairCommand}.
  */
 export interface ImportKeyPairCommandInput extends ImportKeyPairRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportKeyPairCommand}.
  */
 export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a public SSH key from a specific key pair.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  * import { LightsailClient, ImportKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, ImportKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // ImportKeyPairRequest
+ *   keyPairName: "STRING_VALUE", // required
+ *   publicKeyBase64: "STRING_VALUE", // required
+ * };
  * const command = new ImportKeyPairCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportKeyPairCommandInput - {@link ImportKeyPairCommandInput}
+ * @returns {@link ImportKeyPairCommandOutput}
  * @see {@link ImportKeyPairCommandInput} for command's `input` shape.
  * @see {@link ImportKeyPairCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +102,9 @@ export class ImportKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +131,8 @@ export class ImportKeyPairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportKeyPairRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportKeyPairResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +142,18 @@ export class ImportKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportKeyPairCommand(input, context);
+    return se_ImportKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportKeyPairCommandOutput> {
-    return deserializeAws_json1_1ImportKeyPairCommand(output, context);
+    return de_ImportKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

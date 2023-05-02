@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  StartQueryExecutionInput,
-  StartQueryExecutionInputFilterSensitiveLog,
-  StartQueryExecutionOutput,
-  StartQueryExecutionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartQueryExecutionCommand,
-  serializeAws_json1_1StartQueryExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartQueryExecutionInput, StartQueryExecutionOutput } from "../models/models_0";
+import { de_StartQueryExecutionCommand, se_StartQueryExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartQueryExecutionCommand}.
  */
 export interface StartQueryExecutionCommandInput extends StartQueryExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StartQueryExecutionCommand}.
  */
 export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to
  *             have access to the workgroup in which the query ran. Running queries against an external
  *             catalog requires <a>GetDataCatalog</a> permission to the catalog. For code
@@ -47,10 +44,41 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * import { AthenaClient, StartQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, StartQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // StartQueryExecutionInput
+ *   QueryString: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   QueryExecutionContext: { // QueryExecutionContext
+ *     Database: "STRING_VALUE",
+ *     Catalog: "STRING_VALUE",
+ *   },
+ *   ResultConfiguration: { // ResultConfiguration
+ *     OutputLocation: "STRING_VALUE",
+ *     EncryptionConfiguration: { // EncryptionConfiguration
+ *       EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
+ *       KmsKey: "STRING_VALUE",
+ *     },
+ *     ExpectedBucketOwner: "STRING_VALUE",
+ *     AclConfiguration: { // AclConfiguration
+ *       S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
+ *     },
+ *   },
+ *   WorkGroup: "STRING_VALUE",
+ *   ExecutionParameters: [ // ExecutionParameters
+ *     "STRING_VALUE",
+ *   ],
+ *   ResultReuseConfiguration: { // ResultReuseConfiguration
+ *     ResultReuseByAgeConfiguration: { // ResultReuseByAgeConfiguration
+ *       Enabled: true || false, // required
+ *       MaxAgeInMinutes: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new StartQueryExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartQueryExecutionCommandInput - {@link StartQueryExecutionCommandInput}
+ * @returns {@link StartQueryExecutionCommandOutput}
  * @see {@link StartQueryExecutionCommandInput} for command's `input` shape.
  * @see {@link StartQueryExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -85,6 +113,9 @@ export class StartQueryExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartQueryExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +144,8 @@ export class StartQueryExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartQueryExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartQueryExecutionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +155,18 @@ export class StartQueryExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartQueryExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartQueryExecutionCommand(input, context);
+    return se_StartQueryExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartQueryExecutionCommandOutput> {
-    return deserializeAws_json1_1StartQueryExecutionCommand(output, context);
+    return de_StartQueryExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

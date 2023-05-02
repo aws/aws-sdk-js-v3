@@ -6,7 +6,7 @@ import { ResiliencehubClient } from "../ResiliencehubClient";
 import { ResiliencehubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResiliencehubClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAppsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListApps(
   config: ResiliencehubPaginationConfiguration,
   input: ListAppsCommandInput,

@@ -6,7 +6,7 @@ import { XRayClient } from "../XRayClient";
 import { XRayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: XRayClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetGroupsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetGroups(
   config: XRayPaginationConfiguration,
   input: GetGroupsCommandInput,

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  ListProfilingGroupsRequest,
-  ListProfilingGroupsRequestFilterSensitiveLog,
-  ListProfilingGroupsResponse,
-  ListProfilingGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProfilingGroupsCommand,
-  serializeAws_restJson1ListProfilingGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProfilingGroupsRequest, ListProfilingGroupsResponse } from "../models/models_0";
+import { de_ListProfilingGroupsCommand, se_ListProfilingGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProfilingGroupsCommand}.
  */
 export interface ListProfilingGroupsCommandInput extends ListProfilingGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProfilingGroupsCommand}.
  */
 export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Returns a list of profiling groups. The profiling groups are returned as
  *          <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
@@ -48,10 +45,17 @@ export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsRes
  * import { CodeGuruProfilerClient, ListProfilingGroupsCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, ListProfilingGroupsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // ListProfilingGroupsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   includeDescription: true || false,
+ * };
  * const command = new ListProfilingGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProfilingGroupsCommandInput - {@link ListProfilingGroupsCommandInput}
+ * @returns {@link ListProfilingGroupsCommandOutput}
  * @see {@link ListProfilingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListProfilingGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -81,6 +85,9 @@ export class ListProfilingGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProfilingGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class ListProfilingGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProfilingGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProfilingGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class ListProfilingGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProfilingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProfilingGroupsCommand(input, context);
+    return se_ListProfilingGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfilingGroupsCommandOutput> {
-    return deserializeAws_restJson1ListProfilingGroupsCommand(output, context);
+    return de_ListProfilingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

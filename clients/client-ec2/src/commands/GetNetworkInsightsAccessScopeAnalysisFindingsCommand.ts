@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
-  GetNetworkInsightsAccessScopeAnalysisFindingsRequestFilterSensitiveLog,
   GetNetworkInsightsAccessScopeAnalysisFindingsResult,
-  GetNetworkInsightsAccessScopeAnalysisFindingsResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
-  serializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
+  de_GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
+  se_GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommand}.
  */
 export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput
   extends GetNetworkInsightsAccessScopeAnalysisFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommand}.
  */
 export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
@@ -38,6 +40,7 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the findings for the specified Network Access Scope analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,18 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  * import { EC2Client, GetNetworkInsightsAccessScopeAnalysisFindingsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetNetworkInsightsAccessScopeAnalysisFindingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetNetworkInsightsAccessScopeAnalysisFindingsRequest
+ *   NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new GetNetworkInsightsAccessScopeAnalysisFindingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput - {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput}
+ * @returns {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput}
  * @see {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput} for command's `input` shape.
  * @see {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +83,9 @@ export class GetNetworkInsightsAccessScopeAnalysisFindingsCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +120,8 @@ export class GetNetworkInsightsAccessScopeAnalysisFindingsCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkInsightsAccessScopeAnalysisFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkInsightsAccessScopeAnalysisFindingsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +131,24 @@ export class GetNetworkInsightsAccessScopeAnalysisFindingsCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand(input, context);
+    return se_GetNetworkInsightsAccessScopeAnalysisFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput> {
-    return deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand(output, context);
+    return de_GetNetworkInsightsAccessScopeAnalysisFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

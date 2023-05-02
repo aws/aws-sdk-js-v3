@@ -12,23 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RecursiveShapesInputOutput, RecursiveShapesInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1RecursiveShapesCommand,
-  serializeAws_restJson1RecursiveShapesCommand,
-} from "../protocols/Aws_restJson1";
+import { RecursiveShapesInputOutput } from "../models/models_0";
+import { de_RecursiveShapesCommand, se_RecursiveShapesCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link RecursiveShapesCommand}.
  */
 export interface RecursiveShapesCommandInput extends RecursiveShapesInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link RecursiveShapesCommand}.
  */
 export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Recursive shapes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,10 +38,27 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
  * import { RestJsonProtocolClient, RecursiveShapesCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, RecursiveShapesCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // RecursiveShapesInputOutput
+ *   nested: { // RecursiveShapesInputOutputNested1
+ *     foo: "STRING_VALUE",
+ *     nested: { // RecursiveShapesInputOutputNested2
+ *       bar: "STRING_VALUE",
+ *       recursiveMember: {
+ *         foo: "STRING_VALUE",
+ *         nested: {
+ *           bar: "STRING_VALUE",
+ *           recursiveMember: "<RecursiveShapesInputOutputNested1>",
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new RecursiveShapesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RecursiveShapesCommandInput - {@link RecursiveShapesCommandInput}
+ * @returns {@link RecursiveShapesCommandOutput}
  * @see {@link RecursiveShapesCommandInput} for command's `input` shape.
  * @see {@link RecursiveShapesCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -54,6 +73,9 @@ export class RecursiveShapesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecursiveShapesCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +101,8 @@ export class RecursiveShapesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RecursiveShapesInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: RecursiveShapesInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +112,18 @@ export class RecursiveShapesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecursiveShapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RecursiveShapesCommand(input, context);
+    return se_RecursiveShapesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecursiveShapesCommandOutput> {
-    return deserializeAws_restJson1RecursiveShapesCommand(output, context);
+    return de_RecursiveShapesCommand(output, context);
   }
 
   // Start section: command_body_extra

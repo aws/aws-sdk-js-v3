@@ -22,23 +22,24 @@ import {
   UpdateUserAttributesRequest,
   UpdateUserAttributesRequestFilterSensitiveLog,
   UpdateUserAttributesResponse,
-  UpdateUserAttributesResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateUserAttributesCommand,
-  serializeAws_json1_1UpdateUserAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateUserAttributesCommand, se_UpdateUserAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserAttributesCommand}.
  */
 export interface UpdateUserAttributesCommandInput extends UpdateUserAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserAttributesCommand}.
  */
 export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a user to update a specific attribute (one at a time).</p>
  *
  *          <note>
@@ -64,10 +65,24 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
  * import { CognitoIdentityProviderClient, UpdateUserAttributesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateUserAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // UpdateUserAttributesRequest
+ *   UserAttributes: [ // AttributeListType // required
+ *     { // AttributeType
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AccessToken: "STRING_VALUE", // required
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateUserAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserAttributesCommandInput - {@link UpdateUserAttributesCommandInput}
+ * @returns {@link UpdateUserAttributesCommandOutput}
  * @see {@link UpdateUserAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateUserAttributesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -164,6 +179,9 @@ export class UpdateUserAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -193,7 +211,7 @@ export class UpdateUserAttributesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateUserAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserAttributesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -203,12 +221,18 @@ export class UpdateUserAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateUserAttributesCommand(input, context);
+    return se_UpdateUserAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateUserAttributesCommand(output, context);
+    return de_UpdateUserAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

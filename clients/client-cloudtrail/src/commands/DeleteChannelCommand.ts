@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  DeleteChannelRequest,
-  DeleteChannelRequestFilterSensitiveLog,
-  DeleteChannelResponse,
-  DeleteChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteChannelCommand,
-  serializeAws_json1_1DeleteChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_0";
+import { de_DeleteChannelCommand, se_DeleteChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChannelCommand}.
  */
 export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChannelCommand}.
  */
 export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * import { CloudTrailClient, DeleteChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DeleteChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // DeleteChannelRequest
+ *   Channel: "STRING_VALUE", // required
+ * };
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelCommandInput - {@link DeleteChannelCommandInput}
+ * @returns {@link DeleteChannelCommandOutput}
  * @see {@link DeleteChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -82,6 +84,9 @@ export class DeleteChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class DeleteChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class DeleteChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteChannelCommand(input, context);
+    return se_DeleteChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelCommandOutput> {
-    return deserializeAws_json1_1DeleteChannelCommand(output, context);
+    return de_DeleteChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

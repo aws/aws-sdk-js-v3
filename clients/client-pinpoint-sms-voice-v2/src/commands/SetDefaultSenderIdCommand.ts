@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SetDefaultSenderIdRequest,
-  SetDefaultSenderIdRequestFilterSensitiveLog,
-  SetDefaultSenderIdResult,
-  SetDefaultSenderIdResultFilterSensitiveLog,
-} from "../models/models_0";
+import { SetDefaultSenderIdRequest, SetDefaultSenderIdResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0SetDefaultSenderIdCommand,
-  serializeAws_json1_0SetDefaultSenderIdCommand,
-} from "../protocols/Aws_json1_0";
+import { de_SetDefaultSenderIdCommand, se_SetDefaultSenderIdCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link SetDefaultSenderIdCommand}.
  */
 export interface SetDefaultSenderIdCommandInput extends SetDefaultSenderIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetDefaultSenderIdCommand}.
  */
 export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets default sender ID on a configuration set.</p>
  *         <p>When sending a text message to a destination country that supports sender IDs, the
  *             default sender ID on the configuration set specified will be used if no dedicated
@@ -49,10 +46,16 @@ export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResul
  * import { PinpointSMSVoiceV2Client, SetDefaultSenderIdCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, SetDefaultSenderIdCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // SetDefaultSenderIdRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   SenderId: "STRING_VALUE", // required
+ * };
  * const command = new SetDefaultSenderIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetDefaultSenderIdCommandInput - {@link SetDefaultSenderIdCommandInput}
+ * @returns {@link SetDefaultSenderIdCommandOutput}
  * @see {@link SetDefaultSenderIdCommandInput} for command's `input` shape.
  * @see {@link SetDefaultSenderIdCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -94,6 +97,9 @@ export class SetDefaultSenderIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetDefaultSenderIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +128,8 @@ export class SetDefaultSenderIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetDefaultSenderIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetDefaultSenderIdResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +139,18 @@ export class SetDefaultSenderIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetDefaultSenderIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0SetDefaultSenderIdCommand(input, context);
+    return se_SetDefaultSenderIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDefaultSenderIdCommandOutput> {
-    return deserializeAws_json1_0SetDefaultSenderIdCommand(output, context);
+    return de_SetDefaultSenderIdCommand(output, context);
   }
 
   // Start section: command_body_extra

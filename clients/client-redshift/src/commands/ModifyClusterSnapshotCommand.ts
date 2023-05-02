@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyClusterSnapshotMessage,
-  ModifyClusterSnapshotMessageFilterSensitiveLog,
-  ModifyClusterSnapshotResult,
-  ModifyClusterSnapshotResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyClusterSnapshotCommand,
-  serializeAws_queryModifyClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { ModifyClusterSnapshotMessage, ModifyClusterSnapshotResult } from "../models/models_1";
+import { de_ModifyClusterSnapshotCommand, se_ModifyClusterSnapshotCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterSnapshotCommand}.
  */
 export interface ModifyClusterSnapshotCommandInput extends ModifyClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterSnapshotCommand}.
  */
 export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a snapshot.</p>
  *          <p>This exanmple modifies the manual retention period setting for a cluster snapshot.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapsho
  * import { RedshiftClient, ModifyClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ModifyClusterSnapshotMessage
+ *   SnapshotIdentifier: "STRING_VALUE", // required
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ *   Force: true || false,
+ * };
  * const command = new ModifyClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterSnapshotCommandInput - {@link ModifyClusterSnapshotCommandInput}
+ * @returns {@link ModifyClusterSnapshotCommandOutput}
  * @see {@link ModifyClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -81,6 +85,9 @@ export class ModifyClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class ModifyClusterSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class ModifyClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterSnapshotCommand(input, context);
+    return se_ModifyClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterSnapshotCommandOutput> {
-    return deserializeAws_queryModifyClusterSnapshotCommand(output, context);
+    return de_ModifyClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

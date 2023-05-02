@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetParameterRequest,
-  GetParameterRequestFilterSensitiveLog,
-  GetParameterResult,
-  GetParameterResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetParameterCommand,
-  serializeAws_json1_1GetParameterCommand,
-} from "../protocols/Aws_json1_1";
+import { GetParameterRequest, GetParameterResult, GetParameterResultFilterSensitiveLog } from "../models/models_1";
+import { de_GetParameterCommand, se_GetParameterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetParameterCommand}.
  */
 export interface GetParameterCommandInput extends GetParameterRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetParameterCommand}.
  */
 export interface GetParameterCommandOutput extends GetParameterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about a single parameter by specifying the parameter name.</p>
  *          <note>
  *             <p>To get information about more than one parameter at a time, use the <a>GetParameters</a> operation.</p>
@@ -45,10 +42,16 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  * import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetParameterCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetParameterRequest
+ *   Name: "STRING_VALUE", // required
+ *   WithDecryption: true || false,
+ * };
  * const command = new GetParameterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetParameterCommandInput - {@link GetParameterCommandInput}
+ * @returns {@link GetParameterCommandOutput}
  * @see {@link GetParameterCommandInput} for command's `input` shape.
  * @see {@link GetParameterCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -85,6 +88,9 @@ export class GetParameterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetParameterCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,7 +117,7 @@ export class GetParameterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetParameterRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetParameterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -122,12 +128,18 @@ export class GetParameterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetParameterCommand(input, context);
+    return se_GetParameterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetParameterCommandOutput> {
-    return deserializeAws_json1_1GetParameterCommand(output, context);
+    return de_GetParameterCommand(output, context);
   }
 
   // Start section: command_body_extra

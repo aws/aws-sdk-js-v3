@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  UpdateKeyRequest,
-  UpdateKeyRequestFilterSensitiveLog,
-  UpdateKeyResponse,
-  UpdateKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateKeyCommand,
-  serializeAws_restJson1UpdateKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateKeyRequest, UpdateKeyResponse } from "../models/models_0";
+import { de_UpdateKeyCommand, se_UpdateKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateKeyCommand}.
  */
 export interface UpdateKeyCommandInput extends UpdateKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateKeyCommand}.
  */
 export interface UpdateKeyCommandOutput extends UpdateKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified properties of a given API key resource.</p>
  *          <important>
  *             <p>The API keys feature is in preview. We may add, change, or remove
@@ -47,10 +44,30 @@ export interface UpdateKeyCommandOutput extends UpdateKeyResponse, __MetadataBea
  * import { LocationClient, UpdateKeyCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, UpdateKeyCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // UpdateKeyRequest
+ *   KeyName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ExpireTime: new Date("TIMESTAMP"),
+ *   NoExpiry: true || false,
+ *   ForceUpdate: true || false,
+ *   Restrictions: { // ApiKeyRestrictions
+ *     AllowActions: [ // ApiKeyActionList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowResources: [ // GeoArnList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowReferers: [ // RefererPatternList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateKeyCommandInput - {@link UpdateKeyCommandInput}
+ * @returns {@link UpdateKeyCommandOutput}
  * @see {@link UpdateKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateKeyCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -90,6 +107,9 @@ export class UpdateKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +136,8 @@ export class UpdateKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +147,18 @@ export class UpdateKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateKeyCommand(input, context);
+    return se_UpdateKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateKeyCommandOutput> {
-    return deserializeAws_restJson1UpdateKeyCommand(output, context);
+    return de_UpdateKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

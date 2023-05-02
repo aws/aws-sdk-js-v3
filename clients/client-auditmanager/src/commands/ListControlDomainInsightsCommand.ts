@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  ListControlDomainInsightsRequest,
-  ListControlDomainInsightsRequestFilterSensitiveLog,
-  ListControlDomainInsightsResponse,
-  ListControlDomainInsightsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListControlDomainInsightsCommand,
-  serializeAws_restJson1ListControlDomainInsightsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListControlDomainInsightsRequest, ListControlDomainInsightsResponse } from "../models/models_0";
+import { de_ListControlDomainInsightsCommand, se_ListControlDomainInsightsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListControlDomainInsightsCommand}.
  */
 export interface ListControlDomainInsightsCommandInput extends ListControlDomainInsightsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListControlDomainInsightsCommand}.
  */
 export interface ListControlDomainInsightsCommandOutput extends ListControlDomainInsightsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the latest analytics data for control domains across all of your active
  *          assessments. </p>
  *          <note>
@@ -49,10 +46,16 @@ export interface ListControlDomainInsightsCommandOutput extends ListControlDomai
  * import { AuditManagerClient, ListControlDomainInsightsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListControlDomainInsightsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // ListControlDomainInsightsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListControlDomainInsightsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListControlDomainInsightsCommandInput - {@link ListControlDomainInsightsCommandInput}
+ * @returns {@link ListControlDomainInsightsCommandOutput}
  * @see {@link ListControlDomainInsightsCommandInput} for command's `input` shape.
  * @see {@link ListControlDomainInsightsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -90,6 +93,9 @@ export class ListControlDomainInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListControlDomainInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class ListControlDomainInsightsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListControlDomainInsightsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListControlDomainInsightsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +135,21 @@ export class ListControlDomainInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListControlDomainInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListControlDomainInsightsCommand(input, context);
+    return se_ListControlDomainInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListControlDomainInsightsCommandOutput> {
-    return deserializeAws_restJson1ListControlDomainInsightsCommand(output, context);
+    return de_ListControlDomainInsightsCommand(output, context);
   }
 
   // Start section: command_body_extra

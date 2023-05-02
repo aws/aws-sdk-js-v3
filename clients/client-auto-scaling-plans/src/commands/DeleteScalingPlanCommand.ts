@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
-import {
-  DeleteScalingPlanRequest,
-  DeleteScalingPlanRequestFilterSensitiveLog,
-  DeleteScalingPlanResponse,
-  DeleteScalingPlanResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteScalingPlanCommand,
-  serializeAws_json1_1DeleteScalingPlanCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteScalingPlanRequest, DeleteScalingPlanResponse } from "../models/models_0";
+import { de_DeleteScalingPlanCommand, se_DeleteScalingPlanCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScalingPlanCommand}.
  */
 export interface DeleteScalingPlanCommandInput extends DeleteScalingPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScalingPlanCommand}.
  */
 export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified scaling plan.</p>
  *          <p>Deleting a scaling plan deletes the underlying <a>ScalingInstruction</a> for
  *          all of the scalable resources that are covered by the plan.</p>
@@ -46,10 +43,16 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * import { AutoScalingPlansClient, DeleteScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, DeleteScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
+ * const input = { // DeleteScalingPlanRequest
+ *   ScalingPlanName: "STRING_VALUE", // required
+ *   ScalingPlanVersion: Number("long"), // required
+ * };
  * const command = new DeleteScalingPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScalingPlanCommandInput - {@link DeleteScalingPlanCommandInput}
+ * @returns {@link DeleteScalingPlanCommandOutput}
  * @see {@link DeleteScalingPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteScalingPlanCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
@@ -86,6 +89,9 @@ export class DeleteScalingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScalingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class DeleteScalingPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScalingPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScalingPlanResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class DeleteScalingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScalingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteScalingPlanCommand(input, context);
+    return se_DeleteScalingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScalingPlanCommandOutput> {
-    return deserializeAws_json1_1DeleteScalingPlanCommand(output, context);
+    return de_DeleteScalingPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

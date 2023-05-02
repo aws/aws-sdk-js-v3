@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  PutConformancePackRequest,
-  PutConformancePackRequestFilterSensitiveLog,
-  PutConformancePackResponse,
-  PutConformancePackResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PutConformancePackCommand,
-  serializeAws_json1_1PutConformancePackCommand,
-} from "../protocols/Aws_json1_1";
+import { PutConformancePackRequest, PutConformancePackResponse } from "../models/models_1";
+import { de_PutConformancePackCommand, se_PutConformancePackCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutConformancePackCommand}.
  */
 export interface PutConformancePackCommandInput extends PutConformancePackRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConformancePackCommand}.
  */
 export interface PutConformancePackCommandOutput extends PutConformancePackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across an organization.
  * 			For information on how many conformance packs you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
@@ -51,10 +48,29 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * import { ConfigServiceClient, PutConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // PutConformancePackRequest
+ *   ConformancePackName: "STRING_VALUE", // required
+ *   TemplateS3Uri: "STRING_VALUE",
+ *   TemplateBody: "STRING_VALUE",
+ *   DeliveryS3Bucket: "STRING_VALUE",
+ *   DeliveryS3KeyPrefix: "STRING_VALUE",
+ *   ConformancePackInputParameters: [ // ConformancePackInputParameters
+ *     { // ConformancePackInputParameter
+ *       ParameterName: "STRING_VALUE", // required
+ *       ParameterValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TemplateSSMDocumentDetails: { // TemplateSSMDocumentDetails
+ *     DocumentName: "STRING_VALUE", // required
+ *     DocumentVersion: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutConformancePackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConformancePackCommandInput - {@link PutConformancePackCommandInput}
+ * @returns {@link PutConformancePackCommandOutput}
  * @see {@link PutConformancePackCommandInput} for command's `input` shape.
  * @see {@link PutConformancePackCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -141,6 +157,9 @@ export class PutConformancePackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConformancePackCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,8 +188,8 @@ export class PutConformancePackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConformancePackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutConformancePackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -180,12 +199,18 @@ export class PutConformancePackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutConformancePackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutConformancePackCommand(input, context);
+    return se_PutConformancePackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConformancePackCommandOutput> {
-    return deserializeAws_json1_1PutConformancePackCommand(output, context);
+    return de_PutConformancePackCommand(output, context);
   }
 
   // Start section: command_body_extra

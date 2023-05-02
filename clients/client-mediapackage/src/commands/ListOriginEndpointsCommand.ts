@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import {
-  ListOriginEndpointsRequest,
-  ListOriginEndpointsRequestFilterSensitiveLog,
-  ListOriginEndpointsResponse,
-  ListOriginEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListOriginEndpointsCommand,
-  serializeAws_restJson1ListOriginEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListOriginEndpointsRequest, ListOriginEndpointsResponse } from "../models/models_0";
+import { de_ListOriginEndpointsCommand, se_ListOriginEndpointsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOriginEndpointsCommand}.
  */
 export interface ListOriginEndpointsCommandInput extends ListOriginEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOriginEndpointsCommand}.
  */
 export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns a collection of OriginEndpoint records.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * import { MediaPackageClient, ListOriginEndpointsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, ListOriginEndpointsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
+ * const input = { // ListOriginEndpointsRequest
+ *   ChannelId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListOriginEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOriginEndpointsCommandInput - {@link ListOriginEndpointsCommandInput}
+ * @returns {@link ListOriginEndpointsCommandOutput}
  * @see {@link ListOriginEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListOriginEndpointsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
@@ -87,6 +91,9 @@ export class ListOriginEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOriginEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListOriginEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOriginEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOriginEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class ListOriginEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOriginEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOriginEndpointsCommand(input, context);
+    return se_ListOriginEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOriginEndpointsCommandOutput> {
-    return deserializeAws_restJson1ListOriginEndpointsCommand(output, context);
+    return de_ListOriginEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  CreateTrailRequest,
-  CreateTrailRequestFilterSensitiveLog,
-  CreateTrailResponse,
-  CreateTrailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTrailCommand,
-  serializeAws_json1_1CreateTrailCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTrailRequest, CreateTrailResponse } from "../models/models_0";
+import { de_CreateTrailCommand, se_CreateTrailCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrailCommand}.
  */
 export interface CreateTrailCommandInput extends CreateTrailRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrailCommand}.
  */
 export interface CreateTrailCommandOutput extends CreateTrailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket.
  *          </p>
  * @example
@@ -43,10 +40,31 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  * import { CloudTrailClient, CreateTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, CreateTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // CreateTrailRequest
+ *   Name: "STRING_VALUE", // required
+ *   S3BucketName: "STRING_VALUE", // required
+ *   S3KeyPrefix: "STRING_VALUE",
+ *   SnsTopicName: "STRING_VALUE",
+ *   IncludeGlobalServiceEvents: true || false,
+ *   IsMultiRegionTrail: true || false,
+ *   EnableLogFileValidation: true || false,
+ *   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *   CloudWatchLogsRoleArn: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   IsOrganizationTrail: true || false,
+ *   TagsList: [ // TagsList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateTrailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrailCommandInput - {@link CreateTrailCommandInput}
+ * @returns {@link CreateTrailCommandOutput}
  * @see {@link CreateTrailCommandInput} for command's `input` shape.
  * @see {@link CreateTrailCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -206,6 +224,9 @@ export class CreateTrailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrailCommandInput) {
     // Start section: command_constructor
     super();
@@ -232,8 +253,8 @@ export class CreateTrailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTrailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -243,12 +264,18 @@ export class CreateTrailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTrailCommand(input, context);
+    return se_CreateTrailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrailCommandOutput> {
-    return deserializeAws_json1_1CreateTrailCommand(output, context);
+    return de_CreateTrailCommand(output, context);
   }
 
   // Start section: command_body_extra

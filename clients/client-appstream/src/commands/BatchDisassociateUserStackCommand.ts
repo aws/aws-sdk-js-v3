@@ -20,21 +20,23 @@ import {
   BatchDisassociateUserStackResult,
   BatchDisassociateUserStackResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDisassociateUserStackCommand,
-  serializeAws_json1_1BatchDisassociateUserStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDisassociateUserStackCommand, se_BatchDisassociateUserStackCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisassociateUserStackCommand}.
  */
 export interface BatchDisassociateUserStackCommandInput extends BatchDisassociateUserStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisassociateUserStackCommand}.
  */
 export interface BatchDisassociateUserStackCommandOutput extends BatchDisassociateUserStackResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified users from the specified stacks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,22 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
  * import { AppStreamClient, BatchDisassociateUserStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, BatchDisassociateUserStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // BatchDisassociateUserStackRequest
+ *   UserStackAssociations: [ // UserStackAssociationList // required
+ *     { // UserStackAssociation
+ *       StackName: "STRING_VALUE", // required
+ *       UserName: "STRING_VALUE", // required
+ *       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ *       SendEmailNotification: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new BatchDisassociateUserStackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateUserStackCommandInput - {@link BatchDisassociateUserStackCommandInput}
+ * @returns {@link BatchDisassociateUserStackCommandOutput}
  * @see {@link BatchDisassociateUserStackCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateUserStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -75,6 +89,9 @@ export class BatchDisassociateUserStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateUserStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,15 +131,21 @@ export class BatchDisassociateUserStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDisassociateUserStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDisassociateUserStackCommand(input, context);
+    return se_BatchDisassociateUserStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateUserStackCommandOutput> {
-    return deserializeAws_json1_1BatchDisassociateUserStackCommand(output, context);
+    return de_BatchDisassociateUserStackCommand(output, context);
   }
 
   // Start section: command_body_extra

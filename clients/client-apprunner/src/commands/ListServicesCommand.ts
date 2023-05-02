@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  ListServicesRequest,
-  ListServicesRequestFilterSensitiveLog,
-  ListServicesResponse,
-  ListServicesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListServicesCommand,
-  serializeAws_json1_0ListServicesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListServicesRequest, ListServicesResponse } from "../models/models_0";
+import { de_ListServicesCommand, se_ListServicesCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListServicesCommand}.
  */
 export interface ListServicesCommandInput extends ListServicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServicesCommand}.
  */
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of running App Runner services in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * import { AppRunnerClient, ListServicesCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListServicesCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // ListServicesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServicesCommandInput - {@link ListServicesCommandInput}
+ * @returns {@link ListServicesCommandOutput}
  * @see {@link ListServicesCommandInput} for command's `input` shape.
  * @see {@link ListServicesCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -75,6 +78,9 @@ export class ListServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +107,8 @@ export class ListServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +118,18 @@ export class ListServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListServicesCommand(input, context);
+    return se_ListServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServicesCommandOutput> {
-    return deserializeAws_json1_0ListServicesCommand(output, context);
+    return de_ListServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

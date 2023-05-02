@@ -19,10 +19,7 @@ import {
   ListEarthObservationJobOutput,
   ListEarthObservationJobOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEarthObservationJobsCommand,
-  serializeAws_restJson1ListEarthObservationJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEarthObservationJobsCommand, se_ListEarthObservationJobsCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +27,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEarthObservationJobsCommand}.
  */
 export interface ListEarthObservationJobsCommandInput extends ListEarthObservationJobInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEarthObservationJobsCommand}.
  */
 export interface ListEarthObservationJobsCommandOutput extends ListEarthObservationJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to get a list of the Earth Observation jobs associated with the calling Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +48,19 @@ export interface ListEarthObservationJobsCommandOutput extends ListEarthObservat
  * import { SageMakerGeospatialClient, ListEarthObservationJobsCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, ListEarthObservationJobsCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
+ * const input = { // ListEarthObservationJobInput
+ *   StatusEquals: "STRING_VALUE",
+ *   SortOrder: "STRING_VALUE",
+ *   SortBy: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEarthObservationJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEarthObservationJobsCommandInput - {@link ListEarthObservationJobsCommandInput}
+ * @returns {@link ListEarthObservationJobsCommandOutput}
  * @see {@link ListEarthObservationJobsCommandInput} for command's `input` shape.
  * @see {@link ListEarthObservationJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -61,7 +72,7 @@ export interface ListEarthObservationJobsCommandOutput extends ListEarthObservat
  *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
+ *  <p>The request references a resource which does not exist.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -88,6 +99,9 @@ export class ListEarthObservationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEarthObservationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,12 +141,18 @@ export class ListEarthObservationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEarthObservationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEarthObservationJobsCommand(input, context);
+    return se_ListEarthObservationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEarthObservationJobsCommandOutput> {
-    return deserializeAws_restJson1ListEarthObservationJobsCommand(output, context);
+    return de_ListEarthObservationJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

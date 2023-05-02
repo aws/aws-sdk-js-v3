@@ -3,22 +3,41 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { SsmSapServiceException as __BaseException } from "./SsmSapServiceException";
 
-export enum ApplicationStatus {
-  ACTIVATED = "ACTIVATED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  REGISTERING = "REGISTERING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UNKNOWN = "UNKNOWN",
-}
-
-export enum ApplicationType {
-  HANA = "HANA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationStatus = {
+  ACTIVATED: "ACTIVATED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  REGISTERING: "REGISTERING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationType = {
+  HANA: "HANA",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
+
+/**
+ * @public
  * <p>An SAP application registered with AWS Systems Manager for SAP.</p>
  */
 export interface Application {
@@ -63,11 +82,21 @@ export interface Application {
   StatusMessage?: string;
 }
 
-export enum CredentialType {
-  ADMIN = "ADMIN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CredentialType = {
+  ADMIN: "ADMIN",
+} as const;
 
 /**
+ * @public
+ */
+export type CredentialType = (typeof CredentialType)[keyof typeof CredentialType];
+
+/**
+ * @public
  * <p>The credentials of your SAP application.</p>
  */
 export interface ApplicationCredential {
@@ -89,6 +118,7 @@ export interface ApplicationCredential {
 }
 
 /**
+ * @public
  * <p>The summary of the SAP application registered with AWS Systems Manager for SAP.
  *       </p>
  */
@@ -114,18 +144,37 @@ export interface ApplicationSummary {
   Tags?: Record<string, string>;
 }
 
-export enum ComponentType {
-  HANA = "HANA",
-}
-
-export enum HostRole {
-  LEADER = "LEADER",
-  STANDBY = "STANDBY",
-  UNKNOWN = "UNKNOWN",
-  WORKER = "WORKER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComponentType = {
+  HANA: "HANA",
+} as const;
 
 /**
+ * @public
+ */
+export type ComponentType = (typeof ComponentType)[keyof typeof ComponentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HostRole = {
+  LEADER: "LEADER",
+  STANDBY: "STANDBY",
+  UNKNOWN: "UNKNOWN",
+  WORKER: "WORKER",
+} as const;
+
+/**
+ * @public
+ */
+export type HostRole = (typeof HostRole)[keyof typeof HostRole];
+
+/**
+ * @public
  * <p>Describes the properties of the Dedicated Host. </p>
  */
 export interface Host {
@@ -150,11 +199,21 @@ export interface Host {
   InstanceId?: string;
 }
 
-export enum ComponentStatus {
-  ACTIVATED = "ACTIVATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComponentStatus = {
+  ACTIVATED: "ACTIVATED",
+} as const;
 
 /**
+ * @public
+ */
+export type ComponentStatus = (typeof ComponentStatus)[keyof typeof ComponentStatus];
+
+/**
+ * @public
  * <p>The SAP component of your application.</p>
  */
 export interface Component {
@@ -200,6 +259,7 @@ export interface Component {
 }
 
 /**
+ * @public
  * <p>The summary of the component.</p>
  */
 export interface ComponentSummary {
@@ -225,6 +285,7 @@ export interface ComponentSummary {
 }
 
 /**
+ * @public
  * <p>A conflict has occurred.</p>
  */
 export class ConflictException extends __BaseException {
@@ -245,20 +306,39 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum DatabaseType {
-  SYSTEM = "SYSTEM",
-  TENANT = "TENANT",
-}
-
-export enum DatabaseStatus {
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  UNKNOWN = "UNKNOWN",
-  WARNING = "WARNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DatabaseType = {
+  SYSTEM: "SYSTEM",
+  TENANT: "TENANT",
+} as const;
 
 /**
+ * @public
+ */
+export type DatabaseType = (typeof DatabaseType)[keyof typeof DatabaseType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatabaseStatus = {
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  UNKNOWN: "UNKNOWN",
+  WARNING: "WARNING",
+} as const;
+
+/**
+ * @public
+ */
+export type DatabaseStatus = (typeof DatabaseStatus)[keyof typeof DatabaseStatus];
+
+/**
+ * @public
  * <p>The SAP HANA database of the application registered with AWS Systems Manager for
  *          SAP.</p>
  */
@@ -320,6 +400,7 @@ export interface Database {
 }
 
 /**
+ * @public
  * <p>The summary of the database.</p>
  */
 export interface DatabaseSummary {
@@ -354,10 +435,22 @@ export interface DatabaseSummary {
   Tags?: Record<string, string>;
 }
 
-export enum PermissionActionType {
-  RESTORE = "RESTORE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PermissionActionType = {
+  RESTORE: "RESTORE",
+} as const;
 
+/**
+ * @public
+ */
+export type PermissionActionType = (typeof PermissionActionType)[keyof typeof PermissionActionType];
+
+/**
+ * @public
+ */
 export interface DeleteResourcePermissionInput {
   /**
    * <p>Delete or restore the permissions on the target database.</p>
@@ -375,6 +468,9 @@ export interface DeleteResourcePermissionInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePermissionOutput {
   /**
    * <p>The policy that removes permissions on the target database.</p>
@@ -383,6 +479,7 @@ export interface DeleteResourcePermissionOutput {
 }
 
 /**
+ * @public
  * <p>An internal error has occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -404,6 +501,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource is not available.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -425,6 +523,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  */
 export class ValidationException extends __BaseException {
@@ -445,6 +544,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeregisterApplicationInput {
   /**
    * <p>The ID of the application.</p>
@@ -452,15 +554,28 @@ export interface DeregisterApplicationInput {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterApplicationOutput {}
 
-export enum FilterOperator {
-  EQUALS = "Equals",
-  GREATER_THAN_OR_EQUALS = "GreaterThanOrEquals",
-  LESS_THAN_OR_EQUALS = "LessThanOrEquals",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FilterOperator = {
+  EQUALS: "Equals",
+  GREATER_THAN_OR_EQUALS: "GreaterThanOrEquals",
+  LESS_THAN_OR_EQUALS: "LessThanOrEquals",
+} as const;
 
 /**
+ * @public
+ */
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
+
+/**
+ * @public
  * <p>A specific result obtained by specifying the name, value, and operator. </p>
  */
 export interface Filter {
@@ -482,6 +597,9 @@ export interface Filter {
   Operator: FilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationInput {
   /**
    * <p>The ID of the application.</p>
@@ -499,6 +617,9 @@ export interface GetApplicationInput {
   AppRegistryArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationOutput {
   /**
    * <p>Returns all of the metadata of an application registered with AWS Systems Manager for
@@ -512,6 +633,9 @@ export interface GetApplicationOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentInput {
   /**
    * <p>The ID of the application.</p>
@@ -524,6 +648,9 @@ export interface GetComponentInput {
   ComponentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentOutput {
   /**
    * <p>The component of an application registered with AWS Systems Manager for SAP.</p>
@@ -531,6 +658,9 @@ export interface GetComponentOutput {
   Component?: Component;
 }
 
+/**
+ * @public
+ */
 export interface GetDatabaseInput {
   /**
    * <p>The ID of the application.</p>
@@ -553,6 +683,9 @@ export interface GetDatabaseInput {
   DatabaseArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDatabaseOutput {
   /**
    * <p>The SAP HANA database of an application registered with AWS Systems Manager for
@@ -566,6 +699,9 @@ export interface GetDatabaseOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetOperationInput {
   /**
    * <p>The ID of the operation.</p>
@@ -573,13 +709,23 @@ export interface GetOperationInput {
   OperationId: string | undefined;
 }
 
-export enum OperationStatus {
-  ERROR = "ERROR",
-  INPROGRESS = "INPROGRESS",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OperationStatus = {
+  ERROR: "ERROR",
+  INPROGRESS: "INPROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
+
+/**
+ * @public
  * <p>The operations performed by AWS Systems Manager for SAP.</p>
  */
 export interface Operation {
@@ -639,6 +785,9 @@ export interface Operation {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetOperationOutput {
   /**
    * <p>Returns the details of an operation.</p>
@@ -646,6 +795,9 @@ export interface GetOperationOutput {
   Operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePermissionInput {
   /**
    * <p/>
@@ -658,6 +810,9 @@ export interface GetResourcePermissionInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePermissionOutput {
   /**
    * <p/>
@@ -665,6 +820,9 @@ export interface GetResourcePermissionOutput {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsInput {
   /**
    * <p>The token for the next page of results.</p>
@@ -678,6 +836,9 @@ export interface ListApplicationsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsOutput {
   /**
    * <p>The applications registered with AWS Systems Manager for SAP.</p>
@@ -691,6 +852,9 @@ export interface ListApplicationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsInput {
   /**
    * <p>The ID of the application.</p>
@@ -711,6 +875,9 @@ export interface ListComponentsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsOutput {
   /**
    * <p>List of components registered with AWS System Manager for SAP.</p>
@@ -724,6 +891,9 @@ export interface ListComponentsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatabasesInput {
   /**
    * <p>The ID of the application.</p>
@@ -748,6 +918,9 @@ export interface ListDatabasesInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDatabasesOutput {
   /**
    * <p>The SAP HANA databases of an application.</p>
@@ -761,6 +934,9 @@ export interface ListDatabasesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOperationsInput {
   /**
    * <p>The ID of the application.</p>
@@ -786,6 +962,9 @@ export interface ListOperationsInput {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface ListOperationsOutput {
   /**
    * <p>List of operations performed by AWS Systems Manager for SAP.</p>
@@ -799,6 +978,9 @@ export interface ListOperationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -806,6 +988,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p/>
@@ -813,6 +998,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePermissionInput {
   /**
    * <p/>
@@ -830,6 +1018,9 @@ export interface PutResourcePermissionInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePermissionOutput {
   /**
    * <p/>
@@ -837,6 +1028,9 @@ export interface PutResourcePermissionOutput {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterApplicationInput {
   /**
    * <p>The ID of the application.</p>
@@ -874,6 +1068,9 @@ export interface RegisterApplicationInput {
   Credentials: ApplicationCredential[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterApplicationOutput {
   /**
    * <p>The application registered with AWS Systems Manager for SAP.</p>
@@ -886,6 +1083,9 @@ export interface RegisterApplicationOutput {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -898,8 +1098,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -913,8 +1119,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateApplicationSettingsInput {
   /**
    * <p>The ID of the application.</p>
@@ -932,6 +1144,9 @@ export interface UpdateApplicationSettingsInput {
   CredentialsToRemove?: ApplicationCredential[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationSettingsOutput {
   /**
    * <p>The update message.</p>
@@ -947,44 +1162,9 @@ export interface UpdateApplicationSettingsOutput {
 /**
  * @internal
  */
-export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ApplicationCredentialFilterSensitiveLog = (obj: ApplicationCredential): any => ({
   ...obj,
   ...(obj.SecretId && { SecretId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HostFilterSensitiveLog = (obj: Host): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentFilterSensitiveLog = (obj: Component): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentSummaryFilterSensitiveLog = (obj: ComponentSummary): any => ({
-  ...obj,
 });
 
 /**
@@ -998,205 +1178,9 @@ export const DatabaseFilterSensitiveLog = (obj: Database): any => ({
 /**
  * @internal
  */
-export const DatabaseSummaryFilterSensitiveLog = (obj: DatabaseSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePermissionInputFilterSensitiveLog = (obj: DeleteResourcePermissionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePermissionOutputFilterSensitiveLog = (obj: DeleteResourcePermissionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterApplicationInputFilterSensitiveLog = (obj: DeregisterApplicationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterApplicationOutputFilterSensitiveLog = (obj: DeregisterApplicationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationInputFilterSensitiveLog = (obj: GetApplicationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationOutputFilterSensitiveLog = (obj: GetApplicationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetComponentInputFilterSensitiveLog = (obj: GetComponentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetComponentOutputFilterSensitiveLog = (obj: GetComponentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatabaseInputFilterSensitiveLog = (obj: GetDatabaseInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetDatabaseOutputFilterSensitiveLog = (obj: GetDatabaseOutput): any => ({
   ...obj,
   ...(obj.Database && { Database: DatabaseFilterSensitiveLog(obj.Database) }),
-});
-
-/**
- * @internal
- */
-export const GetOperationInputFilterSensitiveLog = (obj: GetOperationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OperationFilterSensitiveLog = (obj: Operation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOperationOutputFilterSensitiveLog = (obj: GetOperationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePermissionInputFilterSensitiveLog = (obj: GetResourcePermissionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePermissionOutputFilterSensitiveLog = (obj: GetResourcePermissionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsInputFilterSensitiveLog = (obj: ListApplicationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsOutputFilterSensitiveLog = (obj: ListApplicationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListComponentsInputFilterSensitiveLog = (obj: ListComponentsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListComponentsOutputFilterSensitiveLog = (obj: ListComponentsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatabasesInputFilterSensitiveLog = (obj: ListDatabasesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatabasesOutputFilterSensitiveLog = (obj: ListDatabasesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOperationsInputFilterSensitiveLog = (obj: ListOperationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOperationsOutputFilterSensitiveLog = (obj: ListOperationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePermissionInputFilterSensitiveLog = (obj: PutResourcePermissionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePermissionOutputFilterSensitiveLog = (obj: PutResourcePermissionOutput): any => ({
-  ...obj,
 });
 
 /**
@@ -1210,41 +1194,6 @@ export const RegisterApplicationInputFilterSensitiveLog = (obj: RegisterApplicat
 /**
  * @internal
  */
-export const RegisterApplicationOutputFilterSensitiveLog = (obj: RegisterApplicationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateApplicationSettingsInputFilterSensitiveLog = (obj: UpdateApplicationSettingsInput): any => ({
   ...obj,
   ...(obj.CredentialsToAddOrUpdate && {
@@ -1253,11 +1202,4 @@ export const UpdateApplicationSettingsInputFilterSensitiveLog = (obj: UpdateAppl
   ...(obj.CredentialsToRemove && {
     CredentialsToRemove: obj.CredentialsToRemove.map((item) => ApplicationCredentialFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationSettingsOutputFilterSensitiveLog = (obj: UpdateApplicationSettingsOutput): any => ({
-  ...obj,
 });

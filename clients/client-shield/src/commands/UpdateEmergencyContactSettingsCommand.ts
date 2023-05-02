@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateEmergencyContactSettingsRequest, UpdateEmergencyContactSettingsResponse } from "../models/models_0";
 import {
-  UpdateEmergencyContactSettingsRequest,
-  UpdateEmergencyContactSettingsRequestFilterSensitiveLog,
-  UpdateEmergencyContactSettingsResponse,
-  UpdateEmergencyContactSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateEmergencyContactSettingsCommand,
-  serializeAws_json1_1UpdateEmergencyContactSettingsCommand,
+  de_UpdateEmergencyContactSettingsCommand,
+  se_UpdateEmergencyContactSettingsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEmergencyContactSettingsCommand}.
  */
 export interface UpdateEmergencyContactSettingsCommandInput extends UpdateEmergencyContactSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEmergencyContactSettingsCommand}.
  */
 export interface UpdateEmergencyContactSettingsCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateEmergencyContactSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the details of the list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,21 @@ export interface UpdateEmergencyContactSettingsCommandOutput
  * import { ShieldClient, UpdateEmergencyContactSettingsCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, UpdateEmergencyContactSettingsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // UpdateEmergencyContactSettingsRequest
+ *   EmergencyContactList: [ // EmergencyContactList
+ *     { // EmergencyContact
+ *       EmailAddress: "STRING_VALUE", // required
+ *       PhoneNumber: "STRING_VALUE",
+ *       ContactNotes: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateEmergencyContactSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEmergencyContactSettingsCommandInput - {@link UpdateEmergencyContactSettingsCommandInput}
+ * @returns {@link UpdateEmergencyContactSettingsCommandOutput}
  * @see {@link UpdateEmergencyContactSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateEmergencyContactSettingsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -84,6 +95,9 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEmergencyContactSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +126,8 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEmergencyContactSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEmergencyContactSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +137,24 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateEmergencyContactSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEmergencyContactSettingsCommand(input, context);
+    return se_UpdateEmergencyContactSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEmergencyContactSettingsCommandOutput> {
-    return deserializeAws_json1_1UpdateEmergencyContactSettingsCommand(output, context);
+    return de_UpdateEmergencyContactSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

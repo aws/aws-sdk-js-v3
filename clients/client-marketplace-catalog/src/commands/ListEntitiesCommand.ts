@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import {
-  ListEntitiesRequest,
-  ListEntitiesRequestFilterSensitiveLog,
-  ListEntitiesResponse,
-  ListEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEntitiesCommand,
-  serializeAws_restJson1ListEntitiesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEntitiesRequest, ListEntitiesResponse } from "../models/models_0";
+import { de_ListEntitiesCommand, se_ListEntitiesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntitiesCommand}.
  */
 export interface ListEntitiesCommandInput extends ListEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntitiesCommand}.
  */
 export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the list of entities of a given type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,28 +43,54 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * import { MarketplaceCatalogClient, ListEntitiesCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, ListEntitiesCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
+ * const input = { // ListEntitiesRequest
+ *   Catalog: "STRING_VALUE", // required
+ *   EntityType: "STRING_VALUE", // required
+ *   FilterList: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       ValueList: [ // ValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Sort: { // Sort
+ *     SortBy: "STRING_VALUE",
+ *     SortOrder: "ASCENDING" || "DESCENDING",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   OwnershipType: "SELF" || "SHARED",
+ * };
  * const command = new ListEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntitiesCommandInput - {@link ListEntitiesCommandInput}
+ * @returns {@link ListEntitiesCommandOutput}
  * @see {@link ListEntitiesCommandInput} for command's `input` shape.
  * @see {@link ListEntitiesCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access is denied.</p>
+ *          <p>HTTP status code: 403</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>There was an internal service exception.</p>
+ *          <p>HTTP status code: 500</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource wasn't found.</p>
+ *          <p>HTTP status code: 404</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Too many requests.</p>
+ *          <p>HTTP status code: 429</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An error occurred during validation.</p>
+ *          <p>HTTP status code: 422</p>
  *
  *
  */
@@ -88,6 +111,9 @@ export class ListEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +140,8 @@ export class ListEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +151,18 @@ export class ListEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEntitiesCommand(input, context);
+    return se_ListEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitiesCommandOutput> {
-    return deserializeAws_restJson1ListEntitiesCommand(output, context);
+    return de_ListEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

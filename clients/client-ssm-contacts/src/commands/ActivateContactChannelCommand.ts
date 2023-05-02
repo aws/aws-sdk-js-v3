@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ActivateContactChannelRequest,
-  ActivateContactChannelRequestFilterSensitiveLog,
-  ActivateContactChannelResult,
-  ActivateContactChannelResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ActivateContactChannelCommand,
-  serializeAws_json1_1ActivateContactChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { ActivateContactChannelRequest, ActivateContactChannelResult } from "../models/models_0";
+import { de_ActivateContactChannelCommand, se_ActivateContactChannelCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ActivateContactChannelCommand}.
  */
 export interface ActivateContactChannelCommandInput extends ActivateContactChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link ActivateContactChannelCommand}.
  */
 export interface ActivateContactChannelCommandOutput extends ActivateContactChannelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates a contact's contact channel. Incident Manager can't engage a contact until the
  *          contact channel has been activated.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  * import { SSMContactsClient, ActivateContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ActivateContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // ActivateContactChannelRequest
+ *   ContactChannelId: "STRING_VALUE", // required
+ *   ActivationCode: "STRING_VALUE", // required
+ * };
  * const command = new ActivateContactChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateContactChannelCommandInput - {@link ActivateContactChannelCommandInput}
+ * @returns {@link ActivateContactChannelCommandOutput}
  * @see {@link ActivateContactChannelCommandInput} for command's `input` shape.
  * @see {@link ActivateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -55,8 +58,7 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  *  <p>You don't have sufficient access to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>
@@ -68,18 +70,6 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
- *
- * @example Activate a contact's contact channel
- * ```javascript
- * // The following activate-contact-channel example activates a contact channel and makes it usable as part of an incident.
- * const input = {
- *   "ActivationCode": "466136",
- *   "ContactChannelId": "arn:aws:ssm-contacts:us-east-2:111122223333:contact-channel/akuam/fc7405c4-46b2-48b7-87b2-93e2f225b90d"
- * };
- * const command = new ActivateContactChannelCommand(input);
- * await client.send(command);
- * // example id: activate-a-contacts-contact-channel-1630359780075
- * ```
  *
  */
 export class ActivateContactChannelCommand extends $Command<
@@ -99,6 +89,9 @@ export class ActivateContactChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateContactChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +120,8 @@ export class ActivateContactChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ActivateContactChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ActivateContactChannelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +131,18 @@ export class ActivateContactChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ActivateContactChannelCommand(input, context);
+    return se_ActivateContactChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateContactChannelCommandOutput> {
-    return deserializeAws_json1_1ActivateContactChannelCommand(output, context);
+    return de_ActivateContactChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

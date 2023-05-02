@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  ListBackendJobsRequest,
-  ListBackendJobsRequestFilterSensitiveLog,
-  ListBackendJobsResponse,
-  ListBackendJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBackendJobsCommand,
-  serializeAws_restJson1ListBackendJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBackendJobsRequest, ListBackendJobsResponse } from "../models/models_0";
+import { de_ListBackendJobsCommand, se_ListBackendJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBackendJobsCommand}.
  */
 export interface ListBackendJobsCommandInput extends ListBackendJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBackendJobsCommand}.
  */
 export interface ListBackendJobsCommandOutput extends ListBackendJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the jobs for the backend of an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListBackendJobsCommandOutput extends ListBackendJobsResponse, _
  * import { AmplifyBackendClient, ListBackendJobsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, ListBackendJobsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // ListBackendJobsRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   JobId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Operation: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ * };
  * const command = new ListBackendJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackendJobsCommandInput - {@link ListBackendJobsCommandInput}
+ * @returns {@link ListBackendJobsCommandOutput}
  * @see {@link ListBackendJobsCommandInput} for command's `input` shape.
  * @see {@link ListBackendJobsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +89,9 @@ export class ListBackendJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackendJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +120,8 @@ export class ListBackendJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackendJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBackendJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +131,18 @@ export class ListBackendJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackendJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBackendJobsCommand(input, context);
+    return se_ListBackendJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackendJobsCommandOutput> {
-    return deserializeAws_restJson1ListBackendJobsCommand(output, context);
+    return de_ListBackendJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

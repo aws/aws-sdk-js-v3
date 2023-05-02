@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  ListInstancesRequest,
-  ListInstancesRequestFilterSensitiveLog,
-  ListInstancesResponse,
-  ListInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListInstancesCommand,
-  serializeAws_restJson1ListInstancesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListInstancesRequest, ListInstancesResponse } from "../models/models_0";
+import { de_ListInstancesCommand, se_ListInstancesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstancesCommand}.
  */
 export interface ListInstancesCommandInput extends ListInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstancesCommand}.
  */
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the EC2 instances providing user-based subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,23 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * import { LicenseManagerUserSubscriptionsClient, ListInstancesCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, ListInstancesCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
+ * const input = { // ListInstancesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Attribute: "STRING_VALUE",
+ *       Operation: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
+ * @returns {@link ListInstancesCommandOutput}
  * @see {@link ListInstancesCommandInput} for command's `input` shape.
  * @see {@link ListInstancesCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -95,6 +105,9 @@ export class ListInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +134,8 @@ export class ListInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +145,18 @@ export class ListInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInstancesCommand(input, context);
+    return se_ListInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstancesCommandOutput> {
-    return deserializeAws_restJson1ListInstancesCommand(output, context);
+    return de_ListInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  GetStageRequest,
-  GetStageRequestFilterSensitiveLog,
-  GetStageResult,
-  GetStageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetStageCommand,
-  serializeAws_restJson1GetStageCommand,
-} from "../protocols/Aws_restJson1";
+import { GetStageRequest, GetStageResult } from "../models/models_0";
+import { de_GetStageCommand, se_GetStageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStageCommand}.
  */
 export interface GetStageCommandInput extends GetStageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStageCommand}.
  */
 export interface GetStageCommandOutput extends GetStageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetStageCommandOutput extends GetStageResult, __MetadataBearer 
  * import { GameSparksClient, GetStageCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetStageCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // GetStageRequest
+ *   GameName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ * };
  * const command = new GetStageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStageCommandInput - {@link GetStageCommandInput}
+ * @returns {@link GetStageCommandOutput}
  * @see {@link GetStageCommandInput} for command's `input` shape.
  * @see {@link GetStageCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class GetStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class GetStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStageCommand(input, context);
+    return se_GetStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStageCommandOutput> {
-    return deserializeAws_restJson1GetStageCommand(output, context);
+    return de_GetStageCommand(output, context);
   }
 
   // Start section: command_body_extra

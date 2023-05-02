@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListRoutingProfilesRequest,
-  ListRoutingProfilesRequestFilterSensitiveLog,
-  ListRoutingProfilesResponse,
-  ListRoutingProfilesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListRoutingProfilesCommand,
-  serializeAws_restJson1ListRoutingProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRoutingProfilesRequest, ListRoutingProfilesResponse } from "../models/models_1";
+import { de_ListRoutingProfilesCommand, se_ListRoutingProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRoutingProfilesCommand}.
  */
 export interface ListRoutingProfilesCommandInput extends ListRoutingProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRoutingProfilesCommand}.
  */
 export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides summary information about the routing profiles for the specified Amazon Connect
  *    instance.</p>
  *          <p>For more information about routing profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html">Routing Profiles</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html">Create a Routing
@@ -45,10 +42,17 @@ export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesRes
  * import { ConnectClient, ListRoutingProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListRoutingProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListRoutingProfilesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListRoutingProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoutingProfilesCommandInput - {@link ListRoutingProfilesCommandInput}
+ * @returns {@link ListRoutingProfilesCommandOutput}
  * @see {@link ListRoutingProfilesCommandInput} for command's `input` shape.
  * @see {@link ListRoutingProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +91,9 @@ export class ListRoutingProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoutingProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListRoutingProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRoutingProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRoutingProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class ListRoutingProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoutingProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRoutingProfilesCommand(input, context);
+    return se_ListRoutingProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutingProfilesCommandOutput> {
-    return deserializeAws_restJson1ListRoutingProfilesCommand(output, context);
+    return de_ListRoutingProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

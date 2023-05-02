@@ -20,21 +20,23 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeOrderableReplicationInstancesMessage,
-  DescribeOrderableReplicationInstancesMessageFilterSensitiveLog,
   DescribeOrderableReplicationInstancesResponse,
-  DescribeOrderableReplicationInstancesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeOrderableReplicationInstancesCommand,
-  serializeAws_json1_1DescribeOrderableReplicationInstancesCommand,
+  de_DescribeOrderableReplicationInstancesCommand,
+  se_DescribeOrderableReplicationInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrderableReplicationInstancesCommand}.
  */
 export interface DescribeOrderableReplicationInstancesCommandInput
   extends DescribeOrderableReplicationInstancesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrderableReplicationInstancesCommand}.
  */
 export interface DescribeOrderableReplicationInstancesCommandOutput
@@ -42,6 +44,7 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the replication instance types that can be created in the
  *          specified region.</p>
  * @example
@@ -50,10 +53,16 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeOrderableReplicationInstancesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeOrderableReplicationInstancesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeOrderableReplicationInstancesMessage
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeOrderableReplicationInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrderableReplicationInstancesCommandInput - {@link DescribeOrderableReplicationInstancesCommandInput}
+ * @returns {@link DescribeOrderableReplicationInstancesCommandOutput}
  * @see {@link DescribeOrderableReplicationInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeOrderableReplicationInstancesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -95,6 +104,9 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrderableReplicationInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +135,8 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrderableReplicationInstancesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrderableReplicationInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +146,24 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrderableReplicationInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrderableReplicationInstancesCommand(input, context);
+    return se_DescribeOrderableReplicationInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrderableReplicationInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeOrderableReplicationInstancesCommand(output, context);
+    return de_DescribeOrderableReplicationInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

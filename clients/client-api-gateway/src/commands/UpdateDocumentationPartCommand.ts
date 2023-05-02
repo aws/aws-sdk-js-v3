@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  DocumentationPart,
-  DocumentationPartFilterSensitiveLog,
-  UpdateDocumentationPartRequest,
-  UpdateDocumentationPartRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDocumentationPartCommand,
-  serializeAws_restJson1UpdateDocumentationPartCommand,
-} from "../protocols/Aws_restJson1";
+import { DocumentationPart, UpdateDocumentationPartRequest } from "../models/models_0";
+import { de_UpdateDocumentationPartCommand, se_UpdateDocumentationPartCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDocumentationPartCommand}.
  */
 export interface UpdateDocumentationPartCommandInput extends UpdateDocumentationPartRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDocumentationPartCommand}.
  */
 export interface UpdateDocumentationPartCommandOutput extends DocumentationPart, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a documentation part.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface UpdateDocumentationPartCommandOutput extends DocumentationPart,
  * import { APIGatewayClient, UpdateDocumentationPartCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateDocumentationPartCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // UpdateDocumentationPartRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   documentationPartId: "STRING_VALUE", // required
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
+ *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
+ *       path: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       from: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateDocumentationPartCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDocumentationPartCommandInput - {@link UpdateDocumentationPartCommandInput}
+ * @returns {@link UpdateDocumentationPartCommandOutput}
  * @see {@link UpdateDocumentationPartCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentationPartCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +98,9 @@ export class UpdateDocumentationPartCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDocumentationPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +129,8 @@ export class UpdateDocumentationPartCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDocumentationPartRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DocumentationPartFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +140,18 @@ export class UpdateDocumentationPartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDocumentationPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDocumentationPartCommand(input, context);
+    return se_UpdateDocumentationPartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentationPartCommandOutput> {
-    return deserializeAws_restJson1UpdateDocumentationPartCommand(output, context);
+    return de_UpdateDocumentationPartCommand(output, context);
   }
 
   // Start section: command_body_extra

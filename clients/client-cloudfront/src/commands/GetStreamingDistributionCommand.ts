@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetStreamingDistributionRequest,
-  GetStreamingDistributionRequestFilterSensitiveLog,
-  GetStreamingDistributionResult,
-  GetStreamingDistributionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetStreamingDistributionCommand,
-  serializeAws_restXmlGetStreamingDistributionCommand,
-} from "../protocols/Aws_restXml";
+import { GetStreamingDistributionRequest, GetStreamingDistributionResult } from "../models/models_1";
+import { de_GetStreamingDistributionCommand, se_GetStreamingDistributionCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetStreamingDistributionCommand}.
  */
 export interface GetStreamingDistributionCommandInput extends GetStreamingDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStreamingDistributionCommand}.
  */
 export interface GetStreamingDistributionCommandOutput extends GetStreamingDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified RTMP distribution, including the distribution
  * 			configuration.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetStreamingDistributionCommandOutput extends GetStreamingDistr
  * import { CloudFrontClient, GetStreamingDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetStreamingDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetStreamingDistributionRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetStreamingDistributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamingDistributionCommandInput - {@link GetStreamingDistributionCommandInput}
+ * @returns {@link GetStreamingDistributionCommandOutput}
  * @see {@link GetStreamingDistributionCommandInput} for command's `input` shape.
  * @see {@link GetStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -76,6 +78,9 @@ export class GetStreamingDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamingDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class GetStreamingDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStreamingDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStreamingDistributionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class GetStreamingDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStreamingDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetStreamingDistributionCommand(input, context);
+    return se_GetStreamingDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamingDistributionCommandOutput> {
-    return deserializeAws_restXmlGetStreamingDistributionCommand(output, context);
+    return de_GetStreamingDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

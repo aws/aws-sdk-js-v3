@@ -14,38 +14,47 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  DisassociateMembersRequest,
-  DisassociateMembersRequestFilterSensitiveLog,
-  DisassociateMembersResponse,
-  DisassociateMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateMembersCommand,
-  serializeAws_restJson1DisassociateMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateMembersRequest, DisassociateMembersResponse } from "../models/models_0";
+import { de_DisassociateMembersCommand, se_DisassociateMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateMembersCommand}.
  */
 export interface DisassociateMembersCommandInput extends DisassociateMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateMembersCommand}.
  */
 export interface DisassociateMembersCommandOutput extends DisassociateMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates GuardDuty member accounts (to the current administrator account) specified by the account IDs.</p>
+ * @public
+ * <p>Disassociates GuardDuty member accounts (to the current administrator account) specified
+ *       by the account IDs.</p>
+ *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to
+ *         <code>ALL</code>, you'll receive an error if you attempt to disassociate a member account
+ *       before removing them from your Amazon Web Services organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, DisassociateMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DisassociateMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // DisassociateMembersRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   AccountIds: [ // AccountIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateMembersCommandInput - {@link DisassociateMembersCommandInput}
+ * @returns {@link DisassociateMembersCommandOutput}
  * @see {@link DisassociateMembersCommandInput} for command's `input` shape.
  * @see {@link DisassociateMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +84,9 @@ export class DisassociateMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +115,8 @@ export class DisassociateMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +126,18 @@ export class DisassociateMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateMembersCommand(input, context);
+    return se_DisassociateMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMembersCommandOutput> {
-    return deserializeAws_restJson1DisassociateMembersCommand(output, context);
+    return de_DisassociateMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

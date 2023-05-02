@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListEndpointAccessRequest,
-  ListEndpointAccessRequestFilterSensitiveLog,
-  ListEndpointAccessResponse,
-  ListEndpointAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEndpointAccessCommand,
-  serializeAws_json1_1ListEndpointAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEndpointAccessRequest, ListEndpointAccessResponse } from "../models/models_0";
+import { de_ListEndpointAccessCommand, se_ListEndpointAccessCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEndpointAccessCommand}.
  */
 export interface ListEndpointAccessCommandInput extends ListEndpointAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEndpointAccessCommand}.
  */
 export interface ListEndpointAccessCommandOutput extends ListEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>EndpointAccess</code> objects and relevant information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,18 @@ export interface ListEndpointAccessCommandOutput extends ListEndpointAccessRespo
  * import { RedshiftServerlessClient, ListEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // ListEndpointAccessRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   workgroupName: "STRING_VALUE",
+ *   vpcId: "STRING_VALUE",
+ * };
  * const command = new ListEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEndpointAccessCommandInput - {@link ListEndpointAccessCommandInput}
+ * @returns {@link ListEndpointAccessCommandOutput}
  * @see {@link ListEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link ListEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -85,6 +90,9 @@ export class ListEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class ListEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEndpointAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEndpointAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +132,18 @@ export class ListEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEndpointAccessCommand(input, context);
+    return se_ListEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEndpointAccessCommandOutput> {
-    return deserializeAws_json1_1ListEndpointAccessCommand(output, context);
+    return de_ListEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

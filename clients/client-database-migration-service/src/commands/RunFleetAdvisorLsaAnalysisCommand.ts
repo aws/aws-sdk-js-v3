@@ -18,25 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  RunFleetAdvisorLsaAnalysisResponse,
-  RunFleetAdvisorLsaAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand,
-  serializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand,
-} from "../protocols/Aws_json1_1";
+import { RunFleetAdvisorLsaAnalysisResponse } from "../models/models_0";
+import { de_RunFleetAdvisorLsaAnalysisCommand, se_RunFleetAdvisorLsaAnalysisCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RunFleetAdvisorLsaAnalysisCommand}.
  */
 export interface RunFleetAdvisorLsaAnalysisCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link RunFleetAdvisorLsaAnalysisCommand}.
  */
 export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisorLsaAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +43,13 @@ export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisor
  * import { DatabaseMigrationServiceClient, RunFleetAdvisorLsaAnalysisCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, RunFleetAdvisorLsaAnalysisCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {};
  * const command = new RunFleetAdvisorLsaAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RunFleetAdvisorLsaAnalysisCommandInput - {@link RunFleetAdvisorLsaAnalysisCommandInput}
+ * @returns {@link RunFleetAdvisorLsaAnalysisCommandOutput}
  * @see {@link RunFleetAdvisorLsaAnalysisCommandInput} for command's `input` shape.
  * @see {@link RunFleetAdvisorLsaAnalysisCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -77,6 +79,9 @@ export class RunFleetAdvisorLsaAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RunFleetAdvisorLsaAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +110,8 @@ export class RunFleetAdvisorLsaAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: RunFleetAdvisorLsaAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +121,21 @@ export class RunFleetAdvisorLsaAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RunFleetAdvisorLsaAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand(input, context);
+    return se_RunFleetAdvisorLsaAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RunFleetAdvisorLsaAnalysisCommandOutput> {
-    return deserializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand(output, context);
+    return de_RunFleetAdvisorLsaAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

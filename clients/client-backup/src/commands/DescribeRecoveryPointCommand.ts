@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  DescribeRecoveryPointInput,
-  DescribeRecoveryPointInputFilterSensitiveLog,
-  DescribeRecoveryPointOutput,
-  DescribeRecoveryPointOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRecoveryPointCommand,
-  serializeAws_restJson1DescribeRecoveryPointCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRecoveryPointInput, DescribeRecoveryPointOutput } from "../models/models_0";
+import { de_DescribeRecoveryPointCommand, se_DescribeRecoveryPointCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecoveryPointCommand}.
  */
 export interface DescribeRecoveryPointCommandInput extends DescribeRecoveryPointInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecoveryPointCommand}.
  */
 export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata associated with a recovery point, including ID, status, encryption, and
  *          lifecycle.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  * import { BackupClient, DescribeRecoveryPointCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeRecoveryPointCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DescribeRecoveryPointInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   RecoveryPointArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRecoveryPointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecoveryPointCommandInput - {@link DescribeRecoveryPointCommandInput}
+ * @returns {@link DescribeRecoveryPointCommandOutput}
  * @see {@link DescribeRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link DescribeRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -83,6 +86,9 @@ export class DescribeRecoveryPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecoveryPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class DescribeRecoveryPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecoveryPointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecoveryPointOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class DescribeRecoveryPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRecoveryPointCommand(input, context);
+    return se_DescribeRecoveryPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecoveryPointCommandOutput> {
-    return deserializeAws_restJson1DescribeRecoveryPointCommand(output, context);
+    return de_DescribeRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

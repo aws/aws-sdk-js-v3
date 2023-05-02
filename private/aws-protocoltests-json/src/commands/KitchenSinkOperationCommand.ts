@@ -13,17 +13,18 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { KitchenSink, KitchenSinkFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1KitchenSinkOperationCommand,
-  serializeAws_json1_1KitchenSinkOperationCommand,
-} from "../protocols/Aws_json1_1";
+import { KitchenSink } from "../models/models_0";
+import { de_KitchenSinkOperationCommand, se_KitchenSinkOperationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link KitchenSinkOperationCommand}.
  */
 export interface KitchenSinkOperationCommandInput extends KitchenSink {}
 /**
+ * @public
+ *
  * The output of {@link KitchenSinkOperationCommand}.
  */
 export interface KitchenSinkOperationCommandOutput extends KitchenSink, __MetadataBearer {}
@@ -36,6 +37,9 @@ export class KitchenSinkOperationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: KitchenSinkOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +65,8 @@ export class KitchenSinkOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: KitchenSinkFilterSensitiveLog,
-      outputFilterSensitiveLog: KitchenSinkFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,12 +76,18 @@ export class KitchenSinkOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: KitchenSinkOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1KitchenSinkOperationCommand(input, context);
+    return se_KitchenSinkOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<KitchenSinkOperationCommandOutput> {
-    return deserializeAws_json1_1KitchenSinkOperationCommand(output, context);
+    return de_KitchenSinkOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  UpdateRuleMetadataRequest,
-  UpdateRuleMetadataRequestFilterSensitiveLog,
-  UpdateRuleMetadataResult,
-  UpdateRuleMetadataResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRuleMetadataCommand,
-  serializeAws_json1_1UpdateRuleMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateRuleMetadataRequest, UpdateRuleMetadataResult } from "../models/models_0";
+import { de_UpdateRuleMetadataCommand, se_UpdateRuleMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuleMetadataCommand}.
  */
 export interface UpdateRuleMetadataCommandInput extends UpdateRuleMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuleMetadataCommand}.
  */
 export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a rule's metadata. The description attribute can be updated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResul
  * import { FraudDetectorClient, UpdateRuleMetadataCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateRuleMetadataCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // UpdateRuleMetadataRequest
+ *   rule: { // Rule
+ *     detectorId: "STRING_VALUE", // required
+ *     ruleId: "STRING_VALUE", // required
+ *     ruleVersion: "STRING_VALUE", // required
+ *   },
+ *   description: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRuleMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuleMetadataCommandInput - {@link UpdateRuleMetadataCommandInput}
+ * @returns {@link UpdateRuleMetadataCommandOutput}
  * @see {@link UpdateRuleMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateRuleMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuleMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +125,8 @@ export class UpdateRuleMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRuleMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRuleMetadataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +136,18 @@ export class UpdateRuleMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuleMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRuleMetadataCommand(input, context);
+    return se_UpdateRuleMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleMetadataCommandOutput> {
-    return deserializeAws_json1_1UpdateRuleMetadataCommand(output, context);
+    return de_UpdateRuleMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

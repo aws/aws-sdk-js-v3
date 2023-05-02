@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePortfolioSharesInput,
-  DescribePortfolioSharesInputFilterSensitiveLog,
-  DescribePortfolioSharesOutput,
-  DescribePortfolioSharesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePortfolioSharesCommand,
-  serializeAws_json1_1DescribePortfolioSharesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePortfolioSharesInput, DescribePortfolioSharesOutput } from "../models/models_0";
+import { de_DescribePortfolioSharesCommand, se_DescribePortfolioSharesCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePortfolioSharesCommand}.
  */
 export interface DescribePortfolioSharesCommandInput extends DescribePortfolioSharesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribePortfolioSharesCommand}.
  */
 export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a summary of each of the portfolio shares that were created for the specified portfolio.</p>
  *          <p>You can use this API to determine which accounts or organizational nodes this
  *          portfolio have been shared, whether the recipient entity has imported the share, and
@@ -46,10 +43,18 @@ export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioS
  * import { ServiceCatalogClient, DescribePortfolioSharesCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribePortfolioSharesCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribePortfolioSharesInput
+ *   PortfolioId: "STRING_VALUE", // required
+ *   Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ORGANIZATION_MEMBER_ACCOUNT", // required
+ *   PageToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new DescribePortfolioSharesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePortfolioSharesCommandInput - {@link DescribePortfolioSharesCommandInput}
+ * @returns {@link DescribePortfolioSharesCommandOutput}
  * @see {@link DescribePortfolioSharesCommandInput} for command's `input` shape.
  * @see {@link DescribePortfolioSharesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -79,6 +84,9 @@ export class DescribePortfolioSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePortfolioSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +115,8 @@ export class DescribePortfolioSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePortfolioSharesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePortfolioSharesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +126,18 @@ export class DescribePortfolioSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePortfolioSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePortfolioSharesCommand(input, context);
+    return se_DescribePortfolioSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePortfolioSharesCommandOutput> {
-    return deserializeAws_json1_1DescribePortfolioSharesCommand(output, context);
+    return de_DescribePortfolioSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

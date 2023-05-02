@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  Integration,
-  IntegrationFilterSensitiveLog,
-  PutIntegrationRequest,
-  PutIntegrationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutIntegrationCommand,
-  serializeAws_restJson1PutIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { Integration, PutIntegrationRequest } from "../models/models_0";
+import { de_PutIntegrationCommand, se_PutIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutIntegrationCommand}.
  */
 export interface PutIntegrationCommandInput extends PutIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutIntegrationCommand}.
  */
 export interface PutIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets up a method's integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,39 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  * import { APIGatewayClient, PutIntegrationCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, PutIntegrationCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // PutIntegrationRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ *   type: "HTTP" || "AWS" || "MOCK" || "HTTP_PROXY" || "AWS_PROXY", // required
+ *   integrationHttpMethod: "STRING_VALUE",
+ *   uri: "STRING_VALUE",
+ *   connectionType: "INTERNET" || "VPC_LINK",
+ *   connectionId: "STRING_VALUE",
+ *   credentials: "STRING_VALUE",
+ *   requestParameters: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   requestTemplates: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   passthroughBehavior: "STRING_VALUE",
+ *   cacheNamespace: "STRING_VALUE",
+ *   cacheKeyParameters: [ // ListOfString
+ *     "STRING_VALUE",
+ *   ],
+ *   contentHandling: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
+ *   timeoutInMillis: Number("int"),
+ *   tlsConfig: { // TlsConfig
+ *     insecureSkipVerification: true || false,
+ *   },
+ * };
  * const command = new PutIntegrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutIntegrationCommandInput - {@link PutIntegrationCommandInput}
+ * @returns {@link PutIntegrationCommandOutput}
  * @see {@link PutIntegrationCommandInput} for command's `input` shape.
  * @see {@link PutIntegrationCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +113,9 @@ export class PutIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +144,8 @@ export class PutIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: IntegrationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +155,18 @@ export class PutIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutIntegrationCommand(input, context);
+    return se_PutIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIntegrationCommandOutput> {
-    return deserializeAws_restJson1PutIntegrationCommand(output, context);
+    return de_PutIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

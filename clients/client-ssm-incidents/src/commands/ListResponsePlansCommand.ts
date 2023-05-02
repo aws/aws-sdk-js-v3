@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResponsePlansInput,
-  ListResponsePlansInputFilterSensitiveLog,
-  ListResponsePlansOutput,
-  ListResponsePlansOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListResponsePlansCommand,
-  serializeAws_restJson1ListResponsePlansCommand,
-} from "../protocols/Aws_restJson1";
+import { ListResponsePlansInput, ListResponsePlansOutput } from "../models/models_0";
+import { de_ListResponsePlansCommand, se_ListResponsePlansCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResponsePlansCommand}.
  */
 export interface ListResponsePlansCommandInput extends ListResponsePlansInput {}
 /**
+ * @public
+ *
  * The output of {@link ListResponsePlansCommand}.
  */
 export interface ListResponsePlansCommandOutput extends ListResponsePlansOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all response plans in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListResponsePlansCommandOutput extends ListResponsePlansOutput,
  * import { SSMIncidentsClient, ListResponsePlansCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, ListResponsePlansCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // ListResponsePlansInput
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListResponsePlansCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResponsePlansCommandInput - {@link ListResponsePlansCommandInput}
+ * @returns {@link ListResponsePlansCommandOutput}
  * @see {@link ListResponsePlansCommandInput} for command's `input` shape.
  * @see {@link ListResponsePlansCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -83,6 +86,9 @@ export class ListResponsePlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResponsePlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class ListResponsePlansCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResponsePlansInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResponsePlansOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class ListResponsePlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResponsePlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResponsePlansCommand(input, context);
+    return se_ListResponsePlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResponsePlansCommandOutput> {
-    return deserializeAws_restJson1ListResponsePlansCommand(output, context);
+    return de_ListResponsePlansCommand(output, context);
   }
 
   // Start section: command_body_extra

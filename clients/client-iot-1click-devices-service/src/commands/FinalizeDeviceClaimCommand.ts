@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  FinalizeDeviceClaimRequest,
-  FinalizeDeviceClaimRequestFilterSensitiveLog,
-  FinalizeDeviceClaimResponse,
-  FinalizeDeviceClaimResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1FinalizeDeviceClaimCommand,
-  serializeAws_restJson1FinalizeDeviceClaimCommand,
-} from "../protocols/Aws_restJson1";
+import { FinalizeDeviceClaimRequest, FinalizeDeviceClaimResponse } from "../models/models_0";
+import { de_FinalizeDeviceClaimCommand, se_FinalizeDeviceClaimCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link FinalizeDeviceClaimCommand}.
  */
 export interface FinalizeDeviceClaimCommandInput extends FinalizeDeviceClaimRequest {}
 /**
+ * @public
+ *
  * The output of {@link FinalizeDeviceClaimCommand}.
  */
 export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a device ID, finalizes the claim request for the associated device.</p><note>
  *  <p>Claiming a device consists of initiating a claim, then publishing a device event,
  *  and finalizing the claim. For a device of type button, a device event can
@@ -50,10 +47,18 @@ export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimRes
  * import { IoT1ClickDevicesServiceClient, FinalizeDeviceClaimCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, FinalizeDeviceClaimCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = { // FinalizeDeviceClaimRequest
+ *   DeviceId: "STRING_VALUE", // required
+ *   Tags: { // __mapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new FinalizeDeviceClaimCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param FinalizeDeviceClaimCommandInput - {@link FinalizeDeviceClaimCommandInput}
+ * @returns {@link FinalizeDeviceClaimCommandOutput}
  * @see {@link FinalizeDeviceClaimCommandInput} for command's `input` shape.
  * @see {@link FinalizeDeviceClaimCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
@@ -87,6 +92,9 @@ export class FinalizeDeviceClaimCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FinalizeDeviceClaimCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class FinalizeDeviceClaimCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FinalizeDeviceClaimRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: FinalizeDeviceClaimResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +134,18 @@ export class FinalizeDeviceClaimCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FinalizeDeviceClaimCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1FinalizeDeviceClaimCommand(input, context);
+    return se_FinalizeDeviceClaimCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FinalizeDeviceClaimCommandOutput> {
-    return deserializeAws_restJson1FinalizeDeviceClaimCommand(output, context);
+    return de_FinalizeDeviceClaimCommand(output, context);
   }
 
   // Start section: command_body_extra

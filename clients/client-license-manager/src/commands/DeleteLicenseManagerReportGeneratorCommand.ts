@@ -16,20 +16,22 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   DeleteLicenseManagerReportGeneratorRequest,
-  DeleteLicenseManagerReportGeneratorRequestFilterSensitiveLog,
   DeleteLicenseManagerReportGeneratorResponse,
-  DeleteLicenseManagerReportGeneratorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand,
-  serializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand,
+  de_DeleteLicenseManagerReportGeneratorCommand,
+  se_DeleteLicenseManagerReportGeneratorCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLicenseManagerReportGeneratorCommand}.
  */
 export interface DeleteLicenseManagerReportGeneratorCommandInput extends DeleteLicenseManagerReportGeneratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLicenseManagerReportGeneratorCommand}.
  */
 export interface DeleteLicenseManagerReportGeneratorCommandOutput
@@ -37,6 +39,7 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified report generator.</p>
  *          <p>This action deletes the report generator, which stops it from generating future reports.
  *          The action cannot be reversed. It has no effect on the previous reports from this generator.</p>
@@ -46,10 +49,15 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
  * import { LicenseManagerClient, DeleteLicenseManagerReportGeneratorCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, DeleteLicenseManagerReportGeneratorCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // DeleteLicenseManagerReportGeneratorRequest
+ *   LicenseManagerReportGeneratorArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLicenseManagerReportGeneratorCommandInput - {@link DeleteLicenseManagerReportGeneratorCommandInput}
+ * @returns {@link DeleteLicenseManagerReportGeneratorCommandOutput}
  * @see {@link DeleteLicenseManagerReportGeneratorCommandInput} for command's `input` shape.
  * @see {@link DeleteLicenseManagerReportGeneratorCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -98,6 +106,9 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLicenseManagerReportGeneratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +137,8 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLicenseManagerReportGeneratorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLicenseManagerReportGeneratorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,18 +148,24 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteLicenseManagerReportGeneratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand(input, context);
+    return se_DeleteLicenseManagerReportGeneratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLicenseManagerReportGeneratorCommandOutput> {
-    return deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand(output, context);
+    return de_DeleteLicenseManagerReportGeneratorCommand(output, context);
   }
 
   // Start section: command_body_extra

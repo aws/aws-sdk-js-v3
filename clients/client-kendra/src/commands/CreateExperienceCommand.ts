@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  CreateExperienceRequest,
-  CreateExperienceRequestFilterSensitiveLog,
-  CreateExperienceResponse,
-  CreateExperienceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateExperienceCommand,
-  serializeAws_json1_1CreateExperienceCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateExperienceRequest, CreateExperienceResponse } from "../models/models_0";
+import { de_CreateExperienceCommand, se_CreateExperienceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExperienceCommand}.
  */
 export interface CreateExperienceCommandInput extends CreateExperienceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExperienceCommand}.
  */
 export interface CreateExperienceCommandOutput extends CreateExperienceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Kendra experience such as a search application. For more information
  *             on creating a search application experience, including using the Python and Java SDKs,
  *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
@@ -45,10 +42,33 @@ export interface CreateExperienceCommandOutput extends CreateExperienceResponse,
  * import { KendraClient, CreateExperienceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateExperienceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // CreateExperienceRequest
+ *   Name: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE",
+ *   Configuration: { // ExperienceConfiguration
+ *     ContentSourceConfiguration: { // ContentSourceConfiguration
+ *       DataSourceIds: [ // DataSourceIdList
+ *         "STRING_VALUE",
+ *       ],
+ *       FaqIds: [ // FaqIdsList
+ *         "STRING_VALUE",
+ *       ],
+ *       DirectPutContent: true || false,
+ *     },
+ *     UserIdentityConfiguration: { // UserIdentityConfiguration
+ *       IdentityAttributeName: "STRING_VALUE",
+ *     },
+ *   },
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateExperienceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExperienceCommandInput - {@link CreateExperienceCommandInput}
+ * @returns {@link CreateExperienceCommandOutput}
  * @see {@link CreateExperienceCommandInput} for command's `input` shape.
  * @see {@link CreateExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -63,7 +83,7 @@ export interface CreateExperienceCommandOutput extends CreateExperienceResponse,
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -71,7 +91,8 @@ export interface CreateExperienceCommandOutput extends CreateExperienceResponse,
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             Quotas[hyperlink Kendra Quotas pg] for more information, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> to inquire about
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
+ *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
  *             an increase of limits.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -101,6 +122,9 @@ export class CreateExperienceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExperienceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +153,8 @@ export class CreateExperienceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateExperienceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateExperienceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +164,18 @@ export class CreateExperienceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExperienceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateExperienceCommand(input, context);
+    return se_CreateExperienceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExperienceCommandOutput> {
-    return deserializeAws_json1_1CreateExperienceCommand(output, context);
+    return de_CreateExperienceCommand(output, context);
   }
 
   // Start section: command_body_extra

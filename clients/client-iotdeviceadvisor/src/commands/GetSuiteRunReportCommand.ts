@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
-import {
-  GetSuiteRunReportRequest,
-  GetSuiteRunReportRequestFilterSensitiveLog,
-  GetSuiteRunReportResponse,
-  GetSuiteRunReportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSuiteRunReportCommand,
-  serializeAws_restJson1GetSuiteRunReportCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSuiteRunReportRequest, GetSuiteRunReportResponse } from "../models/models_0";
+import { de_GetSuiteRunReportCommand, se_GetSuiteRunReportCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSuiteRunReportCommand}.
  */
 export interface GetSuiteRunReportCommandInput extends GetSuiteRunReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSuiteRunReportCommand}.
  */
 export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a report download link for a successful Device Advisor qualifying test suite run.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteRunReport</a> action.</p>
  * @example
@@ -43,10 +40,16 @@ export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportRespons
  * import { IotDeviceAdvisorClient, GetSuiteRunReportCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, GetSuiteRunReportCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
+ * const input = { // GetSuiteRunReportRequest
+ *   suiteDefinitionId: "STRING_VALUE", // required
+ *   suiteRunId: "STRING_VALUE", // required
+ * };
  * const command = new GetSuiteRunReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSuiteRunReportCommandInput - {@link GetSuiteRunReportCommandInput}
+ * @returns {@link GetSuiteRunReportCommandOutput}
  * @see {@link GetSuiteRunReportCommandInput} for command's `input` shape.
  * @see {@link GetSuiteRunReportCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
@@ -79,6 +82,9 @@ export class GetSuiteRunReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSuiteRunReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class GetSuiteRunReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSuiteRunReportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSuiteRunReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class GetSuiteRunReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSuiteRunReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSuiteRunReportCommand(input, context);
+    return se_GetSuiteRunReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSuiteRunReportCommandOutput> {
-    return deserializeAws_restJson1GetSuiteRunReportCommand(output, context);
+    return de_GetSuiteRunReportCommand(output, context);
   }
 
   // Start section: command_body_extra

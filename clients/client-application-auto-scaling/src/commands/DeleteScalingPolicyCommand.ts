@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  DeleteScalingPolicyRequest,
-  DeleteScalingPolicyRequestFilterSensitiveLog,
-  DeleteScalingPolicyResponse,
-  DeleteScalingPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteScalingPolicyCommand,
-  serializeAws_json1_1DeleteScalingPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteScalingPolicyRequest, DeleteScalingPolicyResponse } from "../models/models_0";
+import { de_DeleteScalingPolicyCommand, se_DeleteScalingPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScalingPolicyCommand}.
  */
 export interface DeleteScalingPolicyCommandInput extends DeleteScalingPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScalingPolicyCommand}.
  */
 export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified scaling policy for an Application Auto Scaling scalable target.</p>
  *          <p>Deleting a step scaling policy deletes the underlying alarm action, but does not delete
  *          the CloudWatch alarm associated with the scaling policy, even if it no longer has an associated
@@ -51,10 +48,18 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  * import { ApplicationAutoScalingClient, DeleteScalingPolicyCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, DeleteScalingPolicyCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
+ * const input = { // DeleteScalingPolicyRequest
+ *   PolicyName: "STRING_VALUE", // required
+ *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount", // required
+ * };
  * const command = new DeleteScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScalingPolicyCommandInput - {@link DeleteScalingPolicyCommandInput}
+ * @returns {@link DeleteScalingPolicyCommandOutput}
  * @see {@link DeleteScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -110,6 +115,9 @@ export class DeleteScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +146,8 @@ export class DeleteScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScalingPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScalingPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +157,18 @@ export class DeleteScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteScalingPolicyCommand(input, context);
+    return se_DeleteScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteScalingPolicyCommand(output, context);
+    return de_DeleteScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

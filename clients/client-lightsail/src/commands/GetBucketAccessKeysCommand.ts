@@ -16,25 +16,26 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
   GetBucketAccessKeysRequest,
-  GetBucketAccessKeysRequestFilterSensitiveLog,
   GetBucketAccessKeysResult,
   GetBucketAccessKeysResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetBucketAccessKeysCommand,
-  serializeAws_json1_1GetBucketAccessKeysCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetBucketAccessKeysCommand, se_GetBucketAccessKeysCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketAccessKeysCommand}.
  */
 export interface GetBucketAccessKeysCommandInput extends GetBucketAccessKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketAccessKeysCommand}.
  */
 export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the existing access key IDs for the specified Amazon Lightsail bucket.</p>
  *          <important>
  *             <p>This action does not return the secret access key value of an access key. You can get a
@@ -47,10 +48,15 @@ export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysRes
  * import { LightsailClient, GetBucketAccessKeysCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBucketAccessKeysCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetBucketAccessKeysRequest
+ *   bucketName: "STRING_VALUE", // required
+ * };
  * const command = new GetBucketAccessKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketAccessKeysCommandInput - {@link GetBucketAccessKeysCommandInput}
+ * @returns {@link GetBucketAccessKeysCommandOutput}
  * @see {@link GetBucketAccessKeysCommandInput} for command's `input` shape.
  * @see {@link GetBucketAccessKeysCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -97,6 +103,9 @@ export class GetBucketAccessKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketAccessKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,7 +134,7 @@ export class GetBucketAccessKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketAccessKeysRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetBucketAccessKeysResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -136,12 +145,18 @@ export class GetBucketAccessKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketAccessKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBucketAccessKeysCommand(input, context);
+    return se_GetBucketAccessKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketAccessKeysCommandOutput> {
-    return deserializeAws_json1_1GetBucketAccessKeysCommand(output, context);
+    return de_GetBucketAccessKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeregisterDelegatedAdministratorRequest,
-  DeregisterDelegatedAdministratorRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterDelegatedAdministratorRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1DeregisterDelegatedAdministratorCommand,
-  serializeAws_json1_1DeregisterDelegatedAdministratorCommand,
+  de_DeregisterDelegatedAdministratorCommand,
+  se_DeregisterDelegatedAdministratorCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterDelegatedAdministratorCommand}.
  */
 export interface DeregisterDelegatedAdministratorCommandInput extends DeregisterDelegatedAdministratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterDelegatedAdministratorCommand}.
  */
 export interface DeregisterDelegatedAdministratorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified member Amazon Web Services account as a delegated administrator for the
  *             specified Amazon Web Services service.</p>
  *          <important>
@@ -53,10 +55,16 @@ export interface DeregisterDelegatedAdministratorCommandOutput extends __Metadat
  * import { OrganizationsClient, DeregisterDelegatedAdministratorCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DeregisterDelegatedAdministratorCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // DeregisterDelegatedAdministratorRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   ServicePrincipal: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterDelegatedAdministratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterDelegatedAdministratorCommandInput - {@link DeregisterDelegatedAdministratorCommandInput}
+ * @returns {@link DeregisterDelegatedAdministratorCommandOutput}
  * @see {@link DeregisterDelegatedAdministratorCommandInput} for command's `input` shape.
  * @see {@link DeregisterDelegatedAdministratorCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -418,6 +426,9 @@ export class DeregisterDelegatedAdministratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterDelegatedAdministratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -446,8 +457,8 @@ export class DeregisterDelegatedAdministratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterDelegatedAdministratorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -457,18 +468,24 @@ export class DeregisterDelegatedAdministratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterDelegatedAdministratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterDelegatedAdministratorCommand(input, context);
+    return se_DeregisterDelegatedAdministratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterDelegatedAdministratorCommandOutput> {
-    return deserializeAws_json1_1DeregisterDelegatedAdministratorCommand(output, context);
+    return de_DeregisterDelegatedAdministratorCommand(output, context);
   }
 
   // Start section: command_body_extra

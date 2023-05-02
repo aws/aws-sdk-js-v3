@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { DeleteEventActionRequest, DeleteEventActionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEventActionCommand,
-  serializeAws_restJson1DeleteEventActionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteEventActionRequest } from "../models/models_0";
+import { de_DeleteEventActionCommand, se_DeleteEventActionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventActionCommand}.
  */
 export interface DeleteEventActionCommandInput extends DeleteEventActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventActionCommand}.
  */
 export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes the event action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
  * import { DataExchangeClient, DeleteEventActionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, DeleteEventActionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // DeleteEventActionRequest
+ *   EventActionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventActionCommandInput - {@link DeleteEventActionCommandInput}
+ * @returns {@link DeleteEventActionCommandOutput}
  * @see {@link DeleteEventActionCommandInput} for command's `input` shape.
  * @see {@link DeleteEventActionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteEventActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +114,8 @@ export class DeleteEventActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +125,18 @@ export class DeleteEventActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEventActionCommand(input, context);
+    return se_DeleteEventActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventActionCommandOutput> {
-    return deserializeAws_restJson1DeleteEventActionCommand(output, context);
+    return de_DeleteEventActionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateVocabularyRequest,
-  CreateVocabularyRequestFilterSensitiveLog,
-  CreateVocabularyResponse,
-  CreateVocabularyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateVocabularyCommand,
-  serializeAws_json1_1CreateVocabularyCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateVocabularyRequest, CreateVocabularyResponse } from "../models/models_0";
+import { de_CreateVocabularyCommand, se_CreateVocabularyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVocabularyCommand}.
  */
 export interface CreateVocabularyCommandInput extends CreateVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVocabularyCommand}.
  */
 export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom vocabulary.</p>
  *          <p>When creating a new custom vocabulary, you can either upload a text file that contains
  *             your new entries, phrases, and terms into an Amazon S3 bucket and include the
@@ -52,10 +49,27 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * import { TranscribeClient, CreateVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, CreateVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // CreateVocabularyRequest
+ *   VocabularyName: "STRING_VALUE", // required
+ *   LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE", // required
+ *   Phrases: [ // Phrases
+ *     "STRING_VALUE",
+ *   ],
+ *   VocabularyFileUri: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DataAccessRoleArn: "STRING_VALUE",
+ * };
  * const command = new CreateVocabularyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVocabularyCommandInput - {@link CreateVocabularyCommandInput}
+ * @returns {@link CreateVocabularyCommandOutput}
  * @see {@link CreateVocabularyCommandInput} for command's `input` shape.
  * @see {@link CreateVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -97,6 +111,9 @@ export class CreateVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +142,8 @@ export class CreateVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVocabularyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +153,18 @@ export class CreateVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVocabularyCommand(input, context);
+    return se_CreateVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVocabularyCommandOutput> {
-    return deserializeAws_json1_1CreateVocabularyCommand(output, context);
+    return de_CreateVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

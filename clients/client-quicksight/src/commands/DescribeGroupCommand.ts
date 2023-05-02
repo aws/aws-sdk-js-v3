@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeGroupRequest,
-  DescribeGroupRequestFilterSensitiveLog,
-  DescribeGroupResponse,
-  DescribeGroupResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeGroupCommand,
-  serializeAws_restJson1DescribeGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeGroupRequest, DescribeGroupResponse } from "../models/models_2";
+import { de_DescribeGroupCommand, se_DescribeGroupCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGroupCommand}.
  */
 export interface DescribeGroupCommandInput extends DescribeGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGroupCommand}.
  */
 export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * import { QuickSightClient, DescribeGroupCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeGroupCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeGroupRequest
+ *   GroupName: "STRING_VALUE", // required
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGroupCommandInput - {@link DescribeGroupCommandInput}
+ * @returns {@link DescribeGroupCommandOutput}
  * @see {@link DescribeGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +97,9 @@ export class DescribeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +126,8 @@ export class DescribeGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +137,18 @@ export class DescribeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeGroupCommand(input, context);
+    return se_DescribeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupCommandOutput> {
-    return deserializeAws_restJson1DescribeGroupCommand(output, context);
+    return de_DescribeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

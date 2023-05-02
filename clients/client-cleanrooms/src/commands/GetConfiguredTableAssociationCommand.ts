@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import { GetConfiguredTableAssociationInput, GetConfiguredTableAssociationOutput } from "../models/models_0";
 import {
-  GetConfiguredTableAssociationInput,
-  GetConfiguredTableAssociationInputFilterSensitiveLog,
-  GetConfiguredTableAssociationOutput,
-  GetConfiguredTableAssociationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConfiguredTableAssociationCommand,
-  serializeAws_restJson1GetConfiguredTableAssociationCommand,
+  de_GetConfiguredTableAssociationCommand,
+  se_GetConfiguredTableAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfiguredTableAssociationCommand}.
  */
 export interface GetConfiguredTableAssociationCommandInput extends GetConfiguredTableAssociationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetConfiguredTableAssociationCommand}.
  */
 export interface GetConfiguredTableAssociationCommandOutput
@@ -37,6 +36,7 @@ export interface GetConfiguredTableAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a configured table association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface GetConfiguredTableAssociationCommandOutput
  * import { CleanRoomsClient, GetConfiguredTableAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetConfiguredTableAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // GetConfiguredTableAssociationInput
+ *   configuredTableAssociationIdentifier: "STRING_VALUE", // required
+ *   membershipIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetConfiguredTableAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfiguredTableAssociationCommandInput - {@link GetConfiguredTableAssociationCommandInput}
+ * @returns {@link GetConfiguredTableAssociationCommandOutput}
  * @see {@link GetConfiguredTableAssociationCommandInput} for command's `input` shape.
  * @see {@link GetConfiguredTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -86,6 +92,9 @@ export class GetConfiguredTableAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfiguredTableAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +123,8 @@ export class GetConfiguredTableAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConfiguredTableAssociationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConfiguredTableAssociationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +134,21 @@ export class GetConfiguredTableAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfiguredTableAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConfiguredTableAssociationCommand(input, context);
+    return se_GetConfiguredTableAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConfiguredTableAssociationCommandOutput> {
-    return deserializeAws_restJson1GetConfiguredTableAssociationCommand(output, context);
+    return de_GetConfiguredTableAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

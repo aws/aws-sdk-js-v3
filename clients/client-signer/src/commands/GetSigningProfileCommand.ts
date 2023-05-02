@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSigningProfileRequest,
-  GetSigningProfileRequestFilterSensitiveLog,
-  GetSigningProfileResponse,
-  GetSigningProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSigningProfileCommand,
-  serializeAws_restJson1GetSigningProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSigningProfileRequest, GetSigningProfileResponse } from "../models/models_0";
+import { de_GetSigningProfileCommand, se_GetSigningProfileCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSigningProfileCommand}.
  */
 export interface GetSigningProfileCommandInput extends GetSigningProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSigningProfileCommand}.
  */
 export interface GetSigningProfileCommandOutput extends GetSigningProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information on a specific signing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetSigningProfileCommandOutput extends GetSigningProfileRespons
  * import { SignerClient, GetSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, GetSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = { // GetSigningProfileRequest
+ *   profileName: "STRING_VALUE", // required
+ *   profileOwner: "STRING_VALUE",
+ * };
  * const command = new GetSigningProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSigningProfileCommandInput - {@link GetSigningProfileCommandInput}
+ * @returns {@link GetSigningProfileCommandOutput}
  * @see {@link GetSigningProfileCommandInput} for command's `input` shape.
  * @see {@link GetSigningProfileCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -82,6 +85,9 @@ export class GetSigningProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSigningProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class GetSigningProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSigningProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSigningProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class GetSigningProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSigningProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSigningProfileCommand(input, context);
+    return se_GetSigningProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSigningProfileCommandOutput> {
-    return deserializeAws_restJson1GetSigningProfileCommand(output, context);
+    return de_GetSigningProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

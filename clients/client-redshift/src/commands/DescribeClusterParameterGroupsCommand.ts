@@ -13,28 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ClusterParameterGroupsMessage, DescribeClusterParameterGroupsMessage } from "../models/models_0";
 import {
-  ClusterParameterGroupsMessage,
-  ClusterParameterGroupsMessageFilterSensitiveLog,
-  DescribeClusterParameterGroupsMessage,
-  DescribeClusterParameterGroupsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterParameterGroupsCommand,
-  serializeAws_queryDescribeClusterParameterGroupsCommand,
+  de_DescribeClusterParameterGroupsCommand,
+  se_DescribeClusterParameterGroupsCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterParameterGroupsCommand}.
  */
 export interface DescribeClusterParameterGroupsCommandInput extends DescribeClusterParameterGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterParameterGroupsCommand}.
  */
 export interface DescribeClusterParameterGroupsCommandOutput extends ClusterParameterGroupsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Amazon Redshift parameter groups, including parameter groups you
  *             created and the default parameter group. For each parameter group, the response includes
  *             the parameter group name, description, and parameter group family name. You can
@@ -58,10 +58,23 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  * import { RedshiftClient, DescribeClusterParameterGroupsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterParameterGroupsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeClusterParameterGroupsMessage
+ *   ParameterGroupName: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   TagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [ // TagValueList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeClusterParameterGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterParameterGroupsCommandInput - {@link DescribeClusterParameterGroupsCommandInput}
+ * @returns {@link DescribeClusterParameterGroupsCommandOutput}
  * @see {@link DescribeClusterParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -91,6 +104,9 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +135,8 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterParameterGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ClusterParameterGroupsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +146,24 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeClusterParameterGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterParameterGroupsCommand(input, context);
+    return se_DescribeClusterParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterParameterGroupsCommandOutput> {
-    return deserializeAws_queryDescribeClusterParameterGroupsCommand(output, context);
+    return de_DescribeClusterParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteVpcLinkRequest, DeleteVpcLinkRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVpcLinkCommand,
-  serializeAws_restJson1DeleteVpcLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVpcLinkRequest } from "../models/models_0";
+import { de_DeleteVpcLinkCommand, se_DeleteVpcLinkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcLinkCommand}.
  */
 export interface DeleteVpcLinkCommandInput extends DeleteVpcLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcLinkCommand}.
  */
 export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing VpcLink of a specified identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteVpcLinkCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteVpcLinkCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteVpcLinkRequest
+ *   vpcLinkId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpcLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcLinkCommandInput - {@link DeleteVpcLinkCommandInput}
+ * @returns {@link DeleteVpcLinkCommandOutput}
  * @see {@link DeleteVpcLinkCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteVpcLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +115,8 @@ export class DeleteVpcLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +126,18 @@ export class DeleteVpcLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVpcLinkCommand(input, context);
+    return se_DeleteVpcLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcLinkCommandOutput> {
-    return deserializeAws_restJson1DeleteVpcLinkCommand(output, context);
+    return de_DeleteVpcLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

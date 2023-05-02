@@ -21,22 +21,77 @@ import {
   PutSipMediaApplicationAlexaSkillConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutSipMediaApplicationAlexaSkillConfigurationCommand,
-  serializeAws_restJson1PutSipMediaApplicationAlexaSkillConfigurationCommand,
+  de_PutSipMediaApplicationAlexaSkillConfigurationCommand,
+  se_PutSipMediaApplicationAlexaSkillConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSipMediaApplicationAlexaSkillConfigurationCommand}.
  */
 export interface PutSipMediaApplicationAlexaSkillConfigurationCommandInput
   extends PutSipMediaApplicationAlexaSkillConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSipMediaApplicationAlexaSkillConfigurationCommand}.
  */
 export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
   extends PutSipMediaApplicationAlexaSkillConfigurationResponse,
     __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Updates the Alexa Skill configuration for the SIP media application.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, PutSipMediaApplicationAlexaSkillConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, PutSipMediaApplicationAlexaSkillConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // PutSipMediaApplicationAlexaSkillConfigurationRequest
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   SipMediaApplicationAlexaSkillConfiguration: { // SipMediaApplicationAlexaSkillConfiguration
+ *     AlexaSkillStatus: "ACTIVE" || "INACTIVE", // required
+ *     AlexaSkillIds: [ // AlexaSkillIdList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ * const command = new PutSipMediaApplicationAlexaSkillConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param PutSipMediaApplicationAlexaSkillConfigurationCommandInput - {@link PutSipMediaApplicationAlexaSkillConfigurationCommandInput}
+ * @returns {@link PutSipMediaApplicationAlexaSkillConfigurationCommandOutput}
+ * @see {@link PutSipMediaApplicationAlexaSkillConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutSipMediaApplicationAlexaSkillConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class PutSipMediaApplicationAlexaSkillConfigurationCommand extends $Command<
   PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
   PutSipMediaApplicationAlexaSkillConfigurationCommandOutput,
@@ -54,6 +109,9 @@ export class PutSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSipMediaApplicationAlexaSkillConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,18 +157,24 @@ export class PutSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSipMediaApplicationAlexaSkillConfigurationCommand(input, context);
+    return se_PutSipMediaApplicationAlexaSkillConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutSipMediaApplicationAlexaSkillConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutSipMediaApplicationAlexaSkillConfigurationCommand(output, context);
+    return de_PutSipMediaApplicationAlexaSkillConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

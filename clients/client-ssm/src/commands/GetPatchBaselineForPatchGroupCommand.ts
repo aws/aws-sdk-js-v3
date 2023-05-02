@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetPatchBaselineForPatchGroupRequest, GetPatchBaselineForPatchGroupResult } from "../models/models_1";
 import {
-  GetPatchBaselineForPatchGroupRequest,
-  GetPatchBaselineForPatchGroupRequestFilterSensitiveLog,
-  GetPatchBaselineForPatchGroupResult,
-  GetPatchBaselineForPatchGroupResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetPatchBaselineForPatchGroupCommand,
-  serializeAws_json1_1GetPatchBaselineForPatchGroupCommand,
+  de_GetPatchBaselineForPatchGroupCommand,
+  se_GetPatchBaselineForPatchGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPatchBaselineForPatchGroupCommand}.
  */
 export interface GetPatchBaselineForPatchGroupCommandInput extends GetPatchBaselineForPatchGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPatchBaselineForPatchGroupCommand}.
  */
 export interface GetPatchBaselineForPatchGroupCommandOutput
@@ -37,6 +36,7 @@ export interface GetPatchBaselineForPatchGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the patch baseline that should be used for the specified patch group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface GetPatchBaselineForPatchGroupCommandOutput
  * import { SSMClient, GetPatchBaselineForPatchGroupCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetPatchBaselineForPatchGroupCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetPatchBaselineForPatchGroupRequest
+ *   PatchGroup: "STRING_VALUE", // required
+ *   OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
+ * };
  * const command = new GetPatchBaselineForPatchGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPatchBaselineForPatchGroupCommandInput - {@link GetPatchBaselineForPatchGroupCommandInput}
+ * @returns {@link GetPatchBaselineForPatchGroupCommandOutput}
  * @see {@link GetPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link GetPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -74,6 +80,9 @@ export class GetPatchBaselineForPatchGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPatchBaselineForPatchGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +111,8 @@ export class GetPatchBaselineForPatchGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPatchBaselineForPatchGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPatchBaselineForPatchGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +122,21 @@ export class GetPatchBaselineForPatchGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPatchBaselineForPatchGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPatchBaselineForPatchGroupCommand(input, context);
+    return se_GetPatchBaselineForPatchGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPatchBaselineForPatchGroupCommandOutput> {
-    return deserializeAws_json1_1GetPatchBaselineForPatchGroupCommand(output, context);
+    return de_GetPatchBaselineForPatchGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

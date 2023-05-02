@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeInternetGatewaysRequest,
-  DescribeInternetGatewaysRequestFilterSensitiveLog,
-  DescribeInternetGatewaysResult,
-  DescribeInternetGatewaysResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeInternetGatewaysCommand,
-  serializeAws_ec2DescribeInternetGatewaysCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeInternetGatewaysRequest, DescribeInternetGatewaysResult } from "../models/models_4";
+import { de_DescribeInternetGatewaysCommand, se_DescribeInternetGatewaysCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInternetGatewaysCommand}.
  */
 export interface DescribeInternetGatewaysCommandInput extends DescribeInternetGatewaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInternetGatewaysCommand}.
  */
 export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetGatewaysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your internet gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  * import { EC2Client, DescribeInternetGatewaysCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeInternetGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeInternetGatewaysRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   InternetGatewayIds: [ // InternetGatewayIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeInternetGatewaysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInternetGatewaysCommandInput - {@link DescribeInternetGatewaysCommandInput}
+ * @returns {@link DescribeInternetGatewaysCommandOutput}
  * @see {@link DescribeInternetGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeInternetGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -103,6 +118,9 @@ export class DescribeInternetGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInternetGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +149,8 @@ export class DescribeInternetGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInternetGatewaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInternetGatewaysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +160,18 @@ export class DescribeInternetGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInternetGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInternetGatewaysCommand(input, context);
+    return se_DescribeInternetGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInternetGatewaysCommandOutput> {
-    return deserializeAws_ec2DescribeInternetGatewaysCommand(output, context);
+    return de_DescribeInternetGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  PutLifecycleHookAnswer,
-  PutLifecycleHookAnswerFilterSensitiveLog,
-  PutLifecycleHookType,
-  PutLifecycleHookTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryPutLifecycleHookCommand,
-  serializeAws_queryPutLifecycleHookCommand,
-} from "../protocols/Aws_query";
+import { PutLifecycleHookAnswer, PutLifecycleHookType } from "../models/models_0";
+import { de_PutLifecycleHookCommand, se_PutLifecycleHookCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutLifecycleHookCommand}.
  */
 export interface PutLifecycleHookCommandInput extends PutLifecycleHookType {}
 /**
+ * @public
+ *
  * The output of {@link PutLifecycleHookCommand}.
  */
 export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p>
  *          <p>Lifecycle hooks let you create solutions that are aware of events in the Auto Scaling instance
  *             lifecycle, and then perform a custom action on instances when the corresponding
@@ -84,10 +81,22 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  * import { AutoScalingClient, PutLifecycleHookCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutLifecycleHookCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // PutLifecycleHookType
+ *   LifecycleHookName: "STRING_VALUE", // required
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   LifecycleTransition: "STRING_VALUE",
+ *   RoleARN: "STRING_VALUE",
+ *   NotificationTargetARN: "STRING_VALUE",
+ *   NotificationMetadata: "STRING_VALUE",
+ *   HeartbeatTimeout: Number("int"),
+ *   DefaultResult: "STRING_VALUE",
+ * };
  * const command = new PutLifecycleHookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLifecycleHookCommandInput - {@link PutLifecycleHookCommandInput}
+ * @returns {@link PutLifecycleHookCommandOutput}
  * @see {@link PutLifecycleHookCommandInput} for command's `input` shape.
  * @see {@link PutLifecycleHookCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -136,6 +145,9 @@ export class PutLifecycleHookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLifecycleHookCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,8 +176,8 @@ export class PutLifecycleHookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLifecycleHookTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: PutLifecycleHookAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -175,12 +187,18 @@ export class PutLifecycleHookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLifecycleHookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutLifecycleHookCommand(input, context);
+    return se_PutLifecycleHookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLifecycleHookCommandOutput> {
-    return deserializeAws_queryPutLifecycleHookCommand(output, context);
+    return de_PutLifecycleHookCommand(output, context);
   }
 
   // Start section: command_body_extra

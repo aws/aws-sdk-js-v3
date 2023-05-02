@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopProcessingJobRequest, StopProcessingJobRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopProcessingJobCommand,
-  serializeAws_json1_1StopProcessingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopProcessingJobRequest } from "../models/models_3";
+import { de_StopProcessingJobCommand, se_StopProcessingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopProcessingJobCommand}.
  */
 export interface StopProcessingJobCommandInput extends StopProcessingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopProcessingJobCommand}.
  */
 export interface StopProcessingJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a processing job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface StopProcessingJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopProcessingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopProcessingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopProcessingJobRequest
+ *   ProcessingJobName: "STRING_VALUE", // required
+ * };
  * const command = new StopProcessingJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopProcessingJobCommandInput - {@link StopProcessingJobCommandInput}
+ * @returns {@link StopProcessingJobCommandOutput}
  * @see {@link StopProcessingJobCommandInput} for command's `input` shape.
  * @see {@link StopProcessingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class StopProcessingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopProcessingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +105,8 @@ export class StopProcessingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopProcessingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +116,18 @@ export class StopProcessingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopProcessingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopProcessingJobCommand(input, context);
+    return se_StopProcessingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopProcessingJobCommandOutput> {
-    return deserializeAws_json1_1StopProcessingJobCommand(output, context);
+    return de_StopProcessingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

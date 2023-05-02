@@ -13,5 +13,7 @@ export * from "./DescribeScalingActivitiesPaginator";
 export * from "./DescribeScheduledActionsPaginator";
 
 export * from "./DescribeTagsPaginator";
+
+export * from "./DescribeTrafficSourcesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";

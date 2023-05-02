@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
+import { ListUsageForLicenseConfigurationRequest, ListUsageForLicenseConfigurationResponse } from "../models/models_0";
 import {
-  ListUsageForLicenseConfigurationRequest,
-  ListUsageForLicenseConfigurationRequestFilterSensitiveLog,
-  ListUsageForLicenseConfigurationResponse,
-  ListUsageForLicenseConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListUsageForLicenseConfigurationCommand,
-  serializeAws_json1_1ListUsageForLicenseConfigurationCommand,
+  de_ListUsageForLicenseConfigurationCommand,
+  se_ListUsageForLicenseConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUsageForLicenseConfigurationCommand}.
  */
 export interface ListUsageForLicenseConfigurationCommandInput extends ListUsageForLicenseConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUsageForLicenseConfigurationCommand}.
  */
 export interface ListUsageForLicenseConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface ListUsageForLicenseConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all license usage records for a license configuration, displaying license
  *          consumption details by resource at a selected point in time. Use this action to audit the
  *          current license consumption for any license inventory and configuration.</p>
@@ -46,10 +46,25 @@ export interface ListUsageForLicenseConfigurationCommandOutput
  * import { LicenseManagerClient, ListUsageForLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListUsageForLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListUsageForLicenseConfigurationRequest
+ *   LicenseConfigurationArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListUsageForLicenseConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUsageForLicenseConfigurationCommandInput - {@link ListUsageForLicenseConfigurationCommandInput}
+ * @returns {@link ListUsageForLicenseConfigurationCommandOutput}
  * @see {@link ListUsageForLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link ListUsageForLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -92,6 +107,9 @@ export class ListUsageForLicenseConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUsageForLicenseConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +138,8 @@ export class ListUsageForLicenseConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUsageForLicenseConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUsageForLicenseConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +149,24 @@ export class ListUsageForLicenseConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListUsageForLicenseConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUsageForLicenseConfigurationCommand(input, context);
+    return se_ListUsageForLicenseConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListUsageForLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1ListUsageForLicenseConfigurationCommand(output, context);
+    return de_ListUsageForLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

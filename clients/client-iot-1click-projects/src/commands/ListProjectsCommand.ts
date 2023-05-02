@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import {
-  ListProjectsRequest,
-  ListProjectsRequestFilterSensitiveLog,
-  ListProjectsResponse,
-  ListProjectsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProjectsCommand,
-  serializeAws_restJson1ListProjectsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProjectsRequest, ListProjectsResponse } from "../models/models_0";
+import { de_ListProjectsCommand, se_ListProjectsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProjectsCommand}.
  */
 export interface ListProjectsCommandInput extends ListProjectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProjectsCommand}.
  */
 export interface ListProjectsCommandOutput extends ListProjectsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the AWS IoT 1-Click project(s) associated with your AWS account and region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,16 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * import { IoT1ClickProjectsClient, ListProjectsCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, ListProjectsCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
+ * const input = { // ListProjectsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
+ * @returns {@link ListProjectsCommandOutput}
  * @see {@link ListProjectsCommandInput} for command's `input` shape.
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
@@ -79,6 +82,9 @@ export class ListProjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +111,8 @@ export class ListProjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProjectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProjectsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +122,18 @@ export class ListProjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProjectsCommand(input, context);
+    return se_ListProjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProjectsCommandOutput> {
-    return deserializeAws_restJson1ListProjectsCommand(output, context);
+    return de_ListProjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteFolderMembershipRequest,
-  DeleteFolderMembershipRequestFilterSensitiveLog,
-  DeleteFolderMembershipResponse,
-  DeleteFolderMembershipResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteFolderMembershipCommand,
-  serializeAws_restJson1DeleteFolderMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFolderMembershipRequest, DeleteFolderMembershipResponse } from "../models/models_2";
+import { de_DeleteFolderMembershipCommand, se_DeleteFolderMembershipCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFolderMembershipCommand}.
  */
 export interface DeleteFolderMembershipCommandInput extends DeleteFolderMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFolderMembershipCommand}.
  */
 export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an asset, such as a dashboard, analysis, or dataset, from a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  * import { QuickSightClient, DeleteFolderMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteFolderMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DeleteFolderMembershipRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   FolderId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE", // required
+ *   MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET", // required
+ * };
  * const command = new DeleteFolderMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFolderMembershipCommandInput - {@link DeleteFolderMembershipCommandInput}
+ * @returns {@link DeleteFolderMembershipCommandOutput}
  * @see {@link DeleteFolderMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteFolderMembershipCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +98,9 @@ export class DeleteFolderMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFolderMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +129,8 @@ export class DeleteFolderMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFolderMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFolderMembershipResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +140,18 @@ export class DeleteFolderMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFolderMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFolderMembershipCommand(input, context);
+    return se_DeleteFolderMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFolderMembershipCommandOutput> {
-    return deserializeAws_restJson1DeleteFolderMembershipCommand(output, context);
+    return de_DeleteFolderMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDeviceInput,
-  DescribeDeviceInputFilterSensitiveLog,
-  DescribeDeviceOutput,
-  DescribeDeviceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDeviceCommand,
-  serializeAws_restJson1DescribeDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDeviceInput, DescribeDeviceOutput } from "../models/models_0";
+import { de_DescribeDeviceCommand, se_DescribeDeviceCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../SnowDeviceManagementClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDeviceCommand}.
  */
 export interface DescribeDeviceCommandInput extends DescribeDeviceInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDeviceCommand}.
  */
 export interface DescribeDeviceCommandOutput extends DescribeDeviceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks device-specific information, such as the device type, software version, IP
  *       addresses, and lock status.</p>
  * @example
@@ -47,10 +44,15 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceOutput, __Met
  * import { SnowDeviceManagementClient, DescribeDeviceCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, DescribeDeviceCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = { // DescribeDeviceInput
+ *   managedDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeviceCommandInput - {@link DescribeDeviceCommandInput}
+ * @returns {@link DescribeDeviceCommandOutput}
  * @see {@link DescribeDeviceCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
@@ -89,6 +91,9 @@ export class DescribeDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class DescribeDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDeviceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDeviceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class DescribeDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDeviceCommand(input, context);
+    return se_DescribeDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeviceCommandOutput> {
-    return deserializeAws_restJson1DescribeDeviceCommand(output, context);
+    return de_DescribeDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

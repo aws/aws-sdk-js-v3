@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import {
-  AssociatePricingRulesInput,
-  AssociatePricingRulesInputFilterSensitiveLog,
-  AssociatePricingRulesOutput,
-  AssociatePricingRulesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociatePricingRulesCommand,
-  serializeAws_restJson1AssociatePricingRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociatePricingRulesInput, AssociatePricingRulesOutput } from "../models/models_0";
+import { de_AssociatePricingRulesCommand, se_AssociatePricingRulesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePricingRulesCommand}.
  */
 export interface AssociatePricingRulesCommandInput extends AssociatePricingRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePricingRulesCommand}.
  */
 export interface AssociatePricingRulesCommandOutput extends AssociatePricingRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Connects an array of <code>PricingRuleArns</code> to a defined <code>PricingPlan</code>.
  *       The maximum number <code>PricingRuleArn</code> that can be associated in one call is 30. </p>
  * @example
@@ -43,10 +40,18 @@ export interface AssociatePricingRulesCommandOutput extends AssociatePricingRule
  * import { BillingconductorClient, AssociatePricingRulesCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, AssociatePricingRulesCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // AssociatePricingRulesInput
+ *   Arn: "STRING_VALUE", // required
+ *   PricingRuleArns: [ // PricingRuleArnsNonEmptyInput // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AssociatePricingRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePricingRulesCommandInput - {@link AssociatePricingRulesCommandInput}
+ * @returns {@link AssociatePricingRulesCommandOutput}
  * @see {@link AssociatePricingRulesCommandInput} for command's `input` shape.
  * @see {@link AssociatePricingRulesCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -97,6 +102,9 @@ export class AssociatePricingRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePricingRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +133,8 @@ export class AssociatePricingRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociatePricingRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociatePricingRulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +144,18 @@ export class AssociatePricingRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociatePricingRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociatePricingRulesCommand(input, context);
+    return se_AssociatePricingRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociatePricingRulesCommandOutput> {
-    return deserializeAws_restJson1AssociatePricingRulesCommand(output, context);
+    return de_AssociatePricingRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { AssociateTimeSeriesToAssetPropertyRequest } from "../models/models_0";
 import {
-  AssociateTimeSeriesToAssetPropertyRequest,
-  AssociateTimeSeriesToAssetPropertyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand,
-  serializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand,
+  de_AssociateTimeSeriesToAssetPropertyCommand,
+  se_AssociateTimeSeriesToAssetPropertyCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTimeSeriesToAssetPropertyCommand}.
  */
 export interface AssociateTimeSeriesToAssetPropertyCommandInput extends AssociateTimeSeriesToAssetPropertyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTimeSeriesToAssetPropertyCommand}.
  */
 export interface AssociateTimeSeriesToAssetPropertyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a time series (data stream) with an asset property.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,18 @@ export interface AssociateTimeSeriesToAssetPropertyCommandOutput extends __Metad
  * import { IoTSiteWiseClient, AssociateTimeSeriesToAssetPropertyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, AssociateTimeSeriesToAssetPropertyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // AssociateTimeSeriesToAssetPropertyRequest
+ *   alias: "STRING_VALUE", // required
+ *   assetId: "STRING_VALUE", // required
+ *   propertyId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new AssociateTimeSeriesToAssetPropertyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTimeSeriesToAssetPropertyCommandInput - {@link AssociateTimeSeriesToAssetPropertyCommandInput}
+ * @returns {@link AssociateTimeSeriesToAssetPropertyCommandOutput}
  * @see {@link AssociateTimeSeriesToAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link AssociateTimeSeriesToAssetPropertyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -87,6 +97,9 @@ export class AssociateTimeSeriesToAssetPropertyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTimeSeriesToAssetPropertyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +128,8 @@ export class AssociateTimeSeriesToAssetPropertyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTimeSeriesToAssetPropertyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +139,24 @@ export class AssociateTimeSeriesToAssetPropertyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateTimeSeriesToAssetPropertyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand(input, context);
+    return se_AssociateTimeSeriesToAssetPropertyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateTimeSeriesToAssetPropertyCommandOutput> {
-    return deserializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand(output, context);
+    return de_AssociateTimeSeriesToAssetPropertyCommand(output, context);
   }
 
   // Start section: command_body_extra

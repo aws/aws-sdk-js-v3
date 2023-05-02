@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  CreateDataViewRequest,
-  CreateDataViewRequestFilterSensitiveLog,
-  CreateDataViewResponse,
-  CreateDataViewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDataViewCommand,
-  serializeAws_restJson1CreateDataViewCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDataViewRequest, CreateDataViewResponse } from "../models/models_0";
+import { de_CreateDataViewCommand, se_CreateDataViewCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataViewCommand}.
  */
 export interface CreateDataViewCommandInput extends CreateDataViewRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataViewCommand}.
  */
 export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Dataview for a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,31 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
  * import { FinspaceDataClient, CreateDataViewCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, CreateDataViewCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // CreateDataViewRequest
+ *   clientToken: "STRING_VALUE",
+ *   datasetId: "STRING_VALUE", // required
+ *   autoUpdate: true || false,
+ *   sortColumns: [ // SortColumnList
+ *     "STRING_VALUE",
+ *   ],
+ *   partitionColumns: [ // PartitionColumnList
+ *     "STRING_VALUE",
+ *   ],
+ *   asOfTimestamp: Number("long"),
+ *   destinationTypeParams: { // DataViewDestinationTypeParams
+ *     destinationType: "STRING_VALUE", // required
+ *     s3DestinationExportFileFormat: "STRING_VALUE",
+ *     s3DestinationExportFileFormatOptions: { // S3DestinationFormatOptions
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateDataViewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataViewCommandInput - {@link CreateDataViewCommandInput}
+ * @returns {@link CreateDataViewCommandOutput}
  * @see {@link CreateDataViewCommandInput} for command's `input` shape.
  * @see {@link CreateDataViewCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -88,6 +106,9 @@ export class CreateDataViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +137,8 @@ export class CreateDataViewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataViewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataViewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +148,18 @@ export class CreateDataViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDataViewCommand(input, context);
+    return se_CreateDataViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataViewCommandOutput> {
-    return deserializeAws_restJson1CreateDataViewCommand(output, context);
+    return de_CreateDataViewCommand(output, context);
   }
 
   // Start section: command_body_extra

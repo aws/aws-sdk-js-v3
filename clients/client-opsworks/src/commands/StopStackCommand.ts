@@ -13,20 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopStackRequest, StopStackRequestFilterSensitiveLog } from "../models/models_0";
+import { StopStackRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { deserializeAws_json1_1StopStackCommand, serializeAws_json1_1StopStackCommand } from "../protocols/Aws_json1_1";
+import { de_StopStackCommand, se_StopStackCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopStackCommand}.
  */
 export interface StopStackCommandInput extends StopStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopStackCommand}.
  */
 export interface StopStackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a specified stack.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -39,10 +44,15 @@ export interface StopStackCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, StopStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, StopStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // StopStackRequest
+ *   StackId: "STRING_VALUE", // required
+ * };
  * const command = new StopStackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopStackCommandInput - {@link StopStackCommandInput}
+ * @returns {@link StopStackCommandOutput}
  * @see {@link StopStackCommandInput} for command's `input` shape.
  * @see {@link StopStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -72,6 +82,9 @@ export class StopStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +111,8 @@ export class StopStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopStackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +122,18 @@ export class StopStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopStackCommand(input, context);
+    return se_StopStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStackCommandOutput> {
-    return deserializeAws_json1_1StopStackCommand(output, context);
+    return de_StopStackCommand(output, context);
   }
 
   // Start section: command_body_extra

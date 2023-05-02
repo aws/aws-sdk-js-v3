@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { RestartAppServerMessage, RestartAppServerMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryRestartAppServerCommand,
-  serializeAws_queryRestartAppServerCommand,
-} from "../protocols/Aws_query";
+import { RestartAppServerMessage } from "../models/models_0";
+import { de_RestartAppServerCommand, se_RestartAppServerCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RestartAppServerCommand}.
  */
 export interface RestartAppServerCommandInput extends RestartAppServerMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestartAppServerCommand}.
  */
 export interface RestartAppServerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Causes the environment to restart the application container server running on each
  *       Amazon EC2 instance.</p>
  * @example
@@ -38,10 +40,16 @@ export interface RestartAppServerCommandOutput extends __MetadataBearer {}
  * import { ElasticBeanstalkClient, RestartAppServerCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, RestartAppServerCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // RestartAppServerMessage
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ * };
  * const command = new RestartAppServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestartAppServerCommandInput - {@link RestartAppServerCommandInput}
+ * @returns {@link RestartAppServerCommandOutput}
  * @see {@link RestartAppServerCommandInput} for command's `input` shape.
  * @see {@link RestartAppServerCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -76,6 +84,9 @@ export class RestartAppServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestartAppServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +115,8 @@ export class RestartAppServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestartAppServerMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +126,18 @@ export class RestartAppServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestartAppServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRestartAppServerCommand(input, context);
+    return se_RestartAppServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestartAppServerCommandOutput> {
-    return deserializeAws_queryRestartAppServerCommand(output, context);
+    return de_RestartAppServerCommand(output, context);
   }
 
   // Start section: command_body_extra

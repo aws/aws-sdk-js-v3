@@ -17,19 +17,22 @@ import {
   GetBucketInventoryConfigurationOutput,
   GetBucketInventoryConfigurationOutputFilterSensitiveLog,
   GetBucketInventoryConfigurationRequest,
-  GetBucketInventoryConfigurationRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetBucketInventoryConfigurationCommand,
-  serializeAws_restXmlGetBucketInventoryConfigurationCommand,
+  de_GetBucketInventoryConfigurationCommand,
+  se_GetBucketInventoryConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketInventoryConfigurationCommand}.
  */
 export interface GetBucketInventoryConfigurationCommandInput extends GetBucketInventoryConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketInventoryConfigurationCommand}.
  */
 export interface GetBucketInventoryConfigurationCommandOutput
@@ -37,6 +40,7 @@ export interface GetBucketInventoryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an inventory configuration (identified by the inventory configuration ID) from
  *          the bucket.</p>
  *          <p>To use this operation, you must have permissions to perform the
@@ -70,10 +74,17 @@ export interface GetBucketInventoryConfigurationCommandOutput
  * import { S3Client, GetBucketInventoryConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketInventoryConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketInventoryConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketInventoryConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketInventoryConfigurationCommandInput - {@link GetBucketInventoryConfigurationCommandInput}
+ * @returns {@link GetBucketInventoryConfigurationCommandOutput}
  * @see {@link GetBucketInventoryConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketInventoryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -103,6 +114,9 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketInventoryConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,7 +145,7 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketInventoryConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetBucketInventoryConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -142,18 +156,24 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketInventoryConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketInventoryConfigurationCommand(input, context);
+    return se_GetBucketInventoryConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketInventoryConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketInventoryConfigurationCommand(output, context);
+    return de_GetBucketInventoryConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -17,19 +17,22 @@ import {
   ListBucketInventoryConfigurationsOutput,
   ListBucketInventoryConfigurationsOutputFilterSensitiveLog,
   ListBucketInventoryConfigurationsRequest,
-  ListBucketInventoryConfigurationsRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlListBucketInventoryConfigurationsCommand,
-  serializeAws_restXmlListBucketInventoryConfigurationsCommand,
+  de_ListBucketInventoryConfigurationsCommand,
+  se_ListBucketInventoryConfigurationsCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListBucketInventoryConfigurationsCommand}.
  */
 export interface ListBucketInventoryConfigurationsCommandInput extends ListBucketInventoryConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBucketInventoryConfigurationsCommand}.
  */
 export interface ListBucketInventoryConfigurationsCommandOutput
@@ -37,6 +40,7 @@ export interface ListBucketInventoryConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of inventory configurations for the bucket. You can have up to 1,000
  *          analytics configurations per bucket.</p>
  *          <p>This action supports list pagination and does not return more than 100 configurations
@@ -78,10 +82,17 @@ export interface ListBucketInventoryConfigurationsCommandOutput
  * import { S3Client, ListBucketInventoryConfigurationsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListBucketInventoryConfigurationsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // ListBucketInventoryConfigurationsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ContinuationToken: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new ListBucketInventoryConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBucketInventoryConfigurationsCommandInput - {@link ListBucketInventoryConfigurationsCommandInput}
+ * @returns {@link ListBucketInventoryConfigurationsCommandOutput}
  * @see {@link ListBucketInventoryConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketInventoryConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -111,6 +122,9 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBucketInventoryConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,7 +153,7 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBucketInventoryConfigurationsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListBucketInventoryConfigurationsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -150,18 +164,24 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListBucketInventoryConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListBucketInventoryConfigurationsCommand(input, context);
+    return se_ListBucketInventoryConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBucketInventoryConfigurationsCommandOutput> {
-    return deserializeAws_restXmlListBucketInventoryConfigurationsCommand(output, context);
+    return de_ListBucketInventoryConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

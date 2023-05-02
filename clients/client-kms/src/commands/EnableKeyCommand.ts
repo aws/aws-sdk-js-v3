@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { EnableKeyRequest, EnableKeyRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_json1_1EnableKeyCommand, serializeAws_json1_1EnableKeyCommand } from "../protocols/Aws_json1_1";
+import { EnableKeyRequest } from "../models/models_0";
+import { de_EnableKeyCommand, se_EnableKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableKeyCommand}.
  */
 export interface EnableKeyCommandInput extends EnableKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableKeyCommand}.
  */
 export interface EnableKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the key state of a KMS key to enabled. This allows you to use the KMS key for
  *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. </p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
@@ -44,10 +49,15 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * import { KMSClient, EnableKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, EnableKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // EnableKeyRequest
+ *   KeyId: "STRING_VALUE", // required
+ * };
  * const command = new EnableKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableKeyCommandInput - {@link EnableKeyCommandInput}
+ * @returns {@link EnableKeyCommandOutput}
  * @see {@link EnableKeyCommandInput} for command's `input` shape.
  * @see {@link EnableKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -116,6 +126,9 @@ export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +155,8 @@ export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +166,18 @@ export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableKeyCommand(input, context);
+    return se_EnableKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableKeyCommandOutput> {
-    return deserializeAws_json1_1EnableKeyCommand(output, context);
+    return de_EnableKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

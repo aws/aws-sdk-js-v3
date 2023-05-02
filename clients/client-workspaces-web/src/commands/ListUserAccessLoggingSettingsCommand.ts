@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListUserAccessLoggingSettingsRequest, ListUserAccessLoggingSettingsResponse } from "../models/models_0";
 import {
-  ListUserAccessLoggingSettingsRequest,
-  ListUserAccessLoggingSettingsRequestFilterSensitiveLog,
-  ListUserAccessLoggingSettingsResponse,
-  ListUserAccessLoggingSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListUserAccessLoggingSettingsCommand,
-  serializeAws_restJson1ListUserAccessLoggingSettingsCommand,
+  de_ListUserAccessLoggingSettingsCommand,
+  se_ListUserAccessLoggingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListUserAccessLoggingSettingsCommand}.
  */
 export interface ListUserAccessLoggingSettingsCommandInput extends ListUserAccessLoggingSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUserAccessLoggingSettingsCommand}.
  */
 export interface ListUserAccessLoggingSettingsCommandOutput
@@ -37,6 +36,7 @@ export interface ListUserAccessLoggingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of user access logging settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface ListUserAccessLoggingSettingsCommandOutput
  * import { WorkSpacesWebClient, ListUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // ListUserAccessLoggingSettingsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserAccessLoggingSettingsCommandInput - {@link ListUserAccessLoggingSettingsCommandInput}
+ * @returns {@link ListUserAccessLoggingSettingsCommandOutput}
  * @see {@link ListUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link ListUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -83,6 +89,9 @@ export class ListUserAccessLoggingSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserAccessLoggingSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +120,8 @@ export class ListUserAccessLoggingSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUserAccessLoggingSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUserAccessLoggingSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,15 +131,21 @@ export class ListUserAccessLoggingSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserAccessLoggingSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUserAccessLoggingSettingsCommand(input, context);
+    return se_ListUserAccessLoggingSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListUserAccessLoggingSettingsCommandOutput> {
-    return deserializeAws_restJson1ListUserAccessLoggingSettingsCommand(output, context);
+    return de_ListUserAccessLoggingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

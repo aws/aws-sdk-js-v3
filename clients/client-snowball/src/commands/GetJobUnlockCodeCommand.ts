@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetJobUnlockCodeRequest,
-  GetJobUnlockCodeRequestFilterSensitiveLog,
-  GetJobUnlockCodeResult,
-  GetJobUnlockCodeResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetJobUnlockCodeCommand,
-  serializeAws_json1_1GetJobUnlockCodeCommand,
-} from "../protocols/Aws_json1_1";
+import { GetJobUnlockCodeRequest, GetJobUnlockCodeResult } from "../models/models_0";
+import { de_GetJobUnlockCodeCommand, se_GetJobUnlockCodeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobUnlockCodeCommand}.
  */
 export interface GetJobUnlockCodeCommandInput extends GetJobUnlockCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobUnlockCodeCommand}.
  */
 export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the <code>UnlockCode</code> code value for the specified job. A particular
  *         <code>UnlockCode</code> value can be accessed for up to 360 days after the associated job
  *       has been created.</p>
@@ -54,10 +51,15 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  * import { SnowballClient, GetJobUnlockCodeCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, GetJobUnlockCodeCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // GetJobUnlockCodeRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new GetJobUnlockCodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobUnlockCodeCommandInput - {@link GetJobUnlockCodeCommandInput}
+ * @returns {@link GetJobUnlockCodeCommandOutput}
  * @see {@link GetJobUnlockCodeCommandInput} for command's `input` shape.
  * @see {@link GetJobUnlockCodeCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -109,6 +111,9 @@ export class GetJobUnlockCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobUnlockCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +142,8 @@ export class GetJobUnlockCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobUnlockCodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobUnlockCodeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +153,18 @@ export class GetJobUnlockCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobUnlockCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobUnlockCodeCommand(input, context);
+    return se_GetJobUnlockCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobUnlockCodeCommandOutput> {
-    return deserializeAws_json1_1GetJobUnlockCodeCommand(output, context);
+    return de_GetJobUnlockCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

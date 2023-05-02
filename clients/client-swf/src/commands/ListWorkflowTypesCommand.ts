@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorkflowTypesInput,
-  ListWorkflowTypesInputFilterSensitiveLog,
-  WorkflowTypeInfos,
-  WorkflowTypeInfosFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListWorkflowTypesCommand,
-  serializeAws_json1_0ListWorkflowTypesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListWorkflowTypesInput, WorkflowTypeInfos } from "../models/models_0";
+import { de_ListWorkflowTypesCommand, se_ListWorkflowTypesCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkflowTypesCommand}.
  */
 export interface ListWorkflowTypesCommandInput extends ListWorkflowTypesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkflowTypesCommand}.
  */
 export interface ListWorkflowTypesCommandOutput extends WorkflowTypeInfos, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about workflow types in the specified domain. The results may be
  *       split into multiple pages that can be retrieved by making the call repeatedly.</p>
  *          <p>
@@ -66,10 +63,20 @@ export interface ListWorkflowTypesCommandOutput extends WorkflowTypeInfos, __Met
  * import { SWFClient, ListWorkflowTypesCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, ListWorkflowTypesCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // ListWorkflowTypesInput
+ *   domain: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   registrationStatus: "REGISTERED" || "DEPRECATED", // required
+ *   nextPageToken: "STRING_VALUE",
+ *   maximumPageSize: Number("int"),
+ *   reverseOrder: true || false,
+ * };
  * const command = new ListWorkflowTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkflowTypesCommandInput - {@link ListWorkflowTypesCommandInput}
+ * @returns {@link ListWorkflowTypesCommandOutput}
  * @see {@link ListWorkflowTypesCommandInput} for command's `input` shape.
  * @see {@link ListWorkflowTypesCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -99,6 +106,9 @@ export class ListWorkflowTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkflowTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +137,8 @@ export class ListWorkflowTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkflowTypesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: WorkflowTypeInfosFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +148,18 @@ export class ListWorkflowTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkflowTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListWorkflowTypesCommand(input, context);
+    return se_ListWorkflowTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowTypesCommandOutput> {
-    return deserializeAws_json1_0ListWorkflowTypesCommand(output, context);
+    return de_ListWorkflowTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

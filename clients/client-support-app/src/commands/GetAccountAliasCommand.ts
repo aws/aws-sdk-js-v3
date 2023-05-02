@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccountAliasRequest,
-  GetAccountAliasRequestFilterSensitiveLog,
-  GetAccountAliasResult,
-  GetAccountAliasResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAccountAliasCommand,
-  serializeAws_restJson1GetAccountAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAccountAliasRequest, GetAccountAliasResult } from "../models/models_0";
+import { de_GetAccountAliasCommand, se_GetAccountAliasCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountAliasCommand}.
  */
 export interface GetAccountAliasCommandInput extends GetAccountAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountAliasCommand}.
  */
 export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the alias from an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of
  *       the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>
  * @example
@@ -43,10 +40,13 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  * import { SupportAppClient, GetAccountAliasCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, GetAccountAliasCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = {};
  * const command = new GetAccountAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountAliasCommandInput - {@link GetAccountAliasCommandInput}
+ * @returns {@link GetAccountAliasCommandOutput}
  * @see {@link GetAccountAliasCommandInput} for command's `input` shape.
  * @see {@link GetAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -73,6 +73,9 @@ export class GetAccountAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +104,8 @@ export class GetAccountAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountAliasResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +115,18 @@ export class GetAccountAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAccountAliasCommand(input, context);
+    return se_GetAccountAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountAliasCommandOutput> {
-    return deserializeAws_restJson1GetAccountAliasCommand(output, context);
+    return de_GetAccountAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

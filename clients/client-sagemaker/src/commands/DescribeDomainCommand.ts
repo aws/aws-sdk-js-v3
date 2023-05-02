@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDomainRequest,
-  DescribeDomainRequestFilterSensitiveLog,
-  DescribeDomainResponse,
-  DescribeDomainResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeDomainCommand,
-  serializeAws_json1_1DescribeDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDomainRequest, DescribeDomainResponse } from "../models/models_2";
+import { de_DescribeDomainCommand, se_DescribeDomainCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainCommand}.
  */
 export interface DescribeDomainCommandInput extends DescribeDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainCommand}.
  */
 export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The description of the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * import { SageMakerClient, DescribeDomainCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeDomainCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeDomainRequest
+ *   DomainId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainCommandInput - {@link DescribeDomainCommandInput}
+ * @returns {@link DescribeDomainCommandOutput}
  * @see {@link DescribeDomainCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +74,9 @@ export class DescribeDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class DescribeDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +116,18 @@ export class DescribeDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDomainCommand(input, context);
+    return se_DescribeDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainCommandOutput> {
-    return deserializeAws_json1_1DescribeDomainCommand(output, context);
+    return de_DescribeDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

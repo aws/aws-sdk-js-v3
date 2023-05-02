@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetDefaultCreditSpecificationRequest,
-  GetDefaultCreditSpecificationRequestFilterSensitiveLog,
-  GetDefaultCreditSpecificationResult,
-  GetDefaultCreditSpecificationResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetDefaultCreditSpecificationCommand,
-  serializeAws_ec2GetDefaultCreditSpecificationCommand,
-} from "../protocols/Aws_ec2";
+import { GetDefaultCreditSpecificationRequest, GetDefaultCreditSpecificationResult } from "../models/models_5";
+import { de_GetDefaultCreditSpecificationCommand, se_GetDefaultCreditSpecificationCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetDefaultCreditSpecificationCommand}.
  */
 export interface GetDefaultCreditSpecificationCommandInput extends GetDefaultCreditSpecificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDefaultCreditSpecificationCommand}.
  */
 export interface GetDefaultCreditSpecificationCommandOutput
@@ -37,6 +33,7 @@ export interface GetDefaultCreditSpecificationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the default credit option for CPU usage of a burstable performance instance
  *             family.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
@@ -47,10 +44,16 @@ export interface GetDefaultCreditSpecificationCommandOutput
  * import { EC2Client, GetDefaultCreditSpecificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetDefaultCreditSpecificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetDefaultCreditSpecificationRequest
+ *   DryRun: true || false,
+ *   InstanceFamily: "t2" || "t3" || "t3a" || "t4g", // required
+ * };
  * const command = new GetDefaultCreditSpecificationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDefaultCreditSpecificationCommandInput - {@link GetDefaultCreditSpecificationCommandInput}
+ * @returns {@link GetDefaultCreditSpecificationCommandOutput}
  * @see {@link GetDefaultCreditSpecificationCommandInput} for command's `input` shape.
  * @see {@link GetDefaultCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +77,9 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDefaultCreditSpecificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +108,8 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDefaultCreditSpecificationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDefaultCreditSpecificationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +119,21 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDefaultCreditSpecificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetDefaultCreditSpecificationCommand(input, context);
+    return se_GetDefaultCreditSpecificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDefaultCreditSpecificationCommandOutput> {
-    return deserializeAws_ec2GetDefaultCreditSpecificationCommand(output, context);
+    return de_GetDefaultCreditSpecificationCommand(output, context);
   }
 
   // Start section: command_body_extra

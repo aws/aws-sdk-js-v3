@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddPermissionInput, AddPermissionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryAddPermissionCommand,
-  serializeAws_queryAddPermissionCommand,
-} from "../protocols/Aws_query";
+import { AddPermissionInput } from "../models/models_0";
+import { de_AddPermissionCommand, se_AddPermissionCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddPermissionCommand}.
  */
 export interface AddPermissionCommandInput extends AddPermissionInput {}
 /**
+ * @public
+ *
  * The output of {@link AddPermissionCommand}.
  */
 export interface AddPermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a statement to a topic's access control policy, granting access for the specified
  *             Amazon Web Services accounts to the specified actions.</p>
  *          <note>
@@ -43,10 +45,22 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * import { SNSClient, AddPermissionCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, AddPermissionCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // AddPermissionInput
+ *   TopicArn: "STRING_VALUE", // required
+ *   Label: "STRING_VALUE", // required
+ *   AWSAccountId: [ // DelegatesList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ActionName: [ // ActionsList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddPermissionCommandInput - {@link AddPermissionCommandInput}
+ * @returns {@link AddPermissionCommandOutput}
  * @see {@link AddPermissionCommandInput} for command's `input` shape.
  * @see {@link AddPermissionCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -83,6 +97,9 @@ export class AddPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +126,8 @@ export class AddPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddPermissionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +137,18 @@ export class AddPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddPermissionCommand(input, context);
+    return se_AddPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPermissionCommandOutput> {
-    return deserializeAws_queryAddPermissionCommand(output, context);
+    return de_AddPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   ListLicenseManagerReportGeneratorsRequest,
-  ListLicenseManagerReportGeneratorsRequestFilterSensitiveLog,
   ListLicenseManagerReportGeneratorsResponse,
-  ListLicenseManagerReportGeneratorsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommand,
-  serializeAws_json1_1ListLicenseManagerReportGeneratorsCommand,
+  de_ListLicenseManagerReportGeneratorsCommand,
+  se_ListLicenseManagerReportGeneratorsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLicenseManagerReportGeneratorsCommand}.
  */
 export interface ListLicenseManagerReportGeneratorsCommandInput extends ListLicenseManagerReportGeneratorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLicenseManagerReportGeneratorsCommand}.
  */
 export interface ListLicenseManagerReportGeneratorsCommandOutput
@@ -37,6 +39,7 @@ export interface ListLicenseManagerReportGeneratorsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the report generators for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,24 @@ export interface ListLicenseManagerReportGeneratorsCommandOutput
  * import { LicenseManagerClient, ListLicenseManagerReportGeneratorsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListLicenseManagerReportGeneratorsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListLicenseManagerReportGeneratorsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLicenseManagerReportGeneratorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLicenseManagerReportGeneratorsCommandInput - {@link ListLicenseManagerReportGeneratorsCommandInput}
+ * @returns {@link ListLicenseManagerReportGeneratorsCommandOutput}
  * @see {@link ListLicenseManagerReportGeneratorsCommandInput} for command's `input` shape.
  * @see {@link ListLicenseManagerReportGeneratorsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -96,6 +113,9 @@ export class ListLicenseManagerReportGeneratorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLicenseManagerReportGeneratorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +144,8 @@ export class ListLicenseManagerReportGeneratorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLicenseManagerReportGeneratorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLicenseManagerReportGeneratorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +155,24 @@ export class ListLicenseManagerReportGeneratorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListLicenseManagerReportGeneratorsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLicenseManagerReportGeneratorsCommand(input, context);
+    return se_ListLicenseManagerReportGeneratorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLicenseManagerReportGeneratorsCommandOutput> {
-    return deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommand(output, context);
+    return de_ListLicenseManagerReportGeneratorsCommand(output, context);
   }
 
   // Start section: command_body_extra

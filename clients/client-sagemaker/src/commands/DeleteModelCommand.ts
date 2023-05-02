@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteModelInput, DeleteModelInputFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteModelCommand,
-  serializeAws_json1_1DeleteModelCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteModelInput } from "../models/models_1";
+import { de_DeleteModelCommand, se_DeleteModelCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelCommand}.
  */
 export interface DeleteModelCommandInput extends DeleteModelInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelCommand}.
  */
 export interface DeleteModelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
  *             was created in SageMaker when you called the <code>CreateModel</code> API. It does not delete
  *             model artifacts, inference code, or the IAM role that you specified when creating the
@@ -40,10 +42,15 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteModelCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteModelCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteModelInput
+ *   ModelName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelCommandInput - {@link DeleteModelCommandInput}
+ * @returns {@link DeleteModelCommandOutput}
  * @see {@link DeleteModelCommandInput} for command's `input` shape.
  * @see {@link DeleteModelCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class DeleteModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +103,8 @@ export class DeleteModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +114,18 @@ export class DeleteModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteModelCommand(input, context);
+    return se_DeleteModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelCommandOutput> {
-    return deserializeAws_json1_1DeleteModelCommand(output, context);
+    return de_DeleteModelCommand(output, context);
   }
 
   // Start section: command_body_extra

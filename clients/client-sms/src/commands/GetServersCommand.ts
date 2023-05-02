@@ -13,40 +13,49 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetServersRequest,
-  GetServersRequestFilterSensitiveLog,
-  GetServersResponse,
-  GetServersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetServersCommand,
-  serializeAws_json1_1GetServersCommand,
-} from "../protocols/Aws_json1_1";
+import { GetServersRequest, GetServersResponse } from "../models/models_0";
+import { de_GetServersCommand, se_GetServersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServersCommand}.
  */
 export interface GetServersCommandInput extends GetServersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServersCommand}.
  */
 export interface GetServersCommandOutput extends GetServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the servers in your server catalog.</p>
- *         <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>
+ *          <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, GetServersCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetServersCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // GetServersRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   vmServerAddressList: [ // VmServerAddressList
+ *     { // VmServerAddress
+ *       vmManagerId: "STRING_VALUE",
+ *       vmId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new GetServersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServersCommandInput - {@link GetServersCommandInput}
+ * @returns {@link GetServersCommandOutput}
  * @see {@link GetServersCommandInput} for command's `input` shape.
  * @see {@link GetServersCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -83,6 +92,9 @@ export class GetServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +121,8 @@ export class GetServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +132,18 @@ export class GetServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetServersCommand(input, context);
+    return se_GetServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServersCommandOutput> {
-    return deserializeAws_json1_1GetServersCommand(output, context);
+    return de_GetServersCommand(output, context);
   }
 
   // Start section: command_body_extra

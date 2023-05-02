@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCoreNetworkRequest,
-  CreateCoreNetworkRequestFilterSensitiveLog,
-  CreateCoreNetworkResponse,
-  CreateCoreNetworkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCoreNetworkRequest, CreateCoreNetworkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1CreateCoreNetworkCommand,
-  serializeAws_restJson1CreateCoreNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateCoreNetworkCommand, se_CreateCoreNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCoreNetworkCommand}.
  */
 export interface CreateCoreNetworkCommandInput extends CreateCoreNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCoreNetworkCommand}.
  */
 export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a core network as part of your global network, and optionally, with a core network policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkRespons
  * import { NetworkManagerClient, CreateCoreNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateCoreNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // CreateCoreNetworkRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   PolicyDocument: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateCoreNetworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCoreNetworkCommandInput - {@link CreateCoreNetworkCommandInput}
+ * @returns {@link CreateCoreNetworkCommandOutput}
  * @see {@link CreateCoreNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateCoreNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +102,9 @@ export class CreateCoreNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCoreNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +133,8 @@ export class CreateCoreNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCoreNetworkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCoreNetworkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +144,18 @@ export class CreateCoreNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCoreNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCoreNetworkCommand(input, context);
+    return se_CreateCoreNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCoreNetworkCommandOutput> {
-    return deserializeAws_restJson1CreateCoreNetworkCommand(output, context);
+    return de_CreateCoreNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

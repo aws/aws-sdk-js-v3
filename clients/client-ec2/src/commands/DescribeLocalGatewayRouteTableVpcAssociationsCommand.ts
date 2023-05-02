@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeLocalGatewayRouteTableVpcAssociationsRequest,
-  DescribeLocalGatewayRouteTableVpcAssociationsRequestFilterSensitiveLog,
   DescribeLocalGatewayRouteTableVpcAssociationsResult,
-  DescribeLocalGatewayRouteTableVpcAssociationsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand,
-  serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand,
+  de_DescribeLocalGatewayRouteTableVpcAssociationsCommand,
+  se_DescribeLocalGatewayRouteTableVpcAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocalGatewayRouteTableVpcAssociationsCommand}.
  */
 export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandInput
   extends DescribeLocalGatewayRouteTableVpcAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocalGatewayRouteTableVpcAssociationsCommand}.
  */
 export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified associations between VPCs and local gateway route tables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,28 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
  * import { EC2Client, DescribeLocalGatewayRouteTableVpcAssociationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeLocalGatewayRouteTableVpcAssociationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeLocalGatewayRouteTableVpcAssociationsRequest
+ *   LocalGatewayRouteTableVpcAssociationIds: [ // LocalGatewayRouteTableVpcAssociationIdSet
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeLocalGatewayRouteTableVpcAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocalGatewayRouteTableVpcAssociationsCommandInput - {@link DescribeLocalGatewayRouteTableVpcAssociationsCommandInput}
+ * @returns {@link DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput}
  * @see {@link DescribeLocalGatewayRouteTableVpcAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +93,9 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +130,8 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocalGatewayRouteTableVpcAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocalGatewayRouteTableVpcAssociationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +141,24 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand(input, context);
+    return se_DescribeLocalGatewayRouteTableVpcAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput> {
-    return deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand(output, context);
+    return de_DescribeLocalGatewayRouteTableVpcAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

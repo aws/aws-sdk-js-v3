@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteRouteTableRequest, DeleteRouteTableRequestFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteRouteTableCommand,
-  serializeAws_ec2DeleteRouteTableCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteRouteTableRequest } from "../models/models_2";
+import { de_DeleteRouteTableCommand, se_DeleteRouteTableCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRouteTableCommand}.
  */
 export interface DeleteRouteTableCommandInput extends DeleteRouteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRouteTableCommand}.
  */
 export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can't delete the main route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteRouteTableRequest
+ *   DryRun: true || false,
+ *   RouteTableId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRouteTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRouteTableCommandInput - {@link DeleteRouteTableCommandInput}
+ * @returns {@link DeleteRouteTableCommandOutput}
  * @see {@link DeleteRouteTableCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +83,9 @@ export class DeleteRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +114,8 @@ export class DeleteRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRouteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +125,18 @@ export class DeleteRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteRouteTableCommand(input, context);
+    return se_DeleteRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteTableCommandOutput> {
-    return deserializeAws_ec2DeleteRouteTableCommand(output, context);
+    return de_DeleteRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeVTLDevicesInput,
-  DescribeVTLDevicesInputFilterSensitiveLog,
-  DescribeVTLDevicesOutput,
-  DescribeVTLDevicesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeVTLDevicesCommand,
-  serializeAws_json1_1DescribeVTLDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeVTLDevicesInput, DescribeVTLDevicesOutput } from "../models/models_0";
+import { de_DescribeVTLDevicesCommand, se_DescribeVTLDevicesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVTLDevicesCommand}.
  */
 export interface DescribeVTLDevicesCommandInput extends DescribeVTLDevicesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVTLDevicesCommand}.
  */
 export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of virtual tape library (VTL) devices for the specified tape
  *          gateway. In the response, Storage Gateway returns VTL device information.</p>
  *
@@ -45,10 +42,20 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  * import { StorageGatewayClient, DescribeVTLDevicesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeVTLDevicesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeVTLDevicesInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   VTLDeviceARNs: [ // VTLDeviceARNs
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeVTLDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVTLDevicesCommandInput - {@link DescribeVTLDevicesCommandInput}
+ * @returns {@link DescribeVTLDevicesCommandOutput}
  * @see {@link DescribeVTLDevicesCommandInput} for command's `input` shape.
  * @see {@link DescribeVTLDevicesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -138,6 +145,9 @@ export class DescribeVTLDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVTLDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,8 +176,8 @@ export class DescribeVTLDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVTLDevicesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVTLDevicesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -177,12 +187,18 @@ export class DescribeVTLDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVTLDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVTLDevicesCommand(input, context);
+    return se_DescribeVTLDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVTLDevicesCommandOutput> {
-    return deserializeAws_json1_1DescribeVTLDevicesCommand(output, context);
+    return de_DescribeVTLDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

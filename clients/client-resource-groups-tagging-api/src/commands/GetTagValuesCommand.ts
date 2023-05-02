@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTagValuesInput,
-  GetTagValuesInputFilterSensitiveLog,
-  GetTagValuesOutput,
-  GetTagValuesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTagValuesCommand,
-  serializeAws_json1_1GetTagValuesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetTagValuesInput, GetTagValuesOutput } from "../models/models_0";
+import { de_GetTagValuesCommand, se_GetTagValuesCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTagValuesCommand}.
  */
 export interface GetTagValuesCommandInput extends GetTagValuesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTagValuesCommand}.
  */
 export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all tag values for the specified key that are used in the specified Amazon Web Services
  *             Region for the calling account.</p>
  *         <p>This operation supports pagination, where the response can be sent in
@@ -53,10 +50,16 @@ export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __Metadat
  * import { ResourceGroupsTaggingAPIClient, GetTagValuesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, GetTagValuesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const input = { // GetTagValuesInput
+ *   PaginationToken: "STRING_VALUE",
+ *   Key: "STRING_VALUE", // required
+ * };
  * const command = new GetTagValuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTagValuesCommandInput - {@link GetTagValuesCommandInput}
+ * @returns {@link GetTagValuesCommandOutput}
  * @see {@link GetTagValuesCommandInput} for command's `input` shape.
  * @see {@link GetTagValuesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -114,6 +117,9 @@ export class GetTagValuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTagValuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +146,8 @@ export class GetTagValuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTagValuesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTagValuesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,12 +157,18 @@ export class GetTagValuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTagValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTagValuesCommand(input, context);
+    return se_GetTagValuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagValuesCommandOutput> {
-    return deserializeAws_json1_1GetTagValuesCommand(output, context);
+    return de_GetTagValuesCommand(output, context);
   }
 
   // Start section: command_body_extra

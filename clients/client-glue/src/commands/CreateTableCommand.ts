@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateTableRequest,
-  CreateTableRequestFilterSensitiveLog,
-  CreateTableResponse,
-  CreateTableResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateTableCommand,
-  serializeAws_json1_1CreateTableCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTableRequest, CreateTableResponse } from "../models/models_1";
+import { de_CreateTableCommand, se_CreateTableCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTableCommand}.
  */
 export interface CreateTableCommandInput extends CreateTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTableCommand}.
  */
 export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new table definition in the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,108 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * import { GlueClient, CreateTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateTableRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableInput: { // TableInput
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     Owner: "STRING_VALUE",
+ *     LastAccessTime: new Date("TIMESTAMP"),
+ *     LastAnalyzedTime: new Date("TIMESTAMP"),
+ *     Retention: Number("int"),
+ *     StorageDescriptor: { // StorageDescriptor
+ *       Columns: [ // ColumnList
+ *         { // Column
+ *           Name: "STRING_VALUE", // required
+ *           Type: "STRING_VALUE",
+ *           Comment: "STRING_VALUE",
+ *           Parameters: { // ParametersMap
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *       Location: "STRING_VALUE",
+ *       AdditionalLocations: [ // LocationStringList
+ *         "STRING_VALUE",
+ *       ],
+ *       InputFormat: "STRING_VALUE",
+ *       OutputFormat: "STRING_VALUE",
+ *       Compressed: true || false,
+ *       NumberOfBuckets: Number("int"),
+ *       SerdeInfo: { // SerDeInfo
+ *         Name: "STRING_VALUE",
+ *         SerializationLibrary: "STRING_VALUE",
+ *         Parameters: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       BucketColumns: [ // NameStringList
+ *         "STRING_VALUE",
+ *       ],
+ *       SortColumns: [ // OrderList
+ *         { // Order
+ *           Column: "STRING_VALUE", // required
+ *           SortOrder: Number("int"), // required
+ *         },
+ *       ],
+ *       Parameters: "<ParametersMap>",
+ *       SkewedInfo: { // SkewedInfo
+ *         SkewedColumnNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *         SkewedColumnValues: [ // ColumnValueStringList
+ *           "STRING_VALUE",
+ *         ],
+ *         SkewedColumnValueLocationMaps: { // LocationMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       StoredAsSubDirectories: true || false,
+ *       SchemaReference: { // SchemaReference
+ *         SchemaId: { // SchemaId
+ *           SchemaArn: "STRING_VALUE",
+ *           SchemaName: "STRING_VALUE",
+ *           RegistryName: "STRING_VALUE",
+ *         },
+ *         SchemaVersionId: "STRING_VALUE",
+ *         SchemaVersionNumber: Number("long"),
+ *       },
+ *     },
+ *     PartitionKeys: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Type: "STRING_VALUE",
+ *         Comment: "STRING_VALUE",
+ *         Parameters: "<ParametersMap>",
+ *       },
+ *     ],
+ *     ViewOriginalText: "STRING_VALUE",
+ *     ViewExpandedText: "STRING_VALUE",
+ *     TableType: "STRING_VALUE",
+ *     Parameters: "<ParametersMap>",
+ *     TargetTable: { // TableIdentifier
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   },
+ *   PartitionIndexes: [ // PartitionIndexList
+ *     { // PartitionIndex
+ *       Keys: [ // KeyList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       IndexName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TransactionId: "STRING_VALUE",
+ * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTableCommandInput - {@link CreateTableCommandInput}
+ * @returns {@link CreateTableCommandOutput}
  * @see {@link CreateTableCommandInput} for command's `input` shape.
  * @see {@link CreateTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -96,6 +191,9 @@ export class CreateTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +220,8 @@ export class CreateTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +231,18 @@ export class CreateTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTableCommand(input, context);
+    return se_CreateTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTableCommandOutput> {
-    return deserializeAws_json1_1CreateTableCommand(output, context);
+    return de_CreateTableCommand(output, context);
   }
 
   // Start section: command_body_extra

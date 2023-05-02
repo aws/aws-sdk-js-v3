@@ -10,7 +10,7 @@ import { MediaStoreClient } from "../MediaStoreClient";
 import { MediaStorePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaStoreClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListContainersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListContainers(
   config: MediaStorePaginationConfiguration,
   input: ListContainersCommandInput,

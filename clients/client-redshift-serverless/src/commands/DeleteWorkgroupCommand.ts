@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteWorkgroupRequest,
-  DeleteWorkgroupRequestFilterSensitiveLog,
-  DeleteWorkgroupResponse,
-  DeleteWorkgroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWorkgroupCommand,
-  serializeAws_json1_1DeleteWorkgroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteWorkgroupRequest, DeleteWorkgroupResponse } from "../models/models_0";
+import { de_DeleteWorkgroupCommand, se_DeleteWorkgroupCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkgroupCommand}.
  */
 export interface DeleteWorkgroupCommandInput extends DeleteWorkgroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkgroupCommand}.
  */
 export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a workgroup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * import { RedshiftServerlessClient, DeleteWorkgroupCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, DeleteWorkgroupCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // DeleteWorkgroupRequest
+ *   workgroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkgroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkgroupCommandInput - {@link DeleteWorkgroupCommandInput}
+ * @returns {@link DeleteWorkgroupCommandOutput}
  * @see {@link DeleteWorkgroupCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkgroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -85,6 +87,9 @@ export class DeleteWorkgroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkgroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteWorkgroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkgroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkgroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteWorkgroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkgroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWorkgroupCommand(input, context);
+    return se_DeleteWorkgroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkgroupCommandOutput> {
-    return deserializeAws_json1_1DeleteWorkgroupCommand(output, context);
+    return de_DeleteWorkgroupCommand(output, context);
   }
 
   // Start section: command_body_extra

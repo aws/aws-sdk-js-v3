@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  GetNotificationChannelRequest,
-  GetNotificationChannelRequestFilterSensitiveLog,
-  GetNotificationChannelResponse,
-  GetNotificationChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetNotificationChannelCommand,
-  serializeAws_json1_1GetNotificationChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { GetNotificationChannelRequest, GetNotificationChannelResponse } from "../models/models_0";
+import { de_GetNotificationChannelCommand, se_GetNotificationChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNotificationChannelCommand}.
  */
 export interface GetNotificationChannelCommandInput extends GetNotificationChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNotificationChannelCommand}.
  */
 export interface GetNotificationChannelCommandOutput extends GetNotificationChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information
  *       about the Amazon Simple Notification Service (SNS) topic that is used to
  *       record Firewall Manager SNS logs.</p>
@@ -44,10 +41,13 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
  * import { FMSClient, GetNotificationChannelCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetNotificationChannelCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {};
  * const command = new GetNotificationChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNotificationChannelCommandInput - {@link GetNotificationChannelCommandInput}
+ * @returns {@link GetNotificationChannelCommandOutput}
  * @see {@link GetNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link GetNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -85,6 +85,9 @@ export class GetNotificationChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNotificationChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +116,8 @@ export class GetNotificationChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNotificationChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNotificationChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +127,18 @@ export class GetNotificationChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNotificationChannelCommand(input, context);
+    return se_GetNotificationChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNotificationChannelCommandOutput> {
-    return deserializeAws_json1_1GetNotificationChannelCommand(output, context);
+    return de_GetNotificationChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

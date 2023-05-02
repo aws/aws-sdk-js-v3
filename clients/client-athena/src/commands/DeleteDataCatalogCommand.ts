@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  DeleteDataCatalogInput,
-  DeleteDataCatalogInputFilterSensitiveLog,
-  DeleteDataCatalogOutput,
-  DeleteDataCatalogOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDataCatalogCommand,
-  serializeAws_json1_1DeleteDataCatalogCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDataCatalogInput, DeleteDataCatalogOutput } from "../models/models_0";
+import { de_DeleteDataCatalogCommand, se_DeleteDataCatalogCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataCatalogCommand}.
  */
 export interface DeleteDataCatalogCommandInput extends DeleteDataCatalogInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataCatalogCommand}.
  */
 export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a data catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  * import { AthenaClient, DeleteDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeleteDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // DeleteDataCatalogInput
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataCatalogCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataCatalogCommandInput - {@link DeleteDataCatalogCommandInput}
+ * @returns {@link DeleteDataCatalogCommandOutput}
  * @see {@link DeleteDataCatalogCommandInput} for command's `input` shape.
  * @see {@link DeleteDataCatalogCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -77,6 +79,9 @@ export class DeleteDataCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +110,8 @@ export class DeleteDataCatalogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataCatalogInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDataCatalogOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +121,18 @@ export class DeleteDataCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDataCatalogCommand(input, context);
+    return se_DeleteDataCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataCatalogCommandOutput> {
-    return deserializeAws_json1_1DeleteDataCatalogCommand(output, context);
+    return de_DeleteDataCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

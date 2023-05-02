@@ -20,21 +20,23 @@ import {
   CreateMediaCapturePipelineResponse,
   CreateMediaCapturePipelineResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMediaCapturePipelineCommand,
-  serializeAws_restJson1CreateMediaCapturePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMediaCapturePipelineCommand, se_CreateMediaCapturePipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMediaCapturePipelineCommand}.
  */
 export interface CreateMediaCapturePipelineCommandInput extends CreateMediaCapturePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMediaCapturePipelineCommand}.
  */
 export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapturePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a media capture pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,44 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * import { ChimeClient, CreateMediaCapturePipelineCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateMediaCapturePipelineCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateMediaCapturePipelineRequest
+ *   SourceType: "ChimeSdkMeeting", // required
+ *   SourceArn: "STRING_VALUE", // required
+ *   SinkType: "S3Bucket", // required
+ *   SinkArn: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConfiguration
+ *     SourceConfiguration: { // SourceConfiguration
+ *       SelectedVideoStreams: { // SelectedVideoStreams
+ *         AttendeeIds: [ // AttendeeIdList
+ *           "STRING_VALUE",
+ *         ],
+ *         ExternalUserIds: [ // ExternalUserIdList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     ArtifactsConfiguration: { // ArtifactsConfiguration
+ *       Audio: { // AudioArtifactsConfiguration
+ *         MuxType: "AudioOnly" || "AudioWithActiveSpeakerVideo", // required
+ *       },
+ *       Video: { // VideoArtifactsConfiguration
+ *         State: "Enabled" || "Disabled", // required
+ *         MuxType: "VideoOnly",
+ *       },
+ *       Content: { // ContentArtifactsConfiguration
+ *         State: "Enabled" || "Disabled", // required
+ *         MuxType: "ContentOnly",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreateMediaCapturePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMediaCapturePipelineCommandInput - {@link CreateMediaCapturePipelineCommandInput}
+ * @returns {@link CreateMediaCapturePipelineCommandOutput}
  * @see {@link CreateMediaCapturePipelineCommandInput} for command's `input` shape.
  * @see {@link CreateMediaCapturePipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +126,9 @@ export class CreateMediaCapturePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMediaCapturePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,15 +168,21 @@ export class CreateMediaCapturePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMediaCapturePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMediaCapturePipelineCommand(input, context);
+    return se_CreateMediaCapturePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMediaCapturePipelineCommandOutput> {
-    return deserializeAws_restJson1CreateMediaCapturePipelineCommand(output, context);
+    return de_CreateMediaCapturePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

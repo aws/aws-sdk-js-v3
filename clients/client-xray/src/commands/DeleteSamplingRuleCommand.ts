@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSamplingRuleRequest,
-  DeleteSamplingRuleRequestFilterSensitiveLog,
-  DeleteSamplingRuleResult,
-  DeleteSamplingRuleResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSamplingRuleCommand,
-  serializeAws_restJson1DeleteSamplingRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSamplingRuleRequest, DeleteSamplingRuleResult } from "../models/models_0";
+import { de_DeleteSamplingRuleCommand, se_DeleteSamplingRuleCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSamplingRuleCommand}.
  */
 export interface DeleteSamplingRuleCommandInput extends DeleteSamplingRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSamplingRuleCommand}.
  */
 export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a sampling rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResul
  * import { XRayClient, DeleteSamplingRuleCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, DeleteSamplingRuleCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // DeleteSamplingRuleRequest
+ *   RuleName: "STRING_VALUE",
+ *   RuleARN: "STRING_VALUE",
+ * };
  * const command = new DeleteSamplingRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSamplingRuleCommandInput - {@link DeleteSamplingRuleCommandInput}
+ * @returns {@link DeleteSamplingRuleCommandOutput}
  * @see {@link DeleteSamplingRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteSamplingRuleCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +78,9 @@ export class DeleteSamplingRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSamplingRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class DeleteSamplingRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSamplingRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSamplingRuleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class DeleteSamplingRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSamplingRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSamplingRuleCommand(input, context);
+    return se_DeleteSamplingRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSamplingRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteSamplingRuleCommand(output, context);
+    return de_DeleteSamplingRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  StopRemoteAccessSessionRequest,
-  StopRemoteAccessSessionRequestFilterSensitiveLog,
-  StopRemoteAccessSessionResult,
-  StopRemoteAccessSessionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopRemoteAccessSessionCommand,
-  serializeAws_json1_1StopRemoteAccessSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { StopRemoteAccessSessionRequest, StopRemoteAccessSessionResult } from "../models/models_0";
+import { de_StopRemoteAccessSessionCommand, se_StopRemoteAccessSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopRemoteAccessSessionCommand}.
  */
 export interface StopRemoteAccessSessionCommandInput extends StopRemoteAccessSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopRemoteAccessSessionCommand}.
  */
 export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Ends a specified remote access session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  * import { DeviceFarmClient, StopRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, StopRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // StopRemoteAccessSessionRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new StopRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopRemoteAccessSessionCommandInput - {@link StopRemoteAccessSessionCommandInput}
+ * @returns {@link StopRemoteAccessSessionCommandOutput}
  * @see {@link StopRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link StopRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +83,9 @@ export class StopRemoteAccessSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopRemoteAccessSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class StopRemoteAccessSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopRemoteAccessSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopRemoteAccessSessionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class StopRemoteAccessSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopRemoteAccessSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopRemoteAccessSessionCommand(input, context);
+    return se_StopRemoteAccessSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRemoteAccessSessionCommandOutput> {
-    return deserializeAws_json1_1StopRemoteAccessSessionCommand(output, context);
+    return de_StopRemoteAccessSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,22 +18,18 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeFleetAdvisorSchemasRequest,
-  DescribeFleetAdvisorSchemasRequestFilterSensitiveLog,
-  DescribeFleetAdvisorSchemasResponse,
-  DescribeFleetAdvisorSchemasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetAdvisorSchemasCommand,
-  serializeAws_json1_1DescribeFleetAdvisorSchemasCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFleetAdvisorSchemasRequest, DescribeFleetAdvisorSchemasResponse } from "../models/models_0";
+import { de_DescribeFleetAdvisorSchemasCommand, se_DescribeFleetAdvisorSchemasCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetAdvisorSchemasCommand}.
  */
 export interface DescribeFleetAdvisorSchemasCommandInput extends DescribeFleetAdvisorSchemasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetAdvisorSchemasCommand}.
  */
 export interface DescribeFleetAdvisorSchemasCommandOutput
@@ -41,6 +37,7 @@ export interface DescribeFleetAdvisorSchemasCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of schemas detected by Fleet Advisor Collectors in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +45,24 @@ export interface DescribeFleetAdvisorSchemasCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemasCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemasCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeFleetAdvisorSchemasRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetAdvisorSchemasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetAdvisorSchemasCommandInput - {@link DescribeFleetAdvisorSchemasCommandInput}
+ * @returns {@link DescribeFleetAdvisorSchemasCommandOutput}
  * @see {@link DescribeFleetAdvisorSchemasCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAdvisorSchemasCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -78,6 +89,9 @@ export class DescribeFleetAdvisorSchemasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetAdvisorSchemasCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +120,8 @@ export class DescribeFleetAdvisorSchemasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetAdvisorSchemasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetAdvisorSchemasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +131,21 @@ export class DescribeFleetAdvisorSchemasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetAdvisorSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetAdvisorSchemasCommand(input, context);
+    return se_DescribeFleetAdvisorSchemasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetAdvisorSchemasCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetAdvisorSchemasCommand(output, context);
+    return de_DescribeFleetAdvisorSchemasCommand(output, context);
   }
 
   // Start section: command_body_extra

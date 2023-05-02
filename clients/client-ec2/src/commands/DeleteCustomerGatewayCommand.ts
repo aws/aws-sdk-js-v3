@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteCustomerGatewayRequest, DeleteCustomerGatewayRequestFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteCustomerGatewayCommand,
-  serializeAws_ec2DeleteCustomerGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteCustomerGatewayRequest } from "../models/models_2";
+import { de_DeleteCustomerGatewayCommand, se_DeleteCustomerGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomerGatewayCommand}.
  */
 export interface DeleteCustomerGatewayCommandInput extends DeleteCustomerGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomerGatewayCommand}.
  */
 export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified customer gateway. You must delete the VPN connection before you
  *             can delete the customer gateway.</p>
  * @example
@@ -38,10 +40,16 @@ export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteCustomerGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteCustomerGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteCustomerGatewayRequest
+ *   CustomerGatewayId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteCustomerGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomerGatewayCommandInput - {@link DeleteCustomerGatewayCommandInput}
+ * @returns {@link DeleteCustomerGatewayCommandOutput}
  * @see {@link DeleteCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +84,9 @@ export class DeleteCustomerGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomerGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +115,8 @@ export class DeleteCustomerGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomerGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +126,18 @@ export class DeleteCustomerGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteCustomerGatewayCommand(input, context);
+    return se_DeleteCustomerGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomerGatewayCommandOutput> {
-    return deserializeAws_ec2DeleteCustomerGatewayCommand(output, context);
+    return de_DeleteCustomerGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLabelingJobsRequest,
-  ListLabelingJobsRequestFilterSensitiveLog,
-  ListLabelingJobsResponse,
-  ListLabelingJobsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListLabelingJobsCommand,
-  serializeAws_json1_1ListLabelingJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLabelingJobsRequest, ListLabelingJobsResponse } from "../models/models_3";
+import { de_ListLabelingJobsCommand, se_ListLabelingJobsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLabelingJobsCommand}.
  */
 export interface ListLabelingJobsCommandInput extends ListLabelingJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLabelingJobsCommand}.
  */
 export interface ListLabelingJobsCommandOutput extends ListLabelingJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of labeling jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface ListLabelingJobsCommandOutput extends ListLabelingJobsResponse,
  * import { SageMakerClient, ListLabelingJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListLabelingJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListLabelingJobsRequest
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   NameContains: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   StatusEquals: "Initializing" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ * };
  * const command = new ListLabelingJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLabelingJobsCommandInput - {@link ListLabelingJobsCommandInput}
+ * @returns {@link ListLabelingJobsCommandOutput}
  * @see {@link ListLabelingJobsCommandInput} for command's `input` shape.
  * @see {@link ListLabelingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +80,9 @@ export class ListLabelingJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLabelingJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +111,8 @@ export class ListLabelingJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLabelingJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLabelingJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +122,18 @@ export class ListLabelingJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLabelingJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLabelingJobsCommand(input, context);
+    return se_ListLabelingJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLabelingJobsCommandOutput> {
-    return deserializeAws_json1_1ListLabelingJobsCommand(output, context);
+    return de_ListLabelingJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

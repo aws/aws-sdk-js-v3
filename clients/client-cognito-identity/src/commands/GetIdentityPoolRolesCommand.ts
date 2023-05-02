@@ -15,27 +15,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import {
-  GetIdentityPoolRolesInput,
-  GetIdentityPoolRolesInputFilterSensitiveLog,
-  GetIdentityPoolRolesResponse,
-  GetIdentityPoolRolesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetIdentityPoolRolesCommand,
-  serializeAws_json1_1GetIdentityPoolRolesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetIdentityPoolRolesInput, GetIdentityPoolRolesResponse } from "../models/models_0";
+import { de_GetIdentityPoolRolesCommand, se_GetIdentityPoolRolesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIdentityPoolRolesCommand}.
  */
 export interface GetIdentityPoolRolesCommandInput extends GetIdentityPoolRolesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetIdentityPoolRolesCommand}.
  */
 export interface GetIdentityPoolRolesCommandOutput extends GetIdentityPoolRolesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the roles for an identity pool.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
@@ -44,10 +41,15 @@ export interface GetIdentityPoolRolesCommandOutput extends GetIdentityPoolRolesR
  * import { CognitoIdentityClient, GetIdentityPoolRolesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetIdentityPoolRolesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // GetIdentityPoolRolesInput
+ *   IdentityPoolId: "STRING_VALUE", // required
+ * };
  * const command = new GetIdentityPoolRolesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityPoolRolesCommandInput - {@link GetIdentityPoolRolesCommandInput}
+ * @returns {@link GetIdentityPoolRolesCommandOutput}
  * @see {@link GetIdentityPoolRolesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityPoolRolesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -91,6 +93,9 @@ export class GetIdentityPoolRolesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityPoolRolesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +125,8 @@ export class GetIdentityPoolRolesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityPoolRolesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityPoolRolesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +136,18 @@ export class GetIdentityPoolRolesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIdentityPoolRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetIdentityPoolRolesCommand(input, context);
+    return se_GetIdentityPoolRolesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdentityPoolRolesCommandOutput> {
-    return deserializeAws_json1_1GetIdentityPoolRolesCommand(output, context);
+    return de_GetIdentityPoolRolesCommand(output, context);
   }
 
   // Start section: command_body_extra

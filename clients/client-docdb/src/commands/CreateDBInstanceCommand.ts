@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  CreateDBInstanceMessage,
-  CreateDBInstanceMessageFilterSensitiveLog,
-  CreateDBInstanceResult,
-  CreateDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBInstanceCommand,
-  serializeAws_queryCreateDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
+import { de_CreateDBInstanceCommand, se_CreateDBInstanceCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBInstanceCommand}.
  */
 export interface CreateDBInstanceCommandInput extends CreateDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBInstanceCommand}.
  */
 export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,17 +39,38 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * import { DocDBClient, CreateDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // CreateDBInstanceMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   DBInstanceClass: "STRING_VALUE", // required
+ *   Engine: "STRING_VALUE", // required
+ *   AvailabilityZone: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   CopyTagsToSnapshot: true || false,
+ *   PromotionTier: Number("int"),
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ * };
  * const command = new CreateDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBInstanceCommandInput - {@link CreateDBInstanceCommandInput}
+ * @returns {@link CreateDBInstanceCommandOutput}
  * @see {@link CreateDBInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
  *  <p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.</p>
- *         <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
+ *          <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
  *  <p>
@@ -123,6 +141,9 @@ export class CreateDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,8 +172,8 @@ export class CreateDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,12 +183,18 @@ export class CreateDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBInstanceCommand(input, context);
+    return se_CreateDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBInstanceCommandOutput> {
-    return deserializeAws_queryCreateDBInstanceCommand(output, context);
+    return de_CreateDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

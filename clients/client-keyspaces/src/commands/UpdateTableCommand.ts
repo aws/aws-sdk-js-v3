@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import {
-  UpdateTableRequest,
-  UpdateTableRequestFilterSensitiveLog,
-  UpdateTableResponse,
-  UpdateTableResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateTableCommand,
-  serializeAws_json1_0UpdateTableCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateTableRequest, UpdateTableResponse } from "../models/models_0";
+import { de_UpdateTableCommand, se_UpdateTableCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTableCommand}.
  */
 export interface UpdateTableCommandInput extends UpdateTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTableCommand}.
  */
 export interface UpdateTableCommandOutput extends UpdateTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds new columns to the table or updates one of the table's settings, for example
  *          capacity mode, encryption, point-in-time recovery, or ttl settings.
  *       Note that you can only update one specific table setting per update operation.</p>
@@ -44,10 +41,41 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * import { KeyspacesClient, UpdateTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, UpdateTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = { // UpdateTableRequest
+ *   keyspaceName: "STRING_VALUE", // required
+ *   tableName: "STRING_VALUE", // required
+ *   addColumns: [ // ColumnDefinitionList
+ *     { // ColumnDefinition
+ *       name: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   capacitySpecification: { // CapacitySpecification
+ *     throughputMode: "STRING_VALUE", // required
+ *     readCapacityUnits: Number("long"),
+ *     writeCapacityUnits: Number("long"),
+ *   },
+ *   encryptionSpecification: { // EncryptionSpecification
+ *     type: "STRING_VALUE", // required
+ *     kmsKeyIdentifier: "STRING_VALUE",
+ *   },
+ *   pointInTimeRecovery: { // PointInTimeRecovery
+ *     status: "STRING_VALUE", // required
+ *   },
+ *   ttl: { // TimeToLive
+ *     status: "STRING_VALUE", // required
+ *   },
+ *   defaultTimeToLive: Number("int"),
+ *   clientSideTimestamps: { // ClientSideTimestamps
+ *     status: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTableCommandInput - {@link UpdateTableCommandInput}
+ * @returns {@link UpdateTableCommandOutput}
  * @see {@link UpdateTableCommandInput} for command's `input` shape.
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
@@ -92,6 +120,9 @@ export class UpdateTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +149,8 @@ export class UpdateTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +160,18 @@ export class UpdateTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateTableCommand(input, context);
+    return se_UpdateTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTableCommandOutput> {
-    return deserializeAws_json1_0UpdateTableCommand(output, context);
+    return de_UpdateTableCommand(output, context);
   }
 
   // Start section: command_body_extra

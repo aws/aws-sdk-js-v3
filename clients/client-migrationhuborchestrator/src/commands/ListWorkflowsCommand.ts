@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  ListMigrationWorkflowsRequest,
-  ListMigrationWorkflowsRequestFilterSensitiveLog,
-  ListMigrationWorkflowsResponse,
-  ListMigrationWorkflowsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorkflowsCommand,
-  serializeAws_restJson1ListWorkflowsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMigrationWorkflowsRequest, ListMigrationWorkflowsResponse } from "../models/models_0";
+import { de_ListWorkflowsCommand, se_ListWorkflowsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkflowsCommand}.
  */
 export interface ListWorkflowsCommandInput extends ListMigrationWorkflowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkflowsCommand}.
  */
 export interface ListWorkflowsCommandOutput extends ListMigrationWorkflowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the migration workflows.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,20 @@ export interface ListWorkflowsCommandOutput extends ListMigrationWorkflowsRespon
  * import { MigrationHubOrchestratorClient, ListWorkflowsCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, ListWorkflowsCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // ListMigrationWorkflowsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   templateId: "STRING_VALUE",
+ *   adsApplicationConfigurationName: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkflowsCommandInput - {@link ListWorkflowsCommandInput}
+ * @returns {@link ListWorkflowsCommandOutput}
  * @see {@link ListWorkflowsCommandInput} for command's `input` shape.
  * @see {@link ListWorkflowsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListWorkflowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkflowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +124,8 @@ export class ListWorkflowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMigrationWorkflowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMigrationWorkflowsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +135,18 @@ export class ListWorkflowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkflowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorkflowsCommand(input, context);
+    return se_ListWorkflowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowsCommandOutput> {
-    return deserializeAws_restJson1ListWorkflowsCommand(output, context);
+    return de_ListWorkflowsCommand(output, context);
   }
 
   // Start section: command_body_extra

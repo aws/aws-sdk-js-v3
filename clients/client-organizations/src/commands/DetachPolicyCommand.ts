@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DetachPolicyRequest, DetachPolicyRequestFilterSensitiveLog } from "../models/models_0";
+import { DetachPolicyRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DetachPolicyCommand,
-  serializeAws_json1_1DetachPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetachPolicyCommand, se_DetachPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachPolicyCommand}.
  */
 export interface DetachPolicyCommandInput extends DetachPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachPolicyCommand}.
  */
 export interface DetachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a policy from a target root, organizational unit (OU), or account.</p>
  *          <important>
  *             <p>If the policy being detached is a service control policy (SCP), the changes to
@@ -51,10 +53,16 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, DetachPolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DetachPolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // DetachPolicyRequest
+ *   PolicyId: "STRING_VALUE", // required
+ *   TargetId: "STRING_VALUE", // required
+ * };
  * const command = new DetachPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachPolicyCommandInput - {@link DetachPolicyCommandInput}
+ * @returns {@link DetachPolicyCommandOutput}
  * @see {@link DetachPolicyCommandInput} for command's `input` shape.
  * @see {@link DetachPolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -434,6 +442,9 @@ export class DetachPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -460,8 +471,8 @@ export class DetachPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -471,12 +482,18 @@ export class DetachPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachPolicyCommand(input, context);
+    return se_DetachPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachPolicyCommandOutput> {
-    return deserializeAws_json1_1DetachPolicyCommand(output, context);
+    return de_DetachPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

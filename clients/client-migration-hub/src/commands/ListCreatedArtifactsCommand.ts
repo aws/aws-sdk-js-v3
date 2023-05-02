@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  ListCreatedArtifactsRequest,
-  ListCreatedArtifactsRequestFilterSensitiveLog,
-  ListCreatedArtifactsResult,
-  ListCreatedArtifactsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCreatedArtifactsCommand,
-  serializeAws_json1_1ListCreatedArtifactsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCreatedArtifactsRequest, ListCreatedArtifactsResult } from "../models/models_0";
+import { de_ListCreatedArtifactsCommand, se_ListCreatedArtifactsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCreatedArtifactsCommand}.
  */
 export interface ListCreatedArtifactsCommandInput extends ListCreatedArtifactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCreatedArtifactsCommand}.
  */
 export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the created artifacts attached to a given migration task in an update stream. This
  *          API has the following traits:</p>
  *          <ul>
@@ -56,10 +53,18 @@ export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsR
  * import { MigrationHubClient, ListCreatedArtifactsCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, ListCreatedArtifactsCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // ListCreatedArtifactsRequest
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListCreatedArtifactsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCreatedArtifactsCommandInput - {@link ListCreatedArtifactsCommandInput}
+ * @returns {@link ListCreatedArtifactsCommandOutput}
  * @see {@link ListCreatedArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListCreatedArtifactsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -109,6 +114,9 @@ export class ListCreatedArtifactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCreatedArtifactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +145,8 @@ export class ListCreatedArtifactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCreatedArtifactsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCreatedArtifactsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +156,18 @@ export class ListCreatedArtifactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCreatedArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCreatedArtifactsCommand(input, context);
+    return se_ListCreatedArtifactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCreatedArtifactsCommandOutput> {
-    return deserializeAws_json1_1ListCreatedArtifactsCommand(output, context);
+    return de_ListCreatedArtifactsCommand(output, context);
   }
 
   // Start section: command_body_extra

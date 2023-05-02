@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  GetServiceRequest,
-  GetServiceRequestFilterSensitiveLog,
-  GetServiceResponse,
-  GetServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServiceCommand,
-  serializeAws_restJson1GetServiceCommand,
-} from "../protocols/Aws_restJson1";
+import { GetServiceRequest, GetServiceResponse, GetServiceResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetServiceCommand, se_GetServiceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceCommand}.
  */
 export interface GetServiceCommandInput extends GetServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceCommand}.
  */
 export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an Amazon Web Services Migration Hub Refactor Spaces service. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * import { MigrationHubRefactorSpacesClient, GetServiceCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, GetServiceCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = { // GetServiceRequest
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ *   ServiceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceCommandInput - {@link GetServiceCommandInput}
+ * @returns {@link GetServiceCommandOutput}
  * @see {@link GetServiceCommandInput} for command's `input` shape.
  * @see {@link GetServiceCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
@@ -89,6 +93,9 @@ export class GetServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +122,7 @@ export class GetServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,12 +133,18 @@ export class GetServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServiceCommand(input, context);
+    return se_GetServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceCommandOutput> {
-    return deserializeAws_restJson1GetServiceCommand(output, context);
+    return de_GetServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

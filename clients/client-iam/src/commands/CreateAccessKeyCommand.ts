@@ -16,25 +16,26 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   CreateAccessKeyRequest,
-  CreateAccessKeyRequestFilterSensitiveLog,
   CreateAccessKeyResponse,
   CreateAccessKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_queryCreateAccessKeyCommand,
-  serializeAws_queryCreateAccessKeyCommand,
-} from "../protocols/Aws_query";
+import { de_CreateAccessKeyCommand, se_CreateAccessKeyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessKeyCommand}.
  */
 export interface CreateAccessKeyCommandInput extends CreateAccessKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessKeyCommand}.
  */
 export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new Amazon Web Services secret access key and corresponding Amazon Web Services access key ID for the
  *             specified user. The default status for new keys is <code>Active</code>.</p>
  *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
@@ -55,10 +56,15 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  * import { IAMClient, CreateAccessKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateAccessKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // CreateAccessKeyRequest
+ *   UserName: "STRING_VALUE",
+ * };
  * const command = new CreateAccessKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessKeyCommandInput - {@link CreateAccessKeyCommandInput}
+ * @returns {@link CreateAccessKeyCommandOutput}
  * @see {@link CreateAccessKeyCommandInput} for command's `input` shape.
  * @see {@link CreateAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -116,6 +122,9 @@ export class CreateAccessKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,7 +153,7 @@ export class CreateAccessKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateAccessKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -155,12 +164,18 @@ export class CreateAccessKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateAccessKeyCommand(input, context);
+    return se_CreateAccessKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessKeyCommandOutput> {
-    return deserializeAws_queryCreateAccessKeyCommand(output, context);
+    return de_CreateAccessKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

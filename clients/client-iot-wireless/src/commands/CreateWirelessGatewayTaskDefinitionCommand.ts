@@ -16,20 +16,22 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   CreateWirelessGatewayTaskDefinitionRequest,
-  CreateWirelessGatewayTaskDefinitionRequestFilterSensitiveLog,
   CreateWirelessGatewayTaskDefinitionResponse,
-  CreateWirelessGatewayTaskDefinitionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommand,
-  serializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommand,
+  de_CreateWirelessGatewayTaskDefinitionCommand,
+  se_CreateWirelessGatewayTaskDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWirelessGatewayTaskDefinitionCommand}.
  */
 export interface CreateWirelessGatewayTaskDefinitionCommandInput extends CreateWirelessGatewayTaskDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWirelessGatewayTaskDefinitionCommand}.
  */
 export interface CreateWirelessGatewayTaskDefinitionCommandOutput
@@ -37,6 +39,7 @@ export interface CreateWirelessGatewayTaskDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a gateway task definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,41 @@ export interface CreateWirelessGatewayTaskDefinitionCommandOutput
  * import { IoTWirelessClient, CreateWirelessGatewayTaskDefinitionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateWirelessGatewayTaskDefinitionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // CreateWirelessGatewayTaskDefinitionRequest
+ *   AutoCreateTasks: true || false, // required
+ *   Name: "STRING_VALUE",
+ *   Update: { // UpdateWirelessGatewayTaskCreate
+ *     UpdateDataSource: "STRING_VALUE",
+ *     UpdateDataRole: "STRING_VALUE",
+ *     LoRaWAN: { // LoRaWANUpdateGatewayTaskCreate
+ *       UpdateSignature: "STRING_VALUE",
+ *       SigKeyCrc: Number("long"),
+ *       CurrentVersion: { // LoRaWANGatewayVersion
+ *         PackageVersion: "STRING_VALUE",
+ *         Model: "STRING_VALUE",
+ *         Station: "STRING_VALUE",
+ *       },
+ *       UpdateVersion: {
+ *         PackageVersion: "STRING_VALUE",
+ *         Model: "STRING_VALUE",
+ *         Station: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateWirelessGatewayTaskDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWirelessGatewayTaskDefinitionCommandInput - {@link CreateWirelessGatewayTaskDefinitionCommandInput}
+ * @returns {@link CreateWirelessGatewayTaskDefinitionCommandOutput}
  * @see {@link CreateWirelessGatewayTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateWirelessGatewayTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +123,9 @@ export class CreateWirelessGatewayTaskDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWirelessGatewayTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +154,8 @@ export class CreateWirelessGatewayTaskDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWirelessGatewayTaskDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWirelessGatewayTaskDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +165,24 @@ export class CreateWirelessGatewayTaskDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateWirelessGatewayTaskDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommand(input, context);
+    return se_CreateWirelessGatewayTaskDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateWirelessGatewayTaskDefinitionCommandOutput> {
-    return deserializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommand(output, context);
+    return de_CreateWirelessGatewayTaskDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

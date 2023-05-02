@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateFindingAggregatorRequest,
-  UpdateFindingAggregatorRequestFilterSensitiveLog,
-  UpdateFindingAggregatorResponse,
-  UpdateFindingAggregatorResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateFindingAggregatorCommand,
-  serializeAws_restJson1UpdateFindingAggregatorCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFindingAggregatorRequest, UpdateFindingAggregatorResponse } from "../models/models_2";
+import { de_UpdateFindingAggregatorCommand, se_UpdateFindingAggregatorCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFindingAggregatorCommand}.
  */
 export interface UpdateFindingAggregatorCommandInput extends UpdateFindingAggregatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFindingAggregatorCommand}.
  */
 export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggregatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the finding aggregation configuration. Used to update the Region linking mode and the list of included or excluded Regions. You cannot use <code>UpdateFindingAggregator</code> to change the aggregation Region.</p>
  *          <p>You must run <code>UpdateFindingAggregator</code> from the current aggregation Region.
  *       </p>
@@ -44,10 +41,19 @@ export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggre
  * import { SecurityHubClient, UpdateFindingAggregatorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateFindingAggregatorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // UpdateFindingAggregatorRequest
+ *   FindingAggregatorArn: "STRING_VALUE", // required
+ *   RegionLinkingMode: "STRING_VALUE", // required
+ *   Regions: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateFindingAggregatorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFindingAggregatorCommandInput - {@link UpdateFindingAggregatorCommandInput}
+ * @returns {@link UpdateFindingAggregatorCommandOutput}
  * @see {@link UpdateFindingAggregatorCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingAggregatorCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -73,6 +79,33 @@ export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggre
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To update cross-Region aggregation settings
+ * ```javascript
+ * // The following example updates the cross-Region aggregation configuration. You use this operation to change the list of linked Regions and the treatment of new Regions. However, you cannot use this operation to change the aggregation Region.
+ * const input = {
+ *   "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   "RegionLinkingMode": "SPECIFIED_REGIONS",
+ *   "Regions": [
+ *     "us-west-1",
+ *     "us-west-2"
+ *   ]
+ * };
+ * const command = new UpdateFindingAggregatorCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FindingAggregationRegion": "us-east-1",
+ *   "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   "RegionLinkingMode": "SPECIFIED_REGIONS",
+ *   "Regions": [
+ *     "us-west-1",
+ *     "us-west-2"
+ *   ]
+ * }
+ * *\/
+ * // example id: to-update-cross-region-aggregation-settings-1678815536396
+ * ```
+ *
  */
 export class UpdateFindingAggregatorCommand extends $Command<
   UpdateFindingAggregatorCommandInput,
@@ -91,6 +124,9 @@ export class UpdateFindingAggregatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFindingAggregatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +155,8 @@ export class UpdateFindingAggregatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFindingAggregatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFindingAggregatorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +166,18 @@ export class UpdateFindingAggregatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFindingAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFindingAggregatorCommand(input, context);
+    return se_UpdateFindingAggregatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFindingAggregatorCommandOutput> {
-    return deserializeAws_restJson1UpdateFindingAggregatorCommand(output, context);
+    return de_UpdateFindingAggregatorCommand(output, context);
   }
 
   // Start section: command_body_extra

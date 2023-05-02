@@ -20,21 +20,23 @@ import {
   StartFailbackLaunchResponse,
   StartFailbackLaunchResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartFailbackLaunchCommand,
-  serializeAws_restJson1StartFailbackLaunchCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartFailbackLaunchCommand, se_StartFailbackLaunchCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartFailbackLaunchCommand}.
  */
 export interface StartFailbackLaunchCommandInput extends StartFailbackLaunchRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFailbackLaunchCommand}.
  */
 export interface StartFailbackLaunchCommandOutput extends StartFailbackLaunchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a Job for launching the machine that is being failed back to from the specified Recovery Instance. This will run conversion on the failback client and will reboot your machine, thus completing the failback process.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,20 @@ export interface StartFailbackLaunchCommandOutput extends StartFailbackLaunchRes
  * import { DrsClient, StartFailbackLaunchCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, StartFailbackLaunchCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // StartFailbackLaunchRequest
+ *   recoveryInstanceIDs: [ // StartFailbackRequestRecoveryInstanceIDs // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartFailbackLaunchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFailbackLaunchCommandInput - {@link StartFailbackLaunchCommandInput}
+ * @returns {@link StartFailbackLaunchCommandOutput}
  * @see {@link StartFailbackLaunchCommandInput} for command's `input` shape.
  * @see {@link StartFailbackLaunchCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -87,6 +99,9 @@ export class StartFailbackLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFailbackLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,12 +141,18 @@ export class StartFailbackLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFailbackLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartFailbackLaunchCommand(input, context);
+    return se_StartFailbackLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFailbackLaunchCommandOutput> {
-    return deserializeAws_restJson1StartFailbackLaunchCommand(output, context);
+    return de_StartFailbackLaunchCommand(output, context);
   }
 
   // Start section: command_body_extra

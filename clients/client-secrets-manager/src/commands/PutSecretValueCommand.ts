@@ -17,24 +17,25 @@ import {
   PutSecretValueRequest,
   PutSecretValueRequestFilterSensitiveLog,
   PutSecretValueResponse,
-  PutSecretValueResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutSecretValueCommand,
-  serializeAws_json1_1PutSecretValueCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutSecretValueCommand, se_PutSecretValueCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutSecretValueCommand}.
  */
 export interface PutSecretValueCommandInput extends PutSecretValueRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSecretValueCommand}.
  */
 export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version with a new encrypted secret value and attaches it to the secret. The
  *       version can contain a new <code>SecretString</code> value or a new <code>SecretBinary</code> value. </p>
  *          <p>We recommend you avoid calling <code>PutSecretValue</code> at a sustained rate of more than
@@ -69,10 +70,21 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * import { SecretsManagerClient, PutSecretValueCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, PutSecretValueCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // PutSecretValueRequest
+ *   SecretId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   SecretBinary: "BLOB_VALUE",
+ *   SecretString: "STRING_VALUE",
+ *   VersionStages: [ // SecretVersionStagesType
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new PutSecretValueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSecretValueCommandInput - {@link PutSecretValueCommandInput}
+ * @returns {@link PutSecretValueCommandOutput}
  * @see {@link PutSecretValueCommandInput} for command's `input` shape.
  * @see {@link PutSecretValueCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -160,6 +172,9 @@ export class PutSecretValueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSecretValueCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,7 +204,7 @@ export class PutSecretValueCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutSecretValueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSecretValueResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -199,12 +214,18 @@ export class PutSecretValueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSecretValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutSecretValueCommand(input, context);
+    return se_PutSecretValueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSecretValueCommandOutput> {
-    return deserializeAws_json1_1PutSecretValueCommand(output, context);
+    return de_PutSecretValueCommand(output, context);
   }
 
   // Start section: command_body_extra

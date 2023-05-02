@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteConfigurationSetRequest,
-  DeleteConfigurationSetRequestFilterSensitiveLog,
-  DeleteConfigurationSetResponse,
-  DeleteConfigurationSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteConfigurationSetCommand,
-  serializeAws_queryDeleteConfigurationSetCommand,
-} from "../protocols/Aws_query";
+import { DeleteConfigurationSetRequest, DeleteConfigurationSetResponse } from "../models/models_0";
+import { de_DeleteConfigurationSetCommand, se_DeleteConfigurationSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationSetCommand}.
  */
 export interface DeleteConfigurationSetCommandInput extends DeleteConfigurationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationSetCommand}.
  */
 export interface DeleteConfigurationSetCommandOutput extends DeleteConfigurationSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a configuration set. Configuration sets enable you to publish email sending
  *             events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -44,10 +41,15 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * import { SESClient, DeleteConfigurationSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteConfigurationSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // DeleteConfigurationSetRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationSetCommandInput - {@link DeleteConfigurationSetCommandInput}
+ * @returns {@link DeleteConfigurationSetCommandOutput}
  * @see {@link DeleteConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -74,6 +76,9 @@ export class DeleteConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +107,8 @@ export class DeleteConfigurationSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfigurationSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +118,18 @@ export class DeleteConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteConfigurationSetCommand(input, context);
+    return se_DeleteConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigurationSetCommandOutput> {
-    return deserializeAws_queryDeleteConfigurationSetCommand(output, context);
+    return de_DeleteConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

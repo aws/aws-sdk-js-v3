@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTrafficPolicyInstanceRequest,
-  GetTrafficPolicyInstanceRequestFilterSensitiveLog,
-  GetTrafficPolicyInstanceResponse,
-  GetTrafficPolicyInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetTrafficPolicyInstanceCommand,
-  serializeAws_restXmlGetTrafficPolicyInstanceCommand,
-} from "../protocols/Aws_restXml";
+import { GetTrafficPolicyInstanceRequest, GetTrafficPolicyInstanceResponse } from "../models/models_0";
+import { de_GetTrafficPolicyInstanceCommand, se_GetTrafficPolicyInstanceCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetTrafficPolicyInstanceCommand}.
  */
 export interface GetTrafficPolicyInstanceCommandInput extends GetTrafficPolicyInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTrafficPolicyInstanceCommand}.
  */
 export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified traffic policy instance.</p>
  *          <note>
  *             <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an
@@ -54,10 +51,15 @@ export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyI
  * import { Route53Client, GetTrafficPolicyInstanceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetTrafficPolicyInstanceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // GetTrafficPolicyInstanceRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetTrafficPolicyInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrafficPolicyInstanceCommandInput - {@link GetTrafficPolicyInstanceCommandInput}
+ * @returns {@link GetTrafficPolicyInstanceCommandOutput}
  * @see {@link GetTrafficPolicyInstanceCommandInput} for command's `input` shape.
  * @see {@link GetTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -87,6 +89,9 @@ export class GetTrafficPolicyInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrafficPolicyInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class GetTrafficPolicyInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTrafficPolicyInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTrafficPolicyInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class GetTrafficPolicyInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrafficPolicyInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetTrafficPolicyInstanceCommand(input, context);
+    return se_GetTrafficPolicyInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrafficPolicyInstanceCommandOutput> {
-    return deserializeAws_restXmlGetTrafficPolicyInstanceCommand(output, context);
+    return de_GetTrafficPolicyInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

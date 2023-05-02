@@ -15,22 +15,24 @@ import {
 
 import {
   PutAccountDedicatedIpWarmupAttributesRequest,
-  PutAccountDedicatedIpWarmupAttributesRequestFilterSensitiveLog,
   PutAccountDedicatedIpWarmupAttributesResponse,
-  PutAccountDedicatedIpWarmupAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand,
-  serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand,
+  de_PutAccountDedicatedIpWarmupAttributesCommand,
+  se_PutAccountDedicatedIpWarmupAttributesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountDedicatedIpWarmupAttributesCommand}.
  */
 export interface PutAccountDedicatedIpWarmupAttributesCommandInput
   extends PutAccountDedicatedIpWarmupAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountDedicatedIpWarmupAttributesCommand}.
  */
 export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
@@ -38,6 +40,7 @@ export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable or disable the automatic warm-up feature for dedicated IP addresses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,15 @@ export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
  * import { SESv2Client, PutAccountDedicatedIpWarmupAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutAccountDedicatedIpWarmupAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // PutAccountDedicatedIpWarmupAttributesRequest
+ *   AutoWarmupEnabled: true || false,
+ * };
  * const command = new PutAccountDedicatedIpWarmupAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountDedicatedIpWarmupAttributesCommandInput - {@link PutAccountDedicatedIpWarmupAttributesCommandInput}
+ * @returns {@link PutAccountDedicatedIpWarmupAttributesCommandOutput}
  * @see {@link PutAccountDedicatedIpWarmupAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountDedicatedIpWarmupAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -78,6 +86,9 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountDedicatedIpWarmupAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +117,8 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountDedicatedIpWarmupAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountDedicatedIpWarmupAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +128,24 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutAccountDedicatedIpWarmupAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand(input, context);
+    return se_PutAccountDedicatedIpWarmupAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> {
-    return deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand(output, context);
+    return de_PutAccountDedicatedIpWarmupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,26 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAccountSendingEnabledRequest,
-  UpdateAccountSendingEnabledRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryUpdateAccountSendingEnabledCommand,
-  serializeAws_queryUpdateAccountSendingEnabledCommand,
-} from "../protocols/Aws_query";
+import { UpdateAccountSendingEnabledRequest } from "../models/models_0";
+import { de_UpdateAccountSendingEnabledCommand, se_UpdateAccountSendingEnabledCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountSendingEnabledCommand}.
  */
 export interface UpdateAccountSendingEnabledCommandInput extends UpdateAccountSendingEnabledRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountSendingEnabledCommand}.
  */
 export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables email sending across your entire Amazon SES account in the current
  *             AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms to
  *             temporarily pause email sending across your Amazon SES account in a given AWS Region when
@@ -45,10 +44,15 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  * import { SESClient, UpdateAccountSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateAccountSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // UpdateAccountSendingEnabledRequest
+ *   Enabled: true || false,
+ * };
  * const command = new UpdateAccountSendingEnabledCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountSendingEnabledCommandInput - {@link UpdateAccountSendingEnabledCommandInput}
+ * @returns {@link UpdateAccountSendingEnabledCommandOutput}
  * @see {@link UpdateAccountSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -83,6 +87,9 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountSendingEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +118,8 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccountSendingEnabledRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,15 +129,21 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountSendingEnabledCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateAccountSendingEnabledCommand(input, context);
+    return se_UpdateAccountSendingEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAccountSendingEnabledCommandOutput> {
-    return deserializeAws_queryUpdateAccountSendingEnabledCommand(output, context);
+    return de_UpdateAccountSendingEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

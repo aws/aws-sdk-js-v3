@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { UpdateColumnStatisticsForTableRequest, UpdateColumnStatisticsForTableResponse } from "../models/models_2";
 import {
-  UpdateColumnStatisticsForTableRequest,
-  UpdateColumnStatisticsForTableRequestFilterSensitiveLog,
-  UpdateColumnStatisticsForTableResponse,
-  UpdateColumnStatisticsForTableResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateColumnStatisticsForTableCommand,
-  serializeAws_json1_1UpdateColumnStatisticsForTableCommand,
+  de_UpdateColumnStatisticsForTableCommand,
+  se_UpdateColumnStatisticsForTableCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateColumnStatisticsForTableCommand}.
  */
 export interface UpdateColumnStatisticsForTableCommandInput extends UpdateColumnStatisticsForTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateColumnStatisticsForTableCommand}.
  */
 export interface UpdateColumnStatisticsForTableCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateColumnStatisticsForTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates table statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
  * @example
@@ -45,10 +45,73 @@ export interface UpdateColumnStatisticsForTableCommandOutput
  * import { GlueClient, UpdateColumnStatisticsForTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateColumnStatisticsForTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateColumnStatisticsForTableRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   ColumnStatisticsList: [ // UpdateColumnStatisticsList // required
+ *     { // ColumnStatistics
+ *       ColumnName: "STRING_VALUE", // required
+ *       ColumnType: "STRING_VALUE", // required
+ *       AnalyzedTime: new Date("TIMESTAMP"), // required
+ *       StatisticsData: { // ColumnStatisticsData
+ *         Type: "BOOLEAN" || "DATE" || "DECIMAL" || "DOUBLE" || "LONG" || "STRING" || "BINARY", // required
+ *         BooleanColumnStatisticsData: { // BooleanColumnStatisticsData
+ *           NumberOfTrues: Number("long"), // required
+ *           NumberOfFalses: Number("long"), // required
+ *           NumberOfNulls: Number("long"), // required
+ *         },
+ *         DateColumnStatisticsData: { // DateColumnStatisticsData
+ *           MinimumValue: new Date("TIMESTAMP"),
+ *           MaximumValue: new Date("TIMESTAMP"),
+ *           NumberOfNulls: Number("long"), // required
+ *           NumberOfDistinctValues: Number("long"), // required
+ *         },
+ *         DecimalColumnStatisticsData: { // DecimalColumnStatisticsData
+ *           MinimumValue: { // DecimalNumber
+ *             UnscaledValue: "BLOB_VALUE", // required
+ *             Scale: Number("int"), // required
+ *           },
+ *           MaximumValue: {
+ *             UnscaledValue: "BLOB_VALUE", // required
+ *             Scale: Number("int"), // required
+ *           },
+ *           NumberOfNulls: Number("long"), // required
+ *           NumberOfDistinctValues: Number("long"), // required
+ *         },
+ *         DoubleColumnStatisticsData: { // DoubleColumnStatisticsData
+ *           MinimumValue: Number("double"),
+ *           MaximumValue: Number("double"),
+ *           NumberOfNulls: Number("long"), // required
+ *           NumberOfDistinctValues: Number("long"), // required
+ *         },
+ *         LongColumnStatisticsData: { // LongColumnStatisticsData
+ *           MinimumValue: Number("long"),
+ *           MaximumValue: Number("long"),
+ *           NumberOfNulls: Number("long"), // required
+ *           NumberOfDistinctValues: Number("long"), // required
+ *         },
+ *         StringColumnStatisticsData: { // StringColumnStatisticsData
+ *           MaximumLength: Number("long"), // required
+ *           AverageLength: Number("double"), // required
+ *           NumberOfNulls: Number("long"), // required
+ *           NumberOfDistinctValues: Number("long"), // required
+ *         },
+ *         BinaryColumnStatisticsData: { // BinaryColumnStatisticsData
+ *           MaximumLength: Number("long"), // required
+ *           AverageLength: Number("double"), // required
+ *           NumberOfNulls: Number("long"), // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateColumnStatisticsForTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateColumnStatisticsForTableCommandInput - {@link UpdateColumnStatisticsForTableCommandInput}
+ * @returns {@link UpdateColumnStatisticsForTableCommandOutput}
  * @see {@link UpdateColumnStatisticsForTableCommandInput} for command's `input` shape.
  * @see {@link UpdateColumnStatisticsForTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +150,9 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateColumnStatisticsForTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +181,8 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateColumnStatisticsForTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateColumnStatisticsForTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +192,24 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateColumnStatisticsForTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateColumnStatisticsForTableCommand(input, context);
+    return se_UpdateColumnStatisticsForTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateColumnStatisticsForTableCommandOutput> {
-    return deserializeAws_json1_1UpdateColumnStatisticsForTableCommand(output, context);
+    return de_UpdateColumnStatisticsForTableCommand(output, context);
   }
 
   // Start section: command_body_extra

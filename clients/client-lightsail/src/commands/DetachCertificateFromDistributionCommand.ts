@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { DetachCertificateFromDistributionRequest, DetachCertificateFromDistributionResult } from "../models/models_0";
 import {
-  DetachCertificateFromDistributionRequest,
-  DetachCertificateFromDistributionRequestFilterSensitiveLog,
-  DetachCertificateFromDistributionResult,
-  DetachCertificateFromDistributionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetachCertificateFromDistributionCommand,
-  serializeAws_json1_1DetachCertificateFromDistributionCommand,
+  de_DetachCertificateFromDistributionCommand,
+  se_DetachCertificateFromDistributionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachCertificateFromDistributionCommand}.
  */
 export interface DetachCertificateFromDistributionCommandInput extends DetachCertificateFromDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachCertificateFromDistributionCommand}.
  */
 export interface DetachCertificateFromDistributionCommandOutput
@@ -37,6 +36,7 @@ export interface DetachCertificateFromDistributionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches an SSL/TLS certificate from your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>After the certificate is detached, your distribution stops accepting traffic for all of
@@ -47,10 +47,15 @@ export interface DetachCertificateFromDistributionCommandOutput
  * import { LightsailClient, DetachCertificateFromDistributionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DetachCertificateFromDistributionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DetachCertificateFromDistributionRequest
+ *   distributionName: "STRING_VALUE", // required
+ * };
  * const command = new DetachCertificateFromDistributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachCertificateFromDistributionCommandInput - {@link DetachCertificateFromDistributionCommandInput}
+ * @returns {@link DetachCertificateFromDistributionCommandOutput}
  * @see {@link DetachCertificateFromDistributionCommandInput} for command's `input` shape.
  * @see {@link DetachCertificateFromDistributionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -100,6 +105,9 @@ export class DetachCertificateFromDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachCertificateFromDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +136,8 @@ export class DetachCertificateFromDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachCertificateFromDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachCertificateFromDistributionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,18 +147,24 @@ export class DetachCertificateFromDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DetachCertificateFromDistributionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachCertificateFromDistributionCommand(input, context);
+    return se_DetachCertificateFromDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachCertificateFromDistributionCommandOutput> {
-    return deserializeAws_json1_1DetachCertificateFromDistributionCommand(output, context);
+    return de_DetachCertificateFromDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

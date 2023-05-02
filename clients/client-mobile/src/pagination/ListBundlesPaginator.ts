@@ -6,7 +6,7 @@ import { MobileClient } from "../MobileClient";
 import { MobilePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MobileClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBundlesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListBundles(
   config: MobilePaginationConfiguration,
   input: ListBundlesCommandInput,

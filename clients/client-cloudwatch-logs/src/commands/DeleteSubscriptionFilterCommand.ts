@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DeleteSubscriptionFilterRequest, DeleteSubscriptionFilterRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSubscriptionFilterCommand,
-  serializeAws_json1_1DeleteSubscriptionFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSubscriptionFilterRequest } from "../models/models_0";
+import { de_DeleteSubscriptionFilterCommand, se_DeleteSubscriptionFilterCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubscriptionFilterCommand}.
  */
 export interface DeleteSubscriptionFilterCommandInput extends DeleteSubscriptionFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubscriptionFilterCommand}.
  */
 export interface DeleteSubscriptionFilterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified subscription filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteSubscriptionFilterCommandOutput extends __MetadataBearer 
  * import { CloudWatchLogsClient, DeleteSubscriptionFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteSubscriptionFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DeleteSubscriptionFilterRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   filterName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSubscriptionFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubscriptionFilterCommandInput - {@link DeleteSubscriptionFilterCommandInput}
+ * @returns {@link DeleteSubscriptionFilterCommandOutput}
  * @see {@link DeleteSubscriptionFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -76,6 +84,9 @@ export class DeleteSubscriptionFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubscriptionFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +115,8 @@ export class DeleteSubscriptionFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubscriptionFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +126,18 @@ export class DeleteSubscriptionFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubscriptionFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSubscriptionFilterCommand(input, context);
+    return se_DeleteSubscriptionFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubscriptionFilterCommandOutput> {
-    return deserializeAws_json1_1DeleteSubscriptionFilterCommand(output, context);
+    return de_DeleteSubscriptionFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

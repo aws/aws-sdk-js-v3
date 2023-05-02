@@ -20,21 +20,23 @@ import {
   UpdateRoomResponse,
   UpdateRoomResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateRoomCommand,
-  serializeAws_restJson1UpdateRoomCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRoomCommand, se_UpdateRoomCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoomCommand}.
  */
 export interface UpdateRoomCommandInput extends UpdateRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoomCommand}.
  */
 export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,17 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * import { ChimeClient, UpdateRoomCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateRoomCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // UpdateRoomRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   RoomId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoomCommandInput - {@link UpdateRoomCommandInput}
+ * @returns {@link UpdateRoomCommandOutput}
  * @see {@link UpdateRoomCommandInput} for command's `input` shape.
  * @see {@link UpdateRoomCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +99,9 @@ export class UpdateRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,12 +139,18 @@ export class UpdateRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRoomCommand(input, context);
+    return se_UpdateRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoomCommandOutput> {
-    return deserializeAws_restJson1UpdateRoomCommand(output, context);
+    return de_UpdateRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

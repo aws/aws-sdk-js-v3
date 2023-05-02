@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  RequestValidator,
-  RequestValidatorFilterSensitiveLog,
-  UpdateRequestValidatorRequest,
-  UpdateRequestValidatorRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRequestValidatorCommand,
-  serializeAws_restJson1UpdateRequestValidatorCommand,
-} from "../protocols/Aws_restJson1";
+import { RequestValidator, UpdateRequestValidatorRequest } from "../models/models_0";
+import { de_UpdateRequestValidatorCommand, se_UpdateRequestValidatorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRequestValidatorCommand}.
  */
 export interface UpdateRequestValidatorCommandInput extends UpdateRequestValidatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRequestValidatorCommand}.
  */
 export interface UpdateRequestValidatorCommandOutput extends RequestValidator, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a RequestValidator of a given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface UpdateRequestValidatorCommandOutput extends RequestValidator, _
  * import { APIGatewayClient, UpdateRequestValidatorCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateRequestValidatorCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // UpdateRequestValidatorRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   requestValidatorId: "STRING_VALUE", // required
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
+ *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
+ *       path: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       from: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRequestValidatorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRequestValidatorCommandInput - {@link UpdateRequestValidatorCommandInput}
+ * @returns {@link UpdateRequestValidatorCommandOutput}
  * @see {@link UpdateRequestValidatorCommandInput} for command's `input` shape.
  * @see {@link UpdateRequestValidatorCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +98,9 @@ export class UpdateRequestValidatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRequestValidatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +129,8 @@ export class UpdateRequestValidatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRequestValidatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RequestValidatorFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +140,18 @@ export class UpdateRequestValidatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRequestValidatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRequestValidatorCommand(input, context);
+    return se_UpdateRequestValidatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRequestValidatorCommandOutput> {
-    return deserializeAws_restJson1UpdateRequestValidatorCommand(output, context);
+    return de_UpdateRequestValidatorCommand(output, context);
   }
 
   // Start section: command_body_extra

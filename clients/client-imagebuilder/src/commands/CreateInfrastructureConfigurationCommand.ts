@@ -16,20 +16,22 @@ import {
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import {
   CreateInfrastructureConfigurationRequest,
-  CreateInfrastructureConfigurationRequestFilterSensitiveLog,
   CreateInfrastructureConfigurationResponse,
-  CreateInfrastructureConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateInfrastructureConfigurationCommand,
-  serializeAws_restJson1CreateInfrastructureConfigurationCommand,
+  de_CreateInfrastructureConfigurationCommand,
+  se_CreateInfrastructureConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInfrastructureConfigurationCommand}.
  */
 export interface CreateInfrastructureConfigurationCommandInput extends CreateInfrastructureConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInfrastructureConfigurationCommand}.
  */
 export interface CreateInfrastructureConfigurationCommandOutput
@@ -37,18 +39,53 @@ export interface CreateInfrastructureConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the
- * 			environment in which your image will be built and tested.</p>
+ * @public
+ * <p>Creates a new infrastructure configuration. An infrastructure configuration defines
+ * 			the environment in which your image will be built and tested.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, CreateInfrastructureConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateInfrastructureConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // CreateInfrastructureConfigurationRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   instanceTypes: [ // InstanceTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   instanceProfileName: "STRING_VALUE", // required
+ *   securityGroupIds: [ // SecurityGroupIds
+ *     "STRING_VALUE",
+ *   ],
+ *   subnetId: "STRING_VALUE",
+ *   logging: { // Logging
+ *     s3Logs: { // S3Logs
+ *       s3BucketName: "STRING_VALUE",
+ *       s3KeyPrefix: "STRING_VALUE",
+ *     },
+ *   },
+ *   keyPair: "STRING_VALUE",
+ *   terminateInstanceOnFailure: true || false,
+ *   snsTopicArn: "STRING_VALUE",
+ *   resourceTags: { // ResourceTagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   instanceMetadataOptions: { // InstanceMetadataOptions
+ *     httpTokens: "STRING_VALUE",
+ *     httpPutResponseHopLimit: Number("int"),
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInfrastructureConfigurationCommandInput - {@link CreateInfrastructureConfigurationCommandInput}
+ * @returns {@link CreateInfrastructureConfigurationCommandOutput}
  * @see {@link CreateInfrastructureConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateInfrastructureConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -57,19 +94,19 @@ export interface CreateInfrastructureConfigurationCommandOutput
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>You have specified a client token for an operation using parameter values that differ from
- * 			a previous request that used the same client token.</p>
+ *  <p>You have specified a client token for an operation using parameter values that differ
+ * 			from a previous request that used the same client token.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource that you are trying to create already exists.</p>
@@ -79,10 +116,13 @@ export interface CreateInfrastructureConfigurationCommandOutput
  * 			details and retry later.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and quotas</a>.</p>
+ *  <p>You have exceeded the number of permitted resources or operations for this service.
+ * 			For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and
+ * 				quotas</a>.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -106,6 +146,9 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInfrastructureConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +177,8 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInfrastructureConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInfrastructureConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +188,24 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateInfrastructureConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateInfrastructureConfigurationCommand(input, context);
+    return se_CreateInfrastructureConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateInfrastructureConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateInfrastructureConfigurationCommand(output, context);
+    return de_CreateInfrastructureConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

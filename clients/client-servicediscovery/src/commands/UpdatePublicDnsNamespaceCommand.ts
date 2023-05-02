@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePublicDnsNamespaceRequest,
-  UpdatePublicDnsNamespaceRequestFilterSensitiveLog,
-  UpdatePublicDnsNamespaceResponse,
-  UpdatePublicDnsNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePublicDnsNamespaceCommand,
-  serializeAws_json1_1UpdatePublicDnsNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdatePublicDnsNamespaceRequest, UpdatePublicDnsNamespaceResponse } from "../models/models_0";
+import { de_UpdatePublicDnsNamespaceCommand, se_UpdatePublicDnsNamespaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePublicDnsNamespaceCommand}.
  */
 export interface UpdatePublicDnsNamespaceCommandInput extends UpdatePublicDnsNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePublicDnsNamespaceCommand}.
  */
 export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a public DNS
  *    namespace.</p>
  * @example
@@ -43,10 +40,26 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  * import { ServiceDiscoveryClient, UpdatePublicDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, UpdatePublicDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // UpdatePublicDnsNamespaceRequest
+ *   Id: "STRING_VALUE", // required
+ *   UpdaterRequestId: "STRING_VALUE",
+ *   Namespace: { // PublicDnsNamespaceChange
+ *     Description: "STRING_VALUE",
+ *     Properties: { // PublicDnsNamespacePropertiesChange
+ *       DnsProperties: { // PublicDnsPropertiesMutableChange
+ *         SOA: { // SOAChange
+ *           TTL: Number("long"), // required
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdatePublicDnsNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePublicDnsNamespaceCommandInput - {@link UpdatePublicDnsNamespaceCommandInput}
+ * @returns {@link UpdatePublicDnsNamespaceCommandOutput}
  * @see {@link UpdatePublicDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link UpdatePublicDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -61,11 +74,6 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  *
  * @throws {@link NamespaceNotFound} (client fault)
  *  <p>No namespace exists with the specified ID.</p>
- *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
  *
  * @throws {@link ResourceInUse} (client fault)
  *  <p>The specified resource can't be deleted because it contains other resources. For example,
@@ -90,6 +98,9 @@ export class UpdatePublicDnsNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePublicDnsNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +129,8 @@ export class UpdatePublicDnsNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePublicDnsNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePublicDnsNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +140,18 @@ export class UpdatePublicDnsNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePublicDnsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePublicDnsNamespaceCommand(input, context);
+    return se_UpdatePublicDnsNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePublicDnsNamespaceCommandOutput> {
-    return deserializeAws_json1_1UpdatePublicDnsNamespaceCommand(output, context);
+    return de_UpdatePublicDnsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

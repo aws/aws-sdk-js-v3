@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  DeleteQueueRequest,
-  DeleteQueueRequestFilterSensitiveLog,
-  DeleteQueueResponse,
-  DeleteQueueResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteQueueCommand,
-  serializeAws_restJson1DeleteQueueCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteQueueRequest, DeleteQueueResponse } from "../models/models_1";
+import { de_DeleteQueueCommand, se_DeleteQueueCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQueueCommand}.
  */
 export interface DeleteQueueCommandInput extends DeleteQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQueueCommand}.
  */
 export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Permanently delete a queue you have created.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  * import { MediaConvertClient, DeleteQueueCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, DeleteQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = { // DeleteQueueRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQueueCommandInput - {@link DeleteQueueCommandInput}
+ * @returns {@link DeleteQueueCommandOutput}
  * @see {@link DeleteQueueCommandInput} for command's `input` shape.
  * @see {@link DeleteQueueCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteQueueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteQueueCommand(input, context);
+    return se_DeleteQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueueCommandOutput> {
-    return deserializeAws_restJson1DeleteQueueCommand(output, context);
+    return de_DeleteQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

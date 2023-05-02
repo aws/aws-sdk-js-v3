@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  DescribeFileSystemsRequest,
-  DescribeFileSystemsRequestFilterSensitiveLog,
-  DescribeFileSystemsResponse,
-  DescribeFileSystemsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFileSystemsCommand,
-  serializeAws_restJson1DescribeFileSystemsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/models_0";
+import { de_DescribeFileSystemsCommand, se_DescribeFileSystemsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFileSystemsCommand}.
  */
 export interface DescribeFileSystemsCommandInput extends DescribeFileSystemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFileSystemsCommand}.
  */
 export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of a specific Amazon EFS file system if either the file system
  *         <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise, it
  *       returns descriptions of all file systems owned by the caller's Amazon Web Services account in the
@@ -61,10 +58,18 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * import { EFSClient, DescribeFileSystemsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeFileSystemsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DescribeFileSystemsRequest
+ *   MaxItems: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   CreationToken: "STRING_VALUE",
+ *   FileSystemId: "STRING_VALUE",
+ * };
  * const command = new DescribeFileSystemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFileSystemsCommandInput - {@link DescribeFileSystemsCommandInput}
+ * @returns {@link DescribeFileSystemsCommandOutput}
  * @see {@link DescribeFileSystemsCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -133,6 +138,9 @@ export class DescribeFileSystemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileSystemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,8 +169,8 @@ export class DescribeFileSystemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFileSystemsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFileSystemsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -172,12 +180,18 @@ export class DescribeFileSystemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFileSystemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFileSystemsCommand(input, context);
+    return se_DescribeFileSystemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileSystemsCommandOutput> {
-    return deserializeAws_restJson1DescribeFileSystemsCommand(output, context);
+    return de_DescribeFileSystemsCommand(output, context);
   }
 
   // Start section: command_body_extra

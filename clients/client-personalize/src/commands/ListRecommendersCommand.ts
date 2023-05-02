@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRecommendersRequest,
-  ListRecommendersRequestFilterSensitiveLog,
-  ListRecommendersResponse,
-  ListRecommendersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRecommendersRequest, ListRecommendersResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListRecommendersCommand,
-  serializeAws_json1_1ListRecommendersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRecommendersCommand, se_ListRecommendersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecommendersCommand}.
  */
 export interface ListRecommendersCommandInput extends ListRecommendersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecommendersCommand}.
  */
 export interface ListRecommendersCommandOutput extends ListRecommendersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of recommenders in a given Domain dataset group.
  *       When a Domain dataset group is not specified, all the recommenders associated with the account are listed.
  *       The response provides the properties for each recommender, including the Amazon Resource Name (ARN).
@@ -45,10 +42,17 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * import { PersonalizeClient, ListRecommendersCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListRecommendersCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListRecommendersRequest
+ *   datasetGroupArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRecommendersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecommendersCommandInput - {@link ListRecommendersCommandInput}
+ * @returns {@link ListRecommendersCommandOutput}
  * @see {@link ListRecommendersCommandInput} for command's `input` shape.
  * @see {@link ListRecommendersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -78,6 +82,9 @@ export class ListRecommendersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecommendersCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class ListRecommendersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecommendersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRecommendersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class ListRecommendersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecommendersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRecommendersCommand(input, context);
+    return se_ListRecommendersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecommendersCommandOutput> {
-    return deserializeAws_json1_1ListRecommendersCommand(output, context);
+    return de_ListRecommendersCommand(output, context);
   }
 
   // Start section: command_body_extra

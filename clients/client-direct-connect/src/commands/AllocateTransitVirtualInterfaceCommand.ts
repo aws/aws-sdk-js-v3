@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { AllocateTransitVirtualInterfaceRequest, AllocateTransitVirtualInterfaceResult } from "../models/models_0";
 import {
-  AllocateTransitVirtualInterfaceRequest,
-  AllocateTransitVirtualInterfaceRequestFilterSensitiveLog,
-  AllocateTransitVirtualInterfaceResult,
-  AllocateTransitVirtualInterfaceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AllocateTransitVirtualInterfaceCommand,
-  serializeAws_json1_1AllocateTransitVirtualInterfaceCommand,
+  de_AllocateTransitVirtualInterfaceCommand,
+  se_AllocateTransitVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AllocateTransitVirtualInterfaceCommand}.
  */
 export interface AllocateTransitVirtualInterfaceCommandInput extends AllocateTransitVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllocateTransitVirtualInterfaceCommand}.
  */
 export interface AllocateTransitVirtualInterfaceCommandOutput
@@ -37,6 +36,7 @@ export interface AllocateTransitVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions a transit virtual interface to be owned by the specified Amazon Web Services account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.</p>
  *          <p>The owner of a connection provisions a transit virtual interface to be owned by the specified Amazon Web Services account.</p>
  *          <p>After you create a transit virtual interface, it must be confirmed by the owner using <a>ConfirmTransitVirtualInterface</a>. Until this step has been completed, the transit virtual interface is in the <code>requested</code> state and is not available to handle traffic.</p>
@@ -46,10 +46,32 @@ export interface AllocateTransitVirtualInterfaceCommandOutput
  * import { DirectConnectClient, AllocateTransitVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AllocateTransitVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // AllocateTransitVirtualInterfaceRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   ownerAccount: "STRING_VALUE", // required
+ *   newTransitVirtualInterfaceAllocation: { // NewTransitVirtualInterfaceAllocation
+ *     virtualInterfaceName: "STRING_VALUE",
+ *     vlan: Number("int"),
+ *     asn: Number("int"),
+ *     mtu: Number("int"),
+ *     authKey: "STRING_VALUE",
+ *     amazonAddress: "STRING_VALUE",
+ *     customerAddress: "STRING_VALUE",
+ *     addressFamily: "ipv4" || "ipv6",
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new AllocateTransitVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocateTransitVirtualInterfaceCommandInput - {@link AllocateTransitVirtualInterfaceCommandInput}
+ * @returns {@link AllocateTransitVirtualInterfaceCommandOutput}
  * @see {@link AllocateTransitVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AllocateTransitVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -85,6 +107,9 @@ export class AllocateTransitVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocateTransitVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +138,8 @@ export class AllocateTransitVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllocateTransitVirtualInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AllocateTransitVirtualInterfaceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +149,24 @@ export class AllocateTransitVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AllocateTransitVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocateTransitVirtualInterfaceCommand(input, context);
+    return se_AllocateTransitVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllocateTransitVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1AllocateTransitVirtualInterfaceCommand(output, context);
+    return de_AllocateTransitVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

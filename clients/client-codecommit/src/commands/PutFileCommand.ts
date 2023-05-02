@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  PutFileInput,
-  PutFileInputFilterSensitiveLog,
-  PutFileOutput,
-  PutFileOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_json1_1PutFileCommand, serializeAws_json1_1PutFileCommand } from "../protocols/Aws_json1_1";
+import { PutFileInput, PutFileOutput } from "../models/models_1";
+import { de_PutFileCommand, se_PutFileCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutFileCommand}.
  */
 export interface PutFileCommandInput extends PutFileInput {}
 /**
+ * @public
+ *
  * The output of {@link PutFileCommand}.
  */
 export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates a file in a branch in an AWS CodeCommit repository, and generates a commit for the addition in the specified branch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,23 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  * import { CodeCommitClient, PutFileCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PutFileCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // PutFileInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ *   fileContent: "BLOB_VALUE", // required
+ *   filePath: "STRING_VALUE", // required
+ *   fileMode: "STRING_VALUE",
+ *   parentCommitId: "STRING_VALUE",
+ *   commitMessage: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   email: "STRING_VALUE",
+ * };
  * const command = new PutFileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFileCommandInput - {@link PutFileCommandInput}
+ * @returns {@link PutFileCommandOutput}
  * @see {@link PutFileCommandInput} for command's `input` shape.
  * @see {@link PutFileCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -175,6 +188,9 @@ export class PutFileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFileCommandInput) {
     // Start section: command_constructor
     super();
@@ -201,8 +217,8 @@ export class PutFileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFileInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutFileOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -212,12 +228,18 @@ export class PutFileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutFileCommand(input, context);
+    return se_PutFileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutFileCommandOutput> {
-    return deserializeAws_json1_1PutFileCommand(output, context);
+    return de_PutFileCommand(output, context);
   }
 
   // Start section: command_body_extra

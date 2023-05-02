@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeManagedJobTemplateRequest,
-  DescribeManagedJobTemplateRequestFilterSensitiveLog,
-  DescribeManagedJobTemplateResponse,
-  DescribeManagedJobTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeManagedJobTemplateCommand,
-  serializeAws_restJson1DescribeManagedJobTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeManagedJobTemplateRequest, DescribeManagedJobTemplateResponse } from "../models/models_1";
+import { de_DescribeManagedJobTemplateCommand, se_DescribeManagedJobTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeManagedJobTemplateCommand}.
  */
 export interface DescribeManagedJobTemplateCommandInput extends DescribeManagedJobTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeManagedJobTemplateCommand}.
  */
 export interface DescribeManagedJobTemplateCommandOutput extends DescribeManagedJobTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>View details of a managed job template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeManagedJobTemplateCommandOutput extends DescribeManaged
  * import { IoTClient, DescribeManagedJobTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeManagedJobTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeManagedJobTemplateRequest
+ *   templateName: "STRING_VALUE", // required
+ *   templateVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeManagedJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeManagedJobTemplateCommandInput - {@link DescribeManagedJobTemplateCommandInput}
+ * @returns {@link DescribeManagedJobTemplateCommandOutput}
  * @see {@link DescribeManagedJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeManagedJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +85,9 @@ export class DescribeManagedJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeManagedJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class DescribeManagedJobTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeManagedJobTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeManagedJobTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +127,21 @@ export class DescribeManagedJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeManagedJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeManagedJobTemplateCommand(input, context);
+    return se_DescribeManagedJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeManagedJobTemplateCommandOutput> {
-    return deserializeAws_restJson1DescribeManagedJobTemplateCommand(output, context);
+    return de_DescribeManagedJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

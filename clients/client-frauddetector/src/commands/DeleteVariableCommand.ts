@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  DeleteVariableRequest,
-  DeleteVariableRequestFilterSensitiveLog,
-  DeleteVariableResult,
-  DeleteVariableResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteVariableCommand,
-  serializeAws_json1_1DeleteVariableCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteVariableRequest, DeleteVariableResult } from "../models/models_0";
+import { de_DeleteVariableCommand, se_DeleteVariableCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVariableCommand}.
  */
 export interface DeleteVariableCommandInput extends DeleteVariableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVariableCommand}.
  */
 export interface DeleteVariableCommandOutput extends DeleteVariableResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a variable.</p>
  *          <p>You can't delete variables that are included in an event type in Amazon Fraud Detector.</p>
  *          <p>Amazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can't delete these variables manually.</p>
@@ -45,10 +42,15 @@ export interface DeleteVariableCommandOutput extends DeleteVariableResult, __Met
  * import { FraudDetectorClient, DeleteVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // DeleteVariableRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVariableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVariableCommandInput - {@link DeleteVariableCommandInput}
+ * @returns {@link DeleteVariableCommandOutput}
  * @see {@link DeleteVariableCommandInput} for command's `input` shape.
  * @see {@link DeleteVariableCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteVariableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVariableCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DeleteVariableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVariableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVariableResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class DeleteVariableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVariableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVariableCommand(input, context);
+    return se_DeleteVariableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVariableCommandOutput> {
-    return deserializeAws_json1_1DeleteVariableCommand(output, context);
+    return de_DeleteVariableCommand(output, context);
   }
 
   // Start section: command_body_extra

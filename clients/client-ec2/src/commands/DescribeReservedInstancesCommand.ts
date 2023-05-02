@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeReservedInstancesRequest,
-  DescribeReservedInstancesRequestFilterSensitiveLog,
-  DescribeReservedInstancesResult,
-  DescribeReservedInstancesResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeReservedInstancesCommand,
-  serializeAws_ec2DescribeReservedInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeReservedInstancesRequest, DescribeReservedInstancesResult } from "../models/models_4";
+import { de_DescribeReservedInstancesCommand, se_DescribeReservedInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedInstancesCommand}.
  */
 export interface DescribeReservedInstancesCommandInput extends DescribeReservedInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedInstancesCommand}.
  */
 export interface DescribeReservedInstancesCommandOutput extends DescribeReservedInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of the Reserved Instances that you purchased.</p>
  *          <p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
  * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -44,10 +41,28 @@ export interface DescribeReservedInstancesCommandOutput extends DescribeReserved
  * import { EC2Client, DescribeReservedInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeReservedInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeReservedInstancesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   OfferingClass: "standard" || "convertible",
+ *   ReservedInstancesIds: [ // ReservedInstancesIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   OfferingType: "Heavy Utilization" || "Medium Utilization" || "Light Utilization" || "No Upfront" || "Partial Upfront" || "All Upfront",
+ * };
  * const command = new DescribeReservedInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedInstancesCommandInput - {@link DescribeReservedInstancesCommandInput}
+ * @returns {@link DescribeReservedInstancesCommandOutput}
  * @see {@link DescribeReservedInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +86,9 @@ export class DescribeReservedInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +117,8 @@ export class DescribeReservedInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservedInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +128,21 @@ export class DescribeReservedInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReservedInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeReservedInstancesCommand(input, context);
+    return se_DescribeReservedInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeReservedInstancesCommand(output, context);
+    return de_DescribeReservedInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

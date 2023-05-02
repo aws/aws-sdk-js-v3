@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
+import { DescribeBudgetPerformanceHistoryRequest, DescribeBudgetPerformanceHistoryResponse } from "../models/models_0";
 import {
-  DescribeBudgetPerformanceHistoryRequest,
-  DescribeBudgetPerformanceHistoryRequestFilterSensitiveLog,
-  DescribeBudgetPerformanceHistoryResponse,
-  DescribeBudgetPerformanceHistoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,
-  serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,
+  de_DescribeBudgetPerformanceHistoryCommand,
+  se_DescribeBudgetPerformanceHistoryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBudgetPerformanceHistoryCommand}.
  */
 export interface DescribeBudgetPerformanceHistoryCommandInput extends DescribeBudgetPerformanceHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBudgetPerformanceHistoryCommand}.
  */
 export interface DescribeBudgetPerformanceHistoryCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the history for <code>DAILY</code>, <code>MONTHLY</code>, and <code>QUARTERLY</code> budgets. Budget history isn't available for <code>ANNUAL</code> budgets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,22 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  * import { BudgetsClient, DescribeBudgetPerformanceHistoryCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeBudgetPerformanceHistoryCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // DescribeBudgetPerformanceHistoryRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   TimePeriod: { // TimePeriod
+ *     Start: new Date("TIMESTAMP"),
+ *     End: new Date("TIMESTAMP"),
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeBudgetPerformanceHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBudgetPerformanceHistoryCommandInput - {@link DescribeBudgetPerformanceHistoryCommandInput}
+ * @returns {@link DescribeBudgetPerformanceHistoryCommandOutput}
  * @see {@link DescribeBudgetPerformanceHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetPerformanceHistoryCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -94,6 +106,9 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBudgetPerformanceHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +137,8 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBudgetPerformanceHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBudgetPerformanceHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +148,24 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeBudgetPerformanceHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand(input, context);
+    return se_DescribeBudgetPerformanceHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBudgetPerformanceHistoryCommandOutput> {
-    return deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand(output, context);
+    return de_DescribeBudgetPerformanceHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,25 +16,26 @@ import {
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import {
   GetDevicePositionRequest,
-  GetDevicePositionRequestFilterSensitiveLog,
   GetDevicePositionResponse,
   GetDevicePositionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDevicePositionCommand,
-  serializeAws_restJson1GetDevicePositionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDevicePositionCommand, se_GetDevicePositionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDevicePositionCommand}.
  */
 export interface GetDevicePositionCommandInput extends GetDevicePositionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDevicePositionCommand}.
  */
 export interface GetDevicePositionCommandOutput extends GetDevicePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a device's most recent position according to its sample time.</p>
  *          <note>
  *             <p>Device positions are deleted after 30 days.</p>
@@ -45,10 +46,16 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
  * import { LocationClient, GetDevicePositionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetDevicePositionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // GetDevicePositionRequest
+ *   TrackerName: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new GetDevicePositionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDevicePositionCommandInput - {@link GetDevicePositionCommandInput}
+ * @returns {@link GetDevicePositionCommandOutput}
  * @see {@link GetDevicePositionCommandInput} for command's `input` shape.
  * @see {@link GetDevicePositionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetDevicePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDevicePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +126,7 @@ export class GetDevicePositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDevicePositionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDevicePositionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -127,12 +137,18 @@ export class GetDevicePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDevicePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDevicePositionCommand(input, context);
+    return se_GetDevicePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevicePositionCommandOutput> {
-    return deserializeAws_restJson1GetDevicePositionCommand(output, context);
+    return de_GetDevicePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

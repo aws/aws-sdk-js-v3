@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { GetEC2InstanceRecommendationsRequest, GetEC2InstanceRecommendationsResponse } from "../models/models_0";
 import {
-  GetEC2InstanceRecommendationsRequest,
-  GetEC2InstanceRecommendationsRequestFilterSensitiveLog,
-  GetEC2InstanceRecommendationsResponse,
-  GetEC2InstanceRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetEC2InstanceRecommendationsCommand,
-  serializeAws_json1_0GetEC2InstanceRecommendationsCommand,
+  de_GetEC2InstanceRecommendationsCommand,
+  se_GetEC2InstanceRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetEC2InstanceRecommendationsCommand}.
  */
 export interface GetEC2InstanceRecommendationsCommandInput extends GetEC2InstanceRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEC2InstanceRecommendationsCommand}.
  */
 export interface GetEC2InstanceRecommendationsCommandOutput
@@ -37,6 +36,7 @@ export interface GetEC2InstanceRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns Amazon EC2 instance recommendations.</p>
  *          <p>Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet a specific set of requirements. For more
  *             information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
@@ -48,10 +48,35 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * import { ComputeOptimizerClient, GetEC2InstanceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEC2InstanceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetEC2InstanceRecommendationsRequest
+ *   instanceArns: [ // InstanceArns
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "Finding" || "FindingReasonCodes" || "RecommendationSourceType" || "InferredWorkloadTypes",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   accountIds: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ *   recommendationPreferences: { // RecommendationPreferences
+ *     cpuVendorArchitectures: [ // CpuVendorArchitectures
+ *       "AWS_ARM64" || "CURRENT",
+ *     ],
+ *   },
+ * };
  * const command = new GetEC2InstanceRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEC2InstanceRecommendationsCommandInput - {@link GetEC2InstanceRecommendationsCommandInput}
+ * @returns {@link GetEC2InstanceRecommendationsCommandOutput}
  * @see {@link GetEC2InstanceRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetEC2InstanceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -100,6 +125,9 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEC2InstanceRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +156,8 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEC2InstanceRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEC2InstanceRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +167,21 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEC2InstanceRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEC2InstanceRecommendationsCommand(input, context);
+    return se_GetEC2InstanceRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEC2InstanceRecommendationsCommandOutput> {
-    return deserializeAws_json1_0GetEC2InstanceRecommendationsCommand(output, context);
+    return de_GetEC2InstanceRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

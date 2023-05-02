@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  GetContactAttributesRequest,
-  GetContactAttributesRequestFilterSensitiveLog,
-  GetContactAttributesResponse,
-  GetContactAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetContactAttributesCommand,
-  serializeAws_restJson1GetContactAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetContactAttributesRequest, GetContactAttributesResponse } from "../models/models_0";
+import { de_GetContactAttributesCommand, se_GetContactAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContactAttributesCommand}.
  */
 export interface GetContactAttributesCommandInput extends GetContactAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContactAttributesCommand}.
  */
 export interface GetContactAttributesCommandOutput extends GetContactAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the contact attributes for the specified contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetContactAttributesCommandOutput extends GetContactAttributesR
  * import { ConnectClient, GetContactAttributesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetContactAttributesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // GetContactAttributesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   InitialContactId: "STRING_VALUE", // required
+ * };
  * const command = new GetContactAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContactAttributesCommandInput - {@link GetContactAttributesCommandInput}
+ * @returns {@link GetContactAttributesCommandOutput}
  * @see {@link GetContactAttributesCommandInput} for command's `input` shape.
  * @see {@link GetContactAttributesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -78,6 +81,9 @@ export class GetContactAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContactAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class GetContactAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContactAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContactAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class GetContactAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContactAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetContactAttributesCommand(input, context);
+    return se_GetContactAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactAttributesCommandOutput> {
-    return deserializeAws_restJson1GetContactAttributesCommand(output, context);
+    return de_GetContactAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

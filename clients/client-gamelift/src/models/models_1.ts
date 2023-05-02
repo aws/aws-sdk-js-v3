@@ -23,6 +23,9 @@ import {
   Script,
 } from "./models_0";
 
+/**
+ * @public
+ */
 export interface UpdateFleetPortSettingsOutput {
   /**
    * <p>A unique identifier for the fleet that was updated.</p>
@@ -30,15 +33,27 @@ export interface UpdateFleetPortSettingsOutput {
   FleetId?: string;
 
   /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
    */
   FleetArn?: string;
 }
 
-export enum GameServerHealthCheck {
-  HEALTHY = "HEALTHY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GameServerHealthCheck = {
+  HEALTHY: "HEALTHY",
+} as const;
 
+/**
+ * @public
+ */
+export type GameServerHealthCheck = (typeof GameServerHealthCheck)[keyof typeof GameServerHealthCheck];
+
+/**
+ * @public
+ */
 export interface UpdateGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running.</p>
@@ -69,6 +84,9 @@ export interface UpdateGameServerInput {
   HealthCheck?: GameServerHealthCheck | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameServerOutput {
   /**
    * <p>Object that describes the newly updated game server.</p>
@@ -76,6 +94,9 @@ export interface UpdateGameServerOutput {
   GameServer?: GameServer;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameServerGroupInput {
   /**
    * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
@@ -91,7 +112,7 @@ export interface UpdateGameServerGroupInput {
   /**
    * <p>An updated list of Amazon EC2 instance types to use in the Auto Scaling group. The instance
    *             definitions must specify at least two different instance types that are supported by
-   *             GameLift FleetIQ. This updated list replaces the entire current list of instance definitions for
+   *             Amazon GameLift FleetIQ. This updated list replaces the entire current list of instance definitions for
    *             the game server group. For more information on instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">EC2 Instance
    *                 Types</a> in the <i>Amazon EC2 User Guide</i>. You can optionally
    *             specify capacity weighting for each instance type. If no weight value is specified for
@@ -112,9 +133,9 @@ export interface UpdateGameServerGroupInput {
   GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
 
   /**
-   * <p>Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the
+   * <p>Indicates how Amazon GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the
    *             game server group. Method options include the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>SPOT_ONLY</code> - Only Spot Instances are used in the game server group. If Spot
@@ -124,7 +145,7 @@ export interface UpdateGameServerGroupInput {
    *                     terminated (after current gameplay ends) and are not replaced.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SPOT_PREFERRED</code> - (default value) Spot Instances are used whenever available in
    *                     the game server group. If Spot Instances are unavailable, the game server group
    *                     continues to provide hosting capacity by falling back to On-Demand Instances.
@@ -132,7 +153,7 @@ export interface UpdateGameServerGroupInput {
    *                     and are replaced with new On-Demand Instances.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ON_DEMAND_ONLY</code> - Only On-Demand Instances are used in the game
    *                     server group. No Spot Instances are used, even when available, while this
    *                     balancing strategy is in force.</p>
@@ -142,6 +163,9 @@ export interface UpdateGameServerGroupInput {
   BalancingStrategy?: BalancingStrategy | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameServerGroupOutput {
   /**
    * <p>An object that describes the game server group resource with updated properties.
@@ -150,6 +174,9 @@ export interface UpdateGameServerGroupOutput {
   GameServerGroup?: GameServerGroup;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameSessionInput {
   /**
    * <p>A unique identifier for the game session to update. </p>
@@ -173,15 +200,15 @@ export interface UpdateGameSessionInput {
 
   /**
    * <p>Game session protection policy to apply to this game session only.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <b>NoProtection</b> -- The game session can be
+   *                <p>
+   *                   <b>NoProtection</b> -- The game session can be
    *                     terminated during a scale-down event.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <b>FullProtection</b> -- If the game session is in an
+   *                <p>
+   *                   <b>FullProtection</b> -- If the game session is in an
    *                         <code>ACTIVE</code> status, it cannot be terminated during a scale-down
    *                     event.</p>
    *             </li>
@@ -190,6 +217,9 @@ export interface UpdateGameSessionInput {
   ProtectionPolicy?: ProtectionPolicy | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameSessionOutput {
   /**
    * <p>The updated game session properties.</p>
@@ -197,6 +227,9 @@ export interface UpdateGameSessionOutput {
   GameSession?: GameSession;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameSessionQueueInput {
   /**
    * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region. You can use either the queue ID or ARN value. </p>
@@ -251,6 +284,9 @@ export interface UpdateGameSessionQueueInput {
   NotificationTarget?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameSessionQueueOutput {
   /**
    * <p>An object that describes the newly updated game session queue.</p>
@@ -258,6 +294,9 @@ export interface UpdateGameSessionQueueOutput {
   GameSessionQueue?: GameSessionQueue;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMatchmakingConfigurationInput {
   /**
    * <p>A unique identifier for the matchmaking configuration to update. You can use either the configuration name or ARN value. </p>
@@ -270,8 +309,8 @@ export interface UpdateMatchmakingConfigurationInput {
   Description?: string;
 
   /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::gamesessionqueue/<queue name></code>. Queues can be located in any Region. Queues are used to start new
-   *             GameLift-hosted game sessions for matches that are created with this matchmaking
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::gamesessionqueue/<queue name></code>. Queues can be located in any Region. Queues are used to start new
+   *             Amazon GameLift-hosted game sessions for matches that are created with this matchmaking
    *             configuration. If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>, do not
    *             set this parameter.</p>
    */
@@ -349,24 +388,27 @@ export interface UpdateMatchmakingConfigurationInput {
   BackfillMode?: BackfillMode | string;
 
   /**
-   * <p>Indicates whether this matchmaking configuration is being used with GameLift hosting or
+   * <p>Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or
    *             as a standalone matchmaking solution. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>STANDALONE</b> - FlexMatch forms matches and
    *                     returns match information, including players and team assignments, in a <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded"> MatchmakingSucceeded</a> event.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>WITH_QUEUE</b> - FlexMatch forms matches and uses
-   *                     the specified GameLift queue to start a game session for the match. </p>
+   *                     the specified Amazon GameLift queue to start a game session for the match. </p>
    *             </li>
    *          </ul>
    */
   FlexMatchMode?: FlexMatchMode | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMatchmakingConfigurationOutput {
   /**
    * <p>The updated matchmaking configuration.</p>
@@ -374,6 +416,9 @@ export interface UpdateMatchmakingConfigurationOutput {
   Configuration?: MatchmakingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRuntimeConfigurationInput {
   /**
    * <p>A unique identifier for the fleet to update runtime configuration for. You can use either the fleet ID or ARN
@@ -382,7 +427,7 @@ export interface UpdateRuntimeConfigurationInput {
   FleetId: string | undefined;
 
   /**
-   * <p>Instructions for alaunching server processes on each instance in the fleet. Server
+   * <p>Instructions for launching server processes on each instance in the fleet. Server
    *             processes run either a custom game build executable or a Realtime Servers script. The runtime
    *             configuration lists the types of server processes to run on an instance, how to launch
    *             them, and the number of processes to run concurrently.</p>
@@ -390,6 +435,9 @@ export interface UpdateRuntimeConfigurationInput {
   RuntimeConfiguration: RuntimeConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRuntimeConfigurationOutput {
   /**
    * <p>The runtime configuration currently in use by all instances in the fleet. If the
@@ -398,6 +446,9 @@ export interface UpdateRuntimeConfigurationOutput {
   RuntimeConfiguration?: RuntimeConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScriptInput {
   /**
    * <p>A unique identifier for the Realtime script to update. You can use either the script ID or ARN value.</p>
@@ -405,12 +456,12 @@ export interface UpdateScriptInput {
   ScriptId: string | undefined;
 
   /**
-   * <p>A descriptive label that is associated with a script. Script names do not need to be unique.</p>
+   * <p>A descriptive label that is associated with a script. Script names don't need to be unique.</p>
    */
   Name?: string;
 
   /**
-   * <p>Version information associated with a build or script. Version strings do not need to be unique.</p>
+   * <p>Version information associated with a build or script. Version strings don't need to be unique.</p>
    */
   Version?: string;
 
@@ -428,7 +479,7 @@ export interface UpdateScriptInput {
   /**
    * <p>A data object containing your Realtime scripts and dependencies as a zip file. The zip
    *             file can have one or multiple files. Maximum size of a zip file is 5 MB.</p>
-   *         <p>When using the Amazon Web Services CLI tool to create a script, this parameter is set to the zip
+   *          <p>When using the Amazon Web Services CLI tool to create a script, this parameter is set to the zip
    *             file name. It must be prepended with the string "fileb://" to indicate that the file
    *             data is a binary object. For example: <code>--zip-file
    *                 fileb://myRealtimeScript.zip</code>.</p>
@@ -436,6 +487,9 @@ export interface UpdateScriptInput {
   ZipFile?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScriptOutput {
   /**
    * <p>The newly created script record with a unique script ID. The new script's storage
@@ -448,6 +502,9 @@ export interface UpdateScriptOutput {
   Script?: Script;
 }
 
+/**
+ * @public
+ */
 export interface ValidateMatchmakingRuleSetInput {
   /**
    * <p>A collection of matchmaking rules to validate, formatted as a JSON string.</p>
@@ -455,132 +512,12 @@ export interface ValidateMatchmakingRuleSetInput {
   RuleSetBody: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ValidateMatchmakingRuleSetOutput {
   /**
    * <p>A response indicating whether the rule set is valid.</p>
    */
   Valid?: boolean;
 }
-
-/**
- * @internal
- */
-export const UpdateFleetPortSettingsOutputFilterSensitiveLog = (obj: UpdateFleetPortSettingsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameServerInputFilterSensitiveLog = (obj: UpdateGameServerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameServerOutputFilterSensitiveLog = (obj: UpdateGameServerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameServerGroupInputFilterSensitiveLog = (obj: UpdateGameServerGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameServerGroupOutputFilterSensitiveLog = (obj: UpdateGameServerGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameSessionInputFilterSensitiveLog = (obj: UpdateGameSessionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameSessionOutputFilterSensitiveLog = (obj: UpdateGameSessionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameSessionQueueInputFilterSensitiveLog = (obj: UpdateGameSessionQueueInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameSessionQueueOutputFilterSensitiveLog = (obj: UpdateGameSessionQueueOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMatchmakingConfigurationInputFilterSensitiveLog = (
-  obj: UpdateMatchmakingConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMatchmakingConfigurationOutputFilterSensitiveLog = (
-  obj: UpdateMatchmakingConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRuntimeConfigurationInputFilterSensitiveLog = (obj: UpdateRuntimeConfigurationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRuntimeConfigurationOutputFilterSensitiveLog = (obj: UpdateRuntimeConfigurationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateScriptInputFilterSensitiveLog = (obj: UpdateScriptInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateScriptOutputFilterSensitiveLog = (obj: UpdateScriptOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateMatchmakingRuleSetInputFilterSensitiveLog = (obj: ValidateMatchmakingRuleSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateMatchmakingRuleSetOutputFilterSensitiveLog = (obj: ValidateMatchmakingRuleSetOutput): any => ({
-  ...obj,
-});

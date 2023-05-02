@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  DeleteDashboardsInput,
-  DeleteDashboardsInputFilterSensitiveLog,
-  DeleteDashboardsOutput,
-  DeleteDashboardsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDashboardsCommand,
-  serializeAws_queryDeleteDashboardsCommand,
-} from "../protocols/Aws_query";
+import { DeleteDashboardsInput, DeleteDashboardsOutput } from "../models/models_0";
+import { de_DeleteDashboardsCommand, se_DeleteDashboardsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDashboardsCommand}.
  */
 export interface DeleteDashboardsCommandInput extends DeleteDashboardsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDashboardsCommand}.
  */
 export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all dashboards that you specify. You
  * 			can specify up to 100 dashboards to delete. If there is an error during this call, no dashboards are
  * 			deleted.</p>
@@ -44,10 +41,17 @@ export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, _
  * import { CloudWatchClient, DeleteDashboardsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DeleteDashboardsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // DeleteDashboardsInput
+ *   DashboardNames: [ // DashboardNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteDashboardsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDashboardsCommandInput - {@link DeleteDashboardsCommandInput}
+ * @returns {@link DeleteDashboardsCommandOutput}
  * @see {@link DeleteDashboardsCommandInput} for command's `input` shape.
  * @see {@link DeleteDashboardsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -80,6 +84,9 @@ export class DeleteDashboardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDashboardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class DeleteDashboardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDashboardsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDashboardsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class DeleteDashboardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDashboardsCommand(input, context);
+    return se_DeleteDashboardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDashboardsCommandOutput> {
-    return deserializeAws_queryDeleteDashboardsCommand(output, context);
+    return de_DeleteDashboardsCommand(output, context);
   }
 
   // Start section: command_body_extra

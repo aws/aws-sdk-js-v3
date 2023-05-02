@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeMovingAddressesRequest,
-  DescribeMovingAddressesRequestFilterSensitiveLog,
-  DescribeMovingAddressesResult,
-  DescribeMovingAddressesResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeMovingAddressesCommand,
-  serializeAws_ec2DescribeMovingAddressesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeMovingAddressesRequest, DescribeMovingAddressesResult } from "../models/models_4";
+import { de_DescribeMovingAddressesCommand, se_DescribeMovingAddressesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMovingAddressesCommand}.
  */
 export interface DescribeMovingAddressesCommandInput extends DescribeMovingAddressesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMovingAddressesCommand}.
  */
 export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddressesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your Elastic IP addresses that are being moved to the EC2-VPC platform, or that are being restored to the EC2-Classic platform. This request does not return information about any other Elastic IP addresses in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * import { EC2Client, DescribeMovingAddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeMovingAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeMovingAddressesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   PublicIps: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeMovingAddressesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMovingAddressesCommandInput - {@link DescribeMovingAddressesCommandInput}
+ * @returns {@link DescribeMovingAddressesCommandOutput}
  * @see {@link DescribeMovingAddressesCommandInput} for command's `input` shape.
  * @see {@link DescribeMovingAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -88,6 +103,9 @@ export class DescribeMovingAddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMovingAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +134,8 @@ export class DescribeMovingAddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMovingAddressesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMovingAddressesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +145,18 @@ export class DescribeMovingAddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMovingAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeMovingAddressesCommand(input, context);
+    return se_DescribeMovingAddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMovingAddressesCommandOutput> {
-    return deserializeAws_ec2DescribeMovingAddressesCommand(output, context);
+    return de_DescribeMovingAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

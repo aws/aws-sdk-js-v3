@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetBlobInput,
-  GetBlobInputFilterSensitiveLog,
-  GetBlobOutput,
-  GetBlobOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetBlobCommand, serializeAws_json1_1GetBlobCommand } from "../protocols/Aws_json1_1";
+import { GetBlobInput, GetBlobOutput } from "../models/models_0";
+import { de_GetBlobCommand, se_GetBlobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBlobCommand}.
  */
 export interface GetBlobCommandInput extends GetBlobInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBlobCommand}.
  */
 export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the base-64 encoded content of an individual blob in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,16 @@ export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
  * import { CodeCommitClient, GetBlobCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetBlobCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetBlobInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   blobId: "STRING_VALUE", // required
+ * };
  * const command = new GetBlobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBlobCommandInput - {@link GetBlobCommandInput}
+ * @returns {@link GetBlobCommandOutput}
  * @see {@link GetBlobCommandInput} for command's `input` shape.
  * @see {@link GetBlobCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -109,6 +115,9 @@ export class GetBlobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBlobCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +144,8 @@ export class GetBlobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBlobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBlobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +155,18 @@ export class GetBlobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBlobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBlobCommand(input, context);
+    return se_GetBlobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBlobCommandOutput> {
-    return deserializeAws_json1_1GetBlobCommand(output, context);
+    return de_GetBlobCommand(output, context);
   }
 
   // Start section: command_body_extra

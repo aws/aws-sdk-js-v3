@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { DeleteAssetRequest, DeleteAssetRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAssetCommand,
-  serializeAws_restJson1DeleteAssetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAssetRequest } from "../models/models_0";
+import { de_DeleteAssetCommand, se_DeleteAssetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssetCommand}.
  */
 export interface DeleteAssetCommandInput extends DeleteAssetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssetCommand}.
  */
 export interface DeleteAssetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes an asset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,17 @@ export interface DeleteAssetCommandOutput extends __MetadataBearer {}
  * import { DataExchangeClient, DeleteAssetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, DeleteAssetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // DeleteAssetRequest
+ *   AssetId: "STRING_VALUE", // required
+ *   DataSetId: "STRING_VALUE", // required
+ *   RevisionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAssetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssetCommandInput - {@link DeleteAssetCommandInput}
+ * @returns {@link DeleteAssetCommandOutput}
  * @see {@link DeleteAssetCommandInput} for command's `input` shape.
  * @see {@link DeleteAssetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -82,6 +91,9 @@ export class DeleteAssetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssetCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +120,8 @@ export class DeleteAssetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +131,18 @@ export class DeleteAssetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAssetCommand(input, context);
+    return se_DeleteAssetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssetCommandOutput> {
-    return deserializeAws_restJson1DeleteAssetCommand(output, context);
+    return de_DeleteAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

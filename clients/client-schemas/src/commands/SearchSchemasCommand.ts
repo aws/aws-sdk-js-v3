@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchSchemasRequest,
-  SearchSchemasRequestFilterSensitiveLog,
-  SearchSchemasResponse,
-  SearchSchemasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchSchemasCommand,
-  serializeAws_restJson1SearchSchemasCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchSchemasRequest, SearchSchemasResponse } from "../models/models_0";
+import { de_SearchSchemasCommand, se_SearchSchemasCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchSchemasCommand}.
  */
 export interface SearchSchemasCommandInput extends SearchSchemasRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchSchemasCommand}.
  */
 export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Search the schemas</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __Met
  * import { SchemasClient, SearchSchemasCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, SearchSchemasCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // SearchSchemasRequest
+ *   Keywords: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RegistryName: "STRING_VALUE", // required
+ * };
  * const command = new SearchSchemasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchSchemasCommandInput - {@link SearchSchemasCommandInput}
+ * @returns {@link SearchSchemasCommandOutput}
  * @see {@link SearchSchemasCommandInput} for command's `input` shape.
  * @see {@link SearchSchemasCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -79,6 +84,9 @@ export class SearchSchemasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchSchemasCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class SearchSchemasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchSchemasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchSchemasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +124,18 @@ export class SearchSchemasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchSchemasCommand(input, context);
+    return se_SearchSchemasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSchemasCommandOutput> {
-    return deserializeAws_restJson1SearchSchemasCommand(output, context);
+    return de_SearchSchemasCommand(output, context);
   }
 
   // Start section: command_body_extra

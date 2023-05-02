@@ -12,21 +12,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { MalformedTimestampPathDefaultInput } from "../models/models_0";
 import {
-  MalformedTimestampPathDefaultInput,
-  MalformedTimestampPathDefaultInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedTimestampPathDefaultCommand,
-  serializeAws_restJson1MalformedTimestampPathDefaultCommand,
+  de_MalformedTimestampPathDefaultCommand,
+  se_MalformedTimestampPathDefaultCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedTimestampPathDefaultCommand}.
  */
 export interface MalformedTimestampPathDefaultCommandInput extends MalformedTimestampPathDefaultInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedTimestampPathDefaultCommand}.
  */
 export interface MalformedTimestampPathDefaultCommandOutput extends __MetadataBearer {}
@@ -39,6 +40,9 @@ export class MalformedTimestampPathDefaultCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedTimestampPathDefaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,8 +68,8 @@ export class MalformedTimestampPathDefaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedTimestampPathDefaultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -75,15 +79,21 @@ export class MalformedTimestampPathDefaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedTimestampPathDefaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedTimestampPathDefaultCommand(input, context);
+    return se_MalformedTimestampPathDefaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MalformedTimestampPathDefaultCommandOutput> {
-    return deserializeAws_restJson1MalformedTimestampPathDefaultCommand(output, context);
+    return de_MalformedTimestampPathDefaultCommand(output, context);
   }
 
   // Start section: command_body_extra

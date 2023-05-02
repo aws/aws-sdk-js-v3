@@ -15,22 +15,24 @@ import {
 } from "@aws-sdk/types";
 
 import { PutBucketEncryptionRequest, PutBucketEncryptionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketEncryptionCommand,
-  serializeAws_restXmlPutBucketEncryptionCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutBucketEncryptionCommand, se_PutBucketEncryptionCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketEncryptionCommand}.
  */
 export interface PutBucketEncryptionCommandInput extends PutBucketEncryptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketEncryptionCommand}.
  */
 export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action uses the <code>encryption</code> subresource to configure default
  *          encryption and Amazon S3 Bucket Key for an existing bucket.</p>
  *          <p>Default encryption for a bucket can use server-side encryption with Amazon S3-managed keys
@@ -71,10 +73,29 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketEncryptionCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketEncryptionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketEncryptionRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ *     Rules: [ // ServerSideEncryptionRules // required
+ *       { // ServerSideEncryptionRule
+ *         ApplyServerSideEncryptionByDefault: { // ServerSideEncryptionByDefault
+ *           SSEAlgorithm: "AES256" || "aws:kms", // required
+ *           KMSMasterKeyID: "STRING_VALUE",
+ *         },
+ *         BucketKeyEnabled: true || false,
+ *       },
+ *     ],
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketEncryptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketEncryptionCommandInput - {@link PutBucketEncryptionCommandInput}
+ * @returns {@link PutBucketEncryptionCommandOutput}
  * @see {@link PutBucketEncryptionCommandInput} for command's `input` shape.
  * @see {@link PutBucketEncryptionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -104,6 +125,9 @@ export class PutBucketEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,7 +164,7 @@ export class PutBucketEncryptionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutBucketEncryptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +174,18 @@ export class PutBucketEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketEncryptionCommand(input, context);
+    return se_PutBucketEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketEncryptionCommandOutput> {
-    return deserializeAws_restXmlPutBucketEncryptionCommand(output, context);
+    return de_PutBucketEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

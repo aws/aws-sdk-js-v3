@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterDBProxyTargetsRequest,
-  RegisterDBProxyTargetsRequestFilterSensitiveLog,
-  RegisterDBProxyTargetsResponse,
-  RegisterDBProxyTargetsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRegisterDBProxyTargetsCommand,
-  serializeAws_queryRegisterDBProxyTargetsCommand,
-} from "../protocols/Aws_query";
+import { RegisterDBProxyTargetsRequest, RegisterDBProxyTargetsResponse } from "../models/models_1";
+import { de_RegisterDBProxyTargetsCommand, se_RegisterDBProxyTargetsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterDBProxyTargetsCommand}.
  */
 export interface RegisterDBProxyTargetsCommandInput extends RegisterDBProxyTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterDBProxyTargetsCommand}.
  */
 export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate one or more <code>DBProxyTarget</code> data structures with a <code>DBProxyTargetGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * import { RDSClient, RegisterDBProxyTargetsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RegisterDBProxyTargetsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // RegisterDBProxyTargetsRequest
+ *   DBProxyName: "STRING_VALUE", // required
+ *   TargetGroupName: "STRING_VALUE",
+ *   DBInstanceIdentifiers: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DBClusterIdentifiers: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RegisterDBProxyTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterDBProxyTargetsCommandInput - {@link RegisterDBProxyTargetsCommandInput}
+ * @returns {@link RegisterDBProxyTargetsCommandOutput}
  * @see {@link RegisterDBProxyTargetsCommandInput} for command's `input` shape.
  * @see {@link RegisterDBProxyTargetsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -100,6 +109,9 @@ export class RegisterDBProxyTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterDBProxyTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +140,8 @@ export class RegisterDBProxyTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterDBProxyTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterDBProxyTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +151,18 @@ export class RegisterDBProxyTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterDBProxyTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRegisterDBProxyTargetsCommand(input, context);
+    return se_RegisterDBProxyTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterDBProxyTargetsCommandOutput> {
-    return deserializeAws_queryRegisterDBProxyTargetsCommand(output, context);
+    return de_RegisterDBProxyTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

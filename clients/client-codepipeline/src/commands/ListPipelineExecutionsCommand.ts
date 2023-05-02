@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  ListPipelineExecutionsInput,
-  ListPipelineExecutionsInputFilterSensitiveLog,
-  ListPipelineExecutionsOutput,
-  ListPipelineExecutionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPipelineExecutionsCommand,
-  serializeAws_json1_1ListPipelineExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPipelineExecutionsInput, ListPipelineExecutionsOutput } from "../models/models_0";
+import { de_ListPipelineExecutionsCommand, se_ListPipelineExecutionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPipelineExecutionsCommand}.
  */
 export interface ListPipelineExecutionsCommandInput extends ListPipelineExecutionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPipelineExecutionsCommand}.
  */
 export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecutionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a summary of the most recent executions for a pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * import { CodePipelineClient, ListPipelineExecutionsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, ListPipelineExecutionsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // ListPipelineExecutionsInput
+ *   pipelineName: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListPipelineExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelineExecutionsCommandInput - {@link ListPipelineExecutionsCommandInput}
+ * @returns {@link ListPipelineExecutionsCommandOutput}
  * @see {@link ListPipelineExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListPipelineExecutionsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -79,6 +83,9 @@ export class ListPipelineExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelineExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class ListPipelineExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPipelineExecutionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPipelineExecutionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class ListPipelineExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPipelineExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPipelineExecutionsCommand(input, context);
+    return se_ListPipelineExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelineExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListPipelineExecutionsCommand(output, context);
+    return de_ListPipelineExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -114,6 +114,14 @@ import {
   GetInfrastructureConfigurationCommandInput,
   GetInfrastructureConfigurationCommandOutput,
 } from "./commands/GetInfrastructureConfigurationCommand";
+import {
+  GetWorkflowExecutionCommandInput,
+  GetWorkflowExecutionCommandOutput,
+} from "./commands/GetWorkflowExecutionCommand";
+import {
+  GetWorkflowStepExecutionCommandInput,
+  GetWorkflowStepExecutionCommandOutput,
+} from "./commands/GetWorkflowStepExecutionCommand";
 import { ImportComponentCommandInput, ImportComponentCommandOutput } from "./commands/ImportComponentCommand";
 import { ImportVmImageCommandInput, ImportVmImageCommandOutput } from "./commands/ImportVmImageCommand";
 import {
@@ -140,6 +148,14 @@ import {
 } from "./commands/ListImagePipelineImagesCommand";
 import { ListImagePipelinesCommandInput, ListImagePipelinesCommandOutput } from "./commands/ListImagePipelinesCommand";
 import { ListImageRecipesCommandInput, ListImageRecipesCommandOutput } from "./commands/ListImageRecipesCommand";
+import {
+  ListImageScanFindingAggregationsCommandInput,
+  ListImageScanFindingAggregationsCommandOutput,
+} from "./commands/ListImageScanFindingAggregationsCommand";
+import {
+  ListImageScanFindingsCommandInput,
+  ListImageScanFindingsCommandOutput,
+} from "./commands/ListImageScanFindingsCommand";
 import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
   ListInfrastructureConfigurationsCommandInput,
@@ -149,6 +165,14 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListWorkflowExecutionsCommandInput,
+  ListWorkflowExecutionsCommandOutput,
+} from "./commands/ListWorkflowExecutionsCommand";
+import {
+  ListWorkflowStepExecutionsCommandInput,
+  ListWorkflowStepExecutionsCommandOutput,
+} from "./commands/ListWorkflowStepExecutionsCommand";
 import { PutComponentPolicyCommandInput, PutComponentPolicyCommandOutput } from "./commands/PutComponentPolicyCommand";
 import {
   PutContainerRecipePolicyCommandInput,
@@ -185,6 +209,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CancelImageCreationCommandInput
   | CreateComponentCommandInput
@@ -212,6 +239,8 @@ export type ServiceInputTypes =
   | GetImageRecipeCommandInput
   | GetImageRecipePolicyCommandInput
   | GetInfrastructureConfigurationCommandInput
+  | GetWorkflowExecutionCommandInput
+  | GetWorkflowStepExecutionCommandInput
   | ImportComponentCommandInput
   | ImportVmImageCommandInput
   | ListComponentBuildVersionsCommandInput
@@ -223,9 +252,13 @@ export type ServiceInputTypes =
   | ListImagePipelineImagesCommandInput
   | ListImagePipelinesCommandInput
   | ListImageRecipesCommandInput
+  | ListImageScanFindingAggregationsCommandInput
+  | ListImageScanFindingsCommandInput
   | ListImagesCommandInput
   | ListInfrastructureConfigurationsCommandInput
   | ListTagsForResourceCommandInput
+  | ListWorkflowExecutionsCommandInput
+  | ListWorkflowStepExecutionsCommandInput
   | PutComponentPolicyCommandInput
   | PutContainerRecipePolicyCommandInput
   | PutImagePolicyCommandInput
@@ -237,6 +270,9 @@ export type ServiceInputTypes =
   | UpdateImagePipelineCommandInput
   | UpdateInfrastructureConfigurationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CancelImageCreationCommandOutput
   | CreateComponentCommandOutput
@@ -264,6 +300,8 @@ export type ServiceOutputTypes =
   | GetImageRecipeCommandOutput
   | GetImageRecipePolicyCommandOutput
   | GetInfrastructureConfigurationCommandOutput
+  | GetWorkflowExecutionCommandOutput
+  | GetWorkflowStepExecutionCommandOutput
   | ImportComponentCommandOutput
   | ImportVmImageCommandOutput
   | ListComponentBuildVersionsCommandOutput
@@ -275,9 +313,13 @@ export type ServiceOutputTypes =
   | ListImagePipelineImagesCommandOutput
   | ListImagePipelinesCommandOutput
   | ListImageRecipesCommandOutput
+  | ListImageScanFindingAggregationsCommandOutput
+  | ListImageScanFindingsCommandOutput
   | ListImagesCommandOutput
   | ListInfrastructureConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListWorkflowExecutionsCommandOutput
+  | ListWorkflowStepExecutionsCommandOutput
   | PutComponentPolicyCommandOutput
   | PutContainerRecipePolicyCommandOutput
   | PutImagePolicyCommandOutput
@@ -289,6 +331,9 @@ export type ServiceOutputTypes =
   | UpdateImagePipelineCommandOutput
   | UpdateInfrastructureConfigurationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -296,7 +341,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -405,11 +450,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ImagebuilderClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -420,10 +468,15 @@ type ImagebuilderClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ImagebuilderClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ImagebuilderClient class constructor that set the region, credentials and other options.
  */
 export interface ImagebuilderClientConfig extends ImagebuilderClientConfigType {}
 
+/**
+ * @public
+ */
 type ImagebuilderClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -434,15 +487,18 @@ type ImagebuilderClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ImagebuilderClient class. This is resolved and normalized from the {@link ImagebuilderClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ImagebuilderClient class. This is resolved and normalized from the {@link ImagebuilderClientConfig | constructor configuration interface}.
  */
 export interface ImagebuilderClientResolvedConfig extends ImagebuilderClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the
- *       creation, management, and deployment of customized, secure, and up-to-date "golden" server
- *       images that are pre-installed and pre-configured with software and settings to meet specific
- *       IT standards.</p>
+ * 			creation, management, and deployment of customized, secure, and up-to-date
+ * 			"golden" server images that are pre-installed and pre-configured with software
+ * 			and settings to meet specific IT standards.</p>
  */
 export class ImagebuilderClient extends __Client<
   __HttpHandlerOptions,

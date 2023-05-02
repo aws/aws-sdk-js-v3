@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAttributeGroupRequest,
-  GetAttributeGroupRequestFilterSensitiveLog,
-  GetAttributeGroupResponse,
-  GetAttributeGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAttributeGroupCommand,
-  serializeAws_restJson1GetAttributeGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAttributeGroupRequest, GetAttributeGroupResponse } from "../models/models_0";
+import { de_GetAttributeGroupCommand, se_GetAttributeGroupCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -30,26 +22,41 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAttributeGroupCommand}.
  */
 export interface GetAttributeGroupCommandInput extends GetAttributeGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAttributeGroupCommand}.
  */
 export interface GetAttributeGroupCommandOutput extends GetAttributeGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an attribute group, either by its name or its ID. The attribute group can be specified either by its unique ID or by its name.</p>
+ * @public
+ * <p>
+ *        Retrieves an attribute group
+ *        by its ARN, ID, or name.
+ *        The attribute group can be specified
+ *        by its ARN, ID, or name.
+ *      </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogAppRegistryClient, GetAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, GetAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // GetAttributeGroupRequest
+ *   attributeGroup: "STRING_VALUE", // required
+ * };
  * const command = new GetAttributeGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAttributeGroupCommandInput - {@link GetAttributeGroupCommandInput}
+ * @returns {@link GetAttributeGroupCommandOutput}
  * @see {@link GetAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link GetAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetAttributeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAttributeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +124,8 @@ export class GetAttributeGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAttributeGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAttributeGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +135,18 @@ export class GetAttributeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAttributeGroupCommand(input, context);
+    return se_GetAttributeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttributeGroupCommandOutput> {
-    return deserializeAws_restJson1GetAttributeGroupCommand(output, context);
+    return de_GetAttributeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

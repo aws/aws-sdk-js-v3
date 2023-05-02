@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { PutBackupVaultAccessPolicyInput, PutBackupVaultAccessPolicyInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutBackupVaultAccessPolicyCommand,
-  serializeAws_restJson1PutBackupVaultAccessPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { PutBackupVaultAccessPolicyInput } from "../models/models_0";
+import { de_PutBackupVaultAccessPolicyCommand, se_PutBackupVaultAccessPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutBackupVaultAccessPolicyCommand}.
  */
 export interface PutBackupVaultAccessPolicyCommandInput extends PutBackupVaultAccessPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutBackupVaultAccessPolicyCommand}.
  */
 export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets a resource-based policy that is used to manage access permissions on the target
  *          backup vault. Requires a backup vault name and an access policy document in JSON
  *          format.</p>
@@ -39,10 +41,16 @@ export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBeare
  * import { BackupClient, PutBackupVaultAccessPolicyCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, PutBackupVaultAccessPolicyCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // PutBackupVaultAccessPolicyInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE",
+ * };
  * const command = new PutBackupVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBackupVaultAccessPolicyCommandInput - {@link PutBackupVaultAccessPolicyCommandInput}
+ * @returns {@link PutBackupVaultAccessPolicyCommandOutput}
  * @see {@link PutBackupVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link PutBackupVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -79,6 +87,9 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBackupVaultAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +118,8 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBackupVaultAccessPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +129,21 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBackupVaultAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutBackupVaultAccessPolicyCommand(input, context);
+    return se_PutBackupVaultAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBackupVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1PutBackupVaultAccessPolicyCommand(output, context);
+    return de_PutBackupVaultAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  RemoveAutoTerminationPolicyInput,
-  RemoveAutoTerminationPolicyInputFilterSensitiveLog,
-  RemoveAutoTerminationPolicyOutput,
-  RemoveAutoTerminationPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveAutoTerminationPolicyCommand,
-  serializeAws_json1_1RemoveAutoTerminationPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveAutoTerminationPolicyInput, RemoveAutoTerminationPolicyOutput } from "../models/models_0";
+import { de_RemoveAutoTerminationPolicyCommand, se_RemoveAutoTerminationPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveAutoTerminationPolicyCommand}.
  */
 export interface RemoveAutoTerminationPolicyCommandInput extends RemoveAutoTerminationPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link RemoveAutoTerminationPolicyCommand}.
  */
 export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerminationPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an auto-termination policy from an Amazon EMR cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerm
  * import { EMRClient, RemoveAutoTerminationPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, RemoveAutoTerminationPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // RemoveAutoTerminationPolicyInput
+ *   ClusterId: "STRING_VALUE", // required
+ * };
  * const command = new RemoveAutoTerminationPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveAutoTerminationPolicyCommandInput - {@link RemoveAutoTerminationPolicyCommandInput}
+ * @returns {@link RemoveAutoTerminationPolicyCommandOutput}
  * @see {@link RemoveAutoTerminationPolicyCommandInput} for command's `input` shape.
  * @see {@link RemoveAutoTerminationPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -69,6 +71,9 @@ export class RemoveAutoTerminationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveAutoTerminationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +102,8 @@ export class RemoveAutoTerminationPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveAutoTerminationPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveAutoTerminationPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +113,21 @@ export class RemoveAutoTerminationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveAutoTerminationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveAutoTerminationPolicyCommand(input, context);
+    return se_RemoveAutoTerminationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveAutoTerminationPolicyCommandOutput> {
-    return deserializeAws_json1_1RemoveAutoTerminationPolicyCommand(output, context);
+    return de_RemoveAutoTerminationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

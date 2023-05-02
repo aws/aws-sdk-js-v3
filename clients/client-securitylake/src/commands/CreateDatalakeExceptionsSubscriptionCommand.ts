@@ -15,21 +15,23 @@ import {
 
 import {
   CreateDatalakeExceptionsSubscriptionRequest,
-  CreateDatalakeExceptionsSubscriptionRequestFilterSensitiveLog,
   CreateDatalakeExceptionsSubscriptionResponse,
-  CreateDatalakeExceptionsSubscriptionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommand,
-  serializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommand,
+  de_CreateDatalakeExceptionsSubscriptionCommand,
+  se_CreateDatalakeExceptionsSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatalakeExceptionsSubscriptionCommand}.
  */
 export interface CreateDatalakeExceptionsSubscriptionCommandInput extends CreateDatalakeExceptionsSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatalakeExceptionsSubscriptionCommand}.
  */
 export interface CreateDatalakeExceptionsSubscriptionCommandOutput
@@ -37,6 +39,7 @@ export interface CreateDatalakeExceptionsSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the specified notification subscription in Amazon Security Lake for the organization
  *          you specify.</p>
  * @example
@@ -45,10 +48,16 @@ export interface CreateDatalakeExceptionsSubscriptionCommandOutput
  * import { SecurityLakeClient, CreateDatalakeExceptionsSubscriptionCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateDatalakeExceptionsSubscriptionCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // CreateDatalakeExceptionsSubscriptionRequest
+ *   subscriptionProtocol: "STRING_VALUE", // required
+ *   notificationEndpoint: "STRING_VALUE", // required
+ * };
  * const command = new CreateDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatalakeExceptionsSubscriptionCommandInput - {@link CreateDatalakeExceptionsSubscriptionCommandInput}
+ * @returns {@link CreateDatalakeExceptionsSubscriptionCommandOutput}
  * @see {@link CreateDatalakeExceptionsSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateDatalakeExceptionsSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -90,6 +99,9 @@ export class CreateDatalakeExceptionsSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatalakeExceptionsSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class CreateDatalakeExceptionsSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatalakeExceptionsSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatalakeExceptionsSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +141,24 @@ export class CreateDatalakeExceptionsSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateDatalakeExceptionsSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommand(input, context);
+    return se_CreateDatalakeExceptionsSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDatalakeExceptionsSubscriptionCommandOutput> {
-    return deserializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommand(output, context);
+    return de_CreateDatalakeExceptionsSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

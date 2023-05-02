@@ -14,28 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  ListDatasetsRequest,
-  ListDatasetsRequestFilterSensitiveLog,
-  ListDatasetsResponse,
-  ListDatasetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDatasetsCommand,
-  serializeAws_json1_1ListDatasetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDatasetsRequest, ListDatasetsResponse } from "../models/models_0";
+import { de_ListDatasetsCommand, se_ListDatasetsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetsCommand}.
  */
 export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetsCommand}.
  */
 export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
- * <p>List the datasets that you have configured in this region. For more information about datasets, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
+ * @public
+ * <p>List the datasets that you have configured in this Region. For more information about datasets, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,10 +40,23 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * import { ComprehendClient, ListDatasetsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListDatasetsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListDatasetsRequest
+ *   FlywheelArn: "STRING_VALUE",
+ *   Filter: { // DatasetFilter
+ *     Status: "CREATING" || "COMPLETED" || "FAILED",
+ *     DatasetType: "TRAIN" || "TEST",
+ *     CreationTimeAfter: new Date("TIMESTAMP"),
+ *     CreationTimeBefore: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
+ * @returns {@link ListDatasetsCommandOutput}
  * @see {@link ListDatasetsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -86,6 +96,9 @@ export class ListDatasetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +125,8 @@ export class ListDatasetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatasetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatasetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +136,18 @@ export class ListDatasetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDatasetsCommand(input, context);
+    return se_ListDatasetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetsCommandOutput> {
-    return deserializeAws_json1_1ListDatasetsCommand(output, context);
+    return de_ListDatasetsCommand(output, context);
   }
 
   // Start section: command_body_extra

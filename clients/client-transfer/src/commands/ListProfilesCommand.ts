@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListProfilesRequest,
-  ListProfilesRequestFilterSensitiveLog,
-  ListProfilesResponse,
-  ListProfilesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProfilesCommand,
-  serializeAws_json1_1ListProfilesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListProfilesRequest, ListProfilesResponse } from "../models/models_0";
+import { de_ListProfilesCommand, se_ListProfilesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProfilesCommand}.
  */
 export interface ListProfilesCommandInput extends ListProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProfilesCommand}.
  */
 export interface ListProfilesCommandOutput extends ListProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the profiles for your system. If you want to limit the results to a
  *       certain number, supply a value for the <code>MaxResults</code> parameter. If you ran the
  *       command previously and received a value for <code>NextToken</code>, you can supply that value
@@ -45,10 +42,17 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * import { TransferClient, ListProfilesCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListProfilesCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // ListProfilesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ProfileType: "LOCAL" || "PARTNER",
+ * };
  * const command = new ListProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProfilesCommandInput - {@link ListProfilesCommandInput}
+ * @returns {@link ListProfilesCommandOutput}
  * @see {@link ListProfilesCommandInput} for command's `input` shape.
  * @see {@link ListProfilesCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -88,6 +92,9 @@ export class ListProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class ListProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class ListProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProfilesCommand(input, context);
+    return se_ListProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfilesCommandOutput> {
-    return deserializeAws_json1_1ListProfilesCommand(output, context);
+    return de_ListProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

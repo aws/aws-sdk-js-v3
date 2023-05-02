@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribePortalRequest,
-  DescribePortalRequestFilterSensitiveLog,
-  DescribePortalResponse,
-  DescribePortalResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribePortalCommand,
-  serializeAws_restJson1DescribePortalCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribePortalRequest, DescribePortalResponse } from "../models/models_0";
+import { de_DescribePortalCommand, se_DescribePortalCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePortalCommand}.
  */
 export interface DescribePortalCommandInput extends DescribePortalRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePortalCommand}.
  */
 export interface DescribePortalCommandOutput extends DescribePortalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribePortalCommandOutput extends DescribePortalResponse, __M
  * import { IoTSiteWiseClient, DescribePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DescribePortalRequest
+ *   portalId: "STRING_VALUE", // required
+ * };
  * const command = new DescribePortalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePortalCommandInput - {@link DescribePortalCommandInput}
+ * @returns {@link DescribePortalCommandOutput}
  * @see {@link DescribePortalCommandInput} for command's `input` shape.
  * @see {@link DescribePortalCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +87,9 @@ export class DescribePortalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePortalCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DescribePortalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePortalRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePortalResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DescribePortalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePortalCommand(input, context);
+    return se_DescribePortalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePortalCommandOutput> {
-    return deserializeAws_restJson1DescribePortalCommand(output, context);
+    return de_DescribePortalCommand(output, context);
   }
 
   // Start section: command_body_extra

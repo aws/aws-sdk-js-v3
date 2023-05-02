@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { PutKeyPolicyRequest, PutKeyPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutKeyPolicyCommand,
-  serializeAws_json1_1PutKeyPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutKeyPolicyRequest } from "../models/models_0";
+import { de_PutKeyPolicyCommand, se_PutKeyPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutKeyPolicyCommand}.
  */
 export interface PutKeyPolicyCommandInput extends PutKeyPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutKeyPolicyCommand}.
  */
 export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a key policy to the specified KMS key. </p>
  *          <p>For more information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key Policies</a> in the <i>Key Management Service Developer Guide</i>.
  *       For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
@@ -49,10 +51,18 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  * import { KMSClient, PutKeyPolicyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, PutKeyPolicyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // PutKeyPolicyRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ *   BypassPolicyLockoutSafetyCheck: true || false,
+ * };
  * const command = new PutKeyPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutKeyPolicyCommandInput - {@link PutKeyPolicyCommandInput}
+ * @returns {@link PutKeyPolicyCommandOutput}
  * @see {@link PutKeyPolicyCommandInput} for command's `input` shape.
  * @see {@link PutKeyPolicyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -135,6 +145,9 @@ export class PutKeyPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutKeyPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,8 +174,8 @@ export class PutKeyPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutKeyPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -172,12 +185,18 @@ export class PutKeyPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutKeyPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutKeyPolicyCommand(input, context);
+    return se_PutKeyPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutKeyPolicyCommandOutput> {
-    return deserializeAws_json1_1PutKeyPolicyCommand(output, context);
+    return de_PutKeyPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

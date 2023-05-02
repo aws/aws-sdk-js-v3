@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CreateCacheSubnetGroupMessage,
-  CreateCacheSubnetGroupMessageFilterSensitiveLog,
-  CreateCacheSubnetGroupResult,
-  CreateCacheSubnetGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateCacheSubnetGroupCommand,
-  serializeAws_queryCreateCacheSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { CreateCacheSubnetGroupMessage, CreateCacheSubnetGroupResult } from "../models/models_0";
+import { de_CreateCacheSubnetGroupCommand, se_CreateCacheSubnetGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCacheSubnetGroupCommand}.
  */
 export interface CreateCacheSubnetGroupCommandInput extends CreateCacheSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateCacheSubnetGroupCommand}.
  */
 export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cache subnet group.</p>
  *          <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
  * @example
@@ -43,10 +40,25 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  * import { ElastiCacheClient, CreateCacheSubnetGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateCacheSubnetGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // CreateCacheSubnetGroupMessage
+ *   CacheSubnetGroupName: "STRING_VALUE", // required
+ *   CacheSubnetGroupDescription: "STRING_VALUE", // required
+ *   SubnetIds: [ // SubnetIdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateCacheSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCacheSubnetGroupCommandInput - {@link CreateCacheSubnetGroupCommandInput}
+ * @returns {@link CreateCacheSubnetGroupCommandOutput}
  * @see {@link CreateCacheSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -135,6 +147,9 @@ export class CreateCacheSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCacheSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,8 +178,8 @@ export class CreateCacheSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCacheSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCacheSubnetGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -174,12 +189,18 @@ export class CreateCacheSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCacheSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateCacheSubnetGroupCommand(input, context);
+    return se_CreateCacheSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCacheSubnetGroupCommandOutput> {
-    return deserializeAws_queryCreateCacheSubnetGroupCommand(output, context);
+    return de_CreateCacheSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

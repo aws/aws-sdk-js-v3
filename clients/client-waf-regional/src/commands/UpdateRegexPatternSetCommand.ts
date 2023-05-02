@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRegexPatternSetRequest,
-  UpdateRegexPatternSetRequestFilterSensitiveLog,
-  UpdateRegexPatternSetResponse,
-  UpdateRegexPatternSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRegexPatternSetCommand,
-  serializeAws_json1_1UpdateRegexPatternSetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse } from "../models/models_0";
+import { de_UpdateRegexPatternSetCommand, se_UpdateRegexPatternSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRegexPatternSetCommand}.
  */
 export interface UpdateRegexPatternSetCommandInput extends UpdateRegexPatternSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRegexPatternSetCommand}.
  */
 export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -89,10 +86,22 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * import { WAFRegionalClient, UpdateRegexPatternSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateRegexPatternSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // UpdateRegexPatternSetRequest
+ *   RegexPatternSetId: "STRING_VALUE", // required
+ *   Updates: [ // RegexPatternSetUpdates // required
+ *     { // RegexPatternSetUpdate
+ *       Action: "STRING_VALUE", // required
+ *       RegexPatternString: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRegexPatternSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRegexPatternSetCommandInput - {@link UpdateRegexPatternSetCommandInput}
+ * @returns {@link UpdateRegexPatternSetCommandOutput}
  * @see {@link UpdateRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link UpdateRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -177,6 +186,9 @@ export class UpdateRegexPatternSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRegexPatternSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -205,8 +217,8 @@ export class UpdateRegexPatternSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRegexPatternSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRegexPatternSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -216,12 +228,18 @@ export class UpdateRegexPatternSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRegexPatternSetCommand(input, context);
+    return se_UpdateRegexPatternSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegexPatternSetCommandOutput> {
-    return deserializeAws_json1_1UpdateRegexPatternSetCommand(output, context);
+    return de_UpdateRegexPatternSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
+import { CreateAlertManagerDefinitionRequest, CreateAlertManagerDefinitionResponse } from "../models/models_0";
 import {
-  CreateAlertManagerDefinitionRequest,
-  CreateAlertManagerDefinitionRequestFilterSensitiveLog,
-  CreateAlertManagerDefinitionResponse,
-  CreateAlertManagerDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAlertManagerDefinitionCommand,
-  serializeAws_restJson1CreateAlertManagerDefinitionCommand,
+  de_CreateAlertManagerDefinitionCommand,
+  se_CreateAlertManagerDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAlertManagerDefinitionCommand}.
  */
 export interface CreateAlertManagerDefinitionCommandInput extends CreateAlertManagerDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAlertManagerDefinitionCommand}.
  */
 export interface CreateAlertManagerDefinitionCommandOutput
@@ -37,6 +36,7 @@ export interface CreateAlertManagerDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Create an alert manager definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface CreateAlertManagerDefinitionCommandOutput
  * import { AmpClient, CreateAlertManagerDefinitionCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, CreateAlertManagerDefinitionCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // CreateAlertManagerDefinitionRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   data: "BLOB_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAlertManagerDefinitionCommandInput - {@link CreateAlertManagerDefinitionCommandInput}
+ * @returns {@link CreateAlertManagerDefinitionCommandOutput}
  * @see {@link CreateAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateAlertManagerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateAlertManagerDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAlertManagerDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +130,8 @@ export class CreateAlertManagerDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAlertManagerDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAlertManagerDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +141,21 @@ export class CreateAlertManagerDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAlertManagerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAlertManagerDefinitionCommand(input, context);
+    return se_CreateAlertManagerDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAlertManagerDefinitionCommandOutput> {
-    return deserializeAws_restJson1CreateAlertManagerDefinitionCommand(output, context);
+    return de_CreateAlertManagerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

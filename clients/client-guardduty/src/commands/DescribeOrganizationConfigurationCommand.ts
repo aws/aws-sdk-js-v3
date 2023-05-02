@@ -16,20 +16,22 @@ import {
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import {
   DescribeOrganizationConfigurationRequest,
-  DescribeOrganizationConfigurationRequestFilterSensitiveLog,
   DescribeOrganizationConfigurationResponse,
-  DescribeOrganizationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeOrganizationConfigurationCommand,
-  serializeAws_restJson1DescribeOrganizationConfigurationCommand,
+  de_DescribeOrganizationConfigurationCommand,
+  se_DescribeOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationConfigurationCommand}.
  */
 export interface DescribeOrganizationConfigurationCommandInput extends DescribeOrganizationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationConfigurationCommand}.
  */
 export interface DescribeOrganizationConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the account selected as the delegated administrator for
  *       GuardDuty.</p>
  *          <p>There might be regional differences because some data sources might not be
@@ -48,10 +51,17 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * import { GuardDutyClient, DescribeOrganizationConfigurationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DescribeOrganizationConfigurationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // DescribeOrganizationConfigurationRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
+ * @returns {@link DescribeOrganizationConfigurationCommandOutput}
  * @see {@link DescribeOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -81,6 +91,9 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +122,8 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +133,24 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrganizationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOrganizationConfigurationCommand(input, context);
+    return se_DescribeOrganizationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeOrganizationConfigurationCommand(output, context);
+    return de_DescribeOrganizationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

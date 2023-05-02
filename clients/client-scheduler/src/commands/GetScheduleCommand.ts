@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetScheduleInput,
-  GetScheduleInputFilterSensitiveLog,
-  GetScheduleOutput,
-  GetScheduleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetScheduleCommand,
-  serializeAws_restJson1GetScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { GetScheduleInput, GetScheduleOutput } from "../models/models_0";
+import { de_GetScheduleCommand, se_GetScheduleCommand } from "../protocols/Aws_restJson1";
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetScheduleCommand}.
  */
 export interface GetScheduleCommandInput extends GetScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link GetScheduleCommand}.
  */
 export interface GetScheduleCommandOutput extends GetScheduleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetScheduleCommandOutput extends GetScheduleOutput, __MetadataB
  * import { SchedulerClient, GetScheduleCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, GetScheduleCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
+ * const input = { // GetScheduleInput
+ *   Name: "STRING_VALUE", // required
+ *   GroupName: "STRING_VALUE",
+ * };
  * const command = new GetScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetScheduleCommandInput - {@link GetScheduleCommandInput}
+ * @returns {@link GetScheduleCommandOutput}
  * @see {@link GetScheduleCommandInput} for command's `input` shape.
  * @see {@link GetScheduleCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
@@ -81,6 +84,9 @@ export class GetScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class GetScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetScheduleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetScheduleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class GetScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetScheduleCommand(input, context);
+    return se_GetScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetScheduleCommandOutput> {
-    return deserializeAws_restJson1GetScheduleCommand(output, context);
+    return de_GetScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

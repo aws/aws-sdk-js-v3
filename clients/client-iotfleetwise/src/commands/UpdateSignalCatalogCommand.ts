@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  UpdateSignalCatalogRequest,
-  UpdateSignalCatalogRequestFilterSensitiveLog,
-  UpdateSignalCatalogResponse,
-  UpdateSignalCatalogResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateSignalCatalogCommand,
-  serializeAws_json1_0UpdateSignalCatalogCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateSignalCatalogRequest, UpdateSignalCatalogResponse } from "../models/models_0";
+import { de_UpdateSignalCatalogCommand, se_UpdateSignalCatalogCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSignalCatalogCommand}.
  */
 export interface UpdateSignalCatalogCommandInput extends UpdateSignalCatalogRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSignalCatalogCommand}.
  */
 export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a signal catalog. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,105 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  * import { IoTFleetWiseClient, UpdateSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, UpdateSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // UpdateSignalCatalogRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   nodesToAdd: [ // Nodes
+ *     { // Node Union: only one key present
+ *       branch: { // Branch
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *       },
+ *       sensor: { // Sensor
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [ // listOfStrings
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *       },
+ *       actuator: { // Actuator
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *         assignedValue: "STRING_VALUE",
+ *       },
+ *       attribute: { // Attribute
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *         assignedValue: "STRING_VALUE",
+ *         defaultValue: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nodesToUpdate: [
+ *     {//  Union: only one key present
+ *       branch: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *       },
+ *       sensor: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *       },
+ *       actuator: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *         assignedValue: "STRING_VALUE",
+ *       },
+ *       attribute: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: "<listOfStrings>",
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *         assignedValue: "STRING_VALUE",
+ *         defaultValue: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nodesToRemove: [ // NodePaths
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateSignalCatalogCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSignalCatalogCommandInput - {@link UpdateSignalCatalogCommandInput}
+ * @returns {@link UpdateSignalCatalogCommandOutput}
  * @see {@link UpdateSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link UpdateSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -98,6 +190,9 @@ export class UpdateSignalCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSignalCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +221,8 @@ export class UpdateSignalCatalogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSignalCatalogRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSignalCatalogResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +232,18 @@ export class UpdateSignalCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSignalCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateSignalCatalogCommand(input, context);
+    return se_UpdateSignalCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSignalCatalogCommandOutput> {
-    return deserializeAws_json1_0UpdateSignalCatalogCommand(output, context);
+    return de_UpdateSignalCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

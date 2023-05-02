@@ -12,20 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlBlobsInputOutput, XmlBlobsInputOutputFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_restXmlXmlBlobsCommand, serializeAws_restXmlXmlBlobsCommand } from "../protocols/Aws_restXml";
+import { XmlBlobsInputOutput } from "../models/models_0";
+import { de_XmlBlobsCommand, se_XmlBlobsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link XmlBlobsCommand}.
  */
 export interface XmlBlobsCommandInput extends XmlBlobsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link XmlBlobsCommand}.
  */
 export interface XmlBlobsCommandOutput extends XmlBlobsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Blobs are base64 encoded
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,10 +38,15 @@ export interface XmlBlobsCommandOutput extends XmlBlobsInputOutput, __MetadataBe
  * import { RestXmlProtocolClient, XmlBlobsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlBlobsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = { // XmlBlobsInputOutput
+ *   data: "BLOB_VALUE",
+ * };
  * const command = new XmlBlobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param XmlBlobsCommandInput - {@link XmlBlobsCommandInput}
+ * @returns {@link XmlBlobsCommandOutput}
  * @see {@link XmlBlobsCommandInput} for command's `input` shape.
  * @see {@link XmlBlobsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -51,6 +61,9 @@ export class XmlBlobsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlBlobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,8 +89,8 @@ export class XmlBlobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlBlobsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlBlobsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +100,18 @@ export class XmlBlobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlBlobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlBlobsCommand(input, context);
+    return se_XmlBlobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlBlobsCommandOutput> {
-    return deserializeAws_restXmlXmlBlobsCommand(output, context);
+    return de_XmlBlobsCommand(output, context);
   }
 
   // Start section: command_body_extra

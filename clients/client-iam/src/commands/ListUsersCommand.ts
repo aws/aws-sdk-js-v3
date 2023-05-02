@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListUsersRequest,
-  ListUsersRequestFilterSensitiveLog,
-  ListUsersResponse,
-  ListUsersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryListUsersCommand, serializeAws_queryListUsersCommand } from "../protocols/Aws_query";
+import { ListUsersRequest, ListUsersResponse } from "../models/models_0";
+import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListUsersCommand}.
  */
 export interface ListUsersCommandInput extends ListUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUsersCommand}.
  */
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the IAM users that have the specified path prefix. If no path prefix is
  *             specified, the operation returns all users in the Amazon Web Services account. If there are none, the
  *             operation returns an empty list.</p>
@@ -47,10 +47,17 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * import { IAMClient, ListUsersCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListUsersCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListUsersRequest
+ *   PathPrefix: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUsersCommandInput - {@link ListUsersCommandInput}
+ * @returns {@link ListUsersCommandOutput}
  * @see {@link ListUsersCommandInput} for command's `input` shape.
  * @see {@link ListUsersCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -105,6 +112,9 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +141,8 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUsersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUsersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +152,18 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListUsersCommand(input, context);
+    return se_ListUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsersCommandOutput> {
-    return deserializeAws_queryListUsersCommand(output, context);
+    return de_ListUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

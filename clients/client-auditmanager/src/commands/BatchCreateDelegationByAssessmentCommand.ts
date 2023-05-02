@@ -16,20 +16,22 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   BatchCreateDelegationByAssessmentRequest,
-  BatchCreateDelegationByAssessmentRequestFilterSensitiveLog,
   BatchCreateDelegationByAssessmentResponse,
-  BatchCreateDelegationByAssessmentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchCreateDelegationByAssessmentCommand,
-  serializeAws_restJson1BatchCreateDelegationByAssessmentCommand,
+  de_BatchCreateDelegationByAssessmentCommand,
+  se_BatchCreateDelegationByAssessmentCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCreateDelegationByAssessmentCommand}.
  */
 export interface BatchCreateDelegationByAssessmentCommandInput extends BatchCreateDelegationByAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCreateDelegationByAssessmentCommand}.
  */
 export interface BatchCreateDelegationByAssessmentCommandOutput
@@ -37,6 +39,7 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a batch of delegations for an assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,23 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
  * import { AuditManagerClient, BatchCreateDelegationByAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, BatchCreateDelegationByAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // BatchCreateDelegationByAssessmentRequest
+ *   createDelegationRequests: [ // CreateDelegationRequests // required
+ *     { // CreateDelegationRequest
+ *       comment: "STRING_VALUE",
+ *       controlSetId: "STRING_VALUE",
+ *       roleArn: "STRING_VALUE",
+ *       roleType: "PROCESS_OWNER" || "RESOURCE_OWNER",
+ *     },
+ *   ],
+ *   assessmentId: "STRING_VALUE", // required
+ * };
  * const command = new BatchCreateDelegationByAssessmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCreateDelegationByAssessmentCommandInput - {@link BatchCreateDelegationByAssessmentCommandInput}
+ * @returns {@link BatchCreateDelegationByAssessmentCommandOutput}
  * @see {@link BatchCreateDelegationByAssessmentCommandInput} for command's `input` shape.
  * @see {@link BatchCreateDelegationByAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -85,6 +101,9 @@ export class BatchCreateDelegationByAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCreateDelegationByAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +132,8 @@ export class BatchCreateDelegationByAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCreateDelegationByAssessmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchCreateDelegationByAssessmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +143,24 @@ export class BatchCreateDelegationByAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchCreateDelegationByAssessmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchCreateDelegationByAssessmentCommand(input, context);
+    return se_BatchCreateDelegationByAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchCreateDelegationByAssessmentCommandOutput> {
-    return deserializeAws_restJson1BatchCreateDelegationByAssessmentCommand(output, context);
+    return de_BatchCreateDelegationByAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

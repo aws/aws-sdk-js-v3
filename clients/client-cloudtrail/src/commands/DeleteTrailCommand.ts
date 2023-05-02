@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  DeleteTrailRequest,
-  DeleteTrailRequestFilterSensitiveLog,
-  DeleteTrailResponse,
-  DeleteTrailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTrailCommand,
-  serializeAws_json1_1DeleteTrailCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTrailRequest, DeleteTrailResponse } from "../models/models_0";
+import { de_DeleteTrailCommand, se_DeleteTrailCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrailCommand}.
  */
 export interface DeleteTrailCommandInput extends DeleteTrailRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrailCommand}.
  */
 export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a trail. This operation must be called from the region in which the trail was
  *          created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails
  *          in other regions) of a trail that is enabled in all regions.</p>
@@ -44,10 +41,15 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  * import { CloudTrailClient, DeleteTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DeleteTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // DeleteTrailRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTrailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrailCommandInput - {@link DeleteTrailCommandInput}
+ * @returns {@link DeleteTrailCommandOutput}
  * @see {@link DeleteTrailCommandInput} for command's `input` shape.
  * @see {@link DeleteTrailCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -141,6 +143,9 @@ export class DeleteTrailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrailCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,8 +172,8 @@ export class DeleteTrailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -178,12 +183,18 @@ export class DeleteTrailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTrailCommand(input, context);
+    return se_DeleteTrailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrailCommandOutput> {
-    return deserializeAws_json1_1DeleteTrailCommand(output, context);
+    return de_DeleteTrailCommand(output, context);
   }
 
   // Start section: command_body_extra

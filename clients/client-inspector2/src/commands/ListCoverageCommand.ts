@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  ListCoverageRequest,
-  ListCoverageRequestFilterSensitiveLog,
-  ListCoverageResponse,
-  ListCoverageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCoverageCommand,
-  serializeAws_restJson1ListCoverageCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCoverageRequest, ListCoverageResponse } from "../models/models_0";
+import { de_ListCoverageCommand, se_ListCoverageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCoverageCommand}.
  */
 export interface ListCoverageCommandInput extends ListCoverageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCoverageCommand}.
  */
 export interface ListCoverageCommandOutput extends ListCoverageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists coverage details for you environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,67 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * import { Inspector2Client, ListCoverageCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListCoverageCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = { // ListCoverageRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filterCriteria: { // CoverageFilterCriteria
+ *     scanStatusCode: [ // CoverageStringFilterList
+ *       { // CoverageStringFilter
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     scanStatusReason: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     accountId: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     resourceId: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     resourceType: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     scanType: "<CoverageStringFilterList>",
+ *     ecrRepositoryName: "<CoverageStringFilterList>",
+ *     ecrImageTags: "<CoverageStringFilterList>",
+ *     ec2InstanceTags: [ // CoverageMapFilterList
+ *       { // CoverageMapFilter
+ *         comparison: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     lambdaFunctionName: "<CoverageStringFilterList>",
+ *     lambdaFunctionTags: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     lambdaFunctionRuntime: "<CoverageStringFilterList>",
+ *   },
+ * };
  * const command = new ListCoverageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCoverageCommandInput - {@link ListCoverageCommandInput}
+ * @returns {@link ListCoverageCommandOutput}
  * @see {@link ListCoverageCommandInput} for command's `input` shape.
  * @see {@link ListCoverageCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -79,6 +133,9 @@ export class ListCoverageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCoverageCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +162,8 @@ export class ListCoverageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCoverageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCoverageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +173,18 @@ export class ListCoverageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCoverageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCoverageCommand(input, context);
+    return se_ListCoverageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCoverageCommandOutput> {
-    return deserializeAws_restJson1ListCoverageCommand(output, context);
+    return de_ListCoverageCommand(output, context);
   }
 
   // Start section: command_body_extra

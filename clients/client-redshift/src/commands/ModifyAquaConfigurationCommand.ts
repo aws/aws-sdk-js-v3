@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyAquaInputMessage,
-  ModifyAquaInputMessageFilterSensitiveLog,
-  ModifyAquaOutputMessage,
-  ModifyAquaOutputMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyAquaConfigurationCommand,
-  serializeAws_queryModifyAquaConfigurationCommand,
-} from "../protocols/Aws_query";
+import { ModifyAquaInputMessage, ModifyAquaOutputMessage } from "../models/models_1";
+import { de_ModifyAquaConfigurationCommand, se_ModifyAquaConfigurationCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyAquaConfigurationCommand}.
  */
 export interface ModifyAquaConfigurationCommandInput extends ModifyAquaInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyAquaConfigurationCommand}.
  */
 export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation is retired. Calling this operation does not change AQUA configuration. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMe
  * import { RedshiftClient, ModifyAquaConfigurationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyAquaConfigurationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ModifyAquaInputMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   AquaConfigurationStatus: "enabled" || "disabled" || "auto",
+ * };
  * const command = new ModifyAquaConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyAquaConfigurationCommandInput - {@link ModifyAquaConfigurationCommandInput}
+ * @returns {@link ModifyAquaConfigurationCommandOutput}
  * @see {@link ModifyAquaConfigurationCommandInput} for command's `input` shape.
  * @see {@link ModifyAquaConfigurationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -79,6 +82,9 @@ export class ModifyAquaConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyAquaConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class ModifyAquaConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyAquaInputMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyAquaOutputMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class ModifyAquaConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyAquaConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyAquaConfigurationCommand(input, context);
+    return se_ModifyAquaConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyAquaConfigurationCommandOutput> {
-    return deserializeAws_queryModifyAquaConfigurationCommand(output, context);
+    return de_ModifyAquaConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

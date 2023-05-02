@@ -16,20 +16,22 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DisableIpamOrganizationAdminAccountRequest,
-  DisableIpamOrganizationAdminAccountRequestFilterSensitiveLog,
   DisableIpamOrganizationAdminAccountResult,
-  DisableIpamOrganizationAdminAccountResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DisableIpamOrganizationAdminAccountCommand,
-  serializeAws_ec2DisableIpamOrganizationAdminAccountCommand,
+  de_DisableIpamOrganizationAdminAccountCommand,
+  se_DisableIpamOrganizationAdminAccountCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisableIpamOrganizationAdminAccountCommand}.
  */
 export interface DisableIpamOrganizationAdminAccountCommandInput extends DisableIpamOrganizationAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableIpamOrganizationAdminAccountCommand}.
  */
 export interface DisableIpamOrganizationAdminAccountCommandOutput
@@ -37,6 +39,7 @@ export interface DisableIpamOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disable the IPAM account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
@@ -45,10 +48,16 @@ export interface DisableIpamOrganizationAdminAccountCommandOutput
  * import { EC2Client, DisableIpamOrganizationAdminAccountCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableIpamOrganizationAdminAccountCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisableIpamOrganizationAdminAccountRequest
+ *   DryRun: true || false,
+ *   DelegatedAdminAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DisableIpamOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableIpamOrganizationAdminAccountCommandInput - {@link DisableIpamOrganizationAdminAccountCommandInput}
+ * @returns {@link DisableIpamOrganizationAdminAccountCommandOutput}
  * @see {@link DisableIpamOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DisableIpamOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +81,9 @@ export class DisableIpamOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableIpamOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +112,8 @@ export class DisableIpamOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableIpamOrganizationAdminAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableIpamOrganizationAdminAccountResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +123,24 @@ export class DisableIpamOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableIpamOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableIpamOrganizationAdminAccountCommand(input, context);
+    return se_DisableIpamOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableIpamOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_ec2DisableIpamOrganizationAdminAccountCommand(output, context);
+    return de_DisableIpamOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

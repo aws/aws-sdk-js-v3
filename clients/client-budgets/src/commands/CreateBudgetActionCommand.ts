@@ -18,23 +18,24 @@ import {
   CreateBudgetActionRequest,
   CreateBudgetActionRequestFilterSensitiveLog,
   CreateBudgetActionResponse,
-  CreateBudgetActionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBudgetActionCommand,
-  serializeAws_json1_1CreateBudgetActionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateBudgetActionCommand, se_CreateBudgetActionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBudgetActionCommand}.
  */
 export interface CreateBudgetActionCommandInput extends CreateBudgetActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBudgetActionCommand}.
  */
 export interface CreateBudgetActionCommandOutput extends CreateBudgetActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Creates a budget action.
  *       </p>
@@ -44,10 +45,57 @@ export interface CreateBudgetActionCommandOutput extends CreateBudgetActionRespo
  * import { BudgetsClient, CreateBudgetActionCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, CreateBudgetActionCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // CreateBudgetActionRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   NotificationType: "STRING_VALUE", // required
+ *   ActionType: "STRING_VALUE", // required
+ *   ActionThreshold: { // ActionThreshold
+ *     ActionThresholdValue: Number("double"), // required
+ *     ActionThresholdType: "STRING_VALUE", // required
+ *   },
+ *   Definition: { // Definition
+ *     IamActionDefinition: { // IamActionDefinition
+ *       PolicyArn: "STRING_VALUE", // required
+ *       Roles: [ // Roles
+ *         "STRING_VALUE",
+ *       ],
+ *       Groups: [ // Groups
+ *         "STRING_VALUE",
+ *       ],
+ *       Users: [ // Users
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ScpActionDefinition: { // ScpActionDefinition
+ *       PolicyId: "STRING_VALUE", // required
+ *       TargetIds: [ // TargetIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     SsmActionDefinition: { // SsmActionDefinition
+ *       ActionSubType: "STRING_VALUE", // required
+ *       Region: "STRING_VALUE", // required
+ *       InstanceIds: [ // InstanceIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   ApprovalModel: "STRING_VALUE", // required
+ *   Subscribers: [ // Subscribers // required
+ *     { // Subscriber
+ *       SubscriptionType: "STRING_VALUE", // required
+ *       Address: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBudgetActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBudgetActionCommandInput - {@link CreateBudgetActionCommandInput}
+ * @returns {@link CreateBudgetActionCommandOutput}
  * @see {@link CreateBudgetActionCommandInput} for command's `input` shape.
  * @see {@link CreateBudgetActionCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -94,6 +142,9 @@ export class CreateBudgetActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBudgetActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,7 +174,7 @@ export class CreateBudgetActionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateBudgetActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBudgetActionResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +184,18 @@ export class CreateBudgetActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBudgetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBudgetActionCommand(input, context);
+    return se_CreateBudgetActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBudgetActionCommandOutput> {
-    return deserializeAws_json1_1CreateBudgetActionCommand(output, context);
+    return de_CreateBudgetActionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -78,6 +78,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchAcknowledgeAlarmCommandInput
   | BatchDeleteDetectorCommandInput
@@ -92,6 +95,9 @@ export type ServiceInputTypes =
   | ListAlarmsCommandInput
   | ListDetectorsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchAcknowledgeAlarmCommandOutput
   | BatchDeleteDetectorCommandOutput
@@ -106,6 +112,9 @@ export type ServiceOutputTypes =
   | ListAlarmsCommandOutput
   | ListDetectorsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -113,7 +122,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -222,11 +231,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type IoTEventsDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -237,10 +249,15 @@ type IoTEventsDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of IoTEventsDataClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of IoTEventsDataClient class constructor that set the region, credentials and other options.
  */
 export interface IoTEventsDataClientConfig extends IoTEventsDataClientConfigType {}
 
+/**
+ * @public
+ */
 type IoTEventsDataClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -251,11 +268,14 @@ type IoTEventsDataClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of IoTEventsDataClient class. This is resolved and normalized from the {@link IoTEventsDataClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of IoTEventsDataClient class. This is resolved and normalized from the {@link IoTEventsDataClientConfig | constructor configuration interface}.
  */
 export interface IoTEventsDataClientResolvedConfig extends IoTEventsDataClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>IoT Events monitors your equipment or device fleets for failures or changes in operation, and
  *       triggers actions when such events occur. You can use IoT Events Data API commands to send inputs to
  *       detectors, list detectors, and view or update a detector's status.</p>

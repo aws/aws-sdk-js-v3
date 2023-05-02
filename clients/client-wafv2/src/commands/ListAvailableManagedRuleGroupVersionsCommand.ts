@@ -15,22 +15,24 @@ import {
 
 import {
   ListAvailableManagedRuleGroupVersionsRequest,
-  ListAvailableManagedRuleGroupVersionsRequestFilterSensitiveLog,
   ListAvailableManagedRuleGroupVersionsResponse,
-  ListAvailableManagedRuleGroupVersionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommand,
-  serializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommand,
+  de_ListAvailableManagedRuleGroupVersionsCommand,
+  se_ListAvailableManagedRuleGroupVersionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailableManagedRuleGroupVersionsCommand}.
  */
 export interface ListAvailableManagedRuleGroupVersionsCommandInput
   extends ListAvailableManagedRuleGroupVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailableManagedRuleGroupVersionsCommand}.
  */
 export interface ListAvailableManagedRuleGroupVersionsCommandOutput
@@ -38,6 +40,7 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available versions for the specified managed rule group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,19 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
  * import { WAFV2Client, ListAvailableManagedRuleGroupVersionsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListAvailableManagedRuleGroupVersionsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // ListAvailableManagedRuleGroupVersionsRequest
+ *   VendorName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListAvailableManagedRuleGroupVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailableManagedRuleGroupVersionsCommandInput - {@link ListAvailableManagedRuleGroupVersionsCommandInput}
+ * @returns {@link ListAvailableManagedRuleGroupVersionsCommandOutput}
  * @see {@link ListAvailableManagedRuleGroupVersionsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableManagedRuleGroupVersionsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -106,6 +118,9 @@ export class ListAvailableManagedRuleGroupVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableManagedRuleGroupVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +149,8 @@ export class ListAvailableManagedRuleGroupVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAvailableManagedRuleGroupVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAvailableManagedRuleGroupVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +160,24 @@ export class ListAvailableManagedRuleGroupVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAvailableManagedRuleGroupVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommand(input, context);
+    return se_ListAvailableManagedRuleGroupVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableManagedRuleGroupVersionsCommandOutput> {
-    return deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommand(output, context);
+    return de_ListAvailableManagedRuleGroupVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

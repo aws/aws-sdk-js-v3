@@ -18,23 +18,24 @@ import {
   UpdateBackupPlanInput,
   UpdateBackupPlanInputFilterSensitiveLog,
   UpdateBackupPlanOutput,
-  UpdateBackupPlanOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBackupPlanCommand,
-  serializeAws_restJson1UpdateBackupPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBackupPlanCommand, se_UpdateBackupPlanCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBackupPlanCommand}.
  */
 export interface UpdateBackupPlanCommandInput extends UpdateBackupPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBackupPlanCommand}.
  */
 export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing backup plan identified by its <code>backupPlanId</code> with the
  *          input document in JSON format. The new version is uniquely identified by a
  *             <code>VersionId</code>.</p>
@@ -44,10 +45,52 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  * import { BackupClient, UpdateBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // UpdateBackupPlanInput
+ *   BackupPlanId: "STRING_VALUE", // required
+ *   BackupPlan: { // BackupPlanInput
+ *     BackupPlanName: "STRING_VALUE", // required
+ *     Rules: [ // BackupRulesInput // required
+ *       { // BackupRuleInput
+ *         RuleName: "STRING_VALUE", // required
+ *         TargetBackupVaultName: "STRING_VALUE", // required
+ *         ScheduleExpression: "STRING_VALUE",
+ *         StartWindowMinutes: Number("long"),
+ *         CompletionWindowMinutes: Number("long"),
+ *         Lifecycle: { // Lifecycle
+ *           MoveToColdStorageAfterDays: Number("long"),
+ *           DeleteAfterDays: Number("long"),
+ *         },
+ *         RecoveryPointTags: { // Tags
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         CopyActions: [ // CopyActions
+ *           { // CopyAction
+ *             Lifecycle: {
+ *               MoveToColdStorageAfterDays: Number("long"),
+ *               DeleteAfterDays: Number("long"),
+ *             },
+ *             DestinationBackupVaultArn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         EnableContinuousBackup: true || false,
+ *       },
+ *     ],
+ *     AdvancedBackupSettings: [ // AdvancedBackupSettings
+ *       { // AdvancedBackupSetting
+ *         ResourceType: "STRING_VALUE",
+ *         BackupOptions: { // BackupOptions
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateBackupPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBackupPlanCommandInput - {@link UpdateBackupPlanCommandInput}
+ * @returns {@link UpdateBackupPlanCommandOutput}
  * @see {@link UpdateBackupPlanCommandInput} for command's `input` shape.
  * @see {@link UpdateBackupPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -84,6 +127,9 @@ export class UpdateBackupPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBackupPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,7 +159,7 @@ export class UpdateBackupPlanCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateBackupPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBackupPlanOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +169,18 @@ export class UpdateBackupPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBackupPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBackupPlanCommand(input, context);
+    return se_UpdateBackupPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBackupPlanCommandOutput> {
-    return deserializeAws_restJson1UpdateBackupPlanCommand(output, context);
+    return de_UpdateBackupPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

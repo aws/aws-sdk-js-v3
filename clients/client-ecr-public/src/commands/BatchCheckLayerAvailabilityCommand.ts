@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  BatchCheckLayerAvailabilityRequest,
-  BatchCheckLayerAvailabilityRequestFilterSensitiveLog,
-  BatchCheckLayerAvailabilityResponse,
-  BatchCheckLayerAvailabilityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchCheckLayerAvailabilityCommand,
-  serializeAws_json1_1BatchCheckLayerAvailabilityCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse } from "../models/models_0";
+import { de_BatchCheckLayerAvailabilityCommand, se_BatchCheckLayerAvailabilityCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCheckLayerAvailabilityCommand}.
  */
 export interface BatchCheckLayerAvailabilityCommandInput extends BatchCheckLayerAvailabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCheckLayerAvailabilityCommand}.
  */
 export interface BatchCheckLayerAvailabilityCommandOutput
@@ -37,6 +33,7 @@ export interface BatchCheckLayerAvailabilityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks the availability of one or more image layers that are within a repository in a
  *          public registry. When an image is pushed to a repository, each image layer is checked to
  *          verify if it has been uploaded before. If it has been uploaded, then the image layer is
@@ -50,10 +47,19 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * import { ECRPUBLICClient, BatchCheckLayerAvailabilityCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, BatchCheckLayerAvailabilityCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = { // BatchCheckLayerAvailabilityRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   layerDigests: [ // BatchedOperationLayerDigestList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchCheckLayerAvailabilityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCheckLayerAvailabilityCommandInput - {@link BatchCheckLayerAvailabilityCommandInput}
+ * @returns {@link BatchCheckLayerAvailabilityCommandOutput}
  * @see {@link BatchCheckLayerAvailabilityCommandInput} for command's `input` shape.
  * @see {@link BatchCheckLayerAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -94,6 +100,9 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCheckLayerAvailabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +131,8 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCheckLayerAvailabilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchCheckLayerAvailabilityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,15 +142,21 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchCheckLayerAvailabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchCheckLayerAvailabilityCommand(input, context);
+    return se_BatchCheckLayerAvailabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchCheckLayerAvailabilityCommandOutput> {
-    return deserializeAws_json1_1BatchCheckLayerAvailabilityCommand(output, context);
+    return de_BatchCheckLayerAvailabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

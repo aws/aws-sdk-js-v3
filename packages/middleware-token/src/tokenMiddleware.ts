@@ -12,6 +12,9 @@ import {
 
 import { TokenResolvedConfig } from "./configurations";
 
+/**
+ * @internal
+ */
 export const tokenMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "tokenMiddleware",
   tags: ["TOKEN", "AUTH"],
@@ -20,6 +23,9 @@ export const tokenMiddlewareOptions: RelativeMiddlewareOptions = {
   override: true,
 };
 
+/**
+ * @internal
+ */
 export const tokenMiddleware =
   <Input extends object, Output extends object>(
     options: TokenResolvedConfig

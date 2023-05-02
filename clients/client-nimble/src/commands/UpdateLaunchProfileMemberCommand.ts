@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateLaunchProfileMemberRequest,
-  UpdateLaunchProfileMemberRequestFilterSensitiveLog,
-  UpdateLaunchProfileMemberResponse,
-  UpdateLaunchProfileMemberResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateLaunchProfileMemberRequest, UpdateLaunchProfileMemberResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1UpdateLaunchProfileMemberCommand,
-  serializeAws_restJson1UpdateLaunchProfileMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateLaunchProfileMemberCommand, se_UpdateLaunchProfileMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLaunchProfileMemberCommand}.
  */
 export interface UpdateLaunchProfileMemberCommandInput extends UpdateLaunchProfileMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLaunchProfileMemberCommand}.
  */
 export interface UpdateLaunchProfileMemberCommandOutput extends UpdateLaunchProfileMemberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a user persona in launch profile membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UpdateLaunchProfileMemberCommandOutput extends UpdateLaunchProf
  * import { NimbleClient, UpdateLaunchProfileMemberCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, UpdateLaunchProfileMemberCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // UpdateLaunchProfileMemberRequest
+ *   clientToken: "STRING_VALUE",
+ *   launchProfileId: "STRING_VALUE", // required
+ *   persona: "USER", // required
+ *   principalId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateLaunchProfileMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLaunchProfileMemberCommandInput - {@link UpdateLaunchProfileMemberCommandInput}
+ * @returns {@link UpdateLaunchProfileMemberCommandOutput}
  * @see {@link UpdateLaunchProfileMemberCommandInput} for command's `input` shape.
  * @see {@link UpdateLaunchProfileMemberCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +99,9 @@ export class UpdateLaunchProfileMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLaunchProfileMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +130,8 @@ export class UpdateLaunchProfileMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLaunchProfileMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLaunchProfileMemberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +141,21 @@ export class UpdateLaunchProfileMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLaunchProfileMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLaunchProfileMemberCommand(input, context);
+    return se_UpdateLaunchProfileMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLaunchProfileMemberCommandOutput> {
-    return deserializeAws_restJson1UpdateLaunchProfileMemberCommand(output, context);
+    return de_UpdateLaunchProfileMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

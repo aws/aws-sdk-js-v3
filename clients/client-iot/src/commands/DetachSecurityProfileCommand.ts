@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DetachSecurityProfileRequest,
-  DetachSecurityProfileRequestFilterSensitiveLog,
-  DetachSecurityProfileResponse,
-  DetachSecurityProfileResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DetachSecurityProfileCommand,
-  serializeAws_restJson1DetachSecurityProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { DetachSecurityProfileRequest, DetachSecurityProfileResponse } from "../models/models_1";
+import { de_DetachSecurityProfileCommand, se_DetachSecurityProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachSecurityProfileCommand}.
  */
 export interface DetachSecurityProfileCommandInput extends DetachSecurityProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachSecurityProfileCommand}.
  */
 export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachSecurityProfile</a> action.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfil
  * import { IoTClient, DetachSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DetachSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DetachSecurityProfileRequest
+ *   securityProfileName: "STRING_VALUE", // required
+ *   securityProfileTargetArn: "STRING_VALUE", // required
+ * };
  * const command = new DetachSecurityProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachSecurityProfileCommandInput - {@link DetachSecurityProfileCommandInput}
+ * @returns {@link DetachSecurityProfileCommandOutput}
  * @see {@link DetachSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DetachSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +85,9 @@ export class DetachSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class DetachSecurityProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachSecurityProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachSecurityProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class DetachSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DetachSecurityProfileCommand(input, context);
+    return se_DetachSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1DetachSecurityProfileCommand(output, context);
+    return de_DetachSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  ListAccountIntegrationsRequest,
-  ListAccountIntegrationsRequestFilterSensitiveLog,
-  ListAccountIntegrationsResponse,
-  ListAccountIntegrationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAccountIntegrationsCommand,
-  serializeAws_restJson1ListAccountIntegrationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAccountIntegrationsRequest, ListAccountIntegrationsResponse } from "../models/models_0";
+import { de_ListAccountIntegrationsCommand, se_ListAccountIntegrationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountIntegrationsCommand}.
  */
 export interface ListAccountIntegrationsCommandInput extends ListAccountIntegrationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountIntegrationsCommand}.
  */
 export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegrationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the integrations associated to a specific URI in the AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegra
  * import { CustomerProfilesClient, ListAccountIntegrationsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListAccountIntegrationsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // ListAccountIntegrationsRequest
+ *   Uri: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   IncludeHidden: true || false,
+ * };
  * const command = new ListAccountIntegrationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountIntegrationsCommandInput - {@link ListAccountIntegrationsCommandInput}
+ * @returns {@link ListAccountIntegrationsCommandOutput}
  * @see {@link ListAccountIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListAccountIntegrationsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -84,6 +89,9 @@ export class ListAccountIntegrationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountIntegrationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class ListAccountIntegrationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountIntegrationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountIntegrationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class ListAccountIntegrationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountIntegrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAccountIntegrationsCommand(input, context);
+    return se_ListAccountIntegrationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountIntegrationsCommandOutput> {
-    return deserializeAws_restJson1ListAccountIntegrationsCommand(output, context);
+    return de_ListAccountIntegrationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -17,24 +17,25 @@ import {
   ImportCertificateRequest,
   ImportCertificateRequestFilterSensitiveLog,
   ImportCertificateResponse,
-  ImportCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportCertificateCommand,
-  serializeAws_json1_1ImportCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ImportCertificateCommand, se_ImportCertificateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportCertificateCommand}.
  */
 export interface ImportCertificateCommandInput extends ImportCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportCertificateCommand}.
  */
 export interface ImportCertificateCommandOutput extends ImportCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports the signing and encryption certificates that you need to create local (AS2)
  *       profiles and partner
  *       profiles.</p>
@@ -44,10 +45,27 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * import { TransferClient, ImportCertificateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ImportCertificateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // ImportCertificateRequest
+ *   Usage: "SIGNING" || "ENCRYPTION", // required
+ *   Certificate: "STRING_VALUE", // required
+ *   CertificateChain: "STRING_VALUE",
+ *   PrivateKey: "STRING_VALUE",
+ *   ActiveDate: new Date("TIMESTAMP"),
+ *   InactiveDate: new Date("TIMESTAMP"),
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportCertificateCommandInput - {@link ImportCertificateCommandInput}
+ * @returns {@link ImportCertificateCommandOutput}
  * @see {@link ImportCertificateCommandInput} for command's `input` shape.
  * @see {@link ImportCertificateCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -84,6 +102,9 @@ export class ImportCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,7 +134,7 @@ export class ImportCertificateCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportCertificateResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +144,18 @@ export class ImportCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportCertificateCommand(input, context);
+    return se_ImportCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportCertificateCommandOutput> {
-    return deserializeAws_json1_1ImportCertificateCommand(output, context);
+    return de_ImportCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

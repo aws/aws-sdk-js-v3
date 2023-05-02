@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateOutboundConnectionRequest,
-  CreateOutboundConnectionRequestFilterSensitiveLog,
-  CreateOutboundConnectionResponse,
-  CreateOutboundConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateOutboundConnectionRequest, CreateOutboundConnectionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1CreateOutboundConnectionCommand,
-  serializeAws_restJson1CreateOutboundConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateOutboundConnectionCommand, se_CreateOutboundConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOutboundConnectionCommand}.
  */
 export interface CreateOutboundConnectionCommandInput extends CreateOutboundConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOutboundConnectionCommand}.
  */
 export interface CreateOutboundConnectionCommandOutput extends CreateOutboundConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cross-cluster search connection from a source Amazon OpenSearch Service domain
  *    to a destination domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -44,10 +41,30 @@ export interface CreateOutboundConnectionCommandOutput extends CreateOutboundCon
  * import { OpenSearchClient, CreateOutboundConnectionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, CreateOutboundConnectionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // CreateOutboundConnectionRequest
+ *   LocalDomainInfo: { // DomainInformationContainer
+ *     AWSDomainInformation: { // AWSDomainInformation
+ *       OwnerId: "STRING_VALUE",
+ *       DomainName: "STRING_VALUE", // required
+ *       Region: "STRING_VALUE",
+ *     },
+ *   },
+ *   RemoteDomainInfo: {
+ *     AWSDomainInformation: {
+ *       OwnerId: "STRING_VALUE",
+ *       DomainName: "STRING_VALUE", // required
+ *       Region: "STRING_VALUE",
+ *     },
+ *   },
+ *   ConnectionAlias: "STRING_VALUE", // required
+ *   ConnectionMode: "DIRECT" || "VPC_ENDPOINT",
+ * };
  * const command = new CreateOutboundConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOutboundConnectionCommandInput - {@link CreateOutboundConnectionCommandInput}
+ * @returns {@link CreateOutboundConnectionCommandOutput}
  * @see {@link CreateOutboundConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateOutboundConnectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -83,6 +100,9 @@ export class CreateOutboundConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOutboundConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +131,8 @@ export class CreateOutboundConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOutboundConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOutboundConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +142,18 @@ export class CreateOutboundConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOutboundConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateOutboundConnectionCommand(input, context);
+    return se_CreateOutboundConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOutboundConnectionCommandOutput> {
-    return deserializeAws_restJson1CreateOutboundConnectionCommand(output, context);
+    return de_CreateOutboundConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

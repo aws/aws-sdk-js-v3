@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  GetSchemaAsJsonRequest,
-  GetSchemaAsJsonRequestFilterSensitiveLog,
-  GetSchemaAsJsonResponse,
-  GetSchemaAsJsonResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSchemaAsJsonCommand,
-  serializeAws_restJson1GetSchemaAsJsonCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSchemaAsJsonRequest, GetSchemaAsJsonResponse } from "../models/models_0";
+import { de_GetSchemaAsJsonCommand, se_GetSchemaAsJsonCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSchemaAsJsonCommand}.
  */
 export interface GetSchemaAsJsonCommandInput extends GetSchemaAsJsonRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSchemaAsJsonCommand}.
  */
 export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a JSON representation of the schema. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json">JSON Schema Format</a> for more information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, _
  * import { CloudDirectoryClient, GetSchemaAsJsonCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetSchemaAsJsonCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // GetSchemaAsJsonRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ * };
  * const command = new GetSchemaAsJsonCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSchemaAsJsonCommandInput - {@link GetSchemaAsJsonCommandInput}
+ * @returns {@link GetSchemaAsJsonCommandOutput}
  * @see {@link GetSchemaAsJsonCommandInput} for command's `input` shape.
  * @see {@link GetSchemaAsJsonCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -91,6 +93,9 @@ export class GetSchemaAsJsonCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSchemaAsJsonCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class GetSchemaAsJsonCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSchemaAsJsonRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSchemaAsJsonResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class GetSchemaAsJsonCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSchemaAsJsonCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSchemaAsJsonCommand(input, context);
+    return se_GetSchemaAsJsonCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaAsJsonCommandOutput> {
-    return deserializeAws_restJson1GetSchemaAsJsonCommand(output, context);
+    return de_GetSchemaAsJsonCommand(output, context);
   }
 
   // Start section: command_body_extra

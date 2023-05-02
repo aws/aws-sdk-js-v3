@@ -50,6 +50,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  ActivateEvaluationFormCommandInput,
+  ActivateEvaluationFormCommandOutput,
+} from "./commands/ActivateEvaluationFormCommand";
+import {
   AssociateApprovedOriginCommandInput,
   AssociateApprovedOriginCommandOutput,
 } from "./commands/AssociateApprovedOriginCommand";
@@ -91,6 +95,10 @@ import {
   CreateContactFlowModuleCommandOutput,
 } from "./commands/CreateContactFlowModuleCommand";
 import {
+  CreateEvaluationFormCommandInput,
+  CreateEvaluationFormCommandOutput,
+} from "./commands/CreateEvaluationFormCommand";
+import {
   CreateHoursOfOperationCommandInput,
   CreateHoursOfOperationCommandOutput,
 } from "./commands/CreateHoursOfOperationCommand";
@@ -99,6 +107,7 @@ import {
   CreateIntegrationAssociationCommandInput,
   CreateIntegrationAssociationCommandOutput,
 } from "./commands/CreateIntegrationAssociationCommand";
+import { CreateParticipantCommandInput, CreateParticipantCommandOutput } from "./commands/CreateParticipantCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import { CreateQuickConnectCommandInput, CreateQuickConnectCommandOutput } from "./commands/CreateQuickConnectCommand";
 import {
@@ -122,11 +131,23 @@ import {
   CreateUserHierarchyGroupCommandOutput,
 } from "./commands/CreateUserHierarchyGroupCommand";
 import { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "./commands/CreateVocabularyCommand";
+import {
+  DeactivateEvaluationFormCommandInput,
+  DeactivateEvaluationFormCommandOutput,
+} from "./commands/DeactivateEvaluationFormCommand";
+import {
+  DeleteContactEvaluationCommandInput,
+  DeleteContactEvaluationCommandOutput,
+} from "./commands/DeleteContactEvaluationCommand";
 import { DeleteContactFlowCommandInput, DeleteContactFlowCommandOutput } from "./commands/DeleteContactFlowCommand";
 import {
   DeleteContactFlowModuleCommandInput,
   DeleteContactFlowModuleCommandOutput,
 } from "./commands/DeleteContactFlowModuleCommand";
+import {
+  DeleteEvaluationFormCommandInput,
+  DeleteEvaluationFormCommandOutput,
+} from "./commands/DeleteEvaluationFormCommand";
 import {
   DeleteHoursOfOperationCommandInput,
   DeleteHoursOfOperationCommandOutput,
@@ -160,6 +181,10 @@ import {
 } from "./commands/DescribeAgentStatusCommand";
 import { DescribeContactCommandInput, DescribeContactCommandOutput } from "./commands/DescribeContactCommand";
 import {
+  DescribeContactEvaluationCommandInput,
+  DescribeContactEvaluationCommandOutput,
+} from "./commands/DescribeContactEvaluationCommand";
+import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
 } from "./commands/DescribeContactFlowCommand";
@@ -167,6 +192,10 @@ import {
   DescribeContactFlowModuleCommandInput,
   DescribeContactFlowModuleCommandOutput,
 } from "./commands/DescribeContactFlowModuleCommand";
+import {
+  DescribeEvaluationFormCommandInput,
+  DescribeEvaluationFormCommandOutput,
+} from "./commands/DescribeEvaluationFormCommand";
 import {
   DescribeHoursOfOperationCommandInput,
   DescribeHoursOfOperationCommandOutput,
@@ -267,6 +296,10 @@ import {
 } from "./commands/ListApprovedOriginsCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import {
+  ListContactEvaluationsCommandInput,
+  ListContactEvaluationsCommandOutput,
+} from "./commands/ListContactEvaluationsCommand";
+import {
   ListContactFlowModulesCommandInput,
   ListContactFlowModulesCommandOutput,
 } from "./commands/ListContactFlowModulesCommand";
@@ -279,6 +312,14 @@ import {
   ListDefaultVocabulariesCommandInput,
   ListDefaultVocabulariesCommandOutput,
 } from "./commands/ListDefaultVocabulariesCommand";
+import {
+  ListEvaluationFormsCommandInput,
+  ListEvaluationFormsCommandOutput,
+} from "./commands/ListEvaluationFormsCommand";
+import {
+  ListEvaluationFormVersionsCommandInput,
+  ListEvaluationFormVersionsCommandOutput,
+} from "./commands/ListEvaluationFormVersionsCommand";
 import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
@@ -368,6 +409,10 @@ import { SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/Se
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "./commands/SearchVocabulariesCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand";
 import {
+  StartContactEvaluationCommandInput,
+  StartContactEvaluationCommandOutput,
+} from "./commands/StartContactEvaluationCommand";
+import {
   StartContactRecordingCommandInput,
   StartContactRecordingCommandOutput,
 } from "./commands/StartContactRecordingCommand";
@@ -390,6 +435,10 @@ import {
   StopContactStreamingCommandOutput,
 } from "./commands/StopContactStreamingCommand";
 import {
+  SubmitContactEvaluationCommandInput,
+  SubmitContactEvaluationCommandOutput,
+} from "./commands/SubmitContactEvaluationCommand";
+import {
   SuspendContactRecordingCommandInput,
   SuspendContactRecordingCommandOutput,
 } from "./commands/SuspendContactRecordingCommand";
@@ -402,6 +451,10 @@ import {
   UpdateContactAttributesCommandOutput,
 } from "./commands/UpdateContactAttributesCommand";
 import { UpdateContactCommandInput, UpdateContactCommandOutput } from "./commands/UpdateContactCommand";
+import {
+  UpdateContactEvaluationCommandInput,
+  UpdateContactEvaluationCommandOutput,
+} from "./commands/UpdateContactEvaluationCommand";
 import {
   UpdateContactFlowContentCommandInput,
   UpdateContactFlowContentCommandOutput,
@@ -426,6 +479,10 @@ import {
   UpdateContactScheduleCommandInput,
   UpdateContactScheduleCommandOutput,
 } from "./commands/UpdateContactScheduleCommand";
+import {
+  UpdateEvaluationFormCommandInput,
+  UpdateEvaluationFormCommandOutput,
+} from "./commands/UpdateEvaluationFormCommand";
 import {
   UpdateHoursOfOperationCommandInput,
   UpdateHoursOfOperationCommandOutput,
@@ -527,7 +584,11 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
+  | ActivateEvaluationFormCommandInput
   | AssociateApprovedOriginCommandInput
   | AssociateBotCommandInput
   | AssociateDefaultVocabularyCommandInput
@@ -542,9 +603,11 @@ export type ServiceInputTypes =
   | CreateAgentStatusCommandInput
   | CreateContactFlowCommandInput
   | CreateContactFlowModuleCommandInput
+  | CreateEvaluationFormCommandInput
   | CreateHoursOfOperationCommandInput
   | CreateInstanceCommandInput
   | CreateIntegrationAssociationCommandInput
+  | CreateParticipantCommandInput
   | CreateQueueCommandInput
   | CreateQuickConnectCommandInput
   | CreateRoutingProfileCommandInput
@@ -556,8 +619,11 @@ export type ServiceInputTypes =
   | CreateUserCommandInput
   | CreateUserHierarchyGroupCommandInput
   | CreateVocabularyCommandInput
+  | DeactivateEvaluationFormCommandInput
+  | DeleteContactEvaluationCommandInput
   | DeleteContactFlowCommandInput
   | DeleteContactFlowModuleCommandInput
+  | DeleteEvaluationFormCommandInput
   | DeleteHoursOfOperationCommandInput
   | DeleteInstanceCommandInput
   | DeleteIntegrationAssociationCommandInput
@@ -572,8 +638,10 @@ export type ServiceInputTypes =
   | DeleteVocabularyCommandInput
   | DescribeAgentStatusCommandInput
   | DescribeContactCommandInput
+  | DescribeContactEvaluationCommandInput
   | DescribeContactFlowCommandInput
   | DescribeContactFlowModuleCommandInput
+  | DescribeEvaluationFormCommandInput
   | DescribeHoursOfOperationCommandInput
   | DescribeInstanceAttributeCommandInput
   | DescribeInstanceCommandInput
@@ -610,10 +678,13 @@ export type ServiceInputTypes =
   | ListAgentStatusesCommandInput
   | ListApprovedOriginsCommandInput
   | ListBotsCommandInput
+  | ListContactEvaluationsCommandInput
   | ListContactFlowModulesCommandInput
   | ListContactFlowsCommandInput
   | ListContactReferencesCommandInput
   | ListDefaultVocabulariesCommandInput
+  | ListEvaluationFormVersionsCommandInput
+  | ListEvaluationFormsCommandInput
   | ListHoursOfOperationsCommandInput
   | ListInstanceAttributesCommandInput
   | ListInstanceStorageConfigsCommandInput
@@ -651,6 +722,7 @@ export type ServiceInputTypes =
   | SearchUsersCommandInput
   | SearchVocabulariesCommandInput
   | StartChatContactCommandInput
+  | StartContactEvaluationCommandInput
   | StartContactRecordingCommandInput
   | StartContactStreamingCommandInput
   | StartOutboundVoiceContactCommandInput
@@ -658,6 +730,7 @@ export type ServiceInputTypes =
   | StopContactCommandInput
   | StopContactRecordingCommandInput
   | StopContactStreamingCommandInput
+  | SubmitContactEvaluationCommandInput
   | SuspendContactRecordingCommandInput
   | TagResourceCommandInput
   | TransferContactCommandInput
@@ -665,12 +738,14 @@ export type ServiceInputTypes =
   | UpdateAgentStatusCommandInput
   | UpdateContactAttributesCommandInput
   | UpdateContactCommandInput
+  | UpdateContactEvaluationCommandInput
   | UpdateContactFlowContentCommandInput
   | UpdateContactFlowMetadataCommandInput
   | UpdateContactFlowModuleContentCommandInput
   | UpdateContactFlowModuleMetadataCommandInput
   | UpdateContactFlowNameCommandInput
   | UpdateContactScheduleCommandInput
+  | UpdateEvaluationFormCommandInput
   | UpdateHoursOfOperationCommandInput
   | UpdateInstanceAttributeCommandInput
   | UpdateInstanceStorageConfigCommandInput
@@ -699,7 +774,11 @@ export type ServiceInputTypes =
   | UpdateUserRoutingProfileCommandInput
   | UpdateUserSecurityProfilesCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
+  | ActivateEvaluationFormCommandOutput
   | AssociateApprovedOriginCommandOutput
   | AssociateBotCommandOutput
   | AssociateDefaultVocabularyCommandOutput
@@ -714,9 +793,11 @@ export type ServiceOutputTypes =
   | CreateAgentStatusCommandOutput
   | CreateContactFlowCommandOutput
   | CreateContactFlowModuleCommandOutput
+  | CreateEvaluationFormCommandOutput
   | CreateHoursOfOperationCommandOutput
   | CreateInstanceCommandOutput
   | CreateIntegrationAssociationCommandOutput
+  | CreateParticipantCommandOutput
   | CreateQueueCommandOutput
   | CreateQuickConnectCommandOutput
   | CreateRoutingProfileCommandOutput
@@ -728,8 +809,11 @@ export type ServiceOutputTypes =
   | CreateUserCommandOutput
   | CreateUserHierarchyGroupCommandOutput
   | CreateVocabularyCommandOutput
+  | DeactivateEvaluationFormCommandOutput
+  | DeleteContactEvaluationCommandOutput
   | DeleteContactFlowCommandOutput
   | DeleteContactFlowModuleCommandOutput
+  | DeleteEvaluationFormCommandOutput
   | DeleteHoursOfOperationCommandOutput
   | DeleteInstanceCommandOutput
   | DeleteIntegrationAssociationCommandOutput
@@ -744,8 +828,10 @@ export type ServiceOutputTypes =
   | DeleteVocabularyCommandOutput
   | DescribeAgentStatusCommandOutput
   | DescribeContactCommandOutput
+  | DescribeContactEvaluationCommandOutput
   | DescribeContactFlowCommandOutput
   | DescribeContactFlowModuleCommandOutput
+  | DescribeEvaluationFormCommandOutput
   | DescribeHoursOfOperationCommandOutput
   | DescribeInstanceAttributeCommandOutput
   | DescribeInstanceCommandOutput
@@ -782,10 +868,13 @@ export type ServiceOutputTypes =
   | ListAgentStatusesCommandOutput
   | ListApprovedOriginsCommandOutput
   | ListBotsCommandOutput
+  | ListContactEvaluationsCommandOutput
   | ListContactFlowModulesCommandOutput
   | ListContactFlowsCommandOutput
   | ListContactReferencesCommandOutput
   | ListDefaultVocabulariesCommandOutput
+  | ListEvaluationFormVersionsCommandOutput
+  | ListEvaluationFormsCommandOutput
   | ListHoursOfOperationsCommandOutput
   | ListInstanceAttributesCommandOutput
   | ListInstanceStorageConfigsCommandOutput
@@ -823,6 +912,7 @@ export type ServiceOutputTypes =
   | SearchUsersCommandOutput
   | SearchVocabulariesCommandOutput
   | StartChatContactCommandOutput
+  | StartContactEvaluationCommandOutput
   | StartContactRecordingCommandOutput
   | StartContactStreamingCommandOutput
   | StartOutboundVoiceContactCommandOutput
@@ -830,6 +920,7 @@ export type ServiceOutputTypes =
   | StopContactCommandOutput
   | StopContactRecordingCommandOutput
   | StopContactStreamingCommandOutput
+  | SubmitContactEvaluationCommandOutput
   | SuspendContactRecordingCommandOutput
   | TagResourceCommandOutput
   | TransferContactCommandOutput
@@ -837,12 +928,14 @@ export type ServiceOutputTypes =
   | UpdateAgentStatusCommandOutput
   | UpdateContactAttributesCommandOutput
   | UpdateContactCommandOutput
+  | UpdateContactEvaluationCommandOutput
   | UpdateContactFlowContentCommandOutput
   | UpdateContactFlowMetadataCommandOutput
   | UpdateContactFlowModuleContentCommandOutput
   | UpdateContactFlowModuleMetadataCommandOutput
   | UpdateContactFlowNameCommandOutput
   | UpdateContactScheduleCommandOutput
+  | UpdateEvaluationFormCommandOutput
   | UpdateHoursOfOperationCommandOutput
   | UpdateInstanceAttributeCommandOutput
   | UpdateInstanceStorageConfigCommandOutput
@@ -871,6 +964,9 @@ export type ServiceOutputTypes =
   | UpdateUserRoutingProfileCommandOutput
   | UpdateUserSecurityProfilesCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -878,7 +974,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -987,11 +1083,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -1002,10 +1101,15 @@ type ConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOption
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ConnectClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ConnectClient class constructor that set the region, credentials and other options.
  */
 export interface ConnectClientConfig extends ConnectClientConfigType {}
 
+/**
+ * @public
+ */
 type ConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -1016,11 +1120,14 @@ type ConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ConnectClient class. This is resolved and normalized from the {@link ConnectClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ConnectClient class. This is resolved and normalized from the {@link ConnectClientConfig | constructor configuration interface}.
  */
 export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and
  *    manage a customer contact center and provide reliable customer engagement at any scale.</p>
  *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize

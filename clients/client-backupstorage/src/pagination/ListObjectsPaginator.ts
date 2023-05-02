@@ -6,7 +6,7 @@ import { ListObjectsCommand, ListObjectsCommandInput, ListObjectsCommandOutput }
 import { BackupStoragePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BackupStorageClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListObjectsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListObjects(
   config: BackupStoragePaginationConfiguration,
   input: ListObjectsCommandInput,

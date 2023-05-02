@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { CreateUnreferencedMergeCommitInput, CreateUnreferencedMergeCommitOutput } from "../models/models_0";
 import {
-  CreateUnreferencedMergeCommitInput,
-  CreateUnreferencedMergeCommitInputFilterSensitiveLog,
-  CreateUnreferencedMergeCommitOutput,
-  CreateUnreferencedMergeCommitOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateUnreferencedMergeCommitCommand,
-  serializeAws_json1_1CreateUnreferencedMergeCommitCommand,
+  de_CreateUnreferencedMergeCommitCommand,
+  se_CreateUnreferencedMergeCommitCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUnreferencedMergeCommitCommand}.
  */
 export interface CreateUnreferencedMergeCommitCommandInput extends CreateUnreferencedMergeCommitInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateUnreferencedMergeCommitCommand}.
  */
 export interface CreateUnreferencedMergeCommitCommandOutput
@@ -37,6 +36,7 @@ export interface CreateUnreferencedMergeCommitCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an unreferenced commit that represents the result of merging two branches
  *             using a specified merge strategy. This can help you determine the outcome of a potential
  *             merge. This API cannot be used with the fast-forward merge strategy because that
@@ -51,10 +51,45 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  * import { CodeCommitClient, CreateUnreferencedMergeCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreateUnreferencedMergeCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // CreateUnreferencedMergeCommitInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   sourceCommitSpecifier: "STRING_VALUE", // required
+ *   destinationCommitSpecifier: "STRING_VALUE", // required
+ *   mergeOption: "STRING_VALUE", // required
+ *   conflictDetailLevel: "STRING_VALUE",
+ *   conflictResolutionStrategy: "STRING_VALUE",
+ *   authorName: "STRING_VALUE",
+ *   email: "STRING_VALUE",
+ *   commitMessage: "STRING_VALUE",
+ *   keepEmptyFolders: true || false,
+ *   conflictResolution: { // ConflictResolution
+ *     replaceContents: [ // ReplaceContentEntries
+ *       { // ReplaceContentEntry
+ *         filePath: "STRING_VALUE", // required
+ *         replacementType: "STRING_VALUE", // required
+ *         content: "BLOB_VALUE",
+ *         fileMode: "STRING_VALUE",
+ *       },
+ *     ],
+ *     deleteFiles: [ // DeleteFileEntries
+ *       { // DeleteFileEntry
+ *         filePath: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     setFileModes: [ // SetFileModeEntries
+ *       { // SetFileModeEntry
+ *         filePath: "STRING_VALUE", // required
+ *         fileMode: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateUnreferencedMergeCommitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUnreferencedMergeCommitCommandInput - {@link CreateUnreferencedMergeCommitCommandInput}
+ * @returns {@link CreateUnreferencedMergeCommitCommandOutput}
  * @see {@link CreateUnreferencedMergeCommitCommandInput} for command's `input` shape.
  * @see {@link CreateUnreferencedMergeCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -199,6 +234,9 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUnreferencedMergeCommitCommandInput) {
     // Start section: command_constructor
     super();
@@ -227,8 +265,8 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUnreferencedMergeCommitInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUnreferencedMergeCommitOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -238,15 +276,21 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUnreferencedMergeCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUnreferencedMergeCommitCommand(input, context);
+    return se_CreateUnreferencedMergeCommitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateUnreferencedMergeCommitCommandOutput> {
-    return deserializeAws_json1_1CreateUnreferencedMergeCommitCommand(output, context);
+    return de_CreateUnreferencedMergeCommitCommand(output, context);
   }
 
   // Start section: command_body_extra

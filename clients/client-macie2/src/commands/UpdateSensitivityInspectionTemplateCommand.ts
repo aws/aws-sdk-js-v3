@@ -16,20 +16,22 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
   UpdateSensitivityInspectionTemplateRequest,
-  UpdateSensitivityInspectionTemplateRequestFilterSensitiveLog,
   UpdateSensitivityInspectionTemplateResponse,
-  UpdateSensitivityInspectionTemplateResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateSensitivityInspectionTemplateCommand,
-  serializeAws_restJson1UpdateSensitivityInspectionTemplateCommand,
+  de_UpdateSensitivityInspectionTemplateCommand,
+  se_UpdateSensitivityInspectionTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSensitivityInspectionTemplateCommand}.
  */
 export interface UpdateSensitivityInspectionTemplateCommandInput extends UpdateSensitivityInspectionTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSensitivityInspectionTemplateCommand}.
  */
 export interface UpdateSensitivityInspectionTemplateCommandOutput
@@ -37,6 +39,7 @@ export interface UpdateSensitivityInspectionTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings for the sensitivity inspection template for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,32 @@ export interface UpdateSensitivityInspectionTemplateCommandOutput
  * import { Macie2Client, UpdateSensitivityInspectionTemplateCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateSensitivityInspectionTemplateCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // UpdateSensitivityInspectionTemplateRequest
+ *   description: "STRING_VALUE",
+ *   excludes: { // SensitivityInspectionTemplateExcludes
+ *     managedDataIdentifierIds: [ // __listOf__string
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   id: "STRING_VALUE", // required
+ *   includes: { // SensitivityInspectionTemplateIncludes
+ *     allowListIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     customDataIdentifierIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     managedDataIdentifierIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateSensitivityInspectionTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSensitivityInspectionTemplateCommandInput - {@link UpdateSensitivityInspectionTemplateCommandInput}
+ * @returns {@link UpdateSensitivityInspectionTemplateCommandOutput}
  * @see {@link UpdateSensitivityInspectionTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateSensitivityInspectionTemplateCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -86,6 +111,9 @@ export class UpdateSensitivityInspectionTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSensitivityInspectionTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +142,8 @@ export class UpdateSensitivityInspectionTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSensitivityInspectionTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSensitivityInspectionTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +153,24 @@ export class UpdateSensitivityInspectionTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSensitivityInspectionTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSensitivityInspectionTemplateCommand(input, context);
+    return se_UpdateSensitivityInspectionTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSensitivityInspectionTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateSensitivityInspectionTemplateCommand(output, context);
+    return de_UpdateSensitivityInspectionTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

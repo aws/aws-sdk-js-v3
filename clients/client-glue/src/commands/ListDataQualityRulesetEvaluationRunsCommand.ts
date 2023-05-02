@@ -16,20 +16,22 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   ListDataQualityRulesetEvaluationRunsRequest,
-  ListDataQualityRulesetEvaluationRunsRequestFilterSensitiveLog,
   ListDataQualityRulesetEvaluationRunsResponse,
-  ListDataQualityRulesetEvaluationRunsResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1ListDataQualityRulesetEvaluationRunsCommand,
-  serializeAws_json1_1ListDataQualityRulesetEvaluationRunsCommand,
+  de_ListDataQualityRulesetEvaluationRunsCommand,
+  se_ListDataQualityRulesetEvaluationRunsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataQualityRulesetEvaluationRunsCommand}.
  */
 export interface ListDataQualityRulesetEvaluationRunsCommandInput extends ListDataQualityRulesetEvaluationRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataQualityRulesetEvaluationRunsCommand}.
  */
 export interface ListDataQualityRulesetEvaluationRunsCommandOutput
@@ -37,6 +39,7 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the runs meeting the filter criteria, where a ruleset is evaluated against a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,31 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput
  * import { GlueClient, ListDataQualityRulesetEvaluationRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListDataQualityRulesetEvaluationRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListDataQualityRulesetEvaluationRunsRequest
+ *   Filter: { // DataQualityRulesetEvaluationRunFilter
+ *     DataSource: { // DataSource
+ *       GlueTable: { // GlueTable
+ *         DatabaseName: "STRING_VALUE", // required
+ *         TableName: "STRING_VALUE", // required
+ *         CatalogId: "STRING_VALUE",
+ *         ConnectionName: "STRING_VALUE",
+ *         AdditionalOptions: { // GlueTableAdditionalOptions
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     StartedBefore: new Date("TIMESTAMP"),
+ *     StartedAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDataQualityRulesetEvaluationRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataQualityRulesetEvaluationRunsCommandInput - {@link ListDataQualityRulesetEvaluationRunsCommandInput}
+ * @returns {@link ListDataQualityRulesetEvaluationRunsCommandOutput}
  * @see {@link ListDataQualityRulesetEvaluationRunsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityRulesetEvaluationRunsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -80,6 +104,9 @@ export class ListDataQualityRulesetEvaluationRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataQualityRulesetEvaluationRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +135,8 @@ export class ListDataQualityRulesetEvaluationRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataQualityRulesetEvaluationRunsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataQualityRulesetEvaluationRunsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +146,24 @@ export class ListDataQualityRulesetEvaluationRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDataQualityRulesetEvaluationRunsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDataQualityRulesetEvaluationRunsCommand(input, context);
+    return se_ListDataQualityRulesetEvaluationRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDataQualityRulesetEvaluationRunsCommandOutput> {
-    return deserializeAws_json1_1ListDataQualityRulesetEvaluationRunsCommand(output, context);
+    return de_ListDataQualityRulesetEvaluationRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

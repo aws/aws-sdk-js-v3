@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  CreateEventBusRequest,
-  CreateEventBusRequestFilterSensitiveLog,
-  CreateEventBusResponse,
-  CreateEventBusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEventBusCommand,
-  serializeAws_json1_1CreateEventBusCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateEventBusRequest, CreateEventBusResponse } from "../models/models_0";
+import { de_CreateEventBusCommand, se_CreateEventBusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEventBusCommand}.
  */
 export interface CreateEventBusCommandInput extends CreateEventBusRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEventBusCommand}.
  */
 export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new event bus within your account. This can be a custom event bus which you can
  *       use to receive events from your custom applications and services, or it can be a partner event
  *       bus which can be matched to a partner event source.</p>
@@ -44,10 +41,22 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  * import { CloudWatchEventsClient, CreateEventBusCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, CreateEventBusCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // CreateEventBusRequest
+ *   Name: "STRING_VALUE", // required
+ *   EventSourceName: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateEventBusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventBusCommandInput - {@link CreateEventBusCommandInput}
+ * @returns {@link CreateEventBusCommandOutput}
  * @see {@link CreateEventBusCommandInput} for command's `input` shape.
  * @see {@link CreateEventBusCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -93,6 +102,9 @@ export class CreateEventBusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventBusCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +133,8 @@ export class CreateEventBusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEventBusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEventBusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +144,18 @@ export class CreateEventBusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventBusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEventBusCommand(input, context);
+    return se_CreateEventBusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventBusCommandOutput> {
-    return deserializeAws_json1_1CreateEventBusCommand(output, context);
+    return de_CreateEventBusCommand(output, context);
   }
 
   // Start section: command_body_extra

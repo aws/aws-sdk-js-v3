@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTimeBasedAutoScalingRequest,
-  DescribeTimeBasedAutoScalingRequestFilterSensitiveLog,
-  DescribeTimeBasedAutoScalingResult,
-  DescribeTimeBasedAutoScalingResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeTimeBasedAutoScalingRequest, DescribeTimeBasedAutoScalingResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
-  deserializeAws_json1_1DescribeTimeBasedAutoScalingCommand,
-  serializeAws_json1_1DescribeTimeBasedAutoScalingCommand,
+  de_DescribeTimeBasedAutoScalingCommand,
+  se_DescribeTimeBasedAutoScalingCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTimeBasedAutoScalingCommand}.
  */
 export interface DescribeTimeBasedAutoScalingCommandInput extends DescribeTimeBasedAutoScalingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTimeBasedAutoScalingCommand}.
  */
 export interface DescribeTimeBasedAutoScalingCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes time-based auto scaling configurations for specified instances.</p>
  *          <note>
  *             <p>You must specify at least one of the parameters.</p>
@@ -52,10 +52,17 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
  * import { OpsWorksClient, DescribeTimeBasedAutoScalingCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeTimeBasedAutoScalingCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeTimeBasedAutoScalingRequest
+ *   InstanceIds: [ // Strings // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeTimeBasedAutoScalingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTimeBasedAutoScalingCommandInput - {@link DescribeTimeBasedAutoScalingCommandInput}
+ * @returns {@link DescribeTimeBasedAutoScalingCommandOutput}
  * @see {@link DescribeTimeBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link DescribeTimeBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeTimeBasedAutoScalingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTimeBasedAutoScalingCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +123,8 @@ export class DescribeTimeBasedAutoScalingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTimeBasedAutoScalingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTimeBasedAutoScalingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +134,21 @@ export class DescribeTimeBasedAutoScalingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTimeBasedAutoScalingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTimeBasedAutoScalingCommand(input, context);
+    return se_DescribeTimeBasedAutoScalingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTimeBasedAutoScalingCommandOutput> {
-    return deserializeAws_json1_1DescribeTimeBasedAutoScalingCommand(output, context);
+    return de_DescribeTimeBasedAutoScalingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  DescribeReleaseLabelInput,
-  DescribeReleaseLabelInputFilterSensitiveLog,
-  DescribeReleaseLabelOutput,
-  DescribeReleaseLabelOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReleaseLabelCommand,
-  serializeAws_json1_1DescribeReleaseLabelCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeReleaseLabelInput, DescribeReleaseLabelOutput } from "../models/models_0";
+import { de_DescribeReleaseLabelCommand, se_DescribeReleaseLabelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReleaseLabelCommand}.
  */
 export interface DescribeReleaseLabelCommandInput extends DescribeReleaseLabelInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReleaseLabelCommand}.
  */
 export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides EMR release label details, such as releases available the region where the API
  *          request is run, and the available applications for a specific EMR release label. Can also
  *          list EMR release versions that support a specified version of Spark.</p>
@@ -44,10 +41,17 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  * import { EMRClient, DescribeReleaseLabelCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeReleaseLabelCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // DescribeReleaseLabelInput
+ *   ReleaseLabel: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeReleaseLabelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReleaseLabelCommandInput - {@link DescribeReleaseLabelCommandInput}
+ * @returns {@link DescribeReleaseLabelCommandOutput}
  * @see {@link DescribeReleaseLabelCommandInput} for command's `input` shape.
  * @see {@link DescribeReleaseLabelCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -78,6 +82,9 @@ export class DescribeReleaseLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReleaseLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class DescribeReleaseLabelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReleaseLabelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReleaseLabelOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class DescribeReleaseLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReleaseLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReleaseLabelCommand(input, context);
+    return se_DescribeReleaseLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReleaseLabelCommandOutput> {
-    return deserializeAws_json1_1DescribeReleaseLabelCommand(output, context);
+    return de_DescribeReleaseLabelCommand(output, context);
   }
 
   // Start section: command_body_extra

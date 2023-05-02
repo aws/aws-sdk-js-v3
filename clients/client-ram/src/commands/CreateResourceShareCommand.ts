@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateResourceShareRequest,
-  CreateResourceShareRequestFilterSensitiveLog,
-  CreateResourceShareResponse,
-  CreateResourceShareResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateResourceShareCommand,
-  serializeAws_restJson1CreateResourceShareCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateResourceShareRequest, CreateResourceShareResponse } from "../models/models_0";
+import { de_CreateResourceShareCommand, se_CreateResourceShareCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourceShareCommand}.
  */
 export interface CreateResourceShareCommandInput extends CreateResourceShareRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourceShareCommand}.
  */
 export interface CreateResourceShareCommandOutput extends CreateResourceShareResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a resource share. You can provide a list of the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> for the resources that you
  *             want to share, a list of principals you want to share the resources with, and the
  *             permissions to grant those principals.</p>
@@ -49,48 +46,76 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  * import { RAMClient, CreateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, CreateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // CreateResourceShareRequest
+ *   name: "STRING_VALUE", // required
+ *   resourceArns: [ // ResourceArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   principals: [ // PrincipalArnOrIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   allowExternalPrincipals: true || false,
+ *   clientToken: "STRING_VALUE",
+ *   permissionArns: [ // PermissionArnList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateResourceShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceShareCommandInput - {@link CreateResourceShareCommandInput}
+ * @returns {@link CreateResourceShareCommandOutput}
  * @see {@link CreateResourceShareCommandInput} for command's `input` shape.
  * @see {@link CreateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>The client token input parameter was matched one used with a previous call to the
- *             operation, but at least one of the other input parameters is different from the previous
- *             call.</p>
+ *  <p>The operation failed because the client token input parameter matched one that was
+ *             used with a previous call to the operation, but at least one of the other input
+ *             parameters is different from the previous call.</p>
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The client token is not valid.</p>
+ *  <p>The operation failed because the specified client token isn't valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
  * @throws {@link InvalidStateTransitionException} (client fault)
- *  <p>The requested state transition is not valid.</p>
+ *  <p>The operation failed because the requested operation isn't valid for the resource
+ *             share in its current state.</p>
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
+ *             valid.</p>
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The requested operation is not permitted.</p>
+ *  <p>The operation failed because the requested operation isn't permitted.</p>
  *
  * @throws {@link ResourceShareLimitExceededException} (client fault)
- *  <p>This request would exceed the limit for resource shares for your account.</p>
+ *  <p>The operation failed because it would exceed the limit for resource shares for your account. To
+ *             view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the Service Quotas
+ *                 console</a>.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *  <p>The operation failed because the service could not respond to the request due to an
+ *             internal problem. Try again later.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is not available.</p>
+ *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
  * @throws {@link TagPolicyViolationException} (client fault)
- *  <p>The specified tag key is a reserved word and can't be used.</p>
+ *  <p>The operation failed because the specified tag key is a reserved word and can't be
+ *             used.</p>
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>A specified resource was not found.</p>
+ *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
  *
  */
@@ -111,6 +136,9 @@ export class CreateResourceShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +167,8 @@ export class CreateResourceShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResourceShareRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateResourceShareResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +178,18 @@ export class CreateResourceShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateResourceShareCommand(input, context);
+    return se_CreateResourceShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceShareCommandOutput> {
-    return deserializeAws_restJson1CreateResourceShareCommand(output, context);
+    return de_CreateResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

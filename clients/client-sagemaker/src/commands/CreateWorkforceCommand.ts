@@ -17,29 +17,30 @@ import {
   CreateWorkforceRequest,
   CreateWorkforceRequestFilterSensitiveLog,
   CreateWorkforceResponse,
-  CreateWorkforceResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateWorkforceCommand,
-  serializeAws_json1_1CreateWorkforceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWorkforceCommand, se_CreateWorkforceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkforceCommand}.
  */
 export interface CreateWorkforceCommandInput extends CreateWorkforceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkforceCommand}.
  */
 export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to create a workforce. This operation will return an error
  *           if a workforce already exists in the Amazon Web Services Region that you specify. You can only
  *           create one workforce in each Amazon Web Services Region per Amazon Web Services account.</p>
  *          <p>If you want to create a new workforce in an Amazon Web Services Region where
- *       a workforce already exists, use the  API
+ *             a workforce already exists, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkforce.html">DeleteWorkforce</a> API
  *       operation to delete the existing workforce and then use <code>CreateWorkforce</code>
  *       to create a new workforce.</p>
  *          <p>To create a private workforce using Amazon Cognito, you must specify a Cognito user pool
@@ -59,10 +60,49 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  * import { SageMakerClient, CreateWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateWorkforceRequest
+ *   CognitoConfig: { // CognitoConfig
+ *     UserPool: "STRING_VALUE", // required
+ *     ClientId: "STRING_VALUE", // required
+ *   },
+ *   OidcConfig: { // OidcConfig
+ *     ClientId: "STRING_VALUE", // required
+ *     ClientSecret: "STRING_VALUE", // required
+ *     Issuer: "STRING_VALUE", // required
+ *     AuthorizationEndpoint: "STRING_VALUE", // required
+ *     TokenEndpoint: "STRING_VALUE", // required
+ *     UserInfoEndpoint: "STRING_VALUE", // required
+ *     LogoutEndpoint: "STRING_VALUE", // required
+ *     JwksUri: "STRING_VALUE", // required
+ *   },
+ *   SourceIpConfig: { // SourceIpConfig
+ *     Cidrs: [ // Cidrs // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   WorkforceName: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   WorkforceVpcConfig: { // WorkforceVpcConfigRequest
+ *     VpcId: "STRING_VALUE",
+ *     SecurityGroupIds: [ // WorkforceSecurityGroupIds
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // WorkforceSubnets
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new CreateWorkforceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkforceCommandInput - {@link CreateWorkforceCommandInput}
+ * @returns {@link CreateWorkforceCommandOutput}
  * @see {@link CreateWorkforceCommandInput} for command's `input` shape.
  * @see {@link CreateWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -86,6 +126,9 @@ export class CreateWorkforceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkforceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +158,7 @@ export class CreateWorkforceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateWorkforceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkforceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +168,18 @@ export class CreateWorkforceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkforceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkforceCommand(input, context);
+    return se_CreateWorkforceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkforceCommandOutput> {
-    return deserializeAws_json1_1CreateWorkforceCommand(output, context);
+    return de_CreateWorkforceCommand(output, context);
   }
 
   // Start section: command_body_extra

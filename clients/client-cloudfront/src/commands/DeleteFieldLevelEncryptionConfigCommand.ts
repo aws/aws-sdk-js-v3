@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { DeleteFieldLevelEncryptionConfigRequest } from "../models/models_1";
 import {
-  DeleteFieldLevelEncryptionConfigRequest,
-  DeleteFieldLevelEncryptionConfigRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand,
-  serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand,
+  de_DeleteFieldLevelEncryptionConfigCommand,
+  se_DeleteFieldLevelEncryptionConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFieldLevelEncryptionConfigCommand}.
  */
 export interface DeleteFieldLevelEncryptionConfigCommandInput extends DeleteFieldLevelEncryptionConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFieldLevelEncryptionConfigCommand}.
  */
 export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove a field-level encryption configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,16 @@ export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __Metadat
  * import { CloudFrontClient, DeleteFieldLevelEncryptionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteFieldLevelEncryptionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteFieldLevelEncryptionConfigRequest
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteFieldLevelEncryptionConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFieldLevelEncryptionConfigCommandInput - {@link DeleteFieldLevelEncryptionConfigCommandInput}
+ * @returns {@link DeleteFieldLevelEncryptionConfigCommandOutput}
  * @see {@link DeleteFieldLevelEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -83,6 +91,9 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFieldLevelEncryptionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +122,8 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFieldLevelEncryptionConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +133,24 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteFieldLevelEncryptionConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(input, context);
+    return se_DeleteFieldLevelEncryptionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> {
-    return deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(output, context);
+    return de_DeleteFieldLevelEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

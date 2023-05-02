@@ -16,25 +16,26 @@ import {
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import {
   DescribeBudgetActionRequest,
-  DescribeBudgetActionRequestFilterSensitiveLog,
   DescribeBudgetActionResponse,
   DescribeBudgetActionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBudgetActionCommand,
-  serializeAws_json1_1DescribeBudgetActionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeBudgetActionCommand, se_DescribeBudgetActionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBudgetActionCommand}.
  */
 export interface DescribeBudgetActionCommandInput extends DescribeBudgetActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBudgetActionCommand}.
  */
 export interface DescribeBudgetActionCommandOutput extends DescribeBudgetActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Describes a budget action detail.
  *       </p>
@@ -44,10 +45,17 @@ export interface DescribeBudgetActionCommandOutput extends DescribeBudgetActionR
  * import { BudgetsClient, DescribeBudgetActionCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeBudgetActionCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // DescribeBudgetActionRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   ActionId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBudgetActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBudgetActionCommandInput - {@link DescribeBudgetActionCommandInput}
+ * @returns {@link DescribeBudgetActionCommandOutput}
  * @see {@link DescribeBudgetActionCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetActionCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -88,6 +96,9 @@ export class DescribeBudgetActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBudgetActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +127,7 @@ export class DescribeBudgetActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBudgetActionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeBudgetActionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -127,12 +138,18 @@ export class DescribeBudgetActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBudgetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBudgetActionCommand(input, context);
+    return se_DescribeBudgetActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBudgetActionCommandOutput> {
-    return deserializeAws_json1_1DescribeBudgetActionCommand(output, context);
+    return de_DescribeBudgetActionCommand(output, context);
   }
 
   // Start section: command_body_extra

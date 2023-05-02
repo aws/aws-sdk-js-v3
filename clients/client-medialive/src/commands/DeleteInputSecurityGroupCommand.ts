@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DeleteInputSecurityGroupRequest,
-  DeleteInputSecurityGroupRequestFilterSensitiveLog,
-  DeleteInputSecurityGroupResponse,
-  DeleteInputSecurityGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteInputSecurityGroupCommand,
-  serializeAws_restJson1DeleteInputSecurityGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteInputSecurityGroupRequest, DeleteInputSecurityGroupResponse } from "../models/models_1";
+import { de_DeleteInputSecurityGroupCommand, se_DeleteInputSecurityGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInputSecurityGroupCommand}.
  */
 export interface DeleteInputSecurityGroupCommandInput extends DeleteInputSecurityGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInputSecurityGroupCommand}.
  */
 export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecurityGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes an Input Security Group
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecuri
  * import { MediaLiveClient, DeleteInputSecurityGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteInputSecurityGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // DeleteInputSecurityGroupRequest
+ *   InputSecurityGroupId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInputSecurityGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInputSecurityGroupCommandInput - {@link DeleteInputSecurityGroupCommandInput}
+ * @returns {@link DeleteInputSecurityGroupCommandOutput}
  * @see {@link DeleteInputSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteInputSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +92,9 @@ export class DeleteInputSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInputSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class DeleteInputSecurityGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInputSecurityGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInputSecurityGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class DeleteInputSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInputSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInputSecurityGroupCommand(input, context);
+    return se_DeleteInputSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInputSecurityGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteInputSecurityGroupCommand(output, context);
+    return de_DeleteInputSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

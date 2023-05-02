@@ -18,14 +18,10 @@ import {
 
 import {
   GetRawMessageContentRequest,
-  GetRawMessageContentRequestFilterSensitiveLog,
   GetRawMessageContentResponse,
   GetRawMessageContentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRawMessageContentCommand,
-  serializeAws_restJson1GetRawMessageContentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRawMessageContentCommand, se_GetRawMessageContentCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -33,10 +29,14 @@ import {
 } from "../WorkMailMessageFlowClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRawMessageContentCommand}.
  */
 export interface GetRawMessageContentCommandInput extends GetRawMessageContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRawMessageContentCommand}.
  */
 export interface GetRawMessageContentCommandOutput
@@ -44,6 +44,7 @@ export interface GetRawMessageContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the raw content of an in-transit email message, in MIME format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,10 +52,15 @@ export interface GetRawMessageContentCommandOutput
  * import { WorkMailMessageFlowClient, GetRawMessageContentCommand } from "@aws-sdk/client-workmailmessageflow"; // ES Modules import
  * // const { WorkMailMessageFlowClient, GetRawMessageContentCommand } = require("@aws-sdk/client-workmailmessageflow"); // CommonJS import
  * const client = new WorkMailMessageFlowClient(config);
+ * const input = { // GetRawMessageContentRequest
+ *   messageId: "STRING_VALUE", // required
+ * };
  * const command = new GetRawMessageContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRawMessageContentCommandInput - {@link GetRawMessageContentCommandInput}
+ * @returns {@link GetRawMessageContentCommandOutput}
  * @see {@link GetRawMessageContentCommandInput} for command's `input` shape.
  * @see {@link GetRawMessageContentCommandOutput} for command's `response` shape.
  * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for WorkMailMessageFlowClient's `config` shape.
@@ -81,6 +87,9 @@ export class GetRawMessageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRawMessageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,7 +118,7 @@ export class GetRawMessageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRawMessageContentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRawMessageContentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -120,15 +129,21 @@ export class GetRawMessageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRawMessageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRawMessageContentCommand(input, context);
+    return se_GetRawMessageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetRawMessageContentCommandOutput> {
-    return deserializeAws_restJson1GetRawMessageContentCommand(output, context);
+    return de_GetRawMessageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

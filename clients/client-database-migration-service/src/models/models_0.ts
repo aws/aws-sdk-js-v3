@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { DatabaseMigrationServiceServiceException as __BaseException } from "./DatabaseMigrationServiceServiceException";
 
 /**
+ * @public
  * <p>DMS was denied access to the endpoint. Check that the
  *             role is correctly configured.</p>
  */
@@ -24,6 +25,7 @@ export class AccessDeniedFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a quota for an Amazon Web Services account, for example the number of replication instances
  *          allowed.</p>
  */
@@ -45,6 +47,7 @@ export interface AccountQuota {
 }
 
 /**
+ * @public
  * <p>A user-defined key-value pair that describes metadata added to an DMS resource and
  *          that is used by operations such as the following:</p>
  *          <ul>
@@ -70,7 +73,7 @@ export interface Tag {
    * <p>A key is the required name of the tag. The string value can be 1-128 Unicode characters
    *          in length and can't be prefixed with "aws:" or "dms:". The string can only contain
    *          only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java
-   *          regular expressions: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   *          regular expressions: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    */
   Key?: string;
 
@@ -78,7 +81,7 @@ export interface Tag {
    * <p>A value is the optional value of the tag. The string value can be 1-256 Unicode
    *          characters in length and can't be prefixed with "aws:" or "dms:". The string can only
    *          contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-'
-   *          (Java regular expressions: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   *          (Java regular expressions: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    */
   Value?: string;
 
@@ -89,6 +92,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Associates a set of tags with an DMS resource.</p>
  */
 export interface AddTagsToResourceMessage {
@@ -105,11 +109,13 @@ export interface AddTagsToResourceMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface AddTagsToResourceResponse {}
 
 /**
+ * @public
  * <p>The resource could not be found.</p>
  */
 export class ResourceNotFoundFault extends __BaseException {
@@ -129,6 +135,7 @@ export class ResourceNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ApplyPendingMaintenanceActionMessage {
@@ -170,6 +177,7 @@ export interface ApplyPendingMaintenanceActionMessage {
 }
 
 /**
+ * @public
  * <p>Describes a maintenance action pending for an DMS resource, including when and how
  *          it will be applied. This data type is a response element to the
  *             <code>DescribePendingMaintenanceActions</code> operation.</p>
@@ -218,6 +226,7 @@ export interface PendingMaintenanceAction {
 }
 
 /**
+ * @public
  * <p>Identifies an DMS resource and any pending actions for it.</p>
  */
 export interface ResourcePendingMaintenanceActions {
@@ -235,6 +244,7 @@ export interface ResourcePendingMaintenanceActions {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ApplyPendingMaintenanceActionResponse {
@@ -245,6 +255,7 @@ export interface ApplyPendingMaintenanceActionResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the required target engine settings.</p>
  */
 export interface RecommendationSettings {
@@ -265,6 +276,7 @@ export interface RecommendationSettings {
 }
 
 /**
+ * @public
  * <p>Provides information about the source database to analyze and provide target
  *             recommendations according to the specified requirements.</p>
  */
@@ -280,6 +292,9 @@ export interface StartRecommendationsRequestEntry {
   Settings: RecommendationSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchStartRecommendationsRequest {
   /**
    * <p>Provides information about source databases to analyze. After this analysis, Fleet
@@ -289,6 +304,7 @@ export interface BatchStartRecommendationsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the errors that occurred during the analysis of the source
  *             database.</p>
  */
@@ -309,6 +325,9 @@ export interface BatchStartRecommendationsErrorEntry {
   Code?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchStartRecommendationsResponse {
   /**
    * <p>A list with error details about the analysis of each source database.</p>
@@ -317,6 +336,7 @@ export interface BatchStartRecommendationsResponse {
 }
 
 /**
+ * @public
  * <p>The resource is in a state that prevents it from being used for database migration.</p>
  */
 export class InvalidResourceStateFault extends __BaseException {
@@ -336,6 +356,7 @@ export class InvalidResourceStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CancelReplicationTaskAssessmentRunMessage {
@@ -346,6 +367,7 @@ export interface CancelReplicationTaskAssessmentRunMessage {
 }
 
 /**
+ * @public
  * <p>The progress values reported by the <code>AssessmentProgress</code> response
  *          element.</p>
  */
@@ -362,6 +384,7 @@ export interface ReplicationTaskAssessmentRunProgress {
 }
 
 /**
+ * @public
  * <p>Provides information that describes a premigration assessment run that you have started
  *          using the <code>StartReplicationTaskAssessmentRun</code> operation.</p>
  *          <p>Some of the information appears based on other operations that can return the
@@ -486,6 +509,7 @@ export interface ReplicationTaskAssessmentRun {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CancelReplicationTaskAssessmentRunResponse {
@@ -497,6 +521,7 @@ export interface CancelReplicationTaskAssessmentRunResponse {
 }
 
 /**
+ * @public
  * <p> The settings in JSON format for the DMS Transfer type source endpoint. </p>
  */
 export interface DmsTransferSettings {
@@ -511,12 +536,22 @@ export interface DmsTransferSettings {
   BucketName?: string;
 }
 
-export enum NestingLevelValue {
-  NONE = "none",
-  ONE = "one",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NestingLevelValue = {
+  NONE: "none",
+  ONE: "one",
+} as const;
 
 /**
+ * @public
+ */
+export type NestingLevelValue = (typeof NestingLevelValue)[keyof typeof NestingLevelValue];
+
+/**
+ * @public
  * <p>Provides information that defines a DocumentDB endpoint.</p>
  */
 export interface DocDbSettings {
@@ -603,6 +638,7 @@ export interface DocDbSettings {
 }
 
 /**
+ * @public
  * <p>Provides the Amazon Resource Name (ARN) of the Identity and Access Management (IAM)
  *          role used to define an Amazon DynamoDB target endpoint.</p>
  */
@@ -614,6 +650,7 @@ export interface DynamoDbSettings {
 }
 
 /**
+ * @public
  * <p>Provides information that defines an OpenSearch endpoint.</p>
  */
 export interface ElasticsearchSettings {
@@ -652,17 +689,37 @@ export interface ElasticsearchSettings {
   UseNewMappingType?: boolean;
 }
 
-export enum ReplicationEndpointTypeValue {
-  SOURCE = "source",
-  TARGET = "target",
-}
-
-export enum TargetDbType {
-  MULTIPLE_DATABASES = "multiple-databases",
-  SPECIFIC_DATABASE = "specific-database",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationEndpointTypeValue = {
+  SOURCE: "source",
+  TARGET: "target",
+} as const;
 
 /**
+ * @public
+ */
+export type ReplicationEndpointTypeValue =
+  (typeof ReplicationEndpointTypeValue)[keyof typeof ReplicationEndpointTypeValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetDbType = {
+  MULTIPLE_DATABASES: "multiple-databases",
+  SPECIFIC_DATABASE: "specific-database",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetDbType = (typeof TargetDbType)[keyof typeof TargetDbType];
+
+/**
+ * @public
  * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
  */
 export interface GcpMySQLSettings {
@@ -778,6 +835,7 @@ export interface GcpMySQLSettings {
 }
 
 /**
+ * @public
  * <p>Provides information that defines an IBM Db2 LUW endpoint.</p>
  */
 export interface IBMDb2Settings {
@@ -851,24 +909,52 @@ export interface IBMDb2Settings {
   SecretsManagerSecretId?: string;
 }
 
-export enum MessageFormatValue {
-  JSON = "json",
-  JSON_UNFORMATTED = "json-unformatted",
-}
-
-export enum KafkaSaslMechanism {
-  PLAIN = "plain",
-  SCRAM_SHA_512 = "scram-sha-512",
-}
-
-export enum KafkaSecurityProtocol {
-  PLAINTEXT = "plaintext",
-  SASL_SSL = "sasl-ssl",
-  SSL_AUTHENTICATION = "ssl-authentication",
-  SSL_ENCRYPTION = "ssl-encryption",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MessageFormatValue = {
+  JSON: "json",
+  JSON_UNFORMATTED: "json-unformatted",
+} as const;
 
 /**
+ * @public
+ */
+export type MessageFormatValue = (typeof MessageFormatValue)[keyof typeof MessageFormatValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const KafkaSaslMechanism = {
+  PLAIN: "plain",
+  SCRAM_SHA_512: "scram-sha-512",
+} as const;
+
+/**
+ * @public
+ */
+export type KafkaSaslMechanism = (typeof KafkaSaslMechanism)[keyof typeof KafkaSaslMechanism];
+
+/**
+ * @public
+ * @enum
+ */
+export const KafkaSecurityProtocol = {
+  PLAINTEXT: "plaintext",
+  SASL_SSL: "sasl-ssl",
+  SSL_AUTHENTICATION: "ssl-authentication",
+  SSL_ENCRYPTION: "ssl-encryption",
+} as const;
+
+/**
+ * @public
+ */
+export type KafkaSecurityProtocol = (typeof KafkaSecurityProtocol)[keyof typeof KafkaSecurityProtocol];
+
+/**
+ * @public
  * <p>Provides information that describes an Apache Kafka endpoint. This
  *          information includes the output format of records applied to the endpoint and details of
  *          transaction and control table data information.</p>
@@ -1007,6 +1093,7 @@ export interface KafkaSettings {
 }
 
 /**
+ * @public
  * <p>Provides information that describes an Amazon Kinesis Data Stream endpoint. This
  *          information includes the output format of records applied to the endpoint and details of
  *          transaction and control table data information.</p>
@@ -1082,20 +1169,39 @@ export interface KinesisSettings {
   NoHexPrefix?: boolean;
 }
 
-export enum SafeguardPolicy {
-  EXCLUSIVE_AUTOMATIC_TRUNCATION = "exclusive-automatic-truncation",
-  RELY_ON_SQL_SERVER_REPLICATION_AGENT = "rely-on-sql-server-replication-agent",
-  SHARED_AUTOMATIC_TRUNCATION = "shared-automatic-truncation",
-}
-
-export enum TlogAccessMode {
-  BackupOnly = "BackupOnly",
-  PreferBackup = "PreferBackup",
-  PreferTlog = "PreferTlog",
-  TlogOnly = "TlogOnly",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SafeguardPolicy = {
+  EXCLUSIVE_AUTOMATIC_TRUNCATION: "exclusive-automatic-truncation",
+  RELY_ON_SQL_SERVER_REPLICATION_AGENT: "rely-on-sql-server-replication-agent",
+  SHARED_AUTOMATIC_TRUNCATION: "shared-automatic-truncation",
+} as const;
 
 /**
+ * @public
+ */
+export type SafeguardPolicy = (typeof SafeguardPolicy)[keyof typeof SafeguardPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const TlogAccessMode = {
+  BackupOnly: "BackupOnly",
+  PreferBackup: "PreferBackup",
+  PreferTlog: "PreferTlog",
+  TlogOnly: "TlogOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type TlogAccessMode = (typeof TlogAccessMode)[keyof typeof TlogAccessMode];
+
+/**
+ * @public
  * <p>Provides information that defines a Microsoft SQL Server endpoint.</p>
  */
 export interface MicrosoftSQLServerSettings {
@@ -1240,18 +1346,37 @@ export interface MicrosoftSQLServerSettings {
   ForceLobLookup?: boolean;
 }
 
-export enum AuthMechanismValue {
-  DEFAULT = "default",
-  MONGODB_CR = "mongodb_cr",
-  SCRAM_SHA_1 = "scram_sha_1",
-}
-
-export enum AuthTypeValue {
-  NO = "no",
-  PASSWORD = "password",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthMechanismValue = {
+  DEFAULT: "default",
+  MONGODB_CR: "mongodb_cr",
+  SCRAM_SHA_1: "scram_sha_1",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthMechanismValue = (typeof AuthMechanismValue)[keyof typeof AuthMechanismValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthTypeValue = {
+  NO: "no",
+  PASSWORD: "password",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthTypeValue = (typeof AuthTypeValue)[keyof typeof AuthTypeValue];
+
+/**
+ * @public
  * <p>Provides information that defines a MongoDB endpoint.</p>
  */
 export interface MongoDbSettings {
@@ -1360,6 +1485,7 @@ export interface MongoDbSettings {
 }
 
 /**
+ * @public
  * <p>Provides information that defines a MySQL endpoint.</p>
  */
 export interface MySQLSettings {
@@ -1490,6 +1616,7 @@ export interface MySQLSettings {
 }
 
 /**
+ * @public
  * <p>Provides information that defines an Amazon Neptune endpoint.</p>
  */
 export interface NeptuneSettings {
@@ -1545,13 +1672,23 @@ export interface NeptuneSettings {
   IamAuthEnabled?: boolean;
 }
 
-export enum CharLengthSemantics {
-  BYTE = "byte",
-  CHAR = "char",
-  DEFAULT = "default",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CharLengthSemantics = {
+  BYTE: "byte",
+  CHAR: "char",
+  DEFAULT: "default",
+} as const;
 
 /**
+ * @public
+ */
+export type CharLengthSemantics = (typeof CharLengthSemantics)[keyof typeof CharLengthSemantics];
+
+/**
+ * @public
  * <p>Provides information that defines an Oracle endpoint.</p>
  */
 export interface OracleSettings {
@@ -1944,13 +2081,23 @@ export interface OracleSettings {
   ConvertTimestampWithZoneToUTC?: boolean;
 }
 
-export enum PluginNameValue {
-  NO_PREFERENCE = "no-preference",
-  PGLOGICAL = "pglogical",
-  TEST_DECODING = "test-decoding",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PluginNameValue = {
+  NO_PREFERENCE: "no-preference",
+  PGLOGICAL: "pglogical",
+  TEST_DECODING: "test-decoding",
+} as const;
 
 /**
+ * @public
+ */
+export type PluginNameValue = (typeof PluginNameValue)[keyof typeof PluginNameValue];
+
+/**
+ * @public
  * <p>Provides information that defines a PostgreSQL endpoint.</p>
  */
 export interface PostgreSQLSettings {
@@ -2118,18 +2265,37 @@ export interface PostgreSQLSettings {
   MapBooleanAsBoolean?: boolean;
 }
 
-export enum RedisAuthTypeValue {
-  AUTH_ROLE = "auth-role",
-  AUTH_TOKEN = "auth-token",
-  NONE = "none",
-}
-
-export enum SslSecurityProtocolValue {
-  PLAINTEXT = "plaintext",
-  SSL_ENCRYPTION = "ssl-encryption",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RedisAuthTypeValue = {
+  AUTH_ROLE: "auth-role",
+  AUTH_TOKEN: "auth-token",
+  NONE: "none",
+} as const;
 
 /**
+ * @public
+ */
+export type RedisAuthTypeValue = (typeof RedisAuthTypeValue)[keyof typeof RedisAuthTypeValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const SslSecurityProtocolValue = {
+  PLAINTEXT: "plaintext",
+  SSL_ENCRYPTION: "ssl-encryption",
+} as const;
+
+/**
+ * @public
+ */
+export type SslSecurityProtocolValue = (typeof SslSecurityProtocolValue)[keyof typeof SslSecurityProtocolValue];
+
+/**
+ * @public
  * <p>Provides information that defines a Redis target endpoint.</p>
  */
 export interface RedisSettings {
@@ -2184,12 +2350,22 @@ export interface RedisSettings {
   SslCaCertificateArn?: string;
 }
 
-export enum EncryptionModeValue {
-  SSE_KMS = "sse-kms",
-  SSE_S3 = "sse-s3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionModeValue = {
+  SSE_KMS: "sse-kms",
+  SSE_S3: "sse-s3",
+} as const;
 
 /**
+ * @public
+ */
+export type EncryptionModeValue = (typeof EncryptionModeValue)[keyof typeof EncryptionModeValue];
+
+/**
+ * @public
  * <p>Provides information that defines an Amazon Redshift endpoint.</p>
  */
 export interface RedshiftSettings {
@@ -2439,54 +2615,119 @@ export interface RedshiftSettings {
   MapBooleanAsBoolean?: boolean;
 }
 
-export enum CannedAclForObjectsValue {
-  AUTHENTICATED_READ = "authenticated-read",
-  AWS_EXEC_READ = "aws-exec-read",
-  BUCKET_OWNER_FULL_CONTROL = "bucket-owner-full-control",
-  BUCKET_OWNER_READ = "bucket-owner-read",
-  NONE = "none",
-  PRIVATE = "private",
-  PUBLIC_READ = "public-read",
-  PUBLIC_READ_WRITE = "public-read-write",
-}
-
-export enum CompressionTypeValue {
-  GZIP = "gzip",
-  NONE = "none",
-}
-
-export enum DataFormatValue {
-  CSV = "csv",
-  PARQUET = "parquet",
-}
-
-export enum DatePartitionDelimiterValue {
-  DASH = "DASH",
-  NONE = "NONE",
-  SLASH = "SLASH",
-  UNDERSCORE = "UNDERSCORE",
-}
-
-export enum DatePartitionSequenceValue {
-  DDMMYYYY = "DDMMYYYY",
-  MMYYYYDD = "MMYYYYDD",
-  YYYYMM = "YYYYMM",
-  YYYYMMDD = "YYYYMMDD",
-  YYYYMMDDHH = "YYYYMMDDHH",
-}
-
-export enum EncodingTypeValue {
-  PLAIN = "plain",
-  PLAIN_DICTIONARY = "plain-dictionary",
-  RLE_DICTIONARY = "rle-dictionary",
-}
-
-export enum ParquetVersionValue {
-  PARQUET_1_0 = "parquet-1-0",
-  PARQUET_2_0 = "parquet-2-0",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CannedAclForObjectsValue = {
+  AUTHENTICATED_READ: "authenticated-read",
+  AWS_EXEC_READ: "aws-exec-read",
+  BUCKET_OWNER_FULL_CONTROL: "bucket-owner-full-control",
+  BUCKET_OWNER_READ: "bucket-owner-read",
+  NONE: "none",
+  PRIVATE: "private",
+  PUBLIC_READ: "public-read",
+  PUBLIC_READ_WRITE: "public-read-write",
+} as const;
 
 /**
+ * @public
+ */
+export type CannedAclForObjectsValue = (typeof CannedAclForObjectsValue)[keyof typeof CannedAclForObjectsValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const CompressionTypeValue = {
+  GZIP: "gzip",
+  NONE: "none",
+} as const;
+
+/**
+ * @public
+ */
+export type CompressionTypeValue = (typeof CompressionTypeValue)[keyof typeof CompressionTypeValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataFormatValue = {
+  CSV: "csv",
+  PARQUET: "parquet",
+} as const;
+
+/**
+ * @public
+ */
+export type DataFormatValue = (typeof DataFormatValue)[keyof typeof DataFormatValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatePartitionDelimiterValue = {
+  DASH: "DASH",
+  NONE: "NONE",
+  SLASH: "SLASH",
+  UNDERSCORE: "UNDERSCORE",
+} as const;
+
+/**
+ * @public
+ */
+export type DatePartitionDelimiterValue =
+  (typeof DatePartitionDelimiterValue)[keyof typeof DatePartitionDelimiterValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatePartitionSequenceValue = {
+  DDMMYYYY: "DDMMYYYY",
+  MMYYYYDD: "MMYYYYDD",
+  YYYYMM: "YYYYMM",
+  YYYYMMDD: "YYYYMMDD",
+  YYYYMMDDHH: "YYYYMMDDHH",
+} as const;
+
+/**
+ * @public
+ */
+export type DatePartitionSequenceValue = (typeof DatePartitionSequenceValue)[keyof typeof DatePartitionSequenceValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncodingTypeValue = {
+  PLAIN: "plain",
+  PLAIN_DICTIONARY: "plain-dictionary",
+  RLE_DICTIONARY: "rle-dictionary",
+} as const;
+
+/**
+ * @public
+ */
+export type EncodingTypeValue = (typeof EncodingTypeValue)[keyof typeof EncodingTypeValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParquetVersionValue = {
+  PARQUET_1_0: "parquet-1-0",
+  PARQUET_2_0: "parquet-2-0",
+} as const;
+
+/**
+ * @public
+ */
+export type ParquetVersionValue = (typeof ParquetVersionValue)[keyof typeof ParquetVersionValue];
+
+/**
+ * @public
  * <p>Settings for exporting data to Amazon S3. </p>
  */
 export interface S3Settings {
@@ -3023,10 +3264,10 @@ export interface S3Settings {
    *          Use this parameter when <code>DatePartitionedEnabled</code> is set to <code>true</code>, as shown in the
    *          following example.</p>
    *          <p>
-   *             <code>s3-settings='{"DatePartitionEnabled": true, "DatePartitionSequence": "YYYYMMDDHH",
+   *             <code>s3-settings='\{"DatePartitionEnabled": true, "DatePartitionSequence": "YYYYMMDDHH",
    *          "DatePartitionDelimiter": "SLASH",
    *          "DatePartitionTimezone":"<i>Asia/Seoul</i>", "BucketName":
-   *          "dms-nattarat-test"}'</code>
+   *          "dms-nattarat-test"\}'</code>
    *          </p>
    */
   DatePartitionTimezone?: string;
@@ -3040,7 +3281,7 @@ export interface S3Settings {
   /**
    * <p>To specify a bucket owner and prevent sniping, you can use the
    *          <code>ExpectedBucketOwner</code> endpoint setting. </p>
-   *          <p>Example: <code>--s3-settings='{"ExpectedBucketOwner": "<i>AWS_Account_ID</i>"}'</code>
+   *          <p>Example: <code>--s3-settings='\{"ExpectedBucketOwner": "<i>AWS_Account_ID</i>"\}'</code>
    *          </p>
    *          <p>When you make a request to test a connection or perform a migration, S3 checks the account
    *          ID of the bucket owner against the specified parameter.</p>
@@ -3054,14 +3295,24 @@ export interface S3Settings {
   GlueCatalogGeneration?: boolean;
 }
 
-export enum DmsSslModeValue {
-  NONE = "none",
-  REQUIRE = "require",
-  VERIFY_CA = "verify-ca",
-  VERIFY_FULL = "verify-full",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DmsSslModeValue = {
+  NONE: "none",
+  REQUIRE: "require",
+  VERIFY_CA: "verify-ca",
+  VERIFY_FULL: "verify-full",
+} as const;
 
 /**
+ * @public
+ */
+export type DmsSslModeValue = (typeof DmsSslModeValue)[keyof typeof DmsSslModeValue];
+
+/**
+ * @public
  * <p>Provides information that defines a SAP ASE endpoint.</p>
  */
 export interface SybaseSettings {
@@ -3117,6 +3368,7 @@ export interface SybaseSettings {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateEndpointMessage {
@@ -3251,8 +3503,8 @@ export interface CreateEndpointMessage {
    *          <p>Shorthand syntax for these settings is as follows:
    *             <code>ServiceAccessRoleArn=string,BucketName=string</code>
    *          </p>
-   *          <p>JSON syntax for these settings is as follows: <code>{ "ServiceAccessRoleArn":
-   *             "string", "BucketName": "string", } </code>
+   *          <p>JSON syntax for these settings is as follows: <code>\{ "ServiceAccessRoleArn":
+   *             "string", "BucketName": "string", \} </code>
    *          </p>
    */
   DmsTransferSettings?: DmsTransferSettings;
@@ -3393,6 +3645,7 @@ export interface CreateEndpointMessage {
 }
 
 /**
+ * @public
  * <p>Describes an endpoint of a database instance in response to operations such as the
  *          following:</p>
  *          <ul>
@@ -3623,6 +3876,7 @@ export interface Endpoint {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateEndpointResponse {
@@ -3633,6 +3887,7 @@ export interface CreateEndpointResponse {
 }
 
 /**
+ * @public
  * <p>DMS cannot access the KMS key.</p>
  */
 export class KMSKeyNotAccessibleFault extends __BaseException {
@@ -3652,6 +3907,7 @@ export class KMSKeyNotAccessibleFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource you are attempting to create already exists.</p>
  */
 export class ResourceAlreadyExistsFault extends __BaseException {
@@ -3673,6 +3929,7 @@ export class ResourceAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The quota for this resource quota has been exceeded.</p>
  */
 export class ResourceQuotaExceededFault extends __BaseException {
@@ -3692,6 +3949,7 @@ export class ResourceQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
  */
 export class S3AccessDeniedFault extends __BaseException {
@@ -3711,6 +3969,7 @@ export class S3AccessDeniedFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateEventSubscriptionMessage {
@@ -3766,6 +4025,7 @@ export interface CreateEventSubscriptionMessage {
 }
 
 /**
+ * @public
  * <p>Describes an event notification subscription created by the <code>CreateEventSubscription</code>
  *          operation.</p>
  */
@@ -3826,6 +4086,7 @@ export interface EventSubscription {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateEventSubscriptionResponse {
@@ -3836,6 +4097,7 @@ export interface CreateEventSubscriptionResponse {
 }
 
 /**
+ * @public
  * <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
  */
 export class KMSAccessDeniedFault extends __BaseException {
@@ -3855,6 +4117,7 @@ export class KMSAccessDeniedFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified KMS key isn't enabled.</p>
  */
 export class KMSDisabledFault extends __BaseException {
@@ -3874,6 +4137,7 @@ export class KMSDisabledFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The state of the specified KMS resource isn't valid for this request.</p>
  */
 export class KMSInvalidStateFault extends __BaseException {
@@ -3893,6 +4157,7 @@ export class KMSInvalidStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified KMS entity or resource can't be found.</p>
  */
 export class KMSNotFoundFault extends __BaseException {
@@ -3912,6 +4177,7 @@ export class KMSNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This request triggered KMS request throttling.</p>
  */
 export class KMSThrottlingFault extends __BaseException {
@@ -3931,6 +4197,7 @@ export class KMSThrottlingFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The SNS topic is invalid.</p>
  */
 export class SNSInvalidTopicFault extends __BaseException {
@@ -3950,6 +4217,7 @@ export class SNSInvalidTopicFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You are not authorized for the SNS subscription.</p>
  */
 export class SNSNoAuthorizationFault extends __BaseException {
@@ -3968,6 +4236,9 @@ export class SNSNoAuthorizationFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetAdvisorCollectorRequest {
   /**
    * <p>The name of your Fleet Advisor collector (for example, <code>sample-collector</code>).</p>
@@ -3990,6 +4261,9 @@ export interface CreateFleetAdvisorCollectorRequest {
   S3BucketName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetAdvisorCollectorResponse {
   /**
    * <p>The unique ID of the new Fleet Advisor collector, for example:
@@ -4020,6 +4294,7 @@ export interface CreateFleetAdvisorCollectorResponse {
 }
 
 /**
+ * @public
  * <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
  *             found.</p>
  */
@@ -4040,6 +4315,7 @@ export class S3ResourceNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateReplicationInstanceMessage {
@@ -4195,6 +4471,7 @@ export interface CreateReplicationInstanceMessage {
 }
 
 /**
+ * @public
  * <p>Provides information about the values of pending modifications to a replication
  *          instance. This data type is an object of the
  *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ReplicationInstance.html">
@@ -4240,6 +4517,7 @@ export interface ReplicationPendingModifiedValues {
 }
 
 /**
+ * @public
  * <p>The name of an Availability Zone for use during database migration.
  *             <code>AvailabilityZone</code> is an optional parameter to the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationInstance.html">
  *                <code>CreateReplicationInstance</code>
@@ -4255,6 +4533,7 @@ export interface AvailabilityZone {
 }
 
 /**
+ * @public
  * <p>In response to a request by the <code>DescribeReplicationSubnetGroups</code> operation,
  *          this object identifies a subnet by its given Availability Zone, subnet identifier, and
  *          status.</p>
@@ -4277,6 +4556,7 @@ export interface Subnet {
 }
 
 /**
+ * @public
  * <p>Describes a subnet group in response to a request by the
  *             <code>DescribeReplicationSubnetGroups</code> operation.</p>
  */
@@ -4315,6 +4595,7 @@ export interface ReplicationSubnetGroup {
 }
 
 /**
+ * @public
  * <p>Describes the status of a security group associated with the virtual private cloud (VPC)
  *          hosting your replication and DB instances.</p>
  */
@@ -4331,6 +4612,7 @@ export interface VpcSecurityGroupMembership {
 }
 
 /**
+ * @public
  * <p>Provides information that defines a replication instance.</p>
  */
 export interface ReplicationInstance {
@@ -4574,6 +4856,7 @@ export interface ReplicationInstance {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateReplicationInstanceResponse {
@@ -4584,6 +4867,7 @@ export interface CreateReplicationInstanceResponse {
 }
 
 /**
+ * @public
  * <p>There are not enough resources allocated to the database migration.</p>
  */
 export class InsufficientResourceCapacityFault extends __BaseException {
@@ -4603,6 +4887,7 @@ export class InsufficientResourceCapacityFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The subnet provided is invalid.</p>
  */
 export class InvalidSubnet extends __BaseException {
@@ -4622,6 +4907,7 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
  */
 export class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
@@ -4641,6 +4927,7 @@ export class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __BaseException
 }
 
 /**
+ * @public
  * <p>The storage quota has been exceeded.</p>
  */
 export class StorageQuotaExceededFault extends __BaseException {
@@ -4660,6 +4947,7 @@ export class StorageQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateReplicationSubnetGroupMessage {
@@ -4690,6 +4978,7 @@ export interface CreateReplicationSubnetGroupMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateReplicationSubnetGroupResponse {
@@ -4699,13 +4988,23 @@ export interface CreateReplicationSubnetGroupResponse {
   ReplicationSubnetGroup?: ReplicationSubnetGroup;
 }
 
-export enum MigrationTypeValue {
-  CDC = "cdc",
-  FULL_LOAD = "full-load",
-  FULL_LOAD_AND_CDC = "full-load-and-cdc",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MigrationTypeValue = {
+  CDC: "cdc",
+  FULL_LOAD: "full-load",
+  FULL_LOAD_AND_CDC: "full-load-and-cdc",
+} as const;
 
 /**
+ * @public
+ */
+export type MigrationTypeValue = (typeof MigrationTypeValue)[keyof typeof MigrationTypeValue];
+
+/**
+ * @public
  * <p></p>
  */
 export interface CreateReplicationTaskMessage {
@@ -4825,6 +5124,7 @@ export interface CreateReplicationTaskMessage {
 }
 
 /**
+ * @public
  * <p>In response to a request by the <code>DescribeReplicationTasks</code> operation, this object provides
  *          a collection of statistics about a replication task.</p>
  */
@@ -4887,6 +5187,7 @@ export interface ReplicationTaskStats {
 }
 
 /**
+ * @public
  * <p>Provides information that describes a replication task created by the
  *             <code>CreateReplicationTask</code> operation.</p>
  */
@@ -5197,6 +5498,7 @@ export interface ReplicationTask {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateReplicationTaskResponse {
@@ -5206,6 +5508,9 @@ export interface CreateReplicationTaskResponse {
   ReplicationTask?: ReplicationTask;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCertificateMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate.</p>
@@ -5214,6 +5519,7 @@ export interface DeleteCertificateMessage {
 }
 
 /**
+ * @public
  * <p>The SSL certificate that can be used to encrypt connections between the endpoints and
  *          the replication instance.</p>
  */
@@ -5236,7 +5542,7 @@ export interface Certificate {
   CertificatePem?: string;
 
   /**
-   * <p>The location of an imported Oracle Wallet certificate for use with SSL. Example: <code>filebase64("${path.root}/rds-ca-2019-root.sso")</code>
+   * <p>The location of an imported Oracle Wallet certificate for use with SSL. Example: <code>filebase64("$\{path.root\}/rds-ca-2019-root.sso")</code>
    *          </p>
    */
   CertificateWallet?: Uint8Array;
@@ -5272,6 +5578,9 @@ export interface Certificate {
   KeyLength?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCertificateResponse {
   /**
    * <p>The Secure Sockets Layer (SSL) certificate.</p>
@@ -5280,6 +5589,7 @@ export interface DeleteCertificateResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteConnectionMessage {
@@ -5295,6 +5605,7 @@ export interface DeleteConnectionMessage {
 }
 
 /**
+ * @public
  * <p>Status of the connection between an endpoint and a replication instance, including
  *          Amazon Resource Names (ARNs) and the last error message issued.</p>
  */
@@ -5356,6 +5667,7 @@ export interface Connection {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteConnectionResponse {
@@ -5366,6 +5678,7 @@ export interface DeleteConnectionResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteEndpointMessage {
@@ -5376,6 +5689,7 @@ export interface DeleteEndpointMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteEndpointResponse {
@@ -5386,6 +5700,7 @@ export interface DeleteEndpointResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteEventSubscriptionMessage {
@@ -5396,6 +5711,7 @@ export interface DeleteEventSubscriptionMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteEventSubscriptionResponse {
@@ -5406,6 +5722,7 @@ export interface DeleteEventSubscriptionResponse {
 }
 
 /**
+ * @public
  * <p>The specified collector doesn't exist.</p>
  */
 export class CollectorNotFoundFault extends __BaseException {
@@ -5424,6 +5741,9 @@ export class CollectorNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCollectorRequest {
   /**
    * <p>The reference ID of the Fleet Advisor collector to delete.</p>
@@ -5431,6 +5751,9 @@ export interface DeleteCollectorRequest {
   CollectorReferencedId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetAdvisorDatabasesRequest {
   /**
    * <p>The IDs of the Fleet Advisor collector databases to delete.</p>
@@ -5438,6 +5761,9 @@ export interface DeleteFleetAdvisorDatabasesRequest {
   DatabaseIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetAdvisorDatabasesResponse {
   /**
    * <p>The IDs of the databases that the operation deleted.</p>
@@ -5446,6 +5772,7 @@ export interface DeleteFleetAdvisorDatabasesResponse {
 }
 
 /**
+ * @public
  * <p>The action or operation requested isn't valid.</p>
  */
 export class InvalidOperationFault extends __BaseException {
@@ -5465,6 +5792,7 @@ export class InvalidOperationFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteReplicationInstanceMessage {
@@ -5475,6 +5803,7 @@ export interface DeleteReplicationInstanceMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteReplicationInstanceResponse {
@@ -5485,6 +5814,7 @@ export interface DeleteReplicationInstanceResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteReplicationSubnetGroupMessage {
@@ -5495,11 +5825,13 @@ export interface DeleteReplicationSubnetGroupMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteReplicationSubnetGroupResponse {}
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteReplicationTaskMessage {
@@ -5510,6 +5842,7 @@ export interface DeleteReplicationTaskMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteReplicationTaskResponse {
@@ -5520,6 +5853,7 @@ export interface DeleteReplicationTaskResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteReplicationTaskAssessmentRunMessage {
@@ -5530,6 +5864,7 @@ export interface DeleteReplicationTaskAssessmentRunMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteReplicationTaskAssessmentRunResponse {
@@ -5541,11 +5876,13 @@ export interface DeleteReplicationTaskAssessmentRunResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeAccountAttributesMessage {}
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeAccountAttributesResponse {
@@ -5572,6 +5909,7 @@ export interface DescribeAccountAttributesResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeApplicableIndividualAssessmentsMessage {
@@ -5618,6 +5956,7 @@ export interface DescribeApplicableIndividualAssessmentsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeApplicableIndividualAssessmentsResponse {
@@ -5641,6 +5980,7 @@ export interface DescribeApplicableIndividualAssessmentsResponse {
 }
 
 /**
+ * @public
  * <p>Identifies the name and value of a filter object. This filter is used to limit the
  *          number and type of DMS objects that are returned for a particular
  *             <code>Describe*</code> call or similar operation. Filters are used as an optional
@@ -5659,6 +5999,9 @@ export interface Filter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificatesMessage {
   /**
    * <p>Filters applied to the certificates described in the form of key-value pairs.
@@ -5682,6 +6025,9 @@ export interface DescribeCertificatesMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificatesResponse {
   /**
    * <p>The pagination token.</p>
@@ -5696,6 +6042,7 @@ export interface DescribeCertificatesResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeConnectionsMessage {
@@ -5723,6 +6070,7 @@ export interface DescribeConnectionsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeConnectionsResponse {
@@ -5740,6 +6088,7 @@ export interface DescribeConnectionsResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEndpointsMessage {
@@ -5767,6 +6116,7 @@ export interface DescribeEndpointsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEndpointsResponse {
@@ -5783,6 +6133,9 @@ export interface DescribeEndpointsResponse {
   Endpoints?: Endpoint[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointSettingsMessage {
   /**
    * <p>The databse engine used for your source or target endpoint.</p>
@@ -5803,14 +6156,24 @@ export interface DescribeEndpointSettingsMessage {
   Marker?: string;
 }
 
-export enum EndpointSettingTypeValue {
-  BOOLEAN = "boolean",
-  ENUM = "enum",
-  INTEGER = "integer",
-  STRING = "string",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndpointSettingTypeValue = {
+  BOOLEAN: "boolean",
+  ENUM: "enum",
+  INTEGER: "integer",
+  STRING: "string",
+} as const;
 
 /**
+ * @public
+ */
+export type EndpointSettingTypeValue = (typeof EndpointSettingTypeValue)[keyof typeof EndpointSettingTypeValue];
+
+/**
+ * @public
  * <p>Endpoint settings.</p>
  */
 export interface EndpointSetting {
@@ -5860,6 +6223,9 @@ export interface EndpointSetting {
   DefaultValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointSettingsResponse {
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
@@ -5874,6 +6240,7 @@ export interface DescribeEndpointSettingsResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEndpointTypesMessage {
@@ -5901,6 +6268,7 @@ export interface DescribeEndpointTypesMessage {
 }
 
 /**
+ * @public
  * <p>Provides information about types of supported endpoints in response to a request by the
  *             <code>DescribeEndpointTypes</code> operation. This information includes the type of
  *          endpoint, the database engine name, and whether change data capture (CDC) is
@@ -5942,6 +6310,7 @@ export interface SupportedEndpointType {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEndpointTypesResponse {
@@ -5959,6 +6328,7 @@ export interface DescribeEndpointTypesResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEventCategoriesMessage {
@@ -5975,6 +6345,7 @@ export interface DescribeEventCategoriesMessage {
 }
 
 /**
+ * @public
  * <p>Lists categories of events subscribed to, and generated by, the applicable DMS
  *          resource type. This data type appears in response to the
  *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_EventCategoryGroup.html">
@@ -5997,6 +6368,7 @@ export interface EventCategoryGroup {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEventCategoriesResponse {
@@ -6006,11 +6378,21 @@ export interface DescribeEventCategoriesResponse {
   EventCategoryGroupList?: EventCategoryGroup[];
 }
 
-export enum SourceType {
-  replication_instance = "replication-instance",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  replication_instance: "replication-instance",
+} as const;
 
 /**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
  * <p></p>
  */
 export interface DescribeEventsMessage {
@@ -6068,6 +6450,7 @@ export interface DescribeEventsMessage {
 }
 
 /**
+ * @public
  * <p>Describes an identifiable significant activity that affects a replication instance or
  *          task. This object can provide the message, the available event categories, the date and
  *          source of the event, and the DMS resource type.</p>
@@ -6101,6 +6484,7 @@ export interface Event {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEventsResponse {
@@ -6118,6 +6502,7 @@ export interface DescribeEventsResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEventSubscriptionsMessage {
@@ -6150,6 +6535,7 @@ export interface DescribeEventSubscriptionsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEventSubscriptionsResponse {
@@ -6166,6 +6552,9 @@ export interface DescribeEventSubscriptionsResponse {
   EventSubscriptionsList?: EventSubscription[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAdvisorCollectorsRequest {
   /**
    * <p> If you specify any of the following filters, the output includes information for only
@@ -6201,12 +6590,22 @@ export interface DescribeFleetAdvisorCollectorsRequest {
   NextToken?: string;
 }
 
-export enum CollectorStatus {
-  ACTIVE = "ACTIVE",
-  UNREGISTERED = "UNREGISTERED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CollectorStatus = {
+  ACTIVE: "ACTIVE",
+  UNREGISTERED: "UNREGISTERED",
+} as const;
 
 /**
+ * @public
+ */
+export type CollectorStatus = (typeof CollectorStatus)[keyof typeof CollectorStatus];
+
+/**
+ * @public
  * <p>Describes the last Fleet Advisor collector health check.</p>
  */
 export interface CollectorHealthCheck {
@@ -6233,6 +6632,7 @@ export interface CollectorHealthCheck {
 }
 
 /**
+ * @public
  * <p>Describes a Fleet Advisor collector inventory.</p>
  */
 export interface InventoryData {
@@ -6247,13 +6647,23 @@ export interface InventoryData {
   NumberOfSchemas?: number;
 }
 
-export enum VersionStatus {
-  OUTDATED = "OUTDATED",
-  UNSUPPORTED = "UNSUPPORTED",
-  UP_TO_DATE = "UP_TO_DATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VersionStatus = {
+  OUTDATED: "OUTDATED",
+  UNSUPPORTED: "UNSUPPORTED",
+  UP_TO_DATE: "UP_TO_DATE",
+} as const;
 
 /**
+ * @public
+ */
+export type VersionStatus = (typeof VersionStatus)[keyof typeof VersionStatus];
+
+/**
+ * @public
  * <p>Describes a Fleet Advisor collector.</p>
  */
 export interface CollectorResponse {
@@ -6333,6 +6743,9 @@ export interface CollectorResponse {
   InventoryData?: InventoryData;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAdvisorCollectorsResponse {
   /**
    * <p>Provides descriptions of the Fleet Advisor collectors, including the collectors' name
@@ -6349,6 +6762,9 @@ export interface DescribeFleetAdvisorCollectorsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAdvisorDatabasesRequest {
   /**
    * <p> If you specify any of the following filters, the output includes information for only
@@ -6402,6 +6818,7 @@ export interface DescribeFleetAdvisorDatabasesRequest {
 }
 
 /**
+ * @public
  * <p>Briefly describes a Fleet Advisor collector.</p>
  */
 export interface CollectorShortInfoResponse {
@@ -6417,6 +6834,7 @@ export interface CollectorShortInfoResponse {
 }
 
 /**
+ * @public
  * <p>Describes a server in a Fleet Advisor collector inventory.</p>
  */
 export interface ServerShortInfoResponse {
@@ -6437,6 +6855,7 @@ export interface ServerShortInfoResponse {
 }
 
 /**
+ * @public
  * <p>Describes an inventory database instance for a Fleet Advisor collector.</p>
  */
 export interface DatabaseInstanceSoftwareDetailsResponse {
@@ -6481,6 +6900,7 @@ export interface DatabaseInstanceSoftwareDetailsResponse {
 }
 
 /**
+ * @public
  * <p>Describes a database in a Fleet Advisor collector inventory.</p>
  */
 export interface DatabaseResponse {
@@ -6521,6 +6941,9 @@ export interface DatabaseResponse {
   Collectors?: CollectorShortInfoResponse[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAdvisorDatabasesResponse {
   /**
    * <p>Provides descriptions of the Fleet Advisor collector databases, including the database's collector, ID,
@@ -6537,6 +6960,9 @@ export interface DescribeFleetAdvisorDatabasesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAdvisorLsaAnalysisRequest {
   /**
    * <p>Sets the maximum number of records returned in the response.</p>
@@ -6553,6 +6979,7 @@ export interface DescribeFleetAdvisorLsaAnalysisRequest {
 }
 
 /**
+ * @public
  * <p>Describes a large-scale assessment (LSA) analysis run by a Fleet Advisor collector.</p>
  */
 export interface FleetAdvisorLsaAnalysisResponse {
@@ -6567,6 +6994,9 @@ export interface FleetAdvisorLsaAnalysisResponse {
   Status?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAdvisorLsaAnalysisResponse {
   /**
    * <p>A list of <code>FleetAdvisorLsaAnalysisResponse</code> objects.</p>
@@ -6582,6 +7012,9 @@ export interface DescribeFleetAdvisorLsaAnalysisResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAdvisorSchemaObjectSummaryRequest {
   /**
    * <p> If you specify any of the following filters, the output includes information for only
@@ -6614,6 +7047,7 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryRequest {
 }
 
 /**
+ * @public
  * <p>Describes a schema object in a Fleet Advisor collector inventory.</p>
  */
 export interface FleetAdvisorSchemaObjectResponse {
@@ -6666,6 +7100,9 @@ export interface FleetAdvisorSchemaObjectResponse {
   CodeSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAdvisorSchemaObjectSummaryResponse {
   /**
    * <p>A collection of <code>FleetAdvisorSchemaObjectResponse</code> objects.</p>
@@ -6681,6 +7118,9 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAdvisorSchemasRequest {
   /**
    * <p> If you specify any of the following filters, the output includes information for only
@@ -6750,6 +7190,7 @@ export interface DescribeFleetAdvisorSchemasRequest {
 }
 
 /**
+ * @public
  * <p>Describes a database in a Fleet Advisor collector inventory.</p>
  */
 export interface DatabaseShortInfoResponse {
@@ -6776,6 +7217,7 @@ export interface DatabaseShortInfoResponse {
 }
 
 /**
+ * @public
  * <p>Describes a schema in a Fleet Advisor collector inventory.</p>
  */
 export interface SchemaShortInfoResponse {
@@ -6806,6 +7248,7 @@ export interface SchemaShortInfoResponse {
 }
 
 /**
+ * @public
  * <p>Describes a schema in a Fleet Advisor collector inventory.</p>
  */
 export interface SchemaResponse {
@@ -6856,6 +7299,9 @@ export interface SchemaResponse {
   Similarity?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAdvisorSchemasResponse {
   /**
    * <p>A collection of <code>SchemaResponse</code> objects.</p>
@@ -6872,6 +7318,7 @@ export interface DescribeFleetAdvisorSchemasResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeOrderableReplicationInstancesMessage {
@@ -6892,12 +7339,22 @@ export interface DescribeOrderableReplicationInstancesMessage {
   Marker?: string;
 }
 
-export enum ReleaseStatusValues {
-  BETA = "beta",
-  PROD = "prod",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReleaseStatusValues = {
+  BETA: "beta",
+  PROD: "prod",
+} as const;
 
 /**
+ * @public
+ */
+export type ReleaseStatusValues = (typeof ReleaseStatusValues)[keyof typeof ReleaseStatusValues];
+
+/**
+ * @public
  * <p>In response to the <code>DescribeOrderableReplicationInstances</code> operation, this
  *          object describes an available replication instance. This description includes the
  *          replication instance's type, engine version, and allocated storage.</p>
@@ -6963,6 +7420,7 @@ export interface OrderableReplicationInstance {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeOrderableReplicationInstancesResponse {
@@ -6980,6 +7438,7 @@ export interface DescribeOrderableReplicationInstancesResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribePendingMaintenanceActionsMessage {
@@ -7011,6 +7470,7 @@ export interface DescribePendingMaintenanceActionsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribePendingMaintenanceActionsResponse {
@@ -7027,6 +7487,9 @@ export interface DescribePendingMaintenanceActionsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecommendationLimitationsRequest {
   /**
    * <p>Filters applied to the limitations described in the form of key-value pairs.</p>
@@ -7053,6 +7516,7 @@ export interface DescribeRecommendationLimitationsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the limitations of target Amazon Web Services engines.</p>
  *          <p>Your source database might include features that the target Amazon Web Services engine doesn't
  *             support. Fleet Advisor lists these features as limitations. You should consider these
@@ -7101,6 +7565,9 @@ export interface Limitation {
   Type?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecommendationLimitationsResponse {
   /**
    * <p>The unique pagination token returned for you to pass to a subsequent request. Fleet
@@ -7116,6 +7583,9 @@ export interface DescribeRecommendationLimitationsResponse {
   Limitations?: Limitation[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecommendationsRequest {
   /**
    * <p>Filters applied to the target engine recommendations described in the form of
@@ -7143,6 +7613,7 @@ export interface DescribeRecommendationsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information that describes the requirements to the target engine on
  *             Amazon RDS.</p>
  */
@@ -7182,6 +7653,7 @@ export interface RdsRequirements {
 }
 
 /**
+ * @public
  * <p>Provides information that describes the configuration of the recommended target engine
  *             on Amazon RDS.</p>
  */
@@ -7237,6 +7709,7 @@ export interface RdsConfiguration {
 }
 
 /**
+ * @public
  * <p>Provides information that describes a recommendation of a target engine on
  *             Amazon RDS.</p>
  */
@@ -7255,6 +7728,7 @@ export interface RdsRecommendation {
 }
 
 /**
+ * @public
  * <p>Provides information about the target engine for the specified source database.</p>
  */
 export interface RecommendationData {
@@ -7265,6 +7739,7 @@ export interface RecommendationData {
 }
 
 /**
+ * @public
  * <p>Provides information that describes a recommendation of a target engine.</p>
  *          <p>A <i>recommendation</i> is a set of possible Amazon Web Services target engines that
  *             you can choose to migrate your source on-premises database. In this set, Fleet Advisor
@@ -7320,6 +7795,9 @@ export interface Recommendation {
   Data?: RecommendationData;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecommendationsResponse {
   /**
    * <p>The unique pagination token returned for you to pass to a subsequent request. Fleet
@@ -7337,6 +7815,7 @@ export interface DescribeRecommendationsResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeRefreshSchemasStatusMessage {
@@ -7346,13 +7825,24 @@ export interface DescribeRefreshSchemasStatusMessage {
   EndpointArn: string | undefined;
 }
 
-export enum RefreshSchemasStatusTypeValue {
-  FAILED = "failed",
-  REFRESHING = "refreshing",
-  SUCCESSFUL = "successful",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RefreshSchemasStatusTypeValue = {
+  FAILED: "failed",
+  REFRESHING: "refreshing",
+  SUCCESSFUL: "successful",
+} as const;
 
 /**
+ * @public
+ */
+export type RefreshSchemasStatusTypeValue =
+  (typeof RefreshSchemasStatusTypeValue)[keyof typeof RefreshSchemasStatusTypeValue];
+
+/**
+ * @public
  * <p>Provides information that describes status of a schema at an endpoint specified by the
  *          <code>DescribeRefreshSchemaStatus</code> operation.</p>
  */
@@ -7384,6 +7874,7 @@ export interface RefreshSchemasStatus {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeRefreshSchemasStatusResponse {
@@ -7394,6 +7885,7 @@ export interface DescribeRefreshSchemasStatusResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReplicationInstancesMessage {
@@ -7422,6 +7914,7 @@ export interface DescribeReplicationInstancesMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReplicationInstancesResponse {
@@ -7438,6 +7931,9 @@ export interface DescribeReplicationInstancesResponse {
   ReplicationInstances?: ReplicationInstance[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplicationInstanceTaskLogsMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
@@ -7462,6 +7958,7 @@ export interface DescribeReplicationInstanceTaskLogsMessage {
 }
 
 /**
+ * @public
  * <p>Contains metadata for a replication instance task log.</p>
  */
 export interface ReplicationInstanceTaskLog {
@@ -7481,6 +7978,9 @@ export interface ReplicationInstanceTaskLog {
   ReplicationInstanceTaskLogSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplicationInstanceTaskLogsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
@@ -7502,6 +8002,7 @@ export interface DescribeReplicationInstanceTaskLogsResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReplicationSubnetGroupsMessage {
@@ -7529,6 +8030,7 @@ export interface DescribeReplicationSubnetGroupsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReplicationSubnetGroupsResponse {
@@ -7546,6 +8048,7 @@ export interface DescribeReplicationSubnetGroupsResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReplicationTaskAssessmentResultsMessage {
@@ -7574,6 +8077,7 @@ export interface DescribeReplicationTaskAssessmentResultsMessage {
 }
 
 /**
+ * @public
  * <p> The task assessment report in JSON format. </p>
  */
 export interface ReplicationTaskAssessmentResult {
@@ -7619,6 +8123,7 @@ export interface ReplicationTaskAssessmentResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReplicationTaskAssessmentResultsResponse {
@@ -7641,6 +8146,7 @@ export interface DescribeReplicationTaskAssessmentResultsResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReplicationTaskAssessmentRunsMessage {
@@ -7668,6 +8174,7 @@ export interface DescribeReplicationTaskAssessmentRunsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReplicationTaskAssessmentRunsResponse {
@@ -7686,6 +8193,7 @@ export interface DescribeReplicationTaskAssessmentRunsResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReplicationTaskIndividualAssessmentsMessage {
@@ -7714,6 +8222,7 @@ export interface DescribeReplicationTaskIndividualAssessmentsMessage {
 }
 
 /**
+ * @public
  * <p>Provides information that describes an individual assessment from a premigration
  *          assessment run.</p>
  */
@@ -7780,6 +8289,7 @@ export interface ReplicationTaskIndividualAssessment {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReplicationTaskIndividualAssessmentsResponse {
@@ -7798,6 +8308,7 @@ export interface DescribeReplicationTaskIndividualAssessmentsResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReplicationTasksMessage {
@@ -7833,6 +8344,7 @@ export interface DescribeReplicationTasksMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReplicationTasksResponse {
@@ -7850,6 +8362,7 @@ export interface DescribeReplicationTasksResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeSchemasMessage {
@@ -7876,6 +8389,7 @@ export interface DescribeSchemasMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeSchemasResponse {
@@ -7893,6 +8407,7 @@ export interface DescribeSchemasResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeTableStatisticsMessage {
@@ -7927,6 +8442,7 @@ export interface DescribeTableStatisticsMessage {
 }
 
 /**
+ * @public
  * <p>Provides a collection of table statistics in response to a request by the
  *          <code>DescribeTableStatistics</code> operation.</p>
  */
@@ -8096,6 +8612,7 @@ export interface TableStatistics {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeTableStatisticsResponse {
@@ -8117,6 +8634,9 @@ export interface DescribeTableStatisticsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportCertificateMessage {
   /**
    * <p>A customer-assigned name for the certificate. Identifiers must begin with a letter and
@@ -8133,7 +8653,7 @@ export interface ImportCertificateMessage {
   /**
    * <p>The location of an imported Oracle Wallet certificate for use with SSL. Provide the name of a <code>.sso</code> file
    *           using the <code>fileb://</code> prefix. You can't provide the certificate inline.</p>
-   *          <p>Example: <code>filebase64("${path.root}/rds-ca-2019-root.sso")</code>
+   *          <p>Example: <code>filebase64("$\{path.root\}/rds-ca-2019-root.sso")</code>
    *          </p>
    */
   CertificateWallet?: Uint8Array;
@@ -8144,6 +8664,9 @@ export interface ImportCertificateMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ImportCertificateResponse {
   /**
    * <p>The certificate to be uploaded.</p>
@@ -8152,6 +8675,7 @@ export interface ImportCertificateResponse {
 }
 
 /**
+ * @public
  * <p>The certificate was not valid.</p>
  */
 export class InvalidCertificateFault extends __BaseException {
@@ -8171,6 +8695,7 @@ export class InvalidCertificateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ListTagsForResourceMessage {
@@ -8191,6 +8716,7 @@ export interface ListTagsForResourceMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ListTagsForResourceResponse {
@@ -8201,6 +8727,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyEndpointMessage {
@@ -8317,8 +8844,8 @@ export interface ModifyEndpointMessage {
    *          <p>Shorthand syntax for these settings is as follows: <code>ServiceAccessRoleArn=string
    *             ,BucketName=string</code>
    *          </p>
-   *          <p>JSON syntax for these settings is as follows: <code>{ "ServiceAccessRoleArn": "string",
-   *             "BucketName": "string"} </code>
+   *          <p>JSON syntax for these settings is as follows: <code>\{ "ServiceAccessRoleArn": "string",
+   *             "BucketName": "string"\} </code>
    *          </p>
    */
   DmsTransferSettings?: DmsTransferSettings;
@@ -8456,13 +8983,13 @@ export interface ModifyEndpointMessage {
    *                names. </p>
    *             </li>
    *          </ul>
-   *          <p>For example, if you call <code>create-endpoint ... --endpoint-settings '{"a":1}'
-   *             ...</code>, the endpoint has the following endpoint settings: <code>'{"a":1}'</code>. If
-   *          you then call <code>modify-endpoint ... --endpoint-settings '{"b":2}' ...</code> for the
-   *          same endpoint, the endpoint has the following settings: <code>'{"a":1,"b":2}'</code>. </p>
+   *          <p>For example, if you call <code>create-endpoint ... --endpoint-settings '\{"a":1\}'
+   *             ...</code>, the endpoint has the following endpoint settings: <code>'\{"a":1\}'</code>. If
+   *          you then call <code>modify-endpoint ... --endpoint-settings '\{"b":2\}' ...</code> for the
+   *          same endpoint, the endpoint has the following settings: <code>'\{"a":1,"b":2\}'</code>. </p>
    *          <p>However, suppose that you follow this with a call to <code>modify-endpoint ...
-   *             --endpoint-settings '{"b":2}' --exact-settings ...</code> for that same endpoint again.
-   *          Then the endpoint has the following settings: <code>'{"b":2}'</code>. All existing settings
+   *             --endpoint-settings '\{"b":2\}' --exact-settings ...</code> for that same endpoint again.
+   *          Then the endpoint has the following settings: <code>'\{"b":2\}'</code>. All existing settings
    *          are replaced with the exact settings that you specify. </p>
    */
   ExactSettings?: boolean;
@@ -8474,6 +9001,7 @@ export interface ModifyEndpointMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyEndpointResponse {
@@ -8484,6 +9012,7 @@ export interface ModifyEndpointResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyEventSubscriptionMessage {
@@ -8518,6 +9047,7 @@ export interface ModifyEventSubscriptionMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyEventSubscriptionResponse {
@@ -8528,6 +9058,7 @@ export interface ModifyEventSubscriptionResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyReplicationInstanceMessage {
@@ -8642,6 +9173,7 @@ export interface ModifyReplicationInstanceMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyReplicationInstanceResponse {
@@ -8652,6 +9184,7 @@ export interface ModifyReplicationInstanceResponse {
 }
 
 /**
+ * @public
  * <p>An upgrade dependency is preventing the database migration.</p>
  */
 export class UpgradeDependencyFailureFault extends __BaseException {
@@ -8671,6 +9204,7 @@ export class UpgradeDependencyFailureFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyReplicationSubnetGroupMessage {
@@ -8691,6 +9225,7 @@ export interface ModifyReplicationSubnetGroupMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyReplicationSubnetGroupResponse {
@@ -8701,6 +9236,7 @@ export interface ModifyReplicationSubnetGroupResponse {
 }
 
 /**
+ * @public
  * <p>The specified subnet is already in use.</p>
  */
 export class SubnetAlreadyInUse extends __BaseException {
@@ -8720,6 +9256,7 @@ export class SubnetAlreadyInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyReplicationTaskMessage {
@@ -8810,6 +9347,7 @@ export interface ModifyReplicationTaskMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyReplicationTaskResponse {
@@ -8820,6 +9358,7 @@ export interface ModifyReplicationTaskResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface MoveReplicationTaskMessage {
@@ -8835,6 +9374,7 @@ export interface MoveReplicationTaskMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface MoveReplicationTaskResponse {
@@ -8844,6 +9384,9 @@ export interface MoveReplicationTaskResponse {
   ReplicationTask?: ReplicationTask;
 }
 
+/**
+ * @public
+ */
 export interface RebootReplicationInstanceMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
@@ -8866,6 +9409,9 @@ export interface RebootReplicationInstanceMessage {
   ForcePlannedFailover?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RebootReplicationInstanceResponse {
   /**
    * <p>The replication instance that is being rebooted. </p>
@@ -8874,6 +9420,7 @@ export interface RebootReplicationInstanceResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RefreshSchemasMessage {
@@ -8889,6 +9436,7 @@ export interface RefreshSchemasMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RefreshSchemasResponse {
@@ -8898,12 +9446,22 @@ export interface RefreshSchemasResponse {
   RefreshSchemasStatus?: RefreshSchemasStatus;
 }
 
-export enum ReloadOptionValue {
-  DATA_RELOAD = "data-reload",
-  VALIDATE_ONLY = "validate-only",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReloadOptionValue = {
+  DATA_RELOAD: "data-reload",
+  VALIDATE_ONLY: "validate-only",
+} as const;
 
 /**
+ * @public
+ */
+export type ReloadOptionValue = (typeof ReloadOptionValue)[keyof typeof ReloadOptionValue];
+
+/**
+ * @public
  * <p>Provides the name of the schema and table to be reloaded.</p>
  */
 export interface TableToReload {
@@ -8918,6 +9476,9 @@ export interface TableToReload {
   TableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ReloadTablesMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication task. </p>
@@ -8939,6 +9500,9 @@ export interface ReloadTablesMessage {
   ReloadOption?: ReloadOptionValue | string;
 }
 
+/**
+ * @public
+ */
 export interface ReloadTablesResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication task. </p>
@@ -8947,6 +9511,7 @@ export interface ReloadTablesResponse {
 }
 
 /**
+ * @public
  * <p>Removes one or more tags from an DMS resource.</p>
  */
 export interface RemoveTagsFromResourceMessage {
@@ -8962,10 +9527,14 @@ export interface RemoveTagsFromResourceMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RemoveTagsFromResourceResponse {}
 
+/**
+ * @public
+ */
 export interface RunFleetAdvisorLsaAnalysisResponse {
   /**
    * <p>The ID of the LSA analysis run.</p>
@@ -8978,6 +9547,9 @@ export interface RunFleetAdvisorLsaAnalysisResponse {
   Status?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartRecommendationsRequest {
   /**
    * <p>The identifier of the source database to analyze and provide recommendations
@@ -8996,13 +9568,24 @@ export interface StartRecommendationsRequest {
   Settings: RecommendationSettings | undefined;
 }
 
-export enum StartReplicationTaskTypeValue {
-  RELOAD_TARGET = "reload-target",
-  RESUME_PROCESSING = "resume-processing",
-  START_REPLICATION = "start-replication",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StartReplicationTaskTypeValue = {
+  RELOAD_TARGET: "reload-target",
+  RESUME_PROCESSING: "resume-processing",
+  START_REPLICATION: "start-replication",
+} as const;
 
 /**
+ * @public
+ */
+export type StartReplicationTaskTypeValue =
+  (typeof StartReplicationTaskTypeValue)[keyof typeof StartReplicationTaskTypeValue];
+
+/**
+ * @public
  * <p></p>
  */
 export interface StartReplicationTaskMessage {
@@ -9063,6 +9646,7 @@ export interface StartReplicationTaskMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface StartReplicationTaskResponse {
@@ -9073,6 +9657,7 @@ export interface StartReplicationTaskResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface StartReplicationTaskAssessmentMessage {
@@ -9083,6 +9668,7 @@ export interface StartReplicationTaskAssessmentMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface StartReplicationTaskAssessmentResponse {
@@ -9093,6 +9679,7 @@ export interface StartReplicationTaskAssessmentResponse {
 }
 
 /**
+ * @public
  * <p>An Key Management Service (KMS) error is preventing access to KMS.</p>
  */
 export class KMSFault extends __BaseException {
@@ -9112,6 +9699,7 @@ export class KMSFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface StartReplicationTaskAssessmentRunMessage {
@@ -9203,6 +9791,7 @@ export interface StartReplicationTaskAssessmentRunMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface StartReplicationTaskAssessmentRunResponse {
@@ -9213,6 +9802,7 @@ export interface StartReplicationTaskAssessmentRunResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface StopReplicationTaskMessage {
@@ -9223,6 +9813,7 @@ export interface StopReplicationTaskMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface StopReplicationTaskResponse {
@@ -9233,6 +9824,7 @@ export interface StopReplicationTaskResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface TestConnectionMessage {
@@ -9248,6 +9840,7 @@ export interface TestConnectionMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface TestConnectionResponse {
@@ -9258,6 +9851,7 @@ export interface TestConnectionResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface UpdateSubscriptionsToEventBridgeMessage {
@@ -9272,6 +9866,7 @@ export interface UpdateSubscriptionsToEventBridgeMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface UpdateSubscriptionsToEventBridgeResponse {
@@ -9284,161 +9879,9 @@ export interface UpdateSubscriptionsToEventBridgeResponse {
 /**
  * @internal
  */
-export const AccountQuotaFilterSensitiveLog = (obj: AccountQuota): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsToResourceMessageFilterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsToResourceResponseFilterSensitiveLog = (obj: AddTagsToResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplyPendingMaintenanceActionMessageFilterSensitiveLog = (
-  obj: ApplyPendingMaintenanceActionMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PendingMaintenanceActionFilterSensitiveLog = (obj: PendingMaintenanceAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourcePendingMaintenanceActionsFilterSensitiveLog = (obj: ResourcePendingMaintenanceActions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplyPendingMaintenanceActionResponseFilterSensitiveLog = (
-  obj: ApplyPendingMaintenanceActionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationSettingsFilterSensitiveLog = (obj: RecommendationSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRecommendationsRequestEntryFilterSensitiveLog = (obj: StartRecommendationsRequestEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchStartRecommendationsRequestFilterSensitiveLog = (obj: BatchStartRecommendationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchStartRecommendationsErrorEntryFilterSensitiveLog = (
-  obj: BatchStartRecommendationsErrorEntry
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchStartRecommendationsResponseFilterSensitiveLog = (obj: BatchStartRecommendationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelReplicationTaskAssessmentRunMessageFilterSensitiveLog = (
-  obj: CancelReplicationTaskAssessmentRunMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationTaskAssessmentRunProgressFilterSensitiveLog = (
-  obj: ReplicationTaskAssessmentRunProgress
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationTaskAssessmentRunFilterSensitiveLog = (obj: ReplicationTaskAssessmentRun): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelReplicationTaskAssessmentRunResponseFilterSensitiveLog = (
-  obj: CancelReplicationTaskAssessmentRunResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DmsTransferSettingsFilterSensitiveLog = (obj: DmsTransferSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DocDbSettingsFilterSensitiveLog = (obj: DocDbSettings): any => ({
   ...obj,
   ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DynamoDbSettingsFilterSensitiveLog = (obj: DynamoDbSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchSettingsFilterSensitiveLog = (obj: ElasticsearchSettings): any => ({
-  ...obj,
 });
 
 /**
@@ -9469,13 +9912,6 @@ export const KafkaSettingsFilterSensitiveLog = (obj: KafkaSettings): any => ({
 /**
  * @internal
  */
-export const KinesisSettingsFilterSensitiveLog = (obj: KinesisSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const MicrosoftSQLServerSettingsFilterSensitiveLog = (obj: MicrosoftSQLServerSettings): any => ({
   ...obj,
   ...(obj.Password && { Password: SENSITIVE_STRING }),
@@ -9495,13 +9931,6 @@ export const MongoDbSettingsFilterSensitiveLog = (obj: MongoDbSettings): any => 
 export const MySQLSettingsFilterSensitiveLog = (obj: MySQLSettings): any => ({
   ...obj,
   ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const NeptuneSettingsFilterSensitiveLog = (obj: NeptuneSettings): any => ({
-  ...obj,
 });
 
 /**
@@ -9536,13 +9965,6 @@ export const RedisSettingsFilterSensitiveLog = (obj: RedisSettings): any => ({
 export const RedshiftSettingsFilterSensitiveLog = (obj: RedshiftSettings): any => ({
   ...obj,
   ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const S3SettingsFilterSensitiveLog = (obj: S3Settings): any => ({
-  ...obj,
 });
 
 /**
@@ -9607,372 +10029,9 @@ export const CreateEndpointResponseFilterSensitiveLog = (obj: CreateEndpointResp
 /**
  * @internal
  */
-export const CreateEventSubscriptionMessageFilterSensitiveLog = (obj: CreateEventSubscriptionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventSubscriptionFilterSensitiveLog = (obj: EventSubscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventSubscriptionResponseFilterSensitiveLog = (obj: CreateEventSubscriptionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetAdvisorCollectorRequestFilterSensitiveLog = (obj: CreateFleetAdvisorCollectorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetAdvisorCollectorResponseFilterSensitiveLog = (
-  obj: CreateFleetAdvisorCollectorResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplicationInstanceMessageFilterSensitiveLog = (obj: CreateReplicationInstanceMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationPendingModifiedValuesFilterSensitiveLog = (obj: ReplicationPendingModifiedValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationSubnetGroupFilterSensitiveLog = (obj: ReplicationSubnetGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcSecurityGroupMembershipFilterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationInstanceFilterSensitiveLog = (obj: ReplicationInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplicationInstanceResponseFilterSensitiveLog = (obj: CreateReplicationInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplicationSubnetGroupMessageFilterSensitiveLog = (
-  obj: CreateReplicationSubnetGroupMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplicationSubnetGroupResponseFilterSensitiveLog = (
-  obj: CreateReplicationSubnetGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplicationTaskMessageFilterSensitiveLog = (obj: CreateReplicationTaskMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationTaskStatsFilterSensitiveLog = (obj: ReplicationTaskStats): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationTaskFilterSensitiveLog = (obj: ReplicationTask): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplicationTaskResponseFilterSensitiveLog = (obj: CreateReplicationTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCertificateMessageFilterSensitiveLog = (obj: DeleteCertificateMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificateFilterSensitiveLog = (obj: Certificate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCertificateResponseFilterSensitiveLog = (obj: DeleteCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectionMessageFilterSensitiveLog = (obj: DeleteConnectionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionFilterSensitiveLog = (obj: Connection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectionResponseFilterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEndpointMessageFilterSensitiveLog = (obj: DeleteEndpointMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteEndpointResponseFilterSensitiveLog = (obj: DeleteEndpointResponse): any => ({
   ...obj,
   ...(obj.Endpoint && { Endpoint: EndpointFilterSensitiveLog(obj.Endpoint) }),
-});
-
-/**
- * @internal
- */
-export const DeleteEventSubscriptionMessageFilterSensitiveLog = (obj: DeleteEventSubscriptionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventSubscriptionResponseFilterSensitiveLog = (obj: DeleteEventSubscriptionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCollectorRequestFilterSensitiveLog = (obj: DeleteCollectorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFleetAdvisorDatabasesRequestFilterSensitiveLog = (obj: DeleteFleetAdvisorDatabasesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFleetAdvisorDatabasesResponseFilterSensitiveLog = (
-  obj: DeleteFleetAdvisorDatabasesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationInstanceMessageFilterSensitiveLog = (obj: DeleteReplicationInstanceMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationInstanceResponseFilterSensitiveLog = (obj: DeleteReplicationInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationSubnetGroupMessageFilterSensitiveLog = (
-  obj: DeleteReplicationSubnetGroupMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationSubnetGroupResponseFilterSensitiveLog = (
-  obj: DeleteReplicationSubnetGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationTaskMessageFilterSensitiveLog = (obj: DeleteReplicationTaskMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationTaskResponseFilterSensitiveLog = (obj: DeleteReplicationTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationTaskAssessmentRunMessageFilterSensitiveLog = (
-  obj: DeleteReplicationTaskAssessmentRunMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationTaskAssessmentRunResponseFilterSensitiveLog = (
-  obj: DeleteReplicationTaskAssessmentRunResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountAttributesMessageFilterSensitiveLog = (obj: DescribeAccountAttributesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountAttributesResponseFilterSensitiveLog = (obj: DescribeAccountAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicableIndividualAssessmentsMessageFilterSensitiveLog = (
-  obj: DescribeApplicableIndividualAssessmentsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicableIndividualAssessmentsResponseFilterSensitiveLog = (
-  obj: DescribeApplicableIndividualAssessmentsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCertificatesMessageFilterSensitiveLog = (obj: DescribeCertificatesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCertificatesResponseFilterSensitiveLog = (obj: DescribeCertificatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConnectionsMessageFilterSensitiveLog = (obj: DescribeConnectionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConnectionsResponseFilterSensitiveLog = (obj: DescribeConnectionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointsMessageFilterSensitiveLog = (obj: DescribeEndpointsMessage): any => ({
-  ...obj,
 });
 
 /**
@@ -9986,624 +10045,9 @@ export const DescribeEndpointsResponseFilterSensitiveLog = (obj: DescribeEndpoin
 /**
  * @internal
  */
-export const DescribeEndpointSettingsMessageFilterSensitiveLog = (obj: DescribeEndpointSettingsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointSettingFilterSensitiveLog = (obj: EndpointSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointSettingsResponseFilterSensitiveLog = (obj: DescribeEndpointSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointTypesMessageFilterSensitiveLog = (obj: DescribeEndpointTypesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SupportedEndpointTypeFilterSensitiveLog = (obj: SupportedEndpointType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointTypesResponseFilterSensitiveLog = (obj: DescribeEndpointTypesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventCategoriesMessageFilterSensitiveLog = (obj: DescribeEventCategoriesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventCategoryGroupFilterSensitiveLog = (obj: EventCategoryGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventCategoriesResponseFilterSensitiveLog = (obj: DescribeEventCategoriesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventsMessageFilterSensitiveLog = (obj: DescribeEventsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventFilterSensitiveLog = (obj: Event): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventsResponseFilterSensitiveLog = (obj: DescribeEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventSubscriptionsMessageFilterSensitiveLog = (obj: DescribeEventSubscriptionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventSubscriptionsResponseFilterSensitiveLog = (obj: DescribeEventSubscriptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetAdvisorCollectorsRequestFilterSensitiveLog = (
-  obj: DescribeFleetAdvisorCollectorsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CollectorHealthCheckFilterSensitiveLog = (obj: CollectorHealthCheck): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InventoryDataFilterSensitiveLog = (obj: InventoryData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CollectorResponseFilterSensitiveLog = (obj: CollectorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetAdvisorCollectorsResponseFilterSensitiveLog = (
-  obj: DescribeFleetAdvisorCollectorsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetAdvisorDatabasesRequestFilterSensitiveLog = (
-  obj: DescribeFleetAdvisorDatabasesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CollectorShortInfoResponseFilterSensitiveLog = (obj: CollectorShortInfoResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerShortInfoResponseFilterSensitiveLog = (obj: ServerShortInfoResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseInstanceSoftwareDetailsResponseFilterSensitiveLog = (
-  obj: DatabaseInstanceSoftwareDetailsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseResponseFilterSensitiveLog = (obj: DatabaseResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetAdvisorDatabasesResponseFilterSensitiveLog = (
-  obj: DescribeFleetAdvisorDatabasesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetAdvisorLsaAnalysisRequestFilterSensitiveLog = (
-  obj: DescribeFleetAdvisorLsaAnalysisRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetAdvisorLsaAnalysisResponseFilterSensitiveLog = (obj: FleetAdvisorLsaAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetAdvisorLsaAnalysisResponseFilterSensitiveLog = (
-  obj: DescribeFleetAdvisorLsaAnalysisResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetAdvisorSchemaObjectSummaryRequestFilterSensitiveLog = (
-  obj: DescribeFleetAdvisorSchemaObjectSummaryRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetAdvisorSchemaObjectResponseFilterSensitiveLog = (obj: FleetAdvisorSchemaObjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetAdvisorSchemaObjectSummaryResponseFilterSensitiveLog = (
-  obj: DescribeFleetAdvisorSchemaObjectSummaryResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetAdvisorSchemasRequestFilterSensitiveLog = (obj: DescribeFleetAdvisorSchemasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseShortInfoResponseFilterSensitiveLog = (obj: DatabaseShortInfoResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaShortInfoResponseFilterSensitiveLog = (obj: SchemaShortInfoResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaResponseFilterSensitiveLog = (obj: SchemaResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetAdvisorSchemasResponseFilterSensitiveLog = (
-  obj: DescribeFleetAdvisorSchemasResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrderableReplicationInstancesMessageFilterSensitiveLog = (
-  obj: DescribeOrderableReplicationInstancesMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OrderableReplicationInstanceFilterSensitiveLog = (obj: OrderableReplicationInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrderableReplicationInstancesResponseFilterSensitiveLog = (
-  obj: DescribeOrderableReplicationInstancesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePendingMaintenanceActionsMessageFilterSensitiveLog = (
-  obj: DescribePendingMaintenanceActionsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePendingMaintenanceActionsResponseFilterSensitiveLog = (
-  obj: DescribePendingMaintenanceActionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecommendationLimitationsRequestFilterSensitiveLog = (
-  obj: DescribeRecommendationLimitationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LimitationFilterSensitiveLog = (obj: Limitation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecommendationLimitationsResponseFilterSensitiveLog = (
-  obj: DescribeRecommendationLimitationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecommendationsRequestFilterSensitiveLog = (obj: DescribeRecommendationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RdsRequirementsFilterSensitiveLog = (obj: RdsRequirements): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RdsConfigurationFilterSensitiveLog = (obj: RdsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RdsRecommendationFilterSensitiveLog = (obj: RdsRecommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationDataFilterSensitiveLog = (obj: RecommendationData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecommendationsResponseFilterSensitiveLog = (obj: DescribeRecommendationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRefreshSchemasStatusMessageFilterSensitiveLog = (
-  obj: DescribeRefreshSchemasStatusMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RefreshSchemasStatusFilterSensitiveLog = (obj: RefreshSchemasStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRefreshSchemasStatusResponseFilterSensitiveLog = (
-  obj: DescribeRefreshSchemasStatusResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationInstancesMessageFilterSensitiveLog = (
-  obj: DescribeReplicationInstancesMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationInstancesResponseFilterSensitiveLog = (
-  obj: DescribeReplicationInstancesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationInstanceTaskLogsMessageFilterSensitiveLog = (
-  obj: DescribeReplicationInstanceTaskLogsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationInstanceTaskLogFilterSensitiveLog = (obj: ReplicationInstanceTaskLog): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationInstanceTaskLogsResponseFilterSensitiveLog = (
-  obj: DescribeReplicationInstanceTaskLogsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationSubnetGroupsMessageFilterSensitiveLog = (
-  obj: DescribeReplicationSubnetGroupsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationSubnetGroupsResponseFilterSensitiveLog = (
-  obj: DescribeReplicationSubnetGroupsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationTaskAssessmentResultsMessageFilterSensitiveLog = (
-  obj: DescribeReplicationTaskAssessmentResultsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationTaskAssessmentResultFilterSensitiveLog = (obj: ReplicationTaskAssessmentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationTaskAssessmentResultsResponseFilterSensitiveLog = (
-  obj: DescribeReplicationTaskAssessmentResultsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationTaskAssessmentRunsMessageFilterSensitiveLog = (
-  obj: DescribeReplicationTaskAssessmentRunsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationTaskAssessmentRunsResponseFilterSensitiveLog = (
-  obj: DescribeReplicationTaskAssessmentRunsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationTaskIndividualAssessmentsMessageFilterSensitiveLog = (
-  obj: DescribeReplicationTaskIndividualAssessmentsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationTaskIndividualAssessmentFilterSensitiveLog = (
-  obj: ReplicationTaskIndividualAssessment
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationTaskIndividualAssessmentsResponseFilterSensitiveLog = (
-  obj: DescribeReplicationTaskIndividualAssessmentsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationTasksMessageFilterSensitiveLog = (obj: DescribeReplicationTasksMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationTasksResponseFilterSensitiveLog = (obj: DescribeReplicationTasksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSchemasMessageFilterSensitiveLog = (obj: DescribeSchemasMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSchemasResponseFilterSensitiveLog = (obj: DescribeSchemasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTableStatisticsMessageFilterSensitiveLog = (obj: DescribeTableStatisticsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableStatisticsFilterSensitiveLog = (obj: TableStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTableStatisticsResponseFilterSensitiveLog = (obj: DescribeTableStatisticsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ImportCertificateMessageFilterSensitiveLog = (obj: ImportCertificateMessage): any => ({
   ...obj,
   ...(obj.CertificatePem && { CertificatePem: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportCertificateResponseFilterSensitiveLog = (obj: ImportCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceMessageFilterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -10634,251 +10078,4 @@ export const ModifyEndpointMessageFilterSensitiveLog = (obj: ModifyEndpointMessa
 export const ModifyEndpointResponseFilterSensitiveLog = (obj: ModifyEndpointResponse): any => ({
   ...obj,
   ...(obj.Endpoint && { Endpoint: EndpointFilterSensitiveLog(obj.Endpoint) }),
-});
-
-/**
- * @internal
- */
-export const ModifyEventSubscriptionMessageFilterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyEventSubscriptionResponseFilterSensitiveLog = (obj: ModifyEventSubscriptionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyReplicationInstanceMessageFilterSensitiveLog = (obj: ModifyReplicationInstanceMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyReplicationInstanceResponseFilterSensitiveLog = (obj: ModifyReplicationInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyReplicationSubnetGroupMessageFilterSensitiveLog = (
-  obj: ModifyReplicationSubnetGroupMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyReplicationSubnetGroupResponseFilterSensitiveLog = (
-  obj: ModifyReplicationSubnetGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyReplicationTaskMessageFilterSensitiveLog = (obj: ModifyReplicationTaskMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyReplicationTaskResponseFilterSensitiveLog = (obj: ModifyReplicationTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MoveReplicationTaskMessageFilterSensitiveLog = (obj: MoveReplicationTaskMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MoveReplicationTaskResponseFilterSensitiveLog = (obj: MoveReplicationTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootReplicationInstanceMessageFilterSensitiveLog = (obj: RebootReplicationInstanceMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootReplicationInstanceResponseFilterSensitiveLog = (obj: RebootReplicationInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RefreshSchemasMessageFilterSensitiveLog = (obj: RefreshSchemasMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RefreshSchemasResponseFilterSensitiveLog = (obj: RefreshSchemasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableToReloadFilterSensitiveLog = (obj: TableToReload): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReloadTablesMessageFilterSensitiveLog = (obj: ReloadTablesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReloadTablesResponseFilterSensitiveLog = (obj: ReloadTablesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsFromResourceMessageFilterSensitiveLog = (obj: RemoveTagsFromResourceMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsFromResourceResponseFilterSensitiveLog = (obj: RemoveTagsFromResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunFleetAdvisorLsaAnalysisResponseFilterSensitiveLog = (obj: RunFleetAdvisorLsaAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRecommendationsRequestFilterSensitiveLog = (obj: StartRecommendationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReplicationTaskMessageFilterSensitiveLog = (obj: StartReplicationTaskMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReplicationTaskResponseFilterSensitiveLog = (obj: StartReplicationTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReplicationTaskAssessmentMessageFilterSensitiveLog = (
-  obj: StartReplicationTaskAssessmentMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReplicationTaskAssessmentResponseFilterSensitiveLog = (
-  obj: StartReplicationTaskAssessmentResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReplicationTaskAssessmentRunMessageFilterSensitiveLog = (
-  obj: StartReplicationTaskAssessmentRunMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReplicationTaskAssessmentRunResponseFilterSensitiveLog = (
-  obj: StartReplicationTaskAssessmentRunResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopReplicationTaskMessageFilterSensitiveLog = (obj: StopReplicationTaskMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopReplicationTaskResponseFilterSensitiveLog = (obj: StopReplicationTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestConnectionMessageFilterSensitiveLog = (obj: TestConnectionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestConnectionResponseFilterSensitiveLog = (obj: TestConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriptionsToEventBridgeMessageFilterSensitiveLog = (
-  obj: UpdateSubscriptionsToEventBridgeMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriptionsToEventBridgeResponseFilterSensitiveLog = (
-  obj: UpdateSubscriptionsToEventBridgeResponse
-): any => ({
-  ...obj,
 });

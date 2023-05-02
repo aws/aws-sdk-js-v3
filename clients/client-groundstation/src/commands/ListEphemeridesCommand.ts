@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  ListEphemeridesRequest,
-  ListEphemeridesRequestFilterSensitiveLog,
-  ListEphemeridesResponse,
-  ListEphemeridesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEphemeridesCommand,
-  serializeAws_restJson1ListEphemeridesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEphemeridesRequest, ListEphemeridesResponse } from "../models/models_0";
+import { de_ListEphemeridesCommand, se_ListEphemeridesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEphemeridesCommand}.
  */
 export interface ListEphemeridesCommandInput extends ListEphemeridesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEphemeridesCommand}.
  */
 export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List existing ephemerides.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  * import { GroundStationClient, ListEphemeridesCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListEphemeridesCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // ListEphemeridesRequest
+ *   satelliteId: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   statusList: [ // EphemerisStatusList
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListEphemeridesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEphemeridesCommandInput - {@link ListEphemeridesCommandInput}
+ * @returns {@link ListEphemeridesCommandOutput}
  * @see {@link ListEphemeridesCommandInput} for command's `input` shape.
  * @see {@link ListEphemeridesCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +87,9 @@ export class ListEphemeridesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEphemeridesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +118,8 @@ export class ListEphemeridesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEphemeridesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEphemeridesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +129,18 @@ export class ListEphemeridesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEphemeridesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEphemeridesCommand(input, context);
+    return se_ListEphemeridesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEphemeridesCommandOutput> {
-    return deserializeAws_restJson1ListEphemeridesCommand(output, context);
+    return de_ListEphemeridesCommand(output, context);
   }
 
   // Start section: command_body_extra

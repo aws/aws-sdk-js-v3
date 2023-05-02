@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateRoleAliasRequest,
-  CreateRoleAliasRequestFilterSensitiveLog,
-  CreateRoleAliasResponse,
-  CreateRoleAliasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRoleAliasCommand,
-  serializeAws_restJson1CreateRoleAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRoleAliasRequest, CreateRoleAliasResponse } from "../models/models_0";
+import { de_CreateRoleAliasCommand, se_CreateRoleAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRoleAliasCommand}.
  */
 export interface CreateRoleAliasCommandInput extends CreateRoleAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRoleAliasCommand}.
  */
 export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a role alias.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateRoleAlias</a> action.</p>
  * @example
@@ -43,10 +40,23 @@ export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, _
  * import { IoTClient, CreateRoleAliasCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateRoleAliasCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateRoleAliasRequest
+ *   roleAlias: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   credentialDurationSeconds: Number("int"),
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateRoleAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRoleAliasCommandInput - {@link CreateRoleAliasCommandInput}
+ * @returns {@link CreateRoleAliasCommandOutput}
  * @see {@link CreateRoleAliasCommandInput} for command's `input` shape.
  * @see {@link CreateRoleAliasCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -91,6 +101,9 @@ export class CreateRoleAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRoleAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +132,8 @@ export class CreateRoleAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRoleAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRoleAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +143,18 @@ export class CreateRoleAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRoleAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRoleAliasCommand(input, context);
+    return se_CreateRoleAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoleAliasCommandOutput> {
-    return deserializeAws_restJson1CreateRoleAliasCommand(output, context);
+    return de_CreateRoleAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

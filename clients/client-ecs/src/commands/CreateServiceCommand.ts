@@ -14,31 +14,31 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  CreateServiceRequest,
-  CreateServiceRequestFilterSensitiveLog,
-  CreateServiceResponse,
-  CreateServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateServiceCommand,
-  serializeAws_json1_1CreateServiceCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateServiceRequest, CreateServiceResponse } from "../models/models_0";
+import { de_CreateServiceCommand, se_CreateServiceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServiceCommand}.
  */
 export interface CreateServiceCommandInput extends CreateServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateServiceCommand}.
  */
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs and maintains your desired number of tasks from a specified task definition. If
  * 			the number of tasks running in a service drops below the <code>desiredCount</code>,
  * 			Amazon ECS runs another copy of the task in the specified cluster. To update an existing
  * 			service, see the <a>UpdateService</a> action.</p>
+ *          <note>
+ *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. </p>
+ *          </note>
  *          <p>In addition to maintaining the desired count of tasks in your service, you can
  * 			optionally run your service behind one or more load balancers. The load balancers
  * 			distribute traffic across the tasks that are associated with the service. For more
@@ -118,10 +118,126 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * import { ECSClient, CreateServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // CreateServiceRequest
+ *   cluster: "STRING_VALUE",
+ *   serviceName: "STRING_VALUE", // required
+ *   taskDefinition: "STRING_VALUE",
+ *   loadBalancers: [ // LoadBalancers
+ *     { // LoadBalancer
+ *       targetGroupArn: "STRING_VALUE",
+ *       loadBalancerName: "STRING_VALUE",
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   serviceRegistries: [ // ServiceRegistries
+ *     { // ServiceRegistry
+ *       registryArn: "STRING_VALUE",
+ *       port: Number("int"),
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   desiredCount: Number("int"),
+ *   clientToken: "STRING_VALUE",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   capacityProviderStrategy: [ // CapacityProviderStrategy
+ *     { // CapacityProviderStrategyItem
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ *   platformVersion: "STRING_VALUE",
+ *   role: "STRING_VALUE",
+ *   deploymentConfiguration: { // DeploymentConfiguration
+ *     deploymentCircuitBreaker: { // DeploymentCircuitBreaker
+ *       enable: true || false, // required
+ *       rollback: true || false, // required
+ *     },
+ *     maximumPercent: Number("int"),
+ *     minimumHealthyPercent: Number("int"),
+ *     alarms: { // DeploymentAlarms
+ *       alarmNames: [ // StringList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       enable: true || false, // required
+ *       rollback: true || false, // required
+ *     },
+ *   },
+ *   placementConstraints: [ // PlacementConstraints
+ *     { // PlacementConstraint
+ *       type: "distinctInstance" || "memberOf",
+ *       expression: "STRING_VALUE",
+ *     },
+ *   ],
+ *   placementStrategy: [ // PlacementStrategies
+ *     { // PlacementStrategy
+ *       type: "random" || "spread" || "binpack",
+ *       field: "STRING_VALUE",
+ *     },
+ *   ],
+ *   networkConfiguration: { // NetworkConfiguration
+ *     awsvpcConfiguration: { // AwsVpcConfiguration
+ *       subnets: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroups: [
+ *         "STRING_VALUE",
+ *       ],
+ *       assignPublicIp: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ *   healthCheckGracePeriodSeconds: Number("int"),
+ *   schedulingStrategy: "REPLICA" || "DAEMON",
+ *   deploymentController: { // DeploymentController
+ *     type: "ECS" || "CODE_DEPLOY" || "EXTERNAL", // required
+ *   },
+ *   tags: [ // Tags
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   enableECSManagedTags: true || false,
+ *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *   enableExecuteCommand: true || false,
+ *   serviceConnectConfiguration: { // ServiceConnectConfiguration
+ *     enabled: true || false, // required
+ *     namespace: "STRING_VALUE",
+ *     services: [ // ServiceConnectServiceList
+ *       { // ServiceConnectService
+ *         portName: "STRING_VALUE", // required
+ *         discoveryName: "STRING_VALUE",
+ *         clientAliases: [ // ServiceConnectClientAliasList
+ *           { // ServiceConnectClientAlias
+ *             port: Number("int"), // required
+ *             dnsName: "STRING_VALUE",
+ *           },
+ *         ],
+ *         ingressPortOverride: Number("int"),
+ *       },
+ *     ],
+ *     logConfiguration: { // LogConfiguration
+ *       logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
+ *       options: { // LogConfigurationOptionsMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       secretOptions: [ // SecretList
+ *         { // Secret
+ *           name: "STRING_VALUE", // required
+ *           valueFrom: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
+ * @returns {@link CreateServiceCommandOutput}
  * @see {@link CreateServiceCommandInput} for command's `input` shape.
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -293,6 +409,9 @@ export class CreateServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -319,8 +438,8 @@ export class CreateServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateServiceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -330,12 +449,18 @@ export class CreateServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateServiceCommand(input, context);
+    return se_CreateServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceCommandOutput> {
-    return deserializeAws_json1_1CreateServiceCommand(output, context);
+    return de_CreateServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

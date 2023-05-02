@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  StartStageDeploymentRequest,
-  StartStageDeploymentRequestFilterSensitiveLog,
-  StartStageDeploymentResult,
-  StartStageDeploymentResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartStageDeploymentCommand,
-  serializeAws_restJson1StartStageDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { StartStageDeploymentRequest, StartStageDeploymentResult } from "../models/models_0";
+import { de_StartStageDeploymentCommand, se_StartStageDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartStageDeploymentCommand}.
  */
 export interface StartStageDeploymentCommandInput extends StartStageDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartStageDeploymentCommand}.
  */
 export interface StartStageDeploymentCommandOutput extends StartStageDeploymentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deploys a snapshot to the stage and creates a new game runtime.</p>
  *          <p>
  *       After you call this operation, you can check the deployment status by using <code>GetStageDeployment</code>.
@@ -51,10 +48,18 @@ export interface StartStageDeploymentCommandOutput extends StartStageDeploymentR
  * import { GameSparksClient, StartStageDeploymentCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, StartStageDeploymentCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // StartStageDeploymentRequest
+ *   GameName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new StartStageDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartStageDeploymentCommandInput - {@link StartStageDeploymentCommandInput}
+ * @returns {@link StartStageDeploymentCommandOutput}
  * @see {@link StartStageDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartStageDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -96,6 +101,9 @@ export class StartStageDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartStageDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +132,8 @@ export class StartStageDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartStageDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartStageDeploymentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +143,18 @@ export class StartStageDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartStageDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartStageDeploymentCommand(input, context);
+    return se_StartStageDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStageDeploymentCommandOutput> {
-    return deserializeAws_restJson1StartStageDeploymentCommand(output, context);
+    return de_StartStageDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

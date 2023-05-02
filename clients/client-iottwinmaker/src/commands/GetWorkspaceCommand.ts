@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  GetWorkspaceRequest,
-  GetWorkspaceRequestFilterSensitiveLog,
-  GetWorkspaceResponse,
-  GetWorkspaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkspaceCommand,
-  serializeAws_restJson1GetWorkspaceCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWorkspaceRequest, GetWorkspaceResponse } from "../models/models_0";
+import { de_GetWorkspaceCommand, se_GetWorkspaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkspaceCommand}.
  */
 export interface GetWorkspaceCommandInput extends GetWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkspaceCommand}.
  */
 export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __Metad
  * import { IoTTwinMakerClient, GetWorkspaceCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetWorkspaceCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // GetWorkspaceRequest
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new GetWorkspaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkspaceCommandInput - {@link GetWorkspaceCommandInput}
+ * @returns {@link GetWorkspaceCommandOutput}
  * @see {@link GetWorkspaceCommandInput} for command's `input` shape.
  * @see {@link GetWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkspaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkspaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkspaceCommand(input, context);
+    return se_GetWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkspaceCommandOutput> {
-    return deserializeAws_restJson1GetWorkspaceCommand(output, context);
+    return de_GetWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

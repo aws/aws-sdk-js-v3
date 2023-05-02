@@ -14,27 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
+import { UpdatePackageVersionsStatusRequest, UpdatePackageVersionsStatusResult } from "../models/models_0";
 import {
-  UpdatePackageVersionsStatusRequest,
-  UpdatePackageVersionsStatusRequestFilterSensitiveLog,
-  UpdatePackageVersionsStatusResult,
-  UpdatePackageVersionsStatusResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePackageVersionsStatusCommand,
-  serializeAws_restJson1UpdatePackageVersionsStatusCommand,
+  de_UpdatePackageVersionsStatusCommand,
+  se_UpdatePackageVersionsStatusCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePackageVersionsStatusCommand}.
  */
 export interface UpdatePackageVersionsStatusCommandInput extends UpdatePackageVersionsStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePackageVersionsStatusCommand}.
  */
 export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageVersionsStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Updates the status of one or more versions of a package. Using <code>UpdatePackageVersionsStatus</code>,
  *       you can update the status of package versions to <code>Archived</code>, <code>Published</code>, or <code>Unlisted</code>.
@@ -47,10 +47,28 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  * import { CodeartifactClient, UpdatePackageVersionsStatusCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, UpdatePackageVersionsStatusCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // UpdatePackageVersionsStatusRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   versions: [ // PackageVersionList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   versionRevisions: { // PackageVersionRevisionMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   expectedStatus: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ *   targetStatus: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted", // required
+ * };
  * const command = new UpdatePackageVersionsStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePackageVersionsStatusCommandInput - {@link UpdatePackageVersionsStatusCommandInput}
+ * @returns {@link UpdatePackageVersionsStatusCommandOutput}
  * @see {@link UpdatePackageVersionsStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePackageVersionsStatusCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -102,6 +120,9 @@ export class UpdatePackageVersionsStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePackageVersionsStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +151,8 @@ export class UpdatePackageVersionsStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePackageVersionsStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePackageVersionsStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,15 +162,21 @@ export class UpdatePackageVersionsStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePackageVersionsStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePackageVersionsStatusCommand(input, context);
+    return se_UpdatePackageVersionsStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePackageVersionsStatusCommandOutput> {
-    return deserializeAws_restJson1UpdatePackageVersionsStatusCommand(output, context);
+    return de_UpdatePackageVersionsStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

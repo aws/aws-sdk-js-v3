@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateEndpointRequest,
-  CreateEndpointRequestFilterSensitiveLog,
-  CreateEndpointResult,
-  CreateEndpointResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEndpointCommand,
-  serializeAws_restJson1CreateEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateEndpointRequest, CreateEndpointResult } from "../models/models_0";
+import { de_CreateEndpointCommand, se_CreateEndpointCommand } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEndpointCommand}.
  */
 export interface CreateEndpointCommandInput extends CreateEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEndpointCommand}.
  */
 export interface CreateEndpointCommandOutput extends CreateEndpointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint and associates it with the specified Outpost.</p>
  *          <note>
  *             <p>It can take up to 5 minutes for this action to finish.</p>
@@ -59,10 +56,19 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
  * import { S3OutpostsClient, CreateEndpointCommand } from "@aws-sdk/client-s3outposts"; // ES Modules import
  * // const { S3OutpostsClient, CreateEndpointCommand } = require("@aws-sdk/client-s3outposts"); // CommonJS import
  * const client = new S3OutpostsClient(config);
+ * const input = { // CreateEndpointRequest
+ *   OutpostId: "STRING_VALUE", // required
+ *   SubnetId: "STRING_VALUE", // required
+ *   SecurityGroupId: "STRING_VALUE", // required
+ *   AccessType: "Private" || "CustomerOwnedIp",
+ *   CustomerOwnedIpv4Pool: "STRING_VALUE",
+ * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
+ * @returns {@link CreateEndpointCommandOutput}
  * @see {@link CreateEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.
@@ -107,6 +113,9 @@ export class CreateEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +144,8 @@ export class CreateEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEndpointResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +155,18 @@ export class CreateEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEndpointCommand(input, context);
+    return se_CreateEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointCommandOutput> {
-    return deserializeAws_restJson1CreateEndpointCommand(output, context);
+    return de_CreateEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

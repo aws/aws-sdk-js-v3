@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  AcceptGrantRequest,
-  AcceptGrantRequestFilterSensitiveLog,
-  AcceptGrantResponse,
-  AcceptGrantResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AcceptGrantCommand,
-  serializeAws_json1_1AcceptGrantCommand,
-} from "../protocols/Aws_json1_1";
+import { AcceptGrantRequest, AcceptGrantResponse } from "../models/models_0";
+import { de_AcceptGrantCommand, se_AcceptGrantCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptGrantCommand}.
  */
 export interface AcceptGrantCommandInput extends AcceptGrantRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptGrantCommand}.
  */
 export interface AcceptGrantCommandOutput extends AcceptGrantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts the specified grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface AcceptGrantCommandOutput extends AcceptGrantResponse, __Metadat
  * import { LicenseManagerClient, AcceptGrantCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, AcceptGrantCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // AcceptGrantRequest
+ *   GrantArn: "STRING_VALUE", // required
+ * };
  * const command = new AcceptGrantCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptGrantCommandInput - {@link AcceptGrantCommandInput}
+ * @returns {@link AcceptGrantCommandOutput}
  * @see {@link AcceptGrantCommandInput} for command's `input` shape.
  * @see {@link AcceptGrantCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +93,9 @@ export class AcceptGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class AcceptGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptGrantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptGrantResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class AcceptGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptGrantCommand(input, context);
+    return se_AcceptGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptGrantCommandOutput> {
-    return deserializeAws_json1_1AcceptGrantCommand(output, context);
+    return de_AcceptGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

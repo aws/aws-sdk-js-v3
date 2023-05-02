@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteOptionGroupMessage, DeleteOptionGroupMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteOptionGroupCommand,
-  serializeAws_queryDeleteOptionGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteOptionGroupMessage } from "../models/models_0";
+import { de_DeleteOptionGroupCommand, se_DeleteOptionGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOptionGroupCommand}.
  */
 export interface DeleteOptionGroupCommandInput extends DeleteOptionGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOptionGroupCommand}.
  */
 export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing option group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * import { RDSClient, DeleteOptionGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteOptionGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteOptionGroupMessage
+ *   OptionGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteOptionGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOptionGroupCommandInput - {@link DeleteOptionGroupCommandInput}
+ * @returns {@link DeleteOptionGroupCommandOutput}
  * @see {@link DeleteOptionGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -52,15 +59,15 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  *  <p>The specified option group could not be found.</p>
  *
  *
- * @example To delete an option group.
+ * @example To delete an option group
  * ```javascript
- * // This example deletes the specified option group.
+ * // The following example deletes the specified option group.
  * const input = {
- *   "OptionGroupName": "mydboptiongroup"
+ *   "OptionGroupName": "myoptiongroup"
  * };
  * const command = new DeleteOptionGroupCommand(input);
  * await client.send(command);
- * // example id: delete-db-option-group-578be2be-3095-431a-9ea4-9a3c3b0daef4
+ * // example id: to-delete-an-option-group-1680128894360
  * ```
  *
  */
@@ -81,6 +88,9 @@ export class DeleteOptionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOptionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +119,8 @@ export class DeleteOptionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOptionGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class DeleteOptionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOptionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteOptionGroupCommand(input, context);
+    return se_DeleteOptionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOptionGroupCommandOutput> {
-    return deserializeAws_queryDeleteOptionGroupCommand(output, context);
+    return de_DeleteOptionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  GetSessionRequest,
-  GetSessionRequestFilterSensitiveLog,
-  GetSessionResponse,
-  GetSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSessionCommand,
-  serializeAws_json1_1GetSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSessionRequest, GetSessionResponse } from "../models/models_0";
+import { de_GetSessionCommand, se_GetSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSessionCommand}.
  */
 export interface GetSessionCommandInput extends GetSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSessionCommand}.
  */
 export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the full details of a previously created session, including the session status
  *             and configuration.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * import { AthenaClient, GetSessionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetSessionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // GetSessionRequest
+ *   SessionId: "STRING_VALUE", // required
+ * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSessionCommandInput - {@link GetSessionCommandInput}
+ * @returns {@link GetSessionCommandOutput}
  * @see {@link GetSessionCommandInput} for command's `input` shape.
  * @see {@link GetSessionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +83,9 @@ export class GetSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class GetSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class GetSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSessionCommand(input, context);
+    return se_GetSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionCommandOutput> {
-    return deserializeAws_json1_1GetSessionCommand(output, context);
+    return de_GetSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

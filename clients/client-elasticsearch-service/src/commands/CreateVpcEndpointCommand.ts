@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  CreateVpcEndpointRequest,
-  CreateVpcEndpointRequestFilterSensitiveLog,
-  CreateVpcEndpointResponse,
-  CreateVpcEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVpcEndpointCommand,
-  serializeAws_restJson1CreateVpcEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateVpcEndpointRequest, CreateVpcEndpointResponse } from "../models/models_0";
+import { de_CreateVpcEndpointCommand, se_CreateVpcEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcEndpointCommand}.
  */
 export interface CreateVpcEndpointCommandInput extends CreateVpcEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcEndpointCommand}.
  */
 export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon OpenSearch Service-managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,24 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * import { ElasticsearchServiceClient, CreateVpcEndpointCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, CreateVpcEndpointCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // CreateVpcEndpointRequest
+ *   DomainArn: "STRING_VALUE", // required
+ *   VpcOptions: { // VPCOptions
+ *     SubnetIds: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateVpcEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcEndpointCommandInput - {@link CreateVpcEndpointCommandInput}
+ * @returns {@link CreateVpcEndpointCommandOutput}
  * @see {@link CreateVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -91,6 +102,9 @@ export class CreateVpcEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +133,8 @@ export class CreateVpcEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +144,18 @@ export class CreateVpcEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVpcEndpointCommand(input, context);
+    return se_CreateVpcEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcEndpointCommandOutput> {
-    return deserializeAws_restJson1CreateVpcEndpointCommand(output, context);
+    return de_CreateVpcEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

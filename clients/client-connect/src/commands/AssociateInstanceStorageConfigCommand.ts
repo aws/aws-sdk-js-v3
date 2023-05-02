@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { AssociateInstanceStorageConfigRequest, AssociateInstanceStorageConfigResponse } from "../models/models_0";
 import {
-  AssociateInstanceStorageConfigRequest,
-  AssociateInstanceStorageConfigRequestFilterSensitiveLog,
-  AssociateInstanceStorageConfigResponse,
-  AssociateInstanceStorageConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateInstanceStorageConfigCommand,
-  serializeAws_restJson1AssociateInstanceStorageConfigCommand,
+  de_AssociateInstanceStorageConfigCommand,
+  se_AssociateInstanceStorageConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateInstanceStorageConfigCommand}.
  */
 export interface AssociateInstanceStorageConfigCommandInput extends AssociateInstanceStorageConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateInstanceStorageConfigCommand}.
  */
 export interface AssociateInstanceStorageConfigCommandOutput
@@ -37,6 +36,7 @@ export interface AssociateInstanceStorageConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Associates a storage resource type for the first time. You can only associate one type of
  *    storage configuration in a single call. This means, for example, that you can't define an
@@ -50,10 +50,42 @@ export interface AssociateInstanceStorageConfigCommandOutput
  * import { ConnectClient, AssociateInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // AssociateInstanceStorageConfigRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS", // required
+ *   StorageConfig: { // InstanceStorageConfig
+ *     AssociationId: "STRING_VALUE",
+ *     StorageType: "S3" || "KINESIS_VIDEO_STREAM" || "KINESIS_STREAM" || "KINESIS_FIREHOSE", // required
+ *     S3Config: { // S3Config
+ *       BucketName: "STRING_VALUE", // required
+ *       BucketPrefix: "STRING_VALUE", // required
+ *       EncryptionConfig: { // EncryptionConfig
+ *         EncryptionType: "KMS", // required
+ *         KeyId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     KinesisVideoStreamConfig: { // KinesisVideoStreamConfig
+ *       Prefix: "STRING_VALUE", // required
+ *       RetentionPeriodHours: Number("int"), // required
+ *       EncryptionConfig: {
+ *         EncryptionType: "KMS", // required
+ *         KeyId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     KinesisStreamConfig: { // KinesisStreamConfig
+ *       StreamArn: "STRING_VALUE", // required
+ *     },
+ *     KinesisFirehoseConfig: { // KinesisFirehoseConfig
+ *       FirehoseArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new AssociateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateInstanceStorageConfigCommandInput - {@link AssociateInstanceStorageConfigCommandInput}
+ * @returns {@link AssociateInstanceStorageConfigCommandOutput}
  * @see {@link AssociateInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateInstanceStorageConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -95,6 +127,9 @@ export class AssociateInstanceStorageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateInstanceStorageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +158,8 @@ export class AssociateInstanceStorageConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateInstanceStorageConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateInstanceStorageConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +169,24 @@ export class AssociateInstanceStorageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateInstanceStorageConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateInstanceStorageConfigCommand(input, context);
+    return se_AssociateInstanceStorageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateInstanceStorageConfigCommandOutput> {
-    return deserializeAws_restJson1AssociateInstanceStorageConfigCommand(output, context);
+    return de_AssociateInstanceStorageConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

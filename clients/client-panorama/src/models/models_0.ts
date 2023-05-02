@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { PanoramaServiceException as __BaseException } from "./PanoramaServiceException";
 
 /**
+ * @public
  * <p>The requestor does not have permission to access the target action or resource.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Details about a beta appliance software update.</p>
  */
 export interface AlternateSoftwareMetadata {
@@ -34,33 +36,62 @@ export interface AlternateSoftwareMetadata {
   Version?: string;
 }
 
-export enum ApplicationInstanceHealthStatus {
-  ERROR = "ERROR",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  RUNNING = "RUNNING",
-}
-
-export enum DesiredState {
-  REMOVED = "REMOVED",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
-
-export enum DeviceReportedStatus {
-  INSTALL_ERROR = "INSTALL_ERROR",
-  INSTALL_IN_PROGRESS = "INSTALL_IN_PROGRESS",
-  LAUNCHED = "LAUNCHED",
-  LAUNCH_ERROR = "LAUNCH_ERROR",
-  REMOVAL_FAILED = "REMOVAL_FAILED",
-  REMOVAL_IN_PROGRESS = "REMOVAL_IN_PROGRESS",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  STOP_ERROR = "STOP_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationInstanceHealthStatus = {
+  ERROR: "ERROR",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  RUNNING: "RUNNING",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplicationInstanceHealthStatus =
+  (typeof ApplicationInstanceHealthStatus)[keyof typeof ApplicationInstanceHealthStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DesiredState = {
+  REMOVED: "REMOVED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type DesiredState = (typeof DesiredState)[keyof typeof DesiredState];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeviceReportedStatus = {
+  INSTALL_ERROR: "INSTALL_ERROR",
+  INSTALL_IN_PROGRESS: "INSTALL_IN_PROGRESS",
+  LAUNCHED: "LAUNCHED",
+  LAUNCH_ERROR: "LAUNCH_ERROR",
+  REMOVAL_FAILED: "REMOVAL_FAILED",
+  REMOVAL_IN_PROGRESS: "REMOVAL_IN_PROGRESS",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  STOP_ERROR: "STOP_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceReportedStatus = (typeof DeviceReportedStatus)[keyof typeof DeviceReportedStatus];
+
+/**
+ * @public
  * <p>An application instance's state.</p>
  */
 export interface ReportedRuntimeContextState {
@@ -85,21 +116,31 @@ export interface ReportedRuntimeContextState {
   DeviceReportedTime: Date | undefined;
 }
 
-export enum ApplicationInstanceStatus {
-  DEPLOYMENT_ERROR = "DEPLOYMENT_ERROR",
-  DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED",
-  DEPLOYMENT_IN_PROGRESS = "DEPLOYMENT_IN_PROGRESS",
-  DEPLOYMENT_PENDING = "DEPLOYMENT_PENDING",
-  DEPLOYMENT_REQUESTED = "DEPLOYMENT_REQUESTED",
-  DEPLOYMENT_SUCCEEDED = "DEPLOYMENT_SUCCEEDED",
-  REMOVAL_FAILED = "REMOVAL_FAILED",
-  REMOVAL_IN_PROGRESS = "REMOVAL_IN_PROGRESS",
-  REMOVAL_PENDING = "REMOVAL_PENDING",
-  REMOVAL_REQUESTED = "REMOVAL_REQUESTED",
-  REMOVAL_SUCCEEDED = "REMOVAL_SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationInstanceStatus = {
+  DEPLOYMENT_ERROR: "DEPLOYMENT_ERROR",
+  DEPLOYMENT_FAILED: "DEPLOYMENT_FAILED",
+  DEPLOYMENT_IN_PROGRESS: "DEPLOYMENT_IN_PROGRESS",
+  DEPLOYMENT_PENDING: "DEPLOYMENT_PENDING",
+  DEPLOYMENT_REQUESTED: "DEPLOYMENT_REQUESTED",
+  DEPLOYMENT_SUCCEEDED: "DEPLOYMENT_SUCCEEDED",
+  REMOVAL_FAILED: "REMOVAL_FAILED",
+  REMOVAL_IN_PROGRESS: "REMOVAL_IN_PROGRESS",
+  REMOVAL_PENDING: "REMOVAL_PENDING",
+  REMOVAL_REQUESTED: "REMOVAL_REQUESTED",
+  REMOVAL_SUCCEEDED: "REMOVAL_SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplicationInstanceStatus = (typeof ApplicationInstanceStatus)[keyof typeof ApplicationInstanceStatus];
+
+/**
+ * @public
  * <p>An application instance on a device.</p>
  */
 export interface ApplicationInstance {
@@ -165,6 +206,7 @@ export interface ApplicationInstance {
 }
 
 /**
+ * @public
  * <p>A conflict exception error argument.</p>
  */
 export interface ConflictExceptionErrorArgument {
@@ -180,6 +222,7 @@ export interface ConflictExceptionErrorArgument {
 }
 
 /**
+ * @public
  * <p>The target resource is in use.</p>
  */
 export class ConflictException extends __BaseException {
@@ -223,12 +266,22 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum ConnectionType {
-  DHCP = "DHCP",
-  STATIC_IP = "STATIC_IP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionType = {
+  DHCP: "DHCP",
+  STATIC_IP: "STATIC_IP",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+/**
+ * @public
  * <p>Parameter overrides for an application instance. This is a JSON document that has a single key
  *         (<code>PayloadData</code>) where the value is an escaped string representation of the overrides document.</p>
  */
@@ -236,6 +289,9 @@ export type ManifestOverridesPayload =
   | ManifestOverridesPayload.PayloadDataMember
   | ManifestOverridesPayload.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ManifestOverridesPayload {
   /**
    * <p>The overrides document.</p>
@@ -262,12 +318,16 @@ export namespace ManifestOverridesPayload {
 }
 
 /**
+ * @public
  * <p>A application verion's manifest file. This is a JSON document that has a single key (<code>PayloadData</code>)
  *       where the value is an escaped string representation of the application manifest (<code>graph.json</code>). This
  *       file is located in the <code>graphs</code> folder in your application source.</p>
  */
 export type ManifestPayload = ManifestPayload.PayloadDataMember | ManifestPayload.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ManifestPayload {
   /**
    * <p>The application manifest.</p>
@@ -293,6 +353,9 @@ export namespace ManifestPayload {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationInstanceRequest {
   /**
    * <p>A name for the application instance.</p>
@@ -335,6 +398,9 @@ export interface CreateApplicationInstanceRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationInstanceResponse {
   /**
    * <p>The application instance's ID.</p>
@@ -343,6 +409,7 @@ export interface CreateApplicationInstanceResponse {
 }
 
 /**
+ * @public
  * <p>An internal error occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -369,6 +436,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would cause a limit to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -413,6 +481,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A validation exception error argument.</p>
  */
 export interface ValidationExceptionErrorArgument {
@@ -428,6 +497,7 @@ export interface ValidationExceptionErrorArgument {
 }
 
 /**
+ * @public
  * <p>A validation exception field.</p>
  */
 export interface ValidationExceptionField {
@@ -442,14 +512,24 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The request contains an invalid parameter value.</p>
  */
 export class ValidationException extends __BaseException {
@@ -494,6 +574,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An over-the-air update (OTA) job configuration.</p>
  */
 export interface OTAJobConfig {
@@ -509,6 +590,7 @@ export interface OTAJobConfig {
 }
 
 /**
+ * @public
  * <p>A job's configuration.</p>
  */
 export interface DeviceJobConfig {
@@ -518,11 +600,23 @@ export interface DeviceJobConfig {
   OTAJobConfig?: OTAJobConfig;
 }
 
-export enum JobType {
-  OTA = "OTA",
-  REBOOT = "REBOOT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobType = {
+  OTA: "OTA",
+  REBOOT: "REBOOT",
+} as const;
 
+/**
+ * @public
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
+ */
 export interface CreateJobForDevicesRequest {
   /**
    * <p>ID of target device.</p>
@@ -541,6 +635,7 @@ export interface CreateJobForDevicesRequest {
 }
 
 /**
+ * @public
  * <p>A job for a device.</p>
  */
 export interface Job {
@@ -555,6 +650,9 @@ export interface Job {
   DeviceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobForDevicesResponse {
   /**
    * <p>A list of jobs.</p>
@@ -563,6 +661,7 @@ export interface CreateJobForDevicesResponse {
 }
 
 /**
+ * @public
  * <p>The target resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -594,11 +693,21 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
-export enum JobResourceType {
-  PACKAGE = "PACKAGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobResourceType = {
+  PACKAGE: "PACKAGE",
+} as const;
 
 /**
+ * @public
+ */
+export type JobResourceType = (typeof JobResourceType)[keyof typeof JobResourceType];
+
+/**
+ * @public
  * <p>Tags for a job.</p>
  */
 export interface JobResourceTags {
@@ -613,10 +722,22 @@ export interface JobResourceTags {
   Tags: Record<string, string> | undefined;
 }
 
-export enum TemplateType {
-  RTSP_CAMERA_STREAM = "RTSP_CAMERA_STREAM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TemplateType = {
+  RTSP_CAMERA_STREAM: "RTSP_CAMERA_STREAM",
+} as const;
 
+/**
+ * @public
+ */
+export type TemplateType = (typeof TemplateType)[keyof typeof TemplateType];
+
+/**
+ * @public
+ */
 export interface CreateNodeFromTemplateJobRequest {
   /**
    * <p>The type of node.</p>
@@ -654,6 +775,9 @@ export interface CreateNodeFromTemplateJobRequest {
   JobTags?: JobResourceTags[];
 }
 
+/**
+ * @public
+ */
 export interface CreateNodeFromTemplateJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -661,6 +785,9 @@ export interface CreateNodeFromTemplateJobResponse {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePackageRequest {
   /**
    * <p>A name for the package.</p>
@@ -674,6 +801,7 @@ export interface CreatePackageRequest {
 }
 
 /**
+ * @public
  * <p>A storage location.</p>
  */
 export interface StorageLocation {
@@ -703,6 +831,9 @@ export interface StorageLocation {
   ManifestPrefixLocation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePackageResponse {
   /**
    * <p>The package's ID.</p>
@@ -721,6 +852,7 @@ export interface CreatePackageResponse {
 }
 
 /**
+ * @public
  * <p>A location in Amazon S3.</p>
  */
 export interface S3Location {
@@ -741,6 +873,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>A package version input configuration.</p>
  */
 export interface PackageVersionInputConfig {
@@ -751,6 +884,7 @@ export interface PackageVersionInputConfig {
 }
 
 /**
+ * @public
  * <p>A configuration for a package import job.</p>
  */
 export interface PackageImportJobInputConfig {
@@ -760,12 +894,22 @@ export interface PackageImportJobInputConfig {
   PackageVersionInputConfig?: PackageVersionInputConfig;
 }
 
-export enum PackageImportJobType {
-  MARKETPLACE_NODE_PACKAGE_VERSION = "MARKETPLACE_NODE_PACKAGE_VERSION",
-  NODE_PACKAGE_VERSION = "NODE_PACKAGE_VERSION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageImportJobType = {
+  MARKETPLACE_NODE_PACKAGE_VERSION: "MARKETPLACE_NODE_PACKAGE_VERSION",
+  NODE_PACKAGE_VERSION: "NODE_PACKAGE_VERSION",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageImportJobType = (typeof PackageImportJobType)[keyof typeof PackageImportJobType];
+
+/**
+ * @public
  * <p>A package version output configuration.</p>
  */
 export interface PackageVersionOutputConfig {
@@ -786,6 +930,7 @@ export interface PackageVersionOutputConfig {
 }
 
 /**
+ * @public
  * <p>An output configuration for a package import job.</p>
  */
 export interface PackageImportJobOutputConfig {
@@ -795,6 +940,9 @@ export interface PackageImportJobOutputConfig {
   PackageVersionOutputConfig?: PackageVersionOutputConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreatePackageImportJobRequest {
   /**
    * <p>A job type for the package import job.</p>
@@ -822,6 +970,9 @@ export interface CreatePackageImportJobRequest {
   JobTags?: JobResourceTags[];
 }
 
+/**
+ * @public
+ */
 export interface CreatePackageImportJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -829,6 +980,9 @@ export interface CreatePackageImportJobResponse {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeviceRequest {
   /**
    * <p>The device's ID.</p>
@@ -836,6 +990,9 @@ export interface DeleteDeviceRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeviceResponse {
   /**
    * <p>The device's ID.</p>
@@ -843,6 +1000,9 @@ export interface DeleteDeviceResponse {
   DeviceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackageRequest {
   /**
    * <p>The package's ID.</p>
@@ -856,8 +1016,14 @@ export interface DeletePackageRequest {
   ForceDelete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackageResponse {}
 
+/**
+ * @public
+ */
 export interface DeregisterPackageVersionRequest {
   /**
    * <p>An owner account.</p>
@@ -885,8 +1051,14 @@ export interface DeregisterPackageVersionRequest {
   UpdatedLatestPatchVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterPackageVersionResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeApplicationInstanceRequest {
   /**
    * <p>The application instance's ID.</p>
@@ -894,6 +1066,9 @@ export interface DescribeApplicationInstanceRequest {
   ApplicationInstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationInstanceResponse {
   /**
    * <p>The application instance's name.</p>
@@ -971,6 +1146,9 @@ export interface DescribeApplicationInstanceResponse {
   RuntimeContextStates?: ReportedRuntimeContextState[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationInstanceDetailsRequest {
   /**
    * <p>The application instance's ID.</p>
@@ -978,6 +1156,9 @@ export interface DescribeApplicationInstanceDetailsRequest {
   ApplicationInstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationInstanceDetailsResponse {
   /**
    * <p>The application instance's name.</p>
@@ -1020,6 +1201,9 @@ export interface DescribeApplicationInstanceDetailsResponse {
   ApplicationInstanceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceRequest {
   /**
    * <p>The device's ID.</p>
@@ -1027,18 +1211,37 @@ export interface DescribeDeviceRequest {
   DeviceId: string | undefined;
 }
 
-export enum DeviceBrand {
-  AWS_PANORAMA = "AWS_PANORAMA",
-  LENOVO = "LENOVO",
-}
-
-export enum NetworkConnectionStatus {
-  CONNECTED = "CONNECTED",
-  CONNECTING = "CONNECTING",
-  NOT_CONNECTED = "NOT_CONNECTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceBrand = {
+  AWS_PANORAMA: "AWS_PANORAMA",
+  LENOVO: "LENOVO",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceBrand = (typeof DeviceBrand)[keyof typeof DeviceBrand];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkConnectionStatus = {
+  CONNECTED: "CONNECTED",
+  CONNECTING: "CONNECTING",
+  NOT_CONNECTED: "NOT_CONNECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkConnectionStatus = (typeof NetworkConnectionStatus)[keyof typeof NetworkConnectionStatus];
+
+/**
+ * @public
  * <p>A device's Ethernet status.</p>
  */
 export interface EthernetStatus {
@@ -1059,6 +1262,7 @@ export interface EthernetStatus {
 }
 
 /**
+ * @public
  * <p>Details about an NTP server connection.</p>
  */
 export interface NtpStatus {
@@ -1079,6 +1283,7 @@ export interface NtpStatus {
 }
 
 /**
+ * @public
  * <p>The network status of a device.</p>
  */
 export interface NetworkStatus {
@@ -1103,38 +1308,66 @@ export interface NetworkStatus {
   LastUpdatedTime?: Date;
 }
 
-export enum DeviceAggregatedStatus {
-  AWAITING_PROVISIONING = "AWAITING_PROVISIONING",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  FAILED = "FAILED",
-  LEASE_EXPIRED = "LEASE_EXPIRED",
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  UPDATE_NEEDED = "UPDATE_NEEDED",
-}
-
-export enum DeviceConnectionStatus {
-  AWAITING_CREDENTIALS = "AWAITING_CREDENTIALS",
-  ERROR = "ERROR",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-}
-
-export enum UpdateProgress {
-  COMPLETED = "COMPLETED",
-  DOWNLOADING = "DOWNLOADING",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  VERIFYING = "VERIFYING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceAggregatedStatus = {
+  AWAITING_PROVISIONING: "AWAITING_PROVISIONING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  LEASE_EXPIRED: "LEASE_EXPIRED",
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+  PENDING: "PENDING",
+  REBOOTING: "REBOOTING",
+  UPDATE_NEEDED: "UPDATE_NEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceAggregatedStatus = (typeof DeviceAggregatedStatus)[keyof typeof DeviceAggregatedStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeviceConnectionStatus = {
+  AWAITING_CREDENTIALS: "AWAITING_CREDENTIALS",
+  ERROR: "ERROR",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceConnectionStatus = (typeof DeviceConnectionStatus)[keyof typeof DeviceConnectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateProgress = {
+  COMPLETED: "COMPLETED",
+  DOWNLOADING: "DOWNLOADING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  REBOOTING: "REBOOTING",
+  VERIFYING: "VERIFYING",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateProgress = (typeof UpdateProgress)[keyof typeof UpdateProgress];
+
+/**
+ * @public
  * <p>Returns information about the latest device job.</p>
  */
 export interface LatestDeviceJob {
@@ -1155,6 +1388,7 @@ export interface LatestDeviceJob {
 }
 
 /**
+ * @public
  * <p>A static IP configuration.</p>
  */
 export interface StaticIpConnectionInfo {
@@ -1180,6 +1414,7 @@ export interface StaticIpConnectionInfo {
 }
 
 /**
+ * @public
  * <p>A device's network configuration.</p>
  */
 export interface EthernetPayload {
@@ -1195,6 +1430,7 @@ export interface EthernetPayload {
 }
 
 /**
+ * @public
  * <p>Network time protocol (NTP) server settings. Use this option to connect to local NTP servers instead of
  *         <code>pool.ntp.org</code>.</p>
  */
@@ -1206,6 +1442,7 @@ export interface NtpPayload {
 }
 
 /**
+ * @public
  * <p>The network configuration for a device.</p>
  */
 export interface NetworkPayload {
@@ -1225,20 +1462,41 @@ export interface NetworkPayload {
   Ntp?: NtpPayload;
 }
 
-export enum DeviceStatus {
-  AWAITING_PROVISIONING = "AWAITING_PROVISIONING",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceStatus = {
+  AWAITING_PROVISIONING: "AWAITING_PROVISIONING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
-export enum DeviceType {
-  PANORAMA_APPLIANCE = "PANORAMA_APPLIANCE",
-  PANORAMA_APPLIANCE_DEVELOPER_KIT = "PANORAMA_APPLIANCE_DEVELOPER_KIT",
-}
+/**
+ * @public
+ */
+export type DeviceStatus = (typeof DeviceStatus)[keyof typeof DeviceStatus];
 
+/**
+ * @public
+ * @enum
+ */
+export const DeviceType = {
+  PANORAMA_APPLIANCE: "PANORAMA_APPLIANCE",
+  PANORAMA_APPLIANCE_DEVELOPER_KIT: "PANORAMA_APPLIANCE_DEVELOPER_KIT",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
+
+/**
+ * @public
+ */
 export interface DescribeDeviceResponse {
   /**
    * <p>The device's ID.</p>
@@ -1341,6 +1599,9 @@ export interface DescribeDeviceResponse {
   DeviceAggregatedStatus?: DeviceAggregatedStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceJobRequest {
   /**
    * <p>The job's ID.</p>
@@ -1348,6 +1609,9 @@ export interface DescribeDeviceJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -1395,6 +1659,9 @@ export interface DescribeDeviceJobResponse {
   JobType?: JobType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNodeRequest {
   /**
    * <p>The node's ID.</p>
@@ -1407,22 +1674,41 @@ export interface DescribeNodeRequest {
   OwnerAccount?: string;
 }
 
-export enum NodeCategory {
-  BUSINESS_LOGIC = "BUSINESS_LOGIC",
-  MEDIA_SINK = "MEDIA_SINK",
-  MEDIA_SOURCE = "MEDIA_SOURCE",
-  ML_MODEL = "ML_MODEL",
-}
-
-export enum PortType {
-  BOOLEAN = "BOOLEAN",
-  FLOAT32 = "FLOAT32",
-  INT32 = "INT32",
-  MEDIA = "MEDIA",
-  STRING = "STRING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NodeCategory = {
+  BUSINESS_LOGIC: "BUSINESS_LOGIC",
+  MEDIA_SINK: "MEDIA_SINK",
+  MEDIA_SOURCE: "MEDIA_SOURCE",
+  ML_MODEL: "ML_MODEL",
+} as const;
 
 /**
+ * @public
+ */
+export type NodeCategory = (typeof NodeCategory)[keyof typeof NodeCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const PortType = {
+  BOOLEAN: "BOOLEAN",
+  FLOAT32: "FLOAT32",
+  INT32: "INT32",
+  MEDIA: "MEDIA",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type PortType = (typeof PortType)[keyof typeof PortType];
+
+/**
+ * @public
  * <p>A node input port.</p>
  */
 export interface NodeInputPort {
@@ -1453,6 +1739,7 @@ export interface NodeInputPort {
 }
 
 /**
+ * @public
  * <p>A node output port.</p>
  */
 export interface NodeOutputPort {
@@ -1473,6 +1760,7 @@ export interface NodeOutputPort {
 }
 
 /**
+ * @public
  * <p>A node interface.</p>
  */
 export interface NodeInterface {
@@ -1487,6 +1775,9 @@ export interface NodeInterface {
   Outputs: NodeOutputPort[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNodeResponse {
   /**
    * <p>The node's ID.</p>
@@ -1559,6 +1850,9 @@ export interface DescribeNodeResponse {
   LastUpdatedTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNodeFromTemplateJobRequest {
   /**
    * <p>The job's ID.</p>
@@ -1566,12 +1860,24 @@ export interface DescribeNodeFromTemplateJobRequest {
   JobId: string | undefined;
 }
 
-export enum NodeFromTemplateJobStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NodeFromTemplateJobStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
+/**
+ * @public
+ */
+export type NodeFromTemplateJobStatus = (typeof NodeFromTemplateJobStatus)[keyof typeof NodeFromTemplateJobStatus];
+
+/**
+ * @public
+ */
 export interface DescribeNodeFromTemplateJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -1634,6 +1940,9 @@ export interface DescribeNodeFromTemplateJobResponse {
   JobTags?: JobResourceTags[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageRequest {
   /**
    * <p>The package's ID.</p>
@@ -1641,6 +1950,9 @@ export interface DescribePackageRequest {
   PackageId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageResponse {
   /**
    * <p>The package's ID.</p>
@@ -1683,6 +1995,9 @@ export interface DescribePackageResponse {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageImportJobRequest {
   /**
    * <p>The job's ID.</p>
@@ -1691,6 +2006,7 @@ export interface DescribePackageImportJobRequest {
 }
 
 /**
+ * @public
  * <p>The location of an output object in Amazon S3.</p>
  */
 export interface OutPutS3Location {
@@ -1706,6 +2022,7 @@ export interface OutPutS3Location {
 }
 
 /**
+ * @public
  * <p>Results of a package import job.</p>
  */
 export interface PackageImportJobOutput {
@@ -1730,12 +2047,24 @@ export interface PackageImportJobOutput {
   OutputS3Location: OutPutS3Location | undefined;
 }
 
-export enum PackageImportJobStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageImportJobStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
+/**
+ * @public
+ */
+export type PackageImportJobStatus = (typeof PackageImportJobStatus)[keyof typeof PackageImportJobStatus];
+
+/**
+ * @public
+ */
 export interface DescribePackageImportJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -1793,6 +2122,9 @@ export interface DescribePackageImportJobResponse {
   JobTags?: JobResourceTags[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageVersionRequest {
   /**
    * <p>The version's owner account.</p>
@@ -1815,13 +2147,25 @@ export interface DescribePackageVersionRequest {
   PatchVersion?: string;
 }
 
-export enum PackageVersionStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  REGISTER_COMPLETED = "REGISTER_COMPLETED",
-  REGISTER_PENDING = "REGISTER_PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageVersionStatus = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  REGISTER_COMPLETED: "REGISTER_COMPLETED",
+  REGISTER_PENDING: "REGISTER_PENDING",
+} as const;
 
+/**
+ * @public
+ */
+export type PackageVersionStatus = (typeof PackageVersionStatus)[keyof typeof PackageVersionStatus];
+
+/**
+ * @public
+ */
 export interface DescribePackageVersionResponse {
   /**
    * <p>The account ID of the version's owner.</p>
@@ -1875,6 +2219,7 @@ export interface DescribePackageVersionResponse {
 }
 
 /**
+ * @public
  * <p>A device.</p>
  */
 export interface Device {
@@ -1945,6 +2290,7 @@ export interface Device {
 }
 
 /**
+ * @public
  * <p>A job that runs on a device.</p>
  */
 export interface DeviceJob {
@@ -1974,6 +2320,9 @@ export interface DeviceJob {
   JobType?: JobType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationInstanceDependenciesRequest {
   /**
    * <p>The application instance's ID.</p>
@@ -1992,6 +2341,7 @@ export interface ListApplicationInstanceDependenciesRequest {
 }
 
 /**
+ * @public
  * <p>A package object.</p>
  */
 export interface PackageObject {
@@ -2011,6 +2361,9 @@ export interface PackageObject {
   PatchVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationInstanceDependenciesResponse {
   /**
    * <p>A list of package objects.</p>
@@ -2023,6 +2376,9 @@ export interface ListApplicationInstanceDependenciesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationInstanceNodeInstancesRequest {
   /**
    * <p>The node instances' application instance ID.</p>
@@ -2040,14 +2396,24 @@ export interface ListApplicationInstanceNodeInstancesRequest {
   NextToken?: string;
 }
 
-export enum NodeInstanceStatus {
-  ERROR = "ERROR",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  PAUSED = "PAUSED",
-  RUNNING = "RUNNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NodeInstanceStatus = {
+  ERROR: "ERROR",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  PAUSED: "PAUSED",
+  RUNNING: "RUNNING",
+} as const;
 
 /**
+ * @public
+ */
+export type NodeInstanceStatus = (typeof NodeInstanceStatus)[keyof typeof NodeInstanceStatus];
+
+/**
+ * @public
  * <p>A node instance.</p>
  */
 export interface NodeInstance {
@@ -2087,6 +2453,9 @@ export interface NodeInstance {
   CurrentStatus: NodeInstanceStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationInstanceNodeInstancesResponse {
   /**
    * <p>A list of node instances.</p>
@@ -2099,16 +2468,28 @@ export interface ListApplicationInstanceNodeInstancesResponse {
   NextToken?: string;
 }
 
-export enum StatusFilter {
-  DEPLOYMENT_ERROR = "DEPLOYMENT_ERROR",
-  DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED",
-  DEPLOYMENT_SUCCEEDED = "DEPLOYMENT_SUCCEEDED",
-  PROCESSING_DEPLOYMENT = "PROCESSING_DEPLOYMENT",
-  PROCESSING_REMOVAL = "PROCESSING_REMOVAL",
-  REMOVAL_FAILED = "REMOVAL_FAILED",
-  REMOVAL_SUCCEEDED = "REMOVAL_SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StatusFilter = {
+  DEPLOYMENT_ERROR: "DEPLOYMENT_ERROR",
+  DEPLOYMENT_FAILED: "DEPLOYMENT_FAILED",
+  DEPLOYMENT_SUCCEEDED: "DEPLOYMENT_SUCCEEDED",
+  PROCESSING_DEPLOYMENT: "PROCESSING_DEPLOYMENT",
+  PROCESSING_REMOVAL: "PROCESSING_REMOVAL",
+  REMOVAL_FAILED: "REMOVAL_FAILED",
+  REMOVAL_SUCCEEDED: "REMOVAL_SUCCEEDED",
+} as const;
 
+/**
+ * @public
+ */
+export type StatusFilter = (typeof StatusFilter)[keyof typeof StatusFilter];
+
+/**
+ * @public
+ */
 export interface ListApplicationInstancesRequest {
   /**
    * <p>The application instances' device ID.</p>
@@ -2131,6 +2512,9 @@ export interface ListApplicationInstancesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationInstancesResponse {
   /**
    * <p>A list of application instances.</p>
@@ -2143,18 +2527,39 @@ export interface ListApplicationInstancesResponse {
   NextToken?: string;
 }
 
-export enum ListDevicesSortBy {
-  CREATED_TIME = "CREATED_TIME",
-  DEVICE_AGGREGATED_STATUS = "DEVICE_AGGREGATED_STATUS",
-  DEVICE_ID = "DEVICE_ID",
-  NAME = "NAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListDevicesSortBy = {
+  CREATED_TIME: "CREATED_TIME",
+  DEVICE_AGGREGATED_STATUS: "DEVICE_AGGREGATED_STATUS",
+  DEVICE_ID: "DEVICE_ID",
+  NAME: "NAME",
+} as const;
 
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ */
+export type ListDevicesSortBy = (typeof ListDevicesSortBy)[keyof typeof ListDevicesSortBy];
 
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
 export interface ListDevicesRequest {
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
@@ -2187,6 +2592,9 @@ export interface ListDevicesRequest {
   DeviceAggregatedStatusFilter?: DeviceAggregatedStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesResponse {
   /**
    * <p>A list of devices.</p>
@@ -2199,6 +2607,9 @@ export interface ListDevicesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesJobsRequest {
   /**
    * <p>Filter results by the job's target device ID.</p>
@@ -2216,6 +2627,9 @@ export interface ListDevicesJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesJobsResponse {
   /**
    * <p>A list of jobs.</p>
@@ -2228,6 +2642,9 @@ export interface ListDevicesJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNodeFromTemplateJobsRequest {
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
@@ -2241,6 +2658,7 @@ export interface ListNodeFromTemplateJobsRequest {
 }
 
 /**
+ * @public
  * <p>A job to create a camera stream node.</p>
  */
 export interface NodeFromTemplateJob {
@@ -2275,6 +2693,9 @@ export interface NodeFromTemplateJob {
   NodeName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNodeFromTemplateJobsResponse {
   /**
    * <p>A list of jobs.</p>
@@ -2287,6 +2708,9 @@ export interface ListNodeFromTemplateJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNodesRequest {
   /**
    * <p>Search for nodes by category.</p>
@@ -2325,6 +2749,7 @@ export interface ListNodesRequest {
 }
 
 /**
+ * @public
  * <p>An application node that represents a camera stream, a model, code, or output.</p>
  */
 export interface Node {
@@ -2384,6 +2809,9 @@ export interface Node {
   CreatedTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListNodesResponse {
   /**
    * <p>A list of nodes.</p>
@@ -2396,6 +2824,9 @@ export interface ListNodesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackageImportJobsRequest {
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
@@ -2409,6 +2840,7 @@ export interface ListPackageImportJobsRequest {
 }
 
 /**
+ * @public
  * <p>A job to import a package version.</p>
  */
 export interface PackageImportJob {
@@ -2443,6 +2875,9 @@ export interface PackageImportJob {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPackageImportJobsResponse {
   /**
    * <p>A list of package import jobs.</p>
@@ -2455,6 +2890,9 @@ export interface ListPackageImportJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagesRequest {
   /**
    * <p>The maximum number of packages to return in one page of results.</p>
@@ -2468,6 +2906,7 @@ export interface ListPackagesRequest {
 }
 
 /**
+ * @public
  * <p>A package summary.</p>
  */
 export interface PackageListItem {
@@ -2497,6 +2936,9 @@ export interface PackageListItem {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagesResponse {
   /**
    * <p>A list of packages.</p>
@@ -2509,6 +2951,9 @@ export interface ListPackagesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource's ARN.</p>
@@ -2516,6 +2961,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags.</p>
@@ -2523,12 +2971,22 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
-export enum NodeSignalValue {
-  PAUSE = "PAUSE",
-  RESUME = "RESUME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NodeSignalValue = {
+  PAUSE: "PAUSE",
+  RESUME: "RESUME",
+} as const;
 
 /**
+ * @public
+ */
+export type NodeSignalValue = (typeof NodeSignalValue)[keyof typeof NodeSignalValue];
+
+/**
+ * @public
  * <p>A signal to a camera node to start or stop processing video.</p>
  */
 export interface NodeSignal {
@@ -2543,6 +3001,9 @@ export interface NodeSignal {
   Signal: NodeSignalValue | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ProvisionDeviceRequest {
   /**
    * <p>A name for the device.</p>
@@ -2565,6 +3026,9 @@ export interface ProvisionDeviceRequest {
   NetworkingConfiguration?: NetworkPayload;
 }
 
+/**
+ * @public
+ */
 export interface ProvisionDeviceResponse {
   /**
    * <p>The device's ID.</p>
@@ -2592,6 +3056,9 @@ export interface ProvisionDeviceResponse {
   IotThingName?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterPackageVersionRequest {
   /**
    * <p>An owner account.</p>
@@ -2619,8 +3086,14 @@ export interface RegisterPackageVersionRequest {
   MarkLatest?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RegisterPackageVersionResponse {}
 
+/**
+ * @public
+ */
 export interface RemoveApplicationInstanceRequest {
   /**
    * <p>An application instance ID.</p>
@@ -2628,8 +3101,14 @@ export interface RemoveApplicationInstanceRequest {
   ApplicationInstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveApplicationInstanceResponse {}
 
+/**
+ * @public
+ */
 export interface SignalApplicationInstanceNodeInstancesRequest {
   /**
    * <p>An application instance ID.</p>
@@ -2642,6 +3121,9 @@ export interface SignalApplicationInstanceNodeInstancesRequest {
   NodeSignals: NodeSignal[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SignalApplicationInstanceNodeInstancesResponse {
   /**
    * <p>An application instance ID.</p>
@@ -2649,6 +3131,9 @@ export interface SignalApplicationInstanceNodeInstancesResponse {
   ApplicationInstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The resource's ARN.</p>
@@ -2661,8 +3146,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The resource's ARN.</p>
@@ -2675,8 +3166,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDeviceMetadataRequest {
   /**
    * <p>The device's ID.</p>
@@ -2689,130 +3186,15 @@ export interface UpdateDeviceMetadataRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeviceMetadataResponse {
   /**
    * <p>The device's ID.</p>
    */
   DeviceId?: string;
 }
-
-/**
- * @internal
- */
-export const AlternateSoftwareMetadataFilterSensitiveLog = (obj: AlternateSoftwareMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReportedRuntimeContextStateFilterSensitiveLog = (obj: ReportedRuntimeContextState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationInstanceFilterSensitiveLog = (obj: ApplicationInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConflictExceptionErrorArgumentFilterSensitiveLog = (obj: ConflictExceptionErrorArgument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManifestOverridesPayloadFilterSensitiveLog = (obj: ManifestOverridesPayload): any => {
-  if (obj.PayloadData !== undefined) return { PayloadData: obj.PayloadData };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ManifestPayloadFilterSensitiveLog = (obj: ManifestPayload): any => {
-  if (obj.PayloadData !== undefined) return { PayloadData: obj.PayloadData };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateApplicationInstanceRequestFilterSensitiveLog = (obj: CreateApplicationInstanceRequest): any => ({
-  ...obj,
-  ...(obj.ManifestPayload && { ManifestPayload: ManifestPayloadFilterSensitiveLog(obj.ManifestPayload) }),
-  ...(obj.ManifestOverridesPayload && {
-    ManifestOverridesPayload: ManifestOverridesPayloadFilterSensitiveLog(obj.ManifestOverridesPayload),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateApplicationInstanceResponseFilterSensitiveLog = (obj: CreateApplicationInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionErrorArgumentFilterSensitiveLog = (obj: ValidationExceptionErrorArgument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OTAJobConfigFilterSensitiveLog = (obj: OTAJobConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceJobConfigFilterSensitiveLog = (obj: DeviceJobConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobForDevicesRequestFilterSensitiveLog = (obj: CreateJobForDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobFilterSensitiveLog = (obj: Job): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobForDevicesResponseFilterSensitiveLog = (obj: CreateJobForDevicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobResourceTagsFilterSensitiveLog = (obj: JobResourceTags): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -2825,661 +3207,9 @@ export const CreateNodeFromTemplateJobRequestFilterSensitiveLog = (obj: CreateNo
 /**
  * @internal
  */
-export const CreateNodeFromTemplateJobResponseFilterSensitiveLog = (obj: CreateNodeFromTemplateJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePackageRequestFilterSensitiveLog = (obj: CreatePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StorageLocationFilterSensitiveLog = (obj: StorageLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePackageResponseFilterSensitiveLog = (obj: CreatePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageVersionInputConfigFilterSensitiveLog = (obj: PackageVersionInputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageImportJobInputConfigFilterSensitiveLog = (obj: PackageImportJobInputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageVersionOutputConfigFilterSensitiveLog = (obj: PackageVersionOutputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageImportJobOutputConfigFilterSensitiveLog = (obj: PackageImportJobOutputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePackageImportJobRequestFilterSensitiveLog = (obj: CreatePackageImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePackageImportJobResponseFilterSensitiveLog = (obj: CreatePackageImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeviceRequestFilterSensitiveLog = (obj: DeleteDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeviceResponseFilterSensitiveLog = (obj: DeleteDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackageRequestFilterSensitiveLog = (obj: DeletePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackageResponseFilterSensitiveLog = (obj: DeletePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterPackageVersionRequestFilterSensitiveLog = (obj: DeregisterPackageVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterPackageVersionResponseFilterSensitiveLog = (obj: DeregisterPackageVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationInstanceRequestFilterSensitiveLog = (obj: DescribeApplicationInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationInstanceResponseFilterSensitiveLog = (
-  obj: DescribeApplicationInstanceResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationInstanceDetailsRequestFilterSensitiveLog = (
-  obj: DescribeApplicationInstanceDetailsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationInstanceDetailsResponseFilterSensitiveLog = (
-  obj: DescribeApplicationInstanceDetailsResponse
-): any => ({
-  ...obj,
-  ...(obj.ManifestPayload && { ManifestPayload: ManifestPayloadFilterSensitiveLog(obj.ManifestPayload) }),
-  ...(obj.ManifestOverridesPayload && {
-    ManifestOverridesPayload: ManifestOverridesPayloadFilterSensitiveLog(obj.ManifestOverridesPayload),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeDeviceRequestFilterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EthernetStatusFilterSensitiveLog = (obj: EthernetStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NtpStatusFilterSensitiveLog = (obj: NtpStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkStatusFilterSensitiveLog = (obj: NetworkStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LatestDeviceJobFilterSensitiveLog = (obj: LatestDeviceJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StaticIpConnectionInfoFilterSensitiveLog = (obj: StaticIpConnectionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EthernetPayloadFilterSensitiveLog = (obj: EthernetPayload): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NtpPayloadFilterSensitiveLog = (obj: NtpPayload): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkPayloadFilterSensitiveLog = (obj: NetworkPayload): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeviceResponseFilterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeviceJobRequestFilterSensitiveLog = (obj: DescribeDeviceJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeviceJobResponseFilterSensitiveLog = (obj: DescribeDeviceJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNodeRequestFilterSensitiveLog = (obj: DescribeNodeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeInputPortFilterSensitiveLog = (obj: NodeInputPort): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeOutputPortFilterSensitiveLog = (obj: NodeOutputPort): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeInterfaceFilterSensitiveLog = (obj: NodeInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNodeResponseFilterSensitiveLog = (obj: DescribeNodeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNodeFromTemplateJobRequestFilterSensitiveLog = (obj: DescribeNodeFromTemplateJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeNodeFromTemplateJobResponseFilterSensitiveLog = (
   obj: DescribeNodeFromTemplateJobResponse
 ): any => ({
   ...obj,
   ...(obj.TemplateParameters && { TemplateParameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribePackageRequestFilterSensitiveLog = (obj: DescribePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackageResponseFilterSensitiveLog = (obj: DescribePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackageImportJobRequestFilterSensitiveLog = (obj: DescribePackageImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutPutS3LocationFilterSensitiveLog = (obj: OutPutS3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageImportJobOutputFilterSensitiveLog = (obj: PackageImportJobOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackageImportJobResponseFilterSensitiveLog = (obj: DescribePackageImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackageVersionRequestFilterSensitiveLog = (obj: DescribePackageVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackageVersionResponseFilterSensitiveLog = (obj: DescribePackageVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceFilterSensitiveLog = (obj: Device): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceJobFilterSensitiveLog = (obj: DeviceJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationInstanceDependenciesRequestFilterSensitiveLog = (
-  obj: ListApplicationInstanceDependenciesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageObjectFilterSensitiveLog = (obj: PackageObject): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationInstanceDependenciesResponseFilterSensitiveLog = (
-  obj: ListApplicationInstanceDependenciesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationInstanceNodeInstancesRequestFilterSensitiveLog = (
-  obj: ListApplicationInstanceNodeInstancesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeInstanceFilterSensitiveLog = (obj: NodeInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationInstanceNodeInstancesResponseFilterSensitiveLog = (
-  obj: ListApplicationInstanceNodeInstancesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationInstancesRequestFilterSensitiveLog = (obj: ListApplicationInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationInstancesResponseFilterSensitiveLog = (obj: ListApplicationInstancesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicesRequestFilterSensitiveLog = (obj: ListDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicesResponseFilterSensitiveLog = (obj: ListDevicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicesJobsRequestFilterSensitiveLog = (obj: ListDevicesJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicesJobsResponseFilterSensitiveLog = (obj: ListDevicesJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNodeFromTemplateJobsRequestFilterSensitiveLog = (obj: ListNodeFromTemplateJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeFromTemplateJobFilterSensitiveLog = (obj: NodeFromTemplateJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNodeFromTemplateJobsResponseFilterSensitiveLog = (obj: ListNodeFromTemplateJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNodesRequestFilterSensitiveLog = (obj: ListNodesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeFilterSensitiveLog = (obj: Node): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNodesResponseFilterSensitiveLog = (obj: ListNodesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackageImportJobsRequestFilterSensitiveLog = (obj: ListPackageImportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageImportJobFilterSensitiveLog = (obj: PackageImportJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackageImportJobsResponseFilterSensitiveLog = (obj: ListPackageImportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackagesRequestFilterSensitiveLog = (obj: ListPackagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageListItemFilterSensitiveLog = (obj: PackageListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackagesResponseFilterSensitiveLog = (obj: ListPackagesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeSignalFilterSensitiveLog = (obj: NodeSignal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionDeviceRequestFilterSensitiveLog = (obj: ProvisionDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionDeviceResponseFilterSensitiveLog = (obj: ProvisionDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterPackageVersionRequestFilterSensitiveLog = (obj: RegisterPackageVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterPackageVersionResponseFilterSensitiveLog = (obj: RegisterPackageVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveApplicationInstanceRequestFilterSensitiveLog = (obj: RemoveApplicationInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveApplicationInstanceResponseFilterSensitiveLog = (obj: RemoveApplicationInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SignalApplicationInstanceNodeInstancesRequestFilterSensitiveLog = (
-  obj: SignalApplicationInstanceNodeInstancesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SignalApplicationInstanceNodeInstancesResponseFilterSensitiveLog = (
-  obj: SignalApplicationInstanceNodeInstancesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeviceMetadataRequestFilterSensitiveLog = (obj: UpdateDeviceMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeviceMetadataResponseFilterSensitiveLog = (obj: UpdateDeviceMetadataResponse): any => ({
-  ...obj,
 });

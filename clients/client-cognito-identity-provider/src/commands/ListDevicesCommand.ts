@@ -25,21 +25,23 @@ import {
   ListDevicesResponse,
   ListDevicesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDevicesCommand,
-  serializeAws_json1_1ListDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDevicesCommand, se_ListDevicesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDevicesCommand}.
  */
 export interface ListDevicesCommandInput extends ListDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDevicesCommand}.
  */
 export interface ListDevicesCommandOutput extends ListDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the sign-in devices that Amazon Cognito has registered to the current user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,10 +49,17 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * import { CognitoIdentityProviderClient, ListDevicesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListDevicesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // ListDevicesRequest
+ *   AccessToken: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   PaginationToken: "STRING_VALUE",
+ * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
+ * @returns {@link ListDevicesCommandOutput}
  * @see {@link ListDevicesCommandInput} for command's `input` shape.
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -107,6 +116,9 @@ export class ListDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,12 +157,18 @@ export class ListDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDevicesCommand(input, context);
+    return se_ListDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicesCommandOutput> {
-    return deserializeAws_json1_1ListDevicesCommand(output, context);
+    return de_ListDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

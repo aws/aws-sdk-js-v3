@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteWorkspaceBundleRequest,
-  DeleteWorkspaceBundleRequestFilterSensitiveLog,
-  DeleteWorkspaceBundleResult,
-  DeleteWorkspaceBundleResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWorkspaceBundleCommand,
-  serializeAws_json1_1DeleteWorkspaceBundleCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteWorkspaceBundleRequest, DeleteWorkspaceBundleResult } from "../models/models_0";
+import { de_DeleteWorkspaceBundleCommand, se_DeleteWorkspaceBundleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkspaceBundleCommand}.
  */
 export interface DeleteWorkspaceBundleCommandInput extends DeleteWorkspaceBundleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkspaceBundleCommand}.
  */
 export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified WorkSpace bundle. For more information about deleting WorkSpace bundles, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html">
  *             Delete a Custom WorkSpaces Bundle or Image</a>.</p>
@@ -44,10 +41,15 @@ export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundl
  * import { WorkSpacesClient, DeleteWorkspaceBundleCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteWorkspaceBundleCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DeleteWorkspaceBundleRequest
+ *   BundleId: "STRING_VALUE",
+ * };
  * const command = new DeleteWorkspaceBundleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkspaceBundleCommandInput - {@link DeleteWorkspaceBundleCommandInput}
+ * @returns {@link DeleteWorkspaceBundleCommandOutput}
  * @see {@link DeleteWorkspaceBundleCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceBundleCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -83,6 +85,9 @@ export class DeleteWorkspaceBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkspaceBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DeleteWorkspaceBundleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkspaceBundleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkspaceBundleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DeleteWorkspaceBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkspaceBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWorkspaceBundleCommand(input, context);
+    return se_DeleteWorkspaceBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceBundleCommandOutput> {
-    return deserializeAws_json1_1DeleteWorkspaceBundleCommand(output, context);
+    return de_DeleteWorkspaceBundleCommand(output, context);
   }
 
   // Start section: command_body_extra

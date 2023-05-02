@@ -10,7 +10,7 @@ import { FinspaceDataClient } from "../FinspaceDataClient";
 import { FinspaceDataPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FinspaceDataClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDataViewsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDataViews(
   config: FinspaceDataPaginationConfiguration,
   input: ListDataViewsCommandInput,

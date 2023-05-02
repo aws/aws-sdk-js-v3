@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListPoliciesRequest,
-  ListPoliciesRequestFilterSensitiveLog,
-  ListPoliciesResponse,
-  ListPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryListPoliciesCommand, serializeAws_queryListPoliciesCommand } from "../protocols/Aws_query";
+import { ListPoliciesRequest, ListPoliciesResponse } from "../models/models_0";
+import { de_ListPoliciesCommand, se_ListPoliciesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListPoliciesCommand}.
  */
 export interface ListPoliciesCommandInput extends ListPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPoliciesCommand}.
  */
 export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the managed policies that are available in your Amazon Web Services account, including
  *             your own customer-defined managed policies and all Amazon Web Services managed policies.</p>
  *          <p>You can filter the list of policies that is returned using the optional
@@ -54,10 +54,20 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * import { IAMClient, ListPoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListPoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListPoliciesRequest
+ *   Scope: "All" || "AWS" || "Local",
+ *   OnlyAttached: true || false,
+ *   PathPrefix: "STRING_VALUE",
+ *   PolicyUsageFilter: "PermissionsPolicy" || "PermissionsBoundary",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPoliciesCommandInput - {@link ListPoliciesCommandInput}
+ * @returns {@link ListPoliciesCommandOutput}
  * @see {@link ListPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -85,6 +95,9 @@ export class ListPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +124,8 @@ export class ListPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +135,18 @@ export class ListPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPoliciesCommand(input, context);
+    return se_ListPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPoliciesCommandOutput> {
-    return deserializeAws_queryListPoliciesCommand(output, context);
+    return de_ListPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  ListReleaseLabelsInput,
-  ListReleaseLabelsInputFilterSensitiveLog,
-  ListReleaseLabelsOutput,
-  ListReleaseLabelsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListReleaseLabelsCommand,
-  serializeAws_json1_1ListReleaseLabelsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListReleaseLabelsInput, ListReleaseLabelsOutput } from "../models/models_0";
+import { de_ListReleaseLabelsCommand, se_ListReleaseLabelsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReleaseLabelsCommand}.
  */
 export interface ListReleaseLabelsCommandInput extends ListReleaseLabelsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListReleaseLabelsCommand}.
  */
 export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves release labels of EMR services in the region where the API is called.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput,
  * import { EMRClient, ListReleaseLabelsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListReleaseLabelsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ListReleaseLabelsInput
+ *   Filters: { // ReleaseLabelFilter
+ *     Prefix: "STRING_VALUE",
+ *     Application: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListReleaseLabelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReleaseLabelsCommandInput - {@link ListReleaseLabelsCommandInput}
+ * @returns {@link ListReleaseLabelsCommandOutput}
  * @see {@link ListReleaseLabelsCommandInput} for command's `input` shape.
  * @see {@link ListReleaseLabelsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListReleaseLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReleaseLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +114,8 @@ export class ListReleaseLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReleaseLabelsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReleaseLabelsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +125,18 @@ export class ListReleaseLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReleaseLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReleaseLabelsCommand(input, context);
+    return se_ListReleaseLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReleaseLabelsCommandOutput> {
-    return deserializeAws_json1_1ListReleaseLabelsCommand(output, context);
+    return de_ListReleaseLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

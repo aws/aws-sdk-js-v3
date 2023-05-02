@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  DeleteLocationRequest,
-  DeleteLocationRequestFilterSensitiveLog,
-  DeleteLocationResponse,
-  DeleteLocationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLocationCommand,
-  serializeAws_json1_1DeleteLocationCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteLocationRequest, DeleteLocationResponse } from "../models/models_0";
+import { de_DeleteLocationCommand, se_DeleteLocationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLocationCommand}.
  */
 export interface DeleteLocationCommandInput extends DeleteLocationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLocationCommand}.
  */
 export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the configuration of a location used by DataSync. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,16 +39,22 @@ export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __M
  * import { DataSyncClient, DeleteLocationCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DeleteLocationCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // DeleteLocationRequest
+ *   LocationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLocationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLocationCommandInput - {@link DeleteLocationCommandInput}
+ * @returns {@link DeleteLocationCommandOutput}
  * @see {@link DeleteLocationCommandInput} for command's `input` shape.
  * @see {@link DeleteLocationCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
@@ -75,6 +78,9 @@ export class DeleteLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class DeleteLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLocationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class DeleteLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLocationCommand(input, context);
+    return se_DeleteLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLocationCommandOutput> {
-    return deserializeAws_json1_1DeleteLocationCommand(output, context);
+    return de_DeleteLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

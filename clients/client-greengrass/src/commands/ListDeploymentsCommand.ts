@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  ListDeploymentsRequest,
-  ListDeploymentsRequestFilterSensitiveLog,
-  ListDeploymentsResponse,
-  ListDeploymentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDeploymentsCommand,
-  serializeAws_restJson1ListDeploymentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDeploymentsRequest, ListDeploymentsResponse } from "../models/models_0";
+import { de_ListDeploymentsCommand, se_ListDeploymentsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeploymentsCommand}.
  */
 export interface ListDeploymentsCommandInput extends ListDeploymentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeploymentsCommand}.
  */
 export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns a history of deployments for the group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * import { GreengrassClient, ListDeploymentsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListDeploymentsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListDeploymentsRequest
+ *   GroupId: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
+ * @returns {@link ListDeploymentsCommandOutput}
  * @see {@link ListDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +76,9 @@ export class ListDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +107,8 @@ export class ListDeploymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeploymentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeploymentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +118,18 @@ export class ListDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDeploymentsCommand(input, context);
+    return se_ListDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentsCommandOutput> {
-    return deserializeAws_restJson1ListDeploymentsCommand(output, context);
+    return de_ListDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

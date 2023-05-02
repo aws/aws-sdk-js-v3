@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { StartMonitoringMemberRequest, StartMonitoringMemberRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartMonitoringMemberCommand,
-  serializeAws_restJson1StartMonitoringMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { StartMonitoringMemberRequest } from "../models/models_0";
+import { de_StartMonitoringMemberCommand, se_StartMonitoringMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMonitoringMemberCommand}.
  */
 export interface StartMonitoringMemberCommandInput extends StartMonitoringMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMonitoringMemberCommand}.
  */
 export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a request to enable data ingest for a member account that has a status of
  *             <code>ACCEPTED_BUT_DISABLED</code>.</p>
  *          <p>For valid member accounts, the status is updated as follows.</p>
@@ -49,10 +51,16 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  * import { DetectiveClient, StartMonitoringMemberCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, StartMonitoringMemberCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // StartMonitoringMemberRequest
+ *   GraphArn: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE", // required
+ * };
  * const command = new StartMonitoringMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMonitoringMemberCommandInput - {@link StartMonitoringMemberCommandInput}
+ * @returns {@link StartMonitoringMemberCommandOutput}
  * @see {@link StartMonitoringMemberCommandInput} for command's `input` shape.
  * @see {@link StartMonitoringMemberCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -110,6 +118,9 @@ export class StartMonitoringMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMonitoringMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +149,8 @@ export class StartMonitoringMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMonitoringMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +160,18 @@ export class StartMonitoringMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMonitoringMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartMonitoringMemberCommand(input, context);
+    return se_StartMonitoringMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMonitoringMemberCommandOutput> {
-    return deserializeAws_restJson1StartMonitoringMemberCommand(output, context);
+    return de_StartMonitoringMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

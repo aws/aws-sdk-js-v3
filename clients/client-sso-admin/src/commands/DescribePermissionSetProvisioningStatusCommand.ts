@@ -15,22 +15,24 @@ import {
 
 import {
   DescribePermissionSetProvisioningStatusRequest,
-  DescribePermissionSetProvisioningStatusRequestFilterSensitiveLog,
   DescribePermissionSetProvisioningStatusResponse,
-  DescribePermissionSetProvisioningStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribePermissionSetProvisioningStatusCommand,
-  serializeAws_json1_1DescribePermissionSetProvisioningStatusCommand,
+  de_DescribePermissionSetProvisioningStatusCommand,
+  se_DescribePermissionSetProvisioningStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePermissionSetProvisioningStatusCommand}.
  */
 export interface DescribePermissionSetProvisioningStatusCommandInput
   extends DescribePermissionSetProvisioningStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePermissionSetProvisioningStatusCommand}.
  */
 export interface DescribePermissionSetProvisioningStatusCommandOutput
@@ -38,6 +40,7 @@ export interface DescribePermissionSetProvisioningStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status for the given permission set provisioning request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,16 @@ export interface DescribePermissionSetProvisioningStatusCommandOutput
  * import { SSOAdminClient, DescribePermissionSetProvisioningStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DescribePermissionSetProvisioningStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // DescribePermissionSetProvisioningStatusRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   ProvisionPermissionSetRequestId: "STRING_VALUE", // required
+ * };
  * const command = new DescribePermissionSetProvisioningStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePermissionSetProvisioningStatusCommandInput - {@link DescribePermissionSetProvisioningStatusCommandInput}
+ * @returns {@link DescribePermissionSetProvisioningStatusCommandOutput}
  * @see {@link DescribePermissionSetProvisioningStatusCommandInput} for command's `input` shape.
  * @see {@link DescribePermissionSetProvisioningStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +98,9 @@ export class DescribePermissionSetProvisioningStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePermissionSetProvisioningStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +135,8 @@ export class DescribePermissionSetProvisioningStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePermissionSetProvisioningStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePermissionSetProvisioningStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +146,24 @@ export class DescribePermissionSetProvisioningStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePermissionSetProvisioningStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePermissionSetProvisioningStatusCommand(input, context);
+    return se_DescribePermissionSetProvisioningStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePermissionSetProvisioningStatusCommandOutput> {
-    return deserializeAws_json1_1DescribePermissionSetProvisioningStatusCommand(output, context);
+    return de_DescribePermissionSetProvisioningStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

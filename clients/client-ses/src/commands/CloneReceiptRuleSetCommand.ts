@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CloneReceiptRuleSetRequest,
-  CloneReceiptRuleSetRequestFilterSensitiveLog,
-  CloneReceiptRuleSetResponse,
-  CloneReceiptRuleSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCloneReceiptRuleSetCommand,
-  serializeAws_queryCloneReceiptRuleSetCommand,
-} from "../protocols/Aws_query";
+import { CloneReceiptRuleSetRequest, CloneReceiptRuleSetResponse } from "../models/models_0";
+import { de_CloneReceiptRuleSetCommand, se_CloneReceiptRuleSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link CloneReceiptRuleSetCommand}.
  */
 export interface CloneReceiptRuleSetCommandInput extends CloneReceiptRuleSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CloneReceiptRuleSetCommand}.
  */
 export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a receipt rule set by cloning an existing one. All receipt rules and
  *             configurations are copied to the new receipt rule set and are completely independent of
  *             the source rule set.</p>
@@ -47,10 +44,16 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  * import { SESClient, CloneReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, CloneReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // CloneReceiptRuleSetRequest
+ *   RuleSetName: "STRING_VALUE", // required
+ *   OriginalRuleSetName: "STRING_VALUE", // required
+ * };
  * const command = new CloneReceiptRuleSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CloneReceiptRuleSetCommandInput - {@link CloneReceiptRuleSetCommandInput}
+ * @returns {@link CloneReceiptRuleSetCommandOutput}
  * @see {@link CloneReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link CloneReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -97,6 +100,9 @@ export class CloneReceiptRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CloneReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +131,8 @@ export class CloneReceiptRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CloneReceiptRuleSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CloneReceiptRuleSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +142,18 @@ export class CloneReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CloneReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCloneReceiptRuleSetCommand(input, context);
+    return se_CloneReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloneReceiptRuleSetCommandOutput> {
-    return deserializeAws_queryCloneReceiptRuleSetCommand(output, context);
+    return de_CloneReceiptRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

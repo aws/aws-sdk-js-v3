@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  DescribePackageRequest,
-  DescribePackageRequestFilterSensitiveLog,
-  DescribePackageResult,
-  DescribePackageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribePackageCommand,
-  serializeAws_restJson1DescribePackageCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribePackageRequest, DescribePackageResult } from "../models/models_0";
+import { de_DescribePackageCommand, se_DescribePackageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePackageCommand}.
  */
 export interface DescribePackageCommandInput extends DescribePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePackageCommand}.
  */
 export interface DescribePackageCommandOutput extends DescribePackageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a
  *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a>
  *       object that contains information about the requested package.</p>
@@ -44,10 +41,20 @@ export interface DescribePackageCommandOutput extends DescribePackageResult, __M
  * import { CodeartifactClient, DescribePackageCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DescribePackageCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // DescribePackageRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ * };
  * const command = new DescribePackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePackageCommandInput - {@link DescribePackageCommandInput}
+ * @returns {@link DescribePackageCommandOutput}
  * @see {@link DescribePackageCommandInput} for command's `input` shape.
  * @see {@link DescribePackageCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -94,6 +101,9 @@ export class DescribePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +132,8 @@ export class DescribePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePackageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +143,18 @@ export class DescribePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePackageCommand(input, context);
+    return se_DescribePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackageCommandOutput> {
-    return deserializeAws_restJson1DescribePackageCommand(output, context);
+    return de_DescribePackageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ConnectParticipantServiceException as __BaseException } from "./ConnectParticipantServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CompleteAttachmentUploadRequest {
   /**
    * <p>A list of unique identifiers for the attachments.</p>
@@ -44,9 +48,13 @@ export interface CompleteAttachmentUploadRequest {
   ConnectionToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CompleteAttachmentUploadResponse {}
 
 /**
+ * @public
  * <p>An attachment with that identifier is already being uploaded.</p>
  */
 export class ConflictException extends __BaseException {
@@ -68,6 +76,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -89,6 +98,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of attachments per contact exceeds the quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -110,6 +120,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -131,6 +142,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  */
 export class ValidationException extends __BaseException {
@@ -151,11 +163,23 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum ConnectionType {
-  CONNECTION_CREDENTIALS = "CONNECTION_CREDENTIALS",
-  WEBSOCKET = "WEBSOCKET",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionType = {
+  CONNECTION_CREDENTIALS: "CONNECTION_CREDENTIALS",
+  WEBSOCKET: "WEBSOCKET",
+} as const;
 
+/**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+/**
+ * @public
+ */
 export interface CreateParticipantConnectionRequest {
   /**
    * <p>Type of connection information required. This can be omitted if
@@ -171,13 +195,15 @@ export interface CreateParticipantConnectionRequest {
   ParticipantToken: string | undefined;
 
   /**
-   * <p>Amazon Connect Participant is used to mark the participant as connected for message
-   *             streaming.</p>
+   * <p>Amazon Connect Participant is used to mark the participant as connected for customer
+   *             participant in message streaming, as well as for agent or manager participant in
+   *             non-streaming chats.</p>
    */
   ConnectParticipant?: boolean;
 }
 
 /**
+ * @public
  * <p>Connection credentials. </p>
  */
 export interface ConnectionCredentials {
@@ -195,6 +221,7 @@ export interface ConnectionCredentials {
 }
 
 /**
+ * @public
  * <p>The websocket for the participant's connection.</p>
  */
 export interface Websocket {
@@ -211,6 +238,9 @@ export interface Websocket {
   ConnectionExpiry?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateParticipantConnectionResponse {
   /**
    * <p>Creates the participant's websocket connection.</p>
@@ -224,6 +254,9 @@ export interface CreateParticipantConnectionResponse {
   ConnectionCredentials?: ConnectionCredentials;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectParticipantRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -239,8 +272,14 @@ export interface DisconnectParticipantRequest {
   ConnectionToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectParticipantResponse {}
 
+/**
+ * @public
+ */
 export interface GetAttachmentRequest {
   /**
    * <p>A unique identifier for the attachment.</p>
@@ -253,6 +292,9 @@ export interface GetAttachmentRequest {
   ConnectionToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAttachmentResponse {
   /**
    * <p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response
@@ -266,17 +308,36 @@ export interface GetAttachmentResponse {
   UrlExpiry?: string;
 }
 
-export enum ScanDirection {
-  BACKWARD = "BACKWARD",
-  FORWARD = "FORWARD",
-}
-
-export enum SortKey {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScanDirection = {
+  BACKWARD: "BACKWARD",
+  FORWARD: "FORWARD",
+} as const;
 
 /**
+ * @public
+ */
+export type ScanDirection = (typeof ScanDirection)[keyof typeof ScanDirection];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortKey = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortKey = (typeof SortKey)[keyof typeof SortKey];
+
+/**
+ * @public
  * <p>A filtering option for where to start. For example, if you sent 100 messages, start
  *             with message 50. </p>
  */
@@ -299,6 +360,9 @@ export interface StartPosition {
   MostRecent?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetTranscriptRequest {
   /**
    * <p>The contactId from the current contact chain for which transcript is needed.</p>
@@ -338,13 +402,23 @@ export interface GetTranscriptRequest {
   ConnectionToken: string | undefined;
 }
 
-export enum ArtifactStatus {
-  APPROVED = "APPROVED",
-  IN_PROGRESS = "IN_PROGRESS",
-  REJECTED = "REJECTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ArtifactStatus = {
+  APPROVED: "APPROVED",
+  IN_PROGRESS: "IN_PROGRESS",
+  REJECTED: "REJECTED",
+} as const;
 
 /**
+ * @public
+ */
+export type ArtifactStatus = (typeof ArtifactStatus)[keyof typeof ArtifactStatus];
+
+/**
+ * @public
  * <p>The case-insensitive input to indicate standard MIME type that describes the format of the file
  *             that will be uploaded.</p>
  */
@@ -371,6 +445,7 @@ export interface AttachmentItem {
 }
 
 /**
+ * @public
  * <p>The receipt for the message delivered to the recipient.</p>
  */
 export interface Receipt {
@@ -391,6 +466,7 @@ export interface Receipt {
 }
 
 /**
+ * @public
  * <p>Contains metadata related to a message.</p>
  */
 export interface MessageMetadata {
@@ -405,28 +481,47 @@ export interface MessageMetadata {
   Receipts?: Receipt[];
 }
 
-export enum ParticipantRole {
-  AGENT = "AGENT",
-  CUSTOMER = "CUSTOMER",
-  SYSTEM = "SYSTEM",
-}
-
-export enum ChatItemType {
-  ATTACHMENT = "ATTACHMENT",
-  CHAT_ENDED = "CHAT_ENDED",
-  CONNECTION_ACK = "CONNECTION_ACK",
-  EVENT = "EVENT",
-  MESSAGE = "MESSAGE",
-  MESSAGE_DELIVERED = "MESSAGE_DELIVERED",
-  MESSAGE_READ = "MESSAGE_READ",
-  PARTICIPANT_JOINED = "PARTICIPANT_JOINED",
-  PARTICIPANT_LEFT = "PARTICIPANT_LEFT",
-  TRANSFER_FAILED = "TRANSFER_FAILED",
-  TRANSFER_SUCCEEDED = "TRANSFER_SUCCEEDED",
-  TYPING = "TYPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantRole = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+  SYSTEM: "SYSTEM",
+} as const;
 
 /**
+ * @public
+ */
+export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChatItemType = {
+  ATTACHMENT: "ATTACHMENT",
+  CHAT_ENDED: "CHAT_ENDED",
+  CONNECTION_ACK: "CONNECTION_ACK",
+  EVENT: "EVENT",
+  MESSAGE: "MESSAGE",
+  MESSAGE_DELIVERED: "MESSAGE_DELIVERED",
+  MESSAGE_READ: "MESSAGE_READ",
+  PARTICIPANT_JOINED: "PARTICIPANT_JOINED",
+  PARTICIPANT_LEFT: "PARTICIPANT_LEFT",
+  TRANSFER_FAILED: "TRANSFER_FAILED",
+  TRANSFER_SUCCEEDED: "TRANSFER_SUCCEEDED",
+  TYPING: "TYPING",
+} as const;
+
+/**
+ * @public
+ */
+export type ChatItemType = (typeof ChatItemType)[keyof typeof ChatItemType];
+
+/**
+ * @public
  * <p>An item - message or event - that has been sent. </p>
  */
 export interface Item {
@@ -498,6 +593,9 @@ export interface Item {
   ContactId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTranscriptResponse {
   /**
    * <p>The initial contact ID for the contact. </p>
@@ -516,6 +614,9 @@ export interface GetTranscriptResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendEventRequest {
   /**
    * <p>The content type of the request. Supported types are:</p>
@@ -539,7 +640,7 @@ export interface SendEventRequest {
   /**
    * <p>The content of the event to be sent (for example, message text). For content related
    *             to message receipts, this is supported in the form of a JSON string.</p>
-   *          <p>Sample Content: "{\"messageId\":\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\"}"</p>
+   *          <p>Sample Content: "\{\"messageId\":\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\"\}"</p>
    */
   Content?: string;
 
@@ -557,6 +658,9 @@ export interface SendEventRequest {
   ConnectionToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendEventResponse {
   /**
    * <p>The ID of the response.</p>
@@ -571,10 +675,14 @@ export interface SendEventResponse {
   AbsoluteTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendMessageRequest {
   /**
    * <p>The type of the content. Supported types are <code>text/plain</code>,
-   *                 <code>text/markdown</code>, and <code>application/json</code>.</p>
+   *             <code>text/markdown</code>, <code>application/json</code>, and
+   *             <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>
    */
   ContentType: string | undefined;
 
@@ -588,6 +696,10 @@ export interface SendMessageRequest {
    *             <li>
    *                <p>For <code>application/json</code>, the Length Constraints are Minimum of 1,
    *                     Maximum of 12000. </p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the Length
+   *                     Constraints are Minimum of 1, Maximum of 12288.</p>
    *             </li>
    *          </ul>
    */
@@ -607,6 +719,9 @@ export interface SendMessageRequest {
   ConnectionToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendMessageResponse {
   /**
    * <p>The ID of the message.</p>
@@ -621,6 +736,9 @@ export interface SendMessageResponse {
   AbsoluteTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAttachmentUploadRequest {
   /**
    * <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -652,6 +770,7 @@ export interface StartAttachmentUploadRequest {
 }
 
 /**
+ * @public
  * <p>Fields to be used while uploading the attachment.</p>
  */
 export interface UploadMetadata {
@@ -672,6 +791,9 @@ export interface UploadMetadata {
   HeadersToInclude?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartAttachmentUploadResponse {
   /**
    * <p>A unique identifier for the attachment.</p>
@@ -683,173 +805,3 @@ export interface StartAttachmentUploadResponse {
    */
   UploadMetadata?: UploadMetadata;
 }
-
-/**
- * @internal
- */
-export const CompleteAttachmentUploadRequestFilterSensitiveLog = (obj: CompleteAttachmentUploadRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompleteAttachmentUploadResponseFilterSensitiveLog = (obj: CompleteAttachmentUploadResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateParticipantConnectionRequestFilterSensitiveLog = (obj: CreateParticipantConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionCredentialsFilterSensitiveLog = (obj: ConnectionCredentials): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WebsocketFilterSensitiveLog = (obj: Websocket): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateParticipantConnectionResponseFilterSensitiveLog = (
-  obj: CreateParticipantConnectionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisconnectParticipantRequestFilterSensitiveLog = (obj: DisconnectParticipantRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisconnectParticipantResponseFilterSensitiveLog = (obj: DisconnectParticipantResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAttachmentRequestFilterSensitiveLog = (obj: GetAttachmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAttachmentResponseFilterSensitiveLog = (obj: GetAttachmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartPositionFilterSensitiveLog = (obj: StartPosition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTranscriptRequestFilterSensitiveLog = (obj: GetTranscriptRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachmentItemFilterSensitiveLog = (obj: AttachmentItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReceiptFilterSensitiveLog = (obj: Receipt): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MessageMetadataFilterSensitiveLog = (obj: MessageMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ItemFilterSensitiveLog = (obj: Item): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTranscriptResponseFilterSensitiveLog = (obj: GetTranscriptResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendEventRequestFilterSensitiveLog = (obj: SendEventRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendEventResponseFilterSensitiveLog = (obj: SendEventResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendMessageRequestFilterSensitiveLog = (obj: SendMessageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendMessageResponseFilterSensitiveLog = (obj: SendMessageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAttachmentUploadRequestFilterSensitiveLog = (obj: StartAttachmentUploadRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadMetadataFilterSensitiveLog = (obj: UploadMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAttachmentUploadResponseFilterSensitiveLog = (obj: StartAttachmentUploadResponse): any => ({
-  ...obj,
-});

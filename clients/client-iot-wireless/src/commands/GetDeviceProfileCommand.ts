@@ -16,25 +16,26 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   GetDeviceProfileRequest,
-  GetDeviceProfileRequestFilterSensitiveLog,
   GetDeviceProfileResponse,
   GetDeviceProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeviceProfileCommand,
-  serializeAws_restJson1GetDeviceProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDeviceProfileCommand, se_GetDeviceProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeviceProfileCommand}.
  */
 export interface GetDeviceProfileCommandInput extends GetDeviceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeviceProfileCommand}.
  */
 export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a device profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse,
  * import { IoTWirelessClient, GetDeviceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetDeviceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetDeviceProfileRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetDeviceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeviceProfileCommandInput - {@link GetDeviceProfileCommandInput}
+ * @returns {@link GetDeviceProfileCommandOutput}
  * @see {@link GetDeviceProfileCommandInput} for command's `input` shape.
  * @see {@link GetDeviceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +90,9 @@ export class GetDeviceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +121,7 @@ export class GetDeviceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeviceProfileRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDeviceProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,12 +132,18 @@ export class GetDeviceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeviceProfileCommand(input, context);
+    return se_GetDeviceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceProfileCommandOutput> {
-    return deserializeAws_restJson1GetDeviceProfileCommand(output, context);
+    return de_GetDeviceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

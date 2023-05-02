@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAnalysesRequest,
-  ListAnalysesRequestFilterSensitiveLog,
-  ListAnalysesResponse,
-  ListAnalysesResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1ListAnalysesCommand,
-  serializeAws_restJson1ListAnalysesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAnalysesRequest, ListAnalysesResponse } from "../models/models_3";
+import { de_ListAnalysesCommand, se_ListAnalysesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnalysesCommand}.
  */
 export interface ListAnalysesCommandInput extends ListAnalysesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnalysesCommand}.
  */
 export interface ListAnalysesCommandOutput extends ListAnalysesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists Amazon QuickSight analyses that exist in the specified Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListAnalysesCommandOutput extends ListAnalysesResponse, __Metad
  * import { QuickSightClient, ListAnalysesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListAnalysesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // ListAnalysesRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAnalysesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnalysesCommandInput - {@link ListAnalysesCommandInput}
+ * @returns {@link ListAnalysesCommandOutput}
  * @see {@link ListAnalysesCommandInput} for command's `input` shape.
  * @see {@link ListAnalysesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -84,6 +88,9 @@ export class ListAnalysesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnalysesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class ListAnalysesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAnalysesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAnalysesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class ListAnalysesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnalysesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAnalysesCommand(input, context);
+    return se_ListAnalysesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnalysesCommandOutput> {
-    return deserializeAws_restJson1ListAnalysesCommand(output, context);
+    return de_ListAnalysesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  EstimateTemplateCostInput,
-  EstimateTemplateCostInputFilterSensitiveLog,
-  EstimateTemplateCostOutput,
-  EstimateTemplateCostOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryEstimateTemplateCostCommand,
-  serializeAws_queryEstimateTemplateCostCommand,
-} from "../protocols/Aws_query";
+import { EstimateTemplateCostInput, EstimateTemplateCostOutput } from "../models/models_0";
+import { de_EstimateTemplateCostCommand, se_EstimateTemplateCostCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link EstimateTemplateCostCommand}.
  */
 export interface EstimateTemplateCostCommandInput extends EstimateTemplateCostInput {}
 /**
+ * @public
+ *
  * The output of {@link EstimateTemplateCostCommand}.
  */
 export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple Monthly Calculator URL with a query string that describes the
  *          resources required to run the template.</p>
  * @example
@@ -43,10 +40,24 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * import { CloudFormationClient, EstimateTemplateCostCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, EstimateTemplateCostCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // EstimateTemplateCostInput
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ *   Parameters: [ // Parameters
+ *     { // Parameter
+ *       ParameterKey: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *       ResolvedValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new EstimateTemplateCostCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EstimateTemplateCostCommandInput - {@link EstimateTemplateCostCommandInput}
+ * @returns {@link EstimateTemplateCostCommandOutput}
  * @see {@link EstimateTemplateCostCommandInput} for command's `input` shape.
  * @see {@link EstimateTemplateCostCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -70,6 +81,9 @@ export class EstimateTemplateCostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EstimateTemplateCostCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +112,8 @@ export class EstimateTemplateCostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EstimateTemplateCostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EstimateTemplateCostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +123,18 @@ export class EstimateTemplateCostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EstimateTemplateCostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEstimateTemplateCostCommand(input, context);
+    return se_EstimateTemplateCostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EstimateTemplateCostCommandOutput> {
-    return deserializeAws_queryEstimateTemplateCostCommand(output, context);
+    return de_EstimateTemplateCostCommand(output, context);
   }
 
   // Start section: command_body_extra

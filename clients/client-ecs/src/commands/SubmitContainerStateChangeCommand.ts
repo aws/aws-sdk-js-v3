@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  SubmitContainerStateChangeRequest,
-  SubmitContainerStateChangeRequestFilterSensitiveLog,
-  SubmitContainerStateChangeResponse,
-  SubmitContainerStateChangeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SubmitContainerStateChangeCommand,
-  serializeAws_json1_1SubmitContainerStateChangeCommand,
-} from "../protocols/Aws_json1_1";
+import { SubmitContainerStateChangeRequest, SubmitContainerStateChangeResponse } from "../models/models_0";
+import { de_SubmitContainerStateChangeCommand, se_SubmitContainerStateChangeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SubmitContainerStateChangeCommand}.
  */
 export interface SubmitContainerStateChangeCommandInput extends SubmitContainerStateChangeRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubmitContainerStateChangeCommand}.
  */
 export interface SubmitContainerStateChangeCommandOutput extends SubmitContainerStateChangeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
@@ -45,10 +42,31 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  * import { ECSClient, SubmitContainerStateChangeCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, SubmitContainerStateChangeCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // SubmitContainerStateChangeRequest
+ *   cluster: "STRING_VALUE",
+ *   task: "STRING_VALUE",
+ *   containerName: "STRING_VALUE",
+ *   runtimeId: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   exitCode: Number("int"),
+ *   reason: "STRING_VALUE",
+ *   networkBindings: [ // NetworkBindings
+ *     { // NetworkBinding
+ *       bindIP: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *       hostPort: Number("int"),
+ *       protocol: "tcp" || "udp",
+ *       containerPortRange: "STRING_VALUE",
+ *       hostPortRange: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new SubmitContainerStateChangeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SubmitContainerStateChangeCommandInput - {@link SubmitContainerStateChangeCommandInput}
+ * @returns {@link SubmitContainerStateChangeCommandOutput}
  * @see {@link SubmitContainerStateChangeCommandInput} for command's `input` shape.
  * @see {@link SubmitContainerStateChangeCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -83,6 +101,9 @@ export class SubmitContainerStateChangeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubmitContainerStateChangeCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +132,8 @@ export class SubmitContainerStateChangeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitContainerStateChangeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubmitContainerStateChangeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,15 +143,21 @@ export class SubmitContainerStateChangeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubmitContainerStateChangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubmitContainerStateChangeCommand(input, context);
+    return se_SubmitContainerStateChangeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SubmitContainerStateChangeCommandOutput> {
-    return deserializeAws_json1_1SubmitContainerStateChangeCommand(output, context);
+    return de_SubmitContainerStateChangeCommand(output, context);
   }
 
   // Start section: command_body_extra

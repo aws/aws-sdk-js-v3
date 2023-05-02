@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBParameterGroupsMessage,
-  DBParameterGroupsMessageFilterSensitiveLog,
-  DescribeDBParameterGroupsMessage,
-  DescribeDBParameterGroupsMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DBParameterGroupsMessage, DescribeDBParameterGroupsMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDescribeDBParameterGroupsCommand,
-  serializeAws_queryDescribeDBParameterGroupsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBParameterGroupsCommand, se_DescribeDBParameterGroupsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBParameterGroupsCommand}.
  */
 export interface DescribeDBParameterGroupsCommandInput extends DescribeDBParameterGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBParameterGroupsCommand}.
  */
 export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroupsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DBParameterGroup</code> descriptions. If a
  *       <code>DBParameterGroupName</code> is specified, the list will contain only the description of
  *       the specified DB parameter group.</p>
@@ -44,10 +41,25 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * import { NeptuneClient, DescribeDBParameterGroupsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBParameterGroupsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DescribeDBParameterGroupsMessage
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBParameterGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBParameterGroupsCommandInput - {@link DescribeDBParameterGroupsCommandInput}
+ * @returns {@link DescribeDBParameterGroupsCommandOutput}
  * @see {@link DescribeDBParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -76,6 +88,9 @@ export class DescribeDBParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +119,8 @@ export class DescribeDBParameterGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBParameterGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBParameterGroupsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,15 +130,21 @@ export class DescribeDBParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBParameterGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBParameterGroupsCommand(input, context);
+    return se_DescribeDBParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBParameterGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBParameterGroupsCommand(output, context);
+    return de_DescribeDBParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

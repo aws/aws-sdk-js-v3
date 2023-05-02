@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeReturnShippingLabelRequest,
-  DescribeReturnShippingLabelRequestFilterSensitiveLog,
-  DescribeReturnShippingLabelResult,
-  DescribeReturnShippingLabelResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReturnShippingLabelCommand,
-  serializeAws_json1_1DescribeReturnShippingLabelCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeReturnShippingLabelRequest, DescribeReturnShippingLabelResult } from "../models/models_0";
+import { de_DescribeReturnShippingLabelCommand, se_DescribeReturnShippingLabelCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReturnShippingLabelCommand}.
  */
 export interface DescribeReturnShippingLabelCommandInput extends DescribeReturnShippingLabelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReturnShippingLabelCommand}.
  */
 export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturnShippingLabelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information on the shipping label of a Snow device that is being returned to Amazon Web Services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturn
  * import { SnowballClient, DescribeReturnShippingLabelCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, DescribeReturnShippingLabelCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // DescribeReturnShippingLabelRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeReturnShippingLabelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReturnShippingLabelCommandInput - {@link DescribeReturnShippingLabelCommandInput}
+ * @returns {@link DescribeReturnShippingLabelCommandOutput}
  * @see {@link DescribeReturnShippingLabelCommandInput} for command's `input` shape.
  * @see {@link DescribeReturnShippingLabelCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -81,6 +83,9 @@ export class DescribeReturnShippingLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReturnShippingLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DescribeReturnShippingLabelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReturnShippingLabelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReturnShippingLabelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +125,21 @@ export class DescribeReturnShippingLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReturnShippingLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReturnShippingLabelCommand(input, context);
+    return se_DescribeReturnShippingLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReturnShippingLabelCommandOutput> {
-    return deserializeAws_json1_1DescribeReturnShippingLabelCommand(output, context);
+    return de_DescribeReturnShippingLabelCommand(output, context);
   }
 
   // Start section: command_body_extra

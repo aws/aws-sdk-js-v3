@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  PutInsightSelectorsRequest,
-  PutInsightSelectorsRequestFilterSensitiveLog,
-  PutInsightSelectorsResponse,
-  PutInsightSelectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutInsightSelectorsCommand,
-  serializeAws_json1_1PutInsightSelectorsCommand,
-} from "../protocols/Aws_json1_1";
+import { PutInsightSelectorsRequest, PutInsightSelectorsResponse } from "../models/models_0";
+import { de_PutInsightSelectorsCommand, se_PutInsightSelectorsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutInsightSelectorsCommand}.
  */
 export interface PutInsightSelectorsCommandInput extends PutInsightSelectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutInsightSelectorsCommand}.
  */
 export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lets you enable Insights event logging by specifying the Insights selectors that you
  *          want to enable on an existing trail. You also use <code>PutInsightSelectors</code> to turn
  *          off Insights event logging, by passing an empty list of insight types. The valid Insights
@@ -46,10 +43,20 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * import { CloudTrailClient, PutInsightSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, PutInsightSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // PutInsightSelectorsRequest
+ *   TrailName: "STRING_VALUE", // required
+ *   InsightSelectors: [ // InsightSelectors // required
+ *     { // InsightSelector
+ *       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
+ *     },
+ *   ],
+ * };
  * const command = new PutInsightSelectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutInsightSelectorsCommandInput - {@link PutInsightSelectorsCommandInput}
+ * @returns {@link PutInsightSelectorsCommandOutput}
  * @see {@link PutInsightSelectorsCommandInput} for command's `input` shape.
  * @see {@link PutInsightSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -152,6 +159,9 @@ export class PutInsightSelectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutInsightSelectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,8 +190,8 @@ export class PutInsightSelectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutInsightSelectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutInsightSelectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -191,12 +201,18 @@ export class PutInsightSelectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutInsightSelectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutInsightSelectorsCommand(input, context);
+    return se_PutInsightSelectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutInsightSelectorsCommandOutput> {
-    return deserializeAws_json1_1PutInsightSelectorsCommand(output, context);
+    return de_PutInsightSelectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

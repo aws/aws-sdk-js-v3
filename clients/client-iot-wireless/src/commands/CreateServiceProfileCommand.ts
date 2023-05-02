@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  CreateServiceProfileRequest,
-  CreateServiceProfileRequestFilterSensitiveLog,
-  CreateServiceProfileResponse,
-  CreateServiceProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateServiceProfileCommand,
-  serializeAws_restJson1CreateServiceProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateServiceProfileRequest, CreateServiceProfileResponse } from "../models/models_0";
+import { de_CreateServiceProfileCommand, se_CreateServiceProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServiceProfileCommand}.
  */
 export interface CreateServiceProfileCommandInput extends CreateServiceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateServiceProfileCommand}.
  */
 export interface CreateServiceProfileCommandOutput extends CreateServiceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new service profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,29 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
  * import { IoTWirelessClient, CreateServiceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateServiceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // CreateServiceProfileRequest
+ *   Name: "STRING_VALUE",
+ *   LoRaWAN: { // LoRaWANServiceProfile
+ *     AddGwMetadata: true || false,
+ *     DrMin: Number("int"),
+ *     DrMax: Number("int"),
+ *     PrAllowed: true || false,
+ *     RaAllowed: true || false,
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new CreateServiceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceProfileCommandInput - {@link CreateServiceProfileCommandInput}
+ * @returns {@link CreateServiceProfileCommandOutput}
  * @see {@link CreateServiceProfileCommandInput} for command's `input` shape.
  * @see {@link CreateServiceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +100,9 @@ export class CreateServiceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +131,8 @@ export class CreateServiceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateServiceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateServiceProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +142,18 @@ export class CreateServiceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateServiceProfileCommand(input, context);
+    return se_CreateServiceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceProfileCommandOutput> {
-    return deserializeAws_restJson1CreateServiceProfileCommand(output, context);
+    return de_CreateServiceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

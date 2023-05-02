@@ -10,7 +10,7 @@ import { HealthClient } from "../HealthClient";
 import { HealthPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: HealthClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeAffectedAccountsForOrganizationCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeAffectedAccountsForOrganization(
   config: HealthPaginationConfiguration,
   input: DescribeAffectedAccountsForOrganizationCommandInput,

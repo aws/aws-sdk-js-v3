@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  CreateGlobalTableInput,
-  CreateGlobalTableInputFilterSensitiveLog,
-  CreateGlobalTableOutput,
-  CreateGlobalTableOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateGlobalTableCommand,
-  serializeAws_json1_0CreateGlobalTableCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateGlobalTableInput, CreateGlobalTableOutput } from "../models/models_0";
+import { de_CreateGlobalTableCommand, se_CreateGlobalTableCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGlobalTableCommand}.
  */
 export interface CreateGlobalTableCommandInput extends CreateGlobalTableInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateGlobalTableCommand}.
  */
 export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a global table from an existing table. A global table creates a replication
  *             relationship between two or more DynamoDB tables with the same table name in the
  *             provided Regions. </p>
@@ -104,10 +101,20 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  * import { DynamoDBClient, CreateGlobalTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, CreateGlobalTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // CreateGlobalTableInput
+ *   GlobalTableName: "STRING_VALUE", // required
+ *   ReplicationGroup: [ // ReplicaList // required
+ *     { // Replica
+ *       RegionName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateGlobalTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGlobalTableCommandInput - {@link CreateGlobalTableCommandInput}
+ * @returns {@link CreateGlobalTableCommandOutput}
  * @see {@link CreateGlobalTableCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -156,6 +163,9 @@ export class CreateGlobalTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGlobalTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -184,8 +194,8 @@ export class CreateGlobalTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGlobalTableInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGlobalTableOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -195,12 +205,18 @@ export class CreateGlobalTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGlobalTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateGlobalTableCommand(input, context);
+    return se_CreateGlobalTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalTableCommandOutput> {
-    return deserializeAws_json1_0CreateGlobalTableCommand(output, context);
+    return de_CreateGlobalTableCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteCallAnalyticsCategoryRequest,
-  DeleteCallAnalyticsCategoryRequestFilterSensitiveLog,
-  DeleteCallAnalyticsCategoryResponse,
-  DeleteCallAnalyticsCategoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCallAnalyticsCategoryCommand,
-  serializeAws_json1_1DeleteCallAnalyticsCategoryCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteCallAnalyticsCategoryRequest, DeleteCallAnalyticsCategoryResponse } from "../models/models_0";
+import { de_DeleteCallAnalyticsCategoryCommand, se_DeleteCallAnalyticsCategoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCallAnalyticsCategoryCommand}.
  */
 export interface DeleteCallAnalyticsCategoryCommandInput extends DeleteCallAnalyticsCategoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCallAnalyticsCategoryCommand}.
  */
 export interface DeleteCallAnalyticsCategoryCommandOutput
@@ -37,6 +33,7 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Call Analytics category. To use this operation, specify the name of the
  *             category you want to delete using <code>CategoryName</code>. Category names are case
  *             sensitive.</p>
@@ -46,10 +43,15 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
  * import { TranscribeClient, DeleteCallAnalyticsCategoryCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, DeleteCallAnalyticsCategoryCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // DeleteCallAnalyticsCategoryRequest
+ *   CategoryName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCallAnalyticsCategoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCallAnalyticsCategoryCommandInput - {@link DeleteCallAnalyticsCategoryCommandInput}
+ * @returns {@link DeleteCallAnalyticsCategoryCommandOutput}
  * @see {@link DeleteCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link DeleteCallAnalyticsCategoryCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -91,6 +93,9 @@ export class DeleteCallAnalyticsCategoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCallAnalyticsCategoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class DeleteCallAnalyticsCategoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCallAnalyticsCategoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCallAnalyticsCategoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +135,21 @@ export class DeleteCallAnalyticsCategoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCallAnalyticsCategoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCallAnalyticsCategoryCommand(input, context);
+    return se_DeleteCallAnalyticsCategoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCallAnalyticsCategoryCommandOutput> {
-    return deserializeAws_json1_1DeleteCallAnalyticsCategoryCommand(output, context);
+    return de_DeleteCallAnalyticsCategoryCommand(output, context);
   }
 
   // Start section: command_body_extra

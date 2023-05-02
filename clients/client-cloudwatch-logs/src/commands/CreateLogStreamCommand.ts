@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { CreateLogStreamRequest, CreateLogStreamRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLogStreamCommand,
-  serializeAws_json1_1CreateLogStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLogStreamRequest } from "../models/models_0";
+import { de_CreateLogStreamCommand, se_CreateLogStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLogStreamCommand}.
  */
 export interface CreateLogStreamCommandInput extends CreateLogStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLogStreamCommand}.
  */
 export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a log stream for the specified log group. A log stream is a sequence of log events
  *       that originate from a single source, such as an application instance or a resource that is
  *       being monitored.</p>
@@ -53,10 +55,16 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, CreateLogStreamCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CreateLogStreamCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // CreateLogStreamRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   logStreamName: "STRING_VALUE", // required
+ * };
  * const command = new CreateLogStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLogStreamCommandInput - {@link CreateLogStreamCommandInput}
+ * @returns {@link CreateLogStreamCommandOutput}
  * @see {@link CreateLogStreamCommandInput} for command's `input` shape.
  * @see {@link CreateLogStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -92,6 +100,9 @@ export class CreateLogStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLogStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +131,8 @@ export class CreateLogStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLogStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +142,18 @@ export class CreateLogStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLogStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLogStreamCommand(input, context);
+    return se_CreateLogStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogStreamCommandOutput> {
-    return deserializeAws_json1_1CreateLogStreamCommand(output, context);
+    return de_CreateLogStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -523,6 +523,14 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+PutChannelExpirationSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/classes/putchannelexpirationsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/interfaces/putchannelexpirationsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/interfaces/putchannelexpirationsettingscommandoutput.html)
+
+</details>
+<details>
+<summary>
 PutChannelMembershipPreferences
 </summary>
 

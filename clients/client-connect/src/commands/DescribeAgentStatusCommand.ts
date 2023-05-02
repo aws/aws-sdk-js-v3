@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeAgentStatusRequest,
-  DescribeAgentStatusRequestFilterSensitiveLog,
-  DescribeAgentStatusResponse,
-  DescribeAgentStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAgentStatusCommand,
-  serializeAws_restJson1DescribeAgentStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAgentStatusRequest, DescribeAgentStatusResponse } from "../models/models_0";
+import { de_DescribeAgentStatusCommand, se_DescribeAgentStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAgentStatusCommand}.
  */
 export interface DescribeAgentStatusCommandInput extends DescribeAgentStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAgentStatusCommand}.
  */
 export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes an agent status.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusRes
  * import { ConnectClient, DescribeAgentStatusCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeAgentStatusCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeAgentStatusRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   AgentStatusId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAgentStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAgentStatusCommandInput - {@link DescribeAgentStatusCommandInput}
+ * @returns {@link DescribeAgentStatusCommandOutput}
  * @see {@link DescribeAgentStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +88,9 @@ export class DescribeAgentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAgentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class DescribeAgentStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAgentStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAgentStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class DescribeAgentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAgentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAgentStatusCommand(input, context);
+    return se_DescribeAgentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgentStatusCommandOutput> {
-    return deserializeAws_restJson1DescribeAgentStatusCommand(output, context);
+    return de_DescribeAgentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

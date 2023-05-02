@@ -17,24 +17,25 @@ import {
   UpdateFileSystemAssociationInput,
   UpdateFileSystemAssociationInputFilterSensitiveLog,
   UpdateFileSystemAssociationOutput,
-  UpdateFileSystemAssociationOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFileSystemAssociationCommand,
-  serializeAws_json1_1UpdateFileSystemAssociationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateFileSystemAssociationCommand, se_UpdateFileSystemAssociationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFileSystemAssociationCommand}.
  */
 export interface UpdateFileSystemAssociationCommandInput extends UpdateFileSystemAssociationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFileSystemAssociationCommand}.
  */
 export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSystemAssociationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a file system association. This operation is only supported in the FSx File
  *          Gateways.</p>
  * @example
@@ -43,10 +44,21 @@ export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSyst
  * import { StorageGatewayClient, UpdateFileSystemAssociationCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateFileSystemAssociationCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // UpdateFileSystemAssociationInput
+ *   FileSystemAssociationARN: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE",
+ *   Password: "STRING_VALUE",
+ *   AuditDestinationARN: "STRING_VALUE",
+ *   CacheAttributes: { // CacheAttributes
+ *     CacheStaleTimeoutInSeconds: Number("int"),
+ *   },
+ * };
  * const command = new UpdateFileSystemAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFileSystemAssociationCommandInput - {@link UpdateFileSystemAssociationCommandInput}
+ * @returns {@link UpdateFileSystemAssociationCommandOutput}
  * @see {@link UpdateFileSystemAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateFileSystemAssociationCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -78,6 +90,9 @@ export class UpdateFileSystemAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFileSystemAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,7 +122,7 @@ export class UpdateFileSystemAssociationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateFileSystemAssociationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFileSystemAssociationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +132,21 @@ export class UpdateFileSystemAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFileSystemAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFileSystemAssociationCommand(input, context);
+    return se_UpdateFileSystemAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFileSystemAssociationCommandOutput> {
-    return deserializeAws_json1_1UpdateFileSystemAssociationCommand(output, context);
+    return de_UpdateFileSystemAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

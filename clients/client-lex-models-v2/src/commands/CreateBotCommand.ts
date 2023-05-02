@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  CreateBotRequest,
-  CreateBotRequestFilterSensitiveLog,
-  CreateBotResponse,
-  CreateBotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBotCommand,
-  serializeAws_restJson1CreateBotCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateBotRequest, CreateBotResponse } from "../models/models_0";
+import { de_CreateBotCommand, se_CreateBotCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBotCommand}.
  */
 export interface CreateBotCommandInput extends CreateBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBotCommand}.
  */
 export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Lex conversational bot. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,37 @@ export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBea
  * import { LexModelsV2Client, CreateBotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateBotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // CreateBotRequest
+ *   botName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE", // required
+ *   dataPrivacy: { // DataPrivacy
+ *     childDirected: true || false, // required
+ *   },
+ *   idleSessionTTLInSeconds: Number("int"), // required
+ *   botTags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   testBotAliasTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   botType: "Bot" || "BotNetwork",
+ *   botMembers: [ // BotMembers
+ *     { // BotMember
+ *       botMemberId: "STRING_VALUE", // required
+ *       botMemberName: "STRING_VALUE", // required
+ *       botMemberAliasId: "STRING_VALUE", // required
+ *       botMemberAliasName: "STRING_VALUE", // required
+ *       botMemberVersion: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBotCommandInput - {@link CreateBotCommandInput}
+ * @returns {@link CreateBotCommandOutput}
  * @see {@link CreateBotCommandInput} for command's `input` shape.
  * @see {@link CreateBotCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -94,6 +118,9 @@ export class CreateBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +147,8 @@ export class CreateBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +158,18 @@ export class CreateBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBotCommand(input, context);
+    return se_CreateBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBotCommandOutput> {
-    return deserializeAws_restJson1CreateBotCommand(output, context);
+    return de_CreateBotCommand(output, context);
   }
 
   // Start section: command_body_extra

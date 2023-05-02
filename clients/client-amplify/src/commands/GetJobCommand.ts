@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  GetJobRequest,
-  GetJobRequestFilterSensitiveLog,
-  GetJobResult,
-  GetJobResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_restJson1GetJobCommand, serializeAws_restJson1GetJobCommand } from "../protocols/Aws_restJson1";
+import { GetJobRequest, GetJobResult } from "../models/models_0";
+import { de_GetJobCommand, se_GetJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobCommand}.
  */
 export interface GetJobCommandInput extends GetJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobCommand}.
  */
 export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a job for a branch of an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,17 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
  * import { AmplifyClient, GetJobCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetJobCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // GetJobRequest
+ *   appId: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new GetJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobCommandInput - {@link GetJobCommandInput}
+ * @returns {@link GetJobCommandOutput}
  * @see {@link GetJobCommandInput} for command's `input` shape.
  * @see {@link GetJobCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +113,8 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +124,18 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJobCommand(input, context);
+    return se_GetJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobCommandOutput> {
-    return deserializeAws_restJson1GetJobCommand(output, context);
+    return de_GetJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,43 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  StopMatchmakingInput,
-  StopMatchmakingInputFilterSensitiveLog,
-  StopMatchmakingOutput,
-  StopMatchmakingOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopMatchmakingCommand,
-  serializeAws_json1_1StopMatchmakingCommand,
-} from "../protocols/Aws_json1_1";
+import { StopMatchmakingInput, StopMatchmakingOutput } from "../models/models_0";
+import { de_StopMatchmakingCommand, se_StopMatchmakingCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopMatchmakingCommand}.
  */
 export interface StopMatchmakingCommandInput extends StopMatchmakingInput {}
 /**
+ * @public
+ *
  * The output of {@link StopMatchmakingCommand}.
  */
 export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a matchmaking ticket or match backfill ticket that is currently being
  *             processed. To stop the matchmaking operation, specify the ticket ID. If successful, work
  *             on the ticket is stopped, and the ticket status is changed to
  *             <code>CANCELLED</code>.</p>
- *         <p>This call is also used to turn off automatic backfill for an individual game session.
+ *          <p>This call is also used to turn off automatic backfill for an individual game session.
  *             This is for game sessions that are created with a matchmaking configuration that has
  *             automatic backfill enabled. The ticket ID is included in the <code>MatchmakerData</code>
  *             of an updated game session object, which is provided to the game server.</p>
- *         <note>
+ *          <note>
  *             <p>If the operation is successful, the service sends back an empty JSON struct with
  *                 the HTTP 200 response (not an empty HTTP body).</p>
- *         </note>
- *         <p>
+ *          </note>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
  *                 Add FlexMatch to a game client</a>
  *          </p>
@@ -60,10 +57,15 @@ export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __M
  * import { GameLiftClient, StopMatchmakingCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StopMatchmakingCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // StopMatchmakingInput
+ *   TicketId: "STRING_VALUE", // required
+ * };
  * const command = new StopMatchmakingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopMatchmakingCommandInput - {@link StopMatchmakingCommandInput}
+ * @returns {@link StopMatchmakingCommandOutput}
  * @see {@link StopMatchmakingCommandInput} for command's `input` shape.
  * @see {@link StopMatchmakingCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -101,6 +103,9 @@ export class StopMatchmakingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopMatchmakingCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +134,8 @@ export class StopMatchmakingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopMatchmakingInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopMatchmakingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +145,18 @@ export class StopMatchmakingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopMatchmakingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopMatchmakingCommand(input, context);
+    return se_StopMatchmakingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMatchmakingCommandOutput> {
-    return deserializeAws_json1_1StopMatchmakingCommand(output, context);
+    return de_StopMatchmakingCommand(output, context);
   }
 
   // Start section: command_body_extra

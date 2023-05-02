@@ -10,7 +10,7 @@ import { SageMakerGeospatialClient } from "../SageMakerGeospatialClient";
 import { SageMakerGeospatialPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SageMakerGeospatialClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchRasterDataCollectionCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateSearchRasterDataCollection(
   config: SageMakerGeospatialPaginationConfiguration,
   input: SearchRasterDataCollectionCommandInput,

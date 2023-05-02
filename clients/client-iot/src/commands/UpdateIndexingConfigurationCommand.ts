@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { UpdateIndexingConfigurationRequest, UpdateIndexingConfigurationResponse } from "../models/models_2";
 import {
-  UpdateIndexingConfigurationRequest,
-  UpdateIndexingConfigurationRequestFilterSensitiveLog,
-  UpdateIndexingConfigurationResponse,
-  UpdateIndexingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateIndexingConfigurationCommand,
-  serializeAws_restJson1UpdateIndexingConfigurationCommand,
+  de_UpdateIndexingConfigurationCommand,
+  se_UpdateIndexingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIndexingConfigurationCommand}.
  */
 export interface UpdateIndexingConfigurationCommandInput extends UpdateIndexingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIndexingConfigurationCommand}.
  */
 export interface UpdateIndexingConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateIndexingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the search configuration.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateIndexingConfiguration</a> action.</p>
  * @example
@@ -45,10 +45,52 @@ export interface UpdateIndexingConfigurationCommandOutput
  * import { IoTClient, UpdateIndexingConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateIndexingConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateIndexingConfigurationRequest
+ *   thingIndexingConfiguration: { // ThingIndexingConfiguration
+ *     thingIndexingMode: "OFF" || "REGISTRY" || "REGISTRY_AND_SHADOW", // required
+ *     thingConnectivityIndexingMode: "OFF" || "STATUS",
+ *     deviceDefenderIndexingMode: "OFF" || "VIOLATIONS",
+ *     namedShadowIndexingMode: "OFF" || "ON",
+ *     managedFields: [ // Fields
+ *       { // Field
+ *         name: "STRING_VALUE",
+ *         type: "Number" || "String" || "Boolean",
+ *       },
+ *     ],
+ *     customFields: [
+ *       {
+ *         name: "STRING_VALUE",
+ *         type: "Number" || "String" || "Boolean",
+ *       },
+ *     ],
+ *     filter: { // IndexingFilter
+ *       namedShadowNames: [ // NamedShadowNamesFilter
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   thingGroupIndexingConfiguration: { // ThingGroupIndexingConfiguration
+ *     thingGroupIndexingMode: "OFF" || "ON", // required
+ *     managedFields: [
+ *       {
+ *         name: "STRING_VALUE",
+ *         type: "Number" || "String" || "Boolean",
+ *       },
+ *     ],
+ *     customFields: [
+ *       {
+ *         name: "STRING_VALUE",
+ *         type: "Number" || "String" || "Boolean",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateIndexingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIndexingConfigurationCommandInput - {@link UpdateIndexingConfigurationCommandInput}
+ * @returns {@link UpdateIndexingConfigurationCommandOutput}
  * @see {@link UpdateIndexingConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateIndexingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +129,9 @@ export class UpdateIndexingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIndexingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +160,8 @@ export class UpdateIndexingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIndexingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIndexingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +171,21 @@ export class UpdateIndexingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIndexingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIndexingConfigurationCommand(input, context);
+    return se_UpdateIndexingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIndexingConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateIndexingConfigurationCommand(output, context);
+    return de_UpdateIndexingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

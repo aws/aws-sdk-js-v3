@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  ListSharedProjectsInput,
-  ListSharedProjectsInputFilterSensitiveLog,
-  ListSharedProjectsOutput,
-  ListSharedProjectsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSharedProjectsCommand,
-  serializeAws_json1_1ListSharedProjectsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSharedProjectsInput, ListSharedProjectsOutput } from "../models/models_0";
+import { de_ListSharedProjectsCommand, se_ListSharedProjectsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSharedProjectsCommand}.
  */
 export interface ListSharedProjectsCommandInput extends ListSharedProjectsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSharedProjectsCommand}.
  */
 export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Gets a list of projects that are shared with other Amazon Web Services accounts or users. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutpu
  * import { CodeBuildClient, ListSharedProjectsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListSharedProjectsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // ListSharedProjectsInput
+ *   sortBy: "STRING_VALUE",
+ *   sortOrder: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSharedProjectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSharedProjectsCommandInput - {@link ListSharedProjectsCommandInput}
+ * @returns {@link ListSharedProjectsCommandOutput}
  * @see {@link ListSharedProjectsCommandInput} for command's `input` shape.
  * @see {@link ListSharedProjectsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -72,6 +77,9 @@ export class ListSharedProjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSharedProjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +108,8 @@ export class ListSharedProjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSharedProjectsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSharedProjectsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +119,18 @@ export class ListSharedProjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSharedProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSharedProjectsCommand(input, context);
+    return se_ListSharedProjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSharedProjectsCommandOutput> {
-    return deserializeAws_json1_1ListSharedProjectsCommand(output, context);
+    return de_ListSharedProjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

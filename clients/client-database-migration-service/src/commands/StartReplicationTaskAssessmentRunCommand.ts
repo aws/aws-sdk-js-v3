@@ -20,20 +20,22 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   StartReplicationTaskAssessmentRunMessage,
-  StartReplicationTaskAssessmentRunMessageFilterSensitiveLog,
   StartReplicationTaskAssessmentRunResponse,
-  StartReplicationTaskAssessmentRunResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1StartReplicationTaskAssessmentRunCommand,
-  serializeAws_json1_1StartReplicationTaskAssessmentRunCommand,
+  de_StartReplicationTaskAssessmentRunCommand,
+  se_StartReplicationTaskAssessmentRunCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReplicationTaskAssessmentRunCommand}.
  */
 export interface StartReplicationTaskAssessmentRunCommandInput extends StartReplicationTaskAssessmentRunMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartReplicationTaskAssessmentRunCommand}.
  */
 export interface StartReplicationTaskAssessmentRunCommandOutput
@@ -41,6 +43,7 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a new premigration assessment run for one or more individual assessments
  *          of a migration task.</p>
  *          <p>The assessments that you can specify depend on the source and target database engine and
@@ -54,10 +57,27 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  * import { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentRunCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentRunCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // StartReplicationTaskAssessmentRunMessage
+ *   ReplicationTaskArn: "STRING_VALUE", // required
+ *   ServiceAccessRoleArn: "STRING_VALUE", // required
+ *   ResultLocationBucket: "STRING_VALUE", // required
+ *   ResultLocationFolder: "STRING_VALUE",
+ *   ResultEncryptionMode: "STRING_VALUE",
+ *   ResultKmsKeyArn: "STRING_VALUE",
+ *   AssessmentRunName: "STRING_VALUE", // required
+ *   IncludeOnly: [ // IncludeTestList
+ *     "STRING_VALUE",
+ *   ],
+ *   Exclude: [ // ExcludeTestList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReplicationTaskAssessmentRunCommandInput - {@link StartReplicationTaskAssessmentRunCommandInput}
+ * @returns {@link StartReplicationTaskAssessmentRunCommandOutput}
  * @see {@link StartReplicationTaskAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link StartReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -119,6 +139,9 @@ export class StartReplicationTaskAssessmentRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReplicationTaskAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +170,8 @@ export class StartReplicationTaskAssessmentRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReplicationTaskAssessmentRunMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StartReplicationTaskAssessmentRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,18 +181,24 @@ export class StartReplicationTaskAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartReplicationTaskAssessmentRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartReplicationTaskAssessmentRunCommand(input, context);
+    return se_StartReplicationTaskAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartReplicationTaskAssessmentRunCommandOutput> {
-    return deserializeAws_json1_1StartReplicationTaskAssessmentRunCommand(output, context);
+    return de_StartReplicationTaskAssessmentRunCommand(output, context);
   }
 
   // Start section: command_body_extra

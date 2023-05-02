@@ -261,6 +261,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateAccessPointCommandInput
   | CreateAccessPointForObjectLambdaCommandInput
@@ -327,6 +330,9 @@ export type ServiceInputTypes =
   | UpdateJobPriorityCommandInput
   | UpdateJobStatusCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateAccessPointCommandOutput
   | CreateAccessPointForObjectLambdaCommandOutput
@@ -393,6 +399,9 @@ export type ServiceOutputTypes =
   | UpdateJobPriorityCommandOutput
   | UpdateJobStatusCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -400,7 +409,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -523,11 +532,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   md5?: __ChecksumConstructor | __HashConstructor;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type S3ControlClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -539,10 +551,15 @@ type S3ControlClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of S3ControlClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of S3ControlClient class constructor that set the region, credentials and other options.
  */
 export interface S3ControlClientConfig extends S3ControlClientConfigType {}
 
+/**
+ * @public
+ */
 type S3ControlClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -554,11 +571,14 @@ type S3ControlClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of S3ControlClient class. This is resolved and normalized from the {@link S3ControlClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of S3ControlClient class. This is resolved and normalized from the {@link S3ControlClientConfig | constructor configuration interface}.
  */
 export interface S3ControlClientResolvedConfig extends S3ControlClientResolvedConfigType {}
 
 /**
+ * @public
  * <p> Amazon Web Services S3 Control provides access to Amazon S3 control plane actions. </p>
  */
 export class S3ControlClient extends __Client<

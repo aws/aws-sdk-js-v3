@@ -20,21 +20,23 @@ import {
   CreateWorkspaceResponse,
   CreateWorkspaceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkspaceCommand,
-  serializeAws_restJson1CreateWorkspaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWorkspaceCommand, se_CreateWorkspaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkspaceCommand}.
  */
 export interface CreateWorkspaceCommandInput extends CreateWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkspaceCommand}.
  */
 export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <i>workspace</i>. In a workspace, you can create Grafana
  *             dashboards and visualizations to analyze your metrics, logs, and traces. You don't have
  *             to build, package, or deploy any hardware to run the Grafana server.</p>
@@ -46,10 +48,55 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * import { GrafanaClient, CreateWorkspaceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, CreateWorkspaceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // CreateWorkspaceRequest
+ *   accountAccessType: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   organizationRoleName: "STRING_VALUE",
+ *   permissionType: "STRING_VALUE", // required
+ *   stackSetName: "STRING_VALUE",
+ *   workspaceDataSources: [ // DataSourceTypesList
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceDescription: "STRING_VALUE",
+ *   workspaceName: "STRING_VALUE",
+ *   workspaceNotificationDestinations: [ // NotificationDestinationsList
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceOrganizationalUnits: [ // OrganizationalUnitList
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceRoleArn: "STRING_VALUE",
+ *   authenticationProviders: [ // AuthenticationProviders // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   vpcConfiguration: { // VpcConfiguration
+ *     securityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // SubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   configuration: "STRING_VALUE",
+ *   networkAccessControl: { // NetworkAccessConfiguration
+ *     prefixListIds: [ // PrefixListIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     vpceIds: [ // VpceIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   grafanaVersion: "STRING_VALUE",
+ * };
  * const command = new CreateWorkspaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkspaceCommandInput - {@link CreateWorkspaceCommandInput}
+ * @returns {@link CreateWorkspaceCommandOutput}
  * @see {@link CreateWorkspaceCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -91,6 +138,9 @@ export class CreateWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,12 +180,18 @@ export class CreateWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkspaceCommand(input, context);
+    return se_CreateWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspaceCommandOutput> {
-    return deserializeAws_restJson1CreateWorkspaceCommand(output, context);
+    return de_CreateWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

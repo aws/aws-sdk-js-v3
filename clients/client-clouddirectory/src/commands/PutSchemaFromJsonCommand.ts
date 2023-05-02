@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  PutSchemaFromJsonRequest,
-  PutSchemaFromJsonRequestFilterSensitiveLog,
-  PutSchemaFromJsonResponse,
-  PutSchemaFromJsonResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSchemaFromJsonCommand,
-  serializeAws_restJson1PutSchemaFromJsonCommand,
-} from "../protocols/Aws_restJson1";
+import { PutSchemaFromJsonRequest, PutSchemaFromJsonResponse } from "../models/models_0";
+import { de_PutSchemaFromJsonCommand, se_PutSchemaFromJsonCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSchemaFromJsonCommand}.
  */
 export interface PutSchemaFromJsonCommandInput extends PutSchemaFromJsonRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSchemaFromJsonCommand}.
  */
 export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a schema to be updated using JSON upload. Only available for development schemas. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json">JSON Schema Format</a> for more information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonRespons
  * import { CloudDirectoryClient, PutSchemaFromJsonCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, PutSchemaFromJsonCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // PutSchemaFromJsonRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ *   Document: "STRING_VALUE", // required
+ * };
  * const command = new PutSchemaFromJsonCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSchemaFromJsonCommandInput - {@link PutSchemaFromJsonCommandInput}
+ * @returns {@link PutSchemaFromJsonCommandOutput}
  * @see {@link PutSchemaFromJsonCommandInput} for command's `input` shape.
  * @see {@link PutSchemaFromJsonCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -94,6 +97,9 @@ export class PutSchemaFromJsonCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSchemaFromJsonCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +128,8 @@ export class PutSchemaFromJsonCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSchemaFromJsonRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSchemaFromJsonResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +139,18 @@ export class PutSchemaFromJsonCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSchemaFromJsonCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSchemaFromJsonCommand(input, context);
+    return se_PutSchemaFromJsonCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSchemaFromJsonCommandOutput> {
-    return deserializeAws_restJson1PutSchemaFromJsonCommand(output, context);
+    return de_PutSchemaFromJsonCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  GetAccessorInput,
-  GetAccessorInputFilterSensitiveLog,
-  GetAccessorOutput,
-  GetAccessorOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAccessorCommand,
-  serializeAws_restJson1GetAccessorCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAccessorInput, GetAccessorOutput } from "../models/models_0";
+import { de_GetAccessorCommand, se_GetAccessorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessorCommand}.
  */
 export interface GetAccessorCommandInput extends GetAccessorInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessorCommand}.
  */
 export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about an accessor. An accessor object is a container that has the
  *          information required for token based access to your Ethereum nodes.</p>
  * @example
@@ -47,10 +44,15 @@ export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataB
  * import { ManagedBlockchainClient, GetAccessorCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, GetAccessorCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // GetAccessorInput
+ *   AccessorId: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessorCommandInput - {@link GetAccessorCommandInput}
+ * @returns {@link GetAccessorCommandOutput}
  * @see {@link GetAccessorCommandInput} for command's `input` shape.
  * @see {@link GetAccessorCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -92,6 +94,9 @@ export class GetAccessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class GetAccessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class GetAccessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAccessorCommand(input, context);
+    return se_GetAccessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessorCommandOutput> {
-    return deserializeAws_restJson1GetAccessorCommand(output, context);
+    return de_GetAccessorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -45,8 +45,14 @@ import {
   WaitAndContinueSpecification,
 } from "./models_0";
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to remove the tags
@@ -61,8 +67,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateBotRequest {
   /**
    * <p>The unique identifier of the bot to update. This identifier is
@@ -116,6 +128,9 @@ export interface UpdateBotRequest {
   botMembers?: BotMember[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateBotResponse {
   /**
    * <p>The unique identifier of the bot that was updated.</p>
@@ -179,6 +194,9 @@ export interface UpdateBotResponse {
   botMembers?: BotMember[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateBotAliasRequest {
   /**
    * <p>The unique identifier of the bot alias.</p>
@@ -224,6 +242,9 @@ export interface UpdateBotAliasRequest {
   botId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBotAliasResponse {
   /**
    * <p>The identifier of the updated bot alias.</p>
@@ -286,6 +307,9 @@ export interface UpdateBotAliasResponse {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBotLocaleRequest {
   /**
    * <p>The unique identifier of the bot that contains the locale.</p>
@@ -324,6 +348,9 @@ export interface UpdateBotLocaleRequest {
   voiceSettings?: VoiceSettings;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBotLocaleResponse {
   /**
    * <p>The identifier of the bot that contains the updated locale.</p>
@@ -395,6 +422,9 @@ export interface UpdateBotLocaleResponse {
   recommendedActions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateBotRecommendationRequest {
   /**
    * <p>The unique identifier of the bot containing the bot recommendation
@@ -430,6 +460,9 @@ export interface UpdateBotRecommendationRequest {
   encryptionSetting: EncryptionSetting | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBotRecommendationResponse {
   /**
    * <p>The unique identifier of the bot containing the bot recommendation
@@ -490,6 +523,9 @@ export interface UpdateBotRecommendationResponse {
   encryptionSetting?: EncryptionSetting;
 }
 
+/**
+ * @public
+ */
 export interface UpdateExportRequest {
   /**
    * <p>The unique identifier Amazon Lex assigned to the export.</p>
@@ -502,6 +538,9 @@ export interface UpdateExportRequest {
   filePassword?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateExportResponse {
   /**
    * <p>The unique identifier Amazon Lex assigned to the export.</p>
@@ -538,6 +577,9 @@ export interface UpdateExportResponse {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -566,6 +608,9 @@ export interface UpdateResourcePolicyRequest {
   expectedRevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourcePolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -582,6 +627,9 @@ export interface UpdateResourcePolicyResponse {
   revisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSlotTypeRequest {
   /**
    * <p>The unique identifier of the slot type to update.</p>
@@ -646,6 +694,9 @@ export interface UpdateSlotTypeRequest {
   compositeSlotTypeSetting?: CompositeSlotTypeSetting;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSlotTypeResponse {
   /**
    * <p>The unique identifier of the updated slot type.</p>
@@ -720,6 +771,7 @@ export interface UpdateSlotTypeResponse {
 }
 
 /**
+ * @public
  * <p>The slot values that Amazon Lex uses when it sets slot
  *          values in a dialog step.</p>
  */
@@ -746,6 +798,7 @@ export interface SlotValueOverride {
 }
 
 /**
+ * @public
  * <p>Override settings to configure the intent state.</p>
  */
 export interface IntentOverride {
@@ -764,6 +817,7 @@ export interface IntentOverride {
 }
 
 /**
+ * @public
  * <p>The current state of the conversation with the user.</p>
  */
 export interface DialogState {
@@ -786,6 +840,7 @@ export interface DialogState {
 }
 
 /**
+ * @public
  * <p>A set of actions that Amazon Lex should run if the condition
  *          is matched.</p>
  */
@@ -814,6 +869,7 @@ export interface ConditionalBranch {
 }
 
 /**
+ * @public
  * <p>A set of actions that Amazon Lex should run if none of the
  *          other conditions are met.</p>
  */
@@ -831,6 +887,7 @@ export interface DefaultConditionalBranch {
 }
 
 /**
+ * @public
  * <p>Provides a list of conditional branches. Branches are evaluated in
  *          the order that they are entered in the list. The first branch with a
  *          condition that evaluates to true is executed. The last branch in the
@@ -862,6 +919,7 @@ export interface ConditionalSpecification {
 }
 
 /**
+ * @public
  * <p>Provides a statement the Amazon Lex conveys to the user when the intent
  *          is successfully fulfilled.</p>
  */
@@ -895,6 +953,7 @@ export interface IntentClosingSetting {
 }
 
 /**
+ * @public
  * <p>Specifies next steps to run after the dialog code hook
  *          finishes.</p>
  */
@@ -957,6 +1016,7 @@ export interface PostDialogCodeHookInvocationSpecification {
 }
 
 /**
+ * @public
  * <p>Provides a setting that determines whether the post-fulfillment
  *          response is sent to the user. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete">https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete</a>
  *          </p>
@@ -1021,6 +1081,7 @@ export interface PostFulfillmentStatusSpecification {
 }
 
 /**
+ * @public
  * <p> Settings that specify the dialog code hook that is
  *          called by Amazon Lex at a step of the conversation. </p>
  */
@@ -1051,6 +1112,7 @@ export interface DialogCodeHookInvocationSetting {
 }
 
 /**
+ * @public
  * <p>Determines if a Lambda function should be invoked for a specific
  *          intent.</p>
  */
@@ -1083,6 +1145,7 @@ export interface FulfillmentCodeHookSettings {
 }
 
 /**
+ * @public
  * <p>Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.</p>
  */
 export interface InitialResponseSetting {
@@ -1115,6 +1178,7 @@ export interface InitialResponseSetting {
 }
 
 /**
+ * @public
  * <p>Settings used when Amazon Lex successfully captures a slot
  *          value from a user.</p>
  */
@@ -1169,6 +1233,7 @@ export interface SlotCaptureSetting {
 }
 
 /**
+ * @public
  * <p>Specifies the elicitation setting details for constituent sub slots of a composite slot.</p>
  */
 export interface SlotValueElicitationSetting {
@@ -1213,6 +1278,7 @@ export interface SlotValueElicitationSetting {
 }
 
 /**
+ * @public
  * <p>Provides a prompt for making sure that the user is ready for the
  *          intent to be fulfilled.</p>
  */
@@ -1312,6 +1378,9 @@ export interface IntentConfirmationSetting {
   elicitationCodeHook?: ElicitationCodeHookInvocationSetting;
 }
 
+/**
+ * @public
+ */
 export interface CreateSlotRequest {
   /**
    * <p>The name of the slot. Slot names must be unique within the bot that
@@ -1388,6 +1457,9 @@ export interface CreateSlotRequest {
   subSlotSetting?: SubSlotSetting;
 }
 
+/**
+ * @public
+ */
 export interface CreateSlotResponse {
   /**
    * <p>The unique identifier associated with the slot. Use this to identify
@@ -1460,6 +1532,9 @@ export interface CreateSlotResponse {
   subSlotSetting?: SubSlotSetting;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSlotResponse {
   /**
    * <p>The unique identifier generated for the slot.</p>
@@ -1540,6 +1615,9 @@ export interface DescribeSlotResponse {
   subSlotSetting?: SubSlotSetting;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSlotRequest {
   /**
    * <p>The unique identifier for the slot to update.</p>
@@ -1614,6 +1692,9 @@ export interface UpdateSlotRequest {
   subSlotSetting?: SubSlotSetting;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSlotResponse {
   /**
    * <p>The unique identifier of the slot that was updated.</p>
@@ -1693,6 +1774,9 @@ export interface UpdateSlotResponse {
   subSlotSetting?: SubSlotSetting;
 }
 
+/**
+ * @public
+ */
 export interface CreateIntentRequest {
   /**
    * <p>The name of the intent. Intent names must be unique in the locale
@@ -1715,8 +1799,8 @@ export interface CreateIntentRequest {
 
   /**
    * <p>An array of strings that a user might say to signal the intent. For
-   *          example, "I want a pizza", or "I want a {PizzaSize} pizza". </p>
-   *          <p>In an utterance, slot names are enclosed in curly braces ("{", "}")
+   *          example, "I want a pizza", or "I want a \{PizzaSize\} pizza". </p>
+   *          <p>In an utterance, slot names are enclosed in curly braces ("\{", "\}")
    *          to indicate where they should be displayed in the utterance shown to
    *          the user.. </p>
    */
@@ -1824,6 +1908,9 @@ export interface CreateIntentRequest {
   initialResponseSetting?: InitialResponseSetting;
 }
 
+/**
+ * @public
+ */
 export interface CreateIntentResponse {
   /**
    * <p>A unique identifier for the intent.</p>
@@ -1914,6 +2001,9 @@ export interface CreateIntentResponse {
   initialResponseSetting?: InitialResponseSetting;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIntentResponse {
   /**
    * <p>The unique identifier assigned to the intent when it was
@@ -2021,6 +2111,9 @@ export interface DescribeIntentResponse {
   initialResponseSetting?: InitialResponseSetting;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIntentRequest {
   /**
    * <p>The unique identifier of the intent to update.</p>
@@ -2119,6 +2212,9 @@ export interface UpdateIntentRequest {
   initialResponseSetting?: InitialResponseSetting;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIntentResponse {
   /**
    * <p>The identifier of the intent that was updated.</p>
@@ -2229,69 +2325,6 @@ export interface UpdateIntentResponse {
 /**
  * @internal
  */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBotRequestFilterSensitiveLog = (obj: UpdateBotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBotResponseFilterSensitiveLog = (obj: UpdateBotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBotAliasRequestFilterSensitiveLog = (obj: UpdateBotAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBotAliasResponseFilterSensitiveLog = (obj: UpdateBotAliasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBotLocaleRequestFilterSensitiveLog = (obj: UpdateBotLocaleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBotLocaleResponseFilterSensitiveLog = (obj: UpdateBotLocaleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateBotRecommendationRequestFilterSensitiveLog = (obj: UpdateBotRecommendationRequest): any => ({
   ...obj,
   ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
@@ -2311,216 +2344,4 @@ export const UpdateBotRecommendationResponseFilterSensitiveLog = (obj: UpdateBot
 export const UpdateExportRequestFilterSensitiveLog = (obj: UpdateExportRequest): any => ({
   ...obj,
   ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateExportResponseFilterSensitiveLog = (obj: UpdateExportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourcePolicyRequestFilterSensitiveLog = (obj: UpdateResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourcePolicyResponseFilterSensitiveLog = (obj: UpdateResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSlotTypeRequestFilterSensitiveLog = (obj: UpdateSlotTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSlotTypeResponseFilterSensitiveLog = (obj: UpdateSlotTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SlotValueOverrideFilterSensitiveLog = (obj: SlotValueOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IntentOverrideFilterSensitiveLog = (obj: IntentOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DialogStateFilterSensitiveLog = (obj: DialogState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionalBranchFilterSensitiveLog = (obj: ConditionalBranch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultConditionalBranchFilterSensitiveLog = (obj: DefaultConditionalBranch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionalSpecificationFilterSensitiveLog = (obj: ConditionalSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IntentClosingSettingFilterSensitiveLog = (obj: IntentClosingSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostDialogCodeHookInvocationSpecificationFilterSensitiveLog = (
-  obj: PostDialogCodeHookInvocationSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostFulfillmentStatusSpecificationFilterSensitiveLog = (obj: PostFulfillmentStatusSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DialogCodeHookInvocationSettingFilterSensitiveLog = (obj: DialogCodeHookInvocationSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FulfillmentCodeHookSettingsFilterSensitiveLog = (obj: FulfillmentCodeHookSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitialResponseSettingFilterSensitiveLog = (obj: InitialResponseSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SlotCaptureSettingFilterSensitiveLog = (obj: SlotCaptureSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SlotValueElicitationSettingFilterSensitiveLog = (obj: SlotValueElicitationSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IntentConfirmationSettingFilterSensitiveLog = (obj: IntentConfirmationSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSlotRequestFilterSensitiveLog = (obj: CreateSlotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSlotResponseFilterSensitiveLog = (obj: CreateSlotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSlotResponseFilterSensitiveLog = (obj: DescribeSlotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSlotRequestFilterSensitiveLog = (obj: UpdateSlotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSlotResponseFilterSensitiveLog = (obj: UpdateSlotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIntentRequestFilterSensitiveLog = (obj: CreateIntentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIntentResponseFilterSensitiveLog = (obj: CreateIntentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIntentResponseFilterSensitiveLog = (obj: DescribeIntentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIntentRequestFilterSensitiveLog = (obj: UpdateIntentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIntentResponseFilterSensitiveLog = (obj: UpdateIntentResponse): any => ({
-  ...obj,
 });

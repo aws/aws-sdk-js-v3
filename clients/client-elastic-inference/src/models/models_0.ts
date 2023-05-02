@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ElasticInferenceServiceException as __BaseException } from "./ElasticInferenceServiceException";
 
 /**
+ * @public
  * <p>
  *             The memory information of an Elastic Inference Accelerator type.
  *         </p>
@@ -18,6 +19,7 @@ export interface MemoryInfo {
 }
 
 /**
+ * @public
  * <p>
  *             A throughput entry for an Elastic Inference Accelerator type.
  *         </p>
@@ -41,6 +43,7 @@ export interface KeyValuePair {
 }
 
 /**
+ * @public
  * <p>
  *             The details of an Elastic Inference Accelerator type.
  *         </p>
@@ -68,9 +71,23 @@ export interface AcceleratorType {
   throughputInfo?: KeyValuePair[];
 }
 
-export type LocationType = "availability-zone" | "availability-zone-id" | "region";
+/**
+ * @public
+ * @enum
+ */
+export const LocationType = {
+  availability_zone: "availability-zone",
+  availability_zone_id: "availability-zone-id",
+  region: "region",
+} as const;
 
 /**
+ * @public
+ */
+export type LocationType = (typeof LocationType)[keyof typeof LocationType];
+
+/**
+ * @public
  * <p>
  *             The offering for an Elastic Inference Accelerator type.
  *         </p>
@@ -103,6 +120,7 @@ export interface AcceleratorTypeOffering {
 }
 
 /**
+ * @public
  * <p>
  *             Raised when a malformed input has been provided to the API.
  *         </p>
@@ -123,6 +141,9 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeAcceleratorOfferingsRequest {
   /**
    * <p>
@@ -142,6 +163,9 @@ export interface DescribeAcceleratorOfferingsRequest {
   acceleratorTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAcceleratorOfferingsResponse {
   /**
    * <p>
@@ -152,6 +176,7 @@ export interface DescribeAcceleratorOfferingsResponse {
 }
 
 /**
+ * @public
  * <p>
  *             Raised when an unexpected error occurred during request processing.
  *         </p>
@@ -173,6 +198,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             Raised when the requested resource cannot be found.
  *         </p>
@@ -194,6 +220,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             A filter expression for the Elastic Inference Accelerator list.
  *         </p>
@@ -216,6 +243,9 @@ export interface Filter {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAcceleratorsRequest {
   /**
    * <p>
@@ -251,6 +281,7 @@ export interface DescribeAcceleratorsRequest {
 }
 
 /**
+ * @public
  * <p>
  *             The health details of an Elastic Inference Accelerator.
  *         </p>
@@ -265,6 +296,7 @@ export interface ElasticInferenceAcceleratorHealth {
 }
 
 /**
+ * @public
  * <p>
  *             The details of an Elastic Inference Accelerator.
  *         </p>
@@ -306,6 +338,9 @@ export interface ElasticInferenceAccelerator {
   attachedResource?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAcceleratorsResponse {
   /**
    * <p>
@@ -322,8 +357,14 @@ export interface DescribeAcceleratorsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAcceleratorTypesRequest {}
 
+/**
+ * @public
+ */
 export interface DescribeAcceleratorTypesResponse {
   /**
    * <p>
@@ -333,6 +374,9 @@ export interface DescribeAcceleratorTypesResponse {
   acceleratorTypes?: AcceleratorType[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>
@@ -342,6 +386,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResult {
   /**
    * <p>
@@ -351,6 +398,9 @@ export interface ListTagsForResourceResult {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>
@@ -367,8 +417,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>
@@ -385,141 +441,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResult {}
-
-/**
- * @internal
- */
-export const MemoryInfoFilterSensitiveLog = (obj: MemoryInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyValuePairFilterSensitiveLog = (obj: KeyValuePair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceleratorTypeFilterSensitiveLog = (obj: AcceleratorType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceleratorTypeOfferingFilterSensitiveLog = (obj: AcceleratorTypeOffering): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAcceleratorOfferingsRequestFilterSensitiveLog = (
-  obj: DescribeAcceleratorOfferingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAcceleratorOfferingsResponseFilterSensitiveLog = (
-  obj: DescribeAcceleratorOfferingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAcceleratorsRequestFilterSensitiveLog = (obj: DescribeAcceleratorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticInferenceAcceleratorHealthFilterSensitiveLog = (obj: ElasticInferenceAcceleratorHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticInferenceAcceleratorFilterSensitiveLog = (obj: ElasticInferenceAccelerator): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAcceleratorsResponseFilterSensitiveLog = (obj: DescribeAcceleratorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAcceleratorTypesRequestFilterSensitiveLog = (obj: DescribeAcceleratorTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAcceleratorTypesResponseFilterSensitiveLog = (obj: DescribeAcceleratorTypesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
-  ...obj,
-});

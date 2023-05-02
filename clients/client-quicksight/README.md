@@ -325,6 +325,14 @@ CreateNamespace
 </details>
 <details>
 <summary>
+CreateRefreshSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/createrefreshschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/createrefreshschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/createrefreshschedulecommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateTemplate
 </summary>
 
@@ -397,6 +405,14 @@ DeleteDataSet
 </details>
 <details>
 <summary>
+DeleteDataSetRefreshProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/deletedatasetrefreshpropertiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/deletedatasetrefreshpropertiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/deletedatasetrefreshpropertiescommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteDataSource
 </summary>
 
@@ -449,6 +465,14 @@ DeleteNamespace
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/deletenamespacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/deletenamespacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/deletenamespacecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteRefreshSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/deleterefreshschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/deleterefreshschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/deleterefreshschedulecommandoutput.html)
 
 </details>
 <details>
@@ -589,6 +613,14 @@ DescribeDataSetPermissions
 </details>
 <details>
 <summary>
+DescribeDataSetRefreshProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/describedatasetrefreshpropertiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describedatasetrefreshpropertiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describedatasetrefreshpropertiescommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeDataSource
 </summary>
 
@@ -673,6 +705,14 @@ DescribeNamespace
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/describenamespacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describenamespacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describenamespacecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeRefreshSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/describerefreshschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describerefreshschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describerefreshschedulecommandoutput.html)
 
 </details>
 <details>
@@ -877,6 +917,14 @@ ListNamespaces
 </details>
 <details>
 <summary>
+ListRefreshSchedules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/listrefreshschedulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/listrefreshschedulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/listrefreshschedulescommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -945,6 +993,14 @@ ListUsers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/listuserscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/listuserscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/listuserscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutDataSetRefreshProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/putdatasetrefreshpropertiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/putdatasetrefreshpropertiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/putdatasetrefreshpropertiescommandoutput.html)
 
 </details>
 <details>
@@ -1161,6 +1217,14 @@ UpdatePublicSharingSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/updatepublicsharingsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/updatepublicsharingsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/updatepublicsharingsettingscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateRefreshSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/updaterefreshschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/updaterefreshschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/updaterefreshschedulecommandoutput.html)
 
 </details>
 <details>

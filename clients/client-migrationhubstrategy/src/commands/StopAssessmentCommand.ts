@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  StopAssessmentRequest,
-  StopAssessmentRequestFilterSensitiveLog,
-  StopAssessmentResponse,
-  StopAssessmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopAssessmentCommand,
-  serializeAws_restJson1StopAssessmentCommand,
-} from "../protocols/Aws_restJson1";
+import { StopAssessmentRequest, StopAssessmentResponse } from "../models/models_0";
+import { de_StopAssessmentCommand, se_StopAssessmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopAssessmentCommand}.
  */
 export interface StopAssessmentCommandInput extends StopAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopAssessmentCommand}.
  */
 export interface StopAssessmentCommandOutput extends StopAssessmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Stops the assessment of an on-premises environment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface StopAssessmentCommandOutput extends StopAssessmentResponse, __M
  * import { MigrationHubStrategyClient, StopAssessmentCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, StopAssessmentCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // StopAssessmentRequest
+ *   assessmentId: "STRING_VALUE", // required
+ * };
  * const command = new StopAssessmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopAssessmentCommandInput - {@link StopAssessmentCommandInput}
+ * @returns {@link StopAssessmentCommandOutput}
  * @see {@link StopAssessmentCommandInput} for command's `input` shape.
  * @see {@link StopAssessmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -86,6 +88,9 @@ export class StopAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class StopAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopAssessmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopAssessmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class StopAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopAssessmentCommand(input, context);
+    return se_StopAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAssessmentCommandOutput> {
-    return deserializeAws_restJson1StopAssessmentCommand(output, context);
+    return de_StopAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

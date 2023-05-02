@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeactivateKeySigningKeyRequest,
-  DeactivateKeySigningKeyRequestFilterSensitiveLog,
-  DeactivateKeySigningKeyResponse,
-  DeactivateKeySigningKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeactivateKeySigningKeyCommand,
-  serializeAws_restXmlDeactivateKeySigningKeyCommand,
-} from "../protocols/Aws_restXml";
+import { DeactivateKeySigningKeyRequest, DeactivateKeySigningKeyResponse } from "../models/models_0";
+import { de_DeactivateKeySigningKeyCommand, se_DeactivateKeySigningKeyCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivateKeySigningKeyCommand}.
  */
 export interface DeactivateKeySigningKeyCommandInput extends DeactivateKeySigningKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeactivateKeySigningKeyCommand}.
  */
 export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC.
  * 			This operation changes the KSK status to <code>INACTIVE</code>.</p>
  * @example
@@ -44,10 +41,16 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
  * import { Route53Client, DeactivateKeySigningKeyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeactivateKeySigningKeyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // DeactivateKeySigningKeyRequest
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeactivateKeySigningKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateKeySigningKeyCommandInput - {@link DeactivateKeySigningKeyCommandInput}
+ * @returns {@link DeactivateKeySigningKeyCommandOutput}
  * @see {@link DeactivateKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link DeactivateKeySigningKeyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -97,6 +100,9 @@ export class DeactivateKeySigningKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateKeySigningKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +132,8 @@ export class DeactivateKeySigningKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivateKeySigningKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeactivateKeySigningKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +143,18 @@ export class DeactivateKeySigningKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateKeySigningKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeactivateKeySigningKeyCommand(input, context);
+    return se_DeactivateKeySigningKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateKeySigningKeyCommandOutput> {
-    return deserializeAws_restXmlDeactivateKeySigningKeyCommand(output, context);
+    return de_DeactivateKeySigningKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

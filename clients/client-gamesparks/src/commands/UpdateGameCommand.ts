@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  UpdateGameRequest,
-  UpdateGameRequestFilterSensitiveLog,
-  UpdateGameResult,
-  UpdateGameResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGameCommand,
-  serializeAws_restJson1UpdateGameCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateGameRequest, UpdateGameResult } from "../models/models_0";
+import { de_UpdateGameCommand, se_UpdateGameCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGameCommand}.
  */
 export interface UpdateGameCommandInput extends UpdateGameRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGameCommand}.
  */
 export interface UpdateGameCommandOutput extends UpdateGameResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates details of the game.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateGameCommandOutput extends UpdateGameResult, __MetadataBea
  * import { GameSparksClient, UpdateGameCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, UpdateGameCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // UpdateGameRequest
+ *   GameName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateGameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGameCommandInput - {@link UpdateGameCommandInput}
+ * @returns {@link UpdateGameCommandOutput}
  * @see {@link UpdateGameCommandInput} for command's `input` shape.
  * @see {@link UpdateGameCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +87,9 @@ export class UpdateGameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGameCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class UpdateGameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGameResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class UpdateGameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGameCommand(input, context);
+    return se_UpdateGameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGameCommandOutput> {
-    return deserializeAws_restJson1UpdateGameCommand(output, context);
+    return de_UpdateGameCommand(output, context);
   }
 
   // Start section: command_body_extra

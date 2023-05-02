@@ -19,22 +19,24 @@ import {
   DescribeUsersResponse,
   DescribeUsersResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeUsersCommand,
-  serializeAws_restJson1DescribeUsersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeUsersCommand, se_DescribeUsersCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUsersCommand}.
  */
 export interface DescribeUsersCommandInput extends DescribeUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUsersCommand}.
  */
 export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified users. You can describe all users or filter the results
  *             (for example, by status or organization).</p>
  *          <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there
@@ -46,10 +48,24 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * import { WorkDocsClient, DescribeUsersCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeUsersCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DescribeUsersRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   OrganizationId: "STRING_VALUE",
+ *   UserIds: "STRING_VALUE",
+ *   Query: "STRING_VALUE",
+ *   Include: "ALL" || "ACTIVE_PENDING",
+ *   Order: "ASCENDING" || "DESCENDING",
+ *   Sort: "USER_NAME" || "FULL_NAME" || "STORAGE_LIMIT" || "USER_STATUS" || "STORAGE_USED",
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   Fields: "STRING_VALUE",
+ * };
  * const command = new DescribeUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUsersCommandInput - {@link DescribeUsersCommandInput}
+ * @returns {@link DescribeUsersCommandOutput}
  * @see {@link DescribeUsersCommandInput} for command's `input` shape.
  * @see {@link DescribeUsersCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -96,6 +112,9 @@ export class DescribeUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,12 +152,18 @@ export class DescribeUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeUsersCommand(input, context);
+    return se_DescribeUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUsersCommandOutput> {
-    return deserializeAws_restJson1DescribeUsersCommand(output, context);
+    return de_DescribeUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

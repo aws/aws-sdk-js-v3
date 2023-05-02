@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetPartitionRequest,
-  GetPartitionRequestFilterSensitiveLog,
-  GetPartitionResponse,
-  GetPartitionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetPartitionCommand,
-  serializeAws_json1_1GetPartitionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetPartitionRequest, GetPartitionResponse } from "../models/models_1";
+import { de_GetPartitionCommand, se_GetPartitionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPartitionCommand}.
  */
 export interface GetPartitionCommandInput extends GetPartitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPartitionCommand}.
  */
 export interface GetPartitionCommandOutput extends GetPartitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a specified partition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,16 +39,31 @@ export interface GetPartitionCommandOutput extends GetPartitionResponse, __Metad
  * import { GlueClient, GetPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetPartitionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   PartitionValues: [ // ValueStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetPartitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPartitionCommandInput - {@link GetPartitionCommandInput}
+ * @returns {@link GetPartitionCommandOutput}
  * @see {@link GetPartitionCommandInput} for command's `input` shape.
  * @see {@link GetPartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
  *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
@@ -84,6 +96,9 @@ export class GetPartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +125,8 @@ export class GetPartitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPartitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPartitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +136,18 @@ export class GetPartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPartitionCommand(input, context);
+    return se_GetPartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPartitionCommandOutput> {
-    return deserializeAws_json1_1GetPartitionCommand(output, context);
+    return de_GetPartitionCommand(output, context);
   }
 
   // Start section: command_body_extra

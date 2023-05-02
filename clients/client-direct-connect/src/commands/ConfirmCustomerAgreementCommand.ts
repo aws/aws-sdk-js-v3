@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  ConfirmCustomerAgreementRequest,
-  ConfirmCustomerAgreementRequestFilterSensitiveLog,
-  ConfirmCustomerAgreementResponse,
-  ConfirmCustomerAgreementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ConfirmCustomerAgreementCommand,
-  serializeAws_json1_1ConfirmCustomerAgreementCommand,
-} from "../protocols/Aws_json1_1";
+import { ConfirmCustomerAgreementRequest, ConfirmCustomerAgreementResponse } from "../models/models_0";
+import { de_ConfirmCustomerAgreementCommand, se_ConfirmCustomerAgreementCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmCustomerAgreementCommand}.
  */
 export interface ConfirmCustomerAgreementCommandInput extends ConfirmCustomerAgreementRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmCustomerAgreementCommand}.
  */
 export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAgreementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       The confirmation of the terms of agreement when creating the connection/link aggregation group (LAG).
  *     </p>
@@ -44,10 +41,15 @@ export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAg
  * import { DirectConnectClient, ConfirmCustomerAgreementCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, ConfirmCustomerAgreementCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // ConfirmCustomerAgreementRequest
+ *   agreementName: "STRING_VALUE",
+ * };
  * const command = new ConfirmCustomerAgreementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmCustomerAgreementCommandInput - {@link ConfirmCustomerAgreementCommandInput}
+ * @returns {@link ConfirmCustomerAgreementCommandOutput}
  * @see {@link ConfirmCustomerAgreementCommandInput} for command's `input` shape.
  * @see {@link ConfirmCustomerAgreementCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -77,6 +79,9 @@ export class ConfirmCustomerAgreementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmCustomerAgreementCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +110,8 @@ export class ConfirmCustomerAgreementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmCustomerAgreementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmCustomerAgreementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +121,18 @@ export class ConfirmCustomerAgreementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmCustomerAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConfirmCustomerAgreementCommand(input, context);
+    return se_ConfirmCustomerAgreementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmCustomerAgreementCommandOutput> {
-    return deserializeAws_json1_1ConfirmCustomerAgreementCommand(output, context);
+    return de_ConfirmCustomerAgreementCommand(output, context);
   }
 
   // Start section: command_body_extra

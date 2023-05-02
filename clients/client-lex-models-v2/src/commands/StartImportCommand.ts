@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  StartImportRequest,
-  StartImportRequestFilterSensitiveLog,
-  StartImportResponse,
-  StartImportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartImportCommand,
-  serializeAws_restJson1StartImportCommand,
-} from "../protocols/Aws_restJson1";
+import { StartImportRequest, StartImportRequestFilterSensitiveLog, StartImportResponse } from "../models/models_0";
+import { de_StartImportCommand, se_StartImportCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartImportCommand}.
  */
 export interface StartImportCommandInput extends StartImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartImportCommand}.
  */
 export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts importing a bot, bot locale, or custom vocabulary from a zip
  *          archive that you uploaded to an S3 bucket.</p>
  * @example
@@ -43,10 +40,48 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * import { LexModelsV2Client, StartImportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, StartImportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // StartImportRequest
+ *   importId: "STRING_VALUE", // required
+ *   resourceSpecification: { // ImportResourceSpecification
+ *     botImportSpecification: { // BotImportSpecification
+ *       botName: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *       dataPrivacy: { // DataPrivacy
+ *         childDirected: true || false, // required
+ *       },
+ *       idleSessionTTLInSeconds: Number("int"),
+ *       botTags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       testBotAliasTags: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *     botLocaleImportSpecification: { // BotLocaleImportSpecification
+ *       botId: "STRING_VALUE", // required
+ *       botVersion: "STRING_VALUE", // required
+ *       localeId: "STRING_VALUE", // required
+ *       nluIntentConfidenceThreshold: Number("double"),
+ *       voiceSettings: { // VoiceSettings
+ *         voiceId: "STRING_VALUE", // required
+ *         engine: "standard" || "neural",
+ *       },
+ *     },
+ *     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
+ *       botId: "STRING_VALUE", // required
+ *       botVersion: "STRING_VALUE", // required
+ *       localeId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   mergeStrategy: "Overwrite" || "FailOnConflict" || "Append", // required
+ *   filePassword: "STRING_VALUE",
+ * };
  * const command = new StartImportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImportCommandInput - {@link StartImportCommandInput}
+ * @returns {@link StartImportCommandOutput}
  * @see {@link StartImportCommandInput} for command's `input` shape.
  * @see {@link StartImportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -94,6 +129,9 @@ export class StartImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,7 +159,7 @@ export class StartImportCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartImportResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +169,18 @@ export class StartImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartImportCommand(input, context);
+    return se_StartImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportCommandOutput> {
-    return deserializeAws_restJson1StartImportCommand(output, context);
+    return de_StartImportCommand(output, context);
   }
 
   // Start section: command_body_extra

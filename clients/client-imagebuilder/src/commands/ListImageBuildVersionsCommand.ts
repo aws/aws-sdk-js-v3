@@ -14,38 +14,50 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  ListImageBuildVersionsRequest,
-  ListImageBuildVersionsRequestFilterSensitiveLog,
-  ListImageBuildVersionsResponse,
-  ListImageBuildVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListImageBuildVersionsCommand,
-  serializeAws_restJson1ListImageBuildVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListImageBuildVersionsRequest, ListImageBuildVersionsResponse } from "../models/models_0";
+import { de_ListImageBuildVersionsCommand, se_ListImageBuildVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListImageBuildVersionsCommand}.
  */
 export interface ListImageBuildVersionsCommandInput extends ListImageBuildVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImageBuildVersionsCommand}.
  */
 export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersionsResponse, __MetadataBearer {}
 
 /**
- * <p> Returns a list of image build versions.</p>
+ * @public
+ * <p>Returns a list of image build versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, ListImageBuildVersionsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListImageBuildVersionsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // ListImageBuildVersionsRequest
+ *   imageVersionArn: "STRING_VALUE", // required
+ *   filters: [ // FilterList
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListImageBuildVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImageBuildVersionsCommandInput - {@link ListImageBuildVersionsCommandInput}
+ * @returns {@link ListImageBuildVersionsCommandOutput}
  * @see {@link ListImageBuildVersionsCommandInput} for command's `input` shape.
  * @see {@link ListImageBuildVersionsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -54,9 +66,9 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -65,10 +77,11 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  *  <p>You have provided an invalid pagination token in your request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -92,6 +105,9 @@ export class ListImageBuildVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImageBuildVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +136,8 @@ export class ListImageBuildVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImageBuildVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImageBuildVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +147,18 @@ export class ListImageBuildVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImageBuildVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListImageBuildVersionsCommand(input, context);
+    return se_ListImageBuildVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImageBuildVersionsCommandOutput> {
-    return deserializeAws_restJson1ListImageBuildVersionsCommand(output, context);
+    return de_ListImageBuildVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

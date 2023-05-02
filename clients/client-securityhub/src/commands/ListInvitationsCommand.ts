@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListInvitationsRequest,
-  ListInvitationsRequestFilterSensitiveLog,
-  ListInvitationsResponse,
-  ListInvitationsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListInvitationsCommand,
-  serializeAws_restJson1ListInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListInvitationsRequest, ListInvitationsResponse } from "../models/models_2";
+import { de_ListInvitationsCommand, se_ListInvitationsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListInvitationsCommand}.
  */
 export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInvitationsCommand}.
  */
 export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Security Hub membership invitations that were sent to the current Amazon Web Services account.</p>
  *          <p>This operation is only used by accounts that are managed by invitation.
  *          Accounts that are managed using the integration with Organizations do not receive invitations.</p>
@@ -44,10 +41,16 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * import { SecurityHubClient, ListInvitationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListInvitationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // ListInvitationsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInvitationsCommandInput - {@link ListInvitationsCommandInput}
+ * @returns {@link ListInvitationsCommandOutput}
  * @see {@link ListInvitationsCommandInput} for command's `input` shape.
  * @see {@link ListInvitationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -67,6 +70,27 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To list membership invitations to calling account
+ * ```javascript
+ * // The following example returns a list of Security Hub member invitations sent to the calling AWS account. Only accounts that are invited manually use this operation. It's not for use by accounts that are managed through AWS Organizations.
+ * const input = undefined;
+ * const command = new ListInvitationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Invitations": [
+ *     {
+ *       "AccountId": "123456789012",
+ *       "InvitationId": "7ab938c5d52d7904ad09f9e7c20cc4eb",
+ *       "InvitedAt": "2020-06-01T20:21:18.042000+00:00",
+ *       "MemberStatus": "ASSOCIATED"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-membership-invitations-to-calling-account-1678295758285
+ * ```
+ *
  */
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,
@@ -85,6 +109,9 @@ export class ListInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +140,8 @@ export class ListInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInvitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInvitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +151,18 @@ export class ListInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInvitationsCommand(input, context);
+    return se_ListInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInvitationsCommandOutput> {
-    return deserializeAws_restJson1ListInvitationsCommand(output, context);
+    return de_ListInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

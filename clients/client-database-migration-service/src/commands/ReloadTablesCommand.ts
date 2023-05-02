@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  ReloadTablesMessage,
-  ReloadTablesMessageFilterSensitiveLog,
-  ReloadTablesResponse,
-  ReloadTablesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ReloadTablesCommand,
-  serializeAws_json1_1ReloadTablesCommand,
-} from "../protocols/Aws_json1_1";
+import { ReloadTablesMessage, ReloadTablesResponse } from "../models/models_0";
+import { de_ReloadTablesCommand, se_ReloadTablesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ReloadTablesCommand}.
  */
 export interface ReloadTablesCommandInput extends ReloadTablesMessage {}
 /**
+ * @public
+ *
  * The output of {@link ReloadTablesCommand}.
  */
 export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reloads the target database table with the source data. </p>
  *          <p>You can only use this operation with a task in the <code>RUNNING</code> state, otherwise the service
  *            will throw an <code>InvalidResourceStateFault</code> exception.</p>
@@ -48,10 +45,22 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
  * import { DatabaseMigrationServiceClient, ReloadTablesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ReloadTablesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // ReloadTablesMessage
+ *   ReplicationTaskArn: "STRING_VALUE", // required
+ *   TablesToReload: [ // TableListToReload // required
+ *     { // TableToReload
+ *       SchemaName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ReloadOption: "data-reload" || "validate-only",
+ * };
  * const command = new ReloadTablesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReloadTablesCommandInput - {@link ReloadTablesCommandInput}
+ * @returns {@link ReloadTablesCommandOutput}
  * @see {@link ReloadTablesCommandInput} for command's `input` shape.
  * @see {@link ReloadTablesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -81,6 +90,9 @@ export class ReloadTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReloadTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +119,8 @@ export class ReloadTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReloadTablesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ReloadTablesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +130,18 @@ export class ReloadTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReloadTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReloadTablesCommand(input, context);
+    return se_ReloadTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReloadTablesCommandOutput> {
-    return deserializeAws_json1_1ReloadTablesCommand(output, context);
+    return de_ReloadTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

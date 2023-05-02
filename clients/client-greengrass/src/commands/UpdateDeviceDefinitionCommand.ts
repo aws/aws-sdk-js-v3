@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  UpdateDeviceDefinitionRequest,
-  UpdateDeviceDefinitionRequestFilterSensitiveLog,
-  UpdateDeviceDefinitionResponse,
-  UpdateDeviceDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDeviceDefinitionCommand,
-  serializeAws_restJson1UpdateDeviceDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDeviceDefinitionRequest, UpdateDeviceDefinitionResponse } from "../models/models_0";
+import { de_UpdateDeviceDefinitionCommand, se_UpdateDeviceDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeviceDefinitionCommand}.
  */
 export interface UpdateDeviceDefinitionCommandInput extends UpdateDeviceDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeviceDefinitionCommand}.
  */
 export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates a device definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinit
  * import { GreengrassClient, UpdateDeviceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateDeviceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // UpdateDeviceDefinitionRequest
+ *   DeviceDefinitionId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateDeviceDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeviceDefinitionCommandInput - {@link UpdateDeviceDefinitionCommandInput}
+ * @returns {@link UpdateDeviceDefinitionCommandOutput}
  * @see {@link UpdateDeviceDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +75,9 @@ export class UpdateDeviceDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeviceDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class UpdateDeviceDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeviceDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeviceDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class UpdateDeviceDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeviceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDeviceDefinitionCommand(input, context);
+    return se_UpdateDeviceDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateDeviceDefinitionCommand(output, context);
+    return de_UpdateDeviceDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

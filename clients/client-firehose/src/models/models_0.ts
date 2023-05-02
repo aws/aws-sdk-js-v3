@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { FirehoseServiceException as __BaseException } from "./FirehoseServiceException";
 
 /**
+ * @public
  * <p>Describes the buffering to perform before delivering data to the Serverless offering for
  *          Amazon OpenSearch Service destination.</p>
  */
@@ -25,6 +26,7 @@ export interface AmazonOpenSearchServerlessBufferingHints {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
  */
 export interface CloudWatchLoggingOptions {
@@ -46,19 +48,29 @@ export interface CloudWatchLoggingOptions {
   LogStreamName?: string;
 }
 
-export enum ProcessorParameterName {
-  BUFFER_INTERVAL_IN_SECONDS = "BufferIntervalInSeconds",
-  BUFFER_SIZE_IN_MB = "BufferSizeInMBs",
-  Delimiter = "Delimiter",
-  JSON_PARSING_ENGINE = "JsonParsingEngine",
-  LAMBDA_ARN = "LambdaArn",
-  LAMBDA_NUMBER_OF_RETRIES = "NumberOfRetries",
-  METADATA_EXTRACTION_QUERY = "MetadataExtractionQuery",
-  ROLE_ARN = "RoleArn",
-  SUB_RECORD_TYPE = "SubRecordType",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProcessorParameterName = {
+  BUFFER_INTERVAL_IN_SECONDS: "BufferIntervalInSeconds",
+  BUFFER_SIZE_IN_MB: "BufferSizeInMBs",
+  Delimiter: "Delimiter",
+  JSON_PARSING_ENGINE: "JsonParsingEngine",
+  LAMBDA_ARN: "LambdaArn",
+  LAMBDA_NUMBER_OF_RETRIES: "NumberOfRetries",
+  METADATA_EXTRACTION_QUERY: "MetadataExtractionQuery",
+  ROLE_ARN: "RoleArn",
+  SUB_RECORD_TYPE: "SubRecordType",
+} as const;
 
 /**
+ * @public
+ */
+export type ProcessorParameterName = (typeof ProcessorParameterName)[keyof typeof ProcessorParameterName];
+
+/**
+ * @public
  * <p>Describes the processor parameter. </p>
  */
 export interface ProcessorParameter {
@@ -77,14 +89,24 @@ export interface ProcessorParameter {
   ParameterValue: string | undefined;
 }
 
-export enum ProcessorType {
-  AppendDelimiterToRecord = "AppendDelimiterToRecord",
-  Lambda = "Lambda",
-  MetadataExtraction = "MetadataExtraction",
-  RecordDeAggregation = "RecordDeAggregation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProcessorType = {
+  AppendDelimiterToRecord: "AppendDelimiterToRecord",
+  Lambda: "Lambda",
+  MetadataExtraction: "MetadataExtraction",
+  RecordDeAggregation: "RecordDeAggregation",
+} as const;
 
 /**
+ * @public
+ */
+export type ProcessorType = (typeof ProcessorType)[keyof typeof ProcessorType];
+
+/**
+ * @public
  * <p>Describes a data processor.</p>
  */
 export interface Processor {
@@ -100,6 +122,7 @@ export interface Processor {
 }
 
 /**
+ * @public
  * <p>Describes a data processing configuration.</p>
  */
 export interface ProcessingConfiguration {
@@ -115,6 +138,7 @@ export interface ProcessingConfiguration {
 }
 
 /**
+ * @public
  * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents
  *          to the Serverless offering for Amazon OpenSearch Service.</p>
  */
@@ -129,12 +153,23 @@ export interface AmazonOpenSearchServerlessRetryOptions {
   DurationInSeconds?: number;
 }
 
-export enum AmazonOpenSearchServerlessS3BackupMode {
-  AllDocuments = "AllDocuments",
-  FailedDocumentsOnly = "FailedDocumentsOnly",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AmazonOpenSearchServerlessS3BackupMode = {
+  AllDocuments: "AllDocuments",
+  FailedDocumentsOnly: "FailedDocumentsOnly",
+} as const;
 
 /**
+ * @public
+ */
+export type AmazonOpenSearchServerlessS3BackupMode =
+  (typeof AmazonOpenSearchServerlessS3BackupMode)[keyof typeof AmazonOpenSearchServerlessS3BackupMode];
+
+/**
+ * @public
  * <p>Describes hints for the buffering to perform before delivering data to the
  *          destination. These options are treated as hints, and therefore Kinesis Data Firehose might
  *          choose to use different values when it is optimal. The <code>SizeInMBs</code> and
@@ -162,15 +197,25 @@ export interface BufferingHints {
   IntervalInSeconds?: number;
 }
 
-export enum CompressionFormat {
-  GZIP = "GZIP",
-  HADOOP_SNAPPY = "HADOOP_SNAPPY",
-  SNAPPY = "Snappy",
-  UNCOMPRESSED = "UNCOMPRESSED",
-  ZIP = "ZIP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CompressionFormat = {
+  GZIP: "GZIP",
+  HADOOP_SNAPPY: "HADOOP_SNAPPY",
+  SNAPPY: "Snappy",
+  UNCOMPRESSED: "UNCOMPRESSED",
+  ZIP: "ZIP",
+} as const;
 
 /**
+ * @public
+ */
+export type CompressionFormat = (typeof CompressionFormat)[keyof typeof CompressionFormat];
+
+/**
+ * @public
  * <p>Describes an encryption key for a destination in Amazon S3.</p>
  */
 export interface KMSEncryptionConfig {
@@ -181,11 +226,21 @@ export interface KMSEncryptionConfig {
   AWSKMSKeyARN: string | undefined;
 }
 
-export enum NoEncryptionConfig {
-  NoEncryption = "NoEncryption",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NoEncryptionConfig = {
+  NoEncryption: "NoEncryption",
+} as const;
 
 /**
+ * @public
+ */
+export type NoEncryptionConfig = (typeof NoEncryptionConfig)[keyof typeof NoEncryptionConfig];
+
+/**
+ * @public
  * <p>Describes the encryption for a destination in Amazon S3.</p>
  */
 export interface EncryptionConfiguration {
@@ -202,6 +257,7 @@ export interface EncryptionConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of a destination in Amazon S3.</p>
  */
 export interface S3DestinationConfiguration {
@@ -261,6 +317,7 @@ export interface S3DestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>The details of the VPC of the Amazon ES destination.</p>
  */
 export interface VpcConfiguration {
@@ -349,6 +406,7 @@ export interface VpcConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of a destination in the Serverless offering for Amazon
  *          OpenSearch Service.</p>
  */
@@ -416,6 +474,7 @@ export interface AmazonOpenSearchServerlessDestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes a destination in Amazon S3.</p>
  */
 export interface S3DestinationDescription {
@@ -472,6 +531,7 @@ export interface S3DestinationDescription {
 }
 
 /**
+ * @public
  * <p>The details of the VPC of the Amazon ES destination.</p>
  */
 export interface VpcConfigurationDescription {
@@ -564,6 +624,7 @@ export interface VpcConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>The destination description in the Serverless offering for Amazon OpenSearch
  *          Service.</p>
  */
@@ -621,6 +682,7 @@ export interface AmazonOpenSearchServerlessDestinationDescription {
 }
 
 /**
+ * @public
  * <p>Describes an update for a destination in Amazon S3.</p>
  */
 export interface S3DestinationUpdate {
@@ -680,6 +742,7 @@ export interface S3DestinationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes an update for a destination in the Serverless offering for Amazon OpenSearch
  *          Service.</p>
  */
@@ -732,6 +795,7 @@ export interface AmazonOpenSearchServerlessDestinationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes the buffering to perform before delivering data to the Amazon OpenSearch
  *          Service destination. </p>
  */
@@ -752,15 +816,26 @@ export interface AmazonopensearchserviceBufferingHints {
   SizeInMBs?: number;
 }
 
-export enum AmazonopensearchserviceIndexRotationPeriod {
-  NoRotation = "NoRotation",
-  OneDay = "OneDay",
-  OneHour = "OneHour",
-  OneMonth = "OneMonth",
-  OneWeek = "OneWeek",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AmazonopensearchserviceIndexRotationPeriod = {
+  NoRotation: "NoRotation",
+  OneDay: "OneDay",
+  OneHour: "OneHour",
+  OneMonth: "OneMonth",
+  OneWeek: "OneWeek",
+} as const;
 
 /**
+ * @public
+ */
+export type AmazonopensearchserviceIndexRotationPeriod =
+  (typeof AmazonopensearchserviceIndexRotationPeriod)[keyof typeof AmazonopensearchserviceIndexRotationPeriod];
+
+/**
+ * @public
  * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents
  *          to Amazon OpenSearch Service. </p>
  */
@@ -774,12 +849,23 @@ export interface AmazonopensearchserviceRetryOptions {
   DurationInSeconds?: number;
 }
 
-export enum AmazonopensearchserviceS3BackupMode {
-  AllDocuments = "AllDocuments",
-  FailedDocumentsOnly = "FailedDocumentsOnly",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AmazonopensearchserviceS3BackupMode = {
+  AllDocuments: "AllDocuments",
+  FailedDocumentsOnly: "FailedDocumentsOnly",
+} as const;
 
 /**
+ * @public
+ */
+export type AmazonopensearchserviceS3BackupMode =
+  (typeof AmazonopensearchserviceS3BackupMode)[keyof typeof AmazonopensearchserviceS3BackupMode];
+
+/**
+ * @public
  * <p>Describes the configuration of a destination in Amazon OpenSearch Service</p>
  */
 export interface AmazonopensearchserviceDestinationConfiguration {
@@ -865,6 +951,7 @@ export interface AmazonopensearchserviceDestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>The destination description in Amazon OpenSearch Service.</p>
  */
 export interface AmazonopensearchserviceDestinationDescription {
@@ -938,6 +1025,7 @@ export interface AmazonopensearchserviceDestinationDescription {
 }
 
 /**
+ * @public
  * <p>Describes an update for a destination in Amazon OpenSearch Service.</p>
  */
 export interface AmazonopensearchserviceDestinationUpdate {
@@ -1012,6 +1100,7 @@ export interface AmazonopensearchserviceDestinationUpdate {
 }
 
 /**
+ * @public
  * <p>Another modification has already happened. Fetch <code>VersionId</code> again and use
  *          it to update the destination.</p>
  */
@@ -1031,12 +1120,22 @@ export class ConcurrentModificationException extends __BaseException {
   }
 }
 
-export enum ContentEncoding {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContentEncoding = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type ContentEncoding = (typeof ContentEncoding)[keyof typeof ContentEncoding];
+
+/**
+ * @public
  * <p>Describes a <code>COPY</code> command for Amazon Redshift.</p>
  */
 export interface CopyCommand {
@@ -1075,12 +1174,22 @@ export interface CopyCommand {
   CopyOptions?: string;
 }
 
-export enum KeyType {
-  AWS_OWNED_CMK = "AWS_OWNED_CMK",
-  CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const KeyType = {
+  AWS_OWNED_CMK: "AWS_OWNED_CMK",
+  CUSTOMER_MANAGED_CMK: "CUSTOMER_MANAGED_CMK",
+} as const;
 
 /**
+ * @public
+ */
+export type KeyType = (typeof KeyType)[keyof typeof KeyType];
+
+/**
+ * @public
  * <p>Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side
  *          Encryption (SSE). </p>
  */
@@ -1116,12 +1225,22 @@ export interface DeliveryStreamEncryptionConfigurationInput {
   KeyType: KeyType | string | undefined;
 }
 
-export enum DeliveryStreamType {
-  DirectPut = "DirectPut",
-  KinesisStreamAsSource = "KinesisStreamAsSource",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeliveryStreamType = {
+  DirectPut: "DirectPut",
+  KinesisStreamAsSource: "KinesisStreamAsSource",
+} as const;
 
 /**
+ * @public
+ */
+export type DeliveryStreamType = (typeof DeliveryStreamType)[keyof typeof DeliveryStreamType];
+
+/**
+ * @public
  * <p>Describes the buffering to perform before delivering data to the Amazon ES
  *          destination.</p>
  */
@@ -1142,15 +1261,26 @@ export interface ElasticsearchBufferingHints {
   SizeInMBs?: number;
 }
 
-export enum ElasticsearchIndexRotationPeriod {
-  NoRotation = "NoRotation",
-  OneDay = "OneDay",
-  OneHour = "OneHour",
-  OneMonth = "OneMonth",
-  OneWeek = "OneWeek",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ElasticsearchIndexRotationPeriod = {
+  NoRotation: "NoRotation",
+  OneDay: "OneDay",
+  OneHour: "OneHour",
+  OneMonth: "OneMonth",
+  OneWeek: "OneWeek",
+} as const;
 
 /**
+ * @public
+ */
+export type ElasticsearchIndexRotationPeriod =
+  (typeof ElasticsearchIndexRotationPeriod)[keyof typeof ElasticsearchIndexRotationPeriod];
+
+/**
+ * @public
  * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver
  *          documents to Amazon ES.</p>
  */
@@ -1164,12 +1294,22 @@ export interface ElasticsearchRetryOptions {
   DurationInSeconds?: number;
 }
 
-export enum ElasticsearchS3BackupMode {
-  AllDocuments = "AllDocuments",
-  FailedDocumentsOnly = "FailedDocumentsOnly",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ElasticsearchS3BackupMode = {
+  AllDocuments: "AllDocuments",
+  FailedDocumentsOnly: "FailedDocumentsOnly",
+} as const;
 
 /**
+ * @public
+ */
+export type ElasticsearchS3BackupMode = (typeof ElasticsearchS3BackupMode)[keyof typeof ElasticsearchS3BackupMode];
+
+/**
+ * @public
  * <p>Describes the configuration of a destination in Amazon ES.</p>
  */
 export interface ElasticsearchDestinationConfiguration {
@@ -1268,6 +1408,7 @@ export interface ElasticsearchDestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing
  *          data, which means converting it from the JSON format in preparation for serializing it to
  *          the Parquet or ORC format. This is one of two deserializers you can choose, depending on
@@ -1285,6 +1426,7 @@ export interface HiveJsonSerDe {
 }
 
 /**
+ * @public
  * <p>The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data, which means
  *          converting it from the JSON format in preparation for serializing it to the Parquet or ORC
  *          format. This is one of two deserializers you can choose, depending on which one offers the
@@ -1311,13 +1453,14 @@ export interface OpenXJsonSerDe {
    * <p>Maps column names to JSON keys that aren't identical to the column names. This is
    *          useful when the JSON contains keys that are Hive keywords. For example,
    *             <code>timestamp</code> is a Hive keyword. If you have a JSON key named
-   *             <code>timestamp</code>, set this parameter to <code>{"ts": "timestamp"}</code> to map
+   *             <code>timestamp</code>, set this parameter to <code>\{"ts": "timestamp"\}</code> to map
    *          this key to a column named <code>ts</code>.</p>
    */
   ColumnToJsonKeyMappings?: Record<string, string>;
 }
 
 /**
+ * @public
  * <p>The deserializer you want Kinesis Data Firehose to use for converting the input data
  *          from JSON. Kinesis Data Firehose then serializes the data to its final format using the
  *             <a>Serializer</a>. Kinesis Data Firehose supports two types of deserializers:
@@ -1342,6 +1485,7 @@ export interface Deserializer {
 }
 
 /**
+ * @public
  * <p>Specifies the deserializer you want to use to convert the format of the input data.
  *          This parameter is required if <code>Enabled</code> is set to true.</p>
  */
@@ -1353,18 +1497,37 @@ export interface InputFormatConfiguration {
   Deserializer?: Deserializer;
 }
 
-export enum OrcCompression {
-  NONE = "NONE",
-  SNAPPY = "SNAPPY",
-  ZLIB = "ZLIB",
-}
-
-export enum OrcFormatVersion {
-  V0_11 = "V0_11",
-  V0_12 = "V0_12",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OrcCompression = {
+  NONE: "NONE",
+  SNAPPY: "SNAPPY",
+  ZLIB: "ZLIB",
+} as const;
 
 /**
+ * @public
+ */
+export type OrcCompression = (typeof OrcCompression)[keyof typeof OrcCompression];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrcFormatVersion = {
+  V0_11: "V0_11",
+  V0_12: "V0_12",
+} as const;
+
+/**
+ * @public
+ */
+export type OrcFormatVersion = (typeof OrcFormatVersion)[keyof typeof OrcFormatVersion];
+
+/**
+ * @public
  * <p>A serializer to use for converting data to the ORC format before storing it in Amazon
  *          S3. For more information, see <a href="https://orc.apache.org/docs/">Apache
  *          ORC</a>.</p>
@@ -1440,18 +1603,37 @@ export interface OrcSerDe {
   FormatVersion?: OrcFormatVersion | string;
 }
 
-export enum ParquetCompression {
-  GZIP = "GZIP",
-  SNAPPY = "SNAPPY",
-  UNCOMPRESSED = "UNCOMPRESSED",
-}
-
-export enum ParquetWriterVersion {
-  V1 = "V1",
-  V2 = "V2",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ParquetCompression = {
+  GZIP: "GZIP",
+  SNAPPY: "SNAPPY",
+  UNCOMPRESSED: "UNCOMPRESSED",
+} as const;
 
 /**
+ * @public
+ */
+export type ParquetCompression = (typeof ParquetCompression)[keyof typeof ParquetCompression];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParquetWriterVersion = {
+  V1: "V1",
+  V2: "V2",
+} as const;
+
+/**
+ * @public
+ */
+export type ParquetWriterVersion = (typeof ParquetWriterVersion)[keyof typeof ParquetWriterVersion];
+
+/**
+ * @public
  * <p>A serializer to use for converting data to the Parquet format before storing it in
  *          Amazon S3. For more information, see <a href="https://parquet.apache.org/documentation/latest/">Apache Parquet</a>.</p>
  */
@@ -1497,6 +1679,7 @@ export interface ParquetSerDe {
 }
 
 /**
+ * @public
  * <p>The serializer that you want Kinesis Data Firehose to use to convert data to the target
  *          format before writing it to Amazon S3. Kinesis Data Firehose supports two types of
  *          serializers: the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html">ORC SerDe</a> and the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html">Parquet SerDe</a>.</p>
@@ -1517,6 +1700,7 @@ export interface Serializer {
 }
 
 /**
+ * @public
  * <p>Specifies the serializer that you want Kinesis Data Firehose to use to convert the
  *          format of your data before it writes it to Amazon S3. This parameter is required if
  *             <code>Enabled</code> is set to true.</p>
@@ -1530,6 +1714,7 @@ export interface OutputFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the schema to which you want Kinesis Data Firehose to configure your data
  *          before it writes it to Amazon S3. This parameter is required if <code>Enabled</code> is set
  *          to true.</p>
@@ -1591,6 +1776,7 @@ export interface SchemaConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies that you want Kinesis Data Firehose to convert data from the JSON format to
  *          the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the
  *          serializer and deserializer that you specify, in addition to the column information from
@@ -1627,6 +1813,7 @@ export interface DataFormatConversionConfiguration {
 }
 
 /**
+ * @public
  * <p> The retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon
  *          S3 prefix.</p>
  */
@@ -1639,6 +1826,7 @@ export interface RetryOptions {
 }
 
 /**
+ * @public
  * <p>The configuration of the dynamic partitioning mechanism that creates smaller data sets
  *          from the streaming data by partitioning it based on partition keys. Currently, dynamic
  *          partitioning is only supported for Amazon S3 destinations.
@@ -1658,12 +1846,22 @@ export interface DynamicPartitioningConfiguration {
   Enabled?: boolean;
 }
 
-export enum S3BackupMode {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const S3BackupMode = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
 
 /**
+ * @public
+ */
+export type S3BackupMode = (typeof S3BackupMode)[keyof typeof S3BackupMode];
+
+/**
+ * @public
  * <p>Describes the configuration of a destination in Amazon S3.</p>
  */
 export interface ExtendedS3DestinationConfiguration {
@@ -1750,6 +1948,7 @@ export interface ExtendedS3DestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the buffering options that can be applied before data is delivered to the HTTP
  *          endpoint destination. Kinesis Data Firehose treats these options as hints, and it might
  *          choose to use more optimal values. The <code>SizeInMBs</code> and
@@ -1774,6 +1973,7 @@ export interface HttpEndpointBufferingHints {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of the HTTP endpoint to which Kinesis Firehose delivers
  *          data.</p>
  */
@@ -1801,6 +2001,7 @@ export interface HttpEndpointConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the metadata that's delivered to the specified HTTP endpoint
  *          destination.</p>
  */
@@ -1817,6 +2018,7 @@ export interface HttpEndpointCommonAttribute {
 }
 
 /**
+ * @public
  * <p>The configuration of the HTTP endpoint request.</p>
  */
 export interface HttpEndpointRequestConfiguration {
@@ -1833,6 +2035,7 @@ export interface HttpEndpointRequestConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to
  *          the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of
  *          receipt from the specified HTTP endpoint destination.</p>
@@ -1847,12 +2050,22 @@ export interface HttpEndpointRetryOptions {
   DurationInSeconds?: number;
 }
 
-export enum HttpEndpointS3BackupMode {
-  AllData = "AllData",
-  FailedDataOnly = "FailedDataOnly",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HttpEndpointS3BackupMode = {
+  AllData: "AllData",
+  FailedDataOnly: "FailedDataOnly",
+} as const;
 
 /**
+ * @public
+ */
+export type HttpEndpointS3BackupMode = (typeof HttpEndpointS3BackupMode)[keyof typeof HttpEndpointS3BackupMode];
+
+/**
+ * @public
  * <p>Describes the configuration of the HTTP endpoint destination.</p>
  */
 export interface HttpEndpointDestinationConfiguration {
@@ -1914,6 +2127,7 @@ export interface HttpEndpointDestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as
  *          the source for a delivery stream.</p>
  */
@@ -1933,6 +2147,7 @@ export interface KinesisStreamSourceConfiguration {
 }
 
 /**
+ * @public
  * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver
  *          documents to Amazon Redshift.</p>
  */
@@ -1947,12 +2162,22 @@ export interface RedshiftRetryOptions {
   DurationInSeconds?: number;
 }
 
-export enum RedshiftS3BackupMode {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RedshiftS3BackupMode = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
 
 /**
+ * @public
+ */
+export type RedshiftS3BackupMode = (typeof RedshiftS3BackupMode)[keyof typeof RedshiftS3BackupMode];
+
+/**
+ * @public
  * <p>Describes the configuration of a destination in Amazon Redshift.</p>
  */
 export interface RedshiftDestinationConfiguration {
@@ -2022,12 +2247,22 @@ export interface RedshiftDestinationConfiguration {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
 }
 
-export enum HECEndpointType {
-  Event = "Event",
-  Raw = "Raw",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HECEndpointType = {
+  Event: "Event",
+  Raw: "Raw",
+} as const;
 
 /**
+ * @public
+ */
+export type HECEndpointType = (typeof HECEndpointType)[keyof typeof HECEndpointType];
+
+/**
+ * @public
  * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver
  *          documents to Splunk, or if it doesn't receive an acknowledgment from Splunk.</p>
  */
@@ -2041,12 +2276,22 @@ export interface SplunkRetryOptions {
   DurationInSeconds?: number;
 }
 
-export enum SplunkS3BackupMode {
-  AllEvents = "AllEvents",
-  FailedEventsOnly = "FailedEventsOnly",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SplunkS3BackupMode = {
+  AllEvents: "AllEvents",
+  FailedEventsOnly: "FailedEventsOnly",
+} as const;
 
 /**
+ * @public
+ */
+export type SplunkS3BackupMode = (typeof SplunkS3BackupMode)[keyof typeof SplunkS3BackupMode];
+
+/**
+ * @public
  * <p>Describes the configuration of a destination in Splunk.</p>
  */
 export interface SplunkDestinationConfiguration {
@@ -2110,6 +2355,7 @@ export interface SplunkDestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>Metadata that you can assign to a delivery stream, consisting of a key-value
  *          pair.</p>
  */
@@ -2128,6 +2374,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDeliveryStreamInput {
   /**
    * <p>The name of the delivery stream. This name must be unique per Amazon Web Services
@@ -2226,6 +2475,9 @@ export interface CreateDeliveryStreamInput {
   AmazonOpenSearchServerlessDestinationConfiguration?: AmazonOpenSearchServerlessDestinationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateDeliveryStreamOutput {
   /**
    * <p>The ARN of the delivery stream.</p>
@@ -2234,6 +2486,7 @@ export interface CreateDeliveryStreamOutput {
 }
 
 /**
+ * @public
  * <p>The specified input parameter has a value that is not valid.</p>
  */
 export class InvalidArgumentException extends __BaseException {
@@ -2253,6 +2506,7 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Kinesis Data Firehose throws this exception when an attempt to put records or to start
  *          or stop delivery stream encryption fails. This happens when the KMS service throws one of
  *          the following exception types: <code>AccessDeniedException</code>,
@@ -2278,6 +2532,7 @@ export class InvalidKMSResourceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have already reached the limit for a requested resource.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -2297,6 +2552,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource is already in use and not available for this operation.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -2315,6 +2571,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeliveryStreamInput {
   /**
    * <p>The name of the delivery stream.</p>
@@ -2334,9 +2593,13 @@ export interface DeleteDeliveryStreamInput {
   AllowForceDelete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeliveryStreamOutput {}
 
 /**
+ * @public
  * <p>The specified resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -2355,25 +2618,35 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
-export enum DeliveryStreamFailureType {
-  CREATE_ENI_FAILED = "CREATE_ENI_FAILED",
-  CREATE_KMS_GRANT_FAILED = "CREATE_KMS_GRANT_FAILED",
-  DELETE_ENI_FAILED = "DELETE_ENI_FAILED",
-  DISABLED_KMS_KEY = "DISABLED_KMS_KEY",
-  ENI_ACCESS_DENIED = "ENI_ACCESS_DENIED",
-  INVALID_KMS_KEY = "INVALID_KMS_KEY",
-  KMS_ACCESS_DENIED = "KMS_ACCESS_DENIED",
-  KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND",
-  KMS_OPT_IN_REQUIRED = "KMS_OPT_IN_REQUIRED",
-  RETIRE_KMS_GRANT_FAILED = "RETIRE_KMS_GRANT_FAILED",
-  SECURITY_GROUP_ACCESS_DENIED = "SECURITY_GROUP_ACCESS_DENIED",
-  SECURITY_GROUP_NOT_FOUND = "SECURITY_GROUP_NOT_FOUND",
-  SUBNET_ACCESS_DENIED = "SUBNET_ACCESS_DENIED",
-  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND",
-  UNKNOWN_ERROR = "UNKNOWN_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeliveryStreamFailureType = {
+  CREATE_ENI_FAILED: "CREATE_ENI_FAILED",
+  CREATE_KMS_GRANT_FAILED: "CREATE_KMS_GRANT_FAILED",
+  DELETE_ENI_FAILED: "DELETE_ENI_FAILED",
+  DISABLED_KMS_KEY: "DISABLED_KMS_KEY",
+  ENI_ACCESS_DENIED: "ENI_ACCESS_DENIED",
+  INVALID_KMS_KEY: "INVALID_KMS_KEY",
+  KMS_ACCESS_DENIED: "KMS_ACCESS_DENIED",
+  KMS_KEY_NOT_FOUND: "KMS_KEY_NOT_FOUND",
+  KMS_OPT_IN_REQUIRED: "KMS_OPT_IN_REQUIRED",
+  RETIRE_KMS_GRANT_FAILED: "RETIRE_KMS_GRANT_FAILED",
+  SECURITY_GROUP_ACCESS_DENIED: "SECURITY_GROUP_ACCESS_DENIED",
+  SECURITY_GROUP_NOT_FOUND: "SECURITY_GROUP_NOT_FOUND",
+  SUBNET_ACCESS_DENIED: "SUBNET_ACCESS_DENIED",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+  UNKNOWN_ERROR: "UNKNOWN_ERROR",
+} as const;
 
 /**
+ * @public
+ */
+export type DeliveryStreamFailureType = (typeof DeliveryStreamFailureType)[keyof typeof DeliveryStreamFailureType];
+
+/**
+ * @public
  * <p>Provides details in case one of the following operations fails due to an error related
  *          to KMS: <a>CreateDeliveryStream</a>, <a>DeleteDeliveryStream</a>,
  *             <a>StartDeliveryStreamEncryption</a>, <a>StopDeliveryStreamEncryption</a>.</p>
@@ -2390,16 +2663,27 @@ export interface FailureDescription {
   Details: string | undefined;
 }
 
-export enum DeliveryStreamEncryptionStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  DISABLING_FAILED = "DISABLING_FAILED",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  ENABLING_FAILED = "ENABLING_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeliveryStreamEncryptionStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  DISABLING_FAILED: "DISABLING_FAILED",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  ENABLING_FAILED: "ENABLING_FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type DeliveryStreamEncryptionStatus =
+  (typeof DeliveryStreamEncryptionStatus)[keyof typeof DeliveryStreamEncryptionStatus];
+
+/**
+ * @public
  * <p>Contains information about the server-side encryption (SSE) status for the delivery
  *          stream, the type customer master key (CMK) in use, if any, and the ARN of the CMK. You can
  *          get <code>DeliveryStreamEncryptionConfiguration</code> by invoking the <a>DescribeDeliveryStream</a> operation. </p>
@@ -2435,15 +2719,25 @@ export interface DeliveryStreamEncryptionConfiguration {
   FailureDescription?: FailureDescription;
 }
 
-export enum DeliveryStreamStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  CREATING_FAILED = "CREATING_FAILED",
-  DELETING = "DELETING",
-  DELETING_FAILED = "DELETING_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeliveryStreamStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  CREATING_FAILED: "CREATING_FAILED",
+  DELETING: "DELETING",
+  DELETING_FAILED: "DELETING_FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type DeliveryStreamStatus = (typeof DeliveryStreamStatus)[keyof typeof DeliveryStreamStatus];
+
+/**
+ * @public
  * <p>The destination description in Amazon ES.</p>
  */
 export interface ElasticsearchDestinationDescription {
@@ -2524,6 +2818,7 @@ export interface ElasticsearchDestinationDescription {
 }
 
 /**
+ * @public
  * <p>Describes a destination in Amazon S3.</p>
  */
 export interface ExtendedS3DestinationDescription {
@@ -2608,6 +2903,7 @@ export interface ExtendedS3DestinationDescription {
 }
 
 /**
+ * @public
  * <p>Describes the HTTP endpoint selected as the destination. </p>
  */
 export interface HttpEndpointDescription {
@@ -2623,6 +2919,7 @@ export interface HttpEndpointDescription {
 }
 
 /**
+ * @public
  * <p>Describes the HTTP endpoint destination.</p>
  */
 export interface HttpEndpointDestinationDescription {
@@ -2684,6 +2981,7 @@ export interface HttpEndpointDestinationDescription {
 }
 
 /**
+ * @public
  * <p>Describes a destination in Amazon Redshift.</p>
  */
 export interface RedshiftDestinationDescription {
@@ -2742,6 +3040,7 @@ export interface RedshiftDestinationDescription {
 }
 
 /**
+ * @public
  * <p>Describes a destination in Splunk.</p>
  */
 export interface SplunkDestinationDescription {
@@ -2802,6 +3101,7 @@ export interface SplunkDestinationDescription {
 }
 
 /**
+ * @public
  * <p>Describes the destination for a delivery stream.</p>
  */
 export interface DestinationDescription {
@@ -2852,6 +3152,7 @@ export interface DestinationDescription {
 }
 
 /**
+ * @public
  * <p>Details about a Kinesis data stream used as the source for a Kinesis Data Firehose
  *          delivery stream.</p>
  */
@@ -2878,6 +3179,7 @@ export interface KinesisStreamSourceDescription {
 }
 
 /**
+ * @public
  * <p>Details about a Kinesis data stream used as the source for a Kinesis Data Firehose
  *          delivery stream.</p>
  */
@@ -2890,6 +3192,7 @@ export interface SourceDescription {
 }
 
 /**
+ * @public
  * <p>Contains information about a delivery stream.</p>
  */
 export interface DeliveryStreamDescription {
@@ -2977,6 +3280,9 @@ export interface DeliveryStreamDescription {
   HasMoreDestinations: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeliveryStreamInput {
   /**
    * <p>The name of the delivery stream.</p>
@@ -2996,6 +3302,9 @@ export interface DescribeDeliveryStreamInput {
   ExclusiveStartDestinationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeliveryStreamOutput {
   /**
    * <p>Information about the delivery stream.</p>
@@ -3004,6 +3313,7 @@ export interface DescribeDeliveryStreamOutput {
 }
 
 /**
+ * @public
  * <p>Describes an update for a destination in Amazon ES.</p>
  */
 export interface ElasticsearchDestinationUpdate {
@@ -3087,6 +3397,7 @@ export interface ElasticsearchDestinationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes an update for a destination in Amazon S3.</p>
  */
 export interface ExtendedS3DestinationUpdate {
@@ -3171,6 +3482,9 @@ export interface ExtendedS3DestinationUpdate {
   DynamicPartitioningConfiguration?: DynamicPartitioningConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface ListDeliveryStreamsInput {
   /**
    * <p>The maximum number of delivery streams to list. The default value is 10.</p>
@@ -3205,6 +3519,9 @@ export interface ListDeliveryStreamsInput {
   ExclusiveStartDeliveryStreamName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeliveryStreamsOutput {
   /**
    * <p>The names of the delivery streams.</p>
@@ -3217,6 +3534,9 @@ export interface ListDeliveryStreamsOutput {
   HasMoreDeliveryStreams: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForDeliveryStreamInput {
   /**
    * <p>The name of the delivery stream whose tags you want to list.</p>
@@ -3239,6 +3559,9 @@ export interface ListTagsForDeliveryStreamInput {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForDeliveryStreamOutput {
   /**
    * <p>A list of tags associated with <code>DeliveryStreamName</code>, starting with the
@@ -3256,6 +3579,7 @@ export interface ListTagsForDeliveryStreamOutput {
 }
 
 /**
+ * @public
  * <p>The unit of data in a delivery stream.</p>
  */
 export interface _Record {
@@ -3266,6 +3590,9 @@ export interface _Record {
   Data: Uint8Array | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRecordInput {
   /**
    * <p>The name of the delivery stream.</p>
@@ -3278,6 +3605,9 @@ export interface PutRecordInput {
   Record: _Record | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRecordOutput {
   /**
    * <p>The ID of the record.</p>
@@ -3291,6 +3621,7 @@ export interface PutRecordOutput {
 }
 
 /**
+ * @public
  * <p>The service is unavailable. Back off and retry the operation. If you continue to see
  *          the exception, throughput limits for the delivery stream may have been exceeded. For more
  *          information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Data Firehose
@@ -3312,6 +3643,9 @@ export class ServiceUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutRecordBatchInput {
   /**
    * <p>The name of the delivery stream.</p>
@@ -3325,6 +3659,7 @@ export interface PutRecordBatchInput {
 }
 
 /**
+ * @public
  * <p>Contains the result for an individual record from a <a>PutRecordBatch</a>
  *          request. If the record is successfully added to your delivery stream, it receives a record
  *          ID. If the record fails to be added to your delivery stream, the result includes an error
@@ -3347,6 +3682,9 @@ export interface PutRecordBatchResponseEntry {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutRecordBatchOutput {
   /**
    * <p>The number of records that might have failed processing. This number might be greater
@@ -3368,6 +3706,9 @@ export interface PutRecordBatchOutput {
   RequestResponses: PutRecordBatchResponseEntry[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDeliveryStreamEncryptionInput {
   /**
    * <p>The name of the delivery stream for which you want to enable server-side encryption
@@ -3382,8 +3723,14 @@ export interface StartDeliveryStreamEncryptionInput {
   DeliveryStreamEncryptionConfigurationInput?: DeliveryStreamEncryptionConfigurationInput;
 }
 
+/**
+ * @public
+ */
 export interface StartDeliveryStreamEncryptionOutput {}
 
+/**
+ * @public
+ */
 export interface StopDeliveryStreamEncryptionInput {
   /**
    * <p>The name of the delivery stream for which you want to disable server-side encryption
@@ -3392,8 +3739,14 @@ export interface StopDeliveryStreamEncryptionInput {
   DeliveryStreamName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopDeliveryStreamEncryptionOutput {}
 
+/**
+ * @public
+ */
 export interface TagDeliveryStreamInput {
   /**
    * <p>The name of the delivery stream to which you want to add the tags.</p>
@@ -3406,8 +3759,14 @@ export interface TagDeliveryStreamInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagDeliveryStreamOutput {}
 
+/**
+ * @public
+ */
 export interface UntagDeliveryStreamInput {
   /**
    * <p>The name of the delivery stream.</p>
@@ -3421,9 +3780,13 @@ export interface UntagDeliveryStreamInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagDeliveryStreamOutput {}
 
 /**
+ * @public
  * <p>Updates the specified HTTP endpoint destination.</p>
  */
 export interface HttpEndpointDestinationUpdate {
@@ -3485,6 +3848,7 @@ export interface HttpEndpointDestinationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes an update for a destination in Amazon Redshift.</p>
  */
 export interface RedshiftDestinationUpdate {
@@ -3553,6 +3917,7 @@ export interface RedshiftDestinationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes an update for a destination in Splunk.</p>
  */
 export interface SplunkDestinationUpdate {
@@ -3615,6 +3980,9 @@ export interface SplunkDestinationUpdate {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDestinationInput {
   /**
    * <p>The name of the delivery stream.</p>
@@ -3679,318 +4047,10 @@ export interface UpdateDestinationInput {
   AmazonOpenSearchServerlessDestinationUpdate?: AmazonOpenSearchServerlessDestinationUpdate;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDestinationOutput {}
-
-/**
- * @internal
- */
-export const AmazonOpenSearchServerlessBufferingHintsFilterSensitiveLog = (
-  obj: AmazonOpenSearchServerlessBufferingHints
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLoggingOptionsFilterSensitiveLog = (obj: CloudWatchLoggingOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessorParameterFilterSensitiveLog = (obj: ProcessorParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessorFilterSensitiveLog = (obj: Processor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessingConfigurationFilterSensitiveLog = (obj: ProcessingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonOpenSearchServerlessRetryOptionsFilterSensitiveLog = (
-  obj: AmazonOpenSearchServerlessRetryOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BufferingHintsFilterSensitiveLog = (obj: BufferingHints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KMSEncryptionConfigFilterSensitiveLog = (obj: KMSEncryptionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationConfigurationFilterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConfigurationFilterSensitiveLog = (obj: VpcConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonOpenSearchServerlessDestinationConfigurationFilterSensitiveLog = (
-  obj: AmazonOpenSearchServerlessDestinationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationDescriptionFilterSensitiveLog = (obj: S3DestinationDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConfigurationDescriptionFilterSensitiveLog = (obj: VpcConfigurationDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonOpenSearchServerlessDestinationDescriptionFilterSensitiveLog = (
-  obj: AmazonOpenSearchServerlessDestinationDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationUpdateFilterSensitiveLog = (obj: S3DestinationUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonOpenSearchServerlessDestinationUpdateFilterSensitiveLog = (
-  obj: AmazonOpenSearchServerlessDestinationUpdate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonopensearchserviceBufferingHintsFilterSensitiveLog = (
-  obj: AmazonopensearchserviceBufferingHints
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonopensearchserviceRetryOptionsFilterSensitiveLog = (
-  obj: AmazonopensearchserviceRetryOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonopensearchserviceDestinationConfigurationFilterSensitiveLog = (
-  obj: AmazonopensearchserviceDestinationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonopensearchserviceDestinationDescriptionFilterSensitiveLog = (
-  obj: AmazonopensearchserviceDestinationDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonopensearchserviceDestinationUpdateFilterSensitiveLog = (
-  obj: AmazonopensearchserviceDestinationUpdate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyCommandFilterSensitiveLog = (obj: CopyCommand): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeliveryStreamEncryptionConfigurationInputFilterSensitiveLog = (
-  obj: DeliveryStreamEncryptionConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchBufferingHintsFilterSensitiveLog = (obj: ElasticsearchBufferingHints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchRetryOptionsFilterSensitiveLog = (obj: ElasticsearchRetryOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchDestinationConfigurationFilterSensitiveLog = (
-  obj: ElasticsearchDestinationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HiveJsonSerDeFilterSensitiveLog = (obj: HiveJsonSerDe): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpenXJsonSerDeFilterSensitiveLog = (obj: OpenXJsonSerDe): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeserializerFilterSensitiveLog = (obj: Deserializer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputFormatConfigurationFilterSensitiveLog = (obj: InputFormatConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OrcSerDeFilterSensitiveLog = (obj: OrcSerDe): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParquetSerDeFilterSensitiveLog = (obj: ParquetSerDe): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SerializerFilterSensitiveLog = (obj: Serializer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputFormatConfigurationFilterSensitiveLog = (obj: OutputFormatConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaConfigurationFilterSensitiveLog = (obj: SchemaConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataFormatConversionConfigurationFilterSensitiveLog = (obj: DataFormatConversionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetryOptionsFilterSensitiveLog = (obj: RetryOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DynamicPartitioningConfigurationFilterSensitiveLog = (obj: DynamicPartitioningConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtendedS3DestinationConfigurationFilterSensitiveLog = (obj: ExtendedS3DestinationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpEndpointBufferingHintsFilterSensitiveLog = (obj: HttpEndpointBufferingHints): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -4023,13 +4083,6 @@ export const HttpEndpointRequestConfigurationFilterSensitiveLog = (obj: HttpEndp
 /**
  * @internal
  */
-export const HttpEndpointRetryOptionsFilterSensitiveLog = (obj: HttpEndpointRetryOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const HttpEndpointDestinationConfigurationFilterSensitiveLog = (
   obj: HttpEndpointDestinationConfiguration
 ): any => ({
@@ -4045,45 +4098,10 @@ export const HttpEndpointDestinationConfigurationFilterSensitiveLog = (
 /**
  * @internal
  */
-export const KinesisStreamSourceConfigurationFilterSensitiveLog = (obj: KinesisStreamSourceConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedshiftRetryOptionsFilterSensitiveLog = (obj: RedshiftRetryOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RedshiftDestinationConfigurationFilterSensitiveLog = (obj: RedshiftDestinationConfiguration): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
   ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SplunkRetryOptionsFilterSensitiveLog = (obj: SplunkRetryOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SplunkDestinationConfigurationFilterSensitiveLog = (obj: SplunkDestinationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
 });
 
 /**
@@ -4101,59 +4119,6 @@ export const CreateDeliveryStreamInputFilterSensitiveLog = (obj: CreateDeliveryS
       obj.HttpEndpointDestinationConfiguration
     ),
   }),
-});
-
-/**
- * @internal
- */
-export const CreateDeliveryStreamOutputFilterSensitiveLog = (obj: CreateDeliveryStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeliveryStreamInputFilterSensitiveLog = (obj: DeleteDeliveryStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeliveryStreamOutputFilterSensitiveLog = (obj: DeleteDeliveryStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailureDescriptionFilterSensitiveLog = (obj: FailureDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeliveryStreamEncryptionConfigurationFilterSensitiveLog = (
-  obj: DeliveryStreamEncryptionConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchDestinationDescriptionFilterSensitiveLog = (
-  obj: ElasticsearchDestinationDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtendedS3DestinationDescriptionFilterSensitiveLog = (obj: ExtendedS3DestinationDescription): any => ({
-  ...obj,
 });
 
 /**
@@ -4188,13 +4153,6 @@ export const RedshiftDestinationDescriptionFilterSensitiveLog = (obj: RedshiftDe
 /**
  * @internal
  */
-export const SplunkDestinationDescriptionFilterSensitiveLog = (obj: SplunkDestinationDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DestinationDescriptionFilterSensitiveLog = (obj: DestinationDescription): any => ({
   ...obj,
   ...(obj.RedshiftDestinationDescription && {
@@ -4212,20 +4170,6 @@ export const DestinationDescriptionFilterSensitiveLog = (obj: DestinationDescrip
 /**
  * @internal
  */
-export const KinesisStreamSourceDescriptionFilterSensitiveLog = (obj: KinesisStreamSourceDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceDescriptionFilterSensitiveLog = (obj: SourceDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeliveryStreamDescriptionFilterSensitiveLog = (obj: DeliveryStreamDescription): any => ({
   ...obj,
   ...(obj.Destinations && {
@@ -4236,160 +4180,11 @@ export const DeliveryStreamDescriptionFilterSensitiveLog = (obj: DeliveryStreamD
 /**
  * @internal
  */
-export const DescribeDeliveryStreamInputFilterSensitiveLog = (obj: DescribeDeliveryStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeDeliveryStreamOutputFilterSensitiveLog = (obj: DescribeDeliveryStreamOutput): any => ({
   ...obj,
   ...(obj.DeliveryStreamDescription && {
     DeliveryStreamDescription: DeliveryStreamDescriptionFilterSensitiveLog(obj.DeliveryStreamDescription),
   }),
-});
-
-/**
- * @internal
- */
-export const ElasticsearchDestinationUpdateFilterSensitiveLog = (obj: ElasticsearchDestinationUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtendedS3DestinationUpdateFilterSensitiveLog = (obj: ExtendedS3DestinationUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeliveryStreamsInputFilterSensitiveLog = (obj: ListDeliveryStreamsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeliveryStreamsOutputFilterSensitiveLog = (obj: ListDeliveryStreamsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForDeliveryStreamInputFilterSensitiveLog = (obj: ListTagsForDeliveryStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForDeliveryStreamOutputFilterSensitiveLog = (obj: ListTagsForDeliveryStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const _RecordFilterSensitiveLog = (obj: _Record): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRecordInputFilterSensitiveLog = (obj: PutRecordInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRecordOutputFilterSensitiveLog = (obj: PutRecordOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRecordBatchInputFilterSensitiveLog = (obj: PutRecordBatchInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRecordBatchResponseEntryFilterSensitiveLog = (obj: PutRecordBatchResponseEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRecordBatchOutputFilterSensitiveLog = (obj: PutRecordBatchOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDeliveryStreamEncryptionInputFilterSensitiveLog = (obj: StartDeliveryStreamEncryptionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDeliveryStreamEncryptionOutputFilterSensitiveLog = (
-  obj: StartDeliveryStreamEncryptionOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopDeliveryStreamEncryptionInputFilterSensitiveLog = (obj: StopDeliveryStreamEncryptionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopDeliveryStreamEncryptionOutputFilterSensitiveLog = (obj: StopDeliveryStreamEncryptionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagDeliveryStreamInputFilterSensitiveLog = (obj: TagDeliveryStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagDeliveryStreamOutputFilterSensitiveLog = (obj: TagDeliveryStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagDeliveryStreamInputFilterSensitiveLog = (obj: UntagDeliveryStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagDeliveryStreamOutputFilterSensitiveLog = (obj: UntagDeliveryStreamOutput): any => ({
-  ...obj,
 });
 
 /**
@@ -4417,13 +4212,6 @@ export const RedshiftDestinationUpdateFilterSensitiveLog = (obj: RedshiftDestina
 /**
  * @internal
  */
-export const SplunkDestinationUpdateFilterSensitiveLog = (obj: SplunkDestinationUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateDestinationInputFilterSensitiveLog = (obj: UpdateDestinationInput): any => ({
   ...obj,
   ...(obj.RedshiftDestinationUpdate && {
@@ -4432,11 +4220,4 @@ export const UpdateDestinationInputFilterSensitiveLog = (obj: UpdateDestinationI
   ...(obj.HttpEndpointDestinationUpdate && {
     HttpEndpointDestinationUpdate: HttpEndpointDestinationUpdateFilterSensitiveLog(obj.HttpEndpointDestinationUpdate),
   }),
-});
-
-/**
- * @internal
- */
-export const UpdateDestinationOutputFilterSensitiveLog = (obj: UpdateDestinationOutput): any => ({
-  ...obj,
 });

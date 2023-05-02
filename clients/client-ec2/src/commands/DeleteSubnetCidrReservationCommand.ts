@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteSubnetCidrReservationRequest,
-  DeleteSubnetCidrReservationRequestFilterSensitiveLog,
-  DeleteSubnetCidrReservationResult,
-  DeleteSubnetCidrReservationResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteSubnetCidrReservationCommand,
-  serializeAws_ec2DeleteSubnetCidrReservationCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteSubnetCidrReservationRequest, DeleteSubnetCidrReservationResult } from "../models/models_3";
+import { de_DeleteSubnetCidrReservationCommand, se_DeleteSubnetCidrReservationCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubnetCidrReservationCommand}.
  */
 export interface DeleteSubnetCidrReservationCommandInput extends DeleteSubnetCidrReservationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubnetCidrReservationCommand}.
  */
 export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCidrReservationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a subnet CIDR reservation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCi
  * import { EC2Client, DeleteSubnetCidrReservationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteSubnetCidrReservationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteSubnetCidrReservationRequest
+ *   SubnetCidrReservationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteSubnetCidrReservationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubnetCidrReservationCommandInput - {@link DeleteSubnetCidrReservationCommandInput}
+ * @returns {@link DeleteSubnetCidrReservationCommandOutput}
  * @see {@link DeleteSubnetCidrReservationCommandInput} for command's `input` shape.
  * @see {@link DeleteSubnetCidrReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +72,9 @@ export class DeleteSubnetCidrReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubnetCidrReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +103,8 @@ export class DeleteSubnetCidrReservationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubnetCidrReservationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubnetCidrReservationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +114,21 @@ export class DeleteSubnetCidrReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubnetCidrReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteSubnetCidrReservationCommand(input, context);
+    return se_DeleteSubnetCidrReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSubnetCidrReservationCommandOutput> {
-    return deserializeAws_ec2DeleteSubnetCidrReservationCommand(output, context);
+    return de_DeleteSubnetCidrReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

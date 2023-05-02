@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { SetDefaultPolicyVersionRequest, SetDefaultPolicyVersionRequestFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_restJson1SetDefaultPolicyVersionCommand,
-  serializeAws_restJson1SetDefaultPolicyVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { SetDefaultPolicyVersionRequest } from "../models/models_2";
+import { de_SetDefaultPolicyVersionCommand, se_SetDefaultPolicyVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SetDefaultPolicyVersionCommand}.
  */
 export interface SetDefaultPolicyVersionCommandInput extends SetDefaultPolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetDefaultPolicyVersionCommand}.
  */
 export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified version of the specified policy as the policy's default
  *          (operative) version. This action affects all certificates to which the policy is attached.
  *          To list the principals the policy is attached to, use the <a>ListPrincipalPolicies</a>
@@ -41,10 +43,16 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  * import { IoTClient, SetDefaultPolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SetDefaultPolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // SetDefaultPolicyVersionRequest
+ *   policyName: "STRING_VALUE", // required
+ *   policyVersionId: "STRING_VALUE", // required
+ * };
  * const command = new SetDefaultPolicyVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetDefaultPolicyVersionCommandInput - {@link SetDefaultPolicyVersionCommandInput}
+ * @returns {@link SetDefaultPolicyVersionCommandOutput}
  * @see {@link SetDefaultPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link SetDefaultPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +94,9 @@ export class SetDefaultPolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetDefaultPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +125,8 @@ export class SetDefaultPolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetDefaultPolicyVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +136,18 @@ export class SetDefaultPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetDefaultPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SetDefaultPolicyVersionCommand(input, context);
+    return se_SetDefaultPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDefaultPolicyVersionCommandOutput> {
-    return deserializeAws_restJson1SetDefaultPolicyVersionCommand(output, context);
+    return de_SetDefaultPolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

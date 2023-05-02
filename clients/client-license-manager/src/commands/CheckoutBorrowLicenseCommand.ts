@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  CheckoutBorrowLicenseRequest,
-  CheckoutBorrowLicenseRequestFilterSensitiveLog,
-  CheckoutBorrowLicenseResponse,
-  CheckoutBorrowLicenseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CheckoutBorrowLicenseCommand,
-  serializeAws_json1_1CheckoutBorrowLicenseCommand,
-} from "../protocols/Aws_json1_1";
+import { CheckoutBorrowLicenseRequest, CheckoutBorrowLicenseResponse } from "../models/models_0";
+import { de_CheckoutBorrowLicenseCommand, se_CheckoutBorrowLicenseCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CheckoutBorrowLicenseCommand}.
  */
 export interface CheckoutBorrowLicenseCommandInput extends CheckoutBorrowLicenseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CheckoutBorrowLicenseCommand}.
  */
 export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicenseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks out the specified license for offline use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,31 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  * import { LicenseManagerClient, CheckoutBorrowLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CheckoutBorrowLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // CheckoutBorrowLicenseRequest
+ *   LicenseArn: "STRING_VALUE", // required
+ *   Entitlements: [ // EntitlementDataList // required
+ *     { // EntitlementData
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *       Unit: "Count" || "None" || "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second", // required
+ *     },
+ *   ],
+ *   DigitalSignatureMethod: "JWT_PS384", // required
+ *   NodeId: "STRING_VALUE",
+ *   CheckoutMetadata: [ // MetadataList
+ *     { // Metadata
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new CheckoutBorrowLicenseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckoutBorrowLicenseCommandInput - {@link CheckoutBorrowLicenseCommandInput}
+ * @returns {@link CheckoutBorrowLicenseCommandOutput}
  * @see {@link CheckoutBorrowLicenseCommandInput} for command's `input` shape.
  * @see {@link CheckoutBorrowLicenseCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -103,6 +121,9 @@ export class CheckoutBorrowLicenseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckoutBorrowLicenseCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +152,8 @@ export class CheckoutBorrowLicenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckoutBorrowLicenseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CheckoutBorrowLicenseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +163,18 @@ export class CheckoutBorrowLicenseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckoutBorrowLicenseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CheckoutBorrowLicenseCommand(input, context);
+    return se_CheckoutBorrowLicenseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckoutBorrowLicenseCommandOutput> {
-    return deserializeAws_json1_1CheckoutBorrowLicenseCommand(output, context);
+    return de_CheckoutBorrowLicenseCommand(output, context);
   }
 
   // Start section: command_body_extra

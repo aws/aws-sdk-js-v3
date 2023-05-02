@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchFacesByImageRequest,
-  SearchFacesByImageRequestFilterSensitiveLog,
-  SearchFacesByImageResponse,
-  SearchFacesByImageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchFacesByImageCommand,
-  serializeAws_json1_1SearchFacesByImageCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchFacesByImageRequest, SearchFacesByImageResponse } from "../models/models_0";
+import { de_SearchFacesByImageCommand, se_SearchFacesByImageCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchFacesByImageCommand}.
  */
 export interface SearchFacesByImageCommandInput extends SearchFacesByImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchFacesByImageCommand}.
  */
 export interface SearchFacesByImageCommandOutput extends SearchFacesByImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a given input image, first detects the largest face in the image, and then searches
  *       the specified collection for matching faces. The operation compares the features of the input
  *       face with faces in the specified collection. </p>
@@ -78,10 +75,26 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  * import { RekognitionClient, SearchFacesByImageCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, SearchFacesByImageCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // SearchFacesByImageRequest
+ *   CollectionId: "STRING_VALUE", // required
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   MaxFaces: Number("int"),
+ *   FaceMatchThreshold: Number("float"),
+ *   QualityFilter: "NONE" || "AUTO" || "LOW" || "MEDIUM" || "HIGH",
+ * };
  * const command = new SearchFacesByImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchFacesByImageCommandInput - {@link SearchFacesByImageCommandInput}
+ * @returns {@link SearchFacesByImageCommandOutput}
  * @see {@link SearchFacesByImageCommandInput} for command's `input` shape.
  * @see {@link SearchFacesByImageCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -183,6 +196,9 @@ export class SearchFacesByImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchFacesByImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -211,8 +227,8 @@ export class SearchFacesByImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchFacesByImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchFacesByImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -222,12 +238,18 @@ export class SearchFacesByImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchFacesByImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchFacesByImageCommand(input, context);
+    return se_SearchFacesByImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFacesByImageCommandOutput> {
-    return deserializeAws_json1_1SearchFacesByImageCommand(output, context);
+    return de_SearchFacesByImageCommand(output, context);
   }
 
   // Start section: command_body_extra

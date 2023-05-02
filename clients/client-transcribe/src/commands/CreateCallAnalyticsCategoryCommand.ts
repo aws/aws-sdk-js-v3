@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCallAnalyticsCategoryRequest,
-  CreateCallAnalyticsCategoryRequestFilterSensitiveLog,
-  CreateCallAnalyticsCategoryResponse,
-  CreateCallAnalyticsCategoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCallAnalyticsCategoryCommand,
-  serializeAws_json1_1CreateCallAnalyticsCategoryCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateCallAnalyticsCategoryRequest, CreateCallAnalyticsCategoryResponse } from "../models/models_0";
+import { de_CreateCallAnalyticsCategoryCommand, se_CreateCallAnalyticsCategoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCallAnalyticsCategoryCommand}.
  */
 export interface CreateCallAnalyticsCategoryCommandInput extends CreateCallAnalyticsCategoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCallAnalyticsCategoryCommand}.
  */
 export interface CreateCallAnalyticsCategoryCommandOutput
@@ -37,6 +33,7 @@ export interface CreateCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Call Analytics category.</p>
  *          <p>All categories are automatically applied to your Call Analytics transcriptions. Note that in
  *             order to apply categories to your transcriptions, you must create them before submitting your
@@ -59,10 +56,92 @@ export interface CreateCallAnalyticsCategoryCommandOutput
  * import { TranscribeClient, CreateCallAnalyticsCategoryCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, CreateCallAnalyticsCategoryCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // CreateCallAnalyticsCategoryRequest
+ *   CategoryName: "STRING_VALUE", // required
+ *   Rules: [ // RuleList // required
+ *     { // Rule Union: only one key present
+ *       NonTalkTimeFilter: { // NonTalkTimeFilter
+ *         Threshold: Number("long"),
+ *         AbsoluteTimeRange: { // AbsoluteTimeRange
+ *           StartTime: Number("long"),
+ *           EndTime: Number("long"),
+ *           First: Number("long"),
+ *           Last: Number("long"),
+ *         },
+ *         RelativeTimeRange: { // RelativeTimeRange
+ *           StartPercentage: Number("int"),
+ *           EndPercentage: Number("int"),
+ *           First: Number("int"),
+ *           Last: Number("int"),
+ *         },
+ *         Negate: true || false,
+ *       },
+ *       InterruptionFilter: { // InterruptionFilter
+ *         Threshold: Number("long"),
+ *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *         AbsoluteTimeRange: {
+ *           StartTime: Number("long"),
+ *           EndTime: Number("long"),
+ *           First: Number("long"),
+ *           Last: Number("long"),
+ *         },
+ *         RelativeTimeRange: {
+ *           StartPercentage: Number("int"),
+ *           EndPercentage: Number("int"),
+ *           First: Number("int"),
+ *           Last: Number("int"),
+ *         },
+ *         Negate: true || false,
+ *       },
+ *       TranscriptFilter: { // TranscriptFilter
+ *         TranscriptFilterType: "EXACT", // required
+ *         AbsoluteTimeRange: {
+ *           StartTime: Number("long"),
+ *           EndTime: Number("long"),
+ *           First: Number("long"),
+ *           Last: Number("long"),
+ *         },
+ *         RelativeTimeRange: {
+ *           StartPercentage: Number("int"),
+ *           EndPercentage: Number("int"),
+ *           First: Number("int"),
+ *           Last: Number("int"),
+ *         },
+ *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *         Negate: true || false,
+ *         Targets: [ // StringTargetList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       SentimentFilter: { // SentimentFilter
+ *         Sentiments: [ // SentimentValueList // required
+ *           "POSITIVE" || "NEGATIVE" || "NEUTRAL" || "MIXED",
+ *         ],
+ *         AbsoluteTimeRange: {
+ *           StartTime: Number("long"),
+ *           EndTime: Number("long"),
+ *           First: Number("long"),
+ *           Last: Number("long"),
+ *         },
+ *         RelativeTimeRange: {
+ *           StartPercentage: Number("int"),
+ *           EndPercentage: Number("int"),
+ *           First: Number("int"),
+ *           Last: Number("int"),
+ *         },
+ *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *         Negate: true || false,
+ *       },
+ *     },
+ *   ],
+ *   InputType: "REAL_TIME" || "POST_CALL",
+ * };
  * const command = new CreateCallAnalyticsCategoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCallAnalyticsCategoryCommandInput - {@link CreateCallAnalyticsCategoryCommandInput}
+ * @returns {@link CreateCallAnalyticsCategoryCommandOutput}
  * @see {@link CreateCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link CreateCallAnalyticsCategoryCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -104,6 +183,9 @@ export class CreateCallAnalyticsCategoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCallAnalyticsCategoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +214,8 @@ export class CreateCallAnalyticsCategoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCallAnalyticsCategoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCallAnalyticsCategoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,15 +225,21 @@ export class CreateCallAnalyticsCategoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCallAnalyticsCategoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCallAnalyticsCategoryCommand(input, context);
+    return se_CreateCallAnalyticsCategoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCallAnalyticsCategoryCommandOutput> {
-    return deserializeAws_json1_1CreateCallAnalyticsCategoryCommand(output, context);
+    return de_CreateCallAnalyticsCategoryCommand(output, context);
   }
 
   // Start section: command_body_extra

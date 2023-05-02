@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  CancelTransactionRequest,
-  CancelTransactionRequestFilterSensitiveLog,
-  CancelTransactionResponse,
-  CancelTransactionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelTransactionCommand,
-  serializeAws_restJson1CancelTransactionCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelTransactionRequest, CancelTransactionResponse } from "../models/models_0";
+import { de_CancelTransactionCommand, se_CancelTransactionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelTransactionCommand}.
  */
 export interface CancelTransactionCommandInput extends CancelTransactionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelTransactionCommand}.
  */
 export interface CancelTransactionCommandOutput extends CancelTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to cancel the specified transaction. Returns an exception if the transaction was previously committed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  * import { LakeFormationClient, CancelTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, CancelTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // CancelTransactionRequest
+ *   TransactionId: "STRING_VALUE", // required
+ * };
  * const command = new CancelTransactionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelTransactionCommandInput - {@link CancelTransactionCommandInput}
+ * @returns {@link CancelTransactionCommandOutput}
  * @see {@link CancelTransactionCommandInput} for command's `input` shape.
  * @see {@link CancelTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -54,7 +56,7 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  *  <p>Two processes are trying to modify a resource simultaneously.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -90,6 +92,9 @@ export class CancelTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class CancelTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelTransactionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelTransactionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class CancelTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelTransactionCommand(input, context);
+    return se_CancelTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelTransactionCommandOutput> {
-    return deserializeAws_restJson1CancelTransactionCommand(output, context);
+    return de_CancelTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

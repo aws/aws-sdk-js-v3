@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateApplicationInstanceRequest,
-  CreateApplicationInstanceRequestFilterSensitiveLog,
-  CreateApplicationInstanceResponse,
-  CreateApplicationInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateApplicationInstanceRequest, CreateApplicationInstanceResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1CreateApplicationInstanceCommand,
-  serializeAws_restJson1CreateApplicationInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateApplicationInstanceCommand, se_CreateApplicationInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationInstanceCommand}.
  */
 export interface CreateApplicationInstanceCommandInput extends CreateApplicationInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationInstanceCommand}.
  */
 export interface CreateApplicationInstanceCommandOutput extends CreateApplicationInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application instance and deploys it to a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface CreateApplicationInstanceCommandOutput extends CreateApplicatio
  * import { PanoramaClient, CreateApplicationInstanceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, CreateApplicationInstanceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // CreateApplicationInstanceRequest
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ManifestPayload: { // ManifestPayload Union: only one key present
+ *     PayloadData: "STRING_VALUE",
+ *   },
+ *   ManifestOverridesPayload: { // ManifestOverridesPayload Union: only one key present
+ *     PayloadData: "STRING_VALUE",
+ *   },
+ *   ApplicationInstanceIdToReplace: "STRING_VALUE",
+ *   RuntimeRoleArn: "STRING_VALUE",
+ *   DefaultRuntimeContextDevice: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateApplicationInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationInstanceCommandInput - {@link CreateApplicationInstanceCommandInput}
+ * @returns {@link CreateApplicationInstanceCommandOutput}
  * @see {@link CreateApplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -81,6 +96,9 @@ export class CreateApplicationInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +127,8 @@ export class CreateApplicationInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +138,21 @@ export class CreateApplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApplicationInstanceCommand(input, context);
+    return se_CreateApplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateApplicationInstanceCommandOutput> {
-    return deserializeAws_restJson1CreateApplicationInstanceCommand(output, context);
+    return de_CreateApplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

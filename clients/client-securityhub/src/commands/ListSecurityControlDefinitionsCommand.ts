@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListSecurityControlDefinitionsRequest, ListSecurityControlDefinitionsResponse } from "../models/models_2";
 import {
-  ListSecurityControlDefinitionsRequest,
-  ListSecurityControlDefinitionsRequestFilterSensitiveLog,
-  ListSecurityControlDefinitionsResponse,
-  ListSecurityControlDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListSecurityControlDefinitionsCommand,
-  serializeAws_restJson1ListSecurityControlDefinitionsCommand,
+  de_ListSecurityControlDefinitionsCommand,
+  se_ListSecurityControlDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityControlDefinitionsCommand}.
  */
 export interface ListSecurityControlDefinitionsCommandInput extends ListSecurityControlDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityControlDefinitionsCommand}.
  */
 export interface ListSecurityControlDefinitionsCommandOutput
@@ -37,6 +36,7 @@ export interface ListSecurityControlDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Lists all of the security controls that apply to a specified standard.
  *       </p>
@@ -46,10 +46,17 @@ export interface ListSecurityControlDefinitionsCommandOutput
  * import { SecurityHubClient, ListSecurityControlDefinitionsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListSecurityControlDefinitionsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // ListSecurityControlDefinitionsRequest
+ *   StandardsArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSecurityControlDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityControlDefinitionsCommandInput - {@link ListSecurityControlDefinitionsCommandInput}
+ * @returns {@link ListSecurityControlDefinitionsCommandOutput}
  * @see {@link ListSecurityControlDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListSecurityControlDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -69,6 +76,50 @@ export interface ListSecurityControlDefinitionsCommandOutput
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To list security controls that apply to a standard
+ * ```javascript
+ * // The following example lists security controls that apply to a specified Security Hub standard.
+ * const input = {
+ *   "MaxResults": 3,
+ *   "NextToken": "NULL",
+ *   "StandardsArn": "arn:aws:securityhub:::standards/aws-foundational-security-best-practices/v/1.0.0"
+ * };
+ * const command = new ListSecurityControlDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NextToken": "U2FsdGVkX1...",
+ *   "SecurityControlDefinitions": [
+ *     {
+ *       "CurrentRegionAvailability": "AVAILABLE",
+ *       "Description": "This AWS control checks whether ACM Certificates in your account are marked for expiration within a specified time period. Certificates provided by ACM are automatically renewed. ACM does not automatically renew certificates that you import.",
+ *       "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/ACM.1/remediation",
+ *       "SecurityControlId": "ACM.1",
+ *       "SeverityRating": "MEDIUM",
+ *       "Title": "Imported and ACM-issued certificates should be renewed after a specified time period"
+ *     },
+ *     {
+ *       "CurrentRegionAvailability": "AVAILABLE",
+ *       "Description": "This control checks whether all stages of Amazon API Gateway REST and WebSocket APIs have logging enabled. The control fails if logging is not enabled for all methods of a stage or if loggingLevel is neither ERROR nor INFO.",
+ *       "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/APIGateway.1/remediation",
+ *       "SecurityControlId": "APIGateway.1",
+ *       "SeverityRating": "MEDIUM",
+ *       "Title": "API Gateway REST and WebSocket API execution logging should be enabled"
+ *     },
+ *     {
+ *       "CurrentRegionAvailability": "AVAILABLE",
+ *       "Description": "This control checks whether Amazon API Gateway REST API stages have SSL certificates configured that backend systems can use to authenticate that incoming requests are from the API Gateway.",
+ *       "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/APIGateway.2/remediation",
+ *       "SecurityControlId": "APIGateway.2",
+ *       "SeverityRating": "MEDIUM",
+ *       "Title": "API Gateway REST API stages should be configured to use SSL certificates for backend authentication"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-security-controls-that-apply-to-a-standard-1678386912894
+ * ```
+ *
  */
 export class ListSecurityControlDefinitionsCommand extends $Command<
   ListSecurityControlDefinitionsCommandInput,
@@ -87,6 +138,9 @@ export class ListSecurityControlDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityControlDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +169,8 @@ export class ListSecurityControlDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSecurityControlDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSecurityControlDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +180,24 @@ export class ListSecurityControlDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSecurityControlDefinitionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSecurityControlDefinitionsCommand(input, context);
+    return se_ListSecurityControlDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSecurityControlDefinitionsCommandOutput> {
-    return deserializeAws_restJson1ListSecurityControlDefinitionsCommand(output, context);
+    return de_ListSecurityControlDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

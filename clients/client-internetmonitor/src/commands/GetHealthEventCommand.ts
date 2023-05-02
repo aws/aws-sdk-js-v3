@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
-import {
-  GetHealthEventInput,
-  GetHealthEventInputFilterSensitiveLog,
-  GetHealthEventOutput,
-  GetHealthEventOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetHealthEventCommand,
-  serializeAws_restJson1GetHealthEventCommand,
-} from "../protocols/Aws_restJson1";
+import { GetHealthEventInput, GetHealthEventOutput } from "../models/models_0";
+import { de_GetHealthEventCommand, se_GetHealthEventCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetHealthEventCommand}.
  */
 export interface GetHealthEventCommandInput extends GetHealthEventInput {}
 /**
+ * @public
+ *
  * The output of {@link GetHealthEventCommand}.
  */
 export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information the Amazon CloudWatch Internet Monitor has created and stored about a health event for a specified monitor. This information includes the impacted locations,
  * 			and all of the information related to the event by location.</p>
  *          <p>The information returned includes the performance, availability, and round-trip time impact, information about the network providers, the event type,
@@ -46,10 +43,16 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * import { InternetMonitorClient, GetHealthEventCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, GetHealthEventCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
+ * const input = { // GetHealthEventInput
+ *   MonitorName: "STRING_VALUE", // required
+ *   EventId: "STRING_VALUE", // required
+ * };
  * const command = new GetHealthEventCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHealthEventCommandInput - {@link GetHealthEventCommandInput}
+ * @returns {@link GetHealthEventCommandOutput}
  * @see {@link GetHealthEventCommandInput} for command's `input` shape.
  * @see {@link GetHealthEventCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetHealthEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHealthEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetHealthEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHealthEventInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHealthEventOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetHealthEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHealthEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetHealthEventCommand(input, context);
+    return se_GetHealthEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHealthEventCommandOutput> {
-    return deserializeAws_restJson1GetHealthEventCommand(output, context);
+    return de_GetHealthEventCommand(output, context);
   }
 
   // Start section: command_body_extra

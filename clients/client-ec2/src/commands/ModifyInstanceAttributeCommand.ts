@@ -14,27 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyInstanceAttributeRequest, ModifyInstanceAttributeRequestFilterSensitiveLog } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyInstanceAttributeCommand,
-  serializeAws_ec2ModifyInstanceAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyInstanceAttributeRequest } from "../models/models_6";
+import { de_ModifyInstanceAttributeCommand, se_ModifyInstanceAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyInstanceAttributeCommand}.
  */
 export interface ModifyInstanceAttributeCommandInput extends ModifyInstanceAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyInstanceAttributeCommand}.
  */
 export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified attribute of the specified instance. You can specify only one
  *             attribute at a time.</p>
  *          <p>
  *             <b>Note: </b>Using this action to change the security groups
- *             associated with an elastic network interface (ENI) attached to an instance in a VPC can
+ *             associated with an elastic network interface (ENI) attached to an instance can
  *             result in an error if the instance has more than one ENI. To change the security groups
  *             associated with an ENI attached to an instance that has multiple ENIs, we recommend that
  *             you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p>
@@ -47,10 +49,65 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * import { EC2Client, ModifyInstanceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyInstanceAttributeRequest
+ *   SourceDestCheck: { // AttributeBooleanValue
+ *     Value: true || false,
+ *   },
+ *   Attribute: "instanceType" || "kernel" || "ramdisk" || "userData" || "disableApiTermination" || "instanceInitiatedShutdownBehavior" || "rootDeviceName" || "blockDeviceMapping" || "productCodes" || "sourceDestCheck" || "groupSet" || "ebsOptimized" || "sriovNetSupport" || "enaSupport" || "enclaveOptions" || "disableApiStop",
+ *   BlockDeviceMappings: [ // InstanceBlockDeviceMappingSpecificationList
+ *     { // InstanceBlockDeviceMappingSpecification
+ *       DeviceName: "STRING_VALUE",
+ *       Ebs: { // EbsInstanceBlockDeviceSpecification
+ *         DeleteOnTermination: true || false,
+ *         VolumeId: "STRING_VALUE",
+ *       },
+ *       NoDevice: "STRING_VALUE",
+ *       VirtualName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DisableApiTermination: {
+ *     Value: true || false,
+ *   },
+ *   DryRun: true || false,
+ *   EbsOptimized: {
+ *     Value: true || false,
+ *   },
+ *   EnaSupport: {
+ *     Value: true || false,
+ *   },
+ *   Groups: [ // GroupIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   InstanceId: "STRING_VALUE", // required
+ *   InstanceInitiatedShutdownBehavior: { // AttributeValue
+ *     Value: "STRING_VALUE",
+ *   },
+ *   InstanceType: {
+ *     Value: "STRING_VALUE",
+ *   },
+ *   Kernel: {
+ *     Value: "STRING_VALUE",
+ *   },
+ *   Ramdisk: {
+ *     Value: "STRING_VALUE",
+ *   },
+ *   SriovNetSupport: {
+ *     Value: "STRING_VALUE",
+ *   },
+ *   UserData: { // BlobAttributeValue
+ *     Value: "BLOB_VALUE",
+ *   },
+ *   Value: "STRING_VALUE",
+ *   DisableApiStop: {
+ *     Value: true || false,
+ *   },
+ * };
  * const command = new ModifyInstanceAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceAttributeCommandInput - {@link ModifyInstanceAttributeCommandInput}
+ * @returns {@link ModifyInstanceAttributeCommandOutput}
  * @see {@link ModifyInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -102,6 +159,9 @@ export class ModifyInstanceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +190,8 @@ export class ModifyInstanceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +201,18 @@ export class ModifyInstanceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceAttributeCommand(input, context);
+    return se_ModifyInstanceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyInstanceAttributeCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceAttributeCommand(output, context);
+    return de_ModifyInstanceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

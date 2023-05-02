@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateIpGroupRequest,
-  CreateIpGroupRequestFilterSensitiveLog,
-  CreateIpGroupResult,
-  CreateIpGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateIpGroupCommand,
-  serializeAws_json1_1CreateIpGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateIpGroupRequest, CreateIpGroupResult } from "../models/models_0";
+import { de_CreateIpGroupCommand, se_CreateIpGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIpGroupCommand}.
  */
 export interface CreateIpGroupCommandInput extends CreateIpGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIpGroupCommand}.
  */
 export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IP access control group.</p>
  *          <p>An IP access control group provides you with the ability to control the IP addresses
  *          from which users are allowed to access their WorkSpaces. To specify the CIDR address
@@ -50,10 +47,28 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  * import { WorkSpacesClient, CreateIpGroupCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateIpGroupCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // CreateIpGroupRequest
+ *   GroupName: "STRING_VALUE", // required
+ *   GroupDesc: "STRING_VALUE",
+ *   UserRules: [ // IpRuleList
+ *     { // IpRuleItem
+ *       ipRule: "STRING_VALUE",
+ *       ruleDesc: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateIpGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIpGroupCommandInput - {@link CreateIpGroupCommandInput}
+ * @returns {@link CreateIpGroupCommandOutput}
  * @see {@link CreateIpGroupCommandInput} for command's `input` shape.
  * @see {@link CreateIpGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -92,6 +107,9 @@ export class CreateIpGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIpGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +136,8 @@ export class CreateIpGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIpGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIpGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +147,18 @@ export class CreateIpGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIpGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateIpGroupCommand(input, context);
+    return se_CreateIpGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIpGroupCommandOutput> {
-    return deserializeAws_json1_1CreateIpGroupCommand(output, context);
+    return de_CreateIpGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

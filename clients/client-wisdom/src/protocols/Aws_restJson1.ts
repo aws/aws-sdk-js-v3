@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -10,10 +10,11 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -86,44 +87,29 @@ import {
 import {
   AccessDeniedException,
   AppIntegrationsConfiguration,
-  AssistantAssociationData,
   AssistantAssociationInputData,
-  AssistantAssociationOutputData,
-  AssistantAssociationSummary,
-  AssistantData,
-  AssistantSummary,
   ConflictException,
   ContentData,
-  ContentReference,
-  ContentSummary,
-  Document,
-  DocumentText,
   Filter,
-  Highlight,
-  KnowledgeBaseAssociationData,
   KnowledgeBaseData,
-  KnowledgeBaseSummary,
-  NotifyRecommendationsReceivedError,
   PreconditionFailedException,
-  QueryRecommendationTriggerData,
   RecommendationData,
-  RecommendationTrigger,
-  RecommendationTriggerData,
   RenderingConfiguration,
   ResourceNotFoundException,
   ResultData,
   SearchExpression,
   ServerSideEncryptionConfiguration,
   ServiceQuotaExceededException,
-  SessionData,
-  SessionSummary,
   SourceConfiguration,
   TooManyTagsException,
   ValidationException,
 } from "../models/models_0";
 import { WisdomServiceException as __BaseException } from "../models/WisdomServiceException";
 
-export const serializeAws_restJson1CreateAssistantCommand = async (
+/**
+ * serializeAws_restJson1CreateAssistantCommand
+ */
+export const se_CreateAssistantCommand = async (
   input: CreateAssistantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -133,19 +119,16 @@ export const serializeAws_restJson1CreateAssistantCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.serverSideEncryptionConfiguration != null && {
-      serverSideEncryptionConfiguration: serializeAws_restJson1ServerSideEncryptionConfiguration(
-        input.serverSideEncryptionConfiguration,
-        context
-      ),
-    }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-    ...(input.type != null && { type: input.type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      name: [],
+      serverSideEncryptionConfiguration: (_) => _json(_),
+      tags: (_) => _json(_),
+      type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -157,7 +140,10 @@ export const serializeAws_restJson1CreateAssistantCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateAssistantAssociationCommand = async (
+/**
+ * serializeAws_restJson1CreateAssistantAssociationCommand
+ */
+export const se_CreateAssistantAssociationCommand = async (
   input: CreateAssistantAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -169,14 +155,14 @@ export const serializeAws_restJson1CreateAssistantAssociationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/associations";
   resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.association != null && {
-      association: serializeAws_restJson1AssistantAssociationInputData(input.association, context),
-    }),
-    ...(input.associationType != null && { associationType: input.associationType }),
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      association: (_) => _json(_),
+      associationType: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -188,7 +174,10 @@ export const serializeAws_restJson1CreateAssistantAssociationCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateContentCommand = async (
+/**
+ * serializeAws_restJson1CreateContentCommand
+ */
+export const se_CreateContentCommand = async (
   input: CreateContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -208,15 +197,17 @@ export const serializeAws_restJson1CreateContentCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.metadata != null && { metadata: serializeAws_restJson1ContentMetadata(input.metadata, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.overrideLinkOutUri != null && { overrideLinkOutUri: input.overrideLinkOutUri }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-    ...(input.title != null && { title: input.title }),
-    ...(input.uploadId != null && { uploadId: input.uploadId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      metadata: (_) => _json(_),
+      name: [],
+      overrideLinkOutUri: [],
+      tags: (_) => _json(_),
+      title: [],
+      uploadId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -228,7 +219,10 @@ export const serializeAws_restJson1CreateContentCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateKnowledgeBaseCommand = async (
+/**
+ * serializeAws_restJson1CreateKnowledgeBaseCommand
+ */
+export const se_CreateKnowledgeBaseCommand = async (
   input: CreateKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -238,25 +232,18 @@ export const serializeAws_restJson1CreateKnowledgeBaseCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.knowledgeBaseType != null && { knowledgeBaseType: input.knowledgeBaseType }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.renderingConfiguration != null && {
-      renderingConfiguration: serializeAws_restJson1RenderingConfiguration(input.renderingConfiguration, context),
-    }),
-    ...(input.serverSideEncryptionConfiguration != null && {
-      serverSideEncryptionConfiguration: serializeAws_restJson1ServerSideEncryptionConfiguration(
-        input.serverSideEncryptionConfiguration,
-        context
-      ),
-    }),
-    ...(input.sourceConfiguration != null && {
-      sourceConfiguration: serializeAws_restJson1SourceConfiguration(input.sourceConfiguration, context),
-    }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      knowledgeBaseType: [],
+      name: [],
+      renderingConfiguration: (_) => _json(_),
+      serverSideEncryptionConfiguration: (_) => _json(_),
+      sourceConfiguration: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -268,7 +255,10 @@ export const serializeAws_restJson1CreateKnowledgeBaseCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateSessionCommand = async (
+/**
+ * serializeAws_restJson1CreateSessionCommand
+ */
+export const se_CreateSessionCommand = async (
   input: CreateSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -280,12 +270,14 @@ export const serializeAws_restJson1CreateSessionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/sessions";
   resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description != null && { description: input.description }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -297,7 +289,10 @@ export const serializeAws_restJson1CreateSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAssistantCommand = async (
+/**
+ * serializeAws_restJson1DeleteAssistantCommand
+ */
+export const se_DeleteAssistantCommand = async (
   input: DeleteAssistantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -318,7 +313,10 @@ export const serializeAws_restJson1DeleteAssistantCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAssistantAssociationCommand = async (
+/**
+ * serializeAws_restJson1DeleteAssistantAssociationCommand
+ */
+export const se_DeleteAssistantAssociationCommand = async (
   input: DeleteAssistantAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -348,7 +346,10 @@ export const serializeAws_restJson1DeleteAssistantAssociationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteContentCommand = async (
+/**
+ * serializeAws_restJson1DeleteContentCommand
+ */
+export const se_DeleteContentCommand = async (
   input: DeleteContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -378,7 +379,10 @@ export const serializeAws_restJson1DeleteContentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteKnowledgeBaseCommand = async (
+/**
+ * serializeAws_restJson1DeleteKnowledgeBaseCommand
+ */
+export const se_DeleteKnowledgeBaseCommand = async (
   input: DeleteKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -406,7 +410,10 @@ export const serializeAws_restJson1DeleteKnowledgeBaseCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAssistantCommand = async (
+/**
+ * serializeAws_restJson1GetAssistantCommand
+ */
+export const se_GetAssistantCommand = async (
   input: GetAssistantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -427,7 +434,10 @@ export const serializeAws_restJson1GetAssistantCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAssistantAssociationCommand = async (
+/**
+ * serializeAws_restJson1GetAssistantAssociationCommand
+ */
+export const se_GetAssistantAssociationCommand = async (
   input: GetAssistantAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -457,7 +467,10 @@ export const serializeAws_restJson1GetAssistantAssociationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetContentCommand = async (
+/**
+ * serializeAws_restJson1GetContentCommand
+ */
+export const se_GetContentCommand = async (
   input: GetContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -487,7 +500,10 @@ export const serializeAws_restJson1GetContentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetContentSummaryCommand = async (
+/**
+ * serializeAws_restJson1GetContentSummaryCommand
+ */
+export const se_GetContentSummaryCommand = async (
   input: GetContentSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -517,7 +533,10 @@ export const serializeAws_restJson1GetContentSummaryCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetKnowledgeBaseCommand = async (
+/**
+ * serializeAws_restJson1GetKnowledgeBaseCommand
+ */
+export const se_GetKnowledgeBaseCommand = async (
   input: GetKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -545,7 +564,10 @@ export const serializeAws_restJson1GetKnowledgeBaseCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetRecommendationsCommand = async (
+/**
+ * serializeAws_restJson1GetRecommendationsCommand
+ */
+export const se_GetRecommendationsCommand = async (
   input: GetRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -573,7 +595,10 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSessionCommand = async (
+/**
+ * serializeAws_restJson1GetSessionCommand
+ */
+export const se_GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -596,7 +621,10 @@ export const serializeAws_restJson1GetSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAssistantAssociationsCommand = async (
+/**
+ * serializeAws_restJson1ListAssistantAssociationsCommand
+ */
+export const se_ListAssistantAssociationsCommand = async (
   input: ListAssistantAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -622,7 +650,10 @@ export const serializeAws_restJson1ListAssistantAssociationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAssistantsCommand = async (
+/**
+ * serializeAws_restJson1ListAssistantsCommand
+ */
+export const se_ListAssistantsCommand = async (
   input: ListAssistantsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -646,7 +677,10 @@ export const serializeAws_restJson1ListAssistantsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListContentsCommand = async (
+/**
+ * serializeAws_restJson1ListContentsCommand
+ */
+export const se_ListContentsCommand = async (
   input: ListContentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -680,7 +714,10 @@ export const serializeAws_restJson1ListContentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListKnowledgeBasesCommand = async (
+/**
+ * serializeAws_restJson1ListKnowledgeBasesCommand
+ */
+export const se_ListKnowledgeBasesCommand = async (
   input: ListKnowledgeBasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -704,7 +741,10 @@ export const serializeAws_restJson1ListKnowledgeBasesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -724,7 +764,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1NotifyRecommendationsReceivedCommand = async (
+/**
+ * serializeAws_restJson1NotifyRecommendationsReceivedCommand
+ */
+export const se_NotifyRecommendationsReceivedCommand = async (
   input: NotifyRecommendationsReceivedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -738,11 +781,11 @@ export const serializeAws_restJson1NotifyRecommendationsReceivedCommand = async 
   resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.recommendationIds != null && {
-      recommendationIds: serializeAws_restJson1RecommendationIdList(input.recommendationIds, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      recommendationIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -754,7 +797,10 @@ export const serializeAws_restJson1NotifyRecommendationsReceivedCommand = async 
   });
 };
 
-export const serializeAws_restJson1QueryAssistantCommand = async (
+/**
+ * serializeAws_restJson1QueryAssistantCommand
+ */
+export const se_QueryAssistantCommand = async (
   input: QueryAssistantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -766,11 +812,13 @@ export const serializeAws_restJson1QueryAssistantCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/query";
   resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.queryText != null && { queryText: input.queryText }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      queryText: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -782,7 +830,10 @@ export const serializeAws_restJson1QueryAssistantCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand = async (
+/**
+ * serializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand
+ */
+export const se_RemoveKnowledgeBaseTemplateUriCommand = async (
   input: RemoveKnowledgeBaseTemplateUriCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -811,7 +862,10 @@ export const serializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand = async
   });
 };
 
-export const serializeAws_restJson1SearchContentCommand = async (
+/**
+ * serializeAws_restJson1SearchContentCommand
+ */
+export const se_SearchContentCommand = async (
   input: SearchContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -834,11 +888,11 @@ export const serializeAws_restJson1SearchContentCommand = async (
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.searchExpression != null && {
-      searchExpression: serializeAws_restJson1SearchExpression(input.searchExpression, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      searchExpression: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -851,7 +905,10 @@ export const serializeAws_restJson1SearchContentCommand = async (
   });
 };
 
-export const serializeAws_restJson1SearchSessionsCommand = async (
+/**
+ * serializeAws_restJson1SearchSessionsCommand
+ */
+export const se_SearchSessionsCommand = async (
   input: SearchSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -867,11 +924,11 @@ export const serializeAws_restJson1SearchSessionsCommand = async (
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.searchExpression != null && {
-      searchExpression: serializeAws_restJson1SearchExpression(input.searchExpression, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      searchExpression: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -884,7 +941,10 @@ export const serializeAws_restJson1SearchSessionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartContentUploadCommand = async (
+/**
+ * serializeAws_restJson1StartContentUploadCommand
+ */
+export const se_StartContentUploadCommand = async (
   input: StartContentUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -903,9 +963,11 @@ export const serializeAws_restJson1StartContentUploadCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.contentType != null && { contentType: input.contentType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      contentType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -917,7 +979,10 @@ export const serializeAws_restJson1StartContentUploadCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -928,9 +993,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -942,7 +1009,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -969,7 +1039,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateContentCommand = async (
+/**
+ * serializeAws_restJson1UpdateContentCommand
+ */
+export const se_UpdateContentCommand = async (
   input: UpdateContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -990,14 +1063,16 @@ export const serializeAws_restJson1UpdateContentCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "contentId", () => input.contentId!, "{contentId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.metadata != null && { metadata: serializeAws_restJson1ContentMetadata(input.metadata, context) }),
-    ...(input.overrideLinkOutUri != null && { overrideLinkOutUri: input.overrideLinkOutUri }),
-    ...(input.removeOverrideLinkOutUri != null && { removeOverrideLinkOutUri: input.removeOverrideLinkOutUri }),
-    ...(input.revisionId != null && { revisionId: input.revisionId }),
-    ...(input.title != null && { title: input.title }),
-    ...(input.uploadId != null && { uploadId: input.uploadId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      metadata: (_) => _json(_),
+      overrideLinkOutUri: [],
+      removeOverrideLinkOutUri: [],
+      revisionId: [],
+      title: [],
+      uploadId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1009,7 +1084,10 @@ export const serializeAws_restJson1UpdateContentCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand = async (
+/**
+ * serializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand
+ */
+export const se_UpdateKnowledgeBaseTemplateUriCommand = async (
   input: UpdateKnowledgeBaseTemplateUriCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1029,9 +1107,11 @@ export const serializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand = async
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.templateUri != null && { templateUri: input.templateUri }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      templateUri: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1043,24 +1123,31 @@ export const serializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand = async
   });
 };
 
-export const deserializeAws_restJson1CreateAssistantCommand = async (
+/**
+ * deserializeAws_restJson1CreateAssistantCommand
+ */
+export const de_CreateAssistantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssistantCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAssistantCommandError(output, context);
+    return de_CreateAssistantCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assistant != null) {
-    contents.assistant = deserializeAws_restJson1AssistantData(data.assistant, context);
-  }
+  const doc = take(data, {
+    assistant: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateAssistantCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAssistantCommandError
+ */
+const de_CreateAssistantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssistantCommandOutput> => {
@@ -1072,48 +1159,51 @@ const deserializeAws_restJson1CreateAssistantCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.wisdom#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.wisdom#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateAssistantAssociationCommand = async (
+/**
+ * deserializeAws_restJson1CreateAssistantAssociationCommand
+ */
+export const de_CreateAssistantAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssistantAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAssistantAssociationCommandError(output, context);
+    return de_CreateAssistantAssociationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assistantAssociation != null) {
-    contents.assistantAssociation = deserializeAws_restJson1AssistantAssociationData(
-      data.assistantAssociation,
-      context
-    );
-  }
+  const doc = take(data, {
+    assistantAssociation: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateAssistantAssociationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAssistantAssociationCommandError
+ */
+const de_CreateAssistantAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssistantAssociationCommandOutput> => {
@@ -1125,48 +1215,54 @@ const deserializeAws_restJson1CreateAssistantAssociationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.wisdom#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.wisdom#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateContentCommand = async (
+/**
+ * deserializeAws_restJson1CreateContentCommand
+ */
+export const de_CreateContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateContentCommandError(output, context);
+    return de_CreateContentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.content != null) {
-    contents.content = deserializeAws_restJson1ContentData(data.content, context);
-  }
+  const doc = take(data, {
+    content: (_) => de_ContentData(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateContentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateContentCommandError
+ */
+const de_CreateContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateContentCommandOutput> => {
@@ -1178,48 +1274,54 @@ const deserializeAws_restJson1CreateContentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.wisdom#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.wisdom#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateKnowledgeBaseCommand = async (
+/**
+ * deserializeAws_restJson1CreateKnowledgeBaseCommand
+ */
+export const de_CreateKnowledgeBaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateKnowledgeBaseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateKnowledgeBaseCommandError(output, context);
+    return de_CreateKnowledgeBaseCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.knowledgeBase != null) {
-    contents.knowledgeBase = deserializeAws_restJson1KnowledgeBaseData(data.knowledgeBase, context);
-  }
+  const doc = take(data, {
+    knowledgeBase: (_) => de_KnowledgeBaseData(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateKnowledgeBaseCommandError = async (
+/**
+ * deserializeAws_restJson1CreateKnowledgeBaseCommandError
+ */
+const de_CreateKnowledgeBaseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateKnowledgeBaseCommandOutput> => {
@@ -1231,45 +1333,51 @@ const deserializeAws_restJson1CreateKnowledgeBaseCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.wisdom#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.wisdom#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateSessionCommand = async (
+/**
+ * deserializeAws_restJson1CreateSessionCommand
+ */
+export const de_CreateSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSessionCommandError(output, context);
+    return de_CreateSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.session != null) {
-    contents.session = deserializeAws_restJson1SessionData(data.session, context);
-  }
+  const doc = take(data, {
+    session: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateSessionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSessionCommandError
+ */
+const de_CreateSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSessionCommandOutput> => {
@@ -1281,30 +1389,32 @@ const deserializeAws_restJson1CreateSessionCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.wisdom#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteAssistantCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAssistantCommand
+ */
+export const de_DeleteAssistantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssistantCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAssistantCommandError(output, context);
+    return de_DeleteAssistantCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1313,7 +1423,10 @@ export const deserializeAws_restJson1DeleteAssistantCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAssistantCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAssistantCommandError
+ */
+const de_DeleteAssistantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssistantCommandOutput> => {
@@ -1325,30 +1438,32 @@ const deserializeAws_restJson1DeleteAssistantCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteAssistantAssociationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAssistantAssociationCommand
+ */
+export const de_DeleteAssistantAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssistantAssociationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAssistantAssociationCommandError(output, context);
+    return de_DeleteAssistantAssociationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1357,7 +1472,10 @@ export const deserializeAws_restJson1DeleteAssistantAssociationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAssistantAssociationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAssistantAssociationCommandError
+ */
+const de_DeleteAssistantAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssistantAssociationCommandOutput> => {
@@ -1369,30 +1487,32 @@ const deserializeAws_restJson1DeleteAssistantAssociationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteContentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteContentCommand
+ */
+export const de_DeleteContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteContentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteContentCommandError(output, context);
+    return de_DeleteContentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1401,7 +1521,10 @@ export const deserializeAws_restJson1DeleteContentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteContentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteContentCommandError
+ */
+const de_DeleteContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteContentCommandOutput> => {
@@ -1413,30 +1536,32 @@ const deserializeAws_restJson1DeleteContentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteKnowledgeBaseCommand = async (
+/**
+ * deserializeAws_restJson1DeleteKnowledgeBaseCommand
+ */
+export const de_DeleteKnowledgeBaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteKnowledgeBaseCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteKnowledgeBaseCommandError(output, context);
+    return de_DeleteKnowledgeBaseCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1445,7 +1570,10 @@ export const deserializeAws_restJson1DeleteKnowledgeBaseCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteKnowledgeBaseCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteKnowledgeBaseCommandError
+ */
+const de_DeleteKnowledgeBaseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteKnowledgeBaseCommandOutput> => {
@@ -1457,45 +1585,51 @@ const deserializeAws_restJson1DeleteKnowledgeBaseCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.wisdom#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetAssistantCommand = async (
+/**
+ * deserializeAws_restJson1GetAssistantCommand
+ */
+export const de_GetAssistantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssistantCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAssistantCommandError(output, context);
+    return de_GetAssistantCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assistant != null) {
-    contents.assistant = deserializeAws_restJson1AssistantData(data.assistant, context);
-  }
+  const doc = take(data, {
+    assistant: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetAssistantCommandError = async (
+/**
+ * deserializeAws_restJson1GetAssistantCommandError
+ */
+const de_GetAssistantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssistantCommandOutput> => {
@@ -1507,45 +1641,48 @@ const deserializeAws_restJson1GetAssistantCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetAssistantAssociationCommand = async (
+/**
+ * deserializeAws_restJson1GetAssistantAssociationCommand
+ */
+export const de_GetAssistantAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssistantAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAssistantAssociationCommandError(output, context);
+    return de_GetAssistantAssociationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assistantAssociation != null) {
-    contents.assistantAssociation = deserializeAws_restJson1AssistantAssociationData(
-      data.assistantAssociation,
-      context
-    );
-  }
+  const doc = take(data, {
+    assistantAssociation: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetAssistantAssociationCommandError = async (
+/**
+ * deserializeAws_restJson1GetAssistantAssociationCommandError
+ */
+const de_GetAssistantAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssistantAssociationCommandOutput> => {
@@ -1557,42 +1694,48 @@ const deserializeAws_restJson1GetAssistantAssociationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetContentCommand = async (
+/**
+ * deserializeAws_restJson1GetContentCommand
+ */
+export const de_GetContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetContentCommandError(output, context);
+    return de_GetContentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.content != null) {
-    contents.content = deserializeAws_restJson1ContentData(data.content, context);
-  }
+  const doc = take(data, {
+    content: (_) => de_ContentData(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetContentCommandError = async (
+/**
+ * deserializeAws_restJson1GetContentCommandError
+ */
+const de_GetContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContentCommandOutput> => {
@@ -1604,42 +1747,48 @@ const deserializeAws_restJson1GetContentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetContentSummaryCommand = async (
+/**
+ * deserializeAws_restJson1GetContentSummaryCommand
+ */
+export const de_GetContentSummaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContentSummaryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetContentSummaryCommandError(output, context);
+    return de_GetContentSummaryCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contentSummary != null) {
-    contents.contentSummary = deserializeAws_restJson1ContentSummary(data.contentSummary, context);
-  }
+  const doc = take(data, {
+    contentSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetContentSummaryCommandError = async (
+/**
+ * deserializeAws_restJson1GetContentSummaryCommandError
+ */
+const de_GetContentSummaryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContentSummaryCommandOutput> => {
@@ -1651,42 +1800,48 @@ const deserializeAws_restJson1GetContentSummaryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetKnowledgeBaseCommand = async (
+/**
+ * deserializeAws_restJson1GetKnowledgeBaseCommand
+ */
+export const de_GetKnowledgeBaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetKnowledgeBaseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetKnowledgeBaseCommandError(output, context);
+    return de_GetKnowledgeBaseCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.knowledgeBase != null) {
-    contents.knowledgeBase = deserializeAws_restJson1KnowledgeBaseData(data.knowledgeBase, context);
-  }
+  const doc = take(data, {
+    knowledgeBase: (_) => de_KnowledgeBaseData(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetKnowledgeBaseCommandError = async (
+/**
+ * deserializeAws_restJson1GetKnowledgeBaseCommandError
+ */
+const de_GetKnowledgeBaseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetKnowledgeBaseCommandOutput> => {
@@ -1698,45 +1853,49 @@ const deserializeAws_restJson1GetKnowledgeBaseCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetRecommendationsCommand = async (
+/**
+ * deserializeAws_restJson1GetRecommendationsCommand
+ */
+export const de_GetRecommendationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRecommendationsCommandError(output, context);
+    return de_GetRecommendationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.recommendations != null) {
-    contents.recommendations = deserializeAws_restJson1RecommendationList(data.recommendations, context);
-  }
-  if (data.triggers != null) {
-    contents.triggers = deserializeAws_restJson1RecommendationTriggerList(data.triggers, context);
-  }
+  const doc = take(data, {
+    recommendations: (_) => de_RecommendationList(_, context),
+    triggers: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetRecommendationsCommandError = async (
+/**
+ * deserializeAws_restJson1GetRecommendationsCommandError
+ */
+const de_GetRecommendationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecommendationsCommandOutput> => {
@@ -1748,42 +1907,48 @@ const deserializeAws_restJson1GetRecommendationsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetSessionCommand = async (
+/**
+ * deserializeAws_restJson1GetSessionCommand
+ */
+export const de_GetSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSessionCommandError(output, context);
+    return de_GetSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.session != null) {
-    contents.session = deserializeAws_restJson1SessionData(data.session, context);
-  }
+  const doc = take(data, {
+    session: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetSessionCommandError = async (
+/**
+ * deserializeAws_restJson1GetSessionCommandError
+ */
+const de_GetSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> => {
@@ -1795,48 +1960,49 @@ const deserializeAws_restJson1GetSessionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListAssistantAssociationsCommand = async (
+/**
+ * deserializeAws_restJson1ListAssistantAssociationsCommand
+ */
+export const de_ListAssistantAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssistantAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAssistantAssociationsCommandError(output, context);
+    return de_ListAssistantAssociationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assistantAssociationSummaries != null) {
-    contents.assistantAssociationSummaries = deserializeAws_restJson1AssistantAssociationSummaryList(
-      data.assistantAssociationSummaries,
-      context
-    );
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assistantAssociationSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListAssistantAssociationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListAssistantAssociationsCommandError
+ */
+const de_ListAssistantAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssistantAssociationsCommandOutput> => {
@@ -1848,45 +2014,49 @@ const deserializeAws_restJson1ListAssistantAssociationsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListAssistantsCommand = async (
+/**
+ * deserializeAws_restJson1ListAssistantsCommand
+ */
+export const de_ListAssistantsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssistantsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAssistantsCommandError(output, context);
+    return de_ListAssistantsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.assistantSummaries != null) {
-    contents.assistantSummaries = deserializeAws_restJson1AssistantList(data.assistantSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    assistantSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListAssistantsCommandError = async (
+/**
+ * deserializeAws_restJson1ListAssistantsCommandError
+ */
+const de_ListAssistantsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssistantsCommandOutput> => {
@@ -1898,42 +2068,46 @@ const deserializeAws_restJson1ListAssistantsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListContentsCommand = async (
+/**
+ * deserializeAws_restJson1ListContentsCommand
+ */
+export const de_ListContentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListContentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListContentsCommandError(output, context);
+    return de_ListContentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contentSummaries != null) {
-    contents.contentSummaries = deserializeAws_restJson1ContentSummaryList(data.contentSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    contentSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListContentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListContentsCommandError
+ */
+const de_ListContentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListContentsCommandOutput> => {
@@ -1945,45 +2119,49 @@ const deserializeAws_restJson1ListContentsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListKnowledgeBasesCommand = async (
+/**
+ * deserializeAws_restJson1ListKnowledgeBasesCommand
+ */
+export const de_ListKnowledgeBasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKnowledgeBasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListKnowledgeBasesCommandError(output, context);
+    return de_ListKnowledgeBasesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.knowledgeBaseSummaries != null) {
-    contents.knowledgeBaseSummaries = deserializeAws_restJson1KnowledgeBaseList(data.knowledgeBaseSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    knowledgeBaseSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListKnowledgeBasesCommandError = async (
+/**
+ * deserializeAws_restJson1ListKnowledgeBasesCommandError
+ */
+const de_ListKnowledgeBasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKnowledgeBasesCommandOutput> => {
@@ -1995,39 +2173,45 @@ const deserializeAws_restJson1ListKnowledgeBasesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -2039,39 +2223,43 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1NotifyRecommendationsReceivedCommand = async (
+/**
+ * deserializeAws_restJson1NotifyRecommendationsReceivedCommand
+ */
+export const de_NotifyRecommendationsReceivedCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyRecommendationsReceivedCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1NotifyRecommendationsReceivedCommandError(output, context);
+    return de_NotifyRecommendationsReceivedCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.errors != null) {
-    contents.errors = deserializeAws_restJson1NotifyRecommendationsReceivedErrorList(data.errors, context);
-  }
-  if (data.recommendationIds != null) {
-    contents.recommendationIds = deserializeAws_restJson1RecommendationIdList(data.recommendationIds, context);
-  }
+  const doc = take(data, {
+    errors: _json,
+    recommendationIds: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1NotifyRecommendationsReceivedCommandError = async (
+/**
+ * deserializeAws_restJson1NotifyRecommendationsReceivedCommandError
+ */
+const de_NotifyRecommendationsReceivedCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyRecommendationsReceivedCommandOutput> => {
@@ -2083,45 +2271,49 @@ const deserializeAws_restJson1NotifyRecommendationsReceivedCommandError = async 
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1QueryAssistantCommand = async (
+/**
+ * deserializeAws_restJson1QueryAssistantCommand
+ */
+export const de_QueryAssistantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryAssistantCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1QueryAssistantCommandError(output, context);
+    return de_QueryAssistantCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.results != null) {
-    contents.results = deserializeAws_restJson1QueryResultsList(data.results, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    results: (_) => de_QueryResultsList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1QueryAssistantCommandError = async (
+/**
+ * deserializeAws_restJson1QueryAssistantCommandError
+ */
+const de_QueryAssistantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryAssistantCommandOutput> => {
@@ -2133,30 +2325,32 @@ const deserializeAws_restJson1QueryAssistantCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand = async (
+/**
+ * deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand
+ */
+export const de_RemoveKnowledgeBaseTemplateUriCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveKnowledgeBaseTemplateUriCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommandError(output, context);
+    return de_RemoveKnowledgeBaseTemplateUriCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2165,7 +2359,10 @@ export const deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand = asy
   return contents;
 };
 
-const deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommandError
+ */
+const de_RemoveKnowledgeBaseTemplateUriCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveKnowledgeBaseTemplateUriCommandOutput> => {
@@ -2177,45 +2374,49 @@ const deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1SearchContentCommand = async (
+/**
+ * deserializeAws_restJson1SearchContentCommand
+ */
+export const de_SearchContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SearchContentCommandError(output, context);
+    return de_SearchContentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contentSummaries != null) {
-    contents.contentSummaries = deserializeAws_restJson1ContentSummaryList(data.contentSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    contentSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1SearchContentCommandError = async (
+/**
+ * deserializeAws_restJson1SearchContentCommandError
+ */
+const de_SearchContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchContentCommandOutput> => {
@@ -2227,45 +2428,49 @@ const deserializeAws_restJson1SearchContentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1SearchSessionsCommand = async (
+/**
+ * deserializeAws_restJson1SearchSessionsCommand
+ */
+export const de_SearchSessionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchSessionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SearchSessionsCommandError(output, context);
+    return de_SearchSessionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.sessionSummaries != null) {
-    contents.sessionSummaries = deserializeAws_restJson1SessionSummaries(data.sessionSummaries, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    sessionSummaries: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1SearchSessionsCommandError = async (
+/**
+ * deserializeAws_restJson1SearchSessionsCommandError
+ */
+const de_SearchSessionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchSessionsCommandOutput> => {
@@ -2277,51 +2482,51 @@ const deserializeAws_restJson1SearchSessionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StartContentUploadCommand = async (
+/**
+ * deserializeAws_restJson1StartContentUploadCommand
+ */
+export const de_StartContentUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartContentUploadCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartContentUploadCommandError(output, context);
+    return de_StartContentUploadCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.headersToInclude != null) {
-    contents.headersToInclude = deserializeAws_restJson1Headers(data.headersToInclude, context);
-  }
-  if (data.uploadId != null) {
-    contents.uploadId = __expectString(data.uploadId);
-  }
-  if (data.url != null) {
-    contents.url = __expectString(data.url);
-  }
-  if (data.urlExpiry != null) {
-    contents.urlExpiry = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.urlExpiry)));
-  }
+  const doc = take(data, {
+    headersToInclude: _json,
+    uploadId: __expectString,
+    url: __expectString,
+    urlExpiry: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1StartContentUploadCommandError = async (
+/**
+ * deserializeAws_restJson1StartContentUploadCommandError
+ */
+const de_StartContentUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartContentUploadCommandOutput> => {
@@ -2333,30 +2538,32 @@ const deserializeAws_restJson1StartContentUploadCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2365,7 +2572,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2377,27 +2587,29 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.wisdom#TooManyTagsException":
-      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2406,7 +2618,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2418,36 +2633,42 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateContentCommand = async (
+/**
+ * deserializeAws_restJson1UpdateContentCommand
+ */
+export const de_UpdateContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateContentCommandError(output, context);
+    return de_UpdateContentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.content != null) {
-    contents.content = deserializeAws_restJson1ContentData(data.content, context);
-  }
+  const doc = take(data, {
+    content: (_) => de_ContentData(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateContentCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateContentCommandError
+ */
+const de_UpdateContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContentCommandOutput> => {
@@ -2459,45 +2680,51 @@ const deserializeAws_restJson1UpdateContentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.wisdom#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand = async (
+/**
+ * deserializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand
+ */
+export const de_UpdateKnowledgeBaseTemplateUriCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateKnowledgeBaseTemplateUriCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommandError(output, context);
+    return de_UpdateKnowledgeBaseTemplateUriCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.knowledgeBase != null) {
-    contents.knowledgeBase = deserializeAws_restJson1KnowledgeBaseData(data.knowledgeBase, context);
-  }
+  const doc = take(data, {
+    knowledgeBase: (_) => de_KnowledgeBaseData(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommandError
+ */
+const de_UpdateKnowledgeBaseTemplateUriCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateKnowledgeBaseTemplateUriCommandOutput> => {
@@ -2509,34 +2736,37 @@ const deserializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2544,15 +2774,16 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2560,15 +2791,19 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1PreconditionFailedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1PreconditionFailedExceptionRes
+ */
+const de_PreconditionFailedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PreconditionFailedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PreconditionFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2576,18 +2811,20 @@ const deserializeAws_restJson1PreconditionFailedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceName != null) {
-    contents.resourceName = __expectString(data.resourceName);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2595,15 +2832,19 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2611,18 +2852,20 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceName != null) {
-    contents.resourceName = __expectString(data.resourceName);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2630,15 +2873,16 @@ const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2646,629 +2890,188 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AppIntegrationsConfiguration = (
-  input: AppIntegrationsConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.appIntegrationArn != null && { appIntegrationArn: input.appIntegrationArn }),
-    ...(input.objectFields != null && {
-      objectFields: serializeAws_restJson1ObjectFieldsList(input.objectFields, context),
-    }),
-  };
+// se_AppIntegrationsConfiguration omitted.
+
+// se_AssistantAssociationInputData omitted.
+
+// se_ContentMetadata omitted.
+
+// se_Filter omitted.
+
+// se_FilterList omitted.
+
+// se_ObjectFieldsList omitted.
+
+// se_RecommendationIdList omitted.
+
+// se_RenderingConfiguration omitted.
+
+// se_SearchExpression omitted.
+
+// se_ServerSideEncryptionConfiguration omitted.
+
+// se_SourceConfiguration omitted.
+
+// se_Tags omitted.
+
+// de_AppIntegrationsConfiguration omitted.
+
+// de_AssistantAssociationData omitted.
+
+// de_AssistantAssociationOutputData omitted.
+
+// de_AssistantAssociationSummary omitted.
+
+// de_AssistantAssociationSummaryList omitted.
+
+// de_AssistantData omitted.
+
+// de_AssistantList omitted.
+
+// de_AssistantSummary omitted.
+
+/**
+ * deserializeAws_restJson1ContentData
+ */
+const de_ContentData = (output: any, context: __SerdeContext): ContentData => {
+  return take(output, {
+    contentArn: __expectString,
+    contentId: __expectString,
+    contentType: __expectString,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    linkOutUri: __expectString,
+    metadata: _json,
+    name: __expectString,
+    revisionId: __expectString,
+    status: __expectString,
+    tags: _json,
+    title: __expectString,
+    url: __expectString,
+    urlExpiry: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const serializeAws_restJson1AssistantAssociationInputData = (
-  input: AssistantAssociationInputData,
-  context: __SerdeContext
-): any => {
-  return AssistantAssociationInputData.visit(input, {
-    knowledgeBaseId: (value) => ({ knowledgeBaseId: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
+// de_ContentMetadata omitted.
+
+// de_ContentReference omitted.
+
+// de_ContentSummary omitted.
+
+// de_ContentSummaryList omitted.
+
+// de_Document omitted.
+
+// de_DocumentText omitted.
+
+// de_Headers omitted.
+
+// de_Highlight omitted.
+
+// de_Highlights omitted.
+
+// de_KnowledgeBaseAssociationData omitted.
+
+/**
+ * deserializeAws_restJson1KnowledgeBaseData
+ */
+const de_KnowledgeBaseData = (output: any, context: __SerdeContext): KnowledgeBaseData => {
+  return take(output, {
+    description: __expectString,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    knowledgeBaseType: __expectString,
+    lastContentModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    renderingConfiguration: _json,
+    serverSideEncryptionConfiguration: _json,
+    sourceConfiguration: (_: any) => _json(__expectUnion(_)),
+    status: __expectString,
+    tags: _json,
+  }) as any;
 };
 
-const serializeAws_restJson1ContentMetadata = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// de_KnowledgeBaseList omitted.
 
-const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.field != null && { field: input.field }),
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// de_KnowledgeBaseSummary omitted.
 
-const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Filter(entry, context);
-    });
-};
+// de_NotifyRecommendationsReceivedError omitted.
 
-const serializeAws_restJson1ObjectFieldsList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// de_NotifyRecommendationsReceivedErrorList omitted.
 
-const serializeAws_restJson1RecommendationIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// de_ObjectFieldsList omitted.
 
-const serializeAws_restJson1RenderingConfiguration = (input: RenderingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.templateUri != null && { templateUri: input.templateUri }),
-  };
-};
+// de_QueryRecommendationTriggerData omitted.
 
-const serializeAws_restJson1SearchExpression = (input: SearchExpression, context: __SerdeContext): any => {
-  return {
-    ...(input.filters != null && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
-  };
-};
-
-const serializeAws_restJson1ServerSideEncryptionConfiguration = (
-  input: ServerSideEncryptionConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
-  };
-};
-
-const serializeAws_restJson1SourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
-  return SourceConfiguration.visit(input, {
-    appIntegrations: (value) => ({
-      appIntegrations: serializeAws_restJson1AppIntegrationsConfiguration(value, context),
-    }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1AppIntegrationsConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AppIntegrationsConfiguration => {
-  return {
-    appIntegrationArn: __expectString(output.appIntegrationArn),
-    objectFields:
-      output.objectFields != null ? deserializeAws_restJson1ObjectFieldsList(output.objectFields, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AssistantAssociationData = (
-  output: any,
-  context: __SerdeContext
-): AssistantAssociationData => {
-  return {
-    assistantArn: __expectString(output.assistantArn),
-    assistantAssociationArn: __expectString(output.assistantAssociationArn),
-    assistantAssociationId: __expectString(output.assistantAssociationId),
-    assistantId: __expectString(output.assistantId),
-    associationData:
-      output.associationData != null
-        ? deserializeAws_restJson1AssistantAssociationOutputData(__expectUnion(output.associationData), context)
-        : undefined,
-    associationType: __expectString(output.associationType),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AssistantAssociationOutputData = (
-  output: any,
-  context: __SerdeContext
-): AssistantAssociationOutputData => {
-  if (output.knowledgeBaseAssociation != null) {
-    return {
-      knowledgeBaseAssociation: deserializeAws_restJson1KnowledgeBaseAssociationData(
-        output.knowledgeBaseAssociation,
-        context
-      ),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1AssistantAssociationSummary = (
-  output: any,
-  context: __SerdeContext
-): AssistantAssociationSummary => {
-  return {
-    assistantArn: __expectString(output.assistantArn),
-    assistantAssociationArn: __expectString(output.assistantAssociationArn),
-    assistantAssociationId: __expectString(output.assistantAssociationId),
-    assistantId: __expectString(output.assistantId),
-    associationData:
-      output.associationData != null
-        ? deserializeAws_restJson1AssistantAssociationOutputData(__expectUnion(output.associationData), context)
-        : undefined,
-    associationType: __expectString(output.associationType),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AssistantAssociationSummaryList = (
-  output: any,
-  context: __SerdeContext
-): AssistantAssociationSummary[] => {
+/**
+ * deserializeAws_restJson1QueryResultsList
+ */
+const de_QueryResultsList = (output: any, context: __SerdeContext): ResultData[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AssistantAssociationSummary(entry, context);
+      return de_ResultData(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AssistantData = (output: any, context: __SerdeContext): AssistantData => {
-  return {
-    assistantArn: __expectString(output.assistantArn),
-    assistantId: __expectString(output.assistantId),
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    serverSideEncryptionConfiguration:
-      output.serverSideEncryptionConfiguration != null
-        ? deserializeAws_restJson1ServerSideEncryptionConfiguration(output.serverSideEncryptionConfiguration, context)
-        : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
+/**
+ * deserializeAws_restJson1RecommendationData
+ */
+const de_RecommendationData = (output: any, context: __SerdeContext): RecommendationData => {
+  return take(output, {
+    document: _json,
+    recommendationId: __expectString,
+    relevanceLevel: __expectString,
+    relevanceScore: __limitedParseDouble,
+    type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1AssistantList = (output: any, context: __SerdeContext): AssistantSummary[] => {
+// de_RecommendationIdList omitted.
+
+/**
+ * deserializeAws_restJson1RecommendationList
+ */
+const de_RecommendationList = (output: any, context: __SerdeContext): RecommendationData[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AssistantSummary(entry, context);
+      return de_RecommendationData(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AssistantSummary = (output: any, context: __SerdeContext): AssistantSummary => {
-  return {
-    assistantArn: __expectString(output.assistantArn),
-    assistantId: __expectString(output.assistantId),
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    serverSideEncryptionConfiguration:
-      output.serverSideEncryptionConfiguration != null
-        ? deserializeAws_restJson1ServerSideEncryptionConfiguration(output.serverSideEncryptionConfiguration, context)
-        : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
+// de_RecommendationTrigger omitted.
+
+// de_RecommendationTriggerData omitted.
+
+// de_RecommendationTriggerList omitted.
+
+// de_RenderingConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1ResultData
+ */
+const de_ResultData = (output: any, context: __SerdeContext): ResultData => {
+  return take(output, {
+    document: _json,
+    relevanceScore: __limitedParseDouble,
+    resultId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1ContentData = (output: any, context: __SerdeContext): ContentData => {
-  return {
-    contentArn: __expectString(output.contentArn),
-    contentId: __expectString(output.contentId),
-    contentType: __expectString(output.contentType),
-    knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
-    knowledgeBaseId: __expectString(output.knowledgeBaseId),
-    linkOutUri: __expectString(output.linkOutUri),
-    metadata: output.metadata != null ? deserializeAws_restJson1ContentMetadata(output.metadata, context) : undefined,
-    name: __expectString(output.name),
-    revisionId: __expectString(output.revisionId),
-    status: __expectString(output.status),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    title: __expectString(output.title),
-    url: __expectString(output.url),
-    urlExpiry:
-      output.urlExpiry != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.urlExpiry))) : undefined,
-  } as any;
-};
+// de_ServerSideEncryptionConfiguration omitted.
 
-const deserializeAws_restJson1ContentMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_SessionData omitted.
 
-const deserializeAws_restJson1ContentReference = (output: any, context: __SerdeContext): ContentReference => {
-  return {
-    contentArn: __expectString(output.contentArn),
-    contentId: __expectString(output.contentId),
-    knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
-    knowledgeBaseId: __expectString(output.knowledgeBaseId),
-  } as any;
-};
+// de_SessionSummaries omitted.
 
-const deserializeAws_restJson1ContentSummary = (output: any, context: __SerdeContext): ContentSummary => {
-  return {
-    contentArn: __expectString(output.contentArn),
-    contentId: __expectString(output.contentId),
-    contentType: __expectString(output.contentType),
-    knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
-    knowledgeBaseId: __expectString(output.knowledgeBaseId),
-    metadata: output.metadata != null ? deserializeAws_restJson1ContentMetadata(output.metadata, context) : undefined,
-    name: __expectString(output.name),
-    revisionId: __expectString(output.revisionId),
-    status: __expectString(output.status),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    title: __expectString(output.title),
-  } as any;
-};
+// de_SessionSummary omitted.
 
-const deserializeAws_restJson1ContentSummaryList = (output: any, context: __SerdeContext): ContentSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ContentSummary(entry, context);
-    });
-  return retVal;
-};
+// de_SourceConfiguration omitted.
 
-const deserializeAws_restJson1Document = (output: any, context: __SerdeContext): Document => {
-  return {
-    contentReference:
-      output.contentReference != null
-        ? deserializeAws_restJson1ContentReference(output.contentReference, context)
-        : undefined,
-    excerpt: output.excerpt != null ? deserializeAws_restJson1DocumentText(output.excerpt, context) : undefined,
-    title: output.title != null ? deserializeAws_restJson1DocumentText(output.title, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1DocumentText = (output: any, context: __SerdeContext): DocumentText => {
-  return {
-    highlights: output.highlights != null ? deserializeAws_restJson1Highlights(output.highlights, context) : undefined,
-    text: __expectString(output.text),
-  } as any;
-};
-
-const deserializeAws_restJson1Headers = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1Highlight = (output: any, context: __SerdeContext): Highlight => {
-  return {
-    beginOffsetInclusive: __expectInt32(output.beginOffsetInclusive),
-    endOffsetExclusive: __expectInt32(output.endOffsetExclusive),
-  } as any;
-};
-
-const deserializeAws_restJson1Highlights = (output: any, context: __SerdeContext): Highlight[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Highlight(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1KnowledgeBaseAssociationData = (
-  output: any,
-  context: __SerdeContext
-): KnowledgeBaseAssociationData => {
-  return {
-    knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
-    knowledgeBaseId: __expectString(output.knowledgeBaseId),
-  } as any;
-};
-
-const deserializeAws_restJson1KnowledgeBaseData = (output: any, context: __SerdeContext): KnowledgeBaseData => {
-  return {
-    description: __expectString(output.description),
-    knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
-    knowledgeBaseId: __expectString(output.knowledgeBaseId),
-    knowledgeBaseType: __expectString(output.knowledgeBaseType),
-    lastContentModificationTime:
-      output.lastContentModificationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastContentModificationTime)))
-        : undefined,
-    name: __expectString(output.name),
-    renderingConfiguration:
-      output.renderingConfiguration != null
-        ? deserializeAws_restJson1RenderingConfiguration(output.renderingConfiguration, context)
-        : undefined,
-    serverSideEncryptionConfiguration:
-      output.serverSideEncryptionConfiguration != null
-        ? deserializeAws_restJson1ServerSideEncryptionConfiguration(output.serverSideEncryptionConfiguration, context)
-        : undefined,
-    sourceConfiguration:
-      output.sourceConfiguration != null
-        ? deserializeAws_restJson1SourceConfiguration(__expectUnion(output.sourceConfiguration), context)
-        : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1KnowledgeBaseList = (output: any, context: __SerdeContext): KnowledgeBaseSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1KnowledgeBaseSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1KnowledgeBaseSummary = (output: any, context: __SerdeContext): KnowledgeBaseSummary => {
-  return {
-    description: __expectString(output.description),
-    knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
-    knowledgeBaseId: __expectString(output.knowledgeBaseId),
-    knowledgeBaseType: __expectString(output.knowledgeBaseType),
-    name: __expectString(output.name),
-    renderingConfiguration:
-      output.renderingConfiguration != null
-        ? deserializeAws_restJson1RenderingConfiguration(output.renderingConfiguration, context)
-        : undefined,
-    serverSideEncryptionConfiguration:
-      output.serverSideEncryptionConfiguration != null
-        ? deserializeAws_restJson1ServerSideEncryptionConfiguration(output.serverSideEncryptionConfiguration, context)
-        : undefined,
-    sourceConfiguration:
-      output.sourceConfiguration != null
-        ? deserializeAws_restJson1SourceConfiguration(__expectUnion(output.sourceConfiguration), context)
-        : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1NotifyRecommendationsReceivedError = (
-  output: any,
-  context: __SerdeContext
-): NotifyRecommendationsReceivedError => {
-  return {
-    message: __expectString(output.message),
-    recommendationId: __expectString(output.recommendationId),
-  } as any;
-};
-
-const deserializeAws_restJson1NotifyRecommendationsReceivedErrorList = (
-  output: any,
-  context: __SerdeContext
-): NotifyRecommendationsReceivedError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1NotifyRecommendationsReceivedError(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ObjectFieldsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1QueryRecommendationTriggerData = (
-  output: any,
-  context: __SerdeContext
-): QueryRecommendationTriggerData => {
-  return {
-    text: __expectString(output.text),
-  } as any;
-};
-
-const deserializeAws_restJson1QueryResultsList = (output: any, context: __SerdeContext): ResultData[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ResultData(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1RecommendationData = (output: any, context: __SerdeContext): RecommendationData => {
-  return {
-    document: output.document != null ? deserializeAws_restJson1Document(output.document, context) : undefined,
-    recommendationId: __expectString(output.recommendationId),
-    relevanceLevel: __expectString(output.relevanceLevel),
-    relevanceScore: __limitedParseDouble(output.relevanceScore),
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_restJson1RecommendationIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1RecommendationList = (output: any, context: __SerdeContext): RecommendationData[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RecommendationData(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1RecommendationTrigger = (output: any, context: __SerdeContext): RecommendationTrigger => {
-  return {
-    data:
-      output.data != null
-        ? deserializeAws_restJson1RecommendationTriggerData(__expectUnion(output.data), context)
-        : undefined,
-    id: __expectString(output.id),
-    recommendationIds:
-      output.recommendationIds != null
-        ? deserializeAws_restJson1RecommendationIdList(output.recommendationIds, context)
-        : undefined,
-    source: __expectString(output.source),
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_restJson1RecommendationTriggerData = (
-  output: any,
-  context: __SerdeContext
-): RecommendationTriggerData => {
-  if (output.query != null) {
-    return {
-      query: deserializeAws_restJson1QueryRecommendationTriggerData(output.query, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1RecommendationTriggerList = (
-  output: any,
-  context: __SerdeContext
-): RecommendationTrigger[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RecommendationTrigger(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1RenderingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): RenderingConfiguration => {
-  return {
-    templateUri: __expectString(output.templateUri),
-  } as any;
-};
-
-const deserializeAws_restJson1ResultData = (output: any, context: __SerdeContext): ResultData => {
-  return {
-    document: output.document != null ? deserializeAws_restJson1Document(output.document, context) : undefined,
-    relevanceScore: __limitedParseDouble(output.relevanceScore),
-    resultId: __expectString(output.resultId),
-  } as any;
-};
-
-const deserializeAws_restJson1ServerSideEncryptionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ServerSideEncryptionConfiguration => {
-  return {
-    kmsKeyId: __expectString(output.kmsKeyId),
-  } as any;
-};
-
-const deserializeAws_restJson1SessionData = (output: any, context: __SerdeContext): SessionData => {
-  return {
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    sessionArn: __expectString(output.sessionArn),
-    sessionId: __expectString(output.sessionId),
-    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SessionSummaries = (output: any, context: __SerdeContext): SessionSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SessionSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1SessionSummary = (output: any, context: __SerdeContext): SessionSummary => {
-  return {
-    assistantArn: __expectString(output.assistantArn),
-    assistantId: __expectString(output.assistantId),
-    sessionArn: __expectString(output.sessionArn),
-    sessionId: __expectString(output.sessionId),
-  } as any;
-};
-
-const deserializeAws_restJson1SourceConfiguration = (output: any, context: __SerdeContext): SourceConfiguration => {
-  if (output.appIntegrations != null) {
-    return {
-      appIntegrations: deserializeAws_restJson1AppIntegrationsConfiguration(output.appIntegrations, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

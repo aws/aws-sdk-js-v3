@@ -16,25 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetProxySessionRequest,
-  GetProxySessionRequestFilterSensitiveLog,
   GetProxySessionResponse,
   GetProxySessionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetProxySessionCommand,
-  serializeAws_restJson1GetProxySessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetProxySessionCommand, se_GetProxySessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProxySessionCommand}.
  */
 export interface GetProxySessionCommandInput extends GetProxySessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProxySessionCommand}.
  */
 export interface GetProxySessionCommandOutput extends GetProxySessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified proxy session details for the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface GetProxySessionCommandOutput extends GetProxySessionResponse, _
  * import { ChimeClient, GetProxySessionCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetProxySessionCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // GetProxySessionRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   ProxySessionId: "STRING_VALUE", // required
+ * };
  * const command = new GetProxySessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProxySessionCommandInput - {@link GetProxySessionCommandInput}
+ * @returns {@link GetProxySessionCommandOutput}
  * @see {@link GetProxySessionCommandInput} for command's `input` shape.
  * @see {@link GetProxySessionCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetProxySessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProxySessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +128,7 @@ export class GetProxySessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProxySessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetProxySessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -129,12 +139,18 @@ export class GetProxySessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProxySessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProxySessionCommand(input, context);
+    return se_GetProxySessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProxySessionCommandOutput> {
-    return deserializeAws_restJson1GetProxySessionCommand(output, context);
+    return de_GetProxySessionCommand(output, context);
   }
 
   // Start section: command_body_extra

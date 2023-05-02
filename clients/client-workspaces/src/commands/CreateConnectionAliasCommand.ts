@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateConnectionAliasRequest,
-  CreateConnectionAliasRequestFilterSensitiveLog,
-  CreateConnectionAliasResult,
-  CreateConnectionAliasResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateConnectionAliasCommand,
-  serializeAws_json1_1CreateConnectionAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateConnectionAliasRequest, CreateConnectionAliasResult } from "../models/models_0";
+import { de_CreateConnectionAliasCommand, se_CreateConnectionAliasCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectionAliasCommand}.
  */
 export interface CreateConnectionAliasCommandInput extends CreateConnectionAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectionAliasCommand}.
  */
 export interface CreateConnectionAliasCommandOutput extends CreateConnectionAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the specified connection alias for use with cross-Region redirection. For more
  *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
  *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -44,10 +41,21 @@ export interface CreateConnectionAliasCommandOutput extends CreateConnectionAlia
  * import { WorkSpacesClient, CreateConnectionAliasCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateConnectionAliasCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // CreateConnectionAliasRequest
+ *   ConnectionString: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateConnectionAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectionAliasCommandInput - {@link CreateConnectionAliasCommandInput}
+ * @returns {@link CreateConnectionAliasCommandOutput}
  * @see {@link CreateConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link CreateConnectionAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -89,6 +97,9 @@ export class CreateConnectionAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectionAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class CreateConnectionAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectionAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectionAliasResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +139,18 @@ export class CreateConnectionAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectionAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateConnectionAliasCommand(input, context);
+    return se_CreateConnectionAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectionAliasCommandOutput> {
-    return deserializeAws_json1_1CreateConnectionAliasCommand(output, context);
+    return de_CreateConnectionAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

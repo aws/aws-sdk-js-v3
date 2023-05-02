@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRobotApplicationRequest,
-  UpdateRobotApplicationRequestFilterSensitiveLog,
-  UpdateRobotApplicationResponse,
-  UpdateRobotApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRobotApplicationCommand,
-  serializeAws_restJson1UpdateRobotApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRobotApplicationRequest, UpdateRobotApplicationResponse } from "../models/models_0";
+import { de_UpdateRobotApplicationCommand, se_UpdateRobotApplicationCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRobotApplicationCommand}.
  */
 export interface UpdateRobotApplicationCommandInput extends UpdateRobotApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRobotApplicationCommand}.
  */
 export interface UpdateRobotApplicationCommandOutput extends UpdateRobotApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a robot application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,30 @@ export interface UpdateRobotApplicationCommandOutput extends UpdateRobotApplicat
  * import { RoboMakerClient, UpdateRobotApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, UpdateRobotApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // UpdateRobotApplicationRequest
+ *   application: "STRING_VALUE", // required
+ *   sources: [ // SourceConfigs
+ *     { // SourceConfig
+ *       s3Bucket: "STRING_VALUE",
+ *       s3Key: "STRING_VALUE",
+ *       architecture: "STRING_VALUE",
+ *     },
+ *   ],
+ *   robotSoftwareSuite: { // RobotSoftwareSuite
+ *     name: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *   },
+ *   currentRevisionId: "STRING_VALUE",
+ *   environment: { // Environment
+ *     uri: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateRobotApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRobotApplicationCommandInput - {@link UpdateRobotApplicationCommandInput}
+ * @returns {@link UpdateRobotApplicationCommandOutput}
  * @see {@link UpdateRobotApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateRobotApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -86,6 +103,9 @@ export class UpdateRobotApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRobotApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +134,8 @@ export class UpdateRobotApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRobotApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRobotApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +145,18 @@ export class UpdateRobotApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRobotApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRobotApplicationCommand(input, context);
+    return se_UpdateRobotApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1UpdateRobotApplicationCommand(output, context);
+    return de_UpdateRobotApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

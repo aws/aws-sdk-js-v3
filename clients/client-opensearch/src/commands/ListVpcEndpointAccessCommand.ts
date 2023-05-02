@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListVpcEndpointAccessRequest,
-  ListVpcEndpointAccessRequestFilterSensitiveLog,
-  ListVpcEndpointAccessResponse,
-  ListVpcEndpointAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListVpcEndpointAccessRequest, ListVpcEndpointAccessResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1ListVpcEndpointAccessCommand,
-  serializeAws_restJson1ListVpcEndpointAccessCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVpcEndpointAccessCommand, se_ListVpcEndpointAccessCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVpcEndpointAccessCommand}.
  */
 export interface ListVpcEndpointAccessCommandInput extends ListVpcEndpointAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVpcEndpointAccessCommand}.
  */
 export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about each Amazon Web Services principal that is allowed to access a
  *    given Amazon OpenSearch Service domain through the use of an interface VPC endpoint.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * import { OpenSearchClient, ListVpcEndpointAccessCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListVpcEndpointAccessCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // ListVpcEndpointAccessRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVpcEndpointAccessCommandInput - {@link ListVpcEndpointAccessCommandInput}
+ * @returns {@link ListVpcEndpointAccessCommandOutput}
  * @see {@link ListVpcEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link ListVpcEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListVpcEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVpcEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class ListVpcEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVpcEndpointAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVpcEndpointAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class ListVpcEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVpcEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVpcEndpointAccessCommand(input, context);
+    return se_ListVpcEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVpcEndpointAccessCommandOutput> {
-    return deserializeAws_restJson1ListVpcEndpointAccessCommand(output, context);
+    return de_ListVpcEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAvailablePatchesRequest,
-  DescribeAvailablePatchesRequestFilterSensitiveLog,
-  DescribeAvailablePatchesResult,
-  DescribeAvailablePatchesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAvailablePatchesCommand,
-  serializeAws_json1_1DescribeAvailablePatchesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeAvailablePatchesRequest, DescribeAvailablePatchesResult } from "../models/models_0";
+import { de_DescribeAvailablePatchesCommand, se_DescribeAvailablePatchesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAvailablePatchesCommand}.
  */
 export interface DescribeAvailablePatchesCommandInput extends DescribeAvailablePatchesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAvailablePatchesCommand}.
  */
 export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailablePatchesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all patches eligible to be included in a patch baseline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
  * import { SSMClient, DescribeAvailablePatchesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAvailablePatchesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeAvailablePatchesRequest
+ *   Filters: [ // PatchOrchestratorFilterList
+ *     { // PatchOrchestratorFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // PatchOrchestratorFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAvailablePatchesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAvailablePatchesCommandInput - {@link DescribeAvailablePatchesCommandInput}
+ * @returns {@link DescribeAvailablePatchesCommandOutput}
  * @see {@link DescribeAvailablePatchesCommandInput} for command's `input` shape.
  * @see {@link DescribeAvailablePatchesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -72,6 +83,9 @@ export class DescribeAvailablePatchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAvailablePatchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +114,8 @@ export class DescribeAvailablePatchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAvailablePatchesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAvailablePatchesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +125,18 @@ export class DescribeAvailablePatchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAvailablePatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAvailablePatchesCommand(input, context);
+    return se_DescribeAvailablePatchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAvailablePatchesCommandOutput> {
-    return deserializeAws_json1_1DescribeAvailablePatchesCommand(output, context);
+    return de_DescribeAvailablePatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

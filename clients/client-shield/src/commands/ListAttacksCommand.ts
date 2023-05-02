@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAttacksRequest,
-  ListAttacksRequestFilterSensitiveLog,
-  ListAttacksResponse,
-  ListAttacksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAttacksCommand,
-  serializeAws_json1_1ListAttacksCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAttacksRequest, ListAttacksResponse } from "../models/models_0";
+import { de_ListAttacksCommand, se_ListAttacksCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttacksCommand}.
  */
 export interface ListAttacksCommandInput extends ListAttacksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttacksCommand}.
  */
 export interface ListAttacksCommandOutput extends ListAttacksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all ongoing DDoS attacks or all DDoS attacks during a specified time
  *          period.</p>
  * @example
@@ -43,10 +40,27 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
  * import { ShieldClient, ListAttacksCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, ListAttacksCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // ListAttacksRequest
+ *   ResourceArns: [ // ResourceArnFilterList
+ *     "STRING_VALUE",
+ *   ],
+ *   StartTime: { // TimeRange
+ *     FromInclusive: new Date("TIMESTAMP"),
+ *     ToExclusive: new Date("TIMESTAMP"),
+ *   },
+ *   EndTime: {
+ *     FromInclusive: new Date("TIMESTAMP"),
+ *     ToExclusive: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAttacksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttacksCommandInput - {@link ListAttacksCommandInput}
+ * @returns {@link ListAttacksCommandOutput}
  * @see {@link ListAttacksCommandInput} for command's `input` shape.
  * @see {@link ListAttacksCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -79,6 +93,9 @@ export class ListAttacksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +122,8 @@ export class ListAttacksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttacksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAttacksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +133,18 @@ export class ListAttacksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAttacksCommand(input, context);
+    return se_ListAttacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttacksCommandOutput> {
-    return deserializeAws_json1_1ListAttacksCommand(output, context);
+    return de_ListAttacksCommand(output, context);
   }
 
   // Start section: command_body_extra

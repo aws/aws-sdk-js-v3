@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  DeleteDirectoryRequest,
-  DeleteDirectoryRequestFilterSensitiveLog,
-  DeleteDirectoryResponse,
-  DeleteDirectoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDirectoryCommand,
-  serializeAws_restJson1DeleteDirectoryCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDirectoryRequest, DeleteDirectoryResponse } from "../models/models_0";
+import { de_DeleteDirectoryCommand, se_DeleteDirectoryCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDirectoryCommand}.
  */
 export interface DeleteDirectoryCommandInput extends DeleteDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDirectoryCommand}.
  */
 export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a directory. Only disabled directories can be deleted. A deleted directory cannot be undone. Exercise extreme
  *         caution
  *         when deleting directories.</p>
@@ -44,10 +41,15 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, _
  * import { CloudDirectoryClient, DeleteDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DeleteDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // DeleteDirectoryRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDirectoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDirectoryCommandInput - {@link DeleteDirectoryCommandInput}
+ * @returns {@link DeleteDirectoryCommandOutput}
  * @see {@link DeleteDirectoryCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectoryCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -100,6 +102,9 @@ export class DeleteDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +133,8 @@ export class DeleteDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDirectoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +144,18 @@ export class DeleteDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDirectoryCommand(input, context);
+    return se_DeleteDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDirectoryCommandOutput> {
-    return deserializeAws_restJson1DeleteDirectoryCommand(output, context);
+    return de_DeleteDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

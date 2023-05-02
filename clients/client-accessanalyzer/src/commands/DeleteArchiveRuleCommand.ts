@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { DeleteArchiveRuleRequest, DeleteArchiveRuleRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteArchiveRuleCommand,
-  serializeAws_restJson1DeleteArchiveRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteArchiveRuleRequest } from "../models/models_0";
+import { de_DeleteArchiveRuleCommand, se_DeleteArchiveRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteArchiveRuleCommand}.
  */
 export interface DeleteArchiveRuleCommandInput extends DeleteArchiveRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteArchiveRuleCommand}.
  */
 export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified archive rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,17 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  * import { AccessAnalyzerClient, DeleteArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, DeleteArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = { // DeleteArchiveRuleRequest
+ *   analyzerName: "STRING_VALUE", // required
+ *   ruleName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteArchiveRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteArchiveRuleCommandInput - {@link DeleteArchiveRuleCommandInput}
+ * @returns {@link DeleteArchiveRuleCommandOutput}
  * @see {@link DeleteArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteArchiveRuleCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -79,6 +88,9 @@ export class DeleteArchiveRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteArchiveRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +119,8 @@ export class DeleteArchiveRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteArchiveRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +130,18 @@ export class DeleteArchiveRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteArchiveRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteArchiveRuleCommand(input, context);
+    return se_DeleteArchiveRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteArchiveRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteArchiveRuleCommand(output, context);
+    return de_DeleteArchiveRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

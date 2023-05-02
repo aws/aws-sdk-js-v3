@@ -16,21 +16,23 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   CreateLicenseConversionTaskForResourceRequest,
-  CreateLicenseConversionTaskForResourceRequestFilterSensitiveLog,
   CreateLicenseConversionTaskForResourceResponse,
-  CreateLicenseConversionTaskForResourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommand,
-  serializeAws_json1_1CreateLicenseConversionTaskForResourceCommand,
+  de_CreateLicenseConversionTaskForResourceCommand,
+  se_CreateLicenseConversionTaskForResourceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLicenseConversionTaskForResourceCommand}.
  */
 export interface CreateLicenseConversionTaskForResourceCommandInput
   extends CreateLicenseConversionTaskForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLicenseConversionTaskForResourceCommand}.
  */
 export interface CreateLicenseConversionTaskForResourceCommandOutput
@@ -38,6 +40,7 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new license conversion task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,21 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
  * import { LicenseManagerClient, CreateLicenseConversionTaskForResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateLicenseConversionTaskForResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // CreateLicenseConversionTaskForResourceRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   SourceLicenseContext: { // LicenseConversionContext
+ *     UsageOperation: "STRING_VALUE",
+ *   },
+ *   DestinationLicenseContext: {
+ *     UsageOperation: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLicenseConversionTaskForResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLicenseConversionTaskForResourceCommandInput - {@link CreateLicenseConversionTaskForResourceCommandInput}
+ * @returns {@link CreateLicenseConversionTaskForResourceCommandOutput}
  * @see {@link CreateLicenseConversionTaskForResourceCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseConversionTaskForResourceCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +105,9 @@ export class CreateLicenseConversionTaskForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLicenseConversionTaskForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +136,8 @@ export class CreateLicenseConversionTaskForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLicenseConversionTaskForResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLicenseConversionTaskForResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +147,24 @@ export class CreateLicenseConversionTaskForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateLicenseConversionTaskForResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLicenseConversionTaskForResourceCommand(input, context);
+    return se_CreateLicenseConversionTaskForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLicenseConversionTaskForResourceCommandOutput> {
-    return deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommand(output, context);
+    return de_CreateLicenseConversionTaskForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

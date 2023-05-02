@@ -15,14 +15,10 @@ import {
 
 import {
   GetCredentialsRequest,
-  GetCredentialsRequestFilterSensitiveLog,
   GetCredentialsResponse,
   GetCredentialsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCredentialsCommand,
-  serializeAws_json1_1GetCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCredentialsCommand, se_GetCredentialsCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +26,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCredentialsCommand}.
  */
 export interface GetCredentialsCommandInput extends GetCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCredentialsCommand}.
  */
 export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a database user name and temporary password with
  *          temporary authorization to log in to Amazon Redshift Serverless.</p>
  *          <p>By default, the temporary credentials expire in 900 seconds.
@@ -56,10 +57,17 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * import { RedshiftServerlessClient, GetCredentialsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetCredentialsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // GetCredentialsRequest
+ *   workgroupName: "STRING_VALUE", // required
+ *   dbName: "STRING_VALUE",
+ *   durationSeconds: Number("int"),
+ * };
  * const command = new GetCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCredentialsCommandInput - {@link GetCredentialsCommandInput}
+ * @returns {@link GetCredentialsCommandOutput}
  * @see {@link GetCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetCredentialsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -92,6 +100,9 @@ export class GetCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,7 +131,7 @@ export class GetCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCredentialsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetCredentialsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -131,12 +142,18 @@ export class GetCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCredentialsCommand(input, context);
+    return se_GetCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCredentialsCommandOutput> {
-    return deserializeAws_json1_1GetCredentialsCommand(output, context);
+    return de_GetCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

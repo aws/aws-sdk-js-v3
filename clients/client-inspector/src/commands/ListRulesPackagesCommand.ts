@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  ListRulesPackagesRequest,
-  ListRulesPackagesRequestFilterSensitiveLog,
-  ListRulesPackagesResponse,
-  ListRulesPackagesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRulesPackagesCommand,
-  serializeAws_json1_1ListRulesPackagesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListRulesPackagesRequest, ListRulesPackagesResponse } from "../models/models_0";
+import { de_ListRulesPackagesCommand, se_ListRulesPackagesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRulesPackagesCommand}.
  */
 export interface ListRulesPackagesCommandInput extends ListRulesPackagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRulesPackagesCommand}.
  */
 export interface ListRulesPackagesCommandOutput extends ListRulesPackagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available Amazon Inspector rules packages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  * import { InspectorClient, ListRulesPackagesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListRulesPackagesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // ListRulesPackagesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRulesPackagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRulesPackagesCommandInput - {@link ListRulesPackagesCommandInput}
+ * @returns {@link ListRulesPackagesCommandOutput}
  * @see {@link ListRulesPackagesCommandInput} for command's `input` shape.
  * @see {@link ListRulesPackagesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -101,6 +104,9 @@ export class ListRulesPackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRulesPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +135,8 @@ export class ListRulesPackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRulesPackagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRulesPackagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +146,18 @@ export class ListRulesPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRulesPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRulesPackagesCommand(input, context);
+    return se_ListRulesPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesPackagesCommandOutput> {
-    return deserializeAws_json1_1ListRulesPackagesCommand(output, context);
+    return de_ListRulesPackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

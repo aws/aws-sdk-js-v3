@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisableLoggingMessage,
-  DisableLoggingMessageFilterSensitiveLog,
-  LoggingStatus,
-  LoggingStatusFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDisableLoggingCommand,
-  serializeAws_queryDisableLoggingCommand,
-} from "../protocols/Aws_query";
+import { DisableLoggingMessage, LoggingStatus } from "../models/models_1";
+import { de_DisableLoggingCommand, se_DisableLoggingCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableLoggingCommand}.
  */
 export interface DisableLoggingCommandInput extends DisableLoggingMessage {}
 /**
+ * @public
+ *
  * The output of {@link DisableLoggingCommand}.
  */
 export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops logging information, such as queries and connection attempts, for the
  *             specified Amazon Redshift cluster.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBe
  * import { RedshiftClient, DisableLoggingCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DisableLoggingCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DisableLoggingMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DisableLoggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableLoggingCommandInput - {@link DisableLoggingCommandInput}
+ * @returns {@link DisableLoggingCommandOutput}
  * @see {@link DisableLoggingCommandInput} for command's `input` shape.
  * @see {@link DisableLoggingCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -77,6 +79,9 @@ export class DisableLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +110,8 @@ export class DisableLoggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableLoggingMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: LoggingStatusFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +121,18 @@ export class DisableLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDisableLoggingCommand(input, context);
+    return se_DisableLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableLoggingCommandOutput> {
-    return deserializeAws_queryDisableLoggingCommand(output, context);
+    return de_DisableLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

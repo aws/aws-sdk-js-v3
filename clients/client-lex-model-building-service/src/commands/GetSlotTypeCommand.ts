@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetSlotTypeRequest,
-  GetSlotTypeRequestFilterSensitiveLog,
-  GetSlotTypeResponse,
-  GetSlotTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSlotTypeCommand,
-  serializeAws_restJson1GetSlotTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSlotTypeRequest, GetSlotTypeResponse } from "../models/models_0";
+import { de_GetSlotTypeCommand, se_GetSlotTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSlotTypeCommand}.
  */
 export interface GetSlotTypeCommandInput extends GetSlotTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSlotTypeCommand}.
  */
 export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific version of a slot type. In
  *       addition to specifying the slot type name, you must specify the slot type
  *       version.</p>
@@ -50,10 +47,16 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  * import { LexModelBuildingServiceClient, GetSlotTypeCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetSlotTypeCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetSlotTypeRequest
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ * };
  * const command = new GetSlotTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSlotTypeCommandInput - {@link GetSlotTypeCommandInput}
+ * @returns {@link GetSlotTypeCommandOutput}
  * @see {@link GetSlotTypeCommandInput} for command's `input` shape.
  * @see {@link GetSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -122,6 +125,9 @@ export class GetSlotTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSlotTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +154,8 @@ export class GetSlotTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSlotTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSlotTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +165,18 @@ export class GetSlotTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSlotTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSlotTypeCommand(input, context);
+    return se_GetSlotTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSlotTypeCommandOutput> {
-    return deserializeAws_restJson1GetSlotTypeCommand(output, context);
+    return de_GetSlotTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

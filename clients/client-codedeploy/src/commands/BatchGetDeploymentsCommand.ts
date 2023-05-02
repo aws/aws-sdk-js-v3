@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  BatchGetDeploymentsInput,
-  BatchGetDeploymentsInputFilterSensitiveLog,
-  BatchGetDeploymentsOutput,
-  BatchGetDeploymentsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetDeploymentsCommand,
-  serializeAws_json1_1BatchGetDeploymentsCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetDeploymentsInput, BatchGetDeploymentsOutput } from "../models/models_0";
+import { de_BatchGetDeploymentsCommand, se_BatchGetDeploymentsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetDeploymentsCommand}.
  */
 export interface BatchGetDeploymentsCommandInput extends BatchGetDeploymentsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetDeploymentsCommand}.
  */
 export interface BatchGetDeploymentsCommandOutput extends BatchGetDeploymentsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more deployments. The maximum number of deployments that
  *             can be returned is 25.</p>
  * @example
@@ -43,10 +40,17 @@ export interface BatchGetDeploymentsCommandOutput extends BatchGetDeploymentsOut
  * import { CodeDeployClient, BatchGetDeploymentsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetDeploymentsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // BatchGetDeploymentsInput
+ *   deploymentIds: [ // DeploymentsList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetDeploymentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDeploymentsCommandInput - {@link BatchGetDeploymentsCommandInput}
+ * @returns {@link BatchGetDeploymentsCommandOutput}
  * @see {@link BatchGetDeploymentsCommandInput} for command's `input` shape.
  * @see {@link BatchGetDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -79,6 +83,9 @@ export class BatchGetDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class BatchGetDeploymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetDeploymentsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetDeploymentsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class BatchGetDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetDeploymentsCommand(input, context);
+    return se_BatchGetDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetDeploymentsCommandOutput> {
-    return deserializeAws_json1_1BatchGetDeploymentsCommand(output, context);
+    return de_BatchGetDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

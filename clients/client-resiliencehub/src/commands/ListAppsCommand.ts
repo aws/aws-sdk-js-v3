@@ -13,29 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAppsRequest,
-  ListAppsRequestFilterSensitiveLog,
-  ListAppsResponse,
-  ListAppsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppsCommand,
-  serializeAws_restJson1ListAppsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAppsRequest, ListAppsResponse } from "../models/models_0";
+import { de_ListAppsCommand, se_ListAppsCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppsCommand}.
  */
 export interface ListAppsCommandInput extends ListAppsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppsCommand}.
  */
 export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists your AWS Resilience Hub applications.</p>
+ * @public
+ * <p>Lists your Resilience Hub applications.</p>
  *          <note>
  *             <p>You can filter applications using only one filter at a time or without using any filter.
  *         If you try to filter applications using multiple filters, you will get the following
@@ -51,10 +48,18 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * import { ResiliencehubClient, ListAppsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListAppsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   name: "STRING_VALUE",
+ *   appArn: "STRING_VALUE",
+ * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppsCommandInput - {@link ListAppsCommandInput}
+ * @returns {@link ListAppsCommandOutput}
  * @see {@link ListAppsCommandInput} for command's `input` shape.
  * @see {@link ListAppsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -65,7 +70,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -93,6 +98,9 @@ export class ListAppsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +127,8 @@ export class ListAppsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +138,18 @@ export class ListAppsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppsCommand(input, context);
+    return se_ListAppsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppsCommandOutput> {
-    return deserializeAws_restJson1ListAppsCommand(output, context);
+    return de_ListAppsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -46,321 +47,308 @@ import { UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput } from ".
 import { CodeStarServiceException as __BaseException } from "../models/CodeStarServiceException";
 import {
   AssociateTeamMemberRequest,
-  AssociateTeamMemberResult,
   Code,
   CodeCommitCodeDestination,
   CodeDestination,
   CodeSource,
   ConcurrentModificationException,
   CreateProjectRequest,
-  CreateProjectResult,
   CreateUserProfileRequest,
   CreateUserProfileResult,
   DeleteProjectRequest,
-  DeleteProjectResult,
   DeleteUserProfileRequest,
-  DeleteUserProfileResult,
   DescribeProjectRequest,
   DescribeProjectResult,
   DescribeUserProfileRequest,
   DescribeUserProfileResult,
   DisassociateTeamMemberRequest,
-  DisassociateTeamMemberResult,
   GitHubCodeDestination,
   InvalidNextTokenException,
   InvalidServiceRoleException,
   LimitExceededException,
   ListProjectsRequest,
-  ListProjectsResult,
   ListResourcesRequest,
-  ListResourcesResult,
   ListTagsForProjectRequest,
-  ListTagsForProjectResult,
   ListTeamMembersRequest,
-  ListTeamMembersResult,
   ListUserProfilesRequest,
-  ListUserProfilesResult,
   ProjectAlreadyExistsException,
   ProjectConfigurationException,
   ProjectCreationFailedException,
   ProjectNotFoundException,
-  ProjectStatus,
-  ProjectSummary,
-  Resource,
   S3Location,
   TagProjectRequest,
-  TagProjectResult,
-  TeamMember,
   TeamMemberAlreadyAssociatedException,
   TeamMemberNotFoundException,
   Toolchain,
   ToolchainSource,
   UntagProjectRequest,
-  UntagProjectResult,
   UpdateProjectRequest,
-  UpdateProjectResult,
   UpdateTeamMemberRequest,
-  UpdateTeamMemberResult,
   UpdateUserProfileRequest,
   UpdateUserProfileResult,
   UserProfileAlreadyExistsException,
   UserProfileNotFoundException,
-  UserProfileSummary,
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_json1_1AssociateTeamMemberCommand = async (
+/**
+ * serializeAws_json1_1AssociateTeamMemberCommand
+ */
+export const se_AssociateTeamMemberCommand = async (
   input: AssociateTeamMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.AssociateTeamMember",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateTeamMember");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateTeamMemberRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateProjectCommand = async (
+/**
+ * serializeAws_json1_1CreateProjectCommand
+ */
+export const se_CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.CreateProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateProject");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUserProfileCommand = async (
+/**
+ * serializeAws_json1_1CreateUserProfileCommand
+ */
+export const se_CreateUserProfileCommand = async (
   input: CreateUserProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.CreateUserProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUserProfile");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUserProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteProjectCommand = async (
+/**
+ * serializeAws_json1_1DeleteProjectCommand
+ */
+export const se_DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.DeleteProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteProject");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteUserProfileCommand = async (
+/**
+ * serializeAws_json1_1DeleteUserProfileCommand
+ */
+export const se_DeleteUserProfileCommand = async (
   input: DeleteUserProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.DeleteUserProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUserProfile");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteUserProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeProjectCommand = async (
+/**
+ * serializeAws_json1_1DescribeProjectCommand
+ */
+export const se_DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.DescribeProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProject");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUserProfileCommand = async (
+/**
+ * serializeAws_json1_1DescribeUserProfileCommand
+ */
+export const se_DescribeUserProfileCommand = async (
   input: DescribeUserProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.DescribeUserProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUserProfile");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeUserProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateTeamMemberCommand = async (
+/**
+ * serializeAws_json1_1DisassociateTeamMemberCommand
+ */
+export const se_DisassociateTeamMemberCommand = async (
   input: DisassociateTeamMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.DisassociateTeamMember",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateTeamMember");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateTeamMemberRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListProjectsCommand = async (
+/**
+ * serializeAws_json1_1ListProjectsCommand
+ */
+export const se_ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.ListProjects",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProjects");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListProjectsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResourcesCommand = async (
+/**
+ * serializeAws_json1_1ListResourcesCommand
+ */
+export const se_ListResourcesCommand = async (
   input: ListResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.ListResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResources");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResourcesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForProjectCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForProjectCommand
+ */
+export const se_ListTagsForProjectCommand = async (
   input: ListTagsForProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.ListTagsForProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForProject");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTeamMembersCommand = async (
+/**
+ * serializeAws_json1_1ListTeamMembersCommand
+ */
+export const se_ListTeamMembersCommand = async (
   input: ListTeamMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.ListTeamMembers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTeamMembers");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTeamMembersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListUserProfilesCommand = async (
+/**
+ * serializeAws_json1_1ListUserProfilesCommand
+ */
+export const se_ListUserProfilesCommand = async (
   input: ListUserProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.ListUserProfiles",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUserProfiles");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListUserProfilesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagProjectCommand = async (
+/**
+ * serializeAws_json1_1TagProjectCommand
+ */
+export const se_TagProjectCommand = async (
   input: TagProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.TagProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagProject");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagProjectCommand = async (
+/**
+ * serializeAws_json1_1UntagProjectCommand
+ */
+export const se_UntagProjectCommand = async (
   input: UntagProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.UntagProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagProject");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateProjectCommand = async (
+/**
+ * serializeAws_json1_1UpdateProjectCommand
+ */
+export const se_UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.UpdateProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateProject");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateProjectRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateTeamMemberCommand = async (
+/**
+ * serializeAws_json1_1UpdateTeamMemberCommand
+ */
+export const se_UpdateTeamMemberCommand = async (
   input: UpdateTeamMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.UpdateTeamMember",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTeamMember");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateTeamMemberRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateUserProfileCommand = async (
+/**
+ * serializeAws_json1_1UpdateUserProfileCommand
+ */
+export const se_UpdateUserProfileCommand = async (
   input: UpdateUserProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeStar_20170419.UpdateUserProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUserProfile");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateUserProfileRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AssociateTeamMemberCommand = async (
+/**
+ * deserializeAws_json1_1AssociateTeamMemberCommand
+ */
+export const de_AssociateTeamMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateTeamMemberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateTeamMemberCommandError(output, context);
+    return de_AssociateTeamMemberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateTeamMemberResult(data, context);
+  contents = _json(data);
   const response: AssociateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1AssociateTeamMemberCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateTeamMemberCommandError
+ */
+const de_AssociateTeamMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateTeamMemberCommandOutput> => {
@@ -372,54 +360,59 @@ const deserializeAws_json1_1AssociateTeamMemberCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidServiceRoleException":
     case "com.amazonaws.codestar#InvalidServiceRoleException":
-      throw await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidServiceRoleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.codestar#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProjectConfigurationException":
     case "com.amazonaws.codestar#ProjectConfigurationException":
-      throw await deserializeAws_json1_1ProjectConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_ProjectConfigurationExceptionRes(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
     case "TeamMemberAlreadyAssociatedException":
     case "com.amazonaws.codestar#TeamMemberAlreadyAssociatedException":
-      throw await deserializeAws_json1_1TeamMemberAlreadyAssociatedExceptionResponse(parsedOutput, context);
+      throw await de_TeamMemberAlreadyAssociatedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateProjectCommand = async (
+/**
+ * deserializeAws_json1_1CreateProjectCommand
+ */
+export const de_CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateProjectCommandError(output, context);
+    return de_CreateProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProjectResult(data, context);
+  contents = _json(data);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateProjectCommandError = async (
+/**
+ * deserializeAws_json1_1CreateProjectCommandError
+ */
+const de_CreateProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
@@ -431,54 +424,59 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidServiceRoleException":
     case "com.amazonaws.codestar#InvalidServiceRoleException":
-      throw await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidServiceRoleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.codestar#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProjectAlreadyExistsException":
     case "com.amazonaws.codestar#ProjectAlreadyExistsException":
-      throw await deserializeAws_json1_1ProjectAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ProjectAlreadyExistsExceptionRes(parsedOutput, context);
     case "ProjectConfigurationException":
     case "com.amazonaws.codestar#ProjectConfigurationException":
-      throw await deserializeAws_json1_1ProjectConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_ProjectConfigurationExceptionRes(parsedOutput, context);
     case "ProjectCreationFailedException":
     case "com.amazonaws.codestar#ProjectCreationFailedException":
-      throw await deserializeAws_json1_1ProjectCreationFailedExceptionResponse(parsedOutput, context);
+      throw await de_ProjectCreationFailedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateUserProfileCommand = async (
+/**
+ * deserializeAws_json1_1CreateUserProfileCommand
+ */
+export const de_CreateUserProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUserProfileCommandError(output, context);
+    return de_CreateUserProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserProfileResult(data, context);
+  contents = de_CreateUserProfileResult(data, context);
   const response: CreateUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateUserProfileCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUserProfileCommandError
+ */
+const de_CreateUserProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserProfileCommandOutput> => {
@@ -490,39 +488,44 @@ const deserializeAws_json1_1CreateUserProfileCommandError = async (
   switch (errorCode) {
     case "UserProfileAlreadyExistsException":
     case "com.amazonaws.codestar#UserProfileAlreadyExistsException":
-      throw await deserializeAws_json1_1UserProfileAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_UserProfileAlreadyExistsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteProjectCommand = async (
+/**
+ * deserializeAws_json1_1DeleteProjectCommand
+ */
+export const de_DeleteProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteProjectCommandError(output, context);
+    return de_DeleteProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProjectResult(data, context);
+  contents = _json(data);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteProjectCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteProjectCommandError
+ */
+const de_DeleteProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
@@ -534,42 +537,47 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidServiceRoleException":
     case "com.amazonaws.codestar#InvalidServiceRoleException":
-      throw await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidServiceRoleExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteUserProfileCommand = async (
+/**
+ * deserializeAws_json1_1DeleteUserProfileCommand
+ */
+export const de_DeleteUserProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteUserProfileCommandError(output, context);
+    return de_DeleteUserProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserProfileResult(data, context);
+  contents = _json(data);
   const response: DeleteUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteUserProfileCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteUserProfileCommandError
+ */
+const de_DeleteUserProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserProfileCommandOutput> => {
@@ -581,36 +589,41 @@ const deserializeAws_json1_1DeleteUserProfileCommandError = async (
   switch (errorCode) {
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeProjectCommand = async (
+/**
+ * deserializeAws_json1_1DescribeProjectCommand
+ */
+export const de_DescribeProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeProjectCommandError(output, context);
+    return de_DescribeProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProjectResult(data, context);
+  contents = de_DescribeProjectResult(data, context);
   const response: DescribeProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeProjectCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeProjectCommandError
+ */
+const de_DescribeProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
@@ -622,48 +635,53 @@ const deserializeAws_json1_1DescribeProjectCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidServiceRoleException":
     case "com.amazonaws.codestar#InvalidServiceRoleException":
-      throw await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidServiceRoleExceptionRes(parsedOutput, context);
     case "ProjectConfigurationException":
     case "com.amazonaws.codestar#ProjectConfigurationException":
-      throw await deserializeAws_json1_1ProjectConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_ProjectConfigurationExceptionRes(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeUserProfileCommand = async (
+/**
+ * deserializeAws_json1_1DescribeUserProfileCommand
+ */
+export const de_DescribeUserProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeUserProfileCommandError(output, context);
+    return de_DescribeUserProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserProfileResult(data, context);
+  contents = de_DescribeUserProfileResult(data, context);
   const response: DescribeUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeUserProfileCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeUserProfileCommandError
+ */
+const de_DescribeUserProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserProfileCommandOutput> => {
@@ -675,39 +693,44 @@ const deserializeAws_json1_1DescribeUserProfileCommandError = async (
   switch (errorCode) {
     case "UserProfileNotFoundException":
     case "com.amazonaws.codestar#UserProfileNotFoundException":
-      throw await deserializeAws_json1_1UserProfileNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserProfileNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DisassociateTeamMemberCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateTeamMemberCommand
+ */
+export const de_DisassociateTeamMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateTeamMemberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateTeamMemberCommandError(output, context);
+    return de_DisassociateTeamMemberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateTeamMemberResult(data, context);
+  contents = _json(data);
   const response: DisassociateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DisassociateTeamMemberCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateTeamMemberCommandError
+ */
+const de_DisassociateTeamMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateTeamMemberCommandOutput> => {
@@ -719,45 +742,50 @@ const deserializeAws_json1_1DisassociateTeamMemberCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidServiceRoleException":
     case "com.amazonaws.codestar#InvalidServiceRoleException":
-      throw await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidServiceRoleExceptionRes(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListProjectsCommand = async (
+/**
+ * deserializeAws_json1_1ListProjectsCommand
+ */
+export const de_ListProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListProjectsCommandError(output, context);
+    return de_ListProjectsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProjectsResult(data, context);
+  contents = _json(data);
   const response: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListProjectsCommandError = async (
+/**
+ * deserializeAws_json1_1ListProjectsCommandError
+ */
+const de_ListProjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
@@ -769,39 +797,44 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestar#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListResourcesCommand = async (
+/**
+ * deserializeAws_json1_1ListResourcesCommand
+ */
+export const de_ListResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResourcesCommandError(output, context);
+    return de_ListResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourcesResult(data, context);
+  contents = _json(data);
   const response: ListResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListResourcesCommandError = async (
+/**
+ * deserializeAws_json1_1ListResourcesCommandError
+ */
+const de_ListResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourcesCommandOutput> => {
@@ -813,42 +846,47 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestar#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTagsForProjectCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForProjectCommand
+ */
+export const de_ListTagsForProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForProjectCommandError(output, context);
+    return de_ListTagsForProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForProjectResult(data, context);
+  contents = _json(data);
   const response: ListTagsForProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsForProjectCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForProjectCommandError
+ */
+const de_ListTagsForProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForProjectCommandOutput> => {
@@ -860,42 +898,47 @@ const deserializeAws_json1_1ListTagsForProjectCommandError = async (
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestar#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTeamMembersCommand = async (
+/**
+ * deserializeAws_json1_1ListTeamMembersCommand
+ */
+export const de_ListTeamMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTeamMembersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTeamMembersCommandError(output, context);
+    return de_ListTeamMembersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTeamMembersResult(data, context);
+  contents = _json(data);
   const response: ListTeamMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTeamMembersCommandError = async (
+/**
+ * deserializeAws_json1_1ListTeamMembersCommandError
+ */
+const de_ListTeamMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTeamMembersCommandOutput> => {
@@ -907,42 +950,47 @@ const deserializeAws_json1_1ListTeamMembersCommandError = async (
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestar#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListUserProfilesCommand = async (
+/**
+ * deserializeAws_json1_1ListUserProfilesCommand
+ */
+export const de_ListUserProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserProfilesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListUserProfilesCommandError(output, context);
+    return de_ListUserProfilesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUserProfilesResult(data, context);
+  contents = _json(data);
   const response: ListUserProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListUserProfilesCommandError = async (
+/**
+ * deserializeAws_json1_1ListUserProfilesCommandError
+ */
+const de_ListUserProfilesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserProfilesCommandOutput> => {
@@ -954,39 +1002,44 @@ const deserializeAws_json1_1ListUserProfilesCommandError = async (
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestar#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1TagProjectCommand = async (
+/**
+ * deserializeAws_json1_1TagProjectCommand
+ */
+export const de_TagProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagProjectCommandError(output, context);
+    return de_TagProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagProjectResult(data, context);
+  contents = _json(data);
   const response: TagProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagProjectCommandError = async (
+/**
+ * deserializeAws_json1_1TagProjectCommandError
+ */
+const de_TagProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagProjectCommandOutput> => {
@@ -998,45 +1051,50 @@ const deserializeAws_json1_1TagProjectCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.codestar#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UntagProjectCommand = async (
+/**
+ * deserializeAws_json1_1UntagProjectCommand
+ */
+export const de_UntagProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagProjectCommandError(output, context);
+    return de_UntagProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagProjectResult(data, context);
+  contents = _json(data);
   const response: UntagProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagProjectCommandError = async (
+/**
+ * deserializeAws_json1_1UntagProjectCommandError
+ */
+const de_UntagProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagProjectCommandOutput> => {
@@ -1048,45 +1106,50 @@ const deserializeAws_json1_1UntagProjectCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.codestar#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateProjectCommand = async (
+/**
+ * deserializeAws_json1_1UpdateProjectCommand
+ */
+export const de_UpdateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateProjectCommandError(output, context);
+    return de_UpdateProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProjectResult(data, context);
+  contents = _json(data);
   const response: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateProjectCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateProjectCommandError
+ */
+const de_UpdateProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
@@ -1098,39 +1161,44 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
   switch (errorCode) {
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateTeamMemberCommand = async (
+/**
+ * deserializeAws_json1_1UpdateTeamMemberCommand
+ */
+export const de_UpdateTeamMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTeamMemberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateTeamMemberCommandError(output, context);
+    return de_UpdateTeamMemberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTeamMemberResult(data, context);
+  contents = _json(data);
   const response: UpdateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateTeamMemberCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateTeamMemberCommandError
+ */
+const de_UpdateTeamMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTeamMemberCommandOutput> => {
@@ -1142,54 +1210,59 @@ const deserializeAws_json1_1UpdateTeamMemberCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidServiceRoleException":
     case "com.amazonaws.codestar#InvalidServiceRoleException":
-      throw await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidServiceRoleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.codestar#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProjectConfigurationException":
     case "com.amazonaws.codestar#ProjectConfigurationException":
-      throw await deserializeAws_json1_1ProjectConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_ProjectConfigurationExceptionRes(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
     case "TeamMemberNotFoundException":
     case "com.amazonaws.codestar#TeamMemberNotFoundException":
-      throw await deserializeAws_json1_1TeamMemberNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_TeamMemberNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateUserProfileCommand = async (
+/**
+ * deserializeAws_json1_1UpdateUserProfileCommand
+ */
+export const de_UpdateUserProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateUserProfileCommandError(output, context);
+    return de_UpdateUserProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserProfileResult(data, context);
+  contents = de_UpdateUserProfileResult(data, context);
   const response: UpdateUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateUserProfileCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateUserProfileCommandError
+ */
+const de_UpdateUserProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserProfileCommandOutput> => {
@@ -1201,27 +1274,29 @@ const deserializeAws_json1_1UpdateUserProfileCommandError = async (
   switch (errorCode) {
     case "UserProfileNotFoundException":
     case "com.amazonaws.codestar#UserProfileNotFoundException":
-      throw await deserializeAws_json1_1UserProfileNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UserProfileNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1229,12 +1304,15 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidNextTokenExceptionRes
+ */
+const de_InvalidNextTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1242,12 +1320,15 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidServiceRoleExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidServiceRoleExceptionRes
+ */
+const de_InvalidServiceRoleExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidServiceRoleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidServiceRoleException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidServiceRoleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1255,12 +1336,15 @@ const deserializeAws_json1_1InvalidServiceRoleExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1268,12 +1352,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ProjectAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ProjectAlreadyExistsExceptionRes
+ */
+const de_ProjectAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ProjectAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ProjectAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ProjectAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1281,12 +1368,15 @@ const deserializeAws_json1_1ProjectAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ProjectConfigurationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ProjectConfigurationExceptionRes
+ */
+const de_ProjectConfigurationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ProjectConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ProjectConfigurationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ProjectConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1294,12 +1384,15 @@ const deserializeAws_json1_1ProjectConfigurationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ProjectCreationFailedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ProjectCreationFailedExceptionRes
+ */
+const de_ProjectCreationFailedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ProjectCreationFailedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ProjectCreationFailedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ProjectCreationFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1307,12 +1400,15 @@ const deserializeAws_json1_1ProjectCreationFailedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ProjectNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ProjectNotFoundExceptionRes
+ */
+const de_ProjectNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ProjectNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ProjectNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ProjectNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1320,12 +1416,15 @@ const deserializeAws_json1_1ProjectNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TeamMemberAlreadyAssociatedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TeamMemberAlreadyAssociatedExceptionRes
+ */
+const de_TeamMemberAlreadyAssociatedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TeamMemberAlreadyAssociatedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TeamMemberAlreadyAssociatedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TeamMemberAlreadyAssociatedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1333,12 +1432,15 @@ const deserializeAws_json1_1TeamMemberAlreadyAssociatedExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TeamMemberNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TeamMemberNotFoundExceptionRes
+ */
+const de_TeamMemberNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TeamMemberNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TeamMemberNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TeamMemberNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1346,12 +1448,15 @@ const deserializeAws_json1_1TeamMemberNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UserProfileAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UserProfileAlreadyExistsExceptionRes
+ */
+const de_UserProfileAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserProfileAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UserProfileAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UserProfileAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1359,12 +1464,15 @@ const deserializeAws_json1_1UserProfileAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UserProfileNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UserProfileNotFoundExceptionRes
+ */
+const de_UserProfileNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserProfileNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UserProfileNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UserProfileNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1372,12 +1480,12 @@ const deserializeAws_json1_1UserProfileNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1385,656 +1493,198 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AssociateTeamMemberRequest = (
-  input: AssociateTeamMemberRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.projectId != null && { projectId: input.projectId }),
-    ...(input.projectRole != null && { projectRole: input.projectRole }),
-    ...(input.remoteAccessAllowed != null && { remoteAccessAllowed: input.remoteAccessAllowed }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_AssociateTeamMemberRequest omitted.
 
-const serializeAws_json1_1Code = (input: Code, context: __SerdeContext): any => {
-  return {
-    ...(input.destination != null && { destination: serializeAws_json1_1CodeDestination(input.destination, context) }),
-    ...(input.source != null && { source: serializeAws_json1_1CodeSource(input.source, context) }),
-  };
-};
+// se_Code omitted.
 
-const serializeAws_json1_1CodeCommitCodeDestination = (
-  input: CodeCommitCodeDestination,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_CodeCommitCodeDestination omitted.
 
-const serializeAws_json1_1CodeDestination = (input: CodeDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.codeCommit != null && {
-      codeCommit: serializeAws_json1_1CodeCommitCodeDestination(input.codeCommit, context),
-    }),
-    ...(input.gitHub != null && { gitHub: serializeAws_json1_1GitHubCodeDestination(input.gitHub, context) }),
-  };
-};
+// se_CodeDestination omitted.
 
-const serializeAws_json1_1CodeSource = (input: CodeSource, context: __SerdeContext): any => {
-  return {
-    ...(input.s3 != null && { s3: serializeAws_json1_1S3Location(input.s3, context) }),
-  };
-};
+// se_CodeSource omitted.
 
-const serializeAws_json1_1CreateProjectRequest = (input: CreateProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.sourceCode != null && { sourceCode: serializeAws_json1_1SourceCode(input.sourceCode, context) }),
-    ...(input.tags != null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
-    ...(input.toolchain != null && { toolchain: serializeAws_json1_1Toolchain(input.toolchain, context) }),
-  };
-};
+// se_CreateProjectRequest omitted.
 
-const serializeAws_json1_1CreateUserProfileRequest = (
-  input: CreateUserProfileRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.emailAddress != null && { emailAddress: input.emailAddress }),
-    ...(input.sshPublicKey != null && { sshPublicKey: input.sshPublicKey }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_CreateUserProfileRequest omitted.
 
-const serializeAws_json1_1DeleteProjectRequest = (input: DeleteProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.clientRequestToken != null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.deleteStack != null && { deleteStack: input.deleteStack }),
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_DeleteProjectRequest omitted.
 
-const serializeAws_json1_1DeleteUserProfileRequest = (
-  input: DeleteUserProfileRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_DeleteUserProfileRequest omitted.
 
-const serializeAws_json1_1DescribeProjectRequest = (input: DescribeProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_DescribeProjectRequest omitted.
 
-const serializeAws_json1_1DescribeUserProfileRequest = (
-  input: DescribeUserProfileRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_DescribeUserProfileRequest omitted.
 
-const serializeAws_json1_1DisassociateTeamMemberRequest = (
-  input: DisassociateTeamMemberRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.projectId != null && { projectId: input.projectId }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_DisassociateTeamMemberRequest omitted.
 
-const serializeAws_json1_1GitHubCodeDestination = (input: GitHubCodeDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.issuesEnabled != null && { issuesEnabled: input.issuesEnabled }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.owner != null && { owner: input.owner }),
-    ...(input.privateRepository != null && { privateRepository: input.privateRepository }),
-    ...(input.token != null && { token: input.token }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_GitHubCodeDestination omitted.
 
-const serializeAws_json1_1ListProjectsRequest = (input: ListProjectsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListProjectsRequest omitted.
 
-const serializeAws_json1_1ListResourcesRequest = (input: ListResourcesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.projectId != null && { projectId: input.projectId }),
-  };
-};
+// se_ListResourcesRequest omitted.
 
-const serializeAws_json1_1ListTagsForProjectRequest = (
-  input: ListTagsForProjectRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListTagsForProjectRequest omitted.
 
-const serializeAws_json1_1ListTeamMembersRequest = (input: ListTeamMembersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.projectId != null && { projectId: input.projectId }),
-  };
-};
+// se_ListTeamMembersRequest omitted.
 
-const serializeAws_json1_1ListUserProfilesRequest = (input: ListUserProfilesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListUserProfilesRequest omitted.
 
-const serializeAws_json1_1S3Location = (input: S3Location, context: __SerdeContext): any => {
-  return {
-    ...(input.bucketKey != null && { bucketKey: input.bucketKey }),
-    ...(input.bucketName != null && { bucketName: input.bucketName }),
-  };
-};
+// se_S3Location omitted.
 
-const serializeAws_json1_1SourceCode = (input: Code[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Code(entry, context);
-    });
-};
+// se_SourceCode omitted.
 
-const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeys omitted.
 
-const serializeAws_json1_1TagProjectRequest = (input: TagProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.tags != null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
-  };
-};
+// se_TagProjectRequest omitted.
 
-const serializeAws_json1_1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-const serializeAws_json1_1TemplateParameterMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_TemplateParameterMap omitted.
 
-const serializeAws_json1_1Toolchain = (input: Toolchain, context: __SerdeContext): any => {
-  return {
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.source != null && { source: serializeAws_json1_1ToolchainSource(input.source, context) }),
-    ...(input.stackParameters != null && {
-      stackParameters: serializeAws_json1_1TemplateParameterMap(input.stackParameters, context),
-    }),
-  };
-};
+// se_Toolchain omitted.
 
-const serializeAws_json1_1ToolchainSource = (input: ToolchainSource, context: __SerdeContext): any => {
-  return {
-    ...(input.s3 != null && { s3: serializeAws_json1_1S3Location(input.s3, context) }),
-  };
-};
+// se_ToolchainSource omitted.
 
-const serializeAws_json1_1UntagProjectRequest = (input: UntagProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagKeys(input.tags, context) }),
-  };
-};
+// se_UntagProjectRequest omitted.
 
-const serializeAws_json1_1UpdateProjectRequest = (input: UpdateProjectRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.id != null && { id: input.id }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_UpdateProjectRequest omitted.
 
-const serializeAws_json1_1UpdateTeamMemberRequest = (input: UpdateTeamMemberRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.projectId != null && { projectId: input.projectId }),
-    ...(input.projectRole != null && { projectRole: input.projectRole }),
-    ...(input.remoteAccessAllowed != null && { remoteAccessAllowed: input.remoteAccessAllowed }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_UpdateTeamMemberRequest omitted.
 
-const serializeAws_json1_1UpdateUserProfileRequest = (
-  input: UpdateUserProfileRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.displayName != null && { displayName: input.displayName }),
-    ...(input.emailAddress != null && { emailAddress: input.emailAddress }),
-    ...(input.sshPublicKey != null && { sshPublicKey: input.sshPublicKey }),
-    ...(input.userArn != null && { userArn: input.userArn }),
-  };
-};
+// se_UpdateUserProfileRequest omitted.
 
-const deserializeAws_json1_1AssociateTeamMemberResult = (
-  output: any,
-  context: __SerdeContext
-): AssociateTeamMemberResult => {
-  return {
-    clientRequestToken: __expectString(output.clientRequestToken),
-  } as any;
-};
+// de_AssociateTeamMemberResult omitted.
 
-const deserializeAws_json1_1ConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentModificationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ConcurrentModificationException omitted.
 
-const deserializeAws_json1_1CreateProjectResult = (output: any, context: __SerdeContext): CreateProjectResult => {
-  return {
-    arn: __expectString(output.arn),
-    clientRequestToken: __expectString(output.clientRequestToken),
-    id: __expectString(output.id),
-    projectTemplateId: __expectString(output.projectTemplateId),
-  } as any;
-};
+// de_CreateProjectResult omitted.
 
-const deserializeAws_json1_1CreateUserProfileResult = (
-  output: any,
-  context: __SerdeContext
-): CreateUserProfileResult => {
-  return {
-    createdTimestamp:
-      output.createdTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimestamp)))
-        : undefined,
-    displayName: __expectString(output.displayName),
-    emailAddress: __expectString(output.emailAddress),
-    lastModifiedTimestamp:
-      output.lastModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTimestamp)))
-        : undefined,
-    sshPublicKey: __expectString(output.sshPublicKey),
-    userArn: __expectString(output.userArn),
-  } as any;
+/**
+ * deserializeAws_json1_1CreateUserProfileResult
+ */
+const de_CreateUserProfileResult = (output: any, context: __SerdeContext): CreateUserProfileResult => {
+  return take(output, {
+    createdTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    displayName: __expectString,
+    emailAddress: __expectString,
+    lastModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    sshPublicKey: __expectString,
+    userArn: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteProjectResult = (output: any, context: __SerdeContext): DeleteProjectResult => {
-  return {
-    projectArn: __expectString(output.projectArn),
-    stackId: __expectString(output.stackId),
-  } as any;
-};
+// de_DeleteProjectResult omitted.
 
-const deserializeAws_json1_1DeleteUserProfileResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteUserProfileResult => {
-  return {
-    userArn: __expectString(output.userArn),
-  } as any;
-};
+// de_DeleteUserProfileResult omitted.
 
-const deserializeAws_json1_1DescribeProjectResult = (output: any, context: __SerdeContext): DescribeProjectResult => {
-  return {
-    arn: __expectString(output.arn),
-    clientRequestToken: __expectString(output.clientRequestToken),
-    createdTimeStamp:
-      output.createdTimeStamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimeStamp)))
-        : undefined,
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    name: __expectString(output.name),
-    projectTemplateId: __expectString(output.projectTemplateId),
-    stackId: __expectString(output.stackId),
-    status: output.status != null ? deserializeAws_json1_1ProjectStatus(output.status, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeProjectResult
+ */
+const de_DescribeProjectResult = (output: any, context: __SerdeContext): DescribeProjectResult => {
+  return take(output, {
+    arn: __expectString,
+    clientRequestToken: __expectString,
+    createdTimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    projectTemplateId: __expectString,
+    stackId: __expectString,
+    status: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeUserProfileResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeUserProfileResult => {
-  return {
-    createdTimestamp:
-      output.createdTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimestamp)))
-        : undefined,
-    displayName: __expectString(output.displayName),
-    emailAddress: __expectString(output.emailAddress),
-    lastModifiedTimestamp:
-      output.lastModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTimestamp)))
-        : undefined,
-    sshPublicKey: __expectString(output.sshPublicKey),
-    userArn: __expectString(output.userArn),
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeUserProfileResult
+ */
+const de_DescribeUserProfileResult = (output: any, context: __SerdeContext): DescribeUserProfileResult => {
+  return take(output, {
+    createdTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    displayName: __expectString,
+    emailAddress: __expectString,
+    lastModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    sshPublicKey: __expectString,
+    userArn: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DisassociateTeamMemberResult = (
-  output: any,
-  context: __SerdeContext
-): DisassociateTeamMemberResult => {
-  return {} as any;
-};
+// de_DisassociateTeamMemberResult omitted.
 
-const deserializeAws_json1_1InvalidNextTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidNextTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-const deserializeAws_json1_1InvalidServiceRoleException = (
-  output: any,
-  context: __SerdeContext
-): InvalidServiceRoleException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidServiceRoleException omitted.
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-const deserializeAws_json1_1ListProjectsResult = (output: any, context: __SerdeContext): ListProjectsResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    projects: output.projects != null ? deserializeAws_json1_1ProjectsList(output.projects, context) : undefined,
-  } as any;
-};
+// de_ListProjectsResult omitted.
 
-const deserializeAws_json1_1ListResourcesResult = (output: any, context: __SerdeContext): ListResourcesResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    resources: output.resources != null ? deserializeAws_json1_1ResourcesResult(output.resources, context) : undefined,
-  } as any;
-};
+// de_ListResourcesResult omitted.
 
-const deserializeAws_json1_1ListTagsForProjectResult = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForProjectResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tags: output.tags != null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_ListTagsForProjectResult omitted.
 
-const deserializeAws_json1_1ListTeamMembersResult = (output: any, context: __SerdeContext): ListTeamMembersResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    teamMembers:
-      output.teamMembers != null ? deserializeAws_json1_1TeamMemberResult(output.teamMembers, context) : undefined,
-  } as any;
-};
+// de_ListTeamMembersResult omitted.
 
-const deserializeAws_json1_1ListUserProfilesResult = (output: any, context: __SerdeContext): ListUserProfilesResult => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    userProfiles:
-      output.userProfiles != null ? deserializeAws_json1_1UserProfilesList(output.userProfiles, context) : undefined,
-  } as any;
-};
+// de_ListUserProfilesResult omitted.
 
-const deserializeAws_json1_1ProjectAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ProjectAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ProjectAlreadyExistsException omitted.
 
-const deserializeAws_json1_1ProjectConfigurationException = (
-  output: any,
-  context: __SerdeContext
-): ProjectConfigurationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ProjectConfigurationException omitted.
 
-const deserializeAws_json1_1ProjectCreationFailedException = (
-  output: any,
-  context: __SerdeContext
-): ProjectCreationFailedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ProjectCreationFailedException omitted.
 
-const deserializeAws_json1_1ProjectNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ProjectNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ProjectNotFoundException omitted.
 
-const deserializeAws_json1_1ProjectsList = (output: any, context: __SerdeContext): ProjectSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ProjectSummary(entry, context);
-    });
-  return retVal;
-};
+// de_ProjectsList omitted.
 
-const deserializeAws_json1_1ProjectStatus = (output: any, context: __SerdeContext): ProjectStatus => {
-  return {
-    reason: __expectString(output.reason),
-    state: __expectString(output.state),
-  } as any;
-};
+// de_ProjectStatus omitted.
 
-const deserializeAws_json1_1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
-  return {
-    projectArn: __expectString(output.projectArn),
-    projectId: __expectString(output.projectId),
-  } as any;
-};
+// de_ProjectSummary omitted.
 
-const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    id: __expectString(output.id),
-  } as any;
-};
+// de_Resource omitted.
 
-const deserializeAws_json1_1ResourcesResult = (output: any, context: __SerdeContext): Resource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Resource(entry, context);
-    });
-  return retVal;
-};
+// de_ResourcesResult omitted.
 
-const deserializeAws_json1_1TagProjectResult = (output: any, context: __SerdeContext): TagProjectResult => {
-  return {
-    tags: output.tags != null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_TagProjectResult omitted.
 
-const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
-const deserializeAws_json1_1TeamMember = (output: any, context: __SerdeContext): TeamMember => {
-  return {
-    projectRole: __expectString(output.projectRole),
-    remoteAccessAllowed: __expectBoolean(output.remoteAccessAllowed),
-    userArn: __expectString(output.userArn),
-  } as any;
-};
+// de_TeamMember omitted.
 
-const deserializeAws_json1_1TeamMemberAlreadyAssociatedException = (
-  output: any,
-  context: __SerdeContext
-): TeamMemberAlreadyAssociatedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TeamMemberAlreadyAssociatedException omitted.
 
-const deserializeAws_json1_1TeamMemberNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): TeamMemberNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TeamMemberNotFoundException omitted.
 
-const deserializeAws_json1_1TeamMemberResult = (output: any, context: __SerdeContext): TeamMember[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TeamMember(entry, context);
-    });
-  return retVal;
-};
+// de_TeamMemberResult omitted.
 
-const deserializeAws_json1_1UntagProjectResult = (output: any, context: __SerdeContext): UntagProjectResult => {
-  return {} as any;
-};
+// de_UntagProjectResult omitted.
 
-const deserializeAws_json1_1UpdateProjectResult = (output: any, context: __SerdeContext): UpdateProjectResult => {
-  return {} as any;
-};
+// de_UpdateProjectResult omitted.
 
-const deserializeAws_json1_1UpdateTeamMemberResult = (output: any, context: __SerdeContext): UpdateTeamMemberResult => {
-  return {
-    projectRole: __expectString(output.projectRole),
-    remoteAccessAllowed: __expectBoolean(output.remoteAccessAllowed),
-    userArn: __expectString(output.userArn),
-  } as any;
-};
+// de_UpdateTeamMemberResult omitted.
 
-const deserializeAws_json1_1UpdateUserProfileResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateUserProfileResult => {
-  return {
-    createdTimestamp:
-      output.createdTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimestamp)))
-        : undefined,
-    displayName: __expectString(output.displayName),
-    emailAddress: __expectString(output.emailAddress),
-    lastModifiedTimestamp:
-      output.lastModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTimestamp)))
-        : undefined,
-    sshPublicKey: __expectString(output.sshPublicKey),
-    userArn: __expectString(output.userArn),
-  } as any;
+/**
+ * deserializeAws_json1_1UpdateUserProfileResult
+ */
+const de_UpdateUserProfileResult = (output: any, context: __SerdeContext): UpdateUserProfileResult => {
+  return take(output, {
+    createdTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    displayName: __expectString,
+    emailAddress: __expectString,
+    lastModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    sshPublicKey: __expectString,
+    userArn: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1UserProfileAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): UserProfileAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UserProfileAlreadyExistsException omitted.
 
-const deserializeAws_json1_1UserProfileNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): UserProfileNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UserProfileNotFoundException omitted.
 
-const deserializeAws_json1_1UserProfilesList = (output: any, context: __SerdeContext): UserProfileSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1UserProfileSummary(entry, context);
-    });
-  return retVal;
-};
+// de_UserProfilesList omitted.
 
-const deserializeAws_json1_1UserProfileSummary = (output: any, context: __SerdeContext): UserProfileSummary => {
-  return {
-    displayName: __expectString(output.displayName),
-    emailAddress: __expectString(output.emailAddress),
-    sshPublicKey: __expectString(output.sshPublicKey),
-    userArn: __expectString(output.userArn),
-  } as any;
-};
+// de_UserProfileSummary omitted.
 
-const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2056,6 +1706,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -2080,6 +1731,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `CodeStar_20170419.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

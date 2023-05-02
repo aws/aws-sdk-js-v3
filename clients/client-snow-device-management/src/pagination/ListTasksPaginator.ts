@@ -6,7 +6,7 @@ import { SnowDeviceManagementClient } from "../SnowDeviceManagementClient";
 import { SnowDeviceManagementPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SnowDeviceManagementClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTasksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTasks(
   config: SnowDeviceManagementPaginationConfiguration,
   input: ListTasksCommandInput,

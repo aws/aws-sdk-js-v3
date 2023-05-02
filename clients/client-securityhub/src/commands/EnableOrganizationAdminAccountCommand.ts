@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { EnableOrganizationAdminAccountRequest, EnableOrganizationAdminAccountResponse } from "../models/models_2";
 import {
-  EnableOrganizationAdminAccountRequest,
-  EnableOrganizationAdminAccountRequestFilterSensitiveLog,
-  EnableOrganizationAdminAccountResponse,
-  EnableOrganizationAdminAccountResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1EnableOrganizationAdminAccountCommand,
-  serializeAws_restJson1EnableOrganizationAdminAccountCommand,
+  de_EnableOrganizationAdminAccountCommand,
+  se_EnableOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableOrganizationAdminAccountCommand}.
  */
 export interface EnableOrganizationAdminAccountCommandInput extends EnableOrganizationAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableOrganizationAdminAccountCommand}.
  */
 export interface EnableOrganizationAdminAccountCommandOutput
@@ -37,6 +36,7 @@ export interface EnableOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Designates the Security Hub administrator account for an organization. Can only be called by
  *          the organization management account.</p>
  * @example
@@ -45,10 +45,15 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * import { SecurityHubClient, EnableOrganizationAdminAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, EnableOrganizationAdminAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // EnableOrganizationAdminAccountRequest
+ *   AdminAccountId: "STRING_VALUE", // required
+ * };
  * const command = new EnableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableOrganizationAdminAccountCommandInput - {@link EnableOrganizationAdminAccountCommandInput}
+ * @returns {@link EnableOrganizationAdminAccountCommandOutput}
  * @see {@link EnableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link EnableOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -68,6 +73,17 @@ export interface EnableOrganizationAdminAccountCommandOutput
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To designate a Security Hub administrator
+ * ```javascript
+ * // The following example designates the specified account as the Security Hub administrator account. The requesting account must be the organization management account.
+ * const input = {
+ *   "AdminAccountId": "123456789012"
+ * };
+ * const command = new EnableOrganizationAdminAccountCommand(input);
+ * await client.send(command);
+ * // example id: to-designate-a-security-hub-administrator-1676998319851
+ * ```
+ *
  */
 export class EnableOrganizationAdminAccountCommand extends $Command<
   EnableOrganizationAdminAccountCommandInput,
@@ -86,6 +102,9 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +133,8 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableOrganizationAdminAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableOrganizationAdminAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +144,24 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableOrganizationAdminAccountCommand(input, context);
+    return se_EnableOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_restJson1EnableOrganizationAdminAccountCommand(output, context);
+    return de_EnableOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

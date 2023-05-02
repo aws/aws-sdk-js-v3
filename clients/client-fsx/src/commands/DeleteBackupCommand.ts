@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DeleteBackupRequest,
-  DeleteBackupRequestFilterSensitiveLog,
-  DeleteBackupResponse,
-  DeleteBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBackupCommand,
-  serializeAws_json1_1DeleteBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteBackupRequest, DeleteBackupResponse } from "../models/models_0";
+import { de_DeleteBackupCommand, se_DeleteBackupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupCommand}.
  */
 export interface DeleteBackupCommandInput extends DeleteBackupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupCommand}.
  */
 export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and
  *             its data is gone.</p>
  *          <p>The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
@@ -49,10 +46,16 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * import { FSxClient, DeleteBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DeleteBackupRequest
+ *   BackupId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
+ * @returns {@link DeleteBackupCommandOutput}
  * @see {@link DeleteBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -118,6 +121,9 @@ export class DeleteBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +150,8 @@ export class DeleteBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBackupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +161,18 @@ export class DeleteBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBackupCommand(input, context);
+    return se_DeleteBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackupCommandOutput> {
-    return deserializeAws_json1_1DeleteBackupCommand(output, context);
+    return de_DeleteBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

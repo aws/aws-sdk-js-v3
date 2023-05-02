@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDatabaseRequest,
-  DescribeDatabaseRequestFilterSensitiveLog,
-  DescribeDatabaseResponse,
-  DescribeDatabaseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeDatabaseCommand,
-  serializeAws_json1_0DescribeDatabaseCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeDatabaseRequest, DescribeDatabaseResponse } from "../models/models_0";
+import { de_DescribeDatabaseCommand, se_DescribeDatabaseCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDatabaseCommand}.
  */
 export interface DescribeDatabaseCommandInput extends DescribeDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDatabaseCommand}.
  */
 export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the database, including the database name, time that the
  *          database was created, and the total number of tables found within the database. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service
  *             quotas apply</a>. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-db.html">code sample</a>
@@ -46,10 +43,15 @@ export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse,
  * import { TimestreamWriteClient, DescribeDatabaseCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, DescribeDatabaseCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = { // DescribeDatabaseRequest
+ *   DatabaseName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDatabaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatabaseCommandInput - {@link DescribeDatabaseCommandInput}
+ * @returns {@link DescribeDatabaseCommandOutput}
  * @see {@link DescribeDatabaseCommandInput} for command's `input` shape.
  * @see {@link DescribeDatabaseCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -95,6 +97,9 @@ export class DescribeDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +131,8 @@ export class DescribeDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatabaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatabaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +142,18 @@ export class DescribeDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeDatabaseCommand(input, context);
+    return se_DescribeDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatabaseCommandOutput> {
-    return deserializeAws_json1_0DescribeDatabaseCommand(output, context);
+    return de_DescribeDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAliasRequest,
-  CreateAliasRequestFilterSensitiveLog,
-  CreateAliasResponse,
-  CreateAliasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAliasCommand,
-  serializeAws_json1_1CreateAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAliasRequest, CreateAliasResponse } from "../models/models_0";
+import { de_CreateAliasCommand, se_CreateAliasCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAliasCommand}.
  */
 export interface CreateAliasCommandInput extends CreateAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAliasCommand}.
  */
 export interface CreateAliasCommandOutput extends CreateAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an alias to the set of a given member (user or group) of WorkMail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface CreateAliasCommandOutput extends CreateAliasResponse, __Metadat
  * import { WorkMailClient, CreateAliasCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateAliasCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // CreateAliasRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ *   Alias: "STRING_VALUE", // required
+ * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
+ * @returns {@link CreateAliasCommandOutput}
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -102,6 +106,9 @@ export class CreateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +135,8 @@ export class CreateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +146,18 @@ export class CreateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAliasCommand(input, context);
+    return se_CreateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAliasCommandOutput> {
-    return deserializeAws_json1_1CreateAliasCommand(output, context);
+    return de_CreateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

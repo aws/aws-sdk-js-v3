@@ -18,26 +18,26 @@ import {
   CreateMeetingDialOutRequest,
   CreateMeetingDialOutRequestFilterSensitiveLog,
   CreateMeetingDialOutResponse,
-  CreateMeetingDialOutResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMeetingDialOutCommand,
-  serializeAws_restJson1CreateMeetingDialOutCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMeetingDialOutCommand, se_CreateMeetingDialOutCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMeetingDialOutCommand}.
  */
 export interface CreateMeetingDialOutCommandInput extends CreateMeetingDialOutRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMeetingDialOutCommand}.
  */
 export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uses the join token and call metadata in a meeting request (From number, To number, and so forth) to initiate an outbound call to a public
  *     switched telephone network (PSTN) and join them into a Chime meeting. Also ensures that the From number belongs to the customer.</p>
- *
  *          <p>To play welcome audio or implement an interactive voice response (IVR), use the
  * <code>CreateSipMediaApplicationCall</code> action with the corresponding SIP media application ID.</p>
  * @example
@@ -46,10 +46,18 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  * import { ChimeClient, CreateMeetingDialOutCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateMeetingDialOutCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateMeetingDialOutRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   FromPhoneNumber: "STRING_VALUE", // required
+ *   ToPhoneNumber: "STRING_VALUE", // required
+ *   JoinToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateMeetingDialOutCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMeetingDialOutCommandInput - {@link CreateMeetingDialOutCommandInput}
+ * @returns {@link CreateMeetingDialOutCommandOutput}
  * @see {@link CreateMeetingDialOutCommandInput} for command's `input` shape.
  * @see {@link CreateMeetingDialOutCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +105,9 @@ export class CreateMeetingDialOutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMeetingDialOutCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,7 +137,7 @@ export class CreateMeetingDialOutCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateMeetingDialOutRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMeetingDialOutResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +147,18 @@ export class CreateMeetingDialOutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMeetingDialOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMeetingDialOutCommand(input, context);
+    return se_CreateMeetingDialOutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMeetingDialOutCommandOutput> {
-    return deserializeAws_restJson1CreateMeetingDialOutCommand(output, context);
+    return de_CreateMeetingDialOutCommand(output, context);
   }
 
   // Start section: command_body_extra

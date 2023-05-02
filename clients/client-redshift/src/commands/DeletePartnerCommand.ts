@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PartnerIntegrationInputMessage,
-  PartnerIntegrationInputMessageFilterSensitiveLog,
-  PartnerIntegrationOutputMessage,
-  PartnerIntegrationOutputMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeletePartnerCommand,
-  serializeAws_queryDeletePartnerCommand,
-} from "../protocols/Aws_query";
+import { PartnerIntegrationInputMessage, PartnerIntegrationOutputMessage } from "../models/models_0";
+import { de_DeletePartnerCommand, se_DeletePartnerCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePartnerCommand}.
  */
 export interface DeletePartnerCommandInput extends PartnerIntegrationInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeletePartnerCommand}.
  */
 export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a partner integration from a cluster. Data can still flow to the cluster until the integration is deleted at the partner's website.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  * import { RedshiftClient, DeletePartnerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeletePartnerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // PartnerIntegrationInputMessage
+ *   AccountId: "STRING_VALUE", // required
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   PartnerName: "STRING_VALUE", // required
+ * };
  * const command = new DeletePartnerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePartnerCommandInput - {@link DeletePartnerCommandInput}
+ * @returns {@link DeletePartnerCommandOutput}
  * @see {@link DeletePartnerCommandInput} for command's `input` shape.
  * @see {@link DeletePartnerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -79,6 +84,9 @@ export class DeletePartnerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePartnerCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class DeletePartnerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PartnerIntegrationInputMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: PartnerIntegrationOutputMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +124,18 @@ export class DeletePartnerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePartnerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeletePartnerCommand(input, context);
+    return se_DeletePartnerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePartnerCommandOutput> {
-    return deserializeAws_queryDeletePartnerCommand(output, context);
+    return de_DeletePartnerCommand(output, context);
   }
 
   // Start section: command_body_extra

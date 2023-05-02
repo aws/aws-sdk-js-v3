@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetInstancesHealthStatusRequest,
-  GetInstancesHealthStatusRequestFilterSensitiveLog,
-  GetInstancesHealthStatusResponse,
-  GetInstancesHealthStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetInstancesHealthStatusCommand,
-  serializeAws_json1_1GetInstancesHealthStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { GetInstancesHealthStatusRequest, GetInstancesHealthStatusResponse } from "../models/models_0";
+import { de_GetInstancesHealthStatusCommand, se_GetInstancesHealthStatusCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstancesHealthStatusCommand}.
  */
 export interface GetInstancesHealthStatusCommandInput extends GetInstancesHealthStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstancesHealthStatusCommand}.
  */
 export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealthStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or
  *     <code>Unknown</code>) of one or more instances that are associated with a specified
  *    service.</p>
@@ -48,10 +45,20 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * import { ServiceDiscoveryClient, GetInstancesHealthStatusCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, GetInstancesHealthStatusCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // GetInstancesHealthStatusRequest
+ *   ServiceId: "STRING_VALUE", // required
+ *   Instances: [ // InstanceIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetInstancesHealthStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstancesHealthStatusCommandInput - {@link GetInstancesHealthStatusCommandInput}
+ * @returns {@link GetInstancesHealthStatusCommandOutput}
  * @see {@link GetInstancesHealthStatusCommandInput} for command's `input` shape.
  * @see {@link GetInstancesHealthStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -64,11 +71,6 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
  *    numeric value might be outside the allowed range, or a string value might exceed length
  *    constraints.</p>
- *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
  *
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
@@ -111,6 +113,9 @@ export class GetInstancesHealthStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstancesHealthStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +144,8 @@ export class GetInstancesHealthStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstancesHealthStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInstancesHealthStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +155,18 @@ export class GetInstancesHealthStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstancesHealthStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstancesHealthStatusCommand(input, context);
+    return se_GetInstancesHealthStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstancesHealthStatusCommandOutput> {
-    return deserializeAws_json1_1GetInstancesHealthStatusCommand(output, context);
+    return de_GetInstancesHealthStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

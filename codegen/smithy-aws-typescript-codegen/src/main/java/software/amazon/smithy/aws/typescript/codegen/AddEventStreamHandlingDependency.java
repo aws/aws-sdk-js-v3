@@ -99,9 +99,10 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                 });
             case BROWSER:
                 /**
-                 * Browser doesn't support streaming requests as of March 2020.
+                 * Browser doesn't support streaming requests as of Aug 2022.
                  * Each service client needs to support eventstream request in browser individually.
-                 * Services like TranscribeStreaming support it via WebSocket.
+                 * Services like TranscribeStreaming and Rekognition supports it via WebSocket.
+                 * See the websocket customization in AddWebsocketPlugin.
                  */
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);

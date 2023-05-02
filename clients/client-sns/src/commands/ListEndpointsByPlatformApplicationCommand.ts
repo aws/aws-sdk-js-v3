@@ -15,21 +15,23 @@ import {
 
 import {
   ListEndpointsByPlatformApplicationInput,
-  ListEndpointsByPlatformApplicationInputFilterSensitiveLog,
   ListEndpointsByPlatformApplicationResponse,
-  ListEndpointsByPlatformApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryListEndpointsByPlatformApplicationCommand,
-  serializeAws_queryListEndpointsByPlatformApplicationCommand,
+  de_ListEndpointsByPlatformApplicationCommand,
+  se_ListEndpointsByPlatformApplicationCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEndpointsByPlatformApplicationCommand}.
  */
 export interface ListEndpointsByPlatformApplicationCommandInput extends ListEndpointsByPlatformApplicationInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEndpointsByPlatformApplicationCommand}.
  */
 export interface ListEndpointsByPlatformApplicationCommandOutput
@@ -37,6 +39,7 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the endpoints and endpoint attributes for devices in a supported push
  *             notification service, such as GCM (Firebase Cloud Messaging) and APNS. The results for
  *                 <code>ListEndpointsByPlatformApplication</code> are paginated and return a limited
@@ -53,10 +56,16 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
  * import { SNSClient, ListEndpointsByPlatformApplicationCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListEndpointsByPlatformApplicationCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // ListEndpointsByPlatformApplicationInput
+ *   PlatformApplicationArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListEndpointsByPlatformApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEndpointsByPlatformApplicationCommandInput - {@link ListEndpointsByPlatformApplicationCommandInput}
+ * @returns {@link ListEndpointsByPlatformApplicationCommandOutput}
  * @see {@link ListEndpointsByPlatformApplicationCommandInput} for command's `input` shape.
  * @see {@link ListEndpointsByPlatformApplicationCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -93,6 +102,9 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEndpointsByPlatformApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +133,8 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEndpointsByPlatformApplicationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEndpointsByPlatformApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,18 +144,24 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListEndpointsByPlatformApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListEndpointsByPlatformApplicationCommand(input, context);
+    return se_ListEndpointsByPlatformApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEndpointsByPlatformApplicationCommandOutput> {
-    return deserializeAws_queryListEndpointsByPlatformApplicationCommand(output, context);
+    return de_ListEndpointsByPlatformApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

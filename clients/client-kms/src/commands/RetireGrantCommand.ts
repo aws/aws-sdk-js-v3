@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { RetireGrantRequest, RetireGrantRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1RetireGrantCommand,
-  serializeAws_json1_1RetireGrantCommand,
-} from "../protocols/Aws_json1_1";
+import { RetireGrantRequest } from "../models/models_0";
+import { de_RetireGrantCommand, se_RetireGrantCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RetireGrantCommand}.
  */
 export interface RetireGrantCommandInput extends RetireGrantRequest {}
 /**
+ * @public
+ *
  * The output of {@link RetireGrantCommand}.
  */
 export interface RetireGrantCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a grant. Typically, you retire a grant when you no longer need its permissions. To
  *       identify the grant to retire, use a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">grant token</a>, or both the grant ID and a
  *       key identifier (key ID or key ARN) of the KMS key. The <a>CreateGrant</a> operation
@@ -82,10 +84,17 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  * import { KMSClient, RetireGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, RetireGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // RetireGrantRequest
+ *   GrantToken: "STRING_VALUE",
+ *   KeyId: "STRING_VALUE",
+ *   GrantId: "STRING_VALUE",
+ * };
  * const command = new RetireGrantCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RetireGrantCommandInput - {@link RetireGrantCommandInput}
+ * @returns {@link RetireGrantCommandOutput}
  * @see {@link RetireGrantCommandInput} for command's `input` shape.
  * @see {@link RetireGrantCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -161,6 +170,9 @@ export class RetireGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetireGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,8 +199,8 @@ export class RetireGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetireGrantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -198,12 +210,18 @@ export class RetireGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetireGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RetireGrantCommand(input, context);
+    return se_RetireGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetireGrantCommandOutput> {
-    return deserializeAws_json1_1RetireGrantCommand(output, context);
+    return de_RetireGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

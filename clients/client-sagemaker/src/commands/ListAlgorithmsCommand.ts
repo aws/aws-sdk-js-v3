@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAlgorithmsInput,
-  ListAlgorithmsInputFilterSensitiveLog,
-  ListAlgorithmsOutput,
-  ListAlgorithmsOutputFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListAlgorithmsCommand,
-  serializeAws_json1_1ListAlgorithmsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAlgorithmsInput, ListAlgorithmsOutput } from "../models/models_3";
+import { de_ListAlgorithmsCommand, se_ListAlgorithmsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAlgorithmsCommand}.
  */
 export interface ListAlgorithmsCommandInput extends ListAlgorithmsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAlgorithmsCommand}.
  */
 export interface ListAlgorithmsCommandOutput extends ListAlgorithmsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the machine learning algorithms that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListAlgorithmsCommandOutput extends ListAlgorithmsOutput, __Met
  * import { SageMakerClient, ListAlgorithmsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListAlgorithmsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListAlgorithmsInput
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListAlgorithmsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAlgorithmsCommandInput - {@link ListAlgorithmsCommandInput}
+ * @returns {@link ListAlgorithmsCommandOutput}
  * @see {@link ListAlgorithmsCommandInput} for command's `input` shape.
  * @see {@link ListAlgorithmsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +77,9 @@ export class ListAlgorithmsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAlgorithmsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +108,8 @@ export class ListAlgorithmsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAlgorithmsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAlgorithmsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +119,18 @@ export class ListAlgorithmsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAlgorithmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAlgorithmsCommand(input, context);
+    return se_ListAlgorithmsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAlgorithmsCommandOutput> {
-    return deserializeAws_json1_1ListAlgorithmsCommand(output, context);
+    return de_ListAlgorithmsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  CreateWorkflowStepRequest,
-  CreateWorkflowStepRequestFilterSensitiveLog,
-  CreateWorkflowStepResponse,
-  CreateWorkflowStepResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkflowStepCommand,
-  serializeAws_restJson1CreateWorkflowStepCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateWorkflowStepRequest, CreateWorkflowStepResponse } from "../models/models_0";
+import { de_CreateWorkflowStepCommand, se_CreateWorkflowStepCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkflowStepCommand}.
  */
 export interface CreateWorkflowStepCommandInput extends CreateWorkflowStepRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkflowStepCommand}.
  */
 export interface CreateWorkflowStepCommandOutput extends CreateWorkflowStepResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a step in the migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,55 @@ export interface CreateWorkflowStepCommandOutput extends CreateWorkflowStepRespo
  * import { MigrationHubOrchestratorClient, CreateWorkflowStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, CreateWorkflowStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // CreateWorkflowStepRequest
+ *   name: "STRING_VALUE", // required
+ *   stepGroupId: "STRING_VALUE", // required
+ *   workflowId: "STRING_VALUE", // required
+ *   stepActionType: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   workflowStepAutomationConfiguration: { // WorkflowStepAutomationConfiguration
+ *     scriptLocationS3Bucket: "STRING_VALUE",
+ *     scriptLocationS3Key: { // PlatformScriptKey
+ *       linux: "STRING_VALUE",
+ *       windows: "STRING_VALUE",
+ *     },
+ *     command: { // PlatformCommand
+ *       linux: "STRING_VALUE",
+ *       windows: "STRING_VALUE",
+ *     },
+ *     runEnvironment: "STRING_VALUE",
+ *     targetType: "STRING_VALUE",
+ *   },
+ *   stepTarget: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   outputs: [ // WorkflowStepOutputList
+ *     { // WorkflowStepOutput
+ *       name: "STRING_VALUE",
+ *       dataType: "STRING_VALUE",
+ *       required: true || false,
+ *       value: { // WorkflowStepOutputUnion Union: only one key present
+ *         integerValue: Number("int"),
+ *         stringValue: "STRING_VALUE",
+ *         listOfStringValue: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   previous: [
+ *     "STRING_VALUE",
+ *   ],
+ *   next: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateWorkflowStepCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkflowStepCommandInput - {@link CreateWorkflowStepCommandInput}
+ * @returns {@link CreateWorkflowStepCommandOutput}
  * @see {@link CreateWorkflowStepCommandInput} for command's `input` shape.
  * @see {@link CreateWorkflowStepCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -85,6 +127,9 @@ export class CreateWorkflowStepCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkflowStepCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +158,8 @@ export class CreateWorkflowStepCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkflowStepRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkflowStepResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +169,18 @@ export class CreateWorkflowStepCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkflowStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkflowStepCommand(input, context);
+    return se_CreateWorkflowStepCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkflowStepCommandOutput> {
-    return deserializeAws_restJson1CreateWorkflowStepCommand(output, context);
+    return de_CreateWorkflowStepCommand(output, context);
   }
 
   // Start section: command_body_extra

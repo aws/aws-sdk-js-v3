@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  ListFieldOptionsRequest,
-  ListFieldOptionsRequestFilterSensitiveLog,
-  ListFieldOptionsResponse,
-  ListFieldOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFieldOptionsCommand,
-  serializeAws_restJson1ListFieldOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFieldOptionsRequest, ListFieldOptionsResponse } from "../models/models_0";
+import { de_ListFieldOptionsCommand, se_ListFieldOptionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFieldOptionsCommand}.
  */
 export interface ListFieldOptionsCommandInput extends ListFieldOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFieldOptionsCommand}.
  */
 export interface ListFieldOptionsCommandOutput extends ListFieldOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the field options for a field identifier in the domain. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListFieldOptionsCommandOutput extends ListFieldOptionsResponse,
  * import { ConnectCasesClient, ListFieldOptionsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, ListFieldOptionsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // ListFieldOptionsRequest
+ *   domainId: "STRING_VALUE", // required
+ *   fieldId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   values: [ // ValuesList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListFieldOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFieldOptionsCommandInput - {@link ListFieldOptionsCommandInput}
+ * @returns {@link ListFieldOptionsCommandOutput}
  * @see {@link ListFieldOptionsCommandInput} for command's `input` shape.
  * @see {@link ListFieldOptionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +94,9 @@ export class ListFieldOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFieldOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +125,8 @@ export class ListFieldOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFieldOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFieldOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +136,18 @@ export class ListFieldOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFieldOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFieldOptionsCommand(input, context);
+    return se_ListFieldOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFieldOptionsCommandOutput> {
-    return deserializeAws_restJson1ListFieldOptionsCommand(output, context);
+    return de_ListFieldOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

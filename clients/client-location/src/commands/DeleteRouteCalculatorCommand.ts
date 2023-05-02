@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DeleteRouteCalculatorRequest,
-  DeleteRouteCalculatorRequestFilterSensitiveLog,
-  DeleteRouteCalculatorResponse,
-  DeleteRouteCalculatorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRouteCalculatorCommand,
-  serializeAws_restJson1DeleteRouteCalculatorCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRouteCalculatorRequest, DeleteRouteCalculatorResponse } from "../models/models_0";
+import { de_DeleteRouteCalculatorCommand, se_DeleteRouteCalculatorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRouteCalculatorCommand}.
  */
 export interface DeleteRouteCalculatorCommandInput extends DeleteRouteCalculatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRouteCalculatorCommand}.
  */
 export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a route calculator resource from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently.</p>
@@ -45,10 +42,15 @@ export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculato
  * import { LocationClient, DeleteRouteCalculatorCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeleteRouteCalculatorCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // DeleteRouteCalculatorRequest
+ *   CalculatorName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRouteCalculatorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRouteCalculatorCommandInput - {@link DeleteRouteCalculatorCommandInput}
+ * @returns {@link DeleteRouteCalculatorCommandOutput}
  * @see {@link DeleteRouteCalculatorCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteCalculatorCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -88,6 +90,9 @@ export class DeleteRouteCalculatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRouteCalculatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class DeleteRouteCalculatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRouteCalculatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRouteCalculatorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class DeleteRouteCalculatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRouteCalculatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRouteCalculatorCommand(input, context);
+    return se_DeleteRouteCalculatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteCalculatorCommandOutput> {
-    return deserializeAws_restJson1DeleteRouteCalculatorCommand(output, context);
+    return de_DeleteRouteCalculatorCommand(output, context);
   }
 
   // Start section: command_body_extra

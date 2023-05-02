@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from Pinpoint service.
  */
 export class PinpointServiceException extends __ServiceException {

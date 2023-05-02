@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { DeletePlaybackConfigurationRequest, DeletePlaybackConfigurationResponse } from "../models/models_0";
 import {
-  DeletePlaybackConfigurationRequest,
-  DeletePlaybackConfigurationRequestFilterSensitiveLog,
-  DeletePlaybackConfigurationResponse,
-  DeletePlaybackConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePlaybackConfigurationCommand,
-  serializeAws_restJson1DeletePlaybackConfigurationCommand,
+  de_DeletePlaybackConfigurationCommand,
+  se_DeletePlaybackConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePlaybackConfigurationCommand}.
  */
 export interface DeletePlaybackConfigurationCommandInput extends DeletePlaybackConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePlaybackConfigurationCommand}.
  */
 export interface DeletePlaybackConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DeletePlaybackConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface DeletePlaybackConfigurationCommandOutput
  * import { MediaTailorClient, DeletePlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeletePlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // DeletePlaybackConfigurationRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeletePlaybackConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePlaybackConfigurationCommandInput - {@link DeletePlaybackConfigurationCommandInput}
+ * @returns {@link DeletePlaybackConfigurationCommandOutput}
  * @see {@link DeletePlaybackConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeletePlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -71,6 +76,9 @@ export class DeletePlaybackConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePlaybackConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +107,8 @@ export class DeletePlaybackConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePlaybackConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePlaybackConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +118,21 @@ export class DeletePlaybackConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePlaybackConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePlaybackConfigurationCommand(input, context);
+    return se_DeletePlaybackConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePlaybackConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeletePlaybackConfigurationCommand(output, context);
+    return de_DeletePlaybackConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAccountSettingsRequest,
-  DescribeAccountSettingsRequestFilterSensitiveLog,
-  DescribeAccountSettingsResponse,
-  DescribeAccountSettingsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeAccountSettingsCommand,
-  serializeAws_restJson1DescribeAccountSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAccountSettingsRequest, DescribeAccountSettingsResponse } from "../models/models_2";
+import { de_DescribeAccountSettingsCommand, se_DescribeAccountSettingsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountSettingsCommand}.
  */
 export interface DescribeAccountSettingsCommandInput extends DescribeAccountSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountSettingsCommand}.
  */
 export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the settings that were used when your Amazon QuickSight subscription was first
  *             created in this Amazon Web Services account.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  * import { QuickSightClient, DescribeAccountSettingsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAccountSettingsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeAccountSettingsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountSettingsCommandInput - {@link DescribeAccountSettingsCommandInput}
+ * @returns {@link DescribeAccountSettingsCommandOutput}
  * @see {@link DescribeAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -91,6 +93,9 @@ export class DescribeAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class DescribeAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class DescribeAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccountSettingsCommand(input, context);
+    return se_DescribeAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountSettingsCommandOutput> {
-    return deserializeAws_restJson1DescribeAccountSettingsCommand(output, context);
+    return de_DescribeAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

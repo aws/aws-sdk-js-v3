@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  UpdateAllowListRequest,
-  UpdateAllowListRequestFilterSensitiveLog,
-  UpdateAllowListResponse,
-  UpdateAllowListResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateAllowListCommand,
-  serializeAws_restJson1UpdateAllowListCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateAllowListRequest, UpdateAllowListResponse } from "../models/models_1";
+import { de_UpdateAllowListCommand, se_UpdateAllowListCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAllowListCommand}.
  */
 export interface UpdateAllowListCommandInput extends UpdateAllowListRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAllowListCommand}.
  */
 export interface UpdateAllowListCommandOutput extends UpdateAllowListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings for an allow list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface UpdateAllowListCommandOutput extends UpdateAllowListResponse, _
  * import { Macie2Client, UpdateAllowListCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateAllowListCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // UpdateAllowListRequest
+ *   criteria: { // AllowListCriteria
+ *     regex: "STRING_VALUE",
+ *     s3WordsList: { // S3WordsList
+ *       bucketName: "STRING_VALUE", // required
+ *       objectKey: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   description: "STRING_VALUE",
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new UpdateAllowListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAllowListCommandInput - {@link UpdateAllowListCommandInput}
+ * @returns {@link UpdateAllowListCommandOutput}
  * @see {@link UpdateAllowListCommandInput} for command's `input` shape.
  * @see {@link UpdateAllowListCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -84,6 +95,9 @@ export class UpdateAllowListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAllowListCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +126,8 @@ export class UpdateAllowListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAllowListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAllowListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +137,18 @@ export class UpdateAllowListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAllowListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAllowListCommand(input, context);
+    return se_UpdateAllowListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAllowListCommandOutput> {
-    return deserializeAws_restJson1UpdateAllowListCommand(output, context);
+    return de_UpdateAllowListCommand(output, context);
   }
 
   // Start section: command_body_extra

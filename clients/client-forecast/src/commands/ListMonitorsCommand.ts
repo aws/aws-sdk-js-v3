@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  ListMonitorsRequest,
-  ListMonitorsRequestFilterSensitiveLog,
-  ListMonitorsResponse,
-  ListMonitorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMonitorsCommand,
-  serializeAws_json1_1ListMonitorsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMonitorsRequest, ListMonitorsResponse } from "../models/models_0";
+import { de_ListMonitorsCommand, se_ListMonitorsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMonitorsCommand}.
  */
 export interface ListMonitorsCommandInput extends ListMonitorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMonitorsCommand}.
  */
 export interface ListMonitorsCommandOutput extends ListMonitorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of monitors created with the <a>CreateMonitor</a> operation and <a>CreateAutoPredictor</a> operation. For each monitor resource, this operation returns of a summary of its properties, including its Amazon Resource Name (ARN). You
  *          can retrieve a complete set of properties of a monitor resource by specify the monitor's ARN in the <a>DescribeMonitor</a> operation.</p>
  * @example
@@ -43,10 +40,23 @@ export interface ListMonitorsCommandOutput extends ListMonitorsResponse, __Metad
  * import { ForecastClient, ListMonitorsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListMonitorsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // ListMonitorsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *       Condition: "IS" || "IS_NOT", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListMonitorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMonitorsCommandInput - {@link ListMonitorsCommandInput}
+ * @returns {@link ListMonitorsCommandOutput}
  * @see {@link ListMonitorsCommandInput} for command's `input` shape.
  * @see {@link ListMonitorsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -77,6 +87,9 @@ export class ListMonitorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMonitorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +116,8 @@ export class ListMonitorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMonitorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMonitorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +127,18 @@ export class ListMonitorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMonitorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMonitorsCommand(input, context);
+    return se_ListMonitorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitorsCommandOutput> {
-    return deserializeAws_json1_1ListMonitorsCommand(output, context);
+    return de_ListMonitorsCommand(output, context);
   }
 
   // Start section: command_body_extra

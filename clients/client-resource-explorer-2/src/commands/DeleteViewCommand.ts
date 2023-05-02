@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteViewInput,
-  DeleteViewInputFilterSensitiveLog,
-  DeleteViewOutput,
-  DeleteViewOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteViewCommand,
-  serializeAws_restJson1DeleteViewCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteViewInput, DeleteViewOutput } from "../models/models_0";
+import { de_DeleteViewCommand, se_DeleteViewCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteViewCommand}.
  */
 export interface DeleteViewCommandInput extends DeleteViewInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteViewCommand}.
  */
 export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified view.</p>
  *          <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use
  *             until you configure a new default by calling the <a>AssociateDefaultView</a>
@@ -49,10 +46,15 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  * import { ResourceExplorer2Client, DeleteViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, DeleteViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = { // DeleteViewInput
+ *   ViewArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteViewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteViewCommandInput - {@link DeleteViewCommandInput}
+ * @returns {@link DeleteViewCommandOutput}
  * @see {@link DeleteViewCommandInput} for command's `input` shape.
  * @see {@link DeleteViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -99,6 +101,9 @@ export class DeleteViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +130,8 @@ export class DeleteViewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteViewInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteViewOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +141,18 @@ export class DeleteViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteViewCommand(input, context);
+    return se_DeleteViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteViewCommandOutput> {
-    return deserializeAws_restJson1DeleteViewCommand(output, context);
+    return de_DeleteViewCommand(output, context);
   }
 
   // Start section: command_body_extra

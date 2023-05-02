@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import {
-  DeleteChannelRequest,
-  DeleteChannelRequestFilterSensitiveLog,
-  DeleteChannelResponse,
-  DeleteChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteChannelCommand,
-  serializeAws_restJson1DeleteChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_0";
+import { de_DeleteChannelCommand, se_DeleteChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChannelCommand}.
  */
 export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChannelCommand}.
  */
 export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes an existing Channel.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * import { MediaPackageClient, DeleteChannelCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, DeleteChannelCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
+ * const input = { // DeleteChannelRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelCommandInput - {@link DeleteChannelCommandInput}
+ * @returns {@link DeleteChannelCommandOutput}
  * @see {@link DeleteChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteChannelCommand(input, context);
+    return se_DeleteChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteChannelCommand(output, context);
+    return de_DeleteChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCallAnalyticsCategoriesRequest,
-  ListCallAnalyticsCategoriesRequestFilterSensitiveLog,
-  ListCallAnalyticsCategoriesResponse,
-  ListCallAnalyticsCategoriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCallAnalyticsCategoriesCommand,
-  serializeAws_json1_1ListCallAnalyticsCategoriesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCallAnalyticsCategoriesRequest, ListCallAnalyticsCategoriesResponse } from "../models/models_0";
+import { de_ListCallAnalyticsCategoriesCommand, se_ListCallAnalyticsCategoriesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCallAnalyticsCategoriesCommand}.
  */
 export interface ListCallAnalyticsCategoriesCommandInput extends ListCallAnalyticsCategoriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCallAnalyticsCategoriesCommand}.
  */
 export interface ListCallAnalyticsCategoriesCommandOutput
@@ -37,6 +33,7 @@ export interface ListCallAnalyticsCategoriesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of Call Analytics categories, including all rules that make up each
  *             category.</p>
  *          <p>To get detailed information about a specific Call Analytics category, use the  operation.</p>
@@ -46,10 +43,16 @@ export interface ListCallAnalyticsCategoriesCommandOutput
  * import { TranscribeClient, ListCallAnalyticsCategoriesCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListCallAnalyticsCategoriesCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // ListCallAnalyticsCategoriesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListCallAnalyticsCategoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCallAnalyticsCategoriesCommandInput - {@link ListCallAnalyticsCategoriesCommandInput}
+ * @returns {@link ListCallAnalyticsCategoriesCommandOutput}
  * @see {@link ListCallAnalyticsCategoriesCommandInput} for command's `input` shape.
  * @see {@link ListCallAnalyticsCategoriesCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -87,6 +90,9 @@ export class ListCallAnalyticsCategoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCallAnalyticsCategoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class ListCallAnalyticsCategoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCallAnalyticsCategoriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCallAnalyticsCategoriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +132,21 @@ export class ListCallAnalyticsCategoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCallAnalyticsCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCallAnalyticsCategoriesCommand(input, context);
+    return se_ListCallAnalyticsCategoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCallAnalyticsCategoriesCommandOutput> {
-    return deserializeAws_json1_1ListCallAnalyticsCategoriesCommand(output, context);
+    return de_ListCallAnalyticsCategoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeSecurityGroupsRequest,
-  DescribeSecurityGroupsRequestFilterSensitiveLog,
-  DescribeSecurityGroupsResult,
-  DescribeSecurityGroupsResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSecurityGroupsCommand,
-  serializeAws_ec2DescribeSecurityGroupsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeSecurityGroupsRequest, DescribeSecurityGroupsResult } from "../models/models_4";
+import { de_DescribeSecurityGroupsCommand, se_DescribeSecurityGroupsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSecurityGroupsCommand}.
  */
 export interface DescribeSecurityGroupsCommandInput extends DescribeSecurityGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSecurityGroupsCommand}.
  */
 export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified security groups or all of your security groups.</p>
  *          <p>A security group is for use with instances either in the EC2-Classic platform
  * 				or in a specific VPC. For more information, see
@@ -51,10 +48,31 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * import { EC2Client, DescribeSecurityGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSecurityGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSecurityGroupsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   GroupIds: [ // GroupIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   GroupNames: [ // GroupNameStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecurityGroupsCommandInput - {@link DescribeSecurityGroupsCommandInput}
+ * @returns {@link DescribeSecurityGroupsCommandOutput}
  * @see {@link DescribeSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -109,6 +127,9 @@ export class DescribeSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +158,8 @@ export class DescribeSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSecurityGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSecurityGroupsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +169,18 @@ export class DescribeSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSecurityGroupsCommand(input, context);
+    return se_DescribeSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSecurityGroupsCommandOutput> {
-    return deserializeAws_ec2DescribeSecurityGroupsCommand(output, context);
+    return de_DescribeSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

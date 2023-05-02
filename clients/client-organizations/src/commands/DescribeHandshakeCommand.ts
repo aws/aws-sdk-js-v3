@@ -15,26 +15,27 @@ import {
 
 import {
   DescribeHandshakeRequest,
-  DescribeHandshakeRequestFilterSensitiveLog,
   DescribeHandshakeResponse,
   DescribeHandshakeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DescribeHandshakeCommand,
-  serializeAws_json1_1DescribeHandshakeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeHandshakeCommand, se_DescribeHandshakeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHandshakeCommand}.
  */
 export interface DescribeHandshakeCommandInput extends DescribeHandshakeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHandshakeCommand}.
  */
 export interface DescribeHandshakeCommandOutput extends DescribeHandshakeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a previously requested handshake. The handshake ID comes
  *             from the response to the original <a>InviteAccountToOrganization</a>
  *             operation that generated the handshake.</p>
@@ -48,10 +49,15 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  * import { OrganizationsClient, DescribeHandshakeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeHandshakeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // DescribeHandshakeRequest
+ *   HandshakeId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHandshakeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHandshakeCommandInput - {@link DescribeHandshakeCommandInput}
+ * @returns {@link DescribeHandshakeCommandOutput}
  * @see {@link DescribeHandshakeCommandInput} for command's `input` shape.
  * @see {@link DescribeHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -257,6 +263,9 @@ export class DescribeHandshakeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHandshakeCommandInput) {
     // Start section: command_constructor
     super();
@@ -285,7 +294,7 @@ export class DescribeHandshakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHandshakeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeHandshakeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -296,12 +305,18 @@ export class DescribeHandshakeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHandshakeCommand(input, context);
+    return se_DescribeHandshakeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHandshakeCommandOutput> {
-    return deserializeAws_json1_1DescribeHandshakeCommand(output, context);
+    return de_DescribeHandshakeCommand(output, context);
   }
 
   // Start section: command_body_extra

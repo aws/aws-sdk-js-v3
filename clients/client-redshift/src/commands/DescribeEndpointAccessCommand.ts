@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEndpointAccessMessage,
-  DescribeEndpointAccessMessageFilterSensitiveLog,
-  EndpointAccessList,
-  EndpointAccessListFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEndpointAccessCommand,
-  serializeAws_queryDescribeEndpointAccessCommand,
-} from "../protocols/Aws_query";
+import { DescribeEndpointAccessMessage, EndpointAccessList } from "../models/models_0";
+import { de_DescribeEndpointAccessCommand, se_DescribeEndpointAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEndpointAccessCommand}.
  */
 export interface DescribeEndpointAccessCommandInput extends DescribeEndpointAccessMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEndpointAccessCommand}.
  */
 export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a Redshift-managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList,
  * import { RedshiftClient, DescribeEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeEndpointAccessMessage
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   ResourceOwner: "STRING_VALUE",
+ *   EndpointName: "STRING_VALUE",
+ *   VpcId: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointAccessCommandInput - {@link DescribeEndpointAccessCommandInput}
+ * @returns {@link DescribeEndpointAccessCommandOutput}
  * @see {@link DescribeEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +117,8 @@ export class DescribeEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointAccessMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EndpointAccessListFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +128,18 @@ export class DescribeEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEndpointAccessCommand(input, context);
+    return se_DescribeEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointAccessCommandOutput> {
-    return deserializeAws_queryDescribeEndpointAccessCommand(output, context);
+    return de_DescribeEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  RejectCertificateTransferRequest,
-  RejectCertificateTransferRequestFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1RejectCertificateTransferCommand,
-  serializeAws_restJson1RejectCertificateTransferCommand,
-} from "../protocols/Aws_restJson1";
+import { RejectCertificateTransferRequest } from "../models/models_2";
+import { de_RejectCertificateTransferCommand, se_RejectCertificateTransferCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectCertificateTransferCommand}.
  */
 export interface RejectCertificateTransferCommandInput extends RejectCertificateTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectCertificateTransferCommand}.
  */
 export interface RejectCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects a pending certificate transfer. After IoT rejects a certificate transfer,
  *          the certificate status changes from <b>PENDING_TRANSFER</b> to
  *             <b>INACTIVE</b>.</p>
@@ -47,10 +46,16 @@ export interface RejectCertificateTransferCommandOutput extends __MetadataBearer
  * import { IoTClient, RejectCertificateTransferCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RejectCertificateTransferCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // RejectCertificateTransferRequest
+ *   certificateId: "STRING_VALUE", // required
+ *   rejectReason: "STRING_VALUE",
+ * };
  * const command = new RejectCertificateTransferCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectCertificateTransferCommandInput - {@link RejectCertificateTransferCommandInput}
+ * @returns {@link RejectCertificateTransferCommandOutput}
  * @see {@link RejectCertificateTransferCommandInput} for command's `input` shape.
  * @see {@link RejectCertificateTransferCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -96,6 +101,9 @@ export class RejectCertificateTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectCertificateTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +132,8 @@ export class RejectCertificateTransferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectCertificateTransferRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,15 +143,21 @@ export class RejectCertificateTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectCertificateTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RejectCertificateTransferCommand(input, context);
+    return se_RejectCertificateTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectCertificateTransferCommandOutput> {
-    return deserializeAws_restJson1RejectCertificateTransferCommand(output, context);
+    return de_RejectCertificateTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

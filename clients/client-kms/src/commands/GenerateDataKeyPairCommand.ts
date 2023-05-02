@@ -16,25 +16,26 @@ import {
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   GenerateDataKeyPairRequest,
-  GenerateDataKeyPairRequestFilterSensitiveLog,
   GenerateDataKeyPairResponse,
   GenerateDataKeyPairResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GenerateDataKeyPairCommand,
-  serializeAws_json1_1GenerateDataKeyPairCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GenerateDataKeyPairCommand, se_GenerateDataKeyPairCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateDataKeyPairCommand}.
  */
 export interface GenerateDataKeyPairCommandInput extends GenerateDataKeyPairRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateDataKeyPairCommand}.
  */
 export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
  *       a plaintext public key, a plaintext private key, and a copy of the private key that is
  *       encrypted under the symmetric encryption KMS key you specify. You can use the data key pair to
@@ -64,6 +65,15 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *       to encrypt the private key. The public key is a DER-encoded X.509 SubjectPublicKeyInfo, as
  *       specified in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. The private
  *       key is a DER-encoded PKCS8 PrivateKeyInfo, as specified in <a href="https://tools.ietf.org/html/rfc5958">RFC 5958</a>.</p>
+ *          <p>
+ *             <code>GenerateDataKeyPair</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
+ *       isolated compute environment in Amazon EC2. To call <code>GenerateDataKeyPair</code> for an Amazon Web Services Nitro
+ *       enclave, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code> parameter
+ *       to provide the attestation document for the enclave. <code>GenerateDataKeyPair</code> returns the public data key and a
+ *       copy of the private data key encrypted under the specified KMS key, as usual. But instead of a
+ *       plaintext copy of the private data key (<code>PrivateKeyPlaintext</code>), the response includes a copy of the private data key encrypted under
+ *       the public key from the attestation document (<code>CiphertextForRecipient</code>).
+ *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>..</p>
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
@@ -112,10 +122,26 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * import { KMSClient, GenerateDataKeyPairCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateDataKeyPairCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // GenerateDataKeyPairRequest
+ *   EncryptionContext: { // EncryptionContextType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KeyId: "STRING_VALUE", // required
+ *   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2", // required
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ *   Recipient: { // RecipientInfo
+ *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
+ *     AttestationDocument: "BLOB_VALUE",
+ *   },
+ * };
  * const command = new GenerateDataKeyPairCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateDataKeyPairCommandInput - {@link GenerateDataKeyPairCommandInput}
+ * @returns {@link GenerateDataKeyPairCommandOutput}
  * @see {@link GenerateDataKeyPairCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyPairCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -225,6 +251,9 @@ export class GenerateDataKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateDataKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -253,7 +282,7 @@ export class GenerateDataKeyPairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateDataKeyPairRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GenerateDataKeyPairResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -264,12 +293,18 @@ export class GenerateDataKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateDataKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateDataKeyPairCommand(input, context);
+    return se_GenerateDataKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateDataKeyPairCommandOutput> {
-    return deserializeAws_json1_1GenerateDataKeyPairCommand(output, context);
+    return de_GenerateDataKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

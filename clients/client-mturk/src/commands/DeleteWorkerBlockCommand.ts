@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteWorkerBlockRequest,
-  DeleteWorkerBlockRequestFilterSensitiveLog,
-  DeleteWorkerBlockResponse,
-  DeleteWorkerBlockResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteWorkerBlockRequest, DeleteWorkerBlockResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1DeleteWorkerBlockCommand,
-  serializeAws_json1_1DeleteWorkerBlockCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteWorkerBlockCommand, se_DeleteWorkerBlockCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkerBlockCommand}.
  */
 export interface DeleteWorkerBlockCommandInput extends DeleteWorkerBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkerBlockCommand}.
  */
 export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>DeleteWorkerBlock</code> operation allows you to reinstate a blocked Worker to work on your HITs. This operation reverses the effects of the CreateWorkerBlock operation. You need the Worker ID to use this operation. If the Worker ID is missing or invalid, this operation fails and returns the message “WorkerId is invalid.” If the specified Worker is not blocked, this operation returns successfully.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockRespons
  * import { MTurkClient, DeleteWorkerBlockCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, DeleteWorkerBlockCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // DeleteWorkerBlockRequest
+ *   WorkerId: "STRING_VALUE", // required
+ *   Reason: "STRING_VALUE",
+ * };
  * const command = new DeleteWorkerBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkerBlockCommandInput - {@link DeleteWorkerBlockCommandInput}
+ * @returns {@link DeleteWorkerBlockCommandOutput}
  * @see {@link DeleteWorkerBlockCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkerBlockCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -75,6 +78,9 @@ export class DeleteWorkerBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkerBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class DeleteWorkerBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkerBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkerBlockResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class DeleteWorkerBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkerBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWorkerBlockCommand(input, context);
+    return se_DeleteWorkerBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkerBlockCommandOutput> {
-    return deserializeAws_json1_1DeleteWorkerBlockCommand(output, context);
+    return de_DeleteWorkerBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

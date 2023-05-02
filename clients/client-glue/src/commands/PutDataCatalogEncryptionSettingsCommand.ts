@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { PutDataCatalogEncryptionSettingsRequest, PutDataCatalogEncryptionSettingsResponse } from "../models/models_2";
 import {
-  PutDataCatalogEncryptionSettingsRequest,
-  PutDataCatalogEncryptionSettingsRequestFilterSensitiveLog,
-  PutDataCatalogEncryptionSettingsResponse,
-  PutDataCatalogEncryptionSettingsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand,
-  serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand,
+  de_PutDataCatalogEncryptionSettingsCommand,
+  se_PutDataCatalogEncryptionSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDataCatalogEncryptionSettingsCommand}.
  */
 export interface PutDataCatalogEncryptionSettingsCommandInput extends PutDataCatalogEncryptionSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDataCatalogEncryptionSettingsCommand}.
  */
 export interface PutDataCatalogEncryptionSettingsCommandOutput
@@ -37,6 +36,7 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the security configuration for a specified catalog. After the configuration has been
  *       set, the specified encryption is applied to every catalog write thereafter.</p>
  * @example
@@ -45,10 +45,25 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
  * import { GlueClient, PutDataCatalogEncryptionSettingsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, PutDataCatalogEncryptionSettingsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // PutDataCatalogEncryptionSettingsRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DataCatalogEncryptionSettings: { // DataCatalogEncryptionSettings
+ *     EncryptionAtRest: { // EncryptionAtRest
+ *       CatalogEncryptionMode: "DISABLED" || "SSE-KMS", // required
+ *       SseAwsKmsKeyId: "STRING_VALUE",
+ *     },
+ *     ConnectionPasswordEncryption: { // ConnectionPasswordEncryption
+ *       ReturnConnectionPasswordEncrypted: true || false, // required
+ *       AwsKmsKeyId: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new PutDataCatalogEncryptionSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDataCatalogEncryptionSettingsCommandInput - {@link PutDataCatalogEncryptionSettingsCommandInput}
+ * @returns {@link PutDataCatalogEncryptionSettingsCommandOutput}
  * @see {@link PutDataCatalogEncryptionSettingsCommandInput} for command's `input` shape.
  * @see {@link PutDataCatalogEncryptionSettingsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +96,9 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDataCatalogEncryptionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +127,8 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDataCatalogEncryptionSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDataCatalogEncryptionSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +138,24 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutDataCatalogEncryptionSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(input, context);
+    return se_PutDataCatalogEncryptionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDataCatalogEncryptionSettingsCommandOutput> {
-    return deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(output, context);
+    return de_PutDataCatalogEncryptionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

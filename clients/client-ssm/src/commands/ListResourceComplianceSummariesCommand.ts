@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListResourceComplianceSummariesRequest, ListResourceComplianceSummariesResult } from "../models/models_1";
 import {
-  ListResourceComplianceSummariesRequest,
-  ListResourceComplianceSummariesRequestFilterSensitiveLog,
-  ListResourceComplianceSummariesResult,
-  ListResourceComplianceSummariesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListResourceComplianceSummariesCommand,
-  serializeAws_json1_1ListResourceComplianceSummariesCommand,
+  de_ListResourceComplianceSummariesCommand,
+  se_ListResourceComplianceSummariesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceComplianceSummariesCommand}.
  */
 export interface ListResourceComplianceSummariesCommandInput extends ListResourceComplianceSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceComplianceSummariesCommand}.
  */
 export interface ListResourceComplianceSummariesCommandOutput
@@ -37,6 +36,7 @@ export interface ListResourceComplianceSummariesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a resource-level summary count. The summary includes information about compliant and
  *    non-compliant statuses and detailed compliance-item severity counts, according to the filter
  *    criteria you specify.</p>
@@ -46,10 +46,25 @@ export interface ListResourceComplianceSummariesCommandOutput
  * import { SSMClient, ListResourceComplianceSummariesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListResourceComplianceSummariesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListResourceComplianceSummariesRequest
+ *   Filters: [ // ComplianceStringFilterList
+ *     { // ComplianceStringFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // ComplianceStringFilterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *       Type: "EQUAL" || "NOT_EQUAL" || "BEGIN_WITH" || "LESS_THAN" || "GREATER_THAN",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListResourceComplianceSummariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceComplianceSummariesCommandInput - {@link ListResourceComplianceSummariesCommandInput}
+ * @returns {@link ListResourceComplianceSummariesCommandOutput}
  * @see {@link ListResourceComplianceSummariesCommandInput} for command's `input` shape.
  * @see {@link ListResourceComplianceSummariesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -82,6 +97,9 @@ export class ListResourceComplianceSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceComplianceSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +128,8 @@ export class ListResourceComplianceSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceComplianceSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceComplianceSummariesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +139,24 @@ export class ListResourceComplianceSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListResourceComplianceSummariesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceComplianceSummariesCommand(input, context);
+    return se_ListResourceComplianceSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourceComplianceSummariesCommandOutput> {
-    return deserializeAws_json1_1ListResourceComplianceSummariesCommand(output, context);
+    return de_ListResourceComplianceSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

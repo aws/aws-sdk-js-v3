@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  GetWorkerRequest,
-  GetWorkerRequestFilterSensitiveLog,
-  GetWorkerResponse,
-  GetWorkerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkerCommand,
-  serializeAws_restJson1GetWorkerCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWorkerRequest, GetWorkerResponse } from "../models/models_0";
+import { de_GetWorkerCommand, se_GetWorkerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkerCommand}.
  */
 export interface GetWorkerCommandInput extends GetWorkerRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkerCommand}.
  */
 export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to get a worker
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBea
  * import { IoTRoboRunnerClient, GetWorkerCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, GetWorkerCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // GetWorkerRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetWorkerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkerCommandInput - {@link GetWorkerCommandInput}
+ * @returns {@link GetWorkerCommandOutput}
  * @see {@link GetWorkerCommandInput} for command's `input` shape.
  * @see {@link GetWorkerCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetWorkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetWorkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetWorkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkerCommand(input, context);
+    return se_GetWorkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkerCommandOutput> {
-    return deserializeAws_restJson1GetWorkerCommand(output, context);
+    return de_GetWorkerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   GetFieldLevelEncryptionProfileConfigRequest,
-  GetFieldLevelEncryptionProfileConfigRequestFilterSensitiveLog,
   GetFieldLevelEncryptionProfileConfigResult,
-  GetFieldLevelEncryptionProfileConfigResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand,
-  serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand,
+  de_GetFieldLevelEncryptionProfileConfigCommand,
+  se_GetFieldLevelEncryptionProfileConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetFieldLevelEncryptionProfileConfigCommand}.
  */
 export interface GetFieldLevelEncryptionProfileConfigCommandInput extends GetFieldLevelEncryptionProfileConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFieldLevelEncryptionProfileConfigCommand}.
  */
 export interface GetFieldLevelEncryptionProfileConfigCommandOutput
@@ -37,6 +39,7 @@ export interface GetFieldLevelEncryptionProfileConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the field-level encryption profile configuration information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface GetFieldLevelEncryptionProfileConfigCommandOutput
  * import { CloudFrontClient, GetFieldLevelEncryptionProfileConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetFieldLevelEncryptionProfileConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetFieldLevelEncryptionProfileConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetFieldLevelEncryptionProfileConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFieldLevelEncryptionProfileConfigCommandInput - {@link GetFieldLevelEncryptionProfileConfigCommandInput}
+ * @returns {@link GetFieldLevelEncryptionProfileConfigCommandOutput}
  * @see {@link GetFieldLevelEncryptionProfileConfigCommandInput} for command's `input` shape.
  * @see {@link GetFieldLevelEncryptionProfileConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -77,6 +85,9 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFieldLevelEncryptionProfileConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +116,8 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFieldLevelEncryptionProfileConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFieldLevelEncryptionProfileConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +127,24 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetFieldLevelEncryptionProfileConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand(input, context);
+    return se_GetFieldLevelEncryptionProfileConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> {
-    return deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand(output, context);
+    return de_GetFieldLevelEncryptionProfileConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

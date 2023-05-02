@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListGroupPoliciesRequest,
-  ListGroupPoliciesRequestFilterSensitiveLog,
-  ListGroupPoliciesResponse,
-  ListGroupPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListGroupPoliciesCommand,
-  serializeAws_queryListGroupPoliciesCommand,
-} from "../protocols/Aws_query";
+import { ListGroupPoliciesRequest, ListGroupPoliciesResponse } from "../models/models_0";
+import { de_ListGroupPoliciesCommand, se_ListGroupPoliciesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupPoliciesCommand}.
  */
 export interface ListGroupPoliciesCommandInput extends ListGroupPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupPoliciesCommand}.
  */
 export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the names of the inline policies that are embedded in the specified IAM
  *             group.</p>
  *          <p>An IAM group can also have managed policies attached to it. To list the managed
@@ -50,10 +47,17 @@ export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesRespons
  * import { IAMClient, ListGroupPoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListGroupPoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListGroupPoliciesRequest
+ *   GroupName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListGroupPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupPoliciesCommandInput - {@link ListGroupPoliciesCommandInput}
+ * @returns {@link ListGroupPoliciesCommandOutput}
  * @see {@link ListGroupPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListGroupPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -104,6 +108,9 @@ export class ListGroupPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +139,8 @@ export class ListGroupPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +150,18 @@ export class ListGroupPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListGroupPoliciesCommand(input, context);
+    return se_ListGroupPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupPoliciesCommandOutput> {
-    return deserializeAws_queryListGroupPoliciesCommand(output, context);
+    return de_ListGroupPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

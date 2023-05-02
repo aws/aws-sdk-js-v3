@@ -18,23 +18,24 @@ import {
   CreateMicrosoftADRequest,
   CreateMicrosoftADRequestFilterSensitiveLog,
   CreateMicrosoftADResult,
-  CreateMicrosoftADResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateMicrosoftADCommand,
-  serializeAws_json1_1CreateMicrosoftADCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateMicrosoftADCommand, se_CreateMicrosoftADCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMicrosoftADCommand}.
  */
 export interface CreateMicrosoftADCommandInput extends CreateMicrosoftADRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMicrosoftADCommand}.
  */
 export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Microsoft AD directory in the Amazon Web Services Cloud. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html">Managed Microsoft AD</a> in the <i>Directory Service Admin Guide</i>.</p>
  *          <p>Before you call <i>CreateMicrosoftAD</i>, ensure that all of the required
  *       permissions have been explicitly granted through a policy. For details about what permissions
@@ -45,10 +46,31 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  * import { DirectoryServiceClient, CreateMicrosoftADCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateMicrosoftADCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // CreateMicrosoftADRequest
+ *   Name: "STRING_VALUE", // required
+ *   ShortName: "STRING_VALUE",
+ *   Password: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   VpcSettings: { // DirectoryVpcSettings
+ *     VpcId: "STRING_VALUE", // required
+ *     SubnetIds: [ // SubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Edition: "Enterprise" || "Standard",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMicrosoftADCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMicrosoftADCommandInput - {@link CreateMicrosoftADCommandInput}
+ * @returns {@link CreateMicrosoftADCommandOutput}
  * @see {@link CreateMicrosoftADCommandInput} for command's `input` shape.
  * @see {@link CreateMicrosoftADCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -89,6 +111,9 @@ export class CreateMicrosoftADCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMicrosoftADCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +143,7 @@ export class CreateMicrosoftADCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateMicrosoftADRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMicrosoftADResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +153,18 @@ export class CreateMicrosoftADCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMicrosoftADCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMicrosoftADCommand(input, context);
+    return se_CreateMicrosoftADCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMicrosoftADCommandOutput> {
-    return deserializeAws_json1_1CreateMicrosoftADCommand(output, context);
+    return de_CreateMicrosoftADCommand(output, context);
   }
 
   // Start section: command_body_extra

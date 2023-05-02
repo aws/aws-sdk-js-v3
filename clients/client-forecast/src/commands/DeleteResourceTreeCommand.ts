@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteResourceTreeRequest, DeleteResourceTreeRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResourceTreeCommand,
-  serializeAws_json1_1DeleteResourceTreeCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteResourceTreeRequest } from "../models/models_0";
+import { de_DeleteResourceTreeCommand, se_DeleteResourceTreeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourceTreeCommand}.
  */
 export interface DeleteResourceTreeCommandInput extends DeleteResourceTreeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourceTreeCommand}.
  */
 export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an entire resource tree. This operation will delete the parent resource and
  *             its child resources.</p>
  *          <p>Child resources are resources that were created from another resource. For example,
@@ -67,10 +69,15 @@ export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, DeleteResourceTreeCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteResourceTreeCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DeleteResourceTreeRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourceTreeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceTreeCommandInput - {@link DeleteResourceTreeCommandInput}
+ * @returns {@link DeleteResourceTreeCommandOutput}
  * @see {@link DeleteResourceTreeCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceTreeCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -105,6 +112,9 @@ export class DeleteResourceTreeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceTreeCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +143,8 @@ export class DeleteResourceTreeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceTreeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +154,18 @@ export class DeleteResourceTreeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceTreeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResourceTreeCommand(input, context);
+    return se_DeleteResourceTreeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceTreeCommandOutput> {
-    return deserializeAws_json1_1DeleteResourceTreeCommand(output, context);
+    return de_DeleteResourceTreeCommand(output, context);
   }
 
   // Start section: command_body_extra

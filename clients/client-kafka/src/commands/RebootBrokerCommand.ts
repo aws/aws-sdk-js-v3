@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  RebootBrokerRequest,
-  RebootBrokerRequestFilterSensitiveLog,
-  RebootBrokerResponse,
-  RebootBrokerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RebootBrokerCommand,
-  serializeAws_restJson1RebootBrokerCommand,
-} from "../protocols/Aws_restJson1";
+import { RebootBrokerRequest, RebootBrokerResponse } from "../models/models_0";
+import { de_RebootBrokerCommand, se_RebootBrokerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RebootBrokerCommand}.
  */
 export interface RebootBrokerCommandInput extends RebootBrokerRequest {}
 /**
+ * @public
+ *
  * The output of {@link RebootBrokerCommand}.
  */
 export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Reboots brokers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  * import { KafkaClient, RebootBrokerCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, RebootBrokerCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // RebootBrokerRequest
+ *   BrokerIds: [ // __listOf__string // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ClusterArn: "STRING_VALUE", // required
+ * };
  * const command = new RebootBrokerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootBrokerCommandInput - {@link RebootBrokerCommandInput}
+ * @returns {@link RebootBrokerCommandOutput}
  * @see {@link RebootBrokerCommandInput} for command's `input` shape.
  * @see {@link RebootBrokerCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -90,6 +95,9 @@ export class RebootBrokerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootBrokerCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +124,8 @@ export class RebootBrokerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootBrokerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootBrokerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +135,18 @@ export class RebootBrokerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootBrokerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RebootBrokerCommand(input, context);
+    return se_RebootBrokerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootBrokerCommandOutput> {
-    return deserializeAws_restJson1RebootBrokerCommand(output, context);
+    return de_RebootBrokerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DeleteThesaurusRequest, DeleteThesaurusRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteThesaurusCommand,
-  serializeAws_json1_1DeleteThesaurusCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteThesaurusRequest } from "../models/models_0";
+import { de_DeleteThesaurusCommand, se_DeleteThesaurusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteThesaurusCommand}.
  */
 export interface DeleteThesaurusCommandInput extends DeleteThesaurusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteThesaurusCommand}.
  */
 export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing Amazon Kendra thesaurus.
  *       </p>
  * @example
@@ -38,10 +40,16 @@ export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
  * import { KendraClient, DeleteThesaurusCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteThesaurusCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DeleteThesaurusRequest
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteThesaurusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteThesaurusCommandInput - {@link DeleteThesaurusCommandInput}
+ * @returns {@link DeleteThesaurusCommandOutput}
  * @see {@link DeleteThesaurusCommandInput} for command's `input` shape.
  * @see {@link DeleteThesaurusCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -56,7 +64,7 @@ export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -89,6 +97,9 @@ export class DeleteThesaurusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteThesaurusCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class DeleteThesaurusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteThesaurusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +139,18 @@ export class DeleteThesaurusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteThesaurusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteThesaurusCommand(input, context);
+    return se_DeleteThesaurusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThesaurusCommandOutput> {
-    return deserializeAws_json1_1DeleteThesaurusCommand(output, context);
+    return de_DeleteThesaurusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  ListCustomVocabularyItemsRequest,
-  ListCustomVocabularyItemsRequestFilterSensitiveLog,
-  ListCustomVocabularyItemsResponse,
-  ListCustomVocabularyItemsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCustomVocabularyItemsCommand,
-  serializeAws_restJson1ListCustomVocabularyItemsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCustomVocabularyItemsRequest, ListCustomVocabularyItemsResponse } from "../models/models_0";
+import { de_ListCustomVocabularyItemsCommand, se_ListCustomVocabularyItemsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomVocabularyItemsCommand}.
  */
 export interface ListCustomVocabularyItemsCommandInput extends ListCustomVocabularyItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomVocabularyItemsCommand}.
  */
 export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabularyItemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Paginated list of custom vocabulary items for a given bot locale's
  *          custom vocabulary.</p>
  * @example
@@ -43,10 +40,19 @@ export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabu
  * import { LexModelsV2Client, ListCustomVocabularyItemsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListCustomVocabularyItemsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // ListCustomVocabularyItemsRequest
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListCustomVocabularyItemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomVocabularyItemsCommandInput - {@link ListCustomVocabularyItemsCommandInput}
+ * @returns {@link ListCustomVocabularyItemsCommandOutput}
  * @see {@link ListCustomVocabularyItemsCommandInput} for command's `input` shape.
  * @see {@link ListCustomVocabularyItemsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -89,6 +95,9 @@ export class ListCustomVocabularyItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomVocabularyItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +126,8 @@ export class ListCustomVocabularyItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomVocabularyItemsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomVocabularyItemsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +137,21 @@ export class ListCustomVocabularyItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCustomVocabularyItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCustomVocabularyItemsCommand(input, context);
+    return se_ListCustomVocabularyItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomVocabularyItemsCommandOutput> {
-    return deserializeAws_restJson1ListCustomVocabularyItemsCommand(output, context);
+    return de_ListCustomVocabularyItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ListBackupPlansInput,
-  ListBackupPlansInputFilterSensitiveLog,
-  ListBackupPlansOutput,
-  ListBackupPlansOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBackupPlansCommand,
-  serializeAws_restJson1ListBackupPlansCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBackupPlansInput, ListBackupPlansOutput } from "../models/models_0";
+import { de_ListBackupPlansCommand, se_ListBackupPlansCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBackupPlansCommand}.
  */
 export interface ListBackupPlansCommandInput extends ListBackupPlansInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBackupPlansCommand}.
  */
 export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all active backup plans for an authenticated account. The list
  *          contains information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion
  *          dates, version IDs, plan names, and creator request IDs.</p>
@@ -44,10 +41,17 @@ export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __M
  * import { BackupClient, ListBackupPlansCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupPlansCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListBackupPlansInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   IncludeDeleted: true || false,
+ * };
  * const command = new ListBackupPlansCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackupPlansCommandInput - {@link ListBackupPlansCommandInput}
+ * @returns {@link ListBackupPlansCommandOutput}
  * @see {@link ListBackupPlansCommandInput} for command's `input` shape.
  * @see {@link ListBackupPlansCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -84,6 +88,9 @@ export class ListBackupPlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackupPlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class ListBackupPlansCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackupPlansInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBackupPlansOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class ListBackupPlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackupPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBackupPlansCommand(input, context);
+    return se_ListBackupPlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupPlansCommandOutput> {
-    return deserializeAws_restJson1ListBackupPlansCommand(output, context);
+    return de_ListBackupPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListEnvironmentsInput,
-  ListEnvironmentsInputFilterSensitiveLog,
-  ListEnvironmentsOutput,
-  ListEnvironmentsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEnvironmentsInput, ListEnvironmentsOutput } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import {
-  deserializeAws_restJson1ListEnvironmentsCommand,
-  serializeAws_restJson1ListEnvironmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEnvironmentsCommand}.
  */
 export interface ListEnvironmentsCommandInput extends ListEnvironmentsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEnvironmentsCommand}.
  */
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon Managed Workflows for Apache Airflow (MWAA) environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * import { MWAAClient, ListEnvironmentsCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, ListEnvironmentsCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
+ * const input = { // ListEnvironmentsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
+ * @returns {@link ListEnvironmentsCommandOutput}
  * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
@@ -75,6 +78,9 @@ export class ListEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class ListEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEnvironmentsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class ListEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEnvironmentsCommand(input, context);
+    return se_ListEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentsCommandOutput> {
-    return deserializeAws_restJson1ListEnvironmentsCommand(output, context);
+    return de_ListEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

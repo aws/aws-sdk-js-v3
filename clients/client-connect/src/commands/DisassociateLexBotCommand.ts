@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DisassociateLexBotRequest, DisassociateLexBotRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateLexBotCommand,
-  serializeAws_restJson1DisassociateLexBotCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateLexBotRequest } from "../models/models_0";
+import { de_DisassociateLexBotCommand, se_DisassociateLexBotCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateLexBotCommand}.
  */
 export interface DisassociateLexBotCommandInput extends DisassociateLexBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateLexBotCommand}.
  */
 export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex
  *    bot.</p>
@@ -39,10 +41,17 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DisassociateLexBotCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateLexBotCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DisassociateLexBotRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   BotName: "STRING_VALUE", // required
+ *   LexRegion: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateLexBotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateLexBotCommandInput - {@link DisassociateLexBotCommandInput}
+ * @returns {@link DisassociateLexBotCommandOutput}
  * @see {@link DisassociateLexBotCommandInput} for command's `input` shape.
  * @see {@link DisassociateLexBotCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -81,6 +90,9 @@ export class DisassociateLexBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateLexBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +121,8 @@ export class DisassociateLexBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateLexBotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +132,18 @@ export class DisassociateLexBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateLexBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateLexBotCommand(input, context);
+    return se_DisassociateLexBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateLexBotCommandOutput> {
-    return deserializeAws_restJson1DisassociateLexBotCommand(output, context);
+    return de_DisassociateLexBotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  ListFlowsRequest,
-  ListFlowsRequestFilterSensitiveLog,
-  ListFlowsResponse,
-  ListFlowsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFlowsCommand,
-  serializeAws_restJson1ListFlowsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFlowsRequest, ListFlowsResponse } from "../models/models_0";
+import { de_ListFlowsCommand, se_ListFlowsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFlowsCommand}.
  */
 export interface ListFlowsCommandInput extends ListFlowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFlowsCommand}.
  */
 export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists all of the flows associated with your account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * import { AppflowClient, ListFlowsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, ListFlowsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = { // ListFlowsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListFlowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFlowsCommandInput - {@link ListFlowsCommandInput}
+ * @returns {@link ListFlowsCommandOutput}
  * @see {@link ListFlowsCommandInput} for command's `input` shape.
  * @see {@link ListFlowsCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -76,6 +79,9 @@ export class ListFlowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFlowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +108,8 @@ export class ListFlowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFlowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFlowsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +119,18 @@ export class ListFlowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFlowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFlowsCommand(input, context);
+    return se_ListFlowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFlowsCommandOutput> {
-    return deserializeAws_restJson1ListFlowsCommand(output, context);
+    return de_ListFlowsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,25 +16,26 @@ import {
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import {
   ListUsersByPermissionGroupRequest,
-  ListUsersByPermissionGroupRequestFilterSensitiveLog,
   ListUsersByPermissionGroupResponse,
   ListUsersByPermissionGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListUsersByPermissionGroupCommand,
-  serializeAws_restJson1ListUsersByPermissionGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListUsersByPermissionGroupCommand, se_ListUsersByPermissionGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUsersByPermissionGroupCommand}.
  */
 export interface ListUsersByPermissionGroupCommandInput extends ListUsersByPermissionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUsersByPermissionGroupCommand}.
  */
 export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPermissionGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists details of all the users in a specific permission group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,17 @@ export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPerm
  * import { FinspaceDataClient, ListUsersByPermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, ListUsersByPermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // ListUsersByPermissionGroupRequest
+ *   permissionGroupId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"), // required
+ * };
  * const command = new ListUsersByPermissionGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUsersByPermissionGroupCommandInput - {@link ListUsersByPermissionGroupCommandInput}
+ * @returns {@link ListUsersByPermissionGroupCommandOutput}
  * @see {@link ListUsersByPermissionGroupCommandInput} for command's `input` shape.
  * @see {@link ListUsersByPermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -85,6 +93,9 @@ export class ListUsersByPermissionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUsersByPermissionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,7 +124,7 @@ export class ListUsersByPermissionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUsersByPermissionGroupRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListUsersByPermissionGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -124,15 +135,21 @@ export class ListUsersByPermissionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUsersByPermissionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUsersByPermissionGroupCommand(input, context);
+    return se_ListUsersByPermissionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListUsersByPermissionGroupCommandOutput> {
-    return deserializeAws_restJson1ListUsersByPermissionGroupCommand(output, context);
+    return de_ListUsersByPermissionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

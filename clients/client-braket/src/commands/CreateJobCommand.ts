@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import {
-  CreateJobRequest,
-  CreateJobRequestFilterSensitiveLog,
-  CreateJobResponse,
-  CreateJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateJobCommand,
-  serializeAws_restJson1CreateJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateJobRequest, CreateJobResponse } from "../models/models_0";
+import { de_CreateJobCommand, se_CreateJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJobCommand}.
  */
 export interface CreateJobCommandInput extends CreateJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJobCommand}.
  */
 export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Braket job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,63 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * import { BraketClient, CreateJobCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, CreateJobCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
+ * const input = { // CreateJobRequest
+ *   clientToken: "STRING_VALUE", // required
+ *   algorithmSpecification: { // AlgorithmSpecification
+ *     scriptModeConfig: { // ScriptModeConfig
+ *       entryPoint: "STRING_VALUE", // required
+ *       s3Uri: "STRING_VALUE", // required
+ *       compressionType: "STRING_VALUE",
+ *     },
+ *     containerImage: { // ContainerImage
+ *       uri: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   inputDataConfig: [ // InputConfigList
+ *     { // InputFileConfig
+ *       channelName: "STRING_VALUE", // required
+ *       contentType: "STRING_VALUE",
+ *       dataSource: { // DataSource
+ *         s3DataSource: { // S3DataSource
+ *           s3Uri: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   outputDataConfig: { // JobOutputDataConfig
+ *     kmsKeyId: "STRING_VALUE",
+ *     s3Path: "STRING_VALUE", // required
+ *   },
+ *   checkpointConfig: { // JobCheckpointConfig
+ *     localPath: "STRING_VALUE",
+ *     s3Uri: "STRING_VALUE", // required
+ *   },
+ *   jobName: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   stoppingCondition: { // JobStoppingCondition
+ *     maxRuntimeInSeconds: Number("int"),
+ *   },
+ *   instanceConfig: { // InstanceConfig
+ *     instanceType: "STRING_VALUE", // required
+ *     volumeSizeInGb: Number("int"), // required
+ *     instanceCount: Number("int"),
+ *   },
+ *   hyperParameters: { // HyperParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   deviceConfig: { // DeviceConfig
+ *     device: "STRING_VALUE", // required
+ *   },
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJobCommandInput - {@link CreateJobCommandInput}
+ * @returns {@link CreateJobCommandOutput}
  * @see {@link CreateJobCommandInput} for command's `input` shape.
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
@@ -91,6 +141,9 @@ export class CreateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +170,8 @@ export class CreateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +181,18 @@ export class CreateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateJobCommand(input, context);
+    return se_CreateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobCommandOutput> {
-    return deserializeAws_restJson1CreateJobCommand(output, context);
+    return de_CreateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

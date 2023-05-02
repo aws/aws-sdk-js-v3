@@ -3,6 +3,9 @@ import { PaginationConfiguration } from "@aws-sdk/types";
 
 import { ResourceExplorer2Client } from "../ResourceExplorer2Client";
 
+/**
+ * @public
+ */
 export interface ResourceExplorer2PaginationConfiguration extends PaginationConfiguration {
   client: ResourceExplorer2Client;
 }

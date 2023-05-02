@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeAdjustmentTypesAnswer, DescribeAdjustmentTypesAnswerFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAdjustmentTypesCommand,
-  serializeAws_queryDescribeAdjustmentTypesCommand,
-} from "../protocols/Aws_query";
+import { DescribeAdjustmentTypesAnswer } from "../models/models_0";
+import { de_DescribeAdjustmentTypesCommand, se_DescribeAdjustmentTypesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAdjustmentTypesCommand}.
  */
 export interface DescribeAdjustmentTypesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAdjustmentTypesCommand}.
  */
 export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustmentTypesAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available adjustment types for step scaling and simple scaling
  *             policies.</p>
  *          <p>The following adjustment types are supported:</p>
@@ -56,10 +58,13 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  * import { AutoScalingClient, DescribeAdjustmentTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeAdjustmentTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {};
  * const command = new DescribeAdjustmentTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAdjustmentTypesCommandInput - {@link DescribeAdjustmentTypesCommandInput}
+ * @returns {@link DescribeAdjustmentTypesCommandOutput}
  * @see {@link DescribeAdjustmentTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeAdjustmentTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -111,6 +116,9 @@ export class DescribeAdjustmentTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAdjustmentTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +147,8 @@ export class DescribeAdjustmentTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeAdjustmentTypesAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +158,18 @@ export class DescribeAdjustmentTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAdjustmentTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAdjustmentTypesCommand(input, context);
+    return se_DescribeAdjustmentTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAdjustmentTypesCommandOutput> {
-    return deserializeAws_queryDescribeAdjustmentTypesCommand(output, context);
+    return de_DescribeAdjustmentTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

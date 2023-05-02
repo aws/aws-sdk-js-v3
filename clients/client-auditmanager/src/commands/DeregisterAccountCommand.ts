@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  DeregisterAccountRequest,
-  DeregisterAccountRequestFilterSensitiveLog,
-  DeregisterAccountResponse,
-  DeregisterAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeregisterAccountCommand,
-  serializeAws_restJson1DeregisterAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { DeregisterAccountRequest, DeregisterAccountResponse } from "../models/models_0";
+import { de_DeregisterAccountCommand, se_DeregisterAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterAccountCommand}.
  */
 export interface DeregisterAccountCommandInput extends DeregisterAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterAccountCommand}.
  */
 export interface DeregisterAccountCommandOutput extends DeregisterAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deregisters an account in Audit Manager. </p>
  *          <note>
  *             <p>Before you deregister, you can use the <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html">UpdateSettings</a> API operation to set your preferred data retention policy. By
@@ -51,10 +48,13 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
  * import { AuditManagerClient, DeregisterAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, DeregisterAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {};
  * const command = new DeregisterAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterAccountCommandInput - {@link DeregisterAccountCommandInput}
+ * @returns {@link DeregisterAccountCommandOutput}
  * @see {@link DeregisterAccountCommandInput} for command's `input` shape.
  * @see {@link DeregisterAccountCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -92,6 +92,9 @@ export class DeregisterAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +123,8 @@ export class DeregisterAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +134,18 @@ export class DeregisterAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterAccountCommand(input, context);
+    return se_DeregisterAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterAccountCommandOutput> {
-    return deserializeAws_restJson1DeregisterAccountCommand(output, context);
+    return de_DeregisterAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

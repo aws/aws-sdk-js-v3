@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteBucketLifecycleRequest, DeleteBucketLifecycleRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketLifecycleCommand,
-  serializeAws_restXmlDeleteBucketLifecycleCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteBucketLifecycleRequest } from "../models/models_0";
+import { de_DeleteBucketLifecycleCommand, se_DeleteBucketLifecycleCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketLifecycleCommand}.
  */
 export interface DeleteBucketLifecycleCommandInput extends DeleteBucketLifecycleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketLifecycleCommand}.
  */
 export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the lifecycle configuration from the specified bucket. Amazon S3 removes all the
  *          lifecycle configuration rules in the lifecycle subresource associated with the bucket. Your
  *          objects never expire, and Amazon S3 no longer automatically deletes any objects on the basis of
@@ -60,10 +62,16 @@ export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
  * import { S3Client, DeleteBucketLifecycleCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteBucketLifecycleCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // DeleteBucketLifecycleRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteBucketLifecycleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketLifecycleCommandInput - {@link DeleteBucketLifecycleCommandInput}
+ * @returns {@link DeleteBucketLifecycleCommandOutput}
  * @see {@link DeleteBucketLifecycleCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketLifecycleCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -104,6 +112,9 @@ export class DeleteBucketLifecycleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketLifecycleCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +143,8 @@ export class DeleteBucketLifecycleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketLifecycleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +154,18 @@ export class DeleteBucketLifecycleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketLifecycleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketLifecycleCommand(input, context);
+    return se_DeleteBucketLifecycleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketLifecycleCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketLifecycleCommand(output, context);
+    return de_DeleteBucketLifecycleCommand(output, context);
   }
 
   // Start section: command_body_extra

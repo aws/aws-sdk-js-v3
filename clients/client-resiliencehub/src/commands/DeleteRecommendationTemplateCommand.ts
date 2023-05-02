@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteRecommendationTemplateRequest, DeleteRecommendationTemplateResponse } from "../models/models_0";
 import {
-  DeleteRecommendationTemplateRequest,
-  DeleteRecommendationTemplateRequestFilterSensitiveLog,
-  DeleteRecommendationTemplateResponse,
-  DeleteRecommendationTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRecommendationTemplateCommand,
-  serializeAws_restJson1DeleteRecommendationTemplateCommand,
+  de_DeleteRecommendationTemplateCommand,
+  se_DeleteRecommendationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRecommendationTemplateCommand}.
  */
 export interface DeleteRecommendationTemplateCommandInput extends DeleteRecommendationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRecommendationTemplateCommand}.
  */
 export interface DeleteRecommendationTemplateCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteRecommendationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a recommendation template. This is a destructive action that can't be
  *       undone.</p>
  * @example
@@ -45,10 +45,16 @@ export interface DeleteRecommendationTemplateCommandOutput
  * import { ResiliencehubClient, DeleteRecommendationTemplateCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteRecommendationTemplateCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // DeleteRecommendationTemplateRequest
+ *   recommendationTemplateArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteRecommendationTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecommendationTemplateCommandInput - {@link DeleteRecommendationTemplateCommandInput}
+ * @returns {@link DeleteRecommendationTemplateCommandOutput}
  * @see {@link DeleteRecommendationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteRecommendationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -59,7 +65,7 @@ export interface DeleteRecommendationTemplateCommandOutput
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -90,6 +96,9 @@ export class DeleteRecommendationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecommendationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +127,8 @@ export class DeleteRecommendationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecommendationTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRecommendationTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +138,21 @@ export class DeleteRecommendationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecommendationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRecommendationTemplateCommand(input, context);
+    return se_DeleteRecommendationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRecommendationTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteRecommendationTemplateCommand(output, context);
+    return de_DeleteRecommendationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateEmailTemplateRequest,
-  UpdateEmailTemplateRequestFilterSensitiveLog,
-  UpdateEmailTemplateResponse,
-  UpdateEmailTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateEmailTemplateRequest, UpdateEmailTemplateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateEmailTemplateCommand,
-  serializeAws_restJson1UpdateEmailTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateEmailTemplateCommand, se_UpdateEmailTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEmailTemplateCommand}.
  */
 export interface UpdateEmailTemplateCommandInput extends UpdateEmailTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEmailTemplateCommand}.
  */
 export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing message template for messages that are sent through the email channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * import { PinpointClient, UpdateEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateEmailTemplateRequest
+ *   CreateNewVersion: true || false,
+ *   EmailTemplateRequest: { // EmailTemplateRequest
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     HtmlPart: "STRING_VALUE",
+ *     RecommenderId: "STRING_VALUE",
+ *     Subject: "STRING_VALUE",
+ *     tags: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *     TextPart: "STRING_VALUE",
+ *   },
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new UpdateEmailTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEmailTemplateCommandInput - {@link UpdateEmailTemplateCommandInput}
+ * @returns {@link UpdateEmailTemplateCommandOutput}
  * @see {@link UpdateEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +105,9 @@ export class UpdateEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +136,8 @@ export class UpdateEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEmailTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEmailTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +147,18 @@ export class UpdateEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEmailTemplateCommand(input, context);
+    return se_UpdateEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateEmailTemplateCommand(output, context);
+    return de_UpdateEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

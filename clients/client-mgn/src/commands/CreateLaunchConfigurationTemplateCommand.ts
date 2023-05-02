@@ -21,20 +21,25 @@ import {
   LaunchConfigurationTemplateFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateLaunchConfigurationTemplateCommand,
-  serializeAws_restJson1CreateLaunchConfigurationTemplateCommand,
+  de_CreateLaunchConfigurationTemplateCommand,
+  se_CreateLaunchConfigurationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLaunchConfigurationTemplateCommand}.
  */
 export interface CreateLaunchConfigurationTemplateCommandInput extends CreateLaunchConfigurationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLaunchConfigurationTemplateCommand}.
  */
 export interface CreateLaunchConfigurationTemplateCommandOutput extends LaunchConfigurationTemplate, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Launch Configuration Template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +47,66 @@ export interface CreateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * import { MgnClient, CreateLaunchConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, CreateLaunchConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // CreateLaunchConfigurationTemplateRequest
+ *   postLaunchActions: { // PostLaunchActions
+ *     deployment: "STRING_VALUE",
+ *     s3LogBucket: "STRING_VALUE",
+ *     s3OutputKeyPrefix: "STRING_VALUE",
+ *     cloudWatchLogGroupName: "STRING_VALUE",
+ *     ssmDocuments: [ // SsmDocuments
+ *       { // SsmDocument
+ *         actionName: "STRING_VALUE", // required
+ *         ssmDocumentName: "STRING_VALUE", // required
+ *         timeoutSeconds: Number("int"),
+ *         mustSucceedForCutover: true || false,
+ *         parameters: { // SsmDocumentParameters
+ *           "<keys>": [ // SsmParameterStoreParameters
+ *             { // SsmParameterStoreParameter
+ *               parameterType: "STRING_VALUE", // required
+ *               parameterName: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         externalParameters: { // SsmDocumentExternalParameters
+ *           "<keys>": { // SsmExternalParameter Union: only one key present
+ *             dynamicPath: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   enableMapAutoTagging: true || false,
+ *   mapAutoTaggingMpeID: "STRING_VALUE",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   launchDisposition: "STRING_VALUE",
+ *   targetInstanceTypeRightSizingMethod: "STRING_VALUE",
+ *   copyPrivateIp: true || false,
+ *   associatePublicIpAddress: true || false,
+ *   copyTags: true || false,
+ *   licensing: { // Licensing
+ *     osByol: true || false,
+ *   },
+ *   bootMode: "STRING_VALUE",
+ *   smallVolumeMaxSize: Number("long"),
+ *   smallVolumeConf: { // LaunchTemplateDiskConf
+ *     volumeType: "STRING_VALUE",
+ *     iops: Number("long"),
+ *     throughput: Number("long"),
+ *   },
+ *   largeVolumeConf: {
+ *     volumeType: "STRING_VALUE",
+ *     iops: Number("long"),
+ *     throughput: Number("long"),
+ *   },
+ * };
  * const command = new CreateLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLaunchConfigurationTemplateCommandInput - {@link CreateLaunchConfigurationTemplateCommandInput}
+ * @returns {@link CreateLaunchConfigurationTemplateCommandOutput}
  * @see {@link CreateLaunchConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +139,9 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLaunchConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,18 +181,24 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateLaunchConfigurationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLaunchConfigurationTemplateCommand(input, context);
+    return se_CreateLaunchConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLaunchConfigurationTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateLaunchConfigurationTemplateCommand(output, context);
+    return de_CreateLaunchConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

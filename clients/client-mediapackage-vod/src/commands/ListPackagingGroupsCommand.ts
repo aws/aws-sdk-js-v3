@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import {
-  ListPackagingGroupsRequest,
-  ListPackagingGroupsRequestFilterSensitiveLog,
-  ListPackagingGroupsResponse,
-  ListPackagingGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPackagingGroupsCommand,
-  serializeAws_restJson1ListPackagingGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPackagingGroupsRequest, ListPackagingGroupsResponse } from "../models/models_0";
+import { de_ListPackagingGroupsCommand, se_ListPackagingGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPackagingGroupsCommand}.
  */
 export interface ListPackagingGroupsCommandInput extends ListPackagingGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPackagingGroupsCommand}.
  */
 export interface ListPackagingGroupsCommandOutput extends ListPackagingGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns a collection of MediaPackage VOD PackagingGroup resources.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListPackagingGroupsCommandOutput extends ListPackagingGroupsRes
  * import { MediaPackageVodClient, ListPackagingGroupsCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, ListPackagingGroupsCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
+ * const input = { // ListPackagingGroupsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPackagingGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPackagingGroupsCommandInput - {@link ListPackagingGroupsCommandInput}
+ * @returns {@link ListPackagingGroupsCommandOutput}
  * @see {@link ListPackagingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListPackagingGroupsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
@@ -87,6 +90,9 @@ export class ListPackagingGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPackagingGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class ListPackagingGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPackagingGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPackagingGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class ListPackagingGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPackagingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPackagingGroupsCommand(input, context);
+    return se_ListPackagingGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackagingGroupsCommandOutput> {
-    return deserializeAws_restJson1ListPackagingGroupsCommand(output, context);
+    return de_ListPackagingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

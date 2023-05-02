@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { UpdateDatastoreRequest, UpdateDatastoreRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDatastoreCommand,
-  serializeAws_restJson1UpdateDatastoreCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDatastoreRequest } from "../models/models_0";
+import { de_UpdateDatastoreCommand, se_UpdateDatastoreCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDatastoreCommand}.
  */
 export interface UpdateDatastoreCommandInput extends UpdateDatastoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDatastoreCommand}.
  */
 export interface UpdateDatastoreCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to update the settings of a data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,46 @@ export interface UpdateDatastoreCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, UpdateDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, UpdateDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // UpdateDatastoreRequest
+ *   datastoreName: "STRING_VALUE", // required
+ *   retentionPeriod: { // RetentionPeriod
+ *     unlimited: true || false,
+ *     numberOfDays: Number("int"),
+ *   },
+ *   datastoreStorage: { // DatastoreStorage Union: only one key present
+ *     serviceManagedS3: {},
+ *     customerManagedS3: { // CustomerManagedDatastoreS3Storage
+ *       bucket: "STRING_VALUE", // required
+ *       keyPrefix: "STRING_VALUE",
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *     iotSiteWiseMultiLayerStorage: { // DatastoreIotSiteWiseMultiLayerStorage
+ *       customerManagedS3Storage: { // IotSiteWiseCustomerManagedDatastoreS3Storage
+ *         bucket: "STRING_VALUE", // required
+ *         keyPrefix: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   fileFormatConfiguration: { // FileFormatConfiguration
+ *     jsonConfiguration: {},
+ *     parquetConfiguration: { // ParquetConfiguration
+ *       schemaDefinition: { // SchemaDefinition
+ *         columns: [ // Columns
+ *           { // Column
+ *             name: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateDatastoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatastoreCommandInput - {@link UpdateDatastoreCommandInput}
+ * @returns {@link UpdateDatastoreCommandOutput}
  * @see {@link UpdateDatastoreCommandInput} for command's `input` shape.
  * @see {@link UpdateDatastoreCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -79,6 +117,9 @@ export class UpdateDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +148,8 @@ export class UpdateDatastoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatastoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +159,18 @@ export class UpdateDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDatastoreCommand(input, context);
+    return se_UpdateDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatastoreCommandOutput> {
-    return deserializeAws_restJson1UpdateDatastoreCommand(output, context);
+    return de_UpdateDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

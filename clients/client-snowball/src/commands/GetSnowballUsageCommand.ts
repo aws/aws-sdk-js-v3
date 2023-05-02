@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSnowballUsageRequest,
-  GetSnowballUsageRequestFilterSensitiveLog,
-  GetSnowballUsageResult,
-  GetSnowballUsageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSnowballUsageCommand,
-  serializeAws_json1_1GetSnowballUsageCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSnowballUsageRequest, GetSnowballUsageResult } from "../models/models_0";
+import { de_GetSnowballUsageCommand, se_GetSnowballUsageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSnowballUsageCommand}.
  */
 export interface GetSnowballUsageCommandInput extends GetSnowballUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSnowballUsageCommand}.
  */
 export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the Snow Family service limit for your account, and also the
  *       number of Snow devices your account has in use.</p>
  *          <p>The default service limit for the number of Snow devices that you can have at one time
@@ -45,10 +42,13 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * import { SnowballClient, GetSnowballUsageCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, GetSnowballUsageCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = {};
  * const command = new GetSnowballUsageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSnowballUsageCommandInput - {@link GetSnowballUsageCommandInput}
+ * @returns {@link GetSnowballUsageCommandOutput}
  * @see {@link GetSnowballUsageCommandInput} for command's `input` shape.
  * @see {@link GetSnowballUsageCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -89,6 +89,9 @@ export class GetSnowballUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSnowballUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +120,8 @@ export class GetSnowballUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSnowballUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSnowballUsageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +131,18 @@ export class GetSnowballUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSnowballUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSnowballUsageCommand(input, context);
+    return se_GetSnowballUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnowballUsageCommandOutput> {
-    return deserializeAws_json1_1GetSnowballUsageCommand(output, context);
+    return de_GetSnowballUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

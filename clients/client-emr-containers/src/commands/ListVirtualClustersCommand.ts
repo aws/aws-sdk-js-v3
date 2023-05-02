@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import {
-  ListVirtualClustersRequest,
-  ListVirtualClustersRequestFilterSensitiveLog,
-  ListVirtualClustersResponse,
-  ListVirtualClustersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVirtualClustersCommand,
-  serializeAws_restJson1ListVirtualClustersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListVirtualClustersRequest, ListVirtualClustersResponse } from "../models/models_0";
+import { de_ListVirtualClustersCommand, se_ListVirtualClustersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVirtualClustersCommand}.
  */
 export interface ListVirtualClustersCommandInput extends ListVirtualClustersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVirtualClustersCommand}.
  */
 export interface ListVirtualClustersCommandOutput extends ListVirtualClustersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about the specified virtual cluster. Virtual cluster is a managed
  *          entity on Amazon EMR on EKS. You can create, describe, list and delete virtual
  *          clusters. They do not consume any additional resource in your system. A single virtual
@@ -47,10 +44,23 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * import { EMRContainersClient, ListVirtualClustersCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, ListVirtualClustersCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = { // ListVirtualClustersRequest
+ *   containerProviderId: "STRING_VALUE",
+ *   containerProviderType: "EKS",
+ *   createdAfter: new Date("TIMESTAMP"),
+ *   createdBefore: new Date("TIMESTAMP"),
+ *   states: [ // VirtualClusterStates
+ *     "RUNNING" || "TERMINATING" || "TERMINATED" || "ARRESTED",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListVirtualClustersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVirtualClustersCommandInput - {@link ListVirtualClustersCommandInput}
+ * @returns {@link ListVirtualClustersCommandOutput}
  * @see {@link ListVirtualClustersCommandInput} for command's `input` shape.
  * @see {@link ListVirtualClustersCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -80,6 +90,9 @@ export class ListVirtualClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVirtualClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +121,8 @@ export class ListVirtualClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVirtualClustersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVirtualClustersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +132,18 @@ export class ListVirtualClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVirtualClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVirtualClustersCommand(input, context);
+    return se_ListVirtualClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualClustersCommandOutput> {
-    return deserializeAws_restJson1ListVirtualClustersCommand(output, context);
+    return de_ListVirtualClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { LakeFormationServiceException as __BaseException } from "./LakeFormationServiceException";
 
 /**
+ * @public
  * <p>Access to a resource was denied.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,6 +30,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A structure containing an LF-tag key-value pair.</p>
  */
 export interface LFTagPair {
@@ -49,11 +51,13 @@ export interface LFTagPair {
 }
 
 /**
+ * @public
  * <p>A structure for the catalog object.</p>
  */
 export interface CatalogResource {}
 
 /**
+ * @public
  * <p>A structure for the database object.</p>
  */
 export interface DatabaseResource {
@@ -69,6 +73,7 @@ export interface DatabaseResource {
 }
 
 /**
+ * @public
  * <p>A structure for a data cells filter resource. </p>
  */
 export interface DataCellsFilterResource {
@@ -94,6 +99,7 @@ export interface DataCellsFilterResource {
 }
 
 /**
+ * @public
  * <p>A structure for a data location object where permissions are granted or revoked. </p>
  */
 export interface DataLocationResource {
@@ -109,6 +115,7 @@ export interface DataLocationResource {
 }
 
 /**
+ * @public
  * <p>A structure containing an LF-tag key and values for a resource.</p>
  */
 export interface LFTagKeyResource {
@@ -129,6 +136,7 @@ export interface LFTagKeyResource {
 }
 
 /**
+ * @public
  * <p>A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.</p>
  */
 export interface LFTag {
@@ -143,12 +151,22 @@ export interface LFTag {
   TagValues: string[] | undefined;
 }
 
-export enum ResourceType {
-  DATABASE = "DATABASE",
-  TABLE = "TABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  DATABASE: "DATABASE",
+  TABLE: "TABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>A structure containing a list of LF-tag conditions that apply to a resource's LF-tag policy.</p>
  */
 export interface LFTagPolicyResource {
@@ -169,11 +187,13 @@ export interface LFTagPolicyResource {
 }
 
 /**
+ * @public
  * <p>A wildcard object representing every table under a database.</p>
  */
 export interface TableWildcard {}
 
 /**
+ * @public
  * <p>A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
  */
 export interface TableResource {
@@ -200,6 +220,7 @@ export interface TableResource {
 }
 
 /**
+ * @public
  * <p>A wildcard object, consisting of an optional list of excluded column names or indexes.</p>
  */
 export interface ColumnWildcard {
@@ -210,6 +231,7 @@ export interface ColumnWildcard {
 }
 
 /**
+ * @public
  * <p>A structure for a table with columns object. This object is only used when granting a SELECT permission.</p>
  *          <p>This object must take a value for at least one of <code>ColumnsNames</code>, <code>ColumnsIndexes</code>, or <code>ColumnsWildcard</code>.</p>
  */
@@ -241,6 +263,7 @@ export interface TableWithColumnsResource {
 }
 
 /**
+ * @public
  * <p>A structure for the resource.</p>
  */
 export interface Resource {
@@ -285,6 +308,9 @@ export interface Resource {
   LFTagPolicy?: LFTagPolicyResource;
 }
 
+/**
+ * @public
+ */
 export interface AddLFTagsToResourceRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -303,6 +329,7 @@ export interface AddLFTagsToResourceRequest {
 }
 
 /**
+ * @public
  * <p>Contains details about an error.</p>
  */
 export interface ErrorDetail {
@@ -318,6 +345,7 @@ export interface ErrorDetail {
 }
 
 /**
+ * @public
  * <p>A structure containing an error related to a <code>TagResource</code> or <code>UnTagResource</code> operation.</p>
  */
 export interface LFTagError {
@@ -332,6 +360,9 @@ export interface LFTagError {
   Error?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface AddLFTagsToResourceResponse {
   /**
    * <p>A list of failures to tag the resource.</p>
@@ -340,6 +371,7 @@ export interface AddLFTagsToResourceResponse {
 }
 
 /**
+ * @public
  * <p>Two processes are trying to modify a resource simultaneously.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -364,7 +396,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>A specified entity does not exist</p>
+ * @public
+ * <p>A specified entity does not exist.</p>
  */
 export class EntityNotFoundException extends __BaseException {
   readonly name: "EntityNotFoundException" = "EntityNotFoundException";
@@ -388,6 +421,7 @@ export class EntityNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal service error occurred.</p>
  */
 export class InternalServiceException extends __BaseException {
@@ -412,6 +446,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input provided was not valid.</p>
  */
 export class InvalidInputException extends __BaseException {
@@ -436,6 +471,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation timed out.</p>
  */
 export class OperationTimeoutException extends __BaseException {
@@ -460,6 +496,7 @@ export class OperationTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A new object to add to the governed table.</p>
  */
 export interface AddObjectInput {
@@ -486,11 +523,13 @@ export interface AddObjectInput {
 }
 
 /**
+ * @public
  * <p>A structure that you pass to indicate you want all rows in a filter. </p>
  */
 export interface AllRowsWildcard {}
 
 /**
+ * @public
  * <p>A resource to be created or added already exists.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -514,6 +553,9 @@ export class AlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssumeDecoratedRoleWithSAMLRequest {
   /**
    * <p>A SAML assertion consisting of an assertion statement for the user who needs temporary credentials. This must match the SAML assertion that was issued to IAM. This must be Base64 encoded.</p>
@@ -536,6 +578,9 @@ export interface AssumeDecoratedRoleWithSAMLRequest {
   DurationSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface AssumeDecoratedRoleWithSAMLResponse {
   /**
    * <p>The access key ID for the temporary credentials. (The access key consists of an access key ID and a secret key).</p>
@@ -559,6 +604,7 @@ export interface AssumeDecoratedRoleWithSAMLResponse {
 }
 
 /**
+ * @public
  * <p>A structure used to include auditing information on the privileged API. </p>
  */
 export interface AuditContext {
@@ -568,22 +614,32 @@ export interface AuditContext {
   AdditionalAuditContext?: string;
 }
 
-export enum Permission {
-  ALL = "ALL",
-  ALTER = "ALTER",
-  ASSOCIATE = "ASSOCIATE",
-  CREATE_DATABASE = "CREATE_DATABASE",
-  CREATE_TABLE = "CREATE_TABLE",
-  CREATE_TAG = "CREATE_TAG",
-  DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS",
-  DELETE = "DELETE",
-  DESCRIBE = "DESCRIBE",
-  DROP = "DROP",
-  INSERT = "INSERT",
-  SELECT = "SELECT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Permission = {
+  ALL: "ALL",
+  ALTER: "ALTER",
+  ASSOCIATE: "ASSOCIATE",
+  CREATE_DATABASE: "CREATE_DATABASE",
+  CREATE_TABLE: "CREATE_TABLE",
+  CREATE_TAG: "CREATE_TAG",
+  DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
+  DELETE: "DELETE",
+  DESCRIBE: "DESCRIBE",
+  DROP: "DROP",
+  INSERT: "INSERT",
+  SELECT: "SELECT",
+} as const;
 
 /**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
+
+/**
+ * @public
  * <p>The Lake Formation principal. Supported principals are IAM users
  *       or IAM roles.</p>
  */
@@ -595,6 +651,7 @@ export interface DataLakePrincipal {
 }
 
 /**
+ * @public
  * <p>A permission to a resource granted by batch operation to the principal.</p>
  */
 export interface BatchPermissionsRequestEntry {
@@ -624,6 +681,9 @@ export interface BatchPermissionsRequestEntry {
   PermissionsWithGrantOption?: (Permission | string)[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGrantPermissionsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -637,6 +697,7 @@ export interface BatchGrantPermissionsRequest {
 }
 
 /**
+ * @public
  * <p>A list of failures when performing a batch grant or batch revoke operation.</p>
  */
 export interface BatchPermissionsFailureEntry {
@@ -651,6 +712,9 @@ export interface BatchPermissionsFailureEntry {
   Error?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface BatchGrantPermissionsResponse {
   /**
    * <p>A list of failures to grant permissions to the resources.</p>
@@ -658,6 +722,9 @@ export interface BatchGrantPermissionsResponse {
   Failures?: BatchPermissionsFailureEntry[];
 }
 
+/**
+ * @public
+ */
 export interface BatchRevokePermissionsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -670,6 +737,9 @@ export interface BatchRevokePermissionsRequest {
   Entries: BatchPermissionsRequestEntry[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchRevokePermissionsResponse {
   /**
    * <p>A list of failures to revoke permissions to the resources.</p>
@@ -677,6 +747,9 @@ export interface BatchRevokePermissionsResponse {
   Failures?: BatchPermissionsFailureEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CancelTransactionRequest {
   /**
    * <p>The transaction to cancel.</p>
@@ -684,9 +757,13 @@ export interface CancelTransactionRequest {
   TransactionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelTransactionResponse {}
 
 /**
+ * @public
  * <p>Contains details about an error related to a transaction commit that was in progress.</p>
  */
 export class TransactionCommitInProgressException extends __BaseException {
@@ -711,6 +788,7 @@ export class TransactionCommitInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
  */
 export class TransactionCommittedException extends __BaseException {
@@ -734,6 +812,9 @@ export class TransactionCommittedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CommitTransactionRequest {
   /**
    * <p>The transaction to commit.</p>
@@ -741,13 +822,25 @@ export interface CommitTransactionRequest {
   TransactionId: string | undefined;
 }
 
-export enum TransactionStatus {
-  ABORTED = "ABORTED",
-  ACTIVE = "ACTIVE",
-  COMMITTED = "COMMITTED",
-  COMMIT_IN_PROGRESS = "COMMIT_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransactionStatus = {
+  ABORTED: "ABORTED",
+  ACTIVE: "ACTIVE",
+  COMMITTED: "COMMITTED",
+  COMMIT_IN_PROGRESS: "COMMIT_IN_PROGRESS",
+} as const;
 
+/**
+ * @public
+ */
+export type TransactionStatus = (typeof TransactionStatus)[keyof typeof TransactionStatus];
+
+/**
+ * @public
+ */
 export interface CommitTransactionResponse {
   /**
    * <p>The status of the transaction.</p>
@@ -756,6 +849,7 @@ export interface CommitTransactionResponse {
 }
 
 /**
+ * @public
  * <p>Contains details about an error related to a transaction that was cancelled.</p>
  */
 export class TransactionCanceledException extends __BaseException {
@@ -780,6 +874,7 @@ export class TransactionCanceledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A PartiQL predicate.</p>
  */
 export interface RowFilter {
@@ -795,6 +890,7 @@ export interface RowFilter {
 }
 
 /**
+ * @public
  * <p>A structure that describes certain columns on certain rows.</p>
  */
 export interface DataCellsFilter {
@@ -841,6 +937,9 @@ export interface DataCellsFilter {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataCellsFilterRequest {
   /**
    * <p>A <code>DataCellsFilter</code> structure containing information about the data cells filter.</p>
@@ -848,9 +947,13 @@ export interface CreateDataCellsFilterRequest {
   TableData: DataCellsFilter | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataCellsFilterResponse {}
 
 /**
+ * @public
  * <p>A resource numerical limit was exceeded.</p>
  */
 export class ResourceNumberLimitExceededException extends __BaseException {
@@ -874,6 +977,9 @@ export class ResourceNumberLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateLFTagRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -891,8 +997,14 @@ export interface CreateLFTagRequest {
   TagValues: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateLFTagResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDataCellsFilterRequest {
   /**
    * <p>The ID of the catalog to which the table belongs.</p>
@@ -915,8 +1027,14 @@ export interface DeleteDataCellsFilterRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataCellsFilterResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteLFTagRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -929,9 +1047,13 @@ export interface DeleteLFTagRequest {
   TagKey: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLFTagResponse {}
 
 /**
+ * @public
  * <p>An object that defines an Amazon S3 object to be deleted if a transaction cancels, provided that
  *       <code>VirtualPut</code> was called before writing the object.</p>
  */
@@ -947,6 +1069,9 @@ export interface VirtualObject {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectsOnCancelRequest {
   /**
    * <p>The Glue data catalog that contains the governed table. Defaults to the current account ID.</p>
@@ -974,9 +1099,13 @@ export interface DeleteObjectsOnCancelRequest {
   Objects: VirtualObject[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectsOnCancelResponse {}
 
 /**
+ * @public
  * <p>Contains details about an error related to a resource which is not ready for a transaction.</p>
  */
 export class ResourceNotReadyException extends __BaseException {
@@ -1000,6 +1129,9 @@ export class ResourceNotReadyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeregisterResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to deregister.</p>
@@ -1007,8 +1139,14 @@ export interface DeregisterResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterResourceResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -1017,6 +1155,7 @@ export interface DescribeResourceRequest {
 }
 
 /**
+ * @public
  * <p>A structure containing information about an Lake Formation resource.</p>
  */
 export interface ResourceInfo {
@@ -1034,8 +1173,16 @@ export interface ResourceInfo {
    * <p>The date and time the resource was last modified.</p>
    */
   LastModified?: Date;
+
+  /**
+   * <p>Whether or not the resource is a federated resource.</p>
+   */
+  WithFederation?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourceResponse {
   /**
    * <p>A structure containing information about an Lake Formation resource.</p>
@@ -1043,6 +1190,9 @@ export interface DescribeResourceResponse {
   ResourceInfo?: ResourceInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransactionRequest {
   /**
    * <p>The transaction for which to return status.</p>
@@ -1051,6 +1201,7 @@ export interface DescribeTransactionRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about a transaction.</p>
  */
 export interface TransactionDescription {
@@ -1075,6 +1226,9 @@ export interface TransactionDescription {
   TransactionEndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransactionResponse {
   /**
    * <p>Returns a <code>TransactionDescription</code> object containing information about the transaction.</p>
@@ -1082,6 +1236,9 @@ export interface DescribeTransactionResponse {
   TransactionDescription?: TransactionDescription;
 }
 
+/**
+ * @public
+ */
 export interface ExtendTransactionRequest {
   /**
    * <p>The transaction to extend.</p>
@@ -1089,8 +1246,14 @@ export interface ExtendTransactionRequest {
   TransactionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExtendTransactionResponse {}
 
+/**
+ * @public
+ */
 export interface GetDataCellsFilterRequest {
   /**
    * <p>The ID of the catalog to which the table belongs.</p>
@@ -1113,6 +1276,9 @@ export interface GetDataCellsFilterRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataCellsFilterResponse {
   /**
    * <p>A structure that describes certain columns on certain rows.</p>
@@ -1120,6 +1286,9 @@ export interface GetDataCellsFilterResponse {
   DataCellsFilter?: DataCellsFilter;
 }
 
+/**
+ * @public
+ */
 export interface GetDataLakeSettingsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1128,6 +1297,7 @@ export interface GetDataLakeSettingsRequest {
 }
 
 /**
+ * @public
  * <p>Permissions granted to a principal.</p>
  */
 export interface PrincipalPermissions {
@@ -1143,6 +1313,7 @@ export interface PrincipalPermissions {
 }
 
 /**
+ * @public
  * <p>A structure representing a list of Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.</p>
  */
 export interface DataLakeSettings {
@@ -1197,6 +1368,9 @@ export interface DataLakeSettings {
   AuthorizedSessionTagValueList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetDataLakeSettingsResponse {
   /**
    * <p>A structure representing a list of Lake Formation principals designated as data lake administrators.</p>
@@ -1204,6 +1378,9 @@ export interface GetDataLakeSettingsResponse {
   DataLakeSettings?: DataLakeSettings;
 }
 
+/**
+ * @public
+ */
 export interface GetEffectivePermissionsForPathRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1227,6 +1404,7 @@ export interface GetEffectivePermissionsForPathRequest {
 }
 
 /**
+ * @public
  * <p>A structure containing the additional details to be returned in the <code>AdditionalDetails</code> attribute of <code>PrincipalResourcePermissions</code>.</p>
  *          <p>If a catalog resource is shared through Resource Access Manager (RAM), then there will exist a corresponding RAM resource share ARN.</p>
  */
@@ -1238,6 +1416,7 @@ export interface DetailsMap {
 }
 
 /**
+ * @public
  * <p>The permissions granted or revoked on a resource.</p>
  */
 export interface PrincipalResourcePermissions {
@@ -1267,6 +1446,9 @@ export interface PrincipalResourcePermissions {
   AdditionalDetails?: DetailsMap;
 }
 
+/**
+ * @public
+ */
 export interface GetEffectivePermissionsForPathResponse {
   /**
    * <p>A list of the permissions for the specified table or database resource located at the path in Amazon S3.</p>
@@ -1279,6 +1461,9 @@ export interface GetEffectivePermissionsForPathResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLFTagRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1291,6 +1476,9 @@ export interface GetLFTagRequest {
   TagKey: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLFTagResponse {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1308,6 +1496,9 @@ export interface GetLFTagResponse {
   TagValues?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetQueryStateRequest {
   /**
    * <p>The ID of the plan query operation.</p>
@@ -1315,15 +1506,25 @@ export interface GetQueryStateRequest {
   QueryId: string | undefined;
 }
 
-export enum QueryStateString {
-  ERROR = "ERROR",
-  EXPIRED = "EXPIRED",
-  FINISHED = "FINISHED",
-  PENDING = "PENDING",
-  WORKUNITS_AVAILABLE = "WORKUNITS_AVAILABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const QueryStateString = {
+  ERROR: "ERROR",
+  EXPIRED: "EXPIRED",
+  FINISHED: "FINISHED",
+  PENDING: "PENDING",
+  WORKUNITS_AVAILABLE: "WORKUNITS_AVAILABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type QueryStateString = (typeof QueryStateString)[keyof typeof QueryStateString];
+
+/**
+ * @public
  * <p>A structure for the output.</p>
  */
 export interface GetQueryStateResponse {
@@ -1353,6 +1554,7 @@ export interface GetQueryStateResponse {
 }
 
 /**
+ * @public
  * <p>Contains details about an error where the query request expired.</p>
  */
 export class ExpiredException extends __BaseException {
@@ -1376,6 +1578,9 @@ export class ExpiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetQueryStatisticsRequest {
   /**
    * <p>The ID of the plan query operation.</p>
@@ -1384,6 +1589,7 @@ export interface GetQueryStatisticsRequest {
 }
 
 /**
+ * @public
  * <p>Statistics related to the processing of a query statement.</p>
  */
 export interface ExecutionStatistics {
@@ -1404,6 +1610,7 @@ export interface ExecutionStatistics {
 }
 
 /**
+ * @public
  * <p>Statistics related to the processing of a query statement.</p>
  */
 export interface PlanningStatistics {
@@ -1428,6 +1635,9 @@ export interface PlanningStatistics {
   WorkUnitsGeneratedCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetQueryStatisticsResponse {
   /**
    * <p>An <code>ExecutionStatistics</code> structure containing execution statistics.</p>
@@ -1446,6 +1656,7 @@ export interface GetQueryStatisticsResponse {
 }
 
 /**
+ * @public
  * <p>Contains details about an error related to statistics not being ready.</p>
  */
 export class StatisticsNotReadyYetException extends __BaseException {
@@ -1470,6 +1681,7 @@ export class StatisticsNotReadyYetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains details about an error where the query request was throttled.</p>
  */
 export class ThrottledException extends __BaseException {
@@ -1496,6 +1708,9 @@ export class ThrottledException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetResourceLFTagsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1514,6 +1729,7 @@ export interface GetResourceLFTagsRequest {
 }
 
 /**
+ * @public
  * <p>A structure containing the name of a column resource and the LF-tags attached to it.</p>
  */
 export interface ColumnLFTag {
@@ -1528,6 +1744,9 @@ export interface ColumnLFTag {
   LFTags?: LFTagPair[];
 }
 
+/**
+ * @public
+ */
 export interface GetResourceLFTagsResponse {
   /**
    * <p>A list of LF-tags applied to a database resource.</p>
@@ -1546,6 +1765,7 @@ export interface GetResourceLFTagsResponse {
 }
 
 /**
+ * @public
  * <p>An encryption operation failed.</p>
  */
 export class GlueEncryptionException extends __BaseException {
@@ -1569,6 +1789,9 @@ export class GlueEncryptionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetTableObjectsRequest {
   /**
    * <p>The catalog containing the governed table. Defaults to the caller’s account.</p>
@@ -1623,6 +1846,7 @@ export interface GetTableObjectsRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the details of a governed table.</p>
  */
 export interface TableObject {
@@ -1643,6 +1867,7 @@ export interface TableObject {
 }
 
 /**
+ * @public
  * <p>A structure containing a list of partition values and table objects.</p>
  */
 export interface PartitionObjects {
@@ -1657,6 +1882,9 @@ export interface PartitionObjects {
   Objects?: TableObject[];
 }
 
+/**
+ * @public
+ */
 export interface GetTableObjectsResponse {
   /**
    * <p>A list of objects organized by partition keys.</p>
@@ -1670,6 +1898,7 @@ export interface GetTableObjectsResponse {
 }
 
 /**
+ * @public
  * <p>Contains a list of values defining partitions.</p>
  */
 export interface PartitionValueList {
@@ -1679,11 +1908,23 @@ export interface PartitionValueList {
   Values: string[] | undefined;
 }
 
-export enum PermissionType {
-  CELL_FILTER_PERMISSION = "CELL_FILTER_PERMISSION",
-  COLUMN_PERMISSION = "COLUMN_PERMISSION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PermissionType = {
+  CELL_FILTER_PERMISSION: "CELL_FILTER_PERMISSION",
+  COLUMN_PERMISSION: "COLUMN_PERMISSION",
+} as const;
 
+/**
+ * @public
+ */
+export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
+
+/**
+ * @public
+ */
 export interface GetTemporaryGluePartitionCredentialsRequest {
   /**
    * <p>The ARN of the partitions' table.</p>
@@ -1716,6 +1957,9 @@ export interface GetTemporaryGluePartitionCredentialsRequest {
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTemporaryGluePartitionCredentialsResponse {
   /**
    * <p>The access key ID for the temporary credentials.</p>
@@ -1739,6 +1983,7 @@ export interface GetTemporaryGluePartitionCredentialsResponse {
 }
 
 /**
+ * @public
  * <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
  */
 export class PermissionTypeMismatchException extends __BaseException {
@@ -1762,6 +2007,9 @@ export class PermissionTypeMismatchException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetTemporaryGlueTableCredentialsRequest {
   /**
    * <p>The ARN identifying a table in the Data Catalog for the temporary credentials request.</p>
@@ -1789,6 +2037,9 @@ export interface GetTemporaryGlueTableCredentialsRequest {
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTemporaryGlueTableCredentialsResponse {
   /**
    * <p>The access key ID for the temporary credentials.</p>
@@ -1811,6 +2062,9 @@ export interface GetTemporaryGlueTableCredentialsResponse {
   Expiration?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkUnitResultsRequest {
   /**
    * <p>The ID of the plan query operation for which to get results.</p>
@@ -1829,6 +2083,7 @@ export interface GetWorkUnitResultsRequest {
 }
 
 /**
+ * @public
  * <p>A structure for the output.</p>
  */
 export interface GetWorkUnitResultsResponse {
@@ -1838,6 +2093,9 @@ export interface GetWorkUnitResultsResponse {
   ResultStream?: Readable | ReadableStream | Blob;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkUnitsRequest {
   /**
    * <p>A continuation token, if this is a continuation call.</p>
@@ -1856,6 +2114,7 @@ export interface GetWorkUnitsRequest {
 }
 
 /**
+ * @public
  * <p>Defines the valid range of work unit IDs for querying the execution service.</p>
  */
 export interface WorkUnitRange {
@@ -1876,6 +2135,7 @@ export interface WorkUnitRange {
 }
 
 /**
+ * @public
  * <p>A structure for the output.</p>
  */
 export interface GetWorkUnitsResponse {
@@ -1896,6 +2156,7 @@ export interface GetWorkUnitsResponse {
 }
 
 /**
+ * @public
  * <p>Contains details about an error related to work units not being ready.</p>
  */
 export class WorkUnitsNotReadyYetException extends __BaseException {
@@ -1919,6 +2180,9 @@ export class WorkUnitsNotReadyYetException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GrantPermissionsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1947,8 +2211,14 @@ export interface GrantPermissionsRequest {
   PermissionsWithGrantOption?: (Permission | string)[];
 }
 
+/**
+ * @public
+ */
 export interface GrantPermissionsResponse {}
 
+/**
+ * @public
+ */
 export interface ListDataCellsFilterRequest {
   /**
    * <p>A table in the Glue Data Catalog.</p>
@@ -1966,6 +2236,9 @@ export interface ListDataCellsFilterRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDataCellsFilterResponse {
   /**
    * <p>A list of <code>DataCellFilter</code> structures.</p>
@@ -1978,11 +2251,23 @@ export interface ListDataCellsFilterResponse {
   NextToken?: string;
 }
 
-export enum ResourceShareType {
-  ALL = "ALL",
-  FOREIGN = "FOREIGN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceShareType = {
+  ALL: "ALL",
+  FOREIGN: "FOREIGN",
+} as const;
 
+/**
+ * @public
+ */
+export type ResourceShareType = (typeof ResourceShareType)[keyof typeof ResourceShareType];
+
+/**
+ * @public
+ */
 export interface ListLFTagsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2005,6 +2290,9 @@ export interface ListLFTagsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLFTagsResponse {
   /**
    * <p>A list of LF-tags that the requested has permission to view.</p>
@@ -2017,17 +2305,29 @@ export interface ListLFTagsResponse {
   NextToken?: string;
 }
 
-export enum DataLakeResourceType {
-  CATALOG = "CATALOG",
-  DATABASE = "DATABASE",
-  DATA_LOCATION = "DATA_LOCATION",
-  LF_TAG = "LF_TAG",
-  LF_TAG_POLICY = "LF_TAG_POLICY",
-  LF_TAG_POLICY_DATABASE = "LF_TAG_POLICY_DATABASE",
-  LF_TAG_POLICY_TABLE = "LF_TAG_POLICY_TABLE",
-  TABLE = "TABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataLakeResourceType = {
+  CATALOG: "CATALOG",
+  DATABASE: "DATABASE",
+  DATA_LOCATION: "DATA_LOCATION",
+  LF_TAG: "LF_TAG",
+  LF_TAG_POLICY: "LF_TAG_POLICY",
+  LF_TAG_POLICY_DATABASE: "LF_TAG_POLICY_DATABASE",
+  LF_TAG_POLICY_TABLE: "LF_TAG_POLICY_TABLE",
+  TABLE: "TABLE",
+} as const;
 
+/**
+ * @public
+ */
+export type DataLakeResourceType = (typeof DataLakeResourceType)[keyof typeof DataLakeResourceType];
+
+/**
+ * @public
+ */
 export interface ListPermissionsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2066,6 +2366,9 @@ export interface ListPermissionsRequest {
   IncludeRelated?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionsResponse {
   /**
    * <p>A list of principals and their permissions on the resource for the specified principal and resource types.</p>
@@ -2078,27 +2381,46 @@ export interface ListPermissionsResponse {
   NextToken?: string;
 }
 
-export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  IN = "IN",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-  NOT_CONTAINS = "NOT_CONTAINS",
-}
-
-export enum FieldNameString {
-  LAST_MODIFIED = "LAST_MODIFIED",
-  RESOURCE_ARN = "RESOURCE_ARN",
-  ROLE_ARN = "ROLE_ARN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  BEGINS_WITH: "BEGINS_WITH",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  IN: "IN",
+  LE: "LE",
+  LT: "LT",
+  NE: "NE",
+  NOT_CONTAINS: "NOT_CONTAINS",
+} as const;
 
 /**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldNameString = {
+  LAST_MODIFIED: "LAST_MODIFIED",
+  RESOURCE_ARN: "RESOURCE_ARN",
+  ROLE_ARN: "ROLE_ARN",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldNameString = (typeof FieldNameString)[keyof typeof FieldNameString];
+
+/**
+ * @public
  * <p>This structure describes the filtering of columns in a table based on a filter condition.</p>
  */
 export interface FilterCondition {
@@ -2118,6 +2440,9 @@ export interface FilterCondition {
   StringValueList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesRequest {
   /**
    * <p>Any applicable row-level and/or column-level filtering conditions for the resources.</p>
@@ -2135,6 +2460,9 @@ export interface ListResourcesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesResponse {
   /**
    * <p>A summary of the data lake resources.</p>
@@ -2147,12 +2475,24 @@ export interface ListResourcesResponse {
   NextToken?: string;
 }
 
-export enum OptimizerType {
-  COMPACTION = "COMPACTION",
-  GARBAGE_COLLECTION = "GARBAGE_COLLECTION",
-  GENERIC = "ALL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OptimizerType = {
+  COMPACTION: "COMPACTION",
+  GARBAGE_COLLECTION: "GARBAGE_COLLECTION",
+  GENERIC: "ALL",
+} as const;
 
+/**
+ * @public
+ */
+export type OptimizerType = (typeof OptimizerType)[keyof typeof OptimizerType];
+
+/**
+ * @public
+ */
 export interface ListTableStorageOptimizersRequest {
   /**
    * <p>The Catalog ID of the table.</p>
@@ -2186,6 +2526,7 @@ export interface ListTableStorageOptimizersRequest {
 }
 
 /**
+ * @public
  * <p>A structure describing the configuration and details of a storage optimizer.</p>
  */
 export interface StorageOptimizer {
@@ -2217,6 +2558,9 @@ export interface StorageOptimizer {
   LastRunDetails?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTableStorageOptimizersResponse {
   /**
    * <p>A list of the storage optimizers associated with a table.</p>
@@ -2229,14 +2573,26 @@ export interface ListTableStorageOptimizersResponse {
   NextToken?: string;
 }
 
-export enum TransactionStatusFilter {
-  ABORTED = "ABORTED",
-  ACTIVE = "ACTIVE",
-  ALL = "ALL",
-  COMMITTED = "COMMITTED",
-  COMPLETED = "COMPLETED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransactionStatusFilter = {
+  ABORTED: "ABORTED",
+  ACTIVE: "ACTIVE",
+  ALL: "ALL",
+  COMMITTED: "COMMITTED",
+  COMPLETED: "COMPLETED",
+} as const;
 
+/**
+ * @public
+ */
+export type TransactionStatusFilter = (typeof TransactionStatusFilter)[keyof typeof TransactionStatusFilter];
+
+/**
+ * @public
+ */
 export interface ListTransactionsRequest {
   /**
    * <p>The catalog for which to list transactions. Defaults to the account ID of the caller.</p>
@@ -2259,6 +2615,9 @@ export interface ListTransactionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTransactionsResponse {
   /**
    * <p>A list of transactions. The record for each transaction is a <code>TransactionDescription</code> object.</p>
@@ -2271,6 +2630,9 @@ export interface ListTransactionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutDataLakeSettingsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2283,8 +2645,14 @@ export interface PutDataLakeSettingsRequest {
   DataLakeSettings: DataLakeSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutDataLakeSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface RegisterResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to register.</p>
@@ -2301,10 +2669,21 @@ export interface RegisterResourceRequest {
    * <p>The identifier for the role that registers the resource.</p>
    */
   RoleArn?: string;
+
+  /**
+   * <p>Whether or not the resource is a federated resource.</p>
+   */
+  WithFederation?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RegisterResourceResponse {}
 
+/**
+ * @public
+ */
 export interface RemoveLFTagsFromResourceRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2322,6 +2701,9 @@ export interface RemoveLFTagsFromResourceRequest {
   LFTags: LFTagPair[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveLFTagsFromResourceResponse {
   /**
    * <p>A list of failures to untag a resource.</p>
@@ -2329,6 +2711,9 @@ export interface RemoveLFTagsFromResourceResponse {
   Failures?: LFTagError[];
 }
 
+/**
+ * @public
+ */
 export interface RevokePermissionsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2357,8 +2742,14 @@ export interface RevokePermissionsRequest {
   PermissionsWithGrantOption?: (Permission | string)[];
 }
 
+/**
+ * @public
+ */
 export interface RevokePermissionsResponse {}
 
+/**
+ * @public
+ */
 export interface SearchDatabasesByLFTagsRequest {
   /**
    * <p>A continuation token, if this is not the first call to retrieve this list.</p>
@@ -2382,6 +2773,7 @@ export interface SearchDatabasesByLFTagsRequest {
 }
 
 /**
+ * @public
  * <p>A structure describing a database resource with LF-tags.</p>
  */
 export interface TaggedDatabase {
@@ -2396,6 +2788,9 @@ export interface TaggedDatabase {
   LFTags?: LFTagPair[];
 }
 
+/**
+ * @public
+ */
 export interface SearchDatabasesByLFTagsResponse {
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
@@ -2408,6 +2803,9 @@ export interface SearchDatabasesByLFTagsResponse {
   DatabaseList?: TaggedDatabase[];
 }
 
+/**
+ * @public
+ */
 export interface SearchTablesByLFTagsRequest {
   /**
    * <p>A continuation token, if this is not the first call to retrieve this list.</p>
@@ -2431,6 +2829,7 @@ export interface SearchTablesByLFTagsRequest {
 }
 
 /**
+ * @public
  * <p>A structure describing a table resource with LF-tags.</p>
  */
 export interface TaggedTable {
@@ -2455,6 +2854,9 @@ export interface TaggedTable {
   LFTagsOnColumns?: ColumnLFTag[];
 }
 
+/**
+ * @public
+ */
 export interface SearchTablesByLFTagsResponse {
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
@@ -2468,6 +2870,7 @@ export interface SearchTablesByLFTagsResponse {
 }
 
 /**
+ * @public
  * <p>A structure containing information about the query plan.</p>
  */
 export interface QueryPlanningContext {
@@ -2497,6 +2900,9 @@ export interface QueryPlanningContext {
   TransactionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartQueryPlanningRequest {
   /**
    * <p>A structure containing information about the query plan.</p>
@@ -2510,6 +2916,7 @@ export interface StartQueryPlanningRequest {
 }
 
 /**
+ * @public
  * <p>A structure for the output.</p>
  */
 export interface StartQueryPlanningResponse {
@@ -2519,11 +2926,23 @@ export interface StartQueryPlanningResponse {
   QueryId: string | undefined;
 }
 
-export enum TransactionType {
-  READ_AND_WRITE = "READ_AND_WRITE",
-  READ_ONLY = "READ_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransactionType = {
+  READ_AND_WRITE: "READ_AND_WRITE",
+  READ_ONLY: "READ_ONLY",
+} as const;
 
+/**
+ * @public
+ */
+export type TransactionType = (typeof TransactionType)[keyof typeof TransactionType];
+
+/**
+ * @public
+ */
 export interface StartTransactionRequest {
   /**
    * <p>Indicates whether this transaction should be read only or read and write. Writes made using a read-only transaction ID will be rejected. Read-only transactions do not need to be committed. </p>
@@ -2531,6 +2950,9 @@ export interface StartTransactionRequest {
   TransactionType?: TransactionType | string;
 }
 
+/**
+ * @public
+ */
 export interface StartTransactionResponse {
   /**
    * <p>An opaque identifier for the transaction.</p>
@@ -2538,6 +2960,9 @@ export interface StartTransactionResponse {
   TransactionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataCellsFilterRequest {
   /**
    * <p>A <code>DataCellsFilter</code> structure containing information about the data cells filter.</p>
@@ -2545,8 +2970,14 @@ export interface UpdateDataCellsFilterRequest {
   TableData: DataCellsFilter | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataCellsFilterResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLFTagRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2569,8 +3000,14 @@ export interface UpdateLFTagRequest {
   TagValuesToAdd?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateLFTagResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateResourceRequest {
   /**
    * <p>The new role to use for the given resource registered in Lake Formation.</p>
@@ -2581,11 +3018,20 @@ export interface UpdateResourceRequest {
    * <p>The resource ARN.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>Whether or not the resource is a federated resource.</p>
+   */
+  WithFederation?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceResponse {}
 
 /**
+ * @public
  * <p>An object to delete from the governed table.</p>
  */
 export interface DeleteObjectInput {
@@ -2606,6 +3052,7 @@ export interface DeleteObjectInput {
 }
 
 /**
+ * @public
  * <p>Defines an object to add to or delete from a governed table.</p>
  */
 export interface WriteOperation {
@@ -2620,6 +3067,9 @@ export interface WriteOperation {
   DeleteObject?: DeleteObjectInput;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableObjectsRequest {
   /**
    * <p>The catalog containing the governed table to update. Defaults to the caller’s account ID.</p>
@@ -2647,8 +3097,14 @@ export interface UpdateTableObjectsRequest {
   WriteOperations: WriteOperation[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableObjectsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateTableStorageOptimizerRequest {
   /**
    * <p>The Catalog ID of the table.</p>
@@ -2671,628 +3127,15 @@ export interface UpdateTableStorageOptimizerRequest {
   StorageOptimizerConfig: Record<string, Record<string, string>> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableStorageOptimizerResponse {
   /**
    * <p>A response indicating the success of failure of the operation.</p>
    */
   Result?: string;
 }
-
-/**
- * @internal
- */
-export const LFTagPairFilterSensitiveLog = (obj: LFTagPair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CatalogResourceFilterSensitiveLog = (obj: CatalogResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseResourceFilterSensitiveLog = (obj: DatabaseResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataCellsFilterResourceFilterSensitiveLog = (obj: DataCellsFilterResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataLocationResourceFilterSensitiveLog = (obj: DataLocationResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LFTagKeyResourceFilterSensitiveLog = (obj: LFTagKeyResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LFTagFilterSensitiveLog = (obj: LFTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LFTagPolicyResourceFilterSensitiveLog = (obj: LFTagPolicyResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableWildcardFilterSensitiveLog = (obj: TableWildcard): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableResourceFilterSensitiveLog = (obj: TableResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnWildcardFilterSensitiveLog = (obj: ColumnWildcard): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableWithColumnsResourceFilterSensitiveLog = (obj: TableWithColumnsResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddLFTagsToResourceRequestFilterSensitiveLog = (obj: AddLFTagsToResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorDetailFilterSensitiveLog = (obj: ErrorDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LFTagErrorFilterSensitiveLog = (obj: LFTagError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddLFTagsToResourceResponseFilterSensitiveLog = (obj: AddLFTagsToResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddObjectInputFilterSensitiveLog = (obj: AddObjectInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AllRowsWildcardFilterSensitiveLog = (obj: AllRowsWildcard): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssumeDecoratedRoleWithSAMLRequestFilterSensitiveLog = (obj: AssumeDecoratedRoleWithSAMLRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssumeDecoratedRoleWithSAMLResponseFilterSensitiveLog = (
-  obj: AssumeDecoratedRoleWithSAMLResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditContextFilterSensitiveLog = (obj: AuditContext): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataLakePrincipalFilterSensitiveLog = (obj: DataLakePrincipal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchPermissionsRequestEntryFilterSensitiveLog = (obj: BatchPermissionsRequestEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGrantPermissionsRequestFilterSensitiveLog = (obj: BatchGrantPermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchPermissionsFailureEntryFilterSensitiveLog = (obj: BatchPermissionsFailureEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGrantPermissionsResponseFilterSensitiveLog = (obj: BatchGrantPermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchRevokePermissionsRequestFilterSensitiveLog = (obj: BatchRevokePermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchRevokePermissionsResponseFilterSensitiveLog = (obj: BatchRevokePermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelTransactionRequestFilterSensitiveLog = (obj: CancelTransactionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelTransactionResponseFilterSensitiveLog = (obj: CancelTransactionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CommitTransactionRequestFilterSensitiveLog = (obj: CommitTransactionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CommitTransactionResponseFilterSensitiveLog = (obj: CommitTransactionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RowFilterFilterSensitiveLog = (obj: RowFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataCellsFilterFilterSensitiveLog = (obj: DataCellsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataCellsFilterRequestFilterSensitiveLog = (obj: CreateDataCellsFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataCellsFilterResponseFilterSensitiveLog = (obj: CreateDataCellsFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLFTagRequestFilterSensitiveLog = (obj: CreateLFTagRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLFTagResponseFilterSensitiveLog = (obj: CreateLFTagResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataCellsFilterRequestFilterSensitiveLog = (obj: DeleteDataCellsFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataCellsFilterResponseFilterSensitiveLog = (obj: DeleteDataCellsFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLFTagRequestFilterSensitiveLog = (obj: DeleteLFTagRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLFTagResponseFilterSensitiveLog = (obj: DeleteLFTagResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualObjectFilterSensitiveLog = (obj: VirtualObject): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteObjectsOnCancelRequestFilterSensitiveLog = (obj: DeleteObjectsOnCancelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteObjectsOnCancelResponseFilterSensitiveLog = (obj: DeleteObjectsOnCancelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterResourceRequestFilterSensitiveLog = (obj: DeregisterResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterResourceResponseFilterSensitiveLog = (obj: DeregisterResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeResourceRequestFilterSensitiveLog = (obj: DescribeResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceInfoFilterSensitiveLog = (obj: ResourceInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeResourceResponseFilterSensitiveLog = (obj: DescribeResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransactionRequestFilterSensitiveLog = (obj: DescribeTransactionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransactionDescriptionFilterSensitiveLog = (obj: TransactionDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransactionResponseFilterSensitiveLog = (obj: DescribeTransactionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtendTransactionRequestFilterSensitiveLog = (obj: ExtendTransactionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtendTransactionResponseFilterSensitiveLog = (obj: ExtendTransactionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataCellsFilterRequestFilterSensitiveLog = (obj: GetDataCellsFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataCellsFilterResponseFilterSensitiveLog = (obj: GetDataCellsFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataLakeSettingsRequestFilterSensitiveLog = (obj: GetDataLakeSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrincipalPermissionsFilterSensitiveLog = (obj: PrincipalPermissions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataLakeSettingsFilterSensitiveLog = (obj: DataLakeSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataLakeSettingsResponseFilterSensitiveLog = (obj: GetDataLakeSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEffectivePermissionsForPathRequestFilterSensitiveLog = (
-  obj: GetEffectivePermissionsForPathRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetailsMapFilterSensitiveLog = (obj: DetailsMap): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrincipalResourcePermissionsFilterSensitiveLog = (obj: PrincipalResourcePermissions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEffectivePermissionsForPathResponseFilterSensitiveLog = (
-  obj: GetEffectivePermissionsForPathResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLFTagRequestFilterSensitiveLog = (obj: GetLFTagRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLFTagResponseFilterSensitiveLog = (obj: GetLFTagResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueryStateRequestFilterSensitiveLog = (obj: GetQueryStateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueryStateResponseFilterSensitiveLog = (obj: GetQueryStateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueryStatisticsRequestFilterSensitiveLog = (obj: GetQueryStatisticsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecutionStatisticsFilterSensitiveLog = (obj: ExecutionStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlanningStatisticsFilterSensitiveLog = (obj: PlanningStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueryStatisticsResponseFilterSensitiveLog = (obj: GetQueryStatisticsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceLFTagsRequestFilterSensitiveLog = (obj: GetResourceLFTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnLFTagFilterSensitiveLog = (obj: ColumnLFTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceLFTagsResponseFilterSensitiveLog = (obj: GetResourceLFTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTableObjectsRequestFilterSensitiveLog = (obj: GetTableObjectsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableObjectFilterSensitiveLog = (obj: TableObject): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartitionObjectsFilterSensitiveLog = (obj: PartitionObjects): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTableObjectsResponseFilterSensitiveLog = (obj: GetTableObjectsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartitionValueListFilterSensitiveLog = (obj: PartitionValueList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemporaryGluePartitionCredentialsRequestFilterSensitiveLog = (
-  obj: GetTemporaryGluePartitionCredentialsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemporaryGluePartitionCredentialsResponseFilterSensitiveLog = (
-  obj: GetTemporaryGluePartitionCredentialsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemporaryGlueTableCredentialsRequestFilterSensitiveLog = (
-  obj: GetTemporaryGlueTableCredentialsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemporaryGlueTableCredentialsResponseFilterSensitiveLog = (
-  obj: GetTemporaryGlueTableCredentialsResponse
-): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -3312,352 +3155,7 @@ export const GetWorkUnitResultsResponseFilterSensitiveLog = (obj: GetWorkUnitRes
 /**
  * @internal
  */
-export const GetWorkUnitsRequestFilterSensitiveLog = (obj: GetWorkUnitsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkUnitRangeFilterSensitiveLog = (obj: WorkUnitRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkUnitsResponseFilterSensitiveLog = (obj: GetWorkUnitsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrantPermissionsRequestFilterSensitiveLog = (obj: GrantPermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrantPermissionsResponseFilterSensitiveLog = (obj: GrantPermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataCellsFilterRequestFilterSensitiveLog = (obj: ListDataCellsFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataCellsFilterResponseFilterSensitiveLog = (obj: ListDataCellsFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLFTagsRequestFilterSensitiveLog = (obj: ListLFTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLFTagsResponseFilterSensitiveLog = (obj: ListLFTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPermissionsRequestFilterSensitiveLog = (obj: ListPermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPermissionsResponseFilterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterConditionFilterSensitiveLog = (obj: FilterCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesRequestFilterSensitiveLog = (obj: ListResourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesResponseFilterSensitiveLog = (obj: ListResourcesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTableStorageOptimizersRequestFilterSensitiveLog = (obj: ListTableStorageOptimizersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StorageOptimizerFilterSensitiveLog = (obj: StorageOptimizer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTableStorageOptimizersResponseFilterSensitiveLog = (obj: ListTableStorageOptimizersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTransactionsRequestFilterSensitiveLog = (obj: ListTransactionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTransactionsResponseFilterSensitiveLog = (obj: ListTransactionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutDataLakeSettingsRequestFilterSensitiveLog = (obj: PutDataLakeSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutDataLakeSettingsResponseFilterSensitiveLog = (obj: PutDataLakeSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterResourceRequestFilterSensitiveLog = (obj: RegisterResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterResourceResponseFilterSensitiveLog = (obj: RegisterResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveLFTagsFromResourceRequestFilterSensitiveLog = (obj: RemoveLFTagsFromResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveLFTagsFromResourceResponseFilterSensitiveLog = (obj: RemoveLFTagsFromResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokePermissionsRequestFilterSensitiveLog = (obj: RevokePermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokePermissionsResponseFilterSensitiveLog = (obj: RevokePermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchDatabasesByLFTagsRequestFilterSensitiveLog = (obj: SearchDatabasesByLFTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaggedDatabaseFilterSensitiveLog = (obj: TaggedDatabase): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchDatabasesByLFTagsResponseFilterSensitiveLog = (obj: SearchDatabasesByLFTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchTablesByLFTagsRequestFilterSensitiveLog = (obj: SearchTablesByLFTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaggedTableFilterSensitiveLog = (obj: TaggedTable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchTablesByLFTagsResponseFilterSensitiveLog = (obj: SearchTablesByLFTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryPlanningContextFilterSensitiveLog = (obj: QueryPlanningContext): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StartQueryPlanningRequestFilterSensitiveLog = (obj: StartQueryPlanningRequest): any => ({
   ...obj,
   ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartQueryPlanningResponseFilterSensitiveLog = (obj: StartQueryPlanningResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartTransactionRequestFilterSensitiveLog = (obj: StartTransactionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartTransactionResponseFilterSensitiveLog = (obj: StartTransactionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDataCellsFilterRequestFilterSensitiveLog = (obj: UpdateDataCellsFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDataCellsFilterResponseFilterSensitiveLog = (obj: UpdateDataCellsFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLFTagRequestFilterSensitiveLog = (obj: UpdateLFTagRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLFTagResponseFilterSensitiveLog = (obj: UpdateLFTagResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceRequestFilterSensitiveLog = (obj: UpdateResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceResponseFilterSensitiveLog = (obj: UpdateResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteObjectInputFilterSensitiveLog = (obj: DeleteObjectInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WriteOperationFilterSensitiveLog = (obj: WriteOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableObjectsRequestFilterSensitiveLog = (obj: UpdateTableObjectsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableObjectsResponseFilterSensitiveLog = (obj: UpdateTableObjectsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableStorageOptimizerRequestFilterSensitiveLog = (obj: UpdateTableStorageOptimizerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableStorageOptimizerResponseFilterSensitiveLog = (
-  obj: UpdateTableStorageOptimizerResponse
-): any => ({
-  ...obj,
 });

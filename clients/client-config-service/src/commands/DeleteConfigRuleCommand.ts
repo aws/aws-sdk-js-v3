@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteConfigRuleRequest, DeleteConfigRuleRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConfigRuleCommand,
-  serializeAws_json1_1DeleteConfigRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteConfigRuleRequest } from "../models/models_0";
+import { de_DeleteConfigRuleCommand, se_DeleteConfigRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigRuleCommand}.
  */
 export interface DeleteConfigRuleCommandInput extends DeleteConfigRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigRuleCommand}.
  */
 export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Config rule and all of its evaluation
  * 			results.</p>
  *          <p>Config sets the state of a rule to <code>DELETING</code>
@@ -45,10 +47,15 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * import { ConfigServiceClient, DeleteConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeleteConfigRuleRequest
+ *   ConfigRuleName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigRuleCommandInput - {@link DeleteConfigRuleCommandInput}
+ * @returns {@link DeleteConfigRuleCommandOutput}
  * @see {@link DeleteConfigRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteConfigRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +139,8 @@ export class DeleteConfigRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +150,18 @@ export class DeleteConfigRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConfigRuleCommand(input, context);
+    return se_DeleteConfigRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigRuleCommandOutput> {
-    return deserializeAws_json1_1DeleteConfigRuleCommand(output, context);
+    return de_DeleteConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

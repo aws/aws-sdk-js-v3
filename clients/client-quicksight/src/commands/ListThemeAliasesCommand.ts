@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListThemeAliasesRequest,
-  ListThemeAliasesRequestFilterSensitiveLog,
-  ListThemeAliasesResponse,
-  ListThemeAliasesResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1ListThemeAliasesCommand,
-  serializeAws_restJson1ListThemeAliasesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListThemeAliasesRequest, ListThemeAliasesResponse } from "../models/models_3";
+import { de_ListThemeAliasesCommand, se_ListThemeAliasesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListThemeAliasesCommand}.
  */
 export interface ListThemeAliasesCommandInput extends ListThemeAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThemeAliasesCommand}.
  */
 export interface ListThemeAliasesCommandOutput extends ListThemeAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the aliases of a theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListThemeAliasesCommandOutput extends ListThemeAliasesResponse,
  * import { QuickSightClient, ListThemeAliasesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListThemeAliasesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // ListThemeAliasesRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   ThemeId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListThemeAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThemeAliasesCommandInput - {@link ListThemeAliasesCommandInput}
+ * @returns {@link ListThemeAliasesCommandOutput}
  * @see {@link ListThemeAliasesCommandInput} for command's `input` shape.
  * @see {@link ListThemeAliasesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +98,9 @@ export class ListThemeAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThemeAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +129,8 @@ export class ListThemeAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListThemeAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListThemeAliasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +140,18 @@ export class ListThemeAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThemeAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListThemeAliasesCommand(input, context);
+    return se_ListThemeAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThemeAliasesCommandOutput> {
-    return deserializeAws_restJson1ListThemeAliasesCommand(output, context);
+    return de_ListThemeAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

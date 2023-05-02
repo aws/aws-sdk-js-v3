@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteConformancePackRequest, DeleteConformancePackRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConformancePackCommand,
-  serializeAws_json1_1DeleteConformancePackCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteConformancePackRequest } from "../models/models_0";
+import { de_DeleteConformancePackCommand, se_DeleteConformancePackCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConformancePackCommand}.
  */
 export interface DeleteConformancePackCommandInput extends DeleteConformancePackRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConformancePackCommand}.
  */
 export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified conformance pack and all the Config rules, remediation actions, and all evaluation results within that
  * 			conformance pack.</p>
  *          <p>Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete.
@@ -40,10 +42,15 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
  * import { ConfigServiceClient, DeleteConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeleteConformancePackRequest
+ *   ConformancePackName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConformancePackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConformancePackCommandInput - {@link DeleteConformancePackCommandInput}
+ * @returns {@link DeleteConformancePackCommandOutput}
  * @see {@link DeleteConformancePackCommandInput} for command's `input` shape.
  * @see {@link DeleteConformancePackCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteConformancePackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConformancePackCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +134,8 @@ export class DeleteConformancePackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConformancePackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +145,18 @@ export class DeleteConformancePackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConformancePackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConformancePackCommand(input, context);
+    return se_DeleteConformancePackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConformancePackCommandOutput> {
-    return deserializeAws_json1_1DeleteConformancePackCommand(output, context);
+    return de_DeleteConformancePackCommand(output, context);
   }
 
   // Start section: command_body_extra

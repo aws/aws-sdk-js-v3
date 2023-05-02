@@ -94,6 +94,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchCreateAttendeeCommandInput
   | BatchUpdateAttendeeCapabilitiesExceptCommandInput
@@ -112,6 +115,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAttendeeCapabilitiesCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchCreateAttendeeCommandOutput
   | BatchUpdateAttendeeCapabilitiesExceptCommandOutput
@@ -130,6 +136,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAttendeeCapabilitiesCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -137,7 +146,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -246,11 +255,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ChimeSDKMeetingsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -261,10 +273,15 @@ type ChimeSDKMeetingsClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ChimeSDKMeetingsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ChimeSDKMeetingsClient class constructor that set the region, credentials and other options.
  */
 export interface ChimeSDKMeetingsClientConfig extends ChimeSDKMeetingsClientConfigType {}
 
+/**
+ * @public
+ */
 type ChimeSDKMeetingsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -275,11 +292,14 @@ type ChimeSDKMeetingsClientResolvedConfigType = __SmithyResolvedConfiguration<__
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ChimeSDKMeetingsClient class. This is resolved and normalized from the {@link ChimeSDKMeetingsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ChimeSDKMeetingsClient class. This is resolved and normalized from the {@link ChimeSDKMeetingsClientConfig | constructor configuration interface}.
  */
 export interface ChimeSDKMeetingsClientResolvedConfig extends ChimeSDKMeetingsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The Amazon Chime SDK meetings APIs in this section allow software developers to create Amazon Chime SDK meetings, set the AWS Regions for meetings, create and manage users, and send and
  *             receive meeting notifications. For more information about the meeting APIs, see
  *             <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html">Amazon Chime SDK meetings</a>.</p>

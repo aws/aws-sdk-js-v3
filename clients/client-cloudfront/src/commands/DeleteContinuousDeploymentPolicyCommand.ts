@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { DeleteContinuousDeploymentPolicyRequest } from "../models/models_1";
 import {
-  DeleteContinuousDeploymentPolicyRequest,
-  DeleteContinuousDeploymentPolicyRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteContinuousDeploymentPolicyCommand,
-  serializeAws_restXmlDeleteContinuousDeploymentPolicyCommand,
+  de_DeleteContinuousDeploymentPolicyCommand,
+  se_DeleteContinuousDeploymentPolicyCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContinuousDeploymentPolicyCommand}.
  */
 export interface DeleteContinuousDeploymentPolicyCommandInput extends DeleteContinuousDeploymentPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContinuousDeploymentPolicyCommand}.
  */
 export interface DeleteContinuousDeploymentPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a continuous deployment policy.</p>
  *          <p>You cannot delete a continuous deployment policy that's attached to a primary
  * 			distribution. First update your distribution to remove the continuous deployment policy,
@@ -43,10 +45,16 @@ export interface DeleteContinuousDeploymentPolicyCommandOutput extends __Metadat
  * import { CloudFrontClient, DeleteContinuousDeploymentPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteContinuousDeploymentPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteContinuousDeploymentPolicyRequest
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContinuousDeploymentPolicyCommandInput - {@link DeleteContinuousDeploymentPolicyCommandInput}
+ * @returns {@link DeleteContinuousDeploymentPolicyCommandOutput}
  * @see {@link DeleteContinuousDeploymentPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -90,6 +98,9 @@ export class DeleteContinuousDeploymentPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContinuousDeploymentPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +129,8 @@ export class DeleteContinuousDeploymentPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContinuousDeploymentPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +140,24 @@ export class DeleteContinuousDeploymentPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteContinuousDeploymentPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteContinuousDeploymentPolicyCommand(input, context);
+    return se_DeleteContinuousDeploymentPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteContinuousDeploymentPolicyCommandOutput> {
-    return deserializeAws_restXmlDeleteContinuousDeploymentPolicyCommand(output, context);
+    return de_DeleteContinuousDeploymentPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

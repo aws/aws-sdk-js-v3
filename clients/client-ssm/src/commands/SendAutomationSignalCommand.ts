@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendAutomationSignalRequest,
-  SendAutomationSignalRequestFilterSensitiveLog,
-  SendAutomationSignalResult,
-  SendAutomationSignalResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1SendAutomationSignalCommand,
-  serializeAws_json1_1SendAutomationSignalCommand,
-} from "../protocols/Aws_json1_1";
+import { SendAutomationSignalRequest, SendAutomationSignalResult } from "../models/models_1";
+import { de_SendAutomationSignalCommand, se_SendAutomationSignalCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendAutomationSignalCommand}.
  */
 export interface SendAutomationSignalCommandInput extends SendAutomationSignalRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendAutomationSignalCommand}.
  */
 export interface SendAutomationSignalCommandOutput extends SendAutomationSignalResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a signal to an Automation execution to change the current behavior or status of the
  *    execution. </p>
  * @example
@@ -43,10 +40,21 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * import { SSMClient, SendAutomationSignalCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, SendAutomationSignalCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // SendAutomationSignalRequest
+ *   AutomationExecutionId: "STRING_VALUE", // required
+ *   SignalType: "Approve" || "Reject" || "StartStep" || "StopStep" || "Resume", // required
+ *   Payload: { // AutomationParameterMap
+ *     "<keys>": [ // AutomationParameterValueList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new SendAutomationSignalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendAutomationSignalCommandInput - {@link SendAutomationSignalCommandInput}
+ * @returns {@link SendAutomationSignalCommandOutput}
  * @see {@link SendAutomationSignalCommandInput} for command's `input` shape.
  * @see {@link SendAutomationSignalCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -84,6 +92,9 @@ export class SendAutomationSignalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendAutomationSignalCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +123,8 @@ export class SendAutomationSignalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendAutomationSignalRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendAutomationSignalResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +134,18 @@ export class SendAutomationSignalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendAutomationSignalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendAutomationSignalCommand(input, context);
+    return se_SendAutomationSignalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendAutomationSignalCommandOutput> {
-    return deserializeAws_json1_1SendAutomationSignalCommand(output, context);
+    return de_SendAutomationSignalCommand(output, context);
   }
 
   // Start section: command_body_extra

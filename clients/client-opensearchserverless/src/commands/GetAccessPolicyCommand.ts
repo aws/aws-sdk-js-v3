@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccessPolicyRequest,
-  GetAccessPolicyRequestFilterSensitiveLog,
-  GetAccessPolicyResponse,
-  GetAccessPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccessPolicyRequest, GetAccessPolicyResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0GetAccessPolicyCommand,
-  serializeAws_json1_0GetAccessPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetAccessPolicyCommand, se_GetAccessPolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessPolicyCommand}.
  */
 export interface GetAccessPolicyCommandInput extends GetAccessPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessPolicyCommand}.
  */
 export interface GetAccessPolicyCommandOutput extends GetAccessPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
  *             access control for Amazon OpenSearch Serverless</a>.</p>
  * @example
@@ -47,10 +44,16 @@ export interface GetAccessPolicyCommandOutput extends GetAccessPolicyResponse, _
  * import { OpenSearchServerlessClient, GetAccessPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, GetAccessPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // GetAccessPolicyRequest
+ *   type: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPolicyCommandInput - {@link GetAccessPolicyCommandInput}
+ * @returns {@link GetAccessPolicyCommandOutput}
  * @see {@link GetAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link GetAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetAccessPolicyCommand(input, context);
+    return se_GetAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessPolicyCommandOutput> {
-    return deserializeAws_json1_0GetAccessPolicyCommand(output, context);
+    return de_GetAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

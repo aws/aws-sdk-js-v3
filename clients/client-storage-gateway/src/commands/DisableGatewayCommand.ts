@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisableGatewayInput,
-  DisableGatewayInputFilterSensitiveLog,
-  DisableGatewayOutput,
-  DisableGatewayOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableGatewayCommand,
-  serializeAws_json1_1DisableGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { DisableGatewayInput, DisableGatewayOutput } from "../models/models_0";
+import { de_DisableGatewayCommand, se_DisableGatewayCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableGatewayCommand}.
  */
 export interface DisableGatewayCommandInput extends DisableGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableGatewayCommand}.
  */
 export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables a tape gateway when the gateway is no longer functioning. For example, if your
  *          gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.</p>
  *
@@ -50,10 +47,15 @@ export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __Met
  * import { StorageGatewayClient, DisableGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DisableGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DisableGatewayInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DisableGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableGatewayCommandInput - {@link DisableGatewayCommandInput}
+ * @returns {@link DisableGatewayCommandOutput}
  * @see {@link DisableGatewayCommandInput} for command's `input` shape.
  * @see {@link DisableGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -101,6 +103,9 @@ export class DisableGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +134,8 @@ export class DisableGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableGatewayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableGatewayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +145,18 @@ export class DisableGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableGatewayCommand(input, context);
+    return se_DisableGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableGatewayCommandOutput> {
-    return deserializeAws_json1_1DisableGatewayCommand(output, context);
+    return de_DisableGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

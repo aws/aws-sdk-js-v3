@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ApplicationCostProfilerServiceException as __BaseException } from "./ApplicationCostProfilerServiceException";
 
 /**
+ * @public
  * <p>You do not have permission to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,6 +23,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteReportDefinitionRequest {
   /**
    * <p>Required. ID of the report to delete.</p>
@@ -29,6 +33,9 @@ export interface DeleteReportDefinitionRequest {
   reportId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReportDefinitionResult {
   /**
    * <p>ID of the report that was deleted.</p>
@@ -37,6 +44,7 @@ export interface DeleteReportDefinitionResult {
 }
 
 /**
+ * @public
  * <p>An internal server error occurred. Retry your request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -56,6 +64,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -75,6 +84,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints for the API.</p>
  */
 export class ValidationException extends __BaseException {
@@ -93,6 +103,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetReportDefinitionRequest {
   /**
    * <p>ID of the report to retrieve.</p>
@@ -101,6 +114,7 @@ export interface GetReportDefinitionRequest {
 }
 
 /**
+ * @public
  * <p>Represents the Amazon Simple Storage Service (Amazon S3) location where AWS Application Cost Profiler
  *       reports are generated and then written to.</p>
  */
@@ -116,17 +130,38 @@ export interface S3Location {
   prefix: string | undefined;
 }
 
-export enum Format {
-  CSV = "CSV",
-  PARQUET = "PARQUET",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Format = {
+  CSV: "CSV",
+  PARQUET: "PARQUET",
+} as const;
 
-export enum ReportFrequency {
-  ALL = "ALL",
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-}
+/**
+ * @public
+ */
+export type Format = (typeof Format)[keyof typeof Format];
 
+/**
+ * @public
+ * @enum
+ */
+export const ReportFrequency = {
+  ALL: "ALL",
+  DAILY: "DAILY",
+  MONTHLY: "MONTHLY",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportFrequency = (typeof ReportFrequency)[keyof typeof ReportFrequency];
+
+/**
+ * @public
+ */
 export interface GetReportDefinitionResult {
   /**
    * <p>ID of the report retrieved.</p>
@@ -164,14 +199,24 @@ export interface GetReportDefinitionResult {
   lastUpdated: Date | undefined;
 }
 
-export enum S3BucketRegion {
-  AF_SOUTH_1 = "af-south-1",
-  AP_EAST_1 = "ap-east-1",
-  EU_SOUTH_1 = "eu-south-1",
-  ME_SOUTH_1 = "me-south-1",
-}
+/**
+ * @public
+ * @enum
+ */
+export const S3BucketRegion = {
+  AF_SOUTH_1: "af-south-1",
+  AP_EAST_1: "ap-east-1",
+  EU_SOUTH_1: "eu-south-1",
+  ME_SOUTH_1: "me-south-1",
+} as const;
 
 /**
+ * @public
+ */
+export type S3BucketRegion = (typeof S3BucketRegion)[keyof typeof S3BucketRegion];
+
+/**
+ * @public
  * <p>Represents the Amazon Simple Storage Service (Amazon S3) location where usage data is read
  *       from.</p>
  */
@@ -194,6 +239,9 @@ export interface SourceS3Location {
   region?: S3BucketRegion | string;
 }
 
+/**
+ * @public
+ */
 export interface ImportApplicationUsageRequest {
   /**
    * <p>Amazon S3 location to import application usage data from.</p>
@@ -201,6 +249,9 @@ export interface ImportApplicationUsageRequest {
   sourceS3Location: SourceS3Location | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportApplicationUsageResult {
   /**
    * <p>ID of the import request.</p>
@@ -208,6 +259,9 @@ export interface ImportApplicationUsageResult {
   importId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListReportDefinitionsRequest {
   /**
    * <p>The token value from a previous call to access the next page of results.</p>
@@ -221,6 +275,7 @@ export interface ListReportDefinitionsRequest {
 }
 
 /**
+ * @public
  * <p>The configuration of a report in AWS Application Cost Profiler.</p>
  */
 export interface ReportDefinition {
@@ -260,6 +315,9 @@ export interface ReportDefinition {
   lastUpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListReportDefinitionsResult {
   /**
    * <p>The retrieved reports.</p>
@@ -272,6 +330,9 @@ export interface ListReportDefinitionsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutReportDefinitionRequest {
   /**
    * <p>Required. ID of the report. You can choose any valid string matching the pattern for the
@@ -301,6 +362,9 @@ export interface PutReportDefinitionRequest {
   destinationS3Location: S3Location | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutReportDefinitionResult {
   /**
    * <p>ID of the report.</p>
@@ -309,6 +373,7 @@ export interface PutReportDefinitionResult {
 }
 
 /**
+ * @public
  * <p>Your request exceeds one or more of the service quotas.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -327,6 +392,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateReportDefinitionRequest {
   /**
    * <p>Required. ID of the report to update.</p>
@@ -355,114 +423,12 @@ export interface UpdateReportDefinitionRequest {
   destinationS3Location: S3Location | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReportDefinitionResult {
   /**
    * <p>ID of the report.</p>
    */
   reportId?: string;
 }
-
-/**
- * @internal
- */
-export const DeleteReportDefinitionRequestFilterSensitiveLog = (obj: DeleteReportDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReportDefinitionResultFilterSensitiveLog = (obj: DeleteReportDefinitionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReportDefinitionRequestFilterSensitiveLog = (obj: GetReportDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReportDefinitionResultFilterSensitiveLog = (obj: GetReportDefinitionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceS3LocationFilterSensitiveLog = (obj: SourceS3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportApplicationUsageRequestFilterSensitiveLog = (obj: ImportApplicationUsageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportApplicationUsageResultFilterSensitiveLog = (obj: ImportApplicationUsageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReportDefinitionsRequestFilterSensitiveLog = (obj: ListReportDefinitionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReportDefinitionFilterSensitiveLog = (obj: ReportDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReportDefinitionsResultFilterSensitiveLog = (obj: ListReportDefinitionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutReportDefinitionRequestFilterSensitiveLog = (obj: PutReportDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutReportDefinitionResultFilterSensitiveLog = (obj: PutReportDefinitionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateReportDefinitionRequestFilterSensitiveLog = (obj: UpdateReportDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateReportDefinitionResultFilterSensitiveLog = (obj: UpdateReportDefinitionResult): any => ({
-  ...obj,
-});

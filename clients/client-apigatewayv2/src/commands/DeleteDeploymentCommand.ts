@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteDeploymentRequest, DeleteDeploymentRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDeploymentCommand,
-  serializeAws_restJson1DeleteDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDeploymentRequest } from "../models/models_0";
+import { de_DeleteDeploymentCommand, se_DeleteDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeploymentCommand}.
  */
 export interface DeleteDeploymentCommandInput extends DeleteDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeploymentCommand}.
  */
 export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteDeploymentCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteDeploymentCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // DeleteDeploymentRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   DeploymentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeploymentCommandInput - {@link DeleteDeploymentCommandInput}
+ * @returns {@link DeleteDeploymentCommandOutput}
  * @see {@link DeleteDeploymentCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -70,6 +78,9 @@ export class DeleteDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +109,8 @@ export class DeleteDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +120,18 @@ export class DeleteDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDeploymentCommand(input, context);
+    return se_DeleteDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeploymentCommandOutput> {
-    return deserializeAws_restJson1DeleteDeploymentCommand(output, context);
+    return de_DeleteDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

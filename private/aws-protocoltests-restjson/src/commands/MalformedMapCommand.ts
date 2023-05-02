@@ -12,18 +12,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedMapInput, MalformedMapInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedMapCommand,
-  serializeAws_restJson1MalformedMapCommand,
-} from "../protocols/Aws_restJson1";
+import { MalformedMapInput } from "../models/models_0";
+import { de_MalformedMapCommand, se_MalformedMapCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedMapCommand}.
  */
 export interface MalformedMapCommandInput extends MalformedMapInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedMapCommand}.
  */
 export interface MalformedMapCommandOutput extends __MetadataBearer {}
@@ -36,6 +37,9 @@ export class MalformedMapCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +65,8 @@ export class MalformedMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedMapInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,12 +76,18 @@ export class MalformedMapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedMapCommand(input, context);
+    return se_MalformedMapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedMapCommandOutput> {
-    return deserializeAws_restJson1MalformedMapCommand(output, context);
+    return de_MalformedMapCommand(output, context);
   }
 
   // Start section: command_body_extra

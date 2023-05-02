@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateContactChannelRequest,
-  CreateContactChannelRequestFilterSensitiveLog,
-  CreateContactChannelResult,
-  CreateContactChannelResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateContactChannelCommand,
-  serializeAws_json1_1CreateContactChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateContactChannelRequest, CreateContactChannelResult } from "../models/models_0";
+import { de_CreateContactChannelCommand, se_CreateContactChannelCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContactChannelCommand}.
  */
 export interface CreateContactChannelCommandInput extends CreateContactChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateContactChannelCommand}.
  */
 export interface CreateContactChannelCommandOutput extends CreateContactChannelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A contact channel is the method that Incident Manager uses to engage your contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  * import { SSMContactsClient, CreateContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, CreateContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // CreateContactChannelRequest
+ *   ContactId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Type: "SMS" || "VOICE" || "EMAIL", // required
+ *   DeliveryAddress: { // ContactChannelAddress
+ *     SimpleAddress: "STRING_VALUE",
+ *   },
+ *   DeferActivation: true || false,
+ *   IdempotencyToken: "STRING_VALUE",
+ * };
  * const command = new CreateContactChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContactChannelCommandInput - {@link CreateContactChannelCommandInput}
+ * @returns {@link CreateContactChannelCommandOutput}
  * @see {@link CreateContactChannelCommandInput} for command's `input` shape.
  * @see {@link CreateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -60,8 +69,7 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  *  <p>The operation failed to due an encryption key error.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -70,27 +78,6 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
- *
- * @example To create a contact channel
- * ```javascript
- * // Creates a contact channel of type SMS for the contact Akua Mansa. Contact channels can be created of type SMS, EMAIL, or VOICE.
- * const input = {
- *   "ContactId": "arn:aws:ssm-contacts:us-east-1:111122223333:contact/akuam",
- *   "DeliveryAddress": {
- *     "SimpleAddress": "+15005550199"
- *   },
- *   "Name": "akuas sms-test",
- *   "Type": "SMS"
- * };
- * const command = new CreateContactChannelCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ContactChannelArn": "arn:aws:ssm-contacts:us-east-1:111122223333:contact-channel/akuam/02f506b9-ea5d-4764-af89-2daa793ff024"
- * }
- * *\/
- * // example id: to-create-a-contact-channel-1630360447010
- * ```
  *
  */
 export class CreateContactChannelCommand extends $Command<
@@ -110,6 +97,9 @@ export class CreateContactChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContactChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +128,8 @@ export class CreateContactChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateContactChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateContactChannelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +139,18 @@ export class CreateContactChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContactChannelCommand(input, context);
+    return se_CreateContactChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContactChannelCommandOutput> {
-    return deserializeAws_json1_1CreateContactChannelCommand(output, context);
+    return de_CreateContactChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

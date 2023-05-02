@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  ListConfiguredTablesInput,
-  ListConfiguredTablesInputFilterSensitiveLog,
-  ListConfiguredTablesOutput,
-  ListConfiguredTablesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListConfiguredTablesCommand,
-  serializeAws_restJson1ListConfiguredTablesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListConfiguredTablesInput, ListConfiguredTablesOutput } from "../models/models_0";
+import { de_ListConfiguredTablesCommand, se_ListConfiguredTablesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConfiguredTablesCommand}.
  */
 export interface ListConfiguredTablesCommandInput extends ListConfiguredTablesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListConfiguredTablesCommand}.
  */
 export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists configured tables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesO
  * import { CleanRoomsClient, ListConfiguredTablesCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListConfiguredTablesCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // ListConfiguredTablesInput
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListConfiguredTablesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfiguredTablesCommandInput - {@link ListConfiguredTablesCommandInput}
+ * @returns {@link ListConfiguredTablesCommandOutput}
  * @see {@link ListConfiguredTablesCommandInput} for command's `input` shape.
  * @see {@link ListConfiguredTablesCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListConfiguredTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfiguredTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class ListConfiguredTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfiguredTablesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConfiguredTablesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class ListConfiguredTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfiguredTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfiguredTablesCommand(input, context);
+    return se_ListConfiguredTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfiguredTablesCommandOutput> {
-    return deserializeAws_restJson1ListConfiguredTablesCommand(output, context);
+    return de_ListConfiguredTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

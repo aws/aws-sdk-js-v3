@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
-import {
-  GetSuiteDefinitionRequest,
-  GetSuiteDefinitionRequestFilterSensitiveLog,
-  GetSuiteDefinitionResponse,
-  GetSuiteDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSuiteDefinitionCommand,
-  serializeAws_restJson1GetSuiteDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSuiteDefinitionRequest, GetSuiteDefinitionResponse } from "../models/models_0";
+import { de_GetSuiteDefinitionCommand, se_GetSuiteDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSuiteDefinitionCommand}.
  */
 export interface GetSuiteDefinitionCommandInput extends GetSuiteDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSuiteDefinitionCommand}.
  */
 export interface GetSuiteDefinitionCommandOutput extends GetSuiteDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Device Advisor test suite.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteDefinition</a> action.</p>
  * @example
@@ -43,10 +40,16 @@ export interface GetSuiteDefinitionCommandOutput extends GetSuiteDefinitionRespo
  * import { IotDeviceAdvisorClient, GetSuiteDefinitionCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, GetSuiteDefinitionCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
+ * const input = { // GetSuiteDefinitionRequest
+ *   suiteDefinitionId: "STRING_VALUE", // required
+ *   suiteDefinitionVersion: "STRING_VALUE",
+ * };
  * const command = new GetSuiteDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSuiteDefinitionCommandInput - {@link GetSuiteDefinitionCommandInput}
+ * @returns {@link GetSuiteDefinitionCommandOutput}
  * @see {@link GetSuiteDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetSuiteDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
@@ -79,6 +82,9 @@ export class GetSuiteDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSuiteDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class GetSuiteDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSuiteDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSuiteDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class GetSuiteDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSuiteDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSuiteDefinitionCommand(input, context);
+    return se_GetSuiteDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSuiteDefinitionCommandOutput> {
-    return deserializeAws_restJson1GetSuiteDefinitionCommand(output, context);
+    return de_GetSuiteDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

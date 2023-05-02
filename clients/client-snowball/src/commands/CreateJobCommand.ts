@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateJobRequest,
-  CreateJobRequestFilterSensitiveLog,
-  CreateJobResult,
-  CreateJobResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1CreateJobCommand, serializeAws_json1_1CreateJobCommand } from "../protocols/Aws_json1_1";
+import { CreateJobRequest, CreateJobResult } from "../models/models_0";
+import { de_CreateJobCommand, se_CreateJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJobCommand}.
  */
 export interface CreateJobCommandInput extends CreateJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJobCommand}.
  */
 export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a job to import or export data between Amazon S3 and your on-premises data
  *       center. Your Amazon Web Services account must have the right trust policies and permissions in
  *       place to create a job for a Snow device. If you're creating a job for a node in a cluster, you
@@ -49,7 +49,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *          </p>
  *          <ul>
  *             <li>
- *                <p>Snow Family device type: <b>SNC1_SSD</b>
+ *                <p>Device type: <b>SNC1_SSD</b>
  *                </p>
  *                <ul>
  *                   <li>
@@ -62,7 +62,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                <p></p>
  *             </li>
  *             <li>
- *                <p>Snow Family device type: <b>SNC1_HDD</b>
+ *                <p>Device type: <b>SNC1_HDD</b>
  *                </p>
  *                <ul>
  *                   <li>
@@ -159,6 +159,32 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                </ul>
  *                <p></p>
  *             </li>
+ *             <li>
+ *                <p>Device type: <b>V3_5C</b>
+ *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Capacity: T32</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Description: Snowball Edge Compute Optimized without GPU</p>
+ *                   </li>
+ *                </ul>
+ *                <p></p>
+ *             </li>
+ *             <li>
+ *                <p>Device type: <b>V3_5S</b>
+ *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Capacity: T240</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Description: Snowball Edge Storage Optimized 210TB</p>
+ *                   </li>
+ *                </ul>
+ *                <p></p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -166,10 +192,98 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * import { SnowballClient, CreateJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CreateJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // CreateJobRequest
+ *   JobType: "IMPORT" || "EXPORT" || "LOCAL_USE",
+ *   Resources: { // JobResource
+ *     S3Resources: [ // S3ResourceList
+ *       { // S3Resource
+ *         BucketArn: "STRING_VALUE",
+ *         KeyRange: { // KeyRange
+ *           BeginMarker: "STRING_VALUE",
+ *           EndMarker: "STRING_VALUE",
+ *         },
+ *         TargetOnDeviceServices: [ // TargetOnDeviceServiceList
+ *           { // TargetOnDeviceService
+ *             ServiceName: "NFS_ON_DEVICE_SERVICE" || "S3_ON_DEVICE_SERVICE",
+ *             TransferOption: "IMPORT" || "EXPORT" || "LOCAL_USE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     LambdaResources: [ // LambdaResourceList
+ *       { // LambdaResource
+ *         LambdaArn: "STRING_VALUE",
+ *         EventTriggers: [ // EventTriggerDefinitionList
+ *           { // EventTriggerDefinition
+ *             EventResourceARN: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Ec2AmiResources: [ // Ec2AmiResourceList
+ *       { // Ec2AmiResource
+ *         AmiId: "STRING_VALUE", // required
+ *         SnowballAmiId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   OnDeviceServiceConfiguration: { // OnDeviceServiceConfiguration
+ *     NFSOnDeviceService: { // NFSOnDeviceServiceConfiguration
+ *       StorageLimit: Number("int"),
+ *       StorageUnit: "TB",
+ *     },
+ *     TGWOnDeviceService: { // TGWOnDeviceServiceConfiguration
+ *       StorageLimit: Number("int"),
+ *       StorageUnit: "TB",
+ *     },
+ *     EKSOnDeviceService: { // EKSOnDeviceServiceConfiguration
+ *       KubernetesVersion: "STRING_VALUE",
+ *       EKSAnywhereVersion: "STRING_VALUE",
+ *     },
+ *     S3OnDeviceService: { // S3OnDeviceServiceConfiguration
+ *       StorageLimit: Number("double"),
+ *       StorageUnit: "TB",
+ *       ServiceSize: Number("int"),
+ *       FaultTolerance: Number("int"),
+ *     },
+ *   },
+ *   Description: "STRING_VALUE",
+ *   AddressId: "STRING_VALUE",
+ *   KmsKeyARN: "STRING_VALUE",
+ *   RoleARN: "STRING_VALUE",
+ *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240",
+ *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD",
+ *   Notification: { // Notification
+ *     SnsTopicARN: "STRING_VALUE",
+ *     JobStatesToNotify: [ // JobStateList
+ *       "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
+ *     ],
+ *     NotifyAll: true || false,
+ *   },
+ *   ClusterId: "STRING_VALUE",
+ *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
+ *   ForwardingAddressId: "STRING_VALUE",
+ *   TaxDocuments: { // TaxDocuments
+ *     IND: { // INDTaxDocuments
+ *       GSTIN: "STRING_VALUE",
+ *     },
+ *   },
+ *   DeviceConfiguration: { // DeviceConfiguration
+ *     SnowconeDeviceConfiguration: { // SnowconeDeviceConfiguration
+ *       WirelessConnection: { // WirelessConnection
+ *         IsWifiEnabled: true || false,
+ *       },
+ *     },
+ *   },
+ *   RemoteManagement: "INSTALLED_ONLY" || "INSTALLED_AUTOSTART",
+ *   LongTermPricingId: "STRING_VALUE",
+ * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJobCommandInput - {@link CreateJobCommandInput}
+ * @returns {@link CreateJobCommandOutput}
  * @see {@link CreateJobCommandInput} for command's `input` shape.
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -180,7 +294,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       create jobs until your cluster has exactly five nodes.</p>
  *
  * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
  *       action.</p>
  *
  * @throws {@link InvalidInputCombinationException} (client fault)
@@ -248,6 +362,9 @@ export class CreateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -274,8 +391,8 @@ export class CreateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -285,12 +402,18 @@ export class CreateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateJobCommand(input, context);
+    return se_CreateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobCommandOutput> {
-    return deserializeAws_json1_1CreateJobCommand(output, context);
+    return de_CreateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

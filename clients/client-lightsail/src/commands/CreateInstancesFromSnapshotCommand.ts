@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CreateInstancesFromSnapshotRequest,
-  CreateInstancesFromSnapshotRequestFilterSensitiveLog,
-  CreateInstancesFromSnapshotResult,
-  CreateInstancesFromSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateInstancesFromSnapshotCommand,
-  serializeAws_json1_1CreateInstancesFromSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateInstancesFromSnapshotRequest, CreateInstancesFromSnapshotResult } from "../models/models_0";
+import { de_CreateInstancesFromSnapshotCommand, se_CreateInstancesFromSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstancesFromSnapshotCommand}.
  */
 export interface CreateInstancesFromSnapshotCommandInput extends CreateInstancesFromSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstancesFromSnapshotCommand}.
  */
 export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstancesFromSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates one or more new instances from a manual or automatic snapshot of an
  *       instance.</p>
  *          <p>The <code>create instances from snapshot</code> operation supports tag-based access
@@ -46,10 +43,52 @@ export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstance
  * import { LightsailClient, CreateInstancesFromSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateInstancesFromSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateInstancesFromSnapshotRequest
+ *   instanceNames: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   attachedDiskMapping: { // AttachedDiskMap
+ *     "<keys>": [ // DiskMapList
+ *       { // DiskMap
+ *         originalDiskPath: "STRING_VALUE",
+ *         newDiskName: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   availabilityZone: "STRING_VALUE", // required
+ *   instanceSnapshotName: "STRING_VALUE",
+ *   bundleId: "STRING_VALUE", // required
+ *   userData: "STRING_VALUE",
+ *   keyPairName: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   addOns: [ // AddOnRequestList
+ *     { // AddOnRequest
+ *       addOnType: "AutoSnapshot" || "StopInstanceOnIdle", // required
+ *       autoSnapshotAddOnRequest: { // AutoSnapshotAddOnRequest
+ *         snapshotTimeOfDay: "STRING_VALUE",
+ *       },
+ *       stopInstanceOnIdleRequest: { // StopInstanceOnIdleRequest
+ *         threshold: "STRING_VALUE",
+ *         duration: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   ipAddressType: "dualstack" || "ipv4",
+ *   sourceInstanceName: "STRING_VALUE",
+ *   restoreDate: "STRING_VALUE",
+ *   useLatestRestorableAutoSnapshot: true || false,
+ * };
  * const command = new CreateInstancesFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstancesFromSnapshotCommandInput - {@link CreateInstancesFromSnapshotCommandInput}
+ * @returns {@link CreateInstancesFromSnapshotCommandOutput}
  * @see {@link CreateInstancesFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateInstancesFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -103,6 +142,9 @@ export class CreateInstancesFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstancesFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +173,8 @@ export class CreateInstancesFromSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInstancesFromSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInstancesFromSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,15 +184,21 @@ export class CreateInstancesFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstancesFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateInstancesFromSnapshotCommand(input, context);
+    return se_CreateInstancesFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateInstancesFromSnapshotCommandOutput> {
-    return deserializeAws_json1_1CreateInstancesFromSnapshotCommand(output, context);
+    return de_CreateInstancesFromSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

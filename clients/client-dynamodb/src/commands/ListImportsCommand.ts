@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  ListImportsInput,
-  ListImportsInputFilterSensitiveLog,
-  ListImportsOutput,
-  ListImportsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListImportsCommand,
-  serializeAws_json1_0ListImportsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListImportsInput, ListImportsOutput } from "../models/models_0";
+import { de_ListImportsCommand, se_ListImportsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListImportsCommand}.
  */
 export interface ListImportsCommandInput extends ListImportsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListImportsCommand}.
  */
 export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists completed imports within the past 90 days. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * import { DynamoDBClient, ListImportsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListImportsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // ListImportsInput
+ *   TableArn: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImportsCommandInput - {@link ListImportsCommandInput}
+ * @returns {@link ListImportsCommandOutput}
  * @see {@link ListImportsCommandInput} for command's `input` shape.
  * @see {@link ListImportsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -82,6 +86,9 @@ export class ListImportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class ListImportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImportsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImportsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class ListImportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListImportsCommand(input, context);
+    return se_ListImportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportsCommandOutput> {
-    return deserializeAws_json1_0ListImportsCommand(output, context);
+    return de_ListImportsCommand(output, context);
   }
 
   // Start section: command_body_extra

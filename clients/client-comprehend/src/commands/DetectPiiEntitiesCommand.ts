@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DetectPiiEntitiesRequest,
-  DetectPiiEntitiesRequestFilterSensitiveLog,
-  DetectPiiEntitiesResponse,
-  DetectPiiEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectPiiEntitiesCommand,
-  serializeAws_json1_1DetectPiiEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { DetectPiiEntitiesRequest, DetectPiiEntitiesResponse } from "../models/models_0";
+import { de_DetectPiiEntitiesCommand, se_DetectPiiEntitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectPiiEntitiesCommand}.
  */
 export interface DetectPiiEntitiesCommandInput extends DetectPiiEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectPiiEntitiesCommand}.
  */
 export interface DetectPiiEntitiesCommandOutput extends DetectPiiEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects the input text for entities that contain personally identifiable information
  *       (PII) and returns information about them.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DetectPiiEntitiesCommandOutput extends DetectPiiEntitiesRespons
  * import { ComprehendClient, DetectPiiEntitiesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectPiiEntitiesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DetectPiiEntitiesRequest
+ *   Text: "STRING_VALUE", // required
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ * };
  * const command = new DetectPiiEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectPiiEntitiesCommandInput - {@link DetectPiiEntitiesCommandInput}
+ * @returns {@link DetectPiiEntitiesCommandOutput}
  * @see {@link DetectPiiEntitiesCommandInput} for command's `input` shape.
  * @see {@link DetectPiiEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -86,6 +89,9 @@ export class DetectPiiEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectPiiEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class DetectPiiEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectPiiEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectPiiEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class DetectPiiEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectPiiEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectPiiEntitiesCommand(input, context);
+    return se_DetectPiiEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectPiiEntitiesCommandOutput> {
-    return deserializeAws_json1_1DetectPiiEntitiesCommand(output, context);
+    return de_DetectPiiEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

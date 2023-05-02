@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  UpdateTimeToLiveInput,
-  UpdateTimeToLiveInputFilterSensitiveLog,
-  UpdateTimeToLiveOutput,
-  UpdateTimeToLiveOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateTimeToLiveCommand,
-  serializeAws_json1_0UpdateTimeToLiveCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateTimeToLiveInput, UpdateTimeToLiveOutput } from "../models/models_0";
+import { de_UpdateTimeToLiveCommand, se_UpdateTimeToLiveCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTimeToLiveCommand}.
  */
 export interface UpdateTimeToLiveCommandInput extends UpdateTimeToLiveInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTimeToLiveCommand}.
  */
 export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>UpdateTimeToLive</code> method enables or disables Time to Live (TTL) for
  *             the specified table. A successful <code>UpdateTimeToLive</code> call returns the current
  *                 <code>TimeToLiveSpecification</code>. It can take up to one hour for the change to
@@ -66,10 +63,19 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  * import { DynamoDBClient, UpdateTimeToLiveCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateTimeToLiveCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // UpdateTimeToLiveInput
+ *   TableName: "STRING_VALUE", // required
+ *   TimeToLiveSpecification: { // TimeToLiveSpecification
+ *     Enabled: true || false, // required
+ *     AttributeName: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateTimeToLiveCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTimeToLiveCommandInput - {@link UpdateTimeToLiveCommandInput}
+ * @returns {@link UpdateTimeToLiveCommandOutput}
  * @see {@link UpdateTimeToLiveCommandInput} for command's `input` shape.
  * @see {@link UpdateTimeToLiveCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -120,6 +126,9 @@ export class UpdateTimeToLiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTimeToLiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +157,8 @@ export class UpdateTimeToLiveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTimeToLiveInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTimeToLiveOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +168,18 @@ export class UpdateTimeToLiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTimeToLiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateTimeToLiveCommand(input, context);
+    return se_UpdateTimeToLiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTimeToLiveCommandOutput> {
-    return deserializeAws_json1_0UpdateTimeToLiveCommand(output, context);
+    return de_UpdateTimeToLiveCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  DeleteWorkerRequest,
-  DeleteWorkerRequestFilterSensitiveLog,
-  DeleteWorkerResponse,
-  DeleteWorkerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkerCommand,
-  serializeAws_restJson1DeleteWorkerCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteWorkerRequest, DeleteWorkerResponse } from "../models/models_0";
+import { de_DeleteWorkerCommand, se_DeleteWorkerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkerCommand}.
  */
 export interface DeleteWorkerCommandInput extends DeleteWorkerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkerCommand}.
  */
 export interface DeleteWorkerCommandOutput extends DeleteWorkerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to delete a worker
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteWorkerCommandOutput extends DeleteWorkerResponse, __Metad
  * import { IoTRoboRunnerClient, DeleteWorkerCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, DeleteWorkerCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // DeleteWorkerRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkerCommandInput - {@link DeleteWorkerCommandInput}
+ * @returns {@link DeleteWorkerCommandOutput}
  * @see {@link DeleteWorkerCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkerCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteWorkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteWorkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteWorkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkerCommand(input, context);
+    return se_DeleteWorkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkerCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkerCommand(output, context);
+    return de_DeleteWorkerCommand(output, context);
   }
 
   // Start section: command_body_extra

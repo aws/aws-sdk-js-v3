@@ -10,7 +10,7 @@ import {
 import { ChimeSDKIdentityPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeSDKIdentityClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAppInstanceAdminsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAppInstanceAdmins(
   config: ChimeSDKIdentityPaginationConfiguration,
   input: ListAppInstanceAdminsCommandInput,

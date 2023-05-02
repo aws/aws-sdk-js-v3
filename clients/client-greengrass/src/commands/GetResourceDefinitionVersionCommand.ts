@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { GetResourceDefinitionVersionRequest, GetResourceDefinitionVersionResponse } from "../models/models_0";
 import {
-  GetResourceDefinitionVersionRequest,
-  GetResourceDefinitionVersionRequestFilterSensitiveLog,
-  GetResourceDefinitionVersionResponse,
-  GetResourceDefinitionVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceDefinitionVersionCommand,
-  serializeAws_restJson1GetResourceDefinitionVersionCommand,
+  de_GetResourceDefinitionVersionCommand,
+  se_GetResourceDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceDefinitionVersionCommand}.
  */
 export interface GetResourceDefinitionVersionCommandInput extends GetResourceDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceDefinitionVersionCommand}.
  */
 export interface GetResourceDefinitionVersionCommandOutput
@@ -37,6 +36,7 @@ export interface GetResourceDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a resource definition version, including which resources are included in the version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface GetResourceDefinitionVersionCommandOutput
  * import { GreengrassClient, GetResourceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetResourceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetResourceDefinitionVersionRequest
+ *   ResourceDefinitionId: "STRING_VALUE", // required
+ *   ResourceDefinitionVersionId: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceDefinitionVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceDefinitionVersionCommandInput - {@link GetResourceDefinitionVersionCommandInput}
+ * @returns {@link GetResourceDefinitionVersionCommandOutput}
  * @see {@link GetResourceDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetResourceDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +80,9 @@ export class GetResourceDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +111,8 @@ export class GetResourceDefinitionVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceDefinitionVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceDefinitionVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +122,21 @@ export class GetResourceDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceDefinitionVersionCommand(input, context);
+    return se_GetResourceDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourceDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1GetResourceDefinitionVersionCommand(output, context);
+    return de_GetResourceDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

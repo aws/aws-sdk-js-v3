@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  UpdateShardCountInput,
-  UpdateShardCountInputFilterSensitiveLog,
-  UpdateShardCountOutput,
-  UpdateShardCountOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateShardCountCommand,
-  serializeAws_json1_1UpdateShardCountCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateShardCountInput, UpdateShardCountOutput } from "../models/models_0";
+import { de_UpdateShardCountCommand, se_UpdateShardCountCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateShardCountCommand}.
  */
 export interface UpdateShardCountCommandInput extends UpdateShardCountInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateShardCountCommand}.
  */
 export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the shard count of the specified stream to the specified number of shards.
  *             This API is only supported for the data streams with the provisioned capacity
  *             mode.</p>
@@ -89,10 +86,18 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  * import { KinesisClient, UpdateShardCountCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, UpdateShardCountCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // UpdateShardCountInput
+ *   StreamName: "STRING_VALUE",
+ *   TargetShardCount: Number("int"), // required
+ *   ScalingType: "UNIFORM_SCALING", // required
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new UpdateShardCountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateShardCountCommandInput - {@link UpdateShardCountCommandInput}
+ * @returns {@link UpdateShardCountCommandOutput}
  * @see {@link UpdateShardCountCommandInput} for command's `input` shape.
  * @see {@link UpdateShardCountCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -143,6 +148,9 @@ export class UpdateShardCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateShardCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,8 +179,8 @@ export class UpdateShardCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateShardCountInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateShardCountOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -182,12 +190,18 @@ export class UpdateShardCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateShardCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateShardCountCommand(input, context);
+    return se_UpdateShardCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateShardCountCommandOutput> {
-    return deserializeAws_json1_1UpdateShardCountCommand(output, context);
+    return de_UpdateShardCountCommand(output, context);
   }
 
   // Start section: command_body_extra

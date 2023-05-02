@@ -20,21 +20,23 @@ import {
   CreateApplicationRequest,
   CreateApplicationRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateApplicationCommand,
-  serializeAws_restJson1CreateApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateApplicationCommand, se_CreateApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandInput extends CreateApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,19 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  * import { MgnClient, CreateApplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, CreateApplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // CreateApplicationRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
+ * @returns {@link CreateApplicationCommandOutput}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +89,9 @@ export class CreateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,12 +131,18 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApplicationCommand(input, context);
+    return se_CreateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
-    return deserializeAws_restJson1CreateApplicationCommand(output, context);
+    return de_CreateApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

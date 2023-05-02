@@ -15,26 +15,27 @@ import {
 
 import {
   DeleteLaunchProfileRequest,
-  DeleteLaunchProfileRequestFilterSensitiveLog,
   DeleteLaunchProfileResponse,
   DeleteLaunchProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1DeleteLaunchProfileCommand,
-  serializeAws_restJson1DeleteLaunchProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLaunchProfileCommand, se_DeleteLaunchProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLaunchProfileCommand}.
  */
 export interface DeleteLaunchProfileCommandInput extends DeleteLaunchProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLaunchProfileCommand}.
  */
 export interface DeleteLaunchProfileCommandOutput extends DeleteLaunchProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently delete a launch profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,17 @@ export interface DeleteLaunchProfileCommandOutput extends DeleteLaunchProfileRes
  * import { NimbleClient, DeleteLaunchProfileCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, DeleteLaunchProfileCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // DeleteLaunchProfileRequest
+ *   clientToken: "STRING_VALUE",
+ *   launchProfileId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLaunchProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLaunchProfileCommandInput - {@link DeleteLaunchProfileCommandInput}
+ * @returns {@link DeleteLaunchProfileCommandOutput}
  * @see {@link DeleteLaunchProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchProfileCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +101,9 @@ export class DeleteLaunchProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLaunchProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,7 +132,7 @@ export class DeleteLaunchProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLaunchProfileRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteLaunchProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -132,12 +143,18 @@ export class DeleteLaunchProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLaunchProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLaunchProfileCommand(input, context);
+    return se_DeleteLaunchProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLaunchProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteLaunchProfileCommand(output, context);
+    return de_DeleteLaunchProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

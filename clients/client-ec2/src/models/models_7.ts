@@ -1,9 +1,158 @@
 // smithy-typescript generated code
-import { ByoipCidr, IpPermission, NatGatewayAddress } from "./models_0";
+import { ByoipCidr, IpPermission, NatGatewayAddress, TagSpecification } from "./models_0";
 import { ClientVpnConnectionStatus } from "./models_3";
-import { NetworkInsightsAnalysis } from "./models_4";
-import { InstanceMonitoring, InstanceStateChange } from "./models_6";
+import { InstanceState, NetworkInsightsAccessScopeAnalysis, NetworkInsightsAnalysis } from "./models_4";
+import { InstanceMonitoring } from "./models_6";
 
+/**
+ * @public
+ */
+export interface SendDiagnosticInterruptRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface StartInstancesRequest {
+  /**
+   * <p>The IDs of the instances.</p>
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  AdditionalInfo?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * <p>Describes an instance state change.</p>
+ */
+export interface InstanceStateChange {
+  /**
+   * <p>The current state of the instance.</p>
+   */
+  CurrentState?: InstanceState;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The previous state of the instance.</p>
+   */
+  PreviousState?: InstanceState;
+}
+
+/**
+ * @public
+ */
+export interface StartInstancesResult {
+  /**
+   * <p>Information about the started instances.</p>
+   */
+  StartingInstances?: InstanceStateChange[];
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkInsightsAccessScopeAnalysisRequest {
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   */
+  NetworkInsightsAccessScopeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to apply.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
+   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkInsightsAccessScopeAnalysisResult {
+  /**
+   * <p>The Network Access Scope analysis.</p>
+   */
+  NetworkInsightsAccessScopeAnalysis?: NetworkInsightsAccessScopeAnalysis;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkInsightsAnalysisRequest {
+  /**
+   * <p>The ID of the path.</p>
+   */
+  NetworkInsightsPathId: string | undefined;
+
+  /**
+   * <p>The member accounts that contain resources that the path can traverse.</p>
+   */
+  AdditionalAccounts?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>
+   */
+  FilterInArns?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to apply.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
+   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface StartNetworkInsightsAnalysisResult {
   /**
    * <p>Information about the network insights analysis.</p>
@@ -11,6 +160,9 @@ export interface StartNetworkInsightsAnalysisResult {
   NetworkInsightsAnalysis?: NetworkInsightsAnalysis;
 }
 
+/**
+ * @public
+ */
 export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -25,6 +177,9 @@ export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
   ServiceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartVpcEndpointServicePrivateDnsVerificationResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -32,6 +187,9 @@ export interface StartVpcEndpointServicePrivateDnsVerificationResult {
   ReturnValue?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StopInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>
@@ -66,6 +224,9 @@ export interface StopInstancesRequest {
   Force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StopInstancesResult {
   /**
    * <p>Information about the stopped instances.</p>
@@ -73,6 +234,9 @@ export interface StopInstancesResult {
   StoppingInstances?: InstanceStateChange[];
 }
 
+/**
+ * @public
+ */
 export interface TerminateClientVpnConnectionsRequest {
   /**
    * <p>The ID of the Client VPN endpoint to which the client is connected.</p>
@@ -97,6 +261,7 @@ export interface TerminateClientVpnConnectionsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a terminated Client VPN endpoint client connection.</p>
  */
 export interface TerminateConnectionStatus {
@@ -116,6 +281,9 @@ export interface TerminateConnectionStatus {
   CurrentStatus?: ClientVpnConnectionStatus;
 }
 
+/**
+ * @public
+ */
 export interface TerminateClientVpnConnectionsResult {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -133,6 +301,9 @@ export interface TerminateClientVpnConnectionsResult {
   ConnectionStatuses?: TerminateConnectionStatus[];
 }
 
+/**
+ * @public
+ */
 export interface TerminateInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>
@@ -149,6 +320,9 @@ export interface TerminateInstancesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface TerminateInstancesResult {
   /**
    * <p>Information about the terminated instances.</p>
@@ -156,6 +330,9 @@ export interface TerminateInstancesResult {
   TerminatingInstances?: InstanceStateChange[];
 }
 
+/**
+ * @public
+ */
 export interface UnassignIpv6AddressesRequest {
   /**
    * <p>The IPv6 addresses to unassign from the network interface.</p>
@@ -173,6 +350,9 @@ export interface UnassignIpv6AddressesRequest {
   NetworkInterfaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnassignIpv6AddressesResult {
   /**
    * <p>The ID of the network interface.</p>
@@ -191,6 +371,7 @@ export interface UnassignIpv6AddressesResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for UnassignPrivateIpAddresses.</p>
  */
 export interface UnassignPrivateIpAddressesRequest {
@@ -211,6 +392,9 @@ export interface UnassignPrivateIpAddressesRequest {
   Ipv4Prefixes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UnassignPrivateNatGatewayAddressRequest {
   /**
    * <p>The NAT gateway ID.</p>
@@ -235,6 +419,9 @@ export interface UnassignPrivateNatGatewayAddressRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UnassignPrivateNatGatewayAddressResult {
   /**
    * <p>The NAT gateway ID.</p>
@@ -247,6 +434,9 @@ export interface UnassignPrivateNatGatewayAddressResult {
   NatGatewayAddresses?: NatGatewayAddress[];
 }
 
+/**
+ * @public
+ */
 export interface UnmonitorInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>
@@ -261,6 +451,9 @@ export interface UnmonitorInstancesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UnmonitorInstancesResult {
   /**
    * <p>The monitoring information.</p>
@@ -269,6 +462,7 @@ export interface UnmonitorInstancesResult {
 }
 
 /**
+ * @public
  * <p>Describes the description of a security group rule.</p>
  *          <p>You can use this when you want to update the security group rule description for either an inbound or outbound rule.</p>
  */
@@ -284,6 +478,9 @@ export interface SecurityGroupRuleDescription {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -318,6 +515,9 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
   SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityGroupRuleDescriptionsEgressResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -325,6 +525,9 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -360,6 +563,9 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
   SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -367,6 +573,9 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface WithdrawByoipCidrRequest {
   /**
    * <p>The address range, in CIDR notation.</p>
@@ -381,197 +590,12 @@ export interface WithdrawByoipCidrRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface WithdrawByoipCidrResult {
   /**
    * <p>Information about the address pool.</p>
    */
   ByoipCidr?: ByoipCidr;
 }
-
-/**
- * @internal
- */
-export const StartNetworkInsightsAnalysisResultFilterSensitiveLog = (obj: StartNetworkInsightsAnalysisResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartVpcEndpointServicePrivateDnsVerificationRequestFilterSensitiveLog = (
-  obj: StartVpcEndpointServicePrivateDnsVerificationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartVpcEndpointServicePrivateDnsVerificationResultFilterSensitiveLog = (
-  obj: StartVpcEndpointServicePrivateDnsVerificationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopInstancesRequestFilterSensitiveLog = (obj: StopInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopInstancesResultFilterSensitiveLog = (obj: StopInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateClientVpnConnectionsRequestFilterSensitiveLog = (
-  obj: TerminateClientVpnConnectionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateConnectionStatusFilterSensitiveLog = (obj: TerminateConnectionStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateClientVpnConnectionsResultFilterSensitiveLog = (
-  obj: TerminateClientVpnConnectionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateInstancesRequestFilterSensitiveLog = (obj: TerminateInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateInstancesResultFilterSensitiveLog = (obj: TerminateInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnassignIpv6AddressesRequestFilterSensitiveLog = (obj: UnassignIpv6AddressesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnassignIpv6AddressesResultFilterSensitiveLog = (obj: UnassignIpv6AddressesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnassignPrivateIpAddressesRequestFilterSensitiveLog = (obj: UnassignPrivateIpAddressesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnassignPrivateNatGatewayAddressRequestFilterSensitiveLog = (
-  obj: UnassignPrivateNatGatewayAddressRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnassignPrivateNatGatewayAddressResultFilterSensitiveLog = (
-  obj: UnassignPrivateNatGatewayAddressResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnmonitorInstancesRequestFilterSensitiveLog = (obj: UnmonitorInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnmonitorInstancesResultFilterSensitiveLog = (obj: UnmonitorInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityGroupRuleDescriptionFilterSensitiveLog = (obj: SecurityGroupRuleDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityGroupRuleDescriptionsEgressRequestFilterSensitiveLog = (
-  obj: UpdateSecurityGroupRuleDescriptionsEgressRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityGroupRuleDescriptionsEgressResultFilterSensitiveLog = (
-  obj: UpdateSecurityGroupRuleDescriptionsEgressResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityGroupRuleDescriptionsIngressRequestFilterSensitiveLog = (
-  obj: UpdateSecurityGroupRuleDescriptionsIngressRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityGroupRuleDescriptionsIngressResultFilterSensitiveLog = (
-  obj: UpdateSecurityGroupRuleDescriptionsIngressResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WithdrawByoipCidrRequestFilterSensitiveLog = (obj: WithdrawByoipCidrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WithdrawByoipCidrResultFilterSensitiveLog = (obj: WithdrawByoipCidrResult): any => ({
-  ...obj,
-});

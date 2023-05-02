@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  ListAddonsRequest,
-  ListAddonsRequestFilterSensitiveLog,
-  ListAddonsResponse,
-  ListAddonsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAddonsCommand,
-  serializeAws_restJson1ListAddonsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAddonsRequest, ListAddonsResponse } from "../models/models_0";
+import { de_ListAddonsCommand, se_ListAddonsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAddonsCommand}.
  */
 export interface ListAddonsCommandInput extends ListAddonsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAddonsCommand}.
  */
 export interface ListAddonsCommandOutput extends ListAddonsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the available add-ons.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListAddonsCommandOutput extends ListAddonsResponse, __MetadataB
  * import { EKSClient, ListAddonsCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListAddonsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // ListAddonsRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListAddonsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAddonsCommandInput - {@link ListAddonsCommandInput}
+ * @returns {@link ListAddonsCommandOutput}
  * @see {@link ListAddonsCommandInput} for command's `input` shape.
  * @see {@link ListAddonsCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -91,6 +95,9 @@ export class ListAddonsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAddonsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +124,8 @@ export class ListAddonsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAddonsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAddonsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +135,18 @@ export class ListAddonsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAddonsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAddonsCommand(input, context);
+    return se_ListAddonsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAddonsCommandOutput> {
-    return deserializeAws_restJson1ListAddonsCommand(output, context);
+    return de_ListAddonsCommand(output, context);
   }
 
   // Start section: command_body_extra

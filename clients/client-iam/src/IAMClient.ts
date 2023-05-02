@@ -440,6 +440,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddClientIDToOpenIDConnectProviderCommandInput
   | AddRoleToInstanceProfileCommandInput
@@ -600,6 +603,9 @@ export type ServiceInputTypes =
   | UploadServerCertificateCommandInput
   | UploadSigningCertificateCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddClientIDToOpenIDConnectProviderCommandOutput
   | AddRoleToInstanceProfileCommandOutput
@@ -760,6 +766,9 @@ export type ServiceOutputTypes =
   | UploadServerCertificateCommandOutput
   | UploadSigningCertificateCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -767,7 +776,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -876,11 +885,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type IAMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -891,10 +903,15 @@ type IAMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of IAMClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of IAMClient class constructor that set the region, credentials and other options.
  */
 export interface IAMClientConfig extends IAMClientConfigType {}
 
+/**
+ * @public
+ */
 type IAMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -905,11 +922,14 @@ type IAMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of IAMClient class. This is resolved and normalized from the {@link IAMClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of IAMClient class. This is resolved and normalized from the {@link IAMClientConfig | constructor configuration interface}.
  */
 export interface IAMClientResolvedConfig extends IAMClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Identity and Access Management</fullname>
  *          <p>Identity and Access Management (IAM) is a web service for securely controlling
  *       access to Amazon Web Services services. With IAM, you can centrally manage users, security credentials

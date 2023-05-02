@@ -13,28 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutSolNetworkPackageContentInput, PutSolNetworkPackageContentOutput } from "../models/models_0";
 import {
-  PutSolNetworkPackageContentInput,
-  PutSolNetworkPackageContentInputFilterSensitiveLog,
-  PutSolNetworkPackageContentOutput,
-  PutSolNetworkPackageContentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSolNetworkPackageContentCommand,
-  serializeAws_restJson1PutSolNetworkPackageContentCommand,
+  de_PutSolNetworkPackageContentCommand,
+  se_PutSolNetworkPackageContentCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutSolNetworkPackageContentCommand}.
  */
 export interface PutSolNetworkPackageContentCommandInput extends PutSolNetworkPackageContentInput {}
 /**
+ * @public
+ *
  * The output of {@link PutSolNetworkPackageContentCommand}.
  */
 export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkPackageContentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads the contents of a network package.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  * @example
@@ -43,10 +43,17 @@ export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkP
  * import { TnbClient, PutSolNetworkPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, PutSolNetworkPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // PutSolNetworkPackageContentInput
+ *   nsdInfoId: "STRING_VALUE", // required
+ *   contentType: "application/zip",
+ *   file: "BLOB_VALUE", // required
+ * };
  * const command = new PutSolNetworkPackageContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSolNetworkPackageContentCommandInput - {@link PutSolNetworkPackageContentCommandInput}
+ * @returns {@link PutSolNetworkPackageContentCommandOutput}
  * @see {@link PutSolNetworkPackageContentCommandInput} for command's `input` shape.
  * @see {@link PutSolNetworkPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -85,6 +92,9 @@ export class PutSolNetworkPackageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSolNetworkPackageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +123,8 @@ export class PutSolNetworkPackageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSolNetworkPackageContentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSolNetworkPackageContentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +134,21 @@ export class PutSolNetworkPackageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSolNetworkPackageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSolNetworkPackageContentCommand(input, context);
+    return se_PutSolNetworkPackageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutSolNetworkPackageContentCommandOutput> {
-    return deserializeAws_restJson1PutSolNetworkPackageContentCommand(output, context);
+    return de_PutSolNetworkPackageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

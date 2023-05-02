@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetTagsRequest,
-  GetTagsRequestFilterSensitiveLog,
-  GetTagsResponse,
-  GetTagsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_json1_1GetTagsCommand, serializeAws_json1_1GetTagsCommand } from "../protocols/Aws_json1_1";
+import { GetTagsRequest, GetTagsResponse } from "../models/models_1";
+import { de_GetTagsCommand, se_GetTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTagsCommand}.
  */
 export interface GetTagsCommandInput extends GetTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTagsCommand}.
  */
 export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of tags associated with a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,15 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * import { GlueClient, GetTagsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTagsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetTagsRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTagsCommandInput - {@link GetTagsCommandInput}
+ * @returns {@link GetTagsCommandOutput}
  * @see {@link GetTagsCommandInput} for command's `input` shape.
  * @see {@link GetTagsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -74,6 +79,9 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +108,8 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +119,18 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTagsCommand(input, context);
+    return se_GetTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagsCommandOutput> {
-    return deserializeAws_json1_1GetTagsCommand(output, context);
+    return de_GetTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

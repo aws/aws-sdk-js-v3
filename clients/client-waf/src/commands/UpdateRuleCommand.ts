@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRuleRequest,
-  UpdateRuleRequestFilterSensitiveLog,
-  UpdateRuleResponse,
-  UpdateRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRuleCommand,
-  serializeAws_json1_1UpdateRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateRuleRequest, UpdateRuleResponse } from "../models/models_0";
+import { de_UpdateRuleCommand, se_UpdateRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuleCommand}.
  */
 export interface UpdateRuleCommandInput extends UpdateRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuleCommand}.
  */
 export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -91,10 +88,26 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * import { WAFClient, UpdateRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // UpdateRuleRequest
+ *   RuleId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // RuleUpdates // required
+ *     { // RuleUpdate
+ *       Action: "STRING_VALUE", // required
+ *       Predicate: { // Predicate
+ *         Negated: true || false, // required
+ *         Type: "STRING_VALUE", // required
+ *         DataId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuleCommandInput - {@link UpdateRuleCommandInput}
+ * @returns {@link UpdateRuleCommandOutput}
  * @see {@link UpdateRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -254,6 +267,9 @@ export class UpdateRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -280,8 +296,8 @@ export class UpdateRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -291,12 +307,18 @@ export class UpdateRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRuleCommand(input, context);
+    return se_UpdateRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleCommandOutput> {
-    return deserializeAws_json1_1UpdateRuleCommand(output, context);
+    return de_UpdateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

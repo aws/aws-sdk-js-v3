@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
-import {
-  DescribeScalingPlansRequest,
-  DescribeScalingPlansRequestFilterSensitiveLog,
-  DescribeScalingPlansResponse,
-  DescribeScalingPlansResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeScalingPlansCommand,
-  serializeAws_json1_1DescribeScalingPlansCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeScalingPlansRequest, DescribeScalingPlansResponse } from "../models/models_0";
+import { de_DescribeScalingPlansCommand, se_DescribeScalingPlansCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalingPlansCommand}.
  */
 export interface DescribeScalingPlansCommandInput extends DescribeScalingPlansRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalingPlansCommand}.
  */
 export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your scaling plans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,33 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  * import { AutoScalingPlansClient, DescribeScalingPlansCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, DescribeScalingPlansCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
+ * const input = { // DescribeScalingPlansRequest
+ *   ScalingPlanNames: [ // ScalingPlanNames
+ *     "STRING_VALUE",
+ *   ],
+ *   ScalingPlanVersion: Number("long"),
+ *   ApplicationSources: [ // ApplicationSources
+ *     { // ApplicationSource
+ *       CloudFormationStackARN: "STRING_VALUE",
+ *       TagFilters: [ // TagFilters
+ *         { // TagFilter
+ *           Key: "STRING_VALUE",
+ *           Values: [ // TagValues
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeScalingPlansCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalingPlansCommandInput - {@link DescribeScalingPlansCommandInput}
+ * @returns {@link DescribeScalingPlansCommandOutput}
  * @see {@link DescribeScalingPlansCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingPlansCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
@@ -82,6 +102,9 @@ export class DescribeScalingPlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalingPlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +133,8 @@ export class DescribeScalingPlansCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScalingPlansRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScalingPlansResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +144,18 @@ export class DescribeScalingPlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalingPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeScalingPlansCommand(input, context);
+    return se_DescribeScalingPlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScalingPlansCommandOutput> {
-    return deserializeAws_json1_1DescribeScalingPlansCommand(output, context);
+    return de_DescribeScalingPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  UpdateVPCEConfigurationRequest,
-  UpdateVPCEConfigurationRequestFilterSensitiveLog,
-  UpdateVPCEConfigurationResult,
-  UpdateVPCEConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateVPCEConfigurationCommand,
-  serializeAws_json1_1UpdateVPCEConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateVPCEConfigurationRequest, UpdateVPCEConfigurationResult } from "../models/models_0";
+import { de_UpdateVPCEConfigurationCommand, se_UpdateVPCEConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVPCEConfigurationCommand}.
  */
 export interface UpdateVPCEConfigurationCommandInput extends UpdateVPCEConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVPCEConfigurationCommand}.
  */
 export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information about an Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
  * import { DeviceFarmClient, UpdateVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // UpdateVPCEConfigurationRequest
+ *   arn: "STRING_VALUE", // required
+ *   vpceConfigurationName: "STRING_VALUE",
+ *   vpceServiceName: "STRING_VALUE",
+ *   serviceDnsName: "STRING_VALUE",
+ *   vpceConfigurationDescription: "STRING_VALUE",
+ * };
  * const command = new UpdateVPCEConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVPCEConfigurationCommandInput - {@link UpdateVPCEConfigurationCommandInput}
+ * @returns {@link UpdateVPCEConfigurationCommandOutput}
  * @see {@link UpdateVPCEConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateVPCEConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -82,6 +88,9 @@ export class UpdateVPCEConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVPCEConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +119,8 @@ export class UpdateVPCEConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVPCEConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVPCEConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +130,18 @@ export class UpdateVPCEConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVPCEConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVPCEConfigurationCommand(input, context);
+    return se_UpdateVPCEConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVPCEConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateVPCEConfigurationCommand(output, context);
+    return de_UpdateVPCEConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

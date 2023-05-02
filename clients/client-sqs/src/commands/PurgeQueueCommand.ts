@@ -13,20 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PurgeQueueRequest, PurgeQueueRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryPurgeQueueCommand, serializeAws_queryPurgeQueueCommand } from "../protocols/Aws_query";
+import { PurgeQueueRequest } from "../models/models_0";
+import { de_PurgeQueueCommand, se_PurgeQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PurgeQueueCommand}.
  */
 export interface PurgeQueueCommandInput extends PurgeQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link PurgeQueueCommand}.
  */
 export interface PurgeQueueCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the messages in a queue specified by the <code>QueueURL</code>
  *             parameter.</p>
  *
@@ -47,10 +52,15 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * import { SQSClient, PurgeQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, PurgeQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // PurgeQueueRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ * };
  * const command = new PurgeQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PurgeQueueCommandInput - {@link PurgeQueueCommandInput}
+ * @returns {@link PurgeQueueCommandOutput}
  * @see {@link PurgeQueueCommandInput} for command's `input` shape.
  * @see {@link PurgeQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -80,6 +90,9 @@ export class PurgeQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurgeQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +119,8 @@ export class PurgeQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurgeQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +130,18 @@ export class PurgeQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurgeQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPurgeQueueCommand(input, context);
+    return se_PurgeQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PurgeQueueCommandOutput> {
-    return deserializeAws_queryPurgeQueueCommand(output, context);
+    return de_PurgeQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

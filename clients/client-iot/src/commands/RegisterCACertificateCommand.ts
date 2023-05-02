@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  RegisterCACertificateRequest,
-  RegisterCACertificateRequestFilterSensitiveLog,
-  RegisterCACertificateResponse,
-  RegisterCACertificateResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1RegisterCACertificateCommand,
-  serializeAws_restJson1RegisterCACertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { RegisterCACertificateRequest, RegisterCACertificateResponse } from "../models/models_2";
+import { de_RegisterCACertificateCommand, se_RegisterCACertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterCACertificateCommand}.
  */
 export interface RegisterCACertificateCommandInput extends RegisterCACertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterCACertificateCommand}.
  */
 export interface RegisterCACertificateCommandOutput extends RegisterCACertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a CA certificate with Amazon Web Services IoT Core. There is no limit to the number of CA
  *          certificates you can register in your Amazon Web Services account. You can register up to 10 CA
  *          certificates with the same <code>CA subject field</code> per Amazon Web Services account.</p>
@@ -45,10 +42,30 @@ export interface RegisterCACertificateCommandOutput extends RegisterCACertificat
  * import { IoTClient, RegisterCACertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RegisterCACertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // RegisterCACertificateRequest
+ *   caCertificate: "STRING_VALUE", // required
+ *   verificationCertificate: "STRING_VALUE",
+ *   setAsActive: true || false,
+ *   allowAutoRegistration: true || false,
+ *   registrationConfig: { // RegistrationConfig
+ *     templateBody: "STRING_VALUE",
+ *     roleArn: "STRING_VALUE",
+ *     templateName: "STRING_VALUE",
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   certificateMode: "DEFAULT" || "SNI_ONLY",
+ * };
  * const command = new RegisterCACertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterCACertificateCommandInput - {@link RegisterCACertificateCommandInput}
+ * @returns {@link RegisterCACertificateCommandOutput}
  * @see {@link RegisterCACertificateCommandInput} for command's `input` shape.
  * @see {@link RegisterCACertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -102,6 +119,9 @@ export class RegisterCACertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterCACertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +150,8 @@ export class RegisterCACertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterCACertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterCACertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +161,18 @@ export class RegisterCACertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterCACertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterCACertificateCommand(input, context);
+    return se_RegisterCACertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterCACertificateCommandOutput> {
-    return deserializeAws_restJson1RegisterCACertificateCommand(output, context);
+    return de_RegisterCACertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

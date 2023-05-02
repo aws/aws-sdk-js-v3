@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateBlueprintRequest,
-  CreateBlueprintRequestFilterSensitiveLog,
-  CreateBlueprintResponse,
-  CreateBlueprintResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBlueprintCommand,
-  serializeAws_json1_1CreateBlueprintCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateBlueprintRequest, CreateBlueprintResponse } from "../models/models_0";
+import { de_CreateBlueprintCommand, se_CreateBlueprintCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBlueprintCommand}.
  */
 export interface CreateBlueprintCommandInput extends CreateBlueprintRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBlueprintCommand}.
  */
 export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a blueprint with Glue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  * import { GlueClient, CreateBlueprintCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateBlueprintCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateBlueprintRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   BlueprintLocation: "STRING_VALUE", // required
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateBlueprintCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBlueprintCommandInput - {@link CreateBlueprintCommandInput}
+ * @returns {@link CreateBlueprintCommandOutput}
  * @see {@link CreateBlueprintCommandInput} for command's `input` shape.
  * @see {@link CreateBlueprintCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateBlueprintCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBlueprintCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class CreateBlueprintCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBlueprintRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBlueprintResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +133,18 @@ export class CreateBlueprintCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBlueprintCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBlueprintCommand(input, context);
+    return se_CreateBlueprintCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBlueprintCommandOutput> {
-    return deserializeAws_json1_1CreateBlueprintCommand(output, context);
+    return de_CreateBlueprintCommand(output, context);
   }
 
   // Start section: command_body_extra

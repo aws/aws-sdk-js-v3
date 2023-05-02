@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetCapacityReservationUsageRequest,
-  GetCapacityReservationUsageRequestFilterSensitiveLog,
-  GetCapacityReservationUsageResult,
-  GetCapacityReservationUsageResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetCapacityReservationUsageCommand,
-  serializeAws_ec2GetCapacityReservationUsageCommand,
-} from "../protocols/Aws_ec2";
+import { GetCapacityReservationUsageRequest, GetCapacityReservationUsageResult } from "../models/models_5";
+import { de_GetCapacityReservationUsageCommand, se_GetCapacityReservationUsageCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetCapacityReservationUsageCommand}.
  */
 export interface GetCapacityReservationUsageCommandInput extends GetCapacityReservationUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCapacityReservationUsageCommand}.
  */
 export interface GetCapacityReservationUsageCommandOutput extends GetCapacityReservationUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner
  * 			and each Amazon Web Services account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only
  * 			the Capacity Reservation owner's usage.</p>
@@ -44,10 +41,18 @@ export interface GetCapacityReservationUsageCommandOutput extends GetCapacityRes
  * import { EC2Client, GetCapacityReservationUsageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetCapacityReservationUsageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetCapacityReservationUsageRequest
+ *   CapacityReservationId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new GetCapacityReservationUsageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCapacityReservationUsageCommandInput - {@link GetCapacityReservationUsageCommandInput}
+ * @returns {@link GetCapacityReservationUsageCommandOutput}
  * @see {@link GetCapacityReservationUsageCommandInput} for command's `input` shape.
  * @see {@link GetCapacityReservationUsageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +76,9 @@ export class GetCapacityReservationUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCapacityReservationUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +107,8 @@ export class GetCapacityReservationUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCapacityReservationUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCapacityReservationUsageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +118,21 @@ export class GetCapacityReservationUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCapacityReservationUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetCapacityReservationUsageCommand(input, context);
+    return se_GetCapacityReservationUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCapacityReservationUsageCommandOutput> {
-    return deserializeAws_ec2GetCapacityReservationUsageCommand(output, context);
+    return de_GetCapacityReservationUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

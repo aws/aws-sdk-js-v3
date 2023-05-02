@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  PutApprovalResultInput,
-  PutApprovalResultInputFilterSensitiveLog,
-  PutApprovalResultOutput,
-  PutApprovalResultOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutApprovalResultCommand,
-  serializeAws_json1_1PutApprovalResultCommand,
-} from "../protocols/Aws_json1_1";
+import { PutApprovalResultInput, PutApprovalResultOutput } from "../models/models_0";
+import { de_PutApprovalResultCommand, se_PutApprovalResultCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutApprovalResultCommand}.
  */
 export interface PutApprovalResultCommandInput extends PutApprovalResultInput {}
 /**
+ * @public
+ *
  * The output of {@link PutApprovalResultCommand}.
  */
 export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the response to a manual approval request to AWS CodePipeline. Valid
  *             responses include Approved and Rejected.</p>
  * @example
@@ -43,10 +40,22 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
  * import { CodePipelineClient, PutApprovalResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutApprovalResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // PutApprovalResultInput
+ *   pipelineName: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ *   actionName: "STRING_VALUE", // required
+ *   result: { // ApprovalResult
+ *     summary: "STRING_VALUE", // required
+ *     status: "STRING_VALUE", // required
+ *   },
+ *   token: "STRING_VALUE", // required
+ * };
  * const command = new PutApprovalResultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutApprovalResultCommandInput - {@link PutApprovalResultCommandInput}
+ * @returns {@link PutApprovalResultCommandOutput}
  * @see {@link PutApprovalResultCommandInput} for command's `input` shape.
  * @see {@link PutApprovalResultCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -88,6 +97,9 @@ export class PutApprovalResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutApprovalResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +128,8 @@ export class PutApprovalResultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutApprovalResultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutApprovalResultOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +139,18 @@ export class PutApprovalResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutApprovalResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutApprovalResultCommand(input, context);
+    return se_PutApprovalResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutApprovalResultCommandOutput> {
-    return deserializeAws_json1_1PutApprovalResultCommand(output, context);
+    return de_PutApprovalResultCommand(output, context);
   }
 
   // Start section: command_body_extra

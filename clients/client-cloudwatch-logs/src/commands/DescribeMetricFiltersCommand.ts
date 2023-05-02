@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  DescribeMetricFiltersRequest,
-  DescribeMetricFiltersRequestFilterSensitiveLog,
-  DescribeMetricFiltersResponse,
-  DescribeMetricFiltersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMetricFiltersCommand,
-  serializeAws_json1_1DescribeMetricFiltersCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeMetricFiltersRequest, DescribeMetricFiltersResponse } from "../models/models_0";
+import { de_DescribeMetricFiltersCommand, se_DescribeMetricFiltersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMetricFiltersCommand}.
  */
 export interface DescribeMetricFiltersCommandInput extends DescribeMetricFiltersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMetricFiltersCommand}.
  */
 export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFiltersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the specified metric filters. You can list all of the metric filters or filter
  *       the results by log name, prefix, metric name, or metric namespace. The results are
  *       ASCII-sorted by filter name.</p>
@@ -44,10 +41,20 @@ export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFilter
  * import { CloudWatchLogsClient, DescribeMetricFiltersCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeMetricFiltersCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DescribeMetricFiltersRequest
+ *   logGroupName: "STRING_VALUE",
+ *   filterNamePrefix: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   metricName: "STRING_VALUE",
+ *   metricNamespace: "STRING_VALUE",
+ * };
  * const command = new DescribeMetricFiltersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMetricFiltersCommandInput - {@link DescribeMetricFiltersCommandInput}
+ * @returns {@link DescribeMetricFiltersCommandOutput}
  * @see {@link DescribeMetricFiltersCommandInput} for command's `input` shape.
  * @see {@link DescribeMetricFiltersCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeMetricFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMetricFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class DescribeMetricFiltersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMetricFiltersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMetricFiltersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +129,18 @@ export class DescribeMetricFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMetricFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMetricFiltersCommand(input, context);
+    return se_DescribeMetricFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMetricFiltersCommandOutput> {
-    return deserializeAws_json1_1DescribeMetricFiltersCommand(output, context);
+    return de_DescribeMetricFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

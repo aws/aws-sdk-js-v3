@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  CreateProgramRequest,
-  CreateProgramRequestFilterSensitiveLog,
-  CreateProgramResponse,
-  CreateProgramResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProgramCommand,
-  serializeAws_restJson1CreateProgramCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateProgramRequest, CreateProgramResponse } from "../models/models_0";
+import { de_CreateProgramCommand, se_CreateProgramCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProgramCommand}.
  */
 export interface CreateProgramCommandInput extends CreateProgramRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProgramCommand}.
  */
 export interface CreateProgramCommandOutput extends CreateProgramResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a program within a channel. For information about programs, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html">Working with programs</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,61 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
  * import { MediaTailorClient, CreateProgramCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateProgramCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // CreateProgramRequest
+ *   AdBreaks: [ // __listOfAdBreak
+ *     { // AdBreak
+ *       MessageType: "SPLICE_INSERT" || "TIME_SIGNAL",
+ *       OffsetMillis: Number("long"),
+ *       Slate: { // SlateSource
+ *         SourceLocationName: "STRING_VALUE",
+ *         VodSourceName: "STRING_VALUE",
+ *       },
+ *       SpliceInsertMessage: { // SpliceInsertMessage
+ *         AvailNum: Number("int"),
+ *         AvailsExpected: Number("int"),
+ *         SpliceEventId: Number("int"),
+ *         UniqueProgramId: Number("int"),
+ *       },
+ *       TimeSignalMessage: { // TimeSignalMessage
+ *         SegmentationDescriptors: [ // SegmentationDescriptorList
+ *           { // SegmentationDescriptor
+ *             SegmentationEventId: Number("int"),
+ *             SegmentationUpidType: Number("int"),
+ *             SegmentationUpid: "STRING_VALUE",
+ *             SegmentationTypeId: Number("int"),
+ *             SegmentNum: Number("int"),
+ *             SegmentsExpected: Number("int"),
+ *             SubSegmentNum: Number("int"),
+ *             SubSegmentsExpected: Number("int"),
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   ChannelName: "STRING_VALUE", // required
+ *   LiveSourceName: "STRING_VALUE",
+ *   ProgramName: "STRING_VALUE", // required
+ *   ScheduleConfiguration: { // ScheduleConfiguration
+ *     Transition: { // Transition
+ *       DurationMillis: Number("long"),
+ *       RelativePosition: "BEFORE_PROGRAM" || "AFTER_PROGRAM", // required
+ *       RelativeProgram: "STRING_VALUE",
+ *       ScheduledStartTimeMillis: Number("long"),
+ *       Type: "STRING_VALUE", // required
+ *     },
+ *     ClipRange: { // ClipRange
+ *       EndOffsetMillis: Number("long"), // required
+ *     },
+ *   },
+ *   SourceLocationName: "STRING_VALUE", // required
+ *   VodSourceName: "STRING_VALUE",
+ * };
  * const command = new CreateProgramCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProgramCommandInput - {@link CreateProgramCommandInput}
+ * @returns {@link CreateProgramCommandOutput}
  * @see {@link CreateProgramCommandInput} for command's `input` shape.
  * @see {@link CreateProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +117,9 @@ export class CreateProgramCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProgramCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +146,8 @@ export class CreateProgramCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProgramRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProgramResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +157,18 @@ export class CreateProgramCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProgramCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProgramCommand(input, context);
+    return se_CreateProgramCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProgramCommandOutput> {
-    return deserializeAws_restJson1CreateProgramCommand(output, context);
+    return de_CreateProgramCommand(output, context);
   }
 
   // Start section: command_body_extra

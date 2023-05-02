@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import {
-  GetCertificateRequest,
-  GetCertificateRequestFilterSensitiveLog,
-  GetCertificateResponse,
-  GetCertificateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCertificateCommand,
-  serializeAws_json1_1GetCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCertificateRequest, GetCertificateResponse } from "../models/models_0";
+import { de_GetCertificateCommand, se_GetCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCertificateCommand}.
  */
 export interface GetCertificateCommandInput extends GetCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCertificateCommand}.
  */
 export interface GetCertificateCommandOutput extends GetCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an Amazon-issued certificate and its certificate chain. The chain consists of
  *       the certificate of the issuing CA and the intermediate certificates of any other subordinate
  *       CAs. All of the certificates are base64 encoded. You can use <a href="https://wiki.openssl.org/index.php/Command_Line_Utilities">OpenSSL</a> to decode
@@ -45,10 +42,15 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * import { ACMClient, GetCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, GetCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // GetCertificateRequest
+ *   CertificateArn: "STRING_VALUE", // required
+ * };
  * const command = new GetCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCertificateCommandInput - {@link GetCertificateCommandInput}
+ * @returns {@link GetCertificateCommandOutput}
  * @see {@link GetCertificateCommandInput} for command's `input` shape.
  * @see {@link GetCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -83,6 +85,9 @@ export class GetCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class GetCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class GetCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCertificateCommand(input, context);
+    return se_GetCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCertificateCommandOutput> {
-    return deserializeAws_json1_1GetCertificateCommand(output, context);
+    return de_GetCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

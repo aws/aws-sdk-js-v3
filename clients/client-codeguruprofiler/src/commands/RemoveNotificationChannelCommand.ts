@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  RemoveNotificationChannelRequest,
-  RemoveNotificationChannelRequestFilterSensitiveLog,
-  RemoveNotificationChannelResponse,
-  RemoveNotificationChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveNotificationChannelCommand,
-  serializeAws_restJson1RemoveNotificationChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveNotificationChannelRequest, RemoveNotificationChannelResponse } from "../models/models_0";
+import { de_RemoveNotificationChannelCommand, se_RemoveNotificationChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveNotificationChannelCommand}.
  */
 export interface RemoveNotificationChannelCommandInput extends RemoveNotificationChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveNotificationChannelCommand}.
  */
 export interface RemoveNotificationChannelCommandOutput extends RemoveNotificationChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove one anomaly notifications channel for a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  * import { CodeGuruProfilerClient, RemoveNotificationChannelCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, RemoveNotificationChannelCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // RemoveNotificationChannelRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   channelId: "STRING_VALUE", // required
+ * };
  * const command = new RemoveNotificationChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveNotificationChannelCommandInput - {@link RemoveNotificationChannelCommandInput}
+ * @returns {@link RemoveNotificationChannelCommandOutput}
  * @see {@link RemoveNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link RemoveNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -81,6 +84,9 @@ export class RemoveNotificationChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveNotificationChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class RemoveNotificationChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveNotificationChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveNotificationChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +126,21 @@ export class RemoveNotificationChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveNotificationChannelCommand(input, context);
+    return se_RemoveNotificationChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveNotificationChannelCommandOutput> {
-    return deserializeAws_restJson1RemoveNotificationChannelCommand(output, context);
+    return de_RemoveNotificationChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

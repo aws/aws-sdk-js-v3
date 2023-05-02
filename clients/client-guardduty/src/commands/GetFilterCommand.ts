@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  GetFilterRequest,
-  GetFilterRequestFilterSensitiveLog,
-  GetFilterResponse,
-  GetFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFilterCommand,
-  serializeAws_restJson1GetFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFilterRequest, GetFilterResponse } from "../models/models_0";
+import { de_GetFilterCommand, se_GetFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFilterCommand}.
  */
 export interface GetFilterCommandInput extends GetFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFilterCommand}.
  */
 export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of the filter specified by the filter name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBea
  * import { GuardDutyClient, GetFilterCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetFilterCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // GetFilterRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   FilterName: "STRING_VALUE", // required
+ * };
  * const command = new GetFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFilterCommandInput - {@link GetFilterCommandInput}
+ * @returns {@link GetFilterCommandOutput}
  * @see {@link GetFilterCommandInput} for command's `input` shape.
  * @see {@link GetFilterCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +78,9 @@ export class GetFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +107,8 @@ export class GetFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +118,18 @@ export class GetFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFilterCommand(input, context);
+    return se_GetFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFilterCommandOutput> {
-    return deserializeAws_restJson1GetFilterCommand(output, context);
+    return de_GetFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

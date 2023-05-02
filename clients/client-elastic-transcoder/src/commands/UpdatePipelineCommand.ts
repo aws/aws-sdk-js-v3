@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  UpdatePipelineRequest,
-  UpdatePipelineRequestFilterSensitiveLog,
-  UpdatePipelineResponse,
-  UpdatePipelineResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePipelineCommand,
-  serializeAws_restJson1UpdatePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePipelineRequest, UpdatePipelineResponse } from "../models/models_0";
+import { de_UpdatePipelineCommand, se_UpdatePipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePipelineCommand}.
  */
 export interface UpdatePipelineCommandInput extends UpdatePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePipelineCommand}.
  */
 export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Use the <code>UpdatePipeline</code> operation to update settings for a pipeline.</p>
  *         <important>
  *             <p>When you change pipeline settings, your changes take effect immediately.
@@ -51,10 +48,51 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * import { ElasticTranscoderClient, UpdatePipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, UpdatePipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // UpdatePipelineRequest
+ *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   InputBucket: "STRING_VALUE",
+ *   Role: "STRING_VALUE",
+ *   AwsKmsKeyArn: "STRING_VALUE",
+ *   Notifications: { // Notifications
+ *     Progressing: "STRING_VALUE",
+ *     Completed: "STRING_VALUE",
+ *     Warning: "STRING_VALUE",
+ *     Error: "STRING_VALUE",
+ *   },
+ *   ContentConfig: { // PipelineOutputConfig
+ *     Bucket: "STRING_VALUE",
+ *     StorageClass: "STRING_VALUE",
+ *     Permissions: [ // Permissions
+ *       { // Permission
+ *         GranteeType: "STRING_VALUE",
+ *         Grantee: "STRING_VALUE",
+ *         Access: [ // AccessControls
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   ThumbnailConfig: {
+ *     Bucket: "STRING_VALUE",
+ *     StorageClass: "STRING_VALUE",
+ *     Permissions: [
+ *       {
+ *         GranteeType: "STRING_VALUE",
+ *         Grantee: "STRING_VALUE",
+ *         Access: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePipelineCommandInput - {@link UpdatePipelineCommandInput}
+ * @returns {@link UpdatePipelineCommandOutput}
  * @see {@link UpdatePipelineCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -97,6 +135,9 @@ export class UpdatePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +166,8 @@ export class UpdatePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePipelineResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +177,18 @@ export class UpdatePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePipelineCommand(input, context);
+    return se_UpdatePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineCommandOutput> {
-    return deserializeAws_restJson1UpdatePipelineCommand(output, context);
+    return de_UpdatePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

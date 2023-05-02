@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEventSubscriptionsMessage,
-  DescribeEventSubscriptionsMessageFilterSensitiveLog,
-  EventSubscriptionsMessage,
-  EventSubscriptionsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEventSubscriptionsCommand,
-  serializeAws_queryDescribeEventSubscriptionsCommand,
-} from "../protocols/Aws_query";
+import { DescribeEventSubscriptionsMessage, EventSubscriptionsMessage } from "../models/models_0";
+import { de_DescribeEventSubscriptionsCommand, se_DescribeEventSubscriptionsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventSubscriptionsCommand}.
  */
 export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSubscriptionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventSubscriptionsCommand}.
  */
 export interface DescribeEventSubscriptionsCommandOutput extends EventSubscriptionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists descriptions of all the Amazon Redshift event notification subscriptions for a
  *             customer account. If you specify a subscription name, lists the description for that
  *             subscription.</p>
@@ -52,10 +49,23 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * import { RedshiftClient, DescribeEventSubscriptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeEventSubscriptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeEventSubscriptionsMessage
+ *   SubscriptionName: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   TagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [ // TagValueList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeEventSubscriptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventSubscriptionsCommandInput - {@link DescribeEventSubscriptionsCommandInput}
+ * @returns {@link DescribeEventSubscriptionsCommandOutput}
  * @see {@link DescribeEventSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -86,6 +96,9 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +127,8 @@ export class DescribeEventSubscriptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventSubscriptionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EventSubscriptionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +138,21 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEventSubscriptionsCommand(input, context);
+    return se_DescribeEventSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventSubscriptionsCommandOutput> {
-    return deserializeAws_queryDescribeEventSubscriptionsCommand(output, context);
+    return de_DescribeEventSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

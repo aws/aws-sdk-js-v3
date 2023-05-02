@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAccountAliasRequest,
-  DeleteAccountAliasRequestFilterSensitiveLog,
-  DeleteAccountAliasResult,
-  DeleteAccountAliasResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccountAliasCommand,
-  serializeAws_restJson1DeleteAccountAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAccountAliasRequest, DeleteAccountAliasResult } from "../models/models_0";
+import { de_DeleteAccountAliasCommand, se_DeleteAccountAliasCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccountAliasCommand}.
  */
 export interface DeleteAccountAliasCommandInput extends DeleteAccountAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccountAliasCommand}.
  */
 export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an alias for an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the
  *       Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>
  * @example
@@ -43,10 +40,13 @@ export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResul
  * import { SupportAppClient, DeleteAccountAliasCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, DeleteAccountAliasCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = {};
  * const command = new DeleteAccountAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountAliasCommandInput - {@link DeleteAccountAliasCommandInput}
+ * @returns {@link DeleteAccountAliasCommandOutput}
  * @see {@link DeleteAccountAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -80,6 +80,9 @@ export class DeleteAccountAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +111,8 @@ export class DeleteAccountAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccountAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccountAliasResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +122,18 @@ export class DeleteAccountAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccountAliasCommand(input, context);
+    return se_DeleteAccountAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountAliasCommandOutput> {
-    return deserializeAws_restJson1DeleteAccountAliasCommand(output, context);
+    return de_DeleteAccountAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,25 +16,26 @@ import {
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import {
   ListVersionsByFunctionRequest,
-  ListVersionsByFunctionRequestFilterSensitiveLog,
   ListVersionsByFunctionResponse,
   ListVersionsByFunctionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVersionsByFunctionCommand,
-  serializeAws_restJson1ListVersionsByFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVersionsByFunctionCommand, se_ListVersionsByFunctionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVersionsByFunctionCommand}.
  */
 export interface ListVersionsByFunctionCommandInput extends ListVersionsByFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVersionsByFunctionCommand}.
  */
 export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunctionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,
  *       with the version-specific configuration of each. Lambda returns up to 50 versions per call.</p>
  * @example
@@ -43,10 +44,17 @@ export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunct
  * import { LambdaClient, ListVersionsByFunctionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListVersionsByFunctionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // ListVersionsByFunctionRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListVersionsByFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVersionsByFunctionCommandInput - {@link ListVersionsByFunctionCommandInput}
+ * @returns {@link ListVersionsByFunctionCommandOutput}
  * @see {@link ListVersionsByFunctionCommandInput} for command's `input` shape.
  * @see {@link ListVersionsByFunctionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +90,9 @@ export class ListVersionsByFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVersionsByFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +121,7 @@ export class ListVersionsByFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVersionsByFunctionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListVersionsByFunctionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -121,12 +132,18 @@ export class ListVersionsByFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVersionsByFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVersionsByFunctionCommand(input, context);
+    return se_ListVersionsByFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVersionsByFunctionCommandOutput> {
-    return deserializeAws_restJson1ListVersionsByFunctionCommand(output, context);
+    return de_ListVersionsByFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

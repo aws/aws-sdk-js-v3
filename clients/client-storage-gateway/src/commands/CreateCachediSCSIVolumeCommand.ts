@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCachediSCSIVolumeInput,
-  CreateCachediSCSIVolumeInputFilterSensitiveLog,
-  CreateCachediSCSIVolumeOutput,
-  CreateCachediSCSIVolumeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCachediSCSIVolumeCommand,
-  serializeAws_json1_1CreateCachediSCSIVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateCachediSCSIVolumeInput, CreateCachediSCSIVolumeOutput } from "../models/models_0";
+import { de_CreateCachediSCSIVolumeCommand, se_CreateCachediSCSIVolumeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCachediSCSIVolumeCommand}.
  */
 export interface CreateCachediSCSIVolumeCommandInput extends CreateCachediSCSIVolumeInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateCachediSCSIVolumeCommand}.
  */
 export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIVolumeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a cached volume on a specified cached volume gateway. This operation is only
  *          supported in the cached volume gateway type.</p>
  *
@@ -59,10 +56,29 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  * import { StorageGatewayClient, CreateCachediSCSIVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateCachediSCSIVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // CreateCachediSCSIVolumeInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   VolumeSizeInBytes: Number("long"), // required
+ *   SnapshotId: "STRING_VALUE",
+ *   TargetName: "STRING_VALUE", // required
+ *   SourceVolumeARN: "STRING_VALUE",
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE", // required
+ *   KMSEncrypted: true || false,
+ *   KMSKey: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCachediSCSIVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCachediSCSIVolumeCommandInput - {@link CreateCachediSCSIVolumeCommandInput}
+ * @returns {@link CreateCachediSCSIVolumeCommandOutput}
  * @see {@link CreateCachediSCSIVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateCachediSCSIVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -116,6 +132,9 @@ export class CreateCachediSCSIVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCachediSCSIVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +163,8 @@ export class CreateCachediSCSIVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCachediSCSIVolumeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCachediSCSIVolumeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +174,18 @@ export class CreateCachediSCSIVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCachediSCSIVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCachediSCSIVolumeCommand(input, context);
+    return se_CreateCachediSCSIVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCachediSCSIVolumeCommandOutput> {
-    return deserializeAws_json1_1CreateCachediSCSIVolumeCommand(output, context);
+    return de_CreateCachediSCSIVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

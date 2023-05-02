@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeHostReservationsRequest,
-  DescribeHostReservationsRequestFilterSensitiveLog,
-  DescribeHostReservationsResult,
-  DescribeHostReservationsResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeHostReservationsCommand,
-  serializeAws_ec2DescribeHostReservationsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeHostReservationsRequest, DescribeHostReservationsResult } from "../models/models_3";
+import { de_DescribeHostReservationsCommand, se_DescribeHostReservationsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHostReservationsCommand}.
  */
 export interface DescribeHostReservationsCommandInput extends DescribeHostReservationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHostReservationsCommand}.
  */
 export interface DescribeHostReservationsCommandOutput extends DescribeHostReservationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes reservations that are associated with Dedicated Hosts in your
  *             account.</p>
  * @example
@@ -43,10 +40,27 @@ export interface DescribeHostReservationsCommandOutput extends DescribeHostReser
  * import { EC2Client, DescribeHostReservationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeHostReservationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeHostReservationsRequest
+ *   Filter: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   HostReservationIdSet: [ // HostReservationIdSet
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeHostReservationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHostReservationsCommandInput - {@link DescribeHostReservationsCommandInput}
+ * @returns {@link DescribeHostReservationsCommandOutput}
  * @see {@link DescribeHostReservationsCommandInput} for command's `input` shape.
  * @see {@link DescribeHostReservationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +84,9 @@ export class DescribeHostReservationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHostReservationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +115,8 @@ export class DescribeHostReservationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHostReservationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHostReservationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +126,18 @@ export class DescribeHostReservationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHostReservationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeHostReservationsCommand(input, context);
+    return se_DescribeHostReservationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHostReservationsCommandOutput> {
-    return deserializeAws_ec2DescribeHostReservationsCommand(output, context);
+    return de_DescribeHostReservationsCommand(output, context);
   }
 
   // Start section: command_body_extra

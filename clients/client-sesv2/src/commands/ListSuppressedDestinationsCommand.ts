@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSuppressedDestinationsRequest,
-  ListSuppressedDestinationsRequestFilterSensitiveLog,
-  ListSuppressedDestinationsResponse,
-  ListSuppressedDestinationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSuppressedDestinationsCommand,
-  serializeAws_restJson1ListSuppressedDestinationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSuppressedDestinationsRequest, ListSuppressedDestinationsResponse } from "../models/models_0";
+import { de_ListSuppressedDestinationsCommand, se_ListSuppressedDestinationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListSuppressedDestinationsCommand}.
  */
 export interface ListSuppressedDestinationsCommandInput extends ListSuppressedDestinationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSuppressedDestinationsCommand}.
  */
 export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedDestinationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of email addresses that are on the suppression list for your
  *             account.</p>
  * @example
@@ -43,10 +40,21 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  * import { SESv2Client, ListSuppressedDestinationsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListSuppressedDestinationsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // ListSuppressedDestinationsRequest
+ *   Reasons: [ // SuppressionListReasons
+ *     "BOUNCE" || "COMPLAINT",
+ *   ],
+ *   StartDate: new Date("TIMESTAMP"),
+ *   EndDate: new Date("TIMESTAMP"),
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListSuppressedDestinationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSuppressedDestinationsCommandInput - {@link ListSuppressedDestinationsCommandInput}
+ * @returns {@link ListSuppressedDestinationsCommandOutput}
  * @see {@link ListSuppressedDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListSuppressedDestinationsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -79,6 +87,9 @@ export class ListSuppressedDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSuppressedDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +118,8 @@ export class ListSuppressedDestinationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSuppressedDestinationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSuppressedDestinationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +129,21 @@ export class ListSuppressedDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSuppressedDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSuppressedDestinationsCommand(input, context);
+    return se_ListSuppressedDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSuppressedDestinationsCommandOutput> {
-    return deserializeAws_restJson1ListSuppressedDestinationsCommand(output, context);
+    return de_ListSuppressedDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

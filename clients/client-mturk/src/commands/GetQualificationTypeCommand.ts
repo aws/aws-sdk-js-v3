@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetQualificationTypeRequest,
-  GetQualificationTypeRequestFilterSensitiveLog,
-  GetQualificationTypeResponse,
-  GetQualificationTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetQualificationTypeRequest, GetQualificationTypeResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1GetQualificationTypeCommand,
-  serializeAws_json1_1GetQualificationTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetQualificationTypeCommand, se_GetQualificationTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQualificationTypeCommand}.
  */
 export interface GetQualificationTypeCommandInput extends GetQualificationTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQualificationTypeCommand}.
  */
 export interface GetQualificationTypeCommandOutput extends GetQualificationTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>GetQualificationType</code>operation retrieves information about a Qualification type using its ID.
  *         </p>
@@ -44,10 +41,15 @@ export interface GetQualificationTypeCommandOutput extends GetQualificationTypeR
  * import { MTurkClient, GetQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, GetQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // GetQualificationTypeRequest
+ *   QualificationTypeId: "STRING_VALUE", // required
+ * };
  * const command = new GetQualificationTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQualificationTypeCommandInput - {@link GetQualificationTypeCommandInput}
+ * @returns {@link GetQualificationTypeCommandOutput}
  * @see {@link GetQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link GetQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -77,6 +79,9 @@ export class GetQualificationTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQualificationTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +110,8 @@ export class GetQualificationTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQualificationTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQualificationTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +121,18 @@ export class GetQualificationTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetQualificationTypeCommand(input, context);
+    return se_GetQualificationTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1GetQualificationTypeCommand(output, context);
+    return de_GetQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

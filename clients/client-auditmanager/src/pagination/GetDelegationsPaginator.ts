@@ -10,7 +10,7 @@ import {
 import { AuditManagerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AuditManagerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetDelegationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetDelegations(
   config: AuditManagerPaginationConfiguration,
   input: GetDelegationsCommandInput,

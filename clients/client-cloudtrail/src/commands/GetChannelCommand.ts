@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  GetChannelRequest,
-  GetChannelRequestFilterSensitiveLog,
-  GetChannelResponse,
-  GetChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetChannelCommand,
-  serializeAws_json1_1GetChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { GetChannelRequest, GetChannelResponse } from "../models/models_0";
+import { de_GetChannelCommand, se_GetChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChannelCommand}.
  */
 export interface GetChannelCommandInput extends GetChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChannelCommand}.
  */
 export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns information about a specific channel.
  *       </p>
  * @example
@@ -43,10 +40,15 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * import { CloudTrailClient, GetChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // GetChannelRequest
+ *   Channel: "STRING_VALUE", // required
+ * };
  * const command = new GetChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChannelCommandInput - {@link GetChannelCommandInput}
+ * @returns {@link GetChannelCommandOutput}
  * @see {@link GetChannelCommandInput} for command's `input` shape.
  * @see {@link GetChannelCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -83,6 +85,9 @@ export class GetChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class GetChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class GetChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetChannelCommand(input, context);
+    return se_GetChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelCommandOutput> {
-    return deserializeAws_json1_1GetChannelCommand(output, context);
+    return de_GetChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

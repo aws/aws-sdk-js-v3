@@ -17,24 +17,25 @@ import {
   PutRetentionPolicyRequest,
   PutRetentionPolicyRequestFilterSensitiveLog,
   PutRetentionPolicyResponse,
-  PutRetentionPolicyResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutRetentionPolicyCommand,
-  serializeAws_json1_1PutRetentionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutRetentionPolicyCommand, se_PutRetentionPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutRetentionPolicyCommand}.
  */
 export interface PutRetentionPolicyCommandInput extends PutRetentionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRetentionPolicyCommand}.
  */
 export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Puts a retention policy to the specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,25 @@ export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyRespo
  * import { WorkMailClient, PutRetentionPolicyCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutRetentionPolicyCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // PutRetentionPolicyRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   FolderConfigurations: [ // FolderConfigurations // required
+ *     { // FolderConfiguration
+ *       Name: "INBOX" || "DELETED_ITEMS" || "SENT_ITEMS" || "DRAFTS" || "JUNK_EMAIL", // required
+ *       Action: "NONE" || "DELETE" || "PERMANENTLY_DELETE", // required
+ *       Period: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new PutRetentionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRetentionPolicyCommandInput - {@link PutRetentionPolicyCommandInput}
+ * @returns {@link PutRetentionPolicyCommandOutput}
  * @see {@link PutRetentionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutRetentionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -83,6 +99,9 @@ export class PutRetentionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRetentionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +131,7 @@ export class PutRetentionPolicyCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutRetentionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRetentionPolicyResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +141,18 @@ export class PutRetentionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRetentionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRetentionPolicyCommand(input, context);
+    return se_PutRetentionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRetentionPolicyCommandOutput> {
-    return deserializeAws_json1_1PutRetentionPolicyCommand(output, context);
+    return de_PutRetentionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetReadSetImportJobRequest,
-  GetReadSetImportJobRequestFilterSensitiveLog,
-  GetReadSetImportJobResponse,
-  GetReadSetImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetReadSetImportJobRequest, GetReadSetImportJobResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetReadSetImportJobCommand,
-  serializeAws_restJson1GetReadSetImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReadSetImportJobCommand, se_GetReadSetImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReadSetImportJobCommand}.
  */
 export interface GetReadSetImportJobCommandInput extends GetReadSetImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReadSetImportJobCommand}.
  */
 export interface GetReadSetImportJobCommandOutput extends GetReadSetImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a read set import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetReadSetImportJobCommandOutput extends GetReadSetImportJobRes
  * import { OmicsClient, GetReadSetImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReadSetImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // GetReadSetImportJobRequest
+ *   id: "STRING_VALUE", // required
+ *   sequenceStoreId: "STRING_VALUE", // required
+ * };
  * const command = new GetReadSetImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReadSetImportJobCommandInput - {@link GetReadSetImportJobCommandInput}
+ * @returns {@link GetReadSetImportJobCommandOutput}
  * @see {@link GetReadSetImportJobCommandInput} for command's `input` shape.
  * @see {@link GetReadSetImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +90,9 @@ export class GetReadSetImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReadSetImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class GetReadSetImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReadSetImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReadSetImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class GetReadSetImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReadSetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReadSetImportJobCommand(input, context);
+    return se_GetReadSetImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReadSetImportJobCommandOutput> {
-    return deserializeAws_restJson1GetReadSetImportJobCommand(output, context);
+    return de_GetReadSetImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

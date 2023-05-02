@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AllocateIpamPoolCidrRequest,
-  AllocateIpamPoolCidrRequestFilterSensitiveLog,
-  AllocateIpamPoolCidrResult,
-  AllocateIpamPoolCidrResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AllocateIpamPoolCidrCommand,
-  serializeAws_ec2AllocateIpamPoolCidrCommand,
-} from "../protocols/Aws_ec2";
+import { AllocateIpamPoolCidrRequest, AllocateIpamPoolCidrResult } from "../models/models_0";
+import { de_AllocateIpamPoolCidrCommand, se_AllocateIpamPoolCidrCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AllocateIpamPoolCidrCommand}.
  */
 export interface AllocateIpamPoolCidrCommandInput extends AllocateIpamPoolCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllocateIpamPoolCidrCommand}.
  */
 export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  *          <note>
  *             <p>This action creates an allocation with strong consistency. The returned CIDR will not overlap with any other allocations from the same pool.</p>
@@ -45,10 +42,24 @@ export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrR
  * import { EC2Client, AllocateIpamPoolCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AllocateIpamPoolCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AllocateIpamPoolCidrRequest
+ *   DryRun: true || false,
+ *   IpamPoolId: "STRING_VALUE", // required
+ *   Cidr: "STRING_VALUE",
+ *   NetmaskLength: Number("int"),
+ *   ClientToken: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   PreviewNextCidr: true || false,
+ *   DisallowedCidrs: [ // IpamPoolAllocationDisallowedCidrs
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AllocateIpamPoolCidrCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocateIpamPoolCidrCommandInput - {@link AllocateIpamPoolCidrCommandInput}
+ * @returns {@link AllocateIpamPoolCidrCommandOutput}
  * @see {@link AllocateIpamPoolCidrCommandInput} for command's `input` shape.
  * @see {@link AllocateIpamPoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +83,9 @@ export class AllocateIpamPoolCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocateIpamPoolCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +114,8 @@ export class AllocateIpamPoolCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllocateIpamPoolCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AllocateIpamPoolCidrResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +125,18 @@ export class AllocateIpamPoolCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AllocateIpamPoolCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AllocateIpamPoolCidrCommand(input, context);
+    return se_AllocateIpamPoolCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllocateIpamPoolCidrCommandOutput> {
-    return deserializeAws_ec2AllocateIpamPoolCidrCommand(output, context);
+    return de_AllocateIpamPoolCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

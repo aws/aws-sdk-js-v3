@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  ListStreamKeysRequest,
-  ListStreamKeysRequestFilterSensitiveLog,
-  ListStreamKeysResponse,
-  ListStreamKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListStreamKeysCommand,
-  serializeAws_restJson1ListStreamKeysCommand,
-} from "../protocols/Aws_restJson1";
+import { ListStreamKeysRequest, ListStreamKeysResponse } from "../models/models_0";
+import { de_ListStreamKeysCommand, se_ListStreamKeysCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamKeysCommand}.
  */
 export interface ListStreamKeysCommandInput extends ListStreamKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamKeysCommand}.
  */
 export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets summary information about stream keys for the specified channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
  * import { IvsClient, ListStreamKeysCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, ListStreamKeysCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // ListStreamKeysRequest
+ *   channelArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListStreamKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamKeysCommandInput - {@link ListStreamKeysCommandInput}
+ * @returns {@link ListStreamKeysCommandOutput}
  * @see {@link ListStreamKeysCommandInput} for command's `input` shape.
  * @see {@link ListStreamKeysCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -78,6 +82,9 @@ export class ListStreamKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class ListStreamKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class ListStreamKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStreamKeysCommand(input, context);
+    return se_ListStreamKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamKeysCommandOutput> {
-    return deserializeAws_restJson1ListStreamKeysCommand(output, context);
+    return de_ListStreamKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  ListApiKeysRequest,
-  ListApiKeysRequestFilterSensitiveLog,
-  ListApiKeysResponse,
-  ListApiKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListApiKeysCommand,
-  serializeAws_restJson1ListApiKeysCommand,
-} from "../protocols/Aws_restJson1";
+import { ListApiKeysRequest, ListApiKeysResponse } from "../models/models_0";
+import { de_ListApiKeysCommand, se_ListApiKeysCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApiKeysCommand}.
  */
 export interface ListApiKeysCommandInput extends ListApiKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApiKeysCommand}.
  */
 export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the API keys for a given API.</p>
  *          <note>
  *             <p>API keys are deleted automatically 60 days after they expire. However, they may still be included in the
@@ -47,10 +44,17 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  * import { AppSyncClient, ListApiKeysCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListApiKeysCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // ListApiKeysRequest
+ *   apiId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListApiKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApiKeysCommandInput - {@link ListApiKeysCommandInput}
+ * @returns {@link ListApiKeysCommandOutput}
  * @see {@link ListApiKeysCommandInput} for command's `input` shape.
  * @see {@link ListApiKeysCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -87,6 +91,9 @@ export class ListApiKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApiKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class ListApiKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApiKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApiKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class ListApiKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApiKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApiKeysCommand(input, context);
+    return se_ListApiKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApiKeysCommandOutput> {
-    return deserializeAws_restJson1ListApiKeysCommand(output, context);
+    return de_ListApiKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

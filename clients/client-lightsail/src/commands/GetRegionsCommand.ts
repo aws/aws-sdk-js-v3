@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetRegionsRequest,
-  GetRegionsRequestFilterSensitiveLog,
-  GetRegionsResult,
-  GetRegionsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetRegionsCommand,
-  serializeAws_json1_1GetRegionsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRegionsRequest, GetRegionsResult } from "../models/models_1";
+import { de_GetRegionsCommand, se_GetRegionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegionsCommand}.
  */
 export interface GetRegionsCommandInput extends GetRegionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRegionsCommand}.
  */
 export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all valid regions for Amazon Lightsail. Use the <code>include
  *         availability zones</code> parameter to also return the Availability Zones in a
  *       region.</p>
@@ -44,10 +41,16 @@ export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBea
  * import { LightsailClient, GetRegionsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRegionsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetRegionsRequest
+ *   includeAvailabilityZones: true || false,
+ *   includeRelationalDatabaseAvailabilityZones: true || false,
+ * };
  * const command = new GetRegionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegionsCommandInput - {@link GetRegionsCommandInput}
+ * @returns {@link GetRegionsCommandOutput}
  * @see {@link GetRegionsCommandInput} for command's `input` shape.
  * @see {@link GetRegionsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -101,6 +104,9 @@ export class GetRegionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +133,8 @@ export class GetRegionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRegionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRegionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +144,18 @@ export class GetRegionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRegionsCommand(input, context);
+    return se_GetRegionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegionsCommandOutput> {
-    return deserializeAws_json1_1GetRegionsCommand(output, context);
+    return de_GetRegionsCommand(output, context);
   }
 
   // Start section: command_body_extra

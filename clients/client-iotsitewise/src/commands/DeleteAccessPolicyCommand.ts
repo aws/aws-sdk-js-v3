@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DeleteAccessPolicyRequest,
-  DeleteAccessPolicyRequestFilterSensitiveLog,
-  DeleteAccessPolicyResponse,
-  DeleteAccessPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccessPolicyCommand,
-  serializeAws_restJson1DeleteAccessPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAccessPolicyRequest, DeleteAccessPolicyResponse } from "../models/models_0";
+import { de_DeleteAccessPolicyCommand, se_DeleteAccessPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessPolicyCommand}.
  */
 export interface DeleteAccessPolicyCommandInput extends DeleteAccessPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessPolicyCommand}.
  */
 export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an access policy that grants the specified identity access to the specified
  *       IoT SiteWise Monitor resource. You can use this operation to revoke access to an IoT SiteWise Monitor
  *       resource.</p>
@@ -44,10 +41,16 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  * import { IoTSiteWiseClient, DeleteAccessPolicyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteAccessPolicyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DeleteAccessPolicyRequest
+ *   accessPolicyId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessPolicyCommandInput - {@link DeleteAccessPolicyCommandInput}
+ * @returns {@link DeleteAccessPolicyCommandOutput}
  * @see {@link DeleteAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -87,6 +90,9 @@ export class DeleteAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class DeleteAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccessPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class DeleteAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccessPolicyCommand(input, context);
+    return se_DeleteAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteAccessPolicyCommand(output, context);
+    return de_DeleteAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import {
-  ListJobRunsRequest,
-  ListJobRunsRequestFilterSensitiveLog,
-  ListJobRunsResponse,
-  ListJobRunsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListJobRunsCommand,
-  serializeAws_restJson1ListJobRunsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListJobRunsRequest, ListJobRunsResponse } from "../models/models_0";
+import { de_ListJobRunsCommand, se_ListJobRunsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobRunsCommand}.
  */
 export interface ListJobRunsCommandInput extends ListJobRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJobRunsCommand}.
  */
 export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists job runs based on a set of parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * import { EMRServerlessClient, ListJobRunsCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, ListJobRunsCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
+ * const input = { // ListJobRunsRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   createdAtAfter: new Date("TIMESTAMP"),
+ *   createdAtBefore: new Date("TIMESTAMP"),
+ *   states: [ // JobRunStateSet
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListJobRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobRunsCommandInput - {@link ListJobRunsCommandInput}
+ * @returns {@link ListJobRunsCommandOutput}
  * @see {@link ListJobRunsCommandInput} for command's `input` shape.
  * @see {@link ListJobRunsCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
@@ -54,7 +63,8 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  *  <p>Request processing failed because of an error or failure with the service.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
  *
  *
  */
@@ -75,6 +85,9 @@ export class ListJobRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +114,8 @@ export class ListJobRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobRunsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJobRunsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +125,18 @@ export class ListJobRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJobRunsCommand(input, context);
+    return se_ListJobRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobRunsCommandOutput> {
-    return deserializeAws_restJson1ListJobRunsCommand(output, context);
+    return de_ListJobRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  EnableEnhancedMonitoringInput,
-  EnableEnhancedMonitoringInputFilterSensitiveLog,
-  EnhancedMonitoringOutput,
-  EnhancedMonitoringOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableEnhancedMonitoringCommand,
-  serializeAws_json1_1EnableEnhancedMonitoringCommand,
-} from "../protocols/Aws_json1_1";
+import { EnableEnhancedMonitoringInput, EnhancedMonitoringOutput } from "../models/models_0";
+import { de_EnableEnhancedMonitoringCommand, se_EnableEnhancedMonitoringCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableEnhancedMonitoringCommand}.
  */
 export interface EnableEnhancedMonitoringCommandInput extends EnableEnhancedMonitoringInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableEnhancedMonitoringCommand}.
  */
 export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitoringOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p>
  *          <note>
  *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
@@ -46,10 +43,19 @@ export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitorin
  * import { KinesisClient, EnableEnhancedMonitoringCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, EnableEnhancedMonitoringCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // EnableEnhancedMonitoringInput
+ *   StreamName: "STRING_VALUE",
+ *   ShardLevelMetrics: [ // MetricsNameList // required
+ *     "IncomingBytes" || "IncomingRecords" || "OutgoingBytes" || "OutgoingRecords" || "WriteProvisionedThroughputExceeded" || "ReadProvisionedThroughputExceeded" || "IteratorAgeMilliseconds" || "ALL",
+ *   ],
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new EnableEnhancedMonitoringCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableEnhancedMonitoringCommandInput - {@link EnableEnhancedMonitoringCommandInput}
+ * @returns {@link EnableEnhancedMonitoringCommandOutput}
  * @see {@link EnableEnhancedMonitoringCommandInput} for command's `input` shape.
  * @see {@link EnableEnhancedMonitoringCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -95,6 +101,9 @@ export class EnableEnhancedMonitoringCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableEnhancedMonitoringCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +132,8 @@ export class EnableEnhancedMonitoringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableEnhancedMonitoringInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EnhancedMonitoringOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +143,18 @@ export class EnableEnhancedMonitoringCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableEnhancedMonitoringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableEnhancedMonitoringCommand(input, context);
+    return se_EnableEnhancedMonitoringCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableEnhancedMonitoringCommandOutput> {
-    return deserializeAws_json1_1EnableEnhancedMonitoringCommand(output, context);
+    return de_EnableEnhancedMonitoringCommand(output, context);
   }
 
   // Start section: command_body_extra

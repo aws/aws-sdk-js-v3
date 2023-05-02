@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  ListBranchesInput,
-  ListBranchesInputFilterSensitiveLog,
-  ListBranchesOutput,
-  ListBranchesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListBranchesCommand,
-  serializeAws_json1_1ListBranchesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListBranchesInput, ListBranchesOutput } from "../models/models_0";
+import { de_ListBranchesCommand, se_ListBranchesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBranchesCommand}.
  */
 export interface ListBranchesCommandInput extends ListBranchesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBranchesCommand}.
  */
 export interface ListBranchesCommandOutput extends ListBranchesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more branches in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListBranchesCommandOutput extends ListBranchesOutput, __Metadat
  * import { CodeCommitClient, ListBranchesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, ListBranchesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // ListBranchesInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBranchesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBranchesCommandInput - {@link ListBranchesCommandInput}
+ * @returns {@link ListBranchesCommandOutput}
  * @see {@link ListBranchesCommandInput} for command's `input` shape.
  * @see {@link ListBranchesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -102,6 +105,9 @@ export class ListBranchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBranchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +134,8 @@ export class ListBranchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBranchesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBranchesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +145,18 @@ export class ListBranchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBranchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBranchesCommand(input, context);
+    return se_ListBranchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBranchesCommandOutput> {
-    return deserializeAws_json1_1ListBranchesCommand(output, context);
+    return de_ListBranchesCommand(output, context);
   }
 
   // Start section: command_body_extra

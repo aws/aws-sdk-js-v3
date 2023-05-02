@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteSlackWorkspaceConfigurationRequest, DeleteSlackWorkspaceConfigurationResult } from "../models/models_0";
 import {
-  DeleteSlackWorkspaceConfigurationRequest,
-  DeleteSlackWorkspaceConfigurationRequestFilterSensitiveLog,
-  DeleteSlackWorkspaceConfigurationResult,
-  DeleteSlackWorkspaceConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand,
-  serializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand,
+  de_DeleteSlackWorkspaceConfigurationCommand,
+  se_DeleteSlackWorkspaceConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSlackWorkspaceConfigurationCommand}.
  */
 export interface DeleteSlackWorkspaceConfigurationCommandInput extends DeleteSlackWorkspaceConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSlackWorkspaceConfigurationCommand}.
  */
 export interface DeleteSlackWorkspaceConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Slack workspace configuration from your Amazon Web Services account. This operation doesn't
  *       delete your Slack workspace.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
  * import { SupportAppClient, DeleteSlackWorkspaceConfigurationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, DeleteSlackWorkspaceConfigurationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = { // DeleteSlackWorkspaceConfigurationRequest
+ *   teamId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSlackWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSlackWorkspaceConfigurationCommandInput - {@link DeleteSlackWorkspaceConfigurationCommandInput}
+ * @returns {@link DeleteSlackWorkspaceConfigurationCommandOutput}
  * @see {@link DeleteSlackWorkspaceConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSlackWorkspaceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -114,6 +119,9 @@ export class DeleteSlackWorkspaceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSlackWorkspaceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +150,8 @@ export class DeleteSlackWorkspaceConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSlackWorkspaceConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSlackWorkspaceConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,18 +161,24 @@ export class DeleteSlackWorkspaceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteSlackWorkspaceConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand(input, context);
+    return se_DeleteSlackWorkspaceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSlackWorkspaceConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand(output, context);
+    return de_DeleteSlackWorkspaceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

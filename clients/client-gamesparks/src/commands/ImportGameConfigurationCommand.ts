@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  ImportGameConfigurationRequest,
-  ImportGameConfigurationRequestFilterSensitiveLog,
-  ImportGameConfigurationResult,
-  ImportGameConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportGameConfigurationCommand,
-  serializeAws_restJson1ImportGameConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { ImportGameConfigurationRequest, ImportGameConfigurationResult } from "../models/models_0";
+import { de_ImportGameConfigurationCommand, se_ImportGameConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportGameConfigurationCommand}.
  */
 export interface ImportGameConfigurationCommandInput extends ImportGameConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportGameConfigurationCommand}.
  */
 export interface ImportGameConfigurationCommandOutput extends ImportGameConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a game configuration.</p>
  *          <p>
  *       This operation replaces the current configuration of the game with the provided input.
@@ -47,10 +44,18 @@ export interface ImportGameConfigurationCommandOutput extends ImportGameConfigur
  * import { GameSparksClient, ImportGameConfigurationCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ImportGameConfigurationCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // ImportGameConfigurationRequest
+ *   GameName: "STRING_VALUE", // required
+ *   ImportSource: { // ImportGameConfigurationSource
+ *     File: "BLOB_VALUE", // required
+ *   },
+ * };
  * const command = new ImportGameConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportGameConfigurationCommandInput - {@link ImportGameConfigurationCommandInput}
+ * @returns {@link ImportGameConfigurationCommandOutput}
  * @see {@link ImportGameConfigurationCommandInput} for command's `input` shape.
  * @see {@link ImportGameConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -92,6 +97,9 @@ export class ImportGameConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportGameConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +128,8 @@ export class ImportGameConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportGameConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportGameConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +139,18 @@ export class ImportGameConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportGameConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportGameConfigurationCommand(input, context);
+    return se_ImportGameConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportGameConfigurationCommandOutput> {
-    return deserializeAws_restJson1ImportGameConfigurationCommand(output, context);
+    return de_ImportGameConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

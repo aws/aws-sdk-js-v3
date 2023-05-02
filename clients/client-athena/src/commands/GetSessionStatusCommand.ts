@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  GetSessionStatusRequest,
-  GetSessionStatusRequestFilterSensitiveLog,
-  GetSessionStatusResponse,
-  GetSessionStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSessionStatusCommand,
-  serializeAws_json1_1GetSessionStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSessionStatusRequest, GetSessionStatusResponse } from "../models/models_0";
+import { de_GetSessionStatusCommand, se_GetSessionStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSessionStatusCommand}.
  */
 export interface GetSessionStatusCommandInput extends GetSessionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSessionStatusCommand}.
  */
 export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the current status of a session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse,
  * import { AthenaClient, GetSessionStatusCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetSessionStatusCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // GetSessionStatusRequest
+ *   SessionId: "STRING_VALUE", // required
+ * };
  * const command = new GetSessionStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSessionStatusCommandInput - {@link GetSessionStatusCommandInput}
+ * @returns {@link GetSessionStatusCommandOutput}
  * @see {@link GetSessionStatusCommandInput} for command's `input` shape.
  * @see {@link GetSessionStatusCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +82,9 @@ export class GetSessionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSessionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class GetSessionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSessionStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class GetSessionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSessionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSessionStatusCommand(input, context);
+    return se_GetSessionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionStatusCommandOutput> {
-    return deserializeAws_json1_1GetSessionStatusCommand(output, context);
+    return de_GetSessionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

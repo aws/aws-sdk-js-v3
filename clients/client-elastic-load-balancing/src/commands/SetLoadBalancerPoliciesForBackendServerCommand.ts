@@ -20,21 +20,23 @@ import {
 } from "../ElasticLoadBalancingClient";
 import {
   SetLoadBalancerPoliciesForBackendServerInput,
-  SetLoadBalancerPoliciesForBackendServerInputFilterSensitiveLog,
   SetLoadBalancerPoliciesForBackendServerOutput,
-  SetLoadBalancerPoliciesForBackendServerOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand,
-  serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand,
+  de_SetLoadBalancerPoliciesForBackendServerCommand,
+  se_SetLoadBalancerPoliciesForBackendServerCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetLoadBalancerPoliciesForBackendServerCommand}.
  */
 export interface SetLoadBalancerPoliciesForBackendServerCommandInput
   extends SetLoadBalancerPoliciesForBackendServerInput {}
 /**
+ * @public
+ *
  * The output of {@link SetLoadBalancerPoliciesForBackendServerCommand}.
  */
 export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
@@ -42,6 +44,7 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies.
  *             At this time, only the back-end server authentication policy type can be applied to the instance ports; this policy type is composed of multiple public key policies.</p>
  *         <p>Each time you use <code>SetLoadBalancerPoliciesForBackendServer</code> to enable the policies,
@@ -59,10 +62,19 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  * import { ElasticLoadBalancingClient, SetLoadBalancerPoliciesForBackendServerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, SetLoadBalancerPoliciesForBackendServerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // SetLoadBalancerPoliciesForBackendServerInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   InstancePort: Number("int"), // required
+ *   PolicyNames: [ // PolicyNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new SetLoadBalancerPoliciesForBackendServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetLoadBalancerPoliciesForBackendServerCommandInput - {@link SetLoadBalancerPoliciesForBackendServerCommandInput}
+ * @returns {@link SetLoadBalancerPoliciesForBackendServerCommandOutput}
  * @see {@link SetLoadBalancerPoliciesForBackendServerCommandInput} for command's `input` shape.
  * @see {@link SetLoadBalancerPoliciesForBackendServerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -110,6 +122,9 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetLoadBalancerPoliciesForBackendServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +159,8 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetLoadBalancerPoliciesForBackendServerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetLoadBalancerPoliciesForBackendServerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,18 +170,24 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetLoadBalancerPoliciesForBackendServerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand(input, context);
+    return se_SetLoadBalancerPoliciesForBackendServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> {
-    return deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand(output, context);
+    return de_SetLoadBalancerPoliciesForBackendServerCommand(output, context);
   }
 
   // Start section: command_body_extra

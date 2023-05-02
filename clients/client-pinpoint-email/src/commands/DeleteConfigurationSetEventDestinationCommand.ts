@@ -15,22 +15,24 @@ import {
 
 import {
   DeleteConfigurationSetEventDestinationRequest,
-  DeleteConfigurationSetEventDestinationRequestFilterSensitiveLog,
   DeleteConfigurationSetEventDestinationResponse,
-  DeleteConfigurationSetEventDestinationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand,
+  de_DeleteConfigurationSetEventDestinationCommand,
+  se_DeleteConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationSetEventDestinationCommand}.
  */
 export interface DeleteConfigurationSetEventDestinationCommandInput
   extends DeleteConfigurationSetEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationSetEventDestinationCommand}.
  */
 export interface DeleteConfigurationSetEventDestinationCommandOutput
@@ -38,6 +40,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an event destination.</p>
  *         <p>In Amazon Pinpoint, <i>events</i> include message sends, deliveries, opens,
  *             clicks, bounces, and complaints. <i>Event destinations</i> are places that
@@ -50,10 +53,16 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * import { PinpointEmailClient, DeleteConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, DeleteConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // DeleteConfigurationSetEventDestinationRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   EventDestinationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationSetEventDestinationCommandInput - {@link DeleteConfigurationSetEventDestinationCommandInput}
+ * @returns {@link DeleteConfigurationSetEventDestinationCommandOutput}
  * @see {@link DeleteConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -86,6 +95,9 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +126,8 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationSetEventDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfigurationSetEventDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +137,24 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand(input, context);
+    return se_DeleteConfigurationSetEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand(output, context);
+    return de_DeleteConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

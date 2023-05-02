@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { UpdateRoutingProfileConcurrencyRequest } from "../models/models_1";
 import {
-  UpdateRoutingProfileConcurrencyRequest,
-  UpdateRoutingProfileConcurrencyRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateRoutingProfileConcurrencyCommand,
-  serializeAws_restJson1UpdateRoutingProfileConcurrencyCommand,
+  de_UpdateRoutingProfileConcurrencyCommand,
+  se_UpdateRoutingProfileConcurrencyCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoutingProfileConcurrencyCommand}.
  */
 export interface UpdateRoutingProfileConcurrencyCommandInput extends UpdateRoutingProfileConcurrencyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoutingProfileConcurrencyCommand}.
  */
 export interface UpdateRoutingProfileConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing
  *    profile.</p>
  * @example
@@ -41,10 +43,25 @@ export interface UpdateRoutingProfileConcurrencyCommandOutput extends __Metadata
  * import { ConnectClient, UpdateRoutingProfileConcurrencyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateRoutingProfileConcurrencyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateRoutingProfileConcurrencyRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   RoutingProfileId: "STRING_VALUE", // required
+ *   MediaConcurrencies: [ // MediaConcurrencies // required
+ *     { // MediaConcurrency
+ *       Channel: "VOICE" || "CHAT" || "TASK", // required
+ *       Concurrency: Number("int"), // required
+ *       CrossChannelBehavior: { // CrossChannelBehavior
+ *         BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRoutingProfileConcurrencyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoutingProfileConcurrencyCommandInput - {@link UpdateRoutingProfileConcurrencyCommandInput}
+ * @returns {@link UpdateRoutingProfileConcurrencyCommandOutput}
  * @see {@link UpdateRoutingProfileConcurrencyCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingProfileConcurrencyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +100,9 @@ export class UpdateRoutingProfileConcurrencyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoutingProfileConcurrencyCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +131,8 @@ export class UpdateRoutingProfileConcurrencyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoutingProfileConcurrencyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +142,24 @@ export class UpdateRoutingProfileConcurrencyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateRoutingProfileConcurrencyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRoutingProfileConcurrencyCommand(input, context);
+    return se_UpdateRoutingProfileConcurrencyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRoutingProfileConcurrencyCommandOutput> {
-    return deserializeAws_restJson1UpdateRoutingProfileConcurrencyCommand(output, context);
+    return de_UpdateRoutingProfileConcurrencyCommand(output, context);
   }
 
   // Start section: command_body_extra

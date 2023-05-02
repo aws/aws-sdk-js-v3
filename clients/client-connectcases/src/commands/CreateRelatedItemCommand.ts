@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  CreateRelatedItemRequest,
-  CreateRelatedItemRequestFilterSensitiveLog,
-  CreateRelatedItemResponse,
-  CreateRelatedItemResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRelatedItemCommand,
-  serializeAws_restJson1CreateRelatedItemCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRelatedItemRequest, CreateRelatedItemResponse } from "../models/models_0";
+import { de_CreateRelatedItemCommand, se_CreateRelatedItemCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRelatedItemCommand}.
  */
 export interface CreateRelatedItemCommandInput extends CreateRelatedItemRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRelatedItemCommand}.
  */
 export interface CreateRelatedItemCommandOutput extends CreateRelatedItemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a related item (comments, tasks, and contacts) and associates it with a
  *       case.</p>
  *          <note>
@@ -50,10 +47,26 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  * import { ConnectCasesClient, CreateRelatedItemCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateRelatedItemCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // CreateRelatedItemRequest
+ *   domainId: "STRING_VALUE", // required
+ *   caseId: "STRING_VALUE", // required
+ *   type: "STRING_VALUE", // required
+ *   content: { // RelatedItemInputContent Union: only one key present
+ *     contact: { // Contact
+ *       contactArn: "STRING_VALUE", // required
+ *     },
+ *     comment: { // CommentContent
+ *       body: "STRING_VALUE", // required
+ *       contentType: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateRelatedItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRelatedItemCommandInput - {@link CreateRelatedItemCommandInput}
+ * @returns {@link CreateRelatedItemCommandOutput}
  * @see {@link CreateRelatedItemCommandInput} for command's `input` shape.
  * @see {@link CreateRelatedItemCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -98,6 +111,9 @@ export class CreateRelatedItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRelatedItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +142,8 @@ export class CreateRelatedItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRelatedItemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRelatedItemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +153,18 @@ export class CreateRelatedItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRelatedItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRelatedItemCommand(input, context);
+    return se_CreateRelatedItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRelatedItemCommandOutput> {
-    return deserializeAws_restJson1CreateRelatedItemCommand(output, context);
+    return de_CreateRelatedItemCommand(output, context);
   }
 
   // Start section: command_body_extra

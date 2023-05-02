@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  DescribeInsightRequest,
-  DescribeInsightRequestFilterSensitiveLog,
-  DescribeInsightResponse,
-  DescribeInsightResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeInsightCommand,
-  serializeAws_restJson1DescribeInsightCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeInsightRequest, DescribeInsightResponse } from "../models/models_0";
+import { de_DescribeInsightCommand, se_DescribeInsightCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInsightCommand}.
  */
 export interface DescribeInsightCommandInput extends DescribeInsightRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInsightCommand}.
  */
 export interface DescribeInsightCommandOutput extends DescribeInsightResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns details about an insight that you specify using its ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * import { DevOpsGuruClient, DescribeInsightCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeInsightCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // DescribeInsightRequest
+ *   Id: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new DescribeInsightCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInsightCommandInput - {@link DescribeInsightCommandInput}
+ * @returns {@link DescribeInsightCommandOutput}
  * @see {@link DescribeInsightCommandInput} for command's `input` shape.
  * @see {@link DescribeInsightCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -88,6 +91,9 @@ export class DescribeInsightCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInsightCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class DescribeInsightCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInsightRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInsightResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class DescribeInsightCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInsightCommand(input, context);
+    return se_DescribeInsightCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInsightCommandOutput> {
-    return deserializeAws_restJson1DescribeInsightCommand(output, context);
+    return de_DescribeInsightCommand(output, context);
   }
 
   // Start section: command_body_extra

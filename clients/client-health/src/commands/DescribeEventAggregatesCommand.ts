@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import {
-  DescribeEventAggregatesRequest,
-  DescribeEventAggregatesRequestFilterSensitiveLog,
-  DescribeEventAggregatesResponse,
-  DescribeEventAggregatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventAggregatesCommand,
-  serializeAws_json1_1DescribeEventAggregatesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEventAggregatesRequest, DescribeEventAggregatesResponse } from "../models/models_0";
+import { de_DescribeEventAggregatesCommand, se_DescribeEventAggregatesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventAggregatesCommand}.
  */
 export interface DescribeEventAggregatesCommandInput extends DescribeEventAggregatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventAggregatesCommand}.
  */
 export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggregatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of events of each event type (issue, scheduled change, and account
  *          notification). If no filter is specified, the counts of all events in each category are
  *          returned.</p>
@@ -47,10 +44,69 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  * import { HealthClient, DescribeEventAggregatesCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventAggregatesCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = { // DescribeEventAggregatesRequest
+ *   filter: { // EventFilter
+ *     eventArns: [ // eventArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCodes: [ // eventTypeList2
+ *       "STRING_VALUE",
+ *     ],
+ *     services: [ // serviceList
+ *       "STRING_VALUE",
+ *     ],
+ *     regions: [ // regionList
+ *       "STRING_VALUE",
+ *     ],
+ *     availabilityZones: [ // availabilityZones
+ *       "STRING_VALUE",
+ *     ],
+ *     startTimes: [ // dateTimeRangeList
+ *       { // DateTimeRange
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     endTimes: [
+ *       {
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     lastUpdatedTimes: [
+ *       {
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     entityArns: [ // entityArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     entityValues: [ // entityValueList
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCategories: [ // eventTypeCategoryList2
+ *       "STRING_VALUE",
+ *     ],
+ *     tags: [ // tagFilter
+ *       { // tagSet
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     ],
+ *     eventStatusCodes: [ // eventStatusCodeList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   aggregateField: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeEventAggregatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventAggregatesCommandInput - {@link DescribeEventAggregatesCommandInput}
+ * @returns {@link DescribeEventAggregatesCommandOutput}
  * @see {@link DescribeEventAggregatesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventAggregatesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -77,6 +133,9 @@ export class DescribeEventAggregatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventAggregatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +164,8 @@ export class DescribeEventAggregatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventAggregatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventAggregatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +175,18 @@ export class DescribeEventAggregatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventAggregatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventAggregatesCommand(input, context);
+    return se_DescribeEventAggregatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventAggregatesCommandOutput> {
-    return deserializeAws_json1_1DescribeEventAggregatesCommand(output, context);
+    return de_DescribeEventAggregatesCommand(output, context);
   }
 
   // Start section: command_body_extra

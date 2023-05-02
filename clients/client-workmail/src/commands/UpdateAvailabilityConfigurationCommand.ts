@@ -17,19 +17,22 @@ import {
   UpdateAvailabilityConfigurationRequest,
   UpdateAvailabilityConfigurationRequestFilterSensitiveLog,
   UpdateAvailabilityConfigurationResponse,
-  UpdateAvailabilityConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateAvailabilityConfigurationCommand,
-  serializeAws_json1_1UpdateAvailabilityConfigurationCommand,
+  de_UpdateAvailabilityConfigurationCommand,
+  se_UpdateAvailabilityConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAvailabilityConfigurationCommand}.
  */
 export interface UpdateAvailabilityConfigurationCommandInput extends UpdateAvailabilityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAvailabilityConfigurationCommand}.
  */
 export interface UpdateAvailabilityConfigurationCommandOutput
@@ -37,6 +40,7 @@ export interface UpdateAvailabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing <code>AvailabilityConfiguration</code> for the given WorkMail
  *          organization and domain.</p>
  * @example
@@ -45,10 +49,24 @@ export interface UpdateAvailabilityConfigurationCommandOutput
  * import { WorkMailClient, UpdateAvailabilityConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, UpdateAvailabilityConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // UpdateAvailabilityConfigurationRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ *   EwsProvider: { // EwsAvailabilityProvider
+ *     EwsEndpoint: "STRING_VALUE", // required
+ *     EwsUsername: "STRING_VALUE", // required
+ *     EwsPassword: "STRING_VALUE", // required
+ *   },
+ *   LambdaProvider: { // LambdaAvailabilityProvider
+ *     LambdaArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAvailabilityConfigurationCommandInput - {@link UpdateAvailabilityConfigurationCommandInput}
+ * @returns {@link UpdateAvailabilityConfigurationCommandOutput}
  * @see {@link UpdateAvailabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateAvailabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -86,6 +104,9 @@ export class UpdateAvailabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAvailabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +136,7 @@ export class UpdateAvailabilityConfigurationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateAvailabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAvailabilityConfigurationResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +146,24 @@ export class UpdateAvailabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateAvailabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAvailabilityConfigurationCommand(input, context);
+    return se_UpdateAvailabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAvailabilityConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateAvailabilityConfigurationCommand(output, context);
+    return de_UpdateAvailabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

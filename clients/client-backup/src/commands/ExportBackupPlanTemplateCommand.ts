@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ExportBackupPlanTemplateInput,
-  ExportBackupPlanTemplateInputFilterSensitiveLog,
-  ExportBackupPlanTemplateOutput,
-  ExportBackupPlanTemplateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportBackupPlanTemplateCommand,
-  serializeAws_restJson1ExportBackupPlanTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { ExportBackupPlanTemplateInput, ExportBackupPlanTemplateOutput } from "../models/models_0";
+import { de_ExportBackupPlanTemplateCommand, se_ExportBackupPlanTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportBackupPlanTemplateCommand}.
  */
 export interface ExportBackupPlanTemplateCommandInput extends ExportBackupPlanTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link ExportBackupPlanTemplateCommand}.
  */
 export interface ExportBackupPlanTemplateCommandOutput extends ExportBackupPlanTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the backup plan that is specified by the plan ID as a backup template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface ExportBackupPlanTemplateCommandOutput extends ExportBackupPlanT
  * import { BackupClient, ExportBackupPlanTemplateCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ExportBackupPlanTemplateCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ExportBackupPlanTemplateInput
+ *   BackupPlanId: "STRING_VALUE", // required
+ * };
  * const command = new ExportBackupPlanTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportBackupPlanTemplateCommandInput - {@link ExportBackupPlanTemplateCommandInput}
+ * @returns {@link ExportBackupPlanTemplateCommandOutput}
  * @see {@link ExportBackupPlanTemplateCommandInput} for command's `input` shape.
  * @see {@link ExportBackupPlanTemplateCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -82,6 +84,9 @@ export class ExportBackupPlanTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportBackupPlanTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class ExportBackupPlanTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportBackupPlanTemplateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportBackupPlanTemplateOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class ExportBackupPlanTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportBackupPlanTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportBackupPlanTemplateCommand(input, context);
+    return se_ExportBackupPlanTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportBackupPlanTemplateCommandOutput> {
-    return deserializeAws_restJson1ExportBackupPlanTemplateCommand(output, context);
+    return de_ExportBackupPlanTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDBInstanceMessage,
-  DeleteDBInstanceMessageFilterSensitiveLog,
-  DeleteDBInstanceResult,
-  DeleteDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDeleteDBInstanceCommand,
-  serializeAws_queryDeleteDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBInstanceCommand, se_DeleteDBInstanceCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBInstanceCommand}.
  */
 export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBInstanceCommand}.
  */
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete
  *       a DB instance, all automated backups for that instance are deleted and can't be recovered.
  *       Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not
@@ -55,10 +52,17 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * import { NeptuneClient, DeleteDBInstanceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBInstanceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DeleteDBInstanceMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   SkipFinalSnapshot: true || false,
+ *   FinalDBSnapshotIdentifier: "STRING_VALUE",
+ * };
  * const command = new DeleteDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBInstanceCommandInput - {@link DeleteDBInstanceCommandInput}
+ * @returns {@link DeleteDBInstanceCommandOutput}
  * @see {@link DeleteDBInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -99,6 +103,9 @@ export class DeleteDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +134,8 @@ export class DeleteDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +145,18 @@ export class DeleteDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBInstanceCommand(input, context);
+    return se_DeleteDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBInstanceCommandOutput> {
-    return deserializeAws_queryDeleteDBInstanceCommand(output, context);
+    return de_DeleteDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

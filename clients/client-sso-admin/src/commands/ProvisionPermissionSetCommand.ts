@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ProvisionPermissionSetRequest,
-  ProvisionPermissionSetRequestFilterSensitiveLog,
-  ProvisionPermissionSetResponse,
-  ProvisionPermissionSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ProvisionPermissionSetCommand,
-  serializeAws_json1_1ProvisionPermissionSetCommand,
-} from "../protocols/Aws_json1_1";
+import { ProvisionPermissionSetRequest, ProvisionPermissionSetResponse } from "../models/models_0";
+import { de_ProvisionPermissionSetCommand, se_ProvisionPermissionSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link ProvisionPermissionSetCommand}.
  */
 export interface ProvisionPermissionSetCommandInput extends ProvisionPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ProvisionPermissionSetCommand}.
  */
 export interface ProvisionPermissionSetCommandOutput extends ProvisionPermissionSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The process by which a specified permission set is provisioned to the specified
  *       target.</p>
  * @example
@@ -43,10 +40,18 @@ export interface ProvisionPermissionSetCommandOutput extends ProvisionPermission
  * import { SSOAdminClient, ProvisionPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ProvisionPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // ProvisionPermissionSetRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   TargetId: "STRING_VALUE",
+ *   TargetType: "AWS_ACCOUNT" || "ALL_PROVISIONED_ACCOUNTS", // required
+ * };
  * const command = new ProvisionPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ProvisionPermissionSetCommandInput - {@link ProvisionPermissionSetCommandInput}
+ * @returns {@link ProvisionPermissionSetCommandOutput}
  * @see {@link ProvisionPermissionSetCommandInput} for command's `input` shape.
  * @see {@link ProvisionPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -93,6 +98,9 @@ export class ProvisionPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ProvisionPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +129,8 @@ export class ProvisionPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ProvisionPermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ProvisionPermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +140,18 @@ export class ProvisionPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ProvisionPermissionSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ProvisionPermissionSetCommand(input, context);
+    return se_ProvisionPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionPermissionSetCommandOutput> {
-    return deserializeAws_json1_1ProvisionPermissionSetCommand(output, context);
+    return de_ProvisionPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { GetResourceEventConfigurationRequest, GetResourceEventConfigurationResponse } from "../models/models_0";
 import {
-  GetResourceEventConfigurationRequest,
-  GetResourceEventConfigurationRequestFilterSensitiveLog,
-  GetResourceEventConfigurationResponse,
-  GetResourceEventConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceEventConfigurationCommand,
-  serializeAws_restJson1GetResourceEventConfigurationCommand,
+  de_GetResourceEventConfigurationCommand,
+  se_GetResourceEventConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceEventConfigurationCommand}.
  */
 export interface GetResourceEventConfigurationCommandInput extends GetResourceEventConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceEventConfigurationCommand}.
  */
 export interface GetResourceEventConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface GetResourceEventConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the event configuration for a particular resource identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface GetResourceEventConfigurationCommandOutput
  * import { IoTWirelessClient, GetResourceEventConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetResourceEventConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetResourceEventConfigurationRequest
+ *   Identifier: "STRING_VALUE", // required
+ *   IdentifierType: "PartnerAccountId" || "DevEui" || "GatewayEui" || "WirelessDeviceId" || "WirelessGatewayId", // required
+ *   PartnerType: "Sidewalk",
+ * };
  * const command = new GetResourceEventConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceEventConfigurationCommandInput - {@link GetResourceEventConfigurationCommandInput}
+ * @returns {@link GetResourceEventConfigurationCommandOutput}
  * @see {@link GetResourceEventConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetResourceEventConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetResourceEventConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceEventConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +124,8 @@ export class GetResourceEventConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceEventConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceEventConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +135,21 @@ export class GetResourceEventConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceEventConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceEventConfigurationCommand(input, context);
+    return se_GetResourceEventConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourceEventConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetResourceEventConfigurationCommand(output, context);
+    return de_GetResourceEventConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

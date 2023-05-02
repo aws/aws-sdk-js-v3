@@ -15,21 +15,23 @@ import {
 
 import {
   DescribeMaintenanceWindowExecutionsRequest,
-  DescribeMaintenanceWindowExecutionsRequestFilterSensitiveLog,
   DescribeMaintenanceWindowExecutionsResult,
-  DescribeMaintenanceWindowExecutionsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand,
+  de_DescribeMaintenanceWindowExecutionsCommand,
+  se_DescribeMaintenanceWindowExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMaintenanceWindowExecutionsCommand}.
  */
 export interface DescribeMaintenanceWindowExecutionsCommandInput extends DescribeMaintenanceWindowExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMaintenanceWindowExecutionsCommand}.
  */
 export interface DescribeMaintenanceWindowExecutionsCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the executions of a maintenance window. This includes information about when the
  *    maintenance window was scheduled to be active, and information about tasks registered and run
  *    with the maintenance window.</p>
@@ -46,10 +49,25 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
  * import { SSMClient, DescribeMaintenanceWindowExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeMaintenanceWindowExecutionsRequest
+ *   WindowId: "STRING_VALUE", // required
+ *   Filters: [ // MaintenanceWindowFilterList
+ *     { // MaintenanceWindowFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // MaintenanceWindowFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeMaintenanceWindowExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceWindowExecutionsCommandInput - {@link DescribeMaintenanceWindowExecutionsCommandInput}
+ * @returns {@link DescribeMaintenanceWindowExecutionsCommandOutput}
  * @see {@link DescribeMaintenanceWindowExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -76,6 +94,9 @@ export class DescribeMaintenanceWindowExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +125,8 @@ export class DescribeMaintenanceWindowExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceWindowExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMaintenanceWindowExecutionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,18 +136,24 @@ export class DescribeMaintenanceWindowExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMaintenanceWindowExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand(input, context);
+    return se_DescribeMaintenanceWindowExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand(output, context);
+    return de_DescribeMaintenanceWindowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

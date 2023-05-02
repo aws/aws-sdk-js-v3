@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { GetProfileObjectTypeTemplateRequest, GetProfileObjectTypeTemplateResponse } from "../models/models_0";
 import {
-  GetProfileObjectTypeTemplateRequest,
-  GetProfileObjectTypeTemplateRequestFilterSensitiveLog,
-  GetProfileObjectTypeTemplateResponse,
-  GetProfileObjectTypeTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetProfileObjectTypeTemplateCommand,
-  serializeAws_restJson1GetProfileObjectTypeTemplateCommand,
+  de_GetProfileObjectTypeTemplateCommand,
+  se_GetProfileObjectTypeTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProfileObjectTypeTemplateCommand}.
  */
 export interface GetProfileObjectTypeTemplateCommandInput extends GetProfileObjectTypeTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProfileObjectTypeTemplateCommand}.
  */
 export interface GetProfileObjectTypeTemplateCommandOutput
@@ -37,6 +36,7 @@ export interface GetProfileObjectTypeTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the template information for a specific object type.</p>
  *          <p>A template is a predefined ProfileObjectType, such as “Salesforce-Account” or
  *          “Salesforce-Contact.” When a user sends a ProfileObject, using the PutProfileObject API,
@@ -48,10 +48,15 @@ export interface GetProfileObjectTypeTemplateCommandOutput
  * import { CustomerProfilesClient, GetProfileObjectTypeTemplateCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetProfileObjectTypeTemplateCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // GetProfileObjectTypeTemplateRequest
+ *   TemplateId: "STRING_VALUE", // required
+ * };
  * const command = new GetProfileObjectTypeTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProfileObjectTypeTemplateCommandInput - {@link GetProfileObjectTypeTemplateCommandInput}
+ * @returns {@link GetProfileObjectTypeTemplateCommandOutput}
  * @see {@link GetProfileObjectTypeTemplateCommandInput} for command's `input` shape.
  * @see {@link GetProfileObjectTypeTemplateCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -90,6 +95,9 @@ export class GetProfileObjectTypeTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProfileObjectTypeTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class GetProfileObjectTypeTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProfileObjectTypeTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProfileObjectTypeTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +137,21 @@ export class GetProfileObjectTypeTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProfileObjectTypeTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProfileObjectTypeTemplateCommand(input, context);
+    return se_GetProfileObjectTypeTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetProfileObjectTypeTemplateCommandOutput> {
-    return deserializeAws_restJson1GetProfileObjectTypeTemplateCommand(output, context);
+    return de_GetProfileObjectTypeTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

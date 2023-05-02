@@ -21,22 +21,24 @@ import {
   CompleteMultipartUploadRequest,
   CompleteMultipartUploadRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlCompleteMultipartUploadCommand,
-  serializeAws_restXmlCompleteMultipartUploadCommand,
-} from "../protocols/Aws_restXml";
+import { de_CompleteMultipartUploadCommand, se_CompleteMultipartUploadCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link CompleteMultipartUploadCommand}.
  */
 export interface CompleteMultipartUploadCommandInput extends CompleteMultipartUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link CompleteMultipartUploadCommand}.
  */
 export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartUploadOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Completes a multipart upload by assembling previously uploaded parts.</p>
  *          <p>You first initiate the multipart upload and then upload all parts using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
  *          operation. After successfully uploading all relevant parts of an upload, you call this
@@ -154,10 +156,38 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * import { S3Client, CompleteMultipartUploadCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, CompleteMultipartUploadCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // CompleteMultipartUploadRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   MultipartUpload: { // CompletedMultipartUpload
+ *     Parts: [ // CompletedPartList
+ *       { // CompletedPart
+ *         ETag: "STRING_VALUE",
+ *         ChecksumCRC32: "STRING_VALUE",
+ *         ChecksumCRC32C: "STRING_VALUE",
+ *         ChecksumSHA1: "STRING_VALUE",
+ *         ChecksumSHA256: "STRING_VALUE",
+ *         PartNumber: Number("int"),
+ *       },
+ *     ],
+ *   },
+ *   UploadId: "STRING_VALUE", // required
+ *   ChecksumCRC32: "STRING_VALUE",
+ *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumSHA1: "STRING_VALUE",
+ *   ChecksumSHA256: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ * };
  * const command = new CompleteMultipartUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteMultipartUploadCommandInput - {@link CompleteMultipartUploadCommandInput}
+ * @returns {@link CompleteMultipartUploadCommandOutput}
  * @see {@link CompleteMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -220,6 +250,9 @@ export class CompleteMultipartUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteMultipartUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -261,12 +294,18 @@ export class CompleteMultipartUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCompleteMultipartUploadCommand(input, context);
+    return se_CompleteMultipartUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteMultipartUploadCommandOutput> {
-    return deserializeAws_restXmlCompleteMultipartUploadCommand(output, context);
+    return de_CompleteMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

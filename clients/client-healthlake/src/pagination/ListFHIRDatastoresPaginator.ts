@@ -10,7 +10,7 @@ import { HealthLakeClient } from "../HealthLakeClient";
 import { HealthLakePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: HealthLakeClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFHIRDatastoresCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFHIRDatastores(
   config: HealthLakePaginationConfiguration,
   input: ListFHIRDatastoresCommandInput,

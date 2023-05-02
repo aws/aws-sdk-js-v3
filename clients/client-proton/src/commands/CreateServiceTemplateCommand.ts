@@ -19,37 +19,55 @@ import {
   CreateServiceTemplateOutput,
   CreateServiceTemplateOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateServiceTemplateCommand,
-  serializeAws_json1_0CreateServiceTemplateCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateServiceTemplateCommand, se_CreateServiceTemplateCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServiceTemplateCommand}.
  */
 export interface CreateServiceTemplateCommandInput extends CreateServiceTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateServiceTemplateCommand}.
  */
 export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Create a service template. The administrator creates a service template to define standardized infrastructure and an optional CI/CD service pipeline.
- *       Developers, in turn, select the service template from Proton. If the selected service template includes a service pipeline definition, they provide a
- *       link to their source code repository. Proton then deploys and manages the infrastructure defined by the selected service template. For more
- *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Proton templates</a> in the <i>Proton User
- *         Guide</i>.</p>
+ * @public
+ * <p>Create a service template. The administrator creates a service template to define
+ *       standardized infrastructure and an optional CI/CD service pipeline. Developers, in turn,
+ *       select the service template from Proton. If the selected service template includes a
+ *       service pipeline definition, they provide a link to their source code repository. Proton
+ *       then deploys and manages the infrastructure defined by the selected service template. For more
+ *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Proton templates</a> in the <i>Proton User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ProtonClient, CreateServiceTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateServiceTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // CreateServiceTemplateInput
+ *   name: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   encryptionKey: "STRING_VALUE",
+ *   pipelineProvisioning: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateServiceTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceTemplateCommandInput - {@link CreateServiceTemplateCommandInput}
+ * @returns {@link CreateServiceTemplateCommandOutput}
  * @see {@link CreateServiceTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateServiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -92,6 +110,9 @@ export class CreateServiceTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,12 +152,18 @@ export class CreateServiceTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateServiceTemplateCommand(input, context);
+    return se_CreateServiceTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceTemplateCommandOutput> {
-    return deserializeAws_json1_0CreateServiceTemplateCommand(output, context);
+    return de_CreateServiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

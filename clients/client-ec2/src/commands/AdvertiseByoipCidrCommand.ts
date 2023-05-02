@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AdvertiseByoipCidrRequest,
-  AdvertiseByoipCidrRequestFilterSensitiveLog,
-  AdvertiseByoipCidrResult,
-  AdvertiseByoipCidrResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AdvertiseByoipCidrCommand,
-  serializeAws_ec2AdvertiseByoipCidrCommand,
-} from "../protocols/Aws_ec2";
+import { AdvertiseByoipCidrRequest, AdvertiseByoipCidrResult } from "../models/models_0";
+import { de_AdvertiseByoipCidrCommand, se_AdvertiseByoipCidrCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AdvertiseByoipCidrCommand}.
  */
 export interface AdvertiseByoipCidrCommandInput extends AdvertiseByoipCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdvertiseByoipCidrCommand}.
  */
 export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Advertises an IPv4 or IPv6 address range that is provisioned for use with your Amazon Web Services resources through
  *          bring your own IP addresses (BYOIP).</p>
  *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
@@ -52,10 +49,16 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResul
  * import { EC2Client, AdvertiseByoipCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AdvertiseByoipCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AdvertiseByoipCidrRequest
+ *   Cidr: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new AdvertiseByoipCidrCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdvertiseByoipCidrCommandInput - {@link AdvertiseByoipCidrCommandInput}
+ * @returns {@link AdvertiseByoipCidrCommandOutput}
  * @see {@link AdvertiseByoipCidrCommandInput} for command's `input` shape.
  * @see {@link AdvertiseByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -79,6 +82,9 @@ export class AdvertiseByoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdvertiseByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class AdvertiseByoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdvertiseByoipCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdvertiseByoipCidrResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class AdvertiseByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdvertiseByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AdvertiseByoipCidrCommand(input, context);
+    return se_AdvertiseByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdvertiseByoipCidrCommandOutput> {
-    return deserializeAws_ec2AdvertiseByoipCidrCommand(output, context);
+    return de_AdvertiseByoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

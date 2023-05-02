@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeCoipPoolsRequest,
-  DescribeCoipPoolsRequestFilterSensitiveLog,
-  DescribeCoipPoolsResult,
-  DescribeCoipPoolsResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeCoipPoolsCommand,
-  serializeAws_ec2DescribeCoipPoolsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeCoipPoolsRequest, DescribeCoipPoolsResult } from "../models/models_3";
+import { de_DescribeCoipPoolsCommand, se_DescribeCoipPoolsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCoipPoolsCommand}.
  */
 export interface DescribeCoipPoolsCommandInput extends DescribeCoipPoolsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCoipPoolsCommand}.
  */
 export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified customer-owned address pools or all of your customer-owned address pools.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult,
  * import { EC2Client, DescribeCoipPoolsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeCoipPoolsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeCoipPoolsRequest
+ *   PoolIds: [ // CoipPoolIdSet
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeCoipPoolsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCoipPoolsCommandInput - {@link DescribeCoipPoolsCommandInput}
+ * @returns {@link DescribeCoipPoolsCommandOutput}
  * @see {@link DescribeCoipPoolsCommandInput} for command's `input` shape.
  * @see {@link DescribeCoipPoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +84,9 @@ export class DescribeCoipPoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCoipPoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +115,8 @@ export class DescribeCoipPoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCoipPoolsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCoipPoolsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +126,18 @@ export class DescribeCoipPoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCoipPoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeCoipPoolsCommand(input, context);
+    return se_DescribeCoipPoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCoipPoolsCommandOutput> {
-    return deserializeAws_ec2DescribeCoipPoolsCommand(output, context);
+    return de_DescribeCoipPoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

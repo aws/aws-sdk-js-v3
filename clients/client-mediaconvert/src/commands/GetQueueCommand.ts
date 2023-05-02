@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  GetQueueRequest,
-  GetQueueRequestFilterSensitiveLog,
-  GetQueueResponse,
-  GetQueueResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1GetQueueCommand,
-  serializeAws_restJson1GetQueueCommand,
-} from "../protocols/Aws_restJson1";
+import { GetQueueRequest, GetQueueResponse } from "../models/models_2";
+import { de_GetQueueCommand, se_GetQueueCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQueueCommand}.
  */
 export interface GetQueueCommandInput extends GetQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQueueCommand}.
  */
 export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve the JSON for a specific queue.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * import { MediaConvertClient, GetQueueCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, GetQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = { // GetQueueRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueueCommandInput - {@link GetQueueCommandInput}
+ * @returns {@link GetQueueCommandOutput}
  * @see {@link GetQueueCommandInput} for command's `input` shape.
  * @see {@link GetQueueCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +89,9 @@ export class GetQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class GetQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class GetQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetQueueCommand(input, context);
+    return se_GetQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueueCommandOutput> {
-    return deserializeAws_restJson1GetQueueCommand(output, context);
+    return de_GetQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

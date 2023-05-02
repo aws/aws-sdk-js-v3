@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetAdministratorAccountRequest,
-  GetAdministratorAccountRequestFilterSensitiveLog,
-  GetAdministratorAccountResponse,
-  GetAdministratorAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAdministratorAccountCommand,
-  serializeAws_restJson1GetAdministratorAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_0";
+import { de_GetAdministratorAccountCommand, se_GetAdministratorAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAdministratorAccountCommand}.
  */
 export interface GetAdministratorAccountCommandInput extends GetAdministratorAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAdministratorAccountCommand}.
  */
 export interface GetAdministratorAccountCommandOutput extends GetAdministratorAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the Amazon Macie administrator account for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * import { Macie2Client, GetAdministratorAccountCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetAdministratorAccountCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {};
  * const command = new GetAdministratorAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAdministratorAccountCommandInput - {@link GetAdministratorAccountCommandInput}
+ * @returns {@link GetAdministratorAccountCommandOutput}
  * @see {@link GetAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link GetAdministratorAccountCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +90,9 @@ export class GetAdministratorAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAdministratorAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +121,8 @@ export class GetAdministratorAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAdministratorAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAdministratorAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +132,18 @@ export class GetAdministratorAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAdministratorAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAdministratorAccountCommand(input, context);
+    return se_GetAdministratorAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdministratorAccountCommandOutput> {
-    return deserializeAws_restJson1GetAdministratorAccountCommand(output, context);
+    return de_GetAdministratorAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

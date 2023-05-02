@@ -18,23 +18,24 @@ import {
   UploadServerCertificateRequest,
   UploadServerCertificateRequestFilterSensitiveLog,
   UploadServerCertificateResponse,
-  UploadServerCertificateResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_queryUploadServerCertificateCommand,
-  serializeAws_queryUploadServerCertificateCommand,
-} from "../protocols/Aws_query";
+import { de_UploadServerCertificateCommand, se_UploadServerCertificateCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UploadServerCertificateCommand}.
  */
 export interface UploadServerCertificateCommandInput extends UploadServerCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UploadServerCertificateCommand}.
  */
 export interface UploadServerCertificateCommandOutput extends UploadServerCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads a server certificate entity for the Amazon Web Services account. The server certificate
  *             entity includes a public key certificate, a private key, and an optional certificate
  *             chain, which should all be PEM-encoded.</p>
@@ -65,10 +66,25 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  * import { IAMClient, UploadServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UploadServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UploadServerCertificateRequest
+ *   Path: "STRING_VALUE",
+ *   ServerCertificateName: "STRING_VALUE", // required
+ *   CertificateBody: "STRING_VALUE", // required
+ *   PrivateKey: "STRING_VALUE", // required
+ *   CertificateChain: "STRING_VALUE",
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UploadServerCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadServerCertificateCommandInput - {@link UploadServerCertificateCommandInput}
+ * @returns {@link UploadServerCertificateCommandOutput}
  * @see {@link UploadServerCertificateCommandInput} for command's `input` shape.
  * @see {@link UploadServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -146,6 +162,9 @@ export class UploadServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,7 +194,7 @@ export class UploadServerCertificateCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UploadServerCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UploadServerCertificateResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -185,12 +204,18 @@ export class UploadServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUploadServerCertificateCommand(input, context);
+    return se_UploadServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadServerCertificateCommandOutput> {
-    return deserializeAws_queryUploadServerCertificateCommand(output, context);
+    return de_UploadServerCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

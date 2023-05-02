@@ -10,7 +10,7 @@ import { ConnectCasesClient } from "../ConnectCasesClient";
 import { ConnectCasesPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectCasesClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTemplatesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTemplates(
   config: ConnectCasesPaginationConfiguration,
   input: ListTemplatesCommandInput,

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AnalyzeExpenseRequest,
-  AnalyzeExpenseRequestFilterSensitiveLog,
-  AnalyzeExpenseResponse,
-  AnalyzeExpenseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AnalyzeExpenseCommand,
-  serializeAws_json1_1AnalyzeExpenseCommand,
-} from "../protocols/Aws_json1_1";
+import { AnalyzeExpenseRequest, AnalyzeExpenseResponse } from "../models/models_0";
+import { de_AnalyzeExpenseCommand, se_AnalyzeExpenseCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link AnalyzeExpenseCommand}.
  */
 export interface AnalyzeExpenseCommandInput extends AnalyzeExpenseRequest {}
 /**
+ * @public
+ *
  * The output of {@link AnalyzeExpenseCommand}.
  */
 export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>AnalyzeExpense</code> synchronously analyzes an input document for financially
  *          related relationships between text.</p>
@@ -59,10 +56,22 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
  * import { TextractClient, AnalyzeExpenseCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, AnalyzeExpenseCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // AnalyzeExpenseRequest
+ *   Document: { // Document
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new AnalyzeExpenseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AnalyzeExpenseCommandInput - {@link AnalyzeExpenseCommandInput}
+ * @returns {@link AnalyzeExpenseCommandOutput}
  * @see {@link AnalyzeExpenseCommandInput} for command's `input` shape.
  * @see {@link AnalyzeExpenseCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -126,6 +135,9 @@ export class AnalyzeExpenseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AnalyzeExpenseCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,8 +166,8 @@ export class AnalyzeExpenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AnalyzeExpenseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AnalyzeExpenseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,12 +177,18 @@ export class AnalyzeExpenseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AnalyzeExpenseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AnalyzeExpenseCommand(input, context);
+    return se_AnalyzeExpenseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AnalyzeExpenseCommandOutput> {
-    return deserializeAws_json1_1AnalyzeExpenseCommand(output, context);
+    return de_AnalyzeExpenseCommand(output, context);
   }
 
   // Start section: command_body_extra

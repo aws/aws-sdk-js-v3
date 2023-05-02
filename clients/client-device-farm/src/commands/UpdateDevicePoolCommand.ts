@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  UpdateDevicePoolRequest,
-  UpdateDevicePoolRequestFilterSensitiveLog,
-  UpdateDevicePoolResult,
-  UpdateDevicePoolResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDevicePoolCommand,
-  serializeAws_json1_1UpdateDevicePoolCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDevicePoolRequest, UpdateDevicePoolResult } from "../models/models_0";
+import { de_UpdateDevicePoolCommand, se_UpdateDevicePoolCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDevicePoolCommand}.
  */
 export interface UpdateDevicePoolCommandInput extends UpdateDevicePoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDevicePoolCommand}.
  */
 export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the name, description, and rules in a device pool given the attributes and
  *             the pool ARN. Rule updates are all-or-nothing, meaning they can only be updated as a
  *             whole (or not at all).</p>
@@ -44,10 +41,26 @@ export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, _
  * import { DeviceFarmClient, UpdateDevicePoolCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateDevicePoolCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // UpdateDevicePoolRequest
+ *   arn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   rules: [ // Rules
+ *     { // Rule
+ *       attribute: "ARN" || "PLATFORM" || "FORM_FACTOR" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "APPIUM_VERSION" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE" || "OS_VERSION" || "MODEL" || "AVAILABILITY",
+ *       operator: "EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "IN" || "NOT_IN" || "CONTAINS",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   maxDevices: Number("int"),
+ *   clearMaxDevices: true || false,
+ * };
  * const command = new UpdateDevicePoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDevicePoolCommandInput - {@link UpdateDevicePoolCommandInput}
+ * @returns {@link UpdateDevicePoolCommandOutput}
  * @see {@link UpdateDevicePoolCommandInput} for command's `input` shape.
  * @see {@link UpdateDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -108,6 +121,9 @@ export class UpdateDevicePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDevicePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +152,8 @@ export class UpdateDevicePoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDevicePoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDevicePoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +163,18 @@ export class UpdateDevicePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDevicePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDevicePoolCommand(input, context);
+    return se_UpdateDevicePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDevicePoolCommandOutput> {
-    return deserializeAws_json1_1UpdateDevicePoolCommand(output, context);
+    return de_UpdateDevicePoolCommand(output, context);
   }
 
   // Start section: command_body_extra

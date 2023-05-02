@@ -15,21 +15,23 @@ import {
 
 import {
   DescribeModelQualityJobDefinitionRequest,
-  DescribeModelQualityJobDefinitionRequestFilterSensitiveLog,
   DescribeModelQualityJobDefinitionResponse,
-  DescribeModelQualityJobDefinitionResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1DescribeModelQualityJobDefinitionCommand,
-  serializeAws_json1_1DescribeModelQualityJobDefinitionCommand,
+  de_DescribeModelQualityJobDefinitionCommand,
+  se_DescribeModelQualityJobDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelQualityJobDefinitionCommand}.
  */
 export interface DescribeModelQualityJobDefinitionCommandInput extends DescribeModelQualityJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelQualityJobDefinitionCommand}.
  */
 export interface DescribeModelQualityJobDefinitionCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeModelQualityJobDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of a model quality job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface DescribeModelQualityJobDefinitionCommandOutput
  * import { SageMakerClient, DescribeModelQualityJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeModelQualityJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeModelQualityJobDefinitionRequest
+ *   JobDefinitionName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeModelQualityJobDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelQualityJobDefinitionCommandInput - {@link DescribeModelQualityJobDefinitionCommandInput}
+ * @returns {@link DescribeModelQualityJobDefinitionCommandOutput}
  * @see {@link DescribeModelQualityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeModelQualityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +82,9 @@ export class DescribeModelQualityJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelQualityJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +113,8 @@ export class DescribeModelQualityJobDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelQualityJobDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeModelQualityJobDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +124,24 @@ export class DescribeModelQualityJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeModelQualityJobDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeModelQualityJobDefinitionCommand(input, context);
+    return se_DescribeModelQualityJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeModelQualityJobDefinitionCommandOutput> {
-    return deserializeAws_json1_1DescribeModelQualityJobDefinitionCommand(output, context);
+    return de_DescribeModelQualityJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

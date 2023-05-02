@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportFirewallDomainsRequest,
-  ImportFirewallDomainsRequestFilterSensitiveLog,
-  ImportFirewallDomainsResponse,
-  ImportFirewallDomainsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportFirewallDomainsCommand,
-  serializeAws_json1_1ImportFirewallDomainsCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportFirewallDomainsRequest, ImportFirewallDomainsResponse } from "../models/models_0";
+import { de_ImportFirewallDomainsCommand, se_ImportFirewallDomainsCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportFirewallDomainsCommand}.
  */
 export interface ImportFirewallDomainsCommandInput extends ImportFirewallDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportFirewallDomainsCommand}.
  */
 export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports domain names from a file into a domain list, for use in a DNS firewall rule group. </p>
  *          <p>Each domain specification in your domain list must satisfy the following
  * 	requirements: </p>
@@ -57,10 +54,17 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
  * import { Route53ResolverClient, ImportFirewallDomainsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ImportFirewallDomainsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // ImportFirewallDomainsRequest
+ *   FirewallDomainListId: "STRING_VALUE", // required
+ *   Operation: "REPLACE", // required
+ *   DomainFileUrl: "STRING_VALUE", // required
+ * };
  * const command = new ImportFirewallDomainsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportFirewallDomainsCommandInput - {@link ImportFirewallDomainsCommandInput}
+ * @returns {@link ImportFirewallDomainsCommandOutput}
  * @see {@link ImportFirewallDomainsCommandInput} for command's `input` shape.
  * @see {@link ImportFirewallDomainsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -108,6 +112,9 @@ export class ImportFirewallDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportFirewallDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +143,8 @@ export class ImportFirewallDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportFirewallDomainsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportFirewallDomainsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +154,18 @@ export class ImportFirewallDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportFirewallDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportFirewallDomainsCommand(input, context);
+    return se_ImportFirewallDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportFirewallDomainsCommandOutput> {
-    return deserializeAws_json1_1ImportFirewallDomainsCommand(output, context);
+    return de_ImportFirewallDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

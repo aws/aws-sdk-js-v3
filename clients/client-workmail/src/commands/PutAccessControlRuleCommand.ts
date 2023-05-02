@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutAccessControlRuleRequest,
-  PutAccessControlRuleRequestFilterSensitiveLog,
-  PutAccessControlRuleResponse,
-  PutAccessControlRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAccessControlRuleCommand,
-  serializeAws_json1_1PutAccessControlRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { PutAccessControlRuleRequest, PutAccessControlRuleResponse } from "../models/models_0";
+import { de_PutAccessControlRuleCommand, se_PutAccessControlRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccessControlRuleCommand}.
  */
 export interface PutAccessControlRuleCommandInput extends PutAccessControlRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccessControlRuleCommand}.
  */
 export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new access control rule for the specified organization. The rule allows or
  *          denies access to the organization for the specified IPv4 addresses, access protocol
  *          actions, user IDs and impersonation IDs. Adding a new rule with the same name as an existing rule replaces
@@ -45,10 +42,42 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  * import { WorkMailClient, PutAccessControlRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutAccessControlRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // PutAccessControlRuleRequest
+ *   Name: "STRING_VALUE", // required
+ *   Effect: "ALLOW" || "DENY", // required
+ *   Description: "STRING_VALUE", // required
+ *   IpRanges: [ // IpRangeList
+ *     "STRING_VALUE",
+ *   ],
+ *   NotIpRanges: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Actions: [ // ActionsList
+ *     "STRING_VALUE",
+ *   ],
+ *   NotActions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   UserIds: [ // UserIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NotUserIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   OrganizationId: "STRING_VALUE", // required
+ *   ImpersonationRoleIds: [ // ImpersonationRoleIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NotImpersonationRoleIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new PutAccessControlRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccessControlRuleCommandInput - {@link PutAccessControlRuleCommandInput}
+ * @returns {@link PutAccessControlRuleCommandOutput}
  * @see {@link PutAccessControlRuleCommandInput} for command's `input` shape.
  * @see {@link PutAccessControlRuleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -93,6 +122,9 @@ export class PutAccessControlRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccessControlRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +153,8 @@ export class PutAccessControlRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccessControlRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAccessControlRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +164,18 @@ export class PutAccessControlRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccessControlRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAccessControlRuleCommand(input, context);
+    return se_PutAccessControlRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccessControlRuleCommandOutput> {
-    return deserializeAws_json1_1PutAccessControlRuleCommand(output, context);
+    return de_PutAccessControlRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

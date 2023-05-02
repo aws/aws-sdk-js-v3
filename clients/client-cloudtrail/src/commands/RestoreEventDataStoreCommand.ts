@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  RestoreEventDataStoreRequest,
-  RestoreEventDataStoreRequestFilterSensitiveLog,
-  RestoreEventDataStoreResponse,
-  RestoreEventDataStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreEventDataStoreCommand,
-  serializeAws_json1_1RestoreEventDataStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { RestoreEventDataStoreRequest, RestoreEventDataStoreResponse } from "../models/models_0";
+import { de_RestoreEventDataStoreCommand, se_RestoreEventDataStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreEventDataStoreCommand}.
  */
 export interface RestoreEventDataStoreCommandInput extends RestoreEventDataStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreEventDataStoreCommand}.
  */
 export interface RestoreEventDataStoreCommandOutput extends RestoreEventDataStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a deleted event data store specified by <code>EventDataStore</code>, which
  *          accepts an event data store ARN. You can only restore a deleted event data store within the
  *          seven-day wait period after deletion. Restoring an event data store can take several
@@ -45,10 +42,15 @@ export interface RestoreEventDataStoreCommandOutput extends RestoreEventDataStor
  * import { CloudTrailClient, RestoreEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, RestoreEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // RestoreEventDataStoreRequest
+ *   EventDataStore: "STRING_VALUE", // required
+ * };
  * const command = new RestoreEventDataStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreEventDataStoreCommandInput - {@link RestoreEventDataStoreCommandInput}
+ * @returns {@link RestoreEventDataStoreCommandOutput}
  * @see {@link RestoreEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link RestoreEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -121,6 +123,9 @@ export class RestoreEventDataStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +154,8 @@ export class RestoreEventDataStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreEventDataStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreEventDataStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,12 +165,18 @@ export class RestoreEventDataStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreEventDataStoreCommand(input, context);
+    return se_RestoreEventDataStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreEventDataStoreCommandOutput> {
-    return deserializeAws_json1_1RestoreEventDataStoreCommand(output, context);
+    return de_RestoreEventDataStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

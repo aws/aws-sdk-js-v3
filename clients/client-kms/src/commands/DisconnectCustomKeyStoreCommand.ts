@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  DisconnectCustomKeyStoreRequest,
-  DisconnectCustomKeyStoreRequestFilterSensitiveLog,
-  DisconnectCustomKeyStoreResponse,
-  DisconnectCustomKeyStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisconnectCustomKeyStoreCommand,
-  serializeAws_json1_1DisconnectCustomKeyStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { DisconnectCustomKeyStoreRequest, DisconnectCustomKeyStoreResponse } from "../models/models_0";
+import { de_DisconnectCustomKeyStoreCommand, se_DisconnectCustomKeyStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisconnectCustomKeyStoreCommand}.
  */
 export interface DisconnectCustomKeyStoreCommandInput extends DisconnectCustomKeyStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisconnectCustomKeyStoreCommand}.
  */
 export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its backing key store. This operation disconnects an
  *       CloudHSM key store from its associated CloudHSM cluster or disconnects an external key store from
  *       the external key store proxy that communicates with your external key manager.</p>
@@ -93,10 +90,15 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * import { KMSClient, DisconnectCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DisconnectCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // DisconnectCustomKeyStoreRequest
+ *   CustomKeyStoreId: "STRING_VALUE", // required
+ * };
  * const command = new DisconnectCustomKeyStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisconnectCustomKeyStoreCommandInput - {@link DisconnectCustomKeyStoreCommandInput}
+ * @returns {@link DisconnectCustomKeyStoreCommandOutput}
  * @see {@link DisconnectCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link DisconnectCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -175,6 +177,9 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisconnectCustomKeyStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -203,8 +208,8 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectCustomKeyStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisconnectCustomKeyStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -214,12 +219,18 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisconnectCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisconnectCustomKeyStoreCommand(input, context);
+    return se_DisconnectCustomKeyStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectCustomKeyStoreCommandOutput> {
-    return deserializeAws_json1_1DisconnectCustomKeyStoreCommand(output, context);
+    return de_DisconnectCustomKeyStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

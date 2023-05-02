@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetInstanceProfileRequest,
-  GetInstanceProfileRequestFilterSensitiveLog,
-  GetInstanceProfileResult,
-  GetInstanceProfileResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetInstanceProfileCommand,
-  serializeAws_json1_1GetInstanceProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { GetInstanceProfileRequest, GetInstanceProfileResult } from "../models/models_0";
+import { de_GetInstanceProfileCommand, se_GetInstanceProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceProfileCommand}.
  */
 export interface GetInstanceProfileCommandInput extends GetInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceProfileCommand}.
  */
 export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified instance profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResul
  * import { DeviceFarmClient, GetInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // GetInstanceProfileRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceProfileCommandInput - {@link GetInstanceProfileCommandInput}
+ * @returns {@link GetInstanceProfileCommandOutput}
  * @see {@link GetInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link GetInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +83,9 @@ export class GetInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class GetInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class GetInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstanceProfileCommand(input, context);
+    return se_GetInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceProfileCommandOutput> {
-    return deserializeAws_json1_1GetInstanceProfileCommand(output, context);
+    return de_GetInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

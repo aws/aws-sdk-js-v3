@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  CreateAccessorInput,
-  CreateAccessorInputFilterSensitiveLog,
-  CreateAccessorOutput,
-  CreateAccessorOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAccessorCommand,
-  serializeAws_restJson1CreateAccessorCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAccessorInput, CreateAccessorOutput } from "../models/models_0";
+import { de_CreateAccessorCommand, se_CreateAccessorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessorCommand}.
  */
 export interface CreateAccessorCommandInput extends CreateAccessorInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessorCommand}.
  */
 export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new accessor for use with Managed Blockchain Ethereum nodes. An accessor contains information
  *          required for token based access to your Ethereum nodes.</p>
  * @example
@@ -47,10 +44,19 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  * import { ManagedBlockchainClient, CreateAccessorCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateAccessorCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // CreateAccessorInput
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   AccessorType: "BILLING_TOKEN", // required
+ *   Tags: { // InputTagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAccessorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessorCommandInput - {@link CreateAccessorCommandInput}
+ * @returns {@link CreateAccessorCommandOutput}
  * @see {@link CreateAccessorCommandInput} for command's `input` shape.
  * @see {@link CreateAccessorCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -99,6 +105,9 @@ export class CreateAccessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +136,8 @@ export class CreateAccessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccessorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +147,18 @@ export class CreateAccessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccessorCommand(input, context);
+    return se_CreateAccessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessorCommandOutput> {
-    return deserializeAws_restJson1CreateAccessorCommand(output, context);
+    return de_CreateAccessorCommand(output, context);
   }
 
   // Start section: command_body_extra

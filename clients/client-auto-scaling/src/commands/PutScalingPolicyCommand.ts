@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  PolicyARNType,
-  PolicyARNTypeFilterSensitiveLog,
-  PutScalingPolicyType,
-  PutScalingPolicyTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryPutScalingPolicyCommand,
-  serializeAws_queryPutScalingPolicyCommand,
-} from "../protocols/Aws_query";
+import { PolicyARNType, PutScalingPolicyType } from "../models/models_0";
+import { de_PutScalingPolicyCommand, se_PutScalingPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutScalingPolicyCommand}.
  */
 export interface PutScalingPolicyCommandInput extends PutScalingPolicyType {}
 /**
+ * @public
+ *
  * The output of {@link PutScalingPolicyCommand}.
  */
 export interface PutScalingPolicyCommandOutput extends PolicyARNType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a scaling policy for an Auto Scaling group. Scaling policies are used to
  *             scale an Auto Scaling group based on configurable metrics. If no policies are defined, the
  *             dynamic scaling and predictive scaling features are not used. </p>
@@ -51,10 +48,154 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * import { AutoScalingClient, PutScalingPolicyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutScalingPolicyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // PutScalingPolicyType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   PolicyType: "STRING_VALUE",
+ *   AdjustmentType: "STRING_VALUE",
+ *   MinAdjustmentStep: Number("int"),
+ *   MinAdjustmentMagnitude: Number("int"),
+ *   ScalingAdjustment: Number("int"),
+ *   Cooldown: Number("int"),
+ *   MetricAggregationType: "STRING_VALUE",
+ *   StepAdjustments: [ // StepAdjustments
+ *     { // StepAdjustment
+ *       MetricIntervalLowerBound: Number("double"),
+ *       MetricIntervalUpperBound: Number("double"),
+ *       ScalingAdjustment: Number("int"), // required
+ *     },
+ *   ],
+ *   EstimatedInstanceWarmup: Number("int"),
+ *   TargetTrackingConfiguration: { // TargetTrackingConfiguration
+ *     PredefinedMetricSpecification: { // PredefinedMetricSpecification
+ *       PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
+ *       ResourceLabel: "STRING_VALUE",
+ *     },
+ *     CustomizedMetricSpecification: { // CustomizedMetricSpecification
+ *       MetricName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       Dimensions: [ // MetricDimensions
+ *         { // MetricDimension
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
+ *       Unit: "STRING_VALUE",
+ *       Metrics: [ // TargetTrackingMetricDataQueries
+ *         { // TargetTrackingMetricDataQuery
+ *           Id: "STRING_VALUE", // required
+ *           Expression: "STRING_VALUE",
+ *           MetricStat: { // TargetTrackingMetricStat
+ *             Metric: { // Metric
+ *               Namespace: "STRING_VALUE", // required
+ *               MetricName: "STRING_VALUE", // required
+ *               Dimensions: [
+ *                 {
+ *                   Name: "STRING_VALUE", // required
+ *                   Value: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *             Stat: "STRING_VALUE", // required
+ *             Unit: "STRING_VALUE",
+ *           },
+ *           Label: "STRING_VALUE",
+ *           ReturnData: true || false,
+ *         },
+ *       ],
+ *     },
+ *     TargetValue: Number("double"), // required
+ *     DisableScaleIn: true || false,
+ *   },
+ *   Enabled: true || false,
+ *   PredictiveScalingConfiguration: { // PredictiveScalingConfiguration
+ *     MetricSpecifications: [ // PredictiveScalingMetricSpecifications // required
+ *       { // PredictiveScalingMetricSpecification
+ *         TargetValue: Number("double"), // required
+ *         PredefinedMetricPairSpecification: { // PredictiveScalingPredefinedMetricPair
+ *           PredefinedMetricType: "ASGCPUUtilization" || "ASGNetworkIn" || "ASGNetworkOut" || "ALBRequestCount", // required
+ *           ResourceLabel: "STRING_VALUE",
+ *         },
+ *         PredefinedScalingMetricSpecification: { // PredictiveScalingPredefinedScalingMetric
+ *           PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
+ *           ResourceLabel: "STRING_VALUE",
+ *         },
+ *         PredefinedLoadMetricSpecification: { // PredictiveScalingPredefinedLoadMetric
+ *           PredefinedMetricType: "ASGTotalCPUUtilization" || "ASGTotalNetworkIn" || "ASGTotalNetworkOut" || "ALBTargetGroupRequestCount", // required
+ *           ResourceLabel: "STRING_VALUE",
+ *         },
+ *         CustomizedScalingMetricSpecification: { // PredictiveScalingCustomizedScalingMetric
+ *           MetricDataQueries: [ // MetricDataQueries // required
+ *             { // MetricDataQuery
+ *               Id: "STRING_VALUE", // required
+ *               Expression: "STRING_VALUE",
+ *               MetricStat: { // MetricStat
+ *                 Metric: {
+ *                   Namespace: "STRING_VALUE", // required
+ *                   MetricName: "STRING_VALUE", // required
+ *                   Dimensions: "<MetricDimensions>",
+ *                 },
+ *                 Stat: "STRING_VALUE", // required
+ *                 Unit: "STRING_VALUE",
+ *               },
+ *               Label: "STRING_VALUE",
+ *               ReturnData: true || false,
+ *             },
+ *           ],
+ *         },
+ *         CustomizedLoadMetricSpecification: { // PredictiveScalingCustomizedLoadMetric
+ *           MetricDataQueries: [ // required
+ *             {
+ *               Id: "STRING_VALUE", // required
+ *               Expression: "STRING_VALUE",
+ *               MetricStat: {
+ *                 Metric: {
+ *                   Namespace: "STRING_VALUE", // required
+ *                   MetricName: "STRING_VALUE", // required
+ *                   Dimensions: "<MetricDimensions>",
+ *                 },
+ *                 Stat: "STRING_VALUE", // required
+ *                 Unit: "STRING_VALUE",
+ *               },
+ *               Label: "STRING_VALUE",
+ *               ReturnData: true || false,
+ *             },
+ *           ],
+ *         },
+ *         CustomizedCapacityMetricSpecification: { // PredictiveScalingCustomizedCapacityMetric
+ *           MetricDataQueries: [ // required
+ *             {
+ *               Id: "STRING_VALUE", // required
+ *               Expression: "STRING_VALUE",
+ *               MetricStat: {
+ *                 Metric: {
+ *                   Namespace: "STRING_VALUE", // required
+ *                   MetricName: "STRING_VALUE", // required
+ *                   Dimensions: "<MetricDimensions>",
+ *                 },
+ *                 Stat: "STRING_VALUE", // required
+ *                 Unit: "STRING_VALUE",
+ *               },
+ *               Label: "STRING_VALUE",
+ *               ReturnData: true || false,
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     Mode: "ForecastAndScale" || "ForecastOnly",
+ *     SchedulingBufferTime: Number("int"),
+ *     MaxCapacityBreachBehavior: "HonorMaxCapacity" || "IncreaseMaxCapacity",
+ *     MaxCapacityBuffer: Number("int"),
+ *   },
+ * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
+ * @returns {@link PutScalingPolicyCommandOutput}
  * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -126,6 +267,9 @@ export class PutScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,8 +298,8 @@ export class PutScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutScalingPolicyTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: PolicyARNTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,12 +309,18 @@ export class PutScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutScalingPolicyCommand(input, context);
+    return se_PutScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScalingPolicyCommandOutput> {
-    return deserializeAws_queryPutScalingPolicyCommand(output, context);
+    return de_PutScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

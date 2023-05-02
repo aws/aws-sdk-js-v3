@@ -15,26 +15,27 @@ import {
 
 import {
   GetServiceTemplateInput,
-  GetServiceTemplateInputFilterSensitiveLog,
   GetServiceTemplateOutput,
   GetServiceTemplateOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetServiceTemplateCommand,
-  serializeAws_json1_0GetServiceTemplateCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetServiceTemplateCommand, se_GetServiceTemplateCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceTemplateCommand}.
  */
 export interface GetServiceTemplateCommandInput extends GetServiceTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceTemplateCommand}.
  */
 export interface GetServiceTemplateCommandOutput extends GetServiceTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detailed data for a service template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface GetServiceTemplateCommandOutput extends GetServiceTemplateOutpu
  * import { ProtonClient, GetServiceTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetServiceTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // GetServiceTemplateInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetServiceTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceTemplateCommandInput - {@link GetServiceTemplateCommandInput}
+ * @returns {@link GetServiceTemplateCommandOutput}
  * @see {@link GetServiceTemplateCommandInput} for command's `input` shape.
  * @see {@link GetServiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +90,9 @@ export class GetServiceTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +121,7 @@ export class GetServiceTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceTemplateInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetServiceTemplateOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,12 +132,18 @@ export class GetServiceTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetServiceTemplateCommand(input, context);
+    return se_GetServiceTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceTemplateCommandOutput> {
-    return deserializeAws_json1_0GetServiceTemplateCommand(output, context);
+    return de_GetServiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

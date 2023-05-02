@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  ListRevisionAssetsRequest,
-  ListRevisionAssetsRequestFilterSensitiveLog,
-  ListRevisionAssetsResponse,
-  ListRevisionAssetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRevisionAssetsCommand,
-  serializeAws_restJson1ListRevisionAssetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRevisionAssetsRequest, ListRevisionAssetsResponse } from "../models/models_0";
+import { de_ListRevisionAssetsCommand, se_ListRevisionAssetsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRevisionAssetsCommand}.
  */
 export interface ListRevisionAssetsCommandInput extends ListRevisionAssetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRevisionAssetsCommand}.
  */
 export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists a revision's assets sorted alphabetically in descending order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsRespo
  * import { DataExchangeClient, ListRevisionAssetsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, ListRevisionAssetsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // ListRevisionAssetsRequest
+ *   DataSetId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RevisionId: "STRING_VALUE", // required
+ * };
  * const command = new ListRevisionAssetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRevisionAssetsCommandInput - {@link ListRevisionAssetsCommandInput}
+ * @returns {@link ListRevisionAssetsCommandOutput}
  * @see {@link ListRevisionAssetsCommandInput} for command's `input` shape.
  * @see {@link ListRevisionAssetsCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -81,6 +86,9 @@ export class ListRevisionAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRevisionAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class ListRevisionAssetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRevisionAssetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRevisionAssetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class ListRevisionAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRevisionAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRevisionAssetsCommand(input, context);
+    return se_ListRevisionAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRevisionAssetsCommandOutput> {
-    return deserializeAws_restJson1ListRevisionAssetsCommand(output, context);
+    return de_ListRevisionAssetsCommand(output, context);
   }
 
   // Start section: command_body_extra

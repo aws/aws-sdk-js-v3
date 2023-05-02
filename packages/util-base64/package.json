@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-base64",
-  "version": "3.295.0",
+  "version": "3.310.0",
   "description": "A Base64 <-> UInt8Array converter",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -44,7 +44,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "browser": {
     "./dist-es/fromBase64": "./dist-es/fromBase64.browser",

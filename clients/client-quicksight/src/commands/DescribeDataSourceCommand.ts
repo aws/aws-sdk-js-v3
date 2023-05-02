@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDataSourceRequest,
-  DescribeDataSourceRequestFilterSensitiveLog,
-  DescribeDataSourceResponse,
-  DescribeDataSourceResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeDataSourceCommand,
-  serializeAws_restJson1DescribeDataSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDataSourceRequest, DescribeDataSourceResponse } from "../models/models_2";
+import { de_DescribeDataSourceCommand, se_DescribeDataSourceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataSourceCommand}.
  */
 export interface DescribeDataSourceCommandInput extends DescribeDataSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataSourceCommand}.
  */
 export interface DescribeDataSourceCommandOutput extends DescribeDataSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * import { QuickSightClient, DescribeDataSourceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeDataSourceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeDataSourceRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DataSourceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDataSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSourceCommandInput - {@link DescribeDataSourceCommandInput}
+ * @returns {@link DescribeDataSourceCommandOutput}
  * @see {@link DescribeDataSourceCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSourceCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -87,6 +90,9 @@ export class DescribeDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class DescribeDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class DescribeDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDataSourceCommand(input, context);
+    return se_DescribeDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSourceCommandOutput> {
-    return deserializeAws_restJson1DescribeDataSourceCommand(output, context);
+    return de_DescribeDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

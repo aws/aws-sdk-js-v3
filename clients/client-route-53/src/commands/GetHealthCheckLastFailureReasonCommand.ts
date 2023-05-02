@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetHealthCheckLastFailureReasonRequest, GetHealthCheckLastFailureReasonResponse } from "../models/models_0";
 import {
-  GetHealthCheckLastFailureReasonRequest,
-  GetHealthCheckLastFailureReasonRequestFilterSensitiveLog,
-  GetHealthCheckLastFailureReasonResponse,
-  GetHealthCheckLastFailureReasonResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand,
-  serializeAws_restXmlGetHealthCheckLastFailureReasonCommand,
+  de_GetHealthCheckLastFailureReasonCommand,
+  se_GetHealthCheckLastFailureReasonCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetHealthCheckLastFailureReasonCommand}.
  */
 export interface GetHealthCheckLastFailureReasonCommandInput extends GetHealthCheckLastFailureReasonRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHealthCheckLastFailureReasonCommand}.
  */
 export interface GetHealthCheckLastFailureReasonCommandOutput
@@ -37,6 +36,7 @@ export interface GetHealthCheckLastFailureReasonCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the reason that a specified health check failed most recently.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetHealthCheckLastFailureReasonCommandOutput
  * import { Route53Client, GetHealthCheckLastFailureReasonCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetHealthCheckLastFailureReasonCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // GetHealthCheckLastFailureReasonRequest
+ *   HealthCheckId: "STRING_VALUE", // required
+ * };
  * const command = new GetHealthCheckLastFailureReasonCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHealthCheckLastFailureReasonCommandInput - {@link GetHealthCheckLastFailureReasonCommandInput}
+ * @returns {@link GetHealthCheckLastFailureReasonCommandOutput}
  * @see {@link GetHealthCheckLastFailureReasonCommandInput} for command's `input` shape.
  * @see {@link GetHealthCheckLastFailureReasonCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -77,6 +82,9 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHealthCheckLastFailureReasonCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHealthCheckLastFailureReasonRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHealthCheckLastFailureReasonResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +124,24 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetHealthCheckLastFailureReasonCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetHealthCheckLastFailureReasonCommand(input, context);
+    return se_GetHealthCheckLastFailureReasonCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHealthCheckLastFailureReasonCommandOutput> {
-    return deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand(output, context);
+    return de_GetHealthCheckLastFailureReasonCommand(output, context);
   }
 
   // Start section: command_body_extra

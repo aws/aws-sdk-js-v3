@@ -15,26 +15,27 @@ import {
 
 import {
   DescribeInstancePatchStatesRequest,
-  DescribeInstancePatchStatesRequestFilterSensitiveLog,
   DescribeInstancePatchStatesResult,
   DescribeInstancePatchStatesResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeInstancePatchStatesCommand,
-  serializeAws_json1_1DescribeInstancePatchStatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeInstancePatchStatesCommand, se_DescribeInstancePatchStatesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstancePatchStatesCommand}.
  */
 export interface DescribeInstancePatchStatesCommandInput extends DescribeInstancePatchStatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstancePatchStatesCommand}.
  */
 export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstancePatchStatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the high-level patch state of one or more managed nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,19 @@ export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstan
  * import { SSMClient, DescribeInstancePatchStatesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstancePatchStatesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeInstancePatchStatesRequest
+ *   InstanceIds: [ // InstanceIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeInstancePatchStatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancePatchStatesCommandInput - {@link DescribeInstancePatchStatesCommandInput}
+ * @returns {@link DescribeInstancePatchStatesCommandOutput}
  * @see {@link DescribeInstancePatchStatesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancePatchStatesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -75,6 +85,9 @@ export class DescribeInstancePatchStatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancePatchStatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,7 +116,7 @@ export class DescribeInstancePatchStatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancePatchStatesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeInstancePatchStatesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -114,15 +127,21 @@ export class DescribeInstancePatchStatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstancePatchStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstancePatchStatesCommand(input, context);
+    return se_DescribeInstancePatchStatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstancePatchStatesCommandOutput> {
-    return deserializeAws_json1_1DescribeInstancePatchStatesCommand(output, context);
+    return de_DescribeInstancePatchStatesCommand(output, context);
   }
 
   // Start section: command_body_extra

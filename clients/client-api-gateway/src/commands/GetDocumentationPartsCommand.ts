@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  DocumentationParts,
-  DocumentationPartsFilterSensitiveLog,
-  GetDocumentationPartsRequest,
-  GetDocumentationPartsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDocumentationPartsCommand,
-  serializeAws_restJson1GetDocumentationPartsCommand,
-} from "../protocols/Aws_restJson1";
+import { DocumentationParts, GetDocumentationPartsRequest } from "../models/models_0";
+import { de_GetDocumentationPartsCommand, se_GetDocumentationPartsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDocumentationPartsCommand}.
  */
 export interface GetDocumentationPartsCommandInput extends GetDocumentationPartsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDocumentationPartsCommand}.
  */
 export interface GetDocumentationPartsCommandOutput extends DocumentationParts, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets documentation parts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface GetDocumentationPartsCommandOutput extends DocumentationParts, 
  * import { APIGatewayClient, GetDocumentationPartsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetDocumentationPartsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetDocumentationPartsRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   type: "API" || "AUTHORIZER" || "MODEL" || "RESOURCE" || "METHOD" || "PATH_PARAMETER" || "QUERY_PARAMETER" || "REQUEST_HEADER" || "REQUEST_BODY" || "RESPONSE" || "RESPONSE_HEADER" || "RESPONSE_BODY",
+ *   nameQuery: "STRING_VALUE",
+ *   path: "STRING_VALUE",
+ *   position: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   locationStatus: "DOCUMENTED" || "UNDOCUMENTED",
+ * };
  * const command = new GetDocumentationPartsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDocumentationPartsCommandInput - {@link GetDocumentationPartsCommandInput}
+ * @returns {@link GetDocumentationPartsCommandOutput}
  * @see {@link GetDocumentationPartsCommandInput} for command's `input` shape.
  * @see {@link GetDocumentationPartsCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +89,9 @@ export class GetDocumentationPartsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDocumentationPartsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +120,8 @@ export class GetDocumentationPartsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDocumentationPartsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DocumentationPartsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +131,18 @@ export class GetDocumentationPartsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDocumentationPartsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDocumentationPartsCommand(input, context);
+    return se_GetDocumentationPartsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentationPartsCommandOutput> {
-    return deserializeAws_restJson1GetDocumentationPartsCommand(output, context);
+    return de_GetDocumentationPartsCommand(output, context);
   }
 
   // Start section: command_body_extra

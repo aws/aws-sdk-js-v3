@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateXssMatchSetRequest,
-  UpdateXssMatchSetRequestFilterSensitiveLog,
-  UpdateXssMatchSetResponse,
-  UpdateXssMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateXssMatchSetCommand,
-  serializeAws_json1_1UpdateXssMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateXssMatchSetRequest, UpdateXssMatchSetResponse } from "../models/models_0";
+import { de_UpdateXssMatchSetCommand, se_UpdateXssMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateXssMatchSetCommand}.
  */
 export interface UpdateXssMatchSetCommandInput extends UpdateXssMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateXssMatchSetCommand}.
  */
 export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -93,10 +90,28 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  * import { WAFClient, UpdateXssMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateXssMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // UpdateXssMatchSetRequest
+ *   XssMatchSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // XssMatchSetUpdates // required
+ *     { // XssMatchSetUpdate
+ *       Action: "STRING_VALUE", // required
+ *       XssMatchTuple: { // XssMatchTuple
+ *         FieldToMatch: { // FieldToMatch
+ *           Type: "STRING_VALUE", // required
+ *           Data: "STRING_VALUE",
+ *         },
+ *         TextTransformation: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateXssMatchSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateXssMatchSetCommandInput - {@link UpdateXssMatchSetCommandInput}
+ * @returns {@link UpdateXssMatchSetCommandOutput}
  * @see {@link UpdateXssMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -246,6 +261,9 @@ export class UpdateXssMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateXssMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -274,8 +292,8 @@ export class UpdateXssMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateXssMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateXssMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -285,12 +303,18 @@ export class UpdateXssMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateXssMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateXssMatchSetCommand(input, context);
+    return se_UpdateXssMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateXssMatchSetCommandOutput> {
-    return deserializeAws_json1_1UpdateXssMatchSetCommand(output, context);
+    return de_UpdateXssMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreDBInstanceFromS3Message,
-  RestoreDBInstanceFromS3MessageFilterSensitiveLog,
-  RestoreDBInstanceFromS3Result,
-  RestoreDBInstanceFromS3ResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRestoreDBInstanceFromS3Command,
-  serializeAws_queryRestoreDBInstanceFromS3Command,
-} from "../protocols/Aws_query";
+import { RestoreDBInstanceFromS3Message, RestoreDBInstanceFromS3Result } from "../models/models_1";
+import { de_RestoreDBInstanceFromS3Command, se_RestoreDBInstanceFromS3Command } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBInstanceFromS3Command}.
  */
 export interface RestoreDBInstanceFromS3CommandInput extends RestoreDBInstanceFromS3Message {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBInstanceFromS3Command}.
  */
 export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceFromS3Result, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Amazon Relational Database Service (Amazon RDS)
  *             supports importing MySQL databases by using backup files.
  *             You can create a backup of your on-premises database,
@@ -50,10 +47,78 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * import { RDSClient, RestoreDBInstanceFromS3Command } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBInstanceFromS3Command } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // RestoreDBInstanceFromS3Message
+ *   DBName: "STRING_VALUE",
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   AllocatedStorage: Number("int"),
+ *   DBInstanceClass: "STRING_VALUE", // required
+ *   Engine: "STRING_VALUE", // required
+ *   MasterUsername: "STRING_VALUE",
+ *   MasterUserPassword: "STRING_VALUE",
+ *   DBSecurityGroups: [ // DBSecurityGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   AvailabilityZone: "STRING_VALUE",
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   BackupRetentionPeriod: Number("int"),
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   MultiAZ: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   LicenseModel: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   OptionGroupName: "STRING_VALUE",
+ *   PubliclyAccessible: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StorageType: "STRING_VALUE",
+ *   StorageEncrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   MonitoringInterval: Number("int"),
+ *   MonitoringRoleArn: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   SourceEngine: "STRING_VALUE", // required
+ *   SourceEngineVersion: "STRING_VALUE", // required
+ *   S3BucketName: "STRING_VALUE", // required
+ *   S3Prefix: "STRING_VALUE",
+ *   S3IngestionRoleArn: "STRING_VALUE", // required
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   PerformanceInsightsRetentionPeriod: Number("int"),
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   ProcessorFeatures: [ // ProcessorFeatureList
+ *     { // ProcessorFeature
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UseDefaultProcessorFeatures: true || false,
+ *   DeletionProtection: true || false,
+ *   MaxAllocatedStorage: Number("int"),
+ *   NetworkType: "STRING_VALUE",
+ *   StorageThroughput: Number("int"),
+ *   ManageMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ * };
  * const command = new RestoreDBInstanceFromS3Command(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBInstanceFromS3CommandInput - {@link RestoreDBInstanceFromS3CommandInput}
+ * @returns {@link RestoreDBInstanceFromS3CommandOutput}
  * @see {@link RestoreDBInstanceFromS3CommandInput} for command's `input` shape.
  * @see {@link RestoreDBInstanceFromS3CommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -143,6 +208,9 @@ export class RestoreDBInstanceFromS3Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBInstanceFromS3CommandInput) {
     // Start section: command_constructor
     super();
@@ -171,8 +239,8 @@ export class RestoreDBInstanceFromS3Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreDBInstanceFromS3MessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreDBInstanceFromS3ResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -182,12 +250,18 @@ export class RestoreDBInstanceFromS3Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreDBInstanceFromS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBInstanceFromS3Command(input, context);
+    return se_RestoreDBInstanceFromS3Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreDBInstanceFromS3CommandOutput> {
-    return deserializeAws_queryRestoreDBInstanceFromS3Command(output, context);
+    return de_RestoreDBInstanceFromS3Command(output, context);
   }
 
   // Start section: command_body_extra

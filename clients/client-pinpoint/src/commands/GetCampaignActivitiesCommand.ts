@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCampaignActivitiesRequest,
-  GetCampaignActivitiesRequestFilterSensitiveLog,
-  GetCampaignActivitiesResponse,
-  GetCampaignActivitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCampaignActivitiesRequest, GetCampaignActivitiesResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetCampaignActivitiesCommand,
-  serializeAws_restJson1GetCampaignActivitiesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCampaignActivitiesCommand, se_GetCampaignActivitiesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCampaignActivitiesCommand}.
  */
 export interface GetCampaignActivitiesCommandInput extends GetCampaignActivitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCampaignActivitiesCommand}.
  */
 export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about all the activities for a campaign.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitie
  * import { PinpointClient, GetCampaignActivitiesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetCampaignActivitiesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetCampaignActivitiesRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   CampaignId: "STRING_VALUE", // required
+ *   PageSize: "STRING_VALUE",
+ *   Token: "STRING_VALUE",
+ * };
  * const command = new GetCampaignActivitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCampaignActivitiesCommandInput - {@link GetCampaignActivitiesCommandInput}
+ * @returns {@link GetCampaignActivitiesCommandOutput}
  * @see {@link GetCampaignActivitiesCommandInput} for command's `input` shape.
  * @see {@link GetCampaignActivitiesCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +95,9 @@ export class GetCampaignActivitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCampaignActivitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class GetCampaignActivitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCampaignActivitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCampaignActivitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +137,18 @@ export class GetCampaignActivitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCampaignActivitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCampaignActivitiesCommand(input, context);
+    return se_GetCampaignActivitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignActivitiesCommandOutput> {
-    return deserializeAws_restJson1GetCampaignActivitiesCommand(output, context);
+    return de_GetCampaignActivitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

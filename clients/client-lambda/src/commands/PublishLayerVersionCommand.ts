@@ -18,23 +18,24 @@ import {
   PublishLayerVersionRequest,
   PublishLayerVersionRequestFilterSensitiveLog,
   PublishLayerVersionResponse,
-  PublishLayerVersionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1PublishLayerVersionCommand,
-  serializeAws_restJson1PublishLayerVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PublishLayerVersionCommand, se_PublishLayerVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PublishLayerVersionCommand}.
  */
 export interface PublishLayerVersionCommandInput extends PublishLayerVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PublishLayerVersionCommand}.
  */
 export interface PublishLayerVersionCommandOutput extends PublishLayerVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same
  *       layer name, a new version is created.</p>
@@ -45,10 +46,29 @@ export interface PublishLayerVersionCommandOutput extends PublishLayerVersionRes
  * import { LambdaClient, PublishLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, PublishLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // PublishLayerVersionRequest
+ *   LayerName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Content: { // LayerVersionContentInput
+ *     S3Bucket: "STRING_VALUE",
+ *     S3Key: "STRING_VALUE",
+ *     S3ObjectVersion: "STRING_VALUE",
+ *     ZipFile: "BLOB_VALUE",
+ *   },
+ *   CompatibleRuntimes: [ // CompatibleRuntimes
+ *     "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17",
+ *   ],
+ *   LicenseInfo: "STRING_VALUE",
+ *   CompatibleArchitectures: [ // CompatibleArchitectures
+ *     "x86_64" || "arm64",
+ *   ],
+ * };
  * const command = new PublishLayerVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishLayerVersionCommandInput - {@link PublishLayerVersionCommandInput}
+ * @returns {@link PublishLayerVersionCommandOutput}
  * @see {@link PublishLayerVersionCommandInput} for command's `input` shape.
  * @see {@link PublishLayerVersionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -87,6 +107,9 @@ export class PublishLayerVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishLayerVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +139,7 @@ export class PublishLayerVersionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PublishLayerVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PublishLayerVersionResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +149,18 @@ export class PublishLayerVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishLayerVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PublishLayerVersionCommand(input, context);
+    return se_PublishLayerVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishLayerVersionCommandOutput> {
-    return deserializeAws_restJson1PublishLayerVersionCommand(output, context);
+    return de_PublishLayerVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

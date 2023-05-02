@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRequest,
-  ListRequestFilterSensitiveLog,
-  ListSubjectsResponse,
-  ListSubjectsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSubjectsCommand,
-  serializeAws_restJson1ListSubjectsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRequest, ListSubjectsResponse } from "../models/models_0";
+import { de_ListSubjectsCommand, se_ListSubjectsCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSubjectsCommand}.
  */
 export interface ListSubjectsCommandInput extends ListRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSubjectsCommand}.
  */
 export interface ListSubjectsCommandOutput extends ListSubjectsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the subjects in the authenticated account and Amazon Web Services Region.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -46,10 +43,16 @@ export interface ListSubjectsCommandOutput extends ListSubjectsResponse, __Metad
  * import { RolesAnywhereClient, ListSubjectsCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, ListSubjectsCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ListRequest
+ *   nextToken: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListSubjectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSubjectsCommandInput - {@link ListSubjectsCommandInput}
+ * @returns {@link ListSubjectsCommandOutput}
  * @see {@link ListSubjectsCommandInput} for command's `input` shape.
  * @see {@link ListSubjectsCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +82,9 @@ export class ListSubjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSubjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +111,8 @@ export class ListSubjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSubjectsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +122,18 @@ export class ListSubjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSubjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSubjectsCommand(input, context);
+    return se_ListSubjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubjectsCommandOutput> {
-    return deserializeAws_restJson1ListSubjectsCommand(output, context);
+    return de_ListSubjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

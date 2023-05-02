@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteLexiconInput,
-  DeleteLexiconInputFilterSensitiveLog,
-  DeleteLexiconOutput,
-  DeleteLexiconOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteLexiconInput, DeleteLexiconOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1DeleteLexiconCommand,
-  serializeAws_restJson1DeleteLexiconCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLexiconCommand, se_DeleteLexiconCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLexiconCommand}.
  */
 export interface DeleteLexiconCommandInput extends DeleteLexiconInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLexiconCommand}.
  */
 export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified pronunciation lexicon stored in an Amazon Web Services Region. A lexicon which has been deleted is not available for
  *       speech synthesis, nor is it possible to retrieve it using either the
  *         <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p>
@@ -45,10 +42,15 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * import { PollyClient, DeleteLexiconCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, DeleteLexiconCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
+ * const input = { // DeleteLexiconInput
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLexiconCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLexiconCommandInput - {@link DeleteLexiconCommandInput}
+ * @returns {@link DeleteLexiconCommandOutput}
  * @see {@link DeleteLexiconCommandInput} for command's `input` shape.
  * @see {@link DeleteLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -93,6 +95,9 @@ export class DeleteLexiconCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLexiconCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class DeleteLexiconCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLexiconInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLexiconOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class DeleteLexiconCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLexiconCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLexiconCommand(input, context);
+    return se_DeleteLexiconCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLexiconCommandOutput> {
-    return deserializeAws_restJson1DeleteLexiconCommand(output, context);
+    return de_DeleteLexiconCommand(output, context);
   }
 
   // Start section: command_body_extra

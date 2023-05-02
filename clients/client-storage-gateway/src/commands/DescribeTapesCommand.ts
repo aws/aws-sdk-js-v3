@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTapesInput,
-  DescribeTapesInputFilterSensitiveLog,
-  DescribeTapesOutput,
-  DescribeTapesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTapesCommand,
-  serializeAws_json1_1DescribeTapesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTapesInput, DescribeTapesOutput } from "../models/models_0";
+import { de_DescribeTapesCommand, se_DescribeTapesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTapesCommand}.
  */
 export interface DescribeTapesCommandInput extends DescribeTapesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTapesCommand}.
  */
 export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a
  *             <code>TapeARN</code> is not specified, returns a description of all virtual tapes
  *          associated with the specified gateway. This operation is only supported in the tape gateway
@@ -45,10 +42,20 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  * import { StorageGatewayClient, DescribeTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeTapesInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   TapeARNs: [ // TapeARNs
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeTapesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTapesCommandInput - {@link DescribeTapesCommandInput}
+ * @returns {@link DescribeTapesCommandOutput}
  * @see {@link DescribeTapesCommandInput} for command's `input` shape.
  * @see {@link DescribeTapesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -116,6 +123,9 @@ export class DescribeTapesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTapesCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +152,8 @@ export class DescribeTapesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTapesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTapesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +163,18 @@ export class DescribeTapesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTapesCommand(input, context);
+    return se_DescribeTapesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTapesCommandOutput> {
-    return deserializeAws_json1_1DescribeTapesCommand(output, context);
+    return de_DescribeTapesCommand(output, context);
   }
 
   // Start section: command_body_extra

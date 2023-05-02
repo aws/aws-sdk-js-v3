@@ -18,23 +18,24 @@ import {
   UpdateRuleVersionRequest,
   UpdateRuleVersionRequestFilterSensitiveLog,
   UpdateRuleVersionResult,
-  UpdateRuleVersionResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRuleVersionCommand,
-  serializeAws_json1_1UpdateRuleVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRuleVersionCommand, se_UpdateRuleVersionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuleVersionCommand}.
  */
 export interface UpdateRuleVersionCommandInput extends UpdateRuleVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuleVersionCommand}.
  */
 export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a rule version resulting in a new rule version. Updates a rule version resulting in a new rule version (version 1, 2, 3 ...). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,31 @@ export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult,
  * import { FraudDetectorClient, UpdateRuleVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateRuleVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // UpdateRuleVersionRequest
+ *   rule: { // Rule
+ *     detectorId: "STRING_VALUE", // required
+ *     ruleId: "STRING_VALUE", // required
+ *     ruleVersion: "STRING_VALUE", // required
+ *   },
+ *   description: "STRING_VALUE",
+ *   expression: "STRING_VALUE", // required
+ *   language: "DETECTORPL", // required
+ *   outcomes: [ // NonEmptyListOfStrings // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: [ // tagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRuleVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuleVersionCommandInput - {@link UpdateRuleVersionCommandInput}
+ * @returns {@link UpdateRuleVersionCommandOutput}
  * @see {@link UpdateRuleVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +109,9 @@ export class UpdateRuleVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuleVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +141,7 @@ export class UpdateRuleVersionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateRuleVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRuleVersionResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +151,18 @@ export class UpdateRuleVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuleVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRuleVersionCommand(input, context);
+    return se_UpdateRuleVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleVersionCommandOutput> {
-    return deserializeAws_json1_1UpdateRuleVersionCommand(output, context);
+    return de_UpdateRuleVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

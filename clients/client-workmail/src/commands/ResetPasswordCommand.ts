@@ -17,24 +17,25 @@ import {
   ResetPasswordRequest,
   ResetPasswordRequestFilterSensitiveLog,
   ResetPasswordResponse,
-  ResetPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ResetPasswordCommand,
-  serializeAws_json1_1ResetPasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResetPasswordCommand, se_ResetPasswordCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResetPasswordCommand}.
  */
 export interface ResetPasswordCommandInput extends ResetPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetPasswordCommand}.
  */
 export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the administrator to reset the password for a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,17 @@ export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __Met
  * import { WorkMailClient, ResetPasswordCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ResetPasswordCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ResetPasswordRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ * };
  * const command = new ResetPasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetPasswordCommandInput - {@link ResetPasswordCommandInput}
+ * @returns {@link ResetPasswordCommandOutput}
  * @see {@link ResetPasswordCommandInput} for command's `input` shape.
  * @see {@link ResetPasswordCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -101,6 +109,9 @@ export class ResetPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,7 +139,7 @@ export class ResetPasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ResetPasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResetPasswordResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +149,18 @@ export class ResetPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResetPasswordCommand(input, context);
+    return se_ResetPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetPasswordCommandOutput> {
-    return deserializeAws_json1_1ResetPasswordCommand(output, context);
+    return de_ResetPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

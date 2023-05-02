@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DescribePlaceIndexRequest,
-  DescribePlaceIndexRequestFilterSensitiveLog,
-  DescribePlaceIndexResponse,
-  DescribePlaceIndexResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribePlaceIndexCommand,
-  serializeAws_restJson1DescribePlaceIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribePlaceIndexRequest, DescribePlaceIndexResponse } from "../models/models_0";
+import { de_DescribePlaceIndexCommand, se_DescribePlaceIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePlaceIndexCommand}.
  */
 export interface DescribePlaceIndexCommandInput extends DescribePlaceIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePlaceIndexCommand}.
  */
 export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the place index resource details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexRespo
  * import { LocationClient, DescribePlaceIndexCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribePlaceIndexCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // DescribePlaceIndexRequest
+ *   IndexName: "STRING_VALUE", // required
+ * };
  * const command = new DescribePlaceIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePlaceIndexCommandInput - {@link DescribePlaceIndexCommandInput}
+ * @returns {@link DescribePlaceIndexCommandOutput}
  * @see {@link DescribePlaceIndexCommandInput} for command's `input` shape.
  * @see {@link DescribePlaceIndexCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +87,9 @@ export class DescribePlaceIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePlaceIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DescribePlaceIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePlaceIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePlaceIndexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DescribePlaceIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePlaceIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePlaceIndexCommand(input, context);
+    return se_DescribePlaceIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePlaceIndexCommandOutput> {
-    return deserializeAws_restJson1DescribePlaceIndexCommand(output, context);
+    return de_DescribePlaceIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

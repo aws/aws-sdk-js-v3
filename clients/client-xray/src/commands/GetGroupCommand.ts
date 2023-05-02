@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetGroupRequest,
-  GetGroupRequestFilterSensitiveLog,
-  GetGroupResult,
-  GetGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGroupCommand,
-  serializeAws_restJson1GetGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGroupRequest, GetGroupResult } from "../models/models_0";
+import { de_GetGroupCommand, se_GetGroupCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupCommand}.
  */
 export interface GetGroupCommandInput extends GetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupCommand}.
  */
 export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves group resource details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer 
  * import { XRayClient, GetGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // GetGroupRequest
+ *   GroupName: "STRING_VALUE",
+ *   GroupARN: "STRING_VALUE",
+ * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupCommandInput - {@link GetGroupCommandInput}
+ * @returns {@link GetGroupCommandOutput}
  * @see {@link GetGroupCommandInput} for command's `input` shape.
  * @see {@link GetGroupCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -71,6 +74,9 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +103,8 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +114,18 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGroupCommand(input, context);
+    return se_GetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupCommandOutput> {
-    return deserializeAws_restJson1GetGroupCommand(output, context);
+    return de_GetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

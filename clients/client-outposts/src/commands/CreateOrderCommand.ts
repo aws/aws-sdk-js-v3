@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateOrderInput,
-  CreateOrderInputFilterSensitiveLog,
-  CreateOrderOutput,
-  CreateOrderOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateOrderInput, CreateOrderOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1CreateOrderCommand,
-  serializeAws_restJson1CreateOrderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateOrderCommand, se_CreateOrderCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOrderCommand}.
  */
 export interface CreateOrderCommandInput extends CreateOrderInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateOrderCommand}.
  */
 export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an order for an Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataB
  * import { OutpostsClient, CreateOrderCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CreateOrderCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // CreateOrderInput
+ *   OutpostIdentifier: "STRING_VALUE", // required
+ *   LineItems: [ // LineItemRequestListDefinition // required
+ *     { // LineItemRequest
+ *       CatalogItemId: "STRING_VALUE",
+ *       Quantity: Number("int"),
+ *     },
+ *   ],
+ *   PaymentOption: "ALL_UPFRONT" || "NO_UPFRONT" || "PARTIAL_UPFRONT", // required
+ *   PaymentTerm: "THREE_YEARS" || "ONE_YEAR",
+ * };
  * const command = new CreateOrderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOrderCommandInput - {@link CreateOrderCommandInput}
+ * @returns {@link CreateOrderCommandOutput}
  * @see {@link CreateOrderCommandInput} for command's `input` shape.
  * @see {@link CreateOrderCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -87,6 +97,9 @@ export class CreateOrderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOrderCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +126,8 @@ export class CreateOrderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOrderInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOrderOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +137,18 @@ export class CreateOrderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateOrderCommand(input, context);
+    return se_CreateOrderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrderCommandOutput> {
-    return deserializeAws_restJson1CreateOrderCommand(output, context);
+    return de_CreateOrderCommand(output, context);
   }
 
   // Start section: command_body_extra

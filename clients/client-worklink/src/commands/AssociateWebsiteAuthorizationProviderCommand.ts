@@ -15,22 +15,24 @@ import {
 
 import {
   AssociateWebsiteAuthorizationProviderRequest,
-  AssociateWebsiteAuthorizationProviderRequestFilterSensitiveLog,
   AssociateWebsiteAuthorizationProviderResponse,
-  AssociateWebsiteAuthorizationProviderResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand,
-  serializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand,
+  de_AssociateWebsiteAuthorizationProviderCommand,
+  se_AssociateWebsiteAuthorizationProviderCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateWebsiteAuthorizationProviderCommand}.
  */
 export interface AssociateWebsiteAuthorizationProviderCommandInput
   extends AssociateWebsiteAuthorizationProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateWebsiteAuthorizationProviderCommand}.
  */
 export interface AssociateWebsiteAuthorizationProviderCommandOutput
@@ -38,6 +40,7 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>
@@ -47,10 +50,17 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
  * import { WorkLinkClient, AssociateWebsiteAuthorizationProviderCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, AssociateWebsiteAuthorizationProviderCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // AssociateWebsiteAuthorizationProviderRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   AuthorizationProviderType: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE",
+ * };
  * const command = new AssociateWebsiteAuthorizationProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWebsiteAuthorizationProviderCommandInput - {@link AssociateWebsiteAuthorizationProviderCommandInput}
+ * @returns {@link AssociateWebsiteAuthorizationProviderCommandOutput}
  * @see {@link AssociateWebsiteAuthorizationProviderCommandInput} for command's `input` shape.
  * @see {@link AssociateWebsiteAuthorizationProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -92,6 +102,9 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWebsiteAuthorizationProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +133,8 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateWebsiteAuthorizationProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateWebsiteAuthorizationProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +144,24 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateWebsiteAuthorizationProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand(input, context);
+    return se_AssociateWebsiteAuthorizationProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateWebsiteAuthorizationProviderCommandOutput> {
-    return deserializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand(output, context);
+    return de_AssociateWebsiteAuthorizationProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

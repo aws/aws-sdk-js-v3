@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  ListResourceEvaluationsRequest,
-  ListResourceEvaluationsRequestFilterSensitiveLog,
-  ListResourceEvaluationsResponse,
-  ListResourceEvaluationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourceEvaluationsCommand,
-  serializeAws_json1_1ListResourceEvaluationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResourceEvaluationsRequest, ListResourceEvaluationsResponse } from "../models/models_0";
+import { de_ListResourceEvaluationsCommand, se_ListResourceEvaluationsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceEvaluationsCommand}.
  */
 export interface ListResourceEvaluationsCommandInput extends ListResourceEvaluationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceEvaluationsCommand}.
  */
 export interface ListResourceEvaluationsCommandOutput extends ListResourceEvaluationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of proactive resource evaluations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface ListResourceEvaluationsCommandOutput extends ListResourceEvalua
  * import { ConfigServiceClient, ListResourceEvaluationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, ListResourceEvaluationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // ListResourceEvaluationsRequest
+ *   Filters: { // ResourceEvaluationFilters
+ *     EvaluationMode: "DETECTIVE" || "PROACTIVE",
+ *     TimeWindow: { // TimeWindow
+ *       StartTime: new Date("TIMESTAMP"),
+ *       EndTime: new Date("TIMESTAMP"),
+ *     },
+ *     EvaluationContextIdentifier: "STRING_VALUE",
+ *   },
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListResourceEvaluationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceEvaluationsCommandInput - {@link ListResourceEvaluationsCommandInput}
+ * @returns {@link ListResourceEvaluationsCommandOutput}
  * @see {@link ListResourceEvaluationsCommandInput} for command's `input` shape.
  * @see {@link ListResourceEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -82,6 +93,9 @@ export class ListResourceEvaluationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceEvaluationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +124,8 @@ export class ListResourceEvaluationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceEvaluationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceEvaluationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +135,18 @@ export class ListResourceEvaluationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceEvaluationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceEvaluationsCommand(input, context);
+    return se_ListResourceEvaluationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceEvaluationsCommandOutput> {
-    return deserializeAws_json1_1ListResourceEvaluationsCommand(output, context);
+    return de_ListResourceEvaluationsCommand(output, context);
   }
 
   // Start section: command_body_extra

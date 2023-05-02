@@ -16,20 +16,23 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetVoiceConnectorTerminationRequest,
-  GetVoiceConnectorTerminationRequestFilterSensitiveLog,
   GetVoiceConnectorTerminationResponse,
   GetVoiceConnectorTerminationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1GetVoiceConnectorTerminationCommand,
-  serializeAws_restJson1GetVoiceConnectorTerminationCommand,
+  de_GetVoiceConnectorTerminationCommand,
+  se_GetVoiceConnectorTerminationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceConnectorTerminationCommand}.
  */
 export interface GetVoiceConnectorTerminationCommandInput extends GetVoiceConnectorTerminationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceConnectorTerminationCommand}.
  */
 export interface GetVoiceConnectorTerminationCommandOutput
@@ -37,6 +40,7 @@ export interface GetVoiceConnectorTerminationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves termination setting details for the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +48,15 @@ export interface GetVoiceConnectorTerminationCommandOutput
  * import { ChimeClient, GetVoiceConnectorTerminationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetVoiceConnectorTerminationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // GetVoiceConnectorTerminationRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ * };
  * const command = new GetVoiceConnectorTerminationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVoiceConnectorTerminationCommandInput - {@link GetVoiceConnectorTerminationCommandInput}
+ * @returns {@link GetVoiceConnectorTerminationCommandOutput}
  * @see {@link GetVoiceConnectorTerminationCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorTerminationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +101,9 @@ export class GetVoiceConnectorTerminationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorTerminationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,7 +132,7 @@ export class GetVoiceConnectorTerminationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceConnectorTerminationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetVoiceConnectorTerminationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -131,15 +143,21 @@ export class GetVoiceConnectorTerminationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVoiceConnectorTerminationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorTerminationCommand(input, context);
+    return se_GetVoiceConnectorTerminationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVoiceConnectorTerminationCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorTerminationCommand(output, context);
+    return de_GetVoiceConnectorTerminationCommand(output, context);
   }
 
   // Start section: command_body_extra

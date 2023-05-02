@@ -155,6 +155,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateEntityToThingCommandInput
   | CreateFlowTemplateCommandInput
@@ -192,6 +195,9 @@ export type ServiceInputTypes =
   | UpdateSystemTemplateCommandInput
   | UploadEntityDefinitionsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateEntityToThingCommandOutput
   | CreateFlowTemplateCommandOutput
@@ -229,6 +235,9 @@ export type ServiceOutputTypes =
   | UpdateSystemTemplateCommandOutput
   | UploadEntityDefinitionsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -236,7 +245,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -345,11 +354,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type IoTThingsGraphClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -360,10 +372,15 @@ type IoTThingsGraphClientConfigType = Partial<__SmithyConfiguration<__HttpHandle
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of IoTThingsGraphClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of IoTThingsGraphClient class constructor that set the region, credentials and other options.
  */
 export interface IoTThingsGraphClientConfig extends IoTThingsGraphClientConfigType {}
 
+/**
+ * @public
+ */
 type IoTThingsGraphClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -374,11 +391,14 @@ type IoTThingsGraphClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of IoTThingsGraphClient class. This is resolved and normalized from the {@link IoTThingsGraphClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of IoTThingsGraphClient class. This is resolved and normalized from the {@link IoTThingsGraphClientConfig | constructor configuration interface}.
  */
 export interface IoTThingsGraphClientResolvedConfig extends IoTThingsGraphClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>AWS IoT Things Graph</fullname>
  *          <p>AWS IoT Things Graph provides an integrated set of tools that enable developers to connect devices and services that use different standards,
  *        such as units of measure and communication protocols. AWS IoT Things Graph makes it possible to build IoT applications with little to no code by connecting devices and services

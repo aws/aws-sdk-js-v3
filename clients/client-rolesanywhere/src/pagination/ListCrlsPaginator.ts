@@ -6,7 +6,7 @@ import { RolesAnywhereClient } from "../RolesAnywhereClient";
 import { RolesAnywherePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RolesAnywhereClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCrlsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCrls(
   config: RolesAnywherePaginationConfiguration,
   input: ListCrlsCommandInput,

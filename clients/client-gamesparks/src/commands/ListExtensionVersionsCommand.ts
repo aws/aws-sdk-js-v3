@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  ListExtensionVersionsRequest,
-  ListExtensionVersionsRequestFilterSensitiveLog,
-  ListExtensionVersionsResult,
-  ListExtensionVersionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListExtensionVersionsCommand,
-  serializeAws_restJson1ListExtensionVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListExtensionVersionsRequest, ListExtensionVersionsResult } from "../models/models_0";
+import { de_ListExtensionVersionsCommand, se_ListExtensionVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExtensionVersionsCommand}.
  */
 export interface ListExtensionVersionsCommandInput extends ListExtensionVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExtensionVersionsCommand}.
  */
 export interface ListExtensionVersionsCommandOutput extends ListExtensionVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a paginated list of available versions for the extension.</p>
  *          <p>
  *       Each time an API change is made to an extension, the version is incremented.
@@ -46,10 +43,18 @@ export interface ListExtensionVersionsCommandOutput extends ListExtensionVersion
  * import { GameSparksClient, ListExtensionVersionsCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ListExtensionVersionsCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // ListExtensionVersionsRequest
+ *   Namespace: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListExtensionVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExtensionVersionsCommandInput - {@link ListExtensionVersionsCommandInput}
+ * @returns {@link ListExtensionVersionsCommandOutput}
  * @see {@link ListExtensionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListExtensionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -88,6 +93,9 @@ export class ListExtensionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExtensionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +124,8 @@ export class ListExtensionVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExtensionVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExtensionVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +135,18 @@ export class ListExtensionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExtensionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExtensionVersionsCommand(input, context);
+    return se_ListExtensionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExtensionVersionsCommandOutput> {
-    return deserializeAws_restJson1ListExtensionVersionsCommand(output, context);
+    return de_ListExtensionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

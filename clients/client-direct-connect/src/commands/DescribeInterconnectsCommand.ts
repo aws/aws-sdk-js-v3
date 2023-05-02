@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DescribeInterconnectsRequest,
-  DescribeInterconnectsRequestFilterSensitiveLog,
-  Interconnects,
-  InterconnectsFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeInterconnectsCommand,
-  serializeAws_json1_1DescribeInterconnectsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeInterconnectsRequest, Interconnects } from "../models/models_0";
+import { de_DescribeInterconnectsCommand, se_DescribeInterconnectsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInterconnectsCommand}.
  */
 export interface DescribeInterconnectsCommandInput extends DescribeInterconnectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInterconnectsCommand}.
  */
 export interface DescribeInterconnectsCommandOutput extends Interconnects, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the interconnects owned by the Amazon Web Services account or only the specified interconnect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
  * import { DirectConnectClient, DescribeInterconnectsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeInterconnectsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeInterconnectsRequest
+ *   interconnectId: "STRING_VALUE",
+ * };
  * const command = new DescribeInterconnectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInterconnectsCommandInput - {@link DescribeInterconnectsCommandInput}
+ * @returns {@link DescribeInterconnectsCommandOutput}
  * @see {@link DescribeInterconnectsCommandInput} for command's `input` shape.
  * @see {@link DescribeInterconnectsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -75,6 +77,9 @@ export class DescribeInterconnectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInterconnectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DescribeInterconnectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInterconnectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InterconnectsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DescribeInterconnectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInterconnectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInterconnectsCommand(input, context);
+    return se_DescribeInterconnectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInterconnectsCommandOutput> {
-    return deserializeAws_json1_1DescribeInterconnectsCommand(output, context);
+    return de_DescribeInterconnectsCommand(output, context);
   }
 
   // Start section: command_body_extra

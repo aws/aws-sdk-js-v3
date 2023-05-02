@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDocumentVersionRequest, DeleteDocumentVersionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDocumentVersionCommand,
-  serializeAws_restJson1DeleteDocumentVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDocumentVersionCommand, se_DeleteDocumentVersionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDocumentVersionCommand}.
  */
 export interface DeleteDocumentVersionCommandInput extends DeleteDocumentVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDocumentVersionCommand}.
  */
 export interface DeleteDocumentVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific version of a document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,18 @@ export interface DeleteDocumentVersionCommandOutput extends __MetadataBearer {}
  * import { WorkDocsClient, DeleteDocumentVersionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteDocumentVersionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DeleteDocumentVersionRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   DocumentId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE", // required
+ *   DeletePriorVersions: true || false, // required
+ * };
  * const command = new DeleteDocumentVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDocumentVersionCommandInput - {@link DeleteDocumentVersionCommandInput}
+ * @returns {@link DeleteDocumentVersionCommandOutput}
  * @see {@link DeleteDocumentVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentVersionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -90,6 +100,9 @@ export class DeleteDocumentVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDocumentVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,7 +132,7 @@ export class DeleteDocumentVersionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteDocumentVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +142,18 @@ export class DeleteDocumentVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDocumentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDocumentVersionCommand(input, context);
+    return se_DeleteDocumentVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDocumentVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteDocumentVersionCommand(output, context);
+    return de_DeleteDocumentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

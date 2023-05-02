@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { AttachLoadBalancerTlsCertificateRequest, AttachLoadBalancerTlsCertificateResult } from "../models/models_0";
 import {
-  AttachLoadBalancerTlsCertificateRequest,
-  AttachLoadBalancerTlsCertificateRequestFilterSensitiveLog,
-  AttachLoadBalancerTlsCertificateResult,
-  AttachLoadBalancerTlsCertificateResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AttachLoadBalancerTlsCertificateCommand,
-  serializeAws_json1_1AttachLoadBalancerTlsCertificateCommand,
+  de_AttachLoadBalancerTlsCertificateCommand,
+  se_AttachLoadBalancerTlsCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachLoadBalancerTlsCertificateCommand}.
  */
 export interface AttachLoadBalancerTlsCertificateCommandInput extends AttachLoadBalancerTlsCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachLoadBalancerTlsCertificateCommand}.
  */
 export interface AttachLoadBalancerTlsCertificateCommandOutput
@@ -37,6 +36,7 @@ export interface AttachLoadBalancerTlsCertificateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS is just
  *       an updated, more secure version of Secure Socket Layer (SSL).</p>
  *          <p>Once you create and validate your certificate, you can attach it to your load balancer.
@@ -52,10 +52,16 @@ export interface AttachLoadBalancerTlsCertificateCommandOutput
  * import { LightsailClient, AttachLoadBalancerTlsCertificateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, AttachLoadBalancerTlsCertificateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // AttachLoadBalancerTlsCertificateRequest
+ *   loadBalancerName: "STRING_VALUE", // required
+ *   certificateName: "STRING_VALUE", // required
+ * };
  * const command = new AttachLoadBalancerTlsCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachLoadBalancerTlsCertificateCommandInput - {@link AttachLoadBalancerTlsCertificateCommandInput}
+ * @returns {@link AttachLoadBalancerTlsCertificateCommandOutput}
  * @see {@link AttachLoadBalancerTlsCertificateCommandInput} for command's `input` shape.
  * @see {@link AttachLoadBalancerTlsCertificateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -109,6 +115,9 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachLoadBalancerTlsCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +146,8 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachLoadBalancerTlsCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachLoadBalancerTlsCertificateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,18 +157,24 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AttachLoadBalancerTlsCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachLoadBalancerTlsCertificateCommand(input, context);
+    return se_AttachLoadBalancerTlsCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachLoadBalancerTlsCertificateCommandOutput> {
-    return deserializeAws_json1_1AttachLoadBalancerTlsCertificateCommand(output, context);
+    return de_AttachLoadBalancerTlsCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

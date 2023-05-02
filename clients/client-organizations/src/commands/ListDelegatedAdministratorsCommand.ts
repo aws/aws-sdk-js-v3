@@ -15,21 +15,21 @@ import {
 
 import {
   ListDelegatedAdministratorsRequest,
-  ListDelegatedAdministratorsRequestFilterSensitiveLog,
   ListDelegatedAdministratorsResponse,
   ListDelegatedAdministratorsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListDelegatedAdministratorsCommand,
-  serializeAws_json1_1ListDelegatedAdministratorsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDelegatedAdministratorsCommand, se_ListDelegatedAdministratorsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDelegatedAdministratorsCommand}.
  */
 export interface ListDelegatedAdministratorsCommandInput extends ListDelegatedAdministratorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDelegatedAdministratorsCommand}.
  */
 export interface ListDelegatedAdministratorsCommandOutput
@@ -37,6 +37,7 @@ export interface ListDelegatedAdministratorsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon Web Services accounts that are designated as delegated administrators in this
  *             organization.</p>
  *          <p>This operation can be called only from the organization's
@@ -47,10 +48,17 @@ export interface ListDelegatedAdministratorsCommandOutput
  * import { OrganizationsClient, ListDelegatedAdministratorsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListDelegatedAdministratorsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // ListDelegatedAdministratorsRequest
+ *   ServicePrincipal: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDelegatedAdministratorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDelegatedAdministratorsCommandInput - {@link ListDelegatedAdministratorsCommandInput}
+ * @returns {@link ListDelegatedAdministratorsCommandOutput}
  * @see {@link ListDelegatedAdministratorsCommandInput} for command's `input` shape.
  * @see {@link ListDelegatedAdministratorsCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -400,6 +408,9 @@ export class ListDelegatedAdministratorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDelegatedAdministratorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -428,7 +439,7 @@ export class ListDelegatedAdministratorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDelegatedAdministratorsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListDelegatedAdministratorsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -439,15 +450,21 @@ export class ListDelegatedAdministratorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDelegatedAdministratorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDelegatedAdministratorsCommand(input, context);
+    return se_ListDelegatedAdministratorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDelegatedAdministratorsCommandOutput> {
-    return deserializeAws_json1_1ListDelegatedAdministratorsCommand(output, context);
+    return de_ListDelegatedAdministratorsCommand(output, context);
   }
 
   // Start section: command_body_extra

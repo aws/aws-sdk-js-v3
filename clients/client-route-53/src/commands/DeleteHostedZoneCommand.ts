@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteHostedZoneRequest,
-  DeleteHostedZoneRequestFilterSensitiveLog,
-  DeleteHostedZoneResponse,
-  DeleteHostedZoneResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteHostedZoneCommand,
-  serializeAws_restXmlDeleteHostedZoneCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteHostedZoneRequest, DeleteHostedZoneResponse } from "../models/models_0";
+import { de_DeleteHostedZoneCommand, se_DeleteHostedZoneCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHostedZoneCommand}.
  */
 export interface DeleteHostedZoneCommandInput extends DeleteHostedZoneRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHostedZoneCommand}.
  */
 export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a hosted zone.</p>
  *          <p>If the hosted zone was created by another service, such as Cloud Map, see
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service">Deleting Public Hosted Zones That Were Created by Another Service</a> in the
@@ -84,10 +81,15 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  * import { Route53Client, DeleteHostedZoneCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteHostedZoneCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // DeleteHostedZoneRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHostedZoneCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHostedZoneCommandInput - {@link DeleteHostedZoneCommandInput}
+ * @returns {@link DeleteHostedZoneCommandOutput}
  * @see {@link DeleteHostedZoneCommandInput} for command's `input` shape.
  * @see {@link DeleteHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -130,6 +132,9 @@ export class DeleteHostedZoneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHostedZoneCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,8 +164,8 @@ export class DeleteHostedZoneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHostedZoneRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHostedZoneResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,12 +175,18 @@ export class DeleteHostedZoneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteHostedZoneCommand(input, context);
+    return se_DeleteHostedZoneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHostedZoneCommandOutput> {
-    return deserializeAws_restXmlDeleteHostedZoneCommand(output, context);
+    return de_DeleteHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

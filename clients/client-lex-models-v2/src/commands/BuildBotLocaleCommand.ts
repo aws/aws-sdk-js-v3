@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  BuildBotLocaleRequest,
-  BuildBotLocaleRequestFilterSensitiveLog,
-  BuildBotLocaleResponse,
-  BuildBotLocaleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BuildBotLocaleCommand,
-  serializeAws_restJson1BuildBotLocaleCommand,
-} from "../protocols/Aws_restJson1";
+import { BuildBotLocaleRequest, BuildBotLocaleResponse } from "../models/models_0";
+import { de_BuildBotLocaleCommand, se_BuildBotLocaleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BuildBotLocaleCommand}.
  */
 export interface BuildBotLocaleCommandInput extends BuildBotLocaleRequest {}
 /**
+ * @public
+ *
  * The output of {@link BuildBotLocaleCommand}.
  */
 export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Builds a bot, its intents, and its slot types into a specific
  *          locale. A bot can be built into multiple locales. At runtime the locale
  *          is used to choose a specific build of the bot.</p>
@@ -44,10 +41,17 @@ export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __M
  * import { LexModelsV2Client, BuildBotLocaleCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, BuildBotLocaleCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // BuildBotLocaleRequest
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ * };
  * const command = new BuildBotLocaleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BuildBotLocaleCommandInput - {@link BuildBotLocaleCommandInput}
+ * @returns {@link BuildBotLocaleCommandOutput}
  * @see {@link BuildBotLocaleCommandInput} for command's `input` shape.
  * @see {@link BuildBotLocaleCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -96,6 +100,9 @@ export class BuildBotLocaleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BuildBotLocaleCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +131,8 @@ export class BuildBotLocaleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BuildBotLocaleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BuildBotLocaleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +142,18 @@ export class BuildBotLocaleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BuildBotLocaleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BuildBotLocaleCommand(input, context);
+    return se_BuildBotLocaleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BuildBotLocaleCommandOutput> {
-    return deserializeAws_restJson1BuildBotLocaleCommand(output, context);
+    return de_BuildBotLocaleCommand(output, context);
   }
 
   // Start section: command_body_extra

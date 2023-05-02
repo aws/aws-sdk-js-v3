@@ -15,24 +15,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  PredictInput,
-  PredictInputFilterSensitiveLog,
-  PredictOutput,
-  PredictOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1PredictCommand, serializeAws_json1_1PredictCommand } from "../protocols/Aws_json1_1";
+import { PredictInput, PredictOutput } from "../models/models_0";
+import { de_PredictCommand, se_PredictCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PredictCommand}.
  */
 export interface PredictCommandInput extends PredictInput {}
 /**
+ * @public
+ *
  * The output of {@link PredictCommand}.
  */
 export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a prediction for the observation using the specified <code>ML Model</code>.</p>
  *         <p>
  *             <b>Note:</b> Not all response parameters will be populated. Whether a
@@ -43,10 +43,19 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  * import { MachineLearningClient, PredictCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, PredictCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // PredictInput
+ *   MLModelId: "STRING_VALUE", // required
+ *   Record: { // Record // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   PredictEndpoint: "STRING_VALUE", // required
+ * };
  * const command = new PredictCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PredictCommandInput - {@link PredictCommandInput}
+ * @returns {@link PredictCommandOutput}
  * @see {@link PredictCommandInput} for command's `input` shape.
  * @see {@link PredictCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -85,6 +94,9 @@ export class PredictCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PredictCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +124,8 @@ export class PredictCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PredictInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PredictOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +135,18 @@ export class PredictCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PredictCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PredictCommand(input, context);
+    return se_PredictCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PredictCommandOutput> {
-    return deserializeAws_json1_1PredictCommand(output, context);
+    return de_PredictCommand(output, context);
   }
 
   // Start section: command_body_extra

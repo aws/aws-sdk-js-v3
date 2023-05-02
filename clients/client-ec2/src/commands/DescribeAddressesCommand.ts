@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeAddressesRequest,
-  DescribeAddressesRequestFilterSensitiveLog,
-  DescribeAddressesResult,
-  DescribeAddressesResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeAddressesCommand,
-  serializeAws_ec2DescribeAddressesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeAddressesRequest, DescribeAddressesResult } from "../models/models_3";
+import { de_DescribeAddressesCommand, se_DescribeAddressesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAddressesCommand}.
  */
 export interface DescribeAddressesCommandInput extends DescribeAddressesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAddressesCommand}.
  */
 export interface DescribeAddressesCommandOutput extends DescribeAddressesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p>
  *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
  * 				For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -47,10 +44,29 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * import { EC2Client, DescribeAddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeAddressesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   PublicIps: [ // PublicIpStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   AllocationIds: [ // AllocationIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeAddressesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAddressesCommandInput - {@link DescribeAddressesCommandInput}
+ * @returns {@link DescribeAddressesCommandOutput}
  * @see {@link DescribeAddressesCommandInput} for command's `input` shape.
  * @see {@link DescribeAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -167,6 +183,9 @@ export class DescribeAddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -195,8 +214,8 @@ export class DescribeAddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAddressesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAddressesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -206,12 +225,18 @@ export class DescribeAddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeAddressesCommand(input, context);
+    return se_DescribeAddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddressesCommandOutput> {
-    return deserializeAws_ec2DescribeAddressesCommand(output, context);
+    return de_DescribeAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeModelCardExportJobRequest,
-  DescribeModelCardExportJobRequestFilterSensitiveLog,
-  DescribeModelCardExportJobResponse,
-  DescribeModelCardExportJobResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeModelCardExportJobCommand,
-  serializeAws_json1_1DescribeModelCardExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeModelCardExportJobRequest, DescribeModelCardExportJobResponse } from "../models/models_2";
+import { de_DescribeModelCardExportJobCommand, se_DescribeModelCardExportJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelCardExportJobCommand}.
  */
 export interface DescribeModelCardExportJobCommandInput extends DescribeModelCardExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelCardExportJobCommand}.
  */
 export interface DescribeModelCardExportJobCommandOutput extends DescribeModelCardExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an Amazon SageMaker Model Card export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeModelCardExportJobCommandOutput extends DescribeModelCa
  * import { SageMakerClient, DescribeModelCardExportJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeModelCardExportJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeModelCardExportJobRequest
+ *   ModelCardExportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeModelCardExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelCardExportJobCommandInput - {@link DescribeModelCardExportJobCommandInput}
+ * @returns {@link DescribeModelCardExportJobCommandOutput}
  * @see {@link DescribeModelCardExportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeModelCardExportJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +74,9 @@ export class DescribeModelCardExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelCardExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class DescribeModelCardExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelCardExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeModelCardExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +116,21 @@ export class DescribeModelCardExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelCardExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeModelCardExportJobCommand(input, context);
+    return se_DescribeModelCardExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeModelCardExportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeModelCardExportJobCommand(output, context);
+    return de_DescribeModelCardExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

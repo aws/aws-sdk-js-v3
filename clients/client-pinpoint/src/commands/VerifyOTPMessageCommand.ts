@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  VerifyOTPMessageRequest,
-  VerifyOTPMessageRequestFilterSensitiveLog,
-  VerifyOTPMessageResponse,
-  VerifyOTPMessageResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { VerifyOTPMessageRequest, VerifyOTPMessageResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1VerifyOTPMessageCommand,
-  serializeAws_restJson1VerifyOTPMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_VerifyOTPMessageCommand, se_VerifyOTPMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link VerifyOTPMessageCommand}.
  */
 export interface VerifyOTPMessageCommandInput extends VerifyOTPMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifyOTPMessageCommand}.
  */
 export interface VerifyOTPMessageCommandOutput extends VerifyOTPMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Verify an OTP</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface VerifyOTPMessageCommandOutput extends VerifyOTPMessageResponse,
  * import { PinpointClient, VerifyOTPMessageCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, VerifyOTPMessageCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // VerifyOTPMessageRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   VerifyOTPMessageRequestParameters: { // VerifyOTPMessageRequestParameters
+ *     DestinationIdentity: "STRING_VALUE", // required
+ *     Otp: "STRING_VALUE", // required
+ *     ReferenceId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new VerifyOTPMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifyOTPMessageCommandInput - {@link VerifyOTPMessageCommandInput}
+ * @returns {@link VerifyOTPMessageCommandOutput}
  * @see {@link VerifyOTPMessageCommandInput} for command's `input` shape.
  * @see {@link VerifyOTPMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class VerifyOTPMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyOTPMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +128,8 @@ export class VerifyOTPMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifyOTPMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VerifyOTPMessageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +139,18 @@ export class VerifyOTPMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyOTPMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1VerifyOTPMessageCommand(input, context);
+    return se_VerifyOTPMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyOTPMessageCommandOutput> {
-    return deserializeAws_restJson1VerifyOTPMessageCommand(output, context);
+    return de_VerifyOTPMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

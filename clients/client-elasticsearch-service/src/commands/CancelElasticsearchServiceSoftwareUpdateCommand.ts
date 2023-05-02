@@ -20,21 +20,23 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   CancelElasticsearchServiceSoftwareUpdateRequest,
-  CancelElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog,
   CancelElasticsearchServiceSoftwareUpdateResponse,
-  CancelElasticsearchServiceSoftwareUpdateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand,
-  serializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand,
+  de_CancelElasticsearchServiceSoftwareUpdateCommand,
+  se_CancelElasticsearchServiceSoftwareUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelElasticsearchServiceSoftwareUpdateCommand}.
  */
 export interface CancelElasticsearchServiceSoftwareUpdateCommandInput
   extends CancelElasticsearchServiceSoftwareUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelElasticsearchServiceSoftwareUpdateCommand}.
  */
 export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
@@ -42,6 +44,7 @@ export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +52,15 @@ export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
  * import { ElasticsearchServiceClient, CancelElasticsearchServiceSoftwareUpdateCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, CancelElasticsearchServiceSoftwareUpdateCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // CancelElasticsearchServiceSoftwareUpdateRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new CancelElasticsearchServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelElasticsearchServiceSoftwareUpdateCommandInput - {@link CancelElasticsearchServiceSoftwareUpdateCommandInput}
+ * @returns {@link CancelElasticsearchServiceSoftwareUpdateCommandOutput}
  * @see {@link CancelElasticsearchServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link CancelElasticsearchServiceSoftwareUpdateCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -88,6 +96,9 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelElasticsearchServiceSoftwareUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +133,8 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelElasticsearchServiceSoftwareUpdateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +144,24 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelElasticsearchServiceSoftwareUpdateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand(input, context);
+    return se_CancelElasticsearchServiceSoftwareUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> {
-    return deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand(output, context);
+    return de_CancelElasticsearchServiceSoftwareUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

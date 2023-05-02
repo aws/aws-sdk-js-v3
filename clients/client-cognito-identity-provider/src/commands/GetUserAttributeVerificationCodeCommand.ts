@@ -22,18 +22,21 @@ import {
   GetUserAttributeVerificationCodeRequest,
   GetUserAttributeVerificationCodeRequestFilterSensitiveLog,
   GetUserAttributeVerificationCodeResponse,
-  GetUserAttributeVerificationCodeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetUserAttributeVerificationCodeCommand,
-  serializeAws_json1_1GetUserAttributeVerificationCodeCommand,
+  de_GetUserAttributeVerificationCodeCommand,
+  se_GetUserAttributeVerificationCodeCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserAttributeVerificationCodeCommand}.
  */
 export interface GetUserAttributeVerificationCodeCommandInput extends GetUserAttributeVerificationCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserAttributeVerificationCodeCommand}.
  */
 export interface GetUserAttributeVerificationCodeCommandOutput
@@ -41,6 +44,7 @@ export interface GetUserAttributeVerificationCodeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a user attribute verification code for the specified attribute name. Sends a
  *             message to a user with a code that they must return in a VerifyUserAttribute
  *             request.</p>
@@ -68,10 +72,19 @@ export interface GetUserAttributeVerificationCodeCommandOutput
  * import { CognitoIdentityProviderClient, GetUserAttributeVerificationCodeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetUserAttributeVerificationCodeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // GetUserAttributeVerificationCodeRequest
+ *   AccessToken: "STRING_VALUE", // required
+ *   AttributeName: "STRING_VALUE", // required
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetUserAttributeVerificationCodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserAttributeVerificationCodeCommandInput - {@link GetUserAttributeVerificationCodeCommandInput}
+ * @returns {@link GetUserAttributeVerificationCodeCommandOutput}
  * @see {@link GetUserAttributeVerificationCodeCommandInput} for command's `input` shape.
  * @see {@link GetUserAttributeVerificationCodeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -158,6 +171,9 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserAttributeVerificationCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,7 +203,7 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetUserAttributeVerificationCodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserAttributeVerificationCodeResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -197,18 +213,24 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetUserAttributeVerificationCodeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUserAttributeVerificationCodeCommand(input, context);
+    return se_GetUserAttributeVerificationCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUserAttributeVerificationCodeCommandOutput> {
-    return deserializeAws_json1_1GetUserAttributeVerificationCodeCommand(output, context);
+    return de_GetUserAttributeVerificationCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

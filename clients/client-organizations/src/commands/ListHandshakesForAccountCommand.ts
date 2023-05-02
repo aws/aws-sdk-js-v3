@@ -15,26 +15,27 @@ import {
 
 import {
   ListHandshakesForAccountRequest,
-  ListHandshakesForAccountRequestFilterSensitiveLog,
   ListHandshakesForAccountResponse,
   ListHandshakesForAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListHandshakesForAccountCommand,
-  serializeAws_json1_1ListHandshakesForAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListHandshakesForAccountCommand, se_ListHandshakesForAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListHandshakesForAccountCommand}.
  */
 export interface ListHandshakesForAccountCommandInput extends ListHandshakesForAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHandshakesForAccountCommand}.
  */
 export interface ListHandshakesForAccountCommandOutput extends ListHandshakesForAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the current handshakes that are associated with the account of the requesting
  *             user.</p>
  *          <p>Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>,
@@ -56,10 +57,20 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  * import { OrganizationsClient, ListHandshakesForAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListHandshakesForAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // ListHandshakesForAccountRequest
+ *   Filter: { // HandshakeFilter
+ *     ActionType: "INVITE" || "ENABLE_ALL_FEATURES" || "APPROVE_ALL_FEATURES" || "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
+ *     ParentHandshakeId: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListHandshakesForAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHandshakesForAccountCommandInput - {@link ListHandshakesForAccountCommandInput}
+ * @returns {@link ListHandshakesForAccountCommandOutput}
  * @see {@link ListHandshakesForAccountCommandInput} for command's `input` shape.
  * @see {@link ListHandshakesForAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -266,6 +277,9 @@ export class ListHandshakesForAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHandshakesForAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -294,7 +308,7 @@ export class ListHandshakesForAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHandshakesForAccountRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListHandshakesForAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -305,12 +319,18 @@ export class ListHandshakesForAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHandshakesForAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHandshakesForAccountCommand(input, context);
+    return se_ListHandshakesForAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHandshakesForAccountCommandOutput> {
-    return deserializeAws_json1_1ListHandshakesForAccountCommand(output, context);
+    return de_ListHandshakesForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

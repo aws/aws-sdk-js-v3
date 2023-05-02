@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePoolRequest,
-  UpdatePoolRequestFilterSensitiveLog,
-  UpdatePoolResult,
-  UpdatePoolResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePoolRequest, UpdatePoolResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0UpdatePoolCommand,
-  serializeAws_json1_0UpdatePoolCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdatePoolCommand, se_UpdatePoolCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePoolCommand}.
  */
 export interface UpdatePoolCommandInput extends UpdatePoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePoolCommand}.
  */
 export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of an existing pool. You can update the opt-out list, enable
  *             or disable two-way messaging, change the <code>TwoWayChannelArn</code>, enable or
  *             disable self-managed opt-outs, enable or disable deletion protection, and enable or
@@ -49,10 +46,21 @@ export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBea
  * import { PinpointSMSVoiceV2Client, UpdatePoolCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, UpdatePoolCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // UpdatePoolRequest
+ *   PoolId: "STRING_VALUE", // required
+ *   TwoWayEnabled: true || false,
+ *   TwoWayChannelArn: "STRING_VALUE",
+ *   SelfManagedOptOutsEnabled: true || false,
+ *   OptOutListName: "STRING_VALUE",
+ *   SharedRoutesEnabled: true || false,
+ *   DeletionProtectionEnabled: true || false,
+ * };
  * const command = new UpdatePoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePoolCommandInput - {@link UpdatePoolCommandInput}
+ * @returns {@link UpdatePoolCommandOutput}
  * @see {@link UpdatePoolCommandInput} for command's `input` shape.
  * @see {@link UpdatePoolCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -100,6 +108,9 @@ export class UpdatePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +137,8 @@ export class UpdatePoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +148,18 @@ export class UpdatePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdatePoolCommand(input, context);
+    return se_UpdatePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePoolCommandOutput> {
-    return deserializeAws_json1_0UpdatePoolCommand(output, context);
+    return de_UpdatePoolCommand(output, context);
   }
 
   // Start section: command_body_extra

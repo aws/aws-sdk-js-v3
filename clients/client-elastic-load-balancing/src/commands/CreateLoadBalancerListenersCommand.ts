@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  CreateLoadBalancerListenerInput,
-  CreateLoadBalancerListenerInputFilterSensitiveLog,
-  CreateLoadBalancerListenerOutput,
-  CreateLoadBalancerListenerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateLoadBalancerListenersCommand,
-  serializeAws_queryCreateLoadBalancerListenersCommand,
-} from "../protocols/Aws_query";
+import { CreateLoadBalancerListenerInput, CreateLoadBalancerListenerOutput } from "../models/models_0";
+import { de_CreateLoadBalancerListenersCommand, se_CreateLoadBalancerListenersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLoadBalancerListenersCommand}.
  */
 export interface CreateLoadBalancerListenersCommandInput extends CreateLoadBalancerListenerInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateLoadBalancerListenersCommand}.
  */
 export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBalancerListenerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
@@ -48,10 +45,24 @@ export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBala
  * import { ElasticLoadBalancingClient, CreateLoadBalancerListenersCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, CreateLoadBalancerListenersCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // CreateLoadBalancerListenerInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   Listeners: [ // Listeners // required
+ *     { // Listener
+ *       Protocol: "STRING_VALUE", // required
+ *       LoadBalancerPort: Number("int"), // required
+ *       InstanceProtocol: "STRING_VALUE",
+ *       InstancePort: Number("int"), // required
+ *       SSLCertificateId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLoadBalancerListenersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoadBalancerListenersCommandInput - {@link CreateLoadBalancerListenersCommandInput}
+ * @returns {@link CreateLoadBalancerListenersCommandOutput}
  * @see {@link CreateLoadBalancerListenersCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerListenersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -131,6 +142,9 @@ export class CreateLoadBalancerListenersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoadBalancerListenersCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,8 +173,8 @@ export class CreateLoadBalancerListenersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLoadBalancerListenerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLoadBalancerListenerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,15 +184,21 @@ export class CreateLoadBalancerListenersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoadBalancerListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateLoadBalancerListenersCommand(input, context);
+    return se_CreateLoadBalancerListenersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLoadBalancerListenersCommandOutput> {
-    return deserializeAws_queryCreateLoadBalancerListenersCommand(output, context);
+    return de_CreateLoadBalancerListenersCommand(output, context);
   }
 
   // Start section: command_body_extra

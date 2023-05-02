@@ -14,32 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  GetAttendeeRequest,
-  GetAttendeeRequestFilterSensitiveLog,
-  GetAttendeeResponse,
-  GetAttendeeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAttendeeCommand,
-  serializeAws_restJson1GetAttendeeCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAttendeeRequest, GetAttendeeResponse, GetAttendeeResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetAttendeeCommand, se_GetAttendeeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAttendeeCommand}.
  */
 export interface GetAttendeeCommandInput extends GetAttendeeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAttendeeCommand}.
  */
 export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see
- * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
+ * <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
  * in the
- * <i>Amazon Chime Developer Guide</i>
+ * <i>Amazon Chime SDK Developer Guide</i>
  * .
  * </p>
  * @example
@@ -48,10 +45,16 @@ export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __Metadat
  * import { ChimeClient, GetAttendeeCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetAttendeeCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // GetAttendeeRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   AttendeeId: "STRING_VALUE", // required
+ * };
  * const command = new GetAttendeeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAttendeeCommandInput - {@link GetAttendeeCommandInput}
+ * @returns {@link GetAttendeeCommandOutput}
  * @see {@link GetAttendeeCommandInput} for command's `input` shape.
  * @see {@link GetAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -96,6 +99,9 @@ export class GetAttendeeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAttendeeCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,7 +128,7 @@ export class GetAttendeeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAttendeeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetAttendeeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -133,12 +139,18 @@ export class GetAttendeeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAttendeeCommand(input, context);
+    return se_GetAttendeeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttendeeCommandOutput> {
-    return deserializeAws_restJson1GetAttendeeCommand(output, context);
+    return de_GetAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

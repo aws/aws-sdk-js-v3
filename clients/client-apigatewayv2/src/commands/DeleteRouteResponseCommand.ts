@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteRouteResponseRequest, DeleteRouteResponseRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRouteResponseCommand,
-  serializeAws_restJson1DeleteRouteResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRouteResponseRequest } from "../models/models_0";
+import { de_DeleteRouteResponseCommand, se_DeleteRouteResponseCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRouteResponseCommand}.
  */
 export interface DeleteRouteResponseCommandInput extends DeleteRouteResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRouteResponseCommand}.
  */
 export interface DeleteRouteResponseCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a RouteResponse.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,17 @@ export interface DeleteRouteResponseCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteRouteResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteRouteResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // DeleteRouteResponseRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   RouteId: "STRING_VALUE", // required
+ *   RouteResponseId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRouteResponseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRouteResponseCommandInput - {@link DeleteRouteResponseCommandInput}
+ * @returns {@link DeleteRouteResponseCommandOutput}
  * @see {@link DeleteRouteResponseCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -70,6 +79,9 @@ export class DeleteRouteResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRouteResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +110,8 @@ export class DeleteRouteResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRouteResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +121,18 @@ export class DeleteRouteResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRouteResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRouteResponseCommand(input, context);
+    return se_DeleteRouteResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteResponseCommandOutput> {
-    return deserializeAws_restJson1DeleteRouteResponseCommand(output, context);
+    return de_DeleteRouteResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

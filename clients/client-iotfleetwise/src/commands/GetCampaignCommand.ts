@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  GetCampaignRequest,
-  GetCampaignRequestFilterSensitiveLog,
-  GetCampaignResponse,
-  GetCampaignResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetCampaignCommand,
-  serializeAws_json1_0GetCampaignCommand,
-} from "../protocols/Aws_json1_0";
+import { GetCampaignRequest, GetCampaignResponse } from "../models/models_0";
+import { de_GetCampaignCommand, se_GetCampaignCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetCampaignCommand}.
  */
 export interface GetCampaignCommandInput extends GetCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCampaignCommand}.
  */
 export interface GetCampaignCommandOutput extends GetCampaignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about a campaign. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * import { IoTFleetWiseClient, GetCampaignCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetCampaignCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // GetCampaignRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCampaignCommandInput - {@link GetCampaignCommandInput}
+ * @returns {@link GetCampaignCommandOutput}
  * @see {@link GetCampaignCommandInput} for command's `input` shape.
  * @see {@link GetCampaignCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCampaignResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetCampaignCommand(input, context);
+    return se_GetCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignCommandOutput> {
-    return deserializeAws_json1_0GetCampaignCommand(output, context);
+    return de_GetCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

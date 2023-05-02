@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutContactPolicyRequest,
-  PutContactPolicyRequestFilterSensitiveLog,
-  PutContactPolicyResult,
-  PutContactPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutContactPolicyCommand,
-  serializeAws_json1_1PutContactPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutContactPolicyRequest, PutContactPolicyResult } from "../models/models_0";
+import { de_PutContactPolicyCommand, se_PutContactPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutContactPolicyCommand}.
  */
 export interface PutContactPolicyCommandInput extends PutContactPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutContactPolicyCommand}.
  */
 export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a resource policy to the specified contact or escalation plan. The resource policy
  *          is used to share the contact or escalation plan using Resource Access Manager (RAM). For more information about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html">Setting up
  *             cross-account functionality</a>.</p>
@@ -44,10 +41,16 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  * import { SSMContactsClient, PutContactPolicyCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, PutContactPolicyCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // PutContactPolicyRequest
+ *   ContactArn: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutContactPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutContactPolicyCommandInput - {@link PutContactPolicyCommandInput}
+ * @returns {@link PutContactPolicyCommandOutput}
  * @see {@link PutContactPolicyCommandInput} for command's `input` shape.
  * @see {@link PutContactPolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -59,8 +62,7 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  *  <p>Updating or deleting a resource causes an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>
@@ -72,18 +74,6 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
- *
- * @example To share a contact and engagements
- * ```javascript
- * // The following put-contact-policy example adds a resource policy to the contact Akua that shares the contact and related engagements with the principal.
- * const input = {
- *   "ContactArn": "arn:aws:ssm-contacts:us-east-1:111122223333:contact/akuam",
- *   "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"ExampleResourcePolicy\",\"Action\":[\"ssm-contacts:GetContact\",\"ssm-contacts:StartEngagement\",\"ssm-contacts:DescribeEngagement\",\"ssm-contacts:ListPagesByEngagement\",\"ssm-contacts:StopEngagement\"],\"Principal\":{\"AWS\":\"222233334444\"},\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:ssm-contacts:*:111122223333:contact/akuam\",\"arn:aws:ssm-contacts:*:111122223333:engagement/akuam/*\"]}]}"
- * };
- * const command = new PutContactPolicyCommand(input);
- * await client.send(command);
- * // example id: to-share-a-contact-and-engagements-1630436278898
- * ```
  *
  */
 export class PutContactPolicyCommand extends $Command<
@@ -103,6 +93,9 @@ export class PutContactPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutContactPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +124,8 @@ export class PutContactPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutContactPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutContactPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +135,18 @@ export class PutContactPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutContactPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutContactPolicyCommand(input, context);
+    return se_PutContactPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutContactPolicyCommandOutput> {
-    return deserializeAws_json1_1PutContactPolicyCommand(output, context);
+    return de_PutContactPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

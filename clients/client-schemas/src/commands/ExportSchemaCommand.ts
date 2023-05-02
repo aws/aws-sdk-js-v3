@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ExportSchemaRequest,
-  ExportSchemaRequestFilterSensitiveLog,
-  ExportSchemaResponse,
-  ExportSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportSchemaCommand,
-  serializeAws_restJson1ExportSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { ExportSchemaRequest, ExportSchemaResponse } from "../models/models_0";
+import { de_ExportSchemaCommand, se_ExportSchemaCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link ExportSchemaCommand}.
  */
 export interface ExportSchemaCommandInput extends ExportSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportSchemaCommand}.
  */
 export interface ExportSchemaCommandOutput extends ExportSchemaResponse, __MetadataBearer {}
@@ -51,6 +47,9 @@ export class ExportSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,8 +76,8 @@ export class ExportSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +87,18 @@ export class ExportSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportSchemaCommand(input, context);
+    return se_ExportSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportSchemaCommandOutput> {
-    return deserializeAws_restJson1ExportSchemaCommand(output, context);
+    return de_ExportSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

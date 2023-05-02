@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDBClusterParameterGroupMessage,
-  DeleteDBClusterParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDBClusterParameterGroupMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryDeleteDBClusterParameterGroupCommand,
-  serializeAws_queryDeleteDBClusterParameterGroupCommand,
+  de_DeleteDBClusterParameterGroupCommand,
+  se_DeleteDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBClusterParameterGroupCommand}.
  */
 export interface DeleteDBClusterParameterGroupCommandInput extends DeleteDBClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBClusterParameterGroupCommand}.
  */
 export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be
  *       deleted can't be associated with any DB clusters.</p>
  * @example
@@ -41,10 +43,15 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * import { NeptuneClient, DeleteDBClusterParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DeleteDBClusterParameterGroupMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBClusterParameterGroupCommandInput - {@link DeleteDBClusterParameterGroupCommandInput}
+ * @returns {@link DeleteDBClusterParameterGroupCommandOutput}
  * @see {@link DeleteDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +115,8 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +126,21 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterParameterGroupCommand(input, context);
+    return se_DeleteDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterParameterGroupCommand(output, context);
+    return de_DeleteDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

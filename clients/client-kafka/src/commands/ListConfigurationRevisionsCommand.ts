@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  ListConfigurationRevisionsRequest,
-  ListConfigurationRevisionsRequestFilterSensitiveLog,
-  ListConfigurationRevisionsResponse,
-  ListConfigurationRevisionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListConfigurationRevisionsCommand,
-  serializeAws_restJson1ListConfigurationRevisionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListConfigurationRevisionsRequest, ListConfigurationRevisionsResponse } from "../models/models_0";
+import { de_ListConfigurationRevisionsCommand, se_ListConfigurationRevisionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConfigurationRevisionsCommand}.
  */
 export interface ListConfigurationRevisionsCommandInput extends ListConfigurationRevisionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConfigurationRevisionsCommand}.
  */
 export interface ListConfigurationRevisionsCommandOutput extends ListConfigurationRevisionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the MSK configurations in this Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * import { KafkaClient, ListConfigurationRevisionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListConfigurationRevisionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // ListConfigurationRevisionsRequest
+ *   Arn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListConfigurationRevisionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigurationRevisionsCommandInput - {@link ListConfigurationRevisionsCommandInput}
+ * @returns {@link ListConfigurationRevisionsCommandOutput}
  * @see {@link ListConfigurationRevisionsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationRevisionsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -87,6 +91,9 @@ export class ListConfigurationRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListConfigurationRevisionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigurationRevisionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConfigurationRevisionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +133,21 @@ export class ListConfigurationRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfigurationRevisionsCommand(input, context);
+    return se_ListConfigurationRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConfigurationRevisionsCommandOutput> {
-    return deserializeAws_restJson1ListConfigurationRevisionsCommand(output, context);
+    return de_ListConfigurationRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

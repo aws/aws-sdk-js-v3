@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSolFunctionPackagesInput,
-  ListSolFunctionPackagesInputFilterSensitiveLog,
-  ListSolFunctionPackagesOutput,
-  ListSolFunctionPackagesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSolFunctionPackagesCommand,
-  serializeAws_restJson1ListSolFunctionPackagesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSolFunctionPackagesInput, ListSolFunctionPackagesOutput } from "../models/models_0";
+import { de_ListSolFunctionPackagesCommand, se_ListSolFunctionPackagesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSolFunctionPackagesCommand}.
  */
 export interface ListSolFunctionPackagesCommandInput extends ListSolFunctionPackagesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSolFunctionPackagesCommand}.
  */
 export interface ListSolFunctionPackagesCommandOutput extends ListSolFunctionPackagesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about function packages.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListSolFunctionPackagesCommandOutput extends ListSolFunctionPac
  * import { TnbClient, ListSolFunctionPackagesCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ListSolFunctionPackagesCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // ListSolFunctionPackagesInput
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSolFunctionPackagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSolFunctionPackagesCommandInput - {@link ListSolFunctionPackagesCommandInput}
+ * @returns {@link ListSolFunctionPackagesCommandOutput}
  * @see {@link ListSolFunctionPackagesCommandInput} for command's `input` shape.
  * @see {@link ListSolFunctionPackagesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListSolFunctionPackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSolFunctionPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class ListSolFunctionPackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSolFunctionPackagesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSolFunctionPackagesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class ListSolFunctionPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSolFunctionPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSolFunctionPackagesCommand(input, context);
+    return se_ListSolFunctionPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolFunctionPackagesCommandOutput> {
-    return deserializeAws_restJson1ListSolFunctionPackagesCommand(output, context);
+    return de_ListSolFunctionPackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

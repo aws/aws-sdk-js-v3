@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  PutProtocolsListRequest,
-  PutProtocolsListRequestFilterSensitiveLog,
-  PutProtocolsListResponse,
-  PutProtocolsListResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutProtocolsListCommand,
-  serializeAws_json1_1PutProtocolsListCommand,
-} from "../protocols/Aws_json1_1";
+import { PutProtocolsListRequest, PutProtocolsListResponse } from "../models/models_0";
+import { de_PutProtocolsListCommand, se_PutProtocolsListCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutProtocolsListCommand}.
  */
 export interface PutProtocolsListCommandInput extends PutProtocolsListRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutProtocolsListCommand}.
  */
 export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Firewall Manager protocols list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,35 @@ export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse,
  * import { FMSClient, PutProtocolsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, PutProtocolsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // PutProtocolsListRequest
+ *   ProtocolsList: { // ProtocolsListData
+ *     ListId: "STRING_VALUE",
+ *     ListName: "STRING_VALUE", // required
+ *     ListUpdateToken: "STRING_VALUE",
+ *     CreateTime: new Date("TIMESTAMP"),
+ *     LastUpdateTime: new Date("TIMESTAMP"),
+ *     ProtocolsList: [ // ProtocolsList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     PreviousProtocolsList: { // PreviousProtocolsList
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutProtocolsListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutProtocolsListCommandInput - {@link PutProtocolsListCommandInput}
+ * @returns {@link PutProtocolsListCommandOutput}
  * @see {@link PutProtocolsListCommandInput} for command's `input` shape.
  * @see {@link PutProtocolsListCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -92,6 +114,9 @@ export class PutProtocolsListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutProtocolsListCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +145,8 @@ export class PutProtocolsListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutProtocolsListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutProtocolsListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +156,18 @@ export class PutProtocolsListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutProtocolsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutProtocolsListCommand(input, context);
+    return se_PutProtocolsListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutProtocolsListCommandOutput> {
-    return deserializeAws_json1_1PutProtocolsListCommand(output, context);
+    return de_PutProtocolsListCommand(output, context);
   }
 
   // Start section: command_body_extra

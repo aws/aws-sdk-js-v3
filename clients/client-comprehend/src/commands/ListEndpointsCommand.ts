@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  ListEndpointsRequest,
-  ListEndpointsRequestFilterSensitiveLog,
-  ListEndpointsResponse,
-  ListEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEndpointsCommand,
-  serializeAws_json1_1ListEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEndpointsRequest, ListEndpointsResponse } from "../models/models_0";
+import { de_ListEndpointsCommand, se_ListEndpointsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEndpointsCommand}.
  */
 export interface ListEndpointsCommandInput extends ListEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEndpointsCommand}.
  */
 export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all existing endpoints that you've created.
  *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  * @example
@@ -43,10 +40,22 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  * import { ComprehendClient, ListEndpointsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListEndpointsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListEndpointsRequest
+ *   Filter: { // EndpointFilter
+ *     ModelArn: "STRING_VALUE",
+ *     Status: "CREATING" || "DELETING" || "FAILED" || "IN_SERVICE" || "UPDATING",
+ *     CreationTimeBefore: new Date("TIMESTAMP"),
+ *     CreationTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEndpointsCommandInput - {@link ListEndpointsCommandInput}
+ * @returns {@link ListEndpointsCommandOutput}
  * @see {@link ListEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -79,6 +88,9 @@ export class ListEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +117,8 @@ export class ListEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +128,18 @@ export class ListEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEndpointsCommand(input, context);
+    return se_ListEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEndpointsCommandOutput> {
-    return deserializeAws_json1_1ListEndpointsCommand(output, context);
+    return de_ListEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

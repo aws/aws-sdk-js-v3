@@ -16,25 +16,26 @@ import {
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import {
   AssociateLicenseRequest,
-  AssociateLicenseRequestFilterSensitiveLog,
   AssociateLicenseResponse,
   AssociateLicenseResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateLicenseCommand,
-  serializeAws_restJson1AssociateLicenseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateLicenseCommand, se_AssociateLicenseCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateLicenseCommand}.
  */
 export interface AssociateLicenseCommandInput extends AssociateLicenseRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateLicenseCommand}.
  */
 export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns a Grafana Enterprise license to a workspace. Upgrading to Grafana Enterprise
  *             incurs additional fees. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html">Upgrade a
  *                 workspace to Grafana Enterprise</a>.</p>
@@ -44,10 +45,16 @@ export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse,
  * import { GrafanaClient, AssociateLicenseCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, AssociateLicenseCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // AssociateLicenseRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   licenseType: "STRING_VALUE", // required
+ * };
  * const command = new AssociateLicenseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateLicenseCommandInput - {@link AssociateLicenseCommandInput}
+ * @returns {@link AssociateLicenseCommandOutput}
  * @see {@link AssociateLicenseCommandInput} for command's `input` shape.
  * @see {@link AssociateLicenseCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -86,6 +93,9 @@ export class AssociateLicenseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateLicenseCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,7 +124,7 @@ export class AssociateLicenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateLicenseRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: AssociateLicenseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -125,12 +135,18 @@ export class AssociateLicenseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateLicenseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateLicenseCommand(input, context);
+    return se_AssociateLicenseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLicenseCommandOutput> {
-    return deserializeAws_restJson1AssociateLicenseCommand(output, context);
+    return de_AssociateLicenseCommand(output, context);
   }
 
   // Start section: command_body_extra

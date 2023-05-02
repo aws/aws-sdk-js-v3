@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import {
-  DescribeInputRequest,
-  DescribeInputRequestFilterSensitiveLog,
-  DescribeInputResponse,
-  DescribeInputResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeInputCommand,
-  serializeAws_restJson1DescribeInputCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeInputRequest, DescribeInputResponse } from "../models/models_0";
+import { de_DescribeInputCommand, se_DescribeInputCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInputCommand}.
  */
 export interface DescribeInputCommandInput extends DescribeInputRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInputCommand}.
  */
 export interface DescribeInputCommandOutput extends DescribeInputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  * import { IoTEventsClient, DescribeInputCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DescribeInputCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // DescribeInputRequest
+ *   inputName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInputCommandInput - {@link DescribeInputCommandInput}
+ * @returns {@link DescribeInputCommandOutput}
  * @see {@link DescribeInputCommandInput} for command's `input` shape.
  * @see {@link DescribeInputCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -84,6 +86,9 @@ export class DescribeInputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DescribeInputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DescribeInputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInputCommand(input, context);
+    return se_DescribeInputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInputCommandOutput> {
-    return deserializeAws_restJson1DescribeInputCommand(output, context);
+    return de_DescribeInputCommand(output, context);
   }
 
   // Start section: command_body_extra

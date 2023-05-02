@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CancelMaintenanceWindowExecutionRequest, CancelMaintenanceWindowExecutionResult } from "../models/models_0";
 import {
-  CancelMaintenanceWindowExecutionRequest,
-  CancelMaintenanceWindowExecutionRequestFilterSensitiveLog,
-  CancelMaintenanceWindowExecutionResult,
-  CancelMaintenanceWindowExecutionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand,
-  serializeAws_json1_1CancelMaintenanceWindowExecutionCommand,
+  de_CancelMaintenanceWindowExecutionCommand,
+  se_CancelMaintenanceWindowExecutionCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelMaintenanceWindowExecutionCommand}.
  */
 export interface CancelMaintenanceWindowExecutionCommandInput extends CancelMaintenanceWindowExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelMaintenanceWindowExecutionCommand}.
  */
 export interface CancelMaintenanceWindowExecutionCommandOutput
@@ -37,6 +36,7 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a maintenance window execution that is already in progress and cancels any tasks in
  *    the window that haven't already starting running. Tasks already in progress will continue to
  *    completion.</p>
@@ -46,10 +46,15 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
  * import { SSMClient, CancelMaintenanceWindowExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CancelMaintenanceWindowExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // CancelMaintenanceWindowExecutionRequest
+ *   WindowExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new CancelMaintenanceWindowExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelMaintenanceWindowExecutionCommandInput - {@link CancelMaintenanceWindowExecutionCommandInput}
+ * @returns {@link CancelMaintenanceWindowExecutionCommandOutput}
  * @see {@link CancelMaintenanceWindowExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelMaintenanceWindowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -82,6 +87,9 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelMaintenanceWindowExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +118,8 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelMaintenanceWindowExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelMaintenanceWindowExecutionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +129,24 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelMaintenanceWindowExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelMaintenanceWindowExecutionCommand(input, context);
+    return se_CancelMaintenanceWindowExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelMaintenanceWindowExecutionCommandOutput> {
-    return deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand(output, context);
+    return de_CancelMaintenanceWindowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

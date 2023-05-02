@@ -10,7 +10,7 @@ import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClien
 import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DatabaseMigrationServiceClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeReplicationTaskIndividualAssessmentsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeReplicationTaskIndividualAssessments(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeReplicationTaskIndividualAssessmentsCommandInput,

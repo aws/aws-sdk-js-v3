@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { DescribeRefreshSchemasStatusMessage, DescribeRefreshSchemasStatusResponse } from "../models/models_0";
 import {
-  DescribeRefreshSchemasStatusMessage,
-  DescribeRefreshSchemasStatusMessageFilterSensitiveLog,
-  DescribeRefreshSchemasStatusResponse,
-  DescribeRefreshSchemasStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRefreshSchemasStatusCommand,
-  serializeAws_json1_1DescribeRefreshSchemasStatusCommand,
+  de_DescribeRefreshSchemasStatusCommand,
+  se_DescribeRefreshSchemasStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRefreshSchemasStatusCommand}.
  */
 export interface DescribeRefreshSchemasStatusCommandInput extends DescribeRefreshSchemasStatusMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRefreshSchemasStatusCommand}.
  */
 export interface DescribeRefreshSchemasStatusCommandOutput
@@ -41,6 +40,7 @@ export interface DescribeRefreshSchemasStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the status of the RefreshSchemas operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +48,15 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeRefreshSchemasStatusCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeRefreshSchemasStatusCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeRefreshSchemasStatusMessage
+ *   EndpointArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRefreshSchemasStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRefreshSchemasStatusCommandInput - {@link DescribeRefreshSchemasStatusCommandInput}
+ * @returns {@link DescribeRefreshSchemasStatusCommandOutput}
  * @see {@link DescribeRefreshSchemasStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeRefreshSchemasStatusCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -97,6 +102,9 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRefreshSchemasStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +133,8 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRefreshSchemasStatusMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRefreshSchemasStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,15 +144,21 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRefreshSchemasStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRefreshSchemasStatusCommand(input, context);
+    return se_DescribeRefreshSchemasStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRefreshSchemasStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeRefreshSchemasStatusCommand(output, context);
+    return de_DescribeRefreshSchemasStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

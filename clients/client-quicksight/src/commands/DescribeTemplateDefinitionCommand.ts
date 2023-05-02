@@ -15,26 +15,27 @@ import {
 
 import {
   DescribeTemplateDefinitionRequest,
-  DescribeTemplateDefinitionRequestFilterSensitiveLog,
   DescribeTemplateDefinitionResponse,
   DescribeTemplateDefinitionResponseFilterSensitiveLog,
 } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeTemplateDefinitionCommand,
-  serializeAws_restJson1DescribeTemplateDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeTemplateDefinitionCommand, se_DescribeTemplateDefinitionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTemplateDefinitionCommand}.
  */
 export interface DescribeTemplateDefinitionCommandInput extends DescribeTemplateDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTemplateDefinitionCommand}.
  */
 export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplateDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a detailed description of the definition of a template.</p>
  *          <note>
  *             <p>If you do not need to know details about the content of a template, for instance if you
@@ -50,10 +51,18 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * import { QuickSightClient, DescribeTemplateDefinitionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeTemplateDefinitionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeTemplateDefinitionRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   TemplateId: "STRING_VALUE", // required
+ *   VersionNumber: Number("long"),
+ *   AliasName: "STRING_VALUE",
+ * };
  * const command = new DescribeTemplateDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTemplateDefinitionCommandInput - {@link DescribeTemplateDefinitionCommandInput}
+ * @returns {@link DescribeTemplateDefinitionCommandOutput}
  * @see {@link DescribeTemplateDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeTemplateDefinitionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -107,6 +116,9 @@ export class DescribeTemplateDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTemplateDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,7 +147,7 @@ export class DescribeTemplateDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTemplateDefinitionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeTemplateDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -146,15 +158,21 @@ export class DescribeTemplateDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTemplateDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTemplateDefinitionCommand(input, context);
+    return se_DescribeTemplateDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTemplateDefinitionCommandOutput> {
-    return deserializeAws_restJson1DescribeTemplateDefinitionCommand(output, context);
+    return de_DescribeTemplateDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { KeyspacesClient } from "../KeyspacesClient";
 import { KeyspacesPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KeyspacesClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListKeyspacesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListKeyspaces(
   config: KeyspacesPaginationConfiguration,
   input: ListKeyspacesCommandInput,

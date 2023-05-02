@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeRaidArraysRequest,
-  DescribeRaidArraysRequestFilterSensitiveLog,
-  DescribeRaidArraysResult,
-  DescribeRaidArraysResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRaidArraysRequest, DescribeRaidArraysResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeRaidArraysCommand,
-  serializeAws_json1_1DescribeRaidArraysCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRaidArraysCommand, se_DescribeRaidArraysCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRaidArraysCommand}.
  */
 export interface DescribeRaidArraysCommandInput extends DescribeRaidArraysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRaidArraysCommand}.
  */
 export interface DescribeRaidArraysCommandOutput extends DescribeRaidArraysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe an instance's RAID arrays.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -50,10 +47,19 @@ export interface DescribeRaidArraysCommandOutput extends DescribeRaidArraysResul
  * import { OpsWorksClient, DescribeRaidArraysCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeRaidArraysCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeRaidArraysRequest
+ *   InstanceId: "STRING_VALUE",
+ *   StackId: "STRING_VALUE",
+ *   RaidArrayIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeRaidArraysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRaidArraysCommandInput - {@link DescribeRaidArraysCommandInput}
+ * @returns {@link DescribeRaidArraysCommandOutput}
  * @see {@link DescribeRaidArraysCommandInput} for command's `input` shape.
  * @see {@link DescribeRaidArraysCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -83,6 +89,9 @@ export class DescribeRaidArraysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRaidArraysCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +120,8 @@ export class DescribeRaidArraysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRaidArraysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRaidArraysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +131,18 @@ export class DescribeRaidArraysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRaidArraysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRaidArraysCommand(input, context);
+    return se_DescribeRaidArraysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRaidArraysCommandOutput> {
-    return deserializeAws_json1_1DescribeRaidArraysCommand(output, context);
+    return de_DescribeRaidArraysCommand(output, context);
   }
 
   // Start section: command_body_extra

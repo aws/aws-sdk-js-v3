@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetBlueprintsRequest,
-  GetBlueprintsRequestFilterSensitiveLog,
-  GetBlueprintsResult,
-  GetBlueprintsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetBlueprintsCommand,
-  serializeAws_json1_1GetBlueprintsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetBlueprintsRequest, GetBlueprintsResult } from "../models/models_0";
+import { de_GetBlueprintsCommand, se_GetBlueprintsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBlueprintsCommand}.
  */
 export interface GetBlueprintsCommandInput extends GetBlueprintsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBlueprintsCommand}.
  */
 export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of available instance images, or <i>blueprints</i>. You can
  *       use a blueprint to create a new instance already running a specific operating system, as well
  *       as a preinstalled app or development stack. The software each instance is running depends on
@@ -51,10 +48,17 @@ export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __Metad
  * import { LightsailClient, GetBlueprintsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBlueprintsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetBlueprintsRequest
+ *   includeInactive: true || false,
+ *   pageToken: "STRING_VALUE",
+ *   appCategory: "LfR",
+ * };
  * const command = new GetBlueprintsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBlueprintsCommandInput - {@link GetBlueprintsCommandInput}
+ * @returns {@link GetBlueprintsCommandOutput}
  * @see {@link GetBlueprintsCommandInput} for command's `input` shape.
  * @see {@link GetBlueprintsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -108,6 +112,9 @@ export class GetBlueprintsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBlueprintsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +141,8 @@ export class GetBlueprintsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBlueprintsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBlueprintsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +152,18 @@ export class GetBlueprintsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBlueprintsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBlueprintsCommand(input, context);
+    return se_GetBlueprintsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBlueprintsCommandOutput> {
-    return deserializeAws_json1_1GetBlueprintsCommand(output, context);
+    return de_GetBlueprintsCommand(output, context);
   }
 
   // Start section: command_body_extra

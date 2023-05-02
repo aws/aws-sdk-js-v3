@@ -200,6 +200,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateCapacityProviderCommandInput
   | CreateClusterCommandInput
@@ -258,6 +261,9 @@ export type ServiceInputTypes =
   | UpdateTaskProtectionCommandInput
   | UpdateTaskSetCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateCapacityProviderCommandOutput
   | CreateClusterCommandOutput
@@ -316,6 +322,9 @@ export type ServiceOutputTypes =
   | UpdateTaskProtectionCommandOutput
   | UpdateTaskSetCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -323,7 +332,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -432,11 +441,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ECSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -447,10 +459,15 @@ type ECSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ECSClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ECSClient class constructor that set the region, credentials and other options.
  */
 export interface ECSClientConfig extends ECSClientConfigType {}
 
+/**
+ * @public
+ */
 type ECSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -461,11 +478,14 @@ type ECSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ECSClient class. This is resolved and normalized from the {@link ECSClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ECSClient class. This is resolved and normalized from the {@link ECSClientConfig | constructor configuration interface}.
  */
 export interface ECSClientResolvedConfig extends ECSClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Elastic Container Service</fullname>
  *          <p>Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service. It makes
  * 			it easy to run, stop, and manage Docker containers. You can host your cluster on a

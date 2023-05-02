@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  ListUsageTotalsRequest,
-  ListUsageTotalsRequestFilterSensitiveLog,
-  ListUsageTotalsResponse,
-  ListUsageTotalsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListUsageTotalsCommand,
-  serializeAws_restJson1ListUsageTotalsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListUsageTotalsRequest, ListUsageTotalsResponse } from "../models/models_0";
+import { de_ListUsageTotalsCommand, se_ListUsageTotalsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUsageTotalsCommand}.
  */
 export interface ListUsageTotalsCommandInput extends ListUsageTotalsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUsageTotalsCommand}.
  */
 export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon Inspector usage totals over the last 30 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, _
  * import { Inspector2Client, ListUsageTotalsCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListUsageTotalsCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = { // ListUsageTotalsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   accountIds: [ // UsageAccountIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListUsageTotalsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUsageTotalsCommandInput - {@link ListUsageTotalsCommandInput}
+ * @returns {@link ListUsageTotalsCommandOutput}
  * @see {@link ListUsageTotalsCommandInput} for command's `input` shape.
  * @see {@link ListUsageTotalsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -82,6 +88,9 @@ export class ListUsageTotalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUsageTotalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +119,8 @@ export class ListUsageTotalsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUsageTotalsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUsageTotalsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +130,18 @@ export class ListUsageTotalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUsageTotalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUsageTotalsCommand(input, context);
+    return se_ListUsageTotalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsageTotalsCommandOutput> {
-    return deserializeAws_restJson1ListUsageTotalsCommand(output, context);
+    return de_ListUsageTotalsCommand(output, context);
   }
 
   // Start section: command_body_extra

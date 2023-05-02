@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListIAMPolicyAssignmentsForUserRequest, ListIAMPolicyAssignmentsForUserResponse } from "../models/models_3";
 import {
-  ListIAMPolicyAssignmentsForUserRequest,
-  ListIAMPolicyAssignmentsForUserRequestFilterSensitiveLog,
-  ListIAMPolicyAssignmentsForUserResponse,
-  ListIAMPolicyAssignmentsForUserResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand,
-  serializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand,
+  de_ListIAMPolicyAssignmentsForUserCommand,
+  se_ListIAMPolicyAssignmentsForUserCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListIAMPolicyAssignmentsForUserCommand}.
  */
 export interface ListIAMPolicyAssignmentsForUserCommandInput extends ListIAMPolicyAssignmentsForUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIAMPolicyAssignmentsForUserCommand}.
  */
 export interface ListIAMPolicyAssignmentsForUserCommandOutput
@@ -37,6 +36,7 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs) for the IAM
  * 			policies assigned to the specified user and group or groups that the user belongs
  * 			to.</p>
@@ -46,10 +46,19 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
  * import { QuickSightClient, ListIAMPolicyAssignmentsForUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListIAMPolicyAssignmentsForUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // ListIAMPolicyAssignmentsForUserRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Namespace: "STRING_VALUE", // required
+ * };
  * const command = new ListIAMPolicyAssignmentsForUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIAMPolicyAssignmentsForUserCommandInput - {@link ListIAMPolicyAssignmentsForUserCommandInput}
+ * @returns {@link ListIAMPolicyAssignmentsForUserCommandOutput}
  * @see {@link ListIAMPolicyAssignmentsForUserCommandInput} for command's `input` shape.
  * @see {@link ListIAMPolicyAssignmentsForUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -98,6 +107,9 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIAMPolicyAssignmentsForUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +138,8 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIAMPolicyAssignmentsForUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIAMPolicyAssignmentsForUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,18 +149,24 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListIAMPolicyAssignmentsForUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand(input, context);
+    return se_ListIAMPolicyAssignmentsForUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> {
-    return deserializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand(output, context);
+    return de_ListIAMPolicyAssignmentsForUserCommand(output, context);
   }
 
   // Start section: command_body_extra

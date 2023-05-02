@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRouteAnalysisRequest,
-  GetRouteAnalysisRequestFilterSensitiveLog,
-  GetRouteAnalysisResponse,
-  GetRouteAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRouteAnalysisRequest, GetRouteAnalysisResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetRouteAnalysisCommand,
-  serializeAws_restJson1GetRouteAnalysisCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRouteAnalysisCommand, se_GetRouteAnalysisCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRouteAnalysisCommand}.
  */
 export interface GetRouteAnalysisCommandInput extends GetRouteAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRouteAnalysisCommand}.
  */
 export interface GetRouteAnalysisCommandOutput extends GetRouteAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified route analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetRouteAnalysisCommandOutput extends GetRouteAnalysisResponse,
  * import { NetworkManagerClient, GetRouteAnalysisCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetRouteAnalysisCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetRouteAnalysisRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   RouteAnalysisId: "STRING_VALUE", // required
+ * };
  * const command = new GetRouteAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRouteAnalysisCommandInput - {@link GetRouteAnalysisCommandInput}
+ * @returns {@link GetRouteAnalysisCommandOutput}
  * @see {@link GetRouteAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetRouteAnalysisCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetRouteAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRouteAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetRouteAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRouteAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRouteAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetRouteAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRouteAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRouteAnalysisCommand(input, context);
+    return se_GetRouteAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRouteAnalysisCommandOutput> {
-    return deserializeAws_restJson1GetRouteAnalysisCommand(output, context);
+    return de_GetRouteAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

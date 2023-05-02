@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetIntegrationsRequest,
-  GetIntegrationsRequestFilterSensitiveLog,
-  GetIntegrationsResponse,
-  GetIntegrationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIntegrationsCommand,
-  serializeAws_restJson1GetIntegrationsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetIntegrationsRequest, GetIntegrationsResponse } from "../models/models_0";
+import { de_GetIntegrationsCommand, se_GetIntegrationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIntegrationsCommand}.
  */
 export interface GetIntegrationsCommandInput extends GetIntegrationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIntegrationsCommand}.
  */
 export interface GetIntegrationsCommandOutput extends GetIntegrationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the Integrations for an API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetIntegrationsCommandOutput extends GetIntegrationsResponse, _
  * import { ApiGatewayV2Client, GetIntegrationsCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetIntegrationsCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetIntegrationsRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetIntegrationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIntegrationsCommandInput - {@link GetIntegrationsCommandInput}
+ * @returns {@link GetIntegrationsCommandOutput}
  * @see {@link GetIntegrationsCommandInput} for command's `input` shape.
  * @see {@link GetIntegrationsCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -78,6 +82,9 @@ export class GetIntegrationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIntegrationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class GetIntegrationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIntegrationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIntegrationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class GetIntegrationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIntegrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIntegrationsCommand(input, context);
+    return se_GetIntegrationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntegrationsCommandOutput> {
-    return deserializeAws_restJson1GetIntegrationsCommand(output, context);
+    return de_GetIntegrationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,26 +15,27 @@ import {
 
 import {
   GetRecommendationsRequest,
-  GetRecommendationsRequestFilterSensitiveLog,
   GetRecommendationsResponse,
   GetRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRecommendationsCommand,
-  serializeAws_restJson1GetRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRecommendationsCommand, se_GetRecommendationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecommendationsCommand}.
  */
 export interface GetRecommendationsCommandInput extends GetRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecommendationsCommand}.
  */
 export interface GetRecommendationsCommandOutput extends GetRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves recommendations for the specified session. To avoid retrieving the same
  *       recommendations in subsequent calls, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html">NotifyRecommendationsReceived</a>. This API supports long-polling behavior with the
  *         <code>waitTimeSeconds</code> parameter. Short poll is the default behavior and only returns
@@ -45,10 +46,18 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * import { WisdomClient, GetRecommendationsCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetRecommendationsCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // GetRecommendationsRequest
+ *   assistantId: "STRING_VALUE", // required
+ *   sessionId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   waitTimeSeconds: Number("int"),
+ * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommendationsCommandInput - {@link GetRecommendationsCommandInput}
+ * @returns {@link GetRecommendationsCommandOutput}
  * @see {@link GetRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -81,6 +90,9 @@ export class GetRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,7 +121,7 @@ export class GetRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommendationsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRecommendationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -120,12 +132,18 @@ export class GetRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecommendationsCommand(input, context);
+    return se_GetRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecommendationsCommandOutput> {
-    return deserializeAws_restJson1GetRecommendationsCommand(output, context);
+    return de_GetRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

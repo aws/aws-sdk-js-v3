@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateStreamRequest,
-  CreateStreamRequestFilterSensitiveLog,
-  CreateStreamResponse,
-  CreateStreamResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateStreamCommand,
-  serializeAws_restJson1CreateStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateStreamRequest, CreateStreamResponse } from "../models/models_0";
+import { de_CreateStreamCommand, se_CreateStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamCommand}.
  */
 export interface CreateStreamCommandInput extends CreateStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamCommand}.
  */
 export interface CreateStreamCommandOutput extends CreateStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data
  *             bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files
  *             associated with a stream.</p>
@@ -45,10 +42,33 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  * import { IoTClient, CreateStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateStreamRequest
+ *   streamId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   files: [ // StreamFiles // required
+ *     { // StreamFile
+ *       fileId: Number("int"),
+ *       s3Location: { // S3Location
+ *         bucket: "STRING_VALUE",
+ *         key: "STRING_VALUE",
+ *         version: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   roleArn: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
+ * @returns {@link CreateStreamCommandOutput}
  * @see {@link CreateStreamCommandInput} for command's `input` shape.
  * @see {@link CreateStreamCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -96,6 +116,9 @@ export class CreateStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +145,8 @@ export class CreateStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStreamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +156,18 @@ export class CreateStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateStreamCommand(input, context);
+    return se_CreateStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamCommandOutput> {
-    return deserializeAws_restJson1CreateStreamCommand(output, context);
+    return de_CreateStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

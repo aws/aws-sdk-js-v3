@@ -17,24 +17,25 @@ import {
   CreateProfileRequest,
   CreateProfileRequestFilterSensitiveLog,
   ProfileDetailResponse,
-  ProfileDetailResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProfileCommand,
-  serializeAws_restJson1CreateProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateProfileCommand, se_CreateProfileCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProfileCommand}.
  */
 export interface CreateProfileCommandInput extends CreateProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProfileCommand}.
  */
 export interface CreateProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a profile. A profile is configuration resource to list the roles that RolesAnywhere service is trusted to assume. In addition, by applying a profile you can intersect permissions with IAM managed policies.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -46,10 +47,31 @@ export interface CreateProfileCommandOutput extends ProfileDetailResponse, __Met
  * import { RolesAnywhereClient, CreateProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, CreateProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // CreateProfileRequest
+ *   name: "STRING_VALUE", // required
+ *   requireInstanceProperties: true || false,
+ *   sessionPolicy: "STRING_VALUE",
+ *   roleArns: [ // RoleArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   managedPolicyArns: [ // ManagedPolicyList
+ *     "STRING_VALUE",
+ *   ],
+ *   durationSeconds: Number("int"),
+ *   enabled: true || false,
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProfileCommandInput - {@link CreateProfileCommandInput}
+ * @returns {@link CreateProfileCommandOutput}
  * @see {@link CreateProfileCommandInput} for command's `input` shape.
  * @see {@link CreateProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +101,9 @@ export class CreateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,7 +131,7 @@ export class CreateProfileCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ProfileDetailResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +141,18 @@ export class CreateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProfileCommand(input, context);
+    return se_CreateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProfileCommandOutput> {
-    return deserializeAws_restJson1CreateProfileCommand(output, context);
+    return de_CreateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

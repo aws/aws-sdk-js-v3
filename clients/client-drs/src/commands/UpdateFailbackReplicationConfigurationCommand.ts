@@ -14,26 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
+import { UpdateFailbackReplicationConfigurationRequest } from "../models/models_0";
 import {
-  UpdateFailbackReplicationConfigurationRequest,
-  UpdateFailbackReplicationConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFailbackReplicationConfigurationCommand,
-  serializeAws_restJson1UpdateFailbackReplicationConfigurationCommand,
+  de_UpdateFailbackReplicationConfigurationCommand,
+  se_UpdateFailbackReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFailbackReplicationConfigurationCommand}.
  */
 export interface UpdateFailbackReplicationConfigurationCommandInput
   extends UpdateFailbackReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFailbackReplicationConfigurationCommand}.
  */
 export interface UpdateFailbackReplicationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to update the failback replication configuration of a Recovery Instance by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,10 +43,18 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  * import { DrsClient, UpdateFailbackReplicationConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, UpdateFailbackReplicationConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // UpdateFailbackReplicationConfigurationRequest
+ *   recoveryInstanceID: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   bandwidthThrottling: Number("long"),
+ *   usePrivateIP: true || false,
+ * };
  * const command = new UpdateFailbackReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFailbackReplicationConfigurationCommandInput - {@link UpdateFailbackReplicationConfigurationCommandInput}
+ * @returns {@link UpdateFailbackReplicationConfigurationCommandOutput}
  * @see {@link UpdateFailbackReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateFailbackReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -83,6 +93,9 @@ export class UpdateFailbackReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFailbackReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +124,8 @@ export class UpdateFailbackReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFailbackReplicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +135,24 @@ export class UpdateFailbackReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateFailbackReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFailbackReplicationConfigurationCommand(input, context);
+    return se_UpdateFailbackReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFailbackReplicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateFailbackReplicationConfigurationCommand(output, context);
+    return de_UpdateFailbackReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

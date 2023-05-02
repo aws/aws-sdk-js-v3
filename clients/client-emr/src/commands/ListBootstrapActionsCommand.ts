@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  ListBootstrapActionsInput,
-  ListBootstrapActionsInputFilterSensitiveLog,
-  ListBootstrapActionsOutput,
-  ListBootstrapActionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListBootstrapActionsCommand,
-  serializeAws_json1_1ListBootstrapActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListBootstrapActionsInput, ListBootstrapActionsOutput } from "../models/models_0";
+import { de_ListBootstrapActionsCommand, se_ListBootstrapActionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBootstrapActionsCommand}.
  */
 export interface ListBootstrapActionsCommandInput extends ListBootstrapActionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBootstrapActionsCommand}.
  */
 export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the bootstrap actions associated with a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
  * import { EMRClient, ListBootstrapActionsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListBootstrapActionsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ListBootstrapActionsInput
+ *   ClusterId: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListBootstrapActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBootstrapActionsCommandInput - {@link ListBootstrapActionsCommandInput}
+ * @returns {@link ListBootstrapActionsCommandOutput}
  * @see {@link ListBootstrapActionsCommandInput} for command's `input` shape.
  * @see {@link ListBootstrapActionsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -76,6 +79,9 @@ export class ListBootstrapActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBootstrapActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class ListBootstrapActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBootstrapActionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBootstrapActionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class ListBootstrapActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBootstrapActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBootstrapActionsCommand(input, context);
+    return se_ListBootstrapActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBootstrapActionsCommandOutput> {
-    return deserializeAws_json1_1ListBootstrapActionsCommand(output, context);
+    return de_ListBootstrapActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

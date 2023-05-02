@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  RegisterCertificateRequest,
-  RegisterCertificateRequestFilterSensitiveLog,
-  RegisterCertificateResult,
-  RegisterCertificateResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterCertificateCommand,
-  serializeAws_json1_1RegisterCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterCertificateRequest, RegisterCertificateResult } from "../models/models_0";
+import { de_RegisterCertificateCommand, se_RegisterCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterCertificateCommand}.
  */
 export interface RegisterCertificateCommandInput extends RegisterCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterCertificateCommand}.
  */
 export interface RegisterCertificateCommandOutput extends RegisterCertificateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a certificate for a secure LDAP or client certificate authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * import { DirectoryServiceClient, RegisterCertificateCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RegisterCertificateCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // RegisterCertificateRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   CertificateData: "STRING_VALUE", // required
+ *   Type: "ClientCertAuth" || "ClientLDAPS",
+ *   ClientCertAuthSettings: { // ClientCertAuthSettings
+ *     OCSPUrl: "STRING_VALUE",
+ *   },
+ * };
  * const command = new RegisterCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterCertificateCommandInput - {@link RegisterCertificateCommandInput}
+ * @returns {@link RegisterCertificateCommandOutput}
  * @see {@link RegisterCertificateCommandInput} for command's `input` shape.
  * @see {@link RegisterCertificateCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -96,6 +103,9 @@ export class RegisterCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +134,8 @@ export class RegisterCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterCertificateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +145,18 @@ export class RegisterCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterCertificateCommand(input, context);
+    return se_RegisterCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterCertificateCommandOutput> {
-    return deserializeAws_json1_1RegisterCertificateCommand(output, context);
+    return de_RegisterCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

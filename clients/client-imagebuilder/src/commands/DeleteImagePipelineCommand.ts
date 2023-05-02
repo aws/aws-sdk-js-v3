@@ -14,38 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  DeleteImagePipelineRequest,
-  DeleteImagePipelineRequestFilterSensitiveLog,
-  DeleteImagePipelineResponse,
-  DeleteImagePipelineResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteImagePipelineCommand,
-  serializeAws_restJson1DeleteImagePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteImagePipelineRequest, DeleteImagePipelineResponse } from "../models/models_0";
+import { de_DeleteImagePipelineCommand, se_DeleteImagePipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImagePipelineCommand}.
  */
 export interface DeleteImagePipelineCommandInput extends DeleteImagePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImagePipelineCommand}.
  */
 export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineResponse, __MetadataBearer {}
 
 /**
- * <p> Deletes an image pipeline.</p>
+ * @public
+ * <p>Deletes an image pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, DeleteImagePipelineCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteImagePipelineCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // DeleteImagePipelineRequest
+ *   imagePipelineArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteImagePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImagePipelineCommandInput - {@link DeleteImagePipelineCommandInput}
+ * @returns {@link DeleteImagePipelineCommandOutput}
  * @see {@link DeleteImagePipelineCommandInput} for command's `input` shape.
  * @see {@link DeleteImagePipelineCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -54,22 +56,23 @@ export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineRes
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceDependencyException} (client fault)
- *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits this
- * 			action. See the error message for more details.</p>
+ *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits
+ * 			this action. See the error message for more details.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -93,6 +96,9 @@ export class DeleteImagePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImagePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DeleteImagePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteImagePipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteImagePipelineResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class DeleteImagePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImagePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteImagePipelineCommand(input, context);
+    return se_DeleteImagePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImagePipelineCommandOutput> {
-    return deserializeAws_restJson1DeleteImagePipelineCommand(output, context);
+    return de_DeleteImagePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

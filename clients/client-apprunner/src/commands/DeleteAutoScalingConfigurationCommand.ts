@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
+import { DeleteAutoScalingConfigurationRequest, DeleteAutoScalingConfigurationResponse } from "../models/models_0";
 import {
-  DeleteAutoScalingConfigurationRequest,
-  DeleteAutoScalingConfigurationRequestFilterSensitiveLog,
-  DeleteAutoScalingConfigurationResponse,
-  DeleteAutoScalingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteAutoScalingConfigurationCommand,
-  serializeAws_json1_0DeleteAutoScalingConfigurationCommand,
+  de_DeleteAutoScalingConfigurationCommand,
+  se_DeleteAutoScalingConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAutoScalingConfigurationCommand}.
  */
 export interface DeleteAutoScalingConfigurationCommandInput extends DeleteAutoScalingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAutoScalingConfigurationCommand}.
  */
 export interface DeleteAutoScalingConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteAutoScalingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an App Runner automatic scaling configuration resource. You can delete a specific revision or the latest active revision. You can't delete a
  *       configuration that's used by one or more App Runner services.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  * import { AppRunnerClient, DeleteAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DeleteAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // DeleteAutoScalingConfigurationRequest
+ *   AutoScalingConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAutoScalingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAutoScalingConfigurationCommandInput - {@link DeleteAutoScalingConfigurationCommandInput}
+ * @returns {@link DeleteAutoScalingConfigurationCommandOutput}
  * @see {@link DeleteAutoScalingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAutoScalingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -81,6 +86,9 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAutoScalingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAutoScalingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAutoScalingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +128,24 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAutoScalingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteAutoScalingConfigurationCommand(input, context);
+    return se_DeleteAutoScalingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAutoScalingConfigurationCommandOutput> {
-    return deserializeAws_json1_0DeleteAutoScalingConfigurationCommand(output, context);
+    return de_DeleteAutoScalingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

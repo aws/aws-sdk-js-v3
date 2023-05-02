@@ -15,21 +15,23 @@ import {
 
 import {
   ListApplicationInstanceNodeInstancesRequest,
-  ListApplicationInstanceNodeInstancesRequestFilterSensitiveLog,
   ListApplicationInstanceNodeInstancesResponse,
-  ListApplicationInstanceNodeInstancesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
-  deserializeAws_restJson1ListApplicationInstanceNodeInstancesCommand,
-  serializeAws_restJson1ListApplicationInstanceNodeInstancesCommand,
+  de_ListApplicationInstanceNodeInstancesCommand,
+  se_ListApplicationInstanceNodeInstancesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationInstanceNodeInstancesCommand}.
  */
 export interface ListApplicationInstanceNodeInstancesCommandInput extends ListApplicationInstanceNodeInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationInstanceNodeInstancesCommand}.
  */
 export interface ListApplicationInstanceNodeInstancesCommandOutput
@@ -37,6 +39,7 @@ export interface ListApplicationInstanceNodeInstancesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of application node instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,17 @@ export interface ListApplicationInstanceNodeInstancesCommandOutput
  * import { PanoramaClient, ListApplicationInstanceNodeInstancesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListApplicationInstanceNodeInstancesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // ListApplicationInstanceNodeInstancesRequest
+ *   ApplicationInstanceId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListApplicationInstanceNodeInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationInstanceNodeInstancesCommandInput - {@link ListApplicationInstanceNodeInstancesCommandInput}
+ * @returns {@link ListApplicationInstanceNodeInstancesCommandOutput}
  * @see {@link ListApplicationInstanceNodeInstancesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationInstanceNodeInstancesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -77,6 +87,9 @@ export class ListApplicationInstanceNodeInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationInstanceNodeInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +118,8 @@ export class ListApplicationInstanceNodeInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationInstanceNodeInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationInstanceNodeInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +129,24 @@ export class ListApplicationInstanceNodeInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListApplicationInstanceNodeInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApplicationInstanceNodeInstancesCommand(input, context);
+    return se_ListApplicationInstanceNodeInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListApplicationInstanceNodeInstancesCommandOutput> {
-    return deserializeAws_restJson1ListApplicationInstanceNodeInstancesCommand(output, context);
+    return de_ListApplicationInstanceNodeInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

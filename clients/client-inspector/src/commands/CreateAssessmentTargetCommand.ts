@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  CreateAssessmentTargetRequest,
-  CreateAssessmentTargetRequestFilterSensitiveLog,
-  CreateAssessmentTargetResponse,
-  CreateAssessmentTargetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAssessmentTargetCommand,
-  serializeAws_json1_1CreateAssessmentTargetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAssessmentTargetRequest, CreateAssessmentTargetResponse } from "../models/models_0";
+import { de_CreateAssessmentTargetCommand, se_CreateAssessmentTargetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAssessmentTargetCommand}.
  */
 export interface CreateAssessmentTargetCommandInput extends CreateAssessmentTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAssessmentTargetCommand}.
  */
 export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTargetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new assessment target using the ARN of the resource group that is generated
  *          by <a>CreateResourceGroup</a>. If resourceGroupArn is not specified, all EC2
  *          instances in the current AWS account and region are included in the assessment target. If
@@ -49,10 +46,16 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  * import { InspectorClient, CreateAssessmentTargetCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, CreateAssessmentTargetCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // CreateAssessmentTargetRequest
+ *   assessmentTargetName: "STRING_VALUE", // required
+ *   resourceGroupArn: "STRING_VALUE",
+ * };
  * const command = new CreateAssessmentTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssessmentTargetCommandInput - {@link CreateAssessmentTargetCommandInput}
+ * @returns {@link CreateAssessmentTargetCommandOutput}
  * @see {@link CreateAssessmentTargetCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentTargetCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -118,6 +121,9 @@ export class CreateAssessmentTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssessmentTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +152,8 @@ export class CreateAssessmentTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAssessmentTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAssessmentTargetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +163,18 @@ export class CreateAssessmentTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssessmentTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAssessmentTargetCommand(input, context);
+    return se_CreateAssessmentTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssessmentTargetCommandOutput> {
-    return deserializeAws_json1_1CreateAssessmentTargetCommand(output, context);
+    return de_CreateAssessmentTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

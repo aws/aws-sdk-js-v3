@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateFirewallRuleRequest,
-  UpdateFirewallRuleRequestFilterSensitiveLog,
-  UpdateFirewallRuleResponse,
-  UpdateFirewallRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFirewallRuleCommand,
-  serializeAws_json1_1UpdateFirewallRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateFirewallRuleRequest, UpdateFirewallRuleResponse } from "../models/models_0";
+import { de_UpdateFirewallRuleCommand, se_UpdateFirewallRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallRuleCommand}.
  */
 export interface UpdateFirewallRuleCommandInput extends UpdateFirewallRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallRuleCommand}.
  */
 export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified firewall rule. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  * import { Route53ResolverClient, UpdateFirewallRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateFirewallRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // UpdateFirewallRuleRequest
+ *   FirewallRuleGroupId: "STRING_VALUE", // required
+ *   FirewallDomainListId: "STRING_VALUE", // required
+ *   Priority: Number("int"),
+ *   Action: "ALLOW" || "BLOCK" || "ALERT",
+ *   BlockResponse: "NODATA" || "NXDOMAIN" || "OVERRIDE",
+ *   BlockOverrideDomain: "STRING_VALUE",
+ *   BlockOverrideDnsType: "CNAME",
+ *   BlockOverrideTtl: Number("int"),
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateFirewallRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallRuleCommandInput - {@link UpdateFirewallRuleCommandInput}
+ * @returns {@link UpdateFirewallRuleCommandOutput}
  * @see {@link UpdateFirewallRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -90,6 +100,9 @@ export class UpdateFirewallRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +131,8 @@ export class UpdateFirewallRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +142,18 @@ export class UpdateFirewallRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFirewallRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFirewallRuleCommand(input, context);
+    return se_UpdateFirewallRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFirewallRuleCommandOutput> {
-    return deserializeAws_json1_1UpdateFirewallRuleCommand(output, context);
+    return de_UpdateFirewallRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

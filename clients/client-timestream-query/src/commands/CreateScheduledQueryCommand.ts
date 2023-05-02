@@ -18,24 +18,25 @@ import {
   CreateScheduledQueryRequest,
   CreateScheduledQueryRequestFilterSensitiveLog,
   CreateScheduledQueryResponse,
-  CreateScheduledQueryResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateScheduledQueryCommand,
-  serializeAws_json1_0CreateScheduledQueryCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateScheduledQueryCommand, se_CreateScheduledQueryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateScheduledQueryCommand}.
  */
 export interface CreateScheduledQueryCommandInput extends CreateScheduledQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateScheduledQueryCommand}.
  */
 export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Create a scheduled query that will be run on your behalf at the configured schedule.
  *             Timestream assumes the execution role provided as part of the
  *                 <code>ScheduledQueryExecutionRoleArn</code> parameter to run the query. You can use
@@ -47,10 +48,79 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  * import { TimestreamQueryClient, CreateScheduledQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, CreateScheduledQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
+ * const input = { // CreateScheduledQueryRequest
+ *   Name: "STRING_VALUE", // required
+ *   QueryString: "STRING_VALUE", // required
+ *   ScheduleConfiguration: { // ScheduleConfiguration
+ *     ScheduleExpression: "STRING_VALUE", // required
+ *   },
+ *   NotificationConfiguration: { // NotificationConfiguration
+ *     SnsConfiguration: { // SnsConfiguration
+ *       TopicArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   TargetConfiguration: { // TargetConfiguration
+ *     TimestreamConfiguration: { // TimestreamConfiguration
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       TimeColumn: "STRING_VALUE", // required
+ *       DimensionMappings: [ // DimensionMappingList // required
+ *         { // DimensionMapping
+ *           Name: "STRING_VALUE", // required
+ *           DimensionValueType: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       MultiMeasureMappings: { // MultiMeasureMappings
+ *         TargetMultiMeasureName: "STRING_VALUE",
+ *         MultiMeasureAttributeMappings: [ // MultiMeasureAttributeMappingList // required
+ *           { // MultiMeasureAttributeMapping
+ *             SourceColumn: "STRING_VALUE", // required
+ *             TargetMultiMeasureAttributeName: "STRING_VALUE",
+ *             MeasureValueType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       MixedMeasureMappings: [ // MixedMeasureMappingList
+ *         { // MixedMeasureMapping
+ *           MeasureName: "STRING_VALUE",
+ *           SourceColumn: "STRING_VALUE",
+ *           TargetMeasureName: "STRING_VALUE",
+ *           MeasureValueType: "STRING_VALUE", // required
+ *           MultiMeasureAttributeMappings: [
+ *             {
+ *               SourceColumn: "STRING_VALUE", // required
+ *               TargetMultiMeasureAttributeName: "STRING_VALUE",
+ *               MeasureValueType: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       MeasureNameColumn: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ *   ScheduledQueryExecutionRoleArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   ErrorReportConfiguration: { // ErrorReportConfiguration
+ *     S3Configuration: { // S3Configuration
+ *       BucketName: "STRING_VALUE", // required
+ *       ObjectKeyPrefix: "STRING_VALUE",
+ *       EncryptionOption: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateScheduledQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScheduledQueryCommandInput - {@link CreateScheduledQueryCommandInput}
+ * @returns {@link CreateScheduledQueryCommandOutput}
  * @see {@link CreateScheduledQueryCommandInput} for command's `input` shape.
  * @see {@link CreateScheduledQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -97,6 +167,9 @@ export class CreateScheduledQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScheduledQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,7 +202,7 @@ export class CreateScheduledQueryCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateScheduledQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateScheduledQueryResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +212,18 @@ export class CreateScheduledQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScheduledQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateScheduledQueryCommand(input, context);
+    return se_CreateScheduledQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScheduledQueryCommandOutput> {
-    return deserializeAws_json1_0CreateScheduledQueryCommand(output, context);
+    return de_CreateScheduledQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

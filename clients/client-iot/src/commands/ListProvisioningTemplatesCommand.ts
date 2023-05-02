@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListProvisioningTemplatesRequest,
-  ListProvisioningTemplatesRequestFilterSensitiveLog,
-  ListProvisioningTemplatesResponse,
-  ListProvisioningTemplatesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListProvisioningTemplatesCommand,
-  serializeAws_restJson1ListProvisioningTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProvisioningTemplatesRequest, ListProvisioningTemplatesResponse } from "../models/models_1";
+import { de_ListProvisioningTemplatesCommand, se_ListProvisioningTemplatesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProvisioningTemplatesCommand}.
  */
 export interface ListProvisioningTemplatesCommandInput extends ListProvisioningTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProvisioningTemplatesCommand}.
  */
 export interface ListProvisioningTemplatesCommandOutput extends ListProvisioningTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the provisioning templates in your Amazon Web Services account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplates</a> action.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListProvisioningTemplatesCommandOutput extends ListProvisioning
  * import { IoTClient, ListProvisioningTemplatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListProvisioningTemplatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListProvisioningTemplatesRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListProvisioningTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProvisioningTemplatesCommandInput - {@link ListProvisioningTemplatesCommandInput}
+ * @returns {@link ListProvisioningTemplatesCommandOutput}
  * @see {@link ListProvisioningTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListProvisioningTemplatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListProvisioningTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProvisioningTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class ListProvisioningTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProvisioningTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProvisioningTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +127,21 @@ export class ListProvisioningTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProvisioningTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProvisioningTemplatesCommand(input, context);
+    return se_ListProvisioningTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisioningTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListProvisioningTemplatesCommand(output, context);
+    return de_ListProvisioningTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -167,10 +167,10 @@
     "com.amazonaws.drs#ConversionMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.drs#ebsSnapshot"
+        "target": "com.amazonaws.drs#EbsSnapshot"
       },
       "value": {
-        "target": "com.amazonaws.drs#ebsSnapshot"
+        "target": "com.amazonaws.drs#EbsSnapshot"
       }
     },
     "com.amazonaws.drs#ConversionProperties": {
@@ -288,6 +288,95 @@
           "target": "com.amazonaws.drs#SourceServer",
           "traits": {
             "smithy.api#documentation": "<p>Created extended source server.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.drs#CreateLaunchConfigurationTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.drs#CreateLaunchConfigurationTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.drs#CreateLaunchConfigurationTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.drs#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.drs#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.drs#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.drs#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.drs#UninitializedAccountException"
+        },
+        {
+          "target": "com.amazonaws.drs#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a new Launch Configuration Template.</p>",
+        "smithy.api#http": {
+          "uri": "/CreateLaunchConfigurationTemplate",
+          "method": "POST",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.drs#CreateLaunchConfigurationTemplateRequest": {
+      "type": "structure",
+      "members": {
+        "tags": {
+          "target": "com.amazonaws.drs#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Request to associate tags during creation of a Launch Configuration Template.</p>"
+          }
+        },
+        "launchDisposition": {
+          "target": "com.amazonaws.drs#LaunchDisposition",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch disposition.</p>"
+          }
+        },
+        "targetInstanceTypeRightSizingMethod": {
+          "target": "com.amazonaws.drs#TargetInstanceTypeRightSizingMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>Target instance type right-sizing method.</p>"
+          }
+        },
+        "copyPrivateIp": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Copy private IP.</p>"
+          }
+        },
+        "copyTags": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Copy tags.</p>"
+          }
+        },
+        "licensing": {
+          "target": "com.amazonaws.drs#Licensing",
+          "traits": {
+            "smithy.api#documentation": "<p>Licensing.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.drs#CreateLaunchConfigurationTemplateResponse": {
+      "type": "structure",
+      "members": {
+        "launchConfigurationTemplate": {
+          "target": "com.amazonaws.drs#LaunchConfigurationTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>Created Launch Configuration Template.</p>"
           }
         }
       }
@@ -427,6 +516,12 @@
           "target": "com.amazonaws.drs#TagsMap",
           "traits": {
             "smithy.api#documentation": "<p>A set of tags to be associated with the Replication Configuration Template resource.</p>"
+          }
+        },
+        "autoReplicateNewDisks": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>"
           }
         }
       }
@@ -846,6 +941,57 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.drs#DeleteLaunchConfigurationTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.drs#DeleteLaunchConfigurationTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.drs#DeleteLaunchConfigurationTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.drs#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.drs#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.drs#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.drs#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.drs#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a single Launch Configuration Template by ID.</p>",
+        "smithy.api#http": {
+          "uri": "/DeleteLaunchConfigurationTemplate",
+          "method": "POST",
+          "code": 204
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.drs#DeleteLaunchConfigurationTemplateRequest": {
+      "type": "structure",
+      "members": {
+        "launchConfigurationTemplateID": {
+          "target": "com.amazonaws.drs#LaunchConfigurationTemplateID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Launch Configuration Template to be deleted.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.drs#DeleteLaunchConfigurationTemplateResponse": {
+      "type": "structure",
+      "members": {}
+    },
     "com.amazonaws.drs#DeleteRecoveryInstance": {
       "type": "operation",
       "input": {
@@ -1187,6 +1333,88 @@
           "target": "com.amazonaws.drs#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token of the next Job to retrieve.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.drs#DescribeLaunchConfigurationTemplates": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.drs#DescribeLaunchConfigurationTemplatesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.drs#DescribeLaunchConfigurationTemplatesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.drs#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.drs#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.drs#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.drs#UninitializedAccountException"
+        },
+        {
+          "target": "com.amazonaws.drs#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>",
+        "smithy.api#http": {
+          "uri": "/DescribeLaunchConfigurationTemplates",
+          "method": "POST",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults",
+          "items": "items"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.drs#DescribeLaunchConfigurationTemplatesRequest": {
+      "type": "structure",
+      "members": {
+        "launchConfigurationTemplateIDs": {
+          "target": "com.amazonaws.drs#LaunchConfigurationTemplateIDs",
+          "traits": {
+            "smithy.api#documentation": "<p>Request to filter Launch Configuration Templates list by Launch Configuration Template ID.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.drs#MaxResultsType",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.drs#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token of the next Launch Configuration Template to retrieve.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.drs#DescribeLaunchConfigurationTemplatesResponse": {
+      "type": "structure",
+      "members": {
+        "items": {
+          "target": "com.amazonaws.drs#LaunchConfigurationTemplates",
+          "traits": {
+            "smithy.api#documentation": "<p>List of items returned by DescribeLaunchConfigurationTemplates.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.drs#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token of the next Launch Configuration Template to retrieve.</p>"
           }
         }
       }
@@ -1793,10 +2021,16 @@
         }
       }
     },
+    "com.amazonaws.drs#EbsSnapshot": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^snap-[0-9a-zA-Z]{17}$"
+      }
+    },
     "com.amazonaws.drs#EbsSnapshotsList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.drs#ebsSnapshot"
+        "target": "com.amazonaws.drs#EbsSnapshot"
       }
     },
     "com.amazonaws.drs#EbsVolumeID": {
@@ -1841,6 +2075,9 @@
         },
         {
           "target": "com.amazonaws.drs#JobResource"
+        },
+        {
+          "target": "com.amazonaws.drs#LaunchConfigurationTemplateResource"
         },
         {
           "target": "com.amazonaws.drs#RecoveryInstanceResource"
@@ -2236,8 +2473,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2249,8 +2486,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2262,8 +2499,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2275,8 +2512,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2288,8 +2525,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2301,8 +2538,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2314,8 +2551,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2327,8 +2564,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2340,8 +2577,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2353,8 +2590,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2366,8 +2603,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2379,8 +2616,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2392,8 +2629,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2405,8 +2642,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2418,8 +2655,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2431,8 +2668,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2444,8 +2681,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2457,8 +2694,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2470,8 +2707,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2483,8 +2720,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2496,8 +2733,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2509,8 +2746,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -2522,8 +2759,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -2535,8 +2772,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -2548,8 +2785,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -2561,8 +2798,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -2574,8 +2811,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -2587,8 +2824,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2600,8 +2837,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -2613,8 +2850,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -2626,8 +2863,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -2639,8 +2876,19 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -2652,8 +2900,19 @@
               },
               "params": {
                 "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -2665,8 +2924,19 @@
               },
               "params": {
                 "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -2678,8 +2948,19 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -2691,8 +2972,8 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2704,8 +2985,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2717,8 +2998,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2729,8 +3010,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2741,9 +3022,15 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -3622,6 +3909,121 @@
         }
       }
     },
+    "com.amazonaws.drs#LaunchConfigurationTemplate": {
+      "type": "structure",
+      "members": {
+        "launchConfigurationTemplateID": {
+          "target": "com.amazonaws.drs#LaunchConfigurationTemplateID",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of the Launch Configuration Template.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.drs#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of the Launch Configuration Template.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.drs#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags of the Launch Configuration Template.</p>"
+          }
+        },
+        "launchDisposition": {
+          "target": "com.amazonaws.drs#LaunchDisposition",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch disposition.</p>"
+          }
+        },
+        "targetInstanceTypeRightSizingMethod": {
+          "target": "com.amazonaws.drs#TargetInstanceTypeRightSizingMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>Target instance type right-sizing method.</p>"
+          }
+        },
+        "copyPrivateIp": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Copy private IP.</p>"
+          }
+        },
+        "copyTags": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Copy tags.</p>"
+          }
+        },
+        "licensing": {
+          "target": "com.amazonaws.drs#Licensing",
+          "traits": {
+            "smithy.api#documentation": "<p>Licensing.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Account level Launch Configuration Template.</p>"
+      }
+    },
+    "com.amazonaws.drs#LaunchConfigurationTemplateID": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 21,
+          "max": 21
+        },
+        "smithy.api#pattern": "^lct-[0-9a-zA-Z]{17}$"
+      }
+    },
+    "com.amazonaws.drs#LaunchConfigurationTemplateIDs": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.drs#LaunchConfigurationTemplateID"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1
+        }
+      }
+    },
+    "com.amazonaws.drs#LaunchConfigurationTemplateResource": {
+      "type": "resource",
+      "identifiers": {
+        "launchConfigurationTemplateID": {
+          "target": "com.amazonaws.drs#LaunchConfigurationTemplateID"
+        }
+      },
+      "create": {
+        "target": "com.amazonaws.drs#CreateLaunchConfigurationTemplate"
+      },
+      "update": {
+        "target": "com.amazonaws.drs#UpdateLaunchConfigurationTemplate"
+      },
+      "delete": {
+        "target": "com.amazonaws.drs#DeleteLaunchConfigurationTemplate"
+      },
+      "list": {
+        "target": "com.amazonaws.drs#DescribeLaunchConfigurationTemplates"
+      },
+      "traits": {
+        "aws.api#arn": {
+          "template": "launch-configuration-template/{launchConfigurationTemplateID}"
+        }
+      }
+    },
+    "com.amazonaws.drs#LaunchConfigurationTemplates": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.drs#LaunchConfigurationTemplate"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        }
+      }
+    },
     "com.amazonaws.drs#LaunchDisposition": {
       "type": "string",
       "traits": {
@@ -3991,6 +4393,16 @@
         "smithy.api#range": {
           "min": 1,
           "max": 300
+        }
+      }
+    },
+    "com.amazonaws.drs#MaxResultsType": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 1000
         }
       }
     },
@@ -5018,6 +5430,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>"
           }
+        },
+        "autoReplicateNewDisks": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>"
+          }
         }
       }
     },
@@ -5267,6 +5685,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>"
           }
+        },
+        "autoReplicateNewDisks": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>"
+          }
         }
       }
     },
@@ -5407,7 +5831,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Causes the data replication initiation sequence to begin immediately upon next Handshake for the specified Source Server ID, regardless of when the previous initiation started. This command will work only if the Source Server is stalled or is in a DISCONNECTED or STOPPED state.</p>",
+        "smithy.api#deprecated": {
+          "message": "WARNING: RetryDataReplication is deprecated"
+        },
+        "smithy.api#documentation": "<p>WARNING: RetryDataReplication is deprecated.\n              Causes the data replication initiation sequence to begin immediately upon next Handshake for the specified Source Server ID, regardless of when the previous initiation started. This command will work only if the Source Server is stalled or is in a DISCONNECTED or STOPPED state.\n        </p>",
         "smithy.api#http": {
           "uri": "/RetryDataReplication",
           "method": "POST",
@@ -5424,6 +5851,11 @@
             "smithy.api#documentation": "<p>The ID of the Source Server whose data replication should be retried.</p>",
             "smithy.api#required": {}
           }
+        }
+      },
+      "traits": {
+        "smithy.api#deprecated": {
+          "message": "WARNING: RetryDataReplication is deprecated"
         }
       }
     },
@@ -5630,6 +6062,12 @@
           "target": "com.amazonaws.drs#OS",
           "traits": {
             "smithy.api#documentation": "<p>Operating system.</p>"
+          }
+        },
+        "supportsNitroInstances": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Are EC2 nitro instance types supported when recovering the Source Server.</p>"
           }
         }
       },
@@ -6694,6 +7132,96 @@
         }
       }
     },
+    "com.amazonaws.drs#UpdateLaunchConfigurationTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.drs#UpdateLaunchConfigurationTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.drs#UpdateLaunchConfigurationTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.drs#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.drs#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.drs#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.drs#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.drs#UninitializedAccountException"
+        },
+        {
+          "target": "com.amazonaws.drs#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates an existing Launch Configuration Template by ID.</p>",
+        "smithy.api#http": {
+          "uri": "/UpdateLaunchConfigurationTemplate",
+          "method": "POST",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.drs#UpdateLaunchConfigurationTemplateRequest": {
+      "type": "structure",
+      "members": {
+        "launchConfigurationTemplateID": {
+          "target": "com.amazonaws.drs#LaunchConfigurationTemplateID",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch Configuration Template ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "launchDisposition": {
+          "target": "com.amazonaws.drs#LaunchDisposition",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch disposition.</p>"
+          }
+        },
+        "targetInstanceTypeRightSizingMethod": {
+          "target": "com.amazonaws.drs#TargetInstanceTypeRightSizingMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>Target instance type right-sizing method.</p>"
+          }
+        },
+        "copyPrivateIp": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Copy private IP.</p>"
+          }
+        },
+        "copyTags": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Copy tags.</p>"
+          }
+        },
+        "licensing": {
+          "target": "com.amazonaws.drs#Licensing",
+          "traits": {
+            "smithy.api#documentation": "<p>Licensing.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.drs#UpdateLaunchConfigurationTemplateResponse": {
+      "type": "structure",
+      "members": {
+        "launchConfigurationTemplate": {
+          "target": "com.amazonaws.drs#LaunchConfigurationTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>Updated Launch Configuration Template.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.drs#UpdateReplicationConfiguration": {
       "type": "operation",
       "input": {
@@ -6835,6 +7363,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>"
           }
+        },
+        "autoReplicateNewDisks": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>"
+          }
         }
       }
     },
@@ -6969,6 +7503,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>"
           }
+        },
+        "autoReplicateNewDisks": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>"
+          }
         }
       }
     },
@@ -7065,12 +7605,6 @@
       },
       "value": {
         "target": "com.amazonaws.drs#PositiveInteger"
-      }
-    },
-    "com.amazonaws.drs#ebsSnapshot": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^snap-[0-9a-zA-Z]{17}$"
       }
     }
   }

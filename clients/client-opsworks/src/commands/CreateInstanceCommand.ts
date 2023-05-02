@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateInstanceRequest,
-  CreateInstanceRequestFilterSensitiveLog,
-  CreateInstanceResult,
-  CreateInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateInstanceRequest, CreateInstanceResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1CreateInstanceCommand,
-  serializeAws_json1_1CreateInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateInstanceCommand, se_CreateInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstanceCommand}.
  */
 export interface CreateInstanceCommandInput extends CreateInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstanceCommand}.
  */
 export interface CreateInstanceCommandOutput extends CreateInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an instance in a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html">Adding an
  *         Instance to a Layer</a>.</p>
  *          <p>
@@ -48,10 +45,47 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResult, __Met
  * import { OpsWorksClient, CreateInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CreateInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // CreateInstanceRequest
+ *   StackId: "STRING_VALUE", // required
+ *   LayerIds: [ // Strings // required
+ *     "STRING_VALUE",
+ *   ],
+ *   InstanceType: "STRING_VALUE", // required
+ *   AutoScalingType: "STRING_VALUE",
+ *   Hostname: "STRING_VALUE",
+ *   Os: "STRING_VALUE",
+ *   AmiId: "STRING_VALUE",
+ *   SshKeyName: "STRING_VALUE",
+ *   AvailabilityZone: "STRING_VALUE",
+ *   VirtualizationType: "STRING_VALUE",
+ *   SubnetId: "STRING_VALUE",
+ *   Architecture: "STRING_VALUE",
+ *   RootDeviceType: "STRING_VALUE",
+ *   BlockDeviceMappings: [ // BlockDeviceMappings
+ *     { // BlockDeviceMapping
+ *       DeviceName: "STRING_VALUE",
+ *       NoDevice: "STRING_VALUE",
+ *       VirtualName: "STRING_VALUE",
+ *       Ebs: { // EbsBlockDevice
+ *         SnapshotId: "STRING_VALUE",
+ *         Iops: Number("int"),
+ *         VolumeSize: Number("int"),
+ *         VolumeType: "STRING_VALUE",
+ *         DeleteOnTermination: true || false,
+ *       },
+ *     },
+ *   ],
+ *   InstallUpdatesOnBoot: true || false,
+ *   EbsOptimized: true || false,
+ *   AgentVersion: "STRING_VALUE",
+ *   Tenancy: "STRING_VALUE",
+ * };
  * const command = new CreateInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstanceCommandInput - {@link CreateInstanceCommandInput}
+ * @returns {@link CreateInstanceCommandOutput}
  * @see {@link CreateInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -81,6 +115,9 @@ export class CreateInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +146,8 @@ export class CreateInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +157,18 @@ export class CreateInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateInstanceCommand(input, context);
+    return se_CreateInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceCommandOutput> {
-    return deserializeAws_json1_1CreateInstanceCommand(output, context);
+    return de_CreateInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

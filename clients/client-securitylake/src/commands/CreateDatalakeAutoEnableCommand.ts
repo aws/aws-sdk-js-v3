@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDatalakeAutoEnableRequest,
-  CreateDatalakeAutoEnableRequestFilterSensitiveLog,
-  CreateDatalakeAutoEnableResponse,
-  CreateDatalakeAutoEnableResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDatalakeAutoEnableCommand,
-  serializeAws_restJson1CreateDatalakeAutoEnableCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDatalakeAutoEnableRequest, CreateDatalakeAutoEnableResponse } from "../models/models_0";
+import { de_CreateDatalakeAutoEnableCommand, se_CreateDatalakeAutoEnableCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatalakeAutoEnableCommand}.
  */
 export interface CreateDatalakeAutoEnableCommandInput extends CreateDatalakeAutoEnableRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatalakeAutoEnableCommand}.
  */
 export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAutoEnableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Automatically enables Amazon Security Lake for new member accounts in your organization.
  *          Security Lake is not automatically enabled for any existing member accounts in your
  *          organization.</p>
@@ -44,10 +41,22 @@ export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAut
  * import { SecurityLakeClient, CreateDatalakeAutoEnableCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateDatalakeAutoEnableCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // CreateDatalakeAutoEnableRequest
+ *   configurationForNewAccounts: [ // AutoEnableNewRegionConfigurationList // required
+ *     { // AutoEnableNewRegionConfiguration
+ *       region: "STRING_VALUE", // required
+ *       sources: [ // AwsSourceTypeList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateDatalakeAutoEnableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatalakeAutoEnableCommandInput - {@link CreateDatalakeAutoEnableCommandInput}
+ * @returns {@link CreateDatalakeAutoEnableCommandOutput}
  * @see {@link CreateDatalakeAutoEnableCommandInput} for command's `input` shape.
  * @see {@link CreateDatalakeAutoEnableCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -89,6 +98,9 @@ export class CreateDatalakeAutoEnableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatalakeAutoEnableCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +129,8 @@ export class CreateDatalakeAutoEnableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatalakeAutoEnableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatalakeAutoEnableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +140,18 @@ export class CreateDatalakeAutoEnableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatalakeAutoEnableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatalakeAutoEnableCommand(input, context);
+    return se_CreateDatalakeAutoEnableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatalakeAutoEnableCommandOutput> {
-    return deserializeAws_restJson1CreateDatalakeAutoEnableCommand(output, context);
+    return de_CreateDatalakeAutoEnableCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { BackupGatewayServiceException as __BaseException } from "./BackupGatewayServiceException";
 
 /**
+ * @public
  * <p>The operation cannot proceed because you have insufficient permissions.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -30,6 +31,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateGatewayToServerInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <code>ListGateways</code> operation
@@ -43,6 +47,9 @@ export interface AssociateGatewayToServerInput {
   ServerArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateGatewayToServerOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of a gateway.</p>
@@ -51,6 +58,7 @@ export interface AssociateGatewayToServerOutput {
 }
 
 /**
+ * @public
  * <p>The operation cannot proceed because it is not supported.</p>
  */
 export class ConflictException extends __BaseException {
@@ -78,6 +86,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation did not succeed because an internal error occurred. Try again later.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -105,6 +114,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>TPS has been limited to protect against intentional or unintentional
  *     high request volumes.</p>
  */
@@ -134,6 +144,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation did not succeed because a validation error occurred.</p>
  */
 export class ValidationException extends __BaseException {
@@ -160,6 +171,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetBandwidthRateLimitScheduleInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the
@@ -172,6 +186,7 @@ export interface GetBandwidthRateLimitScheduleInput {
 }
 
 /**
+ * @public
  * <p>Describes a bandwidth rate limit interval for a gateway. A bandwidth
  *       rate limit schedule consists of one or more bandwidth rate limit intervals.
  *       A bandwidth rate limit interval defines a period of time on one or more days
@@ -223,6 +238,9 @@ export interface BandwidthRateLimitInterval {
   DaysOfWeek: number[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBandwidthRateLimitScheduleOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the
@@ -241,6 +259,7 @@ export interface GetBandwidthRateLimitScheduleOutput {
 }
 
 /**
+ * @public
  * <p>A resource that is required for the action wasn't found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -267,6 +286,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutBandwidthRateLimitScheduleInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the
@@ -284,6 +306,9 @@ export interface PutBandwidthRateLimitScheduleInput {
   BandwidthRateLimitIntervals: BandwidthRateLimitInterval[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutBandwidthRateLimitScheduleOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the
@@ -295,11 +320,21 @@ export interface PutBandwidthRateLimitScheduleOutput {
   GatewayArn?: string;
 }
 
-export enum GatewayType {
-  BACKUP_VM = "BACKUP_VM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GatewayType = {
+  BACKUP_VM: "BACKUP_VM",
+} as const;
 
 /**
+ * @public
+ */
+export type GatewayType = (typeof GatewayType)[keyof typeof GatewayType];
+
+/**
+ * @public
  * <p>A key-value pair you can use to manage, filter, and search for your resources. Allowed
  *       characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ :
  *       /.</p>
@@ -316,6 +351,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateGatewayInput {
   /**
    * <p>The activation key of the created gateway.</p>
@@ -338,6 +376,9 @@ export interface CreateGatewayInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateGatewayOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway you create.</p>
@@ -345,6 +386,9 @@ export interface CreateGatewayOutput {
   GatewayArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGatewayInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway to delete.</p>
@@ -352,6 +396,9 @@ export interface DeleteGatewayInput {
   GatewayArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGatewayOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway you deleted.</p>
@@ -359,6 +406,9 @@ export interface DeleteGatewayOutput {
   GatewayArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateGatewayFromServerInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway to disassociate.</p>
@@ -366,6 +416,9 @@ export interface DisassociateGatewayFromServerInput {
   GatewayArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateGatewayFromServerOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway you disassociated.</p>
@@ -373,6 +426,9 @@ export interface DisassociateGatewayFromServerOutput {
   GatewayArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetGatewayInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway.</p>
@@ -381,6 +437,7 @@ export interface GetGatewayInput {
 }
 
 /**
+ * @public
  * <p>This is your gateway's weekly maintenance start time including the day and time of the week.
  *       Note that values are in terms of the gateway's time zone. Can be weekly or monthly.</p>
  */
@@ -411,6 +468,7 @@ export interface MaintenanceStartTime {
 }
 
 /**
+ * @public
  * <p>The details of gateway.</p>
  */
 export interface GatewayDetails {
@@ -462,6 +520,9 @@ export interface GatewayDetails {
   VpcEndpoint?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetGatewayOutput {
   /**
    * <p>By providing the ARN (Amazon Resource Name), this
@@ -470,6 +531,9 @@ export interface GetGatewayOutput {
   Gateway?: GatewayDetails;
 }
 
+/**
+ * @public
+ */
 export interface ListGatewaysInput {
   /**
    * <p>The maximum number of gateways to list.</p>
@@ -486,6 +550,7 @@ export interface ListGatewaysInput {
 }
 
 /**
+ * @public
  * <p>A gateway is an Backup Gateway appliance that runs on the customer's network
  *       to provide seamless connectivity to backup storage in the Amazon Web Services Cloud.</p>
  */
@@ -518,6 +583,9 @@ export interface Gateway {
   LastSeenTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListGatewaysOutput {
   /**
    * <p>A list of your gateways.</p>
@@ -533,6 +601,9 @@ export interface ListGatewaysOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutMaintenanceStartTimeInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the gateway, used to specify its maintenance start
@@ -562,6 +633,9 @@ export interface PutMaintenanceStartTimeInput {
   DayOfMonth?: number;
 }
 
+/**
+ * @public
+ */
 export interface PutMaintenanceStartTimeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of a gateway for which you set the maintenance start
@@ -570,6 +644,9 @@ export interface PutMaintenanceStartTimeOutput {
   GatewayArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface TestHypervisorConfigurationInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway to the hypervisor to test.</p>
@@ -593,8 +670,14 @@ export interface TestHypervisorConfigurationInput {
   Password?: string;
 }
 
+/**
+ * @public
+ */
 export interface TestHypervisorConfigurationOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateGatewayInformationInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway to update.</p>
@@ -607,6 +690,9 @@ export interface UpdateGatewayInformationInput {
   GatewayDisplayName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGatewayInformationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway you updated.</p>
@@ -614,6 +700,9 @@ export interface UpdateGatewayInformationOutput {
   GatewayArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGatewaySoftwareNowInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway
@@ -622,6 +711,9 @@ export interface UpdateGatewaySoftwareNowInput {
   GatewayArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGatewaySoftwareNowOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway
@@ -630,6 +722,9 @@ export interface UpdateGatewaySoftwareNowOutput {
   GatewayArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteHypervisorInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor to delete.</p>
@@ -637,6 +732,9 @@ export interface DeleteHypervisorInput {
   HypervisorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteHypervisorOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor you deleted.</p>
@@ -644,6 +742,9 @@ export interface DeleteHypervisorOutput {
   HypervisorArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetHypervisorInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
@@ -651,22 +752,41 @@ export interface GetHypervisorInput {
   HypervisorArn: string | undefined;
 }
 
-export enum SyncMetadataStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  PARTIALLY_FAILED = "PARTIALLY_FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
-
-export enum HypervisorState {
-  ERROR = "ERROR",
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SyncMetadataStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  PARTIALLY_FAILED: "PARTIALLY_FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type SyncMetadataStatus = (typeof SyncMetadataStatus)[keyof typeof SyncMetadataStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const HypervisorState = {
+  ERROR: "ERROR",
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type HypervisorState = (typeof HypervisorState)[keyof typeof HypervisorState];
+
+/**
+ * @public
  * <p>These are the details of the specified hypervisor. A hypervisor is hardware,
  *       software, or firmware that creates and manages virtual machines, and allocates
  *       resources to them.</p>
@@ -724,6 +844,9 @@ export interface HypervisorDetails {
   LatestMetadataSyncStatus?: SyncMetadataStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetHypervisorOutput {
   /**
    * <p>Details about the requested hypervisor.</p>
@@ -731,6 +854,9 @@ export interface GetHypervisorOutput {
   Hypervisor?: HypervisorDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetHypervisorPropertyMappingsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
@@ -739,6 +865,7 @@ export interface GetHypervisorPropertyMappingsInput {
 }
 
 /**
+ * @public
  * <p>This displays the mapping of on-premises VMware tags to the
  *       corresponding Amazon Web Services tags.</p>
  */
@@ -764,6 +891,9 @@ export interface VmwareToAwsTagMapping {
   AwsTagValue: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetHypervisorPropertyMappingsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
@@ -782,6 +912,9 @@ export interface GetHypervisorPropertyMappingsOutput {
   IamRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutHypervisorPropertyMappingsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
@@ -800,6 +933,9 @@ export interface PutHypervisorPropertyMappingsInput {
   IamRoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutHypervisorPropertyMappingsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
@@ -807,6 +943,9 @@ export interface PutHypervisorPropertyMappingsOutput {
   HypervisorArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportHypervisorConfigurationInput {
   /**
    * <p>The name of the hypervisor.</p>
@@ -840,6 +979,9 @@ export interface ImportHypervisorConfigurationInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ImportHypervisorConfigurationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor you disassociated.</p>
@@ -847,6 +989,9 @@ export interface ImportHypervisorConfigurationOutput {
   HypervisorArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHypervisorsInput {
   /**
    * <p>The maximum number of hypervisors to list.</p>
@@ -863,6 +1008,7 @@ export interface ListHypervisorsInput {
 }
 
 /**
+ * @public
  * <p>Represents the hypervisor's permissions to which the gateway will connect.</p>
  *          <p>A hypervisor is hardware, software, or firmware that creates and manages virtual machines,
  *       and allocates resources to them.</p>
@@ -896,6 +1042,9 @@ export interface Hypervisor {
   State?: HypervisorState | string;
 }
 
+/**
+ * @public
+ */
 export interface ListHypervisorsOutput {
   /**
    * <p>A list of your <code>Hypervisor</code> objects, ordered by their Amazon Resource Names
@@ -912,6 +1061,9 @@ export interface ListHypervisorsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartVirtualMachinesMetadataSyncInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
@@ -919,6 +1071,9 @@ export interface StartVirtualMachinesMetadataSyncInput {
   HypervisorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartVirtualMachinesMetadataSyncOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor.</p>
@@ -926,6 +1081,9 @@ export interface StartVirtualMachinesMetadataSyncOutput {
   HypervisorArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateHypervisorInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor to update.</p>
@@ -959,6 +1117,9 @@ export interface UpdateHypervisorInput {
   LogGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateHypervisorOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor you updated.</p>
@@ -966,6 +1127,9 @@ export interface UpdateHypervisorOutput {
   HypervisorArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource's tags to list.</p>
@@ -973,6 +1137,9 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource's tags that you listed.</p>
@@ -985,6 +1152,9 @@ export interface ListTagsForResourceOutput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
@@ -997,6 +1167,9 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you tagged.</p>
@@ -1004,6 +1177,9 @@ export interface TagResourceOutput {
   ResourceARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
@@ -1016,6 +1192,9 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which you removed tags.</p>
@@ -1023,6 +1202,9 @@ export interface UntagResourceOutput {
   ResourceARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetVirtualMachineInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual machine.</p>
@@ -1031,6 +1213,7 @@ export interface GetVirtualMachineInput {
 }
 
 /**
+ * @public
  * <p>A VMware tag is a tag attached to a specific virtual machine.
  *       A <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_Tag.html">tag</a>
  *       is a key-value pair you can use to manage, filter, and search for your resources.</p>
@@ -1054,6 +1237,7 @@ export interface VmwareTag {
 }
 
 /**
+ * @public
  * <p>Your <code>VirtualMachine</code> objects, ordered by their Amazon Resource Names (ARNs).</p>
  */
 export interface VirtualMachineDetails {
@@ -1095,6 +1279,9 @@ export interface VirtualMachineDetails {
   VmwareTags?: VmwareTag[];
 }
 
+/**
+ * @public
+ */
 export interface GetVirtualMachineOutput {
   /**
    * <p>This object contains the basic attributes of <code>VirtualMachine</code> contained by the output of
@@ -1104,6 +1291,9 @@ export interface GetVirtualMachineOutput {
   VirtualMachine?: VirtualMachineDetails;
 }
 
+/**
+ * @public
+ */
 export interface ListVirtualMachinesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor connected to your virtual machine.</p>
@@ -1125,6 +1315,7 @@ export interface ListVirtualMachinesInput {
 }
 
 /**
+ * @public
  * <p>A virtual machine that is on a hypervisor.</p>
  */
 export interface VirtualMachine {
@@ -1160,6 +1351,9 @@ export interface VirtualMachine {
   LastBackupDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListVirtualMachinesOutput {
   /**
    * <p>A list of your <code>VirtualMachine</code> objects, ordered by their Amazon Resource Names
@@ -1179,286 +1373,10 @@ export interface ListVirtualMachinesOutput {
 /**
  * @internal
  */
-export const AssociateGatewayToServerInputFilterSensitiveLog = (obj: AssociateGatewayToServerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateGatewayToServerOutputFilterSensitiveLog = (obj: AssociateGatewayToServerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBandwidthRateLimitScheduleInputFilterSensitiveLog = (obj: GetBandwidthRateLimitScheduleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BandwidthRateLimitIntervalFilterSensitiveLog = (obj: BandwidthRateLimitInterval): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBandwidthRateLimitScheduleOutputFilterSensitiveLog = (
-  obj: GetBandwidthRateLimitScheduleOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutBandwidthRateLimitScheduleInputFilterSensitiveLog = (obj: PutBandwidthRateLimitScheduleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutBandwidthRateLimitScheduleOutputFilterSensitiveLog = (
-  obj: PutBandwidthRateLimitScheduleOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGatewayInputFilterSensitiveLog = (obj: CreateGatewayInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGatewayOutputFilterSensitiveLog = (obj: CreateGatewayOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGatewayInputFilterSensitiveLog = (obj: DeleteGatewayInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGatewayOutputFilterSensitiveLog = (obj: DeleteGatewayOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateGatewayFromServerInputFilterSensitiveLog = (obj: DisassociateGatewayFromServerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateGatewayFromServerOutputFilterSensitiveLog = (
-  obj: DisassociateGatewayFromServerOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGatewayInputFilterSensitiveLog = (obj: GetGatewayInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaintenanceStartTimeFilterSensitiveLog = (obj: MaintenanceStartTime): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewayDetailsFilterSensitiveLog = (obj: GatewayDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGatewayOutputFilterSensitiveLog = (obj: GetGatewayOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGatewaysInputFilterSensitiveLog = (obj: ListGatewaysInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewayFilterSensitiveLog = (obj: Gateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGatewaysOutputFilterSensitiveLog = (obj: ListGatewaysOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutMaintenanceStartTimeInputFilterSensitiveLog = (obj: PutMaintenanceStartTimeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutMaintenanceStartTimeOutputFilterSensitiveLog = (obj: PutMaintenanceStartTimeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TestHypervisorConfigurationInputFilterSensitiveLog = (obj: TestHypervisorConfigurationInput): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
   ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TestHypervisorConfigurationOutputFilterSensitiveLog = (obj: TestHypervisorConfigurationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGatewayInformationInputFilterSensitiveLog = (obj: UpdateGatewayInformationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGatewayInformationOutputFilterSensitiveLog = (obj: UpdateGatewayInformationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGatewaySoftwareNowInputFilterSensitiveLog = (obj: UpdateGatewaySoftwareNowInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGatewaySoftwareNowOutputFilterSensitiveLog = (obj: UpdateGatewaySoftwareNowOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHypervisorInputFilterSensitiveLog = (obj: DeleteHypervisorInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHypervisorOutputFilterSensitiveLog = (obj: DeleteHypervisorOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHypervisorInputFilterSensitiveLog = (obj: GetHypervisorInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HypervisorDetailsFilterSensitiveLog = (obj: HypervisorDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHypervisorOutputFilterSensitiveLog = (obj: GetHypervisorOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHypervisorPropertyMappingsInputFilterSensitiveLog = (obj: GetHypervisorPropertyMappingsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VmwareToAwsTagMappingFilterSensitiveLog = (obj: VmwareToAwsTagMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHypervisorPropertyMappingsOutputFilterSensitiveLog = (
-  obj: GetHypervisorPropertyMappingsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutHypervisorPropertyMappingsInputFilterSensitiveLog = (obj: PutHypervisorPropertyMappingsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutHypervisorPropertyMappingsOutputFilterSensitiveLog = (
-  obj: PutHypervisorPropertyMappingsOutput
-): any => ({
-  ...obj,
 });
 
 /**
@@ -1473,154 +1391,8 @@ export const ImportHypervisorConfigurationInputFilterSensitiveLog = (obj: Import
 /**
  * @internal
  */
-export const ImportHypervisorConfigurationOutputFilterSensitiveLog = (
-  obj: ImportHypervisorConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHypervisorsInputFilterSensitiveLog = (obj: ListHypervisorsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HypervisorFilterSensitiveLog = (obj: Hypervisor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHypervisorsOutputFilterSensitiveLog = (obj: ListHypervisorsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartVirtualMachinesMetadataSyncInputFilterSensitiveLog = (
-  obj: StartVirtualMachinesMetadataSyncInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartVirtualMachinesMetadataSyncOutputFilterSensitiveLog = (
-  obj: StartVirtualMachinesMetadataSyncOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateHypervisorInputFilterSensitiveLog = (obj: UpdateHypervisorInput): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
   ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateHypervisorOutputFilterSensitiveLog = (obj: UpdateHypervisorOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVirtualMachineInputFilterSensitiveLog = (obj: GetVirtualMachineInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VmwareTagFilterSensitiveLog = (obj: VmwareTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualMachineDetailsFilterSensitiveLog = (obj: VirtualMachineDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVirtualMachineOutputFilterSensitiveLog = (obj: GetVirtualMachineOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVirtualMachinesInputFilterSensitiveLog = (obj: ListVirtualMachinesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualMachineFilterSensitiveLog = (obj: VirtualMachine): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVirtualMachinesOutputFilterSensitiveLog = (obj: ListVirtualMachinesOutput): any => ({
-  ...obj,
 });

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
-import {
-  SuggestRequest,
-  SuggestRequestFilterSensitiveLog,
-  SuggestResponse,
-  SuggestResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SuggestCommand,
-  serializeAws_restJson1SuggestCommand,
-} from "../protocols/Aws_restJson1";
+import { SuggestRequest, SuggestResponse } from "../models/models_0";
+import { de_SuggestCommand, se_SuggestCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SuggestCommand}.
  */
 export interface SuggestCommandInput extends SuggestRequest {}
 /**
+ * @public
+ *
  * The output of {@link SuggestCommand}.
  */
 export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves autocomplete suggestions for a partial query string. You can use suggestions enable you to display likely matches before users finish typing. In Amazon CloudSearch, suggestions are based on the contents of a particular text field. When you request suggestions, Amazon CloudSearch finds all of the documents whose values in the suggester field start with the specified query string. The beginning of the field must match the query string to be considered a match. </p>
  *       <p>For more information about configuring suggesters and retrieving suggestions, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html">Getting Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
  *
@@ -49,10 +46,17 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * import { CloudSearchDomainClient, SuggestCommand } from "@aws-sdk/client-cloudsearch-domain"; // ES Modules import
  * // const { CloudSearchDomainClient, SuggestCommand } = require("@aws-sdk/client-cloudsearch-domain"); // CommonJS import
  * const client = new CloudSearchDomainClient(config);
+ * const input = { // SuggestRequest
+ *   query: "STRING_VALUE", // required
+ *   suggester: "STRING_VALUE", // required
+ *   size: Number("long"),
+ * };
  * const command = new SuggestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SuggestCommandInput - {@link SuggestCommandInput}
+ * @returns {@link SuggestCommandOutput}
  * @see {@link SuggestCommandInput} for command's `input` shape.
  * @see {@link SuggestCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchDomainClientResolvedConfig | config} for CloudSearchDomainClient's `config` shape.
@@ -79,6 +83,9 @@ export class SuggestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SuggestCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +112,8 @@ export class SuggestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SuggestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SuggestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +123,18 @@ export class SuggestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SuggestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SuggestCommand(input, context);
+    return se_SuggestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SuggestCommandOutput> {
-    return deserializeAws_restJson1SuggestCommand(output, context);
+    return de_SuggestCommand(output, context);
   }
 
   // Start section: command_body_extra

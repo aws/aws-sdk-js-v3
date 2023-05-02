@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetConnectorsRequest,
-  GetConnectorsRequestFilterSensitiveLog,
-  GetConnectorsResponse,
-  GetConnectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetConnectorsCommand,
-  serializeAws_json1_1GetConnectorsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetConnectorsRequest, GetConnectorsResponse } from "../models/models_0";
+import { de_GetConnectorsCommand, se_GetConnectorsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectorsCommand}.
  */
 export interface GetConnectorsCommandInput extends GetConnectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectorsCommand}.
  */
 export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the connectors registered with the Server Migration Service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __Met
  * import { SMSClient, GetConnectorsCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetConnectorsCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // GetConnectorsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetConnectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectorsCommandInput - {@link GetConnectorsCommandInput}
+ * @returns {@link GetConnectorsCommandOutput}
  * @see {@link GetConnectorsCommandInput} for command's `input` shape.
  * @see {@link GetConnectorsCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -73,6 +76,9 @@ export class GetConnectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +105,8 @@ export class GetConnectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +116,18 @@ export class GetConnectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetConnectorsCommand(input, context);
+    return se_GetConnectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectorsCommandOutput> {
-    return deserializeAws_json1_1GetConnectorsCommand(output, context);
+    return de_GetConnectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

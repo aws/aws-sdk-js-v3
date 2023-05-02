@@ -14,70 +14,67 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  SearchGameSessionsInput,
-  SearchGameSessionsInputFilterSensitiveLog,
-  SearchGameSessionsOutput,
-  SearchGameSessionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchGameSessionsCommand,
-  serializeAws_json1_1SearchGameSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchGameSessionsInput, SearchGameSessionsOutput } from "../models/models_0";
+import { de_SearchGameSessionsCommand, se_SearchGameSessionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchGameSessionsCommand}.
  */
 export interface SearchGameSessionsCommandInput extends SearchGameSessionsInput {}
 /**
+ * @public
+ *
  * The output of {@link SearchGameSessionsCommand}.
  */
 export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all active game sessions that match a set of search criteria and sorts them
  *             into a specified order. </p>
- *         <p>This operation is not designed to be continually called to track game session status.
+ *          <p>This operation is not designed to be continually called to track game session status.
  *             This practice can cause you to exceed your API limit, which results in errors. Instead,
  *             you must configure configure an Amazon Simple Notification Service (SNS) topic to receive notifications from
  *             FlexMatch or queues. Continuously polling game session status with
  *                 <code>DescribeGameSessions</code> should only be used for games in development with
  *             low game session usage. </p>
- *         <p>When searching for game sessions, you specify exactly where you want to search and
+ *          <p>When searching for game sessions, you specify exactly where you want to search and
  *             provide a search filter expression, a sort expression, or both. A search request can
  *             search only one fleet, but it can search all of a fleet's locations. </p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To search all game sessions that are currently running on all locations in a
+ *                <p>To search all game sessions that are currently running on all locations in a
  *                     fleet, provide a fleet or alias ID. This approach returns game sessions in the
  *                     fleet's home Region and all remote locations that fit the search
  *                     criteria.</p>
  *             </li>
  *             <li>
- *                 <p>To search all game sessions that are currently running on a specific fleet
+ *                <p>To search all game sessions that are currently running on a specific fleet
  *                     location, provide a fleet or alias ID and a location name. For location, you can
  *                     specify a fleet's home Region or any remote location.</p>
  *             </li>
  *          </ul>
- *         <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
- *         <p>If successful, a <code>GameSession</code> object is returned for each game session
+ *          <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
+ *          <p>If successful, a <code>GameSession</code> object is returned for each game session
  *             that matches the request. Search finds game sessions that are in <code>ACTIVE</code>
  *             status only. To retrieve information on game sessions in other statuses, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessions.html">DescribeGameSessions</a> .</p>
- *         <p>You can search or sort by the following game session attributes:</p>
- *         <ul>
+ *          <p>You can search or sort by the following game session attributes:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>gameSessionId</b> -- A unique identifier for the game session. You can use either a
  *                         <code>GameSessionId</code> or <code>GameSessionArn</code> value. </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>gameSessionName</b> -- Name assigned to a game
  *                     session. Game session names do not need to be unique to a game session.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>gameSessionProperties</b> -- Custom data defined
  *                     in a game session's <code>GameProperty</code> parameter.
  *                         <code>GameProperty</code> values are stored as key:value pairs; the filter
@@ -88,23 +85,23 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *                     values are searched as strings.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>maximumSessions</b> -- Maximum number of player
  *                     sessions allowed for a game session.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>creationTimeMillis</b> -- Value indicating when a
  *                     game session was created. It is expressed in Unix time as milliseconds.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>playerSessionCount</b> -- Number of players
  *                     currently connected to a game session. This value changes rapidly as players
  *                     join the session or drop out.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>hasAvailablePlayerSessions</b> -- Boolean value
  *                     indicating whether a game session has reached its maximum number of players. It
  *                     is highly recommended that all search requests include this filter attribute to
@@ -112,15 +109,15 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *                 </p>
  *             </li>
  *          </ul>
- *         <note>
+ *          <note>
  *             <p>Returned values for <code>playerSessionCount</code> and
  *                     <code>hasAvailablePlayerSessions</code> change quickly as players join sessions
  *                 and others drop out. Results should be considered a snapshot in time. Be sure to
  *                 refresh search results often, and handle sessions that fill up before a player can
  *                 join. </p>
- *         </note>
+ *          </note>
  *          <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,10 +125,21 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  * import { GameLiftClient, SearchGameSessionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, SearchGameSessionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // SearchGameSessionsInput
+ *   FleetId: "STRING_VALUE",
+ *   AliasId: "STRING_VALUE",
+ *   Location: "STRING_VALUE",
+ *   FilterExpression: "STRING_VALUE",
+ *   SortExpression: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new SearchGameSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchGameSessionsCommandInput - {@link SearchGameSessionsCommandInput}
+ * @returns {@link SearchGameSessionsCommandOutput}
  * @see {@link SearchGameSessionsCommandInput} for command's `input` shape.
  * @see {@link SearchGameSessionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -178,6 +186,9 @@ export class SearchGameSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchGameSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -206,8 +217,8 @@ export class SearchGameSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchGameSessionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchGameSessionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -217,12 +228,18 @@ export class SearchGameSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchGameSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchGameSessionsCommand(input, context);
+    return se_SearchGameSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchGameSessionsCommandOutput> {
-    return deserializeAws_json1_1SearchGameSessionsCommand(output, context);
+    return de_SearchGameSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

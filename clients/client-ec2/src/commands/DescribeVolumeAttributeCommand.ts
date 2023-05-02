@@ -14,27 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeVolumeAttributeRequest,
-  DescribeVolumeAttributeRequestFilterSensitiveLog,
-  DescribeVolumeAttributeResult,
-  DescribeVolumeAttributeResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeVolumeAttributeCommand,
-  serializeAws_ec2DescribeVolumeAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeVolumeAttributeRequest } from "../models/models_4";
+import { DescribeVolumeAttributeResult } from "../models/models_5";
+import { de_DescribeVolumeAttributeCommand, se_DescribeVolumeAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVolumeAttributeCommand}.
  */
 export interface DescribeVolumeAttributeCommandInput extends DescribeVolumeAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVolumeAttributeCommand}.
  */
 export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified attribute of the specified volume. You can specify only one
  *       attribute at a time.</p>
  *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -44,10 +42,17 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * import { EC2Client, DescribeVolumeAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVolumeAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVolumeAttributeRequest
+ *   Attribute: "autoEnableIO" || "productCodes", // required
+ *   VolumeId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeVolumeAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVolumeAttributeCommandInput - {@link DescribeVolumeAttributeCommandInput}
+ * @returns {@link DescribeVolumeAttributeCommandOutput}
  * @see {@link DescribeVolumeAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumeAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -91,6 +96,9 @@ export class DescribeVolumeAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVolumeAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +127,8 @@ export class DescribeVolumeAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVolumeAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVolumeAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +138,18 @@ export class DescribeVolumeAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVolumeAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVolumeAttributeCommand(input, context);
+    return se_DescribeVolumeAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVolumeAttributeCommandOutput> {
-    return deserializeAws_ec2DescribeVolumeAttributeCommand(output, context);
+    return de_DescribeVolumeAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { UpdateGlobalSettingsInput, UpdateGlobalSettingsInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGlobalSettingsCommand,
-  serializeAws_restJson1UpdateGlobalSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateGlobalSettingsInput } from "../models/models_0";
+import { de_UpdateGlobalSettingsCommand, se_UpdateGlobalSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGlobalSettingsCommand}.
  */
 export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGlobalSettingsCommand}.
  */
 export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates whether the Amazon Web Services account is opted in to cross-account backup.
  *          Returns an error if the account is not an Organizations management account. Use the
  *             <code>DescribeGlobalSettings</code> API to determine the current settings.</p>
@@ -39,10 +41,17 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * import { BackupClient, UpdateGlobalSettingsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateGlobalSettingsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // UpdateGlobalSettingsInput
+ *   GlobalSettings: { // GlobalSettings
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateGlobalSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGlobalSettingsCommandInput - {@link UpdateGlobalSettingsCommandInput}
+ * @returns {@link UpdateGlobalSettingsCommandOutput}
  * @see {@link UpdateGlobalSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalSettingsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -80,6 +89,9 @@ export class UpdateGlobalSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGlobalSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +120,8 @@ export class UpdateGlobalSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGlobalSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +131,18 @@ export class UpdateGlobalSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGlobalSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGlobalSettingsCommand(input, context);
+    return se_UpdateGlobalSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateGlobalSettingsCommand(output, context);
+    return de_UpdateGlobalSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

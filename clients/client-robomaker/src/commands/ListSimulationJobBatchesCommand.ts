@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSimulationJobBatchesRequest,
-  ListSimulationJobBatchesRequestFilterSensitiveLog,
-  ListSimulationJobBatchesResponse,
-  ListSimulationJobBatchesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSimulationJobBatchesCommand,
-  serializeAws_restJson1ListSimulationJobBatchesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSimulationJobBatchesRequest, ListSimulationJobBatchesResponse } from "../models/models_0";
+import { de_ListSimulationJobBatchesCommand, se_ListSimulationJobBatchesCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSimulationJobBatchesCommand}.
  */
 export interface ListSimulationJobBatchesCommandInput extends ListSimulationJobBatchesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSimulationJobBatchesCommand}.
  */
 export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJobBatchesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list simulation job batches. You can optionally provide filters to retrieve
  *          specific simulation batch jobs. </p>
  * @example
@@ -43,10 +40,24 @@ export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJob
  * import { RoboMakerClient, ListSimulationJobBatchesCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListSimulationJobBatchesCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // ListSimulationJobBatchesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListSimulationJobBatchesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSimulationJobBatchesCommandInput - {@link ListSimulationJobBatchesCommandInput}
+ * @returns {@link ListSimulationJobBatchesCommandOutput}
  * @see {@link ListSimulationJobBatchesCommandInput} for command's `input` shape.
  * @see {@link ListSimulationJobBatchesCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -77,6 +88,9 @@ export class ListSimulationJobBatchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSimulationJobBatchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +119,8 @@ export class ListSimulationJobBatchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSimulationJobBatchesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSimulationJobBatchesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +130,18 @@ export class ListSimulationJobBatchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSimulationJobBatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSimulationJobBatchesCommand(input, context);
+    return se_ListSimulationJobBatchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSimulationJobBatchesCommandOutput> {
-    return deserializeAws_restJson1ListSimulationJobBatchesCommand(output, context);
+    return de_ListSimulationJobBatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

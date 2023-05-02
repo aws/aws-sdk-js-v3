@@ -6,7 +6,7 @@ import { MediaTailorClient } from "../MediaTailorClient";
 import { MediaTailorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaTailorClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAlertsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAlerts(
   config: MediaTailorPaginationConfiguration,
   input: ListAlertsCommandInput,

@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CancelCertificateTransferRequest,
-  CancelCertificateTransferRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelCertificateTransferCommand,
-  serializeAws_restJson1CancelCertificateTransferCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelCertificateTransferRequest } from "../models/models_0";
+import { de_CancelCertificateTransferCommand, se_CancelCertificateTransferCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelCertificateTransferCommand}.
  */
 export interface CancelCertificateTransferCommandInput extends CancelCertificateTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelCertificateTransferCommand}.
  */
 export interface CancelCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a pending transfer for the specified certificate.</p>
  *          <p>
  *             <b>Note</b> Only the transfer source account can use this
@@ -48,10 +47,15 @@ export interface CancelCertificateTransferCommandOutput extends __MetadataBearer
  * import { IoTClient, CancelCertificateTransferCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CancelCertificateTransferCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CancelCertificateTransferRequest
+ *   certificateId: "STRING_VALUE", // required
+ * };
  * const command = new CancelCertificateTransferCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelCertificateTransferCommandInput - {@link CancelCertificateTransferCommandInput}
+ * @returns {@link CancelCertificateTransferCommandOutput}
  * @see {@link CancelCertificateTransferCommandInput} for command's `input` shape.
  * @see {@link CancelCertificateTransferCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -97,6 +101,9 @@ export class CancelCertificateTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelCertificateTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +132,8 @@ export class CancelCertificateTransferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelCertificateTransferRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,15 +143,21 @@ export class CancelCertificateTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelCertificateTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelCertificateTransferCommand(input, context);
+    return se_CancelCertificateTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelCertificateTransferCommandOutput> {
-    return deserializeAws_restJson1CancelCertificateTransferCommand(output, context);
+    return de_CancelCertificateTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

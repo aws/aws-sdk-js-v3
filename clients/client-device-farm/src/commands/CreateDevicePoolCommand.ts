@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  CreateDevicePoolRequest,
-  CreateDevicePoolRequestFilterSensitiveLog,
-  CreateDevicePoolResult,
-  CreateDevicePoolResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDevicePoolCommand,
-  serializeAws_json1_1CreateDevicePoolCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDevicePoolRequest, CreateDevicePoolResult } from "../models/models_0";
+import { de_CreateDevicePoolCommand, se_CreateDevicePoolCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDevicePoolCommand}.
  */
 export interface CreateDevicePoolCommandInput extends CreateDevicePoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDevicePoolCommand}.
  */
 export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a device pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, _
  * import { DeviceFarmClient, CreateDevicePoolCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateDevicePoolCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // CreateDevicePoolRequest
+ *   projectArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   rules: [ // Rules // required
+ *     { // Rule
+ *       attribute: "ARN" || "PLATFORM" || "FORM_FACTOR" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "APPIUM_VERSION" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE" || "OS_VERSION" || "MODEL" || "AVAILABILITY",
+ *       operator: "EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "IN" || "NOT_IN" || "CONTAINS",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   maxDevices: Number("int"),
+ * };
  * const command = new CreateDevicePoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDevicePoolCommandInput - {@link CreateDevicePoolCommandInput}
+ * @returns {@link CreateDevicePoolCommandOutput}
  * @see {@link CreateDevicePoolCommandInput} for command's `input` shape.
  * @see {@link CreateDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -100,6 +112,9 @@ export class CreateDevicePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDevicePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +143,8 @@ export class CreateDevicePoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDevicePoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDevicePoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +154,18 @@ export class CreateDevicePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDevicePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDevicePoolCommand(input, context);
+    return se_CreateDevicePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDevicePoolCommandOutput> {
-    return deserializeAws_json1_1CreateDevicePoolCommand(output, context);
+    return de_CreateDevicePoolCommand(output, context);
   }
 
   // Start section: command_body_extra

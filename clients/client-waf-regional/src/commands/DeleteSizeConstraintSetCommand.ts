@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSizeConstraintSetRequest,
-  DeleteSizeConstraintSetRequestFilterSensitiveLog,
-  DeleteSizeConstraintSetResponse,
-  DeleteSizeConstraintSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSizeConstraintSetCommand,
-  serializeAws_json1_1DeleteSizeConstraintSetCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSizeConstraintSetRequest, DeleteSizeConstraintSetResponse } from "../models/models_0";
+import { de_DeleteSizeConstraintSetCommand, se_DeleteSizeConstraintSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSizeConstraintSetCommand}.
  */
 export interface DeleteSizeConstraintSetCommandInput extends DeleteSizeConstraintSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSizeConstraintSetCommand}.
  */
 export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstraintSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -65,10 +62,16 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  * import { WAFRegionalClient, DeleteSizeConstraintSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteSizeConstraintSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // DeleteSizeConstraintSetRequest
+ *   SizeConstraintSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSizeConstraintSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSizeConstraintSetCommandInput - {@link DeleteSizeConstraintSetCommandInput}
+ * @returns {@link DeleteSizeConstraintSetCommandOutput}
  * @see {@link DeleteSizeConstraintSetCommandInput} for command's `input` shape.
  * @see {@link DeleteSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -150,6 +153,9 @@ export class DeleteSizeConstraintSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSizeConstraintSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,8 +184,8 @@ export class DeleteSizeConstraintSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSizeConstraintSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSizeConstraintSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -189,12 +195,18 @@ export class DeleteSizeConstraintSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSizeConstraintSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSizeConstraintSetCommand(input, context);
+    return se_DeleteSizeConstraintSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSizeConstraintSetCommandOutput> {
-    return deserializeAws_json1_1DeleteSizeConstraintSetCommand(output, context);
+    return de_DeleteSizeConstraintSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetBucketLifecycleConfigurationOutput, GetBucketLifecycleConfigurationRequest } from "../models/models_0";
 import {
-  GetBucketLifecycleConfigurationOutput,
-  GetBucketLifecycleConfigurationOutputFilterSensitiveLog,
-  GetBucketLifecycleConfigurationRequest,
-  GetBucketLifecycleConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketLifecycleConfigurationCommand,
-  serializeAws_restXmlGetBucketLifecycleConfigurationCommand,
+  de_GetBucketLifecycleConfigurationCommand,
+  se_GetBucketLifecycleConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketLifecycleConfigurationCommand}.
  */
 export interface GetBucketLifecycleConfigurationCommandInput extends GetBucketLifecycleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketLifecycleConfigurationCommand}.
  */
 export interface GetBucketLifecycleConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface GetBucketLifecycleConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an
  *             object key name prefix, one or more object tags, or a combination of both. Accordingly,
@@ -97,10 +97,16 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * import { S3Client, GetBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketLifecycleConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketLifecycleConfigurationCommandInput - {@link GetBucketLifecycleConfigurationCommandInput}
+ * @returns {@link GetBucketLifecycleConfigurationCommandOutput}
  * @see {@link GetBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -158,6 +164,9 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,8 +195,8 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketLifecycleConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketLifecycleConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -197,18 +206,24 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketLifecycleConfigurationCommand(input, context);
+    return se_GetBucketLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketLifecycleConfigurationCommand(output, context);
+    return de_GetBucketLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

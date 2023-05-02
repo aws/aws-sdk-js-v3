@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  DeleteFunctionConcurrencyRequest,
-  DeleteFunctionConcurrencyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFunctionConcurrencyCommand,
-  serializeAws_restJson1DeleteFunctionConcurrencyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFunctionConcurrencyRequest } from "../models/models_0";
+import { de_DeleteFunctionConcurrencyCommand, se_DeleteFunctionConcurrencyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFunctionConcurrencyCommand}.
  */
 export interface DeleteFunctionConcurrencyCommandInput extends DeleteFunctionConcurrencyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFunctionConcurrencyCommand}.
  */
 export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a concurrent execution limit from a function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +39,15 @@ export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer
  * import { LambdaClient, DeleteFunctionConcurrencyCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteFunctionConcurrencyCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // DeleteFunctionConcurrencyRequest
+ *   FunctionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFunctionConcurrencyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFunctionConcurrencyCommandInput - {@link DeleteFunctionConcurrencyCommandInput}
+ * @returns {@link DeleteFunctionConcurrencyCommandOutput}
  * @see {@link DeleteFunctionConcurrencyCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionConcurrencyCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +86,9 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFunctionConcurrencyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFunctionConcurrencyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +128,21 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFunctionConcurrencyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFunctionConcurrencyCommand(input, context);
+    return se_DeleteFunctionConcurrencyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFunctionConcurrencyCommandOutput> {
-    return deserializeAws_restJson1DeleteFunctionConcurrencyCommand(output, context);
+    return de_DeleteFunctionConcurrencyCommand(output, context);
   }
 
   // Start section: command_body_extra

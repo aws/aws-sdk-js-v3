@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLensesInput,
-  ListLensesInputFilterSensitiveLog,
-  ListLensesOutput,
-  ListLensesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLensesCommand,
-  serializeAws_restJson1ListLensesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListLensesInput, ListLensesOutput } from "../models/models_0";
+import { de_ListLensesCommand, se_ListLensesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLensesCommand}.
  */
 export interface ListLensesCommandInput extends ListLensesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLensesCommand}.
  */
 export interface ListLensesCommandOutput extends ListLensesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the available lenses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListLensesCommandOutput extends ListLensesOutput, __MetadataBea
  * import { WellArchitectedClient, ListLensesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListLensesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListLensesInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   LensType: "AWS_OFFICIAL" || "CUSTOM_SHARED" || "CUSTOM_SELF",
+ *   LensStatus: "ALL" || "DRAFT" || "PUBLISHED",
+ *   LensName: "STRING_VALUE",
+ * };
  * const command = new ListLensesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLensesCommandInput - {@link ListLensesCommandInput}
+ * @returns {@link ListLensesCommandOutput}
  * @see {@link ListLensesCommandInput} for command's `input` shape.
  * @see {@link ListLensesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -81,6 +87,9 @@ export class ListLensesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLensesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +116,8 @@ export class ListLensesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLensesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLensesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +127,18 @@ export class ListLensesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLensesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLensesCommand(input, context);
+    return se_ListLensesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLensesCommandOutput> {
-    return deserializeAws_restJson1ListLensesCommand(output, context);
+    return de_ListLensesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeReservedNodeOfferingsMessage, ReservedNodeOfferingsMessage } from "../models/models_1";
 import {
-  DescribeReservedNodeOfferingsMessage,
-  DescribeReservedNodeOfferingsMessageFilterSensitiveLog,
-  ReservedNodeOfferingsMessage,
-  ReservedNodeOfferingsMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeReservedNodeOfferingsCommand,
-  serializeAws_queryDescribeReservedNodeOfferingsCommand,
+  de_DescribeReservedNodeOfferingsCommand,
+  se_DescribeReservedNodeOfferingsCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedNodeOfferingsCommand}.
  */
 export interface DescribeReservedNodeOfferingsCommandInput extends DescribeReservedNodeOfferingsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedNodeOfferingsCommand}.
  */
 export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNodeOfferingsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available reserved node offerings by Amazon Redshift with their
  *             descriptions including the node type, the fixed and recurring costs of reserving the
  *             node and duration the node will be reserved for you. These descriptions help you
@@ -51,10 +51,17 @@ export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNode
  * import { RedshiftClient, DescribeReservedNodeOfferingsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeReservedNodeOfferingsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeReservedNodeOfferingsMessage
+ *   ReservedNodeOfferingId: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReservedNodeOfferingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedNodeOfferingsCommandInput - {@link DescribeReservedNodeOfferingsCommandInput}
+ * @returns {@link DescribeReservedNodeOfferingsCommandOutput}
  * @see {@link DescribeReservedNodeOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedNodeOfferingsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeReservedNodeOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedNodeOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +126,8 @@ export class DescribeReservedNodeOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedNodeOfferingsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ReservedNodeOfferingsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +137,21 @@ export class DescribeReservedNodeOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReservedNodeOfferingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedNodeOfferingsCommand(input, context);
+    return se_DescribeReservedNodeOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedNodeOfferingsCommandOutput> {
-    return deserializeAws_queryDescribeReservedNodeOfferingsCommand(output, context);
+    return de_DescribeReservedNodeOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

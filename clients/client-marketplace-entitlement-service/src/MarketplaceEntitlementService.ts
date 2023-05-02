@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -6,9 +7,33 @@ import {
   GetEntitlementsCommandInput,
   GetEntitlementsCommandOutput,
 } from "./commands/GetEntitlementsCommand";
-import { MarketplaceEntitlementServiceClient } from "./MarketplaceEntitlementServiceClient";
+import {
+  MarketplaceEntitlementServiceClient,
+  MarketplaceEntitlementServiceClientConfig,
+} from "./MarketplaceEntitlementServiceClient";
+
+const commands = {
+  GetEntitlementsCommand,
+};
+
+export interface MarketplaceEntitlementService {
+  /**
+   * @see {@link GetEntitlementsCommand}
+   */
+  getEntitlements(
+    args: GetEntitlementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEntitlementsCommandOutput>;
+  getEntitlements(args: GetEntitlementsCommandInput, cb: (err: any, data?: GetEntitlementsCommandOutput) => void): void;
+  getEntitlements(
+    args: GetEntitlementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEntitlementsCommandOutput) => void
+  ): void;
+}
 
 /**
+ * @public
  * <fullname>AWS Marketplace Entitlement Service</fullname>
  *          <p>This reference provides descriptions of the AWS Marketplace Entitlement Service
  *    API.</p>
@@ -27,37 +52,7 @@ import { MarketplaceEntitlementServiceClient } from "./MarketplaceEntitlementSer
  *             </li>
  *          </ul>
  */
-export class MarketplaceEntitlementService extends MarketplaceEntitlementServiceClient {
-  /**
-   * <p>GetEntitlements retrieves entitlement values for a given product. The results can be
-   *       filtered based on customer identifier or product dimensions.</p>
-   */
-  public getEntitlements(
-    args: GetEntitlementsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetEntitlementsCommandOutput>;
-  public getEntitlements(
-    args: GetEntitlementsCommandInput,
-    cb: (err: any, data?: GetEntitlementsCommandOutput) => void
-  ): void;
-  public getEntitlements(
-    args: GetEntitlementsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetEntitlementsCommandOutput) => void
-  ): void;
-  public getEntitlements(
-    args: GetEntitlementsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEntitlementsCommandOutput) => void),
-    cb?: (err: any, data?: GetEntitlementsCommandOutput) => void
-  ): Promise<GetEntitlementsCommandOutput> | void {
-    const command = new GetEntitlementsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class MarketplaceEntitlementService
+  extends MarketplaceEntitlementServiceClient
+  implements MarketplaceEntitlementService {}
+createAggregatedClient(commands, MarketplaceEntitlementService);

@@ -13,24 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ResizeClusterMessage, ResizeClusterMessageFilterSensitiveLog } from "../models/models_0";
-import { ResizeClusterResult, ResizeClusterResultFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryResizeClusterCommand,
-  serializeAws_queryResizeClusterCommand,
-} from "../protocols/Aws_query";
+import { ResizeClusterMessage } from "../models/models_0";
+import { ResizeClusterResult } from "../models/models_1";
+import { de_ResizeClusterCommand, se_ResizeClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResizeClusterCommand}.
  */
 export interface ResizeClusterCommandInput extends ResizeClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ResizeClusterCommand}.
  */
 export interface ResizeClusterCommandOutput extends ResizeClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the size of the cluster. You can change the cluster's type, or change the
  *             number or type of nodes. The default behavior is to use the elastic resize method. With
  *             an elastic resize, your cluster is available for read and write operations more quickly
@@ -80,10 +82,21 @@ export interface ResizeClusterCommandOutput extends ResizeClusterResult, __Metad
  * import { RedshiftClient, ResizeClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ResizeClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ResizeClusterMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ClusterType: "STRING_VALUE",
+ *   NodeType: "STRING_VALUE",
+ *   NumberOfNodes: Number("int"),
+ *   Classic: true || false,
+ *   ReservedNodeId: "STRING_VALUE",
+ *   TargetReservedNodeOfferingId: "STRING_VALUE",
+ * };
  * const command = new ResizeClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResizeClusterCommandInput - {@link ResizeClusterCommandInput}
+ * @returns {@link ResizeClusterCommandOutput}
  * @see {@link ResizeClusterCommandInput} for command's `input` shape.
  * @see {@link ResizeClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -159,6 +172,9 @@ export class ResizeClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResizeClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,8 +201,8 @@ export class ResizeClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResizeClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ResizeClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -196,12 +212,18 @@ export class ResizeClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResizeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResizeClusterCommand(input, context);
+    return se_ResizeClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResizeClusterCommandOutput> {
-    return deserializeAws_queryResizeClusterCommand(output, context);
+    return de_ResizeClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

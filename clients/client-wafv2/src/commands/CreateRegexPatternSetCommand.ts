@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRegexPatternSetRequest,
-  CreateRegexPatternSetRequestFilterSensitiveLog,
-  CreateRegexPatternSetResponse,
-  CreateRegexPatternSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRegexPatternSetCommand,
-  serializeAws_json1_1CreateRegexPatternSetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateRegexPatternSetRequest, CreateRegexPatternSetResponse } from "../models/models_0";
+import { de_CreateRegexPatternSetCommand, se_CreateRegexPatternSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRegexPatternSetCommand}.
  */
 export interface CreateRegexPatternSetCommandInput extends CreateRegexPatternSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRegexPatternSetCommand}.
  */
 export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <a>RegexPatternSet</a>, which you reference in a <a>RegexPatternSetReferenceStatement</a>, to have WAF inspect a web request
  *          component for the specified patterns.</p>
  * @example
@@ -43,10 +40,28 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * import { WAFV2Client, CreateRegexPatternSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, CreateRegexPatternSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // CreateRegexPatternSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Description: "STRING_VALUE",
+ *   RegularExpressionList: [ // RegularExpressionList // required
+ *     { // Regex
+ *       RegexString: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRegexPatternSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRegexPatternSetCommandInput - {@link CreateRegexPatternSetCommandInput}
+ * @returns {@link CreateRegexPatternSetCommandOutput}
  * @see {@link CreateRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link CreateRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -120,6 +135,9 @@ export class CreateRegexPatternSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRegexPatternSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +166,8 @@ export class CreateRegexPatternSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRegexPatternSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRegexPatternSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +177,18 @@ export class CreateRegexPatternSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRegexPatternSetCommand(input, context);
+    return se_CreateRegexPatternSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRegexPatternSetCommandOutput> {
-    return deserializeAws_json1_1CreateRegexPatternSetCommand(output, context);
+    return de_CreateRegexPatternSetCommand(output, context);
   }
 
   // Start section: command_body_extra

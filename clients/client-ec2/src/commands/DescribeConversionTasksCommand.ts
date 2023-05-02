@@ -16,25 +16,26 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeConversionTasksRequest,
-  DescribeConversionTasksRequestFilterSensitiveLog,
   DescribeConversionTasksResult,
   DescribeConversionTasksResultFilterSensitiveLog,
 } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeConversionTasksCommand,
-  serializeAws_ec2DescribeConversionTasksCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeConversionTasksCommand, se_DescribeConversionTasksCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConversionTasksCommand}.
  */
 export interface DescribeConversionTasksCommandInput extends DescribeConversionTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConversionTasksCommand}.
  */
 export interface DescribeConversionTasksCommandOutput extends DescribeConversionTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the
  *    <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export User Guide</a>.</p>
  *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
@@ -44,10 +45,18 @@ export interface DescribeConversionTasksCommandOutput extends DescribeConversion
  * import { EC2Client, DescribeConversionTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeConversionTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeConversionTasksRequest
+ *   ConversionTaskIds: [ // ConversionIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeConversionTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConversionTasksCommandInput - {@link DescribeConversionTasksCommandInput}
+ * @returns {@link DescribeConversionTasksCommandOutput}
  * @see {@link DescribeConversionTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeConversionTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +80,9 @@ export class DescribeConversionTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConversionTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,7 +111,7 @@ export class DescribeConversionTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConversionTasksRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeConversionTasksResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -110,12 +122,18 @@ export class DescribeConversionTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConversionTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeConversionTasksCommand(input, context);
+    return se_DescribeConversionTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConversionTasksCommandOutput> {
-    return deserializeAws_ec2DescribeConversionTasksCommand(output, context);
+    return de_DescribeConversionTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

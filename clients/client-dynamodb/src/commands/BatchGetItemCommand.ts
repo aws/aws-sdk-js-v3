@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  BatchGetItemInput,
-  BatchGetItemInputFilterSensitiveLog,
-  BatchGetItemOutput,
-  BatchGetItemOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0BatchGetItemCommand,
-  serializeAws_json1_0BatchGetItemCommand,
-} from "../protocols/Aws_json1_0";
+import { BatchGetItemInput, BatchGetItemOutput } from "../models/models_0";
+import { de_BatchGetItemCommand, se_BatchGetItemCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetItemCommand}.
  */
 export interface BatchGetItemCommandInput extends BatchGetItemInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetItemCommand}.
  */
 export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>BatchGetItem</code> operation returns the attributes of one or more items
  *             from one or more tables. You identify requested items by primary key.</p>
  *          <p>A single operation can retrieve up to 16 MB of data, which can contain as many as 100
@@ -73,7 +70,7 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  *          <p>By default, <code>BatchGetItem</code> performs eventually consistent reads on every
  *             table in the request. If you want strongly consistent reads instead, you can set
  *                 <code>ConsistentRead</code> to <code>true</code> for any or all tables.</p>
- *          <p>In order to minimize response latency, <code>BatchGetItem</code> retrieves items in
+ *          <p>In order to minimize response latency, <code>BatchGetItem</code> may retrieve items in
  *             parallel.</p>
  *          <p>When designing your application, keep in mind that DynamoDB does not return items in
  *             any particular order. To help parse the response by item, include the primary key values
@@ -88,10 +85,74 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  * import { DynamoDBClient, BatchGetItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, BatchGetItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // BatchGetItemInput
+ *   RequestItems: { // BatchGetRequestMap // required
+ *     "<keys>": { // KeysAndAttributes
+ *       Keys: [ // KeyList // required
+ *         { // Key
+ *           "<keys>": { // AttributeValue Union: only one key present
+ *             S: "STRING_VALUE",
+ *             N: "STRING_VALUE",
+ *             B: "BLOB_VALUE",
+ *             SS: [ // StringSetAttributeValue
+ *               "STRING_VALUE",
+ *             ],
+ *             NS: [ // NumberSetAttributeValue
+ *               "STRING_VALUE",
+ *             ],
+ *             BS: [ // BinarySetAttributeValue
+ *               "BLOB_VALUE",
+ *             ],
+ *             M: { // MapAttributeValue
+ *               "<keys>": {//  Union: only one key present
+ *                 S: "STRING_VALUE",
+ *                 N: "STRING_VALUE",
+ *                 B: "BLOB_VALUE",
+ *                 SS: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 NS: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 BS: [
+ *                   "BLOB_VALUE",
+ *                 ],
+ *                 M: {
+ *                   "<keys>": "<AttributeValue>",
+ *                 },
+ *                 L: [ // ListAttributeValue
+ *                   "<AttributeValue>",
+ *                 ],
+ *                 NULL: true || false,
+ *                 BOOL: true || false,
+ *               },
+ *             },
+ *             L: [
+ *               "<AttributeValue>",
+ *             ],
+ *             NULL: true || false,
+ *             BOOL: true || false,
+ *           },
+ *         },
+ *       ],
+ *       AttributesToGet: [ // AttributeNameList
+ *         "STRING_VALUE",
+ *       ],
+ *       ConsistentRead: true || false,
+ *       ProjectionExpression: "STRING_VALUE",
+ *       ExpressionAttributeNames: { // ExpressionAttributeNameMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ * };
  * const command = new BatchGetItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetItemCommandInput - {@link BatchGetItemCommandInput}
+ * @returns {@link BatchGetItemCommandOutput}
  * @see {@link BatchGetItemCommandInput} for command's `input` shape.
  * @see {@link BatchGetItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -199,6 +260,9 @@ export class BatchGetItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -225,8 +289,8 @@ export class BatchGetItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetItemOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -236,12 +300,18 @@ export class BatchGetItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0BatchGetItemCommand(input, context);
+    return se_BatchGetItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetItemCommandOutput> {
-    return deserializeAws_json1_0BatchGetItemCommand(output, context);
+    return de_BatchGetItemCommand(output, context);
   }
 
   // Start section: command_body_extra

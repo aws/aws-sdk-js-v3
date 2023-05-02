@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  CreateAnomalyMonitorRequest,
-  CreateAnomalyMonitorRequestFilterSensitiveLog,
-  CreateAnomalyMonitorResponse,
-  CreateAnomalyMonitorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAnomalyMonitorCommand,
-  serializeAws_json1_1CreateAnomalyMonitorCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAnomalyMonitorRequest, CreateAnomalyMonitorResponse } from "../models/models_0";
+import { de_CreateAnomalyMonitorCommand, se_CreateAnomalyMonitorCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAnomalyMonitorCommand}.
  */
 export interface CreateAnomalyMonitorCommandInput extends CreateAnomalyMonitorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAnomalyMonitorCommand}.
  */
 export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cost anomaly detection monitor with the requested type and monitor
  *       specification. </p>
  * @example
@@ -43,10 +40,97 @@ export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorR
  * import { CostExplorerClient, CreateAnomalyMonitorCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, CreateAnomalyMonitorCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // CreateAnomalyMonitorRequest
+ *   AnomalyMonitor: { // AnomalyMonitor
+ *     MonitorArn: "STRING_VALUE",
+ *     MonitorName: "STRING_VALUE", // required
+ *     CreationDate: "STRING_VALUE",
+ *     LastUpdatedDate: "STRING_VALUE",
+ *     LastEvaluatedDate: "STRING_VALUE",
+ *     MonitorType: "DIMENSIONAL" || "CUSTOM", // required
+ *     MonitorDimension: "SERVICE",
+ *     MonitorSpecification: { // Expression
+ *       Or: [ // Expressions
+ *         {
+ *           Or: [
+ *             "<Expression>",
+ *           ],
+ *           And: [
+ *             "<Expression>",
+ *           ],
+ *           Not: "<Expression>",
+ *           Dimensions: { // DimensionValues
+ *             Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *             Values: [ // Values
+ *               "STRING_VALUE",
+ *             ],
+ *             MatchOptions: [ // MatchOptions
+ *               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             ],
+ *           },
+ *           Tags: { // TagValues
+ *             Key: "STRING_VALUE",
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *             MatchOptions: [
+ *               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             ],
+ *           },
+ *           CostCategories: { // CostCategoryValues
+ *             Key: "STRING_VALUE",
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *             MatchOptions: [
+ *               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       And: [
+ *         "<Expression>",
+ *       ],
+ *       Not: "<Expression>",
+ *       Dimensions: {
+ *         Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *         MatchOptions: [
+ *           "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *         ],
+ *       },
+ *       Tags: {
+ *         Key: "STRING_VALUE",
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *         MatchOptions: [
+ *           "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *         ],
+ *       },
+ *       CostCategories: {
+ *         Key: "STRING_VALUE",
+ *         Values: "<Values>",
+ *         MatchOptions: "<MatchOptions>",
+ *       },
+ *     },
+ *     DimensionalValueCount: Number("int"),
+ *   },
+ *   ResourceTags: [ // ResourceTagList
+ *     { // ResourceTag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateAnomalyMonitorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAnomalyMonitorCommandInput - {@link CreateAnomalyMonitorCommandInput}
+ * @returns {@link CreateAnomalyMonitorCommandOutput}
  * @see {@link CreateAnomalyMonitorCommandInput} for command's `input` shape.
  * @see {@link CreateAnomalyMonitorCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -73,6 +157,9 @@ export class CreateAnomalyMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAnomalyMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +188,8 @@ export class CreateAnomalyMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAnomalyMonitorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAnomalyMonitorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +199,18 @@ export class CreateAnomalyMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAnomalyMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAnomalyMonitorCommand(input, context);
+    return se_CreateAnomalyMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAnomalyMonitorCommandOutput> {
-    return deserializeAws_json1_1CreateAnomalyMonitorCommand(output, context);
+    return de_CreateAnomalyMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

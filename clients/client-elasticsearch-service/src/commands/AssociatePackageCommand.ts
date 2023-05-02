@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  AssociatePackageRequest,
-  AssociatePackageRequestFilterSensitiveLog,
-  AssociatePackageResponse,
-  AssociatePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociatePackageCommand,
-  serializeAws_restJson1AssociatePackageCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociatePackageRequest, AssociatePackageResponse } from "../models/models_0";
+import { de_AssociatePackageCommand, se_AssociatePackageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePackageCommand}.
  */
 export interface AssociatePackageCommandInput extends AssociatePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePackageCommand}.
  */
 export interface AssociatePackageCommandOutput extends AssociatePackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a package with an Amazon ES domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,16 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * import { ElasticsearchServiceClient, AssociatePackageCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, AssociatePackageCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // AssociatePackageRequest
+ *   PackageID: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new AssociatePackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePackageCommandInput - {@link AssociatePackageCommandInput}
+ * @returns {@link AssociatePackageCommandOutput}
  * @see {@link AssociatePackageCommandInput} for command's `input` shape.
  * @see {@link AssociatePackageCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -91,6 +94,9 @@ export class AssociatePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class AssociatePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociatePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociatePackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +136,18 @@ export class AssociatePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociatePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociatePackageCommand(input, context);
+    return se_AssociatePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociatePackageCommandOutput> {
-    return deserializeAws_restJson1AssociatePackageCommand(output, context);
+    return de_AssociatePackageCommand(output, context);
   }
 
   // Start section: command_body_extra

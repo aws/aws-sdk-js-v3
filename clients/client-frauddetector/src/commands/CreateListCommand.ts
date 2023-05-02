@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  CreateListRequest,
-  CreateListRequestFilterSensitiveLog,
-  CreateListResult,
-  CreateListResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateListCommand,
-  serializeAws_json1_1CreateListCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateListRequest, CreateListRequestFilterSensitiveLog, CreateListResult } from "../models/models_0";
+import { de_CreateListCommand, se_CreateListCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateListCommand}.
  */
 export interface CreateListCommandInput extends CreateListRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateListCommand}.
  */
 export interface CreateListCommandOutput extends CreateListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Creates a list.
  *         </p>
@@ -46,10 +43,26 @@ export interface CreateListCommandOutput extends CreateListResult, __MetadataBea
  * import { FraudDetectorClient, CreateListCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateListCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // CreateListRequest
+ *   name: "STRING_VALUE", // required
+ *   elements: [ // ElementsList
+ *     "STRING_VALUE",
+ *   ],
+ *   variableType: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   tags: [ // tagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateListCommandInput - {@link CreateListCommandInput}
+ * @returns {@link CreateListCommandOutput}
  * @see {@link CreateListCommandInput} for command's `input` shape.
  * @see {@link CreateListCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -85,6 +98,9 @@ export class CreateListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateListCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +128,7 @@ export class CreateListCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateListResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +138,18 @@ export class CreateListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateListCommand(input, context);
+    return se_CreateListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateListCommandOutput> {
-    return deserializeAws_json1_1CreateListCommand(output, context);
+    return de_CreateListCommand(output, context);
   }
 
   // Start section: command_body_extra

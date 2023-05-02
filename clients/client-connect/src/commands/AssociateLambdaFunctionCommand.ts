@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { AssociateLambdaFunctionRequest, AssociateLambdaFunctionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateLambdaFunctionCommand,
-  serializeAws_restJson1AssociateLambdaFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateLambdaFunctionRequest } from "../models/models_0";
+import { de_AssociateLambdaFunctionCommand, se_AssociateLambdaFunctionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateLambdaFunctionCommand}.
  */
 export interface AssociateLambdaFunctionCommandInput extends AssociateLambdaFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateLambdaFunctionCommand}.
  */
 export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Allows the specified Amazon Connect instance to access the specified Lambda
  *    function.</p>
@@ -39,10 +41,16 @@ export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {
  * import { ConnectClient, AssociateLambdaFunctionCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateLambdaFunctionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // AssociateLambdaFunctionRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   FunctionArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateLambdaFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateLambdaFunctionCommandInput - {@link AssociateLambdaFunctionCommandInput}
+ * @returns {@link AssociateLambdaFunctionCommandOutput}
  * @see {@link AssociateLambdaFunctionCommandInput} for command's `input` shape.
  * @see {@link AssociateLambdaFunctionCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +95,9 @@ export class AssociateLambdaFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateLambdaFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +126,8 @@ export class AssociateLambdaFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateLambdaFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +137,18 @@ export class AssociateLambdaFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateLambdaFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateLambdaFunctionCommand(input, context);
+    return se_AssociateLambdaFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLambdaFunctionCommandOutput> {
-    return deserializeAws_restJson1AssociateLambdaFunctionCommand(output, context);
+    return de_AssociateLambdaFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,24 +15,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CopySnapshotRequest,
-  CopySnapshotRequestFilterSensitiveLog,
-  CopySnapshotResult,
-  CopySnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_ec2CopySnapshotCommand, serializeAws_ec2CopySnapshotCommand } from "../protocols/Aws_ec2";
+import { CopySnapshotRequest, CopySnapshotRequestFilterSensitiveLog, CopySnapshotResult } from "../models/models_0";
+import { de_CopySnapshotCommand, se_CopySnapshotCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CopySnapshotCommand}.
  */
 export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopySnapshotCommand}.
  */
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy a
  *       snapshot within the same Region, from one Region to another, or from a Region to an Outpost.
  *       You can't copy a snapshot from an Outpost to a Region, from one Outpost to another, or within
@@ -59,10 +59,34 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * import { EC2Client, CopySnapshotCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CopySnapshotCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CopySnapshotRequest
+ *   Description: "STRING_VALUE",
+ *   DestinationOutpostArn: "STRING_VALUE",
+ *   DestinationRegion: "STRING_VALUE",
+ *   Encrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   PresignedUrl: "STRING_VALUE",
+ *   SourceRegion: "STRING_VALUE", // required
+ *   SourceSnapshotId: "STRING_VALUE", // required
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopySnapshotCommandInput - {@link CopySnapshotCommandInput}
+ * @returns {@link CopySnapshotCommandOutput}
  * @see {@link CopySnapshotCommandInput} for command's `input` shape.
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -105,6 +129,9 @@ export class CopySnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopySnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,7 +160,7 @@ export class CopySnapshotCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CopySnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CopySnapshotResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +170,18 @@ export class CopySnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopySnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CopySnapshotCommand(input, context);
+    return se_CopySnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopySnapshotCommandOutput> {
-    return deserializeAws_ec2CopySnapshotCommand(output, context);
+    return de_CopySnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

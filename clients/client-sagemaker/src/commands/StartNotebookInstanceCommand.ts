@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartNotebookInstanceInput, StartNotebookInstanceInputFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1StartNotebookInstanceCommand,
-  serializeAws_json1_1StartNotebookInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { StartNotebookInstanceInput } from "../models/models_3";
+import { de_StartNotebookInstanceCommand, se_StartNotebookInstanceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartNotebookInstanceCommand}.
  */
 export interface StartNotebookInstanceCommandInput extends StartNotebookInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link StartNotebookInstanceCommand}.
  */
 export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches an ML compute instance with the latest version of the libraries and
  *             attaches your ML storage volume. After configuring the notebook instance, SageMaker sets the
  *             notebook instance status to <code>InService</code>. A notebook instance's status must be
@@ -40,10 +42,15 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StartNotebookInstanceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StartNotebookInstanceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StartNotebookInstanceInput
+ *   NotebookInstanceName: "STRING_VALUE", // required
+ * };
  * const command = new StartNotebookInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartNotebookInstanceCommandInput - {@link StartNotebookInstanceCommandInput}
+ * @returns {@link StartNotebookInstanceCommandOutput}
  * @see {@link StartNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link StartNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class StartNotebookInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartNotebookInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +109,8 @@ export class StartNotebookInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartNotebookInstanceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +120,18 @@ export class StartNotebookInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartNotebookInstanceCommand(input, context);
+    return se_StartNotebookInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartNotebookInstanceCommandOutput> {
-    return deserializeAws_json1_1StartNotebookInstanceCommand(output, context);
+    return de_StartNotebookInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

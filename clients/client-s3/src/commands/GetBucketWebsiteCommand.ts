@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketWebsiteOutput,
-  GetBucketWebsiteOutputFilterSensitiveLog,
-  GetBucketWebsiteRequest,
-  GetBucketWebsiteRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketWebsiteCommand,
-  serializeAws_restXmlGetBucketWebsiteCommand,
-} from "../protocols/Aws_restXml";
+import { GetBucketWebsiteOutput, GetBucketWebsiteRequest } from "../models/models_0";
+import { de_GetBucketWebsiteCommand, se_GetBucketWebsiteCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketWebsiteCommand}.
  */
 export interface GetBucketWebsiteCommandInput extends GetBucketWebsiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketWebsiteCommand}.
  */
 export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the website configuration for a bucket. To host website on Amazon S3, you can
  *          configure a bucket as website by adding a website configuration. For more information about
  *          hosting websites, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on
@@ -62,10 +59,16 @@ export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, _
  * import { S3Client, GetBucketWebsiteCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketWebsiteCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketWebsiteRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketWebsiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketWebsiteCommandInput - {@link GetBucketWebsiteCommandInput}
+ * @returns {@link GetBucketWebsiteCommandOutput}
  * @see {@link GetBucketWebsiteCommandInput} for command's `input` shape.
  * @see {@link GetBucketWebsiteCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -116,6 +119,9 @@ export class GetBucketWebsiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketWebsiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +150,8 @@ export class GetBucketWebsiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketWebsiteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketWebsiteOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +161,18 @@ export class GetBucketWebsiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketWebsiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketWebsiteCommand(input, context);
+    return se_GetBucketWebsiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketWebsiteCommandOutput> {
-    return deserializeAws_restXmlGetBucketWebsiteCommand(output, context);
+    return de_GetBucketWebsiteCommand(output, context);
   }
 
   // Start section: command_body_extra

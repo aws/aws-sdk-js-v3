@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartOnDemandReplicationRunRequest,
-  StartOnDemandReplicationRunRequestFilterSensitiveLog,
-  StartOnDemandReplicationRunResponse,
-  StartOnDemandReplicationRunResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartOnDemandReplicationRunCommand,
-  serializeAws_json1_1StartOnDemandReplicationRunCommand,
-} from "../protocols/Aws_json1_1";
+import { StartOnDemandReplicationRunRequest, StartOnDemandReplicationRunResponse } from "../models/models_0";
+import { de_StartOnDemandReplicationRunCommand, se_StartOnDemandReplicationRunCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartOnDemandReplicationRunCommand}.
  */
 export interface StartOnDemandReplicationRunCommandInput extends StartOnDemandReplicationRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartOnDemandReplicationRunCommand}.
  */
 export interface StartOnDemandReplicationRunCommandOutput
@@ -37,10 +33,11 @@ export interface StartOnDemandReplicationRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an on-demand replication run for the specified replication job. This
  *             replication run starts immediately. This replication run is in addition to the ones
  *             already scheduled.</p>
- *         <p>There is a limit on the number of on-demand replications runs that you can request
+ *          <p>There is a limit on the number of on-demand replications runs that you can request
  *             in a 24-hour period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +45,16 @@ export interface StartOnDemandReplicationRunCommandOutput
  * import { SMSClient, StartOnDemandReplicationRunCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, StartOnDemandReplicationRunCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // StartOnDemandReplicationRunRequest
+ *   replicationJobId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ * };
  * const command = new StartOnDemandReplicationRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartOnDemandReplicationRunCommandInput - {@link StartOnDemandReplicationRunCommandInput}
+ * @returns {@link StartOnDemandReplicationRunCommandOutput}
  * @see {@link StartOnDemandReplicationRunCommandInput} for command's `input` shape.
  * @see {@link StartOnDemandReplicationRunCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -96,6 +99,9 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartOnDemandReplicationRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +130,8 @@ export class StartOnDemandReplicationRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartOnDemandReplicationRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartOnDemandReplicationRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,15 +141,21 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartOnDemandReplicationRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartOnDemandReplicationRunCommand(input, context);
+    return se_StartOnDemandReplicationRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartOnDemandReplicationRunCommandOutput> {
-    return deserializeAws_json1_1StartOnDemandReplicationRunCommand(output, context);
+    return de_StartOnDemandReplicationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

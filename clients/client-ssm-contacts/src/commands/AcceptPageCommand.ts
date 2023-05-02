@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AcceptPageRequest,
-  AcceptPageRequestFilterSensitiveLog,
-  AcceptPageResult,
-  AcceptPageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AcceptPageCommand,
-  serializeAws_json1_1AcceptPageCommand,
-} from "../protocols/Aws_json1_1";
+import { AcceptPageRequest, AcceptPageResult } from "../models/models_0";
+import { de_AcceptPageCommand, se_AcceptPageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptPageCommand}.
  */
 export interface AcceptPageCommandInput extends AcceptPageRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptPageCommand}.
  */
 export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to acknowledge an engagement to a contact channel during an incident.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  * import { SSMContactsClient, AcceptPageCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, AcceptPageCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // AcceptPageRequest
+ *   PageId: "STRING_VALUE", // required
+ *   ContactChannelId: "STRING_VALUE",
+ *   AcceptType: "DELIVERED" || "READ", // required
+ *   Note: "STRING_VALUE",
+ *   AcceptCode: "STRING_VALUE", // required
+ *   AcceptCodeValidation: "IGNORE" || "ENFORCE",
+ * };
  * const command = new AcceptPageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptPageCommandInput - {@link AcceptPageCommandInput}
+ * @returns {@link AcceptPageCommandOutput}
  * @see {@link AcceptPageCommandInput} for command's `input` shape.
  * @see {@link AcceptPageCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -54,8 +61,7 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  *  <p>You don't have sufficient access to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>
@@ -67,19 +73,6 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
- *
- * @example To accept a page during and engagement
- * ```javascript
- * // The following accept-page operation uses an accept code sent to the contact channel to accept a page.
- * const input = {
- *   "AcceptCode": "425440",
- *   "AcceptType": "READ",
- *   "PageId": "arn:aws:ssm-contacts:us-east-2:682428703967:page/akuam/94ea0c7b-56d9-46c3-b84a-a37c8b067ad3"
- * };
- * const command = new AcceptPageCommand(input);
- * await client.send(command);
- * // example id: to-accept-a-page-during-and-engagement-1630357840187
- * ```
  *
  */
 export class AcceptPageCommand extends $Command<
@@ -99,6 +92,9 @@ export class AcceptPageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptPageCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +121,8 @@ export class AcceptPageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptPageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptPageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +132,18 @@ export class AcceptPageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptPageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptPageCommand(input, context);
+    return se_AcceptPageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptPageCommandOutput> {
-    return deserializeAws_json1_1AcceptPageCommand(output, context);
+    return de_AcceptPageCommand(output, context);
   }
 
   // Start section: command_body_extra

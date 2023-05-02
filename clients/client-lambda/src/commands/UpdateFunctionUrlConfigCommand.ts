@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  UpdateFunctionUrlConfigRequest,
-  UpdateFunctionUrlConfigRequestFilterSensitiveLog,
-  UpdateFunctionUrlConfigResponse,
-  UpdateFunctionUrlConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFunctionUrlConfigCommand,
-  serializeAws_restJson1UpdateFunctionUrlConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFunctionUrlConfigRequest, UpdateFunctionUrlConfigResponse } from "../models/models_0";
+import { de_UpdateFunctionUrlConfigCommand, se_UpdateFunctionUrlConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFunctionUrlConfigCommand}.
  */
 export interface UpdateFunctionUrlConfigCommandInput extends UpdateFunctionUrlConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFunctionUrlConfigCommand}.
  */
 export interface UpdateFunctionUrlConfigCommandOutput extends UpdateFunctionUrlConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration for a Lambda function URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,34 @@ export interface UpdateFunctionUrlConfigCommandOutput extends UpdateFunctionUrlC
  * import { LambdaClient, UpdateFunctionUrlConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateFunctionUrlConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // UpdateFunctionUrlConfigRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ *   AuthType: "NONE" || "AWS_IAM",
+ *   Cors: { // Cors
+ *     AllowCredentials: true || false,
+ *     AllowHeaders: [ // HeadersList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowMethods: [ // AllowMethodsList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowOrigins: [ // AllowOriginsList
+ *       "STRING_VALUE",
+ *     ],
+ *     ExposeHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     MaxAge: Number("int"),
+ *   },
+ *   InvokeMode: "BUFFERED" || "RESPONSE_STREAM",
+ * };
  * const command = new UpdateFunctionUrlConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFunctionUrlConfigCommandInput - {@link UpdateFunctionUrlConfigCommandInput}
+ * @returns {@link UpdateFunctionUrlConfigCommandOutput}
  * @see {@link UpdateFunctionUrlConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionUrlConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -84,6 +105,9 @@ export class UpdateFunctionUrlConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFunctionUrlConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +136,8 @@ export class UpdateFunctionUrlConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFunctionUrlConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFunctionUrlConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +147,18 @@ export class UpdateFunctionUrlConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFunctionUrlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFunctionUrlConfigCommand(input, context);
+    return se_UpdateFunctionUrlConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFunctionUrlConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateFunctionUrlConfigCommand(output, context);
+    return de_UpdateFunctionUrlConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTrafficPoliciesRequest,
-  ListTrafficPoliciesRequestFilterSensitiveLog,
-  ListTrafficPoliciesResponse,
-  ListTrafficPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListTrafficPoliciesCommand,
-  serializeAws_restXmlListTrafficPoliciesCommand,
-} from "../protocols/Aws_restXml";
+import { ListTrafficPoliciesRequest, ListTrafficPoliciesResponse } from "../models/models_0";
+import { de_ListTrafficPoliciesCommand, se_ListTrafficPoliciesCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrafficPoliciesCommand}.
  */
 export interface ListTrafficPoliciesCommandInput extends ListTrafficPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrafficPoliciesCommand}.
  */
 export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the latest version for every traffic policy that is associated
  * 			with the current Amazon Web Services account. Policies are listed in the order that they
  * 			were created in. </p>
@@ -46,10 +43,16 @@ export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesRes
  * import { Route53Client, ListTrafficPoliciesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListTrafficPoliciesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListTrafficPoliciesRequest
+ *   TrafficPolicyIdMarker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListTrafficPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrafficPoliciesCommandInput - {@link ListTrafficPoliciesCommandInput}
+ * @returns {@link ListTrafficPoliciesCommandOutput}
  * @see {@link ListTrafficPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPoliciesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -76,6 +79,9 @@ export class ListTrafficPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrafficPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class ListTrafficPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrafficPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrafficPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class ListTrafficPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrafficPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListTrafficPoliciesCommand(input, context);
+    return se_ListTrafficPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrafficPoliciesCommandOutput> {
-    return deserializeAws_restXmlListTrafficPoliciesCommand(output, context);
+    return de_ListTrafficPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

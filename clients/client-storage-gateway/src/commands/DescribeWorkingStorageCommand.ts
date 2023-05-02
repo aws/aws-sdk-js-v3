@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeWorkingStorageInput,
-  DescribeWorkingStorageInputFilterSensitiveLog,
-  DescribeWorkingStorageOutput,
-  DescribeWorkingStorageOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWorkingStorageCommand,
-  serializeAws_json1_1DescribeWorkingStorageCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeWorkingStorageInput, DescribeWorkingStorageOutput } from "../models/models_0";
+import { de_DescribeWorkingStorageCommand, se_DescribeWorkingStorageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkingStorageCommand}.
  */
 export interface DescribeWorkingStorageCommandInput extends DescribeWorkingStorageInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkingStorageCommand}.
  */
 export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStorageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the working storage of a gateway. This operation is only
  *          supported in the stored volumes gateway type. This operation is deprecated in cached
  *          volumes API version (20120630). Use DescribeUploadBuffer instead.</p>
@@ -52,10 +49,15 @@ export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStor
  * import { StorageGatewayClient, DescribeWorkingStorageCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeWorkingStorageCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeWorkingStorageInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorkingStorageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkingStorageCommandInput - {@link DescribeWorkingStorageCommandInput}
+ * @returns {@link DescribeWorkingStorageCommandOutput}
  * @see {@link DescribeWorkingStorageCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkingStorageCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -109,6 +111,9 @@ export class DescribeWorkingStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkingStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +142,8 @@ export class DescribeWorkingStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkingStorageInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkingStorageOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +153,18 @@ export class DescribeWorkingStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkingStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkingStorageCommand(input, context);
+    return se_DescribeWorkingStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkingStorageCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkingStorageCommand(output, context);
+    return de_DescribeWorkingStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

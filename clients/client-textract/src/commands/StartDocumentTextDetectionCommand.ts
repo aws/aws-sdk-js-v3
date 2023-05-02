@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartDocumentTextDetectionRequest,
-  StartDocumentTextDetectionRequestFilterSensitiveLog,
-  StartDocumentTextDetectionResponse,
-  StartDocumentTextDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartDocumentTextDetectionCommand,
-  serializeAws_json1_1StartDocumentTextDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartDocumentTextDetectionRequest, StartDocumentTextDetectionResponse } from "../models/models_0";
+import { de_StartDocumentTextDetectionCommand, se_StartDocumentTextDetectionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartDocumentTextDetectionCommand}.
  */
 export interface StartDocumentTextDetectionCommandInput extends StartDocumentTextDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDocumentTextDetectionCommand}.
  */
 export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTextDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of
  *          text and the words that make up a line of text.</p>
  *          <p>
@@ -58,10 +55,32 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  * import { TextractClient, StartDocumentTextDetectionCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, StartDocumentTextDetectionCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // StartDocumentTextDetectionRequest
+ *   DocumentLocation: { // DocumentLocation
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   JobTag: "STRING_VALUE",
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   OutputConfig: { // OutputConfig
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Prefix: "STRING_VALUE",
+ *   },
+ *   KMSKeyId: "STRING_VALUE",
+ * };
  * const command = new StartDocumentTextDetectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDocumentTextDetectionCommandInput - {@link StartDocumentTextDetectionCommandInput}
+ * @returns {@link StartDocumentTextDetectionCommandOutput}
  * @see {@link StartDocumentTextDetectionCommandInput} for command's `input` shape.
  * @see {@link StartDocumentTextDetectionCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -141,6 +160,9 @@ export class StartDocumentTextDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDocumentTextDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,8 +191,8 @@ export class StartDocumentTextDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDocumentTextDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDocumentTextDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -180,15 +202,21 @@ export class StartDocumentTextDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDocumentTextDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDocumentTextDetectionCommand(input, context);
+    return se_StartDocumentTextDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDocumentTextDetectionCommandOutput> {
-    return deserializeAws_json1_1StartDocumentTextDetectionCommand(output, context);
+    return de_StartDocumentTextDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

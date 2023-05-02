@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAgreementRequest,
-  DescribeAgreementRequestFilterSensitiveLog,
-  DescribeAgreementResponse,
-  DescribeAgreementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAgreementCommand,
-  serializeAws_json1_1DescribeAgreementCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeAgreementRequest, DescribeAgreementResponse } from "../models/models_0";
+import { de_DescribeAgreementCommand, se_DescribeAgreementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAgreementCommand}.
  */
 export interface DescribeAgreementCommandInput extends DescribeAgreementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAgreementCommand}.
  */
 export interface DescribeAgreementCommandOutput extends DescribeAgreementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the agreement that's identified by the <code>AgreementId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementRespons
  * import { TransferClient, DescribeAgreementCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeAgreementCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // DescribeAgreementRequest
+ *   AgreementId: "STRING_VALUE", // required
+ *   ServerId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAgreementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAgreementCommandInput - {@link DescribeAgreementCommandInput}
+ * @returns {@link DescribeAgreementCommandOutput}
  * @see {@link DescribeAgreementCommandInput} for command's `input` shape.
  * @see {@link DescribeAgreementCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -82,6 +85,9 @@ export class DescribeAgreementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAgreementCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class DescribeAgreementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAgreementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAgreementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class DescribeAgreementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAgreementCommand(input, context);
+    return se_DescribeAgreementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgreementCommandOutput> {
-    return deserializeAws_json1_1DescribeAgreementCommand(output, context);
+    return de_DescribeAgreementCommand(output, context);
   }
 
   // Start section: command_body_extra

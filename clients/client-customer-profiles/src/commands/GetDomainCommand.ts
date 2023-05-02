@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  GetDomainRequest,
-  GetDomainRequestFilterSensitiveLog,
-  GetDomainResponse,
-  GetDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDomainCommand,
-  serializeAws_restJson1GetDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDomainRequest, GetDomainResponse } from "../models/models_0";
+import { de_GetDomainCommand, se_GetDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainCommand}.
  */
 export interface GetDomainCommandInput extends GetDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainCommand}.
  */
 export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * import { CustomerProfilesClient, GetDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // GetDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new GetDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainCommandInput - {@link GetDomainCommandInput}
+ * @returns {@link GetDomainCommandOutput}
  * @see {@link GetDomainCommandInput} for command's `input` shape.
  * @see {@link GetDomainCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDomainCommand(input, context);
+    return se_GetDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainCommandOutput> {
-    return deserializeAws_restJson1GetDomainCommand(output, context);
+    return de_GetDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

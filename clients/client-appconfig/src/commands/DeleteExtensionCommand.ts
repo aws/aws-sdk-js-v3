@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { DeleteExtensionRequest, DeleteExtensionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteExtensionCommand,
-  serializeAws_restJson1DeleteExtensionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteExtensionRequest } from "../models/models_0";
+import { de_DeleteExtensionCommand, se_DeleteExtensionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExtensionCommand}.
  */
 export interface DeleteExtensionCommandInput extends DeleteExtensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExtensionCommand}.
  */
 export interface DeleteExtensionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an AppConfig extension. You must delete all associations to an
  *          extension before you delete the extension.</p>
  * @example
@@ -38,10 +40,16 @@ export interface DeleteExtensionCommandOutput extends __MetadataBearer {}
  * import { AppConfigClient, DeleteExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // DeleteExtensionRequest
+ *   ExtensionIdentifier: "STRING_VALUE", // required
+ *   VersionNumber: Number("int"),
+ * };
  * const command = new DeleteExtensionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExtensionCommandInput - {@link DeleteExtensionCommandInput}
+ * @returns {@link DeleteExtensionCommandOutput}
  * @see {@link DeleteExtensionCommandInput} for command's `input` shape.
  * @see {@link DeleteExtensionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -74,6 +82,9 @@ export class DeleteExtensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExtensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +113,8 @@ export class DeleteExtensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExtensionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +124,18 @@ export class DeleteExtensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteExtensionCommand(input, context);
+    return se_DeleteExtensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExtensionCommandOutput> {
-    return deserializeAws_restJson1DeleteExtensionCommand(output, context);
+    return de_DeleteExtensionCommand(output, context);
   }
 
   // Start section: command_body_extra

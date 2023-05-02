@@ -20,21 +20,23 @@ import {
   ExchangeCodeForTokenResponse,
   ExchangeCodeForTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExchangeCodeForTokenCommand,
-  serializeAws_restJson1ExchangeCodeForTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ExchangeCodeForTokenCommand, se_ExchangeCodeForTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExchangeCodeForTokenCommand}.
  */
 export interface ExchangeCodeForTokenCommandInput extends ExchangeCodeForTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExchangeCodeForTokenCommand}.
  */
 export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exchanges an access code for a token.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,20 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * import { AmplifyUIBuilderClient, ExchangeCodeForTokenCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, ExchangeCodeForTokenCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = { // ExchangeCodeForTokenRequest
+ *   provider: "STRING_VALUE", // required
+ *   request: { // ExchangeCodeForTokenRequestBody
+ *     code: "STRING_VALUE", // required
+ *     redirectUri: "STRING_VALUE", // required
+ *     clientId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ExchangeCodeForTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExchangeCodeForTokenCommandInput - {@link ExchangeCodeForTokenCommandInput}
+ * @returns {@link ExchangeCodeForTokenCommandOutput}
  * @see {@link ExchangeCodeForTokenCommandInput} for command's `input` shape.
  * @see {@link ExchangeCodeForTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -72,6 +84,9 @@ export class ExchangeCodeForTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExchangeCodeForTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,12 +126,18 @@ export class ExchangeCodeForTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExchangeCodeForTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExchangeCodeForTokenCommand(input, context);
+    return se_ExchangeCodeForTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExchangeCodeForTokenCommandOutput> {
-    return deserializeAws_restJson1ExchangeCodeForTokenCommand(output, context);
+    return de_ExchangeCodeForTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

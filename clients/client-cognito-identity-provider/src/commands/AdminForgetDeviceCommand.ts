@@ -20,21 +20,23 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { AdminForgetDeviceRequest, AdminForgetDeviceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminForgetDeviceCommand,
-  serializeAws_json1_1AdminForgetDeviceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminForgetDeviceCommand, se_AdminForgetDeviceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminForgetDeviceCommand}.
  */
 export interface AdminForgetDeviceCommandInput extends AdminForgetDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminForgetDeviceCommand}.
  */
 export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Forgets the device, as an administrator.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -43,10 +45,17 @@ export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityProviderClient, AdminForgetDeviceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminForgetDeviceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminForgetDeviceRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   DeviceKey: "STRING_VALUE", // required
+ * };
  * const command = new AdminForgetDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminForgetDeviceCommandInput - {@link AdminForgetDeviceCommandInput}
+ * @returns {@link AdminForgetDeviceCommandOutput}
  * @see {@link AdminForgetDeviceCommandInput} for command's `input` shape.
  * @see {@link AdminForgetDeviceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -94,6 +103,9 @@ export class AdminForgetDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminForgetDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,7 +136,7 @@ export class AdminForgetDeviceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminForgetDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +146,18 @@ export class AdminForgetDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminForgetDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminForgetDeviceCommand(input, context);
+    return se_AdminForgetDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminForgetDeviceCommandOutput> {
-    return deserializeAws_json1_1AdminForgetDeviceCommand(output, context);
+    return de_AdminForgetDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

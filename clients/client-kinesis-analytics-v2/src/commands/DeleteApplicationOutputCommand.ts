@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import {
-  DeleteApplicationOutputRequest,
-  DeleteApplicationOutputRequestFilterSensitiveLog,
-  DeleteApplicationOutputResponse,
-  DeleteApplicationOutputResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteApplicationOutputCommand,
-  serializeAws_json1_1DeleteApplicationOutputCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteApplicationOutputRequest, DeleteApplicationOutputResponse } from "../models/models_0";
+import { de_DeleteApplicationOutputCommand, se_DeleteApplicationOutputCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationOutputCommand}.
  */
 export interface DeleteApplicationOutputCommandInput extends DeleteApplicationOutputRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationOutputCommand}.
  */
 export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationOutputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the output destination configuration from your SQL-based Kinesis Data Analytics application's configuration.
  *       Kinesis Data Analytics will no longer write data from
  *       the corresponding in-application stream to the external output destination.</p>
@@ -48,10 +45,17 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * import { KinesisAnalyticsV2Client, DeleteApplicationOutputCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DeleteApplicationOutputCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // DeleteApplicationOutputRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   OutputId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApplicationOutputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationOutputCommandInput - {@link DeleteApplicationOutputCommandInput}
+ * @returns {@link DeleteApplicationOutputCommandOutput}
  * @see {@link DeleteApplicationOutputCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationOutputCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -92,6 +96,9 @@ export class DeleteApplicationOutputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +127,8 @@ export class DeleteApplicationOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationOutputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationOutputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +138,18 @@ export class DeleteApplicationOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApplicationOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationOutputCommand(input, context);
+    return se_DeleteApplicationOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationOutputCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationOutputCommand(output, context);
+    return de_DeleteApplicationOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

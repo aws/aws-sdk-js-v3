@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetInsightsRequest,
-  GetInsightsRequestFilterSensitiveLog,
-  GetInsightsResponse,
-  GetInsightsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1GetInsightsCommand,
-  serializeAws_restJson1GetInsightsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetInsightsRequest, GetInsightsResponse } from "../models/models_2";
+import { de_GetInsightsCommand, se_GetInsightsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInsightsCommand}.
  */
 export interface GetInsightsCommandInput extends GetInsightsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInsightsCommand}.
  */
 export interface GetInsightsCommandOutput extends GetInsightsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists and describes insights for the specified insight ARNs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * import { SecurityHubClient, GetInsightsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetInsightsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // GetInsightsRequest
+ *   InsightArns: [ // ArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetInsightsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInsightsCommandInput - {@link GetInsightsCommandInput}
+ * @returns {@link GetInsightsCommandOutput}
  * @see {@link GetInsightsCommandInput} for command's `input` shape.
  * @see {@link GetInsightsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -68,6 +74,44 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To get details of a Security Hub insight
+ * ```javascript
+ * // The following example returns details of the Security Hub insight with the specified ARN.
+ * const input = {
+ *   "InsightArns": [
+ *     "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *   ]
+ * };
+ * const command = new GetInsightsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Insights": [
+ *     {
+ *       "Filters": {
+ *         "ResourceType": [
+ *           {
+ *             "Comparison": "EQUALS",
+ *             "Value": "AwsIamRole"
+ *           }
+ *         ],
+ *         "SeverityLabel": [
+ *           {
+ *             "Comparison": "EQUALS",
+ *             "Value": "CRITICAL"
+ *           }
+ *         ]
+ *       },
+ *       "GroupByAttribute": "ResourceId",
+ *       "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       "Name": "Critical role findings"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-details-of-a-security-hub-insight-1677774127203
+ * ```
+ *
  */
 export class GetInsightsCommand extends $Command<
   GetInsightsCommandInput,
@@ -86,6 +130,9 @@ export class GetInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +159,8 @@ export class GetInsightsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInsightsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInsightsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +170,18 @@ export class GetInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInsightsCommand(input, context);
+    return se_GetInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightsCommandOutput> {
-    return deserializeAws_restJson1GetInsightsCommand(output, context);
+    return de_GetInsightsCommand(output, context);
   }
 
   // Start section: command_body_extra

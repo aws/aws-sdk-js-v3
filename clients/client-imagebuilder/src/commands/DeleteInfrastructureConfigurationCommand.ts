@@ -16,20 +16,22 @@ import {
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import {
   DeleteInfrastructureConfigurationRequest,
-  DeleteInfrastructureConfigurationRequestFilterSensitiveLog,
   DeleteInfrastructureConfigurationResponse,
-  DeleteInfrastructureConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteInfrastructureConfigurationCommand,
-  serializeAws_restJson1DeleteInfrastructureConfigurationCommand,
+  de_DeleteInfrastructureConfigurationCommand,
+  se_DeleteInfrastructureConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInfrastructureConfigurationCommand}.
  */
 export interface DeleteInfrastructureConfigurationCommandInput extends DeleteInfrastructureConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInfrastructureConfigurationCommand}.
  */
 export interface DeleteInfrastructureConfigurationCommandOutput
@@ -37,17 +39,23 @@ export interface DeleteInfrastructureConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p> Deletes an infrastructure configuration.</p>
+ * @public
+ * <p>Deletes an infrastructure configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, DeleteInfrastructureConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteInfrastructureConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // DeleteInfrastructureConfigurationRequest
+ *   infrastructureConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInfrastructureConfigurationCommandInput - {@link DeleteInfrastructureConfigurationCommandInput}
+ * @returns {@link DeleteInfrastructureConfigurationCommandOutput}
  * @see {@link DeleteInfrastructureConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteInfrastructureConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -56,22 +64,23 @@ export interface DeleteInfrastructureConfigurationCommandOutput
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceDependencyException} (client fault)
- *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits this
- * 			action. See the error message for more details.</p>
+ *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits
+ * 			this action. See the error message for more details.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -95,6 +104,9 @@ export class DeleteInfrastructureConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInfrastructureConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +135,8 @@ export class DeleteInfrastructureConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInfrastructureConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInfrastructureConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +146,24 @@ export class DeleteInfrastructureConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteInfrastructureConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInfrastructureConfigurationCommand(input, context);
+    return se_DeleteInfrastructureConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInfrastructureConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteInfrastructureConfigurationCommand(output, context);
+    return de_DeleteInfrastructureConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

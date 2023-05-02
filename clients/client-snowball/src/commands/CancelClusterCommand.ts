@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelClusterRequest,
-  CancelClusterRequestFilterSensitiveLog,
-  CancelClusterResult,
-  CancelClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelClusterCommand,
-  serializeAws_json1_1CancelClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelClusterRequest, CancelClusterResult } from "../models/models_0";
+import { de_CancelClusterCommand, se_CancelClusterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelClusterCommand}.
  */
 export interface CancelClusterCommandInput extends CancelClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelClusterCommand}.
  */
 export interface CancelClusterCommandOutput extends CancelClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a cluster job. You can only cancel a cluster job while it's in the
  *         <code>AwaitingQuorum</code> status. You'll have at least an hour after creating a cluster
  *       job to cancel it.</p>
@@ -44,10 +41,15 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  * import { SnowballClient, CancelClusterCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CancelClusterCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // CancelClusterRequest
+ *   ClusterId: "STRING_VALUE", // required
+ * };
  * const command = new CancelClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelClusterCommandInput - {@link CancelClusterCommandInput}
+ * @returns {@link CancelClusterCommandOutput}
  * @see {@link CancelClusterCommandInput} for command's `input` shape.
  * @see {@link CancelClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -94,6 +96,9 @@ export class CancelClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +125,8 @@ export class CancelClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +136,18 @@ export class CancelClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelClusterCommand(input, context);
+    return se_CancelClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelClusterCommandOutput> {
-    return deserializeAws_json1_1CancelClusterCommand(output, context);
+    return de_CancelClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

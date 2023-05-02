@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  GetBatchJobExecutionRequest,
-  GetBatchJobExecutionRequestFilterSensitiveLog,
-  GetBatchJobExecutionResponse,
-  GetBatchJobExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBatchJobExecutionCommand,
-  serializeAws_restJson1GetBatchJobExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBatchJobExecutionRequest, GetBatchJobExecutionResponse } from "../models/models_0";
+import { de_GetBatchJobExecutionCommand, se_GetBatchJobExecutionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBatchJobExecutionCommand}.
  */
 export interface GetBatchJobExecutionCommandInput extends GetBatchJobExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBatchJobExecutionCommand}.
  */
 export interface GetBatchJobExecutionCommandOutput extends GetBatchJobExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of a specific batch job execution for a specific application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetBatchJobExecutionCommandOutput extends GetBatchJobExecutionR
  * import { M2Client, GetBatchJobExecutionCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, GetBatchJobExecutionCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // GetBatchJobExecutionRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   executionId: "STRING_VALUE", // required
+ * };
  * const command = new GetBatchJobExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBatchJobExecutionCommandInput - {@link GetBatchJobExecutionCommandInput}
+ * @returns {@link GetBatchJobExecutionCommandOutput}
  * @see {@link GetBatchJobExecutionCommandInput} for command's `input` shape.
  * @see {@link GetBatchJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -84,6 +87,9 @@ export class GetBatchJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBatchJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetBatchJobExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBatchJobExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBatchJobExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetBatchJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBatchJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBatchJobExecutionCommand(input, context);
+    return se_GetBatchJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBatchJobExecutionCommandOutput> {
-    return deserializeAws_restJson1GetBatchJobExecutionCommand(output, context);
+    return de_GetBatchJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

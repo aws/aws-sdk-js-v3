@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateOrganizationalUnitRequest,
-  CreateOrganizationalUnitRequestFilterSensitiveLog,
-  CreateOrganizationalUnitResponse,
-  CreateOrganizationalUnitResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateOrganizationalUnitRequest, CreateOrganizationalUnitResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1CreateOrganizationalUnitCommand,
-  serializeAws_json1_1CreateOrganizationalUnitCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateOrganizationalUnitCommand, se_CreateOrganizationalUnitCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOrganizationalUnitCommand}.
  */
 export interface CreateOrganizationalUnitCommandInput extends CreateOrganizationalUnitRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOrganizationalUnitCommand}.
  */
 export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an organizational unit (OU) within a root or parent OU. An OU is a container
  *             for accounts that enables you to organize your accounts to apply policies according to
  *             your business requirements. The number of levels deep that you can nest OUs is dependent
@@ -52,10 +49,22 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  * import { OrganizationsClient, CreateOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CreateOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // CreateOrganizationalUnitRequest
+ *   ParentId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOrganizationalUnitCommandInput - {@link CreateOrganizationalUnitCommandInput}
+ * @returns {@link CreateOrganizationalUnitCommandOutput}
  * @see {@link CreateOrganizationalUnitCommandInput} for command's `input` shape.
  * @see {@link CreateOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -435,6 +444,9 @@ export class CreateOrganizationalUnitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOrganizationalUnitCommandInput) {
     // Start section: command_constructor
     super();
@@ -463,8 +475,8 @@ export class CreateOrganizationalUnitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOrganizationalUnitRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOrganizationalUnitResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -474,12 +486,18 @@ export class CreateOrganizationalUnitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOrganizationalUnitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateOrganizationalUnitCommand(input, context);
+    return se_CreateOrganizationalUnitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1CreateOrganizationalUnitCommand(output, context);
+    return de_CreateOrganizationalUnitCommand(output, context);
   }
 
   // Start section: command_body_extra

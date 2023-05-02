@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  AddRegionRequest,
-  AddRegionRequestFilterSensitiveLog,
-  AddRegionResult,
-  AddRegionResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1AddRegionCommand, serializeAws_json1_1AddRegionCommand } from "../protocols/Aws_json1_1";
+import { AddRegionRequest, AddRegionResult } from "../models/models_0";
+import { de_AddRegionCommand, se_AddRegionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddRegionCommand}.
  */
 export interface AddRegionCommandInput extends AddRegionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddRegionCommand}.
  */
 export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds two domain controllers in the specified Region for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,22 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * import { DirectoryServiceClient, AddRegionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, AddRegionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // AddRegionRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   RegionName: "STRING_VALUE", // required
+ *   VPCSettings: { // DirectoryVpcSettings
+ *     VpcId: "STRING_VALUE", // required
+ *     SubnetIds: [ // SubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new AddRegionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddRegionCommandInput - {@link AddRegionCommandInput}
+ * @returns {@link AddRegionCommandOutput}
  * @see {@link AddRegionCommandInput} for command's `input` shape.
  * @see {@link AddRegionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -98,6 +110,9 @@ export class AddRegionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddRegionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +139,8 @@ export class AddRegionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddRegionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddRegionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +150,18 @@ export class AddRegionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddRegionCommand(input, context);
+    return se_AddRegionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRegionCommandOutput> {
-    return deserializeAws_json1_1AddRegionCommand(output, context);
+    return de_AddRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

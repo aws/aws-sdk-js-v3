@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssociateSubnetCidrBlockRequest,
-  AssociateSubnetCidrBlockRequestFilterSensitiveLog,
-  AssociateSubnetCidrBlockResult,
-  AssociateSubnetCidrBlockResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateSubnetCidrBlockCommand,
-  serializeAws_ec2AssociateSubnetCidrBlockCommand,
-} from "../protocols/Aws_ec2";
+import { AssociateSubnetCidrBlockRequest, AssociateSubnetCidrBlockResult } from "../models/models_0";
+import { de_AssociateSubnetCidrBlockCommand, se_AssociateSubnetCidrBlockCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateSubnetCidrBlockCommand}.
  */
 export interface AssociateSubnetCidrBlockCommandInput extends AssociateSubnetCidrBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateSubnetCidrBlockCommand}.
  */
 export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCidrBlockResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR
  *             block with your subnet. An IPv6 CIDR block must have a prefix length of /64.</p>
  * @example
@@ -43,10 +40,16 @@ export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCi
  * import { EC2Client, AssociateSubnetCidrBlockCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateSubnetCidrBlockCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssociateSubnetCidrBlockRequest
+ *   Ipv6CidrBlock: "STRING_VALUE", // required
+ *   SubnetId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateSubnetCidrBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSubnetCidrBlockCommandInput - {@link AssociateSubnetCidrBlockCommandInput}
+ * @returns {@link AssociateSubnetCidrBlockCommandOutput}
  * @see {@link AssociateSubnetCidrBlockCommandInput} for command's `input` shape.
  * @see {@link AssociateSubnetCidrBlockCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +73,9 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSubnetCidrBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +104,8 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSubnetCidrBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSubnetCidrBlockResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +115,18 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSubnetCidrBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateSubnetCidrBlockCommand(input, context);
+    return se_AssociateSubnetCidrBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSubnetCidrBlockCommandOutput> {
-    return deserializeAws_ec2AssociateSubnetCidrBlockCommand(output, context);
+    return de_AssociateSubnetCidrBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

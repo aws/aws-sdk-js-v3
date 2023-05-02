@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  DescribeEventBusRequest,
-  DescribeEventBusRequestFilterSensitiveLog,
-  DescribeEventBusResponse,
-  DescribeEventBusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventBusCommand,
-  serializeAws_json1_1DescribeEventBusCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEventBusRequest, DescribeEventBusResponse } from "../models/models_0";
+import { de_DescribeEventBusCommand, se_DescribeEventBusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventBusCommand}.
  */
 export interface DescribeEventBusCommandInput extends DescribeEventBusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventBusCommand}.
  */
 export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays details about an event bus in your account. This can include the external Amazon Web Services
  *       accounts that are permitted to write events to your default event bus, and the associated
  *       policy. For custom event buses and partner event buses, it displays the name, ARN, policy,
@@ -48,10 +45,15 @@ export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse,
  * import { EventBridgeClient, DescribeEventBusCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeEventBusCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // DescribeEventBusRequest
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new DescribeEventBusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventBusCommandInput - {@link DescribeEventBusCommandInput}
+ * @returns {@link DescribeEventBusCommandOutput}
  * @see {@link DescribeEventBusCommandInput} for command's `input` shape.
  * @see {@link DescribeEventBusCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -81,6 +83,9 @@ export class DescribeEventBusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventBusCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DescribeEventBusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventBusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventBusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DescribeEventBusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventBusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventBusCommand(input, context);
+    return se_DescribeEventBusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventBusCommandOutput> {
-    return deserializeAws_json1_1DescribeEventBusCommand(output, context);
+    return de_DescribeEventBusCommand(output, context);
   }
 
   // Start section: command_body_extra

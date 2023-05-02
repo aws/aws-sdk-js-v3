@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateProjectVersionRequest,
-  CreateProjectVersionRequestFilterSensitiveLog,
-  CreateProjectVersionResponse,
-  CreateProjectVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateProjectVersionCommand,
-  serializeAws_json1_1CreateProjectVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateProjectVersionRequest, CreateProjectVersionResponse } from "../models/models_0";
+import { de_CreateProjectVersionCommand, se_CreateProjectVersionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProjectVersionCommand}.
  */
 export interface CreateProjectVersionCommandInput extends CreateProjectVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProjectVersionCommand}.
  */
 export interface CreateProjectVersionCommandOutput extends CreateProjectVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of a model and begins training.
  *          Models are managed as part of an Amazon Rekognition Custom Labels project.
  *          The response from <code>CreateProjectVersion</code>
@@ -71,10 +68,51 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  * import { RekognitionClient, CreateProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // CreateProjectVersionRequest
+ *   ProjectArn: "STRING_VALUE", // required
+ *   VersionName: "STRING_VALUE", // required
+ *   OutputConfig: { // OutputConfig
+ *     S3Bucket: "STRING_VALUE",
+ *     S3KeyPrefix: "STRING_VALUE",
+ *   },
+ *   TrainingData: { // TrainingData
+ *     Assets: [ // Assets
+ *       { // Asset
+ *         GroundTruthManifest: { // GroundTruthManifest
+ *           S3Object: { // S3Object
+ *             Bucket: "STRING_VALUE",
+ *             Name: "STRING_VALUE",
+ *             Version: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   TestingData: { // TestingData
+ *     Assets: [
+ *       {
+ *         GroundTruthManifest: {
+ *           S3Object: {
+ *             Bucket: "STRING_VALUE",
+ *             Name: "STRING_VALUE",
+ *             Version: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     AutoCreate: true || false,
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KmsKeyId: "STRING_VALUE",
+ * };
  * const command = new CreateProjectVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProjectVersionCommandInput - {@link CreateProjectVersionCommandInput}
+ * @returns {@link CreateProjectVersionCommandOutput}
  * @see {@link CreateProjectVersionCommandInput} for command's `input` shape.
  * @see {@link CreateProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -131,6 +169,9 @@ export class CreateProjectVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProjectVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,8 +200,8 @@ export class CreateProjectVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProjectVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProjectVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,12 +211,18 @@ export class CreateProjectVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProjectVersionCommand(input, context);
+    return se_CreateProjectVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProjectVersionCommandOutput> {
-    return deserializeAws_json1_1CreateProjectVersionCommand(output, context);
+    return de_CreateProjectVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { KMSClient } from "../KMSClient";
 import { KMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KMSClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeCustomKeyStoresCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeCustomKeyStores(
   config: KMSPaginationConfiguration,
   input: DescribeCustomKeyStoresCommandInput,

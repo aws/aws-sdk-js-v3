@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
+import { GetCalculationExecutionStatusRequest, GetCalculationExecutionStatusResponse } from "../models/models_0";
 import {
-  GetCalculationExecutionStatusRequest,
-  GetCalculationExecutionStatusRequestFilterSensitiveLog,
-  GetCalculationExecutionStatusResponse,
-  GetCalculationExecutionStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCalculationExecutionStatusCommand,
-  serializeAws_json1_1GetCalculationExecutionStatusCommand,
+  de_GetCalculationExecutionStatusCommand,
+  se_GetCalculationExecutionStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCalculationExecutionStatusCommand}.
  */
 export interface GetCalculationExecutionStatusCommandInput extends GetCalculationExecutionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCalculationExecutionStatusCommand}.
  */
 export interface GetCalculationExecutionStatusCommandOutput
@@ -37,6 +36,7 @@ export interface GetCalculationExecutionStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of a current calculation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetCalculationExecutionStatusCommandOutput
  * import { AthenaClient, GetCalculationExecutionStatusCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetCalculationExecutionStatusCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // GetCalculationExecutionStatusRequest
+ *   CalculationExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new GetCalculationExecutionStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCalculationExecutionStatusCommandInput - {@link GetCalculationExecutionStatusCommandInput}
+ * @returns {@link GetCalculationExecutionStatusCommandOutput}
  * @see {@link GetCalculationExecutionStatusCommandInput} for command's `input` shape.
  * @see {@link GetCalculationExecutionStatusCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -82,6 +87,9 @@ export class GetCalculationExecutionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCalculationExecutionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +118,8 @@ export class GetCalculationExecutionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCalculationExecutionStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCalculationExecutionStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +129,21 @@ export class GetCalculationExecutionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCalculationExecutionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCalculationExecutionStatusCommand(input, context);
+    return se_GetCalculationExecutionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCalculationExecutionStatusCommandOutput> {
-    return deserializeAws_json1_1GetCalculationExecutionStatusCommand(output, context);
+    return de_GetCalculationExecutionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  GetQueryResultsRequest,
-  GetQueryResultsRequestFilterSensitiveLog,
-  GetQueryResultsResponse,
-  GetQueryResultsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetQueryResultsCommand,
-  serializeAws_json1_1GetQueryResultsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetQueryResultsRequest, GetQueryResultsResponse } from "../models/models_0";
+import { de_GetQueryResultsCommand, se_GetQueryResultsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQueryResultsCommand}.
  */
 export interface GetQueryResultsCommandInput extends GetQueryResultsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQueryResultsCommand}.
  */
 export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value
  *          returned by the <code>StartQuery</code> operation, and an ARN for
  *             <code>EventDataStore</code>.</p>
@@ -44,10 +41,18 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * import { CloudTrailClient, GetQueryResultsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetQueryResultsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // GetQueryResultsRequest
+ *   EventDataStore: "STRING_VALUE",
+ *   QueryId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxQueryResults: Number("int"),
+ * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueryResultsCommandInput - {@link GetQueryResultsCommandInput}
+ * @returns {@link GetQueryResultsCommandOutput}
  * @see {@link GetQueryResultsCommandInput} for command's `input` shape.
  * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -108,6 +113,9 @@ export class GetQueryResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueryResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +144,8 @@ export class GetQueryResultsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryResultsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryResultsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +155,18 @@ export class GetQueryResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueryResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetQueryResultsCommand(input, context);
+    return se_GetQueryResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryResultsCommandOutput> {
-    return deserializeAws_json1_1GetQueryResultsCommand(output, context);
+    return de_GetQueryResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

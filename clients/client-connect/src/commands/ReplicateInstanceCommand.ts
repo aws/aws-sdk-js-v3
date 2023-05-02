@@ -18,23 +18,24 @@ import {
   ReplicateInstanceRequest,
   ReplicateInstanceRequestFilterSensitiveLog,
   ReplicateInstanceResponse,
-  ReplicateInstanceResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ReplicateInstanceCommand,
-  serializeAws_restJson1ReplicateInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ReplicateInstanceCommand, se_ReplicateInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ReplicateInstanceCommand}.
  */
 export interface ReplicateInstanceCommandInput extends ReplicateInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplicateInstanceCommand}.
  */
 export interface ReplicateInstanceCommandOutput extends ReplicateInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replicates an Amazon Connect instance in the specified Amazon Web Services Region.</p>
  *          <p>For more information about replicating an Amazon Connect instance, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html">Create
  *     a replica of your existing Amazon Connect instance</a> in the <i>Amazon Connect
@@ -45,10 +46,18 @@ export interface ReplicateInstanceCommandOutput extends ReplicateInstanceRespons
  * import { ConnectClient, ReplicateInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ReplicateInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ReplicateInstanceRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ReplicaRegion: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   ReplicaAlias: "STRING_VALUE", // required
+ * };
  * const command = new ReplicateInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplicateInstanceCommandInput - {@link ReplicateInstanceCommandInput}
+ * @returns {@link ReplicateInstanceCommandOutput}
  * @see {@link ReplicateInstanceCommandInput} for command's `input` shape.
  * @see {@link ReplicateInstanceCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -96,6 +105,9 @@ export class ReplicateInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplicateInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,7 +137,7 @@ export class ReplicateInstanceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ReplicateInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplicateInstanceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +147,18 @@ export class ReplicateInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplicateInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ReplicateInstanceCommand(input, context);
+    return se_ReplicateInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplicateInstanceCommandOutput> {
-    return deserializeAws_restJson1ReplicateInstanceCommand(output, context);
+    return de_ReplicateInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

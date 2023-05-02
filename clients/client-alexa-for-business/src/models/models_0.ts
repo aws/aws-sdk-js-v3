@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { AlexaForBusinessServiceException as __BaseException } from "./AlexaForBusinessServiceException";
 
 /**
+ * @public
  * <p>An address book with attributes.</p>
  */
 export interface AddressBook {
@@ -24,6 +25,7 @@ export interface AddressBook {
 }
 
 /**
+ * @public
  * <p>Information related to an address book.</p>
  */
 export interface AddressBookData {
@@ -43,6 +45,9 @@ export interface AddressBookData {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ApproveSkillRequest {
   /**
    * <p>The unique identifier of the skill.</p>
@@ -50,9 +55,13 @@ export interface ApproveSkillRequest {
   SkillId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ApproveSkillResponse {}
 
 /**
+ * @public
  * <p>There is a concurrent modification of resources.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -74,6 +83,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You are performing an action that would put you beyond your account's limits.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -95,6 +105,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource is not found.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -115,6 +126,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateContactWithAddressBookRequest {
   /**
    * <p>The ARN of the contact to associate with an address book.</p>
@@ -127,8 +141,14 @@ export interface AssociateContactWithAddressBookRequest {
   AddressBookArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateContactWithAddressBookResponse {}
 
+/**
+ * @public
+ */
 export interface AssociateDeviceWithNetworkProfileRequest {
   /**
    * <p>The device ARN.</p>
@@ -141,9 +161,13 @@ export interface AssociateDeviceWithNetworkProfileRequest {
   NetworkProfileArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDeviceWithNetworkProfileResponse {}
 
 /**
+ * @public
  * <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
  */
 export class DeviceNotRegisteredException extends __BaseException {
@@ -164,6 +188,9 @@ export class DeviceNotRegisteredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateDeviceWithRoomRequest {
   /**
    * <p>The ARN of the device to associate to a room. Required.</p>
@@ -176,8 +203,14 @@ export interface AssociateDeviceWithRoomRequest {
   RoomArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDeviceWithRoomResponse {}
 
+/**
+ * @public
+ */
 export interface AssociateSkillGroupWithRoomRequest {
   /**
    * <p>The ARN of the skill group to associate with a room. Required.</p>
@@ -190,8 +223,14 @@ export interface AssociateSkillGroupWithRoomRequest {
   RoomArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSkillGroupWithRoomResponse {}
 
+/**
+ * @public
+ */
 export interface AssociateSkillWithSkillGroupRequest {
   /**
    * <p>The ARN of the skill group to associate the skill to. Required.</p>
@@ -204,9 +243,13 @@ export interface AssociateSkillWithSkillGroupRequest {
   SkillId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSkillWithSkillGroupResponse {}
 
 /**
+ * @public
  * <p>The skill must be linked to a third-party account.</p>
  */
 export class SkillNotLinkedException extends __BaseException {
@@ -227,6 +270,9 @@ export class SkillNotLinkedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateSkillWithUsersRequest {
   /**
    * <p>The private skill ID you want to make available to enrolled users.</p>
@@ -234,9 +280,13 @@ export interface AssociateSkillWithUsersRequest {
   SkillId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSkillWithUsersResponse {}
 
 /**
+ * @public
  * <p>The resource being created already exists.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -258,6 +308,7 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A key-value pair that can be associated with a resource. </p>
  */
 export interface Tag {
@@ -272,6 +323,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAddressBookRequest {
   /**
    * <p>The name of the address book.</p>
@@ -295,6 +349,9 @@ export interface CreateAddressBookRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAddressBookResponse {
   /**
    * <p>The ARN of the newly created address book.</p>
@@ -302,13 +359,23 @@ export interface CreateAddressBookResponse {
   AddressBookArn?: string;
 }
 
-export enum BusinessReportInterval {
-  ONE_DAY = "ONE_DAY",
-  ONE_WEEK = "ONE_WEEK",
-  THIRTY_DAYS = "THIRTY_DAYS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BusinessReportInterval = {
+  ONE_DAY: "ONE_DAY",
+  ONE_WEEK: "ONE_WEEK",
+  THIRTY_DAYS: "THIRTY_DAYS",
+} as const;
 
 /**
+ * @public
+ */
+export type BusinessReportInterval = (typeof BusinessReportInterval)[keyof typeof BusinessReportInterval];
+
+/**
+ * @public
  * <p>The content range of the report.</p>
  */
 export interface BusinessReportContentRange {
@@ -318,12 +385,22 @@ export interface BusinessReportContentRange {
   Interval: BusinessReportInterval | string | undefined;
 }
 
-export enum BusinessReportFormat {
-  CSV = "CSV",
-  CSV_ZIP = "CSV_ZIP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BusinessReportFormat = {
+  CSV: "CSV",
+  CSV_ZIP: "CSV_ZIP",
+} as const;
 
 /**
+ * @public
+ */
+export type BusinessReportFormat = (typeof BusinessReportFormat)[keyof typeof BusinessReportFormat];
+
+/**
+ * @public
  * <p>The recurrence of the reports.</p>
  */
 export interface BusinessReportRecurrence {
@@ -333,6 +410,9 @@ export interface BusinessReportRecurrence {
   StartDate?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBusinessReportScheduleRequest {
   /**
    * <p>The name identifier of the schedule.</p>
@@ -378,6 +458,9 @@ export interface CreateBusinessReportScheduleRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateBusinessReportScheduleResponse {
   /**
    * <p>The ARN of the business report schedule.</p>
@@ -385,26 +468,45 @@ export interface CreateBusinessReportScheduleResponse {
   ScheduleArn?: string;
 }
 
-export enum ConferenceProviderType {
-  BLUEJEANS = "BLUEJEANS",
-  CHIME = "CHIME",
-  CUSTOM = "CUSTOM",
-  FUZE = "FUZE",
-  GOOGLE_HANGOUTS = "GOOGLE_HANGOUTS",
-  POLYCOM = "POLYCOM",
-  RINGCENTRAL = "RINGCENTRAL",
-  SKYPE_FOR_BUSINESS = "SKYPE_FOR_BUSINESS",
-  WEBEX = "WEBEX",
-  ZOOM = "ZOOM",
-}
-
-export enum CommsProtocol {
-  H323 = "H323",
-  SIP = "SIP",
-  SIPS = "SIPS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConferenceProviderType = {
+  BLUEJEANS: "BLUEJEANS",
+  CHIME: "CHIME",
+  CUSTOM: "CUSTOM",
+  FUZE: "FUZE",
+  GOOGLE_HANGOUTS: "GOOGLE_HANGOUTS",
+  POLYCOM: "POLYCOM",
+  RINGCENTRAL: "RINGCENTRAL",
+  SKYPE_FOR_BUSINESS: "SKYPE_FOR_BUSINESS",
+  WEBEX: "WEBEX",
+  ZOOM: "ZOOM",
+} as const;
 
 /**
+ * @public
+ */
+export type ConferenceProviderType = (typeof ConferenceProviderType)[keyof typeof ConferenceProviderType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CommsProtocol = {
+  H323: "H323",
+  SIP: "SIP",
+  SIPS: "SIPS",
+} as const;
+
+/**
+ * @public
+ */
+export type CommsProtocol = (typeof CommsProtocol)[keyof typeof CommsProtocol];
+
+/**
+ * @public
  * <p>The IP endpoint and protocol for calling.</p>
  */
 export interface IPDialIn {
@@ -419,13 +521,23 @@ export interface IPDialIn {
   CommsProtocol: CommsProtocol | string | undefined;
 }
 
-export enum RequirePin {
-  NO = "NO",
-  OPTIONAL = "OPTIONAL",
-  YES = "YES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RequirePin = {
+  NO: "NO",
+  OPTIONAL: "OPTIONAL",
+  YES: "YES",
+} as const;
 
 /**
+ * @public
+ */
+export type RequirePin = (typeof RequirePin)[keyof typeof RequirePin];
+
+/**
+ * @public
  * <p>The values that indicate whether a pin is always required (YES), never required (NO),
  *             or OPTIONAL.</p>
  *         <ul>
@@ -449,6 +561,7 @@ export interface MeetingSetting {
 }
 
 /**
+ * @public
  * <p>The information for public switched telephone network (PSTN) conferencing.</p>
  */
 export interface PSTNDialIn {
@@ -473,6 +586,9 @@ export interface PSTNDialIn {
   OneClickPinDelay: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConferenceProviderRequest {
   /**
    * <p>The name of the conference provider.</p>
@@ -510,6 +626,9 @@ export interface CreateConferenceProviderRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateConferenceProviderResponse {
   /**
    * <p>The ARN of the newly-created conference provider.</p>
@@ -517,13 +636,23 @@ export interface CreateConferenceProviderResponse {
   ConferenceProviderArn?: string;
 }
 
-export enum PhoneNumberType {
-  HOME = "HOME",
-  MOBILE = "MOBILE",
-  WORK = "WORK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PhoneNumberType = {
+  HOME: "HOME",
+  MOBILE: "MOBILE",
+  WORK: "WORK",
+} as const;
 
 /**
+ * @public
+ */
+export type PhoneNumberType = (typeof PhoneNumberType)[keyof typeof PhoneNumberType];
+
+/**
+ * @public
  * <p>The phone number for the contact containing the raw number and phone number type.</p>
  */
 export interface PhoneNumber {
@@ -538,11 +667,21 @@ export interface PhoneNumber {
   Type: PhoneNumberType | string | undefined;
 }
 
-export enum SipType {
-  WORK = "WORK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SipType = {
+  WORK: "WORK",
+} as const;
 
 /**
+ * @public
+ */
+export type SipType = (typeof SipType)[keyof typeof SipType];
+
+/**
+ * @public
  * <p>The SIP address for the contact containing the URI and SIP address type.</p>
  */
 export interface SipAddress {
@@ -557,6 +696,9 @@ export interface SipAddress {
   Type: SipType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateContactRequest {
   /**
    * <p>The name of the contact to display on the console.</p>
@@ -604,6 +746,9 @@ export interface CreateContactRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateContactResponse {
   /**
    * <p>The ARN of the newly created address book.</p>
@@ -611,6 +756,9 @@ export interface CreateContactResponse {
   ContactArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGatewayGroupRequest {
   /**
    * <p>The name of the gateway group.</p>
@@ -633,6 +781,9 @@ export interface CreateGatewayGroupRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateGatewayGroupResponse {
   /**
    * <p>The ARN of the created gateway group.</p>
@@ -640,18 +791,39 @@ export interface CreateGatewayGroupResponse {
   GatewayGroupArn?: string;
 }
 
-export enum NetworkEapMethod {
-  EAP_TLS = "EAP_TLS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkEapMethod = {
+  EAP_TLS: "EAP_TLS",
+} as const;
 
-export enum NetworkSecurityType {
-  OPEN = "OPEN",
-  WEP = "WEP",
-  WPA2_ENTERPRISE = "WPA2_ENTERPRISE",
-  WPA2_PSK = "WPA2_PSK",
-  WPA_PSK = "WPA_PSK",
-}
+/**
+ * @public
+ */
+export type NetworkEapMethod = (typeof NetworkEapMethod)[keyof typeof NetworkEapMethod];
 
+/**
+ * @public
+ * @enum
+ */
+export const NetworkSecurityType = {
+  OPEN: "OPEN",
+  WEP: "WEP",
+  WPA2_ENTERPRISE: "WPA2_ENTERPRISE",
+  WPA2_PSK: "WPA2_PSK",
+  WPA_PSK: "WPA_PSK",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkSecurityType = (typeof NetworkSecurityType)[keyof typeof NetworkSecurityType];
+
+/**
+ * @public
+ */
 export interface CreateNetworkProfileRequest {
   /**
    * <p>The name of the network profile associated with a device.</p>
@@ -715,6 +887,9 @@ export interface CreateNetworkProfileRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkProfileResponse {
   /**
    * <p>The ARN of the network profile associated with a device.</p>
@@ -723,6 +898,7 @@ export interface CreateNetworkProfileResponse {
 }
 
 /**
+ * @public
  * <p>The Certificate Authority can't issue or revoke a certificate.</p>
  */
 export class InvalidCertificateAuthorityException extends __BaseException {
@@ -744,6 +920,7 @@ export class InvalidCertificateAuthorityException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service linked role is locked for deletion. </p>
  */
 export class InvalidServiceLinkedRoleStateException extends __BaseException {
@@ -764,19 +941,38 @@ export class InvalidServiceLinkedRoleStateException extends __BaseException {
   }
 }
 
-export enum DistanceUnit {
-  IMPERIAL = "IMPERIAL",
-  METRIC = "METRIC",
-}
-
-export enum EndOfMeetingReminderType {
-  ANNOUNCEMENT_TIME_CHECK = "ANNOUNCEMENT_TIME_CHECK",
-  ANNOUNCEMENT_VARIABLE_TIME_LEFT = "ANNOUNCEMENT_VARIABLE_TIME_LEFT",
-  CHIME = "CHIME",
-  KNOCK = "KNOCK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DistanceUnit = {
+  IMPERIAL: "IMPERIAL",
+  METRIC: "METRIC",
+} as const;
 
 /**
+ * @public
+ */
+export type DistanceUnit = (typeof DistanceUnit)[keyof typeof DistanceUnit];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndOfMeetingReminderType = {
+  ANNOUNCEMENT_TIME_CHECK: "ANNOUNCEMENT_TIME_CHECK",
+  ANNOUNCEMENT_VARIABLE_TIME_LEFT: "ANNOUNCEMENT_VARIABLE_TIME_LEFT",
+  CHIME: "CHIME",
+  KNOCK: "KNOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type EndOfMeetingReminderType = (typeof EndOfMeetingReminderType)[keyof typeof EndOfMeetingReminderType];
+
+/**
+ * @public
  * <p>Creates settings for the end of meeting reminder feature that are applied to a room
  *          profile. The end of meeting reminder enables Alexa to remind users when a meeting is
  *          ending.</p>
@@ -799,6 +995,7 @@ export interface CreateEndOfMeetingReminder {
 }
 
 /**
+ * @public
  * <p>Creates settings for the instant booking feature that are applied to a room profile.
  *          When users start their meeting with Alexa, Alexa automatically books the room for the
  *          configured duration if the room is available.</p>
@@ -817,6 +1014,7 @@ export interface CreateInstantBooking {
 }
 
 /**
+ * @public
  * <p>Creates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released.</p>
  */
 export interface CreateRequireCheckIn {
@@ -832,6 +1030,7 @@ export interface CreateRequireCheckIn {
 }
 
 /**
+ * @public
  * <p>Creates meeting room settings of a room profile.</p>
  */
 export interface CreateMeetingRoomConfiguration {
@@ -858,18 +1057,39 @@ export interface CreateMeetingRoomConfiguration {
   RequireCheckIn?: CreateRequireCheckIn;
 }
 
-export enum TemperatureUnit {
-  CELSIUS = "CELSIUS",
-  FAHRENHEIT = "FAHRENHEIT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TemperatureUnit = {
+  CELSIUS: "CELSIUS",
+  FAHRENHEIT: "FAHRENHEIT",
+} as const;
 
-export enum WakeWord {
-  ALEXA = "ALEXA",
-  AMAZON = "AMAZON",
-  COMPUTER = "COMPUTER",
-  ECHO = "ECHO",
-}
+/**
+ * @public
+ */
+export type TemperatureUnit = (typeof TemperatureUnit)[keyof typeof TemperatureUnit];
 
+/**
+ * @public
+ * @enum
+ */
+export const WakeWord = {
+  ALEXA: "ALEXA",
+  AMAZON: "AMAZON",
+  COMPUTER: "COMPUTER",
+  ECHO: "ECHO",
+} as const;
+
+/**
+ * @public
+ */
+export type WakeWord = (typeof WakeWord)[keyof typeof WakeWord];
+
+/**
+ * @public
+ */
 export interface CreateProfileRequest {
   /**
    * <p>The name of a room profile.</p>
@@ -942,6 +1162,9 @@ export interface CreateProfileRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateProfileResponse {
   /**
    * <p>The ARN of the newly created room profile in the response.</p>
@@ -949,6 +1172,9 @@ export interface CreateProfileResponse {
   ProfileArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRoomRequest {
   /**
    * <p>The name for the room.</p>
@@ -982,6 +1208,9 @@ export interface CreateRoomRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRoomResponse {
   /**
    * <p>The ARN of the newly created room in the response.</p>
@@ -989,6 +1218,9 @@ export interface CreateRoomResponse {
   RoomArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSkillGroupRequest {
   /**
    * <p>The name for the skill group.</p>
@@ -1012,6 +1244,9 @@ export interface CreateSkillGroupRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSkillGroupResponse {
   /**
    * <p>The ARN of the newly created skill group in the response.</p>
@@ -1019,6 +1254,9 @@ export interface CreateSkillGroupResponse {
   SkillGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserRequest {
   /**
    * <p>The ARN for the user.</p>
@@ -1052,6 +1290,9 @@ export interface CreateUserRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResponse {
   /**
    * <p>The ARN of the newly created user in the response.</p>
@@ -1060,6 +1301,7 @@ export interface CreateUserResponse {
 }
 
 /**
+ * @public
  * <p>The resource in the request is already in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -1085,6 +1327,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAddressBookRequest {
   /**
    * <p>The ARN of the address book to delete.</p>
@@ -1092,8 +1337,14 @@ export interface DeleteAddressBookRequest {
   AddressBookArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAddressBookResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteBusinessReportScheduleRequest {
   /**
    * <p>The ARN of the business report schedule.</p>
@@ -1101,8 +1352,14 @@ export interface DeleteBusinessReportScheduleRequest {
   ScheduleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBusinessReportScheduleResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteConferenceProviderRequest {
   /**
    * <p>The ARN of the conference provider.</p>
@@ -1110,8 +1367,14 @@ export interface DeleteConferenceProviderRequest {
   ConferenceProviderArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConferenceProviderResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteContactRequest {
   /**
    * <p>The ARN of the contact to delete.</p>
@@ -1119,8 +1382,14 @@ export interface DeleteContactRequest {
   ContactArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContactResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDeviceRequest {
   /**
    * <p>The ARN of the device for which to request details.</p>
@@ -1128,12 +1397,27 @@ export interface DeleteDeviceRequest {
   DeviceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeviceResponse {}
 
-export enum DeviceUsageType {
-  VOICE = "VOICE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceUsageType = {
+  VOICE: "VOICE",
+} as const;
 
+/**
+ * @public
+ */
+export type DeviceUsageType = (typeof DeviceUsageType)[keyof typeof DeviceUsageType];
+
+/**
+ * @public
+ */
 export interface DeleteDeviceUsageDataRequest {
   /**
    * <p>The ARN of the device.</p>
@@ -1146,8 +1430,14 @@ export interface DeleteDeviceUsageDataRequest {
   DeviceUsageType: DeviceUsageType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeviceUsageDataResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteGatewayGroupRequest {
   /**
    * <p>The ARN of the gateway group to delete.</p>
@@ -1155,9 +1445,13 @@ export interface DeleteGatewayGroupRequest {
   GatewayGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGatewayGroupResponse {}
 
 /**
+ * @public
  * <p>Another resource is associated with the resource in the request.</p>
  */
 export class ResourceAssociatedException extends __BaseException {
@@ -1178,6 +1472,9 @@ export class ResourceAssociatedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkProfileRequest {
   /**
    * <p>The ARN of the network profile associated with a device.</p>
@@ -1185,8 +1482,14 @@ export interface DeleteNetworkProfileRequest {
   NetworkProfileArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkProfileResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteProfileRequest {
   /**
    * <p>The ARN of the room profile to delete. Required.</p>
@@ -1194,8 +1497,14 @@ export interface DeleteProfileRequest {
   ProfileArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProfileResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRoomRequest {
   /**
    * <p>The ARN of the room to delete. Required.</p>
@@ -1203,8 +1512,14 @@ export interface DeleteRoomRequest {
   RoomArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRoomResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRoomSkillParameterRequest {
   /**
    * <p>The ARN of the room from which to remove the room skill parameter details.</p>
@@ -1222,8 +1537,14 @@ export interface DeleteRoomSkillParameterRequest {
   ParameterKey: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRoomSkillParameterResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSkillAuthorizationRequest {
   /**
    * <p>The unique identifier of a skill.</p>
@@ -1236,8 +1557,14 @@ export interface DeleteSkillAuthorizationRequest {
   RoomArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSkillAuthorizationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSkillGroupRequest {
   /**
    * <p>The ARN of the skill group to delete. Required.</p>
@@ -1245,8 +1572,14 @@ export interface DeleteSkillGroupRequest {
   SkillGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSkillGroupResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The ARN of the user to delete in the organization. Required.</p>
@@ -1259,8 +1592,14 @@ export interface DeleteUserRequest {
   EnrollmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateContactFromAddressBookRequest {
   /**
    * <p>The ARN of the contact to disassociate from an address book.</p>
@@ -1273,8 +1612,14 @@ export interface DisassociateContactFromAddressBookRequest {
   AddressBookArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateContactFromAddressBookResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateDeviceFromRoomRequest {
   /**
    * <p>The ARN of the device to disassociate from a room. Required.</p>
@@ -1282,8 +1627,14 @@ export interface DisassociateDeviceFromRoomRequest {
   DeviceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDeviceFromRoomResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateSkillFromSkillGroupRequest {
   /**
    * <p>The unique identifier of a skill. Required.</p>
@@ -1296,8 +1647,14 @@ export interface DisassociateSkillFromSkillGroupRequest {
   SkillId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateSkillFromSkillGroupResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateSkillFromUsersRequest {
   /**
    * <p> The private skill ID you want to make unavailable for enrolled users.</p>
@@ -1305,8 +1662,14 @@ export interface DisassociateSkillFromUsersRequest {
   SkillId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateSkillFromUsersResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateSkillGroupFromRoomRequest {
   /**
    * <p>The ARN of the skill group to disassociate from a room. Required.</p>
@@ -1320,8 +1683,14 @@ export interface DisassociateSkillGroupFromRoomRequest {
   RoomArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateSkillGroupFromRoomResponse {}
 
+/**
+ * @public
+ */
 export interface ForgetSmartHomeAppliancesRequest {
   /**
    * <p>The room that the appliances are associated with.</p>
@@ -1329,8 +1698,14 @@ export interface ForgetSmartHomeAppliancesRequest {
   RoomArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ForgetSmartHomeAppliancesResponse {}
 
+/**
+ * @public
+ */
 export interface GetAddressBookRequest {
   /**
    * <p>The ARN of the address book for which to request details.</p>
@@ -1338,6 +1713,9 @@ export interface GetAddressBookRequest {
   AddressBookArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAddressBookResponse {
   /**
    * <p>The details of the requested address book.</p>
@@ -1345,9 +1723,13 @@ export interface GetAddressBookResponse {
   AddressBook?: AddressBook;
 }
 
+/**
+ * @public
+ */
 export interface GetConferencePreferenceRequest {}
 
 /**
+ * @public
  * <p>The default conference provider that is used if no other scheduled meetings are
  *          detected.</p>
  */
@@ -1358,6 +1740,9 @@ export interface ConferencePreference {
   DefaultConferenceProviderArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConferencePreferenceResponse {
   /**
    * <p>The conference preference.</p>
@@ -1365,6 +1750,9 @@ export interface GetConferencePreferenceResponse {
   Preference?: ConferencePreference;
 }
 
+/**
+ * @public
+ */
 export interface GetConferenceProviderRequest {
   /**
    * <p>The ARN of the newly created conference provider.</p>
@@ -1373,6 +1761,7 @@ export interface GetConferenceProviderRequest {
 }
 
 /**
+ * @public
  * <p>An entity that provides a conferencing solution. Alexa for Business acts as the voice interface and mediator that connects users to their preferred conference provider. Examples of conference providers include Amazon Chime, Zoom, Cisco, and Polycom. </p>
  */
 export interface ConferenceProvider {
@@ -1407,6 +1796,9 @@ export interface ConferenceProvider {
   MeetingSetting?: MeetingSetting;
 }
 
+/**
+ * @public
+ */
 export interface GetConferenceProviderResponse {
   /**
    * <p>The conference provider.</p>
@@ -1414,6 +1806,9 @@ export interface GetConferenceProviderResponse {
   ConferenceProvider?: ConferenceProvider;
 }
 
+/**
+ * @public
+ */
 export interface GetContactRequest {
   /**
    * <p>The ARN of the contact for which to request details.</p>
@@ -1422,6 +1817,7 @@ export interface GetContactRequest {
 }
 
 /**
+ * @public
  * <p>A contact with attributes.</p>
  */
 export interface Contact {
@@ -1463,6 +1859,9 @@ export interface Contact {
   SipAddresses?: SipAddress[];
 }
 
+/**
+ * @public
+ */
 export interface GetContactResponse {
   /**
    * <p>The details of the requested contact.</p>
@@ -1470,6 +1869,9 @@ export interface GetContactResponse {
   Contact?: Contact;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceRequest {
   /**
    * <p>The ARN of the device for which to request details. Required.</p>
@@ -1477,51 +1879,88 @@ export interface GetDeviceRequest {
   DeviceArn?: string;
 }
 
-export enum DeviceStatus {
-  DEREGISTERED = "DEREGISTERED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  READY = "READY",
-  WAS_OFFLINE = "WAS_OFFLINE",
-}
-
-export enum ConnectionStatus {
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-}
-
-export enum DeviceStatusDetailCode {
-  ASSOCIATION_REJECTION = "ASSOCIATION_REJECTION",
-  AUTHENTICATION_FAILURE = "AUTHENTICATION_FAILURE",
-  CERTIFICATE_AUTHORITY_ACCESS_DENIED = "CERTIFICATE_AUTHORITY_ACCESS_DENIED",
-  CERTIFICATE_ISSUING_LIMIT_EXCEEDED = "CERTIFICATE_ISSUING_LIMIT_EXCEEDED",
-  CREDENTIALS_ACCESS_FAILURE = "CREDENTIALS_ACCESS_FAILURE",
-  DEVICE_SOFTWARE_UPDATE_NEEDED = "DEVICE_SOFTWARE_UPDATE_NEEDED",
-  DEVICE_WAS_OFFLINE = "DEVICE_WAS_OFFLINE",
-  DHCP_FAILURE = "DHCP_FAILURE",
-  DNS_FAILURE = "DNS_FAILURE",
-  INTERNET_UNAVAILABLE = "INTERNET_UNAVAILABLE",
-  INVALID_CERTIFICATE_AUTHORITY = "INVALID_CERTIFICATE_AUTHORITY",
-  INVALID_PASSWORD_STATE = "INVALID_PASSWORD_STATE",
-  NETWORK_PROFILE_NOT_FOUND = "NETWORK_PROFILE_NOT_FOUND",
-  PASSWORD_MANAGER_ACCESS_DENIED = "PASSWORD_MANAGER_ACCESS_DENIED",
-  PASSWORD_NOT_FOUND = "PASSWORD_NOT_FOUND",
-  TLS_VERSION_MISMATCH = "TLS_VERSION_MISMATCH",
-  UNKNOWN_FAILURE = "UNKNOWN_FAILURE",
-}
-
-export enum Feature {
-  ALL = "ALL",
-  BLUETOOTH = "BLUETOOTH",
-  LISTS = "LISTS",
-  NETWORK_PROFILE = "NETWORK_PROFILE",
-  NOTIFICATIONS = "NOTIFICATIONS",
-  SETTINGS = "SETTINGS",
-  SKILLS = "SKILLS",
-  VOLUME = "VOLUME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceStatus = {
+  DEREGISTERED: "DEREGISTERED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  READY: "READY",
+  WAS_OFFLINE: "WAS_OFFLINE",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceStatus = (typeof DeviceStatus)[keyof typeof DeviceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionStatus = {
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeviceStatusDetailCode = {
+  ASSOCIATION_REJECTION: "ASSOCIATION_REJECTION",
+  AUTHENTICATION_FAILURE: "AUTHENTICATION_FAILURE",
+  CERTIFICATE_AUTHORITY_ACCESS_DENIED: "CERTIFICATE_AUTHORITY_ACCESS_DENIED",
+  CERTIFICATE_ISSUING_LIMIT_EXCEEDED: "CERTIFICATE_ISSUING_LIMIT_EXCEEDED",
+  CREDENTIALS_ACCESS_FAILURE: "CREDENTIALS_ACCESS_FAILURE",
+  DEVICE_SOFTWARE_UPDATE_NEEDED: "DEVICE_SOFTWARE_UPDATE_NEEDED",
+  DEVICE_WAS_OFFLINE: "DEVICE_WAS_OFFLINE",
+  DHCP_FAILURE: "DHCP_FAILURE",
+  DNS_FAILURE: "DNS_FAILURE",
+  INTERNET_UNAVAILABLE: "INTERNET_UNAVAILABLE",
+  INVALID_CERTIFICATE_AUTHORITY: "INVALID_CERTIFICATE_AUTHORITY",
+  INVALID_PASSWORD_STATE: "INVALID_PASSWORD_STATE",
+  NETWORK_PROFILE_NOT_FOUND: "NETWORK_PROFILE_NOT_FOUND",
+  PASSWORD_MANAGER_ACCESS_DENIED: "PASSWORD_MANAGER_ACCESS_DENIED",
+  PASSWORD_NOT_FOUND: "PASSWORD_NOT_FOUND",
+  TLS_VERSION_MISMATCH: "TLS_VERSION_MISMATCH",
+  UNKNOWN_FAILURE: "UNKNOWN_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceStatusDetailCode = (typeof DeviceStatusDetailCode)[keyof typeof DeviceStatusDetailCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Feature = {
+  ALL: "ALL",
+  BLUETOOTH: "BLUETOOTH",
+  LISTS: "LISTS",
+  NETWORK_PROFILE: "NETWORK_PROFILE",
+  NOTIFICATIONS: "NOTIFICATIONS",
+  SETTINGS: "SETTINGS",
+  SKILLS: "SKILLS",
+  VOLUME: "VOLUME",
+} as const;
+
+/**
+ * @public
+ */
+export type Feature = (typeof Feature)[keyof typeof Feature];
+
+/**
+ * @public
  * <p>Details of a device’s status.</p>
  */
 export interface DeviceStatusDetail {
@@ -1537,6 +1976,7 @@ export interface DeviceStatusDetail {
 }
 
 /**
+ * @public
  * <p>Detailed information about a device's status.</p>
  */
 export interface DeviceStatusInfo {
@@ -1557,6 +1997,7 @@ export interface DeviceStatusInfo {
 }
 
 /**
+ * @public
  * <p>Detailed information about a device's network profile.</p>
  */
 export interface DeviceNetworkProfileInfo {
@@ -1577,6 +2018,7 @@ export interface DeviceNetworkProfileInfo {
 }
 
 /**
+ * @public
  * <p>A device with attributes.</p>
  */
 export interface Device {
@@ -1632,6 +2074,9 @@ export interface Device {
   NetworkProfileInfo?: DeviceNetworkProfileInfo;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceResponse {
   /**
    * <p>The details of the device requested. Required.</p>
@@ -1639,6 +2084,9 @@ export interface GetDeviceResponse {
   Device?: Device;
 }
 
+/**
+ * @public
+ */
 export interface GetGatewayRequest {
   /**
    * <p>The ARN of the gateway to get.</p>
@@ -1647,6 +2095,7 @@ export interface GetGatewayRequest {
 }
 
 /**
+ * @public
  * <p>The details of the gateway. </p>
  */
 export interface Gateway {
@@ -1677,6 +2126,9 @@ export interface Gateway {
   SoftwareVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetGatewayResponse {
   /**
    * <p>The details of the gateway.</p>
@@ -1684,6 +2136,9 @@ export interface GetGatewayResponse {
   Gateway?: Gateway;
 }
 
+/**
+ * @public
+ */
 export interface GetGatewayGroupRequest {
   /**
    * <p>The ARN of the gateway group to get.</p>
@@ -1692,6 +2147,7 @@ export interface GetGatewayGroupRequest {
 }
 
 /**
+ * @public
  * <p>The details of the gateway group.</p>
  */
 export interface GatewayGroup {
@@ -1711,6 +2167,9 @@ export interface GatewayGroup {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetGatewayGroupResponse {
   /**
    * <p>The details of the gateway group.</p>
@@ -1718,8 +2177,14 @@ export interface GetGatewayGroupResponse {
   GatewayGroup?: GatewayGroup;
 }
 
+/**
+ * @public
+ */
 export interface GetInvitationConfigurationRequest {}
 
+/**
+ * @public
+ */
 export interface GetInvitationConfigurationResponse {
   /**
    * <p>The name of the organization sending the enrollment invite to a user.</p>
@@ -1739,6 +2204,9 @@ export interface GetInvitationConfigurationResponse {
   PrivateSkillIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkProfileRequest {
   /**
    * <p>The ARN of the network profile associated with a device.</p>
@@ -1747,6 +2215,7 @@ export interface GetNetworkProfileRequest {
 }
 
 /**
+ * @public
  * <p>The network profile associated with a device.</p>
  */
 export interface NetworkProfile {
@@ -1807,6 +2276,9 @@ export interface NetworkProfile {
   TrustAnchors?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkProfileResponse {
   /**
    * <p>The network profile associated with a device.</p>
@@ -1815,6 +2287,7 @@ export interface GetNetworkProfileResponse {
 }
 
 /**
+ * @public
  * <p>A password in SecretsManager is in an invalid state.</p>
  */
 export class InvalidSecretsManagerResourceException extends __BaseException {
@@ -1835,6 +2308,9 @@ export class InvalidSecretsManagerResourceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetProfileRequest {
   /**
    * <p>The ARN of the room profile for which to request details. Required.</p>
@@ -1843,6 +2319,7 @@ export interface GetProfileRequest {
 }
 
 /**
+ * @public
  * <p>Settings for the end of meeting reminder feature that are applied to a room profile. The
  *          end of meeting reminder enables Alexa to remind users when a meeting is ending. </p>
  */
@@ -1864,6 +2341,7 @@ export interface EndOfMeetingReminder {
 }
 
 /**
+ * @public
  * <p>Settings for the instant booking feature that are applied to a room profile. When users
  *          start their meeting with Alexa, Alexa  automatically books the room for the configured
  *          duration if the room is available.</p>
@@ -1882,6 +2360,7 @@ export interface InstantBooking {
 }
 
 /**
+ * @public
  * <p>Settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released. </p>
  */
 export interface RequireCheckIn {
@@ -1897,6 +2376,7 @@ export interface RequireCheckIn {
 }
 
 /**
+ * @public
  * <p>Meeting room settings of a room profile.</p>
  */
 export interface MeetingRoomConfiguration {
@@ -1927,6 +2407,7 @@ export interface MeetingRoomConfiguration {
 }
 
 /**
+ * @public
  * <p>A room profile with attributes.</p>
  */
 export interface Profile {
@@ -2007,6 +2488,9 @@ export interface Profile {
   MeetingRoomConfiguration?: MeetingRoomConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetProfileResponse {
   /**
    * <p>The details of the room profile requested. Required.</p>
@@ -2014,6 +2498,9 @@ export interface GetProfileResponse {
   Profile?: Profile;
 }
 
+/**
+ * @public
+ */
 export interface GetRoomRequest {
   /**
    * <p>The ARN of the room for which to request details. Required.</p>
@@ -2022,6 +2509,7 @@ export interface GetRoomRequest {
 }
 
 /**
+ * @public
  * <p>A room with attributes.</p>
  */
 export interface Room {
@@ -2051,6 +2539,9 @@ export interface Room {
   ProfileArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRoomResponse {
   /**
    * <p>The details of the room requested.</p>
@@ -2058,6 +2549,9 @@ export interface GetRoomResponse {
   Room?: Room;
 }
 
+/**
+ * @public
+ */
 export interface GetRoomSkillParameterRequest {
   /**
    * <p>The ARN of the room from which to get the room skill parameter details. </p>
@@ -2077,6 +2571,7 @@ export interface GetRoomSkillParameterRequest {
 }
 
 /**
+ * @public
  * <p>A skill parameter associated with a room.</p>
  */
 export interface RoomSkillParameter {
@@ -2092,6 +2587,9 @@ export interface RoomSkillParameter {
   ParameterValue: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRoomSkillParameterResponse {
   /**
    * <p>The details of the room skill parameter requested. Required.</p>
@@ -2099,6 +2597,9 @@ export interface GetRoomSkillParameterResponse {
   RoomSkillParameter?: RoomSkillParameter;
 }
 
+/**
+ * @public
+ */
 export interface GetSkillGroupRequest {
   /**
    * <p>The ARN of the skill group for which to get details. Required.</p>
@@ -2107,6 +2608,7 @@ export interface GetSkillGroupRequest {
 }
 
 /**
+ * @public
  * <p>A skill group with attributes.</p>
  */
 export interface SkillGroup {
@@ -2126,6 +2628,9 @@ export interface SkillGroup {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSkillGroupResponse {
   /**
    * <p>The details of the skill group requested. Required.</p>
@@ -2133,6 +2638,9 @@ export interface GetSkillGroupResponse {
   SkillGroup?: SkillGroup;
 }
 
+/**
+ * @public
+ */
 export interface ListBusinessReportSchedulesRequest {
   /**
    * <p>The token used to list the remaining schedules from the previous API call.</p>
@@ -2145,13 +2653,23 @@ export interface ListBusinessReportSchedulesRequest {
   MaxResults?: number;
 }
 
-export enum BusinessReportFailureCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  NO_SUCH_BUCKET = "NO_SUCH_BUCKET",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BusinessReportFailureCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  NO_SUCH_BUCKET: "NO_SUCH_BUCKET",
+} as const;
 
 /**
+ * @public
+ */
+export type BusinessReportFailureCode = (typeof BusinessReportFailureCode)[keyof typeof BusinessReportFailureCode];
+
+/**
+ * @public
  * <p>The S3 location of the output reports.</p>
  */
 export interface BusinessReportS3Location {
@@ -2166,13 +2684,23 @@ export interface BusinessReportS3Location {
   BucketName?: string;
 }
 
-export enum BusinessReportStatus {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BusinessReportStatus = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type BusinessReportStatus = (typeof BusinessReportStatus)[keyof typeof BusinessReportStatus];
+
+/**
+ * @public
  * <p>Usage report with specified parameters.</p>
  */
 export interface BusinessReport {
@@ -2204,6 +2732,7 @@ export interface BusinessReport {
 }
 
 /**
+ * @public
  * <p>The schedule of the usage report.</p>
  */
 export interface BusinessReportSchedule {
@@ -2250,6 +2779,9 @@ export interface BusinessReportSchedule {
   LastBusinessReport?: BusinessReport;
 }
 
+/**
+ * @public
+ */
 export interface ListBusinessReportSchedulesResponse {
   /**
    * <p>The schedule of the reports.</p>
@@ -2262,6 +2794,9 @@ export interface ListBusinessReportSchedulesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConferenceProvidersRequest {
   /**
    * <p>The tokens used for pagination.</p>
@@ -2275,6 +2810,9 @@ export interface ListConferenceProvidersRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListConferenceProvidersResponse {
   /**
    * <p>The conference providers.</p>
@@ -2287,11 +2825,23 @@ export interface ListConferenceProvidersResponse {
   NextToken?: string;
 }
 
-export enum DeviceEventType {
-  CONNECTION_STATUS = "CONNECTION_STATUS",
-  DEVICE_STATUS = "DEVICE_STATUS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceEventType = {
+  CONNECTION_STATUS: "CONNECTION_STATUS",
+  DEVICE_STATUS: "DEVICE_STATUS",
+} as const;
 
+/**
+ * @public
+ */
+export type DeviceEventType = (typeof DeviceEventType)[keyof typeof DeviceEventType];
+
+/**
+ * @public
+ */
 export interface ListDeviceEventsRequest {
   /**
    * <p>The ARN of a device.</p>
@@ -2323,6 +2873,7 @@ export interface ListDeviceEventsRequest {
 }
 
 /**
+ * @public
  * <p>The list of device events.</p>
  */
 export interface DeviceEvent {
@@ -2342,6 +2893,9 @@ export interface DeviceEvent {
   Timestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceEventsResponse {
   /**
    * <p>The device events requested for the device ARN.</p>
@@ -2354,6 +2908,9 @@ export interface ListDeviceEventsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGatewayGroupsRequest {
   /**
    * <p>The token used to paginate though multiple pages of gateway group summaries.</p>
@@ -2367,6 +2924,7 @@ export interface ListGatewayGroupsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of a gateway group.</p>
  */
 export interface GatewayGroupSummary {
@@ -2386,6 +2944,9 @@ export interface GatewayGroupSummary {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGatewayGroupsResponse {
   /**
    * <p>The gateway groups in the list.</p>
@@ -2398,6 +2959,9 @@ export interface ListGatewayGroupsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGatewaysRequest {
   /**
    * <p>The gateway group ARN for which to list gateways.</p>
@@ -2416,6 +2980,7 @@ export interface ListGatewaysRequest {
 }
 
 /**
+ * @public
  * <p>The summary of a gateway.</p>
  */
 export interface GatewaySummary {
@@ -2446,6 +3011,9 @@ export interface GatewaySummary {
   SoftwareVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGatewaysResponse {
   /**
    * <p>The gateways in the list.</p>
@@ -2458,17 +3026,38 @@ export interface ListGatewaysResponse {
   NextToken?: string;
 }
 
-export enum EnablementTypeFilter {
-  ENABLED = "ENABLED",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnablementTypeFilter = {
+  ENABLED: "ENABLED",
+  PENDING: "PENDING",
+} as const;
 
-export enum SkillTypeFilter {
-  ALL = "ALL",
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+/**
+ * @public
+ */
+export type EnablementTypeFilter = (typeof EnablementTypeFilter)[keyof typeof EnablementTypeFilter];
 
+/**
+ * @public
+ * @enum
+ */
+export const SkillTypeFilter = {
+  ALL: "ALL",
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type SkillTypeFilter = (typeof SkillTypeFilter)[keyof typeof SkillTypeFilter];
+
+/**
+ * @public
+ */
 export interface ListSkillsRequest {
   /**
    * <p>The ARN of the skill group for which to list enabled skills.</p>
@@ -2500,17 +3089,36 @@ export interface ListSkillsRequest {
   MaxResults?: number;
 }
 
-export enum EnablementType {
-  ENABLED = "ENABLED",
-  PENDING = "PENDING",
-}
-
-export enum SkillType {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnablementType = {
+  ENABLED: "ENABLED",
+  PENDING: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type EnablementType = (typeof EnablementType)[keyof typeof EnablementType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SkillType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type SkillType = (typeof SkillType)[keyof typeof SkillType];
+
+/**
+ * @public
  * <p>The summary of skills.</p>
  */
 export interface SkillSummary {
@@ -2541,6 +3149,9 @@ export interface SkillSummary {
   SkillType?: SkillType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSkillsResponse {
   /**
    * <p>The list of enabled skills requested. Required.</p>
@@ -2553,6 +3164,9 @@ export interface ListSkillsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSkillsStoreCategoriesRequest {
   /**
    * <p>The tokens used for pagination.</p>
@@ -2566,6 +3180,7 @@ export interface ListSkillsStoreCategoriesRequest {
 }
 
 /**
+ * @public
  * <p>The skill store category that is shown. Alexa skills are assigned a specific skill
  *          category during creation, such as News, Social, and Sports.</p>
  */
@@ -2581,6 +3196,9 @@ export interface Category {
   CategoryName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSkillsStoreCategoriesResponse {
   /**
    * <p>The list of categories.</p>
@@ -2593,6 +3211,9 @@ export interface ListSkillsStoreCategoriesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSkillsStoreSkillsByCategoryRequest {
   /**
    * <p>The category ID for which the skills are being retrieved from the skill
@@ -2612,6 +3233,7 @@ export interface ListSkillsStoreSkillsByCategoryRequest {
 }
 
 /**
+ * @public
  * <p>The details about the developer that published the skill.</p>
  */
 export interface DeveloperInfo {
@@ -2637,6 +3259,7 @@ export interface DeveloperInfo {
 }
 
 /**
+ * @public
  * <p>Granular information about the skill.</p>
  */
 export interface SkillDetails {
@@ -2696,6 +3319,7 @@ export interface SkillDetails {
 }
 
 /**
+ * @public
  * <p>The detailed information about an Alexa skill.</p>
  */
 export interface SkillsStoreSkill {
@@ -2735,6 +3359,9 @@ export interface SkillsStoreSkill {
   SupportsLinking?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListSkillsStoreSkillsByCategoryResponse {
   /**
    * <p>The skill store skills.</p>
@@ -2747,6 +3374,9 @@ export interface ListSkillsStoreSkillsByCategoryResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSmartHomeAppliancesRequest {
   /**
    * <p>The room that the appliances are associated with.</p>
@@ -2765,6 +3395,7 @@ export interface ListSmartHomeAppliancesRequest {
 }
 
 /**
+ * @public
  * <p>A smart home appliance that can connect to a central system. Any domestic device can be
  *          a smart appliance. </p>
  */
@@ -2785,6 +3416,9 @@ export interface SmartHomeAppliance {
   ManufacturerName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSmartHomeAppliancesResponse {
   /**
    * <p>The smart home appliances.</p>
@@ -2797,6 +3431,9 @@ export interface ListSmartHomeAppliancesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsRequest {
   /**
    * <p>The ARN of the specified resource for which to list tags.</p>
@@ -2818,6 +3455,9 @@ export interface ListTagsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsResponse {
   /**
    * <p>The tags requested for the specified resource.</p>
@@ -2830,6 +3470,9 @@ export interface ListTagsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutConferencePreferenceRequest {
   /**
    * <p>The conference preference of a specific conference provider.</p>
@@ -2837,8 +3480,14 @@ export interface PutConferencePreferenceRequest {
   ConferencePreference: ConferencePreference | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutConferencePreferenceResponse {}
 
+/**
+ * @public
+ */
 export interface PutInvitationConfigurationRequest {
   /**
    * <p>The name of the organization sending the enrollment invite to a user.</p>
@@ -2858,8 +3507,14 @@ export interface PutInvitationConfigurationRequest {
   PrivateSkillIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface PutInvitationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface PutRoomSkillParameterRequest {
   /**
    * <p>The ARN of the room associated with the room skill parameter. Required.</p>
@@ -2877,8 +3532,14 @@ export interface PutRoomSkillParameterRequest {
   RoomSkillParameter: RoomSkillParameter | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRoomSkillParameterResponse {}
 
+/**
+ * @public
+ */
 export interface PutSkillAuthorizationRequest {
   /**
    * <p>The authorization result specific to OAUTH code grant output. "Code” must be
@@ -2897,9 +3558,13 @@ export interface PutSkillAuthorizationRequest {
   RoomArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutSkillAuthorizationResponse {}
 
 /**
+ * @public
  * <p>The caller has no permissions to operate on the resource involved in the API call.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -2921,6 +3586,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The device is in an invalid state.</p>
  */
 export class InvalidDeviceException extends __BaseException {
@@ -2941,6 +3607,9 @@ export class InvalidDeviceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RegisterAVSDeviceRequest {
   /**
    * <p>The client ID of the OEM used for code-based linking authorization on an AVS
@@ -2983,6 +3652,9 @@ export interface RegisterAVSDeviceRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface RegisterAVSDeviceResponse {
   /**
    * <p>The ARN of the device.</p>
@@ -2990,6 +3662,9 @@ export interface RegisterAVSDeviceResponse {
   DeviceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RejectSkillRequest {
   /**
    * <p>The unique identifier of the skill.</p>
@@ -2997,8 +3672,14 @@ export interface RejectSkillRequest {
   SkillId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RejectSkillResponse {}
 
+/**
+ * @public
+ */
 export interface ResolveRoomRequest {
   /**
    * <p>The ARN of the user. Required.</p>
@@ -3011,6 +3692,9 @@ export interface ResolveRoomRequest {
   SkillId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResolveRoomResponse {
   /**
    * <p>The ARN of the room from which the skill request was invoked.</p>
@@ -3028,6 +3712,9 @@ export interface ResolveRoomResponse {
   RoomSkillParameters?: RoomSkillParameter[];
 }
 
+/**
+ * @public
+ */
 export interface RevokeInvitationRequest {
   /**
    * <p>The ARN of the user for whom to revoke an enrollment invitation. Required.</p>
@@ -3040,9 +3727,13 @@ export interface RevokeInvitationRequest {
   EnrollmentId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RevokeInvitationResponse {}
 
 /**
+ * @public
  * <p>A filter name and value pair that is used to return a more specific list of results.
  *          Filters can be used to match a set of resources by various criteria.</p>
  */
@@ -3058,12 +3749,22 @@ export interface Filter {
   Values: string[] | undefined;
 }
 
-export enum SortValue {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortValue = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
 
 /**
+ * @public
+ */
+export type SortValue = (typeof SortValue)[keyof typeof SortValue];
+
+/**
+ * @public
  * <p>An object representing a sort criteria. </p>
  */
 export interface Sort {
@@ -3078,6 +3779,9 @@ export interface Sort {
   Value: SortValue | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchAddressBooksRequest {
   /**
    * <p>The filters to use to list a specified set of address books. The supported filter key
@@ -3106,6 +3810,9 @@ export interface SearchAddressBooksRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchAddressBooksResponse {
   /**
    * <p>The address books that meet the specified set of filter criteria, in sort
@@ -3124,6 +3831,9 @@ export interface SearchAddressBooksResponse {
   TotalCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchContactsRequest {
   /**
    * <p>The filters to use to list a specified set of address books. The supported filter
@@ -3153,6 +3863,7 @@ export interface SearchContactsRequest {
 }
 
 /**
+ * @public
  * <p>Information related to a contact.</p>
  */
 export interface ContactData {
@@ -3194,6 +3905,9 @@ export interface ContactData {
   SipAddresses?: SipAddress[];
 }
 
+/**
+ * @public
+ */
 export interface SearchContactsResponse {
   /**
    * <p>The contacts that meet the specified set of filter criteria, in sort order.</p>
@@ -3211,6 +3925,9 @@ export interface SearchContactsResponse {
   TotalCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchDevicesRequest {
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -3243,6 +3960,7 @@ export interface SearchDevicesRequest {
 }
 
 /**
+ * @public
  * <p>Device attributes.</p>
  */
 export interface DeviceData {
@@ -3312,6 +4030,9 @@ export interface DeviceData {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface SearchDevicesResponse {
   /**
    * <p>The devices that meet the specified set of filter criteria, in sort order.</p>
@@ -3329,6 +4050,9 @@ export interface SearchDevicesResponse {
   TotalCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchNetworkProfilesRequest {
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -3358,6 +4082,7 @@ export interface SearchNetworkProfilesRequest {
 }
 
 /**
+ * @public
  * <p>The data associated with a network profile.</p>
  */
 export interface NetworkProfileData {
@@ -3400,6 +4125,9 @@ export interface NetworkProfileData {
   CertificateAuthorityArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchNetworkProfilesResponse {
   /**
    * <p>The network profiles that meet the specified set of filter criteria, in sort order. It
@@ -3420,6 +4148,9 @@ export interface SearchNetworkProfilesResponse {
   TotalCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchProfilesRequest {
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -3449,6 +4180,7 @@ export interface SearchProfilesRequest {
 }
 
 /**
+ * @public
  * <p>The data of a room profile.</p>
  */
 export interface ProfileData {
@@ -3499,6 +4231,9 @@ export interface ProfileData {
   Locale?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchProfilesResponse {
   /**
    * <p>The profiles that meet the specified set of filter criteria, in sort order.</p>
@@ -3516,6 +4251,9 @@ export interface SearchProfilesResponse {
   TotalCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchRoomsRequest {
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -3545,6 +4283,7 @@ export interface SearchRoomsRequest {
 }
 
 /**
+ * @public
  * <p>The data of a room.</p>
  */
 export interface RoomData {
@@ -3579,6 +4318,9 @@ export interface RoomData {
   ProfileName?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchRoomsResponse {
   /**
    * <p>The rooms that meet the specified set of filter criteria, in sort order.</p>
@@ -3596,6 +4338,9 @@ export interface SearchRoomsResponse {
   TotalCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchSkillGroupsRequest {
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -3626,6 +4371,7 @@ export interface SearchSkillGroupsRequest {
 }
 
 /**
+ * @public
  * <p>The attributes of a skill group.</p>
  */
 export interface SkillGroupData {
@@ -3645,6 +4391,9 @@ export interface SkillGroupData {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchSkillGroupsResponse {
   /**
    * <p>The skill groups that meet the filter criteria, in sort order.</p>
@@ -3662,6 +4411,9 @@ export interface SearchSkillGroupsResponse {
   TotalCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchUsersRequest {
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -3691,15 +4443,25 @@ export interface SearchUsersRequest {
   SortCriteria?: Sort[];
 }
 
-export enum EnrollmentStatus {
-  DEREGISTERING = "DEREGISTERING",
-  DISASSOCIATING = "DISASSOCIATING",
-  INITIALIZED = "INITIALIZED",
-  PENDING = "PENDING",
-  REGISTERED = "REGISTERED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnrollmentStatus = {
+  DEREGISTERING: "DEREGISTERING",
+  DISASSOCIATING: "DISASSOCIATING",
+  INITIALIZED: "INITIALIZED",
+  PENDING: "PENDING",
+  REGISTERED: "REGISTERED",
+} as const;
 
 /**
+ * @public
+ */
+export type EnrollmentStatus = (typeof EnrollmentStatus)[keyof typeof EnrollmentStatus];
+
+/**
+ * @public
  * <p>Information related to a user.</p>
  */
 export interface UserData {
@@ -3734,6 +4496,9 @@ export interface UserData {
   EnrollmentId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchUsersResponse {
   /**
    * <p>The users that meet the specified set of filter criteria, in sort order.</p>
@@ -3751,11 +4516,21 @@ export interface SearchUsersResponse {
   TotalCount?: number;
 }
 
-export enum Locale {
-  en_US = "en-US",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Locale = {
+  en_US: "en-US",
+} as const;
 
 /**
+ * @public
+ */
+export type Locale = (typeof Locale)[keyof typeof Locale];
+
+/**
+ * @public
  * <p>The audio message. There is a 1 MB limit on the audio file input and the only supported
  *          format is MP3. To convert your MP3 audio files to an Alexa-friendly,  </p>
  *          <p>required codec version (MPEG version 2) and bit rate (48 kbps), you might use converter
@@ -3781,6 +4556,7 @@ export interface Audio {
 }
 
 /**
+ * @public
  * <p>The SSML message. For more information, see <a href="https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html">SSML Reference</a>.</p>
  */
 export interface Ssml {
@@ -3796,6 +4572,7 @@ export interface Ssml {
 }
 
 /**
+ * @public
  * <p>The text message.</p>
  */
 export interface Text {
@@ -3811,6 +4588,7 @@ export interface Text {
 }
 
 /**
+ * @public
  * <p>The content definition. This can contain only one text, SSML, or audio list
  *          object.</p>
  */
@@ -3831,6 +4609,9 @@ export interface Content {
   AudioList?: Audio[];
 }
 
+/**
+ * @public
+ */
 export interface SendAnnouncementRequest {
   /**
    * <p>The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.</p>
@@ -3854,6 +4635,9 @@ export interface SendAnnouncementRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendAnnouncementResponse {
   /**
    * <p>The identifier of the announcement.</p>
@@ -3862,6 +4646,7 @@ export interface SendAnnouncementResponse {
 }
 
 /**
+ * @public
  * <p>The attempt to update a user is invalid due to the user's current status.</p>
  */
 export class InvalidUserStatusException extends __BaseException {
@@ -3882,6 +4667,9 @@ export class InvalidUserStatusException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface SendInvitationRequest {
   /**
    * <p>The ARN of the user to whom to send an invitation. Required.</p>
@@ -3889,8 +4677,14 @@ export interface SendInvitationRequest {
   UserArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendInvitationResponse {}
 
+/**
+ * @public
+ */
 export interface StartDeviceSyncRequest {
   /**
    * <p>The ARN of the room with which the device to sync is associated. Required.</p>
@@ -3908,8 +4702,14 @@ export interface StartDeviceSyncRequest {
   Features: (Feature | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDeviceSyncResponse {}
 
+/**
+ * @public
+ */
 export interface StartSmartHomeApplianceDiscoveryRequest {
   /**
    * <p>The room where smart home appliance discovery was initiated.</p>
@@ -3917,8 +4717,14 @@ export interface StartSmartHomeApplianceDiscoveryRequest {
   RoomArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartSmartHomeApplianceDiscoveryResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource to which to add metadata tags. Required. </p>
@@ -3932,8 +4738,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource from which to remove metadata tags. Required. </p>
@@ -3947,9 +4759,13 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>The name sent in the request is already in use.</p>
  */
 export class NameInUseException extends __BaseException {
@@ -3970,6 +4786,9 @@ export class NameInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateAddressBookRequest {
   /**
    * <p>The ARN of the room to update.</p>
@@ -3987,8 +4806,14 @@ export interface UpdateAddressBookRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAddressBookResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateBusinessReportScheduleRequest {
   /**
    * <p>The ARN of the business report schedule.</p>
@@ -4022,8 +4847,14 @@ export interface UpdateBusinessReportScheduleRequest {
   Recurrence?: BusinessReportRecurrence;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBusinessReportScheduleResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateConferenceProviderRequest {
   /**
    * <p>The ARN of the conference provider.</p>
@@ -4051,8 +4882,14 @@ export interface UpdateConferenceProviderRequest {
   MeetingSetting: MeetingSetting | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConferenceProviderResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateContactRequest {
   /**
    * <p>The ARN of the contact to update.</p>
@@ -4092,8 +4929,14 @@ export interface UpdateContactRequest {
   SipAddresses?: SipAddress[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDeviceRequest {
   /**
    * <p>The ARN of the device to update. Required.</p>
@@ -4106,8 +4949,14 @@ export interface UpdateDeviceRequest {
   DeviceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeviceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateGatewayRequest {
   /**
    * <p>The ARN of the gateway to update.</p>
@@ -4131,8 +4980,14 @@ export interface UpdateGatewayRequest {
   SoftwareVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGatewayResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateGatewayGroupRequest {
   /**
    * <p>The ARN of the gateway group to update.</p>
@@ -4150,8 +5005,14 @@ export interface UpdateGatewayGroupRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGatewayGroupResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateNetworkProfileRequest {
   /**
    * <p>The ARN of the network profile associated with a device.</p>
@@ -4193,9 +5054,13 @@ export interface UpdateNetworkProfileRequest {
   TrustAnchors?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkProfileResponse {}
 
 /**
+ * @public
  * <p>Settings for the end of meeting reminder feature that are applied to a room profile. The
  *          end of meeting reminder enables Alexa to remind users when a meeting is ending. </p>
  */
@@ -4219,6 +5084,7 @@ export interface UpdateEndOfMeetingReminder {
 }
 
 /**
+ * @public
  * <p>Updates settings for the instant booking feature that are applied to a room profile. If
  *          instant booking is enabled, Alexa automatically reserves a room if it is free when a user
  *          joins a meeting with Alexa.</p>
@@ -4237,6 +5103,7 @@ export interface UpdateInstantBooking {
 }
 
 /**
+ * @public
  * <p>Updates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released. </p>
  */
 export interface UpdateRequireCheckIn {
@@ -4252,6 +5119,7 @@ export interface UpdateRequireCheckIn {
 }
 
 /**
+ * @public
  * <p>Updates meeting room settings of a room profile.</p>
  */
 export interface UpdateMeetingRoomConfiguration {
@@ -4278,6 +5146,9 @@ export interface UpdateMeetingRoomConfiguration {
   RequireCheckIn?: UpdateRequireCheckIn;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProfileRequest {
   /**
    * <p>The ARN of the room profile to update. Required.</p>
@@ -4351,8 +5222,14 @@ export interface UpdateProfileRequest {
   MeetingRoomConfiguration?: UpdateMeetingRoomConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProfileResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateRoomRequest {
   /**
    * <p>The ARN of the room to update. </p>
@@ -4380,8 +5257,14 @@ export interface UpdateRoomRequest {
   ProfileArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoomResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateSkillGroupRequest {
   /**
    * <p>The ARN of the skill group to update. </p>
@@ -4399,221 +5282,10 @@ export interface UpdateSkillGroupRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSkillGroupResponse {}
-
-/**
- * @internal
- */
-export const AddressBookFilterSensitiveLog = (obj: AddressBook): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddressBookDataFilterSensitiveLog = (obj: AddressBookData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApproveSkillRequestFilterSensitiveLog = (obj: ApproveSkillRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApproveSkillResponseFilterSensitiveLog = (obj: ApproveSkillResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateContactWithAddressBookRequestFilterSensitiveLog = (
-  obj: AssociateContactWithAddressBookRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateContactWithAddressBookResponseFilterSensitiveLog = (
-  obj: AssociateContactWithAddressBookResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDeviceWithNetworkProfileRequestFilterSensitiveLog = (
-  obj: AssociateDeviceWithNetworkProfileRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDeviceWithNetworkProfileResponseFilterSensitiveLog = (
-  obj: AssociateDeviceWithNetworkProfileResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDeviceWithRoomRequestFilterSensitiveLog = (obj: AssociateDeviceWithRoomRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDeviceWithRoomResponseFilterSensitiveLog = (obj: AssociateDeviceWithRoomResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateSkillGroupWithRoomRequestFilterSensitiveLog = (obj: AssociateSkillGroupWithRoomRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateSkillGroupWithRoomResponseFilterSensitiveLog = (
-  obj: AssociateSkillGroupWithRoomResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateSkillWithSkillGroupRequestFilterSensitiveLog = (
-  obj: AssociateSkillWithSkillGroupRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateSkillWithSkillGroupResponseFilterSensitiveLog = (
-  obj: AssociateSkillWithSkillGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateSkillWithUsersRequestFilterSensitiveLog = (obj: AssociateSkillWithUsersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateSkillWithUsersResponseFilterSensitiveLog = (obj: AssociateSkillWithUsersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAddressBookRequestFilterSensitiveLog = (obj: CreateAddressBookRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAddressBookResponseFilterSensitiveLog = (obj: CreateAddressBookResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BusinessReportContentRangeFilterSensitiveLog = (obj: BusinessReportContentRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BusinessReportRecurrenceFilterSensitiveLog = (obj: BusinessReportRecurrence): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBusinessReportScheduleRequestFilterSensitiveLog = (
-  obj: CreateBusinessReportScheduleRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBusinessReportScheduleResponseFilterSensitiveLog = (
-  obj: CreateBusinessReportScheduleResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IPDialInFilterSensitiveLog = (obj: IPDialIn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MeetingSettingFilterSensitiveLog = (obj: MeetingSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PSTNDialInFilterSensitiveLog = (obj: PSTNDialIn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConferenceProviderRequestFilterSensitiveLog = (obj: CreateConferenceProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConferenceProviderResponseFilterSensitiveLog = (obj: CreateConferenceProviderResponse): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -4646,481 +5318,10 @@ export const CreateContactRequestFilterSensitiveLog = (obj: CreateContactRequest
 /**
  * @internal
  */
-export const CreateContactResponseFilterSensitiveLog = (obj: CreateContactResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGatewayGroupRequestFilterSensitiveLog = (obj: CreateGatewayGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGatewayGroupResponseFilterSensitiveLog = (obj: CreateGatewayGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateNetworkProfileRequestFilterSensitiveLog = (obj: CreateNetworkProfileRequest): any => ({
   ...obj,
   ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
   ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateNetworkProfileResponseFilterSensitiveLog = (obj: CreateNetworkProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEndOfMeetingReminderFilterSensitiveLog = (obj: CreateEndOfMeetingReminder): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInstantBookingFilterSensitiveLog = (obj: CreateInstantBooking): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRequireCheckInFilterSensitiveLog = (obj: CreateRequireCheckIn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMeetingRoomConfigurationFilterSensitiveLog = (obj: CreateMeetingRoomConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProfileRequestFilterSensitiveLog = (obj: CreateProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProfileResponseFilterSensitiveLog = (obj: CreateProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRoomRequestFilterSensitiveLog = (obj: CreateRoomRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRoomResponseFilterSensitiveLog = (obj: CreateRoomResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSkillGroupRequestFilterSensitiveLog = (obj: CreateSkillGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSkillGroupResponseFilterSensitiveLog = (obj: CreateSkillGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAddressBookRequestFilterSensitiveLog = (obj: DeleteAddressBookRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAddressBookResponseFilterSensitiveLog = (obj: DeleteAddressBookResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBusinessReportScheduleRequestFilterSensitiveLog = (
-  obj: DeleteBusinessReportScheduleRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBusinessReportScheduleResponseFilterSensitiveLog = (
-  obj: DeleteBusinessReportScheduleResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConferenceProviderRequestFilterSensitiveLog = (obj: DeleteConferenceProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConferenceProviderResponseFilterSensitiveLog = (obj: DeleteConferenceProviderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteContactRequestFilterSensitiveLog = (obj: DeleteContactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteContactResponseFilterSensitiveLog = (obj: DeleteContactResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeviceRequestFilterSensitiveLog = (obj: DeleteDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeviceResponseFilterSensitiveLog = (obj: DeleteDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeviceUsageDataRequestFilterSensitiveLog = (obj: DeleteDeviceUsageDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeviceUsageDataResponseFilterSensitiveLog = (obj: DeleteDeviceUsageDataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGatewayGroupRequestFilterSensitiveLog = (obj: DeleteGatewayGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGatewayGroupResponseFilterSensitiveLog = (obj: DeleteGatewayGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkProfileRequestFilterSensitiveLog = (obj: DeleteNetworkProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkProfileResponseFilterSensitiveLog = (obj: DeleteNetworkProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProfileRequestFilterSensitiveLog = (obj: DeleteProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProfileResponseFilterSensitiveLog = (obj: DeleteProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRoomRequestFilterSensitiveLog = (obj: DeleteRoomRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRoomResponseFilterSensitiveLog = (obj: DeleteRoomResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRoomSkillParameterRequestFilterSensitiveLog = (obj: DeleteRoomSkillParameterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRoomSkillParameterResponseFilterSensitiveLog = (obj: DeleteRoomSkillParameterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSkillAuthorizationRequestFilterSensitiveLog = (obj: DeleteSkillAuthorizationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSkillAuthorizationResponseFilterSensitiveLog = (obj: DeleteSkillAuthorizationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSkillGroupRequestFilterSensitiveLog = (obj: DeleteSkillGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSkillGroupResponseFilterSensitiveLog = (obj: DeleteSkillGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserResponseFilterSensitiveLog = (obj: DeleteUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateContactFromAddressBookRequestFilterSensitiveLog = (
-  obj: DisassociateContactFromAddressBookRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateContactFromAddressBookResponseFilterSensitiveLog = (
-  obj: DisassociateContactFromAddressBookResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateDeviceFromRoomRequestFilterSensitiveLog = (obj: DisassociateDeviceFromRoomRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateDeviceFromRoomResponseFilterSensitiveLog = (obj: DisassociateDeviceFromRoomResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSkillFromSkillGroupRequestFilterSensitiveLog = (
-  obj: DisassociateSkillFromSkillGroupRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSkillFromSkillGroupResponseFilterSensitiveLog = (
-  obj: DisassociateSkillFromSkillGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSkillFromUsersRequestFilterSensitiveLog = (obj: DisassociateSkillFromUsersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSkillFromUsersResponseFilterSensitiveLog = (obj: DisassociateSkillFromUsersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSkillGroupFromRoomRequestFilterSensitiveLog = (
-  obj: DisassociateSkillGroupFromRoomRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSkillGroupFromRoomResponseFilterSensitiveLog = (
-  obj: DisassociateSkillGroupFromRoomResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForgetSmartHomeAppliancesRequestFilterSensitiveLog = (obj: ForgetSmartHomeAppliancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForgetSmartHomeAppliancesResponseFilterSensitiveLog = (obj: ForgetSmartHomeAppliancesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAddressBookRequestFilterSensitiveLog = (obj: GetAddressBookRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAddressBookResponseFilterSensitiveLog = (obj: GetAddressBookResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConferencePreferenceRequestFilterSensitiveLog = (obj: GetConferencePreferenceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConferencePreferenceFilterSensitiveLog = (obj: ConferencePreference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConferencePreferenceResponseFilterSensitiveLog = (obj: GetConferencePreferenceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConferenceProviderRequestFilterSensitiveLog = (obj: GetConferenceProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConferenceProviderFilterSensitiveLog = (obj: ConferenceProvider): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConferenceProviderResponseFilterSensitiveLog = (obj: GetConferenceProviderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContactRequestFilterSensitiveLog = (obj: GetContactRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5144,111 +5345,6 @@ export const GetContactResponseFilterSensitiveLog = (obj: GetContactResponse): a
 /**
  * @internal
  */
-export const GetDeviceRequestFilterSensitiveLog = (obj: GetDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceStatusDetailFilterSensitiveLog = (obj: DeviceStatusDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceStatusInfoFilterSensitiveLog = (obj: DeviceStatusInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceNetworkProfileInfoFilterSensitiveLog = (obj: DeviceNetworkProfileInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceFilterSensitiveLog = (obj: Device): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceResponseFilterSensitiveLog = (obj: GetDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGatewayRequestFilterSensitiveLog = (obj: GetGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewayFilterSensitiveLog = (obj: Gateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGatewayResponseFilterSensitiveLog = (obj: GetGatewayResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGatewayGroupRequestFilterSensitiveLog = (obj: GetGatewayGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewayGroupFilterSensitiveLog = (obj: GatewayGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGatewayGroupResponseFilterSensitiveLog = (obj: GetGatewayGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInvitationConfigurationRequestFilterSensitiveLog = (obj: GetInvitationConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInvitationConfigurationResponseFilterSensitiveLog = (obj: GetInvitationConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkProfileRequestFilterSensitiveLog = (obj: GetNetworkProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const NetworkProfileFilterSensitiveLog = (obj: NetworkProfile): any => ({
   ...obj,
   ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
@@ -5266,491 +5362,9 @@ export const GetNetworkProfileResponseFilterSensitiveLog = (obj: GetNetworkProfi
 /**
  * @internal
  */
-export const GetProfileRequestFilterSensitiveLog = (obj: GetProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndOfMeetingReminderFilterSensitiveLog = (obj: EndOfMeetingReminder): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstantBookingFilterSensitiveLog = (obj: InstantBooking): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RequireCheckInFilterSensitiveLog = (obj: RequireCheckIn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MeetingRoomConfigurationFilterSensitiveLog = (obj: MeetingRoomConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProfileFilterSensitiveLog = (obj: Profile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProfileResponseFilterSensitiveLog = (obj: GetProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRoomRequestFilterSensitiveLog = (obj: GetRoomRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RoomFilterSensitiveLog = (obj: Room): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRoomResponseFilterSensitiveLog = (obj: GetRoomResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRoomSkillParameterRequestFilterSensitiveLog = (obj: GetRoomSkillParameterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RoomSkillParameterFilterSensitiveLog = (obj: RoomSkillParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRoomSkillParameterResponseFilterSensitiveLog = (obj: GetRoomSkillParameterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSkillGroupRequestFilterSensitiveLog = (obj: GetSkillGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SkillGroupFilterSensitiveLog = (obj: SkillGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSkillGroupResponseFilterSensitiveLog = (obj: GetSkillGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBusinessReportSchedulesRequestFilterSensitiveLog = (obj: ListBusinessReportSchedulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BusinessReportS3LocationFilterSensitiveLog = (obj: BusinessReportS3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BusinessReportFilterSensitiveLog = (obj: BusinessReport): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BusinessReportScheduleFilterSensitiveLog = (obj: BusinessReportSchedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBusinessReportSchedulesResponseFilterSensitiveLog = (
-  obj: ListBusinessReportSchedulesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConferenceProvidersRequestFilterSensitiveLog = (obj: ListConferenceProvidersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConferenceProvidersResponseFilterSensitiveLog = (obj: ListConferenceProvidersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeviceEventsRequestFilterSensitiveLog = (obj: ListDeviceEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceEventFilterSensitiveLog = (obj: DeviceEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeviceEventsResponseFilterSensitiveLog = (obj: ListDeviceEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGatewayGroupsRequestFilterSensitiveLog = (obj: ListGatewayGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewayGroupSummaryFilterSensitiveLog = (obj: GatewayGroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGatewayGroupsResponseFilterSensitiveLog = (obj: ListGatewayGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGatewaysRequestFilterSensitiveLog = (obj: ListGatewaysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewaySummaryFilterSensitiveLog = (obj: GatewaySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGatewaysResponseFilterSensitiveLog = (obj: ListGatewaysResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSkillsRequestFilterSensitiveLog = (obj: ListSkillsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SkillSummaryFilterSensitiveLog = (obj: SkillSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSkillsResponseFilterSensitiveLog = (obj: ListSkillsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSkillsStoreCategoriesRequestFilterSensitiveLog = (obj: ListSkillsStoreCategoriesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CategoryFilterSensitiveLog = (obj: Category): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSkillsStoreCategoriesResponseFilterSensitiveLog = (obj: ListSkillsStoreCategoriesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSkillsStoreSkillsByCategoryRequestFilterSensitiveLog = (
-  obj: ListSkillsStoreSkillsByCategoryRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeveloperInfoFilterSensitiveLog = (obj: DeveloperInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SkillDetailsFilterSensitiveLog = (obj: SkillDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SkillsStoreSkillFilterSensitiveLog = (obj: SkillsStoreSkill): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSkillsStoreSkillsByCategoryResponseFilterSensitiveLog = (
-  obj: ListSkillsStoreSkillsByCategoryResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSmartHomeAppliancesRequestFilterSensitiveLog = (obj: ListSmartHomeAppliancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SmartHomeApplianceFilterSensitiveLog = (obj: SmartHomeAppliance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSmartHomeAppliancesResponseFilterSensitiveLog = (obj: ListSmartHomeAppliancesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConferencePreferenceRequestFilterSensitiveLog = (obj: PutConferencePreferenceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConferencePreferenceResponseFilterSensitiveLog = (obj: PutConferencePreferenceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutInvitationConfigurationRequestFilterSensitiveLog = (obj: PutInvitationConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutInvitationConfigurationResponseFilterSensitiveLog = (obj: PutInvitationConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRoomSkillParameterRequestFilterSensitiveLog = (obj: PutRoomSkillParameterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRoomSkillParameterResponseFilterSensitiveLog = (obj: PutRoomSkillParameterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PutSkillAuthorizationRequestFilterSensitiveLog = (obj: PutSkillAuthorizationRequest): any => ({
   ...obj,
   ...(obj.AuthorizationResult && { AuthorizationResult: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutSkillAuthorizationResponseFilterSensitiveLog = (obj: PutSkillAuthorizationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterAVSDeviceRequestFilterSensitiveLog = (obj: RegisterAVSDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterAVSDeviceResponseFilterSensitiveLog = (obj: RegisterAVSDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectSkillRequestFilterSensitiveLog = (obj: RejectSkillRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectSkillResponseFilterSensitiveLog = (obj: RejectSkillResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolveRoomRequestFilterSensitiveLog = (obj: ResolveRoomRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolveRoomResponseFilterSensitiveLog = (obj: ResolveRoomResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeInvitationRequestFilterSensitiveLog = (obj: RevokeInvitationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeInvitationResponseFilterSensitiveLog = (obj: RevokeInvitationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SortFilterSensitiveLog = (obj: Sort): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchAddressBooksRequestFilterSensitiveLog = (obj: SearchAddressBooksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchAddressBooksResponseFilterSensitiveLog = (obj: SearchAddressBooksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchContactsRequestFilterSensitiveLog = (obj: SearchContactsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5774,294 +5388,6 @@ export const SearchContactsResponseFilterSensitiveLog = (obj: SearchContactsResp
 /**
  * @internal
  */
-export const SearchDevicesRequestFilterSensitiveLog = (obj: SearchDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceDataFilterSensitiveLog = (obj: DeviceData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchDevicesResponseFilterSensitiveLog = (obj: SearchDevicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchNetworkProfilesRequestFilterSensitiveLog = (obj: SearchNetworkProfilesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkProfileDataFilterSensitiveLog = (obj: NetworkProfileData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchNetworkProfilesResponseFilterSensitiveLog = (obj: SearchNetworkProfilesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchProfilesRequestFilterSensitiveLog = (obj: SearchProfilesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProfileDataFilterSensitiveLog = (obj: ProfileData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchProfilesResponseFilterSensitiveLog = (obj: SearchProfilesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchRoomsRequestFilterSensitiveLog = (obj: SearchRoomsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RoomDataFilterSensitiveLog = (obj: RoomData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchRoomsResponseFilterSensitiveLog = (obj: SearchRoomsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchSkillGroupsRequestFilterSensitiveLog = (obj: SearchSkillGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SkillGroupDataFilterSensitiveLog = (obj: SkillGroupData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchSkillGroupsResponseFilterSensitiveLog = (obj: SearchSkillGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchUsersRequestFilterSensitiveLog = (obj: SearchUsersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserDataFilterSensitiveLog = (obj: UserData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchUsersResponseFilterSensitiveLog = (obj: SearchUsersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioFilterSensitiveLog = (obj: Audio): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SsmlFilterSensitiveLog = (obj: Ssml): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TextFilterSensitiveLog = (obj: Text): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContentFilterSensitiveLog = (obj: Content): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendAnnouncementRequestFilterSensitiveLog = (obj: SendAnnouncementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendAnnouncementResponseFilterSensitiveLog = (obj: SendAnnouncementResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendInvitationRequestFilterSensitiveLog = (obj: SendInvitationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendInvitationResponseFilterSensitiveLog = (obj: SendInvitationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDeviceSyncRequestFilterSensitiveLog = (obj: StartDeviceSyncRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDeviceSyncResponseFilterSensitiveLog = (obj: StartDeviceSyncResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSmartHomeApplianceDiscoveryRequestFilterSensitiveLog = (
-  obj: StartSmartHomeApplianceDiscoveryRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSmartHomeApplianceDiscoveryResponseFilterSensitiveLog = (
-  obj: StartSmartHomeApplianceDiscoveryResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAddressBookRequestFilterSensitiveLog = (obj: UpdateAddressBookRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAddressBookResponseFilterSensitiveLog = (obj: UpdateAddressBookResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBusinessReportScheduleRequestFilterSensitiveLog = (
-  obj: UpdateBusinessReportScheduleRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBusinessReportScheduleResponseFilterSensitiveLog = (
-  obj: UpdateBusinessReportScheduleResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConferenceProviderRequestFilterSensitiveLog = (obj: UpdateConferenceProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConferenceProviderResponseFilterSensitiveLog = (obj: UpdateConferenceProviderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateContactRequestFilterSensitiveLog = (obj: UpdateContactRequest): any => ({
   ...obj,
   ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
@@ -6072,134 +5398,8 @@ export const UpdateContactRequestFilterSensitiveLog = (obj: UpdateContactRequest
 /**
  * @internal
  */
-export const UpdateContactResponseFilterSensitiveLog = (obj: UpdateContactResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeviceRequestFilterSensitiveLog = (obj: UpdateDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeviceResponseFilterSensitiveLog = (obj: UpdateDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGatewayRequestFilterSensitiveLog = (obj: UpdateGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGatewayResponseFilterSensitiveLog = (obj: UpdateGatewayResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGatewayGroupRequestFilterSensitiveLog = (obj: UpdateGatewayGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGatewayGroupResponseFilterSensitiveLog = (obj: UpdateGatewayGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateNetworkProfileRequestFilterSensitiveLog = (obj: UpdateNetworkProfileRequest): any => ({
   ...obj,
   ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
   ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateNetworkProfileResponseFilterSensitiveLog = (obj: UpdateNetworkProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndOfMeetingReminderFilterSensitiveLog = (obj: UpdateEndOfMeetingReminder): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInstantBookingFilterSensitiveLog = (obj: UpdateInstantBooking): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRequireCheckInFilterSensitiveLog = (obj: UpdateRequireCheckIn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMeetingRoomConfigurationFilterSensitiveLog = (obj: UpdateMeetingRoomConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProfileRequestFilterSensitiveLog = (obj: UpdateProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProfileResponseFilterSensitiveLog = (obj: UpdateProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRoomRequestFilterSensitiveLog = (obj: UpdateRoomRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRoomResponseFilterSensitiveLog = (obj: UpdateRoomResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSkillGroupRequestFilterSensitiveLog = (obj: UpdateSkillGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSkillGroupResponseFilterSensitiveLog = (obj: UpdateSkillGroupResponse): any => ({
-  ...obj,
 });

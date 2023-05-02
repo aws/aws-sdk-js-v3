@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeWorkflowExecutionInput,
-  DescribeWorkflowExecutionInputFilterSensitiveLog,
-  WorkflowExecutionDetail,
-  WorkflowExecutionDetailFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeWorkflowExecutionCommand,
-  serializeAws_json1_0DescribeWorkflowExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeWorkflowExecutionInput, WorkflowExecutionDetail } from "../models/models_0";
+import { de_DescribeWorkflowExecutionCommand, se_DescribeWorkflowExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkflowExecutionCommand}.
  */
 export interface DescribeWorkflowExecutionCommandInput extends DescribeWorkflowExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkflowExecutionCommand}.
  */
 export interface DescribeWorkflowExecutionCommandOutput extends WorkflowExecutionDetail, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified workflow execution including its type and some
  *       statistics.</p>
  *          <note>
@@ -70,10 +67,19 @@ export interface DescribeWorkflowExecutionCommandOutput extends WorkflowExecutio
  * import { SWFClient, DescribeWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DescribeWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // DescribeWorkflowExecutionInput
+ *   domain: "STRING_VALUE", // required
+ *   execution: { // WorkflowExecution
+ *     workflowId: "STRING_VALUE", // required
+ *     runId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DescribeWorkflowExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkflowExecutionCommandInput - {@link DescribeWorkflowExecutionCommandInput}
+ * @returns {@link DescribeWorkflowExecutionCommandOutput}
  * @see {@link DescribeWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -103,6 +109,9 @@ export class DescribeWorkflowExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkflowExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +140,8 @@ export class DescribeWorkflowExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkflowExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: WorkflowExecutionDetailFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,15 +151,21 @@ export class DescribeWorkflowExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeWorkflowExecutionCommand(input, context);
+    return se_DescribeWorkflowExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkflowExecutionCommandOutput> {
-    return deserializeAws_json1_0DescribeWorkflowExecutionCommand(output, context);
+    return de_DescribeWorkflowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

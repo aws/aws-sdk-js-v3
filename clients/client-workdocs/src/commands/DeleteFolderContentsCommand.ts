@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteFolderContentsRequest, DeleteFolderContentsRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFolderContentsCommand,
-  serializeAws_restJson1DeleteFolderContentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFolderContentsCommand, se_DeleteFolderContentsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFolderContentsCommand}.
  */
 export interface DeleteFolderContentsCommandInput extends DeleteFolderContentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFolderContentsCommand}.
  */
 export interface DeleteFolderContentsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the contents of the specified folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteFolderContentsCommandOutput extends __MetadataBearer {}
  * import { WorkDocsClient, DeleteFolderContentsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteFolderContentsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DeleteFolderContentsRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   FolderId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFolderContentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFolderContentsCommandInput - {@link DeleteFolderContentsCommandInput}
+ * @returns {@link DeleteFolderContentsCommandOutput}
  * @see {@link DeleteFolderContentsCommandInput} for command's `input` shape.
  * @see {@link DeleteFolderContentsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -87,6 +95,9 @@ export class DeleteFolderContentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFolderContentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +127,7 @@ export class DeleteFolderContentsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteFolderContentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +137,18 @@ export class DeleteFolderContentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFolderContentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFolderContentsCommand(input, context);
+    return se_DeleteFolderContentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFolderContentsCommandOutput> {
-    return deserializeAws_restJson1DeleteFolderContentsCommand(output, context);
+    return de_DeleteFolderContentsCommand(output, context);
   }
 
   // Start section: command_body_extra

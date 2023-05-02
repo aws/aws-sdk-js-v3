@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetReferenceMetadataRequest,
-  GetReferenceMetadataRequestFilterSensitiveLog,
-  GetReferenceMetadataResponse,
-  GetReferenceMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetReferenceMetadataRequest, GetReferenceMetadataResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetReferenceMetadataCommand,
-  serializeAws_restJson1GetReferenceMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReferenceMetadataCommand, se_GetReferenceMetadataCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReferenceMetadataCommand}.
  */
 export interface GetReferenceMetadataCommandInput extends GetReferenceMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReferenceMetadataCommand}.
  */
 export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a genome reference's metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataR
  * import { OmicsClient, GetReferenceMetadataCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReferenceMetadataCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // GetReferenceMetadataRequest
+ *   id: "STRING_VALUE", // required
+ *   referenceStoreId: "STRING_VALUE", // required
+ * };
  * const command = new GetReferenceMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReferenceMetadataCommandInput - {@link GetReferenceMetadataCommandInput}
+ * @returns {@link GetReferenceMetadataCommandOutput}
  * @see {@link GetReferenceMetadataCommandInput} for command's `input` shape.
  * @see {@link GetReferenceMetadataCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +90,9 @@ export class GetReferenceMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReferenceMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class GetReferenceMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReferenceMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReferenceMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class GetReferenceMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReferenceMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReferenceMetadataCommand(input, context);
+    return se_GetReferenceMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReferenceMetadataCommandOutput> {
-    return deserializeAws_restJson1GetReferenceMetadataCommand(output, context);
+    return de_GetReferenceMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

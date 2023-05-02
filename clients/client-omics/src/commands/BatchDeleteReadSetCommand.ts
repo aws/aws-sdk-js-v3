@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchDeleteReadSetRequest,
-  BatchDeleteReadSetRequestFilterSensitiveLog,
-  BatchDeleteReadSetResponse,
-  BatchDeleteReadSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDeleteReadSetRequest, BatchDeleteReadSetResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1BatchDeleteReadSetCommand,
-  serializeAws_restJson1BatchDeleteReadSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchDeleteReadSetCommand, se_BatchDeleteReadSetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteReadSetCommand}.
  */
 export interface BatchDeleteReadSetCommandInput extends BatchDeleteReadSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteReadSetCommand}.
  */
 export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more read sets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetRespo
  * import { OmicsClient, BatchDeleteReadSetCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, BatchDeleteReadSetCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // BatchDeleteReadSetRequest
+ *   ids: [ // ReadSetIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   sequenceStoreId: "STRING_VALUE", // required
+ * };
  * const command = new BatchDeleteReadSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteReadSetCommandInput - {@link BatchDeleteReadSetCommandInput}
+ * @returns {@link BatchDeleteReadSetCommandOutput}
  * @see {@link BatchDeleteReadSetCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteReadSetCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +92,9 @@ export class BatchDeleteReadSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteReadSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class BatchDeleteReadSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteReadSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteReadSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +134,18 @@ export class BatchDeleteReadSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteReadSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteReadSetCommand(input, context);
+    return se_BatchDeleteReadSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteReadSetCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteReadSetCommand(output, context);
+    return de_BatchDeleteReadSetCommand(output, context);
   }
 
   // Start section: command_body_extra

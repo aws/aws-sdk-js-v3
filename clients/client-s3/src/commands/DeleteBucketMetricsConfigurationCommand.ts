@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteBucketMetricsConfigurationRequest } from "../models/models_0";
 import {
-  DeleteBucketMetricsConfigurationRequest,
-  DeleteBucketMetricsConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketMetricsConfigurationCommand,
-  serializeAws_restXmlDeleteBucketMetricsConfigurationCommand,
+  de_DeleteBucketMetricsConfigurationCommand,
+  se_DeleteBucketMetricsConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketMetricsConfigurationCommand}.
  */
 export interface DeleteBucketMetricsConfigurationCommandInput extends DeleteBucketMetricsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketMetricsConfigurationCommand}.
  */
 export interface DeleteBucketMetricsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a metrics configuration for the Amazon CloudWatch request metrics (specified by the
  *          metrics configuration ID) from the bucket. Note that this doesn't include the daily storage
  *          metrics.</p>
@@ -73,10 +75,17 @@ export interface DeleteBucketMetricsConfigurationCommandOutput extends __Metadat
  * import { S3Client, DeleteBucketMetricsConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteBucketMetricsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // DeleteBucketMetricsConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteBucketMetricsConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketMetricsConfigurationCommandInput - {@link DeleteBucketMetricsConfigurationCommandInput}
+ * @returns {@link DeleteBucketMetricsConfigurationCommandOutput}
  * @see {@link DeleteBucketMetricsConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketMetricsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -106,6 +115,9 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketMetricsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +146,8 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketMetricsConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +157,24 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteBucketMetricsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketMetricsConfigurationCommand(input, context);
+    return se_DeleteBucketMetricsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketMetricsConfigurationCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketMetricsConfigurationCommand(output, context);
+    return de_DeleteBucketMetricsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

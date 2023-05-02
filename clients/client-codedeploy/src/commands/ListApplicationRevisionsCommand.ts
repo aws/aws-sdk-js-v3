@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  ListApplicationRevisionsInput,
-  ListApplicationRevisionsInputFilterSensitiveLog,
-  ListApplicationRevisionsOutput,
-  ListApplicationRevisionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListApplicationRevisionsCommand,
-  serializeAws_json1_1ListApplicationRevisionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListApplicationRevisionsInput, ListApplicationRevisionsOutput } from "../models/models_0";
+import { de_ListApplicationRevisionsCommand, se_ListApplicationRevisionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationRevisionsCommand}.
  */
 export interface ListApplicationRevisionsCommandInput extends ListApplicationRevisionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationRevisionsCommand}.
  */
 export interface ListApplicationRevisionsCommandOutput extends ListApplicationRevisionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about revisions for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  * import { CodeDeployClient, ListApplicationRevisionsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListApplicationRevisionsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // ListApplicationRevisionsInput
+ *   applicationName: "STRING_VALUE", // required
+ *   sortBy: "registerTime" || "firstUsedTime" || "lastUsedTime",
+ *   sortOrder: "ascending" || "descending",
+ *   s3Bucket: "STRING_VALUE",
+ *   s3KeyPrefix: "STRING_VALUE",
+ *   deployed: "include" || "exclude" || "ignore",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListApplicationRevisionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationRevisionsCommandInput - {@link ListApplicationRevisionsCommandInput}
+ * @returns {@link ListApplicationRevisionsCommandOutput}
  * @see {@link ListApplicationRevisionsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationRevisionsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -100,6 +108,9 @@ export class ListApplicationRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +139,8 @@ export class ListApplicationRevisionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationRevisionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationRevisionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +150,18 @@ export class ListApplicationRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListApplicationRevisionsCommand(input, context);
+    return se_ListApplicationRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationRevisionsCommandOutput> {
-    return deserializeAws_json1_1ListApplicationRevisionsCommand(output, context);
+    return de_ListApplicationRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

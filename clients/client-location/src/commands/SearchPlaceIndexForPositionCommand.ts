@@ -21,15 +21,19 @@ import {
   SearchPlaceIndexForPositionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1SearchPlaceIndexForPositionCommand,
-  serializeAws_restJson1SearchPlaceIndexForPositionCommand,
+  de_SearchPlaceIndexForPositionCommand,
+  se_SearchPlaceIndexForPositionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchPlaceIndexForPositionCommand}.
  */
 export interface SearchPlaceIndexForPositionCommandInput extends SearchPlaceIndexForPositionRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchPlaceIndexForPositionCommand}.
  */
 export interface SearchPlaceIndexForPositionCommandOutput
@@ -37,6 +41,7 @@ export interface SearchPlaceIndexForPositionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reverse geocodes a given coordinate and returns a legible address. Allows you to
  *             search for Places or points of interest near a given position.</p>
  * @example
@@ -45,10 +50,20 @@ export interface SearchPlaceIndexForPositionCommandOutput
  * import { LocationClient, SearchPlaceIndexForPositionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, SearchPlaceIndexForPositionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // SearchPlaceIndexForPositionRequest
+ *   IndexName: "STRING_VALUE", // required
+ *   Position: [ // Position // required
+ *     Number("double"),
+ *   ],
+ *   MaxResults: Number("int"),
+ *   Language: "STRING_VALUE",
+ * };
  * const command = new SearchPlaceIndexForPositionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchPlaceIndexForPositionCommandInput - {@link SearchPlaceIndexForPositionCommandInput}
+ * @returns {@link SearchPlaceIndexForPositionCommandOutput}
  * @see {@link SearchPlaceIndexForPositionCommandInput} for command's `input` shape.
  * @see {@link SearchPlaceIndexForPositionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -88,6 +103,9 @@ export class SearchPlaceIndexForPositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchPlaceIndexForPositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,15 +145,21 @@ export class SearchPlaceIndexForPositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchPlaceIndexForPositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchPlaceIndexForPositionCommand(input, context);
+    return se_SearchPlaceIndexForPositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchPlaceIndexForPositionCommandOutput> {
-    return deserializeAws_restJson1SearchPlaceIndexForPositionCommand(output, context);
+    return de_SearchPlaceIndexForPositionCommand(output, context);
   }
 
   // Start section: command_body_extra

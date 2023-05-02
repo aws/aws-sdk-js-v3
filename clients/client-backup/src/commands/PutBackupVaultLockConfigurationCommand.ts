@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { PutBackupVaultLockConfigurationInput } from "../models/models_0";
 import {
-  PutBackupVaultLockConfigurationInput,
-  PutBackupVaultLockConfigurationInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutBackupVaultLockConfigurationCommand,
-  serializeAws_restJson1PutBackupVaultLockConfigurationCommand,
+  de_PutBackupVaultLockConfigurationCommand,
+  se_PutBackupVaultLockConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutBackupVaultLockConfigurationCommand}.
  */
 export interface PutBackupVaultLockConfigurationCommandInput extends PutBackupVaultLockConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link PutBackupVaultLockConfigurationCommand}.
  */
 export interface PutBackupVaultLockConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies Backup Vault Lock to a backup vault, preventing attempts to delete
  *          any recovery point stored in or created in a backup vault. Vault Lock also prevents
  *          attempts to update the lifecycle policy that controls the retention period of any recovery
@@ -52,10 +54,18 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  * import { BackupClient, PutBackupVaultLockConfigurationCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, PutBackupVaultLockConfigurationCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // PutBackupVaultLockConfigurationInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   MinRetentionDays: Number("long"),
+ *   MaxRetentionDays: Number("long"),
+ *   ChangeableForDays: Number("long"),
+ * };
  * const command = new PutBackupVaultLockConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBackupVaultLockConfigurationCommandInput - {@link PutBackupVaultLockConfigurationCommandInput}
+ * @returns {@link PutBackupVaultLockConfigurationCommandOutput}
  * @see {@link PutBackupVaultLockConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBackupVaultLockConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -96,6 +106,9 @@ export class PutBackupVaultLockConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBackupVaultLockConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +137,8 @@ export class PutBackupVaultLockConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBackupVaultLockConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +148,24 @@ export class PutBackupVaultLockConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBackupVaultLockConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutBackupVaultLockConfigurationCommand(input, context);
+    return se_PutBackupVaultLockConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBackupVaultLockConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutBackupVaultLockConfigurationCommand(output, context);
+    return de_PutBackupVaultLockConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

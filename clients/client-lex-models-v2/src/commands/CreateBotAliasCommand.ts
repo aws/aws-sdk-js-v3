@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  CreateBotAliasRequest,
-  CreateBotAliasRequestFilterSensitiveLog,
-  CreateBotAliasResponse,
-  CreateBotAliasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBotAliasCommand,
-  serializeAws_restJson1CreateBotAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateBotAliasRequest, CreateBotAliasResponse } from "../models/models_0";
+import { de_CreateBotAliasCommand, se_CreateBotAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBotAliasCommand}.
  */
 export interface CreateBotAliasCommandInput extends CreateBotAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBotAliasCommand}.
  */
 export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an alias for the specified version of a bot. Use an alias to
  *          enable you to change the version of a bot without updating applications
  *          that use the bot.</p>
@@ -46,10 +43,60 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  * import { LexModelsV2Client, CreateBotAliasCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateBotAliasCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // CreateBotAliasRequest
+ *   botAliasName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   botAliasLocaleSettings: { // BotAliasLocaleSettingsMap
+ *     "<keys>": { // BotAliasLocaleSettings
+ *       enabled: true || false, // required
+ *       codeHookSpecification: { // CodeHookSpecification
+ *         lambdaCodeHook: { // LambdaCodeHook
+ *           lambdaARN: "STRING_VALUE", // required
+ *           codeHookInterfaceVersion: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   },
+ *   conversationLogSettings: { // ConversationLogSettings
+ *     textLogSettings: [ // TextLogSettingsList
+ *       { // TextLogSetting
+ *         enabled: true || false, // required
+ *         destination: { // TextLogDestination
+ *           cloudWatch: { // CloudWatchLogGroupLogDestination
+ *             cloudWatchLogGroupArn: "STRING_VALUE", // required
+ *             logPrefix: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     audioLogSettings: [ // AudioLogSettingsList
+ *       { // AudioLogSetting
+ *         enabled: true || false, // required
+ *         destination: { // AudioLogDestination
+ *           s3Bucket: { // S3BucketLogDestination
+ *             kmsKeyArn: "STRING_VALUE",
+ *             s3BucketArn: "STRING_VALUE", // required
+ *             logPrefix: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   sentimentAnalysisSettings: { // SentimentAnalysisSettings
+ *     detectSentiment: true || false, // required
+ *   },
+ *   botId: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateBotAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBotAliasCommandInput - {@link CreateBotAliasCommandInput}
+ * @returns {@link CreateBotAliasCommandOutput}
  * @see {@link CreateBotAliasCommandInput} for command's `input` shape.
  * @see {@link CreateBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -98,6 +145,9 @@ export class CreateBotAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBotAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +176,8 @@ export class CreateBotAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBotAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBotAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +187,18 @@ export class CreateBotAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBotAliasCommand(input, context);
+    return se_CreateBotAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBotAliasCommandOutput> {
-    return deserializeAws_restJson1CreateBotAliasCommand(output, context);
+    return de_CreateBotAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

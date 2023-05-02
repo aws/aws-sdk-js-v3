@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetLoggerDefinitionVersionRequest,
-  GetLoggerDefinitionVersionRequestFilterSensitiveLog,
-  GetLoggerDefinitionVersionResponse,
-  GetLoggerDefinitionVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLoggerDefinitionVersionCommand,
-  serializeAws_restJson1GetLoggerDefinitionVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLoggerDefinitionVersionRequest, GetLoggerDefinitionVersionResponse } from "../models/models_0";
+import { de_GetLoggerDefinitionVersionCommand, se_GetLoggerDefinitionVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLoggerDefinitionVersionCommand}.
  */
 export interface GetLoggerDefinitionVersionCommandInput extends GetLoggerDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLoggerDefinitionVersionCommand}.
  */
 export interface GetLoggerDefinitionVersionCommandOutput extends GetLoggerDefinitionVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a logger definition version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetLoggerDefinitionVersionCommandOutput extends GetLoggerDefini
  * import { GreengrassClient, GetLoggerDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetLoggerDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetLoggerDefinitionVersionRequest
+ *   LoggerDefinitionId: "STRING_VALUE", // required
+ *   LoggerDefinitionVersionId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetLoggerDefinitionVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoggerDefinitionVersionCommandInput - {@link GetLoggerDefinitionVersionCommandInput}
+ * @returns {@link GetLoggerDefinitionVersionCommandOutput}
  * @see {@link GetLoggerDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetLoggerDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +76,9 @@ export class GetLoggerDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoggerDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +107,8 @@ export class GetLoggerDefinitionVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLoggerDefinitionVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLoggerDefinitionVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +118,21 @@ export class GetLoggerDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoggerDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLoggerDefinitionVersionCommand(input, context);
+    return se_GetLoggerDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLoggerDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1GetLoggerDefinitionVersionCommand(output, context);
+    return de_GetLoggerDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

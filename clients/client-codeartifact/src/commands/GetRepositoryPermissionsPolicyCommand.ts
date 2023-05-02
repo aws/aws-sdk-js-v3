@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
+import { GetRepositoryPermissionsPolicyRequest, GetRepositoryPermissionsPolicyResult } from "../models/models_0";
 import {
-  GetRepositoryPermissionsPolicyRequest,
-  GetRepositoryPermissionsPolicyRequestFilterSensitiveLog,
-  GetRepositoryPermissionsPolicyResult,
-  GetRepositoryPermissionsPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRepositoryPermissionsPolicyCommand,
-  serializeAws_restJson1GetRepositoryPermissionsPolicyCommand,
+  de_GetRepositoryPermissionsPolicyCommand,
+  se_GetRepositoryPermissionsPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRepositoryPermissionsPolicyCommand}.
  */
 export interface GetRepositoryPermissionsPolicyCommandInput extends GetRepositoryPermissionsPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRepositoryPermissionsPolicyCommand}.
  */
 export interface GetRepositoryPermissionsPolicyCommandOutput
@@ -37,6 +36,7 @@ export interface GetRepositoryPermissionsPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Returns the resource policy that is set on a repository.
  *       </p>
@@ -46,10 +46,17 @@ export interface GetRepositoryPermissionsPolicyCommandOutput
  * import { CodeartifactClient, GetRepositoryPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, GetRepositoryPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // GetRepositoryPermissionsPolicyRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ * };
  * const command = new GetRepositoryPermissionsPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositoryPermissionsPolicyCommandInput - {@link GetRepositoryPermissionsPolicyCommandInput}
+ * @returns {@link GetRepositoryPermissionsPolicyCommandOutput}
  * @see {@link GetRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetRepositoryPermissionsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositoryPermissionsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +134,8 @@ export class GetRepositoryPermissionsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRepositoryPermissionsPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRepositoryPermissionsPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +145,24 @@ export class GetRepositoryPermissionsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRepositoryPermissionsPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRepositoryPermissionsPolicyCommand(input, context);
+    return se_GetRepositoryPermissionsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRepositoryPermissionsPolicyCommandOutput> {
-    return deserializeAws_restJson1GetRepositoryPermissionsPolicyCommand(output, context);
+    return de_GetRepositoryPermissionsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

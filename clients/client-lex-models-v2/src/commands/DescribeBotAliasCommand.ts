@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DescribeBotAliasRequest,
-  DescribeBotAliasRequestFilterSensitiveLog,
-  DescribeBotAliasResponse,
-  DescribeBotAliasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBotAliasCommand,
-  serializeAws_restJson1DescribeBotAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeBotAliasRequest, DescribeBotAliasResponse } from "../models/models_0";
+import { de_DescribeBotAliasCommand, se_DescribeBotAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBotAliasCommand}.
  */
 export interface DescribeBotAliasCommandInput extends DescribeBotAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBotAliasCommand}.
  */
 export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about a specific bot alias.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse,
  * import { LexModelsV2Client, DescribeBotAliasCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeBotAliasCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DescribeBotAliasRequest
+ *   botAliasId: "STRING_VALUE", // required
+ *   botId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBotAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBotAliasCommandInput - {@link DescribeBotAliasCommandInput}
+ * @returns {@link DescribeBotAliasCommandOutput}
  * @see {@link DescribeBotAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -88,6 +91,9 @@ export class DescribeBotAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBotAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class DescribeBotAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBotAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBotAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class DescribeBotAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBotAliasCommand(input, context);
+    return se_DescribeBotAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBotAliasCommandOutput> {
-    return deserializeAws_restJson1DescribeBotAliasCommand(output, context);
+    return de_DescribeBotAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

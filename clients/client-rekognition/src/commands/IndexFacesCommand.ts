@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  IndexFacesRequest,
-  IndexFacesRequestFilterSensitiveLog,
-  IndexFacesResponse,
-  IndexFacesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1IndexFacesCommand,
-  serializeAws_json1_1IndexFacesCommand,
-} from "../protocols/Aws_json1_1";
+import { IndexFacesRequest, IndexFacesResponse } from "../models/models_0";
+import { de_IndexFacesCommand, se_IndexFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link IndexFacesCommand}.
  */
 export interface IndexFacesCommandInput extends IndexFacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link IndexFacesCommand}.
  */
 export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects faces in the input image and adds them to the specified collection. </p>
  *          <p>Amazon Rekognition doesn't save the actual faces that are detected. Instead, the underlying
  *       detection algorithm first detects the faces in the input image. For each face, the algorithm
@@ -132,10 +129,29 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * import { RekognitionClient, IndexFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, IndexFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // IndexFacesRequest
+ *   CollectionId: "STRING_VALUE", // required
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ExternalImageId: "STRING_VALUE",
+ *   DetectionAttributes: [ // Attributes
+ *     "DEFAULT" || "ALL",
+ *   ],
+ *   MaxFaces: Number("int"),
+ *   QualityFilter: "NONE" || "AUTO" || "LOW" || "MEDIUM" || "HIGH",
+ * };
  * const command = new IndexFacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param IndexFacesCommandInput - {@link IndexFacesCommandInput}
+ * @returns {@link IndexFacesCommandOutput}
  * @see {@link IndexFacesCommandInput} for command's `input` shape.
  * @see {@link IndexFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -338,6 +354,9 @@ export class IndexFacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IndexFacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -364,8 +383,8 @@ export class IndexFacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IndexFacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: IndexFacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -375,12 +394,18 @@ export class IndexFacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IndexFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1IndexFacesCommand(input, context);
+    return se_IndexFacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IndexFacesCommandOutput> {
-    return deserializeAws_json1_1IndexFacesCommand(output, context);
+    return de_IndexFacesCommand(output, context);
   }
 
   // Start section: command_body_extra

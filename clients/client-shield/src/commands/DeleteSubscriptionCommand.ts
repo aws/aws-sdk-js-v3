@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSubscriptionRequest,
-  DeleteSubscriptionRequestFilterSensitiveLog,
-  DeleteSubscriptionResponse,
-  DeleteSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSubscriptionCommand,
-  serializeAws_json1_1DeleteSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSubscriptionRequest, DeleteSubscriptionResponse } from "../models/models_0";
+import { de_DeleteSubscriptionCommand, se_DeleteSubscriptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubscriptionCommand}.
  */
 export interface DeleteSubscriptionCommandInput extends DeleteSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubscriptionCommand}.
  */
 export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Removes Shield Advanced from an account. Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>
@@ -44,10 +41,13 @@ export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionRespo
  * import { ShieldClient, DeleteSubscriptionCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DeleteSubscriptionCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new DeleteSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubscriptionCommandInput - {@link DeleteSubscriptionCommandInput}
+ * @returns {@link DeleteSubscriptionCommandOutput}
  * @see {@link DeleteSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -80,6 +80,9 @@ export class DeleteSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +111,8 @@ export class DeleteSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +122,18 @@ export class DeleteSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSubscriptionCommand(input, context);
+    return se_DeleteSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteSubscriptionCommand(output, context);
+    return de_DeleteSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

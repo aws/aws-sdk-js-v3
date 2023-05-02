@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import {
-  DescribeEventDetailsRequest,
-  DescribeEventDetailsRequestFilterSensitiveLog,
-  DescribeEventDetailsResponse,
-  DescribeEventDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventDetailsCommand,
-  serializeAws_json1_1DescribeEventDetailsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEventDetailsRequest, DescribeEventDetailsResponse } from "../models/models_0";
+import { de_DescribeEventDetailsCommand, se_DescribeEventDetailsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventDetailsCommand}.
  */
 export interface DescribeEventDetailsCommandInput extends DescribeEventDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventDetailsCommand}.
  */
 export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about one or more specified events. Information includes
  *          standard event data (Amazon Web Services Region, service, and so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a>), a detailed event description, and possible additional metadata
  *          that depends upon the nature of the event. Affected entities are not included. To retrieve
@@ -51,10 +48,18 @@ export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsR
  * import { HealthClient, DescribeEventDetailsCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventDetailsCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = { // DescribeEventDetailsRequest
+ *   eventArns: [ // eventArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new DescribeEventDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventDetailsCommandInput - {@link DescribeEventDetailsCommandInput}
+ * @returns {@link DescribeEventDetailsCommandOutput}
  * @see {@link DescribeEventDetailsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventDetailsCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -81,6 +86,9 @@ export class DescribeEventDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class DescribeEventDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class DescribeEventDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventDetailsCommand(input, context);
+    return se_DescribeEventDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventDetailsCommandOutput> {
-    return deserializeAws_json1_1DescribeEventDetailsCommand(output, context);
+    return de_DescribeEventDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

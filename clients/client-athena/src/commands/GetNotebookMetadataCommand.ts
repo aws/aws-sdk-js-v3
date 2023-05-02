@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  GetNotebookMetadataInput,
-  GetNotebookMetadataInputFilterSensitiveLog,
-  GetNotebookMetadataOutput,
-  GetNotebookMetadataOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetNotebookMetadataCommand,
-  serializeAws_json1_1GetNotebookMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { GetNotebookMetadataInput, GetNotebookMetadataOutput } from "../models/models_0";
+import { de_GetNotebookMetadataCommand, se_GetNotebookMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNotebookMetadataCommand}.
  */
 export interface GetNotebookMetadataCommandInput extends GetNotebookMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link GetNotebookMetadataCommand}.
  */
 export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves notebook metadata for the specified notebook ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOut
  * import { AthenaClient, GetNotebookMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetNotebookMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // GetNotebookMetadataInput
+ *   NotebookId: "STRING_VALUE", // required
+ * };
  * const command = new GetNotebookMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNotebookMetadataCommandInput - {@link GetNotebookMetadataCommandInput}
+ * @returns {@link GetNotebookMetadataCommandOutput}
  * @see {@link GetNotebookMetadataCommandInput} for command's `input` shape.
  * @see {@link GetNotebookMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +82,9 @@ export class GetNotebookMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNotebookMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class GetNotebookMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNotebookMetadataInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNotebookMetadataOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class GetNotebookMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNotebookMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNotebookMetadataCommand(input, context);
+    return se_GetNotebookMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNotebookMetadataCommandOutput> {
-    return deserializeAws_json1_1GetNotebookMetadataCommand(output, context);
+    return de_GetNotebookMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

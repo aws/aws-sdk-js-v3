@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TerminateWorkspacesRequest,
-  TerminateWorkspacesRequestFilterSensitiveLog,
-  TerminateWorkspacesResult,
-  TerminateWorkspacesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1TerminateWorkspacesCommand,
-  serializeAws_json1_1TerminateWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { TerminateWorkspacesRequest, TerminateWorkspacesResult } from "../models/models_0";
+import { de_TerminateWorkspacesCommand, se_TerminateWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateWorkspacesCommand}.
  */
 export interface TerminateWorkspacesCommandInput extends TerminateWorkspacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link TerminateWorkspacesCommand}.
  */
 export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates the specified WorkSpaces.</p>
  *          <important>
  *             <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
@@ -66,10 +63,19 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  * import { WorkSpacesClient, TerminateWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, TerminateWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // TerminateWorkspacesRequest
+ *   TerminateWorkspaceRequests: [ // TerminateWorkspaceRequests // required
+ *     { // TerminateRequest
+ *       WorkspaceId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TerminateWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateWorkspacesCommandInput - {@link TerminateWorkspacesCommandInput}
+ * @returns {@link TerminateWorkspacesCommandOutput}
  * @see {@link TerminateWorkspacesCommandInput} for command's `input` shape.
  * @see {@link TerminateWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -93,6 +99,9 @@ export class TerminateWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +130,8 @@ export class TerminateWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateWorkspacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TerminateWorkspacesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +141,18 @@ export class TerminateWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TerminateWorkspacesCommand(input, context);
+    return se_TerminateWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateWorkspacesCommandOutput> {
-    return deserializeAws_json1_1TerminateWorkspacesCommand(output, context);
+    return de_TerminateWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

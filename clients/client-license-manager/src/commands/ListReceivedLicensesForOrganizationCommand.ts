@@ -16,20 +16,22 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   ListReceivedLicensesForOrganizationRequest,
-  ListReceivedLicensesForOrganizationRequestFilterSensitiveLog,
   ListReceivedLicensesForOrganizationResponse,
-  ListReceivedLicensesForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListReceivedLicensesForOrganizationCommand,
-  serializeAws_json1_1ListReceivedLicensesForOrganizationCommand,
+  de_ListReceivedLicensesForOrganizationCommand,
+  se_ListReceivedLicensesForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReceivedLicensesForOrganizationCommand}.
  */
 export interface ListReceivedLicensesForOrganizationCommandInput extends ListReceivedLicensesForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReceivedLicensesForOrganizationCommand}.
  */
 export interface ListReceivedLicensesForOrganizationCommandOutput
@@ -37,6 +39,7 @@ export interface ListReceivedLicensesForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the licenses received for all accounts in the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,24 @@ export interface ListReceivedLicensesForOrganizationCommandOutput
  * import { LicenseManagerClient, ListReceivedLicensesForOrganizationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListReceivedLicensesForOrganizationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListReceivedLicensesForOrganizationRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListReceivedLicensesForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReceivedLicensesForOrganizationCommandInput - {@link ListReceivedLicensesForOrganizationCommandInput}
+ * @returns {@link ListReceivedLicensesForOrganizationCommandOutput}
  * @see {@link ListReceivedLicensesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListReceivedLicensesForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -93,6 +110,9 @@ export class ListReceivedLicensesForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReceivedLicensesForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +141,8 @@ export class ListReceivedLicensesForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReceivedLicensesForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReceivedLicensesForOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,18 +152,24 @@ export class ListReceivedLicensesForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListReceivedLicensesForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReceivedLicensesForOrganizationCommand(input, context);
+    return se_ListReceivedLicensesForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReceivedLicensesForOrganizationCommandOutput> {
-    return deserializeAws_json1_1ListReceivedLicensesForOrganizationCommand(output, context);
+    return de_ListReceivedLicensesForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

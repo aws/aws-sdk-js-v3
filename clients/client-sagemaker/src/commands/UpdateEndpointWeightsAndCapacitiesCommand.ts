@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput } from "../models/models_4";
 import {
-  UpdateEndpointWeightsAndCapacitiesInput,
-  UpdateEndpointWeightsAndCapacitiesInputFilterSensitiveLog,
-  UpdateEndpointWeightsAndCapacitiesOutput,
-  UpdateEndpointWeightsAndCapacitiesOutputFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand,
-  serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand,
+  de_UpdateEndpointWeightsAndCapacitiesCommand,
+  se_UpdateEndpointWeightsAndCapacitiesCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEndpointWeightsAndCapacitiesCommand}.
  */
 export interface UpdateEndpointWeightsAndCapacitiesCommandInput extends UpdateEndpointWeightsAndCapacitiesInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEndpointWeightsAndCapacitiesCommand}.
  */
 export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
@@ -37,21 +36,34 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates variant weight of one or more variants associated with an existing
  *             endpoint, or capacity of one variant associated with an existing endpoint. When it
  *             receives the request, SageMaker sets the endpoint status to <code>Updating</code>. After
  *             updating the endpoint, it sets the status to <code>InService</code>. To check the status
- *             of an endpoint, use the <a>DescribeEndpoint</a> API. </p>
+ *             of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, UpdateEndpointWeightsAndCapacitiesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateEndpointWeightsAndCapacitiesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateEndpointWeightsAndCapacitiesInput
+ *   EndpointName: "STRING_VALUE", // required
+ *   DesiredWeightsAndCapacities: [ // DesiredWeightAndCapacityList // required
+ *     { // DesiredWeightAndCapacity
+ *       VariantName: "STRING_VALUE", // required
+ *       DesiredWeight: Number("float"),
+ *       DesiredInstanceCount: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new UpdateEndpointWeightsAndCapacitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointWeightsAndCapacitiesCommandInput - {@link UpdateEndpointWeightsAndCapacitiesCommandInput}
+ * @returns {@link UpdateEndpointWeightsAndCapacitiesCommandOutput}
  * @see {@link UpdateEndpointWeightsAndCapacitiesCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointWeightsAndCapacitiesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -79,6 +91,9 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointWeightsAndCapacitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +122,8 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEndpointWeightsAndCapacitiesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEndpointWeightsAndCapacitiesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +133,24 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateEndpointWeightsAndCapacitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand(input, context);
+    return se_UpdateEndpointWeightsAndCapacitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEndpointWeightsAndCapacitiesCommandOutput> {
-    return deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand(output, context);
+    return de_UpdateEndpointWeightsAndCapacitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

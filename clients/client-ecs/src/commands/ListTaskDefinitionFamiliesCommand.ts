@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListTaskDefinitionFamiliesRequest,
-  ListTaskDefinitionFamiliesRequestFilterSensitiveLog,
-  ListTaskDefinitionFamiliesResponse,
-  ListTaskDefinitionFamiliesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTaskDefinitionFamiliesCommand,
-  serializeAws_json1_1ListTaskDefinitionFamiliesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTaskDefinitionFamiliesRequest, ListTaskDefinitionFamiliesResponse } from "../models/models_0";
+import { de_ListTaskDefinitionFamiliesCommand, se_ListTaskDefinitionFamiliesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTaskDefinitionFamiliesCommand}.
  */
 export interface ListTaskDefinitionFamiliesCommandInput extends ListTaskDefinitionFamiliesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTaskDefinitionFamiliesCommand}.
  */
 export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinitionFamiliesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of task definition families that are registered to your account. This
  * 			list includes task definition families that no longer have any <code>ACTIVE</code> task
  * 			definition revisions.</p>
@@ -48,10 +45,18 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * import { ECSClient, ListTaskDefinitionFamiliesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListTaskDefinitionFamiliesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // ListTaskDefinitionFamiliesRequest
+ *   familyPrefix: "STRING_VALUE",
+ *   status: "ACTIVE" || "INACTIVE" || "ALL",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListTaskDefinitionFamiliesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTaskDefinitionFamiliesCommandInput - {@link ListTaskDefinitionFamiliesCommandInput}
+ * @returns {@link ListTaskDefinitionFamiliesCommandOutput}
  * @see {@link ListTaskDefinitionFamiliesCommandInput} for command's `input` shape.
  * @see {@link ListTaskDefinitionFamiliesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -125,6 +130,9 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTaskDefinitionFamiliesCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,8 +161,8 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTaskDefinitionFamiliesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTaskDefinitionFamiliesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -164,15 +172,21 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTaskDefinitionFamiliesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTaskDefinitionFamiliesCommand(input, context);
+    return se_ListTaskDefinitionFamiliesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTaskDefinitionFamiliesCommandOutput> {
-    return deserializeAws_json1_1ListTaskDefinitionFamiliesCommand(output, context);
+    return de_ListTaskDefinitionFamiliesCommand(output, context);
   }
 
   // Start section: command_body_extra

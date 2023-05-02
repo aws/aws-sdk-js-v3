@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import {
-  GetThemeRequest,
-  GetThemeRequestFilterSensitiveLog,
-  GetThemeResponse,
-  GetThemeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetThemeCommand,
-  serializeAws_restJson1GetThemeCommand,
-} from "../protocols/Aws_restJson1";
+import { GetThemeRequest, GetThemeResponse } from "../models/models_0";
+import { de_GetThemeCommand, se_GetThemeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetThemeCommand}.
  */
 export interface GetThemeCommandInput extends GetThemeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetThemeCommand}.
  */
 export interface GetThemeCommandOutput extends GetThemeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an existing theme for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetThemeCommandOutput extends GetThemeResponse, __MetadataBeare
  * import { AmplifyUIBuilderClient, GetThemeCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, GetThemeCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = { // GetThemeRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetThemeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetThemeCommandInput - {@link GetThemeCommandInput}
+ * @returns {@link GetThemeCommandOutput}
  * @see {@link GetThemeCommandInput} for command's `input` shape.
  * @see {@link GetThemeCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -78,6 +82,9 @@ export class GetThemeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetThemeCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class GetThemeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetThemeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetThemeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class GetThemeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetThemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetThemeCommand(input, context);
+    return se_GetThemeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetThemeCommandOutput> {
-    return deserializeAws_restJson1GetThemeCommand(output, context);
+    return de_GetThemeCommand(output, context);
   }
 
   // Start section: command_body_extra

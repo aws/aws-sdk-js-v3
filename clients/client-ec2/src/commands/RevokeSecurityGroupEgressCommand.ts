@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RevokeSecurityGroupEgressRequest,
-  RevokeSecurityGroupEgressRequestFilterSensitiveLog,
-  RevokeSecurityGroupEgressResult,
-  RevokeSecurityGroupEgressResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2RevokeSecurityGroupEgressCommand,
-  serializeAws_ec2RevokeSecurityGroupEgressCommand,
-} from "../protocols/Aws_ec2";
+import { RevokeSecurityGroupEgressRequest, RevokeSecurityGroupEgressResult } from "../models/models_6";
+import { de_RevokeSecurityGroupEgressCommand, se_RevokeSecurityGroupEgressCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeSecurityGroupEgressCommand}.
  */
 export interface RevokeSecurityGroupEgressCommandInput extends RevokeSecurityGroupEgressRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeSecurityGroupEgressCommand}.
  */
 export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGroupEgressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>[VPC only] Removes the specified outbound (egress) rules from a security group for EC2-VPC.
  *        This action does not apply to security groups for use in EC2-Classic.</p>
  *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
@@ -55,10 +52,61 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
  * import { EC2Client, RevokeSecurityGroupEgressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RevokeSecurityGroupEgressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RevokeSecurityGroupEgressRequest
+ *   DryRun: true || false,
+ *   GroupId: "STRING_VALUE", // required
+ *   IpPermissions: [ // IpPermissionList
+ *     { // IpPermission
+ *       FromPort: Number("int"),
+ *       IpProtocol: "STRING_VALUE",
+ *       IpRanges: [ // IpRangeList
+ *         { // IpRange
+ *           CidrIp: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *         },
+ *       ],
+ *       Ipv6Ranges: [ // Ipv6RangeList
+ *         { // Ipv6Range
+ *           CidrIpv6: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PrefixListIds: [ // PrefixListIdList
+ *         { // PrefixListId
+ *           Description: "STRING_VALUE",
+ *           PrefixListId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       ToPort: Number("int"),
+ *       UserIdGroupPairs: [ // UserIdGroupPairList
+ *         { // UserIdGroupPair
+ *           Description: "STRING_VALUE",
+ *           GroupId: "STRING_VALUE",
+ *           GroupName: "STRING_VALUE",
+ *           PeeringStatus: "STRING_VALUE",
+ *           UserId: "STRING_VALUE",
+ *           VpcId: "STRING_VALUE",
+ *           VpcPeeringConnectionId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   SecurityGroupRuleIds: [ // SecurityGroupRuleIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   CidrIp: "STRING_VALUE",
+ *   FromPort: Number("int"),
+ *   IpProtocol: "STRING_VALUE",
+ *   ToPort: Number("int"),
+ *   SourceSecurityGroupName: "STRING_VALUE",
+ *   SourceSecurityGroupOwnerId: "STRING_VALUE",
+ * };
  * const command = new RevokeSecurityGroupEgressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeSecurityGroupEgressCommandInput - {@link RevokeSecurityGroupEgressCommandInput}
+ * @returns {@link RevokeSecurityGroupEgressCommandOutput}
  * @see {@link RevokeSecurityGroupEgressCommandInput} for command's `input` shape.
  * @see {@link RevokeSecurityGroupEgressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -82,6 +130,9 @@ export class RevokeSecurityGroupEgressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeSecurityGroupEgressCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +161,8 @@ export class RevokeSecurityGroupEgressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeSecurityGroupEgressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeSecurityGroupEgressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +172,21 @@ export class RevokeSecurityGroupEgressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeSecurityGroupEgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RevokeSecurityGroupEgressCommand(input, context);
+    return se_RevokeSecurityGroupEgressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RevokeSecurityGroupEgressCommandOutput> {
-    return deserializeAws_ec2RevokeSecurityGroupEgressCommand(output, context);
+    return de_RevokeSecurityGroupEgressCommand(output, context);
   }
 
   // Start section: command_body_extra

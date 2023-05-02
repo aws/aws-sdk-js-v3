@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SetSMSAttributesInput,
-  SetSMSAttributesInputFilterSensitiveLog,
-  SetSMSAttributesResponse,
-  SetSMSAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetSMSAttributesCommand,
-  serializeAws_querySetSMSAttributesCommand,
-} from "../protocols/Aws_query";
+import { SetSMSAttributesInput, SetSMSAttributesResponse } from "../models/models_0";
+import { de_SetSMSAttributesCommand, se_SetSMSAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetSMSAttributesCommand}.
  */
 export interface SetSMSAttributesCommandInput extends SetSMSAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link SetSMSAttributesCommand}.
  */
 export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this request to set the default settings for sending SMS messages and receiving
  *             daily SMS usage reports.</p>
  *          <p>You can override some of these settings for a single message when you use the
@@ -52,10 +49,17 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
  * import { SNSClient, SetSMSAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SetSMSAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // SetSMSAttributesInput
+ *   attributes: { // MapStringToString // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new SetSMSAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSMSAttributesCommandInput - {@link SetSMSAttributesCommandInput}
+ * @returns {@link SetSMSAttributesCommandOutput}
  * @see {@link SetSMSAttributesCommandInput} for command's `input` shape.
  * @see {@link SetSMSAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -92,6 +96,9 @@ export class SetSMSAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSMSAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +127,8 @@ export class SetSMSAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetSMSAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetSMSAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +138,18 @@ export class SetSMSAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetSMSAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetSMSAttributesCommand(input, context);
+    return se_SetSMSAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSMSAttributesCommandOutput> {
-    return deserializeAws_querySetSMSAttributesCommand(output, context);
+    return de_SetSMSAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

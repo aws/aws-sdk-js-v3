@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  CreateDeploymentConfigInput,
-  CreateDeploymentConfigInputFilterSensitiveLog,
-  CreateDeploymentConfigOutput,
-  CreateDeploymentConfigOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDeploymentConfigCommand,
-  serializeAws_json1_1CreateDeploymentConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDeploymentConfigInput, CreateDeploymentConfigOutput } from "../models/models_0";
+import { de_CreateDeploymentConfigCommand, se_CreateDeploymentConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeploymentConfigCommand}.
  */
 export interface CreateDeploymentConfigCommandInput extends CreateDeploymentConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeploymentConfigCommand}.
  */
 export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentConfigOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a deployment configuration. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,31 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  * import { CodeDeployClient, CreateDeploymentConfigCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, CreateDeploymentConfigCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // CreateDeploymentConfigInput
+ *   deploymentConfigName: "STRING_VALUE", // required
+ *   minimumHealthyHosts: { // MinimumHealthyHosts
+ *     type: "HOST_COUNT" || "FLEET_PERCENT",
+ *     value: Number("int"),
+ *   },
+ *   trafficRoutingConfig: { // TrafficRoutingConfig
+ *     type: "TimeBasedCanary" || "TimeBasedLinear" || "AllAtOnce",
+ *     timeBasedCanary: { // TimeBasedCanary
+ *       canaryPercentage: Number("int"),
+ *       canaryInterval: Number("int"),
+ *     },
+ *     timeBasedLinear: { // TimeBasedLinear
+ *       linearPercentage: Number("int"),
+ *       linearInterval: Number("int"),
+ *     },
+ *   },
+ *   computePlatform: "Server" || "Lambda" || "ECS",
+ * };
  * const command = new CreateDeploymentConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeploymentConfigCommandInput - {@link CreateDeploymentConfigCommandInput}
+ * @returns {@link CreateDeploymentConfigCommandOutput}
  * @see {@link CreateDeploymentConfigCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentConfigCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -92,6 +110,9 @@ export class CreateDeploymentConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeploymentConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +141,8 @@ export class CreateDeploymentConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeploymentConfigInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDeploymentConfigOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +152,18 @@ export class CreateDeploymentConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeploymentConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDeploymentConfigCommand(input, context);
+    return se_CreateDeploymentConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentConfigCommandOutput> {
-    return deserializeAws_json1_1CreateDeploymentConfigCommand(output, context);
+    return de_CreateDeploymentConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

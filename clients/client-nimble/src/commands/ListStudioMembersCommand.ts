@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListStudioMembersRequest,
-  ListStudioMembersRequestFilterSensitiveLog,
-  ListStudioMembersResponse,
-  ListStudioMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListStudioMembersRequest, ListStudioMembersResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1ListStudioMembersCommand,
-  serializeAws_restJson1ListStudioMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListStudioMembersCommand, se_ListStudioMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStudioMembersCommand}.
  */
 export interface ListStudioMembersCommandInput extends ListStudioMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStudioMembersCommand}.
  */
 export interface ListStudioMembersCommandOutput extends ListStudioMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get all users in a given studio membership.</p>
  *         <note>
  *             <p>
@@ -46,10 +43,17 @@ export interface ListStudioMembersCommandOutput extends ListStudioMembersRespons
  * import { NimbleClient, ListStudioMembersCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStudioMembersCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // ListStudioMembersRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new ListStudioMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStudioMembersCommandInput - {@link ListStudioMembersCommandInput}
+ * @returns {@link ListStudioMembersCommandOutput}
  * @see {@link ListStudioMembersCommandInput} for command's `input` shape.
  * @see {@link ListStudioMembersCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -97,6 +101,9 @@ export class ListStudioMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStudioMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +132,8 @@ export class ListStudioMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStudioMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStudioMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +143,18 @@ export class ListStudioMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStudioMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStudioMembersCommand(input, context);
+    return se_ListStudioMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStudioMembersCommandOutput> {
-    return deserializeAws_restJson1ListStudioMembersCommand(output, context);
+    return de_ListStudioMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

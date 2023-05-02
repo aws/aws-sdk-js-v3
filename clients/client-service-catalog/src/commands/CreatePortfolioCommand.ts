@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePortfolioInput,
-  CreatePortfolioInputFilterSensitiveLog,
-  CreatePortfolioOutput,
-  CreatePortfolioOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePortfolioCommand,
-  serializeAws_json1_1CreatePortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePortfolioInput, CreatePortfolioOutput } from "../models/models_0";
+import { de_CreatePortfolioCommand, se_CreatePortfolioCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePortfolioCommand}.
  */
 export interface CreatePortfolioCommandInput extends CreatePortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePortfolioCommand}.
  */
 export interface CreatePortfolioCommandOutput extends CreatePortfolioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
@@ -43,10 +40,25 @@ export interface CreatePortfolioCommandOutput extends CreatePortfolioOutput, __M
  * import { ServiceCatalogClient, CreatePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreatePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // CreatePortfolioInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   DisplayName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ProviderName: "STRING_VALUE", // required
+ *   Tags: [ // AddTags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new CreatePortfolioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePortfolioCommandInput - {@link CreatePortfolioCommandInput}
+ * @returns {@link CreatePortfolioCommandOutput}
  * @see {@link CreatePortfolioCommandInput} for command's `input` shape.
  * @see {@link CreatePortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -82,6 +94,9 @@ export class CreatePortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +125,8 @@ export class CreatePortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePortfolioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePortfolioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +136,18 @@ export class CreatePortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePortfolioCommand(input, context);
+    return se_CreatePortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePortfolioCommandOutput> {
-    return deserializeAws_json1_1CreatePortfolioCommand(output, context);
+    return de_CreatePortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

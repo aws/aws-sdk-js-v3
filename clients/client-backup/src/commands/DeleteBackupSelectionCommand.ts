@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteBackupSelectionInput, DeleteBackupSelectionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBackupSelectionCommand,
-  serializeAws_restJson1DeleteBackupSelectionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteBackupSelectionInput } from "../models/models_0";
+import { de_DeleteBackupSelectionCommand, se_DeleteBackupSelectionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupSelectionCommand}.
  */
 export interface DeleteBackupSelectionCommandInput extends DeleteBackupSelectionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupSelectionCommand}.
  */
 export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the resource selection associated with a backup plan that is specified by the
  *             <code>SelectionId</code>.</p>
  * @example
@@ -38,10 +40,16 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
  * import { BackupClient, DeleteBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DeleteBackupSelectionInput
+ *   BackupPlanId: "STRING_VALUE", // required
+ *   SelectionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBackupSelectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupSelectionCommandInput - {@link DeleteBackupSelectionCommandInput}
+ * @returns {@link DeleteBackupSelectionCommandOutput}
  * @see {@link DeleteBackupSelectionCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupSelectionCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -78,6 +86,9 @@ export class DeleteBackupSelectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupSelectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +117,8 @@ export class DeleteBackupSelectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackupSelectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +128,18 @@ export class DeleteBackupSelectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackupSelectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBackupSelectionCommand(input, context);
+    return se_DeleteBackupSelectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackupSelectionCommandOutput> {
-    return deserializeAws_restJson1DeleteBackupSelectionCommand(output, context);
+    return de_DeleteBackupSelectionCommand(output, context);
   }
 
   // Start section: command_body_extra

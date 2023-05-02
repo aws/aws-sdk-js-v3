@@ -1,23 +1,24 @@
 import { getEndpointFromInstructions, toEndpointV1 } from "@aws-sdk/middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
+import { extendedEncodeURIComponent } from "@aws-sdk/smithy-client";
 import {
   AwsCredentialIdentity,
   ChecksumConstructor,
   Endpoint,
   HandlerExecutionContext,
   HashConstructor,
-  InitializeHandler,
-  InitializeHandlerArguments,
-  InitializeHandlerOutput,
-  InitializeMiddleware,
   MemoizedProvider,
   MetadataBearer,
   Pluggable,
   Provider,
   RegionInfoProvider,
   RelativeMiddlewareOptions,
+  SerializeHandler,
+  SerializeHandlerArguments,
   SerializeHandlerOptions,
+  SerializeHandlerOutput,
+  SerializeMiddleware,
 } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 
@@ -32,13 +33,13 @@ interface PreviouslyResolved {
 
 const version = "2016-11-15";
 
-//an initialize middleware to add PresignUrl to input
-export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
+// a serialize middleware to add PresignUrl to input
+export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved): SerializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
-      next: InitializeHandler<any, Output>,
+      next: SerializeHandler<any, Output>,
       context: HandlerExecutionContext
-    ): InitializeHandler<any, Output> =>
-    async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
+    ): SerializeHandler<any, Output> =>
+    async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<Output>> => {
       const { input } = args;
 
       if (!input.PresignedUrl) {
@@ -73,20 +74,20 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
         const resolvedEndpoint =
           typeof options.endpoint === "function" ? await options.endpoint() : toEndpointV1(endpoint);
 
-        const request = new HttpRequest({
+        const requestToSign = new HttpRequest({
           ...resolvedEndpoint,
           protocol: "https",
           headers: {
             host: resolvedEndpoint.hostname,
           },
           query: {
+            ...input,
             Action: "CopySnapshot",
             Version: version,
-            SourceRegion: input.SourceRegion,
-            SourceSnapshotId: input.SourceSnapshotId,
             DestinationRegion: destinationRegion,
           },
         });
+
         const signer = new SignatureV4({
           credentials: options.credentials,
           region: input.SourceRegion,
@@ -94,7 +95,7 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
           sha256: options.sha256,
           uriEscapePath: options.signingEscapePath,
         });
-        const presignedRequest = await signer.presign(request, {
+        const presignedRequest = await signer.presign(requestToSign, {
           expiresIn: 3600,
         });
 
@@ -106,6 +107,18 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
             PresignedUrl: formatUrl(presignedRequest),
           },
         };
+
+        // we also double-check the work of the serialzier here
+        // because this middleware may be placed after the regular serialzier.
+        if (HttpRequest.isInstance(args.request)) {
+          const { request } = args;
+          if (!(request.body ?? "").includes("DestinationRegion=")) {
+            request.body += `&DestinationRegion=${destinationRegion}`;
+          }
+          if (!(request.body ?? "").includes("PresignedUrl=")) {
+            request.body += `&PresignedUrl=${extendedEncodeURIComponent(args.input.PresignedUrl)}`;
+          }
+        }
       }
 
       return next(args);

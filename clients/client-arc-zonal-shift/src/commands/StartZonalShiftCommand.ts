@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import {
-  StartZonalShiftRequest,
-  StartZonalShiftRequestFilterSensitiveLog,
-  ZonalShift,
-  ZonalShiftFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartZonalShiftCommand,
-  serializeAws_restJson1StartZonalShiftCommand,
-} from "../protocols/Aws_restJson1";
+import { StartZonalShiftRequest, ZonalShift } from "../models/models_0";
+import { de_StartZonalShiftCommand, se_StartZonalShiftCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartZonalShiftCommand}.
  */
 export interface StartZonalShiftCommandInput extends StartZonalShiftRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartZonalShiftCommand}.
  */
 export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You start a zonal shift to temporarily move load balancer traffic away from an Availability Zone in a AWS Region,
  *    		to help your application recover immediately, for example, from a developer's bad code deployment or from an AWS
  *    		infrastructure failure in a single Availability Zone. You can start a zonal shift in Route 53 ARC only for managed
@@ -51,10 +48,18 @@ export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBear
  * import { ARCZonalShiftClient, StartZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, StartZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
+ * const input = { // StartZonalShiftRequest
+ *   resourceIdentifier: "STRING_VALUE", // required
+ *   awayFrom: "STRING_VALUE", // required
+ *   expiresIn: "STRING_VALUE", // required
+ *   comment: "STRING_VALUE", // required
+ * };
  * const command = new StartZonalShiftCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartZonalShiftCommandInput - {@link StartZonalShiftCommandInput}
+ * @returns {@link StartZonalShiftCommandOutput}
  * @see {@link StartZonalShiftCommandInput} for command's `input` shape.
  * @see {@link StartZonalShiftCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
@@ -96,6 +101,9 @@ export class StartZonalShiftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartZonalShiftCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +132,8 @@ export class StartZonalShiftCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartZonalShiftRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ZonalShiftFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +143,18 @@ export class StartZonalShiftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartZonalShiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartZonalShiftCommand(input, context);
+    return se_StartZonalShiftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartZonalShiftCommandOutput> {
-    return deserializeAws_restJson1StartZonalShiftCommand(output, context);
+    return de_StartZonalShiftCommand(output, context);
   }
 
   // Start section: command_body_extra

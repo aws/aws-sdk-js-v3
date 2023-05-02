@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBParameterGroupNameMessage,
-  DBParameterGroupNameMessageFilterSensitiveLog,
-  ResetDBParameterGroupMessage,
-  ResetDBParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DBParameterGroupNameMessage, ResetDBParameterGroupMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryResetDBParameterGroupCommand,
-  serializeAws_queryResetDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ResetDBParameterGroupCommand, se_ResetDBParameterGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ResetDBParameterGroupCommand}.
  */
 export interface ResetDBParameterGroupCommandInput extends ResetDBParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ResetDBParameterGroupCommand}.
  */
 export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a DB parameter group to the engine/system default value. To
  *       reset specific parameters, provide a list of the following: <code>ParameterName</code> and
  *       <code>ApplyMethod</code>. To reset the entire DB parameter group, specify the
@@ -48,10 +45,30 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  * import { NeptuneClient, ResetDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ResetDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // ResetDBParameterGroupMessage
+ *   DBParameterGroupName: "STRING_VALUE", // required
+ *   ResetAllParameters: true || false,
+ *   Parameters: [ // ParametersList
+ *     { // Parameter
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       ApplyType: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *       ApplyMethod: "immediate" || "pending-reboot",
+ *     },
+ *   ],
+ * };
  * const command = new ResetDBParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetDBParameterGroupCommandInput - {@link ResetDBParameterGroupCommandInput}
+ * @returns {@link ResetDBParameterGroupCommandOutput}
  * @see {@link ResetDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -84,6 +101,9 @@ export class ResetDBParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +132,8 @@ export class ResetDBParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetDBParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBParameterGroupNameMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +143,18 @@ export class ResetDBParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResetDBParameterGroupCommand(input, context);
+    return se_ResetDBParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetDBParameterGroupCommandOutput> {
-    return deserializeAws_queryResetDBParameterGroupCommand(output, context);
+    return de_ResetDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

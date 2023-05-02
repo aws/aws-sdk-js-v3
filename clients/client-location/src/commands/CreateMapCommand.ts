@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  CreateMapRequest,
-  CreateMapRequestFilterSensitiveLog,
-  CreateMapResponse,
-  CreateMapResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMapCommand,
-  serializeAws_restJson1CreateMapCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMapRequest, CreateMapResponse } from "../models/models_0";
+import { de_CreateMapCommand, se_CreateMapCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMapCommand}.
  */
 export interface CreateMapCommandInput extends CreateMapRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMapCommand}.
  */
 export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a map resource in your Amazon Web Services account, which provides map tiles of different
  *             styles sourced from global location data providers.</p>
  *          <note>
@@ -49,10 +46,23 @@ export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBea
  * import { LocationClient, CreateMapCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreateMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // CreateMapRequest
+ *   MapName: "STRING_VALUE", // required
+ *   Configuration: { // MapConfiguration
+ *     Style: "STRING_VALUE", // required
+ *   },
+ *   PricingPlan: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateMapCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMapCommandInput - {@link CreateMapCommandInput}
+ * @returns {@link CreateMapCommandOutput}
  * @see {@link CreateMapCommandInput} for command's `input` shape.
  * @see {@link CreateMapCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -96,6 +106,9 @@ export class CreateMapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +135,8 @@ export class CreateMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMapRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMapResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +146,18 @@ export class CreateMapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMapCommand(input, context);
+    return se_CreateMapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMapCommandOutput> {
-    return deserializeAws_restJson1CreateMapCommand(output, context);
+    return de_CreateMapCommand(output, context);
   }
 
   // Start section: command_body_extra

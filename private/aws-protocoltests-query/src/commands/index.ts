@@ -6,6 +6,7 @@ export * from "./EndpointWithHostLabelOperationCommand";
 export * from "./FlattenedXmlMapCommand";
 export * from "./FlattenedXmlMapWithXmlNameCommand";
 export * from "./FlattenedXmlMapWithXmlNamespaceCommand";
+export * from "./FractionalSecondsCommand";
 export * from "./GreetingWithErrorsCommand";
 export * from "./HostWithPathOperationCommand";
 export * from "./IgnoresWrappingXmlNameCommand";

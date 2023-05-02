@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetWorldTemplateBodyRequest,
-  GetWorldTemplateBodyRequestFilterSensitiveLog,
-  GetWorldTemplateBodyResponse,
-  GetWorldTemplateBodyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorldTemplateBodyCommand,
-  serializeAws_restJson1GetWorldTemplateBodyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWorldTemplateBodyRequest, GetWorldTemplateBodyResponse } from "../models/models_0";
+import { de_GetWorldTemplateBodyCommand, se_GetWorldTemplateBodyCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorldTemplateBodyCommand}.
  */
 export interface GetWorldTemplateBodyCommandInput extends GetWorldTemplateBodyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorldTemplateBodyCommand}.
  */
 export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the world template body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyR
  * import { RoboMakerClient, GetWorldTemplateBodyCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, GetWorldTemplateBodyCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // GetWorldTemplateBodyRequest
+ *   template: "STRING_VALUE",
+ *   generationJob: "STRING_VALUE",
+ * };
  * const command = new GetWorldTemplateBodyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorldTemplateBodyCommandInput - {@link GetWorldTemplateBodyCommandInput}
+ * @returns {@link GetWorldTemplateBodyCommandOutput}
  * @see {@link GetWorldTemplateBodyCommandInput} for command's `input` shape.
  * @see {@link GetWorldTemplateBodyCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -82,6 +85,9 @@ export class GetWorldTemplateBodyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorldTemplateBodyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class GetWorldTemplateBodyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorldTemplateBodyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorldTemplateBodyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class GetWorldTemplateBodyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorldTemplateBodyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorldTemplateBodyCommand(input, context);
+    return se_GetWorldTemplateBodyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorldTemplateBodyCommandOutput> {
-    return deserializeAws_restJson1GetWorldTemplateBodyCommand(output, context);
+    return de_GetWorldTemplateBodyCommand(output, context);
   }
 
   // Start section: command_body_extra

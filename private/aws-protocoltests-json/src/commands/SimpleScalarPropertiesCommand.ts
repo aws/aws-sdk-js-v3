@@ -13,20 +13,18 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import {
-  SimpleScalarPropertiesInputOutput,
-  SimpleScalarPropertiesInputOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SimpleScalarPropertiesCommand,
-  serializeAws_json1_1SimpleScalarPropertiesCommand,
-} from "../protocols/Aws_json1_1";
+import { SimpleScalarPropertiesInputOutput } from "../models/models_0";
+import { de_SimpleScalarPropertiesCommand, se_SimpleScalarPropertiesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SimpleScalarPropertiesCommand}.
  */
 export interface SimpleScalarPropertiesCommandInput extends SimpleScalarPropertiesInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link SimpleScalarPropertiesCommand}.
  */
 export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropertiesInputOutput, __MetadataBearer {}
@@ -39,6 +37,9 @@ export class SimpleScalarPropertiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: SimpleScalarPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,8 +65,8 @@ export class SimpleScalarPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimpleScalarPropertiesInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: SimpleScalarPropertiesInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -75,12 +76,18 @@ export class SimpleScalarPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SimpleScalarPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SimpleScalarPropertiesCommand(input, context);
+    return se_SimpleScalarPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimpleScalarPropertiesCommandOutput> {
-    return deserializeAws_json1_1SimpleScalarPropertiesCommand(output, context);
+    return de_SimpleScalarPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddRoleToDBClusterMessage, AddRoleToDBClusterMessageFilterSensitiveLog } from "../models/models_0";
+import { AddRoleToDBClusterMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryAddRoleToDBClusterCommand,
-  serializeAws_queryAddRoleToDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_AddRoleToDBClusterCommand, se_AddRoleToDBClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AddRoleToDBClusterCommand}.
  */
 export interface AddRoleToDBClusterCommandInput extends AddRoleToDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link AddRoleToDBClusterCommand}.
  */
 export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Identity and Access Management (IAM) role with an
  *       Neptune DB cluster.</p>
  * @example
@@ -38,10 +40,17 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * import { NeptuneClient, AddRoleToDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, AddRoleToDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // AddRoleToDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   FeatureName: "STRING_VALUE",
+ * };
  * const command = new AddRoleToDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddRoleToDBClusterCommandInput - {@link AddRoleToDBClusterCommandInput}
+ * @returns {@link AddRoleToDBClusterCommandOutput}
  * @see {@link AddRoleToDBClusterCommandInput} for command's `input` shape.
  * @see {@link AddRoleToDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -78,6 +87,9 @@ export class AddRoleToDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddRoleToDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +118,8 @@ export class AddRoleToDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddRoleToDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +129,18 @@ export class AddRoleToDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddRoleToDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddRoleToDBClusterCommand(input, context);
+    return se_AddRoleToDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRoleToDBClusterCommandOutput> {
-    return deserializeAws_queryAddRoleToDBClusterCommand(output, context);
+    return de_AddRoleToDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  CreateTypedLinkFacetRequest,
-  CreateTypedLinkFacetRequestFilterSensitiveLog,
-  CreateTypedLinkFacetResponse,
-  CreateTypedLinkFacetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTypedLinkFacetCommand,
-  serializeAws_restJson1CreateTypedLinkFacetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateTypedLinkFacetRequest, CreateTypedLinkFacetResponse } from "../models/models_0";
+import { de_CreateTypedLinkFacetCommand, se_CreateTypedLinkFacetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTypedLinkFacetCommand}.
  */
 export interface CreateTypedLinkFacetCommandInput extends CreateTypedLinkFacetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTypedLinkFacetCommand}.
  */
 export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,44 @@ export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetR
  * import { CloudDirectoryClient, CreateTypedLinkFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateTypedLinkFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // CreateTypedLinkFacetRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ *   Facet: { // TypedLinkFacet
+ *     Name: "STRING_VALUE", // required
+ *     Attributes: [ // TypedLinkAttributeDefinitionList // required
+ *       { // TypedLinkAttributeDefinition
+ *         Name: "STRING_VALUE", // required
+ *         Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
+ *         DefaultValue: { // TypedAttributeValue Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *         IsImmutable: true || false,
+ *         Rules: { // RuleMap
+ *           "<keys>": { // Rule
+ *             Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
+ *             Parameters: { // RuleParameterMap
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *         RequiredBehavior: "REQUIRED_ALWAYS" || "NOT_REQUIRED", // required
+ *       },
+ *     ],
+ *     IdentityAttributeOrder: [ // AttributeNameList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new CreateTypedLinkFacetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTypedLinkFacetCommandInput - {@link CreateTypedLinkFacetCommandInput}
+ * @returns {@link CreateTypedLinkFacetCommandOutput}
  * @see {@link CreateTypedLinkFacetCommandInput} for command's `input` shape.
  * @see {@link CreateTypedLinkFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -101,6 +132,9 @@ export class CreateTypedLinkFacetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTypedLinkFacetCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +163,8 @@ export class CreateTypedLinkFacetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTypedLinkFacetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTypedLinkFacetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +174,18 @@ export class CreateTypedLinkFacetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTypedLinkFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTypedLinkFacetCommand(input, context);
+    return se_CreateTypedLinkFacetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTypedLinkFacetCommandOutput> {
-    return deserializeAws_restJson1CreateTypedLinkFacetCommand(output, context);
+    return de_CreateTypedLinkFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

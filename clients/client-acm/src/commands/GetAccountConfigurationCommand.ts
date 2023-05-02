@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { GetAccountConfigurationResponse, GetAccountConfigurationResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAccountConfigurationCommand,
-  serializeAws_json1_1GetAccountConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAccountConfigurationResponse } from "../models/models_0";
+import { de_GetAccountConfigurationCommand, se_GetAccountConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountConfigurationCommand}.
  */
 export interface GetAccountConfigurationCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountConfigurationCommand}.
  */
 export interface GetAccountConfigurationCommandOutput extends GetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the account configuration options associated with an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,13 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  * import { ACMClient, GetAccountConfigurationCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, GetAccountConfigurationCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = {};
  * const command = new GetAccountConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountConfigurationCommandInput - {@link GetAccountConfigurationCommandInput}
+ * @returns {@link GetAccountConfigurationCommandOutput}
  * @see {@link GetAccountConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAccountConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -70,6 +75,9 @@ export class GetAccountConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +106,8 @@ export class GetAccountConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetAccountConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +117,18 @@ export class GetAccountConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAccountConfigurationCommand(input, context);
+    return se_GetAccountConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetAccountConfigurationCommand(output, context);
+    return de_GetAccountConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

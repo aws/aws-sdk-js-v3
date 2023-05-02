@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEndpointsRequest,
-  DescribeEndpointsRequestFilterSensitiveLog,
-  DescribeEndpointsResponse,
-  DescribeEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeEndpointsCommand,
-  serializeAws_json1_0DescribeEndpointsCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_0";
+import { de_DescribeEndpointsCommand, se_DescribeEndpointsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEndpointsCommand}.
  */
 export interface DescribeEndpointsCommandInput extends DescribeEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEndpointsCommand}.
  */
 export interface DescribeEndpointsCommandOutput extends DescribeEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>DescribeEndpoints returns a list of available endpoints to make Timestream
  *             API calls against. This API is available through both Write and Query.</p>
  *         <p>Because the Timestream SDKs are designed to transparently work with the
@@ -62,10 +59,13 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * import { TimestreamQueryClient, DescribeEndpointsCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, DescribeEndpointsCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
+ * const input = {};
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointsCommandInput - {@link DescribeEndpointsCommandInput}
+ * @returns {@link DescribeEndpointsCommandOutput}
  * @see {@link DescribeEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointsCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -100,6 +100,9 @@ export class DescribeEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +131,8 @@ export class DescribeEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +142,18 @@ export class DescribeEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeEndpointsCommand(input, context);
+    return se_DescribeEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointsCommandOutput> {
-    return deserializeAws_json1_0DescribeEndpointsCommand(output, context);
+    return de_DescribeEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

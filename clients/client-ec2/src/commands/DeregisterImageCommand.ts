@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeregisterImageRequest, DeregisterImageRequestFilterSensitiveLog } from "../models/models_3";
-import { deserializeAws_ec2DeregisterImageCommand, serializeAws_ec2DeregisterImageCommand } from "../protocols/Aws_ec2";
+import { DeregisterImageRequest } from "../models/models_3";
+import { de_DeregisterImageCommand, se_DeregisterImageCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterImageCommand}.
  */
 export interface DeregisterImageCommandInput extends DeregisterImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterImageCommand}.
  */
 export interface DeregisterImageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to
  *        launch new instances.</p>
  *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained
@@ -45,10 +50,16 @@ export interface DeregisterImageCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeregisterImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeregisterImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeregisterImageRequest
+ *   ImageId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeregisterImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterImageCommandInput - {@link DeregisterImageCommandInput}
+ * @returns {@link DeregisterImageCommandOutput}
  * @see {@link DeregisterImageCommandInput} for command's `input` shape.
  * @see {@link DeregisterImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +83,9 @@ export class DeregisterImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +114,8 @@ export class DeregisterImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +125,18 @@ export class DeregisterImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeregisterImageCommand(input, context);
+    return se_DeregisterImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterImageCommandOutput> {
-    return deserializeAws_ec2DeregisterImageCommand(output, context);
+    return de_DeregisterImageCommand(output, context);
   }
 
   // Start section: command_body_extra

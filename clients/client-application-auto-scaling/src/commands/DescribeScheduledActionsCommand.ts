@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  DescribeScheduledActionsRequest,
-  DescribeScheduledActionsRequestFilterSensitiveLog,
-  DescribeScheduledActionsResponse,
-  DescribeScheduledActionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeScheduledActionsCommand,
-  serializeAws_json1_1DescribeScheduledActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeScheduledActionsRequest, DescribeScheduledActionsResponse } from "../models/models_0";
+import { de_DescribeScheduledActionsCommand, se_DescribeScheduledActionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduledActionsCommand}.
  */
 export interface DescribeScheduledActionsCommandInput extends DescribeScheduledActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduledActionsCommand}.
  */
 export interface DescribeScheduledActionsCommandOutput extends DescribeScheduledActionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Application Auto Scaling scheduled actions for the specified service namespace.</p>
  *          <p>You can filter the results using the <code>ResourceId</code>,
  *             <code>ScalableDimension</code>, and <code>ScheduledActionNames</code> parameters.</p>
@@ -50,10 +47,22 @@ export interface DescribeScheduledActionsCommandOutput extends DescribeScheduled
  * import { ApplicationAutoScalingClient, DescribeScheduledActionsCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, DescribeScheduledActionsCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
+ * const input = { // DescribeScheduledActionsRequest
+ *   ScheduledActionNames: [ // ResourceIdsMaxLen1600
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ *   ResourceId: "STRING_VALUE",
+ *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeScheduledActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduledActionsCommandInput - {@link DescribeScheduledActionsCommandInput}
+ * @returns {@link DescribeScheduledActionsCommandOutput}
  * @see {@link DescribeScheduledActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledActionsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -134,6 +143,9 @@ export class DescribeScheduledActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduledActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,8 +174,8 @@ export class DescribeScheduledActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduledActionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScheduledActionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -173,12 +185,18 @@ export class DescribeScheduledActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScheduledActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeScheduledActionsCommand(input, context);
+    return se_DescribeScheduledActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduledActionsCommandOutput> {
-    return deserializeAws_json1_1DescribeScheduledActionsCommand(output, context);
+    return de_DescribeScheduledActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

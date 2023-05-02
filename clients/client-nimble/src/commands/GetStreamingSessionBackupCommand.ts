@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetStreamingSessionBackupRequest,
-  GetStreamingSessionBackupRequestFilterSensitiveLog,
-  GetStreamingSessionBackupResponse,
-  GetStreamingSessionBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetStreamingSessionBackupRequest, GetStreamingSessionBackupResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1GetStreamingSessionBackupCommand,
-  serializeAws_restJson1GetStreamingSessionBackupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetStreamingSessionBackupCommand, se_GetStreamingSessionBackupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStreamingSessionBackupCommand}.
  */
 export interface GetStreamingSessionBackupCommandInput extends GetStreamingSessionBackupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStreamingSessionBackupCommand}.
  */
 export interface GetStreamingSessionBackupCommandOutput extends GetStreamingSessionBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets <code>StreamingSessionBackup</code> resource.</p>
  *         <p>Invoke this operation to poll for a streaming session backup while stopping a
  *             streaming session.</p>
@@ -44,10 +41,16 @@ export interface GetStreamingSessionBackupCommandOutput extends GetStreamingSess
  * import { NimbleClient, GetStreamingSessionBackupCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetStreamingSessionBackupCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // GetStreamingSessionBackupRequest
+ *   backupId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetStreamingSessionBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamingSessionBackupCommandInput - {@link GetStreamingSessionBackupCommandInput}
+ * @returns {@link GetStreamingSessionBackupCommandOutput}
  * @see {@link GetStreamingSessionBackupCommandInput} for command's `input` shape.
  * @see {@link GetStreamingSessionBackupCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -90,6 +93,9 @@ export class GetStreamingSessionBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamingSessionBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class GetStreamingSessionBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStreamingSessionBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStreamingSessionBackupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +135,21 @@ export class GetStreamingSessionBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStreamingSessionBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStreamingSessionBackupCommand(input, context);
+    return se_GetStreamingSessionBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetStreamingSessionBackupCommandOutput> {
-    return deserializeAws_restJson1GetStreamingSessionBackupCommand(output, context);
+    return de_GetStreamingSessionBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

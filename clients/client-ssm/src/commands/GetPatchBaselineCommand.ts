@@ -15,26 +15,27 @@ import {
 
 import {
   GetPatchBaselineRequest,
-  GetPatchBaselineRequestFilterSensitiveLog,
   GetPatchBaselineResult,
   GetPatchBaselineResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetPatchBaselineCommand,
-  serializeAws_json1_1GetPatchBaselineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetPatchBaselineCommand, se_GetPatchBaselineCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPatchBaselineCommand}.
  */
 export interface GetPatchBaselineCommandInput extends GetPatchBaselineRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPatchBaselineCommand}.
  */
 export interface GetPatchBaselineCommandOutput extends GetPatchBaselineResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a patch baseline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface GetPatchBaselineCommandOutput extends GetPatchBaselineResult, _
  * import { SSMClient, GetPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetPatchBaselineRequest
+ *   BaselineId: "STRING_VALUE", // required
+ * };
  * const command = new GetPatchBaselineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPatchBaselineCommandInput - {@link GetPatchBaselineCommandInput}
+ * @returns {@link GetPatchBaselineCommandOutput}
  * @see {@link GetPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link GetPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -81,6 +87,9 @@ export class GetPatchBaselineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,7 +118,7 @@ export class GetPatchBaselineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPatchBaselineRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPatchBaselineResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -120,12 +129,18 @@ export class GetPatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPatchBaselineCommand(input, context);
+    return se_GetPatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPatchBaselineCommandOutput> {
-    return deserializeAws_json1_1GetPatchBaselineCommand(output, context);
+    return de_GetPatchBaselineCommand(output, context);
   }
 
   // Start section: command_body_extra

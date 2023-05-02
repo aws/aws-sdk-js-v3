@@ -1,20 +1,536 @@
 // smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+
+import { KendraServiceException as __BaseException } from "./KendraServiceException";
 import {
+  CapacityUnitsConfiguration,
+  CustomDocumentEnrichmentConfiguration,
+  DataSourceConfiguration,
+  DataSourceVpcConfiguration,
   DocumentAttribute,
   DocumentAttributeValue,
   DocumentAttributeValueType,
+  DocumentMetadataConfiguration,
   DocumentRelevanceConfiguration,
+  ExperienceConfiguration,
+  FeaturedDocument,
+  FeaturedResultsItem,
+  FeaturedResultsSet,
+  FeaturedResultsSetStatus,
+  HierarchicalPrincipal,
   Mode,
+  Principal,
   QueryResultItem,
   QueryResultType,
   S3Path,
   SortingConfiguration,
   SpellCorrectedQuery,
   SpellCorrectionConfiguration,
+  Tag,
   UserContext,
+  UserContextPolicy,
+  UserGroupResolutionConfiguration,
+  UserTokenConfiguration,
   Warning,
 } from "./models_0";
 
+/**
+ * @public
+ * <p>The resource you want to use is currently in use. Please check you have provided the
+ *             correct resource and try again.</p>
+ */
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartDataSourceSyncJobRequest {
+  /**
+   * <p>The identifier of the data source connector to synchronize.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index used with the data source connector.</p>
+   */
+  IndexId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDataSourceSyncJobResponse {
+  /**
+   * <p>Identifies a particular synchronization job.</p>
+   */
+  ExecutionId?: string;
+}
+
+/**
+ * @public
+ */
+export interface StopDataSourceSyncJobRequest {
+  /**
+   * <p>The identifier of the data source connector for which to stop the synchronization
+   *       jobs.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index used with the data source connector.</p>
+   */
+  IndexId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Gathers information about when a particular result was clicked by a user. Your
+ *             application uses the <code>SubmitFeedback</code> API to provide click
+ *             information.</p>
+ */
+export interface ClickFeedback {
+  /**
+   * <p>The identifier of the search result that was clicked.</p>
+   */
+  ResultId: string | undefined;
+
+  /**
+   * <p>The Unix timestamp when the result was clicked.</p>
+   */
+  ClickTime: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RelevanceType = {
+  NOT_RELEVANT: "NOT_RELEVANT",
+  RELEVANT: "RELEVANT",
+} as const;
+
+/**
+ * @public
+ */
+export type RelevanceType = (typeof RelevanceType)[keyof typeof RelevanceType];
+
+/**
+ * @public
+ * <p>Provides feedback on how relevant a document is to a search. Your application uses the
+ *             <code>SubmitFeedback</code> API to provide relevance information.</p>
+ */
+export interface RelevanceFeedback {
+  /**
+   * <p>The identifier of the search result that the user provided relevance feedback
+   *             for.</p>
+   */
+  ResultId: string | undefined;
+
+  /**
+   * <p>Whether the document was relevant or not relevant to the search.</p>
+   */
+  RelevanceValue: RelevanceType | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SubmitFeedbackRequest {
+  /**
+   * <p>The identifier of the index that was queried.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the specific query for which you are submitting
+   *             feedback. The query ID is returned in the response to the
+   *                 <code>Query</code> API.</p>
+   */
+  QueryId: string | undefined;
+
+  /**
+   * <p>Tells Amazon Kendra that a particular search result link was chosen
+   *             by the user. </p>
+   */
+  ClickFeedbackItems?: ClickFeedback[];
+
+  /**
+   * <p>Provides Amazon Kendra with relevant or not relevant feedback for
+   *             whether a particular item was relevant to the search.</p>
+   */
+  RelevanceFeedbackItems?: RelevanceFeedback[];
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the index, FAQ, or data source to tag.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>A list of tag keys to add to the index, FAQ, or data source. If a tag already exists, the
+   *       existing value is replaced with the new value.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the index, FAQ, or data source to remove the tag
+   *       from.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>A list of tag keys to remove from the index, FAQ, or data source. If a tag key does not
+   *       exist on the resource, it is ignored.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateAccessControlConfigurationRequest {
+  /**
+   * <p>The identifier of the index for an access control configuration.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the access control configuration you want to update.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A new name for the access control configuration.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A new description for the access control configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information you want to update on principals (users and/or groups) and which documents
+   *             they should have access to. This is useful for user context filtering, where search
+   *             results are filtered based on the user or their group access to documents.</p>
+   */
+  AccessControlList?: Principal[];
+
+  /**
+   * <p>The updated list of <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html">principal</a> lists that define the
+   *             hierarchy for which documents users should have access to.</p>
+   */
+  HierarchicalAccessControlList?: HierarchicalPrincipal[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccessControlConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateDataSourceRequest {
+  /**
+   * <p>The identifier of the data source connector you want to update.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A new name for the data source connector.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The identifier of the index used with the data source connector.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>Configuration information you want to update for the data source connector.</p>
+   */
+  Configuration?: DataSourceConfiguration;
+
+  /**
+   * <p>Configuration information for an Amazon Virtual Private Cloud to connect to your data source.
+   *       For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring a VPC</a>.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
+
+  /**
+   * <p>A new description for the data source connector.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The sync schedule you want to update for the data source connector.</p>
+   */
+  Schedule?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a role with permission to access the data source and
+   *       required resources. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The code for a language you want to update for the data source connector.
+   *             This allows you to support a language for all
+   *             documents when updating the data source. English is supported
+   *             by default. For more information on supported languages, including their codes,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+   *                 documents in languages other than English</a>.</p>
+   */
+  LanguageCode?: string;
+
+  /**
+   * <p>Configuration information you want to update for altering document metadata and
+   *             content during the document ingestion process.</p>
+   *          <p>For more information on how to create, modify and delete document metadata, or make
+   *             other content alterations when you ingest documents into Amazon Kendra, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing document metadata during the ingestion process</a>.</p>
+   */
+  CustomDocumentEnrichmentConfiguration?: CustomDocumentEnrichmentConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExperienceRequest {
+  /**
+   * <p>The identifier of your Amazon Kendra experience you want to update.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A new name for your Amazon Kendra experience.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a role with permission to access <code>Query</code>
+   *             API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code>
+   *             API, and IAM Identity Center that stores your user and group information.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Configuration information you want to update for your Amazon Kendra experience.</p>
+   */
+  Configuration?: ExperienceConfiguration;
+
+  /**
+   * <p>A new description for your Amazon Kendra experience.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFeaturedResultsSetRequest {
+  /**
+   * <p>The identifier of the index used for featuring results.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the index used for featuring results.</p>
+   */
+  FeaturedResultsSetId: string | undefined;
+
+  /**
+   * <p>A new name for the set of featured results.</p>
+   */
+  FeaturedResultsSetName?: string;
+
+  /**
+   * <p>A new description for the set of featured results.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>You can set the status to <code>ACTIVE</code> or <code>INACTIVE</code>.
+   *             When the value is <code>ACTIVE</code>, featured results are ready for
+   *             use. You can still configure your settings before setting the status
+   *             to <code>ACTIVE</code>. The queries you specify for featured results
+   *             must be unique per featured results set for each index, whether the
+   *             status is <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
+   */
+  Status?: FeaturedResultsSetStatus | string;
+
+  /**
+   * <p>A list of queries for featuring results. For more information on the
+   *             list of queries, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_FeaturedResultsSet.html">FeaturedResultsSet</a>.</p>
+   */
+  QueryTexts?: string[];
+
+  /**
+   * <p>A list of document IDs for the documents you want to feature at the
+   *             top of the search results page. For more information on the list of
+   *             featured documents, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_FeaturedResultsSet.html">FeaturedResultsSet</a>.</p>
+   */
+  FeaturedDocuments?: FeaturedDocument[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateFeaturedResultsSetResponse {
+  /**
+   * <p>Information on the set of featured results. This includes the identifier
+   *             of the featured results set, whether the featured results set is active
+   *             or inactive, when the featured results set was last updated, and more.</p>
+   */
+  FeaturedResultsSet?: FeaturedResultsSet;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIndexRequest {
+  /**
+   * <p>The identifier of the index you want to update.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the index you want to update.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>An Identity and Access Management (IAM) role that gives Amazon Kendra
+   *       permission to access Amazon CloudWatch logs and metrics.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>A new description for the index.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The document metadata configuration you want to update for the index. Document metadata
+   *       are fields or attributes associated with your documents. For example, the company department
+   *       name associated with each document.</p>
+   */
+  DocumentMetadataConfigurationUpdates?: DocumentMetadataConfiguration[];
+
+  /**
+   * <p>Sets the number of additional document storage and query capacity units that should be
+   *       used by the index. You can change the capacity of the index up to 5 times per day, or make 5
+   *       API calls.</p>
+   *          <p>If you are using extra storage units, you can't reduce the storage capacity below what is
+   *       required to meet the storage needs for your index.</p>
+   */
+  CapacityUnits?: CapacityUnitsConfiguration;
+
+  /**
+   * <p>The user token configuration.</p>
+   */
+  UserTokenConfigurations?: UserTokenConfiguration[];
+
+  /**
+   * <p>The user context policy.</p>
+   */
+  UserContextPolicy?: UserContextPolicy | string;
+
+  /**
+   * <p>Enables fetching access levels of groups and users from an IAM Identity Center (successor to Single Sign-On)
+   *          identity source. To configure this, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>.</p>
+   */
+  UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuerySuggestionsBlockListRequest {
+  /**
+   * <p>The identifier of the index for the block list.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the block list you want to update.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A new name for the block list.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A new description for the block list.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The S3 path where your block list text file sits in S3.</p>
+   *          <p>If you update your block list and provide the same path to the
+   *             block list text file in S3, then Amazon Kendra reloads the file to refresh
+   *             the block list. Amazon Kendra does not automatically refresh your block list.
+   *             You need to call the <code>UpdateQuerySuggestionsBlockList</code> API
+   *             to refresh you block list.</p>
+   *          <p>If you update your block list, then Amazon Kendra asynchronously refreshes
+   *             all query suggestions with the latest content in the S3 file. This
+   *             means changes might not take effect immediately.</p>
+   */
+  SourceS3Path?: S3Path;
+
+  /**
+   * <p>The IAM (Identity and Access Management) role used to access the
+   *             block list text file in S3.</p>
+   */
+  RoleArn?: string;
+}
+
+/**
+ * @public
+ */
 export interface UpdateQuerySuggestionsConfigRequest {
   /**
    * <p> The identifier of the index with query suggestions you want to update.</p>
@@ -75,6 +591,9 @@ export interface UpdateQuerySuggestionsConfigRequest {
   MinimumQueryCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThesaurusRequest {
   /**
    * <p>The identifier of the thesaurus you want to update.</p>
@@ -109,13 +628,14 @@ export interface UpdateThesaurusRequest {
 }
 
 /**
- * <p>Information about a document attribute. You can use document
- *          attributes as facets.</p>
- *          <p>For example, the document attribute or facet "Department" includes
- *          the values "HR", "Engineering", and "Accounting". You can display these
- *          values in the search results so that documents can be searched by department.</p>
- *          <p>You can display up to 10 facet values per facet for a query. If you want to
- *          increase this limit, contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+ * @public
+ * <p>Information about a document attribute. You can use document attributes as
+ *          facets.</p>
+ *          <p>For example, the document attribute or facet "Department" includes the values "HR",
+ *          "Engineering", and "Accounting". You can display these values in the search results so that
+ *          documents can be searched by department.</p>
+ *          <p>You can display up to 10 facet values per facet for a query. If you want to increase
+ *          this limit, contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
  */
 export interface Facet {
   /**
@@ -125,29 +645,29 @@ export interface Facet {
 
   /**
    * <p>An array of document attributes that are nested facets within a facet.</p>
-   *          <p>For example, the document attribute or facet "Department" includes a
-   *          value called "Engineering". In addition, the document attribute or
-   *          facet "SubDepartment" includes the values "Frontend" and "Backend" for documents
-   *          assigned to "Engineering". You can display nested facets in the search results
-   *          so that documents can be searched not only by department but also by a sub
-   *          department within a department. This helps your users further narrow their
-   *          search.</p>
-   *          <p>You can only have one nested facet within a facet. If you want to increase
-   *          this limit, contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+   *          <p>For example, the document attribute or facet "Department" includes a value called
+   *          "Engineering". In addition, the document attribute or facet "SubDepartment" includes the
+   *          values "Frontend" and "Backend" for documents assigned to "Engineering". You can display
+   *          nested facets in the search results so that documents can be searched not only by
+   *          department but also by a sub department within a department. This helps your users further
+   *          narrow their search.</p>
+   *          <p>You can only have one nested facet within a facet. If you want to increase this limit,
+   *          contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
    */
   Facets?: Facet[];
 
   /**
-   * <p>Maximum number of facet values per facet. The default is 10. You can use
-   *          this to limit the number of facet values to less than 10. If you want to
-   *          increase the default, contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+   * <p>Maximum number of facet values per facet. The default is 10. You can use this to limit
+   *          the number of facet values to less than 10. If you want to increase the default, contact
+   *             <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
    */
   MaxResults?: number;
 }
 
 /**
+ * @public
  * <p>Provides the count of documents that match a particular attribute when doing a faceted
- *             search.</p>
+ *          search.</p>
  */
 export interface DocumentAttributeValueCountPair {
   /**
@@ -157,55 +677,56 @@ export interface DocumentAttributeValueCountPair {
 
   /**
    * <p>The number of documents in the response that have the attribute value for the
-   *             key.</p>
+   *          key.</p>
    */
   Count?: number;
 
   /**
    * <p>Contains the results of a document attribute that is a nested facet. A
-   *                 <code>FacetResult</code> contains the counts for each facet nested within a
-   *             facet.</p>
+   *             <code>FacetResult</code> contains the counts for each facet nested within a
+   *          facet.</p>
    *          <p>For example, the document attribute or facet "Department" includes a value called
-   *             "Engineering". In addition, the document attribute or facet "SubDepartment" includes the
-   *             values "Frontend" and "Backend" for documents assigned to "Engineering". You can display
-   *             nested facets in the search results so that documents can be searched not only by
-   *             department but also by a sub department within a department. The counts for documents
-   *             that belong to "Frontend" and "Backend" within "Engineering" are returned for a
-   *             query.</p>
+   *          "Engineering". In addition, the document attribute or facet "SubDepartment" includes the
+   *          values "Frontend" and "Backend" for documents assigned to "Engineering". You can display
+   *          nested facets in the search results so that documents can be searched not only by
+   *          department but also by a sub department within a department. The counts for documents that
+   *          belong to "Frontend" and "Backend" within "Engineering" are returned for a query.</p>
+   *          <p></p>
+   *          <p></p>
    */
   FacetResults?: FacetResult[];
 }
 
 /**
+ * @public
  * <p>The facet values for the documents in the response.</p>
  */
 export interface FacetResult {
   /**
-   * <p>The key for the facet values. This is the same as the
-   *             <code>DocumentAttributeKey</code> provided in the query.</p>
+   * <p>The key for the facet values. This is the same as the <code>DocumentAttributeKey</code>
+   *          provided in the query.</p>
    */
   DocumentAttributeKey?: string;
 
   /**
-   * <p>The data type of the facet value. This is the same as the type
-   *          defined for the index field when it was created.</p>
+   * <p>The data type of the facet value. This is the same as the type defined for the index
+   *          field when it was created.</p>
    */
   DocumentAttributeValueType?: DocumentAttributeValueType | string;
 
   /**
-   * <p>An array of key/value pairs, where the key is the value of the
-   *          attribute and the count is the number of documents that share the key
-   *          value.</p>
+   * <p>An array of key/value pairs, where the key is the value of the attribute and the count
+   *          is the number of documents that share the key value.</p>
    */
   DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[];
 }
 
 /**
- * <p>Provides filtering the query results based on document
- *          attributes or metadata fields.</p>
- *          <p>When you use the <code>AndAllFilters</code> or
- *             <code>OrAllFilters</code>, filters you can use 2 layers under the
- *          first attribute filter. For example, you can use:</p>
+ * @public
+ * <p>Provides filtering the query results based on document attributes or metadata
+ *          fields.</p>
+ *          <p>When you use the <code>AndAllFilters</code> or <code>OrAllFilters</code>, filters you
+ *          can use 2 layers under the first attribute filter. For example, you can use:</p>
  *          <p>
  *             <code><AndAllFilters></code>
  *          </p>
@@ -221,31 +742,25 @@ export interface FacetResult {
  *                </p>
  *             </li>
  *          </ol>
- *          <p>If you use more than 2 layers, you receive a
- *             <code>ValidationException</code> exception with the message
- *             "<code>AttributeFilter</code> cannot have a depth of more
- *          than 2."</p>
- *          <p>If you use more than 10 attribute filters in a given list for
- *          <code>AndAllFilters</code> or <code>OrAllFilters</code>, you receive
- *          a <code>ValidationException</code> with the message
- *          "<code>AttributeFilter</code> cannot have a length of more than 10".</p>
+ *          <p>If you use more than 2 layers, you receive a <code>ValidationException</code> exception
+ *          with the message "<code>AttributeFilter</code> cannot have a depth of more than 2."</p>
+ *          <p>If you use more than 10 attribute filters in a given list for <code>AndAllFilters</code>
+ *          or <code>OrAllFilters</code>, you receive a <code>ValidationException</code> with the
+ *          message "<code>AttributeFilter</code> cannot have a length of more than 10".</p>
  */
 export interface AttributeFilter {
   /**
-   * <p>Performs a logical <code>AND</code> operation on all supplied
-   *          filters.</p>
+   * <p>Performs a logical <code>AND</code> operation on all supplied filters.</p>
    */
   AndAllFilters?: AttributeFilter[];
 
   /**
-   * <p>Performs a logical <code>OR</code> operation on all supplied
-   *          filters.</p>
+   * <p>Performs a logical <code>OR</code> operation on all supplied filters.</p>
    */
   OrAllFilters?: AttributeFilter[];
 
   /**
-   * <p>Performs a logical <code>NOT</code> operation on all supplied
-   *          filters.</p>
+   * <p>Performs a logical <code>NOT</code> operation on all supplied filters.</p>
    */
   NotFilter?: AttributeFilter;
 
@@ -255,48 +770,48 @@ export interface AttributeFilter {
   EqualsTo?: DocumentAttribute;
 
   /**
-   * <p>Returns true when a document contains all of the specified document
-   *          attributes or metadata fields. This filter is only applicable to
-   *             <code>StringListValue</code> metadata.</p>
+   * <p>Returns true when a document contains all of the specified document attributes or
+   *          metadata fields. This filter is only applicable to <code>StringListValue</code>
+   *          metadata.</p>
    */
   ContainsAll?: DocumentAttribute;
 
   /**
-   * <p>Returns true when a document contains any of the specified document
-   *          attributes or metadata fields. This filter is only applicable to
-   *             <code>StringListValue</code> metadata.</p>
+   * <p>Returns true when a document contains any of the specified document attributes or
+   *          metadata fields. This filter is only applicable to <code>StringListValue</code>
+   *          metadata.</p>
    */
   ContainsAny?: DocumentAttribute;
 
   /**
    * <p>Performs a greater than operation on two document attributes or metadata fields. Use
-   *          with a document attribute of type <code>Date</code> or
-   *             <code>Long</code>.</p>
+   *          with a document attribute of type <code>Date</code> or <code>Long</code>.</p>
    */
   GreaterThan?: DocumentAttribute;
 
   /**
-   * <p>Performs a greater or equals than operation on two document
-   *          attributes or metadata fields. Use with a document attribute of type <code>Date</code>
-   *          or <code>Long</code>.</p>
+   * <p>Performs a greater or equals than operation on two document attributes or metadata
+   *          fields. Use with a document attribute of type <code>Date</code> or
+   *          <code>Long</code>.</p>
    */
   GreaterThanOrEquals?: DocumentAttribute;
 
   /**
-   * <p>Performs a less than operation on two document attributes or metadata fields. Use with
-   *          a document attribute of type <code>Date</code> or
-   *          <code>Long</code>.</p>
+   * <p>Performs a less than operation on two document attributes or metadata fields. Use with a
+   *          document attribute of type <code>Date</code> or <code>Long</code>.</p>
    */
   LessThan?: DocumentAttribute;
 
   /**
    * <p>Performs a less than or equals operation on two document attributes or metadata fields.
-   *          Use with a document attribute of type <code>Date</code> or
-   *             <code>Long</code>.</p>
+   *          Use with a document attribute of type <code>Date</code> or <code>Long</code>.</p>
    */
   LessThanOrEquals?: DocumentAttribute;
 }
 
+/**
+ * @public
+ */
 export interface QueryResult {
   /**
    * <p>The identifier for the search. You use <code>QueryId</code> to identify the
@@ -334,8 +849,19 @@ export interface QueryResult {
    * <p>A list of information related to suggested spell corrections for a query.</p>
    */
   SpellCorrectedQueries?: SpellCorrectedQuery[];
+
+  /**
+   * <p>The list of featured result items. Featured results are displayed at
+   *          the top of the search results page, placed above all other results for
+   *          certain queries. If there's an exact match of a query, then certain
+   *          documents are featured in the search results.</p>
+   */
+  FeaturedResultsItems?: FeaturedResultsItem[];
 }
 
+/**
+ * @public
+ */
 export interface QueryRequest {
   /**
    * <p>The identifier of the index to search. The identifier is returned in the response
@@ -433,61 +959,3 @@ export interface QueryRequest {
    */
   SpellCorrectionConfiguration?: SpellCorrectionConfiguration;
 }
-
-/**
- * @internal
- */
-export const UpdateQuerySuggestionsConfigRequestFilterSensitiveLog = (
-  obj: UpdateQuerySuggestionsConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateThesaurusRequestFilterSensitiveLog = (obj: UpdateThesaurusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FacetFilterSensitiveLog = (obj: Facet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentAttributeValueCountPairFilterSensitiveLog = (obj: DocumentAttributeValueCountPair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FacetResultFilterSensitiveLog = (obj: FacetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeFilterFilterSensitiveLog = (obj: AttributeFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryResultFilterSensitiveLog = (obj: QueryResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryRequestFilterSensitiveLog = (obj: QueryRequest): any => ({
-  ...obj,
-});

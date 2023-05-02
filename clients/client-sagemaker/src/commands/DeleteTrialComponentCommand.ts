@@ -13,41 +13,43 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTrialComponentRequest,
-  DeleteTrialComponentRequestFilterSensitiveLog,
-  DeleteTrialComponentResponse,
-  DeleteTrialComponentResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteTrialComponentCommand,
-  serializeAws_json1_1DeleteTrialComponentCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTrialComponentRequest, DeleteTrialComponentResponse } from "../models/models_2";
+import { de_DeleteTrialComponentCommand, se_DeleteTrialComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrialComponentCommand}.
  */
 export interface DeleteTrialComponentCommandInput extends DeleteTrialComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrialComponentCommand}.
  */
 export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified trial component. A trial component must be disassociated from all
  *       trials before the trial component can be deleted. To disassociate a trial component from a
- *       trial, call the <a>DisassociateTrialComponent</a> API.</p>
+ *       trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html">DisassociateTrialComponent</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DeleteTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteTrialComponentRequest
+ *   TrialComponentName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTrialComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrialComponentCommandInput - {@link DeleteTrialComponentCommandInput}
+ * @returns {@link DeleteTrialComponentCommandOutput}
  * @see {@link DeleteTrialComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteTrialComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +76,9 @@ export class DeleteTrialComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrialComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +107,8 @@ export class DeleteTrialComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrialComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrialComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +118,18 @@ export class DeleteTrialComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTrialComponentCommand(input, context);
+    return se_DeleteTrialComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrialComponentCommandOutput> {
-    return deserializeAws_json1_1DeleteTrialComponentCommand(output, context);
+    return de_DeleteTrialComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

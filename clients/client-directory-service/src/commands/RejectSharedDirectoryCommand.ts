@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  RejectSharedDirectoryRequest,
-  RejectSharedDirectoryRequestFilterSensitiveLog,
-  RejectSharedDirectoryResult,
-  RejectSharedDirectoryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RejectSharedDirectoryCommand,
-  serializeAws_json1_1RejectSharedDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { RejectSharedDirectoryRequest, RejectSharedDirectoryResult } from "../models/models_0";
+import { de_RejectSharedDirectoryCommand, se_RejectSharedDirectoryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectSharedDirectoryCommand}.
  */
 export interface RejectSharedDirectoryCommandInput extends RejectSharedDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectSharedDirectoryCommand}.
  */
 export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects a directory sharing request that was sent from the directory owner account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
  * import { DirectoryServiceClient, RejectSharedDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RejectSharedDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // RejectSharedDirectoryRequest
+ *   SharedDirectoryId: "STRING_VALUE", // required
+ * };
  * const command = new RejectSharedDirectoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectSharedDirectoryCommandInput - {@link RejectSharedDirectoryCommandInput}
+ * @returns {@link RejectSharedDirectoryCommandOutput}
  * @see {@link RejectSharedDirectoryCommandInput} for command's `input` shape.
  * @see {@link RejectSharedDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -84,6 +86,9 @@ export class RejectSharedDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectSharedDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class RejectSharedDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectSharedDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectSharedDirectoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class RejectSharedDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectSharedDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RejectSharedDirectoryCommand(input, context);
+    return se_RejectSharedDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectSharedDirectoryCommandOutput> {
-    return deserializeAws_json1_1RejectSharedDirectoryCommand(output, context);
+    return de_RejectSharedDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

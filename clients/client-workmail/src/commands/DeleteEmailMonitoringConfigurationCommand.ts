@@ -15,21 +15,23 @@ import {
 
 import {
   DeleteEmailMonitoringConfigurationRequest,
-  DeleteEmailMonitoringConfigurationRequestFilterSensitiveLog,
   DeleteEmailMonitoringConfigurationResponse,
-  DeleteEmailMonitoringConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommand,
-  serializeAws_json1_1DeleteEmailMonitoringConfigurationCommand,
+  de_DeleteEmailMonitoringConfigurationCommand,
+  se_DeleteEmailMonitoringConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEmailMonitoringConfigurationCommand}.
  */
 export interface DeleteEmailMonitoringConfigurationCommandInput extends DeleteEmailMonitoringConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEmailMonitoringConfigurationCommand}.
  */
 export interface DeleteEmailMonitoringConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface DeleteEmailMonitoringConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the email monitoring configuration for a specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface DeleteEmailMonitoringConfigurationCommandOutput
  * import { WorkMailClient, DeleteEmailMonitoringConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteEmailMonitoringConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // DeleteEmailMonitoringConfigurationRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEmailMonitoringConfigurationCommandInput - {@link DeleteEmailMonitoringConfigurationCommandInput}
+ * @returns {@link DeleteEmailMonitoringConfigurationCommandOutput}
  * @see {@link DeleteEmailMonitoringConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailMonitoringConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -82,6 +90,9 @@ export class DeleteEmailMonitoringConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEmailMonitoringConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class DeleteEmailMonitoringConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEmailMonitoringConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEmailMonitoringConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +132,24 @@ export class DeleteEmailMonitoringConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteEmailMonitoringConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEmailMonitoringConfigurationCommand(input, context);
+    return se_DeleteEmailMonitoringConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEmailMonitoringConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommand(output, context);
+    return de_DeleteEmailMonitoringConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

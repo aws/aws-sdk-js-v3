@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import {
-  CopyBackupToRegionRequest,
-  CopyBackupToRegionRequestFilterSensitiveLog,
-  CopyBackupToRegionResponse,
-  CopyBackupToRegionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CopyBackupToRegionCommand,
-  serializeAws_json1_1CopyBackupToRegionCommand,
-} from "../protocols/Aws_json1_1";
+import { CopyBackupToRegionRequest, CopyBackupToRegionResponse } from "../models/models_0";
+import { de_CopyBackupToRegionCommand, se_CopyBackupToRegionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CopyBackupToRegionCommand}.
  */
 export interface CopyBackupToRegionCommandInput extends CopyBackupToRegionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyBackupToRegionCommand}.
  */
 export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copy an AWS CloudHSM cluster backup to a different region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionRespo
  * import { CloudHSMV2Client, CopyBackupToRegionCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, CopyBackupToRegionCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = { // CopyBackupToRegionRequest
+ *   DestinationRegion: "STRING_VALUE", // required
+ *   BackupId: "STRING_VALUE", // required
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CopyBackupToRegionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyBackupToRegionCommandInput - {@link CopyBackupToRegionCommandInput}
+ * @returns {@link CopyBackupToRegionCommandOutput}
  * @see {@link CopyBackupToRegionCommandInput} for command's `input` shape.
  * @see {@link CopyBackupToRegionCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
@@ -90,6 +99,9 @@ export class CopyBackupToRegionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyBackupToRegionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class CopyBackupToRegionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyBackupToRegionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyBackupToRegionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +141,18 @@ export class CopyBackupToRegionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyBackupToRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CopyBackupToRegionCommand(input, context);
+    return se_CopyBackupToRegionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyBackupToRegionCommandOutput> {
-    return deserializeAws_json1_1CopyBackupToRegionCommand(output, context);
+    return de_CopyBackupToRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

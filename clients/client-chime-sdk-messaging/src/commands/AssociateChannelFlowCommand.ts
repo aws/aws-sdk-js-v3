@@ -18,27 +18,31 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { AssociateChannelFlowRequest, AssociateChannelFlowRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateChannelFlowCommand,
-  serializeAws_restJson1AssociateChannelFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateChannelFlowRequest } from "../models/models_0";
+import { de_AssociateChannelFlowCommand, se_AssociateChannelFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateChannelFlowCommand}.
  */
 export interface AssociateChannelFlowCommandInput extends AssociateChannelFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateChannelFlowCommand}.
  */
 export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the
  *          <code>DisassociateChannelFlow</code> API.</p>
  *          <note>
- *             <p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
- *          of the user that makes the API call as the value in the header.</p>
+ *             <p>Only administrators or channel moderators can associate a channel flow. The
+ *          <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
+ *          <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+ *          that makes the API call as the value in the header.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +50,17 @@ export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKMessagingClient, AssociateChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, AssociateChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // AssociateChannelFlowRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChannelFlowArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new AssociateChannelFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateChannelFlowCommandInput - {@link AssociateChannelFlowCommandInput}
+ * @returns {@link AssociateChannelFlowCommandOutput}
  * @see {@link AssociateChannelFlowCommandInput} for command's `input` shape.
  * @see {@link AssociateChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -98,6 +109,9 @@ export class AssociateChannelFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +140,8 @@ export class AssociateChannelFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateChannelFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +151,18 @@ export class AssociateChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateChannelFlowCommand(input, context);
+    return se_AssociateChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateChannelFlowCommandOutput> {
-    return deserializeAws_restJson1AssociateChannelFlowCommand(output, context);
+    return de_AssociateChannelFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

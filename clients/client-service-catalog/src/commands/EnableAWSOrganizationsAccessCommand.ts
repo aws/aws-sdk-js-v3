@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { EnableAWSOrganizationsAccessInput, EnableAWSOrganizationsAccessOutput } from "../models/models_0";
 import {
-  EnableAWSOrganizationsAccessInput,
-  EnableAWSOrganizationsAccessInputFilterSensitiveLog,
-  EnableAWSOrganizationsAccessOutput,
-  EnableAWSOrganizationsAccessOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableAWSOrganizationsAccessCommand,
-  serializeAws_json1_1EnableAWSOrganizationsAccessCommand,
+  de_EnableAWSOrganizationsAccessCommand,
+  se_EnableAWSOrganizationsAccessCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableAWSOrganizationsAccessCommand}.
  */
 export interface EnableAWSOrganizationsAccessCommandInput extends EnableAWSOrganizationsAccessInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableAWSOrganizationsAccessCommand}.
  */
 export interface EnableAWSOrganizationsAccessCommandOutput
@@ -37,6 +36,7 @@ export interface EnableAWSOrganizationsAccessCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable portfolio sharing feature through Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the
  *          current structure. This API can only be called by the management account in the organization.</p>
  *          <p>When you call this API, Service Catalog calls <code>organizations:EnableAWSServiceAccess</code> on your behalf so that your shares stay in sync with any changes in your Organizations structure.</p>
@@ -56,10 +56,13 @@ export interface EnableAWSOrganizationsAccessCommandOutput
  * import { ServiceCatalogClient, EnableAWSOrganizationsAccessCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, EnableAWSOrganizationsAccessCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {};
  * const command = new EnableAWSOrganizationsAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableAWSOrganizationsAccessCommandInput - {@link EnableAWSOrganizationsAccessCommandInput}
+ * @returns {@link EnableAWSOrganizationsAccessCommandOutput}
  * @see {@link EnableAWSOrganizationsAccessCommandInput} for command's `input` shape.
  * @see {@link EnableAWSOrganizationsAccessCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -93,6 +96,9 @@ export class EnableAWSOrganizationsAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAWSOrganizationsAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class EnableAWSOrganizationsAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableAWSOrganizationsAccessInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableAWSOrganizationsAccessOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +138,21 @@ export class EnableAWSOrganizationsAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableAWSOrganizationsAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableAWSOrganizationsAccessCommand(input, context);
+    return se_EnableAWSOrganizationsAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableAWSOrganizationsAccessCommandOutput> {
-    return deserializeAws_json1_1EnableAWSOrganizationsAccessCommand(output, context);
+    return de_EnableAWSOrganizationsAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

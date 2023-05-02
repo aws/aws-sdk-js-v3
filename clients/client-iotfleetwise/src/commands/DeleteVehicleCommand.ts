@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  DeleteVehicleRequest,
-  DeleteVehicleRequestFilterSensitiveLog,
-  DeleteVehicleResponse,
-  DeleteVehicleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteVehicleCommand,
-  serializeAws_json1_0DeleteVehicleCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteVehicleRequest, DeleteVehicleResponse } from "../models/models_0";
+import { de_DeleteVehicleCommand, se_DeleteVehicleCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVehicleCommand}.
  */
 export interface DeleteVehicleCommandInput extends DeleteVehicleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVehicleCommand}.
  */
 export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a vehicle and removes it from any campaigns.</p>
  *         <note>
  *             <p>If the vehicle is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200 response
@@ -46,10 +43,15 @@ export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __Met
  * import { IoTFleetWiseClient, DeleteVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, DeleteVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // DeleteVehicleRequest
+ *   vehicleName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVehicleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVehicleCommandInput - {@link DeleteVehicleCommandInput}
+ * @returns {@link DeleteVehicleCommandOutput}
  * @see {@link DeleteVehicleCommandInput} for command's `input` shape.
  * @see {@link DeleteVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -85,6 +87,9 @@ export class DeleteVehicleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVehicleCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DeleteVehicleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVehicleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVehicleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DeleteVehicleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVehicleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteVehicleCommand(input, context);
+    return se_DeleteVehicleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVehicleCommandOutput> {
-    return deserializeAws_json1_0DeleteVehicleCommand(output, context);
+    return de_DeleteVehicleCommand(output, context);
   }
 
   // Start section: command_body_extra

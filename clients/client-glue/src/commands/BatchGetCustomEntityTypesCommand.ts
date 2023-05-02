@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchGetCustomEntityTypesRequest,
-  BatchGetCustomEntityTypesRequestFilterSensitiveLog,
-  BatchGetCustomEntityTypesResponse,
-  BatchGetCustomEntityTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetCustomEntityTypesCommand,
-  serializeAws_json1_1BatchGetCustomEntityTypesCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetCustomEntityTypesRequest, BatchGetCustomEntityTypesResponse } from "../models/models_0";
+import { de_BatchGetCustomEntityTypesCommand, se_BatchGetCustomEntityTypesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetCustomEntityTypesCommand}.
  */
 export interface BatchGetCustomEntityTypesCommandInput extends BatchGetCustomEntityTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetCustomEntityTypesCommand}.
  */
 export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEntityTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details for the custom patterns specified by a list of names.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEn
  * import { GlueClient, BatchGetCustomEntityTypesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetCustomEntityTypesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // BatchGetCustomEntityTypesRequest
+ *   Names: [ // CustomEntityTypeNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetCustomEntityTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetCustomEntityTypesCommandInput - {@link BatchGetCustomEntityTypesCommandInput}
+ * @returns {@link BatchGetCustomEntityTypesCommandOutput}
  * @see {@link BatchGetCustomEntityTypesCommandInput} for command's `input` shape.
  * @see {@link BatchGetCustomEntityTypesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +82,9 @@ export class BatchGetCustomEntityTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetCustomEntityTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class BatchGetCustomEntityTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetCustomEntityTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetCustomEntityTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +124,21 @@ export class BatchGetCustomEntityTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetCustomEntityTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetCustomEntityTypesCommand(input, context);
+    return se_BatchGetCustomEntityTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetCustomEntityTypesCommandOutput> {
-    return deserializeAws_json1_1BatchGetCustomEntityTypesCommand(output, context);
+    return de_BatchGetCustomEntityTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

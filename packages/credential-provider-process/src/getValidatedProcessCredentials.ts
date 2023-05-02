@@ -2,6 +2,9 @@ import { AwsCredentialIdentity } from "@aws-sdk/types";
 
 import { ProcessCredentials } from "./ProcessCredentials";
 
+/**
+ * @internal
+ */
 export const getValidatedProcessCredentials = (
   profileName: string,
   data: ProcessCredentials

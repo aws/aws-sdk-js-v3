@@ -19,22 +19,24 @@ import {
   CreateCommentResponse,
   CreateCommentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCommentCommand,
-  serializeAws_restJson1CreateCommentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateCommentCommand, se_CreateCommentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCommentCommand}.
  */
 export interface CreateCommentCommandInput extends CreateCommentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCommentCommand}.
  */
 export interface CreateCommentCommandOutput extends CreateCommentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new comment to the specified document version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,22 @@ export interface CreateCommentCommandOutput extends CreateCommentResponse, __Met
  * import { WorkDocsClient, CreateCommentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateCommentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // CreateCommentRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   DocumentId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE", // required
+ *   ParentId: "STRING_VALUE",
+ *   ThreadId: "STRING_VALUE",
+ *   Text: "STRING_VALUE", // required
+ *   Visibility: "PUBLIC" || "PRIVATE",
+ *   NotifyCollaborators: true || false,
+ * };
  * const command = new CreateCommentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCommentCommandInput - {@link CreateCommentCommandInput}
+ * @returns {@link CreateCommentCommandOutput}
  * @see {@link CreateCommentCommandInput} for command's `input` shape.
  * @see {@link CreateCommentCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -96,6 +110,9 @@ export class CreateCommentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCommentCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,12 +150,18 @@ export class CreateCommentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCommentCommand(input, context);
+    return se_CreateCommentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCommentCommandOutput> {
-    return deserializeAws_restJson1CreateCommentCommand(output, context);
+    return de_CreateCommentCommand(output, context);
   }
 
   // Start section: command_body_extra

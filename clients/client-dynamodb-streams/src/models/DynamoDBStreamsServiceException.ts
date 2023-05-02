@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from DynamoDBStreams service.
  */
 export class DynamoDBStreamsServiceException extends __ServiceException {

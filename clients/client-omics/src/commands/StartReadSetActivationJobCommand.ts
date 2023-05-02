@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartReadSetActivationJobRequest,
-  StartReadSetActivationJobRequestFilterSensitiveLog,
-  StartReadSetActivationJobResponse,
-  StartReadSetActivationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartReadSetActivationJobRequest, StartReadSetActivationJobResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1StartReadSetActivationJobCommand,
-  serializeAws_restJson1StartReadSetActivationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartReadSetActivationJobCommand, se_StartReadSetActivationJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReadSetActivationJobCommand}.
  */
 export interface StartReadSetActivationJobCommandInput extends StartReadSetActivationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartReadSetActivationJobCommand}.
  */
 export interface StartReadSetActivationJobCommandOutput extends StartReadSetActivationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates an archived read set. To reduce storage charges, Amazon Omics archives unused read
  *        sets after 30 days.</p>
  * @example
@@ -43,10 +40,21 @@ export interface StartReadSetActivationJobCommandOutput extends StartReadSetActi
  * import { OmicsClient, StartReadSetActivationJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartReadSetActivationJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // StartReadSetActivationJobRequest
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   sources: [ // StartReadSetActivationJobSourceList // required
+ *     { // StartReadSetActivationJobSourceItem
+ *       readSetId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new StartReadSetActivationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReadSetActivationJobCommandInput - {@link StartReadSetActivationJobCommandInput}
+ * @returns {@link StartReadSetActivationJobCommandOutput}
  * @see {@link StartReadSetActivationJobCommandInput} for command's `input` shape.
  * @see {@link StartReadSetActivationJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -91,6 +99,9 @@ export class StartReadSetActivationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReadSetActivationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +130,8 @@ export class StartReadSetActivationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReadSetActivationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartReadSetActivationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +141,21 @@ export class StartReadSetActivationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReadSetActivationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartReadSetActivationJobCommand(input, context);
+    return se_StartReadSetActivationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartReadSetActivationJobCommandOutput> {
-    return deserializeAws_restJson1StartReadSetActivationJobCommand(output, context);
+    return de_StartReadSetActivationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  BatchAssociateResourceRequest,
-  BatchAssociateResourceRequestFilterSensitiveLog,
-  BatchAssociateResourceResponse,
-  BatchAssociateResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchAssociateResourceCommand,
-  serializeAws_json1_1BatchAssociateResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchAssociateResourceRequest, BatchAssociateResourceResponse } from "../models/models_0";
+import { de_BatchAssociateResourceCommand, se_BatchAssociateResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateResourceCommand}.
  */
 export interface BatchAssociateResourceCommandInput extends BatchAssociateResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateResourceCommand}.
  */
 export interface BatchAssociateResourceCommandOutput extends BatchAssociateResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate resources to a Firewall Manager resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface BatchAssociateResourceCommandOutput extends BatchAssociateResou
  * import { FMSClient, BatchAssociateResourceCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, BatchAssociateResourceCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // BatchAssociateResourceRequest
+ *   ResourceSetIdentifier: "STRING_VALUE", // required
+ *   Items: [ // IdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchAssociateResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateResourceCommandInput - {@link BatchAssociateResourceCommandInput}
+ * @returns {@link BatchAssociateResourceCommandOutput}
  * @see {@link BatchAssociateResourceCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateResourceCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -92,6 +97,9 @@ export class BatchAssociateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +128,8 @@ export class BatchAssociateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchAssociateResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchAssociateResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +139,18 @@ export class BatchAssociateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchAssociateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchAssociateResourceCommand(input, context);
+    return se_BatchAssociateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchAssociateResourceCommandOutput> {
-    return deserializeAws_json1_1BatchAssociateResourceCommand(output, context);
+    return de_BatchAssociateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import {
 import { CodeStarConnectionsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeStarConnectionsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListConnectionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListConnections(
   config: CodeStarConnectionsPaginationConfiguration,
   input: ListConnectionsCommandInput,

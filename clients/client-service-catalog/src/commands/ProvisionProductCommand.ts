@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ProvisionProductInput,
-  ProvisionProductInputFilterSensitiveLog,
-  ProvisionProductOutput,
-  ProvisionProductOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ProvisionProductCommand,
-  serializeAws_json1_1ProvisionProductCommand,
-} from "../protocols/Aws_json1_1";
+import { ProvisionProductInput, ProvisionProductOutput } from "../models/models_0";
+import { de_ProvisionProductCommand, se_ProvisionProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ProvisionProductCommand}.
  */
 export interface ProvisionProductCommandInput extends ProvisionProductInput {}
 /**
+ * @public
+ *
  * The output of {@link ProvisionProductCommand}.
  */
 export interface ProvisionProductCommandOutput extends ProvisionProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Provisions the specified product.
  *       </p>
@@ -78,10 +75,50 @@ export interface ProvisionProductCommandOutput extends ProvisionProductOutput, _
  * import { ServiceCatalogClient, ProvisionProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ProvisionProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ProvisionProductInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE",
+ *   ProductName: "STRING_VALUE",
+ *   ProvisioningArtifactId: "STRING_VALUE",
+ *   ProvisioningArtifactName: "STRING_VALUE",
+ *   PathId: "STRING_VALUE",
+ *   PathName: "STRING_VALUE",
+ *   ProvisionedProductName: "STRING_VALUE", // required
+ *   ProvisioningParameters: [ // ProvisioningParameters
+ *     { // ProvisioningParameter
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ProvisioningPreferences: { // ProvisioningPreferences
+ *     StackSetAccounts: [ // StackSetAccounts
+ *       "STRING_VALUE",
+ *     ],
+ *     StackSetRegions: [ // StackSetRegions
+ *       "STRING_VALUE",
+ *     ],
+ *     StackSetFailureToleranceCount: Number("int"),
+ *     StackSetFailureTolerancePercentage: Number("int"),
+ *     StackSetMaxConcurrencyCount: Number("int"),
+ *     StackSetMaxConcurrencyPercentage: Number("int"),
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NotificationArns: [ // NotificationArns
+ *     "STRING_VALUE",
+ *   ],
+ *   ProvisionToken: "STRING_VALUE", // required
+ * };
  * const command = new ProvisionProductCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ProvisionProductCommandInput - {@link ProvisionProductCommandInput}
+ * @returns {@link ProvisionProductCommandOutput}
  * @see {@link ProvisionProductCommandInput} for command's `input` shape.
  * @see {@link ProvisionProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -114,6 +151,9 @@ export class ProvisionProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ProvisionProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +182,8 @@ export class ProvisionProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ProvisionProductInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ProvisionProductOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +193,18 @@ export class ProvisionProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ProvisionProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ProvisionProductCommand(input, context);
+    return se_ProvisionProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionProductCommandOutput> {
-    return deserializeAws_json1_1ProvisionProductCommand(output, context);
+    return de_ProvisionProductCommand(output, context);
   }
 
   // Start section: command_body_extra

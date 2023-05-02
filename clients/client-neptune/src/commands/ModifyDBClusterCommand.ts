@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBClusterMessage,
-  ModifyDBClusterMessageFilterSensitiveLog,
-  ModifyDBClusterResult,
-  ModifyDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyDBClusterMessage, ModifyDBClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryModifyDBClusterCommand,
-  serializeAws_queryModifyDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBClusterCommand, se_ModifyDBClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBClusterCommand}.
  */
 export interface ModifyDBClusterCommandInput extends ModifyDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBClusterCommand}.
  */
 export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify a setting for a DB cluster. You can change one or more database configuration
  *       parameters by specifying these parameters and the new values in the request.</p>
  * @example
@@ -43,10 +40,45 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * import { NeptuneClient, ModifyDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // ModifyDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   NewDBClusterIdentifier: "STRING_VALUE",
+ *   ApplyImmediately: true || false,
+ *   BackupRetentionPeriod: Number("int"),
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Port: Number("int"),
+ *   MasterUserPassword: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   CloudwatchLogsExportConfiguration: { // CloudwatchLogsExportConfiguration
+ *     EnableLogTypes: [ // LogTypeList
+ *       "STRING_VALUE",
+ *     ],
+ *     DisableLogTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   EngineVersion: "STRING_VALUE",
+ *   AllowMajorVersionUpgrade: true || false,
+ *   DBInstanceParameterGroupName: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   CopyTagsToSnapshot: true || false,
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
+ * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterCommandInput - {@link ModifyDBClusterCommandInput}
+ * @returns {@link ModifyDBClusterCommandOutput}
  * @see {@link ModifyDBClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -110,6 +142,9 @@ export class ModifyDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +173,8 @@ export class ModifyDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +184,18 @@ export class ModifyDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterCommand(input, context);
+    return se_ModifyDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBClusterCommandOutput> {
-    return deserializeAws_queryModifyDBClusterCommand(output, context);
+    return de_ModifyDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

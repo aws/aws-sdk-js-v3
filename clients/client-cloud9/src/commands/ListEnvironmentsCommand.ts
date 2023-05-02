@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import {
-  ListEnvironmentsRequest,
-  ListEnvironmentsRequestFilterSensitiveLog,
-  ListEnvironmentsResult,
-  ListEnvironmentsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEnvironmentsCommand,
-  serializeAws_json1_1ListEnvironmentsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEnvironmentsRequest, ListEnvironmentsResult } from "../models/models_0";
+import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEnvironmentsCommand}.
  */
 export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEnvironmentsCommand}.
  */
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of Cloud9 development environment identifiers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, _
  * import { Cloud9Client, ListEnvironmentsCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, ListEnvironmentsCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
+ * const input = { // ListEnvironmentsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
+ * @returns {@link ListEnvironmentsCommandOutput}
  * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
@@ -107,6 +110,9 @@ export class ListEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +141,8 @@ export class ListEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEnvironmentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +152,18 @@ export class ListEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEnvironmentsCommand(input, context);
+    return se_ListEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentsCommandOutput> {
-    return deserializeAws_json1_1ListEnvironmentsCommand(output, context);
+    return de_ListEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

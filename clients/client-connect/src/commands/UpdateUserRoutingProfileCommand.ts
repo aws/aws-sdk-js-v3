@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserRoutingProfileRequest, UpdateUserRoutingProfileRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateUserRoutingProfileCommand,
-  serializeAws_restJson1UpdateUserRoutingProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateUserRoutingProfileRequest } from "../models/models_1";
+import { de_UpdateUserRoutingProfileCommand, se_UpdateUserRoutingProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserRoutingProfileCommand}.
  */
 export interface UpdateUserRoutingProfileCommandInput extends UpdateUserRoutingProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserRoutingProfileCommand}.
  */
 export interface UpdateUserRoutingProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the specified routing profile to the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,17 @@ export interface UpdateUserRoutingProfileCommandOutput extends __MetadataBearer 
  * import { ConnectClient, UpdateUserRoutingProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserRoutingProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateUserRoutingProfileRequest
+ *   RoutingProfileId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateUserRoutingProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserRoutingProfileCommandInput - {@link UpdateUserRoutingProfileCommandInput}
+ * @returns {@link UpdateUserRoutingProfileCommandOutput}
  * @see {@link UpdateUserRoutingProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateUserRoutingProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -79,6 +88,9 @@ export class UpdateUserRoutingProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserRoutingProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +119,8 @@ export class UpdateUserRoutingProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserRoutingProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +130,18 @@ export class UpdateUserRoutingProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserRoutingProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserRoutingProfileCommand(input, context);
+    return se_UpdateUserRoutingProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserRoutingProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateUserRoutingProfileCommand(output, context);
+    return de_UpdateUserRoutingProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

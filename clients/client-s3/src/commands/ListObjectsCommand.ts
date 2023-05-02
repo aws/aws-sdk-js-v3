@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListObjectsOutput,
-  ListObjectsOutputFilterSensitiveLog,
-  ListObjectsRequest,
-  ListObjectsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListObjectsCommand,
-  serializeAws_restXmlListObjectsCommand,
-} from "../protocols/Aws_restXml";
+import { ListObjectsOutput, ListObjectsRequest } from "../models/models_0";
+import { de_ListObjectsCommand, se_ListObjectsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectsCommand}.
  */
 export interface ListObjectsCommandInput extends ListObjectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectsCommand}.
  */
 export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request
  *          parameters as selection criteria to return a subset of the objects in a bucket. A 200 OK
  *          response can contain valid or invalid XML. Be sure to design your application to parse the
@@ -77,10 +74,22 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * import { S3Client, ListObjectsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListObjectsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // ListObjectsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Delimiter: "STRING_VALUE",
+ *   EncodingType: "url",
+ *   Marker: "STRING_VALUE",
+ *   MaxKeys: Number("int"),
+ *   Prefix: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new ListObjectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectsCommandInput - {@link ListObjectsCommandInput}
+ * @returns {@link ListObjectsCommandOutput}
  * @see {@link ListObjectsCommandInput} for command's `input` shape.
  * @see {@link ListObjectsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -154,6 +163,9 @@ export class ListObjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,8 +192,8 @@ export class ListObjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListObjectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListObjectsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -191,12 +203,18 @@ export class ListObjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListObjectsCommand(input, context);
+    return se_ListObjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectsCommandOutput> {
-    return deserializeAws_restXmlListObjectsCommand(output, context);
+    return de_ListObjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

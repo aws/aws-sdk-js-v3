@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RemoveProfilePermissionRequest,
-  RemoveProfilePermissionRequestFilterSensitiveLog,
-  RemoveProfilePermissionResponse,
-  RemoveProfilePermissionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveProfilePermissionCommand,
-  serializeAws_restJson1RemoveProfilePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveProfilePermissionRequest, RemoveProfilePermissionResponse } from "../models/models_0";
+import { de_RemoveProfilePermissionCommand, se_RemoveProfilePermissionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveProfilePermissionCommand}.
  */
 export interface RemoveProfilePermissionCommandInput extends RemoveProfilePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveProfilePermissionCommand}.
  */
 export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes cross-account permissions from a signing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
  * import { SignerClient, RemoveProfilePermissionCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, RemoveProfilePermissionCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = { // RemoveProfilePermissionRequest
+ *   profileName: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE", // required
+ *   statementId: "STRING_VALUE", // required
+ * };
  * const command = new RemoveProfilePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveProfilePermissionCommandInput - {@link RemoveProfilePermissionCommandInput}
+ * @returns {@link RemoveProfilePermissionCommandOutput}
  * @see {@link RemoveProfilePermissionCommandInput} for command's `input` shape.
  * @see {@link RemoveProfilePermissionCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -88,6 +92,9 @@ export class RemoveProfilePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveProfilePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class RemoveProfilePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveProfilePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveProfilePermissionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class RemoveProfilePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveProfilePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveProfilePermissionCommand(input, context);
+    return se_RemoveProfilePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveProfilePermissionCommandOutput> {
-    return deserializeAws_restJson1RemoveProfilePermissionCommand(output, context);
+    return de_RemoveProfilePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

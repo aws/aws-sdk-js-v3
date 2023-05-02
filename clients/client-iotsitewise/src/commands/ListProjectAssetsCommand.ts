@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListProjectAssetsRequest,
-  ListProjectAssetsRequestFilterSensitiveLog,
-  ListProjectAssetsResponse,
-  ListProjectAssetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProjectAssetsCommand,
-  serializeAws_restJson1ListProjectAssetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProjectAssetsRequest, ListProjectAssetsResponse } from "../models/models_0";
+import { de_ListProjectAssetsCommand, se_ListProjectAssetsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProjectAssetsCommand}.
  */
 export interface ListProjectAssetsCommandInput extends ListProjectAssetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProjectAssetsCommand}.
  */
 export interface ListProjectAssetsCommandOutput extends ListProjectAssetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of assets associated with an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListProjectAssetsCommandOutput extends ListProjectAssetsRespons
  * import { IoTSiteWiseClient, ListProjectAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListProjectAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // ListProjectAssetsRequest
+ *   projectId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListProjectAssetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProjectAssetsCommandInput - {@link ListProjectAssetsCommandInput}
+ * @returns {@link ListProjectAssetsCommandOutput}
  * @see {@link ListProjectAssetsCommandInput} for command's `input` shape.
  * @see {@link ListProjectAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -82,6 +86,9 @@ export class ListProjectAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProjectAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class ListProjectAssetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProjectAssetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProjectAssetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class ListProjectAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProjectAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProjectAssetsCommand(input, context);
+    return se_ListProjectAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProjectAssetsCommandOutput> {
-    return deserializeAws_restJson1ListProjectAssetsCommand(output, context);
+    return de_ListProjectAssetsCommand(output, context);
   }
 
   // Start section: command_body_extra

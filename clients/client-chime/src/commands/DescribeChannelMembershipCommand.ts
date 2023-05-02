@@ -16,25 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DescribeChannelMembershipRequest,
-  DescribeChannelMembershipRequestFilterSensitiveLog,
   DescribeChannelMembershipResponse,
   DescribeChannelMembershipResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeChannelMembershipCommand,
-  serializeAws_restJson1DescribeChannelMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeChannelMembershipCommand, se_DescribeChannelMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChannelMembershipCommand}.
  */
 export interface DescribeChannelMembershipCommandInput extends DescribeChannelMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChannelMembershipCommand}.
  */
 export interface DescribeChannelMembershipCommandOutput extends DescribeChannelMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of a user's channel membership.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -47,10 +48,17 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  * import { ChimeClient, DescribeChannelMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DescribeChannelMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DescribeChannelMembershipRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MemberArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new DescribeChannelMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelMembershipCommandInput - {@link DescribeChannelMembershipCommandInput}
+ * @returns {@link DescribeChannelMembershipCommandOutput}
  * @see {@link DescribeChannelMembershipCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -95,6 +103,9 @@ export class DescribeChannelMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,7 +134,7 @@ export class DescribeChannelMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChannelMembershipRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -134,15 +145,21 @@ export class DescribeChannelMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChannelMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelMembershipCommand(input, context);
+    return se_DescribeChannelMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeChannelMembershipCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelMembershipCommand(output, context);
+    return de_DescribeChannelMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

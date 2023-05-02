@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ECRPUBLICServiceException as __BaseException } from "./ECRPUBLICServiceException";
 
 /**
+ * @public
  * <p>An authorization token data object that corresponds to a public registry.</p>
  */
 export interface AuthorizationData {
@@ -21,6 +22,9 @@ export interface AuthorizationData {
   expiresAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface BatchCheckLayerAvailabilityRequest {
   /**
    * <p>The Amazon Web Services account ID, or registry alias, associated with the public registry that
@@ -39,12 +43,22 @@ export interface BatchCheckLayerAvailabilityRequest {
   layerDigests: string[] | undefined;
 }
 
-export enum LayerFailureCode {
-  InvalidLayerDigest = "InvalidLayerDigest",
-  MissingLayerDigest = "MissingLayerDigest",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LayerFailureCode = {
+  InvalidLayerDigest: "InvalidLayerDigest",
+  MissingLayerDigest: "MissingLayerDigest",
+} as const;
 
 /**
+ * @public
+ */
+export type LayerFailureCode = (typeof LayerFailureCode)[keyof typeof LayerFailureCode];
+
+/**
+ * @public
  * <p>An object that represents an Amazon ECR image layer failure.</p>
  */
 export interface LayerFailure {
@@ -64,12 +78,22 @@ export interface LayerFailure {
   failureReason?: string;
 }
 
-export enum LayerAvailability {
-  AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LayerAvailability = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type LayerAvailability = (typeof LayerAvailability)[keyof typeof LayerAvailability];
+
+/**
+ * @public
  * <p>An object that represents an Amazon ECR image layer.</p>
  */
 export interface Layer {
@@ -96,6 +120,9 @@ export interface Layer {
   mediaType?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCheckLayerAvailabilityResponse {
   /**
    * <p>A list of image layer objects that correspond to the image layer references in the
@@ -110,6 +137,7 @@ export interface BatchCheckLayerAvailabilityResponse {
 }
 
 /**
+ * @public
  * <p>The specified parameter is invalid. Review the available parameters for the API
  *          request.</p>
  */
@@ -130,6 +158,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The registry doesn't exist.</p>
  */
 export class RegistryNotFoundException extends __BaseException {
@@ -149,6 +178,7 @@ export class RegistryNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified repository can't be found. Check the spelling of the specified repository
  *          and ensure that you're performing operations on the correct registry.</p>
  */
@@ -169,6 +199,7 @@ export class RepositoryNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>These errors are usually caused by a server-side issue.</p>
  */
 export class ServerException extends __BaseException {
@@ -188,6 +219,7 @@ export class ServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The action isn't supported in this Region.</p>
  */
 export class UnsupportedCommandException extends __BaseException {
@@ -207,6 +239,7 @@ export class UnsupportedCommandException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object with identifying information for an Amazon ECR image.</p>
  */
 export interface ImageIdentifier {
@@ -221,10 +254,13 @@ export interface ImageIdentifier {
   imageTag?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteImageRequest {
   /**
-   * <p>The Amazon Web Services account ID that's associated with the registry that contains the image to
-   *          delete. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID, or registry alias, that's associated with the registry that
+   *          contains the image to delete. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 
@@ -241,17 +277,27 @@ export interface BatchDeleteImageRequest {
   imageIds: ImageIdentifier[] | undefined;
 }
 
-export enum ImageFailureCode {
-  ImageNotFound = "ImageNotFound",
-  ImageReferencedByManifestList = "ImageReferencedByManifestList",
-  ImageTagDoesNotMatchDigest = "ImageTagDoesNotMatchDigest",
-  InvalidImageDigest = "InvalidImageDigest",
-  InvalidImageTag = "InvalidImageTag",
-  KmsError = "KmsError",
-  MissingDigestAndTag = "MissingDigestAndTag",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImageFailureCode = {
+  ImageNotFound: "ImageNotFound",
+  ImageReferencedByManifestList: "ImageReferencedByManifestList",
+  ImageTagDoesNotMatchDigest: "ImageTagDoesNotMatchDigest",
+  InvalidImageDigest: "InvalidImageDigest",
+  InvalidImageTag: "InvalidImageTag",
+  KmsError: "KmsError",
+  MissingDigestAndTag: "MissingDigestAndTag",
+} as const;
 
 /**
+ * @public
+ */
+export type ImageFailureCode = (typeof ImageFailureCode)[keyof typeof ImageFailureCode];
+
+/**
+ * @public
  * <p>An object that represents an Amazon ECR image failure.</p>
  */
 export interface ImageFailure {
@@ -271,6 +317,9 @@ export interface ImageFailure {
   failureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteImageResponse {
   /**
    * <p>The image IDs of the deleted images.</p>
@@ -283,6 +332,9 @@ export interface BatchDeleteImageResponse {
   failures?: ImageFailure[];
 }
 
+/**
+ * @public
+ */
 export interface CompleteLayerUploadRequest {
   /**
    * <p>The Amazon Web Services account ID, or registry alias, associated with the registry where layers are
@@ -308,6 +360,9 @@ export interface CompleteLayerUploadRequest {
   layerDigests: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CompleteLayerUploadResponse {
   /**
    * <p>The public registry ID that's associated with the request.</p>
@@ -331,6 +386,7 @@ export interface CompleteLayerUploadResponse {
 }
 
 /**
+ * @public
  * <p>The specified layer upload doesn't contain any layer parts.</p>
  */
 export class EmptyUploadException extends __BaseException {
@@ -350,6 +406,7 @@ export class EmptyUploadException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The layer digest calculation performed by Amazon ECR when the image layer doesn't match the
  *          digest specified.</p>
  */
@@ -370,6 +427,7 @@ export class InvalidLayerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The image layer already exists in the associated repository.</p>
  */
 export class LayerAlreadyExistsException extends __BaseException {
@@ -389,6 +447,7 @@ export class LayerAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Layer parts must be at least 5 MiB in size.</p>
  */
 export class LayerPartTooSmallException extends __BaseException {
@@ -408,6 +467,7 @@ export class LayerPartTooSmallException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The upload can't be found, or the specified upload ID isn't valid for this
  *          repository.</p>
  */
@@ -428,6 +488,7 @@ export class UploadNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object that contains the catalog data for a repository. This data is publicly visible
  *          in the Amazon ECR Public Gallery.</p>
  */
@@ -521,6 +582,7 @@ export interface RepositoryCatalogDataInput {
 }
 
 /**
+ * @public
  * <p>The metadata that you apply to a resource to help you categorize and organize them. Each
  *          tag consists of a key and an optional value. You define both. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
  */
@@ -538,6 +600,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRepositoryRequest {
   /**
    * <p>The name to use for the repository. This appears publicly in the Amazon ECR Public Gallery.
@@ -562,6 +627,7 @@ export interface CreateRepositoryRequest {
 }
 
 /**
+ * @public
  * <p>The catalog data for a repository. This data is publicly visible in the
  *          Amazon ECR Public Gallery.</p>
  */
@@ -613,6 +679,7 @@ export interface RepositoryCatalogData {
 }
 
 /**
+ * @public
  * <p>An object representing a repository.</p>
  */
 export interface Repository {
@@ -644,6 +711,9 @@ export interface Repository {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateRepositoryResponse {
   /**
    * <p>The repository that was created.</p>
@@ -658,6 +728,7 @@ export interface CreateRepositoryResponse {
 }
 
 /**
+ * @public
  * <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
  */
 export class InvalidTagParameterException extends __BaseException {
@@ -677,6 +748,7 @@ export class InvalidTagParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation didn't succeed because it would have exceeded a service limit for your
  *          account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR Service Quotas</a> in the
  *          Amazon Elastic Container Registry User Guide.</p>
@@ -698,6 +770,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified repository already exists in the specified registry.</p>
  */
 export class RepositoryAlreadyExistsException extends __BaseException {
@@ -717,6 +790,7 @@ export class RepositoryAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The list of tags on the repository is over the limit. The maximum number of tags that
  *          can be applied to a repository is 50.</p>
  */
@@ -736,6 +810,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryRequest {
   /**
    * <p>The Amazon Web Services account ID that's associated with the public registry that contains the
@@ -755,6 +832,9 @@ export interface DeleteRepositoryRequest {
   force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryResponse {
   /**
    * <p>The repository that was deleted.</p>
@@ -763,6 +843,7 @@ export interface DeleteRepositoryResponse {
 }
 
 /**
+ * @public
  * <p>The specified repository contains images. To delete a repository that contains images,
  *          you must force the deletion with the <code>force</code> parameter.</p>
  */
@@ -782,6 +863,9 @@ export class RepositoryNotEmptyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryPolicyRequest {
   /**
    * <p>The Amazon Web Services account ID that's associated with the public registry that contains the
@@ -796,6 +880,9 @@ export interface DeleteRepositoryPolicyRequest {
   repositoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryPolicyResponse {
   /**
    * <p>The registry ID that's associated with the request.</p>
@@ -814,6 +901,7 @@ export interface DeleteRepositoryPolicyResponse {
 }
 
 /**
+ * @public
  * <p>The specified repository and registry combination doesn't have an associated repository
  *          policy.</p>
  */
@@ -833,6 +921,9 @@ export class RepositoryPolicyNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeImagesRequest {
   /**
    * <p>The Amazon Web Services account ID that's associated with the public registry that contains the
@@ -875,6 +966,7 @@ export interface DescribeImagesRequest {
 }
 
 /**
+ * @public
  * <p>An object that describes an image that's returned by a <a>DescribeImages</a>
  *          operation.</p>
  */
@@ -930,6 +1022,9 @@ export interface ImageDetail {
   artifactMediaType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImagesResponse {
   /**
    * <p>A list of <a>ImageDetail</a> objects that contain data about the
@@ -947,6 +1042,7 @@ export interface DescribeImagesResponse {
 }
 
 /**
+ * @public
  * <p>The image requested doesn't exist in the specified repository.</p>
  */
 export class ImageNotFoundException extends __BaseException {
@@ -965,6 +1061,9 @@ export class ImageNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageTagsRequest {
   /**
    * <p>The Amazon Web Services account ID that's associated with the public registry that contains the
@@ -1003,6 +1102,7 @@ export interface DescribeImageTagsRequest {
 }
 
 /**
+ * @public
  * <p>An object that describes the image tag details that are returned by a <a>DescribeImageTags</a> action.</p>
  */
 export interface ReferencedImageDetail {
@@ -1042,6 +1142,7 @@ export interface ReferencedImageDetail {
 }
 
 /**
+ * @public
  * <p>An object that represents the image tag details for an image.</p>
  */
 export interface ImageTagDetail {
@@ -1061,6 +1162,9 @@ export interface ImageTagDetail {
   imageDetail?: ReferencedImageDetail;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageTagsResponse {
   /**
    * <p>The image tag details for the images in the requested repository.</p>
@@ -1076,6 +1180,9 @@ export interface DescribeImageTagsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRegistriesRequest {
   /**
    * <p>The <code>nextToken</code> value that's returned from a previous paginated
@@ -1103,13 +1210,23 @@ export interface DescribeRegistriesRequest {
   maxResults?: number;
 }
 
-export enum RegistryAliasStatus {
-  ACTIVE = "ACTIVE",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RegistryAliasStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+} as const;
 
 /**
+ * @public
+ */
+export type RegistryAliasStatus = (typeof RegistryAliasStatus)[keyof typeof RegistryAliasStatus];
+
+/**
+ * @public
  * <p>An object representing the aliases for a public registry. A public registry is given an
  *          alias when it's created. However, a custom alias can be set using the Amazon ECR console. For
  *          more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html">Registries</a> in the
@@ -1146,6 +1263,7 @@ export interface RegistryAlias {
 }
 
 /**
+ * @public
  * <p>The details of a public registry.</p>
  */
 export interface Registry {
@@ -1179,6 +1297,9 @@ export interface Registry {
   aliases: RegistryAlias[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRegistriesResponse {
   /**
    * <p>An object that contains the details for a public registry.</p>
@@ -1195,6 +1316,9 @@ export interface DescribeRegistriesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRepositoriesRequest {
   /**
    * <p>The Amazon Web Services account ID that's associated with the registry that contains the repositories
@@ -1236,6 +1360,9 @@ export interface DescribeRepositoriesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRepositoriesResponse {
   /**
    * <p>A list of repository objects corresponding to valid repositories.</p>
@@ -1252,8 +1379,14 @@ export interface DescribeRepositoriesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAuthorizationTokenRequest {}
 
+/**
+ * @public
+ */
 export interface GetAuthorizationTokenResponse {
   /**
    * <p>An authorization token data object that corresponds to a public registry.</p>
@@ -1261,9 +1394,13 @@ export interface GetAuthorizationTokenResponse {
   authorizationData?: AuthorizationData;
 }
 
+/**
+ * @public
+ */
 export interface GetRegistryCatalogDataRequest {}
 
 /**
+ * @public
  * <p>The metadata for a public registry.</p>
  */
 export interface RegistryCatalogData {
@@ -1277,6 +1414,9 @@ export interface RegistryCatalogData {
   displayName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRegistryCatalogDataResponse {
   /**
    * <p>The catalog metadata for the public registry.</p>
@@ -1284,6 +1424,9 @@ export interface GetRegistryCatalogDataResponse {
   registryCatalogData: RegistryCatalogData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryCatalogDataRequest {
   /**
    * <p>The Amazon Web Services account ID that's associated with the registry that contains the repositories
@@ -1297,6 +1440,9 @@ export interface GetRepositoryCatalogDataRequest {
   repositoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryCatalogDataResponse {
   /**
    * <p>The catalog metadata for the repository.</p>
@@ -1305,6 +1451,7 @@ export interface GetRepositoryCatalogDataResponse {
 }
 
 /**
+ * @public
  * <p>The repository catalog data doesn't exist.</p>
  */
 export class RepositoryCatalogDataNotFoundException extends __BaseException {
@@ -1323,6 +1470,9 @@ export class RepositoryCatalogDataNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryPolicyRequest {
   /**
    * <p>The Amazon Web Services account ID that's associated with the public registry that contains the
@@ -1336,6 +1486,9 @@ export interface GetRepositoryPolicyRequest {
   repositoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryPolicyResponse {
   /**
    * <p>The registry ID that's associated with the request.</p>
@@ -1355,6 +1508,7 @@ export interface GetRepositoryPolicyResponse {
 }
 
 /**
+ * @public
  * <p>An object that represents an Amazon ECR image.</p>
  */
 export interface Image {
@@ -1385,6 +1539,7 @@ export interface Image {
 }
 
 /**
+ * @public
  * <p>The specified image has already been pushed, and there were no changes to the manifest
  *          or image tag after the last push.</p>
  */
@@ -1405,6 +1560,7 @@ export class ImageAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified image digest doesn't match the digest that Amazon ECR calculated for the
  *          image.</p>
  */
@@ -1425,6 +1581,7 @@ export class ImageDigestDoesNotMatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified image is tagged with a tag that already exists. The repository is
  *          configured for tag immutability.</p>
  */
@@ -1444,6 +1601,9 @@ export class ImageTagAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface InitiateLayerUploadRequest {
   /**
    * <p>The Amazon Web Services account ID, or registry alias, that's associated with the registry to which
@@ -1457,6 +1617,9 @@ export interface InitiateLayerUploadRequest {
   repositoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface InitiateLayerUploadResponse {
   /**
    * <p>The upload ID for the layer upload. This parameter is passed to further <a>UploadLayerPart</a> and <a>CompleteLayerUpload</a> operations.</p>
@@ -1470,6 +1633,7 @@ export interface InitiateLayerUploadResponse {
 }
 
 /**
+ * @public
  * <p>The layer part size isn't valid, or the first byte specified isn't consecutive to the
  *          last byte of a previous layer part upload.</p>
  */
@@ -1514,6 +1678,7 @@ export class InvalidLayerPartException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified layers can't be found, or the specified layer isn't valid for this
  *          repository.</p>
  */
@@ -1533,6 +1698,9 @@ export class LayersNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the
@@ -1541,6 +1709,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
@@ -1548,6 +1719,9 @@ export interface ListTagsForResourceResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutImageRequest {
   /**
    * <p>The Amazon Web Services account ID, or registry alias, that's associated with the public registry that
@@ -1584,6 +1758,9 @@ export interface PutImageRequest {
   imageDigest?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutImageResponse {
   /**
    * <p>Details of the image uploaded.</p>
@@ -1592,6 +1769,7 @@ export interface PutImageResponse {
 }
 
 /**
+ * @public
  * <p>The manifest list is referencing an image that doesn't exist.</p>
  */
 export class ReferencedImagesNotFoundException extends __BaseException {
@@ -1610,6 +1788,9 @@ export class ReferencedImagesNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutRegistryCatalogDataRequest {
   /**
    * <p>The display name for a public registry. The display name is shown as the repository
@@ -1622,6 +1803,9 @@ export interface PutRegistryCatalogDataRequest {
   displayName?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutRegistryCatalogDataResponse {
   /**
    * <p>The catalog data for the public registry.</p>
@@ -1629,6 +1813,9 @@ export interface PutRegistryCatalogDataResponse {
   registryCatalogData: RegistryCatalogData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRepositoryCatalogDataRequest {
   /**
    * <p>The Amazon Web Services account ID that's associated with the public registry the repository is in.
@@ -1648,6 +1835,9 @@ export interface PutRepositoryCatalogDataRequest {
   catalogData: RepositoryCatalogDataInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRepositoryCatalogDataResponse {
   /**
    * <p>The catalog data for the repository.</p>
@@ -1655,6 +1845,9 @@ export interface PutRepositoryCatalogDataResponse {
   catalogData?: RepositoryCatalogData;
 }
 
+/**
+ * @public
+ */
 export interface SetRepositoryPolicyRequest {
   /**
    * <p>The Amazon Web Services account ID that's associated with the registry that contains the repository.
@@ -1682,6 +1875,9 @@ export interface SetRepositoryPolicyRequest {
   force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface SetRepositoryPolicyResponse {
   /**
    * <p>The registry ID that's associated with the request.</p>
@@ -1699,6 +1895,9 @@ export interface SetRepositoryPolicyResponse {
   policyText?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to add tags to. Currently, the supported
@@ -1713,8 +1912,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to delete tags from. Currently, the supported resource is
@@ -1728,8 +1933,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UploadLayerPartRequest {
   /**
    * <p>The Amazon Web Services account ID, or registry alias, that's associated with the registry that you're
@@ -1764,6 +1975,9 @@ export interface UploadLayerPartRequest {
   layerPartBlob: Uint8Array | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UploadLayerPartResponse {
   /**
    * <p>The registry ID that's associated with the request.</p>
@@ -1785,439 +1999,3 @@ export interface UploadLayerPartResponse {
    */
   lastByteReceived?: number;
 }
-
-/**
- * @internal
- */
-export const AuthorizationDataFilterSensitiveLog = (obj: AuthorizationData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCheckLayerAvailabilityRequestFilterSensitiveLog = (obj: BatchCheckLayerAvailabilityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LayerFailureFilterSensitiveLog = (obj: LayerFailure): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LayerFilterSensitiveLog = (obj: Layer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCheckLayerAvailabilityResponseFilterSensitiveLog = (
-  obj: BatchCheckLayerAvailabilityResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageIdentifierFilterSensitiveLog = (obj: ImageIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteImageRequestFilterSensitiveLog = (obj: BatchDeleteImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageFailureFilterSensitiveLog = (obj: ImageFailure): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteImageResponseFilterSensitiveLog = (obj: BatchDeleteImageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompleteLayerUploadRequestFilterSensitiveLog = (obj: CompleteLayerUploadRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompleteLayerUploadResponseFilterSensitiveLog = (obj: CompleteLayerUploadResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryCatalogDataInputFilterSensitiveLog = (obj: RepositoryCatalogDataInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRepositoryRequestFilterSensitiveLog = (obj: CreateRepositoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryCatalogDataFilterSensitiveLog = (obj: RepositoryCatalogData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryFilterSensitiveLog = (obj: Repository): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRepositoryResponseFilterSensitiveLog = (obj: CreateRepositoryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRepositoryRequestFilterSensitiveLog = (obj: DeleteRepositoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRepositoryResponseFilterSensitiveLog = (obj: DeleteRepositoryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRepositoryPolicyRequestFilterSensitiveLog = (obj: DeleteRepositoryPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRepositoryPolicyResponseFilterSensitiveLog = (obj: DeleteRepositoryPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImagesRequestFilterSensitiveLog = (obj: DescribeImagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageDetailFilterSensitiveLog = (obj: ImageDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImagesResponseFilterSensitiveLog = (obj: DescribeImagesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImageTagsRequestFilterSensitiveLog = (obj: DescribeImageTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReferencedImageDetailFilterSensitiveLog = (obj: ReferencedImageDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageTagDetailFilterSensitiveLog = (obj: ImageTagDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImageTagsResponseFilterSensitiveLog = (obj: DescribeImageTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRegistriesRequestFilterSensitiveLog = (obj: DescribeRegistriesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegistryAliasFilterSensitiveLog = (obj: RegistryAlias): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegistryFilterSensitiveLog = (obj: Registry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRegistriesResponseFilterSensitiveLog = (obj: DescribeRegistriesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRepositoriesRequestFilterSensitiveLog = (obj: DescribeRepositoriesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRepositoriesResponseFilterSensitiveLog = (obj: DescribeRepositoriesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAuthorizationTokenRequestFilterSensitiveLog = (obj: GetAuthorizationTokenRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAuthorizationTokenResponseFilterSensitiveLog = (obj: GetAuthorizationTokenResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRegistryCatalogDataRequestFilterSensitiveLog = (obj: GetRegistryCatalogDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegistryCatalogDataFilterSensitiveLog = (obj: RegistryCatalogData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRegistryCatalogDataResponseFilterSensitiveLog = (obj: GetRegistryCatalogDataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRepositoryCatalogDataRequestFilterSensitiveLog = (obj: GetRepositoryCatalogDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRepositoryCatalogDataResponseFilterSensitiveLog = (obj: GetRepositoryCatalogDataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRepositoryPolicyRequestFilterSensitiveLog = (obj: GetRepositoryPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRepositoryPolicyResponseFilterSensitiveLog = (obj: GetRepositoryPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageFilterSensitiveLog = (obj: Image): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitiateLayerUploadRequestFilterSensitiveLog = (obj: InitiateLayerUploadRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitiateLayerUploadResponseFilterSensitiveLog = (obj: InitiateLayerUploadResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutImageRequestFilterSensitiveLog = (obj: PutImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutImageResponseFilterSensitiveLog = (obj: PutImageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRegistryCatalogDataRequestFilterSensitiveLog = (obj: PutRegistryCatalogDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRegistryCatalogDataResponseFilterSensitiveLog = (obj: PutRegistryCatalogDataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRepositoryCatalogDataRequestFilterSensitiveLog = (obj: PutRepositoryCatalogDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRepositoryCatalogDataResponseFilterSensitiveLog = (obj: PutRepositoryCatalogDataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetRepositoryPolicyRequestFilterSensitiveLog = (obj: SetRepositoryPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetRepositoryPolicyResponseFilterSensitiveLog = (obj: SetRepositoryPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadLayerPartRequestFilterSensitiveLog = (obj: UploadLayerPartRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadLayerPartResponseFilterSensitiveLog = (obj: UploadLayerPartResponse): any => ({
-  ...obj,
-});

@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetJobRunRequest,
-  GetJobRunRequestFilterSensitiveLog,
-  GetJobRunResponse,
-  GetJobRunResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_json1_1GetJobRunCommand, serializeAws_json1_1GetJobRunCommand } from "../protocols/Aws_json1_1";
+import { GetJobRunRequest, GetJobRunResponse } from "../models/models_1";
+import { de_GetJobRunCommand, se_GetJobRunCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobRunCommand}.
  */
 export interface GetJobRunCommandInput extends GetJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobRunCommand}.
  */
 export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the metadata for a given job run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,17 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * import { GlueClient, GetJobRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetJobRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetJobRunRequest
+ *   JobName: "STRING_VALUE", // required
+ *   RunId: "STRING_VALUE", // required
+ *   PredecessorsIncluded: true || false,
+ * };
  * const command = new GetJobRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobRunCommandInput - {@link GetJobRunCommandInput}
+ * @returns {@link GetJobRunCommandOutput}
  * @see {@link GetJobRunCommandInput} for command's `input` shape.
  * @see {@link GetJobRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +114,8 @@ export class GetJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +125,18 @@ export class GetJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobRunCommand(input, context);
+    return se_GetJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobRunCommandOutput> {
-    return deserializeAws_json1_1GetJobRunCommand(output, context);
+    return de_GetJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

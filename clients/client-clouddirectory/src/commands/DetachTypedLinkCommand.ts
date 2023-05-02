@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { DetachTypedLinkRequest, DetachTypedLinkRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DetachTypedLinkCommand,
-  serializeAws_restJson1DetachTypedLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { DetachTypedLinkRequest } from "../models/models_0";
+import { de_DetachTypedLinkCommand, se_DetachTypedLinkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachTypedLinkCommand}.
  */
 export interface DetachTypedLinkCommandInput extends DetachTypedLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachTypedLinkCommand}.
  */
 export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a typed link from a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,39 @@ export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
  * import { CloudDirectoryClient, DetachTypedLinkCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DetachTypedLinkCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // DetachTypedLinkRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   TypedLinkSpecifier: { // TypedLinkSpecifier
+ *     TypedLinkFacet: { // TypedLinkSchemaAndFacetName
+ *       SchemaArn: "STRING_VALUE", // required
+ *       TypedLinkName: "STRING_VALUE", // required
+ *     },
+ *     SourceObjectReference: { // ObjectReference
+ *       Selector: "STRING_VALUE",
+ *     },
+ *     TargetObjectReference: {
+ *       Selector: "STRING_VALUE",
+ *     },
+ *     IdentityAttributeValues: [ // AttributeNameAndValueList // required
+ *       { // AttributeNameAndValue
+ *         AttributeName: "STRING_VALUE", // required
+ *         Value: { // TypedAttributeValue Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new DetachTypedLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachTypedLinkCommandInput - {@link DetachTypedLinkCommandInput}
+ * @returns {@link DetachTypedLinkCommandOutput}
  * @see {@link DetachTypedLinkCommandInput} for command's `input` shape.
  * @see {@link DetachTypedLinkCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -93,6 +124,9 @@ export class DetachTypedLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachTypedLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +155,8 @@ export class DetachTypedLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachTypedLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +166,18 @@ export class DetachTypedLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachTypedLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DetachTypedLinkCommand(input, context);
+    return se_DetachTypedLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachTypedLinkCommandOutput> {
-    return deserializeAws_restJson1DetachTypedLinkCommand(output, context);
+    return de_DetachTypedLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

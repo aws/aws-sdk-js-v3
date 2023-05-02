@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeAvailabilityMonitorTestInput, DescribeAvailabilityMonitorTestOutput } from "../models/models_0";
 import {
-  DescribeAvailabilityMonitorTestInput,
-  DescribeAvailabilityMonitorTestInputFilterSensitiveLog,
-  DescribeAvailabilityMonitorTestOutput,
-  DescribeAvailabilityMonitorTestOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand,
-  serializeAws_json1_1DescribeAvailabilityMonitorTestCommand,
+  de_DescribeAvailabilityMonitorTestCommand,
+  se_DescribeAvailabilityMonitorTestCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAvailabilityMonitorTestCommand}.
  */
 export interface DescribeAvailabilityMonitorTestCommandInput extends DescribeAvailabilityMonitorTestInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAvailabilityMonitorTestCommand}.
  */
 export interface DescribeAvailabilityMonitorTestCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the most recent high availability monitoring test that was
  *          performed on the host in a cluster. If a test isn't performed, the status and start
  *          time in the response would be null.</p>
@@ -46,10 +46,15 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
  * import { StorageGatewayClient, DescribeAvailabilityMonitorTestCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeAvailabilityMonitorTestCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeAvailabilityMonitorTestInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAvailabilityMonitorTestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAvailabilityMonitorTestCommandInput - {@link DescribeAvailabilityMonitorTestCommandInput}
+ * @returns {@link DescribeAvailabilityMonitorTestCommandOutput}
  * @see {@link DescribeAvailabilityMonitorTestCommandInput} for command's `input` shape.
  * @see {@link DescribeAvailabilityMonitorTestCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -81,6 +86,9 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAvailabilityMonitorTestCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAvailabilityMonitorTestInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAvailabilityMonitorTestOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +128,24 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAvailabilityMonitorTestCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAvailabilityMonitorTestCommand(input, context);
+    return se_DescribeAvailabilityMonitorTestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAvailabilityMonitorTestCommandOutput> {
-    return deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand(output, context);
+    return de_DescribeAvailabilityMonitorTestCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  StartDeviceSyncRequest,
-  StartDeviceSyncRequestFilterSensitiveLog,
-  StartDeviceSyncResponse,
-  StartDeviceSyncResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartDeviceSyncCommand,
-  serializeAws_json1_1StartDeviceSyncCommand,
-} from "../protocols/Aws_json1_1";
+import { StartDeviceSyncRequest, StartDeviceSyncResponse } from "../models/models_0";
+import { de_StartDeviceSyncCommand, se_StartDeviceSyncCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDeviceSyncCommand}.
  */
 export interface StartDeviceSyncCommandInput extends StartDeviceSyncRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDeviceSyncCommand}.
  */
 export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets a device and its account to the known default settings. This clears all
  *          information and settings set by previous users in the following ways:</p>
  *          <ul>
@@ -63,10 +60,19 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
  * import { AlexaForBusinessClient, StartDeviceSyncCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, StartDeviceSyncCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // StartDeviceSyncRequest
+ *   RoomArn: "STRING_VALUE",
+ *   DeviceArn: "STRING_VALUE",
+ *   Features: [ // Features // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartDeviceSyncCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDeviceSyncCommandInput - {@link StartDeviceSyncCommandInput}
+ * @returns {@link StartDeviceSyncCommandOutput}
  * @see {@link StartDeviceSyncCommandInput} for command's `input` shape.
  * @see {@link StartDeviceSyncCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -93,6 +99,9 @@ export class StartDeviceSyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDeviceSyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +130,8 @@ export class StartDeviceSyncCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDeviceSyncRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDeviceSyncResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +141,18 @@ export class StartDeviceSyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDeviceSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDeviceSyncCommand(input, context);
+    return se_StartDeviceSyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeviceSyncCommandOutput> {
-    return deserializeAws_json1_1StartDeviceSyncCommand(output, context);
+    return de_StartDeviceSyncCommand(output, context);
   }
 
   // Start section: command_body_extra

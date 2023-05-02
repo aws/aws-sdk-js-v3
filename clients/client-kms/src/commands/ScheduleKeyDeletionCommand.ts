@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ScheduleKeyDeletionRequest,
-  ScheduleKeyDeletionRequestFilterSensitiveLog,
-  ScheduleKeyDeletionResponse,
-  ScheduleKeyDeletionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ScheduleKeyDeletionCommand,
-  serializeAws_json1_1ScheduleKeyDeletionCommand,
-} from "../protocols/Aws_json1_1";
+import { ScheduleKeyDeletionRequest, ScheduleKeyDeletionResponse } from "../models/models_0";
+import { de_ScheduleKeyDeletionCommand, se_ScheduleKeyDeletionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ScheduleKeyDeletionCommand}.
  */
 export interface ScheduleKeyDeletionCommandInput extends ScheduleKeyDeletionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ScheduleKeyDeletionCommand}.
  */
 export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30
  *       days, but you can specify a waiting period of 7-30 days. When this operation is successful,
  *       the key state of the KMS key changes to <code>PendingDeletion</code> and the key can't be used
@@ -97,10 +94,16 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * import { KMSClient, ScheduleKeyDeletionCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ScheduleKeyDeletionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ScheduleKeyDeletionRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   PendingWindowInDays: Number("int"),
+ * };
  * const command = new ScheduleKeyDeletionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ScheduleKeyDeletionCommandInput - {@link ScheduleKeyDeletionCommandInput}
+ * @returns {@link ScheduleKeyDeletionCommandOutput}
  * @see {@link ScheduleKeyDeletionCommandInput} for command's `input` shape.
  * @see {@link ScheduleKeyDeletionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -176,6 +179,9 @@ export class ScheduleKeyDeletionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ScheduleKeyDeletionCommandInput) {
     // Start section: command_constructor
     super();
@@ -204,8 +210,8 @@ export class ScheduleKeyDeletionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScheduleKeyDeletionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ScheduleKeyDeletionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -215,12 +221,18 @@ export class ScheduleKeyDeletionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ScheduleKeyDeletionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ScheduleKeyDeletionCommand(input, context);
+    return se_ScheduleKeyDeletionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScheduleKeyDeletionCommandOutput> {
-    return deserializeAws_json1_1ScheduleKeyDeletionCommand(output, context);
+    return de_ScheduleKeyDeletionCommand(output, context);
   }
 
   // Start section: command_body_extra

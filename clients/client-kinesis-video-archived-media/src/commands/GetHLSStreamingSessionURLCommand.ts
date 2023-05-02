@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import {
-  GetHLSStreamingSessionURLInput,
-  GetHLSStreamingSessionURLInputFilterSensitiveLog,
-  GetHLSStreamingSessionURLOutput,
-  GetHLSStreamingSessionURLOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetHLSStreamingSessionURLCommand,
-  serializeAws_restJson1GetHLSStreamingSessionURLCommand,
-} from "../protocols/Aws_restJson1";
+import { GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput } from "../models/models_0";
+import { de_GetHLSStreamingSessionURLCommand, se_GetHLSStreamingSessionURLCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetHLSStreamingSessionURLCommand}.
  */
 export interface GetHLSStreamingSessionURLCommandInput extends GetHLSStreamingSessionURLInput {}
 /**
+ * @public
+ *
  * The output of {@link GetHLSStreamingSessionURLCommand}.
  */
 export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingSessionURLOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an HTTP Live Streaming (HLS) URL for the stream. You can then open the URL
  *             in a browser or media player to view the stream contents.</p>
  *         <p>Both the <code>StreamName</code> and the <code>StreamARN</code> parameters are
@@ -225,10 +222,29 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  * import { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
+ * const input = { // GetHLSStreamingSessionURLInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   PlaybackMode: "STRING_VALUE",
+ *   HLSFragmentSelector: { // HLSFragmentSelector
+ *     FragmentSelectorType: "STRING_VALUE",
+ *     TimestampRange: { // HLSTimestampRange
+ *       StartTimestamp: new Date("TIMESTAMP"),
+ *       EndTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ *   ContainerFormat: "STRING_VALUE",
+ *   DiscontinuityMode: "STRING_VALUE",
+ *   DisplayFragmentTimestamp: "STRING_VALUE",
+ *   Expires: Number("int"),
+ *   MaxMediaPlaylistFragmentResults: Number("long"),
+ * };
  * const command = new GetHLSStreamingSessionURLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHLSStreamingSessionURLCommandInput - {@link GetHLSStreamingSessionURLCommandInput}
+ * @returns {@link GetHLSStreamingSessionURLCommandOutput}
  * @see {@link GetHLSStreamingSessionURLCommandInput} for command's `input` shape.
  * @see {@link GetHLSStreamingSessionURLCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
@@ -292,6 +308,9 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHLSStreamingSessionURLCommandInput) {
     // Start section: command_constructor
     super();
@@ -320,8 +339,8 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHLSStreamingSessionURLInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHLSStreamingSessionURLOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -331,15 +350,21 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHLSStreamingSessionURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetHLSStreamingSessionURLCommand(input, context);
+    return se_GetHLSStreamingSessionURLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHLSStreamingSessionURLCommandOutput> {
-    return deserializeAws_restJson1GetHLSStreamingSessionURLCommand(output, context);
+    return de_GetHLSStreamingSessionURLCommand(output, context);
   }
 
   // Start section: command_body_extra

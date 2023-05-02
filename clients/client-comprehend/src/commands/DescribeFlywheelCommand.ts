@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DescribeFlywheelRequest,
-  DescribeFlywheelRequestFilterSensitiveLog,
-  DescribeFlywheelResponse,
-  DescribeFlywheelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFlywheelCommand,
-  serializeAws_json1_1DescribeFlywheelCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFlywheelRequest, DescribeFlywheelResponse } from "../models/models_0";
+import { de_DescribeFlywheelCommand, se_DescribeFlywheelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFlywheelCommand}.
  */
 export interface DescribeFlywheelCommandInput extends DescribeFlywheelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFlywheelCommand}.
  */
 export interface DescribeFlywheelCommandOutput extends DescribeFlywheelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides configuration information about the flywheel. For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeFlywheelCommandOutput extends DescribeFlywheelResponse,
  * import { ComprehendClient, DescribeFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribeFlywheelRequest
+ *   FlywheelArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFlywheelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFlywheelCommandInput - {@link DescribeFlywheelCommandInput}
+ * @returns {@link DescribeFlywheelCommandOutput}
  * @see {@link DescribeFlywheelCommandInput} for command's `input` shape.
  * @see {@link DescribeFlywheelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -82,6 +84,9 @@ export class DescribeFlywheelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFlywheelCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DescribeFlywheelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFlywheelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFlywheelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DescribeFlywheelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFlywheelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFlywheelCommand(input, context);
+    return se_DescribeFlywheelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFlywheelCommandOutput> {
-    return deserializeAws_json1_1DescribeFlywheelCommand(output, context);
+    return de_DescribeFlywheelCommand(output, context);
   }
 
   // Start section: command_body_extra

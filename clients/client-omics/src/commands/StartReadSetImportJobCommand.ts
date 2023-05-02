@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartReadSetImportJobRequest,
-  StartReadSetImportJobRequestFilterSensitiveLog,
-  StartReadSetImportJobResponse,
-  StartReadSetImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartReadSetImportJobRequest, StartReadSetImportJobResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1StartReadSetImportJobCommand,
-  serializeAws_restJson1StartReadSetImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartReadSetImportJobCommand, se_StartReadSetImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReadSetImportJobCommand}.
  */
 export interface StartReadSetImportJobCommandInput extends StartReadSetImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartReadSetImportJobCommand}.
  */
 export interface StartReadSetImportJobCommandOutput extends StartReadSetImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a read set import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,35 @@ export interface StartReadSetImportJobCommandOutput extends StartReadSetImportJo
  * import { OmicsClient, StartReadSetImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartReadSetImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // StartReadSetImportJobRequest
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   sources: [ // StartReadSetImportJobSourceList // required
+ *     { // StartReadSetImportJobSourceItem
+ *       sourceFiles: { // SourceFiles
+ *         source1: "STRING_VALUE", // required
+ *         source2: "STRING_VALUE",
+ *       },
+ *       sourceFileType: "STRING_VALUE", // required
+ *       subjectId: "STRING_VALUE", // required
+ *       sampleId: "STRING_VALUE", // required
+ *       generatedFrom: "STRING_VALUE",
+ *       referenceArn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new StartReadSetImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReadSetImportJobCommandInput - {@link StartReadSetImportJobCommandInput}
+ * @returns {@link StartReadSetImportJobCommandOutput}
  * @see {@link StartReadSetImportJobCommandInput} for command's `input` shape.
  * @see {@link StartReadSetImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -90,6 +112,9 @@ export class StartReadSetImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReadSetImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +143,8 @@ export class StartReadSetImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReadSetImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartReadSetImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +154,18 @@ export class StartReadSetImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReadSetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartReadSetImportJobCommand(input, context);
+    return se_StartReadSetImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReadSetImportJobCommandOutput> {
-    return deserializeAws_restJson1StartReadSetImportJobCommand(output, context);
+    return de_StartReadSetImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

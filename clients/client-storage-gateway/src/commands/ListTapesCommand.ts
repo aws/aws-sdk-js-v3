@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTapesInput,
-  ListTapesInputFilterSensitiveLog,
-  ListTapesOutput,
-  ListTapesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ListTapesCommand, serializeAws_json1_1ListTapesCommand } from "../protocols/Aws_json1_1";
+import { ListTapesInput, ListTapesOutput } from "../models/models_0";
+import { de_ListTapesCommand, se_ListTapesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTapesCommand}.
  */
 export interface ListTapesCommandInput extends ListTapesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTapesCommand}.
  */
 export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf
  *          (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names
  *          (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both
@@ -49,10 +49,19 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  * import { StorageGatewayClient, ListTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // ListTapesInput
+ *   TapeARNs: [ // TapeARNs
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListTapesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTapesCommandInput - {@link ListTapesCommandInput}
+ * @returns {@link ListTapesCommandOutput}
  * @see {@link ListTapesCommandInput} for command's `input` shape.
  * @see {@link ListTapesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -84,6 +93,9 @@ export class ListTapesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTapesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +122,8 @@ export class ListTapesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTapesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTapesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +133,18 @@ export class ListTapesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTapesCommand(input, context);
+    return se_ListTapesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTapesCommandOutput> {
-    return deserializeAws_json1_1ListTapesCommand(output, context);
+    return de_ListTapesCommand(output, context);
   }
 
   // Start section: command_body_extra

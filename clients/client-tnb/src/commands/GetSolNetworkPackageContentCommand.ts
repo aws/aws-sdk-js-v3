@@ -13,28 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetSolNetworkPackageContentInput, GetSolNetworkPackageContentOutput } from "../models/models_0";
 import {
-  GetSolNetworkPackageContentInput,
-  GetSolNetworkPackageContentInputFilterSensitiveLog,
-  GetSolNetworkPackageContentOutput,
-  GetSolNetworkPackageContentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSolNetworkPackageContentCommand,
-  serializeAws_restJson1GetSolNetworkPackageContentCommand,
+  de_GetSolNetworkPackageContentCommand,
+  se_GetSolNetworkPackageContentCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSolNetworkPackageContentCommand}.
  */
 export interface GetSolNetworkPackageContentCommandInput extends GetSolNetworkPackageContentInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSolNetworkPackageContentCommand}.
  */
 export interface GetSolNetworkPackageContentCommandOutput extends GetSolNetworkPackageContentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the contents of a network package.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  * @example
@@ -43,10 +43,16 @@ export interface GetSolNetworkPackageContentCommandOutput extends GetSolNetworkP
  * import { TnbClient, GetSolNetworkPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, GetSolNetworkPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // GetSolNetworkPackageContentInput
+ *   nsdInfoId: "STRING_VALUE", // required
+ *   accept: "application/zip", // required
+ * };
  * const command = new GetSolNetworkPackageContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSolNetworkPackageContentCommandInput - {@link GetSolNetworkPackageContentCommandInput}
+ * @returns {@link GetSolNetworkPackageContentCommandOutput}
  * @see {@link GetSolNetworkPackageContentCommandInput} for command's `input` shape.
  * @see {@link GetSolNetworkPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -85,6 +91,9 @@ export class GetSolNetworkPackageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSolNetworkPackageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class GetSolNetworkPackageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSolNetworkPackageContentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSolNetworkPackageContentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +133,21 @@ export class GetSolNetworkPackageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSolNetworkPackageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSolNetworkPackageContentCommand(input, context);
+    return se_GetSolNetworkPackageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSolNetworkPackageContentCommandOutput> {
-    return deserializeAws_restJson1GetSolNetworkPackageContentCommand(output, context);
+    return de_GetSolNetworkPackageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

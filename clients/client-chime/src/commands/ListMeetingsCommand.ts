@@ -14,41 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  ListMeetingsRequest,
-  ListMeetingsRequestFilterSensitiveLog,
-  ListMeetingsResponse,
-  ListMeetingsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListMeetingsCommand,
-  serializeAws_restJson1ListMeetingsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMeetingsRequest, ListMeetingsResponse, ListMeetingsResponseFilterSensitiveLog } from "../models/models_1";
+import { de_ListMeetingsCommand, se_ListMeetingsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMeetingsCommand}.
  */
 export interface ListMeetingsCommandInput extends ListMeetingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMeetingsCommand}.
  */
 export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Lists up to 100 active Amazon Chime SDK meetings. For more information about the Amazon Chime SDK, see
- * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
- * in the <i>Amazon Chime Developer Guide</i>.</p>
+ * <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
+ * in the <i>Amazon Chime SDK Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, ListMeetingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListMeetingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListMeetingsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMeetingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMeetingsCommandInput - {@link ListMeetingsCommandInput}
+ * @returns {@link ListMeetingsCommandOutput}
  * @see {@link ListMeetingsCommandInput} for command's `input` shape.
  * @see {@link ListMeetingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +93,9 @@ export class ListMeetingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMeetingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +122,7 @@ export class ListMeetingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMeetingsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListMeetingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -127,12 +133,18 @@ export class ListMeetingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMeetingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMeetingsCommand(input, context);
+    return se_ListMeetingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMeetingsCommandOutput> {
-    return deserializeAws_restJson1ListMeetingsCommand(output, context);
+    return de_ListMeetingsCommand(output, context);
   }
 
   // Start section: command_body_extra

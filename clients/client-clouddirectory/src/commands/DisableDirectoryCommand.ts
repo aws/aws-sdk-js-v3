@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  DisableDirectoryRequest,
-  DisableDirectoryRequestFilterSensitiveLog,
-  DisableDirectoryResponse,
-  DisableDirectoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableDirectoryCommand,
-  serializeAws_restJson1DisableDirectoryCommand,
-} from "../protocols/Aws_restJson1";
+import { DisableDirectoryRequest, DisableDirectoryResponse } from "../models/models_0";
+import { de_DisableDirectoryCommand, se_DisableDirectoryCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableDirectoryCommand}.
  */
 export interface DisableDirectoryCommandInput extends DisableDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableDirectoryCommand}.
  */
 export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the specified directory. Disabled directories cannot be read or written to.
  *       Only enabled directories can be disabled. Disabled directories may be reenabled.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  * import { CloudDirectoryClient, DisableDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DisableDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // DisableDirectoryRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ * };
  * const command = new DisableDirectoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableDirectoryCommandInput - {@link DisableDirectoryCommandInput}
+ * @returns {@link DisableDirectoryCommandOutput}
  * @see {@link DisableDirectoryCommandInput} for command's `input` shape.
  * @see {@link DisableDirectoryCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -96,6 +98,9 @@ export class DisableDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +129,8 @@ export class DisableDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableDirectoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +140,18 @@ export class DisableDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableDirectoryCommand(input, context);
+    return se_DisableDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableDirectoryCommandOutput> {
-    return deserializeAws_restJson1DisableDirectoryCommand(output, context);
+    return de_DisableDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

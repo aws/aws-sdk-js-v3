@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { GroundStationServiceException as __BaseException } from "./GroundStationServiceException";
 
 /**
+ * @public
  * <p>Dependency encountered an error.</p>
  */
 export class DependencyException extends __BaseException {
@@ -28,6 +29,9 @@ export class DependencyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetAgentConfigurationRequest {
   /**
    * <p>UUID of agent to get configuration information for.</p>
@@ -35,6 +39,9 @@ export interface GetAgentConfigurationRequest {
   agentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAgentConfigurationResponse {
   /**
    * <p>UUID of agent.</p>
@@ -48,6 +55,7 @@ export interface GetAgentConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>One or more parameters are not valid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -73,6 +81,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -91,20 +100,15 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
-export enum ComponentType {
-  DIGITIZER = "DIGITIZER",
-  LAMINAR_FLOW = "LAMINAR_FLOW",
-  PRISM = "PRISM",
-}
-
 /**
+ * @public
  * <p>Version information for agent components.</p>
  */
 export interface ComponentVersion {
   /**
    * <p>Component type.</p>
    */
-  componentType: ComponentType | string | undefined;
+  componentType: string | undefined;
 
   /**
    * <p>List of versions.</p>
@@ -113,6 +117,7 @@ export interface ComponentVersion {
 }
 
 /**
+ * @public
  * <p>Detailed information about the agent.</p>
  */
 export interface AgentDetails {
@@ -132,9 +137,17 @@ export interface AgentDetails {
   instanceType: string | undefined;
 
   /**
-   * <p>Number of Cpu cores reserved for agent.</p>
+   * <note>
+   *             <p>This field should not be used. Use agentCpuCores instead.</p>
+   *          </note>
+   *          <p>List of CPU cores reserved for processes other than the agent running on the EC2 instance.</p>
    */
-  reservedCpuCores: number[] | undefined;
+  reservedCpuCores?: number[];
+
+  /**
+   * <p>List of CPU cores reserved for the agent.</p>
+   */
+  agentCpuCores?: number[];
 
   /**
    * <p>List of versions being used by agent components.</p>
@@ -143,6 +156,7 @@ export interface AgentDetails {
 }
 
 /**
+ * @public
  * <p>Data for agent discovery.</p>
  */
 export interface DiscoveryData {
@@ -162,9 +176,12 @@ export interface DiscoveryData {
   capabilityArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAgentRequest {
   /**
-   * <p>Data for associating and agent with the capabilities it is managing.</p>
+   * <p>Data for associating an agent with the capabilities it is managing.</p>
    */
   discoveryData: DiscoveryData | undefined;
 
@@ -174,6 +191,9 @@ export interface RegisterAgentRequest {
   agentDetails: AgentDetails | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAgentResponse {
   /**
    * <p>UUID of registered agent.</p>
@@ -181,14 +201,24 @@ export interface RegisterAgentResponse {
   agentId?: string;
 }
 
-export enum AgentStatus {
-  ACTIVE = "ACTIVE",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AgentStatus = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
+
+/**
+ * @public
  * <p>Aggregate status of Agent components.</p>
  */
 export interface AggregateStatus {
@@ -204,13 +234,14 @@ export interface AggregateStatus {
 }
 
 /**
+ * @public
  * <p>Data on the status of agent components.</p>
  */
 export interface ComponentStatusData {
   /**
    * <p>The Component type.</p>
    */
-  componentType: ComponentType | string | undefined;
+  componentType: string | undefined;
 
   /**
    * <p>Capability ARN of the component.</p>
@@ -243,6 +274,9 @@ export interface ComponentStatusData {
   dataflowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAgentStatusRequest {
   /**
    * <p>UUID of agent to update.</p>
@@ -265,6 +299,9 @@ export interface UpdateAgentStatusRequest {
   componentStatuses: ComponentStatusData[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAgentStatusResponse {
   /**
    * <p>UUID of updated agent.</p>
@@ -272,12 +309,22 @@ export interface UpdateAgentStatusResponse {
   agentId: string | undefined;
 }
 
-export enum AngleUnits {
-  DEGREE_ANGLE = "DEGREE_ANGLE",
-  RADIAN = "RADIAN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AngleUnits = {
+  DEGREE_ANGLE: "DEGREE_ANGLE",
+  RADIAN: "RADIAN",
+} as const;
 
 /**
+ * @public
+ */
+export type AngleUnits = (typeof AngleUnits)[keyof typeof AngleUnits];
+
+/**
+ * @public
  * <p>Details about an antenna demod decode <code>Config</code> used in a contact.</p>
  */
 export interface AntennaDemodDecodeDetails {
@@ -287,13 +334,23 @@ export interface AntennaDemodDecodeDetails {
   outputNode?: string;
 }
 
-export enum BandwidthUnits {
-  GHZ = "GHz",
-  KHZ = "kHz",
-  MHZ = "MHz",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BandwidthUnits = {
+  GHZ: "GHz",
+  KHZ: "kHz",
+  MHZ: "MHz",
+} as const;
 
 /**
+ * @public
+ */
+export type BandwidthUnits = (typeof BandwidthUnits)[keyof typeof BandwidthUnits];
+
+/**
+ * @public
  * <p>Object that describes the frequency bandwidth. </p>
  */
 export interface FrequencyBandwidth {
@@ -319,13 +376,23 @@ export interface FrequencyBandwidth {
   units: BandwidthUnits | string | undefined;
 }
 
-export enum FrequencyUnits {
-  GHZ = "GHz",
-  KHZ = "kHz",
-  MHZ = "MHz",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FrequencyUnits = {
+  GHZ: "GHz",
+  KHZ: "kHz",
+  MHZ: "MHz",
+} as const;
 
 /**
+ * @public
+ */
+export type FrequencyUnits = (typeof FrequencyUnits)[keyof typeof FrequencyUnits];
+
+/**
+ * @public
  * <p>Object that describes the frequency.</p>
  */
 export interface Frequency {
@@ -340,13 +407,23 @@ export interface Frequency {
   units: FrequencyUnits | string | undefined;
 }
 
-export enum Polarization {
-  LEFT_HAND = "LEFT_HAND",
-  NONE = "NONE",
-  RIGHT_HAND = "RIGHT_HAND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Polarization = {
+  LEFT_HAND: "LEFT_HAND",
+  NONE: "NONE",
+  RIGHT_HAND: "RIGHT_HAND",
+} as const;
 
 /**
+ * @public
+ */
+export type Polarization = (typeof Polarization)[keyof typeof Polarization];
+
+/**
+ * @public
  * <p>Object that describes a spectral <code>Config</code>.</p>
  */
 export interface SpectrumConfig {
@@ -378,6 +455,7 @@ export interface SpectrumConfig {
 }
 
 /**
+ * @public
  * <p>Information about how AWS Ground Station should configure an
  *          antenna for downlink during a contact.</p>
  */
@@ -389,6 +467,7 @@ export interface AntennaDownlinkConfig {
 }
 
 /**
+ * @public
  * <p>Information about the decode <code>Config</code>.</p>
  */
 export interface DecodeConfig {
@@ -399,6 +478,7 @@ export interface DecodeConfig {
 }
 
 /**
+ * @public
  * <p>Information about the demodulation <code>Config</code>.</p>
  */
 export interface DemodulationConfig {
@@ -409,6 +489,7 @@ export interface DemodulationConfig {
 }
 
 /**
+ * @public
  * <p>Information about how AWS Ground Station should conﬁgure an antenna for downlink demod decode during a contact.</p>
  */
 export interface AntennaDownlinkDemodDecodeConfig {
@@ -429,6 +510,7 @@ export interface AntennaDownlinkDemodDecodeConfig {
 }
 
 /**
+ * @public
  * <p>Information about the uplink spectral <code>Config</code>.</p>
  */
 export interface UplinkSpectrumConfig {
@@ -443,11 +525,21 @@ export interface UplinkSpectrumConfig {
   polarization?: Polarization | string;
 }
 
-export enum EirpUnits {
-  DBW = "dBW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EirpUnits = {
+  DBW: "dBW",
+} as const;
 
 /**
+ * @public
+ */
+export type EirpUnits = (typeof EirpUnits)[keyof typeof EirpUnits];
+
+/**
+ * @public
  * <p>Object that represents EIRP.</p>
  */
 export interface Eirp {
@@ -463,6 +555,7 @@ export interface Eirp {
 }
 
 /**
+ * @public
  * <p>Information about the uplink <code>Config</code> of an antenna.</p>
  */
 export interface AntennaUplinkConfig {
@@ -482,12 +575,22 @@ export interface AntennaUplinkConfig {
   targetEirp: Eirp | undefined;
 }
 
-export enum AuditResults {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuditResults = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
 
 /**
+ * @public
+ */
+export type AuditResults = (typeof AuditResults)[keyof typeof AuditResults];
+
+/**
+ * @public
  * <p>Information about the socket address.</p>
  */
 export interface SocketAddress {
@@ -503,6 +606,7 @@ export interface SocketAddress {
 }
 
 /**
+ * @public
  * <p>Egress address of AgentEndpoint with an optional mtu.</p>
  */
 export interface ConnectionDetails {
@@ -518,6 +622,7 @@ export interface ConnectionDetails {
 }
 
 /**
+ * @public
  * <p>An integer range that has a minimum and maximum value.</p>
  */
 export interface IntegerRange {
@@ -533,6 +638,7 @@ export interface IntegerRange {
 }
 
 /**
+ * @public
  * <p>A socket address with a port range.</p>
  */
 export interface RangedSocketAddress {
@@ -548,6 +654,7 @@ export interface RangedSocketAddress {
 }
 
 /**
+ * @public
  * <p>Ingress address of AgentEndpoint with a port range and an optional mtu.</p>
  */
 export interface RangedConnectionDetails {
@@ -563,6 +670,7 @@ export interface RangedConnectionDetails {
 }
 
 /**
+ * @public
  * <p>Information about AwsGroundStationAgentEndpoint.</p>
  */
 export interface AwsGroundStationAgentEndpoint {
@@ -593,6 +701,7 @@ export interface AwsGroundStationAgentEndpoint {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface CancelContactRequest {
@@ -603,6 +712,7 @@ export interface CancelContactRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ContactIdResponse {
@@ -612,17 +722,60 @@ export interface ContactIdResponse {
   contactId?: string;
 }
 
-export enum ConfigCapabilityType {
-  ANTENNA_DOWNLINK = "antenna-downlink",
-  ANTENNA_DOWNLINK_DEMOD_DECODE = "antenna-downlink-demod-decode",
-  ANTENNA_UPLINK = "antenna-uplink",
-  DATAFLOW_ENDPOINT = "dataflow-endpoint",
-  S3_RECORDING = "s3-recording",
-  TRACKING = "tracking",
-  UPLINK_ECHO = "uplink-echo",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CapabilityHealth = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
 
 /**
+ * @public
+ */
+export type CapabilityHealth = (typeof CapabilityHealth)[keyof typeof CapabilityHealth];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapabilityHealthReason = {
+  DATAPLANE_FAILURE: "DATAPLANE_FAILURE",
+  HEALTHY: "HEALTHY",
+  INITIALIZING_DATAPLANE: "INITIALIZING_DATAPLANE",
+  INVALID_IP_OWNERSHIP: "INVALID_IP_OWNERSHIP",
+  NOT_AUTHORIZED_TO_CREATE_SLR: "NOT_AUTHORIZED_TO_CREATE_SLR",
+  NO_REGISTERED_AGENT: "NO_REGISTERED_AGENT",
+  UNVERIFIED_IP_OWNERSHIP: "UNVERIFIED_IP_OWNERSHIP",
+} as const;
+
+/**
+ * @public
+ */
+export type CapabilityHealthReason = (typeof CapabilityHealthReason)[keyof typeof CapabilityHealthReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfigCapabilityType = {
+  ANTENNA_DOWNLINK: "antenna-downlink",
+  ANTENNA_DOWNLINK_DEMOD_DECODE: "antenna-downlink-demod-decode",
+  ANTENNA_UPLINK: "antenna-uplink",
+  DATAFLOW_ENDPOINT: "dataflow-endpoint",
+  S3_RECORDING: "s3-recording",
+  TRACKING: "tracking",
+  UPLINK_ECHO: "uplink-echo",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigCapabilityType = (typeof ConfigCapabilityType)[keyof typeof ConfigCapabilityType];
+
+/**
+ * @public
  * <p/>
  */
 export interface ConfigIdResponse {
@@ -643,6 +796,7 @@ export interface ConfigIdResponse {
 }
 
 /**
+ * @public
  * <p>Information about the dataflow endpoint <code>Config</code>.</p>
  */
 export interface DataflowEndpointConfig {
@@ -658,6 +812,7 @@ export interface DataflowEndpointConfig {
 }
 
 /**
+ * @public
  * <p>Information about an S3 recording <code>Config</code>.</p>
  */
 export interface S3RecordingConfig {
@@ -677,13 +832,23 @@ export interface S3RecordingConfig {
   prefix?: string;
 }
 
-export enum Criticality {
-  PREFERRED = "PREFERRED",
-  REMOVED = "REMOVED",
-  REQUIRED = "REQUIRED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Criticality = {
+  PREFERRED: "PREFERRED",
+  REMOVED: "REMOVED",
+  REQUIRED: "REQUIRED",
+} as const;
 
 /**
+ * @public
+ */
+export type Criticality = (typeof Criticality)[keyof typeof Criticality];
+
+/**
+ * @public
  * <p>Object that determines whether tracking should be used during a contact
  *          executed with this <code>Config</code> in the mission profile.</p>
  */
@@ -695,6 +860,7 @@ export interface TrackingConfig {
 }
 
 /**
+ * @public
  * <p>Information about an uplink echo <code>Config</code>.</p>
  *          <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the
  *          specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code>
@@ -713,6 +879,7 @@ export interface UplinkEchoConfig {
 }
 
 /**
+ * @public
  * <p>Object containing the parameters of a <code>Config</code>.</p>
  *          <p>See the subtype definitions for what each type of <code>Config</code> contains.</p>
  */
@@ -726,6 +893,9 @@ export type ConfigTypeData =
   | ConfigTypeData.UplinkEchoConfigMember
   | ConfigTypeData.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ConfigTypeData {
   /**
    * <p>Information about how AWS Ground Station should configure an antenna for downlink during a contact.</p>
@@ -862,6 +1032,7 @@ export namespace ConfigTypeData {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface CreateConfigRequest {
@@ -882,6 +1053,7 @@ export interface CreateConfigRequest {
 }
 
 /**
+ * @public
  * <p>Account limits for this resource have been exceeded.</p>
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -907,6 +1079,7 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface DeleteConfigRequest {
@@ -922,6 +1095,7 @@ export interface DeleteConfigRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetConfigRequest {
@@ -937,6 +1111,7 @@ export interface GetConfigRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetConfigResponse {
@@ -973,6 +1148,7 @@ export interface GetConfigResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListConfigsRequest {
@@ -988,6 +1164,7 @@ export interface ListConfigsRequest {
 }
 
 /**
+ * @public
  * <p>An item in a list of <code>Config</code> objects.</p>
  */
 export interface ConfigListItem {
@@ -1013,6 +1190,7 @@ export interface ConfigListItem {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListConfigsResponse {
@@ -1028,6 +1206,7 @@ export interface ListConfigsResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface UpdateConfigRequest {
@@ -1052,15 +1231,25 @@ export interface UpdateConfigRequest {
   configData: ConfigTypeData | undefined;
 }
 
-export enum EndpointStatus {
-  created = "created",
-  creating = "creating",
-  deleted = "deleted",
-  deleting = "deleting",
-  failed = "failed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndpointStatus = {
+  created: "created",
+  creating: "creating",
+  deleted: "deleted",
+  deleting: "deleting",
+  failed: "failed",
+} as const;
 
 /**
+ * @public
+ */
+export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];
+
+/**
+ * @public
  * <p>Information about a dataflow endpoint.</p>
  */
 export interface DataflowEndpoint {
@@ -1086,6 +1275,7 @@ export interface DataflowEndpoint {
 }
 
 /**
+ * @public
  * <p>Information about endpoints.</p>
  */
 export interface SecurityDetails {
@@ -1106,6 +1296,7 @@ export interface SecurityDetails {
 }
 
 /**
+ * @public
  * <p>Information about the endpoint details.</p>
  */
 export interface EndpointDetails {
@@ -1123,9 +1314,20 @@ export interface EndpointDetails {
    * <p>An agent endpoint.</p>
    */
   awsGroundStationAgentEndpoint?: AwsGroundStationAgentEndpoint;
+
+  /**
+   * <p>A dataflow endpoint health status. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>
+   */
+  healthStatus?: CapabilityHealth | string;
+
+  /**
+   * <p>Health reasons for a dataflow endpoint. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>
+   */
+  healthReasons?: (CapabilityHealthReason | string)[];
 }
 
 /**
+ * @public
  * <p>Details about an S3 recording <code>Config</code> used in a contact.</p>
  */
 export interface S3RecordingDetails {
@@ -1141,6 +1343,7 @@ export interface S3RecordingDetails {
 }
 
 /**
+ * @public
  * <p>Details for certain <code>Config</code> object types in a contact.</p>
  */
 export type ConfigDetails =
@@ -1149,6 +1352,9 @@ export type ConfigDetails =
   | ConfigDetails.S3RecordingDetailsMember
   | ConfigDetails.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ConfigDetails {
   /**
    * <p>Information about the endpoint details.</p>
@@ -1204,6 +1410,7 @@ export namespace ConfigDetails {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface DescribeContactRequest {
@@ -1213,23 +1420,33 @@ export interface DescribeContactRequest {
   contactId: string | undefined;
 }
 
-export enum ContactStatus {
-  AVAILABLE = "AVAILABLE",
-  AWS_CANCELLED = "AWS_CANCELLED",
-  AWS_FAILED = "AWS_FAILED",
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  FAILED_TO_SCHEDULE = "FAILED_TO_SCHEDULE",
-  PASS = "PASS",
-  POSTPASS = "POSTPASS",
-  PREPASS = "PREPASS",
-  SCHEDULED = "SCHEDULED",
-  SCHEDULING = "SCHEDULING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContactStatus = {
+  AVAILABLE: "AVAILABLE",
+  AWS_CANCELLED: "AWS_CANCELLED",
+  AWS_FAILED: "AWS_FAILED",
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  FAILED_TO_SCHEDULE: "FAILED_TO_SCHEDULE",
+  PASS: "PASS",
+  POSTPASS: "POSTPASS",
+  PREPASS: "PREPASS",
+  SCHEDULED: "SCHEDULED",
+  SCHEDULING: "SCHEDULING",
+} as const;
 
 /**
+ * @public
+ */
+export type ContactStatus = (typeof ContactStatus)[keyof typeof ContactStatus];
+
+/**
+ * @public
  * <p>Dataflow details for the destination side.</p>
  */
 export interface Destination {
@@ -1255,6 +1472,7 @@ export interface Destination {
 }
 
 /**
+ * @public
  * <p>Dataflow details for the source side.</p>
  */
 export interface Source {
@@ -1281,6 +1499,7 @@ export interface Source {
 }
 
 /**
+ * @public
  * <p>Information about a dataflow edge used in a contact.</p>
  */
 export interface DataflowDetail {
@@ -1301,6 +1520,7 @@ export interface DataflowDetail {
 }
 
 /**
+ * @public
  * <p>Elevation angle of the satellite in the sky during a contact.</p>
  */
 export interface Elevation {
@@ -1316,6 +1536,7 @@ export interface Elevation {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface DescribeContactResponse {
@@ -1391,6 +1612,7 @@ export interface DescribeContactResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListContactsRequest {
@@ -1436,6 +1658,7 @@ export interface ListContactsRequest {
 }
 
 /**
+ * @public
  * <p>Data describing a contact.</p>
  */
 export interface ContactData {
@@ -1506,6 +1729,7 @@ export interface ContactData {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListContactsResponse {
@@ -1521,6 +1745,7 @@ export interface ListContactsResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ReserveContactRequest {
@@ -1556,6 +1781,7 @@ export interface ReserveContactRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface CreateDataflowEndpointGroupRequest {
@@ -1570,17 +1796,18 @@ export interface CreateDataflowEndpointGroupRequest {
   tags?: Record<string, string>;
 
   /**
-   * <p>Amount of time, in seconds, prior to contact start for the contact to remain in a <code>PREPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>PREPASS</code> state.</p>
+   * <p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>
    */
   contactPrePassDurationSeconds?: number;
 
   /**
-   * <p>Amount of time, in seconds, after a contact ends for the contact to remain in a <code>POSTPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>POSTPASS</code> state.</p>
+   * <p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>
    */
   contactPostPassDurationSeconds?: number;
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface DataflowEndpointGroupIdResponse {
@@ -1591,6 +1818,7 @@ export interface DataflowEndpointGroupIdResponse {
 }
 
 /**
+ * @public
  * <p>Object stored in S3 containing ephemeris data.</p>
  */
 export interface S3Object {
@@ -1611,6 +1839,7 @@ export interface S3Object {
 }
 
 /**
+ * @public
  * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p>
  */
 export interface OEMEphemeris {
@@ -1626,6 +1855,7 @@ export interface OEMEphemeris {
 }
 
 /**
+ * @public
  * <p>A time range with a start and end time.</p>
  */
 export interface TimeRange {
@@ -1641,6 +1871,7 @@ export interface TimeRange {
 }
 
 /**
+ * @public
  * <p>Two-line element set (TLE) data.</p>
  */
 export interface TLEData {
@@ -1661,6 +1892,7 @@ export interface TLEData {
 }
 
 /**
+ * @public
  * <p>Two-line element set (TLE) ephemeris.</p>
  */
 export interface TLEEphemeris {
@@ -1676,10 +1908,14 @@ export interface TLEEphemeris {
 }
 
 /**
+ * @public
  * <p>Ephemeris data.</p>
  */
 export type EphemerisData = EphemerisData.OemMember | EphemerisData.TleMember | EphemerisData.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace EphemerisData {
   /**
    * <p>Two-line element set (TLE) ephemeris.</p>
@@ -1718,6 +1954,9 @@ export namespace EphemerisData {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateEphemerisRequest {
   /**
    * <p>AWS Ground Station satellite ID for this ephemeris.</p>
@@ -1763,6 +2002,9 @@ export interface CreateEphemerisRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface EphemerisIdResponse {
   /**
    * <p>The AWS Ground Station ephemeris ID.</p>
@@ -1771,10 +2013,14 @@ export interface EphemerisIdResponse {
 }
 
 /**
+ * @public
  * <p>AWS Key Management Service (KMS) Key.</p>
  */
 export type KmsKey = KmsKey.KmsAliasArnMember | KmsKey.KmsKeyArnMember | KmsKey.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace KmsKey {
   /**
    * <p>KMS Key Arn.</p>
@@ -1814,6 +2060,7 @@ export namespace KmsKey {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface CreateMissionProfileRequest {
@@ -1866,6 +2113,7 @@ export interface CreateMissionProfileRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface MissionProfileIdResponse {
@@ -1876,6 +2124,7 @@ export interface MissionProfileIdResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface DeleteDataflowEndpointGroupRequest {
@@ -1886,6 +2135,7 @@ export interface DeleteDataflowEndpointGroupRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetDataflowEndpointGroupRequest {
@@ -1896,6 +2146,7 @@ export interface GetDataflowEndpointGroupRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetDataflowEndpointGroupResponse {
@@ -1920,17 +2171,18 @@ export interface GetDataflowEndpointGroupResponse {
   tags?: Record<string, string>;
 
   /**
-   * <p>Amount of time, in seconds, prior to contact start for the contact to remain in a <code>PREPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>PREPASS</code> state.</p>
+   * <p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>
    */
   contactPrePassDurationSeconds?: number;
 
   /**
-   * <p>Amount of time, in seconds, after a contact ends for the contact to remain in a <code>POSTPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>POSTPASS</code> state.</p>
+   * <p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>
    */
   contactPostPassDurationSeconds?: number;
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListDataflowEndpointGroupsRequest {
@@ -1946,6 +2198,7 @@ export interface ListDataflowEndpointGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Item in a list of <code>DataflowEndpoint</code> groups.</p>
  */
 export interface DataflowEndpointListItem {
@@ -1961,6 +2214,7 @@ export interface DataflowEndpointListItem {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListDataflowEndpointGroupsResponse {
@@ -1975,6 +2229,9 @@ export interface ListDataflowEndpointGroupsResponse {
   dataflowEndpointGroupList?: DataflowEndpointListItem[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteEphemerisRequest {
   /**
    * <p>The AWS Ground Station ephemeris ID.</p>
@@ -1983,6 +2240,7 @@ export interface DeleteEphemerisRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface DeleteMissionProfileRequest {
@@ -1992,6 +2250,9 @@ export interface DeleteMissionProfileRequest {
   missionProfileId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEphemerisRequest {
   /**
    * <p>The AWS Ground Station ephemeris ID.</p>
@@ -1999,39 +2260,58 @@ export interface DescribeEphemerisRequest {
   ephemerisId: string | undefined;
 }
 
-export enum EphemerisInvalidReason {
+/**
+ * @public
+ * @enum
+ */
+export const EphemerisInvalidReason = {
   /**
    * Provided KMS key is invalid
    */
-  KMS_KEY_INVALID = "KMS_KEY_INVALID",
+  KMS_KEY_INVALID: "KMS_KEY_INVALID",
   /**
    * Provided spacecraft identifiers such as spacecraft NORAD Id are invalid
    */
-  METADATA_INVALID = "METADATA_INVALID",
+  METADATA_INVALID: "METADATA_INVALID",
   /**
    * Start, end, or expiration time(s) are invalid for the provided ephemeris
    */
-  TIME_RANGE_INVALID = "TIME_RANGE_INVALID",
+  TIME_RANGE_INVALID: "TIME_RANGE_INVALID",
   /**
    * Provided ephemeris defines invalid spacecraft trajectory
    */
-  TRAJECTORY_INVALID = "TRAJECTORY_INVALID",
+  TRAJECTORY_INVALID: "TRAJECTORY_INVALID",
   /**
    * Internal Service Error occurred while processing ephemeris
    */
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
-
-export enum EphemerisStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ERROR = "ERROR",
-  EXPIRED = "EXPIRED",
-  INVALID = "INVALID",
-  VALIDATING = "VALIDATING",
-}
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
 
 /**
+ * @public
+ */
+export type EphemerisInvalidReason = (typeof EphemerisInvalidReason)[keyof typeof EphemerisInvalidReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const EphemerisStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ERROR: "ERROR",
+  EXPIRED: "EXPIRED",
+  INVALID: "INVALID",
+  VALIDATING: "VALIDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type EphemerisStatus = (typeof EphemerisStatus)[keyof typeof EphemerisStatus];
+
+/**
+ * @public
  * <p>Description of ephemeris.</p>
  */
 export interface EphemerisDescription {
@@ -2047,6 +2327,7 @@ export interface EphemerisDescription {
 }
 
 /**
+ * @public
  * <p/>
  */
 export type EphemerisTypeDescription =
@@ -2054,6 +2335,9 @@ export type EphemerisTypeDescription =
   | EphemerisTypeDescription.TleMember
   | EphemerisTypeDescription.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace EphemerisTypeDescription {
   /**
    * <p>Description of ephemeris.</p>
@@ -2092,6 +2376,9 @@ export namespace EphemerisTypeDescription {
   };
 }
 
+/**
+ * @public
+ */
 export interface DescribeEphemerisResponse {
   /**
    * <p>The AWS Ground Station ephemeris ID.</p>
@@ -2147,6 +2434,7 @@ export interface DescribeEphemerisResponse {
 }
 
 /**
+ * @public
  * <p>Ephemeris item.</p>
  */
 export interface EphemerisItem {
@@ -2188,6 +2476,9 @@ export interface EphemerisItem {
   sourceS3Object?: S3Object;
 }
 
+/**
+ * @public
+ */
 export interface ListEphemeridesRequest {
   /**
    * <p>The AWS Ground Station satellite ID to list ephemeris for.</p>
@@ -2220,6 +2511,9 @@ export interface ListEphemeridesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEphemeridesResponse {
   /**
    * <p>Pagination token.</p>
@@ -2232,6 +2526,9 @@ export interface ListEphemeridesResponse {
   ephemerides?: EphemerisItem[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateEphemerisRequest {
   /**
    * <p>The AWS Ground Station ephemeris ID.</p>
@@ -2256,12 +2553,22 @@ export interface UpdateEphemerisRequest {
   priority?: number;
 }
 
-export enum EphemerisSource {
-  CUSTOMER_PROVIDED = "CUSTOMER_PROVIDED",
-  SPACE_TRACK = "SPACE_TRACK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EphemerisSource = {
+  CUSTOMER_PROVIDED: "CUSTOMER_PROVIDED",
+  SPACE_TRACK: "SPACE_TRACK",
+} as const;
 
 /**
+ * @public
+ */
+export type EphemerisSource = (typeof EphemerisSource)[keyof typeof EphemerisSource];
+
+/**
+ * @public
  * <p>Metadata describing a particular ephemeris.</p>
  */
 export interface EphemerisMetaData {
@@ -2290,6 +2597,7 @@ export interface EphemerisMetaData {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetMinuteUsageRequest {
@@ -2305,6 +2613,7 @@ export interface GetMinuteUsageRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetMinuteUsageResponse {
@@ -2335,6 +2644,7 @@ export interface GetMinuteUsageResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetMissionProfileRequest {
@@ -2345,6 +2655,7 @@ export interface GetMissionProfileRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetMissionProfileResponse {
@@ -2412,6 +2723,7 @@ export interface GetMissionProfileResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetSatelliteRequest {
@@ -2422,6 +2734,7 @@ export interface GetSatelliteRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetSatelliteResponse {
@@ -2452,6 +2765,7 @@ export interface GetSatelliteResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListGroundStationsRequest {
@@ -2472,6 +2786,7 @@ export interface ListGroundStationsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the ground station data.</p>
  */
 export interface GroundStationData {
@@ -2492,6 +2807,7 @@ export interface GroundStationData {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListGroundStationsResponse {
@@ -2507,6 +2823,7 @@ export interface ListGroundStationsResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListTagsForResourceRequest {
@@ -2517,6 +2834,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListTagsForResourceResponse {
@@ -2527,6 +2845,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListMissionProfilesRequest {
@@ -2542,6 +2861,7 @@ export interface ListMissionProfilesRequest {
 }
 
 /**
+ * @public
  * <p>Item in a list of mission profiles.</p>
  */
 export interface MissionProfileListItem {
@@ -2567,6 +2887,7 @@ export interface MissionProfileListItem {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListMissionProfilesResponse {
@@ -2582,6 +2903,7 @@ export interface ListMissionProfilesResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface UpdateMissionProfileRequest {
@@ -2634,6 +2956,7 @@ export interface UpdateMissionProfileRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListSatellitesRequest {
@@ -2649,6 +2972,7 @@ export interface ListSatellitesRequest {
 }
 
 /**
+ * @public
  * <p>Item in a list of satellites.</p>
  */
 export interface SatelliteListItem {
@@ -2679,6 +3003,7 @@ export interface SatelliteListItem {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListSatellitesResponse {
@@ -2694,6 +3019,7 @@ export interface ListSatellitesResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface TagResourceRequest {
@@ -2709,11 +3035,13 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p/>
  */
 export interface UntagResourceRequest {
@@ -2729,825 +3057,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const GetAgentConfigurationRequestFilterSensitiveLog = (obj: GetAgentConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAgentConfigurationResponseFilterSensitiveLog = (obj: GetAgentConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentVersionFilterSensitiveLog = (obj: ComponentVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AgentDetailsFilterSensitiveLog = (obj: AgentDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DiscoveryDataFilterSensitiveLog = (obj: DiscoveryData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterAgentRequestFilterSensitiveLog = (obj: RegisterAgentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterAgentResponseFilterSensitiveLog = (obj: RegisterAgentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AggregateStatusFilterSensitiveLog = (obj: AggregateStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentStatusDataFilterSensitiveLog = (obj: ComponentStatusData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAgentStatusRequestFilterSensitiveLog = (obj: UpdateAgentStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAgentStatusResponseFilterSensitiveLog = (obj: UpdateAgentStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AntennaDemodDecodeDetailsFilterSensitiveLog = (obj: AntennaDemodDecodeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FrequencyBandwidthFilterSensitiveLog = (obj: FrequencyBandwidth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FrequencyFilterSensitiveLog = (obj: Frequency): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpectrumConfigFilterSensitiveLog = (obj: SpectrumConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AntennaDownlinkConfigFilterSensitiveLog = (obj: AntennaDownlinkConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DecodeConfigFilterSensitiveLog = (obj: DecodeConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DemodulationConfigFilterSensitiveLog = (obj: DemodulationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AntennaDownlinkDemodDecodeConfigFilterSensitiveLog = (obj: AntennaDownlinkDemodDecodeConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UplinkSpectrumConfigFilterSensitiveLog = (obj: UplinkSpectrumConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EirpFilterSensitiveLog = (obj: Eirp): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AntennaUplinkConfigFilterSensitiveLog = (obj: AntennaUplinkConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SocketAddressFilterSensitiveLog = (obj: SocketAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionDetailsFilterSensitiveLog = (obj: ConnectionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IntegerRangeFilterSensitiveLog = (obj: IntegerRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RangedSocketAddressFilterSensitiveLog = (obj: RangedSocketAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RangedConnectionDetailsFilterSensitiveLog = (obj: RangedConnectionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsGroundStationAgentEndpointFilterSensitiveLog = (obj: AwsGroundStationAgentEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelContactRequestFilterSensitiveLog = (obj: CancelContactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContactIdResponseFilterSensitiveLog = (obj: ContactIdResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigIdResponseFilterSensitiveLog = (obj: ConfigIdResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataflowEndpointConfigFilterSensitiveLog = (obj: DataflowEndpointConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3RecordingConfigFilterSensitiveLog = (obj: S3RecordingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrackingConfigFilterSensitiveLog = (obj: TrackingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UplinkEchoConfigFilterSensitiveLog = (obj: UplinkEchoConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigTypeDataFilterSensitiveLog = (obj: ConfigTypeData): any => {
-  if (obj.antennaDownlinkConfig !== undefined)
-    return { antennaDownlinkConfig: AntennaDownlinkConfigFilterSensitiveLog(obj.antennaDownlinkConfig) };
-  if (obj.trackingConfig !== undefined) return { trackingConfig: TrackingConfigFilterSensitiveLog(obj.trackingConfig) };
-  if (obj.dataflowEndpointConfig !== undefined)
-    return { dataflowEndpointConfig: DataflowEndpointConfigFilterSensitiveLog(obj.dataflowEndpointConfig) };
-  if (obj.antennaDownlinkDemodDecodeConfig !== undefined)
-    return {
-      antennaDownlinkDemodDecodeConfig: AntennaDownlinkDemodDecodeConfigFilterSensitiveLog(
-        obj.antennaDownlinkDemodDecodeConfig
-      ),
-    };
-  if (obj.antennaUplinkConfig !== undefined)
-    return { antennaUplinkConfig: AntennaUplinkConfigFilterSensitiveLog(obj.antennaUplinkConfig) };
-  if (obj.uplinkEchoConfig !== undefined)
-    return { uplinkEchoConfig: UplinkEchoConfigFilterSensitiveLog(obj.uplinkEchoConfig) };
-  if (obj.s3RecordingConfig !== undefined)
-    return { s3RecordingConfig: S3RecordingConfigFilterSensitiveLog(obj.s3RecordingConfig) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateConfigRequestFilterSensitiveLog = (obj: CreateConfigRequest): any => ({
-  ...obj,
-  ...(obj.configData && { configData: ConfigTypeDataFilterSensitiveLog(obj.configData) }),
-});
-
-/**
- * @internal
- */
-export const DeleteConfigRequestFilterSensitiveLog = (obj: DeleteConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfigRequestFilterSensitiveLog = (obj: GetConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfigResponseFilterSensitiveLog = (obj: GetConfigResponse): any => ({
-  ...obj,
-  ...(obj.configData && { configData: ConfigTypeDataFilterSensitiveLog(obj.configData) }),
-});
-
-/**
- * @internal
- */
-export const ListConfigsRequestFilterSensitiveLog = (obj: ListConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigListItemFilterSensitiveLog = (obj: ConfigListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigsResponseFilterSensitiveLog = (obj: ListConfigsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigRequestFilterSensitiveLog = (obj: UpdateConfigRequest): any => ({
-  ...obj,
-  ...(obj.configData && { configData: ConfigTypeDataFilterSensitiveLog(obj.configData) }),
-});
-
-/**
- * @internal
- */
-export const DataflowEndpointFilterSensitiveLog = (obj: DataflowEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityDetailsFilterSensitiveLog = (obj: SecurityDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointDetailsFilterSensitiveLog = (obj: EndpointDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3RecordingDetailsFilterSensitiveLog = (obj: S3RecordingDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigDetailsFilterSensitiveLog = (obj: ConfigDetails): any => {
-  if (obj.endpointDetails !== undefined)
-    return { endpointDetails: EndpointDetailsFilterSensitiveLog(obj.endpointDetails) };
-  if (obj.antennaDemodDecodeDetails !== undefined)
-    return { antennaDemodDecodeDetails: AntennaDemodDecodeDetailsFilterSensitiveLog(obj.antennaDemodDecodeDetails) };
-  if (obj.s3RecordingDetails !== undefined)
-    return { s3RecordingDetails: S3RecordingDetailsFilterSensitiveLog(obj.s3RecordingDetails) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const DescribeContactRequestFilterSensitiveLog = (obj: DescribeContactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
-  ...obj,
-  ...(obj.configDetails && { configDetails: ConfigDetailsFilterSensitiveLog(obj.configDetails) }),
-});
-
-/**
- * @internal
- */
-export const SourceFilterSensitiveLog = (obj: Source): any => ({
-  ...obj,
-  ...(obj.configDetails && { configDetails: ConfigDetailsFilterSensitiveLog(obj.configDetails) }),
-});
-
-/**
- * @internal
- */
-export const DataflowDetailFilterSensitiveLog = (obj: DataflowDetail): any => ({
-  ...obj,
-  ...(obj.source && { source: SourceFilterSensitiveLog(obj.source) }),
-  ...(obj.destination && { destination: DestinationFilterSensitiveLog(obj.destination) }),
-});
-
-/**
- * @internal
- */
-export const ElevationFilterSensitiveLog = (obj: Elevation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeContactResponseFilterSensitiveLog = (obj: DescribeContactResponse): any => ({
-  ...obj,
-  ...(obj.dataflowList && { dataflowList: obj.dataflowList.map((item) => DataflowDetailFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListContactsRequestFilterSensitiveLog = (obj: ListContactsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContactDataFilterSensitiveLog = (obj: ContactData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContactsResponseFilterSensitiveLog = (obj: ListContactsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReserveContactRequestFilterSensitiveLog = (obj: ReserveContactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataflowEndpointGroupRequestFilterSensitiveLog = (obj: CreateDataflowEndpointGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataflowEndpointGroupIdResponseFilterSensitiveLog = (obj: DataflowEndpointGroupIdResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ObjectFilterSensitiveLog = (obj: S3Object): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OEMEphemerisFilterSensitiveLog = (obj: OEMEphemeris): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeRangeFilterSensitiveLog = (obj: TimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TLEDataFilterSensitiveLog = (obj: TLEData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TLEEphemerisFilterSensitiveLog = (obj: TLEEphemeris): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EphemerisDataFilterSensitiveLog = (obj: EphemerisData): any => {
-  if (obj.tle !== undefined) return { tle: TLEEphemerisFilterSensitiveLog(obj.tle) };
-  if (obj.oem !== undefined) return { oem: OEMEphemerisFilterSensitiveLog(obj.oem) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateEphemerisRequestFilterSensitiveLog = (obj: CreateEphemerisRequest): any => ({
-  ...obj,
-  ...(obj.ephemeris && { ephemeris: EphemerisDataFilterSensitiveLog(obj.ephemeris) }),
-});
-
-/**
- * @internal
- */
-export const EphemerisIdResponseFilterSensitiveLog = (obj: EphemerisIdResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KmsKeyFilterSensitiveLog = (obj: KmsKey): any => {
-  if (obj.kmsKeyArn !== undefined) return { kmsKeyArn: obj.kmsKeyArn };
-  if (obj.kmsAliasArn !== undefined) return { kmsAliasArn: obj.kmsAliasArn };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateMissionProfileRequestFilterSensitiveLog = (obj: CreateMissionProfileRequest): any => ({
-  ...obj,
-  ...(obj.streamsKmsKey && { streamsKmsKey: KmsKeyFilterSensitiveLog(obj.streamsKmsKey) }),
-});
-
-/**
- * @internal
- */
-export const MissionProfileIdResponseFilterSensitiveLog = (obj: MissionProfileIdResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataflowEndpointGroupRequestFilterSensitiveLog = (obj: DeleteDataflowEndpointGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataflowEndpointGroupRequestFilterSensitiveLog = (obj: GetDataflowEndpointGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataflowEndpointGroupResponseFilterSensitiveLog = (obj: GetDataflowEndpointGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataflowEndpointGroupsRequestFilterSensitiveLog = (obj: ListDataflowEndpointGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataflowEndpointListItemFilterSensitiveLog = (obj: DataflowEndpointListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataflowEndpointGroupsResponseFilterSensitiveLog = (obj: ListDataflowEndpointGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEphemerisRequestFilterSensitiveLog = (obj: DeleteEphemerisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMissionProfileRequestFilterSensitiveLog = (obj: DeleteMissionProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEphemerisRequestFilterSensitiveLog = (obj: DescribeEphemerisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EphemerisDescriptionFilterSensitiveLog = (obj: EphemerisDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EphemerisTypeDescriptionFilterSensitiveLog = (obj: EphemerisTypeDescription): any => {
-  if (obj.tle !== undefined) return { tle: EphemerisDescriptionFilterSensitiveLog(obj.tle) };
-  if (obj.oem !== undefined) return { oem: EphemerisDescriptionFilterSensitiveLog(obj.oem) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const DescribeEphemerisResponseFilterSensitiveLog = (obj: DescribeEphemerisResponse): any => ({
-  ...obj,
-  ...(obj.suppliedData && { suppliedData: EphemerisTypeDescriptionFilterSensitiveLog(obj.suppliedData) }),
-});
-
-/**
- * @internal
- */
-export const EphemerisItemFilterSensitiveLog = (obj: EphemerisItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEphemeridesRequestFilterSensitiveLog = (obj: ListEphemeridesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEphemeridesResponseFilterSensitiveLog = (obj: ListEphemeridesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEphemerisRequestFilterSensitiveLog = (obj: UpdateEphemerisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EphemerisMetaDataFilterSensitiveLog = (obj: EphemerisMetaData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMinuteUsageRequestFilterSensitiveLog = (obj: GetMinuteUsageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMinuteUsageResponseFilterSensitiveLog = (obj: GetMinuteUsageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMissionProfileRequestFilterSensitiveLog = (obj: GetMissionProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMissionProfileResponseFilterSensitiveLog = (obj: GetMissionProfileResponse): any => ({
-  ...obj,
-  ...(obj.streamsKmsKey && { streamsKmsKey: KmsKeyFilterSensitiveLog(obj.streamsKmsKey) }),
-});
-
-/**
- * @internal
- */
-export const GetSatelliteRequestFilterSensitiveLog = (obj: GetSatelliteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSatelliteResponseFilterSensitiveLog = (obj: GetSatelliteResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGroundStationsRequestFilterSensitiveLog = (obj: ListGroundStationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GroundStationDataFilterSensitiveLog = (obj: GroundStationData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGroundStationsResponseFilterSensitiveLog = (obj: ListGroundStationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMissionProfilesRequestFilterSensitiveLog = (obj: ListMissionProfilesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MissionProfileListItemFilterSensitiveLog = (obj: MissionProfileListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMissionProfilesResponseFilterSensitiveLog = (obj: ListMissionProfilesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMissionProfileRequestFilterSensitiveLog = (obj: UpdateMissionProfileRequest): any => ({
-  ...obj,
-  ...(obj.streamsKmsKey && { streamsKmsKey: KmsKeyFilterSensitiveLog(obj.streamsKmsKey) }),
-});
-
-/**
- * @internal
- */
-export const ListSatellitesRequestFilterSensitiveLog = (obj: ListSatellitesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SatelliteListItemFilterSensitiveLog = (obj: SatelliteListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSatellitesResponseFilterSensitiveLog = (obj: ListSatellitesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  GetProtocolsListRequest,
-  GetProtocolsListRequestFilterSensitiveLog,
-  GetProtocolsListResponse,
-  GetProtocolsListResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetProtocolsListCommand,
-  serializeAws_json1_1GetProtocolsListCommand,
-} from "../protocols/Aws_json1_1";
+import { GetProtocolsListRequest, GetProtocolsListResponse } from "../models/models_0";
+import { de_GetProtocolsListCommand, se_GetProtocolsListCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProtocolsListCommand}.
  */
 export interface GetProtocolsListCommandInput extends GetProtocolsListRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProtocolsListCommand}.
  */
 export interface GetProtocolsListCommandOutput extends GetProtocolsListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified Firewall Manager protocols list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetProtocolsListCommandOutput extends GetProtocolsListResponse,
  * import { FMSClient, GetProtocolsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetProtocolsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // GetProtocolsListRequest
+ *   ListId: "STRING_VALUE", // required
+ *   DefaultList: true || false,
+ * };
  * const command = new GetProtocolsListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProtocolsListCommandInput - {@link GetProtocolsListCommandInput}
+ * @returns {@link GetProtocolsListCommandOutput}
  * @see {@link GetProtocolsListCommandInput} for command's `input` shape.
  * @see {@link GetProtocolsListCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -83,6 +86,9 @@ export class GetProtocolsListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProtocolsListCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class GetProtocolsListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProtocolsListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProtocolsListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class GetProtocolsListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProtocolsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetProtocolsListCommand(input, context);
+    return se_GetProtocolsListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProtocolsListCommandOutput> {
-    return deserializeAws_json1_1GetProtocolsListCommand(output, context);
+    return de_GetProtocolsListCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  GetPackageVersionReadmeRequest,
-  GetPackageVersionReadmeRequestFilterSensitiveLog,
-  GetPackageVersionReadmeResult,
-  GetPackageVersionReadmeResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPackageVersionReadmeCommand,
-  serializeAws_restJson1GetPackageVersionReadmeCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPackageVersionReadmeRequest, GetPackageVersionReadmeResult } from "../models/models_0";
+import { de_GetPackageVersionReadmeCommand, se_GetPackageVersionReadmeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPackageVersionReadmeCommand}.
  */
 export interface GetPackageVersionReadmeCommandInput extends GetPackageVersionReadmeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPackageVersionReadmeCommand}.
  */
 export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionReadmeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Gets the readme file or descriptive text for a package version.
  *       </p>
@@ -47,10 +44,21 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  * import { CodeartifactClient, GetPackageVersionReadmeCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, GetPackageVersionReadmeCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // GetPackageVersionReadmeRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   packageVersion: "STRING_VALUE", // required
+ * };
  * const command = new GetPackageVersionReadmeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPackageVersionReadmeCommandInput - {@link GetPackageVersionReadmeCommandInput}
+ * @returns {@link GetPackageVersionReadmeCommandOutput}
  * @see {@link GetPackageVersionReadmeCommandInput} for command's `input` shape.
  * @see {@link GetPackageVersionReadmeCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -97,6 +105,9 @@ export class GetPackageVersionReadmeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPackageVersionReadmeCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +136,8 @@ export class GetPackageVersionReadmeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPackageVersionReadmeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPackageVersionReadmeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +147,18 @@ export class GetPackageVersionReadmeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPackageVersionReadmeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPackageVersionReadmeCommand(input, context);
+    return se_GetPackageVersionReadmeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPackageVersionReadmeCommandOutput> {
-    return deserializeAws_restJson1GetPackageVersionReadmeCommand(output, context);
+    return de_GetPackageVersionReadmeCommand(output, context);
   }
 
   // Start section: command_body_extra

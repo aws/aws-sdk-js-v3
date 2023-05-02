@@ -16,21 +16,23 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   GetOrganizationConfigRuleDetailedStatusRequest,
-  GetOrganizationConfigRuleDetailedStatusRequestFilterSensitiveLog,
   GetOrganizationConfigRuleDetailedStatusResponse,
-  GetOrganizationConfigRuleDetailedStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand,
-  serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand,
+  de_GetOrganizationConfigRuleDetailedStatusCommand,
+  se_GetOrganizationConfigRuleDetailedStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOrganizationConfigRuleDetailedStatusCommand}.
  */
 export interface GetOrganizationConfigRuleDetailedStatusCommandInput
   extends GetOrganizationConfigRuleDetailedStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOrganizationConfigRuleDetailedStatusCommand}.
  */
 export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
@@ -38,6 +40,7 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed status for each member account within an organization for a given organization Config rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,21 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
  * import { ConfigServiceClient, GetOrganizationConfigRuleDetailedStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetOrganizationConfigRuleDetailedStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // GetOrganizationConfigRuleDetailedStatusRequest
+ *   OrganizationConfigRuleName: "STRING_VALUE", // required
+ *   Filters: { // StatusDetailFilters
+ *     AccountId: "STRING_VALUE",
+ *     MemberAccountRuleStatus: "CREATE_SUCCESSFUL" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_SUCCESSFUL" || "DELETE_FAILED" || "DELETE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED",
+ *   },
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetOrganizationConfigRuleDetailedStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOrganizationConfigRuleDetailedStatusCommandInput - {@link GetOrganizationConfigRuleDetailedStatusCommandInput}
+ * @returns {@link GetOrganizationConfigRuleDetailedStatusCommandOutput}
  * @see {@link GetOrganizationConfigRuleDetailedStatusCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationConfigRuleDetailedStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -104,6 +118,9 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOrganizationConfigRuleDetailedStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +155,8 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOrganizationConfigRuleDetailedStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOrganizationConfigRuleDetailedStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,18 +166,24 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetOrganizationConfigRuleDetailedStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand(input, context);
+    return se_GetOrganizationConfigRuleDetailedStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput> {
-    return deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand(output, context);
+    return de_GetOrganizationConfigRuleDetailedStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

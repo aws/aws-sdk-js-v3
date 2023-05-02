@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  DeleteExplainabilityExportRequest,
-  DeleteExplainabilityExportRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteExplainabilityExportCommand,
-  serializeAws_json1_1DeleteExplainabilityExportCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteExplainabilityExportRequest } from "../models/models_0";
+import { de_DeleteExplainabilityExportCommand, se_DeleteExplainabilityExportCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExplainabilityExportCommand}.
  */
 export interface DeleteExplainabilityExportCommandInput extends DeleteExplainabilityExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExplainabilityExportCommand}.
  */
 export interface DeleteExplainabilityExportCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Explainability export.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +39,15 @@ export interface DeleteExplainabilityExportCommandOutput extends __MetadataBeare
  * import { ForecastClient, DeleteExplainabilityExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteExplainabilityExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DeleteExplainabilityExportRequest
+ *   ExplainabilityExportArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteExplainabilityExportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExplainabilityExportCommandInput - {@link DeleteExplainabilityExportCommandInput}
+ * @returns {@link DeleteExplainabilityExportCommandOutput}
  * @see {@link DeleteExplainabilityExportCommandInput} for command's `input` shape.
  * @see {@link DeleteExplainabilityExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -78,6 +82,9 @@ export class DeleteExplainabilityExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExplainabilityExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class DeleteExplainabilityExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExplainabilityExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +124,21 @@ export class DeleteExplainabilityExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExplainabilityExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteExplainabilityExportCommand(input, context);
+    return se_DeleteExplainabilityExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteExplainabilityExportCommandOutput> {
-    return deserializeAws_json1_1DeleteExplainabilityExportCommand(output, context);
+    return de_DeleteExplainabilityExportCommand(output, context);
   }
 
   // Start section: command_body_extra

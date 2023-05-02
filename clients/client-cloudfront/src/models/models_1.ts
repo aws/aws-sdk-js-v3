@@ -58,6 +58,9 @@ import {
   ViewerCertificate,
 } from "./models_0";
 
+/**
+ * @public
+ */
 export interface CreateResponseHeadersPolicyResult {
   /**
    * <p>Contains a response headers policy.</p>
@@ -76,6 +79,7 @@ export interface CreateResponseHeadersPolicyResult {
 }
 
 /**
+ * @public
  * <p>A response headers policy with this name already exists. You must provide a unique
  * 			name. To modify an existing response headers policy, use
  * 				<code>UpdateResponseHeadersPolicy</code>.</p>
@@ -99,6 +103,7 @@ export class ResponseHeadersPolicyAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The length of the <code>Content-Security-Policy</code> header value in the response
  * 			headers policy exceeds the maximum.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -123,6 +128,7 @@ export class TooLongCSPInResponseHeadersPolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of custom headers in the response headers policy exceeds the
  * 			maximum.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -147,6 +153,7 @@ export class TooManyCustomHeadersInResponseHeadersPolicy extends __BaseException
 }
 
 /**
+ * @public
  * <p>The number of headers in <code>RemoveHeadersConfig</code> in the response headers
  * 			policy exceeds the maximum.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -171,6 +178,7 @@ export class TooManyRemoveHeadersInResponseHeadersPolicy extends __BaseException
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of response headers policies for this
  * 			Amazon Web Services account.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -195,6 +203,7 @@ export class TooManyResponseHeadersPolicies extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type that controls whether access logs are written for this streaming
  * 			distribution.</p>
  */
@@ -226,6 +235,7 @@ export interface StreamingLoggingConfig {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the Amazon S3 bucket from which you want
  * 			CloudFront to get your media files for distribution.</p>
  */
@@ -253,6 +263,7 @@ export interface S3Origin {
 }
 
 /**
+ * @public
  * <p>The RTMP distribution's configuration information.</p>
  */
 export interface StreamingDistributionConfig {
@@ -314,6 +325,7 @@ export interface StreamingDistributionConfig {
 }
 
 /**
+ * @public
  * <p>The request to create a new streaming distribution.</p>
  */
 export interface CreateStreamingDistributionRequest {
@@ -324,6 +336,7 @@ export interface CreateStreamingDistributionRequest {
 }
 
 /**
+ * @public
  * <p>A streaming distribution tells CloudFront where you want RTMP content to be delivered from,
  * 			and the details about how to track and manage content delivery.</p>
  */
@@ -380,6 +393,7 @@ export interface StreamingDistribution {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface CreateStreamingDistributionResult {
@@ -401,6 +415,7 @@ export interface CreateStreamingDistributionResult {
 }
 
 /**
+ * @public
  * <p>The caller reference you attempted to create the streaming distribution with is
  * 			associated with another distribution</p>
  */
@@ -423,6 +438,7 @@ export class StreamingDistributionAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
  */
 export class TooManyStreamingDistributionCNAMEs extends __BaseException {
@@ -444,6 +460,7 @@ export class TooManyStreamingDistributionCNAMEs extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Processing your request would cause you to exceed the maximum number of streaming
  * 			distributions allowed.</p>
  */
@@ -466,6 +483,7 @@ export class TooManyStreamingDistributions extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A streaming distribution Configuration and a list of tags to be associated with the
  * 			streaming distribution.</p>
  */
@@ -482,6 +500,7 @@ export interface StreamingDistributionConfigWithTags {
 }
 
 /**
+ * @public
  * <p>The request to create a new streaming distribution with tags.</p>
  */
 export interface CreateStreamingDistributionWithTagsRequest {
@@ -492,6 +511,7 @@ export interface CreateStreamingDistributionWithTagsRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface CreateStreamingDistributionWithTagsResult {
@@ -512,6 +532,9 @@ export interface CreateStreamingDistributionWithTagsResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCachePolicyRequest {
   /**
    * <p>The unique identifier for the cache policy that you are deleting. To get the
@@ -529,6 +552,7 @@ export interface DeleteCachePolicyRequest {
 }
 
 /**
+ * @public
  * <p>You cannot delete a managed policy.</p>
  */
 export class IllegalDelete extends __BaseException {
@@ -550,6 +574,7 @@ export class IllegalDelete extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Origin Access Identity specified is already in use.</p>
  */
 export class CloudFrontOriginAccessIdentityInUse extends __BaseException {
@@ -571,6 +596,7 @@ export class CloudFrontOriginAccessIdentityInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Deletes a origin access identity.</p>
  */
 export interface DeleteCloudFrontOriginAccessIdentityRequest {
@@ -588,6 +614,7 @@ export interface DeleteCloudFrontOriginAccessIdentityRequest {
 }
 
 /**
+ * @public
  * <p>The specified origin access identity does not exist.</p>
  */
 export class NoSuchCloudFrontOriginAccessIdentity extends __BaseException {
@@ -608,6 +635,9 @@ export class NoSuchCloudFrontOriginAccessIdentity extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteContinuousDeploymentPolicyRequest {
   /**
    * <p>The identifier of the continuous deployment policy that you are deleting.</p>
@@ -622,6 +652,7 @@ export interface DeleteContinuousDeploymentPolicyRequest {
 }
 
 /**
+ * @public
  * <p>This action deletes a web distribution. To delete a web distribution using the CloudFront
  * 			API, perform the following steps.</p>
  *          <p>
@@ -685,6 +716,7 @@ export interface DeleteDistributionRequest {
 }
 
 /**
+ * @public
  * <p>The specified CloudFront distribution is not disabled. You must disable the distribution
  * 			before you can delete it.</p>
  */
@@ -706,6 +738,9 @@ export class DistributionNotDisabled extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteFieldLevelEncryptionConfigRequest {
   /**
    * <p>The ID of the configuration you want to delete from CloudFront.</p>
@@ -720,6 +755,7 @@ export interface DeleteFieldLevelEncryptionConfigRequest {
 }
 
 /**
+ * @public
  * <p>The specified configuration for field-level encryption is in use.</p>
  */
 export class FieldLevelEncryptionConfigInUse extends __BaseException {
@@ -740,6 +776,9 @@ export class FieldLevelEncryptionConfigInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteFieldLevelEncryptionProfileRequest {
   /**
    * <p>Request the ID of the profile you want to delete from CloudFront.</p>
@@ -754,6 +793,7 @@ export interface DeleteFieldLevelEncryptionProfileRequest {
 }
 
 /**
+ * @public
  * <p>The specified profile for field-level encryption is in use.</p>
  */
 export class FieldLevelEncryptionProfileInUse extends __BaseException {
@@ -774,6 +814,9 @@ export class FieldLevelEncryptionProfileInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteFunctionRequest {
   /**
    * <p>The name of the function that you are deleting.</p>
@@ -788,6 +831,7 @@ export interface DeleteFunctionRequest {
 }
 
 /**
+ * @public
  * <p>Cannot delete the function because it's attached to one or more cache
  * 			behaviors.</p>
  */
@@ -810,6 +854,7 @@ export class FunctionInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The function does not exist.</p>
  */
 export class NoSuchFunctionExists extends __BaseException {
@@ -830,6 +875,9 @@ export class NoSuchFunctionExists extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteKeyGroupRequest {
   /**
    * <p>The identifier of the key group that you are deleting. To get the identifier, use
@@ -846,6 +894,7 @@ export interface DeleteKeyGroupRequest {
 }
 
 /**
+ * @public
  * <p>A resource that was specified is not valid.</p>
  */
 export class NoSuchResource extends __BaseException {
@@ -867,6 +916,7 @@ export class NoSuchResource extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Cannot delete this resource because it is in use.</p>
  */
 export class ResourceInUse extends __BaseException {
@@ -887,6 +937,9 @@ export class ResourceInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteMonitoringSubscriptionRequest {
   /**
    * <p>The ID of the distribution that you are disabling metrics for.</p>
@@ -894,9 +947,13 @@ export interface DeleteMonitoringSubscriptionRequest {
   DistributionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMonitoringSubscriptionResult {}
 
 /**
+ * @public
  * <p>A monitoring subscription does not exist for the specified distribution.</p>
  */
 export class NoSuchMonitoringSubscription extends __BaseException {
@@ -917,6 +974,9 @@ export class NoSuchMonitoringSubscription extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteOriginAccessControlRequest {
   /**
    * <p>The unique identifier of the origin access control that you are deleting.</p>
@@ -931,6 +991,7 @@ export interface DeleteOriginAccessControlRequest {
 }
 
 /**
+ * @public
  * <p>The origin access control does not exist.</p>
  */
 export class NoSuchOriginAccessControl extends __BaseException {
@@ -952,6 +1013,7 @@ export class NoSuchOriginAccessControl extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Cannot delete the origin access control because it's in use by one or more
  * 			distributions.</p>
  */
@@ -973,6 +1035,9 @@ export class OriginAccessControlInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteOriginRequestPolicyRequest {
   /**
    * <p>The unique identifier for the origin request policy that you are deleting. To get the
@@ -990,6 +1055,7 @@ export interface DeleteOriginRequestPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Cannot delete the origin request policy because it is attached to one or more cache
  * 			behaviors.</p>
  */
@@ -1011,6 +1077,9 @@ export class OriginRequestPolicyInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeletePublicKeyRequest {
   /**
    * <p>The ID of the public key you want to remove from CloudFront.</p>
@@ -1025,6 +1094,7 @@ export interface DeletePublicKeyRequest {
 }
 
 /**
+ * @public
  * <p>The specified public key is in use.</p>
  */
 export class PublicKeyInUse extends __BaseException {
@@ -1045,6 +1115,9 @@ export class PublicKeyInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteRealtimeLogConfigRequest {
   /**
    * <p>The name of the real-time log configuration to delete.</p>
@@ -1058,6 +1131,7 @@ export interface DeleteRealtimeLogConfigRequest {
 }
 
 /**
+ * @public
  * <p>Cannot delete the real-time log configuration because it is attached to one or more
  * 			cache behaviors.</p>
  */
@@ -1079,6 +1153,9 @@ export class RealtimeLogConfigInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteResponseHeadersPolicyRequest {
   /**
    * <p>The identifier for the response headers policy that you are deleting.</p>
@@ -1097,6 +1174,7 @@ export interface DeleteResponseHeadersPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Cannot delete the response headers policy because it is attached to one or more cache
  * 			behaviors in a CloudFront distribution.</p>
  */
@@ -1119,6 +1197,7 @@ export class ResponseHeadersPolicyInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request to delete a streaming distribution.</p>
  */
 export interface DeleteStreamingDistributionRequest {
@@ -1135,6 +1214,7 @@ export interface DeleteStreamingDistributionRequest {
 }
 
 /**
+ * @public
  * <p>The specified streaming distribution does not exist.</p>
  */
 export class NoSuchStreamingDistribution extends __BaseException {
@@ -1156,6 +1236,7 @@ export class NoSuchStreamingDistribution extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified CloudFront distribution is not disabled. You must disable the distribution
  * 			before you can delete it.</p>
  */
@@ -1177,6 +1258,9 @@ export class StreamingDistributionNotDisabled extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeFunctionRequest {
   /**
    * <p>The name of the function that you are getting information about.</p>
@@ -1189,6 +1273,9 @@ export interface DescribeFunctionRequest {
   Stage?: FunctionStage | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFunctionResult {
   /**
    * <p>Contains configuration information and metadata about a CloudFront function.</p>
@@ -1201,6 +1288,9 @@ export interface DescribeFunctionResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCachePolicyRequest {
   /**
    * <p>The unique identifier for the cache policy. If the cache policy is attached to a
@@ -1212,6 +1302,9 @@ export interface GetCachePolicyRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCachePolicyResult {
   /**
    * <p>The cache policy.</p>
@@ -1224,6 +1317,9 @@ export interface GetCachePolicyResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCachePolicyConfigRequest {
   /**
    * <p>The unique identifier for the cache policy. If the cache policy is attached to a
@@ -1235,6 +1331,9 @@ export interface GetCachePolicyConfigRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCachePolicyConfigResult {
   /**
    * <p>The cache policy configuration.</p>
@@ -1248,6 +1347,7 @@ export interface GetCachePolicyConfigResult {
 }
 
 /**
+ * @public
  * <p>The request to get an origin access identity's information.</p>
  */
 export interface GetCloudFrontOriginAccessIdentityRequest {
@@ -1258,6 +1358,7 @@ export interface GetCloudFrontOriginAccessIdentityRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetCloudFrontOriginAccessIdentityResult {
@@ -1274,6 +1375,7 @@ export interface GetCloudFrontOriginAccessIdentityResult {
 }
 
 /**
+ * @public
  * <p>The origin access identity's configuration information. For more information, see
  * 				<a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CloudFrontOriginAccessIdentityConfig.html">CloudFrontOriginAccessIdentityConfig</a>.</p>
  */
@@ -1285,6 +1387,7 @@ export interface GetCloudFrontOriginAccessIdentityConfigRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetCloudFrontOriginAccessIdentityConfigResult {
@@ -1300,6 +1403,9 @@ export interface GetCloudFrontOriginAccessIdentityConfigResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetContinuousDeploymentPolicyRequest {
   /**
    * <p>The identifier of the continuous deployment policy that you are getting.</p>
@@ -1307,6 +1413,9 @@ export interface GetContinuousDeploymentPolicyRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContinuousDeploymentPolicyResult {
   /**
    * <p>A continuous deployment policy.</p>
@@ -1320,6 +1429,9 @@ export interface GetContinuousDeploymentPolicyResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetContinuousDeploymentPolicyConfigRequest {
   /**
    * <p>The identifier of the continuous deployment policy whose configuration you are
@@ -1328,6 +1440,9 @@ export interface GetContinuousDeploymentPolicyConfigRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContinuousDeploymentPolicyConfigResult {
   /**
    * <p>Contains the configuration for a continuous deployment policy.</p>
@@ -1342,6 +1457,7 @@ export interface GetContinuousDeploymentPolicyConfigResult {
 }
 
 /**
+ * @public
  * <p>The request to get a distribution's information.</p>
  */
 export interface GetDistributionRequest {
@@ -1353,6 +1469,7 @@ export interface GetDistributionRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetDistributionResult {
@@ -1369,6 +1486,7 @@ export interface GetDistributionResult {
 }
 
 /**
+ * @public
  * <p>The request to get a distribution configuration.</p>
  */
 export interface GetDistributionConfigRequest {
@@ -1380,6 +1498,7 @@ export interface GetDistributionConfigRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetDistributionConfigResult {
@@ -1395,6 +1514,9 @@ export interface GetDistributionConfigResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFieldLevelEncryptionRequest {
   /**
    * <p>Request the ID for the field-level encryption configuration information.</p>
@@ -1402,6 +1524,9 @@ export interface GetFieldLevelEncryptionRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFieldLevelEncryptionResult {
   /**
    * <p>Return the field-level encryption configuration information.</p>
@@ -1415,6 +1540,9 @@ export interface GetFieldLevelEncryptionResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFieldLevelEncryptionConfigRequest {
   /**
    * <p>Request the ID for the field-level encryption configuration information.</p>
@@ -1422,6 +1550,9 @@ export interface GetFieldLevelEncryptionConfigRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFieldLevelEncryptionConfigResult {
   /**
    * <p>Return the field-level encryption configuration information.</p>
@@ -1435,6 +1566,9 @@ export interface GetFieldLevelEncryptionConfigResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFieldLevelEncryptionProfileRequest {
   /**
    * <p>Get the ID for the field-level encryption profile information.</p>
@@ -1442,6 +1576,9 @@ export interface GetFieldLevelEncryptionProfileRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFieldLevelEncryptionProfileResult {
   /**
    * <p>Return the field-level encryption profile information.</p>
@@ -1455,6 +1592,9 @@ export interface GetFieldLevelEncryptionProfileResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFieldLevelEncryptionProfileConfigRequest {
   /**
    * <p>Get the ID for the field-level encryption profile configuration information.</p>
@@ -1462,6 +1602,9 @@ export interface GetFieldLevelEncryptionProfileConfigRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFieldLevelEncryptionProfileConfigResult {
   /**
    * <p>Return the field-level encryption profile configuration information.</p>
@@ -1475,6 +1618,9 @@ export interface GetFieldLevelEncryptionProfileConfigResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionRequest {
   /**
    * <p>The name of the function whose code you are getting.</p>
@@ -1487,6 +1633,9 @@ export interface GetFunctionRequest {
   Stage?: FunctionStage | string;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionResult {
   /**
    * <p>The function code of a CloudFront function.</p>
@@ -1505,6 +1654,7 @@ export interface GetFunctionResult {
 }
 
 /**
+ * @public
  * <p>The request to get an invalidation's information.</p>
  */
 export interface GetInvalidationRequest {
@@ -1521,6 +1671,7 @@ export interface GetInvalidationRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetInvalidationResult {
@@ -1532,6 +1683,7 @@ export interface GetInvalidationResult {
 }
 
 /**
+ * @public
  * <p>The specified invalidation does not exist.</p>
  */
 export class NoSuchInvalidation extends __BaseException {
@@ -1552,6 +1704,9 @@ export class NoSuchInvalidation extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetKeyGroupRequest {
   /**
    * <p>The identifier of the key group that you are getting. To get the identifier, use
@@ -1560,6 +1715,9 @@ export interface GetKeyGroupRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetKeyGroupResult {
   /**
    * <p>The key group.</p>
@@ -1572,6 +1730,9 @@ export interface GetKeyGroupResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetKeyGroupConfigRequest {
   /**
    * <p>The identifier of the key group whose configuration you are getting. To get the
@@ -1580,6 +1741,9 @@ export interface GetKeyGroupConfigRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetKeyGroupConfigResult {
   /**
    * <p>The key group configuration.</p>
@@ -1592,6 +1756,9 @@ export interface GetKeyGroupConfigResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMonitoringSubscriptionRequest {
   /**
    * <p>The ID of the distribution that you are getting metrics information for.</p>
@@ -1599,6 +1766,9 @@ export interface GetMonitoringSubscriptionRequest {
   DistributionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMonitoringSubscriptionResult {
   /**
    * <p>A monitoring subscription. This structure contains information about whether
@@ -1607,6 +1777,9 @@ export interface GetMonitoringSubscriptionResult {
   MonitoringSubscription?: MonitoringSubscription;
 }
 
+/**
+ * @public
+ */
 export interface GetOriginAccessControlRequest {
   /**
    * <p>The unique identifier of the origin access control.</p>
@@ -1614,6 +1787,9 @@ export interface GetOriginAccessControlRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetOriginAccessControlResult {
   /**
    * <p>Contains an origin access control, including its unique identifier.</p>
@@ -1626,6 +1802,9 @@ export interface GetOriginAccessControlResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetOriginAccessControlConfigRequest {
   /**
    * <p>The unique identifier of the origin access control.</p>
@@ -1633,6 +1812,9 @@ export interface GetOriginAccessControlConfigRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetOriginAccessControlConfigResult {
   /**
    * <p>Contains an origin access control configuration.</p>
@@ -1645,6 +1827,9 @@ export interface GetOriginAccessControlConfigResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetOriginRequestPolicyRequest {
   /**
    * <p>The unique identifier for the origin request policy. If the origin request policy is
@@ -1656,6 +1841,9 @@ export interface GetOriginRequestPolicyRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetOriginRequestPolicyResult {
   /**
    * <p>The origin request policy.</p>
@@ -1668,6 +1856,9 @@ export interface GetOriginRequestPolicyResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetOriginRequestPolicyConfigRequest {
   /**
    * <p>The unique identifier for the origin request policy. If the origin request policy is
@@ -1679,6 +1870,9 @@ export interface GetOriginRequestPolicyConfigRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetOriginRequestPolicyConfigResult {
   /**
    * <p>The origin request policy configuration.</p>
@@ -1691,6 +1885,9 @@ export interface GetOriginRequestPolicyConfigResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPublicKeyRequest {
   /**
    * <p>The identifier of the public key you are getting.</p>
@@ -1698,6 +1895,9 @@ export interface GetPublicKeyRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPublicKeyResult {
   /**
    * <p>The public key.</p>
@@ -1710,6 +1910,9 @@ export interface GetPublicKeyResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPublicKeyConfigRequest {
   /**
    * <p>The identifier of the public key whose configuration you are getting.</p>
@@ -1717,6 +1920,9 @@ export interface GetPublicKeyConfigRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPublicKeyConfigResult {
   /**
    * <p>A public key configuration.</p>
@@ -1729,6 +1935,9 @@ export interface GetPublicKeyConfigResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRealtimeLogConfigRequest {
   /**
    * <p>The name of the real-time log configuration to get.</p>
@@ -1741,6 +1950,9 @@ export interface GetRealtimeLogConfigRequest {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRealtimeLogConfigResult {
   /**
    * <p>A real-time log configuration.</p>
@@ -1748,6 +1960,9 @@ export interface GetRealtimeLogConfigResult {
   RealtimeLogConfig?: RealtimeLogConfig;
 }
 
+/**
+ * @public
+ */
 export interface GetResponseHeadersPolicyRequest {
   /**
    * <p>The identifier for the response headers policy.</p>
@@ -1760,6 +1975,9 @@ export interface GetResponseHeadersPolicyRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResponseHeadersPolicyResult {
   /**
    * <p>Contains a response headers policy.</p>
@@ -1772,6 +1990,9 @@ export interface GetResponseHeadersPolicyResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResponseHeadersPolicyConfigRequest {
   /**
    * <p>The identifier for the response headers policy.</p>
@@ -1784,6 +2005,9 @@ export interface GetResponseHeadersPolicyConfigRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResponseHeadersPolicyConfigResult {
   /**
    * <p>Contains a response headers policy.</p>
@@ -1797,6 +2021,7 @@ export interface GetResponseHeadersPolicyConfigResult {
 }
 
 /**
+ * @public
  * <p>The request to get a streaming distribution's information.</p>
  */
 export interface GetStreamingDistributionRequest {
@@ -1807,6 +2032,7 @@ export interface GetStreamingDistributionRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetStreamingDistributionResult {
@@ -1823,6 +2049,7 @@ export interface GetStreamingDistributionResult {
 }
 
 /**
+ * @public
  * <p>To request to get a streaming distribution configuration.</p>
  */
 export interface GetStreamingDistributionConfigRequest {
@@ -1833,6 +2060,7 @@ export interface GetStreamingDistributionConfigRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetStreamingDistributionConfigResult {
@@ -1848,6 +2076,9 @@ export interface GetStreamingDistributionConfigResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCachePoliciesRequest {
   /**
    * <p>A filter to return only the specified kinds of cache policies. Valid values
@@ -1881,6 +2112,9 @@ export interface ListCachePoliciesRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCachePoliciesResult {
   /**
    * <p>A list of cache policies.</p>
@@ -1889,6 +2123,7 @@ export interface ListCachePoliciesResult {
 }
 
 /**
+ * @public
  * <p>The request to list origin access identities.</p>
  */
 export interface ListCloudFrontOriginAccessIdentitiesRequest {
@@ -1908,6 +2143,7 @@ export interface ListCloudFrontOriginAccessIdentitiesRequest {
 }
 
 /**
+ * @public
  * <p>Summary of the information about a CloudFront origin access identity.</p>
  */
 export interface CloudFrontOriginAccessIdentitySummary {
@@ -1931,6 +2167,7 @@ export interface CloudFrontOriginAccessIdentitySummary {
 }
 
 /**
+ * @public
  * <p>Lists the origin access identities for CloudFront.Send a <code>GET</code> request to the
  * 					<code>/<i>CloudFront API
  * 				version</i>/origin-access-identity/cloudfront</code> resource. The response
@@ -1984,6 +2221,7 @@ export interface CloudFrontOriginAccessIdentityList {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface ListCloudFrontOriginAccessIdentitiesResult {
@@ -1993,6 +2231,9 @@ export interface ListCloudFrontOriginAccessIdentitiesResult {
   CloudFrontOriginAccessIdentityList?: CloudFrontOriginAccessIdentityList;
 }
 
+/**
+ * @public
+ */
 export interface ListConflictingAliasesRequest {
   /**
    * <p>The ID of a distribution in your account that has an attached SSL/TLS certificate that
@@ -2020,6 +2261,7 @@ export interface ListConflictingAliasesRequest {
 }
 
 /**
+ * @public
  * <p>An alias (also called a CNAME) and the CloudFront distribution and Amazon Web Services account ID that
  * 			it's associated with. The distribution and account IDs are partially hidden, which
  * 			allows you to identify the distributions and accounts that you own, but helps to protect
@@ -2044,6 +2286,7 @@ export interface ConflictingAlias {
 }
 
 /**
+ * @public
  * <p>A list of aliases (also called CNAMEs) and the CloudFront distributions and Amazon Web Services accounts
  * 			that they are associated with. In the list, the distribution and account IDs are
  * 			partially hidden, which allows you to identify the distributions and accounts that you
@@ -2073,6 +2316,9 @@ export interface ConflictingAliasesList {
   Items?: ConflictingAlias[];
 }
 
+/**
+ * @public
+ */
 export interface ListConflictingAliasesResult {
   /**
    * <p>A list of conflicting aliases.</p>
@@ -2080,6 +2326,9 @@ export interface ListConflictingAliasesResult {
   ConflictingAliasesList?: ConflictingAliasesList;
 }
 
+/**
+ * @public
+ */
 export interface ListContinuousDeploymentPoliciesRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -2097,6 +2346,7 @@ export interface ListContinuousDeploymentPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the information about your continuous deployment policies.</p>
  */
 export interface ContinuousDeploymentPolicySummary {
@@ -2107,6 +2357,7 @@ export interface ContinuousDeploymentPolicySummary {
 }
 
 /**
+ * @public
  * <p>Contains a list of continuous deployment policies.</p>
  */
 export interface ContinuousDeploymentPolicyList {
@@ -2134,6 +2385,9 @@ export interface ContinuousDeploymentPolicyList {
   Items?: ContinuousDeploymentPolicySummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListContinuousDeploymentPoliciesResult {
   /**
    * <p>A list of continuous deployment policies.</p>
@@ -2142,6 +2396,7 @@ export interface ListContinuousDeploymentPoliciesResult {
 }
 
 /**
+ * @public
  * <p>The request to list your distributions.</p>
  */
 export interface ListDistributionsRequest {
@@ -2161,6 +2416,7 @@ export interface ListDistributionsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the information about a CloudFront distribution.</p>
  */
 export interface DistributionSummary {
@@ -2292,6 +2548,7 @@ export interface DistributionSummary {
 }
 
 /**
+ * @public
  * <p>A distribution list.</p>
  */
 export interface DistributionList {
@@ -2333,6 +2590,7 @@ export interface DistributionList {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface ListDistributionsResult {
@@ -2342,6 +2600,9 @@ export interface ListDistributionsResult {
   DistributionList?: DistributionList;
 }
 
+/**
+ * @public
+ */
 export interface ListDistributionsByCachePolicyIdRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -2363,6 +2624,7 @@ export interface ListDistributionsByCachePolicyIdRequest {
 }
 
 /**
+ * @public
  * <p>A list of distribution IDs.</p>
  */
 export interface DistributionIdList {
@@ -2400,6 +2662,9 @@ export interface DistributionIdList {
   Items?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListDistributionsByCachePolicyIdResult {
   /**
    * <p>A list of distribution IDs.</p>
@@ -2407,6 +2672,9 @@ export interface ListDistributionsByCachePolicyIdResult {
   DistributionIdList?: DistributionIdList;
 }
 
+/**
+ * @public
+ */
 export interface ListDistributionsByKeyGroupRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -2427,6 +2695,9 @@ export interface ListDistributionsByKeyGroupRequest {
   KeyGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDistributionsByKeyGroupResult {
   /**
    * <p>A list of distribution IDs.</p>
@@ -2434,6 +2705,9 @@ export interface ListDistributionsByKeyGroupResult {
   DistributionIdList?: DistributionIdList;
 }
 
+/**
+ * @public
+ */
 export interface ListDistributionsByOriginRequestPolicyIdRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -2455,6 +2729,9 @@ export interface ListDistributionsByOriginRequestPolicyIdRequest {
   OriginRequestPolicyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDistributionsByOriginRequestPolicyIdResult {
   /**
    * <p>A list of distribution IDs.</p>
@@ -2462,6 +2739,9 @@ export interface ListDistributionsByOriginRequestPolicyIdResult {
   DistributionIdList?: DistributionIdList;
 }
 
+/**
+ * @public
+ */
 export interface ListDistributionsByRealtimeLogConfigRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -2489,6 +2769,9 @@ export interface ListDistributionsByRealtimeLogConfigRequest {
   RealtimeLogConfigArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDistributionsByRealtimeLogConfigResult {
   /**
    * <p>A distribution list.</p>
@@ -2496,6 +2779,9 @@ export interface ListDistributionsByRealtimeLogConfigResult {
   DistributionList?: DistributionList;
 }
 
+/**
+ * @public
+ */
 export interface ListDistributionsByResponseHeadersPolicyIdRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -2517,6 +2803,9 @@ export interface ListDistributionsByResponseHeadersPolicyIdRequest {
   ResponseHeadersPolicyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDistributionsByResponseHeadersPolicyIdResult {
   /**
    * <p>A list of distribution IDs.</p>
@@ -2525,6 +2814,7 @@ export interface ListDistributionsByResponseHeadersPolicyIdResult {
 }
 
 /**
+ * @public
  * <p>The request to list distributions that are associated with a specified WAF web
  * 			ACL.</p>
  */
@@ -2554,6 +2844,7 @@ export interface ListDistributionsByWebACLIdRequest {
 }
 
 /**
+ * @public
  * <p>The response to a request to list the distributions that are associated with a
  * 			specified WAF web ACL.</p>
  */
@@ -2564,6 +2855,9 @@ export interface ListDistributionsByWebACLIdResult {
   DistributionList?: DistributionList;
 }
 
+/**
+ * @public
+ */
 export interface ListFieldLevelEncryptionConfigsRequest {
   /**
    * <p>Use this when paginating results to indicate where to begin in your list of
@@ -2582,6 +2876,7 @@ export interface ListFieldLevelEncryptionConfigsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a field-level encryption item.</p>
  */
 export interface FieldLevelEncryptionSummary {
@@ -2613,6 +2908,7 @@ export interface FieldLevelEncryptionSummary {
 }
 
 /**
+ * @public
  * <p>List of field-level encrpytion configurations.</p>
  */
 export interface FieldLevelEncryptionList {
@@ -2639,6 +2935,9 @@ export interface FieldLevelEncryptionList {
   Items?: FieldLevelEncryptionSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListFieldLevelEncryptionConfigsResult {
   /**
    * <p>Returns a list of all field-level encryption configurations that have been created in
@@ -2647,6 +2946,9 @@ export interface ListFieldLevelEncryptionConfigsResult {
   FieldLevelEncryptionList?: FieldLevelEncryptionList;
 }
 
+/**
+ * @public
+ */
 export interface ListFieldLevelEncryptionProfilesRequest {
   /**
    * <p>Use this when paginating results to indicate where to begin in your list of profiles.
@@ -2665,6 +2967,7 @@ export interface ListFieldLevelEncryptionProfilesRequest {
 }
 
 /**
+ * @public
  * <p>The field-level encryption profile summary.</p>
  */
 export interface FieldLevelEncryptionProfileSummary {
@@ -2698,6 +3001,7 @@ export interface FieldLevelEncryptionProfileSummary {
 }
 
 /**
+ * @public
  * <p>List of field-level encryption profiles.</p>
  */
 export interface FieldLevelEncryptionProfileList {
@@ -2725,6 +3029,9 @@ export interface FieldLevelEncryptionProfileList {
   Items?: FieldLevelEncryptionProfileSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListFieldLevelEncryptionProfilesResult {
   /**
    * <p>Returns a list of the field-level encryption profiles that have been created in CloudFront
@@ -2733,6 +3040,9 @@ export interface ListFieldLevelEncryptionProfilesResult {
   FieldLevelEncryptionProfileList?: FieldLevelEncryptionProfileList;
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionsRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -2755,6 +3065,7 @@ export interface ListFunctionsRequest {
 }
 
 /**
+ * @public
  * <p>A list of CloudFront functions.</p>
  */
 export interface FunctionList {
@@ -2781,6 +3092,9 @@ export interface FunctionList {
   Items?: FunctionSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionsResult {
   /**
    * <p>A list of CloudFront functions.</p>
@@ -2789,6 +3103,7 @@ export interface ListFunctionsResult {
 }
 
 /**
+ * @public
  * <p>The request to list invalidations.</p>
  */
 export interface ListInvalidationsRequest {
@@ -2815,6 +3130,7 @@ export interface ListInvalidationsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of an invalidation request.</p>
  */
 export interface InvalidationSummary {
@@ -2835,6 +3151,7 @@ export interface InvalidationSummary {
 }
 
 /**
+ * @public
  * <p>The <code>InvalidationList</code> complex type describes the list of invalidation
  * 			objects. For more information about invalidation, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html">Invalidating Objects
  * 				(Web Distributions Only)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -2879,6 +3196,7 @@ export interface InvalidationList {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface ListInvalidationsResult {
@@ -2888,6 +3206,9 @@ export interface ListInvalidationsResult {
   InvalidationList?: InvalidationList;
 }
 
+/**
+ * @public
+ */
 export interface ListKeyGroupsRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of key
@@ -2904,6 +3225,7 @@ export interface ListKeyGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a key group.</p>
  */
 export interface KeyGroupSummary {
@@ -2914,6 +3236,7 @@ export interface KeyGroupSummary {
 }
 
 /**
+ * @public
  * <p>A list of key groups.</p>
  */
 export interface KeyGroupList {
@@ -2940,6 +3263,9 @@ export interface KeyGroupList {
   Items?: KeyGroupSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListKeyGroupsResult {
   /**
    * <p>A list of key groups.</p>
@@ -2947,6 +3273,9 @@ export interface ListKeyGroupsResult {
   KeyGroupList?: KeyGroupList;
 }
 
+/**
+ * @public
+ */
 export interface ListOriginAccessControlsRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -2963,6 +3292,7 @@ export interface ListOriginAccessControlsRequest {
 }
 
 /**
+ * @public
  * <p>A CloudFront origin access control.</p>
  */
 export interface OriginAccessControlSummary {
@@ -3020,6 +3350,7 @@ export interface OriginAccessControlSummary {
 }
 
 /**
+ * @public
  * <p>A list of CloudFront origin access controls.</p>
  */
 export interface OriginAccessControlList {
@@ -3057,6 +3388,9 @@ export interface OriginAccessControlList {
   Items?: OriginAccessControlSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListOriginAccessControlsResult {
   /**
    * <p>A list of origin access controls.</p>
@@ -3064,11 +3398,23 @@ export interface ListOriginAccessControlsResult {
   OriginAccessControlList?: OriginAccessControlList;
 }
 
-export enum OriginRequestPolicyType {
-  custom = "custom",
-  managed = "managed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OriginRequestPolicyType = {
+  custom: "custom",
+  managed: "managed",
+} as const;
 
+/**
+ * @public
+ */
+export type OriginRequestPolicyType = (typeof OriginRequestPolicyType)[keyof typeof OriginRequestPolicyType];
+
+/**
+ * @public
+ */
 export interface ListOriginRequestPoliciesRequest {
   /**
    * <p>A filter to return only the specified kinds of origin request policies. Valid values
@@ -3103,6 +3449,7 @@ export interface ListOriginRequestPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Contains an origin request policy.</p>
  */
 export interface OriginRequestPolicySummary {
@@ -3119,6 +3466,7 @@ export interface OriginRequestPolicySummary {
 }
 
 /**
+ * @public
  * <p>A list of origin request policies.</p>
  */
 export interface OriginRequestPolicyList {
@@ -3146,6 +3494,9 @@ export interface OriginRequestPolicyList {
   Items?: OriginRequestPolicySummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListOriginRequestPoliciesResult {
   /**
    * <p>A list of origin request policies.</p>
@@ -3153,6 +3504,9 @@ export interface ListOriginRequestPoliciesResult {
   OriginRequestPolicyList?: OriginRequestPolicyList;
 }
 
+/**
+ * @public
+ */
 export interface ListPublicKeysRequest {
   /**
    * <p>Use this when paginating results to indicate where to begin in your list of public
@@ -3170,6 +3524,7 @@ export interface ListPublicKeysRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a public key.</p>
  */
 export interface PublicKeySummary {
@@ -3201,6 +3556,7 @@ export interface PublicKeySummary {
 }
 
 /**
+ * @public
  * <p>A list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
  */
 export interface PublicKeyList {
@@ -3227,6 +3583,9 @@ export interface PublicKeyList {
   Items?: PublicKeySummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListPublicKeysResult {
   /**
    * <p>Returns a list of all public keys that have been added to CloudFront for this
@@ -3235,6 +3594,9 @@ export interface ListPublicKeysResult {
   PublicKeyList?: PublicKeyList;
 }
 
+/**
+ * @public
+ */
 export interface ListRealtimeLogConfigsRequest {
   /**
    * <p>The maximum number of real-time log configurations that you want in the
@@ -3252,6 +3614,7 @@ export interface ListRealtimeLogConfigsRequest {
 }
 
 /**
+ * @public
  * <p>A list of real-time log configurations.</p>
  */
 export interface RealtimeLogConfigs {
@@ -3286,6 +3649,9 @@ export interface RealtimeLogConfigs {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRealtimeLogConfigsResult {
   /**
    * <p>A list of real-time log configurations.</p>
@@ -3293,11 +3659,23 @@ export interface ListRealtimeLogConfigsResult {
   RealtimeLogConfigs?: RealtimeLogConfigs;
 }
 
-export enum ResponseHeadersPolicyType {
-  custom = "custom",
-  managed = "managed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResponseHeadersPolicyType = {
+  custom: "custom",
+  managed: "managed",
+} as const;
 
+/**
+ * @public
+ */
+export type ResponseHeadersPolicyType = (typeof ResponseHeadersPolicyType)[keyof typeof ResponseHeadersPolicyType];
+
+/**
+ * @public
+ */
 export interface ListResponseHeadersPoliciesRequest {
   /**
    * <p>A filter to get only the specified kind of response headers policies. Valid values
@@ -3332,6 +3710,7 @@ export interface ListResponseHeadersPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Contains a response headers policy.</p>
  */
 export interface ResponseHeadersPolicySummary {
@@ -3348,6 +3727,7 @@ export interface ResponseHeadersPolicySummary {
 }
 
 /**
+ * @public
  * <p>A list of response headers policies.</p>
  */
 export interface ResponseHeadersPolicyList {
@@ -3375,6 +3755,9 @@ export interface ResponseHeadersPolicyList {
   Items?: ResponseHeadersPolicySummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListResponseHeadersPoliciesResult {
   /**
    * <p>A list of response headers policies.</p>
@@ -3383,6 +3766,7 @@ export interface ListResponseHeadersPoliciesResult {
 }
 
 /**
+ * @public
  * <p>The request to list your streaming distributions.</p>
  */
 export interface ListStreamingDistributionsRequest {
@@ -3398,6 +3782,7 @@ export interface ListStreamingDistributionsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the information for a CloudFront streaming distribution.</p>
  */
 export interface StreamingDistributionSummary {
@@ -3478,6 +3863,7 @@ export interface StreamingDistributionSummary {
 }
 
 /**
+ * @public
  * <p>A streaming distribution list.</p>
  */
 export interface StreamingDistributionList {
@@ -3520,6 +3906,7 @@ export interface StreamingDistributionList {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface ListStreamingDistributionsResult {
@@ -3530,6 +3917,7 @@ export interface ListStreamingDistributionsResult {
 }
 
 /**
+ * @public
  * <p>The request to list tags for a CloudFront resource.</p>
  */
 export interface ListTagsForResourceRequest {
@@ -3540,6 +3928,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface ListTagsForResourceResult {
@@ -3549,6 +3938,9 @@ export interface ListTagsForResourceResult {
   Tags: Tags | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PublishFunctionRequest {
   /**
    * <p>The name of the function that you are publishing.</p>
@@ -3562,6 +3954,9 @@ export interface PublishFunctionRequest {
   IfMatch: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PublishFunctionResult {
   /**
    * <p>Contains configuration information and metadata about a CloudFront function.</p>
@@ -3570,6 +3965,7 @@ export interface PublishFunctionResult {
 }
 
 /**
+ * @public
  * <p>The request to add tags to a CloudFront resource.</p>
  */
 export interface TagResourceRequest {
@@ -3585,6 +3981,7 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * <p>The CloudFront function failed.</p>
  */
 export class TestFunctionFailed extends __BaseException {
@@ -3605,6 +4002,9 @@ export class TestFunctionFailed extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TestFunctionRequest {
   /**
    * <p>The name of the function that you are testing.</p>
@@ -3631,6 +4031,7 @@ export interface TestFunctionRequest {
 }
 
 /**
+ * @public
  * <p>Contains the result of testing a CloudFront function with <code>TestFunction</code>.</p>
  */
 export interface TestResult {
@@ -3666,6 +4067,9 @@ export interface TestResult {
   FunctionOutput?: string;
 }
 
+/**
+ * @public
+ */
 export interface TestFunctionResult {
   /**
    * <p>An object that represents the result of running the function with the provided event
@@ -3675,6 +4079,7 @@ export interface TestFunctionResult {
 }
 
 /**
+ * @public
  * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
  */
 export interface TagKeys {
@@ -3685,6 +4090,7 @@ export interface TagKeys {
 }
 
 /**
+ * @public
  * <p>The request to remove tags from a CloudFront resource.</p>
  */
 export interface UntagResourceRequest {
@@ -3699,6 +4105,9 @@ export interface UntagResourceRequest {
   TagKeys: TagKeys | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCachePolicyRequest {
   /**
    * <p>A cache policy configuration.</p>
@@ -3720,6 +4129,9 @@ export interface UpdateCachePolicyRequest {
   IfMatch?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCachePolicyResult {
   /**
    * <p>A cache policy.</p>
@@ -3733,6 +4145,7 @@ export interface UpdateCachePolicyResult {
 }
 
 /**
+ * @public
  * <p>The request to update an origin access identity.</p>
  */
 export interface UpdateCloudFrontOriginAccessIdentityRequest {
@@ -3754,6 +4167,7 @@ export interface UpdateCloudFrontOriginAccessIdentityRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface UpdateCloudFrontOriginAccessIdentityResult {
@@ -3769,6 +4183,9 @@ export interface UpdateCloudFrontOriginAccessIdentityResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContinuousDeploymentPolicyRequest {
   /**
    * <p>The continuous deployment policy configuration.</p>
@@ -3787,6 +4204,9 @@ export interface UpdateContinuousDeploymentPolicyRequest {
   IfMatch?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContinuousDeploymentPolicyResult {
   /**
    * <p>A continuous deployment policy.</p>
@@ -3801,6 +4221,7 @@ export interface UpdateContinuousDeploymentPolicyResult {
 }
 
 /**
+ * @public
  * <p>The request to update a distribution.</p>
  */
 export interface UpdateDistributionRequest {
@@ -3822,6 +4243,7 @@ export interface UpdateDistributionRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface UpdateDistributionResult {
@@ -3837,6 +4259,9 @@ export interface UpdateDistributionResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDistributionWithStagingConfigRequest {
   /**
    * <p>The identifier of the primary distribution to which you are copying a staging distribution's
@@ -3859,6 +4284,9 @@ export interface UpdateDistributionWithStagingConfigRequest {
   IfMatch?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDistributionWithStagingConfigResult {
   /**
    * <p>A distribution tells CloudFront where you want content to be delivered from, and the details
@@ -3872,6 +4300,9 @@ export interface UpdateDistributionWithStagingConfigResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFieldLevelEncryptionConfigRequest {
   /**
    * <p>Request to update a field-level encryption configuration.</p>
@@ -3890,6 +4321,9 @@ export interface UpdateFieldLevelEncryptionConfigRequest {
   IfMatch?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFieldLevelEncryptionConfigResult {
   /**
    * <p>Return the results of updating the configuration.</p>
@@ -3903,6 +4337,9 @@ export interface UpdateFieldLevelEncryptionConfigResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFieldLevelEncryptionProfileRequest {
   /**
    * <p>Request to update a field-level encryption profile.</p>
@@ -3921,6 +4358,9 @@ export interface UpdateFieldLevelEncryptionProfileRequest {
   IfMatch?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFieldLevelEncryptionProfileResult {
   /**
    * <p>Return the results of updating the profile.</p>
@@ -3933,6 +4373,9 @@ export interface UpdateFieldLevelEncryptionProfileResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionRequest {
   /**
    * <p>The name of the function that you are updating.</p>
@@ -3958,6 +4401,9 @@ export interface UpdateFunctionRequest {
   FunctionCode: Uint8Array | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionResult {
   /**
    * <p>Contains configuration information and metadata about a CloudFront function.</p>
@@ -3970,6 +4416,9 @@ export interface UpdateFunctionResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateKeyGroupRequest {
   /**
    * <p>The key group configuration.</p>
@@ -3988,6 +4437,9 @@ export interface UpdateKeyGroupRequest {
   IfMatch?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateKeyGroupResult {
   /**
    * <p>The key group that was just updated.</p>
@@ -4000,6 +4452,9 @@ export interface UpdateKeyGroupResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOriginAccessControlRequest {
   /**
    * <p>An origin access control.</p>
@@ -4018,6 +4473,9 @@ export interface UpdateOriginAccessControlRequest {
   IfMatch?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOriginAccessControlResult {
   /**
    * <p>The origin access control after it has been updated.</p>
@@ -4030,6 +4488,9 @@ export interface UpdateOriginAccessControlResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOriginRequestPolicyRequest {
   /**
    * <p>An origin request policy configuration.</p>
@@ -4051,6 +4512,9 @@ export interface UpdateOriginRequestPolicyRequest {
   IfMatch?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOriginRequestPolicyResult {
   /**
    * <p>An origin request policy.</p>
@@ -4063,6 +4527,9 @@ export interface UpdateOriginRequestPolicyResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePublicKeyRequest {
   /**
    * <p>A public key configuration.</p>
@@ -4081,6 +4548,9 @@ export interface UpdatePublicKeyRequest {
   IfMatch?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePublicKeyResult {
   /**
    * <p>The public key.</p>
@@ -4093,6 +4563,9 @@ export interface UpdatePublicKeyResult {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRealtimeLogConfigRequest {
   /**
    * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
@@ -4125,6 +4598,9 @@ export interface UpdateRealtimeLogConfigRequest {
   SamplingRate?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRealtimeLogConfigResult {
   /**
    * <p>A real-time log configuration.</p>
@@ -4132,6 +4608,9 @@ export interface UpdateRealtimeLogConfigResult {
   RealtimeLogConfig?: RealtimeLogConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResponseHeadersPolicyRequest {
   /**
    * <p>A response headers policy configuration.</p>
@@ -4151,6 +4630,9 @@ export interface UpdateResponseHeadersPolicyRequest {
   IfMatch?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResponseHeadersPolicyResult {
   /**
    * <p>A response headers policy.</p>
@@ -4164,6 +4646,7 @@ export interface UpdateResponseHeadersPolicyResult {
 }
 
 /**
+ * @public
  * <p>The request to update a streaming distribution.</p>
  */
 export interface UpdateStreamingDistributionRequest {
@@ -4185,6 +4668,7 @@ export interface UpdateStreamingDistributionRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface UpdateStreamingDistributionResult {
@@ -4203,335 +4687,9 @@ export interface UpdateStreamingDistributionResult {
 /**
  * @internal
  */
-export const CreateResponseHeadersPolicyResultFilterSensitiveLog = (obj: CreateResponseHeadersPolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingLoggingConfigFilterSensitiveLog = (obj: StreamingLoggingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3OriginFilterSensitiveLog = (obj: S3Origin): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingDistributionConfigFilterSensitiveLog = (obj: StreamingDistributionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingDistributionRequestFilterSensitiveLog = (obj: CreateStreamingDistributionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingDistributionFilterSensitiveLog = (obj: StreamingDistribution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingDistributionResultFilterSensitiveLog = (obj: CreateStreamingDistributionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingDistributionConfigWithTagsFilterSensitiveLog = (
-  obj: StreamingDistributionConfigWithTags
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingDistributionWithTagsRequestFilterSensitiveLog = (
-  obj: CreateStreamingDistributionWithTagsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingDistributionWithTagsResultFilterSensitiveLog = (
-  obj: CreateStreamingDistributionWithTagsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCachePolicyRequestFilterSensitiveLog = (obj: DeleteCachePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCloudFrontOriginAccessIdentityRequestFilterSensitiveLog = (
-  obj: DeleteCloudFrontOriginAccessIdentityRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteContinuousDeploymentPolicyRequestFilterSensitiveLog = (
-  obj: DeleteContinuousDeploymentPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDistributionRequestFilterSensitiveLog = (obj: DeleteDistributionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFieldLevelEncryptionConfigRequestFilterSensitiveLog = (
-  obj: DeleteFieldLevelEncryptionConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFieldLevelEncryptionProfileRequestFilterSensitiveLog = (
-  obj: DeleteFieldLevelEncryptionProfileRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFunctionRequestFilterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteKeyGroupRequestFilterSensitiveLog = (obj: DeleteKeyGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMonitoringSubscriptionRequestFilterSensitiveLog = (
-  obj: DeleteMonitoringSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMonitoringSubscriptionResultFilterSensitiveLog = (obj: DeleteMonitoringSubscriptionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteOriginAccessControlRequestFilterSensitiveLog = (obj: DeleteOriginAccessControlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteOriginRequestPolicyRequestFilterSensitiveLog = (obj: DeleteOriginRequestPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePublicKeyRequestFilterSensitiveLog = (obj: DeletePublicKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRealtimeLogConfigRequestFilterSensitiveLog = (obj: DeleteRealtimeLogConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResponseHeadersPolicyRequestFilterSensitiveLog = (obj: DeleteResponseHeadersPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStreamingDistributionRequestFilterSensitiveLog = (obj: DeleteStreamingDistributionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFunctionRequestFilterSensitiveLog = (obj: DescribeFunctionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFunctionResultFilterSensitiveLog = (obj: DescribeFunctionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCachePolicyRequestFilterSensitiveLog = (obj: GetCachePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCachePolicyResultFilterSensitiveLog = (obj: GetCachePolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCachePolicyConfigRequestFilterSensitiveLog = (obj: GetCachePolicyConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCachePolicyConfigResultFilterSensitiveLog = (obj: GetCachePolicyConfigResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCloudFrontOriginAccessIdentityRequestFilterSensitiveLog = (
-  obj: GetCloudFrontOriginAccessIdentityRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCloudFrontOriginAccessIdentityResultFilterSensitiveLog = (
-  obj: GetCloudFrontOriginAccessIdentityResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCloudFrontOriginAccessIdentityConfigRequestFilterSensitiveLog = (
-  obj: GetCloudFrontOriginAccessIdentityConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCloudFrontOriginAccessIdentityConfigResultFilterSensitiveLog = (
-  obj: GetCloudFrontOriginAccessIdentityConfigResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContinuousDeploymentPolicyRequestFilterSensitiveLog = (
-  obj: GetContinuousDeploymentPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContinuousDeploymentPolicyResultFilterSensitiveLog = (
-  obj: GetContinuousDeploymentPolicyResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContinuousDeploymentPolicyConfigRequestFilterSensitiveLog = (
-  obj: GetContinuousDeploymentPolicyConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContinuousDeploymentPolicyConfigResultFilterSensitiveLog = (
-  obj: GetContinuousDeploymentPolicyConfigResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionRequestFilterSensitiveLog = (obj: GetDistributionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetDistributionResultFilterSensitiveLog = (obj: GetDistributionResult): any => ({
   ...obj,
   ...(obj.Distribution && { Distribution: DistributionFilterSensitiveLog(obj.Distribution) }),
-});
-
-/**
- * @internal
- */
-export const GetDistributionConfigRequestFilterSensitiveLog = (obj: GetDistributionConfigRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4545,421 +4703,9 @@ export const GetDistributionConfigResultFilterSensitiveLog = (obj: GetDistributi
 /**
  * @internal
  */
-export const GetFieldLevelEncryptionRequestFilterSensitiveLog = (obj: GetFieldLevelEncryptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFieldLevelEncryptionResultFilterSensitiveLog = (obj: GetFieldLevelEncryptionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFieldLevelEncryptionConfigRequestFilterSensitiveLog = (
-  obj: GetFieldLevelEncryptionConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFieldLevelEncryptionConfigResultFilterSensitiveLog = (
-  obj: GetFieldLevelEncryptionConfigResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFieldLevelEncryptionProfileRequestFilterSensitiveLog = (
-  obj: GetFieldLevelEncryptionProfileRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFieldLevelEncryptionProfileResultFilterSensitiveLog = (
-  obj: GetFieldLevelEncryptionProfileResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFieldLevelEncryptionProfileConfigRequestFilterSensitiveLog = (
-  obj: GetFieldLevelEncryptionProfileConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFieldLevelEncryptionProfileConfigResultFilterSensitiveLog = (
-  obj: GetFieldLevelEncryptionProfileConfigResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFunctionRequestFilterSensitiveLog = (obj: GetFunctionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetFunctionResultFilterSensitiveLog = (obj: GetFunctionResult): any => ({
   ...obj,
   ...(obj.FunctionCode && { FunctionCode: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetInvalidationRequestFilterSensitiveLog = (obj: GetInvalidationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInvalidationResultFilterSensitiveLog = (obj: GetInvalidationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyGroupRequestFilterSensitiveLog = (obj: GetKeyGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyGroupResultFilterSensitiveLog = (obj: GetKeyGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyGroupConfigRequestFilterSensitiveLog = (obj: GetKeyGroupConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyGroupConfigResultFilterSensitiveLog = (obj: GetKeyGroupConfigResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMonitoringSubscriptionRequestFilterSensitiveLog = (obj: GetMonitoringSubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMonitoringSubscriptionResultFilterSensitiveLog = (obj: GetMonitoringSubscriptionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOriginAccessControlRequestFilterSensitiveLog = (obj: GetOriginAccessControlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOriginAccessControlResultFilterSensitiveLog = (obj: GetOriginAccessControlResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOriginAccessControlConfigRequestFilterSensitiveLog = (
-  obj: GetOriginAccessControlConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOriginAccessControlConfigResultFilterSensitiveLog = (obj: GetOriginAccessControlConfigResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOriginRequestPolicyRequestFilterSensitiveLog = (obj: GetOriginRequestPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOriginRequestPolicyResultFilterSensitiveLog = (obj: GetOriginRequestPolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOriginRequestPolicyConfigRequestFilterSensitiveLog = (
-  obj: GetOriginRequestPolicyConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOriginRequestPolicyConfigResultFilterSensitiveLog = (obj: GetOriginRequestPolicyConfigResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPublicKeyRequestFilterSensitiveLog = (obj: GetPublicKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPublicKeyResultFilterSensitiveLog = (obj: GetPublicKeyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPublicKeyConfigRequestFilterSensitiveLog = (obj: GetPublicKeyConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPublicKeyConfigResultFilterSensitiveLog = (obj: GetPublicKeyConfigResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRealtimeLogConfigRequestFilterSensitiveLog = (obj: GetRealtimeLogConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRealtimeLogConfigResultFilterSensitiveLog = (obj: GetRealtimeLogConfigResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResponseHeadersPolicyRequestFilterSensitiveLog = (obj: GetResponseHeadersPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResponseHeadersPolicyResultFilterSensitiveLog = (obj: GetResponseHeadersPolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResponseHeadersPolicyConfigRequestFilterSensitiveLog = (
-  obj: GetResponseHeadersPolicyConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResponseHeadersPolicyConfigResultFilterSensitiveLog = (
-  obj: GetResponseHeadersPolicyConfigResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingDistributionRequestFilterSensitiveLog = (obj: GetStreamingDistributionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingDistributionResultFilterSensitiveLog = (obj: GetStreamingDistributionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingDistributionConfigRequestFilterSensitiveLog = (
-  obj: GetStreamingDistributionConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingDistributionConfigResultFilterSensitiveLog = (
-  obj: GetStreamingDistributionConfigResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCachePoliciesRequestFilterSensitiveLog = (obj: ListCachePoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCachePoliciesResultFilterSensitiveLog = (obj: ListCachePoliciesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCloudFrontOriginAccessIdentitiesRequestFilterSensitiveLog = (
-  obj: ListCloudFrontOriginAccessIdentitiesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudFrontOriginAccessIdentitySummaryFilterSensitiveLog = (
-  obj: CloudFrontOriginAccessIdentitySummary
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudFrontOriginAccessIdentityListFilterSensitiveLog = (obj: CloudFrontOriginAccessIdentityList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCloudFrontOriginAccessIdentitiesResultFilterSensitiveLog = (
-  obj: ListCloudFrontOriginAccessIdentitiesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConflictingAliasesRequestFilterSensitiveLog = (obj: ListConflictingAliasesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConflictingAliasFilterSensitiveLog = (obj: ConflictingAlias): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConflictingAliasesListFilterSensitiveLog = (obj: ConflictingAliasesList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConflictingAliasesResultFilterSensitiveLog = (obj: ListConflictingAliasesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContinuousDeploymentPoliciesRequestFilterSensitiveLog = (
-  obj: ListContinuousDeploymentPoliciesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContinuousDeploymentPolicySummaryFilterSensitiveLog = (obj: ContinuousDeploymentPolicySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContinuousDeploymentPolicyListFilterSensitiveLog = (obj: ContinuousDeploymentPolicyList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContinuousDeploymentPoliciesResultFilterSensitiveLog = (
-  obj: ListContinuousDeploymentPoliciesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDistributionsRequestFilterSensitiveLog = (obj: ListDistributionsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4986,72 +4732,6 @@ export const ListDistributionsResultFilterSensitiveLog = (obj: ListDistributions
 /**
  * @internal
  */
-export const ListDistributionsByCachePolicyIdRequestFilterSensitiveLog = (
-  obj: ListDistributionsByCachePolicyIdRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DistributionIdListFilterSensitiveLog = (obj: DistributionIdList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDistributionsByCachePolicyIdResultFilterSensitiveLog = (
-  obj: ListDistributionsByCachePolicyIdResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDistributionsByKeyGroupRequestFilterSensitiveLog = (obj: ListDistributionsByKeyGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDistributionsByKeyGroupResultFilterSensitiveLog = (obj: ListDistributionsByKeyGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDistributionsByOriginRequestPolicyIdRequestFilterSensitiveLog = (
-  obj: ListDistributionsByOriginRequestPolicyIdRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDistributionsByOriginRequestPolicyIdResultFilterSensitiveLog = (
-  obj: ListDistributionsByOriginRequestPolicyIdResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDistributionsByRealtimeLogConfigRequestFilterSensitiveLog = (
-  obj: ListDistributionsByRealtimeLogConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog = (
   obj: ListDistributionsByRealtimeLogConfigResult
 ): any => ({
@@ -5061,369 +4741,7 @@ export const ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog = (
 /**
  * @internal
  */
-export const ListDistributionsByResponseHeadersPolicyIdRequestFilterSensitiveLog = (
-  obj: ListDistributionsByResponseHeadersPolicyIdRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDistributionsByResponseHeadersPolicyIdResultFilterSensitiveLog = (
-  obj: ListDistributionsByResponseHeadersPolicyIdResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDistributionsByWebACLIdRequestFilterSensitiveLog = (obj: ListDistributionsByWebACLIdRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListDistributionsByWebACLIdResultFilterSensitiveLog = (obj: ListDistributionsByWebACLIdResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFieldLevelEncryptionConfigsRequestFilterSensitiveLog = (
-  obj: ListFieldLevelEncryptionConfigsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldLevelEncryptionSummaryFilterSensitiveLog = (obj: FieldLevelEncryptionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldLevelEncryptionListFilterSensitiveLog = (obj: FieldLevelEncryptionList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFieldLevelEncryptionConfigsResultFilterSensitiveLog = (
-  obj: ListFieldLevelEncryptionConfigsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFieldLevelEncryptionProfilesRequestFilterSensitiveLog = (
-  obj: ListFieldLevelEncryptionProfilesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldLevelEncryptionProfileSummaryFilterSensitiveLog = (obj: FieldLevelEncryptionProfileSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldLevelEncryptionProfileListFilterSensitiveLog = (obj: FieldLevelEncryptionProfileList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFieldLevelEncryptionProfilesResultFilterSensitiveLog = (
-  obj: ListFieldLevelEncryptionProfilesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFunctionsRequestFilterSensitiveLog = (obj: ListFunctionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FunctionListFilterSensitiveLog = (obj: FunctionList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFunctionsResultFilterSensitiveLog = (obj: ListFunctionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInvalidationsRequestFilterSensitiveLog = (obj: ListInvalidationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InvalidationSummaryFilterSensitiveLog = (obj: InvalidationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InvalidationListFilterSensitiveLog = (obj: InvalidationList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInvalidationsResultFilterSensitiveLog = (obj: ListInvalidationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeyGroupsRequestFilterSensitiveLog = (obj: ListKeyGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyGroupSummaryFilterSensitiveLog = (obj: KeyGroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyGroupListFilterSensitiveLog = (obj: KeyGroupList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeyGroupsResultFilterSensitiveLog = (obj: ListKeyGroupsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOriginAccessControlsRequestFilterSensitiveLog = (obj: ListOriginAccessControlsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OriginAccessControlSummaryFilterSensitiveLog = (obj: OriginAccessControlSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OriginAccessControlListFilterSensitiveLog = (obj: OriginAccessControlList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOriginAccessControlsResultFilterSensitiveLog = (obj: ListOriginAccessControlsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOriginRequestPoliciesRequestFilterSensitiveLog = (obj: ListOriginRequestPoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OriginRequestPolicySummaryFilterSensitiveLog = (obj: OriginRequestPolicySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OriginRequestPolicyListFilterSensitiveLog = (obj: OriginRequestPolicyList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOriginRequestPoliciesResultFilterSensitiveLog = (obj: ListOriginRequestPoliciesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPublicKeysRequestFilterSensitiveLog = (obj: ListPublicKeysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublicKeySummaryFilterSensitiveLog = (obj: PublicKeySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublicKeyListFilterSensitiveLog = (obj: PublicKeyList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPublicKeysResultFilterSensitiveLog = (obj: ListPublicKeysResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRealtimeLogConfigsRequestFilterSensitiveLog = (obj: ListRealtimeLogConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RealtimeLogConfigsFilterSensitiveLog = (obj: RealtimeLogConfigs): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRealtimeLogConfigsResultFilterSensitiveLog = (obj: ListRealtimeLogConfigsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResponseHeadersPoliciesRequestFilterSensitiveLog = (obj: ListResponseHeadersPoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResponseHeadersPolicySummaryFilterSensitiveLog = (obj: ResponseHeadersPolicySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResponseHeadersPolicyListFilterSensitiveLog = (obj: ResponseHeadersPolicyList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResponseHeadersPoliciesResultFilterSensitiveLog = (obj: ListResponseHeadersPoliciesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamingDistributionsRequestFilterSensitiveLog = (obj: ListStreamingDistributionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingDistributionSummaryFilterSensitiveLog = (obj: StreamingDistributionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingDistributionListFilterSensitiveLog = (obj: StreamingDistributionList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamingDistributionsResultFilterSensitiveLog = (obj: ListStreamingDistributionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishFunctionRequestFilterSensitiveLog = (obj: PublishFunctionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishFunctionResultFilterSensitiveLog = (obj: PublishFunctionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
   ...obj,
 });
 
@@ -5456,70 +4774,6 @@ export const TestFunctionResultFilterSensitiveLog = (obj: TestFunctionResult): a
 /**
  * @internal
  */
-export const TagKeysFilterSensitiveLog = (obj: TagKeys): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCachePolicyRequestFilterSensitiveLog = (obj: UpdateCachePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCachePolicyResultFilterSensitiveLog = (obj: UpdateCachePolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCloudFrontOriginAccessIdentityRequestFilterSensitiveLog = (
-  obj: UpdateCloudFrontOriginAccessIdentityRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCloudFrontOriginAccessIdentityResultFilterSensitiveLog = (
-  obj: UpdateCloudFrontOriginAccessIdentityResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContinuousDeploymentPolicyRequestFilterSensitiveLog = (
-  obj: UpdateContinuousDeploymentPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContinuousDeploymentPolicyResultFilterSensitiveLog = (
-  obj: UpdateContinuousDeploymentPolicyResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateDistributionRequestFilterSensitiveLog = (obj: UpdateDistributionRequest): any => ({
   ...obj,
   ...(obj.DistributionConfig && { DistributionConfig: DistributionConfigFilterSensitiveLog(obj.DistributionConfig) }),
@@ -5536,15 +4790,6 @@ export const UpdateDistributionResultFilterSensitiveLog = (obj: UpdateDistributi
 /**
  * @internal
  */
-export const UpdateDistributionWithStagingConfigRequestFilterSensitiveLog = (
-  obj: UpdateDistributionWithStagingConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateDistributionWithStagingConfigResultFilterSensitiveLog = (
   obj: UpdateDistributionWithStagingConfigResult
 ): any => ({
@@ -5555,148 +4800,7 @@ export const UpdateDistributionWithStagingConfigResultFilterSensitiveLog = (
 /**
  * @internal
  */
-export const UpdateFieldLevelEncryptionConfigRequestFilterSensitiveLog = (
-  obj: UpdateFieldLevelEncryptionConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFieldLevelEncryptionConfigResultFilterSensitiveLog = (
-  obj: UpdateFieldLevelEncryptionConfigResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFieldLevelEncryptionProfileRequestFilterSensitiveLog = (
-  obj: UpdateFieldLevelEncryptionProfileRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFieldLevelEncryptionProfileResultFilterSensitiveLog = (
-  obj: UpdateFieldLevelEncryptionProfileResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateFunctionRequestFilterSensitiveLog = (obj: UpdateFunctionRequest): any => ({
   ...obj,
   ...(obj.FunctionCode && { FunctionCode: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateFunctionResultFilterSensitiveLog = (obj: UpdateFunctionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateKeyGroupRequestFilterSensitiveLog = (obj: UpdateKeyGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateKeyGroupResultFilterSensitiveLog = (obj: UpdateKeyGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOriginAccessControlRequestFilterSensitiveLog = (obj: UpdateOriginAccessControlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOriginAccessControlResultFilterSensitiveLog = (obj: UpdateOriginAccessControlResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOriginRequestPolicyRequestFilterSensitiveLog = (obj: UpdateOriginRequestPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOriginRequestPolicyResultFilterSensitiveLog = (obj: UpdateOriginRequestPolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePublicKeyRequestFilterSensitiveLog = (obj: UpdatePublicKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePublicKeyResultFilterSensitiveLog = (obj: UpdatePublicKeyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRealtimeLogConfigRequestFilterSensitiveLog = (obj: UpdateRealtimeLogConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRealtimeLogConfigResultFilterSensitiveLog = (obj: UpdateRealtimeLogConfigResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResponseHeadersPolicyRequestFilterSensitiveLog = (obj: UpdateResponseHeadersPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResponseHeadersPolicyResultFilterSensitiveLog = (obj: UpdateResponseHeadersPolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStreamingDistributionRequestFilterSensitiveLog = (obj: UpdateStreamingDistributionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStreamingDistributionResultFilterSensitiveLog = (obj: UpdateStreamingDistributionResult): any => ({
-  ...obj,
 });

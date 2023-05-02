@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  DescribeGroupMembershipRequest,
-  DescribeGroupMembershipRequestFilterSensitiveLog,
-  DescribeGroupMembershipResponse,
-  DescribeGroupMembershipResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGroupMembershipCommand,
-  serializeAws_json1_1DescribeGroupMembershipCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeGroupMembershipRequest, DescribeGroupMembershipResponse } from "../models/models_0";
+import { de_DescribeGroupMembershipCommand, se_DescribeGroupMembershipCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGroupMembershipCommand}.
  */
 export interface DescribeGroupMembershipCommandInput extends DescribeGroupMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGroupMembershipCommand}.
  */
 export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves membership metadata and attributes from <code>MembershipId</code> in an identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * import { IdentitystoreClient, DescribeGroupMembershipCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, DescribeGroupMembershipCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = { // DescribeGroupMembershipRequest
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   MembershipId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGroupMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGroupMembershipCommandInput - {@link DescribeGroupMembershipCommandInput}
+ * @returns {@link DescribeGroupMembershipCommandOutput}
  * @see {@link DescribeGroupMembershipCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupMembershipCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -84,6 +87,9 @@ export class DescribeGroupMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGroupMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class DescribeGroupMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGroupMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGroupMembershipResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class DescribeGroupMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGroupMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGroupMembershipCommand(input, context);
+    return se_DescribeGroupMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupMembershipCommandOutput> {
-    return deserializeAws_json1_1DescribeGroupMembershipCommand(output, context);
+    return de_DescribeGroupMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

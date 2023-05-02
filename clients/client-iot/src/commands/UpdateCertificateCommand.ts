@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateCertificateRequest, UpdateCertificateRequestFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateCertificateCommand,
-  serializeAws_restJson1UpdateCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateCertificateRequest } from "../models/models_2";
+import { de_UpdateCertificateCommand, se_UpdateCertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCertificateCommand}.
  */
 export interface UpdateCertificateCommandInput extends UpdateCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCertificateCommand}.
  */
 export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status of the specified certificate. This operation is
  *          idempotent.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCertificate</a> action.</p>
@@ -44,10 +46,16 @@ export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
  * import { IoTClient, UpdateCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateCertificateRequest
+ *   certificateId: "STRING_VALUE", // required
+ *   newStatus: "ACTIVE" || "INACTIVE" || "REVOKED" || "PENDING_TRANSFER" || "REGISTER_INACTIVE" || "PENDING_ACTIVATION", // required
+ * };
  * const command = new UpdateCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCertificateCommandInput - {@link UpdateCertificateCommandInput}
+ * @returns {@link UpdateCertificateCommandOutput}
  * @see {@link UpdateCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +100,9 @@ export class UpdateCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +131,8 @@ export class UpdateCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +142,18 @@ export class UpdateCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCertificateCommand(input, context);
+    return se_UpdateCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCertificateCommandOutput> {
-    return deserializeAws_restJson1UpdateCertificateCommand(output, context);
+    return de_UpdateCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

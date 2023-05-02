@@ -10,7 +10,7 @@ import { GameSparksClient } from "../GameSparksClient";
 import { GameSparksPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GameSparksClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGeneratedCodeJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListGeneratedCodeJobs(
   config: GameSparksPaginationConfiguration,
   input: ListGeneratedCodeJobsCommandInput,

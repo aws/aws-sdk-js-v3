@@ -18,23 +18,24 @@ import {
   CreateAppInstanceRequest,
   CreateAppInstanceRequestFilterSensitiveLog,
   CreateAppInstanceResponse,
-  CreateAppInstanceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAppInstanceCommand,
-  serializeAws_restJson1CreateAppInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAppInstanceCommand, se_CreateAppInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppInstanceCommand}.
  */
 export interface CreateAppInstanceCommandInput extends CreateAppInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppInstanceCommand}.
  */
 export interface CreateAppInstanceCommandOutput extends CreateAppInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account. Only SDK messaging customers use this API.
  * <code>CreateAppInstance</code> supports idempotency behavior as described in the AWS API Standard.</p>
  * @example
@@ -43,10 +44,23 @@ export interface CreateAppInstanceCommandOutput extends CreateAppInstanceRespons
  * import { ChimeClient, CreateAppInstanceCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateAppInstanceCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateAppInstanceRequest
+ *   Name: "STRING_VALUE", // required
+ *   Metadata: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateAppInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppInstanceCommandInput - {@link CreateAppInstanceCommandInput}
+ * @returns {@link CreateAppInstanceCommandOutput}
  * @see {@link CreateAppInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateAppInstanceCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -95,6 +109,9 @@ export class CreateAppInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,7 +141,7 @@ export class CreateAppInstanceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateAppInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppInstanceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +151,18 @@ export class CreateAppInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAppInstanceCommand(input, context);
+    return se_CreateAppInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppInstanceCommandOutput> {
-    return deserializeAws_restJson1CreateAppInstanceCommand(output, context);
+    return de_CreateAppInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

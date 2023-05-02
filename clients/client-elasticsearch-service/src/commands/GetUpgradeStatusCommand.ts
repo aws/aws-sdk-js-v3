@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  GetUpgradeStatusRequest,
-  GetUpgradeStatusRequestFilterSensitiveLog,
-  GetUpgradeStatusResponse,
-  GetUpgradeStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUpgradeStatusCommand,
-  serializeAws_restJson1GetUpgradeStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { GetUpgradeStatusRequest, GetUpgradeStatusResponse } from "../models/models_0";
+import { de_GetUpgradeStatusCommand, se_GetUpgradeStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUpgradeStatusCommand}.
  */
 export interface GetUpgradeStatusCommandInput extends GetUpgradeStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUpgradeStatusCommand}.
  */
 export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * import { ElasticsearchServiceClient, GetUpgradeStatusCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, GetUpgradeStatusCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // GetUpgradeStatusRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new GetUpgradeStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUpgradeStatusCommandInput - {@link GetUpgradeStatusCommandInput}
+ * @returns {@link GetUpgradeStatusCommandOutput}
  * @see {@link GetUpgradeStatusCommandInput} for command's `input` shape.
  * @see {@link GetUpgradeStatusCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -88,6 +90,9 @@ export class GetUpgradeStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUpgradeStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class GetUpgradeStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUpgradeStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUpgradeStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class GetUpgradeStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUpgradeStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUpgradeStatusCommand(input, context);
+    return se_GetUpgradeStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUpgradeStatusCommandOutput> {
-    return deserializeAws_restJson1GetUpgradeStatusCommand(output, context);
+    return de_GetUpgradeStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

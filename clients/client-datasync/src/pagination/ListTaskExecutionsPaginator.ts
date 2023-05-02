@@ -10,7 +10,7 @@ import { DataSyncClient } from "../DataSyncClient";
 import { DataSyncPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DataSyncClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTaskExecutionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTaskExecutions(
   config: DataSyncPaginationConfiguration,
   input: ListTaskExecutionsCommandInput,

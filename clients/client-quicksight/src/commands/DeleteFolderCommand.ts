@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteFolderRequest,
-  DeleteFolderRequestFilterSensitiveLog,
-  DeleteFolderResponse,
-  DeleteFolderResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteFolderCommand,
-  serializeAws_restJson1DeleteFolderCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFolderRequest, DeleteFolderResponse } from "../models/models_2";
+import { de_DeleteFolderCommand, se_DeleteFolderCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFolderCommand}.
  */
 export interface DeleteFolderCommandInput extends DeleteFolderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFolderCommand}.
  */
 export interface DeleteFolderCommandOutput extends DeleteFolderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an empty folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteFolderCommandOutput extends DeleteFolderResponse, __Metad
  * import { QuickSightClient, DeleteFolderCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteFolderCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DeleteFolderRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   FolderId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFolderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFolderCommandInput - {@link DeleteFolderCommandInput}
+ * @returns {@link DeleteFolderCommandOutput}
  * @see {@link DeleteFolderCommandInput} for command's `input` shape.
  * @see {@link DeleteFolderCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -99,6 +102,9 @@ export class DeleteFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +131,8 @@ export class DeleteFolderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFolderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFolderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +142,18 @@ export class DeleteFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFolderCommand(input, context);
+    return se_DeleteFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFolderCommandOutput> {
-    return deserializeAws_restJson1DeleteFolderCommand(output, context);
+    return de_DeleteFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

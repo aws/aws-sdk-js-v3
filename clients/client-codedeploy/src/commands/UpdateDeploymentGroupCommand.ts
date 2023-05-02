@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  UpdateDeploymentGroupInput,
-  UpdateDeploymentGroupInputFilterSensitiveLog,
-  UpdateDeploymentGroupOutput,
-  UpdateDeploymentGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDeploymentGroupCommand,
-  serializeAws_json1_1UpdateDeploymentGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDeploymentGroupInput, UpdateDeploymentGroupOutput } from "../models/models_0";
+import { de_UpdateDeploymentGroupCommand, se_UpdateDeploymentGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeploymentGroupCommand}.
  */
 export interface UpdateDeploymentGroupCommandInput extends UpdateDeploymentGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeploymentGroupCommand}.
  */
 export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes information about a deployment group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,137 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  * import { CodeDeployClient, UpdateDeploymentGroupCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, UpdateDeploymentGroupCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // UpdateDeploymentGroupInput
+ *   applicationName: "STRING_VALUE", // required
+ *   currentDeploymentGroupName: "STRING_VALUE", // required
+ *   newDeploymentGroupName: "STRING_VALUE",
+ *   deploymentConfigName: "STRING_VALUE",
+ *   ec2TagFilters: [ // EC2TagFilterList
+ *     { // EC2TagFilter
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *     },
+ *   ],
+ *   onPremisesInstanceTagFilters: [ // TagFilterList
+ *     { // TagFilter
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *     },
+ *   ],
+ *   autoScalingGroups: [ // AutoScalingGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   serviceRoleArn: "STRING_VALUE",
+ *   triggerConfigurations: [ // TriggerConfigList
+ *     { // TriggerConfig
+ *       triggerName: "STRING_VALUE",
+ *       triggerTargetArn: "STRING_VALUE",
+ *       triggerEvents: [ // TriggerEventTypeList
+ *         "DeploymentStart" || "DeploymentSuccess" || "DeploymentFailure" || "DeploymentStop" || "DeploymentRollback" || "DeploymentReady" || "InstanceStart" || "InstanceSuccess" || "InstanceFailure" || "InstanceReady",
+ *       ],
+ *     },
+ *   ],
+ *   alarmConfiguration: { // AlarmConfiguration
+ *     enabled: true || false,
+ *     ignorePollAlarmFailure: true || false,
+ *     alarms: [ // AlarmList
+ *       { // Alarm
+ *         name: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   autoRollbackConfiguration: { // AutoRollbackConfiguration
+ *     enabled: true || false,
+ *     events: [ // AutoRollbackEventsList
+ *       "DEPLOYMENT_FAILURE" || "DEPLOYMENT_STOP_ON_ALARM" || "DEPLOYMENT_STOP_ON_REQUEST",
+ *     ],
+ *   },
+ *   outdatedInstancesStrategy: "UPDATE" || "IGNORE",
+ *   deploymentStyle: { // DeploymentStyle
+ *     deploymentType: "IN_PLACE" || "BLUE_GREEN",
+ *     deploymentOption: "WITH_TRAFFIC_CONTROL" || "WITHOUT_TRAFFIC_CONTROL",
+ *   },
+ *   blueGreenDeploymentConfiguration: { // BlueGreenDeploymentConfiguration
+ *     terminateBlueInstancesOnDeploymentSuccess: { // BlueInstanceTerminationOption
+ *       action: "TERMINATE" || "KEEP_ALIVE",
+ *       terminationWaitTimeInMinutes: Number("int"),
+ *     },
+ *     deploymentReadyOption: { // DeploymentReadyOption
+ *       actionOnTimeout: "CONTINUE_DEPLOYMENT" || "STOP_DEPLOYMENT",
+ *       waitTimeInMinutes: Number("int"),
+ *     },
+ *     greenFleetProvisioningOption: { // GreenFleetProvisioningOption
+ *       action: "DISCOVER_EXISTING" || "COPY_AUTO_SCALING_GROUP",
+ *     },
+ *   },
+ *   loadBalancerInfo: { // LoadBalancerInfo
+ *     elbInfoList: [ // ELBInfoList
+ *       { // ELBInfo
+ *         name: "STRING_VALUE",
+ *       },
+ *     ],
+ *     targetGroupInfoList: [ // TargetGroupInfoList
+ *       { // TargetGroupInfo
+ *         name: "STRING_VALUE",
+ *       },
+ *     ],
+ *     targetGroupPairInfoList: [ // TargetGroupPairInfoList
+ *       { // TargetGroupPairInfo
+ *         targetGroups: [
+ *           {
+ *             name: "STRING_VALUE",
+ *           },
+ *         ],
+ *         prodTrafficRoute: { // TrafficRoute
+ *           listenerArns: [ // ListenerArnList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         testTrafficRoute: {
+ *           listenerArns: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   ec2TagSet: { // EC2TagSet
+ *     ec2TagSetList: [ // EC2TagSetList
+ *       [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *         },
+ *       ],
+ *     ],
+ *   },
+ *   ecsServices: [ // ECSServiceList
+ *     { // ECSService
+ *       serviceName: "STRING_VALUE",
+ *       clusterName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   onPremisesTagSet: { // OnPremisesTagSet
+ *     onPremisesTagSetList: [ // OnPremisesTagSetList
+ *       [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *         },
+ *       ],
+ *     ],
+ *   },
+ * };
  * const command = new UpdateDeploymentGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeploymentGroupCommandInput - {@link UpdateDeploymentGroupCommandInput}
+ * @returns {@link UpdateDeploymentGroupCommandOutput}
  * @see {@link UpdateDeploymentGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateDeploymentGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -193,6 +317,9 @@ export class UpdateDeploymentGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeploymentGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -221,8 +348,8 @@ export class UpdateDeploymentGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeploymentGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeploymentGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -232,12 +359,18 @@ export class UpdateDeploymentGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeploymentGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDeploymentGroupCommand(input, context);
+    return se_UpdateDeploymentGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeploymentGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateDeploymentGroupCommand(output, context);
+    return de_UpdateDeploymentGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

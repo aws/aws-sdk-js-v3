@@ -18,23 +18,24 @@ import {
   CreateExplainabilityExportRequest,
   CreateExplainabilityExportRequestFilterSensitiveLog,
   CreateExplainabilityExportResponse,
-  CreateExplainabilityExportResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateExplainabilityExportCommand,
-  serializeAws_json1_1CreateExplainabilityExportCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateExplainabilityExportCommand, se_CreateExplainabilityExportCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExplainabilityExportCommand}.
  */
 export interface CreateExplainabilityExportCommandInput extends CreateExplainabilityExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExplainabilityExportCommand}.
  */
 export interface CreateExplainabilityExportCommandOutput extends CreateExplainabilityExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports an Explainability resource created by the <a>CreateExplainability</a> operation. Exported files are exported to an Amazon Simple Storage Service (Amazon
  *             S3) bucket.</p>
  *          <p>You must specify a <a>DataDestination</a> object that includes an Amazon S3
@@ -50,10 +51,30 @@ export interface CreateExplainabilityExportCommandOutput extends CreateExplainab
  * import { ForecastClient, CreateExplainabilityExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateExplainabilityExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // CreateExplainabilityExportRequest
+ *   ExplainabilityExportName: "STRING_VALUE", // required
+ *   ExplainabilityArn: "STRING_VALUE", // required
+ *   Destination: { // DataDestination
+ *     S3Config: { // S3Config
+ *       Path: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE", // required
+ *       KMSKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Format: "STRING_VALUE",
+ * };
  * const command = new CreateExplainabilityExportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExplainabilityExportCommandInput - {@link CreateExplainabilityExportCommandInput}
+ * @returns {@link CreateExplainabilityExportCommandOutput}
  * @see {@link CreateExplainabilityExportCommandInput} for command's `input` shape.
  * @see {@link CreateExplainabilityExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -94,6 +115,9 @@ export class CreateExplainabilityExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExplainabilityExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,7 +147,7 @@ export class CreateExplainabilityExportCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateExplainabilityExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateExplainabilityExportResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,15 +157,21 @@ export class CreateExplainabilityExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExplainabilityExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateExplainabilityExportCommand(input, context);
+    return se_CreateExplainabilityExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateExplainabilityExportCommandOutput> {
-    return deserializeAws_json1_1CreateExplainabilityExportCommand(output, context);
+    return de_CreateExplainabilityExportCommand(output, context);
   }
 
   // Start section: command_body_extra

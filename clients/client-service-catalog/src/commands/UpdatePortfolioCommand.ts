@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePortfolioInput,
-  UpdatePortfolioInputFilterSensitiveLog,
-  UpdatePortfolioOutput,
-  UpdatePortfolioOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePortfolioCommand,
-  serializeAws_json1_1UpdatePortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdatePortfolioInput, UpdatePortfolioOutput } from "../models/models_0";
+import { de_UpdatePortfolioCommand, se_UpdatePortfolioCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePortfolioCommand}.
  */
 export interface UpdatePortfolioCommandInput extends UpdatePortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePortfolioCommand}.
  */
 export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified portfolio.</p>
  *          <p>You cannot update a product that was shared with you.</p>
  * @example
@@ -43,10 +40,28 @@ export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __M
  * import { ServiceCatalogClient, UpdatePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdatePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // UpdatePortfolioInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ProviderName: "STRING_VALUE",
+ *   AddTags: [ // AddTags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   RemoveTags: [ // TagKeys
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdatePortfolioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePortfolioCommandInput - {@link UpdatePortfolioCommandInput}
+ * @returns {@link UpdatePortfolioCommandOutput}
  * @see {@link UpdatePortfolioCommandInput} for command's `input` shape.
  * @see {@link UpdatePortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -85,6 +100,9 @@ export class UpdatePortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +131,8 @@ export class UpdatePortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePortfolioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePortfolioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +142,18 @@ export class UpdatePortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePortfolioCommand(input, context);
+    return se_UpdatePortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePortfolioCommandOutput> {
-    return deserializeAws_json1_1UpdatePortfolioCommand(output, context);
+    return de_UpdatePortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

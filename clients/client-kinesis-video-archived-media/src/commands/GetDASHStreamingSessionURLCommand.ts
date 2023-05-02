@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import {
-  GetDASHStreamingSessionURLInput,
-  GetDASHStreamingSessionURLInputFilterSensitiveLog,
-  GetDASHStreamingSessionURLOutput,
-  GetDASHStreamingSessionURLOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDASHStreamingSessionURLCommand,
-  serializeAws_restJson1GetDASHStreamingSessionURLCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput } from "../models/models_0";
+import { de_GetDASHStreamingSessionURLCommand, se_GetDASHStreamingSessionURLCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDASHStreamingSessionURLCommand}.
  */
 export interface GetDASHStreamingSessionURLCommandInput extends GetDASHStreamingSessionURLInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDASHStreamingSessionURLCommand}.
  */
 export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamingSessionURLOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an MPEG Dynamic Adaptive Streaming over HTTP (DASH) URL for the stream. You
  *             can then open the URL in a media player to view the stream contents.</p>
  *
@@ -192,10 +189,28 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  * import { KinesisVideoArchivedMediaClient, GetDASHStreamingSessionURLCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetDASHStreamingSessionURLCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
+ * const input = { // GetDASHStreamingSessionURLInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   PlaybackMode: "STRING_VALUE",
+ *   DisplayFragmentTimestamp: "STRING_VALUE",
+ *   DisplayFragmentNumber: "STRING_VALUE",
+ *   DASHFragmentSelector: { // DASHFragmentSelector
+ *     FragmentSelectorType: "STRING_VALUE",
+ *     TimestampRange: { // DASHTimestampRange
+ *       StartTimestamp: new Date("TIMESTAMP"),
+ *       EndTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ *   Expires: Number("int"),
+ *   MaxManifestFragmentResults: Number("long"),
+ * };
  * const command = new GetDASHStreamingSessionURLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDASHStreamingSessionURLCommandInput - {@link GetDASHStreamingSessionURLCommandInput}
+ * @returns {@link GetDASHStreamingSessionURLCommandOutput}
  * @see {@link GetDASHStreamingSessionURLCommandInput} for command's `input` shape.
  * @see {@link GetDASHStreamingSessionURLCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
@@ -259,6 +274,9 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDASHStreamingSessionURLCommandInput) {
     // Start section: command_constructor
     super();
@@ -287,8 +305,8 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDASHStreamingSessionURLInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDASHStreamingSessionURLOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -298,15 +316,21 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDASHStreamingSessionURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDASHStreamingSessionURLCommand(input, context);
+    return se_GetDASHStreamingSessionURLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDASHStreamingSessionURLCommandOutput> {
-    return deserializeAws_restJson1GetDASHStreamingSessionURLCommand(output, context);
+    return de_GetDASHStreamingSessionURLCommand(output, context);
   }
 
   // Start section: command_body_extra

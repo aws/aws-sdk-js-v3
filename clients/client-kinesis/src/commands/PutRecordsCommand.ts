@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  PutRecordsInput,
-  PutRecordsInputFilterSensitiveLog,
-  PutRecordsOutput,
-  PutRecordsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutRecordsCommand,
-  serializeAws_json1_1PutRecordsCommand,
-} from "../protocols/Aws_json1_1";
+import { PutRecordsInput, PutRecordsOutput } from "../models/models_0";
+import { de_PutRecordsCommand, se_PutRecordsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRecordsCommand}.
  */
 export interface PutRecordsCommandInput extends PutRecordsInput {}
 /**
+ * @public
+ *
  * The output of {@link PutRecordsCommand}.
  */
 export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Writes multiple data records into a Kinesis data stream in a single call (also
  *             referred to as a <code>PutRecords</code> request). Use this operation to send data into
  *             the stream for data ingestion and processing. </p>
@@ -101,10 +98,23 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * import { KinesisClient, PutRecordsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, PutRecordsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // PutRecordsInput
+ *   Records: [ // PutRecordsRequestEntryList // required
+ *     { // PutRecordsRequestEntry
+ *       Data: "BLOB_VALUE", // required
+ *       ExplicitHashKey: "STRING_VALUE",
+ *       PartitionKey: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new PutRecordsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRecordsCommandInput - {@link PutRecordsCommandInput}
+ * @returns {@link PutRecordsCommandOutput}
  * @see {@link PutRecordsCommandInput} for command's `input` shape.
  * @see {@link PutRecordsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -176,6 +186,9 @@ export class PutRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -202,8 +215,8 @@ export class PutRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecordsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRecordsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -213,12 +226,18 @@ export class PutRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRecordsCommand(input, context);
+    return se_PutRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordsCommandOutput> {
-    return deserializeAws_json1_1PutRecordsCommand(output, context);
+    return de_PutRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

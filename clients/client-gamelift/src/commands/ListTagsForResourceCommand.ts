@@ -14,69 +14,43 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ListTagsForResourceRequest,
-  ListTagsForResourceRequestFilterSensitiveLog,
-  ListTagsForResourceResponse,
-  ListTagsForResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagsForResourceCommand,
-  serializeAws_json1_1ListTagsForResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
+import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForResourceCommand}.
  */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForResourceCommand}.
  */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves all tags that are assigned to a GameLift resource. Resource tags are used to
- *             organize Amazon Web Services resources for a range of purposes. This operation handles the permissions
- *             necessary to manage tags for the following GameLift resource types:</p>
- *         <ul>
- *             <li>
- *                 <p>Build</p>
- *             </li>
- *             <li>
- *                 <p>Script</p>
- *             </li>
- *             <li>
- *                 <p>Fleet</p>
- *             </li>
- *             <li>
- *                 <p>Alias</p>
- *             </li>
- *             <li>
- *                 <p>GameSessionQueue</p>
- *             </li>
- *             <li>
- *                 <p>MatchmakingConfiguration</p>
- *             </li>
- *             <li>
- *                 <p>MatchmakingRuleSet</p>
- *             </li>
- *          </ul>
- *         <p>To list tags for a resource, specify the unique ARN value for the resource.</p>
- *         <p>
+ * @public
+ * <p>Retrieves all tags assigned to a Amazon GameLift resource. Use resource tags to organize Amazon Web Services
+ *             resources for a range of purposes. This operation handles the permissions necessary to
+ *             manage tags for Amazon GameLift resources that support tagging.</p>
+ *          <p>To list tags for a resource, specify the unique ARN value for the resource.</p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
  *                 Resources</a> in the <i>Amazon Web Services General Reference</i>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
  *                 Amazon Web Services Tagging Strategies</a>
  *          </p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -85,10 +59,15 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { GameLiftClient, ListTagsForResourceCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListTagsForResourceCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ListTagsForResourceRequest
+ *   ResourceARN: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -128,6 +107,9 @@ export class ListTagsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,8 +138,8 @@ export class ListTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -167,12 +149,18 @@ export class ListTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsForResourceCommand(input, context);
+    return se_ListTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
-    return deserializeAws_json1_1ListTagsForResourceCommand(output, context);
+    return de_ListTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

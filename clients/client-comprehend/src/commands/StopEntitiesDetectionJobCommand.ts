@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  StopEntitiesDetectionJobRequest,
-  StopEntitiesDetectionJobRequestFilterSensitiveLog,
-  StopEntitiesDetectionJobResponse,
-  StopEntitiesDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopEntitiesDetectionJobCommand,
-  serializeAws_json1_1StopEntitiesDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopEntitiesDetectionJobRequest, StopEntitiesDetectionJobResponse } from "../models/models_0";
+import { de_StopEntitiesDetectionJobCommand, se_StopEntitiesDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopEntitiesDetectionJobCommand}.
  */
 export interface StopEntitiesDetectionJobCommandInput extends StopEntitiesDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopEntitiesDetectionJobCommand}.
  */
 export interface StopEntitiesDetectionJobCommandOutput extends StopEntitiesDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an entities detection job in progress.</p>
  *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
  *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
@@ -51,10 +48,15 @@ export interface StopEntitiesDetectionJobCommandOutput extends StopEntitiesDetec
  * import { ComprehendClient, StopEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // StopEntitiesDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopEntitiesDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopEntitiesDetectionJobCommandInput - {@link StopEntitiesDetectionJobCommandInput}
+ * @returns {@link StopEntitiesDetectionJobCommandOutput}
  * @see {@link StopEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -87,6 +89,9 @@ export class StopEntitiesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopEntitiesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class StopEntitiesDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopEntitiesDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopEntitiesDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class StopEntitiesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopEntitiesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopEntitiesDetectionJobCommand(input, context);
+    return se_StopEntitiesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopEntitiesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopEntitiesDetectionJobCommand(output, context);
+    return de_StopEntitiesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

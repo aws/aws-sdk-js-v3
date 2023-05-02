@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { RemoveUserFromGroupRequest, RemoveUserFromGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryRemoveUserFromGroupCommand,
-  serializeAws_queryRemoveUserFromGroupCommand,
-} from "../protocols/Aws_query";
+import { RemoveUserFromGroupRequest } from "../models/models_0";
+import { de_RemoveUserFromGroupCommand, se_RemoveUserFromGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveUserFromGroupCommand}.
  */
 export interface RemoveUserFromGroupCommandInput extends RemoveUserFromGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveUserFromGroupCommand}.
  */
 export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified user from the specified group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
  * import { IAMClient, RemoveUserFromGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, RemoveUserFromGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // RemoveUserFromGroupRequest
+ *   GroupName: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE", // required
+ * };
  * const command = new RemoveUserFromGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveUserFromGroupCommandInput - {@link RemoveUserFromGroupCommandInput}
+ * @returns {@link RemoveUserFromGroupCommandOutput}
  * @see {@link RemoveUserFromGroupCommandInput} for command's `input` shape.
  * @see {@link RemoveUserFromGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -88,6 +96,9 @@ export class RemoveUserFromGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveUserFromGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +127,8 @@ export class RemoveUserFromGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveUserFromGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +138,18 @@ export class RemoveUserFromGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveUserFromGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveUserFromGroupCommand(input, context);
+    return se_RemoveUserFromGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveUserFromGroupCommandOutput> {
-    return deserializeAws_queryRemoveUserFromGroupCommand(output, context);
+    return de_RemoveUserFromGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

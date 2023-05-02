@@ -16,25 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetEventsConfigurationRequest,
-  GetEventsConfigurationRequestFilterSensitiveLog,
   GetEventsConfigurationResponse,
   GetEventsConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEventsConfigurationCommand,
-  serializeAws_restJson1GetEventsConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEventsConfigurationCommand, se_GetEventsConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventsConfigurationCommand}.
  */
 export interface GetEventsConfigurationCommandInput extends GetEventsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventsConfigurationCommand}.
  */
 export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details for an events configuration that allows a bot to receive outgoing events, such as an HTTPS endpoint or Lambda function ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurat
  * import { ChimeClient, GetEventsConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetEventsConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // GetEventsConfigurationRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BotId: "STRING_VALUE", // required
+ * };
  * const command = new GetEventsConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventsConfigurationCommandInput - {@link GetEventsConfigurationCommandInput}
+ * @returns {@link GetEventsConfigurationCommandOutput}
  * @see {@link GetEventsConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetEventsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetEventsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +128,7 @@ export class GetEventsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventsConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEventsConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -129,12 +139,18 @@ export class GetEventsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEventsConfigurationCommand(input, context);
+    return se_GetEventsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventsConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetEventsConfigurationCommand(output, context);
+    return de_GetEventsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

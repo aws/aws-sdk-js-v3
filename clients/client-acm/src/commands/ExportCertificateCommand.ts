@@ -20,21 +20,23 @@ import {
   ExportCertificateResponse,
   ExportCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ExportCertificateCommand,
-  serializeAws_json1_1ExportCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ExportCertificateCommand, se_ExportCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportCertificateCommand}.
  */
 export interface ExportCertificateCommandInput extends ExportCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportCertificateCommand}.
  */
 export interface ExportCertificateCommandOutput extends ExportCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports a private certificate issued by a private certificate authority (CA) for use
  *       anywhere. The exported file contains the certificate, the certificate chain, and the encrypted
  *       private 2048-bit RSA key associated with the public key that is embedded in the certificate.
@@ -48,10 +50,16 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  * import { ACMClient, ExportCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ExportCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // ExportCertificateRequest
+ *   CertificateArn: "STRING_VALUE", // required
+ *   Passphrase: "BLOB_VALUE", // required
+ * };
  * const command = new ExportCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportCertificateCommandInput - {@link ExportCertificateCommandInput}
+ * @returns {@link ExportCertificateCommandOutput}
  * @see {@link ExportCertificateCommandInput} for command's `input` shape.
  * @see {@link ExportCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -86,6 +94,9 @@ export class ExportCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,12 +136,18 @@ export class ExportCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExportCertificateCommand(input, context);
+    return se_ExportCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportCertificateCommandOutput> {
-    return deserializeAws_json1_1ExportCertificateCommand(output, context);
+    return de_ExportCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DeleteDirectoryConfigRequest,
-  DeleteDirectoryConfigRequestFilterSensitiveLog,
-  DeleteDirectoryConfigResult,
-  DeleteDirectoryConfigResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDirectoryConfigCommand,
-  serializeAws_json1_1DeleteDirectoryConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDirectoryConfigRequest, DeleteDirectoryConfigResult } from "../models/models_0";
+import { de_DeleteDirectoryConfigCommand, se_DeleteDirectoryConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDirectoryConfigCommand}.
  */
 export interface DeleteDirectoryConfigCommandInput extends DeleteDirectoryConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDirectoryConfigCommand}.
  */
 export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  * import { AppStreamClient, DeleteDirectoryConfigCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteDirectoryConfigCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DeleteDirectoryConfigRequest
+ *   DirectoryName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDirectoryConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDirectoryConfigCommandInput - {@link DeleteDirectoryConfigCommandInput}
+ * @returns {@link DeleteDirectoryConfigCommandOutput}
  * @see {@link DeleteDirectoryConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectoryConfigCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -75,6 +77,9 @@ export class DeleteDirectoryConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDirectoryConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DeleteDirectoryConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDirectoryConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDirectoryConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DeleteDirectoryConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDirectoryConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDirectoryConfigCommand(input, context);
+    return se_DeleteDirectoryConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDirectoryConfigCommandOutput> {
-    return deserializeAws_json1_1DeleteDirectoryConfigCommand(output, context);
+    return de_DeleteDirectoryConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

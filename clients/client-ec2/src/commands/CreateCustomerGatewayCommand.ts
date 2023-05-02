@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateCustomerGatewayRequest,
-  CreateCustomerGatewayRequestFilterSensitiveLog,
-  CreateCustomerGatewayResult,
-  CreateCustomerGatewayResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_ec2CreateCustomerGatewayCommand,
-  serializeAws_ec2CreateCustomerGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { CreateCustomerGatewayRequest, CreateCustomerGatewayResult } from "../models/models_1";
+import { de_CreateCustomerGatewayCommand, se_CreateCustomerGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomerGatewayCommand}.
  */
 export interface CreateCustomerGatewayCommandInput extends CreateCustomerGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomerGatewayCommand}.
  */
 export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information to Amazon Web Services about your customer gateway device. The
  *             customer gateway device is the appliance at your end of the VPN connection. You
  *             must provide the IP address of the customer gateway device’s external
@@ -55,10 +52,32 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  * import { EC2Client, CreateCustomerGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateCustomerGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateCustomerGatewayRequest
+ *   BgpAsn: Number("int"),
+ *   PublicIp: "STRING_VALUE",
+ *   CertificateArn: "STRING_VALUE",
+ *   Type: "ipsec.1", // required
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   DeviceName: "STRING_VALUE",
+ *   IpAddress: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new CreateCustomerGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomerGatewayCommandInput - {@link CreateCustomerGatewayCommandInput}
+ * @returns {@link CreateCustomerGatewayCommandOutput}
  * @see {@link CreateCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -106,6 +125,9 @@ export class CreateCustomerGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomerGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +156,8 @@ export class CreateCustomerGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomerGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomerGatewayResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +167,18 @@ export class CreateCustomerGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateCustomerGatewayCommand(input, context);
+    return se_CreateCustomerGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomerGatewayCommandOutput> {
-    return deserializeAws_ec2CreateCustomerGatewayCommand(output, context);
+    return de_CreateCustomerGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

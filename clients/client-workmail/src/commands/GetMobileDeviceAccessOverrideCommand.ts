@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetMobileDeviceAccessOverrideRequest, GetMobileDeviceAccessOverrideResponse } from "../models/models_0";
 import {
-  GetMobileDeviceAccessOverrideRequest,
-  GetMobileDeviceAccessOverrideRequestFilterSensitiveLog,
-  GetMobileDeviceAccessOverrideResponse,
-  GetMobileDeviceAccessOverrideResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMobileDeviceAccessOverrideCommand,
-  serializeAws_json1_1GetMobileDeviceAccessOverrideCommand,
+  de_GetMobileDeviceAccessOverrideCommand,
+  se_GetMobileDeviceAccessOverrideCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMobileDeviceAccessOverrideCommand}.
  */
 export interface GetMobileDeviceAccessOverrideCommandInput extends GetMobileDeviceAccessOverrideRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMobileDeviceAccessOverrideCommand}.
  */
 export interface GetMobileDeviceAccessOverrideCommandOutput
@@ -37,6 +36,7 @@ export interface GetMobileDeviceAccessOverrideCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the mobile device access override for the given WorkMail organization, user, and device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface GetMobileDeviceAccessOverrideCommandOutput
  * import { WorkMailClient, GetMobileDeviceAccessOverrideCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, GetMobileDeviceAccessOverrideCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // GetMobileDeviceAccessOverrideRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new GetMobileDeviceAccessOverrideCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMobileDeviceAccessOverrideCommandInput - {@link GetMobileDeviceAccessOverrideCommandInput}
+ * @returns {@link GetMobileDeviceAccessOverrideCommandOutput}
  * @see {@link GetMobileDeviceAccessOverrideCommandInput} for command's `input` shape.
  * @see {@link GetMobileDeviceAccessOverrideCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetMobileDeviceAccessOverrideCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMobileDeviceAccessOverrideCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class GetMobileDeviceAccessOverrideCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMobileDeviceAccessOverrideRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMobileDeviceAccessOverrideResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +138,21 @@ export class GetMobileDeviceAccessOverrideCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMobileDeviceAccessOverrideCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMobileDeviceAccessOverrideCommand(input, context);
+    return se_GetMobileDeviceAccessOverrideCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMobileDeviceAccessOverrideCommandOutput> {
-    return deserializeAws_json1_1GetMobileDeviceAccessOverrideCommand(output, context);
+    return de_GetMobileDeviceAccessOverrideCommand(output, context);
   }
 
   // Start section: command_body_extra

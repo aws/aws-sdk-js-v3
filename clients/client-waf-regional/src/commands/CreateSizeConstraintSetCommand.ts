@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSizeConstraintSetRequest,
-  CreateSizeConstraintSetRequestFilterSensitiveLog,
-  CreateSizeConstraintSetResponse,
-  CreateSizeConstraintSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSizeConstraintSetCommand,
-  serializeAws_json1_1CreateSizeConstraintSetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSizeConstraintSetRequest, CreateSizeConstraintSetResponse } from "../models/models_0";
+import { de_CreateSizeConstraintSetCommand, se_CreateSizeConstraintSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSizeConstraintSetCommand}.
  */
 export interface CreateSizeConstraintSetCommandInput extends CreateSizeConstraintSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSizeConstraintSetCommand}.
  */
 export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstraintSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -73,10 +70,16 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  * import { WAFRegionalClient, CreateSizeConstraintSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateSizeConstraintSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // CreateSizeConstraintSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateSizeConstraintSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSizeConstraintSetCommandInput - {@link CreateSizeConstraintSetCommandInput}
+ * @returns {@link CreateSizeConstraintSetCommandOutput}
  * @see {@link CreateSizeConstraintSetCommandInput} for command's `input` shape.
  * @see {@link CreateSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -188,6 +191,9 @@ export class CreateSizeConstraintSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSizeConstraintSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -216,8 +222,8 @@ export class CreateSizeConstraintSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSizeConstraintSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSizeConstraintSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -227,12 +233,18 @@ export class CreateSizeConstraintSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSizeConstraintSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSizeConstraintSetCommand(input, context);
+    return se_CreateSizeConstraintSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSizeConstraintSetCommandOutput> {
-    return deserializeAws_json1_1CreateSizeConstraintSetCommand(output, context);
+    return de_CreateSizeConstraintSetCommand(output, context);
   }
 
   // Start section: command_body_extra

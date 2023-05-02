@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateVpcRequest,
-  CreateVpcRequestFilterSensitiveLog,
-  CreateVpcResult,
-  CreateVpcResultFilterSensitiveLog,
-} from "../models/models_2";
-import { deserializeAws_ec2CreateVpcCommand, serializeAws_ec2CreateVpcCommand } from "../protocols/Aws_ec2";
+import { CreateVpcRequest, CreateVpcResult } from "../models/models_2";
+import { de_CreateVpcCommand, se_CreateVpcCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcCommand}.
  */
 export interface CreateVpcCommandInput extends CreateVpcRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcCommand}.
  */
 export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a VPC with the specified CIDR blocks. For more information, see
  * 	      <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html#vpc-cidr-blocks">VPC CIDR blocks</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *          <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided
@@ -49,10 +49,36 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  * import { EC2Client, CreateVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateVpcRequest
+ *   CidrBlock: "STRING_VALUE",
+ *   AmazonProvidedIpv6CidrBlock: true || false,
+ *   Ipv6Pool: "STRING_VALUE",
+ *   Ipv6CidrBlock: "STRING_VALUE",
+ *   Ipv4IpamPoolId: "STRING_VALUE",
+ *   Ipv4NetmaskLength: Number("int"),
+ *   Ipv6IpamPoolId: "STRING_VALUE",
+ *   Ipv6NetmaskLength: Number("int"),
+ *   DryRun: true || false,
+ *   InstanceTenancy: "default" || "dedicated" || "host",
+ *   Ipv6CidrBlockNetworkBorderGroup: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateVpcCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcCommandInput - {@link CreateVpcCommandInput}
+ * @returns {@link CreateVpcCommandOutput}
  * @see {@link CreateVpcCommandInput} for command's `input` shape.
  * @see {@link CreateVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -94,6 +120,9 @@ export class CreateVpcCommand extends $Command<CreateVpcCommandInput, CreateVpcC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +149,8 @@ export class CreateVpcCommand extends $Command<CreateVpcCommandInput, CreateVpcC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +160,18 @@ export class CreateVpcCommand extends $Command<CreateVpcCommandInput, CreateVpcC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVpcCommand(input, context);
+    return se_CreateVpcCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcCommandOutput> {
-    return deserializeAws_ec2CreateVpcCommand(output, context);
+    return de_CreateVpcCommand(output, context);
   }
 
   // Start section: command_body_extra

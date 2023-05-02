@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeServicesRequest,
-  DescribeServicesRequestFilterSensitiveLog,
-  DescribeServicesResponse,
-  DescribeServicesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeServicesCommand,
-  serializeAws_json1_1DescribeServicesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeServicesRequest, DescribeServicesResponse } from "../models/models_0";
+import { de_DescribeServicesCommand, se_DescribeServicesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServicesCommand}.
  */
 export interface DescribeServicesCommandInput extends DescribeServicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServicesCommand}.
  */
 export interface DescribeServicesCommandOutput extends DescribeServicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current list of Amazon Web Services services and a list of service categories for each
  *             service. You then use service names and categories in your <a>CreateCase</a>
  *             requests. Each Amazon Web Services service has its own set of categories.</p>
@@ -64,10 +61,18 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * import { SupportClient, DescribeServicesCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeServicesCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = { // DescribeServicesRequest
+ *   serviceCodeList: [ // ServiceCodeList
+ *     "STRING_VALUE",
+ *   ],
+ *   language: "STRING_VALUE",
+ * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServicesCommandInput - {@link DescribeServicesCommandInput}
+ * @returns {@link DescribeServicesCommandOutput}
  * @see {@link DescribeServicesCommandInput} for command's `input` shape.
  * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -94,6 +99,9 @@ export class DescribeServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +130,8 @@ export class DescribeServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeServicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +141,18 @@ export class DescribeServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServicesCommand(input, context);
+    return se_DescribeServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServicesCommandOutput> {
-    return deserializeAws_json1_1DescribeServicesCommand(output, context);
+    return de_DescribeServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

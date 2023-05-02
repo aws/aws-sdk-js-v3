@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteStageRequest, DeleteStageRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteStageCommand,
-  serializeAws_restJson1DeleteStageCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteStageRequest } from "../models/models_0";
+import { de_DeleteStageCommand, se_DeleteStageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStageCommand}.
  */
 export interface DeleteStageCommandInput extends DeleteStageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStageCommand}.
  */
 export interface DeleteStageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Stage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteStageCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteStageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteStageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteStageRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStageCommandInput - {@link DeleteStageCommandInput}
+ * @returns {@link DeleteStageCommandOutput}
  * @see {@link DeleteStageCommandInput} for command's `input` shape.
  * @see {@link DeleteStageCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -82,6 +90,9 @@ export class DeleteStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +119,8 @@ export class DeleteStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +130,18 @@ export class DeleteStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStageCommand(input, context);
+    return se_DeleteStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStageCommandOutput> {
-    return deserializeAws_restJson1DeleteStageCommand(output, context);
+    return de_DeleteStageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -59,6 +59,11 @@ import {
   CreateContactChannelCommandOutput,
 } from "./commands/CreateContactChannelCommand";
 import { CreateContactCommandInput, CreateContactCommandOutput } from "./commands/CreateContactCommand";
+import { CreateRotationCommandInput, CreateRotationCommandOutput } from "./commands/CreateRotationCommand";
+import {
+  CreateRotationOverrideCommandInput,
+  CreateRotationOverrideCommandOutput,
+} from "./commands/CreateRotationOverrideCommand";
 import {
   DeactivateContactChannelCommandInput,
   DeactivateContactChannelCommandOutput,
@@ -68,11 +73,21 @@ import {
   DeleteContactChannelCommandOutput,
 } from "./commands/DeleteContactChannelCommand";
 import { DeleteContactCommandInput, DeleteContactCommandOutput } from "./commands/DeleteContactCommand";
+import { DeleteRotationCommandInput, DeleteRotationCommandOutput } from "./commands/DeleteRotationCommand";
+import {
+  DeleteRotationOverrideCommandInput,
+  DeleteRotationOverrideCommandOutput,
+} from "./commands/DeleteRotationOverrideCommand";
 import { DescribeEngagementCommandInput, DescribeEngagementCommandOutput } from "./commands/DescribeEngagementCommand";
 import { DescribePageCommandInput, DescribePageCommandOutput } from "./commands/DescribePageCommand";
 import { GetContactChannelCommandInput, GetContactChannelCommandOutput } from "./commands/GetContactChannelCommand";
 import { GetContactCommandInput, GetContactCommandOutput } from "./commands/GetContactCommand";
 import { GetContactPolicyCommandInput, GetContactPolicyCommandOutput } from "./commands/GetContactPolicyCommand";
+import { GetRotationCommandInput, GetRotationCommandOutput } from "./commands/GetRotationCommand";
+import {
+  GetRotationOverrideCommandInput,
+  GetRotationOverrideCommandOutput,
+} from "./commands/GetRotationOverrideCommand";
 import {
   ListContactChannelsCommandInput,
   ListContactChannelsCommandOutput,
@@ -80,11 +95,25 @@ import {
 import { ListContactsCommandInput, ListContactsCommandOutput } from "./commands/ListContactsCommand";
 import { ListEngagementsCommandInput, ListEngagementsCommandOutput } from "./commands/ListEngagementsCommand";
 import { ListPageReceiptsCommandInput, ListPageReceiptsCommandOutput } from "./commands/ListPageReceiptsCommand";
+import {
+  ListPageResolutionsCommandInput,
+  ListPageResolutionsCommandOutput,
+} from "./commands/ListPageResolutionsCommand";
 import { ListPagesByContactCommandInput, ListPagesByContactCommandOutput } from "./commands/ListPagesByContactCommand";
 import {
   ListPagesByEngagementCommandInput,
   ListPagesByEngagementCommandOutput,
 } from "./commands/ListPagesByEngagementCommand";
+import {
+  ListPreviewRotationShiftsCommandInput,
+  ListPreviewRotationShiftsCommandOutput,
+} from "./commands/ListPreviewRotationShiftsCommand";
+import {
+  ListRotationOverridesCommandInput,
+  ListRotationOverridesCommandOutput,
+} from "./commands/ListRotationOverridesCommand";
+import { ListRotationsCommandInput, ListRotationsCommandOutput } from "./commands/ListRotationsCommand";
+import { ListRotationShiftsCommandInput, ListRotationShiftsCommandOutput } from "./commands/ListRotationShiftsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -100,6 +129,7 @@ import {
   UpdateContactChannelCommandOutput,
 } from "./commands/UpdateContactChannelCommand";
 import { UpdateContactCommandInput, UpdateContactCommandOutput } from "./commands/UpdateContactCommand";
+import { UpdateRotationCommandInput, UpdateRotationCommandOutput } from "./commands/UpdateRotationCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -108,25 +138,39 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptPageCommandInput
   | ActivateContactChannelCommandInput
   | CreateContactChannelCommandInput
   | CreateContactCommandInput
+  | CreateRotationCommandInput
+  | CreateRotationOverrideCommandInput
   | DeactivateContactChannelCommandInput
   | DeleteContactChannelCommandInput
   | DeleteContactCommandInput
+  | DeleteRotationCommandInput
+  | DeleteRotationOverrideCommandInput
   | DescribeEngagementCommandInput
   | DescribePageCommandInput
   | GetContactChannelCommandInput
   | GetContactCommandInput
   | GetContactPolicyCommandInput
+  | GetRotationCommandInput
+  | GetRotationOverrideCommandInput
   | ListContactChannelsCommandInput
   | ListContactsCommandInput
   | ListEngagementsCommandInput
   | ListPageReceiptsCommandInput
+  | ListPageResolutionsCommandInput
   | ListPagesByContactCommandInput
   | ListPagesByEngagementCommandInput
+  | ListPreviewRotationShiftsCommandInput
+  | ListRotationOverridesCommandInput
+  | ListRotationShiftsCommandInput
+  | ListRotationsCommandInput
   | ListTagsForResourceCommandInput
   | PutContactPolicyCommandInput
   | SendActivationCodeCommandInput
@@ -135,27 +179,42 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateContactChannelCommandInput
-  | UpdateContactCommandInput;
+  | UpdateContactCommandInput
+  | UpdateRotationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptPageCommandOutput
   | ActivateContactChannelCommandOutput
   | CreateContactChannelCommandOutput
   | CreateContactCommandOutput
+  | CreateRotationCommandOutput
+  | CreateRotationOverrideCommandOutput
   | DeactivateContactChannelCommandOutput
   | DeleteContactChannelCommandOutput
   | DeleteContactCommandOutput
+  | DeleteRotationCommandOutput
+  | DeleteRotationOverrideCommandOutput
   | DescribeEngagementCommandOutput
   | DescribePageCommandOutput
   | GetContactChannelCommandOutput
   | GetContactCommandOutput
   | GetContactPolicyCommandOutput
+  | GetRotationCommandOutput
+  | GetRotationOverrideCommandOutput
   | ListContactChannelsCommandOutput
   | ListContactsCommandOutput
   | ListEngagementsCommandOutput
   | ListPageReceiptsCommandOutput
+  | ListPageResolutionsCommandOutput
   | ListPagesByContactCommandOutput
   | ListPagesByEngagementCommandOutput
+  | ListPreviewRotationShiftsCommandOutput
+  | ListRotationOverridesCommandOutput
+  | ListRotationShiftsCommandOutput
+  | ListRotationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutContactPolicyCommandOutput
   | SendActivationCodeCommandOutput
@@ -164,8 +223,12 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateContactChannelCommandOutput
-  | UpdateContactCommandOutput;
+  | UpdateContactCommandOutput
+  | UpdateRotationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -173,7 +236,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -282,11 +345,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type SSMContactsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -297,10 +363,15 @@ type SSMContactsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOp
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of SSMContactsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SSMContactsClient class constructor that set the region, credentials and other options.
  */
 export interface SSMContactsClientConfig extends SSMContactsClientConfigType {}
 
+/**
+ * @public
+ */
 type SSMContactsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -311,19 +382,22 @@ type SSMContactsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SSMContactsClient class. This is resolved and normalized from the {@link SSMContactsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SSMContactsClient class. This is resolved and normalized from the {@link SSMContactsClientConfig | constructor configuration interface}.
  */
 export interface SSMContactsClientResolvedConfig extends SSMContactsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Systems Manager Incident Manager is an incident management console designed to help users
  *          mitigate and recover from incidents affecting their Amazon Web Services-hosted applications.
- *          An incident is any unplanned interruption or reduction in quality of services. </p>
- *          <p>Incident Manager increases incident resolution by notifying responders of impact,
- *          highlighting relevant troubleshooting data, and providing collaboration tools to get
- *          services back up and running. To achieve the primary goal of reducing the
+ *          An incident is any unplanned interruption or reduction in quality of services.</p>
+ *          <p>Incident Manager increases incident resolution by notifying responders of
+ *          impact, highlighting relevant troubleshooting data, and providing collaboration tools to
+ *          get services back up and running. To achieve the primary goal of reducing the
  *          time-to-resolution of critical incidents, Incident Manager automates response plans
- *          and enables responder team escalation. </p>
+ *          and enables responder team escalation.</p>
  */
 export class SSMContactsClient extends __Client<
   __HttpHandlerOptions,

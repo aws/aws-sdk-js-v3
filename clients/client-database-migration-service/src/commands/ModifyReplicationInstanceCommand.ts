@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  ModifyReplicationInstanceMessage,
-  ModifyReplicationInstanceMessageFilterSensitiveLog,
-  ModifyReplicationInstanceResponse,
-  ModifyReplicationInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyReplicationInstanceCommand,
-  serializeAws_json1_1ModifyReplicationInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { ModifyReplicationInstanceMessage, ModifyReplicationInstanceResponse } from "../models/models_0";
+import { de_ModifyReplicationInstanceCommand, se_ModifyReplicationInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyReplicationInstanceCommand}.
  */
 export interface ModifyReplicationInstanceCommandInput extends ModifyReplicationInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyReplicationInstanceCommand}.
  */
 export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicationInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the replication instance to apply new settings. You can change one or more
  *          parameters by specifying these parameters and the new values in the request.</p>
  *          <p>Some settings are applied during the maintenance window.</p>
@@ -49,10 +46,28 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * import { DatabaseMigrationServiceClient, ModifyReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ModifyReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // ModifyReplicationInstanceMessage
+ *   ReplicationInstanceArn: "STRING_VALUE", // required
+ *   AllocatedStorage: Number("int"),
+ *   ApplyImmediately: true || false,
+ *   ReplicationInstanceClass: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AllowMajorVersionUpgrade: true || false,
+ *   AutoMinorVersionUpgrade: true || false,
+ *   ReplicationInstanceIdentifier: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
+ * };
  * const command = new ModifyReplicationInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyReplicationInstanceCommandInput - {@link ModifyReplicationInstanceCommandInput}
+ * @returns {@link ModifyReplicationInstanceCommandOutput}
  * @see {@link ModifyReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -172,6 +187,9 @@ export class ModifyReplicationInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyReplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -200,8 +218,8 @@ export class ModifyReplicationInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyReplicationInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyReplicationInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -211,15 +229,21 @@ export class ModifyReplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyReplicationInstanceCommand(input, context);
+    return se_ModifyReplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1ModifyReplicationInstanceCommand(output, context);
+    return de_ModifyReplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

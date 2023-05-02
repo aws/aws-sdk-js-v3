@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeletePolicyVersionRequest, DeletePolicyVersionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeletePolicyVersionCommand,
-  serializeAws_queryDeletePolicyVersionCommand,
-} from "../protocols/Aws_query";
+import { DeletePolicyVersionRequest } from "../models/models_0";
+import { de_DeletePolicyVersionCommand, se_DeletePolicyVersionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePolicyVersionCommand}.
  */
 export interface DeletePolicyVersionCommandInput extends DeletePolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePolicyVersionCommand}.
  */
 export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified version from the specified managed policy.</p>
  *          <p>You cannot delete the default version from a policy using this operation. To delete
  *             the default version from a policy, use <a>DeletePolicy</a>. To find out which
@@ -42,10 +44,16 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeletePolicyVersionCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeletePolicyVersionCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeletePolicyVersionRequest
+ *   PolicyArn: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE", // required
+ * };
  * const command = new DeletePolicyVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePolicyVersionCommandInput - {@link DeletePolicyVersionCommandInput}
+ * @returns {@link DeletePolicyVersionCommandOutput}
  * @see {@link DeletePolicyVersionCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -89,6 +97,9 @@ export class DeletePolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class DeletePolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePolicyVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +139,18 @@ export class DeletePolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeletePolicyVersionCommand(input, context);
+    return se_DeletePolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePolicyVersionCommandOutput> {
-    return deserializeAws_queryDeletePolicyVersionCommand(output, context);
+    return de_DeletePolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecurityHubClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetEnabledStandardsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetEnabledStandards(
   config: SecurityHubPaginationConfiguration,
   input: GetEnabledStandardsCommandInput,

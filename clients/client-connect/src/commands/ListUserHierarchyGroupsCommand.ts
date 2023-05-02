@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListUserHierarchyGroupsRequest,
-  ListUserHierarchyGroupsRequestFilterSensitiveLog,
-  ListUserHierarchyGroupsResponse,
-  ListUserHierarchyGroupsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListUserHierarchyGroupsCommand,
-  serializeAws_restJson1ListUserHierarchyGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListUserHierarchyGroupsRequest, ListUserHierarchyGroupsResponse } from "../models/models_1";
+import { de_ListUserHierarchyGroupsCommand, se_ListUserHierarchyGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUserHierarchyGroupsCommand}.
  */
 export interface ListUserHierarchyGroupsCommandInput extends ListUserHierarchyGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUserHierarchyGroupsCommand}.
  */
 export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides summary information about the hierarchy groups for the specified Amazon Connect
  *    instance.</p>
  *          <p>For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the
@@ -45,10 +42,17 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  * import { ConnectClient, ListUserHierarchyGroupsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListUserHierarchyGroupsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListUserHierarchyGroupsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListUserHierarchyGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserHierarchyGroupsCommandInput - {@link ListUserHierarchyGroupsCommandInput}
+ * @returns {@link ListUserHierarchyGroupsCommandOutput}
  * @see {@link ListUserHierarchyGroupsCommandInput} for command's `input` shape.
  * @see {@link ListUserHierarchyGroupsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +91,9 @@ export class ListUserHierarchyGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserHierarchyGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListUserHierarchyGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUserHierarchyGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUserHierarchyGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class ListUserHierarchyGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserHierarchyGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUserHierarchyGroupsCommand(input, context);
+    return se_ListUserHierarchyGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserHierarchyGroupsCommandOutput> {
-    return deserializeAws_restJson1ListUserHierarchyGroupsCommand(output, context);
+    return de_ListUserHierarchyGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

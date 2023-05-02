@@ -20,20 +20,22 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeReplicationInstanceTaskLogsMessage,
-  DescribeReplicationInstanceTaskLogsMessageFilterSensitiveLog,
   DescribeReplicationInstanceTaskLogsResponse,
-  DescribeReplicationInstanceTaskLogsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand,
-  serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand,
+  de_DescribeReplicationInstanceTaskLogsCommand,
+  se_DescribeReplicationInstanceTaskLogsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationInstanceTaskLogsCommand}.
  */
 export interface DescribeReplicationInstanceTaskLogsCommandInput extends DescribeReplicationInstanceTaskLogsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationInstanceTaskLogsCommand}.
  */
 export interface DescribeReplicationInstanceTaskLogsCommandOutput
@@ -41,6 +43,7 @@ export interface DescribeReplicationInstanceTaskLogsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the task logs for the specified task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +51,17 @@ export interface DescribeReplicationInstanceTaskLogsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeReplicationInstanceTaskLogsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeReplicationInstanceTaskLogsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeReplicationInstanceTaskLogsMessage
+ *   ReplicationInstanceArn: "STRING_VALUE", // required
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReplicationInstanceTaskLogsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationInstanceTaskLogsCommandInput - {@link DescribeReplicationInstanceTaskLogsCommandInput}
+ * @returns {@link DescribeReplicationInstanceTaskLogsCommandOutput}
  * @see {@link DescribeReplicationInstanceTaskLogsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationInstanceTaskLogsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -81,6 +91,9 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationInstanceTaskLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +122,8 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationInstanceTaskLogsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplicationInstanceTaskLogsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +133,24 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationInstanceTaskLogsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand(input, context);
+    return se_DescribeReplicationInstanceTaskLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand(output, context);
+    return de_DescribeReplicationInstanceTaskLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

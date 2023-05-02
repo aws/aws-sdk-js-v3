@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  ListTasksRequest,
-  ListTasksRequestFilterSensitiveLog,
-  ListTasksResponse,
-  ListTasksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ListTasksCommand, serializeAws_json1_1ListTasksCommand } from "../protocols/Aws_json1_1";
+import { ListTasksRequest, ListTasksResponse } from "../models/models_0";
+import { de_ListTasksCommand, se_ListTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTasksCommand}.
  */
 export interface ListTasksCommandInput extends ListTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTasksCommand}.
  */
 export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the DataSync tasks you created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,16 +39,32 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * import { DataSyncClient, ListTasksCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, ListTasksCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // ListTasksRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // TaskFilters
+ *     { // TaskFilter
+ *       Name: "LocationId" || "CreationTime", // required
+ *       Values: [ // FilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Operator: "Equals" || "NotEquals" || "In" || "LessThanOrEqual" || "LessThan" || "GreaterThanOrEqual" || "GreaterThan" || "Contains" || "NotContains" || "BeginsWith", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTasksCommandInput - {@link ListTasksCommandInput}
+ * @returns {@link ListTasksCommandOutput}
  * @see {@link ListTasksCommandInput} for command's `input` shape.
  * @see {@link ListTasksCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
@@ -72,6 +88,9 @@ export class ListTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +117,8 @@ export class ListTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +128,18 @@ export class ListTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTasksCommand(input, context);
+    return se_ListTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTasksCommandOutput> {
-    return deserializeAws_json1_1ListTasksCommand(output, context);
+    return de_ListTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

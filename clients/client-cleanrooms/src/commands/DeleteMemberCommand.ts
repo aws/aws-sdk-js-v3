@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  DeleteMemberInput,
-  DeleteMemberInputFilterSensitiveLog,
-  DeleteMemberOutput,
-  DeleteMemberOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMemberCommand,
-  serializeAws_restJson1DeleteMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMemberInput, DeleteMemberOutput } from "../models/models_0";
+import { de_DeleteMemberCommand, se_DeleteMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMemberCommand}.
  */
 export interface DeleteMemberCommandInput extends DeleteMemberInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMemberCommand}.
  */
 export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified member from a collaboration. The removed member is placed in the
  *          Removed status and can't interact with the collaboration. The removed member's data is
  *          inaccessible to active members of the collaboration.</p>
@@ -44,10 +41,16 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * import { CleanRoomsClient, DeleteMemberCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, DeleteMemberCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // DeleteMemberInput
+ *   collaborationIdentifier: "STRING_VALUE", // required
+ *   accountId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMemberCommandInput - {@link DeleteMemberCommandInput}
+ * @returns {@link DeleteMemberCommandOutput}
  * @see {@link DeleteMemberCommandInput} for command's `input` shape.
  * @see {@link DeleteMemberCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -89,6 +92,9 @@ export class DeleteMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class DeleteMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMemberInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMemberOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class DeleteMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMemberCommand(input, context);
+    return se_DeleteMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMemberCommandOutput> {
-    return deserializeAws_restJson1DeleteMemberCommand(output, context);
+    return de_DeleteMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

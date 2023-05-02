@@ -16,20 +16,22 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   AssociateTransitGatewayPolicyTableRequest,
-  AssociateTransitGatewayPolicyTableRequestFilterSensitiveLog,
   AssociateTransitGatewayPolicyTableResult,
-  AssociateTransitGatewayPolicyTableResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_ec2AssociateTransitGatewayPolicyTableCommand,
-  serializeAws_ec2AssociateTransitGatewayPolicyTableCommand,
+  de_AssociateTransitGatewayPolicyTableCommand,
+  se_AssociateTransitGatewayPolicyTableCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTransitGatewayPolicyTableCommand}.
  */
 export interface AssociateTransitGatewayPolicyTableCommandInput extends AssociateTransitGatewayPolicyTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTransitGatewayPolicyTableCommand}.
  */
 export interface AssociateTransitGatewayPolicyTableCommandOutput
@@ -37,6 +39,7 @@ export interface AssociateTransitGatewayPolicyTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,17 @@ export interface AssociateTransitGatewayPolicyTableCommandOutput
  * import { EC2Client, AssociateTransitGatewayPolicyTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateTransitGatewayPolicyTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssociateTransitGatewayPolicyTableRequest
+ *   TransitGatewayPolicyTableId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new AssociateTransitGatewayPolicyTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTransitGatewayPolicyTableCommandInput - {@link AssociateTransitGatewayPolicyTableCommandInput}
+ * @returns {@link AssociateTransitGatewayPolicyTableCommandOutput}
  * @see {@link AssociateTransitGatewayPolicyTableCommandInput} for command's `input` shape.
  * @see {@link AssociateTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +81,9 @@ export class AssociateTransitGatewayPolicyTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTransitGatewayPolicyTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +112,8 @@ export class AssociateTransitGatewayPolicyTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTransitGatewayPolicyTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTransitGatewayPolicyTableResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +123,24 @@ export class AssociateTransitGatewayPolicyTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateTransitGatewayPolicyTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateTransitGatewayPolicyTableCommand(input, context);
+    return se_AssociateTransitGatewayPolicyTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateTransitGatewayPolicyTableCommandOutput> {
-    return deserializeAws_ec2AssociateTransitGatewayPolicyTableCommand(output, context);
+    return de_AssociateTransitGatewayPolicyTableCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  ListServerNeighborsRequest,
-  ListServerNeighborsRequestFilterSensitiveLog,
-  ListServerNeighborsResponse,
-  ListServerNeighborsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServerNeighborsCommand,
-  serializeAws_json1_1ListServerNeighborsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListServerNeighborsRequest, ListServerNeighborsResponse } from "../models/models_0";
+import { de_ListServerNeighborsCommand, se_ListServerNeighborsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListServerNeighborsCommand}.
  */
 export interface ListServerNeighborsCommandInput extends ListServerNeighborsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServerNeighborsCommand}.
  */
 export interface ListServerNeighborsCommandOutput extends ListServerNeighborsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of servers that are one network hop away from a specified
  *       server.</p>
  * @example
@@ -47,10 +44,21 @@ export interface ListServerNeighborsCommandOutput extends ListServerNeighborsRes
  * import { ApplicationDiscoveryServiceClient, ListServerNeighborsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, ListServerNeighborsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // ListServerNeighborsRequest
+ *   configurationId: "STRING_VALUE", // required
+ *   portInformationNeeded: true || false,
+ *   neighborConfigurationIds: [ // ConfigurationIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListServerNeighborsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServerNeighborsCommandInput - {@link ListServerNeighborsCommandInput}
+ * @returns {@link ListServerNeighborsCommandOutput}
  * @see {@link ListServerNeighborsCommandInput} for command's `input` shape.
  * @see {@link ListServerNeighborsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -91,6 +99,9 @@ export class ListServerNeighborsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServerNeighborsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +130,8 @@ export class ListServerNeighborsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServerNeighborsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServerNeighborsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +141,18 @@ export class ListServerNeighborsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServerNeighborsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServerNeighborsCommand(input, context);
+    return se_ListServerNeighborsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServerNeighborsCommandOutput> {
-    return deserializeAws_json1_1ListServerNeighborsCommand(output, context);
+    return de_ListServerNeighborsCommand(output, context);
   }
 
   // Start section: command_body_extra

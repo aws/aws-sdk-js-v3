@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  ListBuildBatchesForProjectInput,
-  ListBuildBatchesForProjectInputFilterSensitiveLog,
-  ListBuildBatchesForProjectOutput,
-  ListBuildBatchesForProjectOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListBuildBatchesForProjectCommand,
-  serializeAws_json1_1ListBuildBatchesForProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { ListBuildBatchesForProjectInput, ListBuildBatchesForProjectOutput } from "../models/models_0";
+import { de_ListBuildBatchesForProjectCommand, se_ListBuildBatchesForProjectCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBuildBatchesForProjectCommand}.
  */
 export interface ListBuildBatchesForProjectCommandInput extends ListBuildBatchesForProjectInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBuildBatchesForProjectCommand}.
  */
 export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatchesForProjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the identifiers of the build batches for a specific project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatche
  * import { CodeBuildClient, ListBuildBatchesForProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListBuildBatchesForProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // ListBuildBatchesForProjectInput
+ *   projectName: "STRING_VALUE",
+ *   filter: { // BuildBatchFilter
+ *     status: "STRING_VALUE",
+ *   },
+ *   maxResults: Number("int"),
+ *   sortOrder: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBuildBatchesForProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBuildBatchesForProjectCommandInput - {@link ListBuildBatchesForProjectCommandInput}
+ * @returns {@link ListBuildBatchesForProjectCommandOutput}
  * @see {@link ListBuildBatchesForProjectCommandInput} for command's `input` shape.
  * @see {@link ListBuildBatchesForProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -75,6 +83,9 @@ export class ListBuildBatchesForProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBuildBatchesForProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +114,8 @@ export class ListBuildBatchesForProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBuildBatchesForProjectInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBuildBatchesForProjectOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +125,21 @@ export class ListBuildBatchesForProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBuildBatchesForProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBuildBatchesForProjectCommand(input, context);
+    return se_ListBuildBatchesForProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBuildBatchesForProjectCommandOutput> {
-    return deserializeAws_json1_1ListBuildBatchesForProjectCommand(output, context);
+    return de_ListBuildBatchesForProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

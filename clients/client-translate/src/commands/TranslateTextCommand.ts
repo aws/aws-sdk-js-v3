@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TranslateTextRequest,
-  TranslateTextRequestFilterSensitiveLog,
-  TranslateTextResponse,
-  TranslateTextResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1TranslateTextCommand,
-  serializeAws_json1_1TranslateTextCommand,
-} from "../protocols/Aws_json1_1";
+import { TranslateTextRequest, TranslateTextResponse } from "../models/models_0";
+import { de_TranslateTextCommand, se_TranslateTextCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link TranslateTextCommand}.
  */
 export interface TranslateTextCommandInput extends TranslateTextRequest {}
 /**
+ * @public
+ *
  * The output of {@link TranslateTextCommand}.
  */
 export interface TranslateTextCommandOutput extends TranslateTextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Translates input text from the source language to the target language. For a list of
  *       available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
  * @example
@@ -43,10 +40,24 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  * import { TranslateClient, TranslateTextCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, TranslateTextCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = { // TranslateTextRequest
+ *   Text: "STRING_VALUE", // required
+ *   TerminologyNames: [ // ResourceNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   SourceLanguageCode: "STRING_VALUE", // required
+ *   TargetLanguageCode: "STRING_VALUE", // required
+ *   Settings: { // TranslationSettings
+ *     Formality: "FORMAL" || "INFORMAL",
+ *     Profanity: "MASK",
+ *   },
+ * };
  * const command = new TranslateTextCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TranslateTextCommandInput - {@link TranslateTextCommandInput}
+ * @returns {@link TranslateTextCommandOutput}
  * @see {@link TranslateTextCommandInput} for command's `input` shape.
  * @see {@link TranslateTextCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -104,6 +115,9 @@ export class TranslateTextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TranslateTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +144,8 @@ export class TranslateTextCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TranslateTextRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TranslateTextResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +155,18 @@ export class TranslateTextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TranslateTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TranslateTextCommand(input, context);
+    return se_TranslateTextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TranslateTextCommandOutput> {
-    return deserializeAws_json1_1TranslateTextCommand(output, context);
+    return de_TranslateTextCommand(output, context);
   }
 
   // Start section: command_body_extra

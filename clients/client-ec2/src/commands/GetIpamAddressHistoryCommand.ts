@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetIpamAddressHistoryRequest,
-  GetIpamAddressHistoryRequestFilterSensitiveLog,
-  GetIpamAddressHistoryResult,
-  GetIpamAddressHistoryResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetIpamAddressHistoryCommand,
-  serializeAws_ec2GetIpamAddressHistoryCommand,
-} from "../protocols/Aws_ec2";
+import { GetIpamAddressHistoryRequest, GetIpamAddressHistoryResult } from "../models/models_5";
+import { de_GetIpamAddressHistoryCommand, se_GetIpamAddressHistoryCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetIpamAddressHistoryCommand}.
  */
 export interface GetIpamAddressHistoryCommandInput extends GetIpamAddressHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIpamAddressHistoryCommand}.
  */
 export interface GetIpamAddressHistoryCommandOutput extends GetIpamAddressHistoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface GetIpamAddressHistoryCommandOutput extends GetIpamAddressHistor
  * import { EC2Client, GetIpamAddressHistoryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetIpamAddressHistoryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetIpamAddressHistoryRequest
+ *   DryRun: true || false,
+ *   Cidr: "STRING_VALUE", // required
+ *   IpamScopeId: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetIpamAddressHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIpamAddressHistoryCommandInput - {@link GetIpamAddressHistoryCommandInput}
+ * @returns {@link GetIpamAddressHistoryCommandOutput}
  * @see {@link GetIpamAddressHistoryCommandInput} for command's `input` shape.
  * @see {@link GetIpamAddressHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +78,9 @@ export class GetIpamAddressHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIpamAddressHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +109,8 @@ export class GetIpamAddressHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIpamAddressHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIpamAddressHistoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +120,18 @@ export class GetIpamAddressHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIpamAddressHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetIpamAddressHistoryCommand(input, context);
+    return se_GetIpamAddressHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIpamAddressHistoryCommandOutput> {
-    return deserializeAws_ec2GetIpamAddressHistoryCommand(output, context);
+    return de_GetIpamAddressHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

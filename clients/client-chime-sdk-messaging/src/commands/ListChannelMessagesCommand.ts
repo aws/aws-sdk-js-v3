@@ -24,21 +24,23 @@ import {
   ListChannelMessagesResponse,
   ListChannelMessagesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListChannelMessagesCommand,
-  serializeAws_restJson1ListChannelMessagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChannelMessagesCommand, se_ListChannelMessagesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChannelMessagesCommand}.
  */
 export interface ListChannelMessagesCommandInput extends ListChannelMessagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChannelMessagesCommand}.
  */
 export interface ListChannelMessagesCommandOutput extends ListChannelMessagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all the messages in a channel. Returns a paginated list of
  *             <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending
  *          order.</p>
@@ -46,8 +48,8 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  *             <p>Redacted messages appear in the results as empty, since they are only redacted, not
  *             deleted. Deleted messages do not appear in the results. This action always returns the
  *             latest version of an edited message.</p>
- *             <p>Also, the x-amz-chime-bearer request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             <p>Also, the <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -56,10 +58,22 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  * import { ChimeSDKMessagingClient, ListChannelMessagesCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelMessagesCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // ListChannelMessagesRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   NotBefore: new Date("TIMESTAMP"),
+ *   NotAfter: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE", // required
+ *   SubChannelId: "STRING_VALUE",
+ * };
  * const command = new ListChannelMessagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelMessagesCommandInput - {@link ListChannelMessagesCommandInput}
+ * @returns {@link ListChannelMessagesCommandOutput}
  * @see {@link ListChannelMessagesCommandInput} for command's `input` shape.
  * @see {@link ListChannelMessagesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -101,6 +115,9 @@ export class ListChannelMessagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelMessagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,12 +157,18 @@ export class ListChannelMessagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChannelMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelMessagesCommand(input, context);
+    return se_ListChannelMessagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelMessagesCommandOutput> {
-    return deserializeAws_restJson1ListChannelMessagesCommand(output, context);
+    return de_ListChannelMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

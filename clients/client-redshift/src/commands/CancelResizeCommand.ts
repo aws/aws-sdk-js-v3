@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelResizeMessage,
-  CancelResizeMessageFilterSensitiveLog,
-  ResizeProgressMessage,
-  ResizeProgressMessageFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryCancelResizeCommand, serializeAws_queryCancelResizeCommand } from "../protocols/Aws_query";
+import { CancelResizeMessage, ResizeProgressMessage } from "../models/models_0";
+import { de_CancelResizeCommand, se_CancelResizeCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelResizeCommand}.
  */
 export interface CancelResizeCommandInput extends CancelResizeMessage {}
 /**
+ * @public
+ *
  * The output of {@link CancelResizeCommand}.
  */
 export interface CancelResizeCommandOutput extends ResizeProgressMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a resize operation for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,15 @@ export interface CancelResizeCommandOutput extends ResizeProgressMessage, __Meta
  * import { RedshiftClient, CancelResizeCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CancelResizeCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // CancelResizeMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new CancelResizeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelResizeCommandInput - {@link CancelResizeCommandInput}
+ * @returns {@link CancelResizeCommandOutput}
  * @see {@link CancelResizeCommandInput} for command's `input` shape.
  * @see {@link CancelResizeCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -79,6 +84,9 @@ export class CancelResizeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelResizeCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class CancelResizeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelResizeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ResizeProgressMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +124,18 @@ export class CancelResizeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelResizeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCancelResizeCommand(input, context);
+    return se_CancelResizeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelResizeCommandOutput> {
-    return deserializeAws_queryCancelResizeCommand(output, context);
+    return de_CancelResizeCommand(output, context);
   }
 
   // Start section: command_body_extra

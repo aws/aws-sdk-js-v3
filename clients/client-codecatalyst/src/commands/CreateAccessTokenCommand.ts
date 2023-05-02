@@ -16,28 +16,30 @@ import {
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import {
   CreateAccessTokenRequest,
-  CreateAccessTokenRequestFilterSensitiveLog,
   CreateAccessTokenResponse,
   CreateAccessTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAccessTokenCommand,
-  serializeAws_restJson1CreateAccessTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAccessTokenCommand, se_CreateAccessTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessTokenCommand}.
  */
 export interface CreateAccessTokenCommandInput extends CreateAccessTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessTokenCommand}.
  */
 export interface CreateAccessTokenCommandOutput extends CreateAccessTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a personal access token (PAT) for the current user. A personal access token (PAT) is similar to a password.
- *       It is associated with your user account. You use PATs to access Amazon CodeCatalyst resources such as source repositories from third-party applications
- *       like Git and integrated development environments (IDEs). For more information, see
+ *       It is associated with your user identity for use across all spaces and projects in Amazon CodeCatalyst. You use PATs to access CodeCatalyst
+ *       from resources that include integrated development environments (IDEs) and Git-based source repositories.
+ *       PATs represent you in Amazon CodeCatalyst and you can manage them in your user settings.For more information, see
  *       <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-tokens-keys.html">Managing personal access tokens in Amazon CodeCatalyst</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +47,16 @@ export interface CreateAccessTokenCommandOutput extends CreateAccessTokenRespons
  * import { CodeCatalystClient, CreateAccessTokenCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, CreateAccessTokenCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // CreateAccessTokenRequest
+ *   name: "STRING_VALUE", // required
+ *   expiresTime: new Date("TIMESTAMP"),
+ * };
  * const command = new CreateAccessTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessTokenCommandInput - {@link CreateAccessTokenCommandInput}
+ * @returns {@link CreateAccessTokenCommandOutput}
  * @see {@link CreateAccessTokenCommandInput} for command's `input` shape.
  * @see {@link CreateAccessTokenCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -91,6 +99,9 @@ export class CreateAccessTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,7 +130,7 @@ export class CreateAccessTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessTokenRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateAccessTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -130,12 +141,18 @@ export class CreateAccessTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccessTokenCommand(input, context);
+    return se_CreateAccessTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessTokenCommandOutput> {
-    return deserializeAws_restJson1CreateAccessTokenCommand(output, context);
+    return de_CreateAccessTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,20 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { DescribeTerminationPolicyTypesAnswer } from "../models/models_0";
 import {
-  DescribeTerminationPolicyTypesAnswer,
-  DescribeTerminationPolicyTypesAnswerFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeTerminationPolicyTypesCommand,
-  serializeAws_queryDescribeTerminationPolicyTypesCommand,
+  de_DescribeTerminationPolicyTypesCommand,
+  se_DescribeTerminationPolicyTypesCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTerminationPolicyTypesCommand}.
  */
 export interface DescribeTerminationPolicyTypesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTerminationPolicyTypesCommand}.
  */
 export interface DescribeTerminationPolicyTypesCommandOutput
@@ -35,6 +36,7 @@ export interface DescribeTerminationPolicyTypesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work with
  *                 Amazon EC2 Auto Scaling termination policies</a> in the
@@ -45,10 +47,13 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  * import { AutoScalingClient, DescribeTerminationPolicyTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeTerminationPolicyTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {};
  * const command = new DescribeTerminationPolicyTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTerminationPolicyTypesCommandInput - {@link DescribeTerminationPolicyTypesCommandInput}
+ * @returns {@link DescribeTerminationPolicyTypesCommandOutput}
  * @see {@link DescribeTerminationPolicyTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeTerminationPolicyTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -96,6 +101,9 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTerminationPolicyTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +132,8 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeTerminationPolicyTypesAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +143,24 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTerminationPolicyTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTerminationPolicyTypesCommand(input, context);
+    return se_DescribeTerminationPolicyTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTerminationPolicyTypesCommandOutput> {
-    return deserializeAws_queryDescribeTerminationPolicyTypesCommand(output, context);
+    return de_DescribeTerminationPolicyTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

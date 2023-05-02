@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DetachStaticIpRequest,
-  DetachStaticIpRequestFilterSensitiveLog,
-  DetachStaticIpResult,
-  DetachStaticIpResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetachStaticIpCommand,
-  serializeAws_json1_1DetachStaticIpCommand,
-} from "../protocols/Aws_json1_1";
+import { DetachStaticIpRequest, DetachStaticIpResult } from "../models/models_0";
+import { de_DetachStaticIpCommand, se_DetachStaticIpCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachStaticIpCommand}.
  */
 export interface DetachStaticIpCommandInput extends DetachStaticIpRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachStaticIpCommand}.
  */
 export interface DetachStaticIpCommandOutput extends DetachStaticIpResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a static IP from the Amazon Lightsail instance to which it is attached.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DetachStaticIpCommandOutput extends DetachStaticIpResult, __Met
  * import { LightsailClient, DetachStaticIpCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DetachStaticIpCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DetachStaticIpRequest
+ *   staticIpName: "STRING_VALUE", // required
+ * };
  * const command = new DetachStaticIpCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachStaticIpCommandInput - {@link DetachStaticIpCommandInput}
+ * @returns {@link DetachStaticIpCommandOutput}
  * @see {@link DetachStaticIpCommandInput} for command's `input` shape.
  * @see {@link DetachStaticIpCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +101,9 @@ export class DetachStaticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachStaticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +132,8 @@ export class DetachStaticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachStaticIpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachStaticIpResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +143,18 @@ export class DetachStaticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachStaticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachStaticIpCommand(input, context);
+    return se_DetachStaticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachStaticIpCommandOutput> {
-    return deserializeAws_json1_1DetachStaticIpCommand(output, context);
+    return de_DetachStaticIpCommand(output, context);
   }
 
   // Start section: command_body_extra

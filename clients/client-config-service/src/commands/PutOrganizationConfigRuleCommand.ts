@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  PutOrganizationConfigRuleRequest,
-  PutOrganizationConfigRuleRequestFilterSensitiveLog,
-  PutOrganizationConfigRuleResponse,
-  PutOrganizationConfigRuleResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PutOrganizationConfigRuleCommand,
-  serializeAws_json1_1PutOrganizationConfigRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { PutOrganizationConfigRuleRequest, PutOrganizationConfigRuleResponse } from "../models/models_1";
+import { de_PutOrganizationConfigRuleCommand, se_PutOrganizationConfigRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutOrganizationConfigRuleCommand}.
  */
 export interface PutOrganizationConfigRuleCommandInput extends PutOrganizationConfigRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutOrganizationConfigRuleCommand}.
  */
 export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationConfigRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates an Config rule for your entire organization to evaluate if your Amazon Web Services resources comply with your
  * 			desired configurations. For information on how many organization Config rules you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
@@ -76,10 +73,64 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  * import { ConfigServiceClient, PutOrganizationConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutOrganizationConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // PutOrganizationConfigRuleRequest
+ *   OrganizationConfigRuleName: "STRING_VALUE", // required
+ *   OrganizationManagedRuleMetadata: { // OrganizationManagedRuleMetadata
+ *     Description: "STRING_VALUE",
+ *     RuleIdentifier: "STRING_VALUE", // required
+ *     InputParameters: "STRING_VALUE",
+ *     MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *     ResourceTypesScope: [ // ResourceTypesScope
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceIdScope: "STRING_VALUE",
+ *     TagKeyScope: "STRING_VALUE",
+ *     TagValueScope: "STRING_VALUE",
+ *   },
+ *   OrganizationCustomRuleMetadata: { // OrganizationCustomRuleMetadata
+ *     Description: "STRING_VALUE",
+ *     LambdaFunctionArn: "STRING_VALUE", // required
+ *     OrganizationConfigRuleTriggerTypes: [ // OrganizationConfigRuleTriggerTypes // required
+ *       "ConfigurationItemChangeNotification" || "OversizedConfigurationItemChangeNotification" || "ScheduledNotification",
+ *     ],
+ *     InputParameters: "STRING_VALUE",
+ *     MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *     ResourceTypesScope: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceIdScope: "STRING_VALUE",
+ *     TagKeyScope: "STRING_VALUE",
+ *     TagValueScope: "STRING_VALUE",
+ *   },
+ *   ExcludedAccounts: [ // ExcludedAccounts
+ *     "STRING_VALUE",
+ *   ],
+ *   OrganizationCustomPolicyRuleMetadata: { // OrganizationCustomPolicyRuleMetadata
+ *     Description: "STRING_VALUE",
+ *     OrganizationConfigRuleTriggerTypes: [ // OrganizationConfigRuleTriggerTypeNoSNs
+ *       "ConfigurationItemChangeNotification" || "OversizedConfigurationItemChangeNotification",
+ *     ],
+ *     InputParameters: "STRING_VALUE",
+ *     MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *     ResourceTypesScope: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceIdScope: "STRING_VALUE",
+ *     TagKeyScope: "STRING_VALUE",
+ *     TagValueScope: "STRING_VALUE",
+ *     PolicyRuntime: "STRING_VALUE", // required
+ *     PolicyText: "STRING_VALUE", // required
+ *     DebugLogDeliveryAccounts: [ // DebugLogDeliveryAccounts
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new PutOrganizationConfigRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutOrganizationConfigRuleCommandInput - {@link PutOrganizationConfigRuleCommandInput}
+ * @returns {@link PutOrganizationConfigRuleCommandOutput}
  * @see {@link PutOrganizationConfigRuleCommandInput} for command's `input` shape.
  * @see {@link PutOrganizationConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -195,6 +246,9 @@ export class PutOrganizationConfigRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutOrganizationConfigRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -223,8 +277,8 @@ export class PutOrganizationConfigRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutOrganizationConfigRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutOrganizationConfigRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -234,15 +288,21 @@ export class PutOrganizationConfigRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutOrganizationConfigRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutOrganizationConfigRuleCommand(input, context);
+    return se_PutOrganizationConfigRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutOrganizationConfigRuleCommandOutput> {
-    return deserializeAws_json1_1PutOrganizationConfigRuleCommand(output, context);
+    return de_PutOrganizationConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

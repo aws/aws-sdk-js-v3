@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  StopSNOMEDCTInferenceJobRequest,
-  StopSNOMEDCTInferenceJobRequestFilterSensitiveLog,
-  StopSNOMEDCTInferenceJobResponse,
-  StopSNOMEDCTInferenceJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopSNOMEDCTInferenceJobCommand,
-  serializeAws_json1_1StopSNOMEDCTInferenceJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopSNOMEDCTInferenceJobRequest, StopSNOMEDCTInferenceJobResponse } from "../models/models_0";
+import { de_StopSNOMEDCTInferenceJobCommand, se_StopSNOMEDCTInferenceJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopSNOMEDCTInferenceJobCommand}.
  */
 export interface StopSNOMEDCTInferenceJobCommandInput extends StopSNOMEDCTInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopSNOMEDCTInferenceJobCommand}.
  */
 export interface StopSNOMEDCTInferenceJobCommandOutput extends StopSNOMEDCTInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Stops an InferSNOMEDCT inference job in progress.
  *     </p>
@@ -48,10 +45,15 @@ export interface StopSNOMEDCTInferenceJobCommandOutput extends StopSNOMEDCTInfer
  * import { ComprehendMedicalClient, StopSNOMEDCTInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StopSNOMEDCTInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // StopSNOMEDCTInferenceJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopSNOMEDCTInferenceJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopSNOMEDCTInferenceJobCommandInput - {@link StopSNOMEDCTInferenceJobCommandInput}
+ * @returns {@link StopSNOMEDCTInferenceJobCommandOutput}
  * @see {@link StopSNOMEDCTInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StopSNOMEDCTInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -91,6 +93,9 @@ export class StopSNOMEDCTInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopSNOMEDCTInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class StopSNOMEDCTInferenceJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopSNOMEDCTInferenceJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopSNOMEDCTInferenceJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class StopSNOMEDCTInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopSNOMEDCTInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopSNOMEDCTInferenceJobCommand(input, context);
+    return se_StopSNOMEDCTInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSNOMEDCTInferenceJobCommandOutput> {
-    return deserializeAws_json1_1StopSNOMEDCTInferenceJobCommand(output, context);
+    return de_StopSNOMEDCTInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

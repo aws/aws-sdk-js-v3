@@ -13,36 +13,33 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAppVersionResourceRequest,
-  UpdateAppVersionResourceRequestFilterSensitiveLog,
-  UpdateAppVersionResourceResponse,
-  UpdateAppVersionResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAppVersionResourceCommand,
-  serializeAws_restJson1UpdateAppVersionResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateAppVersionResourceRequest, UpdateAppVersionResourceResponse } from "../models/models_0";
+import { de_UpdateAppVersionResourceCommand, se_UpdateAppVersionResourceCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAppVersionResourceCommand}.
  */
 export interface UpdateAppVersionResourceCommandInput extends UpdateAppVersionResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAppVersionResourceCommand}.
  */
 export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the resource details in the AWS Resilience Hub application.</p>
+ * @public
+ * <p>Updates the resource details in the Resilience Hub application.</p>
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>This action has no effect outside AWS Resilience Hub.</p>
+ *                   <p>This action has no effect outside Resilience Hub.</p>
  *                </li>
  *                <li>
- *                   <p>This API updates the AWS Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *                   <p>This API updates the Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
  *                </li>
  *                <li>
  *                   <p>To update application version with new <code>physicalResourceID</code>, you must call
@@ -56,10 +53,36 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  * import { ResiliencehubClient, UpdateAppVersionResourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, UpdateAppVersionResourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // UpdateAppVersionResourceRequest
+ *   appArn: "STRING_VALUE", // required
+ *   resourceName: "STRING_VALUE",
+ *   logicalResourceId: { // LogicalResourceId
+ *     identifier: "STRING_VALUE", // required
+ *     logicalStackName: "STRING_VALUE",
+ *     resourceGroupName: "STRING_VALUE",
+ *     terraformSourceName: "STRING_VALUE",
+ *     eksSourceName: "STRING_VALUE",
+ *   },
+ *   physicalResourceId: "STRING_VALUE",
+ *   awsRegion: "STRING_VALUE",
+ *   awsAccountId: "STRING_VALUE",
+ *   resourceType: "STRING_VALUE",
+ *   appComponents: [ // AppComponentNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   additionalInfo: { // AdditionalInfoMap
+ *     "<keys>": [ // AdditionalInfoValueList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   excluded: true || false,
+ * };
  * const command = new UpdateAppVersionResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppVersionResourceCommandInput - {@link UpdateAppVersionResourceCommandInput}
+ * @returns {@link UpdateAppVersionResourceCommandOutput}
  * @see {@link UpdateAppVersionResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateAppVersionResourceCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -76,7 +99,7 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -111,6 +134,9 @@ export class UpdateAppVersionResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppVersionResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +165,8 @@ export class UpdateAppVersionResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAppVersionResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAppVersionResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +176,18 @@ export class UpdateAppVersionResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppVersionResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAppVersionResourceCommand(input, context);
+    return se_UpdateAppVersionResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppVersionResourceCommandOutput> {
-    return deserializeAws_restJson1UpdateAppVersionResourceCommand(output, context);
+    return de_UpdateAppVersionResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

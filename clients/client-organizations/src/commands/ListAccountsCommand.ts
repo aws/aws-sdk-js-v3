@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAccountsRequest,
-  ListAccountsRequestFilterSensitiveLog,
-  ListAccountsResponse,
-  ListAccountsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAccountsRequest, ListAccountsResponse, ListAccountsResponseFilterSensitiveLog } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListAccountsCommand,
-  serializeAws_json1_1ListAccountsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAccountsCommand, se_ListAccountsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountsCommand}.
  */
 export interface ListAccountsCommandInput extends ListAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountsCommand}.
  */
 export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the accounts in the organization. To request only the accounts in a
  *             specified root or organizational unit (OU), use the <a>ListAccountsForParent</a> operation instead.</p>
  *          <note>
@@ -53,10 +50,16 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * import { OrganizationsClient, ListAccountsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListAccountsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // ListAccountsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAccountsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountsCommandInput - {@link ListAccountsCommandInput}
+ * @returns {@link ListAccountsCommandOutput}
  * @see {@link ListAccountsCommandInput} for command's `input` shape.
  * @see {@link ListAccountsCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -257,6 +260,9 @@ export class ListAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -283,7 +289,7 @@ export class ListAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListAccountsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -294,12 +300,18 @@ export class ListAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccountsCommand(input, context);
+    return se_ListAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountsCommandOutput> {
-    return deserializeAws_json1_1ListAccountsCommand(output, context);
+    return de_ListAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

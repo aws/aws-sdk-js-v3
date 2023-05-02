@@ -18,23 +18,24 @@ import {
   CreateAppInstanceUserRequest,
   CreateAppInstanceUserRequestFilterSensitiveLog,
   CreateAppInstanceUserResponse,
-  CreateAppInstanceUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAppInstanceUserCommand,
-  serializeAws_restJson1CreateAppInstanceUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAppInstanceUserCommand, se_CreateAppInstanceUserCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppInstanceUserCommand}.
  */
 export interface CreateAppInstanceUserCommandInput extends CreateAppInstanceUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppInstanceUserCommand}.
  */
 export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a
  *          unique <code>appInstanceUserId</code> and <code>Name</code> for that user.</p>
  * @example
@@ -43,10 +44,29 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
  * import { ChimeSDKIdentityClient, CreateAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, CreateAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = { // CreateAppInstanceUserRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   AppInstanceUserId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Metadata: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ExpirationSettings: { // ExpirationSettings
+ *     ExpirationDays: Number("int"), // required
+ *     ExpirationCriterion: "CREATED_TIMESTAMP", // required
+ *   },
+ * };
  * const command = new CreateAppInstanceUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppInstanceUserCommandInput - {@link CreateAppInstanceUserCommandInput}
+ * @returns {@link CreateAppInstanceUserCommandOutput}
  * @see {@link CreateAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link CreateAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -95,6 +115,9 @@ export class CreateAppInstanceUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppInstanceUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,7 +147,7 @@ export class CreateAppInstanceUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateAppInstanceUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppInstanceUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +157,18 @@ export class CreateAppInstanceUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppInstanceUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAppInstanceUserCommand(input, context);
+    return se_CreateAppInstanceUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppInstanceUserCommandOutput> {
-    return deserializeAws_restJson1CreateAppInstanceUserCommand(output, context);
+    return de_CreateAppInstanceUserCommand(output, context);
   }
 
   // Start section: command_body_extra

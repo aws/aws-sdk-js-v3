@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CommitTransactionRequest,
-  CommitTransactionRequestFilterSensitiveLog,
-  CommitTransactionResponse,
-  CommitTransactionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CommitTransactionCommand,
-  serializeAws_restJson1CommitTransactionCommand,
-} from "../protocols/Aws_restJson1";
+import { CommitTransactionRequest, CommitTransactionResponse } from "../models/models_0";
+import { de_CommitTransactionCommand, se_CommitTransactionCommand } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link CommitTransactionCommand}.
  */
 export interface CommitTransactionCommandInput extends CommitTransactionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CommitTransactionCommand}.
  */
 export interface CommitTransactionCommandOutput extends CommitTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
  *             commits the changes.</p>
  * @example
@@ -43,10 +40,17 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * import { RDSDataClient, CommitTransactionCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
  * // const { RDSDataClient, CommitTransactionCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
  * const client = new RDSDataClient(config);
+ * const input = { // CommitTransactionRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   secretArn: "STRING_VALUE", // required
+ *   transactionId: "STRING_VALUE", // required
+ * };
  * const command = new CommitTransactionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CommitTransactionCommandInput - {@link CommitTransactionCommandInput}
+ * @returns {@link CommitTransactionCommandOutput}
  * @see {@link CommitTransactionCommandInput} for command's `input` shape.
  * @see {@link CommitTransactionCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
@@ -92,6 +96,9 @@ export class CommitTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CommitTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +127,8 @@ export class CommitTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CommitTransactionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CommitTransactionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +138,18 @@ export class CommitTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CommitTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CommitTransactionCommand(input, context);
+    return se_CommitTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CommitTransactionCommandOutput> {
-    return deserializeAws_restJson1CommitTransactionCommand(output, context);
+    return de_CommitTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

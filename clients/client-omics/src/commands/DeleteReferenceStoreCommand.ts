@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteReferenceStoreRequest,
-  DeleteReferenceStoreRequestFilterSensitiveLog,
-  DeleteReferenceStoreResponse,
-  DeleteReferenceStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteReferenceStoreRequest, DeleteReferenceStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1DeleteReferenceStoreCommand,
-  serializeAws_restJson1DeleteReferenceStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteReferenceStoreCommand, se_DeleteReferenceStoreCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReferenceStoreCommand}.
  */
 export interface DeleteReferenceStoreCommandInput extends DeleteReferenceStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReferenceStoreCommand}.
  */
 export interface DeleteReferenceStoreCommandOutput extends DeleteReferenceStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a genome reference store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteReferenceStoreCommandOutput extends DeleteReferenceStoreR
  * import { OmicsClient, DeleteReferenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteReferenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // DeleteReferenceStoreRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReferenceStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReferenceStoreCommandInput - {@link DeleteReferenceStoreCommandInput}
+ * @returns {@link DeleteReferenceStoreCommandOutput}
  * @see {@link DeleteReferenceStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteReferenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -90,6 +92,9 @@ export class DeleteReferenceStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReferenceStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class DeleteReferenceStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReferenceStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReferenceStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class DeleteReferenceStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReferenceStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteReferenceStoreCommand(input, context);
+    return se_DeleteReferenceStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReferenceStoreCommandOutput> {
-    return deserializeAws_restJson1DeleteReferenceStoreCommand(output, context);
+    return de_DeleteReferenceStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

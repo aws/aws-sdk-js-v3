@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeSecurityGroupRulesRequest,
-  DescribeSecurityGroupRulesRequestFilterSensitiveLog,
-  DescribeSecurityGroupRulesResult,
-  DescribeSecurityGroupRulesResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSecurityGroupRulesCommand,
-  serializeAws_ec2DescribeSecurityGroupRulesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeSecurityGroupRulesRequest, DescribeSecurityGroupRulesResult } from "../models/models_4";
+import { de_DescribeSecurityGroupRulesCommand, se_DescribeSecurityGroupRulesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSecurityGroupRulesCommand}.
  */
 export interface DescribeSecurityGroupRulesCommandInput extends DescribeSecurityGroupRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSecurityGroupRulesCommand}.
  */
 export interface DescribeSecurityGroupRulesCommandOutput extends DescribeSecurityGroupRulesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your security group rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface DescribeSecurityGroupRulesCommandOutput extends DescribeSecurit
  * import { EC2Client, DescribeSecurityGroupRulesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSecurityGroupRulesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSecurityGroupRulesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   SecurityGroupRuleIds: [ // SecurityGroupRuleIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeSecurityGroupRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecurityGroupRulesCommandInput - {@link DescribeSecurityGroupRulesCommandInput}
+ * @returns {@link DescribeSecurityGroupRulesCommandOutput}
  * @see {@link DescribeSecurityGroupRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityGroupRulesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +84,9 @@ export class DescribeSecurityGroupRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecurityGroupRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +115,8 @@ export class DescribeSecurityGroupRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSecurityGroupRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSecurityGroupRulesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +126,21 @@ export class DescribeSecurityGroupRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSecurityGroupRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSecurityGroupRulesCommand(input, context);
+    return se_DescribeSecurityGroupRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSecurityGroupRulesCommandOutput> {
-    return deserializeAws_ec2DescribeSecurityGroupRulesCommand(output, context);
+    return de_DescribeSecurityGroupRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

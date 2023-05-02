@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetResponseHeadersPolicyRequest,
-  GetResponseHeadersPolicyRequestFilterSensitiveLog,
-  GetResponseHeadersPolicyResult,
-  GetResponseHeadersPolicyResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetResponseHeadersPolicyCommand,
-  serializeAws_restXmlGetResponseHeadersPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { GetResponseHeadersPolicyRequest, GetResponseHeadersPolicyResult } from "../models/models_1";
+import { de_GetResponseHeadersPolicyCommand, se_GetResponseHeadersPolicyCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetResponseHeadersPolicyCommand}.
  */
 export interface GetResponseHeadersPolicyCommandInput extends GetResponseHeadersPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResponseHeadersPolicyCommand}.
  */
 export interface GetResponseHeadersPolicyCommandOutput extends GetResponseHeadersPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a response headers policy, including metadata (the policy's identifier and the
  * 			date and time when the policy was last modified).</p>
  *          <p>To get a response headers policy, you must provide the policy's identifier. If the
@@ -49,10 +46,15 @@ export interface GetResponseHeadersPolicyCommandOutput extends GetResponseHeader
  * import { CloudFrontClient, GetResponseHeadersPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetResponseHeadersPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetResponseHeadersPolicyRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetResponseHeadersPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResponseHeadersPolicyCommandInput - {@link GetResponseHeadersPolicyCommandInput}
+ * @returns {@link GetResponseHeadersPolicyCommandOutput}
  * @see {@link GetResponseHeadersPolicyCommandInput} for command's `input` shape.
  * @see {@link GetResponseHeadersPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetResponseHeadersPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResponseHeadersPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetResponseHeadersPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResponseHeadersPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResponseHeadersPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetResponseHeadersPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResponseHeadersPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetResponseHeadersPolicyCommand(input, context);
+    return se_GetResponseHeadersPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResponseHeadersPolicyCommandOutput> {
-    return deserializeAws_restXmlGetResponseHeadersPolicyCommand(output, context);
+    return de_GetResponseHeadersPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

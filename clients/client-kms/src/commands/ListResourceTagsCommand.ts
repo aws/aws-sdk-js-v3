@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ListResourceTagsRequest,
-  ListResourceTagsRequestFilterSensitiveLog,
-  ListResourceTagsResponse,
-  ListResourceTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourceTagsCommand,
-  serializeAws_json1_1ListResourceTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResourceTagsRequest, ListResourceTagsResponse } from "../models/models_0";
+import { de_ListResourceTagsCommand, se_ListResourceTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceTagsCommand}.
  */
 export interface ListResourceTagsCommandInput extends ListResourceTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceTagsCommand}.
  */
 export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all tags on the specified KMS key.</p>
  *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in
  *       the <i>Amazon Web Services General Reference</i>. For information about using
@@ -75,10 +72,17 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  * import { KMSClient, ListResourceTagsCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListResourceTagsCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ListResourceTagsRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListResourceTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceTagsCommandInput - {@link ListResourceTagsCommandInput}
+ * @returns {@link ListResourceTagsCommandOutput}
  * @see {@link ListResourceTagsCommandInput} for command's `input` shape.
  * @see {@link ListResourceTagsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -148,6 +152,9 @@ export class ListResourceTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,8 +183,8 @@ export class ListResourceTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -187,12 +194,18 @@ export class ListResourceTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceTagsCommand(input, context);
+    return se_ListResourceTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceTagsCommandOutput> {
-    return deserializeAws_json1_1ListResourceTagsCommand(output, context);
+    return de_ListResourceTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDatalakeRequest,
-  UpdateDatalakeRequestFilterSensitiveLog,
-  UpdateDatalakeResponse,
-  UpdateDatalakeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDatalakeCommand,
-  serializeAws_restJson1UpdateDatalakeCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDatalakeRequest, UpdateDatalakeResponse } from "../models/models_0";
+import { de_UpdateDatalakeCommand, se_UpdateDatalakeCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDatalakeCommand}.
  */
 export interface UpdateDatalakeCommandInput extends UpdateDatalakeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDatalakeCommand}.
  */
 export interface UpdateDatalakeCommandOutput extends UpdateDatalakeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies where to store your security data and for how long. You can add a rollup
  *          Region to consolidate data from multiple Amazon Web Services Regions. </p>
  * @example
@@ -43,10 +40,32 @@ export interface UpdateDatalakeCommandOutput extends UpdateDatalakeResponse, __M
  * import { SecurityLakeClient, UpdateDatalakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, UpdateDatalakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // UpdateDatalakeRequest
+ *   configurations: { // LakeConfigurationRequestMap // required
+ *     "<keys>": { // LakeConfigurationRequest
+ *       encryptionKey: "STRING_VALUE",
+ *       retentionSettings: [ // RetentionSettingList
+ *         { // RetentionSetting
+ *           storageClass: "STRING_VALUE",
+ *           retentionPeriod: Number("int"),
+ *         },
+ *       ],
+ *       tagsMap: { // TagsMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       replicationDestinationRegions: [ // RegionSet
+ *         "STRING_VALUE",
+ *       ],
+ *       replicationRoleArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateDatalakeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatalakeCommandInput - {@link UpdateDatalakeCommandInput}
+ * @returns {@link UpdateDatalakeCommandOutput}
  * @see {@link UpdateDatalakeCommandInput} for command's `input` shape.
  * @see {@link UpdateDatalakeCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -89,6 +108,9 @@ export class UpdateDatalakeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatalakeCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +139,8 @@ export class UpdateDatalakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatalakeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDatalakeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +150,18 @@ export class UpdateDatalakeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatalakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDatalakeCommand(input, context);
+    return se_UpdateDatalakeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatalakeCommandOutput> {
-    return deserializeAws_restJson1UpdateDatalakeCommand(output, context);
+    return de_UpdateDatalakeCommand(output, context);
   }
 
   // Start section: command_body_extra

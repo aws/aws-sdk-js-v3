@@ -14,40 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  CreatePresignedNotebookUrlRequest,
-  CreatePresignedNotebookUrlRequestFilterSensitiveLog,
-  CreatePresignedNotebookUrlResponse,
-  CreatePresignedNotebookUrlResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePresignedNotebookUrlCommand,
-  serializeAws_json1_1CreatePresignedNotebookUrlCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePresignedNotebookUrlRequest, CreatePresignedNotebookUrlResponse } from "../models/models_0";
+import { de_CreatePresignedNotebookUrlCommand, se_CreatePresignedNotebookUrlCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePresignedNotebookUrlCommand}.
  */
 export interface CreatePresignedNotebookUrlCommandInput extends CreatePresignedNotebookUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePresignedNotebookUrlCommand}.
  */
 export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresignedNotebookUrlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an authentication token and the URL at which the notebook can be accessed. During
  *             programmatic access, <code>CreatePresignedNotebookUrl</code> must be called every 10
- *             minutes to refresh the authentication token.</p>
+ *             minutes to refresh the authentication token. For information about granting programmatic
+ *             access, see <a href="https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access">Grant
+ *                 programmatic access</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, CreatePresignedNotebookUrlCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CreatePresignedNotebookUrlCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // CreatePresignedNotebookUrlRequest
+ *   SessionId: "STRING_VALUE", // required
+ * };
  * const command = new CreatePresignedNotebookUrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePresignedNotebookUrlCommandInput - {@link CreatePresignedNotebookUrlCommandInput}
+ * @returns {@link CreatePresignedNotebookUrlCommandOutput}
  * @see {@link CreatePresignedNotebookUrlCommandInput} for command's `input` shape.
  * @see {@link CreatePresignedNotebookUrlCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -82,6 +86,9 @@ export class CreatePresignedNotebookUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePresignedNotebookUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class CreatePresignedNotebookUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePresignedNotebookUrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePresignedNotebookUrlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +128,21 @@ export class CreatePresignedNotebookUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePresignedNotebookUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePresignedNotebookUrlCommand(input, context);
+    return se_CreatePresignedNotebookUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePresignedNotebookUrlCommandOutput> {
-    return deserializeAws_json1_1CreatePresignedNotebookUrlCommand(output, context);
+    return de_CreatePresignedNotebookUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

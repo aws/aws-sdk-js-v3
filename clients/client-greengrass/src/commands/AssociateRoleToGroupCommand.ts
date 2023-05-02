@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  AssociateRoleToGroupRequest,
-  AssociateRoleToGroupRequestFilterSensitiveLog,
-  AssociateRoleToGroupResponse,
-  AssociateRoleToGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateRoleToGroupCommand,
-  serializeAws_restJson1AssociateRoleToGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateRoleToGroupRequest, AssociateRoleToGroupResponse } from "../models/models_0";
+import { de_AssociateRoleToGroupCommand, se_AssociateRoleToGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateRoleToGroupCommand}.
  */
 export interface AssociateRoleToGroupCommandInput extends AssociateRoleToGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateRoleToGroupCommand}.
  */
 export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Associates a role with a group. Your Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupR
  * import { GreengrassClient, AssociateRoleToGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, AssociateRoleToGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // AssociateRoleToGroupRequest
+ *   GroupId: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateRoleToGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateRoleToGroupCommandInput - {@link AssociateRoleToGroupCommandInput}
+ * @returns {@link AssociateRoleToGroupCommandOutput}
  * @see {@link AssociateRoleToGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateRoleToGroupCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -75,6 +78,9 @@ export class AssociateRoleToGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateRoleToGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class AssociateRoleToGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateRoleToGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateRoleToGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class AssociateRoleToGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateRoleToGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateRoleToGroupCommand(input, context);
+    return se_AssociateRoleToGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRoleToGroupCommandOutput> {
-    return deserializeAws_restJson1AssociateRoleToGroupCommand(output, context);
+    return de_AssociateRoleToGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

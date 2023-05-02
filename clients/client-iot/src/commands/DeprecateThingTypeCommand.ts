@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeprecateThingTypeRequest,
-  DeprecateThingTypeRequestFilterSensitiveLog,
-  DeprecateThingTypeResponse,
-  DeprecateThingTypeResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeprecateThingTypeCommand,
-  serializeAws_restJson1DeprecateThingTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { DeprecateThingTypeRequest, DeprecateThingTypeResponse } from "../models/models_1";
+import { de_DeprecateThingTypeCommand, se_DeprecateThingTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeprecateThingTypeCommand}.
  */
 export interface DeprecateThingTypeCommandInput extends DeprecateThingTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeprecateThingTypeCommand}.
  */
 export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecates a thing type. You can not associate new things with deprecated thing
  * 			type.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeprecateThingType</a> action.</p>
@@ -44,10 +41,16 @@ export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeRespo
  * import { IoTClient, DeprecateThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeprecateThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeprecateThingTypeRequest
+ *   thingTypeName: "STRING_VALUE", // required
+ *   undoDeprecate: true || false,
+ * };
  * const command = new DeprecateThingTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprecateThingTypeCommandInput - {@link DeprecateThingTypeCommandInput}
+ * @returns {@link DeprecateThingTypeCommandOutput}
  * @see {@link DeprecateThingTypeCommandInput} for command's `input` shape.
  * @see {@link DeprecateThingTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -89,6 +92,9 @@ export class DeprecateThingTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprecateThingTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +123,8 @@ export class DeprecateThingTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprecateThingTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeprecateThingTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +134,18 @@ export class DeprecateThingTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprecateThingTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeprecateThingTypeCommand(input, context);
+    return se_DeprecateThingTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateThingTypeCommandOutput> {
-    return deserializeAws_restJson1DeprecateThingTypeCommand(output, context);
+    return de_DeprecateThingTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

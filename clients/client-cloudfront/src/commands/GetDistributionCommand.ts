@@ -16,25 +16,26 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   GetDistributionRequest,
-  GetDistributionRequestFilterSensitiveLog,
   GetDistributionResult,
   GetDistributionResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlGetDistributionCommand,
-  serializeAws_restXmlGetDistributionCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetDistributionCommand, se_GetDistributionCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetDistributionCommand}.
  */
 export interface GetDistributionCommandInput extends GetDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDistributionCommand}.
  */
 export interface GetDistributionCommandOutput extends GetDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the information about a distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * import { CloudFrontClient, GetDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetDistributionRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetDistributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDistributionCommandInput - {@link GetDistributionCommandInput}
+ * @returns {@link GetDistributionCommandOutput}
  * @see {@link GetDistributionCommandInput} for command's `input` shape.
  * @see {@link GetDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -75,6 +81,9 @@ export class GetDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,7 +112,7 @@ export class GetDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDistributionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDistributionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -114,12 +123,18 @@ export class GetDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetDistributionCommand(input, context);
+    return se_GetDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDistributionCommandOutput> {
-    return deserializeAws_restXmlGetDistributionCommand(output, context);
+    return de_GetDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

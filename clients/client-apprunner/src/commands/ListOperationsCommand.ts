@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  ListOperationsRequest,
-  ListOperationsRequestFilterSensitiveLog,
-  ListOperationsResponse,
-  ListOperationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListOperationsCommand,
-  serializeAws_json1_0ListOperationsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListOperationsRequest, ListOperationsResponse } from "../models/models_0";
+import { de_ListOperationsCommand, se_ListOperationsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListOperationsCommand}.
  */
 export interface ListOperationsCommandInput extends ListOperationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOperationsCommand}.
  */
 export interface ListOperationsCommandOutput extends ListOperationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a list of operations that occurred on an App Runner service.</p>
  *          <p>The resulting list of <a>OperationSummary</a> objects is sorted in reverse chronological order. The first object on the list represents the
  *       last started operation.</p>
@@ -44,10 +41,17 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * import { AppRunnerClient, ListOperationsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListOperationsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // ListOperationsRequest
+ *   ServiceArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOperationsCommandInput - {@link ListOperationsCommandInput}
+ * @returns {@link ListOperationsCommandOutput}
  * @see {@link ListOperationsCommandInput} for command's `input` shape.
  * @see {@link ListOperationsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -80,6 +84,9 @@ export class ListOperationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class ListOperationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOperationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOperationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class ListOperationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListOperationsCommand(input, context);
+    return se_ListOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOperationsCommandOutput> {
-    return deserializeAws_json1_0ListOperationsCommand(output, context);
+    return de_ListOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  UpdatePlaceIndexRequest,
-  UpdatePlaceIndexRequestFilterSensitiveLog,
-  UpdatePlaceIndexResponse,
-  UpdatePlaceIndexResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePlaceIndexCommand,
-  serializeAws_restJson1UpdatePlaceIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePlaceIndexRequest, UpdatePlaceIndexResponse } from "../models/models_0";
+import { de_UpdatePlaceIndexCommand, se_UpdatePlaceIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePlaceIndexCommand}.
  */
 export interface UpdatePlaceIndexCommandInput extends UpdatePlaceIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePlaceIndexCommand}.
  */
 export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified properties of a given place index resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse,
  * import { LocationClient, UpdatePlaceIndexCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, UpdatePlaceIndexCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // UpdatePlaceIndexRequest
+ *   IndexName: "STRING_VALUE", // required
+ *   PricingPlan: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DataSourceConfiguration: { // DataSourceConfiguration
+ *     IntendedUse: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdatePlaceIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePlaceIndexCommandInput - {@link UpdatePlaceIndexCommandInput}
+ * @returns {@link UpdatePlaceIndexCommandOutput}
  * @see {@link UpdatePlaceIndexCommandInput} for command's `input` shape.
  * @see {@link UpdatePlaceIndexCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdatePlaceIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePlaceIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +123,8 @@ export class UpdatePlaceIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePlaceIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePlaceIndexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +134,18 @@ export class UpdatePlaceIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePlaceIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePlaceIndexCommand(input, context);
+    return se_UpdatePlaceIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePlaceIndexCommandOutput> {
-    return deserializeAws_restJson1UpdatePlaceIndexCommand(output, context);
+    return de_UpdatePlaceIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

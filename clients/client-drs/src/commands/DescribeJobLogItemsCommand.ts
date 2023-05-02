@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import {
-  DescribeJobLogItemsRequest,
-  DescribeJobLogItemsRequestFilterSensitiveLog,
-  DescribeJobLogItemsResponse,
-  DescribeJobLogItemsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobLogItemsCommand,
-  serializeAws_restJson1DescribeJobLogItemsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeJobLogItemsRequest, DescribeJobLogItemsResponse } from "../models/models_0";
+import { de_DescribeJobLogItemsCommand, se_DescribeJobLogItemsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobLogItemsCommand}.
  */
 export interface DescribeJobLogItemsCommandInput extends DescribeJobLogItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobLogItemsCommand}.
  */
 export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a detailed Job log with pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * import { DrsClient, DescribeJobLogItemsCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeJobLogItemsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // DescribeJobLogItemsRequest
+ *   jobID: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeJobLogItemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobLogItemsCommandInput - {@link DescribeJobLogItemsCommandInput}
+ * @returns {@link DescribeJobLogItemsCommandOutput}
  * @see {@link DescribeJobLogItemsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobLogItemsCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -81,6 +85,9 @@ export class DescribeJobLogItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobLogItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class DescribeJobLogItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobLogItemsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJobLogItemsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class DescribeJobLogItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobLogItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobLogItemsCommand(input, context);
+    return se_DescribeJobLogItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobLogItemsCommandOutput> {
-    return deserializeAws_restJson1DescribeJobLogItemsCommand(output, context);
+    return de_DescribeJobLogItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

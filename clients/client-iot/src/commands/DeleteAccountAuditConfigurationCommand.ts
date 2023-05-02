@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeleteAccountAuditConfigurationRequest, DeleteAccountAuditConfigurationResponse } from "../models/models_0";
 import {
-  DeleteAccountAuditConfigurationRequest,
-  DeleteAccountAuditConfigurationRequestFilterSensitiveLog,
-  DeleteAccountAuditConfigurationResponse,
-  DeleteAccountAuditConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccountAuditConfigurationCommand,
-  serializeAws_restJson1DeleteAccountAuditConfigurationCommand,
+  de_DeleteAccountAuditConfigurationCommand,
+  se_DeleteAccountAuditConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccountAuditConfigurationCommand}.
  */
 export interface DeleteAccountAuditConfigurationCommandInput extends DeleteAccountAuditConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccountAuditConfigurationCommand}.
  */
 export interface DeleteAccountAuditConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteAccountAuditConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores the default settings for Device Defender audits for this account. Any
  *           configuration data you entered is deleted and all audit checks are reset to
  *           disabled.  </p>
@@ -47,10 +47,15 @@ export interface DeleteAccountAuditConfigurationCommandOutput
  * import { IoTClient, DeleteAccountAuditConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteAccountAuditConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteAccountAuditConfigurationRequest
+ *   deleteScheduledAudits: true || false,
+ * };
  * const command = new DeleteAccountAuditConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountAuditConfigurationCommandInput - {@link DeleteAccountAuditConfigurationCommandInput}
+ * @returns {@link DeleteAccountAuditConfigurationCommandOutput}
  * @see {@link DeleteAccountAuditConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAuditConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +91,9 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountAuditConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +122,8 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccountAuditConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccountAuditConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +133,24 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAccountAuditConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccountAuditConfigurationCommand(input, context);
+    return se_DeleteAccountAuditConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccountAuditConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteAccountAuditConfigurationCommand(output, context);
+    return de_DeleteAccountAuditConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

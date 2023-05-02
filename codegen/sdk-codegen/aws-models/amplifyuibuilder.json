@@ -7,7 +7,7 @@
         "type": {
           "target": "com.amazonaws.amplifyuibuilder#ComponentProperty",
           "traits": {
-            "smithy.api#documentation": "<p>The type of navigation action. Valid values are <code>url</code> and <code>anchor</code>. This value is required for a navigation action.</p>"
+            "smithy.api#documentation": "<p>The type of navigation action. Valid values are <code>url</code> and <code>anchor</code>.\n      This value is required for a navigation action.</p>"
           }
         },
         "url": {
@@ -19,7 +19,7 @@
         "anchor": {
           "target": "com.amazonaws.amplifyuibuilder#ComponentProperty",
           "traits": {
-            "smithy.api#documentation": "<p>The HTML anchor link to the location to open. Specify this value for a navigation action.</p>"
+            "smithy.api#documentation": "<p>The HTML anchor link to the location to open. Specify this value for a navigation\n      action.</p>"
           }
         },
         "target": {
@@ -31,13 +31,13 @@
         "global": {
           "target": "com.amazonaws.amplifyuibuilder#ComponentProperty",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.</p>"
+            "smithy.api#documentation": "<p>Specifies whether the user should be signed out globally. Specify this value for an auth\n      sign out action.</p>"
           }
         },
         "model": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the data model. Use when the action performs an operation on an Amplify DataStore\n      model.</p>"
+            "smithy.api#documentation": "<p>The name of the data model. Use when the action performs an operation on an Amplify DataStore model.</p>"
           }
         },
         "id": {
@@ -49,7 +49,7 @@
         "fields": {
           "target": "com.amazonaws.amplifyuibuilder#ComponentProperties",
           "traits": {
-            "smithy.api#documentation": "<p>A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action\n      performs an operation on an Amplify DataStore model.</p>"
+            "smithy.api#documentation": "<p>A dictionary of key-value pairs mapping Amplify Studio properties to fields\n      in a data model. Use when the action performs an operation on an Amplify\n      DataStore model.</p>"
           }
         },
         "state": {
@@ -60,7 +60,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Represents the event action configuration for an element of a <code>Component</code>\n      or <code>ComponentChild</code>. Use for the workflow feature in Amplify Studio\n      that allows you to bind events and actions to components. <code>ActionParameters</code>\n      defines the action that is performed when an event occurs on the component.</p>"
+        "smithy.api#documentation": "<p>Represents the event action configuration for an element of a <code>Component</code> or\n        <code>ComponentChild</code>. Use for the workflow feature in Amplify Studio\n      that allows you to bind events and actions to components. <code>ActionParameters</code>\n      defines the action that is performed when an event occurs on the component.</p>"
       }
     },
     "com.amazonaws.amplifyuibuilder#AmplifyUIBuilder": {
@@ -118,12 +118,7 @@
             "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys"
           }
         },
-        "aws.iam#supportedPrincipalTypes": [
-          "Root",
-          "IAMUser",
-          "IAMRole",
-          "FederatedUser"
-        ],
+        "aws.iam#supportedPrincipalTypes": ["Root", "IAMUser", "IAMRole", "FederatedUser"],
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {},
         "smithy.api#documentation": "<p>The Amplify UI Builder API provides a programmatic interface for creating\n      and configuring user interface (UI) component libraries and themes for use in your Amplify applications. You can then connect these UI components to an application's\n      backend Amazon Web Services resources.</p>\n         <p>You can also use the Amplify Studio visual designer to create UI components\n      and model data for an app. For more information, see <a href=\"https://docs.amplify.aws/console/adminui/intro\">Introduction</a> in the\n        <i>Amplify Docs</i>.</p>\n         <p>The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and\n      documentation for client app development. For more information, see the <a href=\"https://docs.amplify.aws/\">Amplify Framework</a>. For more information about\n      deploying an Amplify application to Amazon Web Services, see the <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html\">Amplify User Guide</a>.</p>",
@@ -162,13 +157,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -176,23 +170,20 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
                   "type": "tree",
                   "rules": [
                     {
@@ -201,19 +192,201 @@
                           "fn": "booleanEquals",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
+                              "ref": "UseDualStack"
                             },
                             true
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
                       "type": "error"
                     },
                     {
                       "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
                       "type": "tree",
                       "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://amplifyuibuilder-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://amplifyuibuilder-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
                         {
                           "conditions": [
                             {
@@ -226,134 +399,52 @@
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://amplifyuibuilder.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
                             }
                           ]
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://amplifyuibuilder-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
                         {
                           "conditions": [],
                           "type": "tree",
@@ -361,7 +452,7 @@
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://amplifyuibuilder-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://amplifyuibuilder.{Region}.{PartitionResult#dnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
@@ -370,74 +461,13 @@
                           ]
                         }
                       ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://amplifyuibuilder.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
                     }
                   ]
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://amplifyuibuilder.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
                 }
               ]
             }
@@ -446,509 +476,15 @@
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.ap-south-1.api.aws"
+                  "url": "https://amplifyuibuilder.ap-northeast-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
+                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": true,
                 "UseFIPS": false
               }
             },
@@ -966,197 +502,15 @@
               }
             },
             {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.ap-northeast-1.api.aws"
+                  "url": "https://amplifyuibuilder.ap-south-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
+                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": true,
                 "UseFIPS": false
               }
             },
@@ -1174,45 +528,6 @@
               }
             },
             {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
               "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -1221,6 +536,162 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
                 "UseDualStack": false,
                 "UseFIPS": false
               }
@@ -1265,72 +736,207 @@
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://amplifyuibuilder.us-east-1.amazonaws.com"
+                  "url": "https://amplifyuibuilder-fips.cn-north-1.api.amazonwebservices.com.cn"
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
+                "Region": "cn-north-1",
                 "UseDualStack": true,
                 "UseFIPS": true
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://amplifyuibuilder-fips.us-east-2.amazonaws.com"
+                  "url": "https://amplifyuibuilder-fips.cn-north-1.amazonaws.com.cn"
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "Region": "cn-north-1",
                 "UseDualStack": false,
                 "UseFIPS": true
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://amplifyuibuilder.us-east-2.api.aws"
+                  "url": "https://amplifyuibuilder.cn-north-1.api.amazonwebservices.com.cn"
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "Region": "cn-north-1",
                 "UseDualStack": true,
                 "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://amplifyuibuilder.us-east-2.amazonaws.com"
+                  "url": "https://amplifyuibuilder.cn-north-1.amazonaws.com.cn"
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "Region": "cn-north-1",
                 "UseDualStack": false,
                 "UseFIPS": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifyuibuilder.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -1338,6 +944,19 @@
               },
               "params": {
                 "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
                 "UseDualStack": false,
                 "UseFIPS": false,
                 "Endpoint": "https://example.com"
@@ -1365,6 +984,12 @@
                 "UseDualStack": true,
                 "UseFIPS": false,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -1483,7 +1108,7 @@
         "events": {
           "target": "com.amazonaws.amplifyuibuilder#ComponentEvents",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to\n      bind events and actions to components.</p>"
+            "smithy.api#documentation": "<p>Describes the events that can be raised on the component. Use for the workflow feature in\n        Amplify Studio that allows you to bind events and actions to\n      components.</p>"
           }
         },
         "schemaVersion": {
@@ -1626,7 +1251,7 @@
         "events": {
           "target": "com.amazonaws.amplifyuibuilder#ComponentEvents",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to\n      bind events and actions to components.</p>"
+            "smithy.api#documentation": "<p>Describes the events that can be raised on the child component. Use for the workflow\n      feature in Amplify Studio that allows you to bind events and actions to\n      components.</p>"
           }
         },
         "sourceId": {
@@ -1761,7 +1386,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the configuration of an event. You can bind an event and a corresponding\n      action to a <code>Component</code> or a <code>ComponentChild</code>. A button click\n      is an example of an event. </p>"
+        "smithy.api#documentation": "<p>Describes the configuration of an event. You can bind an event and a corresponding action\n      to a <code>Component</code> or a <code>ComponentChild</code>. A button click is an example of\n      an event. </p>"
       }
     },
     "com.amazonaws.amplifyuibuilder#ComponentEvents": {
@@ -1979,13 +1604,9 @@
         },
         "aws.cloudformation#cfnResource": {
           "name": "Component",
-          "additionalSchemas": [
-            "com.amazonaws.amplifyuibuilder#Component"
-          ]
+          "additionalSchemas": ["com.amazonaws.amplifyuibuilder#Component"]
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ]
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"]
       }
     },
     "com.amazonaws.amplifyuibuilder#ComponentSummary": {
@@ -2104,13 +1725,8 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Creates a new component for an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/components",
@@ -2279,13 +1895,8 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Creates a new form for an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/forms",
@@ -2356,6 +1967,12 @@
           "target": "com.amazonaws.amplifyuibuilder#Tags",
           "traits": {
             "smithy.api#documentation": "<p>One or more key-value pairs to use when tagging the form data.</p>"
+          }
+        },
+        "labelDecorator": {
+          "target": "com.amazonaws.amplifyuibuilder#LabelDecorator",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies an icon or decoration to display on the form.</p>"
           }
         }
       },
@@ -2437,13 +2054,8 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Creates a theme to apply to the components in an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/themes",
@@ -2557,9 +2169,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Deletes a component from an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/components/{id}",
@@ -2617,9 +2227,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Deletes a form from an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/forms/{id}",
@@ -2677,9 +2285,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Deletes a theme from an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/themes/{id}",
@@ -2774,6 +2380,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The location of the application that will receive the access code.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "clientId": {
+          "target": "com.amazonaws.amplifyuibuilder#SensitiveString",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the client to request the token from.</p>"
           }
         }
       },
@@ -3173,7 +2785,13 @@
         "isArray": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether to render the field as an array. This property is ignored if the <code>dataSourceType</code> for the form is a Data Store.</p>"
+            "smithy.api#documentation": "<p>Specifies whether to render the field as an array. This property is ignored if the\n        <code>dataSourceType</code> for the form is a Data Store.</p>"
+          }
+        },
+        "fileUploaderConfig": {
+          "target": "com.amazonaws.amplifyuibuilder#FileUploaderFieldConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for the file uploader field.</p>"
           }
         }
       },
@@ -3247,6 +2865,52 @@
       },
       "value": {
         "target": "com.amazonaws.amplifyuibuilder#FieldConfig"
+      }
+    },
+    "com.amazonaws.amplifyuibuilder#FileUploaderFieldConfig": {
+      "type": "structure",
+      "members": {
+        "accessLevel": {
+          "target": "com.amazonaws.amplifyuibuilder#StorageAccessLevel",
+          "traits": {
+            "smithy.api#documentation": "<p>The access level to assign to the uploaded files in the Amazon S3 bucket where\n      they are stored. The valid values for this property are <code>private</code>,\n        <code>protected</code>, or <code>public</code>. For detailed information about the\n      permissions associated with each access level, see <a href=\"https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/\">File access\n        levels</a> in the <i>Amplify documentation</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "acceptedFileTypes": {
+          "target": "com.amazonaws.amplifyuibuilder#StrValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The file types that are allowed to be uploaded by the file uploader. Provide this\n      information in an array of strings specifying the valid file extensions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "showThumbnails": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to display or hide the image preview after selecting a file for upload.\n      The default value is <code>true</code> to display the image preview.</p>"
+          }
+        },
+        "isResumable": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Allows the file upload operation to be paused and resumed. The default value is\n        <code>false</code>.</p>\n         <p>When <code>isResumable</code> is set to <code>true</code>, the file uploader uses a\n      multipart upload to break the files into chunks before upload. The progress of the upload\n      isn't continuous, because the file uploader uploads a chunk at a time.</p>"
+          }
+        },
+        "maxFileCount": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the maximum number of files that can be selected to upload. The default value is\n      an unlimited number of files.</p>"
+          }
+        },
+        "maxSize": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum file size in bytes that the file uploader will accept. The default value is an\n      unlimited file size.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the configuration for the file uploader field.</p>"
       }
     },
     "com.amazonaws.amplifyuibuilder#FixedPosition": {
@@ -3344,6 +3008,12 @@
           "target": "com.amazonaws.amplifyuibuilder#FormCTA",
           "traits": {
             "smithy.api#documentation": "<p>Stores the call to action configuration for the form.</p>"
+          }
+        },
+        "labelDecorator": {
+          "target": "com.amazonaws.amplifyuibuilder#LabelDecorator",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies an icon or decoration to display on the form.</p>"
           }
         }
       },
@@ -3518,6 +3188,49 @@
         "smithy.api#documentation": "<p>Describes the data type configuration for the data source associated with a form.</p>"
       }
     },
+    "com.amazonaws.amplifyuibuilder#FormInputBindingProperties": {
+      "type": "map",
+      "key": {
+        "target": "smithy.api#String"
+      },
+      "value": {
+        "target": "com.amazonaws.amplifyuibuilder#FormInputBindingPropertiesValue"
+      }
+    },
+    "com.amazonaws.amplifyuibuilder#FormInputBindingPropertiesValue": {
+      "type": "structure",
+      "members": {
+        "type": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The property type.</p>"
+          }
+        },
+        "bindingProperties": {
+          "target": "com.amazonaws.amplifyuibuilder#FormInputBindingPropertiesValueProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the properties to customize with data at runtime.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the data binding configuration for a form's input fields at runtime.You can use\n        <code>FormInputBindingPropertiesValue</code> to add exposed properties to a form to allow\n      different values to be entered when a form is reused in different places in an app.</p>"
+      }
+    },
+    "com.amazonaws.amplifyuibuilder#FormInputBindingPropertiesValueProperties": {
+      "type": "structure",
+      "members": {
+        "model": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An Amplify DataStore model.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the data binding configuration for a specific property using data stored in\n        Amazon Web Services. For Amazon Web Services connected properties, you can bind a property to\n      data stored in an Amplify DataStore model.</p>"
+      }
+    },
     "com.amazonaws.amplifyuibuilder#FormInputValueProperty": {
       "type": "structure",
       "members": {
@@ -3526,10 +3239,49 @@
           "traits": {
             "smithy.api#documentation": "<p>The value to assign to the input field.</p>"
           }
+        },
+        "bindingProperties": {
+          "target": "com.amazonaws.amplifyuibuilder#FormInputValuePropertyBindingProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The information to bind fields to data at runtime.</p>"
+          }
+        },
+        "concat": {
+          "target": "com.amazonaws.amplifyuibuilder#FormInputValuePropertyList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of form properties to concatenate to create the value to assign to this field\n      property.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the configuration for an input field on a form. Use\n      <code>FormInputValueProperty</code> to specify the values to render or bind by\n      default.</p>"
+        "smithy.api#documentation": "<p>Describes the configuration for an input field on a form. Use\n        <code>FormInputValueProperty</code> to specify the values to render or bind by\n      default.</p>"
+      }
+    },
+    "com.amazonaws.amplifyuibuilder#FormInputValuePropertyBindingProperties": {
+      "type": "structure",
+      "members": {
+        "property": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The form property to bind to the data field.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "field": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The data field to bind the property to.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Associates a form property to a binding property. This enables exposed properties on the\n      top level form to propagate data to the form's property values.</p>"
+      }
+    },
+    "com.amazonaws.amplifyuibuilder#FormInputValuePropertyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.amplifyuibuilder#FormInputValueProperty"
       }
     },
     "com.amazonaws.amplifyuibuilder#FormList": {
@@ -3586,13 +3338,9 @@
         },
         "aws.cloudformation#cfnResource": {
           "name": "Form",
-          "additionalSchemas": [
-            "com.amazonaws.amplifyuibuilder#Form"
-          ]
+          "additionalSchemas": ["com.amazonaws.amplifyuibuilder#Form"]
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ]
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"]
       }
     },
     "com.amazonaws.amplifyuibuilder#FormStyle": {
@@ -3717,9 +3465,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Returns an existing component for an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/components/{id}",
@@ -3790,9 +3536,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Returns an existing form for an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/forms/{id}",
@@ -3921,9 +3665,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Returns an existing theme for an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/themes/{id}",
@@ -4006,6 +3748,25 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.amplifyuibuilder#LabelDecorator": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "required",
+            "name": "REQUIRED"
+          },
+          {
+            "value": "optional",
+            "name": "OPTIONAL"
+          },
+          {
+            "value": "none",
+            "name": "NONE"
+          }
+        ]
+      }
+    },
     "com.amazonaws.amplifyuibuilder#ListComponents": {
       "type": "operation",
       "input": {
@@ -4023,9 +3784,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Retrieves a list of components for a specified Amplify app and backend\n      environment.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/components",
@@ -4121,9 +3880,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Retrieves a list of forms for a specified Amplify app and backend environment.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/forms",
@@ -4219,9 +3976,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Retrieves a list of themes for a specified Amplify app and backend\n      environment.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/themes",
@@ -4326,13 +4081,19 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Represents the state configuration when an action modifies a property of another\n      element within the same component.</p>"
+        "smithy.api#documentation": "<p>Represents the state configuration when an action modifies a property of another element\n      within the same component.</p>"
       }
     },
     "com.amazonaws.amplifyuibuilder#NumValues": {
       "type": "list",
       "member": {
         "target": "smithy.api#Integer"
+      }
+    },
+    "com.amazonaws.amplifyuibuilder#OperandType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^boolean|string|number$"
       }
     },
     "com.amazonaws.amplifyuibuilder#Predicate": {
@@ -4367,6 +4128,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The value to use when performing the evaluation.</p>"
           }
+        },
+        "operandType": {
+          "target": "com.amazonaws.amplifyuibuilder#OperandType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of value to use when performing the evaluation.</p>"
+          }
         }
       },
       "traits": {
@@ -4396,7 +4163,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Stores the metadata information about a feature on a form or view.</p>",
+        "smithy.api#documentation": "<p>Stores the metadata information about a feature on a form.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/metadata/features/{featureName}",
           "method": "PUT"
@@ -4415,7 +4182,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Stores the metadata information about a feature on a form or view.</p>"
+        "smithy.api#documentation": "<p>Stores the metadata information about a feature on a form.</p>"
       }
     },
     "com.amazonaws.amplifyuibuilder#PutMetadataFlagRequest": {
@@ -4506,6 +4273,12 @@
             "smithy.api#documentation": "<p>The token to use to refresh a previously issued access token that might have\n      expired.</p>",
             "smithy.api#required": {}
           }
+        },
+        "clientId": {
+          "target": "com.amazonaws.amplifyuibuilder#SensitiveString",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the client to request the token from.</p>"
+          }
         }
       },
       "traits": {
@@ -4588,7 +4361,13 @@
         "orientation": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the orientation for a <code>Divider</code> sectional element. Valid values are\n      <code>horizontal</code> or <code>vertical</code>.</p>"
+            "smithy.api#documentation": "<p>Specifies the orientation for a <code>Divider</code> sectional element. Valid values are\n        <code>horizontal</code> or <code>vertical</code>.</p>"
+          }
+        },
+        "excluded": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Excludes a sectional element that was generated by default for a specified data\n      model.</p>"
           }
         }
       },
@@ -4663,6 +4442,25 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.amplifyuibuilder#SortProperty"
+      }
+    },
+    "com.amazonaws.amplifyuibuilder#StorageAccessLevel": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "public",
+            "name": "PUBLIC"
+          },
+          {
+            "value": "protected",
+            "name": "PROTECTED"
+          },
+          {
+            "value": "private",
+            "name": "PRIVATE"
+          }
+        ]
       }
     },
     "com.amazonaws.amplifyuibuilder#StrValues": {
@@ -4831,13 +4629,9 @@
         },
         "aws.cloudformation#cfnResource": {
           "name": "Theme",
-          "additionalSchemas": [
-            "com.amazonaws.amplifyuibuilder#Theme"
-          ]
+          "additionalSchemas": ["com.amazonaws.amplifyuibuilder#Theme"]
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ]
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"]
       }
     },
     "com.amazonaws.amplifyuibuilder#ThemeSummary": {
@@ -4973,9 +4767,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Updates an existing component.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/components/{id}",
@@ -5143,9 +4935,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Updates an existing form.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/forms/{id}",
@@ -5203,6 +4993,12 @@
           "target": "com.amazonaws.amplifyuibuilder#FormCTA",
           "traits": {
             "smithy.api#documentation": "<p>The <code>FormCTA</code> object that stores the call to action configuration for the\n      form.</p>"
+          }
+        },
+        "labelDecorator": {
+          "target": "com.amazonaws.amplifyuibuilder#LabelDecorator",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies an icon or decoration to display on the form.</p>"
           }
         }
       },
@@ -5289,9 +5085,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Updates an existing theme.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/themes/{id}",
@@ -5436,6 +5230,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The value and display value pairs.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "bindingProperties": {
+          "target": "com.amazonaws.amplifyuibuilder#FormInputBindingProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The information to bind fields to data at runtime.</p>"
           }
         }
       },

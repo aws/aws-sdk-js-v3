@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CacheParameterGroupNameMessage,
-  CacheParameterGroupNameMessageFilterSensitiveLog,
-  ModifyCacheParameterGroupMessage,
-  ModifyCacheParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyCacheParameterGroupCommand,
-  serializeAws_queryModifyCacheParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { CacheParameterGroupNameMessage, ModifyCacheParameterGroupMessage } from "../models/models_0";
+import { de_ModifyCacheParameterGroupCommand, se_ModifyCacheParameterGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCacheParameterGroupCommand}.
  */
 export interface ModifyCacheParameterGroupCommandInput extends ModifyCacheParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCacheParameterGroupCommand}.
  */
 export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGroupNameMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a cache
  *             parameter group. You can modify up to 20 parameters in a single request by submitting a
  *             list parameter name and value pairs.</p>
@@ -44,10 +41,21 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * import { ElastiCacheClient, ModifyCacheParameterGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyCacheParameterGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // ModifyCacheParameterGroupMessage
+ *   CacheParameterGroupName: "STRING_VALUE", // required
+ *   ParameterNameValues: [ // ParameterNameValueList // required
+ *     { // ParameterNameValue
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyCacheParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCacheParameterGroupCommandInput - {@link ModifyCacheParameterGroupCommandInput}
+ * @returns {@link ModifyCacheParameterGroupCommandOutput}
  * @see {@link ModifyCacheParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -112,6 +120,9 @@ export class ModifyCacheParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCacheParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +151,8 @@ export class ModifyCacheParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCacheParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CacheParameterGroupNameMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,15 +162,21 @@ export class ModifyCacheParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyCacheParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyCacheParameterGroupCommand(input, context);
+    return se_ModifyCacheParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyCacheParameterGroupCommandOutput> {
-    return deserializeAws_queryModifyCacheParameterGroupCommand(output, context);
+    return de_ModifyCacheParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

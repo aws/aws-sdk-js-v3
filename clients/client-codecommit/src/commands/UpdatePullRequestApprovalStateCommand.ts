@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { UpdatePullRequestApprovalStateInput } from "../models/models_1";
 import {
-  UpdatePullRequestApprovalStateInput,
-  UpdatePullRequestApprovalStateInputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdatePullRequestApprovalStateCommand,
-  serializeAws_json1_1UpdatePullRequestApprovalStateCommand,
+  de_UpdatePullRequestApprovalStateCommand,
+  se_UpdatePullRequestApprovalStateCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePullRequestApprovalStateCommand}.
  */
 export interface UpdatePullRequestApprovalStateCommandInput extends UpdatePullRequestApprovalStateInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePullRequestApprovalStateCommand}.
  */
 export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the state of a user's approval on a pull request. The user is derived from the signed-in account when the request is made.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,17 @@ export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataB
  * import { CodeCommitClient, UpdatePullRequestApprovalStateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdatePullRequestApprovalStateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // UpdatePullRequestApprovalStateInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE", // required
+ *   approvalState: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePullRequestApprovalStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePullRequestApprovalStateCommandInput - {@link UpdatePullRequestApprovalStateCommandInput}
+ * @returns {@link UpdatePullRequestApprovalStateCommandOutput}
  * @see {@link UpdatePullRequestApprovalStateCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestApprovalStateCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -116,6 +125,9 @@ export class UpdatePullRequestApprovalStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePullRequestApprovalStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +156,8 @@ export class UpdatePullRequestApprovalStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePullRequestApprovalStateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,18 +167,24 @@ export class UpdatePullRequestApprovalStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdatePullRequestApprovalStateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePullRequestApprovalStateCommand(input, context);
+    return se_UpdatePullRequestApprovalStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePullRequestApprovalStateCommandOutput> {
-    return deserializeAws_json1_1UpdatePullRequestApprovalStateCommand(output, context);
+    return de_UpdatePullRequestApprovalStateCommand(output, context);
   }
 
   // Start section: command_body_extra

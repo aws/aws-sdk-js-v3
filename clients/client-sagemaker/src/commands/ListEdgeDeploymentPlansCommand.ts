@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListEdgeDeploymentPlansRequest,
-  ListEdgeDeploymentPlansRequestFilterSensitiveLog,
-  ListEdgeDeploymentPlansResponse,
-  ListEdgeDeploymentPlansResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListEdgeDeploymentPlansCommand,
-  serializeAws_json1_1ListEdgeDeploymentPlansCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEdgeDeploymentPlansRequest, ListEdgeDeploymentPlansResponse } from "../models/models_3";
+import { de_ListEdgeDeploymentPlansCommand, se_ListEdgeDeploymentPlansCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEdgeDeploymentPlansCommand}.
  */
 export interface ListEdgeDeploymentPlansCommandInput extends ListEdgeDeploymentPlansRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEdgeDeploymentPlansCommand}.
  */
 export interface ListEdgeDeploymentPlansCommandOutput extends ListEdgeDeploymentPlansResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all edge deployment plans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface ListEdgeDeploymentPlansCommandOutput extends ListEdgeDeployment
  * import { SageMakerClient, ListEdgeDeploymentPlansCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListEdgeDeploymentPlansCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListEdgeDeploymentPlansRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   NameContains: "STRING_VALUE",
+ *   DeviceFleetNameContains: "STRING_VALUE",
+ *   SortBy: "NAME" || "DEVICE_FLEET_NAME" || "CREATION_TIME" || "LAST_MODIFIED_TIME",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListEdgeDeploymentPlansCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEdgeDeploymentPlansCommandInput - {@link ListEdgeDeploymentPlansCommandInput}
+ * @returns {@link ListEdgeDeploymentPlansCommandOutput}
  * @see {@link ListEdgeDeploymentPlansCommandInput} for command's `input` shape.
  * @see {@link ListEdgeDeploymentPlansCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +80,9 @@ export class ListEdgeDeploymentPlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEdgeDeploymentPlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +111,8 @@ export class ListEdgeDeploymentPlansCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEdgeDeploymentPlansRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEdgeDeploymentPlansResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +122,18 @@ export class ListEdgeDeploymentPlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEdgeDeploymentPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEdgeDeploymentPlansCommand(input, context);
+    return se_ListEdgeDeploymentPlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEdgeDeploymentPlansCommandOutput> {
-    return deserializeAws_json1_1ListEdgeDeploymentPlansCommand(output, context);
+    return de_ListEdgeDeploymentPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateGroupInput,
-  UpdateGroupInputFilterSensitiveLog,
-  UpdateGroupOutput,
-  UpdateGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGroupCommand,
-  serializeAws_restJson1UpdateGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateGroupInput, UpdateGroupOutput } from "../models/models_0";
+import { de_UpdateGroupCommand, se_UpdateGroupCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGroupCommand}.
  */
 export interface UpdateGroupCommandInput extends UpdateGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGroupCommand}.
  */
 export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description for an existing group. You cannot update the name of a
  *             resource group.</p>
  *          <p>
@@ -54,10 +51,17 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  * import { ResourceGroupsClient, UpdateGroupCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, UpdateGroupCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // UpdateGroupInput
+ *   GroupName: "STRING_VALUE",
+ *   Group: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
+ * @returns {@link UpdateGroupCommandOutput}
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -100,6 +104,9 @@ export class UpdateGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +133,8 @@ export class UpdateGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +144,18 @@ export class UpdateGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGroupCommand(input, context);
+    return se_UpdateGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateGroupCommand(output, context);
+    return de_UpdateGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

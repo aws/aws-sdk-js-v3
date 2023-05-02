@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateHumanTaskUiRequest,
-  CreateHumanTaskUiRequestFilterSensitiveLog,
-  CreateHumanTaskUiResponse,
-  CreateHumanTaskUiResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateHumanTaskUiCommand,
-  serializeAws_json1_1CreateHumanTaskUiCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateHumanTaskUiRequest, CreateHumanTaskUiResponse } from "../models/models_1";
+import { de_CreateHumanTaskUiCommand, se_CreateHumanTaskUiCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHumanTaskUiCommand}.
  */
 export interface CreateHumanTaskUiCommandInput extends CreateHumanTaskUiRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHumanTaskUiCommand}.
  */
 export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines the settings you will use for the human review workflow user interface. Reviewers will see a three-panel interface with an instruction area, the item to review, and an input area.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiRespons
  * import { SageMakerClient, CreateHumanTaskUiCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateHumanTaskUiCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateHumanTaskUiRequest
+ *   HumanTaskUiName: "STRING_VALUE", // required
+ *   UiTemplate: { // UiTemplate
+ *     Content: "STRING_VALUE", // required
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHumanTaskUiCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHumanTaskUiCommandInput - {@link CreateHumanTaskUiCommandInput}
+ * @returns {@link CreateHumanTaskUiCommandOutput}
  * @see {@link CreateHumanTaskUiCommandInput} for command's `input` shape.
  * @see {@link CreateHumanTaskUiCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +87,9 @@ export class CreateHumanTaskUiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHumanTaskUiCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +118,8 @@ export class CreateHumanTaskUiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHumanTaskUiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHumanTaskUiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +129,18 @@ export class CreateHumanTaskUiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHumanTaskUiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHumanTaskUiCommand(input, context);
+    return se_CreateHumanTaskUiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHumanTaskUiCommandOutput> {
-    return deserializeAws_json1_1CreateHumanTaskUiCommand(output, context);
+    return de_CreateHumanTaskUiCommand(output, context);
   }
 
   // Start section: command_body_extra

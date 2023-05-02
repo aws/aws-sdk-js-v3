@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListApplicationVersionsRequest,
-  ListApplicationVersionsRequestFilterSensitiveLog,
-  ListApplicationVersionsResponse,
-  ListApplicationVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListApplicationVersionsCommand,
-  serializeAws_restJson1ListApplicationVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListApplicationVersionsRequest, ListApplicationVersionsResponse } from "../models/models_0";
+import { de_ListApplicationVersionsCommand, se_ListApplicationVersionsCommand } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ServerlessApplicationRepositoryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationVersionsCommand}.
  */
 export interface ListApplicationVersionsCommandInput extends ListApplicationVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationVersionsCommand}.
  */
 export interface ListApplicationVersionsCommandOutput extends ListApplicationVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists versions for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * import { ServerlessApplicationRepositoryClient, ListApplicationVersionsCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, ListApplicationVersionsCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = { // ListApplicationVersionsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   MaxItems: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListApplicationVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationVersionsCommandInput - {@link ListApplicationVersionsCommandInput}
+ * @returns {@link ListApplicationVersionsCommandOutput}
  * @see {@link ListApplicationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationVersionsCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
@@ -88,6 +92,9 @@ export class ListApplicationVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class ListApplicationVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class ListApplicationVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApplicationVersionsCommand(input, context);
+    return se_ListApplicationVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationVersionsCommandOutput> {
-    return deserializeAws_restJson1ListApplicationVersionsCommand(output, context);
+    return de_ListApplicationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  DeleteFlowRequest,
-  DeleteFlowRequestFilterSensitiveLog,
-  DeleteFlowResponse,
-  DeleteFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFlowCommand,
-  serializeAws_restJson1DeleteFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFlowRequest, DeleteFlowResponse } from "../models/models_0";
+import { de_DeleteFlowCommand, se_DeleteFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFlowCommand}.
  */
 export interface DeleteFlowCommandInput extends DeleteFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFlowCommand}.
  */
 export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a flow. Before you can delete a flow, you must stop the flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * import { MediaConnectClient, DeleteFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, DeleteFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // DeleteFlowRequest
+ *   FlowArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFlowCommandInput - {@link DeleteFlowCommandInput}
+ * @returns {@link DeleteFlowCommandOutput}
  * @see {@link DeleteFlowCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFlowCommand(input, context);
+    return se_DeleteFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowCommandOutput> {
-    return deserializeAws_restJson1DeleteFlowCommand(output, context);
+    return de_DeleteFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

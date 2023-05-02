@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { AcceptEnvironmentAccountConnectionInput, AcceptEnvironmentAccountConnectionOutput } from "../models/models_0";
 import {
-  AcceptEnvironmentAccountConnectionInput,
-  AcceptEnvironmentAccountConnectionInputFilterSensitiveLog,
-  AcceptEnvironmentAccountConnectionOutput,
-  AcceptEnvironmentAccountConnectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0AcceptEnvironmentAccountConnectionCommand,
-  serializeAws_json1_0AcceptEnvironmentAccountConnectionCommand,
+  de_AcceptEnvironmentAccountConnectionCommand,
+  se_AcceptEnvironmentAccountConnectionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptEnvironmentAccountConnectionCommand}.
  */
 export interface AcceptEnvironmentAccountConnectionCommandInput extends AcceptEnvironmentAccountConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link AcceptEnvironmentAccountConnectionCommand}.
  */
 export interface AcceptEnvironmentAccountConnectionCommandOutput
@@ -37,6 +36,7 @@ export interface AcceptEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton
  *       can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
@@ -47,10 +47,15 @@ export interface AcceptEnvironmentAccountConnectionCommandOutput
  * import { ProtonClient, AcceptEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, AcceptEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // AcceptEnvironmentAccountConnectionInput
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new AcceptEnvironmentAccountConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptEnvironmentAccountConnectionCommandInput - {@link AcceptEnvironmentAccountConnectionCommandInput}
+ * @returns {@link AcceptEnvironmentAccountConnectionCommandOutput}
  * @see {@link AcceptEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link AcceptEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -92,6 +97,9 @@ export class AcceptEnvironmentAccountConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptEnvironmentAccountConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +128,8 @@ export class AcceptEnvironmentAccountConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptEnvironmentAccountConnectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptEnvironmentAccountConnectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +139,24 @@ export class AcceptEnvironmentAccountConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AcceptEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0AcceptEnvironmentAccountConnectionCommand(input, context);
+    return se_AcceptEnvironmentAccountConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptEnvironmentAccountConnectionCommandOutput> {
-    return deserializeAws_json1_0AcceptEnvironmentAccountConnectionCommand(output, context);
+    return de_AcceptEnvironmentAccountConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

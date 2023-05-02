@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  GetItemInput,
-  GetItemInputFilterSensitiveLog,
-  GetItemOutput,
-  GetItemOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_0GetItemCommand, serializeAws_json1_0GetItemCommand } from "../protocols/Aws_json1_0";
+import { GetItemInput, GetItemOutput } from "../models/models_0";
+import { de_GetItemCommand, se_GetItemCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetItemCommand}.
  */
 export interface GetItemCommandInput extends GetItemInput {}
 /**
+ * @public
+ *
  * The output of {@link GetItemCommand}.
  */
 export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>GetItem</code> operation returns a set of attributes for the item with the
  *             given primary key. If there is no matching item, <code>GetItem</code> does not return
  *             any data and there will be no <code>Item</code> element in the response.</p>
@@ -46,10 +46,69 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  * import { DynamoDBClient, GetItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, GetItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // GetItemInput
+ *   TableName: "STRING_VALUE", // required
+ *   Key: { // Key // required
+ *     "<keys>": { // AttributeValue Union: only one key present
+ *       S: "STRING_VALUE",
+ *       N: "STRING_VALUE",
+ *       B: "BLOB_VALUE",
+ *       SS: [ // StringSetAttributeValue
+ *         "STRING_VALUE",
+ *       ],
+ *       NS: [ // NumberSetAttributeValue
+ *         "STRING_VALUE",
+ *       ],
+ *       BS: [ // BinarySetAttributeValue
+ *         "BLOB_VALUE",
+ *       ],
+ *       M: { // MapAttributeValue
+ *         "<keys>": {//  Union: only one key present
+ *           S: "STRING_VALUE",
+ *           N: "STRING_VALUE",
+ *           B: "BLOB_VALUE",
+ *           SS: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NS: [
+ *             "STRING_VALUE",
+ *           ],
+ *           BS: [
+ *             "BLOB_VALUE",
+ *           ],
+ *           M: {
+ *             "<keys>": "<AttributeValue>",
+ *           },
+ *           L: [ // ListAttributeValue
+ *             "<AttributeValue>",
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       },
+ *       L: [
+ *         "<AttributeValue>",
+ *       ],
+ *       NULL: true || false,
+ *       BOOL: true || false,
+ *     },
+ *   },
+ *   AttributesToGet: [ // AttributeNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   ConsistentRead: true || false,
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   ProjectionExpression: "STRING_VALUE",
+ *   ExpressionAttributeNames: { // ExpressionAttributeNameMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetItemCommandInput - {@link GetItemCommandInput}
+ * @returns {@link GetItemCommandOutput}
  * @see {@link GetItemCommandInput} for command's `input` shape.
  * @see {@link GetItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -123,6 +182,9 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +211,8 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetItemOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,12 +222,18 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetItemCommand(input, context);
+    return se_GetItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetItemCommandOutput> {
-    return deserializeAws_json1_0GetItemCommand(output, context);
+    return de_GetItemCommand(output, context);
   }
 
   // Start section: command_body_extra

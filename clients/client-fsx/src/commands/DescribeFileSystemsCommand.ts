@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DescribeFileSystemsRequest,
-  DescribeFileSystemsRequestFilterSensitiveLog,
-  DescribeFileSystemsResponse,
-  DescribeFileSystemsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFileSystemsCommand,
-  serializeAws_json1_1DescribeFileSystemsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/models_0";
+import { de_DescribeFileSystemsCommand, se_DescribeFileSystemsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFileSystemsCommand}.
  */
 export interface DescribeFileSystemsCommandInput extends DescribeFileSystemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFileSystemsCommand}.
  */
 export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of specific Amazon FSx file systems, if a
  *                 <code>FileSystemIds</code> value is provided for that file system. Otherwise, it
  *             returns descriptions of all file systems owned by your Amazon Web Services account in the
@@ -69,10 +66,19 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * import { FSxClient, DescribeFileSystemsCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeFileSystemsCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DescribeFileSystemsRequest
+ *   FileSystemIds: [ // FileSystemIds
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFileSystemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFileSystemsCommandInput - {@link DescribeFileSystemsCommandInput}
+ * @returns {@link DescribeFileSystemsCommandOutput}
  * @see {@link DescribeFileSystemsCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -150,6 +156,9 @@ export class DescribeFileSystemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileSystemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,8 +187,8 @@ export class DescribeFileSystemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFileSystemsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFileSystemsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -189,12 +198,18 @@ export class DescribeFileSystemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFileSystemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFileSystemsCommand(input, context);
+    return se_DescribeFileSystemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileSystemsCommandOutput> {
-    return deserializeAws_json1_1DescribeFileSystemsCommand(output, context);
+    return de_DescribeFileSystemsCommand(output, context);
   }
 
   // Start section: command_body_extra

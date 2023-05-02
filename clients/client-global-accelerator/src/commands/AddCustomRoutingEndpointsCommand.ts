@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  AddCustomRoutingEndpointsRequest,
-  AddCustomRoutingEndpointsRequestFilterSensitiveLog,
-  AddCustomRoutingEndpointsResponse,
-  AddCustomRoutingEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddCustomRoutingEndpointsCommand,
-  serializeAws_json1_1AddCustomRoutingEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { AddCustomRoutingEndpointsRequest, AddCustomRoutingEndpointsResponse } from "../models/models_0";
+import { de_AddCustomRoutingEndpointsCommand, se_AddCustomRoutingEndpointsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddCustomRoutingEndpointsCommand}.
  */
 export interface AddCustomRoutingEndpointsCommandInput extends AddCustomRoutingEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddCustomRoutingEndpointsCommand}.
  */
 export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRoutingEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate a virtual private cloud (VPC) subnet endpoint with your custom routing accelerator.</p>
  * 	        <p>The listener port range must be large enough to support the number of IP addresses that can be
  * 		specified in your subnet. The number of ports required is: subnet size times the number
@@ -56,10 +53,20 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * import { GlobalAcceleratorClient, AddCustomRoutingEndpointsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, AddCustomRoutingEndpointsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // AddCustomRoutingEndpointsRequest
+ *   EndpointConfigurations: [ // CustomRoutingEndpointConfigurations // required
+ *     { // CustomRoutingEndpointConfiguration
+ *       EndpointId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new AddCustomRoutingEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddCustomRoutingEndpointsCommandInput - {@link AddCustomRoutingEndpointsCommandInput}
+ * @returns {@link AddCustomRoutingEndpointsCommandOutput}
  * @see {@link AddCustomRoutingEndpointsCommandInput} for command's `input` shape.
  * @see {@link AddCustomRoutingEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -104,6 +111,9 @@ export class AddCustomRoutingEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddCustomRoutingEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +142,8 @@ export class AddCustomRoutingEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddCustomRoutingEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddCustomRoutingEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,15 +153,21 @@ export class AddCustomRoutingEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddCustomRoutingEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddCustomRoutingEndpointsCommand(input, context);
+    return se_AddCustomRoutingEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddCustomRoutingEndpointsCommandOutput> {
-    return deserializeAws_json1_1AddCustomRoutingEndpointsCommand(output, context);
+    return de_AddCustomRoutingEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

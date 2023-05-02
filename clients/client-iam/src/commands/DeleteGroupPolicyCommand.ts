@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteGroupPolicyRequest, DeleteGroupPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteGroupPolicyCommand,
-  serializeAws_queryDeleteGroupPolicyCommand,
-} from "../protocols/Aws_query";
+import { DeleteGroupPolicyRequest } from "../models/models_0";
+import { de_DeleteGroupPolicyCommand, se_DeleteGroupPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGroupPolicyCommand}.
  */
 export interface DeleteGroupPolicyCommandInput extends DeleteGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGroupPolicyCommand}.
  */
 export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified inline policy that is embedded in the specified IAM
  *             group.</p>
  *          <p>A group can also have managed policies attached to it. To detach a managed policy from
@@ -42,10 +44,16 @@ export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteGroupPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteGroupPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteGroupPolicyRequest
+ *   GroupName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGroupPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGroupPolicyCommandInput - {@link DeleteGroupPolicyCommandInput}
+ * @returns {@link DeleteGroupPolicyCommandOutput}
  * @see {@link DeleteGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -93,6 +101,9 @@ export class DeleteGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +132,8 @@ export class DeleteGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGroupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +143,18 @@ export class DeleteGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteGroupPolicyCommand(input, context);
+    return se_DeleteGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGroupPolicyCommandOutput> {
-    return deserializeAws_queryDeleteGroupPolicyCommand(output, context);
+    return de_DeleteGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

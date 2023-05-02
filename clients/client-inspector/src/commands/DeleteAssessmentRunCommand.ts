@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { DeleteAssessmentRunRequest, DeleteAssessmentRunRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAssessmentRunCommand,
-  serializeAws_json1_1DeleteAssessmentRunCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAssessmentRunRequest } from "../models/models_0";
+import { de_DeleteAssessmentRunCommand, se_DeleteAssessmentRunCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssessmentRunCommand}.
  */
 export interface DeleteAssessmentRunCommandInput extends DeleteAssessmentRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssessmentRunCommand}.
  */
 export interface DeleteAssessmentRunCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the assessment run that is specified by the ARN of the assessment
  *          run.</p>
  * @example
@@ -38,10 +40,15 @@ export interface DeleteAssessmentRunCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, DeleteAssessmentRunCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DeleteAssessmentRunCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // DeleteAssessmentRunRequest
+ *   assessmentRunArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAssessmentRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssessmentRunCommandInput - {@link DeleteAssessmentRunCommandInput}
+ * @returns {@link DeleteAssessmentRunCommandOutput}
  * @see {@link DeleteAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteAssessmentRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +135,8 @@ export class DeleteAssessmentRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssessmentRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +146,18 @@ export class DeleteAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssessmentRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAssessmentRunCommand(input, context);
+    return se_DeleteAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssessmentRunCommandOutput> {
-    return deserializeAws_json1_1DeleteAssessmentRunCommand(output, context);
+    return de_DeleteAssessmentRunCommand(output, context);
   }
 
   // Start section: command_body_extra

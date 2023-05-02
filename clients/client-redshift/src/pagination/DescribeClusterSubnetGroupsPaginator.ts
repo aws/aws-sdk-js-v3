@@ -10,7 +10,7 @@ import { RedshiftClient } from "../RedshiftClient";
 import { RedshiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RedshiftClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeClusterSubnetGroupsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeClusterSubnetGroups(
   config: RedshiftPaginationConfiguration,
   input: DescribeClusterSubnetGroupsCommandInput,

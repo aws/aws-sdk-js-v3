@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  PostCommentForPullRequestInput,
-  PostCommentForPullRequestInputFilterSensitiveLog,
-  PostCommentForPullRequestOutput,
-  PostCommentForPullRequestOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PostCommentForPullRequestCommand,
-  serializeAws_json1_1PostCommentForPullRequestCommand,
-} from "../protocols/Aws_json1_1";
+import { PostCommentForPullRequestInput, PostCommentForPullRequestOutput } from "../models/models_1";
+import { de_PostCommentForPullRequestCommand, se_PostCommentForPullRequestCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PostCommentForPullRequestCommand}.
  */
 export interface PostCommentForPullRequestCommandInput extends PostCommentForPullRequestInput {}
 /**
+ * @public
+ *
  * The output of {@link PostCommentForPullRequestCommand}.
  */
 export interface PostCommentForPullRequestCommandOutput extends PostCommentForPullRequestOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Posts a comment on a pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface PostCommentForPullRequestCommandOutput extends PostCommentForPu
  * import { CodeCommitClient, PostCommentForPullRequestCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PostCommentForPullRequestCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // PostCommentForPullRequestInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   repositoryName: "STRING_VALUE", // required
+ *   beforeCommitId: "STRING_VALUE", // required
+ *   afterCommitId: "STRING_VALUE", // required
+ *   location: { // Location
+ *     filePath: "STRING_VALUE",
+ *     filePosition: Number("long"),
+ *     relativeFileVersion: "STRING_VALUE",
+ *   },
+ *   content: "STRING_VALUE", // required
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new PostCommentForPullRequestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PostCommentForPullRequestCommandInput - {@link PostCommentForPullRequestCommandInput}
+ * @returns {@link PostCommentForPullRequestCommandOutput}
  * @see {@link PostCommentForPullRequestCommandInput} for command's `input` shape.
  * @see {@link PostCommentForPullRequestCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -162,6 +174,9 @@ export class PostCommentForPullRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PostCommentForPullRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -190,8 +205,8 @@ export class PostCommentForPullRequestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PostCommentForPullRequestInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PostCommentForPullRequestOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -201,15 +216,21 @@ export class PostCommentForPullRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PostCommentForPullRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PostCommentForPullRequestCommand(input, context);
+    return se_PostCommentForPullRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PostCommentForPullRequestCommandOutput> {
-    return deserializeAws_json1_1PostCommentForPullRequestCommand(output, context);
+    return de_PostCommentForPullRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

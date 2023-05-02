@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteConfigurationSetRequest,
-  DeleteConfigurationSetRequestFilterSensitiveLog,
-  DeleteConfigurationSetResult,
-  DeleteConfigurationSetResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteConfigurationSetRequest, DeleteConfigurationSetResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DeleteConfigurationSetCommand,
-  serializeAws_json1_0DeleteConfigurationSetCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteConfigurationSetCommand, se_DeleteConfigurationSetCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationSetCommand}.
  */
 export interface DeleteConfigurationSetCommandInput extends DeleteConfigurationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationSetCommand}.
  */
 export interface DeleteConfigurationSetCommandOutput extends DeleteConfigurationSetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing configuration set.</p>
  *         <p>A configuration set is a set of rules that you apply to voice and SMS messages that
  *             you send. In a configuration set, you can specify a destination for specific types of
@@ -49,10 +46,15 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * import { PinpointSMSVoiceV2Client, DeleteConfigurationSetCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DeleteConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DeleteConfigurationSetRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationSetCommandInput - {@link DeleteConfigurationSetCommandInput}
+ * @returns {@link DeleteConfigurationSetCommandOutput}
  * @see {@link DeleteConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -94,6 +96,9 @@ export class DeleteConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +127,8 @@ export class DeleteConfigurationSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfigurationSetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +138,18 @@ export class DeleteConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteConfigurationSetCommand(input, context);
+    return se_DeleteConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigurationSetCommandOutput> {
-    return deserializeAws_json1_0DeleteConfigurationSetCommand(output, context);
+    return de_DeleteConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

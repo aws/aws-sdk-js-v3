@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListExecutionsInput,
-  ListExecutionsInputFilterSensitiveLog,
-  ListExecutionsOutput,
-  ListExecutionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListExecutionsCommand,
-  serializeAws_json1_0ListExecutionsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListExecutionsInput, ListExecutionsOutput } from "../models/models_0";
+import { de_ListExecutionsCommand, se_ListExecutionsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListExecutionsCommand}.
  */
 export interface ListExecutionsCommandInput extends ListExecutionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListExecutionsCommand}.
  */
 export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN.</p>
  *          <p>Results are
  *       sorted by time, with the most recent execution first.</p>
@@ -50,10 +47,19 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * import { SFNClient, ListExecutionsCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, ListExecutionsCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // ListExecutionsInput
+ *   stateMachineArn: "STRING_VALUE",
+ *   statusFilter: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   mapRunArn: "STRING_VALUE",
+ * };
  * const command = new ListExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExecutionsCommandInput - {@link ListExecutionsCommandInput}
+ * @returns {@link ListExecutionsCommandOutput}
  * @see {@link ListExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -96,6 +102,9 @@ export class ListExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +133,8 @@ export class ListExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExecutionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExecutionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +144,18 @@ export class ListExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListExecutionsCommand(input, context);
+    return se_ListExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExecutionsCommandOutput> {
-    return deserializeAws_json1_0ListExecutionsCommand(output, context);
+    return de_ListExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

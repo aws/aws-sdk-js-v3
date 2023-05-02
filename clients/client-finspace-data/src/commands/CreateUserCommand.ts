@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  CreateUserRequest,
-  CreateUserRequestFilterSensitiveLog,
-  CreateUserResponse,
-  CreateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateUserCommand,
-  serializeAws_restJson1CreateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateUserRequest, CreateUserRequestFilterSensitiveLog, CreateUserResponse } from "../models/models_0";
+import { de_CreateUserCommand, se_CreateUserCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserCommand}.
  */
 export interface CreateUserCommandInput extends CreateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserCommand}.
  */
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new user in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { FinspaceDataClient, CreateUserCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, CreateUserCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // CreateUserRequest
+ *   emailAddress: "STRING_VALUE", // required
+ *   type: "STRING_VALUE", // required
+ *   firstName: "STRING_VALUE",
+ *   lastName: "STRING_VALUE",
+ *   ApiAccess: "STRING_VALUE",
+ *   apiAccessPrincipalArn: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserCommandInput - {@link CreateUserCommandInput}
+ * @returns {@link CreateUserCommandOutput}
  * @see {@link CreateUserCommandInput} for command's `input` shape.
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -88,6 +96,9 @@ export class CreateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +126,7 @@ export class CreateUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +136,18 @@ export class CreateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUserCommand(input, context);
+    return se_CreateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserCommandOutput> {
-    return deserializeAws_restJson1CreateUserCommand(output, context);
+    return de_CreateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

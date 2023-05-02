@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { BatchCreateRumMetricDefinitionsRequest, BatchCreateRumMetricDefinitionsResponse } from "../models/models_0";
 import {
-  BatchCreateRumMetricDefinitionsRequest,
-  BatchCreateRumMetricDefinitionsRequestFilterSensitiveLog,
-  BatchCreateRumMetricDefinitionsResponse,
-  BatchCreateRumMetricDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchCreateRumMetricDefinitionsCommand,
-  serializeAws_restJson1BatchCreateRumMetricDefinitionsCommand,
+  de_BatchCreateRumMetricDefinitionsCommand,
+  se_BatchCreateRumMetricDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCreateRumMetricDefinitionsCommand}.
  */
 export interface BatchCreateRumMetricDefinitionsCommandInput extends BatchCreateRumMetricDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCreateRumMetricDefinitionsCommand}.
  */
 export interface BatchCreateRumMetricDefinitionsCommandOutput
@@ -37,6 +36,7 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies the extended metrics and custom metrics that you want a CloudWatch RUM app monitor to send to a destination. Valid
  *          destinations include CloudWatch and Evidently.</p>
  *          <p>By default, RUM app monitors send some metrics to CloudWatch. These default metrics
@@ -83,10 +83,29 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
  * import { RUMClient, BatchCreateRumMetricDefinitionsCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, BatchCreateRumMetricDefinitionsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = { // BatchCreateRumMetricDefinitionsRequest
+ *   AppMonitorName: "STRING_VALUE", // required
+ *   Destination: "STRING_VALUE", // required
+ *   DestinationArn: "STRING_VALUE",
+ *   MetricDefinitions: [ // MetricDefinitionsRequest // required
+ *     { // MetricDefinitionRequest
+ *       Name: "STRING_VALUE", // required
+ *       ValueKey: "STRING_VALUE",
+ *       UnitLabel: "STRING_VALUE",
+ *       DimensionKeys: { // DimensionKeysMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       EventPattern: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchCreateRumMetricDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCreateRumMetricDefinitionsCommandInput - {@link BatchCreateRumMetricDefinitionsCommandInput}
+ * @returns {@link BatchCreateRumMetricDefinitionsCommandOutput}
  * @see {@link BatchCreateRumMetricDefinitionsCommandInput} for command's `input` shape.
  * @see {@link BatchCreateRumMetricDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -131,6 +150,9 @@ export class BatchCreateRumMetricDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCreateRumMetricDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,8 +181,8 @@ export class BatchCreateRumMetricDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCreateRumMetricDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchCreateRumMetricDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,18 +192,24 @@ export class BatchCreateRumMetricDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchCreateRumMetricDefinitionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchCreateRumMetricDefinitionsCommand(input, context);
+    return se_BatchCreateRumMetricDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchCreateRumMetricDefinitionsCommandOutput> {
-    return deserializeAws_restJson1BatchCreateRumMetricDefinitionsCommand(output, context);
+    return de_BatchCreateRumMetricDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

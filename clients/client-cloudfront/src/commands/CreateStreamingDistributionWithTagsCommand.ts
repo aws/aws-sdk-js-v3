@@ -16,20 +16,22 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   CreateStreamingDistributionWithTagsRequest,
-  CreateStreamingDistributionWithTagsRequestFilterSensitiveLog,
   CreateStreamingDistributionWithTagsResult,
-  CreateStreamingDistributionWithTagsResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand,
-  serializeAws_restXmlCreateStreamingDistributionWithTagsCommand,
+  de_CreateStreamingDistributionWithTagsCommand,
+  se_CreateStreamingDistributionWithTagsCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamingDistributionWithTagsCommand}.
  */
 export interface CreateStreamingDistributionWithTagsCommandInput extends CreateStreamingDistributionWithTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamingDistributionWithTagsCommand}.
  */
 export interface CreateStreamingDistributionWithTagsCommandOutput
@@ -37,6 +39,7 @@ export interface CreateStreamingDistributionWithTagsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
  * 			distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion
  * 			forum.</p>
@@ -46,10 +49,52 @@ export interface CreateStreamingDistributionWithTagsCommandOutput
  * import { CloudFrontClient, CreateStreamingDistributionWithTagsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateStreamingDistributionWithTagsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreateStreamingDistributionWithTagsRequest
+ *   StreamingDistributionConfigWithTags: { // StreamingDistributionConfigWithTags
+ *     StreamingDistributionConfig: { // StreamingDistributionConfig
+ *       CallerReference: "STRING_VALUE", // required
+ *       S3Origin: { // S3Origin
+ *         DomainName: "STRING_VALUE", // required
+ *         OriginAccessIdentity: "STRING_VALUE", // required
+ *       },
+ *       Aliases: { // Aliases
+ *         Quantity: Number("int"), // required
+ *         Items: [ // AliasList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Comment: "STRING_VALUE", // required
+ *       Logging: { // StreamingLoggingConfig
+ *         Enabled: true || false, // required
+ *         Bucket: "STRING_VALUE", // required
+ *         Prefix: "STRING_VALUE", // required
+ *       },
+ *       TrustedSigners: { // TrustedSigners
+ *         Enabled: true || false, // required
+ *         Quantity: Number("int"), // required
+ *         Items: [ // AwsAccountNumberList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *       Enabled: true || false, // required
+ *     },
+ *     Tags: { // Tags
+ *       Items: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateStreamingDistributionWithTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamingDistributionWithTagsCommandInput - {@link CreateStreamingDistributionWithTagsCommandInput}
+ * @returns {@link CreateStreamingDistributionWithTagsCommandOutput}
  * @see {@link CreateStreamingDistributionWithTagsCommandInput} for command's `input` shape.
  * @see {@link CreateStreamingDistributionWithTagsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -119,6 +164,9 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamingDistributionWithTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +195,8 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamingDistributionWithTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStreamingDistributionWithTagsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,18 +206,24 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateStreamingDistributionWithTagsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateStreamingDistributionWithTagsCommand(input, context);
+    return se_CreateStreamingDistributionWithTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateStreamingDistributionWithTagsCommandOutput> {
-    return deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand(output, context);
+    return de_CreateStreamingDistributionWithTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

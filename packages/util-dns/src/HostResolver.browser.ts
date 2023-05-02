@@ -1,5 +1,8 @@
 import { HostAddress, HostResolver as IHostResolver, HostResolverArguments } from "@aws-sdk/types";
 
+/**
+ * @internal
+ */
 export class HostResolver implements IHostResolver {
   /**
    * For the browser and similar platforms where there is no way to query DNS,

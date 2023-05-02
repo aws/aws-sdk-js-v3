@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssignInstanceRequest, AssignInstanceRequestFilterSensitiveLog } from "../models/models_0";
+import { AssignInstanceRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1AssignInstanceCommand,
-  serializeAws_json1_1AssignInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssignInstanceCommand, se_AssignInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssignInstanceCommand}.
  */
 export interface AssignInstanceCommandInput extends AssignInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssignInstanceCommand}.
  */
 export interface AssignInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assign a registered instance to a layer.</p>
  *          <ul>
  *             <li>
@@ -54,10 +56,18 @@ export interface AssignInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, AssignInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, AssignInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // AssignInstanceRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   LayerIds: [ // Strings // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AssignInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssignInstanceCommandInput - {@link AssignInstanceCommandInput}
+ * @returns {@link AssignInstanceCommandOutput}
  * @see {@link AssignInstanceCommandInput} for command's `input` shape.
  * @see {@link AssignInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -87,6 +97,9 @@ export class AssignInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssignInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +128,8 @@ export class AssignInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssignInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +139,18 @@ export class AssignInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssignInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssignInstanceCommand(input, context);
+    return se_AssignInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignInstanceCommandOutput> {
-    return deserializeAws_json1_1AssignInstanceCommand(output, context);
+    return de_AssignInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

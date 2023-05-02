@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RemoveFromGlobalClusterMessage,
-  RemoveFromGlobalClusterMessageFilterSensitiveLog,
-  RemoveFromGlobalClusterResult,
-  RemoveFromGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRemoveFromGlobalClusterCommand,
-  serializeAws_queryRemoveFromGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult } from "../models/models_1";
+import { de_RemoveFromGlobalClusterCommand, se_RemoveFromGlobalClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveFromGlobalClusterCommand}.
  */
 export interface RemoveFromGlobalClusterCommandInput extends RemoveFromGlobalClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link RemoveFromGlobalClusterCommand}.
  */
 export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a
  *         standalone cluster with read-write capability instead of being read-only and receiving data from a
  *         primary cluster in a different Region.</p>
@@ -47,10 +44,16 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * import { RDSClient, RemoveFromGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RemoveFromGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // RemoveFromGlobalClusterMessage
+ *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   DbClusterIdentifier: "STRING_VALUE",
+ * };
  * const command = new RemoveFromGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveFromGlobalClusterCommandInput - {@link RemoveFromGlobalClusterCommandInput}
+ * @returns {@link RemoveFromGlobalClusterCommandOutput}
  * @see {@link RemoveFromGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link RemoveFromGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -65,6 +68,47 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
  *  <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
  *
+ *
+ * @example To detach an Aurora secondary cluster from an Aurora global database cluster
+ * ```javascript
+ * // The following example detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster changes from being read-only to a standalone cluster with read-write capability.
+ * const input = {
+ *   "DbClusterIdentifier": "arn:aws:rds:us-west-2:123456789012:cluster:DB-1",
+ *   "GlobalClusterIdentifier": "myglobalcluster"
+ * };
+ * const command = new RemoveFromGlobalClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GlobalCluster": {
+ *     "DeletionProtection": false,
+ *     "Engine": "aurora-postgresql",
+ *     "EngineVersion": "10.11",
+ *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *     "GlobalClusterIdentifier": "myglobalcluster",
+ *     "GlobalClusterMembers": [
+ *       {
+ *         "DBClusterArn": "arn:aws:rds:us-east-1:123456789012:cluster:js-global-cluster",
+ *         "IsWriter": true,
+ *         "Readers": [
+ *           "arn:aws:rds:us-west-2:123456789012:cluster:DB-1"
+ *         ]
+ *       },
+ *       {
+ *         "DBClusterArn": "arn:aws:rds:us-west-2:123456789012:cluster:DB-1",
+ *         "GlobalWriteForwardingStatus": "disabled",
+ *         "IsWriter": false,
+ *         "Readers": []
+ *       }
+ *     ],
+ *     "GlobalClusterResourceId": "cluster-abc123def456gh",
+ *     "Status": "available",
+ *     "StorageEncrypted": true
+ *   }
+ * }
+ * *\/
+ * // example id: to-detach-an-aurora-secondary-cluster-from-an-aurora-global-database-cluster-1680072605847
+ * ```
  *
  */
 export class RemoveFromGlobalClusterCommand extends $Command<
@@ -84,6 +128,9 @@ export class RemoveFromGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveFromGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +159,8 @@ export class RemoveFromGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveFromGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveFromGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +170,18 @@ export class RemoveFromGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveFromGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveFromGlobalClusterCommand(input, context);
+    return se_RemoveFromGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFromGlobalClusterCommandOutput> {
-    return deserializeAws_queryRemoveFromGlobalClusterCommand(output, context);
+    return de_RemoveFromGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

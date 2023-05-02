@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutPermissionPolicyRequest,
-  PutPermissionPolicyRequestFilterSensitiveLog,
-  PutPermissionPolicyResponse,
-  PutPermissionPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutPermissionPolicyCommand,
-  serializeAws_json1_1PutPermissionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutPermissionPolicyRequest, PutPermissionPolicyResponse } from "../models/models_0";
+import { de_PutPermissionPolicyCommand, se_PutPermissionPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutPermissionPolicyCommand}.
  */
 export interface PutPermissionPolicyCommandInput extends PutPermissionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPermissionPolicyCommand}.
  */
 export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an IAM policy to the specified resource. Use this to share a rule group across
  *          accounts.</p>
  *          <p>You must be the owner of the rule group to perform this operation.</p>
@@ -58,10 +55,16 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  * import { WAFV2Client, PutPermissionPolicyCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, PutPermissionPolicyCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // PutPermissionPolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutPermissionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPermissionPolicyCommandInput - {@link PutPermissionPolicyCommandInput}
+ * @returns {@link PutPermissionPolicyCommandOutput}
  * @see {@link PutPermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutPermissionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -96,7 +99,7 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  *          <p>The policy specifications must conform to the following:</p>
  *          <ul>
  *             <li>
- *                <p>The policy must be composed using IAM Policy version 2012-10-17 or version 2015-01-01.</p>
+ *                <p>The policy must be composed using IAM Policy version 2012-10-17.</p>
  *             </li>
  *             <li>
  *                <p>The policy must include specifications for <code>Effect</code>, <code>Action</code>, and <code>Principal</code>.</p>
@@ -142,6 +145,9 @@ export class PutPermissionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPermissionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,8 +176,8 @@ export class PutPermissionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPermissionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPermissionPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -181,12 +187,18 @@ export class PutPermissionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutPermissionPolicyCommand(input, context);
+    return se_PutPermissionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPermissionPolicyCommandOutput> {
-    return deserializeAws_json1_1PutPermissionPolicyCommand(output, context);
+    return de_PutPermissionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

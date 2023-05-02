@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetWorkflowRequest,
-  GetWorkflowRequestFilterSensitiveLog,
-  GetWorkflowResponse,
-  GetWorkflowResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetWorkflowRequest, GetWorkflowResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetWorkflowCommand,
-  serializeAws_restJson1GetWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetWorkflowCommand, se_GetWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkflowCommand}.
  */
 export interface GetWorkflowCommandInput extends GetWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkflowCommand}.
  */
 export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * import { OmicsClient, GetWorkflowCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetWorkflowCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // GetWorkflowRequest
+ *   id: "STRING_VALUE", // required
+ *   type: "STRING_VALUE",
+ *   export: [ // WorkflowExportList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetWorkflowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkflowCommandInput - {@link GetWorkflowCommandInput}
+ * @returns {@link GetWorkflowCommandOutput}
  * @see {@link GetWorkflowCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -93,6 +99,9 @@ export class GetWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +128,8 @@ export class GetWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +139,18 @@ export class GetWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkflowCommand(input, context);
+    return se_GetWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowCommandOutput> {
-    return deserializeAws_restJson1GetWorkflowCommand(output, context);
+    return de_GetWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

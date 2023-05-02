@@ -49,6 +49,8 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { AddBridgeOutputsCommandInput, AddBridgeOutputsCommandOutput } from "./commands/AddBridgeOutputsCommand";
+import { AddBridgeSourcesCommandInput, AddBridgeSourcesCommandOutput } from "./commands/AddBridgeSourcesCommand";
 import {
   AddFlowMediaStreamsCommandInput,
   AddFlowMediaStreamsCommandOutput,
@@ -59,9 +61,23 @@ import {
   AddFlowVpcInterfacesCommandInput,
   AddFlowVpcInterfacesCommandOutput,
 } from "./commands/AddFlowVpcInterfacesCommand";
+import { CreateBridgeCommandInput, CreateBridgeCommandOutput } from "./commands/CreateBridgeCommand";
 import { CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
+import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
+import { DeleteBridgeCommandInput, DeleteBridgeCommandOutput } from "./commands/DeleteBridgeCommand";
 import { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
+import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
+import {
+  DeregisterGatewayInstanceCommandInput,
+  DeregisterGatewayInstanceCommandOutput,
+} from "./commands/DeregisterGatewayInstanceCommand";
+import { DescribeBridgeCommandInput, DescribeBridgeCommandOutput } from "./commands/DescribeBridgeCommand";
 import { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "./commands/DescribeFlowCommand";
+import { DescribeGatewayCommandInput, DescribeGatewayCommandOutput } from "./commands/DescribeGatewayCommand";
+import {
+  DescribeGatewayInstanceCommandInput,
+  DescribeGatewayInstanceCommandOutput,
+} from "./commands/DescribeGatewayInstanceCommand";
 import { DescribeOfferingCommandInput, DescribeOfferingCommandOutput } from "./commands/DescribeOfferingCommand";
 import {
   DescribeReservationCommandInput,
@@ -71,8 +87,14 @@ import {
   GrantFlowEntitlementsCommandInput,
   GrantFlowEntitlementsCommandOutput,
 } from "./commands/GrantFlowEntitlementsCommand";
+import { ListBridgesCommandInput, ListBridgesCommandOutput } from "./commands/ListBridgesCommand";
 import { ListEntitlementsCommandInput, ListEntitlementsCommandOutput } from "./commands/ListEntitlementsCommand";
 import { ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
+import {
+  ListGatewayInstancesCommandInput,
+  ListGatewayInstancesCommandOutput,
+} from "./commands/ListGatewayInstancesCommand";
+import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
 import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand";
 import { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand";
 import {
@@ -80,6 +102,8 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
+import { RemoveBridgeOutputCommandInput, RemoveBridgeOutputCommandOutput } from "./commands/RemoveBridgeOutputCommand";
+import { RemoveBridgeSourceCommandInput, RemoveBridgeSourceCommandOutput } from "./commands/RemoveBridgeSourceCommand";
 import {
   RemoveFlowMediaStreamCommandInput,
   RemoveFlowMediaStreamCommandOutput,
@@ -98,6 +122,10 @@ import { StartFlowCommandInput, StartFlowCommandOutput } from "./commands/StartF
 import { StopFlowCommandInput, StopFlowCommandOutput } from "./commands/StopFlowCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateBridgeCommandInput, UpdateBridgeCommandOutput } from "./commands/UpdateBridgeCommand";
+import { UpdateBridgeOutputCommandInput, UpdateBridgeOutputCommandOutput } from "./commands/UpdateBridgeOutputCommand";
+import { UpdateBridgeSourceCommandInput, UpdateBridgeSourceCommandOutput } from "./commands/UpdateBridgeSourceCommand";
+import { UpdateBridgeStateCommandInput, UpdateBridgeStateCommandOutput } from "./commands/UpdateBridgeStateCommand";
 import { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 import {
   UpdateFlowEntitlementCommandInput,
@@ -110,6 +138,10 @@ import {
 import { UpdateFlowOutputCommandInput, UpdateFlowOutputCommandOutput } from "./commands/UpdateFlowOutputCommand";
 import { UpdateFlowSourceCommandInput, UpdateFlowSourceCommandOutput } from "./commands/UpdateFlowSourceCommand";
 import {
+  UpdateGatewayInstanceCommandInput,
+  UpdateGatewayInstanceCommandOutput,
+} from "./commands/UpdateGatewayInstanceCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -117,23 +149,41 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
+  | AddBridgeOutputsCommandInput
+  | AddBridgeSourcesCommandInput
   | AddFlowMediaStreamsCommandInput
   | AddFlowOutputsCommandInput
   | AddFlowSourcesCommandInput
   | AddFlowVpcInterfacesCommandInput
+  | CreateBridgeCommandInput
   | CreateFlowCommandInput
+  | CreateGatewayCommandInput
+  | DeleteBridgeCommandInput
   | DeleteFlowCommandInput
+  | DeleteGatewayCommandInput
+  | DeregisterGatewayInstanceCommandInput
+  | DescribeBridgeCommandInput
   | DescribeFlowCommandInput
+  | DescribeGatewayCommandInput
+  | DescribeGatewayInstanceCommandInput
   | DescribeOfferingCommandInput
   | DescribeReservationCommandInput
   | GrantFlowEntitlementsCommandInput
+  | ListBridgesCommandInput
   | ListEntitlementsCommandInput
   | ListFlowsCommandInput
+  | ListGatewayInstancesCommandInput
+  | ListGatewaysCommandInput
   | ListOfferingsCommandInput
   | ListReservationsCommandInput
   | ListTagsForResourceCommandInput
   | PurchaseOfferingCommandInput
+  | RemoveBridgeOutputCommandInput
+  | RemoveBridgeSourceCommandInput
   | RemoveFlowMediaStreamCommandInput
   | RemoveFlowOutputCommandInput
   | RemoveFlowSourceCommandInput
@@ -143,29 +193,52 @@ export type ServiceInputTypes =
   | StopFlowCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateBridgeCommandInput
+  | UpdateBridgeOutputCommandInput
+  | UpdateBridgeSourceCommandInput
+  | UpdateBridgeStateCommandInput
   | UpdateFlowCommandInput
   | UpdateFlowEntitlementCommandInput
   | UpdateFlowMediaStreamCommandInput
   | UpdateFlowOutputCommandInput
-  | UpdateFlowSourceCommandInput;
+  | UpdateFlowSourceCommandInput
+  | UpdateGatewayInstanceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
+  | AddBridgeOutputsCommandOutput
+  | AddBridgeSourcesCommandOutput
   | AddFlowMediaStreamsCommandOutput
   | AddFlowOutputsCommandOutput
   | AddFlowSourcesCommandOutput
   | AddFlowVpcInterfacesCommandOutput
+  | CreateBridgeCommandOutput
   | CreateFlowCommandOutput
+  | CreateGatewayCommandOutput
+  | DeleteBridgeCommandOutput
   | DeleteFlowCommandOutput
+  | DeleteGatewayCommandOutput
+  | DeregisterGatewayInstanceCommandOutput
+  | DescribeBridgeCommandOutput
   | DescribeFlowCommandOutput
+  | DescribeGatewayCommandOutput
+  | DescribeGatewayInstanceCommandOutput
   | DescribeOfferingCommandOutput
   | DescribeReservationCommandOutput
   | GrantFlowEntitlementsCommandOutput
+  | ListBridgesCommandOutput
   | ListEntitlementsCommandOutput
   | ListFlowsCommandOutput
+  | ListGatewayInstancesCommandOutput
+  | ListGatewaysCommandOutput
   | ListOfferingsCommandOutput
   | ListReservationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PurchaseOfferingCommandOutput
+  | RemoveBridgeOutputCommandOutput
+  | RemoveBridgeSourceCommandOutput
   | RemoveFlowMediaStreamCommandOutput
   | RemoveFlowOutputCommandOutput
   | RemoveFlowSourceCommandOutput
@@ -175,12 +248,20 @@ export type ServiceOutputTypes =
   | StopFlowCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateBridgeCommandOutput
+  | UpdateBridgeOutputCommandOutput
+  | UpdateBridgeSourceCommandOutput
+  | UpdateBridgeStateCommandOutput
   | UpdateFlowCommandOutput
   | UpdateFlowEntitlementCommandOutput
   | UpdateFlowMediaStreamCommandOutput
   | UpdateFlowOutputCommandOutput
-  | UpdateFlowSourceCommandOutput;
+  | UpdateFlowSourceCommandOutput
+  | UpdateGatewayInstanceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -188,7 +269,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -297,11 +378,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type MediaConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -312,10 +396,15 @@ type MediaConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of MediaConnectClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of MediaConnectClient class constructor that set the region, credentials and other options.
  */
 export interface MediaConnectClientConfig extends MediaConnectClientConfigType {}
 
+/**
+ * @public
+ */
 type MediaConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -326,11 +415,14 @@ type MediaConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of MediaConnectClient class. This is resolved and normalized from the {@link MediaConnectClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of MediaConnectClient class. This is resolved and normalized from the {@link MediaConnectClientConfig | constructor configuration interface}.
  */
 export interface MediaConnectClientResolvedConfig extends MediaConnectClientResolvedConfigType {}
 
 /**
+ * @public
  * API for AWS Elemental MediaConnect
  */
 export class MediaConnectClient extends __Client<

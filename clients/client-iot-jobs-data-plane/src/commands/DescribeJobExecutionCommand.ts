@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
-import {
-  DescribeJobExecutionRequest,
-  DescribeJobExecutionRequestFilterSensitiveLog,
-  DescribeJobExecutionResponse,
-  DescribeJobExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobExecutionCommand,
-  serializeAws_restJson1DescribeJobExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/models_0";
+import { de_DescribeJobExecutionCommand, se_DescribeJobExecutionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobExecutionCommand}.
  */
 export interface DescribeJobExecutionCommandInput extends DescribeJobExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobExecutionCommand}.
  */
 export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details of a job execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * import { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
  * // const { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
+ * const input = { // DescribeJobExecutionRequest
+ *   jobId: "STRING_VALUE", // required
+ *   thingName: "STRING_VALUE", // required
+ *   includeJobDocument: true || false,
+ *   executionNumber: Number("long"),
+ * };
  * const command = new DescribeJobExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobExecutionCommandInput - {@link DescribeJobExecutionCommandInput}
+ * @returns {@link DescribeJobExecutionCommandOutput}
  * @see {@link DescribeJobExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
@@ -87,6 +92,9 @@ export class DescribeJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class DescribeJobExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJobExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +134,18 @@ export class DescribeJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobExecutionCommand(input, context);
+    return se_DescribeJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobExecutionCommandOutput> {
-    return deserializeAws_restJson1DescribeJobExecutionCommand(output, context);
+    return de_DescribeJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

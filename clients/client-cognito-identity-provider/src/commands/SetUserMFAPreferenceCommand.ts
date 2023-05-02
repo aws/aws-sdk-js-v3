@@ -23,23 +23,24 @@ import {
   SetUserMFAPreferenceRequest,
   SetUserMFAPreferenceRequestFilterSensitiveLog,
   SetUserMFAPreferenceResponse,
-  SetUserMFAPreferenceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetUserMFAPreferenceCommand,
-  serializeAws_json1_1SetUserMFAPreferenceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetUserMFAPreferenceCommand, se_SetUserMFAPreferenceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetUserMFAPreferenceCommand}.
  */
 export interface SetUserMFAPreferenceCommandInput extends SetUserMFAPreferenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetUserMFAPreferenceCommand}.
  */
 export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set the user's multi-factor authentication (MFA) method preference, including which
  *             MFA factors are activated and if any are preferred. Only one factor can be set as
  *             preferred. The preferred MFA factor will be used to authenticate a user if multiple
@@ -55,10 +56,23 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  * import { CognitoIdentityProviderClient, SetUserMFAPreferenceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SetUserMFAPreferenceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // SetUserMFAPreferenceRequest
+ *   SMSMfaSettings: { // SMSMfaSettingsType
+ *     Enabled: true || false,
+ *     PreferredMfa: true || false,
+ *   },
+ *   SoftwareTokenMfaSettings: { // SoftwareTokenMfaSettingsType
+ *     Enabled: true || false,
+ *     PreferredMfa: true || false,
+ *   },
+ *   AccessToken: "STRING_VALUE", // required
+ * };
  * const command = new SetUserMFAPreferenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetUserMFAPreferenceCommandInput - {@link SetUserMFAPreferenceCommandInput}
+ * @returns {@link SetUserMFAPreferenceCommandOutput}
  * @see {@link SetUserMFAPreferenceCommandInput} for command's `input` shape.
  * @see {@link SetUserMFAPreferenceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -108,6 +122,9 @@ export class SetUserMFAPreferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetUserMFAPreferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,7 +155,7 @@ export class SetUserMFAPreferenceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SetUserMFAPreferenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetUserMFAPreferenceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +165,18 @@ export class SetUserMFAPreferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetUserMFAPreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetUserMFAPreferenceCommand(input, context);
+    return se_SetUserMFAPreferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUserMFAPreferenceCommandOutput> {
-    return deserializeAws_json1_1SetUserMFAPreferenceCommand(output, context);
+    return de_SetUserMFAPreferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

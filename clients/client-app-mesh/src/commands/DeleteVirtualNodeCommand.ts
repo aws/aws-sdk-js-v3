@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  DeleteVirtualNodeInput,
-  DeleteVirtualNodeInputFilterSensitiveLog,
-  DeleteVirtualNodeOutput,
-  DeleteVirtualNodeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVirtualNodeCommand,
-  serializeAws_restJson1DeleteVirtualNodeCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVirtualNodeInput, DeleteVirtualNodeOutput } from "../models/models_0";
+import { de_DeleteVirtualNodeCommand, se_DeleteVirtualNodeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVirtualNodeCommand}.
  */
 export interface DeleteVirtualNodeCommandInput extends DeleteVirtualNodeInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVirtualNodeCommand}.
  */
 export interface DeleteVirtualNodeCommandOutput extends DeleteVirtualNodeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing virtual node.</p>
  *          <p>You must delete any virtual services that list a virtual node as a service provider
  *          before you can delete the virtual node itself.</p>
@@ -44,10 +41,17 @@ export interface DeleteVirtualNodeCommandOutput extends DeleteVirtualNodeOutput,
  * import { AppMeshClient, DeleteVirtualNodeCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DeleteVirtualNodeCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // DeleteVirtualNodeInput
+ *   virtualNodeName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteVirtualNodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVirtualNodeCommandInput - {@link DeleteVirtualNodeCommandInput}
+ * @returns {@link DeleteVirtualNodeCommandOutput}
  * @see {@link DeleteVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualNodeCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -96,6 +100,9 @@ export class DeleteVirtualNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVirtualNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +131,8 @@ export class DeleteVirtualNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVirtualNodeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVirtualNodeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +142,18 @@ export class DeleteVirtualNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVirtualNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVirtualNodeCommand(input, context);
+    return se_DeleteVirtualNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualNodeCommandOutput> {
-    return deserializeAws_restJson1DeleteVirtualNodeCommand(output, context);
+    return de_DeleteVirtualNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

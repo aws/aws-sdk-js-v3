@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { StartReplicationTaskAssessmentMessage, StartReplicationTaskAssessmentResponse } from "../models/models_0";
 import {
-  StartReplicationTaskAssessmentMessage,
-  StartReplicationTaskAssessmentMessageFilterSensitiveLog,
-  StartReplicationTaskAssessmentResponse,
-  StartReplicationTaskAssessmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartReplicationTaskAssessmentCommand,
-  serializeAws_json1_1StartReplicationTaskAssessmentCommand,
+  de_StartReplicationTaskAssessmentCommand,
+  se_StartReplicationTaskAssessmentCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReplicationTaskAssessmentCommand}.
  */
 export interface StartReplicationTaskAssessmentCommandInput extends StartReplicationTaskAssessmentMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartReplicationTaskAssessmentCommand}.
  */
 export interface StartReplicationTaskAssessmentCommandOutput
@@ -41,6 +40,7 @@ export interface StartReplicationTaskAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts the replication task assessment for unsupported data types in the source
  *          database. </p>
  *          <p>You can only use this operation for a task if the following conditions are true:</p>
@@ -62,10 +62,15 @@ export interface StartReplicationTaskAssessmentCommandOutput
  * import { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // StartReplicationTaskAssessmentMessage
+ *   ReplicationTaskArn: "STRING_VALUE", // required
+ * };
  * const command = new StartReplicationTaskAssessmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReplicationTaskAssessmentCommandInput - {@link StartReplicationTaskAssessmentCommandInput}
+ * @returns {@link StartReplicationTaskAssessmentCommandOutput}
  * @see {@link StartReplicationTaskAssessmentCommandInput} for command's `input` shape.
  * @see {@link StartReplicationTaskAssessmentCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -95,6 +100,9 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReplicationTaskAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +131,8 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReplicationTaskAssessmentMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StartReplicationTaskAssessmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +142,24 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartReplicationTaskAssessmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartReplicationTaskAssessmentCommand(input, context);
+    return se_StartReplicationTaskAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartReplicationTaskAssessmentCommandOutput> {
-    return deserializeAws_json1_1StartReplicationTaskAssessmentCommand(output, context);
+    return de_StartReplicationTaskAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

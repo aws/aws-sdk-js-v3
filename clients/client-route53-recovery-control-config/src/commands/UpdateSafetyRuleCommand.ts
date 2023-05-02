@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSafetyRuleRequest,
-  UpdateSafetyRuleRequestFilterSensitiveLog,
-  UpdateSafetyRuleResponse,
-  UpdateSafetyRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSafetyRuleCommand,
-  serializeAws_restJson1UpdateSafetyRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateSafetyRuleRequest, UpdateSafetyRuleResponse } from "../models/models_0";
+import { de_UpdateSafetyRuleCommand, se_UpdateSafetyRuleCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSafetyRuleCommand}.
  */
 export interface UpdateSafetyRuleCommandInput extends UpdateSafetyRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSafetyRuleCommand}.
  */
 export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a safety rule (an assertion rule or gating rule). You can only update the name and the waiting period for a safety rule. To make other updates, delete the safety rule and create a new one.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,24 @@ export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse,
  * import { Route53RecoveryControlConfigClient, UpdateSafetyRuleCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, UpdateSafetyRuleCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // UpdateSafetyRuleRequest
+ *   AssertionRuleUpdate: { // AssertionRuleUpdate
+ *     Name: "STRING_VALUE", // required
+ *     SafetyRuleArn: "STRING_VALUE", // required
+ *     WaitPeriodMs: Number("int"), // required
+ *   },
+ *   GatingRuleUpdate: { // GatingRuleUpdate
+ *     Name: "STRING_VALUE", // required
+ *     SafetyRuleArn: "STRING_VALUE", // required
+ *     WaitPeriodMs: Number("int"), // required
+ *   },
+ * };
  * const command = new UpdateSafetyRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSafetyRuleCommandInput - {@link UpdateSafetyRuleCommandInput}
+ * @returns {@link UpdateSafetyRuleCommandOutput}
  * @see {@link UpdateSafetyRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateSafetyRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -82,6 +93,9 @@ export class UpdateSafetyRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSafetyRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +124,8 @@ export class UpdateSafetyRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSafetyRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSafetyRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +135,18 @@ export class UpdateSafetyRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSafetyRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSafetyRuleCommand(input, context);
+    return se_UpdateSafetyRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSafetyRuleCommandOutput> {
-    return deserializeAws_restJson1UpdateSafetyRuleCommand(output, context);
+    return de_UpdateSafetyRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

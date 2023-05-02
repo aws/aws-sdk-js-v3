@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { DeleteAppsListRequest, DeleteAppsListRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAppsListCommand,
-  serializeAws_json1_1DeleteAppsListCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAppsListRequest } from "../models/models_0";
+import { de_DeleteAppsListCommand, se_DeleteAppsListCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppsListCommand}.
  */
 export interface DeleteAppsListCommandInput extends DeleteAppsListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppsListCommand}.
  */
 export interface DeleteAppsListCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes an Firewall Manager applications list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteAppsListCommandOutput extends __MetadataBearer {}
  * import { FMSClient, DeleteAppsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, DeleteAppsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // DeleteAppsListRequest
+ *   ListId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAppsListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppsListCommandInput - {@link DeleteAppsListCommandInput}
+ * @returns {@link DeleteAppsListCommandOutput}
  * @see {@link DeleteAppsListCommandInput} for command's `input` shape.
  * @see {@link DeleteAppsListCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteAppsListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppsListCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +116,8 @@ export class DeleteAppsListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppsListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +127,18 @@ export class DeleteAppsListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAppsListCommand(input, context);
+    return se_DeleteAppsListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppsListCommandOutput> {
-    return deserializeAws_json1_1DeleteAppsListCommand(output, context);
+    return de_DeleteAppsListCommand(output, context);
   }
 
   // Start section: command_body_extra

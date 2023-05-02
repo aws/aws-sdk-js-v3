@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetBatchImportJobsRequest,
-  GetBatchImportJobsRequestFilterSensitiveLog,
-  GetBatchImportJobsResult,
-  GetBatchImportJobsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetBatchImportJobsCommand,
-  serializeAws_json1_1GetBatchImportJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetBatchImportJobsRequest, GetBatchImportJobsResult } from "../models/models_0";
+import { de_GetBatchImportJobsCommand, se_GetBatchImportJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBatchImportJobsCommand}.
  */
 export interface GetBatchImportJobsCommandInput extends GetBatchImportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBatchImportJobsCommand}.
  */
 export interface GetBatchImportJobsCommandOutput extends GetBatchImportJobsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all batch import jobs or a specific job of the specified ID. This is a paginated API. If you provide a null <code>maxResults</code>,
  *          this action retrieves a maximum of 50 records per page. If you provide a <code>maxResults</code>, the value must be between 1 and 50.
  *          To get the next page results, provide the pagination token from the <code>GetBatchImportJobsResponse</code> as part of your request.
@@ -45,10 +42,17 @@ export interface GetBatchImportJobsCommandOutput extends GetBatchImportJobsResul
  * import { FraudDetectorClient, GetBatchImportJobsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetBatchImportJobsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // GetBatchImportJobsRequest
+ *   jobId: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new GetBatchImportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBatchImportJobsCommandInput - {@link GetBatchImportJobsCommandInput}
+ * @returns {@link GetBatchImportJobsCommandOutput}
  * @see {@link GetBatchImportJobsCommandInput} for command's `input` shape.
  * @see {@link GetBatchImportJobsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +91,9 @@ export class GetBatchImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBatchImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class GetBatchImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBatchImportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBatchImportJobsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class GetBatchImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBatchImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBatchImportJobsCommand(input, context);
+    return se_GetBatchImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBatchImportJobsCommandOutput> {
-    return deserializeAws_json1_1GetBatchImportJobsCommand(output, context);
+    return de_GetBatchImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

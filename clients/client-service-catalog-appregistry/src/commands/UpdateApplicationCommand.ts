@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateApplicationRequest,
-  UpdateApplicationRequestFilterSensitiveLog,
-  UpdateApplicationResponse,
-  UpdateApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateApplicationCommand,
-  serializeAws_restJson1UpdateApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
+import { de_UpdateApplicationCommand, se_UpdateApplicationCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationCommand}.
  */
 export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationCommand}.
  */
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing application with new attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * import { ServiceCatalogAppRegistryClient, UpdateApplicationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, UpdateApplicationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // UpdateApplicationRequest
+ *   application: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
+ * @returns {@link UpdateApplicationCommandOutput}
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -63,6 +67,13 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The maximum number
+ *       of API requests
+ *       has been exceeded.
+ *     </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
@@ -86,6 +97,9 @@ export class UpdateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +128,8 @@ export class UpdateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +139,18 @@ export class UpdateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApplicationCommand(input, context);
+    return se_UpdateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationCommandOutput> {
-    return deserializeAws_restJson1UpdateApplicationCommand(output, context);
+    return de_UpdateApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,29 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAppVersionResourceRequest,
-  DescribeAppVersionResourceRequestFilterSensitiveLog,
-  DescribeAppVersionResourceResponse,
-  DescribeAppVersionResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAppVersionResourceCommand,
-  serializeAws_restJson1DescribeAppVersionResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAppVersionResourceRequest, DescribeAppVersionResourceResponse } from "../models/models_0";
+import { de_DescribeAppVersionResourceCommand, se_DescribeAppVersionResourceCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppVersionResourceCommand}.
  */
 export interface DescribeAppVersionResourceCommandInput extends DescribeAppVersionResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppVersionResourceCommand}.
  */
 export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVersionResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a resource of the AWS Resilience Hub application.</p>
+ * @public
+ * <p>Describes a resource of the Resilience Hub application.</p>
  *          <note>
  *             <p>This API accepts only one of the following parameters to descibe the resource:</p>
  *             <ul>
@@ -62,10 +59,27 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  * import { ResiliencehubClient, DescribeAppVersionResourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeAppVersionResourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // DescribeAppVersionResourceRequest
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   resourceName: "STRING_VALUE",
+ *   logicalResourceId: { // LogicalResourceId
+ *     identifier: "STRING_VALUE", // required
+ *     logicalStackName: "STRING_VALUE",
+ *     resourceGroupName: "STRING_VALUE",
+ *     terraformSourceName: "STRING_VALUE",
+ *     eksSourceName: "STRING_VALUE",
+ *   },
+ *   physicalResourceId: "STRING_VALUE",
+ *   awsRegion: "STRING_VALUE",
+ *   awsAccountId: "STRING_VALUE",
+ * };
  * const command = new DescribeAppVersionResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppVersionResourceCommandInput - {@link DescribeAppVersionResourceCommandInput}
+ * @returns {@link DescribeAppVersionResourceCommandOutput}
  * @see {@link DescribeAppVersionResourceCommandInput} for command's `input` shape.
  * @see {@link DescribeAppVersionResourceCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -82,7 +96,7 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -113,6 +127,9 @@ export class DescribeAppVersionResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppVersionResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +158,8 @@ export class DescribeAppVersionResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppVersionResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAppVersionResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,15 +169,21 @@ export class DescribeAppVersionResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppVersionResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppVersionResourceCommand(input, context);
+    return se_DescribeAppVersionResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAppVersionResourceCommandOutput> {
-    return deserializeAws_restJson1DescribeAppVersionResourceCommand(output, context);
+    return de_DescribeAppVersionResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  CreateStreamInput,
-  CreateStreamInputFilterSensitiveLog,
-  CreateStreamOutput,
-  CreateStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateStreamCommand,
-  serializeAws_restJson1CreateStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateStreamInput, CreateStreamOutput } from "../models/models_0";
+import { de_CreateStreamCommand, se_CreateStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamCommand}.
  */
 export interface CreateStreamCommandInput extends CreateStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamCommand}.
  */
 export interface CreateStreamCommandOutput extends CreateStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Kinesis video stream. </p>
  *          <p>When you create a new stream, Kinesis Video Streams assigns it a version number.
  *             When you change the stream's metadata, Kinesis Video Streams updates the version. </p>
@@ -49,10 +46,22 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  * import { KinesisVideoClient, CreateStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, CreateStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // CreateStreamInput
+ *   DeviceName: "STRING_VALUE",
+ *   StreamName: "STRING_VALUE", // required
+ *   MediaType: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   DataRetentionInHours: Number("int"),
+ *   Tags: { // ResourceTags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
+ * @returns {@link CreateStreamCommandOutput}
  * @see {@link CreateStreamCommandInput} for command's `input` shape.
  * @see {@link CreateStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -117,6 +126,9 @@ export class CreateStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +155,8 @@ export class CreateStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +166,18 @@ export class CreateStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateStreamCommand(input, context);
+    return se_CreateStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamCommandOutput> {
-    return deserializeAws_restJson1CreateStreamCommand(output, context);
+    return de_CreateStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

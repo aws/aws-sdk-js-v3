@@ -16,20 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteVerifiedAccessTrustProviderRequest,
-  DeleteVerifiedAccessTrustProviderRequestFilterSensitiveLog,
   DeleteVerifiedAccessTrustProviderResult,
   DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteVerifiedAccessTrustProviderCommand,
-  serializeAws_ec2DeleteVerifiedAccessTrustProviderCommand,
+  de_DeleteVerifiedAccessTrustProviderCommand,
+  se_DeleteVerifiedAccessTrustProviderCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVerifiedAccessTrustProviderCommand}.
  */
 export interface DeleteVerifiedAccessTrustProviderCommandInput extends DeleteVerifiedAccessTrustProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVerifiedAccessTrustProviderCommand}.
  */
 export interface DeleteVerifiedAccessTrustProviderCommandOutput
@@ -37,6 +40,7 @@ export interface DeleteVerifiedAccessTrustProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an Amazon Web Services Verified Access trust provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +48,17 @@ export interface DeleteVerifiedAccessTrustProviderCommandOutput
  * import { EC2Client, DeleteVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteVerifiedAccessTrustProviderRequest
+ *   VerifiedAccessTrustProviderId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVerifiedAccessTrustProviderCommandInput - {@link DeleteVerifiedAccessTrustProviderCommandInput}
+ * @returns {@link DeleteVerifiedAccessTrustProviderCommandOutput}
  * @see {@link DeleteVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +82,9 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVerifiedAccessTrustProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,7 +113,7 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVerifiedAccessTrustProviderRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -110,18 +124,24 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVerifiedAccessTrustProviderCommand(input, context);
+    return se_DeleteVerifiedAccessTrustProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVerifiedAccessTrustProviderCommandOutput> {
-    return deserializeAws_ec2DeleteVerifiedAccessTrustProviderCommand(output, context);
+    return de_DeleteVerifiedAccessTrustProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -33,153 +34,153 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { IoTSecureTunnelingServiceException as __BaseException } from "../models/IoTSecureTunnelingServiceException";
 import {
   CloseTunnelRequest,
-  CloseTunnelResponse,
   ConnectionState,
   DescribeTunnelRequest,
   DescribeTunnelResponse,
   DestinationConfig,
   LimitExceededException,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListTunnelsRequest,
   ListTunnelsResponse,
   OpenTunnelRequest,
-  OpenTunnelResponse,
   ResourceNotFoundException,
   RotateTunnelAccessTokenRequest,
-  RotateTunnelAccessTokenResponse,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TimeoutConfig,
   Tunnel,
   TunnelSummary,
   UntagResourceRequest,
-  UntagResourceResponse,
 } from "../models/models_0";
 
-export const serializeAws_json1_1CloseTunnelCommand = async (
+/**
+ * serializeAws_json1_1CloseTunnelCommand
+ */
+export const se_CloseTunnelCommand = async (
   input: CloseTunnelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.CloseTunnel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CloseTunnel");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CloseTunnelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTunnelCommand = async (
+/**
+ * serializeAws_json1_1DescribeTunnelCommand
+ */
+export const se_DescribeTunnelCommand = async (
   input: DescribeTunnelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.DescribeTunnel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTunnel");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeTunnelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTunnelsCommand = async (
+/**
+ * serializeAws_json1_1ListTunnelsCommand
+ */
+export const se_ListTunnelsCommand = async (
   input: ListTunnelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.ListTunnels",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTunnels");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTunnelsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1OpenTunnelCommand = async (
+/**
+ * serializeAws_json1_1OpenTunnelCommand
+ */
+export const se_OpenTunnelCommand = async (
   input: OpenTunnelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.OpenTunnel",
-  };
+  const headers: __HeaderBag = sharedHeaders("OpenTunnel");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1OpenTunnelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RotateTunnelAccessTokenCommand = async (
+/**
+ * serializeAws_json1_1RotateTunnelAccessTokenCommand
+ */
+export const se_RotateTunnelAccessTokenCommand = async (
   input: RotateTunnelAccessTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.RotateTunnelAccessToken",
-  };
+  const headers: __HeaderBag = sharedHeaders("RotateTunnelAccessToken");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RotateTunnelAccessTokenRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CloseTunnelCommand = async (
+/**
+ * deserializeAws_json1_1CloseTunnelCommand
+ */
+export const de_CloseTunnelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CloseTunnelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CloseTunnelCommandError(output, context);
+    return de_CloseTunnelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CloseTunnelResponse(data, context);
+  contents = _json(data);
   const response: CloseTunnelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CloseTunnelCommandError = async (
+/**
+ * deserializeAws_json1_1CloseTunnelCommandError
+ */
+const de_CloseTunnelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CloseTunnelCommandOutput> => {
@@ -191,36 +192,41 @@ const deserializeAws_json1_1CloseTunnelCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeTunnelCommand = async (
+/**
+ * deserializeAws_json1_1DescribeTunnelCommand
+ */
+export const de_DescribeTunnelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTunnelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeTunnelCommandError(output, context);
+    return de_DescribeTunnelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTunnelResponse(data, context);
+  contents = de_DescribeTunnelResponse(data, context);
   const response: DescribeTunnelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeTunnelCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeTunnelCommandError
+ */
+const de_DescribeTunnelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTunnelCommandOutput> => {
@@ -232,36 +238,41 @@ const deserializeAws_json1_1DescribeTunnelCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -273,36 +284,41 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTunnelsCommand = async (
+/**
+ * deserializeAws_json1_1ListTunnelsCommand
+ */
+export const de_ListTunnelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTunnelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTunnelsCommandError(output, context);
+    return de_ListTunnelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTunnelsResponse(data, context);
+  contents = de_ListTunnelsResponse(data, context);
   const response: ListTunnelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTunnelsCommandError = async (
+/**
+ * deserializeAws_json1_1ListTunnelsCommandError
+ */
+const de_ListTunnelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTunnelsCommandOutput> => {
@@ -312,32 +328,37 @@ const deserializeAws_json1_1ListTunnelsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_json1_1OpenTunnelCommand = async (
+/**
+ * deserializeAws_json1_1OpenTunnelCommand
+ */
+export const de_OpenTunnelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OpenTunnelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1OpenTunnelCommandError(output, context);
+    return de_OpenTunnelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1OpenTunnelResponse(data, context);
+  contents = _json(data);
   const response: OpenTunnelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1OpenTunnelCommandError = async (
+/**
+ * deserializeAws_json1_1OpenTunnelCommandError
+ */
+const de_OpenTunnelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OpenTunnelCommandOutput> => {
@@ -349,36 +370,41 @@ const deserializeAws_json1_1OpenTunnelCommandError = async (
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iotsecuretunneling#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RotateTunnelAccessTokenCommand = async (
+/**
+ * deserializeAws_json1_1RotateTunnelAccessTokenCommand
+ */
+export const de_RotateTunnelAccessTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RotateTunnelAccessTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RotateTunnelAccessTokenCommandError(output, context);
+    return de_RotateTunnelAccessTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RotateTunnelAccessTokenResponse(data, context);
+  contents = _json(data);
   const response: RotateTunnelAccessTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RotateTunnelAccessTokenCommandError = async (
+/**
+ * deserializeAws_json1_1RotateTunnelAccessTokenCommandError
+ */
+const de_RotateTunnelAccessTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RotateTunnelAccessTokenCommandOutput> => {
@@ -390,36 +416,41 @@ const deserializeAws_json1_1RotateTunnelAccessTokenCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -431,36 +462,41 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -472,24 +508,26 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -497,12 +535,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -510,302 +551,133 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1CloseTunnelRequest = (input: CloseTunnelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.delete != null && { delete: input.delete }),
-    ...(input.tunnelId != null && { tunnelId: input.tunnelId }),
-  };
+// se_CloseTunnelRequest omitted.
+
+// se_DescribeTunnelRequest omitted.
+
+// se_DestinationConfig omitted.
+
+// se_ListTagsForResourceRequest omitted.
+
+// se_ListTunnelsRequest omitted.
+
+// se_OpenTunnelRequest omitted.
+
+// se_RotateTunnelAccessTokenRequest omitted.
+
+// se_ServiceList omitted.
+
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_TimeoutConfig omitted.
+
+// se_UntagResourceRequest omitted.
+
+// de_CloseTunnelResponse omitted.
+
+/**
+ * deserializeAws_json1_1ConnectionState
+ */
+const de_ConnectionState = (output: any, context: __SerdeContext): ConnectionState => {
+  return take(output, {
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1DescribeTunnelRequest = (input: DescribeTunnelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.tunnelId != null && { tunnelId: input.tunnelId }),
-  };
+/**
+ * deserializeAws_json1_1DescribeTunnelResponse
+ */
+const de_DescribeTunnelResponse = (output: any, context: __SerdeContext): DescribeTunnelResponse => {
+  return take(output, {
+    tunnel: (_: any) => de_Tunnel(_, context),
+  }) as any;
 };
 
-const serializeAws_json1_1DestinationConfig = (input: DestinationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.services != null && { services: serializeAws_json1_1ServiceList(input.services, context) }),
-    ...(input.thingName != null && { thingName: input.thingName }),
-  };
+// de_DestinationConfig omitted.
+
+// de_LimitExceededException omitted.
+
+// de_ListTagsForResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListTunnelsResponse
+ */
+const de_ListTunnelsResponse = (output: any, context: __SerdeContext): ListTunnelsResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    tunnelSummaries: (_: any) => de_TunnelSummaryList(_, context),
+  }) as any;
 };
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
+// de_OpenTunnelResponse omitted.
+
+// de_ResourceNotFoundException omitted.
+
+// de_RotateTunnelAccessTokenResponse omitted.
+
+// de_ServiceList omitted.
+
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+// de_TagResourceResponse omitted.
+
+// de_TimeoutConfig omitted.
+
+/**
+ * deserializeAws_json1_1Tunnel
+ */
+const de_Tunnel = (output: any, context: __SerdeContext): Tunnel => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    destinationConfig: _json,
+    destinationConnectionState: (_: any) => de_ConnectionState(_, context),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    sourceConnectionState: (_: any) => de_ConnectionState(_, context),
+    status: __expectString,
+    tags: _json,
+    timeoutConfig: _json,
+    tunnelArn: __expectString,
+    tunnelId: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1ListTunnelsRequest = (input: ListTunnelsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.thingName != null && { thingName: input.thingName }),
-  };
+/**
+ * deserializeAws_json1_1TunnelSummary
+ */
+const de_TunnelSummary = (output: any, context: __SerdeContext): TunnelSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    tunnelArn: __expectString,
+    tunnelId: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1OpenTunnelRequest = (input: OpenTunnelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.description != null && { description: input.description }),
-    ...(input.destinationConfig != null && {
-      destinationConfig: serializeAws_json1_1DestinationConfig(input.destinationConfig, context),
-    }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.timeoutConfig != null && {
-      timeoutConfig: serializeAws_json1_1TimeoutConfig(input.timeoutConfig, context),
-    }),
-  };
-};
-
-const serializeAws_json1_1RotateTunnelAccessTokenRequest = (
-  input: RotateTunnelAccessTokenRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.clientMode != null && { clientMode: input.clientMode }),
-    ...(input.destinationConfig != null && {
-      destinationConfig: serializeAws_json1_1DestinationConfig(input.destinationConfig, context),
-    }),
-    ...(input.tunnelId != null && { tunnelId: input.tunnelId }),
-  };
-};
-
-const serializeAws_json1_1ServiceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
-    });
-};
-
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-  };
-};
-
-const serializeAws_json1_1TimeoutConfig = (input: TimeoutConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.maxLifetimeTimeoutMinutes != null && { maxLifetimeTimeoutMinutes: input.maxLifetimeTimeoutMinutes }),
-  };
-};
-
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
-  };
-};
-
-const deserializeAws_json1_1CloseTunnelResponse = (output: any, context: __SerdeContext): CloseTunnelResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1ConnectionState = (output: any, context: __SerdeContext): ConnectionState => {
-  return {
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeTunnelResponse = (output: any, context: __SerdeContext): DescribeTunnelResponse => {
-  return {
-    tunnel: output.tunnel != null ? deserializeAws_json1_1Tunnel(output.tunnel, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DestinationConfig = (output: any, context: __SerdeContext): DestinationConfig => {
-  return {
-    services: output.services != null ? deserializeAws_json1_1ServiceList(output.services, context) : undefined,
-    thingName: __expectString(output.thingName),
-  } as any;
-};
-
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListTunnelsResponse = (output: any, context: __SerdeContext): ListTunnelsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tunnelSummaries:
-      output.tunnelSummaries != null
-        ? deserializeAws_json1_1TunnelSummaryList(output.tunnelSummaries, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1OpenTunnelResponse = (output: any, context: __SerdeContext): OpenTunnelResponse => {
-  return {
-    destinationAccessToken: __expectString(output.destinationAccessToken),
-    sourceAccessToken: __expectString(output.sourceAccessToken),
-    tunnelArn: __expectString(output.tunnelArn),
-    tunnelId: __expectString(output.tunnelId),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1RotateTunnelAccessTokenResponse = (
-  output: any,
-  context: __SerdeContext
-): RotateTunnelAccessTokenResponse => {
-  return {
-    destinationAccessToken: __expectString(output.destinationAccessToken),
-    sourceAccessToken: __expectString(output.sourceAccessToken),
-    tunnelArn: __expectString(output.tunnelArn),
-  } as any;
-};
-
-const deserializeAws_json1_1ServiceList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1TunnelSummaryList
+ */
+const de_TunnelSummaryList = (output: any, context: __SerdeContext): TunnelSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_TunnelSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1TimeoutConfig = (output: any, context: __SerdeContext): TimeoutConfig => {
-  return {
-    maxLifetimeTimeoutMinutes: __expectInt32(output.maxLifetimeTimeoutMinutes),
-  } as any;
-};
-
-const deserializeAws_json1_1Tunnel = (output: any, context: __SerdeContext): Tunnel => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    destinationConfig:
-      output.destinationConfig != null
-        ? deserializeAws_json1_1DestinationConfig(output.destinationConfig, context)
-        : undefined,
-    destinationConnectionState:
-      output.destinationConnectionState != null
-        ? deserializeAws_json1_1ConnectionState(output.destinationConnectionState, context)
-        : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    sourceConnectionState:
-      output.sourceConnectionState != null
-        ? deserializeAws_json1_1ConnectionState(output.sourceConnectionState, context)
-        : undefined,
-    status: __expectString(output.status),
-    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
-    timeoutConfig:
-      output.timeoutConfig != null ? deserializeAws_json1_1TimeoutConfig(output.timeoutConfig, context) : undefined,
-    tunnelArn: __expectString(output.tunnelArn),
-    tunnelId: __expectString(output.tunnelId),
-  } as any;
-};
-
-const deserializeAws_json1_1TunnelSummary = (output: any, context: __SerdeContext): TunnelSummary => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    description: __expectString(output.description),
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    status: __expectString(output.status),
-    tunnelArn: __expectString(output.tunnelArn),
-    tunnelId: __expectString(output.tunnelId),
-  } as any;
-};
-
-const deserializeAws_json1_1TunnelSummaryList = (output: any, context: __SerdeContext): TunnelSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TunnelSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -827,6 +699,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -851,6 +724,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `IoTSecuredTunneling.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

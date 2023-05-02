@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  ListConnectorsRequest,
-  ListConnectorsRequestFilterSensitiveLog,
-  ListConnectorsResponse,
-  ListConnectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListConnectorsCommand,
-  serializeAws_restJson1ListConnectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListConnectorsRequest, ListConnectorsResponse } from "../models/models_0";
+import { de_ListConnectorsCommand, se_ListConnectorsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConnectorsCommand}.
  */
 export interface ListConnectorsCommandInput extends ListConnectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConnectorsCommand}.
  */
 export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of all registered custom connectors in your Amazon Web Services account.
  *       This API lists only custom connectors registered in this account, not the Amazon Web Services
  *       authored connectors. </p>
@@ -44,10 +41,16 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * import { AppflowClient, ListConnectorsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, ListConnectorsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = { // ListConnectorsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListConnectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConnectorsCommandInput - {@link ListConnectorsCommandInput}
+ * @returns {@link ListConnectorsCommandOutput}
  * @see {@link ListConnectorsCommandInput} for command's `input` shape.
  * @see {@link ListConnectorsCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -78,6 +81,9 @@ export class ListConnectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class ListConnectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConnectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConnectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class ListConnectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConnectorsCommand(input, context);
+    return se_ListConnectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectorsCommandOutput> {
-    return deserializeAws_restJson1ListConnectorsCommand(output, context);
+    return de_ListConnectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

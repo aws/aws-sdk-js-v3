@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetCredentialReportResponse, GetCredentialReportResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryGetCredentialReportCommand,
-  serializeAws_queryGetCredentialReportCommand,
-} from "../protocols/Aws_query";
+import { GetCredentialReportResponse } from "../models/models_0";
+import { de_GetCredentialReportCommand, se_GetCredentialReportCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetCredentialReportCommand}.
  */
 export interface GetCredentialReportCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetCredentialReportCommand}.
  */
 export interface GetCredentialReportCommandOutput extends GetCredentialReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves a credential report for the Amazon Web Services account. For more information about the
  *             credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in
  *             the <i>IAM User Guide</i>.</p>
@@ -39,10 +41,13 @@ export interface GetCredentialReportCommandOutput extends GetCredentialReportRes
  * import { IAMClient, GetCredentialReportCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetCredentialReportCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {};
  * const command = new GetCredentialReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCredentialReportCommandInput - {@link GetCredentialReportCommandInput}
+ * @returns {@link GetCredentialReportCommandOutput}
  * @see {@link GetCredentialReportCommandInput} for command's `input` shape.
  * @see {@link GetCredentialReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -83,6 +88,9 @@ export class GetCredentialReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCredentialReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +119,8 @@ export class GetCredentialReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetCredentialReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +130,18 @@ export class GetCredentialReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCredentialReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetCredentialReportCommand(input, context);
+    return se_GetCredentialReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCredentialReportCommandOutput> {
-    return deserializeAws_queryGetCredentialReportCommand(output, context);
+    return de_GetCredentialReportCommand(output, context);
   }
 
   // Start section: command_body_extra

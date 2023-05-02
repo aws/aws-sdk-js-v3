@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  CreateLogSubscriptionRequest,
-  CreateLogSubscriptionRequestFilterSensitiveLog,
-  CreateLogSubscriptionResult,
-  CreateLogSubscriptionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLogSubscriptionCommand,
-  serializeAws_json1_1CreateLogSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLogSubscriptionRequest, CreateLogSubscriptionResult } from "../models/models_0";
+import { de_CreateLogSubscriptionCommand, se_CreateLogSubscriptionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLogSubscriptionCommand}.
  */
 export interface CreateLogSubscriptionCommandInput extends CreateLogSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLogSubscriptionCommand}.
  */
 export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a subscription to forward real-time Directory Service domain controller security
  *       logs to the specified Amazon CloudWatch log group in your Amazon Web Services account.</p>
  * @example
@@ -43,10 +40,16 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  * import { DirectoryServiceClient, CreateLogSubscriptionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateLogSubscriptionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // CreateLogSubscriptionRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   LogGroupName: "STRING_VALUE", // required
+ * };
  * const command = new CreateLogSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLogSubscriptionCommandInput - {@link CreateLogSubscriptionCommandInput}
+ * @returns {@link CreateLogSubscriptionCommandOutput}
  * @see {@link CreateLogSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateLogSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -88,6 +91,9 @@ export class CreateLogSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLogSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class CreateLogSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLogSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLogSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class CreateLogSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLogSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLogSubscriptionCommand(input, context);
+    return se_CreateLogSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogSubscriptionCommandOutput> {
-    return deserializeAws_json1_1CreateLogSubscriptionCommand(output, context);
+    return de_CreateLogSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

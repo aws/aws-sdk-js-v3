@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  DescribeFlowRequest,
-  DescribeFlowRequestFilterSensitiveLog,
-  DescribeFlowResponse,
-  DescribeFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFlowCommand,
-  serializeAws_restJson1DescribeFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeFlowRequest, DescribeFlowResponse } from "../models/models_0";
+import { de_DescribeFlowCommand, se_DescribeFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFlowCommand}.
  */
 export interface DescribeFlowCommandInput extends DescribeFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFlowCommand}.
  */
 export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Provides a description of the specified flow. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * import { AppflowClient, DescribeFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DescribeFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = { // DescribeFlowRequest
+ *   flowName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFlowCommandInput - {@link DescribeFlowCommandInput}
+ * @returns {@link DescribeFlowCommandOutput}
  * @see {@link DescribeFlowCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -77,6 +79,9 @@ export class DescribeFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DescribeFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DescribeFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFlowCommand(input, context);
+    return se_DescribeFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFlowCommandOutput> {
-    return deserializeAws_restJson1DescribeFlowCommand(output, context);
+    return de_DescribeFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AddTagsInput,
-  AddTagsInputFilterSensitiveLog,
-  AddTagsOutput,
-  AddTagsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1AddTagsCommand, serializeAws_json1_1AddTagsCommand } from "../protocols/Aws_json1_1";
+import { AddTagsInput, AddTagsOutput } from "../models/models_0";
+import { de_AddTagsCommand, se_AddTagsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsCommand}.
  */
 export interface AddTagsCommandInput extends AddTagsInput {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsCommand}.
  */
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or overwrites one or more tags for the specified SageMaker resource. You can add
  *             tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform
  *             jobs, models, labeling jobs, work teams, endpoint configurations, and
@@ -45,7 +45,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *                 before you called this API. To make sure that the tags associated with a
  *                 hyperparameter tuning job are also added to all training jobs that the
  *                 hyperparameter tuning job launches, add the tags when you first create the tuning
- *                 job by specifying them in the <code>Tags</code> parameter of <a>CreateHyperParameterTuningJob</a>
+ *                 job by specifying them in the <code>Tags</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
  *             </p>
  *          </note>
  *          <note>
@@ -55,7 +55,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *                 this API. To make sure that the tags associated with a Domain or User Profile are
  *                 also added to all Apps that the Domain or User Profile launches, add the tags when
  *                 you first create the Domain or User Profile by specifying them in the
- *                     <code>Tags</code> parameter of <a>CreateDomain</a> or <a>CreateUserProfile</a>.</p>
+ *                 <code>Tags</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html">CreateDomain</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html">CreateUserProfile</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,10 +63,21 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * import { SageMakerClient, AddTagsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, AddTagsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // AddTagsInput
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsCommandInput - {@link AddTagsCommandInput}
+ * @returns {@link AddTagsCommandOutput}
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -86,6 +97,9 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +126,8 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +137,18 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddTagsCommand(input, context);
+    return se_AddTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
-    return deserializeAws_json1_1AddTagsCommand(output, context);
+    return de_AddTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,26 +15,27 @@ import {
 
 import {
   DescribeFilterRequest,
-  DescribeFilterRequestFilterSensitiveLog,
   DescribeFilterResponse,
   DescribeFilterResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeFilterCommand,
-  serializeAws_json1_1DescribeFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeFilterCommand, se_DescribeFilterCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFilterCommand}.
  */
 export interface DescribeFilterCommandInput extends DescribeFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFilterCommand}.
  */
 export interface DescribeFilterCommandOutput extends DescribeFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a filter's properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface DescribeFilterCommandOutput extends DescribeFilterResponse, __M
  * import { PersonalizeClient, DescribeFilterCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeFilterCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeFilterRequest
+ *   filterArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFilterCommandInput - {@link DescribeFilterCommandInput}
+ * @returns {@link DescribeFilterCommandOutput}
  * @see {@link DescribeFilterCommandInput} for command's `input` shape.
  * @see {@link DescribeFilterCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -75,6 +81,9 @@ export class DescribeFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,7 +112,7 @@ export class DescribeFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFilterRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeFilterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -114,12 +123,18 @@ export class DescribeFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFilterCommand(input, context);
+    return se_DescribeFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFilterCommandOutput> {
-    return deserializeAws_json1_1DescribeFilterCommand(output, context);
+    return de_DescribeFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

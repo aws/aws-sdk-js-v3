@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSecretRequest,
-  DeleteSecretRequestFilterSensitiveLog,
-  DeleteSecretResponse,
-  DeleteSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSecretCommand,
-  serializeAws_json1_1DeleteSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSecretRequest, DeleteSecretResponse } from "../models/models_0";
+import { de_DeleteSecretCommand, se_DeleteSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSecretCommand}.
  */
 export interface DeleteSecretCommandInput extends DeleteSecretRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSecretCommand}.
  */
 export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a secret and all of its versions. You can specify a recovery
  *       window during which you can restore the secret. The minimum recovery window is 7 days.
  *       The default recovery window is 30 days. Secrets Manager attaches a <code>DeletionDate</code> stamp to
@@ -70,10 +67,17 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  * import { SecretsManagerClient, DeleteSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, DeleteSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // DeleteSecretRequest
+ *   SecretId: "STRING_VALUE", // required
+ *   RecoveryWindowInDays: Number("long"),
+ *   ForceDeleteWithoutRecovery: true || false,
+ * };
  * const command = new DeleteSecretCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSecretCommandInput - {@link DeleteSecretCommandInput}
+ * @returns {@link DeleteSecretCommandOutput}
  * @see {@link DeleteSecretCommandInput} for command's `input` shape.
  * @see {@link DeleteSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -143,6 +147,9 @@ export class DeleteSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,8 +176,8 @@ export class DeleteSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSecretResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -180,12 +187,18 @@ export class DeleteSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSecretCommand(input, context);
+    return se_DeleteSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSecretCommandOutput> {
-    return deserializeAws_json1_1DeleteSecretCommand(output, context);
+    return de_DeleteSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

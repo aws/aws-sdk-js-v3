@@ -26,6 +26,7 @@ import {
   TransitGatewayPolicyTableAssociation,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
+  VerifiedAccessTrustProviderFilterSensitiveLog,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
@@ -67,6 +68,7 @@ import {
   AttributeBooleanValue,
   BootModeValues,
   ConversionTask,
+  ConversionTaskFilterSensitiveLog,
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
@@ -79,13 +81,156 @@ import {
   MetricType,
   PaymentOption,
   PeriodType,
+  ProductCode,
   SnapshotDetail,
-  SnapshotTaskDetail,
   StatisticType,
   VirtualizationType,
 } from "./models_3";
 import { AnalysisStatus, ArchitectureType } from "./models_4";
 
+/**
+ * @public
+ */
+export interface DescribeVolumeAttributeResult {
+  /**
+   * <p>The state of <code>autoEnableIO</code> attribute.</p>
+   */
+  AutoEnableIO?: AttributeBooleanValue;
+
+  /**
+   * <p>A list of product codes.</p>
+   */
+  ProductCodes?: ProductCode[];
+
+  /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumesRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.attach-time</code> - The time stamp when the attachment
+   *           initiated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.delete-on-termination</code> - Whether the volume is deleted on
+   *           instance termination.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.device</code> - The device name specified in the block device mapping
+   *           (for example, <code>/dev/sda1</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.instance-id</code> - The ID of the instance the volume is attached
+   *           to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.status</code> - The attachment state (<code>attaching</code> |
+   *             <code>attached</code> | <code>detaching</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone in which the volume was
+   *           created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>create-time</code> - The time stamp when the volume was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code>
+   *           | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach (<code>true</code>
+   *     			| <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fast-restored</code> - Indicates whether the volume was created from a
+   *           snapshot that is enabled for fast snapshot restore (<code>true</code> |
+   *           <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>size</code> - The size of the volume, in GiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-id</code> - The snapshot from which the volume was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The state of the volume (<code>creating</code> |
+   *             <code>available</code> | <code>in-use</code> | <code>deleting</code> |
+   *             <code>deleted</code> | <code>error</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-id</code> - The volume ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-type</code> - The Amazon EBS volume type (<code>gp2</code> | <code>gp3</code> | <code>io1</code> | <code>io2</code> |
+   *           <code>st1</code> | <code>sc1</code>| <code>standard</code>)</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The volume IDs.</p>
+   */
+  VolumeIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The maximum number of volumes to return for this request.
+   *       This value can be between 5 and 500; if you specify a value larger than 500, only 500 items are returned.
+   *       If this parameter is not used, then all items are returned. You cannot specify this parameter and the
+   *       volume IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *       Pagination continues from the end of the items returned from the previous request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface DescribeVolumesResult {
   /**
    * <p>Information about the volumes.</p>
@@ -99,6 +244,9 @@ export interface DescribeVolumesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVolumesModificationsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -179,14 +327,24 @@ export interface DescribeVolumesModificationsRequest {
   MaxResults?: number;
 }
 
-export enum VolumeModificationState {
-  completed = "completed",
-  failed = "failed",
-  modifying = "modifying",
-  optimizing = "optimizing",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VolumeModificationState = {
+  completed: "completed",
+  failed: "failed",
+  modifying: "modifying",
+  optimizing: "optimizing",
+} as const;
 
 /**
+ * @public
+ */
+export type VolumeModificationState = (typeof VolumeModificationState)[keyof typeof VolumeModificationState];
+
+/**
+ * @public
  * <p>Describes the modification status of an EBS volume.</p>
  *          <p>If the volume has never been modified, some element values will be null.</p>
  */
@@ -273,6 +431,9 @@ export interface VolumeModification {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVolumesModificationsResult {
   /**
    * <p>Information about the volume modifications.</p>
@@ -286,6 +447,9 @@ export interface DescribeVolumesModificationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVolumeStatusRequest {
   /**
    * <p>The filters.</p>
@@ -383,6 +547,7 @@ export interface DescribeVolumeStatusRequest {
 }
 
 /**
+ * @public
  * <p>Describes a volume status operation code.</p>
  */
 export interface VolumeStatusAction {
@@ -408,6 +573,7 @@ export interface VolumeStatusAction {
 }
 
 /**
+ * @public
  * <p>Information about the instances to which the volume is attached.</p>
  */
 export interface VolumeStatusAttachmentStatus {
@@ -423,6 +589,7 @@ export interface VolumeStatusAttachmentStatus {
 }
 
 /**
+ * @public
  * <p>Describes a volume status event.</p>
  */
 export interface VolumeStatusEvent {
@@ -457,12 +624,22 @@ export interface VolumeStatusEvent {
   InstanceId?: string;
 }
 
-export enum VolumeStatusName {
-  io_enabled = "io-enabled",
-  io_performance = "io-performance",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VolumeStatusName = {
+  io_enabled: "io-enabled",
+  io_performance: "io-performance",
+} as const;
 
 /**
+ * @public
+ */
+export type VolumeStatusName = (typeof VolumeStatusName)[keyof typeof VolumeStatusName];
+
+/**
+ * @public
  * <p>Describes a volume status.</p>
  */
 export interface VolumeStatusDetails {
@@ -477,13 +654,23 @@ export interface VolumeStatusDetails {
   Status?: string;
 }
 
-export enum VolumeStatusInfoStatus {
-  impaired = "impaired",
-  insufficient_data = "insufficient-data",
-  ok = "ok",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VolumeStatusInfoStatus = {
+  impaired: "impaired",
+  insufficient_data: "insufficient-data",
+  ok: "ok",
+} as const;
 
 /**
+ * @public
+ */
+export type VolumeStatusInfoStatus = (typeof VolumeStatusInfoStatus)[keyof typeof VolumeStatusInfoStatus];
+
+/**
+ * @public
  * <p>Describes the status of a volume.</p>
  */
 export interface VolumeStatusInfo {
@@ -499,6 +686,7 @@ export interface VolumeStatusInfo {
 }
 
 /**
+ * @public
  * <p>Describes the volume status.</p>
  */
 export interface VolumeStatusItem {
@@ -538,6 +726,9 @@ export interface VolumeStatusItem {
   AttachmentStatuses?: VolumeStatusAttachmentStatus[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVolumeStatusResult {
   /**
    * <p>The token to include in another request to get the next page of items.
@@ -551,12 +742,24 @@ export interface DescribeVolumeStatusResult {
   VolumeStatuses?: VolumeStatusItem[];
 }
 
-export enum VpcAttributeName {
-  enableDnsHostnames = "enableDnsHostnames",
-  enableDnsSupport = "enableDnsSupport",
-  enableNetworkAddressUsageMetrics = "enableNetworkAddressUsageMetrics",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VpcAttributeName = {
+  enableDnsHostnames: "enableDnsHostnames",
+  enableDnsSupport: "enableDnsSupport",
+  enableNetworkAddressUsageMetrics: "enableNetworkAddressUsageMetrics",
+} as const;
 
+/**
+ * @public
+ */
+export type VpcAttributeName = (typeof VpcAttributeName)[keyof typeof VpcAttributeName];
+
+/**
+ * @public
+ */
 export interface DescribeVpcAttributeRequest {
   /**
    * <p>The VPC attribute.</p>
@@ -576,6 +779,9 @@ export interface DescribeVpcAttributeRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcAttributeResult {
   /**
    * <p>The ID of the VPC.</p>
@@ -603,6 +809,9 @@ export interface DescribeVpcAttributeResult {
   EnableNetworkAddressUsageMetrics?: AttributeBooleanValue;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcClassicLinkRequest {
   /**
    * <p>One or more filters.</p>
@@ -639,6 +848,7 @@ export interface DescribeVpcClassicLinkRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
@@ -661,6 +871,9 @@ export interface VpcClassicLink {
   VpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcClassicLinkResult {
   /**
    * <p>The ClassicLink status of one or more VPCs.</p>
@@ -668,6 +881,9 @@ export interface DescribeVpcClassicLinkResult {
   Vpcs?: VpcClassicLink[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcClassicLinkDnsSupportRequest {
   /**
    * <p>The maximum number of items to return for this request.
@@ -688,6 +904,7 @@ export interface DescribeVpcClassicLinkDnsSupportRequest {
 }
 
 /**
+ * @public
  * <p>Describes the ClassicLink DNS support status of a VPC.</p>
  */
 export interface ClassicLinkDnsSupport {
@@ -702,6 +919,9 @@ export interface ClassicLinkDnsSupport {
   VpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcClassicLinkDnsSupportResult {
   /**
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
@@ -714,6 +934,9 @@ export interface DescribeVpcClassicLinkDnsSupportResult {
   Vpcs?: ClassicLinkDnsSupport[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointConnectionNotificationsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -774,6 +997,9 @@ export interface DescribeVpcEndpointConnectionNotificationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointConnectionNotificationsResult {
   /**
    * <p>The notifications.</p>
@@ -787,6 +1013,9 @@ export interface DescribeVpcEndpointConnectionNotificationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointConnectionsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -842,6 +1071,7 @@ export interface DescribeVpcEndpointConnectionsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a VPC endpoint connection to a service.</p>
  */
 export interface VpcEndpointConnection {
@@ -901,6 +1131,9 @@ export interface VpcEndpointConnection {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointConnectionsResult {
   /**
    * <p>Information about the VPC endpoint connections.</p>
@@ -913,6 +1146,9 @@ export interface DescribeVpcEndpointConnectionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -980,6 +1216,9 @@ export interface DescribeVpcEndpointsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointsResult {
   /**
    * <p>Information about the endpoints.</p>
@@ -992,6 +1231,9 @@ export interface DescribeVpcEndpointsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointServiceConfigurationsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1053,6 +1295,9 @@ export interface DescribeVpcEndpointServiceConfigurationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointServiceConfigurationsResult {
   /**
    * <p>Information about the services.</p>
@@ -1065,6 +1310,9 @@ export interface DescribeVpcEndpointServiceConfigurationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointServicePermissionsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1110,6 +1358,9 @@ export interface DescribeVpcEndpointServicePermissionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointServicePermissionsResult {
   /**
    * <p>Information about the allowed principals.</p>
@@ -1122,6 +1373,9 @@ export interface DescribeVpcEndpointServicePermissionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointServicesRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1181,6 +1435,7 @@ export interface DescribeVpcEndpointServicesRequest {
 }
 
 /**
+ * @public
  * <p>Information about the Private DNS name for interface endpoints.</p>
  */
 export interface PrivateDnsDetails {
@@ -1191,6 +1446,7 @@ export interface PrivateDnsDetails {
 }
 
 /**
+ * @public
  * <p>Describes a VPC endpoint service.</p>
  */
 export interface ServiceDetail {
@@ -1272,6 +1528,9 @@ export interface ServiceDetail {
   SupportedIpAddressTypes?: (ServiceConnectivityType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointServicesResult {
   /**
    * <p>The supported services.</p>
@@ -1289,6 +1548,9 @@ export interface DescribeVpcEndpointServicesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcPeeringConnectionsRequest {
   /**
    * <p>One or more filters.</p>
@@ -1382,6 +1644,9 @@ export interface DescribeVpcPeeringConnectionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcPeeringConnectionsResult {
   /**
    * <p>Information about the VPC peering connections.</p>
@@ -1394,6 +1659,9 @@ export interface DescribeVpcPeeringConnectionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcsRequest {
   /**
    * <p>One or more filters.</p>
@@ -1498,6 +1766,9 @@ export interface DescribeVpcsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcsResult {
   /**
    * <p>Information about one or more VPCs.</p>
@@ -1511,6 +1782,7 @@ export interface DescribeVpcsResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeVpnConnections.</p>
  */
 export interface DescribeVpnConnectionsRequest {
@@ -1597,6 +1869,7 @@ export interface DescribeVpnConnectionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeVpnConnections.</p>
  */
 export interface DescribeVpnConnectionsResult {
@@ -1607,6 +1880,7 @@ export interface DescribeVpnConnectionsResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeVpnGateways.</p>
  */
 export interface DescribeVpnGatewaysRequest {
@@ -1677,6 +1951,7 @@ export interface DescribeVpnGatewaysRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeVpnGateways.</p>
  */
 export interface DescribeVpnGatewaysResult {
@@ -1686,6 +1961,9 @@ export interface DescribeVpnGatewaysResult {
   VpnGateways?: VpnGateway[];
 }
 
+/**
+ * @public
+ */
 export interface DetachClassicLinkVpcRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1705,6 +1983,9 @@ export interface DetachClassicLinkVpcRequest {
   VpcId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachClassicLinkVpcResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -1712,6 +1993,9 @@ export interface DetachClassicLinkVpcResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DetachInternetGatewayRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1732,6 +2016,7 @@ export interface DetachInternetGatewayRequest {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DetachNetworkInterface.</p>
  */
 export interface DetachNetworkInterfaceRequest {
@@ -1770,14 +2055,17 @@ export interface DetachNetworkInterfaceRequest {
   Force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DetachVerifiedAccessTrustProviderRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProviderId: string | undefined;
 
@@ -1795,18 +2083,24 @@ export interface DetachVerifiedAccessTrustProviderRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DetachVerifiedAccessTrustProviderResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 
+/**
+ * @public
+ */
 export interface DetachVolumeRequest {
   /**
    * <p>The device name.</p>
@@ -1842,6 +2136,7 @@ export interface DetachVolumeRequest {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DetachVpnGateway.</p>
  */
 export interface DetachVpnGatewayRequest {
@@ -1864,6 +2159,9 @@ export interface DetachVpnGatewayRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableAddressTransferRequest {
   /**
    * <p>The allocation ID of an Elastic IP address.</p>
@@ -1878,6 +2176,9 @@ export interface DisableAddressTransferRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableAddressTransferResult {
   /**
    * <p>An Elastic IP address transfer.</p>
@@ -1885,6 +2186,9 @@ export interface DisableAddressTransferResult {
   AddressTransfer?: AddressTransfer;
 }
 
+/**
+ * @public
+ */
 export interface DisableAwsNetworkPerformanceMetricSubscriptionRequest {
   /**
    * <p>The source Region or Availability Zone that the metric subscription is disabled for. For example, <code>us-east-1</code>.</p>
@@ -1914,6 +2218,9 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableAwsNetworkPerformanceMetricSubscriptionResult {
   /**
    * <p>Indicates whether the unsubscribe action was successful.</p>
@@ -1921,6 +2228,9 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionResult {
   Output?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableEbsEncryptionByDefaultRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1930,6 +2240,9 @@ export interface DisableEbsEncryptionByDefaultRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableEbsEncryptionByDefaultResult {
   /**
    * <p>The updated status of encryption by default.</p>
@@ -1937,6 +2250,9 @@ export interface DisableEbsEncryptionByDefaultResult {
   EbsEncryptionByDefault?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableFastLaunchRequest {
   /**
    * <p>The ID of the image for which you’re turning off faster launching, and removing pre-provisioned snapshots.</p>
@@ -1957,6 +2273,9 @@ export interface DisableFastLaunchRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableFastLaunchResult {
   /**
    * <p>The ID of the image for which faster-launching has been turned off.</p>
@@ -2007,6 +2326,9 @@ export interface DisableFastLaunchResult {
   StateTransitionTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DisableFastSnapshotRestoresRequest {
   /**
    * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
@@ -2027,6 +2349,7 @@ export interface DisableFastSnapshotRestoresRequest {
 }
 
 /**
+ * @public
  * <p>Describes fast snapshot restores that were successfully disabled.</p>
  */
 export interface DisableFastSnapshotRestoreSuccessItem {
@@ -2099,6 +2422,7 @@ export interface DisableFastSnapshotRestoreSuccessItem {
 }
 
 /**
+ * @public
  * <p>Describes an error that occurred when disabling fast snapshot restores.</p>
  */
 export interface DisableFastSnapshotRestoreStateError {
@@ -2114,6 +2438,7 @@ export interface DisableFastSnapshotRestoreStateError {
 }
 
 /**
+ * @public
  * <p>Contains information about an error that occurred when disabling fast snapshot restores.</p>
  */
 export interface DisableFastSnapshotRestoreStateErrorItem {
@@ -2129,6 +2454,7 @@ export interface DisableFastSnapshotRestoreStateErrorItem {
 }
 
 /**
+ * @public
  * <p>Contains information about the errors that occurred when disabling fast snapshot restores.</p>
  */
 export interface DisableFastSnapshotRestoreErrorItem {
@@ -2143,6 +2469,9 @@ export interface DisableFastSnapshotRestoreErrorItem {
   FastSnapshotRestoreStateErrors?: DisableFastSnapshotRestoreStateErrorItem[];
 }
 
+/**
+ * @public
+ */
 export interface DisableFastSnapshotRestoresResult {
   /**
    * <p>Information about the snapshots for which fast snapshot restores were successfully disabled.</p>
@@ -2155,6 +2484,9 @@ export interface DisableFastSnapshotRestoresResult {
   Unsuccessful?: DisableFastSnapshotRestoreErrorItem[];
 }
 
+/**
+ * @public
+ */
 export interface DisableImageDeprecationRequest {
   /**
    * <p>The ID of the AMI.</p>
@@ -2169,6 +2501,9 @@ export interface DisableImageDeprecationRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableImageDeprecationResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -2176,6 +2511,9 @@ export interface DisableImageDeprecationResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableIpamOrganizationAdminAccountRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -2190,6 +2528,9 @@ export interface DisableIpamOrganizationAdminAccountRequest {
   DelegatedAdminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableIpamOrganizationAdminAccountResult {
   /**
    * <p>The result of disabling the IPAM account.</p>
@@ -2197,6 +2538,9 @@ export interface DisableIpamOrganizationAdminAccountResult {
   Success?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableSerialConsoleAccessRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -2204,6 +2548,9 @@ export interface DisableSerialConsoleAccessRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableSerialConsoleAccessResult {
   /**
    * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
@@ -2213,6 +2560,9 @@ export interface DisableSerialConsoleAccessResult {
   SerialConsoleAccessEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableTransitGatewayRouteTablePropagationRequest {
   /**
    * <p>The ID of the propagation route table.</p>
@@ -2237,14 +2587,25 @@ export interface DisableTransitGatewayRouteTablePropagationRequest {
   TransitGatewayRouteTableAnnouncementId?: string;
 }
 
-export enum TransitGatewayPropagationState {
-  disabled = "disabled",
-  disabling = "disabling",
-  enabled = "enabled",
-  enabling = "enabling",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayPropagationState = {
+  disabled: "disabled",
+  disabling: "disabling",
+  enabled: "enabled",
+  enabling: "enabling",
+} as const;
 
 /**
+ * @public
+ */
+export type TransitGatewayPropagationState =
+  (typeof TransitGatewayPropagationState)[keyof typeof TransitGatewayPropagationState];
+
+/**
+ * @public
  * <p>Describes route propagation.</p>
  */
 export interface TransitGatewayPropagation {
@@ -2279,6 +2640,9 @@ export interface TransitGatewayPropagation {
   TransitGatewayRouteTableAnnouncementId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisableTransitGatewayRouteTablePropagationResult {
   /**
    * <p>Information about route propagation.</p>
@@ -2287,6 +2651,7 @@ export interface DisableTransitGatewayRouteTablePropagationResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DisableVgwRoutePropagation.</p>
  */
 export interface DisableVgwRoutePropagationRequest {
@@ -2309,6 +2674,9 @@ export interface DisableVgwRoutePropagationRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableVpcClassicLinkRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2323,6 +2691,9 @@ export interface DisableVpcClassicLinkRequest {
   VpcId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableVpcClassicLinkResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -2330,6 +2701,9 @@ export interface DisableVpcClassicLinkResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisableVpcClassicLinkDnsSupportRequest {
   /**
    * <p>The ID of the VPC.</p>
@@ -2337,6 +2711,9 @@ export interface DisableVpcClassicLinkDnsSupportRequest {
   VpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisableVpcClassicLinkDnsSupportResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -2344,6 +2721,9 @@ export interface DisableVpcClassicLinkDnsSupportResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateAddressRequest {
   /**
    * <p>[EC2-VPC] The association ID. Required for EC2-VPC.</p>
@@ -2363,6 +2743,9 @@ export interface DisassociateAddressRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateClientVpnTargetNetworkRequest {
   /**
    * <p>The ID of the Client VPN endpoint from which to disassociate the target network.</p>
@@ -2380,6 +2763,9 @@ export interface DisassociateClientVpnTargetNetworkRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateClientVpnTargetNetworkResult {
   /**
    * <p>The ID of the target network association.</p>
@@ -2392,6 +2778,9 @@ export interface DisassociateClientVpnTargetNetworkResult {
   Status?: AssociationStatus;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateEnclaveCertificateIamRoleRequest {
   /**
    * <p>The ARN of the ACM certificate from which to disassociate the IAM role.</p>
@@ -2409,6 +2798,9 @@ export interface DisassociateEnclaveCertificateIamRoleRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateEnclaveCertificateIamRoleResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -2416,6 +2808,9 @@ export interface DisassociateEnclaveCertificateIamRoleResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateIamInstanceProfileRequest {
   /**
    * <p>The ID of the IAM instance profile association.</p>
@@ -2423,6 +2818,9 @@ export interface DisassociateIamInstanceProfileRequest {
   AssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateIamInstanceProfileResult {
   /**
    * <p>Information about the IAM instance profile association.</p>
@@ -2431,6 +2829,7 @@ export interface DisassociateIamInstanceProfileResult {
 }
 
 /**
+ * @public
  * <p>The targets to disassociate from the specified event window.</p>
  */
 export interface InstanceEventWindowDisassociationRequest {
@@ -2451,6 +2850,9 @@ export interface InstanceEventWindowDisassociationRequest {
   DedicatedHostIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DisassociateInstanceEventWindowRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2470,6 +2872,9 @@ export interface DisassociateInstanceEventWindowRequest {
   AssociationTarget: InstanceEventWindowDisassociationRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateInstanceEventWindowResult {
   /**
    * <p>Information about the event window.</p>
@@ -2477,6 +2882,9 @@ export interface DisassociateInstanceEventWindowResult {
   InstanceEventWindow?: InstanceEventWindow;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateIpamResourceDiscoveryRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -2491,6 +2899,9 @@ export interface DisassociateIpamResourceDiscoveryRequest {
   IpamResourceDiscoveryAssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateIpamResourceDiscoveryResult {
   /**
    * <p>A resource discovery association.</p>
@@ -2498,6 +2909,9 @@ export interface DisassociateIpamResourceDiscoveryResult {
   IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateNatGatewayAddressRequest {
   /**
    * <p>The NAT gateway ID.</p>
@@ -2522,6 +2936,9 @@ export interface DisassociateNatGatewayAddressRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateNatGatewayAddressResult {
   /**
    * <p>The NAT gateway ID.</p>
@@ -2534,6 +2951,9 @@ export interface DisassociateNatGatewayAddressResult {
   NatGatewayAddresses?: NatGatewayAddress[];
 }
 
+/**
+ * @public
+ */
 export interface DisassociateRouteTableRequest {
   /**
    * <p>The association ID representing the current association between the route table and subnet or gateway.</p>
@@ -2548,6 +2968,9 @@ export interface DisassociateRouteTableRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateSubnetCidrBlockRequest {
   /**
    * <p>The association ID for the CIDR block.</p>
@@ -2555,6 +2978,9 @@ export interface DisassociateSubnetCidrBlockRequest {
   AssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateSubnetCidrBlockResult {
   /**
    * <p>Information about the IPv6 CIDR block association.</p>
@@ -2567,6 +2993,9 @@ export interface DisassociateSubnetCidrBlockResult {
   SubnetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTransitGatewayMulticastDomainRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -2591,6 +3020,9 @@ export interface DisassociateTransitGatewayMulticastDomainRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTransitGatewayMulticastDomainResult {
   /**
    * <p>Information about the association.</p>
@@ -2598,6 +3030,9 @@ export interface DisassociateTransitGatewayMulticastDomainResult {
   Associations?: TransitGatewayMulticastDomainAssociations;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTransitGatewayPolicyTableRequest {
   /**
    * <p>The ID of the disassociated policy table.</p>
@@ -2617,6 +3052,9 @@ export interface DisassociateTransitGatewayPolicyTableRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTransitGatewayPolicyTableResult {
   /**
    * <p>Returns details about the transit gateway policy table disassociation.</p>
@@ -2624,6 +3062,9 @@ export interface DisassociateTransitGatewayPolicyTableResult {
   Association?: TransitGatewayPolicyTableAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTransitGatewayRouteTableRequest {
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -2643,6 +3084,9 @@ export interface DisassociateTransitGatewayRouteTableRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTransitGatewayRouteTableResult {
   /**
    * <p>Information about the association.</p>
@@ -2650,6 +3094,9 @@ export interface DisassociateTransitGatewayRouteTableResult {
   Association?: TransitGatewayAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTrunkInterfaceRequest {
   /**
    * <p>The ID of the association</p>
@@ -2671,6 +3118,9 @@ export interface DisassociateTrunkInterfaceRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTrunkInterfaceResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -2685,6 +3135,9 @@ export interface DisassociateTrunkInterfaceResult {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateVpcCidrBlockRequest {
   /**
    * <p>The association ID for the CIDR block.</p>
@@ -2692,6 +3145,9 @@ export interface DisassociateVpcCidrBlockRequest {
   AssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateVpcCidrBlockResult {
   /**
    * <p>Information about the IPv6 CIDR block association.</p>
@@ -2709,6 +3165,9 @@ export interface DisassociateVpcCidrBlockResult {
   VpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableAddressTransferRequest {
   /**
    * <p>The allocation ID of an Elastic IP address.</p>
@@ -2728,6 +3187,9 @@ export interface EnableAddressTransferRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableAddressTransferResult {
   /**
    * <p>An Elastic IP address transfer.</p>
@@ -2735,6 +3197,9 @@ export interface EnableAddressTransferResult {
   AddressTransfer?: AddressTransfer;
 }
 
+/**
+ * @public
+ */
 export interface EnableAwsNetworkPerformanceMetricSubscriptionRequest {
   /**
    * <p>The source Region or Availability Zone that the metric subscription is enabled for. For example, <code>us-east-1</code>.</p>
@@ -2764,6 +3229,9 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableAwsNetworkPerformanceMetricSubscriptionResult {
   /**
    * <p>Indicates whether the subscribe action was successful.</p>
@@ -2771,6 +3239,9 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionResult {
   Output?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableEbsEncryptionByDefaultRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2780,6 +3251,9 @@ export interface EnableEbsEncryptionByDefaultRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableEbsEncryptionByDefaultResult {
   /**
    * <p>The updated status of encryption by default.</p>
@@ -2788,6 +3262,7 @@ export interface EnableEbsEncryptionByDefaultResult {
 }
 
 /**
+ * @public
  * <p>Request to create a launch template for a fast-launch enabled Windows AMI.</p>
  *          <note>
  *             <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
@@ -2812,6 +3287,7 @@ export interface FastLaunchLaunchTemplateSpecificationRequest {
 }
 
 /**
+ * @public
  * <p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>
  */
 export interface FastLaunchSnapshotConfigurationRequest {
@@ -2821,6 +3297,9 @@ export interface FastLaunchSnapshotConfigurationRequest {
   TargetResourceCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface EnableFastLaunchRequest {
   /**
    * <p>The ID of the image for which you’re enabling faster launching.</p>
@@ -2862,6 +3341,9 @@ export interface EnableFastLaunchRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableFastLaunchResult {
   /**
    * <p>The image ID that identifies the Windows AMI for which faster launching was enabled.</p>
@@ -2912,6 +3394,9 @@ export interface EnableFastLaunchResult {
   StateTransitionTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface EnableFastSnapshotRestoresRequest {
   /**
    * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
@@ -2933,6 +3418,7 @@ export interface EnableFastSnapshotRestoresRequest {
 }
 
 /**
+ * @public
  * <p>Describes fast snapshot restores that were successfully enabled.</p>
  */
 export interface EnableFastSnapshotRestoreSuccessItem {
@@ -3005,6 +3491,7 @@ export interface EnableFastSnapshotRestoreSuccessItem {
 }
 
 /**
+ * @public
  * <p>Describes an error that occurred when enabling fast snapshot restores.</p>
  */
 export interface EnableFastSnapshotRestoreStateError {
@@ -3020,6 +3507,7 @@ export interface EnableFastSnapshotRestoreStateError {
 }
 
 /**
+ * @public
  * <p>Contains information about an error that occurred when enabling fast snapshot restores.</p>
  */
 export interface EnableFastSnapshotRestoreStateErrorItem {
@@ -3035,6 +3523,7 @@ export interface EnableFastSnapshotRestoreStateErrorItem {
 }
 
 /**
+ * @public
  * <p>Contains information about the errors that occurred when enabling fast snapshot restores.</p>
  */
 export interface EnableFastSnapshotRestoreErrorItem {
@@ -3049,6 +3538,9 @@ export interface EnableFastSnapshotRestoreErrorItem {
   FastSnapshotRestoreStateErrors?: EnableFastSnapshotRestoreStateErrorItem[];
 }
 
+/**
+ * @public
+ */
 export interface EnableFastSnapshotRestoresResult {
   /**
    * <p>Information about the snapshots for which fast snapshot restores were successfully enabled.</p>
@@ -3061,6 +3553,9 @@ export interface EnableFastSnapshotRestoresResult {
   Unsuccessful?: EnableFastSnapshotRestoreErrorItem[];
 }
 
+/**
+ * @public
+ */
 export interface EnableImageDeprecationRequest {
   /**
    * <p>The ID of the AMI.</p>
@@ -3085,6 +3580,9 @@ export interface EnableImageDeprecationRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableImageDeprecationResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -3092,6 +3590,9 @@ export interface EnableImageDeprecationResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableIpamOrganizationAdminAccountRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -3106,6 +3607,9 @@ export interface EnableIpamOrganizationAdminAccountRequest {
   DelegatedAdminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableIpamOrganizationAdminAccountResult {
   /**
    * <p>The result of enabling the IPAM account.</p>
@@ -3113,6 +3617,9 @@ export interface EnableIpamOrganizationAdminAccountResult {
   Success?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableReachabilityAnalyzerOrganizationSharingRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3122,6 +3629,9 @@ export interface EnableReachabilityAnalyzerOrganizationSharingRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableReachabilityAnalyzerOrganizationSharingResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -3129,6 +3639,9 @@ export interface EnableReachabilityAnalyzerOrganizationSharingResult {
   ReturnValue?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableSerialConsoleAccessRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -3136,6 +3649,9 @@ export interface EnableSerialConsoleAccessRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableSerialConsoleAccessResult {
   /**
    * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
@@ -3145,6 +3661,9 @@ export interface EnableSerialConsoleAccessResult {
   SerialConsoleAccessEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableTransitGatewayRouteTablePropagationRequest {
   /**
    * <p>The ID of the propagation route table.</p>
@@ -3169,6 +3688,9 @@ export interface EnableTransitGatewayRouteTablePropagationRequest {
   TransitGatewayRouteTableAnnouncementId?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableTransitGatewayRouteTablePropagationResult {
   /**
    * <p>Information about route propagation.</p>
@@ -3177,6 +3699,7 @@ export interface EnableTransitGatewayRouteTablePropagationResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for EnableVgwRoutePropagation.</p>
  */
 export interface EnableVgwRoutePropagationRequest {
@@ -3202,6 +3725,9 @@ export interface EnableVgwRoutePropagationRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableVolumeIORequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3216,6 +3742,9 @@ export interface EnableVolumeIORequest {
   VolumeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableVpcClassicLinkRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3230,6 +3759,9 @@ export interface EnableVpcClassicLinkRequest {
   VpcId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableVpcClassicLinkResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -3237,6 +3769,9 @@ export interface EnableVpcClassicLinkResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EnableVpcClassicLinkDnsSupportRequest {
   /**
    * <p>The ID of the VPC.</p>
@@ -3244,6 +3779,9 @@ export interface EnableVpcClassicLinkDnsSupportRequest {
   VpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableVpcClassicLinkDnsSupportResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -3251,6 +3789,9 @@ export interface EnableVpcClassicLinkDnsSupportResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ExportClientVpnClientCertificateRevocationListRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -3263,12 +3804,23 @@ export interface ExportClientVpnClientCertificateRevocationListRequest {
   DryRun?: boolean;
 }
 
-export enum ClientCertificateRevocationListStatusCode {
-  active = "active",
-  pending = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClientCertificateRevocationListStatusCode = {
+  active: "active",
+  pending: "pending",
+} as const;
 
 /**
+ * @public
+ */
+export type ClientCertificateRevocationListStatusCode =
+  (typeof ClientCertificateRevocationListStatusCode)[keyof typeof ClientCertificateRevocationListStatusCode];
+
+/**
+ * @public
  * <p>Describes the state of a client certificate revocation list.</p>
  */
 export interface ClientCertificateRevocationListStatus {
@@ -3283,6 +3835,9 @@ export interface ClientCertificateRevocationListStatus {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExportClientVpnClientCertificateRevocationListResult {
   /**
    * <p>Information about the client certificate revocation list.</p>
@@ -3295,6 +3850,9 @@ export interface ExportClientVpnClientCertificateRevocationListResult {
   Status?: ClientCertificateRevocationListStatus;
 }
 
+/**
+ * @public
+ */
 export interface ExportClientVpnClientConfigurationRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -3307,6 +3865,9 @@ export interface ExportClientVpnClientConfigurationRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ExportClientVpnClientConfigurationResult {
   /**
    * <p>The contents of the Client VPN endpoint configuration file.</p>
@@ -3315,6 +3876,7 @@ export interface ExportClientVpnClientConfigurationResult {
 }
 
 /**
+ * @public
  * <p>Describes the destination for an export image task.</p>
  */
 export interface ExportTaskS3LocationRequest {
@@ -3329,6 +3891,9 @@ export interface ExportTaskS3LocationRequest {
   S3Prefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExportImageRequest {
   /**
    * <p>Token to enable idempotency for export image requests.</p>
@@ -3374,6 +3939,9 @@ export interface ExportImageRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export interface ExportImageResult {
   /**
    * <p>A description of the image being exported.</p>
@@ -3428,6 +3996,9 @@ export interface ExportImageResult {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ExportTransitGatewayRoutesRequest {
   /**
    * <p>The ID of the route table.</p>
@@ -3491,6 +4062,9 @@ export interface ExportTransitGatewayRoutesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ExportTransitGatewayRoutesResult {
   /**
    * <p>The URL of the exported file in Amazon S3. For example,
@@ -3499,6 +4073,9 @@ export interface ExportTransitGatewayRoutesResult {
   S3Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAssociatedEnclaveCertificateIamRolesRequest {
   /**
    * <p>The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon
@@ -3513,6 +4090,7 @@ export interface GetAssociatedEnclaveCertificateIamRolesRequest {
 }
 
 /**
+ * @public
  * <p>Information about the associated IAM roles.</p>
  */
 export interface AssociatedRole {
@@ -3539,6 +4117,9 @@ export interface AssociatedRole {
   EncryptionKmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAssociatedEnclaveCertificateIamRolesResult {
   /**
    * <p>Information about the associated IAM roles.</p>
@@ -3546,6 +4127,9 @@ export interface GetAssociatedEnclaveCertificateIamRolesResult {
   AssociatedRoles?: AssociatedRole[];
 }
 
+/**
+ * @public
+ */
 export interface GetAssociatedIpv6PoolCidrsRequest {
   /**
    * <p>The ID of the IPv6 address pool.</p>
@@ -3572,6 +4156,7 @@ export interface GetAssociatedIpv6PoolCidrsRequest {
 }
 
 /**
+ * @public
  * <p>Describes an IPv6 CIDR block association.</p>
  */
 export interface Ipv6CidrAssociation {
@@ -3586,6 +4171,9 @@ export interface Ipv6CidrAssociation {
   AssociatedResource?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAssociatedIpv6PoolCidrsResult {
   /**
    * <p>Information about the IPv6 CIDR block associations.</p>
@@ -3599,6 +4187,7 @@ export interface GetAssociatedIpv6PoolCidrsResult {
 }
 
 /**
+ * @public
  * <p>A query used for retrieving network health data. </p>
  */
 export interface DataQuery {
@@ -3633,6 +4222,9 @@ export interface DataQuery {
   Period?: PeriodType | string;
 }
 
+/**
+ * @public
+ */
 export interface GetAwsNetworkPerformanceDataRequest {
   /**
    * <p>A list of network performance data queries.</p>
@@ -3670,6 +4262,7 @@ export interface GetAwsNetworkPerformanceDataRequest {
 }
 
 /**
+ * @public
  * <p>Indicates whether the network was healthy or degraded at a particular point. The value is aggregated from the <code>startDate</code> to the <code>endDate</code>. Currently only <code>five_minutes</code> is supported.</p>
  */
 export interface MetricPoint {
@@ -3692,6 +4285,7 @@ export interface MetricPoint {
 }
 
 /**
+ * @public
  * <p>The response to a <code>DataQuery</code>.</p>
  */
 export interface DataResponse {
@@ -3731,6 +4325,9 @@ export interface DataResponse {
   MetricPoints?: MetricPoint[];
 }
 
+/**
+ * @public
+ */
 export interface GetAwsNetworkPerformanceDataResult {
   /**
    * <p>The list of data responses.</p>
@@ -3743,6 +4340,9 @@ export interface GetAwsNetworkPerformanceDataResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCapacityReservationUsageRequest {
   /**
    * <p>The ID of the Capacity Reservation.</p>
@@ -3767,6 +4367,7 @@ export interface GetCapacityReservationUsageRequest {
 }
 
 /**
+ * @public
  * <p>Information about the Capacity Reservation usage.</p>
  */
 export interface InstanceUsage {
@@ -3781,6 +4382,9 @@ export interface InstanceUsage {
   UsedInstanceCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetCapacityReservationUsageResult {
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -3845,6 +4449,9 @@ export interface GetCapacityReservationUsageResult {
   InstanceUsages?: InstanceUsage[];
 }
 
+/**
+ * @public
+ */
 export interface GetCoipPoolUsageRequest {
   /**
    * <p>The ID of the address pool.</p>
@@ -3894,6 +4501,7 @@ export interface GetCoipPoolUsageRequest {
 }
 
 /**
+ * @public
  * <p>Describes address usage for a customer-owned address pool.</p>
  */
 export interface CoipAddressUsage {
@@ -3918,6 +4526,9 @@ export interface CoipAddressUsage {
   CoIp?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoipPoolUsageResult {
   /**
    * <p>The ID of the customer-owned address pool.</p>
@@ -3935,6 +4546,9 @@ export interface GetCoipPoolUsageResult {
   LocalGatewayRouteTableId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConsoleOutputRequest {
   /**
    * <p>The ID of the instance.</p>
@@ -3955,6 +4569,9 @@ export interface GetConsoleOutputRequest {
   Latest?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetConsoleOutputResult {
   /**
    * <p>The ID of the instance.</p>
@@ -3973,6 +4590,9 @@ export interface GetConsoleOutputResult {
   Timestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetConsoleScreenshotRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3993,6 +4613,9 @@ export interface GetConsoleScreenshotRequest {
   WakeUp?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetConsoleScreenshotResult {
   /**
    * <p>The data that comprises the image.</p>
@@ -4005,13 +4628,26 @@ export interface GetConsoleScreenshotResult {
   InstanceId?: string;
 }
 
-export enum UnlimitedSupportedInstanceFamily {
-  t2 = "t2",
-  t3 = "t3",
-  t3a = "t3a",
-  t4g = "t4g",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UnlimitedSupportedInstanceFamily = {
+  t2: "t2",
+  t3: "t3",
+  t3a: "t3a",
+  t4g: "t4g",
+} as const;
 
+/**
+ * @public
+ */
+export type UnlimitedSupportedInstanceFamily =
+  (typeof UnlimitedSupportedInstanceFamily)[keyof typeof UnlimitedSupportedInstanceFamily];
+
+/**
+ * @public
+ */
 export interface GetDefaultCreditSpecificationRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4027,6 +4663,7 @@ export interface GetDefaultCreditSpecificationRequest {
 }
 
 /**
+ * @public
  * <p>Describes the default credit option for CPU usage of a burstable performance instance
  *             family.</p>
  */
@@ -4043,6 +4680,9 @@ export interface InstanceFamilyCreditSpecification {
   CpuCredits?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDefaultCreditSpecificationResult {
   /**
    * <p>The default credit option for CPU usage of the instance family.</p>
@@ -4050,6 +4690,9 @@ export interface GetDefaultCreditSpecificationResult {
   InstanceFamilyCreditSpecification?: InstanceFamilyCreditSpecification;
 }
 
+/**
+ * @public
+ */
 export interface GetEbsDefaultKmsKeyIdRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4059,6 +4702,9 @@ export interface GetEbsDefaultKmsKeyIdRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetEbsDefaultKmsKeyIdResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the default KMS key for encryption by default.</p>
@@ -4066,6 +4712,9 @@ export interface GetEbsDefaultKmsKeyIdResult {
   KmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEbsEncryptionByDefaultRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4075,6 +4724,9 @@ export interface GetEbsEncryptionByDefaultRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetEbsEncryptionByDefaultResult {
   /**
    * <p>Indicates whether encryption by default is enabled.</p>
@@ -4082,14 +4734,24 @@ export interface GetEbsEncryptionByDefaultResult {
   EbsEncryptionByDefault?: boolean;
 }
 
-export enum PartitionLoadFrequency {
-  DAILY = "daily",
-  MONTHLY = "monthly",
-  NONE = "none",
-  WEEKLY = "weekly",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PartitionLoadFrequency = {
+  DAILY: "daily",
+  MONTHLY: "monthly",
+  NONE: "none",
+  WEEKLY: "weekly",
+} as const;
 
 /**
+ * @public
+ */
+export type PartitionLoadFrequency = (typeof PartitionLoadFrequency)[keyof typeof PartitionLoadFrequency];
+
+/**
+ * @public
  * <p>Describes integration options for Amazon Athena.</p>
  */
 export interface AthenaIntegration {
@@ -4115,6 +4777,7 @@ export interface AthenaIntegration {
 }
 
 /**
+ * @public
  * <p>Describes service integrations with VPC Flow logs.</p>
  */
 export interface IntegrateServices {
@@ -4124,6 +4787,9 @@ export interface IntegrateServices {
   AthenaIntegrations?: AthenaIntegration[];
 }
 
+/**
+ * @public
+ */
 export interface GetFlowLogsIntegrationTemplateRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4148,6 +4814,9 @@ export interface GetFlowLogsIntegrationTemplateRequest {
   IntegrateServices: IntegrateServices | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFlowLogsIntegrationTemplateResult {
   /**
    * <p>The generated CloudFormation template.</p>
@@ -4155,9 +4824,13 @@ export interface GetFlowLogsIntegrationTemplateResult {
   Result?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupsForCapacityReservationRequest {
   /**
-   * <p>The ID of the Capacity Reservation.</p>
+   * <p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is shared
+   * 			with you, the operation returns only Capacity Reservation groups that you own.</p>
    */
   CapacityReservationId: string | undefined;
 
@@ -4178,6 +4851,7 @@ export interface GetGroupsForCapacityReservationRequest {
 }
 
 /**
+ * @public
  * <p>Describes a resource group to which a Capacity Reservation has been added.</p>
  */
 export interface CapacityReservationGroup {
@@ -4192,6 +4866,9 @@ export interface CapacityReservationGroup {
   OwnerId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupsForCapacityReservationResult {
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -4204,6 +4881,9 @@ export interface GetGroupsForCapacityReservationResult {
   CapacityReservationGroups?: CapacityReservationGroup[];
 }
 
+/**
+ * @public
+ */
 export interface GetHostReservationPurchasePreviewRequest {
   /**
    * <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
@@ -4217,6 +4897,7 @@ export interface GetHostReservationPurchasePreviewRequest {
 }
 
 /**
+ * @public
  * <p>Describes the result of the purchase.</p>
  */
 export interface Purchase {
@@ -4264,6 +4945,9 @@ export interface Purchase {
   UpfrontPrice?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetHostReservationPurchasePreviewResult {
   /**
    * <p>The currency in which the <code>totalUpfrontPrice</code> and
@@ -4289,6 +4973,9 @@ export interface GetHostReservationPurchasePreviewResult {
   TotalUpfrontPrice?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceTypesFromInstanceRequirementsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4326,6 +5013,7 @@ export interface GetInstanceTypesFromInstanceRequirementsRequest {
 }
 
 /**
+ * @public
  * <p>The list of instance types with the specified instance attributes.</p>
  */
 export interface InstanceTypeInfoFromInstanceRequirements {
@@ -4335,6 +5023,9 @@ export interface InstanceTypeInfoFromInstanceRequirements {
   InstanceType?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceTypesFromInstanceRequirementsResult {
   /**
    * <p>The instance types with the specified instance attributes.</p>
@@ -4348,6 +5039,9 @@ export interface GetInstanceTypesFromInstanceRequirementsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceUefiDataRequest {
   /**
    * <p>The ID of the instance from which to retrieve the UEFI data.</p>
@@ -4362,6 +5056,9 @@ export interface GetInstanceUefiDataRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceUefiDataResult {
   /**
    * <p>The ID of the instance from which to retrieve the UEFI data.</p>
@@ -4374,6 +5071,9 @@ export interface GetInstanceUefiDataResult {
   UefiData?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIpamAddressHistoryRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -4419,28 +5119,57 @@ export interface GetIpamAddressHistoryRequest {
   NextToken?: string;
 }
 
-export enum IpamComplianceStatus {
-  compliant = "compliant",
-  ignored = "ignored",
-  noncompliant = "noncompliant",
-  unmanaged = "unmanaged",
-}
-
-export enum IpamOverlapStatus {
-  ignored = "ignored",
-  nonoverlapping = "nonoverlapping",
-  overlapping = "overlapping",
-}
-
-export enum IpamAddressHistoryResourceType {
-  eip = "eip",
-  instance = "instance",
-  network_interface = "network-interface",
-  subnet = "subnet",
-  vpc = "vpc",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpamComplianceStatus = {
+  compliant: "compliant",
+  ignored: "ignored",
+  noncompliant: "noncompliant",
+  unmanaged: "unmanaged",
+} as const;
 
 /**
+ * @public
+ */
+export type IpamComplianceStatus = (typeof IpamComplianceStatus)[keyof typeof IpamComplianceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamOverlapStatus = {
+  ignored: "ignored",
+  nonoverlapping: "nonoverlapping",
+  overlapping: "overlapping",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamOverlapStatus = (typeof IpamOverlapStatus)[keyof typeof IpamOverlapStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamAddressHistoryResourceType = {
+  eip: "eip",
+  instance: "instance",
+  network_interface: "network-interface",
+  subnet: "subnet",
+  vpc: "vpc",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamAddressHistoryResourceType =
+  (typeof IpamAddressHistoryResourceType)[keyof typeof IpamAddressHistoryResourceType];
+
+/**
+ * @public
  * <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  */
@@ -4501,6 +5230,9 @@ export interface IpamAddressHistoryRecord {
   SampledEndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetIpamAddressHistoryResult {
   /**
    * <p>A historical record for a CIDR within an IPAM scope. If the CIDR is associated with an EC2 instance, you will see an object in the response for the instance and one for the network interface.</p>
@@ -4513,6 +5245,9 @@ export interface GetIpamAddressHistoryResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIpamDiscoveredAccountsRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -4547,13 +5282,23 @@ export interface GetIpamDiscoveredAccountsRequest {
   MaxResults?: number;
 }
 
-export enum IpamDiscoveryFailureCode {
-  assume_role_failure = "assume-role-failure",
-  throttling_failure = "throttling-failure",
-  unauthorized_failure = "unauthorized-failure",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpamDiscoveryFailureCode = {
+  assume_role_failure: "assume-role-failure",
+  throttling_failure: "throttling-failure",
+  unauthorized_failure: "unauthorized-failure",
+} as const;
 
 /**
+ * @public
+ */
+export type IpamDiscoveryFailureCode = (typeof IpamDiscoveryFailureCode)[keyof typeof IpamDiscoveryFailureCode];
+
+/**
+ * @public
  * <p>The discovery failure reason.</p>
  */
 export interface IpamDiscoveryFailureReason {
@@ -4594,6 +5339,7 @@ export interface IpamDiscoveryFailureReason {
 }
 
 /**
+ * @public
  * <p>An IPAM discovered account. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts.</p>
  */
 export interface IpamDiscoveredAccount {
@@ -4624,6 +5370,9 @@ export interface IpamDiscoveredAccount {
   LastSuccessfulDiscoveryTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetIpamDiscoveredAccountsResult {
   /**
    * <p>Discovered accounts.</p>
@@ -4636,6 +5385,9 @@ export interface GetIpamDiscoveredAccountsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIpamDiscoveredResourceCidrsRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -4670,15 +5422,25 @@ export interface GetIpamDiscoveredResourceCidrsRequest {
   MaxResults?: number;
 }
 
-export enum IpamResourceType {
-  eip = "eip",
-  ipv6_pool = "ipv6-pool",
-  public_ipv4_pool = "public-ipv4-pool",
-  subnet = "subnet",
-  vpc = "vpc",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpamResourceType = {
+  eip: "eip",
+  ipv6_pool: "ipv6-pool",
+  public_ipv4_pool: "public-ipv4-pool",
+  subnet: "subnet",
+  vpc: "vpc",
+} as const;
 
 /**
+ * @public
+ */
+export type IpamResourceType = (typeof IpamResourceType)[keyof typeof IpamResourceType];
+
+/**
+ * @public
  * <p>An IPAM discovered resource CIDR. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. The discovered resource CIDR is the IP address range in CIDR notation that is associated with the resource.</p>
  */
 export interface IpamDiscoveredResourceCidr {
@@ -4747,6 +5509,9 @@ export interface IpamDiscoveredResourceCidr {
   SampleTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetIpamDiscoveredResourceCidrsResult {
   /**
    * <p>Discovered resource CIDRs.</p>
@@ -4759,6 +5524,9 @@ export interface GetIpamDiscoveredResourceCidrsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIpamPoolAllocationsRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -4793,6 +5561,9 @@ export interface GetIpamPoolAllocationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIpamPoolAllocationsResult {
   /**
    * <p>The IPAM pool allocations you want information on.</p>
@@ -4805,6 +5576,9 @@ export interface GetIpamPoolAllocationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIpamPoolCidrsRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -4834,6 +5608,9 @@ export interface GetIpamPoolCidrsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIpamPoolCidrsResult {
   /**
    * <p>Information about the CIDRs provisioned to an IPAM pool.</p>
@@ -4846,6 +5623,9 @@ export interface GetIpamPoolCidrsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIpamResourceCidrsRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -4900,13 +5680,23 @@ export interface GetIpamResourceCidrsRequest {
   ResourceOwner?: string;
 }
 
-export enum IpamManagementState {
-  ignored = "ignored",
-  managed = "managed",
-  unmanaged = "unmanaged",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpamManagementState = {
+  ignored: "ignored",
+  managed: "managed",
+  unmanaged: "unmanaged",
+} as const;
 
 /**
+ * @public
+ */
+export type IpamManagementState = (typeof IpamManagementState)[keyof typeof IpamManagementState];
+
+/**
+ * @public
  * <p>The CIDR for an IPAM resource.</p>
  */
 export interface IpamResourceCidr {
@@ -5000,6 +5790,9 @@ export interface IpamResourceCidr {
   VpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIpamResourceCidrsResult {
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -5012,6 +5805,9 @@ export interface GetIpamResourceCidrsResult {
   IpamResourceCidrs?: IpamResourceCidr[];
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchTemplateDataRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -5027,6 +5823,9 @@ export interface GetLaunchTemplateDataRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchTemplateDataResult {
   /**
    * <p>The instance data.</p>
@@ -5034,6 +5833,9 @@ export interface GetLaunchTemplateDataResult {
   LaunchTemplateData?: ResponseLaunchTemplateData;
 }
 
+/**
+ * @public
+ */
 export interface GetManagedPrefixListAssociationsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5060,6 +5862,7 @@ export interface GetManagedPrefixListAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the resource with which a prefix list is associated.</p>
  */
 export interface PrefixListAssociation {
@@ -5074,6 +5877,9 @@ export interface PrefixListAssociation {
   ResourceOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetManagedPrefixListAssociationsResult {
   /**
    * <p>Information about the associations.</p>
@@ -5086,6 +5892,9 @@ export interface GetManagedPrefixListAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetManagedPrefixListEntriesRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5117,6 +5926,7 @@ export interface GetManagedPrefixListEntriesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a prefix list entry.</p>
  */
 export interface PrefixListEntry {
@@ -5131,6 +5941,9 @@ export interface PrefixListEntry {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetManagedPrefixListEntriesResult {
   /**
    * <p>Information about the prefix list entries.</p>
@@ -5143,6 +5956,9 @@ export interface GetManagedPrefixListEntriesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkInsightsAccessScopeAnalysisFindingsRequest {
   /**
    * <p>The ID of the Network Access Scope analysis.</p>
@@ -5168,6 +5984,9 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkInsightsAccessScopeAnalysisFindingsResult {
   /**
    * <p>The ID of the Network Access Scope analysis.</p>
@@ -5190,6 +6009,9 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkInsightsAccessScopeContentRequest {
   /**
    * <p>The ID of the Network Access Scope.</p>
@@ -5204,6 +6026,9 @@ export interface GetNetworkInsightsAccessScopeContentRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkInsightsAccessScopeContentResult {
   /**
    * <p>The Network Access Scope content.</p>
@@ -5211,6 +6036,9 @@ export interface GetNetworkInsightsAccessScopeContentResult {
   NetworkInsightsAccessScopeContent?: NetworkInsightsAccessScopeContent;
 }
 
+/**
+ * @public
+ */
 export interface GetPasswordDataRequest {
   /**
    * <p>The ID of the Windows instance.</p>
@@ -5225,6 +6053,9 @@ export interface GetPasswordDataRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetPasswordDataResult {
   /**
    * <p>The ID of the Windows instance.</p>
@@ -5244,6 +6075,7 @@ export interface GetPasswordDataResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for GetReservedInstanceExchangeQuote.</p>
  */
 export interface GetReservedInstancesExchangeQuoteRequest {
@@ -5267,6 +6099,7 @@ export interface GetReservedInstancesExchangeQuoteRequest {
 }
 
 /**
+ * @public
  * <p>The cost associated with the Reserved Instance.</p>
  */
 export interface ReservationValue {
@@ -5287,6 +6120,7 @@ export interface ReservationValue {
 }
 
 /**
+ * @public
  * <p>The total value of the Convertible Reserved Instance.</p>
  */
 export interface ReservedInstanceReservationValue {
@@ -5302,6 +6136,7 @@ export interface ReservedInstanceReservationValue {
 }
 
 /**
+ * @public
  * <p>Information about the Convertible Reserved Instance offering.</p>
  */
 export interface TargetConfiguration {
@@ -5318,6 +6153,7 @@ export interface TargetConfiguration {
 }
 
 /**
+ * @public
  * <p>The total value of the new Convertible Reserved Instances.</p>
  */
 export interface TargetReservationValue {
@@ -5334,6 +6170,7 @@ export interface TargetReservationValue {
 }
 
 /**
+ * @public
  * <p>Contains the output of GetReservedInstancesExchangeQuote.</p>
  */
 export interface GetReservedInstancesExchangeQuoteResult {
@@ -5383,6 +6220,9 @@ export interface GetReservedInstancesExchangeQuoteResult {
   ValidationFailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSerialConsoleAccessStatusRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -5390,6 +6230,9 @@ export interface GetSerialConsoleAccessStatusRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetSerialConsoleAccessStatusResult {
   /**
    * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
@@ -5400,6 +6243,7 @@ export interface GetSerialConsoleAccessStatusResult {
 }
 
 /**
+ * @public
  * <p>The architecture type, virtualization type, and other attributes for the instance types.
  *          When you specify instance attributes, Amazon EC2 will identify instance types with those
  *          attributes.</p>
@@ -5424,6 +6268,9 @@ export interface InstanceRequirementsWithMetadataRequest {
   InstanceRequirements?: InstanceRequirementsRequest;
 }
 
+/**
+ * @public
+ */
 export interface GetSpotPlacementScoresRequest {
   /**
    * <p>The instance types. We recommend that you specify at least three instance types. If you
@@ -5489,6 +6336,7 @@ export interface GetSpotPlacementScoresRequest {
 }
 
 /**
+ * @public
  * <p>The Spot placement score for this Region or Availability Zone. The score is calculated
  *          based on the assumption that the <code>capacity-optimized</code> allocation strategy is
  *          used and that all of the Availability Zones in the Region can be used.</p>
@@ -5513,6 +6361,9 @@ export interface SpotPlacementScore {
   Score?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSpotPlacementScoresResult {
   /**
    * <p>The Spot placement score for the top 10 Regions or Availability Zones, scored on a scale
@@ -5541,6 +6392,9 @@ export interface GetSpotPlacementScoresResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSubnetCidrReservationsRequest {
   /**
    * <p>One or more filters.</p>
@@ -5591,6 +6445,9 @@ export interface GetSubnetCidrReservationsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSubnetCidrReservationsResult {
   /**
    * <p>Information about the IPv4 subnet CIDR reservations.</p>
@@ -5608,6 +6465,9 @@ export interface GetSubnetCidrReservationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayAttachmentPropagationsRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -5645,6 +6505,7 @@ export interface GetTransitGatewayAttachmentPropagationsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a propagation route table.</p>
  */
 export interface TransitGatewayAttachmentPropagation {
@@ -5659,6 +6520,9 @@ export interface TransitGatewayAttachmentPropagation {
   State?: TransitGatewayPropagationState | string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayAttachmentPropagationsResult {
   /**
    * <p>Information about the propagation route tables.</p>
@@ -5671,6 +6535,9 @@ export interface GetTransitGatewayAttachmentPropagationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayMulticastDomainAssociationsRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -5726,6 +6593,7 @@ export interface GetTransitGatewayMulticastDomainAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the resources associated with the transit gateway multicast domain.</p>
  */
 export interface TransitGatewayMulticastDomainAssociation {
@@ -5755,6 +6623,9 @@ export interface TransitGatewayMulticastDomainAssociation {
   Subnet?: SubnetAssociation;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayMulticastDomainAssociationsResult {
   /**
    * <p>Information about the multicast domain associations.</p>
@@ -5767,6 +6638,9 @@ export interface GetTransitGatewayMulticastDomainAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayPolicyTableAssociationsRequest {
   /**
    * <p>The ID of the transit gateway policy table.</p>
@@ -5797,6 +6671,9 @@ export interface GetTransitGatewayPolicyTableAssociationsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayPolicyTableAssociationsResult {
   /**
    * <p>Returns details about the transit gateway policy table association.</p>
@@ -5809,6 +6686,9 @@ export interface GetTransitGatewayPolicyTableAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayPolicyTableEntriesRequest {
   /**
    * <p>The ID of the transit gateway policy table.</p>
@@ -5840,6 +6720,7 @@ export interface GetTransitGatewayPolicyTableEntriesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the meta data tags associated with a transit gateway policy rule.</p>
  */
 export interface TransitGatewayPolicyRuleMetaData {
@@ -5855,6 +6736,7 @@ export interface TransitGatewayPolicyRuleMetaData {
 }
 
 /**
+ * @public
  * <p>Describes a rule associated with a transit gateway policy.</p>
  */
 export interface TransitGatewayPolicyRule {
@@ -5890,6 +6772,7 @@ export interface TransitGatewayPolicyRule {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway policy table entry</p>
  */
 export interface TransitGatewayPolicyTableEntry {
@@ -5909,6 +6792,9 @@ export interface TransitGatewayPolicyTableEntry {
   TargetRouteTableId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayPolicyTableEntriesResult {
   /**
    * <p>The entries for the transit gateway policy table.</p>
@@ -5916,6 +6802,9 @@ export interface GetTransitGatewayPolicyTableEntriesResult {
   TransitGatewayPolicyTableEntries?: TransitGatewayPolicyTableEntry[];
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayPrefixListReferencesRequest {
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -5978,6 +6867,9 @@ export interface GetTransitGatewayPrefixListReferencesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayPrefixListReferencesResult {
   /**
    * <p>Information about the prefix list references.</p>
@@ -5990,6 +6882,9 @@ export interface GetTransitGatewayPrefixListReferencesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayRouteTableAssociationsRequest {
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -6037,6 +6932,7 @@ export interface GetTransitGatewayRouteTableAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>Describes an association between a route table and a resource attachment.</p>
  */
 export interface TransitGatewayRouteTableAssociation {
@@ -6061,6 +6957,9 @@ export interface TransitGatewayRouteTableAssociation {
   State?: TransitGatewayAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayRouteTableAssociationsResult {
   /**
    * <p>Information about the associations.</p>
@@ -6073,6 +6972,9 @@ export interface GetTransitGatewayRouteTableAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayRouteTablePropagationsRequest {
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -6120,6 +7022,7 @@ export interface GetTransitGatewayRouteTablePropagationsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a route table propagation.</p>
  */
 export interface TransitGatewayRouteTablePropagation {
@@ -6149,6 +7052,9 @@ export interface TransitGatewayRouteTablePropagation {
   TransitGatewayRouteTableAnnouncementId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayRouteTablePropagationsResult {
   /**
    * <p>Information about the route table propagations.</p>
@@ -6161,9 +7067,12 @@ export interface GetTransitGatewayRouteTablePropagationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetVerifiedAccessEndpointPolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpointId: string | undefined;
 
@@ -6175,6 +7084,9 @@ export interface GetVerifiedAccessEndpointPolicyRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetVerifiedAccessEndpointPolicyResult {
   /**
    * <p>The status of the Verified Access policy.</p>
@@ -6182,14 +7094,17 @@ export interface GetVerifiedAccessEndpointPolicyResult {
   PolicyEnabled?: boolean;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetVerifiedAccessGroupPolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId: string | undefined;
 
@@ -6201,6 +7116,9 @@ export interface GetVerifiedAccessGroupPolicyRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetVerifiedAccessGroupPolicyResult {
   /**
    * <p>The status of the Verified Access policy.</p>
@@ -6208,11 +7126,14 @@ export interface GetVerifiedAccessGroupPolicyResult {
   PolicyEnabled?: boolean;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetVpnConnectionDeviceSampleConfigurationRequest {
   /**
    * <p>The <code>VpnConnectionId</code> specifies the Site-to-Site VPN connection used for the sample
@@ -6241,6 +7162,9 @@ export interface GetVpnConnectionDeviceSampleConfigurationRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetVpnConnectionDeviceSampleConfigurationResult {
   /**
    * <p>Sample configuration file for the specified customer gateway device.</p>
@@ -6248,6 +7172,9 @@ export interface GetVpnConnectionDeviceSampleConfigurationResult {
   VpnConnectionDeviceSampleConfiguration?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetVpnConnectionDeviceTypesRequest {
   /**
    * <p>The maximum number of results returned by <code>GetVpnConnectionDeviceTypes</code> in
@@ -6280,6 +7207,7 @@ export interface GetVpnConnectionDeviceTypesRequest {
 }
 
 /**
+ * @public
  * <p>List of customer gateway devices that have a sample configuration file available for
  *             use. You can also see the list of device types with sample configuration files available
  *             under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer
@@ -6307,6 +7235,9 @@ export interface VpnConnectionDeviceType {
   Software?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetVpnConnectionDeviceTypesResult {
   /**
    * <p>List of customer gateway devices that have a sample configuration file available for
@@ -6324,6 +7255,85 @@ export interface GetVpnConnectionDeviceTypesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
+export interface GetVpnTunnelReplacementStatusRequest {
+  /**
+   * <p>The ID of the Site-to-Site VPN connection. </p>
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   */
+  VpnTunnelOutsideIpAddress: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details for Site-to-Site VPN tunnel endpoint maintenance events.</p>
+ */
+export interface MaintenanceDetails {
+  /**
+   * <p>Verify existence of a pending maintenance.</p>
+   */
+  PendingMaintenance?: string;
+
+  /**
+   * <p>The timestamp after which Amazon Web Services will automatically apply maintenance.</p>
+   */
+  MaintenanceAutoAppliedAfter?: Date;
+
+  /**
+   * <p>Timestamp of last applied maintenance.</p>
+   */
+  LastMaintenanceApplied?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetVpnTunnelReplacementStatusResult {
+  /**
+   * <p>The ID of the Site-to-Site VPN connection. </p>
+   */
+  VpnConnectionId?: string;
+
+  /**
+   * <p>The ID of the transit gateway associated with the VPN connection.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The ID of the customer gateway.</p>
+   */
+  CustomerGatewayId?: string;
+
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   */
+  VpnGatewayId?: string;
+
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   */
+  VpnTunnelOutsideIpAddress?: string;
+
+  /**
+   * <p>Get details of pending tunnel endpoint maintenance.</p>
+   */
+  MaintenanceDetails?: MaintenanceDetails;
+}
+
+/**
+ * @public
+ */
 export interface ImportClientVpnClientCertificateRevocationListRequest {
   /**
    * <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
@@ -6342,6 +7352,9 @@ export interface ImportClientVpnClientCertificateRevocationListRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ImportClientVpnClientCertificateRevocationListResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -6350,6 +7363,7 @@ export interface ImportClientVpnClientCertificateRevocationListResult {
 }
 
 /**
+ * @public
  * <p>Describes the client-specific data.</p>
  */
 export interface ClientData {
@@ -6375,6 +7389,7 @@ export interface ClientData {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon S3 bucket for the disk image.</p>
  */
 export interface UserBucket {
@@ -6390,6 +7405,7 @@ export interface UserBucket {
 }
 
 /**
+ * @public
  * <p>Describes the disk container object for an import image task.</p>
  */
 export interface ImageDiskContainer {
@@ -6428,6 +7444,7 @@ export interface ImageDiskContainer {
 }
 
 /**
+ * @public
  * <p>The request information of license configurations.</p>
  */
 export interface ImportImageLicenseConfigurationRequest {
@@ -6437,6 +7454,9 @@ export interface ImportImageLicenseConfigurationRequest {
   LicenseConfigurationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportImageRequest {
   /**
    * <p>The architecture of the virtual machine.</p>
@@ -6559,6 +7579,9 @@ export interface ImportImageRequest {
   BootMode?: BootModeValues | string;
 }
 
+/**
+ * @public
+ */
 export interface ImportImageResult {
   /**
    * <p>The architecture of the virtual machine.</p>
@@ -6642,6 +7665,7 @@ export interface ImportImageResult {
 }
 
 /**
+ * @public
  * <p>Describes a disk image.</p>
  */
 export interface DiskImageDetail {
@@ -6666,6 +7690,7 @@ export interface DiskImageDetail {
 }
 
 /**
+ * @public
  * <p>Describes an EBS volume.</p>
  */
 export interface VolumeDetail {
@@ -6676,6 +7701,7 @@ export interface VolumeDetail {
 }
 
 /**
+ * @public
  * <p>Describes a disk image.</p>
  */
 export interface DiskImage {
@@ -6696,6 +7722,7 @@ export interface DiskImage {
 }
 
 /**
+ * @public
  * <p>Describes the user data for an instance.</p>
  */
 export interface UserData {
@@ -6707,6 +7734,7 @@ export interface UserData {
 }
 
 /**
+ * @public
  * <p>Describes the launch specification for VM import.</p>
  */
 export interface ImportInstanceLaunchSpecification {
@@ -6768,6 +7796,9 @@ export interface ImportInstanceLaunchSpecification {
   UserData?: UserData;
 }
 
+/**
+ * @public
+ */
 export interface ImportInstanceRequest {
   /**
    * <p>A description for the instance being imported.</p>
@@ -6797,552 +7828,15 @@ export interface ImportInstanceRequest {
   Platform: PlatformValues | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportInstanceResult {
   /**
    * <p>Information about the conversion task.</p>
    */
   ConversionTask?: ConversionTask;
 }
-
-export interface ImportKeyPairRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>A unique name for the key pair.</p>
-   */
-  KeyName: string | undefined;
-
-  /**
-   * <p>The public key. For API calls, the text must be base64-encoded. For command line tools, base64 encoding is performed for you.</p>
-   */
-  PublicKeyMaterial: Uint8Array | undefined;
-
-  /**
-   * <p>The tags to apply to the imported key pair.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-export interface ImportKeyPairResult {
-  /**
-   * <ul>
-   *             <li>
-   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.</p>
-   *             </li>
-   *             <li>
-   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  KeyFingerprint?: string;
-
-  /**
-   * <p>The key pair name that you provided.</p>
-   */
-  KeyName?: string;
-
-  /**
-   * <p>The ID of the resulting key pair.</p>
-   */
-  KeyPairId?: string;
-
-  /**
-   * <p>The tags applied to the imported key pair.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * <p>The disk container object for the import snapshot request.</p>
- */
-export interface SnapshotDiskContainer {
-  /**
-   * <p>The description of the disk image being imported.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The format of the disk image being imported.</p>
-   *          <p>Valid values: <code>VHD</code> | <code>VMDK</code> | <code>RAW</code>
-   *          </p>
-   */
-  Format?: string;
-
-  /**
-   * <p>The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon
-   *    S3 URL (s3://..).</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The Amazon S3 bucket for the disk image.</p>
-   */
-  UserBucket?: UserBucket;
-}
-
-export interface ImportSnapshotRequest {
-  /**
-   * <p>The client-specific data.</p>
-   */
-  ClientData?: ClientData;
-
-  /**
-   * <p>Token to enable idempotency for VM import requests.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The description string for the import snapshot task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Information about the disk container.</p>
-   */
-  DiskContainer?: SnapshotDiskContainer;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is
-   *    used unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
-   *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>An identifier for the symmetric KMS key to use when creating the
-   *    encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this
-   *    parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is
-   *    specified, the <code>Encrypted</code> flag must also be set. </p>
-   *          <p>The KMS key identifier may be provided in any of the following formats: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID</p>
-   *             </li>
-   *             <li>
-   *                <p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
-   *             </li>
-   *          </ul>
-   *          <p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
-   *    though you provided an invalid identifier. This action will eventually report failure. </p>
-   *          <p>The specified KMS key must exist in the Region that the snapshot is being copied to.</p>
-   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
-   */
-  RoleName?: string;
-
-  /**
-   * <p>The tags to apply to the import snapshot task during creation.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-export interface ImportSnapshotResult {
-  /**
-   * <p>A description of the import snapshot task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the import snapshot task.</p>
-   */
-  ImportTaskId?: string;
-
-  /**
-   * <p>Information about the import snapshot task.</p>
-   */
-  SnapshotTaskDetail?: SnapshotTaskDetail;
-
-  /**
-   * <p>Any tags assigned to the import snapshot task.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @internal
- */
-export const DescribeVolumesResultFilterSensitiveLog = (obj: DescribeVolumesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumesModificationsRequestFilterSensitiveLog = (
-  obj: DescribeVolumesModificationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeModificationFilterSensitiveLog = (obj: VolumeModification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumesModificationsResultFilterSensitiveLog = (obj: DescribeVolumesModificationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumeStatusRequestFilterSensitiveLog = (obj: DescribeVolumeStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusActionFilterSensitiveLog = (obj: VolumeStatusAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusAttachmentStatusFilterSensitiveLog = (obj: VolumeStatusAttachmentStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusEventFilterSensitiveLog = (obj: VolumeStatusEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusDetailsFilterSensitiveLog = (obj: VolumeStatusDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusInfoFilterSensitiveLog = (obj: VolumeStatusInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusItemFilterSensitiveLog = (obj: VolumeStatusItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumeStatusResultFilterSensitiveLog = (obj: DescribeVolumeStatusResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcAttributeRequestFilterSensitiveLog = (obj: DescribeVpcAttributeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcAttributeResultFilterSensitiveLog = (obj: DescribeVpcAttributeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcClassicLinkRequestFilterSensitiveLog = (obj: DescribeVpcClassicLinkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcClassicLinkFilterSensitiveLog = (obj: VpcClassicLink): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcClassicLinkResultFilterSensitiveLog = (obj: DescribeVpcClassicLinkResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcClassicLinkDnsSupportRequestFilterSensitiveLog = (
-  obj: DescribeVpcClassicLinkDnsSupportRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClassicLinkDnsSupportFilterSensitiveLog = (obj: ClassicLinkDnsSupport): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcClassicLinkDnsSupportResultFilterSensitiveLog = (
-  obj: DescribeVpcClassicLinkDnsSupportResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointConnectionNotificationsRequestFilterSensitiveLog = (
-  obj: DescribeVpcEndpointConnectionNotificationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointConnectionNotificationsResultFilterSensitiveLog = (
-  obj: DescribeVpcEndpointConnectionNotificationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointConnectionsRequestFilterSensitiveLog = (
-  obj: DescribeVpcEndpointConnectionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointConnectionFilterSensitiveLog = (obj: VpcEndpointConnection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointConnectionsResultFilterSensitiveLog = (
-  obj: DescribeVpcEndpointConnectionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointsRequestFilterSensitiveLog = (obj: DescribeVpcEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointsResultFilterSensitiveLog = (obj: DescribeVpcEndpointsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointServiceConfigurationsRequestFilterSensitiveLog = (
-  obj: DescribeVpcEndpointServiceConfigurationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointServiceConfigurationsResultFilterSensitiveLog = (
-  obj: DescribeVpcEndpointServiceConfigurationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointServicePermissionsRequestFilterSensitiveLog = (
-  obj: DescribeVpcEndpointServicePermissionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointServicePermissionsResultFilterSensitiveLog = (
-  obj: DescribeVpcEndpointServicePermissionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointServicesRequestFilterSensitiveLog = (obj: DescribeVpcEndpointServicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrivateDnsDetailsFilterSensitiveLog = (obj: PrivateDnsDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceDetailFilterSensitiveLog = (obj: ServiceDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointServicesResultFilterSensitiveLog = (obj: DescribeVpcEndpointServicesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcPeeringConnectionsRequestFilterSensitiveLog = (
-  obj: DescribeVpcPeeringConnectionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcPeeringConnectionsResultFilterSensitiveLog = (
-  obj: DescribeVpcPeeringConnectionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcsRequestFilterSensitiveLog = (obj: DescribeVpcsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcsResultFilterSensitiveLog = (obj: DescribeVpcsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpnConnectionsRequestFilterSensitiveLog = (obj: DescribeVpnConnectionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpnConnectionsResultFilterSensitiveLog = (obj: DescribeVpnConnectionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpnGatewaysRequestFilterSensitiveLog = (obj: DescribeVpnGatewaysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpnGatewaysResultFilterSensitiveLog = (obj: DescribeVpnGatewaysResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetachClassicLinkVpcRequestFilterSensitiveLog = (obj: DetachClassicLinkVpcRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetachClassicLinkVpcResultFilterSensitiveLog = (obj: DetachClassicLinkVpcResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetachInternetGatewayRequestFilterSensitiveLog = (obj: DetachInternetGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetachNetworkInterfaceRequestFilterSensitiveLog = (obj: DetachNetworkInterfaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetachVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
-  obj: DetachVerifiedAccessTrustProviderRequest
-): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -7351,1266 +7845,9 @@ export const DetachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
   obj: DetachVerifiedAccessTrustProviderResult
 ): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const DetachVolumeRequestFilterSensitiveLog = (obj: DetachVolumeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetachVpnGatewayRequestFilterSensitiveLog = (obj: DetachVpnGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableAddressTransferRequestFilterSensitiveLog = (obj: DisableAddressTransferRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableAddressTransferResultFilterSensitiveLog = (obj: DisableAddressTransferResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableAwsNetworkPerformanceMetricSubscriptionRequestFilterSensitiveLog = (
-  obj: DisableAwsNetworkPerformanceMetricSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableAwsNetworkPerformanceMetricSubscriptionResultFilterSensitiveLog = (
-  obj: DisableAwsNetworkPerformanceMetricSubscriptionResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableEbsEncryptionByDefaultRequestFilterSensitiveLog = (
-  obj: DisableEbsEncryptionByDefaultRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableEbsEncryptionByDefaultResultFilterSensitiveLog = (
-  obj: DisableEbsEncryptionByDefaultResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableFastLaunchRequestFilterSensitiveLog = (obj: DisableFastLaunchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableFastLaunchResultFilterSensitiveLog = (obj: DisableFastLaunchResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableFastSnapshotRestoresRequestFilterSensitiveLog = (obj: DisableFastSnapshotRestoresRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableFastSnapshotRestoreSuccessItemFilterSensitiveLog = (
-  obj: DisableFastSnapshotRestoreSuccessItem
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableFastSnapshotRestoreStateErrorFilterSensitiveLog = (
-  obj: DisableFastSnapshotRestoreStateError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableFastSnapshotRestoreStateErrorItemFilterSensitiveLog = (
-  obj: DisableFastSnapshotRestoreStateErrorItem
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableFastSnapshotRestoreErrorItemFilterSensitiveLog = (
-  obj: DisableFastSnapshotRestoreErrorItem
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableFastSnapshotRestoresResultFilterSensitiveLog = (obj: DisableFastSnapshotRestoresResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableImageDeprecationRequestFilterSensitiveLog = (obj: DisableImageDeprecationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableImageDeprecationResultFilterSensitiveLog = (obj: DisableImageDeprecationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableIpamOrganizationAdminAccountRequestFilterSensitiveLog = (
-  obj: DisableIpamOrganizationAdminAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableIpamOrganizationAdminAccountResultFilterSensitiveLog = (
-  obj: DisableIpamOrganizationAdminAccountResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableSerialConsoleAccessRequestFilterSensitiveLog = (obj: DisableSerialConsoleAccessRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableSerialConsoleAccessResultFilterSensitiveLog = (obj: DisableSerialConsoleAccessResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableTransitGatewayRouteTablePropagationRequestFilterSensitiveLog = (
-  obj: DisableTransitGatewayRouteTablePropagationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayPropagationFilterSensitiveLog = (obj: TransitGatewayPropagation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableTransitGatewayRouteTablePropagationResultFilterSensitiveLog = (
-  obj: DisableTransitGatewayRouteTablePropagationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableVgwRoutePropagationRequestFilterSensitiveLog = (obj: DisableVgwRoutePropagationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableVpcClassicLinkRequestFilterSensitiveLog = (obj: DisableVpcClassicLinkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableVpcClassicLinkResultFilterSensitiveLog = (obj: DisableVpcClassicLinkResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableVpcClassicLinkDnsSupportRequestFilterSensitiveLog = (
-  obj: DisableVpcClassicLinkDnsSupportRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableVpcClassicLinkDnsSupportResultFilterSensitiveLog = (
-  obj: DisableVpcClassicLinkDnsSupportResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateAddressRequestFilterSensitiveLog = (obj: DisassociateAddressRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateClientVpnTargetNetworkRequestFilterSensitiveLog = (
-  obj: DisassociateClientVpnTargetNetworkRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateClientVpnTargetNetworkResultFilterSensitiveLog = (
-  obj: DisassociateClientVpnTargetNetworkResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateEnclaveCertificateIamRoleRequestFilterSensitiveLog = (
-  obj: DisassociateEnclaveCertificateIamRoleRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateEnclaveCertificateIamRoleResultFilterSensitiveLog = (
-  obj: DisassociateEnclaveCertificateIamRoleResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateIamInstanceProfileRequestFilterSensitiveLog = (
-  obj: DisassociateIamInstanceProfileRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateIamInstanceProfileResultFilterSensitiveLog = (
-  obj: DisassociateIamInstanceProfileResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceEventWindowDisassociationRequestFilterSensitiveLog = (
-  obj: InstanceEventWindowDisassociationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateInstanceEventWindowRequestFilterSensitiveLog = (
-  obj: DisassociateInstanceEventWindowRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateInstanceEventWindowResultFilterSensitiveLog = (
-  obj: DisassociateInstanceEventWindowResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateIpamResourceDiscoveryRequestFilterSensitiveLog = (
-  obj: DisassociateIpamResourceDiscoveryRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateIpamResourceDiscoveryResultFilterSensitiveLog = (
-  obj: DisassociateIpamResourceDiscoveryResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateNatGatewayAddressRequestFilterSensitiveLog = (
-  obj: DisassociateNatGatewayAddressRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateNatGatewayAddressResultFilterSensitiveLog = (
-  obj: DisassociateNatGatewayAddressResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateRouteTableRequestFilterSensitiveLog = (obj: DisassociateRouteTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSubnetCidrBlockRequestFilterSensitiveLog = (obj: DisassociateSubnetCidrBlockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSubnetCidrBlockResultFilterSensitiveLog = (obj: DisassociateSubnetCidrBlockResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayMulticastDomainRequestFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayMulticastDomainRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayMulticastDomainResultFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayMulticastDomainResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayPolicyTableRequestFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayPolicyTableRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayPolicyTableResultFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayPolicyTableResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayRouteTableRequestFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayRouteTableRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayRouteTableResultFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayRouteTableResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTrunkInterfaceRequestFilterSensitiveLog = (obj: DisassociateTrunkInterfaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTrunkInterfaceResultFilterSensitiveLog = (obj: DisassociateTrunkInterfaceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateVpcCidrBlockRequestFilterSensitiveLog = (obj: DisassociateVpcCidrBlockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateVpcCidrBlockResultFilterSensitiveLog = (obj: DisassociateVpcCidrBlockResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableAddressTransferRequestFilterSensitiveLog = (obj: EnableAddressTransferRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableAddressTransferResultFilterSensitiveLog = (obj: EnableAddressTransferResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableAwsNetworkPerformanceMetricSubscriptionRequestFilterSensitiveLog = (
-  obj: EnableAwsNetworkPerformanceMetricSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableAwsNetworkPerformanceMetricSubscriptionResultFilterSensitiveLog = (
-  obj: EnableAwsNetworkPerformanceMetricSubscriptionResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableEbsEncryptionByDefaultRequestFilterSensitiveLog = (
-  obj: EnableEbsEncryptionByDefaultRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableEbsEncryptionByDefaultResultFilterSensitiveLog = (obj: EnableEbsEncryptionByDefaultResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FastLaunchLaunchTemplateSpecificationRequestFilterSensitiveLog = (
-  obj: FastLaunchLaunchTemplateSpecificationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FastLaunchSnapshotConfigurationRequestFilterSensitiveLog = (
-  obj: FastLaunchSnapshotConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastLaunchRequestFilterSensitiveLog = (obj: EnableFastLaunchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastLaunchResultFilterSensitiveLog = (obj: EnableFastLaunchResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastSnapshotRestoresRequestFilterSensitiveLog = (obj: EnableFastSnapshotRestoresRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastSnapshotRestoreSuccessItemFilterSensitiveLog = (
-  obj: EnableFastSnapshotRestoreSuccessItem
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastSnapshotRestoreStateErrorFilterSensitiveLog = (
-  obj: EnableFastSnapshotRestoreStateError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastSnapshotRestoreStateErrorItemFilterSensitiveLog = (
-  obj: EnableFastSnapshotRestoreStateErrorItem
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastSnapshotRestoreErrorItemFilterSensitiveLog = (obj: EnableFastSnapshotRestoreErrorItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastSnapshotRestoresResultFilterSensitiveLog = (obj: EnableFastSnapshotRestoresResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableImageDeprecationRequestFilterSensitiveLog = (obj: EnableImageDeprecationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableImageDeprecationResultFilterSensitiveLog = (obj: EnableImageDeprecationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableIpamOrganizationAdminAccountRequestFilterSensitiveLog = (
-  obj: EnableIpamOrganizationAdminAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableIpamOrganizationAdminAccountResultFilterSensitiveLog = (
-  obj: EnableIpamOrganizationAdminAccountResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableReachabilityAnalyzerOrganizationSharingRequestFilterSensitiveLog = (
-  obj: EnableReachabilityAnalyzerOrganizationSharingRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableReachabilityAnalyzerOrganizationSharingResultFilterSensitiveLog = (
-  obj: EnableReachabilityAnalyzerOrganizationSharingResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSerialConsoleAccessRequestFilterSensitiveLog = (obj: EnableSerialConsoleAccessRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSerialConsoleAccessResultFilterSensitiveLog = (obj: EnableSerialConsoleAccessResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableTransitGatewayRouteTablePropagationRequestFilterSensitiveLog = (
-  obj: EnableTransitGatewayRouteTablePropagationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableTransitGatewayRouteTablePropagationResultFilterSensitiveLog = (
-  obj: EnableTransitGatewayRouteTablePropagationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableVgwRoutePropagationRequestFilterSensitiveLog = (obj: EnableVgwRoutePropagationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableVolumeIORequestFilterSensitiveLog = (obj: EnableVolumeIORequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableVpcClassicLinkRequestFilterSensitiveLog = (obj: EnableVpcClassicLinkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableVpcClassicLinkResultFilterSensitiveLog = (obj: EnableVpcClassicLinkResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableVpcClassicLinkDnsSupportRequestFilterSensitiveLog = (
-  obj: EnableVpcClassicLinkDnsSupportRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableVpcClassicLinkDnsSupportResultFilterSensitiveLog = (
-  obj: EnableVpcClassicLinkDnsSupportResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportClientVpnClientCertificateRevocationListRequestFilterSensitiveLog = (
-  obj: ExportClientVpnClientCertificateRevocationListRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientCertificateRevocationListStatusFilterSensitiveLog = (
-  obj: ClientCertificateRevocationListStatus
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportClientVpnClientCertificateRevocationListResultFilterSensitiveLog = (
-  obj: ExportClientVpnClientCertificateRevocationListResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportClientVpnClientConfigurationRequestFilterSensitiveLog = (
-  obj: ExportClientVpnClientConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportClientVpnClientConfigurationResultFilterSensitiveLog = (
-  obj: ExportClientVpnClientConfigurationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportTaskS3LocationRequestFilterSensitiveLog = (obj: ExportTaskS3LocationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportImageRequestFilterSensitiveLog = (obj: ExportImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportImageResultFilterSensitiveLog = (obj: ExportImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportTransitGatewayRoutesRequestFilterSensitiveLog = (obj: ExportTransitGatewayRoutesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportTransitGatewayRoutesResultFilterSensitiveLog = (obj: ExportTransitGatewayRoutesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssociatedEnclaveCertificateIamRolesRequestFilterSensitiveLog = (
-  obj: GetAssociatedEnclaveCertificateIamRolesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatedRoleFilterSensitiveLog = (obj: AssociatedRole): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssociatedEnclaveCertificateIamRolesResultFilterSensitiveLog = (
-  obj: GetAssociatedEnclaveCertificateIamRolesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssociatedIpv6PoolCidrsRequestFilterSensitiveLog = (obj: GetAssociatedIpv6PoolCidrsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ipv6CidrAssociationFilterSensitiveLog = (obj: Ipv6CidrAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssociatedIpv6PoolCidrsResultFilterSensitiveLog = (obj: GetAssociatedIpv6PoolCidrsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQueryFilterSensitiveLog = (obj: DataQuery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAwsNetworkPerformanceDataRequestFilterSensitiveLog = (
-  obj: GetAwsNetworkPerformanceDataRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricPointFilterSensitiveLog = (obj: MetricPoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataResponseFilterSensitiveLog = (obj: DataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAwsNetworkPerformanceDataResultFilterSensitiveLog = (obj: GetAwsNetworkPerformanceDataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCapacityReservationUsageRequestFilterSensitiveLog = (obj: GetCapacityReservationUsageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceUsageFilterSensitiveLog = (obj: InstanceUsage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCapacityReservationUsageResultFilterSensitiveLog = (obj: GetCapacityReservationUsageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCoipPoolUsageRequestFilterSensitiveLog = (obj: GetCoipPoolUsageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoipAddressUsageFilterSensitiveLog = (obj: CoipAddressUsage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCoipPoolUsageResultFilterSensitiveLog = (obj: GetCoipPoolUsageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConsoleOutputRequestFilterSensitiveLog = (obj: GetConsoleOutputRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConsoleOutputResultFilterSensitiveLog = (obj: GetConsoleOutputResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConsoleScreenshotRequestFilterSensitiveLog = (obj: GetConsoleScreenshotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConsoleScreenshotResultFilterSensitiveLog = (obj: GetConsoleScreenshotResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDefaultCreditSpecificationRequestFilterSensitiveLog = (
-  obj: GetDefaultCreditSpecificationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFamilyCreditSpecificationFilterSensitiveLog = (obj: InstanceFamilyCreditSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDefaultCreditSpecificationResultFilterSensitiveLog = (
-  obj: GetDefaultCreditSpecificationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEbsDefaultKmsKeyIdRequestFilterSensitiveLog = (obj: GetEbsDefaultKmsKeyIdRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEbsDefaultKmsKeyIdResultFilterSensitiveLog = (obj: GetEbsDefaultKmsKeyIdResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEbsEncryptionByDefaultRequestFilterSensitiveLog = (obj: GetEbsEncryptionByDefaultRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEbsEncryptionByDefaultResultFilterSensitiveLog = (obj: GetEbsEncryptionByDefaultResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AthenaIntegrationFilterSensitiveLog = (obj: AthenaIntegration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IntegrateServicesFilterSensitiveLog = (obj: IntegrateServices): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFlowLogsIntegrationTemplateRequestFilterSensitiveLog = (
-  obj: GetFlowLogsIntegrationTemplateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFlowLogsIntegrationTemplateResultFilterSensitiveLog = (
-  obj: GetFlowLogsIntegrationTemplateResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGroupsForCapacityReservationRequestFilterSensitiveLog = (
-  obj: GetGroupsForCapacityReservationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityReservationGroupFilterSensitiveLog = (obj: CapacityReservationGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGroupsForCapacityReservationResultFilterSensitiveLog = (
-  obj: GetGroupsForCapacityReservationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHostReservationPurchasePreviewRequestFilterSensitiveLog = (
-  obj: GetHostReservationPurchasePreviewRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseFilterSensitiveLog = (obj: Purchase): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHostReservationPurchasePreviewResultFilterSensitiveLog = (
-  obj: GetHostReservationPurchasePreviewResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceTypesFromInstanceRequirementsRequestFilterSensitiveLog = (
-  obj: GetInstanceTypesFromInstanceRequirementsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceTypeInfoFromInstanceRequirementsFilterSensitiveLog = (
-  obj: InstanceTypeInfoFromInstanceRequirements
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceTypesFromInstanceRequirementsResultFilterSensitiveLog = (
-  obj: GetInstanceTypesFromInstanceRequirementsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceUefiDataRequestFilterSensitiveLog = (obj: GetInstanceUefiDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceUefiDataResultFilterSensitiveLog = (obj: GetInstanceUefiDataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIpamAddressHistoryRequestFilterSensitiveLog = (obj: GetIpamAddressHistoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamAddressHistoryRecordFilterSensitiveLog = (obj: IpamAddressHistoryRecord): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIpamAddressHistoryResultFilterSensitiveLog = (obj: GetIpamAddressHistoryResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIpamDiscoveredAccountsRequestFilterSensitiveLog = (obj: GetIpamDiscoveredAccountsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamDiscoveryFailureReasonFilterSensitiveLog = (obj: IpamDiscoveryFailureReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamDiscoveredAccountFilterSensitiveLog = (obj: IpamDiscoveredAccount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIpamDiscoveredAccountsResultFilterSensitiveLog = (obj: GetIpamDiscoveredAccountsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIpamDiscoveredResourceCidrsRequestFilterSensitiveLog = (
-  obj: GetIpamDiscoveredResourceCidrsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamDiscoveredResourceCidrFilterSensitiveLog = (obj: IpamDiscoveredResourceCidr): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIpamDiscoveredResourceCidrsResultFilterSensitiveLog = (
-  obj: GetIpamDiscoveredResourceCidrsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIpamPoolAllocationsRequestFilterSensitiveLog = (obj: GetIpamPoolAllocationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIpamPoolAllocationsResultFilterSensitiveLog = (obj: GetIpamPoolAllocationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIpamPoolCidrsRequestFilterSensitiveLog = (obj: GetIpamPoolCidrsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIpamPoolCidrsResultFilterSensitiveLog = (obj: GetIpamPoolCidrsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIpamResourceCidrsRequestFilterSensitiveLog = (obj: GetIpamResourceCidrsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamResourceCidrFilterSensitiveLog = (obj: IpamResourceCidr): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIpamResourceCidrsResultFilterSensitiveLog = (obj: GetIpamResourceCidrsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLaunchTemplateDataRequestFilterSensitiveLog = (obj: GetLaunchTemplateDataRequest): any => ({
-  ...obj,
+  ...(obj.VerifiedAccessTrustProvider && {
+    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
+  }),
 });
 
 /**
@@ -8626,434 +7863,6 @@ export const GetLaunchTemplateDataResultFilterSensitiveLog = (obj: GetLaunchTemp
 /**
  * @internal
  */
-export const GetManagedPrefixListAssociationsRequestFilterSensitiveLog = (
-  obj: GetManagedPrefixListAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrefixListAssociationFilterSensitiveLog = (obj: PrefixListAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetManagedPrefixListAssociationsResultFilterSensitiveLog = (
-  obj: GetManagedPrefixListAssociationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetManagedPrefixListEntriesRequestFilterSensitiveLog = (obj: GetManagedPrefixListEntriesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrefixListEntryFilterSensitiveLog = (obj: PrefixListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetManagedPrefixListEntriesResultFilterSensitiveLog = (obj: GetManagedPrefixListEntriesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkInsightsAccessScopeAnalysisFindingsRequestFilterSensitiveLog = (
-  obj: GetNetworkInsightsAccessScopeAnalysisFindingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkInsightsAccessScopeAnalysisFindingsResultFilterSensitiveLog = (
-  obj: GetNetworkInsightsAccessScopeAnalysisFindingsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkInsightsAccessScopeContentRequestFilterSensitiveLog = (
-  obj: GetNetworkInsightsAccessScopeContentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkInsightsAccessScopeContentResultFilterSensitiveLog = (
-  obj: GetNetworkInsightsAccessScopeContentResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPasswordDataRequestFilterSensitiveLog = (obj: GetPasswordDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPasswordDataResultFilterSensitiveLog = (obj: GetPasswordDataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReservedInstancesExchangeQuoteRequestFilterSensitiveLog = (
-  obj: GetReservedInstancesExchangeQuoteRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationValueFilterSensitiveLog = (obj: ReservationValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedInstanceReservationValueFilterSensitiveLog = (obj: ReservedInstanceReservationValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetConfigurationFilterSensitiveLog = (obj: TargetConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetReservationValueFilterSensitiveLog = (obj: TargetReservationValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReservedInstancesExchangeQuoteResultFilterSensitiveLog = (
-  obj: GetReservedInstancesExchangeQuoteResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSerialConsoleAccessStatusRequestFilterSensitiveLog = (
-  obj: GetSerialConsoleAccessStatusRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSerialConsoleAccessStatusResultFilterSensitiveLog = (obj: GetSerialConsoleAccessStatusResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceRequirementsWithMetadataRequestFilterSensitiveLog = (
-  obj: InstanceRequirementsWithMetadataRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSpotPlacementScoresRequestFilterSensitiveLog = (obj: GetSpotPlacementScoresRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpotPlacementScoreFilterSensitiveLog = (obj: SpotPlacementScore): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSpotPlacementScoresResultFilterSensitiveLog = (obj: GetSpotPlacementScoresResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSubnetCidrReservationsRequestFilterSensitiveLog = (obj: GetSubnetCidrReservationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSubnetCidrReservationsResultFilterSensitiveLog = (obj: GetSubnetCidrReservationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayAttachmentPropagationsRequestFilterSensitiveLog = (
-  obj: GetTransitGatewayAttachmentPropagationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayAttachmentPropagationFilterSensitiveLog = (
-  obj: TransitGatewayAttachmentPropagation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayAttachmentPropagationsResultFilterSensitiveLog = (
-  obj: GetTransitGatewayAttachmentPropagationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayMulticastDomainAssociationsRequestFilterSensitiveLog = (
-  obj: GetTransitGatewayMulticastDomainAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayMulticastDomainAssociationFilterSensitiveLog = (
-  obj: TransitGatewayMulticastDomainAssociation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayMulticastDomainAssociationsResultFilterSensitiveLog = (
-  obj: GetTransitGatewayMulticastDomainAssociationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayPolicyTableAssociationsRequestFilterSensitiveLog = (
-  obj: GetTransitGatewayPolicyTableAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayPolicyTableAssociationsResultFilterSensitiveLog = (
-  obj: GetTransitGatewayPolicyTableAssociationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayPolicyTableEntriesRequestFilterSensitiveLog = (
-  obj: GetTransitGatewayPolicyTableEntriesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayPolicyRuleMetaDataFilterSensitiveLog = (obj: TransitGatewayPolicyRuleMetaData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayPolicyRuleFilterSensitiveLog = (obj: TransitGatewayPolicyRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayPolicyTableEntryFilterSensitiveLog = (obj: TransitGatewayPolicyTableEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayPolicyTableEntriesResultFilterSensitiveLog = (
-  obj: GetTransitGatewayPolicyTableEntriesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayPrefixListReferencesRequestFilterSensitiveLog = (
-  obj: GetTransitGatewayPrefixListReferencesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayPrefixListReferencesResultFilterSensitiveLog = (
-  obj: GetTransitGatewayPrefixListReferencesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayRouteTableAssociationsRequestFilterSensitiveLog = (
-  obj: GetTransitGatewayRouteTableAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayRouteTableAssociationFilterSensitiveLog = (
-  obj: TransitGatewayRouteTableAssociation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayRouteTableAssociationsResultFilterSensitiveLog = (
-  obj: GetTransitGatewayRouteTableAssociationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayRouteTablePropagationsRequestFilterSensitiveLog = (
-  obj: GetTransitGatewayRouteTablePropagationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayRouteTablePropagationFilterSensitiveLog = (
-  obj: TransitGatewayRouteTablePropagation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayRouteTablePropagationsResultFilterSensitiveLog = (
-  obj: GetTransitGatewayRouteTablePropagationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVerifiedAccessEndpointPolicyRequestFilterSensitiveLog = (
-  obj: GetVerifiedAccessEndpointPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVerifiedAccessEndpointPolicyResultFilterSensitiveLog = (
-  obj: GetVerifiedAccessEndpointPolicyResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVerifiedAccessGroupPolicyRequestFilterSensitiveLog = (
-  obj: GetVerifiedAccessGroupPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVerifiedAccessGroupPolicyResultFilterSensitiveLog = (obj: GetVerifiedAccessGroupPolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVpnConnectionDeviceSampleConfigurationRequestFilterSensitiveLog = (
-  obj: GetVpnConnectionDeviceSampleConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog = (
   obj: GetVpnConnectionDeviceSampleConfigurationResult
 ): any => ({
@@ -9064,99 +7873,9 @@ export const GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog =
 /**
  * @internal
  */
-export const GetVpnConnectionDeviceTypesRequestFilterSensitiveLog = (obj: GetVpnConnectionDeviceTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpnConnectionDeviceTypeFilterSensitiveLog = (obj: VpnConnectionDeviceType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVpnConnectionDeviceTypesResultFilterSensitiveLog = (obj: GetVpnConnectionDeviceTypesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportClientVpnClientCertificateRevocationListRequestFilterSensitiveLog = (
-  obj: ImportClientVpnClientCertificateRevocationListRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportClientVpnClientCertificateRevocationListResultFilterSensitiveLog = (
-  obj: ImportClientVpnClientCertificateRevocationListResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientDataFilterSensitiveLog = (obj: ClientData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserBucketFilterSensitiveLog = (obj: UserBucket): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageDiskContainerFilterSensitiveLog = (obj: ImageDiskContainer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportImageLicenseConfigurationRequestFilterSensitiveLog = (
-  obj: ImportImageLicenseConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportImageRequestFilterSensitiveLog = (obj: ImportImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportImageResultFilterSensitiveLog = (obj: ImportImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DiskImageDetailFilterSensitiveLog = (obj: DiskImageDetail): any => ({
   ...obj,
   ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const VolumeDetailFilterSensitiveLog = (obj: VolumeDetail): any => ({
-  ...obj,
 });
 
 /**
@@ -9198,39 +7917,5 @@ export const ImportInstanceRequestFilterSensitiveLog = (obj: ImportInstanceReque
  */
 export const ImportInstanceResultFilterSensitiveLog = (obj: ImportInstanceResult): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportKeyPairRequestFilterSensitiveLog = (obj: ImportKeyPairRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportKeyPairResultFilterSensitiveLog = (obj: ImportKeyPairResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotDiskContainerFilterSensitiveLog = (obj: SnapshotDiskContainer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportSnapshotRequestFilterSensitiveLog = (obj: ImportSnapshotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportSnapshotResultFilterSensitiveLog = (obj: ImportSnapshotResult): any => ({
-  ...obj,
+  ...(obj.ConversionTask && { ConversionTask: ConversionTaskFilterSensitiveLog(obj.ConversionTask) }),
 });

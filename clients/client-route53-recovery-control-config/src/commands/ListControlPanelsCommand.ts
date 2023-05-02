@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListControlPanelsRequest,
-  ListControlPanelsRequestFilterSensitiveLog,
-  ListControlPanelsResponse,
-  ListControlPanelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListControlPanelsCommand,
-  serializeAws_restJson1ListControlPanelsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListControlPanelsRequest, ListControlPanelsResponse } from "../models/models_0";
+import { de_ListControlPanelsCommand, se_ListControlPanelsCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListControlPanelsCommand}.
  */
 export interface ListControlPanelsCommandInput extends ListControlPanelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListControlPanelsCommand}.
  */
 export interface ListControlPanelsCommandOutput extends ListControlPanelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of control panels in an account or in a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface ListControlPanelsCommandOutput extends ListControlPanelsRespons
  * import { Route53RecoveryControlConfigClient, ListControlPanelsCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, ListControlPanelsCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // ListControlPanelsRequest
+ *   ClusterArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListControlPanelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListControlPanelsCommandInput - {@link ListControlPanelsCommandInput}
+ * @returns {@link ListControlPanelsCommandOutput}
  * @see {@link ListControlPanelsCommandInput} for command's `input` shape.
  * @see {@link ListControlPanelsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -88,6 +92,9 @@ export class ListControlPanelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListControlPanelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class ListControlPanelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListControlPanelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListControlPanelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class ListControlPanelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListControlPanelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListControlPanelsCommand(input, context);
+    return se_ListControlPanelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListControlPanelsCommandOutput> {
-    return deserializeAws_restJson1ListControlPanelsCommand(output, context);
+    return de_ListControlPanelsCommand(output, context);
   }
 
   // Start section: command_body_extra

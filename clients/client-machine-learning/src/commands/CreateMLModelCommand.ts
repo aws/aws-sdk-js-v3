@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  CreateMLModelInput,
-  CreateMLModelInputFilterSensitiveLog,
-  CreateMLModelOutput,
-  CreateMLModelOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateMLModelCommand,
-  serializeAws_json1_1CreateMLModelCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateMLModelInput, CreateMLModelOutput } from "../models/models_0";
+import { de_CreateMLModelCommand, se_CreateMLModelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMLModelCommand}.
  */
 export interface CreateMLModelCommandInput extends CreateMLModelInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateMLModelCommand}.
  */
 export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new <code>MLModel</code> using the <code>DataSource</code> and the recipe as
  *             information sources. </p>
  *         <p>An <code>MLModel</code> is nearly immutable. Users can update only the
@@ -61,10 +58,23 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * import { MachineLearningClient, CreateMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // CreateMLModelInput
+ *   MLModelId: "STRING_VALUE", // required
+ *   MLModelName: "STRING_VALUE",
+ *   MLModelType: "STRING_VALUE", // required
+ *   Parameters: { // TrainingParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TrainingDataSourceId: "STRING_VALUE", // required
+ *   Recipe: "STRING_VALUE",
+ *   RecipeUri: "STRING_VALUE",
+ * };
  * const command = new CreateMLModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMLModelCommandInput - {@link CreateMLModelCommandInput}
+ * @returns {@link CreateMLModelCommandOutput}
  * @see {@link CreateMLModelCommandInput} for command's `input` shape.
  * @see {@link CreateMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -97,6 +107,9 @@ export class CreateMLModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMLModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +136,8 @@ export class CreateMLModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMLModelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMLModelOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +147,18 @@ export class CreateMLModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMLModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMLModelCommand(input, context);
+    return se_CreateMLModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMLModelCommandOutput> {
-    return deserializeAws_json1_1CreateMLModelCommand(output, context);
+    return de_CreateMLModelCommand(output, context);
   }
 
   // Start section: command_body_extra

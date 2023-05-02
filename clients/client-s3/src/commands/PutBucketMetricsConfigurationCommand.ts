@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutBucketMetricsConfigurationRequest } from "../models/models_0";
 import {
-  PutBucketMetricsConfigurationRequest,
-  PutBucketMetricsConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketMetricsConfigurationCommand,
-  serializeAws_restXmlPutBucketMetricsConfigurationCommand,
+  de_PutBucketMetricsConfigurationCommand,
+  se_PutBucketMetricsConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketMetricsConfigurationCommand}.
  */
 export interface PutBucketMetricsConfigurationCommandInput extends PutBucketMetricsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketMetricsConfigurationCommand}.
  */
 export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
  *          You can have up to 1,000 metrics configurations per bucket. If you're updating an existing
  *          metrics configuration, note that this is a full replacement of the existing metrics
@@ -86,10 +88,38 @@ export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBe
  * import { S3Client, PutBucketMetricsConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketMetricsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketMetricsConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   MetricsConfiguration: { // MetricsConfiguration
+ *     Id: "STRING_VALUE", // required
+ *     Filter: { // MetricsFilter Union: only one key present
+ *       Prefix: "STRING_VALUE",
+ *       Tag: { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *       AccessPointArn: "STRING_VALUE",
+ *       And: { // MetricsAndOperator
+ *         Prefix: "STRING_VALUE",
+ *         Tags: [ // TagSet
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         AccessPointArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketMetricsConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketMetricsConfigurationCommandInput - {@link PutBucketMetricsConfigurationCommandInput}
+ * @returns {@link PutBucketMetricsConfigurationCommandOutput}
  * @see {@link PutBucketMetricsConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketMetricsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -119,6 +149,9 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketMetricsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +180,8 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketMetricsConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,15 +191,21 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketMetricsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketMetricsConfigurationCommand(input, context);
+    return se_PutBucketMetricsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketMetricsConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketMetricsConfigurationCommand(output, context);
+    return de_PutBucketMetricsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

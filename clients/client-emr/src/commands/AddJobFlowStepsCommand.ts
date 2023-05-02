@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  AddJobFlowStepsInput,
-  AddJobFlowStepsInputFilterSensitiveLog,
-  AddJobFlowStepsOutput,
-  AddJobFlowStepsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddJobFlowStepsCommand,
-  serializeAws_json1_1AddJobFlowStepsCommand,
-} from "../protocols/Aws_json1_1";
+import { AddJobFlowStepsInput, AddJobFlowStepsOutput } from "../models/models_0";
+import { de_AddJobFlowStepsCommand, se_AddJobFlowStepsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddJobFlowStepsCommand}.
  */
 export interface AddJobFlowStepsCommandInput extends AddJobFlowStepsInput {}
 /**
+ * @public
+ *
  * The output of {@link AddJobFlowStepsCommand}.
  */
 export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed
  *          in each job flow.</p>
  *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may
@@ -60,10 +57,35 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  * import { EMRClient, AddJobFlowStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, AddJobFlowStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // AddJobFlowStepsInput
+ *   JobFlowId: "STRING_VALUE", // required
+ *   Steps: [ // StepConfigList // required
+ *     { // StepConfig
+ *       Name: "STRING_VALUE", // required
+ *       ActionOnFailure: "TERMINATE_JOB_FLOW" || "TERMINATE_CLUSTER" || "CANCEL_AND_WAIT" || "CONTINUE",
+ *       HadoopJarStep: { // HadoopJarStepConfig
+ *         Properties: [ // KeyValueList
+ *           { // KeyValue
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *         Jar: "STRING_VALUE", // required
+ *         MainClass: "STRING_VALUE",
+ *         Args: [ // XmlStringList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   ExecutionRoleArn: "STRING_VALUE",
+ * };
  * const command = new AddJobFlowStepsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddJobFlowStepsCommandInput - {@link AddJobFlowStepsCommandInput}
+ * @returns {@link AddJobFlowStepsCommandOutput}
  * @see {@link AddJobFlowStepsCommandInput} for command's `input` shape.
  * @see {@link AddJobFlowStepsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -91,6 +113,9 @@ export class AddJobFlowStepsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddJobFlowStepsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +144,8 @@ export class AddJobFlowStepsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddJobFlowStepsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AddJobFlowStepsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +155,18 @@ export class AddJobFlowStepsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddJobFlowStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddJobFlowStepsCommand(input, context);
+    return se_AddJobFlowStepsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddJobFlowStepsCommandOutput> {
-    return deserializeAws_json1_1AddJobFlowStepsCommand(output, context);
+    return de_AddJobFlowStepsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  Connection,
-  ConnectionFilterSensitiveLog,
-  DeleteConnectionRequest,
-  DeleteConnectionRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConnectionCommand,
-  serializeAws_json1_1DeleteConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { Connection, DeleteConnectionRequest } from "../models/models_0";
+import { de_DeleteConnectionCommand, se_DeleteConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConnectionCommand}.
  */
 export interface DeleteConnectionCommandInput extends DeleteConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConnectionCommand}.
  */
 export interface DeleteConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified connection.</p>
  *          <p>Deleting a connection only stops the Direct Connect port hour and data transfer charges.
  *       If you are partnering with any third parties to connect with the Direct Connect location,
@@ -45,10 +42,15 @@ export interface DeleteConnectionCommandOutput extends Connection, __MetadataBea
  * import { DirectConnectClient, DeleteConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DeleteConnectionRequest
+ *   connectionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
+ * @returns {@link DeleteConnectionCommandOutput}
  * @see {@link DeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -78,6 +80,9 @@ export class DeleteConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class DeleteConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class DeleteConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConnectionCommand(input, context);
+    return se_DeleteConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectionCommandOutput> {
-    return deserializeAws_json1_1DeleteConnectionCommand(output, context);
+    return de_DeleteConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

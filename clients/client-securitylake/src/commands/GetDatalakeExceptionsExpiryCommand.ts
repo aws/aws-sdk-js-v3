@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetDatalakeExceptionsExpiryRequest, GetDatalakeExceptionsExpiryResponse } from "../models/models_0";
 import {
-  GetDatalakeExceptionsExpiryRequest,
-  GetDatalakeExceptionsExpiryRequestFilterSensitiveLog,
-  GetDatalakeExceptionsExpiryResponse,
-  GetDatalakeExceptionsExpiryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDatalakeExceptionsExpiryCommand,
-  serializeAws_restJson1GetDatalakeExceptionsExpiryCommand,
+  de_GetDatalakeExceptionsExpiryCommand,
+  se_GetDatalakeExceptionsExpiryCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDatalakeExceptionsExpiryCommand}.
  */
 export interface GetDatalakeExceptionsExpiryCommandInput extends GetDatalakeExceptionsExpiryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDatalakeExceptionsExpiryCommand}.
  */
 export interface GetDatalakeExceptionsExpiryCommandOutput
@@ -37,6 +36,7 @@ export interface GetDatalakeExceptionsExpiryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the expiration period and time-to-live (TTL) for which the exception message
  *          will remain. Exceptions are stored by default, for 2 weeks from when a record was created
  *          in Amazon Security Lake. This API does not take input parameters.</p>
@@ -46,10 +46,13 @@ export interface GetDatalakeExceptionsExpiryCommandOutput
  * import { SecurityLakeClient, GetDatalakeExceptionsExpiryCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, GetDatalakeExceptionsExpiryCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {};
  * const command = new GetDatalakeExceptionsExpiryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatalakeExceptionsExpiryCommandInput - {@link GetDatalakeExceptionsExpiryCommandInput}
+ * @returns {@link GetDatalakeExceptionsExpiryCommandOutput}
  * @see {@link GetDatalakeExceptionsExpiryCommandInput} for command's `input` shape.
  * @see {@link GetDatalakeExceptionsExpiryCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -91,6 +94,9 @@ export class GetDatalakeExceptionsExpiryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatalakeExceptionsExpiryCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class GetDatalakeExceptionsExpiryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatalakeExceptionsExpiryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDatalakeExceptionsExpiryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +136,21 @@ export class GetDatalakeExceptionsExpiryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatalakeExceptionsExpiryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDatalakeExceptionsExpiryCommand(input, context);
+    return se_GetDatalakeExceptionsExpiryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDatalakeExceptionsExpiryCommandOutput> {
-    return deserializeAws_restJson1GetDatalakeExceptionsExpiryCommand(output, context);
+    return de_GetDatalakeExceptionsExpiryCommand(output, context);
   }
 
   // Start section: command_body_extra

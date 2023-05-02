@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
+import { DescribeAcceleratorAttributesRequest, DescribeAcceleratorAttributesResponse } from "../models/models_0";
 import {
-  DescribeAcceleratorAttributesRequest,
-  DescribeAcceleratorAttributesRequestFilterSensitiveLog,
-  DescribeAcceleratorAttributesResponse,
-  DescribeAcceleratorAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAcceleratorAttributesCommand,
-  serializeAws_json1_1DescribeAcceleratorAttributesCommand,
+  de_DescribeAcceleratorAttributesCommand,
+  se_DescribeAcceleratorAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAcceleratorAttributesCommand}.
  */
 export interface DescribeAcceleratorAttributesCommandInput extends DescribeAcceleratorAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAcceleratorAttributesCommand}.
  */
 export interface DescribeAcceleratorAttributesCommandOutput
@@ -41,6 +40,7 @@ export interface DescribeAcceleratorAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe the attributes of an accelerator.
  * 		</p>
  * @example
@@ -49,10 +49,15 @@ export interface DescribeAcceleratorAttributesCommandOutput
  * import { GlobalAcceleratorClient, DescribeAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DescribeAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // DescribeAcceleratorAttributesRequest
+ *   AcceleratorArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAcceleratorAttributesCommandInput - {@link DescribeAcceleratorAttributesCommandInput}
+ * @returns {@link DescribeAcceleratorAttributesCommandOutput}
  * @see {@link DescribeAcceleratorAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAcceleratorAttributesCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -85,6 +90,9 @@ export class DescribeAcceleratorAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAcceleratorAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class DescribeAcceleratorAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAcceleratorAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAcceleratorAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +132,21 @@ export class DescribeAcceleratorAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAcceleratorAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAcceleratorAttributesCommand(input, context);
+    return se_DescribeAcceleratorAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAcceleratorAttributesCommandOutput> {
-    return deserializeAws_json1_1DescribeAcceleratorAttributesCommand(output, context);
+    return de_DescribeAcceleratorAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

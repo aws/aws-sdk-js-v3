@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  ListUpdatesRequest,
-  ListUpdatesRequestFilterSensitiveLog,
-  ListUpdatesResponse,
-  ListUpdatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListUpdatesCommand,
-  serializeAws_restJson1ListUpdatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListUpdatesRequest, ListUpdatesResponse } from "../models/models_0";
+import { de_ListUpdatesCommand, se_ListUpdatesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUpdatesCommand}.
  */
 export interface ListUpdatesCommandInput extends ListUpdatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUpdatesCommand}.
  */
 export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the updates associated with an Amazon EKS cluster or managed node group
  *             in your Amazon Web Services account, in the specified Region.</p>
  * @example
@@ -43,10 +40,19 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  * import { EKSClient, ListUpdatesCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListUpdatesCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // ListUpdatesRequest
+ *   name: "STRING_VALUE", // required
+ *   nodegroupName: "STRING_VALUE",
+ *   addonName: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListUpdatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUpdatesCommandInput - {@link ListUpdatesCommandInput}
+ * @returns {@link ListUpdatesCommandOutput}
  * @see {@link ListUpdatesCommandInput} for command's `input` shape.
  * @see {@link ListUpdatesCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -88,6 +94,9 @@ export class ListUpdatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUpdatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +123,8 @@ export class ListUpdatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUpdatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUpdatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +134,18 @@ export class ListUpdatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUpdatesCommand(input, context);
+    return se_ListUpdatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUpdatesCommandOutput> {
-    return deserializeAws_restJson1ListUpdatesCommand(output, context);
+    return de_ListUpdatesCommand(output, context);
   }
 
   // Start section: command_body_extra

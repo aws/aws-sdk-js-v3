@@ -17,24 +17,25 @@ import {
   UpdateEnvironmentInput,
   UpdateEnvironmentInputFilterSensitiveLog,
   UpdateEnvironmentOutput,
-  UpdateEnvironmentOutputFilterSensitiveLog,
 } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import {
-  deserializeAws_restJson1UpdateEnvironmentCommand,
-  serializeAws_restJson1UpdateEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEnvironmentCommand}.
  */
 export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEnvironmentCommand}.
  */
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,61 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * import { MWAAClient, UpdateEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
+ * const input = { // UpdateEnvironmentInput
+ *   Name: "STRING_VALUE", // required
+ *   ExecutionRoleArn: "STRING_VALUE",
+ *   AirflowVersion: "STRING_VALUE",
+ *   SourceBucketArn: "STRING_VALUE",
+ *   DagS3Path: "STRING_VALUE",
+ *   PluginsS3Path: "STRING_VALUE",
+ *   PluginsS3ObjectVersion: "STRING_VALUE",
+ *   RequirementsS3Path: "STRING_VALUE",
+ *   RequirementsS3ObjectVersion: "STRING_VALUE",
+ *   StartupScriptS3Path: "STRING_VALUE",
+ *   StartupScriptS3ObjectVersion: "STRING_VALUE",
+ *   AirflowConfigurationOptions: { // AirflowConfigurationOptions
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   EnvironmentClass: "STRING_VALUE",
+ *   MaxWorkers: Number("int"),
+ *   NetworkConfiguration: { // UpdateNetworkConfigurationInput
+ *     SecurityGroupIds: [ // SecurityGroupList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   LoggingConfiguration: { // LoggingConfigurationInput
+ *     DagProcessingLogs: { // ModuleLoggingConfigurationInput
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *     SchedulerLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *     WebserverLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *     WorkerLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *     TaskLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   WeeklyMaintenanceWindowStart: "STRING_VALUE",
+ *   WebserverAccessMode: "STRING_VALUE",
+ *   MinWorkers: Number("int"),
+ *   Schedulers: Number("int"),
+ * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
+ * @returns {@link UpdateEnvironmentCommandOutput}
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
@@ -78,6 +130,9 @@ export class UpdateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,7 +162,7 @@ export class UpdateEnvironmentCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateEnvironmentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEnvironmentOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +172,18 @@ export class UpdateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEnvironmentCommand(input, context);
+    return se_UpdateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
-    return deserializeAws_restJson1UpdateEnvironmentCommand(output, context);
+    return de_UpdateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

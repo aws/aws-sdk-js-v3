@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -10,7 +10,8 @@ import {
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -73,56 +74,35 @@ import { UpdateLogPatternCommandInput, UpdateLogPatternCommandOutput } from "../
 import { ApplicationInsightsServiceException as __BaseException } from "../models/ApplicationInsightsServiceException";
 import {
   AccessDeniedException,
-  ApplicationComponent,
-  ApplicationInfo,
   BadRequestException,
   ConfigurationEvent,
   CreateApplicationRequest,
-  CreateApplicationResponse,
   CreateComponentRequest,
-  CreateComponentResponse,
   CreateLogPatternRequest,
-  CreateLogPatternResponse,
   DeleteApplicationRequest,
-  DeleteApplicationResponse,
   DeleteComponentRequest,
-  DeleteComponentResponse,
   DeleteLogPatternRequest,
-  DeleteLogPatternResponse,
   DescribeApplicationRequest,
-  DescribeApplicationResponse,
   DescribeComponentConfigurationRecommendationRequest,
-  DescribeComponentConfigurationRecommendationResponse,
   DescribeComponentConfigurationRequest,
-  DescribeComponentConfigurationResponse,
   DescribeComponentRequest,
-  DescribeComponentResponse,
   DescribeLogPatternRequest,
-  DescribeLogPatternResponse,
   DescribeObservationRequest,
   DescribeObservationResponse,
   DescribeProblemObservationsRequest,
   DescribeProblemObservationsResponse,
   DescribeProblemRequest,
   DescribeProblemResponse,
-  FeedbackKey,
-  FeedbackValue,
   InternalServerException,
   ListApplicationsRequest,
-  ListApplicationsResponse,
   ListComponentsRequest,
-  ListComponentsResponse,
   ListConfigurationHistoryRequest,
   ListConfigurationHistoryResponse,
   ListLogPatternSetsRequest,
-  ListLogPatternSetsResponse,
   ListLogPatternsRequest,
-  ListLogPatternsResponse,
   ListProblemsRequest,
   ListProblemsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  LogPattern,
   Observation,
   Problem,
   RelatedObservations,
@@ -130,392 +110,391 @@ import {
   ResourceNotFoundException,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TagsAlreadyExistException,
-  Tier,
   TooManyTagsException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateApplicationRequest,
-  UpdateApplicationResponse,
   UpdateComponentConfigurationRequest,
-  UpdateComponentConfigurationResponse,
   UpdateComponentRequest,
-  UpdateComponentResponse,
   UpdateLogPatternRequest,
-  UpdateLogPatternResponse,
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_json1_1CreateApplicationCommand = async (
+/**
+ * serializeAws_json1_1CreateApplicationCommand
+ */
+export const se_CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.CreateApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateApplication");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateApplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateComponentCommand = async (
+/**
+ * serializeAws_json1_1CreateComponentCommand
+ */
+export const se_CreateComponentCommand = async (
   input: CreateComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.CreateComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateComponent");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateComponentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateLogPatternCommand = async (
+/**
+ * serializeAws_json1_1CreateLogPatternCommand
+ */
+export const se_CreateLogPatternCommand = async (
   input: CreateLogPatternCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.CreateLogPattern",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLogPattern");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateLogPatternRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteApplicationCommand = async (
+/**
+ * serializeAws_json1_1DeleteApplicationCommand
+ */
+export const se_DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DeleteApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApplication");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteApplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteComponentCommand = async (
+/**
+ * serializeAws_json1_1DeleteComponentCommand
+ */
+export const se_DeleteComponentCommand = async (
   input: DeleteComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DeleteComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteComponent");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteComponentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteLogPatternCommand = async (
+/**
+ * serializeAws_json1_1DeleteLogPatternCommand
+ */
+export const se_DeleteLogPatternCommand = async (
   input: DeleteLogPatternCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DeleteLogPattern",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLogPattern");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteLogPatternRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeApplicationCommand = async (
+/**
+ * serializeAws_json1_1DescribeApplicationCommand
+ */
+export const se_DescribeApplicationCommand = async (
   input: DescribeApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApplication");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeApplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeComponentCommand = async (
+/**
+ * serializeAws_json1_1DescribeComponentCommand
+ */
+export const se_DescribeComponentCommand = async (
   input: DescribeComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeComponent");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeComponentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeComponentConfigurationCommand = async (
+/**
+ * serializeAws_json1_1DescribeComponentConfigurationCommand
+ */
+export const se_DescribeComponentConfigurationCommand = async (
   input: DescribeComponentConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeComponentConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeComponentConfiguration");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeComponentConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeComponentConfigurationRecommendationCommand = async (
+/**
+ * serializeAws_json1_1DescribeComponentConfigurationRecommendationCommand
+ */
+export const se_DescribeComponentConfigurationRecommendationCommand = async (
   input: DescribeComponentConfigurationRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeComponentConfigurationRecommendation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeComponentConfigurationRecommendation");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeComponentConfigurationRecommendationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeLogPatternCommand = async (
+/**
+ * serializeAws_json1_1DescribeLogPatternCommand
+ */
+export const se_DescribeLogPatternCommand = async (
   input: DescribeLogPatternCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeLogPattern",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLogPattern");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeLogPatternRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeObservationCommand = async (
+/**
+ * serializeAws_json1_1DescribeObservationCommand
+ */
+export const se_DescribeObservationCommand = async (
   input: DescribeObservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeObservation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeObservation");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeObservationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeProblemCommand = async (
+/**
+ * serializeAws_json1_1DescribeProblemCommand
+ */
+export const se_DescribeProblemCommand = async (
   input: DescribeProblemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeProblem",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProblem");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeProblemRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeProblemObservationsCommand = async (
+/**
+ * serializeAws_json1_1DescribeProblemObservationsCommand
+ */
+export const se_DescribeProblemObservationsCommand = async (
   input: DescribeProblemObservationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeProblemObservations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProblemObservations");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeProblemObservationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListApplicationsCommand = async (
+/**
+ * serializeAws_json1_1ListApplicationsCommand
+ */
+export const se_ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListApplications",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListApplications");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListApplicationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListComponentsCommand = async (
+/**
+ * serializeAws_json1_1ListComponentsCommand
+ */
+export const se_ListComponentsCommand = async (
   input: ListComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListComponents",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListComponents");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListComponentsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListConfigurationHistoryCommand = async (
+/**
+ * serializeAws_json1_1ListConfigurationHistoryCommand
+ */
+export const se_ListConfigurationHistoryCommand = async (
   input: ListConfigurationHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListConfigurationHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListConfigurationHistory");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListConfigurationHistoryRequest(input, context));
+  body = JSON.stringify(se_ListConfigurationHistoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListLogPatternsCommand = async (
+/**
+ * serializeAws_json1_1ListLogPatternsCommand
+ */
+export const se_ListLogPatternsCommand = async (
   input: ListLogPatternsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListLogPatterns",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLogPatterns");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListLogPatternsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListLogPatternSetsCommand = async (
+/**
+ * serializeAws_json1_1ListLogPatternSetsCommand
+ */
+export const se_ListLogPatternSetsCommand = async (
   input: ListLogPatternSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListLogPatternSets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLogPatternSets");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListLogPatternSetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListProblemsCommand = async (
+/**
+ * serializeAws_json1_1ListProblemsCommand
+ */
+export const se_ListProblemsCommand = async (
   input: ListProblemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListProblems",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProblems");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListProblemsRequest(input, context));
+  body = JSON.stringify(se_ListProblemsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateApplicationCommand = async (
+/**
+ * serializeAws_json1_1UpdateApplicationCommand
+ */
+export const se_UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.UpdateApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApplication");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateApplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateComponentCommand = async (
+/**
+ * serializeAws_json1_1UpdateComponentCommand
+ */
+export const se_UpdateComponentCommand = async (
   input: UpdateComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.UpdateComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateComponent");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateComponentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateComponentConfigurationCommand = async (
+/**
+ * serializeAws_json1_1UpdateComponentConfigurationCommand
+ */
+export const se_UpdateComponentConfigurationCommand = async (
   input: UpdateComponentConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.UpdateComponentConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateComponentConfiguration");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateComponentConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateLogPatternCommand = async (
+/**
+ * serializeAws_json1_1UpdateLogPatternCommand
+ */
+export const se_UpdateLogPatternCommand = async (
   input: UpdateLogPatternCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.UpdateLogPattern",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLogPattern");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateLogPatternRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CreateApplicationCommand = async (
+/**
+ * deserializeAws_json1_1CreateApplicationCommand
+ */
+export const de_CreateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateApplicationCommandError(output, context);
+    return de_CreateApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateApplicationResponse(data, context);
+  contents = _json(data);
   const response: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateApplicationCommandError = async (
+/**
+ * deserializeAws_json1_1CreateApplicationCommandError
+ */
+const de_CreateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
@@ -527,51 +506,56 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.applicationinsights#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.applicationinsights#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagsAlreadyExistException":
     case "com.amazonaws.applicationinsights#TagsAlreadyExistException":
-      throw await deserializeAws_json1_1TagsAlreadyExistExceptionResponse(parsedOutput, context);
+      throw await de_TagsAlreadyExistExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateComponentCommand = async (
+/**
+ * deserializeAws_json1_1CreateComponentCommand
+ */
+export const de_CreateComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateComponentCommandError(output, context);
+    return de_CreateComponentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateComponentResponse(data, context);
+  contents = _json(data);
   const response: CreateComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateComponentCommandError = async (
+/**
+ * deserializeAws_json1_1CreateComponentCommandError
+ */
+const de_CreateComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateComponentCommandOutput> => {
@@ -583,45 +567,50 @@ const deserializeAws_json1_1CreateComponentCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.applicationinsights#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateLogPatternCommand = async (
+/**
+ * deserializeAws_json1_1CreateLogPatternCommand
+ */
+export const de_CreateLogPatternCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLogPatternCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateLogPatternCommandError(output, context);
+    return de_CreateLogPatternCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLogPatternResponse(data, context);
+  contents = _json(data);
   const response: CreateLogPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateLogPatternCommandError = async (
+/**
+ * deserializeAws_json1_1CreateLogPatternCommandError
+ */
+const de_CreateLogPatternCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLogPatternCommandOutput> => {
@@ -633,45 +622,50 @@ const deserializeAws_json1_1CreateLogPatternCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.applicationinsights#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteApplicationCommand = async (
+/**
+ * deserializeAws_json1_1DeleteApplicationCommand
+ */
+export const de_DeleteApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteApplicationCommandError(output, context);
+    return de_DeleteApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteApplicationResponse(data, context);
+  contents = _json(data);
   const response: DeleteApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteApplicationCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteApplicationCommandError
+ */
+const de_DeleteApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
@@ -683,45 +677,50 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.applicationinsights#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteComponentCommand = async (
+/**
+ * deserializeAws_json1_1DeleteComponentCommand
+ */
+export const de_DeleteComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteComponentCommandError(output, context);
+    return de_DeleteComponentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteComponentResponse(data, context);
+  contents = _json(data);
   const response: DeleteComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteComponentCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteComponentCommandError
+ */
+const de_DeleteComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteComponentCommandOutput> => {
@@ -733,42 +732,47 @@ const deserializeAws_json1_1DeleteComponentCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteLogPatternCommand = async (
+/**
+ * deserializeAws_json1_1DeleteLogPatternCommand
+ */
+export const de_DeleteLogPatternCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLogPatternCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteLogPatternCommandError(output, context);
+    return de_DeleteLogPatternCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLogPatternResponse(data, context);
+  contents = _json(data);
   const response: DeleteLogPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteLogPatternCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteLogPatternCommandError
+ */
+const de_DeleteLogPatternCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLogPatternCommandOutput> => {
@@ -780,45 +784,50 @@ const deserializeAws_json1_1DeleteLogPatternCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.applicationinsights#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeApplicationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeApplicationCommand
+ */
+export const de_DescribeApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeApplicationCommandError(output, context);
+    return de_DescribeApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeApplicationResponse(data, context);
+  contents = _json(data);
   const response: DescribeApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeApplicationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeApplicationCommandError
+ */
+const de_DescribeApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeApplicationCommandOutput> => {
@@ -830,42 +839,47 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeComponentCommand = async (
+/**
+ * deserializeAws_json1_1DescribeComponentCommand
+ */
+export const de_DescribeComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeComponentCommandError(output, context);
+    return de_DescribeComponentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeComponentResponse(data, context);
+  contents = _json(data);
   const response: DescribeComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeComponentCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeComponentCommandError
+ */
+const de_DescribeComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeComponentCommandOutput> => {
@@ -877,42 +891,47 @@ const deserializeAws_json1_1DescribeComponentCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeComponentConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeComponentConfigurationCommand
+ */
+export const de_DescribeComponentConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeComponentConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeComponentConfigurationCommandError(output, context);
+    return de_DescribeComponentConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeComponentConfigurationResponse(data, context);
+  contents = _json(data);
   const response: DescribeComponentConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeComponentConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeComponentConfigurationCommandError
+ */
+const de_DescribeComponentConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeComponentConfigurationCommandOutput> => {
@@ -924,42 +943,47 @@ const deserializeAws_json1_1DescribeComponentConfigurationCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommand
+ */
+export const de_DescribeComponentConfigurationRecommendationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeComponentConfigurationRecommendationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommandError(output, context);
+    return de_DescribeComponentConfigurationRecommendationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeComponentConfigurationRecommendationResponse(data, context);
+  contents = _json(data);
   const response: DescribeComponentConfigurationRecommendationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommandError
+ */
+const de_DescribeComponentConfigurationRecommendationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeComponentConfigurationRecommendationCommandOutput> => {
@@ -971,42 +995,47 @@ const deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommandE
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeLogPatternCommand = async (
+/**
+ * deserializeAws_json1_1DescribeLogPatternCommand
+ */
+export const de_DescribeLogPatternCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLogPatternCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeLogPatternCommandError(output, context);
+    return de_DescribeLogPatternCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLogPatternResponse(data, context);
+  contents = _json(data);
   const response: DescribeLogPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeLogPatternCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeLogPatternCommandError
+ */
+const de_DescribeLogPatternCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLogPatternCommandOutput> => {
@@ -1018,42 +1047,47 @@ const deserializeAws_json1_1DescribeLogPatternCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeObservationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeObservationCommand
+ */
+export const de_DescribeObservationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeObservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeObservationCommandError(output, context);
+    return de_DescribeObservationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeObservationResponse(data, context);
+  contents = de_DescribeObservationResponse(data, context);
   const response: DescribeObservationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeObservationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeObservationCommandError
+ */
+const de_DescribeObservationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeObservationCommandOutput> => {
@@ -1065,42 +1099,47 @@ const deserializeAws_json1_1DescribeObservationCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeProblemCommand = async (
+/**
+ * deserializeAws_json1_1DescribeProblemCommand
+ */
+export const de_DescribeProblemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProblemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeProblemCommandError(output, context);
+    return de_DescribeProblemCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProblemResponse(data, context);
+  contents = de_DescribeProblemResponse(data, context);
   const response: DescribeProblemCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeProblemCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeProblemCommandError
+ */
+const de_DescribeProblemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProblemCommandOutput> => {
@@ -1112,42 +1151,47 @@ const deserializeAws_json1_1DescribeProblemCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeProblemObservationsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeProblemObservationsCommand
+ */
+export const de_DescribeProblemObservationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProblemObservationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeProblemObservationsCommandError(output, context);
+    return de_DescribeProblemObservationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProblemObservationsResponse(data, context);
+  contents = de_DescribeProblemObservationsResponse(data, context);
   const response: DescribeProblemObservationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeProblemObservationsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeProblemObservationsCommandError
+ */
+const de_DescribeProblemObservationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProblemObservationsCommandOutput> => {
@@ -1159,42 +1203,47 @@ const deserializeAws_json1_1DescribeProblemObservationsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListApplicationsCommand = async (
+/**
+ * deserializeAws_json1_1ListApplicationsCommand
+ */
+export const de_ListApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListApplicationsCommandError(output, context);
+    return de_ListApplicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListApplicationsResponse(data, context);
+  contents = _json(data);
   const response: ListApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListApplicationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListApplicationsCommandError
+ */
+const de_ListApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
@@ -1206,39 +1255,44 @@ const deserializeAws_json1_1ListApplicationsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListComponentsCommand = async (
+/**
+ * deserializeAws_json1_1ListComponentsCommand
+ */
+export const de_ListComponentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListComponentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListComponentsCommandError(output, context);
+    return de_ListComponentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListComponentsResponse(data, context);
+  contents = _json(data);
   const response: ListComponentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListComponentsCommandError = async (
+/**
+ * deserializeAws_json1_1ListComponentsCommandError
+ */
+const de_ListComponentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListComponentsCommandOutput> => {
@@ -1250,42 +1304,47 @@ const deserializeAws_json1_1ListComponentsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListConfigurationHistoryCommand = async (
+/**
+ * deserializeAws_json1_1ListConfigurationHistoryCommand
+ */
+export const de_ListConfigurationHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListConfigurationHistoryCommandError(output, context);
+    return de_ListConfigurationHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListConfigurationHistoryResponse(data, context);
+  contents = de_ListConfigurationHistoryResponse(data, context);
   const response: ListConfigurationHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListConfigurationHistoryCommandError = async (
+/**
+ * deserializeAws_json1_1ListConfigurationHistoryCommandError
+ */
+const de_ListConfigurationHistoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationHistoryCommandOutput> => {
@@ -1297,42 +1356,47 @@ const deserializeAws_json1_1ListConfigurationHistoryCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListLogPatternsCommand = async (
+/**
+ * deserializeAws_json1_1ListLogPatternsCommand
+ */
+export const de_ListLogPatternsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLogPatternsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListLogPatternsCommandError(output, context);
+    return de_ListLogPatternsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLogPatternsResponse(data, context);
+  contents = _json(data);
   const response: ListLogPatternsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListLogPatternsCommandError = async (
+/**
+ * deserializeAws_json1_1ListLogPatternsCommandError
+ */
+const de_ListLogPatternsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLogPatternsCommandOutput> => {
@@ -1344,42 +1408,47 @@ const deserializeAws_json1_1ListLogPatternsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListLogPatternSetsCommand = async (
+/**
+ * deserializeAws_json1_1ListLogPatternSetsCommand
+ */
+export const de_ListLogPatternSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLogPatternSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListLogPatternSetsCommandError(output, context);
+    return de_ListLogPatternSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLogPatternSetsResponse(data, context);
+  contents = _json(data);
   const response: ListLogPatternSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListLogPatternSetsCommandError = async (
+/**
+ * deserializeAws_json1_1ListLogPatternSetsCommandError
+ */
+const de_ListLogPatternSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLogPatternSetsCommandOutput> => {
@@ -1391,42 +1460,47 @@ const deserializeAws_json1_1ListLogPatternSetsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListProblemsCommand = async (
+/**
+ * deserializeAws_json1_1ListProblemsCommand
+ */
+export const de_ListProblemsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProblemsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListProblemsCommandError(output, context);
+    return de_ListProblemsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProblemsResponse(data, context);
+  contents = de_ListProblemsResponse(data, context);
   const response: ListProblemsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListProblemsCommandError = async (
+/**
+ * deserializeAws_json1_1ListProblemsCommandError
+ */
+const de_ListProblemsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProblemsCommandOutput> => {
@@ -1438,42 +1512,47 @@ const deserializeAws_json1_1ListProblemsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1485,39 +1564,44 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1529,42 +1613,47 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.applicationinsights#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1576,39 +1665,44 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateApplicationCommand = async (
+/**
+ * deserializeAws_json1_1UpdateApplicationCommand
+ */
+export const de_UpdateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateApplicationCommandError(output, context);
+    return de_UpdateApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateApplicationResponse(data, context);
+  contents = _json(data);
   const response: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateApplicationCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateApplicationCommandError
+ */
+const de_UpdateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
@@ -1620,42 +1714,47 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateComponentCommand = async (
+/**
+ * deserializeAws_json1_1UpdateComponentCommand
+ */
+export const de_UpdateComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateComponentCommandError(output, context);
+    return de_UpdateComponentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateComponentResponse(data, context);
+  contents = _json(data);
   const response: UpdateComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateComponentCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateComponentCommandError
+ */
+const de_UpdateComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateComponentCommandOutput> => {
@@ -1667,45 +1766,50 @@ const deserializeAws_json1_1UpdateComponentCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.applicationinsights#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateComponentConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1UpdateComponentConfigurationCommand
+ */
+export const de_UpdateComponentConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateComponentConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateComponentConfigurationCommandError(output, context);
+    return de_UpdateComponentConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateComponentConfigurationResponse(data, context);
+  contents = _json(data);
   const response: UpdateComponentConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateComponentConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateComponentConfigurationCommandError
+ */
+const de_UpdateComponentConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateComponentConfigurationCommandOutput> => {
@@ -1717,42 +1821,47 @@ const deserializeAws_json1_1UpdateComponentConfigurationCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateLogPatternCommand = async (
+/**
+ * deserializeAws_json1_1UpdateLogPatternCommand
+ */
+export const de_UpdateLogPatternCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLogPatternCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateLogPatternCommandError(output, context);
+    return de_UpdateLogPatternCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateLogPatternResponse(data, context);
+  contents = _json(data);
   const response: UpdateLogPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateLogPatternCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateLogPatternCommandError
+ */
+const de_UpdateLogPatternCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLogPatternCommandOutput> => {
@@ -1764,33 +1873,35 @@ const deserializeAws_json1_1UpdateLogPatternCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.applicationinsights#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1798,12 +1909,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_json1_1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BadRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1811,12 +1922,15 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1824,12 +1938,15 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1837,12 +1954,15 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1850,12 +1970,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagsAlreadyExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TagsAlreadyExistExceptionRes
+ */
+const de_TagsAlreadyExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagsAlreadyExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagsAlreadyExistException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagsAlreadyExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1863,12 +1986,15 @@ const deserializeAws_json1_1TagsAlreadyExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1876,12 +2002,12 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1889,909 +2015,363 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1CreateApplicationRequest = (
-  input: CreateApplicationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AutoConfigEnabled != null && { AutoConfigEnabled: input.AutoConfigEnabled }),
-    ...(input.AutoCreate != null && { AutoCreate: input.AutoCreate }),
-    ...(input.CWEMonitorEnabled != null && { CWEMonitorEnabled: input.CWEMonitorEnabled }),
-    ...(input.GroupingType != null && { GroupingType: input.GroupingType }),
-    ...(input.OpsCenterEnabled != null && { OpsCenterEnabled: input.OpsCenterEnabled }),
-    ...(input.OpsItemSNSTopicArn != null && { OpsItemSNSTopicArn: input.OpsItemSNSTopicArn }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
+// se_CreateApplicationRequest omitted.
+
+// se_CreateComponentRequest omitted.
+
+// se_CreateLogPatternRequest omitted.
+
+// se_DeleteApplicationRequest omitted.
+
+// se_DeleteComponentRequest omitted.
+
+// se_DeleteLogPatternRequest omitted.
+
+// se_DescribeApplicationRequest omitted.
+
+// se_DescribeComponentConfigurationRecommendationRequest omitted.
+
+// se_DescribeComponentConfigurationRequest omitted.
+
+// se_DescribeComponentRequest omitted.
+
+// se_DescribeLogPatternRequest omitted.
+
+// se_DescribeObservationRequest omitted.
+
+// se_DescribeProblemObservationsRequest omitted.
+
+// se_DescribeProblemRequest omitted.
+
+// se_ListApplicationsRequest omitted.
+
+// se_ListComponentsRequest omitted.
+
+/**
+ * serializeAws_json1_1ListConfigurationHistoryRequest
+ */
+const se_ListConfigurationHistoryRequest = (input: ListConfigurationHistoryRequest, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EventStatus: [],
+    MaxResults: [],
+    NextToken: [],
+    ResourceGroupName: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_json1_1CreateComponentRequest = (input: CreateComponentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.ResourceList != null && { ResourceList: serializeAws_json1_1ResourceList(input.ResourceList, context) }),
-  };
+// se_ListLogPatternSetsRequest omitted.
+
+// se_ListLogPatternsRequest omitted.
+
+/**
+ * serializeAws_json1_1ListProblemsRequest
+ */
+const se_ListProblemsRequest = (input: ListProblemsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ComponentName: [],
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NextToken: [],
+    ResourceGroupName: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_json1_1CreateLogPatternRequest = (input: CreateLogPatternRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Pattern != null && { Pattern: input.Pattern }),
-    ...(input.PatternName != null && { PatternName: input.PatternName }),
-    ...(input.PatternSetName != null && { PatternSetName: input.PatternSetName }),
-    ...(input.Rank != null && { Rank: input.Rank }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
+// se_ListTagsForResourceRequest omitted.
+
+// se_ResourceList omitted.
+
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_UntagResourceRequest omitted.
+
+// se_UpdateApplicationRequest omitted.
+
+// se_UpdateComponentConfigurationRequest omitted.
+
+// se_UpdateComponentRequest omitted.
+
+// se_UpdateLogPatternRequest omitted.
+
+// de_AccessDeniedException omitted.
+
+// de_ApplicationComponent omitted.
+
+// de_ApplicationComponentList omitted.
+
+// de_ApplicationInfo omitted.
+
+// de_ApplicationInfoList omitted.
+
+// de_BadRequestException omitted.
+
+/**
+ * deserializeAws_json1_1ConfigurationEvent
+ */
+const de_ConfigurationEvent = (output: any, context: __SerdeContext): ConfigurationEvent => {
+  return take(output, {
+    EventDetail: __expectString,
+    EventResourceName: __expectString,
+    EventResourceType: __expectString,
+    EventStatus: __expectString,
+    EventTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MonitoredResourceARN: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1DeleteApplicationRequest = (
-  input: DeleteApplicationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
-
-const serializeAws_json1_1DeleteComponentRequest = (input: DeleteComponentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
-
-const serializeAws_json1_1DeleteLogPatternRequest = (input: DeleteLogPatternRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PatternName != null && { PatternName: input.PatternName }),
-    ...(input.PatternSetName != null && { PatternSetName: input.PatternSetName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
-
-const serializeAws_json1_1DescribeApplicationRequest = (
-  input: DescribeApplicationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
-
-const serializeAws_json1_1DescribeComponentConfigurationRecommendationRequest = (
-  input: DescribeComponentConfigurationRecommendationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.Tier != null && { Tier: input.Tier }),
-  };
-};
-
-const serializeAws_json1_1DescribeComponentConfigurationRequest = (
-  input: DescribeComponentConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
-
-const serializeAws_json1_1DescribeComponentRequest = (
-  input: DescribeComponentRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
-
-const serializeAws_json1_1DescribeLogPatternRequest = (
-  input: DescribeLogPatternRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PatternName != null && { PatternName: input.PatternName }),
-    ...(input.PatternSetName != null && { PatternSetName: input.PatternSetName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
-
-const serializeAws_json1_1DescribeObservationRequest = (
-  input: DescribeObservationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ObservationId != null && { ObservationId: input.ObservationId }),
-  };
-};
-
-const serializeAws_json1_1DescribeProblemObservationsRequest = (
-  input: DescribeProblemObservationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ProblemId != null && { ProblemId: input.ProblemId }),
-  };
-};
-
-const serializeAws_json1_1DescribeProblemRequest = (input: DescribeProblemRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ProblemId != null && { ProblemId: input.ProblemId }),
-  };
-};
-
-const serializeAws_json1_1ListApplicationsRequest = (input: ListApplicationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListComponentsRequest = (input: ListComponentsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
-
-const serializeAws_json1_1ListConfigurationHistoryRequest = (
-  input: ListConfigurationHistoryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.EventStatus != null && { EventStatus: input.EventStatus }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
-};
-
-const serializeAws_json1_1ListLogPatternSetsRequest = (
-  input: ListLogPatternSetsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
-
-const serializeAws_json1_1ListLogPatternsRequest = (input: ListLogPatternsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PatternSetName != null && { PatternSetName: input.PatternSetName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
-
-const serializeAws_json1_1ListProblemsRequest = (input: ListProblemsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
-};
-
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
-
-const serializeAws_json1_1ResourceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
-    });
-};
-
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
-  };
-};
-
-const serializeAws_json1_1UpdateApplicationRequest = (
-  input: UpdateApplicationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AutoConfigEnabled != null && { AutoConfigEnabled: input.AutoConfigEnabled }),
-    ...(input.CWEMonitorEnabled != null && { CWEMonitorEnabled: input.CWEMonitorEnabled }),
-    ...(input.OpsCenterEnabled != null && { OpsCenterEnabled: input.OpsCenterEnabled }),
-    ...(input.OpsItemSNSTopicArn != null && { OpsItemSNSTopicArn: input.OpsItemSNSTopicArn }),
-    ...(input.RemoveSNSTopic != null && { RemoveSNSTopic: input.RemoveSNSTopic }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
-
-const serializeAws_json1_1UpdateComponentConfigurationRequest = (
-  input: UpdateComponentConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AutoConfigEnabled != null && { AutoConfigEnabled: input.AutoConfigEnabled }),
-    ...(input.ComponentConfiguration != null && { ComponentConfiguration: input.ComponentConfiguration }),
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.Monitor != null && { Monitor: input.Monitor }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.Tier != null && { Tier: input.Tier }),
-  };
-};
-
-const serializeAws_json1_1UpdateComponentRequest = (input: UpdateComponentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ComponentName != null && { ComponentName: input.ComponentName }),
-    ...(input.NewComponentName != null && { NewComponentName: input.NewComponentName }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-    ...(input.ResourceList != null && { ResourceList: serializeAws_json1_1ResourceList(input.ResourceList, context) }),
-  };
-};
-
-const serializeAws_json1_1UpdateLogPatternRequest = (input: UpdateLogPatternRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Pattern != null && { Pattern: input.Pattern }),
-    ...(input.PatternName != null && { PatternName: input.PatternName }),
-    ...(input.PatternSetName != null && { PatternSetName: input.PatternSetName }),
-    ...(input.Rank != null && { Rank: input.Rank }),
-    ...(input.ResourceGroupName != null && { ResourceGroupName: input.ResourceGroupName }),
-  };
-};
-
-const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ApplicationComponent = (output: any, context: __SerdeContext): ApplicationComponent => {
-  return {
-    ComponentName: __expectString(output.ComponentName),
-    ComponentRemarks: __expectString(output.ComponentRemarks),
-    DetectedWorkload:
-      output.DetectedWorkload != null
-        ? deserializeAws_json1_1DetectedWorkload(output.DetectedWorkload, context)
-        : undefined,
-    Monitor: __expectBoolean(output.Monitor),
-    OsType: __expectString(output.OsType),
-    ResourceType: __expectString(output.ResourceType),
-    Tier: __expectString(output.Tier),
-  } as any;
-};
-
-const deserializeAws_json1_1ApplicationComponentList = (
-  output: any,
-  context: __SerdeContext
-): ApplicationComponent[] => {
+/**
+ * deserializeAws_json1_1ConfigurationEventList
+ */
+const de_ConfigurationEventList = (output: any, context: __SerdeContext): ConfigurationEvent[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ApplicationComponent(entry, context);
+      return de_ConfigurationEvent(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ApplicationInfo = (output: any, context: __SerdeContext): ApplicationInfo => {
-  return {
-    AutoConfigEnabled: __expectBoolean(output.AutoConfigEnabled),
-    CWEMonitorEnabled: __expectBoolean(output.CWEMonitorEnabled),
-    DiscoveryType: __expectString(output.DiscoveryType),
-    LifeCycle: __expectString(output.LifeCycle),
-    OpsCenterEnabled: __expectBoolean(output.OpsCenterEnabled),
-    OpsItemSNSTopicArn: __expectString(output.OpsItemSNSTopicArn),
-    Remarks: __expectString(output.Remarks),
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
+// de_CreateApplicationResponse omitted.
+
+// de_CreateComponentResponse omitted.
+
+// de_CreateLogPatternResponse omitted.
+
+// de_DeleteApplicationResponse omitted.
+
+// de_DeleteComponentResponse omitted.
+
+// de_DeleteLogPatternResponse omitted.
+
+// de_DescribeApplicationResponse omitted.
+
+// de_DescribeComponentConfigurationRecommendationResponse omitted.
+
+// de_DescribeComponentConfigurationResponse omitted.
+
+// de_DescribeComponentResponse omitted.
+
+// de_DescribeLogPatternResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeObservationResponse
+ */
+const de_DescribeObservationResponse = (output: any, context: __SerdeContext): DescribeObservationResponse => {
+  return take(output, {
+    Observation: (_: any) => de_Observation(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ApplicationInfoList = (output: any, context: __SerdeContext): ApplicationInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ApplicationInfo(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ConfigurationEvent = (output: any, context: __SerdeContext): ConfigurationEvent => {
-  return {
-    EventDetail: __expectString(output.EventDetail),
-    EventResourceName: __expectString(output.EventResourceName),
-    EventResourceType: __expectString(output.EventResourceType),
-    EventStatus: __expectString(output.EventStatus),
-    EventTime:
-      output.EventTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventTime))) : undefined,
-    MonitoredResourceARN: __expectString(output.MonitoredResourceARN),
-  } as any;
-};
-
-const deserializeAws_json1_1ConfigurationEventList = (output: any, context: __SerdeContext): ConfigurationEvent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ConfigurationEvent(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1CreateApplicationResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateApplicationResponse => {
-  return {
-    ApplicationInfo:
-      output.ApplicationInfo != null
-        ? deserializeAws_json1_1ApplicationInfo(output.ApplicationInfo, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CreateComponentResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateComponentResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1CreateLogPatternResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateLogPatternResponse => {
-  return {
-    LogPattern: output.LogPattern != null ? deserializeAws_json1_1LogPattern(output.LogPattern, context) : undefined,
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1DeleteApplicationResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteApplicationResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeleteComponentResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteComponentResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeleteLogPatternResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteLogPatternResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DescribeApplicationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeApplicationResponse => {
-  return {
-    ApplicationInfo:
-      output.ApplicationInfo != null
-        ? deserializeAws_json1_1ApplicationInfo(output.ApplicationInfo, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeComponentConfigurationRecommendationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeComponentConfigurationRecommendationResponse => {
-  return {
-    ComponentConfiguration: __expectString(output.ComponentConfiguration),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeComponentConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeComponentConfigurationResponse => {
-  return {
-    ComponentConfiguration: __expectString(output.ComponentConfiguration),
-    Monitor: __expectBoolean(output.Monitor),
-    Tier: __expectString(output.Tier),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeComponentResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeComponentResponse => {
-  return {
-    ApplicationComponent:
-      output.ApplicationComponent != null
-        ? deserializeAws_json1_1ApplicationComponent(output.ApplicationComponent, context)
-        : undefined,
-    ResourceList:
-      output.ResourceList != null ? deserializeAws_json1_1ResourceList(output.ResourceList, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeLogPatternResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeLogPatternResponse => {
-  return {
-    LogPattern: output.LogPattern != null ? deserializeAws_json1_1LogPattern(output.LogPattern, context) : undefined,
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeObservationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeObservationResponse => {
-  return {
-    Observation:
-      output.Observation != null ? deserializeAws_json1_1Observation(output.Observation, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeProblemObservationsResponse = (
+/**
+ * deserializeAws_json1_1DescribeProblemObservationsResponse
+ */
+const de_DescribeProblemObservationsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeProblemObservationsResponse => {
-  return {
-    RelatedObservations:
-      output.RelatedObservations != null
-        ? deserializeAws_json1_1RelatedObservations(output.RelatedObservations, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    RelatedObservations: (_: any) => de_RelatedObservations(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeProblemResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeProblemResponse => {
-  return {
-    Problem: output.Problem != null ? deserializeAws_json1_1Problem(output.Problem, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeProblemResponse
+ */
+const de_DescribeProblemResponse = (output: any, context: __SerdeContext): DescribeProblemResponse => {
+  return take(output, {
+    Problem: (_: any) => de_Problem(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DetectedWorkload = (
-  output: any,
-  context: __SerdeContext
-): Record<string, Record<string, string>> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, Record<string, string>>, [key, value]: [Tier | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = deserializeAws_json1_1WorkloadMetaData(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_DetectedWorkload omitted.
 
-const deserializeAws_json1_1Feedback = (
-  output: any,
-  context: __SerdeContext
-): Record<string, FeedbackValue | string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, FeedbackValue | string>, [key, value]: [FeedbackKey | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
+// de_Feedback omitted.
 
-const deserializeAws_json1_1InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerException omitted.
 
-const deserializeAws_json1_1ListApplicationsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListApplicationsResponse => {
-  return {
-    ApplicationInfoList:
-      output.ApplicationInfoList != null
-        ? deserializeAws_json1_1ApplicationInfoList(output.ApplicationInfoList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListApplicationsResponse omitted.
 
-const deserializeAws_json1_1ListComponentsResponse = (output: any, context: __SerdeContext): ListComponentsResponse => {
-  return {
-    ApplicationComponentList:
-      output.ApplicationComponentList != null
-        ? deserializeAws_json1_1ApplicationComponentList(output.ApplicationComponentList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_ListComponentsResponse omitted.
 
-const deserializeAws_json1_1ListConfigurationHistoryResponse = (
+/**
+ * deserializeAws_json1_1ListConfigurationHistoryResponse
+ */
+const de_ListConfigurationHistoryResponse = (
   output: any,
   context: __SerdeContext
 ): ListConfigurationHistoryResponse => {
-  return {
-    EventList:
-      output.EventList != null ? deserializeAws_json1_1ConfigurationEventList(output.EventList, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    EventList: (_: any) => de_ConfigurationEventList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListLogPatternSetsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListLogPatternSetsResponse => {
-  return {
-    LogPatternSets:
-      output.LogPatternSets != null
-        ? deserializeAws_json1_1LogPatternSetList(output.LogPatternSets, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
+// de_ListLogPatternSetsResponse omitted.
+
+// de_ListLogPatternsResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListProblemsResponse
+ */
+const de_ListProblemsResponse = (output: any, context: __SerdeContext): ListProblemsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    ProblemList: (_: any) => de_ProblemList(_, context),
+    ResourceGroupName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListLogPatternsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListLogPatternsResponse => {
-  return {
-    LogPatterns:
-      output.LogPatterns != null ? deserializeAws_json1_1LogPatternList(output.LogPatterns, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
+// de_ListTagsForResourceResponse omitted.
+
+// de_LogPattern omitted.
+
+// de_LogPatternList omitted.
+
+// de_LogPatternSetList omitted.
+
+/**
+ * deserializeAws_json1_1Observation
+ */
+const de_Observation = (output: any, context: __SerdeContext): Observation => {
+  return take(output, {
+    CloudWatchEventDetailType: __expectString,
+    CloudWatchEventId: __expectString,
+    CloudWatchEventSource: __expectString,
+    CodeDeployApplication: __expectString,
+    CodeDeployDeploymentGroup: __expectString,
+    CodeDeployDeploymentId: __expectString,
+    CodeDeployInstanceGroupId: __expectString,
+    CodeDeployState: __expectString,
+    EbsCause: __expectString,
+    EbsEvent: __expectString,
+    EbsRequestId: __expectString,
+    EbsResult: __expectString,
+    Ec2State: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HealthEventArn: __expectString,
+    HealthEventDescription: __expectString,
+    HealthEventTypeCategory: __expectString,
+    HealthEventTypeCode: __expectString,
+    HealthService: __expectString,
+    Id: __expectString,
+    LineTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogFilter: __expectString,
+    LogGroup: __expectString,
+    LogText: __expectString,
+    MetricName: __expectString,
+    MetricNamespace: __expectString,
+    RdsEventCategories: __expectString,
+    RdsEventMessage: __expectString,
+    S3EventName: __expectString,
+    SourceARN: __expectString,
+    SourceType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StatesArn: __expectString,
+    StatesExecutionArn: __expectString,
+    StatesInput: __expectString,
+    StatesStatus: __expectString,
+    Unit: __expectString,
+    Value: __limitedParseDouble,
+    XRayErrorPercent: __expectInt32,
+    XRayFaultPercent: __expectInt32,
+    XRayNodeName: __expectString,
+    XRayNodeType: __expectString,
+    XRayRequestAverageLatency: __expectLong,
+    XRayRequestCount: __expectInt32,
+    XRayThrottlePercent: __expectInt32,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListProblemsResponse = (output: any, context: __SerdeContext): ListProblemsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ProblemList:
-      output.ProblemList != null ? deserializeAws_json1_1ProblemList(output.ProblemList, context) : undefined,
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1LogPattern = (output: any, context: __SerdeContext): LogPattern => {
-  return {
-    Pattern: __expectString(output.Pattern),
-    PatternName: __expectString(output.PatternName),
-    PatternSetName: __expectString(output.PatternSetName),
-    Rank: __expectInt32(output.Rank),
-  } as any;
-};
-
-const deserializeAws_json1_1LogPatternList = (output: any, context: __SerdeContext): LogPattern[] => {
+/**
+ * deserializeAws_json1_1ObservationList
+ */
+const de_ObservationList = (output: any, context: __SerdeContext): Observation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1LogPattern(entry, context);
+      return de_Observation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LogPatternSetList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1Problem
+ */
+const de_Problem = (output: any, context: __SerdeContext): Problem => {
+  return take(output, {
+    AffectedResource: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Feedback: _json,
+    Id: __expectString,
+    Insights: __expectString,
+    LastRecurrenceTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RecurringCount: __expectLong,
+    ResourceGroupName: __expectString,
+    SeverityLevel: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    Title: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ProblemList
+ */
+const de_ProblemList = (output: any, context: __SerdeContext): Problem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_Problem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Observation = (output: any, context: __SerdeContext): Observation => {
-  return {
-    CloudWatchEventDetailType: __expectString(output.CloudWatchEventDetailType),
-    CloudWatchEventId: __expectString(output.CloudWatchEventId),
-    CloudWatchEventSource: __expectString(output.CloudWatchEventSource),
-    CodeDeployApplication: __expectString(output.CodeDeployApplication),
-    CodeDeployDeploymentGroup: __expectString(output.CodeDeployDeploymentGroup),
-    CodeDeployDeploymentId: __expectString(output.CodeDeployDeploymentId),
-    CodeDeployInstanceGroupId: __expectString(output.CodeDeployInstanceGroupId),
-    CodeDeployState: __expectString(output.CodeDeployState),
-    EbsCause: __expectString(output.EbsCause),
-    EbsEvent: __expectString(output.EbsEvent),
-    EbsRequestId: __expectString(output.EbsRequestId),
-    EbsResult: __expectString(output.EbsResult),
-    Ec2State: __expectString(output.Ec2State),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    HealthEventArn: __expectString(output.HealthEventArn),
-    HealthEventDescription: __expectString(output.HealthEventDescription),
-    HealthEventTypeCategory: __expectString(output.HealthEventTypeCategory),
-    HealthEventTypeCode: __expectString(output.HealthEventTypeCode),
-    HealthService: __expectString(output.HealthService),
-    Id: __expectString(output.Id),
-    LineTime:
-      output.LineTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LineTime))) : undefined,
-    LogFilter: __expectString(output.LogFilter),
-    LogGroup: __expectString(output.LogGroup),
-    LogText: __expectString(output.LogText),
-    MetricName: __expectString(output.MetricName),
-    MetricNamespace: __expectString(output.MetricNamespace),
-    RdsEventCategories: __expectString(output.RdsEventCategories),
-    RdsEventMessage: __expectString(output.RdsEventMessage),
-    S3EventName: __expectString(output.S3EventName),
-    SourceARN: __expectString(output.SourceARN),
-    SourceType: __expectString(output.SourceType),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    StatesArn: __expectString(output.StatesArn),
-    StatesExecutionArn: __expectString(output.StatesExecutionArn),
-    StatesInput: __expectString(output.StatesInput),
-    StatesStatus: __expectString(output.StatesStatus),
-    Unit: __expectString(output.Unit),
-    Value: __limitedParseDouble(output.Value),
-    XRayErrorPercent: __expectInt32(output.XRayErrorPercent),
-    XRayFaultPercent: __expectInt32(output.XRayFaultPercent),
-    XRayNodeName: __expectString(output.XRayNodeName),
-    XRayNodeType: __expectString(output.XRayNodeType),
-    XRayRequestAverageLatency: __expectLong(output.XRayRequestAverageLatency),
-    XRayRequestCount: __expectInt32(output.XRayRequestCount),
-    XRayThrottlePercent: __expectInt32(output.XRayThrottlePercent),
-  } as any;
+/**
+ * deserializeAws_json1_1RelatedObservations
+ */
+const de_RelatedObservations = (output: any, context: __SerdeContext): RelatedObservations => {
+  return take(output, {
+    ObservationList: (_: any) => de_ObservationList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ObservationList = (output: any, context: __SerdeContext): Observation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Observation(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceInUseException omitted.
 
-const deserializeAws_json1_1Problem = (output: any, context: __SerdeContext): Problem => {
-  return {
-    AffectedResource: __expectString(output.AffectedResource),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    Feedback: output.Feedback != null ? deserializeAws_json1_1Feedback(output.Feedback, context) : undefined,
-    Id: __expectString(output.Id),
-    Insights: __expectString(output.Insights),
-    LastRecurrenceTime:
-      output.LastRecurrenceTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRecurrenceTime)))
-        : undefined,
-    RecurringCount: __expectLong(output.RecurringCount),
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-    SeverityLevel: __expectString(output.SeverityLevel),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Status: __expectString(output.Status),
-    Title: __expectString(output.Title),
-  } as any;
-};
+// de_ResourceList omitted.
 
-const deserializeAws_json1_1ProblemList = (output: any, context: __SerdeContext): Problem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Problem(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceNotFoundException omitted.
 
-const deserializeAws_json1_1RelatedObservations = (output: any, context: __SerdeContext): RelatedObservations => {
-  return {
-    ObservationList:
-      output.ObservationList != null
-        ? deserializeAws_json1_1ObservationList(output.ObservationList, context)
-        : undefined,
-  } as any;
-};
+// de_Tag omitted.
 
-const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TagList omitted.
 
-const deserializeAws_json1_1ResourceList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TagResourceResponse omitted.
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TagsAlreadyExistException omitted.
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
-    });
-  return retVal;
-};
+// de_UntagResourceResponse omitted.
 
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_UpdateApplicationResponse omitted.
 
-const deserializeAws_json1_1TagsAlreadyExistException = (
-  output: any,
-  context: __SerdeContext
-): TagsAlreadyExistException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UpdateComponentConfigurationResponse omitted.
 
-const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceName: __expectString(output.ResourceName),
-  } as any;
-};
+// de_UpdateComponentResponse omitted.
 
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UpdateLogPatternResponse omitted.
 
-const deserializeAws_json1_1UpdateApplicationResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateApplicationResponse => {
-  return {
-    ApplicationInfo:
-      output.ApplicationInfo != null
-        ? deserializeAws_json1_1ApplicationInfo(output.ApplicationInfo, context)
-        : undefined,
-  } as any;
-};
+// de_ValidationException omitted.
 
-const deserializeAws_json1_1UpdateComponentConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateComponentConfigurationResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1UpdateComponentResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateComponentResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1UpdateLogPatternResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateLogPatternResponse => {
-  return {
-    LogPattern: output.LogPattern != null ? deserializeAws_json1_1LogPattern(output.LogPattern, context) : undefined,
-    ResourceGroupName: __expectString(output.ResourceGroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1WorkloadMetaData = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_WorkloadMetaData omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2813,6 +2393,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -2837,6 +2418,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `EC2WindowsBarleyService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

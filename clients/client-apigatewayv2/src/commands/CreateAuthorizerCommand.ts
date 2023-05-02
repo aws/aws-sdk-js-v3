@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  CreateAuthorizerRequest,
-  CreateAuthorizerRequestFilterSensitiveLog,
-  CreateAuthorizerResponse,
-  CreateAuthorizerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAuthorizerCommand,
-  serializeAws_restJson1CreateAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAuthorizerRequest, CreateAuthorizerResponse } from "../models/models_0";
+import { de_CreateAuthorizerCommand, se_CreateAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAuthorizerCommand}.
  */
 export interface CreateAuthorizerCommandInput extends CreateAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAuthorizerCommand}.
  */
 export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Authorizer for an API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,32 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * import { ApiGatewayV2Client, CreateAuthorizerCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateAuthorizerCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // CreateAuthorizerRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   AuthorizerCredentialsArn: "STRING_VALUE",
+ *   AuthorizerPayloadFormatVersion: "STRING_VALUE",
+ *   AuthorizerResultTtlInSeconds: Number("int"),
+ *   AuthorizerType: "STRING_VALUE", // required
+ *   AuthorizerUri: "STRING_VALUE",
+ *   EnableSimpleResponses: true || false,
+ *   IdentitySource: [ // IdentitySourceList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   IdentityValidationExpression: "STRING_VALUE",
+ *   JwtConfiguration: { // JWTConfiguration
+ *     Audience: [ // __listOf__string
+ *       "STRING_VALUE",
+ *     ],
+ *     Issuer: "STRING_VALUE",
+ *   },
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new CreateAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAuthorizerCommandInput - {@link CreateAuthorizerCommandInput}
+ * @returns {@link CreateAuthorizerCommandOutput}
  * @see {@link CreateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link CreateAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +100,9 @@ export class CreateAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +131,8 @@ export class CreateAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAuthorizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +142,18 @@ export class CreateAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAuthorizerCommand(input, context);
+    return se_CreateAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAuthorizerCommandOutput> {
-    return deserializeAws_restJson1CreateAuthorizerCommand(output, context);
+    return de_CreateAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

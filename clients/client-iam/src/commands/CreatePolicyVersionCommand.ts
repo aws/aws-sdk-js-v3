@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  CreatePolicyVersionRequest,
-  CreatePolicyVersionRequestFilterSensitiveLog,
-  CreatePolicyVersionResponse,
-  CreatePolicyVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreatePolicyVersionCommand,
-  serializeAws_queryCreatePolicyVersionCommand,
-} from "../protocols/Aws_query";
+import { CreatePolicyVersionRequest, CreatePolicyVersionResponse } from "../models/models_0";
+import { de_CreatePolicyVersionCommand, se_CreatePolicyVersionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePolicyVersionCommand}.
  */
 export interface CreatePolicyVersionCommandInput extends CreatePolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePolicyVersionCommand}.
  */
 export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of the specified managed policy. To update a managed policy, you
  *             create a new policy version. A managed policy can have up to five versions. If the
  *             policy has five versions, you must delete an existing version using <a>DeletePolicyVersion</a> before you create a new version.</p>
@@ -49,10 +46,17 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * import { IAMClient, CreatePolicyVersionCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreatePolicyVersionCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // CreatePolicyVersionRequest
+ *   PolicyArn: "STRING_VALUE", // required
+ *   PolicyDocument: "STRING_VALUE", // required
+ *   SetAsDefault: true || false,
+ * };
  * const command = new CreatePolicyVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePolicyVersionCommandInput - {@link CreatePolicyVersionCommandInput}
+ * @returns {@link CreatePolicyVersionCommandOutput}
  * @see {@link CreatePolicyVersionCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -96,6 +100,9 @@ export class CreatePolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +131,8 @@ export class CreatePolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePolicyVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePolicyVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +142,18 @@ export class CreatePolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreatePolicyVersionCommand(input, context);
+    return se_CreatePolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyVersionCommandOutput> {
-    return deserializeAws_queryCreatePolicyVersionCommand(output, context);
+    return de_CreatePolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

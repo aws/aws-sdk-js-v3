@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { CloudTrailServiceException as __BaseException } from "./CloudTrailServiceException";
 
 /**
+ * @public
  * <p> This exception is thrown when you start a new import and a previous import is still in
  *          progress. </p>
  */
@@ -29,6 +30,7 @@ export class AccountHasOngoingImportException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified account is not found or not part of an
  *          organization.</p>
  */
@@ -54,6 +56,7 @@ export class AccountNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified account is not registered as the CloudTrail delegated administrator.</p>
  */
 export class AccountNotRegisteredException extends __BaseException {
@@ -78,6 +81,7 @@ export class AccountNotRegisteredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the account is already registered as the CloudTrail
  *          delegated administrator.</p>
  */
@@ -103,6 +107,7 @@ export class AccountRegisteredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A custom key-value pair associated with a resource such as a CloudTrail
  *          trail, event data store, or channel.</p>
  */
@@ -121,6 +126,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Specifies the tags to add to a trail, event data store, or channel.</p>
  */
 export interface AddTagsRequest {
@@ -146,11 +152,13 @@ export interface AddTagsRequest {
 }
 
 /**
+ * @public
  * <p>Returns the objects or data if successful. Otherwise, returns an error.</p>
  */
 export interface AddTagsResponse {}
 
 /**
+ * @public
  * <p>This exception is thrown when CloudTrail cannot find the specified channel.</p>
  */
 export class ChannelNotFoundException extends __BaseException {
@@ -175,6 +183,7 @@ export class ChannelNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when an operation is called with a trail ARN that is not valid.
  *          The following is the format of a trail ARN.</p>
  *          <p>
@@ -210,6 +219,7 @@ export class CloudTrailARNInvalidException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified resource is not ready for an operation. This
  *          can occur when you try to run an operation on a resource before CloudTrail has time
  *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
@@ -237,6 +247,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified event data store was not found.</p>
  */
 export class EventDataStoreNotFoundException extends __BaseException {
@@ -261,6 +272,7 @@ export class EventDataStoreNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The event data store is inactive.</p>
  */
 export class InactiveEventDataStoreException extends __BaseException {
@@ -285,6 +297,7 @@ export class InactiveEventDataStoreException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified tag key or values are not valid. It can also
  *          occur if there are duplicate tags or too many tags on the resource.</p>
  */
@@ -310,6 +323,7 @@ export class InvalidTagParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the provided trail name is not valid. Trail names must
  *          meet the following requirements:</p>
  *          <ul>
@@ -354,6 +368,7 @@ export class InvalidTrailNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> This exception is thrown when the management account does not have a service-linked
  *          role. </p>
  */
@@ -379,6 +394,7 @@ export class NoManagementAccountSLRExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the Amazon Web Services account making the request to
  *          create or update an organization trail or event data store is not the management account
  *          for an organization in Organizations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html">Create an event data store</a>.</p>
@@ -405,6 +421,7 @@ export class NotOrganizationMasterAccountException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the requested operation is not permitted.</p>
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -429,6 +446,7 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified resource is not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -453,6 +471,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
  */
 export class ResourceTypeNotSupportedException extends __BaseException {
@@ -477,6 +496,7 @@ export class ResourceTypeNotSupportedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of tags per trail, event data store, or channel has exceeded the permitted amount. Currently, the limit is
  *          50.</p>
  */
@@ -502,6 +522,7 @@ export class TagsLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the requested operation is not supported.</p>
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -526,6 +547,7 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A single selector statement in an advanced event selector.</p>
  */
 export interface AdvancedFieldSelector {
@@ -889,6 +911,7 @@ export interface AdvancedFieldSelector {
 }
 
 /**
+ * @public
  * <p>Advanced event selectors let you create fine-grained selectors for the following CloudTrail event record ﬁelds. They help you control costs by logging only those
  *          events that are important to you. For more information about advanced event selectors, see
  *             <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails</a> in the <i>CloudTrail User Guide</i>.</p>
@@ -939,6 +962,9 @@ export interface AdvancedEventSelector {
   FieldSelectors: AdvancedFieldSelector[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelQueryRequest {
   /**
    * @deprecated
@@ -955,15 +981,27 @@ export interface CancelQueryRequest {
   QueryId: string | undefined;
 }
 
-export enum QueryStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  TIMED_OUT = "TIMED_OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const QueryStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
 
+/**
+ * @public
+ */
+export type QueryStatus = (typeof QueryStatus)[keyof typeof QueryStatus];
+
+/**
+ * @public
+ */
 export interface CancelQueryResponse {
   /**
    * <p>The ID of the canceled query.</p>
@@ -978,6 +1016,7 @@ export interface CancelQueryResponse {
 }
 
 /**
+ * @public
  * <p>The specified event data store ARN is not valid or does not map to an event data store
  *          in your account.</p>
  */
@@ -1003,6 +1042,7 @@ export class EventDataStoreARNInvalidException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified query cannot be canceled because it is in the <code>FINISHED</code>,
  *             <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>CANCELLED</code> state.</p>
  */
@@ -1028,6 +1068,7 @@ export class InactiveQueryException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request includes a parameter that is not valid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -1052,6 +1093,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The query ID does not exist or does not map to a query.</p>
  */
 export class QueryIdNotFoundException extends __BaseException {
@@ -1076,6 +1118,7 @@ export class QueryIdNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the management account of an organization is registered as
  *          the CloudTrail delegated administrator.</p>
  */
@@ -1101,6 +1144,7 @@ export class CannotDelegateManagementAccountException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about a returned CloudTrail channel.</p>
  */
 export interface Channel {
@@ -1120,6 +1164,7 @@ export interface Channel {
 }
 
 /**
+ * @public
  * <p>
  *          This exception is thrown when the provided channel already exists.
  *       </p>
@@ -1146,6 +1191,7 @@ export class ChannelAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not
  *          valid.</p>
  */
@@ -1171,6 +1217,7 @@ export class ChannelARNInvalidException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified event data store cannot yet be deleted because it
  *          is in use by a channel.</p>
  */
@@ -1196,6 +1243,7 @@ export class ChannelExistsForEDSException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *          This exception is thrown when the maximum number of channels limit is exceeded.
  *       </p>
@@ -1221,12 +1269,22 @@ export class ChannelMaxLimitExceededException extends __BaseException {
   }
 }
 
-export enum DestinationType {
-  AWS_SERVICE = "AWS_SERVICE",
-  EVENT_DATA_STORE = "EVENT_DATA_STORE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DestinationType = {
+  AWS_SERVICE: "AWS_SERVICE",
+  EVENT_DATA_STORE: "EVENT_DATA_STORE",
+} as const;
 
 /**
+ * @public
+ */
+export type DestinationType = (typeof DestinationType)[keyof typeof DestinationType];
+
+/**
+ * @public
  * <p>Contains information about the destination receiving events.</p>
  */
 export interface Destination {
@@ -1243,6 +1301,9 @@ export interface Destination {
   Location: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelRequest {
   /**
    * <p>The name of the channel.</p>
@@ -1270,6 +1331,9 @@ export interface CreateChannelRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the new channel.</p>
@@ -1298,6 +1362,7 @@ export interface CreateChannelResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when event categories of specified event data stores are not
  *          valid.</p>
  */
@@ -1323,6 +1388,7 @@ export class InvalidEventDataStoreCategoryException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified value of <code>Source</code> is not valid.</p>
  */
 export class InvalidSourceException extends __BaseException {
@@ -1347,6 +1413,7 @@ export class InvalidSourceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling Trusted Access with Other Amazon Web Services Services</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>. </p>
  */
 export class CloudTrailAccessNotEnabledException extends __BaseException {
@@ -1370,6 +1437,9 @@ export class CloudTrailAccessNotEnabledException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateEventDataStoreRequest {
   /**
    * <p>The name of the event data store.</p>
@@ -1460,12 +1530,24 @@ export interface CreateEventDataStoreRequest {
   KmsKeyId?: string;
 }
 
-export enum EventDataStoreStatus {
-  CREATED = "CREATED",
-  ENABLED = "ENABLED",
-  PENDING_DELETION = "PENDING_DELETION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventDataStoreStatus = {
+  CREATED: "CREATED",
+  ENABLED: "ENABLED",
+  PENDING_DELETION: "PENDING_DELETION",
+} as const;
 
+/**
+ * @public
+ */
+export type EventDataStoreStatus = (typeof EventDataStoreStatus)[keyof typeof EventDataStoreStatus];
+
+/**
+ * @public
+ */
 export interface CreateEventDataStoreResponse {
   /**
    * <p>The ARN of the event data store.</p>
@@ -1538,6 +1620,7 @@ export interface CreateEventDataStoreResponse {
 }
 
 /**
+ * @public
  * <p>An event data store with that name already exists.</p>
  */
 export class EventDataStoreAlreadyExistsException extends __BaseException {
@@ -1562,6 +1645,7 @@ export class EventDataStoreAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your account has used the maximum number of event data stores.</p>
  */
 export class EventDataStoreMaxLimitExceededException extends __BaseException {
@@ -1586,6 +1670,7 @@ export class EventDataStoreMaxLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the IAM user or role that is used to create
  *          the organization resource lacks one or more required permissions for creating an
  *          organization resource in a required service.</p>
@@ -1613,6 +1698,7 @@ export class InsufficientDependencyServiceAccessPermissionException extends __Ba
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the policy on the S3 bucket or KMS key does
  *          not have sufficient permissions for the operation.</p>
  */
@@ -1638,6 +1724,7 @@ export class InsufficientEncryptionPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called
  *          with a number of event selectors, advanced event selectors, or data resources that is not
  *          valid. The combination of event selectors or advanced event selectors and data resources is
@@ -1689,6 +1776,7 @@ export class InvalidEventSelectorsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the KMS key ARN is not valid.</p>
  */
 export class InvalidKmsKeyIdException extends __BaseException {
@@ -1713,6 +1801,7 @@ export class InvalidKmsKeyIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when there is an issue with the specified KMS
  *          key and the trail or event data store can't be updated.</p>
  */
@@ -1738,6 +1827,7 @@ export class KmsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the KMS key does not exist, when the S3
  *          bucket and the KMS key are not in the same region, or when the KMS key associated with the Amazon SNS topic either does not exist or is
  *          not in the same region.</p>
@@ -1764,6 +1854,7 @@ export class KmsKeyNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when Organizations is not configured to support all
  *          features. All features must be enabled in Organizations to support creating an
  *          organization trail or event data store.</p>
@@ -1790,6 +1881,7 @@ export class OrganizationNotInAllFeaturesModeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the request is made from an Amazon Web Services account
  *          that is not a member of an organization. To make this request, sign in using the
  *          credentials of an account that belongs to an organization.</p>
@@ -1816,6 +1908,7 @@ export class OrganizationsNotInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when a call results in the <code>InvalidClientTokenId</code>
  *          error code. This can occur when you are creating or updating a trail to send notifications
  *          to an Amazon SNS topic that is in a suspended Amazon Web Services account.</p>
@@ -1842,6 +1935,7 @@ export class CloudTrailInvalidClientTokenIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Cannot set a CloudWatch Logs delivery for this region.</p>
  */
 export class CloudWatchLogsDeliveryUnavailableException extends __BaseException {
@@ -1866,6 +1960,7 @@ export class CloudWatchLogsDeliveryUnavailableException extends __BaseException 
 }
 
 /**
+ * @public
  * <p>Specifies the settings for each trail.</p>
  */
 export interface CreateTrailRequest {
@@ -2001,6 +2096,7 @@ export interface CreateTrailRequest {
 }
 
 /**
+ * @public
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an
  *          error.</p>
  */
@@ -2090,6 +2186,7 @@ export interface CreateTrailResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
  */
 export class InsufficientS3BucketPolicyException extends __BaseException {
@@ -2114,6 +2211,7 @@ export class InsufficientS3BucketPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the policy on the Amazon SNS topic is not
  *          sufficient.</p>
  */
@@ -2139,6 +2237,7 @@ export class InsufficientSnsTopicPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the provided CloudWatch Logs log group is not
  *          valid.</p>
  */
@@ -2164,6 +2263,7 @@ export class InvalidCloudWatchLogsLogGroupArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the provided role is not valid.</p>
  */
 export class InvalidCloudWatchLogsRoleArnException extends __BaseException {
@@ -2188,6 +2288,7 @@ export class InvalidCloudWatchLogsRoleArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the combination of parameters provided is not
  *          valid.</p>
  */
@@ -2213,6 +2314,7 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
  */
 export class InvalidS3BucketNameException extends __BaseException {
@@ -2237,6 +2339,7 @@ export class InvalidS3BucketNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the provided S3 prefix is not valid.</p>
  */
 export class InvalidS3PrefixException extends __BaseException {
@@ -2261,6 +2364,7 @@ export class InvalidS3PrefixException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the provided SNS topic name is not valid.</p>
  */
 export class InvalidSnsTopicNameException extends __BaseException {
@@ -2285,6 +2389,7 @@ export class InvalidSnsTopicNameException extends __BaseException {
 }
 
 /**
+ * @public
  * @deprecated
  *
  * <p>This exception is no longer in use.</p>
@@ -2311,6 +2416,7 @@ export class KmsKeyDisabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the maximum number of trails is reached.</p>
  */
 export class MaximumNumberOfTrailsExceededException extends __BaseException {
@@ -2335,6 +2441,7 @@ export class MaximumNumberOfTrailsExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified S3 bucket does not exist.</p>
  */
 export class S3BucketDoesNotExistException extends __BaseException {
@@ -2359,6 +2466,7 @@ export class S3BucketDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the specified trail already exists.</p>
  */
 export class TrailAlreadyExistsException extends __BaseException {
@@ -2383,6 +2491,7 @@ export class TrailAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is no longer in use.</p>
  */
 export class TrailNotProvidedException extends __BaseException {
@@ -2406,6 +2515,9 @@ export class TrailNotProvidedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelRequest {
   /**
    * <p>The ARN or the <code>UUID</code> value of the channel that you want to delete.</p>
@@ -2413,8 +2525,14 @@ export interface DeleteChannelRequest {
   Channel: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteEventDataStoreRequest {
   /**
    * <p>The ARN (or the ID suffix of the ARN) of the event data store to delete.</p>
@@ -2422,9 +2540,13 @@ export interface DeleteEventDataStoreRequest {
   EventDataStore: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventDataStoreResponse {}
 
 /**
+ * @public
  * <p> This exception is thrown when you try to update or delete an event data store that
  *          currently has an import in progress. </p>
  */
@@ -2450,6 +2572,7 @@ export class EventDataStoreHasOngoingImportException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The event data store cannot be deleted because termination protection is enabled for
  *          it.</p>
  */
@@ -2474,6 +2597,9 @@ export class EventDataStoreTerminationProtectedException extends __BaseException
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>
@@ -2485,9 +2611,13 @@ export interface DeleteResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResponse {}
 
 /**
+ * @public
  * <p>
  *          This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid. The following is the valid format for a resource ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
@@ -2515,6 +2645,7 @@ export class ResourceARNNotValidException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *          This exception is thrown when the specified resource policy is not found.
  *       </p>
@@ -2541,6 +2672,7 @@ export class ResourcePolicyNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request that specifies the name of a trail to delete.</p>
  */
 export interface DeleteTrailRequest {
@@ -2554,12 +2686,14 @@ export interface DeleteTrailRequest {
 }
 
 /**
+ * @public
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an
  *          error.</p>
  */
 export interface DeleteTrailResponse {}
 
 /**
+ * @public
  * <p>This exception is thrown when an operation is called on a trail from a region other than
  *          the region in which the trail was created.</p>
  */
@@ -2585,6 +2719,7 @@ export class InvalidHomeRegionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the trail with the given name is not found.</p>
  */
 export class TrailNotFoundException extends __BaseException {
@@ -2609,6 +2744,7 @@ export class TrailNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Removes CloudTrail delegated administrator permissions from a specified member
  *          account in an organization that is currently designated as a delegated
  *          administrator.</p>
@@ -2622,11 +2758,13 @@ export interface DeregisterOrganizationDelegatedAdminRequest {
 }
 
 /**
+ * @public
  * <p>Returns the following response if successful. Otherwise, returns an error.</p>
  */
 export interface DeregisterOrganizationDelegatedAdminResponse {}
 
 /**
+ * @public
  * <p> This exception is thrown when the account making the request is not the organization's
  *          management account. </p>
  */
@@ -2651,6 +2789,9 @@ export class NotOrganizationManagementAccountException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeQueryRequest {
   /**
    * @deprecated
@@ -2666,19 +2807,29 @@ export interface DescribeQueryRequest {
   QueryId: string | undefined;
 }
 
-export enum DeliveryStatus {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  ACCESS_DENIED_SIGNING_FILE = "ACCESS_DENIED_SIGNING_FILE",
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FAILED_SIGNING_FILE = "FAILED_SIGNING_FILE",
-  PENDING = "PENDING",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  SUCCESS = "SUCCESS",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeliveryStatus = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  ACCESS_DENIED_SIGNING_FILE: "ACCESS_DENIED_SIGNING_FILE",
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  FAILED_SIGNING_FILE: "FAILED_SIGNING_FILE",
+  PENDING: "PENDING",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  SUCCESS: "SUCCESS",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type DeliveryStatus = (typeof DeliveryStatus)[keyof typeof DeliveryStatus];
+
+/**
+ * @public
  * <p>Gets metadata about a query, including the number of events that were matched, the total
  *          number of events scanned, the query run time in milliseconds, and the query's creation
  *          time.</p>
@@ -2712,6 +2863,9 @@ export interface QueryStatisticsForDescribeQuery {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeQueryResponse {
   /**
    * <p>The ID of the query.</p>
@@ -2756,6 +2910,7 @@ export interface DescribeQueryResponse {
 }
 
 /**
+ * @public
  * <p>Returns information about the trail.</p>
  */
 export interface DescribeTrailsRequest {
@@ -2797,6 +2952,7 @@ export interface DescribeTrailsRequest {
 }
 
 /**
+ * @public
  * <p>The settings for a trail.</p>
  */
 export interface Trail {
@@ -2905,6 +3061,7 @@ export interface Trail {
 }
 
 /**
+ * @public
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an
  *          error.</p>
  */
@@ -2920,6 +3077,9 @@ export interface DescribeTrailsResponse {
   trailList?: Trail[];
 }
 
+/**
+ * @public
+ */
 export interface GetChannelRequest {
   /**
    * <p>The ARN or <code>UUID</code> of a channel.</p>
@@ -2928,6 +3088,7 @@ export interface GetChannelRequest {
 }
 
 /**
+ * @public
  * <p>A table showing information about the most recent successful and failed attempts
  *          to ingest events.</p>
  */
@@ -2959,6 +3120,7 @@ export interface IngestionStatus {
 }
 
 /**
+ * @public
  * <p> Contains configuration information about the channel. </p>
  */
 export interface SourceConfig {
@@ -2973,6 +3135,9 @@ export interface SourceConfig {
   AdvancedEventSelectors?: AdvancedEventSelector[];
 }
 
+/**
+ * @public
+ */
 export interface GetChannelResponse {
   /**
    * <p>The ARN of an channel returned by a <code>GetChannel</code> request.</p>
@@ -3013,6 +3178,9 @@ export interface GetChannelResponse {
   IngestionStatus?: IngestionStatus;
 }
 
+/**
+ * @public
+ */
 export interface GetEventDataStoreRequest {
   /**
    * <p>The ARN (or ID suffix of the ARN) of the event data store about which you want
@@ -3021,6 +3189,9 @@ export interface GetEventDataStoreRequest {
   EventDataStore: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEventDataStoreResponse {
   /**
    * <p>The event data store Amazon Resource Number (ARN).</p>
@@ -3087,6 +3258,9 @@ export interface GetEventDataStoreResponse {
   KmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEventSelectorsRequest {
   /**
    * <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the string
@@ -3119,6 +3293,7 @@ export interface GetEventSelectorsRequest {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 buckets, Lambda functions, or Amazon DynamoDB tables that you specify in your event selectors for your trail to log data events. Data
  *          events provide information about the resource operations performed on or within a resource
  *          itself. These are also known as data plane operations. You can specify up to 250 data
@@ -3315,13 +3490,23 @@ export interface DataResource {
   Values?: string[];
 }
 
-export enum ReadWriteType {
-  All = "All",
-  ReadOnly = "ReadOnly",
-  WriteOnly = "WriteOnly",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReadWriteType = {
+  All: "All",
+  ReadOnly: "ReadOnly",
+  WriteOnly: "WriteOnly",
+} as const;
 
 /**
+ * @public
+ */
+export type ReadWriteType = (typeof ReadWriteType)[keyof typeof ReadWriteType];
+
+/**
+ * @public
  * <p>Use event selectors to further specify the management and data event settings for your
  *          trail. By default, trails created without specific event selectors will be configured to
  *          log all read and write management events, and no data events. When an event occurs in your
@@ -3375,6 +3560,9 @@ export interface EventSelector {
   ExcludeManagementEventSources?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetEventSelectorsResponse {
   /**
    * <p>The specified trail ARN that has the event selectors.</p>
@@ -3392,6 +3580,9 @@ export interface GetEventSelectorsResponse {
   AdvancedEventSelectors?: AdvancedEventSelector[];
 }
 
+/**
+ * @public
+ */
 export interface GetImportRequest {
   /**
    * <p> The ID for the import. </p>
@@ -3400,6 +3591,7 @@ export interface GetImportRequest {
 }
 
 /**
+ * @public
  * <p> The settings for the source S3 bucket. </p>
  */
 export interface S3ImportSource {
@@ -3420,6 +3612,7 @@ export interface S3ImportSource {
 }
 
 /**
+ * @public
  * <p> The import source. </p>
  */
 export interface ImportSource {
@@ -3430,6 +3623,7 @@ export interface ImportSource {
 }
 
 /**
+ * @public
  * <p> Provides statistics for the specified <code>ImportID</code>. CloudTrail does not
  *          update import statistics in real-time. Returned values for parameters such as
  *             <code>EventsCompleted</code> may be lower than the actual value, because CloudTrail updates statistics incrementally over the course of the import. </p>
@@ -3461,14 +3655,26 @@ export interface ImportStatistics {
   FailedEntries?: number;
 }
 
-export enum ImportStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INITIALIZING = "INITIALIZING",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImportStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INITIALIZING: "INITIALIZING",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+} as const;
 
+/**
+ * @public
+ */
+export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
+
+/**
+ * @public
+ */
 export interface GetImportResponse {
   /**
    * <p> The ID of the import. </p>
@@ -3524,6 +3730,7 @@ export interface GetImportResponse {
 }
 
 /**
+ * @public
  * <p> The specified import was not found. </p>
  */
 export class ImportNotFoundException extends __BaseException {
@@ -3547,6 +3754,9 @@ export class ImportNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetInsightSelectorsRequest {
   /**
    * <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the string
@@ -3578,12 +3788,22 @@ export interface GetInsightSelectorsRequest {
   TrailName: string | undefined;
 }
 
-export enum InsightType {
-  ApiCallRateInsight = "ApiCallRateInsight",
-  ApiErrorRateInsight = "ApiErrorRateInsight",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InsightType = {
+  ApiCallRateInsight: "ApiCallRateInsight",
+  ApiErrorRateInsight: "ApiErrorRateInsight",
+} as const;
 
 /**
+ * @public
+ */
+export type InsightType = (typeof InsightType)[keyof typeof InsightType];
+
+/**
+ * @public
  * <p>A JSON string that contains a list of insight types that are logged on a trail.</p>
  */
 export interface InsightSelector {
@@ -3594,6 +3814,9 @@ export interface InsightSelector {
   InsightType?: InsightType | string;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightSelectorsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of a trail for which you want to get Insights
@@ -3610,6 +3833,7 @@ export interface GetInsightSelectorsResponse {
 }
 
 /**
+ * @public
  * <p>If you run <code>GetInsightSelectors</code> on a trail that does not have Insights
  *          events enabled, the operation throws the exception
  *          <code>InsightNotEnabledException</code>.</p>
@@ -3635,6 +3859,9 @@ export class InsightNotEnabledException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetQueryResultsRequest {
   /**
    * @deprecated
@@ -3661,6 +3888,7 @@ export interface GetQueryResultsRequest {
 }
 
 /**
+ * @public
  * <p>Metadata about a query, such as the number of results.</p>
  */
 export interface QueryStatistics {
@@ -3682,6 +3910,9 @@ export interface QueryStatistics {
   BytesScanned?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetQueryResultsResponse {
   /**
    * <p>The status of the query. Values include <code>QUEUED</code>, <code>RUNNING</code>,
@@ -3712,6 +3943,7 @@ export interface GetQueryResultsResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown if the limit specified is not valid.</p>
  */
 export class InvalidMaxResultsException extends __BaseException {
@@ -3736,6 +3968,7 @@ export class InvalidMaxResultsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A token that is not valid, or a token that was previously used in a request with
  *          different parameters. This exception is thrown if the token is not valid.</p>
  */
@@ -3760,6 +3993,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyRequest {
   /**
    * <p>
@@ -3771,6 +4007,9 @@ export interface GetResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyResponse {
   /**
    * <p>
@@ -3787,6 +4026,9 @@ export interface GetResourcePolicyResponse {
   ResourcePolicy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTrailRequest {
   /**
    * <p>The name or the Amazon Resource Name (ARN) of the trail for which you want to retrieve
@@ -3795,6 +4037,9 @@ export interface GetTrailRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTrailResponse {
   /**
    * <p>The settings for a trail.</p>
@@ -3803,6 +4048,7 @@ export interface GetTrailResponse {
 }
 
 /**
+ * @public
  * <p>The name of a trail about which you want the current status.</p>
  */
 export interface GetTrailStatusRequest {
@@ -3819,6 +4065,7 @@ export interface GetTrailStatusRequest {
 }
 
 /**
+ * @public
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an
  *          error.</p>
  */
@@ -3936,6 +4183,9 @@ export interface GetTrailStatusResponse {
   TimeLoggingStopped?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsRequest {
   /**
    * <p> The maximum number of CloudTrail channels to display on a single page. </p>
@@ -3951,6 +4201,9 @@ export interface ListChannelsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsResponse {
   /**
    * <p> The list of channels in the account. </p>
@@ -3963,6 +4216,9 @@ export interface ListChannelsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventDataStoresRequest {
   /**
    * <p>A token you can use to get the next page of event data store results.</p>
@@ -3976,6 +4232,7 @@ export interface ListEventDataStoresRequest {
 }
 
 /**
+ * @public
  * <p>A storage lake of event data against which you can run complex SQL-based queries. An
  *          event data store can include events that you have logged on your account from the last 90
  *          to 2557 days (about three months to up to seven years). To select events for an event data
@@ -4056,6 +4313,9 @@ export interface EventDataStore {
   UpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEventDataStoresResponse {
   /**
    * <p>Contains information about event data stores in the account, in the current
@@ -4069,6 +4329,9 @@ export interface ListEventDataStoresResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImportFailuresRequest {
   /**
    * <p> The ID of the import. </p>
@@ -4086,13 +4349,23 @@ export interface ListImportFailuresRequest {
   NextToken?: string;
 }
 
-export enum ImportFailureStatus {
-  FAILED = "FAILED",
-  RETRY = "RETRY",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImportFailureStatus = {
+  FAILED: "FAILED",
+  RETRY: "RETRY",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type ImportFailureStatus = (typeof ImportFailureStatus)[keyof typeof ImportFailureStatus];
+
+/**
+ * @public
  * <p> Provides information about an import failure. </p>
  */
 export interface ImportFailureListItem {
@@ -4122,6 +4395,9 @@ export interface ImportFailureListItem {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListImportFailuresResponse {
   /**
    * <p> Contains information about the import failures. </p>
@@ -4134,6 +4410,9 @@ export interface ListImportFailuresResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImportsRequest {
   /**
    * <p> The maximum number of imports to display on a single page. </p>
@@ -4157,6 +4436,7 @@ export interface ListImportsRequest {
 }
 
 /**
+ * @public
  * <p> Contains information about an import that was returned by a lookup request. </p>
  */
 export interface ImportsListItem {
@@ -4186,6 +4466,9 @@ export interface ImportsListItem {
   UpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListImportsResponse {
   /**
    * <p> The list of returned imports. </p>
@@ -4199,6 +4482,7 @@ export interface ListImportsResponse {
 }
 
 /**
+ * @public
  * <p>Occurs if the timestamp values are not valid. Either the start time occurs after the end
  *          time, or the time range is outside the range of possible values.</p>
  */
@@ -4224,6 +4508,7 @@ export class InvalidTimeRangeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Reserved for future use.</p>
  */
 export class InvalidTokenException extends __BaseException {
@@ -4248,6 +4533,7 @@ export class InvalidTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Requests the public keys for a specified time range.</p>
  */
 export interface ListPublicKeysRequest {
@@ -4271,6 +4557,7 @@ export interface ListPublicKeysRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a returned public key.</p>
  */
 export interface PublicKey {
@@ -4296,6 +4583,7 @@ export interface PublicKey {
 }
 
 /**
+ * @public
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an
  *          error.</p>
  */
@@ -4315,6 +4603,7 @@ export interface ListPublicKeysResponse {
 }
 
 /**
+ * @public
  * <p>A date range for the query was specified that is not valid. Be sure that the start time
  *          is chronologically before the end time. For more information about writing a query, see
  *             <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
@@ -4341,6 +4630,7 @@ export class InvalidDateRangeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The query status is not valid for the operation.</p>
  */
 export class InvalidQueryStatusException extends __BaseException {
@@ -4364,6 +4654,9 @@ export class InvalidQueryStatusException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListQueriesRequest {
   /**
    * <p>The ARN (or the ID suffix of the ARN) of an event data store on which queries were
@@ -4403,6 +4696,7 @@ export interface ListQueriesRequest {
 }
 
 /**
+ * @public
  * <p>A SQL string of criteria about events that you want to collect in an event data
  *          store.</p>
  */
@@ -4425,6 +4719,9 @@ export interface Query {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListQueriesResponse {
   /**
    * <p>Lists matching query results, and shows query ID, status, and creation time of each
@@ -4439,6 +4736,7 @@ export interface ListQueriesResponse {
 }
 
 /**
+ * @public
  * <p>Specifies a list of tags to return.</p>
  */
 export interface ListTagsRequest {
@@ -4455,6 +4753,7 @@ export interface ListTagsRequest {
 }
 
 /**
+ * @public
  * <p>A resource tag.</p>
  */
 export interface ResourceTag {
@@ -4470,6 +4769,7 @@ export interface ResourceTag {
 }
 
 /**
+ * @public
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an
  *          error.</p>
  */
@@ -4485,6 +4785,9 @@ export interface ListTagsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrailsRequest {
   /**
    * <p>The token to use to get the next page of results after a previous API call. This token
@@ -4496,6 +4799,7 @@ export interface ListTrailsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a CloudTrail trail, including the trail's name, home region,
  *          and Amazon Resource Name (ARN).</p>
  */
@@ -4516,6 +4820,9 @@ export interface TrailInfo {
   HomeRegion?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrailsResponse {
   /**
    * <p>Returns the name, ARN, and home region of trails in the current account.</p>
@@ -4533,6 +4840,7 @@ export interface ListTrailsResponse {
 }
 
 /**
+ * @public
  * <p>Occurs if an event category that is not valid is specified as a value of
  *             <code>EventCategory</code>.</p>
  */
@@ -4558,6 +4866,7 @@ export class InvalidEventCategoryException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Occurs when a lookup attribute is specified that is not valid.</p>
  */
 export class InvalidLookupAttributesException extends __BaseException {
@@ -4581,22 +4890,41 @@ export class InvalidLookupAttributesException extends __BaseException {
   }
 }
 
-export enum EventCategory {
-  Insight = "insight",
-}
-
-export enum LookupAttributeKey {
-  ACCESS_KEY_ID = "AccessKeyId",
-  EVENT_ID = "EventId",
-  EVENT_NAME = "EventName",
-  EVENT_SOURCE = "EventSource",
-  READ_ONLY = "ReadOnly",
-  RESOURCE_NAME = "ResourceName",
-  RESOURCE_TYPE = "ResourceType",
-  USERNAME = "Username",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventCategory = {
+  Insight: "insight",
+} as const;
 
 /**
+ * @public
+ */
+export type EventCategory = (typeof EventCategory)[keyof typeof EventCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const LookupAttributeKey = {
+  ACCESS_KEY_ID: "AccessKeyId",
+  EVENT_ID: "EventId",
+  EVENT_NAME: "EventName",
+  EVENT_SOURCE: "EventSource",
+  READ_ONLY: "ReadOnly",
+  RESOURCE_NAME: "ResourceName",
+  RESOURCE_TYPE: "ResourceType",
+  USERNAME: "Username",
+} as const;
+
+/**
+ * @public
+ */
+export type LookupAttributeKey = (typeof LookupAttributeKey)[keyof typeof LookupAttributeKey];
+
+/**
+ * @public
  * <p>Specifies an attribute and value that filter the events returned.</p>
  */
 export interface LookupAttribute {
@@ -4612,6 +4940,7 @@ export interface LookupAttribute {
 }
 
 /**
+ * @public
  * <p>Contains a request for LookupEvents.</p>
  */
 export interface LookupEventsRequest {
@@ -4657,6 +4986,7 @@ export interface LookupEventsRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the type and name of a resource referenced by an event.</p>
  */
 export interface Resource {
@@ -4677,6 +5007,7 @@ export interface Resource {
 }
 
 /**
+ * @public
  * <p>Contains information about an event that was returned by a lookup request. The result
  *          includes a representation of a CloudTrail event.</p>
  */
@@ -4731,6 +5062,7 @@ export interface Event {
 }
 
 /**
+ * @public
  * <p>Contains a response to a LookupEvents action.</p>
  */
 export interface LookupEventsResponse {
@@ -4750,6 +5082,9 @@ export interface LookupEventsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutEventSelectorsRequest {
   /**
    * <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the string
@@ -4801,6 +5136,9 @@ export interface PutEventSelectorsRequest {
   AdvancedEventSelectors?: AdvancedEventSelector[];
 }
 
+/**
+ * @public
+ */
 export interface PutEventSelectorsResponse {
   /**
    * <p>Specifies the ARN of the trail that was updated with event selectors. The following is
@@ -4823,6 +5161,7 @@ export interface PutEventSelectorsResponse {
 }
 
 /**
+ * @public
  * <p>The formatting or syntax of the <code>InsightSelectors</code> JSON statement in your
  *             <code>PutInsightSelectors</code> or <code>GetInsightSelectors</code> request is not
  *          valid, or the specified insight type in the <code>InsightSelectors</code> statement is not
@@ -4849,6 +5188,9 @@ export class InvalidInsightSelectorsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutInsightSelectorsRequest {
   /**
    * <p>The name of the CloudTrail trail for which you want to change or add Insights
@@ -4864,6 +5206,9 @@ export interface PutInsightSelectorsRequest {
   InsightSelectors: InsightSelector[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutInsightSelectorsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights
@@ -4879,6 +5224,9 @@ export interface PutInsightSelectorsResponse {
   InsightSelectors?: InsightSelector[];
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>
@@ -4915,6 +5263,9 @@ export interface PutResourcePolicyRequest {
   ResourcePolicy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {
   /**
    * <p>
@@ -4932,6 +5283,7 @@ export interface PutResourcePolicyResponse {
 }
 
 /**
+ * @public
  * <p>
  *          This exception is thrown when the resouce-based policy has syntax errors, or contains a principal that is not valid.
  *       </p>
@@ -4976,6 +5328,7 @@ export class ResourcePolicyNotValidException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the maximum number of CloudTrail delegated
  *          administrators is reached.</p>
  */
@@ -5001,6 +5354,7 @@ export class DelegatedAdminAccountLimitExceededException extends __BaseException
 }
 
 /**
+ * @public
  * <p>Specifies an organization member account ID as a CloudTrail delegated
  *          administrator.</p>
  */
@@ -5013,11 +5367,13 @@ export interface RegisterOrganizationDelegatedAdminRequest {
 }
 
 /**
+ * @public
  * <p>Returns the following response if successful. Otherwise, returns an error.</p>
  */
 export interface RegisterOrganizationDelegatedAdminResponse {}
 
 /**
+ * @public
  * <p>Specifies the tags to remove from a trail, event data store, or channel.</p>
  */
 export interface RemoveTagsRequest {
@@ -5043,12 +5399,14 @@ export interface RemoveTagsRequest {
 }
 
 /**
+ * @public
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an
  *          error.</p>
  */
 export interface RemoveTagsResponse {}
 
 /**
+ * @public
  * <p>The event data store is not in a status that supports the operation.</p>
  */
 export class InvalidEventDataStoreStatusException extends __BaseException {
@@ -5072,6 +5430,9 @@ export class InvalidEventDataStoreStatusException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RestoreEventDataStoreRequest {
   /**
    * <p>The ARN (or the ID suffix of the ARN) of the event data store that you want to
@@ -5080,6 +5441,9 @@ export interface RestoreEventDataStoreRequest {
   EventDataStore: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestoreEventDataStoreResponse {
   /**
    * <p>The event data store ARN.</p>
@@ -5147,6 +5511,7 @@ export interface RestoreEventDataStoreResponse {
 }
 
 /**
+ * @public
  * <p> This exception is thrown when the provided source S3 bucket is not valid for import.
  *       </p>
  */
@@ -5171,6 +5536,9 @@ export class InvalidImportSourceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartImportRequest {
   /**
    * <p> The ARN of the destination event data store. Use this parameter for a new import.
@@ -5207,6 +5575,9 @@ export interface StartImportRequest {
   ImportId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartImportResponse {
   /**
    * <p> The ID of the import. </p>
@@ -5256,6 +5627,7 @@ export interface StartImportResponse {
 }
 
 /**
+ * @public
  * <p>The request to CloudTrail to start logging Amazon Web Services API calls for an
  *          account.</p>
  */
@@ -5271,12 +5643,14 @@ export interface StartLoggingRequest {
 }
 
 /**
+ * @public
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an
  *          error.</p>
  */
 export interface StartLoggingResponse {}
 
 /**
+ * @public
  * <p>The query that was submitted has validation errors, or uses incorrect syntax or
  *          unsupported keywords. For more information about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create or edit a query</a> in the <i>CloudTrail User
  *             Guide</i>.</p>
@@ -5303,6 +5677,7 @@ export class InvalidQueryStatementException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You are already running the maximum number of concurrent queries. Wait a minute for some
  *          queries to finish, and then run the query again.</p>
  */
@@ -5327,6 +5702,9 @@ export class MaxConcurrentQueriesException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartQueryRequest {
   /**
    * <p>The SQL code of your query.</p>
@@ -5339,6 +5717,9 @@ export interface StartQueryRequest {
   DeliveryS3Uri?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartQueryResponse {
   /**
    * <p>The ID of the started query.</p>
@@ -5346,6 +5727,9 @@ export interface StartQueryResponse {
   QueryId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopImportRequest {
   /**
    * <p> The ID of the import. </p>
@@ -5353,6 +5737,9 @@ export interface StopImportRequest {
   ImportId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopImportResponse {
   /**
    * <p> The ID for the import. </p>
@@ -5405,6 +5792,7 @@ export interface StopImportResponse {
 }
 
 /**
+ * @public
  * <p>Passes the request to CloudTrail to stop logging Amazon Web Services API calls for
  *          the specified account.</p>
  */
@@ -5421,11 +5809,15 @@ export interface StopLoggingRequest {
 }
 
 /**
+ * @public
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an
  *          error.</p>
  */
 export interface StopLoggingResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateChannelRequest {
   /**
    * <p>The ARN or ID (the ARN suffix) of the channel that you want to update.</p>
@@ -5445,6 +5837,9 @@ export interface UpdateChannelRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelResponse {
   /**
    * <p>The ARN of the channel that was updated.</p>
@@ -5467,6 +5862,9 @@ export interface UpdateChannelResponse {
   Destinations?: Destination[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventDataStoreRequest {
   /**
    * <p>The ARN (or the ID suffix of the ARN) of the event data store that you want to
@@ -5551,6 +5949,9 @@ export interface UpdateEventDataStoreRequest {
   KmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventDataStoreResponse {
   /**
    * <p>The ARN of the event data store.</p>
@@ -5618,6 +6019,7 @@ export interface UpdateEventDataStoreResponse {
 }
 
 /**
+ * @public
  * <p>Specifies settings to update for the trail.</p>
  */
 export interface UpdateTrailRequest {
@@ -5750,6 +6152,7 @@ export interface UpdateTrailRequest {
 }
 
 /**
+ * @public
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an
  *          error.</p>
  */
@@ -5838,809 +6241,3 @@ export interface UpdateTrailResponse {
    */
   IsOrganizationTrail?: boolean;
 }
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsRequestFilterSensitiveLog = (obj: AddTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsResponseFilterSensitiveLog = (obj: AddTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdvancedFieldSelectorFilterSensitiveLog = (obj: AdvancedFieldSelector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdvancedEventSelectorFilterSensitiveLog = (obj: AdvancedEventSelector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelQueryRequestFilterSensitiveLog = (obj: CancelQueryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelQueryResponseFilterSensitiveLog = (obj: CancelQueryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventDataStoreRequestFilterSensitiveLog = (obj: CreateEventDataStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventDataStoreResponseFilterSensitiveLog = (obj: CreateEventDataStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrailRequestFilterSensitiveLog = (obj: CreateTrailRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrailResponseFilterSensitiveLog = (obj: CreateTrailResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelResponseFilterSensitiveLog = (obj: DeleteChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventDataStoreRequestFilterSensitiveLog = (obj: DeleteEventDataStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventDataStoreResponseFilterSensitiveLog = (obj: DeleteEventDataStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrailRequestFilterSensitiveLog = (obj: DeleteTrailRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrailResponseFilterSensitiveLog = (obj: DeleteTrailResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterOrganizationDelegatedAdminRequestFilterSensitiveLog = (
-  obj: DeregisterOrganizationDelegatedAdminRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterOrganizationDelegatedAdminResponseFilterSensitiveLog = (
-  obj: DeregisterOrganizationDelegatedAdminResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeQueryRequestFilterSensitiveLog = (obj: DescribeQueryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryStatisticsForDescribeQueryFilterSensitiveLog = (obj: QueryStatisticsForDescribeQuery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeQueryResponseFilterSensitiveLog = (obj: DescribeQueryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrailsRequestFilterSensitiveLog = (obj: DescribeTrailsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrailFilterSensitiveLog = (obj: Trail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrailsResponseFilterSensitiveLog = (obj: DescribeTrailsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChannelRequestFilterSensitiveLog = (obj: GetChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IngestionStatusFilterSensitiveLog = (obj: IngestionStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceConfigFilterSensitiveLog = (obj: SourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChannelResponseFilterSensitiveLog = (obj: GetChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEventDataStoreRequestFilterSensitiveLog = (obj: GetEventDataStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEventDataStoreResponseFilterSensitiveLog = (obj: GetEventDataStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEventSelectorsRequestFilterSensitiveLog = (obj: GetEventSelectorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataResourceFilterSensitiveLog = (obj: DataResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventSelectorFilterSensitiveLog = (obj: EventSelector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEventSelectorsResponseFilterSensitiveLog = (obj: GetEventSelectorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetImportRequestFilterSensitiveLog = (obj: GetImportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ImportSourceFilterSensitiveLog = (obj: S3ImportSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportSourceFilterSensitiveLog = (obj: ImportSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportStatisticsFilterSensitiveLog = (obj: ImportStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetImportResponseFilterSensitiveLog = (obj: GetImportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightSelectorsRequestFilterSensitiveLog = (obj: GetInsightSelectorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightSelectorFilterSensitiveLog = (obj: InsightSelector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightSelectorsResponseFilterSensitiveLog = (obj: GetInsightSelectorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueryResultsRequestFilterSensitiveLog = (obj: GetQueryResultsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryStatisticsFilterSensitiveLog = (obj: QueryStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueryResultsResponseFilterSensitiveLog = (obj: GetQueryResultsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePolicyRequestFilterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePolicyResponseFilterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrailRequestFilterSensitiveLog = (obj: GetTrailRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrailResponseFilterSensitiveLog = (obj: GetTrailResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrailStatusRequestFilterSensitiveLog = (obj: GetTrailStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrailStatusResponseFilterSensitiveLog = (obj: GetTrailStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChannelsRequestFilterSensitiveLog = (obj: ListChannelsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventDataStoresRequestFilterSensitiveLog = (obj: ListEventDataStoresRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventDataStoreFilterSensitiveLog = (obj: EventDataStore): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventDataStoresResponseFilterSensitiveLog = (obj: ListEventDataStoresResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImportFailuresRequestFilterSensitiveLog = (obj: ListImportFailuresRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportFailureListItemFilterSensitiveLog = (obj: ImportFailureListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImportFailuresResponseFilterSensitiveLog = (obj: ListImportFailuresResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImportsRequestFilterSensitiveLog = (obj: ListImportsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportsListItemFilterSensitiveLog = (obj: ImportsListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImportsResponseFilterSensitiveLog = (obj: ListImportsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPublicKeysRequestFilterSensitiveLog = (obj: ListPublicKeysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublicKeyFilterSensitiveLog = (obj: PublicKey): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPublicKeysResponseFilterSensitiveLog = (obj: ListPublicKeysResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListQueriesRequestFilterSensitiveLog = (obj: ListQueriesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryFilterSensitiveLog = (obj: Query): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListQueriesResponseFilterSensitiveLog = (obj: ListQueriesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceTagFilterSensitiveLog = (obj: ResourceTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrailsRequestFilterSensitiveLog = (obj: ListTrailsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrailInfoFilterSensitiveLog = (obj: TrailInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrailsResponseFilterSensitiveLog = (obj: ListTrailsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LookupAttributeFilterSensitiveLog = (obj: LookupAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LookupEventsRequestFilterSensitiveLog = (obj: LookupEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventFilterSensitiveLog = (obj: Event): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LookupEventsResponseFilterSensitiveLog = (obj: LookupEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutEventSelectorsRequestFilterSensitiveLog = (obj: PutEventSelectorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutEventSelectorsResponseFilterSensitiveLog = (obj: PutEventSelectorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutInsightSelectorsRequestFilterSensitiveLog = (obj: PutInsightSelectorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutInsightSelectorsResponseFilterSensitiveLog = (obj: PutInsightSelectorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterOrganizationDelegatedAdminRequestFilterSensitiveLog = (
-  obj: RegisterOrganizationDelegatedAdminRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterOrganizationDelegatedAdminResponseFilterSensitiveLog = (
-  obj: RegisterOrganizationDelegatedAdminResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsRequestFilterSensitiveLog = (obj: RemoveTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsResponseFilterSensitiveLog = (obj: RemoveTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreEventDataStoreRequestFilterSensitiveLog = (obj: RestoreEventDataStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreEventDataStoreResponseFilterSensitiveLog = (obj: RestoreEventDataStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartImportRequestFilterSensitiveLog = (obj: StartImportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartImportResponseFilterSensitiveLog = (obj: StartImportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartLoggingRequestFilterSensitiveLog = (obj: StartLoggingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartLoggingResponseFilterSensitiveLog = (obj: StartLoggingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartQueryRequestFilterSensitiveLog = (obj: StartQueryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartQueryResponseFilterSensitiveLog = (obj: StartQueryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopImportRequestFilterSensitiveLog = (obj: StopImportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopImportResponseFilterSensitiveLog = (obj: StopImportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopLoggingRequestFilterSensitiveLog = (obj: StopLoggingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopLoggingResponseFilterSensitiveLog = (obj: StopLoggingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventDataStoreRequestFilterSensitiveLog = (obj: UpdateEventDataStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventDataStoreResponseFilterSensitiveLog = (obj: UpdateEventDataStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrailRequestFilterSensitiveLog = (obj: UpdateTrailRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrailResponseFilterSensitiveLog = (obj: UpdateTrailResponse): any => ({
-  ...obj,
-});

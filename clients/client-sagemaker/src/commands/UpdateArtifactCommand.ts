@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateArtifactRequest,
-  UpdateArtifactRequestFilterSensitiveLog,
-  UpdateArtifactResponse,
-  UpdateArtifactResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1UpdateArtifactCommand,
-  serializeAws_json1_1UpdateArtifactCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateArtifactRequest, UpdateArtifactResponse } from "../models/models_4";
+import { de_UpdateArtifactCommand, se_UpdateArtifactCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateArtifactCommand}.
  */
 export interface UpdateArtifactCommandInput extends UpdateArtifactRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateArtifactCommand}.
  */
 export interface UpdateArtifactCommandOutput extends UpdateArtifactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an artifact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface UpdateArtifactCommandOutput extends UpdateArtifactResponse, __M
  * import { SageMakerClient, UpdateArtifactCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateArtifactCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateArtifactRequest
+ *   ArtifactArn: "STRING_VALUE", // required
+ *   ArtifactName: "STRING_VALUE",
+ *   Properties: { // LineageEntityParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   PropertiesToRemove: [ // ListLineageEntityParameterKey
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateArtifactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateArtifactCommandInput - {@link UpdateArtifactCommandInput}
+ * @returns {@link UpdateArtifactCommandOutput}
  * @see {@link UpdateArtifactCommandInput} for command's `input` shape.
  * @see {@link UpdateArtifactCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +85,9 @@ export class UpdateArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +116,8 @@ export class UpdateArtifactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateArtifactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateArtifactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +127,18 @@ export class UpdateArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateArtifactCommand(input, context);
+    return se_UpdateArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateArtifactCommandOutput> {
-    return deserializeAws_json1_1UpdateArtifactCommand(output, context);
+    return de_UpdateArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

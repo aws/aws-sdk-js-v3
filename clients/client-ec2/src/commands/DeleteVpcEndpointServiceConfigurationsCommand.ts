@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteVpcEndpointServiceConfigurationsRequest,
-  DeleteVpcEndpointServiceConfigurationsRequestFilterSensitiveLog,
   DeleteVpcEndpointServiceConfigurationsResult,
-  DeleteVpcEndpointServiceConfigurationsResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand,
-  serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand,
+  de_DeleteVpcEndpointServiceConfigurationsCommand,
+  se_DeleteVpcEndpointServiceConfigurationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcEndpointServiceConfigurationsCommand}.
  */
 export interface DeleteVpcEndpointServiceConfigurationsCommandInput
   extends DeleteVpcEndpointServiceConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcEndpointServiceConfigurationsCommand}.
  */
 export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
@@ -38,6 +40,7 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified VPC endpoint service configurations. Before you can delete
  *             an endpoint service configuration, you must reject any <code>Available</code> or
  *             <code>PendingAcceptance</code> interface endpoint connections that are attached to
@@ -48,10 +51,18 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
  * import { EC2Client, DeleteVpcEndpointServiceConfigurationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpcEndpointServiceConfigurationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteVpcEndpointServiceConfigurationsRequest
+ *   DryRun: true || false,
+ *   ServiceIds: [ // VpcEndpointServiceIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteVpcEndpointServiceConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcEndpointServiceConfigurationsCommandInput - {@link DeleteVpcEndpointServiceConfigurationsCommandInput}
+ * @returns {@link DeleteVpcEndpointServiceConfigurationsCommandOutput}
  * @see {@link DeleteVpcEndpointServiceConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointServiceConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +86,9 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcEndpointServiceConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +117,8 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcEndpointServiceConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcEndpointServiceConfigurationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +128,24 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVpcEndpointServiceConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand(input, context);
+    return se_DeleteVpcEndpointServiceConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcEndpointServiceConfigurationsCommandOutput> {
-    return deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand(output, context);
+    return de_DeleteVpcEndpointServiceConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

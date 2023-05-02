@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { PurchaseReservedNodesOfferingRequest, PurchaseReservedNodesOfferingResponse } from "../models/models_0";
 import {
-  PurchaseReservedNodesOfferingRequest,
-  PurchaseReservedNodesOfferingRequestFilterSensitiveLog,
-  PurchaseReservedNodesOfferingResponse,
-  PurchaseReservedNodesOfferingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PurchaseReservedNodesOfferingCommand,
-  serializeAws_json1_1PurchaseReservedNodesOfferingCommand,
+  de_PurchaseReservedNodesOfferingCommand,
+  se_PurchaseReservedNodesOfferingCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseReservedNodesOfferingCommand}.
  */
 export interface PurchaseReservedNodesOfferingCommandInput extends PurchaseReservedNodesOfferingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseReservedNodesOfferingCommand}.
  */
 export interface PurchaseReservedNodesOfferingCommandOutput
@@ -37,6 +36,7 @@ export interface PurchaseReservedNodesOfferingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to purchase a reserved  node offering. Reserved nodes are not eligible for cancellation and are non-refundable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,23 @@ export interface PurchaseReservedNodesOfferingCommandOutput
  * import { MemoryDBClient, PurchaseReservedNodesOfferingCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, PurchaseReservedNodesOfferingCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // PurchaseReservedNodesOfferingRequest
+ *   ReservedNodesOfferingId: "STRING_VALUE", // required
+ *   ReservationId: "STRING_VALUE",
+ *   NodeCount: Number("int"),
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PurchaseReservedNodesOfferingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedNodesOfferingCommandInput - {@link PurchaseReservedNodesOfferingCommandInput}
+ * @returns {@link PurchaseReservedNodesOfferingCommandOutput}
  * @see {@link PurchaseReservedNodesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedNodesOfferingCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -94,6 +107,9 @@ export class PurchaseReservedNodesOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedNodesOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +138,8 @@ export class PurchaseReservedNodesOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedNodesOfferingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedNodesOfferingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,15 +149,21 @@ export class PurchaseReservedNodesOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurchaseReservedNodesOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PurchaseReservedNodesOfferingCommand(input, context);
+    return se_PurchaseReservedNodesOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedNodesOfferingCommandOutput> {
-    return deserializeAws_json1_1PurchaseReservedNodesOfferingCommand(output, context);
+    return de_PurchaseReservedNodesOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

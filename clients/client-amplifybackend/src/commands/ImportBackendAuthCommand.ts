@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  ImportBackendAuthRequest,
-  ImportBackendAuthRequestFilterSensitiveLog,
-  ImportBackendAuthResponse,
-  ImportBackendAuthResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportBackendAuthCommand,
-  serializeAws_restJson1ImportBackendAuthCommand,
-} from "../protocols/Aws_restJson1";
+import { ImportBackendAuthRequest, ImportBackendAuthResponse } from "../models/models_0";
+import { de_ImportBackendAuthCommand, se_ImportBackendAuthCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportBackendAuthCommand}.
  */
 export interface ImportBackendAuthCommandInput extends ImportBackendAuthRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportBackendAuthCommand}.
  */
 export interface ImportBackendAuthCommandOutput extends ImportBackendAuthResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports an existing backend authentication resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface ImportBackendAuthCommandOutput extends ImportBackendAuthRespons
  * import { AmplifyBackendClient, ImportBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, ImportBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // ImportBackendAuthRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   IdentityPoolId: "STRING_VALUE",
+ *   NativeClientId: "STRING_VALUE", // required
+ *   UserPoolId: "STRING_VALUE", // required
+ *   WebClientId: "STRING_VALUE", // required
+ * };
  * const command = new ImportBackendAuthCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportBackendAuthCommandInput - {@link ImportBackendAuthCommandInput}
+ * @returns {@link ImportBackendAuthCommandOutput}
  * @see {@link ImportBackendAuthCommandInput} for command's `input` shape.
  * @see {@link ImportBackendAuthCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class ImportBackendAuthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportBackendAuthCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +119,8 @@ export class ImportBackendAuthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportBackendAuthRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportBackendAuthResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class ImportBackendAuthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportBackendAuthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportBackendAuthCommand(input, context);
+    return se_ImportBackendAuthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportBackendAuthCommandOutput> {
-    return deserializeAws_restJson1ImportBackendAuthCommand(output, context);
+    return de_ImportBackendAuthCommand(output, context);
   }
 
   // Start section: command_body_extra

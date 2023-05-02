@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  ContactIdResponse,
-  ContactIdResponseFilterSensitiveLog,
-  ReserveContactRequest,
-  ReserveContactRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ReserveContactCommand,
-  serializeAws_restJson1ReserveContactCommand,
-} from "../protocols/Aws_restJson1";
+import { ContactIdResponse, ReserveContactRequest } from "../models/models_0";
+import { de_ReserveContactCommand, se_ReserveContactCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ReserveContactCommand}.
  */
 export interface ReserveContactCommandInput extends ReserveContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReserveContactCommand}.
  */
 export interface ReserveContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reserves a contact using specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  * import { GroundStationClient, ReserveContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ReserveContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // ReserveContactRequest
+ *   missionProfileArn: "STRING_VALUE", // required
+ *   satelliteArn: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   groundStation: "STRING_VALUE", // required
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ReserveContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReserveContactCommandInput - {@link ReserveContactCommandInput}
+ * @returns {@link ReserveContactCommandOutput}
  * @see {@link ReserveContactCommandInput} for command's `input` shape.
  * @see {@link ReserveContactCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +87,9 @@ export class ReserveContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReserveContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +118,8 @@ export class ReserveContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReserveContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ContactIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +129,18 @@ export class ReserveContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReserveContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ReserveContactCommand(input, context);
+    return se_ReserveContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReserveContactCommandOutput> {
-    return deserializeAws_restJson1ReserveContactCommand(output, context);
+    return de_ReserveContactCommand(output, context);
   }
 
   // Start section: command_body_extra

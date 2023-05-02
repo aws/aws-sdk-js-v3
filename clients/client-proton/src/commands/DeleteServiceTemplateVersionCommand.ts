@@ -15,21 +15,24 @@ import {
 
 import {
   DeleteServiceTemplateVersionInput,
-  DeleteServiceTemplateVersionInputFilterSensitiveLog,
   DeleteServiceTemplateVersionOutput,
   DeleteServiceTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DeleteServiceTemplateVersionCommand,
-  serializeAws_json1_0DeleteServiceTemplateVersionCommand,
+  de_DeleteServiceTemplateVersionCommand,
+  se_DeleteServiceTemplateVersionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceTemplateVersionCommand}.
  */
 export interface DeleteServiceTemplateVersionCommandInput extends DeleteServiceTemplateVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceTemplateVersionCommand}.
  */
 export interface DeleteServiceTemplateVersionCommandOutput
@@ -37,22 +40,33 @@ export interface DeleteServiceTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>If no other minor versions of a service template exist, delete a major version of the service template if it's not the <code>Recommended</code>
- *       version. Delete the <code>Recommended</code> version of the service template if no other major versions or minor versions of the service template exist. A
- *       major version of a service template is a version that <i>isn't</i> backwards compatible.</p>
- *          <p>Delete a minor version of a service template if it's not the <code>Recommended</code> version. Delete a <code>Recommended</code> minor version of the
- *       service template if no other minor versions of the service template exist. A minor version of a service template is a version that's backwards
- *       compatible.</p>
+ * @public
+ * <p>If no other minor versions of a service template exist, delete a major version of the
+ *       service template if it's not the <code>Recommended</code> version. Delete the
+ *         <code>Recommended</code> version of the service template if no other major versions or minor
+ *       versions of the service template exist. A major version of a service template is a version
+ *       that <i>isn't</i> backwards compatible.</p>
+ *          <p>Delete a minor version of a service template if it's not the <code>Recommended</code>
+ *       version. Delete a <code>Recommended</code> minor version of the service template if no other
+ *       minor versions of the service template exist. A minor version of a service template is a
+ *       version that's backwards compatible.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ProtonClient, DeleteServiceTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteServiceTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // DeleteServiceTemplateVersionInput
+ *   templateName: "STRING_VALUE", // required
+ *   majorVersion: "STRING_VALUE", // required
+ *   minorVersion: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServiceTemplateVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceTemplateVersionCommandInput - {@link DeleteServiceTemplateVersionCommandInput}
+ * @returns {@link DeleteServiceTemplateVersionCommandOutput}
  * @see {@link DeleteServiceTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -94,6 +108,9 @@ export class DeleteServiceTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,7 +139,7 @@ export class DeleteServiceTemplateVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceTemplateVersionInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteServiceTemplateVersionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -133,15 +150,21 @@ export class DeleteServiceTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServiceTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteServiceTemplateVersionCommand(input, context);
+    return se_DeleteServiceTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteServiceTemplateVersionCommandOutput> {
-    return deserializeAws_json1_0DeleteServiceTemplateVersionCommand(output, context);
+    return de_DeleteServiceTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

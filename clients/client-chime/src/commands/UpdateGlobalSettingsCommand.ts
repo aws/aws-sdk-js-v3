@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdateGlobalSettingsRequest, UpdateGlobalSettingsRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateGlobalSettingsCommand,
-  serializeAws_restJson1UpdateGlobalSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateGlobalSettingsRequest } from "../models/models_1";
+import { de_UpdateGlobalSettingsCommand, se_UpdateGlobalSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGlobalSettingsCommand}.
  */
 export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGlobalSettingsCommand}.
  */
 export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates global settings for the administrator's AWS account, such as Amazon Chime Business Calling and Amazon Chime Voice Connector settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,20 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, UpdateGlobalSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateGlobalSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // UpdateGlobalSettingsRequest
+ *   BusinessCalling: { // BusinessCallingSettings
+ *     CdrBucket: "STRING_VALUE",
+ *   },
+ *   VoiceConnector: { // VoiceConnectorSettings
+ *     CdrBucket: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateGlobalSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGlobalSettingsCommandInput - {@link UpdateGlobalSettingsCommandInput}
+ * @returns {@link UpdateGlobalSettingsCommandOutput}
  * @see {@link UpdateGlobalSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -82,6 +94,9 @@ export class UpdateGlobalSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGlobalSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +125,8 @@ export class UpdateGlobalSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGlobalSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +136,18 @@ export class UpdateGlobalSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGlobalSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGlobalSettingsCommand(input, context);
+    return se_UpdateGlobalSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateGlobalSettingsCommand(output, context);
+    return de_UpdateGlobalSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

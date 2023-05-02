@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ImportResourcesToDraftAppVersionRequest, ImportResourcesToDraftAppVersionResponse } from "../models/models_0";
 import {
-  ImportResourcesToDraftAppVersionRequest,
-  ImportResourcesToDraftAppVersionRequestFilterSensitiveLog,
-  ImportResourcesToDraftAppVersionResponse,
-  ImportResourcesToDraftAppVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportResourcesToDraftAppVersionCommand,
-  serializeAws_restJson1ImportResourcesToDraftAppVersionCommand,
+  de_ImportResourcesToDraftAppVersionCommand,
+  se_ImportResourcesToDraftAppVersionCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportResourcesToDraftAppVersionCommand}.
  */
 export interface ImportResourcesToDraftAppVersionCommandInput extends ImportResourcesToDraftAppVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportResourcesToDraftAppVersionCommand}.
  */
 export interface ImportResourcesToDraftAppVersionCommandOutput
@@ -37,7 +36,8 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Imports resources to AWS Resilience Hub application draft version from different input sources. For more information about the input sources supported by AWS Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
+ * @public
+ * <p>Imports resources to Resilience Hub application draft version from different input sources. For more information about the input sources supported by Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
  *         the structure and describe your Resilience Hub application</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +45,32 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  * import { ResiliencehubClient, ImportResourcesToDraftAppVersionCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ImportResourcesToDraftAppVersionCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ImportResourcesToDraftAppVersionRequest
+ *   appArn: "STRING_VALUE", // required
+ *   sourceArns: [ // ArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   terraformSources: [ // TerraformSourceList
+ *     { // TerraformSource
+ *       s3StateFileUrl: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   importStrategy: "STRING_VALUE",
+ *   eksSources: [ // EksSourceList
+ *     { // EksSource
+ *       eksClusterArn: "STRING_VALUE", // required
+ *       namespaces: [ // EksNamespaceList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ImportResourcesToDraftAppVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportResourcesToDraftAppVersionCommandInput - {@link ImportResourcesToDraftAppVersionCommandInput}
+ * @returns {@link ImportResourcesToDraftAppVersionCommandOutput}
  * @see {@link ImportResourcesToDraftAppVersionCommandInput} for command's `input` shape.
  * @see {@link ImportResourcesToDraftAppVersionCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -65,7 +87,7 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -96,6 +118,9 @@ export class ImportResourcesToDraftAppVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportResourcesToDraftAppVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +149,8 @@ export class ImportResourcesToDraftAppVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportResourcesToDraftAppVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportResourcesToDraftAppVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +160,24 @@ export class ImportResourcesToDraftAppVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ImportResourcesToDraftAppVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportResourcesToDraftAppVersionCommand(input, context);
+    return se_ImportResourcesToDraftAppVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ImportResourcesToDraftAppVersionCommandOutput> {
-    return deserializeAws_restJson1ImportResourcesToDraftAppVersionCommand(output, context);
+    return de_ImportResourcesToDraftAppVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

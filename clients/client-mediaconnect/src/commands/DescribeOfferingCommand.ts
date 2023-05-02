@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  DescribeOfferingRequest,
-  DescribeOfferingRequestFilterSensitiveLog,
-  DescribeOfferingResponse,
-  DescribeOfferingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeOfferingCommand,
-  serializeAws_restJson1DescribeOfferingCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeOfferingRequest, DescribeOfferingResponse } from "../models/models_0";
+import { de_DescribeOfferingCommand, se_DescribeOfferingCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOfferingCommand}.
  */
 export interface DescribeOfferingCommandInput extends DescribeOfferingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOfferingCommand}.
  */
 export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Displays the details of an offering. The response includes the offering description, duration, outbound bandwidth, price, and Amazon Resource Name (ARN).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
  * import { MediaConnectClient, DescribeOfferingCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, DescribeOfferingCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // DescribeOfferingRequest
+ *   OfferingArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeOfferingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOfferingCommandInput - {@link DescribeOfferingCommandInput}
+ * @returns {@link DescribeOfferingCommandOutput}
  * @see {@link DescribeOfferingCommandInput} for command's `input` shape.
  * @see {@link DescribeOfferingCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -84,6 +86,9 @@ export class DescribeOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DescribeOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOfferingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOfferingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DescribeOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOfferingCommand(input, context);
+    return se_DescribeOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOfferingCommandOutput> {
-    return deserializeAws_restJson1DescribeOfferingCommand(output, context);
+    return de_DescribeOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

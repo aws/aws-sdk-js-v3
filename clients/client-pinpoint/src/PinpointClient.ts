@@ -182,6 +182,15 @@ import {
   GetJourneyExecutionMetricsCommandInput,
   GetJourneyExecutionMetricsCommandOutput,
 } from "./commands/GetJourneyExecutionMetricsCommand";
+import {
+  GetJourneyRunExecutionActivityMetricsCommandInput,
+  GetJourneyRunExecutionActivityMetricsCommandOutput,
+} from "./commands/GetJourneyRunExecutionActivityMetricsCommand";
+import {
+  GetJourneyRunExecutionMetricsCommandInput,
+  GetJourneyRunExecutionMetricsCommandOutput,
+} from "./commands/GetJourneyRunExecutionMetricsCommand";
+import { GetJourneyRunsCommandInput, GetJourneyRunsCommandOutput } from "./commands/GetJourneyRunsCommand";
 import { GetPushTemplateCommandInput, GetPushTemplateCommandOutput } from "./commands/GetPushTemplateCommand";
 import {
   GetRecommenderConfigurationCommandInput,
@@ -293,6 +302,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateAppCommandInput
   | CreateCampaignCommandInput
@@ -361,6 +373,9 @@ export type ServiceInputTypes =
   | GetJourneyDateRangeKpiCommandInput
   | GetJourneyExecutionActivityMetricsCommandInput
   | GetJourneyExecutionMetricsCommandInput
+  | GetJourneyRunExecutionActivityMetricsCommandInput
+  | GetJourneyRunExecutionMetricsCommandInput
+  | GetJourneyRunsCommandInput
   | GetPushTemplateCommandInput
   | GetRecommenderConfigurationCommandInput
   | GetRecommenderConfigurationsCommandInput
@@ -414,6 +429,9 @@ export type ServiceInputTypes =
   | UpdateVoiceTemplateCommandInput
   | VerifyOTPMessageCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateAppCommandOutput
   | CreateCampaignCommandOutput
@@ -482,6 +500,9 @@ export type ServiceOutputTypes =
   | GetJourneyDateRangeKpiCommandOutput
   | GetJourneyExecutionActivityMetricsCommandOutput
   | GetJourneyExecutionMetricsCommandOutput
+  | GetJourneyRunExecutionActivityMetricsCommandOutput
+  | GetJourneyRunExecutionMetricsCommandOutput
+  | GetJourneyRunsCommandOutput
   | GetPushTemplateCommandOutput
   | GetRecommenderConfigurationCommandOutput
   | GetRecommenderConfigurationsCommandOutput
@@ -535,6 +556,9 @@ export type ServiceOutputTypes =
   | UpdateVoiceTemplateCommandOutput
   | VerifyOTPMessageCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -542,7 +566,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -651,11 +675,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type PinpointClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -666,10 +693,15 @@ type PinpointClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of PinpointClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of PinpointClient class constructor that set the region, credentials and other options.
  */
 export interface PinpointClientConfig extends PinpointClientConfigType {}
 
+/**
+ * @public
+ */
 type PinpointClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -680,11 +712,14 @@ type PinpointClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of PinpointClient class. This is resolved and normalized from the {@link PinpointClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of PinpointClient class. This is resolved and normalized from the {@link PinpointClientConfig | constructor configuration interface}.
  */
 export interface PinpointClientResolvedConfig extends PinpointClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Doc Engage API - Amazon Pinpoint API</p>
  */
 export class PinpointClient extends __Client<

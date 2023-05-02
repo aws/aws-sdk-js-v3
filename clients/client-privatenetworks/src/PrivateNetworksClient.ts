@@ -116,6 +116,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcknowledgeOrderReceiptCommandInput
   | ActivateDeviceIdentifierCommandInput
@@ -144,6 +147,9 @@ export type ServiceInputTypes =
   | UpdateNetworkSiteCommandInput
   | UpdateNetworkSitePlanCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcknowledgeOrderReceiptCommandOutput
   | ActivateDeviceIdentifierCommandOutput
@@ -172,6 +178,9 @@ export type ServiceOutputTypes =
   | UpdateNetworkSiteCommandOutput
   | UpdateNetworkSitePlanCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -179,7 +188,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -288,11 +297,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type PrivateNetworksClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -303,10 +315,15 @@ type PrivateNetworksClientConfigType = Partial<__SmithyConfiguration<__HttpHandl
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of PrivateNetworksClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of PrivateNetworksClient class constructor that set the region, credentials and other options.
  */
 export interface PrivateNetworksClientConfig extends PrivateNetworksClientConfigType {}
 
+/**
+ * @public
+ */
 type PrivateNetworksClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -317,11 +334,14 @@ type PrivateNetworksClientResolvedConfigType = __SmithyResolvedConfiguration<__H
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of PrivateNetworksClient class. This is resolved and normalized from the {@link PrivateNetworksClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of PrivateNetworksClient class. This is resolved and normalized from the {@link PrivateNetworksClientConfig | constructor configuration interface}.
  */
 export interface PrivateNetworksClientResolvedConfig extends PrivateNetworksClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Web Services Private 5G is a managed service that makes it easy to deploy, operate, and scale
  *             your own private mobile network at your on-premises location. Private 5G provides the
  *             pre-configured hardware and software for mobile networks, helps automate setup, and

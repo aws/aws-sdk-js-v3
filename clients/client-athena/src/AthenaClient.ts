@@ -58,6 +58,14 @@ import {
   BatchGetQueryExecutionCommandInput,
   BatchGetQueryExecutionCommandOutput,
 } from "./commands/BatchGetQueryExecutionCommand";
+import {
+  CancelCapacityReservationCommandInput,
+  CancelCapacityReservationCommandOutput,
+} from "./commands/CancelCapacityReservationCommand";
+import {
+  CreateCapacityReservationCommandInput,
+  CreateCapacityReservationCommandOutput,
+} from "./commands/CreateCapacityReservationCommand";
 import { CreateDataCatalogCommandInput, CreateDataCatalogCommandOutput } from "./commands/CreateDataCatalogCommand";
 import { CreateNamedQueryCommandInput, CreateNamedQueryCommandOutput } from "./commands/CreateNamedQueryCommand";
 import { CreateNotebookCommandInput, CreateNotebookCommandOutput } from "./commands/CreateNotebookCommand";
@@ -91,6 +99,14 @@ import {
   GetCalculationExecutionStatusCommandInput,
   GetCalculationExecutionStatusCommandOutput,
 } from "./commands/GetCalculationExecutionStatusCommand";
+import {
+  GetCapacityAssignmentConfigurationCommandInput,
+  GetCapacityAssignmentConfigurationCommandOutput,
+} from "./commands/GetCapacityAssignmentConfigurationCommand";
+import {
+  GetCapacityReservationCommandInput,
+  GetCapacityReservationCommandOutput,
+} from "./commands/GetCapacityReservationCommand";
 import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import { GetDataCatalogCommandInput, GetDataCatalogCommandOutput } from "./commands/GetDataCatalogCommand";
 import { GetNamedQueryCommandInput, GetNamedQueryCommandOutput } from "./commands/GetNamedQueryCommand";
@@ -121,6 +137,10 @@ import {
   ListCalculationExecutionsCommandInput,
   ListCalculationExecutionsCommandOutput,
 } from "./commands/ListCalculationExecutionsCommand";
+import {
+  ListCapacityReservationsCommandInput,
+  ListCapacityReservationsCommandOutput,
+} from "./commands/ListCapacityReservationsCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
 import { ListDataCatalogsCommandInput, ListDataCatalogsCommandOutput } from "./commands/ListDataCatalogsCommand";
 import { ListEngineVersionsCommandInput, ListEngineVersionsCommandOutput } from "./commands/ListEngineVersionsCommand";
@@ -150,6 +170,10 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { ListWorkGroupsCommandInput, ListWorkGroupsCommandOutput } from "./commands/ListWorkGroupsCommand";
 import {
+  PutCapacityAssignmentConfigurationCommandInput,
+  PutCapacityAssignmentConfigurationCommandOutput,
+} from "./commands/PutCapacityAssignmentConfigurationCommand";
+import {
   StartCalculationExecutionCommandInput,
   StartCalculationExecutionCommandOutput,
 } from "./commands/StartCalculationExecutionCommand";
@@ -166,6 +190,10 @@ import { StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput } from 
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateCapacityReservationCommandInput,
+  UpdateCapacityReservationCommandOutput,
+} from "./commands/UpdateCapacityReservationCommand";
 import { UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput } from "./commands/UpdateDataCatalogCommand";
 import { UpdateNamedQueryCommandInput, UpdateNamedQueryCommandOutput } from "./commands/UpdateNamedQueryCommand";
 import { UpdateNotebookCommandInput, UpdateNotebookCommandOutput } from "./commands/UpdateNotebookCommand";
@@ -186,10 +214,15 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchGetNamedQueryCommandInput
   | BatchGetPreparedStatementCommandInput
   | BatchGetQueryExecutionCommandInput
+  | CancelCapacityReservationCommandInput
+  | CreateCapacityReservationCommandInput
   | CreateDataCatalogCommandInput
   | CreateNamedQueryCommandInput
   | CreateNotebookCommandInput
@@ -205,6 +238,8 @@ export type ServiceInputTypes =
   | GetCalculationExecutionCodeCommandInput
   | GetCalculationExecutionCommandInput
   | GetCalculationExecutionStatusCommandInput
+  | GetCapacityAssignmentConfigurationCommandInput
+  | GetCapacityReservationCommandInput
   | GetDataCatalogCommandInput
   | GetDatabaseCommandInput
   | GetNamedQueryCommandInput
@@ -220,6 +255,7 @@ export type ServiceInputTypes =
   | ImportNotebookCommandInput
   | ListApplicationDPUSizesCommandInput
   | ListCalculationExecutionsCommandInput
+  | ListCapacityReservationsCommandInput
   | ListDataCatalogsCommandInput
   | ListDatabasesCommandInput
   | ListEngineVersionsCommandInput
@@ -233,6 +269,7 @@ export type ServiceInputTypes =
   | ListTableMetadataCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkGroupsCommandInput
+  | PutCapacityAssignmentConfigurationCommandInput
   | StartCalculationExecutionCommandInput
   | StartQueryExecutionCommandInput
   | StartSessionCommandInput
@@ -241,6 +278,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | TerminateSessionCommandInput
   | UntagResourceCommandInput
+  | UpdateCapacityReservationCommandInput
   | UpdateDataCatalogCommandInput
   | UpdateNamedQueryCommandInput
   | UpdateNotebookCommandInput
@@ -248,10 +286,15 @@ export type ServiceInputTypes =
   | UpdatePreparedStatementCommandInput
   | UpdateWorkGroupCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchGetNamedQueryCommandOutput
   | BatchGetPreparedStatementCommandOutput
   | BatchGetQueryExecutionCommandOutput
+  | CancelCapacityReservationCommandOutput
+  | CreateCapacityReservationCommandOutput
   | CreateDataCatalogCommandOutput
   | CreateNamedQueryCommandOutput
   | CreateNotebookCommandOutput
@@ -267,6 +310,8 @@ export type ServiceOutputTypes =
   | GetCalculationExecutionCodeCommandOutput
   | GetCalculationExecutionCommandOutput
   | GetCalculationExecutionStatusCommandOutput
+  | GetCapacityAssignmentConfigurationCommandOutput
+  | GetCapacityReservationCommandOutput
   | GetDataCatalogCommandOutput
   | GetDatabaseCommandOutput
   | GetNamedQueryCommandOutput
@@ -282,6 +327,7 @@ export type ServiceOutputTypes =
   | ImportNotebookCommandOutput
   | ListApplicationDPUSizesCommandOutput
   | ListCalculationExecutionsCommandOutput
+  | ListCapacityReservationsCommandOutput
   | ListDataCatalogsCommandOutput
   | ListDatabasesCommandOutput
   | ListEngineVersionsCommandOutput
@@ -295,6 +341,7 @@ export type ServiceOutputTypes =
   | ListTableMetadataCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkGroupsCommandOutput
+  | PutCapacityAssignmentConfigurationCommandOutput
   | StartCalculationExecutionCommandOutput
   | StartQueryExecutionCommandOutput
   | StartSessionCommandOutput
@@ -303,6 +350,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | TerminateSessionCommandOutput
   | UntagResourceCommandOutput
+  | UpdateCapacityReservationCommandOutput
   | UpdateDataCatalogCommandOutput
   | UpdateNamedQueryCommandOutput
   | UpdateNotebookCommandOutput
@@ -310,6 +358,9 @@ export type ServiceOutputTypes =
   | UpdatePreparedStatementCommandOutput
   | UpdateWorkGroupCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -317,7 +368,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -426,11 +477,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AthenaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -441,10 +495,15 @@ type AthenaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AthenaClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AthenaClient class constructor that set the region, credentials and other options.
  */
 export interface AthenaClientConfig extends AthenaClientConfigType {}
 
+/**
+ * @public
+ */
 type AthenaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -455,11 +514,14 @@ type AthenaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AthenaClient class. This is resolved and normalized from the {@link AthenaClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AthenaClient class. This is resolved and normalized from the {@link AthenaClientConfig | constructor configuration interface}.
  */
 export interface AthenaClientResolvedConfig extends AthenaClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Athena is an interactive query service that lets you use standard SQL
  *             to analyze data directly in Amazon S3. You can point Athena at your
  *             data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay

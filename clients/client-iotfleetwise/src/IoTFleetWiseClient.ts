@@ -173,6 +173,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateVehicleFleetCommandInput
   | BatchCreateVehicleCommandInput
@@ -225,6 +228,9 @@ export type ServiceInputTypes =
   | UpdateSignalCatalogCommandInput
   | UpdateVehicleCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateVehicleFleetCommandOutput
   | BatchCreateVehicleCommandOutput
@@ -277,6 +283,9 @@ export type ServiceOutputTypes =
   | UpdateSignalCatalogCommandOutput
   | UpdateVehicleCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -284,7 +293,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -393,11 +402,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type IoTFleetWiseClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -408,10 +420,15 @@ type IoTFleetWiseClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of IoTFleetWiseClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of IoTFleetWiseClient class constructor that set the region, credentials and other options.
  */
 export interface IoTFleetWiseClientConfig extends IoTFleetWiseClientConfigType {}
 
+/**
+ * @public
+ */
 type IoTFleetWiseClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -422,11 +439,14 @@ type IoTFleetWiseClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of IoTFleetWiseClient class. This is resolved and normalized from the {@link IoTFleetWiseClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of IoTFleetWiseClient class. This is resolved and normalized from the {@link IoTFleetWiseClientConfig | constructor configuration interface}.
  */
 export interface IoTFleetWiseClientResolvedConfig extends IoTFleetWiseClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Web Services IoT FleetWise is a fully managed service that you can use to collect, model, and transfer
  *             vehicle data to the Amazon Web Services cloud at scale. With Amazon Web Services IoT FleetWise, you can standardize all of
  *             your vehicle data models, independent of the in-vehicle communication architecture, and

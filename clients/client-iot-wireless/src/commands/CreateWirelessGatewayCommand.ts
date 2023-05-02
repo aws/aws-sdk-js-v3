@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  CreateWirelessGatewayRequest,
-  CreateWirelessGatewayRequestFilterSensitiveLog,
-  CreateWirelessGatewayResponse,
-  CreateWirelessGatewayResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWirelessGatewayCommand,
-  serializeAws_restJson1CreateWirelessGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateWirelessGatewayRequest, CreateWirelessGatewayResponse } from "../models/models_0";
+import { de_CreateWirelessGatewayCommand, se_CreateWirelessGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWirelessGatewayCommand}.
  */
 export interface CreateWirelessGatewayCommandInput extends CreateWirelessGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWirelessGatewayCommand}.
  */
 export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions a wireless gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,45 @@ export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewa
  * import { IoTWirelessClient, CreateWirelessGatewayCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateWirelessGatewayCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // CreateWirelessGatewayRequest
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   LoRaWAN: { // LoRaWANGateway
+ *     GatewayEui: "STRING_VALUE",
+ *     RfRegion: "STRING_VALUE",
+ *     JoinEuiFilters: [ // JoinEuiFilters
+ *       [ // JoinEuiRange
+ *         "STRING_VALUE",
+ *       ],
+ *     ],
+ *     NetIdFilters: [ // NetIdFilters
+ *       "STRING_VALUE",
+ *     ],
+ *     SubBands: [ // SubBands
+ *       Number("int"),
+ *     ],
+ *     Beaconing: { // Beaconing
+ *       DataRate: Number("int"),
+ *       Frequencies: [ // BeaconingFrequencies
+ *         Number("int"),
+ *       ],
+ *     },
+ *     MaxEirp: Number("float"),
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new CreateWirelessGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWirelessGatewayCommandInput - {@link CreateWirelessGatewayCommandInput}
+ * @returns {@link CreateWirelessGatewayCommandOutput}
  * @see {@link CreateWirelessGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateWirelessGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +116,9 @@ export class CreateWirelessGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWirelessGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +147,8 @@ export class CreateWirelessGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWirelessGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWirelessGatewayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +158,18 @@ export class CreateWirelessGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWirelessGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWirelessGatewayCommand(input, context);
+    return se_CreateWirelessGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWirelessGatewayCommandOutput> {
-    return deserializeAws_restJson1CreateWirelessGatewayCommand(output, context);
+    return de_CreateWirelessGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetJobDocumentRequest,
-  GetJobDocumentRequestFilterSensitiveLog,
-  GetJobDocumentResponse,
-  GetJobDocumentResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1GetJobDocumentCommand,
-  serializeAws_restJson1GetJobDocumentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetJobDocumentRequest, GetJobDocumentResponse } from "../models/models_1";
+import { de_GetJobDocumentCommand, se_GetJobDocumentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobDocumentCommand}.
  */
 export interface GetJobDocumentCommandInput extends GetJobDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobDocumentCommand}.
  */
 export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a job document.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetJobDocument</a> action.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  * import { IoTClient, GetJobDocumentCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetJobDocumentCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // GetJobDocumentRequest
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new GetJobDocumentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobDocumentCommandInput - {@link GetJobDocumentCommandInput}
+ * @returns {@link GetJobDocumentCommandOutput}
  * @see {@link GetJobDocumentCommandInput} for command's `input` shape.
  * @see {@link GetJobDocumentCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetJobDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetJobDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobDocumentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetJobDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJobDocumentCommand(input, context);
+    return se_GetJobDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobDocumentCommandOutput> {
-    return deserializeAws_restJson1GetJobDocumentCommand(output, context);
+    return de_GetJobDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

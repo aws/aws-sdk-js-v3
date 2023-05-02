@@ -15,22 +15,24 @@ import {
 
 import {
   ListCustomerManagedPolicyReferencesInPermissionSetRequest,
-  ListCustomerManagedPolicyReferencesInPermissionSetRequestFilterSensitiveLog,
   ListCustomerManagedPolicyReferencesInPermissionSetResponse,
-  ListCustomerManagedPolicyReferencesInPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetCommand,
-  serializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetCommand,
+  de_ListCustomerManagedPolicyReferencesInPermissionSetCommand,
+  se_ListCustomerManagedPolicyReferencesInPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomerManagedPolicyReferencesInPermissionSetCommand}.
  */
 export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandInput
   extends ListCustomerManagedPolicyReferencesInPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomerManagedPolicyReferencesInPermissionSetCommand}.
  */
 export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
@@ -38,6 +40,7 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all customer managed policies attached to a specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,18 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
  * import { SSOAdminClient, ListCustomerManagedPolicyReferencesInPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListCustomerManagedPolicyReferencesInPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // ListCustomerManagedPolicyReferencesInPermissionSetRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCustomerManagedPolicyReferencesInPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomerManagedPolicyReferencesInPermissionSetCommandInput - {@link ListCustomerManagedPolicyReferencesInPermissionSetCommandInput}
+ * @returns {@link ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput}
  * @see {@link ListCustomerManagedPolicyReferencesInPermissionSetCommandInput} for command's `input` shape.
  * @see {@link ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +100,9 @@ export class ListCustomerManagedPolicyReferencesInPermissionSetCommand extends $
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +137,8 @@ export class ListCustomerManagedPolicyReferencesInPermissionSetCommand extends $
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomerManagedPolicyReferencesInPermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomerManagedPolicyReferencesInPermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +148,24 @@ export class ListCustomerManagedPolicyReferencesInPermissionSetCommand extends $
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetCommand(input, context);
+    return se_ListCustomerManagedPolicyReferencesInPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput> {
-    return deserializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetCommand(output, context);
+    return de_ListCustomerManagedPolicyReferencesInPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

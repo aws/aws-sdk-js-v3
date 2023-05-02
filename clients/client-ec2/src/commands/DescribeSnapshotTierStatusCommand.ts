@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeSnapshotTierStatusRequest,
-  DescribeSnapshotTierStatusRequestFilterSensitiveLog,
-  DescribeSnapshotTierStatusResult,
-  DescribeSnapshotTierStatusResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSnapshotTierStatusCommand,
-  serializeAws_ec2DescribeSnapshotTierStatusCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeSnapshotTierStatusRequest, DescribeSnapshotTierStatusResult } from "../models/models_4";
+import { de_DescribeSnapshotTierStatusCommand, se_DescribeSnapshotTierStatusCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotTierStatusCommand}.
  */
 export interface DescribeSnapshotTierStatusCommandInput extends DescribeSnapshotTierStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotTierStatusCommand}.
  */
 export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapshotTierStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the storage tier status of one or more Amazon EBS snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapsho
  * import { EC2Client, DescribeSnapshotTierStatusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSnapshotTierStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSnapshotTierStatusRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeSnapshotTierStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotTierStatusCommandInput - {@link DescribeSnapshotTierStatusCommandInput}
+ * @returns {@link DescribeSnapshotTierStatusCommandOutput}
  * @see {@link DescribeSnapshotTierStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotTierStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +81,9 @@ export class DescribeSnapshotTierStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotTierStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +112,8 @@ export class DescribeSnapshotTierStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSnapshotTierStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSnapshotTierStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +123,21 @@ export class DescribeSnapshotTierStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotTierStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSnapshotTierStatusCommand(input, context);
+    return se_DescribeSnapshotTierStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSnapshotTierStatusCommandOutput> {
-    return deserializeAws_ec2DescribeSnapshotTierStatusCommand(output, context);
+    return de_DescribeSnapshotTierStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

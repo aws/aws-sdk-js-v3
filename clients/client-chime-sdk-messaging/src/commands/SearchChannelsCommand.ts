@@ -24,32 +24,55 @@ import {
   SearchChannelsResponse,
   SearchChannelsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchChannelsCommand,
-  serializeAws_restJson1SearchChannelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchChannelsCommand, se_SearchChannelsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchChannelsCommand}.
  */
 export interface SearchChannelsCommandInput extends SearchChannelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchChannelsCommand}.
  */
 export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __MetadataBearer {}
 
 /**
- * <p>Allows <code>ChimeBearer</code> to search channels by channel members. AppInstanceUsers can search across the channels that they belong to. AppInstanceAdmins can search across all channels.</p>
+ * @public
+ * <p>Allows the <code>ChimeBearer</code> to search channels by channel members. Users or bots can search
+ *          across the channels that they belong to. Users in the <code>AppInstanceAdmin</code> role can search across
+ *          all channels.</p>
+ *          <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+ *          ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
+ *          the header.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeSDKMessagingClient, SearchChannelsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, SearchChannelsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // SearchChannelsRequest
+ *   ChimeBearer: "STRING_VALUE",
+ *   Fields: [ // SearchFields // required
+ *     { // SearchField
+ *       Key: "MEMBERS", // required
+ *       Values: [ // SearchFieldValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Operator: "EQUALS" || "INCLUDES", // required
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new SearchChannelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchChannelsCommandInput - {@link SearchChannelsCommandInput}
+ * @returns {@link SearchChannelsCommandOutput}
  * @see {@link SearchChannelsCommandInput} for command's `input` shape.
  * @see {@link SearchChannelsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -91,6 +114,9 @@ export class SearchChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,12 +156,18 @@ export class SearchChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchChannelsCommand(input, context);
+    return se_SearchChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchChannelsCommandOutput> {
-    return deserializeAws_restJson1SearchChannelsCommand(output, context);
+    return de_SearchChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

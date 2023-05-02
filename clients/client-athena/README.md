@@ -245,6 +245,22 @@ BatchGetQueryExecution
 </details>
 <details>
 <summary>
+CancelCapacityReservation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/classes/cancelcapacityreservationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/cancelcapacityreservationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/cancelcapacityreservationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateCapacityReservation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/classes/createcapacityreservationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/createcapacityreservationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/createcapacityreservationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateDataCatalog
 </summary>
 
@@ -361,6 +377,22 @@ GetCalculationExecutionStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/classes/getcalculationexecutionstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/getcalculationexecutionstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/getcalculationexecutionstatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetCapacityAssignmentConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/classes/getcapacityassignmentconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/getcapacityassignmentconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/getcapacityassignmentconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetCapacityReservation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/classes/getcapacityreservationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/getcapacityreservationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/getcapacityreservationcommandoutput.html)
 
 </details>
 <details>
@@ -485,6 +517,14 @@ ListCalculationExecutions
 </details>
 <details>
 <summary>
+ListCapacityReservations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/classes/listcapacityreservationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/listcapacityreservationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/listcapacityreservationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListDatabases
 </summary>
 
@@ -589,6 +629,14 @@ ListWorkGroups
 </details>
 <details>
 <summary>
+PutCapacityAssignmentConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/classes/putcapacityassignmentconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/putcapacityassignmentconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/putcapacityassignmentconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartCalculationExecution
 </summary>
 
@@ -649,6 +697,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateCapacityReservation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/classes/updatecapacityreservationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/updatecapacityreservationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/updatecapacityreservationcommandoutput.html)
 
 </details>
 <details>

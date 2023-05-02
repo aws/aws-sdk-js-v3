@@ -16,20 +16,22 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   ListAssessmentFrameworkShareRequestsRequest,
-  ListAssessmentFrameworkShareRequestsRequestFilterSensitiveLog,
   ListAssessmentFrameworkShareRequestsResponse,
-  ListAssessmentFrameworkShareRequestsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand,
-  serializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand,
+  de_ListAssessmentFrameworkShareRequestsCommand,
+  se_ListAssessmentFrameworkShareRequestsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssessmentFrameworkShareRequestsCommand}.
  */
 export interface ListAssessmentFrameworkShareRequestsCommandInput extends ListAssessmentFrameworkShareRequestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssessmentFrameworkShareRequestsCommand}.
  */
 export interface ListAssessmentFrameworkShareRequestsCommandOutput
@@ -37,6 +39,7 @@ export interface ListAssessmentFrameworkShareRequestsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of sent or received share requests for custom frameworks in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,17 @@ export interface ListAssessmentFrameworkShareRequestsCommandOutput
  * import { AuditManagerClient, ListAssessmentFrameworkShareRequestsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListAssessmentFrameworkShareRequestsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // ListAssessmentFrameworkShareRequestsRequest
+ *   requestType: "SENT" || "RECEIVED", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentFrameworkShareRequestsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssessmentFrameworkShareRequestsCommandInput - {@link ListAssessmentFrameworkShareRequestsCommandInput}
+ * @returns {@link ListAssessmentFrameworkShareRequestsCommandOutput}
  * @see {@link ListAssessmentFrameworkShareRequestsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentFrameworkShareRequestsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -82,6 +92,9 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssessmentFrameworkShareRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +123,8 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssessmentFrameworkShareRequestsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssessmentFrameworkShareRequestsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +134,24 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAssessmentFrameworkShareRequestsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand(input, context);
+    return se_ListAssessmentFrameworkShareRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssessmentFrameworkShareRequestsCommandOutput> {
-    return deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand(output, context);
+    return de_ListAssessmentFrameworkShareRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

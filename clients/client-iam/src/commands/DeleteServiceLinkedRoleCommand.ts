@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  DeleteServiceLinkedRoleRequest,
-  DeleteServiceLinkedRoleRequestFilterSensitiveLog,
-  DeleteServiceLinkedRoleResponse,
-  DeleteServiceLinkedRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteServiceLinkedRoleCommand,
-  serializeAws_queryDeleteServiceLinkedRoleCommand,
-} from "../protocols/Aws_query";
+import { DeleteServiceLinkedRoleRequest, DeleteServiceLinkedRoleResponse } from "../models/models_0";
+import { de_DeleteServiceLinkedRoleCommand, se_DeleteServiceLinkedRoleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceLinkedRoleCommand}.
  */
 export interface DeleteServiceLinkedRoleCommandInput extends DeleteServiceLinkedRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceLinkedRoleCommand}.
  */
 export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinkedRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits a service-linked role deletion request and returns a
  *                 <code>DeletionTaskId</code>, which you can use to check the status of the deletion.
  *             Before you call this operation, confirm that the role has no active sessions and that
@@ -58,10 +55,15 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  * import { IAMClient, DeleteServiceLinkedRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteServiceLinkedRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteServiceLinkedRoleRequest
+ *   RoleName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServiceLinkedRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceLinkedRoleCommandInput - {@link DeleteServiceLinkedRoleCommandInput}
+ * @returns {@link DeleteServiceLinkedRoleCommandOutput}
  * @see {@link DeleteServiceLinkedRoleCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceLinkedRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -97,6 +99,9 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceLinkedRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +130,8 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceLinkedRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteServiceLinkedRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +141,18 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServiceLinkedRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteServiceLinkedRoleCommand(input, context);
+    return se_DeleteServiceLinkedRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceLinkedRoleCommandOutput> {
-    return deserializeAws_queryDeleteServiceLinkedRoleCommand(output, context);
+    return de_DeleteServiceLinkedRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

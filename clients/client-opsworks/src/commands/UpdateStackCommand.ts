@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateStackRequest, UpdateStackRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateStackRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateStackCommand,
-  serializeAws_json1_1UpdateStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateStackCommand, se_UpdateStackCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStackCommand}.
  */
 export interface UpdateStackCommandInput extends UpdateStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStackCommand}.
  */
 export interface UpdateStackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified stack.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -42,10 +44,47 @@ export interface UpdateStackCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UpdateStackRequest
+ *   StackId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Attributes: { // StackAttributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ServiceRoleArn: "STRING_VALUE",
+ *   DefaultInstanceProfileArn: "STRING_VALUE",
+ *   DefaultOs: "STRING_VALUE",
+ *   HostnameTheme: "STRING_VALUE",
+ *   DefaultAvailabilityZone: "STRING_VALUE",
+ *   DefaultSubnetId: "STRING_VALUE",
+ *   CustomJson: "STRING_VALUE",
+ *   ConfigurationManager: { // StackConfigurationManager
+ *     Name: "STRING_VALUE",
+ *     Version: "STRING_VALUE",
+ *   },
+ *   ChefConfiguration: { // ChefConfiguration
+ *     ManageBerkshelf: true || false,
+ *     BerkshelfVersion: "STRING_VALUE",
+ *   },
+ *   UseCustomCookbooks: true || false,
+ *   CustomCookbooksSource: { // Source
+ *     Type: "STRING_VALUE",
+ *     Url: "STRING_VALUE",
+ *     Username: "STRING_VALUE",
+ *     Password: "STRING_VALUE",
+ *     SshKey: "STRING_VALUE",
+ *     Revision: "STRING_VALUE",
+ *   },
+ *   DefaultSshKeyName: "STRING_VALUE",
+ *   DefaultRootDeviceType: "STRING_VALUE",
+ *   UseOpsworksSecurityGroups: true || false,
+ *   AgentVersion: "STRING_VALUE",
+ * };
  * const command = new UpdateStackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStackCommandInput - {@link UpdateStackCommandInput}
+ * @returns {@link UpdateStackCommandOutput}
  * @see {@link UpdateStackCommandInput} for command's `input` shape.
  * @see {@link UpdateStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -75,6 +114,9 @@ export class UpdateStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +143,8 @@ export class UpdateStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +154,18 @@ export class UpdateStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateStackCommand(input, context);
+    return se_UpdateStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStackCommandOutput> {
-    return deserializeAws_json1_1UpdateStackCommand(output, context);
+    return de_UpdateStackCommand(output, context);
   }
 
   // Start section: command_body_extra

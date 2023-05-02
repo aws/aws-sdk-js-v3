@@ -25,21 +25,23 @@ import {
   UpdateUserPoolClientResponse,
   UpdateUserPoolClientResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateUserPoolClientCommand,
-  serializeAws_json1_1UpdateUserPoolClientCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateUserPoolClientCommand, se_UpdateUserPoolClientCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserPoolClientCommand}.
  */
 export interface UpdateUserPoolClientCommandInput extends UpdateUserPoolClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserPoolClientCommand}.
  */
 export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified user pool app client with the specified attributes. You can get
  *             a list of the current user pool app client settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html">DescribeUserPoolClient</a>.</p>
  *         <important>
@@ -54,10 +56,62 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * import { CognitoIdentityProviderClient, UpdateUserPoolClientCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateUserPoolClientCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // UpdateUserPoolClientRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE", // required
+ *   ClientName: "STRING_VALUE",
+ *   RefreshTokenValidity: Number("int"),
+ *   AccessTokenValidity: Number("int"),
+ *   IdTokenValidity: Number("int"),
+ *   TokenValidityUnits: { // TokenValidityUnitsType
+ *     AccessToken: "seconds" || "minutes" || "hours" || "days",
+ *     IdToken: "seconds" || "minutes" || "hours" || "days",
+ *     RefreshToken: "seconds" || "minutes" || "hours" || "days",
+ *   },
+ *   ReadAttributes: [ // ClientPermissionListType
+ *     "STRING_VALUE",
+ *   ],
+ *   WriteAttributes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ExplicitAuthFlows: [ // ExplicitAuthFlowsListType
+ *     "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH",
+ *   ],
+ *   SupportedIdentityProviders: [ // SupportedIdentityProvidersListType
+ *     "STRING_VALUE",
+ *   ],
+ *   CallbackURLs: [ // CallbackURLsListType
+ *     "STRING_VALUE",
+ *   ],
+ *   LogoutURLs: [ // LogoutURLsListType
+ *     "STRING_VALUE",
+ *   ],
+ *   DefaultRedirectURI: "STRING_VALUE",
+ *   AllowedOAuthFlows: [ // OAuthFlowsType
+ *     "code" || "implicit" || "client_credentials",
+ *   ],
+ *   AllowedOAuthScopes: [ // ScopeListType
+ *     "STRING_VALUE",
+ *   ],
+ *   AllowedOAuthFlowsUserPoolClient: true || false,
+ *   AnalyticsConfiguration: { // AnalyticsConfigurationType
+ *     ApplicationId: "STRING_VALUE",
+ *     ApplicationArn: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *     ExternalId: "STRING_VALUE",
+ *     UserDataShared: true || false,
+ *   },
+ *   PreventUserExistenceErrors: "LEGACY" || "ENABLED",
+ *   EnableTokenRevocation: true || false,
+ *   EnablePropagateAdditionalUserContextData: true || false,
+ *   AuthSessionValidity: Number("int"),
+ * };
  * const command = new UpdateUserPoolClientCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserPoolClientCommandInput - {@link UpdateUserPoolClientCommandInput}
+ * @returns {@link UpdateUserPoolClientCommandOutput}
  * @see {@link UpdateUserPoolClientCommandInput} for command's `input` shape.
  * @see {@link UpdateUserPoolClientCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -109,6 +163,9 @@ export class UpdateUserPoolClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserPoolClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,12 +206,18 @@ export class UpdateUserPoolClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserPoolClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateUserPoolClientCommand(input, context);
+    return se_UpdateUserPoolClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserPoolClientCommandOutput> {
-    return deserializeAws_json1_1UpdateUserPoolClientCommand(output, context);
+    return de_UpdateUserPoolClientCommand(output, context);
   }
 
   // Start section: command_body_extra

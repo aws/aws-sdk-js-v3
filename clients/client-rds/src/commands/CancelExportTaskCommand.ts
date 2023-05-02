@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelExportTaskMessage,
-  CancelExportTaskMessageFilterSensitiveLog,
-  ExportTask,
-  ExportTaskFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCancelExportTaskCommand,
-  serializeAws_queryCancelExportTaskCommand,
-} from "../protocols/Aws_query";
+import { CancelExportTaskMessage, ExportTask } from "../models/models_0";
+import { de_CancelExportTaskCommand, se_CancelExportTaskCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelExportTaskCommand}.
  */
 export interface CancelExportTaskCommandInput extends CancelExportTaskMessage {}
 /**
+ * @public
+ *
  * The output of {@link CancelExportTaskCommand}.
  */
 export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an export task in progress that is exporting a snapshot or cluster to Amazon S3.
  *             Any data that has already been written to the S3 bucket isn't removed.</p>
  * @example
@@ -43,10 +40,15 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * import { RDSClient, CancelExportTaskCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CancelExportTaskCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CancelExportTaskMessage
+ *   ExportTaskIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new CancelExportTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelExportTaskCommandInput - {@link CancelExportTaskCommandInput}
+ * @returns {@link CancelExportTaskCommandOutput}
  * @see {@link CancelExportTaskCommandInput} for command's `input` shape.
  * @see {@link CancelExportTaskCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -57,6 +59,31 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * @throws {@link InvalidExportTaskStateFault} (client fault)
  *  <p>You can't cancel an export task that has completed.</p>
  *
+ *
+ * @example To cancel a snapshot export to Amazon S3
+ * ```javascript
+ * // The following example cancels an export task in progress that is exporting a snapshot to Amazon S3.
+ * const input = {
+ *   "ExportTaskIdentifier": "my-s3-export-1"
+ * };
+ * const command = new CancelExportTaskCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ExportTaskIdentifier": "my-s3-export-1",
+ *   "IamRoleArn": "arn:aws:iam::123456789012:role/service-role/export-snap-S3-role",
+ *   "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/abcd0000-7bfd-4594-af38-aabbccddeeff",
+ *   "PercentProgress": 0,
+ *   "S3Bucket": "mybucket",
+ *   "S3Prefix": "",
+ *   "SnapshotTime": "2019-03-24T20:01:09.815Z",
+ *   "SourceArn": "arn:aws:rds:us-east-1:123456789012:snapshot:publisher-final-snapshot",
+ *   "Status": "CANCELING",
+ *   "TotalExtractedDataInGB": 0
+ * }
+ * *\/
+ * // example id: to-cancel-a-snapshot-export-to-amazon-s3-1679694286587
+ * ```
  *
  */
 export class CancelExportTaskCommand extends $Command<
@@ -76,6 +103,9 @@ export class CancelExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +134,8 @@ export class CancelExportTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelExportTaskMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportTaskFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +145,18 @@ export class CancelExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCancelExportTaskCommand(input, context);
+    return se_CancelExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelExportTaskCommandOutput> {
-    return deserializeAws_queryCancelExportTaskCommand(output, context);
+    return de_CancelExportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

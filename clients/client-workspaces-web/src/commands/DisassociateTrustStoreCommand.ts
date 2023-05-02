@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateTrustStoreRequest,
-  DisassociateTrustStoreRequestFilterSensitiveLog,
-  DisassociateTrustStoreResponse,
-  DisassociateTrustStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateTrustStoreCommand,
-  serializeAws_restJson1DisassociateTrustStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateTrustStoreRequest, DisassociateTrustStoreResponse } from "../models/models_0";
+import { de_DisassociateTrustStoreCommand, se_DisassociateTrustStoreCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTrustStoreCommand}.
  */
 export interface DisassociateTrustStoreCommandInput extends DisassociateTrustStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTrustStoreCommand}.
  */
 export interface DisassociateTrustStoreCommandOutput extends DisassociateTrustStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a trust store from a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DisassociateTrustStoreCommandOutput extends DisassociateTrustSt
  * import { WorkSpacesWebClient, DisassociateTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DisassociateTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // DisassociateTrustStoreRequest
+ *   portalArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateTrustStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTrustStoreCommandInput - {@link DisassociateTrustStoreCommandInput}
+ * @returns {@link DisassociateTrustStoreCommandOutput}
  * @see {@link DisassociateTrustStoreCommandInput} for command's `input` shape.
  * @see {@link DisassociateTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +86,9 @@ export class DisassociateTrustStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTrustStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DisassociateTrustStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTrustStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTrustStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DisassociateTrustStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateTrustStoreCommand(input, context);
+    return se_DisassociateTrustStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateTrustStoreCommandOutput> {
-    return deserializeAws_restJson1DisassociateTrustStoreCommand(output, context);
+    return de_DisassociateTrustStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

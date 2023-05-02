@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetStudioMemberRequest,
-  GetStudioMemberRequestFilterSensitiveLog,
-  GetStudioMemberResponse,
-  GetStudioMemberResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetStudioMemberRequest, GetStudioMemberResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1GetStudioMemberCommand,
-  serializeAws_restJson1GetStudioMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetStudioMemberCommand, se_GetStudioMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStudioMemberCommand}.
  */
 export interface GetStudioMemberCommandInput extends GetStudioMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStudioMemberCommand}.
  */
 export interface GetStudioMemberCommandOutput extends GetStudioMemberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a user's membership in a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetStudioMemberCommandOutput extends GetStudioMemberResponse, _
  * import { NimbleClient, GetStudioMemberCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetStudioMemberCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // GetStudioMemberRequest
+ *   principalId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetStudioMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStudioMemberCommandInput - {@link GetStudioMemberCommandInput}
+ * @returns {@link GetStudioMemberCommandOutput}
  * @see {@link GetStudioMemberCommandInput} for command's `input` shape.
  * @see {@link GetStudioMemberCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +96,9 @@ export class GetStudioMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStudioMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class GetStudioMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStudioMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStudioMemberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class GetStudioMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStudioMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStudioMemberCommand(input, context);
+    return se_GetStudioMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStudioMemberCommandOutput> {
-    return deserializeAws_restJson1GetStudioMemberCommand(output, context);
+    return de_GetStudioMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

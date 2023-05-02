@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  ListMetricsInput,
-  ListMetricsInputFilterSensitiveLog,
-  ListMetricsOutput,
-  ListMetricsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryListMetricsCommand, serializeAws_queryListMetricsCommand } from "../protocols/Aws_query";
+import { ListMetricsInput, ListMetricsOutput } from "../models/models_0";
+import { de_ListMetricsCommand, se_ListMetricsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListMetricsCommand}.
  */
 export interface ListMetricsCommandInput extends ListMetricsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListMetricsCommand}.
  */
 export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the specified metrics. You can use the returned metrics with <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> to get statistical data.</p>
  *          <p>Up to 500 results are returned for any one call. To retrieve additional results,
  * 			use the returned token with subsequent calls.</p>
@@ -51,10 +51,26 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
  * import { CloudWatchClient, ListMetricsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, ListMetricsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // ListMetricsInput
+ *   Namespace: "STRING_VALUE",
+ *   MetricName: "STRING_VALUE",
+ *   Dimensions: [ // DimensionFilters
+ *     { // DimensionFilter
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   RecentlyActive: "PT3H",
+ *   IncludeLinkedAccounts: true || false,
+ *   OwningAccount: "STRING_VALUE",
+ * };
  * const command = new ListMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMetricsCommandInput - {@link ListMetricsCommandInput}
+ * @returns {@link ListMetricsCommandOutput}
  * @see {@link ListMetricsCommandInput} for command's `input` shape.
  * @see {@link ListMetricsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -84,6 +100,9 @@ export class ListMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +129,8 @@ export class ListMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMetricsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMetricsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +140,18 @@ export class ListMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListMetricsCommand(input, context);
+    return se_ListMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMetricsCommandOutput> {
-    return deserializeAws_queryListMetricsCommand(output, context);
+    return de_ListMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

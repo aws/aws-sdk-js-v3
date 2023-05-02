@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  MergeBranchesByThreeWayInput,
-  MergeBranchesByThreeWayInputFilterSensitiveLog,
-  MergeBranchesByThreeWayOutput,
-  MergeBranchesByThreeWayOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1MergeBranchesByThreeWayCommand,
-  serializeAws_json1_1MergeBranchesByThreeWayCommand,
-} from "../protocols/Aws_json1_1";
+import { MergeBranchesByThreeWayInput, MergeBranchesByThreeWayOutput } from "../models/models_1";
+import { de_MergeBranchesByThreeWayCommand, se_MergeBranchesByThreeWayCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergeBranchesByThreeWayCommand}.
  */
 export interface MergeBranchesByThreeWayCommandInput extends MergeBranchesByThreeWayInput {}
 /**
+ * @public
+ *
  * The output of {@link MergeBranchesByThreeWayCommand}.
  */
 export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThreeWayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Merges two specified branches using the three-way merge strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,45 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  * import { CodeCommitClient, MergeBranchesByThreeWayCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergeBranchesByThreeWayCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // MergeBranchesByThreeWayInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   sourceCommitSpecifier: "STRING_VALUE", // required
+ *   destinationCommitSpecifier: "STRING_VALUE", // required
+ *   targetBranch: "STRING_VALUE",
+ *   conflictDetailLevel: "STRING_VALUE",
+ *   conflictResolutionStrategy: "STRING_VALUE",
+ *   authorName: "STRING_VALUE",
+ *   email: "STRING_VALUE",
+ *   commitMessage: "STRING_VALUE",
+ *   keepEmptyFolders: true || false,
+ *   conflictResolution: { // ConflictResolution
+ *     replaceContents: [ // ReplaceContentEntries
+ *       { // ReplaceContentEntry
+ *         filePath: "STRING_VALUE", // required
+ *         replacementType: "STRING_VALUE", // required
+ *         content: "BLOB_VALUE",
+ *         fileMode: "STRING_VALUE",
+ *       },
+ *     ],
+ *     deleteFiles: [ // DeleteFileEntries
+ *       { // DeleteFileEntry
+ *         filePath: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     setFileModes: [ // SetFileModeEntries
+ *       { // SetFileModeEntry
+ *         filePath: "STRING_VALUE", // required
+ *         fileMode: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new MergeBranchesByThreeWayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MergeBranchesByThreeWayCommandInput - {@link MergeBranchesByThreeWayCommandInput}
+ * @returns {@link MergeBranchesByThreeWayCommandOutput}
  * @see {@link MergeBranchesByThreeWayCommandInput} for command's `input` shape.
  * @see {@link MergeBranchesByThreeWayCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -200,6 +232,9 @@ export class MergeBranchesByThreeWayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergeBranchesByThreeWayCommandInput) {
     // Start section: command_constructor
     super();
@@ -228,8 +263,8 @@ export class MergeBranchesByThreeWayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergeBranchesByThreeWayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: MergeBranchesByThreeWayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -239,12 +274,18 @@ export class MergeBranchesByThreeWayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergeBranchesByThreeWayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergeBranchesByThreeWayCommand(input, context);
+    return se_MergeBranchesByThreeWayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeBranchesByThreeWayCommandOutput> {
-    return deserializeAws_json1_1MergeBranchesByThreeWayCommand(output, context);
+    return de_MergeBranchesByThreeWayCommand(output, context);
   }
 
   // Start section: command_body_extra

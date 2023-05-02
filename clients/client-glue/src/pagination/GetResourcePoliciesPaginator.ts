@@ -10,7 +10,7 @@ import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlueClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetResourcePoliciesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetResourcePolicies(
   config: GluePaginationConfiguration,
   input: GetResourcePoliciesCommandInput,

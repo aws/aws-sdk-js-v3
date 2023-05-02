@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import { ConfigurationSettingsDescriptions, DescribeConfigurationSettingsMessage } from "../models/models_0";
 import {
-  ConfigurationSettingsDescriptions,
-  ConfigurationSettingsDescriptionsFilterSensitiveLog,
-  DescribeConfigurationSettingsMessage,
-  DescribeConfigurationSettingsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeConfigurationSettingsCommand,
-  serializeAws_queryDescribeConfigurationSettingsCommand,
+  de_DescribeConfigurationSettingsCommand,
+  se_DescribeConfigurationSettingsCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationSettingsCommand}.
  */
 export interface DescribeConfigurationSettingsCommandInput extends DescribeConfigurationSettingsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationSettingsCommand}.
  */
 export interface DescribeConfigurationSettingsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeConfigurationSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of the settings for the specified configuration set, that is,
  *       either a configuration template or the configuration set associated with a running
  *       environment.</p>
@@ -58,10 +58,17 @@ export interface DescribeConfigurationSettingsCommandOutput
  * import { ElasticBeanstalkClient, DescribeConfigurationSettingsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeConfigurationSettingsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DescribeConfigurationSettingsMessage
+ *   ApplicationName: "STRING_VALUE", // required
+ *   TemplateName: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ * };
  * const command = new DescribeConfigurationSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationSettingsCommandInput - {@link DescribeConfigurationSettingsCommandInput}
+ * @returns {@link DescribeConfigurationSettingsCommandOutput}
  * @see {@link DescribeConfigurationSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationSettingsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -141,6 +148,9 @@ export class DescribeConfigurationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,8 +179,8 @@ export class DescribeConfigurationSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationSettingsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigurationSettingsDescriptionsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -180,15 +190,21 @@ export class DescribeConfigurationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeConfigurationSettingsCommand(input, context);
+    return se_DescribeConfigurationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationSettingsCommandOutput> {
-    return deserializeAws_queryDescribeConfigurationSettingsCommand(output, context);
+    return de_DescribeConfigurationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

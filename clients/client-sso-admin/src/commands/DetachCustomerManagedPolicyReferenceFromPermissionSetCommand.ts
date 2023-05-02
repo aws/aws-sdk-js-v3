@@ -15,22 +15,24 @@ import {
 
 import {
   DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
-  DetachCustomerManagedPolicyReferenceFromPermissionSetRequestFilterSensitiveLog,
   DetachCustomerManagedPolicyReferenceFromPermissionSetResponse,
-  DetachCustomerManagedPolicyReferenceFromPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetCommand,
-  serializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetCommand,
+  de_DetachCustomerManagedPolicyReferenceFromPermissionSetCommand,
+  se_DetachCustomerManagedPolicyReferenceFromPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommand}.
  */
 export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput
   extends DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommand}.
  */
 export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput
@@ -38,6 +40,7 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOut
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches the specified customer managed policy from the specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,20 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOut
  * import { SSOAdminClient, DetachCustomerManagedPolicyReferenceFromPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DetachCustomerManagedPolicyReferenceFromPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // DetachCustomerManagedPolicyReferenceFromPermissionSetRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   CustomerManagedPolicyReference: { // CustomerManagedPolicyReference
+ *     Name: "STRING_VALUE", // required
+ *     Path: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DetachCustomerManagedPolicyReferenceFromPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput - {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput}
+ * @returns {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput}
  * @see {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput} for command's `input` shape.
  * @see {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -95,6 +108,9 @@ export class DetachCustomerManagedPolicyReferenceFromPermissionSetCommand extend
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +145,8 @@ export class DetachCustomerManagedPolicyReferenceFromPermissionSetCommand extend
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachCustomerManagedPolicyReferenceFromPermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachCustomerManagedPolicyReferenceFromPermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +156,24 @@ export class DetachCustomerManagedPolicyReferenceFromPermissionSetCommand extend
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetCommand(input, context);
+    return se_DetachCustomerManagedPolicyReferenceFromPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput> {
-    return deserializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetCommand(output, context);
+    return de_DetachCustomerManagedPolicyReferenceFromPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

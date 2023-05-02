@@ -10,7 +10,7 @@ import { MWAAClient } from "../MWAAClient";
 import { MWAAPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MWAAClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEnvironmentsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListEnvironments(
   config: MWAAPaginationConfiguration,
   input: ListEnvironmentsCommandInput,

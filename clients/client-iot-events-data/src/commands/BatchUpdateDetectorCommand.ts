@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import {
-  BatchUpdateDetectorRequest,
-  BatchUpdateDetectorRequestFilterSensitiveLog,
-  BatchUpdateDetectorResponse,
-  BatchUpdateDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpdateDetectorCommand,
-  serializeAws_restJson1BatchUpdateDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchUpdateDetectorRequest, BatchUpdateDetectorResponse } from "../models/models_0";
+import { de_BatchUpdateDetectorCommand, se_BatchUpdateDetectorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateDetectorCommand}.
  */
 export interface BatchUpdateDetectorCommandInput extends BatchUpdateDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateDetectorCommand}.
  */
 export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the state, variable values, and timer settings of one or more detectors
  *       (instances) of a specified detector model.</p>
  * @example
@@ -43,10 +40,36 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * import { IoTEventsDataClient, BatchUpdateDetectorCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchUpdateDetectorCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
+ * const input = { // BatchUpdateDetectorRequest
+ *   detectors: [ // UpdateDetectorRequests // required
+ *     { // UpdateDetectorRequest
+ *       messageId: "STRING_VALUE", // required
+ *       detectorModelName: "STRING_VALUE", // required
+ *       keyValue: "STRING_VALUE",
+ *       state: { // DetectorStateDefinition
+ *         stateName: "STRING_VALUE", // required
+ *         variables: [ // VariableDefinitions // required
+ *           { // VariableDefinition
+ *             name: "STRING_VALUE", // required
+ *             value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         timers: [ // TimerDefinitions // required
+ *           { // TimerDefinition
+ *             name: "STRING_VALUE", // required
+ *             seconds: Number("int"), // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new BatchUpdateDetectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateDetectorCommandInput - {@link BatchUpdateDetectorCommandInput}
+ * @returns {@link BatchUpdateDetectorCommandOutput}
  * @see {@link BatchUpdateDetectorCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateDetectorCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -82,6 +105,9 @@ export class BatchUpdateDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +136,8 @@ export class BatchUpdateDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +147,18 @@ export class BatchUpdateDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdateDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateDetectorCommand(input, context);
+    return se_BatchUpdateDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateDetectorCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateDetectorCommand(output, context);
+    return de_BatchUpdateDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

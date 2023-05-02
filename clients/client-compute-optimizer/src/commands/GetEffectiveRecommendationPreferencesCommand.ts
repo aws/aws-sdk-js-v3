@@ -16,21 +16,23 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   GetEffectiveRecommendationPreferencesRequest,
-  GetEffectiveRecommendationPreferencesRequestFilterSensitiveLog,
   GetEffectiveRecommendationPreferencesResponse,
-  GetEffectiveRecommendationPreferencesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetEffectiveRecommendationPreferencesCommand,
-  serializeAws_json1_0GetEffectiveRecommendationPreferencesCommand,
+  de_GetEffectiveRecommendationPreferencesCommand,
+  se_GetEffectiveRecommendationPreferencesCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetEffectiveRecommendationPreferencesCommand}.
  */
 export interface GetEffectiveRecommendationPreferencesCommandInput
   extends GetEffectiveRecommendationPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEffectiveRecommendationPreferencesCommand}.
  */
 export interface GetEffectiveRecommendationPreferencesCommandOutput
@@ -38,6 +40,7 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the recommendation preferences that are in effect for a given resource, such
  *             as enhanced infrastructure metrics. Considers all applicable preferences that you might
  *             have set at the resource, account, and organization level.</p>
@@ -50,10 +53,15 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * import { ComputeOptimizerClient, GetEffectiveRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEffectiveRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetEffectiveRecommendationPreferencesRequest
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetEffectiveRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEffectiveRecommendationPreferencesCommandInput - {@link GetEffectiveRecommendationPreferencesCommandInput}
+ * @returns {@link GetEffectiveRecommendationPreferencesCommandOutput}
  * @see {@link GetEffectiveRecommendationPreferencesCommandInput} for command's `input` shape.
  * @see {@link GetEffectiveRecommendationPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -102,6 +110,9 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEffectiveRecommendationPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +141,8 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEffectiveRecommendationPreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEffectiveRecommendationPreferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,18 +152,24 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEffectiveRecommendationPreferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEffectiveRecommendationPreferencesCommand(input, context);
+    return se_GetEffectiveRecommendationPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEffectiveRecommendationPreferencesCommandOutput> {
-    return deserializeAws_json1_0GetEffectiveRecommendationPreferencesCommand(output, context);
+    return de_GetEffectiveRecommendationPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteDiskRequest,
-  DeleteDiskRequestFilterSensitiveLog,
-  DeleteDiskResult,
-  DeleteDiskResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDiskCommand,
-  serializeAws_json1_1DeleteDiskCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDiskRequest, DeleteDiskResult } from "../models/models_0";
+import { de_DeleteDiskCommand, se_DeleteDiskCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDiskCommand}.
  */
 export interface DeleteDiskCommandInput extends DeleteDiskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDiskCommand}.
  */
 export interface DeleteDiskCommandOutput extends DeleteDiskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified block storage disk. The disk must be in the <code>available</code>
  *       state (not attached to a Lightsail instance).</p>
  *          <note>
@@ -49,10 +46,16 @@ export interface DeleteDiskCommandOutput extends DeleteDiskResult, __MetadataBea
  * import { LightsailClient, DeleteDiskCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteDiskCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteDiskRequest
+ *   diskName: "STRING_VALUE", // required
+ *   forceDeleteAddOns: true || false,
+ * };
  * const command = new DeleteDiskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDiskCommandInput - {@link DeleteDiskCommandInput}
+ * @returns {@link DeleteDiskCommandOutput}
  * @see {@link DeleteDiskCommandInput} for command's `input` shape.
  * @see {@link DeleteDiskCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -106,6 +109,9 @@ export class DeleteDiskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDiskCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +138,8 @@ export class DeleteDiskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDiskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDiskResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +149,18 @@ export class DeleteDiskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDiskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDiskCommand(input, context);
+    return se_DeleteDiskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDiskCommandOutput> {
-    return deserializeAws_json1_1DeleteDiskCommand(output, context);
+    return de_DeleteDiskCommand(output, context);
   }
 
   // Start section: command_body_extra

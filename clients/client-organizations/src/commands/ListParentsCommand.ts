@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListParentsRequest,
-  ListParentsRequestFilterSensitiveLog,
-  ListParentsResponse,
-  ListParentsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListParentsRequest, ListParentsResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListParentsCommand,
-  serializeAws_json1_1ListParentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListParentsCommand, se_ListParentsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListParentsCommand}.
  */
 export interface ListParentsCommandInput extends ListParentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListParentsCommand}.
  */
 export interface ListParentsCommandOutput extends ListParentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the root or organizational units (OUs) that serve as the immediate parent of the
  *             specified child OU or account. This operation, along with <a>ListChildren</a>
  *             enables you to traverse the tree structure that makes up this root.</p>
@@ -57,10 +54,17 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  * import { OrganizationsClient, ListParentsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListParentsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // ListParentsRequest
+ *   ChildId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListParentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListParentsCommandInput - {@link ListParentsCommandInput}
+ * @returns {@link ListParentsCommandOutput}
  * @see {@link ListParentsCommandInput} for command's `input` shape.
  * @see {@link ListParentsCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -235,6 +239,9 @@ export class ListParentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListParentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -261,8 +268,8 @@ export class ListParentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListParentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListParentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -272,12 +279,18 @@ export class ListParentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListParentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListParentsCommand(input, context);
+    return se_ListParentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListParentsCommandOutput> {
-    return deserializeAws_json1_1ListParentsCommand(output, context);
+    return de_ListParentsCommand(output, context);
   }
 
   // Start section: command_body_extra

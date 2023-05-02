@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import {
-  ResolveCustomerRequest,
-  ResolveCustomerRequestFilterSensitiveLog,
-  ResolveCustomerResult,
-  ResolveCustomerResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ResolveCustomerCommand,
-  serializeAws_json1_1ResolveCustomerCommand,
-} from "../protocols/Aws_json1_1";
+import { ResolveCustomerRequest, ResolveCustomerResult } from "../models/models_0";
+import { de_ResolveCustomerCommand, se_ResolveCustomerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResolveCustomerCommand}.
  */
 export interface ResolveCustomerCommandInput extends ResolveCustomerRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResolveCustomerCommand}.
  */
 export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>ResolveCustomer</code> is called by a SaaS application during the registration
  *             process. When a buyer visits your website during the registration process, the buyer
@@ -59,10 +56,15 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * import { MarketplaceMeteringClient, ResolveCustomerCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, ResolveCustomerCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
  * const client = new MarketplaceMeteringClient(config);
+ * const input = { // ResolveCustomerRequest
+ *   RegistrationToken: "STRING_VALUE", // required
+ * };
  * const command = new ResolveCustomerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResolveCustomerCommandInput - {@link ResolveCustomerCommandInput}
+ * @returns {@link ResolveCustomerCommandOutput}
  * @see {@link ResolveCustomerCommandInput} for command's `input` shape.
  * @see {@link ResolveCustomerCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
@@ -106,6 +108,9 @@ export class ResolveCustomerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResolveCustomerCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +139,8 @@ export class ResolveCustomerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResolveCustomerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResolveCustomerResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +150,18 @@ export class ResolveCustomerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResolveCustomerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResolveCustomerCommand(input, context);
+    return se_ResolveCustomerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResolveCustomerCommandOutput> {
-    return deserializeAws_json1_1ResolveCustomerCommand(output, context);
+    return de_ResolveCustomerCommand(output, context);
   }
 
   // Start section: command_body_extra

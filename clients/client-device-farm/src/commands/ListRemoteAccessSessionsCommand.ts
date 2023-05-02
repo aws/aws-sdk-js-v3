@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListRemoteAccessSessionsRequest,
-  ListRemoteAccessSessionsRequestFilterSensitiveLog,
-  ListRemoteAccessSessionsResult,
-  ListRemoteAccessSessionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRemoteAccessSessionsCommand,
-  serializeAws_json1_1ListRemoteAccessSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListRemoteAccessSessionsRequest, ListRemoteAccessSessionsResult } from "../models/models_0";
+import { de_ListRemoteAccessSessionsCommand, se_ListRemoteAccessSessionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRemoteAccessSessionsCommand}.
  */
 export interface ListRemoteAccessSessionsCommandInput extends ListRemoteAccessSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRemoteAccessSessionsCommand}.
  */
 export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessSessionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all currently running remote access sessions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessS
  * import { DeviceFarmClient, ListRemoteAccessSessionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListRemoteAccessSessionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListRemoteAccessSessionsRequest
+ *   arn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListRemoteAccessSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRemoteAccessSessionsCommandInput - {@link ListRemoteAccessSessionsCommandInput}
+ * @returns {@link ListRemoteAccessSessionsCommandOutput}
  * @see {@link ListRemoteAccessSessionsCommandInput} for command's `input` shape.
  * @see {@link ListRemoteAccessSessionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -98,6 +101,9 @@ export class ListRemoteAccessSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRemoteAccessSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +132,8 @@ export class ListRemoteAccessSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRemoteAccessSessionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRemoteAccessSessionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +143,18 @@ export class ListRemoteAccessSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRemoteAccessSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRemoteAccessSessionsCommand(input, context);
+    return se_ListRemoteAccessSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRemoteAccessSessionsCommandOutput> {
-    return deserializeAws_json1_1ListRemoteAccessSessionsCommand(output, context);
+    return de_ListRemoteAccessSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

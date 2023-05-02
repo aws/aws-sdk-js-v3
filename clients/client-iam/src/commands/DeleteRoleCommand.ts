@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteRoleRequest, DeleteRoleRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryDeleteRoleCommand, serializeAws_queryDeleteRoleCommand } from "../protocols/Aws_query";
+import { DeleteRoleRequest } from "../models/models_0";
+import { de_DeleteRoleCommand, se_DeleteRoleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRoleCommand}.
  */
 export interface DeleteRoleCommandInput extends DeleteRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRoleCommand}.
  */
 export interface DeleteRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified role. Unlike the Amazon Web Services Management Console, when you delete a role
  *             programmatically, you must delete the items attached to the role manually, or the
  *             deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html#roles-managingrole-deleting-cli">Deleting an IAM role</a>. Before attempting to delete a role, remove the
@@ -57,10 +62,15 @@ export interface DeleteRoleCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteRoleRequest
+ *   RoleName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRoleCommandInput - {@link DeleteRoleCommandInput}
+ * @returns {@link DeleteRoleCommandOutput}
  * @see {@link DeleteRoleCommandInput} for command's `input` shape.
  * @see {@link DeleteRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -86,10 +96,10 @@ export interface DeleteRoleCommandOutput extends __MetadataBearer {}
  *       failure.</p>
  *
  * @throws {@link UnmodifiableEntityException} (client fault)
- *  <p>The request was rejected because only the service that depends on the service-linked role
- *       can modify or delete the role on your behalf. The error message includes the name of the
- *       service that depends on this service-linked role. You must request the change through that
- *       service.</p>
+ *  <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
+ *       the service that depends on the service-linked role can modify or delete the role on your
+ *       behalf. The error message includes the name of the service that depends on this service-linked
+ *       role. You must request the change through that service.</p>
  *
  *
  * @example To delete an IAM role
@@ -121,6 +131,9 @@ export class DeleteRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +160,8 @@ export class DeleteRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,12 +171,18 @@ export class DeleteRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteRoleCommand(input, context);
+    return se_DeleteRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoleCommandOutput> {
-    return deserializeAws_queryDeleteRoleCommand(output, context);
+    return de_DeleteRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

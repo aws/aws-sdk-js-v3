@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  PutResourceAttributesRequest,
-  PutResourceAttributesRequestFilterSensitiveLog,
-  PutResourceAttributesResult,
-  PutResourceAttributesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutResourceAttributesCommand,
-  serializeAws_json1_1PutResourceAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { PutResourceAttributesRequest, PutResourceAttributesResult } from "../models/models_0";
+import { de_PutResourceAttributesCommand, se_PutResourceAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutResourceAttributesCommand}.
  */
 export interface PutResourceAttributesCommandInput extends PutResourceAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutResourceAttributesCommand}.
  */
 export interface PutResourceAttributesCommandOutput extends PutResourceAttributesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides identifying details of the resource being migrated so that it can be associated
  *          in the Application Discovery Service repository. This association occurs asynchronously
  *          after <code>PutResourceAttributes</code> returns.</p>
@@ -67,10 +64,23 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  * import { MigrationHubClient, PutResourceAttributesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, PutResourceAttributesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // PutResourceAttributesRequest
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ *   ResourceAttributeList: [ // ResourceAttributeList // required
+ *     { // ResourceAttribute
+ *       Type: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new PutResourceAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourceAttributesCommandInput - {@link PutResourceAttributesCommandInput}
+ * @returns {@link PutResourceAttributesCommandOutput}
  * @see {@link PutResourceAttributesCommandInput} for command's `input` shape.
  * @see {@link PutResourceAttributesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -128,6 +138,9 @@ export class PutResourceAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourceAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,8 +169,8 @@ export class PutResourceAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourceAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutResourceAttributesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -167,12 +180,18 @@ export class PutResourceAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourceAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutResourceAttributesCommand(input, context);
+    return se_PutResourceAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourceAttributesCommandOutput> {
-    return deserializeAws_json1_1PutResourceAttributesCommand(output, context);
+    return de_PutResourceAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

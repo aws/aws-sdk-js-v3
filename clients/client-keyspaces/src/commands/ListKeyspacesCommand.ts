@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import {
-  ListKeyspacesRequest,
-  ListKeyspacesRequestFilterSensitiveLog,
-  ListKeyspacesResponse,
-  ListKeyspacesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListKeyspacesCommand,
-  serializeAws_json1_0ListKeyspacesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListKeyspacesRequest, ListKeyspacesResponse } from "../models/models_0";
+import { de_ListKeyspacesCommand, se_ListKeyspacesCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListKeyspacesCommand}.
  */
 export interface ListKeyspacesCommandInput extends ListKeyspacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListKeyspacesCommand}.
  */
 export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of keyspaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __Met
  * import { KeyspacesClient, ListKeyspacesCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, ListKeyspacesCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = { // ListKeyspacesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListKeyspacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKeyspacesCommandInput - {@link ListKeyspacesCommandInput}
+ * @returns {@link ListKeyspacesCommandOutput}
  * @see {@link ListKeyspacesCommandInput} for command's `input` shape.
  * @see {@link ListKeyspacesCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
@@ -85,6 +88,9 @@ export class ListKeyspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKeyspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class ListKeyspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListKeyspacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListKeyspacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class ListKeyspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKeyspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListKeyspacesCommand(input, context);
+    return se_ListKeyspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKeyspacesCommandOutput> {
-    return deserializeAws_json1_0ListKeyspacesCommand(output, context);
+    return de_ListKeyspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

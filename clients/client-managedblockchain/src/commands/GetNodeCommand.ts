@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  GetNodeInput,
-  GetNodeInputFilterSensitiveLog,
-  GetNodeOutput,
-  GetNodeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetNodeCommand,
-  serializeAws_restJson1GetNodeCommand,
-} from "../protocols/Aws_restJson1";
+import { GetNodeInput, GetNodeOutput } from "../models/models_0";
+import { de_GetNodeCommand, se_GetNodeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNodeCommand}.
  */
 export interface GetNodeCommandInput extends GetNodeInput {}
 /**
+ * @public
+ *
  * The output of {@link GetNodeCommand}.
  */
 export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about a node.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -47,10 +44,17 @@ export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
  * import { ManagedBlockchainClient, GetNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, GetNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // GetNodeInput
+ *   NetworkId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE",
+ *   NodeId: "STRING_VALUE", // required
+ * };
  * const command = new GetNodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNodeCommandInput - {@link GetNodeCommandInput}
+ * @returns {@link GetNodeCommandOutput}
  * @see {@link GetNodeCommandInput} for command's `input` shape.
  * @see {@link GetNodeCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -92,6 +96,9 @@ export class GetNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class GetNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNodeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNodeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class GetNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNodeCommand(input, context);
+    return se_GetNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNodeCommandOutput> {
-    return deserializeAws_restJson1GetNodeCommand(output, context);
+    return de_GetNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

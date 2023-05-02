@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartReferenceImportJobRequest,
-  StartReferenceImportJobRequestFilterSensitiveLog,
-  StartReferenceImportJobResponse,
-  StartReferenceImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartReferenceImportJobRequest, StartReferenceImportJobResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1StartReferenceImportJobCommand,
-  serializeAws_restJson1StartReferenceImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartReferenceImportJobCommand, se_StartReferenceImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReferenceImportJobCommand}.
  */
 export interface StartReferenceImportJobCommandInput extends StartReferenceImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartReferenceImportJobCommand}.
  */
 export interface StartReferenceImportJobCommandOutput extends StartReferenceImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a reference import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface StartReferenceImportJobCommandOutput extends StartReferenceImpo
  * import { OmicsClient, StartReferenceImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartReferenceImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // StartReferenceImportJobRequest
+ *   referenceStoreId: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   sources: [ // StartReferenceImportJobSourceList // required
+ *     { // StartReferenceImportJobSourceItem
+ *       sourceFile: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new StartReferenceImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReferenceImportJobCommandInput - {@link StartReferenceImportJobCommandInput}
+ * @returns {@link StartReferenceImportJobCommandOutput}
  * @see {@link StartReferenceImportJobCommandInput} for command's `input` shape.
  * @see {@link StartReferenceImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -90,6 +104,9 @@ export class StartReferenceImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReferenceImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +135,8 @@ export class StartReferenceImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReferenceImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartReferenceImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +146,18 @@ export class StartReferenceImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReferenceImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartReferenceImportJobCommand(input, context);
+    return se_StartReferenceImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReferenceImportJobCommandOutput> {
-    return deserializeAws_restJson1StartReferenceImportJobCommand(output, context);
+    return de_StartReferenceImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

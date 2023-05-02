@@ -16,20 +16,22 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   ExportLambdaFunctionRecommendationsRequest,
-  ExportLambdaFunctionRecommendationsRequestFilterSensitiveLog,
   ExportLambdaFunctionRecommendationsResponse,
-  ExportLambdaFunctionRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0ExportLambdaFunctionRecommendationsCommand,
-  serializeAws_json1_0ExportLambdaFunctionRecommendationsCommand,
+  de_ExportLambdaFunctionRecommendationsCommand,
+  se_ExportLambdaFunctionRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ExportLambdaFunctionRecommendationsCommand}.
  */
 export interface ExportLambdaFunctionRecommendationsCommandInput extends ExportLambdaFunctionRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportLambdaFunctionRecommendationsCommand}.
  */
 export interface ExportLambdaFunctionRecommendationsCommandOutput
@@ -37,6 +39,7 @@ export interface ExportLambdaFunctionRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports optimization recommendations for Lambda functions.</p>
  *          <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
  *             in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
@@ -49,10 +52,34 @@ export interface ExportLambdaFunctionRecommendationsCommandOutput
  * import { ComputeOptimizerClient, ExportLambdaFunctionRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, ExportLambdaFunctionRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // ExportLambdaFunctionRecommendationsRequest
+ *   accountIds: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [ // LambdaFunctionRecommendationFilters
+ *     { // LambdaFunctionRecommendationFilter
+ *       name: "Finding" || "FindingReasonCode",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   fieldsToExport: [ // ExportableLambdaFunctionFields
+ *     "AccountId" || "FunctionArn" || "FunctionVersion" || "Finding" || "FindingReasonCodes" || "NumberOfInvocations" || "UtilizationMetricsDurationMaximum" || "UtilizationMetricsDurationAverage" || "UtilizationMetricsMemoryMaximum" || "UtilizationMetricsMemoryAverage" || "LookbackPeriodInDays" || "CurrentConfigurationMemorySize" || "CurrentConfigurationTimeout" || "CurrentCostTotal" || "CurrentCostAverage" || "RecommendationOptionsConfigurationMemorySize" || "RecommendationOptionsCostLow" || "RecommendationOptionsCostHigh" || "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound" || "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound" || "RecommendationOptionsProjectedUtilizationMetricsDurationExpected" || "LastRefreshTimestamp" || "CurrentPerformanceRisk" || "RecommendationOptionsSavingsOpportunityPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrency" || "RecommendationOptionsEstimatedMonthlySavingsValue" || "Tags",
+ *   ],
+ *   s3DestinationConfig: { // S3DestinationConfig
+ *     bucket: "STRING_VALUE",
+ *     keyPrefix: "STRING_VALUE",
+ *   },
+ *   fileFormat: "Csv",
+ *   includeMemberAccounts: true || false,
+ * };
  * const command = new ExportLambdaFunctionRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportLambdaFunctionRecommendationsCommandInput - {@link ExportLambdaFunctionRecommendationsCommandInput}
+ * @returns {@link ExportLambdaFunctionRecommendationsCommandOutput}
  * @see {@link ExportLambdaFunctionRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ExportLambdaFunctionRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -101,6 +128,9 @@ export class ExportLambdaFunctionRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportLambdaFunctionRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +159,8 @@ export class ExportLambdaFunctionRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportLambdaFunctionRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportLambdaFunctionRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +170,24 @@ export class ExportLambdaFunctionRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ExportLambdaFunctionRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExportLambdaFunctionRecommendationsCommand(input, context);
+    return se_ExportLambdaFunctionRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportLambdaFunctionRecommendationsCommandOutput> {
-    return deserializeAws_json1_0ExportLambdaFunctionRecommendationsCommand(output, context);
+    return de_ExportLambdaFunctionRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

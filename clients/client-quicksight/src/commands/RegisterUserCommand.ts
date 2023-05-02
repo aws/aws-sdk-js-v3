@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterUserRequest,
-  RegisterUserRequestFilterSensitiveLog,
-  RegisterUserResponse,
-  RegisterUserResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1RegisterUserCommand,
-  serializeAws_restJson1RegisterUserCommand,
-} from "../protocols/Aws_restJson1";
+import { RegisterUserRequest, RegisterUserResponse } from "../models/models_3";
+import { de_RegisterUserCommand, se_RegisterUserCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterUserCommand}.
  */
 export interface RegisterUserCommandInput extends RegisterUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterUserCommand}.
  */
 export interface RegisterUserCommandOutput extends RegisterUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon QuickSight user whose identity is associated with the Identity and Access Management (IAM) identity or role specified in the request. When you register a new user from the Amazon QuickSight API, Amazon QuickSight generates a registration URL. The user accesses this registration URL to create their account. Amazon QuickSight doesn't send a registration email to users who are registered from the Amazon QuickSight API. If you want new users to receive a registration email, then add those users in the Amazon QuickSight console. For more information on registering a new user in the Amazon QuickSight console, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users"> Inviting users to access Amazon QuickSight</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * import { QuickSightClient, RegisterUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, RegisterUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // RegisterUserRequest
+ *   IdentityType: "IAM" || "QUICKSIGHT", // required
+ *   Email: "STRING_VALUE", // required
+ *   UserRole: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER", // required
+ *   IamArn: "STRING_VALUE",
+ *   SessionName: "STRING_VALUE",
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE",
+ *   CustomPermissionsName: "STRING_VALUE",
+ *   ExternalLoginFederationProviderType: "STRING_VALUE",
+ *   CustomFederationProviderUrl: "STRING_VALUE",
+ *   ExternalLoginId: "STRING_VALUE",
+ * };
  * const command = new RegisterUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterUserCommandInput - {@link RegisterUserCommandInput}
+ * @returns {@link RegisterUserCommandOutput}
  * @see {@link RegisterUserCommandInput} for command's `input` shape.
  * @see {@link RegisterUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -99,6 +112,9 @@ export class RegisterUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +141,8 @@ export class RegisterUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +152,18 @@ export class RegisterUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterUserCommand(input, context);
+    return se_RegisterUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterUserCommandOutput> {
-    return deserializeAws_restJson1RegisterUserCommand(output, context);
+    return de_RegisterUserCommand(output, context);
   }
 
   // Start section: command_body_extra

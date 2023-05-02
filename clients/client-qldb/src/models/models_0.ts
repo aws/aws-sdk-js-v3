@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { QLDBServiceException as __BaseException } from "./QLDBServiceException";
 
+/**
+ * @public
+ */
 export interface CancelJournalKinesisStreamRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -16,6 +19,9 @@ export interface CancelJournalKinesisStreamRequest {
   StreamId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelJournalKinesisStreamResponse {
   /**
    * <p>The UUID (Base62-encoded text) of the canceled QLDB journal stream.</p>
@@ -24,6 +30,7 @@ export interface CancelJournalKinesisStreamResponse {
 }
 
 /**
+ * @public
  * <p>One or more parameters in the request aren't valid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -50,6 +57,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -82,6 +90,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed because a condition wasn't satisfied in advance.</p>
  */
 export class ResourcePreconditionNotMetException extends __BaseException {
@@ -113,11 +122,23 @@ export class ResourcePreconditionNotMetException extends __BaseException {
   }
 }
 
-export enum PermissionsMode {
-  ALLOW_ALL = "ALLOW_ALL",
-  STANDARD = "STANDARD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PermissionsMode = {
+  ALLOW_ALL: "ALLOW_ALL",
+  STANDARD: "STANDARD",
+} as const;
 
+/**
+ * @public
+ */
+export type PermissionsMode = (typeof PermissionsMode)[keyof typeof PermissionsMode];
+
+/**
+ * @public
+ */
 export interface CreateLedgerRequest {
   /**
    * <p>The name of the ledger that you want to create. The name must be unique among all of the
@@ -168,10 +189,10 @@ export interface CreateLedgerRequest {
   PermissionsMode: PermissionsMode | string | undefined;
 
   /**
-   * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
+   * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
    *       ledger creation, this feature is enabled (<code>true</code>) by default.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
-   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
 
@@ -194,7 +215,8 @@ export interface CreateLedgerRequest {
    *             <li>
    *                <p>
    *                   <b>A valid symmetric customer managed KMS key</b>: Use
-   *                the specified KMS key in your account that you create, own, and manage.</p>
+   *                the specified symmetric encryption KMS key in your account that you create, own, and
+   *                manage.</p>
    *                <p>Amazon QLDB does not support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric keys</a> in the <i>Key Management Service Developer
    *                   Guide</i>.</p>
    *             </li>
@@ -230,13 +252,25 @@ export interface CreateLedgerRequest {
   KmsKey?: string;
 }
 
-export enum LedgerState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LedgerState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+} as const;
 
+/**
+ * @public
+ */
+export type LedgerState = (typeof LedgerState)[keyof typeof LedgerState];
+
+/**
+ * @public
+ */
 export interface CreateLedgerResponse {
   /**
    * <p>The name of the ledger.</p>
@@ -265,10 +299,10 @@ export interface CreateLedgerResponse {
   PermissionsMode?: PermissionsMode | string;
 
   /**
-   * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
+   * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
    *       ledger creation, this feature is enabled (<code>true</code>) by default.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
-   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
 
@@ -280,6 +314,7 @@ export interface CreateLedgerResponse {
 }
 
 /**
+ * @public
  * <p>You have reached the limit on the maximum number of resources allowed.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -306,6 +341,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -338,6 +374,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource can't be modified at this time.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -369,6 +406,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteLedgerRequest {
   /**
    * <p>The name of the ledger that you want to delete.</p>
@@ -376,6 +416,9 @@ export interface DeleteLedgerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJournalKinesisStreamRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -389,12 +432,22 @@ export interface DescribeJournalKinesisStreamRequest {
   StreamId: string | undefined;
 }
 
-export enum ErrorCause {
-  IAM_PERMISSION_REVOKED = "IAM_PERMISSION_REVOKED",
-  KINESIS_STREAM_NOT_FOUND = "KINESIS_STREAM_NOT_FOUND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCause = {
+  IAM_PERMISSION_REVOKED: "IAM_PERMISSION_REVOKED",
+  KINESIS_STREAM_NOT_FOUND: "KINESIS_STREAM_NOT_FOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type ErrorCause = (typeof ErrorCause)[keyof typeof ErrorCause];
+
+/**
+ * @public
  * <p>The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal
  *          stream.</p>
  */
@@ -407,24 +460,37 @@ export interface KinesisConfiguration {
   /**
    * <p>Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the
    *          number of records sent per API call.</p>
-   *          <p>
-   *             <i>This option is enabled by default.</i> Record aggregation has important
-   *          implications for processing records and requires de-aggregation in your stream consumer. To
-   *          learn more, see <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html">KPL Key Concepts</a> and <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html">Consumer De-aggregation</a> in the <i>Amazon Kinesis Data Streams Developer
-   *          Guide</i>.</p>
+   *          <p>Default: <code>True</code>
+   *          </p>
+   *          <important>
+   *             <p>Record aggregation has important implications for processing records and requires
+   *             de-aggregation in your stream consumer. To learn more, see <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html">KPL Key Concepts</a> and
+   *                <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html">Consumer
+   *                De-aggregation</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p>
+   *          </important>
    */
   AggregationEnabled?: boolean;
 }
 
-export enum StreamStatus {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IMPAIRED = "IMPAIRED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StreamStatus = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IMPAIRED: "IMPAIRED",
+} as const;
 
 /**
+ * @public
+ */
+export type StreamStatus = (typeof StreamStatus)[keyof typeof StreamStatus];
+
+/**
+ * @public
  * <p>Information about an Amazon QLDB journal stream, including the Amazon Resource Name
  *          (ARN), stream name, creation time, current status, and the parameters of the original
  *          stream creation request.</p>
@@ -493,6 +559,9 @@ export interface JournalKinesisStreamDescription {
   StreamName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJournalKinesisStreamResponse {
   /**
    * <p>Information about the QLDB journal stream returned by a
@@ -501,6 +570,9 @@ export interface DescribeJournalKinesisStreamResponse {
   Stream?: JournalKinesisStreamDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJournalS3ExportRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -514,19 +586,38 @@ export interface DescribeJournalS3ExportRequest {
   ExportId: string | undefined;
 }
 
-export enum OutputFormat {
-  ION_BINARY = "ION_BINARY",
-  ION_TEXT = "ION_TEXT",
-  JSON = "JSON",
-}
-
-export enum S3ObjectEncryptionType {
-  NO_ENCRYPTION = "NO_ENCRYPTION",
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OutputFormat = {
+  ION_BINARY: "ION_BINARY",
+  ION_TEXT: "ION_TEXT",
+  JSON: "JSON",
+} as const;
 
 /**
+ * @public
+ */
+export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3ObjectEncryptionType = {
+  NO_ENCRYPTION: "NO_ENCRYPTION",
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+} as const;
+
+/**
+ * @public
+ */
+export type S3ObjectEncryptionType = (typeof S3ObjectEncryptionType)[keyof typeof S3ObjectEncryptionType];
+
+/**
+ * @public
  * <p>The encryption settings that are used by a journal export job to write data in an
  *          Amazon Simple Storage Service (Amazon S3) bucket.</p>
  */
@@ -540,8 +631,8 @@ export interface S3EncryptionConfiguration {
   ObjectEncryptionType: S3ObjectEncryptionType | string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric key in Key Management Service (KMS). Amazon S3 does not
-   *          support asymmetric KMS keys.</p>
+   * <p>The Amazon Resource Name (ARN) of a symmetric encryption key in Key Management Service (KMS). Amazon S3
+   *          does not support asymmetric KMS keys.</p>
    *          <p>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the
    *             <code>ObjectEncryptionType</code>.</p>
    *          <p>
@@ -552,6 +643,7 @@ export interface S3EncryptionConfiguration {
 }
 
 /**
+ * @public
  * <p>The Amazon Simple Storage Service (Amazon S3) bucket location in which a journal export job writes the journal
  *          contents.</p>
  */
@@ -598,13 +690,23 @@ export interface S3ExportConfiguration {
   EncryptionConfiguration: S3EncryptionConfiguration | undefined;
 }
 
-export enum ExportStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExportStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
+
+/**
+ * @public
  * <p>Information about a journal export job, including the ledger name, export ID, creation
  *          time, current status, and the parameters of the original export creation request.</p>
  */
@@ -669,6 +771,9 @@ export interface JournalS3ExportDescription {
   OutputFormat?: OutputFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJournalS3ExportResponse {
   /**
    * <p>Information about the journal export job returned by a
@@ -677,6 +782,9 @@ export interface DescribeJournalS3ExportResponse {
   ExportDescription: JournalS3ExportDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLedgerRequest {
   /**
    * <p>The name of the ledger that you want to describe.</p>
@@ -684,13 +792,23 @@ export interface DescribeLedgerRequest {
   Name: string | undefined;
 }
 
-export enum EncryptionStatus {
-  ENABLED = "ENABLED",
-  KMS_KEY_INACCESSIBLE = "KMS_KEY_INACCESSIBLE",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionStatus = {
+  ENABLED: "ENABLED",
+  KMS_KEY_INACCESSIBLE: "KMS_KEY_INACCESSIBLE",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
+/**
+ * @public
  * <p>Information about the encryption of data at rest in an Amazon QLDB ledger. This includes
  *          the current status, the key in Key Management Service (KMS), and when the key became inaccessible (in
  *          the case of an error).</p>
@@ -746,6 +864,9 @@ export interface LedgerEncryptionDescription {
   InaccessibleKmsKeyDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLedgerResponse {
   /**
    * <p>The name of the ledger.</p>
@@ -774,10 +895,10 @@ export interface DescribeLedgerResponse {
   PermissionsMode?: PermissionsMode | string;
 
   /**
-   * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
+   * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
    *       ledger creation, this feature is enabled (<code>true</code>) by default.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
-   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
 
@@ -789,6 +910,9 @@ export interface DescribeLedgerResponse {
   EncryptionDescription?: LedgerEncryptionDescription;
 }
 
+/**
+ * @public
+ */
 export interface ExportJournalToS3Request {
   /**
    * <p>The name of the ledger.</p>
@@ -828,7 +952,7 @@ export interface ExportJournalToS3Request {
    *          journal export job to do the following:</p>
    *          <ul>
    *             <li>
-   *                <p>Write objects into your Amazon Simple Storage Service (Amazon S3) bucket.</p>
+   *                <p>Write objects into your Amazon S3 bucket.</p>
    *             </li>
    *             <li>
    *                <p>(Optional) Use your customer managed key in Key Management Service (KMS) for server-side
@@ -842,12 +966,21 @@ export interface ExportJournalToS3Request {
   RoleArn: string | undefined;
 
   /**
-   * <p>The output format of your exported journal data. If this parameter is not specified, the
-   *          exported data defaults to <code>ION_TEXT</code> format.</p>
+   * <p>The output format of your exported journal data. A journal export job can write the data
+   *          objects in either the text or binary representation of <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/ion.html">Amazon Ion</a> format, or in <a href="https://jsonlines.org/">JSON Lines</a> text format.</p>
+   *          <p>Default: <code>ION_TEXT</code>
+   *          </p>
+   *          <p>In JSON Lines format, each journal block in an exported data object is a valid JSON
+   *          object that is delimited by a newline. You can use this format to directly integrate JSON
+   *          exports with analytics tools such as Amazon Athena and Glue
+   *          because these services can parse newline-delimited JSON automatically.</p>
    */
   OutputFormat?: OutputFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface ExportJournalToS3Response {
   /**
    * <p>The UUID (represented in Base62-encoded text) that QLDB assigns to each journal export
@@ -859,6 +992,7 @@ export interface ExportJournalToS3Response {
 }
 
 /**
+ * @public
  * <p>A structure that can contain a value in multiple encoding formats.</p>
  */
 export interface ValueHolder {
@@ -868,6 +1002,9 @@ export interface ValueHolder {
   IonText?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBlockRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -877,7 +1014,7 @@ export interface GetBlockRequest {
   /**
    * <p>The location of the block that you want to request. An address is an Amazon Ion
    *          structure that has two fields: <code>strandId</code> and <code>sequenceNo</code>.</p>
-   *          <p>For example: <code>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14}</code>.</p>
+   *          <p>For example: <code>\{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14\}</code>.</p>
    */
   BlockAddress: ValueHolder | undefined;
 
@@ -885,11 +1022,14 @@ export interface GetBlockRequest {
    * <p>The latest block location covered by the digest for which to request a proof. An address
    *          is an Amazon Ion structure that has two fields: <code>strandId</code> and
    *             <code>sequenceNo</code>.</p>
-   *          <p>For example: <code>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49}</code>.</p>
+   *          <p>For example: <code>\{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49\}</code>.</p>
    */
   DigestTipAddress?: ValueHolder;
 }
 
+/**
+ * @public
+ */
 export interface GetBlockResponse {
   /**
    * <p>The block data object in Amazon Ion format.</p>
@@ -904,6 +1044,9 @@ export interface GetBlockResponse {
   Proof?: ValueHolder;
 }
 
+/**
+ * @public
+ */
 export interface GetDigestRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -911,6 +1054,9 @@ export interface GetDigestRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDigestResponse {
   /**
    * <p>The 256-bit hash value representing the digest returned by a <code>GetDigest</code>
@@ -926,6 +1072,9 @@ export interface GetDigestResponse {
   DigestTipAddress: ValueHolder | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRevisionRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -935,7 +1084,7 @@ export interface GetRevisionRequest {
   /**
    * <p>The block location of the document revision to be verified. An address is an Amazon Ion
    *          structure that has two fields: <code>strandId</code> and <code>sequenceNo</code>.</p>
-   *          <p>For example: <code>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14}</code>.</p>
+   *          <p>For example: <code>\{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14\}</code>.</p>
    */
   BlockAddress: ValueHolder | undefined;
 
@@ -948,11 +1097,14 @@ export interface GetRevisionRequest {
    * <p>The latest block location covered by the digest for which to request a proof. An address
    *          is an Amazon Ion structure that has two fields: <code>strandId</code> and
    *             <code>sequenceNo</code>.</p>
-   *          <p>For example: <code>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49}</code>.</p>
+   *          <p>For example: <code>\{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49\}</code>.</p>
    */
   DigestTipAddress?: ValueHolder;
 }
 
+/**
+ * @public
+ */
 export interface GetRevisionResponse {
   /**
    * <p>The proof object in Amazon Ion format returned by a <code>GetRevision</code> request. A
@@ -967,6 +1119,9 @@ export interface GetRevisionResponse {
   Revision: ValueHolder | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListJournalKinesisStreamsForLedgerRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -989,10 +1144,12 @@ export interface ListJournalKinesisStreamsForLedgerRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJournalKinesisStreamsForLedgerResponse {
   /**
-   * <p>The array of QLDB journal stream descriptors that are associated with the given
-   *          ledger.</p>
+   * <p>The QLDB journal streams that are currently associated with the given ledger.</p>
    */
   Streams?: JournalKinesisStreamDescription[];
 
@@ -1013,6 +1170,9 @@ export interface ListJournalKinesisStreamsForLedgerResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJournalS3ExportsRequest {
   /**
    * <p>The maximum number of results to return in a single <code>ListJournalS3Exports</code>
@@ -1029,10 +1189,13 @@ export interface ListJournalS3ExportsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJournalS3ExportsResponse {
   /**
-   * <p>The array of journal export job descriptions for all ledgers that are associated with
-   *          the current Amazon Web Services account and Region.</p>
+   * <p>The journal export jobs for all ledgers that are associated with the current
+   *          Amazon Web Services account and Region.</p>
    */
   JournalS3Exports?: JournalS3ExportDescription[];
 
@@ -1053,6 +1216,9 @@ export interface ListJournalS3ExportsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJournalS3ExportsForLedgerRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -1075,10 +1241,12 @@ export interface ListJournalS3ExportsForLedgerRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJournalS3ExportsForLedgerResponse {
   /**
-   * <p>The array of journal export job descriptions that are associated with the specified
-   *          ledger.</p>
+   * <p>The journal export jobs that are currently associated with the specified ledger.</p>
    */
   JournalS3Exports?: JournalS3ExportDescription[];
 
@@ -1099,6 +1267,9 @@ export interface ListJournalS3ExportsForLedgerResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLedgersRequest {
   /**
    * <p>The maximum number of results to return in a single <code>ListLedgers</code> request.
@@ -1115,6 +1286,7 @@ export interface ListLedgersRequest {
 }
 
 /**
+ * @public
  * <p>Information about a ledger, including its name, state, and when it was created.</p>
  */
 export interface LedgerSummary {
@@ -1135,10 +1307,12 @@ export interface LedgerSummary {
   CreationDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListLedgersResponse {
   /**
-   * <p>The array of ledger summaries that are associated with the current Amazon Web Services account and
-   *          Region.</p>
+   * <p>The ledgers that are associated with the current Amazon Web Services account and Region.</p>
    */
   Ledgers?: LedgerSummary[];
 
@@ -1159,6 +1333,9 @@ export interface ListLedgersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p>
@@ -1169,6 +1346,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are currently associated with the specified Amazon QLDB resource.</p>
@@ -1176,6 +1356,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StreamJournalToKinesisRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -1234,6 +1417,9 @@ export interface StreamJournalToKinesisRequest {
   StreamName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StreamJournalToKinesisResponse {
   /**
    * <p>The UUID (represented in Base62-encoded text) that QLDB assigns to each QLDB journal
@@ -1242,6 +1428,9 @@ export interface StreamJournalToKinesisResponse {
   StreamId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) to which you want to add the tags. For example:</p>
@@ -1259,8 +1448,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) from which to remove the tags. For example:</p>
@@ -1276,8 +1471,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLedgerRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -1285,10 +1486,10 @@ export interface UpdateLedgerRequest {
   Name: string | undefined;
 
   /**
-   * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
+   * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
    *       ledger creation, this feature is enabled (<code>true</code>) by default.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
-   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
 
@@ -1311,7 +1512,8 @@ export interface UpdateLedgerRequest {
    *             <li>
    *                <p>
    *                   <b>A valid symmetric customer managed KMS key</b>: Use
-   *                the specified KMS key in your account that you create, own, and manage.</p>
+   *                the specified symmetric encryption KMS key in your account that you create, own, and
+   *                manage.</p>
    *                <p>Amazon QLDB does not support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric keys</a> in the <i>Key Management Service Developer
    *                   Guide</i>.</p>
    *             </li>
@@ -1347,6 +1549,9 @@ export interface UpdateLedgerRequest {
   KmsKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLedgerResponse {
   /**
    * <p>The name of the ledger.</p>
@@ -1370,10 +1575,10 @@ export interface UpdateLedgerResponse {
   CreationDateTime?: Date;
 
   /**
-   * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
+   * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
    *       ledger creation, this feature is enabled (<code>true</code>) by default.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
-   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
 
@@ -1385,6 +1590,9 @@ export interface UpdateLedgerResponse {
   EncryptionDescription?: LedgerEncryptionDescription;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLedgerPermissionsModeRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -1426,6 +1634,9 @@ export interface UpdateLedgerPermissionsModeRequest {
   PermissionsMode: PermissionsMode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLedgerPermissionsModeResponse {
   /**
    * <p>The name of the ledger.</p>
@@ -1442,143 +1653,6 @@ export interface UpdateLedgerPermissionsModeResponse {
    */
   PermissionsMode?: PermissionsMode | string;
 }
-
-/**
- * @internal
- */
-export const CancelJournalKinesisStreamRequestFilterSensitiveLog = (obj: CancelJournalKinesisStreamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJournalKinesisStreamResponseFilterSensitiveLog = (obj: CancelJournalKinesisStreamResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLedgerRequestFilterSensitiveLog = (obj: CreateLedgerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLedgerResponseFilterSensitiveLog = (obj: CreateLedgerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLedgerRequestFilterSensitiveLog = (obj: DeleteLedgerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJournalKinesisStreamRequestFilterSensitiveLog = (
-  obj: DescribeJournalKinesisStreamRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KinesisConfigurationFilterSensitiveLog = (obj: KinesisConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JournalKinesisStreamDescriptionFilterSensitiveLog = (obj: JournalKinesisStreamDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJournalKinesisStreamResponseFilterSensitiveLog = (
-  obj: DescribeJournalKinesisStreamResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJournalS3ExportRequestFilterSensitiveLog = (obj: DescribeJournalS3ExportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3EncryptionConfigurationFilterSensitiveLog = (obj: S3EncryptionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ExportConfigurationFilterSensitiveLog = (obj: S3ExportConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JournalS3ExportDescriptionFilterSensitiveLog = (obj: JournalS3ExportDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJournalS3ExportResponseFilterSensitiveLog = (obj: DescribeJournalS3ExportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLedgerRequestFilterSensitiveLog = (obj: DescribeLedgerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LedgerEncryptionDescriptionFilterSensitiveLog = (obj: LedgerEncryptionDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLedgerResponseFilterSensitiveLog = (obj: DescribeLedgerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportJournalToS3RequestFilterSensitiveLog = (obj: ExportJournalToS3Request): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportJournalToS3ResponseFilterSensitiveLog = (obj: ExportJournalToS3Response): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -1609,13 +1683,6 @@ export const GetBlockResponseFilterSensitiveLog = (obj: GetBlockResponse): any =
 /**
  * @internal
  */
-export const GetDigestRequestFilterSensitiveLog = (obj: GetDigestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetDigestResponseFilterSensitiveLog = (obj: GetDigestResponse): any => ({
   ...obj,
   ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
@@ -1637,161 +1704,4 @@ export const GetRevisionResponseFilterSensitiveLog = (obj: GetRevisionResponse):
   ...obj,
   ...(obj.Proof && { Proof: SENSITIVE_STRING }),
   ...(obj.Revision && { Revision: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListJournalKinesisStreamsForLedgerRequestFilterSensitiveLog = (
-  obj: ListJournalKinesisStreamsForLedgerRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJournalKinesisStreamsForLedgerResponseFilterSensitiveLog = (
-  obj: ListJournalKinesisStreamsForLedgerResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJournalS3ExportsRequestFilterSensitiveLog = (obj: ListJournalS3ExportsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJournalS3ExportsResponseFilterSensitiveLog = (obj: ListJournalS3ExportsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJournalS3ExportsForLedgerRequestFilterSensitiveLog = (
-  obj: ListJournalS3ExportsForLedgerRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJournalS3ExportsForLedgerResponseFilterSensitiveLog = (
-  obj: ListJournalS3ExportsForLedgerResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLedgersRequestFilterSensitiveLog = (obj: ListLedgersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LedgerSummaryFilterSensitiveLog = (obj: LedgerSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLedgersResponseFilterSensitiveLog = (obj: ListLedgersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamJournalToKinesisRequestFilterSensitiveLog = (obj: StreamJournalToKinesisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamJournalToKinesisResponseFilterSensitiveLog = (obj: StreamJournalToKinesisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLedgerRequestFilterSensitiveLog = (obj: UpdateLedgerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLedgerResponseFilterSensitiveLog = (obj: UpdateLedgerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLedgerPermissionsModeRequestFilterSensitiveLog = (obj: UpdateLedgerPermissionsModeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLedgerPermissionsModeResponseFilterSensitiveLog = (
-  obj: UpdateLedgerPermissionsModeResponse
-): any => ({
-  ...obj,
 });

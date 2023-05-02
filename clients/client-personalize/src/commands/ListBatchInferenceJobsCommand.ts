@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListBatchInferenceJobsRequest,
-  ListBatchInferenceJobsRequestFilterSensitiveLog,
-  ListBatchInferenceJobsResponse,
-  ListBatchInferenceJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListBatchInferenceJobsRequest, ListBatchInferenceJobsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListBatchInferenceJobsCommand,
-  serializeAws_json1_1ListBatchInferenceJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListBatchInferenceJobsCommand, se_ListBatchInferenceJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBatchInferenceJobsCommand}.
  */
 export interface ListBatchInferenceJobsCommandInput extends ListBatchInferenceJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBatchInferenceJobsCommand}.
  */
 export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the batch inference jobs that have been performed off of a solution
  *       version.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJ
  * import { PersonalizeClient, ListBatchInferenceJobsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListBatchInferenceJobsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListBatchInferenceJobsRequest
+ *   solutionVersionArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListBatchInferenceJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBatchInferenceJobsCommandInput - {@link ListBatchInferenceJobsCommandInput}
+ * @returns {@link ListBatchInferenceJobsCommandOutput}
  * @see {@link ListBatchInferenceJobsCommandInput} for command's `input` shape.
  * @see {@link ListBatchInferenceJobsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -76,6 +80,9 @@ export class ListBatchInferenceJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBatchInferenceJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class ListBatchInferenceJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBatchInferenceJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBatchInferenceJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class ListBatchInferenceJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBatchInferenceJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBatchInferenceJobsCommand(input, context);
+    return se_ListBatchInferenceJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchInferenceJobsCommandOutput> {
-    return deserializeAws_json1_1ListBatchInferenceJobsCommand(output, context);
+    return de_ListBatchInferenceJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

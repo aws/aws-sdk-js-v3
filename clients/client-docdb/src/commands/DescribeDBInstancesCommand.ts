@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  DBInstanceMessage,
-  DBInstanceMessageFilterSensitiveLog,
-  DescribeDBInstancesMessage,
-  DescribeDBInstancesMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBInstancesCommand,
-  serializeAws_queryDescribeDBInstancesCommand,
-} from "../protocols/Aws_query";
+import { DBInstanceMessage, DescribeDBInstancesMessage } from "../models/models_0";
+import { de_DescribeDBInstancesCommand, se_DescribeDBInstancesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBInstancesCommand}.
  */
 export interface DescribeDBInstancesCommandInput extends DescribeDBInstancesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBInstancesCommand}.
  */
 export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about provisioned Amazon DocumentDB instances. This API supports pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * import { DocDBClient, DescribeDBInstancesCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBInstancesCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DescribeDBInstancesMessage
+ *   DBInstanceIdentifier: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBInstancesCommandInput - {@link DescribeDBInstancesCommandInput}
+ * @returns {@link DescribeDBInstancesCommandOutput}
  * @see {@link DescribeDBInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBInstancesCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -73,6 +85,9 @@ export class DescribeDBInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +116,8 @@ export class DescribeDBInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBInstancesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBInstanceMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +127,18 @@ export class DescribeDBInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBInstancesCommand(input, context);
+    return se_DescribeDBInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBInstancesCommandOutput> {
-    return deserializeAws_queryDescribeDBInstancesCommand(output, context);
+    return de_DescribeDBInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

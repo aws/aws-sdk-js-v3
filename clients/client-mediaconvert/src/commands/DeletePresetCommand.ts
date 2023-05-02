@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  DeletePresetRequest,
-  DeletePresetRequestFilterSensitiveLog,
-  DeletePresetResponse,
-  DeletePresetResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeletePresetCommand,
-  serializeAws_restJson1DeletePresetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeletePresetRequest, DeletePresetResponse } from "../models/models_1";
+import { de_DeletePresetCommand, se_DeletePresetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePresetCommand}.
  */
 export interface DeletePresetCommandInput extends DeletePresetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePresetCommand}.
  */
 export interface DeletePresetCommandOutput extends DeletePresetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Permanently delete a preset you have created.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  * import { MediaConvertClient, DeletePresetCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, DeletePresetCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = { // DeletePresetRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeletePresetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePresetCommandInput - {@link DeletePresetCommandInput}
+ * @returns {@link DeletePresetCommandOutput}
  * @see {@link DeletePresetCommandInput} for command's `input` shape.
  * @see {@link DeletePresetCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeletePresetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePresetCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeletePresetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePresetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePresetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeletePresetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePresetCommand(input, context);
+    return se_DeletePresetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePresetCommandOutput> {
-    return deserializeAws_restJson1DeletePresetCommand(output, context);
+    return de_DeletePresetCommand(output, context);
   }
 
   // Start section: command_body_extra

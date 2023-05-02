@@ -10,7 +10,7 @@ import {
 import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AccessAnalyzerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFindingsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFindings(
   config: AccessAnalyzerPaginationConfiguration,
   input: ListFindingsCommandInput,

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { ListFieldLevelEncryptionProfilesRequest, ListFieldLevelEncryptionProfilesResult } from "../models/models_1";
 import {
-  ListFieldLevelEncryptionProfilesRequest,
-  ListFieldLevelEncryptionProfilesRequestFilterSensitiveLog,
-  ListFieldLevelEncryptionProfilesResult,
-  ListFieldLevelEncryptionProfilesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand,
-  serializeAws_restXmlListFieldLevelEncryptionProfilesCommand,
+  de_ListFieldLevelEncryptionProfilesCommand,
+  se_ListFieldLevelEncryptionProfilesCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListFieldLevelEncryptionProfilesCommand}.
  */
 export interface ListFieldLevelEncryptionProfilesCommandInput extends ListFieldLevelEncryptionProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFieldLevelEncryptionProfilesCommand}.
  */
 export interface ListFieldLevelEncryptionProfilesCommandOutput
@@ -37,6 +36,7 @@ export interface ListFieldLevelEncryptionProfilesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Request a list of field-level encryption profiles that have been created in CloudFront for
  * 			this account.</p>
  * @example
@@ -45,10 +45,16 @@ export interface ListFieldLevelEncryptionProfilesCommandOutput
  * import { CloudFrontClient, ListFieldLevelEncryptionProfilesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListFieldLevelEncryptionProfilesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListFieldLevelEncryptionProfilesRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListFieldLevelEncryptionProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFieldLevelEncryptionProfilesCommandInput - {@link ListFieldLevelEncryptionProfilesCommandInput}
+ * @returns {@link ListFieldLevelEncryptionProfilesCommandOutput}
  * @see {@link ListFieldLevelEncryptionProfilesCommandInput} for command's `input` shape.
  * @see {@link ListFieldLevelEncryptionProfilesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -75,6 +81,9 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFieldLevelEncryptionProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +112,8 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFieldLevelEncryptionProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFieldLevelEncryptionProfilesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +123,24 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListFieldLevelEncryptionProfilesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListFieldLevelEncryptionProfilesCommand(input, context);
+    return se_ListFieldLevelEncryptionProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFieldLevelEncryptionProfilesCommandOutput> {
-    return deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand(output, context);
+    return de_ListFieldLevelEncryptionProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

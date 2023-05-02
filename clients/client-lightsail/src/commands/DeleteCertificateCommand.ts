@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteCertificateRequest,
-  DeleteCertificateRequestFilterSensitiveLog,
-  DeleteCertificateResult,
-  DeleteCertificateResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCertificateCommand,
-  serializeAws_json1_1DeleteCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteCertificateRequest, DeleteCertificateResult } from "../models/models_0";
+import { de_DeleteCertificateCommand, se_DeleteCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCertificateCommand}.
  */
 export interface DeleteCertificateCommandInput extends DeleteCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCertificateCommand}.
  */
 export interface DeleteCertificateCommandOutput extends DeleteCertificateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an SSL/TLS certificate for your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>Certificates that are currently attached to a distribution cannot be deleted. Use the
@@ -46,10 +43,15 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateResult,
  * import { LightsailClient, DeleteCertificateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteCertificateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteCertificateRequest
+ *   certificateName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCertificateCommandInput - {@link DeleteCertificateCommandInput}
+ * @returns {@link DeleteCertificateCommandOutput}
  * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -96,6 +98,9 @@ export class DeleteCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +129,8 @@ export class DeleteCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCertificateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +140,18 @@ export class DeleteCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCertificateCommand(input, context);
+    return se_DeleteCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCertificateCommandOutput> {
-    return deserializeAws_json1_1DeleteCertificateCommand(output, context);
+    return de_DeleteCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

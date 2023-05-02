@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  DeleteNodeInput,
-  DeleteNodeInputFilterSensitiveLog,
-  DeleteNodeOutput,
-  DeleteNodeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteNodeCommand,
-  serializeAws_restJson1DeleteNodeCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteNodeInput, DeleteNodeOutput } from "../models/models_0";
+import { de_DeleteNodeCommand, se_DeleteNodeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNodeCommand}.
  */
 export interface DeleteNodeCommandInput extends DeleteNodeInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNodeCommand}.
  */
 export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a node that your Amazon Web Services account owns. All data on the node is lost and cannot be recovered.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -47,10 +44,17 @@ export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBea
  * import { ManagedBlockchainClient, DeleteNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, DeleteNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // DeleteNodeInput
+ *   NetworkId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE",
+ *   NodeId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNodeCommandInput - {@link DeleteNodeCommandInput}
+ * @returns {@link DeleteNodeCommandOutput}
  * @see {@link DeleteNodeCommandInput} for command's `input` shape.
  * @see {@link DeleteNodeCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -95,6 +99,9 @@ export class DeleteNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +128,8 @@ export class DeleteNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNodeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNodeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +139,18 @@ export class DeleteNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNodeCommand(input, context);
+    return se_DeleteNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNodeCommandOutput> {
-    return deserializeAws_restJson1DeleteNodeCommand(output, context);
+    return de_DeleteNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

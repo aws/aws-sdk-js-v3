@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeSnapshotAttributeRequest,
-  DescribeSnapshotAttributeRequestFilterSensitiveLog,
-  DescribeSnapshotAttributeResult,
-  DescribeSnapshotAttributeResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSnapshotAttributeCommand,
-  serializeAws_ec2DescribeSnapshotAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeSnapshotAttributeRequest, DescribeSnapshotAttributeResult } from "../models/models_4";
+import { de_DescribeSnapshotAttributeCommand, se_DescribeSnapshotAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotAttributeCommand}.
  */
 export interface DescribeSnapshotAttributeCommandInput extends DescribeSnapshotAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotAttributeCommand}.
  */
 export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshotAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified attribute of the specified snapshot. You can specify only one
  *       attribute at a time.</p>
  *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -44,10 +41,17 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * import { EC2Client, DescribeSnapshotAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSnapshotAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSnapshotAttributeRequest
+ *   Attribute: "productCodes" || "createVolumePermission", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeSnapshotAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotAttributeCommandInput - {@link DescribeSnapshotAttributeCommandInput}
+ * @returns {@link DescribeSnapshotAttributeCommandOutput}
  * @see {@link DescribeSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -89,6 +93,9 @@ export class DescribeSnapshotAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +124,8 @@ export class DescribeSnapshotAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSnapshotAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSnapshotAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +135,21 @@ export class DescribeSnapshotAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSnapshotAttributeCommand(input, context);
+    return se_DescribeSnapshotAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSnapshotAttributeCommandOutput> {
-    return deserializeAws_ec2DescribeSnapshotAttributeCommand(output, context);
+    return de_DescribeSnapshotAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

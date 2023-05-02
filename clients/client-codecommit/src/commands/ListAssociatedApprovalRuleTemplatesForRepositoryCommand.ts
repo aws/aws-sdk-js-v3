@@ -16,21 +16,23 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import {
   ListAssociatedApprovalRuleTemplatesForRepositoryInput,
-  ListAssociatedApprovalRuleTemplatesForRepositoryInputFilterSensitiveLog,
   ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
-  ListAssociatedApprovalRuleTemplatesForRepositoryOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand,
-  serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand,
+  de_ListAssociatedApprovalRuleTemplatesForRepositoryCommand,
+  se_ListAssociatedApprovalRuleTemplatesForRepositoryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommand}.
  */
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput
   extends ListAssociatedApprovalRuleTemplatesForRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommand}.
  */
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
@@ -38,6 +40,7 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all approval rule templates that are associated with a specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,17 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
  * import { CodeCommitClient, ListAssociatedApprovalRuleTemplatesForRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, ListAssociatedApprovalRuleTemplatesForRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // ListAssociatedApprovalRuleTemplatesForRepositoryInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput - {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput}
+ * @returns {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput}
  * @see {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -108,6 +118,9 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +155,8 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociatedApprovalRuleTemplatesForRepositoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociatedApprovalRuleTemplatesForRepositoryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,18 +166,24 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input, context);
+    return se_ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> {
-    return deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand(output, context);
+    return de_ListAssociatedApprovalRuleTemplatesForRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

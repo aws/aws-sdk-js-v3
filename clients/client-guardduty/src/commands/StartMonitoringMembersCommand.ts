@@ -14,40 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  StartMonitoringMembersRequest,
-  StartMonitoringMembersRequestFilterSensitiveLog,
-  StartMonitoringMembersResponse,
-  StartMonitoringMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartMonitoringMembersCommand,
-  serializeAws_restJson1StartMonitoringMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { StartMonitoringMembersRequest, StartMonitoringMembersResponse } from "../models/models_0";
+import { de_StartMonitoringMembersCommand, se_StartMonitoringMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMonitoringMembersCommand}.
  */
 export interface StartMonitoringMembersCommandInput extends StartMonitoringMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMonitoringMembersCommand}.
  */
 export interface StartMonitoringMembersCommandOutput extends StartMonitoringMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to
- *       restart monitoring of accounts that you stopped monitoring with the
- *         <code>StopMonitoringMembers</code> operation.</p>
+ *       restart monitoring of accounts that you stopped monitoring with the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html">StopMonitoringMembers</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, StartMonitoringMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, StartMonitoringMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // StartMonitoringMembersRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   AccountIds: [ // AccountIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartMonitoringMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMonitoringMembersCommandInput - {@link StartMonitoringMembersCommandInput}
+ * @returns {@link StartMonitoringMembersCommandOutput}
  * @see {@link StartMonitoringMembersCommandInput} for command's `input` shape.
  * @see {@link StartMonitoringMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +81,9 @@ export class StartMonitoringMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMonitoringMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +112,8 @@ export class StartMonitoringMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMonitoringMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMonitoringMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +123,18 @@ export class StartMonitoringMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMonitoringMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartMonitoringMembersCommand(input, context);
+    return se_StartMonitoringMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMonitoringMembersCommandOutput> {
-    return deserializeAws_restJson1StartMonitoringMembersCommand(output, context);
+    return de_StartMonitoringMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

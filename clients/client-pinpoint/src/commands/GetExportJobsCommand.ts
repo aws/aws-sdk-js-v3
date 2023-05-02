@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetExportJobsRequest,
-  GetExportJobsRequestFilterSensitiveLog,
-  GetExportJobsResponse,
-  GetExportJobsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetExportJobsRequest, GetExportJobsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetExportJobsCommand,
-  serializeAws_restJson1GetExportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetExportJobsCommand, se_GetExportJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExportJobsCommand}.
  */
 export interface GetExportJobsCommandInput extends GetExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExportJobsCommand}.
  */
 export interface GetExportJobsCommandOutput extends GetExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of all the export jobs for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetExportJobsCommandOutput extends GetExportJobsResponse, __Met
  * import { PinpointClient, GetExportJobsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetExportJobsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetExportJobsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   PageSize: "STRING_VALUE",
+ *   Token: "STRING_VALUE",
+ * };
  * const command = new GetExportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExportJobsCommandInput - {@link GetExportJobsCommandInput}
+ * @returns {@link GetExportJobsCommandOutput}
  * @see {@link GetExportJobsCommandInput} for command's `input` shape.
  * @see {@link GetExportJobsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +94,9 @@ export class GetExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class GetExportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetExportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class GetExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetExportJobsCommand(input, context);
+    return se_GetExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExportJobsCommandOutput> {
-    return deserializeAws_restJson1GetExportJobsCommand(output, context);
+    return de_GetExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSeverityLevelsRequest,
-  DescribeSeverityLevelsRequestFilterSensitiveLog,
-  DescribeSeverityLevelsResponse,
-  DescribeSeverityLevelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSeverityLevelsCommand,
-  serializeAws_json1_1DescribeSeverityLevelsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse } from "../models/models_0";
+import { de_DescribeSeverityLevelsCommand, se_DescribeSeverityLevelsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSeverityLevelsCommand}.
  */
 export interface DescribeSeverityLevelsCommandInput extends DescribeSeverityLevelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSeverityLevelsCommand}.
  */
 export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLevelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of severity levels that you can assign to a support case. The
  *             severity level for a case is also a field in the <a>CaseDetails</a> data type
  *             that you include for a <a>CreateCase</a> request.</p>
@@ -58,10 +55,15 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  * import { SupportClient, DescribeSeverityLevelsCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeSeverityLevelsCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = { // DescribeSeverityLevelsRequest
+ *   language: "STRING_VALUE",
+ * };
  * const command = new DescribeSeverityLevelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSeverityLevelsCommandInput - {@link DescribeSeverityLevelsCommandInput}
+ * @returns {@link DescribeSeverityLevelsCommandOutput}
  * @see {@link DescribeSeverityLevelsCommandInput} for command's `input` shape.
  * @see {@link DescribeSeverityLevelsCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -88,6 +90,9 @@ export class DescribeSeverityLevelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSeverityLevelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class DescribeSeverityLevelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSeverityLevelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSeverityLevelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class DescribeSeverityLevelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSeverityLevelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSeverityLevelsCommand(input, context);
+    return se_DescribeSeverityLevelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSeverityLevelsCommandOutput> {
-    return deserializeAws_json1_1DescribeSeverityLevelsCommand(output, context);
+    return de_DescribeSeverityLevelsCommand(output, context);
   }
 
   // Start section: command_body_extra

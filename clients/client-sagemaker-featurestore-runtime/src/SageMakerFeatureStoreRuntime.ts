@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -13,9 +14,69 @@ import {
 } from "./commands/DeleteRecordCommand";
 import { GetRecordCommand, GetRecordCommandInput, GetRecordCommandOutput } from "./commands/GetRecordCommand";
 import { PutRecordCommand, PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
-import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRuntimeClient";
+import {
+  SageMakerFeatureStoreRuntimeClient,
+  SageMakerFeatureStoreRuntimeClientConfig,
+} from "./SageMakerFeatureStoreRuntimeClient";
+
+const commands = {
+  BatchGetRecordCommand,
+  DeleteRecordCommand,
+  GetRecordCommand,
+  PutRecordCommand,
+};
+
+export interface SageMakerFeatureStoreRuntime {
+  /**
+   * @see {@link BatchGetRecordCommand}
+   */
+  batchGetRecord(
+    args: BatchGetRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetRecordCommandOutput>;
+  batchGetRecord(args: BatchGetRecordCommandInput, cb: (err: any, data?: BatchGetRecordCommandOutput) => void): void;
+  batchGetRecord(
+    args: BatchGetRecordCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRecordCommand}
+   */
+  deleteRecord(args: DeleteRecordCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRecordCommandOutput>;
+  deleteRecord(args: DeleteRecordCommandInput, cb: (err: any, data?: DeleteRecordCommandOutput) => void): void;
+  deleteRecord(
+    args: DeleteRecordCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRecordCommand}
+   */
+  getRecord(args: GetRecordCommandInput, options?: __HttpHandlerOptions): Promise<GetRecordCommandOutput>;
+  getRecord(args: GetRecordCommandInput, cb: (err: any, data?: GetRecordCommandOutput) => void): void;
+  getRecord(
+    args: GetRecordCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutRecordCommand}
+   */
+  putRecord(args: PutRecordCommandInput, options?: __HttpHandlerOptions): Promise<PutRecordCommandOutput>;
+  putRecord(args: PutRecordCommandInput, cb: (err: any, data?: PutRecordCommandOutput) => void): void;
+  putRecord(
+    args: PutRecordCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRecordCommandOutput) => void
+  ): void;
+}
 
 /**
+ * @public
  * <p>Contains all data plane API operations and data types for the Amazon SageMaker Feature
  *          Store. Use this API to put, delete, and retrieve (get) features from a feature
  *          store.</p>
@@ -44,124 +105,7 @@ import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRunti
  *             </li>
  *          </ul>
  */
-export class SageMakerFeatureStoreRuntime extends SageMakerFeatureStoreRuntimeClient {
-  /**
-   * <p>Retrieves a batch of <code>Records</code> from a <code>FeatureGroup</code>.</p>
-   */
-  public batchGetRecord(
-    args: BatchGetRecordCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetRecordCommandOutput>;
-  public batchGetRecord(
-    args: BatchGetRecordCommandInput,
-    cb: (err: any, data?: BatchGetRecordCommandOutput) => void
-  ): void;
-  public batchGetRecord(
-    args: BatchGetRecordCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetRecordCommandOutput) => void
-  ): void;
-  public batchGetRecord(
-    args: BatchGetRecordCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetRecordCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetRecordCommandOutput) => void
-  ): Promise<BatchGetRecordCommandOutput> | void {
-    const command = new BatchGetRecordCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code>. When the <code>DeleteRecord</code> API is called a new record will be added to the <code>OfflineStore</code> and the <code>Record</code> will be removed from the <code>OnlineStore</code>. This
-   *          record will have a value of <code>True</code> in the <code>is_deleted</code> column.</p>
-   */
-  public deleteRecord(
-    args: DeleteRecordCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRecordCommandOutput>;
-  public deleteRecord(args: DeleteRecordCommandInput, cb: (err: any, data?: DeleteRecordCommandOutput) => void): void;
-  public deleteRecord(
-    args: DeleteRecordCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteRecordCommandOutput) => void
-  ): void;
-  public deleteRecord(
-    args: DeleteRecordCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRecordCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRecordCommandOutput) => void
-  ): Promise<DeleteRecordCommandOutput> | void {
-    const command = new DeleteRecordCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Use for <code>OnlineStore</code> serving from a <code>FeatureStore</code>. Only the
-   *          latest records stored in the <code>OnlineStore</code> can be retrieved. If no Record with
-   *             <code>RecordIdentifierValue</code> is found, then an empty result is returned. </p>
-   */
-  public getRecord(args: GetRecordCommandInput, options?: __HttpHandlerOptions): Promise<GetRecordCommandOutput>;
-  public getRecord(args: GetRecordCommandInput, cb: (err: any, data?: GetRecordCommandOutput) => void): void;
-  public getRecord(
-    args: GetRecordCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetRecordCommandOutput) => void
-  ): void;
-  public getRecord(
-    args: GetRecordCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecordCommandOutput) => void),
-    cb?: (err: any, data?: GetRecordCommandOutput) => void
-  ): Promise<GetRecordCommandOutput> | void {
-    const command = new GetRecordCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Used for data ingestion into the <code>FeatureStore</code>. The <code>PutRecord</code>
-   *          API writes to both the <code>OnlineStore</code> and <code>OfflineStore</code>. If the
-   *          record is the latest record for the <code>recordIdentifier</code>, the record is written to
-   *          both the <code>OnlineStore</code> and <code>OfflineStore</code>. If the record is a
-   *          historic record, it is written only to the <code>OfflineStore</code>.</p>
-   */
-  public putRecord(args: PutRecordCommandInput, options?: __HttpHandlerOptions): Promise<PutRecordCommandOutput>;
-  public putRecord(args: PutRecordCommandInput, cb: (err: any, data?: PutRecordCommandOutput) => void): void;
-  public putRecord(
-    args: PutRecordCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutRecordCommandOutput) => void
-  ): void;
-  public putRecord(
-    args: PutRecordCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRecordCommandOutput) => void),
-    cb?: (err: any, data?: PutRecordCommandOutput) => void
-  ): Promise<PutRecordCommandOutput> | void {
-    const command = new PutRecordCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class SageMakerFeatureStoreRuntime
+  extends SageMakerFeatureStoreRuntimeClient
+  implements SageMakerFeatureStoreRuntime {}
+createAggregatedClient(commands, SageMakerFeatureStoreRuntime);

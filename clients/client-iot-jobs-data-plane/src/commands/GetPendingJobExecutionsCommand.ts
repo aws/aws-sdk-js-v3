@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
-import {
-  GetPendingJobExecutionsRequest,
-  GetPendingJobExecutionsRequestFilterSensitiveLog,
-  GetPendingJobExecutionsResponse,
-  GetPendingJobExecutionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPendingJobExecutionsCommand,
-  serializeAws_restJson1GetPendingJobExecutionsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPendingJobExecutionsRequest, GetPendingJobExecutionsResponse } from "../models/models_0";
+import { de_GetPendingJobExecutionsCommand, se_GetPendingJobExecutionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPendingJobExecutionsCommand}.
  */
 export interface GetPendingJobExecutionsCommandInput extends GetPendingJobExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPendingJobExecutionsCommand}.
  */
 export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the list of all jobs for a thing that are not in a terminal status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
  * import { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
  * // const { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
+ * const input = { // GetPendingJobExecutionsRequest
+ *   thingName: "STRING_VALUE", // required
+ * };
  * const command = new GetPendingJobExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPendingJobExecutionsCommandInput - {@link GetPendingJobExecutionsCommandInput}
+ * @returns {@link GetPendingJobExecutionsCommandOutput}
  * @see {@link GetPendingJobExecutionsCommandInput} for command's `input` shape.
  * @see {@link GetPendingJobExecutionsCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetPendingJobExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPendingJobExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class GetPendingJobExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPendingJobExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPendingJobExecutionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class GetPendingJobExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPendingJobExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPendingJobExecutionsCommand(input, context);
+    return se_GetPendingJobExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPendingJobExecutionsCommandOutput> {
-    return deserializeAws_restJson1GetPendingJobExecutionsCommand(output, context);
+    return de_GetPendingJobExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  RefreshSchemasMessage,
-  RefreshSchemasMessageFilterSensitiveLog,
-  RefreshSchemasResponse,
-  RefreshSchemasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RefreshSchemasCommand,
-  serializeAws_json1_1RefreshSchemasCommand,
-} from "../protocols/Aws_json1_1";
+import { RefreshSchemasMessage, RefreshSchemasResponse } from "../models/models_0";
+import { de_RefreshSchemasCommand, se_RefreshSchemasCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RefreshSchemasCommand}.
  */
 export interface RefreshSchemasCommandInput extends RefreshSchemasMessage {}
 /**
+ * @public
+ *
  * The output of {@link RefreshSchemasCommand}.
  */
 export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Populates the schema for the specified endpoint. This is an asynchronous operation and
  *          can take several minutes. You can check the status of this operation by calling the
  *          DescribeRefreshSchemasStatus operation.</p>
@@ -48,10 +45,16 @@ export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __M
  * import { DatabaseMigrationServiceClient, RefreshSchemasCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, RefreshSchemasCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // RefreshSchemasMessage
+ *   EndpointArn: "STRING_VALUE", // required
+ *   ReplicationInstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new RefreshSchemasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RefreshSchemasCommandInput - {@link RefreshSchemasCommandInput}
+ * @returns {@link RefreshSchemasCommandOutput}
  * @see {@link RefreshSchemasCommandInput} for command's `input` shape.
  * @see {@link RefreshSchemasCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -104,6 +107,9 @@ export class RefreshSchemasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RefreshSchemasCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +138,8 @@ export class RefreshSchemasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RefreshSchemasMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RefreshSchemasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +149,18 @@ export class RefreshSchemasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RefreshSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RefreshSchemasCommand(input, context);
+    return se_RefreshSchemasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RefreshSchemasCommandOutput> {
-    return deserializeAws_json1_1RefreshSchemasCommand(output, context);
+    return de_RefreshSchemasCommand(output, context);
   }
 
   // Start section: command_body_extra

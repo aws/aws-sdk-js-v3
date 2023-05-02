@@ -15,26 +15,27 @@ import {
 
 import {
   CreateWebLoginTokenRequest,
-  CreateWebLoginTokenRequestFilterSensitiveLog,
   CreateWebLoginTokenResponse,
   CreateWebLoginTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import {
-  deserializeAws_restJson1CreateWebLoginTokenCommand,
-  serializeAws_restJson1CreateWebLoginTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWebLoginTokenCommand, se_CreateWebLoginTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWebLoginTokenCommand}.
  */
 export interface CreateWebLoginTokenCommandInput extends CreateWebLoginTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWebLoginTokenCommand}.
  */
 export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a web login token for the Airflow Web UI. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html">Creating an Apache Airflow web login token</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  * import { MWAAClient, CreateWebLoginTokenCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, CreateWebLoginTokenCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
+ * const input = { // CreateWebLoginTokenRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new CreateWebLoginTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWebLoginTokenCommandInput - {@link CreateWebLoginTokenCommandInput}
+ * @returns {@link CreateWebLoginTokenCommandOutput}
  * @see {@link CreateWebLoginTokenCommandInput} for command's `input` shape.
  * @see {@link CreateWebLoginTokenCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
@@ -81,6 +87,9 @@ export class CreateWebLoginTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWebLoginTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,7 +118,7 @@ export class CreateWebLoginTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWebLoginTokenRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateWebLoginTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -120,12 +129,18 @@ export class CreateWebLoginTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWebLoginTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWebLoginTokenCommand(input, context);
+    return se_CreateWebLoginTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWebLoginTokenCommandOutput> {
-    return deserializeAws_restJson1CreateWebLoginTokenCommand(output, context);
+    return de_CreateWebLoginTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

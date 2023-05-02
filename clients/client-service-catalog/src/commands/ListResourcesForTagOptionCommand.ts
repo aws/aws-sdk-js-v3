@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResourcesForTagOptionInput,
-  ListResourcesForTagOptionInputFilterSensitiveLog,
-  ListResourcesForTagOptionOutput,
-  ListResourcesForTagOptionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourcesForTagOptionCommand,
-  serializeAws_json1_1ListResourcesForTagOptionCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResourcesForTagOptionInput, ListResourcesForTagOptionOutput } from "../models/models_0";
+import { de_ListResourcesForTagOptionCommand, se_ListResourcesForTagOptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourcesForTagOptionCommand}.
  */
 export interface ListResourcesForTagOptionCommandInput extends ListResourcesForTagOptionInput {}
 /**
+ * @public
+ *
  * The output of {@link ListResourcesForTagOptionCommand}.
  */
 export interface ListResourcesForTagOptionCommandOutput extends ListResourcesForTagOptionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resources associated with the specified TagOption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListResourcesForTagOptionCommandOutput extends ListResourcesFor
  * import { ServiceCatalogClient, ListResourcesForTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListResourcesForTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListResourcesForTagOptionInput
+ *   TagOptionId: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new ListResourcesForTagOptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesForTagOptionCommandInput - {@link ListResourcesForTagOptionCommandInput}
+ * @returns {@link ListResourcesForTagOptionCommandOutput}
  * @see {@link ListResourcesForTagOptionCommandInput} for command's `input` shape.
  * @see {@link ListResourcesForTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -80,6 +85,9 @@ export class ListResourcesForTagOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesForTagOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class ListResourcesForTagOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourcesForTagOptionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourcesForTagOptionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +127,21 @@ export class ListResourcesForTagOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourcesForTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourcesForTagOptionCommand(input, context);
+    return se_ListResourcesForTagOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourcesForTagOptionCommandOutput> {
-    return deserializeAws_json1_1ListResourcesForTagOptionCommand(output, context);
+    return de_ListResourcesForTagOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

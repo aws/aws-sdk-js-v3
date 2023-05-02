@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import { DeleteObjectInput, DeleteObjectInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteObjectCommand,
-  serializeAws_restJson1DeleteObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteObjectInput } from "../models/models_0";
+import { de_DeleteObjectCommand, se_DeleteObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteObjectCommand}.
  */
 export interface DeleteObjectCommandInput extends DeleteObjectInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteObjectCommand}.
  */
 export interface DeleteObjectCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Delete Object from the incremental base Backup.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteObjectCommandOutput extends __MetadataBearer {}
  * import { BackupStorageClient, DeleteObjectCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, DeleteObjectCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
+ * const input = { // DeleteObjectInput
+ *   BackupJobId: "STRING_VALUE", // required
+ *   ObjectName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
+ * @returns {@link DeleteObjectCommandOutput}
  * @see {@link DeleteObjectCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
@@ -85,6 +93,9 @@ export class DeleteObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +122,8 @@ export class DeleteObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteObjectInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +133,18 @@ export class DeleteObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteObjectCommand(input, context);
+    return se_DeleteObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectCommandOutput> {
-    return deserializeAws_restJson1DeleteObjectCommand(output, context);
+    return de_DeleteObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

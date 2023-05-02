@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMultipartUploadsOutput,
-  ListMultipartUploadsOutputFilterSensitiveLog,
-  ListMultipartUploadsRequest,
-  ListMultipartUploadsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListMultipartUploadsCommand,
-  serializeAws_restXmlListMultipartUploadsCommand,
-} from "../protocols/Aws_restXml";
+import { ListMultipartUploadsOutput, ListMultipartUploadsRequest } from "../models/models_0";
+import { de_ListMultipartUploadsCommand, se_ListMultipartUploadsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListMultipartUploadsCommand}.
  */
 export interface ListMultipartUploadsCommandInput extends ListMultipartUploadsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMultipartUploadsCommand}.
  */
 export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action lists in-progress multipart uploads. An in-progress multipart upload is a
  *          multipart upload that has been initiated using the Initiate Multipart Upload request, but
  *          has not yet been completed or aborted.</p>
@@ -87,10 +84,22 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * import { S3Client, ListMultipartUploadsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListMultipartUploadsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // ListMultipartUploadsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Delimiter: "STRING_VALUE",
+ *   EncodingType: "url",
+ *   KeyMarker: "STRING_VALUE",
+ *   MaxUploads: Number("int"),
+ *   Prefix: "STRING_VALUE",
+ *   UploadIdMarker: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new ListMultipartUploadsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMultipartUploadsCommandInput - {@link ListMultipartUploadsCommandInput}
+ * @returns {@link ListMultipartUploadsCommandOutput}
  * @see {@link ListMultipartUploadsCommandInput} for command's `input` shape.
  * @see {@link ListMultipartUploadsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -220,6 +229,9 @@ export class ListMultipartUploadsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMultipartUploadsCommandInput) {
     // Start section: command_constructor
     super();
@@ -248,8 +260,8 @@ export class ListMultipartUploadsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMultipartUploadsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMultipartUploadsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -259,12 +271,18 @@ export class ListMultipartUploadsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMultipartUploadsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListMultipartUploadsCommand(input, context);
+    return se_ListMultipartUploadsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMultipartUploadsCommandOutput> {
-    return deserializeAws_restXmlListMultipartUploadsCommand(output, context);
+    return de_ListMultipartUploadsCommand(output, context);
   }
 
   // Start section: command_body_extra

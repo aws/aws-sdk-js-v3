@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { PutOrganizationConformancePackRequest, PutOrganizationConformancePackResponse } from "../models/models_1";
 import {
-  PutOrganizationConformancePackRequest,
-  PutOrganizationConformancePackRequestFilterSensitiveLog,
-  PutOrganizationConformancePackResponse,
-  PutOrganizationConformancePackResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PutOrganizationConformancePackCommand,
-  serializeAws_json1_1PutOrganizationConformancePackCommand,
+  de_PutOrganizationConformancePackCommand,
+  se_PutOrganizationConformancePackCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutOrganizationConformancePackCommand}.
  */
 export interface PutOrganizationConformancePackCommandInput extends PutOrganizationConformancePackRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutOrganizationConformancePackCommand}.
  */
 export interface PutOrganizationConformancePackCommandOutput
@@ -37,6 +36,7 @@ export interface PutOrganizationConformancePackCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deploys conformance packs across member accounts in an Amazon Web Services Organization. For information on how many organization conformance packs and how many Config rules you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
@@ -63,10 +63,28 @@ export interface PutOrganizationConformancePackCommandOutput
  * import { ConfigServiceClient, PutOrganizationConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutOrganizationConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // PutOrganizationConformancePackRequest
+ *   OrganizationConformancePackName: "STRING_VALUE", // required
+ *   TemplateS3Uri: "STRING_VALUE",
+ *   TemplateBody: "STRING_VALUE",
+ *   DeliveryS3Bucket: "STRING_VALUE",
+ *   DeliveryS3KeyPrefix: "STRING_VALUE",
+ *   ConformancePackInputParameters: [ // ConformancePackInputParameters
+ *     { // ConformancePackInputParameter
+ *       ParameterName: "STRING_VALUE", // required
+ *       ParameterValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ExcludedAccounts: [ // ExcludedAccounts
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new PutOrganizationConformancePackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutOrganizationConformancePackCommandInput - {@link PutOrganizationConformancePackCommandInput}
+ * @returns {@link PutOrganizationConformancePackCommandOutput}
  * @see {@link PutOrganizationConformancePackCommandInput} for command's `input` shape.
  * @see {@link PutOrganizationConformancePackCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -181,6 +199,9 @@ export class PutOrganizationConformancePackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutOrganizationConformancePackCommandInput) {
     // Start section: command_constructor
     super();
@@ -209,8 +230,8 @@ export class PutOrganizationConformancePackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutOrganizationConformancePackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutOrganizationConformancePackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -220,18 +241,24 @@ export class PutOrganizationConformancePackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutOrganizationConformancePackCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutOrganizationConformancePackCommand(input, context);
+    return se_PutOrganizationConformancePackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutOrganizationConformancePackCommandOutput> {
-    return deserializeAws_json1_1PutOrganizationConformancePackCommand(output, context);
+    return de_PutOrganizationConformancePackCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListDataQualityJobDefinitionsRequest, ListDataQualityJobDefinitionsResponse } from "../models/models_3";
 import {
-  ListDataQualityJobDefinitionsRequest,
-  ListDataQualityJobDefinitionsRequestFilterSensitiveLog,
-  ListDataQualityJobDefinitionsResponse,
-  ListDataQualityJobDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListDataQualityJobDefinitionsCommand,
-  serializeAws_json1_1ListDataQualityJobDefinitionsCommand,
+  de_ListDataQualityJobDefinitionsCommand,
+  se_ListDataQualityJobDefinitionsCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataQualityJobDefinitionsCommand}.
  */
 export interface ListDataQualityJobDefinitionsCommandInput extends ListDataQualityJobDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataQualityJobDefinitionsCommand}.
  */
 export interface ListDataQualityJobDefinitionsCommandOutput
@@ -37,6 +36,7 @@ export interface ListDataQualityJobDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the data quality job definitions in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,22 @@ export interface ListDataQualityJobDefinitionsCommandOutput
  * import { SageMakerClient, ListDataQualityJobDefinitionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListDataQualityJobDefinitionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListDataQualityJobDefinitionsRequest
+ *   EndpointName: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ * };
  * const command = new ListDataQualityJobDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataQualityJobDefinitionsCommandInput - {@link ListDataQualityJobDefinitionsCommandInput}
+ * @returns {@link ListDataQualityJobDefinitionsCommandOutput}
  * @see {@link ListDataQualityJobDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +83,9 @@ export class ListDataQualityJobDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataQualityJobDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +114,8 @@ export class ListDataQualityJobDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataQualityJobDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataQualityJobDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +125,21 @@ export class ListDataQualityJobDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataQualityJobDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDataQualityJobDefinitionsCommand(input, context);
+    return se_ListDataQualityJobDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDataQualityJobDefinitionsCommandOutput> {
-    return deserializeAws_json1_1ListDataQualityJobDefinitionsCommand(output, context);
+    return de_ListDataQualityJobDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

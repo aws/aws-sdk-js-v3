@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDocumentMetadataRequest,
-  UpdateDocumentMetadataRequestFilterSensitiveLog,
-  UpdateDocumentMetadataResponse,
-  UpdateDocumentMetadataResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateDocumentMetadataCommand,
-  serializeAws_json1_1UpdateDocumentMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDocumentMetadataRequest, UpdateDocumentMetadataResponse } from "../models/models_2";
+import { de_UpdateDocumentMetadataCommand, se_UpdateDocumentMetadataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDocumentMetadataCommand}.
  */
 export interface UpdateDocumentMetadataCommandInput extends UpdateDocumentMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDocumentMetadataCommand}.
  */
 export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information related to approval reviews for a specific version of a change template
  *    in Change Manager.</p>
  * @example
@@ -43,10 +40,25 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  * import { SSMClient, UpdateDocumentMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateDocumentMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateDocumentMetadataRequest
+ *   Name: "STRING_VALUE", // required
+ *   DocumentVersion: "STRING_VALUE",
+ *   DocumentReviews: { // DocumentReviews
+ *     Action: "SendForReview" || "UpdateReview" || "Approve" || "Reject", // required
+ *     Comment: [ // DocumentReviewCommentList
+ *       { // DocumentReviewCommentSource
+ *         Type: "Comment",
+ *         Content: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateDocumentMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDocumentMetadataCommandInput - {@link UpdateDocumentMetadataCommandInput}
+ * @returns {@link UpdateDocumentMetadataCommandOutput}
  * @see {@link UpdateDocumentMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -83,6 +95,9 @@ export class UpdateDocumentMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDocumentMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +126,8 @@ export class UpdateDocumentMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDocumentMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDocumentMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +137,18 @@ export class UpdateDocumentMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDocumentMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDocumentMetadataCommand(input, context);
+    return se_UpdateDocumentMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentMetadataCommandOutput> {
-    return deserializeAws_json1_1UpdateDocumentMetadataCommand(output, context);
+    return de_UpdateDocumentMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

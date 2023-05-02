@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  ListFindingsFiltersRequest,
-  ListFindingsFiltersRequestFilterSensitiveLog,
-  ListFindingsFiltersResponse,
-  ListFindingsFiltersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFindingsFiltersCommand,
-  serializeAws_restJson1ListFindingsFiltersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFindingsFiltersRequest, ListFindingsFiltersResponse } from "../models/models_0";
+import { de_ListFindingsFiltersCommand, se_ListFindingsFiltersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFindingsFiltersCommand}.
  */
 export interface ListFindingsFiltersCommandInput extends ListFindingsFiltersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFindingsFiltersCommand}.
  */
 export interface ListFindingsFiltersCommandOutput extends ListFindingsFiltersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a subset of information about all the findings filters for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListFindingsFiltersCommandOutput extends ListFindingsFiltersRes
  * import { Macie2Client, ListFindingsFiltersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListFindingsFiltersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // ListFindingsFiltersRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListFindingsFiltersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFindingsFiltersCommandInput - {@link ListFindingsFiltersCommandInput}
+ * @returns {@link ListFindingsFiltersCommandOutput}
  * @see {@link ListFindingsFiltersCommandInput} for command's `input` shape.
  * @see {@link ListFindingsFiltersCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +93,9 @@ export class ListFindingsFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFindingsFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class ListFindingsFiltersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFindingsFiltersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFindingsFiltersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class ListFindingsFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFindingsFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFindingsFiltersCommand(input, context);
+    return se_ListFindingsFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFindingsFiltersCommandOutput> {
-    return deserializeAws_restJson1ListFindingsFiltersCommand(output, context);
+    return de_ListFindingsFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

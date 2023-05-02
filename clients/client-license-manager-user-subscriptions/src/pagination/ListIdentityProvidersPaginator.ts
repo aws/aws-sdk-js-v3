@@ -10,7 +10,7 @@ import { LicenseManagerUserSubscriptionsClient } from "../LicenseManagerUserSubs
 import { LicenseManagerUserSubscriptionsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LicenseManagerUserSubscriptionsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListIdentityProvidersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListIdentityProviders(
   config: LicenseManagerUserSubscriptionsPaginationConfiguration,
   input: ListIdentityProvidersCommandInput,

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import {
-  StartPolicyGenerationRequest,
-  StartPolicyGenerationRequestFilterSensitiveLog,
-  StartPolicyGenerationResponse,
-  StartPolicyGenerationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartPolicyGenerationCommand,
-  serializeAws_restJson1StartPolicyGenerationCommand,
-} from "../protocols/Aws_restJson1";
+import { StartPolicyGenerationRequest, StartPolicyGenerationResponse } from "../models/models_0";
+import { de_StartPolicyGenerationCommand, se_StartPolicyGenerationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartPolicyGenerationCommand}.
  */
 export interface StartPolicyGenerationCommandInput extends StartPolicyGenerationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartPolicyGenerationCommand}.
  */
 export interface StartPolicyGenerationCommandOutput extends StartPolicyGenerationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the policy generation request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,32 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
  * import { AccessAnalyzerClient, StartPolicyGenerationCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, StartPolicyGenerationCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = { // StartPolicyGenerationRequest
+ *   policyGenerationDetails: { // PolicyGenerationDetails
+ *     principalArn: "STRING_VALUE", // required
+ *   },
+ *   cloudTrailDetails: { // CloudTrailDetails
+ *     trails: [ // TrailList // required
+ *       { // Trail
+ *         cloudTrailArn: "STRING_VALUE", // required
+ *         regions: [ // RegionList
+ *           "STRING_VALUE",
+ *         ],
+ *         allRegions: true || false,
+ *       },
+ *     ],
+ *     accessRole: "STRING_VALUE", // required
+ *     startTime: new Date("TIMESTAMP"), // required
+ *     endTime: new Date("TIMESTAMP"),
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new StartPolicyGenerationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartPolicyGenerationCommandInput - {@link StartPolicyGenerationCommandInput}
+ * @returns {@link StartPolicyGenerationCommandOutput}
  * @see {@link StartPolicyGenerationCommandInput} for command's `input` shape.
  * @see {@link StartPolicyGenerationCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -87,6 +106,9 @@ export class StartPolicyGenerationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartPolicyGenerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +137,8 @@ export class StartPolicyGenerationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartPolicyGenerationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartPolicyGenerationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +148,18 @@ export class StartPolicyGenerationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartPolicyGenerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartPolicyGenerationCommand(input, context);
+    return se_StartPolicyGenerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPolicyGenerationCommandOutput> {
-    return deserializeAws_restJson1StartPolicyGenerationCommand(output, context);
+    return de_StartPolicyGenerationCommand(output, context);
   }
 
   // Start section: command_body_extra

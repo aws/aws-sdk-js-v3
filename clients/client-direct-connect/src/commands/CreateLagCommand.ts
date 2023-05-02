@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { CreateLagRequest, CreateLagRequestFilterSensitiveLog, Lag, LagFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_json1_1CreateLagCommand, serializeAws_json1_1CreateLagCommand } from "../protocols/Aws_json1_1";
+import { CreateLagRequest, Lag } from "../models/models_0";
+import { de_CreateLagCommand, se_CreateLagCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLagCommand}.
  */
 export interface CreateLagCommandInput extends CreateLagRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLagCommand}.
  */
 export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a link aggregation group (LAG) with the specified number of bundled
  *       physical dedicated connections between the customer network and a specific Direct Connect location.
  *       A LAG is a logical interface that uses the Link Aggregation Control Protocol
@@ -51,10 +56,33 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  * import { DirectConnectClient, CreateLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // CreateLagRequest
+ *   numberOfConnections: Number("int"), // required
+ *   location: "STRING_VALUE", // required
+ *   connectionsBandwidth: "STRING_VALUE", // required
+ *   lagName: "STRING_VALUE", // required
+ *   connectionId: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   childConnectionTags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   providerName: "STRING_VALUE",
+ *   requestMACSec: true || false,
+ * };
  * const command = new CreateLagCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLagCommandInput - {@link CreateLagCommandInput}
+ * @returns {@link CreateLagCommandOutput}
  * @see {@link CreateLagCommandInput} for command's `input` shape.
  * @see {@link CreateLagCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -90,6 +118,9 @@ export class CreateLagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLagCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +147,8 @@ export class CreateLagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLagRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LagFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +158,18 @@ export class CreateLagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLagCommand(input, context);
+    return se_CreateLagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLagCommandOutput> {
-    return deserializeAws_json1_1CreateLagCommand(output, context);
+    return de_CreateLagCommand(output, context);
   }
 
   // Start section: command_body_extra

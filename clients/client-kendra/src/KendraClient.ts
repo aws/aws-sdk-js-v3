@@ -62,6 +62,10 @@ import {
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
 import {
+  BatchDeleteFeaturedResultsSetCommandInput,
+  BatchDeleteFeaturedResultsSetCommandOutput,
+} from "./commands/BatchDeleteFeaturedResultsSetCommand";
+import {
   BatchGetDocumentStatusCommandInput,
   BatchGetDocumentStatusCommandOutput,
 } from "./commands/BatchGetDocumentStatusCommand";
@@ -77,6 +81,10 @@ import {
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateExperienceCommandInput, CreateExperienceCommandOutput } from "./commands/CreateExperienceCommand";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
+import {
+  CreateFeaturedResultsSetCommandInput,
+  CreateFeaturedResultsSetCommandOutput,
+} from "./commands/CreateFeaturedResultsSetCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
   CreateQuerySuggestionsBlockListCommandInput,
@@ -107,6 +115,10 @@ import {
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
 import { DescribeExperienceCommandInput, DescribeExperienceCommandOutput } from "./commands/DescribeExperienceCommand";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
+import {
+  DescribeFeaturedResultsSetCommandInput,
+  DescribeFeaturedResultsSetCommandOutput,
+} from "./commands/DescribeFeaturedResultsSetCommand";
 import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
 import {
   DescribePrincipalMappingCommandInput,
@@ -151,6 +163,10 @@ import {
 import { ListExperiencesCommandInput, ListExperiencesCommandOutput } from "./commands/ListExperiencesCommand";
 import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
 import {
+  ListFeaturedResultsSetsCommandInput,
+  ListFeaturedResultsSetsCommandOutput,
+} from "./commands/ListFeaturedResultsSetsCommand";
+import {
   ListGroupsOlderThanOrderingIdCommandInput,
   ListGroupsOlderThanOrderingIdCommandOutput,
 } from "./commands/ListGroupsOlderThanOrderingIdCommand";
@@ -186,6 +202,10 @@ import {
 } from "./commands/UpdateAccessControlConfigurationCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateExperienceCommandInput, UpdateExperienceCommandOutput } from "./commands/UpdateExperienceCommand";
+import {
+  UpdateFeaturedResultsSetCommandInput,
+  UpdateFeaturedResultsSetCommandOutput,
+} from "./commands/UpdateFeaturedResultsSetCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import {
   UpdateQuerySuggestionsBlockListCommandInput,
@@ -204,10 +224,14 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateEntitiesToExperienceCommandInput
   | AssociatePersonasToEntitiesCommandInput
   | BatchDeleteDocumentCommandInput
+  | BatchDeleteFeaturedResultsSetCommandInput
   | BatchGetDocumentStatusCommandInput
   | BatchPutDocumentCommandInput
   | ClearQuerySuggestionsCommandInput
@@ -215,6 +239,7 @@ export type ServiceInputTypes =
   | CreateDataSourceCommandInput
   | CreateExperienceCommandInput
   | CreateFaqCommandInput
+  | CreateFeaturedResultsSetCommandInput
   | CreateIndexCommandInput
   | CreateQuerySuggestionsBlockListCommandInput
   | CreateThesaurusCommandInput
@@ -230,6 +255,7 @@ export type ServiceInputTypes =
   | DescribeDataSourceCommandInput
   | DescribeExperienceCommandInput
   | DescribeFaqCommandInput
+  | DescribeFeaturedResultsSetCommandInput
   | DescribeIndexCommandInput
   | DescribePrincipalMappingCommandInput
   | DescribeQuerySuggestionsBlockListCommandInput
@@ -246,6 +272,7 @@ export type ServiceInputTypes =
   | ListExperienceEntitiesCommandInput
   | ListExperiencesCommandInput
   | ListFaqsCommandInput
+  | ListFeaturedResultsSetsCommandInput
   | ListGroupsOlderThanOrderingIdCommandInput
   | ListIndicesCommandInput
   | ListQuerySuggestionsBlockListsCommandInput
@@ -261,15 +288,20 @@ export type ServiceInputTypes =
   | UpdateAccessControlConfigurationCommandInput
   | UpdateDataSourceCommandInput
   | UpdateExperienceCommandInput
+  | UpdateFeaturedResultsSetCommandInput
   | UpdateIndexCommandInput
   | UpdateQuerySuggestionsBlockListCommandInput
   | UpdateQuerySuggestionsConfigCommandInput
   | UpdateThesaurusCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateEntitiesToExperienceCommandOutput
   | AssociatePersonasToEntitiesCommandOutput
   | BatchDeleteDocumentCommandOutput
+  | BatchDeleteFeaturedResultsSetCommandOutput
   | BatchGetDocumentStatusCommandOutput
   | BatchPutDocumentCommandOutput
   | ClearQuerySuggestionsCommandOutput
@@ -277,6 +309,7 @@ export type ServiceOutputTypes =
   | CreateDataSourceCommandOutput
   | CreateExperienceCommandOutput
   | CreateFaqCommandOutput
+  | CreateFeaturedResultsSetCommandOutput
   | CreateIndexCommandOutput
   | CreateQuerySuggestionsBlockListCommandOutput
   | CreateThesaurusCommandOutput
@@ -292,6 +325,7 @@ export type ServiceOutputTypes =
   | DescribeDataSourceCommandOutput
   | DescribeExperienceCommandOutput
   | DescribeFaqCommandOutput
+  | DescribeFeaturedResultsSetCommandOutput
   | DescribeIndexCommandOutput
   | DescribePrincipalMappingCommandOutput
   | DescribeQuerySuggestionsBlockListCommandOutput
@@ -308,6 +342,7 @@ export type ServiceOutputTypes =
   | ListExperienceEntitiesCommandOutput
   | ListExperiencesCommandOutput
   | ListFaqsCommandOutput
+  | ListFeaturedResultsSetsCommandOutput
   | ListGroupsOlderThanOrderingIdCommandOutput
   | ListIndicesCommandOutput
   | ListQuerySuggestionsBlockListsCommandOutput
@@ -323,11 +358,15 @@ export type ServiceOutputTypes =
   | UpdateAccessControlConfigurationCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateExperienceCommandOutput
+  | UpdateFeaturedResultsSetCommandOutput
   | UpdateIndexCommandOutput
   | UpdateQuerySuggestionsBlockListCommandOutput
   | UpdateQuerySuggestionsConfigCommandOutput
   | UpdateThesaurusCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -335,7 +374,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -444,11 +483,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type KendraClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -459,10 +501,15 @@ type KendraClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of KendraClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of KendraClient class constructor that set the region, credentials and other options.
  */
 export interface KendraClientConfig extends KendraClientConfigType {}
 
+/**
+ * @public
+ */
 type KendraClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -473,11 +520,14 @@ type KendraClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of KendraClient class. This is resolved and normalized from the {@link KendraClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of KendraClient class. This is resolved and normalized from the {@link KendraClientConfig | constructor configuration interface}.
  */
 export interface KendraClientResolvedConfig extends KendraClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Kendra is a service for indexing large document sets.</p>
  */
 export class KendraClient extends __Client<

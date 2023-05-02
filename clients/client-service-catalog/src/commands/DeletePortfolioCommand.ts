@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeletePortfolioInput,
-  DeletePortfolioInputFilterSensitiveLog,
-  DeletePortfolioOutput,
-  DeletePortfolioOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePortfolioCommand,
-  serializeAws_json1_1DeletePortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { DeletePortfolioInput, DeletePortfolioOutput } from "../models/models_0";
+import { de_DeletePortfolioCommand, se_DeletePortfolioCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePortfolioCommand}.
  */
 export interface DeletePortfolioCommandInput extends DeletePortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link DeletePortfolioCommand}.
  */
 export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified portfolio.</p>
  *          <p>You cannot delete a portfolio if it was shared with you or if it has associated
  *          products, users, constraints, or shared accounts.</p>
@@ -45,10 +42,16 @@ export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __M
  * import { ServiceCatalogClient, DeletePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeletePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DeletePortfolioInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeletePortfolioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePortfolioCommandInput - {@link DeletePortfolioCommandInput}
+ * @returns {@link DeletePortfolioCommandOutput}
  * @see {@link DeletePortfolioCommandInput} for command's `input` shape.
  * @see {@link DeletePortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -86,6 +89,9 @@ export class DeletePortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class DeletePortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePortfolioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePortfolioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class DeletePortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePortfolioCommand(input, context);
+    return se_DeletePortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePortfolioCommandOutput> {
-    return deserializeAws_json1_1DeletePortfolioCommand(output, context);
+    return de_DeletePortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

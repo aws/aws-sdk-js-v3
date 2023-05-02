@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateDocumentDefaultVersionRequest, UpdateDocumentDefaultVersionResult } from "../models/models_2";
 import {
-  UpdateDocumentDefaultVersionRequest,
-  UpdateDocumentDefaultVersionRequestFilterSensitiveLog,
-  UpdateDocumentDefaultVersionResult,
-  UpdateDocumentDefaultVersionResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateDocumentDefaultVersionCommand,
-  serializeAws_json1_1UpdateDocumentDefaultVersionCommand,
+  de_UpdateDocumentDefaultVersionCommand,
+  se_UpdateDocumentDefaultVersionCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDocumentDefaultVersionCommand}.
  */
 export interface UpdateDocumentDefaultVersionCommandInput extends UpdateDocumentDefaultVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDocumentDefaultVersionCommand}.
  */
 export interface UpdateDocumentDefaultVersionCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateDocumentDefaultVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set the default version of a document. </p>
  *          <note>
  *             <p>If you change a document version for a State Manager association, Systems Manager immediately runs
@@ -49,10 +49,16 @@ export interface UpdateDocumentDefaultVersionCommandOutput
  * import { SSMClient, UpdateDocumentDefaultVersionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateDocumentDefaultVersionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateDocumentDefaultVersionRequest
+ *   Name: "STRING_VALUE", // required
+ *   DocumentVersion: "STRING_VALUE", // required
+ * };
  * const command = new UpdateDocumentDefaultVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDocumentDefaultVersionCommandInput - {@link UpdateDocumentDefaultVersionCommandInput}
+ * @returns {@link UpdateDocumentDefaultVersionCommandOutput}
  * @see {@link UpdateDocumentDefaultVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentDefaultVersionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -88,6 +94,9 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDocumentDefaultVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +125,8 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDocumentDefaultVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDocumentDefaultVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +136,21 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDocumentDefaultVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDocumentDefaultVersionCommand(input, context);
+    return se_UpdateDocumentDefaultVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDocumentDefaultVersionCommandOutput> {
-    return deserializeAws_json1_1UpdateDocumentDefaultVersionCommand(output, context);
+    return de_UpdateDocumentDefaultVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DeleteTargetGroupInput,
-  DeleteTargetGroupInputFilterSensitiveLog,
-  DeleteTargetGroupOutput,
-  DeleteTargetGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteTargetGroupCommand,
-  serializeAws_queryDeleteTargetGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteTargetGroupInput, DeleteTargetGroupOutput } from "../models/models_0";
+import { de_DeleteTargetGroupCommand, se_DeleteTargetGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTargetGroupCommand}.
  */
 export interface DeleteTargetGroupCommandInput extends DeleteTargetGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTargetGroupCommand}.
  */
 export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified target group.</p>
  *          <p>You can delete a target group if it is not referenced by any actions. Deleting a target
  *       group also deletes any associated health checks. Deleting a target group does not affect its
@@ -50,10 +47,15 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * import { ElasticLoadBalancingV2Client, DeleteTargetGroupCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DeleteTargetGroupCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DeleteTargetGroupInput
+ *   TargetGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTargetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTargetGroupCommandInput - {@link DeleteTargetGroupCommandInput}
+ * @returns {@link DeleteTargetGroupCommandOutput}
  * @see {@link DeleteTargetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -91,6 +93,9 @@ export class DeleteTargetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTargetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class DeleteTargetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTargetGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTargetGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class DeleteTargetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteTargetGroupCommand(input, context);
+    return se_DeleteTargetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTargetGroupCommandOutput> {
-    return deserializeAws_queryDeleteTargetGroupCommand(output, context);
+    return de_DeleteTargetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

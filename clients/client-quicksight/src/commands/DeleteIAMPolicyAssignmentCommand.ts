@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteIAMPolicyAssignmentRequest,
-  DeleteIAMPolicyAssignmentRequestFilterSensitiveLog,
-  DeleteIAMPolicyAssignmentResponse,
-  DeleteIAMPolicyAssignmentResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteIAMPolicyAssignmentCommand,
-  serializeAws_restJson1DeleteIAMPolicyAssignmentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteIAMPolicyAssignmentRequest, DeleteIAMPolicyAssignmentResponse } from "../models/models_2";
+import { de_DeleteIAMPolicyAssignmentCommand, se_DeleteIAMPolicyAssignmentCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIAMPolicyAssignmentCommand}.
  */
 export interface DeleteIAMPolicyAssignmentCommandInput extends DeleteIAMPolicyAssignmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIAMPolicyAssignmentCommand}.
  */
 export interface DeleteIAMPolicyAssignmentCommandOutput extends DeleteIAMPolicyAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing IAM policy assignment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DeleteIAMPolicyAssignmentCommandOutput extends DeleteIAMPolicyA
  * import { QuickSightClient, DeleteIAMPolicyAssignmentCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteIAMPolicyAssignmentCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DeleteIAMPolicyAssignmentRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   AssignmentName: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIAMPolicyAssignmentCommandInput - {@link DeleteIAMPolicyAssignmentCommandInput}
+ * @returns {@link DeleteIAMPolicyAssignmentCommandOutput}
  * @see {@link DeleteIAMPolicyAssignmentCommandInput} for command's `input` shape.
  * @see {@link DeleteIAMPolicyAssignmentCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -94,6 +98,9 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIAMPolicyAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +129,8 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIAMPolicyAssignmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIAMPolicyAssignmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,15 +140,21 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIAMPolicyAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIAMPolicyAssignmentCommand(input, context);
+    return se_DeleteIAMPolicyAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteIAMPolicyAssignmentCommandOutput> {
-    return deserializeAws_restJson1DeleteIAMPolicyAssignmentCommand(output, context);
+    return de_DeleteIAMPolicyAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

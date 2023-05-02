@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeIpamResourceDiscoveriesRequest, DescribeIpamResourceDiscoveriesResult } from "../models/models_4";
 import {
-  DescribeIpamResourceDiscoveriesRequest,
-  DescribeIpamResourceDiscoveriesRequestFilterSensitiveLog,
-  DescribeIpamResourceDiscoveriesResult,
-  DescribeIpamResourceDiscoveriesResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeIpamResourceDiscoveriesCommand,
-  serializeAws_ec2DescribeIpamResourceDiscoveriesCommand,
+  de_DescribeIpamResourceDiscoveriesCommand,
+  se_DescribeIpamResourceDiscoveriesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIpamResourceDiscoveriesCommand}.
  */
 export interface DescribeIpamResourceDiscoveriesCommandInput extends DescribeIpamResourceDiscoveriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIpamResourceDiscoveriesCommand}.
  */
 export interface DescribeIpamResourceDiscoveriesCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeIpamResourceDiscoveriesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes IPAM resource discoveries. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,28 @@ export interface DescribeIpamResourceDiscoveriesCommandOutput
  * import { EC2Client, DescribeIpamResourceDiscoveriesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIpamResourceDiscoveriesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeIpamResourceDiscoveriesRequest
+ *   DryRun: true || false,
+ *   IpamResourceDiscoveryIds: [ // ValueStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DescribeIpamResourceDiscoveriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIpamResourceDiscoveriesCommandInput - {@link DescribeIpamResourceDiscoveriesCommandInput}
+ * @returns {@link DescribeIpamResourceDiscoveriesCommandOutput}
  * @see {@link DescribeIpamResourceDiscoveriesCommandInput} for command's `input` shape.
  * @see {@link DescribeIpamResourceDiscoveriesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +89,9 @@ export class DescribeIpamResourceDiscoveriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIpamResourceDiscoveriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +120,8 @@ export class DescribeIpamResourceDiscoveriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIpamResourceDiscoveriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIpamResourceDiscoveriesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +131,24 @@ export class DescribeIpamResourceDiscoveriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeIpamResourceDiscoveriesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIpamResourceDiscoveriesCommand(input, context);
+    return se_DescribeIpamResourceDiscoveriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIpamResourceDiscoveriesCommandOutput> {
-    return deserializeAws_ec2DescribeIpamResourceDiscoveriesCommand(output, context);
+    return de_DescribeIpamResourceDiscoveriesCommand(output, context);
   }
 
   // Start section: command_body_extra

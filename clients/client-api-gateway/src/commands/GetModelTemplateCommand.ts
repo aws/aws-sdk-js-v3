@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  GetModelTemplateRequest,
-  GetModelTemplateRequestFilterSensitiveLog,
-  Template,
-  TemplateFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetModelTemplateCommand,
-  serializeAws_restJson1GetModelTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { GetModelTemplateRequest, Template } from "../models/models_0";
+import { de_GetModelTemplateCommand, se_GetModelTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetModelTemplateCommand}.
  */
 export interface GetModelTemplateCommandInput extends GetModelTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetModelTemplateCommand}.
  */
 export interface GetModelTemplateCommandOutput extends Template, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a sample mapping template that can be used to transform a payload into the structure of a model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetModelTemplateCommandOutput extends Template, __MetadataBeare
  * import { APIGatewayClient, GetModelTemplateCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetModelTemplateCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetModelTemplateRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   modelName: "STRING_VALUE", // required
+ * };
  * const command = new GetModelTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetModelTemplateCommandInput - {@link GetModelTemplateCommandInput}
+ * @returns {@link GetModelTemplateCommandOutput}
  * @see {@link GetModelTemplateCommandInput} for command's `input` shape.
  * @see {@link GetModelTemplateCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +84,9 @@ export class GetModelTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetModelTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class GetModelTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetModelTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TemplateFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class GetModelTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetModelTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetModelTemplateCommand(input, context);
+    return se_GetModelTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelTemplateCommandOutput> {
-    return deserializeAws_restJson1GetModelTemplateCommand(output, context);
+    return de_GetModelTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

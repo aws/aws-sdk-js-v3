@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeactivateUserRequest, DeactivateUserRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeactivateUserCommand,
-  serializeAws_restJson1DeactivateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeactivateUserCommand, se_DeactivateUserCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivateUserCommand}.
  */
 export interface DeactivateUserCommandInput extends DeactivateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeactivateUserCommand}.
  */
 export interface DeactivateUserCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates the specified user, which revokes the user's access to Amazon
  *             WorkDocs.</p>
  * @example
@@ -38,10 +40,16 @@ export interface DeactivateUserCommandOutput extends __MetadataBearer {}
  * import { WorkDocsClient, DeactivateUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeactivateUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DeactivateUserRequest
+ *   UserId: "STRING_VALUE", // required
+ *   AuthenticationToken: "STRING_VALUE",
+ * };
  * const command = new DeactivateUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateUserCommandInput - {@link DeactivateUserCommandInput}
+ * @returns {@link DeactivateUserCommandOutput}
  * @see {@link DeactivateUserCommandInput} for command's `input` shape.
  * @see {@link DeactivateUserCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -82,6 +90,9 @@ export class DeactivateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,7 +122,7 @@ export class DeactivateUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeactivateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class DeactivateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeactivateUserCommand(input, context);
+    return se_DeactivateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateUserCommandOutput> {
-    return deserializeAws_restJson1DeactivateUserCommand(output, context);
+    return de_DeactivateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

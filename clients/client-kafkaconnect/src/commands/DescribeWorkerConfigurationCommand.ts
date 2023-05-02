@@ -16,20 +16,23 @@ import {
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import {
   DescribeWorkerConfigurationRequest,
-  DescribeWorkerConfigurationRequestFilterSensitiveLog,
   DescribeWorkerConfigurationResponse,
   DescribeWorkerConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeWorkerConfigurationCommand,
-  serializeAws_restJson1DescribeWorkerConfigurationCommand,
+  de_DescribeWorkerConfigurationCommand,
+  se_DescribeWorkerConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkerConfigurationCommand}.
  */
 export interface DescribeWorkerConfigurationCommandInput extends DescribeWorkerConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkerConfigurationCommand}.
  */
 export interface DescribeWorkerConfigurationCommandOutput
@@ -37,6 +40,7 @@ export interface DescribeWorkerConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a worker configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +48,15 @@ export interface DescribeWorkerConfigurationCommandOutput
  * import { KafkaConnectClient, DescribeWorkerConfigurationCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, DescribeWorkerConfigurationCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
+ * const input = { // DescribeWorkerConfigurationRequest
+ *   workerConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorkerConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkerConfigurationCommandInput - {@link DescribeWorkerConfigurationCommandInput}
+ * @returns {@link DescribeWorkerConfigurationCommandOutput}
  * @see {@link DescribeWorkerConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkerConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
@@ -98,6 +107,9 @@ export class DescribeWorkerConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkerConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,7 +138,7 @@ export class DescribeWorkerConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkerConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeWorkerConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -137,15 +149,21 @@ export class DescribeWorkerConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkerConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWorkerConfigurationCommand(input, context);
+    return se_DescribeWorkerConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkerConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeWorkerConfigurationCommand(output, context);
+    return de_DescribeWorkerConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

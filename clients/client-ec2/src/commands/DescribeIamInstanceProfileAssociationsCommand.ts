@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeIamInstanceProfileAssociationsRequest,
-  DescribeIamInstanceProfileAssociationsRequestFilterSensitiveLog,
   DescribeIamInstanceProfileAssociationsResult,
-  DescribeIamInstanceProfileAssociationsResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand,
-  serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand,
+  de_DescribeIamInstanceProfileAssociationsCommand,
+  se_DescribeIamInstanceProfileAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIamInstanceProfileAssociationsCommand}.
  */
 export interface DescribeIamInstanceProfileAssociationsCommandInput
   extends DescribeIamInstanceProfileAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIamInstanceProfileAssociationsCommand}.
  */
 export interface DescribeIamInstanceProfileAssociationsCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeIamInstanceProfileAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your IAM instance profile associations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,27 @@ export interface DescribeIamInstanceProfileAssociationsCommandOutput
  * import { EC2Client, DescribeIamInstanceProfileAssociationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIamInstanceProfileAssociationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeIamInstanceProfileAssociationsRequest
+ *   AssociationIds: [ // AssociationIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeIamInstanceProfileAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIamInstanceProfileAssociationsCommandInput - {@link DescribeIamInstanceProfileAssociationsCommandInput}
+ * @returns {@link DescribeIamInstanceProfileAssociationsCommandOutput}
  * @see {@link DescribeIamInstanceProfileAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeIamInstanceProfileAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -100,6 +120,9 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIamInstanceProfileAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +151,8 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIamInstanceProfileAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIamInstanceProfileAssociationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,18 +162,24 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeIamInstanceProfileAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(input, context);
+    return se_DescribeIamInstanceProfileAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIamInstanceProfileAssociationsCommandOutput> {
-    return deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(output, context);
+    return de_DescribeIamInstanceProfileAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

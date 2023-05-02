@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAttachedLinksInput,
-  ListAttachedLinksInputFilterSensitiveLog,
-  ListAttachedLinksOutput,
-  ListAttachedLinksOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAttachedLinksInput, ListAttachedLinksOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1ListAttachedLinksCommand,
-  serializeAws_restJson1ListAttachedLinksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAttachedLinksCommand, se_ListAttachedLinksCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttachedLinksCommand}.
  */
 export interface ListAttachedLinksCommandInput extends ListAttachedLinksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAttachedLinksCommand}.
  */
 export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of source account links that are linked to this monitoring account sink.</p>
  *         <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a>.</p>
  *         <p>To find a list of links for one source account, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html">ListLinks</a>.</p>
@@ -44,10 +41,17 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  * import { OAMClient, ListAttachedLinksCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, ListAttachedLinksCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = { // ListAttachedLinksInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SinkIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new ListAttachedLinksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttachedLinksCommandInput - {@link ListAttachedLinksCommandInput}
+ * @returns {@link ListAttachedLinksCommandOutput}
  * @see {@link ListAttachedLinksCommandInput} for command's `input` shape.
  * @see {@link ListAttachedLinksCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -83,6 +87,9 @@ export class ListAttachedLinksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttachedLinksCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +118,8 @@ export class ListAttachedLinksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttachedLinksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAttachedLinksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +129,18 @@ export class ListAttachedLinksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttachedLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAttachedLinksCommand(input, context);
+    return se_ListAttachedLinksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttachedLinksCommandOutput> {
-    return deserializeAws_restJson1ListAttachedLinksCommand(output, context);
+    return de_ListAttachedLinksCommand(output, context);
   }
 
   // Start section: command_body_extra

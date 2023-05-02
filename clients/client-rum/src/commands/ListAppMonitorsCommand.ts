@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAppMonitorsRequest,
-  ListAppMonitorsRequestFilterSensitiveLog,
-  ListAppMonitorsResponse,
-  ListAppMonitorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppMonitorsCommand,
-  serializeAws_restJson1ListAppMonitorsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAppMonitorsRequest, ListAppMonitorsResponse } from "../models/models_0";
+import { de_ListAppMonitorsCommand, se_ListAppMonitorsCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppMonitorsCommand}.
  */
 export interface ListAppMonitorsCommandInput extends ListAppMonitorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppMonitorsCommand}.
  */
 export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the Amazon CloudWatch RUM app monitors in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, _
  * import { RUMClient, ListAppMonitorsCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, ListAppMonitorsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = { // ListAppMonitorsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAppMonitorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppMonitorsCommandInput - {@link ListAppMonitorsCommandInput}
+ * @returns {@link ListAppMonitorsCommandOutput}
  * @see {@link ListAppMonitorsCommandInput} for command's `input` shape.
  * @see {@link ListAppMonitorsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListAppMonitorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppMonitorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class ListAppMonitorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppMonitorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppMonitorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class ListAppMonitorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppMonitorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppMonitorsCommand(input, context);
+    return se_ListAppMonitorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppMonitorsCommandOutput> {
-    return deserializeAws_restJson1ListAppMonitorsCommand(output, context);
+    return de_ListAppMonitorsCommand(output, context);
   }
 
   // Start section: command_body_extra

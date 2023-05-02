@@ -6,7 +6,7 @@ import { DevOpsGuruClient } from "../DevOpsGuruClient";
 import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DevOpsGuruClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEventsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListEvents(
   config: DevOpsGuruPaginationConfiguration,
   input: ListEventsCommandInput,

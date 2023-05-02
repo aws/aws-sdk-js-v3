@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
+import { DescribeNotificationsForBudgetRequest, DescribeNotificationsForBudgetResponse } from "../models/models_0";
 import {
-  DescribeNotificationsForBudgetRequest,
-  DescribeNotificationsForBudgetRequestFilterSensitiveLog,
-  DescribeNotificationsForBudgetResponse,
-  DescribeNotificationsForBudgetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeNotificationsForBudgetCommand,
-  serializeAws_json1_1DescribeNotificationsForBudgetCommand,
+  de_DescribeNotificationsForBudgetCommand,
+  se_DescribeNotificationsForBudgetCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNotificationsForBudgetCommand}.
  */
 export interface DescribeNotificationsForBudgetCommandInput extends DescribeNotificationsForBudgetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNotificationsForBudgetCommand}.
  */
 export interface DescribeNotificationsForBudgetCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeNotificationsForBudgetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the notifications that are associated with a budget.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,18 @@ export interface DescribeNotificationsForBudgetCommandOutput
  * import { BudgetsClient, DescribeNotificationsForBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeNotificationsForBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // DescribeNotificationsForBudgetRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeNotificationsForBudgetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNotificationsForBudgetCommandInput - {@link DescribeNotificationsForBudgetCommandInput}
+ * @returns {@link DescribeNotificationsForBudgetCommandOutput}
  * @see {@link DescribeNotificationsForBudgetCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationsForBudgetCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -94,6 +102,9 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotificationsForBudgetCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +133,8 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNotificationsForBudgetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNotificationsForBudgetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +144,24 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNotificationsForBudgetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNotificationsForBudgetCommand(input, context);
+    return se_DescribeNotificationsForBudgetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotificationsForBudgetCommandOutput> {
-    return deserializeAws_json1_1DescribeNotificationsForBudgetCommand(output, context);
+    return de_DescribeNotificationsForBudgetCommand(output, context);
   }
 
   // Start section: command_body_extra

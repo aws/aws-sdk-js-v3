@@ -16,20 +16,22 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeNetworkInterfacePermissionsRequest,
-  DescribeNetworkInterfacePermissionsRequestFilterSensitiveLog,
   DescribeNetworkInterfacePermissionsResult,
-  DescribeNetworkInterfacePermissionsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeNetworkInterfacePermissionsCommand,
-  serializeAws_ec2DescribeNetworkInterfacePermissionsCommand,
+  de_DescribeNetworkInterfacePermissionsCommand,
+  se_DescribeNetworkInterfacePermissionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNetworkInterfacePermissionsCommand}.
  */
 export interface DescribeNetworkInterfacePermissionsCommandInput extends DescribeNetworkInterfacePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNetworkInterfacePermissionsCommand}.
  */
 export interface DescribeNetworkInterfacePermissionsCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeNetworkInterfacePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions for your network interfaces. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,27 @@ export interface DescribeNetworkInterfacePermissionsCommandOutput
  * import { EC2Client, DescribeNetworkInterfacePermissionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNetworkInterfacePermissionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeNetworkInterfacePermissionsRequest
+ *   NetworkInterfacePermissionIds: [ // NetworkInterfacePermissionIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeNetworkInterfacePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNetworkInterfacePermissionsCommandInput - {@link DescribeNetworkInterfacePermissionsCommandInput}
+ * @returns {@link DescribeNetworkInterfacePermissionsCommandOutput}
  * @see {@link DescribeNetworkInterfacePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInterfacePermissionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +91,9 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNetworkInterfacePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +122,8 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNetworkInterfacePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNetworkInterfacePermissionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +133,24 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNetworkInterfacePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNetworkInterfacePermissionsCommand(input, context);
+    return se_DescribeNetworkInterfacePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNetworkInterfacePermissionsCommandOutput> {
-    return deserializeAws_ec2DescribeNetworkInterfacePermissionsCommand(output, context);
+    return de_DescribeNetworkInterfacePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

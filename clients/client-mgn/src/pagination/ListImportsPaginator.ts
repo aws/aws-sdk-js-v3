@@ -6,7 +6,7 @@ import { MgnClient } from "../MgnClient";
 import { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MgnClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListImportsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListImports(
   config: MgnPaginationConfiguration,
   input: ListImportsCommandInput,

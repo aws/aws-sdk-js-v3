@@ -21,16 +21,20 @@ import {
   PutAppInstanceStreamingConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1PutAppInstanceStreamingConfigurationsCommand,
-  serializeAws_restJson1PutAppInstanceStreamingConfigurationsCommand,
+  de_PutAppInstanceStreamingConfigurationsCommand,
+  se_PutAppInstanceStreamingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAppInstanceStreamingConfigurationsCommand}.
  */
 export interface PutAppInstanceStreamingConfigurationsCommandInput
   extends PutAppInstanceStreamingConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAppInstanceStreamingConfigurationsCommand}.
  */
 export interface PutAppInstanceStreamingConfigurationsCommandOutput
@@ -38,6 +42,7 @@ export interface PutAppInstanceStreamingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>The data streaming configurations of an <code>AppInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +50,21 @@ export interface PutAppInstanceStreamingConfigurationsCommandOutput
  * import { ChimeClient, PutAppInstanceStreamingConfigurationsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutAppInstanceStreamingConfigurationsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // PutAppInstanceStreamingConfigurationsRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   AppInstanceStreamingConfigurations: [ // AppInstanceStreamingConfigurationList // required
+ *     { // AppInstanceStreamingConfiguration
+ *       AppInstanceDataType: "Channel" || "ChannelMessage", // required
+ *       ResourceArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutAppInstanceStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAppInstanceStreamingConfigurationsCommandInput - {@link PutAppInstanceStreamingConfigurationsCommandInput}
+ * @returns {@link PutAppInstanceStreamingConfigurationsCommandOutput}
  * @see {@link PutAppInstanceStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link PutAppInstanceStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +109,9 @@ export class PutAppInstanceStreamingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAppInstanceStreamingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,18 +151,24 @@ export class PutAppInstanceStreamingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutAppInstanceStreamingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAppInstanceStreamingConfigurationsCommand(input, context);
+    return se_PutAppInstanceStreamingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAppInstanceStreamingConfigurationsCommandOutput> {
-    return deserializeAws_restJson1PutAppInstanceStreamingConfigurationsCommand(output, context);
+    return de_PutAppInstanceStreamingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

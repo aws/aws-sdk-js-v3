@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { DeleteCloudFrontOriginAccessIdentityRequest } from "../models/models_1";
 import {
-  DeleteCloudFrontOriginAccessIdentityRequest,
-  DeleteCloudFrontOriginAccessIdentityRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand,
-  serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand,
+  de_DeleteCloudFrontOriginAccessIdentityCommand,
+  se_DeleteCloudFrontOriginAccessIdentityCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCloudFrontOriginAccessIdentityCommand}.
  */
 export interface DeleteCloudFrontOriginAccessIdentityCommandInput extends DeleteCloudFrontOriginAccessIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCloudFrontOriginAccessIdentityCommand}.
  */
 export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an origin access identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,16 @@ export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __Met
  * import { CloudFrontClient, DeleteCloudFrontOriginAccessIdentityCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteCloudFrontOriginAccessIdentityCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteCloudFrontOriginAccessIdentityRequest
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteCloudFrontOriginAccessIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCloudFrontOriginAccessIdentityCommandInput - {@link DeleteCloudFrontOriginAccessIdentityCommandInput}
+ * @returns {@link DeleteCloudFrontOriginAccessIdentityCommandOutput}
  * @see {@link DeleteCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
  * @see {@link DeleteCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -83,6 +91,9 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCloudFrontOriginAccessIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +122,8 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCloudFrontOriginAccessIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +133,24 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(input, context);
+    return se_DeleteCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> {
-    return deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(output, context);
+    return de_DeleteCloudFrontOriginAccessIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

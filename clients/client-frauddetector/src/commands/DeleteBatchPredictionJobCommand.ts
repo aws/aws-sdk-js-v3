@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  DeleteBatchPredictionJobRequest,
-  DeleteBatchPredictionJobRequestFilterSensitiveLog,
-  DeleteBatchPredictionJobResult,
-  DeleteBatchPredictionJobResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBatchPredictionJobCommand,
-  serializeAws_json1_1DeleteBatchPredictionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteBatchPredictionJobRequest, DeleteBatchPredictionJobResult } from "../models/models_0";
+import { de_DeleteBatchPredictionJobCommand, se_DeleteBatchPredictionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBatchPredictionJobCommand}.
  */
 export interface DeleteBatchPredictionJobCommandInput extends DeleteBatchPredictionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBatchPredictionJobCommand}.
  */
 export interface DeleteBatchPredictionJobCommandOutput extends DeleteBatchPredictionJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a batch prediction job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteBatchPredictionJobCommandOutput extends DeleteBatchPredic
  * import { FraudDetectorClient, DeleteBatchPredictionJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteBatchPredictionJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // DeleteBatchPredictionJobRequest
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBatchPredictionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBatchPredictionJobCommandInput - {@link DeleteBatchPredictionJobCommandInput}
+ * @returns {@link DeleteBatchPredictionJobCommandOutput}
  * @see {@link DeleteBatchPredictionJobCommandInput} for command's `input` shape.
  * @see {@link DeleteBatchPredictionJobCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -81,6 +83,9 @@ export class DeleteBatchPredictionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBatchPredictionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteBatchPredictionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBatchPredictionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBatchPredictionJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteBatchPredictionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBatchPredictionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBatchPredictionJobCommand(input, context);
+    return se_DeleteBatchPredictionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBatchPredictionJobCommandOutput> {
-    return deserializeAws_json1_1DeleteBatchPredictionJobCommand(output, context);
+    return de_DeleteBatchPredictionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

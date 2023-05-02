@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  CreateSlotTypeVersionRequest,
-  CreateSlotTypeVersionRequestFilterSensitiveLog,
-  CreateSlotTypeVersionResponse,
-  CreateSlotTypeVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSlotTypeVersionCommand,
-  serializeAws_restJson1CreateSlotTypeVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateSlotTypeVersionRequest, CreateSlotTypeVersionResponse } from "../models/models_0";
+import { de_CreateSlotTypeVersionCommand, se_CreateSlotTypeVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSlotTypeVersionCommand}.
  */
 export interface CreateSlotTypeVersionCommandInput extends CreateSlotTypeVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSlotTypeVersionCommand}.
  */
 export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of a slot type based on the
  *         <code>$LATEST</code> version of the specified slot type. If the
  *         <code>$LATEST</code> version of this resource has not changed since the
@@ -61,10 +58,16 @@ export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersio
  * import { LexModelBuildingServiceClient, CreateSlotTypeVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, CreateSlotTypeVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // CreateSlotTypeVersionRequest
+ *   name: "STRING_VALUE", // required
+ *   checksum: "STRING_VALUE",
+ * };
  * const command = new CreateSlotTypeVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSlotTypeVersionCommandInput - {@link CreateSlotTypeVersionCommandInput}
+ * @returns {@link CreateSlotTypeVersionCommandOutput}
  * @see {@link CreateSlotTypeVersionCommandInput} for command's `input` shape.
  * @see {@link CreateSlotTypeVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -112,6 +115,9 @@ export class CreateSlotTypeVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSlotTypeVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +146,8 @@ export class CreateSlotTypeVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSlotTypeVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSlotTypeVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,12 +157,18 @@ export class CreateSlotTypeVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSlotTypeVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSlotTypeVersionCommand(input, context);
+    return se_CreateSlotTypeVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSlotTypeVersionCommandOutput> {
-    return deserializeAws_restJson1CreateSlotTypeVersionCommand(output, context);
+    return de_CreateSlotTypeVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

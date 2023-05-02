@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
+import { DescribeWorkspaceConfigurationRequest, DescribeWorkspaceConfigurationResponse } from "../models/models_0";
 import {
-  DescribeWorkspaceConfigurationRequest,
-  DescribeWorkspaceConfigurationRequestFilterSensitiveLog,
-  DescribeWorkspaceConfigurationResponse,
-  DescribeWorkspaceConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeWorkspaceConfigurationCommand,
-  serializeAws_restJson1DescribeWorkspaceConfigurationCommand,
+  de_DescribeWorkspaceConfigurationCommand,
+  se_DescribeWorkspaceConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspaceConfigurationCommand}.
  */
 export interface DescribeWorkspaceConfigurationCommandInput extends DescribeWorkspaceConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspaceConfigurationCommand}.
  */
 export interface DescribeWorkspaceConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeWorkspaceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the current configuration string for the given workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface DescribeWorkspaceConfigurationCommandOutput
  * import { GrafanaClient, DescribeWorkspaceConfigurationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, DescribeWorkspaceConfigurationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // DescribeWorkspaceConfigurationRequest
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceConfigurationCommandInput - {@link DescribeWorkspaceConfigurationCommandInput}
+ * @returns {@link DescribeWorkspaceConfigurationCommandOutput}
  * @see {@link DescribeWorkspaceConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -83,6 +88,9 @@ export class DescribeWorkspaceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +119,8 @@ export class DescribeWorkspaceConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspaceConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +130,24 @@ export class DescribeWorkspaceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeWorkspaceConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWorkspaceConfigurationCommand(input, context);
+    return se_DescribeWorkspaceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspaceConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeWorkspaceConfigurationCommand(output, context);
+    return de_DescribeWorkspaceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

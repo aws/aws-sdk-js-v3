@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RespondActivityTaskFailedInput, RespondActivityTaskFailedInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0RespondActivityTaskFailedCommand,
-  serializeAws_json1_0RespondActivityTaskFailedCommand,
-} from "../protocols/Aws_json1_0";
+import { RespondActivityTaskFailedInput } from "../models/models_0";
+import { de_RespondActivityTaskFailedCommand, se_RespondActivityTaskFailedCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RespondActivityTaskFailedCommand}.
  */
 export interface RespondActivityTaskFailedCommandInput extends RespondActivityTaskFailedInput {}
 /**
+ * @public
+ *
  * The output of {@link RespondActivityTaskFailedCommand}.
  */
 export interface RespondActivityTaskFailedCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
  *       by the <code>taskToken</code> has failed with <code>reason</code> (if specified). The
  *         <code>reason</code> and <code>details</code> appear in the <code>ActivityTaskFailed</code>
@@ -69,10 +71,17 @@ export interface RespondActivityTaskFailedCommandOutput extends __MetadataBearer
  * import { SWFClient, RespondActivityTaskFailedCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RespondActivityTaskFailedCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // RespondActivityTaskFailedInput
+ *   taskToken: "STRING_VALUE", // required
+ *   reason: "STRING_VALUE",
+ *   details: "STRING_VALUE",
+ * };
  * const command = new RespondActivityTaskFailedCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RespondActivityTaskFailedCommandInput - {@link RespondActivityTaskFailedCommandInput}
+ * @returns {@link RespondActivityTaskFailedCommandOutput}
  * @see {@link RespondActivityTaskFailedCommandInput} for command's `input` shape.
  * @see {@link RespondActivityTaskFailedCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -102,6 +111,9 @@ export class RespondActivityTaskFailedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RespondActivityTaskFailedCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +142,8 @@ export class RespondActivityTaskFailedCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RespondActivityTaskFailedInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,15 +153,21 @@ export class RespondActivityTaskFailedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RespondActivityTaskFailedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RespondActivityTaskFailedCommand(input, context);
+    return se_RespondActivityTaskFailedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RespondActivityTaskFailedCommandOutput> {
-    return deserializeAws_json1_0RespondActivityTaskFailedCommand(output, context);
+    return de_RespondActivityTaskFailedCommand(output, context);
   }
 
   // Start section: command_body_extra

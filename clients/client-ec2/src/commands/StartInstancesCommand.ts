@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  StartInstancesRequest,
-  StartInstancesRequestFilterSensitiveLog,
-  StartInstancesResult,
-  StartInstancesResultFilterSensitiveLog,
-} from "../models/models_6";
-import { deserializeAws_ec2StartInstancesCommand, serializeAws_ec2StartInstancesCommand } from "../protocols/Aws_ec2";
+import { StartInstancesRequest, StartInstancesResult } from "../models/models_7";
+import { de_StartInstancesCommand, se_StartInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link StartInstancesCommand}.
  */
 export interface StartInstancesCommandInput extends StartInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartInstancesCommand}.
  */
 export interface StartInstancesCommandOutput extends StartInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p>
  *          <p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and
  *             started. When an instance is stopped, the compute resources are released and you are not
@@ -57,10 +57,19 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  * import { EC2Client, StartInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, StartInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // StartInstancesRequest
+ *   InstanceIds: [ // InstanceIdStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AdditionalInfo: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new StartInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartInstancesCommandInput - {@link StartInstancesCommandInput}
+ * @returns {@link StartInstancesCommandOutput}
  * @see {@link StartInstancesCommandInput} for command's `input` shape.
  * @see {@link StartInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -114,6 +123,9 @@ export class StartInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +154,8 @@ export class StartInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +165,18 @@ export class StartInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2StartInstancesCommand(input, context);
+    return se_StartInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInstancesCommandOutput> {
-    return deserializeAws_ec2StartInstancesCommand(output, context);
+    return de_StartInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import {
-  ConfigureLogsRequest,
-  ConfigureLogsRequestFilterSensitiveLog,
-  ConfigureLogsResponse,
-  ConfigureLogsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ConfigureLogsCommand,
-  serializeAws_restJson1ConfigureLogsCommand,
-} from "../protocols/Aws_restJson1";
+import { ConfigureLogsRequest, ConfigureLogsResponse } from "../models/models_0";
+import { de_ConfigureLogsCommand, se_ConfigureLogsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfigureLogsCommand}.
  */
 export interface ConfigureLogsCommandInput extends ConfigureLogsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfigureLogsCommand}.
  */
 export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Changes the packaging group's properities to configure log subscription
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  * import { MediaPackageVodClient, ConfigureLogsCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, ConfigureLogsCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
+ * const input = { // ConfigureLogsRequest
+ *   EgressAccessLogs: { // EgressAccessLogs
+ *     LogGroupName: "STRING_VALUE",
+ *   },
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new ConfigureLogsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfigureLogsCommandInput - {@link ConfigureLogsCommandInput}
+ * @returns {@link ConfigureLogsCommandOutput}
  * @see {@link ConfigureLogsCommandInput} for command's `input` shape.
  * @see {@link ConfigureLogsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
@@ -87,6 +92,9 @@ export class ConfigureLogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfigureLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class ConfigureLogsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfigureLogsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigureLogsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +132,18 @@ export class ConfigureLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfigureLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfigureLogsCommand(input, context);
+    return se_ConfigureLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureLogsCommandOutput> {
-    return deserializeAws_restJson1ConfigureLogsCommand(output, context);
+    return de_ConfigureLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSigningProfilesRequest,
-  ListSigningProfilesRequestFilterSensitiveLog,
-  ListSigningProfilesResponse,
-  ListSigningProfilesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSigningProfilesCommand,
-  serializeAws_restJson1ListSigningProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSigningProfilesRequest, ListSigningProfilesResponse } from "../models/models_0";
+import { de_ListSigningProfilesCommand, se_ListSigningProfilesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSigningProfilesCommand}.
  */
 export interface ListSigningProfilesCommandInput extends ListSigningProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSigningProfilesCommand}.
  */
 export interface ListSigningProfilesCommandOutput extends ListSigningProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available signing profiles in your AWS account. Returns only profiles with
  * 			an <code>ACTIVE</code> status unless the <code>includeCanceled</code> request field is
  * 			set to <code>true</code>. If additional jobs remain to be listed, code signing returns a
@@ -49,10 +46,21 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  * import { SignerClient, ListSigningProfilesCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, ListSigningProfilesCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = { // ListSigningProfilesRequest
+ *   includeCanceled: true || false,
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   platformId: "STRING_VALUE",
+ *   statuses: [ // Statuses
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListSigningProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSigningProfilesCommandInput - {@link ListSigningProfilesCommandInput}
+ * @returns {@link ListSigningProfilesCommandOutput}
  * @see {@link ListSigningProfilesCommandInput} for command's `input` shape.
  * @see {@link ListSigningProfilesCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -86,6 +94,9 @@ export class ListSigningProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSigningProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +125,8 @@ export class ListSigningProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSigningProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSigningProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +136,18 @@ export class ListSigningProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSigningProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSigningProfilesCommand(input, context);
+    return se_ListSigningProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSigningProfilesCommandOutput> {
-    return deserializeAws_restJson1ListSigningProfilesCommand(output, context);
+    return de_ListSigningProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

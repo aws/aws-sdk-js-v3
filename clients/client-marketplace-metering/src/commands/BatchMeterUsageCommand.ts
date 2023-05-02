@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import {
-  BatchMeterUsageRequest,
-  BatchMeterUsageRequestFilterSensitiveLog,
-  BatchMeterUsageResult,
-  BatchMeterUsageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchMeterUsageCommand,
-  serializeAws_json1_1BatchMeterUsageCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchMeterUsageRequest, BatchMeterUsageResult } from "../models/models_0";
+import { de_BatchMeterUsageCommand, se_BatchMeterUsageCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchMeterUsageCommand}.
  */
 export interface BatchMeterUsageCommandInput extends BatchMeterUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchMeterUsageCommand}.
  */
 export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>BatchMeterUsage</code> is called from a SaaS application listed on AWS
  *             Marketplace to post metering records for a set of customers.</p>
@@ -72,10 +69,34 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * import { MarketplaceMeteringClient, BatchMeterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, BatchMeterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
  * const client = new MarketplaceMeteringClient(config);
+ * const input = { // BatchMeterUsageRequest
+ *   UsageRecords: [ // UsageRecordList // required
+ *     { // UsageRecord
+ *       Timestamp: new Date("TIMESTAMP"), // required
+ *       CustomerIdentifier: "STRING_VALUE", // required
+ *       Dimension: "STRING_VALUE", // required
+ *       Quantity: Number("int"),
+ *       UsageAllocations: [ // UsageAllocations
+ *         { // UsageAllocation
+ *           AllocatedUsageQuantity: Number("int"), // required
+ *           Tags: [ // TagList
+ *             { // Tag
+ *               Key: "STRING_VALUE", // required
+ *               Value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ProductCode: "STRING_VALUE", // required
+ * };
  * const command = new BatchMeterUsageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchMeterUsageCommandInput - {@link BatchMeterUsageCommandInput}
+ * @returns {@link BatchMeterUsageCommandOutput}
  * @see {@link BatchMeterUsageCommandInput} for command's `input` shape.
  * @see {@link BatchMeterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
@@ -135,6 +156,9 @@ export class BatchMeterUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchMeterUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,8 +187,8 @@ export class BatchMeterUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchMeterUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchMeterUsageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -174,12 +198,18 @@ export class BatchMeterUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchMeterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchMeterUsageCommand(input, context);
+    return se_BatchMeterUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchMeterUsageCommandOutput> {
-    return deserializeAws_json1_1BatchMeterUsageCommand(output, context);
+    return de_BatchMeterUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

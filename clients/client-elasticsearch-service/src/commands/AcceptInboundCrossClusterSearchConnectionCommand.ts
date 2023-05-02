@@ -20,21 +20,23 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   AcceptInboundCrossClusterSearchConnectionRequest,
-  AcceptInboundCrossClusterSearchConnectionRequestFilterSensitiveLog,
   AcceptInboundCrossClusterSearchConnectionResponse,
-  AcceptInboundCrossClusterSearchConnectionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommand,
-  serializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommand,
+  de_AcceptInboundCrossClusterSearchConnectionCommand,
+  se_AcceptInboundCrossClusterSearchConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptInboundCrossClusterSearchConnectionCommand}.
  */
 export interface AcceptInboundCrossClusterSearchConnectionCommandInput
   extends AcceptInboundCrossClusterSearchConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptInboundCrossClusterSearchConnectionCommand}.
  */
 export interface AcceptInboundCrossClusterSearchConnectionCommandOutput
@@ -42,6 +44,7 @@ export interface AcceptInboundCrossClusterSearchConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the destination domain owner to accept an inbound cross-cluster search connection request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +52,15 @@ export interface AcceptInboundCrossClusterSearchConnectionCommandOutput
  * import { ElasticsearchServiceClient, AcceptInboundCrossClusterSearchConnectionCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, AcceptInboundCrossClusterSearchConnectionCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // AcceptInboundCrossClusterSearchConnectionRequest
+ *   CrossClusterSearchConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptInboundCrossClusterSearchConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptInboundCrossClusterSearchConnectionCommandInput - {@link AcceptInboundCrossClusterSearchConnectionCommandInput}
+ * @returns {@link AcceptInboundCrossClusterSearchConnectionCommandOutput}
  * @see {@link AcceptInboundCrossClusterSearchConnectionCommandInput} for command's `input` shape.
  * @see {@link AcceptInboundCrossClusterSearchConnectionCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -85,6 +93,9 @@ export class AcceptInboundCrossClusterSearchConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptInboundCrossClusterSearchConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +130,8 @@ export class AcceptInboundCrossClusterSearchConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptInboundCrossClusterSearchConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptInboundCrossClusterSearchConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +141,24 @@ export class AcceptInboundCrossClusterSearchConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AcceptInboundCrossClusterSearchConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommand(input, context);
+    return se_AcceptInboundCrossClusterSearchConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptInboundCrossClusterSearchConnectionCommandOutput> {
-    return deserializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommand(output, context);
+    return de_AcceptInboundCrossClusterSearchConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

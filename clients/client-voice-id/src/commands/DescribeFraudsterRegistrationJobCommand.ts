@@ -15,21 +15,24 @@ import {
 
 import {
   DescribeFraudsterRegistrationJobRequest,
-  DescribeFraudsterRegistrationJobRequestFilterSensitiveLog,
   DescribeFraudsterRegistrationJobResponse,
   DescribeFraudsterRegistrationJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeFraudsterRegistrationJobCommand,
-  serializeAws_json1_0DescribeFraudsterRegistrationJobCommand,
+  de_DescribeFraudsterRegistrationJobCommand,
+  se_DescribeFraudsterRegistrationJobCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFraudsterRegistrationJobCommand}.
  */
 export interface DescribeFraudsterRegistrationJobCommandInput extends DescribeFraudsterRegistrationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFraudsterRegistrationJobCommand}.
  */
 export interface DescribeFraudsterRegistrationJobCommandOutput
@@ -37,6 +40,7 @@ export interface DescribeFraudsterRegistrationJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified fraudster registration job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +48,16 @@ export interface DescribeFraudsterRegistrationJobCommandOutput
  * import { VoiceIDClient, DescribeFraudsterRegistrationJobCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DescribeFraudsterRegistrationJobCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = { // DescribeFraudsterRegistrationJobRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFraudsterRegistrationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFraudsterRegistrationJobCommandInput - {@link DescribeFraudsterRegistrationJobCommandInput}
+ * @returns {@link DescribeFraudsterRegistrationJobCommandOutput}
  * @see {@link DescribeFraudsterRegistrationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeFraudsterRegistrationJobCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -92,6 +102,9 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFraudsterRegistrationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,7 +133,7 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFraudsterRegistrationJobRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeFraudsterRegistrationJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -131,18 +144,24 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFraudsterRegistrationJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeFraudsterRegistrationJobCommand(input, context);
+    return se_DescribeFraudsterRegistrationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFraudsterRegistrationJobCommandOutput> {
-    return deserializeAws_json1_0DescribeFraudsterRegistrationJobCommand(output, context);
+    return de_DescribeFraudsterRegistrationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

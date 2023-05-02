@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRegistryRequest,
-  CreateRegistryRequestFilterSensitiveLog,
-  CreateRegistryResponse,
-  CreateRegistryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRegistryCommand,
-  serializeAws_restJson1CreateRegistryCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRegistryRequest, CreateRegistryResponse } from "../models/models_0";
+import { de_CreateRegistryCommand, se_CreateRegistryCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRegistryCommand}.
  */
 export interface CreateRegistryCommandInput extends CreateRegistryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRegistryCommand}.
  */
 export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * import { SchemasClient, CreateRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, CreateRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // CreateRegistryRequest
+ *   Description: "STRING_VALUE",
+ *   RegistryName: "STRING_VALUE", // required
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateRegistryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRegistryCommandInput - {@link CreateRegistryCommandInput}
+ * @returns {@link CreateRegistryCommandOutput}
  * @see {@link CreateRegistryCommandInput} for command's `input` shape.
  * @see {@link CreateRegistryCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +87,9 @@ export class CreateRegistryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRegistryCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +118,8 @@ export class CreateRegistryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRegistryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRegistryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +129,18 @@ export class CreateRegistryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRegistryCommand(input, context);
+    return se_CreateRegistryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRegistryCommandOutput> {
-    return deserializeAws_restJson1CreateRegistryCommand(output, context);
+    return de_CreateRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

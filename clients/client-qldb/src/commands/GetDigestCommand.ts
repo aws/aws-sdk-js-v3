@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDigestRequest,
-  GetDigestRequestFilterSensitiveLog,
-  GetDigestResponse,
-  GetDigestResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDigestCommand,
-  serializeAws_restJson1GetDigestCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDigestRequest, GetDigestResponse, GetDigestResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetDigestCommand, se_GetDigestCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDigestCommand}.
  */
 export interface GetDigestCommandInput extends GetDigestRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDigestCommand}.
  */
 export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the digest of a ledger at the latest committed block in the journal. The
  *          response includes a 256-bit hash value and a block address.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBea
  * import { QLDBClient, GetDigestCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, GetDigestCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // GetDigestRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetDigestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDigestCommandInput - {@link GetDigestCommandInput}
+ * @returns {@link GetDigestCommandOutput}
  * @see {@link GetDigestCommandInput} for command's `input` shape.
  * @see {@link GetDigestCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -79,6 +81,9 @@ export class GetDigestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDigestCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,7 +110,7 @@ export class GetDigestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDigestRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDigestResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -116,12 +121,18 @@ export class GetDigestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDigestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDigestCommand(input, context);
+    return se_GetDigestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDigestCommandOutput> {
-    return deserializeAws_restJson1GetDigestCommand(output, context);
+    return de_GetDigestCommand(output, context);
   }
 
   // Start section: command_body_extra

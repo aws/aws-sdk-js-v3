@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteFirewallPolicyRequest,
-  DeleteFirewallPolicyRequestFilterSensitiveLog,
-  DeleteFirewallPolicyResponse,
-  DeleteFirewallPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFirewallPolicyRequest, DeleteFirewallPolicyResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DeleteFirewallPolicyCommand,
-  serializeAws_json1_0DeleteFirewallPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteFirewallPolicyCommand, se_DeleteFirewallPolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFirewallPolicyCommand}.
  */
 export interface DeleteFirewallPolicyCommandInput extends DeleteFirewallPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFirewallPolicyCommand}.
  */
 export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified <a>FirewallPolicy</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  * import { NetworkFirewallClient, DeleteFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DeleteFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // DeleteFirewallPolicyRequest
+ *   FirewallPolicyName: "STRING_VALUE",
+ *   FirewallPolicyArn: "STRING_VALUE",
+ * };
  * const command = new DeleteFirewallPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFirewallPolicyCommandInput - {@link DeleteFirewallPolicyCommandInput}
+ * @returns {@link DeleteFirewallPolicyCommandOutput}
  * @see {@link DeleteFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -102,6 +105,9 @@ export class DeleteFirewallPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFirewallPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +136,8 @@ export class DeleteFirewallPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFirewallPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFirewallPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +147,18 @@ export class DeleteFirewallPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFirewallPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteFirewallPolicyCommand(input, context);
+    return se_DeleteFirewallPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFirewallPolicyCommandOutput> {
-    return deserializeAws_json1_0DeleteFirewallPolicyCommand(output, context);
+    return de_DeleteFirewallPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

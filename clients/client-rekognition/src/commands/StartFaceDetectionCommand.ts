@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartFaceDetectionRequest,
-  StartFaceDetectionRequestFilterSensitiveLog,
-  StartFaceDetectionResponse,
-  StartFaceDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartFaceDetectionCommand,
-  serializeAws_json1_1StartFaceDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartFaceDetectionRequest, StartFaceDetectionResponse } from "../models/models_0";
+import { de_StartFaceDetectionCommand, se_StartFaceDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartFaceDetectionCommand}.
  */
 export interface StartFaceDetectionCommandInput extends StartFaceDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFaceDetectionCommand}.
  */
 export interface StartFaceDetectionCommandOutput extends StartFaceDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts asynchronous detection of faces in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect faces in a video stored in an Amazon S3 bucket.
  *        Use <a>Video</a> to specify the bucket name and the filename of the video.
@@ -53,10 +50,28 @@ export interface StartFaceDetectionCommandOutput extends StartFaceDetectionRespo
  * import { RekognitionClient, StartFaceDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartFaceDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartFaceDetectionRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   FaceAttributes: "DEFAULT" || "ALL",
+ *   JobTag: "STRING_VALUE",
+ * };
  * const command = new StartFaceDetectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFaceDetectionCommandInput - {@link StartFaceDetectionCommandInput}
+ * @returns {@link StartFaceDetectionCommandOutput}
  * @see {@link StartFaceDetectionCommandInput} for command's `input` shape.
  * @see {@link StartFaceDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -113,6 +128,9 @@ export class StartFaceDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFaceDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +159,8 @@ export class StartFaceDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFaceDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFaceDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +170,18 @@ export class StartFaceDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFaceDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartFaceDetectionCommand(input, context);
+    return se_StartFaceDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFaceDetectionCommandOutput> {
-    return deserializeAws_json1_1StartFaceDetectionCommand(output, context);
+    return de_StartFaceDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

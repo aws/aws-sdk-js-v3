@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetBucketStatisticsRequest,
-  GetBucketStatisticsRequestFilterSensitiveLog,
-  GetBucketStatisticsResponse,
-  GetBucketStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBucketStatisticsCommand,
-  serializeAws_restJson1GetBucketStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBucketStatisticsRequest, GetBucketStatisticsResponse } from "../models/models_0";
+import { de_GetBucketStatisticsCommand, se_GetBucketStatisticsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketStatisticsCommand}.
  */
 export interface GetBucketStatisticsCommandInput extends GetBucketStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketStatisticsCommand}.
  */
 export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) aggregated statistical data about all the S3 buckets that Amazon Macie monitors and analyzes for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsRes
  * import { Macie2Client, GetBucketStatisticsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetBucketStatisticsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // GetBucketStatisticsRequest
+ *   accountId: "STRING_VALUE",
+ * };
  * const command = new GetBucketStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketStatisticsCommandInput - {@link GetBucketStatisticsCommandInput}
+ * @returns {@link GetBucketStatisticsCommandOutput}
  * @see {@link GetBucketStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetBucketStatisticsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +92,9 @@ export class GetBucketStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class GetBucketStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class GetBucketStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBucketStatisticsCommand(input, context);
+    return se_GetBucketStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetBucketStatisticsCommand(output, context);
+    return de_GetBucketStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

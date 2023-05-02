@@ -16,20 +16,22 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
   PutFindingsPublicationConfigurationRequest,
-  PutFindingsPublicationConfigurationRequestFilterSensitiveLog,
   PutFindingsPublicationConfigurationResponse,
-  PutFindingsPublicationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1PutFindingsPublicationConfigurationCommand,
-  serializeAws_restJson1PutFindingsPublicationConfigurationCommand,
+  de_PutFindingsPublicationConfigurationCommand,
+  se_PutFindingsPublicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutFindingsPublicationConfigurationCommand}.
  */
 export interface PutFindingsPublicationConfigurationCommandInput extends PutFindingsPublicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutFindingsPublicationConfigurationCommand}.
  */
 export interface PutFindingsPublicationConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface PutFindingsPublicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration settings for publishing findings to Security Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,19 @@ export interface PutFindingsPublicationConfigurationCommandOutput
  * import { Macie2Client, PutFindingsPublicationConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, PutFindingsPublicationConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // PutFindingsPublicationConfigurationRequest
+ *   clientToken: "STRING_VALUE",
+ *   securityHubConfiguration: { // SecurityHubConfiguration
+ *     publishClassificationFindings: true || false, // required
+ *     publishPolicyFindings: true || false, // required
+ *   },
+ * };
  * const command = new PutFindingsPublicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFindingsPublicationConfigurationCommandInput - {@link PutFindingsPublicationConfigurationCommandInput}
+ * @returns {@link PutFindingsPublicationConfigurationCommandOutput}
  * @see {@link PutFindingsPublicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutFindingsPublicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -92,6 +104,9 @@ export class PutFindingsPublicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFindingsPublicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +135,8 @@ export class PutFindingsPublicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFindingsPublicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutFindingsPublicationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +146,24 @@ export class PutFindingsPublicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutFindingsPublicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutFindingsPublicationConfigurationCommand(input, context);
+    return se_PutFindingsPublicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutFindingsPublicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutFindingsPublicationConfigurationCommand(output, context);
+    return de_PutFindingsPublicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import {
-  GetImagesInput,
-  GetImagesInputFilterSensitiveLog,
-  GetImagesOutput,
-  GetImagesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetImagesCommand,
-  serializeAws_restJson1GetImagesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetImagesInput, GetImagesOutput } from "../models/models_0";
+import { de_GetImagesCommand, se_GetImagesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetImagesCommand}.
  */
 export interface GetImagesCommandInput extends GetImagesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetImagesCommand}.
  */
 export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of Images corresponding to each timestamp for a given time range, sampling interval, and image format configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,28 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  * import { KinesisVideoArchivedMediaClient, GetImagesCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetImagesCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
+ * const input = { // GetImagesInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   ImageSelectorType: "STRING_VALUE", // required
+ *   StartTimestamp: new Date("TIMESTAMP"), // required
+ *   EndTimestamp: new Date("TIMESTAMP"), // required
+ *   SamplingInterval: Number("int"), // required
+ *   Format: "STRING_VALUE", // required
+ *   FormatConfig: { // FormatConfig
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   WidthPixels: Number("int"),
+ *   HeightPixels: Number("int"),
+ *   MaxResults: Number("long"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetImagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImagesCommandInput - {@link GetImagesCommandInput}
+ * @returns {@link GetImagesCommandOutput}
  * @see {@link GetImagesCommandInput} for command's `input` shape.
  * @see {@link GetImagesCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
@@ -96,6 +111,9 @@ export class GetImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +140,8 @@ export class GetImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImagesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImagesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +151,18 @@ export class GetImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImagesCommand(input, context);
+    return se_GetImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImagesCommandOutput> {
-    return deserializeAws_restJson1GetImagesCommand(output, context);
+    return de_GetImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

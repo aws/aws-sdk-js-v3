@@ -13,29 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportWorkspaceImageRequest,
-  ImportWorkspaceImageRequestFilterSensitiveLog,
-  ImportWorkspaceImageResult,
-  ImportWorkspaceImageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportWorkspaceImageCommand,
-  serializeAws_json1_1ImportWorkspaceImageCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportWorkspaceImageRequest, ImportWorkspaceImageResult } from "../models/models_0";
+import { de_ImportWorkspaceImageCommand, se_ImportWorkspaceImageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportWorkspaceImageCommand}.
  */
 export interface ImportWorkspaceImageCommandInput extends ImportWorkspaceImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportWorkspaceImageCommand}.
  */
 export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageResult, __MetadataBearer {}
 
 /**
- * <p>Imports the specified Windows 10 Bring Your Own License (BYOL)
+ * @public
+ * <p>Imports the specified Windows 10 or 11 Bring Your Own License (BYOL)
  *          image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is
  *          in your Amazon Web Services account, and you must own the image. For more information about
  *          creating BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring Your Own Windows
@@ -46,10 +43,27 @@ export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageR
  * import { WorkSpacesClient, ImportWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ImportWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // ImportWorkspaceImageRequest
+ *   Ec2ImageId: "STRING_VALUE", // required
+ *   IngestionProcess: "BYOL_REGULAR" || "BYOL_GRAPHICS" || "BYOL_GRAPHICSPRO" || "BYOL_GRAPHICS_G4DN" || "BYOL_REGULAR_WSP" || "BYOL_REGULAR_BYOP" || "BYOL_GRAPHICS_G4DN_BYOP", // required
+ *   ImageName: "STRING_VALUE", // required
+ *   ImageDescription: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Applications: [ // ApplicationList
+ *     "Microsoft_Office_2016" || "Microsoft_Office_2019",
+ *   ],
+ * };
  * const command = new ImportWorkspaceImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportWorkspaceImageCommandInput - {@link ImportWorkspaceImageCommandInput}
+ * @returns {@link ImportWorkspaceImageCommandOutput}
  * @see {@link ImportWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link ImportWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -91,6 +105,9 @@ export class ImportWorkspaceImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportWorkspaceImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +136,8 @@ export class ImportWorkspaceImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportWorkspaceImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportWorkspaceImageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +147,18 @@ export class ImportWorkspaceImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportWorkspaceImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportWorkspaceImageCommand(input, context);
+    return se_ImportWorkspaceImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportWorkspaceImageCommandOutput> {
-    return deserializeAws_json1_1ImportWorkspaceImageCommand(output, context);
+    return de_ImportWorkspaceImageCommand(output, context);
   }
 
   // Start section: command_body_extra

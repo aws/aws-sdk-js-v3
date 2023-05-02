@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  GetMulticastGroupSessionRequest,
-  GetMulticastGroupSessionRequestFilterSensitiveLog,
-  GetMulticastGroupSessionResponse,
-  GetMulticastGroupSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMulticastGroupSessionCommand,
-  serializeAws_restJson1GetMulticastGroupSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMulticastGroupSessionRequest, GetMulticastGroupSessionResponse } from "../models/models_0";
+import { de_GetMulticastGroupSessionCommand, se_GetMulticastGroupSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMulticastGroupSessionCommand}.
  */
 export interface GetMulticastGroupSessionCommandInput extends GetMulticastGroupSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMulticastGroupSessionCommand}.
  */
 export interface GetMulticastGroupSessionCommandOutput extends GetMulticastGroupSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a multicast group session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetMulticastGroupSessionCommandOutput extends GetMulticastGroup
  * import { IoTWirelessClient, GetMulticastGroupSessionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetMulticastGroupSessionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetMulticastGroupSessionRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetMulticastGroupSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMulticastGroupSessionCommandInput - {@link GetMulticastGroupSessionCommandInput}
+ * @returns {@link GetMulticastGroupSessionCommandOutput}
  * @see {@link GetMulticastGroupSessionCommandInput} for command's `input` shape.
  * @see {@link GetMulticastGroupSessionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetMulticastGroupSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMulticastGroupSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class GetMulticastGroupSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMulticastGroupSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMulticastGroupSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class GetMulticastGroupSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMulticastGroupSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMulticastGroupSessionCommand(input, context);
+    return se_GetMulticastGroupSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMulticastGroupSessionCommandOutput> {
-    return deserializeAws_restJson1GetMulticastGroupSessionCommand(output, context);
+    return de_GetMulticastGroupSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

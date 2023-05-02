@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { OpsWorksServiceException as __BaseException } from "./OpsWorksServiceException";
 
 /**
+ * @public
  * <p>Describes the configuration manager.</p>
  */
 export interface StackConfigurationManager {
@@ -19,6 +20,7 @@ export interface StackConfigurationManager {
 }
 
 /**
+ * @public
  * <p>Describes an agent version.</p>
  */
 export interface AgentVersion {
@@ -33,9 +35,13 @@ export interface AgentVersion {
   ConfigurationManager?: StackConfigurationManager;
 }
 
+/**
+ * @public
+ */
 export type SourceType = "archive" | "git" | "s3" | "svn";
 
 /**
+ * @public
  * <p>Contains the information required to retrieve an app or cookbook from a repository. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Creating Apps</a> or <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html">Custom Recipes and
  *         Cookbooks</a>.</p>
@@ -95,9 +101,13 @@ export interface Source {
   Revision?: string;
 }
 
+/**
+ * @public
+ */
 export type AppAttributesKeys = "AutoBundleOnDeploy" | "AwsFlowRubySettings" | "DocumentRoot" | "RailsEnv";
 
 /**
+ * @public
  * <p>Describes an app's data source.</p>
  */
 export interface DataSource {
@@ -119,6 +129,7 @@ export interface DataSource {
 }
 
 /**
+ * @public
  * <p>Represents an app's environment variable.</p>
  */
 export interface EnvironmentVariable {
@@ -142,6 +153,7 @@ export interface EnvironmentVariable {
 }
 
 /**
+ * @public
  * <p>Describes an app's SSL configuration.</p>
  */
 export interface SslConfiguration {
@@ -161,9 +173,13 @@ export interface SslConfiguration {
   Chain?: string;
 }
 
+/**
+ * @public
+ */
 export type AppType = "aws-flow-ruby" | "java" | "nodejs" | "other" | "php" | "rails" | "static";
 
 /**
+ * @public
  * <p>A description of the app.</p>
  */
 export interface App {
@@ -245,8 +261,14 @@ export interface App {
   Environment?: EnvironmentVariable[];
 }
 
+/**
+ * @public
+ */
 export type Architecture = "i386" | "x86_64";
 
+/**
+ * @public
+ */
 export interface AssignInstanceRequest {
   /**
    * <p>The instance ID.</p>
@@ -260,6 +282,7 @@ export interface AssignInstanceRequest {
 }
 
 /**
+ * @public
  * <p>Indicates that a resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -279,6 +302,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that a request was not valid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -297,6 +321,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssignVolumeRequest {
   /**
    * <p>The volume ID.</p>
@@ -309,6 +336,9 @@ export interface AssignVolumeRequest {
   InstanceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateElasticIpRequest {
   /**
    * <p>The Elastic IP address.</p>
@@ -321,6 +351,9 @@ export interface AssociateElasticIpRequest {
   InstanceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AttachElasticLoadBalancerRequest {
   /**
    * <p>The Elastic Load Balancing instance's name.</p>
@@ -334,6 +367,7 @@ export interface AttachElasticLoadBalancerRequest {
 }
 
 /**
+ * @public
  * <p>Describes a load-based auto scaling upscaling or downscaling threshold configuration, which specifies when AWS OpsWorks Stacks starts or stops load-based instances.</p>
  */
 export interface AutoScalingThresholds {
@@ -385,11 +419,18 @@ export interface AutoScalingThresholds {
   Alarms?: string[];
 }
 
+/**
+ * @public
+ */
 export type AutoScalingType = "load" | "timer";
 
+/**
+ * @public
+ */
 export type VolumeType = "gp2" | "io1" | "standard";
 
 /**
+ * @public
  * <p>Describes an Amazon EBS volume. This data type maps directly to the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>
  *       data type.</p>
  */
@@ -426,6 +467,7 @@ export interface EbsBlockDevice {
 }
 
 /**
+ * @public
  * <p>Describes a block device mapping. This data type maps directly to the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html">BlockDeviceMapping</a> data type. </p>
  */
 export interface BlockDeviceMapping {
@@ -454,6 +496,7 @@ export interface BlockDeviceMapping {
 }
 
 /**
+ * @public
  * <p>Describes the Chef configuration.</p>
  */
 export interface ChefConfiguration {
@@ -468,10 +511,19 @@ export interface ChefConfiguration {
   BerkshelfVersion?: string;
 }
 
+/**
+ * @public
+ */
 export type StackAttributesKeys = "Color";
 
+/**
+ * @public
+ */
 export type RootDeviceType = "ebs" | "instance-store";
 
+/**
+ * @public
+ */
 export interface CloneStackRequest {
   /**
    * <p>The source stack ID.</p>
@@ -674,7 +726,7 @@ export interface CloneStackRequest {
   /**
    * <p>A string that contains user-defined, custom JSON. It is used to override the corresponding default stack configuration JSON values. The string should be in the following format:</p>
    *          <p>
-   *             <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code>
+   *             <code>"\{\"key1\": \"value1\", \"key2\": \"value2\",...\}"</code>
    *          </p>
    *          <p>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to
    *         Modify the Stack Configuration Attributes</a>
@@ -775,6 +827,7 @@ export interface CloneStackRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>CloneStack</code> request.</p>
  */
 export interface CloneStackResult {
@@ -784,6 +837,9 @@ export interface CloneStackResult {
   StackId?: string;
 }
 
+/**
+ * @public
+ */
 export type CloudWatchLogsEncoding =
   | "ascii"
   | "big5"
@@ -878,11 +934,18 @@ export type CloudWatchLogsEncoding =
   | "utf_8"
   | "utf_8_sig";
 
+/**
+ * @public
+ */
 export type CloudWatchLogsInitialPosition = "end_of_file" | "start_of_file";
 
+/**
+ * @public
+ */
 export type CloudWatchLogsTimeZone = "LOCAL" | "UTC";
 
 /**
+ * @public
  * <p>Describes the Amazon CloudWatch logs configuration for a layer. For detailed information about members of this data type, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html">CloudWatch Logs Agent Reference</a>.</p>
  */
 export interface CloudWatchLogsLogStream {
@@ -960,6 +1023,7 @@ export interface CloudWatchLogsLogStream {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon CloudWatch logs configuration for a layer.</p>
  */
 export interface CloudWatchLogsConfiguration {
@@ -975,6 +1039,7 @@ export interface CloudWatchLogsConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes a command.</p>
  */
 export interface Command {
@@ -1105,6 +1170,9 @@ export interface Command {
   Type?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppRequest {
   /**
    * <p>The stack ID.</p>
@@ -1179,6 +1247,7 @@ export interface CreateAppRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>CreateApp</code> request.</p>
  */
 export interface CreateAppResult {
@@ -1188,6 +1257,9 @@ export interface CreateAppResult {
   AppId?: string;
 }
 
+/**
+ * @public
+ */
 export type DeploymentCommandName =
   | "configure"
   | "deploy"
@@ -1203,6 +1275,7 @@ export type DeploymentCommandName =
   | "update_dependencies";
 
 /**
+ * @public
  * <p>Used to specify a stack or deployment command.</p>
  */
 export interface DeploymentCommand {
@@ -1215,7 +1288,7 @@ export interface DeploymentCommand {
    *                   <code>execute_recipes</code>: Execute one or more recipes. To specify the recipes, set an
    *           <code>Args</code> parameter named <code>recipes</code> to the list of recipes to be
    *         executed. For example, to execute <code>phpapp::appsetup</code>, set <code>Args</code> to
-   *           <code>{"recipes":["phpapp::appsetup"]}</code>.</p>
+   *           <code>\{"recipes":["phpapp::appsetup"]\}</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1238,8 +1311,8 @@ export interface DeploymentCommand {
    *             <li>
    *                <p>
    *                   <code>deploy</code>: Deploy an app. Ruby on Rails apps have an optional <code>Args</code>
-   *         parameter named <code>migrate</code>. Set <code>Args</code> to {"migrate":["true"]} to
-   *         migrate the database. The default setting is {"migrate":["false"]}.</p>
+   *         parameter named <code>migrate</code>. Set <code>Args</code> to \{"migrate":["true"]\} to
+   *         migrate the database. The default setting is \{"migrate":["false"]\}.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1270,8 +1343,8 @@ export interface DeploymentCommand {
   /**
    * <p>The arguments of those commands that take arguments. It should be set to a JSON object with the following format:</p>
    *          <p>
-   *             <code>{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...],
-   *         ...}</code>
+   *             <code>\{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...],
+   *         ...\}</code>
    *          </p>
    *          <p>The <code>update_dependencies</code> command takes two arguments:</p>
    *          <ul>
@@ -1291,12 +1364,15 @@ export interface DeploymentCommand {
    *          <p>For example, to upgrade an instance to Amazon Linux 2016.09, set <code>Args</code> to the
    *       following.</p>
    *          <p>
-   *             <code> { "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] } </code>
+   *             <code> \{ "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] \} </code>
    *          </p>
    */
   Args?: Record<string, string[]>;
 }
 
+/**
+ * @public
+ */
 export interface CreateDeploymentRequest {
   /**
    * <p>The stack ID.</p>
@@ -1332,7 +1408,7 @@ export interface CreateDeploymentRequest {
   /**
    * <p>A string that contains user-defined, custom JSON. You can use this parameter to override some corresponding default stack configuration JSON values. The string should be in the following format:</p>
    *          <p>
-   *             <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code>
+   *             <code>"\{\"key1\": \"value1\", \"key2\": \"value2\",...\}"</code>
    *          </p>
    *          <p>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to
    *           Modify the Stack Configuration Attributes</a> and
@@ -1342,6 +1418,7 @@ export interface CreateDeploymentRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>CreateDeployment</code> request.</p>
  */
 export interface CreateDeploymentResult {
@@ -1351,6 +1428,9 @@ export interface CreateDeploymentResult {
   DeploymentId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceRequest {
   /**
    * <p>The stack ID.</p>
@@ -1518,6 +1598,7 @@ export interface CreateInstanceRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>CreateInstance</code> request.</p>
  */
 export interface CreateInstanceResult {
@@ -1527,6 +1608,9 @@ export interface CreateInstanceResult {
   InstanceId?: string;
 }
 
+/**
+ * @public
+ */
 export type LayerAttributesKeys =
   | "BundlerVersion"
   | "EcsClusterArn"
@@ -1555,6 +1639,7 @@ export type LayerAttributesKeys =
   | "RubygemsVersion";
 
 /**
+ * @public
  * <p>AWS OpsWorks Stacks supports five
  *       lifecycle events:
  *         <b>setup</b>, <b>configuration</b>, <b>deploy</b>, <b>undeploy</b>, and <b>shutdown</b>. For
@@ -1593,6 +1678,7 @@ export interface Recipes {
 }
 
 /**
+ * @public
  * <p>The Shutdown event configuration.</p>
  */
 export interface ShutdownEventConfiguration {
@@ -1609,6 +1695,7 @@ export interface ShutdownEventConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the lifecycle event configuration</p>
  */
 export interface LifecycleEventConfiguration {
@@ -1619,6 +1706,9 @@ export interface LifecycleEventConfiguration {
   Shutdown?: ShutdownEventConfiguration;
 }
 
+/**
+ * @public
+ */
 export type LayerType =
   | "aws-flow-ruby"
   | "custom"
@@ -1634,6 +1724,7 @@ export type LayerType =
   | "web";
 
 /**
+ * @public
  * <p>Describes an Amazon EBS volume configuration.</p>
  */
 export interface VolumeConfiguration {
@@ -1697,6 +1788,9 @@ export interface VolumeConfiguration {
   Encrypted?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateLayerRequest {
   /**
    * <p>The layer stack ID.</p>
@@ -1812,6 +1906,7 @@ export interface CreateLayerRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>CreateLayer</code> request.</p>
  */
 export interface CreateLayerResult {
@@ -1821,6 +1916,9 @@ export interface CreateLayerResult {
   LayerId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStackRequest {
   /**
    * <p>The stack name.</p>
@@ -2031,7 +2129,7 @@ export interface CreateStackRequest {
   /**
    * <p>A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:</p>
    *          <p>
-   *             <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code>
+   *             <code>"\{\"key1\": \"value1\", \"key2\": \"value2\",...\}"</code>
    *          </p>
    *          <p>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to
    *         Modify the Stack Configuration Attributes</a>.</p>
@@ -2121,6 +2219,7 @@ export interface CreateStackRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>CreateStack</code> request.</p>
  */
 export interface CreateStackResult {
@@ -2131,6 +2230,9 @@ export interface CreateStackResult {
   StackId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserProfileRequest {
   /**
    * <p>The user's IAM ARN; this can also be a federated user's ARN.</p>
@@ -2159,6 +2261,7 @@ export interface CreateUserProfileRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>CreateUserProfile</code> request.</p>
  */
 export interface CreateUserProfileResult {
@@ -2168,6 +2271,9 @@ export interface CreateUserProfileResult {
   IamUserArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppRequest {
   /**
    * <p>The app ID.</p>
@@ -2175,6 +2281,9 @@ export interface DeleteAppRequest {
   AppId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInstanceRequest {
   /**
    * <p>The instance ID.</p>
@@ -2192,6 +2301,9 @@ export interface DeleteInstanceRequest {
   DeleteVolumes?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLayerRequest {
   /**
    * <p>The layer ID.</p>
@@ -2199,6 +2311,9 @@ export interface DeleteLayerRequest {
   LayerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStackRequest {
   /**
    * <p>The stack ID.</p>
@@ -2206,6 +2321,9 @@ export interface DeleteStackRequest {
   StackId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserProfileRequest {
   /**
    * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
@@ -2214,6 +2332,7 @@ export interface DeleteUserProfileRequest {
 }
 
 /**
+ * @public
  * <p>Describes a deployment of a stack or app.</p>
  */
 export interface Deployment {
@@ -2281,7 +2400,7 @@ export interface Deployment {
   /**
    * <p>A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format:</p>
    *          <p>
-   *             <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code>
+   *             <code>"\{\"key1\": \"value1\", \"key2\": \"value2\",...\}"</code>
    *          </p>
    *          <p>For more information on custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to
    *         Modify the Stack Configuration Attributes</a>.</p>
@@ -2294,6 +2413,9 @@ export interface Deployment {
   InstanceIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeregisterEcsClusterRequest {
   /**
    * <p>The cluster's Amazon Resource Number (ARN).</p>
@@ -2301,6 +2423,9 @@ export interface DeregisterEcsClusterRequest {
   EcsClusterArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterElasticIpRequest {
   /**
    * <p>The Elastic IP address.</p>
@@ -2308,6 +2433,9 @@ export interface DeregisterElasticIpRequest {
   ElasticIp: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterInstanceRequest {
   /**
    * <p>The instance ID.</p>
@@ -2315,6 +2443,9 @@ export interface DeregisterInstanceRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterRdsDbInstanceRequest {
   /**
    * <p>The Amazon RDS instance's ARN.</p>
@@ -2322,6 +2453,9 @@ export interface DeregisterRdsDbInstanceRequest {
   RdsDbInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterVolumeRequest {
   /**
    * <p>The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.</p>
@@ -2329,6 +2463,9 @@ export interface DeregisterVolumeRequest {
   VolumeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAgentVersionsRequest {
   /**
    * <p>The stack ID.</p>
@@ -2342,6 +2479,7 @@ export interface DescribeAgentVersionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeAgentVersions</code> request.</p>
  */
 export interface DescribeAgentVersionsResult {
@@ -2351,6 +2489,9 @@ export interface DescribeAgentVersionsResult {
   AgentVersions?: AgentVersion[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppsRequest {
   /**
    * <p>The app stack ID. If you use this parameter, <code>DescribeApps</code> returns a description
@@ -2367,6 +2508,7 @@ export interface DescribeAppsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeApps</code> request.</p>
  */
 export interface DescribeAppsResult {
@@ -2376,6 +2518,9 @@ export interface DescribeAppsResult {
   Apps?: App[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeCommandsRequest {
   /**
    * <p>The deployment ID. If you include this parameter, <code>DescribeCommands</code> returns a
@@ -2398,6 +2543,7 @@ export interface DescribeCommandsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeCommands</code> request.</p>
  */
 export interface DescribeCommandsResult {
@@ -2407,6 +2553,9 @@ export interface DescribeCommandsResult {
   Commands?: Command[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeploymentsRequest {
   /**
    * <p>The stack ID. If you include this parameter, the command returns a
@@ -2429,6 +2578,7 @@ export interface DescribeDeploymentsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeDeployments</code> request.</p>
  */
 export interface DescribeDeploymentsResult {
@@ -2438,6 +2588,9 @@ export interface DescribeDeploymentsResult {
   Deployments?: Deployment[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEcsClustersRequest {
   /**
    * <p>A list of ARNs, one for each cluster to be described.</p>
@@ -2470,6 +2623,7 @@ export interface DescribeEcsClustersRequest {
 }
 
 /**
+ * @public
  * <p>Describes a registered Amazon ECS cluster.</p>
  */
 export interface EcsCluster {
@@ -2495,6 +2649,7 @@ export interface EcsCluster {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeEcsClusters</code> request.</p>
  */
 export interface DescribeEcsClustersResult {
@@ -2512,6 +2667,9 @@ export interface DescribeEcsClustersResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeElasticIpsRequest {
   /**
    * <p>The instance ID. If you include this parameter, <code>DescribeElasticIps</code> returns a
@@ -2534,6 +2692,7 @@ export interface DescribeElasticIpsRequest {
 }
 
 /**
+ * @public
  * <p>Describes an Elastic IP address.</p>
  */
 export interface ElasticIp {
@@ -2564,6 +2723,7 @@ export interface ElasticIp {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeElasticIps</code> request.</p>
  */
 export interface DescribeElasticIpsResult {
@@ -2573,6 +2733,9 @@ export interface DescribeElasticIpsResult {
   ElasticIps?: ElasticIp[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeElasticLoadBalancersRequest {
   /**
    * <p>A stack ID. The action describes the stack's Elastic Load Balancing instances.</p>
@@ -2586,6 +2749,7 @@ export interface DescribeElasticLoadBalancersRequest {
 }
 
 /**
+ * @public
  * <p>Describes an Elastic Load Balancing instance.</p>
  */
 export interface ElasticLoadBalancer {
@@ -2636,6 +2800,7 @@ export interface ElasticLoadBalancer {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeElasticLoadBalancers</code> request.</p>
  */
 export interface DescribeElasticLoadBalancersResult {
@@ -2646,6 +2811,9 @@ export interface DescribeElasticLoadBalancersResult {
   ElasticLoadBalancers?: ElasticLoadBalancer[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancesRequest {
   /**
    * <p>A stack ID. If you use this parameter, <code>DescribeInstances</code> returns descriptions of
@@ -2668,6 +2836,7 @@ export interface DescribeInstancesRequest {
 }
 
 /**
+ * @public
  * <p>A registered instance's reported operating system.</p>
  */
 export interface ReportedOs {
@@ -2687,9 +2856,13 @@ export interface ReportedOs {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export type VirtualizationType = "hvm" | "paravirtual";
 
 /**
+ * @public
  * <p>Describes an instance.</p>
  */
 export interface Instance {
@@ -2994,6 +3167,7 @@ export interface Instance {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeInstances</code> request.</p>
  */
 export interface DescribeInstancesResult {
@@ -3003,6 +3177,9 @@ export interface DescribeInstancesResult {
   Instances?: Instance[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLayersRequest {
   /**
    * <p>The stack ID.</p>
@@ -3017,6 +3194,7 @@ export interface DescribeLayersRequest {
 }
 
 /**
+ * @public
  * <p>Describes a layer.</p>
  */
 export interface Layer {
@@ -3164,6 +3342,7 @@ export interface Layer {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeLayers</code> request.</p>
  */
 export interface DescribeLayersResult {
@@ -3173,6 +3352,9 @@ export interface DescribeLayersResult {
   Layers?: Layer[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoadBasedAutoScalingRequest {
   /**
    * <p>An array of layer IDs.</p>
@@ -3181,6 +3363,7 @@ export interface DescribeLoadBasedAutoScalingRequest {
 }
 
 /**
+ * @public
  * <p>Describes a layer's load-based auto scaling configuration.</p>
  */
 export interface LoadBasedAutoScalingConfiguration {
@@ -3208,6 +3391,7 @@ export interface LoadBasedAutoScalingConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeLoadBasedAutoScaling</code> request.</p>
  */
 export interface DescribeLoadBasedAutoScalingResult {
@@ -3219,6 +3403,7 @@ export interface DescribeLoadBasedAutoScalingResult {
 }
 
 /**
+ * @public
  * <p>Describes a user's SSH information.</p>
  */
 export interface SelfUserProfile {
@@ -3244,6 +3429,7 @@ export interface SelfUserProfile {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeMyUserProfile</code> request.</p>
  */
 export interface DescribeMyUserProfileResult {
@@ -3254,6 +3440,7 @@ export interface DescribeMyUserProfileResult {
 }
 
 /**
+ * @public
  * <p>A block that contains information about the configuration manager (Chef) and the versions of the configuration manager that are supported for an operating system.</p>
  */
 export interface OperatingSystemConfigurationManager {
@@ -3269,6 +3456,7 @@ export interface OperatingSystemConfigurationManager {
 }
 
 /**
+ * @public
  * <p>Describes supported operating systems in AWS OpsWorks Stacks.</p>
  */
 export interface OperatingSystem {
@@ -3309,6 +3497,7 @@ export interface OperatingSystem {
 }
 
 /**
+ * @public
  * <p>The response to a <code>DescribeOperatingSystems</code> request.</p>
  */
 export interface DescribeOperatingSystemsResponse {
@@ -3318,6 +3507,9 @@ export interface DescribeOperatingSystemsResponse {
   OperatingSystems?: OperatingSystem[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePermissionsRequest {
   /**
    * <p>The user's IAM ARN. This can also be a federated user's ARN. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
@@ -3332,6 +3524,7 @@ export interface DescribePermissionsRequest {
 }
 
 /**
+ * @public
  * <p>Describes stack or user permissions.</p>
  */
 export interface Permission {
@@ -3393,6 +3586,7 @@ export interface Permission {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribePermissions</code> request.</p>
  */
 export interface DescribePermissionsResult {
@@ -3416,6 +3610,9 @@ export interface DescribePermissionsResult {
   Permissions?: Permission[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeRaidArraysRequest {
   /**
    * <p>The instance ID. If you use this parameter, <code>DescribeRaidArrays</code> returns
@@ -3437,6 +3634,7 @@ export interface DescribeRaidArraysRequest {
 }
 
 /**
+ * @public
  * <p>Describes an instance's RAID array.</p>
  */
 export interface RaidArray {
@@ -3507,6 +3705,7 @@ export interface RaidArray {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeRaidArrays</code> request.</p>
  */
 export interface DescribeRaidArraysResult {
@@ -3516,6 +3715,9 @@ export interface DescribeRaidArraysResult {
   RaidArrays?: RaidArray[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeRdsDbInstancesRequest {
   /**
    * <p>The ID of the stack with which the instances are registered. The operation returns descriptions of all registered Amazon RDS instances.</p>
@@ -3529,6 +3731,7 @@ export interface DescribeRdsDbInstancesRequest {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon RDS instance.</p>
  */
 export interface RdsDbInstance {
@@ -3581,6 +3784,7 @@ export interface RdsDbInstance {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeRdsDbInstances</code> request.</p>
  */
 export interface DescribeRdsDbInstancesResult {
@@ -3590,6 +3794,9 @@ export interface DescribeRdsDbInstancesResult {
   RdsDbInstances?: RdsDbInstance[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceErrorsRequest {
   /**
    * <p>The stack ID. If you use this parameter, <code>DescribeServiceErrors</code> returns
@@ -3612,6 +3819,7 @@ export interface DescribeServiceErrorsRequest {
 }
 
 /**
+ * @public
  * <p>Describes an AWS OpsWorks Stacks service error.</p>
  */
 export interface ServiceError {
@@ -3647,6 +3855,7 @@ export interface ServiceError {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeServiceErrors</code> request.</p>
  */
 export interface DescribeServiceErrorsResult {
@@ -3656,6 +3865,9 @@ export interface DescribeServiceErrorsResult {
   ServiceErrors?: ServiceError[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackProvisioningParametersRequest {
   /**
    * <p>The stack ID.</p>
@@ -3664,6 +3876,7 @@ export interface DescribeStackProvisioningParametersRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeStackProvisioningParameters</code> request.</p>
  */
 export interface DescribeStackProvisioningParametersResult {
@@ -3678,6 +3891,9 @@ export interface DescribeStackProvisioningParametersResult {
   Parameters?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStacksRequest {
   /**
    * <p>An array of stack IDs that specify the stacks to be described. If you omit this parameter,
@@ -3687,6 +3903,7 @@ export interface DescribeStacksRequest {
 }
 
 /**
+ * @public
  * <p>Describes a stack.</p>
  */
 export interface Stack {
@@ -3755,7 +3972,7 @@ export interface Stack {
   /**
    * <p>A JSON object that contains user-defined attributes to be added to the stack configuration and deployment attributes. You can use custom JSON to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:</p>
    *          <p>
-   *             <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code>
+   *             <code>"\{\"key1\": \"value1\", \"key2\": \"value2\",...\}"</code>
    *          </p>
    *          <p>For more information on custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to
    *         Modify the Stack Configuration Attributes</a>.</p>
@@ -3814,6 +4031,7 @@ export interface Stack {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeStacks</code> request.</p>
  */
 export interface DescribeStacksResult {
@@ -3823,6 +4041,9 @@ export interface DescribeStacksResult {
   Stacks?: Stack[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackSummaryRequest {
   /**
    * <p>The stack ID.</p>
@@ -3831,6 +4052,7 @@ export interface DescribeStackSummaryRequest {
 }
 
 /**
+ * @public
  * <p>Describes how many instances a stack has for each status.</p>
  */
 export interface InstancesCount {
@@ -3936,6 +4158,7 @@ export interface InstancesCount {
 }
 
 /**
+ * @public
  * <p>Summarizes the number of layers, instances, and apps in a stack.</p>
  */
 export interface StackSummary {
@@ -3971,6 +4194,7 @@ export interface StackSummary {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeStackSummary</code> request.</p>
  */
 export interface DescribeStackSummaryResult {
@@ -3980,6 +4204,9 @@ export interface DescribeStackSummaryResult {
   StackSummary?: StackSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTimeBasedAutoScalingRequest {
   /**
    * <p>An array of instance IDs.</p>
@@ -3988,6 +4215,7 @@ export interface DescribeTimeBasedAutoScalingRequest {
 }
 
 /**
+ * @public
  * <p>Describes a time-based instance's auto scaling schedule. The schedule consists of a set of key-value pairs.</p>
  *          <ul>
  *             <li>
@@ -4000,7 +4228,7 @@ export interface DescribeTimeBasedAutoScalingRequest {
  *          <p>The default setting for all time periods is off, so you use the following parameters primarily to specify the online periods. You don't have to explicitly specify offline periods unless you want to change an online period to an offline period.</p>
  *          <p>The following example specifies that the instance should be online for four hours, from UTC 1200 - 1600. It will be off for the remainder of the day.</p>
  *          <p>
- *             <code> { "12":"on", "13":"on", "14":"on", "15":"on" } </code>
+ *             <code> \{ "12":"on", "13":"on", "14":"on", "15":"on" \} </code>
  *          </p>
  */
 export interface WeeklyAutoScalingSchedule {
@@ -4041,6 +4269,7 @@ export interface WeeklyAutoScalingSchedule {
 }
 
 /**
+ * @public
  * <p>Describes an instance's time-based auto scaling configuration.</p>
  */
 export interface TimeBasedAutoScalingConfiguration {
@@ -4056,6 +4285,7 @@ export interface TimeBasedAutoScalingConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeTimeBasedAutoScaling</code> request.</p>
  */
 export interface DescribeTimeBasedAutoScalingResult {
@@ -4066,6 +4296,9 @@ export interface DescribeTimeBasedAutoScalingResult {
   TimeBasedAutoScalingConfigurations?: TimeBasedAutoScalingConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserProfilesRequest {
   /**
    * <p>An array of IAM or federated user ARNs that identify the users to be described.</p>
@@ -4074,6 +4307,7 @@ export interface DescribeUserProfilesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a user's SSH information.</p>
  */
 export interface UserProfile {
@@ -4106,6 +4340,7 @@ export interface UserProfile {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeUserProfiles</code> request.</p>
  */
 export interface DescribeUserProfilesResult {
@@ -4115,6 +4350,9 @@ export interface DescribeUserProfilesResult {
   UserProfiles?: UserProfile[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVolumesRequest {
   /**
    * <p>The instance ID. If you use this parameter, <code>DescribeVolumes</code> returns descriptions
@@ -4142,6 +4380,7 @@ export interface DescribeVolumesRequest {
 }
 
 /**
+ * @public
  * <p>Describes an instance's Amazon EBS volume.</p>
  */
 export interface Volume {
@@ -4241,6 +4480,7 @@ export interface Volume {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>DescribeVolumes</code> request.</p>
  */
 export interface DescribeVolumesResult {
@@ -4250,6 +4490,9 @@ export interface DescribeVolumesResult {
   Volumes?: Volume[];
 }
 
+/**
+ * @public
+ */
 export interface DetachElasticLoadBalancerRequest {
   /**
    * <p>The Elastic Load Balancing instance's name.</p>
@@ -4262,6 +4505,9 @@ export interface DetachElasticLoadBalancerRequest {
   LayerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateElasticIpRequest {
   /**
    * <p>The Elastic IP address.</p>
@@ -4269,6 +4515,9 @@ export interface DisassociateElasticIpRequest {
   ElasticIp: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetHostnameSuggestionRequest {
   /**
    * <p>The layer ID.</p>
@@ -4277,6 +4526,7 @@ export interface GetHostnameSuggestionRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>GetHostnameSuggestion</code> request.</p>
  */
 export interface GetHostnameSuggestionResult {
@@ -4291,6 +4541,9 @@ export interface GetHostnameSuggestionResult {
   Hostname?: string;
 }
 
+/**
+ * @public
+ */
 export interface GrantAccessRequest {
   /**
    * <p>The instance's AWS OpsWorks Stacks ID.</p>
@@ -4304,6 +4557,7 @@ export interface GrantAccessRequest {
 }
 
 /**
+ * @public
  * <p>Contains the data needed by RDP clients such as the Microsoft Remote Desktop Connection to log in to the instance.</p>
  */
 export interface TemporaryCredential {
@@ -4329,6 +4583,7 @@ export interface TemporaryCredential {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>GrantAccess</code> request.</p>
  */
 export interface GrantAccessResult {
@@ -4340,6 +4595,7 @@ export interface GrantAccessResult {
 }
 
 /**
+ * @public
  * <p>Contains a description of an Amazon EC2 instance from the Amazon EC2 metadata service. For more
  *       information, see <a href="https://docs.aws.amazon.com/sdkfornet/latest/apidocs/Index.html">Instance Metadata and User Data</a>.</p>
  */
@@ -4355,6 +4611,9 @@ export interface InstanceIdentity {
   Signature?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsRequest {
   /**
    * <p>The stack or layer's Amazon Resource Number (ARN).</p>
@@ -4375,6 +4634,7 @@ export interface ListTagsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>ListTags</code> request.</p>
  */
 export interface ListTagsResult {
@@ -4393,6 +4653,9 @@ export interface ListTagsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RebootInstanceRequest {
   /**
    * <p>The instance ID.</p>
@@ -4400,6 +4663,9 @@ export interface RebootInstanceRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterEcsClusterRequest {
   /**
    * <p>The cluster's ARN.</p>
@@ -4413,6 +4679,7 @@ export interface RegisterEcsClusterRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>RegisterEcsCluster</code> request.</p>
  */
 export interface RegisterEcsClusterResult {
@@ -4422,6 +4689,9 @@ export interface RegisterEcsClusterResult {
   EcsClusterArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterElasticIpRequest {
   /**
    * <p>The Elastic IP address.</p>
@@ -4435,6 +4705,7 @@ export interface RegisterElasticIpRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>RegisterElasticIp</code> request.</p>
  */
 export interface RegisterElasticIpResult {
@@ -4444,6 +4715,9 @@ export interface RegisterElasticIpResult {
   ElasticIp?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterInstanceRequest {
   /**
    * <p>The ID of the stack that the instance is to be registered with.</p>
@@ -4482,6 +4756,7 @@ export interface RegisterInstanceRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>RegisterInstanceResult</code> request.</p>
  */
 export interface RegisterInstanceResult {
@@ -4491,6 +4766,9 @@ export interface RegisterInstanceResult {
   InstanceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterRdsDbInstanceRequest {
   /**
    * <p>The stack ID.</p>
@@ -4513,6 +4791,9 @@ export interface RegisterRdsDbInstanceRequest {
   DbPassword: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterVolumeRequest {
   /**
    * <p>The Amazon EBS volume ID.</p>
@@ -4526,6 +4807,7 @@ export interface RegisterVolumeRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>RegisterVolume</code> request.</p>
  */
 export interface RegisterVolumeResult {
@@ -4535,6 +4817,9 @@ export interface RegisterVolumeResult {
   VolumeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SetLoadBasedAutoScalingRequest {
   /**
    * <p>The layer ID.</p>
@@ -4561,6 +4846,9 @@ export interface SetLoadBasedAutoScalingRequest {
   DownScaling?: AutoScalingThresholds;
 }
 
+/**
+ * @public
+ */
 export interface SetPermissionRequest {
   /**
    * <p>The stack ID.</p>
@@ -4616,6 +4904,9 @@ export interface SetPermissionRequest {
   Level?: string;
 }
 
+/**
+ * @public
+ */
 export interface SetTimeBasedAutoScalingRequest {
   /**
    * <p>The instance ID.</p>
@@ -4628,6 +4919,9 @@ export interface SetTimeBasedAutoScalingRequest {
   AutoScalingSchedule?: WeeklyAutoScalingSchedule;
 }
 
+/**
+ * @public
+ */
 export interface StartInstanceRequest {
   /**
    * <p>The instance ID.</p>
@@ -4635,6 +4929,9 @@ export interface StartInstanceRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartStackRequest {
   /**
    * <p>The stack ID.</p>
@@ -4642,6 +4939,9 @@ export interface StartStackRequest {
   StackId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopInstanceRequest {
   /**
    * <p>The instance ID.</p>
@@ -4656,6 +4956,9 @@ export interface StopInstanceRequest {
   Force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StopStackRequest {
   /**
    * <p>The stack ID.</p>
@@ -4663,6 +4966,9 @@ export interface StopStackRequest {
   StackId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The stack or layer's Amazon Resource Number (ARN).</p>
@@ -4694,6 +5000,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnassignInstanceRequest {
   /**
    * <p>The instance ID.</p>
@@ -4701,6 +5010,9 @@ export interface UnassignInstanceRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnassignVolumeRequest {
   /**
    * <p>The volume ID.</p>
@@ -4708,6 +5020,9 @@ export interface UnassignVolumeRequest {
   VolumeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The stack or layer's Amazon Resource Number (ARN).</p>
@@ -4720,6 +5035,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppRequest {
   /**
    * <p>The app ID.</p>
@@ -4785,6 +5103,9 @@ export interface UpdateAppRequest {
   Environment?: EnvironmentVariable[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateElasticIpRequest {
   /**
    * <p>The IP address for which you want to update the name.</p>
@@ -4797,6 +5118,9 @@ export interface UpdateElasticIpRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInstanceRequest {
   /**
    * <p>The instance ID.</p>
@@ -4927,6 +5251,9 @@ export interface UpdateInstanceRequest {
   AgentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLayerRequest {
   /**
    * <p>The layer ID.</p>
@@ -5035,6 +5362,9 @@ export interface UpdateLayerRequest {
   LifecycleEventConfiguration?: LifecycleEventConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMyUserProfileRequest {
   /**
    * <p>The user's SSH public key.</p>
@@ -5042,6 +5372,9 @@ export interface UpdateMyUserProfileRequest {
   SshPublicKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRdsDbInstanceRequest {
   /**
    * <p>The Amazon RDS instance's ARN.</p>
@@ -5059,6 +5392,9 @@ export interface UpdateRdsDbInstanceRequest {
   DbPassword?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStackRequest {
   /**
    * <p>The stack ID.</p>
@@ -5212,7 +5548,7 @@ export interface UpdateStackRequest {
   /**
    * <p>A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration JSON values or to pass data to recipes. The string should be in the following format:</p>
    *          <p>
-   *             <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code>
+   *             <code>"\{\"key1\": \"value1\", \"key2\": \"value2\",...\}"</code>
    *          </p>
    *          <p>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to
    *         Modify the Stack Configuration Attributes</a>.</p>
@@ -5302,6 +5638,9 @@ export interface UpdateStackRequest {
   AgentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserProfileRequest {
   /**
    * <p>The user IAM ARN. This can also be a federated user's ARN.</p>
@@ -5329,6 +5668,9 @@ export interface UpdateUserProfileRequest {
   AllowSelfManagement?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVolumeRequest {
   /**
    * <p>The volume ID.</p>
@@ -5345,1072 +5687,3 @@ export interface UpdateVolumeRequest {
    */
   MountPoint?: string;
 }
-
-/**
- * @internal
- */
-export const StackConfigurationManagerFilterSensitiveLog = (obj: StackConfigurationManager): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AgentVersionFilterSensitiveLog = (obj: AgentVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceFilterSensitiveLog = (obj: Source): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentVariableFilterSensitiveLog = (obj: EnvironmentVariable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SslConfigurationFilterSensitiveLog = (obj: SslConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppFilterSensitiveLog = (obj: App): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssignInstanceRequestFilterSensitiveLog = (obj: AssignInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssignVolumeRequestFilterSensitiveLog = (obj: AssignVolumeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateElasticIpRequestFilterSensitiveLog = (obj: AssociateElasticIpRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachElasticLoadBalancerRequestFilterSensitiveLog = (obj: AttachElasticLoadBalancerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingThresholdsFilterSensitiveLog = (obj: AutoScalingThresholds): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsBlockDeviceFilterSensitiveLog = (obj: EbsBlockDevice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlockDeviceMappingFilterSensitiveLog = (obj: BlockDeviceMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChefConfigurationFilterSensitiveLog = (obj: ChefConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloneStackRequestFilterSensitiveLog = (obj: CloneStackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloneStackResultFilterSensitiveLog = (obj: CloneStackResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLogsLogStreamFilterSensitiveLog = (obj: CloudWatchLogsLogStream): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLogsConfigurationFilterSensitiveLog = (obj: CloudWatchLogsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CommandFilterSensitiveLog = (obj: Command): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppRequestFilterSensitiveLog = (obj: CreateAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppResultFilterSensitiveLog = (obj: CreateAppResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentCommandFilterSensitiveLog = (obj: DeploymentCommand): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentRequestFilterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentResultFilterSensitiveLog = (obj: CreateDeploymentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInstanceRequestFilterSensitiveLog = (obj: CreateInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInstanceResultFilterSensitiveLog = (obj: CreateInstanceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecipesFilterSensitiveLog = (obj: Recipes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShutdownEventConfigurationFilterSensitiveLog = (obj: ShutdownEventConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifecycleEventConfigurationFilterSensitiveLog = (obj: LifecycleEventConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeConfigurationFilterSensitiveLog = (obj: VolumeConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLayerRequestFilterSensitiveLog = (obj: CreateLayerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLayerResultFilterSensitiveLog = (obj: CreateLayerResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStackRequestFilterSensitiveLog = (obj: CreateStackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStackResultFilterSensitiveLog = (obj: CreateStackResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserProfileRequestFilterSensitiveLog = (obj: CreateUserProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserProfileResultFilterSensitiveLog = (obj: CreateUserProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppRequestFilterSensitiveLog = (obj: DeleteAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInstanceRequestFilterSensitiveLog = (obj: DeleteInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLayerRequestFilterSensitiveLog = (obj: DeleteLayerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStackRequestFilterSensitiveLog = (obj: DeleteStackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserProfileRequestFilterSensitiveLog = (obj: DeleteUserProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentFilterSensitiveLog = (obj: Deployment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterEcsClusterRequestFilterSensitiveLog = (obj: DeregisterEcsClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterElasticIpRequestFilterSensitiveLog = (obj: DeregisterElasticIpRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterInstanceRequestFilterSensitiveLog = (obj: DeregisterInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterRdsDbInstanceRequestFilterSensitiveLog = (obj: DeregisterRdsDbInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterVolumeRequestFilterSensitiveLog = (obj: DeregisterVolumeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAgentVersionsRequestFilterSensitiveLog = (obj: DescribeAgentVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAgentVersionsResultFilterSensitiveLog = (obj: DescribeAgentVersionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppsRequestFilterSensitiveLog = (obj: DescribeAppsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppsResultFilterSensitiveLog = (obj: DescribeAppsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCommandsRequestFilterSensitiveLog = (obj: DescribeCommandsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCommandsResultFilterSensitiveLog = (obj: DescribeCommandsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeploymentsRequestFilterSensitiveLog = (obj: DescribeDeploymentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeploymentsResultFilterSensitiveLog = (obj: DescribeDeploymentsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEcsClustersRequestFilterSensitiveLog = (obj: DescribeEcsClustersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsClusterFilterSensitiveLog = (obj: EcsCluster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEcsClustersResultFilterSensitiveLog = (obj: DescribeEcsClustersResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeElasticIpsRequestFilterSensitiveLog = (obj: DescribeElasticIpsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticIpFilterSensitiveLog = (obj: ElasticIp): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeElasticIpsResultFilterSensitiveLog = (obj: DescribeElasticIpsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeElasticLoadBalancersRequestFilterSensitiveLog = (
-  obj: DescribeElasticLoadBalancersRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticLoadBalancerFilterSensitiveLog = (obj: ElasticLoadBalancer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeElasticLoadBalancersResultFilterSensitiveLog = (obj: DescribeElasticLoadBalancersResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancesRequestFilterSensitiveLog = (obj: DescribeInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReportedOsFilterSensitiveLog = (obj: ReportedOs): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancesResultFilterSensitiveLog = (obj: DescribeInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLayersRequestFilterSensitiveLog = (obj: DescribeLayersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LayerFilterSensitiveLog = (obj: Layer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLayersResultFilterSensitiveLog = (obj: DescribeLayersResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoadBasedAutoScalingRequestFilterSensitiveLog = (
-  obj: DescribeLoadBasedAutoScalingRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBasedAutoScalingConfigurationFilterSensitiveLog = (obj: LoadBasedAutoScalingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoadBasedAutoScalingResultFilterSensitiveLog = (obj: DescribeLoadBasedAutoScalingResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelfUserProfileFilterSensitiveLog = (obj: SelfUserProfile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMyUserProfileResultFilterSensitiveLog = (obj: DescribeMyUserProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OperatingSystemConfigurationManagerFilterSensitiveLog = (
-  obj: OperatingSystemConfigurationManager
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OperatingSystemFilterSensitiveLog = (obj: OperatingSystem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOperatingSystemsResponseFilterSensitiveLog = (obj: DescribeOperatingSystemsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePermissionsRequestFilterSensitiveLog = (obj: DescribePermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PermissionFilterSensitiveLog = (obj: Permission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePermissionsResultFilterSensitiveLog = (obj: DescribePermissionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRaidArraysRequestFilterSensitiveLog = (obj: DescribeRaidArraysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RaidArrayFilterSensitiveLog = (obj: RaidArray): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRaidArraysResultFilterSensitiveLog = (obj: DescribeRaidArraysResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRdsDbInstancesRequestFilterSensitiveLog = (obj: DescribeRdsDbInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RdsDbInstanceFilterSensitiveLog = (obj: RdsDbInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRdsDbInstancesResultFilterSensitiveLog = (obj: DescribeRdsDbInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServiceErrorsRequestFilterSensitiveLog = (obj: DescribeServiceErrorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceErrorFilterSensitiveLog = (obj: ServiceError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServiceErrorsResultFilterSensitiveLog = (obj: DescribeServiceErrorsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackProvisioningParametersRequestFilterSensitiveLog = (
-  obj: DescribeStackProvisioningParametersRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackProvisioningParametersResultFilterSensitiveLog = (
-  obj: DescribeStackProvisioningParametersResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStacksRequestFilterSensitiveLog = (obj: DescribeStacksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackFilterSensitiveLog = (obj: Stack): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStacksResultFilterSensitiveLog = (obj: DescribeStacksResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackSummaryRequestFilterSensitiveLog = (obj: DescribeStackSummaryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstancesCountFilterSensitiveLog = (obj: InstancesCount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackSummaryFilterSensitiveLog = (obj: StackSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackSummaryResultFilterSensitiveLog = (obj: DescribeStackSummaryResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTimeBasedAutoScalingRequestFilterSensitiveLog = (
-  obj: DescribeTimeBasedAutoScalingRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WeeklyAutoScalingScheduleFilterSensitiveLog = (obj: WeeklyAutoScalingSchedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeBasedAutoScalingConfigurationFilterSensitiveLog = (obj: TimeBasedAutoScalingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTimeBasedAutoScalingResultFilterSensitiveLog = (obj: DescribeTimeBasedAutoScalingResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserProfilesRequestFilterSensitiveLog = (obj: DescribeUserProfilesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserProfileFilterSensitiveLog = (obj: UserProfile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserProfilesResultFilterSensitiveLog = (obj: DescribeUserProfilesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumesRequestFilterSensitiveLog = (obj: DescribeVolumesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeFilterSensitiveLog = (obj: Volume): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumesResultFilterSensitiveLog = (obj: DescribeVolumesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetachElasticLoadBalancerRequestFilterSensitiveLog = (obj: DetachElasticLoadBalancerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateElasticIpRequestFilterSensitiveLog = (obj: DisassociateElasticIpRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHostnameSuggestionRequestFilterSensitiveLog = (obj: GetHostnameSuggestionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHostnameSuggestionResultFilterSensitiveLog = (obj: GetHostnameSuggestionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrantAccessRequestFilterSensitiveLog = (obj: GrantAccessRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemporaryCredentialFilterSensitiveLog = (obj: TemporaryCredential): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrantAccessResultFilterSensitiveLog = (obj: GrantAccessResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceIdentityFilterSensitiveLog = (obj: InstanceIdentity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsResultFilterSensitiveLog = (obj: ListTagsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootInstanceRequestFilterSensitiveLog = (obj: RebootInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterEcsClusterRequestFilterSensitiveLog = (obj: RegisterEcsClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterEcsClusterResultFilterSensitiveLog = (obj: RegisterEcsClusterResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterElasticIpRequestFilterSensitiveLog = (obj: RegisterElasticIpRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterElasticIpResultFilterSensitiveLog = (obj: RegisterElasticIpResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterInstanceRequestFilterSensitiveLog = (obj: RegisterInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterInstanceResultFilterSensitiveLog = (obj: RegisterInstanceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterRdsDbInstanceRequestFilterSensitiveLog = (obj: RegisterRdsDbInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterVolumeRequestFilterSensitiveLog = (obj: RegisterVolumeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterVolumeResultFilterSensitiveLog = (obj: RegisterVolumeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetLoadBasedAutoScalingRequestFilterSensitiveLog = (obj: SetLoadBasedAutoScalingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetPermissionRequestFilterSensitiveLog = (obj: SetPermissionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetTimeBasedAutoScalingRequestFilterSensitiveLog = (obj: SetTimeBasedAutoScalingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartInstanceRequestFilterSensitiveLog = (obj: StartInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartStackRequestFilterSensitiveLog = (obj: StartStackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopInstanceRequestFilterSensitiveLog = (obj: StopInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopStackRequestFilterSensitiveLog = (obj: StopStackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnassignInstanceRequestFilterSensitiveLog = (obj: UnassignInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnassignVolumeRequestFilterSensitiveLog = (obj: UnassignVolumeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAppRequestFilterSensitiveLog = (obj: UpdateAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateElasticIpRequestFilterSensitiveLog = (obj: UpdateElasticIpRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInstanceRequestFilterSensitiveLog = (obj: UpdateInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLayerRequestFilterSensitiveLog = (obj: UpdateLayerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMyUserProfileRequestFilterSensitiveLog = (obj: UpdateMyUserProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRdsDbInstanceRequestFilterSensitiveLog = (obj: UpdateRdsDbInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStackRequestFilterSensitiveLog = (obj: UpdateStackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserProfileRequestFilterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVolumeRequestFilterSensitiveLog = (obj: UpdateVolumeRequest): any => ({
-  ...obj,
-});

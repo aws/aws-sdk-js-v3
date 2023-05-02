@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  PreviewAgentsRequest,
-  PreviewAgentsRequestFilterSensitiveLog,
-  PreviewAgentsResponse,
-  PreviewAgentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PreviewAgentsCommand,
-  serializeAws_json1_1PreviewAgentsCommand,
-} from "../protocols/Aws_json1_1";
+import { PreviewAgentsRequest, PreviewAgentsResponse } from "../models/models_0";
+import { de_PreviewAgentsCommand, se_PreviewAgentsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PreviewAgentsCommand}.
  */
 export interface PreviewAgentsCommandInput extends PreviewAgentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PreviewAgentsCommand}.
  */
 export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Previews the agents installed on the EC2 instances that are part of the specified
  *          assessment target.</p>
  * @example
@@ -43,10 +40,17 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * import { InspectorClient, PreviewAgentsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, PreviewAgentsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // PreviewAgentsRequest
+ *   previewAgentsArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new PreviewAgentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PreviewAgentsCommandInput - {@link PreviewAgentsCommandInput}
+ * @returns {@link PreviewAgentsCommandOutput}
  * @see {@link PreviewAgentsCommandInput} for command's `input` shape.
  * @see {@link PreviewAgentsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -110,6 +114,9 @@ export class PreviewAgentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PreviewAgentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +143,8 @@ export class PreviewAgentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PreviewAgentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PreviewAgentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +154,18 @@ export class PreviewAgentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PreviewAgentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PreviewAgentsCommand(input, context);
+    return se_PreviewAgentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PreviewAgentsCommandOutput> {
-    return deserializeAws_json1_1PreviewAgentsCommand(output, context);
+    return de_PreviewAgentsCommand(output, context);
   }
 
   // Start section: command_body_extra

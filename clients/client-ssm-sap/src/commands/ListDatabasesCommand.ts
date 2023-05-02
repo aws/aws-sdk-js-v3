@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDatabasesInput,
-  ListDatabasesInputFilterSensitiveLog,
-  ListDatabasesOutput,
-  ListDatabasesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDatabasesCommand,
-  serializeAws_restJson1ListDatabasesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDatabasesInput, ListDatabasesOutput } from "../models/models_0";
+import { de_ListDatabasesCommand, se_ListDatabasesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatabasesCommand}.
  */
 export interface ListDatabasesCommandInput extends ListDatabasesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDatabasesCommand}.
  */
 export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the SAP HANA databases of an application registered with AWS Systems Manager for
  *          SAP.</p>
  * @example
@@ -43,10 +40,18 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * import { SsmSapClient, ListDatabasesCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListDatabasesCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // ListDatabasesInput
+ *   ApplicationId: "STRING_VALUE",
+ *   ComponentId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatabasesCommandInput - {@link ListDatabasesCommandInput}
+ * @returns {@link ListDatabasesCommandOutput}
  * @see {@link ListDatabasesCommandInput} for command's `input` shape.
  * @see {@link ListDatabasesCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -79,6 +84,9 @@ export class ListDatabasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatabasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class ListDatabasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatabasesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatabasesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +124,18 @@ export class ListDatabasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDatabasesCommand(input, context);
+    return se_ListDatabasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatabasesCommandOutput> {
-    return deserializeAws_restJson1ListDatabasesCommand(output, context);
+    return de_ListDatabasesCommand(output, context);
   }
 
   // Start section: command_body_extra

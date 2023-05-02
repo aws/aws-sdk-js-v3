@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateProtectionGroupRequest,
-  CreateProtectionGroupRequestFilterSensitiveLog,
-  CreateProtectionGroupResponse,
-  CreateProtectionGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateProtectionGroupCommand,
-  serializeAws_json1_1CreateProtectionGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateProtectionGroupRequest, CreateProtectionGroupResponse } from "../models/models_0";
+import { de_CreateProtectionGroupCommand, se_CreateProtectionGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProtectionGroupCommand}.
  */
 export interface CreateProtectionGroupCommandInput extends CreateProtectionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProtectionGroupCommand}.
  */
 export interface CreateProtectionGroupCommandOutput extends CreateProtectionGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface CreateProtectionGroupCommandOutput extends CreateProtectionGrou
  * import { ShieldClient, CreateProtectionGroupCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, CreateProtectionGroupCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // CreateProtectionGroupRequest
+ *   ProtectionGroupId: "STRING_VALUE", // required
+ *   Aggregation: "STRING_VALUE", // required
+ *   Pattern: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE",
+ *   Members: [ // ProtectionGroupMembers
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateProtectionGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProtectionGroupCommandInput - {@link CreateProtectionGroupCommandInput}
+ * @returns {@link CreateProtectionGroupCommandOutput}
  * @see {@link CreateProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link CreateProtectionGroupCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -88,6 +102,9 @@ export class CreateProtectionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProtectionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +133,8 @@ export class CreateProtectionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProtectionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProtectionGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +144,18 @@ export class CreateProtectionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProtectionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProtectionGroupCommand(input, context);
+    return se_CreateProtectionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProtectionGroupCommandOutput> {
-    return deserializeAws_json1_1CreateProtectionGroupCommand(output, context);
+    return de_CreateProtectionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

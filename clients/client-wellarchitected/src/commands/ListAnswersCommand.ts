@@ -13,39 +13,46 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAnswersInput,
-  ListAnswersInputFilterSensitiveLog,
-  ListAnswersOutput,
-  ListAnswersOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAnswersCommand,
-  serializeAws_restJson1ListAnswersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAnswersInput, ListAnswersOutput } from "../models/models_0";
+import { de_ListAnswersCommand, se_ListAnswersCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnswersCommand}.
  */
 export interface ListAnswersCommandInput extends ListAnswersInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAnswersCommand}.
  */
 export interface ListAnswersCommandOutput extends ListAnswersOutput, __MetadataBearer {}
 
 /**
- * <p>List of answers.</p>
+ * @public
+ * <p>List of answers for a particular workload and lens.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WellArchitectedClient, ListAnswersCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListAnswersCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListAnswersInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   LensAlias: "STRING_VALUE", // required
+ *   PillarId: "STRING_VALUE",
+ *   MilestoneNumber: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAnswersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnswersCommandInput - {@link ListAnswersCommandInput}
+ * @returns {@link ListAnswersCommandOutput}
  * @see {@link ListAnswersCommandInput} for command's `input` shape.
  * @see {@link ListAnswersCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListAnswersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnswersCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class ListAnswersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAnswersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAnswersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +131,18 @@ export class ListAnswersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnswersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAnswersCommand(input, context);
+    return se_ListAnswersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnswersCommandOutput> {
-    return deserializeAws_restJson1ListAnswersCommand(output, context);
+    return de_ListAnswersCommand(output, context);
   }
 
   // Start section: command_body_extra

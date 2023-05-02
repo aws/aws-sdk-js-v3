@@ -1,16 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -341,19 +341,14 @@ import {
 import { GreengrassServiceException as __BaseException } from "../models/GreengrassServiceException";
 import {
   BadRequestException,
-  BulkDeployment,
-  BulkDeploymentMetrics,
-  BulkDeploymentResult,
   ConnectivityInfo,
   Connector,
   ConnectorDefinitionVersion,
   Core,
   CoreDefinitionVersion,
   DefinitionInformation,
-  Deployment,
   Device,
   DeviceDefinitionVersion,
-  ErrorDetail,
   Function,
   FunctionConfiguration,
   FunctionConfigurationEnvironment,
@@ -362,8 +357,6 @@ import {
   FunctionDefinitionVersion,
   FunctionExecutionConfig,
   FunctionRunAsConfig,
-  GroupCertificateAuthorityProperties,
-  GroupInformation,
   GroupOwnerSetting,
   GroupVersion,
   InternalServerErrorException,
@@ -376,18 +369,18 @@ import {
   ResourceDataContainer,
   ResourceDefinitionVersion,
   ResourceDownloadOwnerSetting,
-  RuntimeConfiguration,
   S3MachineLearningModelResourceData,
   SageMakerMachineLearningModelResourceData,
   SecretsManagerSecretResourceData,
   Subscription,
   SubscriptionDefinitionVersion,
-  TelemetryConfiguration,
   TelemetryConfigurationUpdate,
-  VersionInformation,
 } from "../models/models_0";
 
-export const serializeAws_restJson1AssociateRoleToGroupCommand = async (
+/**
+ * serializeAws_restJson1AssociateRoleToGroupCommand
+ */
+export const se_AssociateRoleToGroupCommand = async (
   input: AssociateRoleToGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -399,9 +392,11 @@ export const serializeAws_restJson1AssociateRoleToGroupCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/role";
   resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      RoleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -413,7 +408,10 @@ export const serializeAws_restJson1AssociateRoleToGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1AssociateServiceRoleToAccountCommand = async (
+/**
+ * serializeAws_restJson1AssociateServiceRoleToAccountCommand
+ */
+export const se_AssociateServiceRoleToAccountCommand = async (
   input: AssociateServiceRoleToAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -424,9 +422,11 @@ export const serializeAws_restJson1AssociateServiceRoleToAccountCommand = async 
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/servicerole";
   let body: any;
-  body = JSON.stringify({
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      RoleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -438,7 +438,10 @@ export const serializeAws_restJson1AssociateServiceRoleToAccountCommand = async 
   });
 };
 
-export const serializeAws_restJson1CreateConnectorDefinitionCommand = async (
+/**
+ * serializeAws_restJson1CreateConnectorDefinitionCommand
+ */
+export const se_CreateConnectorDefinitionCommand = async (
   input: CreateConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -450,13 +453,13 @@ export const serializeAws_restJson1CreateConnectorDefinitionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/connectors";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InitialVersion != null && {
-      InitialVersion: serializeAws_restJson1ConnectorDefinitionVersion(input.InitialVersion, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InitialVersion: (_) => _json(_),
+      Name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -468,7 +471,10 @@ export const serializeAws_restJson1CreateConnectorDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateConnectorDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1CreateConnectorDefinitionVersionCommand
+ */
+export const se_CreateConnectorDefinitionVersionCommand = async (
   input: CreateConnectorDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -489,9 +495,11 @@ export const serializeAws_restJson1CreateConnectorDefinitionVersionCommand = asy
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Connectors != null && { Connectors: serializeAws_restJson1__listOfConnector(input.Connectors, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Connectors: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -503,7 +511,10 @@ export const serializeAws_restJson1CreateConnectorDefinitionVersionCommand = asy
   });
 };
 
-export const serializeAws_restJson1CreateCoreDefinitionCommand = async (
+/**
+ * serializeAws_restJson1CreateCoreDefinitionCommand
+ */
+export const se_CreateCoreDefinitionCommand = async (
   input: CreateCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -515,13 +526,13 @@ export const serializeAws_restJson1CreateCoreDefinitionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/cores";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InitialVersion != null && {
-      InitialVersion: serializeAws_restJson1CoreDefinitionVersion(input.InitialVersion, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InitialVersion: (_) => _json(_),
+      Name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -533,7 +544,10 @@ export const serializeAws_restJson1CreateCoreDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateCoreDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1CreateCoreDefinitionVersionCommand
+ */
+export const se_CreateCoreDefinitionVersionCommand = async (
   input: CreateCoreDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -554,9 +568,11 @@ export const serializeAws_restJson1CreateCoreDefinitionVersionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Cores != null && { Cores: serializeAws_restJson1__listOfCore(input.Cores, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Cores: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -568,7 +584,10 @@ export const serializeAws_restJson1CreateCoreDefinitionVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDeploymentCommand = async (
+/**
+ * serializeAws_restJson1CreateDeploymentCommand
+ */
+export const se_CreateDeploymentCommand = async (
   input: CreateDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -581,11 +600,13 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/deployments";
   resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeploymentId != null && { DeploymentId: input.DeploymentId }),
-    ...(input.DeploymentType != null && { DeploymentType: input.DeploymentType }),
-    ...(input.GroupVersionId != null && { GroupVersionId: input.GroupVersionId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeploymentId: [],
+      DeploymentType: [],
+      GroupVersionId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -597,7 +618,10 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDeviceDefinitionCommand = async (
+/**
+ * serializeAws_restJson1CreateDeviceDefinitionCommand
+ */
+export const se_CreateDeviceDefinitionCommand = async (
   input: CreateDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -609,13 +633,13 @@ export const serializeAws_restJson1CreateDeviceDefinitionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/devices";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InitialVersion != null && {
-      InitialVersion: serializeAws_restJson1DeviceDefinitionVersion(input.InitialVersion, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InitialVersion: (_) => _json(_),
+      Name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -627,7 +651,10 @@ export const serializeAws_restJson1CreateDeviceDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDeviceDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1CreateDeviceDefinitionVersionCommand
+ */
+export const se_CreateDeviceDefinitionVersionCommand = async (
   input: CreateDeviceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -648,9 +675,11 @@ export const serializeAws_restJson1CreateDeviceDefinitionVersionCommand = async 
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Devices != null && { Devices: serializeAws_restJson1__listOfDevice(input.Devices, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Devices: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -662,7 +691,10 @@ export const serializeAws_restJson1CreateDeviceDefinitionVersionCommand = async 
   });
 };
 
-export const serializeAws_restJson1CreateFunctionDefinitionCommand = async (
+/**
+ * serializeAws_restJson1CreateFunctionDefinitionCommand
+ */
+export const se_CreateFunctionDefinitionCommand = async (
   input: CreateFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -674,13 +706,13 @@ export const serializeAws_restJson1CreateFunctionDefinitionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/functions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InitialVersion != null && {
-      InitialVersion: serializeAws_restJson1FunctionDefinitionVersion(input.InitialVersion, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InitialVersion: (_) => _json(_),
+      Name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -692,7 +724,10 @@ export const serializeAws_restJson1CreateFunctionDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateFunctionDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1CreateFunctionDefinitionVersionCommand
+ */
+export const se_CreateFunctionDefinitionVersionCommand = async (
   input: CreateFunctionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -713,12 +748,12 @@ export const serializeAws_restJson1CreateFunctionDefinitionVersionCommand = asyn
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.DefaultConfig != null && {
-      DefaultConfig: serializeAws_restJson1FunctionDefaultConfig(input.DefaultConfig, context),
-    }),
-    ...(input.Functions != null && { Functions: serializeAws_restJson1__listOfFunction(input.Functions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DefaultConfig: (_) => _json(_),
+      Functions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -730,7 +765,10 @@ export const serializeAws_restJson1CreateFunctionDefinitionVersionCommand = asyn
   });
 };
 
-export const serializeAws_restJson1CreateGroupCommand = async (
+/**
+ * serializeAws_restJson1CreateGroupCommand
+ */
+export const se_CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -741,13 +779,13 @@ export const serializeAws_restJson1CreateGroupCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InitialVersion != null && {
-      InitialVersion: serializeAws_restJson1GroupVersion(input.InitialVersion, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InitialVersion: (_) => _json(_),
+      Name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -759,7 +797,10 @@ export const serializeAws_restJson1CreateGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateGroupCertificateAuthorityCommand = async (
+/**
+ * serializeAws_restJson1CreateGroupCertificateAuthorityCommand
+ */
+export const se_CreateGroupCertificateAuthorityCommand = async (
   input: CreateGroupCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -783,7 +824,10 @@ export const serializeAws_restJson1CreateGroupCertificateAuthorityCommand = asyn
   });
 };
 
-export const serializeAws_restJson1CreateGroupVersionCommand = async (
+/**
+ * serializeAws_restJson1CreateGroupVersionCommand
+ */
+export const se_CreateGroupVersionCommand = async (
   input: CreateGroupVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -796,23 +840,17 @@ export const serializeAws_restJson1CreateGroupVersionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/versions";
   resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConnectorDefinitionVersionArn != null && {
-      ConnectorDefinitionVersionArn: input.ConnectorDefinitionVersionArn,
-    }),
-    ...(input.CoreDefinitionVersionArn != null && { CoreDefinitionVersionArn: input.CoreDefinitionVersionArn }),
-    ...(input.DeviceDefinitionVersionArn != null && { DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn }),
-    ...(input.FunctionDefinitionVersionArn != null && {
-      FunctionDefinitionVersionArn: input.FunctionDefinitionVersionArn,
-    }),
-    ...(input.LoggerDefinitionVersionArn != null && { LoggerDefinitionVersionArn: input.LoggerDefinitionVersionArn }),
-    ...(input.ResourceDefinitionVersionArn != null && {
-      ResourceDefinitionVersionArn: input.ResourceDefinitionVersionArn,
-    }),
-    ...(input.SubscriptionDefinitionVersionArn != null && {
-      SubscriptionDefinitionVersionArn: input.SubscriptionDefinitionVersionArn,
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConnectorDefinitionVersionArn: [],
+      CoreDefinitionVersionArn: [],
+      DeviceDefinitionVersionArn: [],
+      FunctionDefinitionVersionArn: [],
+      LoggerDefinitionVersionArn: [],
+      ResourceDefinitionVersionArn: [],
+      SubscriptionDefinitionVersionArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -824,7 +862,10 @@ export const serializeAws_restJson1CreateGroupVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateLoggerDefinitionCommand = async (
+/**
+ * serializeAws_restJson1CreateLoggerDefinitionCommand
+ */
+export const se_CreateLoggerDefinitionCommand = async (
   input: CreateLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -836,13 +877,13 @@ export const serializeAws_restJson1CreateLoggerDefinitionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/loggers";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InitialVersion != null && {
-      InitialVersion: serializeAws_restJson1LoggerDefinitionVersion(input.InitialVersion, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InitialVersion: (_) => _json(_),
+      Name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -854,7 +895,10 @@ export const serializeAws_restJson1CreateLoggerDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateLoggerDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1CreateLoggerDefinitionVersionCommand
+ */
+export const se_CreateLoggerDefinitionVersionCommand = async (
   input: CreateLoggerDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -875,9 +919,11 @@ export const serializeAws_restJson1CreateLoggerDefinitionVersionCommand = async 
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Loggers != null && { Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Loggers: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -889,7 +935,10 @@ export const serializeAws_restJson1CreateLoggerDefinitionVersionCommand = async 
   });
 };
 
-export const serializeAws_restJson1CreateResourceDefinitionCommand = async (
+/**
+ * serializeAws_restJson1CreateResourceDefinitionCommand
+ */
+export const se_CreateResourceDefinitionCommand = async (
   input: CreateResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -901,13 +950,13 @@ export const serializeAws_restJson1CreateResourceDefinitionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/resources";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InitialVersion != null && {
-      InitialVersion: serializeAws_restJson1ResourceDefinitionVersion(input.InitialVersion, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InitialVersion: (_) => _json(_),
+      Name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -919,7 +968,10 @@ export const serializeAws_restJson1CreateResourceDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateResourceDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1CreateResourceDefinitionVersionCommand
+ */
+export const se_CreateResourceDefinitionVersionCommand = async (
   input: CreateResourceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -940,9 +992,11 @@ export const serializeAws_restJson1CreateResourceDefinitionVersionCommand = asyn
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Resources != null && { Resources: serializeAws_restJson1__listOfResource(input.Resources, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Resources: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -954,7 +1008,10 @@ export const serializeAws_restJson1CreateResourceDefinitionVersionCommand = asyn
   });
 };
 
-export const serializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
+/**
+ * serializeAws_restJson1CreateSoftwareUpdateJobCommand
+ */
+export const se_CreateSoftwareUpdateJobCommand = async (
   input: CreateSoftwareUpdateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -965,18 +1022,16 @@ export const serializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/updates";
   let body: any;
-  body = JSON.stringify({
-    ...(input.S3UrlSignerRole != null && { S3UrlSignerRole: input.S3UrlSignerRole }),
-    ...(input.SoftwareToUpdate != null && { SoftwareToUpdate: input.SoftwareToUpdate }),
-    ...(input.UpdateAgentLogLevel != null && { UpdateAgentLogLevel: input.UpdateAgentLogLevel }),
-    ...(input.UpdateTargets != null && {
-      UpdateTargets: serializeAws_restJson1UpdateTargets(input.UpdateTargets, context),
-    }),
-    ...(input.UpdateTargetsArchitecture != null && { UpdateTargetsArchitecture: input.UpdateTargetsArchitecture }),
-    ...(input.UpdateTargetsOperatingSystem != null && {
-      UpdateTargetsOperatingSystem: input.UpdateTargetsOperatingSystem,
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      S3UrlSignerRole: [],
+      SoftwareToUpdate: [],
+      UpdateAgentLogLevel: [],
+      UpdateTargets: (_) => _json(_),
+      UpdateTargetsArchitecture: [],
+      UpdateTargetsOperatingSystem: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -988,7 +1043,10 @@ export const serializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateSubscriptionDefinitionCommand = async (
+/**
+ * serializeAws_restJson1CreateSubscriptionDefinitionCommand
+ */
+export const se_CreateSubscriptionDefinitionCommand = async (
   input: CreateSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1000,13 +1058,13 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/subscriptions";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InitialVersion != null && {
-      InitialVersion: serializeAws_restJson1SubscriptionDefinitionVersion(input.InitialVersion, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InitialVersion: (_) => _json(_),
+      Name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1018,7 +1076,10 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand
+ */
+export const se_CreateSubscriptionDefinitionVersionCommand = async (
   input: CreateSubscriptionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1039,11 +1100,11 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand = 
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Subscriptions != null && {
-      Subscriptions: serializeAws_restJson1__listOfSubscription(input.Subscriptions, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Subscriptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1055,7 +1116,10 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand = 
   });
 };
 
-export const serializeAws_restJson1DeleteConnectorDefinitionCommand = async (
+/**
+ * serializeAws_restJson1DeleteConnectorDefinitionCommand
+ */
+export const se_DeleteConnectorDefinitionCommand = async (
   input: DeleteConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1084,7 +1148,10 @@ export const serializeAws_restJson1DeleteConnectorDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteCoreDefinitionCommand = async (
+/**
+ * serializeAws_restJson1DeleteCoreDefinitionCommand
+ */
+export const se_DeleteCoreDefinitionCommand = async (
   input: DeleteCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1113,7 +1180,10 @@ export const serializeAws_restJson1DeleteCoreDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDeviceDefinitionCommand = async (
+/**
+ * serializeAws_restJson1DeleteDeviceDefinitionCommand
+ */
+export const se_DeleteDeviceDefinitionCommand = async (
   input: DeleteDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1142,7 +1212,10 @@ export const serializeAws_restJson1DeleteDeviceDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteFunctionDefinitionCommand = async (
+/**
+ * serializeAws_restJson1DeleteFunctionDefinitionCommand
+ */
+export const se_DeleteFunctionDefinitionCommand = async (
   input: DeleteFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1171,7 +1244,10 @@ export const serializeAws_restJson1DeleteFunctionDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteGroupCommand = async (
+/**
+ * serializeAws_restJson1DeleteGroupCommand
+ */
+export const se_DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1192,7 +1268,10 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteLoggerDefinitionCommand = async (
+/**
+ * serializeAws_restJson1DeleteLoggerDefinitionCommand
+ */
+export const se_DeleteLoggerDefinitionCommand = async (
   input: DeleteLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1221,7 +1300,10 @@ export const serializeAws_restJson1DeleteLoggerDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteResourceDefinitionCommand = async (
+/**
+ * serializeAws_restJson1DeleteResourceDefinitionCommand
+ */
+export const se_DeleteResourceDefinitionCommand = async (
   input: DeleteResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1250,7 +1332,10 @@ export const serializeAws_restJson1DeleteResourceDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSubscriptionDefinitionCommand = async (
+/**
+ * serializeAws_restJson1DeleteSubscriptionDefinitionCommand
+ */
+export const se_DeleteSubscriptionDefinitionCommand = async (
   input: DeleteSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1279,7 +1364,10 @@ export const serializeAws_restJson1DeleteSubscriptionDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DisassociateRoleFromGroupCommand = async (
+/**
+ * serializeAws_restJson1DisassociateRoleFromGroupCommand
+ */
+export const se_DisassociateRoleFromGroupCommand = async (
   input: DisassociateRoleFromGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1300,7 +1388,10 @@ export const serializeAws_restJson1DisassociateRoleFromGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1DisassociateServiceRoleFromAccountCommand = async (
+/**
+ * serializeAws_restJson1DisassociateServiceRoleFromAccountCommand
+ */
+export const se_DisassociateServiceRoleFromAccountCommand = async (
   input: DisassociateServiceRoleFromAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1323,7 +1414,10 @@ export const serializeAws_restJson1DisassociateServiceRoleFromAccountCommand = a
   });
 };
 
-export const serializeAws_restJson1GetAssociatedRoleCommand = async (
+/**
+ * serializeAws_restJson1GetAssociatedRoleCommand
+ */
+export const se_GetAssociatedRoleCommand = async (
   input: GetAssociatedRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1344,7 +1438,10 @@ export const serializeAws_restJson1GetAssociatedRoleCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBulkDeploymentStatusCommand = async (
+/**
+ * serializeAws_restJson1GetBulkDeploymentStatusCommand
+ */
+export const se_GetBulkDeploymentStatusCommand = async (
   input: GetBulkDeploymentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1373,7 +1470,10 @@ export const serializeAws_restJson1GetBulkDeploymentStatusCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetConnectivityInfoCommand = async (
+/**
+ * serializeAws_restJson1GetConnectivityInfoCommand
+ */
+export const se_GetConnectivityInfoCommand = async (
   input: GetConnectivityInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1395,7 +1495,10 @@ export const serializeAws_restJson1GetConnectivityInfoCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetConnectorDefinitionCommand = async (
+/**
+ * serializeAws_restJson1GetConnectorDefinitionCommand
+ */
+export const se_GetConnectorDefinitionCommand = async (
   input: GetConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1424,7 +1527,10 @@ export const serializeAws_restJson1GetConnectorDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetConnectorDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1GetConnectorDefinitionVersionCommand
+ */
+export const se_GetConnectorDefinitionVersionCommand = async (
   input: GetConnectorDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1465,7 +1571,10 @@ export const serializeAws_restJson1GetConnectorDefinitionVersionCommand = async 
   });
 };
 
-export const serializeAws_restJson1GetCoreDefinitionCommand = async (
+/**
+ * serializeAws_restJson1GetCoreDefinitionCommand
+ */
+export const se_GetCoreDefinitionCommand = async (
   input: GetCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1494,7 +1603,10 @@ export const serializeAws_restJson1GetCoreDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetCoreDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1GetCoreDefinitionVersionCommand
+ */
+export const se_GetCoreDefinitionVersionCommand = async (
   input: GetCoreDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1531,7 +1643,10 @@ export const serializeAws_restJson1GetCoreDefinitionVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDeploymentStatusCommand = async (
+/**
+ * serializeAws_restJson1GetDeploymentStatusCommand
+ */
+export const se_GetDeploymentStatusCommand = async (
   input: GetDeploymentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1561,7 +1676,10 @@ export const serializeAws_restJson1GetDeploymentStatusCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDeviceDefinitionCommand = async (
+/**
+ * serializeAws_restJson1GetDeviceDefinitionCommand
+ */
+export const se_GetDeviceDefinitionCommand = async (
   input: GetDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1590,7 +1708,10 @@ export const serializeAws_restJson1GetDeviceDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1GetDeviceDefinitionVersionCommand
+ */
+export const se_GetDeviceDefinitionVersionCommand = async (
   input: GetDeviceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1631,7 +1752,10 @@ export const serializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetFunctionDefinitionCommand = async (
+/**
+ * serializeAws_restJson1GetFunctionDefinitionCommand
+ */
+export const se_GetFunctionDefinitionCommand = async (
   input: GetFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1660,7 +1784,10 @@ export const serializeAws_restJson1GetFunctionDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetFunctionDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1GetFunctionDefinitionVersionCommand
+ */
+export const se_GetFunctionDefinitionVersionCommand = async (
   input: GetFunctionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1701,7 +1828,10 @@ export const serializeAws_restJson1GetFunctionDefinitionVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetGroupCommand = async (
+/**
+ * serializeAws_restJson1GetGroupCommand
+ */
+export const se_GetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1722,7 +1852,10 @@ export const serializeAws_restJson1GetGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetGroupCertificateAuthorityCommand = async (
+/**
+ * serializeAws_restJson1GetGroupCertificateAuthorityCommand
+ */
+export const se_GetGroupCertificateAuthorityCommand = async (
   input: GetGroupCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1752,7 +1885,10 @@ export const serializeAws_restJson1GetGroupCertificateAuthorityCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetGroupCertificateConfigurationCommand = async (
+/**
+ * serializeAws_restJson1GetGroupCertificateConfigurationCommand
+ */
+export const se_GetGroupCertificateConfigurationCommand = async (
   input: GetGroupCertificateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1774,7 +1910,10 @@ export const serializeAws_restJson1GetGroupCertificateConfigurationCommand = asy
   });
 };
 
-export const serializeAws_restJson1GetGroupVersionCommand = async (
+/**
+ * serializeAws_restJson1GetGroupVersionCommand
+ */
+export const se_GetGroupVersionCommand = async (
   input: GetGroupVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1804,7 +1943,10 @@ export const serializeAws_restJson1GetGroupVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetLoggerDefinitionCommand = async (
+/**
+ * serializeAws_restJson1GetLoggerDefinitionCommand
+ */
+export const se_GetLoggerDefinitionCommand = async (
   input: GetLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1833,7 +1975,10 @@ export const serializeAws_restJson1GetLoggerDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1GetLoggerDefinitionVersionCommand
+ */
+export const se_GetLoggerDefinitionVersionCommand = async (
   input: GetLoggerDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1874,7 +2019,10 @@ export const serializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetResourceDefinitionCommand = async (
+/**
+ * serializeAws_restJson1GetResourceDefinitionCommand
+ */
+export const se_GetResourceDefinitionCommand = async (
   input: GetResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1903,7 +2051,10 @@ export const serializeAws_restJson1GetResourceDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetResourceDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1GetResourceDefinitionVersionCommand
+ */
+export const se_GetResourceDefinitionVersionCommand = async (
   input: GetResourceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1940,7 +2091,10 @@ export const serializeAws_restJson1GetResourceDefinitionVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetServiceRoleForAccountCommand = async (
+/**
+ * serializeAws_restJson1GetServiceRoleForAccountCommand
+ */
+export const se_GetServiceRoleForAccountCommand = async (
   input: GetServiceRoleForAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1963,7 +2117,10 @@ export const serializeAws_restJson1GetServiceRoleForAccountCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSubscriptionDefinitionCommand = async (
+/**
+ * serializeAws_restJson1GetSubscriptionDefinitionCommand
+ */
+export const se_GetSubscriptionDefinitionCommand = async (
   input: GetSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1992,7 +2149,10 @@ export const serializeAws_restJson1GetSubscriptionDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSubscriptionDefinitionVersionCommand = async (
+/**
+ * serializeAws_restJson1GetSubscriptionDefinitionVersionCommand
+ */
+export const se_GetSubscriptionDefinitionVersionCommand = async (
   input: GetSubscriptionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2033,7 +2193,10 @@ export const serializeAws_restJson1GetSubscriptionDefinitionVersionCommand = asy
   });
 };
 
-export const serializeAws_restJson1GetThingRuntimeConfigurationCommand = async (
+/**
+ * serializeAws_restJson1GetThingRuntimeConfigurationCommand
+ */
+export const se_GetThingRuntimeConfigurationCommand = async (
   input: GetThingRuntimeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2055,7 +2218,10 @@ export const serializeAws_restJson1GetThingRuntimeConfigurationCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = async (
+/**
+ * serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand
+ */
+export const se_ListBulkDeploymentDetailedReportsCommand = async (
   input: ListBulkDeploymentDetailedReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2089,7 +2255,10 @@ export const serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = as
   });
 };
 
-export const serializeAws_restJson1ListBulkDeploymentsCommand = async (
+/**
+ * serializeAws_restJson1ListBulkDeploymentsCommand
+ */
+export const se_ListBulkDeploymentsCommand = async (
   input: ListBulkDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2114,7 +2283,10 @@ export const serializeAws_restJson1ListBulkDeploymentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListConnectorDefinitionsCommand = async (
+/**
+ * serializeAws_restJson1ListConnectorDefinitionsCommand
+ */
+export const se_ListConnectorDefinitionsCommand = async (
   input: ListConnectorDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2139,7 +2311,10 @@ export const serializeAws_restJson1ListConnectorDefinitionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListConnectorDefinitionVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListConnectorDefinitionVersionsCommand
+ */
+export const se_ListConnectorDefinitionVersionsCommand = async (
   input: ListConnectorDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2173,7 +2348,10 @@ export const serializeAws_restJson1ListConnectorDefinitionVersionsCommand = asyn
   });
 };
 
-export const serializeAws_restJson1ListCoreDefinitionsCommand = async (
+/**
+ * serializeAws_restJson1ListCoreDefinitionsCommand
+ */
+export const se_ListCoreDefinitionsCommand = async (
   input: ListCoreDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2198,7 +2376,10 @@ export const serializeAws_restJson1ListCoreDefinitionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListCoreDefinitionVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListCoreDefinitionVersionsCommand
+ */
+export const se_ListCoreDefinitionVersionsCommand = async (
   input: ListCoreDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2232,7 +2413,10 @@ export const serializeAws_restJson1ListCoreDefinitionVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDeploymentsCommand = async (
+/**
+ * serializeAws_restJson1ListDeploymentsCommand
+ */
+export const se_ListDeploymentsCommand = async (
   input: ListDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2258,7 +2442,10 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDeviceDefinitionsCommand = async (
+/**
+ * serializeAws_restJson1ListDeviceDefinitionsCommand
+ */
+export const se_ListDeviceDefinitionsCommand = async (
   input: ListDeviceDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2283,7 +2470,10 @@ export const serializeAws_restJson1ListDeviceDefinitionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDeviceDefinitionVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListDeviceDefinitionVersionsCommand
+ */
+export const se_ListDeviceDefinitionVersionsCommand = async (
   input: ListDeviceDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2317,7 +2507,10 @@ export const serializeAws_restJson1ListDeviceDefinitionVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListFunctionDefinitionsCommand = async (
+/**
+ * serializeAws_restJson1ListFunctionDefinitionsCommand
+ */
+export const se_ListFunctionDefinitionsCommand = async (
   input: ListFunctionDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2342,7 +2535,10 @@ export const serializeAws_restJson1ListFunctionDefinitionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListFunctionDefinitionVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListFunctionDefinitionVersionsCommand
+ */
+export const se_ListFunctionDefinitionVersionsCommand = async (
   input: ListFunctionDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2376,7 +2572,10 @@ export const serializeAws_restJson1ListFunctionDefinitionVersionsCommand = async
   });
 };
 
-export const serializeAws_restJson1ListGroupCertificateAuthoritiesCommand = async (
+/**
+ * serializeAws_restJson1ListGroupCertificateAuthoritiesCommand
+ */
+export const se_ListGroupCertificateAuthoritiesCommand = async (
   input: ListGroupCertificateAuthoritiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2398,7 +2597,10 @@ export const serializeAws_restJson1ListGroupCertificateAuthoritiesCommand = asyn
   });
 };
 
-export const serializeAws_restJson1ListGroupsCommand = async (
+/**
+ * serializeAws_restJson1ListGroupsCommand
+ */
+export const se_ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2422,7 +2624,10 @@ export const serializeAws_restJson1ListGroupsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListGroupVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListGroupVersionsCommand
+ */
+export const se_ListGroupVersionsCommand = async (
   input: ListGroupVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2448,7 +2653,10 @@ export const serializeAws_restJson1ListGroupVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListLoggerDefinitionsCommand = async (
+/**
+ * serializeAws_restJson1ListLoggerDefinitionsCommand
+ */
+export const se_ListLoggerDefinitionsCommand = async (
   input: ListLoggerDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2473,7 +2681,10 @@ export const serializeAws_restJson1ListLoggerDefinitionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListLoggerDefinitionVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListLoggerDefinitionVersionsCommand
+ */
+export const se_ListLoggerDefinitionVersionsCommand = async (
   input: ListLoggerDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2507,7 +2718,10 @@ export const serializeAws_restJson1ListLoggerDefinitionVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListResourceDefinitionsCommand = async (
+/**
+ * serializeAws_restJson1ListResourceDefinitionsCommand
+ */
+export const se_ListResourceDefinitionsCommand = async (
   input: ListResourceDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2532,7 +2746,10 @@ export const serializeAws_restJson1ListResourceDefinitionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListResourceDefinitionVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListResourceDefinitionVersionsCommand
+ */
+export const se_ListResourceDefinitionVersionsCommand = async (
   input: ListResourceDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2566,7 +2783,10 @@ export const serializeAws_restJson1ListResourceDefinitionVersionsCommand = async
   });
 };
 
-export const serializeAws_restJson1ListSubscriptionDefinitionsCommand = async (
+/**
+ * serializeAws_restJson1ListSubscriptionDefinitionsCommand
+ */
+export const se_ListSubscriptionDefinitionsCommand = async (
   input: ListSubscriptionDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2591,7 +2811,10 @@ export const serializeAws_restJson1ListSubscriptionDefinitionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSubscriptionDefinitionVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListSubscriptionDefinitionVersionsCommand
+ */
+export const se_ListSubscriptionDefinitionVersionsCommand = async (
   input: ListSubscriptionDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2625,7 +2848,10 @@ export const serializeAws_restJson1ListSubscriptionDefinitionVersionsCommand = a
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2645,7 +2871,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ResetDeploymentsCommand = async (
+/**
+ * serializeAws_restJson1ResetDeploymentsCommand
+ */
+export const se_ResetDeploymentsCommand = async (
   input: ResetDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2659,9 +2888,11 @@ export const serializeAws_restJson1ResetDeploymentsCommand = async (
     "/greengrass/groups/{GroupId}/deployments/$reset";
   resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Force != null && { Force: input.Force }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Force: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2673,7 +2904,10 @@ export const serializeAws_restJson1ResetDeploymentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartBulkDeploymentCommand = async (
+/**
+ * serializeAws_restJson1StartBulkDeploymentCommand
+ */
+export const se_StartBulkDeploymentCommand = async (
   input: StartBulkDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2685,11 +2919,13 @@ export const serializeAws_restJson1StartBulkDeploymentCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/bulk/deployments";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.InputFileUri != null && { InputFileUri: input.InputFileUri }),
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ExecutionRoleArn: [],
+      InputFileUri: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2701,7 +2937,10 @@ export const serializeAws_restJson1StartBulkDeploymentCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopBulkDeploymentCommand = async (
+/**
+ * serializeAws_restJson1StopBulkDeploymentCommand
+ */
+export const se_StopBulkDeploymentCommand = async (
   input: StopBulkDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2730,7 +2969,10 @@ export const serializeAws_restJson1StopBulkDeploymentCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2741,9 +2983,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2755,7 +2999,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2782,7 +3029,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateConnectivityInfoCommand = async (
+/**
+ * serializeAws_restJson1UpdateConnectivityInfoCommand
+ */
+export const se_UpdateConnectivityInfoCommand = async (
   input: UpdateConnectivityInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2795,11 +3045,11 @@ export const serializeAws_restJson1UpdateConnectivityInfoCommand = async (
     "/greengrass/things/{ThingName}/connectivityInfo";
   resolvedPath = __resolvedPath(resolvedPath, input, "ThingName", () => input.ThingName!, "{ThingName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConnectivityInfo != null && {
-      ConnectivityInfo: serializeAws_restJson1__listOfConnectivityInfo(input.ConnectivityInfo, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConnectivityInfo: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2811,7 +3061,10 @@ export const serializeAws_restJson1UpdateConnectivityInfoCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateConnectorDefinitionCommand = async (
+/**
+ * serializeAws_restJson1UpdateConnectorDefinitionCommand
+ */
+export const se_UpdateConnectorDefinitionCommand = async (
   input: UpdateConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2831,9 +3084,11 @@ export const serializeAws_restJson1UpdateConnectorDefinitionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2845,7 +3100,10 @@ export const serializeAws_restJson1UpdateConnectorDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateCoreDefinitionCommand = async (
+/**
+ * serializeAws_restJson1UpdateCoreDefinitionCommand
+ */
+export const se_UpdateCoreDefinitionCommand = async (
   input: UpdateCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2865,9 +3123,11 @@ export const serializeAws_restJson1UpdateCoreDefinitionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2879,7 +3139,10 @@ export const serializeAws_restJson1UpdateCoreDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateDeviceDefinitionCommand = async (
+/**
+ * serializeAws_restJson1UpdateDeviceDefinitionCommand
+ */
+export const se_UpdateDeviceDefinitionCommand = async (
   input: UpdateDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2899,9 +3162,11 @@ export const serializeAws_restJson1UpdateDeviceDefinitionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2913,7 +3178,10 @@ export const serializeAws_restJson1UpdateDeviceDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFunctionDefinitionCommand = async (
+/**
+ * serializeAws_restJson1UpdateFunctionDefinitionCommand
+ */
+export const se_UpdateFunctionDefinitionCommand = async (
   input: UpdateFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2933,9 +3201,11 @@ export const serializeAws_restJson1UpdateFunctionDefinitionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2947,7 +3217,10 @@ export const serializeAws_restJson1UpdateFunctionDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateGroupCommand = async (
+/**
+ * serializeAws_restJson1UpdateGroupCommand
+ */
+export const se_UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2959,9 +3232,11 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2973,7 +3248,10 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateGroupCertificateConfigurationCommand = async (
+/**
+ * serializeAws_restJson1UpdateGroupCertificateConfigurationCommand
+ */
+export const se_UpdateGroupCertificateConfigurationCommand = async (
   input: UpdateGroupCertificateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2986,11 +3264,11 @@ export const serializeAws_restJson1UpdateGroupCertificateConfigurationCommand = 
     "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
   resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.CertificateExpiryInMilliseconds != null && {
-      CertificateExpiryInMilliseconds: input.CertificateExpiryInMilliseconds,
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CertificateExpiryInMilliseconds: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3002,7 +3280,10 @@ export const serializeAws_restJson1UpdateGroupCertificateConfigurationCommand = 
   });
 };
 
-export const serializeAws_restJson1UpdateLoggerDefinitionCommand = async (
+/**
+ * serializeAws_restJson1UpdateLoggerDefinitionCommand
+ */
+export const se_UpdateLoggerDefinitionCommand = async (
   input: UpdateLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3022,9 +3303,11 @@ export const serializeAws_restJson1UpdateLoggerDefinitionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3036,7 +3319,10 @@ export const serializeAws_restJson1UpdateLoggerDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateResourceDefinitionCommand = async (
+/**
+ * serializeAws_restJson1UpdateResourceDefinitionCommand
+ */
+export const se_UpdateResourceDefinitionCommand = async (
   input: UpdateResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3056,9 +3342,11 @@ export const serializeAws_restJson1UpdateResourceDefinitionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3070,7 +3358,10 @@ export const serializeAws_restJson1UpdateResourceDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateSubscriptionDefinitionCommand = async (
+/**
+ * serializeAws_restJson1UpdateSubscriptionDefinitionCommand
+ */
+export const se_UpdateSubscriptionDefinitionCommand = async (
   input: UpdateSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3090,9 +3381,11 @@ export const serializeAws_restJson1UpdateSubscriptionDefinitionCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3104,7 +3397,10 @@ export const serializeAws_restJson1UpdateSubscriptionDefinitionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateThingRuntimeConfigurationCommand = async (
+/**
+ * serializeAws_restJson1UpdateThingRuntimeConfigurationCommand
+ */
+export const se_UpdateThingRuntimeConfigurationCommand = async (
   input: UpdateThingRuntimeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3117,11 +3413,11 @@ export const serializeAws_restJson1UpdateThingRuntimeConfigurationCommand = asyn
     "/greengrass/things/{ThingName}/runtimeconfig";
   resolvedPath = __resolvedPath(resolvedPath, input, "ThingName", () => input.ThingName!, "{ThingName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.TelemetryConfiguration != null && {
-      TelemetryConfiguration: serializeAws_restJson1TelemetryConfigurationUpdate(input.TelemetryConfiguration, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TelemetryConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3133,24 +3429,31 @@ export const serializeAws_restJson1UpdateThingRuntimeConfigurationCommand = asyn
   });
 };
 
-export const deserializeAws_restJson1AssociateRoleToGroupCommand = async (
+/**
+ * deserializeAws_restJson1AssociateRoleToGroupCommand
+ */
+export const de_AssociateRoleToGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateRoleToGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AssociateRoleToGroupCommandError(output, context);
+    return de_AssociateRoleToGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AssociatedAt != null) {
-    contents.AssociatedAt = __expectString(data.AssociatedAt);
-  }
+  const doc = take(data, {
+    AssociatedAt: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1AssociateRoleToGroupCommandError = async (
+/**
+ * deserializeAws_restJson1AssociateRoleToGroupCommandError
+ */
+const de_AssociateRoleToGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateRoleToGroupCommandOutput> => {
@@ -3162,39 +3465,45 @@ const deserializeAws_restJson1AssociateRoleToGroupCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1AssociateServiceRoleToAccountCommand = async (
+/**
+ * deserializeAws_restJson1AssociateServiceRoleToAccountCommand
+ */
+export const de_AssociateServiceRoleToAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateServiceRoleToAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AssociateServiceRoleToAccountCommandError(output, context);
+    return de_AssociateServiceRoleToAccountCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AssociatedAt != null) {
-    contents.AssociatedAt = __expectString(data.AssociatedAt);
-  }
+  const doc = take(data, {
+    AssociatedAt: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1AssociateServiceRoleToAccountCommandError = async (
+/**
+ * deserializeAws_restJson1AssociateServiceRoleToAccountCommandError
+ */
+const de_AssociateServiceRoleToAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateServiceRoleToAccountCommandOutput> => {
@@ -3206,57 +3515,51 @@ const deserializeAws_restJson1AssociateServiceRoleToAccountCommandError = async 
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateConnectorDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1CreateConnectorDefinitionCommand
+ */
+export const de_CreateConnectorDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectorDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateConnectorDefinitionCommandError(output, context);
+    return de_CreateConnectorDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateConnectorDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateConnectorDefinitionCommandError
+ */
+const de_CreateConnectorDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectorDefinitionCommandOutput> => {
@@ -3268,45 +3571,45 @@ const deserializeAws_restJson1CreateConnectorDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateConnectorDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateConnectorDefinitionVersionCommand
+ */
+export const de_CreateConnectorDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectorDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateConnectorDefinitionVersionCommandError(output, context);
+    return de_CreateConnectorDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateConnectorDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateConnectorDefinitionVersionCommandError
+ */
+const de_CreateConnectorDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectorDefinitionVersionCommandOutput> => {
@@ -3318,54 +3621,48 @@ const deserializeAws_restJson1CreateConnectorDefinitionVersionCommandError = asy
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateCoreDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1CreateCoreDefinitionCommand
+ */
+export const de_CreateCoreDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCoreDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateCoreDefinitionCommandError(output, context);
+    return de_CreateCoreDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateCoreDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateCoreDefinitionCommandError
+ */
+const de_CreateCoreDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCoreDefinitionCommandOutput> => {
@@ -3377,45 +3674,45 @@ const deserializeAws_restJson1CreateCoreDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateCoreDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateCoreDefinitionVersionCommand
+ */
+export const de_CreateCoreDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCoreDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateCoreDefinitionVersionCommandError(output, context);
+    return de_CreateCoreDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateCoreDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateCoreDefinitionVersionCommandError
+ */
+const de_CreateCoreDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCoreDefinitionVersionCommandOutput> => {
@@ -3427,39 +3724,43 @@ const deserializeAws_restJson1CreateCoreDefinitionVersionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateDeploymentCommand = async (
+/**
+ * deserializeAws_restJson1CreateDeploymentCommand
+ */
+export const de_CreateDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDeploymentCommandError(output, context);
+    return de_CreateDeploymentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeploymentArn != null) {
-    contents.DeploymentArn = __expectString(data.DeploymentArn);
-  }
-  if (data.DeploymentId != null) {
-    contents.DeploymentId = __expectString(data.DeploymentId);
-  }
+  const doc = take(data, {
+    DeploymentArn: __expectString,
+    DeploymentId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateDeploymentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDeploymentCommandError
+ */
+const de_CreateDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
@@ -3471,54 +3772,48 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateDeviceDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1CreateDeviceDefinitionCommand
+ */
+export const de_CreateDeviceDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeviceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDeviceDefinitionCommandError(output, context);
+    return de_CreateDeviceDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateDeviceDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDeviceDefinitionCommandError
+ */
+const de_CreateDeviceDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeviceDefinitionCommandOutput> => {
@@ -3530,45 +3825,45 @@ const deserializeAws_restJson1CreateDeviceDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateDeviceDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateDeviceDefinitionVersionCommand
+ */
+export const de_CreateDeviceDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeviceDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDeviceDefinitionVersionCommandError(output, context);
+    return de_CreateDeviceDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateDeviceDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDeviceDefinitionVersionCommandError
+ */
+const de_CreateDeviceDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeviceDefinitionVersionCommandOutput> => {
@@ -3580,54 +3875,48 @@ const deserializeAws_restJson1CreateDeviceDefinitionVersionCommandError = async 
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateFunctionDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1CreateFunctionDefinitionCommand
+ */
+export const de_CreateFunctionDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFunctionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateFunctionDefinitionCommandError(output, context);
+    return de_CreateFunctionDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateFunctionDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateFunctionDefinitionCommandError
+ */
+const de_CreateFunctionDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFunctionDefinitionCommandOutput> => {
@@ -3639,45 +3928,45 @@ const deserializeAws_restJson1CreateFunctionDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateFunctionDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateFunctionDefinitionVersionCommand
+ */
+export const de_CreateFunctionDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFunctionDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateFunctionDefinitionVersionCommandError(output, context);
+    return de_CreateFunctionDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateFunctionDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateFunctionDefinitionVersionCommandError
+ */
+const de_CreateFunctionDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFunctionDefinitionVersionCommandOutput> => {
@@ -3689,54 +3978,48 @@ const deserializeAws_restJson1CreateFunctionDefinitionVersionCommandError = asyn
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateGroupCommand = async (
+/**
+ * deserializeAws_restJson1CreateGroupCommand
+ */
+export const de_CreateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateGroupCommandError(output, context);
+    return de_CreateGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateGroupCommandError = async (
+/**
+ * deserializeAws_restJson1CreateGroupCommandError
+ */
+const de_CreateGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
@@ -3748,36 +4031,42 @@ const deserializeAws_restJson1CreateGroupCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateGroupCertificateAuthorityCommand = async (
+/**
+ * deserializeAws_restJson1CreateGroupCertificateAuthorityCommand
+ */
+export const de_CreateGroupCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCertificateAuthorityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateGroupCertificateAuthorityCommandError(output, context);
+    return de_CreateGroupCertificateAuthorityCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GroupCertificateAuthorityArn != null) {
-    contents.GroupCertificateAuthorityArn = __expectString(data.GroupCertificateAuthorityArn);
-  }
+  const doc = take(data, {
+    GroupCertificateAuthorityArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateGroupCertificateAuthorityCommandError = async (
+/**
+ * deserializeAws_restJson1CreateGroupCertificateAuthorityCommandError
+ */
+const de_CreateGroupCertificateAuthorityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCertificateAuthorityCommandOutput> => {
@@ -3789,48 +4078,48 @@ const deserializeAws_restJson1CreateGroupCertificateAuthorityCommandError = asyn
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateGroupVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateGroupVersionCommand
+ */
+export const de_CreateGroupVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateGroupVersionCommandError(output, context);
+    return de_CreateGroupVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateGroupVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateGroupVersionCommandError
+ */
+const de_CreateGroupVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupVersionCommandOutput> => {
@@ -3842,54 +4131,48 @@ const deserializeAws_restJson1CreateGroupVersionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateLoggerDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1CreateLoggerDefinitionCommand
+ */
+export const de_CreateLoggerDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoggerDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateLoggerDefinitionCommandError(output, context);
+    return de_CreateLoggerDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateLoggerDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateLoggerDefinitionCommandError
+ */
+const de_CreateLoggerDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoggerDefinitionCommandOutput> => {
@@ -3901,45 +4184,45 @@ const deserializeAws_restJson1CreateLoggerDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateLoggerDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateLoggerDefinitionVersionCommand
+ */
+export const de_CreateLoggerDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoggerDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateLoggerDefinitionVersionCommandError(output, context);
+    return de_CreateLoggerDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateLoggerDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateLoggerDefinitionVersionCommandError
+ */
+const de_CreateLoggerDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoggerDefinitionVersionCommandOutput> => {
@@ -3951,54 +4234,48 @@ const deserializeAws_restJson1CreateLoggerDefinitionVersionCommandError = async 
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateResourceDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1CreateResourceDefinitionCommand
+ */
+export const de_CreateResourceDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateResourceDefinitionCommandError(output, context);
+    return de_CreateResourceDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateResourceDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateResourceDefinitionCommandError
+ */
+const de_CreateResourceDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceDefinitionCommandOutput> => {
@@ -4010,45 +4287,45 @@ const deserializeAws_restJson1CreateResourceDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateResourceDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateResourceDefinitionVersionCommand
+ */
+export const de_CreateResourceDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateResourceDefinitionVersionCommandError(output, context);
+    return de_CreateResourceDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateResourceDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateResourceDefinitionVersionCommandError
+ */
+const de_CreateResourceDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceDefinitionVersionCommandOutput> => {
@@ -4060,42 +4337,44 @@ const deserializeAws_restJson1CreateResourceDefinitionVersionCommandError = asyn
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
+/**
+ * deserializeAws_restJson1CreateSoftwareUpdateJobCommand
+ */
+export const de_CreateSoftwareUpdateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSoftwareUpdateJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSoftwareUpdateJobCommandError(output, context);
+    return de_CreateSoftwareUpdateJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IotJobArn != null) {
-    contents.IotJobArn = __expectString(data.IotJobArn);
-  }
-  if (data.IotJobId != null) {
-    contents.IotJobId = __expectString(data.IotJobId);
-  }
-  if (data.PlatformSoftwareVersion != null) {
-    contents.PlatformSoftwareVersion = __expectString(data.PlatformSoftwareVersion);
-  }
+  const doc = take(data, {
+    IotJobArn: __expectString,
+    IotJobId: __expectString,
+    PlatformSoftwareVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateSoftwareUpdateJobCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSoftwareUpdateJobCommandError
+ */
+const de_CreateSoftwareUpdateJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSoftwareUpdateJobCommandOutput> => {
@@ -4107,57 +4386,51 @@ const deserializeAws_restJson1CreateSoftwareUpdateJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateSubscriptionDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1CreateSubscriptionDefinitionCommand
+ */
+export const de_CreateSubscriptionDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriptionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSubscriptionDefinitionCommandError(output, context);
+    return de_CreateSubscriptionDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateSubscriptionDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSubscriptionDefinitionCommandError
+ */
+const de_CreateSubscriptionDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriptionDefinitionCommandOutput> => {
@@ -4169,45 +4442,45 @@ const deserializeAws_restJson1CreateSubscriptionDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommand
+ */
+export const de_CreateSubscriptionDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriptionDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommandError(output, context);
+    return de_CreateSubscriptionDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommandError
+ */
+const de_CreateSubscriptionDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriptionDefinitionVersionCommandOutput> => {
@@ -4219,24 +4492,26 @@ const deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommandError = 
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteConnectorDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteConnectorDefinitionCommand
+ */
+export const de_DeleteConnectorDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectorDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteConnectorDefinitionCommandError(output, context);
+    return de_DeleteConnectorDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4245,7 +4520,10 @@ export const deserializeAws_restJson1DeleteConnectorDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteConnectorDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteConnectorDefinitionCommandError
+ */
+const de_DeleteConnectorDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectorDefinitionCommandOutput> => {
@@ -4257,24 +4535,26 @@ const deserializeAws_restJson1DeleteConnectorDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteCoreDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteCoreDefinitionCommand
+ */
+export const de_DeleteCoreDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCoreDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteCoreDefinitionCommandError(output, context);
+    return de_DeleteCoreDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4283,7 +4563,10 @@ export const deserializeAws_restJson1DeleteCoreDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteCoreDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteCoreDefinitionCommandError
+ */
+const de_DeleteCoreDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCoreDefinitionCommandOutput> => {
@@ -4295,24 +4578,26 @@ const deserializeAws_restJson1DeleteCoreDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteDeviceDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDeviceDefinitionCommand
+ */
+export const de_DeleteDeviceDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeviceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDeviceDefinitionCommandError(output, context);
+    return de_DeleteDeviceDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4321,7 +4606,10 @@ export const deserializeAws_restJson1DeleteDeviceDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteDeviceDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDeviceDefinitionCommandError
+ */
+const de_DeleteDeviceDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeviceDefinitionCommandOutput> => {
@@ -4333,24 +4621,26 @@ const deserializeAws_restJson1DeleteDeviceDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteFunctionDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteFunctionDefinitionCommand
+ */
+export const de_DeleteFunctionDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteFunctionDefinitionCommandError(output, context);
+    return de_DeleteFunctionDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4359,7 +4649,10 @@ export const deserializeAws_restJson1DeleteFunctionDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteFunctionDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteFunctionDefinitionCommandError
+ */
+const de_DeleteFunctionDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionDefinitionCommandOutput> => {
@@ -4371,24 +4664,26 @@ const deserializeAws_restJson1DeleteFunctionDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteGroupCommand = async (
+/**
+ * deserializeAws_restJson1DeleteGroupCommand
+ */
+export const de_DeleteGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteGroupCommandError(output, context);
+    return de_DeleteGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4397,7 +4692,10 @@ export const deserializeAws_restJson1DeleteGroupCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteGroupCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteGroupCommandError
+ */
+const de_DeleteGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
@@ -4409,24 +4707,26 @@ const deserializeAws_restJson1DeleteGroupCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteLoggerDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteLoggerDefinitionCommand
+ */
+export const de_DeleteLoggerDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoggerDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteLoggerDefinitionCommandError(output, context);
+    return de_DeleteLoggerDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4435,7 +4735,10 @@ export const deserializeAws_restJson1DeleteLoggerDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteLoggerDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteLoggerDefinitionCommandError
+ */
+const de_DeleteLoggerDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoggerDefinitionCommandOutput> => {
@@ -4447,24 +4750,26 @@ const deserializeAws_restJson1DeleteLoggerDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteResourceDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteResourceDefinitionCommand
+ */
+export const de_DeleteResourceDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteResourceDefinitionCommandError(output, context);
+    return de_DeleteResourceDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4473,7 +4778,10 @@ export const deserializeAws_restJson1DeleteResourceDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteResourceDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteResourceDefinitionCommandError
+ */
+const de_DeleteResourceDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceDefinitionCommandOutput> => {
@@ -4485,24 +4793,26 @@ const deserializeAws_restJson1DeleteResourceDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteSubscriptionDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSubscriptionDefinitionCommand
+ */
+export const de_DeleteSubscriptionDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubscriptionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSubscriptionDefinitionCommandError(output, context);
+    return de_DeleteSubscriptionDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4511,7 +4821,10 @@ export const deserializeAws_restJson1DeleteSubscriptionDefinitionCommand = async
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSubscriptionDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSubscriptionDefinitionCommandError
+ */
+const de_DeleteSubscriptionDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubscriptionDefinitionCommandOutput> => {
@@ -4523,36 +4836,42 @@ const deserializeAws_restJson1DeleteSubscriptionDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DisassociateRoleFromGroupCommand = async (
+/**
+ * deserializeAws_restJson1DisassociateRoleFromGroupCommand
+ */
+export const de_DisassociateRoleFromGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateRoleFromGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DisassociateRoleFromGroupCommandError(output, context);
+    return de_DisassociateRoleFromGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DisassociatedAt != null) {
-    contents.DisassociatedAt = __expectString(data.DisassociatedAt);
-  }
+  const doc = take(data, {
+    DisassociatedAt: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DisassociateRoleFromGroupCommandError = async (
+/**
+ * deserializeAws_restJson1DisassociateRoleFromGroupCommandError
+ */
+const de_DisassociateRoleFromGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateRoleFromGroupCommandOutput> => {
@@ -4564,39 +4883,45 @@ const deserializeAws_restJson1DisassociateRoleFromGroupCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DisassociateServiceRoleFromAccountCommand = async (
+/**
+ * deserializeAws_restJson1DisassociateServiceRoleFromAccountCommand
+ */
+export const de_DisassociateServiceRoleFromAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateServiceRoleFromAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError(output, context);
+    return de_DisassociateServiceRoleFromAccountCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DisassociatedAt != null) {
-    contents.DisassociatedAt = __expectString(data.DisassociatedAt);
-  }
+  const doc = take(data, {
+    DisassociatedAt: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError = async (
+/**
+ * deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError
+ */
+const de_DisassociateServiceRoleFromAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateServiceRoleFromAccountCommandOutput> => {
@@ -4608,39 +4933,43 @@ const deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError = a
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetAssociatedRoleCommand = async (
+/**
+ * deserializeAws_restJson1GetAssociatedRoleCommand
+ */
+export const de_GetAssociatedRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssociatedRoleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAssociatedRoleCommandError(output, context);
+    return de_GetAssociatedRoleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AssociatedAt != null) {
-    contents.AssociatedAt = __expectString(data.AssociatedAt);
-  }
-  if (data.RoleArn != null) {
-    contents.RoleArn = __expectString(data.RoleArn);
-  }
+  const doc = take(data, {
+    AssociatedAt: __expectString,
+    RoleArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetAssociatedRoleCommandError = async (
+/**
+ * deserializeAws_restJson1GetAssociatedRoleCommandError
+ */
+const de_GetAssociatedRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssociatedRoleCommandOutput> => {
@@ -4652,54 +4981,50 @@ const deserializeAws_restJson1GetAssociatedRoleCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetBulkDeploymentStatusCommand = async (
+/**
+ * deserializeAws_restJson1GetBulkDeploymentStatusCommand
+ */
+export const de_GetBulkDeploymentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBulkDeploymentStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBulkDeploymentStatusCommandError(output, context);
+    return de_GetBulkDeploymentStatusCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BulkDeploymentMetrics != null) {
-    contents.BulkDeploymentMetrics = deserializeAws_restJson1BulkDeploymentMetrics(data.BulkDeploymentMetrics, context);
-  }
-  if (data.BulkDeploymentStatus != null) {
-    contents.BulkDeploymentStatus = __expectString(data.BulkDeploymentStatus);
-  }
-  if (data.CreatedAt != null) {
-    contents.CreatedAt = __expectString(data.CreatedAt);
-  }
-  if (data.ErrorDetails != null) {
-    contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(data.ErrorDetails, context);
-  }
-  if (data.ErrorMessage != null) {
-    contents.ErrorMessage = __expectString(data.ErrorMessage);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    BulkDeploymentMetrics: _json,
+    BulkDeploymentStatus: __expectString,
+    CreatedAt: __expectString,
+    ErrorDetails: _json,
+    ErrorMessage: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetBulkDeploymentStatusCommandError = async (
+/**
+ * deserializeAws_restJson1GetBulkDeploymentStatusCommandError
+ */
+const de_GetBulkDeploymentStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBulkDeploymentStatusCommandOutput> => {
@@ -4711,39 +5036,43 @@ const deserializeAws_restJson1GetBulkDeploymentStatusCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetConnectivityInfoCommand = async (
+/**
+ * deserializeAws_restJson1GetConnectivityInfoCommand
+ */
+export const de_GetConnectivityInfoCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectivityInfoCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetConnectivityInfoCommandError(output, context);
+    return de_GetConnectivityInfoCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConnectivityInfo != null) {
-    contents.ConnectivityInfo = deserializeAws_restJson1__listOfConnectivityInfo(data.ConnectivityInfo, context);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    ConnectivityInfo: _json,
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetConnectivityInfoCommandError = async (
+/**
+ * deserializeAws_restJson1GetConnectivityInfoCommandError
+ */
+const de_GetConnectivityInfoCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectivityInfoCommandOutput> => {
@@ -4755,60 +5084,52 @@ const deserializeAws_restJson1GetConnectivityInfoCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetConnectorDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1GetConnectorDefinitionCommand
+ */
+export const de_GetConnectorDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectorDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetConnectorDefinitionCommandError(output, context);
+    return de_GetConnectorDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetConnectorDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1GetConnectorDefinitionCommandError
+ */
+const de_GetConnectorDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectorDefinitionCommandOutput> => {
@@ -4820,51 +5141,47 @@ const deserializeAws_restJson1GetConnectorDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetConnectorDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetConnectorDefinitionVersionCommand
+ */
+export const de_GetConnectorDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectorDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetConnectorDefinitionVersionCommandError(output, context);
+    return de_GetConnectorDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Definition != null) {
-    contents.Definition = deserializeAws_restJson1ConnectorDefinitionVersion(data.Definition, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Definition: _json,
+    Id: __expectString,
+    NextToken: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetConnectorDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetConnectorDefinitionVersionCommandError
+ */
+const de_GetConnectorDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectorDefinitionVersionCommandOutput> => {
@@ -4876,57 +5193,49 @@ const deserializeAws_restJson1GetConnectorDefinitionVersionCommandError = async 
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetCoreDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1GetCoreDefinitionCommand
+ */
+export const de_GetCoreDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCoreDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCoreDefinitionCommandError(output, context);
+    return de_GetCoreDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetCoreDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1GetCoreDefinitionCommandError
+ */
+const de_GetCoreDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCoreDefinitionCommandOutput> => {
@@ -4938,51 +5247,47 @@ const deserializeAws_restJson1GetCoreDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetCoreDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetCoreDefinitionVersionCommand
+ */
+export const de_GetCoreDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCoreDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCoreDefinitionVersionCommandError(output, context);
+    return de_GetCoreDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Definition != null) {
-    contents.Definition = deserializeAws_restJson1CoreDefinitionVersion(data.Definition, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Definition: _json,
+    Id: __expectString,
+    NextToken: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetCoreDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetCoreDefinitionVersionCommandError
+ */
+const de_GetCoreDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCoreDefinitionVersionCommandOutput> => {
@@ -4994,48 +5299,46 @@ const deserializeAws_restJson1GetCoreDefinitionVersionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetDeploymentStatusCommand = async (
+/**
+ * deserializeAws_restJson1GetDeploymentStatusCommand
+ */
+export const de_GetDeploymentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDeploymentStatusCommandError(output, context);
+    return de_GetDeploymentStatusCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeploymentStatus != null) {
-    contents.DeploymentStatus = __expectString(data.DeploymentStatus);
-  }
-  if (data.DeploymentType != null) {
-    contents.DeploymentType = __expectString(data.DeploymentType);
-  }
-  if (data.ErrorDetails != null) {
-    contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(data.ErrorDetails, context);
-  }
-  if (data.ErrorMessage != null) {
-    contents.ErrorMessage = __expectString(data.ErrorMessage);
-  }
-  if (data.UpdatedAt != null) {
-    contents.UpdatedAt = __expectString(data.UpdatedAt);
-  }
+  const doc = take(data, {
+    DeploymentStatus: __expectString,
+    DeploymentType: __expectString,
+    ErrorDetails: _json,
+    ErrorMessage: __expectString,
+    UpdatedAt: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetDeploymentStatusCommandError = async (
+/**
+ * deserializeAws_restJson1GetDeploymentStatusCommandError
+ */
+const de_GetDeploymentStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentStatusCommandOutput> => {
@@ -5047,57 +5350,49 @@ const deserializeAws_restJson1GetDeploymentStatusCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetDeviceDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1GetDeviceDefinitionCommand
+ */
+export const de_GetDeviceDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDeviceDefinitionCommandError(output, context);
+    return de_GetDeviceDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetDeviceDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1GetDeviceDefinitionCommandError
+ */
+const de_GetDeviceDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceDefinitionCommandOutput> => {
@@ -5109,51 +5404,47 @@ const deserializeAws_restJson1GetDeviceDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetDeviceDefinitionVersionCommand
+ */
+export const de_GetDeviceDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDeviceDefinitionVersionCommandError(output, context);
+    return de_GetDeviceDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Definition != null) {
-    contents.Definition = deserializeAws_restJson1DeviceDefinitionVersion(data.Definition, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Definition: _json,
+    Id: __expectString,
+    NextToken: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetDeviceDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetDeviceDefinitionVersionCommandError
+ */
+const de_GetDeviceDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceDefinitionVersionCommandOutput> => {
@@ -5165,57 +5456,49 @@ const deserializeAws_restJson1GetDeviceDefinitionVersionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetFunctionDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1GetFunctionDefinitionCommand
+ */
+export const de_GetFunctionDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetFunctionDefinitionCommandError(output, context);
+    return de_GetFunctionDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetFunctionDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1GetFunctionDefinitionCommandError
+ */
+const de_GetFunctionDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionDefinitionCommandOutput> => {
@@ -5227,51 +5510,47 @@ const deserializeAws_restJson1GetFunctionDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetFunctionDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetFunctionDefinitionVersionCommand
+ */
+export const de_GetFunctionDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetFunctionDefinitionVersionCommandError(output, context);
+    return de_GetFunctionDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Definition != null) {
-    contents.Definition = deserializeAws_restJson1FunctionDefinitionVersion(data.Definition, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Definition: _json,
+    Id: __expectString,
+    NextToken: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetFunctionDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetFunctionDefinitionVersionCommandError
+ */
+const de_GetFunctionDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionDefinitionVersionCommandOutput> => {
@@ -5283,57 +5562,49 @@ const deserializeAws_restJson1GetFunctionDefinitionVersionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetGroupCommand = async (
+/**
+ * deserializeAws_restJson1GetGroupCommand
+ */
+export const de_GetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetGroupCommandError(output, context);
+    return de_GetGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetGroupCommandError = async (
+/**
+ * deserializeAws_restJson1GetGroupCommandError
+ */
+const de_GetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
@@ -5345,42 +5616,44 @@ const deserializeAws_restJson1GetGroupCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetGroupCertificateAuthorityCommand = async (
+/**
+ * deserializeAws_restJson1GetGroupCertificateAuthorityCommand
+ */
+export const de_GetGroupCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCertificateAuthorityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetGroupCertificateAuthorityCommandError(output, context);
+    return de_GetGroupCertificateAuthorityCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GroupCertificateAuthorityArn != null) {
-    contents.GroupCertificateAuthorityArn = __expectString(data.GroupCertificateAuthorityArn);
-  }
-  if (data.GroupCertificateAuthorityId != null) {
-    contents.GroupCertificateAuthorityId = __expectString(data.GroupCertificateAuthorityId);
-  }
-  if (data.PemEncodedCertificate != null) {
-    contents.PemEncodedCertificate = __expectString(data.PemEncodedCertificate);
-  }
+  const doc = take(data, {
+    GroupCertificateAuthorityArn: __expectString,
+    GroupCertificateAuthorityId: __expectString,
+    PemEncodedCertificate: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetGroupCertificateAuthorityCommandError = async (
+/**
+ * deserializeAws_restJson1GetGroupCertificateAuthorityCommandError
+ */
+const de_GetGroupCertificateAuthorityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCertificateAuthorityCommandOutput> => {
@@ -5392,45 +5665,47 @@ const deserializeAws_restJson1GetGroupCertificateAuthorityCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetGroupCertificateConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1GetGroupCertificateConfigurationCommand
+ */
+export const de_GetGroupCertificateConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCertificateConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetGroupCertificateConfigurationCommandError(output, context);
+    return de_GetGroupCertificateConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CertificateAuthorityExpiryInMilliseconds != null) {
-    contents.CertificateAuthorityExpiryInMilliseconds = __expectString(data.CertificateAuthorityExpiryInMilliseconds);
-  }
-  if (data.CertificateExpiryInMilliseconds != null) {
-    contents.CertificateExpiryInMilliseconds = __expectString(data.CertificateExpiryInMilliseconds);
-  }
-  if (data.GroupId != null) {
-    contents.GroupId = __expectString(data.GroupId);
-  }
+  const doc = take(data, {
+    CertificateAuthorityExpiryInMilliseconds: __expectString,
+    CertificateExpiryInMilliseconds: __expectString,
+    GroupId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetGroupCertificateConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1GetGroupCertificateConfigurationCommandError
+ */
+const de_GetGroupCertificateConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCertificateConfigurationCommandOutput> => {
@@ -5442,51 +5717,49 @@ const deserializeAws_restJson1GetGroupCertificateConfigurationCommandError = asy
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetGroupVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetGroupVersionCommand
+ */
+export const de_GetGroupVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetGroupVersionCommandError(output, context);
+    return de_GetGroupVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Definition != null) {
-    contents.Definition = deserializeAws_restJson1GroupVersion(data.Definition, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Definition: _json,
+    Id: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetGroupVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetGroupVersionCommandError
+ */
+const de_GetGroupVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupVersionCommandOutput> => {
@@ -5498,57 +5771,49 @@ const deserializeAws_restJson1GetGroupVersionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetLoggerDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1GetLoggerDefinitionCommand
+ */
+export const de_GetLoggerDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggerDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetLoggerDefinitionCommandError(output, context);
+    return de_GetLoggerDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetLoggerDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1GetLoggerDefinitionCommandError
+ */
+const de_GetLoggerDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggerDefinitionCommandOutput> => {
@@ -5560,48 +5825,46 @@ const deserializeAws_restJson1GetLoggerDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetLoggerDefinitionVersionCommand
+ */
+export const de_GetLoggerDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggerDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetLoggerDefinitionVersionCommandError(output, context);
+    return de_GetLoggerDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Definition != null) {
-    contents.Definition = deserializeAws_restJson1LoggerDefinitionVersion(data.Definition, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Definition: _json,
+    Id: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetLoggerDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetLoggerDefinitionVersionCommandError
+ */
+const de_GetLoggerDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggerDefinitionVersionCommandOutput> => {
@@ -5613,57 +5876,49 @@ const deserializeAws_restJson1GetLoggerDefinitionVersionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetResourceDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1GetResourceDefinitionCommand
+ */
+export const de_GetResourceDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetResourceDefinitionCommandError(output, context);
+    return de_GetResourceDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetResourceDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1GetResourceDefinitionCommandError
+ */
+const de_GetResourceDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceDefinitionCommandOutput> => {
@@ -5675,48 +5930,46 @@ const deserializeAws_restJson1GetResourceDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetResourceDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetResourceDefinitionVersionCommand
+ */
+export const de_GetResourceDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetResourceDefinitionVersionCommandError(output, context);
+    return de_GetResourceDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Definition != null) {
-    contents.Definition = deserializeAws_restJson1ResourceDefinitionVersion(data.Definition, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Definition: _json,
+    Id: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetResourceDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetResourceDefinitionVersionCommandError
+ */
+const de_GetResourceDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceDefinitionVersionCommandOutput> => {
@@ -5728,39 +5981,43 @@ const deserializeAws_restJson1GetResourceDefinitionVersionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetServiceRoleForAccountCommand = async (
+/**
+ * deserializeAws_restJson1GetServiceRoleForAccountCommand
+ */
+export const de_GetServiceRoleForAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceRoleForAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetServiceRoleForAccountCommandError(output, context);
+    return de_GetServiceRoleForAccountCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AssociatedAt != null) {
-    contents.AssociatedAt = __expectString(data.AssociatedAt);
-  }
-  if (data.RoleArn != null) {
-    contents.RoleArn = __expectString(data.RoleArn);
-  }
+  const doc = take(data, {
+    AssociatedAt: __expectString,
+    RoleArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetServiceRoleForAccountCommandError = async (
+/**
+ * deserializeAws_restJson1GetServiceRoleForAccountCommandError
+ */
+const de_GetServiceRoleForAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceRoleForAccountCommandOutput> => {
@@ -5772,57 +6029,49 @@ const deserializeAws_restJson1GetServiceRoleForAccountCommandError = async (
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetSubscriptionDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1GetSubscriptionDefinitionCommand
+ */
+export const de_GetSubscriptionDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSubscriptionDefinitionCommandError(output, context);
+    return de_GetSubscriptionDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LastUpdatedTimestamp != null) {
-    contents.LastUpdatedTimestamp = __expectString(data.LastUpdatedTimestamp);
-  }
-  if (data.LatestVersion != null) {
-    contents.LatestVersion = __expectString(data.LatestVersion);
-  }
-  if (data.LatestVersionArn != null) {
-    contents.LatestVersionArn = __expectString(data.LatestVersionArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetSubscriptionDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1GetSubscriptionDefinitionCommandError
+ */
+const de_GetSubscriptionDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionDefinitionCommandOutput> => {
@@ -5834,51 +6083,47 @@ const deserializeAws_restJson1GetSubscriptionDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetSubscriptionDefinitionVersionCommand
+ */
+export const de_GetSubscriptionDefinitionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSubscriptionDefinitionVersionCommandError(output, context);
+    return de_GetSubscriptionDefinitionVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTimestamp != null) {
-    contents.CreationTimestamp = __expectString(data.CreationTimestamp);
-  }
-  if (data.Definition != null) {
-    contents.Definition = deserializeAws_restJson1SubscriptionDefinitionVersion(data.Definition, context);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Definition: _json,
+    Id: __expectString,
+    NextToken: __expectString,
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetSubscriptionDefinitionVersionCommandError
+ */
+const de_GetSubscriptionDefinitionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionDefinitionVersionCommandOutput> => {
@@ -5890,36 +6135,42 @@ const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommandError = asy
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetThingRuntimeConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1GetThingRuntimeConfigurationCommand
+ */
+export const de_GetThingRuntimeConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetThingRuntimeConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetThingRuntimeConfigurationCommandError(output, context);
+    return de_GetThingRuntimeConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RuntimeConfiguration != null) {
-    contents.RuntimeConfiguration = deserializeAws_restJson1RuntimeConfiguration(data.RuntimeConfiguration, context);
-  }
+  const doc = take(data, {
+    RuntimeConfiguration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetThingRuntimeConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1GetThingRuntimeConfigurationCommandError
+ */
+const de_GetThingRuntimeConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetThingRuntimeConfigurationCommandOutput> => {
@@ -5931,42 +6182,46 @@ const deserializeAws_restJson1GetThingRuntimeConfigurationCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = async (
+/**
+ * deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand
+ */
+export const de_ListBulkDeploymentDetailedReportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBulkDeploymentDetailedReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommandError(output, context);
+    return de_ListBulkDeploymentDetailedReportsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Deployments != null) {
-    contents.Deployments = deserializeAws_restJson1BulkDeploymentResults(data.Deployments, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Deployments: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommandError
+ */
+const de_ListBulkDeploymentDetailedReportsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBulkDeploymentDetailedReportsCommandOutput> => {
@@ -5978,39 +6233,43 @@ const deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommandError = as
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListBulkDeploymentsCommand = async (
+/**
+ * deserializeAws_restJson1ListBulkDeploymentsCommand
+ */
+export const de_ListBulkDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBulkDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBulkDeploymentsCommandError(output, context);
+    return de_ListBulkDeploymentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BulkDeployments != null) {
-    contents.BulkDeployments = deserializeAws_restJson1BulkDeployments(data.BulkDeployments, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    BulkDeployments: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListBulkDeploymentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBulkDeploymentsCommandError
+ */
+const de_ListBulkDeploymentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBulkDeploymentsCommandOutput> => {
@@ -6022,39 +6281,43 @@ const deserializeAws_restJson1ListBulkDeploymentsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListConnectorDefinitionsCommand = async (
+/**
+ * deserializeAws_restJson1ListConnectorDefinitionsCommand
+ */
+export const de_ListConnectorDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectorDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListConnectorDefinitionsCommandError(output, context);
+    return de_ListConnectorDefinitionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Definitions != null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Definitions: (_) => de___listOfDefinitionInformation(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListConnectorDefinitionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListConnectorDefinitionsCommandError
+ */
+const de_ListConnectorDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectorDefinitionsCommandOutput> => {
@@ -6064,35 +6327,39 @@ const deserializeAws_restJson1ListConnectorDefinitionsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_restJson1ListConnectorDefinitionVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListConnectorDefinitionVersionsCommand
+ */
+export const de_ListConnectorDefinitionVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectorDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListConnectorDefinitionVersionsCommandError(output, context);
+    return de_ListConnectorDefinitionVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Versions != null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Versions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListConnectorDefinitionVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListConnectorDefinitionVersionsCommandError
+ */
+const de_ListConnectorDefinitionVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectorDefinitionVersionsCommandOutput> => {
@@ -6104,39 +6371,43 @@ const deserializeAws_restJson1ListConnectorDefinitionVersionsCommandError = asyn
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListCoreDefinitionsCommand = async (
+/**
+ * deserializeAws_restJson1ListCoreDefinitionsCommand
+ */
+export const de_ListCoreDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCoreDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListCoreDefinitionsCommandError(output, context);
+    return de_ListCoreDefinitionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Definitions != null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Definitions: (_) => de___listOfDefinitionInformation(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListCoreDefinitionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListCoreDefinitionsCommandError
+ */
+const de_ListCoreDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCoreDefinitionsCommandOutput> => {
@@ -6146,35 +6417,39 @@ const deserializeAws_restJson1ListCoreDefinitionsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_restJson1ListCoreDefinitionVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListCoreDefinitionVersionsCommand
+ */
+export const de_ListCoreDefinitionVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCoreDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListCoreDefinitionVersionsCommandError(output, context);
+    return de_ListCoreDefinitionVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Versions != null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Versions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListCoreDefinitionVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListCoreDefinitionVersionsCommandError
+ */
+const de_ListCoreDefinitionVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCoreDefinitionVersionsCommandOutput> => {
@@ -6186,39 +6461,43 @@ const deserializeAws_restJson1ListCoreDefinitionVersionsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListDeploymentsCommand = async (
+/**
+ * deserializeAws_restJson1ListDeploymentsCommand
+ */
+export const de_ListDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDeploymentsCommandError(output, context);
+    return de_ListDeploymentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Deployments != null) {
-    contents.Deployments = deserializeAws_restJson1Deployments(data.Deployments, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Deployments: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListDeploymentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDeploymentsCommandError
+ */
+const de_ListDeploymentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> => {
@@ -6230,39 +6509,43 @@ const deserializeAws_restJson1ListDeploymentsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListDeviceDefinitionsCommand = async (
+/**
+ * deserializeAws_restJson1ListDeviceDefinitionsCommand
+ */
+export const de_ListDeviceDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDeviceDefinitionsCommandError(output, context);
+    return de_ListDeviceDefinitionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Definitions != null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Definitions: (_) => de___listOfDefinitionInformation(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListDeviceDefinitionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDeviceDefinitionsCommandError
+ */
+const de_ListDeviceDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceDefinitionsCommandOutput> => {
@@ -6272,35 +6555,39 @@ const deserializeAws_restJson1ListDeviceDefinitionsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_restJson1ListDeviceDefinitionVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListDeviceDefinitionVersionsCommand
+ */
+export const de_ListDeviceDefinitionVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDeviceDefinitionVersionsCommandError(output, context);
+    return de_ListDeviceDefinitionVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Versions != null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Versions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListDeviceDefinitionVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDeviceDefinitionVersionsCommandError
+ */
+const de_ListDeviceDefinitionVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceDefinitionVersionsCommandOutput> => {
@@ -6312,39 +6599,43 @@ const deserializeAws_restJson1ListDeviceDefinitionVersionsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListFunctionDefinitionsCommand = async (
+/**
+ * deserializeAws_restJson1ListFunctionDefinitionsCommand
+ */
+export const de_ListFunctionDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListFunctionDefinitionsCommandError(output, context);
+    return de_ListFunctionDefinitionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Definitions != null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Definitions: (_) => de___listOfDefinitionInformation(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListFunctionDefinitionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListFunctionDefinitionsCommandError
+ */
+const de_ListFunctionDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionDefinitionsCommandOutput> => {
@@ -6354,35 +6645,39 @@ const deserializeAws_restJson1ListFunctionDefinitionsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_restJson1ListFunctionDefinitionVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListFunctionDefinitionVersionsCommand
+ */
+export const de_ListFunctionDefinitionVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListFunctionDefinitionVersionsCommandError(output, context);
+    return de_ListFunctionDefinitionVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Versions != null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Versions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListFunctionDefinitionVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListFunctionDefinitionVersionsCommandError
+ */
+const de_ListFunctionDefinitionVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionDefinitionVersionsCommandOutput> => {
@@ -6394,39 +6689,42 @@ const deserializeAws_restJson1ListFunctionDefinitionVersionsCommandError = async
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListGroupCertificateAuthoritiesCommand = async (
+/**
+ * deserializeAws_restJson1ListGroupCertificateAuthoritiesCommand
+ */
+export const de_ListGroupCertificateAuthoritiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupCertificateAuthoritiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListGroupCertificateAuthoritiesCommandError(output, context);
+    return de_ListGroupCertificateAuthoritiesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GroupCertificateAuthorities != null) {
-    contents.GroupCertificateAuthorities = deserializeAws_restJson1__listOfGroupCertificateAuthorityProperties(
-      data.GroupCertificateAuthorities,
-      context
-    );
-  }
+  const doc = take(data, {
+    GroupCertificateAuthorities: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListGroupCertificateAuthoritiesCommandError = async (
+/**
+ * deserializeAws_restJson1ListGroupCertificateAuthoritiesCommandError
+ */
+const de_ListGroupCertificateAuthoritiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupCertificateAuthoritiesCommandOutput> => {
@@ -6438,42 +6736,46 @@ const deserializeAws_restJson1ListGroupCertificateAuthoritiesCommandError = asyn
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListGroupsCommand = async (
+/**
+ * deserializeAws_restJson1ListGroupsCommand
+ */
+export const de_ListGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListGroupsCommandError(output, context);
+    return de_ListGroupsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Groups != null) {
-    contents.Groups = deserializeAws_restJson1__listOfGroupInformation(data.Groups, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Groups: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListGroupsCommandError = async (
+/**
+ * deserializeAws_restJson1ListGroupsCommandError
+ */
+const de_ListGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
@@ -6483,35 +6785,39 @@ const deserializeAws_restJson1ListGroupsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_restJson1ListGroupVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListGroupVersionsCommand
+ */
+export const de_ListGroupVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListGroupVersionsCommandError(output, context);
+    return de_ListGroupVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Versions != null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Versions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListGroupVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListGroupVersionsCommandError
+ */
+const de_ListGroupVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupVersionsCommandOutput> => {
@@ -6523,39 +6829,43 @@ const deserializeAws_restJson1ListGroupVersionsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListLoggerDefinitionsCommand = async (
+/**
+ * deserializeAws_restJson1ListLoggerDefinitionsCommand
+ */
+export const de_ListLoggerDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLoggerDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListLoggerDefinitionsCommandError(output, context);
+    return de_ListLoggerDefinitionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Definitions != null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Definitions: (_) => de___listOfDefinitionInformation(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListLoggerDefinitionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListLoggerDefinitionsCommandError
+ */
+const de_ListLoggerDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLoggerDefinitionsCommandOutput> => {
@@ -6565,35 +6875,39 @@ const deserializeAws_restJson1ListLoggerDefinitionsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_restJson1ListLoggerDefinitionVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListLoggerDefinitionVersionsCommand
+ */
+export const de_ListLoggerDefinitionVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLoggerDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListLoggerDefinitionVersionsCommandError(output, context);
+    return de_ListLoggerDefinitionVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Versions != null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Versions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListLoggerDefinitionVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListLoggerDefinitionVersionsCommandError
+ */
+const de_ListLoggerDefinitionVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLoggerDefinitionVersionsCommandOutput> => {
@@ -6605,39 +6919,43 @@ const deserializeAws_restJson1ListLoggerDefinitionVersionsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListResourceDefinitionsCommand = async (
+/**
+ * deserializeAws_restJson1ListResourceDefinitionsCommand
+ */
+export const de_ListResourceDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListResourceDefinitionsCommandError(output, context);
+    return de_ListResourceDefinitionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Definitions != null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Definitions: (_) => de___listOfDefinitionInformation(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListResourceDefinitionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListResourceDefinitionsCommandError
+ */
+const de_ListResourceDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceDefinitionsCommandOutput> => {
@@ -6647,35 +6965,39 @@ const deserializeAws_restJson1ListResourceDefinitionsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_restJson1ListResourceDefinitionVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListResourceDefinitionVersionsCommand
+ */
+export const de_ListResourceDefinitionVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListResourceDefinitionVersionsCommandError(output, context);
+    return de_ListResourceDefinitionVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Versions != null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Versions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListResourceDefinitionVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListResourceDefinitionVersionsCommandError
+ */
+const de_ListResourceDefinitionVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceDefinitionVersionsCommandOutput> => {
@@ -6687,39 +7009,43 @@ const deserializeAws_restJson1ListResourceDefinitionVersionsCommandError = async
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListSubscriptionDefinitionsCommand = async (
+/**
+ * deserializeAws_restJson1ListSubscriptionDefinitionsCommand
+ */
+export const de_ListSubscriptionDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSubscriptionDefinitionsCommandError(output, context);
+    return de_ListSubscriptionDefinitionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Definitions != null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Definitions: (_) => de___listOfDefinitionInformation(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListSubscriptionDefinitionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListSubscriptionDefinitionsCommandError
+ */
+const de_ListSubscriptionDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionDefinitionsCommandOutput> => {
@@ -6729,35 +7055,39 @@ const deserializeAws_restJson1ListSubscriptionDefinitionsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommand
+ */
+export const de_ListSubscriptionDefinitionVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommandError(output, context);
+    return de_ListSubscriptionDefinitionVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Versions != null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Versions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommandError
+ */
+const de_ListSubscriptionDefinitionVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionDefinitionVersionsCommandOutput> => {
@@ -6769,36 +7099,42 @@ const deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommandError = a
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1Tags(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -6810,39 +7146,43 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ResetDeploymentsCommand = async (
+/**
+ * deserializeAws_restJson1ResetDeploymentsCommand
+ */
+export const de_ResetDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ResetDeploymentsCommandError(output, context);
+    return de_ResetDeploymentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeploymentArn != null) {
-    contents.DeploymentArn = __expectString(data.DeploymentArn);
-  }
-  if (data.DeploymentId != null) {
-    contents.DeploymentId = __expectString(data.DeploymentId);
-  }
+  const doc = take(data, {
+    DeploymentArn: __expectString,
+    DeploymentId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ResetDeploymentsCommandError = async (
+/**
+ * deserializeAws_restJson1ResetDeploymentsCommandError
+ */
+const de_ResetDeploymentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetDeploymentsCommandOutput> => {
@@ -6854,39 +7194,43 @@ const deserializeAws_restJson1ResetDeploymentsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StartBulkDeploymentCommand = async (
+/**
+ * deserializeAws_restJson1StartBulkDeploymentCommand
+ */
+export const de_StartBulkDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBulkDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartBulkDeploymentCommandError(output, context);
+    return de_StartBulkDeploymentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BulkDeploymentArn != null) {
-    contents.BulkDeploymentArn = __expectString(data.BulkDeploymentArn);
-  }
-  if (data.BulkDeploymentId != null) {
-    contents.BulkDeploymentId = __expectString(data.BulkDeploymentId);
-  }
+  const doc = take(data, {
+    BulkDeploymentArn: __expectString,
+    BulkDeploymentId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1StartBulkDeploymentCommandError = async (
+/**
+ * deserializeAws_restJson1StartBulkDeploymentCommandError
+ */
+const de_StartBulkDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBulkDeploymentCommandOutput> => {
@@ -6898,24 +7242,26 @@ const deserializeAws_restJson1StartBulkDeploymentCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StopBulkDeploymentCommand = async (
+/**
+ * deserializeAws_restJson1StopBulkDeploymentCommand
+ */
+export const de_StopBulkDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBulkDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopBulkDeploymentCommandError(output, context);
+    return de_StopBulkDeploymentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6924,7 +7270,10 @@ export const deserializeAws_restJson1StopBulkDeploymentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StopBulkDeploymentCommandError = async (
+/**
+ * deserializeAws_restJson1StopBulkDeploymentCommandError
+ */
+const de_StopBulkDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBulkDeploymentCommandOutput> => {
@@ -6936,24 +7285,26 @@ const deserializeAws_restJson1StopBulkDeploymentCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6962,7 +7313,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -6974,24 +7328,26 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7000,7 +7356,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -7012,39 +7371,43 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateConnectivityInfoCommand = async (
+/**
+ * deserializeAws_restJson1UpdateConnectivityInfoCommand
+ */
+export const de_UpdateConnectivityInfoCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectivityInfoCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateConnectivityInfoCommandError(output, context);
+    return de_UpdateConnectivityInfoCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
-  if (data.Version != null) {
-    contents.Version = __expectString(data.Version);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+    Version: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateConnectivityInfoCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateConnectivityInfoCommandError
+ */
+const de_UpdateConnectivityInfoCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectivityInfoCommandOutput> => {
@@ -7056,27 +7419,29 @@ const deserializeAws_restJson1UpdateConnectivityInfoCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateConnectorDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateConnectorDefinitionCommand
+ */
+export const de_UpdateConnectorDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectorDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateConnectorDefinitionCommandError(output, context);
+    return de_UpdateConnectorDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7085,7 +7450,10 @@ export const deserializeAws_restJson1UpdateConnectorDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateConnectorDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateConnectorDefinitionCommandError
+ */
+const de_UpdateConnectorDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectorDefinitionCommandOutput> => {
@@ -7097,24 +7465,26 @@ const deserializeAws_restJson1UpdateConnectorDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateCoreDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateCoreDefinitionCommand
+ */
+export const de_UpdateCoreDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCoreDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateCoreDefinitionCommandError(output, context);
+    return de_UpdateCoreDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7123,7 +7493,10 @@ export const deserializeAws_restJson1UpdateCoreDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateCoreDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateCoreDefinitionCommandError
+ */
+const de_UpdateCoreDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCoreDefinitionCommandOutput> => {
@@ -7135,24 +7508,26 @@ const deserializeAws_restJson1UpdateCoreDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateDeviceDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateDeviceDefinitionCommand
+ */
+export const de_UpdateDeviceDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeviceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateDeviceDefinitionCommandError(output, context);
+    return de_UpdateDeviceDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7161,7 +7536,10 @@ export const deserializeAws_restJson1UpdateDeviceDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateDeviceDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateDeviceDefinitionCommandError
+ */
+const de_UpdateDeviceDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeviceDefinitionCommandOutput> => {
@@ -7173,24 +7551,26 @@ const deserializeAws_restJson1UpdateDeviceDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateFunctionDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateFunctionDefinitionCommand
+ */
+export const de_UpdateFunctionDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateFunctionDefinitionCommandError(output, context);
+    return de_UpdateFunctionDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7199,7 +7579,10 @@ export const deserializeAws_restJson1UpdateFunctionDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateFunctionDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateFunctionDefinitionCommandError
+ */
+const de_UpdateFunctionDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionDefinitionCommandOutput> => {
@@ -7211,24 +7594,26 @@ const deserializeAws_restJson1UpdateFunctionDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateGroupCommand = async (
+/**
+ * deserializeAws_restJson1UpdateGroupCommand
+ */
+export const de_UpdateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateGroupCommandError(output, context);
+    return de_UpdateGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7237,7 +7622,10 @@ export const deserializeAws_restJson1UpdateGroupCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateGroupCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateGroupCommandError
+ */
+const de_UpdateGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
@@ -7249,42 +7637,44 @@ const deserializeAws_restJson1UpdateGroupCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateGroupCertificateConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateGroupCertificateConfigurationCommand
+ */
+export const de_UpdateGroupCertificateConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCertificateConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateGroupCertificateConfigurationCommandError(output, context);
+    return de_UpdateGroupCertificateConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CertificateAuthorityExpiryInMilliseconds != null) {
-    contents.CertificateAuthorityExpiryInMilliseconds = __expectString(data.CertificateAuthorityExpiryInMilliseconds);
-  }
-  if (data.CertificateExpiryInMilliseconds != null) {
-    contents.CertificateExpiryInMilliseconds = __expectString(data.CertificateExpiryInMilliseconds);
-  }
-  if (data.GroupId != null) {
-    contents.GroupId = __expectString(data.GroupId);
-  }
+  const doc = take(data, {
+    CertificateAuthorityExpiryInMilliseconds: __expectString,
+    CertificateExpiryInMilliseconds: __expectString,
+    GroupId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateGroupCertificateConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateGroupCertificateConfigurationCommandError
+ */
+const de_UpdateGroupCertificateConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCertificateConfigurationCommandOutput> => {
@@ -7296,27 +7686,29 @@ const deserializeAws_restJson1UpdateGroupCertificateConfigurationCommandError = 
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateLoggerDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateLoggerDefinitionCommand
+ */
+export const de_UpdateLoggerDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLoggerDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateLoggerDefinitionCommandError(output, context);
+    return de_UpdateLoggerDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7325,7 +7717,10 @@ export const deserializeAws_restJson1UpdateLoggerDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateLoggerDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateLoggerDefinitionCommandError
+ */
+const de_UpdateLoggerDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLoggerDefinitionCommandOutput> => {
@@ -7337,24 +7732,26 @@ const deserializeAws_restJson1UpdateLoggerDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateResourceDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateResourceDefinitionCommand
+ */
+export const de_UpdateResourceDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateResourceDefinitionCommandError(output, context);
+    return de_UpdateResourceDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7363,7 +7760,10 @@ export const deserializeAws_restJson1UpdateResourceDefinitionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateResourceDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateResourceDefinitionCommandError
+ */
+const de_UpdateResourceDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourceDefinitionCommandOutput> => {
@@ -7375,24 +7775,26 @@ const deserializeAws_restJson1UpdateResourceDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateSubscriptionDefinitionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSubscriptionDefinitionCommand
+ */
+export const de_UpdateSubscriptionDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubscriptionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSubscriptionDefinitionCommandError(output, context);
+    return de_UpdateSubscriptionDefinitionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7401,7 +7803,10 @@ export const deserializeAws_restJson1UpdateSubscriptionDefinitionCommand = async
   return contents;
 };
 
-const deserializeAws_restJson1UpdateSubscriptionDefinitionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSubscriptionDefinitionCommandError
+ */
+const de_UpdateSubscriptionDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubscriptionDefinitionCommandOutput> => {
@@ -7413,24 +7818,26 @@ const deserializeAws_restJson1UpdateSubscriptionDefinitionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateThingRuntimeConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateThingRuntimeConfigurationCommand
+ */
+export const de_UpdateThingRuntimeConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateThingRuntimeConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateThingRuntimeConfigurationCommandError(output, context);
+    return de_UpdateThingRuntimeConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7439,7 +7846,10 @@ export const deserializeAws_restJson1UpdateThingRuntimeConfigurationCommand = as
   return contents;
 };
 
-const deserializeAws_restJson1UpdateThingRuntimeConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateThingRuntimeConfigurationCommandError
+ */
+const de_UpdateThingRuntimeConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateThingRuntimeConfigurationCommandOutput> => {
@@ -7451,34 +7861,32 @@ const deserializeAws_restJson1UpdateThingRuntimeConfigurationCommandError = asyn
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorDetails != null) {
-    contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(data.ErrorDetails, context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorDetails: _json,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7486,18 +7894,20 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerErrorExceptionRes
+ */
+const de_InternalServerErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorDetails != null) {
-    contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(data.ErrorDetails, context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorDetails: _json,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7505,1178 +7915,243 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1__listOf__string = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se___listOf__string omitted.
 
-const serializeAws_restJson1__listOfConnectivityInfo = (input: ConnectivityInfo[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1ConnectivityInfo(entry, context);
-    });
-};
+// se___listOfConnectivityInfo omitted.
 
-const serializeAws_restJson1__listOfConnector = (input: Connector[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Connector(entry, context);
-    });
-};
+// se___listOfConnector omitted.
 
-const serializeAws_restJson1__listOfCore = (input: Core[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Core(entry, context);
-    });
-};
+// se___listOfCore omitted.
 
-const serializeAws_restJson1__listOfDevice = (input: Device[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Device(entry, context);
-    });
-};
+// se___listOfDevice omitted.
 
-const serializeAws_restJson1__listOfFunction = (input: Function[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Function(entry, context);
-    });
-};
+// se___listOfFunction omitted.
 
-const serializeAws_restJson1__listOfLogger = (input: Logger[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Logger(entry, context);
-    });
-};
+// se___listOfLogger omitted.
 
-const serializeAws_restJson1__listOfResource = (input: Resource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Resource(entry, context);
-    });
-};
+// se___listOfResource omitted.
 
-const serializeAws_restJson1__listOfResourceAccessPolicy = (
-  input: ResourceAccessPolicy[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1ResourceAccessPolicy(entry, context);
-    });
-};
+// se___listOfResourceAccessPolicy omitted.
 
-const serializeAws_restJson1__listOfSubscription = (input: Subscription[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Subscription(entry, context);
-    });
-};
+// se___listOfSubscription omitted.
 
-const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se___mapOf__string omitted.
 
-const serializeAws_restJson1ConnectivityInfo = (input: ConnectivityInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.HostAddress != null && { HostAddress: input.HostAddress }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Metadata != null && { Metadata: input.Metadata }),
-    ...(input.PortNumber != null && { PortNumber: input.PortNumber }),
-  };
-};
+// se_ConnectivityInfo omitted.
 
-const serializeAws_restJson1Connector = (input: Connector, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectorArn != null && { ConnectorArn: input.ConnectorArn }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Parameters != null && { Parameters: serializeAws_restJson1__mapOf__string(input.Parameters, context) }),
-  };
-};
+// se_Connector omitted.
 
-const serializeAws_restJson1ConnectorDefinitionVersion = (
-  input: ConnectorDefinitionVersion,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Connectors != null && { Connectors: serializeAws_restJson1__listOfConnector(input.Connectors, context) }),
-  };
-};
+// se_ConnectorDefinitionVersion omitted.
 
-const serializeAws_restJson1Core = (input: Core, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.SyncShadow != null && { SyncShadow: input.SyncShadow }),
-    ...(input.ThingArn != null && { ThingArn: input.ThingArn }),
-  };
-};
+// se_Core omitted.
 
-const serializeAws_restJson1CoreDefinitionVersion = (input: CoreDefinitionVersion, context: __SerdeContext): any => {
-  return {
-    ...(input.Cores != null && { Cores: serializeAws_restJson1__listOfCore(input.Cores, context) }),
-  };
-};
+// se_CoreDefinitionVersion omitted.
 
-const serializeAws_restJson1Device = (input: Device, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.SyncShadow != null && { SyncShadow: input.SyncShadow }),
-    ...(input.ThingArn != null && { ThingArn: input.ThingArn }),
-  };
-};
+// se_Device omitted.
 
-const serializeAws_restJson1DeviceDefinitionVersion = (
-  input: DeviceDefinitionVersion,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Devices != null && { Devices: serializeAws_restJson1__listOfDevice(input.Devices, context) }),
-  };
-};
+// se_DeviceDefinitionVersion omitted.
 
-const serializeAws_restJson1Function = (input: Function, context: __SerdeContext): any => {
-  return {
-    ...(input.FunctionArn != null && { FunctionArn: input.FunctionArn }),
-    ...(input.FunctionConfiguration != null && {
-      FunctionConfiguration: serializeAws_restJson1FunctionConfiguration(input.FunctionConfiguration, context),
-    }),
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_Function omitted.
 
-const serializeAws_restJson1FunctionConfiguration = (input: FunctionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.EncodingType != null && { EncodingType: input.EncodingType }),
-    ...(input.Environment != null && {
-      Environment: serializeAws_restJson1FunctionConfigurationEnvironment(input.Environment, context),
-    }),
-    ...(input.ExecArgs != null && { ExecArgs: input.ExecArgs }),
-    ...(input.Executable != null && { Executable: input.Executable }),
-    ...(input.FunctionRuntimeOverride != null && { FunctionRuntimeOverride: input.FunctionRuntimeOverride }),
-    ...(input.MemorySize != null && { MemorySize: input.MemorySize }),
-    ...(input.Pinned != null && { Pinned: input.Pinned }),
-    ...(input.Timeout != null && { Timeout: input.Timeout }),
-  };
-};
+// se_FunctionConfiguration omitted.
 
-const serializeAws_restJson1FunctionConfigurationEnvironment = (
-  input: FunctionConfigurationEnvironment,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccessSysfs != null && { AccessSysfs: input.AccessSysfs }),
-    ...(input.Execution != null && {
-      Execution: serializeAws_restJson1FunctionExecutionConfig(input.Execution, context),
-    }),
-    ...(input.ResourceAccessPolicies != null && {
-      ResourceAccessPolicies: serializeAws_restJson1__listOfResourceAccessPolicy(input.ResourceAccessPolicies, context),
-    }),
-    ...(input.Variables != null && { Variables: serializeAws_restJson1__mapOf__string(input.Variables, context) }),
-  };
-};
+// se_FunctionConfigurationEnvironment omitted.
 
-const serializeAws_restJson1FunctionDefaultConfig = (input: FunctionDefaultConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Execution != null && {
-      Execution: serializeAws_restJson1FunctionDefaultExecutionConfig(input.Execution, context),
-    }),
-  };
-};
+// se_FunctionDefaultConfig omitted.
 
-const serializeAws_restJson1FunctionDefaultExecutionConfig = (
-  input: FunctionDefaultExecutionConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IsolationMode != null && { IsolationMode: input.IsolationMode }),
-    ...(input.RunAs != null && { RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context) }),
-  };
-};
+// se_FunctionDefaultExecutionConfig omitted.
 
-const serializeAws_restJson1FunctionDefinitionVersion = (
-  input: FunctionDefinitionVersion,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DefaultConfig != null && {
-      DefaultConfig: serializeAws_restJson1FunctionDefaultConfig(input.DefaultConfig, context),
-    }),
-    ...(input.Functions != null && { Functions: serializeAws_restJson1__listOfFunction(input.Functions, context) }),
-  };
-};
+// se_FunctionDefinitionVersion omitted.
 
-const serializeAws_restJson1FunctionExecutionConfig = (
-  input: FunctionExecutionConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IsolationMode != null && { IsolationMode: input.IsolationMode }),
-    ...(input.RunAs != null && { RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context) }),
-  };
-};
+// se_FunctionExecutionConfig omitted.
 
-const serializeAws_restJson1FunctionRunAsConfig = (input: FunctionRunAsConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Gid != null && { Gid: input.Gid }),
-    ...(input.Uid != null && { Uid: input.Uid }),
-  };
-};
+// se_FunctionRunAsConfig omitted.
 
-const serializeAws_restJson1GroupOwnerSetting = (input: GroupOwnerSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.AutoAddGroupOwner != null && { AutoAddGroupOwner: input.AutoAddGroupOwner }),
-    ...(input.GroupOwner != null && { GroupOwner: input.GroupOwner }),
-  };
-};
+// se_GroupOwnerSetting omitted.
 
-const serializeAws_restJson1GroupVersion = (input: GroupVersion, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectorDefinitionVersionArn != null && {
-      ConnectorDefinitionVersionArn: input.ConnectorDefinitionVersionArn,
-    }),
-    ...(input.CoreDefinitionVersionArn != null && { CoreDefinitionVersionArn: input.CoreDefinitionVersionArn }),
-    ...(input.DeviceDefinitionVersionArn != null && { DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn }),
-    ...(input.FunctionDefinitionVersionArn != null && {
-      FunctionDefinitionVersionArn: input.FunctionDefinitionVersionArn,
-    }),
-    ...(input.LoggerDefinitionVersionArn != null && { LoggerDefinitionVersionArn: input.LoggerDefinitionVersionArn }),
-    ...(input.ResourceDefinitionVersionArn != null && {
-      ResourceDefinitionVersionArn: input.ResourceDefinitionVersionArn,
-    }),
-    ...(input.SubscriptionDefinitionVersionArn != null && {
-      SubscriptionDefinitionVersionArn: input.SubscriptionDefinitionVersionArn,
-    }),
-  };
-};
+// se_GroupVersion omitted.
 
-const serializeAws_restJson1LocalDeviceResourceData = (
-  input: LocalDeviceResourceData,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.GroupOwnerSetting != null && {
-      GroupOwnerSetting: serializeAws_restJson1GroupOwnerSetting(input.GroupOwnerSetting, context),
-    }),
-    ...(input.SourcePath != null && { SourcePath: input.SourcePath }),
-  };
-};
+// se_LocalDeviceResourceData omitted.
 
-const serializeAws_restJson1LocalVolumeResourceData = (
-  input: LocalVolumeResourceData,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DestinationPath != null && { DestinationPath: input.DestinationPath }),
-    ...(input.GroupOwnerSetting != null && {
-      GroupOwnerSetting: serializeAws_restJson1GroupOwnerSetting(input.GroupOwnerSetting, context),
-    }),
-    ...(input.SourcePath != null && { SourcePath: input.SourcePath }),
-  };
-};
+// se_LocalVolumeResourceData omitted.
 
-const serializeAws_restJson1Logger = (input: Logger, context: __SerdeContext): any => {
-  return {
-    ...(input.Component != null && { Component: input.Component }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Level != null && { Level: input.Level }),
-    ...(input.Space != null && { Space: input.Space }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_Logger omitted.
 
-const serializeAws_restJson1LoggerDefinitionVersion = (
-  input: LoggerDefinitionVersion,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Loggers != null && { Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context) }),
-  };
-};
+// se_LoggerDefinitionVersion omitted.
 
-const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ResourceDataContainer != null && {
-      ResourceDataContainer: serializeAws_restJson1ResourceDataContainer(input.ResourceDataContainer, context),
-    }),
-  };
-};
+// se_Resource omitted.
 
-const serializeAws_restJson1ResourceAccessPolicy = (input: ResourceAccessPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.Permission != null && { Permission: input.Permission }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-  };
-};
+// se_ResourceAccessPolicy omitted.
 
-const serializeAws_restJson1ResourceDataContainer = (input: ResourceDataContainer, context: __SerdeContext): any => {
-  return {
-    ...(input.LocalDeviceResourceData != null && {
-      LocalDeviceResourceData: serializeAws_restJson1LocalDeviceResourceData(input.LocalDeviceResourceData, context),
-    }),
-    ...(input.LocalVolumeResourceData != null && {
-      LocalVolumeResourceData: serializeAws_restJson1LocalVolumeResourceData(input.LocalVolumeResourceData, context),
-    }),
-    ...(input.S3MachineLearningModelResourceData != null && {
-      S3MachineLearningModelResourceData: serializeAws_restJson1S3MachineLearningModelResourceData(
-        input.S3MachineLearningModelResourceData,
-        context
-      ),
-    }),
-    ...(input.SageMakerMachineLearningModelResourceData != null && {
-      SageMakerMachineLearningModelResourceData: serializeAws_restJson1SageMakerMachineLearningModelResourceData(
-        input.SageMakerMachineLearningModelResourceData,
-        context
-      ),
-    }),
-    ...(input.SecretsManagerSecretResourceData != null && {
-      SecretsManagerSecretResourceData: serializeAws_restJson1SecretsManagerSecretResourceData(
-        input.SecretsManagerSecretResourceData,
-        context
-      ),
-    }),
-  };
-};
+// se_ResourceDataContainer omitted.
 
-const serializeAws_restJson1ResourceDefinitionVersion = (
-  input: ResourceDefinitionVersion,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Resources != null && { Resources: serializeAws_restJson1__listOfResource(input.Resources, context) }),
-  };
-};
+// se_ResourceDefinitionVersion omitted.
 
-const serializeAws_restJson1ResourceDownloadOwnerSetting = (
-  input: ResourceDownloadOwnerSetting,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.GroupOwner != null && { GroupOwner: input.GroupOwner }),
-    ...(input.GroupPermission != null && { GroupPermission: input.GroupPermission }),
-  };
-};
+// se_ResourceDownloadOwnerSetting omitted.
 
-const serializeAws_restJson1S3MachineLearningModelResourceData = (
-  input: S3MachineLearningModelResourceData,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DestinationPath != null && { DestinationPath: input.DestinationPath }),
-    ...(input.OwnerSetting != null && {
-      OwnerSetting: serializeAws_restJson1ResourceDownloadOwnerSetting(input.OwnerSetting, context),
-    }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_S3MachineLearningModelResourceData omitted.
 
-const serializeAws_restJson1SageMakerMachineLearningModelResourceData = (
-  input: SageMakerMachineLearningModelResourceData,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DestinationPath != null && { DestinationPath: input.DestinationPath }),
-    ...(input.OwnerSetting != null && {
-      OwnerSetting: serializeAws_restJson1ResourceDownloadOwnerSetting(input.OwnerSetting, context),
-    }),
-    ...(input.SageMakerJobArn != null && { SageMakerJobArn: input.SageMakerJobArn }),
-  };
-};
+// se_SageMakerMachineLearningModelResourceData omitted.
 
-const serializeAws_restJson1SecretsManagerSecretResourceData = (
-  input: SecretsManagerSecretResourceData,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ARN != null && { ARN: input.ARN }),
-    ...(input.AdditionalStagingLabelsToDownload != null && {
-      AdditionalStagingLabelsToDownload: serializeAws_restJson1__listOf__string(
-        input.AdditionalStagingLabelsToDownload,
-        context
-      ),
-    }),
-  };
-};
+// se_SecretsManagerSecretResourceData omitted.
 
-const serializeAws_restJson1Subscription = (input: Subscription, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Source != null && { Source: input.Source }),
-    ...(input.Subject != null && { Subject: input.Subject }),
-    ...(input.Target != null && { Target: input.Target }),
-  };
-};
+// se_Subscription omitted.
 
-const serializeAws_restJson1SubscriptionDefinitionVersion = (
-  input: SubscriptionDefinitionVersion,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Subscriptions != null && {
-      Subscriptions: serializeAws_restJson1__listOfSubscription(input.Subscriptions, context),
-    }),
-  };
-};
+// se_SubscriptionDefinitionVersion omitted.
 
-const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-const serializeAws_restJson1TelemetryConfigurationUpdate = (
-  input: TelemetryConfigurationUpdate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Telemetry != null && { Telemetry: input.Telemetry }),
-  };
-};
+// se_TelemetryConfigurationUpdate omitted.
 
-const serializeAws_restJson1UpdateTargets = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_UpdateTargets omitted.
 
-const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
+// de___listOf__string omitted.
+
+// de___listOfConnectivityInfo omitted.
+
+// de___listOfConnector omitted.
+
+// de___listOfCore omitted.
+
+/**
+ * deserializeAws_restJson1__listOfDefinitionInformation
+ */
+const de___listOfDefinitionInformation = (output: any, context: __SerdeContext): DefinitionInformation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_DefinitionInformation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfConnectivityInfo = (output: any, context: __SerdeContext): ConnectivityInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ConnectivityInfo(entry, context);
-    });
-  return retVal;
+// de___listOfDevice omitted.
+
+// de___listOfFunction omitted.
+
+// de___listOfGroupCertificateAuthorityProperties omitted.
+
+// de___listOfGroupInformation omitted.
+
+// de___listOfLogger omitted.
+
+// de___listOfResource omitted.
+
+// de___listOfResourceAccessPolicy omitted.
+
+// de___listOfSubscription omitted.
+
+// de___listOfVersionInformation omitted.
+
+// de___mapOf__string omitted.
+
+// de_BulkDeployment omitted.
+
+// de_BulkDeploymentMetrics omitted.
+
+// de_BulkDeploymentResult omitted.
+
+// de_BulkDeploymentResults omitted.
+
+// de_BulkDeployments omitted.
+
+// de_ConnectivityInfo omitted.
+
+// de_Connector omitted.
+
+// de_ConnectorDefinitionVersion omitted.
+
+// de_Core omitted.
+
+// de_CoreDefinitionVersion omitted.
+
+/**
+ * deserializeAws_restJson1DefinitionInformation
+ */
+const de_DefinitionInformation = (output: any, context: __SerdeContext): DefinitionInformation => {
+  return take(output, {
+    Arn: __expectString,
+    CreationTimestamp: __expectString,
+    Id: __expectString,
+    LastUpdatedTimestamp: __expectString,
+    LatestVersion: __expectString,
+    LatestVersionArn: __expectString,
+    Name: __expectString,
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
-const deserializeAws_restJson1__listOfConnector = (output: any, context: __SerdeContext): Connector[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Connector(entry, context);
-    });
-  return retVal;
-};
+// de_Deployment omitted.
 
-const deserializeAws_restJson1__listOfCore = (output: any, context: __SerdeContext): Core[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Core(entry, context);
-    });
-  return retVal;
-};
+// de_Deployments omitted.
 
-const deserializeAws_restJson1__listOfDefinitionInformation = (
-  output: any,
-  context: __SerdeContext
-): DefinitionInformation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DefinitionInformation(entry, context);
-    });
-  return retVal;
-};
+// de_Device omitted.
 
-const deserializeAws_restJson1__listOfDevice = (output: any, context: __SerdeContext): Device[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Device(entry, context);
-    });
-  return retVal;
-};
+// de_DeviceDefinitionVersion omitted.
 
-const deserializeAws_restJson1__listOfFunction = (output: any, context: __SerdeContext): Function[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Function(entry, context);
-    });
-  return retVal;
-};
+// de_ErrorDetail omitted.
 
-const deserializeAws_restJson1__listOfGroupCertificateAuthorityProperties = (
-  output: any,
-  context: __SerdeContext
-): GroupCertificateAuthorityProperties[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1GroupCertificateAuthorityProperties(entry, context);
-    });
-  return retVal;
-};
+// de_ErrorDetails omitted.
 
-const deserializeAws_restJson1__listOfGroupInformation = (output: any, context: __SerdeContext): GroupInformation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1GroupInformation(entry, context);
-    });
-  return retVal;
-};
+// de_Function omitted.
 
-const deserializeAws_restJson1__listOfLogger = (output: any, context: __SerdeContext): Logger[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Logger(entry, context);
-    });
-  return retVal;
-};
+// de_FunctionConfiguration omitted.
 
-const deserializeAws_restJson1__listOfResource = (output: any, context: __SerdeContext): Resource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Resource(entry, context);
-    });
-  return retVal;
-};
+// de_FunctionConfigurationEnvironment omitted.
 
-const deserializeAws_restJson1__listOfResourceAccessPolicy = (
-  output: any,
-  context: __SerdeContext
-): ResourceAccessPolicy[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ResourceAccessPolicy(entry, context);
-    });
-  return retVal;
-};
+// de_FunctionDefaultConfig omitted.
 
-const deserializeAws_restJson1__listOfSubscription = (output: any, context: __SerdeContext): Subscription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Subscription(entry, context);
-    });
-  return retVal;
-};
+// de_FunctionDefaultExecutionConfig omitted.
 
-const deserializeAws_restJson1__listOfVersionInformation = (
-  output: any,
-  context: __SerdeContext
-): VersionInformation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1VersionInformation(entry, context);
-    });
-  return retVal;
-};
+// de_FunctionDefinitionVersion omitted.
 
-const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_FunctionExecutionConfig omitted.
 
-const deserializeAws_restJson1BulkDeployment = (output: any, context: __SerdeContext): BulkDeployment => {
-  return {
-    BulkDeploymentArn: __expectString(output.BulkDeploymentArn),
-    BulkDeploymentId: __expectString(output.BulkDeploymentId),
-    CreatedAt: __expectString(output.CreatedAt),
-  } as any;
-};
+// de_FunctionRunAsConfig omitted.
 
-const deserializeAws_restJson1BulkDeploymentMetrics = (output: any, context: __SerdeContext): BulkDeploymentMetrics => {
-  return {
-    InvalidInputRecords: __expectInt32(output.InvalidInputRecords),
-    RecordsProcessed: __expectInt32(output.RecordsProcessed),
-    RetryAttempts: __expectInt32(output.RetryAttempts),
-  } as any;
-};
+// de_GroupCertificateAuthorityProperties omitted.
 
-const deserializeAws_restJson1BulkDeploymentResult = (output: any, context: __SerdeContext): BulkDeploymentResult => {
-  return {
-    CreatedAt: __expectString(output.CreatedAt),
-    DeploymentArn: __expectString(output.DeploymentArn),
-    DeploymentId: __expectString(output.DeploymentId),
-    DeploymentStatus: __expectString(output.DeploymentStatus),
-    DeploymentType: __expectString(output.DeploymentType),
-    ErrorDetails:
-      output.ErrorDetails != null ? deserializeAws_restJson1ErrorDetails(output.ErrorDetails, context) : undefined,
-    ErrorMessage: __expectString(output.ErrorMessage),
-    GroupArn: __expectString(output.GroupArn),
-  } as any;
-};
+// de_GroupInformation omitted.
 
-const deserializeAws_restJson1BulkDeploymentResults = (
-  output: any,
-  context: __SerdeContext
-): BulkDeploymentResult[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BulkDeploymentResult(entry, context);
-    });
-  return retVal;
-};
+// de_GroupOwnerSetting omitted.
 
-const deserializeAws_restJson1BulkDeployments = (output: any, context: __SerdeContext): BulkDeployment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BulkDeployment(entry, context);
-    });
-  return retVal;
-};
+// de_GroupVersion omitted.
 
-const deserializeAws_restJson1ConnectivityInfo = (output: any, context: __SerdeContext): ConnectivityInfo => {
-  return {
-    HostAddress: __expectString(output.HostAddress),
-    Id: __expectString(output.Id),
-    Metadata: __expectString(output.Metadata),
-    PortNumber: __expectInt32(output.PortNumber),
-  } as any;
-};
+// de_LocalDeviceResourceData omitted.
 
-const deserializeAws_restJson1Connector = (output: any, context: __SerdeContext): Connector => {
-  return {
-    ConnectorArn: __expectString(output.ConnectorArn),
-    Id: __expectString(output.Id),
-    Parameters:
-      output.Parameters != null ? deserializeAws_restJson1__mapOf__string(output.Parameters, context) : undefined,
-  } as any;
-};
+// de_LocalVolumeResourceData omitted.
 
-const deserializeAws_restJson1ConnectorDefinitionVersion = (
-  output: any,
-  context: __SerdeContext
-): ConnectorDefinitionVersion => {
-  return {
-    Connectors:
-      output.Connectors != null ? deserializeAws_restJson1__listOfConnector(output.Connectors, context) : undefined,
-  } as any;
-};
+// de_Logger omitted.
 
-const deserializeAws_restJson1Core = (output: any, context: __SerdeContext): Core => {
-  return {
-    CertificateArn: __expectString(output.CertificateArn),
-    Id: __expectString(output.Id),
-    SyncShadow: __expectBoolean(output.SyncShadow),
-    ThingArn: __expectString(output.ThingArn),
-  } as any;
-};
+// de_LoggerDefinitionVersion omitted.
 
-const deserializeAws_restJson1CoreDefinitionVersion = (output: any, context: __SerdeContext): CoreDefinitionVersion => {
-  return {
-    Cores: output.Cores != null ? deserializeAws_restJson1__listOfCore(output.Cores, context) : undefined,
-  } as any;
-};
+// de_Resource omitted.
 
-const deserializeAws_restJson1DefinitionInformation = (output: any, context: __SerdeContext): DefinitionInformation => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTimestamp: __expectString(output.CreationTimestamp),
-    Id: __expectString(output.Id),
-    LastUpdatedTimestamp: __expectString(output.LastUpdatedTimestamp),
-    LatestVersion: __expectString(output.LatestVersion),
-    LatestVersionArn: __expectString(output.LatestVersionArn),
-    Name: __expectString(output.Name),
-    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-  } as any;
-};
+// de_ResourceAccessPolicy omitted.
 
-const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext): Deployment => {
-  return {
-    CreatedAt: __expectString(output.CreatedAt),
-    DeploymentArn: __expectString(output.DeploymentArn),
-    DeploymentId: __expectString(output.DeploymentId),
-    DeploymentType: __expectString(output.DeploymentType),
-    GroupArn: __expectString(output.GroupArn),
-  } as any;
-};
+// de_ResourceDataContainer omitted.
 
-const deserializeAws_restJson1Deployments = (output: any, context: __SerdeContext): Deployment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Deployment(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceDefinitionVersion omitted.
 
-const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): Device => {
-  return {
-    CertificateArn: __expectString(output.CertificateArn),
-    Id: __expectString(output.Id),
-    SyncShadow: __expectBoolean(output.SyncShadow),
-    ThingArn: __expectString(output.ThingArn),
-  } as any;
-};
+// de_ResourceDownloadOwnerSetting omitted.
 
-const deserializeAws_restJson1DeviceDefinitionVersion = (
-  output: any,
-  context: __SerdeContext
-): DeviceDefinitionVersion => {
-  return {
-    Devices: output.Devices != null ? deserializeAws_restJson1__listOfDevice(output.Devices, context) : undefined,
-  } as any;
-};
+// de_RuntimeConfiguration omitted.
 
-const deserializeAws_restJson1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
-  return {
-    DetailedErrorCode: __expectString(output.DetailedErrorCode),
-    DetailedErrorMessage: __expectString(output.DetailedErrorMessage),
-  } as any;
-};
+// de_S3MachineLearningModelResourceData omitted.
 
-const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ErrorDetail(entry, context);
-    });
-  return retVal;
-};
+// de_SageMakerMachineLearningModelResourceData omitted.
 
-const deserializeAws_restJson1Function = (output: any, context: __SerdeContext): Function => {
-  return {
-    FunctionArn: __expectString(output.FunctionArn),
-    FunctionConfiguration:
-      output.FunctionConfiguration != null
-        ? deserializeAws_restJson1FunctionConfiguration(output.FunctionConfiguration, context)
-        : undefined,
-    Id: __expectString(output.Id),
-  } as any;
-};
+// de_SecretsManagerSecretResourceData omitted.
 
-const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __SerdeContext): FunctionConfiguration => {
-  return {
-    EncodingType: __expectString(output.EncodingType),
-    Environment:
-      output.Environment != null
-        ? deserializeAws_restJson1FunctionConfigurationEnvironment(output.Environment, context)
-        : undefined,
-    ExecArgs: __expectString(output.ExecArgs),
-    Executable: __expectString(output.Executable),
-    FunctionRuntimeOverride: __expectString(output.FunctionRuntimeOverride),
-    MemorySize: __expectInt32(output.MemorySize),
-    Pinned: __expectBoolean(output.Pinned),
-    Timeout: __expectInt32(output.Timeout),
-  } as any;
-};
+// de_Subscription omitted.
 
-const deserializeAws_restJson1FunctionConfigurationEnvironment = (
-  output: any,
-  context: __SerdeContext
-): FunctionConfigurationEnvironment => {
-  return {
-    AccessSysfs: __expectBoolean(output.AccessSysfs),
-    Execution:
-      output.Execution != null ? deserializeAws_restJson1FunctionExecutionConfig(output.Execution, context) : undefined,
-    ResourceAccessPolicies:
-      output.ResourceAccessPolicies != null
-        ? deserializeAws_restJson1__listOfResourceAccessPolicy(output.ResourceAccessPolicies, context)
-        : undefined,
-    Variables:
-      output.Variables != null ? deserializeAws_restJson1__mapOf__string(output.Variables, context) : undefined,
-  } as any;
-};
+// de_SubscriptionDefinitionVersion omitted.
 
-const deserializeAws_restJson1FunctionDefaultConfig = (output: any, context: __SerdeContext): FunctionDefaultConfig => {
-  return {
-    Execution:
-      output.Execution != null
-        ? deserializeAws_restJson1FunctionDefaultExecutionConfig(output.Execution, context)
-        : undefined,
-  } as any;
-};
+// de_Tags omitted.
 
-const deserializeAws_restJson1FunctionDefaultExecutionConfig = (
-  output: any,
-  context: __SerdeContext
-): FunctionDefaultExecutionConfig => {
-  return {
-    IsolationMode: __expectString(output.IsolationMode),
-    RunAs: output.RunAs != null ? deserializeAws_restJson1FunctionRunAsConfig(output.RunAs, context) : undefined,
-  } as any;
-};
+// de_TelemetryConfiguration omitted.
 
-const deserializeAws_restJson1FunctionDefinitionVersion = (
-  output: any,
-  context: __SerdeContext
-): FunctionDefinitionVersion => {
-  return {
-    DefaultConfig:
-      output.DefaultConfig != null
-        ? deserializeAws_restJson1FunctionDefaultConfig(output.DefaultConfig, context)
-        : undefined,
-    Functions:
-      output.Functions != null ? deserializeAws_restJson1__listOfFunction(output.Functions, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1FunctionExecutionConfig = (
-  output: any,
-  context: __SerdeContext
-): FunctionExecutionConfig => {
-  return {
-    IsolationMode: __expectString(output.IsolationMode),
-    RunAs: output.RunAs != null ? deserializeAws_restJson1FunctionRunAsConfig(output.RunAs, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1FunctionRunAsConfig = (output: any, context: __SerdeContext): FunctionRunAsConfig => {
-  return {
-    Gid: __expectInt32(output.Gid),
-    Uid: __expectInt32(output.Uid),
-  } as any;
-};
-
-const deserializeAws_restJson1GroupCertificateAuthorityProperties = (
-  output: any,
-  context: __SerdeContext
-): GroupCertificateAuthorityProperties => {
-  return {
-    GroupCertificateAuthorityArn: __expectString(output.GroupCertificateAuthorityArn),
-    GroupCertificateAuthorityId: __expectString(output.GroupCertificateAuthorityId),
-  } as any;
-};
-
-const deserializeAws_restJson1GroupInformation = (output: any, context: __SerdeContext): GroupInformation => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTimestamp: __expectString(output.CreationTimestamp),
-    Id: __expectString(output.Id),
-    LastUpdatedTimestamp: __expectString(output.LastUpdatedTimestamp),
-    LatestVersion: __expectString(output.LatestVersion),
-    LatestVersionArn: __expectString(output.LatestVersionArn),
-    Name: __expectString(output.Name),
-  } as any;
-};
-
-const deserializeAws_restJson1GroupOwnerSetting = (output: any, context: __SerdeContext): GroupOwnerSetting => {
-  return {
-    AutoAddGroupOwner: __expectBoolean(output.AutoAddGroupOwner),
-    GroupOwner: __expectString(output.GroupOwner),
-  } as any;
-};
-
-const deserializeAws_restJson1GroupVersion = (output: any, context: __SerdeContext): GroupVersion => {
-  return {
-    ConnectorDefinitionVersionArn: __expectString(output.ConnectorDefinitionVersionArn),
-    CoreDefinitionVersionArn: __expectString(output.CoreDefinitionVersionArn),
-    DeviceDefinitionVersionArn: __expectString(output.DeviceDefinitionVersionArn),
-    FunctionDefinitionVersionArn: __expectString(output.FunctionDefinitionVersionArn),
-    LoggerDefinitionVersionArn: __expectString(output.LoggerDefinitionVersionArn),
-    ResourceDefinitionVersionArn: __expectString(output.ResourceDefinitionVersionArn),
-    SubscriptionDefinitionVersionArn: __expectString(output.SubscriptionDefinitionVersionArn),
-  } as any;
-};
-
-const deserializeAws_restJson1LocalDeviceResourceData = (
-  output: any,
-  context: __SerdeContext
-): LocalDeviceResourceData => {
-  return {
-    GroupOwnerSetting:
-      output.GroupOwnerSetting != null
-        ? deserializeAws_restJson1GroupOwnerSetting(output.GroupOwnerSetting, context)
-        : undefined,
-    SourcePath: __expectString(output.SourcePath),
-  } as any;
-};
-
-const deserializeAws_restJson1LocalVolumeResourceData = (
-  output: any,
-  context: __SerdeContext
-): LocalVolumeResourceData => {
-  return {
-    DestinationPath: __expectString(output.DestinationPath),
-    GroupOwnerSetting:
-      output.GroupOwnerSetting != null
-        ? deserializeAws_restJson1GroupOwnerSetting(output.GroupOwnerSetting, context)
-        : undefined,
-    SourcePath: __expectString(output.SourcePath),
-  } as any;
-};
-
-const deserializeAws_restJson1Logger = (output: any, context: __SerdeContext): Logger => {
-  return {
-    Component: __expectString(output.Component),
-    Id: __expectString(output.Id),
-    Level: __expectString(output.Level),
-    Space: __expectInt32(output.Space),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1LoggerDefinitionVersion = (
-  output: any,
-  context: __SerdeContext
-): LoggerDefinitionVersion => {
-  return {
-    Loggers: output.Loggers != null ? deserializeAws_restJson1__listOfLogger(output.Loggers, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    ResourceDataContainer:
-      output.ResourceDataContainer != null
-        ? deserializeAws_restJson1ResourceDataContainer(output.ResourceDataContainer, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ResourceAccessPolicy = (output: any, context: __SerdeContext): ResourceAccessPolicy => {
-  return {
-    Permission: __expectString(output.Permission),
-    ResourceId: __expectString(output.ResourceId),
-  } as any;
-};
-
-const deserializeAws_restJson1ResourceDataContainer = (output: any, context: __SerdeContext): ResourceDataContainer => {
-  return {
-    LocalDeviceResourceData:
-      output.LocalDeviceResourceData != null
-        ? deserializeAws_restJson1LocalDeviceResourceData(output.LocalDeviceResourceData, context)
-        : undefined,
-    LocalVolumeResourceData:
-      output.LocalVolumeResourceData != null
-        ? deserializeAws_restJson1LocalVolumeResourceData(output.LocalVolumeResourceData, context)
-        : undefined,
-    S3MachineLearningModelResourceData:
-      output.S3MachineLearningModelResourceData != null
-        ? deserializeAws_restJson1S3MachineLearningModelResourceData(output.S3MachineLearningModelResourceData, context)
-        : undefined,
-    SageMakerMachineLearningModelResourceData:
-      output.SageMakerMachineLearningModelResourceData != null
-        ? deserializeAws_restJson1SageMakerMachineLearningModelResourceData(
-            output.SageMakerMachineLearningModelResourceData,
-            context
-          )
-        : undefined,
-    SecretsManagerSecretResourceData:
-      output.SecretsManagerSecretResourceData != null
-        ? deserializeAws_restJson1SecretsManagerSecretResourceData(output.SecretsManagerSecretResourceData, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ResourceDefinitionVersion = (
-  output: any,
-  context: __SerdeContext
-): ResourceDefinitionVersion => {
-  return {
-    Resources:
-      output.Resources != null ? deserializeAws_restJson1__listOfResource(output.Resources, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ResourceDownloadOwnerSetting = (
-  output: any,
-  context: __SerdeContext
-): ResourceDownloadOwnerSetting => {
-  return {
-    GroupOwner: __expectString(output.GroupOwner),
-    GroupPermission: __expectString(output.GroupPermission),
-  } as any;
-};
-
-const deserializeAws_restJson1RuntimeConfiguration = (output: any, context: __SerdeContext): RuntimeConfiguration => {
-  return {
-    TelemetryConfiguration:
-      output.TelemetryConfiguration != null
-        ? deserializeAws_restJson1TelemetryConfiguration(output.TelemetryConfiguration, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1S3MachineLearningModelResourceData = (
-  output: any,
-  context: __SerdeContext
-): S3MachineLearningModelResourceData => {
-  return {
-    DestinationPath: __expectString(output.DestinationPath),
-    OwnerSetting:
-      output.OwnerSetting != null
-        ? deserializeAws_restJson1ResourceDownloadOwnerSetting(output.OwnerSetting, context)
-        : undefined,
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
-
-const deserializeAws_restJson1SageMakerMachineLearningModelResourceData = (
-  output: any,
-  context: __SerdeContext
-): SageMakerMachineLearningModelResourceData => {
-  return {
-    DestinationPath: __expectString(output.DestinationPath),
-    OwnerSetting:
-      output.OwnerSetting != null
-        ? deserializeAws_restJson1ResourceDownloadOwnerSetting(output.OwnerSetting, context)
-        : undefined,
-    SageMakerJobArn: __expectString(output.SageMakerJobArn),
-  } as any;
-};
-
-const deserializeAws_restJson1SecretsManagerSecretResourceData = (
-  output: any,
-  context: __SerdeContext
-): SecretsManagerSecretResourceData => {
-  return {
-    ARN: __expectString(output.ARN),
-    AdditionalStagingLabelsToDownload:
-      output.AdditionalStagingLabelsToDownload != null
-        ? deserializeAws_restJson1__listOf__string(output.AdditionalStagingLabelsToDownload, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Subscription = (output: any, context: __SerdeContext): Subscription => {
-  return {
-    Id: __expectString(output.Id),
-    Source: __expectString(output.Source),
-    Subject: __expectString(output.Subject),
-    Target: __expectString(output.Target),
-  } as any;
-};
-
-const deserializeAws_restJson1SubscriptionDefinitionVersion = (
-  output: any,
-  context: __SerdeContext
-): SubscriptionDefinitionVersion => {
-  return {
-    Subscriptions:
-      output.Subscriptions != null
-        ? deserializeAws_restJson1__listOfSubscription(output.Subscriptions, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1TelemetryConfiguration = (
-  output: any,
-  context: __SerdeContext
-): TelemetryConfiguration => {
-  return {
-    ConfigurationSyncStatus: __expectString(output.ConfigurationSyncStatus),
-    Telemetry: __expectString(output.Telemetry),
-  } as any;
-};
-
-const deserializeAws_restJson1VersionInformation = (output: any, context: __SerdeContext): VersionInformation => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTimestamp: __expectString(output.CreationTimestamp),
-    Id: __expectString(output.Id),
-    Version: __expectString(output.Version),
-  } as any;
-};
+// de_VersionInformation omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

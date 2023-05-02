@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
-import {
-  StartFHIRExportJobRequest,
-  StartFHIRExportJobRequestFilterSensitiveLog,
-  StartFHIRExportJobResponse,
-  StartFHIRExportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0StartFHIRExportJobCommand,
-  serializeAws_json1_0StartFHIRExportJobCommand,
-} from "../protocols/Aws_json1_0";
+import { StartFHIRExportJobRequest, StartFHIRExportJobResponse } from "../models/models_0";
+import { de_StartFHIRExportJobCommand, se_StartFHIRExportJobCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link StartFHIRExportJobCommand}.
  */
 export interface StartFHIRExportJobCommandInput extends StartFHIRExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFHIRExportJobCommand}.
  */
 export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Begins a FHIR export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  * import { HealthLakeClient, StartFHIRExportJobCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, StartFHIRExportJobCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
+ * const input = { // StartFHIRExportJobRequest
+ *   JobName: "STRING_VALUE",
+ *   OutputDataConfig: { // OutputDataConfig Union: only one key present
+ *     S3Configuration: { // S3Configuration
+ *       S3Uri: "STRING_VALUE", // required
+ *       KmsKeyId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   DatastoreId: "STRING_VALUE", // required
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new StartFHIRExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFHIRExportJobCommandInput - {@link StartFHIRExportJobCommandInput}
+ * @returns {@link StartFHIRExportJobCommandOutput}
  * @see {@link StartFHIRExportJobCommandInput} for command's `input` shape.
  * @see {@link StartFHIRExportJobCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
@@ -84,6 +95,9 @@ export class StartFHIRExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFHIRExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +126,8 @@ export class StartFHIRExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFHIRExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFHIRExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +137,18 @@ export class StartFHIRExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFHIRExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartFHIRExportJobCommand(input, context);
+    return se_StartFHIRExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFHIRExportJobCommandOutput> {
-    return deserializeAws_json1_0StartFHIRExportJobCommand(output, context);
+    return de_StartFHIRExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

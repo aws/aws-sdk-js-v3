@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { VerifySessionResponse, VerifySessionResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1VerifySessionCommand,
-  serializeAws_restJson1VerifySessionCommand,
-} from "../protocols/Aws_restJson1";
+import { VerifySessionResponse } from "../models/models_0";
+import { de_VerifySessionCommand, se_VerifySessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link VerifySessionCommand}.
  */
 export interface VerifySessionCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link VerifySessionCommand}.
  */
 export interface VerifySessionCommandOutput extends VerifySessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Verifies whether the calling user has a valid Amazon CodeCatalyst login and session.  If successful, this returns the ID of the user in Amazon CodeCatalyst.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,13 @@ export interface VerifySessionCommandOutput extends VerifySessionResponse, __Met
  * import { CodeCatalystClient, VerifySessionCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, VerifySessionCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = {};
  * const command = new VerifySessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifySessionCommandInput - {@link VerifySessionCommandInput}
+ * @returns {@link VerifySessionCommandOutput}
  * @see {@link VerifySessionCommandInput} for command's `input` shape.
  * @see {@link VerifySessionCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -83,6 +88,9 @@ export class VerifySessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifySessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class VerifySessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: VerifySessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class VerifySessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifySessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1VerifySessionCommand(input, context);
+    return se_VerifySessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifySessionCommandOutput> {
-    return deserializeAws_restJson1VerifySessionCommand(output, context);
+    return de_VerifySessionCommand(output, context);
   }
 
   // Start section: command_body_extra

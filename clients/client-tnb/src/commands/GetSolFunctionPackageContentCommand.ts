@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetSolFunctionPackageContentInput, GetSolFunctionPackageContentOutput } from "../models/models_0";
 import {
-  GetSolFunctionPackageContentInput,
-  GetSolFunctionPackageContentInputFilterSensitiveLog,
-  GetSolFunctionPackageContentOutput,
-  GetSolFunctionPackageContentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSolFunctionPackageContentCommand,
-  serializeAws_restJson1GetSolFunctionPackageContentCommand,
+  de_GetSolFunctionPackageContentCommand,
+  se_GetSolFunctionPackageContentCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSolFunctionPackageContentCommand}.
  */
 export interface GetSolFunctionPackageContentCommandInput extends GetSolFunctionPackageContentInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSolFunctionPackageContentCommand}.
  */
 export interface GetSolFunctionPackageContentCommandOutput
@@ -37,6 +36,7 @@ export interface GetSolFunctionPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the contents of a function package.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  * @example
@@ -45,10 +45,16 @@ export interface GetSolFunctionPackageContentCommandOutput
  * import { TnbClient, GetSolFunctionPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, GetSolFunctionPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // GetSolFunctionPackageContentInput
+ *   vnfPkgId: "STRING_VALUE", // required
+ *   accept: "application/zip", // required
+ * };
  * const command = new GetSolFunctionPackageContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSolFunctionPackageContentCommandInput - {@link GetSolFunctionPackageContentCommandInput}
+ * @returns {@link GetSolFunctionPackageContentCommandOutput}
  * @see {@link GetSolFunctionPackageContentCommandInput} for command's `input` shape.
  * @see {@link GetSolFunctionPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -87,6 +93,9 @@ export class GetSolFunctionPackageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSolFunctionPackageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +124,8 @@ export class GetSolFunctionPackageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSolFunctionPackageContentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSolFunctionPackageContentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +135,21 @@ export class GetSolFunctionPackageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSolFunctionPackageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSolFunctionPackageContentCommand(input, context);
+    return se_GetSolFunctionPackageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSolFunctionPackageContentCommandOutput> {
-    return deserializeAws_restJson1GetSolFunctionPackageContentCommand(output, context);
+    return de_GetSolFunctionPackageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

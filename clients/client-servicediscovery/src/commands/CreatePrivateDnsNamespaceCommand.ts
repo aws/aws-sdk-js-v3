@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePrivateDnsNamespaceRequest,
-  CreatePrivateDnsNamespaceRequestFilterSensitiveLog,
-  CreatePrivateDnsNamespaceResponse,
-  CreatePrivateDnsNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePrivateDnsNamespaceCommand,
-  serializeAws_json1_1CreatePrivateDnsNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePrivateDnsNamespaceRequest, CreatePrivateDnsNamespaceResponse } from "../models/models_0";
+import { de_CreatePrivateDnsNamespaceCommand, se_CreatePrivateDnsNamespaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePrivateDnsNamespaceCommand}.
  */
 export interface CreatePrivateDnsNamespaceCommandInput extends CreatePrivateDnsNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePrivateDnsNamespaceCommand}.
  */
 export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDnsNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a private namespace based on DNS, which is visible only inside a specified Amazon
  *    VPC. The namespace defines your service naming scheme. For example, if you name your namespace
  *     <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for
@@ -49,10 +46,31 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  * import { ServiceDiscoveryClient, CreatePrivateDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, CreatePrivateDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // CreatePrivateDnsNamespaceRequest
+ *   Name: "STRING_VALUE", // required
+ *   CreatorRequestId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Vpc: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Properties: { // PrivateDnsNamespaceProperties
+ *     DnsProperties: { // PrivateDnsPropertiesMutable
+ *       SOA: { // SOA
+ *         TTL: Number("long"), // required
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreatePrivateDnsNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePrivateDnsNamespaceCommandInput - {@link CreatePrivateDnsNamespaceCommandInput}
+ * @returns {@link CreatePrivateDnsNamespaceCommandOutput}
  * @see {@link CreatePrivateDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreatePrivateDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -67,11 +85,6 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  *
  * @throws {@link NamespaceAlreadyExists} (client fault)
  *  <p>The namespace that you're trying to create already exists.</p>
- *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
  *  <p>The resource can't be created because you've reached the quota on the number of
@@ -118,6 +131,9 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePrivateDnsNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +162,8 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePrivateDnsNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePrivateDnsNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,15 +173,21 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePrivateDnsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePrivateDnsNamespaceCommand(input, context);
+    return se_CreatePrivateDnsNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePrivateDnsNamespaceCommandOutput> {
-    return deserializeAws_json1_1CreatePrivateDnsNamespaceCommand(output, context);
+    return de_CreatePrivateDnsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

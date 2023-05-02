@@ -21,16 +21,20 @@ import {
   AssociateAwsAccountWithPartnerAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommand,
-  serializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommand,
+  de_AssociateAwsAccountWithPartnerAccountCommand,
+  se_AssociateAwsAccountWithPartnerAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateAwsAccountWithPartnerAccountCommand}.
  */
 export interface AssociateAwsAccountWithPartnerAccountCommandInput
   extends AssociateAwsAccountWithPartnerAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateAwsAccountWithPartnerAccountCommand}.
  */
 export interface AssociateAwsAccountWithPartnerAccountCommandOutput
@@ -38,6 +42,7 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a partner account with your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +50,25 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  * import { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // AssociateAwsAccountWithPartnerAccountRequest
+ *   Sidewalk: { // SidewalkAccountInfo
+ *     AmazonId: "STRING_VALUE",
+ *     AppServerPrivateKey: "STRING_VALUE",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AssociateAwsAccountWithPartnerAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateAwsAccountWithPartnerAccountCommandInput - {@link AssociateAwsAccountWithPartnerAccountCommandInput}
+ * @returns {@link AssociateAwsAccountWithPartnerAccountCommandOutput}
  * @see {@link AssociateAwsAccountWithPartnerAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateAwsAccountWithPartnerAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -90,6 +110,9 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateAwsAccountWithPartnerAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,18 +152,24 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateAwsAccountWithPartnerAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommand(input, context);
+    return se_AssociateAwsAccountWithPartnerAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateAwsAccountWithPartnerAccountCommandOutput> {
-    return deserializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommand(output, context);
+    return de_AssociateAwsAccountWithPartnerAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  SendDataToMulticastGroupRequest,
-  SendDataToMulticastGroupRequestFilterSensitiveLog,
-  SendDataToMulticastGroupResponse,
-  SendDataToMulticastGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1SendDataToMulticastGroupCommand,
-  serializeAws_restJson1SendDataToMulticastGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { SendDataToMulticastGroupRequest, SendDataToMulticastGroupResponse } from "../models/models_1";
+import { de_SendDataToMulticastGroupCommand, se_SendDataToMulticastGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendDataToMulticastGroupCommand}.
  */
 export interface SendDataToMulticastGroupCommandInput extends SendDataToMulticastGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendDataToMulticastGroupCommand}.
  */
 export interface SendDataToMulticastGroupCommandOutput extends SendDataToMulticastGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends the specified data to a multicast group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface SendDataToMulticastGroupCommandOutput extends SendDataToMultica
  * import { IoTWirelessClient, SendDataToMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, SendDataToMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // SendDataToMulticastGroupRequest
+ *   Id: "STRING_VALUE", // required
+ *   PayloadData: "STRING_VALUE", // required
+ *   WirelessMetadata: { // MulticastWirelessMetadata
+ *     LoRaWAN: { // LoRaWANMulticastMetadata
+ *       FPort: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new SendDataToMulticastGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendDataToMulticastGroupCommandInput - {@link SendDataToMulticastGroupCommandInput}
+ * @returns {@link SendDataToMulticastGroupCommandOutput}
  * @see {@link SendDataToMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link SendDataToMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +95,9 @@ export class SendDataToMulticastGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendDataToMulticastGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +126,8 @@ export class SendDataToMulticastGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendDataToMulticastGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendDataToMulticastGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +137,18 @@ export class SendDataToMulticastGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendDataToMulticastGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendDataToMulticastGroupCommand(input, context);
+    return se_SendDataToMulticastGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendDataToMulticastGroupCommandOutput> {
-    return deserializeAws_restJson1SendDataToMulticastGroupCommand(output, context);
+    return de_SendDataToMulticastGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

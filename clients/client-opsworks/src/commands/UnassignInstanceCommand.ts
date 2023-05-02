@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UnassignInstanceRequest, UnassignInstanceRequestFilterSensitiveLog } from "../models/models_0";
+import { UnassignInstanceRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UnassignInstanceCommand,
-  serializeAws_json1_1UnassignInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UnassignInstanceCommand, se_UnassignInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UnassignInstanceCommand}.
  */
 export interface UnassignInstanceCommandInput extends UnassignInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnassignInstanceCommand}.
  */
 export interface UnassignInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unassigns a registered instance from all layers that are using the instance.
  *           The instance remains in the stack as an unassigned instance, and can be assigned to
  *           another layer as needed. You cannot use this action with instances that were created
@@ -45,10 +47,15 @@ export interface UnassignInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UnassignInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UnassignInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UnassignInstanceRequest
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new UnassignInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnassignInstanceCommandInput - {@link UnassignInstanceCommandInput}
+ * @returns {@link UnassignInstanceCommandOutput}
  * @see {@link UnassignInstanceCommandInput} for command's `input` shape.
  * @see {@link UnassignInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -78,6 +85,9 @@ export class UnassignInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnassignInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +116,8 @@ export class UnassignInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnassignInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +127,18 @@ export class UnassignInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnassignInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UnassignInstanceCommand(input, context);
+    return se_UnassignInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnassignInstanceCommandOutput> {
-    return deserializeAws_json1_1UnassignInstanceCommand(output, context);
+    return de_UnassignInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

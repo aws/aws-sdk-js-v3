@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  ListExportErrorsRequest,
-  ListExportErrorsRequestFilterSensitiveLog,
-  ListExportErrorsResponse,
-  ListExportErrorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListExportErrorsCommand,
-  serializeAws_restJson1ListExportErrorsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListExportErrorsRequest, ListExportErrorsResponse } from "../models/models_0";
+import { de_ListExportErrorsCommand, se_ListExportErrorsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExportErrorsCommand}.
  */
 export interface ListExportErrorsCommandInput extends ListExportErrorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExportErrorsCommand}.
  */
 export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List export errors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse,
  * import { MgnClient, ListExportErrorsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListExportErrorsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // ListExportErrorsRequest
+ *   exportID: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListExportErrorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExportErrorsCommandInput - {@link ListExportErrorsCommandInput}
+ * @returns {@link ListExportErrorsCommandOutput}
  * @see {@link ListExportErrorsCommandInput} for command's `input` shape.
  * @see {@link ListExportErrorsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -75,6 +79,9 @@ export class ListExportErrorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExportErrorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +110,8 @@ export class ListExportErrorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExportErrorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExportErrorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +121,18 @@ export class ListExportErrorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExportErrorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExportErrorsCommand(input, context);
+    return se_ListExportErrorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExportErrorsCommandOutput> {
-    return deserializeAws_restJson1ListExportErrorsCommand(output, context);
+    return de_ListExportErrorsCommand(output, context);
   }
 
   // Start section: command_body_extra

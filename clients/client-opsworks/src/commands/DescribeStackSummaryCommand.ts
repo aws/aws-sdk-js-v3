@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeStackSummaryRequest,
-  DescribeStackSummaryRequestFilterSensitiveLog,
-  DescribeStackSummaryResult,
-  DescribeStackSummaryResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeStackSummaryRequest, DescribeStackSummaryResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeStackSummaryCommand,
-  serializeAws_json1_1DescribeStackSummaryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeStackSummaryCommand, se_DescribeStackSummaryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStackSummaryCommand}.
  */
 export interface DescribeStackSummaryCommandInput extends DescribeStackSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStackSummaryCommand}.
  */
 export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the number of layers and apps in a specified stack, and the number of instances in
  *       each state, such as <code>running_setup</code> or <code>online</code>.</p>
  *          <p>
@@ -48,10 +45,15 @@ export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryR
  * import { OpsWorksClient, DescribeStackSummaryCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeStackSummaryCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeStackSummaryRequest
+ *   StackId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStackSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackSummaryCommandInput - {@link DescribeStackSummaryCommandInput}
+ * @returns {@link DescribeStackSummaryCommandOutput}
  * @see {@link DescribeStackSummaryCommandInput} for command's `input` shape.
  * @see {@link DescribeStackSummaryCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -81,6 +83,9 @@ export class DescribeStackSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DescribeStackSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStackSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStackSummaryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DescribeStackSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStackSummaryCommand(input, context);
+    return se_DescribeStackSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStackSummaryCommandOutput> {
-    return deserializeAws_json1_1DescribeStackSummaryCommand(output, context);
+    return de_DescribeStackSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

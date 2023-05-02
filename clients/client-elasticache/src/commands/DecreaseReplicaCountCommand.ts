@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DecreaseReplicaCountMessage,
-  DecreaseReplicaCountMessageFilterSensitiveLog,
-  DecreaseReplicaCountResult,
-  DecreaseReplicaCountResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDecreaseReplicaCountCommand,
-  serializeAws_queryDecreaseReplicaCountCommand,
-} from "../protocols/Aws_query";
+import { DecreaseReplicaCountMessage, DecreaseReplicaCountResult } from "../models/models_0";
+import { de_DecreaseReplicaCountCommand, se_DecreaseReplicaCountCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DecreaseReplicaCountCommand}.
  */
 export interface DecreaseReplicaCountCommandInput extends DecreaseReplicaCountMessage {}
 /**
+ * @public
+ *
  * The output of {@link DecreaseReplicaCountCommand}.
  */
 export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Dynamically decreases the number of replicas in a Redis (cluster mode disabled) replication group or the number of
  *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
  *             is performed with no cluster down time.</p>
@@ -44,10 +41,32 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * import { ElastiCacheClient, DecreaseReplicaCountCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DecreaseReplicaCountCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DecreaseReplicaCountMessage
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   NewReplicaCount: Number("int"),
+ *   ReplicaConfiguration: [ // ReplicaConfigurationList
+ *     { // ConfigureShard
+ *       NodeGroupId: "STRING_VALUE", // required
+ *       NewReplicaCount: Number("int"), // required
+ *       PreferredAvailabilityZones: [ // PreferredAvailabilityZoneList
+ *         "STRING_VALUE",
+ *       ],
+ *       PreferredOutpostArns: [ // PreferredOutpostArnList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ReplicasToRemove: [ // RemoveReplicasList
+ *     "STRING_VALUE",
+ *   ],
+ *   ApplyImmediately: true || false, // required
+ * };
  * const command = new DecreaseReplicaCountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DecreaseReplicaCountCommandInput - {@link DecreaseReplicaCountCommandInput}
+ * @returns {@link DecreaseReplicaCountCommandOutput}
  * @see {@link DecreaseReplicaCountCommandInput} for command's `input` shape.
  * @see {@link DecreaseReplicaCountCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -109,6 +128,9 @@ export class DecreaseReplicaCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DecreaseReplicaCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +159,8 @@ export class DecreaseReplicaCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DecreaseReplicaCountMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DecreaseReplicaCountResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +170,18 @@ export class DecreaseReplicaCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DecreaseReplicaCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDecreaseReplicaCountCommand(input, context);
+    return se_DecreaseReplicaCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DecreaseReplicaCountCommandOutput> {
-    return deserializeAws_queryDecreaseReplicaCountCommand(output, context);
+    return de_DecreaseReplicaCountCommand(output, context);
   }
 
   // Start section: command_body_extra

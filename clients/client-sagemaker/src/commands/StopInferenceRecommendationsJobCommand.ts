@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { StopInferenceRecommendationsJobRequest } from "../models/models_3";
 import {
-  StopInferenceRecommendationsJobRequest,
-  StopInferenceRecommendationsJobRequestFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1StopInferenceRecommendationsJobCommand,
-  serializeAws_json1_1StopInferenceRecommendationsJobCommand,
+  de_StopInferenceRecommendationsJobCommand,
+  se_StopInferenceRecommendationsJobCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopInferenceRecommendationsJobCommand}.
  */
 export interface StopInferenceRecommendationsJobCommandInput extends StopInferenceRecommendationsJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopInferenceRecommendationsJobCommand}.
  */
 export interface StopInferenceRecommendationsJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an Inference Recommender job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,15 @@ export interface StopInferenceRecommendationsJobCommandOutput extends __Metadata
  * import { SageMakerClient, StopInferenceRecommendationsJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopInferenceRecommendationsJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopInferenceRecommendationsJobRequest
+ *   JobName: "STRING_VALUE", // required
+ * };
  * const command = new StopInferenceRecommendationsJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopInferenceRecommendationsJobCommandInput - {@link StopInferenceRecommendationsJobCommandInput}
+ * @returns {@link StopInferenceRecommendationsJobCommandOutput}
  * @see {@link StopInferenceRecommendationsJobCommandInput} for command's `input` shape.
  * @see {@link StopInferenceRecommendationsJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class StopInferenceRecommendationsJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopInferenceRecommendationsJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +108,8 @@ export class StopInferenceRecommendationsJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopInferenceRecommendationsJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,18 +119,24 @@ export class StopInferenceRecommendationsJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StopInferenceRecommendationsJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopInferenceRecommendationsJobCommand(input, context);
+    return se_StopInferenceRecommendationsJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopInferenceRecommendationsJobCommandOutput> {
-    return deserializeAws_json1_1StopInferenceRecommendationsJobCommand(output, context);
+    return de_StopInferenceRecommendationsJobCommand(output, context);
   }
 
   // Start section: command_body_extra

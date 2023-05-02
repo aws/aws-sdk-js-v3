@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
+import { DeletePackagingConfigurationRequest, DeletePackagingConfigurationResponse } from "../models/models_0";
 import {
-  DeletePackagingConfigurationRequest,
-  DeletePackagingConfigurationRequestFilterSensitiveLog,
-  DeletePackagingConfigurationResponse,
-  DeletePackagingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePackagingConfigurationCommand,
-  serializeAws_restJson1DeletePackagingConfigurationCommand,
+  de_DeletePackagingConfigurationCommand,
+  se_DeletePackagingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePackagingConfigurationCommand}.
  */
 export interface DeletePackagingConfigurationCommandInput extends DeletePackagingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePackagingConfigurationCommand}.
  */
 export interface DeletePackagingConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DeletePackagingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a MediaPackage VOD PackagingConfiguration resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface DeletePackagingConfigurationCommandOutput
  * import { MediaPackageVodClient, DeletePackagingConfigurationCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, DeletePackagingConfigurationCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
+ * const input = { // DeletePackagingConfigurationRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeletePackagingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePackagingConfigurationCommandInput - {@link DeletePackagingConfigurationCommandInput}
+ * @returns {@link DeletePackagingConfigurationCommandOutput}
  * @see {@link DeletePackagingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeletePackagingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
@@ -89,6 +94,9 @@ export class DeletePackagingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePackagingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class DeletePackagingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePackagingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePackagingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +136,21 @@ export class DeletePackagingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePackagingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePackagingConfigurationCommand(input, context);
+    return se_DeletePackagingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePackagingConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeletePackagingConfigurationCommand(output, context);
+    return de_DeletePackagingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

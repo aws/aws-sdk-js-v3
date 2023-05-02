@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTapePoolsInput,
-  ListTapePoolsInputFilterSensitiveLog,
-  ListTapePoolsOutput,
-  ListTapePoolsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTapePoolsCommand,
-  serializeAws_json1_1ListTapePoolsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTapePoolsInput, ListTapePoolsOutput } from "../models/models_0";
+import { de_ListTapePoolsCommand, se_ListTapePoolsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTapePoolsCommand}.
  */
 export interface ListTapePoolsCommandInput extends ListTapePoolsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTapePoolsCommand}.
  */
 export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists custom tape pools. You specify custom tape pools to list by specifying one or more
  *          custom tape pool Amazon Resource Names (ARNs). If you don't specify a custom tape pool ARN,
  *          the operation lists all custom tape pools.</p>
@@ -50,10 +47,19 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  * import { StorageGatewayClient, ListTapePoolsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListTapePoolsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // ListTapePoolsInput
+ *   PoolARNs: [ // PoolARNs
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListTapePoolsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTapePoolsCommandInput - {@link ListTapePoolsCommandInput}
+ * @returns {@link ListTapePoolsCommandOutput}
  * @see {@link ListTapePoolsCommandInput} for command's `input` shape.
  * @see {@link ListTapePoolsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -85,6 +91,9 @@ export class ListTapePoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTapePoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +120,8 @@ export class ListTapePoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTapePoolsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTapePoolsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +131,18 @@ export class ListTapePoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTapePoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTapePoolsCommand(input, context);
+    return se_ListTapePoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTapePoolsCommandOutput> {
-    return deserializeAws_json1_1ListTapePoolsCommand(output, context);
+    return de_ListTapePoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,44 +13,53 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTemplateSyncConfigInput,
-  CreateTemplateSyncConfigInputFilterSensitiveLog,
-  CreateTemplateSyncConfigOutput,
-  CreateTemplateSyncConfigOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateTemplateSyncConfigCommand,
-  serializeAws_json1_0CreateTemplateSyncConfigCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateTemplateSyncConfigInput, CreateTemplateSyncConfigOutput } from "../models/models_0";
+import { de_CreateTemplateSyncConfigCommand, se_CreateTemplateSyncConfigCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTemplateSyncConfigCommand}.
  */
 export interface CreateTemplateSyncConfigCommandInput extends CreateTemplateSyncConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateTemplateSyncConfigCommand}.
  */
 export interface CreateTemplateSyncConfigCommandOutput extends CreateTemplateSyncConfigOutput, __MetadataBearer {}
 
 /**
- * <p>Set up a template to create new template versions automatically by tracking a linked repository. A linked
- *    repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
- *          <p>When a commit is pushed to your linked repository, Proton checks for changes to your repository template
- *    bundles. If it detects a template bundle change, a new major or minor version of its template is created, if the
- *    version doesn’t already exist. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template sync configurations</a> in the
- *     <i>Proton User Guide</i>.</p>
+ * @public
+ * <p>Set up a template to create new template versions automatically by tracking a linked
+ *    repository. A linked repository is a repository that has been registered with Proton. For more
+ *    information, see <a>CreateRepository</a>.</p>
+ *          <p>When a commit is pushed to your linked repository, Proton checks for changes to your
+ *    repository template bundles. If it detects a template bundle change, a new major or minor version
+ *    of its template is created, if the version doesn’t already exist. For more information, see
+ *     <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template
+ *     sync configurations</a> in the <i>Proton User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ProtonClient, CreateTemplateSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateTemplateSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // CreateTemplateSyncConfigInput
+ *   templateName: "STRING_VALUE", // required
+ *   templateType: "STRING_VALUE", // required
+ *   repositoryProvider: "STRING_VALUE", // required
+ *   repositoryName: "STRING_VALUE", // required
+ *   branch: "STRING_VALUE", // required
+ *   subdirectory: "STRING_VALUE",
+ * };
  * const command = new CreateTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTemplateSyncConfigCommandInput - {@link CreateTemplateSyncConfigCommandInput}
+ * @returns {@link CreateTemplateSyncConfigCommandOutput}
  * @see {@link CreateTemplateSyncConfigCommandInput} for command's `input` shape.
  * @see {@link CreateTemplateSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -93,6 +102,9 @@ export class CreateTemplateSyncConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTemplateSyncConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +133,8 @@ export class CreateTemplateSyncConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTemplateSyncConfigInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTemplateSyncConfigOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +144,18 @@ export class CreateTemplateSyncConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTemplateSyncConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateTemplateSyncConfigCommand(input, context);
+    return se_CreateTemplateSyncConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTemplateSyncConfigCommandOutput> {
-    return deserializeAws_json1_0CreateTemplateSyncConfigCommand(output, context);
+    return de_CreateTemplateSyncConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

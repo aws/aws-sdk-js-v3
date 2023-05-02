@@ -10,7 +10,7 @@ import { CostExplorerClient } from "../CostExplorerClient";
 import { CostExplorerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CostExplorerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetSavingsPlansUtilizationDetailsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetSavingsPlansUtilizationDetails(
   config: CostExplorerPaginationConfiguration,
   input: GetSavingsPlansUtilizationDetailsCommandInput,

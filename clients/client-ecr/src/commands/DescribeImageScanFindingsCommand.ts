@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  DescribeImageScanFindingsRequest,
-  DescribeImageScanFindingsRequestFilterSensitiveLog,
-  DescribeImageScanFindingsResponse,
-  DescribeImageScanFindingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImageScanFindingsCommand,
-  serializeAws_json1_1DescribeImageScanFindingsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeImageScanFindingsRequest, DescribeImageScanFindingsResponse } from "../models/models_0";
+import { de_DescribeImageScanFindingsCommand, se_DescribeImageScanFindingsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImageScanFindingsCommand}.
  */
 export interface DescribeImageScanFindingsCommandInput extends DescribeImageScanFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImageScanFindingsCommand}.
  */
 export interface DescribeImageScanFindingsCommandOutput extends DescribeImageScanFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the scan findings for the specified image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * import { ECRClient, DescribeImageScanFindingsCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribeImageScanFindingsCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // DescribeImageScanFindingsRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageId: { // ImageIdentifier
+ *     imageDigest: "STRING_VALUE",
+ *     imageTag: "STRING_VALUE",
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeImageScanFindingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImageScanFindingsCommandInput - {@link DescribeImageScanFindingsCommandInput}
+ * @returns {@link DescribeImageScanFindingsCommandOutput}
  * @see {@link DescribeImageScanFindingsCommandInput} for command's `input` shape.
  * @see {@link DescribeImageScanFindingsCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -90,6 +99,9 @@ export class DescribeImageScanFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImageScanFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class DescribeImageScanFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageScanFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageScanFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +141,21 @@ export class DescribeImageScanFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImageScanFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImageScanFindingsCommand(input, context);
+    return se_DescribeImageScanFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeImageScanFindingsCommandOutput> {
-    return deserializeAws_json1_1DescribeImageScanFindingsCommand(output, context);
+    return de_DescribeImageScanFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

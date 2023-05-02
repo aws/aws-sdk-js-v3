@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserHierarchyRequest, UpdateUserHierarchyRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateUserHierarchyCommand,
-  serializeAws_restJson1UpdateUserHierarchyCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateUserHierarchyRequest } from "../models/models_1";
+import { de_UpdateUserHierarchyCommand, se_UpdateUserHierarchyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserHierarchyCommand}.
  */
 export interface UpdateUserHierarchyCommandInput extends UpdateUserHierarchyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserHierarchyCommand}.
  */
 export interface UpdateUserHierarchyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the specified hierarchy group to the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,17 @@ export interface UpdateUserHierarchyCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateUserHierarchyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserHierarchyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateUserHierarchyRequest
+ *   HierarchyGroupId: "STRING_VALUE",
+ *   UserId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateUserHierarchyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserHierarchyCommandInput - {@link UpdateUserHierarchyCommandInput}
+ * @returns {@link UpdateUserHierarchyCommandOutput}
  * @see {@link UpdateUserHierarchyCommandInput} for command's `input` shape.
  * @see {@link UpdateUserHierarchyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -79,6 +88,9 @@ export class UpdateUserHierarchyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserHierarchyCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +119,8 @@ export class UpdateUserHierarchyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserHierarchyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +130,18 @@ export class UpdateUserHierarchyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserHierarchyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserHierarchyCommand(input, context);
+    return se_UpdateUserHierarchyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserHierarchyCommandOutput> {
-    return deserializeAws_restJson1UpdateUserHierarchyCommand(output, context);
+    return de_UpdateUserHierarchyCommand(output, context);
   }
 
   // Start section: command_body_extra

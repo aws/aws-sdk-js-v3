@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDocumentRequest,
-  GetDocumentRequestFilterSensitiveLog,
-  GetDocumentResult,
-  GetDocumentResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDocumentCommand,
-  serializeAws_json1_1GetDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDocumentRequest, GetDocumentResult } from "../models/models_1";
+import { de_GetDocumentCommand, se_GetDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDocumentCommand}.
  */
 export interface GetDocumentCommandInput extends GetDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDocumentCommand}.
  */
 export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the contents of the specified Amazon Web Services Systems Manager document (SSM document).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  * import { SSMClient, GetDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetDocumentRequest
+ *   Name: "STRING_VALUE", // required
+ *   VersionName: "STRING_VALUE",
+ *   DocumentVersion: "STRING_VALUE",
+ *   DocumentFormat: "YAML" || "JSON" || "TEXT",
+ * };
  * const command = new GetDocumentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDocumentCommandInput - {@link GetDocumentCommandInput}
+ * @returns {@link GetDocumentCommandOutput}
  * @see {@link GetDocumentCommandInput} for command's `input` shape.
  * @see {@link GetDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -78,6 +83,9 @@ export class GetDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +112,8 @@ export class GetDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDocumentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +123,18 @@ export class GetDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDocumentCommand(input, context);
+    return se_GetDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentCommandOutput> {
-    return deserializeAws_json1_1GetDocumentCommand(output, context);
+    return de_GetDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

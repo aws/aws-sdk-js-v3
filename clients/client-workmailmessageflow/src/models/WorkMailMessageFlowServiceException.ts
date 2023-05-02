@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from WorkMailMessageFlow service.
  */
 export class WorkMailMessageFlowServiceException extends __ServiceException {

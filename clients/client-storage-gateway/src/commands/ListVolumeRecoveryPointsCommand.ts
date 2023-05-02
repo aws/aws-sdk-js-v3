@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListVolumeRecoveryPointsInput,
-  ListVolumeRecoveryPointsInputFilterSensitiveLog,
-  ListVolumeRecoveryPointsOutput,
-  ListVolumeRecoveryPointsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListVolumeRecoveryPointsCommand,
-  serializeAws_json1_1ListVolumeRecoveryPointsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListVolumeRecoveryPointsInput, ListVolumeRecoveryPointsOutput } from "../models/models_0";
+import { de_ListVolumeRecoveryPointsCommand, se_ListVolumeRecoveryPointsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListVolumeRecoveryPointsCommand}.
  */
 export interface ListVolumeRecoveryPointsCommandInput extends ListVolumeRecoveryPointsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListVolumeRecoveryPointsCommand}.
  */
 export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecoveryPointsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the recovery points for a specified gateway. This operation is only supported in
  *          the cached volume gateway type.</p>
  *
@@ -48,10 +45,15 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  * import { StorageGatewayClient, ListVolumeRecoveryPointsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListVolumeRecoveryPointsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // ListVolumeRecoveryPointsInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new ListVolumeRecoveryPointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVolumeRecoveryPointsCommandInput - {@link ListVolumeRecoveryPointsCommandInput}
+ * @returns {@link ListVolumeRecoveryPointsCommandOutput}
  * @see {@link ListVolumeRecoveryPointsCommandInput} for command's `input` shape.
  * @see {@link ListVolumeRecoveryPointsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -106,6 +108,9 @@ export class ListVolumeRecoveryPointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVolumeRecoveryPointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +139,8 @@ export class ListVolumeRecoveryPointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVolumeRecoveryPointsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVolumeRecoveryPointsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +150,18 @@ export class ListVolumeRecoveryPointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVolumeRecoveryPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListVolumeRecoveryPointsCommand(input, context);
+    return se_ListVolumeRecoveryPointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVolumeRecoveryPointsCommandOutput> {
-    return deserializeAws_json1_1ListVolumeRecoveryPointsCommand(output, context);
+    return de_ListVolumeRecoveryPointsCommand(output, context);
   }
 
   // Start section: command_body_extra

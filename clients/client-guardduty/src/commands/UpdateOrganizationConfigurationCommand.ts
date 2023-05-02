@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse } from "../models/models_1";
 import {
-  UpdateOrganizationConfigurationRequest,
-  UpdateOrganizationConfigurationRequestFilterSensitiveLog,
-  UpdateOrganizationConfigurationResponse,
-  UpdateOrganizationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateOrganizationConfigurationCommand,
-  serializeAws_restJson1UpdateOrganizationConfigurationCommand,
+  de_UpdateOrganizationConfigurationCommand,
+  se_UpdateOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOrganizationConfigurationCommand}.
  */
 export interface UpdateOrganizationConfigurationCommandInput extends UpdateOrganizationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOrganizationConfigurationCommand}.
  */
 export interface UpdateOrganizationConfigurationCommandOutput
@@ -37,7 +36,9 @@ export interface UpdateOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the delegated administrator account with the values provided.</p>
+ * @public
+ * <p>Configures the delegated administrator account with the provided values. You must provide
+ *       the value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>. </p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
@@ -47,10 +48,46 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * import { GuardDutyClient, UpdateOrganizationConfigurationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // UpdateOrganizationConfigurationRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   AutoEnable: true || false,
+ *   DataSources: { // OrganizationDataSourceConfigurations
+ *     S3Logs: { // OrganizationS3LogsConfiguration
+ *       AutoEnable: true || false, // required
+ *     },
+ *     Kubernetes: { // OrganizationKubernetesConfiguration
+ *       AuditLogs: { // OrganizationKubernetesAuditLogsConfiguration
+ *         AutoEnable: true || false, // required
+ *       },
+ *     },
+ *     MalwareProtection: { // OrganizationMalwareProtectionConfiguration
+ *       ScanEc2InstanceWithFindings: { // OrganizationScanEc2InstanceWithFindings
+ *         EbsVolumes: { // OrganizationEbsVolumes
+ *           AutoEnable: true || false,
+ *         },
+ *       },
+ *     },
+ *   },
+ *   Features: [ // OrganizationFeaturesConfigurations
+ *     { // OrganizationFeatureConfiguration
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
+ *       AutoEnable: "NEW" || "NONE",
+ *       AdditionalConfiguration: [ // OrganizationAdditionalConfigurations
+ *         { // OrganizationAdditionalConfiguration
+ *           Name: "EKS_ADDON_MANAGEMENT",
+ *           AutoEnable: "NEW" || "NONE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   AutoEnableOrganizationMembers: "NEW" || "ALL" || "NONE",
+ * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOrganizationConfigurationCommandInput - {@link UpdateOrganizationConfigurationCommandInput}
+ * @returns {@link UpdateOrganizationConfigurationCommandOutput}
  * @see {@link UpdateOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -80,6 +117,9 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOrganizationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +148,8 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOrganizationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOrganizationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +159,24 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateOrganizationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateOrganizationConfigurationCommand(input, context);
+    return se_UpdateOrganizationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOrganizationConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateOrganizationConfigurationCommand(output, context);
+    return de_UpdateOrganizationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

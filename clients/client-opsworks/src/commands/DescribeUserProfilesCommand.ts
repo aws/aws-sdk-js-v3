@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeUserProfilesRequest,
-  DescribeUserProfilesRequestFilterSensitiveLog,
-  DescribeUserProfilesResult,
-  DescribeUserProfilesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeUserProfilesRequest, DescribeUserProfilesResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeUserProfilesCommand,
-  serializeAws_json1_1DescribeUserProfilesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeUserProfilesCommand, se_DescribeUserProfilesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserProfilesCommand}.
  */
 export interface DescribeUserProfilesCommandInput extends DescribeUserProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserProfilesCommand}.
  */
 export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe specified users.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
@@ -46,10 +43,17 @@ export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesR
  * import { OpsWorksClient, DescribeUserProfilesCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeUserProfilesCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeUserProfilesRequest
+ *   IamUserArns: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeUserProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserProfilesCommandInput - {@link DescribeUserProfilesCommandInput}
+ * @returns {@link DescribeUserProfilesCommandOutput}
  * @see {@link DescribeUserProfilesCommandInput} for command's `input` shape.
  * @see {@link DescribeUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -79,6 +83,9 @@ export class DescribeUserProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class DescribeUserProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserProfilesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class DescribeUserProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserProfilesCommand(input, context);
+    return se_DescribeUserProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserProfilesCommandOutput> {
-    return deserializeAws_json1_1DescribeUserProfilesCommand(output, context);
+    return de_DescribeUserProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

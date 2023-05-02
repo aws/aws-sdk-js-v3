@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DeleteFileSystemPolicyRequest, DeleteFileSystemPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFileSystemPolicyCommand,
-  serializeAws_restJson1DeleteFileSystemPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFileSystemPolicyRequest } from "../models/models_0";
+import { de_DeleteFileSystemPolicyCommand, se_DeleteFileSystemPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFileSystemPolicyCommand}.
  */
 export interface DeleteFileSystemPolicyCommandInput extends DeleteFileSystemPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFileSystemPolicyCommand}.
  */
 export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the <code>FileSystemPolicy</code> for the specified file system.
  *       The default <code>FileSystemPolicy</code> goes into effect once the existing policy is deleted.
  *       For more information about the default file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/res-based-policies-efs.html">Using Resource-based Policies with EFS</a>.</p>
@@ -40,10 +42,15 @@ export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
  * import { EFSClient, DeleteFileSystemPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteFileSystemPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DeleteFileSystemPolicyRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFileSystemPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFileSystemPolicyCommandInput - {@link DeleteFileSystemPolicyCommandInput}
+ * @returns {@link DeleteFileSystemPolicyCommandOutput}
  * @see {@link DeleteFileSystemPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteFileSystemPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteFileSystemPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFileSystemPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +119,8 @@ export class DeleteFileSystemPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFileSystemPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class DeleteFileSystemPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFileSystemPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFileSystemPolicyCommand(input, context);
+    return se_DeleteFileSystemPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileSystemPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteFileSystemPolicyCommand(output, context);
+    return de_DeleteFileSystemPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { ListRecoveryPointsByResourceInput, ListRecoveryPointsByResourceOutput } from "../models/models_0";
 import {
-  ListRecoveryPointsByResourceInput,
-  ListRecoveryPointsByResourceInputFilterSensitiveLog,
-  ListRecoveryPointsByResourceOutput,
-  ListRecoveryPointsByResourceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecoveryPointsByResourceCommand,
-  serializeAws_restJson1ListRecoveryPointsByResourceCommand,
+  de_ListRecoveryPointsByResourceCommand,
+  se_ListRecoveryPointsByResourceCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecoveryPointsByResourceCommand}.
  */
 export interface ListRecoveryPointsByResourceCommandInput extends ListRecoveryPointsByResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRecoveryPointsByResourceCommand}.
  */
 export interface ListRecoveryPointsByResourceCommandOutput
@@ -37,6 +36,7 @@ export interface ListRecoveryPointsByResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about all the recovery points of the type specified by a
  *          resource Amazon Resource Name (ARN).</p>
  *          <note>
@@ -49,10 +49,17 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * import { BackupClient, ListRecoveryPointsByResourceCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRecoveryPointsByResourceCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListRecoveryPointsByResourceInput
+ *   ResourceArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListRecoveryPointsByResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecoveryPointsByResourceCommandInput - {@link ListRecoveryPointsByResourceCommandInput}
+ * @returns {@link ListRecoveryPointsByResourceCommandOutput}
  * @see {@link ListRecoveryPointsByResourceCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsByResourceCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListRecoveryPointsByResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecoveryPointsByResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class ListRecoveryPointsByResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecoveryPointsByResourceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRecoveryPointsByResourceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +138,21 @@ export class ListRecoveryPointsByResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecoveryPointsByResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecoveryPointsByResourceCommand(input, context);
+    return se_ListRecoveryPointsByResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRecoveryPointsByResourceCommandOutput> {
-    return deserializeAws_restJson1ListRecoveryPointsByResourceCommand(output, context);
+    return de_ListRecoveryPointsByResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

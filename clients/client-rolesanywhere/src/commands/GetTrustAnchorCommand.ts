@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ScalarTrustAnchorRequest,
-  ScalarTrustAnchorRequestFilterSensitiveLog,
-  TrustAnchorDetailResponse,
-  TrustAnchorDetailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTrustAnchorCommand,
-  serializeAws_restJson1GetTrustAnchorCommand,
-} from "../protocols/Aws_restJson1";
+import { ScalarTrustAnchorRequest, TrustAnchorDetailResponse } from "../models/models_0";
+import { de_GetTrustAnchorCommand, se_GetTrustAnchorCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTrustAnchorCommand}.
  */
 export interface GetTrustAnchorCommandInput extends ScalarTrustAnchorRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTrustAnchorCommand}.
  */
 export interface GetTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a trust anchor.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -46,10 +43,15 @@ export interface GetTrustAnchorCommandOutput extends TrustAnchorDetailResponse, 
  * import { RolesAnywhereClient, GetTrustAnchorCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, GetTrustAnchorCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ScalarTrustAnchorRequest
+ *   trustAnchorId: "STRING_VALUE", // required
+ * };
  * const command = new GetTrustAnchorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrustAnchorCommandInput - {@link GetTrustAnchorCommandInput}
+ * @returns {@link GetTrustAnchorCommandOutput}
  * @see {@link GetTrustAnchorCommandInput} for command's `input` shape.
  * @see {@link GetTrustAnchorCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetTrustAnchorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrustAnchorCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetTrustAnchorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarTrustAnchorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TrustAnchorDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetTrustAnchorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTrustAnchorCommand(input, context);
+    return se_GetTrustAnchorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrustAnchorCommandOutput> {
-    return deserializeAws_restJson1GetTrustAnchorCommand(output, context);
+    return de_GetTrustAnchorCommand(output, context);
   }
 
   // Start section: command_body_extra

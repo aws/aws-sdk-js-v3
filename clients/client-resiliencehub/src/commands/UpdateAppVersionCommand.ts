@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAppVersionRequest,
-  UpdateAppVersionRequestFilterSensitiveLog,
-  UpdateAppVersionResponse,
-  UpdateAppVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAppVersionCommand,
-  serializeAws_restJson1UpdateAppVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateAppVersionRequest, UpdateAppVersionResponse } from "../models/models_0";
+import { de_UpdateAppVersionCommand, se_UpdateAppVersionCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAppVersionCommand}.
  */
 export interface UpdateAppVersionCommandInput extends UpdateAppVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAppVersionCommand}.
  */
 export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the AWS Resilience Hub application version.</p>
+ * @public
+ * <p>Updates the Resilience Hub application version.</p>
  *          <note>
- *             <p>This API updates the AWS Resilience Hub application draft version. To use this information
- *         for running resiliency assessments, you must publish the AWS Resilience Hub application using the
+ *             <p>This API updates the Resilience Hub application draft version. To use this information
+ *         for running resiliency assessments, you must publish the Resilience Hub application using the
  *           <code>PublishAppVersion</code> API.</p>
  *          </note>
  * @example
@@ -47,10 +44,20 @@ export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse,
  * import { ResiliencehubClient, UpdateAppVersionCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, UpdateAppVersionCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // UpdateAppVersionRequest
+ *   appArn: "STRING_VALUE", // required
+ *   additionalInfo: { // AdditionalInfoMap
+ *     "<keys>": [ // AdditionalInfoValueList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateAppVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppVersionCommandInput - {@link UpdateAppVersionCommandInput}
+ * @returns {@link UpdateAppVersionCommandOutput}
  * @see {@link UpdateAppVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateAppVersionCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -67,7 +74,7 @@ export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse,
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -98,6 +105,9 @@ export class UpdateAppVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +136,8 @@ export class UpdateAppVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAppVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAppVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +147,18 @@ export class UpdateAppVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAppVersionCommand(input, context);
+    return se_UpdateAppVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppVersionCommandOutput> {
-    return deserializeAws_restJson1UpdateAppVersionCommand(output, context);
+    return de_UpdateAppVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,21 +20,23 @@ import {
   CreateAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1CreateAccountCommand,
-  serializeAws_json1_1CreateAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAccountCommand, se_CreateAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccountCommand}.
  */
 export interface CreateAccountCommandInput extends CreateAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccountCommand}.
  */
 export interface CreateAccountCommandOutput extends CreateAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Web Services account that is automatically a member of the organization whose
  *             credentials made the request. This is an asynchronous request that Amazon Web Services performs in the
  *             background. Because <code>CreateAccount</code> operates asynchronously, it can return a
@@ -116,10 +118,24 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * import { OrganizationsClient, CreateAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CreateAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // CreateAccountRequest
+ *   Email: "STRING_VALUE", // required
+ *   AccountName: "STRING_VALUE", // required
+ *   RoleName: "STRING_VALUE",
+ *   IamUserAccessToBilling: "ALLOW" || "DENY",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccountCommandInput - {@link CreateAccountCommandInput}
+ * @returns {@link CreateAccountCommandOutput}
  * @see {@link CreateAccountCommandInput} for command's `input` shape.
  * @see {@link CreateAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -500,6 +516,9 @@ export class CreateAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -537,12 +556,18 @@ export class CreateAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAccountCommand(input, context);
+    return se_CreateAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccountCommandOutput> {
-    return deserializeAws_json1_1CreateAccountCommand(output, context);
+    return de_CreateAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

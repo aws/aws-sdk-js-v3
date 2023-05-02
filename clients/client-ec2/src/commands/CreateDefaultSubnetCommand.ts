@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateDefaultSubnetRequest,
-  CreateDefaultSubnetRequestFilterSensitiveLog,
-  CreateDefaultSubnetResult,
-  CreateDefaultSubnetResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_ec2CreateDefaultSubnetCommand,
-  serializeAws_ec2CreateDefaultSubnetCommand,
-} from "../protocols/Aws_ec2";
+import { CreateDefaultSubnetRequest, CreateDefaultSubnetResult } from "../models/models_1";
+import { de_CreateDefaultSubnetCommand, se_CreateDefaultSubnetCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDefaultSubnetCommand}.
  */
 export interface CreateDefaultSubnetCommandInput extends CreateDefaultSubnetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDefaultSubnetCommand}.
  */
 export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the
  *             specified Availability Zone in your default VPC. You can have only one default subnet
  *             per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Creating a default
@@ -45,10 +42,17 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  * import { EC2Client, CreateDefaultSubnetCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateDefaultSubnetCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateDefaultSubnetRequest
+ *   AvailabilityZone: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ *   Ipv6Native: true || false,
+ * };
  * const command = new CreateDefaultSubnetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDefaultSubnetCommandInput - {@link CreateDefaultSubnetCommandInput}
+ * @returns {@link CreateDefaultSubnetCommandOutput}
  * @see {@link CreateDefaultSubnetCommandInput} for command's `input` shape.
  * @see {@link CreateDefaultSubnetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +76,9 @@ export class CreateDefaultSubnetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDefaultSubnetCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +107,8 @@ export class CreateDefaultSubnetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDefaultSubnetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDefaultSubnetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +118,18 @@ export class CreateDefaultSubnetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDefaultSubnetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateDefaultSubnetCommand(input, context);
+    return se_CreateDefaultSubnetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDefaultSubnetCommandOutput> {
-    return deserializeAws_ec2CreateDefaultSubnetCommand(output, context);
+    return de_CreateDefaultSubnetCommand(output, context);
   }
 
   // Start section: command_body_extra

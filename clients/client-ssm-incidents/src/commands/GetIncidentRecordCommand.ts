@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetIncidentRecordInput,
-  GetIncidentRecordInputFilterSensitiveLog,
-  GetIncidentRecordOutput,
-  GetIncidentRecordOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIncidentRecordCommand,
-  serializeAws_restJson1GetIncidentRecordCommand,
-} from "../protocols/Aws_restJson1";
+import { GetIncidentRecordInput, GetIncidentRecordOutput } from "../models/models_0";
+import { de_GetIncidentRecordCommand, se_GetIncidentRecordCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetIncidentRecordCommand}.
  */
 export interface GetIncidentRecordCommandInput extends GetIncidentRecordInput {}
 /**
+ * @public
+ *
  * The output of {@link GetIncidentRecordCommand}.
  */
 export interface GetIncidentRecordCommandOutput extends GetIncidentRecordOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details for the specified incident record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetIncidentRecordCommandOutput extends GetIncidentRecordOutput,
  * import { SSMIncidentsClient, GetIncidentRecordCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, GetIncidentRecordCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // GetIncidentRecordInput
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetIncidentRecordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIncidentRecordCommandInput - {@link GetIncidentRecordCommandInput}
+ * @returns {@link GetIncidentRecordCommandOutput}
  * @see {@link GetIncidentRecordCommandInput} for command's `input` shape.
  * @see {@link GetIncidentRecordCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -86,6 +88,9 @@ export class GetIncidentRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIncidentRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class GetIncidentRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIncidentRecordInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIncidentRecordOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class GetIncidentRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIncidentRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIncidentRecordCommand(input, context);
+    return se_GetIncidentRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIncidentRecordCommandOutput> {
-    return deserializeAws_restJson1GetIncidentRecordCommand(output, context);
+    return de_GetIncidentRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

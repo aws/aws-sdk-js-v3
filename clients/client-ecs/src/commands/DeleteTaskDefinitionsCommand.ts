@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DeleteTaskDefinitionsRequest,
-  DeleteTaskDefinitionsRequestFilterSensitiveLog,
-  DeleteTaskDefinitionsResponse,
-  DeleteTaskDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTaskDefinitionsCommand,
-  serializeAws_json1_1DeleteTaskDefinitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTaskDefinitionsRequest, DeleteTaskDefinitionsResponse } from "../models/models_0";
+import { de_DeleteTaskDefinitionsCommand, se_DeleteTaskDefinitionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTaskDefinitionsCommand}.
  */
 export interface DeleteTaskDefinitionsCommandInput extends DeleteTaskDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTaskDefinitionsCommand}.
  */
 export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more task definitions.</p>
  *          <p>You must deregister a task definition revision before you delete it. For more information,
  * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html">DeregisterTaskDefinition</a>.</p>
@@ -55,10 +52,17 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * import { ECSClient, DeleteTaskDefinitionsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeleteTaskDefinitionsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DeleteTaskDefinitionsRequest
+ *   taskDefinitions: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteTaskDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTaskDefinitionsCommandInput - {@link DeleteTaskDefinitionsCommandInput}
+ * @returns {@link DeleteTaskDefinitionsCommandOutput}
  * @see {@link DeleteTaskDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -97,6 +101,9 @@ export class DeleteTaskDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTaskDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +132,8 @@ export class DeleteTaskDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTaskDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTaskDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +143,18 @@ export class DeleteTaskDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTaskDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTaskDefinitionsCommand(input, context);
+    return se_DeleteTaskDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTaskDefinitionsCommandOutput> {
-    return deserializeAws_json1_1DeleteTaskDefinitionsCommand(output, context);
+    return de_DeleteTaskDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

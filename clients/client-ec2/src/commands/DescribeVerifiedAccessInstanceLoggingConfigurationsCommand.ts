@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
-  DescribeVerifiedAccessInstanceLoggingConfigurationsRequestFilterSensitiveLog,
   DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
-  DescribeVerifiedAccessInstanceLoggingConfigurationsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
-  serializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
+  de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
+  se_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommand}.
  */
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput
   extends DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommand}.
  */
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput
@@ -38,17 +40,36 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutpu
     __MetadataBearer {}
 
 /**
- * <p>Describes the current logging configuration for the Amazon Web Services Verified Access instances.</p>
+ * @public
+ * <p>Describes the specified Amazon Web Services Verified Access instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DescribeVerifiedAccessInstanceLoggingConfigurationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVerifiedAccessInstanceLoggingConfigurationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVerifiedAccessInstanceLoggingConfigurationsRequest
+ *   VerifiedAccessInstanceIds: [ // VerifiedAccessInstanceIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput - {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput}
+ * @returns {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput}
  * @see {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +93,9 @@ export class DescribeVerifiedAccessInstanceLoggingConfigurationsCommand extends 
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +130,8 @@ export class DescribeVerifiedAccessInstanceLoggingConfigurationsCommand extends 
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVerifiedAccessInstanceLoggingConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVerifiedAccessInstanceLoggingConfigurationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +141,24 @@ export class DescribeVerifiedAccessInstanceLoggingConfigurationsCommand extends 
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(input, context);
+    return se_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput> {
-    return deserializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(output, context);
+    return de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

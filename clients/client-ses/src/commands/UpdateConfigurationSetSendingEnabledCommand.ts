@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateConfigurationSetSendingEnabledRequest } from "../models/models_0";
 import {
-  UpdateConfigurationSetSendingEnabledRequest,
-  UpdateConfigurationSetSendingEnabledRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand,
-  serializeAws_queryUpdateConfigurationSetSendingEnabledCommand,
+  de_UpdateConfigurationSetSendingEnabledCommand,
+  se_UpdateConfigurationSetSendingEnabledCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationSetSendingEnabledCommand}.
  */
 export interface UpdateConfigurationSetSendingEnabledCommandInput extends UpdateConfigurationSetSendingEnabledRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationSetSendingEnabledCommand}.
  */
 export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables email sending for messages sent using a specific configuration set
  *             in a given AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms
  *             to temporarily pause email sending for a configuration set when the reputation metrics
@@ -45,10 +47,16 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  * import { SESClient, UpdateConfigurationSetSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateConfigurationSetSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // UpdateConfigurationSetSendingEnabledRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   Enabled: true || false, // required
+ * };
  * const command = new UpdateConfigurationSetSendingEnabledCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationSetSendingEnabledCommandInput - {@link UpdateConfigurationSetSendingEnabledCommandInput}
+ * @returns {@link UpdateConfigurationSetSendingEnabledCommandOutput}
  * @see {@link UpdateConfigurationSetSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -87,6 +95,9 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationSetSendingEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +126,8 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationSetSendingEnabledRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +137,24 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfigurationSetSendingEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetSendingEnabledCommand(input, context);
+    return se_UpdateConfigurationSetSendingEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetSendingEnabledCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand(output, context);
+    return de_UpdateConfigurationSetSendingEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

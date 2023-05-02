@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CrlDetailResponse,
-  CrlDetailResponseFilterSensitiveLog,
-  ScalarCrlRequest,
-  ScalarCrlRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCrlCommand,
-  serializeAws_restJson1DeleteCrlCommand,
-} from "../protocols/Aws_restJson1";
+import { CrlDetailResponse, ScalarCrlRequest } from "../models/models_0";
+import { de_DeleteCrlCommand, se_DeleteCrlCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCrlCommand}.
  */
 export interface DeleteCrlCommandInput extends ScalarCrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCrlCommand}.
  */
 export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a certificate revocation list (CRL).</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -46,10 +43,15 @@ export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * import { RolesAnywhereClient, DeleteCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, DeleteCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ScalarCrlRequest
+ *   crlId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCrlCommandInput - {@link DeleteCrlCommandInput}
+ * @returns {@link DeleteCrlCommandOutput}
  * @see {@link DeleteCrlCommandInput} for command's `input` shape.
  * @see {@link DeleteCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +81,9 @@ export class DeleteCrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +110,8 @@ export class DeleteCrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarCrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CrlDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +121,18 @@ export class DeleteCrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCrlCommand(input, context);
+    return se_DeleteCrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCrlCommandOutput> {
-    return deserializeAws_restJson1DeleteCrlCommand(output, context);
+    return de_DeleteCrlCommand(output, context);
   }
 
   // Start section: command_body_extra

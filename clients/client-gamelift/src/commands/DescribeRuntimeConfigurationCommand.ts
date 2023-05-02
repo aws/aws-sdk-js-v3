@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { DescribeRuntimeConfigurationInput, DescribeRuntimeConfigurationOutput } from "../models/models_0";
 import {
-  DescribeRuntimeConfigurationInput,
-  DescribeRuntimeConfigurationInputFilterSensitiveLog,
-  DescribeRuntimeConfigurationOutput,
-  DescribeRuntimeConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRuntimeConfigurationCommand,
-  serializeAws_json1_1DescribeRuntimeConfigurationCommand,
+  de_DescribeRuntimeConfigurationCommand,
+  se_DescribeRuntimeConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRuntimeConfigurationCommand}.
  */
 export interface DescribeRuntimeConfigurationCommandInput extends DescribeRuntimeConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRuntimeConfigurationCommand}.
  */
 export interface DescribeRuntimeConfigurationCommandOutput
@@ -37,21 +36,22 @@ export interface DescribeRuntimeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a fleet's runtime configuration settings. The runtime configuration tells
- *             GameLift which server processes to run (and how) on each instance in the fleet.</p>
- *         <p>To get the runtime configuration that is currently in forces for a fleet, provide the
+ *             Amazon GameLift which server processes to run (and how) on each instance in the fleet.</p>
+ *          <p>To get the runtime configuration that is currently in forces for a fleet, provide the
  *             fleet ID. </p>
- *         <p>If successful, a <code>RuntimeConfiguration</code> object is returned for the
+ *          <p>If successful, a <code>RuntimeConfiguration</code> object is returned for the
  *             requested fleet. If the requested fleet has been deleted, the result set is
  *             empty.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html">Running multiple
  *                 processes on a fleet</a>
  *          </p>
@@ -61,10 +61,15 @@ export interface DescribeRuntimeConfigurationCommandOutput
  * import { GameLiftClient, DescribeRuntimeConfigurationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeRuntimeConfigurationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeRuntimeConfigurationInput
+ *   FleetId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRuntimeConfigurationCommandInput - {@link DescribeRuntimeConfigurationCommandInput}
+ * @returns {@link DescribeRuntimeConfigurationCommandOutput}
  * @see {@link DescribeRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeRuntimeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -102,6 +107,9 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRuntimeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +138,8 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRuntimeConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRuntimeConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,15 +149,21 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRuntimeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRuntimeConfigurationCommand(input, context);
+    return se_DescribeRuntimeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRuntimeConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeRuntimeConfigurationCommand(output, context);
+    return de_DescribeRuntimeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

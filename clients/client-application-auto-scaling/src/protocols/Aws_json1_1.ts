@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -10,7 +11,8 @@ import {
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -61,15 +63,11 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { ApplicationAutoScalingServiceException as __BaseException } from "../models/ApplicationAutoScalingServiceException";
 import {
-  Alarm,
   ConcurrentUpdateException,
   CustomizedMetricSpecification,
   DeleteScalingPolicyRequest,
-  DeleteScalingPolicyResponse,
   DeleteScheduledActionRequest,
-  DeleteScheduledActionResponse,
   DeregisterScalableTargetRequest,
-  DeregisterScalableTargetResponse,
   DescribeScalableTargetsRequest,
   DescribeScalableTargetsResponse,
   DescribeScalingActivitiesRequest,
@@ -83,17 +81,12 @@ import {
   InvalidNextTokenException,
   LimitExceededException,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   MetricDimension,
-  NotScaledReason,
   ObjectNotFoundException,
   PredefinedMetricSpecification,
   PutScalingPolicyRequest,
-  PutScalingPolicyResponse,
   PutScheduledActionRequest,
-  PutScheduledActionResponse,
   RegisterScalableTargetRequest,
-  RegisterScalableTargetResponse,
   ResourceNotFoundException,
   ScalableTarget,
   ScalableTargetAction,
@@ -104,7 +97,6 @@ import {
   StepScalingPolicyConfiguration,
   SuspendedState,
   TagResourceRequest,
-  TagResourceResponse,
   TargetTrackingMetric,
   TargetTrackingMetricDataQuery,
   TargetTrackingMetricDimension,
@@ -112,197 +104,202 @@ import {
   TargetTrackingScalingPolicyConfiguration,
   TooManyTagsException,
   UntagResourceRequest,
-  UntagResourceResponse,
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_json1_1DeleteScalingPolicyCommand = async (
+/**
+ * serializeAws_json1_1DeleteScalingPolicyCommand
+ */
+export const se_DeleteScalingPolicyCommand = async (
   input: DeleteScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DeleteScalingPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteScalingPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteScalingPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteScheduledActionCommand = async (
+/**
+ * serializeAws_json1_1DeleteScheduledActionCommand
+ */
+export const se_DeleteScheduledActionCommand = async (
   input: DeleteScheduledActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DeleteScheduledAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteScheduledAction");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteScheduledActionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeregisterScalableTargetCommand = async (
+/**
+ * serializeAws_json1_1DeregisterScalableTargetCommand
+ */
+export const se_DeregisterScalableTargetCommand = async (
   input: DeregisterScalableTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DeregisterScalableTarget",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterScalableTarget");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeregisterScalableTargetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeScalableTargetsCommand = async (
+/**
+ * serializeAws_json1_1DescribeScalableTargetsCommand
+ */
+export const se_DescribeScalableTargetsCommand = async (
   input: DescribeScalableTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DescribeScalableTargets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeScalableTargets");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeScalableTargetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeScalingActivitiesCommand = async (
+/**
+ * serializeAws_json1_1DescribeScalingActivitiesCommand
+ */
+export const se_DescribeScalingActivitiesCommand = async (
   input: DescribeScalingActivitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DescribeScalingActivities",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeScalingActivities");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeScalingActivitiesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeScalingPoliciesCommand = async (
+/**
+ * serializeAws_json1_1DescribeScalingPoliciesCommand
+ */
+export const se_DescribeScalingPoliciesCommand = async (
   input: DescribeScalingPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DescribeScalingPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeScalingPolicies");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeScalingPoliciesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeScheduledActionsCommand = async (
+/**
+ * serializeAws_json1_1DescribeScheduledActionsCommand
+ */
+export const se_DescribeScheduledActionsCommand = async (
   input: DescribeScheduledActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DescribeScheduledActions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeScheduledActions");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeScheduledActionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutScalingPolicyCommand = async (
+/**
+ * serializeAws_json1_1PutScalingPolicyCommand
+ */
+export const se_PutScalingPolicyCommand = async (
   input: PutScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.PutScalingPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutScalingPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutScalingPolicyRequest(input, context));
+  body = JSON.stringify(se_PutScalingPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutScheduledActionCommand = async (
+/**
+ * serializeAws_json1_1PutScheduledActionCommand
+ */
+export const se_PutScheduledActionCommand = async (
   input: PutScheduledActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.PutScheduledAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutScheduledAction");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutScheduledActionRequest(input, context));
+  body = JSON.stringify(se_PutScheduledActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RegisterScalableTargetCommand = async (
+/**
+ * serializeAws_json1_1RegisterScalableTargetCommand
+ */
+export const se_RegisterScalableTargetCommand = async (
   input: RegisterScalableTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.RegisterScalableTarget",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterScalableTarget");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RegisterScalableTargetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1DeleteScalingPolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteScalingPolicyCommand
+ */
+export const de_DeleteScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteScalingPolicyCommandError(output, context);
+    return de_DeleteScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteScalingPolicyResponse(data, context);
+  contents = _json(data);
   const response: DeleteScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteScalingPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteScalingPolicyCommandError
+ */
+const de_DeleteScalingPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScalingPolicyCommandOutput> => {
@@ -314,45 +311,50 @@ const deserializeAws_json1_1DeleteScalingPolicyCommandError = async (
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
-      throw await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.applicationautoscaling#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ObjectNotFoundException":
     case "com.amazonaws.applicationautoscaling#ObjectNotFoundException":
-      throw await deserializeAws_json1_1ObjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ObjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationautoscaling#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteScheduledActionCommand = async (
+/**
+ * deserializeAws_json1_1DeleteScheduledActionCommand
+ */
+export const de_DeleteScheduledActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScheduledActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteScheduledActionCommandError(output, context);
+    return de_DeleteScheduledActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteScheduledActionResponse(data, context);
+  contents = _json(data);
   const response: DeleteScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteScheduledActionCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteScheduledActionCommandError
+ */
+const de_DeleteScheduledActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScheduledActionCommandOutput> => {
@@ -364,45 +366,50 @@ const deserializeAws_json1_1DeleteScheduledActionCommandError = async (
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
-      throw await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.applicationautoscaling#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ObjectNotFoundException":
     case "com.amazonaws.applicationautoscaling#ObjectNotFoundException":
-      throw await deserializeAws_json1_1ObjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ObjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationautoscaling#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeregisterScalableTargetCommand = async (
+/**
+ * deserializeAws_json1_1DeregisterScalableTargetCommand
+ */
+export const de_DeregisterScalableTargetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterScalableTargetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeregisterScalableTargetCommandError(output, context);
+    return de_DeregisterScalableTargetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeregisterScalableTargetResponse(data, context);
+  contents = _json(data);
   const response: DeregisterScalableTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeregisterScalableTargetCommandError = async (
+/**
+ * deserializeAws_json1_1DeregisterScalableTargetCommandError
+ */
+const de_DeregisterScalableTargetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterScalableTargetCommandOutput> => {
@@ -414,45 +421,50 @@ const deserializeAws_json1_1DeregisterScalableTargetCommandError = async (
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
-      throw await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.applicationautoscaling#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ObjectNotFoundException":
     case "com.amazonaws.applicationautoscaling#ObjectNotFoundException":
-      throw await deserializeAws_json1_1ObjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ObjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationautoscaling#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeScalableTargetsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeScalableTargetsCommand
+ */
+export const de_DescribeScalableTargetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalableTargetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeScalableTargetsCommandError(output, context);
+    return de_DescribeScalableTargetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeScalableTargetsResponse(data, context);
+  contents = de_DescribeScalableTargetsResponse(data, context);
   const response: DescribeScalableTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeScalableTargetsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeScalableTargetsCommandError
+ */
+const de_DescribeScalableTargetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalableTargetsCommandOutput> => {
@@ -464,45 +476,50 @@ const deserializeAws_json1_1DescribeScalableTargetsCommandError = async (
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
-      throw await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.applicationautoscaling#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.applicationautoscaling#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationautoscaling#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeScalingActivitiesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeScalingActivitiesCommand
+ */
+export const de_DescribeScalingActivitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalingActivitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeScalingActivitiesCommandError(output, context);
+    return de_DescribeScalingActivitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeScalingActivitiesResponse(data, context);
+  contents = de_DescribeScalingActivitiesResponse(data, context);
   const response: DescribeScalingActivitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeScalingActivitiesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeScalingActivitiesCommandError
+ */
+const de_DescribeScalingActivitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalingActivitiesCommandOutput> => {
@@ -514,45 +531,50 @@ const deserializeAws_json1_1DescribeScalingActivitiesCommandError = async (
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
-      throw await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.applicationautoscaling#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.applicationautoscaling#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationautoscaling#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeScalingPoliciesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeScalingPoliciesCommand
+ */
+export const de_DescribeScalingPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalingPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeScalingPoliciesCommandError(output, context);
+    return de_DescribeScalingPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeScalingPoliciesResponse(data, context);
+  contents = de_DescribeScalingPoliciesResponse(data, context);
   const response: DescribeScalingPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeScalingPoliciesCommandError
+ */
+const de_DescribeScalingPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalingPoliciesCommandOutput> => {
@@ -564,48 +586,53 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
-      throw await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
     case "FailedResourceAccessException":
     case "com.amazonaws.applicationautoscaling#FailedResourceAccessException":
-      throw await deserializeAws_json1_1FailedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_FailedResourceAccessExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.applicationautoscaling#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.applicationautoscaling#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationautoscaling#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeScheduledActionsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeScheduledActionsCommand
+ */
+export const de_DescribeScheduledActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScheduledActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeScheduledActionsCommandError(output, context);
+    return de_DescribeScheduledActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeScheduledActionsResponse(data, context);
+  contents = de_DescribeScheduledActionsResponse(data, context);
   const response: DescribeScheduledActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeScheduledActionsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeScheduledActionsCommandError
+ */
+const de_DescribeScheduledActionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScheduledActionsCommandOutput> => {
@@ -617,45 +644,50 @@ const deserializeAws_json1_1DescribeScheduledActionsCommandError = async (
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
-      throw await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.applicationautoscaling#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.applicationautoscaling#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationautoscaling#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -667,36 +699,41 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationautoscaling#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutScalingPolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutScalingPolicyCommand
+ */
+export const de_PutScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutScalingPolicyCommandError(output, context);
+    return de_PutScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutScalingPolicyResponse(data, context);
+  contents = _json(data);
   const response: PutScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutScalingPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutScalingPolicyCommandError
+ */
+const de_PutScalingPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutScalingPolicyCommandOutput> => {
@@ -708,51 +745,56 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
-      throw await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
     case "FailedResourceAccessException":
     case "com.amazonaws.applicationautoscaling#FailedResourceAccessException":
-      throw await deserializeAws_json1_1FailedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_FailedResourceAccessExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.applicationautoscaling#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.applicationautoscaling#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ObjectNotFoundException":
     case "com.amazonaws.applicationautoscaling#ObjectNotFoundException":
-      throw await deserializeAws_json1_1ObjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ObjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationautoscaling#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutScheduledActionCommand = async (
+/**
+ * deserializeAws_json1_1PutScheduledActionCommand
+ */
+export const de_PutScheduledActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutScheduledActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutScheduledActionCommandError(output, context);
+    return de_PutScheduledActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutScheduledActionResponse(data, context);
+  contents = _json(data);
   const response: PutScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutScheduledActionCommandError = async (
+/**
+ * deserializeAws_json1_1PutScheduledActionCommandError
+ */
+const de_PutScheduledActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutScheduledActionCommandOutput> => {
@@ -764,48 +806,53 @@ const deserializeAws_json1_1PutScheduledActionCommandError = async (
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
-      throw await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.applicationautoscaling#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.applicationautoscaling#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ObjectNotFoundException":
     case "com.amazonaws.applicationautoscaling#ObjectNotFoundException":
-      throw await deserializeAws_json1_1ObjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ObjectNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationautoscaling#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RegisterScalableTargetCommand = async (
+/**
+ * deserializeAws_json1_1RegisterScalableTargetCommand
+ */
+export const de_RegisterScalableTargetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterScalableTargetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RegisterScalableTargetCommandError(output, context);
+    return de_RegisterScalableTargetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterScalableTargetResponse(data, context);
+  contents = _json(data);
   const response: RegisterScalableTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RegisterScalableTargetCommandError = async (
+/**
+ * deserializeAws_json1_1RegisterScalableTargetCommandError
+ */
+const de_RegisterScalableTargetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterScalableTargetCommandOutput> => {
@@ -817,45 +864,50 @@ const deserializeAws_json1_1RegisterScalableTargetCommandError = async (
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.applicationautoscaling#ConcurrentUpdateException":
-      throw await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.applicationautoscaling#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.applicationautoscaling#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationautoscaling#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -867,42 +919,47 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationautoscaling#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.applicationautoscaling#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationautoscaling#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -914,27 +971,29 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationautoscaling#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.applicationautoscaling#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1ConcurrentUpdateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConcurrentUpdateExceptionRes
+ */
+const de_ConcurrentUpdateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentUpdateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentUpdateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentUpdateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -942,12 +1001,15 @@ const deserializeAws_json1_1ConcurrentUpdateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FailedResourceAccessExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FailedResourceAccessExceptionRes
+ */
+const de_FailedResourceAccessExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FailedResourceAccessException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FailedResourceAccessException(body, context);
+  const deserialized: any = _json(body);
   const exception = new FailedResourceAccessException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -955,12 +1017,15 @@ const deserializeAws_json1_1FailedResourceAccessExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServiceExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalServiceExceptionRes
+ */
+const de_InternalServiceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -968,12 +1033,15 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidNextTokenExceptionRes
+ */
+const de_InvalidNextTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -981,12 +1049,15 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -994,12 +1065,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ObjectNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ObjectNotFoundExceptionRes
+ */
+const de_ObjectNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ObjectNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ObjectNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ObjectNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1007,12 +1081,15 @@ const deserializeAws_json1_1ObjectNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1020,12 +1097,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1033,12 +1113,12 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1046,967 +1126,432 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1CustomizedMetricSpecification = (
-  input: CustomizedMetricSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Dimensions != null && { Dimensions: serializeAws_json1_1MetricDimensions(input.Dimensions, context) }),
-    ...(input.MetricName != null && { MetricName: input.MetricName }),
-    ...(input.Metrics != null && {
-      Metrics: serializeAws_json1_1TargetTrackingMetricDataQueries(input.Metrics, context),
-    }),
-    ...(input.Namespace != null && { Namespace: input.Namespace }),
-    ...(input.Statistic != null && { Statistic: input.Statistic }),
-    ...(input.Unit != null && { Unit: input.Unit }),
-  };
+// se_CustomizedMetricSpecification omitted.
+
+// se_DeleteScalingPolicyRequest omitted.
+
+// se_DeleteScheduledActionRequest omitted.
+
+// se_DeregisterScalableTargetRequest omitted.
+
+// se_DescribeScalableTargetsRequest omitted.
+
+// se_DescribeScalingActivitiesRequest omitted.
+
+// se_DescribeScalingPoliciesRequest omitted.
+
+// se_DescribeScheduledActionsRequest omitted.
+
+// se_ListTagsForResourceRequest omitted.
+
+// se_MetricDimension omitted.
+
+// se_MetricDimensions omitted.
+
+// se_PredefinedMetricSpecification omitted.
+
+/**
+ * serializeAws_json1_1PutScalingPolicyRequest
+ */
+const se_PutScalingPolicyRequest = (input: PutScalingPolicyRequest, context: __SerdeContext): any => {
+  return take(input, {
+    PolicyName: [],
+    PolicyType: [],
+    ResourceId: [],
+    ScalableDimension: [],
+    ServiceNamespace: [],
+    StepScalingPolicyConfiguration: (_) => se_StepScalingPolicyConfiguration(_, context),
+    TargetTrackingScalingPolicyConfiguration: (_) => se_TargetTrackingScalingPolicyConfiguration(_, context),
+  });
 };
 
-const serializeAws_json1_1DeleteScalingPolicyRequest = (
-  input: DeleteScalingPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
-  };
+/**
+ * serializeAws_json1_1PutScheduledActionRequest
+ */
+const se_PutScheduledActionRequest = (input: PutScheduledActionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    ResourceId: [],
+    ScalableDimension: [],
+    ScalableTargetAction: _json,
+    Schedule: [],
+    ScheduledActionName: [],
+    ServiceNamespace: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+    Timezone: [],
+  });
 };
 
-const serializeAws_json1_1DeleteScheduledActionRequest = (
-  input: DeleteScheduledActionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ScheduledActionName != null && { ScheduledActionName: input.ScheduledActionName }),
-    ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
-  };
+// se_RegisterScalableTargetRequest omitted.
+
+// se_ResourceIdsMaxLen1600 omitted.
+
+// se_ScalableTargetAction omitted.
+
+/**
+ * serializeAws_json1_1StepAdjustment
+ */
+const se_StepAdjustment = (input: StepAdjustment, context: __SerdeContext): any => {
+  return take(input, {
+    MetricIntervalLowerBound: __serializeFloat,
+    MetricIntervalUpperBound: __serializeFloat,
+    ScalingAdjustment: [],
+  });
 };
 
-const serializeAws_json1_1DeregisterScalableTargetRequest = (
-  input: DeregisterScalableTargetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
-  };
-};
-
-const serializeAws_json1_1DescribeScalableTargetsRequest = (
-  input: DescribeScalableTargetsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceIds != null && {
-      ResourceIds: serializeAws_json1_1ResourceIdsMaxLen1600(input.ResourceIds, context),
-    }),
-    ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
-  };
-};
-
-const serializeAws_json1_1DescribeScalingActivitiesRequest = (
-  input: DescribeScalingActivitiesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IncludeNotScaledActivities != null && { IncludeNotScaledActivities: input.IncludeNotScaledActivities }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
-  };
-};
-
-const serializeAws_json1_1DescribeScalingPoliciesRequest = (
-  input: DescribeScalingPoliciesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PolicyNames != null && {
-      PolicyNames: serializeAws_json1_1ResourceIdsMaxLen1600(input.PolicyNames, context),
-    }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
-  };
-};
-
-const serializeAws_json1_1DescribeScheduledActionsRequest = (
-  input: DescribeScheduledActionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ScheduledActionNames != null && {
-      ScheduledActionNames: serializeAws_json1_1ResourceIdsMaxLen1600(input.ScheduledActionNames, context),
-    }),
-    ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
-  };
-};
-
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
-
-const serializeAws_json1_1MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_json1_1MetricDimensions = (input: MetricDimension[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StepAdjustments
+ */
+const se_StepAdjustments = (input: StepAdjustment[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1MetricDimension(entry, context);
+      return se_StepAdjustment(entry, context);
     });
 };
 
-const serializeAws_json1_1PredefinedMetricSpecification = (
-  input: PredefinedMetricSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PredefinedMetricType != null && { PredefinedMetricType: input.PredefinedMetricType }),
-    ...(input.ResourceLabel != null && { ResourceLabel: input.ResourceLabel }),
-  };
+/**
+ * serializeAws_json1_1StepScalingPolicyConfiguration
+ */
+const se_StepScalingPolicyConfiguration = (input: StepScalingPolicyConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    AdjustmentType: [],
+    Cooldown: [],
+    MetricAggregationType: [],
+    MinAdjustmentMagnitude: [],
+    StepAdjustments: (_) => se_StepAdjustments(_, context),
+  });
 };
 
-const serializeAws_json1_1PutScalingPolicyRequest = (input: PutScalingPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
-    ...(input.PolicyType != null && { PolicyType: input.PolicyType }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
-    ...(input.StepScalingPolicyConfiguration != null && {
-      StepScalingPolicyConfiguration: serializeAws_json1_1StepScalingPolicyConfiguration(
-        input.StepScalingPolicyConfiguration,
-        context
-      ),
-    }),
-    ...(input.TargetTrackingScalingPolicyConfiguration != null && {
-      TargetTrackingScalingPolicyConfiguration: serializeAws_json1_1TargetTrackingScalingPolicyConfiguration(
-        input.TargetTrackingScalingPolicyConfiguration,
-        context
-      ),
-    }),
-  };
-};
+// se_SuspendedState omitted.
 
-const serializeAws_json1_1PutScheduledActionRequest = (
-  input: PutScheduledActionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ScalableTargetAction != null && {
-      ScalableTargetAction: serializeAws_json1_1ScalableTargetAction(input.ScalableTargetAction, context),
-    }),
-    ...(input.Schedule != null && { Schedule: input.Schedule }),
-    ...(input.ScheduledActionName != null && { ScheduledActionName: input.ScheduledActionName }),
-    ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-    ...(input.Timezone != null && { Timezone: input.Timezone }),
-  };
-};
+// se_TagKeyList omitted.
 
-const serializeAws_json1_1RegisterScalableTargetRequest = (
-  input: RegisterScalableTargetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxCapacity != null && { MaxCapacity: input.MaxCapacity }),
-    ...(input.MinCapacity != null && { MinCapacity: input.MinCapacity }),
-    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
-    ...(input.SuspendedState != null && {
-      SuspendedState: serializeAws_json1_1SuspendedState(input.SuspendedState, context),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
-  };
-};
+// se_TagMap omitted.
 
-const serializeAws_json1_1ResourceIdsMaxLen1600 = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagResourceRequest omitted.
 
-const serializeAws_json1_1ScalableTargetAction = (input: ScalableTargetAction, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxCapacity != null && { MaxCapacity: input.MaxCapacity }),
-    ...(input.MinCapacity != null && { MinCapacity: input.MinCapacity }),
-  };
-};
+// se_TargetTrackingMetric omitted.
 
-const serializeAws_json1_1StepAdjustment = (input: StepAdjustment, context: __SerdeContext): any => {
-  return {
-    ...(input.MetricIntervalLowerBound != null && {
-      MetricIntervalLowerBound: __serializeFloat(input.MetricIntervalLowerBound),
-    }),
-    ...(input.MetricIntervalUpperBound != null && {
-      MetricIntervalUpperBound: __serializeFloat(input.MetricIntervalUpperBound),
-    }),
-    ...(input.ScalingAdjustment != null && { ScalingAdjustment: input.ScalingAdjustment }),
-  };
-};
+// se_TargetTrackingMetricDataQueries omitted.
 
-const serializeAws_json1_1StepAdjustments = (input: StepAdjustment[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1StepAdjustment(entry, context);
-    });
-};
+// se_TargetTrackingMetricDataQuery omitted.
 
-const serializeAws_json1_1StepScalingPolicyConfiguration = (
-  input: StepScalingPolicyConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AdjustmentType != null && { AdjustmentType: input.AdjustmentType }),
-    ...(input.Cooldown != null && { Cooldown: input.Cooldown }),
-    ...(input.MetricAggregationType != null && { MetricAggregationType: input.MetricAggregationType }),
-    ...(input.MinAdjustmentMagnitude != null && { MinAdjustmentMagnitude: input.MinAdjustmentMagnitude }),
-    ...(input.StepAdjustments != null && {
-      StepAdjustments: serializeAws_json1_1StepAdjustments(input.StepAdjustments, context),
-    }),
-  };
-};
+// se_TargetTrackingMetricDimension omitted.
 
-const serializeAws_json1_1SuspendedState = (input: SuspendedState, context: __SerdeContext): any => {
-  return {
-    ...(input.DynamicScalingInSuspended != null && { DynamicScalingInSuspended: input.DynamicScalingInSuspended }),
-    ...(input.DynamicScalingOutSuspended != null && { DynamicScalingOutSuspended: input.DynamicScalingOutSuspended }),
-    ...(input.ScheduledScalingSuspended != null && { ScheduledScalingSuspended: input.ScheduledScalingSuspended }),
-  };
-};
+// se_TargetTrackingMetricDimensions omitted.
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TargetTrackingMetricStat omitted.
 
-const serializeAws_json1_1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1TargetTrackingMetric = (input: TargetTrackingMetric, context: __SerdeContext): any => {
-  return {
-    ...(input.Dimensions != null && {
-      Dimensions: serializeAws_json1_1TargetTrackingMetricDimensions(input.Dimensions, context),
-    }),
-    ...(input.MetricName != null && { MetricName: input.MetricName }),
-    ...(input.Namespace != null && { Namespace: input.Namespace }),
-  };
-};
-
-const serializeAws_json1_1TargetTrackingMetricDataQueries = (
-  input: TargetTrackingMetricDataQuery[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1TargetTrackingMetricDataQuery(entry, context);
-    });
-};
-
-const serializeAws_json1_1TargetTrackingMetricDataQuery = (
-  input: TargetTrackingMetricDataQuery,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Expression != null && { Expression: input.Expression }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Label != null && { Label: input.Label }),
-    ...(input.MetricStat != null && {
-      MetricStat: serializeAws_json1_1TargetTrackingMetricStat(input.MetricStat, context),
-    }),
-    ...(input.ReturnData != null && { ReturnData: input.ReturnData }),
-  };
-};
-
-const serializeAws_json1_1TargetTrackingMetricDimension = (
-  input: TargetTrackingMetricDimension,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_json1_1TargetTrackingMetricDimensions = (
-  input: TargetTrackingMetricDimension[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1TargetTrackingMetricDimension(entry, context);
-    });
-};
-
-const serializeAws_json1_1TargetTrackingMetricStat = (
-  input: TargetTrackingMetricStat,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Metric != null && { Metric: serializeAws_json1_1TargetTrackingMetric(input.Metric, context) }),
-    ...(input.Stat != null && { Stat: input.Stat }),
-    ...(input.Unit != null && { Unit: input.Unit }),
-  };
-};
-
-const serializeAws_json1_1TargetTrackingScalingPolicyConfiguration = (
+/**
+ * serializeAws_json1_1TargetTrackingScalingPolicyConfiguration
+ */
+const se_TargetTrackingScalingPolicyConfiguration = (
   input: TargetTrackingScalingPolicyConfiguration,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.CustomizedMetricSpecification != null && {
-      CustomizedMetricSpecification: serializeAws_json1_1CustomizedMetricSpecification(
-        input.CustomizedMetricSpecification,
-        context
-      ),
-    }),
-    ...(input.DisableScaleIn != null && { DisableScaleIn: input.DisableScaleIn }),
-    ...(input.PredefinedMetricSpecification != null && {
-      PredefinedMetricSpecification: serializeAws_json1_1PredefinedMetricSpecification(
-        input.PredefinedMetricSpecification,
-        context
-      ),
-    }),
-    ...(input.ScaleInCooldown != null && { ScaleInCooldown: input.ScaleInCooldown }),
-    ...(input.ScaleOutCooldown != null && { ScaleOutCooldown: input.ScaleOutCooldown }),
-    ...(input.TargetValue != null && { TargetValue: __serializeFloat(input.TargetValue) }),
-  };
+  return take(input, {
+    CustomizedMetricSpecification: _json,
+    DisableScaleIn: [],
+    PredefinedMetricSpecification: _json,
+    ScaleInCooldown: [],
+    ScaleOutCooldown: [],
+    TargetValue: __serializeFloat,
+  });
 };
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
-  };
+// se_UntagResourceRequest omitted.
+
+// de_Alarm omitted.
+
+// de_Alarms omitted.
+
+// de_ConcurrentUpdateException omitted.
+
+// de_CustomizedMetricSpecification omitted.
+
+// de_DeleteScalingPolicyResponse omitted.
+
+// de_DeleteScheduledActionResponse omitted.
+
+// de_DeregisterScalableTargetResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeScalableTargetsResponse
+ */
+const de_DescribeScalableTargetsResponse = (output: any, context: __SerdeContext): DescribeScalableTargetsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    ScalableTargets: (_: any) => de_ScalableTargets(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alarm => {
-  return {
-    AlarmARN: __expectString(output.AlarmARN),
-    AlarmName: __expectString(output.AlarmName),
-  } as any;
-};
-
-const deserializeAws_json1_1Alarms = (output: any, context: __SerdeContext): Alarm[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Alarm(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ConcurrentUpdateException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentUpdateException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1CustomizedMetricSpecification = (
-  output: any,
-  context: __SerdeContext
-): CustomizedMetricSpecification => {
-  return {
-    Dimensions:
-      output.Dimensions != null ? deserializeAws_json1_1MetricDimensions(output.Dimensions, context) : undefined,
-    MetricName: __expectString(output.MetricName),
-    Metrics:
-      output.Metrics != null
-        ? deserializeAws_json1_1TargetTrackingMetricDataQueries(output.Metrics, context)
-        : undefined,
-    Namespace: __expectString(output.Namespace),
-    Statistic: __expectString(output.Statistic),
-    Unit: __expectString(output.Unit),
-  } as any;
-};
-
-const deserializeAws_json1_1DeleteScalingPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteScalingPolicyResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeleteScheduledActionResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteScheduledActionResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeregisterScalableTargetResponse = (
-  output: any,
-  context: __SerdeContext
-): DeregisterScalableTargetResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DescribeScalableTargetsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeScalableTargetsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ScalableTargets:
-      output.ScalableTargets != null
-        ? deserializeAws_json1_1ScalableTargets(output.ScalableTargets, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeScalingActivitiesResponse = (
+/**
+ * deserializeAws_json1_1DescribeScalingActivitiesResponse
+ */
+const de_DescribeScalingActivitiesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeScalingActivitiesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ScalingActivities:
-      output.ScalingActivities != null
-        ? deserializeAws_json1_1ScalingActivities(output.ScalingActivities, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    ScalingActivities: (_: any) => de_ScalingActivities(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeScalingPoliciesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeScalingPoliciesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ScalingPolicies:
-      output.ScalingPolicies != null
-        ? deserializeAws_json1_1ScalingPolicies(output.ScalingPolicies, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeScalingPoliciesResponse
+ */
+const de_DescribeScalingPoliciesResponse = (output: any, context: __SerdeContext): DescribeScalingPoliciesResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    ScalingPolicies: (_: any) => de_ScalingPolicies(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeScheduledActionsResponse = (
+/**
+ * deserializeAws_json1_1DescribeScheduledActionsResponse
+ */
+const de_DescribeScheduledActionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeScheduledActionsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ScheduledActions:
-      output.ScheduledActions != null
-        ? deserializeAws_json1_1ScheduledActions(output.ScheduledActions, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    ScheduledActions: (_: any) => de_ScheduledActions(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1FailedResourceAccessException = (
-  output: any,
-  context: __SerdeContext
-): FailedResourceAccessException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
+// de_FailedResourceAccessException omitted.
+
+// de_InternalServiceException omitted.
+
+// de_InvalidNextTokenException omitted.
+
+// de_LimitExceededException omitted.
+
+// de_ListTagsForResourceResponse omitted.
+
+// de_MetricDimension omitted.
+
+// de_MetricDimensions omitted.
+
+// de_NotScaledReason omitted.
+
+// de_NotScaledReasons omitted.
+
+// de_ObjectNotFoundException omitted.
+
+// de_PredefinedMetricSpecification omitted.
+
+// de_PutScalingPolicyResponse omitted.
+
+// de_PutScheduledActionResponse omitted.
+
+// de_RegisterScalableTargetResponse omitted.
+
+// de_ResourceNotFoundException omitted.
+
+/**
+ * deserializeAws_json1_1ScalableTarget
+ */
+const de_ScalableTarget = (output: any, context: __SerdeContext): ScalableTarget => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MaxCapacity: __expectInt32,
+    MinCapacity: __expectInt32,
+    ResourceId: __expectString,
+    RoleARN: __expectString,
+    ScalableDimension: __expectString,
+    ScalableTargetARN: __expectString,
+    ServiceNamespace: __expectString,
+    SuspendedState: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1InternalServiceException = (
-  output: any,
-  context: __SerdeContext
-): InternalServiceException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ScalableTargetAction omitted.
 
-const deserializeAws_json1_1InvalidNextTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? deserializeAws_json1_1TagMap(output.Tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_1MetricDimensions = (output: any, context: __SerdeContext): MetricDimension[] => {
+/**
+ * deserializeAws_json1_1ScalableTargets
+ */
+const de_ScalableTargets = (output: any, context: __SerdeContext): ScalableTarget[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1MetricDimension(entry, context);
+      return de_ScalableTarget(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1NotScaledReason = (output: any, context: __SerdeContext): NotScaledReason => {
-  return {
-    Code: __expectString(output.Code),
-    CurrentCapacity: __expectInt32(output.CurrentCapacity),
-    MaxCapacity: __expectInt32(output.MaxCapacity),
-    MinCapacity: __expectInt32(output.MinCapacity),
-  } as any;
-};
-
-const deserializeAws_json1_1NotScaledReasons = (output: any, context: __SerdeContext): NotScaledReason[] => {
+/**
+ * deserializeAws_json1_1ScalingActivities
+ */
+const de_ScalingActivities = (output: any, context: __SerdeContext): ScalingActivity[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1NotScaledReason(entry, context);
+      return de_ScalingActivity(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ObjectNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ObjectNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
+/**
+ * deserializeAws_json1_1ScalingActivity
+ */
+const de_ScalingActivity = (output: any, context: __SerdeContext): ScalingActivity => {
+  return take(output, {
+    ActivityId: __expectString,
+    Cause: __expectString,
+    Description: __expectString,
+    Details: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NotScaledReasons: _json,
+    ResourceId: __expectString,
+    ScalableDimension: __expectString,
+    ServiceNamespace: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StatusCode: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1PredefinedMetricSpecification = (
-  output: any,
-  context: __SerdeContext
-): PredefinedMetricSpecification => {
-  return {
-    PredefinedMetricType: __expectString(output.PredefinedMetricType),
-    ResourceLabel: __expectString(output.ResourceLabel),
-  } as any;
-};
-
-const deserializeAws_json1_1PutScalingPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): PutScalingPolicyResponse => {
-  return {
-    Alarms: output.Alarms != null ? deserializeAws_json1_1Alarms(output.Alarms, context) : undefined,
-    PolicyARN: __expectString(output.PolicyARN),
-  } as any;
-};
-
-const deserializeAws_json1_1PutScheduledActionResponse = (
-  output: any,
-  context: __SerdeContext
-): PutScheduledActionResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1RegisterScalableTargetResponse = (
-  output: any,
-  context: __SerdeContext
-): RegisterScalableTargetResponse => {
-  return {
-    ScalableTargetARN: __expectString(output.ScalableTargetARN),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceName: __expectString(output.ResourceName),
-  } as any;
-};
-
-const deserializeAws_json1_1ScalableTarget = (output: any, context: __SerdeContext): ScalableTarget => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    MaxCapacity: __expectInt32(output.MaxCapacity),
-    MinCapacity: __expectInt32(output.MinCapacity),
-    ResourceId: __expectString(output.ResourceId),
-    RoleARN: __expectString(output.RoleARN),
-    ScalableDimension: __expectString(output.ScalableDimension),
-    ScalableTargetARN: __expectString(output.ScalableTargetARN),
-    ServiceNamespace: __expectString(output.ServiceNamespace),
-    SuspendedState:
-      output.SuspendedState != null ? deserializeAws_json1_1SuspendedState(output.SuspendedState, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ScalableTargetAction = (output: any, context: __SerdeContext): ScalableTargetAction => {
-  return {
-    MaxCapacity: __expectInt32(output.MaxCapacity),
-    MinCapacity: __expectInt32(output.MinCapacity),
-  } as any;
-};
-
-const deserializeAws_json1_1ScalableTargets = (output: any, context: __SerdeContext): ScalableTarget[] => {
+/**
+ * deserializeAws_json1_1ScalingPolicies
+ */
+const de_ScalingPolicies = (output: any, context: __SerdeContext): ScalingPolicy[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ScalableTarget(entry, context);
+      return de_ScalingPolicy(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ScalingActivities = (output: any, context: __SerdeContext): ScalingActivity[] => {
+/**
+ * deserializeAws_json1_1ScalingPolicy
+ */
+const de_ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
+  return take(output, {
+    Alarms: _json,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PolicyARN: __expectString,
+    PolicyName: __expectString,
+    PolicyType: __expectString,
+    ResourceId: __expectString,
+    ScalableDimension: __expectString,
+    ServiceNamespace: __expectString,
+    StepScalingPolicyConfiguration: (_: any) => de_StepScalingPolicyConfiguration(_, context),
+    TargetTrackingScalingPolicyConfiguration: (_: any) => de_TargetTrackingScalingPolicyConfiguration(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ScheduledAction
+ */
+const de_ScheduledAction = (output: any, context: __SerdeContext): ScheduledAction => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceId: __expectString,
+    ScalableDimension: __expectString,
+    ScalableTargetAction: _json,
+    Schedule: __expectString,
+    ScheduledActionARN: __expectString,
+    ScheduledActionName: __expectString,
+    ServiceNamespace: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Timezone: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ScheduledActions
+ */
+const de_ScheduledActions = (output: any, context: __SerdeContext): ScheduledAction[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ScalingActivity(entry, context);
+      return de_ScheduledAction(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ScalingActivity = (output: any, context: __SerdeContext): ScalingActivity => {
-  return {
-    ActivityId: __expectString(output.ActivityId),
-    Cause: __expectString(output.Cause),
-    Description: __expectString(output.Description),
-    Details: __expectString(output.Details),
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    NotScaledReasons:
-      output.NotScaledReasons != null
-        ? deserializeAws_json1_1NotScaledReasons(output.NotScaledReasons, context)
-        : undefined,
-    ResourceId: __expectString(output.ResourceId),
-    ScalableDimension: __expectString(output.ScalableDimension),
-    ServiceNamespace: __expectString(output.ServiceNamespace),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    StatusCode: __expectString(output.StatusCode),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
+/**
+ * deserializeAws_json1_1StepAdjustment
+ */
+const de_StepAdjustment = (output: any, context: __SerdeContext): StepAdjustment => {
+  return take(output, {
+    MetricIntervalLowerBound: __limitedParseDouble,
+    MetricIntervalUpperBound: __limitedParseDouble,
+    ScalingAdjustment: __expectInt32,
+  }) as any;
 };
 
-const deserializeAws_json1_1ScalingPolicies = (output: any, context: __SerdeContext): ScalingPolicy[] => {
+/**
+ * deserializeAws_json1_1StepAdjustments
+ */
+const de_StepAdjustments = (output: any, context: __SerdeContext): StepAdjustment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ScalingPolicy(entry, context);
+      return de_StepAdjustment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
-  return {
-    Alarms: output.Alarms != null ? deserializeAws_json1_1Alarms(output.Alarms, context) : undefined,
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    PolicyARN: __expectString(output.PolicyARN),
-    PolicyName: __expectString(output.PolicyName),
-    PolicyType: __expectString(output.PolicyType),
-    ResourceId: __expectString(output.ResourceId),
-    ScalableDimension: __expectString(output.ScalableDimension),
-    ServiceNamespace: __expectString(output.ServiceNamespace),
-    StepScalingPolicyConfiguration:
-      output.StepScalingPolicyConfiguration != null
-        ? deserializeAws_json1_1StepScalingPolicyConfiguration(output.StepScalingPolicyConfiguration, context)
-        : undefined,
-    TargetTrackingScalingPolicyConfiguration:
-      output.TargetTrackingScalingPolicyConfiguration != null
-        ? deserializeAws_json1_1TargetTrackingScalingPolicyConfiguration(
-            output.TargetTrackingScalingPolicyConfiguration,
-            context
-          )
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1StepScalingPolicyConfiguration
+ */
+const de_StepScalingPolicyConfiguration = (output: any, context: __SerdeContext): StepScalingPolicyConfiguration => {
+  return take(output, {
+    AdjustmentType: __expectString,
+    Cooldown: __expectInt32,
+    MetricAggregationType: __expectString,
+    MinAdjustmentMagnitude: __expectInt32,
+    StepAdjustments: (_: any) => de_StepAdjustments(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ScheduledAction = (output: any, context: __SerdeContext): ScheduledAction => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    ResourceId: __expectString(output.ResourceId),
-    ScalableDimension: __expectString(output.ScalableDimension),
-    ScalableTargetAction:
-      output.ScalableTargetAction != null
-        ? deserializeAws_json1_1ScalableTargetAction(output.ScalableTargetAction, context)
-        : undefined,
-    Schedule: __expectString(output.Schedule),
-    ScheduledActionARN: __expectString(output.ScheduledActionARN),
-    ScheduledActionName: __expectString(output.ScheduledActionName),
-    ServiceNamespace: __expectString(output.ServiceNamespace),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Timezone: __expectString(output.Timezone),
-  } as any;
-};
+// de_SuspendedState omitted.
 
-const deserializeAws_json1_1ScheduledActions = (output: any, context: __SerdeContext): ScheduledAction[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ScheduledAction(entry, context);
-    });
-  return retVal;
-};
+// de_TagMap omitted.
 
-const deserializeAws_json1_1StepAdjustment = (output: any, context: __SerdeContext): StepAdjustment => {
-  return {
-    MetricIntervalLowerBound: __limitedParseDouble(output.MetricIntervalLowerBound),
-    MetricIntervalUpperBound: __limitedParseDouble(output.MetricIntervalUpperBound),
-    ScalingAdjustment: __expectInt32(output.ScalingAdjustment),
-  } as any;
-};
+// de_TagResourceResponse omitted.
 
-const deserializeAws_json1_1StepAdjustments = (output: any, context: __SerdeContext): StepAdjustment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1StepAdjustment(entry, context);
-    });
-  return retVal;
-};
+// de_TargetTrackingMetric omitted.
 
-const deserializeAws_json1_1StepScalingPolicyConfiguration = (
-  output: any,
-  context: __SerdeContext
-): StepScalingPolicyConfiguration => {
-  return {
-    AdjustmentType: __expectString(output.AdjustmentType),
-    Cooldown: __expectInt32(output.Cooldown),
-    MetricAggregationType: __expectString(output.MetricAggregationType),
-    MinAdjustmentMagnitude: __expectInt32(output.MinAdjustmentMagnitude),
-    StepAdjustments:
-      output.StepAdjustments != null
-        ? deserializeAws_json1_1StepAdjustments(output.StepAdjustments, context)
-        : undefined,
-  } as any;
-};
+// de_TargetTrackingMetricDataQueries omitted.
 
-const deserializeAws_json1_1SuspendedState = (output: any, context: __SerdeContext): SuspendedState => {
-  return {
-    DynamicScalingInSuspended: __expectBoolean(output.DynamicScalingInSuspended),
-    DynamicScalingOutSuspended: __expectBoolean(output.DynamicScalingOutSuspended),
-    ScheduledScalingSuspended: __expectBoolean(output.ScheduledScalingSuspended),
-  } as any;
-};
+// de_TargetTrackingMetricDataQuery omitted.
 
-const deserializeAws_json1_1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TargetTrackingMetricDimension omitted.
 
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TargetTrackingMetricDimensions omitted.
 
-const deserializeAws_json1_1TargetTrackingMetric = (output: any, context: __SerdeContext): TargetTrackingMetric => {
-  return {
-    Dimensions:
-      output.Dimensions != null
-        ? deserializeAws_json1_1TargetTrackingMetricDimensions(output.Dimensions, context)
-        : undefined,
-    MetricName: __expectString(output.MetricName),
-    Namespace: __expectString(output.Namespace),
-  } as any;
-};
+// de_TargetTrackingMetricStat omitted.
 
-const deserializeAws_json1_1TargetTrackingMetricDataQueries = (
-  output: any,
-  context: __SerdeContext
-): TargetTrackingMetricDataQuery[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TargetTrackingMetricDataQuery(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TargetTrackingMetricDataQuery = (
-  output: any,
-  context: __SerdeContext
-): TargetTrackingMetricDataQuery => {
-  return {
-    Expression: __expectString(output.Expression),
-    Id: __expectString(output.Id),
-    Label: __expectString(output.Label),
-    MetricStat:
-      output.MetricStat != null
-        ? deserializeAws_json1_1TargetTrackingMetricStat(output.MetricStat, context)
-        : undefined,
-    ReturnData: __expectBoolean(output.ReturnData),
-  } as any;
-};
-
-const deserializeAws_json1_1TargetTrackingMetricDimension = (
-  output: any,
-  context: __SerdeContext
-): TargetTrackingMetricDimension => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_1TargetTrackingMetricDimensions = (
-  output: any,
-  context: __SerdeContext
-): TargetTrackingMetricDimension[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TargetTrackingMetricDimension(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TargetTrackingMetricStat = (
-  output: any,
-  context: __SerdeContext
-): TargetTrackingMetricStat => {
-  return {
-    Metric: output.Metric != null ? deserializeAws_json1_1TargetTrackingMetric(output.Metric, context) : undefined,
-    Stat: __expectString(output.Stat),
-    Unit: __expectString(output.Unit),
-  } as any;
-};
-
-const deserializeAws_json1_1TargetTrackingScalingPolicyConfiguration = (
+/**
+ * deserializeAws_json1_1TargetTrackingScalingPolicyConfiguration
+ */
+const de_TargetTrackingScalingPolicyConfiguration = (
   output: any,
   context: __SerdeContext
 ): TargetTrackingScalingPolicyConfiguration => {
-  return {
-    CustomizedMetricSpecification:
-      output.CustomizedMetricSpecification != null
-        ? deserializeAws_json1_1CustomizedMetricSpecification(output.CustomizedMetricSpecification, context)
-        : undefined,
-    DisableScaleIn: __expectBoolean(output.DisableScaleIn),
-    PredefinedMetricSpecification:
-      output.PredefinedMetricSpecification != null
-        ? deserializeAws_json1_1PredefinedMetricSpecification(output.PredefinedMetricSpecification, context)
-        : undefined,
-    ScaleInCooldown: __expectInt32(output.ScaleInCooldown),
-    ScaleOutCooldown: __expectInt32(output.ScaleOutCooldown),
-    TargetValue: __limitedParseDouble(output.TargetValue),
-  } as any;
+  return take(output, {
+    CustomizedMetricSpecification: _json,
+    DisableScaleIn: __expectBoolean,
+    PredefinedMetricSpecification: _json,
+    ScaleInCooldown: __expectInt32,
+    ScaleOutCooldown: __expectInt32,
+    TargetValue: __limitedParseDouble,
+  }) as any;
 };
 
-const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceName: __expectString(output.ResourceName),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2028,6 +1573,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -2052,6 +1598,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AnyScaleFrontendService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

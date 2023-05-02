@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  EphemerisIdResponse,
-  EphemerisIdResponseFilterSensitiveLog,
-  UpdateEphemerisRequest,
-  UpdateEphemerisRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEphemerisCommand,
-  serializeAws_restJson1UpdateEphemerisCommand,
-} from "../protocols/Aws_restJson1";
+import { EphemerisIdResponse, UpdateEphemerisRequest } from "../models/models_0";
+import { de_UpdateEphemerisCommand, se_UpdateEphemerisCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEphemerisCommand}.
  */
 export interface UpdateEphemerisCommandInput extends UpdateEphemerisRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEphemerisCommand}.
  */
 export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing ephemeris</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * import { GroundStationClient, UpdateEphemerisCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, UpdateEphemerisCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // UpdateEphemerisRequest
+ *   ephemerisId: "STRING_VALUE", // required
+ *   enabled: true || false, // required
+ *   name: "STRING_VALUE",
+ *   priority: Number("int"),
+ * };
  * const command = new UpdateEphemerisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEphemerisCommandInput - {@link UpdateEphemerisCommandInput}
+ * @returns {@link UpdateEphemerisCommandOutput}
  * @see {@link UpdateEphemerisCommandInput} for command's `input` shape.
  * @see {@link UpdateEphemerisCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +83,9 @@ export class UpdateEphemerisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEphemerisCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +114,8 @@ export class UpdateEphemerisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEphemerisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EphemerisIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +125,18 @@ export class UpdateEphemerisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEphemerisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEphemerisCommand(input, context);
+    return se_UpdateEphemerisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEphemerisCommandOutput> {
-    return deserializeAws_restJson1UpdateEphemerisCommand(output, context);
+    return de_UpdateEphemerisCommand(output, context);
   }
 
   // Start section: command_body_extra

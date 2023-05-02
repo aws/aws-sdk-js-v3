@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePackageVersionRequest,
-  DescribePackageVersionRequestFilterSensitiveLog,
-  DescribePackageVersionResponse,
-  DescribePackageVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePackageVersionRequest, DescribePackageVersionResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1DescribePackageVersionCommand,
-  serializeAws_restJson1DescribePackageVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribePackageVersionCommand, se_DescribePackageVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePackageVersionCommand}.
  */
 export interface DescribePackageVersionCommandInput extends DescribePackageVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePackageVersionCommand}.
  */
 export interface DescribePackageVersionCommandOutput extends DescribePackageVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a package version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  * import { PanoramaClient, DescribePackageVersionCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribePackageVersionCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // DescribePackageVersionRequest
+ *   OwnerAccount: "STRING_VALUE",
+ *   PackageId: "STRING_VALUE", // required
+ *   PackageVersion: "STRING_VALUE", // required
+ *   PatchVersion: "STRING_VALUE",
+ * };
  * const command = new DescribePackageVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePackageVersionCommandInput - {@link DescribePackageVersionCommandInput}
+ * @returns {@link DescribePackageVersionCommandOutput}
  * @see {@link DescribePackageVersionCommandInput} for command's `input` shape.
  * @see {@link DescribePackageVersionCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -84,6 +89,9 @@ export class DescribePackageVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePackageVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class DescribePackageVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePackageVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePackageVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class DescribePackageVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePackageVersionCommand(input, context);
+    return se_DescribePackageVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackageVersionCommandOutput> {
-    return deserializeAws_restJson1DescribePackageVersionCommand(output, context);
+    return de_DescribePackageVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -10,12 +11,13 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -167,7 +169,6 @@ import {
   AggregatedUtterancesSortBy,
   AggregatedUtterancesSummary,
   AllowedInputTypes,
-  AssociatedTranscript,
   AssociatedTranscriptFilter,
   AudioAndDTMFInputSpecification,
   AudioLogDestination,
@@ -186,8 +187,6 @@ import {
   BotLocaleSortBy,
   BotLocaleSummary,
   BotMember,
-  BotRecommendationResults,
-  BotRecommendationResultStatistics,
   BotRecommendationSummary,
   BotSortBy,
   BotSummary,
@@ -195,9 +194,7 @@ import {
   BotVersionSortBy,
   BotVersionSummary,
   BuiltInIntentSortBy,
-  BuiltInIntentSummary,
   BuiltInSlotTypeSortBy,
-  BuiltInSlotTypeSummary,
   Button,
   CloudWatchLogGroupLogDestination,
   CodeHookSpecification,
@@ -222,7 +219,6 @@ import {
   ExportSortBy,
   ExportSummary,
   ExternalSourceSetting,
-  FailedCustomVocabularyItem,
   FulfillmentStartResponseSpecification,
   FulfillmentUpdateResponseSpecification,
   FulfillmentUpdatesSpecification,
@@ -236,7 +232,6 @@ import {
   InputContext,
   IntentFilter,
   IntentSortBy,
-  IntentStatistics,
   IntentSummary,
   InternalServerException,
   KendraConfiguration,
@@ -248,15 +243,12 @@ import {
   NewCustomVocabularyItem,
   ObfuscationSetting,
   OutputContext,
-  ParentBotNetwork,
   PathFormat,
   PlainTextMessage,
   PreconditionFailedException,
   Principal,
-  PromptAttempt,
   PromptAttemptSpecification,
   PromptSpecification,
-  RecommendedIntentSummary,
   RelativeAggregationDuration,
   ResourceNotFoundException,
   ResponseSpecification,
@@ -274,7 +266,6 @@ import {
   SlotSummary,
   SlotTypeFilter,
   SlotTypeSortBy,
-  SlotTypeStatistics,
   SlotTypeSummary,
   SlotTypeValue,
   SlotValue,
@@ -315,7 +306,10 @@ import {
   SlotValueOverride,
 } from "../models/models_1";
 
-export const serializeAws_restJson1BatchCreateCustomVocabularyItemCommand = async (
+/**
+ * serializeAws_restJson1BatchCreateCustomVocabularyItemCommand
+ */
+export const se_BatchCreateCustomVocabularyItemCommand = async (
   input: BatchCreateCustomVocabularyItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -330,14 +324,11 @@ export const serializeAws_restJson1BatchCreateCustomVocabularyItemCommand = asyn
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.customVocabularyItemList != null && {
-      customVocabularyItemList: serializeAws_restJson1CreateCustomVocabularyItemsList(
-        input.customVocabularyItemList,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      customVocabularyItemList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -349,7 +340,10 @@ export const serializeAws_restJson1BatchCreateCustomVocabularyItemCommand = asyn
   });
 };
 
-export const serializeAws_restJson1BatchDeleteCustomVocabularyItemCommand = async (
+/**
+ * serializeAws_restJson1BatchDeleteCustomVocabularyItemCommand
+ */
+export const se_BatchDeleteCustomVocabularyItemCommand = async (
   input: BatchDeleteCustomVocabularyItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -364,14 +358,11 @@ export const serializeAws_restJson1BatchDeleteCustomVocabularyItemCommand = asyn
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.customVocabularyItemList != null && {
-      customVocabularyItemList: serializeAws_restJson1DeleteCustomVocabularyItemsList(
-        input.customVocabularyItemList,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      customVocabularyItemList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -383,7 +374,10 @@ export const serializeAws_restJson1BatchDeleteCustomVocabularyItemCommand = asyn
   });
 };
 
-export const serializeAws_restJson1BatchUpdateCustomVocabularyItemCommand = async (
+/**
+ * serializeAws_restJson1BatchUpdateCustomVocabularyItemCommand
+ */
+export const se_BatchUpdateCustomVocabularyItemCommand = async (
   input: BatchUpdateCustomVocabularyItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -398,14 +392,11 @@ export const serializeAws_restJson1BatchUpdateCustomVocabularyItemCommand = asyn
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.customVocabularyItemList != null && {
-      customVocabularyItemList: serializeAws_restJson1UpdateCustomVocabularyItemsList(
-        input.customVocabularyItemList,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      customVocabularyItemList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -417,7 +408,10 @@ export const serializeAws_restJson1BatchUpdateCustomVocabularyItemCommand = asyn
   });
 };
 
-export const serializeAws_restJson1BuildBotLocaleCommand = async (
+/**
+ * serializeAws_restJson1BuildBotLocaleCommand
+ */
+export const se_BuildBotLocaleCommand = async (
   input: BuildBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -441,7 +435,10 @@ export const serializeAws_restJson1BuildBotLocaleCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateBotCommand = async (
+/**
+ * serializeAws_restJson1CreateBotCommand
+ */
+export const se_CreateBotCommand = async (
   input: CreateBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -451,19 +448,19 @@ export const serializeAws_restJson1CreateBotCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots";
   let body: any;
-  body = JSON.stringify({
-    ...(input.botMembers != null && { botMembers: serializeAws_restJson1BotMembers(input.botMembers, context) }),
-    ...(input.botName != null && { botName: input.botName }),
-    ...(input.botTags != null && { botTags: serializeAws_restJson1TagMap(input.botTags, context) }),
-    ...(input.botType != null && { botType: input.botType }),
-    ...(input.dataPrivacy != null && { dataPrivacy: serializeAws_restJson1DataPrivacy(input.dataPrivacy, context) }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.idleSessionTTLInSeconds != null && { idleSessionTTLInSeconds: input.idleSessionTTLInSeconds }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.testBotAliasTags != null && {
-      testBotAliasTags: serializeAws_restJson1TagMap(input.testBotAliasTags, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      botMembers: (_) => _json(_),
+      botName: [],
+      botTags: (_) => _json(_),
+      botType: [],
+      dataPrivacy: (_) => _json(_),
+      description: [],
+      idleSessionTTLInSeconds: [],
+      roleArn: [],
+      testBotAliasTags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -475,7 +472,10 @@ export const serializeAws_restJson1CreateBotCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateBotAliasCommand = async (
+/**
+ * serializeAws_restJson1CreateBotAliasCommand
+ */
+export const se_CreateBotAliasCommand = async (
   input: CreateBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -486,24 +486,17 @@ export const serializeAws_restJson1CreateBotAliasCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botaliases";
   resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.botAliasLocaleSettings != null && {
-      botAliasLocaleSettings: serializeAws_restJson1BotAliasLocaleSettingsMap(input.botAliasLocaleSettings, context),
-    }),
-    ...(input.botAliasName != null && { botAliasName: input.botAliasName }),
-    ...(input.botVersion != null && { botVersion: input.botVersion }),
-    ...(input.conversationLogSettings != null && {
-      conversationLogSettings: serializeAws_restJson1ConversationLogSettings(input.conversationLogSettings, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.sentimentAnalysisSettings != null && {
-      sentimentAnalysisSettings: serializeAws_restJson1SentimentAnalysisSettings(
-        input.sentimentAnalysisSettings,
-        context
-      ),
-    }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      botAliasLocaleSettings: (_) => _json(_),
+      botAliasName: [],
+      botVersion: [],
+      conversationLogSettings: (_) => _json(_),
+      description: [],
+      sentimentAnalysisSettings: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -515,7 +508,10 @@ export const serializeAws_restJson1CreateBotAliasCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateBotLocaleCommand = async (
+/**
+ * serializeAws_restJson1CreateBotLocaleCommand
+ */
+export const se_CreateBotLocaleCommand = async (
   input: CreateBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -529,16 +525,14 @@ export const serializeAws_restJson1CreateBotLocaleCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.localeId != null && { localeId: input.localeId }),
-    ...(input.nluIntentConfidenceThreshold != null && {
-      nluIntentConfidenceThreshold: __serializeFloat(input.nluIntentConfidenceThreshold),
-    }),
-    ...(input.voiceSettings != null && {
-      voiceSettings: serializeAws_restJson1VoiceSettings(input.voiceSettings, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      localeId: [],
+      nluIntentConfidenceThreshold: (_) => __serializeFloat(_),
+      voiceSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -550,7 +544,10 @@ export const serializeAws_restJson1CreateBotLocaleCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateBotVersionCommand = async (
+/**
+ * serializeAws_restJson1CreateBotVersionCommand
+ */
+export const se_CreateBotVersionCommand = async (
   input: CreateBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -562,15 +559,12 @@ export const serializeAws_restJson1CreateBotVersionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botversions";
   resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.botVersionLocaleSpecification != null && {
-      botVersionLocaleSpecification: serializeAws_restJson1BotVersionLocaleSpecification(
-        input.botVersionLocaleSpecification,
-        context
-      ),
-    }),
-    ...(input.description != null && { description: input.description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      botVersionLocaleSpecification: (_) => _json(_),
+      description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -582,7 +576,10 @@ export const serializeAws_restJson1CreateBotVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateExportCommand = async (
+/**
+ * serializeAws_restJson1CreateExportCommand
+ */
+export const se_CreateExportCommand = async (
   input: CreateExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -592,13 +589,13 @@ export const serializeAws_restJson1CreateExportCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports";
   let body: any;
-  body = JSON.stringify({
-    ...(input.fileFormat != null && { fileFormat: input.fileFormat }),
-    ...(input.filePassword != null && { filePassword: input.filePassword }),
-    ...(input.resourceSpecification != null && {
-      resourceSpecification: serializeAws_restJson1ExportResourceSpecification(input.resourceSpecification, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fileFormat: [],
+      filePassword: [],
+      resourceSpecification: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -610,7 +607,10 @@ export const serializeAws_restJson1CreateExportCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateIntentCommand = async (
+/**
+ * serializeAws_restJson1CreateIntentCommand
+ */
+export const se_CreateIntentCommand = async (
   input: CreateIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -625,41 +625,22 @@ export const serializeAws_restJson1CreateIntentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.dialogCodeHook != null && {
-      dialogCodeHook: serializeAws_restJson1DialogCodeHookSettings(input.dialogCodeHook, context),
-    }),
-    ...(input.fulfillmentCodeHook != null && {
-      fulfillmentCodeHook: serializeAws_restJson1FulfillmentCodeHookSettings(input.fulfillmentCodeHook, context),
-    }),
-    ...(input.initialResponseSetting != null && {
-      initialResponseSetting: serializeAws_restJson1InitialResponseSetting(input.initialResponseSetting, context),
-    }),
-    ...(input.inputContexts != null && {
-      inputContexts: serializeAws_restJson1InputContextsList(input.inputContexts, context),
-    }),
-    ...(input.intentClosingSetting != null && {
-      intentClosingSetting: serializeAws_restJson1IntentClosingSetting(input.intentClosingSetting, context),
-    }),
-    ...(input.intentConfirmationSetting != null && {
-      intentConfirmationSetting: serializeAws_restJson1IntentConfirmationSetting(
-        input.intentConfirmationSetting,
-        context
-      ),
-    }),
-    ...(input.intentName != null && { intentName: input.intentName }),
-    ...(input.kendraConfiguration != null && {
-      kendraConfiguration: serializeAws_restJson1KendraConfiguration(input.kendraConfiguration, context),
-    }),
-    ...(input.outputContexts != null && {
-      outputContexts: serializeAws_restJson1OutputContextsList(input.outputContexts, context),
-    }),
-    ...(input.parentIntentSignature != null && { parentIntentSignature: input.parentIntentSignature }),
-    ...(input.sampleUtterances != null && {
-      sampleUtterances: serializeAws_restJson1SampleUtterancesList(input.sampleUtterances, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      dialogCodeHook: (_) => _json(_),
+      fulfillmentCodeHook: (_) => se_FulfillmentCodeHookSettings(_, context),
+      initialResponseSetting: (_) => se_InitialResponseSetting(_, context),
+      inputContexts: (_) => _json(_),
+      intentClosingSetting: (_) => se_IntentClosingSetting(_, context),
+      intentConfirmationSetting: (_) => se_IntentConfirmationSetting(_, context),
+      intentName: [],
+      kendraConfiguration: (_) => _json(_),
+      outputContexts: (_) => _json(_),
+      parentIntentSignature: [],
+      sampleUtterances: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -671,7 +652,10 @@ export const serializeAws_restJson1CreateIntentCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateResourcePolicyCommand = async (
+/**
+ * serializeAws_restJson1CreateResourcePolicyCommand
+ */
+export const se_CreateResourcePolicyCommand = async (
   input: CreateResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -682,9 +666,11 @@ export const serializeAws_restJson1CreateResourcePolicyCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.policy != null && { policy: input.policy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      policy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -696,7 +682,10 @@ export const serializeAws_restJson1CreateResourcePolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateResourcePolicyStatementCommand = async (
+/**
+ * serializeAws_restJson1CreateResourcePolicyStatementCommand
+ */
+export const se_CreateResourcePolicyStatementCommand = async (
   input: CreateResourcePolicyStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -711,13 +700,15 @@ export const serializeAws_restJson1CreateResourcePolicyStatementCommand = async 
     expectedRevisionId: [, input.expectedRevisionId!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.action != null && { action: serializeAws_restJson1OperationList(input.action, context) }),
-    ...(input.condition != null && { condition: serializeAws_restJson1ConditionMap(input.condition, context) }),
-    ...(input.effect != null && { effect: input.effect }),
-    ...(input.principal != null && { principal: serializeAws_restJson1PrincipalList(input.principal, context) }),
-    ...(input.statementId != null && { statementId: input.statementId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      action: (_) => _json(_),
+      condition: (_) => _json(_),
+      effect: [],
+      principal: (_) => _json(_),
+      statementId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -730,7 +721,10 @@ export const serializeAws_restJson1CreateResourcePolicyStatementCommand = async 
   });
 };
 
-export const serializeAws_restJson1CreateSlotCommand = async (
+/**
+ * serializeAws_restJson1CreateSlotCommand
+ */
+export const se_CreateSlotCommand = async (
   input: CreateSlotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -746,26 +740,17 @@ export const serializeAws_restJson1CreateSlotCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "intentId", () => input.intentId!, "{intentId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.multipleValuesSetting != null && {
-      multipleValuesSetting: serializeAws_restJson1MultipleValuesSetting(input.multipleValuesSetting, context),
-    }),
-    ...(input.obfuscationSetting != null && {
-      obfuscationSetting: serializeAws_restJson1ObfuscationSetting(input.obfuscationSetting, context),
-    }),
-    ...(input.slotName != null && { slotName: input.slotName }),
-    ...(input.slotTypeId != null && { slotTypeId: input.slotTypeId }),
-    ...(input.subSlotSetting != null && {
-      subSlotSetting: serializeAws_restJson1SubSlotSetting(input.subSlotSetting, context),
-    }),
-    ...(input.valueElicitationSetting != null && {
-      valueElicitationSetting: serializeAws_restJson1SlotValueElicitationSetting(
-        input.valueElicitationSetting,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      multipleValuesSetting: (_) => _json(_),
+      obfuscationSetting: (_) => _json(_),
+      slotName: [],
+      slotTypeId: [],
+      subSlotSetting: (_) => se_SubSlotSetting(_, context),
+      valueElicitationSetting: (_) => se_SlotValueElicitationSetting(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -777,7 +762,10 @@ export const serializeAws_restJson1CreateSlotCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateSlotTypeCommand = async (
+/**
+ * serializeAws_restJson1CreateSlotTypeCommand
+ */
+export const se_CreateSlotTypeCommand = async (
   input: CreateSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -792,23 +780,17 @@ export const serializeAws_restJson1CreateSlotTypeCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.compositeSlotTypeSetting != null && {
-      compositeSlotTypeSetting: serializeAws_restJson1CompositeSlotTypeSetting(input.compositeSlotTypeSetting, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.externalSourceSetting != null && {
-      externalSourceSetting: serializeAws_restJson1ExternalSourceSetting(input.externalSourceSetting, context),
-    }),
-    ...(input.parentSlotTypeSignature != null && { parentSlotTypeSignature: input.parentSlotTypeSignature }),
-    ...(input.slotTypeName != null && { slotTypeName: input.slotTypeName }),
-    ...(input.slotTypeValues != null && {
-      slotTypeValues: serializeAws_restJson1SlotTypeValues(input.slotTypeValues, context),
-    }),
-    ...(input.valueSelectionSetting != null && {
-      valueSelectionSetting: serializeAws_restJson1SlotValueSelectionSetting(input.valueSelectionSetting, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      compositeSlotTypeSetting: (_) => _json(_),
+      description: [],
+      externalSourceSetting: (_) => _json(_),
+      parentSlotTypeSignature: [],
+      slotTypeName: [],
+      slotTypeValues: (_) => _json(_),
+      valueSelectionSetting: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -820,7 +802,10 @@ export const serializeAws_restJson1CreateSlotTypeCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateUploadUrlCommand = async (
+/**
+ * serializeAws_restJson1CreateUploadUrlCommand
+ */
+export const se_CreateUploadUrlCommand = async (
   input: CreateUploadUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -842,7 +827,10 @@ export const serializeAws_restJson1CreateUploadUrlCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBotCommand = async (
+/**
+ * serializeAws_restJson1DeleteBotCommand
+ */
+export const se_DeleteBotCommand = async (
   input: DeleteBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -869,7 +857,10 @@ export const serializeAws_restJson1DeleteBotCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBotAliasCommand = async (
+/**
+ * serializeAws_restJson1DeleteBotAliasCommand
+ */
+export const se_DeleteBotAliasCommand = async (
   input: DeleteBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -898,7 +889,10 @@ export const serializeAws_restJson1DeleteBotAliasCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBotLocaleCommand = async (
+/**
+ * serializeAws_restJson1DeleteBotLocaleCommand
+ */
+export const se_DeleteBotLocaleCommand = async (
   input: DeleteBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -922,7 +916,10 @@ export const serializeAws_restJson1DeleteBotLocaleCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBotVersionCommand = async (
+/**
+ * serializeAws_restJson1DeleteBotVersionCommand
+ */
+export const se_DeleteBotVersionCommand = async (
   input: DeleteBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -951,7 +948,10 @@ export const serializeAws_restJson1DeleteBotVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteCustomVocabularyCommand = async (
+/**
+ * serializeAws_restJson1DeleteCustomVocabularyCommand
+ */
+export const se_DeleteCustomVocabularyCommand = async (
   input: DeleteCustomVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -975,7 +975,10 @@ export const serializeAws_restJson1DeleteCustomVocabularyCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteExportCommand = async (
+/**
+ * serializeAws_restJson1DeleteExportCommand
+ */
+export const se_DeleteExportCommand = async (
   input: DeleteExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -995,7 +998,10 @@ export const serializeAws_restJson1DeleteExportCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteImportCommand = async (
+/**
+ * serializeAws_restJson1DeleteImportCommand
+ */
+export const se_DeleteImportCommand = async (
   input: DeleteImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1015,7 +1021,10 @@ export const serializeAws_restJson1DeleteImportCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteIntentCommand = async (
+/**
+ * serializeAws_restJson1DeleteIntentCommand
+ */
+export const se_DeleteIntentCommand = async (
   input: DeleteIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1040,7 +1049,10 @@ export const serializeAws_restJson1DeleteIntentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteResourcePolicyCommand = async (
+/**
+ * serializeAws_restJson1DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1064,7 +1076,10 @@ export const serializeAws_restJson1DeleteResourcePolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteResourcePolicyStatementCommand = async (
+/**
+ * serializeAws_restJson1DeleteResourcePolicyStatementCommand
+ */
+export const se_DeleteResourcePolicyStatementCommand = async (
   input: DeleteResourcePolicyStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1091,7 +1106,10 @@ export const serializeAws_restJson1DeleteResourcePolicyStatementCommand = async 
   });
 };
 
-export const serializeAws_restJson1DeleteSlotCommand = async (
+/**
+ * serializeAws_restJson1DeleteSlotCommand
+ */
+export const se_DeleteSlotCommand = async (
   input: DeleteSlotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1117,7 +1135,10 @@ export const serializeAws_restJson1DeleteSlotCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSlotTypeCommand = async (
+/**
+ * serializeAws_restJson1DeleteSlotTypeCommand
+ */
+export const se_DeleteSlotTypeCommand = async (
   input: DeleteSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1149,7 +1170,10 @@ export const serializeAws_restJson1DeleteSlotTypeCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteUtterancesCommand = async (
+/**
+ * serializeAws_restJson1DeleteUtterancesCommand
+ */
+export const se_DeleteUtterancesCommand = async (
   input: DeleteUtterancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1174,7 +1198,10 @@ export const serializeAws_restJson1DeleteUtterancesCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeBotCommand = async (
+/**
+ * serializeAws_restJson1DescribeBotCommand
+ */
+export const se_DescribeBotCommand = async (
   input: DescribeBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1194,7 +1221,10 @@ export const serializeAws_restJson1DescribeBotCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeBotAliasCommand = async (
+/**
+ * serializeAws_restJson1DescribeBotAliasCommand
+ */
+export const se_DescribeBotAliasCommand = async (
   input: DescribeBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1216,7 +1246,10 @@ export const serializeAws_restJson1DescribeBotAliasCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeBotLocaleCommand = async (
+/**
+ * serializeAws_restJson1DescribeBotLocaleCommand
+ */
+export const se_DescribeBotLocaleCommand = async (
   input: DescribeBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1240,7 +1273,10 @@ export const serializeAws_restJson1DescribeBotLocaleCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeBotRecommendationCommand = async (
+/**
+ * serializeAws_restJson1DescribeBotRecommendationCommand
+ */
+export const se_DescribeBotRecommendationCommand = async (
   input: DescribeBotRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1272,7 +1308,10 @@ export const serializeAws_restJson1DescribeBotRecommendationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeBotVersionCommand = async (
+/**
+ * serializeAws_restJson1DescribeBotVersionCommand
+ */
+export const se_DescribeBotVersionCommand = async (
   input: DescribeBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1294,7 +1333,10 @@ export const serializeAws_restJson1DescribeBotVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeCustomVocabularyMetadataCommand = async (
+/**
+ * serializeAws_restJson1DescribeCustomVocabularyMetadataCommand
+ */
+export const se_DescribeCustomVocabularyMetadataCommand = async (
   input: DescribeCustomVocabularyMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1318,7 +1360,10 @@ export const serializeAws_restJson1DescribeCustomVocabularyMetadataCommand = asy
   });
 };
 
-export const serializeAws_restJson1DescribeExportCommand = async (
+/**
+ * serializeAws_restJson1DescribeExportCommand
+ */
+export const se_DescribeExportCommand = async (
   input: DescribeExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1338,7 +1383,10 @@ export const serializeAws_restJson1DescribeExportCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeImportCommand = async (
+/**
+ * serializeAws_restJson1DescribeImportCommand
+ */
+export const se_DescribeImportCommand = async (
   input: DescribeImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1358,7 +1406,10 @@ export const serializeAws_restJson1DescribeImportCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeIntentCommand = async (
+/**
+ * serializeAws_restJson1DescribeIntentCommand
+ */
+export const se_DescribeIntentCommand = async (
   input: DescribeIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1383,7 +1434,10 @@ export const serializeAws_restJson1DescribeIntentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeResourcePolicyCommand = async (
+/**
+ * serializeAws_restJson1DescribeResourcePolicyCommand
+ */
+export const se_DescribeResourcePolicyCommand = async (
   input: DescribeResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1403,7 +1457,10 @@ export const serializeAws_restJson1DescribeResourcePolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeSlotCommand = async (
+/**
+ * serializeAws_restJson1DescribeSlotCommand
+ */
+export const se_DescribeSlotCommand = async (
   input: DescribeSlotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1429,7 +1486,10 @@ export const serializeAws_restJson1DescribeSlotCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeSlotTypeCommand = async (
+/**
+ * serializeAws_restJson1DescribeSlotTypeCommand
+ */
+export const se_DescribeSlotTypeCommand = async (
   input: DescribeSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1454,7 +1514,10 @@ export const serializeAws_restJson1DescribeSlotTypeCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAggregatedUtterancesCommand = async (
+/**
+ * serializeAws_restJson1ListAggregatedUtterancesCommand
+ */
+export const se_ListAggregatedUtterancesCommand = async (
   input: ListAggregatedUtterancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1466,20 +1529,18 @@ export const serializeAws_restJson1ListAggregatedUtterancesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/aggregatedutterances";
   resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.aggregationDuration != null && {
-      aggregationDuration: serializeAws_restJson1UtteranceAggregationDuration(input.aggregationDuration, context),
-    }),
-    ...(input.botAliasId != null && { botAliasId: input.botAliasId }),
-    ...(input.botVersion != null && { botVersion: input.botVersion }),
-    ...(input.filters != null && {
-      filters: serializeAws_restJson1AggregatedUtterancesFilters(input.filters, context),
-    }),
-    ...(input.localeId != null && { localeId: input.localeId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: serializeAws_restJson1AggregatedUtterancesSortBy(input.sortBy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      aggregationDuration: (_) => _json(_),
+      botAliasId: [],
+      botVersion: [],
+      filters: (_) => _json(_),
+      localeId: [],
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1491,7 +1552,10 @@ export const serializeAws_restJson1ListAggregatedUtterancesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBotAliasesCommand = async (
+/**
+ * serializeAws_restJson1ListBotAliasesCommand
+ */
+export const se_ListBotAliasesCommand = async (
   input: ListBotAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1502,10 +1566,12 @@ export const serializeAws_restJson1ListBotAliasesCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botaliases";
   resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1517,7 +1583,10 @@ export const serializeAws_restJson1ListBotAliasesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBotLocalesCommand = async (
+/**
+ * serializeAws_restJson1ListBotLocalesCommand
+ */
+export const se_ListBotLocalesCommand = async (
   input: ListBotLocalesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1531,12 +1600,14 @@ export const serializeAws_restJson1ListBotLocalesCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: serializeAws_restJson1BotLocaleFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: serializeAws_restJson1BotLocaleSortBy(input.sortBy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1548,7 +1619,10 @@ export const serializeAws_restJson1ListBotLocalesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBotRecommendationsCommand = async (
+/**
+ * serializeAws_restJson1ListBotRecommendationsCommand
+ */
+export const se_ListBotRecommendationsCommand = async (
   input: ListBotRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1563,10 +1637,12 @@ export const serializeAws_restJson1ListBotRecommendationsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1578,7 +1654,10 @@ export const serializeAws_restJson1ListBotRecommendationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBotsCommand = async (
+/**
+ * serializeAws_restJson1ListBotsCommand
+ */
+export const se_ListBotsCommand = async (
   input: ListBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1588,12 +1667,14 @@ export const serializeAws_restJson1ListBotsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: serializeAws_restJson1BotFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: serializeAws_restJson1BotSortBy(input.sortBy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1605,7 +1686,10 @@ export const serializeAws_restJson1ListBotsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBotVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListBotVersionsCommand
+ */
+export const se_ListBotVersionsCommand = async (
   input: ListBotVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1617,11 +1701,13 @@ export const serializeAws_restJson1ListBotVersionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botversions";
   resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: serializeAws_restJson1BotVersionSortBy(input.sortBy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1633,7 +1719,10 @@ export const serializeAws_restJson1ListBotVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBuiltInIntentsCommand = async (
+/**
+ * serializeAws_restJson1ListBuiltInIntentsCommand
+ */
+export const se_ListBuiltInIntentsCommand = async (
   input: ListBuiltInIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1645,11 +1734,13 @@ export const serializeAws_restJson1ListBuiltInIntentsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/builtins/locales/{localeId}/intents";
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: serializeAws_restJson1BuiltInIntentSortBy(input.sortBy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1661,7 +1752,10 @@ export const serializeAws_restJson1ListBuiltInIntentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBuiltInSlotTypesCommand = async (
+/**
+ * serializeAws_restJson1ListBuiltInSlotTypesCommand
+ */
+export const se_ListBuiltInSlotTypesCommand = async (
   input: ListBuiltInSlotTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1673,11 +1767,13 @@ export const serializeAws_restJson1ListBuiltInSlotTypesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/builtins/locales/{localeId}/slottypes";
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: serializeAws_restJson1BuiltInSlotTypeSortBy(input.sortBy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1689,7 +1785,10 @@ export const serializeAws_restJson1ListBuiltInSlotTypesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListCustomVocabularyItemsCommand = async (
+/**
+ * serializeAws_restJson1ListCustomVocabularyItemsCommand
+ */
+export const se_ListCustomVocabularyItemsCommand = async (
   input: ListCustomVocabularyItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1704,10 +1803,12 @@ export const serializeAws_restJson1ListCustomVocabularyItemsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1719,7 +1820,10 @@ export const serializeAws_restJson1ListCustomVocabularyItemsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListExportsCommand = async (
+/**
+ * serializeAws_restJson1ListExportsCommand
+ */
+export const se_ListExportsCommand = async (
   input: ListExportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1729,15 +1833,17 @@ export const serializeAws_restJson1ListExportsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports";
   let body: any;
-  body = JSON.stringify({
-    ...(input.botId != null && { botId: input.botId }),
-    ...(input.botVersion != null && { botVersion: input.botVersion }),
-    ...(input.filters != null && { filters: serializeAws_restJson1ExportFilters(input.filters, context) }),
-    ...(input.localeId != null && { localeId: input.localeId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: serializeAws_restJson1ExportSortBy(input.sortBy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      botId: [],
+      botVersion: [],
+      filters: (_) => _json(_),
+      localeId: [],
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1749,7 +1855,10 @@ export const serializeAws_restJson1ListExportsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListImportsCommand = async (
+/**
+ * serializeAws_restJson1ListImportsCommand
+ */
+export const se_ListImportsCommand = async (
   input: ListImportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1759,15 +1868,17 @@ export const serializeAws_restJson1ListImportsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports";
   let body: any;
-  body = JSON.stringify({
-    ...(input.botId != null && { botId: input.botId }),
-    ...(input.botVersion != null && { botVersion: input.botVersion }),
-    ...(input.filters != null && { filters: serializeAws_restJson1ImportFilters(input.filters, context) }),
-    ...(input.localeId != null && { localeId: input.localeId }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: serializeAws_restJson1ImportSortBy(input.sortBy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      botId: [],
+      botVersion: [],
+      filters: (_) => _json(_),
+      localeId: [],
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1779,7 +1890,10 @@ export const serializeAws_restJson1ListImportsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListIntentsCommand = async (
+/**
+ * serializeAws_restJson1ListIntentsCommand
+ */
+export const se_ListIntentsCommand = async (
   input: ListIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1794,12 +1908,14 @@ export const serializeAws_restJson1ListIntentsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: serializeAws_restJson1IntentFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: serializeAws_restJson1IntentSortBy(input.sortBy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1811,7 +1927,10 @@ export const serializeAws_restJson1ListIntentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListRecommendedIntentsCommand = async (
+/**
+ * serializeAws_restJson1ListRecommendedIntentsCommand
+ */
+export const se_ListRecommendedIntentsCommand = async (
   input: ListRecommendedIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1834,10 +1953,12 @@ export const serializeAws_restJson1ListRecommendedIntentsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1849,7 +1970,10 @@ export const serializeAws_restJson1ListRecommendedIntentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSlotsCommand = async (
+/**
+ * serializeAws_restJson1ListSlotsCommand
+ */
+export const se_ListSlotsCommand = async (
   input: ListSlotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1865,12 +1989,14 @@ export const serializeAws_restJson1ListSlotsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "intentId", () => input.intentId!, "{intentId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: serializeAws_restJson1SlotFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: serializeAws_restJson1SlotSortBy(input.sortBy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1882,7 +2008,10 @@ export const serializeAws_restJson1ListSlotsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSlotTypesCommand = async (
+/**
+ * serializeAws_restJson1ListSlotTypesCommand
+ */
+export const se_ListSlotTypesCommand = async (
   input: ListSlotTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1897,12 +2026,14 @@ export const serializeAws_restJson1ListSlotTypesCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && { filters: serializeAws_restJson1SlotTypeFilters(input.filters, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: serializeAws_restJson1SlotTypeSortBy(input.sortBy, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1914,7 +2045,10 @@ export const serializeAws_restJson1ListSlotTypesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1934,7 +2068,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1SearchAssociatedTranscriptsCommand = async (
+/**
+ * serializeAws_restJson1SearchAssociatedTranscriptsCommand
+ */
+export const se_SearchAssociatedTranscriptsCommand = async (
   input: SearchAssociatedTranscriptsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1957,14 +2094,14 @@ export const serializeAws_restJson1SearchAssociatedTranscriptsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.filters != null && {
-      filters: serializeAws_restJson1AssociatedTranscriptFilters(input.filters, context),
-    }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextIndex != null && { nextIndex: input.nextIndex }),
-    ...(input.searchOrder != null && { searchOrder: input.searchOrder }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextIndex: [],
+      searchOrder: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1976,7 +2113,10 @@ export const serializeAws_restJson1SearchAssociatedTranscriptsCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartBotRecommendationCommand = async (
+/**
+ * serializeAws_restJson1StartBotRecommendationCommand
+ */
+export const se_StartBotRecommendationCommand = async (
   input: StartBotRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1991,14 +2131,12 @@ export const serializeAws_restJson1StartBotRecommendationCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.encryptionSetting != null && {
-      encryptionSetting: serializeAws_restJson1EncryptionSetting(input.encryptionSetting, context),
-    }),
-    ...(input.transcriptSourceSetting != null && {
-      transcriptSourceSetting: serializeAws_restJson1TranscriptSourceSetting(input.transcriptSourceSetting, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      encryptionSetting: (_) => _json(_),
+      transcriptSourceSetting: (_) => se_TranscriptSourceSetting(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2010,7 +2148,10 @@ export const serializeAws_restJson1StartBotRecommendationCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartImportCommand = async (
+/**
+ * serializeAws_restJson1StartImportCommand
+ */
+export const se_StartImportCommand = async (
   input: StartImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2020,14 +2161,14 @@ export const serializeAws_restJson1StartImportCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports";
   let body: any;
-  body = JSON.stringify({
-    ...(input.filePassword != null && { filePassword: input.filePassword }),
-    ...(input.importId != null && { importId: input.importId }),
-    ...(input.mergeStrategy != null && { mergeStrategy: input.mergeStrategy }),
-    ...(input.resourceSpecification != null && {
-      resourceSpecification: serializeAws_restJson1ImportResourceSpecification(input.resourceSpecification, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filePassword: [],
+      importId: [],
+      mergeStrategy: [],
+      resourceSpecification: (_) => se_ImportResourceSpecification(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2039,7 +2180,10 @@ export const serializeAws_restJson1StartImportCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopBotRecommendationCommand = async (
+/**
+ * serializeAws_restJson1StopBotRecommendationCommand
+ */
+export const se_StopBotRecommendationCommand = async (
   input: StopBotRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2071,7 +2215,10 @@ export const serializeAws_restJson1StopBotRecommendationCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2082,9 +2229,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceARN}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceARN", () => input.resourceARN!, "{resourceARN}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2096,7 +2245,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2123,7 +2275,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateBotCommand = async (
+/**
+ * serializeAws_restJson1UpdateBotCommand
+ */
+export const se_UpdateBotCommand = async (
   input: UpdateBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2134,15 +2289,17 @@ export const serializeAws_restJson1UpdateBotCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.botMembers != null && { botMembers: serializeAws_restJson1BotMembers(input.botMembers, context) }),
-    ...(input.botName != null && { botName: input.botName }),
-    ...(input.botType != null && { botType: input.botType }),
-    ...(input.dataPrivacy != null && { dataPrivacy: serializeAws_restJson1DataPrivacy(input.dataPrivacy, context) }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.idleSessionTTLInSeconds != null && { idleSessionTTLInSeconds: input.idleSessionTTLInSeconds }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      botMembers: (_) => _json(_),
+      botName: [],
+      botType: [],
+      dataPrivacy: (_) => _json(_),
+      description: [],
+      idleSessionTTLInSeconds: [],
+      roleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2154,7 +2311,10 @@ export const serializeAws_restJson1UpdateBotCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateBotAliasCommand = async (
+/**
+ * serializeAws_restJson1UpdateBotAliasCommand
+ */
+export const se_UpdateBotAliasCommand = async (
   input: UpdateBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2167,23 +2327,16 @@ export const serializeAws_restJson1UpdateBotAliasCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.botAliasLocaleSettings != null && {
-      botAliasLocaleSettings: serializeAws_restJson1BotAliasLocaleSettingsMap(input.botAliasLocaleSettings, context),
-    }),
-    ...(input.botAliasName != null && { botAliasName: input.botAliasName }),
-    ...(input.botVersion != null && { botVersion: input.botVersion }),
-    ...(input.conversationLogSettings != null && {
-      conversationLogSettings: serializeAws_restJson1ConversationLogSettings(input.conversationLogSettings, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.sentimentAnalysisSettings != null && {
-      sentimentAnalysisSettings: serializeAws_restJson1SentimentAnalysisSettings(
-        input.sentimentAnalysisSettings,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      botAliasLocaleSettings: (_) => _json(_),
+      botAliasName: [],
+      botVersion: [],
+      conversationLogSettings: (_) => _json(_),
+      description: [],
+      sentimentAnalysisSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2195,7 +2348,10 @@ export const serializeAws_restJson1UpdateBotAliasCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateBotLocaleCommand = async (
+/**
+ * serializeAws_restJson1UpdateBotLocaleCommand
+ */
+export const se_UpdateBotLocaleCommand = async (
   input: UpdateBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2210,15 +2366,13 @@ export const serializeAws_restJson1UpdateBotLocaleCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.nluIntentConfidenceThreshold != null && {
-      nluIntentConfidenceThreshold: __serializeFloat(input.nluIntentConfidenceThreshold),
-    }),
-    ...(input.voiceSettings != null && {
-      voiceSettings: serializeAws_restJson1VoiceSettings(input.voiceSettings, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      nluIntentConfidenceThreshold: (_) => __serializeFloat(_),
+      voiceSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2230,7 +2384,10 @@ export const serializeAws_restJson1UpdateBotLocaleCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateBotRecommendationCommand = async (
+/**
+ * serializeAws_restJson1UpdateBotRecommendationCommand
+ */
+export const se_UpdateBotRecommendationCommand = async (
   input: UpdateBotRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2253,11 +2410,11 @@ export const serializeAws_restJson1UpdateBotRecommendationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.encryptionSetting != null && {
-      encryptionSetting: serializeAws_restJson1EncryptionSetting(input.encryptionSetting, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      encryptionSetting: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2269,7 +2426,10 @@ export const serializeAws_restJson1UpdateBotRecommendationCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateExportCommand = async (
+/**
+ * serializeAws_restJson1UpdateExportCommand
+ */
+export const se_UpdateExportCommand = async (
   input: UpdateExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2280,9 +2440,11 @@ export const serializeAws_restJson1UpdateExportCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports/{exportId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "exportId", () => input.exportId!, "{exportId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.filePassword != null && { filePassword: input.filePassword }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filePassword: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2294,7 +2456,10 @@ export const serializeAws_restJson1UpdateExportCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateIntentCommand = async (
+/**
+ * serializeAws_restJson1UpdateIntentCommand
+ */
+export const se_UpdateIntentCommand = async (
   input: UpdateIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2310,44 +2475,23 @@ export const serializeAws_restJson1UpdateIntentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.dialogCodeHook != null && {
-      dialogCodeHook: serializeAws_restJson1DialogCodeHookSettings(input.dialogCodeHook, context),
-    }),
-    ...(input.fulfillmentCodeHook != null && {
-      fulfillmentCodeHook: serializeAws_restJson1FulfillmentCodeHookSettings(input.fulfillmentCodeHook, context),
-    }),
-    ...(input.initialResponseSetting != null && {
-      initialResponseSetting: serializeAws_restJson1InitialResponseSetting(input.initialResponseSetting, context),
-    }),
-    ...(input.inputContexts != null && {
-      inputContexts: serializeAws_restJson1InputContextsList(input.inputContexts, context),
-    }),
-    ...(input.intentClosingSetting != null && {
-      intentClosingSetting: serializeAws_restJson1IntentClosingSetting(input.intentClosingSetting, context),
-    }),
-    ...(input.intentConfirmationSetting != null && {
-      intentConfirmationSetting: serializeAws_restJson1IntentConfirmationSetting(
-        input.intentConfirmationSetting,
-        context
-      ),
-    }),
-    ...(input.intentName != null && { intentName: input.intentName }),
-    ...(input.kendraConfiguration != null && {
-      kendraConfiguration: serializeAws_restJson1KendraConfiguration(input.kendraConfiguration, context),
-    }),
-    ...(input.outputContexts != null && {
-      outputContexts: serializeAws_restJson1OutputContextsList(input.outputContexts, context),
-    }),
-    ...(input.parentIntentSignature != null && { parentIntentSignature: input.parentIntentSignature }),
-    ...(input.sampleUtterances != null && {
-      sampleUtterances: serializeAws_restJson1SampleUtterancesList(input.sampleUtterances, context),
-    }),
-    ...(input.slotPriorities != null && {
-      slotPriorities: serializeAws_restJson1SlotPrioritiesList(input.slotPriorities, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      dialogCodeHook: (_) => _json(_),
+      fulfillmentCodeHook: (_) => se_FulfillmentCodeHookSettings(_, context),
+      initialResponseSetting: (_) => se_InitialResponseSetting(_, context),
+      inputContexts: (_) => _json(_),
+      intentClosingSetting: (_) => se_IntentClosingSetting(_, context),
+      intentConfirmationSetting: (_) => se_IntentConfirmationSetting(_, context),
+      intentName: [],
+      kendraConfiguration: (_) => _json(_),
+      outputContexts: (_) => _json(_),
+      parentIntentSignature: [],
+      sampleUtterances: (_) => _json(_),
+      slotPriorities: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2359,7 +2503,10 @@ export const serializeAws_restJson1UpdateIntentCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateResourcePolicyCommand = async (
+/**
+ * serializeAws_restJson1UpdateResourcePolicyCommand
+ */
+export const se_UpdateResourcePolicyCommand = async (
   input: UpdateResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2373,9 +2520,11 @@ export const serializeAws_restJson1UpdateResourcePolicyCommand = async (
     expectedRevisionId: [, input.expectedRevisionId!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.policy != null && { policy: input.policy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      policy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2388,7 +2537,10 @@ export const serializeAws_restJson1UpdateResourcePolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateSlotCommand = async (
+/**
+ * serializeAws_restJson1UpdateSlotCommand
+ */
+export const se_UpdateSlotCommand = async (
   input: UpdateSlotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2405,26 +2557,17 @@ export const serializeAws_restJson1UpdateSlotCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "intentId", () => input.intentId!, "{intentId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.multipleValuesSetting != null && {
-      multipleValuesSetting: serializeAws_restJson1MultipleValuesSetting(input.multipleValuesSetting, context),
-    }),
-    ...(input.obfuscationSetting != null && {
-      obfuscationSetting: serializeAws_restJson1ObfuscationSetting(input.obfuscationSetting, context),
-    }),
-    ...(input.slotName != null && { slotName: input.slotName }),
-    ...(input.slotTypeId != null && { slotTypeId: input.slotTypeId }),
-    ...(input.subSlotSetting != null && {
-      subSlotSetting: serializeAws_restJson1SubSlotSetting(input.subSlotSetting, context),
-    }),
-    ...(input.valueElicitationSetting != null && {
-      valueElicitationSetting: serializeAws_restJson1SlotValueElicitationSetting(
-        input.valueElicitationSetting,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      multipleValuesSetting: (_) => _json(_),
+      obfuscationSetting: (_) => _json(_),
+      slotName: [],
+      slotTypeId: [],
+      subSlotSetting: (_) => se_SubSlotSetting(_, context),
+      valueElicitationSetting: (_) => se_SlotValueElicitationSetting(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2436,7 +2579,10 @@ export const serializeAws_restJson1UpdateSlotCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateSlotTypeCommand = async (
+/**
+ * serializeAws_restJson1UpdateSlotTypeCommand
+ */
+export const se_UpdateSlotTypeCommand = async (
   input: UpdateSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2452,23 +2598,17 @@ export const serializeAws_restJson1UpdateSlotTypeCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.compositeSlotTypeSetting != null && {
-      compositeSlotTypeSetting: serializeAws_restJson1CompositeSlotTypeSetting(input.compositeSlotTypeSetting, context),
-    }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.externalSourceSetting != null && {
-      externalSourceSetting: serializeAws_restJson1ExternalSourceSetting(input.externalSourceSetting, context),
-    }),
-    ...(input.parentSlotTypeSignature != null && { parentSlotTypeSignature: input.parentSlotTypeSignature }),
-    ...(input.slotTypeName != null && { slotTypeName: input.slotTypeName }),
-    ...(input.slotTypeValues != null && {
-      slotTypeValues: serializeAws_restJson1SlotTypeValues(input.slotTypeValues, context),
-    }),
-    ...(input.valueSelectionSetting != null && {
-      valueSelectionSetting: serializeAws_restJson1SlotValueSelectionSetting(input.valueSelectionSetting, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      compositeSlotTypeSetting: (_) => _json(_),
+      description: [],
+      externalSourceSetting: (_) => _json(_),
+      parentSlotTypeSignature: [],
+      slotTypeName: [],
+      slotTypeValues: (_) => _json(_),
+      valueSelectionSetting: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2480,36 +2620,35 @@ export const serializeAws_restJson1UpdateSlotTypeCommand = async (
   });
 };
 
-export const deserializeAws_restJson1BatchCreateCustomVocabularyItemCommand = async (
+/**
+ * deserializeAws_restJson1BatchCreateCustomVocabularyItemCommand
+ */
+export const de_BatchCreateCustomVocabularyItemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateCustomVocabularyItemCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchCreateCustomVocabularyItemCommandError(output, context);
+    return de_BatchCreateCustomVocabularyItemCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.errors != null) {
-    contents.errors = deserializeAws_restJson1FailedCustomVocabularyItems(data.errors, context);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.resources != null) {
-    contents.resources = deserializeAws_restJson1CustomVocabularyItems(data.resources, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    errors: _json,
+    localeId: __expectString,
+    resources: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1BatchCreateCustomVocabularyItemCommandError = async (
+/**
+ * deserializeAws_restJson1BatchCreateCustomVocabularyItemCommandError
+ */
+const de_BatchCreateCustomVocabularyItemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateCustomVocabularyItemCommandOutput> => {
@@ -2521,60 +2660,58 @@ const deserializeAws_restJson1BatchCreateCustomVocabularyItemCommandError = asyn
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommand = async (
+/**
+ * deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommand
+ */
+export const de_BatchDeleteCustomVocabularyItemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeleteCustomVocabularyItemCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommandError(output, context);
+    return de_BatchDeleteCustomVocabularyItemCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.errors != null) {
-    contents.errors = deserializeAws_restJson1FailedCustomVocabularyItems(data.errors, context);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.resources != null) {
-    contents.resources = deserializeAws_restJson1CustomVocabularyItems(data.resources, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    errors: _json,
+    localeId: __expectString,
+    resources: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommandError = async (
+/**
+ * deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommandError
+ */
+const de_BatchDeleteCustomVocabularyItemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeleteCustomVocabularyItemCommandOutput> => {
@@ -2586,60 +2723,58 @@ const deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommandError = asyn
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommand = async (
+/**
+ * deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommand
+ */
+export const de_BatchUpdateCustomVocabularyItemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateCustomVocabularyItemCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommandError(output, context);
+    return de_BatchUpdateCustomVocabularyItemCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.errors != null) {
-    contents.errors = deserializeAws_restJson1FailedCustomVocabularyItems(data.errors, context);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.resources != null) {
-    contents.resources = deserializeAws_restJson1CustomVocabularyItems(data.resources, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    errors: _json,
+    localeId: __expectString,
+    resources: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommandError = async (
+/**
+ * deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommandError
+ */
+const de_BatchUpdateCustomVocabularyItemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateCustomVocabularyItemCommandOutput> => {
@@ -2651,62 +2786,58 @@ const deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommandError = asyn
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1BuildBotLocaleCommand = async (
+/**
+ * deserializeAws_restJson1BuildBotLocaleCommand
+ */
+export const de_BuildBotLocaleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BuildBotLocaleCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BuildBotLocaleCommandError(output, context);
+    return de_BuildBotLocaleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botLocaleStatus != null) {
-    contents.botLocaleStatus = __expectString(data.botLocaleStatus);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.lastBuildSubmittedDateTime != null) {
-    contents.lastBuildSubmittedDateTime = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.lastBuildSubmittedDateTime))
-    );
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botLocaleStatus: __expectString,
+    botVersion: __expectString,
+    lastBuildSubmittedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1BuildBotLocaleCommandError = async (
+/**
+ * deserializeAws_restJson1BuildBotLocaleCommandError
+ */
+const de_BuildBotLocaleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BuildBotLocaleCommandOutput> => {
@@ -2718,84 +2849,68 @@ const deserializeAws_restJson1BuildBotLocaleCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateBotCommand = async (
+/**
+ * deserializeAws_restJson1CreateBotCommand
+ */
+export const de_CreateBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBotCommandError(output, context);
+    return de_CreateBotCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botMembers != null) {
-    contents.botMembers = deserializeAws_restJson1BotMembers(data.botMembers, context);
-  }
-  if (data.botName != null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.botStatus != null) {
-    contents.botStatus = __expectString(data.botStatus);
-  }
-  if (data.botTags != null) {
-    contents.botTags = deserializeAws_restJson1TagMap(data.botTags, context);
-  }
-  if (data.botType != null) {
-    contents.botType = __expectString(data.botType);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.dataPrivacy != null) {
-    contents.dataPrivacy = deserializeAws_restJson1DataPrivacy(data.dataPrivacy, context);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.idleSessionTTLInSeconds != null) {
-    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
-  if (data.testBotAliasTags != null) {
-    contents.testBotAliasTags = deserializeAws_restJson1TagMap(data.testBotAliasTags, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botMembers: _json,
+    botName: __expectString,
+    botStatus: __expectString,
+    botTags: _json,
+    botType: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataPrivacy: _json,
+    description: __expectString,
+    idleSessionTTLInSeconds: __expectInt32,
+    roleArn: __expectString,
+    testBotAliasTags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateBotCommandError = async (
+/**
+ * deserializeAws_restJson1CreateBotCommandError
+ */
+const de_CreateBotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotCommandOutput> => {
@@ -2807,90 +2922,67 @@ const deserializeAws_restJson1CreateBotCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateBotAliasCommand = async (
+/**
+ * deserializeAws_restJson1CreateBotAliasCommand
+ */
+export const de_CreateBotAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotAliasCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBotAliasCommandError(output, context);
+    return de_CreateBotAliasCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botAliasId != null) {
-    contents.botAliasId = __expectString(data.botAliasId);
-  }
-  if (data.botAliasLocaleSettings != null) {
-    contents.botAliasLocaleSettings = deserializeAws_restJson1BotAliasLocaleSettingsMap(
-      data.botAliasLocaleSettings,
-      context
-    );
-  }
-  if (data.botAliasName != null) {
-    contents.botAliasName = __expectString(data.botAliasName);
-  }
-  if (data.botAliasStatus != null) {
-    contents.botAliasStatus = __expectString(data.botAliasStatus);
-  }
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.conversationLogSettings != null) {
-    contents.conversationLogSettings = deserializeAws_restJson1ConversationLogSettings(
-      data.conversationLogSettings,
-      context
-    );
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.sentimentAnalysisSettings != null) {
-    contents.sentimentAnalysisSettings = deserializeAws_restJson1SentimentAnalysisSettings(
-      data.sentimentAnalysisSettings,
-      context
-    );
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    botAliasId: __expectString,
+    botAliasLocaleSettings: _json,
+    botAliasName: __expectString,
+    botAliasStatus: __expectString,
+    botId: __expectString,
+    botVersion: __expectString,
+    conversationLogSettings: _json,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    sentimentAnalysisSettings: _json,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateBotAliasCommandError = async (
+/**
+ * deserializeAws_restJson1CreateBotAliasCommandError
+ */
+const de_CreateBotAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotAliasCommandOutput> => {
@@ -2902,75 +2994,65 @@ const deserializeAws_restJson1CreateBotAliasCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateBotLocaleCommand = async (
+/**
+ * deserializeAws_restJson1CreateBotLocaleCommand
+ */
+export const de_CreateBotLocaleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotLocaleCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBotLocaleCommandError(output, context);
+    return de_CreateBotLocaleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botLocaleStatus != null) {
-    contents.botLocaleStatus = __expectString(data.botLocaleStatus);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.localeName != null) {
-    contents.localeName = __expectString(data.localeName);
-  }
-  if (data.nluIntentConfidenceThreshold != null) {
-    contents.nluIntentConfidenceThreshold = __limitedParseDouble(data.nluIntentConfidenceThreshold);
-  }
-  if (data.voiceSettings != null) {
-    contents.voiceSettings = deserializeAws_restJson1VoiceSettings(data.voiceSettings, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botLocaleStatus: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    localeId: __expectString,
+    localeName: __expectString,
+    nluIntentConfidenceThreshold: __limitedParseDouble,
+    voiceSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateBotLocaleCommandError = async (
+/**
+ * deserializeAws_restJson1CreateBotLocaleCommandError
+ */
+const de_CreateBotLocaleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotLocaleCommandOutput> => {
@@ -2982,69 +3064,62 @@ const deserializeAws_restJson1CreateBotLocaleCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateBotVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateBotVersionCommand
+ */
+export const de_CreateBotVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotVersionCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBotVersionCommandError(output, context);
+    return de_CreateBotVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botStatus != null) {
-    contents.botStatus = __expectString(data.botStatus);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.botVersionLocaleSpecification != null) {
-    contents.botVersionLocaleSpecification = deserializeAws_restJson1BotVersionLocaleSpecification(
-      data.botVersionLocaleSpecification,
-      context
-    );
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botStatus: __expectString,
+    botVersion: __expectString,
+    botVersionLocaleSpecification: _json,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateBotVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateBotVersionCommandError
+ */
+const de_CreateBotVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotVersionCommandOutput> => {
@@ -3056,66 +3131,61 @@ const deserializeAws_restJson1CreateBotVersionCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateExportCommand = async (
+/**
+ * deserializeAws_restJson1CreateExportCommand
+ */
+export const de_CreateExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateExportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateExportCommandError(output, context);
+    return de_CreateExportCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.exportId != null) {
-    contents.exportId = __expectString(data.exportId);
-  }
-  if (data.exportStatus != null) {
-    contents.exportStatus = __expectString(data.exportStatus);
-  }
-  if (data.fileFormat != null) {
-    contents.fileFormat = __expectString(data.fileFormat);
-  }
-  if (data.resourceSpecification != null) {
-    contents.resourceSpecification = deserializeAws_restJson1ExportResourceSpecification(
-      data.resourceSpecification,
-      context
-    );
-  }
+  const doc = take(data, {
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    exportId: __expectString,
+    exportStatus: __expectString,
+    fileFormat: __expectString,
+    resourceSpecification: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateExportCommandError = async (
+/**
+ * deserializeAws_restJson1CreateExportCommandError
+ */
+const de_CreateExportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateExportCommandOutput> => {
@@ -3127,108 +3197,73 @@ const deserializeAws_restJson1CreateExportCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateIntentCommand = async (
+/**
+ * deserializeAws_restJson1CreateIntentCommand
+ */
+export const de_CreateIntentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateIntentCommandError(output, context);
+    return de_CreateIntentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.dialogCodeHook != null) {
-    contents.dialogCodeHook = deserializeAws_restJson1DialogCodeHookSettings(data.dialogCodeHook, context);
-  }
-  if (data.fulfillmentCodeHook != null) {
-    contents.fulfillmentCodeHook = deserializeAws_restJson1FulfillmentCodeHookSettings(
-      data.fulfillmentCodeHook,
-      context
-    );
-  }
-  if (data.initialResponseSetting != null) {
-    contents.initialResponseSetting = deserializeAws_restJson1InitialResponseSetting(
-      data.initialResponseSetting,
-      context
-    );
-  }
-  if (data.inputContexts != null) {
-    contents.inputContexts = deserializeAws_restJson1InputContextsList(data.inputContexts, context);
-  }
-  if (data.intentClosingSetting != null) {
-    contents.intentClosingSetting = deserializeAws_restJson1IntentClosingSetting(data.intentClosingSetting, context);
-  }
-  if (data.intentConfirmationSetting != null) {
-    contents.intentConfirmationSetting = deserializeAws_restJson1IntentConfirmationSetting(
-      data.intentConfirmationSetting,
-      context
-    );
-  }
-  if (data.intentId != null) {
-    contents.intentId = __expectString(data.intentId);
-  }
-  if (data.intentName != null) {
-    contents.intentName = __expectString(data.intentName);
-  }
-  if (data.kendraConfiguration != null) {
-    contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.outputContexts != null) {
-    contents.outputContexts = deserializeAws_restJson1OutputContextsList(data.outputContexts, context);
-  }
-  if (data.parentIntentSignature != null) {
-    contents.parentIntentSignature = __expectString(data.parentIntentSignature);
-  }
-  if (data.sampleUtterances != null) {
-    contents.sampleUtterances = deserializeAws_restJson1SampleUtterancesList(data.sampleUtterances, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    dialogCodeHook: _json,
+    fulfillmentCodeHook: (_) => de_FulfillmentCodeHookSettings(_, context),
+    initialResponseSetting: (_) => de_InitialResponseSetting(_, context),
+    inputContexts: _json,
+    intentClosingSetting: (_) => de_IntentClosingSetting(_, context),
+    intentConfirmationSetting: (_) => de_IntentConfirmationSetting(_, context),
+    intentId: __expectString,
+    intentName: __expectString,
+    kendraConfiguration: _json,
+    localeId: __expectString,
+    outputContexts: _json,
+    parentIntentSignature: __expectString,
+    sampleUtterances: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateIntentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateIntentCommandError
+ */
+const de_CreateIntentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntentCommandOutput> => {
@@ -3240,54 +3275,58 @@ const deserializeAws_restJson1CreateIntentCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateResourcePolicyCommand = async (
+/**
+ * deserializeAws_restJson1CreateResourcePolicyCommand
+ */
+export const de_CreateResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourcePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateResourcePolicyCommandError(output, context);
+    return de_CreateResourcePolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.resourceArn != null) {
-    contents.resourceArn = __expectString(data.resourceArn);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
+  const doc = take(data, {
+    resourceArn: __expectString,
+    revisionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateResourcePolicyCommandError = async (
+/**
+ * deserializeAws_restJson1CreateResourcePolicyCommandError
+ */
+const de_CreateResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourcePolicyCommandOutput> => {
@@ -3299,54 +3338,58 @@ const deserializeAws_restJson1CreateResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateResourcePolicyStatementCommand = async (
+/**
+ * deserializeAws_restJson1CreateResourcePolicyStatementCommand
+ */
+export const de_CreateResourcePolicyStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourcePolicyStatementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateResourcePolicyStatementCommandError(output, context);
+    return de_CreateResourcePolicyStatementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.resourceArn != null) {
-    contents.resourceArn = __expectString(data.resourceArn);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
+  const doc = take(data, {
+    resourceArn: __expectString,
+    revisionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateResourcePolicyStatementCommandError = async (
+/**
+ * deserializeAws_restJson1CreateResourcePolicyStatementCommandError
+ */
+const de_CreateResourcePolicyStatementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourcePolicyStatementCommandOutput> => {
@@ -3358,93 +3401,72 @@ const deserializeAws_restJson1CreateResourcePolicyStatementCommandError = async 
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateSlotCommand = async (
+/**
+ * deserializeAws_restJson1CreateSlotCommand
+ */
+export const de_CreateSlotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSlotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSlotCommandError(output, context);
+    return de_CreateSlotCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.intentId != null) {
-    contents.intentId = __expectString(data.intentId);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.multipleValuesSetting != null) {
-    contents.multipleValuesSetting = deserializeAws_restJson1MultipleValuesSetting(data.multipleValuesSetting, context);
-  }
-  if (data.obfuscationSetting != null) {
-    contents.obfuscationSetting = deserializeAws_restJson1ObfuscationSetting(data.obfuscationSetting, context);
-  }
-  if (data.slotId != null) {
-    contents.slotId = __expectString(data.slotId);
-  }
-  if (data.slotName != null) {
-    contents.slotName = __expectString(data.slotName);
-  }
-  if (data.slotTypeId != null) {
-    contents.slotTypeId = __expectString(data.slotTypeId);
-  }
-  if (data.subSlotSetting != null) {
-    contents.subSlotSetting = deserializeAws_restJson1SubSlotSetting(data.subSlotSetting, context);
-  }
-  if (data.valueElicitationSetting != null) {
-    contents.valueElicitationSetting = deserializeAws_restJson1SlotValueElicitationSetting(
-      data.valueElicitationSetting,
-      context
-    );
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    intentId: __expectString,
+    localeId: __expectString,
+    multipleValuesSetting: _json,
+    obfuscationSetting: _json,
+    slotId: __expectString,
+    slotName: __expectString,
+    slotTypeId: __expectString,
+    subSlotSetting: (_) => de_SubSlotSetting(_, context),
+    valueElicitationSetting: (_) => de_SlotValueElicitationSetting(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateSlotCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSlotCommandError
+ */
+const de_CreateSlotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSlotCommandOutput> => {
@@ -3456,90 +3478,68 @@ const deserializeAws_restJson1CreateSlotCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateSlotTypeCommand = async (
+/**
+ * deserializeAws_restJson1CreateSlotTypeCommand
+ */
+export const de_CreateSlotTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSlotTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSlotTypeCommandError(output, context);
+    return de_CreateSlotTypeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.compositeSlotTypeSetting != null) {
-    contents.compositeSlotTypeSetting = deserializeAws_restJson1CompositeSlotTypeSetting(
-      data.compositeSlotTypeSetting,
-      context
-    );
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.externalSourceSetting != null) {
-    contents.externalSourceSetting = deserializeAws_restJson1ExternalSourceSetting(data.externalSourceSetting, context);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.parentSlotTypeSignature != null) {
-    contents.parentSlotTypeSignature = __expectString(data.parentSlotTypeSignature);
-  }
-  if (data.slotTypeId != null) {
-    contents.slotTypeId = __expectString(data.slotTypeId);
-  }
-  if (data.slotTypeName != null) {
-    contents.slotTypeName = __expectString(data.slotTypeName);
-  }
-  if (data.slotTypeValues != null) {
-    contents.slotTypeValues = deserializeAws_restJson1SlotTypeValues(data.slotTypeValues, context);
-  }
-  if (data.valueSelectionSetting != null) {
-    contents.valueSelectionSetting = deserializeAws_restJson1SlotValueSelectionSetting(
-      data.valueSelectionSetting,
-      context
-    );
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    compositeSlotTypeSetting: _json,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    externalSourceSetting: _json,
+    localeId: __expectString,
+    parentSlotTypeSignature: __expectString,
+    slotTypeId: __expectString,
+    slotTypeName: __expectString,
+    slotTypeValues: _json,
+    valueSelectionSetting: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateSlotTypeCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSlotTypeCommandError
+ */
+const de_CreateSlotTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSlotTypeCommandOutput> => {
@@ -3551,54 +3551,58 @@ const deserializeAws_restJson1CreateSlotTypeCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateUploadUrlCommand = async (
+/**
+ * deserializeAws_restJson1CreateUploadUrlCommand
+ */
+export const de_CreateUploadUrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUploadUrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateUploadUrlCommandError(output, context);
+    return de_CreateUploadUrlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.importId != null) {
-    contents.importId = __expectString(data.importId);
-  }
-  if (data.uploadUrl != null) {
-    contents.uploadUrl = __expectString(data.uploadUrl);
-  }
+  const doc = take(data, {
+    importId: __expectString,
+    uploadUrl: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateUploadUrlCommandError = async (
+/**
+ * deserializeAws_restJson1CreateUploadUrlCommandError
+ */
+const de_CreateUploadUrlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUploadUrlCommandOutput> => {
@@ -3610,51 +3614,55 @@ const deserializeAws_restJson1CreateUploadUrlCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteBotCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBotCommand
+ */
+export const de_DeleteBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBotCommandError(output, context);
+    return de_DeleteBotCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botStatus != null) {
-    contents.botStatus = __expectString(data.botStatus);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteBotCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBotCommandError
+ */
+const de_DeleteBotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotCommandOutput> => {
@@ -3666,57 +3674,59 @@ const deserializeAws_restJson1DeleteBotCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteBotAliasCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBotAliasCommand
+ */
+export const de_DeleteBotAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotAliasCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBotAliasCommandError(output, context);
+    return de_DeleteBotAliasCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botAliasId != null) {
-    contents.botAliasId = __expectString(data.botAliasId);
-  }
-  if (data.botAliasStatus != null) {
-    contents.botAliasStatus = __expectString(data.botAliasStatus);
-  }
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
+  const doc = take(data, {
+    botAliasId: __expectString,
+    botAliasStatus: __expectString,
+    botId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteBotAliasCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBotAliasCommandError
+ */
+const de_DeleteBotAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotAliasCommandOutput> => {
@@ -3728,60 +3738,60 @@ const deserializeAws_restJson1DeleteBotAliasCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteBotLocaleCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBotLocaleCommand
+ */
+export const de_DeleteBotLocaleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotLocaleCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBotLocaleCommandError(output, context);
+    return de_DeleteBotLocaleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botLocaleStatus != null) {
-    contents.botLocaleStatus = __expectString(data.botLocaleStatus);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botLocaleStatus: __expectString,
+    botVersion: __expectString,
+    localeId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteBotLocaleCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBotLocaleCommandError
+ */
+const de_DeleteBotLocaleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotLocaleCommandOutput> => {
@@ -3793,57 +3803,59 @@ const deserializeAws_restJson1DeleteBotLocaleCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteBotVersionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBotVersionCommand
+ */
+export const de_DeleteBotVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotVersionCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBotVersionCommandError(output, context);
+    return de_DeleteBotVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botStatus != null) {
-    contents.botStatus = __expectString(data.botStatus);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botStatus: __expectString,
+    botVersion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteBotVersionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBotVersionCommandError
+ */
+const de_DeleteBotVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotVersionCommandOutput> => {
@@ -3855,60 +3867,60 @@ const deserializeAws_restJson1DeleteBotVersionCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteCustomVocabularyCommand = async (
+/**
+ * deserializeAws_restJson1DeleteCustomVocabularyCommand
+ */
+export const de_DeleteCustomVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomVocabularyCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteCustomVocabularyCommandError(output, context);
+    return de_DeleteCustomVocabularyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.customVocabularyStatus != null) {
-    contents.customVocabularyStatus = __expectString(data.customVocabularyStatus);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    customVocabularyStatus: __expectString,
+    localeId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteCustomVocabularyCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteCustomVocabularyCommandError
+ */
+const de_DeleteCustomVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomVocabularyCommandOutput> => {
@@ -3920,54 +3932,58 @@ const deserializeAws_restJson1DeleteCustomVocabularyCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteExportCommand = async (
+/**
+ * deserializeAws_restJson1DeleteExportCommand
+ */
+export const de_DeleteExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteExportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteExportCommandError(output, context);
+    return de_DeleteExportCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.exportId != null) {
-    contents.exportId = __expectString(data.exportId);
-  }
-  if (data.exportStatus != null) {
-    contents.exportStatus = __expectString(data.exportStatus);
-  }
+  const doc = take(data, {
+    exportId: __expectString,
+    exportStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteExportCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteExportCommandError
+ */
+const de_DeleteExportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteExportCommandOutput> => {
@@ -3979,51 +3995,55 @@ const deserializeAws_restJson1DeleteExportCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteImportCommand = async (
+/**
+ * deserializeAws_restJson1DeleteImportCommand
+ */
+export const de_DeleteImportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteImportCommandError(output, context);
+    return de_DeleteImportCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.importId != null) {
-    contents.importId = __expectString(data.importId);
-  }
-  if (data.importStatus != null) {
-    contents.importStatus = __expectString(data.importStatus);
-  }
+  const doc = take(data, {
+    importId: __expectString,
+    importStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteImportCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteImportCommandError
+ */
+const de_DeleteImportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImportCommandOutput> => {
@@ -4035,36 +4055,38 @@ const deserializeAws_restJson1DeleteImportCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteIntentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteIntentCommand
+ */
+export const de_DeleteIntentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteIntentCommandError(output, context);
+    return de_DeleteIntentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4073,7 +4095,10 @@ export const deserializeAws_restJson1DeleteIntentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteIntentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteIntentCommandError
+ */
+const de_DeleteIntentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntentCommandOutput> => {
@@ -4085,54 +4110,58 @@ const deserializeAws_restJson1DeleteIntentCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteResourcePolicyCommand = async (
+/**
+ * deserializeAws_restJson1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteResourcePolicyCommandError(output, context);
+    return de_DeleteResourcePolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.resourceArn != null) {
-    contents.resourceArn = __expectString(data.resourceArn);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
+  const doc = take(data, {
+    resourceArn: __expectString,
+    revisionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteResourcePolicyCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteResourcePolicyCommandError
+ */
+const de_DeleteResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
@@ -4144,48 +4173,52 @@ const deserializeAws_restJson1DeleteResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteResourcePolicyStatementCommand = async (
+/**
+ * deserializeAws_restJson1DeleteResourcePolicyStatementCommand
+ */
+export const de_DeleteResourcePolicyStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyStatementCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteResourcePolicyStatementCommandError(output, context);
+    return de_DeleteResourcePolicyStatementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.resourceArn != null) {
-    contents.resourceArn = __expectString(data.resourceArn);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
+  const doc = take(data, {
+    resourceArn: __expectString,
+    revisionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteResourcePolicyStatementCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteResourcePolicyStatementCommandError
+ */
+const de_DeleteResourcePolicyStatementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyStatementCommandOutput> => {
@@ -4197,33 +4230,35 @@ const deserializeAws_restJson1DeleteResourcePolicyStatementCommandError = async 
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteSlotCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSlotCommand
+ */
+export const de_DeleteSlotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSlotCommandError(output, context);
+    return de_DeleteSlotCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4232,7 +4267,10 @@ export const deserializeAws_restJson1DeleteSlotCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSlotCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSlotCommandError
+ */
+const de_DeleteSlotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotCommandOutput> => {
@@ -4244,39 +4282,41 @@ const deserializeAws_restJson1DeleteSlotCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteSlotTypeCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSlotTypeCommand
+ */
+export const de_DeleteSlotTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSlotTypeCommandError(output, context);
+    return de_DeleteSlotTypeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4285,7 +4325,10 @@ export const deserializeAws_restJson1DeleteSlotTypeCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSlotTypeCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSlotTypeCommandError
+ */
+const de_DeleteSlotTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeCommandOutput> => {
@@ -4297,39 +4340,41 @@ const deserializeAws_restJson1DeleteSlotTypeCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteUtterancesCommand = async (
+/**
+ * deserializeAws_restJson1DeleteUtterancesCommand
+ */
+export const de_DeleteUtterancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUtterancesCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteUtterancesCommandError(output, context);
+    return de_DeleteUtterancesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4338,7 +4383,10 @@ export const deserializeAws_restJson1DeleteUtterancesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteUtterancesCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteUtterancesCommandError
+ */
+const de_DeleteUtterancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUtterancesCommandOutput> => {
@@ -4350,75 +4398,59 @@ const deserializeAws_restJson1DeleteUtterancesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeBotCommand = async (
+/**
+ * deserializeAws_restJson1DescribeBotCommand
+ */
+export const de_DescribeBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeBotCommandError(output, context);
+    return de_DescribeBotCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botMembers != null) {
-    contents.botMembers = deserializeAws_restJson1BotMembers(data.botMembers, context);
-  }
-  if (data.botName != null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.botStatus != null) {
-    contents.botStatus = __expectString(data.botStatus);
-  }
-  if (data.botType != null) {
-    contents.botType = __expectString(data.botType);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.dataPrivacy != null) {
-    contents.dataPrivacy = deserializeAws_restJson1DataPrivacy(data.dataPrivacy, context);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.failureReasons != null) {
-    contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
-  }
-  if (data.idleSessionTTLInSeconds != null) {
-    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botMembers: _json,
+    botName: __expectString,
+    botStatus: __expectString,
+    botType: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataPrivacy: _json,
+    description: __expectString,
+    failureReasons: _json,
+    idleSessionTTLInSeconds: __expectInt32,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    roleArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeBotCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeBotCommandError
+ */
+const de_DescribeBotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBotCommandOutput> => {
@@ -4430,96 +4462,66 @@ const deserializeAws_restJson1DescribeBotCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeBotAliasCommand = async (
+/**
+ * deserializeAws_restJson1DescribeBotAliasCommand
+ */
+export const de_DescribeBotAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBotAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeBotAliasCommandError(output, context);
+    return de_DescribeBotAliasCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botAliasHistoryEvents != null) {
-    contents.botAliasHistoryEvents = deserializeAws_restJson1BotAliasHistoryEventsList(
-      data.botAliasHistoryEvents,
-      context
-    );
-  }
-  if (data.botAliasId != null) {
-    contents.botAliasId = __expectString(data.botAliasId);
-  }
-  if (data.botAliasLocaleSettings != null) {
-    contents.botAliasLocaleSettings = deserializeAws_restJson1BotAliasLocaleSettingsMap(
-      data.botAliasLocaleSettings,
-      context
-    );
-  }
-  if (data.botAliasName != null) {
-    contents.botAliasName = __expectString(data.botAliasName);
-  }
-  if (data.botAliasStatus != null) {
-    contents.botAliasStatus = __expectString(data.botAliasStatus);
-  }
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.conversationLogSettings != null) {
-    contents.conversationLogSettings = deserializeAws_restJson1ConversationLogSettings(
-      data.conversationLogSettings,
-      context
-    );
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.parentBotNetworks != null) {
-    contents.parentBotNetworks = deserializeAws_restJson1ParentBotNetworks(data.parentBotNetworks, context);
-  }
-  if (data.sentimentAnalysisSettings != null) {
-    contents.sentimentAnalysisSettings = deserializeAws_restJson1SentimentAnalysisSettings(
-      data.sentimentAnalysisSettings,
-      context
-    );
-  }
+  const doc = take(data, {
+    botAliasHistoryEvents: (_) => de_BotAliasHistoryEventsList(_, context),
+    botAliasId: __expectString,
+    botAliasLocaleSettings: _json,
+    botAliasName: __expectString,
+    botAliasStatus: __expectString,
+    botId: __expectString,
+    botVersion: __expectString,
+    conversationLogSettings: _json,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    parentBotNetworks: _json,
+    sentimentAnalysisSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeBotAliasCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeBotAliasCommandError
+ */
+const de_DescribeBotAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBotAliasCommandOutput> => {
@@ -4531,98 +4533,69 @@ const deserializeAws_restJson1DescribeBotAliasCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeBotLocaleCommand = async (
+/**
+ * deserializeAws_restJson1DescribeBotLocaleCommand
+ */
+export const de_DescribeBotLocaleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBotLocaleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeBotLocaleCommandError(output, context);
+    return de_DescribeBotLocaleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botLocaleHistoryEvents != null) {
-    contents.botLocaleHistoryEvents = deserializeAws_restJson1BotLocaleHistoryEventsList(
-      data.botLocaleHistoryEvents,
-      context
-    );
-  }
-  if (data.botLocaleStatus != null) {
-    contents.botLocaleStatus = __expectString(data.botLocaleStatus);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.failureReasons != null) {
-    contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
-  }
-  if (data.intentsCount != null) {
-    contents.intentsCount = __expectInt32(data.intentsCount);
-  }
-  if (data.lastBuildSubmittedDateTime != null) {
-    contents.lastBuildSubmittedDateTime = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.lastBuildSubmittedDateTime))
-    );
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.localeName != null) {
-    contents.localeName = __expectString(data.localeName);
-  }
-  if (data.nluIntentConfidenceThreshold != null) {
-    contents.nluIntentConfidenceThreshold = __limitedParseDouble(data.nluIntentConfidenceThreshold);
-  }
-  if (data.recommendedActions != null) {
-    contents.recommendedActions = deserializeAws_restJson1RecommendedActions(data.recommendedActions, context);
-  }
-  if (data.slotTypesCount != null) {
-    contents.slotTypesCount = __expectInt32(data.slotTypesCount);
-  }
-  if (data.voiceSettings != null) {
-    contents.voiceSettings = deserializeAws_restJson1VoiceSettings(data.voiceSettings, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botLocaleHistoryEvents: (_) => de_BotLocaleHistoryEventsList(_, context),
+    botLocaleStatus: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    failureReasons: _json,
+    intentsCount: __expectInt32,
+    lastBuildSubmittedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+    localeName: __expectString,
+    nluIntentConfidenceThreshold: __limitedParseDouble,
+    recommendedActions: _json,
+    slotTypesCount: __expectInt32,
+    voiceSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeBotLocaleCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeBotLocaleCommandError
+ */
+const de_DescribeBotLocaleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBotLocaleCommandOutput> => {
@@ -4634,84 +4607,64 @@ const deserializeAws_restJson1DescribeBotLocaleCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeBotRecommendationCommand = async (
+/**
+ * deserializeAws_restJson1DescribeBotRecommendationCommand
+ */
+export const de_DescribeBotRecommendationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBotRecommendationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeBotRecommendationCommandError(output, context);
+    return de_DescribeBotRecommendationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botRecommendationId != null) {
-    contents.botRecommendationId = __expectString(data.botRecommendationId);
-  }
-  if (data.botRecommendationResults != null) {
-    contents.botRecommendationResults = deserializeAws_restJson1BotRecommendationResults(
-      data.botRecommendationResults,
-      context
-    );
-  }
-  if (data.botRecommendationStatus != null) {
-    contents.botRecommendationStatus = __expectString(data.botRecommendationStatus);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.encryptionSetting != null) {
-    contents.encryptionSetting = deserializeAws_restJson1EncryptionSetting(data.encryptionSetting, context);
-  }
-  if (data.failureReasons != null) {
-    contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.transcriptSourceSetting != null) {
-    contents.transcriptSourceSetting = deserializeAws_restJson1TranscriptSourceSetting(
-      data.transcriptSourceSetting,
-      context
-    );
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botRecommendationId: __expectString,
+    botRecommendationResults: _json,
+    botRecommendationStatus: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    encryptionSetting: _json,
+    failureReasons: _json,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+    transcriptSourceSetting: (_) => de_TranscriptSourceSetting(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeBotRecommendationCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeBotRecommendationCommandError
+ */
+const de_DescribeBotRecommendationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBotRecommendationCommandOutput> => {
@@ -4723,81 +4676,63 @@ const deserializeAws_restJson1DescribeBotRecommendationCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeBotVersionCommand = async (
+/**
+ * deserializeAws_restJson1DescribeBotVersionCommand
+ */
+export const de_DescribeBotVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBotVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeBotVersionCommandError(output, context);
+    return de_DescribeBotVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botMembers != null) {
-    contents.botMembers = deserializeAws_restJson1BotMembers(data.botMembers, context);
-  }
-  if (data.botName != null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.botStatus != null) {
-    contents.botStatus = __expectString(data.botStatus);
-  }
-  if (data.botType != null) {
-    contents.botType = __expectString(data.botType);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.dataPrivacy != null) {
-    contents.dataPrivacy = deserializeAws_restJson1DataPrivacy(data.dataPrivacy, context);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.failureReasons != null) {
-    contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
-  }
-  if (data.idleSessionTTLInSeconds != null) {
-    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
-  }
-  if (data.parentBotNetworks != null) {
-    contents.parentBotNetworks = deserializeAws_restJson1ParentBotNetworks(data.parentBotNetworks, context);
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botMembers: _json,
+    botName: __expectString,
+    botStatus: __expectString,
+    botType: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataPrivacy: _json,
+    description: __expectString,
+    failureReasons: _json,
+    idleSessionTTLInSeconds: __expectInt32,
+    parentBotNetworks: _json,
+    roleArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeBotVersionCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeBotVersionCommandError
+ */
+const de_DescribeBotVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBotVersionCommandOutput> => {
@@ -4809,63 +4744,59 @@ const deserializeAws_restJson1DescribeBotVersionCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeCustomVocabularyMetadataCommand = async (
+/**
+ * deserializeAws_restJson1DescribeCustomVocabularyMetadataCommand
+ */
+export const de_DescribeCustomVocabularyMetadataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCustomVocabularyMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeCustomVocabularyMetadataCommandError(output, context);
+    return de_DescribeCustomVocabularyMetadataCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.customVocabularyStatus != null) {
-    contents.customVocabularyStatus = __expectString(data.customVocabularyStatus);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customVocabularyStatus: __expectString,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeCustomVocabularyMetadataCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeCustomVocabularyMetadataCommandError
+ */
+const de_DescribeCustomVocabularyMetadataCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCustomVocabularyMetadataCommandOutput> => {
@@ -4877,72 +4808,61 @@ const deserializeAws_restJson1DescribeCustomVocabularyMetadataCommandError = asy
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeExportCommand = async (
+/**
+ * deserializeAws_restJson1DescribeExportCommand
+ */
+export const de_DescribeExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeExportCommandError(output, context);
+    return de_DescribeExportCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.downloadUrl != null) {
-    contents.downloadUrl = __expectString(data.downloadUrl);
-  }
-  if (data.exportId != null) {
-    contents.exportId = __expectString(data.exportId);
-  }
-  if (data.exportStatus != null) {
-    contents.exportStatus = __expectString(data.exportStatus);
-  }
-  if (data.failureReasons != null) {
-    contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
-  }
-  if (data.fileFormat != null) {
-    contents.fileFormat = __expectString(data.fileFormat);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.resourceSpecification != null) {
-    contents.resourceSpecification = deserializeAws_restJson1ExportResourceSpecification(
-      data.resourceSpecification,
-      context
-    );
-  }
+  const doc = take(data, {
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    downloadUrl: __expectString,
+    exportId: __expectString,
+    exportStatus: __expectString,
+    failureReasons: _json,
+    fileFormat: __expectString,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceSpecification: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeExportCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeExportCommandError
+ */
+const de_DescribeExportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExportCommandOutput> => {
@@ -4954,72 +4874,59 @@ const deserializeAws_restJson1DescribeExportCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeImportCommand = async (
+/**
+ * deserializeAws_restJson1DescribeImportCommand
+ */
+export const de_DescribeImportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeImportCommandError(output, context);
+    return de_DescribeImportCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.failureReasons != null) {
-    contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
-  }
-  if (data.importId != null) {
-    contents.importId = __expectString(data.importId);
-  }
-  if (data.importStatus != null) {
-    contents.importStatus = __expectString(data.importStatus);
-  }
-  if (data.importedResourceId != null) {
-    contents.importedResourceId = __expectString(data.importedResourceId);
-  }
-  if (data.importedResourceName != null) {
-    contents.importedResourceName = __expectString(data.importedResourceName);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.mergeStrategy != null) {
-    contents.mergeStrategy = __expectString(data.mergeStrategy);
-  }
-  if (data.resourceSpecification != null) {
-    contents.resourceSpecification = deserializeAws_restJson1ImportResourceSpecification(
-      data.resourceSpecification,
-      context
-    );
-  }
+  const doc = take(data, {
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReasons: _json,
+    importId: __expectString,
+    importStatus: __expectString,
+    importedResourceId: __expectString,
+    importedResourceName: __expectString,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    mergeStrategy: __expectString,
+    resourceSpecification: (_) => de_ImportResourceSpecification(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeImportCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeImportCommandError
+ */
+const de_DescribeImportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImportCommandOutput> => {
@@ -5031,108 +4938,69 @@ const deserializeAws_restJson1DescribeImportCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeIntentCommand = async (
+/**
+ * deserializeAws_restJson1DescribeIntentCommand
+ */
+export const de_DescribeIntentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIntentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeIntentCommandError(output, context);
+    return de_DescribeIntentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.dialogCodeHook != null) {
-    contents.dialogCodeHook = deserializeAws_restJson1DialogCodeHookSettings(data.dialogCodeHook, context);
-  }
-  if (data.fulfillmentCodeHook != null) {
-    contents.fulfillmentCodeHook = deserializeAws_restJson1FulfillmentCodeHookSettings(
-      data.fulfillmentCodeHook,
-      context
-    );
-  }
-  if (data.initialResponseSetting != null) {
-    contents.initialResponseSetting = deserializeAws_restJson1InitialResponseSetting(
-      data.initialResponseSetting,
-      context
-    );
-  }
-  if (data.inputContexts != null) {
-    contents.inputContexts = deserializeAws_restJson1InputContextsList(data.inputContexts, context);
-  }
-  if (data.intentClosingSetting != null) {
-    contents.intentClosingSetting = deserializeAws_restJson1IntentClosingSetting(data.intentClosingSetting, context);
-  }
-  if (data.intentConfirmationSetting != null) {
-    contents.intentConfirmationSetting = deserializeAws_restJson1IntentConfirmationSetting(
-      data.intentConfirmationSetting,
-      context
-    );
-  }
-  if (data.intentId != null) {
-    contents.intentId = __expectString(data.intentId);
-  }
-  if (data.intentName != null) {
-    contents.intentName = __expectString(data.intentName);
-  }
-  if (data.kendraConfiguration != null) {
-    contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.outputContexts != null) {
-    contents.outputContexts = deserializeAws_restJson1OutputContextsList(data.outputContexts, context);
-  }
-  if (data.parentIntentSignature != null) {
-    contents.parentIntentSignature = __expectString(data.parentIntentSignature);
-  }
-  if (data.sampleUtterances != null) {
-    contents.sampleUtterances = deserializeAws_restJson1SampleUtterancesList(data.sampleUtterances, context);
-  }
-  if (data.slotPriorities != null) {
-    contents.slotPriorities = deserializeAws_restJson1SlotPrioritiesList(data.slotPriorities, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    dialogCodeHook: _json,
+    fulfillmentCodeHook: (_) => de_FulfillmentCodeHookSettings(_, context),
+    initialResponseSetting: (_) => de_InitialResponseSetting(_, context),
+    inputContexts: _json,
+    intentClosingSetting: (_) => de_IntentClosingSetting(_, context),
+    intentConfirmationSetting: (_) => de_IntentConfirmationSetting(_, context),
+    intentId: __expectString,
+    intentName: __expectString,
+    kendraConfiguration: _json,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+    outputContexts: _json,
+    parentIntentSignature: __expectString,
+    sampleUtterances: _json,
+    slotPriorities: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeIntentCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeIntentCommandError
+ */
+const de_DescribeIntentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIntentCommandOutput> => {
@@ -5144,54 +5012,56 @@ const deserializeAws_restJson1DescribeIntentCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeResourcePolicyCommand = async (
+/**
+ * deserializeAws_restJson1DescribeResourcePolicyCommand
+ */
+export const de_DescribeResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourcePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeResourcePolicyCommandError(output, context);
+    return de_DescribeResourcePolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.policy != null) {
-    contents.policy = __expectString(data.policy);
-  }
-  if (data.resourceArn != null) {
-    contents.resourceArn = __expectString(data.resourceArn);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
+  const doc = take(data, {
+    policy: __expectString,
+    resourceArn: __expectString,
+    revisionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeResourcePolicyCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeResourcePolicyCommandError
+ */
+const de_DescribeResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourcePolicyCommandOutput> => {
@@ -5203,84 +5073,61 @@ const deserializeAws_restJson1DescribeResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeSlotCommand = async (
+/**
+ * deserializeAws_restJson1DescribeSlotCommand
+ */
+export const de_DescribeSlotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSlotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeSlotCommandError(output, context);
+    return de_DescribeSlotCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.intentId != null) {
-    contents.intentId = __expectString(data.intentId);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.multipleValuesSetting != null) {
-    contents.multipleValuesSetting = deserializeAws_restJson1MultipleValuesSetting(data.multipleValuesSetting, context);
-  }
-  if (data.obfuscationSetting != null) {
-    contents.obfuscationSetting = deserializeAws_restJson1ObfuscationSetting(data.obfuscationSetting, context);
-  }
-  if (data.slotId != null) {
-    contents.slotId = __expectString(data.slotId);
-  }
-  if (data.slotName != null) {
-    contents.slotName = __expectString(data.slotName);
-  }
-  if (data.slotTypeId != null) {
-    contents.slotTypeId = __expectString(data.slotTypeId);
-  }
-  if (data.subSlotSetting != null) {
-    contents.subSlotSetting = deserializeAws_restJson1SubSlotSetting(data.subSlotSetting, context);
-  }
-  if (data.valueElicitationSetting != null) {
-    contents.valueElicitationSetting = deserializeAws_restJson1SlotValueElicitationSetting(
-      data.valueElicitationSetting,
-      context
-    );
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    intentId: __expectString,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+    multipleValuesSetting: _json,
+    obfuscationSetting: _json,
+    slotId: __expectString,
+    slotName: __expectString,
+    slotTypeId: __expectString,
+    subSlotSetting: (_) => de_SubSlotSetting(_, context),
+    valueElicitationSetting: (_) => de_SlotValueElicitationSetting(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeSlotCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeSlotCommandError
+ */
+const de_DescribeSlotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSlotCommandOutput> => {
@@ -5292,90 +5139,66 @@ const deserializeAws_restJson1DescribeSlotCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeSlotTypeCommand = async (
+/**
+ * deserializeAws_restJson1DescribeSlotTypeCommand
+ */
+export const de_DescribeSlotTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSlotTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeSlotTypeCommandError(output, context);
+    return de_DescribeSlotTypeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.compositeSlotTypeSetting != null) {
-    contents.compositeSlotTypeSetting = deserializeAws_restJson1CompositeSlotTypeSetting(
-      data.compositeSlotTypeSetting,
-      context
-    );
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.externalSourceSetting != null) {
-    contents.externalSourceSetting = deserializeAws_restJson1ExternalSourceSetting(data.externalSourceSetting, context);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.parentSlotTypeSignature != null) {
-    contents.parentSlotTypeSignature = __expectString(data.parentSlotTypeSignature);
-  }
-  if (data.slotTypeId != null) {
-    contents.slotTypeId = __expectString(data.slotTypeId);
-  }
-  if (data.slotTypeName != null) {
-    contents.slotTypeName = __expectString(data.slotTypeName);
-  }
-  if (data.slotTypeValues != null) {
-    contents.slotTypeValues = deserializeAws_restJson1SlotTypeValues(data.slotTypeValues, context);
-  }
-  if (data.valueSelectionSetting != null) {
-    contents.valueSelectionSetting = deserializeAws_restJson1SlotValueSelectionSetting(
-      data.valueSelectionSetting,
-      context
-    );
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    compositeSlotTypeSetting: _json,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    externalSourceSetting: _json,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+    parentSlotTypeSignature: __expectString,
+    slotTypeId: __expectString,
+    slotTypeName: __expectString,
+    slotTypeValues: _json,
+    valueSelectionSetting: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeSlotTypeCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeSlotTypeCommandError
+ */
+const de_DescribeSlotTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSlotTypeCommandOutput> => {
@@ -5387,87 +5210,63 @@ const deserializeAws_restJson1DescribeSlotTypeCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListAggregatedUtterancesCommand = async (
+/**
+ * deserializeAws_restJson1ListAggregatedUtterancesCommand
+ */
+export const de_ListAggregatedUtterancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAggregatedUtterancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAggregatedUtterancesCommandError(output, context);
+    return de_ListAggregatedUtterancesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.aggregatedUtterancesSummaries != null) {
-    contents.aggregatedUtterancesSummaries = deserializeAws_restJson1AggregatedUtterancesSummaryList(
-      data.aggregatedUtterancesSummaries,
-      context
-    );
-  }
-  if (data.aggregationDuration != null) {
-    contents.aggregationDuration = deserializeAws_restJson1UtteranceAggregationDuration(
-      data.aggregationDuration,
-      context
-    );
-  }
-  if (data.aggregationLastRefreshedDateTime != null) {
-    contents.aggregationLastRefreshedDateTime = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.aggregationLastRefreshedDateTime))
-    );
-  }
-  if (data.aggregationWindowEndTime != null) {
-    contents.aggregationWindowEndTime = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.aggregationWindowEndTime))
-    );
-  }
-  if (data.aggregationWindowStartTime != null) {
-    contents.aggregationWindowStartTime = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.aggregationWindowStartTime))
-    );
-  }
-  if (data.botAliasId != null) {
-    contents.botAliasId = __expectString(data.botAliasId);
-  }
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    aggregatedUtterancesSummaries: (_) => de_AggregatedUtterancesSummaryList(_, context),
+    aggregationDuration: _json,
+    aggregationLastRefreshedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    aggregationWindowEndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    aggregationWindowStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    botAliasId: __expectString,
+    botId: __expectString,
+    botVersion: __expectString,
+    localeId: __expectString,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListAggregatedUtterancesCommandError = async (
+/**
+ * deserializeAws_restJson1ListAggregatedUtterancesCommandError
+ */
+const de_ListAggregatedUtterancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAggregatedUtterancesCommandOutput> => {
@@ -5479,51 +5278,53 @@ const deserializeAws_restJson1ListAggregatedUtterancesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListBotAliasesCommand = async (
+/**
+ * deserializeAws_restJson1ListBotAliasesCommand
+ */
+export const de_ListBotAliasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBotAliasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBotAliasesCommandError(output, context);
+    return de_ListBotAliasesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botAliasSummaries != null) {
-    contents.botAliasSummaries = deserializeAws_restJson1BotAliasSummaryList(data.botAliasSummaries, context);
-  }
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    botAliasSummaries: (_) => de_BotAliasSummaryList(_, context),
+    botId: __expectString,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListBotAliasesCommandError = async (
+/**
+ * deserializeAws_restJson1ListBotAliasesCommandError
+ */
+const de_ListBotAliasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBotAliasesCommandOutput> => {
@@ -5535,54 +5336,54 @@ const deserializeAws_restJson1ListBotAliasesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListBotLocalesCommand = async (
+/**
+ * deserializeAws_restJson1ListBotLocalesCommand
+ */
+export const de_ListBotLocalesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBotLocalesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBotLocalesCommandError(output, context);
+    return de_ListBotLocalesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botLocaleSummaries != null) {
-    contents.botLocaleSummaries = deserializeAws_restJson1BotLocaleSummaryList(data.botLocaleSummaries, context);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botLocaleSummaries: (_) => de_BotLocaleSummaryList(_, context),
+    botVersion: __expectString,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListBotLocalesCommandError = async (
+/**
+ * deserializeAws_restJson1ListBotLocalesCommandError
+ */
+const de_ListBotLocalesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBotLocalesCommandOutput> => {
@@ -5594,60 +5395,55 @@ const deserializeAws_restJson1ListBotLocalesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListBotRecommendationsCommand = async (
+/**
+ * deserializeAws_restJson1ListBotRecommendationsCommand
+ */
+export const de_ListBotRecommendationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBotRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBotRecommendationsCommandError(output, context);
+    return de_ListBotRecommendationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botRecommendationSummaries != null) {
-    contents.botRecommendationSummaries = deserializeAws_restJson1BotRecommendationSummaryList(
-      data.botRecommendationSummaries,
-      context
-    );
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botRecommendationSummaries: (_) => de_BotRecommendationSummaryList(_, context),
+    botVersion: __expectString,
+    localeId: __expectString,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListBotRecommendationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBotRecommendationsCommandError
+ */
+const de_ListBotRecommendationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBotRecommendationsCommandOutput> => {
@@ -5659,48 +5455,52 @@ const deserializeAws_restJson1ListBotRecommendationsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListBotsCommand = async (
+/**
+ * deserializeAws_restJson1ListBotsCommand
+ */
+export const de_ListBotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBotsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBotsCommandError(output, context);
+    return de_ListBotsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botSummaries != null) {
-    contents.botSummaries = deserializeAws_restJson1BotSummaryList(data.botSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    botSummaries: (_) => de_BotSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListBotsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBotsCommandError
+ */
+const de_ListBotsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBotsCommandOutput> => {
@@ -5712,51 +5512,53 @@ const deserializeAws_restJson1ListBotsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListBotVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListBotVersionsCommand
+ */
+export const de_ListBotVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBotVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBotVersionsCommandError(output, context);
+    return de_ListBotVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersionSummaries != null) {
-    contents.botVersionSummaries = deserializeAws_restJson1BotVersionSummaryList(data.botVersionSummaries, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersionSummaries: (_) => de_BotVersionSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListBotVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBotVersionsCommandError
+ */
+const de_ListBotVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBotVersionsCommandOutput> => {
@@ -5768,54 +5570,53 @@ const deserializeAws_restJson1ListBotVersionsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListBuiltInIntentsCommand = async (
+/**
+ * deserializeAws_restJson1ListBuiltInIntentsCommand
+ */
+export const de_ListBuiltInIntentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuiltInIntentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBuiltInIntentsCommandError(output, context);
+    return de_ListBuiltInIntentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.builtInIntentSummaries != null) {
-    contents.builtInIntentSummaries = deserializeAws_restJson1BuiltInIntentSummaryList(
-      data.builtInIntentSummaries,
-      context
-    );
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    builtInIntentSummaries: _json,
+    localeId: __expectString,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListBuiltInIntentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBuiltInIntentsCommandError
+ */
+const de_ListBuiltInIntentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuiltInIntentsCommandOutput> => {
@@ -5827,54 +5628,53 @@ const deserializeAws_restJson1ListBuiltInIntentsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListBuiltInSlotTypesCommand = async (
+/**
+ * deserializeAws_restJson1ListBuiltInSlotTypesCommand
+ */
+export const de_ListBuiltInSlotTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuiltInSlotTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBuiltInSlotTypesCommandError(output, context);
+    return de_ListBuiltInSlotTypesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.builtInSlotTypeSummaries != null) {
-    contents.builtInSlotTypeSummaries = deserializeAws_restJson1BuiltInSlotTypeSummaryList(
-      data.builtInSlotTypeSummaries,
-      context
-    );
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    builtInSlotTypeSummaries: _json,
+    localeId: __expectString,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListBuiltInSlotTypesCommandError = async (
+/**
+ * deserializeAws_restJson1ListBuiltInSlotTypesCommandError
+ */
+const de_ListBuiltInSlotTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuiltInSlotTypesCommandOutput> => {
@@ -5886,57 +5686,55 @@ const deserializeAws_restJson1ListBuiltInSlotTypesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListCustomVocabularyItemsCommand = async (
+/**
+ * deserializeAws_restJson1ListCustomVocabularyItemsCommand
+ */
+export const de_ListCustomVocabularyItemsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCustomVocabularyItemsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListCustomVocabularyItemsCommandError(output, context);
+    return de_ListCustomVocabularyItemsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.customVocabularyItems != null) {
-    contents.customVocabularyItems = deserializeAws_restJson1CustomVocabularyItems(data.customVocabularyItems, context);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    customVocabularyItems: _json,
+    localeId: __expectString,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListCustomVocabularyItemsCommandError = async (
+/**
+ * deserializeAws_restJson1ListCustomVocabularyItemsCommandError
+ */
+const de_ListCustomVocabularyItemsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCustomVocabularyItemsCommandOutput> => {
@@ -5948,60 +5746,58 @@ const deserializeAws_restJson1ListCustomVocabularyItemsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListExportsCommand = async (
+/**
+ * deserializeAws_restJson1ListExportsCommand
+ */
+export const de_ListExportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListExportsCommandError(output, context);
+    return de_ListExportsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.exportSummaries != null) {
-    contents.exportSummaries = deserializeAws_restJson1ExportSummaryList(data.exportSummaries, context);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    exportSummaries: (_) => de_ExportSummaryList(_, context),
+    localeId: __expectString,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListExportsCommandError = async (
+/**
+ * deserializeAws_restJson1ListExportsCommandError
+ */
+const de_ListExportsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExportsCommandOutput> => {
@@ -6013,54 +5809,52 @@ const deserializeAws_restJson1ListExportsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListImportsCommand = async (
+/**
+ * deserializeAws_restJson1ListImportsCommand
+ */
+export const de_ListImportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListImportsCommandError(output, context);
+    return de_ListImportsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.importSummaries != null) {
-    contents.importSummaries = deserializeAws_restJson1ImportSummaryList(data.importSummaries, context);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    importSummaries: (_) => de_ImportSummaryList(_, context),
+    localeId: __expectString,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListImportsCommandError = async (
+/**
+ * deserializeAws_restJson1ListImportsCommandError
+ */
+const de_ListImportsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImportsCommandOutput> => {
@@ -6072,54 +5866,52 @@ const deserializeAws_restJson1ListImportsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListIntentsCommand = async (
+/**
+ * deserializeAws_restJson1ListIntentsCommand
+ */
+export const de_ListIntentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIntentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListIntentsCommandError(output, context);
+    return de_ListIntentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.intentSummaries != null) {
-    contents.intentSummaries = deserializeAws_restJson1IntentSummaryList(data.intentSummaries, context);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    intentSummaries: (_) => de_IntentSummaryList(_, context),
+    localeId: __expectString,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListIntentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListIntentsCommandError
+ */
+const de_ListIntentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIntentsCommandOutput> => {
@@ -6131,60 +5923,56 @@ const deserializeAws_restJson1ListIntentsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListRecommendedIntentsCommand = async (
+/**
+ * deserializeAws_restJson1ListRecommendedIntentsCommand
+ */
+export const de_ListRecommendedIntentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecommendedIntentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListRecommendedIntentsCommandError(output, context);
+    return de_ListRecommendedIntentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botRecommendationId != null) {
-    contents.botRecommendationId = __expectString(data.botRecommendationId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.summaryList != null) {
-    contents.summaryList = deserializeAws_restJson1RecommendedIntentSummaryList(data.summaryList, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botRecommendationId: __expectString,
+    botVersion: __expectString,
+    localeId: __expectString,
+    nextToken: __expectString,
+    summaryList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListRecommendedIntentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListRecommendedIntentsCommandError
+ */
+const de_ListRecommendedIntentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecommendedIntentsCommandOutput> => {
@@ -6196,63 +5984,59 @@ const deserializeAws_restJson1ListRecommendedIntentsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListSlotsCommand = async (
+/**
+ * deserializeAws_restJson1ListSlotsCommand
+ */
+export const de_ListSlotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSlotsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSlotsCommandError(output, context);
+    return de_ListSlotsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.intentId != null) {
-    contents.intentId = __expectString(data.intentId);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.slotSummaries != null) {
-    contents.slotSummaries = deserializeAws_restJson1SlotSummaryList(data.slotSummaries, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    intentId: __expectString,
+    localeId: __expectString,
+    nextToken: __expectString,
+    slotSummaries: (_) => de_SlotSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListSlotsCommandError = async (
+/**
+ * deserializeAws_restJson1ListSlotsCommandError
+ */
+const de_ListSlotsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSlotsCommandOutput> => {
@@ -6264,57 +6048,55 @@ const deserializeAws_restJson1ListSlotsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListSlotTypesCommand = async (
+/**
+ * deserializeAws_restJson1ListSlotTypesCommand
+ */
+export const de_ListSlotTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSlotTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSlotTypesCommandError(output, context);
+    return de_ListSlotTypesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.slotTypeSummaries != null) {
-    contents.slotTypeSummaries = deserializeAws_restJson1SlotTypeSummaryList(data.slotTypeSummaries, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    localeId: __expectString,
+    nextToken: __expectString,
+    slotTypeSummaries: (_) => de_SlotTypeSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListSlotTypesCommandError = async (
+/**
+ * deserializeAws_restJson1ListSlotTypesCommandError
+ */
+const de_ListSlotTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSlotTypesCommandOutput> => {
@@ -6326,45 +6108,51 @@ const deserializeAws_restJson1ListSlotTypesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -6376,66 +6164,57 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1SearchAssociatedTranscriptsCommand = async (
+/**
+ * deserializeAws_restJson1SearchAssociatedTranscriptsCommand
+ */
+export const de_SearchAssociatedTranscriptsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchAssociatedTranscriptsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SearchAssociatedTranscriptsCommandError(output, context);
+    return de_SearchAssociatedTranscriptsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.associatedTranscripts != null) {
-    contents.associatedTranscripts = deserializeAws_restJson1AssociatedTranscriptList(
-      data.associatedTranscripts,
-      context
-    );
-  }
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botRecommendationId != null) {
-    contents.botRecommendationId = __expectString(data.botRecommendationId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.nextIndex != null) {
-    contents.nextIndex = __expectInt32(data.nextIndex);
-  }
-  if (data.totalResults != null) {
-    contents.totalResults = __expectInt32(data.totalResults);
-  }
+  const doc = take(data, {
+    associatedTranscripts: _json,
+    botId: __expectString,
+    botRecommendationId: __expectString,
+    botVersion: __expectString,
+    localeId: __expectString,
+    nextIndex: __expectInt32,
+    totalResults: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1SearchAssociatedTranscriptsCommandError = async (
+/**
+ * deserializeAws_restJson1SearchAssociatedTranscriptsCommandError
+ */
+const de_SearchAssociatedTranscriptsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchAssociatedTranscriptsCommandOutput> => {
@@ -6447,72 +6226,61 @@ const deserializeAws_restJson1SearchAssociatedTranscriptsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StartBotRecommendationCommand = async (
+/**
+ * deserializeAws_restJson1StartBotRecommendationCommand
+ */
+export const de_StartBotRecommendationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBotRecommendationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartBotRecommendationCommandError(output, context);
+    return de_StartBotRecommendationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botRecommendationId != null) {
-    contents.botRecommendationId = __expectString(data.botRecommendationId);
-  }
-  if (data.botRecommendationStatus != null) {
-    contents.botRecommendationStatus = __expectString(data.botRecommendationStatus);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.encryptionSetting != null) {
-    contents.encryptionSetting = deserializeAws_restJson1EncryptionSetting(data.encryptionSetting, context);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.transcriptSourceSetting != null) {
-    contents.transcriptSourceSetting = deserializeAws_restJson1TranscriptSourceSetting(
-      data.transcriptSourceSetting,
-      context
-    );
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botRecommendationId: __expectString,
+    botRecommendationStatus: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    encryptionSetting: _json,
+    localeId: __expectString,
+    transcriptSourceSetting: (_) => de_TranscriptSourceSetting(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1StartBotRecommendationCommandError = async (
+/**
+ * deserializeAws_restJson1StartBotRecommendationCommandError
+ */
+const de_StartBotRecommendationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBotRecommendationCommandOutput> => {
@@ -6524,69 +6292,64 @@ const deserializeAws_restJson1StartBotRecommendationCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StartImportCommand = async (
+/**
+ * deserializeAws_restJson1StartImportCommand
+ */
+export const de_StartImportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartImportCommandError(output, context);
+    return de_StartImportCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.importId != null) {
-    contents.importId = __expectString(data.importId);
-  }
-  if (data.importStatus != null) {
-    contents.importStatus = __expectString(data.importStatus);
-  }
-  if (data.mergeStrategy != null) {
-    contents.mergeStrategy = __expectString(data.mergeStrategy);
-  }
-  if (data.resourceSpecification != null) {
-    contents.resourceSpecification = deserializeAws_restJson1ImportResourceSpecification(
-      data.resourceSpecification,
-      context
-    );
-  }
+  const doc = take(data, {
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    importId: __expectString,
+    importStatus: __expectString,
+    mergeStrategy: __expectString,
+    resourceSpecification: (_) => de_ImportResourceSpecification(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1StartImportCommandError = async (
+/**
+ * deserializeAws_restJson1StartImportCommandError
+ */
+const de_StartImportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImportCommandOutput> => {
@@ -6598,63 +6361,61 @@ const deserializeAws_restJson1StartImportCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StopBotRecommendationCommand = async (
+/**
+ * deserializeAws_restJson1StopBotRecommendationCommand
+ */
+export const de_StopBotRecommendationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBotRecommendationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopBotRecommendationCommandError(output, context);
+    return de_StopBotRecommendationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botRecommendationId != null) {
-    contents.botRecommendationId = __expectString(data.botRecommendationId);
-  }
-  if (data.botRecommendationStatus != null) {
-    contents.botRecommendationStatus = __expectString(data.botRecommendationStatus);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botRecommendationId: __expectString,
+    botRecommendationStatus: __expectString,
+    botVersion: __expectString,
+    localeId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1StopBotRecommendationCommandError = async (
+/**
+ * deserializeAws_restJson1StopBotRecommendationCommandError
+ */
+const de_StopBotRecommendationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBotRecommendationCommandOutput> => {
@@ -6666,42 +6427,44 @@ const deserializeAws_restJson1StopBotRecommendationCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6710,7 +6473,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -6722,33 +6488,35 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6757,7 +6525,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -6769,75 +6540,61 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateBotCommand = async (
+/**
+ * deserializeAws_restJson1UpdateBotCommand
+ */
+export const de_UpdateBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBotCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateBotCommandError(output, context);
+    return de_UpdateBotCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botMembers != null) {
-    contents.botMembers = deserializeAws_restJson1BotMembers(data.botMembers, context);
-  }
-  if (data.botName != null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.botStatus != null) {
-    contents.botStatus = __expectString(data.botStatus);
-  }
-  if (data.botType != null) {
-    contents.botType = __expectString(data.botType);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.dataPrivacy != null) {
-    contents.dataPrivacy = deserializeAws_restJson1DataPrivacy(data.dataPrivacy, context);
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.idleSessionTTLInSeconds != null) {
-    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.roleArn != null) {
-    contents.roleArn = __expectString(data.roleArn);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botMembers: _json,
+    botName: __expectString,
+    botStatus: __expectString,
+    botType: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataPrivacy: _json,
+    description: __expectString,
+    idleSessionTTLInSeconds: __expectInt32,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    roleArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateBotCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateBotCommandError
+ */
+const de_UpdateBotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBotCommandOutput> => {
@@ -6849,90 +6606,67 @@ const deserializeAws_restJson1UpdateBotCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateBotAliasCommand = async (
+/**
+ * deserializeAws_restJson1UpdateBotAliasCommand
+ */
+export const de_UpdateBotAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBotAliasCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateBotAliasCommandError(output, context);
+    return de_UpdateBotAliasCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botAliasId != null) {
-    contents.botAliasId = __expectString(data.botAliasId);
-  }
-  if (data.botAliasLocaleSettings != null) {
-    contents.botAliasLocaleSettings = deserializeAws_restJson1BotAliasLocaleSettingsMap(
-      data.botAliasLocaleSettings,
-      context
-    );
-  }
-  if (data.botAliasName != null) {
-    contents.botAliasName = __expectString(data.botAliasName);
-  }
-  if (data.botAliasStatus != null) {
-    contents.botAliasStatus = __expectString(data.botAliasStatus);
-  }
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.conversationLogSettings != null) {
-    contents.conversationLogSettings = deserializeAws_restJson1ConversationLogSettings(
-      data.conversationLogSettings,
-      context
-    );
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.sentimentAnalysisSettings != null) {
-    contents.sentimentAnalysisSettings = deserializeAws_restJson1SentimentAnalysisSettings(
-      data.sentimentAnalysisSettings,
-      context
-    );
-  }
+  const doc = take(data, {
+    botAliasId: __expectString,
+    botAliasLocaleSettings: _json,
+    botAliasName: __expectString,
+    botAliasStatus: __expectString,
+    botId: __expectString,
+    botVersion: __expectString,
+    conversationLogSettings: _json,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    sentimentAnalysisSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateBotAliasCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateBotAliasCommandError
+ */
+const de_UpdateBotAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBotAliasCommandOutput> => {
@@ -6944,84 +6678,68 @@ const deserializeAws_restJson1UpdateBotAliasCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateBotLocaleCommand = async (
+/**
+ * deserializeAws_restJson1UpdateBotLocaleCommand
+ */
+export const de_UpdateBotLocaleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBotLocaleCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateBotLocaleCommandError(output, context);
+    return de_UpdateBotLocaleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botLocaleStatus != null) {
-    contents.botLocaleStatus = __expectString(data.botLocaleStatus);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.failureReasons != null) {
-    contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.localeName != null) {
-    contents.localeName = __expectString(data.localeName);
-  }
-  if (data.nluIntentConfidenceThreshold != null) {
-    contents.nluIntentConfidenceThreshold = __limitedParseDouble(data.nluIntentConfidenceThreshold);
-  }
-  if (data.recommendedActions != null) {
-    contents.recommendedActions = deserializeAws_restJson1RecommendedActions(data.recommendedActions, context);
-  }
-  if (data.voiceSettings != null) {
-    contents.voiceSettings = deserializeAws_restJson1VoiceSettings(data.voiceSettings, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botLocaleStatus: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    failureReasons: _json,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+    localeName: __expectString,
+    nluIntentConfidenceThreshold: __limitedParseDouble,
+    recommendedActions: _json,
+    voiceSettings: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateBotLocaleCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateBotLocaleCommandError
+ */
+const de_UpdateBotLocaleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBotLocaleCommandOutput> => {
@@ -7033,78 +6751,65 @@ const deserializeAws_restJson1UpdateBotLocaleCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateBotRecommendationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateBotRecommendationCommand
+ */
+export const de_UpdateBotRecommendationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBotRecommendationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateBotRecommendationCommandError(output, context);
+    return de_UpdateBotRecommendationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botRecommendationId != null) {
-    contents.botRecommendationId = __expectString(data.botRecommendationId);
-  }
-  if (data.botRecommendationStatus != null) {
-    contents.botRecommendationStatus = __expectString(data.botRecommendationStatus);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.encryptionSetting != null) {
-    contents.encryptionSetting = deserializeAws_restJson1EncryptionSetting(data.encryptionSetting, context);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.transcriptSourceSetting != null) {
-    contents.transcriptSourceSetting = deserializeAws_restJson1TranscriptSourceSetting(
-      data.transcriptSourceSetting,
-      context
-    );
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botRecommendationId: __expectString,
+    botRecommendationStatus: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    encryptionSetting: _json,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+    transcriptSourceSetting: (_) => de_TranscriptSourceSetting(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateBotRecommendationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateBotRecommendationCommandError
+ */
+const de_UpdateBotRecommendationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBotRecommendationCommandOutput> => {
@@ -7116,72 +6821,65 @@ const deserializeAws_restJson1UpdateBotRecommendationCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateExportCommand = async (
+/**
+ * deserializeAws_restJson1UpdateExportCommand
+ */
+export const de_UpdateExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateExportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateExportCommandError(output, context);
+    return de_UpdateExportCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.exportId != null) {
-    contents.exportId = __expectString(data.exportId);
-  }
-  if (data.exportStatus != null) {
-    contents.exportStatus = __expectString(data.exportStatus);
-  }
-  if (data.fileFormat != null) {
-    contents.fileFormat = __expectString(data.fileFormat);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.resourceSpecification != null) {
-    contents.resourceSpecification = deserializeAws_restJson1ExportResourceSpecification(
-      data.resourceSpecification,
-      context
-    );
-  }
+  const doc = take(data, {
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    exportId: __expectString,
+    exportStatus: __expectString,
+    fileFormat: __expectString,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceSpecification: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateExportCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateExportCommandError
+ */
+const de_UpdateExportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateExportCommandOutput> => {
@@ -7193,114 +6891,75 @@ const deserializeAws_restJson1UpdateExportCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateIntentCommand = async (
+/**
+ * deserializeAws_restJson1UpdateIntentCommand
+ */
+export const de_UpdateIntentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIntentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateIntentCommandError(output, context);
+    return de_UpdateIntentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.dialogCodeHook != null) {
-    contents.dialogCodeHook = deserializeAws_restJson1DialogCodeHookSettings(data.dialogCodeHook, context);
-  }
-  if (data.fulfillmentCodeHook != null) {
-    contents.fulfillmentCodeHook = deserializeAws_restJson1FulfillmentCodeHookSettings(
-      data.fulfillmentCodeHook,
-      context
-    );
-  }
-  if (data.initialResponseSetting != null) {
-    contents.initialResponseSetting = deserializeAws_restJson1InitialResponseSetting(
-      data.initialResponseSetting,
-      context
-    );
-  }
-  if (data.inputContexts != null) {
-    contents.inputContexts = deserializeAws_restJson1InputContextsList(data.inputContexts, context);
-  }
-  if (data.intentClosingSetting != null) {
-    contents.intentClosingSetting = deserializeAws_restJson1IntentClosingSetting(data.intentClosingSetting, context);
-  }
-  if (data.intentConfirmationSetting != null) {
-    contents.intentConfirmationSetting = deserializeAws_restJson1IntentConfirmationSetting(
-      data.intentConfirmationSetting,
-      context
-    );
-  }
-  if (data.intentId != null) {
-    contents.intentId = __expectString(data.intentId);
-  }
-  if (data.intentName != null) {
-    contents.intentName = __expectString(data.intentName);
-  }
-  if (data.kendraConfiguration != null) {
-    contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.outputContexts != null) {
-    contents.outputContexts = deserializeAws_restJson1OutputContextsList(data.outputContexts, context);
-  }
-  if (data.parentIntentSignature != null) {
-    contents.parentIntentSignature = __expectString(data.parentIntentSignature);
-  }
-  if (data.sampleUtterances != null) {
-    contents.sampleUtterances = deserializeAws_restJson1SampleUtterancesList(data.sampleUtterances, context);
-  }
-  if (data.slotPriorities != null) {
-    contents.slotPriorities = deserializeAws_restJson1SlotPrioritiesList(data.slotPriorities, context);
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    dialogCodeHook: _json,
+    fulfillmentCodeHook: (_) => de_FulfillmentCodeHookSettings(_, context),
+    initialResponseSetting: (_) => de_InitialResponseSetting(_, context),
+    inputContexts: _json,
+    intentClosingSetting: (_) => de_IntentClosingSetting(_, context),
+    intentConfirmationSetting: (_) => de_IntentConfirmationSetting(_, context),
+    intentId: __expectString,
+    intentName: __expectString,
+    kendraConfiguration: _json,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+    outputContexts: _json,
+    parentIntentSignature: __expectString,
+    sampleUtterances: _json,
+    slotPriorities: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateIntentCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateIntentCommandError
+ */
+const de_UpdateIntentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIntentCommandOutput> => {
@@ -7312,54 +6971,58 @@ const deserializeAws_restJson1UpdateIntentCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateResourcePolicyCommand = async (
+/**
+ * deserializeAws_restJson1UpdateResourcePolicyCommand
+ */
+export const de_UpdateResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourcePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateResourcePolicyCommandError(output, context);
+    return de_UpdateResourcePolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.resourceArn != null) {
-    contents.resourceArn = __expectString(data.resourceArn);
-  }
-  if (data.revisionId != null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
+  const doc = take(data, {
+    resourceArn: __expectString,
+    revisionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateResourcePolicyCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateResourcePolicyCommandError
+ */
+const de_UpdateResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourcePolicyCommandOutput> => {
@@ -7371,93 +7034,70 @@ const deserializeAws_restJson1UpdateResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateSlotCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSlotCommand
+ */
+export const de_UpdateSlotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSlotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSlotCommandError(output, context);
+    return de_UpdateSlotCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.intentId != null) {
-    contents.intentId = __expectString(data.intentId);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.multipleValuesSetting != null) {
-    contents.multipleValuesSetting = deserializeAws_restJson1MultipleValuesSetting(data.multipleValuesSetting, context);
-  }
-  if (data.obfuscationSetting != null) {
-    contents.obfuscationSetting = deserializeAws_restJson1ObfuscationSetting(data.obfuscationSetting, context);
-  }
-  if (data.slotId != null) {
-    contents.slotId = __expectString(data.slotId);
-  }
-  if (data.slotName != null) {
-    contents.slotName = __expectString(data.slotName);
-  }
-  if (data.slotTypeId != null) {
-    contents.slotTypeId = __expectString(data.slotTypeId);
-  }
-  if (data.subSlotSetting != null) {
-    contents.subSlotSetting = deserializeAws_restJson1SubSlotSetting(data.subSlotSetting, context);
-  }
-  if (data.valueElicitationSetting != null) {
-    contents.valueElicitationSetting = deserializeAws_restJson1SlotValueElicitationSetting(
-      data.valueElicitationSetting,
-      context
-    );
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    intentId: __expectString,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+    multipleValuesSetting: _json,
+    obfuscationSetting: _json,
+    slotId: __expectString,
+    slotName: __expectString,
+    slotTypeId: __expectString,
+    subSlotSetting: (_) => de_SubSlotSetting(_, context),
+    valueElicitationSetting: (_) => de_SlotValueElicitationSetting(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateSlotCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSlotCommandError
+ */
+const de_UpdateSlotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSlotCommandOutput> => {
@@ -7469,93 +7109,69 @@ const deserializeAws_restJson1UpdateSlotCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateSlotTypeCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSlotTypeCommand
+ */
+export const de_UpdateSlotTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSlotTypeCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSlotTypeCommandError(output, context);
+    return de_UpdateSlotTypeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.botVersion != null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.compositeSlotTypeSetting != null) {
-    contents.compositeSlotTypeSetting = deserializeAws_restJson1CompositeSlotTypeSetting(
-      data.compositeSlotTypeSetting,
-      context
-    );
-  }
-  if (data.creationDateTime != null) {
-    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
-  }
-  if (data.description != null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.externalSourceSetting != null) {
-    contents.externalSourceSetting = deserializeAws_restJson1ExternalSourceSetting(data.externalSourceSetting, context);
-  }
-  if (data.lastUpdatedDateTime != null) {
-    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.parentSlotTypeSignature != null) {
-    contents.parentSlotTypeSignature = __expectString(data.parentSlotTypeSignature);
-  }
-  if (data.slotTypeId != null) {
-    contents.slotTypeId = __expectString(data.slotTypeId);
-  }
-  if (data.slotTypeName != null) {
-    contents.slotTypeName = __expectString(data.slotTypeName);
-  }
-  if (data.slotTypeValues != null) {
-    contents.slotTypeValues = deserializeAws_restJson1SlotTypeValues(data.slotTypeValues, context);
-  }
-  if (data.valueSelectionSetting != null) {
-    contents.valueSelectionSetting = deserializeAws_restJson1SlotValueSelectionSetting(
-      data.valueSelectionSetting,
-      context
-    );
-  }
+  const doc = take(data, {
+    botId: __expectString,
+    botVersion: __expectString,
+    compositeSlotTypeSetting: _json,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    externalSourceSetting: _json,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+    parentSlotTypeSignature: __expectString,
+    slotTypeId: __expectString,
+    slotTypeName: __expectString,
+    slotTypeValues: _json,
+    valueSelectionSetting: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateSlotTypeCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSlotTypeCommandError
+ */
+const de_UpdateSlotTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSlotTypeCommandOutput> => {
@@ -7567,43 +7183,43 @@ const deserializeAws_restJson1UpdateSlotTypeCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7611,15 +7227,19 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7627,15 +7247,19 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1PreconditionFailedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1PreconditionFailedExceptionRes
+ */
+const de_PreconditionFailedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PreconditionFailedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PreconditionFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7643,15 +7267,19 @@ const deserializeAws_restJson1PreconditionFailedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7659,15 +7287,19 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7675,10 +7307,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
     retryAfterSeconds: [
       () => void 0 !== parsedOutput.headers["retry-after"],
@@ -7686,9 +7318,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     ],
   });
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7696,15 +7329,16 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7712,3732 +7346,1515 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AdvancedRecognitionSetting = (
-  input: AdvancedRecognitionSetting,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.audioRecognitionStrategy != null && { audioRecognitionStrategy: input.audioRecognitionStrategy }),
-  };
+// se_AdvancedRecognitionSetting omitted.
+
+// se_AggregatedUtterancesFilter omitted.
+
+// se_AggregatedUtterancesFilters omitted.
+
+// se_AggregatedUtterancesSortBy omitted.
+
+// se_AllowedInputTypes omitted.
+
+// se_AssociatedTranscriptFilter omitted.
+
+// se_AssociatedTranscriptFilters omitted.
+
+// se_AudioAndDTMFInputSpecification omitted.
+
+// se_AudioLogDestination omitted.
+
+// se_AudioLogSetting omitted.
+
+// se_AudioLogSettingsList omitted.
+
+// se_AudioSpecification omitted.
+
+// se_BotAliasLocaleSettings omitted.
+
+// se_BotAliasLocaleSettingsMap omitted.
+
+// se_BotExportSpecification omitted.
+
+// se_BotFilter omitted.
+
+// se_BotFilters omitted.
+
+// se_BotImportSpecification omitted.
+
+// se_BotLocaleExportSpecification omitted.
+
+// se_BotLocaleFilter omitted.
+
+// se_BotLocaleFilters omitted.
+
+/**
+ * serializeAws_restJson1BotLocaleImportSpecification
+ */
+const se_BotLocaleImportSpecification = (input: BotLocaleImportSpecification, context: __SerdeContext): any => {
+  return take(input, {
+    botId: [],
+    botVersion: [],
+    localeId: [],
+    nluIntentConfidenceThreshold: __serializeFloat,
+    voiceSettings: _json,
+  });
 };
 
-const serializeAws_restJson1AggregatedUtterancesFilter = (
-  input: AggregatedUtterancesFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.values != null && { values: serializeAws_restJson1FilterValues(input.values, context) }),
-  };
+// se_BotLocaleSortBy omitted.
+
+// se_BotMember omitted.
+
+// se_BotMembers omitted.
+
+// se_BotSortBy omitted.
+
+// se_BotVersionLocaleDetails omitted.
+
+// se_BotVersionLocaleSpecification omitted.
+
+// se_BotVersionSortBy omitted.
+
+// se_BuiltInIntentSortBy omitted.
+
+// se_BuiltInSlotTypeSortBy omitted.
+
+// se_Button omitted.
+
+// se_ButtonsList omitted.
+
+// se_CloudWatchLogGroupLogDestination omitted.
+
+// se_CodeHookSpecification omitted.
+
+// se_CompositeSlotTypeSetting omitted.
+
+// se_Condition omitted.
+
+/**
+ * serializeAws_restJson1ConditionalBranch
+ */
+const se_ConditionalBranch = (input: ConditionalBranch, context: __SerdeContext): any => {
+  return take(input, {
+    condition: _json,
+    name: [],
+    nextStep: (_) => se_DialogState(_, context),
+    response: _json,
+  });
 };
 
-const serializeAws_restJson1AggregatedUtterancesFilters = (
-  input: AggregatedUtterancesFilter[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ConditionalBranches
+ */
+const se_ConditionalBranches = (input: ConditionalBranch[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1AggregatedUtterancesFilter(entry, context);
+      return se_ConditionalBranch(entry, context);
     });
 };
 
-const serializeAws_restJson1AggregatedUtterancesSortBy = (
-  input: AggregatedUtterancesSortBy,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.order != null && { order: input.order }),
-  };
+/**
+ * serializeAws_restJson1ConditionalSpecification
+ */
+const se_ConditionalSpecification = (input: ConditionalSpecification, context: __SerdeContext): any => {
+  return take(input, {
+    active: [],
+    conditionalBranches: (_) => se_ConditionalBranches(_, context),
+    defaultBranch: (_) => se_DefaultConditionalBranch(_, context),
+  });
 };
 
-const serializeAws_restJson1AllowedInputTypes = (input: AllowedInputTypes, context: __SerdeContext): any => {
-  return {
-    ...(input.allowAudioInput != null && { allowAudioInput: input.allowAudioInput }),
-    ...(input.allowDTMFInput != null && { allowDTMFInput: input.allowDTMFInput }),
-  };
-};
-
-const serializeAws_restJson1AssociatedTranscriptFilter = (
-  input: AssociatedTranscriptFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.values != null && { values: serializeAws_restJson1FilterValues(input.values, context) }),
-  };
-};
-
-const serializeAws_restJson1AssociatedTranscriptFilters = (
-  input: AssociatedTranscriptFilter[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1AssociatedTranscriptFilter(entry, context);
-    });
-};
-
-const serializeAws_restJson1AudioAndDTMFInputSpecification = (
-  input: AudioAndDTMFInputSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.audioSpecification != null && {
-      audioSpecification: serializeAws_restJson1AudioSpecification(input.audioSpecification, context),
-    }),
-    ...(input.dtmfSpecification != null && {
-      dtmfSpecification: serializeAws_restJson1DTMFSpecification(input.dtmfSpecification, context),
-    }),
-    ...(input.startTimeoutMs != null && { startTimeoutMs: input.startTimeoutMs }),
-  };
-};
-
-const serializeAws_restJson1AudioLogDestination = (input: AudioLogDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.s3Bucket != null && { s3Bucket: serializeAws_restJson1S3BucketLogDestination(input.s3Bucket, context) }),
-  };
-};
-
-const serializeAws_restJson1AudioLogSetting = (input: AudioLogSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.destination != null && {
-      destination: serializeAws_restJson1AudioLogDestination(input.destination, context),
-    }),
-    ...(input.enabled != null && { enabled: input.enabled }),
-  };
-};
-
-const serializeAws_restJson1AudioLogSettingsList = (input: AudioLogSetting[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1AudioLogSetting(entry, context);
-    });
-};
-
-const serializeAws_restJson1AudioSpecification = (input: AudioSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.endTimeoutMs != null && { endTimeoutMs: input.endTimeoutMs }),
-    ...(input.maxLengthMs != null && { maxLengthMs: input.maxLengthMs }),
-  };
-};
-
-const serializeAws_restJson1BotAliasLocaleSettings = (input: BotAliasLocaleSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.codeHookSpecification != null && {
-      codeHookSpecification: serializeAws_restJson1CodeHookSpecification(input.codeHookSpecification, context),
-    }),
-    ...(input.enabled != null && { enabled: input.enabled }),
-  };
-};
-
-const serializeAws_restJson1BotAliasLocaleSettingsMap = (
-  input: Record<string, BotAliasLocaleSettings>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1BotAliasLocaleSettings(value, context);
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1BotExportSpecification = (input: BotExportSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.botId != null && { botId: input.botId }),
-    ...(input.botVersion != null && { botVersion: input.botVersion }),
-  };
-};
-
-const serializeAws_restJson1BotFilter = (input: BotFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.values != null && { values: serializeAws_restJson1FilterValues(input.values, context) }),
-  };
-};
-
-const serializeAws_restJson1BotFilters = (input: BotFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1BotFilter(entry, context);
-    });
-};
-
-const serializeAws_restJson1BotImportSpecification = (input: BotImportSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.botName != null && { botName: input.botName }),
-    ...(input.botTags != null && { botTags: serializeAws_restJson1TagMap(input.botTags, context) }),
-    ...(input.dataPrivacy != null && { dataPrivacy: serializeAws_restJson1DataPrivacy(input.dataPrivacy, context) }),
-    ...(input.idleSessionTTLInSeconds != null && { idleSessionTTLInSeconds: input.idleSessionTTLInSeconds }),
-    ...(input.roleArn != null && { roleArn: input.roleArn }),
-    ...(input.testBotAliasTags != null && {
-      testBotAliasTags: serializeAws_restJson1TagMap(input.testBotAliasTags, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1BotLocaleExportSpecification = (
-  input: BotLocaleExportSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.botId != null && { botId: input.botId }),
-    ...(input.botVersion != null && { botVersion: input.botVersion }),
-    ...(input.localeId != null && { localeId: input.localeId }),
-  };
-};
-
-const serializeAws_restJson1BotLocaleFilter = (input: BotLocaleFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.values != null && { values: serializeAws_restJson1FilterValues(input.values, context) }),
-  };
-};
-
-const serializeAws_restJson1BotLocaleFilters = (input: BotLocaleFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1BotLocaleFilter(entry, context);
-    });
-};
-
-const serializeAws_restJson1BotLocaleImportSpecification = (
-  input: BotLocaleImportSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.botId != null && { botId: input.botId }),
-    ...(input.botVersion != null && { botVersion: input.botVersion }),
-    ...(input.localeId != null && { localeId: input.localeId }),
-    ...(input.nluIntentConfidenceThreshold != null && {
-      nluIntentConfidenceThreshold: __serializeFloat(input.nluIntentConfidenceThreshold),
-    }),
-    ...(input.voiceSettings != null && {
-      voiceSettings: serializeAws_restJson1VoiceSettings(input.voiceSettings, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1BotLocaleSortBy = (input: BotLocaleSortBy, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.order != null && { order: input.order }),
-  };
-};
-
-const serializeAws_restJson1BotMember = (input: BotMember, context: __SerdeContext): any => {
-  return {
-    ...(input.botMemberAliasId != null && { botMemberAliasId: input.botMemberAliasId }),
-    ...(input.botMemberAliasName != null && { botMemberAliasName: input.botMemberAliasName }),
-    ...(input.botMemberId != null && { botMemberId: input.botMemberId }),
-    ...(input.botMemberName != null && { botMemberName: input.botMemberName }),
-    ...(input.botMemberVersion != null && { botMemberVersion: input.botMemberVersion }),
-  };
-};
-
-const serializeAws_restJson1BotMembers = (input: BotMember[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1BotMember(entry, context);
-    });
-};
-
-const serializeAws_restJson1BotSortBy = (input: BotSortBy, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.order != null && { order: input.order }),
-  };
-};
-
-const serializeAws_restJson1BotVersionLocaleDetails = (
-  input: BotVersionLocaleDetails,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.sourceBotVersion != null && { sourceBotVersion: input.sourceBotVersion }),
-  };
-};
-
-const serializeAws_restJson1BotVersionLocaleSpecification = (
-  input: Record<string, BotVersionLocaleDetails>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1BotVersionLocaleDetails(value, context);
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1BotVersionSortBy = (input: BotVersionSortBy, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.order != null && { order: input.order }),
-  };
-};
-
-const serializeAws_restJson1BuiltInIntentSortBy = (input: BuiltInIntentSortBy, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.order != null && { order: input.order }),
-  };
-};
-
-const serializeAws_restJson1BuiltInSlotTypeSortBy = (input: BuiltInSlotTypeSortBy, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.order != null && { order: input.order }),
-  };
-};
-
-const serializeAws_restJson1Button = (input: Button, context: __SerdeContext): any => {
-  return {
-    ...(input.text != null && { text: input.text }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-const serializeAws_restJson1ButtonsList = (input: Button[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Button(entry, context);
-    });
-};
-
-const serializeAws_restJson1CloudWatchLogGroupLogDestination = (
-  input: CloudWatchLogGroupLogDestination,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.cloudWatchLogGroupArn != null && { cloudWatchLogGroupArn: input.cloudWatchLogGroupArn }),
-    ...(input.logPrefix != null && { logPrefix: input.logPrefix }),
-  };
-};
-
-const serializeAws_restJson1CodeHookSpecification = (input: CodeHookSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.lambdaCodeHook != null && {
-      lambdaCodeHook: serializeAws_restJson1LambdaCodeHook(input.lambdaCodeHook, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1CompositeSlotTypeSetting = (
-  input: CompositeSlotTypeSetting,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.subSlots != null && { subSlots: serializeAws_restJson1SubSlotTypeList(input.subSlots, context) }),
-  };
-};
-
-const serializeAws_restJson1Condition = (input: Condition, context: __SerdeContext): any => {
-  return {
-    ...(input.expressionString != null && { expressionString: input.expressionString }),
-  };
-};
-
-const serializeAws_restJson1ConditionalBranch = (input: ConditionalBranch, context: __SerdeContext): any => {
-  return {
-    ...(input.condition != null && { condition: serializeAws_restJson1Condition(input.condition, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.nextStep != null && { nextStep: serializeAws_restJson1DialogState(input.nextStep, context) }),
-    ...(input.response != null && { response: serializeAws_restJson1ResponseSpecification(input.response, context) }),
-  };
-};
-
-const serializeAws_restJson1ConditionalBranches = (input: ConditionalBranch[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1ConditionalBranch(entry, context);
-    });
-};
-
-const serializeAws_restJson1ConditionalSpecification = (
-  input: ConditionalSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.active != null && { active: input.active }),
-    ...(input.conditionalBranches != null && {
-      conditionalBranches: serializeAws_restJson1ConditionalBranches(input.conditionalBranches, context),
-    }),
-    ...(input.defaultBranch != null && {
-      defaultBranch: serializeAws_restJson1DefaultConditionalBranch(input.defaultBranch, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1ConditionKeyValueMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1ConditionMap = (
-  input: Record<string, Record<string, string>>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1ConditionKeyValueMap(value, context);
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1ConversationLogSettings = (
-  input: ConversationLogSettings,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.audioLogSettings != null && {
-      audioLogSettings: serializeAws_restJson1AudioLogSettingsList(input.audioLogSettings, context),
-    }),
-    ...(input.textLogSettings != null && {
-      textLogSettings: serializeAws_restJson1TextLogSettingsList(input.textLogSettings, context),
-    }),
-  };
-};
+// se_ConditionKeyValueMap omitted.
 
-const serializeAws_restJson1CreateCustomVocabularyItemsList = (
-  input: NewCustomVocabularyItem[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1NewCustomVocabularyItem(entry, context);
-    });
-};
+// se_ConditionMap omitted.
 
-const serializeAws_restJson1CustomPayload = (input: CustomPayload, context: __SerdeContext): any => {
-  return {
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_ConversationLogSettings omitted.
 
-const serializeAws_restJson1CustomVocabularyEntryId = (
-  input: CustomVocabularyEntryId,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.itemId != null && { itemId: input.itemId }),
-  };
-};
+// se_CreateCustomVocabularyItemsList omitted.
 
-const serializeAws_restJson1CustomVocabularyExportSpecification = (
-  input: CustomVocabularyExportSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.botId != null && { botId: input.botId }),
-    ...(input.botVersion != null && { botVersion: input.botVersion }),
-    ...(input.localeId != null && { localeId: input.localeId }),
-  };
-};
+// se_CustomPayload omitted.
 
-const serializeAws_restJson1CustomVocabularyImportSpecification = (
-  input: CustomVocabularyImportSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.botId != null && { botId: input.botId }),
-    ...(input.botVersion != null && { botVersion: input.botVersion }),
-    ...(input.localeId != null && { localeId: input.localeId }),
-  };
-};
+// se_CustomVocabularyEntryId omitted.
 
-const serializeAws_restJson1CustomVocabularyItem = (input: CustomVocabularyItem, context: __SerdeContext): any => {
-  return {
-    ...(input.displayAs != null && { displayAs: input.displayAs }),
-    ...(input.itemId != null && { itemId: input.itemId }),
-    ...(input.phrase != null && { phrase: input.phrase }),
-    ...(input.weight != null && { weight: input.weight }),
-  };
-};
+// se_CustomVocabularyExportSpecification omitted.
 
-const serializeAws_restJson1DataPrivacy = (input: DataPrivacy, context: __SerdeContext): any => {
-  return {
-    ...(input.childDirected != null && { childDirected: input.childDirected }),
-  };
-};
+// se_CustomVocabularyImportSpecification omitted.
 
-const serializeAws_restJson1DateRangeFilter = (input: DateRangeFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.endDateTime != null && { endDateTime: Math.round(input.endDateTime.getTime() / 1000) }),
-    ...(input.startDateTime != null && { startDateTime: Math.round(input.startDateTime.getTime() / 1000) }),
-  };
-};
+// se_CustomVocabularyItem omitted.
 
-const serializeAws_restJson1DefaultConditionalBranch = (
-  input: DefaultConditionalBranch,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.nextStep != null && { nextStep: serializeAws_restJson1DialogState(input.nextStep, context) }),
-    ...(input.response != null && { response: serializeAws_restJson1ResponseSpecification(input.response, context) }),
-  };
-};
+// se_DataPrivacy omitted.
 
-const serializeAws_restJson1DeleteCustomVocabularyItemsList = (
-  input: CustomVocabularyEntryId[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1CustomVocabularyEntryId(entry, context);
-    });
+/**
+ * serializeAws_restJson1DateRangeFilter
+ */
+const se_DateRangeFilter = (input: DateRangeFilter, context: __SerdeContext): any => {
+  return take(input, {
+    endDateTime: (_) => Math.round(_.getTime() / 1000),
+    startDateTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_restJson1DialogAction = (input: DialogAction, context: __SerdeContext): any => {
-  return {
-    ...(input.slotToElicit != null && { slotToElicit: input.slotToElicit }),
-    ...(input.suppressNextMessage != null && { suppressNextMessage: input.suppressNextMessage }),
-    ...(input.type != null && { type: input.type }),
-  };
+/**
+ * serializeAws_restJson1DefaultConditionalBranch
+ */
+const se_DefaultConditionalBranch = (input: DefaultConditionalBranch, context: __SerdeContext): any => {
+  return take(input, {
+    nextStep: (_) => se_DialogState(_, context),
+    response: _json,
+  });
 };
 
-const serializeAws_restJson1DialogCodeHookInvocationSetting = (
-  input: DialogCodeHookInvocationSetting,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.active != null && { active: input.active }),
-    ...(input.enableCodeHookInvocation != null && { enableCodeHookInvocation: input.enableCodeHookInvocation }),
-    ...(input.invocationLabel != null && { invocationLabel: input.invocationLabel }),
-    ...(input.postCodeHookSpecification != null && {
-      postCodeHookSpecification: serializeAws_restJson1PostDialogCodeHookInvocationSpecification(
-        input.postCodeHookSpecification,
-        context
-      ),
-    }),
-  };
-};
+// se_DeleteCustomVocabularyItemsList omitted.
 
-const serializeAws_restJson1DialogCodeHookSettings = (input: DialogCodeHookSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.enabled != null && { enabled: input.enabled }),
-  };
-};
+// se_DialogAction omitted.
 
-const serializeAws_restJson1DialogState = (input: DialogState, context: __SerdeContext): any => {
-  return {
-    ...(input.dialogAction != null && {
-      dialogAction: serializeAws_restJson1DialogAction(input.dialogAction, context),
-    }),
-    ...(input.intent != null && { intent: serializeAws_restJson1IntentOverride(input.intent, context) }),
-    ...(input.sessionAttributes != null && {
-      sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1DialogCodeHookInvocationSetting
+ */
+const se_DialogCodeHookInvocationSetting = (input: DialogCodeHookInvocationSetting, context: __SerdeContext): any => {
+  return take(input, {
+    active: [],
+    enableCodeHookInvocation: [],
+    invocationLabel: [],
+    postCodeHookSpecification: (_) => se_PostDialogCodeHookInvocationSpecification(_, context),
+  });
 };
 
-const serializeAws_restJson1DTMFSpecification = (input: DTMFSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.deletionCharacter != null && { deletionCharacter: input.deletionCharacter }),
-    ...(input.endCharacter != null && { endCharacter: input.endCharacter }),
-    ...(input.endTimeoutMs != null && { endTimeoutMs: input.endTimeoutMs }),
-    ...(input.maxLength != null && { maxLength: input.maxLength }),
-  };
-};
+// se_DialogCodeHookSettings omitted.
 
-const serializeAws_restJson1ElicitationCodeHookInvocationSetting = (
-  input: ElicitationCodeHookInvocationSetting,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.enableCodeHookInvocation != null && { enableCodeHookInvocation: input.enableCodeHookInvocation }),
-    ...(input.invocationLabel != null && { invocationLabel: input.invocationLabel }),
-  };
+/**
+ * serializeAws_restJson1DialogState
+ */
+const se_DialogState = (input: DialogState, context: __SerdeContext): any => {
+  return take(input, {
+    dialogAction: _json,
+    intent: (_) => se_IntentOverride(_, context),
+    sessionAttributes: _json,
+  });
 };
 
-const serializeAws_restJson1EncryptionSetting = (input: EncryptionSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.associatedTranscriptsPassword != null && {
-      associatedTranscriptsPassword: input.associatedTranscriptsPassword,
-    }),
-    ...(input.botLocaleExportPassword != null && { botLocaleExportPassword: input.botLocaleExportPassword }),
-    ...(input.kmsKeyArn != null && { kmsKeyArn: input.kmsKeyArn }),
-  };
-};
+// se_DTMFSpecification omitted.
 
-const serializeAws_restJson1ExportFilter = (input: ExportFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.values != null && { values: serializeAws_restJson1FilterValues(input.values, context) }),
-  };
-};
+// se_ElicitationCodeHookInvocationSetting omitted.
 
-const serializeAws_restJson1ExportFilters = (input: ExportFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1ExportFilter(entry, context);
-    });
-};
+// se_EncryptionSetting omitted.
 
-const serializeAws_restJson1ExportResourceSpecification = (
-  input: ExportResourceSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.botExportSpecification != null && {
-      botExportSpecification: serializeAws_restJson1BotExportSpecification(input.botExportSpecification, context),
-    }),
-    ...(input.botLocaleExportSpecification != null && {
-      botLocaleExportSpecification: serializeAws_restJson1BotLocaleExportSpecification(
-        input.botLocaleExportSpecification,
-        context
-      ),
-    }),
-    ...(input.customVocabularyExportSpecification != null && {
-      customVocabularyExportSpecification: serializeAws_restJson1CustomVocabularyExportSpecification(
-        input.customVocabularyExportSpecification,
-        context
-      ),
-    }),
-  };
-};
+// se_ExportFilter omitted.
 
-const serializeAws_restJson1ExportSortBy = (input: ExportSortBy, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.order != null && { order: input.order }),
-  };
-};
+// se_ExportFilters omitted.
 
-const serializeAws_restJson1ExternalSourceSetting = (input: ExternalSourceSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.grammarSlotTypeSetting != null && {
-      grammarSlotTypeSetting: serializeAws_restJson1GrammarSlotTypeSetting(input.grammarSlotTypeSetting, context),
-    }),
-  };
-};
+// se_ExportResourceSpecification omitted.
 
-const serializeAws_restJson1FilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ExportSortBy omitted.
 
-const serializeAws_restJson1FulfillmentCodeHookSettings = (
-  input: FulfillmentCodeHookSettings,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.active != null && { active: input.active }),
-    ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.fulfillmentUpdatesSpecification != null && {
-      fulfillmentUpdatesSpecification: serializeAws_restJson1FulfillmentUpdatesSpecification(
-        input.fulfillmentUpdatesSpecification,
-        context
-      ),
-    }),
-    ...(input.postFulfillmentStatusSpecification != null && {
-      postFulfillmentStatusSpecification: serializeAws_restJson1PostFulfillmentStatusSpecification(
-        input.postFulfillmentStatusSpecification,
-        context
-      ),
-    }),
-  };
-};
+// se_ExternalSourceSetting omitted.
 
-const serializeAws_restJson1FulfillmentStartResponseSpecification = (
-  input: FulfillmentStartResponseSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.allowInterrupt != null && { allowInterrupt: input.allowInterrupt }),
-    ...(input.delayInSeconds != null && { delayInSeconds: input.delayInSeconds }),
-    ...(input.messageGroups != null && {
-      messageGroups: serializeAws_restJson1MessageGroupsList(input.messageGroups, context),
-    }),
-  };
-};
+// se_FilterValues omitted.
 
-const serializeAws_restJson1FulfillmentUpdateResponseSpecification = (
-  input: FulfillmentUpdateResponseSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.allowInterrupt != null && { allowInterrupt: input.allowInterrupt }),
-    ...(input.frequencyInSeconds != null && { frequencyInSeconds: input.frequencyInSeconds }),
-    ...(input.messageGroups != null && {
-      messageGroups: serializeAws_restJson1MessageGroupsList(input.messageGroups, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1FulfillmentCodeHookSettings
+ */
+const se_FulfillmentCodeHookSettings = (input: FulfillmentCodeHookSettings, context: __SerdeContext): any => {
+  return take(input, {
+    active: [],
+    enabled: [],
+    fulfillmentUpdatesSpecification: _json,
+    postFulfillmentStatusSpecification: (_) => se_PostFulfillmentStatusSpecification(_, context),
+  });
 };
 
-const serializeAws_restJson1FulfillmentUpdatesSpecification = (
-  input: FulfillmentUpdatesSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.active != null && { active: input.active }),
-    ...(input.startResponse != null && {
-      startResponse: serializeAws_restJson1FulfillmentStartResponseSpecification(input.startResponse, context),
-    }),
-    ...(input.timeoutInSeconds != null && { timeoutInSeconds: input.timeoutInSeconds }),
-    ...(input.updateResponse != null && {
-      updateResponse: serializeAws_restJson1FulfillmentUpdateResponseSpecification(input.updateResponse, context),
-    }),
-  };
-};
+// se_FulfillmentStartResponseSpecification omitted.
 
-const serializeAws_restJson1GrammarSlotTypeSetting = (input: GrammarSlotTypeSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.source != null && { source: serializeAws_restJson1GrammarSlotTypeSource(input.source, context) }),
-  };
-};
+// se_FulfillmentUpdateResponseSpecification omitted.
+
+// se_FulfillmentUpdatesSpecification omitted.
+
+// se_GrammarSlotTypeSetting omitted.
 
-const serializeAws_restJson1GrammarSlotTypeSource = (input: GrammarSlotTypeSource, context: __SerdeContext): any => {
-  return {
-    ...(input.kmsKeyArn != null && { kmsKeyArn: input.kmsKeyArn }),
-    ...(input.s3BucketName != null && { s3BucketName: input.s3BucketName }),
-    ...(input.s3ObjectKey != null && { s3ObjectKey: input.s3ObjectKey }),
-  };
-};
+// se_GrammarSlotTypeSource omitted.
 
-const serializeAws_restJson1ImageResponseCard = (input: ImageResponseCard, context: __SerdeContext): any => {
-  return {
-    ...(input.buttons != null && { buttons: serializeAws_restJson1ButtonsList(input.buttons, context) }),
-    ...(input.imageUrl != null && { imageUrl: input.imageUrl }),
-    ...(input.subtitle != null && { subtitle: input.subtitle }),
-    ...(input.title != null && { title: input.title }),
-  };
-};
+// se_ImageResponseCard omitted.
 
-const serializeAws_restJson1ImportFilter = (input: ImportFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.values != null && { values: serializeAws_restJson1FilterValues(input.values, context) }),
-  };
-};
+// se_ImportFilter omitted.
 
-const serializeAws_restJson1ImportFilters = (input: ImportFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1ImportFilter(entry, context);
-    });
-};
+// se_ImportFilters omitted.
 
-const serializeAws_restJson1ImportResourceSpecification = (
-  input: ImportResourceSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.botImportSpecification != null && {
-      botImportSpecification: serializeAws_restJson1BotImportSpecification(input.botImportSpecification, context),
-    }),
-    ...(input.botLocaleImportSpecification != null && {
-      botLocaleImportSpecification: serializeAws_restJson1BotLocaleImportSpecification(
-        input.botLocaleImportSpecification,
-        context
-      ),
-    }),
-    ...(input.customVocabularyImportSpecification != null && {
-      customVocabularyImportSpecification: serializeAws_restJson1CustomVocabularyImportSpecification(
-        input.customVocabularyImportSpecification,
-        context
-      ),
-    }),
-  };
+/**
+ * serializeAws_restJson1ImportResourceSpecification
+ */
+const se_ImportResourceSpecification = (input: ImportResourceSpecification, context: __SerdeContext): any => {
+  return take(input, {
+    botImportSpecification: _json,
+    botLocaleImportSpecification: (_) => se_BotLocaleImportSpecification(_, context),
+    customVocabularyImportSpecification: _json,
+  });
 };
 
-const serializeAws_restJson1ImportSortBy = (input: ImportSortBy, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.order != null && { order: input.order }),
-  };
-};
+// se_ImportSortBy omitted.
 
-const serializeAws_restJson1InitialResponseSetting = (input: InitialResponseSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.codeHook != null && {
-      codeHook: serializeAws_restJson1DialogCodeHookInvocationSetting(input.codeHook, context),
-    }),
-    ...(input.conditional != null && {
-      conditional: serializeAws_restJson1ConditionalSpecification(input.conditional, context),
-    }),
-    ...(input.initialResponse != null && {
-      initialResponse: serializeAws_restJson1ResponseSpecification(input.initialResponse, context),
-    }),
-    ...(input.nextStep != null && { nextStep: serializeAws_restJson1DialogState(input.nextStep, context) }),
-  };
+/**
+ * serializeAws_restJson1InitialResponseSetting
+ */
+const se_InitialResponseSetting = (input: InitialResponseSetting, context: __SerdeContext): any => {
+  return take(input, {
+    codeHook: (_) => se_DialogCodeHookInvocationSetting(_, context),
+    conditional: (_) => se_ConditionalSpecification(_, context),
+    initialResponse: _json,
+    nextStep: (_) => se_DialogState(_, context),
+  });
 };
 
-const serializeAws_restJson1InputContext = (input: InputContext, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_InputContext omitted.
 
-const serializeAws_restJson1InputContextsList = (input: InputContext[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1InputContext(entry, context);
-    });
-};
+// se_InputContextsList omitted.
 
-const serializeAws_restJson1IntentClosingSetting = (input: IntentClosingSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.active != null && { active: input.active }),
-    ...(input.closingResponse != null && {
-      closingResponse: serializeAws_restJson1ResponseSpecification(input.closingResponse, context),
-    }),
-    ...(input.conditional != null && {
-      conditional: serializeAws_restJson1ConditionalSpecification(input.conditional, context),
-    }),
-    ...(input.nextStep != null && { nextStep: serializeAws_restJson1DialogState(input.nextStep, context) }),
-  };
+/**
+ * serializeAws_restJson1IntentClosingSetting
+ */
+const se_IntentClosingSetting = (input: IntentClosingSetting, context: __SerdeContext): any => {
+  return take(input, {
+    active: [],
+    closingResponse: _json,
+    conditional: (_) => se_ConditionalSpecification(_, context),
+    nextStep: (_) => se_DialogState(_, context),
+  });
 };
 
-const serializeAws_restJson1IntentConfirmationSetting = (
-  input: IntentConfirmationSetting,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.active != null && { active: input.active }),
-    ...(input.codeHook != null && {
-      codeHook: serializeAws_restJson1DialogCodeHookInvocationSetting(input.codeHook, context),
-    }),
-    ...(input.confirmationConditional != null && {
-      confirmationConditional: serializeAws_restJson1ConditionalSpecification(input.confirmationConditional, context),
-    }),
-    ...(input.confirmationNextStep != null && {
-      confirmationNextStep: serializeAws_restJson1DialogState(input.confirmationNextStep, context),
-    }),
-    ...(input.confirmationResponse != null && {
-      confirmationResponse: serializeAws_restJson1ResponseSpecification(input.confirmationResponse, context),
-    }),
-    ...(input.declinationConditional != null && {
-      declinationConditional: serializeAws_restJson1ConditionalSpecification(input.declinationConditional, context),
-    }),
-    ...(input.declinationNextStep != null && {
-      declinationNextStep: serializeAws_restJson1DialogState(input.declinationNextStep, context),
-    }),
-    ...(input.declinationResponse != null && {
-      declinationResponse: serializeAws_restJson1ResponseSpecification(input.declinationResponse, context),
-    }),
-    ...(input.elicitationCodeHook != null && {
-      elicitationCodeHook: serializeAws_restJson1ElicitationCodeHookInvocationSetting(
-        input.elicitationCodeHook,
-        context
-      ),
-    }),
-    ...(input.failureConditional != null && {
-      failureConditional: serializeAws_restJson1ConditionalSpecification(input.failureConditional, context),
-    }),
-    ...(input.failureNextStep != null && {
-      failureNextStep: serializeAws_restJson1DialogState(input.failureNextStep, context),
-    }),
-    ...(input.failureResponse != null && {
-      failureResponse: serializeAws_restJson1ResponseSpecification(input.failureResponse, context),
-    }),
-    ...(input.promptSpecification != null && {
-      promptSpecification: serializeAws_restJson1PromptSpecification(input.promptSpecification, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1IntentConfirmationSetting
+ */
+const se_IntentConfirmationSetting = (input: IntentConfirmationSetting, context: __SerdeContext): any => {
+  return take(input, {
+    active: [],
+    codeHook: (_) => se_DialogCodeHookInvocationSetting(_, context),
+    confirmationConditional: (_) => se_ConditionalSpecification(_, context),
+    confirmationNextStep: (_) => se_DialogState(_, context),
+    confirmationResponse: _json,
+    declinationConditional: (_) => se_ConditionalSpecification(_, context),
+    declinationNextStep: (_) => se_DialogState(_, context),
+    declinationResponse: _json,
+    elicitationCodeHook: _json,
+    failureConditional: (_) => se_ConditionalSpecification(_, context),
+    failureNextStep: (_) => se_DialogState(_, context),
+    failureResponse: _json,
+    promptSpecification: _json,
+  });
 };
 
-const serializeAws_restJson1IntentFilter = (input: IntentFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.values != null && { values: serializeAws_restJson1FilterValues(input.values, context) }),
-  };
-};
+// se_IntentFilter omitted.
 
-const serializeAws_restJson1IntentFilters = (input: IntentFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1IntentFilter(entry, context);
-    });
-};
+// se_IntentFilters omitted.
 
-const serializeAws_restJson1IntentOverride = (input: IntentOverride, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.slots != null && { slots: serializeAws_restJson1SlotValueOverrideMap(input.slots, context) }),
-  };
+/**
+ * serializeAws_restJson1IntentOverride
+ */
+const se_IntentOverride = (input: IntentOverride, context: __SerdeContext): any => {
+  return take(input, {
+    name: [],
+    slots: (_) => se_SlotValueOverrideMap(_, context),
+  });
 };
 
-const serializeAws_restJson1IntentSortBy = (input: IntentSortBy, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.order != null && { order: input.order }),
-  };
-};
+// se_IntentSortBy omitted.
 
-const serializeAws_restJson1KendraConfiguration = (input: KendraConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.kendraIndex != null && { kendraIndex: input.kendraIndex }),
-    ...(input.queryFilterString != null && { queryFilterString: input.queryFilterString }),
-    ...(input.queryFilterStringEnabled != null && { queryFilterStringEnabled: input.queryFilterStringEnabled }),
-  };
-};
+// se_KendraConfiguration omitted.
 
-const serializeAws_restJson1LambdaCodeHook = (input: LambdaCodeHook, context: __SerdeContext): any => {
-  return {
-    ...(input.codeHookInterfaceVersion != null && { codeHookInterfaceVersion: input.codeHookInterfaceVersion }),
-    ...(input.lambdaARN != null && { lambdaARN: input.lambdaARN }),
-  };
-};
+// se_LambdaCodeHook omitted.
 
-const serializeAws_restJson1LexTranscriptFilter = (input: LexTranscriptFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.dateRangeFilter != null && {
-      dateRangeFilter: serializeAws_restJson1DateRangeFilter(input.dateRangeFilter, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1LexTranscriptFilter
+ */
+const se_LexTranscriptFilter = (input: LexTranscriptFilter, context: __SerdeContext): any => {
+  return take(input, {
+    dateRangeFilter: (_) => se_DateRangeFilter(_, context),
+  });
 };
 
-const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
-  return {
-    ...(input.customPayload != null && {
-      customPayload: serializeAws_restJson1CustomPayload(input.customPayload, context),
-    }),
-    ...(input.imageResponseCard != null && {
-      imageResponseCard: serializeAws_restJson1ImageResponseCard(input.imageResponseCard, context),
-    }),
-    ...(input.plainTextMessage != null && {
-      plainTextMessage: serializeAws_restJson1PlainTextMessage(input.plainTextMessage, context),
-    }),
-    ...(input.ssmlMessage != null && { ssmlMessage: serializeAws_restJson1SSMLMessage(input.ssmlMessage, context) }),
-  };
-};
+// se_Message omitted.
 
-const serializeAws_restJson1MessageGroup = (input: MessageGroup, context: __SerdeContext): any => {
-  return {
-    ...(input.message != null && { message: serializeAws_restJson1Message(input.message, context) }),
-    ...(input.variations != null && {
-      variations: serializeAws_restJson1MessageVariationsList(input.variations, context),
-    }),
-  };
-};
+// se_MessageGroup omitted.
 
-const serializeAws_restJson1MessageGroupsList = (input: MessageGroup[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1MessageGroup(entry, context);
-    });
-};
+// se_MessageGroupsList omitted.
 
-const serializeAws_restJson1MessageVariationsList = (input: Message[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Message(entry, context);
-    });
-};
+// se_MessageVariationsList omitted.
 
-const serializeAws_restJson1MultipleValuesSetting = (input: MultipleValuesSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.allowMultipleValues != null && { allowMultipleValues: input.allowMultipleValues }),
-  };
-};
+// se_MultipleValuesSetting omitted.
 
-const serializeAws_restJson1NewCustomVocabularyItem = (
-  input: NewCustomVocabularyItem,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.displayAs != null && { displayAs: input.displayAs }),
-    ...(input.phrase != null && { phrase: input.phrase }),
-    ...(input.weight != null && { weight: input.weight }),
-  };
-};
+// se_NewCustomVocabularyItem omitted.
 
-const serializeAws_restJson1ObfuscationSetting = (input: ObfuscationSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.obfuscationSettingType != null && { obfuscationSettingType: input.obfuscationSettingType }),
-  };
-};
+// se_ObfuscationSetting omitted.
 
-const serializeAws_restJson1ObjectPrefixes = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ObjectPrefixes omitted.
 
-const serializeAws_restJson1OperationList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OperationList omitted.
 
-const serializeAws_restJson1OutputContext = (input: OutputContext, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.timeToLiveInSeconds != null && { timeToLiveInSeconds: input.timeToLiveInSeconds }),
-    ...(input.turnsToLive != null && { turnsToLive: input.turnsToLive }),
-  };
-};
+// se_OutputContext omitted.
 
-const serializeAws_restJson1OutputContextsList = (input: OutputContext[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1OutputContext(entry, context);
-    });
-};
+// se_OutputContextsList omitted.
 
-const serializeAws_restJson1PathFormat = (input: PathFormat, context: __SerdeContext): any => {
-  return {
-    ...(input.objectPrefixes != null && {
-      objectPrefixes: serializeAws_restJson1ObjectPrefixes(input.objectPrefixes, context),
-    }),
-  };
-};
+// se_PathFormat omitted.
 
-const serializeAws_restJson1PlainTextMessage = (input: PlainTextMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_PlainTextMessage omitted.
 
-const serializeAws_restJson1PostDialogCodeHookInvocationSpecification = (
+/**
+ * serializeAws_restJson1PostDialogCodeHookInvocationSpecification
+ */
+const se_PostDialogCodeHookInvocationSpecification = (
   input: PostDialogCodeHookInvocationSpecification,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.failureConditional != null && {
-      failureConditional: serializeAws_restJson1ConditionalSpecification(input.failureConditional, context),
-    }),
-    ...(input.failureNextStep != null && {
-      failureNextStep: serializeAws_restJson1DialogState(input.failureNextStep, context),
-    }),
-    ...(input.failureResponse != null && {
-      failureResponse: serializeAws_restJson1ResponseSpecification(input.failureResponse, context),
-    }),
-    ...(input.successConditional != null && {
-      successConditional: serializeAws_restJson1ConditionalSpecification(input.successConditional, context),
-    }),
-    ...(input.successNextStep != null && {
-      successNextStep: serializeAws_restJson1DialogState(input.successNextStep, context),
-    }),
-    ...(input.successResponse != null && {
-      successResponse: serializeAws_restJson1ResponseSpecification(input.successResponse, context),
-    }),
-    ...(input.timeoutConditional != null && {
-      timeoutConditional: serializeAws_restJson1ConditionalSpecification(input.timeoutConditional, context),
-    }),
-    ...(input.timeoutNextStep != null && {
-      timeoutNextStep: serializeAws_restJson1DialogState(input.timeoutNextStep, context),
-    }),
-    ...(input.timeoutResponse != null && {
-      timeoutResponse: serializeAws_restJson1ResponseSpecification(input.timeoutResponse, context),
-    }),
-  };
+  return take(input, {
+    failureConditional: (_) => se_ConditionalSpecification(_, context),
+    failureNextStep: (_) => se_DialogState(_, context),
+    failureResponse: _json,
+    successConditional: (_) => se_ConditionalSpecification(_, context),
+    successNextStep: (_) => se_DialogState(_, context),
+    successResponse: _json,
+    timeoutConditional: (_) => se_ConditionalSpecification(_, context),
+    timeoutNextStep: (_) => se_DialogState(_, context),
+    timeoutResponse: _json,
+  });
 };
 
-const serializeAws_restJson1PostFulfillmentStatusSpecification = (
+/**
+ * serializeAws_restJson1PostFulfillmentStatusSpecification
+ */
+const se_PostFulfillmentStatusSpecification = (
   input: PostFulfillmentStatusSpecification,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.failureConditional != null && {
-      failureConditional: serializeAws_restJson1ConditionalSpecification(input.failureConditional, context),
-    }),
-    ...(input.failureNextStep != null && {
-      failureNextStep: serializeAws_restJson1DialogState(input.failureNextStep, context),
-    }),
-    ...(input.failureResponse != null && {
-      failureResponse: serializeAws_restJson1ResponseSpecification(input.failureResponse, context),
-    }),
-    ...(input.successConditional != null && {
-      successConditional: serializeAws_restJson1ConditionalSpecification(input.successConditional, context),
-    }),
-    ...(input.successNextStep != null && {
-      successNextStep: serializeAws_restJson1DialogState(input.successNextStep, context),
-    }),
-    ...(input.successResponse != null && {
-      successResponse: serializeAws_restJson1ResponseSpecification(input.successResponse, context),
-    }),
-    ...(input.timeoutConditional != null && {
-      timeoutConditional: serializeAws_restJson1ConditionalSpecification(input.timeoutConditional, context),
-    }),
-    ...(input.timeoutNextStep != null && {
-      timeoutNextStep: serializeAws_restJson1DialogState(input.timeoutNextStep, context),
-    }),
-    ...(input.timeoutResponse != null && {
-      timeoutResponse: serializeAws_restJson1ResponseSpecification(input.timeoutResponse, context),
-    }),
-  };
+  return take(input, {
+    failureConditional: (_) => se_ConditionalSpecification(_, context),
+    failureNextStep: (_) => se_DialogState(_, context),
+    failureResponse: _json,
+    successConditional: (_) => se_ConditionalSpecification(_, context),
+    successNextStep: (_) => se_DialogState(_, context),
+    successResponse: _json,
+    timeoutConditional: (_) => se_ConditionalSpecification(_, context),
+    timeoutNextStep: (_) => se_DialogState(_, context),
+    timeoutResponse: _json,
+  });
 };
 
-const serializeAws_restJson1Principal = (input: Principal, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.service != null && { service: input.service }),
-  };
+// se_Principal omitted.
+
+// se_PrincipalList omitted.
+
+// se_PromptAttemptSpecification omitted.
+
+// se_PromptAttemptsSpecificationMap omitted.
+
+// se_PromptSpecification omitted.
+
+// se_RelativeAggregationDuration omitted.
+
+// se_ResponseSpecification omitted.
+
+// se_S3BucketLogDestination omitted.
+
+/**
+ * serializeAws_restJson1S3BucketTranscriptSource
+ */
+const se_S3BucketTranscriptSource = (input: S3BucketTranscriptSource, context: __SerdeContext): any => {
+  return take(input, {
+    kmsKeyArn: [],
+    pathFormat: _json,
+    s3BucketName: [],
+    transcriptFilter: (_) => se_TranscriptFilter(_, context),
+    transcriptFormat: [],
+  });
 };
 
-const serializeAws_restJson1PrincipalList = (input: Principal[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Principal(entry, context);
-    });
+// se_SampleUtterance omitted.
+
+// se_SampleUtterancesList omitted.
+
+// se_SampleValue omitted.
+
+// se_SentimentAnalysisSettings omitted.
+
+/**
+ * serializeAws_restJson1SlotCaptureSetting
+ */
+const se_SlotCaptureSetting = (input: SlotCaptureSetting, context: __SerdeContext): any => {
+  return take(input, {
+    captureConditional: (_) => se_ConditionalSpecification(_, context),
+    captureNextStep: (_) => se_DialogState(_, context),
+    captureResponse: _json,
+    codeHook: (_) => se_DialogCodeHookInvocationSetting(_, context),
+    elicitationCodeHook: _json,
+    failureConditional: (_) => se_ConditionalSpecification(_, context),
+    failureNextStep: (_) => se_DialogState(_, context),
+    failureResponse: _json,
+  });
 };
 
-const serializeAws_restJson1PromptAttemptSpecification = (
-  input: PromptAttemptSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.allowInterrupt != null && { allowInterrupt: input.allowInterrupt }),
-    ...(input.allowedInputTypes != null && {
-      allowedInputTypes: serializeAws_restJson1AllowedInputTypes(input.allowedInputTypes, context),
-    }),
-    ...(input.audioAndDTMFInputSpecification != null && {
-      audioAndDTMFInputSpecification: serializeAws_restJson1AudioAndDTMFInputSpecification(
-        input.audioAndDTMFInputSpecification,
-        context
-      ),
-    }),
-    ...(input.textInputSpecification != null && {
-      textInputSpecification: serializeAws_restJson1TextInputSpecification(input.textInputSpecification, context),
-    }),
-  };
+// se_SlotDefaultValue omitted.
+
+// se_SlotDefaultValueList omitted.
+
+// se_SlotDefaultValueSpecification omitted.
+
+// se_SlotFilter omitted.
+
+// se_SlotFilters omitted.
+
+// se_SlotPrioritiesList omitted.
+
+// se_SlotPriority omitted.
+
+// se_SlotSortBy omitted.
+
+// se_SlotTypeFilter omitted.
+
+// se_SlotTypeFilters omitted.
+
+// se_SlotTypeSortBy omitted.
+
+// se_SlotTypeValue omitted.
+
+// se_SlotTypeValues omitted.
+
+// se_SlotValue omitted.
+
+/**
+ * serializeAws_restJson1SlotValueElicitationSetting
+ */
+const se_SlotValueElicitationSetting = (input: SlotValueElicitationSetting, context: __SerdeContext): any => {
+  return take(input, {
+    defaultValueSpecification: _json,
+    promptSpecification: _json,
+    sampleUtterances: _json,
+    slotCaptureSetting: (_) => se_SlotCaptureSetting(_, context),
+    slotConstraint: [],
+    waitAndContinueSpecification: _json,
+  });
 };
 
-const serializeAws_restJson1PromptAttemptsSpecificationMap = (
-  input: Record<string, PromptAttemptSpecification>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [PromptAttempt | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1PromptAttemptSpecification(value, context);
-    return acc;
-  }, {});
+/**
+ * serializeAws_restJson1SlotValueOverride
+ */
+const se_SlotValueOverride = (input: SlotValueOverride, context: __SerdeContext): any => {
+  return take(input, {
+    shape: [],
+    value: _json,
+    values: (_) => se_SlotValues(_, context),
+  });
 };
 
-const serializeAws_restJson1PromptSpecification = (input: PromptSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.allowInterrupt != null && { allowInterrupt: input.allowInterrupt }),
-    ...(input.maxRetries != null && { maxRetries: input.maxRetries }),
-    ...(input.messageGroups != null && {
-      messageGroups: serializeAws_restJson1MessageGroupsList(input.messageGroups, context),
-    }),
-    ...(input.messageSelectionStrategy != null && { messageSelectionStrategy: input.messageSelectionStrategy }),
-    ...(input.promptAttemptsSpecification != null && {
-      promptAttemptsSpecification: serializeAws_restJson1PromptAttemptsSpecificationMap(
-        input.promptAttemptsSpecification,
-        context
-      ),
-    }),
-  };
-};
-
-const serializeAws_restJson1RelativeAggregationDuration = (
-  input: RelativeAggregationDuration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.timeDimension != null && { timeDimension: input.timeDimension }),
-    ...(input.timeValue != null && { timeValue: input.timeValue }),
-  };
-};
-
-const serializeAws_restJson1ResponseSpecification = (input: ResponseSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.allowInterrupt != null && { allowInterrupt: input.allowInterrupt }),
-    ...(input.messageGroups != null && {
-      messageGroups: serializeAws_restJson1MessageGroupsList(input.messageGroups, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1S3BucketLogDestination = (input: S3BucketLogDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.kmsKeyArn != null && { kmsKeyArn: input.kmsKeyArn }),
-    ...(input.logPrefix != null && { logPrefix: input.logPrefix }),
-    ...(input.s3BucketArn != null && { s3BucketArn: input.s3BucketArn }),
-  };
-};
-
-const serializeAws_restJson1S3BucketTranscriptSource = (
-  input: S3BucketTranscriptSource,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.kmsKeyArn != null && { kmsKeyArn: input.kmsKeyArn }),
-    ...(input.pathFormat != null && { pathFormat: serializeAws_restJson1PathFormat(input.pathFormat, context) }),
-    ...(input.s3BucketName != null && { s3BucketName: input.s3BucketName }),
-    ...(input.transcriptFilter != null && {
-      transcriptFilter: serializeAws_restJson1TranscriptFilter(input.transcriptFilter, context),
-    }),
-    ...(input.transcriptFormat != null && { transcriptFormat: input.transcriptFormat }),
-  };
-};
-
-const serializeAws_restJson1SampleUtterance = (input: SampleUtterance, context: __SerdeContext): any => {
-  return {
-    ...(input.utterance != null && { utterance: input.utterance }),
-  };
-};
-
-const serializeAws_restJson1SampleUtterancesList = (input: SampleUtterance[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SampleUtterance(entry, context);
-    });
-};
-
-const serializeAws_restJson1SampleValue = (input: SampleValue, context: __SerdeContext): any => {
-  return {
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-const serializeAws_restJson1SentimentAnalysisSettings = (
-  input: SentimentAnalysisSettings,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.detectSentiment != null && { detectSentiment: input.detectSentiment }),
-  };
-};
-
-const serializeAws_restJson1SlotCaptureSetting = (input: SlotCaptureSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.captureConditional != null && {
-      captureConditional: serializeAws_restJson1ConditionalSpecification(input.captureConditional, context),
-    }),
-    ...(input.captureNextStep != null && {
-      captureNextStep: serializeAws_restJson1DialogState(input.captureNextStep, context),
-    }),
-    ...(input.captureResponse != null && {
-      captureResponse: serializeAws_restJson1ResponseSpecification(input.captureResponse, context),
-    }),
-    ...(input.codeHook != null && {
-      codeHook: serializeAws_restJson1DialogCodeHookInvocationSetting(input.codeHook, context),
-    }),
-    ...(input.elicitationCodeHook != null && {
-      elicitationCodeHook: serializeAws_restJson1ElicitationCodeHookInvocationSetting(
-        input.elicitationCodeHook,
-        context
-      ),
-    }),
-    ...(input.failureConditional != null && {
-      failureConditional: serializeAws_restJson1ConditionalSpecification(input.failureConditional, context),
-    }),
-    ...(input.failureNextStep != null && {
-      failureNextStep: serializeAws_restJson1DialogState(input.failureNextStep, context),
-    }),
-    ...(input.failureResponse != null && {
-      failureResponse: serializeAws_restJson1ResponseSpecification(input.failureResponse, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1SlotDefaultValue = (input: SlotDefaultValue, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
-  };
-};
-
-const serializeAws_restJson1SlotDefaultValueList = (input: SlotDefaultValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SlotDefaultValue(entry, context);
-    });
-};
-
-const serializeAws_restJson1SlotDefaultValueSpecification = (
-  input: SlotDefaultValueSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.defaultValueList != null && {
-      defaultValueList: serializeAws_restJson1SlotDefaultValueList(input.defaultValueList, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1SlotFilter = (input: SlotFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.values != null && { values: serializeAws_restJson1FilterValues(input.values, context) }),
-  };
-};
-
-const serializeAws_restJson1SlotFilters = (input: SlotFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SlotFilter(entry, context);
-    });
-};
-
-const serializeAws_restJson1SlotPrioritiesList = (input: SlotPriority[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SlotPriority(entry, context);
-    });
-};
-
-const serializeAws_restJson1SlotPriority = (input: SlotPriority, context: __SerdeContext): any => {
-  return {
-    ...(input.priority != null && { priority: input.priority }),
-    ...(input.slotId != null && { slotId: input.slotId }),
-  };
-};
-
-const serializeAws_restJson1SlotSortBy = (input: SlotSortBy, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.order != null && { order: input.order }),
-  };
-};
-
-const serializeAws_restJson1SlotTypeFilter = (input: SlotTypeFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.operator != null && { operator: input.operator }),
-    ...(input.values != null && { values: serializeAws_restJson1FilterValues(input.values, context) }),
-  };
-};
-
-const serializeAws_restJson1SlotTypeFilters = (input: SlotTypeFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SlotTypeFilter(entry, context);
-    });
-};
-
-const serializeAws_restJson1SlotTypeSortBy = (input: SlotTypeSortBy, context: __SerdeContext): any => {
-  return {
-    ...(input.attribute != null && { attribute: input.attribute }),
-    ...(input.order != null && { order: input.order }),
-  };
-};
-
-const serializeAws_restJson1SlotTypeValue = (input: SlotTypeValue, context: __SerdeContext): any => {
-  return {
-    ...(input.sampleValue != null && { sampleValue: serializeAws_restJson1SampleValue(input.sampleValue, context) }),
-    ...(input.synonyms != null && { synonyms: serializeAws_restJson1SynonymList(input.synonyms, context) }),
-  };
-};
-
-const serializeAws_restJson1SlotTypeValues = (input: SlotTypeValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SlotTypeValue(entry, context);
-    });
-};
-
-const serializeAws_restJson1SlotValue = (input: SlotValue, context: __SerdeContext): any => {
-  return {
-    ...(input.interpretedValue != null && { interpretedValue: input.interpretedValue }),
-  };
-};
-
-const serializeAws_restJson1SlotValueElicitationSetting = (
-  input: SlotValueElicitationSetting,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.defaultValueSpecification != null && {
-      defaultValueSpecification: serializeAws_restJson1SlotDefaultValueSpecification(
-        input.defaultValueSpecification,
-        context
-      ),
-    }),
-    ...(input.promptSpecification != null && {
-      promptSpecification: serializeAws_restJson1PromptSpecification(input.promptSpecification, context),
-    }),
-    ...(input.sampleUtterances != null && {
-      sampleUtterances: serializeAws_restJson1SampleUtterancesList(input.sampleUtterances, context),
-    }),
-    ...(input.slotCaptureSetting != null && {
-      slotCaptureSetting: serializeAws_restJson1SlotCaptureSetting(input.slotCaptureSetting, context),
-    }),
-    ...(input.slotConstraint != null && { slotConstraint: input.slotConstraint }),
-    ...(input.waitAndContinueSpecification != null && {
-      waitAndContinueSpecification: serializeAws_restJson1WaitAndContinueSpecification(
-        input.waitAndContinueSpecification,
-        context
-      ),
-    }),
-  };
-};
-
-const serializeAws_restJson1SlotValueOverride = (input: SlotValueOverride, context: __SerdeContext): any => {
-  return {
-    ...(input.shape != null && { shape: input.shape }),
-    ...(input.value != null && { value: serializeAws_restJson1SlotValue(input.value, context) }),
-    ...(input.values != null && { values: serializeAws_restJson1SlotValues(input.values, context) }),
-  };
-};
-
-const serializeAws_restJson1SlotValueOverrideMap = (
-  input: Record<string, SlotValueOverride>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1SlotValueOverrideMap
+ */
+const se_SlotValueOverrideMap = (input: Record<string, SlotValueOverride>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1SlotValueOverride(value, context);
+    acc[key] = se_SlotValueOverride(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1SlotValueRegexFilter = (input: SlotValueRegexFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.pattern != null && { pattern: input.pattern }),
-  };
-};
+// se_SlotValueRegexFilter omitted.
 
-const serializeAws_restJson1SlotValues = (input: SlotValueOverride[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SlotValues
+ */
+const se_SlotValues = (input: SlotValueOverride[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1SlotValueOverride(entry, context);
+      return se_SlotValueOverride(entry, context);
     });
 };
 
-const serializeAws_restJson1SlotValueSelectionSetting = (
-  input: SlotValueSelectionSetting,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.advancedRecognitionSetting != null && {
-      advancedRecognitionSetting: serializeAws_restJson1AdvancedRecognitionSetting(
-        input.advancedRecognitionSetting,
-        context
-      ),
-    }),
-    ...(input.regexFilter != null && {
-      regexFilter: serializeAws_restJson1SlotValueRegexFilter(input.regexFilter, context),
-    }),
-    ...(input.resolutionStrategy != null && { resolutionStrategy: input.resolutionStrategy }),
-  };
+// se_SlotValueSelectionSetting omitted.
+
+/**
+ * serializeAws_restJson1Specifications
+ */
+const se_Specifications = (input: Specifications, context: __SerdeContext): any => {
+  return take(input, {
+    slotTypeId: [],
+    valueElicitationSetting: _json,
+  });
 };
 
-const serializeAws_restJson1Specifications = (input: Specifications, context: __SerdeContext): any => {
-  return {
-    ...(input.slotTypeId != null && { slotTypeId: input.slotTypeId }),
-    ...(input.valueElicitationSetting != null && {
-      valueElicitationSetting: serializeAws_restJson1SubSlotValueElicitationSetting(
-        input.valueElicitationSetting,
-        context
-      ),
-    }),
-  };
+// se_SSMLMessage omitted.
+
+// se_StillWaitingResponseSpecification omitted.
+
+// se_StringMap omitted.
+
+/**
+ * serializeAws_restJson1SubSlotSetting
+ */
+const se_SubSlotSetting = (input: SubSlotSetting, context: __SerdeContext): any => {
+  return take(input, {
+    expression: [],
+    slotSpecifications: (_) => se_SubSlotSpecificationMap(_, context),
+  });
 };
 
-const serializeAws_restJson1SSMLMessage = (input: SSMLMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-const serializeAws_restJson1StillWaitingResponseSpecification = (
-  input: StillWaitingResponseSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.allowInterrupt != null && { allowInterrupt: input.allowInterrupt }),
-    ...(input.frequencyInSeconds != null && { frequencyInSeconds: input.frequencyInSeconds }),
-    ...(input.messageGroups != null && {
-      messageGroups: serializeAws_restJson1MessageGroupsList(input.messageGroups, context),
-    }),
-    ...(input.timeoutInSeconds != null && { timeoutInSeconds: input.timeoutInSeconds }),
-  };
-};
-
-const serializeAws_restJson1StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SubSlotSpecificationMap
+ */
+const se_SubSlotSpecificationMap = (input: Record<string, Specifications>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = value;
+    acc[key] = se_Specifications(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1SubSlotSetting = (input: SubSlotSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.expression != null && { expression: input.expression }),
-    ...(input.slotSpecifications != null && {
-      slotSpecifications: serializeAws_restJson1SubSlotSpecificationMap(input.slotSpecifications, context),
-    }),
-  };
+// se_SubSlotTypeComposition omitted.
+
+// se_SubSlotTypeList omitted.
+
+// se_SubSlotValueElicitationSetting omitted.
+
+// se_SynonymList omitted.
+
+// se_TagMap omitted.
+
+// se_TextInputSpecification omitted.
+
+// se_TextLogDestination omitted.
+
+// se_TextLogSetting omitted.
+
+// se_TextLogSettingsList omitted.
+
+/**
+ * serializeAws_restJson1TranscriptFilter
+ */
+const se_TranscriptFilter = (input: TranscriptFilter, context: __SerdeContext): any => {
+  return take(input, {
+    lexTranscriptFilter: (_) => se_LexTranscriptFilter(_, context),
+  });
 };
 
-const serializeAws_restJson1SubSlotSpecificationMap = (
-  input: Record<string, Specifications>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1Specifications(value, context);
-    return acc;
-  }, {});
+/**
+ * serializeAws_restJson1TranscriptSourceSetting
+ */
+const se_TranscriptSourceSetting = (input: TranscriptSourceSetting, context: __SerdeContext): any => {
+  return take(input, {
+    s3BucketTranscriptSource: (_) => se_S3BucketTranscriptSource(_, context),
+  });
 };
 
-const serializeAws_restJson1SubSlotTypeComposition = (input: SubSlotTypeComposition, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.slotTypeId != null && { slotTypeId: input.slotTypeId }),
-  };
+// se_UpdateCustomVocabularyItemsList omitted.
+
+// se_UtteranceAggregationDuration omitted.
+
+// se_VoiceSettings omitted.
+
+// se_WaitAndContinueSpecification omitted.
+
+// de_AdvancedRecognitionSetting omitted.
+
+/**
+ * deserializeAws_restJson1AggregatedUtterancesSummary
+ */
+const de_AggregatedUtterancesSummary = (output: any, context: __SerdeContext): AggregatedUtterancesSummary => {
+  return take(output, {
+    containsDataFromDeletedResources: __expectBoolean,
+    hitCount: __expectInt32,
+    missedCount: __expectInt32,
+    utterance: __expectString,
+    utteranceFirstRecordedInAggregationDuration: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    utteranceLastRecordedInAggregationDuration: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const serializeAws_restJson1SubSlotTypeList = (input: SubSlotTypeComposition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SubSlotTypeComposition(entry, context);
-    });
-};
-
-const serializeAws_restJson1SubSlotValueElicitationSetting = (
-  input: SubSlotValueElicitationSetting,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.defaultValueSpecification != null && {
-      defaultValueSpecification: serializeAws_restJson1SlotDefaultValueSpecification(
-        input.defaultValueSpecification,
-        context
-      ),
-    }),
-    ...(input.promptSpecification != null && {
-      promptSpecification: serializeAws_restJson1PromptSpecification(input.promptSpecification, context),
-    }),
-    ...(input.sampleUtterances != null && {
-      sampleUtterances: serializeAws_restJson1SampleUtterancesList(input.sampleUtterances, context),
-    }),
-    ...(input.waitAndContinueSpecification != null && {
-      waitAndContinueSpecification: serializeAws_restJson1WaitAndContinueSpecification(
-        input.waitAndContinueSpecification,
-        context
-      ),
-    }),
-  };
-};
-
-const serializeAws_restJson1SynonymList = (input: SampleValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SampleValue(entry, context);
-    });
-};
-
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1TextInputSpecification = (input: TextInputSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.startTimeoutMs != null && { startTimeoutMs: input.startTimeoutMs }),
-  };
-};
-
-const serializeAws_restJson1TextLogDestination = (input: TextLogDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.cloudWatch != null && {
-      cloudWatch: serializeAws_restJson1CloudWatchLogGroupLogDestination(input.cloudWatch, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1TextLogSetting = (input: TextLogSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.destination != null && {
-      destination: serializeAws_restJson1TextLogDestination(input.destination, context),
-    }),
-    ...(input.enabled != null && { enabled: input.enabled }),
-  };
-};
-
-const serializeAws_restJson1TextLogSettingsList = (input: TextLogSetting[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1TextLogSetting(entry, context);
-    });
-};
-
-const serializeAws_restJson1TranscriptFilter = (input: TranscriptFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.lexTranscriptFilter != null && {
-      lexTranscriptFilter: serializeAws_restJson1LexTranscriptFilter(input.lexTranscriptFilter, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1TranscriptSourceSetting = (
-  input: TranscriptSourceSetting,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.s3BucketTranscriptSource != null && {
-      s3BucketTranscriptSource: serializeAws_restJson1S3BucketTranscriptSource(input.s3BucketTranscriptSource, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1UpdateCustomVocabularyItemsList = (
-  input: CustomVocabularyItem[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1CustomVocabularyItem(entry, context);
-    });
-};
-
-const serializeAws_restJson1UtteranceAggregationDuration = (
-  input: UtteranceAggregationDuration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.relativeAggregationDuration != null && {
-      relativeAggregationDuration: serializeAws_restJson1RelativeAggregationDuration(
-        input.relativeAggregationDuration,
-        context
-      ),
-    }),
-  };
-};
-
-const serializeAws_restJson1VoiceSettings = (input: VoiceSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.engine != null && { engine: input.engine }),
-    ...(input.voiceId != null && { voiceId: input.voiceId }),
-  };
-};
-
-const serializeAws_restJson1WaitAndContinueSpecification = (
-  input: WaitAndContinueSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.active != null && { active: input.active }),
-    ...(input.continueResponse != null && {
-      continueResponse: serializeAws_restJson1ResponseSpecification(input.continueResponse, context),
-    }),
-    ...(input.stillWaitingResponse != null && {
-      stillWaitingResponse: serializeAws_restJson1StillWaitingResponseSpecification(
-        input.stillWaitingResponse,
-        context
-      ),
-    }),
-    ...(input.waitingResponse != null && {
-      waitingResponse: serializeAws_restJson1ResponseSpecification(input.waitingResponse, context),
-    }),
-  };
-};
-
-const deserializeAws_restJson1AdvancedRecognitionSetting = (
-  output: any,
-  context: __SerdeContext
-): AdvancedRecognitionSetting => {
-  return {
-    audioRecognitionStrategy: __expectString(output.audioRecognitionStrategy),
-  } as any;
-};
-
-const deserializeAws_restJson1AggregatedUtterancesSummary = (
-  output: any,
-  context: __SerdeContext
-): AggregatedUtterancesSummary => {
-  return {
-    containsDataFromDeletedResources: __expectBoolean(output.containsDataFromDeletedResources),
-    hitCount: __expectInt32(output.hitCount),
-    missedCount: __expectInt32(output.missedCount),
-    utterance: __expectString(output.utterance),
-    utteranceFirstRecordedInAggregationDuration:
-      output.utteranceFirstRecordedInAggregationDuration != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.utteranceFirstRecordedInAggregationDuration)))
-        : undefined,
-    utteranceLastRecordedInAggregationDuration:
-      output.utteranceLastRecordedInAggregationDuration != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.utteranceLastRecordedInAggregationDuration)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AggregatedUtterancesSummaryList = (
-  output: any,
-  context: __SerdeContext
-): AggregatedUtterancesSummary[] => {
+/**
+ * deserializeAws_restJson1AggregatedUtterancesSummaryList
+ */
+const de_AggregatedUtterancesSummaryList = (output: any, context: __SerdeContext): AggregatedUtterancesSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AggregatedUtterancesSummary(entry, context);
+      return de_AggregatedUtterancesSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AllowedInputTypes = (output: any, context: __SerdeContext): AllowedInputTypes => {
-  return {
-    allowAudioInput: __expectBoolean(output.allowAudioInput),
-    allowDTMFInput: __expectBoolean(output.allowDTMFInput),
-  } as any;
+// de_AllowedInputTypes omitted.
+
+// de_AssociatedTranscript omitted.
+
+// de_AssociatedTranscriptList omitted.
+
+// de_AudioAndDTMFInputSpecification omitted.
+
+// de_AudioLogDestination omitted.
+
+// de_AudioLogSetting omitted.
+
+// de_AudioLogSettingsList omitted.
+
+// de_AudioSpecification omitted.
+
+/**
+ * deserializeAws_restJson1BotAliasHistoryEvent
+ */
+const de_BotAliasHistoryEvent = (output: any, context: __SerdeContext): BotAliasHistoryEvent => {
+  return take(output, {
+    botVersion: __expectString,
+    endDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    startDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1AssociatedTranscript = (output: any, context: __SerdeContext): AssociatedTranscript => {
-  return {
-    transcript: __expectString(output.transcript),
-  } as any;
-};
-
-const deserializeAws_restJson1AssociatedTranscriptList = (
-  output: any,
-  context: __SerdeContext
-): AssociatedTranscript[] => {
+/**
+ * deserializeAws_restJson1BotAliasHistoryEventsList
+ */
+const de_BotAliasHistoryEventsList = (output: any, context: __SerdeContext): BotAliasHistoryEvent[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AssociatedTranscript(entry, context);
+      return de_BotAliasHistoryEvent(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AudioAndDTMFInputSpecification = (
-  output: any,
-  context: __SerdeContext
-): AudioAndDTMFInputSpecification => {
-  return {
-    audioSpecification:
-      output.audioSpecification != null
-        ? deserializeAws_restJson1AudioSpecification(output.audioSpecification, context)
-        : undefined,
-    dtmfSpecification:
-      output.dtmfSpecification != null
-        ? deserializeAws_restJson1DTMFSpecification(output.dtmfSpecification, context)
-        : undefined,
-    startTimeoutMs: __expectInt32(output.startTimeoutMs),
-  } as any;
+// de_BotAliasLocaleSettings omitted.
+
+// de_BotAliasLocaleSettingsMap omitted.
+
+/**
+ * deserializeAws_restJson1BotAliasSummary
+ */
+const de_BotAliasSummary = (output: any, context: __SerdeContext): BotAliasSummary => {
+  return take(output, {
+    botAliasId: __expectString,
+    botAliasName: __expectString,
+    botAliasStatus: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1AudioLogDestination = (output: any, context: __SerdeContext): AudioLogDestination => {
-  return {
-    s3Bucket:
-      output.s3Bucket != null ? deserializeAws_restJson1S3BucketLogDestination(output.s3Bucket, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AudioLogSetting = (output: any, context: __SerdeContext): AudioLogSetting => {
-  return {
-    destination:
-      output.destination != null ? deserializeAws_restJson1AudioLogDestination(output.destination, context) : undefined,
-    enabled: __expectBoolean(output.enabled),
-  } as any;
-};
-
-const deserializeAws_restJson1AudioLogSettingsList = (output: any, context: __SerdeContext): AudioLogSetting[] => {
+/**
+ * deserializeAws_restJson1BotAliasSummaryList
+ */
+const de_BotAliasSummaryList = (output: any, context: __SerdeContext): BotAliasSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AudioLogSetting(entry, context);
+      return de_BotAliasSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AudioSpecification = (output: any, context: __SerdeContext): AudioSpecification => {
-  return {
-    endTimeoutMs: __expectInt32(output.endTimeoutMs),
-    maxLengthMs: __expectInt32(output.maxLengthMs),
-  } as any;
+// de_BotExportSpecification omitted.
+
+// de_BotImportSpecification omitted.
+
+// de_BotLocaleExportSpecification omitted.
+
+/**
+ * deserializeAws_restJson1BotLocaleHistoryEvent
+ */
+const de_BotLocaleHistoryEvent = (output: any, context: __SerdeContext): BotLocaleHistoryEvent => {
+  return take(output, {
+    event: __expectString,
+    eventDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1BotAliasHistoryEvent = (output: any, context: __SerdeContext): BotAliasHistoryEvent => {
-  return {
-    botVersion: __expectString(output.botVersion),
-    endDate:
-      output.endDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endDate))) : undefined,
-    startDate:
-      output.startDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startDate))) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BotAliasHistoryEventsList = (
-  output: any,
-  context: __SerdeContext
-): BotAliasHistoryEvent[] => {
+/**
+ * deserializeAws_restJson1BotLocaleHistoryEventsList
+ */
+const de_BotLocaleHistoryEventsList = (output: any, context: __SerdeContext): BotLocaleHistoryEvent[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BotAliasHistoryEvent(entry, context);
+      return de_BotLocaleHistoryEvent(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BotAliasLocaleSettings = (
-  output: any,
-  context: __SerdeContext
-): BotAliasLocaleSettings => {
-  return {
-    codeHookSpecification:
-      output.codeHookSpecification != null
-        ? deserializeAws_restJson1CodeHookSpecification(output.codeHookSpecification, context)
-        : undefined,
-    enabled: __expectBoolean(output.enabled),
-  } as any;
+/**
+ * deserializeAws_restJson1BotLocaleImportSpecification
+ */
+const de_BotLocaleImportSpecification = (output: any, context: __SerdeContext): BotLocaleImportSpecification => {
+  return take(output, {
+    botId: __expectString,
+    botVersion: __expectString,
+    localeId: __expectString,
+    nluIntentConfidenceThreshold: __limitedParseDouble,
+    voiceSettings: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1BotAliasLocaleSettingsMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, BotAliasLocaleSettings> => {
-  return Object.entries(output).reduce((acc: Record<string, BotAliasLocaleSettings>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1BotAliasLocaleSettings(value, context);
-    return acc;
-  }, {});
+/**
+ * deserializeAws_restJson1BotLocaleSummary
+ */
+const de_BotLocaleSummary = (output: any, context: __SerdeContext): BotLocaleSummary => {
+  return take(output, {
+    botLocaleStatus: __expectString,
+    description: __expectString,
+    lastBuildSubmittedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    localeId: __expectString,
+    localeName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BotAliasSummary = (output: any, context: __SerdeContext): BotAliasSummary => {
-  return {
-    botAliasId: __expectString(output.botAliasId),
-    botAliasName: __expectString(output.botAliasName),
-    botAliasStatus: __expectString(output.botAliasStatus),
-    botVersion: __expectString(output.botVersion),
-    creationDateTime:
-      output.creationDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    description: __expectString(output.description),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BotAliasSummaryList = (output: any, context: __SerdeContext): BotAliasSummary[] => {
+/**
+ * deserializeAws_restJson1BotLocaleSummaryList
+ */
+const de_BotLocaleSummaryList = (output: any, context: __SerdeContext): BotLocaleSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BotAliasSummary(entry, context);
+      return de_BotLocaleSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BotExportSpecification = (
-  output: any,
-  context: __SerdeContext
-): BotExportSpecification => {
-  return {
-    botId: __expectString(output.botId),
-    botVersion: __expectString(output.botVersion),
-  } as any;
+// de_BotMember omitted.
+
+// de_BotMembers omitted.
+
+// de_BotRecommendationResults omitted.
+
+// de_BotRecommendationResultStatistics omitted.
+
+/**
+ * deserializeAws_restJson1BotRecommendationSummary
+ */
+const de_BotRecommendationSummary = (output: any, context: __SerdeContext): BotRecommendationSummary => {
+  return take(output, {
+    botRecommendationId: __expectString,
+    botRecommendationStatus: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1BotImportSpecification = (
-  output: any,
-  context: __SerdeContext
-): BotImportSpecification => {
-  return {
-    botName: __expectString(output.botName),
-    botTags: output.botTags != null ? deserializeAws_restJson1TagMap(output.botTags, context) : undefined,
-    dataPrivacy:
-      output.dataPrivacy != null ? deserializeAws_restJson1DataPrivacy(output.dataPrivacy, context) : undefined,
-    idleSessionTTLInSeconds: __expectInt32(output.idleSessionTTLInSeconds),
-    roleArn: __expectString(output.roleArn),
-    testBotAliasTags:
-      output.testBotAliasTags != null ? deserializeAws_restJson1TagMap(output.testBotAliasTags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BotLocaleExportSpecification = (
-  output: any,
-  context: __SerdeContext
-): BotLocaleExportSpecification => {
-  return {
-    botId: __expectString(output.botId),
-    botVersion: __expectString(output.botVersion),
-    localeId: __expectString(output.localeId),
-  } as any;
-};
-
-const deserializeAws_restJson1BotLocaleHistoryEvent = (output: any, context: __SerdeContext): BotLocaleHistoryEvent => {
-  return {
-    event: __expectString(output.event),
-    eventDate:
-      output.eventDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventDate))) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BotLocaleHistoryEventsList = (
-  output: any,
-  context: __SerdeContext
-): BotLocaleHistoryEvent[] => {
+/**
+ * deserializeAws_restJson1BotRecommendationSummaryList
+ */
+const de_BotRecommendationSummaryList = (output: any, context: __SerdeContext): BotRecommendationSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BotLocaleHistoryEvent(entry, context);
+      return de_BotRecommendationSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BotLocaleImportSpecification = (
-  output: any,
-  context: __SerdeContext
-): BotLocaleImportSpecification => {
-  return {
-    botId: __expectString(output.botId),
-    botVersion: __expectString(output.botVersion),
-    localeId: __expectString(output.localeId),
-    nluIntentConfidenceThreshold: __limitedParseDouble(output.nluIntentConfidenceThreshold),
-    voiceSettings:
-      output.voiceSettings != null ? deserializeAws_restJson1VoiceSettings(output.voiceSettings, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1BotSummary
+ */
+const de_BotSummary = (output: any, context: __SerdeContext): BotSummary => {
+  return take(output, {
+    botId: __expectString,
+    botName: __expectString,
+    botStatus: __expectString,
+    botType: __expectString,
+    description: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    latestBotVersion: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BotLocaleSummary = (output: any, context: __SerdeContext): BotLocaleSummary => {
-  return {
-    botLocaleStatus: __expectString(output.botLocaleStatus),
-    description: __expectString(output.description),
-    lastBuildSubmittedDateTime:
-      output.lastBuildSubmittedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastBuildSubmittedDateTime)))
-        : undefined,
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    localeId: __expectString(output.localeId),
-    localeName: __expectString(output.localeName),
-  } as any;
-};
-
-const deserializeAws_restJson1BotLocaleSummaryList = (output: any, context: __SerdeContext): BotLocaleSummary[] => {
+/**
+ * deserializeAws_restJson1BotSummaryList
+ */
+const de_BotSummaryList = (output: any, context: __SerdeContext): BotSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BotLocaleSummary(entry, context);
+      return de_BotSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BotMember = (output: any, context: __SerdeContext): BotMember => {
-  return {
-    botMemberAliasId: __expectString(output.botMemberAliasId),
-    botMemberAliasName: __expectString(output.botMemberAliasName),
-    botMemberId: __expectString(output.botMemberId),
-    botMemberName: __expectString(output.botMemberName),
-    botMemberVersion: __expectString(output.botMemberVersion),
-  } as any;
+// de_BotVersionLocaleDetails omitted.
+
+// de_BotVersionLocaleSpecification omitted.
+
+/**
+ * deserializeAws_restJson1BotVersionSummary
+ */
+const de_BotVersionSummary = (output: any, context: __SerdeContext): BotVersionSummary => {
+  return take(output, {
+    botName: __expectString,
+    botStatus: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BotMembers = (output: any, context: __SerdeContext): BotMember[] => {
+/**
+ * deserializeAws_restJson1BotVersionSummaryList
+ */
+const de_BotVersionSummaryList = (output: any, context: __SerdeContext): BotVersionSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BotMember(entry, context);
+      return de_BotVersionSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BotRecommendationResults = (
-  output: any,
-  context: __SerdeContext
-): BotRecommendationResults => {
-  return {
-    associatedTranscriptsUrl: __expectString(output.associatedTranscriptsUrl),
-    botLocaleExportUrl: __expectString(output.botLocaleExportUrl),
-    statistics:
-      output.statistics != null
-        ? deserializeAws_restJson1BotRecommendationResultStatistics(output.statistics, context)
-        : undefined,
-  } as any;
+// de_BuiltInIntentSummary omitted.
+
+// de_BuiltInIntentSummaryList omitted.
+
+// de_BuiltInSlotTypeSummary omitted.
+
+// de_BuiltInSlotTypeSummaryList omitted.
+
+// de_Button omitted.
+
+// de_ButtonsList omitted.
+
+// de_CloudWatchLogGroupLogDestination omitted.
+
+// de_CodeHookSpecification omitted.
+
+// de_CompositeSlotTypeSetting omitted.
+
+// de_Condition omitted.
+
+/**
+ * deserializeAws_restJson1ConditionalBranch
+ */
+const de_ConditionalBranch = (output: any, context: __SerdeContext): ConditionalBranch => {
+  return take(output, {
+    condition: _json,
+    name: __expectString,
+    nextStep: (_: any) => de_DialogState(_, context),
+    response: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1BotRecommendationResultStatistics = (
-  output: any,
-  context: __SerdeContext
-): BotRecommendationResultStatistics => {
-  return {
-    intents: output.intents != null ? deserializeAws_restJson1IntentStatistics(output.intents, context) : undefined,
-    slotTypes:
-      output.slotTypes != null ? deserializeAws_restJson1SlotTypeStatistics(output.slotTypes, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BotRecommendationSummary = (
-  output: any,
-  context: __SerdeContext
-): BotRecommendationSummary => {
-  return {
-    botRecommendationId: __expectString(output.botRecommendationId),
-    botRecommendationStatus: __expectString(output.botRecommendationStatus),
-    creationDateTime:
-      output.creationDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BotRecommendationSummaryList = (
-  output: any,
-  context: __SerdeContext
-): BotRecommendationSummary[] => {
+/**
+ * deserializeAws_restJson1ConditionalBranches
+ */
+const de_ConditionalBranches = (output: any, context: __SerdeContext): ConditionalBranch[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BotRecommendationSummary(entry, context);
+      return de_ConditionalBranch(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BotSummary = (output: any, context: __SerdeContext): BotSummary => {
-  return {
-    botId: __expectString(output.botId),
-    botName: __expectString(output.botName),
-    botStatus: __expectString(output.botStatus),
-    botType: __expectString(output.botType),
-    description: __expectString(output.description),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    latestBotVersion: __expectString(output.latestBotVersion),
-  } as any;
+/**
+ * deserializeAws_restJson1ConditionalSpecification
+ */
+const de_ConditionalSpecification = (output: any, context: __SerdeContext): ConditionalSpecification => {
+  return take(output, {
+    active: __expectBoolean,
+    conditionalBranches: (_: any) => de_ConditionalBranches(_, context),
+    defaultBranch: (_: any) => de_DefaultConditionalBranch(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1BotSummaryList = (output: any, context: __SerdeContext): BotSummary[] => {
+// de_ConversationLogSettings omitted.
+
+// de_CustomPayload omitted.
+
+// de_CustomVocabularyExportSpecification omitted.
+
+// de_CustomVocabularyImportSpecification omitted.
+
+// de_CustomVocabularyItem omitted.
+
+// de_CustomVocabularyItems omitted.
+
+// de_DataPrivacy omitted.
+
+/**
+ * deserializeAws_restJson1DateRangeFilter
+ */
+const de_DateRangeFilter = (output: any, context: __SerdeContext): DateRangeFilter => {
+  return take(output, {
+    endDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    startDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DefaultConditionalBranch
+ */
+const de_DefaultConditionalBranch = (output: any, context: __SerdeContext): DefaultConditionalBranch => {
+  return take(output, {
+    nextStep: (_: any) => de_DialogState(_, context),
+    response: _json,
+  }) as any;
+};
+
+// de_DialogAction omitted.
+
+/**
+ * deserializeAws_restJson1DialogCodeHookInvocationSetting
+ */
+const de_DialogCodeHookInvocationSetting = (output: any, context: __SerdeContext): DialogCodeHookInvocationSetting => {
+  return take(output, {
+    active: __expectBoolean,
+    enableCodeHookInvocation: __expectBoolean,
+    invocationLabel: __expectString,
+    postCodeHookSpecification: (_: any) => de_PostDialogCodeHookInvocationSpecification(_, context),
+  }) as any;
+};
+
+// de_DialogCodeHookSettings omitted.
+
+/**
+ * deserializeAws_restJson1DialogState
+ */
+const de_DialogState = (output: any, context: __SerdeContext): DialogState => {
+  return take(output, {
+    dialogAction: _json,
+    intent: (_: any) => de_IntentOverride(_, context),
+    sessionAttributes: _json,
+  }) as any;
+};
+
+// de_DTMFSpecification omitted.
+
+// de_ElicitationCodeHookInvocationSetting omitted.
+
+// de_EncryptionSetting omitted.
+
+// de_ExportResourceSpecification omitted.
+
+/**
+ * deserializeAws_restJson1ExportSummary
+ */
+const de_ExportSummary = (output: any, context: __SerdeContext): ExportSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    exportId: __expectString,
+    exportStatus: __expectString,
+    fileFormat: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceSpecification: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ExportSummaryList
+ */
+const de_ExportSummaryList = (output: any, context: __SerdeContext): ExportSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BotSummary(entry, context);
+      return de_ExportSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BotVersionLocaleDetails = (
-  output: any,
-  context: __SerdeContext
-): BotVersionLocaleDetails => {
-  return {
-    sourceBotVersion: __expectString(output.sourceBotVersion),
-  } as any;
+// de_ExternalSourceSetting omitted.
+
+// de_FailedCustomVocabularyItem omitted.
+
+// de_FailedCustomVocabularyItems omitted.
+
+// de_FailureReasons omitted.
+
+/**
+ * deserializeAws_restJson1FulfillmentCodeHookSettings
+ */
+const de_FulfillmentCodeHookSettings = (output: any, context: __SerdeContext): FulfillmentCodeHookSettings => {
+  return take(output, {
+    active: __expectBoolean,
+    enabled: __expectBoolean,
+    fulfillmentUpdatesSpecification: _json,
+    postFulfillmentStatusSpecification: (_: any) => de_PostFulfillmentStatusSpecification(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1BotVersionLocaleSpecification = (
-  output: any,
-  context: __SerdeContext
-): Record<string, BotVersionLocaleDetails> => {
-  return Object.entries(output).reduce((acc: Record<string, BotVersionLocaleDetails>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1BotVersionLocaleDetails(value, context);
-    return acc;
-  }, {});
+// de_FulfillmentStartResponseSpecification omitted.
+
+// de_FulfillmentUpdateResponseSpecification omitted.
+
+// de_FulfillmentUpdatesSpecification omitted.
+
+// de_GrammarSlotTypeSetting omitted.
+
+// de_GrammarSlotTypeSource omitted.
+
+// de_ImageResponseCard omitted.
+
+/**
+ * deserializeAws_restJson1ImportResourceSpecification
+ */
+const de_ImportResourceSpecification = (output: any, context: __SerdeContext): ImportResourceSpecification => {
+  return take(output, {
+    botImportSpecification: _json,
+    botLocaleImportSpecification: (_: any) => de_BotLocaleImportSpecification(_, context),
+    customVocabularyImportSpecification: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1BotVersionSummary = (output: any, context: __SerdeContext): BotVersionSummary => {
-  return {
-    botName: __expectString(output.botName),
-    botStatus: __expectString(output.botStatus),
-    botVersion: __expectString(output.botVersion),
-    creationDateTime:
-      output.creationDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    description: __expectString(output.description),
-  } as any;
+/**
+ * deserializeAws_restJson1ImportSummary
+ */
+const de_ImportSummary = (output: any, context: __SerdeContext): ImportSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    importId: __expectString,
+    importStatus: __expectString,
+    importedResourceId: __expectString,
+    importedResourceName: __expectString,
+    importedResourceType: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    mergeStrategy: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BotVersionSummaryList = (output: any, context: __SerdeContext): BotVersionSummary[] => {
+/**
+ * deserializeAws_restJson1ImportSummaryList
+ */
+const de_ImportSummaryList = (output: any, context: __SerdeContext): ImportSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BotVersionSummary(entry, context);
+      return de_ImportSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BuiltInIntentSummary = (output: any, context: __SerdeContext): BuiltInIntentSummary => {
-  return {
-    description: __expectString(output.description),
-    intentSignature: __expectString(output.intentSignature),
-  } as any;
+/**
+ * deserializeAws_restJson1InitialResponseSetting
+ */
+const de_InitialResponseSetting = (output: any, context: __SerdeContext): InitialResponseSetting => {
+  return take(output, {
+    codeHook: (_: any) => de_DialogCodeHookInvocationSetting(_, context),
+    conditional: (_: any) => de_ConditionalSpecification(_, context),
+    initialResponse: _json,
+    nextStep: (_: any) => de_DialogState(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1BuiltInIntentSummaryList = (
-  output: any,
-  context: __SerdeContext
-): BuiltInIntentSummary[] => {
+// de_InputContext omitted.
+
+// de_InputContextsList omitted.
+
+/**
+ * deserializeAws_restJson1IntentClosingSetting
+ */
+const de_IntentClosingSetting = (output: any, context: __SerdeContext): IntentClosingSetting => {
+  return take(output, {
+    active: __expectBoolean,
+    closingResponse: _json,
+    conditional: (_: any) => de_ConditionalSpecification(_, context),
+    nextStep: (_: any) => de_DialogState(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1IntentConfirmationSetting
+ */
+const de_IntentConfirmationSetting = (output: any, context: __SerdeContext): IntentConfirmationSetting => {
+  return take(output, {
+    active: __expectBoolean,
+    codeHook: (_: any) => de_DialogCodeHookInvocationSetting(_, context),
+    confirmationConditional: (_: any) => de_ConditionalSpecification(_, context),
+    confirmationNextStep: (_: any) => de_DialogState(_, context),
+    confirmationResponse: _json,
+    declinationConditional: (_: any) => de_ConditionalSpecification(_, context),
+    declinationNextStep: (_: any) => de_DialogState(_, context),
+    declinationResponse: _json,
+    elicitationCodeHook: _json,
+    failureConditional: (_: any) => de_ConditionalSpecification(_, context),
+    failureNextStep: (_: any) => de_DialogState(_, context),
+    failureResponse: _json,
+    promptSpecification: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1IntentOverride
+ */
+const de_IntentOverride = (output: any, context: __SerdeContext): IntentOverride => {
+  return take(output, {
+    name: __expectString,
+    slots: (_: any) => de_SlotValueOverrideMap(_, context),
+  }) as any;
+};
+
+// de_IntentStatistics omitted.
+
+/**
+ * deserializeAws_restJson1IntentSummary
+ */
+const de_IntentSummary = (output: any, context: __SerdeContext): IntentSummary => {
+  return take(output, {
+    description: __expectString,
+    inputContexts: _json,
+    intentId: __expectString,
+    intentName: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    outputContexts: _json,
+    parentIntentSignature: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1IntentSummaryList
+ */
+const de_IntentSummaryList = (output: any, context: __SerdeContext): IntentSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BuiltInIntentSummary(entry, context);
+      return de_IntentSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BuiltInSlotTypeSummary = (
-  output: any,
-  context: __SerdeContext
-): BuiltInSlotTypeSummary => {
-  return {
-    description: __expectString(output.description),
-    slotTypeSignature: __expectString(output.slotTypeSignature),
-  } as any;
-};
-
-const deserializeAws_restJson1BuiltInSlotTypeSummaryList = (
-  output: any,
-  context: __SerdeContext
-): BuiltInSlotTypeSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BuiltInSlotTypeSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1Button = (output: any, context: __SerdeContext): Button => {
-  return {
-    text: __expectString(output.text),
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_restJson1ButtonsList = (output: any, context: __SerdeContext): Button[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Button(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1CloudWatchLogGroupLogDestination = (
-  output: any,
-  context: __SerdeContext
-): CloudWatchLogGroupLogDestination => {
-  return {
-    cloudWatchLogGroupArn: __expectString(output.cloudWatchLogGroupArn),
-    logPrefix: __expectString(output.logPrefix),
-  } as any;
-};
-
-const deserializeAws_restJson1CodeHookSpecification = (output: any, context: __SerdeContext): CodeHookSpecification => {
-  return {
-    lambdaCodeHook:
-      output.lambdaCodeHook != null
-        ? deserializeAws_restJson1LambdaCodeHook(output.lambdaCodeHook, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1CompositeSlotTypeSetting = (
-  output: any,
-  context: __SerdeContext
-): CompositeSlotTypeSetting => {
-  return {
-    subSlots: output.subSlots != null ? deserializeAws_restJson1SubSlotTypeList(output.subSlots, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Condition = (output: any, context: __SerdeContext): Condition => {
-  return {
-    expressionString: __expectString(output.expressionString),
-  } as any;
-};
-
-const deserializeAws_restJson1ConditionalBranch = (output: any, context: __SerdeContext): ConditionalBranch => {
-  return {
-    condition: output.condition != null ? deserializeAws_restJson1Condition(output.condition, context) : undefined,
-    name: __expectString(output.name),
-    nextStep: output.nextStep != null ? deserializeAws_restJson1DialogState(output.nextStep, context) : undefined,
-    response:
-      output.response != null ? deserializeAws_restJson1ResponseSpecification(output.response, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ConditionalBranches = (output: any, context: __SerdeContext): ConditionalBranch[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ConditionalBranch(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ConditionalSpecification = (
-  output: any,
-  context: __SerdeContext
-): ConditionalSpecification => {
-  return {
-    active: __expectBoolean(output.active),
-    conditionalBranches:
-      output.conditionalBranches != null
-        ? deserializeAws_restJson1ConditionalBranches(output.conditionalBranches, context)
-        : undefined,
-    defaultBranch:
-      output.defaultBranch != null
-        ? deserializeAws_restJson1DefaultConditionalBranch(output.defaultBranch, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ConversationLogSettings = (
-  output: any,
-  context: __SerdeContext
-): ConversationLogSettings => {
-  return {
-    audioLogSettings:
-      output.audioLogSettings != null
-        ? deserializeAws_restJson1AudioLogSettingsList(output.audioLogSettings, context)
-        : undefined,
-    textLogSettings:
-      output.textLogSettings != null
-        ? deserializeAws_restJson1TextLogSettingsList(output.textLogSettings, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1CustomPayload = (output: any, context: __SerdeContext): CustomPayload => {
-  return {
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_restJson1CustomVocabularyExportSpecification = (
-  output: any,
-  context: __SerdeContext
-): CustomVocabularyExportSpecification => {
-  return {
-    botId: __expectString(output.botId),
-    botVersion: __expectString(output.botVersion),
-    localeId: __expectString(output.localeId),
-  } as any;
-};
-
-const deserializeAws_restJson1CustomVocabularyImportSpecification = (
-  output: any,
-  context: __SerdeContext
-): CustomVocabularyImportSpecification => {
-  return {
-    botId: __expectString(output.botId),
-    botVersion: __expectString(output.botVersion),
-    localeId: __expectString(output.localeId),
-  } as any;
-};
-
-const deserializeAws_restJson1CustomVocabularyItem = (output: any, context: __SerdeContext): CustomVocabularyItem => {
-  return {
-    displayAs: __expectString(output.displayAs),
-    itemId: __expectString(output.itemId),
-    phrase: __expectString(output.phrase),
-    weight: __expectInt32(output.weight),
-  } as any;
-};
-
-const deserializeAws_restJson1CustomVocabularyItems = (
-  output: any,
-  context: __SerdeContext
-): CustomVocabularyItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1CustomVocabularyItem(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1DataPrivacy = (output: any, context: __SerdeContext): DataPrivacy => {
-  return {
-    childDirected: __expectBoolean(output.childDirected),
-  } as any;
-};
-
-const deserializeAws_restJson1DateRangeFilter = (output: any, context: __SerdeContext): DateRangeFilter => {
-  return {
-    endDateTime:
-      output.endDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endDateTime)))
-        : undefined,
-    startDateTime:
-      output.startDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startDateTime)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1DefaultConditionalBranch = (
-  output: any,
-  context: __SerdeContext
-): DefaultConditionalBranch => {
-  return {
-    nextStep: output.nextStep != null ? deserializeAws_restJson1DialogState(output.nextStep, context) : undefined,
-    response:
-      output.response != null ? deserializeAws_restJson1ResponseSpecification(output.response, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1DialogAction = (output: any, context: __SerdeContext): DialogAction => {
-  return {
-    slotToElicit: __expectString(output.slotToElicit),
-    suppressNextMessage: __expectBoolean(output.suppressNextMessage),
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_restJson1DialogCodeHookInvocationSetting = (
-  output: any,
-  context: __SerdeContext
-): DialogCodeHookInvocationSetting => {
-  return {
-    active: __expectBoolean(output.active),
-    enableCodeHookInvocation: __expectBoolean(output.enableCodeHookInvocation),
-    invocationLabel: __expectString(output.invocationLabel),
-    postCodeHookSpecification:
-      output.postCodeHookSpecification != null
-        ? deserializeAws_restJson1PostDialogCodeHookInvocationSpecification(output.postCodeHookSpecification, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1DialogCodeHookSettings = (
-  output: any,
-  context: __SerdeContext
-): DialogCodeHookSettings => {
-  return {
-    enabled: __expectBoolean(output.enabled),
-  } as any;
-};
-
-const deserializeAws_restJson1DialogState = (output: any, context: __SerdeContext): DialogState => {
-  return {
-    dialogAction:
-      output.dialogAction != null ? deserializeAws_restJson1DialogAction(output.dialogAction, context) : undefined,
-    intent: output.intent != null ? deserializeAws_restJson1IntentOverride(output.intent, context) : undefined,
-    sessionAttributes:
-      output.sessionAttributes != null
-        ? deserializeAws_restJson1StringMap(output.sessionAttributes, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1DTMFSpecification = (output: any, context: __SerdeContext): DTMFSpecification => {
-  return {
-    deletionCharacter: __expectString(output.deletionCharacter),
-    endCharacter: __expectString(output.endCharacter),
-    endTimeoutMs: __expectInt32(output.endTimeoutMs),
-    maxLength: __expectInt32(output.maxLength),
-  } as any;
-};
-
-const deserializeAws_restJson1ElicitationCodeHookInvocationSetting = (
-  output: any,
-  context: __SerdeContext
-): ElicitationCodeHookInvocationSetting => {
-  return {
-    enableCodeHookInvocation: __expectBoolean(output.enableCodeHookInvocation),
-    invocationLabel: __expectString(output.invocationLabel),
-  } as any;
-};
-
-const deserializeAws_restJson1EncryptionSetting = (output: any, context: __SerdeContext): EncryptionSetting => {
-  return {
-    associatedTranscriptsPassword: __expectString(output.associatedTranscriptsPassword),
-    botLocaleExportPassword: __expectString(output.botLocaleExportPassword),
-    kmsKeyArn: __expectString(output.kmsKeyArn),
-  } as any;
-};
-
-const deserializeAws_restJson1ExportResourceSpecification = (
-  output: any,
-  context: __SerdeContext
-): ExportResourceSpecification => {
-  return {
-    botExportSpecification:
-      output.botExportSpecification != null
-        ? deserializeAws_restJson1BotExportSpecification(output.botExportSpecification, context)
-        : undefined,
-    botLocaleExportSpecification:
-      output.botLocaleExportSpecification != null
-        ? deserializeAws_restJson1BotLocaleExportSpecification(output.botLocaleExportSpecification, context)
-        : undefined,
-    customVocabularyExportSpecification:
-      output.customVocabularyExportSpecification != null
-        ? deserializeAws_restJson1CustomVocabularyExportSpecification(
-            output.customVocabularyExportSpecification,
-            context
-          )
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ExportSummary = (output: any, context: __SerdeContext): ExportSummary => {
-  return {
-    creationDateTime:
-      output.creationDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    exportId: __expectString(output.exportId),
-    exportStatus: __expectString(output.exportStatus),
-    fileFormat: __expectString(output.fileFormat),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    resourceSpecification:
-      output.resourceSpecification != null
-        ? deserializeAws_restJson1ExportResourceSpecification(output.resourceSpecification, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ExportSummaryList = (output: any, context: __SerdeContext): ExportSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ExportSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ExternalSourceSetting = (output: any, context: __SerdeContext): ExternalSourceSetting => {
-  return {
-    grammarSlotTypeSetting:
-      output.grammarSlotTypeSetting != null
-        ? deserializeAws_restJson1GrammarSlotTypeSetting(output.grammarSlotTypeSetting, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1FailedCustomVocabularyItem = (
-  output: any,
-  context: __SerdeContext
-): FailedCustomVocabularyItem => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    itemId: __expectString(output.itemId),
-  } as any;
-};
-
-const deserializeAws_restJson1FailedCustomVocabularyItems = (
-  output: any,
-  context: __SerdeContext
-): FailedCustomVocabularyItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1FailedCustomVocabularyItem(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1FailureReasons = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1FulfillmentCodeHookSettings = (
-  output: any,
-  context: __SerdeContext
-): FulfillmentCodeHookSettings => {
-  return {
-    active: __expectBoolean(output.active),
-    enabled: __expectBoolean(output.enabled),
-    fulfillmentUpdatesSpecification:
-      output.fulfillmentUpdatesSpecification != null
-        ? deserializeAws_restJson1FulfillmentUpdatesSpecification(output.fulfillmentUpdatesSpecification, context)
-        : undefined,
-    postFulfillmentStatusSpecification:
-      output.postFulfillmentStatusSpecification != null
-        ? deserializeAws_restJson1PostFulfillmentStatusSpecification(output.postFulfillmentStatusSpecification, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1FulfillmentStartResponseSpecification = (
-  output: any,
-  context: __SerdeContext
-): FulfillmentStartResponseSpecification => {
-  return {
-    allowInterrupt: __expectBoolean(output.allowInterrupt),
-    delayInSeconds: __expectInt32(output.delayInSeconds),
-    messageGroups:
-      output.messageGroups != null
-        ? deserializeAws_restJson1MessageGroupsList(output.messageGroups, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1FulfillmentUpdateResponseSpecification = (
-  output: any,
-  context: __SerdeContext
-): FulfillmentUpdateResponseSpecification => {
-  return {
-    allowInterrupt: __expectBoolean(output.allowInterrupt),
-    frequencyInSeconds: __expectInt32(output.frequencyInSeconds),
-    messageGroups:
-      output.messageGroups != null
-        ? deserializeAws_restJson1MessageGroupsList(output.messageGroups, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1FulfillmentUpdatesSpecification = (
-  output: any,
-  context: __SerdeContext
-): FulfillmentUpdatesSpecification => {
-  return {
-    active: __expectBoolean(output.active),
-    startResponse:
-      output.startResponse != null
-        ? deserializeAws_restJson1FulfillmentStartResponseSpecification(output.startResponse, context)
-        : undefined,
-    timeoutInSeconds: __expectInt32(output.timeoutInSeconds),
-    updateResponse:
-      output.updateResponse != null
-        ? deserializeAws_restJson1FulfillmentUpdateResponseSpecification(output.updateResponse, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1GrammarSlotTypeSetting = (
-  output: any,
-  context: __SerdeContext
-): GrammarSlotTypeSetting => {
-  return {
-    source: output.source != null ? deserializeAws_restJson1GrammarSlotTypeSource(output.source, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1GrammarSlotTypeSource = (output: any, context: __SerdeContext): GrammarSlotTypeSource => {
-  return {
-    kmsKeyArn: __expectString(output.kmsKeyArn),
-    s3BucketName: __expectString(output.s3BucketName),
-    s3ObjectKey: __expectString(output.s3ObjectKey),
-  } as any;
-};
-
-const deserializeAws_restJson1ImageResponseCard = (output: any, context: __SerdeContext): ImageResponseCard => {
-  return {
-    buttons: output.buttons != null ? deserializeAws_restJson1ButtonsList(output.buttons, context) : undefined,
-    imageUrl: __expectString(output.imageUrl),
-    subtitle: __expectString(output.subtitle),
-    title: __expectString(output.title),
-  } as any;
-};
-
-const deserializeAws_restJson1ImportResourceSpecification = (
-  output: any,
-  context: __SerdeContext
-): ImportResourceSpecification => {
-  return {
-    botImportSpecification:
-      output.botImportSpecification != null
-        ? deserializeAws_restJson1BotImportSpecification(output.botImportSpecification, context)
-        : undefined,
-    botLocaleImportSpecification:
-      output.botLocaleImportSpecification != null
-        ? deserializeAws_restJson1BotLocaleImportSpecification(output.botLocaleImportSpecification, context)
-        : undefined,
-    customVocabularyImportSpecification:
-      output.customVocabularyImportSpecification != null
-        ? deserializeAws_restJson1CustomVocabularyImportSpecification(
-            output.customVocabularyImportSpecification,
-            context
-          )
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ImportSummary = (output: any, context: __SerdeContext): ImportSummary => {
-  return {
-    creationDateTime:
-      output.creationDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    importId: __expectString(output.importId),
-    importStatus: __expectString(output.importStatus),
-    importedResourceId: __expectString(output.importedResourceId),
-    importedResourceName: __expectString(output.importedResourceName),
-    importedResourceType: __expectString(output.importedResourceType),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    mergeStrategy: __expectString(output.mergeStrategy),
-  } as any;
-};
-
-const deserializeAws_restJson1ImportSummaryList = (output: any, context: __SerdeContext): ImportSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ImportSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1InitialResponseSetting = (
-  output: any,
-  context: __SerdeContext
-): InitialResponseSetting => {
-  return {
-    codeHook:
-      output.codeHook != null
-        ? deserializeAws_restJson1DialogCodeHookInvocationSetting(output.codeHook, context)
-        : undefined,
-    conditional:
-      output.conditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.conditional, context)
-        : undefined,
-    initialResponse:
-      output.initialResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.initialResponse, context)
-        : undefined,
-    nextStep: output.nextStep != null ? deserializeAws_restJson1DialogState(output.nextStep, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1InputContext = (output: any, context: __SerdeContext): InputContext => {
-  return {
-    name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_restJson1InputContextsList = (output: any, context: __SerdeContext): InputContext[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1InputContext(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1IntentClosingSetting = (output: any, context: __SerdeContext): IntentClosingSetting => {
-  return {
-    active: __expectBoolean(output.active),
-    closingResponse:
-      output.closingResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.closingResponse, context)
-        : undefined,
-    conditional:
-      output.conditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.conditional, context)
-        : undefined,
-    nextStep: output.nextStep != null ? deserializeAws_restJson1DialogState(output.nextStep, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1IntentConfirmationSetting = (
-  output: any,
-  context: __SerdeContext
-): IntentConfirmationSetting => {
-  return {
-    active: __expectBoolean(output.active),
-    codeHook:
-      output.codeHook != null
-        ? deserializeAws_restJson1DialogCodeHookInvocationSetting(output.codeHook, context)
-        : undefined,
-    confirmationConditional:
-      output.confirmationConditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.confirmationConditional, context)
-        : undefined,
-    confirmationNextStep:
-      output.confirmationNextStep != null
-        ? deserializeAws_restJson1DialogState(output.confirmationNextStep, context)
-        : undefined,
-    confirmationResponse:
-      output.confirmationResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.confirmationResponse, context)
-        : undefined,
-    declinationConditional:
-      output.declinationConditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.declinationConditional, context)
-        : undefined,
-    declinationNextStep:
-      output.declinationNextStep != null
-        ? deserializeAws_restJson1DialogState(output.declinationNextStep, context)
-        : undefined,
-    declinationResponse:
-      output.declinationResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.declinationResponse, context)
-        : undefined,
-    elicitationCodeHook:
-      output.elicitationCodeHook != null
-        ? deserializeAws_restJson1ElicitationCodeHookInvocationSetting(output.elicitationCodeHook, context)
-        : undefined,
-    failureConditional:
-      output.failureConditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.failureConditional, context)
-        : undefined,
-    failureNextStep:
-      output.failureNextStep != null ? deserializeAws_restJson1DialogState(output.failureNextStep, context) : undefined,
-    failureResponse:
-      output.failureResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.failureResponse, context)
-        : undefined,
-    promptSpecification:
-      output.promptSpecification != null
-        ? deserializeAws_restJson1PromptSpecification(output.promptSpecification, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1IntentOverride = (output: any, context: __SerdeContext): IntentOverride => {
-  return {
-    name: __expectString(output.name),
-    slots: output.slots != null ? deserializeAws_restJson1SlotValueOverrideMap(output.slots, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1IntentStatistics = (output: any, context: __SerdeContext): IntentStatistics => {
-  return {
-    discoveredIntentCount: __expectInt32(output.discoveredIntentCount),
-  } as any;
-};
-
-const deserializeAws_restJson1IntentSummary = (output: any, context: __SerdeContext): IntentSummary => {
-  return {
-    description: __expectString(output.description),
-    inputContexts:
-      output.inputContexts != null
-        ? deserializeAws_restJson1InputContextsList(output.inputContexts, context)
-        : undefined,
-    intentId: __expectString(output.intentId),
-    intentName: __expectString(output.intentName),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    outputContexts:
-      output.outputContexts != null
-        ? deserializeAws_restJson1OutputContextsList(output.outputContexts, context)
-        : undefined,
-    parentIntentSignature: __expectString(output.parentIntentSignature),
-  } as any;
-};
-
-const deserializeAws_restJson1IntentSummaryList = (output: any, context: __SerdeContext): IntentSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1IntentSummary(entry, context);
-    });
-  return retVal;
-};
+// de_KendraConfiguration omitted.
 
-const deserializeAws_restJson1KendraConfiguration = (output: any, context: __SerdeContext): KendraConfiguration => {
-  return {
-    kendraIndex: __expectString(output.kendraIndex),
-    queryFilterString: __expectString(output.queryFilterString),
-    queryFilterStringEnabled: __expectBoolean(output.queryFilterStringEnabled),
-  } as any;
-};
-
-const deserializeAws_restJson1LambdaCodeHook = (output: any, context: __SerdeContext): LambdaCodeHook => {
-  return {
-    codeHookInterfaceVersion: __expectString(output.codeHookInterfaceVersion),
-    lambdaARN: __expectString(output.lambdaARN),
-  } as any;
-};
+// de_LambdaCodeHook omitted.
 
-const deserializeAws_restJson1LexTranscriptFilter = (output: any, context: __SerdeContext): LexTranscriptFilter => {
-  return {
-    dateRangeFilter:
-      output.dateRangeFilter != null
-        ? deserializeAws_restJson1DateRangeFilter(output.dateRangeFilter, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1LexTranscriptFilter
+ */
+const de_LexTranscriptFilter = (output: any, context: __SerdeContext): LexTranscriptFilter => {
+  return take(output, {
+    dateRangeFilter: (_: any) => de_DateRangeFilter(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1Message = (output: any, context: __SerdeContext): Message => {
-  return {
-    customPayload:
-      output.customPayload != null ? deserializeAws_restJson1CustomPayload(output.customPayload, context) : undefined,
-    imageResponseCard:
-      output.imageResponseCard != null
-        ? deserializeAws_restJson1ImageResponseCard(output.imageResponseCard, context)
-        : undefined,
-    plainTextMessage:
-      output.plainTextMessage != null
-        ? deserializeAws_restJson1PlainTextMessage(output.plainTextMessage, context)
-        : undefined,
-    ssmlMessage:
-      output.ssmlMessage != null ? deserializeAws_restJson1SSMLMessage(output.ssmlMessage, context) : undefined,
-  } as any;
-};
+// de_Message omitted.
 
-const deserializeAws_restJson1MessageGroup = (output: any, context: __SerdeContext): MessageGroup => {
-  return {
-    message: output.message != null ? deserializeAws_restJson1Message(output.message, context) : undefined,
-    variations:
-      output.variations != null ? deserializeAws_restJson1MessageVariationsList(output.variations, context) : undefined,
-  } as any;
-};
+// de_MessageGroup omitted.
 
-const deserializeAws_restJson1MessageGroupsList = (output: any, context: __SerdeContext): MessageGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1MessageGroup(entry, context);
-    });
-  return retVal;
-};
+// de_MessageGroupsList omitted.
 
-const deserializeAws_restJson1MessageVariationsList = (output: any, context: __SerdeContext): Message[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Message(entry, context);
-    });
-  return retVal;
-};
+// de_MessageVariationsList omitted.
 
-const deserializeAws_restJson1MultipleValuesSetting = (output: any, context: __SerdeContext): MultipleValuesSetting => {
-  return {
-    allowMultipleValues: __expectBoolean(output.allowMultipleValues),
-  } as any;
-};
+// de_MultipleValuesSetting omitted.
 
-const deserializeAws_restJson1ObfuscationSetting = (output: any, context: __SerdeContext): ObfuscationSetting => {
-  return {
-    obfuscationSettingType: __expectString(output.obfuscationSettingType),
-  } as any;
-};
+// de_ObfuscationSetting omitted.
 
-const deserializeAws_restJson1ObjectPrefixes = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ObjectPrefixes omitted.
 
-const deserializeAws_restJson1OutputContext = (output: any, context: __SerdeContext): OutputContext => {
-  return {
-    name: __expectString(output.name),
-    timeToLiveInSeconds: __expectInt32(output.timeToLiveInSeconds),
-    turnsToLive: __expectInt32(output.turnsToLive),
-  } as any;
-};
+// de_OutputContext omitted.
 
-const deserializeAws_restJson1OutputContextsList = (output: any, context: __SerdeContext): OutputContext[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1OutputContext(entry, context);
-    });
-  return retVal;
-};
+// de_OutputContextsList omitted.
 
-const deserializeAws_restJson1ParentBotNetwork = (output: any, context: __SerdeContext): ParentBotNetwork => {
-  return {
-    botId: __expectString(output.botId),
-    botVersion: __expectString(output.botVersion),
-  } as any;
-};
+// de_ParentBotNetwork omitted.
 
-const deserializeAws_restJson1ParentBotNetworks = (output: any, context: __SerdeContext): ParentBotNetwork[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ParentBotNetwork(entry, context);
-    });
-  return retVal;
-};
+// de_ParentBotNetworks omitted.
 
-const deserializeAws_restJson1PathFormat = (output: any, context: __SerdeContext): PathFormat => {
-  return {
-    objectPrefixes:
-      output.objectPrefixes != null
-        ? deserializeAws_restJson1ObjectPrefixes(output.objectPrefixes, context)
-        : undefined,
-  } as any;
-};
+// de_PathFormat omitted.
 
-const deserializeAws_restJson1PlainTextMessage = (output: any, context: __SerdeContext): PlainTextMessage => {
-  return {
-    value: __expectString(output.value),
-  } as any;
-};
+// de_PlainTextMessage omitted.
 
-const deserializeAws_restJson1PostDialogCodeHookInvocationSpecification = (
+/**
+ * deserializeAws_restJson1PostDialogCodeHookInvocationSpecification
+ */
+const de_PostDialogCodeHookInvocationSpecification = (
   output: any,
   context: __SerdeContext
 ): PostDialogCodeHookInvocationSpecification => {
-  return {
-    failureConditional:
-      output.failureConditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.failureConditional, context)
-        : undefined,
-    failureNextStep:
-      output.failureNextStep != null ? deserializeAws_restJson1DialogState(output.failureNextStep, context) : undefined,
-    failureResponse:
-      output.failureResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.failureResponse, context)
-        : undefined,
-    successConditional:
-      output.successConditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.successConditional, context)
-        : undefined,
-    successNextStep:
-      output.successNextStep != null ? deserializeAws_restJson1DialogState(output.successNextStep, context) : undefined,
-    successResponse:
-      output.successResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.successResponse, context)
-        : undefined,
-    timeoutConditional:
-      output.timeoutConditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.timeoutConditional, context)
-        : undefined,
-    timeoutNextStep:
-      output.timeoutNextStep != null ? deserializeAws_restJson1DialogState(output.timeoutNextStep, context) : undefined,
-    timeoutResponse:
-      output.timeoutResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.timeoutResponse, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    failureConditional: (_: any) => de_ConditionalSpecification(_, context),
+    failureNextStep: (_: any) => de_DialogState(_, context),
+    failureResponse: _json,
+    successConditional: (_: any) => de_ConditionalSpecification(_, context),
+    successNextStep: (_: any) => de_DialogState(_, context),
+    successResponse: _json,
+    timeoutConditional: (_: any) => de_ConditionalSpecification(_, context),
+    timeoutNextStep: (_: any) => de_DialogState(_, context),
+    timeoutResponse: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1PostFulfillmentStatusSpecification = (
+/**
+ * deserializeAws_restJson1PostFulfillmentStatusSpecification
+ */
+const de_PostFulfillmentStatusSpecification = (
   output: any,
   context: __SerdeContext
 ): PostFulfillmentStatusSpecification => {
-  return {
-    failureConditional:
-      output.failureConditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.failureConditional, context)
-        : undefined,
-    failureNextStep:
-      output.failureNextStep != null ? deserializeAws_restJson1DialogState(output.failureNextStep, context) : undefined,
-    failureResponse:
-      output.failureResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.failureResponse, context)
-        : undefined,
-    successConditional:
-      output.successConditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.successConditional, context)
-        : undefined,
-    successNextStep:
-      output.successNextStep != null ? deserializeAws_restJson1DialogState(output.successNextStep, context) : undefined,
-    successResponse:
-      output.successResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.successResponse, context)
-        : undefined,
-    timeoutConditional:
-      output.timeoutConditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.timeoutConditional, context)
-        : undefined,
-    timeoutNextStep:
-      output.timeoutNextStep != null ? deserializeAws_restJson1DialogState(output.timeoutNextStep, context) : undefined,
-    timeoutResponse:
-      output.timeoutResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.timeoutResponse, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    failureConditional: (_: any) => de_ConditionalSpecification(_, context),
+    failureNextStep: (_: any) => de_DialogState(_, context),
+    failureResponse: _json,
+    successConditional: (_: any) => de_ConditionalSpecification(_, context),
+    successNextStep: (_: any) => de_DialogState(_, context),
+    successResponse: _json,
+    timeoutConditional: (_: any) => de_ConditionalSpecification(_, context),
+    timeoutNextStep: (_: any) => de_DialogState(_, context),
+    timeoutResponse: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1PromptAttemptSpecification = (
-  output: any,
-  context: __SerdeContext
-): PromptAttemptSpecification => {
-  return {
-    allowInterrupt: __expectBoolean(output.allowInterrupt),
-    allowedInputTypes:
-      output.allowedInputTypes != null
-        ? deserializeAws_restJson1AllowedInputTypes(output.allowedInputTypes, context)
-        : undefined,
-    audioAndDTMFInputSpecification:
-      output.audioAndDTMFInputSpecification != null
-        ? deserializeAws_restJson1AudioAndDTMFInputSpecification(output.audioAndDTMFInputSpecification, context)
-        : undefined,
-    textInputSpecification:
-      output.textInputSpecification != null
-        ? deserializeAws_restJson1TextInputSpecification(output.textInputSpecification, context)
-        : undefined,
-  } as any;
+// de_PromptAttemptSpecification omitted.
+
+// de_PromptAttemptsSpecificationMap omitted.
+
+// de_PromptSpecification omitted.
+
+// de_RecommendedActions omitted.
+
+// de_RecommendedIntentSummary omitted.
+
+// de_RecommendedIntentSummaryList omitted.
+
+// de_RelativeAggregationDuration omitted.
+
+// de_ResponseSpecification omitted.
+
+// de_S3BucketLogDestination omitted.
+
+/**
+ * deserializeAws_restJson1S3BucketTranscriptSource
+ */
+const de_S3BucketTranscriptSource = (output: any, context: __SerdeContext): S3BucketTranscriptSource => {
+  return take(output, {
+    kmsKeyArn: __expectString,
+    pathFormat: _json,
+    s3BucketName: __expectString,
+    transcriptFilter: (_: any) => de_TranscriptFilter(_, context),
+    transcriptFormat: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1PromptAttemptsSpecificationMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, PromptAttemptSpecification> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, PromptAttemptSpecification>, [key, value]: [PromptAttempt | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = deserializeAws_restJson1PromptAttemptSpecification(value, context);
-      return acc;
-    },
-    {}
-  );
+// de_SampleUtterance omitted.
+
+// de_SampleUtterancesList omitted.
+
+// de_SampleValue omitted.
+
+// de_SentimentAnalysisSettings omitted.
+
+/**
+ * deserializeAws_restJson1SlotCaptureSetting
+ */
+const de_SlotCaptureSetting = (output: any, context: __SerdeContext): SlotCaptureSetting => {
+  return take(output, {
+    captureConditional: (_: any) => de_ConditionalSpecification(_, context),
+    captureNextStep: (_: any) => de_DialogState(_, context),
+    captureResponse: _json,
+    codeHook: (_: any) => de_DialogCodeHookInvocationSetting(_, context),
+    elicitationCodeHook: _json,
+    failureConditional: (_: any) => de_ConditionalSpecification(_, context),
+    failureNextStep: (_: any) => de_DialogState(_, context),
+    failureResponse: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1PromptSpecification = (output: any, context: __SerdeContext): PromptSpecification => {
-  return {
-    allowInterrupt: __expectBoolean(output.allowInterrupt),
-    maxRetries: __expectInt32(output.maxRetries),
-    messageGroups:
-      output.messageGroups != null
-        ? deserializeAws_restJson1MessageGroupsList(output.messageGroups, context)
-        : undefined,
-    messageSelectionStrategy: __expectString(output.messageSelectionStrategy),
-    promptAttemptsSpecification:
-      output.promptAttemptsSpecification != null
-        ? deserializeAws_restJson1PromptAttemptsSpecificationMap(output.promptAttemptsSpecification, context)
-        : undefined,
-  } as any;
+// de_SlotDefaultValue omitted.
+
+// de_SlotDefaultValueList omitted.
+
+// de_SlotDefaultValueSpecification omitted.
+
+// de_SlotPrioritiesList omitted.
+
+// de_SlotPriority omitted.
+
+/**
+ * deserializeAws_restJson1SlotSummary
+ */
+const de_SlotSummary = (output: any, context: __SerdeContext): SlotSummary => {
+  return take(output, {
+    description: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    slotConstraint: __expectString,
+    slotId: __expectString,
+    slotName: __expectString,
+    slotTypeId: __expectString,
+    valueElicitationPromptSpecification: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1RecommendedActions = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1SlotSummaryList
+ */
+const de_SlotSummaryList = (output: any, context: __SerdeContext): SlotSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_SlotSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1RecommendedIntentSummary = (
-  output: any,
-  context: __SerdeContext
-): RecommendedIntentSummary => {
-  return {
-    intentId: __expectString(output.intentId),
-    intentName: __expectString(output.intentName),
-    sampleUtterancesCount: __expectInt32(output.sampleUtterancesCount),
-  } as any;
+// de_SlotTypeStatistics omitted.
+
+/**
+ * deserializeAws_restJson1SlotTypeSummary
+ */
+const de_SlotTypeSummary = (output: any, context: __SerdeContext): SlotTypeSummary => {
+  return take(output, {
+    description: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    parentSlotTypeSignature: __expectString,
+    slotTypeCategory: __expectString,
+    slotTypeId: __expectString,
+    slotTypeName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1RecommendedIntentSummaryList = (
-  output: any,
-  context: __SerdeContext
-): RecommendedIntentSummary[] => {
+/**
+ * deserializeAws_restJson1SlotTypeSummaryList
+ */
+const de_SlotTypeSummaryList = (output: any, context: __SerdeContext): SlotTypeSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RecommendedIntentSummary(entry, context);
+      return de_SlotTypeSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1RelativeAggregationDuration = (
-  output: any,
-  context: __SerdeContext
-): RelativeAggregationDuration => {
-  return {
-    timeDimension: __expectString(output.timeDimension),
-    timeValue: __expectInt32(output.timeValue),
-  } as any;
+// de_SlotTypeValue omitted.
+
+// de_SlotTypeValues omitted.
+
+// de_SlotValue omitted.
+
+/**
+ * deserializeAws_restJson1SlotValueElicitationSetting
+ */
+const de_SlotValueElicitationSetting = (output: any, context: __SerdeContext): SlotValueElicitationSetting => {
+  return take(output, {
+    defaultValueSpecification: _json,
+    promptSpecification: _json,
+    sampleUtterances: _json,
+    slotCaptureSetting: (_: any) => de_SlotCaptureSetting(_, context),
+    slotConstraint: __expectString,
+    waitAndContinueSpecification: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1ResponseSpecification = (output: any, context: __SerdeContext): ResponseSpecification => {
-  return {
-    allowInterrupt: __expectBoolean(output.allowInterrupt),
-    messageGroups:
-      output.messageGroups != null
-        ? deserializeAws_restJson1MessageGroupsList(output.messageGroups, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1SlotValueOverride
+ */
+const de_SlotValueOverride = (output: any, context: __SerdeContext): SlotValueOverride => {
+  return take(output, {
+    shape: __expectString,
+    value: _json,
+    values: (_: any) => de_SlotValues(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1S3BucketLogDestination = (
-  output: any,
-  context: __SerdeContext
-): S3BucketLogDestination => {
-  return {
-    kmsKeyArn: __expectString(output.kmsKeyArn),
-    logPrefix: __expectString(output.logPrefix),
-    s3BucketArn: __expectString(output.s3BucketArn),
-  } as any;
-};
-
-const deserializeAws_restJson1S3BucketTranscriptSource = (
-  output: any,
-  context: __SerdeContext
-): S3BucketTranscriptSource => {
-  return {
-    kmsKeyArn: __expectString(output.kmsKeyArn),
-    pathFormat: output.pathFormat != null ? deserializeAws_restJson1PathFormat(output.pathFormat, context) : undefined,
-    s3BucketName: __expectString(output.s3BucketName),
-    transcriptFilter:
-      output.transcriptFilter != null
-        ? deserializeAws_restJson1TranscriptFilter(output.transcriptFilter, context)
-        : undefined,
-    transcriptFormat: __expectString(output.transcriptFormat),
-  } as any;
-};
-
-const deserializeAws_restJson1SampleUtterance = (output: any, context: __SerdeContext): SampleUtterance => {
-  return {
-    utterance: __expectString(output.utterance),
-  } as any;
-};
-
-const deserializeAws_restJson1SampleUtterancesList = (output: any, context: __SerdeContext): SampleUtterance[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SampleUtterance(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1SampleValue = (output: any, context: __SerdeContext): SampleValue => {
-  return {
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_restJson1SentimentAnalysisSettings = (
-  output: any,
-  context: __SerdeContext
-): SentimentAnalysisSettings => {
-  return {
-    detectSentiment: __expectBoolean(output.detectSentiment),
-  } as any;
-};
-
-const deserializeAws_restJson1SlotCaptureSetting = (output: any, context: __SerdeContext): SlotCaptureSetting => {
-  return {
-    captureConditional:
-      output.captureConditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.captureConditional, context)
-        : undefined,
-    captureNextStep:
-      output.captureNextStep != null ? deserializeAws_restJson1DialogState(output.captureNextStep, context) : undefined,
-    captureResponse:
-      output.captureResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.captureResponse, context)
-        : undefined,
-    codeHook:
-      output.codeHook != null
-        ? deserializeAws_restJson1DialogCodeHookInvocationSetting(output.codeHook, context)
-        : undefined,
-    elicitationCodeHook:
-      output.elicitationCodeHook != null
-        ? deserializeAws_restJson1ElicitationCodeHookInvocationSetting(output.elicitationCodeHook, context)
-        : undefined,
-    failureConditional:
-      output.failureConditional != null
-        ? deserializeAws_restJson1ConditionalSpecification(output.failureConditional, context)
-        : undefined,
-    failureNextStep:
-      output.failureNextStep != null ? deserializeAws_restJson1DialogState(output.failureNextStep, context) : undefined,
-    failureResponse:
-      output.failureResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.failureResponse, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SlotDefaultValue = (output: any, context: __SerdeContext): SlotDefaultValue => {
-  return {
-    defaultValue: __expectString(output.defaultValue),
-  } as any;
-};
-
-const deserializeAws_restJson1SlotDefaultValueList = (output: any, context: __SerdeContext): SlotDefaultValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SlotDefaultValue(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1SlotDefaultValueSpecification = (
-  output: any,
-  context: __SerdeContext
-): SlotDefaultValueSpecification => {
-  return {
-    defaultValueList:
-      output.defaultValueList != null
-        ? deserializeAws_restJson1SlotDefaultValueList(output.defaultValueList, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SlotPrioritiesList = (output: any, context: __SerdeContext): SlotPriority[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SlotPriority(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1SlotPriority = (output: any, context: __SerdeContext): SlotPriority => {
-  return {
-    priority: __expectInt32(output.priority),
-    slotId: __expectString(output.slotId),
-  } as any;
-};
-
-const deserializeAws_restJson1SlotSummary = (output: any, context: __SerdeContext): SlotSummary => {
-  return {
-    description: __expectString(output.description),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    slotConstraint: __expectString(output.slotConstraint),
-    slotId: __expectString(output.slotId),
-    slotName: __expectString(output.slotName),
-    slotTypeId: __expectString(output.slotTypeId),
-    valueElicitationPromptSpecification:
-      output.valueElicitationPromptSpecification != null
-        ? deserializeAws_restJson1PromptSpecification(output.valueElicitationPromptSpecification, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SlotSummaryList = (output: any, context: __SerdeContext): SlotSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SlotSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1SlotTypeStatistics = (output: any, context: __SerdeContext): SlotTypeStatistics => {
-  return {
-    discoveredSlotTypeCount: __expectInt32(output.discoveredSlotTypeCount),
-  } as any;
-};
-
-const deserializeAws_restJson1SlotTypeSummary = (output: any, context: __SerdeContext): SlotTypeSummary => {
-  return {
-    description: __expectString(output.description),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    parentSlotTypeSignature: __expectString(output.parentSlotTypeSignature),
-    slotTypeCategory: __expectString(output.slotTypeCategory),
-    slotTypeId: __expectString(output.slotTypeId),
-    slotTypeName: __expectString(output.slotTypeName),
-  } as any;
-};
-
-const deserializeAws_restJson1SlotTypeSummaryList = (output: any, context: __SerdeContext): SlotTypeSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SlotTypeSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1SlotTypeValue = (output: any, context: __SerdeContext): SlotTypeValue => {
-  return {
-    sampleValue:
-      output.sampleValue != null ? deserializeAws_restJson1SampleValue(output.sampleValue, context) : undefined,
-    synonyms: output.synonyms != null ? deserializeAws_restJson1SynonymList(output.synonyms, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SlotTypeValues = (output: any, context: __SerdeContext): SlotTypeValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SlotTypeValue(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1SlotValue = (output: any, context: __SerdeContext): SlotValue => {
-  return {
-    interpretedValue: __expectString(output.interpretedValue),
-  } as any;
-};
-
-const deserializeAws_restJson1SlotValueElicitationSetting = (
-  output: any,
-  context: __SerdeContext
-): SlotValueElicitationSetting => {
-  return {
-    defaultValueSpecification:
-      output.defaultValueSpecification != null
-        ? deserializeAws_restJson1SlotDefaultValueSpecification(output.defaultValueSpecification, context)
-        : undefined,
-    promptSpecification:
-      output.promptSpecification != null
-        ? deserializeAws_restJson1PromptSpecification(output.promptSpecification, context)
-        : undefined,
-    sampleUtterances:
-      output.sampleUtterances != null
-        ? deserializeAws_restJson1SampleUtterancesList(output.sampleUtterances, context)
-        : undefined,
-    slotCaptureSetting:
-      output.slotCaptureSetting != null
-        ? deserializeAws_restJson1SlotCaptureSetting(output.slotCaptureSetting, context)
-        : undefined,
-    slotConstraint: __expectString(output.slotConstraint),
-    waitAndContinueSpecification:
-      output.waitAndContinueSpecification != null
-        ? deserializeAws_restJson1WaitAndContinueSpecification(output.waitAndContinueSpecification, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SlotValueOverride = (output: any, context: __SerdeContext): SlotValueOverride => {
-  return {
-    shape: __expectString(output.shape),
-    value: output.value != null ? deserializeAws_restJson1SlotValue(output.value, context) : undefined,
-    values: output.values != null ? deserializeAws_restJson1SlotValues(output.values, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SlotValueOverrideMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, SlotValueOverride> => {
+/**
+ * deserializeAws_restJson1SlotValueOverrideMap
+ */
+const de_SlotValueOverrideMap = (output: any, context: __SerdeContext): Record<string, SlotValueOverride> => {
   return Object.entries(output).reduce((acc: Record<string, SlotValueOverride>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1SlotValueOverride(value, context);
+    acc[key] = de_SlotValueOverride(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1SlotValueRegexFilter = (output: any, context: __SerdeContext): SlotValueRegexFilter => {
-  return {
-    pattern: __expectString(output.pattern),
-  } as any;
-};
+// de_SlotValueRegexFilter omitted.
 
-const deserializeAws_restJson1SlotValues = (output: any, context: __SerdeContext): SlotValueOverride[] => {
+/**
+ * deserializeAws_restJson1SlotValues
+ */
+const de_SlotValues = (output: any, context: __SerdeContext): SlotValueOverride[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SlotValueOverride(entry, context);
+      return de_SlotValueOverride(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SlotValueSelectionSetting = (
-  output: any,
-  context: __SerdeContext
-): SlotValueSelectionSetting => {
-  return {
-    advancedRecognitionSetting:
-      output.advancedRecognitionSetting != null
-        ? deserializeAws_restJson1AdvancedRecognitionSetting(output.advancedRecognitionSetting, context)
-        : undefined,
-    regexFilter:
-      output.regexFilter != null
-        ? deserializeAws_restJson1SlotValueRegexFilter(output.regexFilter, context)
-        : undefined,
-    resolutionStrategy: __expectString(output.resolutionStrategy),
-  } as any;
+// de_SlotValueSelectionSetting omitted.
+
+/**
+ * deserializeAws_restJson1Specifications
+ */
+const de_Specifications = (output: any, context: __SerdeContext): Specifications => {
+  return take(output, {
+    slotTypeId: __expectString,
+    valueElicitationSetting: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1Specifications = (output: any, context: __SerdeContext): Specifications => {
-  return {
-    slotTypeId: __expectString(output.slotTypeId),
-    valueElicitationSetting:
-      output.valueElicitationSetting != null
-        ? deserializeAws_restJson1SubSlotValueElicitationSetting(output.valueElicitationSetting, context)
-        : undefined,
-  } as any;
+// de_SSMLMessage omitted.
+
+// de_StillWaitingResponseSpecification omitted.
+
+// de_StringMap omitted.
+
+/**
+ * deserializeAws_restJson1SubSlotSetting
+ */
+const de_SubSlotSetting = (output: any, context: __SerdeContext): SubSlotSetting => {
+  return take(output, {
+    expression: __expectString,
+    slotSpecifications: (_: any) => de_SubSlotSpecificationMap(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1SSMLMessage = (output: any, context: __SerdeContext): SSMLMessage => {
-  return {
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_restJson1StillWaitingResponseSpecification = (
-  output: any,
-  context: __SerdeContext
-): StillWaitingResponseSpecification => {
-  return {
-    allowInterrupt: __expectBoolean(output.allowInterrupt),
-    frequencyInSeconds: __expectInt32(output.frequencyInSeconds),
-    messageGroups:
-      output.messageGroups != null
-        ? deserializeAws_restJson1MessageGroupsList(output.messageGroups, context)
-        : undefined,
-    timeoutInSeconds: __expectInt32(output.timeoutInSeconds),
-  } as any;
-};
-
-const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1SubSlotSetting = (output: any, context: __SerdeContext): SubSlotSetting => {
-  return {
-    expression: __expectString(output.expression),
-    slotSpecifications:
-      output.slotSpecifications != null
-        ? deserializeAws_restJson1SubSlotSpecificationMap(output.slotSpecifications, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SubSlotSpecificationMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, Specifications> => {
+/**
+ * deserializeAws_restJson1SubSlotSpecificationMap
+ */
+const de_SubSlotSpecificationMap = (output: any, context: __SerdeContext): Record<string, Specifications> => {
   return Object.entries(output).reduce((acc: Record<string, Specifications>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1Specifications(value, context);
+    acc[key] = de_Specifications(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1SubSlotTypeComposition = (
-  output: any,
-  context: __SerdeContext
-): SubSlotTypeComposition => {
-  return {
-    name: __expectString(output.name),
-    slotTypeId: __expectString(output.slotTypeId),
-  } as any;
+// de_SubSlotTypeComposition omitted.
+
+// de_SubSlotTypeList omitted.
+
+// de_SubSlotValueElicitationSetting omitted.
+
+// de_SynonymList omitted.
+
+// de_TagMap omitted.
+
+// de_TextInputSpecification omitted.
+
+// de_TextLogDestination omitted.
+
+// de_TextLogSetting omitted.
+
+// de_TextLogSettingsList omitted.
+
+/**
+ * deserializeAws_restJson1TranscriptFilter
+ */
+const de_TranscriptFilter = (output: any, context: __SerdeContext): TranscriptFilter => {
+  return take(output, {
+    lexTranscriptFilter: (_: any) => de_LexTranscriptFilter(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1SubSlotTypeList = (output: any, context: __SerdeContext): SubSlotTypeComposition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SubSlotTypeComposition(entry, context);
-    });
-  return retVal;
+/**
+ * deserializeAws_restJson1TranscriptSourceSetting
+ */
+const de_TranscriptSourceSetting = (output: any, context: __SerdeContext): TranscriptSourceSetting => {
+  return take(output, {
+    s3BucketTranscriptSource: (_: any) => de_S3BucketTranscriptSource(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1SubSlotValueElicitationSetting = (
-  output: any,
-  context: __SerdeContext
-): SubSlotValueElicitationSetting => {
-  return {
-    defaultValueSpecification:
-      output.defaultValueSpecification != null
-        ? deserializeAws_restJson1SlotDefaultValueSpecification(output.defaultValueSpecification, context)
-        : undefined,
-    promptSpecification:
-      output.promptSpecification != null
-        ? deserializeAws_restJson1PromptSpecification(output.promptSpecification, context)
-        : undefined,
-    sampleUtterances:
-      output.sampleUtterances != null
-        ? deserializeAws_restJson1SampleUtterancesList(output.sampleUtterances, context)
-        : undefined,
-    waitAndContinueSpecification:
-      output.waitAndContinueSpecification != null
-        ? deserializeAws_restJson1WaitAndContinueSpecification(output.waitAndContinueSpecification, context)
-        : undefined,
-  } as any;
-};
+// de_UtteranceAggregationDuration omitted.
 
-const deserializeAws_restJson1SynonymList = (output: any, context: __SerdeContext): SampleValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SampleValue(entry, context);
-    });
-  return retVal;
-};
+// de_VoiceSettings omitted.
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1TextInputSpecification = (
-  output: any,
-  context: __SerdeContext
-): TextInputSpecification => {
-  return {
-    startTimeoutMs: __expectInt32(output.startTimeoutMs),
-  } as any;
-};
-
-const deserializeAws_restJson1TextLogDestination = (output: any, context: __SerdeContext): TextLogDestination => {
-  return {
-    cloudWatch:
-      output.cloudWatch != null
-        ? deserializeAws_restJson1CloudWatchLogGroupLogDestination(output.cloudWatch, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TextLogSetting = (output: any, context: __SerdeContext): TextLogSetting => {
-  return {
-    destination:
-      output.destination != null ? deserializeAws_restJson1TextLogDestination(output.destination, context) : undefined,
-    enabled: __expectBoolean(output.enabled),
-  } as any;
-};
-
-const deserializeAws_restJson1TextLogSettingsList = (output: any, context: __SerdeContext): TextLogSetting[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TextLogSetting(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1TranscriptFilter = (output: any, context: __SerdeContext): TranscriptFilter => {
-  return {
-    lexTranscriptFilter:
-      output.lexTranscriptFilter != null
-        ? deserializeAws_restJson1LexTranscriptFilter(output.lexTranscriptFilter, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TranscriptSourceSetting = (
-  output: any,
-  context: __SerdeContext
-): TranscriptSourceSetting => {
-  return {
-    s3BucketTranscriptSource:
-      output.s3BucketTranscriptSource != null
-        ? deserializeAws_restJson1S3BucketTranscriptSource(output.s3BucketTranscriptSource, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1UtteranceAggregationDuration = (
-  output: any,
-  context: __SerdeContext
-): UtteranceAggregationDuration => {
-  return {
-    relativeAggregationDuration:
-      output.relativeAggregationDuration != null
-        ? deserializeAws_restJson1RelativeAggregationDuration(output.relativeAggregationDuration, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VoiceSettings = (output: any, context: __SerdeContext): VoiceSettings => {
-  return {
-    engine: __expectString(output.engine),
-    voiceId: __expectString(output.voiceId),
-  } as any;
-};
-
-const deserializeAws_restJson1WaitAndContinueSpecification = (
-  output: any,
-  context: __SerdeContext
-): WaitAndContinueSpecification => {
-  return {
-    active: __expectBoolean(output.active),
-    continueResponse:
-      output.continueResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.continueResponse, context)
-        : undefined,
-    stillWaitingResponse:
-      output.stillWaitingResponse != null
-        ? deserializeAws_restJson1StillWaitingResponseSpecification(output.stillWaitingResponse, context)
-        : undefined,
-    waitingResponse:
-      output.waitingResponse != null
-        ? deserializeAws_restJson1ResponseSpecification(output.waitingResponse, context)
-        : undefined,
-  } as any;
-};
+// de_WaitAndContinueSpecification omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

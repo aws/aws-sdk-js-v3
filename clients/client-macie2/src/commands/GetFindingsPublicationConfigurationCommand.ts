@@ -16,20 +16,22 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
   GetFindingsPublicationConfigurationRequest,
-  GetFindingsPublicationConfigurationRequestFilterSensitiveLog,
   GetFindingsPublicationConfigurationResponse,
-  GetFindingsPublicationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetFindingsPublicationConfigurationCommand,
-  serializeAws_restJson1GetFindingsPublicationConfigurationCommand,
+  de_GetFindingsPublicationConfigurationCommand,
+  se_GetFindingsPublicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFindingsPublicationConfigurationCommand}.
  */
 export interface GetFindingsPublicationConfigurationCommandInput extends GetFindingsPublicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFindingsPublicationConfigurationCommand}.
  */
 export interface GetFindingsPublicationConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface GetFindingsPublicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the configuration settings for publishing findings to Security Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,13 @@ export interface GetFindingsPublicationConfigurationCommandOutput
  * import { Macie2Client, GetFindingsPublicationConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetFindingsPublicationConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {};
  * const command = new GetFindingsPublicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingsPublicationConfigurationCommandInput - {@link GetFindingsPublicationConfigurationCommandInput}
+ * @returns {@link GetFindingsPublicationConfigurationCommandOutput}
  * @see {@link GetFindingsPublicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetFindingsPublicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -92,6 +98,9 @@ export class GetFindingsPublicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingsPublicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +129,8 @@ export class GetFindingsPublicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingsPublicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingsPublicationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +140,24 @@ export class GetFindingsPublicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetFindingsPublicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingsPublicationConfigurationCommand(input, context);
+    return se_GetFindingsPublicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFindingsPublicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetFindingsPublicationConfigurationCommand(output, context);
+    return de_GetFindingsPublicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

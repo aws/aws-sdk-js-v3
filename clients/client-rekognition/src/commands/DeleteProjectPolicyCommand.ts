@@ -13,40 +13,45 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteProjectPolicyRequest,
-  DeleteProjectPolicyRequestFilterSensitiveLog,
-  DeleteProjectPolicyResponse,
-  DeleteProjectPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProjectPolicyCommand,
-  serializeAws_json1_1DeleteProjectPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteProjectPolicyRequest, DeleteProjectPolicyResponse } from "../models/models_0";
+import { de_DeleteProjectPolicyCommand, se_DeleteProjectPolicyCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProjectPolicyCommand}.
  */
 export interface DeleteProjectPolicyCommandInput extends DeleteProjectPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProjectPolicyCommand}.
  */
 export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing project policy.</p>
  *          <p>To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. To attach a project policy to a project, call <a>PutProjectPolicy</a>.</p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:DeleteProjectPolicy</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, DeleteProjectPolicyCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteProjectPolicyCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DeleteProjectPolicyRequest
+ *   ProjectArn: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   PolicyRevisionId: "STRING_VALUE",
+ * };
  * const command = new DeleteProjectPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProjectPolicyCommandInput - {@link DeleteProjectPolicyCommandInput}
+ * @returns {@link DeleteProjectPolicyCommandOutput}
  * @see {@link DeleteProjectPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectPolicyCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -106,6 +111,9 @@ export class DeleteProjectPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProjectPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +142,8 @@ export class DeleteProjectPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProjectPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProjectPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +153,18 @@ export class DeleteProjectPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProjectPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProjectPolicyCommand(input, context);
+    return se_DeleteProjectPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteProjectPolicyCommand(output, context);
+    return de_DeleteProjectPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

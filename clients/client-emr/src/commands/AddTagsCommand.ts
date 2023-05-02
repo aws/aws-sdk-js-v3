@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  AddTagsInput,
-  AddTagsInputFilterSensitiveLog,
-  AddTagsOutput,
-  AddTagsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1AddTagsCommand, serializeAws_json1_1AddTagsCommand } from "../protocols/Aws_json1_1";
+import { AddTagsInput, AddTagsOutput } from "../models/models_0";
+import { de_AddTagsCommand, se_AddTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsCommand}.
  */
 export interface AddTagsCommandInput extends AddTagsInput {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsCommand}.
  */
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR
  *          Studio. Tags make it easier to associate resources in various ways, such as grouping
  *          clusters to track your Amazon EMR resource allocation costs. For more information,
@@ -43,10 +43,21 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * import { EMRClient, AddTagsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, AddTagsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // AddTagsInput
+ *   ResourceId: "STRING_VALUE", // required
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsCommandInput - {@link AddTagsCommandInput}
+ * @returns {@link AddTagsCommandOutput}
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -73,6 +84,9 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +113,8 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +124,18 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddTagsCommand(input, context);
+    return se_AddTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
-    return deserializeAws_json1_1AddTagsCommand(output, context);
+    return de_AddTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

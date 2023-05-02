@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteSecurityProfileRequest, DeleteSecurityProfileRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSecurityProfileCommand,
-  serializeAws_restJson1DeleteSecurityProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSecurityProfileRequest } from "../models/models_0";
+import { de_DeleteSecurityProfileCommand, se_DeleteSecurityProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSecurityProfileCommand}.
  */
 export interface DeleteSecurityProfileCommandInput extends DeleteSecurityProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSecurityProfileCommand}.
  */
 export interface DeleteSecurityProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Deletes a security profile.</p>
  * @example
@@ -38,10 +40,16 @@ export interface DeleteSecurityProfileCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DeleteSecurityProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteSecurityProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DeleteSecurityProfileRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   SecurityProfileId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSecurityProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSecurityProfileCommandInput - {@link DeleteSecurityProfileCommandInput}
+ * @returns {@link DeleteSecurityProfileCommandOutput}
  * @see {@link DeleteSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +94,9 @@ export class DeleteSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +125,8 @@ export class DeleteSecurityProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSecurityProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +136,18 @@ export class DeleteSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSecurityProfileCommand(input, context);
+    return se_DeleteSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteSecurityProfileCommand(output, context);
+    return de_DeleteSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

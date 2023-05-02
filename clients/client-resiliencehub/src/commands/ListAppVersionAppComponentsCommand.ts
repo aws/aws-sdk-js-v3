@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListAppVersionAppComponentsRequest, ListAppVersionAppComponentsResponse } from "../models/models_0";
 import {
-  ListAppVersionAppComponentsRequest,
-  ListAppVersionAppComponentsRequestFilterSensitiveLog,
-  ListAppVersionAppComponentsResponse,
-  ListAppVersionAppComponentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppVersionAppComponentsCommand,
-  serializeAws_restJson1ListAppVersionAppComponentsCommand,
+  de_ListAppVersionAppComponentsCommand,
+  se_ListAppVersionAppComponentsCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppVersionAppComponentsCommand}.
  */
 export interface ListAppVersionAppComponentsCommandInput extends ListAppVersionAppComponentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppVersionAppComponentsCommand}.
  */
 export interface ListAppVersionAppComponentsCommandOutput
@@ -37,17 +36,26 @@ export interface ListAppVersionAppComponentsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all the Application Components in the AWS Resilience Hub application.</p>
+ * @public
+ * <p>Lists all the Application Components in the Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, ListAppVersionAppComponentsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppVersionAppComponentsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListAppVersionAppComponentsRequest
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAppVersionAppComponentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppVersionAppComponentsCommandInput - {@link ListAppVersionAppComponentsCommandInput}
+ * @returns {@link ListAppVersionAppComponentsCommandOutput}
  * @see {@link ListAppVersionAppComponentsCommandInput} for command's `input` shape.
  * @see {@link ListAppVersionAppComponentsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -64,7 +72,7 @@ export interface ListAppVersionAppComponentsCommandOutput
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -95,6 +103,9 @@ export class ListAppVersionAppComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppVersionAppComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +134,8 @@ export class ListAppVersionAppComponentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppVersionAppComponentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppVersionAppComponentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,15 +145,21 @@ export class ListAppVersionAppComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppVersionAppComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppVersionAppComponentsCommand(input, context);
+    return se_ListAppVersionAppComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAppVersionAppComponentsCommandOutput> {
-    return deserializeAws_restJson1ListAppVersionAppComponentsCommand(output, context);
+    return de_ListAppVersionAppComponentsCommand(output, context);
   }
 
   // Start section: command_body_extra

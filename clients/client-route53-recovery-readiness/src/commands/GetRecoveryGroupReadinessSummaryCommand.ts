@@ -13,15 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetRecoveryGroupReadinessSummaryRequest, GetRecoveryGroupReadinessSummaryResponse } from "../models/models_0";
 import {
-  GetRecoveryGroupReadinessSummaryRequest,
-  GetRecoveryGroupReadinessSummaryRequestFilterSensitiveLog,
-  GetRecoveryGroupReadinessSummaryResponse,
-  GetRecoveryGroupReadinessSummaryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand,
-  serializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand,
+  de_GetRecoveryGroupReadinessSummaryCommand,
+  se_GetRecoveryGroupReadinessSummaryCommand,
 } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
@@ -30,10 +25,14 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecoveryGroupReadinessSummaryCommand}.
  */
 export interface GetRecoveryGroupReadinessSummaryCommandInput extends GetRecoveryGroupReadinessSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecoveryGroupReadinessSummaryCommand}.
  */
 export interface GetRecoveryGroupReadinessSummaryCommandOutput
@@ -41,6 +40,7 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays a summary of information about a recovery group's readiness status. Includes the readiness checks for resources in the recovery group and the readiness status of each one.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +48,17 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
  * import { Route53RecoveryReadinessClient, GetRecoveryGroupReadinessSummaryCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetRecoveryGroupReadinessSummaryCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // GetRecoveryGroupReadinessSummaryRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RecoveryGroupName: "STRING_VALUE", // required
+ * };
  * const command = new GetRecoveryGroupReadinessSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecoveryGroupReadinessSummaryCommandInput - {@link GetRecoveryGroupReadinessSummaryCommandInput}
+ * @returns {@link GetRecoveryGroupReadinessSummaryCommandOutput}
  * @see {@link GetRecoveryGroupReadinessSummaryCommandInput} for command's `input` shape.
  * @see {@link GetRecoveryGroupReadinessSummaryCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecoveryGroupReadinessSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +128,8 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecoveryGroupReadinessSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecoveryGroupReadinessSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +139,24 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRecoveryGroupReadinessSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand(input, context);
+    return se_GetRecoveryGroupReadinessSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecoveryGroupReadinessSummaryCommandOutput> {
-    return deserializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand(output, context);
+    return de_GetRecoveryGroupReadinessSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

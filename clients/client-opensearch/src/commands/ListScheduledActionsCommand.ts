@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListScheduledActionsRequest,
-  ListScheduledActionsRequestFilterSensitiveLog,
-  ListScheduledActionsResponse,
-  ListScheduledActionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListScheduledActionsRequest, ListScheduledActionsResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1ListScheduledActionsCommand,
-  serializeAws_restJson1ListScheduledActionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListScheduledActionsCommand, se_ListScheduledActionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListScheduledActionsCommand}.
  */
 export interface ListScheduledActionsCommandInput extends ListScheduledActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListScheduledActionsCommand}.
  */
 export interface ListScheduledActionsCommandOutput extends ListScheduledActionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of configuration changes that are scheduled for a domain. These changes can
  *    be <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
  *     updates</a> or <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
@@ -45,10 +42,17 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * import { OpenSearchClient, ListScheduledActionsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListScheduledActionsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // ListScheduledActionsRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListScheduledActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListScheduledActionsCommandInput - {@link ListScheduledActionsCommandInput}
+ * @returns {@link ListScheduledActionsCommandOutput}
  * @see {@link ListScheduledActionsCommandInput} for command's `input` shape.
  * @see {@link ListScheduledActionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -87,6 +91,9 @@ export class ListScheduledActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListScheduledActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListScheduledActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListScheduledActionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListScheduledActionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class ListScheduledActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListScheduledActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListScheduledActionsCommand(input, context);
+    return se_ListScheduledActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScheduledActionsCommandOutput> {
-    return deserializeAws_restJson1ListScheduledActionsCommand(output, context);
+    return de_ListScheduledActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

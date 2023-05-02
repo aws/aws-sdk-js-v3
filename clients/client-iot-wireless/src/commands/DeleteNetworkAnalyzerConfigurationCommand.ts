@@ -16,20 +16,22 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   DeleteNetworkAnalyzerConfigurationRequest,
-  DeleteNetworkAnalyzerConfigurationRequestFilterSensitiveLog,
   DeleteNetworkAnalyzerConfigurationResponse,
-  DeleteNetworkAnalyzerConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommand,
-  serializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommand,
+  de_DeleteNetworkAnalyzerConfigurationCommand,
+  se_DeleteNetworkAnalyzerConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkAnalyzerConfigurationCommand}.
  */
 export interface DeleteNetworkAnalyzerConfigurationCommandInput extends DeleteNetworkAnalyzerConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkAnalyzerConfigurationCommand}.
  */
 export interface DeleteNetworkAnalyzerConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface DeleteNetworkAnalyzerConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a network analyzer configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface DeleteNetworkAnalyzerConfigurationCommandOutput
  * import { IoTWirelessClient, DeleteNetworkAnalyzerConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteNetworkAnalyzerConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DeleteNetworkAnalyzerConfigurationRequest
+ *   ConfigurationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkAnalyzerConfigurationCommandInput - {@link DeleteNetworkAnalyzerConfigurationCommandInput}
+ * @returns {@link DeleteNetworkAnalyzerConfigurationCommandOutput}
  * @see {@link DeleteNetworkAnalyzerConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkAnalyzerConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +97,9 @@ export class DeleteNetworkAnalyzerConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkAnalyzerConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class DeleteNetworkAnalyzerConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkAnalyzerConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkAnalyzerConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +139,24 @@ export class DeleteNetworkAnalyzerConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNetworkAnalyzerConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommand(input, context);
+    return se_DeleteNetworkAnalyzerConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNetworkAnalyzerConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommand(output, context);
+    return de_DeleteNetworkAnalyzerConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

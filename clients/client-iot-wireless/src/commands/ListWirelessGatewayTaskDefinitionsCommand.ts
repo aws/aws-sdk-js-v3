@@ -16,20 +16,22 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   ListWirelessGatewayTaskDefinitionsRequest,
-  ListWirelessGatewayTaskDefinitionsRequestFilterSensitiveLog,
   ListWirelessGatewayTaskDefinitionsResponse,
-  ListWirelessGatewayTaskDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
-  deserializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand,
-  serializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand,
+  de_ListWirelessGatewayTaskDefinitionsCommand,
+  se_ListWirelessGatewayTaskDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWirelessGatewayTaskDefinitionsCommand}.
  */
 export interface ListWirelessGatewayTaskDefinitionsCommandInput extends ListWirelessGatewayTaskDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWirelessGatewayTaskDefinitionsCommand}.
  */
 export interface ListWirelessGatewayTaskDefinitionsCommandOutput
@@ -37,6 +39,7 @@ export interface ListWirelessGatewayTaskDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the wireless gateway tasks definitions registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,17 @@ export interface ListWirelessGatewayTaskDefinitionsCommandOutput
  * import { IoTWirelessClient, ListWirelessGatewayTaskDefinitionsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListWirelessGatewayTaskDefinitionsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListWirelessGatewayTaskDefinitionsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   TaskDefinitionType: "UPDATE",
+ * };
  * const command = new ListWirelessGatewayTaskDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWirelessGatewayTaskDefinitionsCommandInput - {@link ListWirelessGatewayTaskDefinitionsCommandInput}
+ * @returns {@link ListWirelessGatewayTaskDefinitionsCommandOutput}
  * @see {@link ListWirelessGatewayTaskDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListWirelessGatewayTaskDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -83,6 +93,9 @@ export class ListWirelessGatewayTaskDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWirelessGatewayTaskDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +124,8 @@ export class ListWirelessGatewayTaskDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWirelessGatewayTaskDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWirelessGatewayTaskDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +135,24 @@ export class ListWirelessGatewayTaskDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListWirelessGatewayTaskDefinitionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand(input, context);
+    return se_ListWirelessGatewayTaskDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListWirelessGatewayTaskDefinitionsCommandOutput> {
-    return deserializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand(output, context);
+    return de_ListWirelessGatewayTaskDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

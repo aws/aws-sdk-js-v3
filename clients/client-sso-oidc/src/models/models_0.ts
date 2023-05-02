@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SSOOIDCServiceException as __BaseException } from "./SSOOIDCServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,6 +28,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that a request to authorize a client with an access user session token is
  *       pending.</p>
  */
@@ -50,6 +52,9 @@ export class AuthorizationPendingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateTokenRequest {
   /**
    * <p>The unique identifier string for each client. This value should come from the persisted
@@ -112,6 +117,9 @@ export interface CreateTokenRequest {
   redirectUri?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTokenResponse {
   /**
    * <p>An opaque token to access IAM Identity Center resources assigned to a user.</p>
@@ -150,6 +158,7 @@ export interface CreateTokenResponse {
 }
 
 /**
+ * @public
  * <p>Indicates that the token issued by the service is expired and is no longer valid.</p>
  */
 export class ExpiredTokenException extends __BaseException {
@@ -173,6 +182,7 @@ export class ExpiredTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that an error from the service occurred while trying to process a
  *       request.</p>
  */
@@ -197,6 +207,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the <code>clientId</code> or <code>clientSecret</code> in the request is
  *       invalid. For example, this can occur when a client sends an incorrect <code>clientId</code> or
  *       an expired <code>clientSecret</code>.</p>
@@ -222,6 +233,7 @@ export class InvalidClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that a request contains an invalid grant. This can occur if a client makes a
  *         <a>CreateToken</a> request with an invalid grant type.</p>
  */
@@ -246,6 +258,7 @@ export class InvalidGrantException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that something is wrong with the input to the request. For example, a required
  *       parameter might be missing or out of range.</p>
  */
@@ -270,6 +283,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the scope provided in the request is invalid.</p>
  */
 export class InvalidScopeException extends __BaseException {
@@ -293,6 +307,7 @@ export class InvalidScopeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the client is making the request too frequently and is more than the
  *       service can handle. </p>
  */
@@ -317,6 +332,7 @@ export class SlowDownException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the client is not currently authorized to make the request. This can happen
  *       when a <code>clientId</code> is not issued for a public client.</p>
  */
@@ -341,6 +357,7 @@ export class UnauthorizedClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the grant type in the request is not supported by the service.</p>
  */
 export class UnsupportedGrantTypeException extends __BaseException {
@@ -364,6 +381,7 @@ export class UnsupportedGrantTypeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the client information sent in the request during registration is
  *       invalid.</p>
  */
@@ -387,6 +405,9 @@ export class InvalidClientMetadataException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RegisterClientRequest {
   /**
    * <p>The friendly name of the client.</p>
@@ -406,6 +427,9 @@ export interface RegisterClientRequest {
   scopes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface RegisterClientResponse {
   /**
    * <p>The unique identifier string for each client. This client uses this identifier to get
@@ -442,6 +466,9 @@ export interface RegisterClientResponse {
   tokenEndpoint?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDeviceAuthorizationRequest {
   /**
    * <p>The unique identifier string for the client that is registered with IAM Identity Center. This value
@@ -463,6 +490,9 @@ export interface StartDeviceAuthorizationRequest {
   startUrl: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDeviceAuthorizationResponse {
   /**
    * <p>The short-lived code that is used by the device when polling for a session token.</p>
@@ -498,45 +528,3 @@ export interface StartDeviceAuthorizationResponse {
    */
   interval?: number;
 }
-
-/**
- * @internal
- */
-export const CreateTokenRequestFilterSensitiveLog = (obj: CreateTokenRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTokenResponseFilterSensitiveLog = (obj: CreateTokenResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterClientRequestFilterSensitiveLog = (obj: RegisterClientRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterClientResponseFilterSensitiveLog = (obj: RegisterClientResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDeviceAuthorizationRequestFilterSensitiveLog = (obj: StartDeviceAuthorizationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDeviceAuthorizationResponseFilterSensitiveLog = (obj: StartDeviceAuthorizationResponse): any => ({
-  ...obj,
-});

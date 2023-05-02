@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportAsProvisionedProductInput,
-  ImportAsProvisionedProductInputFilterSensitiveLog,
-  ImportAsProvisionedProductOutput,
-  ImportAsProvisionedProductOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportAsProvisionedProductCommand,
-  serializeAws_json1_1ImportAsProvisionedProductCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportAsProvisionedProductInput, ImportAsProvisionedProductOutput } from "../models/models_0";
+import { de_ImportAsProvisionedProductCommand, se_ImportAsProvisionedProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportAsProvisionedProductCommand}.
  */
 export interface ImportAsProvisionedProductCommandInput extends ImportAsProvisionedProductInput {}
 /**
+ * @public
+ *
  * The output of {@link ImportAsProvisionedProductCommand}.
  */
 export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisionedProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Requests the import
  *          of a resource
@@ -83,10 +80,20 @@ export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisi
  * import { ServiceCatalogClient, ImportAsProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ImportAsProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ImportAsProvisionedProductInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE", // required
+ *   ProvisioningArtifactId: "STRING_VALUE", // required
+ *   ProvisionedProductName: "STRING_VALUE", // required
+ *   PhysicalId: "STRING_VALUE", // required
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new ImportAsProvisionedProductCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportAsProvisionedProductCommandInput - {@link ImportAsProvisionedProductCommandInput}
+ * @returns {@link ImportAsProvisionedProductCommandOutput}
  * @see {@link ImportAsProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link ImportAsProvisionedProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -123,6 +130,9 @@ export class ImportAsProvisionedProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportAsProvisionedProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,8 +161,8 @@ export class ImportAsProvisionedProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportAsProvisionedProductInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportAsProvisionedProductOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,15 +172,21 @@ export class ImportAsProvisionedProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportAsProvisionedProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportAsProvisionedProductCommand(input, context);
+    return se_ImportAsProvisionedProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ImportAsProvisionedProductCommandOutput> {
-    return deserializeAws_json1_1ImportAsProvisionedProductCommand(output, context);
+    return de_ImportAsProvisionedProductCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3842,6 +3842,14 @@ GetVpnConnectionDeviceTypes
 </details>
 <details>
 <summary>
+GetVpnTunnelReplacementStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/getvpntunnelreplacementstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getvpntunnelreplacementstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getvpntunnelreplacementstatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ImportClientVpnClientCertificateRevocationList
 </summary>
 
@@ -4638,6 +4646,14 @@ ReplaceTransitGatewayRoute
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/replacetransitgatewayroutecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/replacetransitgatewayroutecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/replacetransitgatewayroutecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ReplaceVpnTunnel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/replacevpntunnelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/replacevpntunnelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/replacevpntunnelcommandoutput.html)
 
 </details>
 <details>

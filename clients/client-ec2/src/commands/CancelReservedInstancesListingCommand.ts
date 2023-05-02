@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CancelReservedInstancesListingRequest, CancelReservedInstancesListingResult } from "../models/models_0";
 import {
-  CancelReservedInstancesListingRequest,
-  CancelReservedInstancesListingRequestFilterSensitiveLog,
-  CancelReservedInstancesListingResult,
-  CancelReservedInstancesListingResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2CancelReservedInstancesListingCommand,
-  serializeAws_ec2CancelReservedInstancesListingCommand,
+  de_CancelReservedInstancesListingCommand,
+  se_CancelReservedInstancesListingCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelReservedInstancesListingCommand}.
  */
 export interface CancelReservedInstancesListingCommandInput extends CancelReservedInstancesListingRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelReservedInstancesListingCommand}.
  */
 export interface CancelReservedInstancesListingCommandOutput
@@ -37,6 +36,7 @@ export interface CancelReservedInstancesListingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p>
  *          <p>For more information, see
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
@@ -47,10 +47,15 @@ export interface CancelReservedInstancesListingCommandOutput
  * import { EC2Client, CancelReservedInstancesListingCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelReservedInstancesListingCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CancelReservedInstancesListingRequest
+ *   ReservedInstancesListingId: "STRING_VALUE", // required
+ * };
  * const command = new CancelReservedInstancesListingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelReservedInstancesListingCommandInput - {@link CancelReservedInstancesListingCommandInput}
+ * @returns {@link CancelReservedInstancesListingCommandOutput}
  * @see {@link CancelReservedInstancesListingCommandInput} for command's `input` shape.
  * @see {@link CancelReservedInstancesListingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +79,9 @@ export class CancelReservedInstancesListingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelReservedInstancesListingCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +110,8 @@ export class CancelReservedInstancesListingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelReservedInstancesListingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelReservedInstancesListingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +121,24 @@ export class CancelReservedInstancesListingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelReservedInstancesListingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelReservedInstancesListingCommand(input, context);
+    return se_CancelReservedInstancesListingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelReservedInstancesListingCommandOutput> {
-    return deserializeAws_ec2CancelReservedInstancesListingCommand(output, context);
+    return de_CancelReservedInstancesListingCommand(output, context);
   }
 
   // Start section: command_body_extra

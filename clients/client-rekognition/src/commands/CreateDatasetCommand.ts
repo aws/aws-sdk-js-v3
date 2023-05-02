@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDatasetRequest,
-  CreateDatasetRequestFilterSensitiveLog,
-  CreateDatasetResponse,
-  CreateDatasetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDatasetCommand,
-  serializeAws_json1_1CreateDatasetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDatasetRequest, CreateDatasetResponse } from "../models/models_0";
+import { de_CreateDatasetCommand, se_CreateDatasetCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatasetCommand}.
  */
 export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatasetCommand}.
  */
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon Rekognition Custom Labels dataset. You can create a dataset by using
  *    an Amazon Sagemaker format manifest file or by copying an existing Amazon Rekognition Custom Labels dataset.</p>
  *          <p>To create a training dataset for a project, specify <code>train</code> for the value of
@@ -60,10 +57,26 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * import { RekognitionClient, CreateDatasetCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateDatasetCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // CreateDatasetRequest
+ *   DatasetSource: { // DatasetSource
+ *     GroundTruthManifest: { // GroundTruthManifest
+ *       S3Object: { // S3Object
+ *         Bucket: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *         Version: "STRING_VALUE",
+ *       },
+ *     },
+ *     DatasetArn: "STRING_VALUE",
+ *   },
+ *   DatasetType: "TRAIN" || "TEST", // required
+ *   ProjectArn: "STRING_VALUE", // required
+ * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
+ * @returns {@link CreateDatasetCommandOutput}
  * @see {@link CreateDatasetCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -118,6 +131,9 @@ export class CreateDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +160,8 @@ export class CreateDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +171,18 @@ export class CreateDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDatasetCommand(input, context);
+    return se_CreateDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetCommandOutput> {
-    return deserializeAws_json1_1CreateDatasetCommand(output, context);
+    return de_CreateDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

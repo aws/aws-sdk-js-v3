@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  CreateClusterRequest,
-  CreateClusterRequestFilterSensitiveLog,
-  CreateClusterResponse,
-  CreateClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateClusterCommand,
-  serializeAws_restJson1CreateClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateClusterRequest, CreateClusterResponse } from "../models/models_0";
+import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandInput extends CreateClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon EKS control plane. </p>
  *          <p>The Amazon EKS control plane consists of control plane instances that run the
  *             Kubernetes software, such as <code>etcd</code> and the API server. The control plane
@@ -62,10 +59,67 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { EKSClient, CreateClusterCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateClusterCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // CreateClusterRequest
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE", // required
+ *   resourcesVpcConfig: { // VpcConfigRequest
+ *     subnetIds: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     endpointPublicAccess: true || false,
+ *     endpointPrivateAccess: true || false,
+ *     publicAccessCidrs: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   kubernetesNetworkConfig: { // KubernetesNetworkConfigRequest
+ *     serviceIpv4Cidr: "STRING_VALUE",
+ *     ipFamily: "ipv4" || "ipv6",
+ *   },
+ *   logging: { // Logging
+ *     clusterLogging: [ // LogSetups
+ *       { // LogSetup
+ *         types: [ // LogTypes
+ *           "api" || "audit" || "authenticator" || "controllerManager" || "scheduler",
+ *         ],
+ *         enabled: true || false,
+ *       },
+ *     ],
+ *   },
+ *   clientRequestToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   encryptionConfig: [ // EncryptionConfigList
+ *     { // EncryptionConfig
+ *       resources: [
+ *         "STRING_VALUE",
+ *       ],
+ *       provider: { // Provider
+ *         keyArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   outpostConfig: { // OutpostConfigRequest
+ *     outpostArns: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     controlPlaneInstanceType: "STRING_VALUE", // required
+ *     controlPlanePlacement: { // ControlPlanePlacementRequest
+ *       groupName: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
+ * @returns {@link CreateClusterCommandOutput}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -139,6 +193,9 @@ export class CreateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,8 +222,8 @@ export class CreateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -176,12 +233,18 @@ export class CreateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateClusterCommand(input, context);
+    return se_CreateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
-    return deserializeAws_restJson1CreateClusterCommand(output, context);
+    return de_CreateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

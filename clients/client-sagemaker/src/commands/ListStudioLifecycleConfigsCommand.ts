@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListStudioLifecycleConfigsRequest,
-  ListStudioLifecycleConfigsRequestFilterSensitiveLog,
-  ListStudioLifecycleConfigsResponse,
-  ListStudioLifecycleConfigsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListStudioLifecycleConfigsCommand,
-  serializeAws_json1_1ListStudioLifecycleConfigsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListStudioLifecycleConfigsRequest, ListStudioLifecycleConfigsResponse } from "../models/models_3";
+import { de_ListStudioLifecycleConfigsCommand, se_ListStudioLifecycleConfigsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListStudioLifecycleConfigsCommand}.
  */
 export interface ListStudioLifecycleConfigsCommandInput extends ListStudioLifecycleConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStudioLifecycleConfigsCommand}.
  */
 export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifecycleConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Studio Lifecycle Configurations in your Amazon Web Services Account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * import { SageMakerClient, ListStudioLifecycleConfigsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListStudioLifecycleConfigsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListStudioLifecycleConfigsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   NameContains: "STRING_VALUE",
+ *   AppTypeEquals: "JupyterServer" || "KernelGateway",
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   ModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   ModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   SortBy: "CreationTime" || "LastModifiedTime" || "Name",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListStudioLifecycleConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStudioLifecycleConfigsCommandInput - {@link ListStudioLifecycleConfigsCommandInput}
+ * @returns {@link ListStudioLifecycleConfigsCommandOutput}
  * @see {@link ListStudioLifecycleConfigsCommandInput} for command's `input` shape.
  * @see {@link ListStudioLifecycleConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +83,9 @@ export class ListStudioLifecycleConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStudioLifecycleConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +114,8 @@ export class ListStudioLifecycleConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStudioLifecycleConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStudioLifecycleConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +125,21 @@ export class ListStudioLifecycleConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStudioLifecycleConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStudioLifecycleConfigsCommand(input, context);
+    return se_ListStudioLifecycleConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStudioLifecycleConfigsCommandOutput> {
-    return deserializeAws_json1_1ListStudioLifecycleConfigsCommand(output, context);
+    return de_ListStudioLifecycleConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

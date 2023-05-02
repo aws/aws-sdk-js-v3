@@ -20,21 +20,23 @@ import {
   UpdateDirectoryConfigResult,
   UpdateDirectoryConfigResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDirectoryConfigCommand,
-  serializeAws_json1_1UpdateDirectoryConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDirectoryConfigCommand, se_UpdateDirectoryConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDirectoryConfigCommand}.
  */
 export interface UpdateDirectoryConfigCommandInput extends UpdateDirectoryConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDirectoryConfigCommand}.
  */
 export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,26 @@ export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfi
  * import { AppStreamClient, UpdateDirectoryConfigCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateDirectoryConfigCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // UpdateDirectoryConfigRequest
+ *   DirectoryName: "STRING_VALUE", // required
+ *   OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceAccountCredentials: { // ServiceAccountCredentials
+ *     AccountName: "STRING_VALUE", // required
+ *     AccountPassword: "STRING_VALUE", // required
+ *   },
+ *   CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
+ *     Status: "DISABLED" || "ENABLED" || "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
+ *     CertificateAuthorityArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateDirectoryConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDirectoryConfigCommandInput - {@link UpdateDirectoryConfigCommandInput}
+ * @returns {@link UpdateDirectoryConfigCommandOutput}
  * @see {@link UpdateDirectoryConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateDirectoryConfigCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -84,6 +102,9 @@ export class UpdateDirectoryConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDirectoryConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,12 +144,18 @@ export class UpdateDirectoryConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDirectoryConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDirectoryConfigCommand(input, context);
+    return se_UpdateDirectoryConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDirectoryConfigCommandOutput> {
-    return deserializeAws_json1_1UpdateDirectoryConfigCommand(output, context);
+    return de_UpdateDirectoryConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

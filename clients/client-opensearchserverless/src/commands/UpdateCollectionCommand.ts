@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateCollectionRequest,
-  UpdateCollectionRequestFilterSensitiveLog,
-  UpdateCollectionResponse,
-  UpdateCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateCollectionRequest, UpdateCollectionResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0UpdateCollectionCommand,
-  serializeAws_json1_0UpdateCollectionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateCollectionCommand, se_UpdateCollectionCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCollectionCommand}.
  */
 export interface UpdateCollectionCommandInput extends UpdateCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCollectionCommand}.
  */
 export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an OpenSearch Serverless collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,17 +43,24 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * import { OpenSearchServerlessClient, UpdateCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // UpdateCollectionRequest
+ *   id: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCollectionCommandInput - {@link UpdateCollectionCommandInput}
+ * @returns {@link UpdateCollectionCommandOutput}
  * @see {@link UpdateCollectionCommandInput} for command's `input` shape.
  * @see {@link UpdateCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a collection, thrown when a collection with the same name already exists
- *             or is being created. When deleting a collection, thrown when the collection is not in
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
  *             the ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
@@ -85,6 +89,9 @@ export class UpdateCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class UpdateCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class UpdateCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateCollectionCommand(input, context);
+    return se_UpdateCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCollectionCommandOutput> {
-    return deserializeAws_json1_0UpdateCollectionCommand(output, context);
+    return de_UpdateCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

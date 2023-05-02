@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeBundleTasksRequest,
-  DescribeBundleTasksRequestFilterSensitiveLog,
-  DescribeBundleTasksResult,
-  DescribeBundleTasksResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeBundleTasksCommand,
-  serializeAws_ec2DescribeBundleTasksCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeBundleTasksRequest, DescribeBundleTasksResult } from "../models/models_3";
+import { de_DescribeBundleTasksCommand, se_DescribeBundleTasksCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBundleTasksCommand}.
  */
 export interface DescribeBundleTasksCommandInput extends DescribeBundleTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBundleTasksCommand}.
  */
 export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified bundle tasks or all of your bundle tasks.</p>
  *          <note>
  *             <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</p>
@@ -45,10 +42,26 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  * import { EC2Client, DescribeBundleTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeBundleTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeBundleTasksRequest
+ *   BundleIds: [ // BundleIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeBundleTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBundleTasksCommandInput - {@link DescribeBundleTasksCommandInput}
+ * @returns {@link DescribeBundleTasksCommandOutput}
  * @see {@link DescribeBundleTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeBundleTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +85,9 @@ export class DescribeBundleTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBundleTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +116,8 @@ export class DescribeBundleTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBundleTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBundleTasksResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +127,18 @@ export class DescribeBundleTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBundleTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeBundleTasksCommand(input, context);
+    return se_DescribeBundleTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBundleTasksCommandOutput> {
-    return deserializeAws_ec2DescribeBundleTasksCommand(output, context);
+    return de_DescribeBundleTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

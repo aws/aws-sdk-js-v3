@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSamplingRulesRequest,
-  GetSamplingRulesRequestFilterSensitiveLog,
-  GetSamplingRulesResult,
-  GetSamplingRulesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSamplingRulesCommand,
-  serializeAws_restJson1GetSamplingRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSamplingRulesRequest, GetSamplingRulesResult } from "../models/models_0";
+import { de_GetSamplingRulesCommand, se_GetSamplingRulesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSamplingRulesCommand}.
  */
 export interface GetSamplingRulesCommandInput extends GetSamplingRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSamplingRulesCommand}.
  */
 export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all sampling rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, _
  * import { XRayClient, GetSamplingRulesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetSamplingRulesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // GetSamplingRulesRequest
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetSamplingRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSamplingRulesCommandInput - {@link GetSamplingRulesCommandInput}
+ * @returns {@link GetSamplingRulesCommandOutput}
  * @see {@link GetSamplingRulesCommandInput} for command's `input` shape.
  * @see {@link GetSamplingRulesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +77,9 @@ export class GetSamplingRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSamplingRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class GetSamplingRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSamplingRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSamplingRulesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class GetSamplingRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSamplingRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSamplingRulesCommand(input, context);
+    return se_GetSamplingRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSamplingRulesCommandOutput> {
-    return deserializeAws_restJson1GetSamplingRulesCommand(output, context);
+    return de_GetSamplingRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

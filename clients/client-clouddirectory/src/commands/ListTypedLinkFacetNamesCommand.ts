@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListTypedLinkFacetNamesRequest,
-  ListTypedLinkFacetNamesRequestFilterSensitiveLog,
-  ListTypedLinkFacetNamesResponse,
-  ListTypedLinkFacetNamesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTypedLinkFacetNamesCommand,
-  serializeAws_restJson1ListTypedLinkFacetNamesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTypedLinkFacetNamesRequest, ListTypedLinkFacetNamesResponse } from "../models/models_0";
+import { de_ListTypedLinkFacetNamesCommand, se_ListTypedLinkFacetNamesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTypedLinkFacetNamesCommand}.
  */
 export interface ListTypedLinkFacetNamesCommandInput extends ListTypedLinkFacetNamesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTypedLinkFacetNamesCommand}.
  */
 export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacetNamesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of <code>TypedLink</code> facet names for a particular schema.
  *       For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacet
  * import { CloudDirectoryClient, ListTypedLinkFacetNamesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListTypedLinkFacetNamesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListTypedLinkFacetNamesRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTypedLinkFacetNamesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTypedLinkFacetNamesCommandInput - {@link ListTypedLinkFacetNamesCommandInput}
+ * @returns {@link ListTypedLinkFacetNamesCommandOutput}
  * @see {@link ListTypedLinkFacetNamesCommandInput} for command's `input` shape.
  * @see {@link ListTypedLinkFacetNamesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -95,6 +99,9 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTypedLinkFacetNamesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +130,8 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTypedLinkFacetNamesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTypedLinkFacetNamesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +141,18 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTypedLinkFacetNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTypedLinkFacetNamesCommand(input, context);
+    return se_ListTypedLinkFacetNamesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTypedLinkFacetNamesCommandOutput> {
-    return deserializeAws_restJson1ListTypedLinkFacetNamesCommand(output, context);
+    return de_ListTypedLinkFacetNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

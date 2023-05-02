@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  GetModelManifestRequest,
-  GetModelManifestRequestFilterSensitiveLog,
-  GetModelManifestResponse,
-  GetModelManifestResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetModelManifestCommand,
-  serializeAws_json1_0GetModelManifestCommand,
-} from "../protocols/Aws_json1_0";
+import { GetModelManifestRequest, GetModelManifestResponse } from "../models/models_0";
+import { de_GetModelManifestCommand, se_GetModelManifestCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetModelManifestCommand}.
  */
 export interface GetModelManifestCommandInput extends GetModelManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetModelManifestCommand}.
  */
 export interface GetModelManifestCommandOutput extends GetModelManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about a vehicle model (model manifest). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetModelManifestCommandOutput extends GetModelManifestResponse,
  * import { IoTFleetWiseClient, GetModelManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetModelManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // GetModelManifestRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetModelManifestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetModelManifestCommandInput - {@link GetModelManifestCommandInput}
+ * @returns {@link GetModelManifestCommandOutput}
  * @see {@link GetModelManifestCommandInput} for command's `input` shape.
  * @see {@link GetModelManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetModelManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetModelManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class GetModelManifestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetModelManifestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetModelManifestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class GetModelManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetModelManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetModelManifestCommand(input, context);
+    return se_GetModelManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelManifestCommandOutput> {
-    return deserializeAws_json1_0GetModelManifestCommand(output, context);
+    return de_GetModelManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

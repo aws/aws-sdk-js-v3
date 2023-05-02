@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  UpdateDeviceStateRequest,
-  UpdateDeviceStateRequestFilterSensitiveLog,
-  UpdateDeviceStateResponse,
-  UpdateDeviceStateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDeviceStateCommand,
-  serializeAws_restJson1UpdateDeviceStateCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDeviceStateRequest, UpdateDeviceStateResponse } from "../models/models_0";
+import { de_UpdateDeviceStateCommand, se_UpdateDeviceStateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeviceStateCommand}.
  */
 export interface UpdateDeviceStateCommandInput extends UpdateDeviceStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeviceStateCommand}.
  */
 export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Using a Boolean value (true or false), this operation
  *  enables or disables the device given a device ID.</p>
  * @example
@@ -47,10 +44,16 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
  * import { IoT1ClickDevicesServiceClient, UpdateDeviceStateCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, UpdateDeviceStateCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = { // UpdateDeviceStateRequest
+ *   DeviceId: "STRING_VALUE", // required
+ *   Enabled: true || false,
+ * };
  * const command = new UpdateDeviceStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeviceStateCommandInput - {@link UpdateDeviceStateCommandInput}
+ * @returns {@link UpdateDeviceStateCommandOutput}
  * @see {@link UpdateDeviceStateCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceStateCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
@@ -80,6 +83,9 @@ export class UpdateDeviceStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeviceStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class UpdateDeviceStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeviceStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeviceStateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class UpdateDeviceStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeviceStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDeviceStateCommand(input, context);
+    return se_UpdateDeviceStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceStateCommandOutput> {
-    return deserializeAws_restJson1UpdateDeviceStateCommand(output, context);
+    return de_UpdateDeviceStateCommand(output, context);
   }
 
   // Start section: command_body_extra

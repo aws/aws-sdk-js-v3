@@ -16,25 +16,26 @@ import {
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import {
   ListTargetsByRuleRequest,
-  ListTargetsByRuleRequestFilterSensitiveLog,
   ListTargetsByRuleResponse,
   ListTargetsByRuleResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTargetsByRuleCommand,
-  serializeAws_json1_1ListTargetsByRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTargetsByRuleCommand, se_ListTargetsByRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTargetsByRuleCommand}.
  */
 export interface ListTargetsByRuleCommandInput extends ListTargetsByRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTargetsByRuleCommand}.
  */
 export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the targets assigned to the specified rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,18 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  * import { EventBridgeClient, ListTargetsByRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListTargetsByRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // ListTargetsByRuleRequest
+ *   Rule: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListTargetsByRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTargetsByRuleCommandInput - {@link ListTargetsByRuleCommandInput}
+ * @returns {@link ListTargetsByRuleCommandOutput}
  * @see {@link ListTargetsByRuleCommandInput} for command's `input` shape.
  * @see {@link ListTargetsByRuleCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -75,6 +84,9 @@ export class ListTargetsByRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTargetsByRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,7 +115,7 @@ export class ListTargetsByRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTargetsByRuleRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListTargetsByRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -114,12 +126,18 @@ export class ListTargetsByRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTargetsByRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTargetsByRuleCommand(input, context);
+    return se_ListTargetsByRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsByRuleCommandOutput> {
-    return deserializeAws_json1_1ListTargetsByRuleCommand(output, context);
+    return de_ListTargetsByRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  SelectResourceConfigRequest,
-  SelectResourceConfigRequestFilterSensitiveLog,
-  SelectResourceConfigResponse,
-  SelectResourceConfigResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1SelectResourceConfigCommand,
-  serializeAws_json1_1SelectResourceConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { SelectResourceConfigRequest, SelectResourceConfigResponse } from "../models/models_1";
+import { de_SelectResourceConfigCommand, se_SelectResourceConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SelectResourceConfigCommand}.
  */
 export interface SelectResourceConfigCommandInput extends SelectResourceConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link SelectResourceConfigCommand}.
  */
 export interface SelectResourceConfigCommandOutput extends SelectResourceConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a structured query language (SQL) <code>SELECT</code> command, performs the corresponding search, and returns resource configurations matching the properties.</p>
  *          <p>For more information about query components, see the
  * 			<a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html">
@@ -46,10 +43,17 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  * import { ConfigServiceClient, SelectResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, SelectResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // SelectResourceConfigRequest
+ *   Expression: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new SelectResourceConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SelectResourceConfigCommandInput - {@link SelectResourceConfigCommandInput}
+ * @returns {@link SelectResourceConfigCommandOutput}
  * @see {@link SelectResourceConfigCommandInput} for command's `input` shape.
  * @see {@link SelectResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -84,6 +88,9 @@ export class SelectResourceConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SelectResourceConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class SelectResourceConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SelectResourceConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SelectResourceConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class SelectResourceConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SelectResourceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SelectResourceConfigCommand(input, context);
+    return se_SelectResourceConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SelectResourceConfigCommandOutput> {
-    return deserializeAws_json1_1SelectResourceConfigCommand(output, context);
+    return de_SelectResourceConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

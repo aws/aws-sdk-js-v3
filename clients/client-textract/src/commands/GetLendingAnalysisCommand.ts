@@ -13,36 +13,33 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLendingAnalysisRequest,
-  GetLendingAnalysisRequestFilterSensitiveLog,
-  GetLendingAnalysisResponse,
-  GetLendingAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLendingAnalysisCommand,
-  serializeAws_json1_1GetLendingAnalysisCommand,
-} from "../protocols/Aws_json1_1";
+import { GetLendingAnalysisRequest, GetLendingAnalysisResponse } from "../models/models_0";
+import { de_GetLendingAnalysisCommand, se_GetLendingAnalysisCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetLendingAnalysisCommand}.
  */
 export interface GetLendingAnalysisCommandInput extends GetLendingAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLendingAnalysisCommand}.
  */
 export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
  *             lending document. </p>
- *         <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>,
+ *          <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>,
  *             which returns a job identifier (<code>JobId</code>). When the text analysis operation
  *             finishes, Amazon Textract publishes a completion status to the Amazon Simple
  *             Notification Service (Amazon SNS) topic that's registered in the initial call to
  *                 <code>StartLendingAnalysis</code>. </p>
- *         <p>To get the results of the text analysis operation, first check that the status value
+ *          <p>To get the results of the text analysis operation, first check that the status value
  *             published to the Amazon SNS topic is SUCCEEDED. If so, call GetLendingAnalysis, and pass
  *             the job identifier (<code>JobId</code>) from the initial call to
  *                 <code>StartLendingAnalysis</code>.</p>
@@ -52,10 +49,17 @@ export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisRespo
  * import { TextractClient, GetLendingAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, GetLendingAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // GetLendingAnalysisRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetLendingAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLendingAnalysisCommandInput - {@link GetLendingAnalysisCommandInput}
+ * @returns {@link GetLendingAnalysisCommandOutput}
  * @see {@link GetLendingAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetLendingAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -113,6 +117,9 @@ export class GetLendingAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLendingAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +148,8 @@ export class GetLendingAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLendingAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLendingAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +159,18 @@ export class GetLendingAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLendingAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLendingAnalysisCommand(input, context);
+    return se_GetLendingAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLendingAnalysisCommandOutput> {
-    return deserializeAws_json1_1GetLendingAnalysisCommand(output, context);
+    return de_GetLendingAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  CreateBackendAPIRequest,
-  CreateBackendAPIRequestFilterSensitiveLog,
-  CreateBackendAPIResponse,
-  CreateBackendAPIResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBackendAPICommand,
-  serializeAws_restJson1CreateBackendAPICommand,
-} from "../protocols/Aws_restJson1";
+import { CreateBackendAPIRequest, CreateBackendAPIResponse } from "../models/models_0";
+import { de_CreateBackendAPICommand, se_CreateBackendAPICommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBackendAPICommand}.
  */
 export interface CreateBackendAPICommandInput extends CreateBackendAPIRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBackendAPICommand}.
  */
 export interface CreateBackendAPICommandOutput extends CreateBackendAPIResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new backend API resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,53 @@ export interface CreateBackendAPICommandOutput extends CreateBackendAPIResponse,
  * import { AmplifyBackendClient, CreateBackendAPICommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CreateBackendAPICommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // CreateBackendAPIRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   ResourceConfig: { // BackendAPIResourceConfig
+ *     AdditionalAuthTypes: [ // ListOfBackendAPIAuthType
+ *       { // BackendAPIAuthType
+ *         Mode: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT",
+ *         Settings: { // BackendAPIAppSyncAuthSettings
+ *           CognitoUserPoolId: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *           ExpirationTime: Number("double"),
+ *           OpenIDAuthTTL: "STRING_VALUE",
+ *           OpenIDClientId: "STRING_VALUE",
+ *           OpenIDIatTTL: "STRING_VALUE",
+ *           OpenIDIssueURL: "STRING_VALUE",
+ *           OpenIDProviderName: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     ApiName: "STRING_VALUE",
+ *     ConflictResolution: { // BackendAPIConflictResolution
+ *       ResolutionStrategy: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
+ *     },
+ *     DefaultAuthType: {
+ *       Mode: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT",
+ *       Settings: {
+ *         CognitoUserPoolId: "STRING_VALUE",
+ *         Description: "STRING_VALUE",
+ *         ExpirationTime: Number("double"),
+ *         OpenIDAuthTTL: "STRING_VALUE",
+ *         OpenIDClientId: "STRING_VALUE",
+ *         OpenIDIatTTL: "STRING_VALUE",
+ *         OpenIDIssueURL: "STRING_VALUE",
+ *         OpenIDProviderName: "STRING_VALUE",
+ *       },
+ *     },
+ *     Service: "STRING_VALUE",
+ *     TransformSchema: "STRING_VALUE",
+ *   },
+ *   ResourceName: "STRING_VALUE", // required
+ * };
  * const command = new CreateBackendAPICommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackendAPICommandInput - {@link CreateBackendAPICommandInput}
+ * @returns {@link CreateBackendAPICommandOutput}
  * @see {@link CreateBackendAPICommandInput} for command's `input` shape.
  * @see {@link CreateBackendAPICommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +121,9 @@ export class CreateBackendAPICommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackendAPICommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +152,8 @@ export class CreateBackendAPICommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackendAPIRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackendAPIResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +163,18 @@ export class CreateBackendAPICommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackendAPICommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBackendAPICommand(input, context);
+    return se_CreateBackendAPICommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackendAPICommandOutput> {
-    return deserializeAws_restJson1CreateBackendAPICommand(output, context);
+    return de_CreateBackendAPICommand(output, context);
   }
 
   // Start section: command_body_extra

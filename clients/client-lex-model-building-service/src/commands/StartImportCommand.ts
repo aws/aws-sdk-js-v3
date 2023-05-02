@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  StartImportRequest,
-  StartImportRequestFilterSensitiveLog,
-  StartImportResponse,
-  StartImportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartImportCommand,
-  serializeAws_restJson1StartImportCommand,
-} from "../protocols/Aws_restJson1";
+import { StartImportRequest, StartImportResponse } from "../models/models_0";
+import { de_StartImportCommand, se_StartImportCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartImportCommand}.
  */
 export interface StartImportCommandInput extends StartImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartImportCommand}.
  */
 export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a job to import a resource to Amazon Lex.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,23 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * import { LexModelBuildingServiceClient, StartImportCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, StartImportCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // StartImportRequest
+ *   payload: "BLOB_VALUE", // required
+ *   resourceType: "STRING_VALUE", // required
+ *   mergeStrategy: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new StartImportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImportCommandInput - {@link StartImportCommandInput}
+ * @returns {@link StartImportCommandOutput}
  * @see {@link StartImportCommandInput} for command's `input` shape.
  * @see {@link StartImportCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -84,6 +94,9 @@ export class StartImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +123,8 @@ export class StartImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +134,18 @@ export class StartImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartImportCommand(input, context);
+    return se_StartImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportCommandOutput> {
-    return deserializeAws_restJson1StartImportCommand(output, context);
+    return de_StartImportCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelMailboxExportJobRequest,
-  CancelMailboxExportJobRequestFilterSensitiveLog,
-  CancelMailboxExportJobResponse,
-  CancelMailboxExportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelMailboxExportJobCommand,
-  serializeAws_json1_1CancelMailboxExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelMailboxExportJobRequest, CancelMailboxExportJobResponse } from "../models/models_0";
+import { de_CancelMailboxExportJobCommand, se_CancelMailboxExportJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelMailboxExportJobCommand}.
  */
 export interface CancelMailboxExportJobCommandInput extends CancelMailboxExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelMailboxExportJobCommand}.
  */
 export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a mailbox export job.</p>
  *          <note>
  *             <p>If the mailbox export job is near completion, it might not be possible to cancel
@@ -46,10 +43,17 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  * import { WorkMailClient, CancelMailboxExportJobCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CancelMailboxExportJobCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // CancelMailboxExportJobRequest
+ *   ClientToken: "STRING_VALUE", // required
+ *   JobId: "STRING_VALUE", // required
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new CancelMailboxExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelMailboxExportJobCommandInput - {@link CancelMailboxExportJobCommandInput}
+ * @returns {@link CancelMailboxExportJobCommandOutput}
  * @see {@link CancelMailboxExportJobCommandInput} for command's `input` shape.
  * @see {@link CancelMailboxExportJobCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -88,6 +92,9 @@ export class CancelMailboxExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelMailboxExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class CancelMailboxExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelMailboxExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelMailboxExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class CancelMailboxExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelMailboxExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelMailboxExportJobCommand(input, context);
+    return se_CancelMailboxExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelMailboxExportJobCommandOutput> {
-    return deserializeAws_json1_1CancelMailboxExportJobCommand(output, context);
+    return de_CancelMailboxExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

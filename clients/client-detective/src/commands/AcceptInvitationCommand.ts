@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { AcceptInvitationRequest, AcceptInvitationRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1AcceptInvitationCommand,
-  serializeAws_restJson1AcceptInvitationCommand,
-} from "../protocols/Aws_restJson1";
+import { AcceptInvitationRequest } from "../models/models_0";
+import { de_AcceptInvitationCommand, se_AcceptInvitationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptInvitationCommand}.
  */
 export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptInvitationCommand}.
  */
 export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts an invitation for the member account to contribute data to a behavior graph.
  *          This operation can only be called by an invited member account. </p>
  *          <p>The request provides the ARN of behavior graph.</p>
@@ -40,10 +42,15 @@ export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
  * import { DetectiveClient, AcceptInvitationCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, AcceptInvitationCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // AcceptInvitationRequest
+ *   GraphArn: "STRING_VALUE", // required
+ * };
  * const command = new AcceptInvitationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptInvitationCommandInput - {@link AcceptInvitationCommandInput}
+ * @returns {@link AcceptInvitationCommandOutput}
  * @see {@link AcceptInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptInvitationCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -83,6 +90,9 @@ export class AcceptInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +121,8 @@ export class AcceptInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptInvitationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +132,18 @@ export class AcceptInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptInvitationCommand(input, context);
+    return se_AcceptInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptInvitationCommandOutput> {
-    return deserializeAws_restJson1AcceptInvitationCommand(output, context);
+    return de_AcceptInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

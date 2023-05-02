@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DisableVpcClassicLinkDnsSupportRequest, DisableVpcClassicLinkDnsSupportResult } from "../models/models_5";
 import {
-  DisableVpcClassicLinkDnsSupportRequest,
-  DisableVpcClassicLinkDnsSupportRequestFilterSensitiveLog,
-  DisableVpcClassicLinkDnsSupportResult,
-  DisableVpcClassicLinkDnsSupportResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommand,
-  serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand,
+  de_DisableVpcClassicLinkDnsSupportCommand,
+  se_DisableVpcClassicLinkDnsSupportCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisableVpcClassicLinkDnsSupportCommand}.
  */
 export interface DisableVpcClassicLinkDnsSupportCommandInput extends DisableVpcClassicLinkDnsSupportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableVpcClassicLinkDnsSupportCommand}.
  */
 export interface DisableVpcClassicLinkDnsSupportCommandOutput
@@ -37,6 +36,7 @@ export interface DisableVpcClassicLinkDnsSupportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to
  * 			public IP addresses when addressed between a linked EC2-Classic instance and instances
  * 			in the VPC to which it's linked. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
@@ -51,10 +51,15 @@ export interface DisableVpcClassicLinkDnsSupportCommandOutput
  * import { EC2Client, DisableVpcClassicLinkDnsSupportCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableVpcClassicLinkDnsSupportCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisableVpcClassicLinkDnsSupportRequest
+ *   VpcId: "STRING_VALUE",
+ * };
  * const command = new DisableVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableVpcClassicLinkDnsSupportCommandInput - {@link DisableVpcClassicLinkDnsSupportCommandInput}
+ * @returns {@link DisableVpcClassicLinkDnsSupportCommandOutput}
  * @see {@link DisableVpcClassicLinkDnsSupportCommandInput} for command's `input` shape.
  * @see {@link DisableVpcClassicLinkDnsSupportCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -78,6 +83,9 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableVpcClassicLinkDnsSupportCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +114,8 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableVpcClassicLinkDnsSupportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableVpcClassicLinkDnsSupportResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +125,24 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableVpcClassicLinkDnsSupportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand(input, context);
+    return se_DisableVpcClassicLinkDnsSupportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableVpcClassicLinkDnsSupportCommandOutput> {
-    return deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommand(output, context);
+    return de_DisableVpcClassicLinkDnsSupportCommand(output, context);
   }
 
   // Start section: command_body_extra

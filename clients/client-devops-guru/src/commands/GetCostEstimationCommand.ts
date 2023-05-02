@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  GetCostEstimationRequest,
-  GetCostEstimationRequestFilterSensitiveLog,
-  GetCostEstimationResponse,
-  GetCostEstimationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCostEstimationCommand,
-  serializeAws_restJson1GetCostEstimationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetCostEstimationRequest, GetCostEstimationResponse } from "../models/models_0";
+import { de_GetCostEstimationCommand, se_GetCostEstimationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCostEstimationCommand}.
  */
 export interface GetCostEstimationCommandInput extends GetCostEstimationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCostEstimationCommand}.
  */
 export interface GetCostEstimationCommandOutput extends GetCostEstimationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an estimate of the monthly cost for DevOps Guru to analyze your Amazon Web Services resources.
  * 			For more information,
  * 			see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate your
@@ -46,10 +43,15 @@ export interface GetCostEstimationCommandOutput extends GetCostEstimationRespons
  * import { DevOpsGuruClient, GetCostEstimationCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, GetCostEstimationCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // GetCostEstimationRequest
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetCostEstimationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCostEstimationCommandInput - {@link GetCostEstimationCommandInput}
+ * @returns {@link GetCostEstimationCommandOutput}
  * @see {@link GetCostEstimationCommandInput} for command's `input` shape.
  * @see {@link GetCostEstimationCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -92,6 +94,9 @@ export class GetCostEstimationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCostEstimationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +125,8 @@ export class GetCostEstimationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCostEstimationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCostEstimationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +136,18 @@ export class GetCostEstimationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCostEstimationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCostEstimationCommand(input, context);
+    return se_GetCostEstimationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostEstimationCommandOutput> {
-    return deserializeAws_restJson1GetCostEstimationCommand(output, context);
+    return de_GetCostEstimationCommand(output, context);
   }
 
   // Start section: command_body_extra

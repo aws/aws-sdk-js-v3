@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  IsVpcPeeredRequest,
-  IsVpcPeeredRequestFilterSensitiveLog,
-  IsVpcPeeredResult,
-  IsVpcPeeredResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1IsVpcPeeredCommand,
-  serializeAws_json1_1IsVpcPeeredCommand,
-} from "../protocols/Aws_json1_1";
+import { IsVpcPeeredRequest, IsVpcPeeredResult } from "../models/models_1";
+import { de_IsVpcPeeredCommand, se_IsVpcPeeredCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link IsVpcPeeredCommand}.
  */
 export interface IsVpcPeeredCommandInput extends IsVpcPeeredRequest {}
 /**
+ * @public
+ *
  * The output of {@link IsVpcPeeredCommand}.
  */
 export interface IsVpcPeeredCommandOutput extends IsVpcPeeredResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a Boolean value indicating whether your Lightsail VPC is peered.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface IsVpcPeeredCommandOutput extends IsVpcPeeredResult, __MetadataB
  * import { LightsailClient, IsVpcPeeredCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, IsVpcPeeredCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {};
  * const command = new IsVpcPeeredCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param IsVpcPeeredCommandInput - {@link IsVpcPeeredCommandInput}
+ * @returns {@link IsVpcPeeredCommandOutput}
  * @see {@link IsVpcPeeredCommandInput} for command's `input` shape.
  * @see {@link IsVpcPeeredCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +99,9 @@ export class IsVpcPeeredCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IsVpcPeeredCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +128,8 @@ export class IsVpcPeeredCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IsVpcPeeredRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: IsVpcPeeredResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +139,18 @@ export class IsVpcPeeredCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IsVpcPeeredCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1IsVpcPeeredCommand(input, context);
+    return se_IsVpcPeeredCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IsVpcPeeredCommandOutput> {
-    return deserializeAws_json1_1IsVpcPeeredCommand(output, context);
+    return de_IsVpcPeeredCommand(output, context);
   }
 
   // Start section: command_body_extra

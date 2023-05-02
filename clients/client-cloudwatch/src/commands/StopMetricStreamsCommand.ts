@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  StopMetricStreamsInput,
-  StopMetricStreamsInputFilterSensitiveLog,
-  StopMetricStreamsOutput,
-  StopMetricStreamsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryStopMetricStreamsCommand,
-  serializeAws_queryStopMetricStreamsCommand,
-} from "../protocols/Aws_query";
+import { StopMetricStreamsInput, StopMetricStreamsOutput } from "../models/models_0";
+import { de_StopMetricStreamsCommand, se_StopMetricStreamsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link StopMetricStreamsCommand}.
  */
 export interface StopMetricStreamsCommandInput extends StopMetricStreamsInput {}
 /**
+ * @public
+ *
  * The output of {@link StopMetricStreamsCommand}.
  */
 export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the streaming of metrics for one or more of your metric streams.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput,
  * import { CloudWatchClient, StopMetricStreamsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, StopMetricStreamsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // StopMetricStreamsInput
+ *   Names: [ // MetricStreamNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StopMetricStreamsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopMetricStreamsCommandInput - {@link StopMetricStreamsCommandInput}
+ * @returns {@link StopMetricStreamsCommandOutput}
  * @see {@link StopMetricStreamsCommandInput} for command's `input` shape.
  * @see {@link StopMetricStreamsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -78,6 +82,9 @@ export class StopMetricStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopMetricStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class StopMetricStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopMetricStreamsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopMetricStreamsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class StopMetricStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopMetricStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopMetricStreamsCommand(input, context);
+    return se_StopMetricStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMetricStreamsCommandOutput> {
-    return deserializeAws_queryStopMetricStreamsCommand(output, context);
+    return de_StopMetricStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

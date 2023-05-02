@@ -6,7 +6,7 @@ import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlueClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetTriggersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetTriggers(
   config: GluePaginationConfiguration,
   input: GetTriggersCommandInput,

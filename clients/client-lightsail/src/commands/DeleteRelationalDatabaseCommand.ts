@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteRelationalDatabaseRequest,
-  DeleteRelationalDatabaseRequestFilterSensitiveLog,
-  DeleteRelationalDatabaseResult,
-  DeleteRelationalDatabaseResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRelationalDatabaseCommand,
-  serializeAws_json1_1DeleteRelationalDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRelationalDatabaseRequest, DeleteRelationalDatabaseResult } from "../models/models_0";
+import { de_DeleteRelationalDatabaseCommand, se_DeleteRelationalDatabaseCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRelationalDatabaseCommand}.
  */
 export interface DeleteRelationalDatabaseCommandInput extends DeleteRelationalDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRelationalDatabaseCommand}.
  */
 export interface DeleteRelationalDatabaseCommandOutput extends DeleteRelationalDatabaseResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a database in Amazon Lightsail.</p>
  *          <p>The <code>delete relational database</code> operation supports tag-based access control
  *       via resource tags applied to the resource identified by relationalDatabaseName. For more
@@ -45,10 +42,17 @@ export interface DeleteRelationalDatabaseCommandOutput extends DeleteRelationalD
  * import { LightsailClient, DeleteRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteRelationalDatabaseRequest
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   skipFinalSnapshot: true || false,
+ *   finalRelationalDatabaseSnapshotName: "STRING_VALUE",
+ * };
  * const command = new DeleteRelationalDatabaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRelationalDatabaseCommandInput - {@link DeleteRelationalDatabaseCommandInput}
+ * @returns {@link DeleteRelationalDatabaseCommandOutput}
  * @see {@link DeleteRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link DeleteRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +106,9 @@ export class DeleteRelationalDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRelationalDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +137,8 @@ export class DeleteRelationalDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRelationalDatabaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRelationalDatabaseResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +148,18 @@ export class DeleteRelationalDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRelationalDatabaseCommand(input, context);
+    return se_DeleteRelationalDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1DeleteRelationalDatabaseCommand(output, context);
+    return de_DeleteRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

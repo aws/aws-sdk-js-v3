@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DescribeKeyRequest,
-  DescribeKeyRequestFilterSensitiveLog,
-  DescribeKeyResponse,
-  DescribeKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeKeyCommand,
-  serializeAws_restJson1DescribeKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeKeyRequest, DescribeKeyResponse, DescribeKeyResponseFilterSensitiveLog } from "../models/models_0";
+import { de_DescribeKeyCommand, se_DescribeKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeKeyCommand}.
  */
 export interface DescribeKeyCommandInput extends DescribeKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeKeyCommand}.
  */
 export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the API key resource details.</p>
  *          <important>
  *             <p>The API keys feature is in preview. We may add, change, or remove
@@ -47,10 +44,15 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * import { LocationClient, DescribeKeyCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribeKeyCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // DescribeKeyRequest
+ *   KeyName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeKeyCommandInput - {@link DescribeKeyCommandInput}
+ * @returns {@link DescribeKeyCommandOutput}
  * @see {@link DescribeKeyCommandInput} for command's `input` shape.
  * @see {@link DescribeKeyCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -90,6 +92,9 @@ export class DescribeKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +121,7 @@ export class DescribeKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -127,12 +132,18 @@ export class DescribeKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeKeyCommand(input, context);
+    return se_DescribeKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeKeyCommandOutput> {
-    return deserializeAws_restJson1DescribeKeyCommand(output, context);
+    return de_DescribeKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetInstanceSnapshotsRequest,
-  GetInstanceSnapshotsRequestFilterSensitiveLog,
-  GetInstanceSnapshotsResult,
-  GetInstanceSnapshotsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetInstanceSnapshotsCommand,
-  serializeAws_json1_1GetInstanceSnapshotsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetInstanceSnapshotsRequest, GetInstanceSnapshotsResult } from "../models/models_1";
+import { de_GetInstanceSnapshotsCommand, se_GetInstanceSnapshotsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceSnapshotsCommand}.
  */
 export interface GetInstanceSnapshotsCommandInput extends GetInstanceSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceSnapshotsCommand}.
  */
 export interface GetInstanceSnapshotsCommandOutput extends GetInstanceSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all instance snapshots for the user's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetInstanceSnapshotsCommandOutput extends GetInstanceSnapshotsR
  * import { LightsailClient, GetInstanceSnapshotsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstanceSnapshotsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetInstanceSnapshotsRequest
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetInstanceSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceSnapshotsCommandInput - {@link GetInstanceSnapshotsCommandInput}
+ * @returns {@link GetInstanceSnapshotsCommandOutput}
  * @see {@link GetInstanceSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetInstanceSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +101,9 @@ export class GetInstanceSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +132,8 @@ export class GetInstanceSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceSnapshotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceSnapshotsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +143,18 @@ export class GetInstanceSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstanceSnapshotsCommand(input, context);
+    return se_GetInstanceSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceSnapshotsCommandOutput> {
-    return deserializeAws_json1_1GetInstanceSnapshotsCommand(output, context);
+    return de_GetInstanceSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRunsRequest,
-  ListRunsRequestFilterSensitiveLog,
-  ListRunsResponse,
-  ListRunsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRunsRequest, ListRunsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListRunsCommand,
-  serializeAws_restJson1ListRunsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRunsCommand, se_ListRunsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRunsCommand}.
  */
 export interface ListRunsCommandInput extends ListRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRunsCommand}.
  */
 export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of runs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  * import { OmicsClient, ListRunsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListRunsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // ListRunsRequest
+ *   name: "STRING_VALUE",
+ *   runGroupId: "STRING_VALUE",
+ *   startingToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRunsCommandInput - {@link ListRunsCommandInput}
+ * @returns {@link ListRunsCommandOutput}
  * @see {@link ListRunsCommandInput} for command's `input` shape.
  * @see {@link ListRunsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -89,6 +94,9 @@ export class ListRunsCommand extends $Command<ListRunsCommandInput, ListRunsComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class ListRunsCommand extends $Command<ListRunsCommandInput, ListRunsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRunsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRunsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +134,18 @@ export class ListRunsCommand extends $Command<ListRunsCommandInput, ListRunsComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRunsCommand(input, context);
+    return se_ListRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRunsCommandOutput> {
-    return deserializeAws_restJson1ListRunsCommand(output, context);
+    return de_ListRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

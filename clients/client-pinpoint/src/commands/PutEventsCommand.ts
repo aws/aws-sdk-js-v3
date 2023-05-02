@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutEventsRequest,
-  PutEventsRequestFilterSensitiveLog,
-  PutEventsResponse,
-  PutEventsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { PutEventsRequest, PutEventsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1PutEventsCommand,
-  serializeAws_restJson1PutEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutEventsCommand, se_PutEventsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutEventsCommand}.
  */
 export interface PutEventsCommandInput extends PutEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEventsCommand}.
  */
 export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new event to record for endpoints, or creates or updates endpoint data that existing events are associated with.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,86 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * import { PinpointClient, PutEventsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, PutEventsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // PutEventsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EventsRequest: { // EventsRequest
+ *     BatchItem: { // MapOfEventsBatch // required
+ *       "<keys>": { // EventsBatch
+ *         Endpoint: { // PublicEndpoint
+ *           Address: "STRING_VALUE",
+ *           Attributes: { // MapOfListOf__string
+ *             "<keys>": [ // ListOf__string
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           ChannelType: "PUSH" || "GCM" || "APNS" || "APNS_SANDBOX" || "APNS_VOIP" || "APNS_VOIP_SANDBOX" || "ADM" || "SMS" || "VOICE" || "EMAIL" || "BAIDU" || "CUSTOM" || "IN_APP",
+ *           Demographic: { // EndpointDemographic
+ *             AppVersion: "STRING_VALUE",
+ *             Locale: "STRING_VALUE",
+ *             Make: "STRING_VALUE",
+ *             Model: "STRING_VALUE",
+ *             ModelVersion: "STRING_VALUE",
+ *             Platform: "STRING_VALUE",
+ *             PlatformVersion: "STRING_VALUE",
+ *             Timezone: "STRING_VALUE",
+ *           },
+ *           EffectiveDate: "STRING_VALUE",
+ *           EndpointStatus: "STRING_VALUE",
+ *           Location: { // EndpointLocation
+ *             City: "STRING_VALUE",
+ *             Country: "STRING_VALUE",
+ *             Latitude: Number("double"),
+ *             Longitude: Number("double"),
+ *             PostalCode: "STRING_VALUE",
+ *             Region: "STRING_VALUE",
+ *           },
+ *           Metrics: { // MapOf__double
+ *             "<keys>": Number("double"),
+ *           },
+ *           OptOut: "STRING_VALUE",
+ *           RequestId: "STRING_VALUE",
+ *           User: { // EndpointUser
+ *             UserAttributes: {
+ *               "<keys>": [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             UserId: "STRING_VALUE",
+ *           },
+ *         },
+ *         Events: { // MapOfEvent // required
+ *           "<keys>": { // Event
+ *             AppPackageName: "STRING_VALUE",
+ *             AppTitle: "STRING_VALUE",
+ *             AppVersionCode: "STRING_VALUE",
+ *             Attributes: { // MapOf__string
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             ClientSdkVersion: "STRING_VALUE",
+ *             EventType: "STRING_VALUE", // required
+ *             Metrics: {
+ *               "<keys>": Number("double"),
+ *             },
+ *             SdkName: "STRING_VALUE",
+ *             Session: { // Session
+ *               Duration: Number("int"),
+ *               Id: "STRING_VALUE", // required
+ *               StartTimestamp: "STRING_VALUE", // required
+ *               StopTimestamp: "STRING_VALUE",
+ *             },
+ *             Timestamp: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEventsCommandInput - {@link PutEventsCommandInput}
+ * @returns {@link PutEventsCommandOutput}
  * @see {@link PutEventsCommandInput} for command's `input` shape.
  * @see {@link PutEventsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +163,9 @@ export class PutEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +192,8 @@ export class PutEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +203,18 @@ export class PutEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutEventsCommand(input, context);
+    return se_PutEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventsCommandOutput> {
-    return deserializeAws_restJson1PutEventsCommand(output, context);
+    return de_PutEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

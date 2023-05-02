@@ -14,20 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ListAvailableSolutionStacksResultMessage,
-  ListAvailableSolutionStacksResultMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListAvailableSolutionStacksCommand,
-  serializeAws_queryListAvailableSolutionStacksCommand,
-} from "../protocols/Aws_query";
+import { ListAvailableSolutionStacksResultMessage } from "../models/models_0";
+import { de_ListAvailableSolutionStacksCommand, se_ListAvailableSolutionStacksCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailableSolutionStacksCommand}.
  */
 export interface ListAvailableSolutionStacksCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailableSolutionStacksCommand}.
  */
 export interface ListAvailableSolutionStacksCommandOutput
@@ -35,6 +33,7 @@ export interface ListAvailableSolutionStacksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available solution stack names, with the public version first and
  *       then in reverse chronological order.</p>
  * @example
@@ -43,10 +42,13 @@ export interface ListAvailableSolutionStacksCommandOutput
  * import { ElasticBeanstalkClient, ListAvailableSolutionStacksCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ListAvailableSolutionStacksCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {};
  * const command = new ListAvailableSolutionStacksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailableSolutionStacksCommandInput - {@link ListAvailableSolutionStacksCommandInput}
+ * @returns {@link ListAvailableSolutionStacksCommandOutput}
  * @see {@link ListAvailableSolutionStacksCommandInput} for command's `input` shape.
  * @see {@link ListAvailableSolutionStacksCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -121,6 +123,9 @@ export class ListAvailableSolutionStacksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableSolutionStacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +154,8 @@ export class ListAvailableSolutionStacksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: ListAvailableSolutionStacksResultMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,15 +165,21 @@ export class ListAvailableSolutionStacksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAvailableSolutionStacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListAvailableSolutionStacksCommand(input, context);
+    return se_ListAvailableSolutionStacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableSolutionStacksCommandOutput> {
-    return deserializeAws_queryListAvailableSolutionStacksCommand(output, context);
+    return de_ListAvailableSolutionStacksCommand(output, context);
   }
 
   // Start section: command_body_extra

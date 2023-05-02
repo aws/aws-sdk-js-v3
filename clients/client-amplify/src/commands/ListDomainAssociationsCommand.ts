@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  ListDomainAssociationsRequest,
-  ListDomainAssociationsRequestFilterSensitiveLog,
-  ListDomainAssociationsResult,
-  ListDomainAssociationsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDomainAssociationsCommand,
-  serializeAws_restJson1ListDomainAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDomainAssociationsRequest, ListDomainAssociationsResult } from "../models/models_0";
+import { de_ListDomainAssociationsCommand, se_ListDomainAssociationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDomainAssociationsCommand}.
  */
 export interface ListDomainAssociationsCommandInput extends ListDomainAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDomainAssociationsCommand}.
  */
 export interface ListDomainAssociationsCommandOutput extends ListDomainAssociationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the domain associations for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListDomainAssociationsCommandOutput extends ListDomainAssociati
  * import { AmplifyClient, ListDomainAssociationsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, ListDomainAssociationsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // ListDomainAssociationsRequest
+ *   appId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDomainAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDomainAssociationsCommandInput - {@link ListDomainAssociationsCommandInput}
+ * @returns {@link ListDomainAssociationsCommandOutput}
  * @see {@link ListDomainAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListDomainAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -78,6 +82,9 @@ export class ListDomainAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class ListDomainAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainAssociationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class ListDomainAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDomainAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDomainAssociationsCommand(input, context);
+    return se_ListDomainAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListDomainAssociationsCommand(output, context);
+    return de_ListDomainAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

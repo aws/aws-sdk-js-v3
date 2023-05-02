@@ -6,7 +6,7 @@ import { MediaConvertClient } from "../MediaConvertClient";
 import { MediaConvertPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaConvertClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListQueuesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListQueues(
   config: MediaConvertPaginationConfiguration,
   input: ListQueuesCommandInput,

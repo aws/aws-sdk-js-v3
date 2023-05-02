@@ -14,40 +14,37 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeFleetEventsInput,
-  DescribeFleetEventsInputFilterSensitiveLog,
-  DescribeFleetEventsOutput,
-  DescribeFleetEventsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetEventsCommand,
-  serializeAws_json1_1DescribeFleetEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFleetEventsInput, DescribeFleetEventsOutput } from "../models/models_0";
+import { de_DescribeFleetEventsCommand, se_DescribeFleetEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetEventsCommand}.
  */
 export interface DescribeFleetEventsCommandInput extends DescribeFleetEventsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetEventsCommand}.
  */
 export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves entries from a fleet's event log. Fleet events are initiated by changes in
  *             status, such as during fleet creation and termination, changes in capacity, etc. If a
  *             fleet has multiple locations, events are also initiated by changes to status and
  *             capacity in remote locations. </p>
- *         <p>You can specify a time range to limit the result set. Use the pagination parameters to
+ *          <p>You can specify a time range to limit the result set. Use the pagination parameters to
  *             retrieve results as a set of sequential pages. </p>
- *         <p>If successful, a collection of event log entries matching the request are
+ *          <p>If successful, a collection of event log entries matching the request are
  *             returned.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
  * @example
@@ -56,10 +53,19 @@ export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOut
  * import { GameLiftClient, DescribeFleetEventsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetEventsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeFleetEventsInput
+ *   FleetId: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetEventsCommandInput - {@link DescribeFleetEventsCommandInput}
+ * @returns {@link DescribeFleetEventsCommandOutput}
  * @see {@link DescribeFleetEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetEventsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -97,6 +103,9 @@ export class DescribeFleetEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +134,8 @@ export class DescribeFleetEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetEventsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetEventsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +145,18 @@ export class DescribeFleetEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetEventsCommand(input, context);
+    return se_DescribeFleetEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetEventsCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetEventsCommand(output, context);
+    return de_DescribeFleetEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

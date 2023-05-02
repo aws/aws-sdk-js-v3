@@ -13,28 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AnalyzeIDRequest,
-  AnalyzeIDRequestFilterSensitiveLog,
-  AnalyzeIDResponse,
-  AnalyzeIDResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1AnalyzeIDCommand, serializeAws_json1_1AnalyzeIDCommand } from "../protocols/Aws_json1_1";
+import { AnalyzeIDRequest, AnalyzeIDResponse } from "../models/models_0";
+import { de_AnalyzeIDCommand, se_AnalyzeIDCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link AnalyzeIDCommand}.
  */
 export interface AnalyzeIDCommandInput extends AnalyzeIDRequest {}
 /**
+ * @public
+ *
  * The output of {@link AnalyzeIDCommand}.
  */
 export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Analyzes identity documents for relevant information. This information is extracted and
  *          returned as <code>IdentityDocumentFields</code>, which records both the normalized field
- *          and value of the extracted text.Unlike other Amazon Textract operations,
+ *          and value of the extracted text. Unlike other Amazon Textract operations,
  *             <code>AnalyzeID</code> doesn't return any Geometry data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +42,24 @@ export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBea
  * import { TextractClient, AnalyzeIDCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, AnalyzeIDCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // AnalyzeIDRequest
+ *   DocumentPages: [ // DocumentPages // required
+ *     { // Document
+ *       Bytes: "BLOB_VALUE",
+ *       S3Object: { // S3Object
+ *         Bucket: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *         Version: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new AnalyzeIDCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AnalyzeIDCommandInput - {@link AnalyzeIDCommandInput}
+ * @returns {@link AnalyzeIDCommandOutput}
  * @see {@link AnalyzeIDCommandInput} for command's `input` shape.
  * @see {@link AnalyzeIDCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -109,6 +123,9 @@ export class AnalyzeIDCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AnalyzeIDCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +152,8 @@ export class AnalyzeIDCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AnalyzeIDRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AnalyzeIDResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +163,18 @@ export class AnalyzeIDCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AnalyzeIDCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AnalyzeIDCommand(input, context);
+    return se_AnalyzeIDCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AnalyzeIDCommandOutput> {
-    return deserializeAws_json1_1AnalyzeIDCommand(output, context);
+    return de_AnalyzeIDCommand(output, context);
   }
 
   // Start section: command_body_extra

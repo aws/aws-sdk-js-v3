@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  VerifyMacRequest,
-  VerifyMacRequestFilterSensitiveLog,
-  VerifyMacResponse,
-  VerifyMacResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1VerifyMacCommand, serializeAws_json1_1VerifyMacCommand } from "../protocols/Aws_json1_1";
+import { VerifyMacRequest, VerifyMacRequestFilterSensitiveLog, VerifyMacResponse } from "../models/models_0";
+import { de_VerifyMacCommand, se_VerifyMacCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link VerifyMacCommand}.
  */
 export interface VerifyMacCommandInput extends VerifyMacRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifyMacCommand}.
  */
 export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Verifies the hash-based message authentication code (HMAC) for a specified message, HMAC
  *       KMS key, and MAC algorithm. To verify the HMAC, <code>VerifyMac</code> computes an HMAC using
  *       the message, HMAC KMS key, and MAC algorithm that you specify, and compares the computed HMAC
@@ -59,10 +59,21 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  * import { KMSClient, VerifyMacCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, VerifyMacCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // VerifyMacRequest
+ *   Message: "BLOB_VALUE", // required
+ *   KeyId: "STRING_VALUE", // required
+ *   MacAlgorithm: "HMAC_SHA_224" || "HMAC_SHA_256" || "HMAC_SHA_384" || "HMAC_SHA_512", // required
+ *   Mac: "BLOB_VALUE", // required
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new VerifyMacCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifyMacCommandInput - {@link VerifyMacCommandInput}
+ * @returns {@link VerifyMacCommandOutput}
  * @see {@link VerifyMacCommandInput} for command's `input` shape.
  * @see {@link VerifyMacCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -165,6 +176,9 @@ export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyMacCommandInput) {
     // Start section: command_constructor
     super();
@@ -192,7 +206,7 @@ export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacC
       clientName,
       commandName,
       inputFilterSensitiveLog: VerifyMacRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VerifyMacResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -202,12 +216,18 @@ export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyMacCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1VerifyMacCommand(input, context);
+    return se_VerifyMacCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyMacCommandOutput> {
-    return deserializeAws_json1_1VerifyMacCommand(output, context);
+    return de_VerifyMacCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,25 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   ListSipMediaApplicationsRequest,
-  ListSipMediaApplicationsRequestFilterSensitiveLog,
   ListSipMediaApplicationsResponse,
   ListSipMediaApplicationsResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListSipMediaApplicationsCommand,
-  serializeAws_restJson1ListSipMediaApplicationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSipMediaApplicationsCommand, se_ListSipMediaApplicationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSipMediaApplicationsCommand}.
  */
 export interface ListSipMediaApplicationsCommandInput extends ListSipMediaApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSipMediaApplicationsCommand}.
  */
 export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the SIP media applications under the administrator's AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaAppli
  * import { ChimeClient, ListSipMediaApplicationsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListSipMediaApplicationsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListSipMediaApplicationsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSipMediaApplicationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSipMediaApplicationsCommandInput - {@link ListSipMediaApplicationsCommandInput}
+ * @returns {@link ListSipMediaApplicationsCommandOutput}
  * @see {@link ListSipMediaApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListSipMediaApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListSipMediaApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSipMediaApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +125,7 @@ export class ListSipMediaApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSipMediaApplicationsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListSipMediaApplicationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,12 +136,18 @@ export class ListSipMediaApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSipMediaApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSipMediaApplicationsCommand(input, context);
+    return se_ListSipMediaApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSipMediaApplicationsCommandOutput> {
-    return deserializeAws_restJson1ListSipMediaApplicationsCommand(output, context);
+    return de_ListSipMediaApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

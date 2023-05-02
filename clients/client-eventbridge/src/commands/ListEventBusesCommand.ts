@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  ListEventBusesRequest,
-  ListEventBusesRequestFilterSensitiveLog,
-  ListEventBusesResponse,
-  ListEventBusesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEventBusesCommand,
-  serializeAws_json1_1ListEventBusesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEventBusesRequest, ListEventBusesResponse } from "../models/models_0";
+import { de_ListEventBusesCommand, se_ListEventBusesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventBusesCommand}.
  */
 export interface ListEventBusesCommandInput extends ListEventBusesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventBusesCommand}.
  */
 export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the event buses in your account, including the default event bus, custom event
  *       buses, and partner event buses.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * import { EventBridgeClient, ListEventBusesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListEventBusesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // ListEventBusesRequest
+ *   NamePrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListEventBusesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventBusesCommandInput - {@link ListEventBusesCommandInput}
+ * @returns {@link ListEventBusesCommandOutput}
  * @see {@link ListEventBusesCommandInput} for command's `input` shape.
  * @see {@link ListEventBusesCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -73,6 +77,9 @@ export class ListEventBusesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventBusesCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +108,8 @@ export class ListEventBusesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventBusesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventBusesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +119,18 @@ export class ListEventBusesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventBusesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEventBusesCommand(input, context);
+    return se_ListEventBusesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventBusesCommandOutput> {
-    return deserializeAws_json1_1ListEventBusesCommand(output, context);
+    return de_ListEventBusesCommand(output, context);
   }
 
   // Start section: command_body_extra

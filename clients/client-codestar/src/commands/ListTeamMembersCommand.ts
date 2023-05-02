@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  ListTeamMembersRequest,
-  ListTeamMembersRequestFilterSensitiveLog,
-  ListTeamMembersResult,
-  ListTeamMembersResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTeamMembersCommand,
-  serializeAws_json1_1ListTeamMembersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTeamMembersRequest, ListTeamMembersResult } from "../models/models_0";
+import { de_ListTeamMembersCommand, se_ListTeamMembersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTeamMembersCommand}.
  */
 export interface ListTeamMembersCommandInput extends ListTeamMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTeamMembersCommand}.
  */
 export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all team members associated with a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
  * import { CodeStarClient, ListTeamMembersCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, ListTeamMembersCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // ListTeamMembersRequest
+ *   projectId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListTeamMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTeamMembersCommandInput - {@link ListTeamMembersCommandInput}
+ * @returns {@link ListTeamMembersCommandOutput}
  * @see {@link ListTeamMembersCommandInput} for command's `input` shape.
  * @see {@link ListTeamMembersCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -78,6 +82,9 @@ export class ListTeamMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTeamMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class ListTeamMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTeamMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTeamMembersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class ListTeamMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTeamMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTeamMembersCommand(input, context);
+    return se_ListTeamMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTeamMembersCommandOutput> {
-    return deserializeAws_json1_1ListTeamMembersCommand(output, context);
+    return de_ListTeamMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

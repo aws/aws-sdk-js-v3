@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  GetStackPolicyInput,
-  GetStackPolicyInputFilterSensitiveLog,
-  GetStackPolicyOutput,
-  GetStackPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetStackPolicyCommand,
-  serializeAws_queryGetStackPolicyCommand,
-} from "../protocols/Aws_query";
+import { GetStackPolicyInput, GetStackPolicyOutput } from "../models/models_0";
+import { de_GetStackPolicyCommand, se_GetStackPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetStackPolicyCommand}.
  */
 export interface GetStackPolicyCommandInput extends GetStackPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetStackPolicyCommand}.
  */
 export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the stack policy for a specified stack. If a stack doesn't have a policy, a null
  *          value is returned.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
  * import { CloudFormationClient, GetStackPolicyCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, GetStackPolicyCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // GetStackPolicyInput
+ *   StackName: "STRING_VALUE", // required
+ * };
  * const command = new GetStackPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStackPolicyCommandInput - {@link GetStackPolicyCommandInput}
+ * @returns {@link GetStackPolicyCommandOutput}
  * @see {@link GetStackPolicyCommandInput} for command's `input` shape.
  * @see {@link GetStackPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -70,6 +72,9 @@ export class GetStackPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStackPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +103,8 @@ export class GetStackPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStackPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStackPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +114,18 @@ export class GetStackPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStackPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetStackPolicyCommand(input, context);
+    return se_GetStackPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStackPolicyCommandOutput> {
-    return deserializeAws_queryGetStackPolicyCommand(output, context);
+    return de_GetStackPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

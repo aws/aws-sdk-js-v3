@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  RemoveFlowVpcInterfaceRequest,
-  RemoveFlowVpcInterfaceRequestFilterSensitiveLog,
-  RemoveFlowVpcInterfaceResponse,
-  RemoveFlowVpcInterfaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveFlowVpcInterfaceCommand,
-  serializeAws_restJson1RemoveFlowVpcInterfaceCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveFlowVpcInterfaceRequest, RemoveFlowVpcInterfaceResponse } from "../models/models_0";
+import { de_RemoveFlowVpcInterfaceCommand, se_RemoveFlowVpcInterfaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveFlowVpcInterfaceCommand}.
  */
 export interface RemoveFlowVpcInterfaceCommandInput extends RemoveFlowVpcInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveFlowVpcInterfaceCommand}.
  */
 export interface RemoveFlowVpcInterfaceCommandOutput extends RemoveFlowVpcInterfaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Removes a VPC Interface from an existing flow. This request can be made only on a VPC interface that does not have a Source or Output associated with it. If the VPC interface is referenced by a Source or Output, you must first delete or update the Source or Output to no longer reference the VPC interface.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface RemoveFlowVpcInterfaceCommandOutput extends RemoveFlowVpcInterf
  * import { MediaConnectClient, RemoveFlowVpcInterfaceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, RemoveFlowVpcInterfaceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // RemoveFlowVpcInterfaceRequest
+ *   FlowArn: "STRING_VALUE", // required
+ *   VpcInterfaceName: "STRING_VALUE", // required
+ * };
  * const command = new RemoveFlowVpcInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveFlowVpcInterfaceCommandInput - {@link RemoveFlowVpcInterfaceCommandInput}
+ * @returns {@link RemoveFlowVpcInterfaceCommandOutput}
  * @see {@link RemoveFlowVpcInterfaceCommandInput} for command's `input` shape.
  * @see {@link RemoveFlowVpcInterfaceCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +90,9 @@ export class RemoveFlowVpcInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveFlowVpcInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class RemoveFlowVpcInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveFlowVpcInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveFlowVpcInterfaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class RemoveFlowVpcInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveFlowVpcInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveFlowVpcInterfaceCommand(input, context);
+    return se_RemoveFlowVpcInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFlowVpcInterfaceCommandOutput> {
-    return deserializeAws_restJson1RemoveFlowVpcInterfaceCommand(output, context);
+    return de_RemoveFlowVpcInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

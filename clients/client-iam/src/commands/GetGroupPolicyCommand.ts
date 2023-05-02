@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetGroupPolicyRequest,
-  GetGroupPolicyRequestFilterSensitiveLog,
-  GetGroupPolicyResponse,
-  GetGroupPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetGroupPolicyCommand,
-  serializeAws_queryGetGroupPolicyCommand,
-} from "../protocols/Aws_query";
+import { GetGroupPolicyRequest, GetGroupPolicyResponse } from "../models/models_0";
+import { de_GetGroupPolicyCommand, se_GetGroupPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupPolicyCommand}.
  */
 export interface GetGroupPolicyCommandInput extends GetGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupPolicyCommand}.
  */
 export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified inline policy document that is embedded in the specified IAM
  *             group.</p>
  *          <note>
@@ -56,10 +53,16 @@ export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __M
  * import { IAMClient, GetGroupPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetGroupPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetGroupPolicyRequest
+ *   GroupName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ * };
  * const command = new GetGroupPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupPolicyCommandInput - {@link GetGroupPolicyCommandInput}
+ * @returns {@link GetGroupPolicyCommandOutput}
  * @see {@link GetGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -91,6 +94,9 @@ export class GetGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class GetGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +136,18 @@ export class GetGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetGroupPolicyCommand(input, context);
+    return se_GetGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupPolicyCommandOutput> {
-    return deserializeAws_queryGetGroupPolicyCommand(output, context);
+    return de_GetGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

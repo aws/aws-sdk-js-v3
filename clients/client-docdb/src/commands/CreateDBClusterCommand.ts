@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  CreateDBClusterMessage,
-  CreateDBClusterMessageFilterSensitiveLog,
-  CreateDBClusterResult,
-  CreateDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBClusterCommand,
-  serializeAws_queryCreateDBClusterCommand,
-} from "../protocols/Aws_query";
+import { CreateDBClusterMessage, CreateDBClusterResult } from "../models/models_0";
+import { de_CreateDBClusterCommand, se_CreateDBClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBClusterCommand}.
  */
 export interface CreateDBClusterCommandInput extends CreateDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBClusterCommand}.
  */
 export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon DocumentDB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,45 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * import { DocDBClient, CreateDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // CreateDBClusterMessage
+ *   AvailabilityZones: [ // AvailabilityZones
+ *     "STRING_VALUE",
+ *   ],
+ *   BackupRetentionPeriod: Number("int"),
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   MasterUsername: "STRING_VALUE",
+ *   MasterUserPassword: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StorageEncrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   PreSignedUrl: "STRING_VALUE",
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   DeletionProtection: true || false,
+ *   GlobalClusterIdentifier: "STRING_VALUE",
+ * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBClusterCommandInput - {@link CreateDBClusterCommandInput}
+ * @returns {@link CreateDBClusterCommandOutput}
  * @see {@link CreateDBClusterCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -128,6 +160,9 @@ export class CreateDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,8 +191,8 @@ export class CreateDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -167,12 +202,18 @@ export class CreateDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterCommand(input, context);
+    return se_CreateDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterCommandOutput> {
-    return deserializeAws_queryCreateDBClusterCommand(output, context);
+    return de_CreateDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

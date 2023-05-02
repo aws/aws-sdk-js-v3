@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse } from "../models/models_0";
 import {
-  UpdateOrganizationConfigurationRequest,
-  UpdateOrganizationConfigurationRequestFilterSensitiveLog,
-  UpdateOrganizationConfigurationResponse,
-  UpdateOrganizationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateOrganizationConfigurationCommand,
-  serializeAws_restJson1UpdateOrganizationConfigurationCommand,
+  de_UpdateOrganizationConfigurationCommand,
+  se_UpdateOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOrganizationConfigurationCommand}.
  */
 export interface UpdateOrganizationConfigurationCommandInput extends UpdateOrganizationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOrganizationConfigurationCommand}.
  */
 export interface UpdateOrganizationConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configurations for your Amazon Inspector organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,19 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * import { Inspector2Client, UpdateOrganizationConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = { // UpdateOrganizationConfigurationRequest
+ *   autoEnable: { // AutoEnable
+ *     ec2: true || false, // required
+ *     ecr: true || false, // required
+ *     lambda: true || false,
+ *   },
+ * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOrganizationConfigurationCommandInput - {@link UpdateOrganizationConfigurationCommandInput}
+ * @returns {@link UpdateOrganizationConfigurationCommandOutput}
  * @see {@link UpdateOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -84,6 +93,9 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOrganizationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +124,8 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOrganizationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOrganizationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +135,24 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateOrganizationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateOrganizationConfigurationCommand(input, context);
+    return se_UpdateOrganizationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOrganizationConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateOrganizationConfigurationCommand(output, context);
+    return de_UpdateOrganizationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

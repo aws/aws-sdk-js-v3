@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  BatchExecuteStatementInput,
-  BatchExecuteStatementInputFilterSensitiveLog,
-  BatchExecuteStatementOutput,
-  BatchExecuteStatementOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0BatchExecuteStatementCommand,
-  serializeAws_json1_0BatchExecuteStatementCommand,
-} from "../protocols/Aws_json1_0";
+import { BatchExecuteStatementInput, BatchExecuteStatementOutput } from "../models/models_0";
+import { de_BatchExecuteStatementCommand, se_BatchExecuteStatementCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link BatchExecuteStatementCommand}.
  */
 export interface BatchExecuteStatementCommandInput extends BatchExecuteStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchExecuteStatementCommand}.
  */
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation allows you to perform batch reads or writes on data stored in DynamoDB,
  *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify
  *             an equality condition on all key attributes. This enforces that each <code>SELECT</code>
@@ -54,10 +51,66 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * import { DynamoDBClient, BatchExecuteStatementCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // BatchExecuteStatementInput
+ *   Statements: [ // PartiQLBatchRequest // required
+ *     { // BatchStatementRequest
+ *       Statement: "STRING_VALUE", // required
+ *       Parameters: [ // PreparedStatementParameters
+ *         { // AttributeValue Union: only one key present
+ *           S: "STRING_VALUE",
+ *           N: "STRING_VALUE",
+ *           B: "BLOB_VALUE",
+ *           SS: [ // StringSetAttributeValue
+ *             "STRING_VALUE",
+ *           ],
+ *           NS: [ // NumberSetAttributeValue
+ *             "STRING_VALUE",
+ *           ],
+ *           BS: [ // BinarySetAttributeValue
+ *             "BLOB_VALUE",
+ *           ],
+ *           M: { // MapAttributeValue
+ *             "<keys>": {//  Union: only one key present
+ *               S: "STRING_VALUE",
+ *               N: "STRING_VALUE",
+ *               B: "BLOB_VALUE",
+ *               SS: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               NS: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               BS: [
+ *                 "BLOB_VALUE",
+ *               ],
+ *               M: {
+ *                 "<keys>": "<AttributeValue>",
+ *               },
+ *               L: [ // ListAttributeValue
+ *                 "<AttributeValue>",
+ *               ],
+ *               NULL: true || false,
+ *               BOOL: true || false,
+ *             },
+ *           },
+ *           L: [
+ *             "<AttributeValue>",
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       ],
+ *       ConsistentRead: true || false,
+ *     },
+ *   ],
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ * };
  * const command = new BatchExecuteStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchExecuteStatementCommandInput - {@link BatchExecuteStatementCommandInput}
+ * @returns {@link BatchExecuteStatementCommandOutput}
  * @see {@link BatchExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link BatchExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -89,6 +142,9 @@ export class BatchExecuteStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchExecuteStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +173,8 @@ export class BatchExecuteStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchExecuteStatementInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchExecuteStatementOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +184,18 @@ export class BatchExecuteStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0BatchExecuteStatementCommand(input, context);
+    return se_BatchExecuteStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchExecuteStatementCommandOutput> {
-    return deserializeAws_json1_0BatchExecuteStatementCommand(output, context);
+    return de_BatchExecuteStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

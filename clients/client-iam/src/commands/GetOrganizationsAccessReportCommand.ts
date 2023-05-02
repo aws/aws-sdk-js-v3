@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetOrganizationsAccessReportRequest,
-  GetOrganizationsAccessReportRequestFilterSensitiveLog,
-  GetOrganizationsAccessReportResponse,
-  GetOrganizationsAccessReportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetOrganizationsAccessReportCommand,
-  serializeAws_queryGetOrganizationsAccessReportCommand,
-} from "../protocols/Aws_query";
+import { GetOrganizationsAccessReportRequest, GetOrganizationsAccessReportResponse } from "../models/models_0";
+import { de_GetOrganizationsAccessReportCommand, se_GetOrganizationsAccessReportCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetOrganizationsAccessReportCommand}.
  */
 export interface GetOrganizationsAccessReportCommandInput extends GetOrganizationsAccessReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOrganizationsAccessReportCommand}.
  */
 export interface GetOrganizationsAccessReportCommandOutput
@@ -37,6 +33,7 @@ export interface GetOrganizationsAccessReportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the service last accessed data report for Organizations that was previously
  *             generated using the <code>
  *                <a>GenerateOrganizationsAccessReport</a>
@@ -62,10 +59,18 @@ export interface GetOrganizationsAccessReportCommandOutput
  * import { IAMClient, GetOrganizationsAccessReportCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetOrganizationsAccessReportCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetOrganizationsAccessReportRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxItems: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   SortKey: "SERVICE_NAMESPACE_ASCENDING" || "SERVICE_NAMESPACE_DESCENDING" || "LAST_AUTHENTICATED_TIME_ASCENDING" || "LAST_AUTHENTICATED_TIME_DESCENDING",
+ * };
  * const command = new GetOrganizationsAccessReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOrganizationsAccessReportCommandInput - {@link GetOrganizationsAccessReportCommandInput}
+ * @returns {@link GetOrganizationsAccessReportCommandOutput}
  * @see {@link GetOrganizationsAccessReportCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationsAccessReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -137,6 +142,9 @@ export class GetOrganizationsAccessReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOrganizationsAccessReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,8 +173,8 @@ export class GetOrganizationsAccessReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOrganizationsAccessReportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOrganizationsAccessReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -176,15 +184,21 @@ export class GetOrganizationsAccessReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOrganizationsAccessReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetOrganizationsAccessReportCommand(input, context);
+    return se_GetOrganizationsAccessReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOrganizationsAccessReportCommandOutput> {
-    return deserializeAws_queryGetOrganizationsAccessReportCommand(output, context);
+    return de_GetOrganizationsAccessReportCommand(output, context);
   }
 
   // Start section: command_body_extra

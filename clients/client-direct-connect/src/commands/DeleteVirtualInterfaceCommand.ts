@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DeleteVirtualInterfaceRequest,
-  DeleteVirtualInterfaceRequestFilterSensitiveLog,
-  DeleteVirtualInterfaceResponse,
-  DeleteVirtualInterfaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteVirtualInterfaceCommand,
-  serializeAws_json1_1DeleteVirtualInterfaceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteVirtualInterfaceRequest, DeleteVirtualInterfaceResponse } from "../models/models_0";
+import { de_DeleteVirtualInterfaceCommand, se_DeleteVirtualInterfaceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVirtualInterfaceCommand}.
  */
 export interface DeleteVirtualInterfaceCommandInput extends DeleteVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVirtualInterfaceCommand}.
  */
 export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterfaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a virtual interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterf
  * import { DirectConnectClient, DeleteVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DeleteVirtualInterfaceRequest
+ *   virtualInterfaceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVirtualInterfaceCommandInput - {@link DeleteVirtualInterfaceCommandInput}
+ * @returns {@link DeleteVirtualInterfaceCommandOutput}
  * @see {@link DeleteVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -75,6 +77,9 @@ export class DeleteVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DeleteVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVirtualInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVirtualInterfaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DeleteVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVirtualInterfaceCommand(input, context);
+    return se_DeleteVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1DeleteVirtualInterfaceCommand(output, context);
+    return de_DeleteVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

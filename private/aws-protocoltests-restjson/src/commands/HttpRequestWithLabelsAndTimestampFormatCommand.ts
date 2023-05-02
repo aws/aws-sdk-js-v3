@@ -12,27 +12,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { HttpRequestWithLabelsAndTimestampFormatInput } from "../models/models_0";
 import {
-  HttpRequestWithLabelsAndTimestampFormatInput,
-  HttpRequestWithLabelsAndTimestampFormatInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatCommand,
-  serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatCommand,
+  de_HttpRequestWithLabelsAndTimestampFormatCommand,
+  se_HttpRequestWithLabelsAndTimestampFormatCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpRequestWithLabelsAndTimestampFormatCommand}.
  */
 export interface HttpRequestWithLabelsAndTimestampFormatCommandInput
   extends HttpRequestWithLabelsAndTimestampFormatInput {}
 /**
+ * @public
+ *
  * The output of {@link HttpRequestWithLabelsAndTimestampFormatCommand}.
  */
 export interface HttpRequestWithLabelsAndTimestampFormatCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * The example tests how requests serialize different timestamp formats in the
  * URI path.
  * @example
@@ -41,10 +43,21 @@ export interface HttpRequestWithLabelsAndTimestampFormatCommandOutput extends __
  * import { RestJsonProtocolClient, HttpRequestWithLabelsAndTimestampFormatCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpRequestWithLabelsAndTimestampFormatCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // HttpRequestWithLabelsAndTimestampFormatInput
+ *   memberEpochSeconds: new Date("TIMESTAMP"), // required
+ *   memberHttpDate: new Date("TIMESTAMP"), // required
+ *   memberDateTime: new Date("TIMESTAMP"), // required
+ *   defaultFormat: new Date("TIMESTAMP"), // required
+ *   targetEpochSeconds: new Date("TIMESTAMP"), // required
+ *   targetHttpDate: new Date("TIMESTAMP"), // required
+ *   targetDateTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new HttpRequestWithLabelsAndTimestampFormatCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpRequestWithLabelsAndTimestampFormatCommandInput - {@link HttpRequestWithLabelsAndTimestampFormatCommandInput}
+ * @returns {@link HttpRequestWithLabelsAndTimestampFormatCommandOutput}
  * @see {@link HttpRequestWithLabelsAndTimestampFormatCommandInput} for command's `input` shape.
  * @see {@link HttpRequestWithLabelsAndTimestampFormatCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -59,6 +72,9 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpRequestWithLabelsAndTimestampFormatCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +103,8 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpRequestWithLabelsAndTimestampFormatInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,18 +114,24 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: HttpRequestWithLabelsAndTimestampFormatCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatCommand(input, context);
+    return se_HttpRequestWithLabelsAndTimestampFormatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> {
-    return deserializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatCommand(output, context);
+    return de_HttpRequestWithLabelsAndTimestampFormatCommand(output, context);
   }
 
   // Start section: command_body_extra

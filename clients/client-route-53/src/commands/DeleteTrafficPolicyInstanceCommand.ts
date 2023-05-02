@@ -14,23 +14,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTrafficPolicyInstanceRequest,
-  DeleteTrafficPolicyInstanceRequestFilterSensitiveLog,
-  DeleteTrafficPolicyInstanceResponse,
-  DeleteTrafficPolicyInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand,
-  serializeAws_restXmlDeleteTrafficPolicyInstanceCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteTrafficPolicyInstanceRequest, DeleteTrafficPolicyInstanceResponse } from "../models/models_0";
+import { de_DeleteTrafficPolicyInstanceCommand, se_DeleteTrafficPolicyInstanceCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrafficPolicyInstanceCommand}.
  */
 export interface DeleteTrafficPolicyInstanceCommandInput extends DeleteTrafficPolicyInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrafficPolicyInstanceCommand}.
  */
 export interface DeleteTrafficPolicyInstanceCommandOutput
@@ -38,6 +34,7 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a traffic policy instance and all of the resource record sets that Amazon
  * 			Route 53 created when you created the instance.</p>
  *          <note>
@@ -50,10 +47,15 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
  * import { Route53Client, DeleteTrafficPolicyInstanceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteTrafficPolicyInstanceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // DeleteTrafficPolicyInstanceRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTrafficPolicyInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrafficPolicyInstanceCommandInput - {@link DeleteTrafficPolicyInstanceCommandInput}
+ * @returns {@link DeleteTrafficPolicyInstanceCommandOutput}
  * @see {@link DeleteTrafficPolicyInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -90,6 +92,9 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrafficPolicyInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrafficPolicyInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrafficPolicyInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +135,21 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrafficPolicyInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteTrafficPolicyInstanceCommand(input, context);
+    return se_DeleteTrafficPolicyInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTrafficPolicyInstanceCommandOutput> {
-    return deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand(output, context);
+    return de_DeleteTrafficPolicyInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

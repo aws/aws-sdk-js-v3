@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResolverQueryLogConfigsRequest,
-  ListResolverQueryLogConfigsRequestFilterSensitiveLog,
-  ListResolverQueryLogConfigsResponse,
-  ListResolverQueryLogConfigsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResolverQueryLogConfigsCommand,
-  serializeAws_json1_1ListResolverQueryLogConfigsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResolverQueryLogConfigsRequest, ListResolverQueryLogConfigsResponse } from "../models/models_0";
+import { de_ListResolverQueryLogConfigsCommand, se_ListResolverQueryLogConfigsCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolverQueryLogConfigsCommand}.
  */
 export interface ListResolverQueryLogConfigsCommandInput extends ListResolverQueryLogConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolverQueryLogConfigsCommand}.
  */
 export interface ListResolverQueryLogConfigsCommandOutput
@@ -37,6 +33,7 @@ export interface ListResolverQueryLogConfigsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about the specified query logging configurations. Each configuration defines where you want Resolver to save
  * 			DNS query logs and specifies the VPCs that you want to log queries for.</p>
  * @example
@@ -45,10 +42,26 @@ export interface ListResolverQueryLogConfigsCommandOutput
  * import { Route53ResolverClient, ListResolverQueryLogConfigsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListResolverQueryLogConfigsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // ListResolverQueryLogConfigsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   SortBy: "STRING_VALUE",
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ * };
  * const command = new ListResolverQueryLogConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverQueryLogConfigsCommandInput - {@link ListResolverQueryLogConfigsCommandInput}
+ * @returns {@link ListResolverQueryLogConfigsCommandOutput}
  * @see {@link ListResolverQueryLogConfigsCommandInput} for command's `input` shape.
  * @see {@link ListResolverQueryLogConfigsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -90,6 +103,9 @@ export class ListResolverQueryLogConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverQueryLogConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +134,8 @@ export class ListResolverQueryLogConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResolverQueryLogConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResolverQueryLogConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +145,21 @@ export class ListResolverQueryLogConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResolverQueryLogConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResolverQueryLogConfigsCommand(input, context);
+    return se_ListResolverQueryLogConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResolverQueryLogConfigsCommandOutput> {
-    return deserializeAws_json1_1ListResolverQueryLogConfigsCommand(output, context);
+    return de_ListResolverQueryLogConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

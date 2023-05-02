@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  GetKeyRotationStatusRequest,
-  GetKeyRotationStatusRequestFilterSensitiveLog,
-  GetKeyRotationStatusResponse,
-  GetKeyRotationStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetKeyRotationStatusCommand,
-  serializeAws_json1_1GetKeyRotationStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { GetKeyRotationStatusRequest, GetKeyRotationStatusResponse } from "../models/models_0";
+import { de_GetKeyRotationStatusCommand, se_GetKeyRotationStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetKeyRotationStatusCommand}.
  */
 export interface GetKeyRotationStatusCommandInput extends GetKeyRotationStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetKeyRotationStatusCommand}.
  */
 export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a Boolean value that indicates whether <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation of the key material</a> is
  *       enabled for the specified KMS key.</p>
  *          <p>When you enable automatic rotation for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed KMS keys</a>, KMS
@@ -94,10 +91,15 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  * import { KMSClient, GetKeyRotationStatusCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GetKeyRotationStatusCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // GetKeyRotationStatusRequest
+ *   KeyId: "STRING_VALUE", // required
+ * };
  * const command = new GetKeyRotationStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetKeyRotationStatusCommandInput - {@link GetKeyRotationStatusCommandInput}
+ * @returns {@link GetKeyRotationStatusCommandOutput}
  * @see {@link GetKeyRotationStatusCommandInput} for command's `input` shape.
  * @see {@link GetKeyRotationStatusCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -175,6 +177,9 @@ export class GetKeyRotationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetKeyRotationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -203,8 +208,8 @@ export class GetKeyRotationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetKeyRotationStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetKeyRotationStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -214,12 +219,18 @@ export class GetKeyRotationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetKeyRotationStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetKeyRotationStatusCommand(input, context);
+    return se_GetKeyRotationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyRotationStatusCommandOutput> {
-    return deserializeAws_json1_1GetKeyRotationStatusCommand(output, context);
+    return de_GetKeyRotationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

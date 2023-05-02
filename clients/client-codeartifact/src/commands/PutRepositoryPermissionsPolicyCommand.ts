@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
+import { PutRepositoryPermissionsPolicyRequest, PutRepositoryPermissionsPolicyResult } from "../models/models_0";
 import {
-  PutRepositoryPermissionsPolicyRequest,
-  PutRepositoryPermissionsPolicyRequestFilterSensitiveLog,
-  PutRepositoryPermissionsPolicyResult,
-  PutRepositoryPermissionsPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRepositoryPermissionsPolicyCommand,
-  serializeAws_restJson1PutRepositoryPermissionsPolicyCommand,
+  de_PutRepositoryPermissionsPolicyCommand,
+  se_PutRepositoryPermissionsPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRepositoryPermissionsPolicyCommand}.
  */
 export interface PutRepositoryPermissionsPolicyCommandInput extends PutRepositoryPermissionsPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRepositoryPermissionsPolicyCommand}.
  */
 export interface PutRepositoryPermissionsPolicyCommandOutput
@@ -37,6 +36,7 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Sets the resource policy on a repository that specifies permissions to access it.
  *       </p>
@@ -51,10 +51,19 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
  * import { CodeartifactClient, PutRepositoryPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, PutRepositoryPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // PutRepositoryPermissionsPolicyRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   policyRevision: "STRING_VALUE",
+ *   policyDocument: "STRING_VALUE", // required
+ * };
  * const command = new PutRepositoryPermissionsPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRepositoryPermissionsPolicyCommandInput - {@link PutRepositoryPermissionsPolicyCommandInput}
+ * @returns {@link PutRepositoryPermissionsPolicyCommandOutput}
  * @see {@link PutRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link PutRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -111,6 +120,9 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRepositoryPermissionsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +151,8 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRepositoryPermissionsPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRepositoryPermissionsPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,18 +162,24 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutRepositoryPermissionsPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRepositoryPermissionsPolicyCommand(input, context);
+    return se_PutRepositoryPermissionsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRepositoryPermissionsPolicyCommandOutput> {
-    return deserializeAws_restJson1PutRepositoryPermissionsPolicyCommand(output, context);
+    return de_PutRepositoryPermissionsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

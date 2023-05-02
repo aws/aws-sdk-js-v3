@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { ListDocumentClassifierSummariesRequest, ListDocumentClassifierSummariesResponse } from "../models/models_0";
 import {
-  ListDocumentClassifierSummariesRequest,
-  ListDocumentClassifierSummariesRequestFilterSensitiveLog,
-  ListDocumentClassifierSummariesResponse,
-  ListDocumentClassifierSummariesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDocumentClassifierSummariesCommand,
-  serializeAws_json1_1ListDocumentClassifierSummariesCommand,
+  de_ListDocumentClassifierSummariesCommand,
+  se_ListDocumentClassifierSummariesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDocumentClassifierSummariesCommand}.
  */
 export interface ListDocumentClassifierSummariesCommandInput extends ListDocumentClassifierSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDocumentClassifierSummariesCommand}.
  */
 export interface ListDocumentClassifierSummariesCommandOutput
@@ -37,6 +36,7 @@ export interface ListDocumentClassifierSummariesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of summaries of the document classifiers that you have created</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface ListDocumentClassifierSummariesCommandOutput
  * import { ComprehendClient, ListDocumentClassifierSummariesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListDocumentClassifierSummariesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListDocumentClassifierSummariesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDocumentClassifierSummariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDocumentClassifierSummariesCommandInput - {@link ListDocumentClassifierSummariesCommandInput}
+ * @returns {@link ListDocumentClassifierSummariesCommandOutput}
  * @see {@link ListDocumentClassifierSummariesCommandInput} for command's `input` shape.
  * @see {@link ListDocumentClassifierSummariesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -80,6 +86,9 @@ export class ListDocumentClassifierSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDocumentClassifierSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +117,8 @@ export class ListDocumentClassifierSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDocumentClassifierSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDocumentClassifierSummariesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +128,24 @@ export class ListDocumentClassifierSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDocumentClassifierSummariesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentClassifierSummariesCommand(input, context);
+    return se_ListDocumentClassifierSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDocumentClassifierSummariesCommandOutput> {
-    return deserializeAws_json1_1ListDocumentClassifierSummariesCommand(output, context);
+    return de_ListDocumentClassifierSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

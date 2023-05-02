@@ -3,12 +3,22 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { CostExplorerServiceException as __BaseException } from "./CostExplorerServiceException";
 
-export enum AccountScope {
-  LINKED = "LINKED",
-  PAYER = "PAYER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccountScope = {
+  LINKED: "LINKED",
+  PAYER: "PAYER",
+} as const;
 
 /**
+ * @public
+ */
+export type AccountScope = (typeof AccountScope)[keyof typeof AccountScope];
+
+/**
+ * @public
  * <p>Quantifies the anomaly. The higher score means that it's more anomalous. </p>
  */
 export interface AnomalyScore {
@@ -23,13 +33,23 @@ export interface AnomalyScore {
   CurrentScore: number | undefined;
 }
 
-export enum AnomalyFeedbackType {
-  NO = "NO",
-  PLANNED_ACTIVITY = "PLANNED_ACTIVITY",
-  YES = "YES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnomalyFeedbackType = {
+  NO: "NO",
+  PLANNED_ACTIVITY: "PLANNED_ACTIVITY",
+  YES: "YES",
+} as const;
 
 /**
+ * @public
+ */
+export type AnomalyFeedbackType = (typeof AnomalyFeedbackType)[keyof typeof AnomalyFeedbackType];
+
+/**
+ * @public
  * <p>The dollar value of the anomaly. </p>
  */
 export interface Impact {
@@ -66,6 +86,7 @@ export interface Impact {
 }
 
 /**
+ * @public
  * <p>The combination of Amazon Web Service, linked account, linked account name,
  *             Region, and usage type where a cost anomaly is observed. The linked account name will
  *             only be available when the account name can be identified.</p>
@@ -98,6 +119,7 @@ export interface RootCause {
 }
 
 /**
+ * @public
  * <p>An unusual cost pattern. This consists of the detailed metadata and the current status
  *             of the anomaly object. </p>
  */
@@ -151,6 +173,7 @@ export interface Anomaly {
 }
 
 /**
+ * @public
  * <p>The time period for an anomaly. </p>
  */
 export interface AnomalyDateInterval {
@@ -165,22 +188,41 @@ export interface AnomalyDateInterval {
   EndDate?: string;
 }
 
-export enum MonitorDimension {
-  SERVICE = "SERVICE",
-}
-
-export enum MatchOption {
-  ABSENT = "ABSENT",
-  CASE_INSENSITIVE = "CASE_INSENSITIVE",
-  CASE_SENSITIVE = "CASE_SENSITIVE",
-  CONTAINS = "CONTAINS",
-  ENDS_WITH = "ENDS_WITH",
-  EQUALS = "EQUALS",
-  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
-  STARTS_WITH = "STARTS_WITH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MonitorDimension = {
+  SERVICE: "SERVICE",
+} as const;
 
 /**
+ * @public
+ */
+export type MonitorDimension = (typeof MonitorDimension)[keyof typeof MonitorDimension];
+
+/**
+ * @public
+ * @enum
+ */
+export const MatchOption = {
+  ABSENT: "ABSENT",
+  CASE_INSENSITIVE: "CASE_INSENSITIVE",
+  CASE_SENSITIVE: "CASE_SENSITIVE",
+  CONTAINS: "CONTAINS",
+  ENDS_WITH: "ENDS_WITH",
+  EQUALS: "EQUALS",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  STARTS_WITH: "STARTS_WITH",
+} as const;
+
+/**
+ * @public
+ */
+export type MatchOption = (typeof MatchOption)[keyof typeof MatchOption];
+
+/**
+ * @public
  * <p>The Cost Categories values used for filtering the costs.</p>
  *          <p>If <code>Values</code> and <code>Key</code> are not specified, the <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to all Cost Categories. That is, it filters on
@@ -210,44 +252,54 @@ export interface CostCategoryValues {
   MatchOptions?: (MatchOption | string)[];
 }
 
-export enum Dimension {
-  AGREEMENT_END_DATE_TIME_AFTER = "AGREEMENT_END_DATE_TIME_AFTER",
-  AGREEMENT_END_DATE_TIME_BEFORE = "AGREEMENT_END_DATE_TIME_BEFORE",
-  ANOMALY_TOTAL_IMPACT_ABSOLUTE = "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-  ANOMALY_TOTAL_IMPACT_PERCENTAGE = "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-  AZ = "AZ",
-  BILLING_ENTITY = "BILLING_ENTITY",
-  CACHE_ENGINE = "CACHE_ENGINE",
-  DATABASE_ENGINE = "DATABASE_ENGINE",
-  DEPLOYMENT_OPTION = "DEPLOYMENT_OPTION",
-  INSTANCE_TYPE = "INSTANCE_TYPE",
-  INSTANCE_TYPE_FAMILY = "INSTANCE_TYPE_FAMILY",
-  INVOICING_ENTITY = "INVOICING_ENTITY",
-  LEGAL_ENTITY_NAME = "LEGAL_ENTITY_NAME",
-  LINKED_ACCOUNT = "LINKED_ACCOUNT",
-  LINKED_ACCOUNT_NAME = "LINKED_ACCOUNT_NAME",
-  OPERATING_SYSTEM = "OPERATING_SYSTEM",
-  OPERATION = "OPERATION",
-  PAYMENT_OPTION = "PAYMENT_OPTION",
-  PLATFORM = "PLATFORM",
-  PURCHASE_TYPE = "PURCHASE_TYPE",
-  RECORD_TYPE = "RECORD_TYPE",
-  REGION = "REGION",
-  RESERVATION_ID = "RESERVATION_ID",
-  RESOURCE_ID = "RESOURCE_ID",
-  RIGHTSIZING_TYPE = "RIGHTSIZING_TYPE",
-  SAVINGS_PLANS_TYPE = "SAVINGS_PLANS_TYPE",
-  SAVINGS_PLAN_ARN = "SAVINGS_PLAN_ARN",
-  SCOPE = "SCOPE",
-  SERVICE = "SERVICE",
-  SERVICE_CODE = "SERVICE_CODE",
-  SUBSCRIPTION_ID = "SUBSCRIPTION_ID",
-  TENANCY = "TENANCY",
-  USAGE_TYPE = "USAGE_TYPE",
-  USAGE_TYPE_GROUP = "USAGE_TYPE_GROUP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Dimension = {
+  AGREEMENT_END_DATE_TIME_AFTER: "AGREEMENT_END_DATE_TIME_AFTER",
+  AGREEMENT_END_DATE_TIME_BEFORE: "AGREEMENT_END_DATE_TIME_BEFORE",
+  ANOMALY_TOTAL_IMPACT_ABSOLUTE: "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+  ANOMALY_TOTAL_IMPACT_PERCENTAGE: "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+  AZ: "AZ",
+  BILLING_ENTITY: "BILLING_ENTITY",
+  CACHE_ENGINE: "CACHE_ENGINE",
+  DATABASE_ENGINE: "DATABASE_ENGINE",
+  DEPLOYMENT_OPTION: "DEPLOYMENT_OPTION",
+  INSTANCE_TYPE: "INSTANCE_TYPE",
+  INSTANCE_TYPE_FAMILY: "INSTANCE_TYPE_FAMILY",
+  INVOICING_ENTITY: "INVOICING_ENTITY",
+  LEGAL_ENTITY_NAME: "LEGAL_ENTITY_NAME",
+  LINKED_ACCOUNT: "LINKED_ACCOUNT",
+  LINKED_ACCOUNT_NAME: "LINKED_ACCOUNT_NAME",
+  OPERATING_SYSTEM: "OPERATING_SYSTEM",
+  OPERATION: "OPERATION",
+  PAYMENT_OPTION: "PAYMENT_OPTION",
+  PLATFORM: "PLATFORM",
+  PURCHASE_TYPE: "PURCHASE_TYPE",
+  RECORD_TYPE: "RECORD_TYPE",
+  REGION: "REGION",
+  RESERVATION_ID: "RESERVATION_ID",
+  RESOURCE_ID: "RESOURCE_ID",
+  RIGHTSIZING_TYPE: "RIGHTSIZING_TYPE",
+  SAVINGS_PLANS_TYPE: "SAVINGS_PLANS_TYPE",
+  SAVINGS_PLAN_ARN: "SAVINGS_PLAN_ARN",
+  SCOPE: "SCOPE",
+  SERVICE: "SERVICE",
+  SERVICE_CODE: "SERVICE_CODE",
+  SUBSCRIPTION_ID: "SUBSCRIPTION_ID",
+  TENANCY: "TENANCY",
+  USAGE_TYPE: "USAGE_TYPE",
+  USAGE_TYPE_GROUP: "USAGE_TYPE_GROUP",
+} as const;
 
 /**
+ * @public
+ */
+export type Dimension = (typeof Dimension)[keyof typeof Dimension];
+
+/**
+ * @public
  * <p>The metadata that you can use to filter and group your results. You can use
  *                 <code>GetDimensionValues</code> to find specific values.</p>
  */
@@ -285,6 +337,7 @@ export interface DimensionValues {
 }
 
 /**
+ * @public
  * <p>The values that are available for a tag.</p>
  *          <p>If <code>Values</code> and <code>Key</code> aren't specified, the <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to all tags. That is, it's filtered on resources
@@ -314,28 +367,66 @@ export interface TagValues {
   MatchOptions?: (MatchOption | string)[];
 }
 
-export enum MonitorType {
-  CUSTOM = "CUSTOM",
-  DIMENSIONAL = "DIMENSIONAL",
-}
-
-export enum AnomalySubscriptionFrequency {
-  DAILY = "DAILY",
-  IMMEDIATE = "IMMEDIATE",
-  WEEKLY = "WEEKLY",
-}
-
-export enum SubscriberStatus {
-  CONFIRMED = "CONFIRMED",
-  DECLINED = "DECLINED",
-}
-
-export enum SubscriberType {
-  EMAIL = "EMAIL",
-  SNS = "SNS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MonitorType = {
+  CUSTOM: "CUSTOM",
+  DIMENSIONAL: "DIMENSIONAL",
+} as const;
 
 /**
+ * @public
+ */
+export type MonitorType = (typeof MonitorType)[keyof typeof MonitorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnomalySubscriptionFrequency = {
+  DAILY: "DAILY",
+  IMMEDIATE: "IMMEDIATE",
+  WEEKLY: "WEEKLY",
+} as const;
+
+/**
+ * @public
+ */
+export type AnomalySubscriptionFrequency =
+  (typeof AnomalySubscriptionFrequency)[keyof typeof AnomalySubscriptionFrequency];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubscriberStatus = {
+  CONFIRMED: "CONFIRMED",
+  DECLINED: "DECLINED",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriberStatus = (typeof SubscriberStatus)[keyof typeof SubscriberStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubscriberType = {
+  EMAIL: "EMAIL",
+  SNS: "SNS",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriberType = (typeof SubscriberType)[keyof typeof SubscriberType];
+
+/**
+ * @public
  * <p>The recipient of <code>AnomalySubscription</code> notifications. </p>
  */
 export interface Subscriber {
@@ -357,6 +448,7 @@ export interface Subscriber {
 }
 
 /**
+ * @public
  * <p>The tag structure that contains a tag key and value. </p>
  *          <note>
  *             <p>Tagging is supported only for the following Cost Explorer resource types:
@@ -381,6 +473,9 @@ export interface ResourceTag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAnomalyMonitorResponse {
   /**
    * <p>The unique identifier of your newly created cost anomaly detection monitor.</p>
@@ -389,6 +484,7 @@ export interface CreateAnomalyMonitorResponse {
 }
 
 /**
+ * @public
  * <p>You made too many calls in a short period of time. Try again later.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -409,6 +505,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAnomalySubscriptionResponse {
   /**
    * <p>The unique identifier of your newly created cost anomaly subscription. </p>
@@ -417,6 +516,7 @@ export interface CreateAnomalySubscriptionResponse {
 }
 
 /**
+ * @public
  * <p>The cost anomaly monitor does not exist for the account. </p>
  */
 export class UnknownMonitorException extends __BaseException {
@@ -437,12 +537,23 @@ export class UnknownMonitorException extends __BaseException {
   }
 }
 
-export enum CostCategoryInheritedValueDimensionName {
-  LINKED_ACCOUNT_NAME = "LINKED_ACCOUNT_NAME",
-  TAG = "TAG",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CostCategoryInheritedValueDimensionName = {
+  LINKED_ACCOUNT_NAME: "LINKED_ACCOUNT_NAME",
+  TAG: "TAG",
+} as const;
 
 /**
+ * @public
+ */
+export type CostCategoryInheritedValueDimensionName =
+  (typeof CostCategoryInheritedValueDimensionName)[keyof typeof CostCategoryInheritedValueDimensionName];
+
+/**
+ * @public
  * <p>When you create or update a cost category, you can define the
  *                 <code>CostCategoryRule</code> rule type as <code>INHERITED_VALUE</code>. This rule
  *             type adds the flexibility to define a rule that dynamically inherits the cost category
@@ -467,26 +578,65 @@ export interface CostCategoryInheritedValueDimension {
   DimensionKey?: string;
 }
 
-export enum CostCategoryRuleType {
-  INHERITED_VALUE = "INHERITED_VALUE",
-  REGULAR = "REGULAR",
-}
-
-export enum CostCategoryRuleVersion {
-  CostCategoryExpressionV1 = "CostCategoryExpression.v1",
-}
-
-export enum CostCategorySplitChargeMethod {
-  EVEN = "EVEN",
-  FIXED = "FIXED",
-  PROPORTIONAL = "PROPORTIONAL",
-}
-
-export enum CostCategorySplitChargeRuleParameterType {
-  ALLOCATION_PERCENTAGES = "ALLOCATION_PERCENTAGES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CostCategoryRuleType = {
+  INHERITED_VALUE: "INHERITED_VALUE",
+  REGULAR: "REGULAR",
+} as const;
 
 /**
+ * @public
+ */
+export type CostCategoryRuleType = (typeof CostCategoryRuleType)[keyof typeof CostCategoryRuleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CostCategoryRuleVersion = {
+  CostCategoryExpressionV1: "CostCategoryExpression.v1",
+} as const;
+
+/**
+ * @public
+ */
+export type CostCategoryRuleVersion = (typeof CostCategoryRuleVersion)[keyof typeof CostCategoryRuleVersion];
+
+/**
+ * @public
+ * @enum
+ */
+export const CostCategorySplitChargeMethod = {
+  EVEN: "EVEN",
+  FIXED: "FIXED",
+  PROPORTIONAL: "PROPORTIONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type CostCategorySplitChargeMethod =
+  (typeof CostCategorySplitChargeMethod)[keyof typeof CostCategorySplitChargeMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const CostCategorySplitChargeRuleParameterType = {
+  ALLOCATION_PERCENTAGES: "ALLOCATION_PERCENTAGES",
+} as const;
+
+/**
+ * @public
+ */
+export type CostCategorySplitChargeRuleParameterType =
+  (typeof CostCategorySplitChargeRuleParameterType)[keyof typeof CostCategorySplitChargeRuleParameterType];
+
+/**
+ * @public
  * <p>The parameters for a split charge method. </p>
  */
 export interface CostCategorySplitChargeRuleParameter {
@@ -502,6 +652,7 @@ export interface CostCategorySplitChargeRuleParameter {
 }
 
 /**
+ * @public
  * <p>Use the split charge rule to split the cost of one Cost Category value across several
  *             other target values. </p>
  */
@@ -538,6 +689,9 @@ export interface CostCategorySplitChargeRule {
   Parameters?: CostCategorySplitChargeRuleParameter[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCostCategoryDefinitionResponse {
   /**
    * <p>The unique identifier for your newly created Cost Category. </p>
@@ -551,6 +705,7 @@ export interface CreateCostCategoryDefinitionResponse {
 }
 
 /**
+ * @public
  * <p> You've reached the limit on the number of resources you can create, or exceeded the
  *             size of an individual resource. </p>
  */
@@ -572,6 +727,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAnomalyMonitorRequest {
   /**
    * <p>The unique identifier of the cost anomaly monitor that you want to delete. </p>
@@ -579,8 +737,14 @@ export interface DeleteAnomalyMonitorRequest {
   MonitorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAnomalyMonitorResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAnomalySubscriptionRequest {
   /**
    * <p>The unique identifier of the cost anomaly subscription that you want to delete. </p>
@@ -588,9 +752,13 @@ export interface DeleteAnomalySubscriptionRequest {
   SubscriptionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAnomalySubscriptionResponse {}
 
 /**
+ * @public
  * <p>The cost anomaly subscription does not exist for the account. </p>
  */
 export class UnknownSubscriptionException extends __BaseException {
@@ -611,6 +779,9 @@ export class UnknownSubscriptionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCostCategoryDefinitionRequest {
   /**
    * <p>The unique identifier for your Cost Category. </p>
@@ -618,6 +789,9 @@ export interface DeleteCostCategoryDefinitionRequest {
   CostCategoryArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCostCategoryDefinitionResponse {
   /**
    * <p>The unique identifier for your Cost Category. </p>
@@ -632,6 +806,7 @@ export interface DeleteCostCategoryDefinitionResponse {
 }
 
 /**
+ * @public
  * <p> The specified ARN in the request doesn't exist. </p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -654,6 +829,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeCostCategoryDefinitionRequest {
   /**
    * <p>The unique identifier for your Cost Category. </p>
@@ -666,16 +844,36 @@ export interface DescribeCostCategoryDefinitionRequest {
   EffectiveOn?: string;
 }
 
-export enum CostCategoryStatusComponent {
-  COST_EXPLORER = "COST_EXPLORER",
-}
-
-export enum CostCategoryStatus {
-  APPLIED = "APPLIED",
-  PROCESSING = "PROCESSING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CostCategoryStatusComponent = {
+  COST_EXPLORER: "COST_EXPLORER",
+} as const;
 
 /**
+ * @public
+ */
+export type CostCategoryStatusComponent =
+  (typeof CostCategoryStatusComponent)[keyof typeof CostCategoryStatusComponent];
+
+/**
+ * @public
+ * @enum
+ */
+export const CostCategoryStatus = {
+  APPLIED: "APPLIED",
+  PROCESSING: "PROCESSING",
+} as const;
+
+/**
+ * @public
+ */
+export type CostCategoryStatus = (typeof CostCategoryStatus)[keyof typeof CostCategoryStatus];
+
+/**
+ * @public
  * <p>The list of processing statuses for Cost Management products for a specific cost
  *             category. </p>
  */
@@ -691,16 +889,26 @@ export interface CostCategoryProcessingStatus {
   Status?: CostCategoryStatus | string;
 }
 
-export enum NumericOperator {
-  BETWEEN = "BETWEEN",
-  EQUAL = "EQUAL",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NumericOperator = {
+  BETWEEN: "BETWEEN",
+  EQUAL: "EQUAL",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type NumericOperator = (typeof NumericOperator)[keyof typeof NumericOperator];
+
+/**
+ * @public
  * <p>Filters cost anomalies based on the total impact. </p>
  */
 export interface TotalImpactFilter {
@@ -720,6 +928,9 @@ export interface TotalImpactFilter {
   EndValue?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetAnomaliesRequest {
   /**
    * <p>Retrieves all of the cost anomalies detected for a specific cost anomaly monitor Amazon
@@ -757,6 +968,9 @@ export interface GetAnomaliesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetAnomaliesResponse {
   /**
    * <p>A list of cost anomalies. </p>
@@ -771,6 +985,7 @@ export interface GetAnomaliesResponse {
 }
 
 /**
+ * @public
  * <p>The pagination token is invalid. Try again without a pagination token.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -791,6 +1006,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetAnomalyMonitorsRequest {
   /**
    * <p>A list of cost anomaly monitor ARNs. </p>
@@ -809,6 +1027,9 @@ export interface GetAnomalyMonitorsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetAnomalySubscriptionsRequest {
   /**
    * <p>A list of cost anomaly subscription ARNs. </p>
@@ -833,6 +1054,7 @@ export interface GetAnomalySubscriptionsRequest {
 }
 
 /**
+ * @public
  * <p>The requested report expired. Update the date interval and try again.</p>
  */
 export class BillExpirationException extends __BaseException {
@@ -854,6 +1076,7 @@ export class BillExpirationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested data is unavailable.</p>
  */
 export class DataUnavailableException extends __BaseException {
@@ -874,19 +1097,38 @@ export class DataUnavailableException extends __BaseException {
   }
 }
 
-export enum Granularity {
-  DAILY = "DAILY",
-  HOURLY = "HOURLY",
-  MONTHLY = "MONTHLY",
-}
-
-export enum GroupDefinitionType {
-  COST_CATEGORY = "COST_CATEGORY",
-  DIMENSION = "DIMENSION",
-  TAG = "TAG",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Granularity = {
+  DAILY: "DAILY",
+  HOURLY: "HOURLY",
+  MONTHLY: "MONTHLY",
+} as const;
 
 /**
+ * @public
+ */
+export type Granularity = (typeof Granularity)[keyof typeof Granularity];
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupDefinitionType = {
+  COST_CATEGORY: "COST_CATEGORY",
+  DIMENSION: "DIMENSION",
+  TAG: "TAG",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupDefinitionType = (typeof GroupDefinitionType)[keyof typeof GroupDefinitionType];
+
+/**
+ * @public
  * <p>Represents a group when you specify a group by criteria or in the response to a query
  *             with a specific grouping.</p>
  */
@@ -903,6 +1145,7 @@ export interface GroupDefinition {
 }
 
 /**
+ * @public
  * <p>The time period of the request. </p>
  */
 export interface DateInterval {
@@ -923,6 +1166,7 @@ export interface DateInterval {
 }
 
 /**
+ * @public
  * <p>The metadata of a specific type that you can use to filter and group your results. You
  *             can use <code>GetDimensionValues</code> to find specific values.</p>
  */
@@ -939,6 +1183,7 @@ export interface DimensionValuesWithAttributes {
 }
 
 /**
+ * @public
  * <p>The aggregated value for a metric.</p>
  */
 export interface MetricValue {
@@ -954,6 +1199,7 @@ export interface MetricValue {
 }
 
 /**
+ * @public
  * <p>One level of grouped data in the results.</p>
  */
 export interface Group {
@@ -969,6 +1215,7 @@ export interface Group {
 }
 
 /**
+ * @public
  * <p>The result that's associated with a time period.</p>
  */
 export interface ResultByTime {
@@ -993,6 +1240,9 @@ export interface ResultByTime {
   Estimated?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetCostAndUsageResponse {
   /**
    * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
@@ -1019,6 +1269,7 @@ export interface GetCostAndUsageResponse {
 }
 
 /**
+ * @public
  * <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
  */
@@ -1040,6 +1291,9 @@ export class RequestChangedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetCostAndUsageWithResourcesResponse {
   /**
    * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
@@ -1065,12 +1319,22 @@ export interface GetCostAndUsageWithResourcesResponse {
   DimensionValueAttributes?: DimensionValuesWithAttributes[];
 }
 
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
  * <p>The details for how to sort the data.</p>
  */
 export interface SortDefinition {
@@ -1085,6 +1349,9 @@ export interface SortDefinition {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface GetCostCategoriesResponse {
   /**
    * <p>If the number of objects that are still available for retrieval exceeds the quota, Amazon Web Services returns a NextPageToken value in the response. To retrieve the next batch of
@@ -1115,17 +1382,27 @@ export interface GetCostCategoriesResponse {
   TotalSize: number | undefined;
 }
 
-export enum Metric {
-  AMORTIZED_COST = "AMORTIZED_COST",
-  BLENDED_COST = "BLENDED_COST",
-  NET_AMORTIZED_COST = "NET_AMORTIZED_COST",
-  NET_UNBLENDED_COST = "NET_UNBLENDED_COST",
-  NORMALIZED_USAGE_AMOUNT = "NORMALIZED_USAGE_AMOUNT",
-  UNBLENDED_COST = "UNBLENDED_COST",
-  USAGE_QUANTITY = "USAGE_QUANTITY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Metric = {
+  AMORTIZED_COST: "AMORTIZED_COST",
+  BLENDED_COST: "BLENDED_COST",
+  NET_AMORTIZED_COST: "NET_AMORTIZED_COST",
+  NET_UNBLENDED_COST: "NET_UNBLENDED_COST",
+  NORMALIZED_USAGE_AMOUNT: "NORMALIZED_USAGE_AMOUNT",
+  UNBLENDED_COST: "UNBLENDED_COST",
+  USAGE_QUANTITY: "USAGE_QUANTITY",
+} as const;
 
 /**
+ * @public
+ */
+export type Metric = (typeof Metric)[keyof typeof Metric];
+
+/**
+ * @public
  * <p>The forecast that's created for your query.</p>
  */
 export interface ForecastResult {
@@ -1150,6 +1427,9 @@ export interface ForecastResult {
   PredictionIntervalUpperBound?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCostForecastResponse {
   /**
    * <p>How much you are forecasted to spend over the forecast period, in <code>USD</code>.</p>
@@ -1163,12 +1443,24 @@ export interface GetCostForecastResponse {
   ForecastResultsByTime?: ForecastResult[];
 }
 
-export enum Context {
-  COST_AND_USAGE = "COST_AND_USAGE",
-  RESERVATIONS = "RESERVATIONS",
-  SAVINGS_PLANS = "SAVINGS_PLANS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Context = {
+  COST_AND_USAGE: "COST_AND_USAGE",
+  RESERVATIONS: "RESERVATIONS",
+  SAVINGS_PLANS: "SAVINGS_PLANS",
+} as const;
 
+/**
+ * @public
+ */
+export type Context = (typeof Context)[keyof typeof Context];
+
+/**
+ * @public
+ */
 export interface GetDimensionValuesResponse {
   /**
    * <p>The filters that you used to filter your request. Some dimensions are available only
@@ -1322,6 +1614,7 @@ export interface GetDimensionValuesResponse {
 }
 
 /**
+ * @public
  * <p>How much it costs to run an instance.</p>
  */
 export interface CoverageCost {
@@ -1332,6 +1625,7 @@ export interface CoverageCost {
 }
 
 /**
+ * @public
  * <p>How long a running instance either used a reservation or was On-Demand.</p>
  */
 export interface CoverageHours {
@@ -1357,6 +1651,7 @@ export interface CoverageHours {
 }
 
 /**
+ * @public
  * <p>The amount of instance usage, in normalized units. You can use normalized units to see
  *             your EC2 usage for multiple sizes of instances in a uniform way. For example, suppose
  *             that you run an xlarge instance and a 2xlarge instance. If you run both instances for
@@ -1393,6 +1688,7 @@ export interface CoverageNormalizedUnits {
 }
 
 /**
+ * @public
  * <p>The amount of instance usage that a reservation covered.</p>
  */
 export interface Coverage {
@@ -1413,6 +1709,7 @@ export interface Coverage {
 }
 
 /**
+ * @public
  * <p>A group of reservations that share a set of attributes.</p>
  */
 export interface ReservationCoverageGroup {
@@ -1428,6 +1725,7 @@ export interface ReservationCoverageGroup {
 }
 
 /**
+ * @public
  * <p>Reservation coverage for a specified period, in hours.</p>
  */
 export interface CoverageByTime {
@@ -1447,6 +1745,9 @@ export interface CoverageByTime {
   Total?: Coverage;
 }
 
+/**
+ * @public
+ */
 export interface GetReservationCoverageResponse {
   /**
    * <p>The amount of time that your reservations covered.</p>
@@ -1465,27 +1766,55 @@ export interface GetReservationCoverageResponse {
   NextPageToken?: string;
 }
 
-export enum LookbackPeriodInDays {
-  SEVEN_DAYS = "SEVEN_DAYS",
-  SIXTY_DAYS = "SIXTY_DAYS",
-  THIRTY_DAYS = "THIRTY_DAYS",
-}
-
-export enum PaymentOption {
-  ALL_UPFRONT = "ALL_UPFRONT",
-  HEAVY_UTILIZATION = "HEAVY_UTILIZATION",
-  LIGHT_UTILIZATION = "LIGHT_UTILIZATION",
-  MEDIUM_UTILIZATION = "MEDIUM_UTILIZATION",
-  NO_UPFRONT = "NO_UPFRONT",
-  PARTIAL_UPFRONT = "PARTIAL_UPFRONT",
-}
-
-export enum OfferingClass {
-  CONVERTIBLE = "CONVERTIBLE",
-  STANDARD = "STANDARD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LookbackPeriodInDays = {
+  SEVEN_DAYS: "SEVEN_DAYS",
+  SIXTY_DAYS: "SIXTY_DAYS",
+  THIRTY_DAYS: "THIRTY_DAYS",
+} as const;
 
 /**
+ * @public
+ */
+export type LookbackPeriodInDays = (typeof LookbackPeriodInDays)[keyof typeof LookbackPeriodInDays];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentOption = {
+  ALL_UPFRONT: "ALL_UPFRONT",
+  HEAVY_UTILIZATION: "HEAVY_UTILIZATION",
+  LIGHT_UTILIZATION: "LIGHT_UTILIZATION",
+  MEDIUM_UTILIZATION: "MEDIUM_UTILIZATION",
+  NO_UPFRONT: "NO_UPFRONT",
+  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
+} as const;
+
+/**
+ * @public
+ */
+export type PaymentOption = (typeof PaymentOption)[keyof typeof PaymentOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const OfferingClass = {
+  CONVERTIBLE: "CONVERTIBLE",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type OfferingClass = (typeof OfferingClass)[keyof typeof OfferingClass];
+
+/**
+ * @public
  * <p>The Amazon EC2 hardware specifications that you want Amazon Web Services to provide
  *             recommendations for.</p>
  */
@@ -1498,6 +1827,7 @@ export interface EC2Specification {
 }
 
 /**
+ * @public
  * <p>Hardware specifications for the service that you want recommendations for.</p>
  */
 export interface ServiceSpecification {
@@ -1508,12 +1838,22 @@ export interface ServiceSpecification {
   EC2Specification?: EC2Specification;
 }
 
-export enum TermInYears {
-  ONE_YEAR = "ONE_YEAR",
-  THREE_YEARS = "THREE_YEARS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TermInYears = {
+  ONE_YEAR: "ONE_YEAR",
+  THREE_YEARS: "THREE_YEARS",
+} as const;
 
 /**
+ * @public
+ */
+export type TermInYears = (typeof TermInYears)[keyof typeof TermInYears];
+
+/**
+ * @public
  * <p>Information about this specific recommendation, such as the timestamp for when Amazon Web Services made a specific recommendation.</p>
  */
 export interface ReservationPurchaseRecommendationMetadata {
@@ -1529,6 +1869,7 @@ export interface ReservationPurchaseRecommendationMetadata {
 }
 
 /**
+ * @public
  * <p>Details about the Amazon EC2 instances that Amazon Web Services recommends that you
  *             purchase.</p>
  */
@@ -1576,6 +1917,7 @@ export interface EC2InstanceDetails {
 }
 
 /**
+ * @public
  * <p>Details about the Amazon ElastiCache instances that Amazon Web Services recommends that
  *             you purchase.</p>
  */
@@ -1612,6 +1954,7 @@ export interface ElastiCacheInstanceDetails {
 }
 
 /**
+ * @public
  * <p>Details about the Amazon OpenSearch Service instances that Amazon Web Services recommends
  *             that you purchase.</p>
  */
@@ -1643,6 +1986,7 @@ export interface ESInstanceDetails {
 }
 
 /**
+ * @public
  * <p>Details about the Amazon RDS instances that Amazon Web Services recommends that you
  *             purchase.</p>
  */
@@ -1695,6 +2039,7 @@ export interface RDSInstanceDetails {
 }
 
 /**
+ * @public
  * <p>Details about the Amazon Redshift instances that Amazon Web Services recommends that
  *             you purchase.</p>
  */
@@ -1726,6 +2071,7 @@ export interface RedshiftInstanceDetails {
 }
 
 /**
+ * @public
  * <p>Details about the instances that Amazon Web Services recommends that you
  *             purchase.</p>
  */
@@ -1759,6 +2105,7 @@ export interface InstanceDetails {
 }
 
 /**
+ * @public
  * <p>Details about your recommended reservation purchase.</p>
  */
 export interface ReservationPurchaseRecommendationDetail {
@@ -1880,6 +2227,7 @@ export interface ReservationPurchaseRecommendationDetail {
 }
 
 /**
+ * @public
  * <p>A summary about this recommendation, such as the currency code, the amount that
  *                 Amazon Web Services estimates that you could save, and the total amount of
  *             reservation to purchase.</p>
@@ -1904,6 +2252,7 @@ export interface ReservationPurchaseRecommendationSummary {
 }
 
 /**
+ * @public
  * <p>A specific reservation that Amazon Web Services recommends for purchase.</p>
  */
 export interface ReservationPurchaseRecommendation {
@@ -1947,6 +2296,9 @@ export interface ReservationPurchaseRecommendation {
   RecommendationSummary?: ReservationPurchaseRecommendationSummary;
 }
 
+/**
+ * @public
+ */
 export interface GetReservationPurchaseRecommendationResponse {
   /**
    * <p>Information about this specific recommendation call, such as the time stamp for when
@@ -1966,6 +2318,7 @@ export interface GetReservationPurchaseRecommendationResponse {
 }
 
 /**
+ * @public
  * <p>The aggregated numbers for your reservation usage.</p>
  */
 export interface ReservationAggregates {
@@ -2068,6 +2421,7 @@ export interface ReservationAggregates {
 }
 
 /**
+ * @public
  * <p>A group of reservations that share a set of attributes.</p>
  */
 export interface ReservationUtilizationGroup {
@@ -2093,6 +2447,7 @@ export interface ReservationUtilizationGroup {
 }
 
 /**
+ * @public
  * <p>The amount of utilization, in hours.</p>
  */
 export interface UtilizationByTime {
@@ -2112,6 +2467,9 @@ export interface UtilizationByTime {
   Total?: ReservationAggregates;
 }
 
+/**
+ * @public
+ */
 export interface GetReservationUtilizationResponse {
   /**
    * <p>The amount of time that you used your Reserved Instances (RIs).</p>
@@ -2130,12 +2488,22 @@ export interface GetReservationUtilizationResponse {
   NextPageToken?: string;
 }
 
-export enum RecommendationTarget {
-  CROSS_INSTANCE_FAMILY = "CROSS_INSTANCE_FAMILY",
-  SAME_INSTANCE_FAMILY = "SAME_INSTANCE_FAMILY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationTarget = {
+  CROSS_INSTANCE_FAMILY: "CROSS_INSTANCE_FAMILY",
+  SAME_INSTANCE_FAMILY: "SAME_INSTANCE_FAMILY",
+} as const;
 
 /**
+ * @public
+ */
+export type RecommendationTarget = (typeof RecommendationTarget)[keyof typeof RecommendationTarget];
+
+/**
+ * @public
  * <p>You can use <code>RightsizingRecommendationConfiguration</code> to customize
  *             recommendations across two attributes. You can choose to view recommendations for
  *             instances within the same instance families or across different instance families. You
@@ -2159,6 +2527,7 @@ export interface RightsizingRecommendationConfiguration {
 }
 
 /**
+ * @public
  * <p>Metadata for this recommendation set.</p>
  */
 export interface RightsizingRecommendationMetadata {
@@ -2185,6 +2554,7 @@ export interface RightsizingRecommendationMetadata {
 }
 
 /**
+ * @public
  * <p>Details on the Amazon EC2 Resource.</p>
  */
 export interface EC2ResourceDetails {
@@ -2237,6 +2607,7 @@ export interface EC2ResourceDetails {
 }
 
 /**
+ * @public
  * <p>Details for the resource.</p>
  */
 export interface ResourceDetails {
@@ -2247,6 +2618,7 @@ export interface ResourceDetails {
 }
 
 /**
+ * @public
  * <p>The field that contains a list of disk (local storage) metrics that are associated
  *             with the current instance. </p>
  */
@@ -2273,6 +2645,7 @@ export interface DiskResourceUtilization {
 }
 
 /**
+ * @public
  * <p>The EBS field that contains a list of EBS metrics that are associated with the current
  *             instance. </p>
  */
@@ -2299,6 +2672,7 @@ export interface EBSResourceUtilization {
 }
 
 /**
+ * @public
  * <p>The network field that contains a list of network metrics that are associated with the
  *             current instance. </p>
  */
@@ -2326,6 +2700,7 @@ export interface NetworkResourceUtilization {
 }
 
 /**
+ * @public
  * <p>Utilization metrics for the instance. </p>
  */
 export interface EC2ResourceUtilization {
@@ -2365,6 +2740,7 @@ export interface EC2ResourceUtilization {
 }
 
 /**
+ * @public
  * <p>Resource utilization of current resource. </p>
  */
 export interface ResourceUtilization {
@@ -2375,6 +2751,7 @@ export interface ResourceUtilization {
 }
 
 /**
+ * @public
  * <p>Context about the current instance.</p>
  */
 export interface CurrentInstance {
@@ -2437,34 +2814,53 @@ export interface CurrentInstance {
   CurrencyCode?: string;
 }
 
-export enum FindingReasonCode {
-  CPU_OVER_PROVISIONED = "CPU_OVER_PROVISIONED",
-  CPU_UNDER_PROVISIONED = "CPU_UNDER_PROVISIONED",
-  DISK_IOPS_OVER_PROVISIONED = "DISK_IOPS_OVER_PROVISIONED",
-  DISK_IOPS_UNDER_PROVISIONED = "DISK_IOPS_UNDER_PROVISIONED",
-  DISK_THROUGHPUT_OVER_PROVISIONED = "DISK_THROUGHPUT_OVER_PROVISIONED",
-  DISK_THROUGHPUT_UNDER_PROVISIONED = "DISK_THROUGHPUT_UNDER_PROVISIONED",
-  EBS_IOPS_OVER_PROVISIONED = "EBS_IOPS_OVER_PROVISIONED",
-  EBS_IOPS_UNDER_PROVISIONED = "EBS_IOPS_UNDER_PROVISIONED",
-  EBS_THROUGHPUT_OVER_PROVISIONED = "EBS_THROUGHPUT_OVER_PROVISIONED",
-  EBS_THROUGHPUT_UNDER_PROVISIONED = "EBS_THROUGHPUT_UNDER_PROVISIONED",
-  MEMORY_OVER_PROVISIONED = "MEMORY_OVER_PROVISIONED",
-  MEMORY_UNDER_PROVISIONED = "MEMORY_UNDER_PROVISIONED",
-  NETWORK_BANDWIDTH_OVER_PROVISIONED = "NETWORK_BANDWIDTH_OVER_PROVISIONED",
-  NETWORK_BANDWIDTH_UNDER_PROVISIONED = "NETWORK_BANDWIDTH_UNDER_PROVISIONED",
-  NETWORK_PPS_OVER_PROVISIONED = "NETWORK_PPS_OVER_PROVISIONED",
-  NETWORK_PPS_UNDER_PROVISIONED = "NETWORK_PPS_UNDER_PROVISIONED",
-}
-
-export enum PlatformDifference {
-  HYPERVISOR = "HYPERVISOR",
-  INSTANCE_STORE_AVAILABILITY = "INSTANCE_STORE_AVAILABILITY",
-  NETWORK_INTERFACE = "NETWORK_INTERFACE",
-  STORAGE_INTERFACE = "STORAGE_INTERFACE",
-  VIRTUALIZATION_TYPE = "VIRTUALIZATION_TYPE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FindingReasonCode = {
+  CPU_OVER_PROVISIONED: "CPU_OVER_PROVISIONED",
+  CPU_UNDER_PROVISIONED: "CPU_UNDER_PROVISIONED",
+  DISK_IOPS_OVER_PROVISIONED: "DISK_IOPS_OVER_PROVISIONED",
+  DISK_IOPS_UNDER_PROVISIONED: "DISK_IOPS_UNDER_PROVISIONED",
+  DISK_THROUGHPUT_OVER_PROVISIONED: "DISK_THROUGHPUT_OVER_PROVISIONED",
+  DISK_THROUGHPUT_UNDER_PROVISIONED: "DISK_THROUGHPUT_UNDER_PROVISIONED",
+  EBS_IOPS_OVER_PROVISIONED: "EBS_IOPS_OVER_PROVISIONED",
+  EBS_IOPS_UNDER_PROVISIONED: "EBS_IOPS_UNDER_PROVISIONED",
+  EBS_THROUGHPUT_OVER_PROVISIONED: "EBS_THROUGHPUT_OVER_PROVISIONED",
+  EBS_THROUGHPUT_UNDER_PROVISIONED: "EBS_THROUGHPUT_UNDER_PROVISIONED",
+  MEMORY_OVER_PROVISIONED: "MEMORY_OVER_PROVISIONED",
+  MEMORY_UNDER_PROVISIONED: "MEMORY_UNDER_PROVISIONED",
+  NETWORK_BANDWIDTH_OVER_PROVISIONED: "NETWORK_BANDWIDTH_OVER_PROVISIONED",
+  NETWORK_BANDWIDTH_UNDER_PROVISIONED: "NETWORK_BANDWIDTH_UNDER_PROVISIONED",
+  NETWORK_PPS_OVER_PROVISIONED: "NETWORK_PPS_OVER_PROVISIONED",
+  NETWORK_PPS_UNDER_PROVISIONED: "NETWORK_PPS_UNDER_PROVISIONED",
+} as const;
 
 /**
+ * @public
+ */
+export type FindingReasonCode = (typeof FindingReasonCode)[keyof typeof FindingReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PlatformDifference = {
+  HYPERVISOR: "HYPERVISOR",
+  INSTANCE_STORE_AVAILABILITY: "INSTANCE_STORE_AVAILABILITY",
+  NETWORK_INTERFACE: "NETWORK_INTERFACE",
+  STORAGE_INTERFACE: "STORAGE_INTERFACE",
+  VIRTUALIZATION_TYPE: "VIRTUALIZATION_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type PlatformDifference = (typeof PlatformDifference)[keyof typeof PlatformDifference];
+
+/**
+ * @public
  * <p>Details on recommended instance.</p>
  */
 export interface TargetInstance {
@@ -2508,6 +2904,7 @@ export interface TargetInstance {
 }
 
 /**
+ * @public
  * <p>Details for the modification recommendation.</p>
  */
 export interface ModifyRecommendationDetail {
@@ -2518,12 +2915,22 @@ export interface ModifyRecommendationDetail {
   TargetInstances?: TargetInstance[];
 }
 
-export enum RightsizingType {
-  MODIFY = "MODIFY",
-  TERMINATE = "TERMINATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RightsizingType = {
+  MODIFY: "MODIFY",
+  TERMINATE: "TERMINATE",
+} as const;
 
 /**
+ * @public
+ */
+export type RightsizingType = (typeof RightsizingType)[keyof typeof RightsizingType];
+
+/**
+ * @public
  * <p>Details on termination recommendation. </p>
  */
 export interface TerminateRecommendationDetail {
@@ -2540,6 +2947,7 @@ export interface TerminateRecommendationDetail {
 }
 
 /**
+ * @public
  * <p>Recommendations to rightsize resources.</p>
  */
 export interface RightsizingRecommendation {
@@ -2577,6 +2985,7 @@ export interface RightsizingRecommendation {
 }
 
 /**
+ * @public
  * <p>The summary of rightsizing recommendations </p>
  */
 export interface RightsizingRecommendationSummary {
@@ -2602,6 +3011,9 @@ export interface RightsizingRecommendationSummary {
   SavingsPercentage?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRightsizingRecommendationResponse {
   /**
    * <p>Information regarding this specific recommendation set.</p>
@@ -2634,6 +3046,7 @@ export interface GetRightsizingRecommendationResponse {
 }
 
 /**
+ * @public
  * <p>Specific coverage percentage, On-Demand costs, and spend covered by Savings Plans, and
  *             total Savings Plans costs for an account.</p>
  */
@@ -2662,6 +3075,7 @@ export interface SavingsPlansCoverageData {
 }
 
 /**
+ * @public
  * <p>The amount of Savings Plans eligible usage that's covered by Savings Plans. All
  *             calculations consider the On-Demand equivalent of your Savings Plans usage.</p>
  */
@@ -2682,6 +3096,9 @@ export interface SavingsPlansCoverage {
   TimePeriod?: DateInterval;
 }
 
+/**
+ * @public
+ */
 export interface GetSavingsPlansCoverageResponse {
   /**
    * <p>The amount of spend that your Savings Plans covered.</p>
@@ -2695,13 +3112,23 @@ export interface GetSavingsPlansCoverageResponse {
   NextToken?: string;
 }
 
-export enum SupportedSavingsPlansType {
-  COMPUTE_SP = "COMPUTE_SP",
-  EC2_INSTANCE_SP = "EC2_INSTANCE_SP",
-  SAGEMAKER_SP = "SAGEMAKER_SP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SupportedSavingsPlansType = {
+  COMPUTE_SP: "COMPUTE_SP",
+  EC2_INSTANCE_SP: "EC2_INSTANCE_SP",
+  SAGEMAKER_SP: "SAGEMAKER_SP",
+} as const;
 
 /**
+ * @public
+ */
+export type SupportedSavingsPlansType = (typeof SupportedSavingsPlansType)[keyof typeof SupportedSavingsPlansType];
+
+/**
+ * @public
  * <p>Metadata about your Savings Plans Purchase Recommendations.</p>
  */
 export interface SavingsPlansPurchaseRecommendationMetadata {
@@ -2722,6 +3149,7 @@ export interface SavingsPlansPurchaseRecommendationMetadata {
 }
 
 /**
+ * @public
  * <p>The attribute details on a specific Savings Plan.</p>
  */
 export interface SavingsPlansDetails {
@@ -2742,6 +3170,7 @@ export interface SavingsPlansDetails {
 }
 
 /**
+ * @public
  * <p>Details for your recommended Savings Plans.</p>
  */
 export interface SavingsPlansPurchaseRecommendationDetail {
@@ -2840,6 +3269,7 @@ export interface SavingsPlansPurchaseRecommendationDetail {
 }
 
 /**
+ * @public
  * <p>Summary metrics for your Savings Plans Purchase Recommendations.</p>
  */
 export interface SavingsPlansPurchaseRecommendationSummary {
@@ -2912,6 +3342,7 @@ export interface SavingsPlansPurchaseRecommendationSummary {
 }
 
 /**
+ * @public
  * <p>Contains your request parameters, Savings Plan Recommendations Summary, and
  *             Details.</p>
  */
@@ -2957,6 +3388,9 @@ export interface SavingsPlansPurchaseRecommendation {
   SavingsPlansPurchaseRecommendationSummary?: SavingsPlansPurchaseRecommendationSummary;
 }
 
+/**
+ * @public
+ */
 export interface GetSavingsPlansPurchaseRecommendationResponse {
   /**
    * <p>Information that regards this specific recommendation set.</p>
@@ -2977,6 +3411,7 @@ export interface GetSavingsPlansPurchaseRecommendationResponse {
 }
 
 /**
+ * @public
  * <p>The amortized amount of Savings Plans purchased in a specific account during a
  *             specific time interval.</p>
  */
@@ -3001,6 +3436,7 @@ export interface SavingsPlansAmortizedCommitment {
 }
 
 /**
+ * @public
  * <p>The amount of savings that you're accumulating, against the public On-Demand rate of
  *             the usage accrued in an account.</p>
  */
@@ -3019,6 +3455,7 @@ export interface SavingsPlansSavings {
 }
 
 /**
+ * @public
  * <p>The measurement of how well you're using your existing Savings Plans.</p>
  */
 export interface SavingsPlansUtilization {
@@ -3048,6 +3485,7 @@ export interface SavingsPlansUtilization {
 }
 
 /**
+ * @public
  * <p>The amount of Savings Plans utilization (in hours).</p>
  */
 export interface SavingsPlansUtilizationByTime {
@@ -3077,6 +3515,7 @@ export interface SavingsPlansUtilizationByTime {
 }
 
 /**
+ * @public
  * <p>The aggregated utilization metrics for your Savings Plans usage.</p>
  */
 export interface SavingsPlansUtilizationAggregates {
@@ -3100,6 +3539,9 @@ export interface SavingsPlansUtilizationAggregates {
   AmortizedCommitment?: SavingsPlansAmortizedCommitment;
 }
 
+/**
+ * @public
+ */
 export interface GetSavingsPlansUtilizationResponse {
   /**
    * <p>The amount of cost/commitment that you used your Savings Plans. You can use it to specify
@@ -3114,14 +3556,24 @@ export interface GetSavingsPlansUtilizationResponse {
   Total: SavingsPlansUtilizationAggregates | undefined;
 }
 
-export enum SavingsPlansDataType {
-  AMORTIZED_COMMITMENT = "AMORTIZED_COMMITMENT",
-  ATTRIBUTES = "ATTRIBUTES",
-  SAVINGS = "SAVINGS",
-  UTILIZATION = "UTILIZATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlansDataType = {
+  AMORTIZED_COMMITMENT: "AMORTIZED_COMMITMENT",
+  ATTRIBUTES: "ATTRIBUTES",
+  SAVINGS: "SAVINGS",
+  UTILIZATION: "UTILIZATION",
+} as const;
 
 /**
+ * @public
+ */
+export type SavingsPlansDataType = (typeof SavingsPlansDataType)[keyof typeof SavingsPlansDataType];
+
+/**
+ * @public
  * <p>A single daily or monthly Savings Plans utilization rate and details for your account.
  *             A management account in an organization have access to member accounts. You can use
  *                 <code>GetDimensionValues</code> to determine the possible dimension values. </p>
@@ -3157,6 +3609,9 @@ export interface SavingsPlansUtilizationDetail {
   AmortizedCommitment?: SavingsPlansAmortizedCommitment;
 }
 
+/**
+ * @public
+ */
 export interface GetSavingsPlansUtilizationDetailsResponse {
   /**
    * <p>Retrieves a single daily or monthly Savings Plans utilization rate and details for your
@@ -3181,6 +3636,9 @@ export interface GetSavingsPlansUtilizationDetailsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTagsResponse {
   /**
    * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
@@ -3204,6 +3662,9 @@ export interface GetTagsResponse {
   TotalSize: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetUsageForecastResponse {
   /**
    * <p>How much you're forecasted to use over the forecast period.</p>
@@ -3218,6 +3679,7 @@ export interface GetUsageForecastResponse {
 }
 
 /**
+ * @public
  * <p>Cost Explorer was unable to identify the usage unit. Provide
  *                 <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units,
  *             for example: <code>hours</code>.</p>
@@ -3240,16 +3702,37 @@ export class UnresolvableUsageUnitException extends __BaseException {
   }
 }
 
-export enum CostAllocationTagStatus {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CostAllocationTagStatus = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+} as const;
 
-export enum CostAllocationTagType {
-  AWS_GENERATED = "AWSGenerated",
-  USER_DEFINED = "UserDefined",
-}
+/**
+ * @public
+ */
+export type CostAllocationTagStatus = (typeof CostAllocationTagStatus)[keyof typeof CostAllocationTagStatus];
 
+/**
+ * @public
+ * @enum
+ */
+export const CostAllocationTagType = {
+  AWS_GENERATED: "AWSGenerated",
+  USER_DEFINED: "UserDefined",
+} as const;
+
+/**
+ * @public
+ */
+export type CostAllocationTagType = (typeof CostAllocationTagType)[keyof typeof CostAllocationTagType];
+
+/**
+ * @public
+ */
 export interface ListCostAllocationTagsRequest {
   /**
    * <p>The status of cost allocation tag keys that are returned for this request. </p>
@@ -3284,6 +3767,7 @@ export interface ListCostAllocationTagsRequest {
 }
 
 /**
+ * @public
  * <p>The cost allocation tag structure. This includes detailed metadata for the
  *                 <code>CostAllocationTag</code> object. </p>
  */
@@ -3308,6 +3792,9 @@ export interface CostAllocationTag {
   Status: CostAllocationTagStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCostAllocationTagsResponse {
   /**
    * <p>A list of cost allocation tags that includes the detailed metadata for each one. </p>
@@ -3321,6 +3808,9 @@ export interface ListCostAllocationTagsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCostCategoryDefinitionsRequest {
   /**
    * <p>The date when the Cost Category was effective. </p>
@@ -3340,6 +3830,7 @@ export interface ListCostCategoryDefinitionsRequest {
 }
 
 /**
+ * @public
  * <p>A reference to a Cost Category containing only enough information to identify the Cost
  *             Category.</p>
  *          <p>You can use this information to retrieve the full Cost Category information using
@@ -3389,6 +3880,9 @@ export interface CostCategoryReference {
   DefaultValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCostCategoryDefinitionsResponse {
   /**
    * <p>A reference to a Cost Category that contains enough information to identify the Cost
@@ -3403,12 +3897,24 @@ export interface ListCostCategoryDefinitionsResponse {
   NextToken?: string;
 }
 
-export enum GenerationStatus {
-  FAILED = "FAILED",
-  PROCESSING = "PROCESSING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GenerationStatus = {
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
+/**
+ * @public
+ */
+export type GenerationStatus = (typeof GenerationStatus)[keyof typeof GenerationStatus];
+
+/**
+ * @public
+ */
 export interface ListSavingsPlansPurchaseRecommendationGenerationRequest {
   /**
    * <p>The status of the recommendation generation.</p>
@@ -3432,6 +3938,7 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the Savings Plans recommendation generation.</p>
  */
 export interface GenerationSummary {
@@ -3463,6 +3970,9 @@ export interface GenerationSummary {
   EstimatedCompletionTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSavingsPlansPurchaseRecommendationGenerationResponse {
   /**
    * <p>The list of historical recommendation generations.</p>
@@ -3475,6 +3985,9 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationResponse {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see
@@ -3483,6 +3996,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tag key value pairs that are associated with the resource. </p>
@@ -3490,6 +4006,9 @@ export interface ListTagsForResourceResponse {
   ResourceTags?: ResourceTag[];
 }
 
+/**
+ * @public
+ */
 export interface ProvideAnomalyFeedbackRequest {
   /**
    * <p>A cost anomaly ID. </p>
@@ -3503,6 +4022,9 @@ export interface ProvideAnomalyFeedbackRequest {
   Feedback: AnomalyFeedbackType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ProvideAnomalyFeedbackResponse {
   /**
    * <p>The ID of the modified cost anomaly. </p>
@@ -3511,6 +4033,7 @@ export interface ProvideAnomalyFeedbackResponse {
 }
 
 /**
+ * @public
  * <p>A request to generate a recommendation is already in progress.</p>
  */
 export class GenerationExistsException extends __BaseException {
@@ -3531,8 +4054,14 @@ export class GenerationExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartSavingsPlansPurchaseRecommendationGenerationRequest {}
 
+/**
+ * @public
+ */
 export interface StartSavingsPlansPurchaseRecommendationGenerationResponse {
   /**
    * <p>The ID for this specific recommendation.</p>
@@ -3550,6 +4079,9 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationResponse {
   EstimatedCompletionTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see
@@ -3593,9 +4125,13 @@ export interface TagResourceRequest {
   ResourceTags: ResourceTag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>Can occur if you specify a number of tags for a resource greater than the maximum 50
  *             user tags per resource.</p>
  */
@@ -3619,6 +4155,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see
@@ -3636,8 +4175,14 @@ export interface UntagResourceRequest {
   ResourceTagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAnomalyMonitorRequest {
   /**
    * <p>Cost anomaly monitor Amazon Resource Names (ARNs). </p>
@@ -3650,6 +4195,9 @@ export interface UpdateAnomalyMonitorRequest {
   MonitorName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAnomalyMonitorResponse {
   /**
    * <p>A cost anomaly monitor ARN. </p>
@@ -3657,6 +4205,9 @@ export interface UpdateAnomalyMonitorResponse {
   MonitorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAnomalySubscriptionResponse {
   /**
    * <p>A cost anomaly subscription ARN. </p>
@@ -3665,6 +4216,7 @@ export interface UpdateAnomalySubscriptionResponse {
 }
 
 /**
+ * @public
  * <p>The cost allocation tag status. The status of a key can either be active or inactive.
  *         </p>
  */
@@ -3680,6 +4232,9 @@ export interface CostAllocationTagStatusEntry {
   Status: CostAllocationTagStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCostAllocationTagsStatusRequest {
   /**
    * <p>The list of <code>CostAllocationTagStatusEntry</code> objects that are used to update cost
@@ -3689,6 +4244,7 @@ export interface UpdateCostAllocationTagsStatusRequest {
 }
 
 /**
+ * @public
  * <p>Gives a detailed description of the result of an action. It's on each cost allocation
  *             tag entry in the request. </p>
  */
@@ -3709,6 +4265,9 @@ export interface UpdateCostAllocationTagsStatusError {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCostAllocationTagsStatusResponse {
   /**
    * <p>A list of <code>UpdateCostAllocationTagsStatusError</code> objects with error details
@@ -3718,6 +4277,9 @@ export interface UpdateCostAllocationTagsStatusResponse {
   Errors?: UpdateCostAllocationTagsStatusError[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateCostCategoryDefinitionResponse {
   /**
    * <p>The unique identifier for your Cost Category. </p>
@@ -3731,6 +4293,7 @@ export interface UpdateCostCategoryDefinitionResponse {
 }
 
 /**
+ * @public
  * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
  *          <p>Not all <code>Expression</code> types are supported in each API. Refer to the
  *             documentation for each specific API to see what is supported.</p>
@@ -3773,8 +4336,8 @@ export interface UpdateCostCategoryDefinitionResponse {
  *                         </li>
  *                         <li>
  *                            <p>The corresponding <code>Expression</code> for this example is
- *                                     as follows: <code>{ "Dimensions": { "Key": "REGION", "Values": [
- *                                         "us-east-1", “us-west-1” ] } }</code>
+ *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
+ *                                         "us-east-1", “us-west-1” ] \} \}</code>
  *                            </p>
  *                         </li>
  *                         <li>
@@ -3795,9 +4358,9 @@ export interface UpdateCostCategoryDefinitionResponse {
  *                         </li>
  *                         <li>
  *                            <p>The corresponding <code>Expression</code> for this example is
- *                                     as follows: <code>{ "Dimensions": { "Key":
+ *                                     as follows: <code>\{ "Dimensions": \{ "Key":
  *                                         "LINKED_ACCOUNT_NAME", "MatchOptions": [ "STARTS_WITH" ],
- *                                         "Values": [ "a" ] } }</code>
+ *                                         "Values": [ "a" ] \} \}</code>
  *                            </p>
  *                         </li>
  *                      </ul>
@@ -3820,10 +4383,10 @@ export interface UpdateCostCategoryDefinitionResponse {
  *                   </li>
  *                   <li>
  *                      <p>The corresponding <code>Expression</code> for this example is as
- *                             follows: <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION",
- *                                 "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags": { "Key":
- *                                 "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": {
- *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }
+ *                             follows: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION",
+ *                                 "Values": [ "us-east-1", "us-west-1" ] \}\}, \{"Tags": \{ "Key":
+ *                                 "TagName", "Values": ["Value1"] \} \} ]\}, \{"Not": \{"Dimensions": \{
+ *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] \}\}\} ] \}
  *                             </code>
  *                      </p>
  *                   </li>
@@ -3832,8 +4395,8 @@ export interface UpdateCostCategoryDefinitionResponse {
  *                   <p>Because each <code>Expression</code> can have only one operator, the
  *                         service returns an error if more than one is specified. The following
  *                         example shows an <code>Expression</code> object that creates an error:
- *                             <code> { "And": [ ... ], "Dimensions": { "Key": "USAGE_TYPE", "Values":
- *                             [ "DataTransfer" ] } } </code>
+ *                             <code> \{ "And": [ ... ], "Dimensions": \{ "Key": "USAGE_TYPE", "Values":
+ *                             [ "DataTransfer" ] \} \} </code>
  *                   </p>
  *                   <p>The following is an example of the corresponding error message:
  *                             <code>"Expression has more than one roots. Only one root operator is
@@ -3887,6 +4450,7 @@ export interface Expression {
 }
 
 /**
+ * @public
  * <p>This object continuously inspects your account's cost data for anomalies. It's based
  *             on <code>MonitorType</code> and <code>MonitorSpecification</code>. The content consists
  *             of detailed metadata and the current status of the monitor object. </p>
@@ -3970,8 +4534,8 @@ export interface AnomalyMonitor {
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>{ "Dimensions": { "Key": "REGION", "Values": [
-   *                                         "us-east-1", “us-west-1” ] } }</code>
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
+   *                                         "us-east-1", “us-west-1” ] \} \}</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -3992,9 +4556,9 @@ export interface AnomalyMonitor {
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>{ "Dimensions": { "Key":
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key":
    *                                         "LINKED_ACCOUNT_NAME", "MatchOptions": [ "STARTS_WITH" ],
-   *                                         "Values": [ "a" ] } }</code>
+   *                                         "Values": [ "a" ] \} \}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -4017,10 +4581,10 @@ export interface AnomalyMonitor {
    *                   </li>
    *                   <li>
    *                      <p>The corresponding <code>Expression</code> for this example is as
-   *                             follows: <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION",
-   *                                 "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags": { "Key":
-   *                                 "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": {
-   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }
+   *                             follows: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION",
+   *                                 "Values": [ "us-east-1", "us-west-1" ] \}\}, \{"Tags": \{ "Key":
+   *                                 "TagName", "Values": ["Value1"] \} \} ]\}, \{"Not": \{"Dimensions": \{
+   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] \}\}\} ] \}
    *                             </code>
    *                      </p>
    *                   </li>
@@ -4029,8 +4593,8 @@ export interface AnomalyMonitor {
    *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an error:
-   *                             <code> { "And": [ ... ], "Dimensions": { "Key": "USAGE_TYPE", "Values":
-   *                             [ "DataTransfer" ] } } </code>
+   *                             <code> \{ "And": [ ... ], "Dimensions": \{ "Key": "USAGE_TYPE", "Values":
+   *                             [ "DataTransfer" ] \} \} </code>
    *                   </p>
    *                   <p>The following is an example of the corresponding error message:
    *                             <code>"Expression has more than one roots. Only one root operator is
@@ -4060,6 +4624,7 @@ export interface AnomalyMonitor {
 }
 
 /**
+ * @public
  * <p>The association between a monitor, threshold, and list of subscribers used to deliver
  *             notifications about anomalies detected by a monitor that exceeds a threshold. The
  *             content consists of the detailed metadata and the current status of the
@@ -4121,33 +4686,33 @@ export interface AnomalySubscription {
    *          <p>The following are examples of valid ThresholdExpressions:</p>
    *          <ul>
    *             <li>
-   *                <p>Absolute threshold: <code>{ "Dimensions": { "Key":
+   *                <p>Absolute threshold: <code>\{ "Dimensions": \{ "Key":
    *                         "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL"
-   *                         ], "Values": [ "100" ] } }</code>
+   *                         ], "Values": [ "100" ] \} \}</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Percentage threshold: <code>{ "Dimensions": { "Key":
+   *                <p>Percentage threshold: <code>\{ "Dimensions": \{ "Key":
    *                         "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL"
-   *                         ], "Values": [ "100" ] } }</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AND</code> two thresholds together: <code>{ "And": [ { "Dimensions": {
-   *                         "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [
-   *                         "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }, { "Dimensions": { "Key":
-   *                         "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL"
-   *                         ], "Values": [ "100" ] } } ] }</code>
+   *                         ], "Values": [ "100" ] \} \}</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>OR</code> two thresholds together: <code>{ "Or": [ { "Dimensions": {
+   *                   <code>AND</code> two thresholds together: <code>\{ "And": [ \{ "Dimensions": \{
    *                         "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [
-   *                         "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }, { "Dimensions": { "Key":
+   *                         "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] \} \}, \{ "Dimensions": \{ "Key":
    *                         "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL"
-   *                         ], "Values": [ "100" ] } } ] }</code>
+   *                         ], "Values": [ "100" ] \} \} ] \}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OR</code> two thresholds together: <code>\{ "Or": [ \{ "Dimensions": \{
+   *                         "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [
+   *                         "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] \} \}, \{ "Dimensions": \{ "Key":
+   *                         "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL"
+   *                         ], "Values": [ "100" ] \} \} ] \}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -4156,6 +4721,7 @@ export interface AnomalySubscription {
 }
 
 /**
+ * @public
  * <p>Rules are processed in order. If there are multiple rules that match the line item,
  *             then the first rule to match is used to determine that Cost Category value.</p>
  */
@@ -4202,6 +4768,9 @@ export interface CostCategoryRule {
   Type?: CostCategoryRuleType | string;
 }
 
+/**
+ * @public
+ */
 export interface GetCostAndUsageRequest {
   /**
    * <p>Sets the start date and end date for retrieving Amazon Web Services costs. The start
@@ -4275,6 +4844,9 @@ export interface GetCostAndUsageRequest {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCostAndUsageWithResourcesRequest {
   /**
    * <p>Sets the start and end dates for retrieving Amazon Web Services costs. The range must
@@ -4346,6 +4918,9 @@ export interface GetCostAndUsageWithResourcesRequest {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCostCategoriesRequest {
   /**
    * <p>The value that you want to search the filter values for.</p>
@@ -4409,8 +4984,8 @@ export interface GetCostCategoriesRequest {
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>{ "Dimensions": { "Key": "REGION", "Values": [
-   *                                         "us-east-1", “us-west-1” ] } }</code>
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
+   *                                         "us-east-1", “us-west-1” ] \} \}</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -4431,9 +5006,9 @@ export interface GetCostCategoriesRequest {
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>{ "Dimensions": { "Key":
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key":
    *                                         "LINKED_ACCOUNT_NAME", "MatchOptions": [ "STARTS_WITH" ],
-   *                                         "Values": [ "a" ] } }</code>
+   *                                         "Values": [ "a" ] \} \}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -4456,10 +5031,10 @@ export interface GetCostCategoriesRequest {
    *                   </li>
    *                   <li>
    *                      <p>The corresponding <code>Expression</code> for this example is as
-   *                             follows: <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION",
-   *                                 "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags": { "Key":
-   *                                 "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": {
-   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }
+   *                             follows: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION",
+   *                                 "Values": [ "us-east-1", "us-west-1" ] \}\}, \{"Tags": \{ "Key":
+   *                                 "TagName", "Values": ["Value1"] \} \} ]\}, \{"Not": \{"Dimensions": \{
+   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] \}\}\} ] \}
    *                             </code>
    *                      </p>
    *                   </li>
@@ -4468,8 +5043,8 @@ export interface GetCostCategoriesRequest {
    *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an error:
-   *                             <code> { "And": [ ... ], "Dimensions": { "Key": "USAGE_TYPE", "Values":
-   *                             [ "DataTransfer" ] } } </code>
+   *                             <code> \{ "And": [ ... ], "Dimensions": \{ "Key": "USAGE_TYPE", "Values":
+   *                             [ "DataTransfer" ] \} \} </code>
    *                   </p>
    *                   <p>The following is an example of the corresponding error message:
    *                             <code>"Expression has more than one roots. Only one root operator is
@@ -4556,6 +5131,9 @@ export interface GetCostCategoriesRequest {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCostForecastRequest {
   /**
    * <p>The period of time that you want the forecast to cover. The start date must be equal to or
@@ -4728,6 +5306,9 @@ export interface GetCostForecastRequest {
   PredictionIntervalLevel?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetDimensionValuesRequest {
   /**
    * <p>The value that you want to search the filter values for.</p>
@@ -4974,8 +5555,8 @@ export interface GetDimensionValuesRequest {
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>{ "Dimensions": { "Key": "REGION", "Values": [
-   *                                         "us-east-1", “us-west-1” ] } }</code>
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
+   *                                         "us-east-1", “us-west-1” ] \} \}</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -4996,9 +5577,9 @@ export interface GetDimensionValuesRequest {
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>{ "Dimensions": { "Key":
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key":
    *                                         "LINKED_ACCOUNT_NAME", "MatchOptions": [ "STARTS_WITH" ],
-   *                                         "Values": [ "a" ] } }</code>
+   *                                         "Values": [ "a" ] \} \}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -5021,10 +5602,10 @@ export interface GetDimensionValuesRequest {
    *                   </li>
    *                   <li>
    *                      <p>The corresponding <code>Expression</code> for this example is as
-   *                             follows: <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION",
-   *                                 "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags": { "Key":
-   *                                 "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": {
-   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }
+   *                             follows: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION",
+   *                                 "Values": [ "us-east-1", "us-west-1" ] \}\}, \{"Tags": \{ "Key":
+   *                                 "TagName", "Values": ["Value1"] \} \} ]\}, \{"Not": \{"Dimensions": \{
+   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] \}\}\} ] \}
    *                             </code>
    *                      </p>
    *                   </li>
@@ -5033,8 +5614,8 @@ export interface GetDimensionValuesRequest {
    *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an error:
-   *                             <code> { "And": [ ... ], "Dimensions": { "Key": "USAGE_TYPE", "Values":
-   *                             [ "DataTransfer" ] } } </code>
+   *                             <code> \{ "And": [ ... ], "Dimensions": \{ "Key": "USAGE_TYPE", "Values":
+   *                             [ "DataTransfer" ] \} \} </code>
    *                   </p>
    *                   <p>The following is an example of the corresponding error message:
    *                             <code>"Expression has more than one roots. Only one root operator is
@@ -5121,6 +5702,7 @@ export interface GetDimensionValuesRequest {
 }
 
 /**
+ * @public
  * <p>You can use the following request parameters to query for how much of your instance
  *       usage a reservation covered.</p>
  */
@@ -5320,6 +5902,9 @@ export interface GetReservationCoverageRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetReservationPurchaseRecommendationRequest {
   /**
    * <p>The account ID that's associated with the recommendation. </p>
@@ -5374,8 +5959,8 @@ export interface GetReservationPurchaseRecommendationRequest {
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>{ "Dimensions": { "Key": "REGION", "Values": [
-   *                                         "us-east-1", “us-west-1” ] } }</code>
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
+   *                                         "us-east-1", “us-west-1” ] \} \}</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -5396,9 +5981,9 @@ export interface GetReservationPurchaseRecommendationRequest {
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>{ "Dimensions": { "Key":
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key":
    *                                         "LINKED_ACCOUNT_NAME", "MatchOptions": [ "STARTS_WITH" ],
-   *                                         "Values": [ "a" ] } }</code>
+   *                                         "Values": [ "a" ] \} \}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -5421,10 +6006,10 @@ export interface GetReservationPurchaseRecommendationRequest {
    *                   </li>
    *                   <li>
    *                      <p>The corresponding <code>Expression</code> for this example is as
-   *                             follows: <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION",
-   *                                 "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags": { "Key":
-   *                                 "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": {
-   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }
+   *                             follows: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION",
+   *                                 "Values": [ "us-east-1", "us-west-1" ] \}\}, \{"Tags": \{ "Key":
+   *                                 "TagName", "Values": ["Value1"] \} \} ]\}, \{"Not": \{"Dimensions": \{
+   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] \}\}\} ] \}
    *                             </code>
    *                      </p>
    *                   </li>
@@ -5433,8 +6018,8 @@ export interface GetReservationPurchaseRecommendationRequest {
    *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an error:
-   *                             <code> { "And": [ ... ], "Dimensions": { "Key": "USAGE_TYPE", "Values":
-   *                             [ "DataTransfer" ] } } </code>
+   *                             <code> \{ "And": [ ... ], "Dimensions": \{ "Key": "USAGE_TYPE", "Values":
+   *                             [ "DataTransfer" ] \} \} </code>
    *                   </p>
    *                   <p>The following is an example of the corresponding error message:
    *                             <code>"Expression has more than one roots. Only one root operator is
@@ -5500,6 +6085,9 @@ export interface GetReservationPurchaseRecommendationRequest {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetReservationUtilizationRequest {
   /**
    * <p>Sets the start and end dates for retrieving Reserved Instance (RI) utilization. The
@@ -5681,6 +6269,9 @@ export interface GetReservationUtilizationRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetRightsizingRecommendationRequest {
   /**
    * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
@@ -5725,8 +6316,8 @@ export interface GetRightsizingRecommendationRequest {
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>{ "Dimensions": { "Key": "REGION", "Values": [
-   *                                         "us-east-1", “us-west-1” ] } }</code>
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
+   *                                         "us-east-1", “us-west-1” ] \} \}</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -5747,9 +6338,9 @@ export interface GetRightsizingRecommendationRequest {
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>{ "Dimensions": { "Key":
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key":
    *                                         "LINKED_ACCOUNT_NAME", "MatchOptions": [ "STARTS_WITH" ],
-   *                                         "Values": [ "a" ] } }</code>
+   *                                         "Values": [ "a" ] \} \}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -5772,10 +6363,10 @@ export interface GetRightsizingRecommendationRequest {
    *                   </li>
    *                   <li>
    *                      <p>The corresponding <code>Expression</code> for this example is as
-   *                             follows: <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION",
-   *                                 "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags": { "Key":
-   *                                 "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": {
-   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }
+   *                             follows: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION",
+   *                                 "Values": [ "us-east-1", "us-west-1" ] \}\}, \{"Tags": \{ "Key":
+   *                                 "TagName", "Values": ["Value1"] \} \} ]\}, \{"Not": \{"Dimensions": \{
+   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] \}\}\} ] \}
    *                             </code>
    *                      </p>
    *                   </li>
@@ -5784,8 +6375,8 @@ export interface GetRightsizingRecommendationRequest {
    *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an error:
-   *                             <code> { "And": [ ... ], "Dimensions": { "Key": "USAGE_TYPE", "Values":
-   *                             [ "DataTransfer" ] } } </code>
+   *                             <code> \{ "And": [ ... ], "Dimensions": \{ "Key": "USAGE_TYPE", "Values":
+   *                             [ "DataTransfer" ] \} \} </code>
    *                   </p>
    *                   <p>The following is an example of the corresponding error message:
    *                             <code>"Expression has more than one roots. Only one root operator is
@@ -5835,6 +6426,9 @@ export interface GetRightsizingRecommendationRequest {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSavingsPlansCoverageRequest {
   /**
    * <p>The time period that you want the usage and costs for. The <code>Start</code> date must be
@@ -5954,6 +6548,9 @@ export interface GetSavingsPlansCoverageRequest {
   SortBy?: SortDefinition;
 }
 
+/**
+ * @public
+ */
 export interface GetSavingsPlansPurchaseRecommendationRequest {
   /**
    * <p>The Savings Plans recommendation type that's requested.</p>
@@ -6009,6 +6606,9 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
   Filter?: Expression;
 }
 
+/**
+ * @public
+ */
 export interface GetSavingsPlansUtilizationDetailsRequest {
   /**
    * <p>The time period that you want the usage and costs for. The <code>Start</code> date must be
@@ -6116,6 +6716,9 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
   SortBy?: SortDefinition;
 }
 
+/**
+ * @public
+ */
 export interface GetSavingsPlansUtilizationRequest {
   /**
    * <p>The time period that you want the usage and costs for. The <code>Start</code> date must be
@@ -6209,6 +6812,9 @@ export interface GetSavingsPlansUtilizationRequest {
   SortBy?: SortDefinition;
 }
 
+/**
+ * @public
+ */
 export interface GetTagsRequest {
   /**
    * <p>The value that you want to search for.</p>
@@ -6272,8 +6878,8 @@ export interface GetTagsRequest {
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>{ "Dimensions": { "Key": "REGION", "Values": [
-   *                                         "us-east-1", “us-west-1” ] } }</code>
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
+   *                                         "us-east-1", “us-west-1” ] \} \}</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -6294,9 +6900,9 @@ export interface GetTagsRequest {
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>{ "Dimensions": { "Key":
+   *                                     as follows: <code>\{ "Dimensions": \{ "Key":
    *                                         "LINKED_ACCOUNT_NAME", "MatchOptions": [ "STARTS_WITH" ],
-   *                                         "Values": [ "a" ] } }</code>
+   *                                         "Values": [ "a" ] \} \}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -6319,10 +6925,10 @@ export interface GetTagsRequest {
    *                   </li>
    *                   <li>
    *                      <p>The corresponding <code>Expression</code> for this example is as
-   *                             follows: <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION",
-   *                                 "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags": { "Key":
-   *                                 "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": {
-   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }
+   *                             follows: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION",
+   *                                 "Values": [ "us-east-1", "us-west-1" ] \}\}, \{"Tags": \{ "Key":
+   *                                 "TagName", "Values": ["Value1"] \} \} ]\}, \{"Not": \{"Dimensions": \{
+   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] \}\}\} ] \}
    *                             </code>
    *                      </p>
    *                   </li>
@@ -6331,8 +6937,8 @@ export interface GetTagsRequest {
    *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an error:
-   *                             <code> { "And": [ ... ], "Dimensions": { "Key": "USAGE_TYPE", "Values":
-   *                             [ "DataTransfer" ] } } </code>
+   *                             <code> \{ "And": [ ... ], "Dimensions": \{ "Key": "USAGE_TYPE", "Values":
+   *                             [ "DataTransfer" ] \} \} </code>
    *                   </p>
    *                   <p>The following is an example of the corresponding error message:
    *                             <code>"Expression has more than one roots. Only one root operator is
@@ -6417,6 +7023,9 @@ export interface GetTagsRequest {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetUsageForecastRequest {
   /**
    * <p>The start and end dates of the period that you want to retrieve usage forecast for. The
@@ -6584,6 +7193,9 @@ export interface GetUsageForecastRequest {
   PredictionIntervalLevel?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAnomalySubscriptionRequest {
   /**
    * <p>A cost anomaly subscription Amazon Resource Name (ARN). </p>
@@ -6631,30 +7243,30 @@ export interface UpdateAnomalySubscriptionRequest {
    *          <p>The following are examples of valid ThresholdExpressions:</p>
    *          <ul>
    *             <li>
-   *                <p>Absolute threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-   *             "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</code>
+   *                <p>Absolute threshold: <code>\{ "Dimensions": \{ "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+   *             "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] \} \}</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Percentage threshold: <code>{ "Dimensions": { "Key":
+   *                <p>Percentage threshold: <code>\{ "Dimensions": \{ "Key":
    *             "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ],
-   *             "Values": [ "100" ] } }</code>
+   *             "Values": [ "100" ] \} \}</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>AND</code> two thresholds together: <code>{ "And": [ { "Dimensions": { "Key":
+   *                   <code>AND</code> two thresholds together: <code>\{ "And": [ \{ "Dimensions": \{ "Key":
    *             "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values":
-   *             [ "100" ] } }, { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-   *             "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } } ] }</code>
+   *             [ "100" ] \} \}, \{ "Dimensions": \{ "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+   *             "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] \} \} ] \}</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>OR</code> two thresholds together: <code>{ "Or": [ { "Dimensions": { "Key":
+   *                   <code>OR</code> two thresholds together: <code>\{ "Or": [ \{ "Dimensions": \{ "Key":
    *             "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values":
-   *             [ "100" ] } }, { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-   *             "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } } ] }</code>
+   *             [ "100" ] \} \}, \{ "Dimensions": \{ "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+   *             "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] \} \} ] \}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -6662,6 +7274,9 @@ export interface UpdateAnomalySubscriptionRequest {
   ThresholdExpression?: Expression;
 }
 
+/**
+ * @public
+ */
 export interface CreateAnomalyMonitorRequest {
   /**
    * <p>The cost anomaly detection monitor object that you want to create.</p>
@@ -6706,6 +7321,9 @@ export interface CreateAnomalyMonitorRequest {
   ResourceTags?: ResourceTag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAnomalySubscriptionRequest {
   /**
    * <p>The cost anomaly subscription object that you want to create. </p>
@@ -6751,6 +7369,7 @@ export interface CreateAnomalySubscriptionRequest {
 }
 
 /**
+ * @public
  * <p>The structure of Cost Categories. This includes detailed metadata and the set of rules
  *             for the <code>CostCategory</code> object.</p>
  */
@@ -6806,6 +7425,9 @@ export interface CostCategory {
   DefaultValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCostCategoryDefinitionRequest {
   /**
    * <p>The unique name of the Cost Category.</p>
@@ -6877,6 +7499,9 @@ export interface CreateCostCategoryDefinitionRequest {
   ResourceTags?: ResourceTag[];
 }
 
+/**
+ * @public
+ */
 export interface GetAnomalyMonitorsResponse {
   /**
    * <p>A list of cost anomaly monitors that includes the detailed metadata for each monitor.
@@ -6891,6 +7516,9 @@ export interface GetAnomalyMonitorsResponse {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAnomalySubscriptionsResponse {
   /**
    * <p>A list of cost anomaly subscriptions that includes the detailed metadata for each one.
@@ -6905,6 +7533,9 @@ export interface GetAnomalySubscriptionsResponse {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCostCategoryDefinitionRequest {
   /**
    * <p>The unique identifier for your Cost Category.</p>
@@ -6941,6 +7572,9 @@ export interface UpdateCostCategoryDefinitionRequest {
   SplitChargeRules?: CostCategorySplitChargeRule[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeCostCategoryDefinitionResponse {
   /**
    * <p>The structure of Cost Categories. This includes detailed metadata and the set of rules
@@ -6948,1165 +7582,3 @@ export interface DescribeCostCategoryDefinitionResponse {
    */
   CostCategory?: CostCategory;
 }
-
-/**
- * @internal
- */
-export const AnomalyScoreFilterSensitiveLog = (obj: AnomalyScore): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImpactFilterSensitiveLog = (obj: Impact): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RootCauseFilterSensitiveLog = (obj: RootCause): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalyFilterSensitiveLog = (obj: Anomaly): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalyDateIntervalFilterSensitiveLog = (obj: AnomalyDateInterval): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostCategoryValuesFilterSensitiveLog = (obj: CostCategoryValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionValuesFilterSensitiveLog = (obj: DimensionValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagValuesFilterSensitiveLog = (obj: TagValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubscriberFilterSensitiveLog = (obj: Subscriber): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceTagFilterSensitiveLog = (obj: ResourceTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAnomalyMonitorResponseFilterSensitiveLog = (obj: CreateAnomalyMonitorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAnomalySubscriptionResponseFilterSensitiveLog = (obj: CreateAnomalySubscriptionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostCategoryInheritedValueDimensionFilterSensitiveLog = (
-  obj: CostCategoryInheritedValueDimension
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostCategorySplitChargeRuleParameterFilterSensitiveLog = (
-  obj: CostCategorySplitChargeRuleParameter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostCategorySplitChargeRuleFilterSensitiveLog = (obj: CostCategorySplitChargeRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCostCategoryDefinitionResponseFilterSensitiveLog = (
-  obj: CreateCostCategoryDefinitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAnomalyMonitorRequestFilterSensitiveLog = (obj: DeleteAnomalyMonitorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAnomalyMonitorResponseFilterSensitiveLog = (obj: DeleteAnomalyMonitorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAnomalySubscriptionRequestFilterSensitiveLog = (obj: DeleteAnomalySubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAnomalySubscriptionResponseFilterSensitiveLog = (obj: DeleteAnomalySubscriptionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCostCategoryDefinitionRequestFilterSensitiveLog = (
-  obj: DeleteCostCategoryDefinitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCostCategoryDefinitionResponseFilterSensitiveLog = (
-  obj: DeleteCostCategoryDefinitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCostCategoryDefinitionRequestFilterSensitiveLog = (
-  obj: DescribeCostCategoryDefinitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostCategoryProcessingStatusFilterSensitiveLog = (obj: CostCategoryProcessingStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TotalImpactFilterFilterSensitiveLog = (obj: TotalImpactFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnomaliesRequestFilterSensitiveLog = (obj: GetAnomaliesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnomaliesResponseFilterSensitiveLog = (obj: GetAnomaliesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnomalyMonitorsRequestFilterSensitiveLog = (obj: GetAnomalyMonitorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnomalySubscriptionsRequestFilterSensitiveLog = (obj: GetAnomalySubscriptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GroupDefinitionFilterSensitiveLog = (obj: GroupDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DateIntervalFilterSensitiveLog = (obj: DateInterval): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionValuesWithAttributesFilterSensitiveLog = (obj: DimensionValuesWithAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricValueFilterSensitiveLog = (obj: MetricValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GroupFilterSensitiveLog = (obj: Group): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResultByTimeFilterSensitiveLog = (obj: ResultByTime): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCostAndUsageResponseFilterSensitiveLog = (obj: GetCostAndUsageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCostAndUsageWithResourcesResponseFilterSensitiveLog = (
-  obj: GetCostAndUsageWithResourcesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SortDefinitionFilterSensitiveLog = (obj: SortDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCostCategoriesResponseFilterSensitiveLog = (obj: GetCostCategoriesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForecastResultFilterSensitiveLog = (obj: ForecastResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCostForecastResponseFilterSensitiveLog = (obj: GetCostForecastResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDimensionValuesResponseFilterSensitiveLog = (obj: GetDimensionValuesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoverageCostFilterSensitiveLog = (obj: CoverageCost): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoverageHoursFilterSensitiveLog = (obj: CoverageHours): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoverageNormalizedUnitsFilterSensitiveLog = (obj: CoverageNormalizedUnits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoverageFilterSensitiveLog = (obj: Coverage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationCoverageGroupFilterSensitiveLog = (obj: ReservationCoverageGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoverageByTimeFilterSensitiveLog = (obj: CoverageByTime): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReservationCoverageResponseFilterSensitiveLog = (obj: GetReservationCoverageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EC2SpecificationFilterSensitiveLog = (obj: EC2Specification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceSpecificationFilterSensitiveLog = (obj: ServiceSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationPurchaseRecommendationMetadataFilterSensitiveLog = (
-  obj: ReservationPurchaseRecommendationMetadata
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EC2InstanceDetailsFilterSensitiveLog = (obj: EC2InstanceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElastiCacheInstanceDetailsFilterSensitiveLog = (obj: ElastiCacheInstanceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ESInstanceDetailsFilterSensitiveLog = (obj: ESInstanceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RDSInstanceDetailsFilterSensitiveLog = (obj: RDSInstanceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedshiftInstanceDetailsFilterSensitiveLog = (obj: RedshiftInstanceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceDetailsFilterSensitiveLog = (obj: InstanceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationPurchaseRecommendationDetailFilterSensitiveLog = (
-  obj: ReservationPurchaseRecommendationDetail
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationPurchaseRecommendationSummaryFilterSensitiveLog = (
-  obj: ReservationPurchaseRecommendationSummary
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationPurchaseRecommendationFilterSensitiveLog = (obj: ReservationPurchaseRecommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReservationPurchaseRecommendationResponseFilterSensitiveLog = (
-  obj: GetReservationPurchaseRecommendationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationAggregatesFilterSensitiveLog = (obj: ReservationAggregates): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationUtilizationGroupFilterSensitiveLog = (obj: ReservationUtilizationGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UtilizationByTimeFilterSensitiveLog = (obj: UtilizationByTime): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReservationUtilizationResponseFilterSensitiveLog = (obj: GetReservationUtilizationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RightsizingRecommendationConfigurationFilterSensitiveLog = (
-  obj: RightsizingRecommendationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RightsizingRecommendationMetadataFilterSensitiveLog = (obj: RightsizingRecommendationMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EC2ResourceDetailsFilterSensitiveLog = (obj: EC2ResourceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceDetailsFilterSensitiveLog = (obj: ResourceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DiskResourceUtilizationFilterSensitiveLog = (obj: DiskResourceUtilization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EBSResourceUtilizationFilterSensitiveLog = (obj: EBSResourceUtilization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkResourceUtilizationFilterSensitiveLog = (obj: NetworkResourceUtilization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EC2ResourceUtilizationFilterSensitiveLog = (obj: EC2ResourceUtilization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceUtilizationFilterSensitiveLog = (obj: ResourceUtilization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CurrentInstanceFilterSensitiveLog = (obj: CurrentInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetInstanceFilterSensitiveLog = (obj: TargetInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyRecommendationDetailFilterSensitiveLog = (obj: ModifyRecommendationDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateRecommendationDetailFilterSensitiveLog = (obj: TerminateRecommendationDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RightsizingRecommendationFilterSensitiveLog = (obj: RightsizingRecommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RightsizingRecommendationSummaryFilterSensitiveLog = (obj: RightsizingRecommendationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRightsizingRecommendationResponseFilterSensitiveLog = (
-  obj: GetRightsizingRecommendationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansCoverageDataFilterSensitiveLog = (obj: SavingsPlansCoverageData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansCoverageFilterSensitiveLog = (obj: SavingsPlansCoverage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSavingsPlansCoverageResponseFilterSensitiveLog = (obj: GetSavingsPlansCoverageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansPurchaseRecommendationMetadataFilterSensitiveLog = (
-  obj: SavingsPlansPurchaseRecommendationMetadata
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansDetailsFilterSensitiveLog = (obj: SavingsPlansDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansPurchaseRecommendationDetailFilterSensitiveLog = (
-  obj: SavingsPlansPurchaseRecommendationDetail
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansPurchaseRecommendationSummaryFilterSensitiveLog = (
-  obj: SavingsPlansPurchaseRecommendationSummary
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansPurchaseRecommendationFilterSensitiveLog = (obj: SavingsPlansPurchaseRecommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSavingsPlansPurchaseRecommendationResponseFilterSensitiveLog = (
-  obj: GetSavingsPlansPurchaseRecommendationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansAmortizedCommitmentFilterSensitiveLog = (obj: SavingsPlansAmortizedCommitment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansSavingsFilterSensitiveLog = (obj: SavingsPlansSavings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansUtilizationFilterSensitiveLog = (obj: SavingsPlansUtilization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansUtilizationByTimeFilterSensitiveLog = (obj: SavingsPlansUtilizationByTime): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansUtilizationAggregatesFilterSensitiveLog = (obj: SavingsPlansUtilizationAggregates): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSavingsPlansUtilizationResponseFilterSensitiveLog = (obj: GetSavingsPlansUtilizationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlansUtilizationDetailFilterSensitiveLog = (obj: SavingsPlansUtilizationDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSavingsPlansUtilizationDetailsResponseFilterSensitiveLog = (
-  obj: GetSavingsPlansUtilizationDetailsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTagsResponseFilterSensitiveLog = (obj: GetTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUsageForecastResponseFilterSensitiveLog = (obj: GetUsageForecastResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCostAllocationTagsRequestFilterSensitiveLog = (obj: ListCostAllocationTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostAllocationTagFilterSensitiveLog = (obj: CostAllocationTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCostAllocationTagsResponseFilterSensitiveLog = (obj: ListCostAllocationTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCostCategoryDefinitionsRequestFilterSensitiveLog = (obj: ListCostCategoryDefinitionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostCategoryReferenceFilterSensitiveLog = (obj: CostCategoryReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCostCategoryDefinitionsResponseFilterSensitiveLog = (
-  obj: ListCostCategoryDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSavingsPlansPurchaseRecommendationGenerationRequestFilterSensitiveLog = (
-  obj: ListSavingsPlansPurchaseRecommendationGenerationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerationSummaryFilterSensitiveLog = (obj: GenerationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSavingsPlansPurchaseRecommendationGenerationResponseFilterSensitiveLog = (
-  obj: ListSavingsPlansPurchaseRecommendationGenerationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvideAnomalyFeedbackRequestFilterSensitiveLog = (obj: ProvideAnomalyFeedbackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvideAnomalyFeedbackResponseFilterSensitiveLog = (obj: ProvideAnomalyFeedbackResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSavingsPlansPurchaseRecommendationGenerationRequestFilterSensitiveLog = (
-  obj: StartSavingsPlansPurchaseRecommendationGenerationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSavingsPlansPurchaseRecommendationGenerationResponseFilterSensitiveLog = (
-  obj: StartSavingsPlansPurchaseRecommendationGenerationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAnomalyMonitorRequestFilterSensitiveLog = (obj: UpdateAnomalyMonitorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAnomalyMonitorResponseFilterSensitiveLog = (obj: UpdateAnomalyMonitorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAnomalySubscriptionResponseFilterSensitiveLog = (obj: UpdateAnomalySubscriptionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostAllocationTagStatusEntryFilterSensitiveLog = (obj: CostAllocationTagStatusEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCostAllocationTagsStatusRequestFilterSensitiveLog = (
-  obj: UpdateCostAllocationTagsStatusRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCostAllocationTagsStatusErrorFilterSensitiveLog = (
-  obj: UpdateCostAllocationTagsStatusError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCostAllocationTagsStatusResponseFilterSensitiveLog = (
-  obj: UpdateCostAllocationTagsStatusResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCostCategoryDefinitionResponseFilterSensitiveLog = (
-  obj: UpdateCostCategoryDefinitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExpressionFilterSensitiveLog = (obj: Expression): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalyMonitorFilterSensitiveLog = (obj: AnomalyMonitor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalySubscriptionFilterSensitiveLog = (obj: AnomalySubscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostCategoryRuleFilterSensitiveLog = (obj: CostCategoryRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCostAndUsageRequestFilterSensitiveLog = (obj: GetCostAndUsageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCostAndUsageWithResourcesRequestFilterSensitiveLog = (
-  obj: GetCostAndUsageWithResourcesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCostCategoriesRequestFilterSensitiveLog = (obj: GetCostCategoriesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCostForecastRequestFilterSensitiveLog = (obj: GetCostForecastRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDimensionValuesRequestFilterSensitiveLog = (obj: GetDimensionValuesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReservationCoverageRequestFilterSensitiveLog = (obj: GetReservationCoverageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReservationPurchaseRecommendationRequestFilterSensitiveLog = (
-  obj: GetReservationPurchaseRecommendationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReservationUtilizationRequestFilterSensitiveLog = (obj: GetReservationUtilizationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRightsizingRecommendationRequestFilterSensitiveLog = (
-  obj: GetRightsizingRecommendationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSavingsPlansCoverageRequestFilterSensitiveLog = (obj: GetSavingsPlansCoverageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSavingsPlansPurchaseRecommendationRequestFilterSensitiveLog = (
-  obj: GetSavingsPlansPurchaseRecommendationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSavingsPlansUtilizationDetailsRequestFilterSensitiveLog = (
-  obj: GetSavingsPlansUtilizationDetailsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSavingsPlansUtilizationRequestFilterSensitiveLog = (obj: GetSavingsPlansUtilizationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTagsRequestFilterSensitiveLog = (obj: GetTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUsageForecastRequestFilterSensitiveLog = (obj: GetUsageForecastRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAnomalySubscriptionRequestFilterSensitiveLog = (obj: UpdateAnomalySubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAnomalyMonitorRequestFilterSensitiveLog = (obj: CreateAnomalyMonitorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAnomalySubscriptionRequestFilterSensitiveLog = (obj: CreateAnomalySubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostCategoryFilterSensitiveLog = (obj: CostCategory): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCostCategoryDefinitionRequestFilterSensitiveLog = (
-  obj: CreateCostCategoryDefinitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnomalyMonitorsResponseFilterSensitiveLog = (obj: GetAnomalyMonitorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnomalySubscriptionsResponseFilterSensitiveLog = (obj: GetAnomalySubscriptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCostCategoryDefinitionRequestFilterSensitiveLog = (
-  obj: UpdateCostCategoryDefinitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCostCategoryDefinitionResponseFilterSensitiveLog = (
-  obj: DescribeCostCategoryDefinitionResponse
-): any => ({
-  ...obj,
-});

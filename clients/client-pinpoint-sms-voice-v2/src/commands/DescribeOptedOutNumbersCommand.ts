@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeOptedOutNumbersRequest,
-  DescribeOptedOutNumbersRequestFilterSensitiveLog,
-  DescribeOptedOutNumbersResult,
-  DescribeOptedOutNumbersResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeOptedOutNumbersRequest, DescribeOptedOutNumbersResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribeOptedOutNumbersCommand,
-  serializeAws_json1_0DescribeOptedOutNumbersCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeOptedOutNumbersCommand, se_DescribeOptedOutNumbersCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOptedOutNumbersCommand}.
  */
 export interface DescribeOptedOutNumbersCommandInput extends DescribeOptedOutNumbersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOptedOutNumbersCommand}.
  */
 export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNumbersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified opted out destination numbers or all opted out destination
  *             numbers in an opt-out list.</p>
  *         <p>If you specify opted out numbers, the output includes information for only the
@@ -53,10 +50,28 @@ export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNu
  * import { PinpointSMSVoiceV2Client, DescribeOptedOutNumbersCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribeOptedOutNumbersCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DescribeOptedOutNumbersRequest
+ *   OptOutListName: "STRING_VALUE", // required
+ *   OptedOutNumbers: [ // OptedOutNumberList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // OptedOutFilterList
+ *     { // OptedOutFilter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeOptedOutNumbersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOptedOutNumbersCommandInput - {@link DescribeOptedOutNumbersCommandInput}
+ * @returns {@link DescribeOptedOutNumbersCommandOutput}
  * @see {@link DescribeOptedOutNumbersCommandInput} for command's `input` shape.
  * @see {@link DescribeOptedOutNumbersCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -98,6 +113,9 @@ export class DescribeOptedOutNumbersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOptedOutNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +144,8 @@ export class DescribeOptedOutNumbersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOptedOutNumbersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOptedOutNumbersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +155,18 @@ export class DescribeOptedOutNumbersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOptedOutNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeOptedOutNumbersCommand(input, context);
+    return se_DescribeOptedOutNumbersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOptedOutNumbersCommandOutput> {
-    return deserializeAws_json1_0DescribeOptedOutNumbersCommand(output, context);
+    return de_DescribeOptedOutNumbersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetRelationalDatabaseEventsRequest,
-  GetRelationalDatabaseEventsRequestFilterSensitiveLog,
-  GetRelationalDatabaseEventsResult,
-  GetRelationalDatabaseEventsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetRelationalDatabaseEventsCommand,
-  serializeAws_json1_1GetRelationalDatabaseEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRelationalDatabaseEventsRequest, GetRelationalDatabaseEventsResult } from "../models/models_1";
+import { de_GetRelationalDatabaseEventsCommand, se_GetRelationalDatabaseEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseEventsCommand}.
  */
 export interface GetRelationalDatabaseEventsCommandInput extends GetRelationalDatabaseEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseEventsCommand}.
  */
 export interface GetRelationalDatabaseEventsCommandOutput extends GetRelationalDatabaseEventsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of events for a specific database in Amazon Lightsail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetRelationalDatabaseEventsCommandOutput extends GetRelationalD
  * import { LightsailClient, GetRelationalDatabaseEventsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseEventsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetRelationalDatabaseEventsRequest
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   durationInMinutes: Number("int"),
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetRelationalDatabaseEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseEventsCommandInput - {@link GetRelationalDatabaseEventsCommandInput}
+ * @returns {@link GetRelationalDatabaseEventsCommandOutput}
  * @see {@link GetRelationalDatabaseEventsCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseEventsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +103,9 @@ export class GetRelationalDatabaseEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +134,8 @@ export class GetRelationalDatabaseEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRelationalDatabaseEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRelationalDatabaseEventsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +145,21 @@ export class GetRelationalDatabaseEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRelationalDatabaseEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseEventsCommand(input, context);
+    return se_GetRelationalDatabaseEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseEventsCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseEventsCommand(output, context);
+    return de_GetRelationalDatabaseEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

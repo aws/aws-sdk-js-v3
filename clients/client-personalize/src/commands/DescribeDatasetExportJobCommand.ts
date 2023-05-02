@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDatasetExportJobRequest,
-  DescribeDatasetExportJobRequestFilterSensitiveLog,
-  DescribeDatasetExportJobResponse,
-  DescribeDatasetExportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDatasetExportJobRequest, DescribeDatasetExportJobResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeDatasetExportJobCommand,
-  serializeAws_json1_1DescribeDatasetExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDatasetExportJobCommand, se_DescribeDatasetExportJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDatasetExportJobCommand}.
  */
 export interface DescribeDatasetExportJobCommandInput extends DescribeDatasetExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDatasetExportJobCommand}.
  */
 export interface DescribeDatasetExportJobCommandOutput extends DescribeDatasetExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the dataset export job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>, including the export job status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeDatasetExportJobCommandOutput extends DescribeDatasetEx
  * import { PersonalizeClient, DescribeDatasetExportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeDatasetExportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeDatasetExportJobRequest
+ *   datasetExportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDatasetExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatasetExportJobCommandInput - {@link DescribeDatasetExportJobCommandInput}
+ * @returns {@link DescribeDatasetExportJobCommandOutput}
  * @see {@link DescribeDatasetExportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetExportJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -75,6 +77,9 @@ export class DescribeDatasetExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatasetExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DescribeDatasetExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatasetExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatasetExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DescribeDatasetExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatasetExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDatasetExportJobCommand(input, context);
+    return se_DescribeDatasetExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetExportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeDatasetExportJobCommand(output, context);
+    return de_DescribeDatasetExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

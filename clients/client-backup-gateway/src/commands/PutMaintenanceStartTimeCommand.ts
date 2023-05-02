@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  PutMaintenanceStartTimeInput,
-  PutMaintenanceStartTimeInputFilterSensitiveLog,
-  PutMaintenanceStartTimeOutput,
-  PutMaintenanceStartTimeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0PutMaintenanceStartTimeCommand,
-  serializeAws_json1_0PutMaintenanceStartTimeCommand,
-} from "../protocols/Aws_json1_0";
+import { PutMaintenanceStartTimeInput, PutMaintenanceStartTimeOutput } from "../models/models_0";
+import { de_PutMaintenanceStartTimeCommand, se_PutMaintenanceStartTimeCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link PutMaintenanceStartTimeCommand}.
  */
 export interface PutMaintenanceStartTimeCommandInput extends PutMaintenanceStartTimeInput {}
 /**
+ * @public
+ *
  * The output of {@link PutMaintenanceStartTimeCommand}.
  */
 export interface PutMaintenanceStartTimeCommandOutput extends PutMaintenanceStartTimeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set the maintenance start time for a gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface PutMaintenanceStartTimeCommandOutput extends PutMaintenanceStar
  * import { BackupGatewayClient, PutMaintenanceStartTimeCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, PutMaintenanceStartTimeCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // PutMaintenanceStartTimeInput
+ *   GatewayArn: "STRING_VALUE", // required
+ *   HourOfDay: Number("int"), // required
+ *   MinuteOfHour: Number("int"), // required
+ *   DayOfWeek: Number("int"),
+ *   DayOfMonth: Number("int"),
+ * };
  * const command = new PutMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMaintenanceStartTimeCommandInput - {@link PutMaintenanceStartTimeCommandInput}
+ * @returns {@link PutMaintenanceStartTimeCommandOutput}
  * @see {@link PutMaintenanceStartTimeCommandInput} for command's `input` shape.
  * @see {@link PutMaintenanceStartTimeCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -85,6 +91,9 @@ export class PutMaintenanceStartTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMaintenanceStartTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class PutMaintenanceStartTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMaintenanceStartTimeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutMaintenanceStartTimeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class PutMaintenanceStartTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMaintenanceStartTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutMaintenanceStartTimeCommand(input, context);
+    return se_PutMaintenanceStartTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMaintenanceStartTimeCommandOutput> {
-    return deserializeAws_json1_0PutMaintenanceStartTimeCommand(output, context);
+    return de_PutMaintenanceStartTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

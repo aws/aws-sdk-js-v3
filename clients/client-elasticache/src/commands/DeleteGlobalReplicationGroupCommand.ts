@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DeleteGlobalReplicationGroupMessage,
-  DeleteGlobalReplicationGroupMessageFilterSensitiveLog,
-  DeleteGlobalReplicationGroupResult,
-  DeleteGlobalReplicationGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteGlobalReplicationGroupCommand,
-  serializeAws_queryDeleteGlobalReplicationGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteGlobalReplicationGroupMessage, DeleteGlobalReplicationGroupResult } from "../models/models_0";
+import { de_DeleteGlobalReplicationGroupCommand, se_DeleteGlobalReplicationGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGlobalReplicationGroupCommand}.
  */
 export interface DeleteGlobalReplicationGroupCommandInput extends DeleteGlobalReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGlobalReplicationGroupCommand}.
  */
 export interface DeleteGlobalReplicationGroupCommandOutput
@@ -37,6 +33,7 @@ export interface DeleteGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deleting a Global datastore is a two-step process: </p>
  *          <ul>
  *             <li>
@@ -57,10 +54,16 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, DeleteGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DeleteGlobalReplicationGroupMessage
+ *   GlobalReplicationGroupId: "STRING_VALUE", // required
+ *   RetainPrimaryReplicationGroup: true || false, // required
+ * };
  * const command = new DeleteGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGlobalReplicationGroupCommandInput - {@link DeleteGlobalReplicationGroupCommandInput}
+ * @returns {@link DeleteGlobalReplicationGroupCommandOutput}
  * @see {@link DeleteGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -93,6 +96,9 @@ export class DeleteGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DeleteGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGlobalReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGlobalReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +138,21 @@ export class DeleteGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGlobalReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteGlobalReplicationGroupCommand(input, context);
+    return se_DeleteGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryDeleteGlobalReplicationGroupCommand(output, context);
+    return de_DeleteGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

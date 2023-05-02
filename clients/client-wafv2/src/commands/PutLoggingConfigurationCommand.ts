@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutLoggingConfigurationRequest,
-  PutLoggingConfigurationRequestFilterSensitiveLog,
-  PutLoggingConfigurationResponse,
-  PutLoggingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutLoggingConfigurationCommand,
-  serializeAws_json1_1PutLoggingConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { PutLoggingConfigurationRequest, PutLoggingConfigurationResponse } from "../models/models_0";
+import { de_PutLoggingConfigurationCommand, se_PutLoggingConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutLoggingConfigurationCommand}.
  */
 export interface PutLoggingConfigurationCommandInput extends PutLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutLoggingConfigurationCommand}.
  */
 export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a
  *          web ACL, according to the configuration provided. </p>
  *          <note>
@@ -84,10 +81,94 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * import { WAFV2Client, PutLoggingConfigurationCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, PutLoggingConfigurationCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // PutLoggingConfigurationRequest
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     ResourceArn: "STRING_VALUE", // required
+ *     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ *       "STRING_VALUE",
+ *     ],
+ *     RedactedFields: [ // RedactedFields
+ *       { // FieldToMatch
+ *         SingleHeader: { // SingleHeader
+ *           Name: "STRING_VALUE", // required
+ *         },
+ *         SingleQueryArgument: { // SingleQueryArgument
+ *           Name: "STRING_VALUE", // required
+ *         },
+ *         AllQueryArguments: {},
+ *         UriPath: {},
+ *         QueryString: {},
+ *         Body: { // Body
+ *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH",
+ *         },
+ *         Method: {},
+ *         JsonBody: { // JsonBody
+ *           MatchPattern: { // JsonMatchPattern
+ *             All: {},
+ *             IncludedPaths: [ // JsonPointerPaths
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           MatchScope: "ALL" || "KEY" || "VALUE", // required
+ *           InvalidFallbackBehavior: "MATCH" || "NO_MATCH" || "EVALUATE_AS_STRING",
+ *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH",
+ *         },
+ *         Headers: { // Headers
+ *           MatchPattern: { // HeaderMatchPattern
+ *             All: {},
+ *             IncludedHeaders: [ // HeaderNames
+ *               "STRING_VALUE",
+ *             ],
+ *             ExcludedHeaders: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           MatchScope: "ALL" || "KEY" || "VALUE", // required
+ *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *         },
+ *         Cookies: { // Cookies
+ *           MatchPattern: { // CookieMatchPattern
+ *             All: {},
+ *             IncludedCookies: [ // CookieNames
+ *               "STRING_VALUE",
+ *             ],
+ *             ExcludedCookies: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           MatchScope: "ALL" || "KEY" || "VALUE", // required
+ *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *         },
+ *       },
+ *     ],
+ *     ManagedByFirewallManager: true || false,
+ *     LoggingFilter: { // LoggingFilter
+ *       Filters: [ // Filters // required
+ *         { // Filter
+ *           Behavior: "KEEP" || "DROP", // required
+ *           Requirement: "MEETS_ALL" || "MEETS_ANY", // required
+ *           Conditions: [ // Conditions // required
+ *             { // Condition
+ *               ActionCondition: { // ActionCondition
+ *                 Action: "ALLOW" || "BLOCK" || "COUNT" || "CAPTCHA" || "CHALLENGE" || "EXCLUDED_AS_COUNT", // required
+ *               },
+ *               LabelNameCondition: { // LabelNameCondition
+ *                 LabelName: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       DefaultBehavior: "KEEP" || "DROP", // required
+ *     },
+ *   },
+ * };
  * const command = new PutLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLoggingConfigurationCommandInput - {@link PutLoggingConfigurationCommandInput}
+ * @returns {@link PutLoggingConfigurationCommandOutput}
  * @see {@link PutLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -171,6 +252,9 @@ export class PutLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -199,8 +283,8 @@ export class PutLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -210,12 +294,18 @@ export class PutLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLoggingConfigurationCommand(input, context);
+    return se_PutLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutLoggingConfigurationCommand(output, context);
+    return de_PutLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  ListInstanceFleetsInput,
-  ListInstanceFleetsInputFilterSensitiveLog,
-  ListInstanceFleetsOutput,
-  ListInstanceFleetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListInstanceFleetsCommand,
-  serializeAws_json1_1ListInstanceFleetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListInstanceFleetsInput, ListInstanceFleetsOutput } from "../models/models_0";
+import { de_ListInstanceFleetsCommand, se_ListInstanceFleetsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceFleetsCommand}.
  */
 export interface ListInstanceFleetsCommandInput extends ListInstanceFleetsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceFleetsCommand}.
  */
 export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available details about the instance fleets in a cluster.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR versions
@@ -46,10 +43,16 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  * import { EMRClient, ListInstanceFleetsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListInstanceFleetsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ListInstanceFleetsInput
+ *   ClusterId: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListInstanceFleetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceFleetsCommandInput - {@link ListInstanceFleetsCommandInput}
+ * @returns {@link ListInstanceFleetsCommandOutput}
  * @see {@link ListInstanceFleetsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceFleetsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -80,6 +83,9 @@ export class ListInstanceFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class ListInstanceFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstanceFleetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInstanceFleetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class ListInstanceFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListInstanceFleetsCommand(input, context);
+    return se_ListInstanceFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceFleetsCommandOutput> {
-    return deserializeAws_json1_1ListInstanceFleetsCommand(output, context);
+    return de_ListInstanceFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

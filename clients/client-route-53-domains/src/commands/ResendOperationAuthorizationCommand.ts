@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ResendOperationAuthorizationRequest } from "../models/models_0";
 import {
-  ResendOperationAuthorizationRequest,
-  ResendOperationAuthorizationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ResendOperationAuthorizationCommand,
-  serializeAws_json1_1ResendOperationAuthorizationCommand,
+  de_ResendOperationAuthorizationCommand,
+  se_ResendOperationAuthorizationCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResendOperationAuthorizationCommand}.
  */
 export interface ResendOperationAuthorizationCommandInput extends ResendOperationAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResendOperationAuthorizationCommand}.
  */
 export interface ResendOperationAuthorizationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p> Resend the form of authorization email for this operation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,15 @@ export interface ResendOperationAuthorizationCommandOutput extends __MetadataBea
  * import { Route53DomainsClient, ResendOperationAuthorizationCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ResendOperationAuthorizationCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // ResendOperationAuthorizationRequest
+ *   OperationId: "STRING_VALUE", // required
+ * };
  * const command = new ResendOperationAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResendOperationAuthorizationCommandInput - {@link ResendOperationAuthorizationCommandInput}
+ * @returns {@link ResendOperationAuthorizationCommandOutput}
  * @see {@link ResendOperationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link ResendOperationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -73,6 +80,9 @@ export class ResendOperationAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResendOperationAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +111,8 @@ export class ResendOperationAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResendOperationAuthorizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,15 +122,21 @@ export class ResendOperationAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResendOperationAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResendOperationAuthorizationCommand(input, context);
+    return se_ResendOperationAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResendOperationAuthorizationCommandOutput> {
-    return deserializeAws_json1_1ResendOperationAuthorizationCommand(output, context);
+    return de_ResendOperationAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

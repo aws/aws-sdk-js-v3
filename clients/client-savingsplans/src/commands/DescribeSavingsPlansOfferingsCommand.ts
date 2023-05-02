@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeSavingsPlansOfferingsRequest, DescribeSavingsPlansOfferingsResponse } from "../models/models_0";
 import {
-  DescribeSavingsPlansOfferingsRequest,
-  DescribeSavingsPlansOfferingsRequestFilterSensitiveLog,
-  DescribeSavingsPlansOfferingsResponse,
-  DescribeSavingsPlansOfferingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSavingsPlansOfferingsCommand,
-  serializeAws_restJson1DescribeSavingsPlansOfferingsCommand,
+  de_DescribeSavingsPlansOfferingsCommand,
+  se_DescribeSavingsPlansOfferingsCommand,
 } from "../protocols/Aws_restJson1";
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSavingsPlansOfferingsCommand}.
  */
 export interface DescribeSavingsPlansOfferingsCommandInput extends DescribeSavingsPlansOfferingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSavingsPlansOfferingsCommand}.
  */
 export interface DescribeSavingsPlansOfferingsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Savings Plans offerings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,52 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  * import { SavingsplansClient, DescribeSavingsPlansOfferingsCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, DescribeSavingsPlansOfferingsCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
  * const client = new SavingsplansClient(config);
+ * const input = { // DescribeSavingsPlansOfferingsRequest
+ *   offeringIds: [ // UUIDs
+ *     "STRING_VALUE",
+ *   ],
+ *   paymentOptions: [ // SavingsPlanPaymentOptionList
+ *     "STRING_VALUE",
+ *   ],
+ *   productType: "STRING_VALUE",
+ *   planTypes: [ // SavingsPlanTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   durations: [ // DurationsList
+ *     Number("long"),
+ *   ],
+ *   currencies: [ // CurrencyList
+ *     "STRING_VALUE",
+ *   ],
+ *   descriptions: [ // SavingsPlanDescriptionsList
+ *     "STRING_VALUE",
+ *   ],
+ *   serviceCodes: [ // SavingsPlanServiceCodeList
+ *     "STRING_VALUE",
+ *   ],
+ *   usageTypes: [ // SavingsPlanUsageTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   operations: [ // SavingsPlanOperationList
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [ // SavingsPlanOfferingFiltersList
+ *     { // SavingsPlanOfferingFilterElement
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValuesList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeSavingsPlansOfferingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSavingsPlansOfferingsCommandInput - {@link DescribeSavingsPlansOfferingsCommandInput}
+ * @returns {@link DescribeSavingsPlansOfferingsCommandOutput}
  * @see {@link DescribeSavingsPlansOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeSavingsPlansOfferingsCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
@@ -77,6 +119,9 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSavingsPlansOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +150,8 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSavingsPlansOfferingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSavingsPlansOfferingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +161,21 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSavingsPlansOfferingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSavingsPlansOfferingsCommand(input, context);
+    return se_DescribeSavingsPlansOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSavingsPlansOfferingsCommandOutput> {
-    return deserializeAws_restJson1DescribeSavingsPlansOfferingsCommand(output, context);
+    return de_DescribeSavingsPlansOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

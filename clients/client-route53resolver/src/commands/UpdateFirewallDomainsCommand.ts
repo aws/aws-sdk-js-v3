@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateFirewallDomainsRequest,
-  UpdateFirewallDomainsRequestFilterSensitiveLog,
-  UpdateFirewallDomainsResponse,
-  UpdateFirewallDomainsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFirewallDomainsCommand,
-  serializeAws_json1_1UpdateFirewallDomainsCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateFirewallDomainsRequest, UpdateFirewallDomainsResponse } from "../models/models_0";
+import { de_UpdateFirewallDomainsCommand, se_UpdateFirewallDomainsCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallDomainsCommand}.
  */
 export interface UpdateFirewallDomainsCommandInput extends UpdateFirewallDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallDomainsCommand}.
  */
 export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the firewall domain list from an array of domain specifications. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
  * import { Route53ResolverClient, UpdateFirewallDomainsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateFirewallDomainsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // UpdateFirewallDomainsRequest
+ *   FirewallDomainListId: "STRING_VALUE", // required
+ *   Operation: "ADD" || "REMOVE" || "REPLACE", // required
+ *   Domains: [ // FirewallDomains // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateFirewallDomainsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallDomainsCommandInput - {@link UpdateFirewallDomainsCommandInput}
+ * @returns {@link UpdateFirewallDomainsCommandOutput}
  * @see {@link UpdateFirewallDomainsCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallDomainsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -93,6 +99,9 @@ export class UpdateFirewallDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +130,8 @@ export class UpdateFirewallDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallDomainsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallDomainsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +141,18 @@ export class UpdateFirewallDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFirewallDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFirewallDomainsCommand(input, context);
+    return se_UpdateFirewallDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFirewallDomainsCommandOutput> {
-    return deserializeAws_json1_1UpdateFirewallDomainsCommand(output, context);
+    return de_UpdateFirewallDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

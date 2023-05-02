@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import {
-  RequestCertificateRequest,
-  RequestCertificateRequestFilterSensitiveLog,
-  RequestCertificateResponse,
-  RequestCertificateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RequestCertificateCommand,
-  serializeAws_json1_1RequestCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { RequestCertificateRequest, RequestCertificateResponse } from "../models/models_0";
+import { de_RequestCertificateCommand, se_RequestCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RequestCertificateCommand}.
  */
 export interface RequestCertificateCommandInput extends RequestCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link RequestCertificateCommand}.
  */
 export interface RequestCertificateCommandOutput extends RequestCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests an ACM certificate for use with other Amazon Web Services services. To request an ACM
  *       certificate, you must specify a fully qualified domain name (FQDN) in the
  *         <code>DomainName</code> parameter. You can also specify additional FQDNs in the
@@ -57,10 +54,37 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * import { ACMClient, RequestCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, RequestCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // RequestCertificateRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   ValidationMethod: "EMAIL" || "DNS",
+ *   SubjectAlternativeNames: [ // DomainList
+ *     "STRING_VALUE",
+ *   ],
+ *   IdempotencyToken: "STRING_VALUE",
+ *   DomainValidationOptions: [ // DomainValidationOptionList
+ *     { // DomainValidationOption
+ *       DomainName: "STRING_VALUE", // required
+ *       ValidationDomain: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Options: { // CertificateOptions
+ *     CertificateTransparencyLoggingPreference: "ENABLED" || "DISABLED",
+ *   },
+ *   CertificateAuthorityArn: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KeyAlgorithm: "RSA_1024" || "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1",
+ * };
  * const command = new RequestCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestCertificateCommandInput - {@link RequestCertificateCommandInput}
+ * @returns {@link RequestCertificateCommandOutput}
  * @see {@link RequestCertificateCommandInput} for command's `input` shape.
  * @see {@link RequestCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -107,6 +131,9 @@ export class RequestCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +162,8 @@ export class RequestCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RequestCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RequestCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +173,18 @@ export class RequestCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RequestCertificateCommand(input, context);
+    return se_RequestCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestCertificateCommandOutput> {
-    return deserializeAws_json1_1RequestCertificateCommand(output, context);
+    return de_RequestCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

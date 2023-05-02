@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  GetRepositoryCatalogDataRequest,
-  GetRepositoryCatalogDataRequestFilterSensitiveLog,
-  GetRepositoryCatalogDataResponse,
-  GetRepositoryCatalogDataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRepositoryCatalogDataCommand,
-  serializeAws_json1_1GetRepositoryCatalogDataCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRepositoryCatalogDataRequest, GetRepositoryCatalogDataResponse } from "../models/models_0";
+import { de_GetRepositoryCatalogDataCommand, se_GetRepositoryCatalogDataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRepositoryCatalogDataCommand}.
  */
 export interface GetRepositoryCatalogDataCommandInput extends GetRepositoryCatalogDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRepositoryCatalogDataCommand}.
  */
 export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCatalogDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve catalog metadata for a repository in a public registry. This metadata is
  *          displayed publicly in the Amazon ECR Public Gallery.</p>
  * @example
@@ -43,10 +40,16 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  * import { ECRPUBLICClient, GetRepositoryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, GetRepositoryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = { // GetRepositoryCatalogDataRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new GetRepositoryCatalogDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositoryCatalogDataCommandInput - {@link GetRepositoryCatalogDataCommandInput}
+ * @returns {@link GetRepositoryCatalogDataCommandOutput}
  * @see {@link GetRepositoryCatalogDataCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryCatalogDataCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -87,6 +90,9 @@ export class GetRepositoryCatalogDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositoryCatalogDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class GetRepositoryCatalogDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRepositoryCatalogDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRepositoryCatalogDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class GetRepositoryCatalogDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRepositoryCatalogDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRepositoryCatalogDataCommand(input, context);
+    return se_GetRepositoryCatalogDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositoryCatalogDataCommandOutput> {
-    return deserializeAws_json1_1GetRepositoryCatalogDataCommand(output, context);
+    return de_GetRepositoryCatalogDataCommand(output, context);
   }
 
   // Start section: command_body_extra

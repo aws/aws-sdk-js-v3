@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  CreateVPCEConfigurationRequest,
-  CreateVPCEConfigurationRequestFilterSensitiveLog,
-  CreateVPCEConfigurationResult,
-  CreateVPCEConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateVPCEConfigurationCommand,
-  serializeAws_json1_1CreateVPCEConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateVPCEConfigurationRequest, CreateVPCEConfigurationResult } from "../models/models_0";
+import { de_CreateVPCEConfigurationCommand, se_CreateVPCEConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVPCEConfigurationCommand}.
  */
 export interface CreateVPCEConfigurationCommandInput extends CreateVPCEConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVPCEConfigurationCommand}.
  */
 export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud
  *             (VPC) endpoint.</p>
  * @example
@@ -43,10 +40,18 @@ export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigur
  * import { DeviceFarmClient, CreateVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // CreateVPCEConfigurationRequest
+ *   vpceConfigurationName: "STRING_VALUE", // required
+ *   vpceServiceName: "STRING_VALUE", // required
+ *   serviceDnsName: "STRING_VALUE", // required
+ *   vpceConfigurationDescription: "STRING_VALUE",
+ * };
  * const command = new CreateVPCEConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVPCEConfigurationCommandInput - {@link CreateVPCEConfigurationCommandInput}
+ * @returns {@link CreateVPCEConfigurationCommandOutput}
  * @see {@link CreateVPCEConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateVPCEConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -79,6 +84,9 @@ export class CreateVPCEConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVPCEConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +115,8 @@ export class CreateVPCEConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVPCEConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVPCEConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +126,18 @@ export class CreateVPCEConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVPCEConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVPCEConfigurationCommand(input, context);
+    return se_CreateVPCEConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVPCEConfigurationCommandOutput> {
-    return deserializeAws_json1_1CreateVPCEConfigurationCommand(output, context);
+    return de_CreateVPCEConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

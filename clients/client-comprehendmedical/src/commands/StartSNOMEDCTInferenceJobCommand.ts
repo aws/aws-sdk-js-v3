@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  StartSNOMEDCTInferenceJobRequest,
-  StartSNOMEDCTInferenceJobRequestFilterSensitiveLog,
-  StartSNOMEDCTInferenceJobResponse,
-  StartSNOMEDCTInferenceJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartSNOMEDCTInferenceJobCommand,
-  serializeAws_json1_1StartSNOMEDCTInferenceJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StartSNOMEDCTInferenceJobRequest, StartSNOMEDCTInferenceJobResponse } from "../models/models_0";
+import { de_StartSNOMEDCTInferenceJobCommand, se_StartSNOMEDCTInferenceJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSNOMEDCTInferenceJobCommand}.
  */
 export interface StartSNOMEDCTInferenceJobCommandInput extends StartSNOMEDCTInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSNOMEDCTInferenceJobCommand}.
  */
 export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Starts an asynchronous job to detect medical concepts and link them to the SNOMED-CT ontology. Use the DescribeSNOMEDCTInferenceJob operation to track the status of a job.
  *     </p>
@@ -48,10 +45,27 @@ export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInf
  * import { ComprehendMedicalClient, StartSNOMEDCTInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StartSNOMEDCTInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // StartSNOMEDCTInferenceJobRequest
+ *   InputDataConfig: { // InputDataConfig
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE",
+ *   },
+ *   OutputDataConfig: { // OutputDataConfig
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE",
+ *   },
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   JobName: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   KMSKey: "STRING_VALUE",
+ *   LanguageCode: "en", // required
+ * };
  * const command = new StartSNOMEDCTInferenceJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSNOMEDCTInferenceJobCommandInput - {@link StartSNOMEDCTInferenceJobCommandInput}
+ * @returns {@link StartSNOMEDCTInferenceJobCommandOutput}
  * @see {@link StartSNOMEDCTInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StartSNOMEDCTInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -91,6 +105,9 @@ export class StartSNOMEDCTInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSNOMEDCTInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +136,8 @@ export class StartSNOMEDCTInferenceJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSNOMEDCTInferenceJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSNOMEDCTInferenceJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +147,21 @@ export class StartSNOMEDCTInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSNOMEDCTInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartSNOMEDCTInferenceJobCommand(input, context);
+    return se_StartSNOMEDCTInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartSNOMEDCTInferenceJobCommandOutput> {
-    return deserializeAws_json1_1StartSNOMEDCTInferenceJobCommand(output, context);
+    return de_StartSNOMEDCTInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  BatchGetPreparedStatementInput,
-  BatchGetPreparedStatementInputFilterSensitiveLog,
-  BatchGetPreparedStatementOutput,
-  BatchGetPreparedStatementOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetPreparedStatementCommand,
-  serializeAws_json1_1BatchGetPreparedStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetPreparedStatementInput, BatchGetPreparedStatementOutput } from "../models/models_0";
+import { de_BatchGetPreparedStatementCommand, se_BatchGetPreparedStatementCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetPreparedStatementCommand}.
  */
 export interface BatchGetPreparedStatementCommandInput extends BatchGetPreparedStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetPreparedStatementCommand}.
  */
 export interface BatchGetPreparedStatementCommandOutput extends BatchGetPreparedStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of a single prepared statement or a list of up to 256 prepared
  *             statements for the array of prepared statement names that you provide. Requires you to
  *             have access to the workgroup to which the prepared statements belong. If a prepared
@@ -46,10 +43,18 @@ export interface BatchGetPreparedStatementCommandOutput extends BatchGetPrepared
  * import { AthenaClient, BatchGetPreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, BatchGetPreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // BatchGetPreparedStatementInput
+ *   PreparedStatementNames: [ // PreparedStatementNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   WorkGroup: "STRING_VALUE", // required
+ * };
  * const command = new BatchGetPreparedStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetPreparedStatementCommandInput - {@link BatchGetPreparedStatementCommandInput}
+ * @returns {@link BatchGetPreparedStatementCommandOutput}
  * @see {@link BatchGetPreparedStatementCommandInput} for command's `input` shape.
  * @see {@link BatchGetPreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +86,9 @@ export class BatchGetPreparedStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetPreparedStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class BatchGetPreparedStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetPreparedStatementInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetPreparedStatementOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +128,21 @@ export class BatchGetPreparedStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetPreparedStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetPreparedStatementCommand(input, context);
+    return se_BatchGetPreparedStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetPreparedStatementCommandOutput> {
-    return deserializeAws_json1_1BatchGetPreparedStatementCommand(output, context);
+    return de_BatchGetPreparedStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

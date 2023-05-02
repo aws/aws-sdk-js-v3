@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPlatformApplicationsInput,
-  ListPlatformApplicationsInputFilterSensitiveLog,
-  ListPlatformApplicationsResponse,
-  ListPlatformApplicationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListPlatformApplicationsCommand,
-  serializeAws_queryListPlatformApplicationsCommand,
-} from "../protocols/Aws_query";
+import { ListPlatformApplicationsInput, ListPlatformApplicationsResponse } from "../models/models_0";
+import { de_ListPlatformApplicationsCommand, se_ListPlatformApplicationsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPlatformApplicationsCommand}.
  */
 export interface ListPlatformApplicationsCommandInput extends ListPlatformApplicationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPlatformApplicationsCommand}.
  */
 export interface ListPlatformApplicationsCommandOutput extends ListPlatformApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the platform application objects for the supported push notification services,
  *             such as APNS and GCM (Firebase Cloud Messaging). The results for
  *                 <code>ListPlatformApplications</code> are paginated and return a limited list of
@@ -51,10 +48,15 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  * import { SNSClient, ListPlatformApplicationsCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListPlatformApplicationsCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // ListPlatformApplicationsInput
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPlatformApplicationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPlatformApplicationsCommandInput - {@link ListPlatformApplicationsCommandInput}
+ * @returns {@link ListPlatformApplicationsCommandOutput}
  * @see {@link ListPlatformApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListPlatformApplicationsCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -88,6 +90,9 @@ export class ListPlatformApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlatformApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class ListPlatformApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPlatformApplicationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPlatformApplicationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class ListPlatformApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlatformApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPlatformApplicationsCommand(input, context);
+    return se_ListPlatformApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlatformApplicationsCommandOutput> {
-    return deserializeAws_queryListPlatformApplicationsCommand(output, context);
+    return de_ListPlatformApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

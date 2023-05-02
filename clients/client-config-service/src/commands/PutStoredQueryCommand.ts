@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  PutStoredQueryRequest,
-  PutStoredQueryRequestFilterSensitiveLog,
-  PutStoredQueryResponse,
-  PutStoredQueryResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PutStoredQueryCommand,
-  serializeAws_json1_1PutStoredQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { PutStoredQueryRequest, PutStoredQueryResponse } from "../models/models_1";
+import { de_PutStoredQueryCommand, se_PutStoredQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutStoredQueryCommand}.
  */
 export interface PutStoredQueryCommandInput extends PutStoredQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutStoredQueryCommand}.
  */
 export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Saves a new query or updates an existing saved query. The <code>QueryName</code> must be unique for a single Amazon Web Services account and a single Amazon Web Services Region.
  * 			You can create upto 300 queries in a single Amazon Web Services account and a single Amazon Web Services Region.</p>
  *          <note>
@@ -48,10 +45,27 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  * import { ConfigServiceClient, PutStoredQueryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutStoredQueryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // PutStoredQueryRequest
+ *   StoredQuery: { // StoredQuery
+ *     QueryId: "STRING_VALUE",
+ *     QueryArn: "STRING_VALUE",
+ *     QueryName: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     Expression: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagsList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutStoredQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutStoredQueryCommandInput - {@link PutStoredQueryCommandInput}
+ * @returns {@link PutStoredQueryCommandOutput}
  * @see {@link PutStoredQueryCommandInput} for command's `input` shape.
  * @see {@link PutStoredQueryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -89,6 +103,9 @@ export class PutStoredQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutStoredQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +134,8 @@ export class PutStoredQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutStoredQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutStoredQueryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +145,18 @@ export class PutStoredQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutStoredQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutStoredQueryCommand(input, context);
+    return se_PutStoredQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutStoredQueryCommandOutput> {
-    return deserializeAws_json1_1PutStoredQueryCommand(output, context);
+    return de_PutStoredQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

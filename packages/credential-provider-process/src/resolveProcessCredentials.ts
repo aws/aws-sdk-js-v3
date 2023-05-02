@@ -6,6 +6,9 @@ import { promisify } from "util";
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
 import { ProcessCredentials } from "./ProcessCredentials";
 
+/**
+ * @internal
+ */
 export const resolveProcessCredentials = async (
   profileName: string,
   profiles: ParsedIniData

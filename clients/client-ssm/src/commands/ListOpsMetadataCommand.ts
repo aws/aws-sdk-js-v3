@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOpsMetadataRequest,
-  ListOpsMetadataRequestFilterSensitiveLog,
-  ListOpsMetadataResult,
-  ListOpsMetadataResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListOpsMetadataCommand,
-  serializeAws_json1_1ListOpsMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { ListOpsMetadataRequest, ListOpsMetadataResult } from "../models/models_1";
+import { de_ListOpsMetadataCommand, se_ListOpsMetadataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOpsMetadataCommand}.
  */
 export interface ListOpsMetadataCommandInput extends ListOpsMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOpsMetadataCommand}.
  */
 export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Amazon Web Services Systems Manager calls this API operation when displaying all Application Manager OpsMetadata objects or
  *    blobs.</p>
  * @example
@@ -43,10 +40,24 @@ export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __M
  * import { SSMClient, ListOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListOpsMetadataRequest
+ *   Filters: [ // OpsMetadataFilterList
+ *     { // OpsMetadataFilter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // OpsMetadataFilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListOpsMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOpsMetadataCommandInput - {@link ListOpsMetadataCommandInput}
+ * @returns {@link ListOpsMetadataCommandOutput}
  * @see {@link ListOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link ListOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -76,6 +87,9 @@ export class ListOpsMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOpsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +118,8 @@ export class ListOpsMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOpsMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOpsMetadataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +129,18 @@ export class ListOpsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOpsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOpsMetadataCommand(input, context);
+    return se_ListOpsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOpsMetadataCommandOutput> {
-    return deserializeAws_json1_1ListOpsMetadataCommand(output, context);
+    return de_ListOpsMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

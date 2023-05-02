@@ -16,25 +16,26 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   ListPartnerAccountsRequest,
-  ListPartnerAccountsRequestFilterSensitiveLog,
   ListPartnerAccountsResponse,
   ListPartnerAccountsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPartnerAccountsCommand,
-  serializeAws_restJson1ListPartnerAccountsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPartnerAccountsCommand, se_ListPartnerAccountsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPartnerAccountsCommand}.
  */
 export interface ListPartnerAccountsCommandInput extends ListPartnerAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPartnerAccountsCommand}.
  */
 export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the partner accounts associated with your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
  * import { IoTWirelessClient, ListPartnerAccountsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListPartnerAccountsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListPartnerAccountsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPartnerAccountsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPartnerAccountsCommandInput - {@link ListPartnerAccountsCommandInput}
+ * @returns {@link ListPartnerAccountsCommandOutput}
  * @see {@link ListPartnerAccountsCommandInput} for command's `input` shape.
  * @see {@link ListPartnerAccountsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListPartnerAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPartnerAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,7 +119,7 @@ export class ListPartnerAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPartnerAccountsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListPartnerAccountsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -120,12 +130,18 @@ export class ListPartnerAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPartnerAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPartnerAccountsCommand(input, context);
+    return se_ListPartnerAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPartnerAccountsCommandOutput> {
-    return deserializeAws_restJson1ListPartnerAccountsCommand(output, context);
+    return de_ListPartnerAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { CreateGroupCertificateAuthorityRequest, CreateGroupCertificateAuthorityResponse } from "../models/models_0";
 import {
-  CreateGroupCertificateAuthorityRequest,
-  CreateGroupCertificateAuthorityRequestFilterSensitiveLog,
-  CreateGroupCertificateAuthorityResponse,
-  CreateGroupCertificateAuthorityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateGroupCertificateAuthorityCommand,
-  serializeAws_restJson1CreateGroupCertificateAuthorityCommand,
+  de_CreateGroupCertificateAuthorityCommand,
+  se_CreateGroupCertificateAuthorityCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGroupCertificateAuthorityCommand}.
  */
 export interface CreateGroupCertificateAuthorityCommandInput extends CreateGroupCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGroupCertificateAuthorityCommand}.
  */
 export interface CreateGroupCertificateAuthorityCommandOutput
@@ -37,6 +36,7 @@ export interface CreateGroupCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a CA for the group. If a CA already exists, it will rotate the existing CA.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface CreateGroupCertificateAuthorityCommandOutput
  * import { GreengrassClient, CreateGroupCertificateAuthorityCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateGroupCertificateAuthorityCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // CreateGroupCertificateAuthorityRequest
+ *   AmznClientToken: "STRING_VALUE",
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new CreateGroupCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGroupCertificateAuthorityCommandInput - {@link CreateGroupCertificateAuthorityCommandInput}
+ * @returns {@link CreateGroupCertificateAuthorityCommandOutput}
  * @see {@link CreateGroupCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -77,6 +83,9 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGroupCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +114,8 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGroupCertificateAuthorityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGroupCertificateAuthorityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +125,24 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateGroupCertificateAuthorityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateGroupCertificateAuthorityCommand(input, context);
+    return se_CreateGroupCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateGroupCertificateAuthorityCommandOutput> {
-    return deserializeAws_restJson1CreateGroupCertificateAuthorityCommand(output, context);
+    return de_CreateGroupCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

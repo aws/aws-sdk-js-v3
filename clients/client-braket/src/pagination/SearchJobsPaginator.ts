@@ -6,7 +6,7 @@ import { SearchJobsCommand, SearchJobsCommandInput, SearchJobsCommandOutput } fr
 import { BraketPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BraketClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateSearchJobs(
   config: BraketPaginationConfiguration,
   input: SearchJobsCommandInput,

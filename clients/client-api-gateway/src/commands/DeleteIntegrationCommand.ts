@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteIntegrationRequest, DeleteIntegrationRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteIntegrationCommand,
-  serializeAws_restJson1DeleteIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteIntegrationRequest } from "../models/models_0";
+import { de_DeleteIntegrationCommand, se_DeleteIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIntegrationCommand}.
  */
 export interface DeleteIntegrationCommandInput extends DeleteIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIntegrationCommand}.
  */
 export interface DeleteIntegrationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents a delete integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,17 @@ export interface DeleteIntegrationCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteIntegrationCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteIntegrationCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteIntegrationRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIntegrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIntegrationCommandInput - {@link DeleteIntegrationCommandInput}
+ * @returns {@link DeleteIntegrationCommandOutput}
  * @see {@link DeleteIntegrationCommandInput} for command's `input` shape.
  * @see {@link DeleteIntegrationCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +88,9 @@ export class DeleteIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +119,8 @@ export class DeleteIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +130,18 @@ export class DeleteIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIntegrationCommand(input, context);
+    return se_DeleteIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIntegrationCommandOutput> {
-    return deserializeAws_restJson1DeleteIntegrationCommand(output, context);
+    return de_DeleteIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

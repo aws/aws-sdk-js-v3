@@ -16,21 +16,23 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribeAggregateComplianceByConfigRulesRequest,
-  DescribeAggregateComplianceByConfigRulesRequestFilterSensitiveLog,
   DescribeAggregateComplianceByConfigRulesResponse,
-  DescribeAggregateComplianceByConfigRulesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand,
-  serializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand,
+  de_DescribeAggregateComplianceByConfigRulesCommand,
+  se_DescribeAggregateComplianceByConfigRulesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAggregateComplianceByConfigRulesCommand}.
  */
 export interface DescribeAggregateComplianceByConfigRulesCommandInput
   extends DescribeAggregateComplianceByConfigRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAggregateComplianceByConfigRulesCommand}.
  */
 export interface DescribeAggregateComplianceByConfigRulesCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of compliant and noncompliant rules with the
  * 			number of resources for compliant and noncompliant rules. Does not display rules that do not have compliance results.
  * 			</p>
@@ -52,10 +55,23 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput
  * import { ConfigServiceClient, DescribeAggregateComplianceByConfigRulesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeAggregateComplianceByConfigRulesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeAggregateComplianceByConfigRulesRequest
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   Filters: { // ConfigRuleComplianceFilters
+ *     ConfigRuleName: "STRING_VALUE",
+ *     ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ *     AccountId: "STRING_VALUE",
+ *     AwsRegion: "STRING_VALUE",
+ *   },
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAggregateComplianceByConfigRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAggregateComplianceByConfigRulesCommandInput - {@link DescribeAggregateComplianceByConfigRulesCommandInput}
+ * @returns {@link DescribeAggregateComplianceByConfigRulesCommandOutput}
  * @see {@link DescribeAggregateComplianceByConfigRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregateComplianceByConfigRulesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -95,6 +111,9 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAggregateComplianceByConfigRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +148,8 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAggregateComplianceByConfigRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAggregateComplianceByConfigRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +159,24 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAggregateComplianceByConfigRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand(input, context);
+    return se_DescribeAggregateComplianceByConfigRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput> {
-    return deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand(output, context);
+    return de_DescribeAggregateComplianceByConfigRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

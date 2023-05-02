@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteDiskSnapshotRequest,
-  DeleteDiskSnapshotRequestFilterSensitiveLog,
-  DeleteDiskSnapshotResult,
-  DeleteDiskSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDiskSnapshotCommand,
-  serializeAws_json1_1DeleteDiskSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDiskSnapshotRequest, DeleteDiskSnapshotResult } from "../models/models_0";
+import { de_DeleteDiskSnapshotCommand, se_DeleteDiskSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDiskSnapshotCommand}.
  */
 export interface DeleteDiskSnapshotCommandInput extends DeleteDiskSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDiskSnapshotCommand}.
  */
 export interface DeleteDiskSnapshotCommandOutput extends DeleteDiskSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified disk snapshot.</p>
  *          <p>When you make periodic snapshots of a disk, the snapshots are incremental, and only the
  *       blocks on the device that have changed since your last snapshot are saved in the new snapshot.
@@ -50,10 +47,15 @@ export interface DeleteDiskSnapshotCommandOutput extends DeleteDiskSnapshotResul
  * import { LightsailClient, DeleteDiskSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteDiskSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteDiskSnapshotRequest
+ *   diskSnapshotName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDiskSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDiskSnapshotCommandInput - {@link DeleteDiskSnapshotCommandInput}
+ * @returns {@link DeleteDiskSnapshotCommandOutput}
  * @see {@link DeleteDiskSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteDiskSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -107,6 +109,9 @@ export class DeleteDiskSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDiskSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +140,8 @@ export class DeleteDiskSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDiskSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDiskSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +151,18 @@ export class DeleteDiskSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDiskSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDiskSnapshotCommand(input, context);
+    return se_DeleteDiskSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDiskSnapshotCommandOutput> {
-    return deserializeAws_json1_1DeleteDiskSnapshotCommand(output, context);
+    return de_DeleteDiskSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

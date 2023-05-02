@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  PutRuntimeManagementConfigRequest,
-  PutRuntimeManagementConfigRequestFilterSensitiveLog,
-  PutRuntimeManagementConfigResponse,
-  PutRuntimeManagementConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRuntimeManagementConfigCommand,
-  serializeAws_restJson1PutRuntimeManagementConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { PutRuntimeManagementConfigRequest, PutRuntimeManagementConfigResponse } from "../models/models_0";
+import { de_PutRuntimeManagementConfigCommand, se_PutRuntimeManagementConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRuntimeManagementConfigCommand}.
  */
 export interface PutRuntimeManagementConfigCommandInput extends PutRuntimeManagementConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRuntimeManagementConfigCommand}.
  */
 export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManagementConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the runtime management configuration for a function's version. For more information,
  *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime updates</a>.</p>
  * @example
@@ -43,10 +40,18 @@ export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManag
  * import { LambdaClient, PutRuntimeManagementConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, PutRuntimeManagementConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // PutRuntimeManagementConfigRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ *   UpdateRuntimeOn: "Auto" || "Manual" || "FunctionUpdate", // required
+ *   RuntimeVersionArn: "STRING_VALUE",
+ * };
  * const command = new PutRuntimeManagementConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRuntimeManagementConfigCommandInput - {@link PutRuntimeManagementConfigCommandInput}
+ * @returns {@link PutRuntimeManagementConfigCommandOutput}
  * @see {@link PutRuntimeManagementConfigCommandInput} for command's `input` shape.
  * @see {@link PutRuntimeManagementConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -85,6 +90,9 @@ export class PutRuntimeManagementConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRuntimeManagementConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class PutRuntimeManagementConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRuntimeManagementConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRuntimeManagementConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +132,21 @@ export class PutRuntimeManagementConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRuntimeManagementConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRuntimeManagementConfigCommand(input, context);
+    return se_PutRuntimeManagementConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRuntimeManagementConfigCommandOutput> {
-    return deserializeAws_restJson1PutRuntimeManagementConfigCommand(output, context);
+    return de_PutRuntimeManagementConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
+import { DescribeSecurityConfigurationInput, DescribeSecurityConfigurationOutput } from "../models/models_0";
 import {
-  DescribeSecurityConfigurationInput,
-  DescribeSecurityConfigurationInputFilterSensitiveLog,
-  DescribeSecurityConfigurationOutput,
-  DescribeSecurityConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSecurityConfigurationCommand,
-  serializeAws_json1_1DescribeSecurityConfigurationCommand,
+  de_DescribeSecurityConfigurationCommand,
+  se_DescribeSecurityConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSecurityConfigurationCommand}.
  */
 export interface DescribeSecurityConfigurationCommandInput extends DescribeSecurityConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSecurityConfigurationCommand}.
  */
 export interface DescribeSecurityConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeSecurityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the details of a security configuration by returning the configuration
  *          JSON.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DescribeSecurityConfigurationCommandOutput
  * import { EMRClient, DescribeSecurityConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeSecurityConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // DescribeSecurityConfigurationInput
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSecurityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecurityConfigurationCommandInput - {@link DescribeSecurityConfigurationCommandInput}
+ * @returns {@link DescribeSecurityConfigurationCommandOutput}
  * @see {@link DescribeSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -79,6 +84,9 @@ export class DescribeSecurityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecurityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +115,8 @@ export class DescribeSecurityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSecurityConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSecurityConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +126,21 @@ export class DescribeSecurityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSecurityConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSecurityConfigurationCommand(input, context);
+    return se_DescribeSecurityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSecurityConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeSecurityConfigurationCommand(output, context);
+    return de_DescribeSecurityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

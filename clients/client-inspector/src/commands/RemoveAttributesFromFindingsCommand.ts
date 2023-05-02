@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { RemoveAttributesFromFindingsRequest, RemoveAttributesFromFindingsResponse } from "../models/models_0";
 import {
-  RemoveAttributesFromFindingsRequest,
-  RemoveAttributesFromFindingsRequestFilterSensitiveLog,
-  RemoveAttributesFromFindingsResponse,
-  RemoveAttributesFromFindingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveAttributesFromFindingsCommand,
-  serializeAws_json1_1RemoveAttributesFromFindingsCommand,
+  de_RemoveAttributesFromFindingsCommand,
+  se_RemoveAttributesFromFindingsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveAttributesFromFindingsCommand}.
  */
 export interface RemoveAttributesFromFindingsCommandInput extends RemoveAttributesFromFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveAttributesFromFindingsCommand}.
  */
 export interface RemoveAttributesFromFindingsCommandOutput
@@ -37,6 +36,7 @@ export interface RemoveAttributesFromFindingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes entire attributes (key and value pairs) from the findings that are specified
  *          by the ARNs of the findings where an attribute with the specified key exists.</p>
  * @example
@@ -45,10 +45,20 @@ export interface RemoveAttributesFromFindingsCommandOutput
  * import { InspectorClient, RemoveAttributesFromFindingsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, RemoveAttributesFromFindingsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // RemoveAttributesFromFindingsRequest
+ *   findingArns: [ // AddRemoveAttributesFindingArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   attributeKeys: [ // UserAttributeKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveAttributesFromFindingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveAttributesFromFindingsCommandInput - {@link RemoveAttributesFromFindingsCommandInput}
+ * @returns {@link RemoveAttributesFromFindingsCommandOutput}
  * @see {@link RemoveAttributesFromFindingsCommandInput} for command's `input` shape.
  * @see {@link RemoveAttributesFromFindingsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -110,6 +120,9 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveAttributesFromFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +151,8 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveAttributesFromFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveAttributesFromFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,15 +162,21 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveAttributesFromFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveAttributesFromFindingsCommand(input, context);
+    return se_RemoveAttributesFromFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveAttributesFromFindingsCommandOutput> {
-    return deserializeAws_json1_1RemoveAttributesFromFindingsCommand(output, context);
+    return de_RemoveAttributesFromFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

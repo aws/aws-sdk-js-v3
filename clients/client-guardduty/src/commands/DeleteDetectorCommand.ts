@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  DeleteDetectorRequest,
-  DeleteDetectorRequestFilterSensitiveLog,
-  DeleteDetectorResponse,
-  DeleteDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDetectorCommand,
-  serializeAws_restJson1DeleteDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDetectorRequest, DeleteDetectorResponse } from "../models/models_0";
+import { de_DeleteDetectorCommand, se_DeleteDetectorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDetectorCommand}.
  */
 export interface DeleteDetectorCommandInput extends DeleteDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDetectorCommand}.
  */
 export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon GuardDuty detector that is specified by the detector ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __M
  * import { GuardDutyClient, DeleteDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeleteDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // DeleteDetectorRequest
+ *   DetectorId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDetectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDetectorCommandInput - {@link DeleteDetectorCommandInput}
+ * @returns {@link DeleteDetectorCommandOutput}
  * @see {@link DeleteDetectorCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +77,9 @@ export class DeleteDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DeleteDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DeleteDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDetectorCommand(input, context);
+    return se_DeleteDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDetectorCommandOutput> {
-    return deserializeAws_restJson1DeleteDetectorCommand(output, context);
+    return de_DeleteDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

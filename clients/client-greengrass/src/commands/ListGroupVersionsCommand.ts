@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  ListGroupVersionsRequest,
-  ListGroupVersionsRequestFilterSensitiveLog,
-  ListGroupVersionsResponse,
-  ListGroupVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGroupVersionsCommand,
-  serializeAws_restJson1ListGroupVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListGroupVersionsRequest, ListGroupVersionsResponse } from "../models/models_0";
+import { de_ListGroupVersionsCommand, se_ListGroupVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupVersionsCommand}.
  */
 export interface ListGroupVersionsCommandInput extends ListGroupVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupVersionsCommand}.
  */
 export interface ListGroupVersionsCommandOutput extends ListGroupVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Lists the versions of a group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListGroupVersionsCommandOutput extends ListGroupVersionsRespons
  * import { GreengrassClient, ListGroupVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListGroupVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListGroupVersionsRequest
+ *   GroupId: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListGroupVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupVersionsCommandInput - {@link ListGroupVersionsCommandInput}
+ * @returns {@link ListGroupVersionsCommandOutput}
  * @see {@link ListGroupVersionsCommandInput} for command's `input` shape.
  * @see {@link ListGroupVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +76,9 @@ export class ListGroupVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +107,8 @@ export class ListGroupVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +118,18 @@ export class ListGroupVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGroupVersionsCommand(input, context);
+    return se_ListGroupVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupVersionsCommandOutput> {
-    return deserializeAws_restJson1ListGroupVersionsCommand(output, context);
+    return de_ListGroupVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

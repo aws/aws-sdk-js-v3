@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  ListReservationsRequest,
-  ListReservationsRequestFilterSensitiveLog,
-  ListReservationsResponse,
-  ListReservationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListReservationsCommand,
-  serializeAws_restJson1ListReservationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListReservationsRequest, ListReservationsResponse } from "../models/models_0";
+import { de_ListReservationsCommand, se_ListReservationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReservationsCommand}.
  */
 export interface ListReservationsCommandInput extends ListReservationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReservationsCommand}.
  */
 export interface ListReservationsCommandOutput extends ListReservationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Displays a list of all reservations that have been purchased by this account in the current AWS Region. This list includes all reservations in all states (such as active and expired).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  * import { MediaConnectClient, ListReservationsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, ListReservationsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // ListReservationsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListReservationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReservationsCommandInput - {@link ListReservationsCommandInput}
+ * @returns {@link ListReservationsCommandOutput}
  * @see {@link ListReservationsCommandInput} for command's `input` shape.
  * @see {@link ListReservationsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListReservationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReservationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class ListReservationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReservationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReservationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class ListReservationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReservationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReservationsCommand(input, context);
+    return se_ListReservationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReservationsCommandOutput> {
-    return deserializeAws_restJson1ListReservationsCommand(output, context);
+    return de_ListReservationsCommand(output, context);
   }
 
   // Start section: command_body_extra

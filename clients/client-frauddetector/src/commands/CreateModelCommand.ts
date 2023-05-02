@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  CreateModelRequest,
-  CreateModelRequestFilterSensitiveLog,
-  CreateModelResult,
-  CreateModelResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateModelCommand,
-  serializeAws_json1_1CreateModelCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateModelRequest, CreateModelResult } from "../models/models_0";
+import { de_CreateModelCommand, se_CreateModelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelCommand}.
  */
 export interface CreateModelCommandInput extends CreateModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelCommand}.
  */
 export interface CreateModelCommandOutput extends CreateModelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a model using the specified model type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface CreateModelCommandOutput extends CreateModelResult, __MetadataB
  * import { FraudDetectorClient, CreateModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // CreateModelRequest
+ *   modelId: "STRING_VALUE", // required
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
+ *   description: "STRING_VALUE",
+ *   eventTypeName: "STRING_VALUE", // required
+ *   tags: [ // tagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelCommandInput - {@link CreateModelCommandInput}
+ * @returns {@link CreateModelCommandOutput}
  * @see {@link CreateModelCommandInput} for command's `input` shape.
  * @see {@link CreateModelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -81,6 +92,9 @@ export class CreateModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +121,8 @@ export class CreateModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateModelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +132,18 @@ export class CreateModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateModelCommand(input, context);
+    return se_CreateModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelCommandOutput> {
-    return deserializeAws_json1_1CreateModelCommand(output, context);
+    return de_CreateModelCommand(output, context);
   }
 
   // Start section: command_body_extra

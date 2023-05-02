@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRoutingControlRequest,
-  UpdateRoutingControlRequestFilterSensitiveLog,
-  UpdateRoutingControlResponse,
-  UpdateRoutingControlResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRoutingControlCommand,
-  serializeAws_restJson1UpdateRoutingControlCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRoutingControlRequest, UpdateRoutingControlResponse } from "../models/models_0";
+import { de_UpdateRoutingControlCommand, se_UpdateRoutingControlCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoutingControlCommand}.
  */
 export interface UpdateRoutingControlCommandInput extends UpdateRoutingControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoutingControlCommand}.
  */
 export interface UpdateRoutingControlCommandOutput extends UpdateRoutingControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a routing control. You can only update the name of the routing control. To get or update the routing control state, see the Recovery Cluster (data plane) API actions for Amazon Route 53 Application Recovery Controller.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,16 @@ export interface UpdateRoutingControlCommandOutput extends UpdateRoutingControlR
  * import { Route53RecoveryControlConfigClient, UpdateRoutingControlCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, UpdateRoutingControlCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // UpdateRoutingControlRequest
+ *   RoutingControlArn: "STRING_VALUE", // required
+ *   RoutingControlName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRoutingControlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoutingControlCommandInput - {@link UpdateRoutingControlCommandInput}
+ * @returns {@link UpdateRoutingControlCommandOutput}
  * @see {@link UpdateRoutingControlCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingControlCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -91,6 +94,9 @@ export class UpdateRoutingControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoutingControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class UpdateRoutingControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoutingControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRoutingControlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +136,18 @@ export class UpdateRoutingControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoutingControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRoutingControlCommand(input, context);
+    return se_UpdateRoutingControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoutingControlCommandOutput> {
-    return deserializeAws_restJson1UpdateRoutingControlCommand(output, context);
+    return de_UpdateRoutingControlCommand(output, context);
   }
 
   // Start section: command_body_extra

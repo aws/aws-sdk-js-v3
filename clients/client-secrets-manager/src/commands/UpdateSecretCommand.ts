@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSecretRequest,
-  UpdateSecretRequestFilterSensitiveLog,
-  UpdateSecretResponse,
-  UpdateSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSecretCommand,
-  serializeAws_json1_1UpdateSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSecretRequest, UpdateSecretRequestFilterSensitiveLog, UpdateSecretResponse } from "../models/models_0";
+import { de_UpdateSecretCommand, se_UpdateSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecretCommand}.
  */
 export interface UpdateSecretCommandInput extends UpdateSecretRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecretCommand}.
  */
 export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the details of a secret, including metadata and the secret value. To change the secret value, you can also use <a>PutSecretValue</a>.</p>
  *          <p>To change the rotation configuration of a secret, use <a>RotateSecret</a> instead.</p>
  *          <p>To change a secret so that it is managed by another service, you need to recreate the secret in that service. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets managed by other Amazon Web Services services</a>.</p>
@@ -68,10 +65,20 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * import { SecretsManagerClient, UpdateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, UpdateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // UpdateSecretRequest
+ *   SecretId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   SecretBinary: "BLOB_VALUE",
+ *   SecretString: "STRING_VALUE",
+ * };
  * const command = new UpdateSecretCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecretCommandInput - {@link UpdateSecretCommandInput}
+ * @returns {@link UpdateSecretCommandOutput}
  * @see {@link UpdateSecretCommandInput} for command's `input` shape.
  * @see {@link UpdateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -198,6 +205,9 @@ export class UpdateSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -225,7 +235,7 @@ export class UpdateSecretCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSecretResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -235,12 +245,18 @@ export class UpdateSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSecretCommand(input, context);
+    return se_UpdateSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecretCommandOutput> {
-    return deserializeAws_json1_1UpdateSecretCommand(output, context);
+    return de_UpdateSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

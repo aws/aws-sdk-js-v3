@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  PutFeedbackRequest,
-  PutFeedbackRequestFilterSensitiveLog,
-  PutFeedbackResponse,
-  PutFeedbackResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutFeedbackCommand,
-  serializeAws_restJson1PutFeedbackCommand,
-} from "../protocols/Aws_restJson1";
+import { PutFeedbackRequest, PutFeedbackResponse } from "../models/models_0";
+import { de_PutFeedbackCommand, se_PutFeedbackCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutFeedbackCommand}.
  */
 export interface PutFeedbackCommandInput extends PutFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutFeedbackCommand}.
  */
 export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Collects customer feedback about the specified insight. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * import { DevOpsGuruClient, PutFeedbackCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, PutFeedbackCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // PutFeedbackRequest
+ *   InsightFeedback: { // InsightFeedback
+ *     Id: "STRING_VALUE",
+ *     Feedback: "VALID_COLLECTION" || "RECOMMENDATION_USEFUL" || "ALERT_TOO_SENSITIVE" || "DATA_NOISY_ANOMALY" || "DATA_INCORRECT",
+ *   },
+ * };
  * const command = new PutFeedbackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFeedbackCommandInput - {@link PutFeedbackCommandInput}
+ * @returns {@link PutFeedbackCommandOutput}
  * @see {@link PutFeedbackCommandInput} for command's `input` shape.
  * @see {@link PutFeedbackCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -91,6 +96,9 @@ export class PutFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class PutFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutFeedbackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +136,18 @@ export class PutFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutFeedbackCommand(input, context);
+    return se_PutFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutFeedbackCommandOutput> {
-    return deserializeAws_restJson1PutFeedbackCommand(output, context);
+    return de_PutFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

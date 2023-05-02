@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  PutAggregationAuthorizationRequest,
-  PutAggregationAuthorizationRequestFilterSensitiveLog,
-  PutAggregationAuthorizationResponse,
-  PutAggregationAuthorizationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PutAggregationAuthorizationCommand,
-  serializeAws_json1_1PutAggregationAuthorizationCommand,
-} from "../protocols/Aws_json1_1";
+import { PutAggregationAuthorizationRequest, PutAggregationAuthorizationResponse } from "../models/models_1";
+import { de_PutAggregationAuthorizationCommand, se_PutAggregationAuthorizationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAggregationAuthorizationCommand}.
  */
 export interface PutAggregationAuthorizationCommandInput extends PutAggregationAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAggregationAuthorizationCommand}.
  */
 export interface PutAggregationAuthorizationCommandOutput
@@ -37,6 +33,7 @@ export interface PutAggregationAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Authorizes the aggregator account and region to collect data
  * 			from the source account and region. </p>
  *          <note>
@@ -50,10 +47,22 @@ export interface PutAggregationAuthorizationCommandOutput
  * import { ConfigServiceClient, PutAggregationAuthorizationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutAggregationAuthorizationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // PutAggregationAuthorizationRequest
+ *   AuthorizedAccountId: "STRING_VALUE", // required
+ *   AuthorizedAwsRegion: "STRING_VALUE", // required
+ *   Tags: [ // TagsList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutAggregationAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAggregationAuthorizationCommandInput - {@link PutAggregationAuthorizationCommandInput}
+ * @returns {@link PutAggregationAuthorizationCommandOutput}
  * @see {@link PutAggregationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link PutAggregationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -81,6 +90,9 @@ export class PutAggregationAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAggregationAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +121,8 @@ export class PutAggregationAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAggregationAuthorizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAggregationAuthorizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +132,21 @@ export class PutAggregationAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAggregationAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAggregationAuthorizationCommand(input, context);
+    return se_PutAggregationAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAggregationAuthorizationCommandOutput> {
-    return deserializeAws_json1_1PutAggregationAuthorizationCommand(output, context);
+    return de_PutAggregationAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

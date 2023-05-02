@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  CreateTestGridProjectRequest,
-  CreateTestGridProjectRequestFilterSensitiveLog,
-  CreateTestGridProjectResult,
-  CreateTestGridProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTestGridProjectCommand,
-  serializeAws_json1_1CreateTestGridProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTestGridProjectRequest, CreateTestGridProjectResult } from "../models/models_0";
+import { de_CreateTestGridProjectCommand, se_CreateTestGridProjectCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTestGridProjectCommand}.
  */
 export interface CreateTestGridProjectCommandInput extends CreateTestGridProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTestGridProjectCommand}.
  */
 export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Selenium testing project. Projects are used to track <a>TestGridSession</a>
  *          instances.</p>
  * @example
@@ -43,10 +40,25 @@ export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjec
  * import { DeviceFarmClient, CreateTestGridProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateTestGridProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // CreateTestGridProjectRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   vpcConfig: { // TestGridVpcConfig
+ *     securityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // SubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     vpcId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateTestGridProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTestGridProjectCommandInput - {@link CreateTestGridProjectCommandInput}
+ * @returns {@link CreateTestGridProjectCommandOutput}
  * @see {@link CreateTestGridProjectCommandInput} for command's `input` shape.
  * @see {@link CreateTestGridProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -80,6 +92,9 @@ export class CreateTestGridProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTestGridProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +123,8 @@ export class CreateTestGridProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTestGridProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTestGridProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +134,18 @@ export class CreateTestGridProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTestGridProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTestGridProjectCommand(input, context);
+    return se_CreateTestGridProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTestGridProjectCommandOutput> {
-    return deserializeAws_json1_1CreateTestGridProjectCommand(output, context);
+    return de_CreateTestGridProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

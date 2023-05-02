@@ -16,21 +16,23 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   ListDataQualityRuleRecommendationRunsRequest,
-  ListDataQualityRuleRecommendationRunsRequestFilterSensitiveLog,
   ListDataQualityRuleRecommendationRunsResponse,
-  ListDataQualityRuleRecommendationRunsResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1ListDataQualityRuleRecommendationRunsCommand,
-  serializeAws_json1_1ListDataQualityRuleRecommendationRunsCommand,
+  de_ListDataQualityRuleRecommendationRunsCommand,
+  se_ListDataQualityRuleRecommendationRunsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataQualityRuleRecommendationRunsCommand}.
  */
 export interface ListDataQualityRuleRecommendationRunsCommandInput
   extends ListDataQualityRuleRecommendationRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataQualityRuleRecommendationRunsCommand}.
  */
 export interface ListDataQualityRuleRecommendationRunsCommandOutput
@@ -38,6 +40,7 @@ export interface ListDataQualityRuleRecommendationRunsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the recommendation runs meeting the filter criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,31 @@ export interface ListDataQualityRuleRecommendationRunsCommandOutput
  * import { GlueClient, ListDataQualityRuleRecommendationRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListDataQualityRuleRecommendationRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListDataQualityRuleRecommendationRunsRequest
+ *   Filter: { // DataQualityRuleRecommendationRunFilter
+ *     DataSource: { // DataSource
+ *       GlueTable: { // GlueTable
+ *         DatabaseName: "STRING_VALUE", // required
+ *         TableName: "STRING_VALUE", // required
+ *         CatalogId: "STRING_VALUE",
+ *         ConnectionName: "STRING_VALUE",
+ *         AdditionalOptions: { // GlueTableAdditionalOptions
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     StartedBefore: new Date("TIMESTAMP"),
+ *     StartedAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDataQualityRuleRecommendationRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataQualityRuleRecommendationRunsCommandInput - {@link ListDataQualityRuleRecommendationRunsCommandInput}
+ * @returns {@link ListDataQualityRuleRecommendationRunsCommandOutput}
  * @see {@link ListDataQualityRuleRecommendationRunsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityRuleRecommendationRunsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +105,9 @@ export class ListDataQualityRuleRecommendationRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataQualityRuleRecommendationRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +136,8 @@ export class ListDataQualityRuleRecommendationRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataQualityRuleRecommendationRunsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataQualityRuleRecommendationRunsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +147,24 @@ export class ListDataQualityRuleRecommendationRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDataQualityRuleRecommendationRunsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDataQualityRuleRecommendationRunsCommand(input, context);
+    return se_ListDataQualityRuleRecommendationRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDataQualityRuleRecommendationRunsCommandOutput> {
-    return deserializeAws_json1_1ListDataQualityRuleRecommendationRunsCommand(output, context);
+    return de_ListDataQualityRuleRecommendationRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  StartTaskContactRequest,
-  StartTaskContactRequestFilterSensitiveLog,
-  StartTaskContactResponse,
-  StartTaskContactResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1StartTaskContactCommand,
-  serializeAws_restJson1StartTaskContactCommand,
-} from "../protocols/Aws_restJson1";
+import { StartTaskContactRequest, StartTaskContactResponse } from "../models/models_1";
+import { de_StartTaskContactCommand, se_StartTaskContactCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartTaskContactCommand}.
  */
 export interface StartTaskContactCommandInput extends StartTaskContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTaskContactCommand}.
  */
 export interface StartTaskContactCommandOutput extends StartTaskContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a flow to start a new task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,33 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * import { ConnectClient, StartTaskContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StartTaskContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // StartTaskContactRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   PreviousContactId: "STRING_VALUE",
+ *   ContactFlowId: "STRING_VALUE",
+ *   Attributes: { // Attributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Name: "STRING_VALUE", // required
+ *   References: { // ContactReferences
+ *     "<keys>": { // Reference
+ *       Value: "STRING_VALUE", // required
+ *       Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *     },
+ *   },
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   ScheduledTime: new Date("TIMESTAMP"),
+ *   TaskTemplateId: "STRING_VALUE",
+ *   QuickConnectId: "STRING_VALUE",
+ *   RelatedContactId: "STRING_VALUE",
+ * };
  * const command = new StartTaskContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTaskContactCommandInput - {@link StartTaskContactCommandInput}
+ * @returns {@link StartTaskContactCommandOutput}
  * @see {@link StartTaskContactCommandInput} for command's `input` shape.
  * @see {@link StartTaskContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +107,9 @@ export class StartTaskContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTaskContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +138,8 @@ export class StartTaskContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTaskContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartTaskContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +149,18 @@ export class StartTaskContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTaskContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartTaskContactCommand(input, context);
+    return se_StartTaskContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTaskContactCommandOutput> {
-    return deserializeAws_restJson1StartTaskContactCommand(output, context);
+    return de_StartTaskContactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePolicyRequest,
-  UpdatePolicyRequestFilterSensitiveLog,
-  UpdatePolicyResponse,
-  UpdatePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePolicyRequest, UpdatePolicyResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1UpdatePolicyCommand,
-  serializeAws_json1_1UpdatePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdatePolicyCommand, se_UpdatePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePolicyCommand}.
  */
 export interface UpdatePolicyCommandInput extends UpdatePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePolicyCommand}.
  */
 export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing policy with a new name, description, or content. If you don't
  *             supply any parameter, that value remains unchanged. You can't change a policy's
  *             type.</p>
@@ -45,10 +42,18 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * import { OrganizationsClient, UpdatePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, UpdatePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // UpdatePolicyRequest
+ *   PolicyId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Content: "STRING_VALUE",
+ * };
  * const command = new UpdatePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePolicyCommandInput - {@link UpdatePolicyCommandInput}
+ * @returns {@link UpdatePolicyCommandOutput}
  * @see {@link UpdatePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdatePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -474,6 +479,9 @@ export class UpdatePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -500,8 +508,8 @@ export class UpdatePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -511,12 +519,18 @@ export class UpdatePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePolicyCommand(input, context);
+    return se_UpdatePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePolicyCommandOutput> {
-    return deserializeAws_json1_1UpdatePolicyCommand(output, context);
+    return de_UpdatePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

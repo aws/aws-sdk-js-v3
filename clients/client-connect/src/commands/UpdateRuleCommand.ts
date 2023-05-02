@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateRuleRequest, UpdateRuleRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateRuleCommand,
-  serializeAws_restJson1UpdateRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRuleRequest } from "../models/models_1";
+import { de_UpdateRuleCommand, se_UpdateRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuleCommand}.
  */
 export interface UpdateRuleCommandInput extends UpdateRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuleCommand}.
  */
 export interface UpdateRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a rule for the specified Amazon Connect instance.</p>
  *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
  *    code conditions for the rule. </p>
@@ -39,10 +41,53 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateRuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateRuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateRuleRequest
+ *   RuleId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Function: "STRING_VALUE", // required
+ *   Actions: [ // RuleActions // required
+ *     { // RuleAction
+ *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION", // required
+ *       TaskAction: { // TaskActionDefinition
+ *         Name: "STRING_VALUE", // required
+ *         Description: "STRING_VALUE",
+ *         ContactFlowId: "STRING_VALUE", // required
+ *         References: { // ContactReferences
+ *           "<keys>": { // Reference
+ *             Value: "STRING_VALUE", // required
+ *             Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *           },
+ *         },
+ *       },
+ *       EventBridgeAction: { // EventBridgeActionDefinition
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       AssignContactCategoryAction: {},
+ *       SendNotificationAction: { // SendNotificationActionDefinition
+ *         DeliveryMethod: "EMAIL", // required
+ *         Subject: "STRING_VALUE",
+ *         Content: "STRING_VALUE", // required
+ *         ContentType: "PLAIN_TEXT", // required
+ *         Recipient: { // NotificationRecipientType
+ *           UserTags: { // UserTagMap
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           UserIds: [ // UserIdList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   PublishStatus: "DRAFT" || "PUBLISHED", // required
+ * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuleCommandInput - {@link UpdateRuleCommandInput}
+ * @returns {@link UpdateRuleCommandOutput}
  * @see {@link UpdateRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +129,9 @@ export class UpdateRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +158,8 @@ export class UpdateRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +169,18 @@ export class UpdateRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRuleCommand(input, context);
+    return se_UpdateRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleCommandOutput> {
-    return deserializeAws_restJson1UpdateRuleCommand(output, context);
+    return de_UpdateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

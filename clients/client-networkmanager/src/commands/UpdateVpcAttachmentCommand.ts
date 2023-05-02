@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateVpcAttachmentRequest,
-  UpdateVpcAttachmentRequestFilterSensitiveLog,
-  UpdateVpcAttachmentResponse,
-  UpdateVpcAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateVpcAttachmentRequest, UpdateVpcAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1UpdateVpcAttachmentCommand,
-  serializeAws_restJson1UpdateVpcAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateVpcAttachmentCommand, se_UpdateVpcAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVpcAttachmentCommand}.
  */
 export interface UpdateVpcAttachmentCommandInput extends UpdateVpcAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVpcAttachmentCommand}.
  */
 export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a VPC attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentRes
  * import { NetworkManagerClient, UpdateVpcAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateVpcAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // UpdateVpcAttachmentRequest
+ *   AttachmentId: "STRING_VALUE", // required
+ *   AddSubnetArns: [ // SubnetArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   RemoveSubnetArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Options: { // VpcOptions
+ *     Ipv6Support: true || false,
+ *     ApplianceModeSupport: true || false,
+ *   },
+ * };
  * const command = new UpdateVpcAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVpcAttachmentCommandInput - {@link UpdateVpcAttachmentCommandInput}
+ * @returns {@link UpdateVpcAttachmentCommandOutput}
  * @see {@link UpdateVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +100,9 @@ export class UpdateVpcAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVpcAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +131,8 @@ export class UpdateVpcAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVpcAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVpcAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +142,18 @@ export class UpdateVpcAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVpcAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVpcAttachmentCommand(input, context);
+    return se_UpdateVpcAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVpcAttachmentCommandOutput> {
-    return deserializeAws_restJson1UpdateVpcAttachmentCommand(output, context);
+    return de_UpdateVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

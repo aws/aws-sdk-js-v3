@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateIAMPolicyAssignmentRequest,
-  CreateIAMPolicyAssignmentRequestFilterSensitiveLog,
-  CreateIAMPolicyAssignmentResponse,
-  CreateIAMPolicyAssignmentResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1CreateIAMPolicyAssignmentCommand,
-  serializeAws_restJson1CreateIAMPolicyAssignmentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateIAMPolicyAssignmentRequest, CreateIAMPolicyAssignmentResponse } from "../models/models_2";
+import { de_CreateIAMPolicyAssignmentCommand, se_CreateIAMPolicyAssignmentCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIAMPolicyAssignmentCommand}.
  */
 export interface CreateIAMPolicyAssignmentCommandInput extends CreateIAMPolicyAssignmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIAMPolicyAssignmentCommand}.
  */
 export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an assignment with one specified IAM policy, identified by its Amazon Resource Name
  * 			(ARN). This policy assignment is attached to the specified groups or users of Amazon QuickSight.
  * 			Assignment names are unique per Amazon Web Services account. To avoid overwriting rules in other namespaces,
@@ -45,10 +42,24 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
  * import { QuickSightClient, CreateIAMPolicyAssignmentCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateIAMPolicyAssignmentCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // CreateIAMPolicyAssignmentRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   AssignmentName: "STRING_VALUE", // required
+ *   AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED", // required
+ *   PolicyArn: "STRING_VALUE",
+ *   Identities: { // IdentityMap
+ *     "<keys>": [ // IdentityNameList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Namespace: "STRING_VALUE", // required
+ * };
  * const command = new CreateIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIAMPolicyAssignmentCommandInput - {@link CreateIAMPolicyAssignmentCommandInput}
+ * @returns {@link CreateIAMPolicyAssignmentCommandOutput}
  * @see {@link CreateIAMPolicyAssignmentCommandInput} for command's `input` shape.
  * @see {@link CreateIAMPolicyAssignmentCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -97,6 +108,9 @@ export class CreateIAMPolicyAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIAMPolicyAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +139,8 @@ export class CreateIAMPolicyAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIAMPolicyAssignmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIAMPolicyAssignmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,15 +150,21 @@ export class CreateIAMPolicyAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIAMPolicyAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIAMPolicyAssignmentCommand(input, context);
+    return se_CreateIAMPolicyAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIAMPolicyAssignmentCommandOutput> {
-    return deserializeAws_restJson1CreateIAMPolicyAssignmentCommand(output, context);
+    return de_CreateIAMPolicyAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

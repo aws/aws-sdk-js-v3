@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
 
 /**
+ * @public
  * <p>Access to a resource was denied.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies configuration properties of a notification.</p>
  */
 export interface NotificationProperty {
@@ -39,6 +41,7 @@ export interface NotificationProperty {
 }
 
 /**
+ * @public
  * <p>Defines an action to be initiated by a trigger.</p>
  */
 export interface Action {
@@ -80,25 +83,35 @@ export interface Action {
   CrawlerName?: string;
 }
 
-export enum AggFunction {
-  avg = "avg",
-  count = "count",
-  countDistinct = "countDistinct",
-  first = "first",
-  kurtosis = "kurtosis",
-  last = "last",
-  max = "max",
-  min = "min",
-  skewness = "skewness",
-  stddev_pop = "stddev_pop",
-  stddev_samp = "stddev_samp",
-  sum = "sum",
-  sumDistinct = "sumDistinct",
-  var_pop = "var_pop",
-  var_samp = "var_samp",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AggFunction = {
+  avg: "avg",
+  count: "count",
+  countDistinct: "countDistinct",
+  first: "first",
+  kurtosis: "kurtosis",
+  last: "last",
+  max: "max",
+  min: "min",
+  skewness: "skewness",
+  stddev_pop: "stddev_pop",
+  stddev_samp: "stddev_samp",
+  sum: "sum",
+  sumDistinct: "sumDistinct",
+  var_pop: "var_pop",
+  var_samp: "var_samp",
+} as const;
 
 /**
+ * @public
+ */
+export type AggFunction = (typeof AggFunction)[keyof typeof AggFunction];
+
+/**
+ * @public
  * <p>Specifies the set of parameters needed to perform aggregation in the aggregate transform.</p>
  */
 export interface AggregateOperation {
@@ -116,6 +129,7 @@ export interface AggregateOperation {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that groups rows by chosen fields and computes the aggregated value by specified function.</p>
  */
 export interface Aggregate {
@@ -141,6 +155,7 @@ export interface Aggregate {
 }
 
 /**
+ * @public
  * <p>A resource to be created or added already exists.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -165,6 +180,7 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies a single column in a Glue schema definition.</p>
  */
 export interface GlueStudioSchemaColumn {
@@ -180,6 +196,7 @@ export interface GlueStudioSchemaColumn {
 }
 
 /**
+ * @public
  * <p>Specifies a user-defined schema when a schema cannot be determined by Glue.</p>
  */
 export interface GlueSchema {
@@ -190,6 +207,7 @@ export interface GlueSchema {
 }
 
 /**
+ * @public
  * <p>Specifies a connector to an Amazon Athena data source.</p>
  */
 export interface AthenaConnectorSource {
@@ -230,11 +248,12 @@ export interface AthenaConnectorSource {
 }
 
 /**
- * <p>A structure containing information for audit.</p>
+ * @public
+ * <p>A structure containing the Lake Formation audit context.</p>
  */
 export interface AuditContext {
   /**
-   * <p>The context for the audit..</p>
+   * <p>A string containing the additional audit context information.</p>
    */
   AdditionalAuditContext?: string;
 
@@ -250,6 +269,7 @@ export interface AuditContext {
 }
 
 /**
+ * @public
  * <p>A column in a <code>Table</code>.</p>
  */
 export interface Column {
@@ -275,6 +295,7 @@ export interface Column {
 }
 
 /**
+ * @public
  * <p>The unique ID of the schema in the Glue schema registry.</p>
  */
 export interface SchemaId {
@@ -295,6 +316,7 @@ export interface SchemaId {
 }
 
 /**
+ * @public
  * <p>An object that references a schema stored in the Glue Schema Registry.</p>
  */
 export interface SchemaReference {
@@ -315,6 +337,7 @@ export interface SchemaReference {
 }
 
 /**
+ * @public
  * <p>Information about a serialization/deserialization program (SerDe) that serves as an
  *       extractor and loader.</p>
  */
@@ -337,6 +360,7 @@ export interface SerDeInfo {
 }
 
 /**
+ * @public
  * <p>Specifies skewed values in a table. Skewed values are those that occur with very high
  *       frequency.</p>
  */
@@ -359,6 +383,7 @@ export interface SkewedInfo {
 }
 
 /**
+ * @public
  * <p>Specifies the sort order of a sorted column.</p>
  */
 export interface Order {
@@ -375,6 +400,7 @@ export interface Order {
 }
 
 /**
+ * @public
  * <p>Describes the physical storage of table data.</p>
  */
 export interface StorageDescriptor {
@@ -460,6 +486,7 @@ export interface StorageDescriptor {
 }
 
 /**
+ * @public
  * <p>The structure used to create and update a partition.</p>
  */
 export interface PartitionInput {
@@ -491,6 +518,9 @@ export interface PartitionInput {
   LastAnalyzedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreatePartitionRequest {
   /**
    * <p>The ID of the catalog in which the partition is to be created. Currently, this should be
@@ -517,6 +547,7 @@ export interface BatchCreatePartitionRequest {
 }
 
 /**
+ * @public
  * <p>Contains details about an error.</p>
  */
 export interface ErrorDetail {
@@ -532,6 +563,7 @@ export interface ErrorDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about a partition error.</p>
  */
 export interface PartitionError {
@@ -546,6 +578,9 @@ export interface PartitionError {
   ErrorDetail?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreatePartitionResponse {
   /**
    * <p>The errors encountered when trying to create the requested partitions.</p>
@@ -554,6 +589,7 @@ export interface BatchCreatePartitionResponse {
 }
 
 /**
+ * @public
  * <p>A specified entity does not exist</p>
  */
 export class EntityNotFoundException extends __BaseException {
@@ -563,6 +599,11 @@ export class EntityNotFoundException extends __BaseException {
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+
+  /**
+   * <p>Indicates whether or not the exception relates to a federated source.</p>
+   */
+  FromFederationSource?: boolean;
   /**
    * @internal
    */
@@ -574,10 +615,12 @@ export class EntityNotFoundException extends __BaseException {
     });
     Object.setPrototypeOf(this, EntityNotFoundException.prototype);
     this.Message = opts.Message;
+    this.FromFederationSource = opts.FromFederationSource;
   }
 }
 
 /**
+ * @public
  * <p>An encryption operation failed.</p>
  */
 export class GlueEncryptionException extends __BaseException {
@@ -602,6 +645,7 @@ export class GlueEncryptionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal service error occurred.</p>
  */
 export class InternalServiceException extends __BaseException {
@@ -626,6 +670,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input provided was not valid.</p>
  */
 export class InvalidInputException extends __BaseException {
@@ -635,6 +680,11 @@ export class InvalidInputException extends __BaseException {
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+
+  /**
+   * <p>Indicates whether or not the exception relates to a federated source.</p>
+   */
+  FromFederationSource?: boolean;
   /**
    * @internal
    */
@@ -646,10 +696,12 @@ export class InvalidInputException extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidInputException.prototype);
     this.Message = opts.Message;
+    this.FromFederationSource = opts.FromFederationSource;
   }
 }
 
 /**
+ * @public
  * <p>The operation timed out.</p>
  */
 export class OperationTimeoutException extends __BaseException {
@@ -674,6 +726,7 @@ export class OperationTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource numerical limit was exceeded.</p>
  */
 export class ResourceNumberLimitExceededException extends __BaseException {
@@ -697,6 +750,9 @@ export class ResourceNumberLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteConnectionRequest {
   /**
    * <p>The ID of the Data Catalog in which the connections reside. If none is provided, the Amazon Web Services
@@ -710,6 +766,9 @@ export interface BatchDeleteConnectionRequest {
   ConnectionNameList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteConnectionResponse {
   /**
    * <p>A list of names of the connection definitions that were
@@ -725,6 +784,7 @@ export interface BatchDeleteConnectionResponse {
 }
 
 /**
+ * @public
  * <p>Contains a list of values defining partitions.</p>
  */
 export interface PartitionValueList {
@@ -734,6 +794,9 @@ export interface PartitionValueList {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeletePartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partition to be deleted resides. If none is provided,
@@ -759,6 +822,9 @@ export interface BatchDeletePartitionRequest {
   PartitionsToDelete: PartitionValueList[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeletePartitionResponse {
   /**
    * <p>The errors encountered when trying to delete the requested partitions.</p>
@@ -766,6 +832,9 @@ export interface BatchDeletePartitionResponse {
   Errors?: PartitionError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteTableRequest {
   /**
    * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
@@ -791,6 +860,7 @@ export interface BatchDeleteTableRequest {
 }
 
 /**
+ * @public
  * <p>An error record for table operations.</p>
  */
 export interface TableError {
@@ -805,6 +875,9 @@ export interface TableError {
   ErrorDetail?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteTableResponse {
   /**
    * <p>A list of errors encountered in attempting to delete the specified tables.</p>
@@ -813,6 +886,7 @@ export interface BatchDeleteTableResponse {
 }
 
 /**
+ * @public
  * <p>A resource was not ready for a transaction.</p>
  */
 export class ResourceNotReadyException extends __BaseException {
@@ -836,6 +910,9 @@ export class ResourceNotReadyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteTableVersionRequest {
   /**
    * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
@@ -862,6 +939,7 @@ export interface BatchDeleteTableVersionRequest {
 }
 
 /**
+ * @public
  * <p>An error record for table-version operations.</p>
  */
 export interface TableVersionError {
@@ -881,6 +959,9 @@ export interface TableVersionError {
   ErrorDetail?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteTableVersionResponse {
   /**
    * <p>A list of errors encountered while trying to delete
@@ -889,6 +970,9 @@ export interface BatchDeleteTableVersionResponse {
   Errors?: TableVersionError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetBlueprintsRequest {
   /**
    * <p>A list of blueprint names.</p>
@@ -907,6 +991,7 @@ export interface BatchGetBlueprintsRequest {
 }
 
 /**
+ * @public
  * <p>When there are multiple versions of a blueprint and the latest version has some errors, this attribute indicates the last successful blueprint definition that is available with the service.</p>
  */
 export interface LastActiveDefinition {
@@ -936,14 +1021,24 @@ export interface LastActiveDefinition {
   BlueprintServiceLocation?: string;
 }
 
-export enum BlueprintStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BlueprintStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type BlueprintStatus = (typeof BlueprintStatus)[keyof typeof BlueprintStatus];
+
+/**
+ * @public
  * <p>The details of a blueprint.</p>
  */
 export interface Blueprint {
@@ -1012,6 +1107,9 @@ export interface Blueprint {
   LastActiveDefinition?: LastActiveDefinition;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetBlueprintsResponse {
   /**
    * <p>Returns a list of blueprint as a <code>Blueprints</code> object.</p>
@@ -1024,6 +1122,9 @@ export interface BatchGetBlueprintsResponse {
   MissingBlueprints?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCrawlersRequest {
   /**
    * <p>A list of crawler names, which might be the names returned from the
@@ -1033,6 +1134,7 @@ export interface BatchGetCrawlersRequest {
 }
 
 /**
+ * @public
  * <p>Specifies Lake Formation configuration settings for the crawler.</p>
  */
 export interface LakeFormationConfiguration {
@@ -1047,13 +1149,23 @@ export interface LakeFormationConfiguration {
   AccountId?: string;
 }
 
-export enum LastCrawlStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LastCrawlStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type LastCrawlStatus = (typeof LastCrawlStatus)[keyof typeof LastCrawlStatus];
+
+/**
+ * @public
  * <p>Status and error information about the most recent crawl.</p>
  */
 export interface LastCrawlInfo {
@@ -1088,12 +1200,22 @@ export interface LastCrawlInfo {
   StartTime?: Date;
 }
 
-export enum CrawlerLineageSettings {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CrawlerLineageSettings = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type CrawlerLineageSettings = (typeof CrawlerLineageSettings)[keyof typeof CrawlerLineageSettings];
+
+/**
+ * @public
  * <p>Specifies data lineage configuration settings for the crawler.</p>
  */
 export interface LineageConfiguration {
@@ -1111,13 +1233,23 @@ export interface LineageConfiguration {
   CrawlerLineageSettings?: CrawlerLineageSettings | string;
 }
 
-export enum RecrawlBehavior {
-  CRAWL_EVENT_MODE = "CRAWL_EVENT_MODE",
-  CRAWL_EVERYTHING = "CRAWL_EVERYTHING",
-  CRAWL_NEW_FOLDERS_ONLY = "CRAWL_NEW_FOLDERS_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecrawlBehavior = {
+  CRAWL_EVENT_MODE: "CRAWL_EVENT_MODE",
+  CRAWL_EVERYTHING: "CRAWL_EVERYTHING",
+  CRAWL_NEW_FOLDERS_ONLY: "CRAWL_NEW_FOLDERS_ONLY",
+} as const;
 
 /**
+ * @public
+ */
+export type RecrawlBehavior = (typeof RecrawlBehavior)[keyof typeof RecrawlBehavior];
+
+/**
+ * @public
  * <p>When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/incremental-crawls.html">Incremental Crawls in Glue</a> in the developer guide.</p>
  */
 export interface RecrawlPolicy {
@@ -1130,13 +1262,23 @@ export interface RecrawlPolicy {
   RecrawlBehavior?: RecrawlBehavior | string;
 }
 
-export enum ScheduleState {
-  NOT_SCHEDULED = "NOT_SCHEDULED",
-  SCHEDULED = "SCHEDULED",
-  TRANSITIONING = "TRANSITIONING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScheduleState = {
+  NOT_SCHEDULED: "NOT_SCHEDULED",
+  SCHEDULED: "SCHEDULED",
+  TRANSITIONING: "TRANSITIONING",
+} as const;
 
 /**
+ * @public
+ */
+export type ScheduleState = (typeof ScheduleState)[keyof typeof ScheduleState];
+
+/**
+ * @public
  * <p>A scheduling object using a <code>cron</code> statement to schedule an event.</p>
  */
 export interface Schedule {
@@ -1153,18 +1295,37 @@ export interface Schedule {
   State?: ScheduleState | string;
 }
 
-export enum DeleteBehavior {
-  DELETE_FROM_DATABASE = "DELETE_FROM_DATABASE",
-  DEPRECATE_IN_DATABASE = "DEPRECATE_IN_DATABASE",
-  LOG = "LOG",
-}
-
-export enum UpdateBehavior {
-  LOG = "LOG",
-  UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeleteBehavior = {
+  DELETE_FROM_DATABASE: "DELETE_FROM_DATABASE",
+  DEPRECATE_IN_DATABASE: "DEPRECATE_IN_DATABASE",
+  LOG: "LOG",
+} as const;
 
 /**
+ * @public
+ */
+export type DeleteBehavior = (typeof DeleteBehavior)[keyof typeof DeleteBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateBehavior = {
+  LOG: "LOG",
+  UPDATE_IN_DATABASE: "UPDATE_IN_DATABASE",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateBehavior = (typeof UpdateBehavior)[keyof typeof UpdateBehavior];
+
+/**
+ * @public
  * <p>A policy that specifies update and deletion behaviors for the crawler.</p>
  */
 export interface SchemaChangePolicy {
@@ -1179,13 +1340,23 @@ export interface SchemaChangePolicy {
   DeleteBehavior?: DeleteBehavior | string;
 }
 
-export enum CrawlerState {
-  READY = "READY",
-  RUNNING = "RUNNING",
-  STOPPING = "STOPPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CrawlerState = {
+  READY: "READY",
+  RUNNING: "RUNNING",
+  STOPPING: "STOPPING",
+} as const;
 
 /**
+ * @public
+ */
+export type CrawlerState = (typeof CrawlerState)[keyof typeof CrawlerState];
+
+/**
+ * @public
  * <p>Specifies an Glue Data Catalog target.</p>
  */
 export interface CatalogTarget {
@@ -1216,6 +1387,7 @@ export interface CatalogTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a Delta data store to crawl one or more Delta tables.</p>
  */
 export interface DeltaTarget {
@@ -1241,6 +1413,7 @@ export interface DeltaTarget {
 }
 
 /**
+ * @public
  * <p>Specifies an Amazon DynamoDB table to crawl.</p>
  */
 export interface DynamoDBTarget {
@@ -1262,12 +1435,22 @@ export interface DynamoDBTarget {
   scanRate?: number;
 }
 
-export enum JdbcMetadataEntry {
-  COMMENTS = "COMMENTS",
-  RAWTYPES = "RAWTYPES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JdbcMetadataEntry = {
+  COMMENTS: "COMMENTS",
+  RAWTYPES: "RAWTYPES",
+} as const;
 
 /**
+ * @public
+ */
+export type JdbcMetadataEntry = (typeof JdbcMetadataEntry)[keyof typeof JdbcMetadataEntry];
+
+/**
+ * @public
  * <p>Specifies a JDBC data store to crawl.</p>
  */
 export interface JdbcTarget {
@@ -1295,6 +1478,7 @@ export interface JdbcTarget {
 }
 
 /**
+ * @public
  * <p>Specifies an Amazon DocumentDB or MongoDB data store to crawl.</p>
  */
 export interface MongoDBTarget {
@@ -1316,6 +1500,7 @@ export interface MongoDBTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a data store in Amazon Simple Storage Service (Amazon S3).</p>
  */
 export interface S3Target {
@@ -1352,6 +1537,7 @@ export interface S3Target {
 }
 
 /**
+ * @public
  * <p>Specifies data stores to crawl.</p>
  */
 export interface CrawlerTargets {
@@ -1387,6 +1573,7 @@ export interface CrawlerTargets {
 }
 
 /**
+ * @public
  * <p>Specifies a crawler program that examines a data source and uses classifiers to try to
  *       determine its schema. If successful, the crawler records metadata concerning the data source
  *       in the Glue Data Catalog.</p>
@@ -1499,6 +1686,9 @@ export interface Crawler {
   LakeFormationConfiguration?: LakeFormationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCrawlersResponse {
   /**
    * <p>A list of crawler definitions.</p>
@@ -1511,6 +1701,9 @@ export interface BatchGetCrawlersResponse {
   CrawlersNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCustomEntityTypesRequest {
   /**
    * <p>A list of names of the custom patterns that you want to retrieve.</p>
@@ -1519,6 +1712,7 @@ export interface BatchGetCustomEntityTypesRequest {
 }
 
 /**
+ * @public
  * <p>An object representing a custom pattern for detecting sensitive data across the columns and rows of your structured data.</p>
  */
 export interface CustomEntityType {
@@ -1539,6 +1733,9 @@ export interface CustomEntityType {
   ContextWords?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCustomEntityTypesResponse {
   /**
    * <p>A list of <code>CustomEntityType</code> objects representing the custom patterns that have been created.</p>
@@ -1551,6 +1748,9 @@ export interface BatchGetCustomEntityTypesResponse {
   CustomEntityTypesNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDataQualityResultRequest {
   /**
    * <p>A list of unique result IDs for the data quality results.</p>
@@ -1559,6 +1759,7 @@ export interface BatchGetDataQualityResultRequest {
 }
 
 /**
+ * @public
  * <p>The database and table in the Glue Data Catalog that is used for input or output data.</p>
  */
 export interface GlueTable {
@@ -1599,6 +1800,7 @@ export interface GlueTable {
 }
 
 /**
+ * @public
  * <p>A data source (an Glue table) for which you want data quality results.</p>
  */
 export interface DataSource {
@@ -1608,13 +1810,24 @@ export interface DataSource {
   GlueTable: GlueTable | undefined;
 }
 
-export enum DataQualityRuleResultStatus {
-  ERROR = "ERROR",
-  FAIL = "FAIL",
-  PASS = "PASS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataQualityRuleResultStatus = {
+  ERROR: "ERROR",
+  FAIL: "FAIL",
+  PASS: "PASS",
+} as const;
 
 /**
+ * @public
+ */
+export type DataQualityRuleResultStatus =
+  (typeof DataQualityRuleResultStatus)[keyof typeof DataQualityRuleResultStatus];
+
+/**
+ * @public
  * <p>Describes the result of the evaluation of a data quality rule.</p>
  */
 export interface DataQualityRuleResult {
@@ -1640,6 +1853,7 @@ export interface DataQualityRuleResult {
 }
 
 /**
+ * @public
  * <p>Describes a data quality result.</p>
  */
 export interface DataQualityResult {
@@ -1699,6 +1913,9 @@ export interface DataQualityResult {
   RuleResults?: DataQualityRuleResult[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDataQualityResultResponse {
   /**
    * <p>A list of <code>DataQualityResult</code> objects representing the data quality results.</p>
@@ -1711,6 +1928,9 @@ export interface BatchGetDataQualityResultResponse {
   ResultsNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDevEndpointsRequest {
   /**
    * <p>The list of <code>DevEndpoint</code> names, which might be the names returned from the
@@ -1719,14 +1939,24 @@ export interface BatchGetDevEndpointsRequest {
   DevEndpointNames: string[] | undefined;
 }
 
-export enum WorkerType {
-  G_025X = "G.025X",
-  G_1X = "G.1X",
-  G_2X = "G.2X",
-  Standard = "Standard",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkerType = {
+  G_025X: "G.025X",
+  G_1X: "G.1X",
+  G_2X: "G.2X",
+  Standard: "Standard",
+} as const;
 
 /**
+ * @public
+ */
+export type WorkerType = (typeof WorkerType)[keyof typeof WorkerType];
+
+/**
+ * @public
  * <p>A development endpoint where a developer can remotely debug extract, transform, and load
  *       (ETL) scripts.</p>
  */
@@ -1911,6 +2141,9 @@ export interface DevEndpoint {
   Arguments?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDevEndpointsResponse {
   /**
    * <p>A list of <code>DevEndpoint</code> definitions.</p>
@@ -1923,6 +2156,9 @@ export interface BatchGetDevEndpointsResponse {
   DevEndpointsNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetJobsRequest {
   /**
    * <p>A list of job names, which might be the names returned from the <code>ListJobs</code>
@@ -1932,6 +2168,7 @@ export interface BatchGetJobsRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog.</p>
  */
 export interface CatalogDeltaSource {
@@ -1962,6 +2199,7 @@ export interface CatalogDeltaSource {
 }
 
 /**
+ * @public
  * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog.</p>
  */
 export interface CatalogHudiSource {
@@ -1992,6 +2230,7 @@ export interface CatalogHudiSource {
 }
 
 /**
+ * @public
  * <p>Specifies options related to data preview for viewing a sample of your data.</p>
  */
 export interface StreamingDataPreviewOptions {
@@ -2007,6 +2246,7 @@ export interface StreamingDataPreviewOptions {
 }
 
 /**
+ * @public
  * <p>Additional options for streaming.</p>
  */
 export interface KafkaStreamingSourceOptions {
@@ -2104,6 +2344,7 @@ export interface KafkaStreamingSourceOptions {
 }
 
 /**
+ * @public
  * <p>Specifies an Apache Kafka data store in the Data Catalog.</p>
  */
 export interface CatalogKafkaSource {
@@ -2143,13 +2384,23 @@ export interface CatalogKafkaSource {
   DataPreviewOptions?: StreamingDataPreviewOptions;
 }
 
-export enum StartingPosition {
-  EARLIEST = "earliest",
-  LATEST = "latest",
-  TRIM_HORIZON = "trim_horizon",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StartingPosition = {
+  EARLIEST: "earliest",
+  LATEST: "latest",
+  TRIM_HORIZON: "trim_horizon",
+} as const;
 
 /**
+ * @public
+ */
+export type StartingPosition = (typeof StartingPosition)[keyof typeof StartingPosition];
+
+/**
+ * @public
  * <p>Additional options for the Amazon Kinesis streaming data source.</p>
  */
 export interface KinesisStreamingSourceOptions {
@@ -2255,6 +2506,7 @@ export interface KinesisStreamingSourceOptions {
 }
 
 /**
+ * @public
  * <p>Specifies a Kinesis data source in the Glue Data Catalog.</p>
  */
 export interface CatalogKinesisSource {
@@ -2295,6 +2547,7 @@ export interface CatalogKinesisSource {
 }
 
 /**
+ * @public
  * <p>Specifies a data store in the Glue Data Catalog.</p>
  */
 export interface CatalogSource {
@@ -2315,6 +2568,7 @@ export interface CatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses a Glue Data Catalog table.</p>
  */
 export interface BasicCatalogTarget {
@@ -2340,6 +2594,7 @@ export interface BasicCatalogTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that uses custom code you provide to perform the data transformation. The output is a collection of DynamicFrames.</p>
  */
 export interface CustomCode {
@@ -2369,15 +2624,25 @@ export interface CustomCode {
   OutputSchemas?: GlueSchema[];
 }
 
-export enum JDBCConnectionType {
-  mysql = "mysql",
-  oracle = "oracle",
-  postgresql = "postgresql",
-  redshift = "redshift",
-  sqlserver = "sqlserver",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JDBCConnectionType = {
+  mysql: "mysql",
+  oracle: "oracle",
+  postgresql: "postgresql",
+  redshift: "redshift",
+  sqlserver: "sqlserver",
+} as const;
 
 /**
+ * @public
+ */
+export type JDBCConnectionType = (typeof JDBCConnectionType)[keyof typeof JDBCConnectionType];
+
+/**
+ * @public
  * <p>Specifies the direct JDBC source connection.</p>
  */
 export interface DirectJDBCSource {
@@ -2413,6 +2678,7 @@ export interface DirectJDBCSource {
 }
 
 /**
+ * @public
  * <p>Specifies an Apache Kafka data store.</p>
  */
 export interface DirectKafkaSource {
@@ -2443,6 +2709,7 @@ export interface DirectKafkaSource {
 }
 
 /**
+ * @public
  * <p>Specifies a direct Amazon Kinesis data source.</p>
  */
 export interface DirectKinesisSource {
@@ -2473,6 +2740,7 @@ export interface DirectKinesisSource {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that removes rows of repeating data from a data set. </p>
  */
 export interface DropDuplicates {
@@ -2493,6 +2761,7 @@ export interface DropDuplicates {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that chooses the data property keys that you want to drop.</p>
  */
 export interface DropFields {
@@ -2513,6 +2782,7 @@ export interface DropFields {
 }
 
 /**
+ * @public
  * <p>Represents whether certain values are recognized as null values for removal.</p>
  */
 export interface NullCheckBoxList {
@@ -2533,6 +2803,7 @@ export interface NullCheckBoxList {
 }
 
 /**
+ * @public
  * <p>A structure representing the datatype of the value.</p>
  */
 export interface Datatype {
@@ -2548,6 +2819,7 @@ export interface Datatype {
 }
 
 /**
+ * @public
  * <p>Represents a custom null value such as a zeros or other value being used as a null placeholder unique to the dataset.</p>
  */
 export interface NullValueField {
@@ -2563,6 +2835,7 @@ export interface NullValueField {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that removes columns from the dataset if all values in the column are 'null'. By default, Glue Studio will recognize null objects, but some values such as empty strings, strings that are "null", -1 integers or other placeholders such as zeros, are not automatically recognized as nulls.</p>
  */
 export interface DropNullFields {
@@ -2588,17 +2861,27 @@ export interface DropNullFields {
   NullTextList?: NullValueField[];
 }
 
-export enum ParamType {
-  BOOL = "bool",
-  COMPLEX = "complex",
-  FLOAT = "float",
-  INT = "int",
-  LIST = "list",
-  NULL = "null",
-  STR = "str",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ParamType = {
+  BOOL: "bool",
+  COMPLEX: "complex",
+  FLOAT: "float",
+  INT: "int",
+  LIST: "list",
+  NULL: "null",
+  STR: "str",
+} as const;
 
 /**
+ * @public
+ */
+export type ParamType = (typeof ParamType)[keyof typeof ParamType];
+
+/**
+ * @public
  * <p>Specifies the parameters in the config file of the dynamic transform.</p>
  */
 export interface TransformConfigParameter {
@@ -2639,6 +2922,7 @@ export interface TransformConfigParameter {
 }
 
 /**
+ * @public
  * <p>Specifies the set of parameters needed to perform the dynamic transform.</p>
  */
 export interface DynamicTransform {
@@ -2679,6 +2963,7 @@ export interface DynamicTransform {
 }
 
 /**
+ * @public
  * <p>Specifies a DynamoDB data source in the Glue Data Catalog.</p>
  */
 export interface DynamoDBCatalogSource {
@@ -2698,12 +2983,22 @@ export interface DynamoDBCatalogSource {
   Table: string | undefined;
 }
 
-export enum DQTransformOutput {
-  EvaluationResults = "EvaluationResults",
-  PrimaryInput = "PrimaryInput",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DQTransformOutput = {
+  EvaluationResults: "EvaluationResults",
+  PrimaryInput: "PrimaryInput",
+} as const;
 
 /**
+ * @public
+ */
+export type DQTransformOutput = (typeof DQTransformOutput)[keyof typeof DQTransformOutput];
+
+/**
+ * @public
  * <p>Options to configure how your data quality evaluation results are published.</p>
  */
 export interface DQResultsPublishingOptions {
@@ -2728,12 +3023,22 @@ export interface DQResultsPublishingOptions {
   ResultsPublishingEnabled?: boolean;
 }
 
-export enum DQStopJobOnFailureTiming {
-  AfterDataLoad = "AfterDataLoad",
-  Immediate = "Immediate",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DQStopJobOnFailureTiming = {
+  AfterDataLoad: "AfterDataLoad",
+  Immediate: "Immediate",
+} as const;
 
 /**
+ * @public
+ */
+export type DQStopJobOnFailureTiming = (typeof DQStopJobOnFailureTiming)[keyof typeof DQStopJobOnFailureTiming];
+
+/**
+ * @public
  * <p>Options to configure how your job will stop if your data quality evaluation fails.</p>
  */
 export interface DQStopJobOnFailureOptions {
@@ -2744,6 +3049,7 @@ export interface DQStopJobOnFailureOptions {
 }
 
 /**
+ * @public
  * <p>Specifies your data quality evaluation criteria.</p>
  */
 export interface EvaluateDataQuality {
@@ -2779,6 +3085,7 @@ export interface EvaluateDataQuality {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that locates records in the dataset that have missing values and adds a new field with a value determined by imputation. The input data set is used to train the machine learning model that determines what the missing value should be.</p>
  */
 export interface FillMissingValues {
@@ -2803,22 +3110,41 @@ export interface FillMissingValues {
   FilledPath?: string;
 }
 
-export enum FilterOperation {
-  EQ = "EQ",
-  GT = "GT",
-  GTE = "GTE",
-  ISNULL = "ISNULL",
-  LT = "LT",
-  LTE = "LTE",
-  REGEX = "REGEX",
-}
-
-export enum FilterValueType {
-  COLUMNEXTRACTED = "COLUMNEXTRACTED",
-  CONSTANT = "CONSTANT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FilterOperation = {
+  EQ: "EQ",
+  GT: "GT",
+  GTE: "GTE",
+  ISNULL: "ISNULL",
+  LT: "LT",
+  LTE: "LTE",
+  REGEX: "REGEX",
+} as const;
 
 /**
+ * @public
+ */
+export type FilterOperation = (typeof FilterOperation)[keyof typeof FilterOperation];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterValueType = {
+  COLUMNEXTRACTED: "COLUMNEXTRACTED",
+  CONSTANT: "CONSTANT",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterValueType = (typeof FilterValueType)[keyof typeof FilterValueType];
+
+/**
+ * @public
  * <p>Represents a single entry in the list of values for a <code>FilterExpression</code>. </p>
  */
 export interface FilterValue {
@@ -2834,6 +3160,7 @@ export interface FilterValue {
 }
 
 /**
+ * @public
  * <p>Specifies a filter expression.</p>
  */
 export interface FilterExpression {
@@ -2853,12 +3180,22 @@ export interface FilterExpression {
   Values: FilterValue[] | undefined;
 }
 
-export enum FilterLogicalOperator {
-  AND = "AND",
-  OR = "OR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FilterLogicalOperator = {
+  AND: "AND",
+  OR: "OR",
+} as const;
 
 /**
+ * @public
+ */
+export type FilterLogicalOperator = (typeof FilterLogicalOperator)[keyof typeof FilterLogicalOperator];
+
+/**
+ * @public
  * <p>Specifies a transform that splits a dataset into two, based on a filter condition.</p>
  */
 export interface Filter {
@@ -2884,6 +3221,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>Specifies additional connection options for the Amazon S3 data store.</p>
  */
 export interface S3SourceAdditionalOptions {
@@ -2899,6 +3237,7 @@ export interface S3SourceAdditionalOptions {
 }
 
 /**
+ * @public
  * <p>Specifies the data store in the governed Glue Data Catalog.</p>
  */
 export interface GovernedCatalogSource {
@@ -2928,12 +3267,22 @@ export interface GovernedCatalogSource {
   AdditionalOptions?: S3SourceAdditionalOptions;
 }
 
-export enum UpdateCatalogBehavior {
-  LOG = "LOG",
-  UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UpdateCatalogBehavior = {
+  LOG: "LOG",
+  UPDATE_IN_DATABASE: "UPDATE_IN_DATABASE",
+} as const;
 
 /**
+ * @public
+ */
+export type UpdateCatalogBehavior = (typeof UpdateCatalogBehavior)[keyof typeof UpdateCatalogBehavior];
+
+/**
+ * @public
  * <p>A policy that specifies update behavior for the crawler.</p>
  */
 export interface CatalogSchemaChangePolicy {
@@ -2949,6 +3298,7 @@ export interface CatalogSchemaChangePolicy {
 }
 
 /**
+ * @public
  * <p>Specifies a data target that writes to Amazon S3 using the Glue Data Catalog.</p>
  */
 export interface GovernedCatalogTarget {
@@ -2983,62 +3333,81 @@ export interface GovernedCatalogTarget {
   SchemaChangePolicy?: CatalogSchemaChangePolicy;
 }
 
-export enum JDBCDataType {
-  ARRAY = "ARRAY",
-  BIGINT = "BIGINT",
-  BINARY = "BINARY",
-  BIT = "BIT",
-  BLOB = "BLOB",
-  BOOLEAN = "BOOLEAN",
-  CHAR = "CHAR",
-  CLOB = "CLOB",
-  DATALINK = "DATALINK",
-  DATE = "DATE",
-  DECIMAL = "DECIMAL",
-  DISTINCT = "DISTINCT",
-  DOUBLE = "DOUBLE",
-  FLOAT = "FLOAT",
-  INTEGER = "INTEGER",
-  JAVA_OBJECT = "JAVA_OBJECT",
-  LONGNVARCHAR = "LONGNVARCHAR",
-  LONGVARBINARY = "LONGVARBINARY",
-  LONGVARCHAR = "LONGVARCHAR",
-  NCHAR = "NCHAR",
-  NCLOB = "NCLOB",
-  NULL = "NULL",
-  NUMERIC = "NUMERIC",
-  NVARCHAR = "NVARCHAR",
-  OTHER = "OTHER",
-  REAL = "REAL",
-  REF = "REF",
-  REF_CURSOR = "REF_CURSOR",
-  ROWID = "ROWID",
-  SMALLINT = "SMALLINT",
-  SQLXML = "SQLXML",
-  STRUCT = "STRUCT",
-  TIME = "TIME",
-  TIMESTAMP = "TIMESTAMP",
-  TIMESTAMP_WITH_TIMEZONE = "TIMESTAMP_WITH_TIMEZONE",
-  TIME_WITH_TIMEZONE = "TIME_WITH_TIMEZONE",
-  TINYINT = "TINYINT",
-  VARBINARY = "VARBINARY",
-  VARCHAR = "VARCHAR",
-}
-
-export enum GlueRecordType {
-  BIGDECIMAL = "BIGDECIMAL",
-  BYTE = "BYTE",
-  DATE = "DATE",
-  DOUBLE = "DOUBLE",
-  FLOAT = "FLOAT",
-  INT = "INT",
-  LONG = "LONG",
-  SHORT = "SHORT",
-  STRING = "STRING",
-  TIMESTAMP = "TIMESTAMP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JDBCDataType = {
+  ARRAY: "ARRAY",
+  BIGINT: "BIGINT",
+  BINARY: "BINARY",
+  BIT: "BIT",
+  BLOB: "BLOB",
+  BOOLEAN: "BOOLEAN",
+  CHAR: "CHAR",
+  CLOB: "CLOB",
+  DATALINK: "DATALINK",
+  DATE: "DATE",
+  DECIMAL: "DECIMAL",
+  DISTINCT: "DISTINCT",
+  DOUBLE: "DOUBLE",
+  FLOAT: "FLOAT",
+  INTEGER: "INTEGER",
+  JAVA_OBJECT: "JAVA_OBJECT",
+  LONGNVARCHAR: "LONGNVARCHAR",
+  LONGVARBINARY: "LONGVARBINARY",
+  LONGVARCHAR: "LONGVARCHAR",
+  NCHAR: "NCHAR",
+  NCLOB: "NCLOB",
+  NULL: "NULL",
+  NUMERIC: "NUMERIC",
+  NVARCHAR: "NVARCHAR",
+  OTHER: "OTHER",
+  REAL: "REAL",
+  REF: "REF",
+  REF_CURSOR: "REF_CURSOR",
+  ROWID: "ROWID",
+  SMALLINT: "SMALLINT",
+  SQLXML: "SQLXML",
+  STRUCT: "STRUCT",
+  TIME: "TIME",
+  TIMESTAMP: "TIMESTAMP",
+  TIMESTAMP_WITH_TIMEZONE: "TIMESTAMP_WITH_TIMEZONE",
+  TIME_WITH_TIMEZONE: "TIME_WITH_TIMEZONE",
+  TINYINT: "TINYINT",
+  VARBINARY: "VARBINARY",
+  VARCHAR: "VARCHAR",
+} as const;
 
 /**
+ * @public
+ */
+export type JDBCDataType = (typeof JDBCDataType)[keyof typeof JDBCDataType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GlueRecordType = {
+  BIGDECIMAL: "BIGDECIMAL",
+  BYTE: "BYTE",
+  DATE: "DATE",
+  DOUBLE: "DOUBLE",
+  FLOAT: "FLOAT",
+  INT: "INT",
+  LONG: "LONG",
+  SHORT: "SHORT",
+  STRING: "STRING",
+  TIMESTAMP: "TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type GlueRecordType = (typeof GlueRecordType)[keyof typeof GlueRecordType];
+
+/**
+ * @public
  * <p>Additional connection options for the connector.</p>
  */
 export interface JDBCConnectorOptions {
@@ -3082,12 +3451,13 @@ export interface JDBCConnectorOptions {
   JobBookmarkKeysSortOrder?: string;
 
   /**
-   * <p>Custom data type mapping that builds a mapping from a JDBC data type to an Glue data type. For example, the option <code>"dataTypeMapping":{"FLOAT":"STRING"}</code> maps data fields of JDBC type <code>FLOAT</code> into the Java <code>String</code> type by calling the <code>ResultSet.getString()</code> method of the driver, and uses it to build the Glue record. The <code>ResultSet</code> object is implemented by each driver, so the behavior is specific to the driver you use. Refer to the documentation for your JDBC driver to understand how the driver performs the conversions.</p>
+   * <p>Custom data type mapping that builds a mapping from a JDBC data type to an Glue data type. For example, the option <code>"dataTypeMapping":\{"FLOAT":"STRING"\}</code> maps data fields of JDBC type <code>FLOAT</code> into the Java <code>String</code> type by calling the <code>ResultSet.getString()</code> method of the driver, and uses it to build the Glue record. The <code>ResultSet</code> object is implemented by each driver, so the behavior is specific to the driver you use. Refer to the documentation for your JDBC driver to understand how the driver performs the conversions.</p>
    */
   DataTypeMapping?: Record<string, GlueRecordType | string>;
 }
 
 /**
+ * @public
  * <p>Specifies a connector to a JDBC data source.</p>
  */
 export interface JDBCConnectorSource {
@@ -3133,6 +3503,7 @@ export interface JDBCConnectorSource {
 }
 
 /**
+ * @public
  * <p>Specifies a data target that writes to Amazon S3 in Apache Parquet columnar storage.</p>
  */
 export interface JDBCConnectorTarget {
@@ -3178,6 +3549,7 @@ export interface JDBCConnectorTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a column to be joined.</p>
  */
 export interface JoinColumn {
@@ -3192,16 +3564,26 @@ export interface JoinColumn {
   Keys: string[][] | undefined;
 }
 
-export enum JoinType {
-  EQUIJOIN = "equijoin",
-  LEFT = "left",
-  LEFT_ANTI = "leftanti",
-  LEFT_SEMI = "leftsemi",
-  OUTER = "outer",
-  RIGHT = "right",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JoinType = {
+  EQUIJOIN: "equijoin",
+  LEFT: "left",
+  LEFT_ANTI: "leftanti",
+  LEFT_SEMI: "leftsemi",
+  OUTER: "outer",
+  RIGHT: "right",
+} as const;
 
 /**
+ * @public
+ */
+export type JoinType = (typeof JoinType)[keyof typeof JoinType];
+
+/**
+ * @public
  * <p>Specifies a transform that joins two datasets into one dataset using a comparison phrase on the specified data property keys. You can use inner, outer, left, right, left semi, and left anti joins.</p>
  */
 export interface Join {
@@ -3227,6 +3609,7 @@ export interface Join {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that merges a <code>DynamicFrame</code> with a staging <code>DynamicFrame</code> based on the specified primary keys to identify records. Duplicate records (records with the same primary keys) are not de-duplicated. </p>
  */
 export interface Merge {
@@ -3252,6 +3635,7 @@ export interface Merge {
 }
 
 /**
+ * @public
  * <p>Specifies a Microsoft SQL server data source in the Glue Data Catalog.</p>
  */
 export interface MicrosoftSQLServerCatalogSource {
@@ -3272,6 +3656,7 @@ export interface MicrosoftSQLServerCatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses Microsoft SQL.</p>
  */
 export interface MicrosoftSQLServerCatalogTarget {
@@ -3297,6 +3682,7 @@ export interface MicrosoftSQLServerCatalogTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a MySQL data source in the Glue Data Catalog.</p>
  */
 export interface MySQLCatalogSource {
@@ -3317,6 +3703,7 @@ export interface MySQLCatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses MySQL.</p>
  */
 export interface MySQLCatalogTarget {
@@ -3342,6 +3729,7 @@ export interface MySQLCatalogTarget {
 }
 
 /**
+ * @public
  * <p>Specifies an Oracle data source in the Glue Data Catalog.</p>
  */
 export interface OracleSQLCatalogSource {
@@ -3362,6 +3750,7 @@ export interface OracleSQLCatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses Oracle SQL.</p>
  */
 export interface OracleSQLCatalogTarget {
@@ -3386,14 +3775,24 @@ export interface OracleSQLCatalogTarget {
   Table: string | undefined;
 }
 
-export enum PiiType {
-  ColumnAudit = "ColumnAudit",
-  ColumnMasking = "ColumnMasking",
-  RowAudit = "RowAudit",
-  RowMasking = "RowMasking",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PiiType = {
+  ColumnAudit: "ColumnAudit",
+  ColumnMasking: "ColumnMasking",
+  RowAudit: "RowAudit",
+  RowMasking: "RowMasking",
+} as const;
 
 /**
+ * @public
+ */
+export type PiiType = (typeof PiiType)[keyof typeof PiiType];
+
+/**
+ * @public
  * <p>Specifies a transform that identifies, removes or masks PII data.</p>
  */
 export interface PIIDetection {
@@ -3444,6 +3843,7 @@ export interface PIIDetection {
 }
 
 /**
+ * @public
  * <p>Specifies a PostgresSQL data source in the Glue Data Catalog.</p>
  */
 export interface PostgreSQLCatalogSource {
@@ -3464,6 +3864,7 @@ export interface PostgreSQLCatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses Postgres SQL.</p>
  */
 export interface PostgreSQLCatalogTarget {
@@ -3489,6 +3890,7 @@ export interface PostgreSQLCatalogTarget {
 }
 
 /**
+ * @public
  * <p>Specifies an Amazon Redshift data store.</p>
  */
 export interface RedshiftSource {
@@ -3519,6 +3921,7 @@ export interface RedshiftSource {
 }
 
 /**
+ * @public
  * <p>The options to configure an upsert operation when writing to a Redshift target .</p>
  */
 export interface UpsertRedshiftTargetOptions {
@@ -3539,6 +3942,7 @@ export interface UpsertRedshiftTargetOptions {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses Amazon Redshift.</p>
  */
 export interface RedshiftTarget {
@@ -3579,6 +3983,7 @@ export interface RedshiftTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a Relational database data source in the Glue Data Catalog.</p>
  */
 export interface RelationalCatalogSource {
@@ -3599,6 +4004,7 @@ export interface RelationalCatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that renames a single data property key.</p>
  */
 export interface RenameField {
@@ -3624,6 +4030,7 @@ export interface RenameField {
 }
 
 /**
+ * @public
  * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog. The data source must be stored in Amazon S3.</p>
  */
 export interface S3CatalogDeltaSource {
@@ -3654,6 +4061,7 @@ export interface S3CatalogDeltaSource {
 }
 
 /**
+ * @public
  * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog. The Hudi data source must be stored in Amazon S3.</p>
  */
 export interface S3CatalogHudiSource {
@@ -3684,6 +4092,7 @@ export interface S3CatalogHudiSource {
 }
 
 /**
+ * @public
  * <p>Specifies an Amazon S3 data store in the Glue Data Catalog.</p>
  */
 export interface S3CatalogSource {
@@ -3714,6 +4123,7 @@ export interface S3CatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a data target that writes to Amazon S3 using the Glue Data Catalog.</p>
  */
 export interface S3CatalogTarget {
@@ -3749,6 +4159,7 @@ export interface S3CatalogTarget {
 }
 
 /**
+ * @public
  * <p>Specifies additional connection options for the Amazon S3 data store.</p>
  */
 export interface S3DirectSourceAdditionalOptions {
@@ -3773,27 +4184,55 @@ export interface S3DirectSourceAdditionalOptions {
   SamplePath?: string;
 }
 
-export enum CompressionType {
-  BZIP2 = "bzip2",
-  GZIP = "gzip",
-}
-
-export enum QuoteChar {
-  DISABLED = "disabled",
-  QUILLEMET = "quillemet",
-  QUOTE = "quote",
-  SINGLE_QUOTE = "single_quote",
-}
-
-export enum Separator {
-  COMMA = "comma",
-  CTRLA = "ctrla",
-  PIPE = "pipe",
-  SEMICOLON = "semicolon",
-  TAB = "tab",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CompressionType = {
+  BZIP2: "bzip2",
+  GZIP: "gzip",
+} as const;
 
 /**
+ * @public
+ */
+export type CompressionType = (typeof CompressionType)[keyof typeof CompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuoteChar = {
+  DISABLED: "disabled",
+  QUILLEMET: "quillemet",
+  QUOTE: "quote",
+  SINGLE_QUOTE: "single_quote",
+} as const;
+
+/**
+ * @public
+ */
+export type QuoteChar = (typeof QuoteChar)[keyof typeof QuoteChar];
+
+/**
+ * @public
+ * @enum
+ */
+export const Separator = {
+  COMMA: "comma",
+  CTRLA: "ctrla",
+  PIPE: "pipe",
+  SEMICOLON: "semicolon",
+  TAB: "tab",
+} as const;
+
+/**
+ * @public
+ */
+export type Separator = (typeof Separator)[keyof typeof Separator];
+
+/**
+ * @public
  * <p>Specifies a command-separated value (CSV) data store stored in Amazon S3.</p>
  */
 export interface S3CsvSource {
@@ -3894,6 +4333,7 @@ export interface S3CsvSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that writes to a Delta Lake data source in the Glue Data Catalog.</p>
  */
 export interface S3DeltaCatalogTarget {
@@ -3933,22 +4373,41 @@ export interface S3DeltaCatalogTarget {
   SchemaChangePolicy?: CatalogSchemaChangePolicy;
 }
 
-export enum DeltaTargetCompressionType {
-  SNAPPY = "snappy",
-  UNCOMPRESSED = "uncompressed",
-}
-
-export enum TargetFormat {
-  AVRO = "avro",
-  CSV = "csv",
-  DELTA = "delta",
-  HUDI = "hudi",
-  JSON = "json",
-  ORC = "orc",
-  PARQUET = "parquet",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeltaTargetCompressionType = {
+  SNAPPY: "snappy",
+  UNCOMPRESSED: "uncompressed",
+} as const;
 
 /**
+ * @public
+ */
+export type DeltaTargetCompressionType = (typeof DeltaTargetCompressionType)[keyof typeof DeltaTargetCompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetFormat = {
+  AVRO: "avro",
+  CSV: "csv",
+  DELTA: "delta",
+  HUDI: "hudi",
+  JSON: "json",
+  ORC: "orc",
+  PARQUET: "parquet",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetFormat = (typeof TargetFormat)[keyof typeof TargetFormat];
+
+/**
+ * @public
  * <p>A policy that specifies update behavior for the crawler.</p>
  */
 export interface DirectSchemaChangePolicy {
@@ -3974,6 +4433,7 @@ export interface DirectSchemaChangePolicy {
 }
 
 /**
+ * @public
  * <p>Specifies a target that writes to a Delta Lake data source in Amazon S3.</p>
  */
 export interface S3DeltaDirectTarget {
@@ -4019,6 +4479,7 @@ export interface S3DeltaDirectTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a Delta Lake data source stored in Amazon S3.</p>
  */
 export interface S3DeltaSource {
@@ -4049,6 +4510,7 @@ export interface S3DeltaSource {
 }
 
 /**
+ * @public
  * <p>Specifies a data target that writes to Amazon S3.</p>
  */
 export interface S3DirectTarget {
@@ -4088,15 +4550,25 @@ export interface S3DirectTarget {
   SchemaChangePolicy?: DirectSchemaChangePolicy;
 }
 
-export enum ParquetCompressionType {
-  GZIP = "gzip",
-  LZO = "lzo",
-  NONE = "none",
-  SNAPPY = "snappy",
-  UNCOMPRESSED = "uncompressed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ParquetCompressionType = {
+  GZIP: "gzip",
+  LZO: "lzo",
+  NONE: "none",
+  SNAPPY: "snappy",
+  UNCOMPRESSED: "uncompressed",
+} as const;
 
 /**
+ * @public
+ */
+export type ParquetCompressionType = (typeof ParquetCompressionType)[keyof typeof ParquetCompressionType];
+
+/**
+ * @public
  * <p>Specifies a data target that writes to Amazon S3 in Apache Parquet columnar storage.</p>
  */
 export interface S3GlueParquetTarget {
@@ -4132,6 +4604,7 @@ export interface S3GlueParquetTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a target that writes to a Hudi data source in the Glue Data Catalog.</p>
  */
 export interface S3HudiCatalogTarget {
@@ -4171,14 +4644,24 @@ export interface S3HudiCatalogTarget {
   SchemaChangePolicy?: CatalogSchemaChangePolicy;
 }
 
-export enum HudiTargetCompressionType {
-  GZIP = "gzip",
-  LZO = "lzo",
-  SNAPPY = "snappy",
-  UNCOMPRESSED = "uncompressed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HudiTargetCompressionType = {
+  GZIP: "gzip",
+  LZO: "lzo",
+  SNAPPY: "snappy",
+  UNCOMPRESSED: "uncompressed",
+} as const;
 
 /**
+ * @public
+ */
+export type HudiTargetCompressionType = (typeof HudiTargetCompressionType)[keyof typeof HudiTargetCompressionType];
+
+/**
+ * @public
  * <p>Specifies a target that writes to a Hudi data source in Amazon S3.</p>
  */
 export interface S3HudiDirectTarget {
@@ -4224,6 +4707,7 @@ export interface S3HudiDirectTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a Hudi data source stored in Amazon S3.</p>
  */
 export interface S3HudiSource {
@@ -4254,6 +4738,7 @@ export interface S3HudiSource {
 }
 
 /**
+ * @public
  * <p>Specifies a JSON data store stored in Amazon S3.</p>
  */
 export interface S3JsonSource {
@@ -4324,6 +4809,7 @@ export interface S3JsonSource {
 }
 
 /**
+ * @public
  * <p>Specifies an Apache Parquet data store stored in Amazon S3.</p>
  */
 export interface S3ParquetSource {
@@ -4384,6 +4870,7 @@ export interface S3ParquetSource {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that chooses the data property keys that you want to keep.</p>
  */
 export interface SelectFields {
@@ -4404,6 +4891,7 @@ export interface SelectFields {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that chooses one <code>DynamicFrame</code> from a collection of <code>DynamicFrames</code>. The output is the selected <code>DynamicFrame</code>
  *          </p>
  */
@@ -4425,6 +4913,7 @@ export interface SelectFromCollection {
 }
 
 /**
+ * @public
  * <p>Specifies a connector to an Apache Spark data source.</p>
  */
 export interface SparkConnectorSource {
@@ -4460,6 +4949,7 @@ export interface SparkConnectorSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses an Apache Spark connector.</p>
  */
 export interface SparkConnectorTarget {
@@ -4500,6 +4990,7 @@ export interface SparkConnectorTarget {
 }
 
 /**
+ * @public
  * <p>Represents a single entry in the list of values for <code>SqlAliases</code>. </p>
  */
 export interface SqlAlias {
@@ -4515,6 +5006,7 @@ export interface SqlAlias {
 }
 
 /**
+ * @public
  * <p>Specifies a transform where you enter a SQL query using Spark SQL syntax to transform the data. The output is a single <code>DynamicFrame</code>.</p>
  */
 export interface SparkSQL {
@@ -4550,6 +5042,7 @@ export interface SparkSQL {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that writes samples of the data to an Amazon S3 bucket.</p>
  */
 export interface Spigot {
@@ -4580,6 +5073,7 @@ export interface Spigot {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that splits data property keys into two <code>DynamicFrames</code>. The output is a collection of <code>DynamicFrames</code>: one with selected data property keys, and one with the remaining data property keys.</p>
  */
 export interface SplitFields {
@@ -4599,12 +5093,22 @@ export interface SplitFields {
   Paths: string[][] | undefined;
 }
 
-export enum UnionType {
-  ALL = "ALL",
-  DISTINCT = "DISTINCT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UnionType = {
+  ALL: "ALL",
+  DISTINCT: "DISTINCT",
+} as const;
 
 /**
+ * @public
+ */
+export type UnionType = (typeof UnionType)[keyof typeof UnionType];
+
+/**
+ * @public
  * <p>Specifies a transform that combines the rows from two or more datasets into a single result.</p>
  */
 export interface Union {
@@ -4627,6 +5131,7 @@ export interface Union {
 }
 
 /**
+ * @public
  * <p>Specifies code that runs when a job is run.</p>
  */
 export interface JobCommand {
@@ -4650,6 +5155,7 @@ export interface JobCommand {
 }
 
 /**
+ * @public
  * <p>Specifies the connections used by a job.</p>
  */
 export interface ConnectionsList {
@@ -4659,12 +5165,22 @@ export interface ConnectionsList {
   Connections?: string[];
 }
 
-export enum ExecutionClass {
-  FLEX = "FLEX",
-  STANDARD = "STANDARD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionClass = {
+  FLEX: "FLEX",
+  STANDARD: "STANDARD",
+} as const;
 
 /**
+ * @public
+ */
+export type ExecutionClass = (typeof ExecutionClass)[keyof typeof ExecutionClass];
+
+/**
+ * @public
  * <p>An execution property of a job.</p>
  */
 export interface ExecutionProperty {
@@ -4676,17 +5192,36 @@ export interface ExecutionProperty {
   MaxConcurrentRuns?: number;
 }
 
-export enum SourceControlAuthStrategy {
-  AWS_SECRETS_MANAGER = "AWS_SECRETS_MANAGER",
-  PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN",
-}
-
-export enum SourceControlProvider {
-  AWS_CODE_COMMIT = "AWS_CODE_COMMIT",
-  GITHUB = "GITHUB",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SourceControlAuthStrategy = {
+  AWS_SECRETS_MANAGER: "AWS_SECRETS_MANAGER",
+  PERSONAL_ACCESS_TOKEN: "PERSONAL_ACCESS_TOKEN",
+} as const;
 
 /**
+ * @public
+ */
+export type SourceControlAuthStrategy = (typeof SourceControlAuthStrategy)[keyof typeof SourceControlAuthStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceControlProvider = {
+  AWS_CODE_COMMIT: "AWS_CODE_COMMIT",
+  GITHUB: "GITHUB",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceControlProvider = (typeof SourceControlProvider)[keyof typeof SourceControlProvider];
+
+/**
+ * @public
  * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
  */
 export interface SourceControlDetails {
@@ -4731,6 +5266,9 @@ export interface SourceControlDetails {
   AuthToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetPartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
@@ -4755,6 +5293,7 @@ export interface BatchGetPartitionRequest {
 }
 
 /**
+ * @public
  * <p>Represents a slice of table data.</p>
  */
 export interface Partition {
@@ -4806,6 +5345,9 @@ export interface Partition {
   CatalogId?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetPartitionResponse {
   /**
    * <p>A list of the requested partitions.</p>
@@ -4820,6 +5362,76 @@ export interface BatchGetPartitionResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const FederationSourceErrorCode = {
+  InternalServiceException: "InternalServiceException",
+  InvalidResponseException: "InvalidResponseException",
+  OperationNotSupportedException: "OperationNotSupportedException",
+  OperationTimeoutException: "OperationTimeoutException",
+  ThrottlingException: "ThrottlingException",
+} as const;
+
+/**
+ * @public
+ */
+export type FederationSourceErrorCode = (typeof FederationSourceErrorCode)[keyof typeof FederationSourceErrorCode];
+
+/**
+ * @public
+ * <p>A federation source failed.</p>
+ */
+export class FederationSourceException extends __BaseException {
+  readonly name: "FederationSourceException" = "FederationSourceException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error code of the problem.</p>
+   */
+  FederationSourceErrorCode?: FederationSourceErrorCode | string;
+
+  /**
+   * <p>The message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FederationSourceException, __BaseException>) {
+    super({
+      name: "FederationSourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FederationSourceException.prototype);
+    this.FederationSourceErrorCode = opts.FederationSourceErrorCode;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export class FederationSourceRetryableException extends __BaseException {
+  readonly name: "FederationSourceRetryableException" = "FederationSourceRetryableException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FederationSourceRetryableException, __BaseException>) {
+    super({
+      name: "FederationSourceRetryableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FederationSourceRetryableException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>An error that indicates your data is in an invalid state.</p>
  */
 export class InvalidStateException extends __BaseException {
@@ -4843,6 +5455,9 @@ export class InvalidStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchGetTriggersRequest {
   /**
    * <p>A list of trigger names, which may be the names returned from the <code>ListTriggers</code> operation.</p>
@@ -4851,6 +5466,7 @@ export interface BatchGetTriggersRequest {
 }
 
 /**
+ * @public
  * <p>Batch condition that must be met (specified number of events received or batch time window expired)
  *       before EventBridge event trigger fires.</p>
  */
@@ -4866,32 +5482,60 @@ export interface EventBatchingCondition {
   BatchWindow?: number;
 }
 
-export enum CrawlState {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  ERROR = "ERROR",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
-
-export enum LogicalOperator {
-  EQUALS = "EQUALS",
-}
-
-export enum JobRunState {
-  ERROR = "ERROR",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  TIMEOUT = "TIMEOUT",
-  WAITING = "WAITING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CrawlState = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type CrawlState = (typeof CrawlState)[keyof typeof CrawlState];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogicalOperator = {
+  EQUALS: "EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type LogicalOperator = (typeof LogicalOperator)[keyof typeof LogicalOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobRunState = {
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  TIMEOUT: "TIMEOUT",
+  WAITING: "WAITING",
+} as const;
+
+/**
+ * @public
+ */
+export type JobRunState = (typeof JobRunState)[keyof typeof JobRunState];
+
+/**
+ * @public
  * <p>Defines a condition under which a trigger fires.</p>
  */
 export interface Condition {
@@ -4922,12 +5566,22 @@ export interface Condition {
   CrawlState?: CrawlState | string;
 }
 
-export enum Logical {
-  AND = "AND",
-  ANY = "ANY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Logical = {
+  AND: "AND",
+  ANY: "ANY",
+} as const;
 
 /**
+ * @public
+ */
+export type Logical = (typeof Logical)[keyof typeof Logical];
+
+/**
+ * @public
  * <p>Defines the predicate of the trigger, which determines when it fires.</p>
  */
 export interface Predicate {
@@ -4943,25 +5597,44 @@ export interface Predicate {
   Conditions?: Condition[];
 }
 
-export enum TriggerState {
-  ACTIVATED = "ACTIVATED",
-  ACTIVATING = "ACTIVATING",
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DEACTIVATED = "DEACTIVATED",
-  DEACTIVATING = "DEACTIVATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
-
-export enum TriggerType {
-  CONDITIONAL = "CONDITIONAL",
-  EVENT = "EVENT",
-  ON_DEMAND = "ON_DEMAND",
-  SCHEDULED = "SCHEDULED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TriggerState = {
+  ACTIVATED: "ACTIVATED",
+  ACTIVATING: "ACTIVATING",
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DEACTIVATED: "DEACTIVATED",
+  DEACTIVATING: "DEACTIVATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type TriggerState = (typeof TriggerState)[keyof typeof TriggerState];
+
+/**
+ * @public
+ * @enum
+ */
+export const TriggerType = {
+  CONDITIONAL: "CONDITIONAL",
+  EVENT: "EVENT",
+  ON_DEMAND: "ON_DEMAND",
+  SCHEDULED: "SCHEDULED",
+} as const;
+
+/**
+ * @public
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
+
+/**
+ * @public
  * <p>Information about a specific trigger.</p>
  */
 export interface Trigger {
@@ -5020,6 +5693,9 @@ export interface Trigger {
   EventBatchingCondition?: EventBatchingCondition;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetTriggersResponse {
   /**
    * <p>A list of trigger definitions.</p>
@@ -5032,6 +5708,9 @@ export interface BatchGetTriggersResponse {
   TriggersNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetWorkflowsRequest {
   /**
    * <p>A list of workflow names, which may be the names returned from the <code>ListWorkflows</code> operation.</p>
@@ -5045,6 +5724,7 @@ export interface BatchGetWorkflowsRequest {
 }
 
 /**
+ * @public
  * <p>The details of a blueprint.</p>
  */
 export interface BlueprintDetails {
@@ -5060,6 +5740,7 @@ export interface BlueprintDetails {
 }
 
 /**
+ * @public
  * <p>An edge represents a directed connection between two Glue components that are part of the workflow the
  *       edge belongs to.</p>
  */
@@ -5076,6 +5757,7 @@ export interface Edge {
 }
 
 /**
+ * @public
  * <p>The details of a crawl in the workflow.</p>
  */
 export interface Crawl {
@@ -5111,6 +5793,7 @@ export interface Crawl {
 }
 
 /**
+ * @public
  * <p>The details of a Crawler node present in the workflow.</p>
  */
 export interface CrawlerNodeDetails {
@@ -5121,6 +5804,7 @@ export interface CrawlerNodeDetails {
 }
 
 /**
+ * @public
  * <p>A job run that was used in the predicate of a conditional trigger
  *       that triggered this job run.</p>
  */
@@ -5137,6 +5821,7 @@ export interface Predecessor {
 }
 
 /**
+ * @public
  * <p>Contains information about a job run.</p>
  */
 export interface JobRun {
@@ -5315,6 +6000,7 @@ export interface JobRun {
 }
 
 /**
+ * @public
  * <p>The details of a Job node present in the workflow.</p>
  */
 export interface JobNodeDetails {
@@ -5325,6 +6011,7 @@ export interface JobNodeDetails {
 }
 
 /**
+ * @public
  * <p>The details of a Trigger node present in the workflow.</p>
  */
 export interface TriggerNodeDetails {
@@ -5334,13 +6021,23 @@ export interface TriggerNodeDetails {
   Trigger?: Trigger;
 }
 
-export enum NodeType {
-  CRAWLER = "CRAWLER",
-  JOB = "JOB",
-  TRIGGER = "TRIGGER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NodeType = {
+  CRAWLER: "CRAWLER",
+  JOB: "JOB",
+  TRIGGER: "TRIGGER",
+} as const;
 
 /**
+ * @public
+ */
+export type NodeType = (typeof NodeType)[keyof typeof NodeType];
+
+/**
+ * @public
  * <p>A node represents an Glue component (trigger, crawler, or job) on a workflow graph.</p>
  */
 export interface Node {
@@ -5376,6 +6073,7 @@ export interface Node {
 }
 
 /**
+ * @public
  * <p>A workflow graph represents the complete workflow containing all the Glue components present in the
  *       workflow and all the directed connections between them.</p>
  */
@@ -5392,6 +6090,7 @@ export interface WorkflowGraph {
 }
 
 /**
+ * @public
  * <p>The batch condition that started the workflow run. Either the number of events in the batch size arrived,
  *       in which case the BatchSize member is non-zero, or the batch window expired, in which case the BatchWindow
  *       member is non-zero.</p>
@@ -5409,6 +6108,7 @@ export interface StartingEventBatchCondition {
 }
 
 /**
+ * @public
  * <p>Workflow run statistics provides statistics about the workflow run.</p>
  */
 export interface WorkflowRunStatistics {
@@ -5453,15 +6153,25 @@ export interface WorkflowRunStatistics {
   WaitingActions?: number;
 }
 
-export enum WorkflowRunStatus {
-  COMPLETED = "COMPLETED",
-  ERROR = "ERROR",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowRunStatus = {
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
 
 /**
+ * @public
+ */
+export type WorkflowRunStatus = (typeof WorkflowRunStatus)[keyof typeof WorkflowRunStatus];
+
+/**
+ * @public
  * <p>A workflow run is an execution of a workflow providing all the runtime information.</p>
  */
 export interface WorkflowRun {
@@ -5523,6 +6233,7 @@ export interface WorkflowRun {
 }
 
 /**
+ * @public
  * <p>A workflow is a collection of multiple dependent Glue
  *       jobs and crawlers that are run to complete a complex ETL task. A
  *       workflow manages the execution and monitoring of all its jobs and crawlers.</p>
@@ -5577,6 +6288,9 @@ export interface Workflow {
   BlueprintDetails?: BlueprintDetails;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetWorkflowsResponse {
   /**
    * <p>A list of workflow resource metadata.</p>
@@ -5589,6 +6303,9 @@ export interface BatchGetWorkflowsResponse {
   MissingWorkflows?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchStopJobRunRequest {
   /**
    * <p>The name of the job definition for which to stop job runs.</p>
@@ -5603,6 +6320,7 @@ export interface BatchStopJobRunRequest {
 }
 
 /**
+ * @public
  * <p>Records an error that occurred when attempting to stop a
  *       specified job run.</p>
  */
@@ -5624,6 +6342,7 @@ export interface BatchStopJobRunError {
 }
 
 /**
+ * @public
  * <p>Records a successful request to stop a specified <code>JobRun</code>.</p>
  */
 export interface BatchStopJobRunSuccessfulSubmission {
@@ -5638,6 +6357,9 @@ export interface BatchStopJobRunSuccessfulSubmission {
   JobRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchStopJobRunResponse {
   /**
    * <p>A list of the JobRuns that were successfully submitted for stopping.</p>
@@ -5653,6 +6375,7 @@ export interface BatchStopJobRunResponse {
 }
 
 /**
+ * @public
  * <p>A structure that contains the values and structure used to update a partition.</p>
  */
 export interface BatchUpdatePartitionRequestEntry {
@@ -5667,6 +6390,9 @@ export interface BatchUpdatePartitionRequestEntry {
   PartitionInput: PartitionInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdatePartitionRequest {
   /**
    * <p>The ID of the catalog in which the partition is to be updated. Currently, this should be
@@ -5692,6 +6418,7 @@ export interface BatchUpdatePartitionRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a batch update partition error.</p>
  */
 export interface BatchUpdatePartitionFailureEntry {
@@ -5706,6 +6433,9 @@ export interface BatchUpdatePartitionFailureEntry {
   ErrorDetail?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdatePartitionResponse {
   /**
    * <p>The errors encountered when trying to update the requested partitions. A list of <code>BatchUpdatePartitionFailureEntry</code> objects.</p>
@@ -5713,6 +6443,9 @@ export interface BatchUpdatePartitionResponse {
   Errors?: BatchUpdatePartitionFailureEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CancelDataQualityRuleRecommendationRunRequest {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -5720,8 +6453,14 @@ export interface CancelDataQualityRuleRecommendationRunRequest {
   RunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelDataQualityRuleRecommendationRunResponse {}
 
+/**
+ * @public
+ */
 export interface CancelDataQualityRulesetEvaluationRunRequest {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -5729,8 +6468,14 @@ export interface CancelDataQualityRulesetEvaluationRunRequest {
   RunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelDataQualityRulesetEvaluationRunResponse {}
 
+/**
+ * @public
+ */
 export interface CancelMLTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -5743,16 +6488,28 @@ export interface CancelMLTaskRunRequest {
   TaskRunId: string | undefined;
 }
 
-export enum TaskStatusType {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  TIMEOUT = "TIMEOUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskStatusType = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  TIMEOUT: "TIMEOUT",
+} as const;
 
+/**
+ * @public
+ */
+export type TaskStatusType = (typeof TaskStatusType)[keyof typeof TaskStatusType];
+
+/**
+ * @public
+ */
 export interface CancelMLTaskRunResponse {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -5770,6 +6527,9 @@ export interface CancelMLTaskRunResponse {
   Status?: TaskStatusType | string;
 }
 
+/**
+ * @public
+ */
 export interface CancelStatementRequest {
   /**
    * <p>The Session ID of the statement to be cancelled.</p>
@@ -5787,9 +6547,13 @@ export interface CancelStatementRequest {
   RequestOrigin?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelStatementResponse {}
 
 /**
+ * @public
  * <p>The session is in an invalid state to perform a requested operation.</p>
  */
 export class IllegalSessionStateException extends __BaseException {
@@ -5813,12 +6577,24 @@ export class IllegalSessionStateException extends __BaseException {
   }
 }
 
-export enum DataFormat {
-  AVRO = "AVRO",
-  JSON = "JSON",
-  PROTOBUF = "PROTOBUF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataFormat = {
+  AVRO: "AVRO",
+  JSON: "JSON",
+  PROTOBUF: "PROTOBUF",
+} as const;
 
+/**
+ * @public
+ */
+export type DataFormat = (typeof DataFormat)[keyof typeof DataFormat];
+
+/**
+ * @public
+ */
 export interface CheckSchemaVersionValidityInput {
   /**
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
@@ -5831,6 +6607,9 @@ export interface CheckSchemaVersionValidityInput {
   SchemaDefinition: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CheckSchemaVersionValidityResponse {
   /**
    * <p>Return true, if the schema is valid and false otherwise.</p>
@@ -5843,6 +6622,9 @@ export interface CheckSchemaVersionValidityResponse {
   Error?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBlueprintRequest {
   /**
    * <p>The name of the blueprint.</p>
@@ -5865,6 +6647,9 @@ export interface CreateBlueprintRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateBlueprintResponse {
   /**
    * <p>Returns the name of the blueprint that was registered.</p>
@@ -5872,13 +6657,23 @@ export interface CreateBlueprintResponse {
   Name?: string;
 }
 
-export enum CsvHeaderOption {
-  ABSENT = "ABSENT",
-  PRESENT = "PRESENT",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CsvHeaderOption = {
+  ABSENT: "ABSENT",
+  PRESENT: "PRESENT",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type CsvHeaderOption = (typeof CsvHeaderOption)[keyof typeof CsvHeaderOption];
+
+/**
+ * @public
  * <p>Specifies a custom CSV classifier for <code>CreateClassifier</code> to create.</p>
  */
 export interface CreateCsvClassifierRequest {
@@ -5929,6 +6724,7 @@ export interface CreateCsvClassifierRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a <code>grok</code> classifier for <code>CreateClassifier</code>
  *       to create.</p>
  */
@@ -5956,6 +6752,7 @@ export interface CreateGrokClassifierRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a JSON classifier for <code>CreateClassifier</code> to create.</p>
  */
 export interface CreateJsonClassifierRequest {
@@ -5972,6 +6769,7 @@ export interface CreateJsonClassifierRequest {
 }
 
 /**
+ * @public
  * <p>Specifies an XML classifier for <code>CreateClassifier</code> to create.</p>
  */
 export interface CreateXMLClassifierRequest {
@@ -5995,6 +6793,9 @@ export interface CreateXMLClassifierRequest {
   RowTag?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateClassifierRequest {
   /**
    * <p>A <code>GrokClassifier</code> object specifying the classifier
@@ -6021,52 +6822,74 @@ export interface CreateClassifierRequest {
   CsvClassifier?: CreateCsvClassifierRequest;
 }
 
+/**
+ * @public
+ */
 export interface CreateClassifierResponse {}
 
-export enum ConnectionPropertyKey {
-  CONFIG_FILES = "CONFIG_FILES",
-  CONNECTION_URL = "CONNECTION_URL",
-  CONNECTOR_CLASS_NAME = "CONNECTOR_CLASS_NAME",
-  CONNECTOR_TYPE = "CONNECTOR_TYPE",
-  CONNECTOR_URL = "CONNECTOR_URL",
-  CUSTOM_JDBC_CERT = "CUSTOM_JDBC_CERT",
-  CUSTOM_JDBC_CERT_STRING = "CUSTOM_JDBC_CERT_STRING",
-  ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD = "ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD",
-  ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD = "ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD",
-  ENCRYPTED_PASSWORD = "ENCRYPTED_PASSWORD",
-  HOST = "HOST",
-  INSTANCE_ID = "INSTANCE_ID",
-  JDBC_CONNECTION_URL = "JDBC_CONNECTION_URL",
-  JDBC_DRIVER_CLASS_NAME = "JDBC_DRIVER_CLASS_NAME",
-  JDBC_DRIVER_JAR_URI = "JDBC_DRIVER_JAR_URI",
-  JDBC_ENFORCE_SSL = "JDBC_ENFORCE_SSL",
-  JDBC_ENGINE = "JDBC_ENGINE",
-  JDBC_ENGINE_VERSION = "JDBC_ENGINE_VERSION",
-  KAFKA_BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS",
-  KAFKA_CLIENT_KEYSTORE = "KAFKA_CLIENT_KEYSTORE",
-  KAFKA_CLIENT_KEYSTORE_PASSWORD = "KAFKA_CLIENT_KEYSTORE_PASSWORD",
-  KAFKA_CLIENT_KEY_PASSWORD = "KAFKA_CLIENT_KEY_PASSWORD",
-  KAFKA_CUSTOM_CERT = "KAFKA_CUSTOM_CERT",
-  KAFKA_SKIP_CUSTOM_CERT_VALIDATION = "KAFKA_SKIP_CUSTOM_CERT_VALIDATION",
-  KAFKA_SSL_ENABLED = "KAFKA_SSL_ENABLED",
-  PASSWORD = "PASSWORD",
-  PORT = "PORT",
-  SECRET_ID = "SECRET_ID",
-  SKIP_CUSTOM_JDBC_CERT_VALIDATION = "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
-  USER_NAME = "USERNAME",
-}
-
-export enum ConnectionType {
-  CUSTOM = "CUSTOM",
-  JDBC = "JDBC",
-  KAFKA = "KAFKA",
-  MARKETPLACE = "MARKETPLACE",
-  MONGODB = "MONGODB",
-  NETWORK = "NETWORK",
-  SFTP = "SFTP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionPropertyKey = {
+  CONFIG_FILES: "CONFIG_FILES",
+  CONNECTION_URL: "CONNECTION_URL",
+  CONNECTOR_CLASS_NAME: "CONNECTOR_CLASS_NAME",
+  CONNECTOR_TYPE: "CONNECTOR_TYPE",
+  CONNECTOR_URL: "CONNECTOR_URL",
+  CUSTOM_JDBC_CERT: "CUSTOM_JDBC_CERT",
+  CUSTOM_JDBC_CERT_STRING: "CUSTOM_JDBC_CERT_STRING",
+  ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD: "ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD",
+  ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD: "ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD",
+  ENCRYPTED_PASSWORD: "ENCRYPTED_PASSWORD",
+  HOST: "HOST",
+  INSTANCE_ID: "INSTANCE_ID",
+  JDBC_CONNECTION_URL: "JDBC_CONNECTION_URL",
+  JDBC_DRIVER_CLASS_NAME: "JDBC_DRIVER_CLASS_NAME",
+  JDBC_DRIVER_JAR_URI: "JDBC_DRIVER_JAR_URI",
+  JDBC_ENFORCE_SSL: "JDBC_ENFORCE_SSL",
+  JDBC_ENGINE: "JDBC_ENGINE",
+  JDBC_ENGINE_VERSION: "JDBC_ENGINE_VERSION",
+  KAFKA_BOOTSTRAP_SERVERS: "KAFKA_BOOTSTRAP_SERVERS",
+  KAFKA_CLIENT_KEYSTORE: "KAFKA_CLIENT_KEYSTORE",
+  KAFKA_CLIENT_KEYSTORE_PASSWORD: "KAFKA_CLIENT_KEYSTORE_PASSWORD",
+  KAFKA_CLIENT_KEY_PASSWORD: "KAFKA_CLIENT_KEY_PASSWORD",
+  KAFKA_CUSTOM_CERT: "KAFKA_CUSTOM_CERT",
+  KAFKA_SKIP_CUSTOM_CERT_VALIDATION: "KAFKA_SKIP_CUSTOM_CERT_VALIDATION",
+  KAFKA_SSL_ENABLED: "KAFKA_SSL_ENABLED",
+  PASSWORD: "PASSWORD",
+  PORT: "PORT",
+  SECRET_ID: "SECRET_ID",
+  SKIP_CUSTOM_JDBC_CERT_VALIDATION: "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
+  USER_NAME: "USERNAME",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectionPropertyKey = (typeof ConnectionPropertyKey)[keyof typeof ConnectionPropertyKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionType = {
+  CUSTOM: "CUSTOM",
+  JDBC: "JDBC",
+  KAFKA: "KAFKA",
+  MARKETPLACE: "MARKETPLACE",
+  MONGODB: "MONGODB",
+  NETWORK: "NETWORK",
+  SFTP: "SFTP",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+/**
+ * @public
  * <p>Specifies the physical requirements for a connection.</p>
  */
 export interface PhysicalConnectionRequirements {
@@ -6089,6 +6912,7 @@ export interface PhysicalConnectionRequirements {
 }
 
 /**
+ * @public
  * <p>A structure that is used to specify a connection to create or update.</p>
  */
 export interface ConnectionInput {
@@ -6212,6 +7036,9 @@ export interface ConnectionInput {
   PhysicalConnectionRequirements?: PhysicalConnectionRequirements;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionRequest {
   /**
    * <p>The ID of the Data Catalog in which to create the connection. If none is provided, the Amazon Web Services
@@ -6231,8 +7058,14 @@ export interface CreateConnectionRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionResponse {}
 
+/**
+ * @public
+ */
 export interface CreateCrawlerRequest {
   /**
    * <p>Name of the new crawler.</p>
@@ -6321,8 +7154,14 @@ export interface CreateCrawlerRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateCrawlerResponse {}
 
+/**
+ * @public
+ */
 export interface CreateCustomEntityTypeRequest {
   /**
    * <p>A name for the custom pattern that allows it to be retrieved or deleted later. This name must be unique per Amazon Web Services account.</p>
@@ -6341,6 +7180,9 @@ export interface CreateCustomEntityTypeRequest {
   ContextWords?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomEntityTypeResponse {
   /**
    * <p>The name of the custom pattern you created.</p>
@@ -6349,6 +7191,7 @@ export interface CreateCustomEntityTypeResponse {
 }
 
 /**
+ * @public
  * <p>The same unique identifier was associated with two different records.</p>
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -6373,6 +7216,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Two processes are trying to modify a resource simultaneously.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -6396,19 +7240,29 @@ export class ConcurrentModificationException extends __BaseException {
   }
 }
 
-export enum Permission {
-  ALL = "ALL",
-  ALTER = "ALTER",
-  CREATE_DATABASE = "CREATE_DATABASE",
-  CREATE_TABLE = "CREATE_TABLE",
-  DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS",
-  DELETE = "DELETE",
-  DROP = "DROP",
-  INSERT = "INSERT",
-  SELECT = "SELECT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Permission = {
+  ALL: "ALL",
+  ALTER: "ALTER",
+  CREATE_DATABASE: "CREATE_DATABASE",
+  CREATE_TABLE: "CREATE_TABLE",
+  DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
+  DELETE: "DELETE",
+  DROP: "DROP",
+  INSERT: "INSERT",
+  SELECT: "SELECT",
+} as const;
 
 /**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
+
+/**
+ * @public
  * <p>The Lake Formation principal.</p>
  */
 export interface DataLakePrincipal {
@@ -6419,6 +7273,7 @@ export interface DataLakePrincipal {
 }
 
 /**
+ * @public
  * <p>Permissions granted to a principal.</p>
  */
 export interface PrincipalPermissions {
@@ -6434,6 +7289,23 @@ export interface PrincipalPermissions {
 }
 
 /**
+ * @public
+ * <p>A database that points to an entity outside the Glue Data Catalog.</p>
+ */
+export interface FederatedDatabase {
+  /**
+   * <p>A unique identifier for the federated database.</p>
+   */
+  Identifier?: string;
+
+  /**
+   * <p>The name of the connection to the external metastore.</p>
+   */
+  ConnectionName?: string;
+}
+
+/**
+ * @public
  * <p>A structure that describes a target database for resource linking.</p>
  */
 export interface DatabaseIdentifier {
@@ -6449,6 +7321,7 @@ export interface DatabaseIdentifier {
 }
 
 /**
+ * @public
  * <p>The structure used to create or update a database.</p>
  */
 export interface DatabaseInput {
@@ -6484,8 +7357,16 @@ export interface DatabaseInput {
    * <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
    */
   TargetDatabase?: DatabaseIdentifier;
+
+  /**
+   * <p>A <code>FederatedDatabase</code> structure that references an entity outside the Glue Data Catalog.</p>
+   */
+  FederatedDatabase?: FederatedDatabase;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatabaseRequest {
   /**
    * <p>The ID of the Data Catalog in which to create the database. If none is provided, the Amazon Web Services
@@ -6504,9 +7385,44 @@ export interface CreateDatabaseRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatabaseResponse {}
 
 /**
+ * @public
+ * <p>A federated resource already exists.</p>
+ */
+export class FederatedResourceAlreadyExistsException extends __BaseException {
+  readonly name: "FederatedResourceAlreadyExistsException" = "FederatedResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The message describing the problem.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The associated Glue resource already exists.</p>
+   */
+  AssociatedGlueResource?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FederatedResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "FederatedResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FederatedResourceAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+    this.AssociatedGlueResource = opts.AssociatedGlueResource;
+  }
+}
+
+/**
+ * @public
  * <p>An object representing an Glue table.</p>
  */
 export interface DataQualityTargetTable {
@@ -6521,6 +7437,9 @@ export interface DataQualityTargetTable {
   DatabaseName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataQualityRulesetRequest {
   /**
    * <p>A unique name for the data quality ruleset.</p>
@@ -6553,6 +7472,9 @@ export interface CreateDataQualityRulesetRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataQualityRulesetResponse {
   /**
    * <p>A unique name for the data quality ruleset.</p>
@@ -6560,6 +7482,9 @@ export interface CreateDataQualityRulesetResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDevEndpointRequest {
   /**
    * <p>The name to be assigned to the new <code>DevEndpoint</code>.</p>
@@ -6675,6 +7600,9 @@ export interface CreateDevEndpointRequest {
   Arguments?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateDevEndpointResponse {
   /**
    * <p>The name assigned to the new <code>DevEndpoint</code>.</p>
@@ -6787,6 +7715,7 @@ export interface CreateDevEndpointResponse {
 }
 
 /**
+ * @public
  * <p>A value could not be validated.</p>
  */
 export class ValidationException extends __BaseException {
@@ -6810,6 +7739,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateJobResponse {
   /**
    * <p>The unique name that was provided for this job definition.</p>
@@ -6818,6 +7750,7 @@ export interface CreateJobResponse {
 }
 
 /**
+ * @public
  * <p>The parameters to configure the find matches transform.</p>
  */
 export interface FindMatchesParameters {
@@ -6856,11 +7789,21 @@ export interface FindMatchesParameters {
   EnforceProvidedLabels?: boolean;
 }
 
-export enum TransformType {
-  FIND_MATCHES = "FIND_MATCHES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransformType = {
+  FIND_MATCHES: "FIND_MATCHES",
+} as const;
 
 /**
+ * @public
+ */
+export type TransformType = (typeof TransformType)[keyof typeof TransformType];
+
+/**
+ * @public
  * <p>The algorithm-specific parameters that are associated with the machine learning
  *       transform.</p>
  */
@@ -6877,12 +7820,23 @@ export interface TransformParameters {
   FindMatchesParameters?: FindMatchesParameters;
 }
 
-export enum MLUserDataEncryptionModeString {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MLUserDataEncryptionModeString = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+} as const;
 
 /**
+ * @public
+ */
+export type MLUserDataEncryptionModeString =
+  (typeof MLUserDataEncryptionModeString)[keyof typeof MLUserDataEncryptionModeString];
+
+/**
+ * @public
  * <p>The encryption-at-rest settings of the transform that apply to accessing user data.</p>
  */
 export interface MLUserDataEncryption {
@@ -6906,6 +7860,7 @@ export interface MLUserDataEncryption {
 }
 
 /**
+ * @public
  * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
  *          <p>Additionally, imported labels and trained transforms can now be encrypted using a customer provided KMS key.</p>
  */
@@ -6921,6 +7876,9 @@ export interface TransformEncryption {
   TaskRunSecurityConfigurationName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMLTransformRequest {
   /**
    * <p>The unique name that you give the transform when you create it.</p>
@@ -7049,6 +8007,9 @@ export interface CreateMLTransformRequest {
   TransformEncryption?: TransformEncryption;
 }
 
+/**
+ * @public
+ */
 export interface CreateMLTransformResponse {
   /**
    * <p>A unique identifier that is generated for the transform.</p>
@@ -7056,6 +8017,9 @@ export interface CreateMLTransformResponse {
   TransformId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePartitionRequest {
   /**
    * <p>The Amazon Web Services account ID of the catalog in which the partition is to be created.</p>
@@ -7080,9 +8044,13 @@ export interface CreatePartitionRequest {
   PartitionInput: PartitionInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePartitionResponse {}
 
 /**
+ * @public
  * <p>A structure for a partition index.</p>
  */
 export interface PartitionIndex {
@@ -7097,6 +8065,9 @@ export interface PartitionIndex {
   IndexName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePartitionIndexRequest {
   /**
    * <p>The catalog ID where the table resides.</p>
@@ -7119,1781 +8090,7 @@ export interface CreatePartitionIndexRequest {
   PartitionIndex: PartitionIndex | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePartitionIndexResponse {}
-
-export interface CreateRegistryInput {
-  /**
-   * <p>Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.</p>
-   */
-  RegistryName: string | undefined;
-
-  /**
-   * <p>A description of the registry. If description is not provided, there will not be any default value for this.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API.</p>
-   */
-  Tags?: Record<string, string>;
-}
-
-export interface CreateRegistryResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the newly created registry.</p>
-   */
-  RegistryArn?: string;
-
-  /**
-   * <p>The name of the registry.</p>
-   */
-  RegistryName?: string;
-
-  /**
-   * <p>A description of the registry.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The tags for the registry.</p>
-   */
-  Tags?: Record<string, string>;
-}
-
-export enum Compatibility {
-  BACKWARD = "BACKWARD",
-  BACKWARD_ALL = "BACKWARD_ALL",
-  DISABLED = "DISABLED",
-  FORWARD = "FORWARD",
-  FORWARD_ALL = "FORWARD_ALL",
-  FULL = "FULL",
-  FULL_ALL = "FULL_ALL",
-  NONE = "NONE",
-}
-
-/**
- * <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
- */
-export interface RegistryId {
-  /**
-   * <p>Name of the registry. Used only for lookup. One of <code>RegistryArn</code> or <code>RegistryName</code> has to be provided. </p>
-   */
-  RegistryName?: string;
-
-  /**
-   * <p>Arn of the registry to be updated. One of <code>RegistryArn</code> or <code>RegistryName</code> has to be provided.</p>
-   */
-  RegistryArn?: string;
-}
-
-export interface CreateSchemaInput {
-  /**
-   * <p> This is a wrapper shape to contain the registry identity fields. If this is not provided, the default registry will be used. The ARN format for the same will be: <code>arn:aws:glue:us-east-2:<customer id>:registry/default-registry:random-5-letter-id</code>.</p>
-   */
-  RegistryId?: RegistryId;
-
-  /**
-   * <p>Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.</p>
-   */
-  SchemaName: string | undefined;
-
-  /**
-   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
-   */
-  DataFormat: DataFormat | string | undefined;
-
-  /**
-   * <p>The compatibility mode of the schema. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <i>NONE</i>: No compatibility mode applies. You can use this choice in development scenarios or if you do not know the compatibility mode that you want to apply to schemas. Any new version added will be accepted without undergoing a compatibility check.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>DISABLED</i>: This compatibility choice prevents versioning for a particular schema. You can use this choice to prevent future versioning of a schema.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>BACKWARD</i>: This compatibility choice is recommended as it allows data receivers to read both the current and one previous schema version. This means that for instance, a new schema version cannot drop data fields or change the type of these fields, so they can't be read by readers using the previous version.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>BACKWARD_ALL</i>: This compatibility choice allows data receivers to read both the current and all previous schema versions. You can use this choice when you need to delete fields or add optional fields, and check compatibility against all previous schema versions. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>FORWARD</i>: This compatibility choice allows data receivers to read both the current and one next schema version, but not necessarily later versions. You can use this choice when you need to add fields or delete optional fields, but only check compatibility against the last schema version.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>FORWARD_ALL</i>: This compatibility choice allows data receivers to read written by producers of any new registered schema. You can use this choice when you need to add fields or delete optional fields, and check compatibility against all previous schema versions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>FULL</i>: This compatibility choice allows data receivers to read data written by producers using the previous or next version of the schema, but not necessarily earlier or later versions. You can use this choice when you need to add or remove optional fields, but only check compatibility against the last schema version.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>FULL_ALL</i>: This compatibility choice allows data receivers to read data written by producers using all previous schema versions. You can use this choice when you need to add or remove optional fields, and check compatibility against all previous schema versions.</p>
-   *             </li>
-   *          </ul>
-   */
-  Compatibility?: Compatibility | string;
-
-  /**
-   * <p>An optional description of the schema. If description is not provided, there will not be any automatic default value for this.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API. If specified, follows the Amazon Web Services tags-on-create pattern.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * <p>The schema definition using the <code>DataFormat</code> setting for <code>SchemaName</code>.</p>
-   */
-  SchemaDefinition?: string;
-}
-
-/**
- * @internal
- */
-export const NotificationPropertyFilterSensitiveLog = (obj: NotificationProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionFilterSensitiveLog = (obj: Action): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AggregateOperationFilterSensitiveLog = (obj: AggregateOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AggregateFilterSensitiveLog = (obj: Aggregate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlueStudioSchemaColumnFilterSensitiveLog = (obj: GlueStudioSchemaColumn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlueSchemaFilterSensitiveLog = (obj: GlueSchema): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AthenaConnectorSourceFilterSensitiveLog = (obj: AthenaConnectorSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditContextFilterSensitiveLog = (obj: AuditContext): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnFilterSensitiveLog = (obj: Column): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaIdFilterSensitiveLog = (obj: SchemaId): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaReferenceFilterSensitiveLog = (obj: SchemaReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SerDeInfoFilterSensitiveLog = (obj: SerDeInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SkewedInfoFilterSensitiveLog = (obj: SkewedInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OrderFilterSensitiveLog = (obj: Order): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StorageDescriptorFilterSensitiveLog = (obj: StorageDescriptor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartitionInputFilterSensitiveLog = (obj: PartitionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreatePartitionRequestFilterSensitiveLog = (obj: BatchCreatePartitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorDetailFilterSensitiveLog = (obj: ErrorDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartitionErrorFilterSensitiveLog = (obj: PartitionError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreatePartitionResponseFilterSensitiveLog = (obj: BatchCreatePartitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteConnectionRequestFilterSensitiveLog = (obj: BatchDeleteConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteConnectionResponseFilterSensitiveLog = (obj: BatchDeleteConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartitionValueListFilterSensitiveLog = (obj: PartitionValueList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeletePartitionRequestFilterSensitiveLog = (obj: BatchDeletePartitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeletePartitionResponseFilterSensitiveLog = (obj: BatchDeletePartitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteTableRequestFilterSensitiveLog = (obj: BatchDeleteTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableErrorFilterSensitiveLog = (obj: TableError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteTableResponseFilterSensitiveLog = (obj: BatchDeleteTableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteTableVersionRequestFilterSensitiveLog = (obj: BatchDeleteTableVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableVersionErrorFilterSensitiveLog = (obj: TableVersionError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteTableVersionResponseFilterSensitiveLog = (obj: BatchDeleteTableVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetBlueprintsRequestFilterSensitiveLog = (obj: BatchGetBlueprintsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LastActiveDefinitionFilterSensitiveLog = (obj: LastActiveDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlueprintFilterSensitiveLog = (obj: Blueprint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetBlueprintsResponseFilterSensitiveLog = (obj: BatchGetBlueprintsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetCrawlersRequestFilterSensitiveLog = (obj: BatchGetCrawlersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LakeFormationConfigurationFilterSensitiveLog = (obj: LakeFormationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LastCrawlInfoFilterSensitiveLog = (obj: LastCrawlInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LineageConfigurationFilterSensitiveLog = (obj: LineageConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecrawlPolicyFilterSensitiveLog = (obj: RecrawlPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleFilterSensitiveLog = (obj: Schedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaChangePolicyFilterSensitiveLog = (obj: SchemaChangePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CatalogTargetFilterSensitiveLog = (obj: CatalogTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeltaTargetFilterSensitiveLog = (obj: DeltaTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DynamoDBTargetFilterSensitiveLog = (obj: DynamoDBTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JdbcTargetFilterSensitiveLog = (obj: JdbcTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MongoDBTargetFilterSensitiveLog = (obj: MongoDBTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3TargetFilterSensitiveLog = (obj: S3Target): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrawlerTargetsFilterSensitiveLog = (obj: CrawlerTargets): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrawlerFilterSensitiveLog = (obj: Crawler): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetCrawlersResponseFilterSensitiveLog = (obj: BatchGetCrawlersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetCustomEntityTypesRequestFilterSensitiveLog = (obj: BatchGetCustomEntityTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomEntityTypeFilterSensitiveLog = (obj: CustomEntityType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetCustomEntityTypesResponseFilterSensitiveLog = (obj: BatchGetCustomEntityTypesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDataQualityResultRequestFilterSensitiveLog = (obj: BatchGetDataQualityResultRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlueTableFilterSensitiveLog = (obj: GlueTable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityRuleResultFilterSensitiveLog = (obj: DataQualityRuleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityResultFilterSensitiveLog = (obj: DataQualityResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDataQualityResultResponseFilterSensitiveLog = (obj: BatchGetDataQualityResultResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDevEndpointsRequestFilterSensitiveLog = (obj: BatchGetDevEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DevEndpointFilterSensitiveLog = (obj: DevEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDevEndpointsResponseFilterSensitiveLog = (obj: BatchGetDevEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetJobsRequestFilterSensitiveLog = (obj: BatchGetJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CatalogDeltaSourceFilterSensitiveLog = (obj: CatalogDeltaSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CatalogHudiSourceFilterSensitiveLog = (obj: CatalogHudiSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingDataPreviewOptionsFilterSensitiveLog = (obj: StreamingDataPreviewOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KafkaStreamingSourceOptionsFilterSensitiveLog = (obj: KafkaStreamingSourceOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CatalogKafkaSourceFilterSensitiveLog = (obj: CatalogKafkaSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KinesisStreamingSourceOptionsFilterSensitiveLog = (obj: KinesisStreamingSourceOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CatalogKinesisSourceFilterSensitiveLog = (obj: CatalogKinesisSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CatalogSourceFilterSensitiveLog = (obj: CatalogSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BasicCatalogTargetFilterSensitiveLog = (obj: BasicCatalogTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomCodeFilterSensitiveLog = (obj: CustomCode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DirectJDBCSourceFilterSensitiveLog = (obj: DirectJDBCSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DirectKafkaSourceFilterSensitiveLog = (obj: DirectKafkaSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DirectKinesisSourceFilterSensitiveLog = (obj: DirectKinesisSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DropDuplicatesFilterSensitiveLog = (obj: DropDuplicates): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DropFieldsFilterSensitiveLog = (obj: DropFields): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NullCheckBoxListFilterSensitiveLog = (obj: NullCheckBoxList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatatypeFilterSensitiveLog = (obj: Datatype): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NullValueFieldFilterSensitiveLog = (obj: NullValueField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DropNullFieldsFilterSensitiveLog = (obj: DropNullFields): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformConfigParameterFilterSensitiveLog = (obj: TransformConfigParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DynamicTransformFilterSensitiveLog = (obj: DynamicTransform): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DynamoDBCatalogSourceFilterSensitiveLog = (obj: DynamoDBCatalogSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DQResultsPublishingOptionsFilterSensitiveLog = (obj: DQResultsPublishingOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DQStopJobOnFailureOptionsFilterSensitiveLog = (obj: DQStopJobOnFailureOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EvaluateDataQualityFilterSensitiveLog = (obj: EvaluateDataQuality): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FillMissingValuesFilterSensitiveLog = (obj: FillMissingValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterValueFilterSensitiveLog = (obj: FilterValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterExpressionFilterSensitiveLog = (obj: FilterExpression): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3SourceAdditionalOptionsFilterSensitiveLog = (obj: S3SourceAdditionalOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GovernedCatalogSourceFilterSensitiveLog = (obj: GovernedCatalogSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CatalogSchemaChangePolicyFilterSensitiveLog = (obj: CatalogSchemaChangePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GovernedCatalogTargetFilterSensitiveLog = (obj: GovernedCatalogTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JDBCConnectorOptionsFilterSensitiveLog = (obj: JDBCConnectorOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JDBCConnectorSourceFilterSensitiveLog = (obj: JDBCConnectorSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JDBCConnectorTargetFilterSensitiveLog = (obj: JDBCConnectorTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JoinColumnFilterSensitiveLog = (obj: JoinColumn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JoinFilterSensitiveLog = (obj: Join): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergeFilterSensitiveLog = (obj: Merge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MicrosoftSQLServerCatalogSourceFilterSensitiveLog = (obj: MicrosoftSQLServerCatalogSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MicrosoftSQLServerCatalogTargetFilterSensitiveLog = (obj: MicrosoftSQLServerCatalogTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MySQLCatalogSourceFilterSensitiveLog = (obj: MySQLCatalogSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MySQLCatalogTargetFilterSensitiveLog = (obj: MySQLCatalogTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OracleSQLCatalogSourceFilterSensitiveLog = (obj: OracleSQLCatalogSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OracleSQLCatalogTargetFilterSensitiveLog = (obj: OracleSQLCatalogTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PIIDetectionFilterSensitiveLog = (obj: PIIDetection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostgreSQLCatalogSourceFilterSensitiveLog = (obj: PostgreSQLCatalogSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostgreSQLCatalogTargetFilterSensitiveLog = (obj: PostgreSQLCatalogTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedshiftSourceFilterSensitiveLog = (obj: RedshiftSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpsertRedshiftTargetOptionsFilterSensitiveLog = (obj: UpsertRedshiftTargetOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedshiftTargetFilterSensitiveLog = (obj: RedshiftTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelationalCatalogSourceFilterSensitiveLog = (obj: RelationalCatalogSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenameFieldFilterSensitiveLog = (obj: RenameField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3CatalogDeltaSourceFilterSensitiveLog = (obj: S3CatalogDeltaSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3CatalogHudiSourceFilterSensitiveLog = (obj: S3CatalogHudiSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3CatalogSourceFilterSensitiveLog = (obj: S3CatalogSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3CatalogTargetFilterSensitiveLog = (obj: S3CatalogTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DirectSourceAdditionalOptionsFilterSensitiveLog = (obj: S3DirectSourceAdditionalOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3CsvSourceFilterSensitiveLog = (obj: S3CsvSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DeltaCatalogTargetFilterSensitiveLog = (obj: S3DeltaCatalogTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DirectSchemaChangePolicyFilterSensitiveLog = (obj: DirectSchemaChangePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DeltaDirectTargetFilterSensitiveLog = (obj: S3DeltaDirectTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DeltaSourceFilterSensitiveLog = (obj: S3DeltaSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DirectTargetFilterSensitiveLog = (obj: S3DirectTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3GlueParquetTargetFilterSensitiveLog = (obj: S3GlueParquetTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3HudiCatalogTargetFilterSensitiveLog = (obj: S3HudiCatalogTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3HudiDirectTargetFilterSensitiveLog = (obj: S3HudiDirectTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3HudiSourceFilterSensitiveLog = (obj: S3HudiSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3JsonSourceFilterSensitiveLog = (obj: S3JsonSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ParquetSourceFilterSensitiveLog = (obj: S3ParquetSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelectFieldsFilterSensitiveLog = (obj: SelectFields): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelectFromCollectionFilterSensitiveLog = (obj: SelectFromCollection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SparkConnectorSourceFilterSensitiveLog = (obj: SparkConnectorSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SparkConnectorTargetFilterSensitiveLog = (obj: SparkConnectorTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SqlAliasFilterSensitiveLog = (obj: SqlAlias): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SparkSQLFilterSensitiveLog = (obj: SparkSQL): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpigotFilterSensitiveLog = (obj: Spigot): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SplitFieldsFilterSensitiveLog = (obj: SplitFields): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnionFilterSensitiveLog = (obj: Union): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobCommandFilterSensitiveLog = (obj: JobCommand): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionsListFilterSensitiveLog = (obj: ConnectionsList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecutionPropertyFilterSensitiveLog = (obj: ExecutionProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceControlDetailsFilterSensitiveLog = (obj: SourceControlDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetPartitionRequestFilterSensitiveLog = (obj: BatchGetPartitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartitionFilterSensitiveLog = (obj: Partition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetPartitionResponseFilterSensitiveLog = (obj: BatchGetPartitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetTriggersRequestFilterSensitiveLog = (obj: BatchGetTriggersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventBatchingConditionFilterSensitiveLog = (obj: EventBatchingCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionFilterSensitiveLog = (obj: Condition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredicateFilterSensitiveLog = (obj: Predicate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TriggerFilterSensitiveLog = (obj: Trigger): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetTriggersResponseFilterSensitiveLog = (obj: BatchGetTriggersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetWorkflowsRequestFilterSensitiveLog = (obj: BatchGetWorkflowsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlueprintDetailsFilterSensitiveLog = (obj: BlueprintDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeFilterSensitiveLog = (obj: Edge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrawlFilterSensitiveLog = (obj: Crawl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrawlerNodeDetailsFilterSensitiveLog = (obj: CrawlerNodeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredecessorFilterSensitiveLog = (obj: Predecessor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobRunFilterSensitiveLog = (obj: JobRun): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobNodeDetailsFilterSensitiveLog = (obj: JobNodeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TriggerNodeDetailsFilterSensitiveLog = (obj: TriggerNodeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeFilterSensitiveLog = (obj: Node): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkflowGraphFilterSensitiveLog = (obj: WorkflowGraph): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartingEventBatchConditionFilterSensitiveLog = (obj: StartingEventBatchCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkflowRunStatisticsFilterSensitiveLog = (obj: WorkflowRunStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkflowRunFilterSensitiveLog = (obj: WorkflowRun): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkflowFilterSensitiveLog = (obj: Workflow): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetWorkflowsResponseFilterSensitiveLog = (obj: BatchGetWorkflowsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchStopJobRunRequestFilterSensitiveLog = (obj: BatchStopJobRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchStopJobRunErrorFilterSensitiveLog = (obj: BatchStopJobRunError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchStopJobRunSuccessfulSubmissionFilterSensitiveLog = (
-  obj: BatchStopJobRunSuccessfulSubmission
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchStopJobRunResponseFilterSensitiveLog = (obj: BatchStopJobRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdatePartitionRequestEntryFilterSensitiveLog = (obj: BatchUpdatePartitionRequestEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdatePartitionRequestFilterSensitiveLog = (obj: BatchUpdatePartitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdatePartitionFailureEntryFilterSensitiveLog = (obj: BatchUpdatePartitionFailureEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdatePartitionResponseFilterSensitiveLog = (obj: BatchUpdatePartitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelDataQualityRuleRecommendationRunRequestFilterSensitiveLog = (
-  obj: CancelDataQualityRuleRecommendationRunRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelDataQualityRuleRecommendationRunResponseFilterSensitiveLog = (
-  obj: CancelDataQualityRuleRecommendationRunResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelDataQualityRulesetEvaluationRunRequestFilterSensitiveLog = (
-  obj: CancelDataQualityRulesetEvaluationRunRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelDataQualityRulesetEvaluationRunResponseFilterSensitiveLog = (
-  obj: CancelDataQualityRulesetEvaluationRunResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelMLTaskRunRequestFilterSensitiveLog = (obj: CancelMLTaskRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelMLTaskRunResponseFilterSensitiveLog = (obj: CancelMLTaskRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelStatementRequestFilterSensitiveLog = (obj: CancelStatementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelStatementResponseFilterSensitiveLog = (obj: CancelStatementResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CheckSchemaVersionValidityInputFilterSensitiveLog = (obj: CheckSchemaVersionValidityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CheckSchemaVersionValidityResponseFilterSensitiveLog = (obj: CheckSchemaVersionValidityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBlueprintRequestFilterSensitiveLog = (obj: CreateBlueprintRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBlueprintResponseFilterSensitiveLog = (obj: CreateBlueprintResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCsvClassifierRequestFilterSensitiveLog = (obj: CreateCsvClassifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGrokClassifierRequestFilterSensitiveLog = (obj: CreateGrokClassifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJsonClassifierRequestFilterSensitiveLog = (obj: CreateJsonClassifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateXMLClassifierRequestFilterSensitiveLog = (obj: CreateXMLClassifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClassifierRequestFilterSensitiveLog = (obj: CreateClassifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClassifierResponseFilterSensitiveLog = (obj: CreateClassifierResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PhysicalConnectionRequirementsFilterSensitiveLog = (obj: PhysicalConnectionRequirements): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionInputFilterSensitiveLog = (obj: ConnectionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionResponseFilterSensitiveLog = (obj: CreateConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCrawlerRequestFilterSensitiveLog = (obj: CreateCrawlerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCrawlerResponseFilterSensitiveLog = (obj: CreateCrawlerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomEntityTypeRequestFilterSensitiveLog = (obj: CreateCustomEntityTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomEntityTypeResponseFilterSensitiveLog = (obj: CreateCustomEntityTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataLakePrincipalFilterSensitiveLog = (obj: DataLakePrincipal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrincipalPermissionsFilterSensitiveLog = (obj: PrincipalPermissions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseIdentifierFilterSensitiveLog = (obj: DatabaseIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseInputFilterSensitiveLog = (obj: DatabaseInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatabaseRequestFilterSensitiveLog = (obj: CreateDatabaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatabaseResponseFilterSensitiveLog = (obj: CreateDatabaseResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityTargetTableFilterSensitiveLog = (obj: DataQualityTargetTable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataQualityRulesetRequestFilterSensitiveLog = (obj: CreateDataQualityRulesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataQualityRulesetResponseFilterSensitiveLog = (obj: CreateDataQualityRulesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDevEndpointRequestFilterSensitiveLog = (obj: CreateDevEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDevEndpointResponseFilterSensitiveLog = (obj: CreateDevEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobResponseFilterSensitiveLog = (obj: CreateJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindMatchesParametersFilterSensitiveLog = (obj: FindMatchesParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformParametersFilterSensitiveLog = (obj: TransformParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MLUserDataEncryptionFilterSensitiveLog = (obj: MLUserDataEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformEncryptionFilterSensitiveLog = (obj: TransformEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMLTransformRequestFilterSensitiveLog = (obj: CreateMLTransformRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMLTransformResponseFilterSensitiveLog = (obj: CreateMLTransformResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePartitionRequestFilterSensitiveLog = (obj: CreatePartitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePartitionResponseFilterSensitiveLog = (obj: CreatePartitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartitionIndexFilterSensitiveLog = (obj: PartitionIndex): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePartitionIndexRequestFilterSensitiveLog = (obj: CreatePartitionIndexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePartitionIndexResponseFilterSensitiveLog = (obj: CreatePartitionIndexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRegistryInputFilterSensitiveLog = (obj: CreateRegistryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRegistryResponseFilterSensitiveLog = (obj: CreateRegistryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegistryIdFilterSensitiveLog = (obj: RegistryId): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSchemaInputFilterSensitiveLog = (obj: CreateSchemaInput): any => ({
-  ...obj,
-});

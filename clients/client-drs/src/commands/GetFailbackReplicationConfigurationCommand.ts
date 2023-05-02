@@ -16,20 +16,22 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   GetFailbackReplicationConfigurationRequest,
-  GetFailbackReplicationConfigurationRequestFilterSensitiveLog,
   GetFailbackReplicationConfigurationResponse,
-  GetFailbackReplicationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetFailbackReplicationConfigurationCommand,
-  serializeAws_restJson1GetFailbackReplicationConfigurationCommand,
+  de_GetFailbackReplicationConfigurationCommand,
+  se_GetFailbackReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFailbackReplicationConfigurationCommand}.
  */
 export interface GetFailbackReplicationConfigurationCommandInput extends GetFailbackReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFailbackReplicationConfigurationCommand}.
  */
 export interface GetFailbackReplicationConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface GetFailbackReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Failback ReplicationConfigurations, filtered by Recovery Instance ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface GetFailbackReplicationConfigurationCommandOutput
  * import { DrsClient, GetFailbackReplicationConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, GetFailbackReplicationConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // GetFailbackReplicationConfigurationRequest
+ *   recoveryInstanceID: "STRING_VALUE", // required
+ * };
  * const command = new GetFailbackReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFailbackReplicationConfigurationCommandInput - {@link GetFailbackReplicationConfigurationCommandInput}
+ * @returns {@link GetFailbackReplicationConfigurationCommandOutput}
  * @see {@link GetFailbackReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetFailbackReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -83,6 +91,9 @@ export class GetFailbackReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFailbackReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +122,8 @@ export class GetFailbackReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFailbackReplicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFailbackReplicationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +133,24 @@ export class GetFailbackReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetFailbackReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFailbackReplicationConfigurationCommand(input, context);
+    return se_GetFailbackReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFailbackReplicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetFailbackReplicationConfigurationCommand(output, context);
+    return de_GetFailbackReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

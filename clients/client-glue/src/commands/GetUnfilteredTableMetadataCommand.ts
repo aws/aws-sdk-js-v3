@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetUnfilteredTableMetadataRequest,
-  GetUnfilteredTableMetadataRequestFilterSensitiveLog,
-  GetUnfilteredTableMetadataResponse,
-  GetUnfilteredTableMetadataResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetUnfilteredTableMetadataCommand,
-  serializeAws_json1_1GetUnfilteredTableMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { GetUnfilteredTableMetadataRequest, GetUnfilteredTableMetadataResponse } from "../models/models_1";
+import { de_GetUnfilteredTableMetadataCommand, se_GetUnfilteredTableMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUnfilteredTableMetadataCommand}.
  */
 export interface GetUnfilteredTableMetadataCommandInput extends GetUnfilteredTableMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUnfilteredTableMetadataCommand}.
  */
 export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTableMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves table metadata from the Data Catalog that contains unfiltered
  *           metadata.</p>
  *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetTable</code>.</p>
@@ -44,16 +41,38 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * import { GlueClient, GetUnfilteredTableMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetUnfilteredTableMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetUnfilteredTableMetadataRequest
+ *   CatalogId: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   AuditContext: { // AuditContext
+ *     AdditionalAuditContext: "STRING_VALUE",
+ *     RequestedColumns: [ // AuditColumnNamesList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllColumnsRequested: true || false,
+ *   },
+ *   SupportedPermissionTypes: [ // PermissionTypeList // required
+ *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION",
+ *   ],
+ * };
  * const command = new GetUnfilteredTableMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUnfilteredTableMetadataCommandInput - {@link GetUnfilteredTableMetadataCommandInput}
+ * @returns {@link GetUnfilteredTableMetadataCommandOutput}
  * @see {@link GetUnfilteredTableMetadataCommandInput} for command's `input` shape.
  * @see {@link GetUnfilteredTableMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
  *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
@@ -68,6 +87,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  *  <p>The operation timed out.</p>
  *
  * @throws {@link PermissionTypeMismatchException} (client fault)
+ *  <p>The operation timed out.</p>
  *
  *
  */
@@ -88,6 +108,9 @@ export class GetUnfilteredTableMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUnfilteredTableMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +139,8 @@ export class GetUnfilteredTableMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUnfilteredTableMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUnfilteredTableMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +150,21 @@ export class GetUnfilteredTableMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUnfilteredTableMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUnfilteredTableMetadataCommand(input, context);
+    return se_GetUnfilteredTableMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUnfilteredTableMetadataCommandOutput> {
-    return deserializeAws_json1_1GetUnfilteredTableMetadataCommand(output, context);
+    return de_GetUnfilteredTableMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

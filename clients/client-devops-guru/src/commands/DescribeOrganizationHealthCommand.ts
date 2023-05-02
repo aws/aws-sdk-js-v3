@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  DescribeOrganizationHealthRequest,
-  DescribeOrganizationHealthRequestFilterSensitiveLog,
-  DescribeOrganizationHealthResponse,
-  DescribeOrganizationHealthResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeOrganizationHealthCommand,
-  serializeAws_restJson1DescribeOrganizationHealthCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeOrganizationHealthRequest, DescribeOrganizationHealthResponse } from "../models/models_0";
+import { de_DescribeOrganizationHealthCommand, se_DescribeOrganizationHealthCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationHealthCommand}.
  */
 export interface DescribeOrganizationHealthCommandInput extends DescribeOrganizationHealthRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationHealthCommand}.
  */
 export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganizationHealthResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns active insights, predictive insights, and resource hours analyzed in last
  * 			hour.</p>
  * @example
@@ -43,10 +40,20 @@ export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganiz
  * import { DevOpsGuruClient, DescribeOrganizationHealthCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeOrganizationHealthCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // DescribeOrganizationHealthRequest
+ *   AccountIds: [ // AccountIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   OrganizationalUnitIds: [ // OrganizationalUnitIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeOrganizationHealthCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationHealthCommandInput - {@link DescribeOrganizationHealthCommandInput}
+ * @returns {@link DescribeOrganizationHealthCommandOutput}
  * @see {@link DescribeOrganizationHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationHealthCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeOrganizationHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +124,8 @@ export class DescribeOrganizationHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationHealthRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationHealthResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +135,21 @@ export class DescribeOrganizationHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOrganizationHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOrganizationHealthCommand(input, context);
+    return se_DescribeOrganizationHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationHealthCommandOutput> {
-    return deserializeAws_restJson1DescribeOrganizationHealthCommand(output, context);
+    return de_DescribeOrganizationHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ListLegalHoldsInput,
-  ListLegalHoldsInputFilterSensitiveLog,
-  ListLegalHoldsOutput,
-  ListLegalHoldsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLegalHoldsCommand,
-  serializeAws_restJson1ListLegalHoldsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListLegalHoldsInput, ListLegalHoldsOutput } from "../models/models_0";
+import { de_ListLegalHoldsCommand, se_ListLegalHoldsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLegalHoldsCommand}.
  */
 export interface ListLegalHoldsCommandInput extends ListLegalHoldsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLegalHoldsCommand}.
  */
 export interface ListLegalHoldsCommandOutput extends ListLegalHoldsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action returns metadata about active and previous legal holds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListLegalHoldsCommandOutput extends ListLegalHoldsOutput, __Met
  * import { BackupClient, ListLegalHoldsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListLegalHoldsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListLegalHoldsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLegalHoldsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLegalHoldsCommandInput - {@link ListLegalHoldsCommandInput}
+ * @returns {@link ListLegalHoldsCommandOutput}
  * @see {@link ListLegalHoldsCommandInput} for command's `input` shape.
  * @see {@link ListLegalHoldsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -76,6 +79,9 @@ export class ListLegalHoldsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLegalHoldsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class ListLegalHoldsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLegalHoldsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLegalHoldsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class ListLegalHoldsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLegalHoldsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLegalHoldsCommand(input, context);
+    return se_ListLegalHoldsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLegalHoldsCommandOutput> {
-    return deserializeAws_restJson1ListLegalHoldsCommand(output, context);
+    return de_ListLegalHoldsCommand(output, context);
   }
 
   // Start section: command_body_extra

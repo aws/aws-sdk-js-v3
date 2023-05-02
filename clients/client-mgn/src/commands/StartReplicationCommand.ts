@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  SourceServer,
-  SourceServerFilterSensitiveLog,
-  StartReplicationRequest,
-  StartReplicationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartReplicationCommand,
-  serializeAws_restJson1StartReplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { SourceServer, SourceServerFilterSensitiveLog, StartReplicationRequest } from "../models/models_0";
+import { de_StartReplicationCommand, se_StartReplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReplicationCommand}.
  */
 export interface StartReplicationCommandInput extends StartReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartReplicationCommand}.
  */
 export interface StartReplicationCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts replication for SNAPSHOT_SHIPPING agents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StartReplicationCommandOutput extends SourceServer, __MetadataB
  * import { MgnClient, StartReplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, StartReplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // StartReplicationRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ * };
  * const command = new StartReplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReplicationCommandInput - {@link StartReplicationCommandInput}
+ * @returns {@link StartReplicationCommandOutput}
  * @see {@link StartReplicationCommandInput} for command's `input` shape.
  * @see {@link StartReplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -84,6 +86,9 @@ export class StartReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +117,7 @@ export class StartReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,12 +128,18 @@ export class StartReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartReplicationCommand(input, context);
+    return se_StartReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReplicationCommandOutput> {
-    return deserializeAws_restJson1StartReplicationCommand(output, context);
+    return de_StartReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

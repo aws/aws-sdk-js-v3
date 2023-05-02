@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { GetFlowLogsIntegrationTemplateRequest, GetFlowLogsIntegrationTemplateResult } from "../models/models_5";
 import {
-  GetFlowLogsIntegrationTemplateRequest,
-  GetFlowLogsIntegrationTemplateRequestFilterSensitiveLog,
-  GetFlowLogsIntegrationTemplateResult,
-  GetFlowLogsIntegrationTemplateResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetFlowLogsIntegrationTemplateCommand,
-  serializeAws_ec2GetFlowLogsIntegrationTemplateCommand,
+  de_GetFlowLogsIntegrationTemplateCommand,
+  se_GetFlowLogsIntegrationTemplateCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetFlowLogsIntegrationTemplateCommand}.
  */
 export interface GetFlowLogsIntegrationTemplateCommandInput extends GetFlowLogsIntegrationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFlowLogsIntegrationTemplateCommand}.
  */
 export interface GetFlowLogsIntegrationTemplateCommandOutput
@@ -37,6 +36,7 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs
  *             with Amazon Athena. This make it easier for you to query and gain insights from VPC flow logs data.
  *             Based on the information that you provide, we configure resources in the template to do the following:</p>
@@ -61,10 +61,27 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput
  * import { EC2Client, GetFlowLogsIntegrationTemplateCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetFlowLogsIntegrationTemplateCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetFlowLogsIntegrationTemplateRequest
+ *   DryRun: true || false,
+ *   FlowLogId: "STRING_VALUE", // required
+ *   ConfigDeliveryS3DestinationArn: "STRING_VALUE", // required
+ *   IntegrateServices: { // IntegrateServices
+ *     AthenaIntegrations: [ // AthenaIntegrationsSet
+ *       { // AthenaIntegration
+ *         IntegrationResultS3DestinationArn: "STRING_VALUE", // required
+ *         PartitionLoadFrequency: "none" || "daily" || "weekly" || "monthly", // required
+ *         PartitionStartDate: new Date("TIMESTAMP"),
+ *         PartitionEndDate: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new GetFlowLogsIntegrationTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFlowLogsIntegrationTemplateCommandInput - {@link GetFlowLogsIntegrationTemplateCommandInput}
+ * @returns {@link GetFlowLogsIntegrationTemplateCommandOutput}
  * @see {@link GetFlowLogsIntegrationTemplateCommandInput} for command's `input` shape.
  * @see {@link GetFlowLogsIntegrationTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -88,6 +105,9 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFlowLogsIntegrationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +136,8 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFlowLogsIntegrationTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFlowLogsIntegrationTemplateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +147,24 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetFlowLogsIntegrationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetFlowLogsIntegrationTemplateCommand(input, context);
+    return se_GetFlowLogsIntegrationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFlowLogsIntegrationTemplateCommandOutput> {
-    return deserializeAws_ec2GetFlowLogsIntegrationTemplateCommand(output, context);
+    return de_GetFlowLogsIntegrationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

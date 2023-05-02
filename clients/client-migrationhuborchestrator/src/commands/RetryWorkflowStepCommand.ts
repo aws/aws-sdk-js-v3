@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  RetryWorkflowStepRequest,
-  RetryWorkflowStepRequestFilterSensitiveLog,
-  RetryWorkflowStepResponse,
-  RetryWorkflowStepResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RetryWorkflowStepCommand,
-  serializeAws_restJson1RetryWorkflowStepCommand,
-} from "../protocols/Aws_restJson1";
+import { RetryWorkflowStepRequest, RetryWorkflowStepResponse } from "../models/models_0";
+import { de_RetryWorkflowStepCommand, se_RetryWorkflowStepCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RetryWorkflowStepCommand}.
  */
 export interface RetryWorkflowStepCommandInput extends RetryWorkflowStepRequest {}
 /**
+ * @public
+ *
  * The output of {@link RetryWorkflowStepCommand}.
  */
 export interface RetryWorkflowStepCommandOutput extends RetryWorkflowStepResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retry a failed step in a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface RetryWorkflowStepCommandOutput extends RetryWorkflowStepRespons
  * import { MigrationHubOrchestratorClient, RetryWorkflowStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, RetryWorkflowStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // RetryWorkflowStepRequest
+ *   workflowId: "STRING_VALUE", // required
+ *   stepGroupId: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new RetryWorkflowStepCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RetryWorkflowStepCommandInput - {@link RetryWorkflowStepCommandInput}
+ * @returns {@link RetryWorkflowStepCommandOutput}
  * @see {@link RetryWorkflowStepCommandInput} for command's `input` shape.
  * @see {@link RetryWorkflowStepCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -85,6 +89,9 @@ export class RetryWorkflowStepCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetryWorkflowStepCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class RetryWorkflowStepCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetryWorkflowStepRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RetryWorkflowStepResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class RetryWorkflowStepCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetryWorkflowStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RetryWorkflowStepCommand(input, context);
+    return se_RetryWorkflowStepCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryWorkflowStepCommandOutput> {
-    return deserializeAws_restJson1RetryWorkflowStepCommand(output, context);
+    return de_RetryWorkflowStepCommand(output, context);
   }
 
   // Start section: command_body_extra

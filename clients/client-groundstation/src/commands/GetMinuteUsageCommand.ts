@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  GetMinuteUsageRequest,
-  GetMinuteUsageRequestFilterSensitiveLog,
-  GetMinuteUsageResponse,
-  GetMinuteUsageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMinuteUsageCommand,
-  serializeAws_restJson1GetMinuteUsageCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMinuteUsageRequest, GetMinuteUsageResponse } from "../models/models_0";
+import { de_GetMinuteUsageCommand, se_GetMinuteUsageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMinuteUsageCommand}.
  */
 export interface GetMinuteUsageCommandInput extends GetMinuteUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMinuteUsageCommand}.
  */
 export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of minutes used by account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __M
  * import { GroundStationClient, GetMinuteUsageCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, GetMinuteUsageCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // GetMinuteUsageRequest
+ *   month: Number("int"), // required
+ *   year: Number("int"), // required
+ * };
  * const command = new GetMinuteUsageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMinuteUsageCommandInput - {@link GetMinuteUsageCommandInput}
+ * @returns {@link GetMinuteUsageCommandOutput}
  * @see {@link GetMinuteUsageCommandInput} for command's `input` shape.
  * @see {@link GetMinuteUsageCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +81,9 @@ export class GetMinuteUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMinuteUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class GetMinuteUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMinuteUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMinuteUsageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class GetMinuteUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMinuteUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMinuteUsageCommand(input, context);
+    return se_GetMinuteUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMinuteUsageCommandOutput> {
-    return deserializeAws_restJson1GetMinuteUsageCommand(output, context);
+    return de_GetMinuteUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

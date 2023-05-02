@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetDevicePoolCompatibilityRequest,
-  GetDevicePoolCompatibilityRequestFilterSensitiveLog,
-  GetDevicePoolCompatibilityResult,
-  GetDevicePoolCompatibilityResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDevicePoolCompatibilityCommand,
-  serializeAws_json1_1GetDevicePoolCompatibilityCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDevicePoolCompatibilityRequest, GetDevicePoolCompatibilityResult } from "../models/models_0";
+import { de_GetDevicePoolCompatibilityCommand, se_GetDevicePoolCompatibilityCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDevicePoolCompatibilityCommand}.
  */
 export interface GetDevicePoolCompatibilityCommandInput extends GetDevicePoolCompatibilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDevicePoolCompatibilityCommand}.
  */
 export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCompatibilityResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about compatibility with a device pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,59 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * import { DeviceFarmClient, GetDevicePoolCompatibilityCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetDevicePoolCompatibilityCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // GetDevicePoolCompatibilityRequest
+ *   devicePoolArn: "STRING_VALUE", // required
+ *   appArn: "STRING_VALUE",
+ *   testType: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY",
+ *   test: { // ScheduleRunTest
+ *     type: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY", // required
+ *     testPackageArn: "STRING_VALUE",
+ *     testSpecArn: "STRING_VALUE",
+ *     filter: "STRING_VALUE",
+ *     parameters: { // TestParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   configuration: { // ScheduleRunConfiguration
+ *     extraDataPackageArn: "STRING_VALUE",
+ *     networkProfileArn: "STRING_VALUE",
+ *     locale: "STRING_VALUE",
+ *     location: { // Location
+ *       latitude: Number("double"), // required
+ *       longitude: Number("double"), // required
+ *     },
+ *     vpceConfigurationArns: [ // AmazonResourceNames
+ *       "STRING_VALUE",
+ *     ],
+ *     customerArtifactPaths: { // CustomerArtifactPaths
+ *       iosPaths: [ // IosPaths
+ *         "STRING_VALUE",
+ *       ],
+ *       androidPaths: [ // AndroidPaths
+ *         "STRING_VALUE",
+ *       ],
+ *       deviceHostPaths: [ // DeviceHostPaths
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     radios: { // Radios
+ *       wifi: true || false,
+ *       bluetooth: true || false,
+ *       nfc: true || false,
+ *       gps: true || false,
+ *     },
+ *     auxiliaryApps: [
+ *       "STRING_VALUE",
+ *     ],
+ *     billingMethod: "METERED" || "UNMETERED",
+ *   },
+ * };
  * const command = new GetDevicePoolCompatibilityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDevicePoolCompatibilityCommandInput - {@link GetDevicePoolCompatibilityCommandInput}
+ * @returns {@link GetDevicePoolCompatibilityCommandOutput}
  * @see {@link GetDevicePoolCompatibilityCommandInput} for command's `input` shape.
  * @see {@link GetDevicePoolCompatibilityCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -100,6 +146,9 @@ export class GetDevicePoolCompatibilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDevicePoolCompatibilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +177,8 @@ export class GetDevicePoolCompatibilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDevicePoolCompatibilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDevicePoolCompatibilityResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +188,21 @@ export class GetDevicePoolCompatibilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDevicePoolCompatibilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDevicePoolCompatibilityCommand(input, context);
+    return se_GetDevicePoolCompatibilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDevicePoolCompatibilityCommandOutput> {
-    return deserializeAws_json1_1GetDevicePoolCompatibilityCommand(output, context);
+    return de_GetDevicePoolCompatibilityCommand(output, context);
   }
 
   // Start section: command_body_extra

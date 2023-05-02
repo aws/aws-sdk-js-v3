@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateJobRequest,
-  CreateJobRequestFilterSensitiveLog,
-  CreateJobResponse,
-  CreateJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateJobCommand,
-  serializeAws_restJson1CreateJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateJobRequest, CreateJobResponse } from "../models/models_0";
+import { de_CreateJobCommand, se_CreateJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJobCommand}.
  */
 export interface CreateJobCommandInput extends CreateJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJobCommand}.
  */
 export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a job.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateJob</a> action.</p>
  * @example
@@ -43,10 +40,80 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * import { IoTClient, CreateJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateJobRequest
+ *   jobId: "STRING_VALUE", // required
+ *   targets: [ // JobTargets // required
+ *     "STRING_VALUE",
+ *   ],
+ *   documentSource: "STRING_VALUE",
+ *   document: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   presignedUrlConfig: { // PresignedUrlConfig
+ *     roleArn: "STRING_VALUE",
+ *     expiresInSec: Number("long"),
+ *   },
+ *   targetSelection: "CONTINUOUS" || "SNAPSHOT",
+ *   jobExecutionsRolloutConfig: { // JobExecutionsRolloutConfig
+ *     maximumPerMinute: Number("int"),
+ *     exponentialRate: { // ExponentialRolloutRate
+ *       baseRatePerMinute: Number("int"), // required
+ *       incrementFactor: Number("double"), // required
+ *       rateIncreaseCriteria: { // RateIncreaseCriteria
+ *         numberOfNotifiedThings: Number("int"),
+ *         numberOfSucceededThings: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   abortConfig: { // AbortConfig
+ *     criteriaList: [ // AbortCriteriaList // required
+ *       { // AbortCriteria
+ *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
+ *         action: "CANCEL", // required
+ *         thresholdPercentage: Number("double"), // required
+ *         minNumberOfExecutedThings: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ *   timeoutConfig: { // TimeoutConfig
+ *     inProgressTimeoutInMinutes: Number("long"),
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   namespaceId: "STRING_VALUE",
+ *   jobTemplateArn: "STRING_VALUE",
+ *   jobExecutionsRetryConfig: { // JobExecutionsRetryConfig
+ *     criteriaList: [ // RetryCriteriaList // required
+ *       { // RetryCriteria
+ *         failureType: "FAILED" || "TIMED_OUT" || "ALL", // required
+ *         numberOfRetries: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ *   documentParameters: { // ParameterMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   schedulingConfig: { // SchedulingConfig
+ *     startTime: "STRING_VALUE",
+ *     endTime: "STRING_VALUE",
+ *     endBehavior: "STOP_ROLLOUT" || "CANCEL" || "FORCE_CANCEL",
+ *     maintenanceWindows: [ // MaintenanceWindows
+ *       { // MaintenanceWindow
+ *         startTime: "STRING_VALUE", // required
+ *         durationInMinutes: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJobCommandInput - {@link CreateJobCommandInput}
+ * @returns {@link CreateJobCommandOutput}
  * @see {@link CreateJobCommandInput} for command's `input` shape.
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -84,6 +151,9 @@ export class CreateJobCommand extends $Command<CreateJobCommandInput, CreateJobC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +180,8 @@ export class CreateJobCommand extends $Command<CreateJobCommandInput, CreateJobC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +191,18 @@ export class CreateJobCommand extends $Command<CreateJobCommandInput, CreateJobC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateJobCommand(input, context);
+    return se_CreateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobCommandOutput> {
-    return deserializeAws_restJson1CreateJobCommand(output, context);
+    return de_CreateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

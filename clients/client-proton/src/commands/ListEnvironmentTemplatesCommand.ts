@@ -15,26 +15,27 @@ import {
 
 import {
   ListEnvironmentTemplatesInput,
-  ListEnvironmentTemplatesInputFilterSensitiveLog,
   ListEnvironmentTemplatesOutput,
   ListEnvironmentTemplatesOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListEnvironmentTemplatesCommand,
-  serializeAws_json1_0ListEnvironmentTemplatesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListEnvironmentTemplatesCommand, se_ListEnvironmentTemplatesCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEnvironmentTemplatesCommand}.
  */
 export interface ListEnvironmentTemplatesCommandInput extends ListEnvironmentTemplatesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEnvironmentTemplatesCommand}.
  */
 export interface ListEnvironmentTemplatesCommandOutput extends ListEnvironmentTemplatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List environment templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface ListEnvironmentTemplatesCommandOutput extends ListEnvironmentTe
  * import { ProtonClient, ListEnvironmentTemplatesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListEnvironmentTemplatesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // ListEnvironmentTemplatesInput
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListEnvironmentTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentTemplatesCommandInput - {@link ListEnvironmentTemplatesCommandInput}
+ * @returns {@link ListEnvironmentTemplatesCommandOutput}
  * @see {@link ListEnvironmentTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListEnvironmentTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,7 +119,7 @@ export class ListEnvironmentTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentTemplatesInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListEnvironmentTemplatesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -120,12 +130,18 @@ export class ListEnvironmentTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEnvironmentTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListEnvironmentTemplatesCommand(input, context);
+    return se_ListEnvironmentTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentTemplatesCommandOutput> {
-    return deserializeAws_json1_0ListEnvironmentTemplatesCommand(output, context);
+    return de_ListEnvironmentTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

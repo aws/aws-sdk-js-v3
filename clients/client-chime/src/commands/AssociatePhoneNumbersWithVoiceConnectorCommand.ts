@@ -18,19 +18,22 @@ import {
   AssociatePhoneNumbersWithVoiceConnectorRequest,
   AssociatePhoneNumbersWithVoiceConnectorRequestFilterSensitiveLog,
   AssociatePhoneNumbersWithVoiceConnectorResponse,
-  AssociatePhoneNumbersWithVoiceConnectorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand,
-  serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand,
+  de_AssociatePhoneNumbersWithVoiceConnectorCommand,
+  se_AssociatePhoneNumbersWithVoiceConnectorCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePhoneNumbersWithVoiceConnectorCommand}.
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorCommandInput
   extends AssociatePhoneNumbersWithVoiceConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePhoneNumbersWithVoiceConnectorCommand}.
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorCommandOutput
@@ -38,6 +41,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates phone numbers with the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +49,19 @@ export interface AssociatePhoneNumbersWithVoiceConnectorCommandOutput
  * import { ChimeClient, AssociatePhoneNumbersWithVoiceConnectorCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, AssociatePhoneNumbersWithVoiceConnectorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // AssociatePhoneNumbersWithVoiceConnectorRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   E164PhoneNumbers: [ // E164PhoneNumberList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ForceAssociate: true || false,
+ * };
  * const command = new AssociatePhoneNumbersWithVoiceConnectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePhoneNumbersWithVoiceConnectorCommandInput - {@link AssociatePhoneNumbersWithVoiceConnectorCommandInput}
+ * @returns {@link AssociatePhoneNumbersWithVoiceConnectorCommandOutput}
  * @see {@link AssociatePhoneNumbersWithVoiceConnectorCommandInput} for command's `input` shape.
  * @see {@link AssociatePhoneNumbersWithVoiceConnectorCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -96,6 +109,9 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePhoneNumbersWithVoiceConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,7 +147,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,18 +157,24 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand(input, context);
+    return se_AssociatePhoneNumbersWithVoiceConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand(output, context);
+    return de_AssociatePhoneNumbersWithVoiceConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

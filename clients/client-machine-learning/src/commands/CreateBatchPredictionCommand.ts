@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  CreateBatchPredictionInput,
-  CreateBatchPredictionInputFilterSensitiveLog,
-  CreateBatchPredictionOutput,
-  CreateBatchPredictionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBatchPredictionCommand,
-  serializeAws_json1_1CreateBatchPredictionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateBatchPredictionInput, CreateBatchPredictionOutput } from "../models/models_0";
+import { de_CreateBatchPredictionCommand, se_CreateBatchPredictionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBatchPredictionCommand}.
  */
 export interface CreateBatchPredictionCommandInput extends CreateBatchPredictionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateBatchPredictionCommand}.
  */
 export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates predictions for a group of observations. The observations to process exist in one or more data files referenced
  *             by a <code>DataSource</code>. This operation creates a new <code>BatchPrediction</code>, and uses an <code>MLModel</code> and the data
  *             files referenced by the <code>DataSource</code> as information sources.
@@ -53,10 +50,19 @@ export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictio
  * import { MachineLearningClient, CreateBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // CreateBatchPredictionInput
+ *   BatchPredictionId: "STRING_VALUE", // required
+ *   BatchPredictionName: "STRING_VALUE",
+ *   MLModelId: "STRING_VALUE", // required
+ *   BatchPredictionDataSourceId: "STRING_VALUE", // required
+ *   OutputUri: "STRING_VALUE", // required
+ * };
  * const command = new CreateBatchPredictionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBatchPredictionCommandInput - {@link CreateBatchPredictionCommandInput}
+ * @returns {@link CreateBatchPredictionCommandOutput}
  * @see {@link CreateBatchPredictionCommandInput} for command's `input` shape.
  * @see {@link CreateBatchPredictionCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -89,6 +95,9 @@ export class CreateBatchPredictionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBatchPredictionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +126,8 @@ export class CreateBatchPredictionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBatchPredictionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBatchPredictionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +137,18 @@ export class CreateBatchPredictionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBatchPredictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBatchPredictionCommand(input, context);
+    return se_CreateBatchPredictionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchPredictionCommandOutput> {
-    return deserializeAws_json1_1CreateBatchPredictionCommand(output, context);
+    return de_CreateBatchPredictionCommand(output, context);
   }
 
   // Start section: command_body_extra

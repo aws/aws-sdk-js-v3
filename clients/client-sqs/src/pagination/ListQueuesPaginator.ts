@@ -6,7 +6,7 @@ import { SQSClient } from "../SQSClient";
 import { SQSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SQSClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListQueuesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListQueues(
   config: SQSPaginationConfiguration,
   input: ListQueuesCommandInput,

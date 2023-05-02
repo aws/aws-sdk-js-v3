@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateProvisioningTemplateRequest,
-  CreateProvisioningTemplateRequestFilterSensitiveLog,
-  CreateProvisioningTemplateResponse,
-  CreateProvisioningTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProvisioningTemplateCommand,
-  serializeAws_restJson1CreateProvisioningTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateProvisioningTemplateRequest, CreateProvisioningTemplateResponse } from "../models/models_0";
+import { de_CreateProvisioningTemplateCommand, se_CreateProvisioningTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProvisioningTemplateCommand}.
  */
 export interface CreateProvisioningTemplateCommandInput extends CreateProvisioningTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProvisioningTemplateCommand}.
  */
 export interface CreateProvisioningTemplateCommandOutput extends CreateProvisioningTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a provisioning template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplate</a> action.</p>
  * @example
@@ -43,10 +40,30 @@ export interface CreateProvisioningTemplateCommandOutput extends CreateProvision
  * import { IoTClient, CreateProvisioningTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateProvisioningTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateProvisioningTemplateRequest
+ *   templateName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   templateBody: "STRING_VALUE", // required
+ *   enabled: true || false,
+ *   provisioningRoleArn: "STRING_VALUE", // required
+ *   preProvisioningHook: { // ProvisioningHook
+ *     payloadVersion: "STRING_VALUE",
+ *     targetArn: "STRING_VALUE", // required
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   type: "FLEET_PROVISIONING" || "JITP",
+ * };
  * const command = new CreateProvisioningTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProvisioningTemplateCommandInput - {@link CreateProvisioningTemplateCommandInput}
+ * @returns {@link CreateProvisioningTemplateCommandOutput}
  * @see {@link CreateProvisioningTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateProvisioningTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +105,9 @@ export class CreateProvisioningTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProvisioningTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +136,8 @@ export class CreateProvisioningTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProvisioningTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProvisioningTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +147,21 @@ export class CreateProvisioningTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProvisioningTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProvisioningTemplateCommand(input, context);
+    return se_CreateProvisioningTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateProvisioningTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateProvisioningTemplateCommand(output, context);
+    return de_CreateProvisioningTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

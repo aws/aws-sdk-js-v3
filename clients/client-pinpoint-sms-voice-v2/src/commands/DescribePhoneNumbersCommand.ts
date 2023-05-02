@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePhoneNumbersRequest,
-  DescribePhoneNumbersRequestFilterSensitiveLog,
-  DescribePhoneNumbersResult,
-  DescribePhoneNumbersResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePhoneNumbersRequest, DescribePhoneNumbersResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribePhoneNumbersCommand,
-  serializeAws_json1_0DescribePhoneNumbersCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribePhoneNumbersCommand, se_DescribePhoneNumbersCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePhoneNumbersCommand}.
  */
 export interface DescribePhoneNumbersCommandInput extends DescribePhoneNumbersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePhoneNumbersCommand}.
  */
 export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified origination phone number, or all the phone numbers in your
  *             account.</p>
  *         <p>If you specify phone number IDs, the output includes information for only the
@@ -52,10 +49,27 @@ export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersR
  * import { PinpointSMSVoiceV2Client, DescribePhoneNumbersCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribePhoneNumbersCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DescribePhoneNumbersRequest
+ *   PhoneNumberIds: [ // PhoneNumberIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // PhoneNumberFilterList
+ *     { // PhoneNumberFilter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribePhoneNumbersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePhoneNumbersCommandInput - {@link DescribePhoneNumbersCommandInput}
+ * @returns {@link DescribePhoneNumbersCommandOutput}
  * @see {@link DescribePhoneNumbersCommandInput} for command's `input` shape.
  * @see {@link DescribePhoneNumbersCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -97,6 +111,9 @@ export class DescribePhoneNumbersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePhoneNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +142,8 @@ export class DescribePhoneNumbersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePhoneNumbersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePhoneNumbersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +153,18 @@ export class DescribePhoneNumbersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePhoneNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribePhoneNumbersCommand(input, context);
+    return se_DescribePhoneNumbersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePhoneNumbersCommandOutput> {
-    return deserializeAws_json1_0DescribePhoneNumbersCommand(output, context);
+    return de_DescribePhoneNumbersCommand(output, context);
   }
 
   // Start section: command_body_extra

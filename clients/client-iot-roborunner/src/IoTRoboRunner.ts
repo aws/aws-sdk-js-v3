@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -73,599 +74,311 @@ import {
   UpdateWorkerFleetCommandInput,
   UpdateWorkerFleetCommandOutput,
 } from "./commands/UpdateWorkerFleetCommand";
-import { IoTRoboRunnerClient } from "./IoTRoboRunnerClient";
+import { IoTRoboRunnerClient, IoTRoboRunnerClientConfig } from "./IoTRoboRunnerClient";
 
-/**
- * An example service, deployed with the Octane Service creator,
- * which will echo the string
- */
-export class IoTRoboRunner extends IoTRoboRunnerClient {
+const commands = {
+  CreateDestinationCommand,
+  CreateSiteCommand,
+  CreateWorkerCommand,
+  CreateWorkerFleetCommand,
+  DeleteDestinationCommand,
+  DeleteSiteCommand,
+  DeleteWorkerCommand,
+  DeleteWorkerFleetCommand,
+  GetDestinationCommand,
+  GetSiteCommand,
+  GetWorkerCommand,
+  GetWorkerFleetCommand,
+  ListDestinationsCommand,
+  ListSitesCommand,
+  ListWorkerFleetsCommand,
+  ListWorkersCommand,
+  UpdateDestinationCommand,
+  UpdateSiteCommand,
+  UpdateWorkerCommand,
+  UpdateWorkerFleetCommand,
+};
+
+export interface IoTRoboRunner {
   /**
-   * Grants permission to create a destination
+   * @see {@link CreateDestinationCommand}
    */
-  public createDestination(
+  createDestination(
     args: CreateDestinationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDestinationCommandOutput>;
-  public createDestination(
+  createDestination(
     args: CreateDestinationCommandInput,
     cb: (err: any, data?: CreateDestinationCommandOutput) => void
   ): void;
-  public createDestination(
+  createDestination(
     args: CreateDestinationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDestinationCommandOutput) => void
   ): void;
-  public createDestination(
-    args: CreateDestinationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDestinationCommandOutput) => void),
-    cb?: (err: any, data?: CreateDestinationCommandOutput) => void
-  ): Promise<CreateDestinationCommandOutput> | void {
-    const command = new CreateDestinationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to create a site
+   * @see {@link CreateSiteCommand}
    */
-  public createSite(args: CreateSiteCommandInput, options?: __HttpHandlerOptions): Promise<CreateSiteCommandOutput>;
-  public createSite(args: CreateSiteCommandInput, cb: (err: any, data?: CreateSiteCommandOutput) => void): void;
-  public createSite(
+  createSite(args: CreateSiteCommandInput, options?: __HttpHandlerOptions): Promise<CreateSiteCommandOutput>;
+  createSite(args: CreateSiteCommandInput, cb: (err: any, data?: CreateSiteCommandOutput) => void): void;
+  createSite(
     args: CreateSiteCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSiteCommandOutput) => void
   ): void;
-  public createSite(
-    args: CreateSiteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSiteCommandOutput) => void),
-    cb?: (err: any, data?: CreateSiteCommandOutput) => void
-  ): Promise<CreateSiteCommandOutput> | void {
-    const command = new CreateSiteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to create a worker
+   * @see {@link CreateWorkerCommand}
    */
-  public createWorker(
-    args: CreateWorkerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateWorkerCommandOutput>;
-  public createWorker(args: CreateWorkerCommandInput, cb: (err: any, data?: CreateWorkerCommandOutput) => void): void;
-  public createWorker(
+  createWorker(args: CreateWorkerCommandInput, options?: __HttpHandlerOptions): Promise<CreateWorkerCommandOutput>;
+  createWorker(args: CreateWorkerCommandInput, cb: (err: any, data?: CreateWorkerCommandOutput) => void): void;
+  createWorker(
     args: CreateWorkerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateWorkerCommandOutput) => void
   ): void;
-  public createWorker(
-    args: CreateWorkerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkerCommandOutput) => void),
-    cb?: (err: any, data?: CreateWorkerCommandOutput) => void
-  ): Promise<CreateWorkerCommandOutput> | void {
-    const command = new CreateWorkerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to create a worker fleet
+   * @see {@link CreateWorkerFleetCommand}
    */
-  public createWorkerFleet(
+  createWorkerFleet(
     args: CreateWorkerFleetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWorkerFleetCommandOutput>;
-  public createWorkerFleet(
+  createWorkerFleet(
     args: CreateWorkerFleetCommandInput,
     cb: (err: any, data?: CreateWorkerFleetCommandOutput) => void
   ): void;
-  public createWorkerFleet(
+  createWorkerFleet(
     args: CreateWorkerFleetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateWorkerFleetCommandOutput) => void
   ): void;
-  public createWorkerFleet(
-    args: CreateWorkerFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkerFleetCommandOutput) => void),
-    cb?: (err: any, data?: CreateWorkerFleetCommandOutput) => void
-  ): Promise<CreateWorkerFleetCommandOutput> | void {
-    const command = new CreateWorkerFleetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to delete a destination
+   * @see {@link DeleteDestinationCommand}
    */
-  public deleteDestination(
+  deleteDestination(
     args: DeleteDestinationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDestinationCommandOutput>;
-  public deleteDestination(
+  deleteDestination(
     args: DeleteDestinationCommandInput,
     cb: (err: any, data?: DeleteDestinationCommandOutput) => void
   ): void;
-  public deleteDestination(
+  deleteDestination(
     args: DeleteDestinationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDestinationCommandOutput) => void
   ): void;
-  public deleteDestination(
-    args: DeleteDestinationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDestinationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDestinationCommandOutput) => void
-  ): Promise<DeleteDestinationCommandOutput> | void {
-    const command = new DeleteDestinationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to delete a site
+   * @see {@link DeleteSiteCommand}
    */
-  public deleteSite(args: DeleteSiteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSiteCommandOutput>;
-  public deleteSite(args: DeleteSiteCommandInput, cb: (err: any, data?: DeleteSiteCommandOutput) => void): void;
-  public deleteSite(
+  deleteSite(args: DeleteSiteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSiteCommandOutput>;
+  deleteSite(args: DeleteSiteCommandInput, cb: (err: any, data?: DeleteSiteCommandOutput) => void): void;
+  deleteSite(
     args: DeleteSiteCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSiteCommandOutput) => void
   ): void;
-  public deleteSite(
-    args: DeleteSiteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSiteCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSiteCommandOutput) => void
-  ): Promise<DeleteSiteCommandOutput> | void {
-    const command = new DeleteSiteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to delete a worker
+   * @see {@link DeleteWorkerCommand}
    */
-  public deleteWorker(
-    args: DeleteWorkerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteWorkerCommandOutput>;
-  public deleteWorker(args: DeleteWorkerCommandInput, cb: (err: any, data?: DeleteWorkerCommandOutput) => void): void;
-  public deleteWorker(
+  deleteWorker(args: DeleteWorkerCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWorkerCommandOutput>;
+  deleteWorker(args: DeleteWorkerCommandInput, cb: (err: any, data?: DeleteWorkerCommandOutput) => void): void;
+  deleteWorker(
     args: DeleteWorkerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteWorkerCommandOutput) => void
   ): void;
-  public deleteWorker(
-    args: DeleteWorkerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkerCommandOutput) => void),
-    cb?: (err: any, data?: DeleteWorkerCommandOutput) => void
-  ): Promise<DeleteWorkerCommandOutput> | void {
-    const command = new DeleteWorkerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to delete a worker fleet
+   * @see {@link DeleteWorkerFleetCommand}
    */
-  public deleteWorkerFleet(
+  deleteWorkerFleet(
     args: DeleteWorkerFleetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWorkerFleetCommandOutput>;
-  public deleteWorkerFleet(
+  deleteWorkerFleet(
     args: DeleteWorkerFleetCommandInput,
     cb: (err: any, data?: DeleteWorkerFleetCommandOutput) => void
   ): void;
-  public deleteWorkerFleet(
+  deleteWorkerFleet(
     args: DeleteWorkerFleetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteWorkerFleetCommandOutput) => void
   ): void;
-  public deleteWorkerFleet(
-    args: DeleteWorkerFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkerFleetCommandOutput) => void),
-    cb?: (err: any, data?: DeleteWorkerFleetCommandOutput) => void
-  ): Promise<DeleteWorkerFleetCommandOutput> | void {
-    const command = new DeleteWorkerFleetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to get a destination
+   * @see {@link GetDestinationCommand}
    */
-  public getDestination(
+  getDestination(
     args: GetDestinationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDestinationCommandOutput>;
-  public getDestination(
-    args: GetDestinationCommandInput,
-    cb: (err: any, data?: GetDestinationCommandOutput) => void
-  ): void;
-  public getDestination(
+  getDestination(args: GetDestinationCommandInput, cb: (err: any, data?: GetDestinationCommandOutput) => void): void;
+  getDestination(
     args: GetDestinationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDestinationCommandOutput) => void
   ): void;
-  public getDestination(
-    args: GetDestinationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDestinationCommandOutput) => void),
-    cb?: (err: any, data?: GetDestinationCommandOutput) => void
-  ): Promise<GetDestinationCommandOutput> | void {
-    const command = new GetDestinationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to get a site
+   * @see {@link GetSiteCommand}
    */
-  public getSite(args: GetSiteCommandInput, options?: __HttpHandlerOptions): Promise<GetSiteCommandOutput>;
-  public getSite(args: GetSiteCommandInput, cb: (err: any, data?: GetSiteCommandOutput) => void): void;
-  public getSite(
+  getSite(args: GetSiteCommandInput, options?: __HttpHandlerOptions): Promise<GetSiteCommandOutput>;
+  getSite(args: GetSiteCommandInput, cb: (err: any, data?: GetSiteCommandOutput) => void): void;
+  getSite(
     args: GetSiteCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSiteCommandOutput) => void
   ): void;
-  public getSite(
-    args: GetSiteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSiteCommandOutput) => void),
-    cb?: (err: any, data?: GetSiteCommandOutput) => void
-  ): Promise<GetSiteCommandOutput> | void {
-    const command = new GetSiteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to get a worker
+   * @see {@link GetWorkerCommand}
    */
-  public getWorker(args: GetWorkerCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkerCommandOutput>;
-  public getWorker(args: GetWorkerCommandInput, cb: (err: any, data?: GetWorkerCommandOutput) => void): void;
-  public getWorker(
+  getWorker(args: GetWorkerCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkerCommandOutput>;
+  getWorker(args: GetWorkerCommandInput, cb: (err: any, data?: GetWorkerCommandOutput) => void): void;
+  getWorker(
     args: GetWorkerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetWorkerCommandOutput) => void
   ): void;
-  public getWorker(
-    args: GetWorkerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkerCommandOutput) => void),
-    cb?: (err: any, data?: GetWorkerCommandOutput) => void
-  ): Promise<GetWorkerCommandOutput> | void {
-    const command = new GetWorkerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to get a worker fleet
+   * @see {@link GetWorkerFleetCommand}
    */
-  public getWorkerFleet(
+  getWorkerFleet(
     args: GetWorkerFleetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetWorkerFleetCommandOutput>;
-  public getWorkerFleet(
-    args: GetWorkerFleetCommandInput,
-    cb: (err: any, data?: GetWorkerFleetCommandOutput) => void
-  ): void;
-  public getWorkerFleet(
+  getWorkerFleet(args: GetWorkerFleetCommandInput, cb: (err: any, data?: GetWorkerFleetCommandOutput) => void): void;
+  getWorkerFleet(
     args: GetWorkerFleetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetWorkerFleetCommandOutput) => void
   ): void;
-  public getWorkerFleet(
-    args: GetWorkerFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkerFleetCommandOutput) => void),
-    cb?: (err: any, data?: GetWorkerFleetCommandOutput) => void
-  ): Promise<GetWorkerFleetCommandOutput> | void {
-    const command = new GetWorkerFleetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to list destinations
+   * @see {@link ListDestinationsCommand}
    */
-  public listDestinations(
+  listDestinations(
     args: ListDestinationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDestinationsCommandOutput>;
-  public listDestinations(
+  listDestinations(
     args: ListDestinationsCommandInput,
     cb: (err: any, data?: ListDestinationsCommandOutput) => void
   ): void;
-  public listDestinations(
+  listDestinations(
     args: ListDestinationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDestinationsCommandOutput) => void
   ): void;
-  public listDestinations(
-    args: ListDestinationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDestinationsCommandOutput) => void),
-    cb?: (err: any, data?: ListDestinationsCommandOutput) => void
-  ): Promise<ListDestinationsCommandOutput> | void {
-    const command = new ListDestinationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to list sites
+   * @see {@link ListSitesCommand}
    */
-  public listSites(args: ListSitesCommandInput, options?: __HttpHandlerOptions): Promise<ListSitesCommandOutput>;
-  public listSites(args: ListSitesCommandInput, cb: (err: any, data?: ListSitesCommandOutput) => void): void;
-  public listSites(
+  listSites(args: ListSitesCommandInput, options?: __HttpHandlerOptions): Promise<ListSitesCommandOutput>;
+  listSites(args: ListSitesCommandInput, cb: (err: any, data?: ListSitesCommandOutput) => void): void;
+  listSites(
     args: ListSitesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSitesCommandOutput) => void
   ): void;
-  public listSites(
-    args: ListSitesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSitesCommandOutput) => void),
-    cb?: (err: any, data?: ListSitesCommandOutput) => void
-  ): Promise<ListSitesCommandOutput> | void {
-    const command = new ListSitesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to list worker fleets
+   * @see {@link ListWorkerFleetsCommand}
    */
-  public listWorkerFleets(
+  listWorkerFleets(
     args: ListWorkerFleetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListWorkerFleetsCommandOutput>;
-  public listWorkerFleets(
+  listWorkerFleets(
     args: ListWorkerFleetsCommandInput,
     cb: (err: any, data?: ListWorkerFleetsCommandOutput) => void
   ): void;
-  public listWorkerFleets(
+  listWorkerFleets(
     args: ListWorkerFleetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListWorkerFleetsCommandOutput) => void
   ): void;
-  public listWorkerFleets(
-    args: ListWorkerFleetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkerFleetsCommandOutput) => void),
-    cb?: (err: any, data?: ListWorkerFleetsCommandOutput) => void
-  ): Promise<ListWorkerFleetsCommandOutput> | void {
-    const command = new ListWorkerFleetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to list workers
+   * @see {@link ListWorkersCommand}
    */
-  public listWorkers(args: ListWorkersCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkersCommandOutput>;
-  public listWorkers(args: ListWorkersCommandInput, cb: (err: any, data?: ListWorkersCommandOutput) => void): void;
-  public listWorkers(
+  listWorkers(args: ListWorkersCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkersCommandOutput>;
+  listWorkers(args: ListWorkersCommandInput, cb: (err: any, data?: ListWorkersCommandOutput) => void): void;
+  listWorkers(
     args: ListWorkersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListWorkersCommandOutput) => void
   ): void;
-  public listWorkers(
-    args: ListWorkersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkersCommandOutput) => void),
-    cb?: (err: any, data?: ListWorkersCommandOutput) => void
-  ): Promise<ListWorkersCommandOutput> | void {
-    const command = new ListWorkersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to update a destination
+   * @see {@link UpdateDestinationCommand}
    */
-  public updateDestination(
+  updateDestination(
     args: UpdateDestinationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDestinationCommandOutput>;
-  public updateDestination(
+  updateDestination(
     args: UpdateDestinationCommandInput,
     cb: (err: any, data?: UpdateDestinationCommandOutput) => void
   ): void;
-  public updateDestination(
+  updateDestination(
     args: UpdateDestinationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDestinationCommandOutput) => void
   ): void;
-  public updateDestination(
-    args: UpdateDestinationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDestinationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDestinationCommandOutput) => void
-  ): Promise<UpdateDestinationCommandOutput> | void {
-    const command = new UpdateDestinationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to update a site
+   * @see {@link UpdateSiteCommand}
    */
-  public updateSite(args: UpdateSiteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSiteCommandOutput>;
-  public updateSite(args: UpdateSiteCommandInput, cb: (err: any, data?: UpdateSiteCommandOutput) => void): void;
-  public updateSite(
+  updateSite(args: UpdateSiteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSiteCommandOutput>;
+  updateSite(args: UpdateSiteCommandInput, cb: (err: any, data?: UpdateSiteCommandOutput) => void): void;
+  updateSite(
     args: UpdateSiteCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSiteCommandOutput) => void
   ): void;
-  public updateSite(
-    args: UpdateSiteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSiteCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSiteCommandOutput) => void
-  ): Promise<UpdateSiteCommandOutput> | void {
-    const command = new UpdateSiteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to update a worker
+   * @see {@link UpdateWorkerCommand}
    */
-  public updateWorker(
-    args: UpdateWorkerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateWorkerCommandOutput>;
-  public updateWorker(args: UpdateWorkerCommandInput, cb: (err: any, data?: UpdateWorkerCommandOutput) => void): void;
-  public updateWorker(
+  updateWorker(args: UpdateWorkerCommandInput, options?: __HttpHandlerOptions): Promise<UpdateWorkerCommandOutput>;
+  updateWorker(args: UpdateWorkerCommandInput, cb: (err: any, data?: UpdateWorkerCommandOutput) => void): void;
+  updateWorker(
     args: UpdateWorkerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkerCommandOutput) => void
   ): void;
-  public updateWorker(
-    args: UpdateWorkerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkerCommandOutput) => void),
-    cb?: (err: any, data?: UpdateWorkerCommandOutput) => void
-  ): Promise<UpdateWorkerCommandOutput> | void {
-    const command = new UpdateWorkerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * Grants permission to update a worker fleet
+   * @see {@link UpdateWorkerFleetCommand}
    */
-  public updateWorkerFleet(
+  updateWorkerFleet(
     args: UpdateWorkerFleetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateWorkerFleetCommandOutput>;
-  public updateWorkerFleet(
+  updateWorkerFleet(
     args: UpdateWorkerFleetCommandInput,
     cb: (err: any, data?: UpdateWorkerFleetCommandOutput) => void
   ): void;
-  public updateWorkerFleet(
+  updateWorkerFleet(
     args: UpdateWorkerFleetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkerFleetCommandOutput) => void
   ): void;
-  public updateWorkerFleet(
-    args: UpdateWorkerFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkerFleetCommandOutput) => void),
-    cb?: (err: any, data?: UpdateWorkerFleetCommandOutput) => void
-  ): Promise<UpdateWorkerFleetCommandOutput> | void {
-    const command = new UpdateWorkerFleetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * An example service, deployed with the Octane Service creator,
+ * which will echo the string
+ */
+export class IoTRoboRunner extends IoTRoboRunnerClient implements IoTRoboRunner {}
+createAggregatedClient(commands, IoTRoboRunner);

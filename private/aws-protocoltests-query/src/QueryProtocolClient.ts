@@ -67,6 +67,7 @@ import {
   FlattenedXmlMapWithXmlNamespaceCommandInput,
   FlattenedXmlMapWithXmlNamespaceCommandOutput,
 } from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
+import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "./commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
 import {
   HostWithPathOperationCommandInput,
@@ -105,6 +106,9 @@ import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "./command
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./commands/XmlTimestampsCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DatetimeOffsetsCommandInput
   | EmptyInputAndEmptyOutputCommandInput
@@ -113,6 +117,7 @@ export type ServiceInputTypes =
   | FlattenedXmlMapCommandInput
   | FlattenedXmlMapWithXmlNameCommandInput
   | FlattenedXmlMapWithXmlNamespaceCommandInput
+  | FractionalSecondsCommandInput
   | GreetingWithErrorsCommandInput
   | HostWithPathOperationCommandInput
   | IgnoresWrappingXmlNameCommandInput
@@ -138,6 +143,9 @@ export type ServiceInputTypes =
   | XmlNamespacesCommandInput
   | XmlTimestampsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DatetimeOffsetsCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
@@ -146,6 +154,7 @@ export type ServiceOutputTypes =
   | FlattenedXmlMapCommandOutput
   | FlattenedXmlMapWithXmlNameCommandOutput
   | FlattenedXmlMapWithXmlNamespaceCommandOutput
+  | FractionalSecondsCommandOutput
   | GreetingWithErrorsCommandOutput
   | HostWithPathOperationCommandOutput
   | IgnoresWrappingXmlNameCommandOutput
@@ -171,6 +180,9 @@ export type ServiceOutputTypes =
   | XmlNamespacesCommandOutput
   | XmlTimestampsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -178,7 +190,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -282,11 +294,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type QueryProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -295,10 +310,15 @@ type QueryProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   UserAgentInputConfig;
 /**
- * The configuration interface of QueryProtocolClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of QueryProtocolClient class constructor that set the region, credentials and other options.
  */
 export interface QueryProtocolClientConfig extends QueryProtocolClientConfigType {}
 
+/**
+ * @public
+ */
 type QueryProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -307,11 +327,14 @@ type QueryProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig;
 /**
- * The resolved configuration interface of QueryProtocolClient class. This is resolved and normalized from the {@link QueryProtocolClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of QueryProtocolClient class. This is resolved and normalized from the {@link QueryProtocolClientConfig | constructor configuration interface}.
  */
 export interface QueryProtocolClientResolvedConfig extends QueryProtocolClientResolvedConfigType {}
 
 /**
+ * @public
  * A query service that sends query requests and XML responses.
  */
 export class QueryProtocolClient extends __Client<

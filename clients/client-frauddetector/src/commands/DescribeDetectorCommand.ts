@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  DescribeDetectorRequest,
-  DescribeDetectorRequestFilterSensitiveLog,
-  DescribeDetectorResult,
-  DescribeDetectorResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDetectorCommand,
-  serializeAws_json1_1DescribeDetectorCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDetectorRequest, DescribeDetectorResult } from "../models/models_0";
+import { de_DescribeDetectorCommand, se_DescribeDetectorCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDetectorCommand}.
  */
 export interface DescribeDetectorCommandInput extends DescribeDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDetectorCommand}.
  */
 export interface DescribeDetectorCommandOutput extends DescribeDetectorResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all versions for a specified detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResult, _
  * import { FraudDetectorClient, DescribeDetectorCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DescribeDetectorCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // DescribeDetectorRequest
+ *   detectorId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeDetectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDetectorCommandInput - {@link DescribeDetectorCommandInput}
+ * @returns {@link DescribeDetectorCommandOutput}
  * @see {@link DescribeDetectorCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectorCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +88,9 @@ export class DescribeDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class DescribeDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDetectorResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class DescribeDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDetectorCommand(input, context);
+    return se_DescribeDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDetectorCommandOutput> {
-    return deserializeAws_json1_1DescribeDetectorCommand(output, context);
+    return de_DescribeDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

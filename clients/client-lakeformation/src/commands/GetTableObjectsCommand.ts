@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  GetTableObjectsRequest,
-  GetTableObjectsRequestFilterSensitiveLog,
-  GetTableObjectsResponse,
-  GetTableObjectsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTableObjectsCommand,
-  serializeAws_restJson1GetTableObjectsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTableObjectsRequest, GetTableObjectsResponse } from "../models/models_0";
+import { de_GetTableObjectsCommand, se_GetTableObjectsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTableObjectsCommand}.
  */
 export interface GetTableObjectsCommandInput extends GetTableObjectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTableObjectsCommand}.
  */
 export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the set of Amazon S3 objects that make up the specified governed table. A transaction ID or timestamp can be specified for time-travel queries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,16 +39,28 @@ export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, _
  * import { LakeFormationClient, GetTableObjectsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetTableObjectsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // GetTableObjectsRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   TransactionId: "STRING_VALUE",
+ *   QueryAsOfTime: new Date("TIMESTAMP"),
+ *   PartitionPredicate: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetTableObjectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTableObjectsCommandInput - {@link GetTableObjectsCommandInput}
+ * @returns {@link GetTableObjectsCommandOutput}
  * @see {@link GetTableObjectsCommandInput} for command's `input` shape.
  * @see {@link GetTableObjectsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -90,6 +99,9 @@ export class GetTableObjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTableObjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class GetTableObjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTableObjectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTableObjectsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +141,18 @@ export class GetTableObjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTableObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTableObjectsCommand(input, context);
+    return se_GetTableObjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableObjectsCommandOutput> {
-    return deserializeAws_restJson1GetTableObjectsCommand(output, context);
+    return de_GetTableObjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

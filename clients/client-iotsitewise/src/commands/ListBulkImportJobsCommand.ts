@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListBulkImportJobsRequest,
-  ListBulkImportJobsRequestFilterSensitiveLog,
-  ListBulkImportJobsResponse,
-  ListBulkImportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBulkImportJobsCommand,
-  serializeAws_restJson1ListBulkImportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBulkImportJobsRequest, ListBulkImportJobsResponse } from "../models/models_0";
+import { de_ListBulkImportJobsCommand, se_ListBulkImportJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBulkImportJobsCommand}.
  */
 export interface ListBulkImportJobsCommandInput extends ListBulkImportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBulkImportJobsCommand}.
  */
 export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of bulk import job requests. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List bulk
  *         import jobs (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsRespo
  * import { IoTSiteWiseClient, ListBulkImportJobsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListBulkImportJobsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // ListBulkImportJobsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: "ALL" || "PENDING" || "RUNNING" || "CANCELLED" || "FAILED" || "COMPLETED_WITH_FAILURES" || "COMPLETED",
+ * };
  * const command = new ListBulkImportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBulkImportJobsCommandInput - {@link ListBulkImportJobsCommandInput}
+ * @returns {@link ListBulkImportJobsCommandOutput}
  * @see {@link ListBulkImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListBulkImportJobsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -86,6 +90,9 @@ export class ListBulkImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBulkImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class ListBulkImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBulkImportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBulkImportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class ListBulkImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBulkImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBulkImportJobsCommand(input, context);
+    return se_ListBulkImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBulkImportJobsCommandOutput> {
-    return deserializeAws_restJson1ListBulkImportJobsCommand(output, context);
+    return de_ListBulkImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

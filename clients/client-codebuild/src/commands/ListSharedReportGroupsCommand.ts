@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  ListSharedReportGroupsInput,
-  ListSharedReportGroupsInputFilterSensitiveLog,
-  ListSharedReportGroupsOutput,
-  ListSharedReportGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSharedReportGroupsCommand,
-  serializeAws_json1_1ListSharedReportGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSharedReportGroupsInput, ListSharedReportGroupsOutput } from "../models/models_0";
+import { de_ListSharedReportGroupsCommand, se_ListSharedReportGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSharedReportGroupsCommand}.
  */
 export interface ListSharedReportGroupsCommandInput extends ListSharedReportGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSharedReportGroupsCommand}.
  */
 export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Gets a list of report groups that are shared with other Amazon Web Services accounts or users.
  *         </p>
  * @example
@@ -43,10 +40,18 @@ export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGro
  * import { CodeBuildClient, ListSharedReportGroupsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListSharedReportGroupsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // ListSharedReportGroupsInput
+ *   sortOrder: "STRING_VALUE",
+ *   sortBy: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSharedReportGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSharedReportGroupsCommandInput - {@link ListSharedReportGroupsCommandInput}
+ * @returns {@link ListSharedReportGroupsCommandOutput}
  * @see {@link ListSharedReportGroupsCommandInput} for command's `input` shape.
  * @see {@link ListSharedReportGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -73,6 +78,9 @@ export class ListSharedReportGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSharedReportGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +109,8 @@ export class ListSharedReportGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSharedReportGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSharedReportGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +120,18 @@ export class ListSharedReportGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSharedReportGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSharedReportGroupsCommand(input, context);
+    return se_ListSharedReportGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSharedReportGroupsCommandOutput> {
-    return deserializeAws_json1_1ListSharedReportGroupsCommand(output, context);
+    return de_ListSharedReportGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  UpdateDomainRequest,
-  UpdateDomainRequestFilterSensitiveLog,
-  UpdateDomainResponse,
-  UpdateDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDomainCommand,
-  serializeAws_restJson1UpdateDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_0";
+import { de_UpdateDomainCommand, se_UpdateDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainCommand}.
  */
 export interface UpdateDomainCommandInput extends UpdateDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainCommand}.
  */
 export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties of a domain, including creating or selecting a dead letter queue
  *          or an encryption key.</p>
  *          <p>After a domain is created, the name can’t be changed.</p>
@@ -50,10 +47,49 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * import { CustomerProfilesClient, UpdateDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, UpdateDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // UpdateDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   DefaultExpirationDays: Number("int"),
+ *   DefaultEncryptionKey: "STRING_VALUE",
+ *   DeadLetterQueueUrl: "STRING_VALUE",
+ *   Matching: { // MatchingRequest
+ *     Enabled: true || false, // required
+ *     JobSchedule: { // JobSchedule
+ *       DayOfTheWeek: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
+ *       Time: "STRING_VALUE", // required
+ *     },
+ *     AutoMerging: { // AutoMerging
+ *       Enabled: true || false, // required
+ *       Consolidation: { // Consolidation
+ *         MatchingAttributesList: [ // MatchingAttributesList // required
+ *           [ // MatchingAttributes
+ *             "STRING_VALUE",
+ *           ],
+ *         ],
+ *       },
+ *       ConflictResolution: { // ConflictResolution
+ *         ConflictResolvingModel: "RECENCY" || "SOURCE", // required
+ *         SourceName: "STRING_VALUE",
+ *       },
+ *       MinAllowedConfidenceScoreForMerging: Number("double"),
+ *     },
+ *     ExportingConfig: { // ExportingConfig
+ *       S3Exporting: { // S3ExportingConfig
+ *         S3BucketName: "STRING_VALUE", // required
+ *         S3KeyName: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainCommandInput - {@link UpdateDomainCommandInput}
+ * @returns {@link UpdateDomainCommandOutput}
  * @see {@link UpdateDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -92,6 +128,9 @@ export class UpdateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +157,8 @@ export class UpdateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +168,18 @@ export class UpdateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDomainCommand(input, context);
+    return se_UpdateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainCommandOutput> {
-    return deserializeAws_restJson1UpdateDomainCommand(output, context);
+    return de_UpdateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { AbortVaultLockInput, AbortVaultLockInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1AbortVaultLockCommand,
-  serializeAws_restJson1AbortVaultLockCommand,
-} from "../protocols/Aws_restJson1";
+import { AbortVaultLockInput } from "../models/models_0";
+import { de_AbortVaultLockCommand, se_AbortVaultLockCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AbortVaultLockCommand}.
  */
 export interface AbortVaultLockCommandInput extends AbortVaultLockInput {}
 /**
+ * @public
+ *
  * The output of {@link AbortVaultLockCommand}.
  */
 export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation aborts the vault locking process if the vault lock is not in the
  *             <code>Locked</code> state. If the vault lock is in the <code>Locked</code> state when
  *          this operation is requested, the operation returns an <code>AccessDeniedException</code>
@@ -50,10 +52,16 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, AbortVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, AbortVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // AbortVaultLockInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new AbortVaultLockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AbortVaultLockCommandInput - {@link AbortVaultLockCommandInput}
+ * @returns {@link AbortVaultLockCommandOutput}
  * @see {@link AbortVaultLockCommandInput} for command's `input` shape.
  * @see {@link AbortVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -102,6 +110,9 @@ export class AbortVaultLockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AbortVaultLockCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +141,8 @@ export class AbortVaultLockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AbortVaultLockInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +152,18 @@ export class AbortVaultLockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AbortVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AbortVaultLockCommand(input, context);
+    return se_AbortVaultLockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AbortVaultLockCommandOutput> {
-    return deserializeAws_restJson1AbortVaultLockCommand(output, context);
+    return de_AbortVaultLockCommand(output, context);
   }
 
   // Start section: command_body_extra

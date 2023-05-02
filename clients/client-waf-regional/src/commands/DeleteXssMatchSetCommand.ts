@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteXssMatchSetRequest,
-  DeleteXssMatchSetRequestFilterSensitiveLog,
-  DeleteXssMatchSetResponse,
-  DeleteXssMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteXssMatchSetCommand,
-  serializeAws_json1_1DeleteXssMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteXssMatchSetRequest, DeleteXssMatchSetResponse } from "../models/models_0";
+import { de_DeleteXssMatchSetCommand, se_DeleteXssMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteXssMatchSetCommand}.
  */
 export interface DeleteXssMatchSetCommandInput extends DeleteXssMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteXssMatchSetCommand}.
  */
 export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -66,10 +63,16 @@ export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetRespons
  * import { WAFRegionalClient, DeleteXssMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteXssMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // DeleteXssMatchSetRequest
+ *   XssMatchSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteXssMatchSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteXssMatchSetCommandInput - {@link DeleteXssMatchSetCommandInput}
+ * @returns {@link DeleteXssMatchSetCommandOutput}
  * @see {@link DeleteXssMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -151,6 +154,9 @@ export class DeleteXssMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteXssMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -179,8 +185,8 @@ export class DeleteXssMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteXssMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteXssMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -190,12 +196,18 @@ export class DeleteXssMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteXssMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteXssMatchSetCommand(input, context);
+    return se_DeleteXssMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteXssMatchSetCommandOutput> {
-    return deserializeAws_json1_1DeleteXssMatchSetCommand(output, context);
+    return de_DeleteXssMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

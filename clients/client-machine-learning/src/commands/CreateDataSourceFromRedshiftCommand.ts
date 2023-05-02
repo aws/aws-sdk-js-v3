@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
+import { CreateDataSourceFromRedshiftInput, CreateDataSourceFromRedshiftOutput } from "../models/models_0";
 import {
-  CreateDataSourceFromRedshiftInput,
-  CreateDataSourceFromRedshiftInputFilterSensitiveLog,
-  CreateDataSourceFromRedshiftOutput,
-  CreateDataSourceFromRedshiftOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDataSourceFromRedshiftCommand,
-  serializeAws_json1_1CreateDataSourceFromRedshiftCommand,
+  de_CreateDataSourceFromRedshiftCommand,
+  se_CreateDataSourceFromRedshiftCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataSourceFromRedshiftCommand}.
  */
 export interface CreateDataSourceFromRedshiftCommandInput extends CreateDataSourceFromRedshiftInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataSourceFromRedshiftCommand}.
  */
 export interface CreateDataSourceFromRedshiftCommandOutput
@@ -37,6 +36,7 @@ export interface CreateDataSourceFromRedshiftCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>DataSource</code> from a database hosted on an Amazon Redshift cluster. A
  * 		<code>DataSource</code> references data that can be used to perform either <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code>
  * 		operations.</p>
@@ -76,10 +76,33 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  * import { MachineLearningClient, CreateDataSourceFromRedshiftCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateDataSourceFromRedshiftCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // CreateDataSourceFromRedshiftInput
+ *   DataSourceId: "STRING_VALUE", // required
+ *   DataSourceName: "STRING_VALUE",
+ *   DataSpec: { // RedshiftDataSpec
+ *     DatabaseInformation: { // RedshiftDatabase
+ *       DatabaseName: "STRING_VALUE", // required
+ *       ClusterIdentifier: "STRING_VALUE", // required
+ *     },
+ *     SelectSqlQuery: "STRING_VALUE", // required
+ *     DatabaseCredentials: { // RedshiftDatabaseCredentials
+ *       Username: "STRING_VALUE", // required
+ *       Password: "STRING_VALUE", // required
+ *     },
+ *     S3StagingLocation: "STRING_VALUE", // required
+ *     DataRearrangement: "STRING_VALUE",
+ *     DataSchema: "STRING_VALUE",
+ *     DataSchemaUri: "STRING_VALUE",
+ *   },
+ *   RoleARN: "STRING_VALUE", // required
+ *   ComputeStatistics: true || false,
+ * };
  * const command = new CreateDataSourceFromRedshiftCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataSourceFromRedshiftCommandInput - {@link CreateDataSourceFromRedshiftCommandInput}
+ * @returns {@link CreateDataSourceFromRedshiftCommandOutput}
  * @see {@link CreateDataSourceFromRedshiftCommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceFromRedshiftCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -112,6 +135,9 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataSourceFromRedshiftCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +166,8 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataSourceFromRedshiftInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataSourceFromRedshiftOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,15 +177,21 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataSourceFromRedshiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDataSourceFromRedshiftCommand(input, context);
+    return se_CreateDataSourceFromRedshiftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDataSourceFromRedshiftCommandOutput> {
-    return deserializeAws_json1_1CreateDataSourceFromRedshiftCommand(output, context);
+    return de_CreateDataSourceFromRedshiftCommand(output, context);
   }
 
   // Start section: command_body_extra

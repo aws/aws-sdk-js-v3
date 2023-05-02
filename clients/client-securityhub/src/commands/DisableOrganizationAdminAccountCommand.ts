@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DisableOrganizationAdminAccountRequest, DisableOrganizationAdminAccountResponse } from "../models/models_2";
 import {
-  DisableOrganizationAdminAccountRequest,
-  DisableOrganizationAdminAccountRequestFilterSensitiveLog,
-  DisableOrganizationAdminAccountResponse,
-  DisableOrganizationAdminAccountResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DisableOrganizationAdminAccountCommand,
-  serializeAws_restJson1DisableOrganizationAdminAccountCommand,
+  de_DisableOrganizationAdminAccountCommand,
+  se_DisableOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableOrganizationAdminAccountCommand}.
  */
 export interface DisableOrganizationAdminAccountCommandInput extends DisableOrganizationAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableOrganizationAdminAccountCommand}.
  */
 export interface DisableOrganizationAdminAccountCommandOutput
@@ -37,6 +36,7 @@ export interface DisableOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables a Security Hub administrator account. Can only be called by the organization
  *          management account.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DisableOrganizationAdminAccountCommandOutput
  * import { SecurityHubClient, DisableOrganizationAdminAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisableOrganizationAdminAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DisableOrganizationAdminAccountRequest
+ *   AdminAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DisableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableOrganizationAdminAccountCommandInput - {@link DisableOrganizationAdminAccountCommandInput}
+ * @returns {@link DisableOrganizationAdminAccountCommandOutput}
  * @see {@link DisableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DisableOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -68,6 +73,17 @@ export interface DisableOrganizationAdminAccountCommandOutput
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To remove a Security Hub administrator account
+ * ```javascript
+ * // The following example removes the Security Hub administrator account in the Region from which the operation was executed. This operation doesn't remove the delegated administrator account in AWS Organizations.
+ * const input = {
+ *   "AdminAccountId": "123456789012"
+ * };
+ * const command = new DisableOrganizationAdminAccountCommand(input);
+ * await client.send(command);
+ * // example id: to-remove-a-security-hub-administrator-account-1676480521876
+ * ```
+ *
  */
 export class DisableOrganizationAdminAccountCommand extends $Command<
   DisableOrganizationAdminAccountCommandInput,
@@ -86,6 +102,9 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +133,8 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableOrganizationAdminAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableOrganizationAdminAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +144,24 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableOrganizationAdminAccountCommand(input, context);
+    return se_DisableOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_restJson1DisableOrganizationAdminAccountCommand(output, context);
+    return de_DisableOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

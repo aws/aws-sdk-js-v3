@@ -16,53 +16,54 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import {
   GetInstanceAccessInput,
-  GetInstanceAccessInputFilterSensitiveLog,
   GetInstanceAccessOutput,
   GetInstanceAccessOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetInstanceAccessCommand,
-  serializeAws_json1_1GetInstanceAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetInstanceAccessCommand, se_GetInstanceAccessCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceAccessCommand}.
  */
 export interface GetInstanceAccessCommandInput extends GetInstanceAccessInput {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceAccessCommand}.
  */
 export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests remote access to a fleet instance. Remote access is useful for debugging,
  *             gathering benchmarking data, or observing activity in real time. </p>
- *         <p>To remotely access an instance, you need credentials that match the operating system
- *             of the instance. For a Windows instance, GameLift returns a user name and password as
- *             strings for use with a Windows Remote Desktop client. For a Linux instance, GameLift
+ *          <p>To remotely access an instance, you need credentials that match the operating system
+ *             of the instance. For a Windows instance, Amazon GameLift returns a user name and password as
+ *             strings for use with a Windows Remote Desktop client. For a Linux instance, Amazon GameLift
  *             returns a user name and RSA private key, also as strings, for use with an SSH client.
  *             The private key must be saved in the proper format to a <code>.pem</code> file before
  *             using. If you're making this request using the CLI, saving the secret can be handled
  *             as part of the <code>GetInstanceAccess</code> request, as shown in one of the examples
  *             for this operation. </p>
- *         <p>To request access to a specific instance, specify the IDs of both the instance and the
+ *          <p>To request access to a specific instance, specify the IDs of both the instance and the
  *             fleet it belongs to. You can retrieve a fleet's instance IDs by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html">DescribeInstances</a>. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely Access Fleet
  *                 Instances</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug Fleet
  *                 Issues</a>
  *          </p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,10 +71,16 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  * import { GameLiftClient, GetInstanceAccessCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, GetInstanceAccessCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // GetInstanceAccessInput
+ *   FleetId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new GetInstanceAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceAccessCommandInput - {@link GetInstanceAccessCommandInput}
+ * @returns {@link GetInstanceAccessCommandOutput}
  * @see {@link GetInstanceAccessCommandInput} for command's `input` shape.
  * @see {@link GetInstanceAccessCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -111,6 +118,9 @@ export class GetInstanceAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,7 +149,7 @@ export class GetInstanceAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceAccessInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetInstanceAccessOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -150,12 +160,18 @@ export class GetInstanceAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstanceAccessCommand(input, context);
+    return se_GetInstanceAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceAccessCommandOutput> {
-    return deserializeAws_json1_1GetInstanceAccessCommand(output, context);
+    return de_GetInstanceAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  DeleteContainerInput,
-  DeleteContainerInputFilterSensitiveLog,
-  DeleteContainerOutput,
-  DeleteContainerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteContainerCommand,
-  serializeAws_json1_1DeleteContainerCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteContainerInput, DeleteContainerOutput } from "../models/models_0";
+import { de_DeleteContainerCommand, se_DeleteContainerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContainerCommand}.
  */
 export interface DeleteContainerCommandInput extends DeleteContainerInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContainerCommand}.
  */
 export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified container. Before you make a <code>DeleteContainer</code>
  *          request, delete any objects in the container or in any folders in the container. You can
  *          delete only empty containers. </p>
@@ -44,10 +41,15 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  * import { MediaStoreClient, DeleteContainerCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DeleteContainerCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = { // DeleteContainerInput
+ *   ContainerName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContainerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContainerCommandInput - {@link DeleteContainerCommandInput}
+ * @returns {@link DeleteContainerCommandOutput}
  * @see {@link DeleteContainerCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -81,6 +83,9 @@ export class DeleteContainerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContainerCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteContainerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContainerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContainerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteContainerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContainerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteContainerCommand(input, context);
+    return se_DeleteContainerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContainerCommandOutput> {
-    return deserializeAws_json1_1DeleteContainerCommand(output, context);
+    return de_DeleteContainerCommand(output, context);
   }
 
   // Start section: command_body_extra

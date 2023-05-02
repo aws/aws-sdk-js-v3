@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  GetChannelPolicyRequest,
-  GetChannelPolicyRequestFilterSensitiveLog,
-  GetChannelPolicyResponse,
-  GetChannelPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetChannelPolicyCommand,
-  serializeAws_restJson1GetChannelPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetChannelPolicyRequest, GetChannelPolicyResponse } from "../models/models_0";
+import { de_GetChannelPolicyCommand, se_GetChannelPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChannelPolicyCommand}.
  */
 export interface GetChannelPolicyCommandInput extends GetChannelPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChannelPolicyCommand}.
  */
 export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the channel's IAM policy. IAM policies are used to control access to your channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse,
  * import { MediaTailorClient, GetChannelPolicyCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, GetChannelPolicyCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // GetChannelPolicyRequest
+ *   ChannelName: "STRING_VALUE", // required
+ * };
  * const command = new GetChannelPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChannelPolicyCommandInput - {@link GetChannelPolicyCommandInput}
+ * @returns {@link GetChannelPolicyCommandOutput}
  * @see {@link GetChannelPolicyCommandInput} for command's `input` shape.
  * @see {@link GetChannelPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +71,9 @@ export class GetChannelPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChannelPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +102,8 @@ export class GetChannelPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChannelPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetChannelPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +113,18 @@ export class GetChannelPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChannelPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetChannelPolicyCommand(input, context);
+    return se_GetChannelPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelPolicyCommandOutput> {
-    return deserializeAws_restJson1GetChannelPolicyCommand(output, context);
+    return de_GetChannelPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

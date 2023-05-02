@@ -14,23 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketAclRequest, PutBucketAclRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketAclCommand,
-  serializeAws_restXmlPutBucketAclCommand,
-} from "../protocols/Aws_restXml";
+import { PutBucketAclRequest } from "../models/models_0";
+import { de_PutBucketAclCommand, se_PutBucketAclCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketAclCommand}.
  */
 export interface PutBucketAclCommandInput extends PutBucketAclRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketAclCommand}.
  */
 export interface PutBucketAclCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the permissions on an existing bucket using access control lists (ACL). For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. To set
  *          the ACL of a bucket, you must have <code>WRITE_ACP</code> permission.</p>
@@ -226,10 +228,42 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketAclRequest
+ *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",
+ *   AccessControlPolicy: { // AccessControlPolicy
+ *     Grants: [ // Grants
+ *       { // Grant
+ *         Grantee: { // Grantee
+ *           DisplayName: "STRING_VALUE",
+ *           EmailAddress: "STRING_VALUE",
+ *           ID: "STRING_VALUE",
+ *           URI: "STRING_VALUE",
+ *           Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ *         },
+ *         Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *       },
+ *     ],
+ *     Owner: { // Owner
+ *       DisplayName: "STRING_VALUE",
+ *       ID: "STRING_VALUE",
+ *     },
+ *   },
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   GrantFullControl: "STRING_VALUE",
+ *   GrantRead: "STRING_VALUE",
+ *   GrantReadACP: "STRING_VALUE",
+ *   GrantWrite: "STRING_VALUE",
+ *   GrantWriteACP: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketAclCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketAclCommandInput - {@link PutBucketAclCommandInput}
+ * @returns {@link PutBucketAclCommandOutput}
  * @see {@link PutBucketAclCommandInput} for command's `input` shape.
  * @see {@link PutBucketAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -272,6 +306,9 @@ export class PutBucketAclCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -305,8 +342,8 @@ export class PutBucketAclCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketAclRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -316,12 +353,18 @@ export class PutBucketAclCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketAclCommand(input, context);
+    return se_PutBucketAclCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketAclCommandOutput> {
-    return deserializeAws_restXmlPutBucketAclCommand(output, context);
+    return de_PutBucketAclCommand(output, context);
   }
 
   // Start section: command_body_extra

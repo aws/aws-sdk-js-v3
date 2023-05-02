@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  CreateVoiceConnectorGroupRequest,
-  CreateVoiceConnectorGroupRequestFilterSensitiveLog,
-  CreateVoiceConnectorGroupResponse,
-  CreateVoiceConnectorGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVoiceConnectorGroupCommand,
-  serializeAws_restJson1CreateVoiceConnectorGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateVoiceConnectorGroupRequest, CreateVoiceConnectorGroupResponse } from "../models/models_0";
+import { de_CreateVoiceConnectorGroupCommand, se_CreateVoiceConnectorGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVoiceConnectorGroupCommand}.
  */
 export interface CreateVoiceConnectorGroupCommandInput extends CreateVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVoiceConnectorGroupCommand}.
  */
 export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Chime Voice Connector group under the administrator's AWS account. You can
  *             associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector group by
  *             including <code>VoiceConnectorItems</code> in the request.</p>
@@ -46,10 +43,21 @@ export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConne
  * import { ChimeClient, CreateVoiceConnectorGroupCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateVoiceConnectorGroupRequest
+ *   Name: "STRING_VALUE", // required
+ *   VoiceConnectorItems: [ // VoiceConnectorItemList
+ *     { // VoiceConnectorItem
+ *       VoiceConnectorId: "STRING_VALUE", // required
+ *       Priority: Number("int"), // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVoiceConnectorGroupCommandInput - {@link CreateVoiceConnectorGroupCommandInput}
+ * @returns {@link CreateVoiceConnectorGroupCommandOutput}
  * @see {@link CreateVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link CreateVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +105,9 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +136,8 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVoiceConnectorGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVoiceConnectorGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,15 +147,21 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVoiceConnectorGroupCommand(input, context);
+    return se_CreateVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1CreateVoiceConnectorGroupCommand(output, context);
+    return de_CreateVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

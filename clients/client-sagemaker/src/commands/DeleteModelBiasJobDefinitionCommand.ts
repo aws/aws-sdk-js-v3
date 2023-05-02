@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteModelBiasJobDefinitionRequest } from "../models/models_1";
 import {
-  DeleteModelBiasJobDefinitionRequest,
-  DeleteModelBiasJobDefinitionRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteModelBiasJobDefinitionCommand,
-  serializeAws_json1_1DeleteModelBiasJobDefinitionCommand,
+  de_DeleteModelBiasJobDefinitionCommand,
+  se_DeleteModelBiasJobDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelBiasJobDefinitionCommand}.
  */
 export interface DeleteModelBiasJobDefinitionCommandInput extends DeleteModelBiasJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelBiasJobDefinitionCommand}.
  */
 export interface DeleteModelBiasJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon SageMaker model bias job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,15 @@ export interface DeleteModelBiasJobDefinitionCommandOutput extends __MetadataBea
  * import { SageMakerClient, DeleteModelBiasJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteModelBiasJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteModelBiasJobDefinitionRequest
+ *   JobDefinitionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteModelBiasJobDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelBiasJobDefinitionCommandInput - {@link DeleteModelBiasJobDefinitionCommandInput}
+ * @returns {@link DeleteModelBiasJobDefinitionCommandOutput}
  * @see {@link DeleteModelBiasJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteModelBiasJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteModelBiasJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelBiasJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +108,8 @@ export class DeleteModelBiasJobDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelBiasJobDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,15 +119,21 @@ export class DeleteModelBiasJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelBiasJobDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteModelBiasJobDefinitionCommand(input, context);
+    return se_DeleteModelBiasJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteModelBiasJobDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeleteModelBiasJobDefinitionCommand(output, context);
+    return de_DeleteModelBiasJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

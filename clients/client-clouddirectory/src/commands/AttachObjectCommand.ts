@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  AttachObjectRequest,
-  AttachObjectRequestFilterSensitiveLog,
-  AttachObjectResponse,
-  AttachObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AttachObjectCommand,
-  serializeAws_restJson1AttachObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { AttachObjectRequest, AttachObjectResponse } from "../models/models_0";
+import { de_AttachObjectCommand, se_AttachObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachObjectCommand}.
  */
 export interface AttachObjectCommandInput extends AttachObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachObjectCommand}.
  */
 export interface AttachObjectCommandOutput extends AttachObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an existing object to another object. An object can be accessed in two
  *       ways:</p>
  *          <ol>
@@ -52,10 +49,22 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  * import { CloudDirectoryClient, AttachObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AttachObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // AttachObjectRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ParentReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   ChildReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   LinkName: "STRING_VALUE", // required
+ * };
  * const command = new AttachObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachObjectCommandInput - {@link AttachObjectCommandInput}
+ * @returns {@link AttachObjectCommandOutput}
  * @see {@link AttachObjectCommandInput} for command's `input` shape.
  * @see {@link AttachObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -116,6 +125,9 @@ export class AttachObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +154,8 @@ export class AttachObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachObjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +165,18 @@ export class AttachObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AttachObjectCommand(input, context);
+    return se_AttachObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachObjectCommandOutput> {
-    return deserializeAws_restJson1AttachObjectCommand(output, context);
+    return de_AttachObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

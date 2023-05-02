@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWorkflowRequest,
-  CreateWorkflowRequestFilterSensitiveLog,
-  CreateWorkflowResponse,
-  CreateWorkflowResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateWorkflowRequest, CreateWorkflowResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1CreateWorkflowCommand,
-  serializeAws_restJson1CreateWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWorkflowCommand, se_CreateWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkflowCommand}.
  */
 export interface CreateWorkflowCommandInput extends CreateWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkflowCommand}.
  */
 export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,31 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * import { OmicsClient, CreateWorkflowCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CreateWorkflowCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // CreateWorkflowRequest
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   engine: "STRING_VALUE",
+ *   definitionZip: "BLOB_VALUE",
+ *   definitionUri: "STRING_VALUE",
+ *   main: "STRING_VALUE",
+ *   parameterTemplate: { // WorkflowParameterTemplate
+ *     "<keys>": { // WorkflowParameter
+ *       description: "STRING_VALUE",
+ *       optional: true || false,
+ *     },
+ *   },
+ *   storageCapacity: Number("int"),
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   requestId: "STRING_VALUE", // required
+ * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
+ * @returns {@link CreateWorkflowCommandOutput}
  * @see {@link CreateWorkflowCommandInput} for command's `input` shape.
  * @see {@link CreateWorkflowCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -93,6 +111,9 @@ export class CreateWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +142,8 @@ export class CreateWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +153,18 @@ export class CreateWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkflowCommand(input, context);
+    return se_CreateWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkflowCommandOutput> {
-    return deserializeAws_restJson1CreateWorkflowCommand(output, context);
+    return de_CreateWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

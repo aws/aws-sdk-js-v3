@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePackageImportJobRequest,
-  CreatePackageImportJobRequestFilterSensitiveLog,
-  CreatePackageImportJobResponse,
-  CreatePackageImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreatePackageImportJobRequest, CreatePackageImportJobResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1CreatePackageImportJobCommand,
-  serializeAws_restJson1CreatePackageImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePackageImportJobCommand, se_CreatePackageImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePackageImportJobCommand}.
  */
 export interface CreatePackageImportJobCommandInput extends CreatePackageImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePackageImportJobCommand}.
  */
 export interface CreatePackageImportJobCommandOutput extends CreatePackageImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a node package.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,40 @@ export interface CreatePackageImportJobCommandOutput extends CreatePackageImport
  * import { PanoramaClient, CreatePackageImportJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, CreatePackageImportJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // CreatePackageImportJobRequest
+ *   JobType: "STRING_VALUE", // required
+ *   InputConfig: { // PackageImportJobInputConfig
+ *     PackageVersionInputConfig: { // PackageVersionInputConfig
+ *       S3Location: { // S3Location
+ *         Region: "STRING_VALUE",
+ *         BucketName: "STRING_VALUE", // required
+ *         ObjectKey: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   OutputConfig: { // PackageImportJobOutputConfig
+ *     PackageVersionOutputConfig: { // PackageVersionOutputConfig
+ *       PackageName: "STRING_VALUE", // required
+ *       PackageVersion: "STRING_VALUE", // required
+ *       MarkLatest: true || false,
+ *     },
+ *   },
+ *   ClientToken: "STRING_VALUE", // required
+ *   JobTags: [ // JobTagsList
+ *     { // JobResourceTags
+ *       ResourceType: "STRING_VALUE", // required
+ *       Tags: { // TagMap // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreatePackageImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePackageImportJobCommandInput - {@link CreatePackageImportJobCommandInput}
+ * @returns {@link CreatePackageImportJobCommandOutput}
  * @see {@link CreatePackageImportJobCommandInput} for command's `input` shape.
  * @see {@link CreatePackageImportJobCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -81,6 +108,9 @@ export class CreatePackageImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePackageImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +139,8 @@ export class CreatePackageImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePackageImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePackageImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +150,18 @@ export class CreatePackageImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePackageImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePackageImportJobCommand(input, context);
+    return se_CreatePackageImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePackageImportJobCommandOutput> {
-    return deserializeAws_restJson1CreatePackageImportJobCommand(output, context);
+    return de_CreatePackageImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

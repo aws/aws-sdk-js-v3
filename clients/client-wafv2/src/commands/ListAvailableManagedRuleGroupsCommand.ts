@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListAvailableManagedRuleGroupsRequest, ListAvailableManagedRuleGroupsResponse } from "../models/models_0";
 import {
-  ListAvailableManagedRuleGroupsRequest,
-  ListAvailableManagedRuleGroupsRequestFilterSensitiveLog,
-  ListAvailableManagedRuleGroupsResponse,
-  ListAvailableManagedRuleGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAvailableManagedRuleGroupsCommand,
-  serializeAws_json1_1ListAvailableManagedRuleGroupsCommand,
+  de_ListAvailableManagedRuleGroupsCommand,
+  se_ListAvailableManagedRuleGroupsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailableManagedRuleGroupsCommand}.
  */
 export interface ListAvailableManagedRuleGroupsCommandInput extends ListAvailableManagedRuleGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailableManagedRuleGroupsCommand}.
  */
 export interface ListAvailableManagedRuleGroupsCommandOutput
@@ -37,6 +36,7 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an array of managed rule groups that are available for you to use. This list
  *          includes all Amazon Web Services Managed Rules rule groups and all of the Amazon Web Services Marketplace managed rule groups that you're
  *          subscribed to.</p>
@@ -46,10 +46,17 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
  * import { WAFV2Client, ListAvailableManagedRuleGroupsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListAvailableManagedRuleGroupsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // ListAvailableManagedRuleGroupsRequest
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListAvailableManagedRuleGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailableManagedRuleGroupsCommandInput - {@link ListAvailableManagedRuleGroupsCommandInput}
+ * @returns {@link ListAvailableManagedRuleGroupsCommandOutput}
  * @see {@link ListAvailableManagedRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableManagedRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -101,6 +108,9 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableManagedRuleGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +139,8 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAvailableManagedRuleGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAvailableManagedRuleGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +150,24 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAvailableManagedRuleGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableManagedRuleGroupsCommand(input, context);
+    return se_ListAvailableManagedRuleGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableManagedRuleGroupsCommandOutput> {
-    return deserializeAws_json1_1ListAvailableManagedRuleGroupsCommand(output, context);
+    return de_ListAvailableManagedRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

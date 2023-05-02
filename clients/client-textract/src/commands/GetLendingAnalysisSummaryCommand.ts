@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLendingAnalysisSummaryRequest,
-  GetLendingAnalysisSummaryRequestFilterSensitiveLog,
-  GetLendingAnalysisSummaryResponse,
-  GetLendingAnalysisSummaryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLendingAnalysisSummaryCommand,
-  serializeAws_json1_1GetLendingAnalysisSummaryCommand,
-} from "../protocols/Aws_json1_1";
+import { GetLendingAnalysisSummaryRequest, GetLendingAnalysisSummaryResponse } from "../models/models_0";
+import { de_GetLendingAnalysisSummaryCommand, se_GetLendingAnalysisSummaryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetLendingAnalysisSummaryCommand}.
  */
 export interface GetLendingAnalysisSummaryCommandInput extends GetLendingAnalysisSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLendingAnalysisSummaryCommand}.
  */
 export interface GetLendingAnalysisSummaryCommandOutput extends GetLendingAnalysisSummaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets summarized results for the <code>StartLendingAnalysis</code> operation, which analyzes
  *    text in a lending document. The returned summary consists of information about documents grouped
  *    together by a common document type. Information like detected signatures, page numbers, and split
@@ -53,10 +50,15 @@ export interface GetLendingAnalysisSummaryCommandOutput extends GetLendingAnalys
  * import { TextractClient, GetLendingAnalysisSummaryCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, GetLendingAnalysisSummaryCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // GetLendingAnalysisSummaryRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new GetLendingAnalysisSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLendingAnalysisSummaryCommandInput - {@link GetLendingAnalysisSummaryCommandInput}
+ * @returns {@link GetLendingAnalysisSummaryCommandOutput}
  * @see {@link GetLendingAnalysisSummaryCommandInput} for command's `input` shape.
  * @see {@link GetLendingAnalysisSummaryCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -114,6 +116,9 @@ export class GetLendingAnalysisSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLendingAnalysisSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +147,8 @@ export class GetLendingAnalysisSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLendingAnalysisSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLendingAnalysisSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,15 +158,21 @@ export class GetLendingAnalysisSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLendingAnalysisSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLendingAnalysisSummaryCommand(input, context);
+    return se_GetLendingAnalysisSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLendingAnalysisSummaryCommandOutput> {
-    return deserializeAws_json1_1GetLendingAnalysisSummaryCommand(output, context);
+    return de_GetLendingAnalysisSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAssociatedResourceRequest,
-  GetAssociatedResourceRequestFilterSensitiveLog,
-  GetAssociatedResourceResponse,
-  GetAssociatedResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssociatedResourceCommand,
-  serializeAws_restJson1GetAssociatedResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAssociatedResourceRequest, GetAssociatedResourceResponse } from "../models/models_0";
+import { de_GetAssociatedResourceCommand, se_GetAssociatedResourceCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssociatedResourceCommand}.
  */
 export interface GetAssociatedResourceCommandInput extends GetAssociatedResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssociatedResourceCommand}.
  */
 export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the resource associated with the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  * import { ServiceCatalogAppRegistryClient, GetAssociatedResourceCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, GetAssociatedResourceCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // GetAssociatedResourceRequest
+ *   application: "STRING_VALUE", // required
+ *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
+ *   resource: "STRING_VALUE", // required
+ * };
  * const command = new GetAssociatedResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssociatedResourceCommandInput - {@link GetAssociatedResourceCommandInput}
+ * @returns {@link GetAssociatedResourceCommandOutput}
  * @see {@link GetAssociatedResourceCommandInput} for command's `input` shape.
  * @see {@link GetAssociatedResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -82,6 +86,9 @@ export class GetAssociatedResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssociatedResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class GetAssociatedResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssociatedResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssociatedResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class GetAssociatedResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssociatedResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssociatedResourceCommand(input, context);
+    return se_GetAssociatedResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssociatedResourceCommandOutput> {
-    return deserializeAws_restJson1GetAssociatedResourceCommand(output, context);
+    return de_GetAssociatedResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

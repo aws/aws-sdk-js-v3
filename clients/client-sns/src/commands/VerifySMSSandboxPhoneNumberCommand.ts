@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  VerifySMSSandboxPhoneNumberInput,
-  VerifySMSSandboxPhoneNumberInputFilterSensitiveLog,
-  VerifySMSSandboxPhoneNumberResult,
-  VerifySMSSandboxPhoneNumberResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryVerifySMSSandboxPhoneNumberCommand,
-  serializeAws_queryVerifySMSSandboxPhoneNumberCommand,
-} from "../protocols/Aws_query";
+import { VerifySMSSandboxPhoneNumberInput, VerifySMSSandboxPhoneNumberResult } from "../models/models_0";
+import { de_VerifySMSSandboxPhoneNumberCommand, se_VerifySMSSandboxPhoneNumberCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link VerifySMSSandboxPhoneNumberCommand}.
  */
 export interface VerifySMSSandboxPhoneNumberCommandInput extends VerifySMSSandboxPhoneNumberInput {}
 /**
+ * @public
+ *
  * The output of {@link VerifySMSSandboxPhoneNumberCommand}.
  */
 export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Verifies a destination phone number with a one-time password (OTP) for the calling
  *             Amazon Web Services account.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -51,10 +48,16 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  * import { SNSClient, VerifySMSSandboxPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, VerifySMSSandboxPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // VerifySMSSandboxPhoneNumberInput
+ *   PhoneNumber: "STRING_VALUE", // required
+ *   OneTimePassword: "STRING_VALUE", // required
+ * };
  * const command = new VerifySMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifySMSSandboxPhoneNumberCommandInput - {@link VerifySMSSandboxPhoneNumberCommandInput}
+ * @returns {@link VerifySMSSandboxPhoneNumberCommandOutput}
  * @see {@link VerifySMSSandboxPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link VerifySMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -98,6 +101,9 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifySMSSandboxPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +132,8 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifySMSSandboxPhoneNumberInputFilterSensitiveLog,
-      outputFilterSensitiveLog: VerifySMSSandboxPhoneNumberResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,15 +143,21 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifySMSSandboxPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryVerifySMSSandboxPhoneNumberCommand(input, context);
+    return se_VerifySMSSandboxPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<VerifySMSSandboxPhoneNumberCommandOutput> {
-    return deserializeAws_queryVerifySMSSandboxPhoneNumberCommand(output, context);
+    return de_VerifySMSSandboxPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

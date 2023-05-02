@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  DescribeEventSourcesConfigRequest,
-  DescribeEventSourcesConfigRequestFilterSensitiveLog,
-  DescribeEventSourcesConfigResponse,
-  DescribeEventSourcesConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeEventSourcesConfigCommand,
-  serializeAws_restJson1DescribeEventSourcesConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeEventSourcesConfigRequest, DescribeEventSourcesConfigResponse } from "../models/models_0";
+import { de_DescribeEventSourcesConfigCommand, se_DescribeEventSourcesConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventSourcesConfigCommand}.
  */
 export interface DescribeEventSourcesConfigCommandInput extends DescribeEventSourcesConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventSourcesConfigCommand}.
  */
 export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSourcesConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the integration status of services that are integrated with DevOps Guru as Consumer
  * 			via EventBridge. The one service that can be integrated with DevOps Guru is Amazon CodeGuru
  * 			Profiler, which can produce proactive recommendations which can be stored and viewed in
@@ -45,10 +42,13 @@ export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSo
  * import { DevOpsGuruClient, DescribeEventSourcesConfigCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeEventSourcesConfigCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {};
  * const command = new DescribeEventSourcesConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventSourcesConfigCommandInput - {@link DescribeEventSourcesConfigCommandInput}
+ * @returns {@link DescribeEventSourcesConfigCommandOutput}
  * @see {@link DescribeEventSourcesConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSourcesConfigCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -88,6 +88,9 @@ export class DescribeEventSourcesConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventSourcesConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +119,8 @@ export class DescribeEventSourcesConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventSourcesConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventSourcesConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +130,21 @@ export class DescribeEventSourcesConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventSourcesConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeEventSourcesConfigCommand(input, context);
+    return se_DescribeEventSourcesConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventSourcesConfigCommandOutput> {
-    return deserializeAws_restJson1DescribeEventSourcesConfigCommand(output, context);
+    return de_DescribeEventSourcesConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

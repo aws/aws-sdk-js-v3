@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteCoreNetworkPolicyVersionRequest,
-  DeleteCoreNetworkPolicyVersionRequestFilterSensitiveLog,
-  DeleteCoreNetworkPolicyVersionResponse,
-  DeleteCoreNetworkPolicyVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCoreNetworkPolicyVersionRequest, DeleteCoreNetworkPolicyVersionResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand,
-  serializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand,
+  de_DeleteCoreNetworkPolicyVersionCommand,
+  se_DeleteCoreNetworkPolicyVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCoreNetworkPolicyVersionCommand}.
  */
 export interface DeleteCoreNetworkPolicyVersionCommandInput extends DeleteCoreNetworkPolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCoreNetworkPolicyVersionCommand}.
  */
 export interface DeleteCoreNetworkPolicyVersionCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteCoreNetworkPolicyVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a policy version from a core network. You can't delete the current LIVE policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DeleteCoreNetworkPolicyVersionCommandOutput
  * import { NetworkManagerClient, DeleteCoreNetworkPolicyVersionCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteCoreNetworkPolicyVersionCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // DeleteCoreNetworkPolicyVersionRequest
+ *   CoreNetworkId: "STRING_VALUE", // required
+ *   PolicyVersionId: Number("int"), // required
+ * };
  * const command = new DeleteCoreNetworkPolicyVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCoreNetworkPolicyVersionCommandInput - {@link DeleteCoreNetworkPolicyVersionCommandInput}
+ * @returns {@link DeleteCoreNetworkPolicyVersionCommandOutput}
  * @see {@link DeleteCoreNetworkPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteCoreNetworkPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -90,6 +96,9 @@ export class DeleteCoreNetworkPolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCoreNetworkPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +127,8 @@ export class DeleteCoreNetworkPolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCoreNetworkPolicyVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCoreNetworkPolicyVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +138,24 @@ export class DeleteCoreNetworkPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteCoreNetworkPolicyVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand(input, context);
+    return se_DeleteCoreNetworkPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCoreNetworkPolicyVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand(output, context);
+    return de_DeleteCoreNetworkPolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

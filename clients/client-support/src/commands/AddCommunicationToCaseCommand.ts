@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AddCommunicationToCaseRequest,
-  AddCommunicationToCaseRequestFilterSensitiveLog,
-  AddCommunicationToCaseResponse,
-  AddCommunicationToCaseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddCommunicationToCaseCommand,
-  serializeAws_json1_1AddCommunicationToCaseCommand,
-} from "../protocols/Aws_json1_1";
+import { AddCommunicationToCaseRequest, AddCommunicationToCaseResponse } from "../models/models_0";
+import { de_AddCommunicationToCaseCommand, se_AddCommunicationToCaseCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddCommunicationToCaseCommand}.
  */
 export interface AddCommunicationToCaseCommandInput extends AddCommunicationToCaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddCommunicationToCaseCommand}.
  */
 export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToCaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds additional customer communication to an Amazon Web Services Support case. Use the <code>caseId</code>
  *             parameter to identify the case to which to add communication. You can list a set of
  *             email addresses to copy on the communication by using the <code>ccEmailAddresses</code>
@@ -60,10 +57,20 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  * import { SupportClient, AddCommunicationToCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, AddCommunicationToCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = { // AddCommunicationToCaseRequest
+ *   caseId: "STRING_VALUE",
+ *   communicationBody: "STRING_VALUE", // required
+ *   ccEmailAddresses: [ // CcEmailAddressList
+ *     "STRING_VALUE",
+ *   ],
+ *   attachmentSetId: "STRING_VALUE",
+ * };
  * const command = new AddCommunicationToCaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddCommunicationToCaseCommandInput - {@link AddCommunicationToCaseCommandInput}
+ * @returns {@link AddCommunicationToCaseCommandOutput}
  * @see {@link AddCommunicationToCaseCommandInput} for command's `input` shape.
  * @see {@link AddCommunicationToCaseCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -100,6 +107,9 @@ export class AddCommunicationToCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddCommunicationToCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +138,8 @@ export class AddCommunicationToCaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddCommunicationToCaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddCommunicationToCaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +149,18 @@ export class AddCommunicationToCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddCommunicationToCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddCommunicationToCaseCommand(input, context);
+    return se_AddCommunicationToCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddCommunicationToCaseCommandOutput> {
-    return deserializeAws_json1_1AddCommunicationToCaseCommand(output, context);
+    return de_AddCommunicationToCaseCommand(output, context);
   }
 
   // Start section: command_body_extra

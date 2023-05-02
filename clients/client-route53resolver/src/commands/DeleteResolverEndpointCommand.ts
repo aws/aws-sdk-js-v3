@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteResolverEndpointRequest,
-  DeleteResolverEndpointRequestFilterSensitiveLog,
-  DeleteResolverEndpointResponse,
-  DeleteResolverEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResolverEndpointCommand,
-  serializeAws_json1_1DeleteResolverEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteResolverEndpointRequest, DeleteResolverEndpointResponse } from "../models/models_0";
+import { de_DeleteResolverEndpointCommand, se_DeleteResolverEndpointCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResolverEndpointCommand}.
  */
 export interface DeleteResolverEndpointCommandInput extends DeleteResolverEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResolverEndpointCommand}.
  */
 export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound
  * 			Resolver endpoint:</p>
  *          <ul>
@@ -54,10 +51,15 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
  * import { Route53ResolverClient, DeleteResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DeleteResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // DeleteResolverEndpointRequest
+ *   ResolverEndpointId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResolverEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResolverEndpointCommandInput - {@link DeleteResolverEndpointCommandInput}
+ * @returns {@link DeleteResolverEndpointCommandOutput}
  * @see {@link DeleteResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteResolverEndpointCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -96,6 +98,9 @@ export class DeleteResolverEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResolverEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +129,8 @@ export class DeleteResolverEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResolverEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResolverEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +140,18 @@ export class DeleteResolverEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResolverEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResolverEndpointCommand(input, context);
+    return se_DeleteResolverEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResolverEndpointCommandOutput> {
-    return deserializeAws_json1_1DeleteResolverEndpointCommand(output, context);
+    return de_DeleteResolverEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

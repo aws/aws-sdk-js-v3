@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  CreatePlatformVersionRequest,
-  CreatePlatformVersionRequestFilterSensitiveLog,
-  CreatePlatformVersionResult,
-  CreatePlatformVersionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreatePlatformVersionCommand,
-  serializeAws_queryCreatePlatformVersionCommand,
-} from "../protocols/Aws_query";
+import { CreatePlatformVersionRequest, CreatePlatformVersionResult } from "../models/models_0";
+import { de_CreatePlatformVersionCommand, se_CreatePlatformVersionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePlatformVersionCommand}.
  */
 export interface CreatePlatformVersionCommandInput extends CreatePlatformVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePlatformVersionCommand}.
  */
 export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new version of your custom platform.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,35 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  * import { ElasticBeanstalkClient, CreatePlatformVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CreatePlatformVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // CreatePlatformVersionRequest
+ *   PlatformName: "STRING_VALUE", // required
+ *   PlatformVersion: "STRING_VALUE", // required
+ *   PlatformDefinitionBundle: { // S3Location
+ *     S3Bucket: "STRING_VALUE",
+ *     S3Key: "STRING_VALUE",
+ *   },
+ *   EnvironmentName: "STRING_VALUE",
+ *   OptionSettings: [ // ConfigurationOptionSettingsList
+ *     { // ConfigurationOptionSetting
+ *       ResourceName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       OptionName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreatePlatformVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlatformVersionCommandInput - {@link CreatePlatformVersionCommandInput}
+ * @returns {@link CreatePlatformVersionCommandOutput}
  * @see {@link CreatePlatformVersionCommandInput} for command's `input` shape.
  * @see {@link CreatePlatformVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -79,6 +101,9 @@ export class CreatePlatformVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlatformVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +132,8 @@ export class CreatePlatformVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePlatformVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePlatformVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +143,18 @@ export class CreatePlatformVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlatformVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreatePlatformVersionCommand(input, context);
+    return se_CreatePlatformVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlatformVersionCommandOutput> {
-    return deserializeAws_queryCreatePlatformVersionCommand(output, context);
+    return de_CreatePlatformVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

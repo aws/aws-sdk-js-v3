@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteInstanceRequest,
-  DeleteInstanceRequestFilterSensitiveLog,
-  DeleteInstanceResult,
-  DeleteInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteInstanceCommand,
-  serializeAws_json1_1DeleteInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteInstanceRequest, DeleteInstanceResult } from "../models/models_0";
+import { de_DeleteInstanceCommand, se_DeleteInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceCommand}.
  */
 export interface DeleteInstanceCommandInput extends DeleteInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceCommand}.
  */
 export interface DeleteInstanceCommandOutput extends DeleteInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Lightsail instance.</p>
  *          <p>The <code>delete instance</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>instance name</code>. For more information,
@@ -45,10 +42,16 @@ export interface DeleteInstanceCommandOutput extends DeleteInstanceResult, __Met
  * import { LightsailClient, DeleteInstanceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteInstanceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteInstanceRequest
+ *   instanceName: "STRING_VALUE", // required
+ *   forceDeleteAddOns: true || false,
+ * };
  * const command = new DeleteInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceCommandInput - {@link DeleteInstanceCommandInput}
+ * @returns {@link DeleteInstanceCommandOutput}
  * @see {@link DeleteInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +105,9 @@ export class DeleteInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +136,8 @@ export class DeleteInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +147,18 @@ export class DeleteInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInstanceCommand(input, context);
+    return se_DeleteInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceCommandOutput> {
-    return deserializeAws_json1_1DeleteInstanceCommand(output, context);
+    return de_DeleteInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteEndpointAccessMessage,
-  DeleteEndpointAccessMessageFilterSensitiveLog,
-  EndpointAccess,
-  EndpointAccessFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteEndpointAccessCommand,
-  serializeAws_queryDeleteEndpointAccessCommand,
-} from "../protocols/Aws_query";
+import { DeleteEndpointAccessMessage, EndpointAccess } from "../models/models_0";
+import { de_DeleteEndpointAccessCommand, se_DeleteEndpointAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEndpointAccessCommand}.
  */
 export interface DeleteEndpointAccessCommandInput extends DeleteEndpointAccessMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEndpointAccessCommand}.
  */
 export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Redshift-managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __Met
  * import { RedshiftClient, DeleteEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteEndpointAccessMessage
+ *   EndpointName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEndpointAccessCommandInput - {@link DeleteEndpointAccessCommandInput}
+ * @returns {@link DeleteEndpointAccessCommandOutput}
  * @see {@link DeleteEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -85,6 +87,9 @@ export class DeleteEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEndpointAccessMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EndpointAccessFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteEndpointAccessCommand(input, context);
+    return se_DeleteEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointAccessCommandOutput> {
-    return deserializeAws_queryDeleteEndpointAccessCommand(output, context);
+    return de_DeleteEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

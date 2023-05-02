@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateNamespaceRequest,
-  CreateNamespaceRequestFilterSensitiveLog,
-  CreateNamespaceResponse,
-  CreateNamespaceResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1CreateNamespaceCommand,
-  serializeAws_restJson1CreateNamespaceCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateNamespaceRequest, CreateNamespaceResponse } from "../models/models_2";
+import { de_CreateNamespaceCommand, se_CreateNamespaceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNamespaceCommand}.
  */
 export interface CreateNamespaceCommandInput extends CreateNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNamespaceCommand}.
  */
 export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Enterprise edition only) Creates a new namespace for you to use with Amazon QuickSight.</p>
  *          <p>A namespace allows you to isolate the Amazon QuickSight users and groups that are registered
  *             for that namespace. Users that access the namespace can share assets only with other
@@ -49,10 +46,23 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * import { QuickSightClient, CreateNamespaceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateNamespaceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // CreateNamespaceRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ *   IdentityStore: "QUICKSIGHT", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNamespaceCommandInput - {@link CreateNamespaceCommandInput}
+ * @returns {@link CreateNamespaceCommandOutput}
  * @see {@link CreateNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreateNamespaceCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -109,6 +119,9 @@ export class CreateNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +150,8 @@ export class CreateNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +161,18 @@ export class CreateNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNamespaceCommand(input, context);
+    return se_CreateNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNamespaceCommandOutput> {
-    return deserializeAws_restJson1CreateNamespaceCommand(output, context);
+    return de_CreateNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

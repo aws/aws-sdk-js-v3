@@ -95,6 +95,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BulkPublishCommandInput
   | DeleteDatasetCommandInput
@@ -114,6 +117,9 @@ export type ServiceInputTypes =
   | UnsubscribeFromDatasetCommandInput
   | UpdateRecordsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BulkPublishCommandOutput
   | DeleteDatasetCommandOutput
@@ -133,6 +139,9 @@ export type ServiceOutputTypes =
   | UnsubscribeFromDatasetCommandOutput
   | UpdateRecordsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -140,7 +149,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -249,11 +258,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CognitoSyncClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -264,10 +276,15 @@ type CognitoSyncClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOp
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CognitoSyncClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CognitoSyncClient class constructor that set the region, credentials and other options.
  */
 export interface CognitoSyncClientConfig extends CognitoSyncClientConfigType {}
 
+/**
+ * @public
+ */
 type CognitoSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -278,11 +295,14 @@ type CognitoSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CognitoSyncClient class. This is resolved and normalized from the {@link CognitoSyncClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CognitoSyncClient class. This is resolved and normalized from the {@link CognitoSyncClientConfig | constructor configuration interface}.
  */
 export interface CognitoSyncClientResolvedConfig extends CognitoSyncClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Cognito Sync</fullname>
  *       <p>Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of
  *          application-related user data. High-level client libraries are available for both iOS and

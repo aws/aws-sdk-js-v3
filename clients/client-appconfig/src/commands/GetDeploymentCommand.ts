@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  Deployment,
-  DeploymentFilterSensitiveLog,
-  GetDeploymentRequest,
-  GetDeploymentRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeploymentCommand,
-  serializeAws_restJson1GetDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { Deployment, GetDeploymentRequest } from "../models/models_0";
+import { de_GetDeploymentCommand, se_GetDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeploymentCommand}.
  */
 export interface GetDeploymentCommandInput extends GetDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeploymentCommand}.
  */
 export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a configuration deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * import { AppConfigClient, GetDeploymentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetDeploymentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // GetDeploymentRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EnvironmentId: "STRING_VALUE", // required
+ *   DeploymentNumber: Number("int"), // required
+ * };
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentCommandInput - {@link GetDeploymentCommandInput}
+ * @returns {@link GetDeploymentCommandOutput}
  * @see {@link GetDeploymentCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -155,6 +159,9 @@ export class GetDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -181,8 +188,8 @@ export class GetDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeploymentFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -192,12 +199,18 @@ export class GetDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeploymentCommand(input, context);
+    return se_GetDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentCommandOutput> {
-    return deserializeAws_restJson1GetDeploymentCommand(output, context);
+    return de_GetDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

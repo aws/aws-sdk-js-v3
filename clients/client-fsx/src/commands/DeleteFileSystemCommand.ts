@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DeleteFileSystemRequest,
-  DeleteFileSystemRequestFilterSensitiveLog,
-  DeleteFileSystemResponse,
-  DeleteFileSystemResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFileSystemCommand,
-  serializeAws_json1_1DeleteFileSystemCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteFileSystemRequest, DeleteFileSystemResponse } from "../models/models_0";
+import { de_DeleteFileSystemCommand, se_DeleteFileSystemCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFileSystemCommand}.
  */
 export interface DeleteFileSystemCommandInput extends DeleteFileSystemRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFileSystemCommand}.
  */
 export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a file system. After deletion, the file system no longer exists, and its data
  *             is gone. Any existing automatic backups and snapshots are also deleted.</p>
  *          <p>To delete an Amazon FSx for NetApp ONTAP file system, first delete all the
@@ -64,10 +61,46 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  * import { FSxClient, DeleteFileSystemCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DeleteFileSystemRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   WindowsConfiguration: { // DeleteFileSystemWindowsConfiguration
+ *     SkipFinalBackup: true || false,
+ *     FinalBackupTags: [ // Tags
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   LustreConfiguration: { // DeleteFileSystemLustreConfiguration
+ *     SkipFinalBackup: true || false,
+ *     FinalBackupTags: [
+ *       {
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   OpenZFSConfiguration: { // DeleteFileSystemOpenZFSConfiguration
+ *     SkipFinalBackup: true || false,
+ *     FinalBackupTags: [
+ *       {
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     Options: [ // DeleteFileSystemOpenZFSOptions
+ *       "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
+ *     ],
+ *   },
+ * };
  * const command = new DeleteFileSystemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFileSystemCommandInput - {@link DeleteFileSystemCommandInput}
+ * @returns {@link DeleteFileSystemCommandOutput}
  * @see {@link DeleteFileSystemCommandInput} for command's `input` shape.
  * @see {@link DeleteFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -126,6 +159,9 @@ export class DeleteFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,8 +190,8 @@ export class DeleteFileSystemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFileSystemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFileSystemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,12 +201,18 @@ export class DeleteFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFileSystemCommand(input, context);
+    return se_DeleteFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileSystemCommandOutput> {
-    return deserializeAws_json1_1DeleteFileSystemCommand(output, context);
+    return de_DeleteFileSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

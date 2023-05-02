@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  TestRepositoryTriggersInput,
-  TestRepositoryTriggersInputFilterSensitiveLog,
-  TestRepositoryTriggersOutput,
-  TestRepositoryTriggersOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1TestRepositoryTriggersCommand,
-  serializeAws_json1_1TestRepositoryTriggersCommand,
-} from "../protocols/Aws_json1_1";
+import { TestRepositoryTriggersInput, TestRepositoryTriggersOutput } from "../models/models_1";
+import { de_TestRepositoryTriggersCommand, se_TestRepositoryTriggersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TestRepositoryTriggersCommand}.
  */
 export interface TestRepositoryTriggersCommandInput extends TestRepositoryTriggersInput {}
 /**
+ * @public
+ *
  * The output of {@link TestRepositoryTriggersCommand}.
  */
 export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTriggersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests the functionality of repository triggers by sending information to the trigger
  *             target. If real data is available in the repository, the test sends data from the last
  *             commit. If no data is available, sample data is generated.</p>
@@ -44,10 +41,28 @@ export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTrigg
  * import { CodeCommitClient, TestRepositoryTriggersCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, TestRepositoryTriggersCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // TestRepositoryTriggersInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   triggers: [ // RepositoryTriggersList // required
+ *     { // RepositoryTrigger
+ *       name: "STRING_VALUE", // required
+ *       destinationArn: "STRING_VALUE", // required
+ *       customData: "STRING_VALUE",
+ *       branches: [ // BranchNameList
+ *         "STRING_VALUE",
+ *       ],
+ *       events: [ // RepositoryTriggerEventList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new TestRepositoryTriggersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestRepositoryTriggersCommandInput - {@link TestRepositoryTriggersCommandInput}
+ * @returns {@link TestRepositoryTriggersCommandOutput}
  * @see {@link TestRepositoryTriggersCommandInput} for command's `input` shape.
  * @see {@link TestRepositoryTriggersCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -144,6 +159,9 @@ export class TestRepositoryTriggersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestRepositoryTriggersCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,8 +190,8 @@ export class TestRepositoryTriggersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestRepositoryTriggersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TestRepositoryTriggersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -183,12 +201,18 @@ export class TestRepositoryTriggersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestRepositoryTriggersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TestRepositoryTriggersCommand(input, context);
+    return se_TestRepositoryTriggersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestRepositoryTriggersCommandOutput> {
-    return deserializeAws_json1_1TestRepositoryTriggersCommand(output, context);
+    return de_TestRepositoryTriggersCommand(output, context);
   }
 
   // Start section: command_body_extra

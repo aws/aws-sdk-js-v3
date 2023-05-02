@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateOpsMetadataRequest,
-  CreateOpsMetadataRequestFilterSensitiveLog,
-  CreateOpsMetadataResult,
-  CreateOpsMetadataResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateOpsMetadataCommand,
-  serializeAws_json1_1CreateOpsMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateOpsMetadataRequest, CreateOpsMetadataResult } from "../models/models_0";
+import { de_CreateOpsMetadataCommand, se_CreateOpsMetadataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOpsMetadataCommand}.
  */
 export interface CreateOpsMetadataCommandInput extends CreateOpsMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOpsMetadataCommand}.
  */
 export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If you create a new application in Application Manager, Amazon Web Services Systems Manager calls this API operation to specify
  *    information about the new application, including the application type.</p>
  * @example
@@ -43,10 +40,26 @@ export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult,
  * import { SSMClient, CreateOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // CreateOpsMetadataRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   Metadata: { // MetadataMap
+ *     "<keys>": { // MetadataValue
+ *       Value: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateOpsMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOpsMetadataCommandInput - {@link CreateOpsMetadataCommandInput}
+ * @returns {@link CreateOpsMetadataCommandOutput}
  * @see {@link CreateOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link CreateOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -87,6 +100,9 @@ export class CreateOpsMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOpsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +131,8 @@ export class CreateOpsMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOpsMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOpsMetadataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +142,18 @@ export class CreateOpsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOpsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateOpsMetadataCommand(input, context);
+    return se_CreateOpsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOpsMetadataCommandOutput> {
-    return deserializeAws_json1_1CreateOpsMetadataCommand(output, context);
+    return de_CreateOpsMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

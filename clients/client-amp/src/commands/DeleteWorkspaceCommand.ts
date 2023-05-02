@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { DeleteWorkspaceRequest, DeleteWorkspaceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkspaceCommand,
-  serializeAws_restJson1DeleteWorkspaceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteWorkspaceRequest } from "../models/models_0";
+import { de_DeleteWorkspaceCommand, se_DeleteWorkspaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkspaceCommand}.
  */
 export interface DeleteWorkspaceCommandInput extends DeleteWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkspaceCommand}.
  */
 export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Deletes an AMP workspace.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
  * import { AmpClient, DeleteWorkspaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DeleteWorkspaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // DeleteWorkspaceRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteWorkspaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkspaceCommandInput - {@link DeleteWorkspaceCommandInput}
+ * @returns {@link DeleteWorkspaceCommandOutput}
  * @see {@link DeleteWorkspaceCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -82,6 +90,9 @@ export class DeleteWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class DeleteWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkspaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class DeleteWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkspaceCommand(input, context);
+    return se_DeleteWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkspaceCommand(output, context);
+    return de_DeleteWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

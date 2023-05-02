@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  EnableInsightRulesInput,
-  EnableInsightRulesInputFilterSensitiveLog,
-  EnableInsightRulesOutput,
-  EnableInsightRulesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryEnableInsightRulesCommand,
-  serializeAws_queryEnableInsightRulesCommand,
-} from "../protocols/Aws_query";
+import { EnableInsightRulesInput, EnableInsightRulesOutput } from "../models/models_0";
+import { de_EnableInsightRulesCommand, se_EnableInsightRulesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link EnableInsightRulesCommand}.
  */
 export interface EnableInsightRulesCommandInput extends EnableInsightRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableInsightRulesCommand}.
  */
 export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutpu
  * import { CloudWatchClient, EnableInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, EnableInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // EnableInsightRulesInput
+ *   RuleNames: [ // InsightRuleNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new EnableInsightRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableInsightRulesCommandInput - {@link EnableInsightRulesCommandInput}
+ * @returns {@link EnableInsightRulesCommandOutput}
  * @see {@link EnableInsightRulesCommandInput} for command's `input` shape.
  * @see {@link EnableInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -78,6 +82,9 @@ export class EnableInsightRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableInsightRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class EnableInsightRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableInsightRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableInsightRulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class EnableInsightRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnableInsightRulesCommand(input, context);
+    return se_EnableInsightRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableInsightRulesCommandOutput> {
-    return deserializeAws_queryEnableInsightRulesCommand(output, context);
+    return de_EnableInsightRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

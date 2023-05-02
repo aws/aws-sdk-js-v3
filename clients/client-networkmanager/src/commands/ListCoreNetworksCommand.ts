@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCoreNetworksRequest,
-  ListCoreNetworksRequestFilterSensitiveLog,
-  ListCoreNetworksResponse,
-  ListCoreNetworksResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCoreNetworksRequest, ListCoreNetworksResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1ListCoreNetworksCommand,
-  serializeAws_restJson1ListCoreNetworksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCoreNetworksCommand, se_ListCoreNetworksCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCoreNetworksCommand}.
  */
 export interface ListCoreNetworksCommandInput extends ListCoreNetworksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCoreNetworksCommand}.
  */
 export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of owned and shared core networks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse,
  * import { NetworkManagerClient, ListCoreNetworksCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, ListCoreNetworksCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // ListCoreNetworksRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCoreNetworksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCoreNetworksCommandInput - {@link ListCoreNetworksCommandInput}
+ * @returns {@link ListCoreNetworksCommandOutput}
  * @see {@link ListCoreNetworksCommandInput} for command's `input` shape.
  * @see {@link ListCoreNetworksCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListCoreNetworksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCoreNetworksCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class ListCoreNetworksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCoreNetworksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCoreNetworksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class ListCoreNetworksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCoreNetworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCoreNetworksCommand(input, context);
+    return se_ListCoreNetworksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCoreNetworksCommandOutput> {
-    return deserializeAws_restJson1ListCoreNetworksCommand(output, context);
+    return de_ListCoreNetworksCommand(output, context);
   }
 
   // Start section: command_body_extra

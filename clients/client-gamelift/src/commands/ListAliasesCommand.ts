@@ -14,38 +14,35 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ListAliasesInput,
-  ListAliasesInputFilterSensitiveLog,
-  ListAliasesOutput,
-  ListAliasesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAliasesCommand,
-  serializeAws_json1_1ListAliasesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAliasesInput, ListAliasesOutput } from "../models/models_0";
+import { de_ListAliasesCommand, se_ListAliasesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAliasesCommand}.
  */
 export interface ListAliasesCommandInput extends ListAliasesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAliasesCommand}.
  */
 export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all aliases for this Amazon Web Services account. You can filter the result set by alias
  *             name and/or routing strategy type. Use the pagination parameters to retrieve results in
  *             sequential pages.</p>
- *         <note>
+ *          <note>
  *             <p>Returned aliases are not listed in any particular order.</p>
- *         </note>
+ *          </note>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,10 +50,18 @@ export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataB
  * import { GameLiftClient, ListAliasesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListAliasesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ListAliasesInput
+ *   RoutingStrategyType: "SIMPLE" || "TERMINAL",
+ *   Name: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAliasesCommandInput - {@link ListAliasesCommandInput}
+ * @returns {@link ListAliasesCommandOutput}
  * @see {@link ListAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAliasesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -91,6 +96,9 @@ export class ListAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class ListAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAliasesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAliasesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +136,18 @@ export class ListAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAliasesCommand(input, context);
+    return se_ListAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAliasesCommandOutput> {
-    return deserializeAws_json1_1ListAliasesCommand(output, context);
+    return de_ListAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

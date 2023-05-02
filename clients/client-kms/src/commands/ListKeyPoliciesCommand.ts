@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ListKeyPoliciesRequest,
-  ListKeyPoliciesRequestFilterSensitiveLog,
-  ListKeyPoliciesResponse,
-  ListKeyPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListKeyPoliciesCommand,
-  serializeAws_json1_1ListKeyPoliciesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListKeyPoliciesRequest, ListKeyPoliciesResponse } from "../models/models_0";
+import { de_ListKeyPoliciesCommand, se_ListKeyPoliciesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListKeyPoliciesCommand}.
  */
 export interface ListKeyPoliciesCommandInput extends ListKeyPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListKeyPoliciesCommand}.
  */
 export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the names of the key policies that are attached to a KMS key. This operation is
  *       designed to get policy names that you can use in a <a>GetKeyPolicy</a> operation.
  *       However, the only valid policy name is <code>default</code>. </p>
@@ -63,10 +60,17 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  * import { KMSClient, ListKeyPoliciesCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListKeyPoliciesCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ListKeyPoliciesRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListKeyPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKeyPoliciesCommandInput - {@link ListKeyPoliciesCommandInput}
+ * @returns {@link ListKeyPoliciesCommandOutput}
  * @see {@link ListKeyPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListKeyPoliciesCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -143,6 +147,9 @@ export class ListKeyPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKeyPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,8 +178,8 @@ export class ListKeyPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListKeyPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListKeyPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -182,12 +189,18 @@ export class ListKeyPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKeyPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListKeyPoliciesCommand(input, context);
+    return se_ListKeyPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKeyPoliciesCommandOutput> {
-    return deserializeAws_json1_1ListKeyPoliciesCommand(output, context);
+    return de_ListKeyPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

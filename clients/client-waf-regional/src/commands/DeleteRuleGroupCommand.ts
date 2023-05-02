@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteRuleGroupRequest,
-  DeleteRuleGroupRequestFilterSensitiveLog,
-  DeleteRuleGroupResponse,
-  DeleteRuleGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRuleGroupCommand,
-  serializeAws_json1_1DeleteRuleGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRuleGroupRequest, DeleteRuleGroupResponse } from "../models/models_0";
+import { de_DeleteRuleGroupCommand, se_DeleteRuleGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRuleGroupCommand}.
  */
 export interface DeleteRuleGroupCommandInput extends DeleteRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRuleGroupCommand}.
  */
 export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -65,10 +62,16 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * import { WAFRegionalClient, DeleteRuleGroupCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteRuleGroupCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // DeleteRuleGroupRequest
+ *   RuleGroupId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRuleGroupCommandInput - {@link DeleteRuleGroupCommandInput}
+ * @returns {@link DeleteRuleGroupCommandOutput}
  * @see {@link DeleteRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -159,6 +162,9 @@ export class DeleteRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,8 +193,8 @@ export class DeleteRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRuleGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRuleGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -198,12 +204,18 @@ export class DeleteRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRuleGroupCommand(input, context);
+    return se_DeleteRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteRuleGroupCommand(output, context);
+    return de_DeleteRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GroupResourcesInput,
-  GroupResourcesInputFilterSensitiveLog,
-  GroupResourcesOutput,
-  GroupResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GroupResourcesCommand,
-  serializeAws_restJson1GroupResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { GroupResourcesInput, GroupResourcesOutput } from "../models/models_0";
+import { de_GroupResourcesCommand, se_GroupResourcesCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GroupResourcesCommand}.
  */
 export interface GroupResourcesCommandInput extends GroupResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link GroupResourcesCommand}.
  */
 export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified resources to the specified group.</p>
  *          <important>
  *             <p>You can use this operation with only resource groups that are configured with the
@@ -71,10 +68,18 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  * import { ResourceGroupsClient, GroupResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GroupResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // GroupResourcesInput
+ *   Group: "STRING_VALUE", // required
+ *   ResourceArns: [ // ResourceArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GroupResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GroupResourcesCommandInput - {@link GroupResourcesCommandInput}
+ * @returns {@link GroupResourcesCommandOutput}
  * @see {@link GroupResourcesCommandInput} for command's `input` shape.
  * @see {@link GroupResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -117,6 +122,9 @@ export class GroupResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GroupResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +153,8 @@ export class GroupResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GroupResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GroupResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +164,18 @@ export class GroupResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GroupResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GroupResourcesCommand(input, context);
+    return se_GroupResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GroupResourcesCommandOutput> {
-    return deserializeAws_restJson1GroupResourcesCommand(output, context);
+    return de_GroupResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

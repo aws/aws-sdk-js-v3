@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import {
-  ValidatePolicyRequest,
-  ValidatePolicyRequestFilterSensitiveLog,
-  ValidatePolicyResponse,
-  ValidatePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ValidatePolicyCommand,
-  serializeAws_restJson1ValidatePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { ValidatePolicyRequest, ValidatePolicyResponse } from "../models/models_0";
+import { de_ValidatePolicyCommand, se_ValidatePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ValidatePolicyCommand}.
  */
 export interface ValidatePolicyCommandInput extends ValidatePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ValidatePolicyCommand}.
  */
 export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests the validation of a policy and returns a list of findings. The findings help
  *          you identify issues and provide actionable recommendations to resolve the issue and enable
  *          you to author functional policies that meet security best practices. </p>
@@ -44,10 +41,20 @@ export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __M
  * import { AccessAnalyzerClient, ValidatePolicyCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ValidatePolicyCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = { // ValidatePolicyRequest
+ *   locale: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   policyDocument: "STRING_VALUE", // required
+ *   policyType: "STRING_VALUE", // required
+ *   validatePolicyResourceType: "STRING_VALUE",
+ * };
  * const command = new ValidatePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidatePolicyCommandInput - {@link ValidatePolicyCommandInput}
+ * @returns {@link ValidatePolicyCommandOutput}
  * @see {@link ValidatePolicyCommandInput} for command's `input` shape.
  * @see {@link ValidatePolicyCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -83,6 +90,9 @@ export class ValidatePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidatePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +121,8 @@ export class ValidatePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidatePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidatePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +132,18 @@ export class ValidatePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidatePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ValidatePolicyCommand(input, context);
+    return se_ValidatePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidatePolicyCommandOutput> {
-    return deserializeAws_restJson1ValidatePolicyCommand(output, context);
+    return de_ValidatePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

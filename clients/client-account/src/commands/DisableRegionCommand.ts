@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { DisableRegionRequest, DisableRegionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableRegionCommand,
-  serializeAws_restJson1DisableRegionCommand,
-} from "../protocols/Aws_restJson1";
+import { DisableRegionRequest } from "../models/models_0";
+import { de_DisableRegionCommand, se_DisableRegionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableRegionCommand}.
  */
 export interface DisableRegionCommandInput extends DisableRegionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableRegionCommand}.
  */
 export interface DisableRegionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables (opts-out) a particular Region for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  * import { AccountClient, DisableRegionCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, DisableRegionCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
+ * const input = { // DisableRegionRequest
+ *   AccountId: "STRING_VALUE",
+ *   RegionName: "STRING_VALUE", // required
+ * };
  * const command = new DisableRegionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableRegionCommandInput - {@link DisableRegionCommandInput}
+ * @returns {@link DisableRegionCommandOutput}
  * @see {@link DisableRegionCommandInput} for command's `input` shape.
  * @see {@link DisableRegionCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -84,6 +92,9 @@ export class DisableRegionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableRegionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class DisableRegionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableRegionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class DisableRegionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableRegionCommand(input, context);
+    return se_DisableRegionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableRegionCommandOutput> {
-    return deserializeAws_restJson1DisableRegionCommand(output, context);
+    return de_DisableRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

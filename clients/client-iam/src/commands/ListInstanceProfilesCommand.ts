@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListInstanceProfilesRequest,
-  ListInstanceProfilesRequestFilterSensitiveLog,
-  ListInstanceProfilesResponse,
-  ListInstanceProfilesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListInstanceProfilesCommand,
-  serializeAws_queryListInstanceProfilesCommand,
-} from "../protocols/Aws_query";
+import { ListInstanceProfilesRequest, ListInstanceProfilesResponse } from "../models/models_0";
+import { de_ListInstanceProfilesCommand, se_ListInstanceProfilesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceProfilesCommand}.
  */
 export interface ListInstanceProfilesCommandInput extends ListInstanceProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceProfilesCommand}.
  */
 export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the instance profiles that have the specified path prefix. If there are none,
  *             the operation returns an empty list. For more information about instance profiles, see
  *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
@@ -51,10 +48,17 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  * import { IAMClient, ListInstanceProfilesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListInstanceProfilesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListInstanceProfilesRequest
+ *   PathPrefix: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListInstanceProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceProfilesCommandInput - {@link ListInstanceProfilesCommandInput}
+ * @returns {@link ListInstanceProfilesCommandOutput}
  * @see {@link ListInstanceProfilesCommandInput} for command's `input` shape.
  * @see {@link ListInstanceProfilesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -82,6 +86,9 @@ export class ListInstanceProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class ListInstanceProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstanceProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInstanceProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class ListInstanceProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListInstanceProfilesCommand(input, context);
+    return se_ListInstanceProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceProfilesCommandOutput> {
-    return deserializeAws_queryListInstanceProfilesCommand(output, context);
+    return de_ListInstanceProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

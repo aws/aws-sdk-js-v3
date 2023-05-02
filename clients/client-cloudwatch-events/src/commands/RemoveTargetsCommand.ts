@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  RemoveTargetsRequest,
-  RemoveTargetsRequestFilterSensitiveLog,
-  RemoveTargetsResponse,
-  RemoveTargetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveTargetsCommand,
-  serializeAws_json1_1RemoveTargetsCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveTargetsRequest, RemoveTargetsResponse } from "../models/models_0";
+import { de_RemoveTargetsCommand, se_RemoveTargetsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveTargetsCommand}.
  */
 export interface RemoveTargetsCommandInput extends RemoveTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveTargetsCommand}.
  */
 export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified targets from the specified rule. When the rule is triggered, those
  *       targets are no longer be invoked.</p>
  *
@@ -50,10 +47,20 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * import { CloudWatchEventsClient, RemoveTargetsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, RemoveTargetsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // RemoveTargetsRequest
+ *   Rule: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ *   Ids: [ // TargetIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Force: true || false,
+ * };
  * const command = new RemoveTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTargetsCommandInput - {@link RemoveTargetsCommandInput}
+ * @returns {@link RemoveTargetsCommandOutput}
  * @see {@link RemoveTargetsCommandInput} for command's `input` shape.
  * @see {@link RemoveTargetsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -94,6 +101,9 @@ export class RemoveTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +130,8 @@ export class RemoveTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +141,18 @@ export class RemoveTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveTargetsCommand(input, context);
+    return se_RemoveTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTargetsCommandOutput> {
-    return deserializeAws_json1_1RemoveTargetsCommand(output, context);
+    return de_RemoveTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

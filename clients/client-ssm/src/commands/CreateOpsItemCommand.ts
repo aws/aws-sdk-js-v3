@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateOpsItemRequest,
-  CreateOpsItemRequestFilterSensitiveLog,
-  CreateOpsItemResponse,
-  CreateOpsItemResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateOpsItemCommand,
-  serializeAws_json1_1CreateOpsItemCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateOpsItemRequest, CreateOpsItemResponse } from "../models/models_0";
+import { de_CreateOpsItemCommand, se_CreateOpsItemCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOpsItemCommand}.
  */
 export interface CreateOpsItemCommandInput extends CreateOpsItemRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOpsItemCommand}.
  */
 export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new OpsItem. You must have permission in Identity and Access Management (IAM) to create a new OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
  *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
@@ -47,10 +44,48 @@ export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __Met
  * import { SSMClient, CreateOpsItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateOpsItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // CreateOpsItemRequest
+ *   Description: "STRING_VALUE", // required
+ *   OpsItemType: "STRING_VALUE",
+ *   OperationalData: { // OpsItemOperationalData
+ *     "<keys>": { // OpsItemDataValue
+ *       Value: "STRING_VALUE",
+ *       Type: "SearchableString" || "String",
+ *     },
+ *   },
+ *   Notifications: [ // OpsItemNotifications
+ *     { // OpsItemNotification
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Priority: Number("int"),
+ *   RelatedOpsItems: [ // RelatedOpsItems
+ *     { // RelatedOpsItem
+ *       OpsItemId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Source: "STRING_VALUE", // required
+ *   Title: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Category: "STRING_VALUE",
+ *   Severity: "STRING_VALUE",
+ *   ActualStartTime: new Date("TIMESTAMP"),
+ *   ActualEndTime: new Date("TIMESTAMP"),
+ *   PlannedStartTime: new Date("TIMESTAMP"),
+ *   PlannedEndTime: new Date("TIMESTAMP"),
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new CreateOpsItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOpsItemCommandInput - {@link CreateOpsItemCommandInput}
+ * @returns {@link CreateOpsItemCommandOutput}
  * @see {@link CreateOpsItemCommandInput} for command's `input` shape.
  * @see {@link CreateOpsItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -93,6 +128,9 @@ export class CreateOpsItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOpsItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +157,8 @@ export class CreateOpsItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOpsItemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOpsItemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +168,18 @@ export class CreateOpsItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOpsItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateOpsItemCommand(input, context);
+    return se_CreateOpsItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOpsItemCommandOutput> {
-    return deserializeAws_json1_1CreateOpsItemCommand(output, context);
+    return de_CreateOpsItemCommand(output, context);
   }
 
   // Start section: command_body_extra

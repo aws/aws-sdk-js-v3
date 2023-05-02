@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  ListBotsRequest,
-  ListBotsRequestFilterSensitiveLog,
-  ListBotsResponse,
-  ListBotsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListBotsCommand,
-  serializeAws_restJson1ListBotsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBotsRequest, ListBotsResponse, ListBotsResponseFilterSensitiveLog } from "../models/models_1";
+import { de_ListBotsCommand, se_ListBotsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBotsCommand}.
  */
 export interface ListBotsCommandInput extends ListBotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBotsCommand}.
  */
 export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the bots associated with the administrator's Amazon Chime Enterprise account ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * import { ChimeClient, ListBotsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListBotsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListBotsRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBotsCommandInput - {@link ListBotsCommandInput}
+ * @returns {@link ListBotsCommandOutput}
  * @see {@link ListBotsCommandInput} for command's `input` shape.
  * @see {@link ListBotsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -86,6 +90,9 @@ export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +119,7 @@ export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBotsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListBotsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,12 +130,18 @@ export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBotsCommand(input, context);
+    return se_ListBotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBotsCommandOutput> {
-    return deserializeAws_restJson1ListBotsCommand(output, context);
+    return de_ListBotsCommand(output, context);
   }
 
   // Start section: command_body_extra

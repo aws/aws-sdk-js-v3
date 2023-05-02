@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DeleteMountTargetRequest, DeleteMountTargetRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMountTargetCommand,
-  serializeAws_restJson1DeleteMountTargetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMountTargetRequest } from "../models/models_0";
+import { de_DeleteMountTargetCommand, se_DeleteMountTargetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMountTargetCommand}.
  */
 export interface DeleteMountTargetCommandInput extends DeleteMountTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMountTargetCommand}.
  */
 export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified mount target.</p>
  *          <p>This operation forcibly breaks any mounts of the file system by using the mount target
  *       that is being deleted, which might disrupt instances or applications using those mounts. To
@@ -67,10 +69,15 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * import { EFSClient, DeleteMountTargetCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteMountTargetCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DeleteMountTargetRequest
+ *   MountTargetId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMountTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMountTargetCommandInput - {@link DeleteMountTargetCommandInput}
+ * @returns {@link DeleteMountTargetCommandOutput}
  * @see {@link DeleteMountTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteMountTargetCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -120,6 +127,9 @@ export class DeleteMountTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMountTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +158,8 @@ export class DeleteMountTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMountTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +169,18 @@ export class DeleteMountTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMountTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMountTargetCommand(input, context);
+    return se_DeleteMountTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMountTargetCommandOutput> {
-    return deserializeAws_restJson1DeleteMountTargetCommand(output, context);
+    return de_DeleteMountTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

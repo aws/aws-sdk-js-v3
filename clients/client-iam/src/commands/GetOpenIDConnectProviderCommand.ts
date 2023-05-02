@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetOpenIDConnectProviderRequest,
-  GetOpenIDConnectProviderRequestFilterSensitiveLog,
-  GetOpenIDConnectProviderResponse,
-  GetOpenIDConnectProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetOpenIDConnectProviderCommand,
-  serializeAws_queryGetOpenIDConnectProviderCommand,
-} from "../protocols/Aws_query";
+import { GetOpenIDConnectProviderRequest, GetOpenIDConnectProviderResponse } from "../models/models_0";
+import { de_GetOpenIDConnectProviderCommand, se_GetOpenIDConnectProviderCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetOpenIDConnectProviderCommand}.
  */
 export interface GetOpenIDConnectProviderCommandInput extends GetOpenIDConnectProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOpenIDConnectProviderCommand}.
  */
 export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified OpenID Connect (OIDC) provider resource object
  *             in IAM.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  * import { IAMClient, GetOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetOpenIDConnectProviderRequest
+ *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ * };
  * const command = new GetOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOpenIDConnectProviderCommandInput - {@link GetOpenIDConnectProviderCommandInput}
+ * @returns {@link GetOpenIDConnectProviderCommandOutput}
  * @see {@link GetOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link GetOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetOpenIDConnectProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOpenIDConnectProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOpenIDConnectProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetOpenIDConnectProviderCommand(input, context);
+    return se_GetOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryGetOpenIDConnectProviderCommand(output, context);
+    return de_GetOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

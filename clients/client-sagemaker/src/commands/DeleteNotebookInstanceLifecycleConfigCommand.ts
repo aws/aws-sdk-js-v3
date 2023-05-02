@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_1";
 import {
-  DeleteNotebookInstanceLifecycleConfigInput,
-  DeleteNotebookInstanceLifecycleConfigInputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand,
-  serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand,
+  de_DeleteNotebookInstanceLifecycleConfigCommand,
+  se_DeleteNotebookInstanceLifecycleConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNotebookInstanceLifecycleConfigCommand}.
  */
 export interface DeleteNotebookInstanceLifecycleConfigCommandInput extends DeleteNotebookInstanceLifecycleConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNotebookInstanceLifecycleConfigCommand}.
  */
 export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a notebook instance lifecycle configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,15 @@ export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __Me
  * import { SageMakerClient, DeleteNotebookInstanceLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteNotebookInstanceLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteNotebookInstanceLifecycleConfigInput
+ *   NotebookInstanceLifecycleConfigName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotebookInstanceLifecycleConfigCommandInput - {@link DeleteNotebookInstanceLifecycleConfigCommandInput}
+ * @returns {@link DeleteNotebookInstanceLifecycleConfigCommandOutput}
  * @see {@link DeleteNotebookInstanceLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotebookInstanceLifecycleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +105,8 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNotebookInstanceLifecycleConfigInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +116,24 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNotebookInstanceLifecycleConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand(input, context);
+    return se_DeleteNotebookInstanceLifecycleConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput> {
-    return deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand(output, context);
+    return de_DeleteNotebookInstanceLifecycleConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

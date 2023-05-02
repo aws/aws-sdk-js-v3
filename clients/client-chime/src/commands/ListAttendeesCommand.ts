@@ -16,29 +16,30 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   ListAttendeesRequest,
-  ListAttendeesRequestFilterSensitiveLog,
   ListAttendeesResponse,
   ListAttendeesResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListAttendeesCommand,
-  serializeAws_restJson1ListAttendeesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAttendeesCommand, se_ListAttendeesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttendeesCommand}.
  */
 export interface ListAttendeesCommandInput extends ListAttendeesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttendeesCommand}.
  */
 export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
- * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
- * in the <i>Amazon Chime Developer Guide</i>.
+ * <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
+ * in the <i>Amazon Chime SDK Developer Guide</i>.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +47,17 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * import { ChimeClient, ListAttendeesCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListAttendeesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListAttendeesRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAttendeesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttendeesCommandInput - {@link ListAttendeesCommandInput}
+ * @returns {@link ListAttendeesCommandOutput}
  * @see {@link ListAttendeesCommandInput} for command's `input` shape.
  * @see {@link ListAttendeesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -94,6 +102,9 @@ export class ListAttendeesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttendeesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,7 +131,7 @@ export class ListAttendeesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttendeesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListAttendeesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -131,12 +142,18 @@ export class ListAttendeesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttendeesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAttendeesCommand(input, context);
+    return se_ListAttendeesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttendeesCommandOutput> {
-    return deserializeAws_restJson1ListAttendeesCommand(output, context);
+    return de_ListAttendeesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,28 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  RestoreTableFromBackupInput,
-  RestoreTableFromBackupInputFilterSensitiveLog,
-  RestoreTableFromBackupOutput,
-  RestoreTableFromBackupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0RestoreTableFromBackupCommand,
-  serializeAws_json1_0RestoreTableFromBackupCommand,
-} from "../protocols/Aws_json1_0";
+import { RestoreTableFromBackupInput, RestoreTableFromBackupOutput } from "../models/models_0";
+import { de_RestoreTableFromBackupCommand, se_RestoreTableFromBackupCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreTableFromBackupCommand}.
  */
 export interface RestoreTableFromBackupCommandInput extends RestoreTableFromBackupInput {}
 /**
+ * @public
+ *
  * The output of {@link RestoreTableFromBackupCommand}.
  */
 export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBackupOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new table from an existing backup. Any number of users can execute up to 4
+ * @public
+ * <p>Creates a new table from an existing backup. Any number of users can execute up to 50
  *             concurrent restores (any type of restore) in a given account. </p>
  *          <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per
  *             second.</p>
@@ -66,10 +63,64 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * import { DynamoDBClient, RestoreTableFromBackupCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, RestoreTableFromBackupCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // RestoreTableFromBackupInput
+ *   TargetTableName: "STRING_VALUE", // required
+ *   BackupArn: "STRING_VALUE", // required
+ *   BillingModeOverride: "PROVISIONED" || "PAY_PER_REQUEST",
+ *   GlobalSecondaryIndexOverride: [ // GlobalSecondaryIndexList
+ *     { // GlobalSecondaryIndex
+ *       IndexName: "STRING_VALUE", // required
+ *       KeySchema: [ // KeySchema // required
+ *         { // KeySchemaElement
+ *           AttributeName: "STRING_VALUE", // required
+ *           KeyType: "HASH" || "RANGE", // required
+ *         },
+ *       ],
+ *       Projection: { // Projection
+ *         ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *         NonKeyAttributes: [ // NonKeyAttributeNameList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ProvisionedThroughput: { // ProvisionedThroughput
+ *         ReadCapacityUnits: Number("long"), // required
+ *         WriteCapacityUnits: Number("long"), // required
+ *       },
+ *     },
+ *   ],
+ *   LocalSecondaryIndexOverride: [ // LocalSecondaryIndexList
+ *     { // LocalSecondaryIndex
+ *       IndexName: "STRING_VALUE", // required
+ *       KeySchema: [ // required
+ *         {
+ *           AttributeName: "STRING_VALUE", // required
+ *           KeyType: "HASH" || "RANGE", // required
+ *         },
+ *       ],
+ *       Projection: {
+ *         ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *         NonKeyAttributes: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   ProvisionedThroughputOverride: {
+ *     ReadCapacityUnits: Number("long"), // required
+ *     WriteCapacityUnits: Number("long"), // required
+ *   },
+ *   SSESpecificationOverride: { // SSESpecification
+ *     Enabled: true || false,
+ *     SSEType: "AES256" || "KMS",
+ *     KMSMasterKeyId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new RestoreTableFromBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreTableFromBackupCommandInput - {@link RestoreTableFromBackupCommandInput}
+ * @returns {@link RestoreTableFromBackupCommandOutput}
  * @see {@link RestoreTableFromBackupCommandInput} for command's `input` shape.
  * @see {@link RestoreTableFromBackupCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -125,6 +176,9 @@ export class RestoreTableFromBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreTableFromBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,8 +207,8 @@ export class RestoreTableFromBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreTableFromBackupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreTableFromBackupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -164,12 +218,18 @@ export class RestoreTableFromBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreTableFromBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RestoreTableFromBackupCommand(input, context);
+    return se_RestoreTableFromBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreTableFromBackupCommandOutput> {
-    return deserializeAws_json1_0RestoreTableFromBackupCommand(output, context);
+    return de_RestoreTableFromBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

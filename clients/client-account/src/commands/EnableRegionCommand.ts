@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { EnableRegionRequest, EnableRegionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1EnableRegionCommand,
-  serializeAws_restJson1EnableRegionCommand,
-} from "../protocols/Aws_restJson1";
+import { EnableRegionRequest } from "../models/models_0";
+import { de_EnableRegionCommand, se_EnableRegionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableRegionCommand}.
  */
 export interface EnableRegionCommandInput extends EnableRegionRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableRegionCommand}.
  */
 export interface EnableRegionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables (opts-in) a particular Region for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface EnableRegionCommandOutput extends __MetadataBearer {}
  * import { AccountClient, EnableRegionCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, EnableRegionCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
+ * const input = { // EnableRegionRequest
+ *   AccountId: "STRING_VALUE",
+ *   RegionName: "STRING_VALUE", // required
+ * };
  * const command = new EnableRegionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableRegionCommandInput - {@link EnableRegionCommandInput}
+ * @returns {@link EnableRegionCommandOutput}
  * @see {@link EnableRegionCommandInput} for command's `input` shape.
  * @see {@link EnableRegionCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -84,6 +92,9 @@ export class EnableRegionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableRegionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class EnableRegionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableRegionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class EnableRegionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableRegionCommand(input, context);
+    return se_EnableRegionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableRegionCommandOutput> {
-    return deserializeAws_restJson1EnableRegionCommand(output, context);
+    return de_EnableRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

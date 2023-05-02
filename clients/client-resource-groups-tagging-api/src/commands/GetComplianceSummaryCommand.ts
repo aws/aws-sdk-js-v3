@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetComplianceSummaryInput,
-  GetComplianceSummaryInputFilterSensitiveLog,
-  GetComplianceSummaryOutput,
-  GetComplianceSummaryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetComplianceSummaryCommand,
-  serializeAws_json1_1GetComplianceSummaryCommand,
-} from "../protocols/Aws_json1_1";
+import { GetComplianceSummaryInput, GetComplianceSummaryOutput } from "../models/models_0";
+import { de_GetComplianceSummaryCommand, se_GetComplianceSummaryCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetComplianceSummaryCommand}.
  */
 export interface GetComplianceSummaryCommandInput extends GetComplianceSummaryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetComplianceSummaryCommand}.
  */
 export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a table that shows counts of resources that are noncompliant with their tag
  *             policies.</p>
  *         <p>For more information on tag policies, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag Policies</a> in
@@ -58,10 +55,31 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  * import { ResourceGroupsTaggingAPIClient, GetComplianceSummaryCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, GetComplianceSummaryCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const input = { // GetComplianceSummaryInput
+ *   TargetIdFilters: [ // TargetIdFilterList
+ *     "STRING_VALUE",
+ *   ],
+ *   RegionFilters: [ // RegionFilterList
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourceTypeFilters: [ // ResourceTypeFilterList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagKeyFilters: [ // TagKeyFilterList
+ *     "STRING_VALUE",
+ *   ],
+ *   GroupBy: [ // GroupBy
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   PaginationToken: "STRING_VALUE",
+ * };
  * const command = new GetComplianceSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComplianceSummaryCommandInput - {@link GetComplianceSummaryCommandInput}
+ * @returns {@link GetComplianceSummaryCommandOutput}
  * @see {@link GetComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetComplianceSummaryCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -137,6 +155,9 @@ export class GetComplianceSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComplianceSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,8 +186,8 @@ export class GetComplianceSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComplianceSummaryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComplianceSummaryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -176,12 +197,18 @@ export class GetComplianceSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComplianceSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComplianceSummaryCommand(input, context);
+    return se_GetComplianceSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComplianceSummaryCommandOutput> {
-    return deserializeAws_json1_1GetComplianceSummaryCommand(output, context);
+    return de_GetComplianceSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

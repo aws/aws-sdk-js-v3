@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  StartAssessmentRequest,
-  StartAssessmentRequestFilterSensitiveLog,
-  StartAssessmentResponse,
-  StartAssessmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartAssessmentCommand,
-  serializeAws_restJson1StartAssessmentCommand,
-} from "../protocols/Aws_restJson1";
+import { StartAssessmentRequest, StartAssessmentResponse } from "../models/models_0";
+import { de_StartAssessmentCommand, se_StartAssessmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartAssessmentCommand}.
  */
 export interface StartAssessmentCommandInput extends StartAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAssessmentCommand}.
  */
 export interface StartAssessmentCommandOutput extends StartAssessmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts the assessment of an on-premises environment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,25 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * import { MigrationHubStrategyClient, StartAssessmentCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, StartAssessmentCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // StartAssessmentRequest
+ *   s3bucketForAnalysisData: "STRING_VALUE",
+ *   s3bucketForReportData: "STRING_VALUE",
+ *   assessmentTargets: [ // AssessmentTargets
+ *     { // AssessmentTarget
+ *       condition: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       values: [ // AssessmentTargetValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new StartAssessmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAssessmentCommandInput - {@link StartAssessmentCommandInput}
+ * @returns {@link StartAssessmentCommandOutput}
  * @see {@link StartAssessmentCommandInput} for command's `input` shape.
  * @see {@link StartAssessmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -87,6 +99,9 @@ export class StartAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +130,8 @@ export class StartAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAssessmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartAssessmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +141,18 @@ export class StartAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartAssessmentCommand(input, context);
+    return se_StartAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAssessmentCommandOutput> {
-    return deserializeAws_restJson1StartAssessmentCommand(output, context);
+    return de_StartAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

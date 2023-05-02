@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartAppInput,
-  StartAppInputFilterSensitiveLog,
-  StartAppOutput,
-  StartAppOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartAppCommand,
-  serializeAws_restJson1StartAppCommand,
-} from "../protocols/Aws_restJson1";
+import { StartAppInput, StartAppInputFilterSensitiveLog, StartAppOutput } from "../models/models_0";
+import { de_StartAppCommand, se_StartAppCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartAppCommand}.
  */
 export interface StartAppCommandInput extends StartAppInput {}
 /**
+ * @public
+ *
  * The output of {@link StartAppCommand}.
  */
 export interface StartAppCommandOutput extends StartAppOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a custom app with the configuration specified in the simulation schema.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface StartAppCommandOutput extends StartAppOutput, __MetadataBearer 
  * import { SimSpaceWeaverClient, StartAppCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, StartAppCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
+ * const input = { // StartAppInput
+ *   ClientToken: "STRING_VALUE",
+ *   Simulation: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   LaunchOverrides: { // LaunchOverrides
+ *     LaunchCommands: [ // LaunchCommandList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new StartAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAppCommandInput - {@link StartAppCommandInput}
+ * @returns {@link StartAppCommandOutput}
  * @see {@link StartAppCommandInput} for command's `input` shape.
  * @see {@link StartAppCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -84,6 +95,9 @@ export class StartAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,7 +125,7 @@ export class StartAppCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartAppInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartAppOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +135,18 @@ export class StartAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartAppCommand(input, context);
+    return se_StartAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAppCommandOutput> {
-    return deserializeAws_restJson1StartAppCommand(output, context);
+    return de_StartAppCommand(output, context);
   }
 
   // Start section: command_body_extra

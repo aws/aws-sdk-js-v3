@@ -12,26 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  HttpPayloadWithStructureInputOutput,
-  HttpPayloadWithStructureInputOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlHttpPayloadWithStructureCommand,
-  serializeAws_restXmlHttpPayloadWithStructureCommand,
-} from "../protocols/Aws_restXml";
+import { HttpPayloadWithStructureInputOutput } from "../models/models_0";
+import { de_HttpPayloadWithStructureCommand, se_HttpPayloadWithStructureCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpPayloadWithStructureCommand}.
  */
 export interface HttpPayloadWithStructureCommandInput extends HttpPayloadWithStructureInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link HttpPayloadWithStructureCommand}.
  */
 export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithStructureInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This examples serializes a structure in the payload.
  *
  * Note that serializing a structure changes the wrapper element name
@@ -42,10 +41,18 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
  * import { RestXmlProtocolClient, HttpPayloadWithStructureCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpPayloadWithStructureCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = { // HttpPayloadWithStructureInputOutput
+ *   nested: { // NestedPayload
+ *     greeting: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *   },
+ * };
  * const command = new HttpPayloadWithStructureCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpPayloadWithStructureCommandInput - {@link HttpPayloadWithStructureCommandInput}
+ * @returns {@link HttpPayloadWithStructureCommandOutput}
  * @see {@link HttpPayloadWithStructureCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadWithStructureCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -60,6 +67,9 @@ export class HttpPayloadWithStructureCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpPayloadWithStructureCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +95,8 @@ export class HttpPayloadWithStructureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPayloadWithStructureInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: HttpPayloadWithStructureInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +106,18 @@ export class HttpPayloadWithStructureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpPayloadWithStructureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpPayloadWithStructureCommand(input, context);
+    return se_HttpPayloadWithStructureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpPayloadWithStructureCommandOutput> {
-    return deserializeAws_restXmlHttpPayloadWithStructureCommand(output, context);
+    return de_HttpPayloadWithStructureCommand(output, context);
   }
 
   // Start section: command_body_extra

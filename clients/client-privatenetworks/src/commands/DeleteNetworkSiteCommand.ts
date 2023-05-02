@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteNetworkSiteRequest,
-  DeleteNetworkSiteRequestFilterSensitiveLog,
-  DeleteNetworkSiteResponse,
-  DeleteNetworkSiteResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteNetworkSiteRequest, DeleteNetworkSiteResponse } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1DeleteNetworkSiteCommand,
-  serializeAws_restJson1DeleteNetworkSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteNetworkSiteCommand, se_DeleteNetworkSiteCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkSiteCommand}.
  */
 export interface DeleteNetworkSiteCommandInput extends DeleteNetworkSiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkSiteCommand}.
  */
 export interface DeleteNetworkSiteCommandOutput extends DeleteNetworkSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified network site. Return the hardware after you delete the network
  *             site. You are responsible for minimum charges. For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/userguide/hardware-maintenance.html">Hardware
  *                 returns</a> in the <i>Amazon Web Services Private 5G User
@@ -45,10 +42,16 @@ export interface DeleteNetworkSiteCommandOutput extends DeleteNetworkSiteRespons
  * import { PrivateNetworksClient, DeleteNetworkSiteCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, DeleteNetworkSiteCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // DeleteNetworkSiteRequest
+ *   networkSiteArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteNetworkSiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkSiteCommandInput - {@link DeleteNetworkSiteCommandInput}
+ * @returns {@link DeleteNetworkSiteCommandOutput}
  * @see {@link DeleteNetworkSiteCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkSiteCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -84,6 +87,9 @@ export class DeleteNetworkSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class DeleteNetworkSiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkSiteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkSiteResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class DeleteNetworkSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNetworkSiteCommand(input, context);
+    return se_DeleteNetworkSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkSiteCommandOutput> {
-    return deserializeAws_restJson1DeleteNetworkSiteCommand(output, context);
+    return de_DeleteNetworkSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,25 +16,26 @@ import {
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import {
   CreateStreamKeyRequest,
-  CreateStreamKeyRequestFilterSensitiveLog,
   CreateStreamKeyResponse,
   CreateStreamKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateStreamKeyCommand,
-  serializeAws_restJson1CreateStreamKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateStreamKeyCommand, se_CreateStreamKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamKeyCommand}.
  */
 export interface CreateStreamKeyCommandInput extends CreateStreamKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamKeyCommand}.
  */
 export interface CreateStreamKeyCommandOutput extends CreateStreamKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a stream key, used to initiate a stream, for the specified channel ARN.</p>
  *          <p>Note that <a>CreateChannel</a> creates a stream key. If you subsequently use
  *       CreateStreamKey on the same channel, it will fail because a stream key already exists and
@@ -45,10 +46,18 @@ export interface CreateStreamKeyCommandOutput extends CreateStreamKeyResponse, _
  * import { IvsClient, CreateStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, CreateStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // CreateStreamKeyRequest
+ *   channelArn: "STRING_VALUE", // required
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateStreamKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamKeyCommandInput - {@link CreateStreamKeyCommandInput}
+ * @returns {@link CreateStreamKeyCommandOutput}
  * @see {@link CreateStreamKeyCommandInput} for command's `input` shape.
  * @see {@link CreateStreamKeyCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -87,6 +96,9 @@ export class CreateStreamKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +127,7 @@ export class CreateStreamKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateStreamKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,12 +138,18 @@ export class CreateStreamKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateStreamKeyCommand(input, context);
+    return se_CreateStreamKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamKeyCommandOutput> {
-    return deserializeAws_restJson1CreateStreamKeyCommand(output, context);
+    return de_CreateStreamKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

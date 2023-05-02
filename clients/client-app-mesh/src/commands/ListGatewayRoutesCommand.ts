@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  ListGatewayRoutesInput,
-  ListGatewayRoutesInputFilterSensitiveLog,
-  ListGatewayRoutesOutput,
-  ListGatewayRoutesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGatewayRoutesCommand,
-  serializeAws_restJson1ListGatewayRoutesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListGatewayRoutesInput, ListGatewayRoutesOutput } from "../models/models_0";
+import { de_ListGatewayRoutesCommand, se_ListGatewayRoutesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGatewayRoutesCommand}.
  */
 export interface ListGatewayRoutesCommandInput extends ListGatewayRoutesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListGatewayRoutesCommand}.
  */
 export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing gateway routes that are associated to a virtual
  *          gateway.</p>
  * @example
@@ -43,10 +40,19 @@ export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput,
  * import { AppMeshClient, ListGatewayRoutesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListGatewayRoutesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // ListGatewayRoutesInput
+ *   meshName: "STRING_VALUE", // required
+ *   virtualGatewayName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new ListGatewayRoutesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGatewayRoutesCommandInput - {@link ListGatewayRoutesCommandInput}
+ * @returns {@link ListGatewayRoutesCommandOutput}
  * @see {@link ListGatewayRoutesCommandInput} for command's `input` shape.
  * @see {@link ListGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -91,6 +97,9 @@ export class ListGatewayRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGatewayRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +128,8 @@ export class ListGatewayRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGatewayRoutesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGatewayRoutesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +139,18 @@ export class ListGatewayRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGatewayRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGatewayRoutesCommand(input, context);
+    return se_ListGatewayRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGatewayRoutesCommandOutput> {
-    return deserializeAws_restJson1ListGatewayRoutesCommand(output, context);
+    return de_ListGatewayRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

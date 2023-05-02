@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import {
-  DescribeAlarmRequest,
-  DescribeAlarmRequestFilterSensitiveLog,
-  DescribeAlarmResponse,
-  DescribeAlarmResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAlarmCommand,
-  serializeAws_restJson1DescribeAlarmCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAlarmRequest, DescribeAlarmResponse } from "../models/models_0";
+import { de_DescribeAlarmCommand, se_DescribeAlarmCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAlarmCommand}.
  */
 export interface DescribeAlarmCommandInput extends DescribeAlarmRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAlarmCommand}.
  */
 export interface DescribeAlarmCommandOutput extends DescribeAlarmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an alarm.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeAlarmCommandOutput extends DescribeAlarmResponse, __Met
  * import { IoTEventsDataClient, DescribeAlarmCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, DescribeAlarmCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
+ * const input = { // DescribeAlarmRequest
+ *   alarmModelName: "STRING_VALUE", // required
+ *   keyValue: "STRING_VALUE",
+ * };
  * const command = new DescribeAlarmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlarmCommandInput - {@link DescribeAlarmCommandInput}
+ * @returns {@link DescribeAlarmCommandOutput}
  * @see {@link DescribeAlarmCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -84,6 +87,9 @@ export class DescribeAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class DescribeAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAlarmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAlarmResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class DescribeAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAlarmCommand(input, context);
+    return se_DescribeAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmCommandOutput> {
-    return deserializeAws_restJson1DescribeAlarmCommand(output, context);
+    return de_DescribeAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

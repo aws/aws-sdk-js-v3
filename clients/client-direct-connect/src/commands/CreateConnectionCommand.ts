@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  Connection,
-  ConnectionFilterSensitiveLog,
-  CreateConnectionRequest,
-  CreateConnectionRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateConnectionCommand,
-  serializeAws_json1_1CreateConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { Connection, CreateConnectionRequest } from "../models/models_0";
+import { de_CreateConnectionCommand, se_CreateConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectionCommand}.
  */
 export interface CreateConnectionCommandInput extends CreateConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectionCommand}.
  */
 export interface CreateConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a connection between a customer network and a specific Direct Connect location.</p>
  *          <p>A connection links your internal network to an Direct Connect location over a standard Ethernet fiber-optic
  *       cable. One end of the cable is connected to your router, the other to an Direct Connect router.</p>
@@ -49,10 +46,26 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  * import { DirectConnectClient, CreateConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // CreateConnectionRequest
+ *   location: "STRING_VALUE", // required
+ *   bandwidth: "STRING_VALUE", // required
+ *   connectionName: "STRING_VALUE", // required
+ *   lagId: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   providerName: "STRING_VALUE",
+ *   requestMACSec: true || false,
+ * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectionCommandInput - {@link CreateConnectionCommandInput}
+ * @returns {@link CreateConnectionCommandOutput}
  * @see {@link CreateConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -88,6 +101,9 @@ export class CreateConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +132,8 @@ export class CreateConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +143,18 @@ export class CreateConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateConnectionCommand(input, context);
+    return se_CreateConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectionCommandOutput> {
-    return deserializeAws_json1_1CreateConnectionCommand(output, context);
+    return de_CreateConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

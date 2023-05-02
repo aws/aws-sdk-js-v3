@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateClusterMessage,
-  CreateClusterMessageFilterSensitiveLog,
-  CreateClusterResult,
-  CreateClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateClusterCommand,
-  serializeAws_queryCreateClusterCommand,
-} from "../protocols/Aws_query";
+import { CreateClusterMessage, CreateClusterResult } from "../models/models_0";
+import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandInput extends CreateClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandOutput extends CreateClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cluster with the specified parameters.</p>
  *          <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster
  *             subnet group name. The cluster subnet group identifies the subnets of your VPC that
@@ -48,10 +45,59 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * import { RedshiftClient, CreateClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // CreateClusterMessage
+ *   DBName: "STRING_VALUE",
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ClusterType: "STRING_VALUE",
+ *   NodeType: "STRING_VALUE", // required
+ *   MasterUsername: "STRING_VALUE", // required
+ *   MasterUserPassword: "STRING_VALUE", // required
+ *   ClusterSecurityGroups: [ // ClusterSecurityGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   ClusterSubnetGroupName: "STRING_VALUE",
+ *   AvailabilityZone: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   ClusterParameterGroupName: "STRING_VALUE",
+ *   AutomatedSnapshotRetentionPeriod: Number("int"),
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ *   Port: Number("int"),
+ *   ClusterVersion: "STRING_VALUE",
+ *   AllowVersionUpgrade: true || false,
+ *   NumberOfNodes: Number("int"),
+ *   PubliclyAccessible: true || false,
+ *   Encrypted: true || false,
+ *   HsmClientCertificateIdentifier: "STRING_VALUE",
+ *   HsmConfigurationIdentifier: "STRING_VALUE",
+ *   ElasticIp: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   EnhancedVpcRouting: true || false,
+ *   AdditionalInfo: "STRING_VALUE",
+ *   IamRoles: [ // IamRoleArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaintenanceTrackName: "STRING_VALUE",
+ *   SnapshotScheduleIdentifier: "STRING_VALUE",
+ *   AvailabilityZoneRelocation: true || false,
+ *   AquaConfigurationStatus: "enabled" || "disabled" || "auto",
+ *   DefaultIamRoleArn: "STRING_VALUE",
+ *   LoadSampleData: "STRING_VALUE",
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
+ * @returns {@link CreateClusterCommandOutput}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -156,6 +202,9 @@ export class CreateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,8 +231,8 @@ export class CreateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -193,12 +242,18 @@ export class CreateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateClusterCommand(input, context);
+    return se_CreateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
-    return deserializeAws_queryCreateClusterCommand(output, context);
+    return de_CreateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,9 +15,7 @@ import {
 
 import {
   DeleteVoiceMessageSpendLimitOverrideRequest,
-  DeleteVoiceMessageSpendLimitOverrideRequestFilterSensitiveLog,
   DeleteVoiceMessageSpendLimitOverrideResult,
-  DeleteVoiceMessageSpendLimitOverrideResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
@@ -25,15 +23,19 @@ import {
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
 import {
-  deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommand,
-  serializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommand,
+  de_DeleteVoiceMessageSpendLimitOverrideCommand,
+  se_DeleteVoiceMessageSpendLimitOverrideCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceMessageSpendLimitOverrideCommand}.
  */
 export interface DeleteVoiceMessageSpendLimitOverrideCommandInput extends DeleteVoiceMessageSpendLimitOverrideRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceMessageSpendLimitOverrideCommand}.
  */
 export interface DeleteVoiceMessageSpendLimitOverrideCommandOutput
@@ -41,6 +43,7 @@ export interface DeleteVoiceMessageSpendLimitOverrideCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an account level monthly spend limit override for sending voice messages.
  *             Deleting a spend limit override sets the <code>EnforcedLimit</code> equal to the
  *                 <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more
@@ -52,10 +55,13 @@ export interface DeleteVoiceMessageSpendLimitOverrideCommandOutput
  * import { PinpointSMSVoiceV2Client, DeleteVoiceMessageSpendLimitOverrideCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DeleteVoiceMessageSpendLimitOverrideCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = {};
  * const command = new DeleteVoiceMessageSpendLimitOverrideCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVoiceMessageSpendLimitOverrideCommandInput - {@link DeleteVoiceMessageSpendLimitOverrideCommandInput}
+ * @returns {@link DeleteVoiceMessageSpendLimitOverrideCommandOutput}
  * @see {@link DeleteVoiceMessageSpendLimitOverrideCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceMessageSpendLimitOverrideCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -94,6 +100,9 @@ export class DeleteVoiceMessageSpendLimitOverrideCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceMessageSpendLimitOverrideCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +131,8 @@ export class DeleteVoiceMessageSpendLimitOverrideCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVoiceMessageSpendLimitOverrideRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVoiceMessageSpendLimitOverrideResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +142,24 @@ export class DeleteVoiceMessageSpendLimitOverrideCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVoiceMessageSpendLimitOverrideCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommand(input, context);
+    return se_DeleteVoiceMessageSpendLimitOverrideCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceMessageSpendLimitOverrideCommandOutput> {
-    return deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommand(output, context);
+    return de_DeleteVoiceMessageSpendLimitOverrideCommand(output, context);
   }
 
   // Start section: command_body_extra

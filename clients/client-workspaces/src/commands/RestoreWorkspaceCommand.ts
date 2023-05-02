@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreWorkspaceRequest,
-  RestoreWorkspaceRequestFilterSensitiveLog,
-  RestoreWorkspaceResult,
-  RestoreWorkspaceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreWorkspaceCommand,
-  serializeAws_json1_1RestoreWorkspaceCommand,
-} from "../protocols/Aws_json1_1";
+import { RestoreWorkspaceRequest, RestoreWorkspaceResult } from "../models/models_0";
+import { de_RestoreWorkspaceCommand, se_RestoreWorkspaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreWorkspaceCommand}.
  */
 export interface RestoreWorkspaceCommandInput extends RestoreWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreWorkspaceCommand}.
  */
 export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores the specified WorkSpace to its last known healthy state.</p>
  *          <p>You cannot restore a WorkSpace unless its state is <code> AVAILABLE</code>,
  *             <code>ERROR</code>, <code>UNHEALTHY</code>, or <code>STOPPED</code>.</p>
@@ -49,10 +46,15 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  * import { WorkSpacesClient, RestoreWorkspaceCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RestoreWorkspaceCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // RestoreWorkspaceRequest
+ *   WorkspaceId: "STRING_VALUE", // required
+ * };
  * const command = new RestoreWorkspaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreWorkspaceCommandInput - {@link RestoreWorkspaceCommandInput}
+ * @returns {@link RestoreWorkspaceCommandOutput}
  * @see {@link RestoreWorkspaceCommandInput} for command's `input` shape.
  * @see {@link RestoreWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -88,6 +90,9 @@ export class RestoreWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class RestoreWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreWorkspaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreWorkspaceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class RestoreWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreWorkspaceCommand(input, context);
+    return se_RestoreWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreWorkspaceCommandOutput> {
-    return deserializeAws_json1_1RestoreWorkspaceCommand(output, context);
+    return de_RestoreWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  DescribeEngineVersionsRequest,
-  DescribeEngineVersionsRequestFilterSensitiveLog,
-  DescribeEngineVersionsResponse,
-  DescribeEngineVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEngineVersionsCommand,
-  serializeAws_json1_1DescribeEngineVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEngineVersionsRequest, DescribeEngineVersionsResponse } from "../models/models_0";
+import { de_DescribeEngineVersionsCommand, se_DescribeEngineVersionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEngineVersionsCommand}.
  */
 export interface DescribeEngineVersionsCommandInput extends DescribeEngineVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEngineVersionsCommand}.
  */
 export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available Redis engine versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  * import { MemoryDBClient, DescribeEngineVersionsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeEngineVersionsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // DescribeEngineVersionsRequest
+ *   EngineVersion: "STRING_VALUE",
+ *   ParameterGroupFamily: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DefaultOnly: true || false,
+ * };
  * const command = new DescribeEngineVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEngineVersionsCommandInput - {@link DescribeEngineVersionsCommandInput}
+ * @returns {@link DescribeEngineVersionsCommandOutput}
  * @see {@link DescribeEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -78,6 +84,9 @@ export class DescribeEngineVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEngineVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +115,8 @@ export class DescribeEngineVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEngineVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEngineVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +126,18 @@ export class DescribeEngineVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEngineVersionsCommand(input, context);
+    return se_DescribeEngineVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEngineVersionsCommandOutput> {
-    return deserializeAws_json1_1DescribeEngineVersionsCommand(output, context);
+    return de_DescribeEngineVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

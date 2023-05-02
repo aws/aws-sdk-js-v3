@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
+import { ListAnomalyGroupRelatedMetricsRequest, ListAnomalyGroupRelatedMetricsResponse } from "../models/models_0";
 import {
-  ListAnomalyGroupRelatedMetricsRequest,
-  ListAnomalyGroupRelatedMetricsRequestFilterSensitiveLog,
-  ListAnomalyGroupRelatedMetricsResponse,
-  ListAnomalyGroupRelatedMetricsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAnomalyGroupRelatedMetricsCommand,
-  serializeAws_restJson1ListAnomalyGroupRelatedMetricsCommand,
+  de_ListAnomalyGroupRelatedMetricsCommand,
+  se_ListAnomalyGroupRelatedMetricsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnomalyGroupRelatedMetricsCommand}.
  */
 export interface ListAnomalyGroupRelatedMetricsCommandInput extends ListAnomalyGroupRelatedMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnomalyGroupRelatedMetricsCommand}.
  */
 export interface ListAnomalyGroupRelatedMetricsCommandOutput
@@ -37,6 +36,7 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of measures that are potential causes or effects of an
  *             anomaly group.</p>
  * @example
@@ -45,10 +45,19 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  * import { LookoutMetricsClient, ListAnomalyGroupRelatedMetricsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, ListAnomalyGroupRelatedMetricsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = { // ListAnomalyGroupRelatedMetricsRequest
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   AnomalyGroupId: "STRING_VALUE", // required
+ *   RelationshipTypeFilter: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAnomalyGroupRelatedMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnomalyGroupRelatedMetricsCommandInput - {@link ListAnomalyGroupRelatedMetricsCommandInput}
+ * @returns {@link ListAnomalyGroupRelatedMetricsCommandOutput}
  * @see {@link ListAnomalyGroupRelatedMetricsCommandInput} for command's `input` shape.
  * @see {@link ListAnomalyGroupRelatedMetricsCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -88,6 +97,9 @@ export class ListAnomalyGroupRelatedMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnomalyGroupRelatedMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +128,8 @@ export class ListAnomalyGroupRelatedMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAnomalyGroupRelatedMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAnomalyGroupRelatedMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +139,24 @@ export class ListAnomalyGroupRelatedMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAnomalyGroupRelatedMetricsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAnomalyGroupRelatedMetricsCommand(input, context);
+    return se_ListAnomalyGroupRelatedMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAnomalyGroupRelatedMetricsCommandOutput> {
-    return deserializeAws_restJson1ListAnomalyGroupRelatedMetricsCommand(output, context);
+    return de_ListAnomalyGroupRelatedMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

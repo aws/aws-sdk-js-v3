@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  UpdateVolumeRequest,
-  UpdateVolumeRequestFilterSensitiveLog,
-  UpdateVolumeResponse,
-  UpdateVolumeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateVolumeCommand,
-  serializeAws_json1_1UpdateVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateVolumeRequest, UpdateVolumeResponse } from "../models/models_0";
+import { de_UpdateVolumeCommand, se_UpdateVolumeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVolumeCommand}.
  */
 export interface UpdateVolumeCommandInput extends UpdateVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVolumeCommand}.
  */
 export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,55 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * import { FSxClient, UpdateVolumeCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateVolumeCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // UpdateVolumeRequest
+ *   ClientRequestToken: "STRING_VALUE",
+ *   VolumeId: "STRING_VALUE", // required
+ *   OntapConfiguration: { // UpdateOntapVolumeConfiguration
+ *     JunctionPath: "STRING_VALUE",
+ *     SecurityStyle: "UNIX" || "NTFS" || "MIXED",
+ *     SizeInMegabytes: Number("int"),
+ *     StorageEfficiencyEnabled: true || false,
+ *     TieringPolicy: { // TieringPolicy
+ *       CoolingPeriod: Number("int"),
+ *       Name: "SNAPSHOT_ONLY" || "AUTO" || "ALL" || "NONE",
+ *     },
+ *     SnapshotPolicy: "STRING_VALUE",
+ *     CopyTagsToBackups: true || false,
+ *   },
+ *   Name: "STRING_VALUE",
+ *   OpenZFSConfiguration: { // UpdateOpenZFSVolumeConfiguration
+ *     StorageCapacityReservationGiB: Number("int"),
+ *     StorageCapacityQuotaGiB: Number("int"),
+ *     RecordSizeKiB: Number("int"),
+ *     DataCompressionType: "NONE" || "ZSTD" || "LZ4",
+ *     NfsExports: [ // OpenZFSNfsExports
+ *       { // OpenZFSNfsExport
+ *         ClientConfigurations: [ // OpenZFSClientConfigurations // required
+ *           { // OpenZFSClientConfiguration
+ *             Clients: "STRING_VALUE", // required
+ *             Options: [ // OpenZFSNfsExportOptions // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     UserAndGroupQuotas: [ // OpenZFSUserAndGroupQuotas
+ *       { // OpenZFSUserOrGroupQuota
+ *         Type: "USER" || "GROUP", // required
+ *         Id: Number("int"), // required
+ *         StorageCapacityQuotaGiB: Number("int"), // required
+ *       },
+ *     ],
+ *     ReadOnly: true || false,
+ *   },
+ * };
  * const command = new UpdateVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVolumeCommandInput - {@link UpdateVolumeCommandInput}
+ * @returns {@link UpdateVolumeCommandOutput}
  * @see {@link UpdateVolumeCommandInput} for command's `input` shape.
  * @see {@link UpdateVolumeCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -86,6 +128,9 @@ export class UpdateVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +157,8 @@ export class UpdateVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVolumeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +168,18 @@ export class UpdateVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVolumeCommand(input, context);
+    return se_UpdateVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVolumeCommandOutput> {
-    return deserializeAws_json1_1UpdateVolumeCommand(output, context);
+    return de_UpdateVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

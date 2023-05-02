@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  DeletePlatformVersionRequest,
-  DeletePlatformVersionRequestFilterSensitiveLog,
-  DeletePlatformVersionResult,
-  DeletePlatformVersionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeletePlatformVersionCommand,
-  serializeAws_queryDeletePlatformVersionCommand,
-} from "../protocols/Aws_query";
+import { DeletePlatformVersionRequest, DeletePlatformVersionResult } from "../models/models_0";
+import { de_DeletePlatformVersionCommand, se_DeletePlatformVersionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePlatformVersionCommand}.
  */
 export interface DeletePlatformVersionCommandInput extends DeletePlatformVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePlatformVersionCommand}.
  */
 export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified version of a custom platform.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  * import { ElasticBeanstalkClient, DeletePlatformVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DeletePlatformVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DeletePlatformVersionRequest
+ *   PlatformArn: "STRING_VALUE",
+ * };
  * const command = new DeletePlatformVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePlatformVersionCommandInput - {@link DeletePlatformVersionCommandInput}
+ * @returns {@link DeletePlatformVersionCommandOutput}
  * @see {@link DeletePlatformVersionCommandInput} for command's `input` shape.
  * @see {@link DeletePlatformVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -83,6 +85,9 @@ export class DeletePlatformVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePlatformVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DeletePlatformVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePlatformVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePlatformVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DeletePlatformVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePlatformVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeletePlatformVersionCommand(input, context);
+    return se_DeletePlatformVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePlatformVersionCommandOutput> {
-    return deserializeAws_queryDeletePlatformVersionCommand(output, context);
+    return de_DeletePlatformVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

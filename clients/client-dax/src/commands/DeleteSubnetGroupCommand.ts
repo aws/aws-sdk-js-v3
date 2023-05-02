@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  DeleteSubnetGroupRequest,
-  DeleteSubnetGroupRequestFilterSensitiveLog,
-  DeleteSubnetGroupResponse,
-  DeleteSubnetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSubnetGroupCommand,
-  serializeAws_json1_1DeleteSubnetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSubnetGroupRequest, DeleteSubnetGroupResponse } from "../models/models_0";
+import { de_DeleteSubnetGroupCommand, se_DeleteSubnetGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubnetGroupCommand}.
  */
 export interface DeleteSubnetGroupCommandInput extends DeleteSubnetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubnetGroupCommand}.
  */
 export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a subnet group.</p>
  *         <note>
  *             <p>You cannot delete a subnet group if it is associated with any DAX
@@ -46,10 +43,15 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * import { DAXClient, DeleteSubnetGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DeleteSubnetGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = { // DeleteSubnetGroupRequest
+ *   SubnetGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubnetGroupCommandInput - {@link DeleteSubnetGroupCommandInput}
+ * @returns {@link DeleteSubnetGroupCommandOutput}
  * @see {@link DeleteSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -83,6 +85,9 @@ export class DeleteSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DeleteSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubnetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubnetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DeleteSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSubnetGroupCommand(input, context);
+    return se_DeleteSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteSubnetGroupCommand(output, context);
+    return de_DeleteSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  CreateExperimentRequest,
-  CreateExperimentRequestFilterSensitiveLog,
-  CreateExperimentResponse,
-  CreateExperimentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateExperimentCommand,
-  serializeAws_restJson1CreateExperimentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateExperimentRequest, CreateExperimentResponse } from "../models/models_0";
+import { de_CreateExperimentCommand, se_CreateExperimentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExperimentCommand}.
  */
 export interface CreateExperimentCommandInput extends CreateExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExperimentCommand}.
  */
 export interface CreateExperimentCommandOutput extends CreateExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Evidently <i>experiment</i>. Before you create an experiment,
  *       you must create the feature to use for the experiment.</p>
  *          <p>An experiment helps you make feature design
@@ -51,10 +48,49 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  * import { EvidentlyClient, CreateExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, CreateExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // CreateExperimentRequest
+ *   project: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   treatments: [ // TreatmentConfigList // required
+ *     { // TreatmentConfig
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       feature: "STRING_VALUE", // required
+ *       variation: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   metricGoals: [ // MetricGoalConfigList // required
+ *     { // MetricGoalConfig
+ *       metricDefinition: { // MetricDefinitionConfig
+ *         name: "STRING_VALUE", // required
+ *         entityIdKey: "STRING_VALUE", // required
+ *         valueKey: "STRING_VALUE", // required
+ *         eventPattern: "STRING_VALUE",
+ *         unitLabel: "STRING_VALUE",
+ *       },
+ *       desiredChange: "STRING_VALUE",
+ *     },
+ *   ],
+ *   randomizationSalt: "STRING_VALUE",
+ *   samplingRate: Number("long"),
+ *   onlineAbConfig: { // OnlineAbConfig
+ *     controlTreatmentName: "STRING_VALUE",
+ *     treatmentWeights: { // TreatmentToWeightMap
+ *       "<keys>": Number("long"),
+ *     },
+ *   },
+ *   segment: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateExperimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExperimentCommandInput - {@link CreateExperimentCommandInput}
+ * @returns {@link CreateExperimentCommandOutput}
  * @see {@link CreateExperimentCommandInput} for command's `input` shape.
  * @see {@link CreateExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -93,6 +129,9 @@ export class CreateExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +160,8 @@ export class CreateExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +171,18 @@ export class CreateExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateExperimentCommand(input, context);
+    return se_CreateExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExperimentCommandOutput> {
-    return deserializeAws_restJson1CreateExperimentCommand(output, context);
+    return de_CreateExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

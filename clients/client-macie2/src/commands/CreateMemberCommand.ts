@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  CreateMemberRequest,
-  CreateMemberRequestFilterSensitiveLog,
-  CreateMemberResponse,
-  CreateMemberResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMemberCommand,
-  serializeAws_restJson1CreateMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMemberRequest, CreateMemberResponse } from "../models/models_0";
+import { de_CreateMemberCommand, se_CreateMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMemberCommand}.
  */
 export interface CreateMemberCommandInput extends CreateMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMemberCommand}.
  */
 export interface CreateMemberCommandOutput extends CreateMemberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an account with an Amazon Macie administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface CreateMemberCommandOutput extends CreateMemberResponse, __Metad
  * import { Macie2Client, CreateMemberCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, CreateMemberCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // CreateMemberRequest
+ *   account: { // AccountDetail
+ *     accountId: "STRING_VALUE", // required
+ *     email: "STRING_VALUE", // required
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMemberCommandInput - {@link CreateMemberCommandInput}
+ * @returns {@link CreateMemberCommandOutput}
  * @see {@link CreateMemberCommandInput} for command's `input` shape.
  * @see {@link CreateMemberCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +98,9 @@ export class CreateMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +127,8 @@ export class CreateMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMemberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +138,18 @@ export class CreateMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMemberCommand(input, context);
+    return se_CreateMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMemberCommandOutput> {
-    return deserializeAws_restJson1CreateMemberCommand(output, context);
+    return de_CreateMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

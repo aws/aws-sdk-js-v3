@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ConfirmTopicRuleDestinationRequest, ConfirmTopicRuleDestinationResponse } from "../models/models_0";
 import {
-  ConfirmTopicRuleDestinationRequest,
-  ConfirmTopicRuleDestinationRequestFilterSensitiveLog,
-  ConfirmTopicRuleDestinationResponse,
-  ConfirmTopicRuleDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ConfirmTopicRuleDestinationCommand,
-  serializeAws_restJson1ConfirmTopicRuleDestinationCommand,
+  de_ConfirmTopicRuleDestinationCommand,
+  se_ConfirmTopicRuleDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmTopicRuleDestinationCommand}.
  */
 export interface ConfirmTopicRuleDestinationCommandInput extends ConfirmTopicRuleDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmTopicRuleDestinationCommand}.
  */
 export interface ConfirmTopicRuleDestinationCommandOutput
@@ -37,6 +36,7 @@ export interface ConfirmTopicRuleDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Confirms a topic rule destination. When you create a rule requiring a destination, IoT
  *          sends a confirmation message to the endpoint or base address you specify. The message
  *          includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code>
@@ -48,10 +48,15 @@ export interface ConfirmTopicRuleDestinationCommandOutput
  * import { IoTClient, ConfirmTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ConfirmTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ConfirmTopicRuleDestinationRequest
+ *   confirmationToken: "STRING_VALUE", // required
+ * };
  * const command = new ConfirmTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmTopicRuleDestinationCommandInput - {@link ConfirmTopicRuleDestinationCommandInput}
+ * @returns {@link ConfirmTopicRuleDestinationCommandOutput}
  * @see {@link ConfirmTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link ConfirmTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -91,6 +96,9 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmTopicRuleDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +127,8 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmTopicRuleDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmTopicRuleDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +138,21 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfirmTopicRuleDestinationCommand(input, context);
+    return se_ConfirmTopicRuleDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConfirmTopicRuleDestinationCommandOutput> {
-    return deserializeAws_restJson1ConfirmTopicRuleDestinationCommand(output, context);
+    return de_ConfirmTopicRuleDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  BatchGetFreeTrialInfoRequest,
-  BatchGetFreeTrialInfoRequestFilterSensitiveLog,
-  BatchGetFreeTrialInfoResponse,
-  BatchGetFreeTrialInfoResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetFreeTrialInfoCommand,
-  serializeAws_restJson1BatchGetFreeTrialInfoCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchGetFreeTrialInfoRequest, BatchGetFreeTrialInfoResponse } from "../models/models_0";
+import { de_BatchGetFreeTrialInfoCommand, se_BatchGetFreeTrialInfoCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetFreeTrialInfoCommand}.
  */
 export interface BatchGetFreeTrialInfoCommandInput extends BatchGetFreeTrialInfoRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetFreeTrialInfoCommand}.
  */
 export interface BatchGetFreeTrialInfoCommandOutput extends BatchGetFreeTrialInfoResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets free trial status for multiple Amazon Web Services accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface BatchGetFreeTrialInfoCommandOutput extends BatchGetFreeTrialInf
  * import { Inspector2Client, BatchGetFreeTrialInfoCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, BatchGetFreeTrialInfoCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = { // BatchGetFreeTrialInfoRequest
+ *   accountIds: [ // MeteringAccountIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetFreeTrialInfoCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetFreeTrialInfoCommandInput - {@link BatchGetFreeTrialInfoCommandInput}
+ * @returns {@link BatchGetFreeTrialInfoCommandOutput}
  * @see {@link BatchGetFreeTrialInfoCommandInput} for command's `input` shape.
  * @see {@link BatchGetFreeTrialInfoCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -82,6 +86,9 @@ export class BatchGetFreeTrialInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetFreeTrialInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class BatchGetFreeTrialInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetFreeTrialInfoRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetFreeTrialInfoResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class BatchGetFreeTrialInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetFreeTrialInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetFreeTrialInfoCommand(input, context);
+    return se_BatchGetFreeTrialInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetFreeTrialInfoCommandOutput> {
-    return deserializeAws_restJson1BatchGetFreeTrialInfoCommand(output, context);
+    return de_BatchGetFreeTrialInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

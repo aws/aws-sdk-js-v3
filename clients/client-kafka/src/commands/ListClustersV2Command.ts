@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  ListClustersV2Request,
-  ListClustersV2RequestFilterSensitiveLog,
-  ListClustersV2Response,
-  ListClustersV2ResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListClustersV2Command,
-  serializeAws_restJson1ListClustersV2Command,
-} from "../protocols/Aws_restJson1";
+import { ListClustersV2Request, ListClustersV2Response } from "../models/models_0";
+import { de_ListClustersV2Command, se_ListClustersV2Command } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListClustersV2Command}.
  */
 export interface ListClustersV2CommandInput extends ListClustersV2Request {}
 /**
+ * @public
+ *
  * The output of {@link ListClustersV2Command}.
  */
 export interface ListClustersV2CommandOutput extends ListClustersV2Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the MSK clusters in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListClustersV2CommandOutput extends ListClustersV2Response, __M
  * import { KafkaClient, ListClustersV2Command } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListClustersV2Command } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // ListClustersV2Request
+ *   ClusterNameFilter: "STRING_VALUE",
+ *   ClusterTypeFilter: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListClustersV2Command(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClustersV2CommandInput - {@link ListClustersV2CommandInput}
+ * @returns {@link ListClustersV2CommandOutput}
  * @see {@link ListClustersV2CommandInput} for command's `input` shape.
  * @see {@link ListClustersV2CommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -81,6 +86,9 @@ export class ListClustersV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClustersV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class ListClustersV2Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClustersV2RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListClustersV2ResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class ListClustersV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClustersV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListClustersV2Command(input, context);
+    return se_ListClustersV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClustersV2CommandOutput> {
-    return deserializeAws_restJson1ListClustersV2Command(output, context);
+    return de_ListClustersV2Command(output, context);
   }
 
   // Start section: command_body_extra

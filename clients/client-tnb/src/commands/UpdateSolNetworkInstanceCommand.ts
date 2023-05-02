@@ -19,22 +19,24 @@ import {
   UpdateSolNetworkInstanceOutput,
   UpdateSolNetworkInstanceOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSolNetworkInstanceCommand,
-  serializeAws_restJson1UpdateSolNetworkInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSolNetworkInstanceCommand, se_UpdateSolNetworkInstanceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSolNetworkInstanceCommand}.
  */
 export interface UpdateSolNetworkInstanceCommandInput extends UpdateSolNetworkInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSolNetworkInstanceCommand}.
  */
 export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
  * @example
@@ -43,10 +45,23 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * import { TnbClient, UpdateSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, UpdateSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // UpdateSolNetworkInstanceInput
+ *   nsInstanceId: "STRING_VALUE", // required
+ *   updateType: "MODIFY_VNF_INFORMATION", // required
+ *   modifyVnfInfoData: { // UpdateSolNetworkModify
+ *     vnfInstanceId: "STRING_VALUE", // required
+ *     vnfConfigurableProperties: "DOCUMENT_VALUE", // required
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSolNetworkInstanceCommandInput - {@link UpdateSolNetworkInstanceCommandInput}
+ * @returns {@link UpdateSolNetworkInstanceCommandOutput}
  * @see {@link UpdateSolNetworkInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -88,6 +103,9 @@ export class UpdateSolNetworkInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSolNetworkInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,12 +145,18 @@ export class UpdateSolNetworkInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSolNetworkInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSolNetworkInstanceCommand(input, context);
+    return se_UpdateSolNetworkInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSolNetworkInstanceCommandOutput> {
-    return deserializeAws_restJson1UpdateSolNetworkInstanceCommand(output, context);
+    return de_UpdateSolNetworkInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,23 +23,24 @@ import {
   UpdateAuthEventFeedbackRequest,
   UpdateAuthEventFeedbackRequestFilterSensitiveLog,
   UpdateAuthEventFeedbackResponse,
-  UpdateAuthEventFeedbackResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateAuthEventFeedbackCommand,
-  serializeAws_json1_1UpdateAuthEventFeedbackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateAuthEventFeedbackCommand, se_UpdateAuthEventFeedbackCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAuthEventFeedbackCommand}.
  */
 export interface UpdateAuthEventFeedbackCommandInput extends UpdateAuthEventFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAuthEventFeedbackCommand}.
  */
 export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the feedback for an authentication event, whether it was from a valid user or
  *             not. This feedback is used for improving the risk evaluation decision for the user pool
  *             as part of Amazon Cognito advanced security.</p>
@@ -49,10 +50,19 @@ export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFee
  * import { CognitoIdentityProviderClient, UpdateAuthEventFeedbackCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateAuthEventFeedbackCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // UpdateAuthEventFeedbackRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   EventId: "STRING_VALUE", // required
+ *   FeedbackToken: "STRING_VALUE", // required
+ *   FeedbackValue: "Valid" || "Invalid", // required
+ * };
  * const command = new UpdateAuthEventFeedbackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAuthEventFeedbackCommandInput - {@link UpdateAuthEventFeedbackCommandInput}
+ * @returns {@link UpdateAuthEventFeedbackCommandOutput}
  * @see {@link UpdateAuthEventFeedbackCommandInput} for command's `input` shape.
  * @see {@link UpdateAuthEventFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -100,6 +110,9 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAuthEventFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,7 +143,7 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateAuthEventFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAuthEventFeedbackResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +153,18 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAuthEventFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAuthEventFeedbackCommand(input, context);
+    return se_UpdateAuthEventFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAuthEventFeedbackCommandOutput> {
-    return deserializeAws_json1_1UpdateAuthEventFeedbackCommand(output, context);
+    return de_UpdateAuthEventFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

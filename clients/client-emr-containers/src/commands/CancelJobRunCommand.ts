@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import {
-  CancelJobRunRequest,
-  CancelJobRunRequestFilterSensitiveLog,
-  CancelJobRunResponse,
-  CancelJobRunResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelJobRunCommand,
-  serializeAws_restJson1CancelJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelJobRunRequest, CancelJobRunResponse } from "../models/models_0";
+import { de_CancelJobRunCommand, se_CancelJobRunCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelJobRunCommand}.
  */
 export interface CancelJobRunCommandInput extends CancelJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelJobRunCommand}.
  */
 export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or
  *          SparkSQL query, that you submit to Amazon EMR on EKS.</p>
  * @example
@@ -43,10 +40,16 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * import { EMRContainersClient, CancelJobRunCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, CancelJobRunCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = { // CancelJobRunRequest
+ *   id: "STRING_VALUE", // required
+ *   virtualClusterId: "STRING_VALUE", // required
+ * };
  * const command = new CancelJobRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelJobRunCommandInput - {@link CancelJobRunCommandInput}
+ * @returns {@link CancelJobRunCommandOutput}
  * @see {@link CancelJobRunCommandInput} for command's `input` shape.
  * @see {@link CancelJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -76,6 +79,9 @@ export class CancelJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +108,8 @@ export class CancelJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelJobRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelJobRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +119,18 @@ export class CancelJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelJobRunCommand(input, context);
+    return se_CancelJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobRunCommandOutput> {
-    return deserializeAws_restJson1CancelJobRunCommand(output, context);
+    return de_CancelJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  ArchiveCreationOutput,
-  ArchiveCreationOutputFilterSensitiveLog,
-  CompleteMultipartUploadInput,
-  CompleteMultipartUploadInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CompleteMultipartUploadCommand,
-  serializeAws_restJson1CompleteMultipartUploadCommand,
-} from "../protocols/Aws_restJson1";
+import { ArchiveCreationOutput, CompleteMultipartUploadInput } from "../models/models_0";
+import { de_CompleteMultipartUploadCommand, se_CompleteMultipartUploadCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CompleteMultipartUploadCommand}.
  */
 export interface CompleteMultipartUploadCommandInput extends CompleteMultipartUploadInput {}
 /**
+ * @public
+ *
  * The output of {@link CompleteMultipartUploadCommand}.
  */
 export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You call this operation to inform Amazon S3 Glacier (Glacier) that all the archive parts have been
  *          uploaded and that Glacier can now assemble the archive from the uploaded parts.
  *          After assembling and saving the archive to the vault, Glacier returns the URI path
@@ -79,10 +76,19 @@ export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOut
  * import { GlacierClient, CompleteMultipartUploadCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, CompleteMultipartUploadCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // CompleteMultipartUploadInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   uploadId: "STRING_VALUE", // required
+ *   archiveSize: "STRING_VALUE",
+ *   checksum: "STRING_VALUE",
+ * };
  * const command = new CompleteMultipartUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteMultipartUploadCommandInput - {@link CompleteMultipartUploadCommandInput}
+ * @returns {@link CompleteMultipartUploadCommandOutput}
  * @see {@link CompleteMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -141,6 +147,9 @@ export class CompleteMultipartUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteMultipartUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,8 +178,8 @@ export class CompleteMultipartUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompleteMultipartUploadInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ArchiveCreationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -180,12 +189,18 @@ export class CompleteMultipartUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CompleteMultipartUploadCommand(input, context);
+    return se_CompleteMultipartUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteMultipartUploadCommandOutput> {
-    return deserializeAws_restJson1CompleteMultipartUploadCommand(output, context);
+    return de_CompleteMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

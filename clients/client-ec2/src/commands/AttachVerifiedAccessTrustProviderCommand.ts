@@ -16,20 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   AttachVerifiedAccessTrustProviderRequest,
-  AttachVerifiedAccessTrustProviderRequestFilterSensitiveLog,
   AttachVerifiedAccessTrustProviderResult,
   AttachVerifiedAccessTrustProviderResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_ec2AttachVerifiedAccessTrustProviderCommand,
-  serializeAws_ec2AttachVerifiedAccessTrustProviderCommand,
+  de_AttachVerifiedAccessTrustProviderCommand,
+  se_AttachVerifiedAccessTrustProviderCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AttachVerifiedAccessTrustProviderCommand}.
  */
 export interface AttachVerifiedAccessTrustProviderCommandInput extends AttachVerifiedAccessTrustProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachVerifiedAccessTrustProviderCommand}.
  */
 export interface AttachVerifiedAccessTrustProviderCommandOutput
@@ -37,19 +40,26 @@ export interface AttachVerifiedAccessTrustProviderCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
- *          information for users and devices. One or more trust providers can be attached to an Amazon Web Services Verified Access
- *          instance.</p>
+ * @public
+ * <p>Attaches the specified Amazon Web Services Verified Access trust provider to the specified Amazon Web Services Verified Access instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, AttachVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AttachVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AttachVerifiedAccessTrustProviderRequest
+ *   VerifiedAccessInstanceId: "STRING_VALUE", // required
+ *   VerifiedAccessTrustProviderId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new AttachVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachVerifiedAccessTrustProviderCommandInput - {@link AttachVerifiedAccessTrustProviderCommandInput}
+ * @returns {@link AttachVerifiedAccessTrustProviderCommandOutput}
  * @see {@link AttachVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link AttachVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +83,9 @@ export class AttachVerifiedAccessTrustProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachVerifiedAccessTrustProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,7 +114,7 @@ export class AttachVerifiedAccessTrustProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachVerifiedAccessTrustProviderRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: AttachVerifiedAccessTrustProviderResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -112,18 +125,24 @@ export class AttachVerifiedAccessTrustProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AttachVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2AttachVerifiedAccessTrustProviderCommand(input, context);
+    return se_AttachVerifiedAccessTrustProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachVerifiedAccessTrustProviderCommandOutput> {
-    return deserializeAws_ec2AttachVerifiedAccessTrustProviderCommand(output, context);
+    return de_AttachVerifiedAccessTrustProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

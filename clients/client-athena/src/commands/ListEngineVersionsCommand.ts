@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListEngineVersionsInput,
-  ListEngineVersionsInputFilterSensitiveLog,
-  ListEngineVersionsOutput,
-  ListEngineVersionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEngineVersionsCommand,
-  serializeAws_json1_1ListEngineVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEngineVersionsInput, ListEngineVersionsOutput } from "../models/models_0";
+import { de_ListEngineVersionsCommand, se_ListEngineVersionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEngineVersionsCommand}.
  */
 export interface ListEngineVersionsCommandInput extends ListEngineVersionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEngineVersionsCommand}.
  */
 export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of engine versions that are available to choose from, including the
  *             Auto option.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
  * import { AthenaClient, ListEngineVersionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListEngineVersionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListEngineVersionsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEngineVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEngineVersionsCommandInput - {@link ListEngineVersionsCommandInput}
+ * @returns {@link ListEngineVersionsCommandOutput}
  * @see {@link ListEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link ListEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -78,6 +81,9 @@ export class ListEngineVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEngineVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class ListEngineVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEngineVersionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEngineVersionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class ListEngineVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEngineVersionsCommand(input, context);
+    return se_ListEngineVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEngineVersionsCommandOutput> {
-    return deserializeAws_json1_1ListEngineVersionsCommand(output, context);
+    return de_ListEngineVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

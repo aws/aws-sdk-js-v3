@@ -14,52 +14,55 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeGameServerInput,
-  DescribeGameServerInputFilterSensitiveLog,
-  DescribeGameServerOutput,
-  DescribeGameServerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGameServerCommand,
-  serializeAws_json1_1DescribeGameServerCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeGameServerInput, DescribeGameServerOutput } from "../models/models_0";
+import { de_DescribeGameServerCommand, se_DescribeGameServerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGameServerCommand}.
  */
 export interface DescribeGameServerCommandInput extends DescribeGameServerInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGameServerCommand}.
  */
 export interface DescribeGameServerCommandOutput extends DescribeGameServerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
- *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Retrieves information for a
  *             registered game server. Information includes game server status, health check info, and
  *             the instance that the game server is running on. </p>
- *         <p>To retrieve game server information, specify the game server ID. If successful, the
+ *          <p>To retrieve game server information, specify the game server ID. If successful, the
  *             requested game server object is returned. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
  *                 Guide</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GameLiftClient, DescribeGameServerCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeGameServerCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeGameServerInput
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   GameServerId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGameServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGameServerCommandInput - {@link DescribeGameServerCommandInput}
+ * @returns {@link DescribeGameServerCommandOutput}
  * @see {@link DescribeGameServerCommandInput} for command's `input` shape.
  * @see {@link DescribeGameServerCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -97,6 +100,9 @@ export class DescribeGameServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGameServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +131,8 @@ export class DescribeGameServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGameServerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGameServerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +142,18 @@ export class DescribeGameServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGameServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGameServerCommand(input, context);
+    return se_DescribeGameServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGameServerCommandOutput> {
-    return deserializeAws_json1_1DescribeGameServerCommand(output, context);
+    return de_DescribeGameServerCommand(output, context);
   }
 
   // Start section: command_body_extra

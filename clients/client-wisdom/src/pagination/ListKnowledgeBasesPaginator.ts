@@ -10,7 +10,7 @@ import { WisdomClient } from "../WisdomClient";
 import { WisdomPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WisdomClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListKnowledgeBasesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListKnowledgeBases(
   config: WisdomPaginationConfiguration,
   input: ListKnowledgeBasesCommandInput,

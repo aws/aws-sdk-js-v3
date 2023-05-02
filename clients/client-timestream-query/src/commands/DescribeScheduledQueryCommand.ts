@@ -16,26 +16,27 @@ import {
 
 import {
   DescribeScheduledQueryRequest,
-  DescribeScheduledQueryRequestFilterSensitiveLog,
   DescribeScheduledQueryResponse,
   DescribeScheduledQueryResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeScheduledQueryCommand,
-  serializeAws_json1_0DescribeScheduledQueryCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeScheduledQueryCommand, se_DescribeScheduledQueryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduledQueryCommand}.
  */
 export interface DescribeScheduledQueryCommandInput extends DescribeScheduledQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduledQueryCommand}.
  */
 export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides detailed information about a scheduled query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,10 +44,15 @@ export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQu
  * import { TimestreamQueryClient, DescribeScheduledQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, DescribeScheduledQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
+ * const input = { // DescribeScheduledQueryRequest
+ *   ScheduledQueryArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeScheduledQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduledQueryCommandInput - {@link DescribeScheduledQueryCommandInput}
+ * @returns {@link DescribeScheduledQueryCommandOutput}
  * @see {@link DescribeScheduledQueryCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -90,6 +96,9 @@ export class DescribeScheduledQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduledQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,7 +130,7 @@ export class DescribeScheduledQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduledQueryRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeScheduledQueryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -132,12 +141,18 @@ export class DescribeScheduledQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScheduledQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeScheduledQueryCommand(input, context);
+    return se_DescribeScheduledQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduledQueryCommandOutput> {
-    return deserializeAws_json1_0DescribeScheduledQueryCommand(output, context);
+    return de_DescribeScheduledQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

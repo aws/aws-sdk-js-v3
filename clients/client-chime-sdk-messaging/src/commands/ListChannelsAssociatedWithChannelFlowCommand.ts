@@ -25,16 +25,20 @@ import {
   ListChannelsAssociatedWithChannelFlowResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand,
-  serializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand,
+  de_ListChannelsAssociatedWithChannelFlowCommand,
+  se_ListChannelsAssociatedWithChannelFlowCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChannelsAssociatedWithChannelFlowCommand}.
  */
 export interface ListChannelsAssociatedWithChannelFlowCommandInput
   extends ListChannelsAssociatedWithChannelFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChannelsAssociatedWithChannelFlowCommand}.
  */
 export interface ListChannelsAssociatedWithChannelFlowCommandOutput
@@ -42,6 +46,7 @@ export interface ListChannelsAssociatedWithChannelFlowCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all channels associated with a specified channel flow. You can associate a channel flow with multiple channels, but you can only associate a channel with one channel flow. This is a developer API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +54,17 @@ export interface ListChannelsAssociatedWithChannelFlowCommandOutput
  * import { ChimeSDKMessagingClient, ListChannelsAssociatedWithChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelsAssociatedWithChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // ListChannelsAssociatedWithChannelFlowRequest
+ *   ChannelFlowArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListChannelsAssociatedWithChannelFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelsAssociatedWithChannelFlowCommandInput - {@link ListChannelsAssociatedWithChannelFlowCommandInput}
+ * @returns {@link ListChannelsAssociatedWithChannelFlowCommandOutput}
  * @see {@link ListChannelsAssociatedWithChannelFlowCommandInput} for command's `input` shape.
  * @see {@link ListChannelsAssociatedWithChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -94,6 +106,9 @@ export class ListChannelsAssociatedWithChannelFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelsAssociatedWithChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,18 +148,24 @@ export class ListChannelsAssociatedWithChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListChannelsAssociatedWithChannelFlowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand(input, context);
+    return se_ListChannelsAssociatedWithChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput> {
-    return deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand(output, context);
+    return de_ListChannelsAssociatedWithChannelFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

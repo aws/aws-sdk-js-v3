@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeNamespaceRequest,
-  DescribeNamespaceRequestFilterSensitiveLog,
-  DescribeNamespaceResponse,
-  DescribeNamespaceResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeNamespaceCommand,
-  serializeAws_restJson1DescribeNamespaceCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/models_2";
+import { de_DescribeNamespaceCommand, se_DescribeNamespaceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNamespaceCommand}.
  */
 export interface DescribeNamespaceCommandInput extends DescribeNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNamespaceCommand}.
  */
 export interface DescribeNamespaceCommandOutput extends DescribeNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * import { QuickSightClient, DescribeNamespaceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeNamespaceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeNamespaceRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ * };
  * const command = new DescribeNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNamespaceCommandInput - {@link DescribeNamespaceCommandInput}
+ * @returns {@link DescribeNamespaceCommandOutput}
  * @see {@link DescribeNamespaceCommandInput} for command's `input` shape.
  * @see {@link DescribeNamespaceCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -90,6 +93,9 @@ export class DescribeNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class DescribeNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class DescribeNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeNamespaceCommand(input, context);
+    return se_DescribeNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNamespaceCommandOutput> {
-    return deserializeAws_restJson1DescribeNamespaceCommand(output, context);
+    return de_DescribeNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  StartContinuousExportRequest,
-  StartContinuousExportRequestFilterSensitiveLog,
-  StartContinuousExportResponse,
-  StartContinuousExportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartContinuousExportCommand,
-  serializeAws_json1_1StartContinuousExportCommand,
-} from "../protocols/Aws_json1_1";
+import { StartContinuousExportRequest, StartContinuousExportResponse } from "../models/models_0";
+import { de_StartContinuousExportCommand, se_StartContinuousExportCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartContinuousExportCommand}.
  */
 export interface StartContinuousExportCommandInput extends StartContinuousExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartContinuousExportCommand}.
  */
 export interface StartContinuousExportCommandOutput extends StartContinuousExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Start the continuous flow of agent's discovered data into Amazon Athena.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,13 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
  * import { ApplicationDiscoveryServiceClient, StartContinuousExportCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StartContinuousExportCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {};
  * const command = new StartContinuousExportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartContinuousExportCommandInput - {@link StartContinuousExportCommandInput}
+ * @returns {@link StartContinuousExportCommandOutput}
  * @see {@link StartContinuousExportCommandInput} for command's `input` shape.
  * @see {@link StartContinuousExportCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -103,6 +103,9 @@ export class StartContinuousExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartContinuousExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +134,8 @@ export class StartContinuousExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartContinuousExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartContinuousExportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +145,18 @@ export class StartContinuousExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartContinuousExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartContinuousExportCommand(input, context);
+    return se_StartContinuousExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContinuousExportCommandOutput> {
-    return deserializeAws_json1_1StartContinuousExportCommand(output, context);
+    return de_StartContinuousExportCommand(output, context);
   }
 
   // Start section: command_body_extra

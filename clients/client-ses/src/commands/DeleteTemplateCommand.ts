@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTemplateRequest,
-  DeleteTemplateRequestFilterSensitiveLog,
-  DeleteTemplateResponse,
-  DeleteTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteTemplateCommand,
-  serializeAws_queryDeleteTemplateCommand,
-} from "../protocols/Aws_query";
+import { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/models_0";
+import { de_DeleteTemplateCommand, se_DeleteTemplateCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTemplateCommand}.
  */
 export interface DeleteTemplateCommandInput extends DeleteTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTemplateCommand}.
  */
 export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an email template.</p>
  *         <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * import { SESClient, DeleteTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // DeleteTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTemplateCommandInput - {@link DeleteTemplateCommandInput}
+ * @returns {@link DeleteTemplateCommandOutput}
  * @see {@link DeleteTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -70,6 +72,9 @@ export class DeleteTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +103,8 @@ export class DeleteTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +114,18 @@ export class DeleteTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteTemplateCommand(input, context);
+    return se_DeleteTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTemplateCommandOutput> {
-    return deserializeAws_queryDeleteTemplateCommand(output, context);
+    return de_DeleteTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

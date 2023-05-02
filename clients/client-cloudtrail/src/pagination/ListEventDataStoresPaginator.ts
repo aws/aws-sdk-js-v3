@@ -10,7 +10,7 @@ import {
 import { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudTrailClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEventDataStoresCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListEventDataStores(
   config: CloudTrailPaginationConfiguration,
   input: ListEventDataStoresCommandInput,

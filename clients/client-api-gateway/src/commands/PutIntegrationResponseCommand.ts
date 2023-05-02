@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  IntegrationResponse,
-  IntegrationResponseFilterSensitiveLog,
-  PutIntegrationResponseRequest,
-  PutIntegrationResponseRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutIntegrationResponseCommand,
-  serializeAws_restJson1PutIntegrationResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { IntegrationResponse, PutIntegrationResponseRequest } from "../models/models_0";
+import { de_PutIntegrationResponseCommand, se_PutIntegrationResponseCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutIntegrationResponseCommand}.
  */
 export interface PutIntegrationResponseCommandInput extends PutIntegrationResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutIntegrationResponseCommand}.
  */
 export interface PutIntegrationResponseCommandOutput extends IntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents a put integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface PutIntegrationResponseCommandOutput extends IntegrationResponse
  * import { APIGatewayClient, PutIntegrationResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, PutIntegrationResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // PutIntegrationResponseRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ *   statusCode: "STRING_VALUE", // required
+ *   selectionPattern: "STRING_VALUE",
+ *   responseParameters: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   responseTemplates: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   contentHandling: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
+ * };
  * const command = new PutIntegrationResponseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutIntegrationResponseCommandInput - {@link PutIntegrationResponseCommandInput}
+ * @returns {@link PutIntegrationResponseCommandOutput}
  * @see {@link PutIntegrationResponseCommandInput} for command's `input` shape.
  * @see {@link PutIntegrationResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +100,9 @@ export class PutIntegrationResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutIntegrationResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +131,8 @@ export class PutIntegrationResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutIntegrationResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: IntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +142,18 @@ export class PutIntegrationResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutIntegrationResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutIntegrationResponseCommand(input, context);
+    return se_PutIntegrationResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIntegrationResponseCommandOutput> {
-    return deserializeAws_restJson1PutIntegrationResponseCommand(output, context);
+    return de_PutIntegrationResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

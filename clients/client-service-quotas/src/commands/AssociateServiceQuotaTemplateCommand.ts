@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { AssociateServiceQuotaTemplateRequest, AssociateServiceQuotaTemplateResponse } from "../models/models_0";
 import {
-  AssociateServiceQuotaTemplateRequest,
-  AssociateServiceQuotaTemplateRequestFilterSensitiveLog,
-  AssociateServiceQuotaTemplateResponse,
-  AssociateServiceQuotaTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateServiceQuotaTemplateCommand,
-  serializeAws_json1_1AssociateServiceQuotaTemplateCommand,
+  de_AssociateServiceQuotaTemplateCommand,
+  se_AssociateServiceQuotaTemplateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateServiceQuotaTemplateCommand}.
  */
 export interface AssociateServiceQuotaTemplateCommandInput extends AssociateServiceQuotaTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateServiceQuotaTemplateCommand}.
  */
 export interface AssociateServiceQuotaTemplateCommandOutput
@@ -37,6 +36,7 @@ export interface AssociateServiceQuotaTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates your quota request template with your organization. When a new account is
  *       created in your organization, the quota increase requests in the template are automatically
  *       applied to the account. You can add a quota increase request for any adjustable quota to your
@@ -47,10 +47,13 @@ export interface AssociateServiceQuotaTemplateCommandOutput
  * import { ServiceQuotasClient, AssociateServiceQuotaTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, AssociateServiceQuotaTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = {};
  * const command = new AssociateServiceQuotaTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateServiceQuotaTemplateCommandInput - {@link AssociateServiceQuotaTemplateCommandInput}
+ * @returns {@link AssociateServiceQuotaTemplateCommandOutput}
  * @see {@link AssociateServiceQuotaTemplateCommandInput} for command's `input` shape.
  * @see {@link AssociateServiceQuotaTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -100,6 +103,9 @@ export class AssociateServiceQuotaTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateServiceQuotaTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +134,8 @@ export class AssociateServiceQuotaTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateServiceQuotaTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateServiceQuotaTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +145,21 @@ export class AssociateServiceQuotaTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateServiceQuotaTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateServiceQuotaTemplateCommand(input, context);
+    return se_AssociateServiceQuotaTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateServiceQuotaTemplateCommandOutput> {
-    return deserializeAws_json1_1AssociateServiceQuotaTemplateCommand(output, context);
+    return de_AssociateServiceQuotaTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

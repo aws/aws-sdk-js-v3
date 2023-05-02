@@ -136,6 +136,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateAccountsCommandInput
   | AssociatePricingRulesCommandInput
@@ -169,6 +172,9 @@ export type ServiceInputTypes =
   | UpdatePricingPlanCommandInput
   | UpdatePricingRuleCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateAccountsCommandOutput
   | AssociatePricingRulesCommandOutput
@@ -202,6 +208,9 @@ export type ServiceOutputTypes =
   | UpdatePricingPlanCommandOutput
   | UpdatePricingRuleCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -209,7 +218,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -318,11 +327,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type BillingconductorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -333,10 +345,15 @@ type BillingconductorClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of BillingconductorClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of BillingconductorClient class constructor that set the region, credentials and other options.
  */
 export interface BillingconductorClientConfig extends BillingconductorClientConfigType {}
 
+/**
+ * @public
+ */
 type BillingconductorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -347,11 +364,14 @@ type BillingconductorClientResolvedConfigType = __SmithyResolvedConfiguration<__
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of BillingconductorClient class. This is resolved and normalized from the {@link BillingconductorClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of BillingconductorClient class. This is resolved and normalized from the {@link BillingconductorClientConfig | constructor configuration interface}.
  */
 export interface BillingconductorClientResolvedConfig extends BillingconductorClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Web Services Billing Conductor is a fully managed service that you can use
  *       to customize a <a href="https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions">pro forma</a> version of your billing data each month, to accurately show or chargeback
  *       your end customers. Amazon Web Services Billing Conductor doesn't change the way

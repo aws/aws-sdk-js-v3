@@ -15,28 +15,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMultiRegionAccessPointsRequest,
-  ListMultiRegionAccessPointsRequestFilterSensitiveLog,
-  ListMultiRegionAccessPointsResult,
-  ListMultiRegionAccessPointsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListMultiRegionAccessPointsCommand,
-  serializeAws_restXmlListMultiRegionAccessPointsCommand,
-} from "../protocols/Aws_restXml";
+import { ListMultiRegionAccessPointsRequest, ListMultiRegionAccessPointsResult } from "../models/models_0";
+import { de_ListMultiRegionAccessPointsCommand, se_ListMultiRegionAccessPointsCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMultiRegionAccessPointsCommand}.
  */
 export interface ListMultiRegionAccessPointsCommandInput extends ListMultiRegionAccessPointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMultiRegionAccessPointsCommand}.
  */
 export interface ListMultiRegionAccessPointsCommandOutput extends ListMultiRegionAccessPointsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the Multi-Region Access Points currently associated with the specified Amazon Web Services account.
  *          Each call can return up to 100 Multi-Region Access Points, the maximum number of Multi-Region Access Points that can be
  *          associated with a single account.</p>
@@ -72,10 +69,17 @@ export interface ListMultiRegionAccessPointsCommandOutput extends ListMultiRegio
  * import { S3ControlClient, ListMultiRegionAccessPointsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // ListMultiRegionAccessPointsRequest
+ *   AccountId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMultiRegionAccessPointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMultiRegionAccessPointsCommandInput - {@link ListMultiRegionAccessPointsCommandInput}
+ * @returns {@link ListMultiRegionAccessPointsCommandOutput}
  * @see {@link ListMultiRegionAccessPointsCommandInput} for command's `input` shape.
  * @see {@link ListMultiRegionAccessPointsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -102,6 +106,9 @@ export class ListMultiRegionAccessPointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMultiRegionAccessPointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +139,8 @@ export class ListMultiRegionAccessPointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMultiRegionAccessPointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMultiRegionAccessPointsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,15 +150,21 @@ export class ListMultiRegionAccessPointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMultiRegionAccessPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListMultiRegionAccessPointsCommand(input, context);
+    return se_ListMultiRegionAccessPointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMultiRegionAccessPointsCommandOutput> {
-    return deserializeAws_restXmlListMultiRegionAccessPointsCommand(output, context);
+    return de_ListMultiRegionAccessPointsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,7 +6,7 @@ import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTSiteWiseClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPortalsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListPortals(
   config: IoTSiteWisePaginationConfiguration,
   input: ListPortalsCommandInput,

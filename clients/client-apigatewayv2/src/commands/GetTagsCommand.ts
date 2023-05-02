@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetTagsRequest,
-  GetTagsRequestFilterSensitiveLog,
-  GetTagsResponse,
-  GetTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTagsCommand,
-  serializeAws_restJson1GetTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTagsRequest, GetTagsResponse } from "../models/models_0";
+import { de_GetTagsCommand, se_GetTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTagsCommand}.
  */
 export interface GetTagsCommandInput extends GetTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTagsCommand}.
  */
 export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a collection of Tag resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * import { ApiGatewayV2Client, GetTagsCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetTagsCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetTagsRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTagsCommandInput - {@link GetTagsCommandInput}
+ * @returns {@link GetTagsCommandOutput}
  * @see {@link GetTagsCommandInput} for command's `input` shape.
  * @see {@link GetTagsCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +83,9 @@ export class GetTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class GetTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class GetTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTagsCommand(input, context);
+    return se_GetTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagsCommandOutput> {
-    return deserializeAws_restJson1GetTagsCommand(output, context);
+    return de_GetTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

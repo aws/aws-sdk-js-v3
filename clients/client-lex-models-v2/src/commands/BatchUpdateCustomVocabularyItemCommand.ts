@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { BatchUpdateCustomVocabularyItemRequest, BatchUpdateCustomVocabularyItemResponse } from "../models/models_0";
 import {
-  BatchUpdateCustomVocabularyItemRequest,
-  BatchUpdateCustomVocabularyItemRequestFilterSensitiveLog,
-  BatchUpdateCustomVocabularyItemResponse,
-  BatchUpdateCustomVocabularyItemResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommand,
-  serializeAws_restJson1BatchUpdateCustomVocabularyItemCommand,
+  de_BatchUpdateCustomVocabularyItemCommand,
+  se_BatchUpdateCustomVocabularyItemCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateCustomVocabularyItemCommand}.
  */
 export interface BatchUpdateCustomVocabularyItemCommandInput extends BatchUpdateCustomVocabularyItemRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateCustomVocabularyItemCommand}.
  */
 export interface BatchUpdateCustomVocabularyItemCommandOutput
@@ -37,6 +36,7 @@ export interface BatchUpdateCustomVocabularyItemCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a batch of custom vocabulary items for a given bot locale's custom
  *          vocabulary.</p>
  * @example
@@ -45,10 +45,25 @@ export interface BatchUpdateCustomVocabularyItemCommandOutput
  * import { LexModelsV2Client, BatchUpdateCustomVocabularyItemCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, BatchUpdateCustomVocabularyItemCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // BatchUpdateCustomVocabularyItemRequest
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   customVocabularyItemList: [ // UpdateCustomVocabularyItemsList // required
+ *     { // CustomVocabularyItem
+ *       itemId: "STRING_VALUE", // required
+ *       phrase: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       displayAs: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchUpdateCustomVocabularyItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateCustomVocabularyItemCommandInput - {@link BatchUpdateCustomVocabularyItemCommandInput}
+ * @returns {@link BatchUpdateCustomVocabularyItemCommandOutput}
  * @see {@link BatchUpdateCustomVocabularyItemCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateCustomVocabularyItemCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -91,6 +106,9 @@ export class BatchUpdateCustomVocabularyItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateCustomVocabularyItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +137,8 @@ export class BatchUpdateCustomVocabularyItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateCustomVocabularyItemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateCustomVocabularyItemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +148,24 @@ export class BatchUpdateCustomVocabularyItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchUpdateCustomVocabularyItemCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateCustomVocabularyItemCommand(input, context);
+    return se_BatchUpdateCustomVocabularyItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchUpdateCustomVocabularyItemCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommand(output, context);
+    return de_BatchUpdateCustomVocabularyItemCommand(output, context);
   }
 
   // Start section: command_body_extra

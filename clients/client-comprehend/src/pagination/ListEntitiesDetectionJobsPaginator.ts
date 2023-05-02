@@ -10,7 +10,7 @@ import { ComprehendClient } from "../ComprehendClient";
 import { ComprehendPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ComprehendClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEntitiesDetectionJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListEntitiesDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListEntitiesDetectionJobsCommandInput,

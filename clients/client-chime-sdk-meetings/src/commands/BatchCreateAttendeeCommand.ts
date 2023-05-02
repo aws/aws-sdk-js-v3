@@ -20,21 +20,23 @@ import {
   BatchCreateAttendeeResponse,
   BatchCreateAttendeeResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchCreateAttendeeCommand,
-  serializeAws_restJson1BatchCreateAttendeeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchCreateAttendeeCommand, se_BatchCreateAttendeeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCreateAttendeeCommand}.
  */
 export interface BatchCreateAttendeeCommandInput extends BatchCreateAttendeeRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCreateAttendeeCommand}.
  */
 export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates up to 100 attendees for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
  *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
  * @example
@@ -43,10 +45,25 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * import { ChimeSDKMeetingsClient, BatchCreateAttendeeCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, BatchCreateAttendeeCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = { // BatchCreateAttendeeRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   Attendees: [ // CreateAttendeeRequestItemList // required
+ *     { // CreateAttendeeRequestItem
+ *       ExternalUserId: "STRING_VALUE", // required
+ *       Capabilities: { // AttendeeCapabilities
+ *         Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ *         Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ *         Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new BatchCreateAttendeeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCreateAttendeeCommandInput - {@link BatchCreateAttendeeCommandInput}
+ * @returns {@link BatchCreateAttendeeCommandOutput}
  * @see {@link BatchCreateAttendeeCommandInput} for command's `input` shape.
  * @see {@link BatchCreateAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
@@ -97,6 +114,9 @@ export class BatchCreateAttendeeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCreateAttendeeCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,12 +156,18 @@ export class BatchCreateAttendeeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchCreateAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchCreateAttendeeCommand(input, context);
+    return se_BatchCreateAttendeeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchCreateAttendeeCommandOutput> {
-    return deserializeAws_restJson1BatchCreateAttendeeCommand(output, context);
+    return de_BatchCreateAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

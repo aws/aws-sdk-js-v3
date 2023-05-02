@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListStatementsRequest,
-  ListStatementsRequestFilterSensitiveLog,
-  ListStatementsResponse,
-  ListStatementsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListStatementsCommand,
-  serializeAws_json1_1ListStatementsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListStatementsRequest, ListStatementsResponse } from "../models/models_2";
+import { de_ListStatementsCommand, se_ListStatementsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStatementsCommand}.
  */
 export interface ListStatementsCommandInput extends ListStatementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStatementsCommand}.
  */
 export interface ListStatementsCommandOutput extends ListStatementsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists statements for the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * import { GlueClient, ListStatementsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListStatementsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListStatementsRequest
+ *   SessionId: "STRING_VALUE", // required
+ *   RequestOrigin: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListStatementsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStatementsCommandInput - {@link ListStatementsCommandInput}
+ * @returns {@link ListStatementsCommandOutput}
  * @see {@link ListStatementsCommandInput} for command's `input` shape.
  * @see {@link ListStatementsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +91,9 @@ export class ListStatementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStatementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListStatementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStatementsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStatementsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class ListStatementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStatementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStatementsCommand(input, context);
+    return se_ListStatementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStatementsCommandOutput> {
-    return deserializeAws_json1_1ListStatementsCommand(output, context);
+    return de_ListStatementsCommand(output, context);
   }
 
   // Start section: command_body_extra

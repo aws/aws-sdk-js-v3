@@ -23,18 +23,21 @@ import {
   AdminUpdateAuthEventFeedbackRequest,
   AdminUpdateAuthEventFeedbackRequestFilterSensitiveLog,
   AdminUpdateAuthEventFeedbackResponse,
-  AdminUpdateAuthEventFeedbackResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommand,
-  serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand,
+  de_AdminUpdateAuthEventFeedbackCommand,
+  se_AdminUpdateAuthEventFeedbackCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminUpdateAuthEventFeedbackCommand}.
  */
 export interface AdminUpdateAuthEventFeedbackCommandInput extends AdminUpdateAuthEventFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminUpdateAuthEventFeedbackCommand}.
  */
 export interface AdminUpdateAuthEventFeedbackCommandOutput
@@ -42,6 +45,7 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides feedback for an authentication event indicating if it was from a valid user.
  *             This feedback is used for improving the risk evaluation decision for the user pool as
  *             part of Amazon Cognito advanced security.</p>
@@ -51,10 +55,18 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
  * import { CognitoIdentityProviderClient, AdminUpdateAuthEventFeedbackCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminUpdateAuthEventFeedbackCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminUpdateAuthEventFeedbackRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   EventId: "STRING_VALUE", // required
+ *   FeedbackValue: "Valid" || "Invalid", // required
+ * };
  * const command = new AdminUpdateAuthEventFeedbackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminUpdateAuthEventFeedbackCommandInput - {@link AdminUpdateAuthEventFeedbackCommandInput}
+ * @returns {@link AdminUpdateAuthEventFeedbackCommandOutput}
  * @see {@link AdminUpdateAuthEventFeedbackCommandInput} for command's `input` shape.
  * @see {@link AdminUpdateAuthEventFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -102,6 +114,9 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminUpdateAuthEventFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,7 +147,7 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminUpdateAuthEventFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminUpdateAuthEventFeedbackResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,15 +157,21 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminUpdateAuthEventFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand(input, context);
+    return se_AdminUpdateAuthEventFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminUpdateAuthEventFeedbackCommandOutput> {
-    return deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommand(output, context);
+    return de_AdminUpdateAuthEventFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

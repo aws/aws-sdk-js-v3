@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ValidateSecurityProfileBehaviorsRequest, ValidateSecurityProfileBehaviorsResponse } from "../models/models_2";
 import {
-  ValidateSecurityProfileBehaviorsRequest,
-  ValidateSecurityProfileBehaviorsRequestFilterSensitiveLog,
-  ValidateSecurityProfileBehaviorsResponse,
-  ValidateSecurityProfileBehaviorsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ValidateSecurityProfileBehaviorsCommand,
-  serializeAws_restJson1ValidateSecurityProfileBehaviorsCommand,
+  de_ValidateSecurityProfileBehaviorsCommand,
+  se_ValidateSecurityProfileBehaviorsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateSecurityProfileBehaviorsCommand}.
  */
 export interface ValidateSecurityProfileBehaviorsCommandInput extends ValidateSecurityProfileBehaviorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ValidateSecurityProfileBehaviorsCommand}.
  */
 export interface ValidateSecurityProfileBehaviorsCommandOutput
@@ -37,6 +36,7 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates a Device Defender security profile behaviors specification.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ValidateSecurityProfileBehaviors</a> action.</p>
  * @example
@@ -45,10 +45,53 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  * import { IoTClient, ValidateSecurityProfileBehaviorsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ValidateSecurityProfileBehaviorsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ValidateSecurityProfileBehaviorsRequest
+ *   behaviors: [ // Behaviors // required
+ *     { // Behavior
+ *       name: "STRING_VALUE", // required
+ *       metric: "STRING_VALUE",
+ *       metricDimension: { // MetricDimension
+ *         dimensionName: "STRING_VALUE", // required
+ *         operator: "IN" || "NOT_IN",
+ *       },
+ *       criteria: { // BehaviorCriteria
+ *         comparisonOperator: "less-than" || "less-than-equals" || "greater-than" || "greater-than-equals" || "in-cidr-set" || "not-in-cidr-set" || "in-port-set" || "not-in-port-set" || "in-set" || "not-in-set",
+ *         value: { // MetricValue
+ *           count: Number("long"),
+ *           cidrs: [ // Cidrs
+ *             "STRING_VALUE",
+ *           ],
+ *           ports: [ // Ports
+ *             Number("int"),
+ *           ],
+ *           number: Number("double"),
+ *           numbers: [ // NumberList
+ *             Number("double"),
+ *           ],
+ *           strings: [ // StringList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         durationSeconds: Number("int"),
+ *         consecutiveDatapointsToAlarm: Number("int"),
+ *         consecutiveDatapointsToClear: Number("int"),
+ *         statisticalThreshold: { // StatisticalThreshold
+ *           statistic: "STRING_VALUE",
+ *         },
+ *         mlDetectionConfig: { // MachineLearningDetectionConfig
+ *           confidenceLevel: "LOW" || "MEDIUM" || "HIGH", // required
+ *         },
+ *       },
+ *       suppressAlerts: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new ValidateSecurityProfileBehaviorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateSecurityProfileBehaviorsCommandInput - {@link ValidateSecurityProfileBehaviorsCommandInput}
+ * @returns {@link ValidateSecurityProfileBehaviorsCommandOutput}
  * @see {@link ValidateSecurityProfileBehaviorsCommandInput} for command's `input` shape.
  * @see {@link ValidateSecurityProfileBehaviorsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -81,6 +124,9 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateSecurityProfileBehaviorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +155,8 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateSecurityProfileBehaviorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateSecurityProfileBehaviorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +166,24 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ValidateSecurityProfileBehaviorsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ValidateSecurityProfileBehaviorsCommand(input, context);
+    return se_ValidateSecurityProfileBehaviorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateSecurityProfileBehaviorsCommandOutput> {
-    return deserializeAws_restJson1ValidateSecurityProfileBehaviorsCommand(output, context);
+    return de_ValidateSecurityProfileBehaviorsCommand(output, context);
   }
 
   // Start section: command_body_extra

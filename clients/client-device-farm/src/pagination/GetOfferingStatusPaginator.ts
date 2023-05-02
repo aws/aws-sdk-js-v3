@@ -10,7 +10,7 @@ import { DeviceFarmClient } from "../DeviceFarmClient";
 import { DeviceFarmPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DeviceFarmClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetOfferingStatusCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetOfferingStatus(
   config: DeviceFarmPaginationConfiguration,
   input: GetOfferingStatusCommandInput,

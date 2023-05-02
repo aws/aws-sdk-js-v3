@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAttributeGroupRequest,
-  CreateAttributeGroupRequestFilterSensitiveLog,
-  CreateAttributeGroupResponse,
-  CreateAttributeGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAttributeGroupCommand,
-  serializeAws_restJson1CreateAttributeGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAttributeGroupRequest, CreateAttributeGroupResponse } from "../models/models_0";
+import { de_CreateAttributeGroupCommand, se_CreateAttributeGroupCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAttributeGroupCommand}.
  */
 export interface CreateAttributeGroupCommandInput extends CreateAttributeGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAttributeGroupCommand}.
  */
 export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new attribute group as a container for user-defined attributes. This feature
  *       enables users to have full control over their cloud application's metadata in a rich
  *       machine-readable format to facilitate integration with automated workflows and third-party
@@ -49,10 +46,21 @@ export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupR
  * import { ServiceCatalogAppRegistryClient, CreateAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, CreateAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // CreateAttributeGroupRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   attributes: "STRING_VALUE", // required
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateAttributeGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAttributeGroupCommandInput - {@link CreateAttributeGroupCommandInput}
+ * @returns {@link CreateAttributeGroupCommandOutput}
  * @see {@link CreateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link CreateAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -65,7 +73,10 @@ export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupR
  *  <p>The service is experiencing internal problems.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The maximum number of resources per account has been reached.</p>
+ *  <p>
+ *       The maximum number
+ *       of resources per account
+ *       has been reached.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
@@ -89,6 +100,9 @@ export class CreateAttributeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAttributeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +131,8 @@ export class CreateAttributeGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAttributeGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAttributeGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +142,18 @@ export class CreateAttributeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAttributeGroupCommand(input, context);
+    return se_CreateAttributeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAttributeGroupCommandOutput> {
-    return deserializeAws_restJson1CreateAttributeGroupCommand(output, context);
+    return de_CreateAttributeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

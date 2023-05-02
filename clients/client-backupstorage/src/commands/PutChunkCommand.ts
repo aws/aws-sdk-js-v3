@@ -14,21 +14,15 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import {
-  PutChunkInput,
-  PutChunkInputFilterSensitiveLog,
-  PutChunkOutput,
-  PutChunkOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutChunkCommand,
-  serializeAws_restJson1PutChunkCommand,
-} from "../protocols/Aws_restJson1";
+import { PutChunkInput, PutChunkInputFilterSensitiveLog, PutChunkOutput } from "../models/models_0";
+import { de_PutChunkCommand, se_PutChunkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutChunkCommand}.
  */
-type PutChunkCommandInputType = Omit<PutChunkInput, "Data"> & {
+export type PutChunkCommandInputType = Omit<PutChunkInput, "Data"> & {
   /**
    * For *`PutChunkInput["Data"]`*, see {@link PutChunkInput.Data}.
    */
@@ -39,11 +33,14 @@ type PutChunkCommandInputType = Omit<PutChunkInput, "Data"> & {
  */
 export interface PutChunkCommandInput extends PutChunkCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link PutChunkCommand}.
  */
 export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Upload chunk.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,10 +48,21 @@ export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer 
  * import { BackupStorageClient, PutChunkCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, PutChunkCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
+ * const input = { // PutChunkInput
+ *   BackupJobId: "STRING_VALUE", // required
+ *   UploadId: "STRING_VALUE", // required
+ *   ChunkIndex: Number("long"), // required
+ *   Data: "STREAMING_BLOB_VALUE", // required
+ *   Length: Number("long"), // required
+ *   Checksum: "STRING_VALUE", // required
+ *   ChecksumAlgorithm: "STRING_VALUE", // required
+ * };
  * const command = new PutChunkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutChunkCommandInput - {@link PutChunkCommandInput}
+ * @returns {@link PutChunkCommandOutput}
  * @see {@link PutChunkCommandInput} for command's `input` shape.
  * @see {@link PutChunkCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
@@ -102,6 +110,9 @@ export class PutChunkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutChunkCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,7 +140,7 @@ export class PutChunkCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutChunkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutChunkOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +150,18 @@ export class PutChunkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutChunkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutChunkCommand(input, context);
+    return se_PutChunkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutChunkCommandOutput> {
-    return deserializeAws_restJson1PutChunkCommand(output, context);
+    return de_PutChunkCommand(output, context);
   }
 
   // Start section: command_body_extra

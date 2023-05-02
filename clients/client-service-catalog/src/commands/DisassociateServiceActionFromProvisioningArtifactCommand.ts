@@ -15,22 +15,24 @@ import {
 
 import {
   DisassociateServiceActionFromProvisioningArtifactInput,
-  DisassociateServiceActionFromProvisioningArtifactInputFilterSensitiveLog,
   DisassociateServiceActionFromProvisioningArtifactOutput,
-  DisassociateServiceActionFromProvisioningArtifactOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand,
-  serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand,
+  de_DisassociateServiceActionFromProvisioningArtifactCommand,
+  se_DisassociateServiceActionFromProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateServiceActionFromProvisioningArtifactCommand}.
  */
 export interface DisassociateServiceActionFromProvisioningArtifactCommandInput
   extends DisassociateServiceActionFromProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateServiceActionFromProvisioningArtifactCommand}.
  */
 export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
@@ -38,6 +40,7 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified self-service action association from the specified provisioning artifact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,18 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
  * import { ServiceCatalogClient, DisassociateServiceActionFromProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisassociateServiceActionFromProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DisassociateServiceActionFromProvisioningArtifactInput
+ *   ProductId: "STRING_VALUE", // required
+ *   ProvisioningArtifactId: "STRING_VALUE", // required
+ *   ServiceActionId: "STRING_VALUE", // required
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new DisassociateServiceActionFromProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateServiceActionFromProvisioningArtifactCommandInput - {@link DisassociateServiceActionFromProvisioningArtifactCommandInput}
+ * @returns {@link DisassociateServiceActionFromProvisioningArtifactCommandOutput}
  * @see {@link DisassociateServiceActionFromProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link DisassociateServiceActionFromProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +86,9 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateServiceActionFromProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +123,8 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateServiceActionFromProvisioningArtifactInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateServiceActionFromProvisioningArtifactOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +134,24 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateServiceActionFromProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand(input, context);
+    return se_DisassociateServiceActionFromProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand(output, context);
+    return de_DisassociateServiceActionFromProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

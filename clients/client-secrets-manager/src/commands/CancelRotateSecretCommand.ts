@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelRotateSecretRequest,
-  CancelRotateSecretRequestFilterSensitiveLog,
-  CancelRotateSecretResponse,
-  CancelRotateSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelRotateSecretCommand,
-  serializeAws_json1_1CancelRotateSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelRotateSecretRequest, CancelRotateSecretResponse } from "../models/models_0";
+import { de_CancelRotateSecretCommand, se_CancelRotateSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelRotateSecretCommand}.
  */
 export interface CancelRotateSecretCommandInput extends CancelRotateSecretRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelRotateSecretCommand}.
  */
 export interface CancelRotateSecretCommandOutput extends CancelRotateSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Turns off automatic rotation, and if a rotation is currently in
  *       progress, cancels the rotation.</p>
  *          <p>If you cancel a rotation in progress, it can leave the <code>VersionStage</code>
@@ -60,10 +57,15 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  * import { SecretsManagerClient, CancelRotateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, CancelRotateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // CancelRotateSecretRequest
+ *   SecretId: "STRING_VALUE", // required
+ * };
  * const command = new CancelRotateSecretCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelRotateSecretCommandInput - {@link CancelRotateSecretCommandInput}
+ * @returns {@link CancelRotateSecretCommandOutput}
  * @see {@link CancelRotateSecretCommandInput} for command's `input` shape.
  * @see {@link CancelRotateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -131,6 +133,9 @@ export class CancelRotateSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelRotateSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,8 +164,8 @@ export class CancelRotateSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelRotateSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelRotateSecretResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,12 +175,18 @@ export class CancelRotateSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelRotateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelRotateSecretCommand(input, context);
+    return se_CancelRotateSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelRotateSecretCommandOutput> {
-    return deserializeAws_json1_1CancelRotateSecretCommand(output, context);
+    return de_CancelRotateSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

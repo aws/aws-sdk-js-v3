@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteLoggingConfigurationRequest,
-  DeleteLoggingConfigurationRequestFilterSensitiveLog,
-  DeleteLoggingConfigurationResponse,
-  DeleteLoggingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLoggingConfigurationCommand,
-  serializeAws_json1_1DeleteLoggingConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteLoggingConfigurationRequest, DeleteLoggingConfigurationResponse } from "../models/models_0";
+import { de_DeleteLoggingConfigurationCommand, se_DeleteLoggingConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLoggingConfigurationCommand}.
  */
 export interface DeleteLoggingConfigurationCommandInput extends DeleteLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLoggingConfigurationCommand}.
  */
 export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -51,10 +48,15 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * import { WAFRegionalClient, DeleteLoggingConfigurationCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteLoggingConfigurationCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // DeleteLoggingConfigurationRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoggingConfigurationCommandInput - {@link DeleteLoggingConfigurationCommandInput}
+ * @returns {@link DeleteLoggingConfigurationCommandOutput}
  * @see {@link DeleteLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DeleteLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +131,21 @@ export class DeleteLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLoggingConfigurationCommand(input, context);
+    return se_DeleteLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteLoggingConfigurationCommand(output, context);
+    return de_DeleteLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "noEmit": true
+  },
+  "extends": "../../tsconfig.cjs.json",
+  "include": ["src/"],
+  "exclude": []
+}

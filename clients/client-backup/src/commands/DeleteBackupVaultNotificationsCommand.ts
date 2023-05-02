@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { DeleteBackupVaultNotificationsInput } from "../models/models_0";
 import {
-  DeleteBackupVaultNotificationsInput,
-  DeleteBackupVaultNotificationsInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBackupVaultNotificationsCommand,
-  serializeAws_restJson1DeleteBackupVaultNotificationsCommand,
+  de_DeleteBackupVaultNotificationsCommand,
+  se_DeleteBackupVaultNotificationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupVaultNotificationsCommand}.
  */
 export interface DeleteBackupVaultNotificationsCommandInput extends DeleteBackupVaultNotificationsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupVaultNotificationsCommand}.
  */
 export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes event notifications for the specified backup vault.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,15 @@ export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataB
  * import { BackupClient, DeleteBackupVaultNotificationsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupVaultNotificationsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DeleteBackupVaultNotificationsInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBackupVaultNotificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupVaultNotificationsCommandInput - {@link DeleteBackupVaultNotificationsCommandInput}
+ * @returns {@link DeleteBackupVaultNotificationsCommandOutput}
  * @see {@link DeleteBackupVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteBackupVaultNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupVaultNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class DeleteBackupVaultNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackupVaultNotificationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +129,24 @@ export class DeleteBackupVaultNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteBackupVaultNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBackupVaultNotificationsCommand(input, context);
+    return se_DeleteBackupVaultNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBackupVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1DeleteBackupVaultNotificationsCommand(output, context);
+    return de_DeleteBackupVaultNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

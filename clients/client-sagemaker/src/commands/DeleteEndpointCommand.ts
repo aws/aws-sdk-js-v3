@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteEndpointInput, DeleteEndpointInputFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteEndpointCommand,
-  serializeAws_json1_1DeleteEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEndpointInput } from "../models/models_1";
+import { de_DeleteEndpointCommand, se_DeleteEndpointCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEndpointCommand}.
  */
 export interface DeleteEndpointCommandInput extends DeleteEndpointInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEndpointCommand}.
  */
 export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an endpoint. SageMaker frees up all of the resources that were deployed when the
  *             endpoint was created. </p>
  *          <p>SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
@@ -47,10 +49,15 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteEndpointInput
+ *   EndpointName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEndpointCommandInput - {@link DeleteEndpointCommandInput}
+ * @returns {@link DeleteEndpointCommandOutput}
  * @see {@link DeleteEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +112,8 @@ export class DeleteEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEndpointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +123,18 @@ export class DeleteEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEndpointCommand(input, context);
+    return se_DeleteEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointCommandOutput> {
-    return deserializeAws_json1_1DeleteEndpointCommand(output, context);
+    return de_DeleteEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

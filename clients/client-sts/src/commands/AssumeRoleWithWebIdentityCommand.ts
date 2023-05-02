@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssumeRoleWithWebIdentityRequest,
-  AssumeRoleWithWebIdentityRequestFilterSensitiveLog,
-  AssumeRoleWithWebIdentityResponse,
-  AssumeRoleWithWebIdentityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryAssumeRoleWithWebIdentityCommand,
-  serializeAws_queryAssumeRoleWithWebIdentityCommand,
-} from "../protocols/Aws_query";
+import { AssumeRoleWithWebIdentityRequest, AssumeRoleWithWebIdentityResponse } from "../models/models_0";
+import { de_AssumeRoleWithWebIdentityCommand, se_AssumeRoleWithWebIdentityCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssumeRoleWithWebIdentityCommand}.
  */
 export interface AssumeRoleWithWebIdentityCommandInput extends AssumeRoleWithWebIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssumeRoleWithWebIdentityCommand}.
  */
 export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWebIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary security credentials for users who have been authenticated in
  *          a mobile or web application with a web identity provider. Example providers include the
  *          OAuth 2.0 providers Login with Amazon and Facebook, or any OpenID Connect-compatible
@@ -174,10 +171,25 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * import { STSClient, AssumeRoleWithWebIdentityCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRoleWithWebIdentityCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = { // AssumeRoleWithWebIdentityRequest
+ *   RoleArn: "STRING_VALUE", // required
+ *   RoleSessionName: "STRING_VALUE", // required
+ *   WebIdentityToken: "STRING_VALUE", // required
+ *   ProviderId: "STRING_VALUE",
+ *   PolicyArns: [ // policyDescriptorListType
+ *     { // PolicyDescriptorType
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Policy: "STRING_VALUE",
+ *   DurationSeconds: Number("int"),
+ * };
  * const command = new AssumeRoleWithWebIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssumeRoleWithWebIdentityCommandInput - {@link AssumeRoleWithWebIdentityCommandInput}
+ * @returns {@link AssumeRoleWithWebIdentityCommandOutput}
  * @see {@link AssumeRoleWithWebIdentityCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleWithWebIdentityCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
@@ -279,6 +291,9 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeRoleWithWebIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -307,8 +322,8 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeRoleWithWebIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssumeRoleWithWebIdentityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -318,15 +333,21 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeRoleWithWebIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAssumeRoleWithWebIdentityCommand(input, context);
+    return se_AssumeRoleWithWebIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssumeRoleWithWebIdentityCommandOutput> {
-    return deserializeAws_queryAssumeRoleWithWebIdentityCommand(output, context);
+    return de_AssumeRoleWithWebIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { LexRuntimeV2ServiceException as __BaseException } from "./LexRuntimeV2ServiceException";
 
 /**
+ * @public
  * <p></p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The time that a context is active. You can specify the time to live
  *          in seconds or in conversation turns.</p>
  */
@@ -42,6 +44,7 @@ export interface ActiveContextTimeToLive {
 }
 
 /**
+ * @public
  * <p>Contains information about the contexts that a user is using in a
  *          session. You can configure Amazon Lex V2 to set a context when an intent is
  *          fulfilled, or you can set a context using the , , or  operations.</p>
@@ -76,6 +79,7 @@ export interface ActiveContext {
 }
 
 /**
+ * @public
  * <p>Represents a chunk of audio sent from the client application to
  *          Amazon Lex V2. The audio is all or part of an utterance from the user.</p>
  *          <p>Amazon Lex V2 accumulates audio chunks until it recognizes a natural pause
@@ -112,6 +116,7 @@ export interface AudioInputEvent {
 }
 
 /**
+ * @public
  * <p>An event sent from Amazon Lex V2 to your client application containing audio
  *          to play to the user. </p>
  */
@@ -138,6 +143,7 @@ export interface AudioResponseEvent {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ConflictException extends __BaseException {
@@ -156,6 +162,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteSessionRequest {
   /**
    * <p>The identifier of the bot that contains the session data.</p>
@@ -179,6 +188,9 @@ export interface DeleteSessionRequest {
   sessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSessionResponse {
   /**
    * <p>The identifier of the bot that contained the session data.</p>
@@ -203,6 +215,7 @@ export interface DeleteSessionResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InternalServerException extends __BaseException {
@@ -222,6 +235,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -241,6 +255,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ThrottlingException extends __BaseException {
@@ -260,6 +275,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ValidationException extends __BaseException {
@@ -278,6 +294,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetSessionRequest {
   /**
    * <p>The identifier of the bot that contains the session data.</p>
@@ -301,19 +320,38 @@ export interface GetSessionRequest {
   sessionId: string | undefined;
 }
 
-export enum ConfirmationState {
-  CONFIRMED = "Confirmed",
-  DENIED = "Denied",
-  NONE = "None",
-}
-
-export enum Shape {
-  COMPOSITE = "Composite",
-  LIST = "List",
-  SCALAR = "Scalar",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConfirmationState = {
+  CONFIRMED: "Confirmed",
+  DENIED: "Denied",
+  NONE: "None",
+} as const;
 
 /**
+ * @public
+ */
+export type ConfirmationState = (typeof ConfirmationState)[keyof typeof ConfirmationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const Shape = {
+  COMPOSITE: "Composite",
+  LIST: "List",
+  SCALAR: "Scalar",
+} as const;
+
+/**
+ * @public
+ */
+export type Shape = (typeof Shape)[keyof typeof Shape];
+
+/**
+ * @public
  * <p>The value of a slot.</p>
  */
 export interface Value {
@@ -338,16 +376,26 @@ export interface Value {
   resolvedValues?: string[];
 }
 
-export enum IntentState {
-  FAILED = "Failed",
-  FULFILLED = "Fulfilled",
-  FULFILLMENT_IN_PROGRESS = "FulfillmentInProgress",
-  IN_PROGRESS = "InProgress",
-  READY_FOR_FULFILLMENT = "ReadyForFulfillment",
-  WAITING = "Waiting",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IntentState = {
+  FAILED: "Failed",
+  FULFILLED: "Fulfilled",
+  FULFILLMENT_IN_PROGRESS: "FulfillmentInProgress",
+  IN_PROGRESS: "InProgress",
+  READY_FOR_FULFILLMENT: "ReadyForFulfillment",
+  WAITING: "Waiting",
+} as const;
 
 /**
+ * @public
+ */
+export type IntentState = (typeof IntentState)[keyof typeof IntentState];
+
+/**
+ * @public
  * <p>Provides a score that indicates the confidence that Amazon Lex V2 has that
  *          an intent is the one that satisfies the user's intent.</p>
  */
@@ -360,14 +408,24 @@ export interface ConfidenceScore {
   score?: number;
 }
 
-export enum SentimentType {
-  MIXED = "MIXED",
-  NEGATIVE = "NEGATIVE",
-  NEUTRAL = "NEUTRAL",
-  POSITIVE = "POSITIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SentimentType = {
+  MIXED: "MIXED",
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type SentimentType = (typeof SentimentType)[keyof typeof SentimentType];
+
+/**
+ * @public
  * <p>The individual sentiment responses for the utterance.</p>
  */
 export interface SentimentScore {
@@ -397,6 +455,7 @@ export interface SentimentScore {
 }
 
 /**
+ * @public
  * <p>Provides information about the sentiment expressed in a user's
  *          response in a conversation. Sentiments are determined using Amazon
  *          Comprehend. Sentiments are only returned if they are enabled for the
@@ -419,14 +478,24 @@ export interface SentimentResponse {
   sentimentScore?: SentimentScore;
 }
 
-export enum MessageContentType {
-  CUSTOM_PAYLOAD = "CustomPayload",
-  IMAGE_RESPONSE_CARD = "ImageResponseCard",
-  PLAIN_TEXT = "PlainText",
-  SSML = "SSML",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MessageContentType = {
+  CUSTOM_PAYLOAD: "CustomPayload",
+  IMAGE_RESPONSE_CARD: "ImageResponseCard",
+  PLAIN_TEXT: "PlainText",
+  SSML: "SSML",
+} as const;
 
 /**
+ * @public
+ */
+export type MessageContentType = (typeof MessageContentType)[keyof typeof MessageContentType];
+
+/**
+ * @public
  * <p>A button that appears on a response card show to the user.</p>
  */
 export interface Button {
@@ -442,6 +511,7 @@ export interface Button {
 }
 
 /**
+ * @public
  * <p>A card that is shown to the user by a messaging platform. You define
  *          the contents of the card, the card is displayed by the platform. </p>
  *          <p>When you use a response card, the response from the user is
@@ -477,6 +547,7 @@ export interface ImageResponseCard {
 }
 
 /**
+ * @public
  * <p>Container for text that is returned to the customer..</p>
  */
 export interface Message {
@@ -499,22 +570,41 @@ export interface Message {
   imageResponseCard?: ImageResponseCard;
 }
 
-export enum StyleType {
-  DEFAULT = "Default",
-  SPELL_BY_LETTER = "SpellByLetter",
-  SPELL_BY_WORD = "SpellByWord",
-}
-
-export enum DialogActionType {
-  CLOSE = "Close",
-  CONFIRM_INTENT = "ConfirmIntent",
-  DELEGATE = "Delegate",
-  ELICIT_INTENT = "ElicitIntent",
-  ELICIT_SLOT = "ElicitSlot",
-  NONE = "None",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StyleType = {
+  DEFAULT: "Default",
+  SPELL_BY_LETTER: "SpellByLetter",
+  SPELL_BY_WORD: "SpellByWord",
+} as const;
 
 /**
+ * @public
+ */
+export type StyleType = (typeof StyleType)[keyof typeof StyleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DialogActionType = {
+  CLOSE: "Close",
+  CONFIRM_INTENT: "ConfirmIntent",
+  DELEGATE: "Delegate",
+  ELICIT_INTENT: "ElicitIntent",
+  ELICIT_SLOT: "ElicitSlot",
+  NONE: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type DialogActionType = (typeof DialogActionType)[keyof typeof DialogActionType];
+
+/**
+ * @public
  * <p>Provides the phrase that Amazon Lex V2 should look for in the user's input
  *          to the bot.</p>
  */
@@ -527,6 +617,7 @@ export interface RuntimeHintValue {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class BadGatewayException extends __BaseException {
@@ -546,6 +637,7 @@ export class BadGatewayException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class DependencyFailedException extends __BaseException {
@@ -564,6 +656,9 @@ export class DependencyFailedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutSessionResponse {
   /**
    * <p>The type of response. Same as the type specified in the
@@ -606,6 +701,7 @@ export interface PutSessionResponse {
 }
 
 /**
+ * @public
  * <p>The bot member that processes the request.</p>
  */
 export interface RecognizedBotMember {
@@ -620,6 +716,9 @@ export interface RecognizedBotMember {
   botName?: string;
 }
 
+/**
+ * @public
+ */
 export interface RecognizeUtteranceRequest {
   /**
    * <p>The identifier of the bot that should receive the request.</p>
@@ -755,6 +854,9 @@ export interface RecognizeUtteranceRequest {
   inputStream?: Readable | ReadableStream | Blob;
 }
 
+/**
+ * @public
+ */
 export interface RecognizeUtteranceResponse {
   /**
    * <p>Indicates whether the input mode to the operation was text or
@@ -853,12 +955,22 @@ export interface RecognizeUtteranceResponse {
   recognizedBotMember?: string;
 }
 
-export enum ConversationMode {
-  AUDIO = "AUDIO",
-  TEXT = "TEXT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConversationMode = {
+  AUDIO: "AUDIO",
+  TEXT: "TEXT",
+} as const;
 
 /**
+ * @public
+ */
+export type ConversationMode = (typeof ConversationMode)[keyof typeof ConversationMode];
+
+/**
+ * @public
  * <p>A notification from the client that it is disconnecting from Amazon Lex V2.
  *          Sending a <code>DisconnectionEvent</code> event is optional, but can
  *          help identify a conversation in logs.</p>
@@ -878,6 +990,7 @@ export interface DisconnectionEvent {
 }
 
 /**
+ * @public
  * <p>A DTMF character sent from the client application. DTMF characters
  *          are typically sent from a phone keypad to represent numbers. For
  *          example, you can have Amazon Lex V2 process a credit card number input from a
@@ -904,6 +1017,7 @@ export interface DTMFInputEvent {
 }
 
 /**
+ * @public
  * <p>Event sent from the client application to Amazon Lex V2 to indicate that
  *          playback of audio is complete and that Amazon Lex V2 should start processing
  *          the user's input.</p>
@@ -923,6 +1037,7 @@ export interface PlaybackCompletionEvent {
 }
 
 /**
+ * @public
  * <p>The event sent from your client application to Amazon Lex V2 with text input
  *          from the user.</p>
  */
@@ -947,6 +1062,7 @@ export interface TextInputEvent {
 }
 
 /**
+ * @public
  * <p>Event that Amazon Lex V2 sends to indicate that the stream is still open
  *          between the client application and Amazon Lex V2 </p>
  */
@@ -960,19 +1076,38 @@ export interface HeartbeatEvent {
   eventId?: string;
 }
 
-export enum InputMode {
-  DTMF = "DTMF",
-  SPEECH = "Speech",
-  TEXT = "Text",
-}
-
-export enum PlaybackInterruptionReason {
-  DTMF_START_DETECTED = "DTMF_START_DETECTED",
-  TEXT_DETECTED = "TEXT_DETECTED",
-  VOICE_START_DETECTED = "VOICE_START_DETECTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InputMode = {
+  DTMF: "DTMF",
+  SPEECH: "Speech",
+  TEXT: "Text",
+} as const;
 
 /**
+ * @public
+ */
+export type InputMode = (typeof InputMode)[keyof typeof InputMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PlaybackInterruptionReason = {
+  DTMF_START_DETECTED: "DTMF_START_DETECTED",
+  TEXT_DETECTED: "TEXT_DETECTED",
+  VOICE_START_DETECTED: "VOICE_START_DETECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type PlaybackInterruptionReason = (typeof PlaybackInterruptionReason)[keyof typeof PlaybackInterruptionReason];
+
+/**
+ * @public
  * <p>Event sent from Amazon Lex V2 to indicate to the client application should
  *          stop playback of audio. For example, if the client is playing a prompt
  *          that asks for the user's telephone number, the user might start to say
@@ -1002,6 +1137,7 @@ export interface PlaybackInterruptionEvent {
 }
 
 /**
+ * @public
  * <p>The event sent from Amazon Lex V2 to your application with text to present
  *          to the user.</p>
  */
@@ -1023,6 +1159,7 @@ export interface TextResponseEvent {
 }
 
 /**
+ * @public
  * <p>Event sent from Amazon Lex V2 to your client application that contains a
  *          transcript of voice audio. </p>
  */
@@ -1042,6 +1179,7 @@ export interface TranscriptEvent {
 }
 
 /**
+ * @public
  * <p>The specific constituent sub slot of the composite slot to elicit in dialog action.</p>
  */
 export interface ElicitSubSlot {
@@ -1057,6 +1195,7 @@ export interface ElicitSubSlot {
 }
 
 /**
+ * @public
  * <p>The next action that Amazon Lex V2 should take.</p>
  */
 export interface DialogAction {
@@ -1126,6 +1265,7 @@ export interface DialogAction {
 }
 
 /**
+ * @public
  * <p>Provides an array of phrases that should be given preference when
  *          resolving values for a slot.</p>
  */
@@ -1147,6 +1287,7 @@ export interface RuntimeHintDetails {
 }
 
 /**
+ * @public
  * <p>You can provide Amazon Lex V2 with hints to the phrases that a customer is
  *          likely to use for a slot. When a slot with hints is resolved, the
  *          phrases in the runtime hints are preferred in the resolution. You can
@@ -1171,6 +1312,7 @@ export interface RuntimeHints {
 }
 
 /**
+ * @public
  * <p>A value that Amazon Lex V2 uses to fulfill an intent. </p>
  */
 export interface Slot {
@@ -1201,6 +1343,7 @@ export interface Slot {
 }
 
 /**
+ * @public
  * <p>The current intent that Amazon Lex V2 is attempting to fulfill.</p>
  */
 export interface Intent {
@@ -1229,6 +1372,7 @@ export interface Intent {
 }
 
 /**
+ * @public
  * <p>An intent that Amazon Lex V2 determined might satisfy the user's utterance.
  *          The intents are ordered by the confidence score. </p>
  */
@@ -1259,6 +1403,7 @@ export interface Interpretation {
 }
 
 /**
+ * @public
  * <p>The state of the user's session with Amazon Lex V2.</p>
  */
 export interface SessionState {
@@ -1300,6 +1445,7 @@ export interface SessionState {
 }
 
 /**
+ * @public
  * <p>The initial event sent from the application to Amazon Lex V2 to configure
  *          the conversation, including session and request attributes and the
  *          response content type.</p>
@@ -1399,6 +1545,9 @@ export interface ConfigurationEvent {
   clientTimestampMillis?: number;
 }
 
+/**
+ * @public
+ */
 export interface PutSessionRequest {
   /**
    * <p>The identifier of the bot that receives the session data.</p>
@@ -1457,6 +1606,9 @@ export interface PutSessionRequest {
   responseContentType?: string;
 }
 
+/**
+ * @public
+ */
 export interface RecognizeTextRequest {
   /**
    * <p>The identifier of the bot that processes the request.</p>
@@ -1501,6 +1653,7 @@ export interface RecognizeTextRequest {
 }
 
 /**
+ * @public
  * <p>Represents a stream of events between your application and
  *          Amazon Lex V2.</p>
  */
@@ -1513,6 +1666,9 @@ export type StartConversationRequestEventStream =
   | StartConversationRequestEventStream.TextInputEventMember
   | StartConversationRequestEventStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace StartConversationRequestEventStream {
   /**
    * <p>Configuration information sent from your client application to
@@ -1647,6 +1803,9 @@ export namespace StartConversationRequestEventStream {
   };
 }
 
+/**
+ * @public
+ */
 export interface StartConversationRequest {
   /**
    * <p>The identifier of the bot to process the request.</p>
@@ -1685,6 +1844,9 @@ export interface StartConversationRequest {
   requestEventStream: AsyncIterable<StartConversationRequestEventStream> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSessionResponse {
   /**
    * <p>The identifier of the returned session.</p>
@@ -1719,6 +1881,7 @@ export interface GetSessionResponse {
 }
 
 /**
+ * @public
  * <p>Contains the current state of the conversation between the client
  *          application and Amazon Lex V2.</p>
  */
@@ -1768,6 +1931,9 @@ export interface IntentResultEvent {
   recognizedBotMember?: RecognizedBotMember;
 }
 
+/**
+ * @public
+ */
 export interface RecognizeTextResponse {
   /**
    * <p>A list of messages last sent to the user. The messages are ordered
@@ -1811,6 +1977,7 @@ export interface RecognizeTextResponse {
 }
 
 /**
+ * @public
  * <p>Represents a stream of events between Amazon Lex V2 and your
  *          application.</p>
  */
@@ -1831,6 +1998,9 @@ export type StartConversationResponseEventStream =
   | StartConversationResponseEventStream.ValidationExceptionMember
   | StartConversationResponseEventStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace StartConversationResponseEventStream {
   /**
    * <p>Event sent from Amazon Lex V2 to indicate to the client application should
@@ -2204,6 +2374,9 @@ export namespace StartConversationResponseEventStream {
   };
 }
 
+/**
+ * @public
+ */
 export interface StartConversationResponse {
   /**
    * <p>Represents the stream of events from Amazon Lex V2 to your application. The
@@ -2215,93 +2388,9 @@ export interface StartConversationResponse {
 /**
  * @internal
  */
-export const ActiveContextTimeToLiveFilterSensitiveLog = (obj: ActiveContextTimeToLive): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ActiveContextFilterSensitiveLog = (obj: ActiveContext): any => ({
   ...obj,
   ...(obj.contextAttributes && { contextAttributes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AudioInputEventFilterSensitiveLog = (obj: AudioInputEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioResponseEventFilterSensitiveLog = (obj: AudioResponseEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSessionRequestFilterSensitiveLog = (obj: DeleteSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSessionResponseFilterSensitiveLog = (obj: DeleteSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSessionRequestFilterSensitiveLog = (obj: GetSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValueFilterSensitiveLog = (obj: Value): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfidenceScoreFilterSensitiveLog = (obj: ConfidenceScore): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SentimentScoreFilterSensitiveLog = (obj: SentimentScore): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SentimentResponseFilterSensitiveLog = (obj: SentimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ButtonFilterSensitiveLog = (obj: Button): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageResponseCardFilterSensitiveLog = (obj: ImageResponseCard): any => ({
-  ...obj,
 });
 
 /**
@@ -2315,21 +2404,7 @@ export const MessageFilterSensitiveLog = (obj: Message): any => ({
 /**
  * @internal
  */
-export const RuntimeHintValueFilterSensitiveLog = (obj: RuntimeHintValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PutSessionResponseFilterSensitiveLog = (obj: PutSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecognizedBotMemberFilterSensitiveLog = (obj: RecognizedBotMember): any => ({
   ...obj,
 });
 
@@ -2352,23 +2427,9 @@ export const RecognizeUtteranceResponseFilterSensitiveLog = (obj: RecognizeUtter
 /**
  * @internal
  */
-export const DisconnectionEventFilterSensitiveLog = (obj: DisconnectionEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DTMFInputEventFilterSensitiveLog = (obj: DTMFInputEvent): any => ({
   ...obj,
   ...(obj.inputCharacter && { inputCharacter: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PlaybackCompletionEventFilterSensitiveLog = (obj: PlaybackCompletionEvent): any => ({
-  ...obj,
 });
 
 /**
@@ -2382,79 +2443,9 @@ export const TextInputEventFilterSensitiveLog = (obj: TextInputEvent): any => ({
 /**
  * @internal
  */
-export const HeartbeatEventFilterSensitiveLog = (obj: HeartbeatEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlaybackInterruptionEventFilterSensitiveLog = (obj: PlaybackInterruptionEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TextResponseEventFilterSensitiveLog = (obj: TextResponseEvent): any => ({
   ...obj,
   ...(obj.messages && { messages: obj.messages.map((item) => MessageFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const TranscriptEventFilterSensitiveLog = (obj: TranscriptEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElicitSubSlotFilterSensitiveLog = (obj: ElicitSubSlot): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DialogActionFilterSensitiveLog = (obj: DialogAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuntimeHintDetailsFilterSensitiveLog = (obj: RuntimeHintDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuntimeHintsFilterSensitiveLog = (obj: RuntimeHints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SlotFilterSensitiveLog = (obj: Slot): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IntentFilterSensitiveLog = (obj: Intent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InterpretationFilterSensitiveLog = (obj: Interpretation): any => ({
-  ...obj,
 });
 
 /**
@@ -2499,14 +2490,11 @@ export const StartConversationRequestEventStreamFilterSensitiveLog = (
 ): any => {
   if (obj.ConfigurationEvent !== undefined)
     return { ConfigurationEvent: ConfigurationEventFilterSensitiveLog(obj.ConfigurationEvent) };
-  if (obj.AudioInputEvent !== undefined)
-    return { AudioInputEvent: AudioInputEventFilterSensitiveLog(obj.AudioInputEvent) };
+  if (obj.AudioInputEvent !== undefined) return { AudioInputEvent: obj.AudioInputEvent };
   if (obj.DTMFInputEvent !== undefined) return { DTMFInputEvent: DTMFInputEventFilterSensitiveLog(obj.DTMFInputEvent) };
   if (obj.TextInputEvent !== undefined) return { TextInputEvent: TextInputEventFilterSensitiveLog(obj.TextInputEvent) };
-  if (obj.PlaybackCompletionEvent !== undefined)
-    return { PlaybackCompletionEvent: PlaybackCompletionEventFilterSensitiveLog(obj.PlaybackCompletionEvent) };
-  if (obj.DisconnectionEvent !== undefined)
-    return { DisconnectionEvent: DisconnectionEventFilterSensitiveLog(obj.DisconnectionEvent) };
+  if (obj.PlaybackCompletionEvent !== undefined) return { PlaybackCompletionEvent: obj.PlaybackCompletionEvent };
+  if (obj.DisconnectionEvent !== undefined) return { DisconnectionEvent: obj.DisconnectionEvent };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -2547,17 +2535,14 @@ export const RecognizeTextResponseFilterSensitiveLog = (obj: RecognizeTextRespon
 export const StartConversationResponseEventStreamFilterSensitiveLog = (
   obj: StartConversationResponseEventStream
 ): any => {
-  if (obj.PlaybackInterruptionEvent !== undefined)
-    return { PlaybackInterruptionEvent: PlaybackInterruptionEventFilterSensitiveLog(obj.PlaybackInterruptionEvent) };
-  if (obj.TranscriptEvent !== undefined)
-    return { TranscriptEvent: TranscriptEventFilterSensitiveLog(obj.TranscriptEvent) };
+  if (obj.PlaybackInterruptionEvent !== undefined) return { PlaybackInterruptionEvent: obj.PlaybackInterruptionEvent };
+  if (obj.TranscriptEvent !== undefined) return { TranscriptEvent: obj.TranscriptEvent };
   if (obj.IntentResultEvent !== undefined)
     return { IntentResultEvent: IntentResultEventFilterSensitiveLog(obj.IntentResultEvent) };
   if (obj.TextResponseEvent !== undefined)
     return { TextResponseEvent: TextResponseEventFilterSensitiveLog(obj.TextResponseEvent) };
-  if (obj.AudioResponseEvent !== undefined)
-    return { AudioResponseEvent: AudioResponseEventFilterSensitiveLog(obj.AudioResponseEvent) };
-  if (obj.HeartbeatEvent !== undefined) return { HeartbeatEvent: HeartbeatEventFilterSensitiveLog(obj.HeartbeatEvent) };
+  if (obj.AudioResponseEvent !== undefined) return { AudioResponseEvent: obj.AudioResponseEvent };
+  if (obj.HeartbeatEvent !== undefined) return { HeartbeatEvent: obj.HeartbeatEvent };
   if (obj.AccessDeniedException !== undefined) return { AccessDeniedException: obj.AccessDeniedException };
   if (obj.ResourceNotFoundException !== undefined) return { ResourceNotFoundException: obj.ResourceNotFoundException };
   if (obj.ValidationException !== undefined) return { ValidationException: obj.ValidationException };

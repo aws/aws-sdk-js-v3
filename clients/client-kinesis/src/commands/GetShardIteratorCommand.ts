@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  GetShardIteratorInput,
-  GetShardIteratorInputFilterSensitiveLog,
-  GetShardIteratorOutput,
-  GetShardIteratorOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetShardIteratorCommand,
-  serializeAws_json1_1GetShardIteratorCommand,
-} from "../protocols/Aws_json1_1";
+import { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
+import { de_GetShardIteratorCommand, se_GetShardIteratorCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetShardIteratorCommand}.
  */
 export interface GetShardIteratorCommandInput extends GetShardIteratorInput {}
 /**
+ * @public
+ *
  * The output of {@link GetShardIteratorCommand}.
  */
 export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it is
  *             returned to the requester.</p>
  *          <note>
@@ -79,10 +76,20 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * import { KinesisClient, GetShardIteratorCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, GetShardIteratorCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // GetShardIteratorInput
+ *   StreamName: "STRING_VALUE",
+ *   ShardId: "STRING_VALUE", // required
+ *   ShardIteratorType: "AT_SEQUENCE_NUMBER" || "AFTER_SEQUENCE_NUMBER" || "TRIM_HORIZON" || "LATEST" || "AT_TIMESTAMP", // required
+ *   StartingSequenceNumber: "STRING_VALUE",
+ *   Timestamp: new Date("TIMESTAMP"),
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new GetShardIteratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetShardIteratorCommandInput - {@link GetShardIteratorCommandInput}
+ * @returns {@link GetShardIteratorCommandOutput}
  * @see {@link GetShardIteratorCommandInput} for command's `input` shape.
  * @see {@link GetShardIteratorCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -127,6 +134,9 @@ export class GetShardIteratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetShardIteratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,8 +165,8 @@ export class GetShardIteratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetShardIteratorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetShardIteratorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -166,12 +176,18 @@ export class GetShardIteratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetShardIteratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetShardIteratorCommand(input, context);
+    return se_GetShardIteratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetShardIteratorCommandOutput> {
-    return deserializeAws_json1_1GetShardIteratorCommand(output, context);
+    return de_GetShardIteratorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSqlInjectionMatchSetsRequest,
-  ListSqlInjectionMatchSetsRequestFilterSensitiveLog,
-  ListSqlInjectionMatchSetsResponse,
-  ListSqlInjectionMatchSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSqlInjectionMatchSetsCommand,
-  serializeAws_json1_1ListSqlInjectionMatchSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSqlInjectionMatchSetsRequest, ListSqlInjectionMatchSetsResponse } from "../models/models_0";
+import { de_ListSqlInjectionMatchSetsCommand, se_ListSqlInjectionMatchSetsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSqlInjectionMatchSetsCommand}.
  */
 export interface ListSqlInjectionMatchSetsCommandInput extends ListSqlInjectionMatchSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSqlInjectionMatchSetsCommand}.
  */
 export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjectionMatchSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -50,10 +47,16 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  * import { WAFClient, ListSqlInjectionMatchSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListSqlInjectionMatchSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // ListSqlInjectionMatchSetsRequest
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListSqlInjectionMatchSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSqlInjectionMatchSetsCommandInput - {@link ListSqlInjectionMatchSetsCommandInput}
+ * @returns {@link ListSqlInjectionMatchSetsCommandOutput}
  * @see {@link ListSqlInjectionMatchSetsCommandInput} for command's `input` shape.
  * @see {@link ListSqlInjectionMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -104,6 +107,9 @@ export class ListSqlInjectionMatchSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSqlInjectionMatchSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +138,8 @@ export class ListSqlInjectionMatchSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSqlInjectionMatchSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSqlInjectionMatchSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,15 +149,21 @@ export class ListSqlInjectionMatchSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSqlInjectionMatchSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSqlInjectionMatchSetsCommand(input, context);
+    return se_ListSqlInjectionMatchSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSqlInjectionMatchSetsCommandOutput> {
-    return deserializeAws_json1_1ListSqlInjectionMatchSetsCommand(output, context);
+    return de_ListSqlInjectionMatchSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,23 +18,24 @@ import {
   BatchEvaluateGeofencesRequest,
   BatchEvaluateGeofencesRequestFilterSensitiveLog,
   BatchEvaluateGeofencesResponse,
-  BatchEvaluateGeofencesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchEvaluateGeofencesCommand,
-  serializeAws_restJson1BatchEvaluateGeofencesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchEvaluateGeofencesCommand, se_BatchEvaluateGeofencesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchEvaluateGeofencesCommand}.
  */
 export interface BatchEvaluateGeofencesCommandInput extends BatchEvaluateGeofencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchEvaluateGeofencesCommand}.
  */
 export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Evaluates device positions against the geofence geometries from a given geofence
  *             collection.</p>
  *          <p>This operation always returns an empty response because geofences are asynchronously
@@ -70,10 +71,30 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  * import { LocationClient, BatchEvaluateGeofencesCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, BatchEvaluateGeofencesCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // BatchEvaluateGeofencesRequest
+ *   CollectionName: "STRING_VALUE", // required
+ *   DevicePositionUpdates: [ // DevicePositionUpdateList // required
+ *     { // DevicePositionUpdate
+ *       DeviceId: "STRING_VALUE", // required
+ *       SampleTime: new Date("TIMESTAMP"), // required
+ *       Position: [ // Position // required
+ *         Number("double"),
+ *       ],
+ *       Accuracy: { // PositionalAccuracy
+ *         Horizontal: Number("double"), // required
+ *       },
+ *       PositionProperties: { // PropertyMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new BatchEvaluateGeofencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchEvaluateGeofencesCommandInput - {@link BatchEvaluateGeofencesCommandInput}
+ * @returns {@link BatchEvaluateGeofencesCommandOutput}
  * @see {@link BatchEvaluateGeofencesCommandInput} for command's `input` shape.
  * @see {@link BatchEvaluateGeofencesCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -113,6 +134,9 @@ export class BatchEvaluateGeofencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchEvaluateGeofencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,7 +166,7 @@ export class BatchEvaluateGeofencesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: BatchEvaluateGeofencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchEvaluateGeofencesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +176,18 @@ export class BatchEvaluateGeofencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchEvaluateGeofencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchEvaluateGeofencesCommand(input, context);
+    return se_BatchEvaluateGeofencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchEvaluateGeofencesCommandOutput> {
-    return deserializeAws_restJson1BatchEvaluateGeofencesCommand(output, context);
+    return de_BatchEvaluateGeofencesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  PutAccountSettingDefaultRequest,
-  PutAccountSettingDefaultRequestFilterSensitiveLog,
-  PutAccountSettingDefaultResponse,
-  PutAccountSettingDefaultResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAccountSettingDefaultCommand,
-  serializeAws_json1_1PutAccountSettingDefaultCommand,
-} from "../protocols/Aws_json1_1";
+import { PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse } from "../models/models_0";
+import { de_PutAccountSettingDefaultCommand, se_PutAccountSettingDefaultCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountSettingDefaultCommand}.
  */
 export interface PutAccountSettingDefaultCommandInput extends PutAccountSettingDefaultRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountSettingDefaultCommand}.
  */
 export interface PutAccountSettingDefaultCommandOutput extends PutAccountSettingDefaultResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an account setting for all users on an account for whom no individual
  * 			account setting has been specified. Account settings are set on a per-Region
  * 			basis.</p>
@@ -44,10 +41,16 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  * import { ECSClient, PutAccountSettingDefaultCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, PutAccountSettingDefaultCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // PutAccountSettingDefaultRequest
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization", // required
+ *   value: "STRING_VALUE", // required
+ * };
  * const command = new PutAccountSettingDefaultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountSettingDefaultCommandInput - {@link PutAccountSettingDefaultCommandInput}
+ * @returns {@link PutAccountSettingDefaultCommandOutput}
  * @see {@link PutAccountSettingDefaultCommandInput} for command's `input` shape.
  * @see {@link PutAccountSettingDefaultCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -104,6 +107,9 @@ export class PutAccountSettingDefaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountSettingDefaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +138,8 @@ export class PutAccountSettingDefaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountSettingDefaultRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountSettingDefaultResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +149,18 @@ export class PutAccountSettingDefaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountSettingDefaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAccountSettingDefaultCommand(input, context);
+    return se_PutAccountSettingDefaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountSettingDefaultCommandOutput> {
-    return deserializeAws_json1_1PutAccountSettingDefaultCommand(output, context);
+    return de_PutAccountSettingDefaultCommand(output, context);
   }
 
   // Start section: command_body_extra

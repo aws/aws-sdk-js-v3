@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateOrganizationalUnitRequest,
-  UpdateOrganizationalUnitRequestFilterSensitiveLog,
-  UpdateOrganizationalUnitResponse,
-  UpdateOrganizationalUnitResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateOrganizationalUnitRequest, UpdateOrganizationalUnitResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1UpdateOrganizationalUnitCommand,
-  serializeAws_json1_1UpdateOrganizationalUnitCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateOrganizationalUnitCommand, se_UpdateOrganizationalUnitCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOrganizationalUnitCommand}.
  */
 export interface UpdateOrganizationalUnitCommandInput extends UpdateOrganizationalUnitRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOrganizationalUnitCommand}.
  */
 export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Renames the specified organizational unit (OU). The ID and ARN don't change. The child
  *             OUs and accounts remain in place, and any attached policies of the OU remain
  *             attached.</p>
@@ -45,10 +42,16 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  * import { OrganizationsClient, UpdateOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, UpdateOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // UpdateOrganizationalUnitRequest
+ *   OrganizationalUnitId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOrganizationalUnitCommandInput - {@link UpdateOrganizationalUnitCommandInput}
+ * @returns {@link UpdateOrganizationalUnitCommandOutput}
  * @see {@link UpdateOrganizationalUnitCommandInput} for command's `input` shape.
  * @see {@link UpdateOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -230,6 +233,9 @@ export class UpdateOrganizationalUnitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOrganizationalUnitCommandInput) {
     // Start section: command_constructor
     super();
@@ -258,8 +264,8 @@ export class UpdateOrganizationalUnitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOrganizationalUnitRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOrganizationalUnitResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -269,12 +275,18 @@ export class UpdateOrganizationalUnitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateOrganizationalUnitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateOrganizationalUnitCommand(input, context);
+    return se_UpdateOrganizationalUnitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1UpdateOrganizationalUnitCommand(output, context);
+    return de_UpdateOrganizationalUnitCommand(output, context);
   }
 
   // Start section: command_body_extra

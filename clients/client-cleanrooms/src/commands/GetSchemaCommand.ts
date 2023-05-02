@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  GetSchemaInput,
-  GetSchemaInputFilterSensitiveLog,
-  GetSchemaOutput,
-  GetSchemaOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSchemaCommand,
-  serializeAws_restJson1GetSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSchemaInput, GetSchemaOutput } from "../models/models_0";
+import { de_GetSchemaCommand, se_GetSchemaCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSchemaCommand}.
  */
 export interface GetSchemaCommandInput extends GetSchemaInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSchemaCommand}.
  */
 export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the schema for a relation within a collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * import { CleanRoomsClient, GetSchemaCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetSchemaCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // GetSchemaInput
+ *   collaborationIdentifier: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSchemaCommandInput - {@link GetSchemaCommandInput}
+ * @returns {@link GetSchemaCommandOutput}
  * @see {@link GetSchemaCommandInput} for command's `input` shape.
  * @see {@link GetSchemaCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class GetSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSchemaInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSchemaOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class GetSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSchemaCommand(input, context);
+    return se_GetSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaCommandOutput> {
-    return deserializeAws_restJson1GetSchemaCommand(output, context);
+    return de_GetSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePolicyRequest,
-  CreatePolicyRequestFilterSensitiveLog,
-  CreatePolicyResponse,
-  CreatePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreatePolicyRequest, CreatePolicyResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1CreatePolicyCommand,
-  serializeAws_json1_1CreatePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePolicyCommand, se_CreatePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePolicyCommand}.
  */
 export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePolicyCommand}.
  */
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a policy of a specified type that you can attach to a root, an organizational
  *             unit (OU), or an individual Amazon Web Services account.</p>
  *          <p>For more information about policies and their use, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">Managing
@@ -48,10 +45,24 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * import { OrganizationsClient, CreatePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CreatePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // CreatePolicyRequest
+ *   Content: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePolicyCommandInput - {@link CreatePolicyCommandInput}
+ * @returns {@link CreatePolicyCommandOutput}
  * @see {@link CreatePolicyCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -451,6 +462,9 @@ export class CreatePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -477,8 +491,8 @@ export class CreatePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -488,12 +502,18 @@ export class CreatePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePolicyCommand(input, context);
+    return se_CreatePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyCommandOutput> {
-    return deserializeAws_json1_1CreatePolicyCommand(output, context);
+    return de_CreatePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

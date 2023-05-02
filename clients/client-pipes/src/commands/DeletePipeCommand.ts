@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeletePipeRequest,
-  DeletePipeRequestFilterSensitiveLog,
-  DeletePipeResponse,
-  DeletePipeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePipeRequest, DeletePipeResponse } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import {
-  deserializeAws_restJson1DeletePipeCommand,
-  serializeAws_restJson1DeletePipeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePipeCommand, se_DeletePipeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePipeCommand}.
  */
 export interface DeletePipeCommandInput extends DeletePipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePipeCommand}.
  */
 export interface DeletePipeCommandOutput extends DeletePipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an existing pipe. For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeletePipeCommandOutput extends DeletePipeResponse, __MetadataB
  * import { PipesClient, DeletePipeCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, DeletePipeCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
  * const client = new PipesClient(config);
+ * const input = { // DeletePipeRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeletePipeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePipeCommandInput - {@link DeletePipeCommandInput}
+ * @returns {@link DeletePipeCommandOutput}
  * @see {@link DeletePipeCommandInput} for command's `input` shape.
  * @see {@link DeletePipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
@@ -84,6 +86,9 @@ export class DeletePipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DeletePipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DeletePipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePipeCommand(input, context);
+    return se_DeletePipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipeCommandOutput> {
-    return deserializeAws_restJson1DeletePipeCommand(output, context);
+    return de_DeletePipeCommand(output, context);
   }
 
   // Start section: command_body_extra

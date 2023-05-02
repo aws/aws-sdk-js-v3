@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetContainerLogRequest,
-  GetContainerLogRequestFilterSensitiveLog,
-  GetContainerLogResult,
-  GetContainerLogResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetContainerLogCommand,
-  serializeAws_json1_1GetContainerLogCommand,
-} from "../protocols/Aws_json1_1";
+import { GetContainerLogRequest, GetContainerLogResult } from "../models/models_0";
+import { de_GetContainerLogCommand, se_GetContainerLogCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContainerLogCommand}.
  */
 export interface GetContainerLogCommandInput extends GetContainerLogRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContainerLogCommand}.
  */
 export interface GetContainerLogCommandOutput extends GetContainerLogResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the log events of a container of your Amazon Lightsail container service.</p>
  *          <p>If your container service has more than one node (i.e., a scale greater than 1), then the
  *       log events that are returned for the specified container are merged from all nodes on your
@@ -51,10 +48,20 @@ export interface GetContainerLogCommandOutput extends GetContainerLogResult, __M
  * import { LightsailClient, GetContainerLogCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerLogCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetContainerLogRequest
+ *   serviceName: "STRING_VALUE", // required
+ *   containerName: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   filterPattern: "STRING_VALUE",
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetContainerLogCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerLogCommandInput - {@link GetContainerLogCommandInput}
+ * @returns {@link GetContainerLogCommandOutput}
  * @see {@link GetContainerLogCommandInput} for command's `input` shape.
  * @see {@link GetContainerLogCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetContainerLogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerLogCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +139,8 @@ export class GetContainerLogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContainerLogRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContainerLogResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +150,18 @@ export class GetContainerLogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContainerLogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContainerLogCommand(input, context);
+    return se_GetContainerLogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerLogCommandOutput> {
-    return deserializeAws_json1_1GetContainerLogCommand(output, context);
+    return de_GetContainerLogCommand(output, context);
   }
 
   // Start section: command_body_extra

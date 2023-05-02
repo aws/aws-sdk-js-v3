@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeUploadBufferInput,
-  DescribeUploadBufferInputFilterSensitiveLog,
-  DescribeUploadBufferOutput,
-  DescribeUploadBufferOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeUploadBufferCommand,
-  serializeAws_json1_1DescribeUploadBufferCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeUploadBufferInput, DescribeUploadBufferOutput } from "../models/models_0";
+import { de_DescribeUploadBufferCommand, se_DescribeUploadBufferCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUploadBufferCommand}.
  */
 export interface DescribeUploadBufferCommandInput extends DescribeUploadBufferInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUploadBufferCommand}.
  */
 export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the upload buffer of a gateway. This operation is supported
  *          for the stored volume, cached volume, and tape gateway types.</p>
  *
@@ -46,10 +43,15 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  * import { StorageGatewayClient, DescribeUploadBufferCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeUploadBufferCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeUploadBufferInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeUploadBufferCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUploadBufferCommandInput - {@link DescribeUploadBufferCommandInput}
+ * @returns {@link DescribeUploadBufferCommandOutput}
  * @see {@link DescribeUploadBufferCommandInput} for command's `input` shape.
  * @see {@link DescribeUploadBufferCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -125,6 +127,9 @@ export class DescribeUploadBufferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUploadBufferCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,8 +158,8 @@ export class DescribeUploadBufferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUploadBufferInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUploadBufferOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -164,12 +169,18 @@ export class DescribeUploadBufferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUploadBufferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUploadBufferCommand(input, context);
+    return se_DescribeUploadBufferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUploadBufferCommandOutput> {
-    return deserializeAws_json1_1DescribeUploadBufferCommand(output, context);
+    return de_DescribeUploadBufferCommand(output, context);
   }
 
   // Start section: command_body_extra

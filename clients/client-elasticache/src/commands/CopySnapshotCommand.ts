@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CopySnapshotMessage,
-  CopySnapshotMessageFilterSensitiveLog,
-  CopySnapshotResult,
-  CopySnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryCopySnapshotCommand, serializeAws_queryCopySnapshotCommand } from "../protocols/Aws_query";
+import { CopySnapshotMessage, CopySnapshotResult } from "../models/models_0";
+import { de_CopySnapshotCommand, se_CopySnapshotCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CopySnapshotCommand}.
  */
 export interface CopySnapshotCommandInput extends CopySnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link CopySnapshotCommand}.
  */
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Makes a copy of an existing snapshot.</p>
  *          <note>
  *             <p>This operation is valid for Redis only.</p>
@@ -129,10 +129,24 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * import { ElastiCacheClient, CopySnapshotCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CopySnapshotCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // CopySnapshotMessage
+ *   SourceSnapshotName: "STRING_VALUE", // required
+ *   TargetSnapshotName: "STRING_VALUE", // required
+ *   TargetBucket: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopySnapshotCommandInput - {@link CopySnapshotCommandInput}
+ * @returns {@link CopySnapshotCommandOutput}
  * @see {@link CopySnapshotCommandInput} for command's `input` shape.
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -222,6 +236,9 @@ export class CopySnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopySnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -248,8 +265,8 @@ export class CopySnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopySnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CopySnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -259,12 +276,18 @@ export class CopySnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopySnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopySnapshotCommand(input, context);
+    return se_CopySnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopySnapshotCommandOutput> {
-    return deserializeAws_queryCopySnapshotCommand(output, context);
+    return de_CopySnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

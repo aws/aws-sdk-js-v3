@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  GetVaultLockInput,
-  GetVaultLockInputFilterSensitiveLog,
-  GetVaultLockOutput,
-  GetVaultLockOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetVaultLockCommand,
-  serializeAws_restJson1GetVaultLockCommand,
-} from "../protocols/Aws_restJson1";
+import { GetVaultLockInput, GetVaultLockOutput } from "../models/models_0";
+import { de_GetVaultLockCommand, se_GetVaultLockCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVaultLockCommand}.
  */
 export interface GetVaultLockCommandInput extends GetVaultLockInput {}
 /**
+ * @public
+ *
  * The output of {@link GetVaultLockCommand}.
  */
 export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation retrieves the following attributes from the <code>lock-policy</code>
  *          subresource set on the specified vault: </p>
  *          <ul>
@@ -69,10 +66,16 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * import { GlacierClient, GetVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, GetVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // GetVaultLockInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new GetVaultLockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVaultLockCommandInput - {@link GetVaultLockCommandInput}
+ * @returns {@link GetVaultLockCommandOutput}
  * @see {@link GetVaultLockCommandInput} for command's `input` shape.
  * @see {@link GetVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -129,6 +132,9 @@ export class GetVaultLockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVaultLockCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,8 +161,8 @@ export class GetVaultLockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVaultLockInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVaultLockOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -166,12 +172,18 @@ export class GetVaultLockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVaultLockCommand(input, context);
+    return se_GetVaultLockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVaultLockCommandOutput> {
-    return deserializeAws_restJson1GetVaultLockCommand(output, context);
+    return de_GetVaultLockCommand(output, context);
   }
 
   // Start section: command_body_extra

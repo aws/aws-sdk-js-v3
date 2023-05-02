@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { CompleteVaultLockInput, CompleteVaultLockInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1CompleteVaultLockCommand,
-  serializeAws_restJson1CompleteVaultLockCommand,
-} from "../protocols/Aws_restJson1";
+import { CompleteVaultLockInput } from "../models/models_0";
+import { de_CompleteVaultLockCommand, se_CompleteVaultLockCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CompleteVaultLockCommand}.
  */
 export interface CompleteVaultLockCommandInput extends CompleteVaultLockInput {}
 /**
+ * @public
+ *
  * The output of {@link CompleteVaultLockCommand}.
  */
 export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation completes the vault locking process by transitioning the vault lock
  *          from the <code>InProgress</code> state to the <code>Locked</code> state, which causes the
  *          vault lock policy to become unchangeable. A vault lock is put into the
@@ -50,10 +52,17 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, CompleteVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, CompleteVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // CompleteVaultLockInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   lockId: "STRING_VALUE", // required
+ * };
  * const command = new CompleteVaultLockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteVaultLockCommandInput - {@link CompleteVaultLockCommandInput}
+ * @returns {@link CompleteVaultLockCommandOutput}
  * @see {@link CompleteVaultLockCommandInput} for command's `input` shape.
  * @see {@link CompleteVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -103,6 +112,9 @@ export class CompleteVaultLockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteVaultLockCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +143,8 @@ export class CompleteVaultLockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompleteVaultLockInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +154,18 @@ export class CompleteVaultLockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CompleteVaultLockCommand(input, context);
+    return se_CompleteVaultLockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteVaultLockCommandOutput> {
-    return deserializeAws_restJson1CompleteVaultLockCommand(output, context);
+    return de_CompleteVaultLockCommand(output, context);
   }
 
   // Start section: command_body_extra

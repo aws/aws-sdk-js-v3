@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  CreateRouteInput,
-  CreateRouteInputFilterSensitiveLog,
-  CreateRouteOutput,
-  CreateRouteOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRouteCommand,
-  serializeAws_restJson1CreateRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRouteInput, CreateRouteOutput } from "../models/models_0";
+import { de_CreateRouteCommand, se_CreateRouteCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRouteCommand}.
  */
 export interface CreateRouteCommandInput extends CreateRouteInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateRouteCommand}.
  */
 export interface CreateRouteCommandOutput extends CreateRouteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a route that is associated with a virtual router.</p>
  *          <p> You can route several different protocols and define a retry policy for a route.
  *          Traffic can be routed to one or more virtual nodes.</p>
@@ -45,10 +42,227 @@ export interface CreateRouteCommandOutput extends CreateRouteOutput, __MetadataB
  * import { AppMeshClient, CreateRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // CreateRouteInput
+ *   routeName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   virtualRouterName: "STRING_VALUE", // required
+ *   spec: { // RouteSpec
+ *     priority: Number("int"),
+ *     httpRoute: { // HttpRoute
+ *       match: { // HttpRouteMatch
+ *         prefix: "STRING_VALUE",
+ *         path: { // HttpPathMatch
+ *           exact: "STRING_VALUE",
+ *           regex: "STRING_VALUE",
+ *         },
+ *         queryParameters: [ // HttpQueryParameters
+ *           { // HttpQueryParameter
+ *             name: "STRING_VALUE", // required
+ *             match: { // QueryParameterMatch
+ *               exact: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         method: "STRING_VALUE",
+ *         scheme: "STRING_VALUE",
+ *         headers: [ // HttpRouteHeaders
+ *           { // HttpRouteHeader
+ *             name: "STRING_VALUE", // required
+ *             invert: true || false,
+ *             match: { // HeaderMatchMethod Union: only one key present
+ *               exact: "STRING_VALUE",
+ *               regex: "STRING_VALUE",
+ *               range: { // MatchRange
+ *                 start: Number("long"), // required
+ *                 end: Number("long"), // required
+ *               },
+ *               prefix: "STRING_VALUE",
+ *               suffix: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         port: Number("int"),
+ *       },
+ *       action: { // HttpRouteAction
+ *         weightedTargets: [ // WeightedTargets // required
+ *           { // WeightedTarget
+ *             virtualNode: "STRING_VALUE", // required
+ *             weight: Number("int"), // required
+ *             port: Number("int"),
+ *           },
+ *         ],
+ *       },
+ *       retryPolicy: { // HttpRetryPolicy
+ *         perRetryTimeout: { // Duration
+ *           value: Number("long"),
+ *           unit: "STRING_VALUE",
+ *         },
+ *         maxRetries: Number("long"), // required
+ *         httpRetryEvents: [ // HttpRetryPolicyEvents
+ *           "STRING_VALUE",
+ *         ],
+ *         tcpRetryEvents: [ // TcpRetryPolicyEvents
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       timeout: { // HttpTimeout
+ *         perRequest: {
+ *           value: Number("long"),
+ *           unit: "STRING_VALUE",
+ *         },
+ *         idle: {
+ *           value: Number("long"),
+ *           unit: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     tcpRoute: { // TcpRoute
+ *       action: { // TcpRouteAction
+ *         weightedTargets: [ // required
+ *           {
+ *             virtualNode: "STRING_VALUE", // required
+ *             weight: Number("int"), // required
+ *             port: Number("int"),
+ *           },
+ *         ],
+ *       },
+ *       timeout: { // TcpTimeout
+ *         idle: {
+ *           value: Number("long"),
+ *           unit: "STRING_VALUE",
+ *         },
+ *       },
+ *       match: { // TcpRouteMatch
+ *         port: Number("int"),
+ *       },
+ *     },
+ *     http2Route: {
+ *       match: {
+ *         prefix: "STRING_VALUE",
+ *         path: {
+ *           exact: "STRING_VALUE",
+ *           regex: "STRING_VALUE",
+ *         },
+ *         queryParameters: [
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             match: {
+ *               exact: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         method: "STRING_VALUE",
+ *         scheme: "STRING_VALUE",
+ *         headers: [
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             invert: true || false,
+ *             match: {//  Union: only one key present
+ *               exact: "STRING_VALUE",
+ *               regex: "STRING_VALUE",
+ *               range: {
+ *                 start: Number("long"), // required
+ *                 end: Number("long"), // required
+ *               },
+ *               prefix: "STRING_VALUE",
+ *               suffix: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         port: Number("int"),
+ *       },
+ *       action: {
+ *         weightedTargets: [ // required
+ *           {
+ *             virtualNode: "STRING_VALUE", // required
+ *             weight: Number("int"), // required
+ *             port: Number("int"),
+ *           },
+ *         ],
+ *       },
+ *       retryPolicy: {
+ *         perRetryTimeout: {
+ *           value: Number("long"),
+ *           unit: "STRING_VALUE",
+ *         },
+ *         maxRetries: Number("long"), // required
+ *         httpRetryEvents: [
+ *           "STRING_VALUE",
+ *         ],
+ *         tcpRetryEvents: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       timeout: {
+ *         perRequest: "<Duration>",
+ *         idle: "<Duration>",
+ *       },
+ *     },
+ *     grpcRoute: { // GrpcRoute
+ *       action: { // GrpcRouteAction
+ *         weightedTargets: [ // required
+ *           {
+ *             virtualNode: "STRING_VALUE", // required
+ *             weight: Number("int"), // required
+ *             port: Number("int"),
+ *           },
+ *         ],
+ *       },
+ *       match: { // GrpcRouteMatch
+ *         serviceName: "STRING_VALUE",
+ *         methodName: "STRING_VALUE",
+ *         metadata: [ // GrpcRouteMetadataList
+ *           { // GrpcRouteMetadata
+ *             name: "STRING_VALUE", // required
+ *             invert: true || false,
+ *             match: { // GrpcRouteMetadataMatchMethod Union: only one key present
+ *               exact: "STRING_VALUE",
+ *               regex: "STRING_VALUE",
+ *               range: {
+ *                 start: Number("long"), // required
+ *                 end: Number("long"), // required
+ *               },
+ *               prefix: "STRING_VALUE",
+ *               suffix: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         port: Number("int"),
+ *       },
+ *       retryPolicy: { // GrpcRetryPolicy
+ *         perRetryTimeout: "<Duration>", // required
+ *         maxRetries: Number("long"), // required
+ *         httpRetryEvents: [
+ *           "STRING_VALUE",
+ *         ],
+ *         tcpRetryEvents: [
+ *           "STRING_VALUE",
+ *         ],
+ *         grpcRetryEvents: [ // GrpcRetryPolicyEvents
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       timeout: { // GrpcTimeout
+ *         perRequest: "<Duration>",
+ *         idle: "<Duration>",
+ *       },
+ *     },
+ *   },
+ *   tags: [ // TagList
+ *     { // TagRef
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new CreateRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRouteCommandInput - {@link CreateRouteCommandInput}
+ * @returns {@link CreateRouteCommandOutput}
  * @see {@link CreateRouteCommandInput} for command's `input` shape.
  * @see {@link CreateRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -101,6 +315,9 @@ export class CreateRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +344,8 @@ export class CreateRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRouteInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRouteOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +355,18 @@ export class CreateRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRouteCommand(input, context);
+    return se_CreateRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteCommandOutput> {
-    return deserializeAws_restJson1CreateRouteCommand(output, context);
+    return de_CreateRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

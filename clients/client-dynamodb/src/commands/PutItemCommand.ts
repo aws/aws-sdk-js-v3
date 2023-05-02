@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  PutItemInput,
-  PutItemInputFilterSensitiveLog,
-  PutItemOutput,
-  PutItemOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_0PutItemCommand, serializeAws_json1_0PutItemCommand } from "../protocols/Aws_json1_0";
+import { PutItemInput, PutItemOutput } from "../models/models_0";
+import { de_PutItemCommand, se_PutItemCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link PutItemCommand}.
  */
 export interface PutItemCommandInput extends PutItemInput {}
 /**
+ * @public
+ *
  * The output of {@link PutItemCommand}.
  */
 export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new item, or replaces an old item with a new item. If an item that has the
  *             same primary key as the new item already exists in the specified table, the new item
  *             completely replaces the existing item. You can perform a conditional put operation (add
@@ -60,10 +60,81 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  * import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // PutItemInput
+ *   TableName: "STRING_VALUE", // required
+ *   Item: { // PutItemInputAttributeMap // required
+ *     "<keys>": { // AttributeValue Union: only one key present
+ *       S: "STRING_VALUE",
+ *       N: "STRING_VALUE",
+ *       B: "BLOB_VALUE",
+ *       SS: [ // StringSetAttributeValue
+ *         "STRING_VALUE",
+ *       ],
+ *       NS: [ // NumberSetAttributeValue
+ *         "STRING_VALUE",
+ *       ],
+ *       BS: [ // BinarySetAttributeValue
+ *         "BLOB_VALUE",
+ *       ],
+ *       M: { // MapAttributeValue
+ *         "<keys>": {//  Union: only one key present
+ *           S: "STRING_VALUE",
+ *           N: "STRING_VALUE",
+ *           B: "BLOB_VALUE",
+ *           SS: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NS: [
+ *             "STRING_VALUE",
+ *           ],
+ *           BS: [
+ *             "BLOB_VALUE",
+ *           ],
+ *           M: {
+ *             "<keys>": "<AttributeValue>",
+ *           },
+ *           L: [ // ListAttributeValue
+ *             "<AttributeValue>",
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       },
+ *       L: [
+ *         "<AttributeValue>",
+ *       ],
+ *       NULL: true || false,
+ *       BOOL: true || false,
+ *     },
+ *   },
+ *   Expected: { // ExpectedAttributeMap
+ *     "<keys>": { // ExpectedAttributeValue
+ *       Value: "<AttributeValue>",
+ *       Exists: true || false,
+ *       ComparisonOperator: "EQ" || "NE" || "IN" || "LE" || "LT" || "GE" || "GT" || "BETWEEN" || "NOT_NULL" || "NULL" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH",
+ *       AttributeValueList: [ // AttributeValueList
+ *         "<AttributeValue>",
+ *       ],
+ *     },
+ *   },
+ *   ReturnValues: "NONE" || "ALL_OLD" || "UPDATED_OLD" || "ALL_NEW" || "UPDATED_NEW",
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   ReturnItemCollectionMetrics: "SIZE" || "NONE",
+ *   ConditionalOperator: "AND" || "OR",
+ *   ConditionExpression: "STRING_VALUE",
+ *   ExpressionAttributeNames: { // ExpressionAttributeNameMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ExpressionAttributeValues: { // ExpressionAttributeValueMap
+ *     "<keys>": "<AttributeValue>",
+ *   },
+ * };
  * const command = new PutItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutItemCommandInput - {@link PutItemCommandInput}
+ * @returns {@link PutItemCommandOutput}
  * @see {@link PutItemCommandInput} for command's `input` shape.
  * @see {@link PutItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -145,6 +216,9 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,8 +245,8 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutItemOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -182,12 +256,18 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutItemCommand(input, context);
+    return se_PutItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutItemCommandOutput> {
-    return deserializeAws_json1_0PutItemCommand(output, context);
+    return de_PutItemCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  GetUsagePlanKeysRequest,
-  GetUsagePlanKeysRequestFilterSensitiveLog,
-  UsagePlanKeys,
-  UsagePlanKeysFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUsagePlanKeysCommand,
-  serializeAws_restJson1GetUsagePlanKeysCommand,
-} from "../protocols/Aws_restJson1";
+import { GetUsagePlanKeysRequest, UsagePlanKeys } from "../models/models_0";
+import { de_GetUsagePlanKeysCommand, se_GetUsagePlanKeysCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUsagePlanKeysCommand}.
  */
 export interface GetUsagePlanKeysCommandInput extends GetUsagePlanKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUsagePlanKeysCommand}.
  */
 export interface GetUsagePlanKeysCommandOutput extends UsagePlanKeys, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all the usage plan keys representing the API keys added to a specified usage plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetUsagePlanKeysCommandOutput extends UsagePlanKeys, __Metadata
  * import { APIGatewayClient, GetUsagePlanKeysCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetUsagePlanKeysCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetUsagePlanKeysRequest
+ *   usagePlanId: "STRING_VALUE", // required
+ *   position: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   nameQuery: "STRING_VALUE",
+ * };
  * const command = new GetUsagePlanKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUsagePlanKeysCommandInput - {@link GetUsagePlanKeysCommandInput}
+ * @returns {@link GetUsagePlanKeysCommandOutput}
  * @see {@link GetUsagePlanKeysCommandInput} for command's `input` shape.
  * @see {@link GetUsagePlanKeysCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +86,9 @@ export class GetUsagePlanKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsagePlanKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class GetUsagePlanKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUsagePlanKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UsagePlanKeysFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class GetUsagePlanKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsagePlanKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUsagePlanKeysCommand(input, context);
+    return se_GetUsagePlanKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsagePlanKeysCommandOutput> {
-    return deserializeAws_restJson1GetUsagePlanKeysCommand(output, context);
+    return de_GetUsagePlanKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

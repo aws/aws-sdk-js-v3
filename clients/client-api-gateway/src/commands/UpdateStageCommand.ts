@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  Stage,
-  StageFilterSensitiveLog,
-  UpdateStageRequest,
-  UpdateStageRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateStageCommand,
-  serializeAws_restJson1UpdateStageCommand,
-} from "../protocols/Aws_restJson1";
+import { Stage, UpdateStageRequest } from "../models/models_0";
+import { de_UpdateStageCommand, se_UpdateStageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStageCommand}.
  */
 export interface UpdateStageCommandInput extends UpdateStageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStageCommand}.
  */
 export interface UpdateStageCommandOutput extends Stage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes information about a Stage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface UpdateStageCommandOutput extends Stage, __MetadataBearer {}
  * import { APIGatewayClient, UpdateStageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateStageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // UpdateStageRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
+ *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
+ *       path: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       from: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateStageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStageCommandInput - {@link UpdateStageCommandInput}
+ * @returns {@link UpdateStageCommandOutput}
  * @see {@link UpdateStageCommandInput} for command's `input` shape.
  * @see {@link UpdateStageCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +98,9 @@ export class UpdateStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +127,8 @@ export class UpdateStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +138,18 @@ export class UpdateStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateStageCommand(input, context);
+    return se_UpdateStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStageCommandOutput> {
-    return deserializeAws_restJson1UpdateStageCommand(output, context);
+    return de_UpdateStageCommand(output, context);
   }
 
   // Start section: command_body_extra

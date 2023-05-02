@@ -15,22 +15,24 @@ import {
 
 import {
   ListResolverQueryLogConfigAssociationsRequest,
-  ListResolverQueryLogConfigAssociationsRequestFilterSensitiveLog,
   ListResolverQueryLogConfigAssociationsResponse,
-  ListResolverQueryLogConfigAssociationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand,
-  serializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand,
+  de_ListResolverQueryLogConfigAssociationsCommand,
+  se_ListResolverQueryLogConfigAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolverQueryLogConfigAssociationsCommand}.
  */
 export interface ListResolverQueryLogConfigAssociationsCommandInput
   extends ListResolverQueryLogConfigAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolverQueryLogConfigAssociationsCommand}.
  */
 export interface ListResolverQueryLogConfigAssociationsCommandOutput
@@ -38,6 +40,7 @@ export interface ListResolverQueryLogConfigAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about associations between Amazon VPCs and query logging configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,26 @@ export interface ListResolverQueryLogConfigAssociationsCommandOutput
  * import { Route53ResolverClient, ListResolverQueryLogConfigAssociationsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListResolverQueryLogConfigAssociationsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // ListResolverQueryLogConfigAssociationsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   SortBy: "STRING_VALUE",
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ * };
  * const command = new ListResolverQueryLogConfigAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverQueryLogConfigAssociationsCommandInput - {@link ListResolverQueryLogConfigAssociationsCommandInput}
+ * @returns {@link ListResolverQueryLogConfigAssociationsCommandOutput}
  * @see {@link ListResolverQueryLogConfigAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListResolverQueryLogConfigAssociationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -90,6 +109,9 @@ export class ListResolverQueryLogConfigAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverQueryLogConfigAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +140,8 @@ export class ListResolverQueryLogConfigAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResolverQueryLogConfigAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResolverQueryLogConfigAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +151,24 @@ export class ListResolverQueryLogConfigAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListResolverQueryLogConfigAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand(input, context);
+    return se_ListResolverQueryLogConfigAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResolverQueryLogConfigAssociationsCommandOutput> {
-    return deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand(output, context);
+    return de_ListResolverQueryLogConfigAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

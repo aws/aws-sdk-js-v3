@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetBundlesRequest,
-  GetBundlesRequestFilterSensitiveLog,
-  GetBundlesResult,
-  GetBundlesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetBundlesCommand,
-  serializeAws_json1_1GetBundlesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetBundlesRequest, GetBundlesResult } from "../models/models_0";
+import { de_GetBundlesCommand, se_GetBundlesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBundlesCommand}.
  */
 export interface GetBundlesCommandInput extends GetBundlesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBundlesCommand}.
  */
 export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the bundles that you can apply to an Amazon Lightsail instance when you create
  *       it.</p>
  *          <p>A bundle describes the specifications of an instance, such as the monthly cost, amount of
@@ -50,10 +47,17 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  * import { LightsailClient, GetBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetBundlesRequest
+ *   includeInactive: true || false,
+ *   pageToken: "STRING_VALUE",
+ *   appCategory: "LfR",
+ * };
  * const command = new GetBundlesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBundlesCommandInput - {@link GetBundlesCommandInput}
+ * @returns {@link GetBundlesCommandOutput}
  * @see {@link GetBundlesCommandInput} for command's `input` shape.
  * @see {@link GetBundlesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -107,6 +111,9 @@ export class GetBundlesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBundlesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +140,8 @@ export class GetBundlesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBundlesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBundlesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +151,18 @@ export class GetBundlesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBundlesCommand(input, context);
+    return se_GetBundlesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBundlesCommandOutput> {
-    return deserializeAws_json1_1GetBundlesCommand(output, context);
+    return de_GetBundlesCommand(output, context);
   }
 
   // Start section: command_body_extra

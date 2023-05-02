@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  ListPlaybackKeyPairsRequest,
-  ListPlaybackKeyPairsRequestFilterSensitiveLog,
-  ListPlaybackKeyPairsResponse,
-  ListPlaybackKeyPairsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPlaybackKeyPairsCommand,
-  serializeAws_restJson1ListPlaybackKeyPairsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPlaybackKeyPairsRequest, ListPlaybackKeyPairsResponse } from "../models/models_0";
+import { de_ListPlaybackKeyPairsCommand, se_ListPlaybackKeyPairsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPlaybackKeyPairsCommand}.
  */
 export interface ListPlaybackKeyPairsCommandInput extends ListPlaybackKeyPairsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPlaybackKeyPairsCommand}.
  */
 export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets summary information about playback key pairs. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private
  *         Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsR
  * import { IvsClient, ListPlaybackKeyPairsCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, ListPlaybackKeyPairsCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // ListPlaybackKeyPairsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListPlaybackKeyPairsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPlaybackKeyPairsCommandInput - {@link ListPlaybackKeyPairsCommandInput}
+ * @returns {@link ListPlaybackKeyPairsCommandOutput}
  * @see {@link ListPlaybackKeyPairsCommandInput} for command's `input` shape.
  * @see {@link ListPlaybackKeyPairsCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -76,6 +79,9 @@ export class ListPlaybackKeyPairsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlaybackKeyPairsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class ListPlaybackKeyPairsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPlaybackKeyPairsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPlaybackKeyPairsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class ListPlaybackKeyPairsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlaybackKeyPairsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPlaybackKeyPairsCommand(input, context);
+    return se_ListPlaybackKeyPairsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlaybackKeyPairsCommandOutput> {
-    return deserializeAws_restJson1ListPlaybackKeyPairsCommand(output, context);
+    return de_ListPlaybackKeyPairsCommand(output, context);
   }
 
   // Start section: command_body_extra

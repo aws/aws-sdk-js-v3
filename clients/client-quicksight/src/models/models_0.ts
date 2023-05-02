@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**
+ * @public
  * <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
  * 			account is authorized to use the Amazon QuickSight service, that your policies have the
@@ -33,6 +34,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon QuickSight customizations associated with your Amazon Web Services account or a QuickSight namespace in a specific Amazon Web Services Region.</p>
  */
 export interface AccountCustomization {
@@ -47,13 +49,23 @@ export interface AccountCustomization {
   DefaultEmailCustomizationTemplate?: string;
 }
 
-export enum Edition {
-  ENTERPRISE = "ENTERPRISE",
-  ENTERPRISE_AND_Q = "ENTERPRISE_AND_Q",
-  STANDARD = "STANDARD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Edition = {
+  ENTERPRISE: "ENTERPRISE",
+  ENTERPRISE_AND_Q: "ENTERPRISE_AND_Q",
+  STANDARD: "STANDARD",
+} as const;
 
 /**
+ * @public
+ */
+export type Edition = (typeof Edition)[keyof typeof Edition];
+
+/**
+ * @public
  * <p>A structure that contains the following account information
  *             elements:</p>
  *          <ul>
@@ -105,6 +117,7 @@ export interface AccountInfo {
 }
 
 /**
+ * @public
  * <p>The Amazon QuickSight settings associated with your Amazon Web Services account.</p>
  */
 export interface AccountSettings {
@@ -143,6 +156,7 @@ export interface AccountSettings {
 }
 
 /**
+ * @public
  * <p>The active Identity and Access Management (IAM) policy assignment.</p>
  */
 export interface ActiveIAMPolicyAssignment {
@@ -157,12 +171,22 @@ export interface ActiveIAMPolicyAssignment {
   PolicyArn?: string;
 }
 
-export enum DashboardBehavior {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DashboardBehavior = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type DashboardBehavior = (typeof DashboardBehavior)[keyof typeof DashboardBehavior];
+
+/**
+ * @public
  * <p>An ad hoc (one-time) filtering option.</p>
  */
 export interface AdHocFilteringOption {
@@ -172,19 +196,39 @@ export interface AdHocFilteringOption {
   AvailabilityStatus?: DashboardBehavior | string;
 }
 
-export enum CategoricalAggregationFunction {
-  COUNT = "COUNT",
-  DISTINCT_COUNT = "DISTINCT_COUNT",
-}
-
-export enum DateAggregationFunction {
-  COUNT = "COUNT",
-  DISTINCT_COUNT = "DISTINCT_COUNT",
-  MAX = "MAX",
-  MIN = "MIN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CategoricalAggregationFunction = {
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+} as const;
 
 /**
+ * @public
+ */
+export type CategoricalAggregationFunction =
+  (typeof CategoricalAggregationFunction)[keyof typeof CategoricalAggregationFunction];
+
+/**
+ * @public
+ * @enum
+ */
+export const DateAggregationFunction = {
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+  MAX: "MAX",
+  MIN: "MIN",
+} as const;
+
+/**
+ * @public
+ */
+export type DateAggregationFunction = (typeof DateAggregationFunction)[keyof typeof DateAggregationFunction];
+
+/**
+ * @public
  * <p>An aggregation based on the percentile of values in a dimension or measure.</p>
  */
 export interface PercentileAggregation {
@@ -194,21 +238,32 @@ export interface PercentileAggregation {
   PercentileValue?: number;
 }
 
-export enum SimpleNumericalAggregationFunction {
-  AVERAGE = "AVERAGE",
-  COUNT = "COUNT",
-  DISTINCT_COUNT = "DISTINCT_COUNT",
-  MAX = "MAX",
-  MEDIAN = "MEDIAN",
-  MIN = "MIN",
-  STDEV = "STDEV",
-  STDEVP = "STDEVP",
-  SUM = "SUM",
-  VAR = "VAR",
-  VARP = "VARP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SimpleNumericalAggregationFunction = {
+  AVERAGE: "AVERAGE",
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+  MAX: "MAX",
+  MEDIAN: "MEDIAN",
+  MIN: "MIN",
+  STDEV: "STDEV",
+  STDEVP: "STDEVP",
+  SUM: "SUM",
+  VAR: "VAR",
+  VARP: "VARP",
+} as const;
 
 /**
+ * @public
+ */
+export type SimpleNumericalAggregationFunction =
+  (typeof SimpleNumericalAggregationFunction)[keyof typeof SimpleNumericalAggregationFunction];
+
+/**
+ * @public
  * <p>Aggregation for numerical values.</p>
  */
 export interface NumericalAggregationFunction {
@@ -270,6 +325,7 @@ export interface NumericalAggregationFunction {
 }
 
 /**
+ * @public
  * <p>An aggregation function aggregates values from a dimension or measure.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -319,6 +375,7 @@ export interface AggregationFunction {
 }
 
 /**
+ * @public
  * <p>A column of a data set.</p>
  */
 export interface ColumnIdentifier {
@@ -333,12 +390,22 @@ export interface ColumnIdentifier {
   ColumnName: string | undefined;
 }
 
-export enum SortDirection {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortDirection = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
 
 /**
+ * @public
+ */
+export type SortDirection = (typeof SortDirection)[keyof typeof SortDirection];
+
+/**
+ * @public
  * <p>The configuration options to sort aggregated values.</p>
  */
 export interface AggregationSortConfiguration {
@@ -369,6 +436,7 @@ export interface AggregationSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The parameters for OpenSearch.</p>
  */
 export interface AmazonElasticsearchParameters {
@@ -379,6 +447,7 @@ export interface AmazonElasticsearchParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for OpenSearch.</p>
  */
 export interface AmazonOpenSearchParameters {
@@ -388,20 +457,30 @@ export interface AmazonOpenSearchParameters {
   Domain: string | undefined;
 }
 
-export enum AnalysisErrorType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
-  COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING",
-  COLUMN_TYPE_MISMATCH = "COLUMN_TYPE_MISMATCH",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  PARAMETER_NOT_FOUND = "PARAMETER_NOT_FOUND",
-  PARAMETER_TYPE_INVALID = "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE",
-  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisErrorType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  COLUMN_GEOGRAPHIC_ROLE_MISMATCH: "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
+  COLUMN_REPLACEMENT_MISSING: "COLUMN_REPLACEMENT_MISSING",
+  COLUMN_TYPE_MISMATCH: "COLUMN_TYPE_MISMATCH",
+  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  PARAMETER_NOT_FOUND: "PARAMETER_NOT_FOUND",
+  PARAMETER_TYPE_INVALID: "PARAMETER_TYPE_INVALID",
+  PARAMETER_VALUE_INCOMPATIBLE: "PARAMETER_VALUE_INCOMPATIBLE",
+  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type AnalysisErrorType = (typeof AnalysisErrorType)[keyof typeof AnalysisErrorType];
+
+/**
+ * @public
  * <p>An object, structure, or sub-structure of an analysis, template, or dashboard.</p>
  */
 export interface Entity {
@@ -412,6 +491,7 @@ export interface Entity {
 }
 
 /**
+ * @public
  * <p>Analysis error.</p>
  */
 export interface AnalysisError {
@@ -432,6 +512,7 @@ export interface AnalysisError {
 }
 
 /**
+ * @public
  * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
  *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
  *             contains at least one sheet. Each sheet contains at least one visualization widget, for
@@ -451,17 +532,27 @@ export interface Sheet {
   Name?: string;
 }
 
-export enum ResourceStatus {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL",
-  DELETED = "DELETED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceStatus = {
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  CREATION_SUCCESSFUL: "CREATION_SUCCESSFUL",
+  DELETED: "DELETED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
+
+/**
+ * @public
  * <p>Metadata structure for an analysis in Amazon QuickSight</p>
  */
 export interface Analysis {
@@ -517,6 +608,7 @@ export interface Analysis {
 }
 
 /**
+ * @public
  * <p>The options that determine the sizing of the canvas used in a free-form layout.</p>
  */
 export interface FreeFormLayoutScreenCanvasSizeOptions {
@@ -527,6 +619,7 @@ export interface FreeFormLayoutScreenCanvasSizeOptions {
 }
 
 /**
+ * @public
  * <p>Configuration options for the canvas of a free-form layout.</p>
  */
 export interface FreeFormLayoutCanvasSizeOptions {
@@ -537,6 +630,7 @@ export interface FreeFormLayoutCanvasSizeOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the default settings of a free-form layout configuration.</p>
  */
 export interface DefaultFreeFormLayoutConfiguration {
@@ -546,12 +640,22 @@ export interface DefaultFreeFormLayoutConfiguration {
   CanvasSizeOptions: FreeFormLayoutCanvasSizeOptions | undefined;
 }
 
-export enum ResizeOption {
-  FIXED = "FIXED",
-  RESPONSIVE = "RESPONSIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResizeOption = {
+  FIXED: "FIXED",
+  RESPONSIVE: "RESPONSIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type ResizeOption = (typeof ResizeOption)[keyof typeof ResizeOption];
+
+/**
+ * @public
  * <p>The options that determine the sizing of the canvas used in a grid layout.</p>
  */
 export interface GridLayoutScreenCanvasSizeOptions {
@@ -579,6 +683,7 @@ export interface GridLayoutScreenCanvasSizeOptions {
 }
 
 /**
+ * @public
  * <p>Configuration options for the canvas of a grid layout.</p>
  */
 export interface GridLayoutCanvasSizeOptions {
@@ -589,6 +694,7 @@ export interface GridLayoutCanvasSizeOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the default settings for a grid layout configuration.</p>
  */
 export interface DefaultGridLayoutConfiguration {
@@ -599,6 +705,7 @@ export interface DefaultGridLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the default settings for interactive layout configuration.</p>
  */
 export interface DefaultInteractiveLayoutConfiguration {
@@ -614,6 +721,7 @@ export interface DefaultInteractiveLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of spacing (often a margin or padding).</p>
  */
 export interface Spacing {
@@ -638,26 +746,45 @@ export interface Spacing {
   Right?: string;
 }
 
-export enum PaperOrientation {
-  LANDSCAPE = "LANDSCAPE",
-  PORTRAIT = "PORTRAIT",
-}
-
-export enum PaperSize {
-  A0 = "A0",
-  A1 = "A1",
-  A2 = "A2",
-  A3 = "A3",
-  A4 = "A4",
-  A5 = "A5",
-  JIS_B4 = "JIS_B4",
-  JIS_B5 = "JIS_B5",
-  US_LEGAL = "US_LEGAL",
-  US_LETTER = "US_LETTER",
-  US_TABLOID_LEDGER = "US_TABLOID_LEDGER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PaperOrientation = {
+  LANDSCAPE: "LANDSCAPE",
+  PORTRAIT: "PORTRAIT",
+} as const;
 
 /**
+ * @public
+ */
+export type PaperOrientation = (typeof PaperOrientation)[keyof typeof PaperOrientation];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaperSize = {
+  A0: "A0",
+  A1: "A1",
+  A2: "A2",
+  A3: "A3",
+  A4: "A4",
+  A5: "A5",
+  JIS_B4: "JIS_B4",
+  JIS_B5: "JIS_B5",
+  US_LEGAL: "US_LEGAL",
+  US_LETTER: "US_LETTER",
+  US_TABLOID_LEDGER: "US_TABLOID_LEDGER",
+} as const;
+
+/**
+ * @public
+ */
+export type PaperSize = (typeof PaperSize)[keyof typeof PaperSize];
+
+/**
+ * @public
  * <p>The options for a paper canvas of a section-based layout.</p>
  */
 export interface SectionBasedLayoutPaperCanvasSizeOptions {
@@ -688,6 +815,7 @@ export interface SectionBasedLayoutPaperCanvasSizeOptions {
 }
 
 /**
+ * @public
  * <p>The options for the canvas of a section-based layout.</p>
  */
 export interface SectionBasedLayoutCanvasSizeOptions {
@@ -698,6 +826,7 @@ export interface SectionBasedLayoutCanvasSizeOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the default settings for a section-based layout configuration.</p>
  */
 export interface DefaultSectionBasedLayoutConfiguration {
@@ -708,6 +837,7 @@ export interface DefaultSectionBasedLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the default settings for a paginated layout configuration.</p>
  */
 export interface DefaultPaginatedLayoutConfiguration {
@@ -717,12 +847,22 @@ export interface DefaultPaginatedLayoutConfiguration {
   SectionBased?: DefaultSectionBasedLayoutConfiguration;
 }
 
-export enum SheetContentType {
-  INTERACTIVE = "INTERACTIVE",
-  PAGINATED = "PAGINATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SheetContentType = {
+  INTERACTIVE: "INTERACTIVE",
+  PAGINATED: "PAGINATED",
+} as const;
 
 /**
+ * @public
+ */
+export type SheetContentType = (typeof SheetContentType)[keyof typeof SheetContentType];
+
+/**
+ * @public
  * <p>The configuration for default new sheet settings.</p>
  */
 export interface DefaultNewSheetConfiguration {
@@ -743,6 +883,7 @@ export interface DefaultNewSheetConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for default analysis settings.</p>
  */
 export interface AnalysisDefaults {
@@ -753,6 +894,7 @@ export interface AnalysisDefaults {
 }
 
 /**
+ * @public
  * <p>The calculated field of an analysis.</p>
  */
 export interface CalculatedField {
@@ -773,6 +915,7 @@ export interface CalculatedField {
 }
 
 /**
+ * @public
  * <p>The options that determine the null value format configuration.</p>
  */
 export interface NullValueFormatConfiguration {
@@ -783,6 +926,7 @@ export interface NullValueFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>The option that determines the decimal places configuration.</p>
  */
 export interface DecimalPlacesConfiguration {
@@ -792,12 +936,22 @@ export interface DecimalPlacesConfiguration {
   DecimalPlaces: number | undefined;
 }
 
-export enum NegativeValueDisplayMode {
-  NEGATIVE = "NEGATIVE",
-  POSITIVE = "POSITIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NegativeValueDisplayMode = {
+  NEGATIVE: "NEGATIVE",
+  POSITIVE: "POSITIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type NegativeValueDisplayMode = (typeof NegativeValueDisplayMode)[keyof typeof NegativeValueDisplayMode];
+
+/**
+ * @public
  * <p>The options that determine the negative value configuration.</p>
  */
 export interface NegativeValueConfiguration {
@@ -807,27 +961,55 @@ export interface NegativeValueConfiguration {
   DisplayMode: NegativeValueDisplayMode | string | undefined;
 }
 
-export enum NumberScale {
-  AUTO = "AUTO",
-  BILLIONS = "BILLIONS",
-  MILLIONS = "MILLIONS",
-  NONE = "NONE",
-  THOUSANDS = "THOUSANDS",
-  TRILLIONS = "TRILLIONS",
-}
-
-export enum NumericSeparatorSymbol {
-  COMMA = "COMMA",
-  DOT = "DOT",
-  SPACE = "SPACE",
-}
-
-export enum Visibility {
-  HIDDEN = "HIDDEN",
-  VISIBLE = "VISIBLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NumberScale = {
+  AUTO: "AUTO",
+  BILLIONS: "BILLIONS",
+  MILLIONS: "MILLIONS",
+  NONE: "NONE",
+  THOUSANDS: "THOUSANDS",
+  TRILLIONS: "TRILLIONS",
+} as const;
 
 /**
+ * @public
+ */
+export type NumberScale = (typeof NumberScale)[keyof typeof NumberScale];
+
+/**
+ * @public
+ * @enum
+ */
+export const NumericSeparatorSymbol = {
+  COMMA: "COMMA",
+  DOT: "DOT",
+  SPACE: "SPACE",
+} as const;
+
+/**
+ * @public
+ */
+export type NumericSeparatorSymbol = (typeof NumericSeparatorSymbol)[keyof typeof NumericSeparatorSymbol];
+
+/**
+ * @public
+ * @enum
+ */
+export const Visibility = {
+  HIDDEN: "HIDDEN",
+  VISIBLE: "VISIBLE",
+} as const;
+
+/**
+ * @public
+ */
+export type Visibility = (typeof Visibility)[keyof typeof Visibility];
+
+/**
+ * @public
  * <p>The options that determine the thousands separator configuration.</p>
  */
 export interface ThousandSeparatorOptions {
@@ -843,6 +1025,7 @@ export interface ThousandSeparatorOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the numeric separator configuration.</p>
  */
 export interface NumericSeparatorConfiguration {
@@ -858,6 +1041,7 @@ export interface NumericSeparatorConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the currency display format configuration.</p>
  */
 export interface CurrencyDisplayFormatConfiguration {
@@ -903,6 +1087,7 @@ export interface CurrencyDisplayFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the number display format configuration.</p>
  */
 export interface NumberDisplayFormatConfiguration {
@@ -943,6 +1128,7 @@ export interface NumberDisplayFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the percentage display format configuration.</p>
  */
 export interface PercentageDisplayFormatConfiguration {
@@ -978,6 +1164,7 @@ export interface PercentageDisplayFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the numeric format configuration.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -999,6 +1186,7 @@ export interface NumericFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>Formatting configuration for <code>DateTime</code> fields.</p>
  */
 export interface DateTimeFormatConfiguration {
@@ -1019,6 +1207,7 @@ export interface DateTimeFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>Formatting configuration for number fields.</p>
  */
 export interface NumberFormatConfiguration {
@@ -1029,6 +1218,7 @@ export interface NumberFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>Formatting configuration for string fields.</p>
  */
 export interface StringFormatConfiguration {
@@ -1044,6 +1234,7 @@ export interface StringFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>The formatting configuration for all types of field.</p>
  */
 export interface FormatConfiguration {
@@ -1063,12 +1254,22 @@ export interface FormatConfiguration {
   DateTimeFormatConfiguration?: DateTimeFormatConfiguration;
 }
 
-export enum ColumnRole {
-  DIMENSION = "DIMENSION",
-  MEASURE = "MEASURE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ColumnRole = {
+  DIMENSION: "DIMENSION",
+  MEASURE: "MEASURE",
+} as const;
 
 /**
+ * @public
+ */
+export type ColumnRole = (typeof ColumnRole)[keyof typeof ColumnRole];
+
+/**
+ * @public
  * <p>The general configuration of a column.</p>
  */
 export interface ColumnConfiguration {
@@ -1089,6 +1290,7 @@ export interface ColumnConfiguration {
 }
 
 /**
+ * @public
  * <p>A data set.</p>
  */
 export interface DataSetIdentifierDeclaration {
@@ -1103,31 +1305,70 @@ export interface DataSetIdentifierDeclaration {
   DataSetArn: string | undefined;
 }
 
-export enum CrossDatasetTypes {
-  ALL_DATASETS = "ALL_DATASETS",
-  SINGLE_DATASET = "SINGLE_DATASET",
-}
-
-export enum CategoryFilterMatchOperator {
-  CONTAINS = "CONTAINS",
-  DOES_NOT_CONTAIN = "DOES_NOT_CONTAIN",
-  DOES_NOT_EQUAL = "DOES_NOT_EQUAL",
-  ENDS_WITH = "ENDS_WITH",
-  EQUALS = "EQUALS",
-  STARTS_WITH = "STARTS_WITH",
-}
-
-export enum FilterNullOption {
-  ALL_VALUES = "ALL_VALUES",
-  NON_NULLS_ONLY = "NON_NULLS_ONLY",
-  NULLS_ONLY = "NULLS_ONLY",
-}
-
-export enum CategoryFilterSelectAllOptions {
-  FILTER_ALL_VALUES = "FILTER_ALL_VALUES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CrossDatasetTypes = {
+  ALL_DATASETS: "ALL_DATASETS",
+  SINGLE_DATASET: "SINGLE_DATASET",
+} as const;
 
 /**
+ * @public
+ */
+export type CrossDatasetTypes = (typeof CrossDatasetTypes)[keyof typeof CrossDatasetTypes];
+
+/**
+ * @public
+ * @enum
+ */
+export const CategoryFilterMatchOperator = {
+  CONTAINS: "CONTAINS",
+  DOES_NOT_CONTAIN: "DOES_NOT_CONTAIN",
+  DOES_NOT_EQUAL: "DOES_NOT_EQUAL",
+  ENDS_WITH: "ENDS_WITH",
+  EQUALS: "EQUALS",
+  STARTS_WITH: "STARTS_WITH",
+} as const;
+
+/**
+ * @public
+ */
+export type CategoryFilterMatchOperator =
+  (typeof CategoryFilterMatchOperator)[keyof typeof CategoryFilterMatchOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterNullOption = {
+  ALL_VALUES: "ALL_VALUES",
+  NON_NULLS_ONLY: "NON_NULLS_ONLY",
+  NULLS_ONLY: "NULLS_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterNullOption = (typeof FilterNullOption)[keyof typeof FilterNullOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const CategoryFilterSelectAllOptions = {
+  FILTER_ALL_VALUES: "FILTER_ALL_VALUES",
+} as const;
+
+/**
+ * @public
+ */
+export type CategoryFilterSelectAllOptions =
+  (typeof CategoryFilterSelectAllOptions)[keyof typeof CategoryFilterSelectAllOptions];
+
+/**
+ * @public
  * <p>A custom filter that filters based on a single value. This filter can be partially matched.</p>
  */
 export interface CustomFilterConfiguration {
@@ -1181,6 +1422,7 @@ export interface CustomFilterConfiguration {
 }
 
 /**
+ * @public
  * <p>A list of custom filter values.</p>
  */
 export interface CustomFilterListConfiguration {
@@ -1227,6 +1469,7 @@ export interface CustomFilterListConfiguration {
 }
 
 /**
+ * @public
  * <p>A list of filter configurations.</p>
  */
 export interface FilterListConfiguration {
@@ -1254,6 +1497,7 @@ export interface FilterListConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for a <code>CategoryFilter</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1275,6 +1519,7 @@ export interface CategoryFilterConfiguration {
 }
 
 /**
+ * @public
  * <p>A <code>CategoryFilter</code> filters text values.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html">Adding text filters</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -1295,16 +1540,37 @@ export interface CategoryFilter {
   Configuration: CategoryFilterConfiguration | undefined;
 }
 
-export enum NumericEqualityMatchOperator {
-  DOES_NOT_EQUAL = "DOES_NOT_EQUAL",
-  EQUALS = "EQUALS",
-}
-
-export enum NumericFilterSelectAllOptions {
-  FILTER_ALL_VALUES = "FILTER_ALL_VALUES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NumericEqualityMatchOperator = {
+  DOES_NOT_EQUAL: "DOES_NOT_EQUAL",
+  EQUALS: "EQUALS",
+} as const;
 
 /**
+ * @public
+ */
+export type NumericEqualityMatchOperator =
+  (typeof NumericEqualityMatchOperator)[keyof typeof NumericEqualityMatchOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const NumericFilterSelectAllOptions = {
+  FILTER_ALL_VALUES: "FILTER_ALL_VALUES",
+} as const;
+
+/**
+ * @public
+ */
+export type NumericFilterSelectAllOptions =
+  (typeof NumericFilterSelectAllOptions)[keyof typeof NumericFilterSelectAllOptions];
+
+/**
+ * @public
  * <p>A <code>NumericEqualityFilter</code> filters values that are equal to the specified value.</p>
  */
 export interface NumericEqualityFilter {
@@ -1371,6 +1637,7 @@ export interface NumericEqualityFilter {
 }
 
 /**
+ * @public
  * <p>The value input pf the numeric range filter.</p>
  */
 export interface NumericRangeFilterValue {
@@ -1386,6 +1653,7 @@ export interface NumericRangeFilterValue {
 }
 
 /**
+ * @public
  * <p>A <code>NumericRangeFilter</code> filters values that are within the value range.</p>
  */
 export interface NumericRangeFilter {
@@ -1456,11 +1724,21 @@ export interface NumericRangeFilter {
   NullOption: FilterNullOption | string | undefined;
 }
 
-export enum AnchorOption {
-  NOW = "NOW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnchorOption = {
+  NOW: "NOW",
+} as const;
 
 /**
+ * @public
+ */
+export type AnchorOption = (typeof AnchorOption)[keyof typeof AnchorOption];
+
+/**
+ * @public
  * <p>The date configuration of the filter.</p>
  */
 export interface AnchorDateConfiguration {
@@ -1482,24 +1760,43 @@ export interface AnchorDateConfiguration {
   ParameterName?: string;
 }
 
-export enum TimeGranularity {
-  DAY = "DAY",
-  HOUR = "HOUR",
-  MILLISECOND = "MILLISECOND",
-  MINUTE = "MINUTE",
-  MONTH = "MONTH",
-  QUARTER = "QUARTER",
-  SECOND = "SECOND",
-  WEEK = "WEEK",
-  YEAR = "YEAR",
-}
-
-export enum WidgetStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TimeGranularity = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  MILLISECOND: "MILLISECOND",
+  MINUTE: "MINUTE",
+  MONTH: "MONTH",
+  QUARTER: "QUARTER",
+  SECOND: "SECOND",
+  WEEK: "WEEK",
+  YEAR: "YEAR",
+} as const;
 
 /**
+ * @public
+ */
+export type TimeGranularity = (typeof TimeGranularity)[keyof typeof TimeGranularity];
+
+/**
+ * @public
+ * @enum
+ */
+export const WidgetStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type WidgetStatus = (typeof WidgetStatus)[keyof typeof WidgetStatus];
+
+/**
+ * @public
  * <p>The exclude period of <code>TimeRangeFilter</code> or <code>RelativeDatesFilter</code>.</p>
  */
 export interface ExcludePeriodConfiguration {
@@ -1531,15 +1828,25 @@ export interface ExcludePeriodConfiguration {
   Status?: WidgetStatus | string;
 }
 
-export enum RelativeDateType {
-  LAST = "LAST",
-  NEXT = "NEXT",
-  NOW = "NOW",
-  PREVIOUS = "PREVIOUS",
-  THIS = "THIS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RelativeDateType = {
+  LAST: "LAST",
+  NEXT: "NEXT",
+  NOW: "NOW",
+  PREVIOUS: "PREVIOUS",
+  THIS: "THIS",
+} as const;
 
 /**
+ * @public
+ */
+export type RelativeDateType = (typeof RelativeDateType)[keyof typeof RelativeDateType];
+
+/**
+ * @public
  * <p>A <code>RelativeDatesFilter</code> filters relative dates values.</p>
  */
 export interface RelativeDatesFilter {
@@ -1636,6 +1943,7 @@ export interface RelativeDatesFilter {
 }
 
 /**
+ * @public
  * <p>A <code>TimeEqualityFilter</code> filters values that are equal to a given value.</p>
  */
 export interface TimeEqualityFilter {
@@ -1668,6 +1976,7 @@ export interface TimeEqualityFilter {
 }
 
 /**
+ * @public
  * <p>The rolling date configuration of a date time filter.</p>
  */
 export interface RollingDateConfiguration {
@@ -1683,6 +1992,7 @@ export interface RollingDateConfiguration {
 }
 
 /**
+ * @public
  * <p>The value of a time range filter.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1704,6 +2014,7 @@ export interface TimeRangeFilterValue {
 }
 
 /**
+ * @public
  * <p>A <code>TimeRangeFilter</code> filters values that are between two specified values.</p>
  */
 export interface TimeRangeFilter {
@@ -1768,6 +2079,7 @@ export interface TimeRangeFilter {
 }
 
 /**
+ * @public
  * <p>A <code>TopBottomFilter</code> filters values that are at the top or the bottom.</p>
  */
 export interface TopBottomFilter {
@@ -1803,6 +2115,7 @@ export interface TopBottomFilter {
 }
 
 /**
+ * @public
  * <p>With a <code>Filter</code>, you can remove portions of data from a particular visual or view.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1845,12 +2158,22 @@ export interface Filter {
   TopBottomFilter?: TopBottomFilter;
 }
 
-export enum FilterVisualScope {
-  ALL_VISUALS = "ALL_VISUALS",
-  SELECTED_VISUALS = "SELECTED_VISUALS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FilterVisualScope = {
+  ALL_VISUALS: "ALL_VISUALS",
+  SELECTED_VISUALS: "SELECTED_VISUALS",
+} as const;
 
 /**
+ * @public
+ */
+export type FilterVisualScope = (typeof FilterVisualScope)[keyof typeof FilterVisualScope];
+
+/**
+ * @public
  * <p>The filter that is applied to the options.</p>
  */
 export interface SheetVisualScopingConfiguration {
@@ -1883,6 +2206,7 @@ export interface SheetVisualScopingConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for applying a filter to specific sheets or visuals. You can apply this filter to multiple visuals that are on one sheet or to all visuals on a sheet.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1894,6 +2218,7 @@ export interface SelectedSheetsFilterScopeConfiguration {
 }
 
 /**
+ * @public
  * <p>The scope configuration for a <code>FilterGroup</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1905,6 +2230,7 @@ export interface FilterScopeConfiguration {
 }
 
 /**
+ * @public
  * <p>A grouping of individual filters. Filter groups are applied to the same group of visuals.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html">Adding filter conditions (group filters) with AND and OR operators</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -1949,6 +2275,7 @@ export interface FilterGroup {
 }
 
 /**
+ * @public
  * <p>Defines different defaults to the users or groups based on mapping.</p>
  */
 export interface DynamicDefaultValue {
@@ -1969,6 +2296,7 @@ export interface DynamicDefaultValue {
 }
 
 /**
+ * @public
  * <p>The default values of the <code>DateTimeParameterDeclaration</code>.</p>
  */
 export interface DateTimeDefaultValues {
@@ -1988,12 +2316,22 @@ export interface DateTimeDefaultValues {
   RollingDate?: RollingDateConfiguration;
 }
 
-export enum ValueWhenUnsetOption {
-  NULL = "NULL",
-  RECOMMENDED_VALUE = "RECOMMENDED_VALUE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValueWhenUnsetOption = {
+  NULL: "NULL",
+  RECOMMENDED_VALUE: "RECOMMENDED_VALUE",
+} as const;
 
 /**
+ * @public
+ */
+export type ValueWhenUnsetOption = (typeof ValueWhenUnsetOption)[keyof typeof ValueWhenUnsetOption];
+
+/**
+ * @public
  * <p>The configuration that defines the default value of a <code>DateTime</code> parameter when a value has not been set.</p>
  */
 export interface DateTimeValueWhenUnsetConfiguration {
@@ -2019,6 +2357,7 @@ export interface DateTimeValueWhenUnsetConfiguration {
 }
 
 /**
+ * @public
  * <p>A parameter declaration for the <code>DateTime</code> data type.</p>
  */
 export interface DateTimeParameterDeclaration {
@@ -2044,6 +2383,7 @@ export interface DateTimeParameterDeclaration {
 }
 
 /**
+ * @public
  * <p>The default values of the <code>DecimalParameterDeclaration</code>.</p>
  */
 export interface DecimalDefaultValues {
@@ -2058,12 +2398,22 @@ export interface DecimalDefaultValues {
   StaticValues?: number[];
 }
 
-export enum ParameterValueType {
-  MULTI_VALUED = "MULTI_VALUED",
-  SINGLE_VALUED = "SINGLE_VALUED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ParameterValueType = {
+  MULTI_VALUED: "MULTI_VALUED",
+  SINGLE_VALUED: "SINGLE_VALUED",
+} as const;
 
 /**
+ * @public
+ */
+export type ParameterValueType = (typeof ParameterValueType)[keyof typeof ParameterValueType];
+
+/**
+ * @public
  * <p>The configuration that defines the default value of a <code>Decimal</code> parameter when a value has not been set.</p>
  */
 export interface DecimalValueWhenUnsetConfiguration {
@@ -2089,6 +2439,7 @@ export interface DecimalValueWhenUnsetConfiguration {
 }
 
 /**
+ * @public
  * <p>A parameter declaration for the <code>Decimal</code> data type.</p>
  */
 export interface DecimalParameterDeclaration {
@@ -2114,6 +2465,7 @@ export interface DecimalParameterDeclaration {
 }
 
 /**
+ * @public
  * <p>The default values of the <code>IntegerParameterDeclaration</code>.</p>
  */
 export interface IntegerDefaultValues {
@@ -2129,6 +2481,7 @@ export interface IntegerDefaultValues {
 }
 
 /**
+ * @public
  * <p>A parameter declaration for the <code>Integer</code> data type.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -2155,6 +2508,7 @@ export interface IntegerValueWhenUnsetConfiguration {
 }
 
 /**
+ * @public
  * <p>A parameter declaration for the <code>Integer</code> data type.</p>
  */
 export interface IntegerParameterDeclaration {
@@ -2180,6 +2534,7 @@ export interface IntegerParameterDeclaration {
 }
 
 /**
+ * @public
  * <p>The default values of the <code>StringParameterDeclaration</code>.</p>
  */
 export interface StringDefaultValues {
@@ -2195,6 +2550,7 @@ export interface StringDefaultValues {
 }
 
 /**
+ * @public
  * <p>The configuration that defines the default value of a <code>String</code> parameter when a value has not been set.</p>
  */
 export interface StringValueWhenUnsetConfiguration {
@@ -2220,6 +2576,7 @@ export interface StringValueWhenUnsetConfiguration {
 }
 
 /**
+ * @public
  * <p>A parameter declaration for the <code>String</code> data type.</p>
  */
 export interface StringParameterDeclaration {
@@ -2245,6 +2602,7 @@ export interface StringParameterDeclaration {
 }
 
 /**
+ * @public
  * <p>The declaration definition of a parameter.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
@@ -2271,20 +2629,39 @@ export interface ParameterDeclaration {
   DateTimeParameterDeclaration?: DateTimeParameterDeclaration;
 }
 
-export enum FontDecoration {
-  NONE = "NONE",
-  UNDERLINE = "UNDERLINE",
-}
-
-export enum RelativeFontSize {
-  EXTRA_LARGE = "EXTRA_LARGE",
-  EXTRA_SMALL = "EXTRA_SMALL",
-  LARGE = "LARGE",
-  MEDIUM = "MEDIUM",
-  SMALL = "SMALL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FontDecoration = {
+  NONE: "NONE",
+  UNDERLINE: "UNDERLINE",
+} as const;
 
 /**
+ * @public
+ */
+export type FontDecoration = (typeof FontDecoration)[keyof typeof FontDecoration];
+
+/**
+ * @public
+ * @enum
+ */
+export const RelativeFontSize = {
+  EXTRA_LARGE: "EXTRA_LARGE",
+  EXTRA_SMALL: "EXTRA_SMALL",
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  SMALL: "SMALL",
+} as const;
+
+/**
+ * @public
+ */
+export type RelativeFontSize = (typeof RelativeFontSize)[keyof typeof RelativeFontSize];
+
+/**
+ * @public
  * <p>The option that determines the text display size.</p>
  */
 export interface FontSize {
@@ -2294,17 +2671,36 @@ export interface FontSize {
   Relative?: RelativeFontSize | string;
 }
 
-export enum FontStyle {
-  ITALIC = "ITALIC",
-  NORMAL = "NORMAL",
-}
-
-export enum FontWeightName {
-  BOLD = "BOLD",
-  NORMAL = "NORMAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FontStyle = {
+  ITALIC: "ITALIC",
+  NORMAL: "NORMAL",
+} as const;
 
 /**
+ * @public
+ */
+export type FontStyle = (typeof FontStyle)[keyof typeof FontStyle];
+
+/**
+ * @public
+ * @enum
+ */
+export const FontWeightName = {
+  BOLD: "BOLD",
+  NORMAL: "NORMAL",
+} as const;
+
+/**
+ * @public
+ */
+export type FontWeightName = (typeof FontWeightName)[keyof typeof FontWeightName];
+
+/**
+ * @public
  * <p>The option that determines the text display weight, or boldness.</p>
  */
 export interface FontWeight {
@@ -2315,6 +2711,7 @@ export interface FontWeight {
 }
 
 /**
+ * @public
  * <p>Configures the display properties of the given text.</p>
  */
 export interface FontConfiguration {
@@ -2345,6 +2742,7 @@ export interface FontConfiguration {
 }
 
 /**
+ * @public
  * <p>The share label options for the labels.</p>
  */
 export interface LabelOptions {
@@ -2365,6 +2763,7 @@ export interface LabelOptions {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface DateTimePickerControlDisplayOptions {
@@ -2379,12 +2778,23 @@ export interface DateTimePickerControlDisplayOptions {
   DateTimeFormat?: string;
 }
 
-export enum SheetControlDateTimePickerType {
-  DATE_RANGE = "DATE_RANGE",
-  SINGLE_VALUED = "SINGLE_VALUED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SheetControlDateTimePickerType = {
+  DATE_RANGE: "DATE_RANGE",
+  SINGLE_VALUED: "SINGLE_VALUED",
+} as const;
 
 /**
+ * @public
+ */
+export type SheetControlDateTimePickerType =
+  (typeof SheetControlDateTimePickerType)[keyof typeof SheetControlDateTimePickerType];
+
+/**
+ * @public
  * <p>A control from a date filter that is used to specify date and time.</p>
  */
 export interface FilterDateTimePickerControl {
@@ -2425,6 +2835,7 @@ export interface FilterDateTimePickerControl {
 }
 
 /**
+ * @public
  * <p>The source controls that are used in a <code>CascadingControlConfiguration</code>.</p>
  */
 export interface CascadingControlSource {
@@ -2440,6 +2851,7 @@ export interface CascadingControlSource {
 }
 
 /**
+ * @public
  * <p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>
  */
 export interface CascadingControlConfiguration {
@@ -2450,6 +2862,7 @@ export interface CascadingControlConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of the <code>Select all</code> options in a list control.</p>
  */
 export interface ListControlSelectAllOptions {
@@ -2460,6 +2873,7 @@ export interface ListControlSelectAllOptions {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface DropDownControlDisplayOptions {
@@ -2476,6 +2890,7 @@ export interface DropDownControlDisplayOptions {
 }
 
 /**
+ * @public
  * <p>A list of selectable values that are used in a control.</p>
  */
 export interface FilterSelectableValues {
@@ -2485,12 +2900,22 @@ export interface FilterSelectableValues {
   Values?: string[];
 }
 
-export enum SheetControlListType {
-  MULTI_SELECT = "MULTI_SELECT",
-  SINGLE_SELECT = "SINGLE_SELECT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SheetControlListType = {
+  MULTI_SELECT: "MULTI_SELECT",
+  SINGLE_SELECT: "SINGLE_SELECT",
+} as const;
 
 /**
+ * @public
+ */
+export type SheetControlListType = (typeof SheetControlListType)[keyof typeof SheetControlListType];
+
+/**
+ * @public
  * <p>A control to display a dropdown list with buttons that are used to select a single value.</p>
  */
 export interface FilterDropDownControl {
@@ -2541,6 +2966,7 @@ export interface FilterDropDownControl {
 }
 
 /**
+ * @public
  * <p>The configuration of the search options in a list control.</p>
  */
 export interface ListControlSearchOptions {
@@ -2551,6 +2977,7 @@ export interface ListControlSearchOptions {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface ListControlDisplayOptions {
@@ -2571,6 +2998,7 @@ export interface ListControlDisplayOptions {
 }
 
 /**
+ * @public
  * <p>A control to display a list of buttons or boxes. This is used to select either a single value or multiple values.</p>
  */
 export interface FilterListControl {
@@ -2621,6 +3049,7 @@ export interface FilterListControl {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface RelativeDateTimeControlDisplayOptions {
@@ -2636,6 +3065,7 @@ export interface RelativeDateTimeControlDisplayOptions {
 }
 
 /**
+ * @public
  * <p>A control from a date filter that is used to specify the relative date.</p>
  */
 export interface FilterRelativeDateTimeControl {
@@ -2661,6 +3091,7 @@ export interface FilterRelativeDateTimeControl {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface SliderControlDisplayOptions {
@@ -2670,12 +3101,22 @@ export interface SliderControlDisplayOptions {
   TitleOptions?: LabelOptions;
 }
 
-export enum SheetControlSliderType {
-  RANGE = "RANGE",
-  SINGLE_POINT = "SINGLE_POINT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SheetControlSliderType = {
+  RANGE: "RANGE",
+  SINGLE_POINT: "SINGLE_POINT",
+} as const;
 
 /**
+ * @public
+ */
+export type SheetControlSliderType = (typeof SheetControlSliderType)[keyof typeof SheetControlSliderType];
+
+/**
+ * @public
  * <p>A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.</p>
  */
 export interface FilterSliderControl {
@@ -2731,6 +3172,7 @@ export interface FilterSliderControl {
 }
 
 /**
+ * @public
  * <p>The configuration of the placeholder options in a text control.</p>
  */
 export interface TextControlPlaceholderOptions {
@@ -2741,6 +3183,7 @@ export interface TextControlPlaceholderOptions {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface TextAreaControlDisplayOptions {
@@ -2756,6 +3199,7 @@ export interface TextAreaControlDisplayOptions {
 }
 
 /**
+ * @public
  * <p>A control to display a text box that is used to enter multiple entries.</p>
  */
 export interface FilterTextAreaControl {
@@ -2786,6 +3230,7 @@ export interface FilterTextAreaControl {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface TextFieldControlDisplayOptions {
@@ -2801,6 +3246,7 @@ export interface TextFieldControlDisplayOptions {
 }
 
 /**
+ * @public
  * <p>A control to display a text box that is used to enter a single entry.</p>
  */
 export interface FilterTextFieldControl {
@@ -2826,6 +3272,7 @@ export interface FilterTextFieldControl {
 }
 
 /**
+ * @public
  * <p>The control of a filter that is used to interact with a dashboard or an analysis.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -2867,6 +3314,7 @@ export interface FilterControl {
 }
 
 /**
+ * @public
  * <p>The background style configuration of a free-form layout element.</p>
  */
 export interface FreeFormLayoutElementBackgroundStyle {
@@ -2882,6 +3330,7 @@ export interface FreeFormLayoutElementBackgroundStyle {
 }
 
 /**
+ * @public
  * <p>The background style configuration of a free-form layout element.</p>
  */
 export interface FreeFormLayoutElementBorderStyle {
@@ -2896,14 +3345,24 @@ export interface FreeFormLayoutElementBorderStyle {
   Color?: string;
 }
 
-export enum LayoutElementType {
-  FILTER_CONTROL = "FILTER_CONTROL",
-  PARAMETER_CONTROL = "PARAMETER_CONTROL",
-  TEXT_BOX = "TEXT_BOX",
-  VISUAL = "VISUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LayoutElementType = {
+  FILTER_CONTROL: "FILTER_CONTROL",
+  PARAMETER_CONTROL: "PARAMETER_CONTROL",
+  TEXT_BOX: "TEXT_BOX",
+  VISUAL: "VISUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type LayoutElementType = (typeof LayoutElementType)[keyof typeof LayoutElementType];
+
+/**
+ * @public
  * <p>The configuration of loading animation in free-form layout. </p>
  */
 export interface LoadingAnimation {
@@ -2914,6 +3373,7 @@ export interface LoadingAnimation {
 }
 
 /**
+ * @public
  * <p>The override configuration of the rendering rules of a sheet.</p>
  */
 export interface SheetElementConfigurationOverrides {
@@ -2936,6 +3396,7 @@ export interface SheetElementConfigurationOverrides {
 }
 
 /**
+ * @public
  * <p>The rendering rules of a sheet that uses a free-form layout.</p>
  */
 export interface SheetElementRenderingRule {
@@ -2951,6 +3412,7 @@ export interface SheetElementRenderingRule {
 }
 
 /**
+ * @public
  * <p>An element within a free-form layout.</p>
  */
 export interface FreeFormLayoutElement {
@@ -3016,6 +3478,7 @@ export interface FreeFormLayoutElement {
 }
 
 /**
+ * @public
  * <p>The configuration of a free-form layout.</p>
  */
 export interface FreeFormLayoutConfiguration {
@@ -3031,6 +3494,7 @@ export interface FreeFormLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>An element within a grid layout.</p>
  */
 export interface GridLayoutElement {
@@ -3066,6 +3530,7 @@ export interface GridLayoutElement {
 }
 
 /**
+ * @public
  * <p>The configuration for a grid layout. Also called a tiled layout.</p>
  *          <p>Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.</p>
  */
@@ -3082,6 +3547,7 @@ export interface GridLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The free-form layout configuration of a section.</p>
  */
 export interface FreeFormSectionLayoutConfiguration {
@@ -3092,6 +3558,7 @@ export interface FreeFormSectionLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The layout configuration of a section.</p>
  */
 export interface SectionLayoutConfiguration {
@@ -3102,6 +3569,7 @@ export interface SectionLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of content in a body section.</p>
  */
 export interface BodySectionContent {
@@ -3111,12 +3579,22 @@ export interface BodySectionContent {
   Layout?: SectionLayoutConfiguration;
 }
 
-export enum SectionPageBreakStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SectionPageBreakStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type SectionPageBreakStatus = (typeof SectionPageBreakStatus)[keyof typeof SectionPageBreakStatus];
+
+/**
+ * @public
  * <p>The configuration of a page break after a section.</p>
  */
 export interface SectionAfterPageBreak {
@@ -3127,6 +3605,7 @@ export interface SectionAfterPageBreak {
 }
 
 /**
+ * @public
  * <p>The configuration of a page break for a section.</p>
  */
 export interface SectionPageBreakConfiguration {
@@ -3137,6 +3616,7 @@ export interface SectionPageBreakConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that style a section.</p>
  */
 export interface SectionStyle {
@@ -3154,6 +3634,7 @@ export interface SectionStyle {
 }
 
 /**
+ * @public
  * <p>The configuration of a body section.</p>
  */
 export interface BodySectionConfiguration {
@@ -3179,6 +3660,7 @@ export interface BodySectionConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a header or footer section.</p>
  */
 export interface HeaderFooterSectionConfiguration {
@@ -3199,6 +3681,7 @@ export interface HeaderFooterSectionConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for a
  *             section-based layout.</p>
  */
@@ -3225,6 +3708,7 @@ export interface SectionBasedLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration that determines what the type of layout will be used on a sheet.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3246,6 +3730,7 @@ export interface LayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>A <code>Layout</code> defines the placement of elements within a sheet.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html">Types of layout</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
@@ -3258,6 +3743,7 @@ export interface Layout {
 }
 
 /**
+ * @public
  * <p>A control from a date parameter that specifies date and time.</p>
  */
 export interface ParameterDateTimePickerControl {
@@ -3283,6 +3769,7 @@ export interface ParameterDateTimePickerControl {
 }
 
 /**
+ * @public
  * <p>A list of selectable values that are used in a control.</p>
  */
 export interface ParameterSelectableValues {
@@ -3298,6 +3785,7 @@ export interface ParameterSelectableValues {
 }
 
 /**
+ * @public
  * <p>A control to display a dropdown list with buttons that are used to select a single value.</p>
  */
 export interface ParameterDropDownControl {
@@ -3338,6 +3826,7 @@ export interface ParameterDropDownControl {
 }
 
 /**
+ * @public
  * <p>A control to display a list with buttons or boxes that are used to select either a single value or multiple values.</p>
  */
 export interface ParameterListControl {
@@ -3378,6 +3867,7 @@ export interface ParameterListControl {
 }
 
 /**
+ * @public
  * <p>A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.</p>
  */
 export interface ParameterSliderControl {
@@ -3418,6 +3908,7 @@ export interface ParameterSliderControl {
 }
 
 /**
+ * @public
  * <p>A control to display a text box that is used to enter multiple entries.</p>
  */
 export interface ParameterTextAreaControl {
@@ -3448,6 +3939,7 @@ export interface ParameterTextAreaControl {
 }
 
 /**
+ * @public
  * <p>A control to display a text box that is used to enter a single entry.</p>
  */
 export interface ParameterTextFieldControl {
@@ -3473,6 +3965,7 @@ export interface ParameterTextFieldControl {
 }
 
 /**
+ * @public
  * <p>The control of a parameter that users can interact with in a dashboard or an analysis.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3509,6 +4002,7 @@ export interface ParameterControl {
 }
 
 /**
+ * @public
  * <p>The configuration that determines the elements and canvas size options of sheet control.</p>
  */
 export interface SheetControlLayoutConfiguration {
@@ -3519,6 +4013,7 @@ export interface SheetControlLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>A grid layout to define the placement of sheet control.</p>
  */
 export interface SheetControlLayout {
@@ -3529,6 +4024,7 @@ export interface SheetControlLayout {
 }
 
 /**
+ * @public
  * <p>A text box.</p>
  */
 export interface SheetTextBox {
@@ -3543,11 +4039,21 @@ export interface SheetTextBox {
   Content?: string;
 }
 
-export enum SelectedFieldOptions {
-  ALL_FIELDS = "ALL_FIELDS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SelectedFieldOptions = {
+  ALL_FIELDS: "ALL_FIELDS",
+} as const;
 
 /**
+ * @public
+ */
+export type SelectedFieldOptions = (typeof SelectedFieldOptions)[keyof typeof SelectedFieldOptions];
+
+/**
+ * @public
  * <p>The configuration of selected fields in the<code>CustomActionFilterOperation</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3570,11 +4076,21 @@ export interface FilterOperationSelectedFieldsConfiguration {
   SelectedFieldOptions?: SelectedFieldOptions | string;
 }
 
-export enum TargetVisualOptions {
-  ALL_VISUALS = "ALL_VISUALS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetVisualOptions = {
+  ALL_VISUALS: "ALL_VISUALS",
+} as const;
 
 /**
+ * @public
+ */
+export type TargetVisualOptions = (typeof TargetVisualOptions)[keyof typeof TargetVisualOptions];
+
+/**
+ * @public
  * <p>The configuration of the same-sheet target visuals that you want to be filtered.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3598,6 +4114,7 @@ export interface SameSheetTargetVisualConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of target visuals that you want to be filtered.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3609,6 +4126,7 @@ export interface FilterOperationTargetVisualsConfiguration {
 }
 
 /**
+ * @public
  * <p>The filter operation that filters data included in a visual or in an entire sheet.</p>
  */
 export interface CustomActionFilterOperation {
@@ -3624,6 +4142,7 @@ export interface CustomActionFilterOperation {
 }
 
 /**
+ * @public
  * <p>The navigation configuration for <code>CustomActionNavigationOperation</code>.</p>
  */
 export interface LocalNavigationConfiguration {
@@ -3634,6 +4153,7 @@ export interface LocalNavigationConfiguration {
 }
 
 /**
+ * @public
  * <p>The navigation operation that navigates between different sheets in the same analysis.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3645,6 +4165,7 @@ export interface CustomActionNavigationOperation {
 }
 
 /**
+ * @public
  * <p>The customized parameter values.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3671,6 +4192,7 @@ export interface CustomParameterValues {
 }
 
 /**
+ * @public
  * <p>The configuration of custom values for the destination parameter in <code>DestinationParameterValueConfiguration</code>.</p>
  */
 export interface CustomValuesConfiguration {
@@ -3686,11 +4208,21 @@ export interface CustomValuesConfiguration {
   CustomValues: CustomParameterValues | undefined;
 }
 
-export enum SelectAllValueOptions {
-  ALL_VALUES = "ALL_VALUES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SelectAllValueOptions = {
+  ALL_VALUES: "ALL_VALUES",
+} as const;
 
 /**
+ * @public
+ */
+export type SelectAllValueOptions = (typeof SelectAllValueOptions)[keyof typeof SelectAllValueOptions];
+
+/**
+ * @public
  * <p>The configuration of destination parameter values.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3717,6 +4249,7 @@ export interface DestinationParameterValueConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of adding parameters in action.</p>
  */
 export interface SetParameterValueConfiguration {
@@ -3733,6 +4266,7 @@ export interface SetParameterValueConfiguration {
 }
 
 /**
+ * @public
  * <p>The set parameter operation that sets parameters in custom action.</p>
  */
 export interface CustomActionSetParametersOperation {
@@ -3742,13 +4276,23 @@ export interface CustomActionSetParametersOperation {
   ParameterValueConfigurations: SetParameterValueConfiguration[] | undefined;
 }
 
-export enum URLTargetConfiguration {
-  NEW_TAB = "NEW_TAB",
-  NEW_WINDOW = "NEW_WINDOW",
-  SAME_TAB = "SAME_TAB",
-}
+/**
+ * @public
+ * @enum
+ */
+export const URLTargetConfiguration = {
+  NEW_TAB: "NEW_TAB",
+  NEW_WINDOW: "NEW_WINDOW",
+  SAME_TAB: "SAME_TAB",
+} as const;
 
 /**
+ * @public
+ */
+export type URLTargetConfiguration = (typeof URLTargetConfiguration)[keyof typeof URLTargetConfiguration];
+
+/**
+ * @public
  * <p>The URL operation that opens a link to another webpage.</p>
  */
 export interface CustomActionURLOperation {
@@ -3779,6 +4323,7 @@ export interface CustomActionURLOperation {
 }
 
 /**
+ * @public
  * <p>The operation that is defined by the custom action.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3804,12 +4349,22 @@ export interface VisualCustomActionOperation {
   SetParametersOperation?: CustomActionSetParametersOperation;
 }
 
-export enum VisualCustomActionTrigger {
-  DATA_POINT_CLICK = "DATA_POINT_CLICK",
-  DATA_POINT_MENU = "DATA_POINT_MENU",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VisualCustomActionTrigger = {
+  DATA_POINT_CLICK: "DATA_POINT_CLICK",
+  DATA_POINT_MENU: "DATA_POINT_MENU",
+} as const;
 
 /**
+ * @public
+ */
+export type VisualCustomActionTrigger = (typeof VisualCustomActionTrigger)[keyof typeof VisualCustomActionTrigger];
+
+/**
+ * @public
  * <p>A custom action defined on a visual.</p>
  */
 export interface VisualCustomAction {
@@ -3851,13 +4406,23 @@ export interface VisualCustomAction {
   ActionOperations: VisualCustomActionOperation[] | undefined;
 }
 
-export enum BarsArrangement {
-  CLUSTERED = "CLUSTERED",
-  STACKED = "STACKED",
-  STACKED_PERCENT = "STACKED_PERCENT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BarsArrangement = {
+  CLUSTERED: "CLUSTERED",
+  STACKED: "STACKED",
+  STACKED_PERCENT: "STACKED_PERCENT",
+} as const;
 
 /**
+ * @public
+ */
+export type BarsArrangement = (typeof BarsArrangement)[keyof typeof BarsArrangement];
+
+/**
+ * @public
  * <p>The options that determine how a date axis is displayed.</p>
  */
 export interface DateAxisOptions {
@@ -3868,11 +4433,13 @@ export interface DateAxisOptions {
 }
 
 /**
+ * @public
  * <p>The options that are saved for future extension.</p>
  */
 export interface AxisDisplayDataDrivenRange {}
 
 /**
+ * @public
  * <p>The minimum and maximum setup for an axis display range.</p>
  */
 export interface AxisDisplayMinMaxRange {
@@ -3888,6 +4455,7 @@ export interface AxisDisplayMinMaxRange {
 }
 
 /**
+ * @public
  * <p>The range setup of a numeric axis display range.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3904,6 +4472,7 @@ export interface AxisDisplayRange {
 }
 
 /**
+ * @public
  * <p>The liner axis scale setup.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3920,6 +4489,7 @@ export interface AxisLinearScale {
 }
 
 /**
+ * @public
  * <p>The logarithmic axis scale setup.</p>
  */
 export interface AxisLogarithmicScale {
@@ -3930,6 +4500,7 @@ export interface AxisLogarithmicScale {
 }
 
 /**
+ * @public
  * <p>The scale setup
  *             options for a numeric axis display.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
@@ -3947,6 +4518,7 @@ export interface AxisScale {
 }
 
 /**
+ * @public
  * <p>The options for an axis with a numeric field.</p>
  */
 export interface NumericAxisOptions {
@@ -3962,6 +4534,7 @@ export interface NumericAxisOptions {
 }
 
 /**
+ * @public
  * <p>The data options for an axis.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3978,6 +4551,7 @@ export interface AxisDataOptions {
 }
 
 /**
+ * @public
  * <p>The percent range in the visible range.</p>
  */
 export interface PercentVisibleRange {
@@ -3993,6 +4567,7 @@ export interface PercentVisibleRange {
 }
 
 /**
+ * @public
  * <p>The range options for the data zoom scroll bar.</p>
  */
 export interface VisibleRangeOptions {
@@ -4003,6 +4578,7 @@ export interface VisibleRangeOptions {
 }
 
 /**
+ * @public
  * <p>The visual display options for a data zoom scroll bar.</p>
  */
 export interface ScrollBarOptions {
@@ -4018,6 +4594,7 @@ export interface ScrollBarOptions {
 }
 
 /**
+ * @public
  * <p>The tick label options of an axis.</p>
  */
 export interface AxisTickLabelOptions {
@@ -4033,6 +4610,7 @@ export interface AxisTickLabelOptions {
 }
 
 /**
+ * @public
  * <p>The display options for the axis label.</p>
  */
 export interface AxisDisplayOptions {
@@ -4068,6 +4646,7 @@ export interface AxisDisplayOptions {
 }
 
 /**
+ * @public
  * <p>The reference that specifies where the axis label is applied to.</p>
  */
 export interface AxisLabelReferenceOptions {
@@ -4083,6 +4662,7 @@ export interface AxisLabelReferenceOptions {
 }
 
 /**
+ * @public
  * <p>The label options for a chart axis. You must specify the field that the label is targeted to.</p>
  */
 export interface AxisLabelOptions {
@@ -4103,6 +4683,7 @@ export interface AxisLabelOptions {
 }
 
 /**
+ * @public
  * <p>The label options for an axis on a chart.</p>
  */
 export interface ChartAxisLabelOptions {
@@ -4133,6 +4714,7 @@ export interface ChartAxisLabelOptions {
 }
 
 /**
+ * @public
  * <p>The contribution analysis visual display for a line, pie, or bar chart.</p>
  */
 export interface ContributionAnalysisDefault {
@@ -4149,6 +4731,7 @@ export interface ContributionAnalysisDefault {
 }
 
 /**
+ * @public
  * <p>The option that specifies individual data values for labels.</p>
  */
 export interface DataPathLabelType {
@@ -4169,6 +4752,7 @@ export interface DataPathLabelType {
 }
 
 /**
+ * @public
  * <p>The field label type.</p>
  */
 export interface FieldLabelType {
@@ -4185,6 +4769,7 @@ export interface FieldLabelType {
 }
 
 /**
+ * @public
  * <p>The maximum label of a data path label.</p>
  */
 export interface MaximumLabelType {
@@ -4195,6 +4780,7 @@ export interface MaximumLabelType {
 }
 
 /**
+ * @public
  * <p>The minimum label of a data path label.</p>
  */
 export interface MinimumLabelType {
@@ -4205,6 +4791,7 @@ export interface MinimumLabelType {
 }
 
 /**
+ * @public
  * <p>The range ends label type of a data path label.</p>
  */
 export interface RangeEndsLabelType {
@@ -4215,6 +4802,7 @@ export interface RangeEndsLabelType {
 }
 
 /**
+ * @public
  * <p>The option that determines the data label type.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -4245,27 +4833,55 @@ export interface DataLabelType {
   MaximumLabelType?: MaximumLabelType;
 }
 
-export enum DataLabelContent {
-  PERCENT = "PERCENT",
-  VALUE = "VALUE",
-  VALUE_AND_PERCENT = "VALUE_AND_PERCENT",
-}
-
-export enum DataLabelOverlap {
-  DISABLE_OVERLAP = "DISABLE_OVERLAP",
-  ENABLE_OVERLAP = "ENABLE_OVERLAP",
-}
-
-export enum DataLabelPosition {
-  BOTTOM = "BOTTOM",
-  INSIDE = "INSIDE",
-  LEFT = "LEFT",
-  OUTSIDE = "OUTSIDE",
-  RIGHT = "RIGHT",
-  TOP = "TOP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataLabelContent = {
+  PERCENT: "PERCENT",
+  VALUE: "VALUE",
+  VALUE_AND_PERCENT: "VALUE_AND_PERCENT",
+} as const;
 
 /**
+ * @public
+ */
+export type DataLabelContent = (typeof DataLabelContent)[keyof typeof DataLabelContent];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataLabelOverlap = {
+  DISABLE_OVERLAP: "DISABLE_OVERLAP",
+  ENABLE_OVERLAP: "ENABLE_OVERLAP",
+} as const;
+
+/**
+ * @public
+ */
+export type DataLabelOverlap = (typeof DataLabelOverlap)[keyof typeof DataLabelOverlap];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataLabelPosition = {
+  BOTTOM: "BOTTOM",
+  INSIDE: "INSIDE",
+  LEFT: "LEFT",
+  OUTSIDE: "OUTSIDE",
+  RIGHT: "RIGHT",
+  TOP: "TOP",
+} as const;
+
+/**
+ * @public
+ */
+export type DataLabelPosition = (typeof DataLabelPosition)[keyof typeof DataLabelPosition];
+
+/**
+ * @public
  * <p>The options that determine the presentation of the data labels.</p>
  */
 export interface DataLabelOptions {
@@ -4316,6 +4932,7 @@ export interface DataLabelOptions {
 }
 
 /**
+ * @public
  * <p>The dimension type field with categorical type columns..</p>
  */
 export interface CategoricalDimensionField {
@@ -4341,6 +4958,7 @@ export interface CategoricalDimensionField {
 }
 
 /**
+ * @public
  * <p>The dimension type field with date type columns.</p>
  */
 export interface DateDimensionField {
@@ -4418,6 +5036,7 @@ export interface DateDimensionField {
 }
 
 /**
+ * @public
  * <p>The dimension type field with numerical type columns.</p>
  */
 export interface NumericalDimensionField {
@@ -4443,6 +5062,7 @@ export interface NumericalDimensionField {
 }
 
 /**
+ * @public
  * <p>The dimension type field.</p>
  */
 export interface DimensionField {
@@ -4463,6 +5083,7 @@ export interface DimensionField {
 }
 
 /**
+ * @public
  * <p>The table calculation measure field for pivot tables.</p>
  */
 export interface CalculatedMeasureField {
@@ -4478,6 +5099,7 @@ export interface CalculatedMeasureField {
 }
 
 /**
+ * @public
  * <p>The measure type field with categorical type columns.</p>
  */
 export interface CategoricalMeasureField {
@@ -4503,6 +5125,7 @@ export interface CategoricalMeasureField {
 }
 
 /**
+ * @public
  * <p>The measure type field with date type columns.</p>
  */
 export interface DateMeasureField {
@@ -4528,6 +5151,7 @@ export interface DateMeasureField {
 }
 
 /**
+ * @public
  * <p>The measure type field with numerical type columns.</p>
  */
 export interface NumericalMeasureField {
@@ -4553,6 +5177,7 @@ export interface NumericalMeasureField {
 }
 
 /**
+ * @public
  * <p>The measure (metric) type field.</p>
  */
 export interface MeasureField {
@@ -4578,6 +5203,7 @@ export interface MeasureField {
 }
 
 /**
+ * @public
  * <p>The aggregated field wells of a bar chart.</p>
  */
 export interface BarChartAggregatedFieldWells {
@@ -4604,6 +5230,7 @@ export interface BarChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a <code>BarChartVisual</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -4614,14 +5241,24 @@ export interface BarChartFieldWells {
   BarChartAggregatedFieldWells?: BarChartAggregatedFieldWells;
 }
 
-export enum LegendPosition {
-  AUTO = "AUTO",
-  BOTTOM = "BOTTOM",
-  RIGHT = "RIGHT",
-  TOP = "TOP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LegendPosition = {
+  AUTO: "AUTO",
+  BOTTOM: "BOTTOM",
+  RIGHT: "RIGHT",
+  TOP: "TOP",
+} as const;
 
 /**
+ * @public
+ */
+export type LegendPosition = (typeof LegendPosition)[keyof typeof LegendPosition];
+
+/**
+ * @public
  * <p>The options for the legend setup of a visual.</p>
  */
 export interface LegendOptions {
@@ -4675,17 +5312,36 @@ export interface LegendOptions {
   Height?: string;
 }
 
-export enum BarChartOrientation {
-  HORIZONTAL = "HORIZONTAL",
-  VERTICAL = "VERTICAL",
-}
-
-export enum AxisBinding {
-  PRIMARY_YAXIS = "PRIMARY_YAXIS",
-  SECONDARY_YAXIS = "SECONDARY_YAXIS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BarChartOrientation = {
+  HORIZONTAL: "HORIZONTAL",
+  VERTICAL: "VERTICAL",
+} as const;
 
 /**
+ * @public
+ */
+export type BarChartOrientation = (typeof BarChartOrientation)[keyof typeof BarChartOrientation];
+
+/**
+ * @public
+ * @enum
+ */
+export const AxisBinding = {
+  PRIMARY_YAXIS: "PRIMARY_YAXIS",
+  SECONDARY_YAXIS: "SECONDARY_YAXIS",
+} as const;
+
+/**
+ * @public
+ */
+export type AxisBinding = (typeof AxisBinding)[keyof typeof AxisBinding];
+
+/**
+ * @public
  * <p>The dynamic configuration of the reference line data configuration.</p>
  */
 export interface ReferenceLineDynamicDataConfiguration {
@@ -4706,6 +5362,7 @@ export interface ReferenceLineDynamicDataConfiguration {
 }
 
 /**
+ * @public
  * <p>The static data configuration of the reference line data configuration.</p>
  */
 export interface ReferenceLineStaticDataConfiguration {
@@ -4716,6 +5373,7 @@ export interface ReferenceLineStaticDataConfiguration {
 }
 
 /**
+ * @public
  * <p>The data configuration of the reference line.</p>
  */
 export interface ReferenceLineDataConfiguration {
@@ -4745,6 +5403,7 @@ export interface ReferenceLineDataConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for a custom label on a <code>ReferenceLine</code>.</p>
  */
 export interface ReferenceLineCustomLabelConfiguration {
@@ -4754,18 +5413,39 @@ export interface ReferenceLineCustomLabelConfiguration {
   CustomLabel: string | undefined;
 }
 
-export enum ReferenceLineLabelHorizontalPosition {
-  CENTER = "CENTER",
-  LEFT = "LEFT",
-  RIGHT = "RIGHT",
-}
-
-export enum ReferenceLineValueLabelRelativePosition {
-  AFTER_CUSTOM_LABEL = "AFTER_CUSTOM_LABEL",
-  BEFORE_CUSTOM_LABEL = "BEFORE_CUSTOM_LABEL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLineLabelHorizontalPosition = {
+  CENTER: "CENTER",
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+} as const;
 
 /**
+ * @public
+ */
+export type ReferenceLineLabelHorizontalPosition =
+  (typeof ReferenceLineLabelHorizontalPosition)[keyof typeof ReferenceLineLabelHorizontalPosition];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLineValueLabelRelativePosition = {
+  AFTER_CUSTOM_LABEL: "AFTER_CUSTOM_LABEL",
+  BEFORE_CUSTOM_LABEL: "BEFORE_CUSTOM_LABEL",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineValueLabelRelativePosition =
+  (typeof ReferenceLineValueLabelRelativePosition)[keyof typeof ReferenceLineValueLabelRelativePosition];
+
+/**
+ * @public
  * <p>The value label configuration of the label in a reference line.</p>
  */
 export interface ReferenceLineValueLabelConfiguration {
@@ -4792,12 +5472,23 @@ export interface ReferenceLineValueLabelConfiguration {
   FormatConfiguration?: NumericFormatConfiguration;
 }
 
-export enum ReferenceLineLabelVerticalPosition {
-  ABOVE = "ABOVE",
-  BELOW = "BELOW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLineLabelVerticalPosition = {
+  ABOVE: "ABOVE",
+  BELOW: "BELOW",
+} as const;
 
 /**
+ * @public
+ */
+export type ReferenceLineLabelVerticalPosition =
+  (typeof ReferenceLineLabelVerticalPosition)[keyof typeof ReferenceLineLabelVerticalPosition];
+
+/**
+ * @public
  * <p>The label configuration of a reference line.</p>
  */
 export interface ReferenceLineLabelConfiguration {
@@ -4862,13 +5553,23 @@ export interface ReferenceLineLabelConfiguration {
   VerticalPosition?: ReferenceLineLabelVerticalPosition | string;
 }
 
-export enum ReferenceLinePatternType {
-  DASHED = "DASHED",
-  DOTTED = "DOTTED",
-  SOLID = "SOLID",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLinePatternType = {
+  DASHED: "DASHED",
+  DOTTED: "DOTTED",
+  SOLID: "SOLID",
+} as const;
 
 /**
+ * @public
+ */
+export type ReferenceLinePatternType = (typeof ReferenceLinePatternType)[keyof typeof ReferenceLinePatternType];
+
+/**
+ * @public
  * <p>The style configuration of the reference
  *             line.</p>
  */
@@ -4902,6 +5603,7 @@ export interface ReferenceLineStyleConfiguration {
 }
 
 /**
+ * @public
  * <p>The reference line visual display options.</p>
  */
 export interface ReferenceLine {
@@ -4938,20 +5640,39 @@ export interface ReferenceLine {
   LabelConfiguration?: ReferenceLineLabelConfiguration;
 }
 
-export enum PanelBorderStyle {
-  DASHED = "DASHED",
-  DOTTED = "DOTTED",
-  SOLID = "SOLID",
-}
-
-export enum HorizontalTextAlignment {
-  AUTO = "AUTO",
-  CENTER = "CENTER",
-  LEFT = "LEFT",
-  RIGHT = "RIGHT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PanelBorderStyle = {
+  DASHED: "DASHED",
+  DOTTED: "DOTTED",
+  SOLID: "SOLID",
+} as const;
 
 /**
+ * @public
+ */
+export type PanelBorderStyle = (typeof PanelBorderStyle)[keyof typeof PanelBorderStyle];
+
+/**
+ * @public
+ * @enum
+ */
+export const HorizontalTextAlignment = {
+  AUTO: "AUTO",
+  CENTER: "CENTER",
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type HorizontalTextAlignment = (typeof HorizontalTextAlignment)[keyof typeof HorizontalTextAlignment];
+
+/**
+ * @public
  * <p>The options that determine the title styles for each small multiples
  *             panel.</p>
  */
@@ -4973,6 +5694,7 @@ export interface PanelTitleOptions {
 }
 
 /**
+ * @public
  * <p>A collection of options that configure how each panel displays in a small multiples chart.</p>
  */
 export interface PanelConfiguration {
@@ -5023,6 +5745,7 @@ export interface PanelConfiguration {
 }
 
 /**
+ * @public
  * <p>Options that determine the layout and display options of a chart's small multiples.</p>
  */
 export interface SmallMultiplesOptions {
@@ -5046,12 +5769,22 @@ export interface SmallMultiplesOptions {
   PanelConfiguration?: PanelConfiguration;
 }
 
-export enum OtherCategories {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OtherCategories = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
+ * @public
+ */
+export type OtherCategories = (typeof OtherCategories)[keyof typeof OtherCategories];
+
+/**
+ * @public
  * <p>The limit configuration of the visual display for an axis.</p>
  */
 export interface ItemsLimitConfiguration {
@@ -5081,6 +5814,7 @@ export interface ItemsLimitConfiguration {
 }
 
 /**
+ * @public
  * <p>The sort configuration for a column that is not used in a field well.</p>
  */
 export interface ColumnSort {
@@ -5101,6 +5835,7 @@ export interface ColumnSort {
 }
 
 /**
+ * @public
  * <p>The sort configuration for a field in a
  *             field well.</p>
  */
@@ -5128,6 +5863,7 @@ export interface FieldSort {
 }
 
 /**
+ * @public
  * <p>The field sort options in a chart configuration.</p>
  */
 export interface FieldSortOptions {
@@ -5143,6 +5879,7 @@ export interface FieldSortOptions {
 }
 
 /**
+ * @public
  * <p>sort-configuration-description</p>
  */
 export interface BarChartSortConfiguration {
@@ -5178,6 +5915,7 @@ export interface BarChartSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The tooltip item for the columns that are not part of a field well.</p>
  */
 export interface ColumnTooltipItem {
@@ -5203,6 +5941,7 @@ export interface ColumnTooltipItem {
 }
 
 /**
+ * @public
  * <p>The tooltip item for the fields.</p>
  */
 export interface FieldTooltipItem {
@@ -5223,6 +5962,7 @@ export interface FieldTooltipItem {
 }
 
 /**
+ * @public
  * <p>The tooltip.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5238,12 +5978,22 @@ export interface TooltipItem {
   ColumnTooltipItem?: ColumnTooltipItem;
 }
 
-export enum TooltipTitleType {
-  NONE = "NONE",
-  PRIMARY_VALUE = "PRIMARY_VALUE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TooltipTitleType = {
+  NONE: "NONE",
+  PRIMARY_VALUE: "PRIMARY_VALUE",
+} as const;
 
 /**
+ * @public
+ */
+export type TooltipTitleType = (typeof TooltipTitleType)[keyof typeof TooltipTitleType];
+
+/**
+ * @public
  * <p>The setup for the detailed tooltip.</p>
  */
 export interface FieldBasedTooltip {
@@ -5274,12 +6024,22 @@ export interface FieldBasedTooltip {
   TooltipFields?: TooltipItem[];
 }
 
-export enum SelectedTooltipType {
-  BASIC = "BASIC",
-  DETAILED = "DETAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SelectedTooltipType = {
+  BASIC: "BASIC",
+  DETAILED: "DETAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type SelectedTooltipType = (typeof SelectedTooltipType)[keyof typeof SelectedTooltipType];
+
+/**
+ * @public
  * <p>The display options for the visual tooltip.</p>
  */
 export interface TooltipOptions {
@@ -5310,6 +6070,7 @@ export interface TooltipOptions {
 }
 
 /**
+ * @public
  * <p>The data path that needs to be sorted.</p>
  */
 export interface DataPathValue {
@@ -5325,6 +6086,7 @@ export interface DataPathValue {
 }
 
 /**
+ * @public
  * <p>The color map that determines the color options for a particular element.</p>
  */
 export interface DataPathColor {
@@ -5345,6 +6107,7 @@ export interface DataPathColor {
 }
 
 /**
+ * @public
  * <p>The visual display options for the visual palette.</p>
  */
 export interface VisualPalette {
@@ -5360,6 +6123,7 @@ export interface VisualPalette {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>BarChartVisual</code>.</p>
  */
 export interface BarChartConfiguration {
@@ -5455,6 +6219,7 @@ export interface BarChartConfiguration {
 }
 
 /**
+ * @public
  * <p>The numeric equality type drill down filter.</p>
  */
 export interface CategoryDrillDownFilter {
@@ -5470,6 +6235,7 @@ export interface CategoryDrillDownFilter {
 }
 
 /**
+ * @public
  * <p>The category drill down filter.</p>
  */
 export interface NumericEqualityDrillDownFilter {
@@ -5485,6 +6251,7 @@ export interface NumericEqualityDrillDownFilter {
 }
 
 /**
+ * @public
  * <p>The time range drill down filter.</p>
  */
 export interface TimeRangeDrillDownFilter {
@@ -5510,6 +6277,7 @@ export interface TimeRangeDrillDownFilter {
 }
 
 /**
+ * @public
  * <p>The drill down filter for the column hierarchies.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5531,6 +6299,7 @@ export interface DrillDownFilter {
 }
 
 /**
+ * @public
  * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
  */
 export interface DateTimeHierarchy {
@@ -5547,6 +6316,7 @@ export interface DateTimeHierarchy {
 }
 
 /**
+ * @public
  * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
  */
 export interface ExplicitHierarchy {
@@ -5567,6 +6337,7 @@ export interface ExplicitHierarchy {
 }
 
 /**
+ * @public
  * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
  */
 export interface PredefinedHierarchy {
@@ -5587,6 +6358,7 @@ export interface PredefinedHierarchy {
 }
 
 /**
+ * @public
  * <p>The option that determines the hierarchy of the fields for a visual element.</p>
  */
 export interface ColumnHierarchy {
@@ -5607,6 +6379,7 @@ export interface ColumnHierarchy {
 }
 
 /**
+ * @public
  * <p>The text format for a subtitle.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5623,6 +6396,7 @@ export interface LongFormatText {
 }
 
 /**
+ * @public
  * <p>The subtitle label options for a visual.</p>
  */
 export interface VisualSubtitleLabelOptions {
@@ -5638,6 +6412,7 @@ export interface VisualSubtitleLabelOptions {
 }
 
 /**
+ * @public
  * <p>The text format for the title.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5654,6 +6429,7 @@ export interface ShortFormatText {
 }
 
 /**
+ * @public
  * <p>The title label options for a visual.</p>
  */
 export interface VisualTitleLabelOptions {
@@ -5669,6 +6445,7 @@ export interface VisualTitleLabelOptions {
 }
 
 /**
+ * @public
  * <p>A bar chart.</p>
  *          <p>The <code>BarChartVisual</code> structure describes a visual that is a member of the bar chart family. The following charts can be described using this structure:</p>
  *          <ul>
@@ -5725,12 +6502,22 @@ export interface BarChartVisual {
   ColumnHierarchies?: ColumnHierarchy[];
 }
 
-export enum BoxPlotFillStyle {
-  SOLID = "SOLID",
-  TRANSPARENT = "TRANSPARENT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BoxPlotFillStyle = {
+  SOLID: "SOLID",
+  TRANSPARENT: "TRANSPARENT",
+} as const;
 
 /**
+ * @public
+ */
+export type BoxPlotFillStyle = (typeof BoxPlotFillStyle)[keyof typeof BoxPlotFillStyle];
+
+/**
+ * @public
  * <p>The style options of the box plot.</p>
  */
 export interface BoxPlotStyleOptions {
@@ -5741,6 +6528,7 @@ export interface BoxPlotStyleOptions {
 }
 
 /**
+ * @public
  * <p>The options of a box plot visual.</p>
  */
 export interface BoxPlotOptions {
@@ -5761,6 +6549,7 @@ export interface BoxPlotOptions {
 }
 
 /**
+ * @public
  * <p>The aggregated field well for a box plot.</p>
  */
 export interface BoxPlotAggregatedFieldWells {
@@ -5776,6 +6565,7 @@ export interface BoxPlotAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a <code>BoxPlotVisual</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5787,6 +6577,7 @@ export interface BoxPlotFieldWells {
 }
 
 /**
+ * @public
  * <p>The pagination configuration for a table visual or boxplot.</p>
  */
 export interface PaginationConfiguration {
@@ -5802,6 +6593,7 @@ export interface PaginationConfiguration {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a <code>BoxPlotVisual</code>.</p>
  */
 export interface BoxPlotSortConfiguration {
@@ -5817,6 +6609,7 @@ export interface BoxPlotSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>BoxPlotVisual</code>.</p>
  */
 export interface BoxPlotChartConfiguration {
@@ -5877,6 +6670,7 @@ export interface BoxPlotChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A box plot.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html">Using box plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -5913,6 +6707,7 @@ export interface BoxPlotVisual {
 }
 
 /**
+ * @public
  * <p>The aggregated field wells of a combo chart.</p>
  */
 export interface ComboChartAggregatedFieldWells {
@@ -5938,6 +6733,7 @@ export interface ComboChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of the visual.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5949,6 +6745,7 @@ export interface ComboChartFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a <code>ComboChartVisual</code>.</p>
  */
 export interface ComboChartSortConfiguration {
@@ -5974,6 +6771,7 @@ export interface ComboChartSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>ComboChartVisual</code>.</p>
  */
 export interface ComboChartConfiguration {
@@ -6077,228 +6875,6 @@ export interface ComboChartConfiguration {
 /**
  * @internal
  */
-export const AccountCustomizationFilterSensitiveLog = (obj: AccountCustomization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountInfoFilterSensitiveLog = (obj: AccountInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountSettingsFilterSensitiveLog = (obj: AccountSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActiveIAMPolicyAssignmentFilterSensitiveLog = (obj: ActiveIAMPolicyAssignment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdHocFilteringOptionFilterSensitiveLog = (obj: AdHocFilteringOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PercentileAggregationFilterSensitiveLog = (obj: PercentileAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericalAggregationFunctionFilterSensitiveLog = (obj: NumericalAggregationFunction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AggregationFunctionFilterSensitiveLog = (obj: AggregationFunction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnIdentifierFilterSensitiveLog = (obj: ColumnIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AggregationSortConfigurationFilterSensitiveLog = (obj: AggregationSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonElasticsearchParametersFilterSensitiveLog = (obj: AmazonElasticsearchParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonOpenSearchParametersFilterSensitiveLog = (obj: AmazonOpenSearchParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EntityFilterSensitiveLog = (obj: Entity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisErrorFilterSensitiveLog = (obj: AnalysisError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetFilterSensitiveLog = (obj: Sheet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisFilterSensitiveLog = (obj: Analysis): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeFormLayoutScreenCanvasSizeOptionsFilterSensitiveLog = (
-  obj: FreeFormLayoutScreenCanvasSizeOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeFormLayoutCanvasSizeOptionsFilterSensitiveLog = (obj: FreeFormLayoutCanvasSizeOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultFreeFormLayoutConfigurationFilterSensitiveLog = (obj: DefaultFreeFormLayoutConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GridLayoutScreenCanvasSizeOptionsFilterSensitiveLog = (obj: GridLayoutScreenCanvasSizeOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GridLayoutCanvasSizeOptionsFilterSensitiveLog = (obj: GridLayoutCanvasSizeOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultGridLayoutConfigurationFilterSensitiveLog = (obj: DefaultGridLayoutConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultInteractiveLayoutConfigurationFilterSensitiveLog = (
-  obj: DefaultInteractiveLayoutConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpacingFilterSensitiveLog = (obj: Spacing): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SectionBasedLayoutPaperCanvasSizeOptionsFilterSensitiveLog = (
-  obj: SectionBasedLayoutPaperCanvasSizeOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SectionBasedLayoutCanvasSizeOptionsFilterSensitiveLog = (
-  obj: SectionBasedLayoutCanvasSizeOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultSectionBasedLayoutConfigurationFilterSensitiveLog = (
-  obj: DefaultSectionBasedLayoutConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultPaginatedLayoutConfigurationFilterSensitiveLog = (
-  obj: DefaultPaginatedLayoutConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultNewSheetConfigurationFilterSensitiveLog = (obj: DefaultNewSheetConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisDefaultsFilterSensitiveLog = (obj: AnalysisDefaults): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CalculatedFieldFilterSensitiveLog = (obj: CalculatedField): any => ({
   ...obj,
   ...(obj.Expression && { Expression: SENSITIVE_STRING }),
@@ -6310,34 +6886,6 @@ export const CalculatedFieldFilterSensitiveLog = (obj: CalculatedField): any => 
 export const NullValueFormatConfigurationFilterSensitiveLog = (obj: NullValueFormatConfiguration): any => ({
   ...obj,
   ...(obj.NullString && { NullString: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DecimalPlacesConfigurationFilterSensitiveLog = (obj: DecimalPlacesConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NegativeValueConfigurationFilterSensitiveLog = (obj: NegativeValueConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThousandSeparatorOptionsFilterSensitiveLog = (obj: ThousandSeparatorOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericSeparatorConfigurationFilterSensitiveLog = (obj: NumericSeparatorConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -6465,97 +7013,6 @@ export const ColumnConfigurationFilterSensitiveLog = (obj: ColumnConfiguration):
 /**
  * @internal
  */
-export const DataSetIdentifierDeclarationFilterSensitiveLog = (obj: DataSetIdentifierDeclaration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomFilterConfigurationFilterSensitiveLog = (obj: CustomFilterConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomFilterListConfigurationFilterSensitiveLog = (obj: CustomFilterListConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterListConfigurationFilterSensitiveLog = (obj: FilterListConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CategoryFilterConfigurationFilterSensitiveLog = (obj: CategoryFilterConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CategoryFilterFilterSensitiveLog = (obj: CategoryFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericEqualityFilterFilterSensitiveLog = (obj: NumericEqualityFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericRangeFilterValueFilterSensitiveLog = (obj: NumericRangeFilterValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericRangeFilterFilterSensitiveLog = (obj: NumericRangeFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnchorDateConfigurationFilterSensitiveLog = (obj: AnchorDateConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExcludePeriodConfigurationFilterSensitiveLog = (obj: ExcludePeriodConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelativeDatesFilterFilterSensitiveLog = (obj: RelativeDatesFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeEqualityFilterFilterSensitiveLog = (obj: TimeEqualityFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RollingDateConfigurationFilterSensitiveLog = (obj: RollingDateConfiguration): any => ({
   ...obj,
   ...(obj.Expression && { Expression: SENSITIVE_STRING }),
@@ -6581,13 +7038,6 @@ export const TimeRangeFilterFilterSensitiveLog = (obj: TimeRangeFilter): any => 
 /**
  * @internal
  */
-export const TopBottomFilterFilterSensitiveLog = (obj: TopBottomFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const FilterFilterSensitiveLog = (obj: Filter): any => ({
   ...obj,
   ...(obj.TimeRangeFilter && { TimeRangeFilter: TimeRangeFilterFilterSensitiveLog(obj.TimeRangeFilter) }),
@@ -6596,39 +7046,9 @@ export const FilterFilterSensitiveLog = (obj: Filter): any => ({
 /**
  * @internal
  */
-export const SheetVisualScopingConfigurationFilterSensitiveLog = (obj: SheetVisualScopingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelectedSheetsFilterScopeConfigurationFilterSensitiveLog = (
-  obj: SelectedSheetsFilterScopeConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterScopeConfigurationFilterSensitiveLog = (obj: FilterScopeConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const FilterGroupFilterSensitiveLog = (obj: FilterGroup): any => ({
   ...obj,
   ...(obj.Filters && { Filters: obj.Filters.map((item) => FilterFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const DynamicDefaultValueFilterSensitiveLog = (obj: DynamicDefaultValue): any => ({
-  ...obj,
 });
 
 /**
@@ -6764,215 +7184,6 @@ export const ParameterDeclarationFilterSensitiveLog = (obj: ParameterDeclaration
 /**
  * @internal
  */
-export const FontSizeFilterSensitiveLog = (obj: FontSize): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FontWeightFilterSensitiveLog = (obj: FontWeight): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FontConfigurationFilterSensitiveLog = (obj: FontConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LabelOptionsFilterSensitiveLog = (obj: LabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DateTimePickerControlDisplayOptionsFilterSensitiveLog = (
-  obj: DateTimePickerControlDisplayOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterDateTimePickerControlFilterSensitiveLog = (obj: FilterDateTimePickerControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CascadingControlSourceFilterSensitiveLog = (obj: CascadingControlSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CascadingControlConfigurationFilterSensitiveLog = (obj: CascadingControlConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlSelectAllOptionsFilterSensitiveLog = (obj: ListControlSelectAllOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DropDownControlDisplayOptionsFilterSensitiveLog = (obj: DropDownControlDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterSelectableValuesFilterSensitiveLog = (obj: FilterSelectableValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterDropDownControlFilterSensitiveLog = (obj: FilterDropDownControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlSearchOptionsFilterSensitiveLog = (obj: ListControlSearchOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlDisplayOptionsFilterSensitiveLog = (obj: ListControlDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterListControlFilterSensitiveLog = (obj: FilterListControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelativeDateTimeControlDisplayOptionsFilterSensitiveLog = (
-  obj: RelativeDateTimeControlDisplayOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterRelativeDateTimeControlFilterSensitiveLog = (obj: FilterRelativeDateTimeControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SliderControlDisplayOptionsFilterSensitiveLog = (obj: SliderControlDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterSliderControlFilterSensitiveLog = (obj: FilterSliderControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TextControlPlaceholderOptionsFilterSensitiveLog = (obj: TextControlPlaceholderOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TextAreaControlDisplayOptionsFilterSensitiveLog = (obj: TextAreaControlDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterTextAreaControlFilterSensitiveLog = (obj: FilterTextAreaControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TextFieldControlDisplayOptionsFilterSensitiveLog = (obj: TextFieldControlDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterTextFieldControlFilterSensitiveLog = (obj: FilterTextFieldControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterControlFilterSensitiveLog = (obj: FilterControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeFormLayoutElementBackgroundStyleFilterSensitiveLog = (
-  obj: FreeFormLayoutElementBackgroundStyle
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeFormLayoutElementBorderStyleFilterSensitiveLog = (obj: FreeFormLayoutElementBorderStyle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadingAnimationFilterSensitiveLog = (obj: LoadingAnimation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetElementConfigurationOverridesFilterSensitiveLog = (obj: SheetElementConfigurationOverrides): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SheetElementRenderingRuleFilterSensitiveLog = (obj: SheetElementRenderingRule): any => ({
   ...obj,
   ...(obj.Expression && { Expression: SENSITIVE_STRING }),
@@ -6998,20 +7209,6 @@ export const FreeFormLayoutConfigurationFilterSensitiveLog = (obj: FreeFormLayou
 /**
  * @internal
  */
-export const GridLayoutElementFilterSensitiveLog = (obj: GridLayoutElement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GridLayoutConfigurationFilterSensitiveLog = (obj: GridLayoutConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const FreeFormSectionLayoutConfigurationFilterSensitiveLog = (obj: FreeFormSectionLayoutConfiguration): any => ({
   ...obj,
 });
@@ -7027,27 +7224,6 @@ export const SectionLayoutConfigurationFilterSensitiveLog = (obj: SectionLayoutC
  * @internal
  */
 export const BodySectionContentFilterSensitiveLog = (obj: BodySectionContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SectionAfterPageBreakFilterSensitiveLog = (obj: SectionAfterPageBreak): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SectionPageBreakConfigurationFilterSensitiveLog = (obj: SectionPageBreakConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SectionStyleFilterSensitiveLog = (obj: SectionStyle): any => ({
   ...obj,
 });
 
@@ -7083,129 +7259,6 @@ export const LayoutConfigurationFilterSensitiveLog = (obj: LayoutConfiguration):
  * @internal
  */
 export const LayoutFilterSensitiveLog = (obj: Layout): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterDateTimePickerControlFilterSensitiveLog = (obj: ParameterDateTimePickerControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterSelectableValuesFilterSensitiveLog = (obj: ParameterSelectableValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterDropDownControlFilterSensitiveLog = (obj: ParameterDropDownControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterListControlFilterSensitiveLog = (obj: ParameterListControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterSliderControlFilterSensitiveLog = (obj: ParameterSliderControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterTextAreaControlFilterSensitiveLog = (obj: ParameterTextAreaControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterTextFieldControlFilterSensitiveLog = (obj: ParameterTextFieldControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterControlFilterSensitiveLog = (obj: ParameterControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetControlLayoutConfigurationFilterSensitiveLog = (obj: SheetControlLayoutConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetControlLayoutFilterSensitiveLog = (obj: SheetControlLayout): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetTextBoxFilterSensitiveLog = (obj: SheetTextBox): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterOperationSelectedFieldsConfigurationFilterSensitiveLog = (
-  obj: FilterOperationSelectedFieldsConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SameSheetTargetVisualConfigurationFilterSensitiveLog = (obj: SameSheetTargetVisualConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterOperationTargetVisualsConfigurationFilterSensitiveLog = (
-  obj: FilterOperationTargetVisualsConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomActionFilterOperationFilterSensitiveLog = (obj: CustomActionFilterOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalNavigationConfigurationFilterSensitiveLog = (obj: LocalNavigationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomActionNavigationOperationFilterSensitiveLog = (obj: CustomActionNavigationOperation): any => ({
   ...obj,
 });
 
@@ -7263,13 +7316,6 @@ export const CustomActionSetParametersOperationFilterSensitiveLog = (obj: Custom
 /**
  * @internal
  */
-export const CustomActionURLOperationFilterSensitiveLog = (obj: CustomActionURLOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const VisualCustomActionOperationFilterSensitiveLog = (obj: VisualCustomActionOperation): any => ({
   ...obj,
   ...(obj.SetParametersOperation && {
@@ -7287,163 +7333,9 @@ export const VisualCustomActionFilterSensitiveLog = (obj: VisualCustomAction): a
 /**
  * @internal
  */
-export const DateAxisOptionsFilterSensitiveLog = (obj: DateAxisOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisDisplayDataDrivenRangeFilterSensitiveLog = (obj: AxisDisplayDataDrivenRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisDisplayMinMaxRangeFilterSensitiveLog = (obj: AxisDisplayMinMaxRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisDisplayRangeFilterSensitiveLog = (obj: AxisDisplayRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisLinearScaleFilterSensitiveLog = (obj: AxisLinearScale): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisLogarithmicScaleFilterSensitiveLog = (obj: AxisLogarithmicScale): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisScaleFilterSensitiveLog = (obj: AxisScale): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericAxisOptionsFilterSensitiveLog = (obj: NumericAxisOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisDataOptionsFilterSensitiveLog = (obj: AxisDataOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PercentVisibleRangeFilterSensitiveLog = (obj: PercentVisibleRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VisibleRangeOptionsFilterSensitiveLog = (obj: VisibleRangeOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScrollBarOptionsFilterSensitiveLog = (obj: ScrollBarOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisTickLabelOptionsFilterSensitiveLog = (obj: AxisTickLabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisDisplayOptionsFilterSensitiveLog = (obj: AxisDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisLabelReferenceOptionsFilterSensitiveLog = (obj: AxisLabelReferenceOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisLabelOptionsFilterSensitiveLog = (obj: AxisLabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChartAxisLabelOptionsFilterSensitiveLog = (obj: ChartAxisLabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContributionAnalysisDefaultFilterSensitiveLog = (obj: ContributionAnalysisDefault): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DataPathLabelTypeFilterSensitiveLog = (obj: DataPathLabelType): any => ({
   ...obj,
   ...(obj.FieldValue && { FieldValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FieldLabelTypeFilterSensitiveLog = (obj: FieldLabelType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaximumLabelTypeFilterSensitiveLog = (obj: MaximumLabelType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MinimumLabelTypeFilterSensitiveLog = (obj: MinimumLabelType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RangeEndsLabelTypeFilterSensitiveLog = (obj: RangeEndsLabelType): any => ({
-  ...obj,
 });
 
 /**
@@ -7569,22 +7461,6 @@ export const BarChartFieldWellsFilterSensitiveLog = (obj: BarChartFieldWells): a
 /**
  * @internal
  */
-export const LegendOptionsFilterSensitiveLog = (obj: LegendOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReferenceLineDynamicDataConfigurationFilterSensitiveLog = (
-  obj: ReferenceLineDynamicDataConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ReferenceLineStaticDataConfigurationFilterSensitiveLog = (
   obj: ReferenceLineStaticDataConfiguration
 ): any => ({
@@ -7600,15 +7476,6 @@ export const ReferenceLineDataConfigurationFilterSensitiveLog = (obj: ReferenceL
   ...(obj.StaticConfiguration && {
     StaticConfiguration: ReferenceLineStaticDataConfigurationFilterSensitiveLog(obj.StaticConfiguration),
   }),
-});
-
-/**
- * @internal
- */
-export const ReferenceLineCustomLabelConfigurationFilterSensitiveLog = (
-  obj: ReferenceLineCustomLabelConfiguration
-): any => ({
-  ...obj,
 });
 
 /**
@@ -7636,13 +7503,6 @@ export const ReferenceLineLabelConfigurationFilterSensitiveLog = (obj: Reference
 /**
  * @internal
  */
-export const ReferenceLineStyleConfigurationFilterSensitiveLog = (obj: ReferenceLineStyleConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ReferenceLineFilterSensitiveLog = (obj: ReferenceLine): any => ({
   ...obj,
   ...(obj.DataConfiguration && {
@@ -7651,97 +7511,6 @@ export const ReferenceLineFilterSensitiveLog = (obj: ReferenceLine): any => ({
   ...(obj.LabelConfiguration && {
     LabelConfiguration: ReferenceLineLabelConfigurationFilterSensitiveLog(obj.LabelConfiguration),
   }),
-});
-
-/**
- * @internal
- */
-export const PanelTitleOptionsFilterSensitiveLog = (obj: PanelTitleOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PanelConfigurationFilterSensitiveLog = (obj: PanelConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SmallMultiplesOptionsFilterSensitiveLog = (obj: SmallMultiplesOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ItemsLimitConfigurationFilterSensitiveLog = (obj: ItemsLimitConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnSortFilterSensitiveLog = (obj: ColumnSort): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldSortFilterSensitiveLog = (obj: FieldSort): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldSortOptionsFilterSensitiveLog = (obj: FieldSortOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BarChartSortConfigurationFilterSensitiveLog = (obj: BarChartSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnTooltipItemFilterSensitiveLog = (obj: ColumnTooltipItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldTooltipItemFilterSensitiveLog = (obj: FieldTooltipItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TooltipItemFilterSensitiveLog = (obj: TooltipItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldBasedTooltipFilterSensitiveLog = (obj: FieldBasedTooltip): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TooltipOptionsFilterSensitiveLog = (obj: TooltipOptions): any => ({
-  ...obj,
 });
 
 /**
@@ -7783,105 +7552,7 @@ export const BarChartConfigurationFilterSensitiveLog = (obj: BarChartConfigurati
 /**
  * @internal
  */
-export const CategoryDrillDownFilterFilterSensitiveLog = (obj: CategoryDrillDownFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericEqualityDrillDownFilterFilterSensitiveLog = (obj: NumericEqualityDrillDownFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeRangeDrillDownFilterFilterSensitiveLog = (obj: TimeRangeDrillDownFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DrillDownFilterFilterSensitiveLog = (obj: DrillDownFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DateTimeHierarchyFilterSensitiveLog = (obj: DateTimeHierarchy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExplicitHierarchyFilterSensitiveLog = (obj: ExplicitHierarchy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredefinedHierarchyFilterSensitiveLog = (obj: PredefinedHierarchy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnHierarchyFilterSensitiveLog = (obj: ColumnHierarchy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LongFormatTextFilterSensitiveLog = (obj: LongFormatText): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VisualSubtitleLabelOptionsFilterSensitiveLog = (obj: VisualSubtitleLabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShortFormatTextFilterSensitiveLog = (obj: ShortFormatText): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VisualTitleLabelOptionsFilterSensitiveLog = (obj: VisualTitleLabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const BarChartVisualFilterSensitiveLog = (obj: BarChartVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BoxPlotStyleOptionsFilterSensitiveLog = (obj: BoxPlotStyleOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BoxPlotOptionsFilterSensitiveLog = (obj: BoxPlotOptions): any => ({
   ...obj,
 });
 
@@ -7897,20 +7568,6 @@ export const BoxPlotAggregatedFieldWellsFilterSensitiveLog = (obj: BoxPlotAggreg
  * @internal
  */
 export const BoxPlotFieldWellsFilterSensitiveLog = (obj: BoxPlotFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PaginationConfigurationFilterSensitiveLog = (obj: PaginationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BoxPlotSortConfigurationFilterSensitiveLog = (obj: BoxPlotSortConfiguration): any => ({
   ...obj,
 });
 
@@ -7945,13 +7602,6 @@ export const ComboChartAggregatedFieldWellsFilterSensitiveLog = (obj: ComboChart
  * @internal
  */
 export const ComboChartFieldWellsFilterSensitiveLog = (obj: ComboChartFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComboChartSortConfigurationFilterSensitiveLog = (obj: ComboChartSortConfiguration): any => ({
   ...obj,
 });
 

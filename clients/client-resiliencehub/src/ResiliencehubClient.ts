@@ -226,6 +226,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddDraftAppVersionResourceMappingsCommandInput
   | CreateAppCommandInput
@@ -280,6 +283,9 @@ export type ServiceInputTypes =
   | UpdateAppVersionResourceCommandInput
   | UpdateResiliencyPolicyCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddDraftAppVersionResourceMappingsCommandOutput
   | CreateAppCommandOutput
@@ -334,6 +340,9 @@ export type ServiceOutputTypes =
   | UpdateAppVersionResourceCommandOutput
   | UpdateResiliencyPolicyCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -341,7 +350,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -450,11 +459,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ResiliencehubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -465,10 +477,15 @@ type ResiliencehubClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ResiliencehubClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ResiliencehubClient class constructor that set the region, credentials and other options.
  */
 export interface ResiliencehubClientConfig extends ResiliencehubClientConfigType {}
 
+/**
+ * @public
+ */
 type ResiliencehubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -479,13 +496,16 @@ type ResiliencehubClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ResiliencehubClient class. This is resolved and normalized from the {@link ResiliencehubClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ResiliencehubClient class. This is resolved and normalized from the {@link ResiliencehubClientConfig | constructor configuration interface}.
  */
 export interface ResiliencehubClientResolvedConfig extends ResiliencehubClientResolvedConfigType {}
 
 /**
- * <p>AWS Resilience Hub helps you proactively prepare and protect your Amazon Web Services applications from
- *       disruptions. Resilience Hub offers continuous resiliency assessment and validation that integrates
+ * @public
+ * <p>Resilience Hub helps you proactively prepare and protect your Amazon Web Services applications from
+ *       disruptions. It offers continual resiliency assessment and validation that integrates
  *       into your software development lifecycle. This enables you to uncover resiliency weaknesses,
  *       ensure recovery time objective (RTO) and recovery point objective (RPO) targets for your
  *       applications are met, and resolve issues before they are released into production. </p>

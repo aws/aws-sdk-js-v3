@@ -3,15 +3,25 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { IoTFleetHubServiceException as __BaseException } from "./IoTFleetHubServiceException";
 
-export enum ApplicationState {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplicationState = (typeof ApplicationState)[keyof typeof ApplicationState];
+
+/**
+ * @public
  * <p>A summary of information about a AWS IoT Device Management web application.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -54,6 +64,9 @@ export interface ApplicationSummary {
   applicationState?: ApplicationState | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
    * <p>The name of the web application.</p>
@@ -86,6 +99,9 @@ export interface CreateApplicationRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationResponse {
   /**
    * <p>The unique Id of the web application.</p>
@@ -99,6 +115,7 @@ export interface CreateApplicationResponse {
 }
 
 /**
+ * @public
  * <p>An unexpected error has occurred.</p>
  */
 export class InternalFailureException extends __BaseException {
@@ -118,6 +135,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is not valid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -137,6 +155,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A limit has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -156,6 +175,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The rate exceeds the limit.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -174,6 +194,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>The unique Id of the web application.</p>
@@ -187,9 +210,13 @@ export interface DeleteApplicationRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationResponse {}
 
 /**
+ * @public
  * <p>The specified resource does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -208,6 +235,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationRequest {
   /**
    * <p>The unique Id of the web application.</p>
@@ -215,6 +245,9 @@ export interface DescribeApplicationRequest {
   applicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationResponse {
   /**
    * <p>The unique Id of the web application.</p>
@@ -277,6 +310,9 @@ export interface DescribeApplicationResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
    * <p>A token used to get the next set of results.</p>
@@ -284,6 +320,9 @@ export interface ListApplicationsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsResponse {
   /**
    * <p>An array of objects that provide summaries of information about the web applications in the list.</p>
@@ -296,6 +335,9 @@ export interface ListApplicationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -303,6 +345,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags assigned to the resource.</p>
@@ -310,6 +355,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -322,8 +370,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -336,9 +390,13 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>The request conflicts with the current state of the resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -357,6 +415,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
    * <p>The unique Id of the web application.</p>
@@ -380,123 +441,7 @@ export interface UpdateApplicationRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationResponse {}
-
-/**
- * @internal
- */
-export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApplicationResponseFilterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApplicationResponseFilterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationRequestFilterSensitiveLog = (obj: DescribeApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationResponseFilterSensitiveLog = (obj: DescribeApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationResponseFilterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-  ...obj,
-});

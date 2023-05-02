@@ -13,27 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociateLensesInput, AssociateLensesInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateLensesCommand,
-  serializeAws_restJson1AssociateLensesCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateLensesInput } from "../models/models_0";
+import { de_AssociateLensesCommand, se_AssociateLensesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateLensesCommand}.
  */
 export interface AssociateLensesCommandInput extends AssociateLensesInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateLensesCommand}.
  */
 export interface AssociateLensesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate a lens to a workload.</p>
- *         <p>Up to 10 lenses can be associated with a workload in a single API operation. A
+ *          <p>Up to 10 lenses can be associated with a workload in a single API operation. A
  *         maximum of 20 lenses can be associated with a workload.</p>
- *         <note>
+ *          <note>
  *             <p>
  *                <b>Disclaimer</b>
  *             </p>
@@ -47,10 +49,18 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  * import { WellArchitectedClient, AssociateLensesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, AssociateLensesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // AssociateLensesInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   LensAliases: [ // LensAliases // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AssociateLensesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateLensesCommandInput - {@link AssociateLensesCommandInput}
+ * @returns {@link AssociateLensesCommandOutput}
  * @see {@link AssociateLensesCommandInput} for command's `input` shape.
  * @see {@link AssociateLensesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -59,7 +69,7 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
@@ -92,6 +102,9 @@ export class AssociateLensesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateLensesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +133,8 @@ export class AssociateLensesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateLensesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +144,18 @@ export class AssociateLensesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateLensesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateLensesCommand(input, context);
+    return se_AssociateLensesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLensesCommandOutput> {
-    return deserializeAws_restJson1AssociateLensesCommand(output, context);
+    return de_AssociateLensesCommand(output, context);
   }
 
   // Start section: command_body_extra

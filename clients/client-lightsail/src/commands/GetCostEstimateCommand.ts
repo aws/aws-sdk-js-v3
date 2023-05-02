@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetCostEstimateRequest,
-  GetCostEstimateRequestFilterSensitiveLog,
-  GetCostEstimateResult,
-  GetCostEstimateResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetCostEstimateCommand,
-  serializeAws_json1_1GetCostEstimateCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCostEstimateRequest, GetCostEstimateResult } from "../models/models_1";
+import { de_GetCostEstimateCommand, se_GetCostEstimateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCostEstimateCommand}.
  */
 export interface GetCostEstimateCommandInput extends GetCostEstimateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCostEstimateCommand}.
  */
 export interface GetCostEstimateCommandOutput extends GetCostEstimateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the cost estimate for a specified resource. A cost estimate will not generate for a resource that has been deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetCostEstimateCommandOutput extends GetCostEstimateResult, __M
  * import { LightsailClient, GetCostEstimateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetCostEstimateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetCostEstimateRequest
+ *   resourceName: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new GetCostEstimateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCostEstimateCommandInput - {@link GetCostEstimateCommandInput}
+ * @returns {@link GetCostEstimateCommandOutput}
  * @see {@link GetCostEstimateCommandInput} for command's `input` shape.
  * @see {@link GetCostEstimateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -92,6 +96,9 @@ export class GetCostEstimateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCostEstimateCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +127,8 @@ export class GetCostEstimateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCostEstimateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCostEstimateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +138,18 @@ export class GetCostEstimateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCostEstimateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCostEstimateCommand(input, context);
+    return se_GetCostEstimateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostEstimateCommandOutput> {
-    return deserializeAws_json1_1GetCostEstimateCommand(output, context);
+    return de_GetCostEstimateCommand(output, context);
   }
 
   // Start section: command_body_extra

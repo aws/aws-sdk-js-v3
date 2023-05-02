@@ -16,25 +16,26 @@ import {
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import {
   DeleteBudgetActionRequest,
-  DeleteBudgetActionRequestFilterSensitiveLog,
   DeleteBudgetActionResponse,
   DeleteBudgetActionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBudgetActionCommand,
-  serializeAws_json1_1DeleteBudgetActionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteBudgetActionCommand, se_DeleteBudgetActionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBudgetActionCommand}.
  */
 export interface DeleteBudgetActionCommandInput extends DeleteBudgetActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBudgetActionCommand}.
  */
 export interface DeleteBudgetActionCommandOutput extends DeleteBudgetActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Deletes a budget action.
  *       </p>
@@ -44,10 +45,17 @@ export interface DeleteBudgetActionCommandOutput extends DeleteBudgetActionRespo
  * import { BudgetsClient, DeleteBudgetActionCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DeleteBudgetActionCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // DeleteBudgetActionRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   ActionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBudgetActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBudgetActionCommandInput - {@link DeleteBudgetActionCommandInput}
+ * @returns {@link DeleteBudgetActionCommandOutput}
  * @see {@link DeleteBudgetActionCommandInput} for command's `input` shape.
  * @see {@link DeleteBudgetActionCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -92,6 +100,9 @@ export class DeleteBudgetActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBudgetActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,7 +131,7 @@ export class DeleteBudgetActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBudgetActionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteBudgetActionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -131,12 +142,18 @@ export class DeleteBudgetActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBudgetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBudgetActionCommand(input, context);
+    return se_DeleteBudgetActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBudgetActionCommandOutput> {
-    return deserializeAws_json1_1DeleteBudgetActionCommand(output, context);
+    return de_DeleteBudgetActionCommand(output, context);
   }
 
   // Start section: command_body_extra

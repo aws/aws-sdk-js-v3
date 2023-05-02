@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
-import {
-  DeleteResourceInput,
-  DeleteResourceInputFilterSensitiveLog,
-  DeleteResourceOutput,
-  DeleteResourceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteResourceCommand,
-  serializeAws_json1_0DeleteResourceCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteResourceInput, DeleteResourceOutput, DeleteResourceOutputFilterSensitiveLog } from "../models/models_0";
+import { de_DeleteResourceCommand, se_DeleteResourceCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourceCommand}.
  */
 export interface DeleteResourceCommandInput extends DeleteResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourceCommand}.
  */
 export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified resource. For details, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-delete.html">Deleting a
  *         resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
  *          <p>After you have initiated a resource deletion request, you can monitor the progress of your
@@ -46,10 +43,19 @@ export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __Met
  * import { CloudControlClient, DeleteResourceCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, DeleteResourceCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
  * const client = new CloudControlClient(config);
+ * const input = { // DeleteResourceInput
+ *   TypeName: "STRING_VALUE", // required
+ *   TypeVersionId: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceCommandInput - {@link DeleteResourceCommandInput}
+ * @returns {@link DeleteResourceCommandOutput}
  * @see {@link DeleteResourceCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
@@ -146,6 +152,9 @@ export class DeleteResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,7 +183,7 @@ export class DeleteResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -185,12 +194,18 @@ export class DeleteResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteResourceCommand(input, context);
+    return se_DeleteResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceCommandOutput> {
-    return deserializeAws_json1_0DeleteResourceCommand(output, context);
+    return de_DeleteResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

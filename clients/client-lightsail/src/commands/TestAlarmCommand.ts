@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  TestAlarmRequest,
-  TestAlarmRequestFilterSensitiveLog,
-  TestAlarmResult,
-  TestAlarmResultFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_json1_1TestAlarmCommand, serializeAws_json1_1TestAlarmCommand } from "../protocols/Aws_json1_1";
+import { TestAlarmRequest, TestAlarmResult } from "../models/models_1";
+import { de_TestAlarmCommand, se_TestAlarmCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TestAlarmCommand}.
  */
 export interface TestAlarmCommandInput extends TestAlarmRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestAlarmCommand}.
  */
 export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests an alarm by displaying a banner on the Amazon Lightsail console. If a notification
  *       trigger is configured for the specified alarm, the test also sends a notification to the
  *       notification protocol (<code>Email</code> and/or <code>SMS</code>) configured for the
@@ -46,10 +46,16 @@ export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBeare
  * import { LightsailClient, TestAlarmCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, TestAlarmCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // TestAlarmRequest
+ *   alarmName: "STRING_VALUE", // required
+ *   state: "OK" || "ALARM" || "INSUFFICIENT_DATA", // required
+ * };
  * const command = new TestAlarmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestAlarmCommandInput - {@link TestAlarmCommandInput}
+ * @returns {@link TestAlarmCommandOutput}
  * @see {@link TestAlarmCommandInput} for command's `input` shape.
  * @see {@link TestAlarmCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +105,9 @@ export class TestAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +134,8 @@ export class TestAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestAlarmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestAlarmResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +145,18 @@ export class TestAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TestAlarmCommand(input, context);
+    return se_TestAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestAlarmCommandOutput> {
-    return deserializeAws_json1_1TestAlarmCommand(output, context);
+    return de_TestAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

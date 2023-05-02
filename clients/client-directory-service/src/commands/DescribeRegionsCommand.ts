@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DescribeRegionsRequest,
-  DescribeRegionsRequestFilterSensitiveLog,
-  DescribeRegionsResult,
-  DescribeRegionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRegionsCommand,
-  serializeAws_json1_1DescribeRegionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeRegionsRequest, DescribeRegionsResult } from "../models/models_0";
+import { de_DescribeRegionsCommand, se_DescribeRegionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRegionsCommand}.
  */
 export interface DescribeRegionsCommandInput extends DescribeRegionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRegionsCommand}.
  */
 export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the Regions that are configured for multi-Region
  *       replication.</p>
  * @example
@@ -43,10 +40,17 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * import { DirectoryServiceClient, DescribeRegionsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeRegionsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DescribeRegionsRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   RegionName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeRegionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRegionsCommandInput - {@link DescribeRegionsCommandInput}
+ * @returns {@link DescribeRegionsCommandOutput}
  * @see {@link DescribeRegionsCommandInput} for command's `input` shape.
  * @see {@link DescribeRegionsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -91,6 +95,9 @@ export class DescribeRegionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +126,8 @@ export class DescribeRegionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRegionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRegionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +137,18 @@ export class DescribeRegionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRegionsCommand(input, context);
+    return se_DescribeRegionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegionsCommandOutput> {
-    return deserializeAws_json1_1DescribeRegionsCommand(output, context);
+    return de_DescribeRegionsCommand(output, context);
   }
 
   // Start section: command_body_extra

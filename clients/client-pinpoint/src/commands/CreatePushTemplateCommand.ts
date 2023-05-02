@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePushTemplateRequest,
-  CreatePushTemplateRequestFilterSensitiveLog,
-  CreatePushTemplateResponse,
-  CreatePushTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreatePushTemplateRequest, CreatePushTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreatePushTemplateCommand,
-  serializeAws_restJson1CreatePushTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePushTemplateCommand, se_CreatePushTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePushTemplateCommand}.
  */
 export interface CreatePushTemplateCommandInput extends CreatePushTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePushTemplateCommand}.
  */
 export interface CreatePushTemplateCommandOutput extends CreatePushTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a message template for messages that are sent through a push notification channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,72 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  * import { PinpointClient, CreatePushTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreatePushTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // CreatePushTemplateRequest
+ *   PushNotificationTemplateRequest: { // PushNotificationTemplateRequest
+ *     ADM: { // AndroidPushNotificationTemplate
+ *       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
+ *       Body: "STRING_VALUE",
+ *       ImageIconUrl: "STRING_VALUE",
+ *       ImageUrl: "STRING_VALUE",
+ *       RawContent: "STRING_VALUE",
+ *       SmallImageIconUrl: "STRING_VALUE",
+ *       Sound: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *     },
+ *     APNS: { // APNSPushNotificationTemplate
+ *       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
+ *       Body: "STRING_VALUE",
+ *       MediaUrl: "STRING_VALUE",
+ *       RawContent: "STRING_VALUE",
+ *       Sound: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *     },
+ *     Baidu: {
+ *       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
+ *       Body: "STRING_VALUE",
+ *       ImageIconUrl: "STRING_VALUE",
+ *       ImageUrl: "STRING_VALUE",
+ *       RawContent: "STRING_VALUE",
+ *       SmallImageIconUrl: "STRING_VALUE",
+ *       Sound: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *     },
+ *     Default: { // DefaultPushNotificationTemplate
+ *       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
+ *       Body: "STRING_VALUE",
+ *       Sound: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *     },
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     GCM: {
+ *       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
+ *       Body: "STRING_VALUE",
+ *       ImageIconUrl: "STRING_VALUE",
+ *       ImageUrl: "STRING_VALUE",
+ *       RawContent: "STRING_VALUE",
+ *       SmallImageIconUrl: "STRING_VALUE",
+ *       Sound: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *     },
+ *     RecommenderId: "STRING_VALUE",
+ *     tags: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *   },
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new CreatePushTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePushTemplateCommandInput - {@link CreatePushTemplateCommandInput}
+ * @returns {@link CreatePushTemplateCommandOutput}
  * @see {@link CreatePushTemplateCommandInput} for command's `input` shape.
  * @see {@link CreatePushTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -84,6 +143,9 @@ export class CreatePushTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePushTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +174,8 @@ export class CreatePushTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePushTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePushTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +185,18 @@ export class CreatePushTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePushTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePushTemplateCommand(input, context);
+    return se_CreatePushTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePushTemplateCommandOutput> {
-    return deserializeAws_restJson1CreatePushTemplateCommand(output, context);
+    return de_CreatePushTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

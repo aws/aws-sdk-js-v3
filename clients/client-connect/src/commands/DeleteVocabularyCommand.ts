@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DeleteVocabularyRequest,
-  DeleteVocabularyRequestFilterSensitiveLog,
-  DeleteVocabularyResponse,
-  DeleteVocabularyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVocabularyCommand,
-  serializeAws_restJson1DeleteVocabularyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVocabularyRequest, DeleteVocabularyResponse } from "../models/models_0";
+import { de_DeleteVocabularyCommand, se_DeleteVocabularyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVocabularyCommand}.
  */
 export interface DeleteVocabularyCommandInput extends DeleteVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVocabularyCommand}.
  */
 export interface DeleteVocabularyCommandOutput extends DeleteVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the vocabulary that has the given identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteVocabularyCommandOutput extends DeleteVocabularyResponse,
  * import { ConnectClient, DeleteVocabularyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteVocabularyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DeleteVocabularyRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   VocabularyId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVocabularyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVocabularyCommandInput - {@link DeleteVocabularyCommandInput}
+ * @returns {@link DeleteVocabularyCommandOutput}
  * @see {@link DeleteVocabularyCommandInput} for command's `input` shape.
  * @see {@link DeleteVocabularyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +90,9 @@ export class DeleteVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class DeleteVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVocabularyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class DeleteVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVocabularyCommand(input, context);
+    return se_DeleteVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVocabularyCommandOutput> {
-    return deserializeAws_restJson1DeleteVocabularyCommand(output, context);
+    return de_DeleteVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

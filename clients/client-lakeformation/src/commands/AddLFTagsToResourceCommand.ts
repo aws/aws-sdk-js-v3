@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  AddLFTagsToResourceRequest,
-  AddLFTagsToResourceRequestFilterSensitiveLog,
-  AddLFTagsToResourceResponse,
-  AddLFTagsToResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AddLFTagsToResourceCommand,
-  serializeAws_restJson1AddLFTagsToResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { AddLFTagsToResourceRequest, AddLFTagsToResourceResponse } from "../models/models_0";
+import { de_AddLFTagsToResourceCommand, se_AddLFTagsToResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddLFTagsToResourceCommand}.
  */
 export interface AddLFTagsToResourceCommandInput extends AddLFTagsToResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddLFTagsToResourceCommand}.
  */
 export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches one or more LF-tags to an existing resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,79 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  * import { LakeFormationClient, AddLFTagsToResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, AddLFTagsToResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // AddLFTagsToResourceRequest
+ *   CatalogId: "STRING_VALUE",
+ *   Resource: { // Resource
+ *     Catalog: {},
+ *     Database: { // DatabaseResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *     Table: { // TableResource
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE",
+ *       TableWildcard: {},
+ *     },
+ *     TableWithColumns: { // TableWithColumnsResource
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       ColumnNames: [ // ColumnNames
+ *         "STRING_VALUE",
+ *       ],
+ *       ColumnWildcard: { // ColumnWildcard
+ *         ExcludedColumnNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     DataLocation: { // DataLocationResource
+ *       CatalogId: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE", // required
+ *     },
+ *     DataCellsFilter: { // DataCellsFilterResource
+ *       TableCatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *     LFTag: { // LFTagKeyResource
+ *       CatalogId: "STRING_VALUE",
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValues: [ // TagValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     LFTagPolicy: { // LFTagPolicyResource
+ *       CatalogId: "STRING_VALUE",
+ *       ResourceType: "DATABASE" || "TABLE", // required
+ *       Expression: [ // Expression // required
+ *         { // LFTag
+ *           TagKey: "STRING_VALUE", // required
+ *           TagValues: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   LFTags: [ // LFTagsList // required
+ *     { // LFTagPair
+ *       CatalogId: "STRING_VALUE",
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValues: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new AddLFTagsToResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddLFTagsToResourceCommandInput - {@link AddLFTagsToResourceCommandInput}
+ * @returns {@link AddLFTagsToResourceCommandOutput}
  * @see {@link AddLFTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddLFTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -57,7 +123,7 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  *  <p>Two processes are trying to modify a resource simultaneously.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -87,6 +153,9 @@ export class AddLFTagsToResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddLFTagsToResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +184,8 @@ export class AddLFTagsToResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddLFTagsToResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddLFTagsToResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +195,18 @@ export class AddLFTagsToResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddLFTagsToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddLFTagsToResourceCommand(input, context);
+    return se_AddLFTagsToResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddLFTagsToResourceCommandOutput> {
-    return deserializeAws_restJson1AddLFTagsToResourceCommand(output, context);
+    return de_AddLFTagsToResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

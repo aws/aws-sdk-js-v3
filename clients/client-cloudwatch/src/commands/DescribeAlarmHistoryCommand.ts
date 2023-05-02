@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  DescribeAlarmHistoryInput,
-  DescribeAlarmHistoryInputFilterSensitiveLog,
-  DescribeAlarmHistoryOutput,
-  DescribeAlarmHistoryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAlarmHistoryCommand,
-  serializeAws_queryDescribeAlarmHistoryCommand,
-} from "../protocols/Aws_query";
+import { DescribeAlarmHistoryInput, DescribeAlarmHistoryOutput } from "../models/models_0";
+import { de_DescribeAlarmHistoryCommand, se_DescribeAlarmHistoryCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAlarmHistoryCommand}.
  */
 export interface DescribeAlarmHistoryCommandInput extends DescribeAlarmHistoryInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAlarmHistoryCommand}.
  */
 export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type.
  * 			If an alarm name is not specified, the histories for either all metric alarms or all composite alarms are returned.</p>
  *          <p>CloudWatch retains the history of an alarm even if you delete the alarm.</p>
@@ -47,10 +44,24 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * import { CloudWatchClient, DescribeAlarmHistoryCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmHistoryCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // DescribeAlarmHistoryInput
+ *   AlarmName: "STRING_VALUE",
+ *   AlarmTypes: [ // AlarmTypes
+ *     "CompositeAlarm" || "MetricAlarm",
+ *   ],
+ *   HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action",
+ *   StartDate: new Date("TIMESTAMP"),
+ *   EndDate: new Date("TIMESTAMP"),
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ScanBy: "TimestampDescending" || "TimestampAscending",
+ * };
  * const command = new DescribeAlarmHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlarmHistoryCommandInput - {@link DescribeAlarmHistoryCommandInput}
+ * @returns {@link DescribeAlarmHistoryCommandOutput}
  * @see {@link DescribeAlarmHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmHistoryCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -77,6 +88,9 @@ export class DescribeAlarmHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlarmHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +119,8 @@ export class DescribeAlarmHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAlarmHistoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAlarmHistoryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +130,18 @@ export class DescribeAlarmHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAlarmHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAlarmHistoryCommand(input, context);
+    return se_DescribeAlarmHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmHistoryCommandOutput> {
-    return deserializeAws_queryDescribeAlarmHistoryCommand(output, context);
+    return de_DescribeAlarmHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

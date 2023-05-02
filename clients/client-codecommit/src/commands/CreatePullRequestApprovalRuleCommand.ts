@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { CreatePullRequestApprovalRuleInput, CreatePullRequestApprovalRuleOutput } from "../models/models_0";
 import {
-  CreatePullRequestApprovalRuleInput,
-  CreatePullRequestApprovalRuleInputFilterSensitiveLog,
-  CreatePullRequestApprovalRuleOutput,
-  CreatePullRequestApprovalRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePullRequestApprovalRuleCommand,
-  serializeAws_json1_1CreatePullRequestApprovalRuleCommand,
+  de_CreatePullRequestApprovalRuleCommand,
+  se_CreatePullRequestApprovalRuleCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePullRequestApprovalRuleCommand}.
  */
 export interface CreatePullRequestApprovalRuleCommandInput extends CreatePullRequestApprovalRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePullRequestApprovalRuleCommand}.
  */
 export interface CreatePullRequestApprovalRuleCommandOutput
@@ -37,6 +36,7 @@ export interface CreatePullRequestApprovalRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an approval rule for a pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface CreatePullRequestApprovalRuleCommandOutput
  * import { CodeCommitClient, CreatePullRequestApprovalRuleCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreatePullRequestApprovalRuleCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // CreatePullRequestApprovalRuleInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   approvalRuleName: "STRING_VALUE", // required
+ *   approvalRuleContent: "STRING_VALUE", // required
+ * };
  * const command = new CreatePullRequestApprovalRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePullRequestApprovalRuleCommandInput - {@link CreatePullRequestApprovalRuleCommandInput}
+ * @returns {@link CreatePullRequestApprovalRuleCommandOutput}
  * @see {@link CreatePullRequestApprovalRuleCommandInput} for command's `input` shape.
  * @see {@link CreatePullRequestApprovalRuleCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -117,6 +124,9 @@ export class CreatePullRequestApprovalRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePullRequestApprovalRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +155,8 @@ export class CreatePullRequestApprovalRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePullRequestApprovalRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePullRequestApprovalRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,15 +166,21 @@ export class CreatePullRequestApprovalRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePullRequestApprovalRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePullRequestApprovalRuleCommand(input, context);
+    return se_CreatePullRequestApprovalRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePullRequestApprovalRuleCommandOutput> {
-    return deserializeAws_json1_1CreatePullRequestApprovalRuleCommand(output, context);
+    return de_CreatePullRequestApprovalRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

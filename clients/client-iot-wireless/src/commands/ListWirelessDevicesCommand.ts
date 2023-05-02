@@ -14,27 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  ListWirelessDevicesRequest,
-  ListWirelessDevicesRequestFilterSensitiveLog,
-  ListWirelessDevicesResponse,
-  ListWirelessDevicesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWirelessDevicesCommand,
-  serializeAws_restJson1ListWirelessDevicesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWirelessDevicesRequest } from "../models/models_0";
+import { ListWirelessDevicesResponse } from "../models/models_1";
+import { de_ListWirelessDevicesCommand, se_ListWirelessDevicesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWirelessDevicesCommand}.
  */
 export interface ListWirelessDevicesCommandInput extends ListWirelessDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWirelessDevicesCommand}.
  */
 export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the wireless devices registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +40,22 @@ export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesRes
  * import { IoTWirelessClient, ListWirelessDevicesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListWirelessDevicesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListWirelessDevicesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DestinationName: "STRING_VALUE",
+ *   DeviceProfileId: "STRING_VALUE",
+ *   ServiceProfileId: "STRING_VALUE",
+ *   WirelessDeviceType: "Sidewalk" || "LoRaWAN",
+ *   FuotaTaskId: "STRING_VALUE",
+ *   MulticastGroupId: "STRING_VALUE",
+ * };
  * const command = new ListWirelessDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWirelessDevicesCommandInput - {@link ListWirelessDevicesCommandInput}
+ * @returns {@link ListWirelessDevicesCommandOutput}
  * @see {@link ListWirelessDevicesCommandInput} for command's `input` shape.
  * @see {@link ListWirelessDevicesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +91,9 @@ export class ListWirelessDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWirelessDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +122,8 @@ export class ListWirelessDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWirelessDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWirelessDevicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +133,18 @@ export class ListWirelessDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWirelessDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWirelessDevicesCommand(input, context);
+    return se_ListWirelessDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWirelessDevicesCommandOutput> {
-    return deserializeAws_restJson1ListWirelessDevicesCommand(output, context);
+    return de_ListWirelessDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

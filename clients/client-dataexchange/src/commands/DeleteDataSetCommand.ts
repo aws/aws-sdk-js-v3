@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { DeleteDataSetRequest, DeleteDataSetRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDataSetCommand,
-  serializeAws_restJson1DeleteDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDataSetRequest } from "../models/models_0";
+import { de_DeleteDataSetCommand, se_DeleteDataSetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataSetCommand}.
  */
 export interface DeleteDataSetCommandInput extends DeleteDataSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataSetCommand}.
  */
 export interface DeleteDataSetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes a data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteDataSetCommandOutput extends __MetadataBearer {}
  * import { DataExchangeClient, DeleteDataSetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, DeleteDataSetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // DeleteDataSetRequest
+ *   DataSetId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataSetCommandInput - {@link DeleteDataSetCommandInput}
+ * @returns {@link DeleteDataSetCommandOutput}
  * @see {@link DeleteDataSetCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteDataSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class DeleteDataSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +129,18 @@ export class DeleteDataSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDataSetCommand(input, context);
+    return se_DeleteDataSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataSetCommandOutput> {
-    return deserializeAws_restJson1DeleteDataSetCommand(output, context);
+    return de_DeleteDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

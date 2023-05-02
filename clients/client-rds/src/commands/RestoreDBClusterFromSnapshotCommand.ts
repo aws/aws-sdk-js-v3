@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreDBClusterFromSnapshotMessage,
-  RestoreDBClusterFromSnapshotMessageFilterSensitiveLog,
-  RestoreDBClusterFromSnapshotResult,
-  RestoreDBClusterFromSnapshotResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRestoreDBClusterFromSnapshotCommand,
-  serializeAws_queryRestoreDBClusterFromSnapshotCommand,
-} from "../protocols/Aws_query";
+import { RestoreDBClusterFromSnapshotMessage, RestoreDBClusterFromSnapshotResult } from "../models/models_1";
+import { de_RestoreDBClusterFromSnapshotCommand, se_RestoreDBClusterFromSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBClusterFromSnapshotCommand}.
  */
 export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClusterFromSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBClusterFromSnapshotCommand}.
  */
 export interface RestoreDBClusterFromSnapshotCommandOutput
@@ -37,6 +33,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
  *          <p>The target DB cluster is created from the source snapshot with a default
  *             configuration. If you don't specify a security group, the new DB cluster is
@@ -62,10 +59,63 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * import { RDSClient, RestoreDBClusterFromSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBClusterFromSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // RestoreDBClusterFromSnapshotMessage
+ *   AvailabilityZones: [ // AvailabilityZones
+ *     "STRING_VALUE",
+ *   ],
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   SnapshotIdentifier: "STRING_VALUE", // required
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   BacktrackWindow: Number("long"),
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   EngineMode: "STRING_VALUE",
+ *   ScalingConfiguration: { // ScalingConfiguration
+ *     MinCapacity: Number("int"),
+ *     MaxCapacity: Number("int"),
+ *     AutoPause: true || false,
+ *     SecondsUntilAutoPause: Number("int"),
+ *     TimeoutAction: "STRING_VALUE",
+ *     SecondsBeforeTimeout: Number("int"),
+ *   },
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   CopyTagsToSnapshot: true || false,
+ *   Domain: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   DBClusterInstanceClass: "STRING_VALUE",
+ *   StorageType: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   PubliclyAccessible: true || false,
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
+ *   NetworkType: "STRING_VALUE",
+ * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBClusterFromSnapshotCommandInput - {@link RestoreDBClusterFromSnapshotCommandInput}
+ * @returns {@link RestoreDBClusterFromSnapshotCommandOutput}
  * @see {@link RestoreDBClusterFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -136,22 +186,67 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *             available across all DB instances.</p>
  *
  *
- * @example To restore an Amazon Aurora DB cluster from a DB cluster snapshot
+ * @example To restore a DB cluster from a snapshot
  * ```javascript
- * // The following example restores an Amazon Aurora DB cluster from a DB cluster snapshot.
+ * // The following example restores an Aurora PostgreSQL DB cluster compatible with PostgreSQL version 10.7 from a DB cluster snapshot named test-instance-snapshot.
  * const input = {
- *   "DBClusterIdentifier": "restored-cluster1",
- *   "Engine": "aurora",
- *   "SnapshotIdentifier": "sample-cluster-snapshot1"
+ *   "DBClusterIdentifier": "newdbcluster",
+ *   "Engine": "aurora-postgresql",
+ *   "EngineVersion": "10.7",
+ *   "SnapshotIdentifier": "test-instance-snapshot"
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBCluster": {}
+ *   "DBCluster": {
+ *     "AllocatedStorage": 1,
+ *     "AssociatedRoles": [],
+ *     "AvailabilityZones": [
+ *       "us-west-2c",
+ *       "us-west-2a",
+ *       "us-west-2b"
+ *     ],
+ *     "BackupRetentionPeriod": 7,
+ *     "ClusterCreateTime": "2020-06-05T15:06:58.634Z",
+ *     "CopyTagsToSnapshot": false,
+ *     "CrossAccountClone": false,
+ *     "DBClusterArn": "arn:aws:rds:us-west-2:123456789012:cluster:newdbcluster",
+ *     "DBClusterIdentifier": "newdbcluster",
+ *     "DBClusterMembers": [],
+ *     "DBClusterParameterGroup": "default.aurora-postgresql10",
+ *     "DBSubnetGroup": "default",
+ *     "DatabaseName": "",
+ *     "DbClusterResourceId": "cluster-5DSB5IFQDDUVAWOUWM1EXAMPLE",
+ *     "DeletionProtection": false,
+ *     "DomainMemberships": [],
+ *     "Endpoint": "newdbcluster.cluster-############.us-west-2.rds.amazonaws.com",
+ *     "Engine": "aurora-postgresql",
+ *     "EngineMode": "provisioned",
+ *     "EngineVersion": "10.7",
+ *     "HostedZoneId": "Z1PVIF0EXAMPLE",
+ *     "HttpEndpointEnabled": false,
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/287364e4-33e3-4755-a3b0-a1b2c3d4e5f6",
+ *     "MasterUsername": "postgres",
+ *     "MultiAZ": false,
+ *     "Port": 5432,
+ *     "PreferredBackupWindow": "09:33-10:03",
+ *     "PreferredMaintenanceWindow": "sun:12:22-sun:12:52",
+ *     "ReadReplicaIdentifiers": [],
+ *     "ReaderEndpoint": "newdbcluster.cluster-ro-############.us-west-2.rds.amazonaws.com",
+ *     "Status": "creating",
+ *     "StorageEncrypted": true,
+ *     "VpcSecurityGroups": [
+ *       {
+ *         "Status": "active",
+ *         "VpcSecurityGroupId": "sg-########"
+ *       }
+ *     ]
+ *   }
  * }
  * *\/
- * // example id: to-restore-an-amazon-aurora-db-cluster-from-a-db-cluster-snapshot-1473958144325
+ * // example id: to-restore-a-db-cluster-from-a-snapshot-1680069287853
  * ```
  *
  */
@@ -172,6 +267,9 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBClusterFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -200,8 +298,8 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreDBClusterFromSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreDBClusterFromSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -211,15 +309,21 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreDBClusterFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBClusterFromSnapshotCommand(input, context);
+    return se_RestoreDBClusterFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBClusterFromSnapshotCommandOutput> {
-    return deserializeAws_queryRestoreDBClusterFromSnapshotCommand(output, context);
+    return de_RestoreDBClusterFromSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

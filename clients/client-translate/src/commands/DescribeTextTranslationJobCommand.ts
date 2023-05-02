@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTextTranslationJobRequest,
-  DescribeTextTranslationJobRequestFilterSensitiveLog,
-  DescribeTextTranslationJobResponse,
-  DescribeTextTranslationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTextTranslationJobCommand,
-  serializeAws_json1_1DescribeTextTranslationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTextTranslationJobRequest, DescribeTextTranslationJobResponse } from "../models/models_0";
+import { de_DescribeTextTranslationJobCommand, se_DescribeTextTranslationJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTextTranslationJobCommand}.
  */
 export interface DescribeTextTranslationJobCommandInput extends DescribeTextTranslationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTextTranslationJobCommand}.
  */
 export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTranslationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with an asynchronous batch translation job including name,
  *       ID, status, source and target languages, input/output S3 buckets, and so on.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTra
  * import { TranslateClient, DescribeTextTranslationJobCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, DescribeTextTranslationJobCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = { // DescribeTextTranslationJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTextTranslationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTextTranslationJobCommandInput - {@link DescribeTextTranslationJobCommandInput}
+ * @returns {@link DescribeTextTranslationJobCommandOutput}
  * @see {@link DescribeTextTranslationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTextTranslationJobCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -82,6 +84,9 @@ export class DescribeTextTranslationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTextTranslationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DescribeTextTranslationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTextTranslationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTextTranslationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +126,21 @@ export class DescribeTextTranslationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTextTranslationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTextTranslationJobCommand(input, context);
+    return se_DescribeTextTranslationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTextTranslationJobCommandOutput> {
-    return deserializeAws_json1_1DescribeTextTranslationJobCommand(output, context);
+    return de_DescribeTextTranslationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

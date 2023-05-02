@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  MissionProfileIdResponse,
-  MissionProfileIdResponseFilterSensitiveLog,
-  UpdateMissionProfileRequest,
-  UpdateMissionProfileRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMissionProfileCommand,
-  serializeAws_restJson1UpdateMissionProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { MissionProfileIdResponse, UpdateMissionProfileRequest } from "../models/models_0";
+import { de_UpdateMissionProfileCommand, se_UpdateMissionProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMissionProfileCommand}.
  */
 export interface UpdateMissionProfileCommandInput extends UpdateMissionProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMissionProfileCommand}.
  */
 export interface UpdateMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a mission profile.</p>
  *          <p>Updating a mission profile will not update the execution parameters
  *          for existing future contacts.</p>
@@ -44,10 +41,30 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  * import { GroundStationClient, UpdateMissionProfileCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, UpdateMissionProfileCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // UpdateMissionProfileRequest
+ *   missionProfileId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   contactPrePassDurationSeconds: Number("int"),
+ *   contactPostPassDurationSeconds: Number("int"),
+ *   minimumViableContactDurationSeconds: Number("int"),
+ *   dataflowEdges: [ // DataflowEdgeList
+ *     [ // DataflowEdge
+ *       "STRING_VALUE",
+ *     ],
+ *   ],
+ *   trackingConfigArn: "STRING_VALUE",
+ *   streamsKmsKey: { // KmsKey Union: only one key present
+ *     kmsKeyArn: "STRING_VALUE",
+ *     kmsAliasArn: "STRING_VALUE",
+ *   },
+ *   streamsKmsRole: "STRING_VALUE",
+ * };
  * const command = new UpdateMissionProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMissionProfileCommandInput - {@link UpdateMissionProfileCommandInput}
+ * @returns {@link UpdateMissionProfileCommandOutput}
  * @see {@link UpdateMissionProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateMissionProfileCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -80,6 +97,9 @@ export class UpdateMissionProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMissionProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +128,8 @@ export class UpdateMissionProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMissionProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MissionProfileIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +139,18 @@ export class UpdateMissionProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMissionProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMissionProfileCommand(input, context);
+    return se_UpdateMissionProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMissionProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateMissionProfileCommand(output, context);
+    return de_UpdateMissionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

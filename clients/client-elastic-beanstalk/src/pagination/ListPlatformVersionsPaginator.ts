@@ -10,7 +10,7 @@ import { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
 import { ElasticBeanstalkPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElasticBeanstalkClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPlatformVersionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListPlatformVersions(
   config: ElasticBeanstalkPaginationConfiguration,
   input: ListPlatformVersionsCommandInput,

@@ -16,21 +16,23 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
   CreateDirectConnectGatewayAssociationRequest,
-  CreateDirectConnectGatewayAssociationRequestFilterSensitiveLog,
   CreateDirectConnectGatewayAssociationResult,
-  CreateDirectConnectGatewayAssociationResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommand,
-  serializeAws_json1_1CreateDirectConnectGatewayAssociationCommand,
+  de_CreateDirectConnectGatewayAssociationCommand,
+  se_CreateDirectConnectGatewayAssociationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDirectConnectGatewayAssociationCommand}.
  */
 export interface CreateDirectConnectGatewayAssociationCommandInput
   extends CreateDirectConnectGatewayAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDirectConnectGatewayAssociationCommand}.
  */
 export interface CreateDirectConnectGatewayAssociationCommandOutput
@@ -38,6 +40,7 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual
  *       private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.</p>
  * @example
@@ -46,10 +49,22 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput
  * import { DirectConnectClient, CreateDirectConnectGatewayAssociationCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateDirectConnectGatewayAssociationCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // CreateDirectConnectGatewayAssociationRequest
+ *   directConnectGatewayId: "STRING_VALUE", // required
+ *   gatewayId: "STRING_VALUE",
+ *   addAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
+ *     { // RouteFilterPrefix
+ *       cidr: "STRING_VALUE",
+ *     },
+ *   ],
+ *   virtualGatewayId: "STRING_VALUE",
+ * };
  * const command = new CreateDirectConnectGatewayAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDirectConnectGatewayAssociationCommandInput - {@link CreateDirectConnectGatewayAssociationCommandInput}
+ * @returns {@link CreateDirectConnectGatewayAssociationCommandOutput}
  * @see {@link CreateDirectConnectGatewayAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateDirectConnectGatewayAssociationCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +94,9 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDirectConnectGatewayAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +125,8 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDirectConnectGatewayAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDirectConnectGatewayAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +136,24 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateDirectConnectGatewayAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDirectConnectGatewayAssociationCommand(input, context);
+    return se_CreateDirectConnectGatewayAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDirectConnectGatewayAssociationCommandOutput> {
-    return deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommand(output, context);
+    return de_CreateDirectConnectGatewayAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

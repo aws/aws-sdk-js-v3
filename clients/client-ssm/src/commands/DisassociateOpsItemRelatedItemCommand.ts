@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DisassociateOpsItemRelatedItemRequest, DisassociateOpsItemRelatedItemResponse } from "../models/models_1";
 import {
-  DisassociateOpsItemRelatedItemRequest,
-  DisassociateOpsItemRelatedItemRequestFilterSensitiveLog,
-  DisassociateOpsItemRelatedItemResponse,
-  DisassociateOpsItemRelatedItemResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DisassociateOpsItemRelatedItemCommand,
-  serializeAws_json1_1DisassociateOpsItemRelatedItemCommand,
+  de_DisassociateOpsItemRelatedItemCommand,
+  se_DisassociateOpsItemRelatedItemCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateOpsItemRelatedItemCommand}.
  */
 export interface DisassociateOpsItemRelatedItemCommandInput extends DisassociateOpsItemRelatedItemRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateOpsItemRelatedItemCommand}.
  */
 export interface DisassociateOpsItemRelatedItemCommandOutput
@@ -37,6 +36,7 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the association between an OpsItem and a related item. For example, this API
  *    operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a capability of
  *    Amazon Web Services Systems Manager.</p>
@@ -46,10 +46,16 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
  * import { SSMClient, DisassociateOpsItemRelatedItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DisassociateOpsItemRelatedItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DisassociateOpsItemRelatedItemRequest
+ *   OpsItemId: "STRING_VALUE", // required
+ *   AssociationId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateOpsItemRelatedItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateOpsItemRelatedItemCommandInput - {@link DisassociateOpsItemRelatedItemCommandInput}
+ * @returns {@link DisassociateOpsItemRelatedItemCommandOutput}
  * @see {@link DisassociateOpsItemRelatedItemCommandInput} for command's `input` shape.
  * @see {@link DisassociateOpsItemRelatedItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -87,6 +93,9 @@ export class DisassociateOpsItemRelatedItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateOpsItemRelatedItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +124,8 @@ export class DisassociateOpsItemRelatedItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateOpsItemRelatedItemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateOpsItemRelatedItemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +135,24 @@ export class DisassociateOpsItemRelatedItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateOpsItemRelatedItemCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateOpsItemRelatedItemCommand(input, context);
+    return se_DisassociateOpsItemRelatedItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateOpsItemRelatedItemCommandOutput> {
-    return deserializeAws_json1_1DisassociateOpsItemRelatedItemCommand(output, context);
+    return de_DisassociateOpsItemRelatedItemCommand(output, context);
   }
 
   // Start section: command_body_extra

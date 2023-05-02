@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  DisassociateCreatedArtifactRequest,
-  DisassociateCreatedArtifactRequestFilterSensitiveLog,
-  DisassociateCreatedArtifactResult,
-  DisassociateCreatedArtifactResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateCreatedArtifactCommand,
-  serializeAws_json1_1DisassociateCreatedArtifactCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateCreatedArtifactRequest, DisassociateCreatedArtifactResult } from "../models/models_0";
+import { de_DisassociateCreatedArtifactCommand, se_DisassociateCreatedArtifactCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateCreatedArtifactCommand}.
  */
 export interface DisassociateCreatedArtifactCommandInput extends DisassociateCreatedArtifactRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateCreatedArtifactCommand}.
  */
 export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCreatedArtifactResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a created artifact of an AWS resource with a migration task performed by a
  *          migration tool that was previously associated. This API has the following traits:</p>
  *          <ul>
@@ -58,10 +55,18 @@ export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCr
  * import { MigrationHubClient, DisassociateCreatedArtifactCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, DisassociateCreatedArtifactCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // DisassociateCreatedArtifactRequest
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ *   CreatedArtifactName: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateCreatedArtifactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateCreatedArtifactCommandInput - {@link DisassociateCreatedArtifactCommandInput}
+ * @returns {@link DisassociateCreatedArtifactCommandOutput}
  * @see {@link DisassociateCreatedArtifactCommandInput} for command's `input` shape.
  * @see {@link DisassociateCreatedArtifactCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -119,6 +124,9 @@ export class DisassociateCreatedArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateCreatedArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +155,8 @@ export class DisassociateCreatedArtifactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateCreatedArtifactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateCreatedArtifactResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,15 +166,21 @@ export class DisassociateCreatedArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateCreatedArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateCreatedArtifactCommand(input, context);
+    return se_DisassociateCreatedArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateCreatedArtifactCommandOutput> {
-    return deserializeAws_json1_1DisassociateCreatedArtifactCommand(output, context);
+    return de_DisassociateCreatedArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

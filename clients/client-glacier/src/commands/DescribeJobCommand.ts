@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  DescribeJobInput,
-  DescribeJobInputFilterSensitiveLog,
-  GlacierJobDescription,
-  GlacierJobDescriptionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobCommand,
-  serializeAws_restJson1DescribeJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeJobInput, GlacierJobDescription } from "../models/models_0";
+import { de_DescribeJobCommand, se_DescribeJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobCommand}.
  */
 export interface DescribeJobCommandInput extends DescribeJobInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobCommand}.
  */
 export interface DescribeJobCommandOutput extends GlacierJobDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns information about a job you previously initiated, including
  *          the job initiation date, the user who initiated the job, the job status code/message and
  *          the Amazon SNS topic to notify after Amazon S3 Glacier (Glacier) completes the job. For more information
@@ -65,10 +62,17 @@ export interface DescribeJobCommandOutput extends GlacierJobDescription, __Metad
  * import { GlacierClient, DescribeJobCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, DescribeJobCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // DescribeJobInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobCommandInput - {@link DescribeJobCommandInput}
+ * @returns {@link DescribeJobCommandOutput}
  * @see {@link DescribeJobCommandInput} for command's `input` shape.
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -131,6 +135,9 @@ export class DescribeJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,8 +164,8 @@ export class DescribeJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GlacierJobDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -168,12 +175,18 @@ export class DescribeJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobCommand(input, context);
+    return se_DescribeJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobCommandOutput> {
-    return deserializeAws_restJson1DescribeJobCommand(output, context);
+    return de_DescribeJobCommand(output, context);
   }
 
   // Start section: command_body_extra

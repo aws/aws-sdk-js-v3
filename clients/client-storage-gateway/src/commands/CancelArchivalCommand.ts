@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelArchivalInput,
-  CancelArchivalInputFilterSensitiveLog,
-  CancelArchivalOutput,
-  CancelArchivalOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelArchivalCommand,
-  serializeAws_json1_1CancelArchivalCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelArchivalInput, CancelArchivalOutput } from "../models/models_0";
+import { de_CancelArchivalCommand, se_CancelArchivalCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelArchivalCommand}.
  */
 export interface CancelArchivalCommandInput extends CancelArchivalInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelArchivalCommand}.
  */
 export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving
  *          process is initiated. This operation is only supported in the tape gateway type.</p>
  * @example
@@ -43,10 +40,16 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * import { StorageGatewayClient, CancelArchivalCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CancelArchivalCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // CancelArchivalInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   TapeARN: "STRING_VALUE", // required
+ * };
  * const command = new CancelArchivalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelArchivalCommandInput - {@link CancelArchivalCommandInput}
+ * @returns {@link CancelArchivalCommandOutput}
  * @see {@link CancelArchivalCommandInput} for command's `input` shape.
  * @see {@link CancelArchivalCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -95,6 +98,9 @@ export class CancelArchivalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelArchivalCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class CancelArchivalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelArchivalInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelArchivalOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class CancelArchivalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelArchivalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelArchivalCommand(input, context);
+    return se_CancelArchivalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelArchivalCommandOutput> {
-    return deserializeAws_json1_1CancelArchivalCommand(output, context);
+    return de_CancelArchivalCommand(output, context);
   }
 
   // Start section: command_body_extra

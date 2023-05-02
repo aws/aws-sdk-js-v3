@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRepositoriesInput,
-  ListRepositoriesInputFilterSensitiveLog,
-  ListRepositoriesOutput,
-  ListRepositoriesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListRepositoriesCommand,
-  serializeAws_json1_0ListRepositoriesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListRepositoriesInput, ListRepositoriesOutput } from "../models/models_0";
+import { de_ListRepositoriesCommand, se_ListRepositoriesCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRepositoriesCommand}.
  */
 export interface ListRepositoriesCommandInput extends ListRepositoriesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRepositoriesCommand}.
  */
 export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List linked repositories with detail data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  * import { ProtonClient, ListRepositoriesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListRepositoriesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // ListRepositoriesInput
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRepositoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRepositoriesCommandInput - {@link ListRepositoriesCommandInput}
+ * @returns {@link ListRepositoriesCommandOutput}
  * @see {@link ListRepositoriesCommandInput} for command's `input` shape.
  * @see {@link ListRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +87,9 @@ export class ListRepositoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class ListRepositoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRepositoriesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRepositoriesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class ListRepositoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListRepositoriesCommand(input, context);
+    return se_ListRepositoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRepositoriesCommandOutput> {
-    return deserializeAws_json1_0ListRepositoriesCommand(output, context);
+    return de_ListRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

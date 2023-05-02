@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  CreateEntityRequest,
-  CreateEntityRequestFilterSensitiveLog,
-  CreateEntityResponse,
-  CreateEntityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEntityCommand,
-  serializeAws_restJson1CreateEntityCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateEntityRequest, CreateEntityResponse } from "../models/models_0";
+import { de_CreateEntityCommand, se_CreateEntityCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEntityCommand}.
  */
 export interface CreateEntityCommandInput extends CreateEntityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEntityCommand}.
  */
 export interface CreateEntityCommandOutput extends CreateEntityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an entity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,107 @@ export interface CreateEntityCommandOutput extends CreateEntityResponse, __Metad
  * import { IoTTwinMakerClient, CreateEntityCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, CreateEntityCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // CreateEntityRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   entityId: "STRING_VALUE",
+ *   entityName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   components: { // ComponentsMapRequest
+ *     "<keys>": { // ComponentRequest
+ *       description: "STRING_VALUE",
+ *       componentTypeId: "STRING_VALUE",
+ *       properties: { // PropertyRequests
+ *         "<keys>": { // PropertyRequest
+ *           definition: { // PropertyDefinitionRequest
+ *             dataType: { // DataType
+ *               type: "STRING_VALUE", // required
+ *               nestedType: {
+ *                 type: "STRING_VALUE", // required
+ *                 nestedType: "<DataType>",
+ *                 allowedValues: [ // DataValueList
+ *                   { // DataValue
+ *                     booleanValue: true || false,
+ *                     doubleValue: Number("double"),
+ *                     integerValue: Number("int"),
+ *                     longValue: Number("long"),
+ *                     stringValue: "STRING_VALUE",
+ *                     listValue: [
+ *                       {
+ *                         booleanValue: true || false,
+ *                         doubleValue: Number("double"),
+ *                         integerValue: Number("int"),
+ *                         longValue: Number("long"),
+ *                         stringValue: "STRING_VALUE",
+ *                         listValue: "<DataValueList>",
+ *                         mapValue: { // DataValueMap
+ *                           "<keys>": "<DataValue>",
+ *                         },
+ *                         relationshipValue: { // RelationshipValue
+ *                           targetEntityId: "STRING_VALUE",
+ *                           targetComponentName: "STRING_VALUE",
+ *                         },
+ *                         expression: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                     mapValue: {
+ *                       "<keys>": "<DataValue>",
+ *                     },
+ *                     relationshipValue: {
+ *                       targetEntityId: "STRING_VALUE",
+ *                       targetComponentName: "STRING_VALUE",
+ *                     },
+ *                     expression: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 unitOfMeasure: "STRING_VALUE",
+ *                 relationship: { // Relationship
+ *                   targetComponentTypeId: "STRING_VALUE",
+ *                   relationshipType: "STRING_VALUE",
+ *                 },
+ *               },
+ *               allowedValues: "<DataValueList>",
+ *               unitOfMeasure: "STRING_VALUE",
+ *               relationship: {
+ *                 targetComponentTypeId: "STRING_VALUE",
+ *                 relationshipType: "STRING_VALUE",
+ *               },
+ *             },
+ *             isRequiredInEntity: true || false,
+ *             isExternalId: true || false,
+ *             isStoredExternally: true || false,
+ *             isTimeSeries: true || false,
+ *             defaultValue: "<DataValue>",
+ *             configuration: { // Configuration
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             displayName: "STRING_VALUE",
+ *           },
+ *           value: "<DataValue>",
+ *           updateType: "STRING_VALUE",
+ *         },
+ *       },
+ *       propertyGroups: { // ComponentPropertyGroupRequests
+ *         "<keys>": { // ComponentPropertyGroupRequest
+ *           groupType: "STRING_VALUE",
+ *           propertyNames: [ // PropertyNames
+ *             "STRING_VALUE",
+ *           ],
+ *           updateType: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   },
+ *   parentEntityId: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateEntityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEntityCommandInput - {@link CreateEntityCommandInput}
+ * @returns {@link CreateEntityCommandOutput}
  * @see {@link CreateEntityCommandInput} for command's `input` shape.
  * @see {@link CreateEntityCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -87,6 +181,9 @@ export class CreateEntityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEntityCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +210,8 @@ export class CreateEntityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEntityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEntityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +221,18 @@ export class CreateEntityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEntityCommand(input, context);
+    return se_CreateEntityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEntityCommandOutput> {
-    return deserializeAws_restJson1CreateEntityCommand(output, context);
+    return de_CreateEntityCommand(output, context);
   }
 
   // Start section: command_body_extra

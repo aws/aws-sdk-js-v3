@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetAssociatedIpv6PoolCidrsRequest,
-  GetAssociatedIpv6PoolCidrsRequestFilterSensitiveLog,
-  GetAssociatedIpv6PoolCidrsResult,
-  GetAssociatedIpv6PoolCidrsResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
-  serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
-} from "../protocols/Aws_ec2";
+import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/models_5";
+import { de_GetAssociatedIpv6PoolCidrsCommand, se_GetAssociatedIpv6PoolCidrsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssociatedIpv6PoolCidrsCommand}.
  */
 export interface GetAssociatedIpv6PoolCidrsCommandInput extends GetAssociatedIpv6PoolCidrsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssociatedIpv6PoolCidrsCommand}.
  */
 export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIpv6PoolCidrsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the IPv6 CIDR block associations for a specified IPv6 address pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  * import { EC2Client, GetAssociatedIpv6PoolCidrsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetAssociatedIpv6PoolCidrsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetAssociatedIpv6PoolCidrsRequest
+ *   PoolId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new GetAssociatedIpv6PoolCidrsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssociatedIpv6PoolCidrsCommandInput - {@link GetAssociatedIpv6PoolCidrsCommandInput}
+ * @returns {@link GetAssociatedIpv6PoolCidrsCommandOutput}
  * @see {@link GetAssociatedIpv6PoolCidrsCommandInput} for command's `input` shape.
  * @see {@link GetAssociatedIpv6PoolCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +74,9 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssociatedIpv6PoolCidrsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +105,8 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssociatedIpv6PoolCidrsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssociatedIpv6PoolCidrsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +116,21 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssociatedIpv6PoolCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(input, context);
+    return se_GetAssociatedIpv6PoolCidrsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAssociatedIpv6PoolCidrsCommandOutput> {
-    return deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(output, context);
+    return de_GetAssociatedIpv6PoolCidrsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeAccountLimitsAnswer, DescribeAccountLimitsAnswerFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAccountLimitsCommand,
-  serializeAws_queryDescribeAccountLimitsCommand,
-} from "../protocols/Aws_query";
+import { DescribeAccountLimitsAnswer } from "../models/models_0";
+import { de_DescribeAccountLimitsCommand, se_DescribeAccountLimitsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountLimitsCommand}.
  */
 export interface DescribeAccountLimitsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountLimitsCommand}.
  */
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p>
  *          <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum
  *             number of Auto Scaling groups and launch configurations that you can create in a given Region.
@@ -41,10 +43,13 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * import { AutoScalingClient, DescribeAccountLimitsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeAccountLimitsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {};
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
+ * @returns {@link DescribeAccountLimitsCommandOutput}
  * @see {@link DescribeAccountLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -89,6 +94,9 @@ export class DescribeAccountLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class DescribeAccountLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeAccountLimitsAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +136,18 @@ export class DescribeAccountLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAccountLimitsCommand(input, context);
+    return se_DescribeAccountLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountLimitsCommandOutput> {
-    return deserializeAws_queryDescribeAccountLimitsCommand(output, context);
+    return de_DescribeAccountLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

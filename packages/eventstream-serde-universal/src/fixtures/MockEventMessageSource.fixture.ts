@@ -1,11 +1,17 @@
 import { Readable, ReadableOptions } from "stream";
 
+/**
+ * @internal
+ */
 export interface MockEventMessageSourceOptions extends ReadableOptions {
   messages: Array<Buffer>;
   emitSize: number;
   throwError?: Error;
 }
 
+/**
+ * @internal
+ */
 export class MockEventMessageSource extends Readable {
   private readonly data: Buffer;
   private readonly emitSize: number;

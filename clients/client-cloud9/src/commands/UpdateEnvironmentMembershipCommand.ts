@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import {
-  UpdateEnvironmentMembershipRequest,
-  UpdateEnvironmentMembershipRequestFilterSensitiveLog,
-  UpdateEnvironmentMembershipResult,
-  UpdateEnvironmentMembershipResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateEnvironmentMembershipCommand,
-  serializeAws_json1_1UpdateEnvironmentMembershipCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateEnvironmentMembershipRequest, UpdateEnvironmentMembershipResult } from "../models/models_0";
+import { de_UpdateEnvironmentMembershipCommand, se_UpdateEnvironmentMembershipCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEnvironmentMembershipCommand}.
  */
 export interface UpdateEnvironmentMembershipCommandInput extends UpdateEnvironmentMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEnvironmentMembershipCommand}.
  */
 export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironmentMembershipResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the settings of an existing environment member for an Cloud9 development
  *       environment.</p>
  * @example
@@ -43,10 +40,17 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  * import { Cloud9Client, UpdateEnvironmentMembershipCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, UpdateEnvironmentMembershipCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
+ * const input = { // UpdateEnvironmentMembershipRequest
+ *   environmentId: "STRING_VALUE", // required
+ *   userArn: "STRING_VALUE", // required
+ *   permissions: "read-write" || "read-only", // required
+ * };
  * const command = new UpdateEnvironmentMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEnvironmentMembershipCommandInput - {@link UpdateEnvironmentMembershipCommandInput}
+ * @returns {@link UpdateEnvironmentMembershipCommandOutput}
  * @see {@link UpdateEnvironmentMembershipCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentMembershipCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
@@ -114,6 +118,9 @@ export class UpdateEnvironmentMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEnvironmentMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +149,8 @@ export class UpdateEnvironmentMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEnvironmentMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEnvironmentMembershipResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,15 +160,21 @@ export class UpdateEnvironmentMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEnvironmentMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEnvironmentMembershipCommand(input, context);
+    return se_UpdateEnvironmentMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEnvironmentMembershipCommandOutput> {
-    return deserializeAws_json1_1UpdateEnvironmentMembershipCommand(output, context);
+    return de_UpdateEnvironmentMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

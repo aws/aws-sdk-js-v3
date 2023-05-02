@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  GetSettingsRequest,
-  GetSettingsRequestFilterSensitiveLog,
-  GetSettingsResponse,
-  GetSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSettingsCommand,
-  serializeAws_restJson1GetSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSettingsRequest, GetSettingsResponse } from "../models/models_0";
+import { de_GetSettingsCommand, se_GetSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSettingsCommand}.
  */
 export interface GetSettingsCommandInput extends GetSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSettingsCommand}.
  */
 export interface GetSettingsCommandOutput extends GetSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the settings for the specified Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetSettingsCommandOutput extends GetSettingsResponse, __Metadat
  * import { AuditManagerClient, GetSettingsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetSettingsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // GetSettingsRequest
+ *   attribute: "ALL" || "IS_AWS_ORG_ENABLED" || "SNS_TOPIC" || "DEFAULT_ASSESSMENT_REPORTS_DESTINATION" || "DEFAULT_PROCESS_OWNERS" || "EVIDENCE_FINDER_ENABLEMENT" || "DEREGISTRATION_POLICY", // required
+ * };
  * const command = new GetSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSettingsCommandInput - {@link GetSettingsCommandInput}
+ * @returns {@link GetSettingsCommandOutput}
  * @see {@link GetSettingsCommandInput} for command's `input` shape.
  * @see {@link GetSettingsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -77,6 +79,9 @@ export class GetSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class GetSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class GetSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSettingsCommand(input, context);
+    return se_GetSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSettingsCommandOutput> {
-    return deserializeAws_restJson1GetSettingsCommand(output, context);
+    return de_GetSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

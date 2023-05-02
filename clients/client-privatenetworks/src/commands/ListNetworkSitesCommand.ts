@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListNetworkSitesRequest,
-  ListNetworkSitesRequestFilterSensitiveLog,
-  ListNetworkSitesResponse,
-  ListNetworkSitesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListNetworkSitesRequest, ListNetworkSitesResponse } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1ListNetworkSitesCommand,
-  serializeAws_restJson1ListNetworkSitesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNetworkSitesCommand, se_ListNetworkSitesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNetworkSitesCommand}.
  */
 export interface ListNetworkSitesCommandInput extends ListNetworkSitesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNetworkSitesCommand}.
  */
 export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists network sites. Add filters to your request to return a more
  *             specific list of results. Use filters to match the status of the network site.</p>
  * @example
@@ -43,10 +40,22 @@ export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse,
  * import { PrivateNetworksClient, ListNetworkSitesCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ListNetworkSitesCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // ListNetworkSitesRequest
+ *   filters: { // NetworkSiteFilters
+ *     "<keys>": [ // NetworkSiteFilterValues
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   networkArn: "STRING_VALUE", // required
+ *   startToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListNetworkSitesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNetworkSitesCommandInput - {@link ListNetworkSitesCommandInput}
+ * @returns {@link ListNetworkSitesCommandOutput}
  * @see {@link ListNetworkSitesCommandInput} for command's `input` shape.
  * @see {@link ListNetworkSitesCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -79,6 +88,9 @@ export class ListNetworkSitesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNetworkSitesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +119,8 @@ export class ListNetworkSitesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNetworkSitesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNetworkSitesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +130,18 @@ export class ListNetworkSitesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNetworkSitesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNetworkSitesCommand(input, context);
+    return se_ListNetworkSitesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNetworkSitesCommandOutput> {
-    return deserializeAws_restJson1ListNetworkSitesCommand(output, context);
+    return de_ListNetworkSitesCommand(output, context);
   }
 
   // Start section: command_body_extra

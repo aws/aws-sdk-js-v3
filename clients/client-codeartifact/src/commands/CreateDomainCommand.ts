@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  CreateDomainRequest,
-  CreateDomainRequestFilterSensitiveLog,
-  CreateDomainResult,
-  CreateDomainResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDomainCommand,
-  serializeAws_restJson1CreateDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDomainRequest, CreateDomainResult } from "../models/models_0";
+import { de_CreateDomainCommand, se_CreateDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDomainCommand}.
  */
 export interface CreateDomainCommandInput extends CreateDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDomainCommand}.
  */
 export interface CreateDomainCommandOutput extends CreateDomainResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a domain. CodeArtifact <i>domains</i> make it easier to manage multiple repositories across an
  *         organization. You can use a domain to apply permissions across many
@@ -51,10 +48,22 @@ export interface CreateDomainCommandOutput extends CreateDomainResult, __Metadat
  * import { CodeartifactClient, CreateDomainCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, CreateDomainCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // CreateDomainRequest
+ *   domain: "STRING_VALUE", // required
+ *   encryptionKey: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainCommandInput - {@link CreateDomainCommandInput}
+ * @returns {@link CreateDomainCommandOutput}
  * @see {@link CreateDomainCommandInput} for command's `input` shape.
  * @see {@link CreateDomainCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -111,6 +120,9 @@ export class CreateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +149,8 @@ export class CreateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +160,18 @@ export class CreateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDomainCommand(input, context);
+    return se_CreateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainCommandOutput> {
-    return deserializeAws_restJson1CreateDomainCommand(output, context);
+    return de_CreateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

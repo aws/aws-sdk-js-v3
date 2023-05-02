@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  CreateWorkerFleetRequest,
-  CreateWorkerFleetRequestFilterSensitiveLog,
-  CreateWorkerFleetResponse,
-  CreateWorkerFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkerFleetCommand,
-  serializeAws_restJson1CreateWorkerFleetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateWorkerFleetRequest, CreateWorkerFleetResponse } from "../models/models_0";
+import { de_CreateWorkerFleetCommand, se_CreateWorkerFleetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkerFleetCommand}.
  */
 export interface CreateWorkerFleetCommandInput extends CreateWorkerFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkerFleetCommand}.
  */
 export interface CreateWorkerFleetCommandOutput extends CreateWorkerFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to create a worker fleet
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface CreateWorkerFleetCommandOutput extends CreateWorkerFleetRespons
  * import { IoTRoboRunnerClient, CreateWorkerFleetCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, CreateWorkerFleetCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // CreateWorkerFleetRequest
+ *   clientToken: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
+ *   site: "STRING_VALUE", // required
+ *   additionalFixedProperties: "STRING_VALUE",
+ * };
  * const command = new CreateWorkerFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkerFleetCommandInput - {@link CreateWorkerFleetCommandInput}
+ * @returns {@link CreateWorkerFleetCommandOutput}
  * @see {@link CreateWorkerFleetCommandInput} for command's `input` shape.
  * @see {@link CreateWorkerFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -90,6 +95,9 @@ export class CreateWorkerFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkerFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class CreateWorkerFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkerFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkerFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +137,18 @@ export class CreateWorkerFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkerFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkerFleetCommand(input, context);
+    return se_CreateWorkerFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkerFleetCommandOutput> {
-    return deserializeAws_restJson1CreateWorkerFleetCommand(output, context);
+    return de_CreateWorkerFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

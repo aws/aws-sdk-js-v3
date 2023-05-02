@@ -14,26 +14,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteAccessPointForObjectLambdaRequest } from "../models/models_0";
 import {
-  DeleteAccessPointForObjectLambdaRequest,
-  DeleteAccessPointForObjectLambdaRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteAccessPointForObjectLambdaCommand,
-  serializeAws_restXmlDeleteAccessPointForObjectLambdaCommand,
+  de_DeleteAccessPointForObjectLambdaCommand,
+  se_DeleteAccessPointForObjectLambdaCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessPointForObjectLambdaCommand}.
  */
 export interface DeleteAccessPointForObjectLambdaCommandInput extends DeleteAccessPointForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessPointForObjectLambdaCommand}.
  */
 export interface DeleteAccessPointForObjectLambdaCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Object Lambda Access Point.</p>
  *          <p>The following actions are related to
  *          <code>DeleteAccessPointForObjectLambda</code>:</p>
@@ -60,10 +62,16 @@ export interface DeleteAccessPointForObjectLambdaCommandOutput extends __Metadat
  * import { S3ControlClient, DeleteAccessPointForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteAccessPointForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // DeleteAccessPointForObjectLambdaRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccessPointForObjectLambdaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessPointForObjectLambdaCommandInput - {@link DeleteAccessPointForObjectLambdaCommandInput}
+ * @returns {@link DeleteAccessPointForObjectLambdaCommandOutput}
  * @see {@link DeleteAccessPointForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -90,6 +98,9 @@ export class DeleteAccessPointForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessPointForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +130,8 @@ export class DeleteAccessPointForObjectLambdaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessPointForObjectLambdaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +141,24 @@ export class DeleteAccessPointForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAccessPointForObjectLambdaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteAccessPointForObjectLambdaCommand(input, context);
+    return se_DeleteAccessPointForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccessPointForObjectLambdaCommandOutput> {
-    return deserializeAws_restXmlDeleteAccessPointForObjectLambdaCommand(output, context);
+    return de_DeleteAccessPointForObjectLambdaCommand(output, context);
   }
 
   // Start section: command_body_extra

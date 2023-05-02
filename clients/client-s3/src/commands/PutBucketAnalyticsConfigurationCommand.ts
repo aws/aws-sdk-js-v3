@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutBucketAnalyticsConfigurationRequest } from "../models/models_0";
 import {
-  PutBucketAnalyticsConfigurationRequest,
-  PutBucketAnalyticsConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketAnalyticsConfigurationCommand,
-  serializeAws_restXmlPutBucketAnalyticsConfigurationCommand,
+  de_PutBucketAnalyticsConfigurationCommand,
+  se_PutBucketAnalyticsConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketAnalyticsConfigurationCommand}.
  */
 export interface PutBucketAnalyticsConfigurationCommandInput extends PutBucketAnalyticsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketAnalyticsConfigurationCommand}.
  */
 export interface PutBucketAnalyticsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets an analytics configuration for the bucket (specified by the analytics configuration
  *          ID). You can have up to 1,000 analytics configurations per bucket.</p>
  *          <p>You can choose to have storage class analysis export analysis reports sent to a
@@ -144,10 +146,49 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  * import { S3Client, PutBucketAnalyticsConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketAnalyticsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketAnalyticsConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   AnalyticsConfiguration: { // AnalyticsConfiguration
+ *     Id: "STRING_VALUE", // required
+ *     Filter: { // AnalyticsFilter Union: only one key present
+ *       Prefix: "STRING_VALUE",
+ *       Tag: { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *       And: { // AnalyticsAndOperator
+ *         Prefix: "STRING_VALUE",
+ *         Tags: [ // TagSet
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     StorageClassAnalysis: { // StorageClassAnalysis
+ *       DataExport: { // StorageClassAnalysisDataExport
+ *         OutputSchemaVersion: "V_1", // required
+ *         Destination: { // AnalyticsExportDestination
+ *           S3BucketDestination: { // AnalyticsS3BucketDestination
+ *             Format: "CSV", // required
+ *             BucketAccountId: "STRING_VALUE",
+ *             Bucket: "STRING_VALUE", // required
+ *             Prefix: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketAnalyticsConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketAnalyticsConfigurationCommandInput - {@link PutBucketAnalyticsConfigurationCommandInput}
+ * @returns {@link PutBucketAnalyticsConfigurationCommandOutput}
  * @see {@link PutBucketAnalyticsConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketAnalyticsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -177,6 +218,9 @@ export class PutBucketAnalyticsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketAnalyticsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -205,8 +249,8 @@ export class PutBucketAnalyticsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketAnalyticsConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -216,18 +260,24 @@ export class PutBucketAnalyticsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBucketAnalyticsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketAnalyticsConfigurationCommand(input, context);
+    return se_PutBucketAnalyticsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketAnalyticsConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketAnalyticsConfigurationCommand(output, context);
+    return de_PutBucketAnalyticsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

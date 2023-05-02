@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribePortfolioShareStatusInput, DescribePortfolioShareStatusOutput } from "../models/models_0";
 import {
-  DescribePortfolioShareStatusInput,
-  DescribePortfolioShareStatusInputFilterSensitiveLog,
-  DescribePortfolioShareStatusOutput,
-  DescribePortfolioShareStatusOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePortfolioShareStatusCommand,
-  serializeAws_json1_1DescribePortfolioShareStatusCommand,
+  de_DescribePortfolioShareStatusCommand,
+  se_DescribePortfolioShareStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePortfolioShareStatusCommand}.
  */
 export interface DescribePortfolioShareStatusCommandInput extends DescribePortfolioShareStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribePortfolioShareStatusCommand}.
  */
 export interface DescribePortfolioShareStatusCommandOutput
@@ -37,6 +36,7 @@ export interface DescribePortfolioShareStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of the specified portfolio share operation. This API can only be called
  *          by the management account in the organization or by a delegated admin.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DescribePortfolioShareStatusCommandOutput
  * import { ServiceCatalogClient, DescribePortfolioShareStatusCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribePortfolioShareStatusCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribePortfolioShareStatusInput
+ *   PortfolioShareToken: "STRING_VALUE", // required
+ * };
  * const command = new DescribePortfolioShareStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePortfolioShareStatusCommandInput - {@link DescribePortfolioShareStatusCommandInput}
+ * @returns {@link DescribePortfolioShareStatusCommandOutput}
  * @see {@link DescribePortfolioShareStatusCommandInput} for command's `input` shape.
  * @see {@link DescribePortfolioShareStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +86,9 @@ export class DescribePortfolioShareStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePortfolioShareStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class DescribePortfolioShareStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePortfolioShareStatusInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePortfolioShareStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +128,21 @@ export class DescribePortfolioShareStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePortfolioShareStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePortfolioShareStatusCommand(input, context);
+    return se_DescribePortfolioShareStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePortfolioShareStatusCommandOutput> {
-    return deserializeAws_json1_1DescribePortfolioShareStatusCommand(output, context);
+    return de_DescribePortfolioShareStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeModelBiasJobDefinitionRequest, DescribeModelBiasJobDefinitionResponse } from "../models/models_2";
 import {
-  DescribeModelBiasJobDefinitionRequest,
-  DescribeModelBiasJobDefinitionRequestFilterSensitiveLog,
-  DescribeModelBiasJobDefinitionResponse,
-  DescribeModelBiasJobDefinitionResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeModelBiasJobDefinitionCommand,
-  serializeAws_json1_1DescribeModelBiasJobDefinitionCommand,
+  de_DescribeModelBiasJobDefinitionCommand,
+  se_DescribeModelBiasJobDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelBiasJobDefinitionCommand}.
  */
 export interface DescribeModelBiasJobDefinitionCommandInput extends DescribeModelBiasJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelBiasJobDefinitionCommand}.
  */
 export interface DescribeModelBiasJobDefinitionCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeModelBiasJobDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of a model bias job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface DescribeModelBiasJobDefinitionCommandOutput
  * import { SageMakerClient, DescribeModelBiasJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeModelBiasJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeModelBiasJobDefinitionRequest
+ *   JobDefinitionName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeModelBiasJobDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelBiasJobDefinitionCommandInput - {@link DescribeModelBiasJobDefinitionCommandInput}
+ * @returns {@link DescribeModelBiasJobDefinitionCommandOutput}
  * @see {@link DescribeModelBiasJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeModelBiasJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +79,9 @@ export class DescribeModelBiasJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelBiasJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +110,8 @@ export class DescribeModelBiasJobDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelBiasJobDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeModelBiasJobDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +121,24 @@ export class DescribeModelBiasJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeModelBiasJobDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeModelBiasJobDefinitionCommand(input, context);
+    return se_DescribeModelBiasJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeModelBiasJobDefinitionCommandOutput> {
-    return deserializeAws_json1_1DescribeModelBiasJobDefinitionCommand(output, context);
+    return de_DescribeModelBiasJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

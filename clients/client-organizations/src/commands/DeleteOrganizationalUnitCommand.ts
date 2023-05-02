@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteOrganizationalUnitRequest, DeleteOrganizationalUnitRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteOrganizationalUnitRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DeleteOrganizationalUnitCommand,
-  serializeAws_json1_1DeleteOrganizationalUnitCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteOrganizationalUnitCommand, se_DeleteOrganizationalUnitCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOrganizationalUnitCommand}.
  */
 export interface DeleteOrganizationalUnitCommandInput extends DeleteOrganizationalUnitRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOrganizationalUnitCommand}.
  */
 export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an organizational unit (OU) from a root or another OU. You must first remove
  *             all accounts and child OUs from the OU that you want to delete.</p>
  *          <p>This operation can be called only from the organization's management account.</p>
@@ -39,10 +41,15 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  * import { OrganizationsClient, DeleteOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DeleteOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // DeleteOrganizationalUnitRequest
+ *   OrganizationalUnitId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteOrganizationalUnitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOrganizationalUnitCommandInput - {@link DeleteOrganizationalUnitCommandInput}
+ * @returns {@link DeleteOrganizationalUnitCommandOutput}
  * @see {@link DeleteOrganizationalUnitCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -217,6 +224,9 @@ export class DeleteOrganizationalUnitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOrganizationalUnitCommandInput) {
     // Start section: command_constructor
     super();
@@ -245,8 +255,8 @@ export class DeleteOrganizationalUnitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOrganizationalUnitRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -256,12 +266,18 @@ export class DeleteOrganizationalUnitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOrganizationalUnitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteOrganizationalUnitCommand(input, context);
+    return se_DeleteOrganizationalUnitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1DeleteOrganizationalUnitCommand(output, context);
+    return de_DeleteOrganizationalUnitCommand(output, context);
   }
 
   // Start section: command_body_extra

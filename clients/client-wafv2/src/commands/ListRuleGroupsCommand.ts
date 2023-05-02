@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRuleGroupsRequest,
-  ListRuleGroupsRequestFilterSensitiveLog,
-  ListRuleGroupsResponse,
-  ListRuleGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRuleGroupsCommand,
-  serializeAws_json1_1ListRuleGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListRuleGroupsRequest, ListRuleGroupsResponse } from "../models/models_0";
+import { de_ListRuleGroupsCommand, se_ListRuleGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListRuleGroupsCommand}.
  */
 export interface ListRuleGroupsCommandInput extends ListRuleGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRuleGroupsCommand}.
  */
 export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an array of <a>RuleGroupSummary</a> objects for the rule groups
  *          that you manage. </p>
  * @example
@@ -43,10 +40,17 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * import { WAFV2Client, ListRuleGroupsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListRuleGroupsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // ListRuleGroupsRequest
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRuleGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRuleGroupsCommandInput - {@link ListRuleGroupsCommandInput}
+ * @returns {@link ListRuleGroupsCommandOutput}
  * @see {@link ListRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -98,6 +102,9 @@ export class ListRuleGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRuleGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +133,8 @@ export class ListRuleGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRuleGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRuleGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +144,18 @@ export class ListRuleGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRuleGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRuleGroupsCommand(input, context);
+    return se_ListRuleGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRuleGroupsCommandOutput> {
-    return deserializeAws_json1_1ListRuleGroupsCommand(output, context);
+    return de_ListRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

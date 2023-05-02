@@ -16,20 +16,22 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import {
   UpdateApprovalRuleTemplateDescriptionInput,
-  UpdateApprovalRuleTemplateDescriptionInputFilterSensitiveLog,
   UpdateApprovalRuleTemplateDescriptionOutput,
-  UpdateApprovalRuleTemplateDescriptionOutputFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand,
-  serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand,
+  de_UpdateApprovalRuleTemplateDescriptionCommand,
+  se_UpdateApprovalRuleTemplateDescriptionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApprovalRuleTemplateDescriptionCommand}.
  */
 export interface UpdateApprovalRuleTemplateDescriptionCommandInput extends UpdateApprovalRuleTemplateDescriptionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApprovalRuleTemplateDescriptionCommand}.
  */
 export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
@@ -37,6 +39,7 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description for a specified approval rule template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,16 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
  * import { CodeCommitClient, UpdateApprovalRuleTemplateDescriptionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateApprovalRuleTemplateDescriptionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // UpdateApprovalRuleTemplateDescriptionInput
+ *   approvalRuleTemplateName: "STRING_VALUE", // required
+ *   approvalRuleTemplateDescription: "STRING_VALUE", // required
+ * };
  * const command = new UpdateApprovalRuleTemplateDescriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApprovalRuleTemplateDescriptionCommandInput - {@link UpdateApprovalRuleTemplateDescriptionCommandInput}
+ * @returns {@link UpdateApprovalRuleTemplateDescriptionCommandOutput}
  * @see {@link UpdateApprovalRuleTemplateDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateApprovalRuleTemplateDescriptionCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -90,6 +99,9 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApprovalRuleTemplateDescriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApprovalRuleTemplateDescriptionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApprovalRuleTemplateDescriptionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +141,24 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateApprovalRuleTemplateDescriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand(input, context);
+    return se_UpdateApprovalRuleTemplateDescriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> {
-    return deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand(output, context);
+    return de_UpdateApprovalRuleTemplateDescriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

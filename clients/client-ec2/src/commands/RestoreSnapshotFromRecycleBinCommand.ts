@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RestoreSnapshotFromRecycleBinRequest,
-  RestoreSnapshotFromRecycleBinRequestFilterSensitiveLog,
-  RestoreSnapshotFromRecycleBinResult,
-  RestoreSnapshotFromRecycleBinResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2RestoreSnapshotFromRecycleBinCommand,
-  serializeAws_ec2RestoreSnapshotFromRecycleBinCommand,
-} from "../protocols/Aws_ec2";
+import { RestoreSnapshotFromRecycleBinRequest, RestoreSnapshotFromRecycleBinResult } from "../models/models_6";
+import { de_RestoreSnapshotFromRecycleBinCommand, se_RestoreSnapshotFromRecycleBinCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreSnapshotFromRecycleBinCommand}.
  */
 export interface RestoreSnapshotFromRecycleBinCommandInput extends RestoreSnapshotFromRecycleBinRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreSnapshotFromRecycleBinCommand}.
  */
 export interface RestoreSnapshotFromRecycleBinCommandOutput
@@ -37,6 +33,7 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a snapshot from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps">Restore
  *       snapshots from the Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -45,10 +42,16 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput
  * import { EC2Client, RestoreSnapshotFromRecycleBinCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RestoreSnapshotFromRecycleBinCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RestoreSnapshotFromRecycleBinRequest
+ *   SnapshotId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new RestoreSnapshotFromRecycleBinCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreSnapshotFromRecycleBinCommandInput - {@link RestoreSnapshotFromRecycleBinCommandInput}
+ * @returns {@link RestoreSnapshotFromRecycleBinCommandOutput}
  * @see {@link RestoreSnapshotFromRecycleBinCommandInput} for command's `input` shape.
  * @see {@link RestoreSnapshotFromRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +75,9 @@ export class RestoreSnapshotFromRecycleBinCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreSnapshotFromRecycleBinCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class RestoreSnapshotFromRecycleBinCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreSnapshotFromRecycleBinRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreSnapshotFromRecycleBinResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +117,21 @@ export class RestoreSnapshotFromRecycleBinCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreSnapshotFromRecycleBinCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RestoreSnapshotFromRecycleBinCommand(input, context);
+    return se_RestoreSnapshotFromRecycleBinCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreSnapshotFromRecycleBinCommandOutput> {
-    return deserializeAws_ec2RestoreSnapshotFromRecycleBinCommand(output, context);
+    return de_RestoreSnapshotFromRecycleBinCommand(output, context);
   }
 
   // Start section: command_body_extra

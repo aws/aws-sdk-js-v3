@@ -19,22 +19,24 @@ import {
   InvokeEndpointOutput,
   InvokeEndpointOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1InvokeEndpointCommand,
-  serializeAws_restJson1InvokeEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_InvokeEndpointCommand, se_InvokeEndpointCommand } from "../protocols/Aws_restJson1";
 import { SageMakerRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link InvokeEndpointCommand}.
  */
 export interface InvokeEndpointCommandInput extends InvokeEndpointInput {}
 /**
+ * @public
+ *
  * The output of {@link InvokeEndpointCommand}.
  */
 export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>After you deploy a model into production using Amazon SageMaker hosting services, your
  *             client applications use this API to get inferences from the model hosted at the
  *             specified endpoint. </p>
@@ -61,10 +63,24 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __Met
  * import { SageMakerRuntimeClient, InvokeEndpointCommand } from "@aws-sdk/client-sagemaker-runtime"; // ES Modules import
  * // const { SageMakerRuntimeClient, InvokeEndpointCommand } = require("@aws-sdk/client-sagemaker-runtime"); // CommonJS import
  * const client = new SageMakerRuntimeClient(config);
+ * const input = { // InvokeEndpointInput
+ *   EndpointName: "STRING_VALUE", // required
+ *   Body: "BLOB_VALUE", // required
+ *   ContentType: "STRING_VALUE",
+ *   Accept: "STRING_VALUE",
+ *   CustomAttributes: "STRING_VALUE",
+ *   TargetModel: "STRING_VALUE",
+ *   TargetVariant: "STRING_VALUE",
+ *   TargetContainerHostname: "STRING_VALUE",
+ *   InferenceId: "STRING_VALUE",
+ *   EnableExplanations: "STRING_VALUE",
+ * };
  * const command = new InvokeEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InvokeEndpointCommandInput - {@link InvokeEndpointCommandInput}
+ * @returns {@link InvokeEndpointCommandOutput}
  * @see {@link InvokeEndpointCommandInput} for command's `input` shape.
  * @see {@link InvokeEndpointCommandOutput} for command's `response` shape.
  * @see {@link SageMakerRuntimeClientResolvedConfig | config} for SageMakerRuntimeClient's `config` shape.
@@ -110,6 +126,9 @@ export class InvokeEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InvokeEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,12 +168,18 @@ export class InvokeEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InvokeEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InvokeEndpointCommand(input, context);
+    return se_InvokeEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeEndpointCommandOutput> {
-    return deserializeAws_restJson1InvokeEndpointCommand(output, context);
+    return de_InvokeEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

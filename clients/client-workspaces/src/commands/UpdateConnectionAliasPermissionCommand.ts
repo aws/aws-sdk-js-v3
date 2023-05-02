@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateConnectionAliasPermissionRequest, UpdateConnectionAliasPermissionResult } from "../models/models_0";
 import {
-  UpdateConnectionAliasPermissionRequest,
-  UpdateConnectionAliasPermissionRequestFilterSensitiveLog,
-  UpdateConnectionAliasPermissionResult,
-  UpdateConnectionAliasPermissionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateConnectionAliasPermissionCommand,
-  serializeAws_json1_1UpdateConnectionAliasPermissionCommand,
+  de_UpdateConnectionAliasPermissionCommand,
+  se_UpdateConnectionAliasPermissionCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectionAliasPermissionCommand}.
  */
 export interface UpdateConnectionAliasPermissionCommandInput extends UpdateConnectionAliasPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectionAliasPermissionCommand}.
  */
 export interface UpdateConnectionAliasPermissionCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateConnectionAliasPermissionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shares or unshares a connection alias with one account by specifying whether that
  *          account has permission to associate the connection alias with a directory. If the
  *          association permission is granted, the connection alias is shared with that account. If the
@@ -65,10 +65,19 @@ export interface UpdateConnectionAliasPermissionCommandOutput
  * import { WorkSpacesClient, UpdateConnectionAliasPermissionCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, UpdateConnectionAliasPermissionCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // UpdateConnectionAliasPermissionRequest
+ *   AliasId: "STRING_VALUE", // required
+ *   ConnectionAliasPermission: { // ConnectionAliasPermission
+ *     SharedAccountId: "STRING_VALUE", // required
+ *     AllowAssociation: true || false, // required
+ *   },
+ * };
  * const command = new UpdateConnectionAliasPermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectionAliasPermissionCommandInput - {@link UpdateConnectionAliasPermissionCommandInput}
+ * @returns {@link UpdateConnectionAliasPermissionCommandOutput}
  * @see {@link UpdateConnectionAliasPermissionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionAliasPermissionCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -113,6 +122,9 @@ export class UpdateConnectionAliasPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectionAliasPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +153,8 @@ export class UpdateConnectionAliasPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectionAliasPermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectionAliasPermissionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,18 +164,24 @@ export class UpdateConnectionAliasPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConnectionAliasPermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConnectionAliasPermissionCommand(input, context);
+    return se_UpdateConnectionAliasPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConnectionAliasPermissionCommandOutput> {
-    return deserializeAws_json1_1UpdateConnectionAliasPermissionCommand(output, context);
+    return de_UpdateConnectionAliasPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

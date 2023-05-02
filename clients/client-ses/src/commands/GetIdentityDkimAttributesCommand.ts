@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetIdentityDkimAttributesRequest,
-  GetIdentityDkimAttributesRequestFilterSensitiveLog,
-  GetIdentityDkimAttributesResponse,
-  GetIdentityDkimAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetIdentityDkimAttributesCommand,
-  serializeAws_queryGetIdentityDkimAttributesCommand,
-} from "../protocols/Aws_query";
+import { GetIdentityDkimAttributesRequest, GetIdentityDkimAttributesResponse } from "../models/models_0";
+import { de_GetIdentityDkimAttributesCommand, se_GetIdentityDkimAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetIdentityDkimAttributesCommand}.
  */
 export interface GetIdentityDkimAttributesCommandInput extends GetIdentityDkimAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIdentityDkimAttributesCommand}.
  */
 export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current status of Easy DKIM signing for an entity. For domain name
  *             identities, this operation also returns the DKIM tokens that are required for Easy DKIM
  *             signing, and whether Amazon SES has successfully verified that these tokens have been
@@ -64,10 +61,17 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  * import { SESClient, GetIdentityDkimAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityDkimAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // GetIdentityDkimAttributesRequest
+ *   Identities: [ // IdentityList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetIdentityDkimAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityDkimAttributesCommandInput - {@link GetIdentityDkimAttributesCommandInput}
+ * @returns {@link GetIdentityDkimAttributesCommandOutput}
  * @see {@link GetIdentityDkimAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityDkimAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -124,6 +128,9 @@ export class GetIdentityDkimAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityDkimAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,8 +159,8 @@ export class GetIdentityDkimAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityDkimAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityDkimAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -163,15 +170,21 @@ export class GetIdentityDkimAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIdentityDkimAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityDkimAttributesCommand(input, context);
+    return se_GetIdentityDkimAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityDkimAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityDkimAttributesCommand(output, context);
+    return de_GetIdentityDkimAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,26 +18,27 @@ import {
   UpdateFileSystemRequest,
   UpdateFileSystemRequestFilterSensitiveLog,
   UpdateFileSystemResponse,
-  UpdateFileSystemResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFileSystemCommand,
-  serializeAws_json1_1UpdateFileSystemCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateFileSystemCommand, se_UpdateFileSystemCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFileSystemCommand}.
  */
 export interface UpdateFileSystemCommandInput extends UpdateFileSystemRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFileSystemCommand}.
  */
 export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to update the configuration of an existing Amazon FSx file
  *       system. You can update multiple properties in a single request.</p>
- *          <p>For Amazon FSx for Windows File Server file systems, you can update the following
+ *          <p>For FSx for Windows File Server file systems, you can update the following
  *       properties:</p>
  *          <ul>
  *             <li>
@@ -76,7 +77,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *                </p>
  *             </li>
  *          </ul>
- *          <p>For Amazon FSx for Lustre file systems, you can update the following
+ *          <p>For FSx for Lustre file systems, you can update the following
  *       properties:</p>
  *          <ul>
  *             <li>
@@ -115,9 +116,14 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *                </p>
  *             </li>
  *          </ul>
- *          <p>For Amazon FSx for NetApp ONTAP file systems, you can update the following
+ *          <p>For FSx for ONTAP file systems, you can update the following
  *       properties:</p>
  *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>AddRouteTableIds</code>
+ *                </p>
+ *             </li>
  *             <li>
  *                <p>
  *                   <code>AutomaticBackupRetentionDays</code>
@@ -140,6 +146,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>RemoveRouteTableIds</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>StorageCapacity</code>
  *                </p>
  *             </li>
@@ -154,7 +165,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *                </p>
  *             </li>
  *          </ul>
- *          <p>For the Amazon FSx for OpenZFS file systems, you can update the following
+ *          <p>For FSx for OpenZFS file systems, you can update the following
  *       properties:</p>
  *          <ul>
  *             <li>
@@ -179,6 +190,16 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>DiskIopsConfiguration</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>StorageCapacity</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>ThroughputCapacity</code>
  *                </p>
  *             </li>
@@ -194,10 +215,81 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * import { FSxClient, UpdateFileSystemCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // UpdateFileSystemRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   StorageCapacity: Number("int"),
+ *   WindowsConfiguration: { // UpdateFileSystemWindowsConfiguration
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     ThroughputCapacity: Number("int"),
+ *     SelfManagedActiveDirectoryConfiguration: { // SelfManagedActiveDirectoryConfigurationUpdates
+ *       UserName: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *       DnsIps: [ // DnsIps
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     AuditLogConfiguration: { // WindowsAuditLogCreateConfiguration
+ *       FileAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
+ *       FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
+ *       AuditLogDestination: "STRING_VALUE",
+ *     },
+ *   },
+ *   LustreConfiguration: { // UpdateFileSystemLustreConfiguration
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     AutoImportPolicy: "NONE" || "NEW" || "NEW_CHANGED" || "NEW_CHANGED_DELETED",
+ *     DataCompressionType: "NONE" || "LZ4",
+ *     LogConfiguration: { // LustreLogCreateConfiguration
+ *       Level: "DISABLED" || "WARN_ONLY" || "ERROR_ONLY" || "WARN_ERROR", // required
+ *       Destination: "STRING_VALUE",
+ *     },
+ *     RootSquashConfiguration: { // LustreRootSquashConfiguration
+ *       RootSquash: "STRING_VALUE",
+ *       NoSquashNids: [ // LustreNoSquashNids
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   OntapConfiguration: { // UpdateFileSystemOntapConfiguration
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     FsxAdminPassword: "STRING_VALUE",
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DiskIopsConfiguration: { // DiskIopsConfiguration
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ *       Iops: Number("long"),
+ *     },
+ *     ThroughputCapacity: Number("int"),
+ *     AddRouteTableIds: [ // RouteTableIds
+ *       "STRING_VALUE",
+ *     ],
+ *     RemoveRouteTableIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   OpenZFSConfiguration: { // UpdateFileSystemOpenZFSConfiguration
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     CopyTagsToBackups: true || false,
+ *     CopyTagsToVolumes: true || false,
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     ThroughputCapacity: Number("int"),
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DiskIopsConfiguration: {
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ *       Iops: Number("long"),
+ *     },
+ *   },
+ * };
  * const command = new UpdateFileSystemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFileSystemCommandInput - {@link UpdateFileSystemCommandInput}
+ * @returns {@link UpdateFileSystemCommandOutput}
  * @see {@link UpdateFileSystemCommandInput} for command's `input` shape.
  * @see {@link UpdateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -294,6 +386,9 @@ export class UpdateFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -323,7 +418,7 @@ export class UpdateFileSystemCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateFileSystemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFileSystemResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -333,12 +428,18 @@ export class UpdateFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFileSystemCommand(input, context);
+    return se_UpdateFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFileSystemCommandOutput> {
-    return deserializeAws_json1_1UpdateFileSystemCommand(output, context);
+    return de_UpdateFileSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

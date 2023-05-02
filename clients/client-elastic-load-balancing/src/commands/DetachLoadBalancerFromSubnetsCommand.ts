@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
+import { DetachLoadBalancerFromSubnetsInput, DetachLoadBalancerFromSubnetsOutput } from "../models/models_0";
 import {
-  DetachLoadBalancerFromSubnetsInput,
-  DetachLoadBalancerFromSubnetsInputFilterSensitiveLog,
-  DetachLoadBalancerFromSubnetsOutput,
-  DetachLoadBalancerFromSubnetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDetachLoadBalancerFromSubnetsCommand,
-  serializeAws_queryDetachLoadBalancerFromSubnetsCommand,
+  de_DetachLoadBalancerFromSubnetsCommand,
+  se_DetachLoadBalancerFromSubnetsCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetachLoadBalancerFromSubnetsCommand}.
  */
 export interface DetachLoadBalancerFromSubnetsCommandInput extends DetachLoadBalancerFromSubnetsInput {}
 /**
+ * @public
+ *
  * The output of {@link DetachLoadBalancerFromSubnetsCommand}.
  */
 export interface DetachLoadBalancerFromSubnetsCommandOutput
@@ -41,6 +40,7 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified subnets from the set of configured subnets for the load balancer.</p>
  *         <p>After a subnet is removed, all EC2 instances registered with the load balancer
  *             in the removed subnet go into the <code>OutOfService</code> state. Then,
@@ -51,10 +51,18 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  * import { ElasticLoadBalancingClient, DetachLoadBalancerFromSubnetsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DetachLoadBalancerFromSubnetsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // DetachLoadBalancerFromSubnetsInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   Subnets: [ // Subnets // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DetachLoadBalancerFromSubnetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachLoadBalancerFromSubnetsCommandInput - {@link DetachLoadBalancerFromSubnetsCommandInput}
+ * @returns {@link DetachLoadBalancerFromSubnetsCommandOutput}
  * @see {@link DetachLoadBalancerFromSubnetsCommandInput} for command's `input` shape.
  * @see {@link DetachLoadBalancerFromSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -105,6 +113,9 @@ export class DetachLoadBalancerFromSubnetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachLoadBalancerFromSubnetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +144,8 @@ export class DetachLoadBalancerFromSubnetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachLoadBalancerFromSubnetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachLoadBalancerFromSubnetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,15 +155,21 @@ export class DetachLoadBalancerFromSubnetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachLoadBalancerFromSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetachLoadBalancerFromSubnetsCommand(input, context);
+    return se_DetachLoadBalancerFromSubnetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachLoadBalancerFromSubnetsCommandOutput> {
-    return deserializeAws_queryDetachLoadBalancerFromSubnetsCommand(output, context);
+    return de_DetachLoadBalancerFromSubnetsCommand(output, context);
   }
 
   // Start section: command_body_extra

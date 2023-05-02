@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,7 +12,8 @@ import {
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -106,7 +108,6 @@ import {
   CreateSnapshotRequest,
   CreateSnapshotResponse,
   CreateUsageLimitRequest,
-  CreateUsageLimitResponse,
   CreateWorkgroupRequest,
   CreateWorkgroupResponse,
   DeleteEndpointAccessRequest,
@@ -114,14 +115,11 @@ import {
   DeleteNamespaceRequest,
   DeleteNamespaceResponse,
   DeleteResourcePolicyRequest,
-  DeleteResourcePolicyResponse,
   DeleteSnapshotRequest,
   DeleteSnapshotResponse,
   DeleteUsageLimitRequest,
-  DeleteUsageLimitResponse,
   DeleteWorkgroupRequest,
   DeleteWorkgroupResponse,
-  Endpoint,
   EndpointAccess,
   GetCredentialsRequest,
   GetCredentialsResponse,
@@ -132,13 +130,11 @@ import {
   GetRecoveryPointRequest,
   GetRecoveryPointResponse,
   GetResourcePolicyRequest,
-  GetResourcePolicyResponse,
   GetSnapshotRequest,
   GetSnapshotResponse,
   GetTableRestoreStatusRequest,
   GetTableRestoreStatusResponse,
   GetUsageLimitRequest,
-  GetUsageLimitResponse,
   GetWorkgroupRequest,
   GetWorkgroupResponse,
   InsufficientCapacityException,
@@ -155,19 +151,14 @@ import {
   ListTableRestoreStatusRequest,
   ListTableRestoreStatusResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListUsageLimitsRequest,
-  ListUsageLimitsResponse,
   ListWorkgroupsRequest,
   ListWorkgroupsResponse,
   LogExport,
   Namespace,
-  NetworkInterface,
   PutResourcePolicyRequest,
-  PutResourcePolicyResponse,
   RecoveryPoint,
   ResourceNotFoundException,
-  ResourcePolicy,
   RestoreFromRecoveryPointRequest,
   RestoreFromRecoveryPointResponse,
   RestoreFromSnapshotRequest,
@@ -179,11 +170,9 @@ import {
   TableRestoreStatus,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   ThrottlingException,
   TooManyTagsException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateEndpointAccessRequest,
   UpdateEndpointAccessResponse,
   UpdateNamespaceRequest,
@@ -191,555 +180,557 @@ import {
   UpdateSnapshotRequest,
   UpdateSnapshotResponse,
   UpdateUsageLimitRequest,
-  UpdateUsageLimitResponse,
   UpdateWorkgroupRequest,
   UpdateWorkgroupResponse,
-  UsageLimit,
   ValidationException,
-  VpcEndpoint,
-  VpcSecurityGroupMembership,
   Workgroup,
 } from "../models/models_0";
 import { RedshiftServerlessServiceException as __BaseException } from "../models/RedshiftServerlessServiceException";
 
-export const serializeAws_json1_1ConvertRecoveryPointToSnapshotCommand = async (
+/**
+ * serializeAws_json1_1ConvertRecoveryPointToSnapshotCommand
+ */
+export const se_ConvertRecoveryPointToSnapshotCommand = async (
   input: ConvertRecoveryPointToSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ConvertRecoveryPointToSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("ConvertRecoveryPointToSnapshot");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ConvertRecoveryPointToSnapshotRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateEndpointAccessCommand = async (
+/**
+ * serializeAws_json1_1CreateEndpointAccessCommand
+ */
+export const se_CreateEndpointAccessCommand = async (
   input: CreateEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.CreateEndpointAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEndpointAccess");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateEndpointAccessRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateNamespaceCommand = async (
+/**
+ * serializeAws_json1_1CreateNamespaceCommand
+ */
+export const se_CreateNamespaceCommand = async (
   input: CreateNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.CreateNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateNamespace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateNamespaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateSnapshotCommand = async (
+/**
+ * serializeAws_json1_1CreateSnapshotCommand
+ */
+export const se_CreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.CreateSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSnapshot");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateSnapshotRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUsageLimitCommand = async (
+/**
+ * serializeAws_json1_1CreateUsageLimitCommand
+ */
+export const se_CreateUsageLimitCommand = async (
   input: CreateUsageLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.CreateUsageLimit",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUsageLimit");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUsageLimitRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateWorkgroupCommand = async (
+/**
+ * serializeAws_json1_1CreateWorkgroupCommand
+ */
+export const se_CreateWorkgroupCommand = async (
   input: CreateWorkgroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.CreateWorkgroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWorkgroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateWorkgroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteEndpointAccessCommand = async (
+/**
+ * serializeAws_json1_1DeleteEndpointAccessCommand
+ */
+export const se_DeleteEndpointAccessCommand = async (
   input: DeleteEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.DeleteEndpointAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEndpointAccess");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteEndpointAccessRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteNamespaceCommand = async (
+/**
+ * serializeAws_json1_1DeleteNamespaceCommand
+ */
+export const se_DeleteNamespaceCommand = async (
   input: DeleteNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.DeleteNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteNamespace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteNamespaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.DeleteResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteSnapshotCommand = async (
+/**
+ * serializeAws_json1_1DeleteSnapshotCommand
+ */
+export const se_DeleteSnapshotCommand = async (
   input: DeleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.DeleteSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSnapshot");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteSnapshotRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteUsageLimitCommand = async (
+/**
+ * serializeAws_json1_1DeleteUsageLimitCommand
+ */
+export const se_DeleteUsageLimitCommand = async (
   input: DeleteUsageLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.DeleteUsageLimit",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUsageLimit");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteUsageLimitRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteWorkgroupCommand = async (
+/**
+ * serializeAws_json1_1DeleteWorkgroupCommand
+ */
+export const se_DeleteWorkgroupCommand = async (
   input: DeleteWorkgroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.DeleteWorkgroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWorkgroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteWorkgroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCredentialsCommand = async (
+/**
+ * serializeAws_json1_1GetCredentialsCommand
+ */
+export const se_GetCredentialsCommand = async (
   input: GetCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetCredentials",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCredentials");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCredentialsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetEndpointAccessCommand = async (
+/**
+ * serializeAws_json1_1GetEndpointAccessCommand
+ */
+export const se_GetEndpointAccessCommand = async (
   input: GetEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetEndpointAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEndpointAccess");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetEndpointAccessRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetNamespaceCommand = async (
+/**
+ * serializeAws_json1_1GetNamespaceCommand
+ */
+export const se_GetNamespaceCommand = async (
   input: GetNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetNamespace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetNamespaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetRecoveryPointCommand = async (
+/**
+ * serializeAws_json1_1GetRecoveryPointCommand
+ */
+export const se_GetRecoveryPointCommand = async (
   input: GetRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetRecoveryPoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRecoveryPoint");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetRecoveryPointRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1GetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetSnapshotCommand = async (
+/**
+ * serializeAws_json1_1GetSnapshotCommand
+ */
+export const se_GetSnapshotCommand = async (
   input: GetSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSnapshot");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetSnapshotRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetTableRestoreStatusCommand = async (
+/**
+ * serializeAws_json1_1GetTableRestoreStatusCommand
+ */
+export const se_GetTableRestoreStatusCommand = async (
   input: GetTableRestoreStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetTableRestoreStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTableRestoreStatus");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetTableRestoreStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetUsageLimitCommand = async (
+/**
+ * serializeAws_json1_1GetUsageLimitCommand
+ */
+export const se_GetUsageLimitCommand = async (
   input: GetUsageLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetUsageLimit",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUsageLimit");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetUsageLimitRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetWorkgroupCommand = async (
+/**
+ * serializeAws_json1_1GetWorkgroupCommand
+ */
+export const se_GetWorkgroupCommand = async (
   input: GetWorkgroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetWorkgroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetWorkgroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetWorkgroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListEndpointAccessCommand = async (
+/**
+ * serializeAws_json1_1ListEndpointAccessCommand
+ */
+export const se_ListEndpointAccessCommand = async (
   input: ListEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListEndpointAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEndpointAccess");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListEndpointAccessRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListNamespacesCommand = async (
+/**
+ * serializeAws_json1_1ListNamespacesCommand
+ */
+export const se_ListNamespacesCommand = async (
   input: ListNamespacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListNamespaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListNamespaces");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListNamespacesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListRecoveryPointsCommand = async (
+/**
+ * serializeAws_json1_1ListRecoveryPointsCommand
+ */
+export const se_ListRecoveryPointsCommand = async (
   input: ListRecoveryPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListRecoveryPoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRecoveryPoints");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListRecoveryPointsRequest(input, context));
+  body = JSON.stringify(se_ListRecoveryPointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSnapshotsCommand = async (
+/**
+ * serializeAws_json1_1ListSnapshotsCommand
+ */
+export const se_ListSnapshotsCommand = async (
   input: ListSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListSnapshots",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSnapshots");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSnapshotsRequest(input, context));
+  body = JSON.stringify(se_ListSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTableRestoreStatusCommand = async (
+/**
+ * serializeAws_json1_1ListTableRestoreStatusCommand
+ */
+export const se_ListTableRestoreStatusCommand = async (
   input: ListTableRestoreStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListTableRestoreStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTableRestoreStatus");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTableRestoreStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListUsageLimitsCommand = async (
+/**
+ * serializeAws_json1_1ListUsageLimitsCommand
+ */
+export const se_ListUsageLimitsCommand = async (
   input: ListUsageLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListUsageLimits",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUsageLimits");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListUsageLimitsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListWorkgroupsCommand = async (
+/**
+ * serializeAws_json1_1ListWorkgroupsCommand
+ */
+export const se_ListWorkgroupsCommand = async (
   input: ListWorkgroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListWorkgroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWorkgroups");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListWorkgroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.PutResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RestoreFromRecoveryPointCommand = async (
+/**
+ * serializeAws_json1_1RestoreFromRecoveryPointCommand
+ */
+export const se_RestoreFromRecoveryPointCommand = async (
   input: RestoreFromRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.RestoreFromRecoveryPoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreFromRecoveryPoint");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RestoreFromRecoveryPointRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RestoreFromSnapshotCommand = async (
+/**
+ * serializeAws_json1_1RestoreFromSnapshotCommand
+ */
+export const se_RestoreFromSnapshotCommand = async (
   input: RestoreFromSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.RestoreFromSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreFromSnapshot");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RestoreFromSnapshotRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RestoreTableFromSnapshotCommand = async (
+/**
+ * serializeAws_json1_1RestoreTableFromSnapshotCommand
+ */
+export const se_RestoreTableFromSnapshotCommand = async (
   input: RestoreTableFromSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.RestoreTableFromSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreTableFromSnapshot");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RestoreTableFromSnapshotRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateEndpointAccessCommand = async (
+/**
+ * serializeAws_json1_1UpdateEndpointAccessCommand
+ */
+export const se_UpdateEndpointAccessCommand = async (
   input: UpdateEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.UpdateEndpointAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEndpointAccess");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateEndpointAccessRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateNamespaceCommand = async (
+/**
+ * serializeAws_json1_1UpdateNamespaceCommand
+ */
+export const se_UpdateNamespaceCommand = async (
   input: UpdateNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.UpdateNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateNamespace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateNamespaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateSnapshotCommand = async (
+/**
+ * serializeAws_json1_1UpdateSnapshotCommand
+ */
+export const se_UpdateSnapshotCommand = async (
   input: UpdateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.UpdateSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSnapshot");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateSnapshotRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateUsageLimitCommand = async (
+/**
+ * serializeAws_json1_1UpdateUsageLimitCommand
+ */
+export const se_UpdateUsageLimitCommand = async (
   input: UpdateUsageLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.UpdateUsageLimit",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUsageLimit");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateUsageLimitRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateWorkgroupCommand = async (
+/**
+ * serializeAws_json1_1UpdateWorkgroupCommand
+ */
+export const se_UpdateWorkgroupCommand = async (
   input: UpdateWorkgroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.UpdateWorkgroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateWorkgroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateWorkgroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommand = async (
+/**
+ * deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommand
+ */
+export const de_ConvertRecoveryPointToSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConvertRecoveryPointToSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommandError(output, context);
+    return de_ConvertRecoveryPointToSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ConvertRecoveryPointToSnapshotResponse(data, context);
+  contents = de_ConvertRecoveryPointToSnapshotResponse(data, context);
   const response: ConvertRecoveryPointToSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommandError = async (
+/**
+ * deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommandError
+ */
+const de_ConvertRecoveryPointToSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConvertRecoveryPointToSnapshotCommandOutput> => {
@@ -751,51 +742,56 @@ const deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.redshiftserverless#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateEndpointAccessCommand = async (
+/**
+ * deserializeAws_json1_1CreateEndpointAccessCommand
+ */
+export const de_CreateEndpointAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEndpointAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateEndpointAccessCommandError(output, context);
+    return de_CreateEndpointAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEndpointAccessResponse(data, context);
+  contents = de_CreateEndpointAccessResponse(data, context);
   const response: CreateEndpointAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateEndpointAccessCommandError = async (
+/**
+ * deserializeAws_json1_1CreateEndpointAccessCommandError
+ */
+const de_CreateEndpointAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEndpointAccessCommandOutput> => {
@@ -807,51 +803,56 @@ const deserializeAws_json1_1CreateEndpointAccessCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.redshiftserverless#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateNamespaceCommand = async (
+/**
+ * deserializeAws_json1_1CreateNamespaceCommand
+ */
+export const de_CreateNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateNamespaceCommandError(output, context);
+    return de_CreateNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateNamespaceResponse(data, context);
+  contents = de_CreateNamespaceResponse(data, context);
   const response: CreateNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateNamespaceCommandError = async (
+/**
+ * deserializeAws_json1_1CreateNamespaceCommandError
+ */
+const de_CreateNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNamespaceCommandOutput> => {
@@ -863,45 +864,50 @@ const deserializeAws_json1_1CreateNamespaceCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.redshiftserverless#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateSnapshotCommand = async (
+/**
+ * deserializeAws_json1_1CreateSnapshotCommand
+ */
+export const de_CreateSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateSnapshotCommandError(output, context);
+    return de_CreateSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSnapshotResponse(data, context);
+  contents = de_CreateSnapshotResponse(data, context);
   const response: CreateSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateSnapshotCommandError = async (
+/**
+ * deserializeAws_json1_1CreateSnapshotCommandError
+ */
+const de_CreateSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSnapshotCommandOutput> => {
@@ -913,51 +919,56 @@ const deserializeAws_json1_1CreateSnapshotCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.redshiftserverless#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateUsageLimitCommand = async (
+/**
+ * deserializeAws_json1_1CreateUsageLimitCommand
+ */
+export const de_CreateUsageLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUsageLimitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUsageLimitCommandError(output, context);
+    return de_CreateUsageLimitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUsageLimitResponse(data, context);
+  contents = _json(data);
   const response: CreateUsageLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateUsageLimitCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUsageLimitCommandError
+ */
+const de_CreateUsageLimitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUsageLimitCommandOutput> => {
@@ -969,48 +980,53 @@ const deserializeAws_json1_1CreateUsageLimitCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateWorkgroupCommand = async (
+/**
+ * deserializeAws_json1_1CreateWorkgroupCommand
+ */
+export const de_CreateWorkgroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkgroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateWorkgroupCommandError(output, context);
+    return de_CreateWorkgroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateWorkgroupResponse(data, context);
+  contents = de_CreateWorkgroupResponse(data, context);
   const response: CreateWorkgroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateWorkgroupCommandError = async (
+/**
+ * deserializeAws_json1_1CreateWorkgroupCommandError
+ */
+const de_CreateWorkgroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkgroupCommandOutput> => {
@@ -1022,51 +1038,56 @@ const deserializeAws_json1_1CreateWorkgroupCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InsufficientCapacityException":
     case "com.amazonaws.redshiftserverless#InsufficientCapacityException":
-      throw await deserializeAws_json1_1InsufficientCapacityExceptionResponse(parsedOutput, context);
+      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.redshiftserverless#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteEndpointAccessCommand = async (
+/**
+ * deserializeAws_json1_1DeleteEndpointAccessCommand
+ */
+export const de_DeleteEndpointAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEndpointAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteEndpointAccessCommandError(output, context);
+    return de_DeleteEndpointAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteEndpointAccessResponse(data, context);
+  contents = de_DeleteEndpointAccessResponse(data, context);
   const response: DeleteEndpointAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteEndpointAccessCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteEndpointAccessCommandError
+ */
+const de_DeleteEndpointAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEndpointAccessCommandOutput> => {
@@ -1078,45 +1099,50 @@ const deserializeAws_json1_1DeleteEndpointAccessCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteNamespaceCommand = async (
+/**
+ * deserializeAws_json1_1DeleteNamespaceCommand
+ */
+export const de_DeleteNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteNamespaceCommandError(output, context);
+    return de_DeleteNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteNamespaceResponse(data, context);
+  contents = de_DeleteNamespaceResponse(data, context);
   const response: DeleteNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteNamespaceCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteNamespaceCommandError
+ */
+const de_DeleteNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNamespaceCommandOutput> => {
@@ -1128,45 +1154,50 @@ const deserializeAws_json1_1DeleteNamespaceCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteResourcePolicyCommandError(output, context);
+    return de_DeleteResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommandError
+ */
+const de_DeleteResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
@@ -1178,42 +1209,47 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteSnapshotCommand = async (
+/**
+ * deserializeAws_json1_1DeleteSnapshotCommand
+ */
+export const de_DeleteSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteSnapshotCommandError(output, context);
+    return de_DeleteSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSnapshotResponse(data, context);
+  contents = de_DeleteSnapshotResponse(data, context);
   const response: DeleteSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteSnapshotCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteSnapshotCommandError
+ */
+const de_DeleteSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSnapshotCommandOutput> => {
@@ -1225,45 +1261,50 @@ const deserializeAws_json1_1DeleteSnapshotCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteUsageLimitCommand = async (
+/**
+ * deserializeAws_json1_1DeleteUsageLimitCommand
+ */
+export const de_DeleteUsageLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUsageLimitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteUsageLimitCommandError(output, context);
+    return de_DeleteUsageLimitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUsageLimitResponse(data, context);
+  contents = _json(data);
   const response: DeleteUsageLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteUsageLimitCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteUsageLimitCommandError
+ */
+const de_DeleteUsageLimitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUsageLimitCommandOutput> => {
@@ -1275,45 +1316,50 @@ const deserializeAws_json1_1DeleteUsageLimitCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteWorkgroupCommand = async (
+/**
+ * deserializeAws_json1_1DeleteWorkgroupCommand
+ */
+export const de_DeleteWorkgroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkgroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteWorkgroupCommandError(output, context);
+    return de_DeleteWorkgroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteWorkgroupResponse(data, context);
+  contents = de_DeleteWorkgroupResponse(data, context);
   const response: DeleteWorkgroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteWorkgroupCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteWorkgroupCommandError
+ */
+const de_DeleteWorkgroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkgroupCommandOutput> => {
@@ -1325,45 +1371,50 @@ const deserializeAws_json1_1DeleteWorkgroupCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetCredentialsCommand = async (
+/**
+ * deserializeAws_json1_1GetCredentialsCommand
+ */
+export const de_GetCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCredentialsCommandError(output, context);
+    return de_GetCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCredentialsResponse(data, context);
+  contents = de_GetCredentialsResponse(data, context);
   const response: GetCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetCredentialsCommandError = async (
+/**
+ * deserializeAws_json1_1GetCredentialsCommandError
+ */
+const de_GetCredentialsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCredentialsCommandOutput> => {
@@ -1375,42 +1426,47 @@ const deserializeAws_json1_1GetCredentialsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetEndpointAccessCommand = async (
+/**
+ * deserializeAws_json1_1GetEndpointAccessCommand
+ */
+export const de_GetEndpointAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEndpointAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetEndpointAccessCommandError(output, context);
+    return de_GetEndpointAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetEndpointAccessResponse(data, context);
+  contents = de_GetEndpointAccessResponse(data, context);
   const response: GetEndpointAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetEndpointAccessCommandError = async (
+/**
+ * deserializeAws_json1_1GetEndpointAccessCommandError
+ */
+const de_GetEndpointAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEndpointAccessCommandOutput> => {
@@ -1422,45 +1478,50 @@ const deserializeAws_json1_1GetEndpointAccessCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetNamespaceCommand = async (
+/**
+ * deserializeAws_json1_1GetNamespaceCommand
+ */
+export const de_GetNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetNamespaceCommandError(output, context);
+    return de_GetNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetNamespaceResponse(data, context);
+  contents = de_GetNamespaceResponse(data, context);
   const response: GetNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetNamespaceCommandError = async (
+/**
+ * deserializeAws_json1_1GetNamespaceCommandError
+ */
+const de_GetNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNamespaceCommandOutput> => {
@@ -1472,42 +1533,47 @@ const deserializeAws_json1_1GetNamespaceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetRecoveryPointCommand = async (
+/**
+ * deserializeAws_json1_1GetRecoveryPointCommand
+ */
+export const de_GetRecoveryPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecoveryPointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetRecoveryPointCommandError(output, context);
+    return de_GetRecoveryPointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRecoveryPointResponse(data, context);
+  contents = de_GetRecoveryPointResponse(data, context);
   const response: GetRecoveryPointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetRecoveryPointCommandError = async (
+/**
+ * deserializeAws_json1_1GetRecoveryPointCommandError
+ */
+const de_GetRecoveryPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecoveryPointCommandOutput> => {
@@ -1519,45 +1585,50 @@ const deserializeAws_json1_1GetRecoveryPointCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResourcePolicyCommandError(output, context);
+    return de_GetResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: GetResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetResourcePolicyCommandError
+ */
+const de_GetResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
@@ -1569,42 +1640,47 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetSnapshotCommand = async (
+/**
+ * deserializeAws_json1_1GetSnapshotCommand
+ */
+export const de_GetSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetSnapshotCommandError(output, context);
+    return de_GetSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSnapshotResponse(data, context);
+  contents = de_GetSnapshotResponse(data, context);
   const response: GetSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetSnapshotCommandError = async (
+/**
+ * deserializeAws_json1_1GetSnapshotCommandError
+ */
+const de_GetSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSnapshotCommandOutput> => {
@@ -1616,42 +1692,47 @@ const deserializeAws_json1_1GetSnapshotCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetTableRestoreStatusCommand = async (
+/**
+ * deserializeAws_json1_1GetTableRestoreStatusCommand
+ */
+export const de_GetTableRestoreStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTableRestoreStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetTableRestoreStatusCommandError(output, context);
+    return de_GetTableRestoreStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTableRestoreStatusResponse(data, context);
+  contents = de_GetTableRestoreStatusResponse(data, context);
   const response: GetTableRestoreStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetTableRestoreStatusCommandError = async (
+/**
+ * deserializeAws_json1_1GetTableRestoreStatusCommandError
+ */
+const de_GetTableRestoreStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTableRestoreStatusCommandOutput> => {
@@ -1663,39 +1744,44 @@ const deserializeAws_json1_1GetTableRestoreStatusCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetUsageLimitCommand = async (
+/**
+ * deserializeAws_json1_1GetUsageLimitCommand
+ */
+export const de_GetUsageLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUsageLimitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetUsageLimitCommandError(output, context);
+    return de_GetUsageLimitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUsageLimitResponse(data, context);
+  contents = _json(data);
   const response: GetUsageLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetUsageLimitCommandError = async (
+/**
+ * deserializeAws_json1_1GetUsageLimitCommandError
+ */
+const de_GetUsageLimitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUsageLimitCommandOutput> => {
@@ -1707,45 +1793,50 @@ const deserializeAws_json1_1GetUsageLimitCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetWorkgroupCommand = async (
+/**
+ * deserializeAws_json1_1GetWorkgroupCommand
+ */
+export const de_GetWorkgroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWorkgroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetWorkgroupCommandError(output, context);
+    return de_GetWorkgroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetWorkgroupResponse(data, context);
+  contents = de_GetWorkgroupResponse(data, context);
   const response: GetWorkgroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetWorkgroupCommandError = async (
+/**
+ * deserializeAws_json1_1GetWorkgroupCommandError
+ */
+const de_GetWorkgroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWorkgroupCommandOutput> => {
@@ -1757,42 +1848,47 @@ const deserializeAws_json1_1GetWorkgroupCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListEndpointAccessCommand = async (
+/**
+ * deserializeAws_json1_1ListEndpointAccessCommand
+ */
+export const de_ListEndpointAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEndpointAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListEndpointAccessCommandError(output, context);
+    return de_ListEndpointAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEndpointAccessResponse(data, context);
+  contents = de_ListEndpointAccessResponse(data, context);
   const response: ListEndpointAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListEndpointAccessCommandError = async (
+/**
+ * deserializeAws_json1_1ListEndpointAccessCommandError
+ */
+const de_ListEndpointAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEndpointAccessCommandOutput> => {
@@ -1804,45 +1900,50 @@ const deserializeAws_json1_1ListEndpointAccessCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListNamespacesCommand = async (
+/**
+ * deserializeAws_json1_1ListNamespacesCommand
+ */
+export const de_ListNamespacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNamespacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListNamespacesCommandError(output, context);
+    return de_ListNamespacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListNamespacesResponse(data, context);
+  contents = de_ListNamespacesResponse(data, context);
   const response: ListNamespacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListNamespacesCommandError = async (
+/**
+ * deserializeAws_json1_1ListNamespacesCommandError
+ */
+const de_ListNamespacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNamespacesCommandOutput> => {
@@ -1854,39 +1955,44 @@ const deserializeAws_json1_1ListNamespacesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListRecoveryPointsCommand = async (
+/**
+ * deserializeAws_json1_1ListRecoveryPointsCommand
+ */
+export const de_ListRecoveryPointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecoveryPointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListRecoveryPointsCommandError(output, context);
+    return de_ListRecoveryPointsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRecoveryPointsResponse(data, context);
+  contents = de_ListRecoveryPointsResponse(data, context);
   const response: ListRecoveryPointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListRecoveryPointsCommandError = async (
+/**
+ * deserializeAws_json1_1ListRecoveryPointsCommandError
+ */
+const de_ListRecoveryPointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecoveryPointsCommandOutput> => {
@@ -1898,39 +2004,44 @@ const deserializeAws_json1_1ListRecoveryPointsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListSnapshotsCommand = async (
+/**
+ * deserializeAws_json1_1ListSnapshotsCommand
+ */
+export const de_ListSnapshotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListSnapshotsCommandError(output, context);
+    return de_ListSnapshotsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSnapshotsResponse(data, context);
+  contents = de_ListSnapshotsResponse(data, context);
   const response: ListSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListSnapshotsCommandError = async (
+/**
+ * deserializeAws_json1_1ListSnapshotsCommandError
+ */
+const de_ListSnapshotsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSnapshotsCommandOutput> => {
@@ -1942,42 +2053,47 @@ const deserializeAws_json1_1ListSnapshotsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTableRestoreStatusCommand = async (
+/**
+ * deserializeAws_json1_1ListTableRestoreStatusCommand
+ */
+export const de_ListTableRestoreStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTableRestoreStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTableRestoreStatusCommandError(output, context);
+    return de_ListTableRestoreStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTableRestoreStatusResponse(data, context);
+  contents = de_ListTableRestoreStatusResponse(data, context);
   const response: ListTableRestoreStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTableRestoreStatusCommandError = async (
+/**
+ * deserializeAws_json1_1ListTableRestoreStatusCommandError
+ */
+const de_ListTableRestoreStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTableRestoreStatusCommandOutput> => {
@@ -1989,42 +2105,47 @@ const deserializeAws_json1_1ListTableRestoreStatusCommandError = async (
   switch (errorCode) {
     case "InvalidPaginationException":
     case "com.amazonaws.redshiftserverless#InvalidPaginationException":
-      throw await deserializeAws_json1_1InvalidPaginationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -2036,45 +2157,50 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.redshiftserverless#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListUsageLimitsCommand = async (
+/**
+ * deserializeAws_json1_1ListUsageLimitsCommand
+ */
+export const de_ListUsageLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsageLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListUsageLimitsCommandError(output, context);
+    return de_ListUsageLimitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUsageLimitsResponse(data, context);
+  contents = _json(data);
   const response: ListUsageLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListUsageLimitsCommandError = async (
+/**
+ * deserializeAws_json1_1ListUsageLimitsCommandError
+ */
+const de_ListUsageLimitsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsageLimitsCommandOutput> => {
@@ -2086,48 +2212,53 @@ const deserializeAws_json1_1ListUsageLimitsCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidPaginationException":
     case "com.amazonaws.redshiftserverless#InvalidPaginationException":
-      throw await deserializeAws_json1_1InvalidPaginationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListWorkgroupsCommand = async (
+/**
+ * deserializeAws_json1_1ListWorkgroupsCommand
+ */
+export const de_ListWorkgroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkgroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListWorkgroupsCommandError(output, context);
+    return de_ListWorkgroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListWorkgroupsResponse(data, context);
+  contents = de_ListWorkgroupsResponse(data, context);
   const response: ListWorkgroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListWorkgroupsCommandError = async (
+/**
+ * deserializeAws_json1_1ListWorkgroupsCommandError
+ */
+const de_ListWorkgroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkgroupsCommandOutput> => {
@@ -2139,39 +2270,44 @@ const deserializeAws_json1_1ListWorkgroupsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutResourcePolicyCommandError(output, context);
+    return de_PutResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommandError
+ */
+const de_PutResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
@@ -2183,48 +2319,53 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RestoreFromRecoveryPointCommand = async (
+/**
+ * deserializeAws_json1_1RestoreFromRecoveryPointCommand
+ */
+export const de_RestoreFromRecoveryPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreFromRecoveryPointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RestoreFromRecoveryPointCommandError(output, context);
+    return de_RestoreFromRecoveryPointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RestoreFromRecoveryPointResponse(data, context);
+  contents = de_RestoreFromRecoveryPointResponse(data, context);
   const response: RestoreFromRecoveryPointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RestoreFromRecoveryPointCommandError = async (
+/**
+ * deserializeAws_json1_1RestoreFromRecoveryPointCommandError
+ */
+const de_RestoreFromRecoveryPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreFromRecoveryPointCommandOutput> => {
@@ -2236,45 +2377,50 @@ const deserializeAws_json1_1RestoreFromRecoveryPointCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RestoreFromSnapshotCommand = async (
+/**
+ * deserializeAws_json1_1RestoreFromSnapshotCommand
+ */
+export const de_RestoreFromSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreFromSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RestoreFromSnapshotCommandError(output, context);
+    return de_RestoreFromSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RestoreFromSnapshotResponse(data, context);
+  contents = de_RestoreFromSnapshotResponse(data, context);
   const response: RestoreFromSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RestoreFromSnapshotCommandError = async (
+/**
+ * deserializeAws_json1_1RestoreFromSnapshotCommandError
+ */
+const de_RestoreFromSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreFromSnapshotCommandOutput> => {
@@ -2286,48 +2432,53 @@ const deserializeAws_json1_1RestoreFromSnapshotCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RestoreTableFromSnapshotCommand = async (
+/**
+ * deserializeAws_json1_1RestoreTableFromSnapshotCommand
+ */
+export const de_RestoreTableFromSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreTableFromSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RestoreTableFromSnapshotCommandError(output, context);
+    return de_RestoreTableFromSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RestoreTableFromSnapshotResponse(data, context);
+  contents = de_RestoreTableFromSnapshotResponse(data, context);
   const response: RestoreTableFromSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RestoreTableFromSnapshotCommandError = async (
+/**
+ * deserializeAws_json1_1RestoreTableFromSnapshotCommandError
+ */
+const de_RestoreTableFromSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreTableFromSnapshotCommandOutput> => {
@@ -2339,45 +2490,50 @@ const deserializeAws_json1_1RestoreTableFromSnapshotCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2389,48 +2545,53 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.redshiftserverless#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.redshiftserverless#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2442,45 +2603,50 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.redshiftserverless#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateEndpointAccessCommand = async (
+/**
+ * deserializeAws_json1_1UpdateEndpointAccessCommand
+ */
+export const de_UpdateEndpointAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateEndpointAccessCommandError(output, context);
+    return de_UpdateEndpointAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEndpointAccessResponse(data, context);
+  contents = de_UpdateEndpointAccessResponse(data, context);
   const response: UpdateEndpointAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateEndpointAccessCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateEndpointAccessCommandError
+ */
+const de_UpdateEndpointAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointAccessCommandOutput> => {
@@ -2492,48 +2658,53 @@ const deserializeAws_json1_1UpdateEndpointAccessCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.redshiftserverless#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateNamespaceCommand = async (
+/**
+ * deserializeAws_json1_1UpdateNamespaceCommand
+ */
+export const de_UpdateNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateNamespaceCommandError(output, context);
+    return de_UpdateNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateNamespaceResponse(data, context);
+  contents = de_UpdateNamespaceResponse(data, context);
   const response: UpdateNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateNamespaceCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateNamespaceCommandError
+ */
+const de_UpdateNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNamespaceCommandOutput> => {
@@ -2545,45 +2716,50 @@ const deserializeAws_json1_1UpdateNamespaceCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateSnapshotCommand = async (
+/**
+ * deserializeAws_json1_1UpdateSnapshotCommand
+ */
+export const de_UpdateSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateSnapshotCommandError(output, context);
+    return de_UpdateSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSnapshotResponse(data, context);
+  contents = de_UpdateSnapshotResponse(data, context);
   const response: UpdateSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateSnapshotCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateSnapshotCommandError
+ */
+const de_UpdateSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSnapshotCommandOutput> => {
@@ -2595,45 +2771,50 @@ const deserializeAws_json1_1UpdateSnapshotCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateUsageLimitCommand = async (
+/**
+ * deserializeAws_json1_1UpdateUsageLimitCommand
+ */
+export const de_UpdateUsageLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUsageLimitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateUsageLimitCommandError(output, context);
+    return de_UpdateUsageLimitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUsageLimitResponse(data, context);
+  contents = _json(data);
   const response: UpdateUsageLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateUsageLimitCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateUsageLimitCommandError
+ */
+const de_UpdateUsageLimitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUsageLimitCommandOutput> => {
@@ -2645,45 +2826,50 @@ const deserializeAws_json1_1UpdateUsageLimitCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateWorkgroupCommand = async (
+/**
+ * deserializeAws_json1_1UpdateWorkgroupCommand
+ */
+export const de_UpdateWorkgroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWorkgroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateWorkgroupCommandError(output, context);
+    return de_UpdateWorkgroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateWorkgroupResponse(data, context);
+  contents = de_UpdateWorkgroupResponse(data, context);
   const response: UpdateWorkgroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateWorkgroupCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateWorkgroupCommandError
+ */
+const de_UpdateWorkgroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWorkgroupCommandOutput> => {
@@ -2695,36 +2881,38 @@ const deserializeAws_json1_1UpdateWorkgroupCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InsufficientCapacityException":
     case "com.amazonaws.redshiftserverless#InsufficientCapacityException":
-      throw await deserializeAws_json1_1InsufficientCapacityExceptionResponse(parsedOutput, context);
+      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2732,12 +2920,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2745,12 +2933,15 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InsufficientCapacityExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InsufficientCapacityExceptionRes
+ */
+const de_InsufficientCapacityExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InsufficientCapacityException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InsufficientCapacityException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InsufficientCapacityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2758,12 +2949,15 @@ const deserializeAws_json1_1InsufficientCapacityExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2771,12 +2965,15 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidPaginationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidPaginationExceptionRes
+ */
+const de_InvalidPaginationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPaginationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPaginationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPaginationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2784,12 +2981,15 @@ const deserializeAws_json1_1InvalidPaginationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2797,12 +2997,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2810,12 +3013,12 @@ const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2823,12 +3026,15 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2836,12 +3042,12 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2849,1323 +3055,685 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1ConfigParameter = (input: ConfigParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.parameterKey != null && { parameterKey: input.parameterKey }),
-    ...(input.parameterValue != null && { parameterValue: input.parameterValue }),
-  };
+// se_ConfigParameter omitted.
+
+// se_ConfigParameterList omitted.
+
+// se_ConvertRecoveryPointToSnapshotRequest omitted.
+
+// se_CreateEndpointAccessRequest omitted.
+
+// se_CreateNamespaceRequest omitted.
+
+// se_CreateSnapshotRequest omitted.
+
+// se_CreateUsageLimitRequest omitted.
+
+// se_CreateWorkgroupRequest omitted.
+
+// se_DeleteEndpointAccessRequest omitted.
+
+// se_DeleteNamespaceRequest omitted.
+
+// se_DeleteResourcePolicyRequest omitted.
+
+// se_DeleteSnapshotRequest omitted.
+
+// se_DeleteUsageLimitRequest omitted.
+
+// se_DeleteWorkgroupRequest omitted.
+
+// se_GetCredentialsRequest omitted.
+
+// se_GetEndpointAccessRequest omitted.
+
+// se_GetNamespaceRequest omitted.
+
+// se_GetRecoveryPointRequest omitted.
+
+// se_GetResourcePolicyRequest omitted.
+
+// se_GetSnapshotRequest omitted.
+
+// se_GetTableRestoreStatusRequest omitted.
+
+// se_GetUsageLimitRequest omitted.
+
+// se_GetWorkgroupRequest omitted.
+
+// se_IamRoleArnList omitted.
+
+// se_ListEndpointAccessRequest omitted.
+
+// se_ListNamespacesRequest omitted.
+
+/**
+ * serializeAws_json1_1ListRecoveryPointsRequest
+ */
+const se_ListRecoveryPointsRequest = (input: ListRecoveryPointsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    endTime: (_) => Math.round(_.getTime() / 1000),
+    maxResults: [],
+    namespaceArn: [],
+    namespaceName: [],
+    nextToken: [],
+    startTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_json1_1ConfigParameterList = (input: ConfigParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1ConfigParameter(entry, context);
-    });
+/**
+ * serializeAws_json1_1ListSnapshotsRequest
+ */
+const se_ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    endTime: (_) => Math.round(_.getTime() / 1000),
+    maxResults: [],
+    namespaceArn: [],
+    namespaceName: [],
+    nextToken: [],
+    ownerAccount: [],
+    startTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_json1_1ConvertRecoveryPointToSnapshotRequest = (
-  input: ConvertRecoveryPointToSnapshotRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.recoveryPointId != null && { recoveryPointId: input.recoveryPointId }),
-    ...(input.retentionPeriod != null && { retentionPeriod: input.retentionPeriod }),
-    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-  };
-};
+// se_ListTableRestoreStatusRequest omitted.
 
-const serializeAws_json1_1CreateEndpointAccessRequest = (
-  input: CreateEndpointAccessRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.endpointName != null && { endpointName: input.endpointName }),
-    ...(input.subnetIds != null && { subnetIds: serializeAws_json1_1SubnetIdList(input.subnetIds, context) }),
-    ...(input.vpcSecurityGroupIds != null && {
-      vpcSecurityGroupIds: serializeAws_json1_1VpcSecurityGroupIdList(input.vpcSecurityGroupIds, context),
-    }),
-    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-const serializeAws_json1_1CreateNamespaceRequest = (input: CreateNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.adminUserPassword != null && { adminUserPassword: input.adminUserPassword }),
-    ...(input.adminUsername != null && { adminUsername: input.adminUsername }),
-    ...(input.dbName != null && { dbName: input.dbName }),
-    ...(input.defaultIamRoleArn != null && { defaultIamRoleArn: input.defaultIamRoleArn }),
-    ...(input.iamRoles != null && { iamRoles: serializeAws_json1_1IamRoleArnList(input.iamRoles, context) }),
-    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
-    ...(input.logExports != null && { logExports: serializeAws_json1_1LogExportList(input.logExports, context) }),
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-  };
-};
+// se_ListUsageLimitsRequest omitted.
 
-const serializeAws_json1_1CreateSnapshotRequest = (input: CreateSnapshotRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-    ...(input.retentionPeriod != null && { retentionPeriod: input.retentionPeriod }),
-    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-  };
-};
+// se_ListWorkgroupsRequest omitted.
 
-const serializeAws_json1_1CreateUsageLimitRequest = (input: CreateUsageLimitRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.amount != null && { amount: input.amount }),
-    ...(input.breachAction != null && { breachAction: input.breachAction }),
-    ...(input.period != null && { period: input.period }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.usageType != null && { usageType: input.usageType }),
-  };
-};
+// se_LogExportList omitted.
 
-const serializeAws_json1_1CreateWorkgroupRequest = (input: CreateWorkgroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.baseCapacity != null && { baseCapacity: input.baseCapacity }),
-    ...(input.configParameters != null && {
-      configParameters: serializeAws_json1_1ConfigParameterList(input.configParameters, context),
-    }),
-    ...(input.enhancedVpcRouting != null && { enhancedVpcRouting: input.enhancedVpcRouting }),
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.publiclyAccessible != null && { publiclyAccessible: input.publiclyAccessible }),
-    ...(input.securityGroupIds != null && {
-      securityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.securityGroupIds, context),
-    }),
-    ...(input.subnetIds != null && { subnetIds: serializeAws_json1_1SubnetIdList(input.subnetIds, context) }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
-  };
-};
+// se_PutResourcePolicyRequest omitted.
 
-const serializeAws_json1_1DeleteEndpointAccessRequest = (
-  input: DeleteEndpointAccessRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.endpointName != null && { endpointName: input.endpointName }),
-  };
-};
+// se_RestoreFromRecoveryPointRequest omitted.
 
-const serializeAws_json1_1DeleteNamespaceRequest = (input: DeleteNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.finalSnapshotName != null && { finalSnapshotName: input.finalSnapshotName }),
-    ...(input.finalSnapshotRetentionPeriod != null && {
-      finalSnapshotRetentionPeriod: input.finalSnapshotRetentionPeriod,
-    }),
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-  };
-};
+// se_RestoreFromSnapshotRequest omitted.
 
-const serializeAws_json1_1DeleteResourcePolicyRequest = (
-  input: DeleteResourcePolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_RestoreTableFromSnapshotRequest omitted.
 
-const serializeAws_json1_1DeleteSnapshotRequest = (input: DeleteSnapshotRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
-  };
-};
+// se_SecurityGroupIdList omitted.
 
-const serializeAws_json1_1DeleteUsageLimitRequest = (input: DeleteUsageLimitRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.usageLimitId != null && { usageLimitId: input.usageLimitId }),
-  };
-};
+// se_SubnetIdList omitted.
 
-const serializeAws_json1_1DeleteWorkgroupRequest = (input: DeleteWorkgroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
-  };
-};
+// se_Tag omitted.
 
-const serializeAws_json1_1GetCredentialsRequest = (input: GetCredentialsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.dbName != null && { dbName: input.dbName }),
-    ...(input.durationSeconds != null && { durationSeconds: input.durationSeconds }),
-    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
-  };
-};
+// se_TagKeyList omitted.
 
-const serializeAws_json1_1GetEndpointAccessRequest = (
-  input: GetEndpointAccessRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.endpointName != null && { endpointName: input.endpointName }),
-  };
-};
+// se_TagList omitted.
 
-const serializeAws_json1_1GetNamespaceRequest = (input: GetNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-const serializeAws_json1_1GetRecoveryPointRequest = (input: GetRecoveryPointRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.recoveryPointId != null && { recoveryPointId: input.recoveryPointId }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-const serializeAws_json1_1GetResourcePolicyRequest = (
-  input: GetResourcePolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_UpdateEndpointAccessRequest omitted.
 
-const serializeAws_json1_1GetSnapshotRequest = (input: GetSnapshotRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
-    ...(input.snapshotArn != null && { snapshotArn: input.snapshotArn }),
-    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
-  };
-};
+// se_UpdateNamespaceRequest omitted.
 
-const serializeAws_json1_1GetTableRestoreStatusRequest = (
-  input: GetTableRestoreStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.tableRestoreRequestId != null && { tableRestoreRequestId: input.tableRestoreRequestId }),
-  };
-};
+// se_UpdateSnapshotRequest omitted.
 
-const serializeAws_json1_1GetUsageLimitRequest = (input: GetUsageLimitRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.usageLimitId != null && { usageLimitId: input.usageLimitId }),
-  };
-};
+// se_UpdateUsageLimitRequest omitted.
 
-const serializeAws_json1_1GetWorkgroupRequest = (input: GetWorkgroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
-  };
-};
+// se_UpdateWorkgroupRequest omitted.
 
-const serializeAws_json1_1IamRoleArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VpcSecurityGroupIdList omitted.
 
-const serializeAws_json1_1ListEndpointAccessRequest = (
-  input: ListEndpointAccessRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.vpcId != null && { vpcId: input.vpcId }),
-    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
-  };
-};
+// de_AccessDeniedException omitted.
 
-const serializeAws_json1_1ListNamespacesRequest = (input: ListNamespacesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
+// de_AccountIdList omitted.
 
-const serializeAws_json1_1ListRecoveryPointsRequest = (
-  input: ListRecoveryPointsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.namespaceArn != null && { namespaceArn: input.namespaceArn }),
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-  };
-};
+// de_ConfigParameter omitted.
 
-const serializeAws_json1_1ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.namespaceArn != null && { namespaceArn: input.namespaceArn }),
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
-    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-  };
-};
+// de_ConfigParameterList omitted.
 
-const serializeAws_json1_1ListTableRestoreStatusRequest = (
-  input: ListTableRestoreStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
-  };
-};
+// de_ConflictException omitted.
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
-
-const serializeAws_json1_1ListUsageLimitsRequest = (input: ListUsageLimitsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.usageType != null && { usageType: input.usageType }),
-  };
-};
-
-const serializeAws_json1_1ListWorkgroupsRequest = (input: ListWorkgroupsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-  };
-};
-
-const serializeAws_json1_1LogExportList = (input: (LogExport | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1PutResourcePolicyRequest = (
-  input: PutResourcePolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.policy != null && { policy: input.policy }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
-
-const serializeAws_json1_1RestoreFromRecoveryPointRequest = (
-  input: RestoreFromRecoveryPointRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-    ...(input.recoveryPointId != null && { recoveryPointId: input.recoveryPointId }),
-    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
-  };
-};
-
-const serializeAws_json1_1RestoreFromSnapshotRequest = (
-  input: RestoreFromSnapshotRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-    ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
-    ...(input.snapshotArn != null && { snapshotArn: input.snapshotArn }),
-    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
-    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
-  };
-};
-
-const serializeAws_json1_1RestoreTableFromSnapshotRequest = (
-  input: RestoreTableFromSnapshotRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.activateCaseSensitiveIdentifier != null && {
-      activateCaseSensitiveIdentifier: input.activateCaseSensitiveIdentifier,
-    }),
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-    ...(input.newTableName != null && { newTableName: input.newTableName }),
-    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
-    ...(input.sourceDatabaseName != null && { sourceDatabaseName: input.sourceDatabaseName }),
-    ...(input.sourceSchemaName != null && { sourceSchemaName: input.sourceSchemaName }),
-    ...(input.sourceTableName != null && { sourceTableName: input.sourceTableName }),
-    ...(input.targetDatabaseName != null && { targetDatabaseName: input.targetDatabaseName }),
-    ...(input.targetSchemaName != null && { targetSchemaName: input.targetSchemaName }),
-    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
-  };
-};
-
-const serializeAws_json1_1SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1SubnetIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
-
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
-    });
-};
-
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-  };
-};
-
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
-  };
-};
-
-const serializeAws_json1_1UpdateEndpointAccessRequest = (
-  input: UpdateEndpointAccessRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.endpointName != null && { endpointName: input.endpointName }),
-    ...(input.vpcSecurityGroupIds != null && {
-      vpcSecurityGroupIds: serializeAws_json1_1VpcSecurityGroupIdList(input.vpcSecurityGroupIds, context),
-    }),
-  };
-};
-
-const serializeAws_json1_1UpdateNamespaceRequest = (input: UpdateNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.adminUserPassword != null && { adminUserPassword: input.adminUserPassword }),
-    ...(input.adminUsername != null && { adminUsername: input.adminUsername }),
-    ...(input.defaultIamRoleArn != null && { defaultIamRoleArn: input.defaultIamRoleArn }),
-    ...(input.iamRoles != null && { iamRoles: serializeAws_json1_1IamRoleArnList(input.iamRoles, context) }),
-    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
-    ...(input.logExports != null && { logExports: serializeAws_json1_1LogExportList(input.logExports, context) }),
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-  };
-};
-
-const serializeAws_json1_1UpdateSnapshotRequest = (input: UpdateSnapshotRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.retentionPeriod != null && { retentionPeriod: input.retentionPeriod }),
-    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
-  };
-};
-
-const serializeAws_json1_1UpdateUsageLimitRequest = (input: UpdateUsageLimitRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.amount != null && { amount: input.amount }),
-    ...(input.breachAction != null && { breachAction: input.breachAction }),
-    ...(input.usageLimitId != null && { usageLimitId: input.usageLimitId }),
-  };
-};
-
-const serializeAws_json1_1UpdateWorkgroupRequest = (input: UpdateWorkgroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.baseCapacity != null && { baseCapacity: input.baseCapacity }),
-    ...(input.configParameters != null && {
-      configParameters: serializeAws_json1_1ConfigParameterList(input.configParameters, context),
-    }),
-    ...(input.enhancedVpcRouting != null && { enhancedVpcRouting: input.enhancedVpcRouting }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.publiclyAccessible != null && { publiclyAccessible: input.publiclyAccessible }),
-    ...(input.securityGroupIds != null && {
-      securityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.securityGroupIds, context),
-    }),
-    ...(input.subnetIds != null && { subnetIds: serializeAws_json1_1SubnetIdList(input.subnetIds, context) }),
-    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
-  };
-};
-
-const serializeAws_json1_1VpcSecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1AccountIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ConfigParameter = (output: any, context: __SerdeContext): ConfigParameter => {
-  return {
-    parameterKey: __expectString(output.parameterKey),
-    parameterValue: __expectString(output.parameterValue),
-  } as any;
-};
-
-const deserializeAws_json1_1ConfigParameterList = (output: any, context: __SerdeContext): ConfigParameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ConfigParameter(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ConvertRecoveryPointToSnapshotResponse = (
+/**
+ * deserializeAws_json1_1ConvertRecoveryPointToSnapshotResponse
+ */
+const de_ConvertRecoveryPointToSnapshotResponse = (
   output: any,
   context: __SerdeContext
 ): ConvertRecoveryPointToSnapshotResponse => {
-  return {
-    snapshot: output.snapshot != null ? deserializeAws_json1_1Snapshot(output.snapshot, context) : undefined,
-  } as any;
+  return take(output, {
+    snapshot: (_: any) => de_Snapshot(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateEndpointAccessResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateEndpointAccessResponse => {
-  return {
-    endpoint: output.endpoint != null ? deserializeAws_json1_1EndpointAccess(output.endpoint, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1CreateEndpointAccessResponse
+ */
+const de_CreateEndpointAccessResponse = (output: any, context: __SerdeContext): CreateEndpointAccessResponse => {
+  return take(output, {
+    endpoint: (_: any) => de_EndpointAccess(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateNamespaceResponse => {
-  return {
-    namespace: output.namespace != null ? deserializeAws_json1_1Namespace(output.namespace, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1CreateNamespaceResponse
+ */
+const de_CreateNamespaceResponse = (output: any, context: __SerdeContext): CreateNamespaceResponse => {
+  return take(output, {
+    namespace: (_: any) => de_Namespace(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateSnapshotResponse = (output: any, context: __SerdeContext): CreateSnapshotResponse => {
-  return {
-    snapshot: output.snapshot != null ? deserializeAws_json1_1Snapshot(output.snapshot, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1CreateSnapshotResponse
+ */
+const de_CreateSnapshotResponse = (output: any, context: __SerdeContext): CreateSnapshotResponse => {
+  return take(output, {
+    snapshot: (_: any) => de_Snapshot(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateUsageLimitResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateUsageLimitResponse => {
-  return {
-    usageLimit: output.usageLimit != null ? deserializeAws_json1_1UsageLimit(output.usageLimit, context) : undefined,
-  } as any;
+// de_CreateUsageLimitResponse omitted.
+
+/**
+ * deserializeAws_json1_1CreateWorkgroupResponse
+ */
+const de_CreateWorkgroupResponse = (output: any, context: __SerdeContext): CreateWorkgroupResponse => {
+  return take(output, {
+    workgroup: (_: any) => de_Workgroup(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateWorkgroupResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateWorkgroupResponse => {
-  return {
-    workgroup: output.workgroup != null ? deserializeAws_json1_1Workgroup(output.workgroup, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DeleteEndpointAccessResponse
+ */
+const de_DeleteEndpointAccessResponse = (output: any, context: __SerdeContext): DeleteEndpointAccessResponse => {
+  return take(output, {
+    endpoint: (_: any) => de_EndpointAccess(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteEndpointAccessResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteEndpointAccessResponse => {
-  return {
-    endpoint: output.endpoint != null ? deserializeAws_json1_1EndpointAccess(output.endpoint, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DeleteNamespaceResponse
+ */
+const de_DeleteNamespaceResponse = (output: any, context: __SerdeContext): DeleteNamespaceResponse => {
+  return take(output, {
+    namespace: (_: any) => de_Namespace(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteNamespaceResponse => {
-  return {
-    namespace: output.namespace != null ? deserializeAws_json1_1Namespace(output.namespace, context) : undefined,
-  } as any;
+// de_DeleteResourcePolicyResponse omitted.
+
+/**
+ * deserializeAws_json1_1DeleteSnapshotResponse
+ */
+const de_DeleteSnapshotResponse = (output: any, context: __SerdeContext): DeleteSnapshotResponse => {
+  return take(output, {
+    snapshot: (_: any) => de_Snapshot(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteResourcePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteResourcePolicyResponse => {
-  return {} as any;
+// de_DeleteUsageLimitResponse omitted.
+
+/**
+ * deserializeAws_json1_1DeleteWorkgroupResponse
+ */
+const de_DeleteWorkgroupResponse = (output: any, context: __SerdeContext): DeleteWorkgroupResponse => {
+  return take(output, {
+    workgroup: (_: any) => de_Workgroup(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteSnapshotResponse = (output: any, context: __SerdeContext): DeleteSnapshotResponse => {
-  return {
-    snapshot: output.snapshot != null ? deserializeAws_json1_1Snapshot(output.snapshot, context) : undefined,
-  } as any;
+// de_Endpoint omitted.
+
+/**
+ * deserializeAws_json1_1EndpointAccess
+ */
+const de_EndpointAccess = (output: any, context: __SerdeContext): EndpointAccess => {
+  return take(output, {
+    address: __expectString,
+    endpointArn: __expectString,
+    endpointCreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    endpointName: __expectString,
+    endpointStatus: __expectString,
+    port: __expectInt32,
+    subnetIds: _json,
+    vpcEndpoint: _json,
+    vpcSecurityGroups: _json,
+    workgroupName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteUsageLimitResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteUsageLimitResponse => {
-  return {
-    usageLimit: output.usageLimit != null ? deserializeAws_json1_1UsageLimit(output.usageLimit, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DeleteWorkgroupResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteWorkgroupResponse => {
-  return {
-    workgroup: output.workgroup != null ? deserializeAws_json1_1Workgroup(output.workgroup, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): Endpoint => {
-  return {
-    address: __expectString(output.address),
-    port: __expectInt32(output.port),
-    vpcEndpoints:
-      output.vpcEndpoints != null ? deserializeAws_json1_1VpcEndpointList(output.vpcEndpoints, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1EndpointAccess = (output: any, context: __SerdeContext): EndpointAccess => {
-  return {
-    address: __expectString(output.address),
-    endpointArn: __expectString(output.endpointArn),
-    endpointCreateTime:
-      output.endpointCreateTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endpointCreateTime))
-        : undefined,
-    endpointName: __expectString(output.endpointName),
-    endpointStatus: __expectString(output.endpointStatus),
-    port: __expectInt32(output.port),
-    subnetIds: output.subnetIds != null ? deserializeAws_json1_1SubnetIdList(output.subnetIds, context) : undefined,
-    vpcEndpoint:
-      output.vpcEndpoint != null ? deserializeAws_json1_1VpcEndpoint(output.vpcEndpoint, context) : undefined,
-    vpcSecurityGroups:
-      output.vpcSecurityGroups != null
-        ? deserializeAws_json1_1VpcSecurityGroupMembershipList(output.vpcSecurityGroups, context)
-        : undefined,
-    workgroupName: __expectString(output.workgroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1EndpointAccessList = (output: any, context: __SerdeContext): EndpointAccess[] => {
+/**
+ * deserializeAws_json1_1EndpointAccessList
+ */
+const de_EndpointAccessList = (output: any, context: __SerdeContext): EndpointAccess[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1EndpointAccess(entry, context);
+      return de_EndpointAccess(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GetCredentialsResponse = (output: any, context: __SerdeContext): GetCredentialsResponse => {
-  return {
-    dbPassword: __expectString(output.dbPassword),
-    dbUser: __expectString(output.dbUser),
-    expiration:
-      output.expiration != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiration))) : undefined,
-    nextRefreshTime:
-      output.nextRefreshTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.nextRefreshTime)))
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1GetCredentialsResponse
+ */
+const de_GetCredentialsResponse = (output: any, context: __SerdeContext): GetCredentialsResponse => {
+  return take(output, {
+    dbPassword: __expectString,
+    dbUser: __expectString,
+    expiration: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    nextRefreshTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetEndpointAccessResponse = (
-  output: any,
-  context: __SerdeContext
-): GetEndpointAccessResponse => {
-  return {
-    endpoint: output.endpoint != null ? deserializeAws_json1_1EndpointAccess(output.endpoint, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1GetEndpointAccessResponse
+ */
+const de_GetEndpointAccessResponse = (output: any, context: __SerdeContext): GetEndpointAccessResponse => {
+  return take(output, {
+    endpoint: (_: any) => de_EndpointAccess(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetNamespaceResponse = (output: any, context: __SerdeContext): GetNamespaceResponse => {
-  return {
-    namespace: output.namespace != null ? deserializeAws_json1_1Namespace(output.namespace, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1GetNamespaceResponse
+ */
+const de_GetNamespaceResponse = (output: any, context: __SerdeContext): GetNamespaceResponse => {
+  return take(output, {
+    namespace: (_: any) => de_Namespace(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetRecoveryPointResponse = (
-  output: any,
-  context: __SerdeContext
-): GetRecoveryPointResponse => {
-  return {
-    recoveryPoint:
-      output.recoveryPoint != null ? deserializeAws_json1_1RecoveryPoint(output.recoveryPoint, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1GetRecoveryPointResponse
+ */
+const de_GetRecoveryPointResponse = (output: any, context: __SerdeContext): GetRecoveryPointResponse => {
+  return take(output, {
+    recoveryPoint: (_: any) => de_RecoveryPoint(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetResourcePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetResourcePolicyResponse => {
-  return {
-    resourcePolicy:
-      output.resourcePolicy != null ? deserializeAws_json1_1ResourcePolicy(output.resourcePolicy, context) : undefined,
-  } as any;
+// de_GetResourcePolicyResponse omitted.
+
+/**
+ * deserializeAws_json1_1GetSnapshotResponse
+ */
+const de_GetSnapshotResponse = (output: any, context: __SerdeContext): GetSnapshotResponse => {
+  return take(output, {
+    snapshot: (_: any) => de_Snapshot(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetSnapshotResponse = (output: any, context: __SerdeContext): GetSnapshotResponse => {
-  return {
-    snapshot: output.snapshot != null ? deserializeAws_json1_1Snapshot(output.snapshot, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1GetTableRestoreStatusResponse
+ */
+const de_GetTableRestoreStatusResponse = (output: any, context: __SerdeContext): GetTableRestoreStatusResponse => {
+  return take(output, {
+    tableRestoreStatus: (_: any) => de_TableRestoreStatus(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetTableRestoreStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): GetTableRestoreStatusResponse => {
-  return {
-    tableRestoreStatus:
-      output.tableRestoreStatus != null
-        ? deserializeAws_json1_1TableRestoreStatus(output.tableRestoreStatus, context)
-        : undefined,
-  } as any;
+// de_GetUsageLimitResponse omitted.
+
+/**
+ * deserializeAws_json1_1GetWorkgroupResponse
+ */
+const de_GetWorkgroupResponse = (output: any, context: __SerdeContext): GetWorkgroupResponse => {
+  return take(output, {
+    workgroup: (_: any) => de_Workgroup(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetUsageLimitResponse = (output: any, context: __SerdeContext): GetUsageLimitResponse => {
-  return {
-    usageLimit: output.usageLimit != null ? deserializeAws_json1_1UsageLimit(output.usageLimit, context) : undefined,
-  } as any;
+// de_IamRoleArnList omitted.
+
+// de_InsufficientCapacityException omitted.
+
+// de_InternalServerException omitted.
+
+// de_InvalidPaginationException omitted.
+
+/**
+ * deserializeAws_json1_1ListEndpointAccessResponse
+ */
+const de_ListEndpointAccessResponse = (output: any, context: __SerdeContext): ListEndpointAccessResponse => {
+  return take(output, {
+    endpoints: (_: any) => de_EndpointAccessList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetWorkgroupResponse = (output: any, context: __SerdeContext): GetWorkgroupResponse => {
-  return {
-    workgroup: output.workgroup != null ? deserializeAws_json1_1Workgroup(output.workgroup, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1ListNamespacesResponse
+ */
+const de_ListNamespacesResponse = (output: any, context: __SerdeContext): ListNamespacesResponse => {
+  return take(output, {
+    namespaces: (_: any) => de_NamespaceList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1IamRoleArnList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ListRecoveryPointsResponse
+ */
+const de_ListRecoveryPointsResponse = (output: any, context: __SerdeContext): ListRecoveryPointsResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    recoveryPoints: (_: any) => de_RecoveryPointList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListSnapshotsResponse
+ */
+const de_ListSnapshotsResponse = (output: any, context: __SerdeContext): ListSnapshotsResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    snapshots: (_: any) => de_SnapshotList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListTableRestoreStatusResponse
+ */
+const de_ListTableRestoreStatusResponse = (output: any, context: __SerdeContext): ListTableRestoreStatusResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    tableRestoreStatuses: (_: any) => de_TableRestoreStatusList(_, context),
+  }) as any;
+};
+
+// de_ListTagsForResourceResponse omitted.
+
+// de_ListUsageLimitsResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListWorkgroupsResponse
+ */
+const de_ListWorkgroupsResponse = (output: any, context: __SerdeContext): ListWorkgroupsResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    workgroups: (_: any) => de_WorkgroupList(_, context),
+  }) as any;
+};
+
+// de_LogExportList omitted.
+
+/**
+ * deserializeAws_json1_1Namespace
+ */
+const de_Namespace = (output: any, context: __SerdeContext): Namespace => {
+  return take(output, {
+    adminUsername: __expectString,
+    creationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    dbName: __expectString,
+    defaultIamRoleArn: __expectString,
+    iamRoles: _json,
+    kmsKeyId: __expectString,
+    logExports: _json,
+    namespaceArn: __expectString,
+    namespaceId: __expectString,
+    namespaceName: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1NamespaceList
+ */
+const de_NamespaceList = (output: any, context: __SerdeContext): Namespace[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_Namespace(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InsufficientCapacityException = (
-  output: any,
-  context: __SerdeContext
-): InsufficientCapacityException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+// de_NetworkInterface omitted.
+
+// de_NetworkInterfaceList omitted.
+
+// de_PutResourcePolicyResponse omitted.
+
+/**
+ * deserializeAws_json1_1RecoveryPoint
+ */
+const de_RecoveryPoint = (output: any, context: __SerdeContext): RecoveryPoint => {
+  return take(output, {
+    namespaceArn: __expectString,
+    namespaceName: __expectString,
+    recoveryPointCreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    recoveryPointId: __expectString,
+    totalSizeInMegaBytes: __limitedParseDouble,
+    workgroupName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidPaginationException = (
-  output: any,
-  context: __SerdeContext
-): InvalidPaginationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ListEndpointAccessResponse = (
-  output: any,
-  context: __SerdeContext
-): ListEndpointAccessResponse => {
-  return {
-    endpoints:
-      output.endpoints != null ? deserializeAws_json1_1EndpointAccessList(output.endpoints, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListNamespacesResponse = (output: any, context: __SerdeContext): ListNamespacesResponse => {
-  return {
-    namespaces: output.namespaces != null ? deserializeAws_json1_1NamespaceList(output.namespaces, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListRecoveryPointsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListRecoveryPointsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    recoveryPoints:
-      output.recoveryPoints != null
-        ? deserializeAws_json1_1RecoveryPointList(output.recoveryPoints, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListSnapshotsResponse = (output: any, context: __SerdeContext): ListSnapshotsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    snapshots: output.snapshots != null ? deserializeAws_json1_1SnapshotList(output.snapshots, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListTableRestoreStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTableRestoreStatusResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tableRestoreStatuses:
-      output.tableRestoreStatuses != null
-        ? deserializeAws_json1_1TableRestoreStatusList(output.tableRestoreStatuses, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListUsageLimitsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListUsageLimitsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    usageLimits:
-      output.usageLimits != null ? deserializeAws_json1_1UsageLimits(output.usageLimits, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListWorkgroupsResponse = (output: any, context: __SerdeContext): ListWorkgroupsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    workgroups: output.workgroups != null ? deserializeAws_json1_1WorkgroupList(output.workgroups, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1LogExportList = (output: any, context: __SerdeContext): (LogExport | string)[] => {
+/**
+ * deserializeAws_json1_1RecoveryPointList
+ */
+const de_RecoveryPointList = (output: any, context: __SerdeContext): RecoveryPoint[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_RecoveryPoint(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Namespace = (output: any, context: __SerdeContext): Namespace => {
-  return {
-    adminUsername: __expectString(output.adminUsername),
-    creationDate:
-      output.creationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationDate)) : undefined,
-    dbName: __expectString(output.dbName),
-    defaultIamRoleArn: __expectString(output.defaultIamRoleArn),
-    iamRoles: output.iamRoles != null ? deserializeAws_json1_1IamRoleArnList(output.iamRoles, context) : undefined,
-    kmsKeyId: __expectString(output.kmsKeyId),
-    logExports: output.logExports != null ? deserializeAws_json1_1LogExportList(output.logExports, context) : undefined,
-    namespaceArn: __expectString(output.namespaceArn),
-    namespaceId: __expectString(output.namespaceId),
-    namespaceName: __expectString(output.namespaceName),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-const deserializeAws_json1_1NamespaceList = (output: any, context: __SerdeContext): Namespace[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Namespace(entry, context);
-    });
-  return retVal;
-};
+// de_ResourcePolicy omitted.
 
-const deserializeAws_json1_1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
-  return {
-    availabilityZone: __expectString(output.availabilityZone),
-    networkInterfaceId: __expectString(output.networkInterfaceId),
-    privateIpAddress: __expectString(output.privateIpAddress),
-    subnetId: __expectString(output.subnetId),
-  } as any;
-};
-
-const deserializeAws_json1_1NetworkInterfaceList = (output: any, context: __SerdeContext): NetworkInterface[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1NetworkInterface(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1PutResourcePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): PutResourcePolicyResponse => {
-  return {
-    resourcePolicy:
-      output.resourcePolicy != null ? deserializeAws_json1_1ResourcePolicy(output.resourcePolicy, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1RecoveryPoint = (output: any, context: __SerdeContext): RecoveryPoint => {
-  return {
-    namespaceArn: __expectString(output.namespaceArn),
-    namespaceName: __expectString(output.namespaceName),
-    recoveryPointCreateTime:
-      output.recoveryPointCreateTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.recoveryPointCreateTime))
-        : undefined,
-    recoveryPointId: __expectString(output.recoveryPointId),
-    totalSizeInMegaBytes: __limitedParseDouble(output.totalSizeInMegaBytes),
-    workgroupName: __expectString(output.workgroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1RecoveryPointList = (output: any, context: __SerdeContext): RecoveryPoint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1RecoveryPoint(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-    resourceName: __expectString(output.resourceName),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
-  return {
-    policy: __expectString(output.policy),
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
-
-const deserializeAws_json1_1RestoreFromRecoveryPointResponse = (
+/**
+ * deserializeAws_json1_1RestoreFromRecoveryPointResponse
+ */
+const de_RestoreFromRecoveryPointResponse = (
   output: any,
   context: __SerdeContext
 ): RestoreFromRecoveryPointResponse => {
-  return {
-    namespace: output.namespace != null ? deserializeAws_json1_1Namespace(output.namespace, context) : undefined,
-    recoveryPointId: __expectString(output.recoveryPointId),
-  } as any;
+  return take(output, {
+    namespace: (_: any) => de_Namespace(_, context),
+    recoveryPointId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1RestoreFromSnapshotResponse = (
-  output: any,
-  context: __SerdeContext
-): RestoreFromSnapshotResponse => {
-  return {
-    namespace: output.namespace != null ? deserializeAws_json1_1Namespace(output.namespace, context) : undefined,
-    ownerAccount: __expectString(output.ownerAccount),
-    snapshotName: __expectString(output.snapshotName),
-  } as any;
+/**
+ * deserializeAws_json1_1RestoreFromSnapshotResponse
+ */
+const de_RestoreFromSnapshotResponse = (output: any, context: __SerdeContext): RestoreFromSnapshotResponse => {
+  return take(output, {
+    namespace: (_: any) => de_Namespace(_, context),
+    ownerAccount: __expectString,
+    snapshotName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1RestoreTableFromSnapshotResponse = (
+/**
+ * deserializeAws_json1_1RestoreTableFromSnapshotResponse
+ */
+const de_RestoreTableFromSnapshotResponse = (
   output: any,
   context: __SerdeContext
 ): RestoreTableFromSnapshotResponse => {
-  return {
-    tableRestoreStatus:
-      output.tableRestoreStatus != null
-        ? deserializeAws_json1_1TableRestoreStatus(output.tableRestoreStatus, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    tableRestoreStatus: (_: any) => de_TableRestoreStatus(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
+// de_SecurityGroupIdList omitted.
+
+// de_ServiceQuotaExceededException omitted.
+
+/**
+ * deserializeAws_json1_1Snapshot
+ */
+const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
+  return take(output, {
+    accountsWithProvisionedRestoreAccess: _json,
+    accountsWithRestoreAccess: _json,
+    actualIncrementalBackupSizeInMegaBytes: __limitedParseDouble,
+    adminUsername: __expectString,
+    backupProgressInMegaBytes: __limitedParseDouble,
+    currentBackupRateInMegaBytesPerSecond: __limitedParseDouble,
+    elapsedTimeInSeconds: __expectLong,
+    estimatedSecondsToCompletion: __expectLong,
+    kmsKeyId: __expectString,
+    namespaceArn: __expectString,
+    namespaceName: __expectString,
+    ownerAccount: __expectString,
+    snapshotArn: __expectString,
+    snapshotCreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    snapshotName: __expectString,
+    snapshotRemainingDays: __expectInt32,
+    snapshotRetentionPeriod: __expectInt32,
+    snapshotRetentionStartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+    totalBackupSizeInMegaBytes: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SnapshotList
+ */
+const de_SnapshotList = (output: any, context: __SerdeContext): Snapshot[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_Snapshot(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ServiceQuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuotaExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+// de_SubnetIdList omitted.
+
+/**
+ * deserializeAws_json1_1TableRestoreStatus
+ */
+const de_TableRestoreStatus = (output: any, context: __SerdeContext): TableRestoreStatus => {
+  return take(output, {
+    message: __expectString,
+    namespaceName: __expectString,
+    newTableName: __expectString,
+    progressInMegaBytes: __expectLong,
+    requestTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    snapshotName: __expectString,
+    sourceDatabaseName: __expectString,
+    sourceSchemaName: __expectString,
+    sourceTableName: __expectString,
+    status: __expectString,
+    tableRestoreRequestId: __expectString,
+    targetDatabaseName: __expectString,
+    targetSchemaName: __expectString,
+    totalDataInMegaBytes: __expectLong,
+    workgroupName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): Snapshot => {
-  return {
-    accountsWithProvisionedRestoreAccess:
-      output.accountsWithProvisionedRestoreAccess != null
-        ? deserializeAws_json1_1AccountIdList(output.accountsWithProvisionedRestoreAccess, context)
-        : undefined,
-    accountsWithRestoreAccess:
-      output.accountsWithRestoreAccess != null
-        ? deserializeAws_json1_1AccountIdList(output.accountsWithRestoreAccess, context)
-        : undefined,
-    actualIncrementalBackupSizeInMegaBytes: __limitedParseDouble(output.actualIncrementalBackupSizeInMegaBytes),
-    adminUsername: __expectString(output.adminUsername),
-    backupProgressInMegaBytes: __limitedParseDouble(output.backupProgressInMegaBytes),
-    currentBackupRateInMegaBytesPerSecond: __limitedParseDouble(output.currentBackupRateInMegaBytesPerSecond),
-    elapsedTimeInSeconds: __expectLong(output.elapsedTimeInSeconds),
-    estimatedSecondsToCompletion: __expectLong(output.estimatedSecondsToCompletion),
-    kmsKeyId: __expectString(output.kmsKeyId),
-    namespaceArn: __expectString(output.namespaceArn),
-    namespaceName: __expectString(output.namespaceName),
-    ownerAccount: __expectString(output.ownerAccount),
-    snapshotArn: __expectString(output.snapshotArn),
-    snapshotCreateTime:
-      output.snapshotCreateTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.snapshotCreateTime))
-        : undefined,
-    snapshotName: __expectString(output.snapshotName),
-    snapshotRemainingDays: __expectInt32(output.snapshotRemainingDays),
-    snapshotRetentionPeriod: __expectInt32(output.snapshotRetentionPeriod),
-    snapshotRetentionStartTime:
-      output.snapshotRetentionStartTime != null
-        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.snapshotRetentionStartTime))
-        : undefined,
-    status: __expectString(output.status),
-    totalBackupSizeInMegaBytes: __limitedParseDouble(output.totalBackupSizeInMegaBytes),
-  } as any;
-};
-
-const deserializeAws_json1_1SnapshotList = (output: any, context: __SerdeContext): Snapshot[] => {
+/**
+ * deserializeAws_json1_1TableRestoreStatusList
+ */
+const de_TableRestoreStatusList = (output: any, context: __SerdeContext): TableRestoreStatus[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Snapshot(entry, context);
+      return de_TableRestoreStatus(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+// de_TagResourceResponse omitted.
+
+// de_ThrottlingException omitted.
+
+// de_TooManyTagsException omitted.
+
+// de_UntagResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_1UpdateEndpointAccessResponse
+ */
+const de_UpdateEndpointAccessResponse = (output: any, context: __SerdeContext): UpdateEndpointAccessResponse => {
+  return take(output, {
+    endpoint: (_: any) => de_EndpointAccess(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateNamespaceResponse
+ */
+const de_UpdateNamespaceResponse = (output: any, context: __SerdeContext): UpdateNamespaceResponse => {
+  return take(output, {
+    namespace: (_: any) => de_Namespace(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSnapshotResponse
+ */
+const de_UpdateSnapshotResponse = (output: any, context: __SerdeContext): UpdateSnapshotResponse => {
+  return take(output, {
+    snapshot: (_: any) => de_Snapshot(_, context),
+  }) as any;
+};
+
+// de_UpdateUsageLimitResponse omitted.
+
+/**
+ * deserializeAws_json1_1UpdateWorkgroupResponse
+ */
+const de_UpdateWorkgroupResponse = (output: any, context: __SerdeContext): UpdateWorkgroupResponse => {
+  return take(output, {
+    workgroup: (_: any) => de_Workgroup(_, context),
+  }) as any;
+};
+
+// de_UsageLimit omitted.
+
+// de_UsageLimits omitted.
+
+// de_ValidationException omitted.
+
+// de_VpcEndpoint omitted.
+
+// de_VpcEndpointList omitted.
+
+// de_VpcSecurityGroupMembership omitted.
+
+// de_VpcSecurityGroupMembershipList omitted.
+
+/**
+ * deserializeAws_json1_1Workgroup
+ */
+const de_Workgroup = (output: any, context: __SerdeContext): Workgroup => {
+  return take(output, {
+    baseCapacity: __expectInt32,
+    configParameters: _json,
+    creationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    endpoint: _json,
+    enhancedVpcRouting: __expectBoolean,
+    namespaceName: __expectString,
+    port: __expectInt32,
+    publiclyAccessible: __expectBoolean,
+    securityGroupIds: _json,
+    status: __expectString,
+    subnetIds: _json,
+    workgroupArn: __expectString,
+    workgroupId: __expectString,
+    workgroupName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1WorkgroupList
+ */
+const de_WorkgroupList = (output: any, context: __SerdeContext): Workgroup[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TableRestoreStatus = (output: any, context: __SerdeContext): TableRestoreStatus => {
-  return {
-    message: __expectString(output.message),
-    namespaceName: __expectString(output.namespaceName),
-    newTableName: __expectString(output.newTableName),
-    progressInMegaBytes: __expectLong(output.progressInMegaBytes),
-    requestTime:
-      output.requestTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestTime)))
-        : undefined,
-    snapshotName: __expectString(output.snapshotName),
-    sourceDatabaseName: __expectString(output.sourceDatabaseName),
-    sourceSchemaName: __expectString(output.sourceSchemaName),
-    sourceTableName: __expectString(output.sourceTableName),
-    status: __expectString(output.status),
-    tableRestoreRequestId: __expectString(output.tableRestoreRequestId),
-    targetDatabaseName: __expectString(output.targetDatabaseName),
-    targetSchemaName: __expectString(output.targetSchemaName),
-    totalDataInMegaBytes: __expectLong(output.totalDataInMegaBytes),
-    workgroupName: __expectString(output.workgroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1TableRestoreStatusList = (output: any, context: __SerdeContext): TableRestoreStatus[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TableRestoreStatus(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    code: __expectString(output.code),
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    message: __expectString(output.message),
-    resourceName: __expectString(output.resourceName),
-  } as any;
-};
-
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1UpdateEndpointAccessResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateEndpointAccessResponse => {
-  return {
-    endpoint: output.endpoint != null ? deserializeAws_json1_1EndpointAccess(output.endpoint, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateNamespaceResponse => {
-  return {
-    namespace: output.namespace != null ? deserializeAws_json1_1Namespace(output.namespace, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateSnapshotResponse = (output: any, context: __SerdeContext): UpdateSnapshotResponse => {
-  return {
-    snapshot: output.snapshot != null ? deserializeAws_json1_1Snapshot(output.snapshot, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateUsageLimitResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateUsageLimitResponse => {
-  return {
-    usageLimit: output.usageLimit != null ? deserializeAws_json1_1UsageLimit(output.usageLimit, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateWorkgroupResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateWorkgroupResponse => {
-  return {
-    workgroup: output.workgroup != null ? deserializeAws_json1_1Workgroup(output.workgroup, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UsageLimit = (output: any, context: __SerdeContext): UsageLimit => {
-  return {
-    amount: __expectLong(output.amount),
-    breachAction: __expectString(output.breachAction),
-    period: __expectString(output.period),
-    resourceArn: __expectString(output.resourceArn),
-    usageLimitArn: __expectString(output.usageLimitArn),
-    usageLimitId: __expectString(output.usageLimitId),
-    usageType: __expectString(output.usageType),
-  } as any;
-};
-
-const deserializeAws_json1_1UsageLimits = (output: any, context: __SerdeContext): UsageLimit[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1UsageLimit(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
-  return {
-    networkInterfaces:
-      output.networkInterfaces != null
-        ? deserializeAws_json1_1NetworkInterfaceList(output.networkInterfaces, context)
-        : undefined,
-    vpcEndpointId: __expectString(output.vpcEndpointId),
-    vpcId: __expectString(output.vpcId),
-  } as any;
-};
-
-const deserializeAws_json1_1VpcEndpointList = (output: any, context: __SerdeContext): VpcEndpoint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1VpcEndpoint(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1VpcSecurityGroupMembership = (
-  output: any,
-  context: __SerdeContext
-): VpcSecurityGroupMembership => {
-  return {
-    status: __expectString(output.status),
-    vpcSecurityGroupId: __expectString(output.vpcSecurityGroupId),
-  } as any;
-};
-
-const deserializeAws_json1_1VpcSecurityGroupMembershipList = (
-  output: any,
-  context: __SerdeContext
-): VpcSecurityGroupMembership[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1VpcSecurityGroupMembership(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Workgroup = (output: any, context: __SerdeContext): Workgroup => {
-  return {
-    baseCapacity: __expectInt32(output.baseCapacity),
-    configParameters:
-      output.configParameters != null
-        ? deserializeAws_json1_1ConfigParameterList(output.configParameters, context)
-        : undefined,
-    creationDate:
-      output.creationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationDate)) : undefined,
-    endpoint: output.endpoint != null ? deserializeAws_json1_1Endpoint(output.endpoint, context) : undefined,
-    enhancedVpcRouting: __expectBoolean(output.enhancedVpcRouting),
-    namespaceName: __expectString(output.namespaceName),
-    port: __expectInt32(output.port),
-    publiclyAccessible: __expectBoolean(output.publiclyAccessible),
-    securityGroupIds:
-      output.securityGroupIds != null
-        ? deserializeAws_json1_1SecurityGroupIdList(output.securityGroupIds, context)
-        : undefined,
-    status: __expectString(output.status),
-    subnetIds: output.subnetIds != null ? deserializeAws_json1_1SubnetIdList(output.subnetIds, context) : undefined,
-    workgroupArn: __expectString(output.workgroupArn),
-    workgroupId: __expectString(output.workgroupId),
-    workgroupName: __expectString(output.workgroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1WorkgroupList = (output: any, context: __SerdeContext): Workgroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Workgroup(entry, context);
+      return de_Workgroup(entry, context);
     });
   return retVal;
 };
@@ -4190,6 +3758,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -4214,6 +3783,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `RedshiftServerless.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

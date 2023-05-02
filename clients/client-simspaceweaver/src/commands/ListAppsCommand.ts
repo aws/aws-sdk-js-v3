@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAppsInput,
-  ListAppsInputFilterSensitiveLog,
-  ListAppsOutput,
-  ListAppsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppsCommand,
-  serializeAws_restJson1ListAppsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAppsInput, ListAppsOutput } from "../models/models_0";
+import { de_ListAppsCommand, se_ListAppsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppsCommand}.
  */
 export interface ListAppsCommandInput extends ListAppsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAppsCommand}.
  */
 export interface ListAppsCommandOutput extends ListAppsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all custom apps or service apps for the given simulation and domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListAppsCommandOutput extends ListAppsOutput, __MetadataBearer 
  * import { SimSpaceWeaverClient, ListAppsCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, ListAppsCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
+ * const input = { // ListAppsInput
+ *   Simulation: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppsCommandInput - {@link ListAppsCommandInput}
+ * @returns {@link ListAppsCommandOutput}
  * @see {@link ListAppsCommandInput} for command's `input` shape.
  * @see {@link ListAppsCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -81,6 +86,9 @@ export class ListAppsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +115,8 @@ export class ListAppsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +126,18 @@ export class ListAppsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppsCommand(input, context);
+    return se_ListAppsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppsCommandOutput> {
-    return deserializeAws_restJson1ListAppsCommand(output, context);
+    return de_ListAppsCommand(output, context);
   }
 
   // Start section: command_body_extra

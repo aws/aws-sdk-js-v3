@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { UpdateAutoScalingGroupType, UpdateAutoScalingGroupTypeFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateAutoScalingGroupCommand,
-  serializeAws_queryUpdateAutoScalingGroupCommand,
-} from "../protocols/Aws_query";
+import { UpdateAutoScalingGroupType } from "../models/models_0";
+import { de_UpdateAutoScalingGroupCommand, se_UpdateAutoScalingGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAutoScalingGroupCommand}.
  */
 export interface UpdateAutoScalingGroupCommandInput extends UpdateAutoScalingGroupType {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAutoScalingGroupCommand}.
  */
 export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
  *          </p>
@@ -80,10 +82,134 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, UpdateAutoScalingGroupCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, UpdateAutoScalingGroupCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // UpdateAutoScalingGroupType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   LaunchConfigurationName: "STRING_VALUE",
+ *   LaunchTemplate: { // LaunchTemplateSpecification
+ *     LaunchTemplateId: "STRING_VALUE",
+ *     LaunchTemplateName: "STRING_VALUE",
+ *     Version: "STRING_VALUE",
+ *   },
+ *   MixedInstancesPolicy: { // MixedInstancesPolicy
+ *     LaunchTemplate: { // LaunchTemplate
+ *       LaunchTemplateSpecification: {
+ *         LaunchTemplateId: "STRING_VALUE",
+ *         LaunchTemplateName: "STRING_VALUE",
+ *         Version: "STRING_VALUE",
+ *       },
+ *       Overrides: [ // Overrides
+ *         { // LaunchTemplateOverrides
+ *           InstanceType: "STRING_VALUE",
+ *           WeightedCapacity: "STRING_VALUE",
+ *           LaunchTemplateSpecification: "<LaunchTemplateSpecification>",
+ *           InstanceRequirements: { // InstanceRequirements
+ *             VCpuCount: { // VCpuCountRequest
+ *               Min: Number("int"), // required
+ *               Max: Number("int"),
+ *             },
+ *             MemoryMiB: { // MemoryMiBRequest
+ *               Min: Number("int"), // required
+ *               Max: Number("int"),
+ *             },
+ *             CpuManufacturers: [ // CpuManufacturers
+ *               "intel" || "amd" || "amazon-web-services",
+ *             ],
+ *             MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
+ *               Min: Number("double"),
+ *               Max: Number("double"),
+ *             },
+ *             ExcludedInstanceTypes: [ // ExcludedInstanceTypes
+ *               "STRING_VALUE",
+ *             ],
+ *             InstanceGenerations: [ // InstanceGenerations
+ *               "current" || "previous",
+ *             ],
+ *             SpotMaxPricePercentageOverLowestPrice: Number("int"),
+ *             OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
+ *             BareMetal: "included" || "excluded" || "required",
+ *             BurstablePerformance: "included" || "excluded" || "required",
+ *             RequireHibernateSupport: true || false,
+ *             NetworkInterfaceCount: { // NetworkInterfaceCountRequest
+ *               Min: Number("int"),
+ *               Max: Number("int"),
+ *             },
+ *             LocalStorage: "included" || "excluded" || "required",
+ *             LocalStorageTypes: [ // LocalStorageTypes
+ *               "hdd" || "ssd",
+ *             ],
+ *             TotalLocalStorageGB: { // TotalLocalStorageGBRequest
+ *               Min: Number("double"),
+ *               Max: Number("double"),
+ *             },
+ *             BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
+ *               Min: Number("int"),
+ *               Max: Number("int"),
+ *             },
+ *             AcceleratorTypes: [ // AcceleratorTypes
+ *               "gpu" || "fpga" || "inference",
+ *             ],
+ *             AcceleratorCount: { // AcceleratorCountRequest
+ *               Min: Number("int"),
+ *               Max: Number("int"),
+ *             },
+ *             AcceleratorManufacturers: [ // AcceleratorManufacturers
+ *               "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ *             ],
+ *             AcceleratorNames: [ // AcceleratorNames
+ *               "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p",
+ *             ],
+ *             AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
+ *               Min: Number("int"),
+ *               Max: Number("int"),
+ *             },
+ *             NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
+ *               Min: Number("double"),
+ *               Max: Number("double"),
+ *             },
+ *             AllowedInstanceTypes: [ // AllowedInstanceTypes
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     InstancesDistribution: { // InstancesDistribution
+ *       OnDemandAllocationStrategy: "STRING_VALUE",
+ *       OnDemandBaseCapacity: Number("int"),
+ *       OnDemandPercentageAboveBaseCapacity: Number("int"),
+ *       SpotAllocationStrategy: "STRING_VALUE",
+ *       SpotInstancePools: Number("int"),
+ *       SpotMaxPrice: "STRING_VALUE",
+ *     },
+ *   },
+ *   MinSize: Number("int"),
+ *   MaxSize: Number("int"),
+ *   DesiredCapacity: Number("int"),
+ *   DefaultCooldown: Number("int"),
+ *   AvailabilityZones: [ // AvailabilityZones
+ *     "STRING_VALUE",
+ *   ],
+ *   HealthCheckType: "STRING_VALUE",
+ *   HealthCheckGracePeriod: Number("int"),
+ *   PlacementGroup: "STRING_VALUE",
+ *   VPCZoneIdentifier: "STRING_VALUE",
+ *   TerminationPolicies: [ // TerminationPolicies
+ *     "STRING_VALUE",
+ *   ],
+ *   NewInstancesProtectedFromScaleIn: true || false,
+ *   ServiceLinkedRoleARN: "STRING_VALUE",
+ *   MaxInstanceLifetime: Number("int"),
+ *   CapacityRebalance: true || false,
+ *   Context: "STRING_VALUE",
+ *   DesiredCapacityType: "STRING_VALUE",
+ *   DefaultInstanceWarmup: Number("int"),
+ * };
  * const command = new UpdateAutoScalingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAutoScalingGroupCommandInput - {@link UpdateAutoScalingGroupCommandInput}
+ * @returns {@link UpdateAutoScalingGroupCommandOutput}
  * @see {@link UpdateAutoScalingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -136,6 +262,9 @@ export class UpdateAutoScalingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAutoScalingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,8 +293,8 @@ export class UpdateAutoScalingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAutoScalingGroupTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -175,12 +304,18 @@ export class UpdateAutoScalingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAutoScalingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateAutoScalingGroupCommand(input, context);
+    return se_UpdateAutoScalingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAutoScalingGroupCommandOutput> {
-    return deserializeAws_queryUpdateAutoScalingGroupCommand(output, context);
+    return de_UpdateAutoScalingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

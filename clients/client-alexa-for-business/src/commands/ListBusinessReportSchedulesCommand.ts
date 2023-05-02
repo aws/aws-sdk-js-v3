@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  ListBusinessReportSchedulesRequest,
-  ListBusinessReportSchedulesRequestFilterSensitiveLog,
-  ListBusinessReportSchedulesResponse,
-  ListBusinessReportSchedulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListBusinessReportSchedulesCommand,
-  serializeAws_json1_1ListBusinessReportSchedulesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListBusinessReportSchedulesRequest, ListBusinessReportSchedulesResponse } from "../models/models_0";
+import { de_ListBusinessReportSchedulesCommand, se_ListBusinessReportSchedulesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBusinessReportSchedulesCommand}.
  */
 export interface ListBusinessReportSchedulesCommandInput extends ListBusinessReportSchedulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBusinessReportSchedulesCommand}.
  */
 export interface ListBusinessReportSchedulesCommandOutput
@@ -37,6 +33,7 @@ export interface ListBusinessReportSchedulesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the details of the schedules that a user configured. A download URL of the report associated with each schedule is returned every time this action is called. A new download URL is returned each time, and is valid for 24 hours.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,16 @@ export interface ListBusinessReportSchedulesCommandOutput
  * import { AlexaForBusinessClient, ListBusinessReportSchedulesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListBusinessReportSchedulesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // ListBusinessReportSchedulesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListBusinessReportSchedulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBusinessReportSchedulesCommandInput - {@link ListBusinessReportSchedulesCommandInput}
+ * @returns {@link ListBusinessReportSchedulesCommandOutput}
  * @see {@link ListBusinessReportSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListBusinessReportSchedulesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -71,6 +74,9 @@ export class ListBusinessReportSchedulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBusinessReportSchedulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +105,8 @@ export class ListBusinessReportSchedulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBusinessReportSchedulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBusinessReportSchedulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +116,21 @@ export class ListBusinessReportSchedulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBusinessReportSchedulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBusinessReportSchedulesCommand(input, context);
+    return se_ListBusinessReportSchedulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBusinessReportSchedulesCommandOutput> {
-    return deserializeAws_json1_1ListBusinessReportSchedulesCommand(output, context);
+    return de_ListBusinessReportSchedulesCommand(output, context);
   }
 
   // Start section: command_body_extra

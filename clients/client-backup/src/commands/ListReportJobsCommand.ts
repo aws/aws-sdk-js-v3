@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ListReportJobsInput,
-  ListReportJobsInputFilterSensitiveLog,
-  ListReportJobsOutput,
-  ListReportJobsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListReportJobsCommand,
-  serializeAws_restJson1ListReportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListReportJobsInput, ListReportJobsOutput } from "../models/models_0";
+import { de_ListReportJobsCommand, se_ListReportJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReportJobsCommand}.
  */
 export interface ListReportJobsCommandInput extends ListReportJobsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListReportJobsCommand}.
  */
 export interface ListReportJobsCommandOutput extends ListReportJobsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about your report jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface ListReportJobsCommandOutput extends ListReportJobsOutput, __Met
  * import { BackupClient, ListReportJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListReportJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListReportJobsInput
+ *   ByReportPlanName: "STRING_VALUE",
+ *   ByCreationBefore: new Date("TIMESTAMP"),
+ *   ByCreationAfter: new Date("TIMESTAMP"),
+ *   ByStatus: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListReportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReportJobsCommandInput - {@link ListReportJobsCommandInput}
+ * @returns {@link ListReportJobsCommandOutput}
  * @see {@link ListReportJobsCommandInput} for command's `input` shape.
  * @see {@link ListReportJobsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListReportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +117,8 @@ export class ListReportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReportJobsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReportJobsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +128,18 @@ export class ListReportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReportJobsCommand(input, context);
+    return se_ListReportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReportJobsCommandOutput> {
-    return deserializeAws_restJson1ListReportJobsCommand(output, context);
+    return de_ListReportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

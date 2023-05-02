@@ -15,26 +15,27 @@ import {
 
 import {
   ListAssociationVersionsRequest,
-  ListAssociationVersionsRequestFilterSensitiveLog,
   ListAssociationVersionsResult,
   ListAssociationVersionsResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1ListAssociationVersionsCommand,
-  serializeAws_json1_1ListAssociationVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAssociationVersionsCommand, se_ListAssociationVersionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociationVersionsCommand}.
  */
 export interface ListAssociationVersionsCommandInput extends ListAssociationVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociationVersionsCommand}.
  */
 export interface ListAssociationVersionsCommandOutput extends ListAssociationVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all versions of an association for a specific association ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,17 @@ export interface ListAssociationVersionsCommandOutput extends ListAssociationVer
  * import { SSMClient, ListAssociationVersionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListAssociationVersionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListAssociationVersionsRequest
+ *   AssociationId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAssociationVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociationVersionsCommandInput - {@link ListAssociationVersionsCommandInput}
+ * @returns {@link ListAssociationVersionsCommandOutput}
  * @see {@link ListAssociationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListAssociationVersionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -78,6 +86,9 @@ export class ListAssociationVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociationVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,7 +117,7 @@ export class ListAssociationVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociationVersionsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListAssociationVersionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -117,12 +128,18 @@ export class ListAssociationVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociationVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssociationVersionsCommand(input, context);
+    return se_ListAssociationVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociationVersionsCommandOutput> {
-    return deserializeAws_json1_1ListAssociationVersionsCommand(output, context);
+    return de_ListAssociationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

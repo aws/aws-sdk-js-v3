@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  DeleteRealtimeEndpointInput,
-  DeleteRealtimeEndpointInputFilterSensitiveLog,
-  DeleteRealtimeEndpointOutput,
-  DeleteRealtimeEndpointOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRealtimeEndpointCommand,
-  serializeAws_json1_1DeleteRealtimeEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRealtimeEndpointInput, DeleteRealtimeEndpointOutput } from "../models/models_0";
+import { de_DeleteRealtimeEndpointCommand, se_DeleteRealtimeEndpointCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRealtimeEndpointCommand}.
  */
 export interface DeleteRealtimeEndpointCommandInput extends DeleteRealtimeEndpointInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRealtimeEndpointCommand}.
  */
 export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a real time endpoint of an <code>MLModel</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
  * import { MachineLearningClient, DeleteRealtimeEndpointCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteRealtimeEndpointCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // DeleteRealtimeEndpointInput
+ *   MLModelId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRealtimeEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRealtimeEndpointCommandInput - {@link DeleteRealtimeEndpointCommandInput}
+ * @returns {@link DeleteRealtimeEndpointCommandOutput}
  * @see {@link DeleteRealtimeEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteRealtimeEndpointCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -78,6 +80,9 @@ export class DeleteRealtimeEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRealtimeEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class DeleteRealtimeEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRealtimeEndpointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRealtimeEndpointOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class DeleteRealtimeEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRealtimeEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRealtimeEndpointCommand(input, context);
+    return se_DeleteRealtimeEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRealtimeEndpointCommandOutput> {
-    return deserializeAws_json1_1DeleteRealtimeEndpointCommand(output, context);
+    return de_DeleteRealtimeEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

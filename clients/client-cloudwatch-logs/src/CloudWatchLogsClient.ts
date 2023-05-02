@@ -153,6 +153,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateKmsKeyCommandInput
   | CancelExportTaskCommandInput
@@ -203,6 +206,9 @@ export type ServiceInputTypes =
   | UntagLogGroupCommandInput
   | UntagResourceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateKmsKeyCommandOutput
   | CancelExportTaskCommandOutput
@@ -253,6 +259,9 @@ export type ServiceOutputTypes =
   | UntagLogGroupCommandOutput
   | UntagResourceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -260,7 +269,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -369,11 +378,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CloudWatchLogsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -384,10 +396,15 @@ type CloudWatchLogsClientConfigType = Partial<__SmithyConfiguration<__HttpHandle
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CloudWatchLogsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CloudWatchLogsClient class constructor that set the region, credentials and other options.
  */
 export interface CloudWatchLogsClientConfig extends CloudWatchLogsClientConfigType {}
 
+/**
+ * @public
+ */
 type CloudWatchLogsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -398,11 +415,14 @@ type CloudWatchLogsClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CloudWatchLogsClient class. This is resolved and normalized from the {@link CloudWatchLogsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CloudWatchLogsClient class. This is resolved and normalized from the {@link CloudWatchLogsClientConfig | constructor configuration interface}.
  */
 export interface CloudWatchLogsClientResolvedConfig extends CloudWatchLogsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from
  *       EC2 instances, CloudTrail, and other sources. You can then retrieve the associated
  *       log data from CloudWatch Logs using the CloudWatch console. Alternatively, you can use

@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDBClusterMessage,
-  CreateDBClusterMessageFilterSensitiveLog,
-  CreateDBClusterResult,
-  CreateDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDBClusterMessage, CreateDBClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryCreateDBClusterCommand,
-  serializeAws_queryCreateDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBClusterCommand, se_CreateDBClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBClusterCommand}.
  */
 export interface CreateDBClusterCommandInput extends CreateDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBClusterCommand}.
  */
 export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon Neptune DB cluster.</p>
  *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
  *       cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance.</p>
@@ -49,10 +46,55 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * import { NeptuneClient, CreateDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // CreateDBClusterMessage
+ *   AvailabilityZones: [ // AvailabilityZones
+ *     "STRING_VALUE",
+ *   ],
+ *   BackupRetentionPeriod: Number("int"),
+ *   CharacterSetName: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   DatabaseName: "STRING_VALUE",
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   MasterUsername: "STRING_VALUE",
+ *   MasterUserPassword: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   ReplicationSourceIdentifier: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StorageEncrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   PreSignedUrl: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   DeletionProtection: true || false,
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
+ *   GlobalClusterIdentifier: "STRING_VALUE",
+ * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBClusterCommandInput - {@link CreateDBClusterCommandInput}
+ * @returns {@link CreateDBClusterCommandOutput}
  * @see {@link CreateDBClusterCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -138,6 +180,9 @@ export class CreateDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,8 +212,8 @@ export class CreateDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -178,12 +223,18 @@ export class CreateDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterCommand(input, context);
+    return se_CreateDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterCommandOutput> {
-    return deserializeAws_queryCreateDBClusterCommand(output, context);
+    return de_CreateDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

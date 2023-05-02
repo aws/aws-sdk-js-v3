@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssumeRoleWithSAMLRequest,
-  AssumeRoleWithSAMLRequestFilterSensitiveLog,
-  AssumeRoleWithSAMLResponse,
-  AssumeRoleWithSAMLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryAssumeRoleWithSAMLCommand,
-  serializeAws_queryAssumeRoleWithSAMLCommand,
-} from "../protocols/Aws_query";
+import { AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse } from "../models/models_0";
+import { de_AssumeRoleWithSAMLCommand, se_AssumeRoleWithSAMLCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssumeRoleWithSAMLCommand}.
  */
 export interface AssumeRoleWithSAMLCommandInput extends AssumeRoleWithSAMLRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssumeRoleWithSAMLCommand}.
  */
 export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary security credentials for users who have been authenticated
  *          via a SAML authentication response. This operation provides a mechanism for tying an
  *          enterprise identity store or directory to role-based Amazon Web Services access without user-specific
@@ -170,10 +167,24 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  * import { STSClient, AssumeRoleWithSAMLCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRoleWithSAMLCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = { // AssumeRoleWithSAMLRequest
+ *   RoleArn: "STRING_VALUE", // required
+ *   PrincipalArn: "STRING_VALUE", // required
+ *   SAMLAssertion: "STRING_VALUE", // required
+ *   PolicyArns: [ // policyDescriptorListType
+ *     { // PolicyDescriptorType
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Policy: "STRING_VALUE",
+ *   DurationSeconds: Number("int"),
+ * };
  * const command = new AssumeRoleWithSAMLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssumeRoleWithSAMLCommandInput - {@link AssumeRoleWithSAMLCommandInput}
+ * @returns {@link AssumeRoleWithSAMLCommandOutput}
  * @see {@link AssumeRoleWithSAMLCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleWithSAMLCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
@@ -268,6 +279,9 @@ export class AssumeRoleWithSAMLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeRoleWithSAMLCommandInput) {
     // Start section: command_constructor
     super();
@@ -296,8 +310,8 @@ export class AssumeRoleWithSAMLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeRoleWithSAMLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssumeRoleWithSAMLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -307,12 +321,18 @@ export class AssumeRoleWithSAMLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeRoleWithSAMLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAssumeRoleWithSAMLCommand(input, context);
+    return se_AssumeRoleWithSAMLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeRoleWithSAMLCommandOutput> {
-    return deserializeAws_queryAssumeRoleWithSAMLCommand(output, context);
+    return de_AssumeRoleWithSAMLCommand(output, context);
   }
 
   // Start section: command_body_extra

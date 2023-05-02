@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCidrBlocksRequest,
-  ListCidrBlocksRequestFilterSensitiveLog,
-  ListCidrBlocksResponse,
-  ListCidrBlocksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListCidrBlocksCommand,
-  serializeAws_restXmlListCidrBlocksCommand,
-} from "../protocols/Aws_restXml";
+import { ListCidrBlocksRequest, ListCidrBlocksResponse } from "../models/models_0";
+import { de_ListCidrBlocksCommand, se_ListCidrBlocksCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListCidrBlocksCommand}.
  */
 export interface ListCidrBlocksCommandInput extends ListCidrBlocksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCidrBlocksCommand}.
  */
 export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of location objects and their CIDR blocks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __M
  * import { Route53Client, ListCidrBlocksCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListCidrBlocksCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListCidrBlocksRequest
+ *   CollectionId: "STRING_VALUE", // required
+ *   LocationName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListCidrBlocksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCidrBlocksCommandInput - {@link ListCidrBlocksCommandInput}
+ * @returns {@link ListCidrBlocksCommandOutput}
  * @see {@link ListCidrBlocksCommandInput} for command's `input` shape.
  * @see {@link ListCidrBlocksCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -78,6 +83,9 @@ export class ListCidrBlocksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCidrBlocksCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +114,8 @@ export class ListCidrBlocksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCidrBlocksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCidrBlocksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +125,18 @@ export class ListCidrBlocksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCidrBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListCidrBlocksCommand(input, context);
+    return se_ListCidrBlocksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCidrBlocksCommandOutput> {
-    return deserializeAws_restXmlListCidrBlocksCommand(output, context);
+    return de_ListCidrBlocksCommand(output, context);
   }
 
   // Start section: command_body_extra

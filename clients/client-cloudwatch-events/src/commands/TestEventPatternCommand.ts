@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  TestEventPatternRequest,
-  TestEventPatternRequestFilterSensitiveLog,
-  TestEventPatternResponse,
-  TestEventPatternResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1TestEventPatternCommand,
-  serializeAws_json1_1TestEventPatternCommand,
-} from "../protocols/Aws_json1_1";
+import { TestEventPatternRequest, TestEventPatternResponse } from "../models/models_0";
+import { de_TestEventPatternCommand, se_TestEventPatternCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TestEventPatternCommand}.
  */
 export interface TestEventPatternCommandInput extends TestEventPatternRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestEventPatternCommand}.
  */
 export interface TestEventPatternCommandOutput extends TestEventPatternResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests whether the specified event pattern matches the provided event.</p>
  *          <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource Names (ARNs).
  *       However, EventBridge uses an exact match in event patterns and rules. Be sure to use the
@@ -46,10 +43,16 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * import { CloudWatchEventsClient, TestEventPatternCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, TestEventPatternCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // TestEventPatternRequest
+ *   EventPattern: "STRING_VALUE", // required
+ *   Event: "STRING_VALUE", // required
+ * };
  * const command = new TestEventPatternCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestEventPatternCommandInput - {@link TestEventPatternCommandInput}
+ * @returns {@link TestEventPatternCommandOutput}
  * @see {@link TestEventPatternCommandInput} for command's `input` shape.
  * @see {@link TestEventPatternCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -79,6 +82,9 @@ export class TestEventPatternCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestEventPatternCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class TestEventPatternCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestEventPatternRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestEventPatternResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class TestEventPatternCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestEventPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TestEventPatternCommand(input, context);
+    return se_TestEventPatternCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestEventPatternCommandOutput> {
-    return deserializeAws_json1_1TestEventPatternCommand(output, context);
+    return de_TestEventPatternCommand(output, context);
   }
 
   // Start section: command_body_extra

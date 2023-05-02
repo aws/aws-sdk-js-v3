@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AttachVolumeInput,
-  AttachVolumeInputFilterSensitiveLog,
-  AttachVolumeOutput,
-  AttachVolumeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AttachVolumeCommand,
-  serializeAws_json1_1AttachVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { AttachVolumeInput, AttachVolumeOutput } from "../models/models_0";
+import { de_AttachVolumeCommand, se_AttachVolumeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link AttachVolumeCommand}.
  */
 export interface AttachVolumeCommandInput extends AttachVolumeInput {}
 /**
+ * @public
+ *
  * The output of {@link AttachVolumeCommand}.
  */
 export interface AttachVolumeCommandOutput extends AttachVolumeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Connects a volume to an iSCSI connection and then attaches the volume to the specified
  *          gateway. Detaching and attaching a volume enables you to recover your data from one gateway
  *          to a different gateway without creating a snapshot. It also makes it easier to move your
@@ -45,10 +42,19 @@ export interface AttachVolumeCommandOutput extends AttachVolumeOutput, __Metadat
  * import { StorageGatewayClient, AttachVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, AttachVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // AttachVolumeInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   TargetName: "STRING_VALUE",
+ *   VolumeARN: "STRING_VALUE", // required
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   DiskId: "STRING_VALUE",
+ * };
  * const command = new AttachVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachVolumeCommandInput - {@link AttachVolumeCommandInput}
+ * @returns {@link AttachVolumeCommandOutput}
  * @see {@link AttachVolumeCommandInput} for command's `input` shape.
  * @see {@link AttachVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -80,6 +86,9 @@ export class AttachVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +115,8 @@ export class AttachVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachVolumeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachVolumeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +126,18 @@ export class AttachVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachVolumeCommand(input, context);
+    return se_AttachVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachVolumeCommandOutput> {
-    return deserializeAws_json1_1AttachVolumeCommand(output, context);
+    return de_AttachVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

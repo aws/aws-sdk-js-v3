@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DeleteExpressionRequest,
-  DeleteExpressionRequestFilterSensitiveLog,
-  DeleteExpressionResponse,
-  DeleteExpressionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteExpressionCommand,
-  serializeAws_queryDeleteExpressionCommand,
-} from "../protocols/Aws_query";
+import { DeleteExpressionRequest, DeleteExpressionResponse } from "../models/models_0";
+import { de_DeleteExpressionCommand, se_DeleteExpressionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExpressionCommand}.
  */
 export interface DeleteExpressionCommandInput extends DeleteExpressionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExpressionCommand}.
  */
 export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an <code><a>Expression</a></code> from the search domain. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse,
  * import { CloudSearchClient, DeleteExpressionCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DeleteExpressionCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // DeleteExpressionRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   ExpressionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteExpressionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExpressionCommandInput - {@link DeleteExpressionCommandInput}
+ * @returns {@link DeleteExpressionCommandOutput}
  * @see {@link DeleteExpressionCommandInput} for command's `input` shape.
  * @see {@link DeleteExpressionCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -85,6 +88,9 @@ export class DeleteExpressionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExpressionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class DeleteExpressionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExpressionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteExpressionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class DeleteExpressionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExpressionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteExpressionCommand(input, context);
+    return se_DeleteExpressionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExpressionCommandOutput> {
-    return deserializeAws_queryDeleteExpressionCommand(output, context);
+    return de_DeleteExpressionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { GreengrassV2ServiceException as __BaseException } from "./GreengrassV2ServiceException";
 
 /**
+ * @public
  * <p>You don't have permission to perform the action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains a request to associate a client device with a core device. The <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.html">BatchAssociateClientDeviceWithCoreDevice</a> operation consumes a list of these
  *       requests.</p>
  */
@@ -34,6 +36,7 @@ export interface AssociateClientDeviceWithCoreDeviceEntry {
 }
 
 /**
+ * @public
  * <p>Contains an error that occurs from a request to associate a client device with a core
  *       device. The <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.html">BatchAssociateClientDeviceWithCoreDevice</a> operation returns a list of these
  *       errors.</p>
@@ -56,6 +59,7 @@ export interface AssociateClientDeviceWithCoreDeviceErrorEntry {
 }
 
 /**
+ * @public
  * <p>Contains information about a client device that is associated to a core device for cloud
  *       discovery.</p>
  */
@@ -71,6 +75,9 @@ export interface AssociatedClientDevice {
   associationTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AssociateServiceRoleToAccountRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the service role to associate with IoT Greengrass for your
@@ -79,6 +86,9 @@ export interface AssociateServiceRoleToAccountRequest {
   roleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateServiceRoleToAccountResponse {
   /**
    * <p>The time when the service role was associated with IoT Greengrass for your Amazon Web Services account in this
@@ -88,6 +98,7 @@ export interface AssociateServiceRoleToAccountResponse {
 }
 
 /**
+ * @public
  * <p>IoT Greengrass can't process your request right now. Try again later.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -113,6 +124,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about a validation exception field.</p>
  */
 export interface ValidationExceptionField {
@@ -127,14 +139,24 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  */
@@ -166,6 +188,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateClientDeviceWithCoreDeviceRequest {
   /**
    * <p>The list of client devices to associate.</p>
@@ -178,6 +203,9 @@ export interface BatchAssociateClientDeviceWithCoreDeviceRequest {
   coreDeviceThingName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateClientDeviceWithCoreDeviceResponse {
   /**
    * <p>The list of any errors for the entries in the request. Each error entry contains the name
@@ -187,6 +215,7 @@ export interface BatchAssociateClientDeviceWithCoreDeviceResponse {
 }
 
 /**
+ * @public
  * <p>The requested resource can't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -218,6 +247,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request exceeded a request rate quota. For example, you might have exceeded the
  *       amount of times that you can retrieve device or deployment status per second.</p>
  */
@@ -256,6 +286,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains a request to disassociate a client device from a core device. The <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchDisassociateClientDeviceWithCoreDevice.html">BatchDisassociateClientDeviceWithCoreDevice</a> operation consumes a list of these
  *       requests.</p>
  */
@@ -266,6 +297,9 @@ export interface DisassociateClientDeviceFromCoreDeviceEntry {
   thingName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateClientDeviceFromCoreDeviceRequest {
   /**
    * <p>The list of client devices to disassociate.</p>
@@ -279,6 +313,7 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceRequest {
 }
 
 /**
+ * @public
  * <p>Contains an error that occurs from a request to disassociate a client device from a core
  *       device. The <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchDisassociateClientDeviceWithCoreDevice.html">BatchDisassociateClientDeviceWithCoreDevice</a> operation returns a list of these
  *       errors.</p>
@@ -300,6 +335,9 @@ export interface DisassociateClientDeviceFromCoreDeviceErrorEntry {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateClientDeviceFromCoreDeviceResponse {
   /**
    * <p>The list of any errors for the entries in the request. Each error entry contains the name
@@ -308,6 +346,9 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceResponse {
   errorEntries?: DisassociateClientDeviceFromCoreDeviceErrorEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CancelDeploymentRequest {
   /**
    * <p>The ID of the deployment.</p>
@@ -315,6 +356,9 @@ export interface CancelDeploymentRequest {
   deploymentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelDeploymentResponse {
   /**
    * <p>A message that communicates if the cancel was successful.</p>
@@ -323,6 +367,7 @@ export interface CancelDeploymentResponse {
 }
 
 /**
+ * @public
  * <p>Your request has conflicting operations. This can occur if you're trying to perform more
  *       than one operation on the same resource at the same time.</p>
  */
@@ -354,21 +399,40 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum CloudComponentState {
-  DEPLOYABLE = "DEPLOYABLE",
-  DEPRECATED = "DEPRECATED",
-  FAILED = "FAILED",
-  INITIATED = "INITIATED",
-  REQUESTED = "REQUESTED",
-}
-
-export enum VendorGuidance {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DISCONTINUED = "DISCONTINUED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CloudComponentState = {
+  DEPLOYABLE: "DEPLOYABLE",
+  DEPRECATED: "DEPRECATED",
+  FAILED: "FAILED",
+  INITIATED: "INITIATED",
+  REQUESTED: "REQUESTED",
+} as const;
 
 /**
+ * @public
+ */
+export type CloudComponentState = (typeof CloudComponentState)[keyof typeof CloudComponentState];
+
+/**
+ * @public
+ * @enum
+ */
+export const VendorGuidance = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DISCONTINUED: "DISCONTINUED",
+} as const;
+
+/**
+ * @public
+ */
+export type VendorGuidance = (typeof VendorGuidance)[keyof typeof VendorGuidance];
+
+/**
+ * @public
  * <p>Contains the status of a component version in the IoT Greengrass service.</p>
  */
 export interface CloudComponentStatus {
@@ -421,6 +485,7 @@ export interface CloudComponentStatus {
 }
 
 /**
+ * @public
  * <p>Contains information about a platform that a component supports.</p>
  */
 export interface ComponentPlatform {
@@ -442,6 +507,7 @@ export interface ComponentPlatform {
 }
 
 /**
+ * @public
  * <p>Contains information about the latest version of a component.</p>
  */
 export interface ComponentLatestVersion {
@@ -477,6 +543,7 @@ export interface ComponentLatestVersion {
 }
 
 /**
+ * @public
  * <p>Contains information about a component.</p>
  */
 export interface Component {
@@ -497,6 +564,7 @@ export interface Component {
 }
 
 /**
+ * @public
  * <p>Contains information about a component that is a candidate to deploy to a Greengrass core
  *       device.</p>
  */
@@ -520,6 +588,7 @@ export interface ComponentCandidate {
 }
 
 /**
+ * @public
  * <p>Contains information about a deployment's update to a component's configuration on
  *       Greengrass core devices. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html">Update component
  *         configurations</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
@@ -532,27 +601,37 @@ export interface ComponentConfigurationUpdate {
    *       merges this configuration with the component's default configuration. This means that the core
    *       device keeps it's existing configuration for keys and values that you don't specify in this
    *       object. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#merge-configuration-update">Merge configuration updates</a> in the <i>IoT Greengrass V2 Developer
-   *           Guide</i>.</p>
+   *       Guide</i>.</p>
    */
   merge?: string;
 
   /**
    * <p>The list of configuration nodes to reset to default values on target devices. Use JSON
    *       pointers to specify each node to reset. JSON pointers start with a forward slash
-   *       (<code>/</code>) and use forward slashes to separate the key for each level in the object.
+   *         (<code>/</code>) and use forward slashes to separate the key for each level in the object.
    *       For more information, see the <a href="https://tools.ietf.org/html/rfc6901">JSON pointer
    *         specification</a> and <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#reset-configuration-update">Reset configuration updates</a> in the <i>IoT Greengrass V2 Developer
-   *             Guide</i>.</p>
+   *       Guide</i>.</p>
    */
   reset?: string[];
 }
 
-export enum ComponentDependencyType {
-  HARD = "HARD",
-  SOFT = "SOFT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComponentDependencyType = {
+  HARD: "HARD",
+  SOFT: "SOFT",
+} as const;
 
 /**
+ * @public
+ */
+export type ComponentDependencyType = (typeof ComponentDependencyType)[keyof typeof ComponentDependencyType];
+
+/**
+ * @public
  * <p>Contains information about a component dependency for a Lambda function component.</p>
  */
 export interface ComponentDependencyRequirement {
@@ -583,6 +662,7 @@ export interface ComponentDependencyRequirement {
 }
 
 /**
+ * @public
  * <p>Contains information about system resource limits that the IoT Greengrass Core software applies to a
  *       component's processes. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-greengrass-core-v2.html#configure-component-system-resource-limits">Configure system resource limits for components</a>.</p>
  */
@@ -606,6 +686,7 @@ export interface SystemResourceLimits {
 }
 
 /**
+ * @public
  * <p>Contains information system user and group that the IoT Greengrass Core software uses to run component
  *       processes on the core device. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-greengrass-core-v2.html#configure-component-user">Configure the user and group that run components</a> in the <i>IoT Greengrass V2 Developer
  *         Guide</i>.</p>
@@ -641,6 +722,7 @@ export interface ComponentRunWith {
 }
 
 /**
+ * @public
  * <p>Contains information about a component to deploy.</p>
  */
 export interface ComponentDeploymentSpecification {
@@ -651,11 +733,11 @@ export interface ComponentDeploymentSpecification {
 
   /**
    * <p>The configuration updates to deploy for the component. You can define
-   *       <i>reset</i> updates and <i>merge</i> updates. A reset updates
+   *         <i>reset</i> updates and <i>merge</i> updates. A reset updates
    *       the keys that you specify to the default configuration for the component. A merge updates the
    *       core device's component configuration with the keys and values that you specify. The IoT Greengrass Core
    *       software applies reset updates before it applies merge updates. For more information, see
-   *       <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html">Update component
+   *         <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html">Update component
    *         configurations</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
   configurationUpdate?: ComponentConfigurationUpdate;
@@ -670,6 +752,7 @@ export interface ComponentDeploymentSpecification {
 }
 
 /**
+ * @public
  * <p>Contains information about a component version in a list.</p>
  */
 export interface ComponentVersionListItem {
@@ -689,12 +772,22 @@ export interface ComponentVersionListItem {
   arn?: string;
 }
 
-export enum ComponentVisibilityScope {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComponentVisibilityScope = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
 
 /**
+ * @public
+ */
+export type ComponentVisibilityScope = (typeof ComponentVisibilityScope)[keyof typeof ComponentVisibilityScope];
+
+/**
+ * @public
  * <p>Contains information about an endpoint and port where client devices can connect to an
  *       MQTT broker on a Greengrass core device.</p>
  */
@@ -722,12 +815,22 @@ export interface ConnectivityInfo {
   metadata?: string;
 }
 
-export enum CoreDeviceStatus {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CoreDeviceStatus = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
 
 /**
+ * @public
+ */
+export type CoreDeviceStatus = (typeof CoreDeviceStatus)[keyof typeof CoreDeviceStatus];
+
+/**
+ * @public
  * <p>Contains information about a Greengrass core device, which is an IoT thing that runs the IoT Greengrass
  *       Core software.</p>
  */
@@ -761,12 +864,22 @@ export interface CoreDevice {
   lastStatusUpdateTimestamp?: Date;
 }
 
-export enum LambdaEventSourceType {
-  IOT_CORE = "IOT_CORE",
-  PUB_SUB = "PUB_SUB",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LambdaEventSourceType = {
+  IOT_CORE: "IOT_CORE",
+  PUB_SUB: "PUB_SUB",
+} as const;
 
 /**
+ * @public
+ */
+export type LambdaEventSourceType = (typeof LambdaEventSourceType)[keyof typeof LambdaEventSourceType];
+
+/**
+ * @public
  * <p>Contains information about an event source for an Lambda function. The event source
  *       defines the topics on which this Lambda function subscribes to receive messages that run the
  *       function.</p>
@@ -782,9 +895,9 @@ export interface LambdaEventSource {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PUB_SUB</code> – Subscribe to local publish/subscribe messages. This event
-   *           source type doesn't support MQTT wildcards (<code>+</code> and <code>#</code>) in the
-   *           event source topic.</p>
+   *                   <code>PUB_SUB</code> – Subscribe to local publish/subscribe messages. This
+   *           event source type doesn't support MQTT wildcards (<code>+</code> and <code>#</code>) in
+   *           the event source topic.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -797,17 +910,37 @@ export interface LambdaEventSource {
   type: LambdaEventSourceType | string | undefined;
 }
 
-export enum LambdaInputPayloadEncodingType {
-  BINARY = "binary",
-  JSON = "json",
-}
-
-export enum LambdaFilesystemPermission {
-  RO = "ro",
-  RW = "rw",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LambdaInputPayloadEncodingType = {
+  BINARY: "binary",
+  JSON: "json",
+} as const;
 
 /**
+ * @public
+ */
+export type LambdaInputPayloadEncodingType =
+  (typeof LambdaInputPayloadEncodingType)[keyof typeof LambdaInputPayloadEncodingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFilesystemPermission = {
+  RO: "ro",
+  RW: "rw",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaFilesystemPermission = (typeof LambdaFilesystemPermission)[keyof typeof LambdaFilesystemPermission];
+
+/**
+ * @public
  * <p>Contains information about a device that Linux processes in a container can access.</p>
  */
 export interface LambdaDeviceMount {
@@ -818,7 +951,7 @@ export interface LambdaDeviceMount {
 
   /**
    * <p>The permission to access the device: read/only (<code>ro</code>) or read/write
-   *       (<code>rw</code>).</p>
+   *         (<code>rw</code>).</p>
    *          <p>Default: <code>ro</code>
    *          </p>
    */
@@ -833,6 +966,7 @@ export interface LambdaDeviceMount {
 }
 
 /**
+ * @public
  * <p>Contains information about a volume that Linux processes in a container can access. When
  *       you define a volume, the IoT Greengrass Core software mounts the source files to the destination inside the
  *       container.</p>
@@ -865,6 +999,7 @@ export interface LambdaVolumeMount {
 }
 
 /**
+ * @public
  * <p>Contains information about a container in which Lambda functions run on Greengrass core
  *       devices.</p>
  */
@@ -894,12 +1029,22 @@ export interface LambdaContainerParams {
   devices?: LambdaDeviceMount[];
 }
 
-export enum LambdaIsolationMode {
-  GREENGRASS_CONTAINER = "GreengrassContainer",
-  NO_CONTAINER = "NoContainer",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LambdaIsolationMode = {
+  GREENGRASS_CONTAINER: "GreengrassContainer",
+  NO_CONTAINER: "NoContainer",
+} as const;
 
 /**
+ * @public
+ */
+export type LambdaIsolationMode = (typeof LambdaIsolationMode)[keyof typeof LambdaIsolationMode];
+
+/**
+ * @public
  * <p>Contains parameters for a Linux process that contains an Lambda function.</p>
  */
 export interface LambdaLinuxProcessParams {
@@ -919,6 +1064,7 @@ export interface LambdaLinuxProcessParams {
 }
 
 /**
+ * @public
  * <p>Contains parameters for a Lambda function that runs on IoT Greengrass.</p>
  */
 export interface LambdaExecutionParameters {
@@ -964,8 +1110,8 @@ export interface LambdaExecutionParameters {
    * <p>Whether or not the Lambda function is pinned, or long-lived.</p>
    *          <ul>
    *             <li>
-   *                <p>A pinned Lambda function starts
-   *           when IoT Greengrass starts and keeps running in its own container.</p>
+   *                <p>A pinned Lambda function starts when IoT Greengrass starts and keeps running in its own
+   *           container.</p>
    *             </li>
    *             <li>
    *                <p>A non-pinned Lambda function starts only when it receives a work item and exists after
@@ -991,7 +1137,8 @@ export interface LambdaExecutionParameters {
   execArgs?: string[];
 
   /**
-   * <p>The map of environment variables that are available to the Lambda function when it runs.</p>
+   * <p>The map of environment variables that are available to the Lambda function when it
+   *       runs.</p>
    */
   environmentVariables?: Record<string, string>;
 
@@ -1002,6 +1149,7 @@ export interface LambdaExecutionParameters {
 }
 
 /**
+ * @public
  * <p>Contains information about an Lambda function to import to create a component.</p>
  */
 export interface LambdaFunctionRecipeSource {
@@ -1041,6 +1189,9 @@ export interface LambdaFunctionRecipeSource {
   componentLambdaParameters?: LambdaExecutionParameters;
 }
 
+/**
+ * @public
+ */
 export interface CreateComponentVersionRequest {
   /**
    * <p>The recipe to use to create the component. The recipe defines the component's metadata,
@@ -1072,6 +1223,9 @@ export interface CreateComponentVersionRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateComponentVersionResponse {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
@@ -1101,6 +1255,7 @@ export interface CreateComponentVersionResponse {
 }
 
 /**
+ * @public
  * <p>The request is already in progress. This exception occurs when you use a client token for
  *       multiple requests while IoT Greengrass is still processing an earlier request that uses the same client
  *       token.</p>
@@ -1122,6 +1277,7 @@ export class RequestAlreadyInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request exceeds a service quota. For example, you might have the maximum number of
  *       components that you can create.</p>
  */
@@ -1165,12 +1321,23 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
-export enum DeploymentComponentUpdatePolicyAction {
-  NOTIFY_COMPONENTS = "NOTIFY_COMPONENTS",
-  SKIP_NOTIFY_COMPONENTS = "SKIP_NOTIFY_COMPONENTS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentComponentUpdatePolicyAction = {
+  NOTIFY_COMPONENTS: "NOTIFY_COMPONENTS",
+  SKIP_NOTIFY_COMPONENTS: "SKIP_NOTIFY_COMPONENTS",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentComponentUpdatePolicyAction =
+  (typeof DeploymentComponentUpdatePolicyAction)[keyof typeof DeploymentComponentUpdatePolicyAction];
+
+/**
+ * @public
  * <p>Contains information about a deployment's policy that defines when components are safe to
  *       update.</p>
  *          <p>Each component on a device can report whether or not it's ready to update. After a
@@ -1197,7 +1364,8 @@ export interface DeploymentComponentUpdatePolicy {
    *                <p>
    *                   <code>NOTIFY_COMPONENTS</code> – The deployment notifies each component before
    *           it stops and updates that component. Components can use the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates">SubscribeToComponentUpdates</a> IPC operation to receive these notifications. Then,
-   *           components can respond with the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate">DeferComponentUpdate</a> IPC operation. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create deployments</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
+   *           components can respond with the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate">DeferComponentUpdate</a> IPC operation. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create
+   *             deployments</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1212,9 +1380,11 @@ export interface DeploymentComponentUpdatePolicy {
 }
 
 /**
+ * @public
  * <p>Contains information about how long a component on a core device can validate its
  *       configuration updates before it times out. Components can use the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetovalidateconfigurationupdates">SubscribeToValidateConfigurationUpdates</a> IPC operation to receive notifications when
- *       a deployment specifies a configuration update. Then, components can respond with the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-sendconfigurationvalidityreport">SendConfigurationValidityReport</a> IPC operation. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create deployments</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
+ *       a deployment specifies a configuration update. Then, components can respond with the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-sendconfigurationvalidityreport">SendConfigurationValidityReport</a> IPC operation. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create
+ *         deployments</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
  */
 export interface DeploymentConfigurationValidationPolicy {
   /**
@@ -1226,12 +1396,23 @@ export interface DeploymentConfigurationValidationPolicy {
   timeoutInSeconds?: number;
 }
 
-export enum DeploymentFailureHandlingPolicy {
-  DO_NOTHING = "DO_NOTHING",
-  ROLLBACK = "ROLLBACK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentFailureHandlingPolicy = {
+  DO_NOTHING: "DO_NOTHING",
+  ROLLBACK: "ROLLBACK",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentFailureHandlingPolicy =
+  (typeof DeploymentFailureHandlingPolicy)[keyof typeof DeploymentFailureHandlingPolicy];
+
+/**
+ * @public
  * <p>Contains information about policies that define how a deployment updates components and
  *       handles failure.</p>
  */
@@ -1257,28 +1438,47 @@ export interface DeploymentPolicies {
   configurationValidationPolicy?: DeploymentConfigurationValidationPolicy;
 }
 
-export enum IoTJobAbortAction {
-  CANCEL = "CANCEL",
-}
-
-export enum IoTJobExecutionFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IoTJobAbortAction = {
+  CANCEL: "CANCEL",
+} as const;
 
 /**
+ * @public
+ */
+export type IoTJobAbortAction = (typeof IoTJobAbortAction)[keyof typeof IoTJobAbortAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const IoTJobExecutionFailureType = {
+  ALL: "ALL",
+  FAILED: "FAILED",
+  REJECTED: "REJECTED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type IoTJobExecutionFailureType = (typeof IoTJobExecutionFailureType)[keyof typeof IoTJobExecutionFailureType];
+
+/**
+ * @public
  * <p>Contains criteria that define when and how to cancel a job.</p>
  *          <p>The deployment stops if the following conditions are true:</p>
  *          <ol>
  *             <li>
  *                <p>The number of things that receive the deployment exceeds the
- *           <code>minNumberOfExecutedThings</code>.</p>
+ *             <code>minNumberOfExecutedThings</code>.</p>
  *             </li>
  *             <li>
  *                <p>The percentage of failures with type <code>failureType</code> exceeds the
- *           <code>thresholdPercentage</code>.</p>
+ *             <code>thresholdPercentage</code>.</p>
  *             </li>
  *          </ol>
  */
@@ -1297,7 +1497,7 @@ export interface IoTJobAbortCriteria {
    * <p>The minimum percentage of <code>failureType</code> failures that occur before the job can
    *       cancel.</p>
    *          <p>This parameter supports up to two digits after the decimal (for example, you can specify
-   *       <code>10.9</code> or <code>10.99</code>, but not <code>10.999</code>).</p>
+   *         <code>10.9</code> or <code>10.99</code>, but not <code>10.999</code>).</p>
    */
   thresholdPercentage: number | undefined;
 
@@ -1309,17 +1509,20 @@ export interface IoTJobAbortCriteria {
 }
 
 /**
+ * @public
  * <p>Contains a list of criteria that define when and how to cancel a configuration
  *       deployment.</p>
  */
 export interface IoTJobAbortConfig {
   /**
-   * <p>The list of criteria that define when and how to cancel the configuration deployment.</p>
+   * <p>The list of criteria that define when and how to cancel the configuration
+   *       deployment.</p>
    */
   criteriaList: IoTJobAbortCriteria[] | undefined;
 }
 
 /**
+ * @public
  * <p>Contains information about criteria to meet before a job increases its rollout rate.
  *       Specify either <code>numberOfNotifiedThings</code> or
  *       <code>numberOfSucceededThings</code>.</p>
@@ -1339,6 +1542,7 @@ export interface IoTJobRateIncreaseCriteria {
 }
 
 /**
+ * @public
  * <p>Contains information about an exponential rollout rate for a configuration deployment
  *       job.</p>
  */
@@ -1352,7 +1556,7 @@ export interface IoTJobExponentialRolloutRate {
   /**
    * <p>The exponential factor to increase the rollout rate for the job.</p>
    *          <p>This parameter supports up to one digit after the decimal (for example, you can specify
-   *       <code>1.5</code>, but not <code>1.55</code>).</p>
+   *         <code>1.5</code>, but not <code>1.55</code>).</p>
    */
   incrementFactor: number | undefined;
 
@@ -1363,6 +1567,7 @@ export interface IoTJobExponentialRolloutRate {
 }
 
 /**
+ * @public
  * <p>Contains information about the rollout configuration for a job. This configuration defines
  *       the rate at which the job deploys a configuration to a fleet of target devices.</p>
  */
@@ -1379,6 +1584,7 @@ export interface IoTJobExecutionsRolloutConfig {
 }
 
 /**
+ * @public
  * <p>Contains information about the timeout configuration for a job.</p>
  */
 export interface IoTJobTimeoutConfig {
@@ -1393,6 +1599,7 @@ export interface IoTJobTimeoutConfig {
 }
 
 /**
+ * @public
  * <p>Contains information about an IoT job configuration.</p>
  */
 export interface DeploymentIoTJobConfiguration {
@@ -1415,6 +1622,9 @@ export interface DeploymentIoTJobConfiguration {
   timeoutConfig?: IoTJobTimeoutConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateDeploymentRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the target IoT thing or thing group. When creating a subdeployment, the targetARN can only be a thing group.</p>
@@ -1466,6 +1676,9 @@ export interface CreateDeploymentRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDeploymentResponse {
   /**
    * <p>The ID of the deployment.</p>
@@ -1483,6 +1696,9 @@ export interface CreateDeploymentResponse {
   iotJobArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteComponentRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
@@ -1490,6 +1706,9 @@ export interface DeleteComponentRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoreDeviceRequest {
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
@@ -1497,6 +1716,9 @@ export interface DeleteCoreDeviceRequest {
   coreDeviceThingName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeploymentRequest {
   /**
    * <p>The ID of the deployment.</p>
@@ -1504,15 +1726,25 @@ export interface DeleteDeploymentRequest {
   deploymentId: string | undefined;
 }
 
-export enum DeploymentStatus {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentStatus = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
+
+/**
+ * @public
  * <p>Contains information about a deployment.</p>
  */
 export interface Deployment {
@@ -1557,11 +1789,23 @@ export interface Deployment {
   parentTargetArn?: string;
 }
 
-export enum DeploymentHistoryFilter {
-  ALL = "ALL",
-  LATEST_ONLY = "LATEST_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentHistoryFilter = {
+  ALL: "ALL",
+  LATEST_ONLY: "LATEST_ONLY",
+} as const;
 
+/**
+ * @public
+ */
+export type DeploymentHistoryFilter = (typeof DeploymentHistoryFilter)[keyof typeof DeploymentHistoryFilter];
+
+/**
+ * @public
+ */
 export interface DescribeComponentRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
@@ -1569,6 +1813,9 @@ export interface DescribeComponentRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeComponentResponse {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
@@ -1619,8 +1866,14 @@ export interface DescribeComponentResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateServiceRoleFromAccountRequest {}
 
+/**
+ * @public
+ */
 export interface DisassociateServiceRoleFromAccountResponse {
   /**
    * <p>The time when the service role was disassociated from IoT Greengrass for your Amazon Web Services account in this
@@ -1629,17 +1882,29 @@ export interface DisassociateServiceRoleFromAccountResponse {
   disassociatedAt?: string;
 }
 
-export enum EffectiveDeploymentExecutionStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EffectiveDeploymentExecutionStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+  REJECTED: "REJECTED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
 
 /**
+ * @public
+ */
+export type EffectiveDeploymentExecutionStatus =
+  (typeof EffectiveDeploymentExecutionStatus)[keyof typeof EffectiveDeploymentExecutionStatus];
+
+/**
+ * @public
  * <p>Contains all error-related information for the deployment record. The status details will
  *       be null if the deployment is in a success state.</p>
  *          <note>
@@ -1666,6 +1931,7 @@ export interface EffectiveDeploymentStatusDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about a deployment job that IoT Greengrass sends to a Greengrass core device.</p>
  */
 export interface EffectiveDeployment {
@@ -1701,6 +1967,46 @@ export interface EffectiveDeployment {
 
   /**
    * <p>The status of the deployment job on the Greengrass core device.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> – The deployment job is running.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUEUED</code> – The deployment job is in the job queue and waiting to
+   *           run.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – The deployment failed. For more information, see the
+   *             <code>statusDetails</code> field.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> – The deployment to an IoT thing was completed
+   *           successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TIMED_OUT</code> – The deployment didn't complete in the allotted time.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELED</code> – The deployment was canceled by the user.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTED</code> – The deployment was rejected. For more information, see
+   *           the <code>statusDetails</code> field.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code> – The deployment to an IoT thing group was completed
+   *           successfully.</p>
+   *             </li>
+   *          </ul>
    */
   coreDeviceExecutionStatus: EffectiveDeploymentExecutionStatus | string | undefined;
 
@@ -1727,11 +2033,23 @@ export interface EffectiveDeployment {
   statusDetails?: EffectiveDeploymentStatusDetails;
 }
 
-export enum RecipeOutputFormat {
-  JSON = "JSON",
-  YAML = "YAML",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecipeOutputFormat = {
+  JSON: "JSON",
+  YAML: "YAML",
+} as const;
 
+/**
+ * @public
+ */
+export type RecipeOutputFormat = (typeof RecipeOutputFormat)[keyof typeof RecipeOutputFormat];
+
+/**
+ * @public
+ */
 export interface GetComponentRequest {
   /**
    * <p>The format of the recipe.</p>
@@ -1744,6 +2062,9 @@ export interface GetComponentRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentResponse {
   /**
    * <p>The format of the recipe.</p>
@@ -1763,6 +2084,9 @@ export interface GetComponentResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentVersionArtifactRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version. Specify the ARN of a public or a Lambda component version.</p>
@@ -1780,6 +2104,9 @@ export interface GetComponentVersionArtifactRequest {
   artifactName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentVersionArtifactResponse {
   /**
    * <p>The URL of the artifact.</p>
@@ -1787,6 +2114,9 @@ export interface GetComponentVersionArtifactResponse {
   preSignedUrl: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectivityInfoRequest {
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
@@ -1794,6 +2124,9 @@ export interface GetConnectivityInfoRequest {
   thingName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectivityInfoResponse {
   /**
    * <p>The connectivity information for the core device.</p>
@@ -1806,6 +2139,9 @@ export interface GetConnectivityInfoResponse {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreDeviceRequest {
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
@@ -1813,6 +2149,9 @@ export interface GetCoreDeviceRequest {
   coreDeviceThingName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreDeviceResponse {
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
@@ -1867,6 +2206,9 @@ export interface GetCoreDeviceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetDeploymentRequest {
   /**
    * <p>The ID of the deployment.</p>
@@ -1874,6 +2216,9 @@ export interface GetDeploymentRequest {
   deploymentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDeploymentResponse {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the target IoT thing or thing group.</p>
@@ -1951,8 +2296,14 @@ export interface GetDeploymentResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceRoleForAccountRequest {}
 
+/**
+ * @public
+ */
 export interface GetServiceRoleForAccountResponse {
   /**
    * <p>The time when the service role was associated with IoT Greengrass for your Amazon Web Services account in this
@@ -1967,6 +2318,9 @@ export interface GetServiceRoleForAccountResponse {
   roleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListClientDevicesAssociatedWithCoreDeviceRequest {
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
@@ -1984,6 +2338,9 @@ export interface ListClientDevicesAssociatedWithCoreDeviceRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListClientDevicesAssociatedWithCoreDeviceResponse {
   /**
    * <p>A list that describes the client devices that are associated with the core device.</p>
@@ -1996,6 +2353,9 @@ export interface ListClientDevicesAssociatedWithCoreDeviceResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsRequest {
   /**
    * <p>The scope of the components to list.</p>
@@ -2015,6 +2375,9 @@ export interface ListComponentsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsResponse {
   /**
    * <p>A list that summarizes each component.</p>
@@ -2027,6 +2390,9 @@ export interface ListComponentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentVersionsRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component.</p>
@@ -2044,6 +2410,9 @@ export interface ListComponentVersionsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentVersionsResponse {
   /**
    * <p>A list of versions that exist for the component.</p>
@@ -2056,6 +2425,9 @@ export interface ListComponentVersionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoreDevicesRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IoT thing group by which to filter. If you specify this parameter,
@@ -2093,6 +2465,9 @@ export interface ListCoreDevicesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoreDevicesResponse {
   /**
    * <p>A list that summarizes each core device.</p>
@@ -2105,6 +2480,9 @@ export interface ListCoreDevicesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeploymentsRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the target IoT thing or thing group.</p>
@@ -2145,6 +2523,9 @@ export interface ListDeploymentsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeploymentsResponse {
   /**
    * <p>A list that summarizes each deployment.</p>
@@ -2157,6 +2538,9 @@ export interface ListDeploymentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEffectiveDeploymentsRequest {
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
@@ -2174,6 +2558,9 @@ export interface ListEffectiveDeploymentsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEffectiveDeploymentsResponse {
   /**
    * <p>A list that summarizes each deployment on the core device.</p>
@@ -2186,11 +2573,24 @@ export interface ListEffectiveDeploymentsResponse {
   nextToken?: string;
 }
 
-export enum InstalledComponentTopologyFilter {
-  ALL = "ALL",
-  ROOT = "ROOT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstalledComponentTopologyFilter = {
+  ALL: "ALL",
+  ROOT: "ROOT",
+} as const;
 
+/**
+ * @public
+ */
+export type InstalledComponentTopologyFilter =
+  (typeof InstalledComponentTopologyFilter)[keyof typeof InstalledComponentTopologyFilter];
+
+/**
+ * @public
+ */
 export interface ListInstalledComponentsRequest {
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
@@ -2229,18 +2629,29 @@ export interface ListInstalledComponentsRequest {
   topologyFilter?: InstalledComponentTopologyFilter | string;
 }
 
-export enum InstalledComponentLifecycleState {
-  BROKEN = "BROKEN",
-  ERRORED = "ERRORED",
-  FINISHED = "FINISHED",
-  INSTALLED = "INSTALLED",
-  NEW = "NEW",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstalledComponentLifecycleState = {
+  BROKEN: "BROKEN",
+  ERRORED: "ERRORED",
+  FINISHED: "FINISHED",
+  INSTALLED: "INSTALLED",
+  NEW: "NEW",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+} as const;
 
 /**
+ * @public
+ */
+export type InstalledComponentLifecycleState =
+  (typeof InstalledComponentLifecycleState)[keyof typeof InstalledComponentLifecycleState];
+
+/**
+ * @public
  * <p>Contains information about a component on a Greengrass core device.</p>
  */
 export interface InstalledComponent {
@@ -2279,7 +2690,7 @@ export interface InstalledComponent {
   lastStatusChangeTimestamp?: Date;
 
   /**
-   * <p>The last time the Greengrass core device sent a message containing a certain component to the
+   * <p>The last time the Greengrass core device sent a message containing a component's state to the
    *       Amazon Web Services Cloud.</p>
    *          <p>A component does not need to see a state change for this field to update.</p>
    */
@@ -2289,6 +2700,10 @@ export interface InstalledComponent {
    * <p>The most recent deployment source that brought the component to the Greengrass core device. For
    *       a thing group deployment or thing deployment, the source will be the The ID of the deployment. and for
    *       local deployments it will be <code>LOCAL</code>.</p>
+   *          <note>
+   *             <p>Any deployment will attempt to reinstall currently broken components on the device,
+   *         which will update the last installation source.</p>
+   *          </note>
    */
   lastInstallationSource?: string;
 
@@ -2304,6 +2719,9 @@ export interface InstalledComponent {
   lifecycleStatusCodes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListInstalledComponentsResponse {
   /**
    * <p>A list that summarizes each component on the core device.</p>
@@ -2326,6 +2744,9 @@ export interface ListInstalledComponentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource.</p>
@@ -2333,6 +2754,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of key-value pairs that contain metadata for the resource. For more
@@ -2342,6 +2766,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ResolveComponentCandidatesRequest {
   /**
    * <p>The platform to use to resolve compatible components.</p>
@@ -2355,6 +2782,7 @@ export interface ResolveComponentCandidatesRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a component version that is compatible to run on a Greengrass core
  *       device.</p>
  */
@@ -2408,6 +2836,9 @@ export interface ResolvedComponentVersion {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResolveComponentCandidatesResponse {
   /**
    * <p>A list of components that meet the requirements that you specify in the request. This list
@@ -2416,6 +2847,9 @@ export interface ResolveComponentCandidatesResponse {
   resolvedComponentVersions?: ResolvedComponentVersion[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource to tag.</p>
@@ -2430,8 +2864,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource to untag.</p>
@@ -2444,8 +2884,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateConnectivityInfoRequest {
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
@@ -2458,6 +2904,9 @@ export interface UpdateConnectivityInfoRequest {
   connectivityInfo: ConnectivityInfo[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectivityInfoResponse {
   /**
    * <p>The new version of the connectivity information for the core device.</p>
@@ -2469,707 +2918,3 @@ export interface UpdateConnectivityInfoResponse {
    */
   message?: string;
 }
-
-/**
- * @internal
- */
-export const AssociateClientDeviceWithCoreDeviceEntryFilterSensitiveLog = (
-  obj: AssociateClientDeviceWithCoreDeviceEntry
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateClientDeviceWithCoreDeviceErrorEntryFilterSensitiveLog = (
-  obj: AssociateClientDeviceWithCoreDeviceErrorEntry
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatedClientDeviceFilterSensitiveLog = (obj: AssociatedClientDevice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateServiceRoleToAccountRequestFilterSensitiveLog = (
-  obj: AssociateServiceRoleToAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateServiceRoleToAccountResponseFilterSensitiveLog = (
-  obj: AssociateServiceRoleToAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchAssociateClientDeviceWithCoreDeviceRequestFilterSensitiveLog = (
-  obj: BatchAssociateClientDeviceWithCoreDeviceRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchAssociateClientDeviceWithCoreDeviceResponseFilterSensitiveLog = (
-  obj: BatchAssociateClientDeviceWithCoreDeviceResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateClientDeviceFromCoreDeviceEntryFilterSensitiveLog = (
-  obj: DisassociateClientDeviceFromCoreDeviceEntry
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisassociateClientDeviceFromCoreDeviceRequestFilterSensitiveLog = (
-  obj: BatchDisassociateClientDeviceFromCoreDeviceRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateClientDeviceFromCoreDeviceErrorEntryFilterSensitiveLog = (
-  obj: DisassociateClientDeviceFromCoreDeviceErrorEntry
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisassociateClientDeviceFromCoreDeviceResponseFilterSensitiveLog = (
-  obj: BatchDisassociateClientDeviceFromCoreDeviceResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelDeploymentRequestFilterSensitiveLog = (obj: CancelDeploymentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelDeploymentResponseFilterSensitiveLog = (obj: CancelDeploymentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudComponentStatusFilterSensitiveLog = (obj: CloudComponentStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentPlatformFilterSensitiveLog = (obj: ComponentPlatform): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentLatestVersionFilterSensitiveLog = (obj: ComponentLatestVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentFilterSensitiveLog = (obj: Component): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentCandidateFilterSensitiveLog = (obj: ComponentCandidate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentConfigurationUpdateFilterSensitiveLog = (obj: ComponentConfigurationUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentDependencyRequirementFilterSensitiveLog = (obj: ComponentDependencyRequirement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SystemResourceLimitsFilterSensitiveLog = (obj: SystemResourceLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentRunWithFilterSensitiveLog = (obj: ComponentRunWith): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentDeploymentSpecificationFilterSensitiveLog = (obj: ComponentDeploymentSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentVersionListItemFilterSensitiveLog = (obj: ComponentVersionListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectivityInfoFilterSensitiveLog = (obj: ConnectivityInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreDeviceFilterSensitiveLog = (obj: CoreDevice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaEventSourceFilterSensitiveLog = (obj: LambdaEventSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaDeviceMountFilterSensitiveLog = (obj: LambdaDeviceMount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaVolumeMountFilterSensitiveLog = (obj: LambdaVolumeMount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaContainerParamsFilterSensitiveLog = (obj: LambdaContainerParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaLinuxProcessParamsFilterSensitiveLog = (obj: LambdaLinuxProcessParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaExecutionParametersFilterSensitiveLog = (obj: LambdaExecutionParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaFunctionRecipeSourceFilterSensitiveLog = (obj: LambdaFunctionRecipeSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateComponentVersionRequestFilterSensitiveLog = (obj: CreateComponentVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateComponentVersionResponseFilterSensitiveLog = (obj: CreateComponentVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentComponentUpdatePolicyFilterSensitiveLog = (obj: DeploymentComponentUpdatePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentConfigurationValidationPolicyFilterSensitiveLog = (
-  obj: DeploymentConfigurationValidationPolicy
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentPoliciesFilterSensitiveLog = (obj: DeploymentPolicies): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IoTJobAbortCriteriaFilterSensitiveLog = (obj: IoTJobAbortCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IoTJobAbortConfigFilterSensitiveLog = (obj: IoTJobAbortConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IoTJobRateIncreaseCriteriaFilterSensitiveLog = (obj: IoTJobRateIncreaseCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IoTJobExponentialRolloutRateFilterSensitiveLog = (obj: IoTJobExponentialRolloutRate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IoTJobExecutionsRolloutConfigFilterSensitiveLog = (obj: IoTJobExecutionsRolloutConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IoTJobTimeoutConfigFilterSensitiveLog = (obj: IoTJobTimeoutConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentIoTJobConfigurationFilterSensitiveLog = (obj: DeploymentIoTJobConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentRequestFilterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentResponseFilterSensitiveLog = (obj: CreateDeploymentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteComponentRequestFilterSensitiveLog = (obj: DeleteComponentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCoreDeviceRequestFilterSensitiveLog = (obj: DeleteCoreDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeploymentRequestFilterSensitiveLog = (obj: DeleteDeploymentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentFilterSensitiveLog = (obj: Deployment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeComponentRequestFilterSensitiveLog = (obj: DescribeComponentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeComponentResponseFilterSensitiveLog = (obj: DescribeComponentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateServiceRoleFromAccountRequestFilterSensitiveLog = (
-  obj: DisassociateServiceRoleFromAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateServiceRoleFromAccountResponseFilterSensitiveLog = (
-  obj: DisassociateServiceRoleFromAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EffectiveDeploymentStatusDetailsFilterSensitiveLog = (obj: EffectiveDeploymentStatusDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EffectiveDeploymentFilterSensitiveLog = (obj: EffectiveDeployment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetComponentRequestFilterSensitiveLog = (obj: GetComponentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetComponentResponseFilterSensitiveLog = (obj: GetComponentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetComponentVersionArtifactRequestFilterSensitiveLog = (obj: GetComponentVersionArtifactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetComponentVersionArtifactResponseFilterSensitiveLog = (
-  obj: GetComponentVersionArtifactResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectivityInfoRequestFilterSensitiveLog = (obj: GetConnectivityInfoRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectivityInfoResponseFilterSensitiveLog = (obj: GetConnectivityInfoResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCoreDeviceRequestFilterSensitiveLog = (obj: GetCoreDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCoreDeviceResponseFilterSensitiveLog = (obj: GetCoreDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentRequestFilterSensitiveLog = (obj: GetDeploymentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentResponseFilterSensitiveLog = (obj: GetDeploymentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetServiceRoleForAccountRequestFilterSensitiveLog = (obj: GetServiceRoleForAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetServiceRoleForAccountResponseFilterSensitiveLog = (obj: GetServiceRoleForAccountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListClientDevicesAssociatedWithCoreDeviceRequestFilterSensitiveLog = (
-  obj: ListClientDevicesAssociatedWithCoreDeviceRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListClientDevicesAssociatedWithCoreDeviceResponseFilterSensitiveLog = (
-  obj: ListClientDevicesAssociatedWithCoreDeviceResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListComponentsRequestFilterSensitiveLog = (obj: ListComponentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListComponentsResponseFilterSensitiveLog = (obj: ListComponentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListComponentVersionsRequestFilterSensitiveLog = (obj: ListComponentVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListComponentVersionsResponseFilterSensitiveLog = (obj: ListComponentVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCoreDevicesRequestFilterSensitiveLog = (obj: ListCoreDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCoreDevicesResponseFilterSensitiveLog = (obj: ListCoreDevicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentsRequestFilterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentsResponseFilterSensitiveLog = (obj: ListDeploymentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEffectiveDeploymentsRequestFilterSensitiveLog = (obj: ListEffectiveDeploymentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEffectiveDeploymentsResponseFilterSensitiveLog = (obj: ListEffectiveDeploymentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInstalledComponentsRequestFilterSensitiveLog = (obj: ListInstalledComponentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstalledComponentFilterSensitiveLog = (obj: InstalledComponent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInstalledComponentsResponseFilterSensitiveLog = (obj: ListInstalledComponentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolveComponentCandidatesRequestFilterSensitiveLog = (obj: ResolveComponentCandidatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolvedComponentVersionFilterSensitiveLog = (obj: ResolvedComponentVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolveComponentCandidatesResponseFilterSensitiveLog = (obj: ResolveComponentCandidatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectivityInfoRequestFilterSensitiveLog = (obj: UpdateConnectivityInfoRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectivityInfoResponseFilterSensitiveLog = (obj: UpdateConnectivityInfoResponse): any => ({
-  ...obj,
-});

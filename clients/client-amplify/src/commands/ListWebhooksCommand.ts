@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  ListWebhooksRequest,
-  ListWebhooksRequestFilterSensitiveLog,
-  ListWebhooksResult,
-  ListWebhooksResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWebhooksCommand,
-  serializeAws_restJson1ListWebhooksCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWebhooksRequest, ListWebhooksResult } from "../models/models_0";
+import { de_ListWebhooksCommand, se_ListWebhooksCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWebhooksCommand}.
  */
 export interface ListWebhooksCommandInput extends ListWebhooksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWebhooksCommand}.
  */
 export interface ListWebhooksCommandOutput extends ListWebhooksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of webhooks for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListWebhooksCommandOutput extends ListWebhooksResult, __Metadat
  * import { AmplifyClient, ListWebhooksCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, ListWebhooksCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // ListWebhooksRequest
+ *   appId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListWebhooksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWebhooksCommandInput - {@link ListWebhooksCommandInput}
+ * @returns {@link ListWebhooksCommandOutput}
  * @see {@link ListWebhooksCommandInput} for command's `input` shape.
  * @see {@link ListWebhooksCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -81,6 +85,9 @@ export class ListWebhooksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWebhooksCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class ListWebhooksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWebhooksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWebhooksResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class ListWebhooksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWebhooksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWebhooksCommand(input, context);
+    return se_ListWebhooksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWebhooksCommandOutput> {
-    return deserializeAws_restJson1ListWebhooksCommand(output, context);
+    return de_ListWebhooksCommand(output, context);
   }
 
   // Start section: command_body_extra

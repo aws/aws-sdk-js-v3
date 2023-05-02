@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  ListLicenseVersionsRequest,
-  ListLicenseVersionsRequestFilterSensitiveLog,
-  ListLicenseVersionsResponse,
-  ListLicenseVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLicenseVersionsCommand,
-  serializeAws_json1_1ListLicenseVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLicenseVersionsRequest, ListLicenseVersionsResponse } from "../models/models_0";
+import { de_ListLicenseVersionsCommand, se_ListLicenseVersionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLicenseVersionsCommand}.
  */
 export interface ListLicenseVersionsCommandInput extends ListLicenseVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLicenseVersionsCommand}.
  */
 export interface ListLicenseVersionsCommandOutput extends ListLicenseVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all versions of the specified license.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListLicenseVersionsCommandOutput extends ListLicenseVersionsRes
  * import { LicenseManagerClient, ListLicenseVersionsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListLicenseVersionsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListLicenseVersionsRequest
+ *   LicenseArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLicenseVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLicenseVersionsCommandInput - {@link ListLicenseVersionsCommandInput}
+ * @returns {@link ListLicenseVersionsCommandOutput}
  * @see {@link ListLicenseVersionsCommandInput} for command's `input` shape.
  * @see {@link ListLicenseVersionsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListLicenseVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLicenseVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class ListLicenseVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLicenseVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLicenseVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class ListLicenseVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLicenseVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLicenseVersionsCommand(input, context);
+    return se_ListLicenseVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLicenseVersionsCommandOutput> {
-    return deserializeAws_json1_1ListLicenseVersionsCommand(output, context);
+    return de_ListLicenseVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CloneStackRequest,
-  CloneStackRequestFilterSensitiveLog,
-  CloneStackResult,
-  CloneStackResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CloneStackRequest, CloneStackResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1CloneStackCommand,
-  serializeAws_json1_1CloneStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CloneStackCommand, se_CloneStackCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CloneStackCommand}.
  */
 export interface CloneStackCommandInput extends CloneStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link CloneStackCommand}.
  */
 export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a clone of a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html">Clone a
  *         Stack</a>. By default, all parameters are set to the values used by the parent stack.</p>
  *          <p>
@@ -47,10 +44,53 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  * import { OpsWorksClient, CloneStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CloneStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // CloneStackRequest
+ *   SourceStackId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Region: "STRING_VALUE",
+ *   VpcId: "STRING_VALUE",
+ *   Attributes: { // StackAttributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ServiceRoleArn: "STRING_VALUE", // required
+ *   DefaultInstanceProfileArn: "STRING_VALUE",
+ *   DefaultOs: "STRING_VALUE",
+ *   HostnameTheme: "STRING_VALUE",
+ *   DefaultAvailabilityZone: "STRING_VALUE",
+ *   DefaultSubnetId: "STRING_VALUE",
+ *   CustomJson: "STRING_VALUE",
+ *   ConfigurationManager: { // StackConfigurationManager
+ *     Name: "STRING_VALUE",
+ *     Version: "STRING_VALUE",
+ *   },
+ *   ChefConfiguration: { // ChefConfiguration
+ *     ManageBerkshelf: true || false,
+ *     BerkshelfVersion: "STRING_VALUE",
+ *   },
+ *   UseCustomCookbooks: true || false,
+ *   UseOpsworksSecurityGroups: true || false,
+ *   CustomCookbooksSource: { // Source
+ *     Type: "STRING_VALUE",
+ *     Url: "STRING_VALUE",
+ *     Username: "STRING_VALUE",
+ *     Password: "STRING_VALUE",
+ *     SshKey: "STRING_VALUE",
+ *     Revision: "STRING_VALUE",
+ *   },
+ *   DefaultSshKeyName: "STRING_VALUE",
+ *   ClonePermissions: true || false,
+ *   CloneAppIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ *   DefaultRootDeviceType: "STRING_VALUE",
+ *   AgentVersion: "STRING_VALUE",
+ * };
  * const command = new CloneStackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CloneStackCommandInput - {@link CloneStackCommandInput}
+ * @returns {@link CloneStackCommandOutput}
  * @see {@link CloneStackCommandInput} for command's `input` shape.
  * @see {@link CloneStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -80,6 +120,9 @@ export class CloneStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CloneStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +149,8 @@ export class CloneStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CloneStackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CloneStackResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +160,18 @@ export class CloneStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CloneStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CloneStackCommand(input, context);
+    return se_CloneStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloneStackCommandOutput> {
-    return deserializeAws_json1_1CloneStackCommand(output, context);
+    return de_CloneStackCommand(output, context);
   }
 
   // Start section: command_body_extra

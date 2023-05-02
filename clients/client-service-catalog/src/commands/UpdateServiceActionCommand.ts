@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateServiceActionInput,
-  UpdateServiceActionInputFilterSensitiveLog,
-  UpdateServiceActionOutput,
-  UpdateServiceActionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateServiceActionCommand,
-  serializeAws_json1_1UpdateServiceActionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateServiceActionInput, UpdateServiceActionOutput } from "../models/models_0";
+import { de_UpdateServiceActionCommand, se_UpdateServiceActionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceActionCommand}.
  */
 export interface UpdateServiceActionCommandInput extends UpdateServiceActionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceActionCommand}.
  */
 export interface UpdateServiceActionCommandOutput extends UpdateServiceActionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a self-service action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface UpdateServiceActionCommandOutput extends UpdateServiceActionOut
  * import { ServiceCatalogClient, UpdateServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // UpdateServiceActionInput
+ *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Definition: { // ServiceActionDefinitionMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE",
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new UpdateServiceActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceActionCommandInput - {@link UpdateServiceActionCommandInput}
+ * @returns {@link UpdateServiceActionCommandOutput}
  * @see {@link UpdateServiceActionCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +83,9 @@ export class UpdateServiceActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +114,8 @@ export class UpdateServiceActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceActionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServiceActionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +125,18 @@ export class UpdateServiceActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServiceActionCommand(input, context);
+    return se_UpdateServiceActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceActionCommandOutput> {
-    return deserializeAws_json1_1UpdateServiceActionCommand(output, context);
+    return de_UpdateServiceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

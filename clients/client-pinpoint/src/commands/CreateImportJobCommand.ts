@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateImportJobRequest,
-  CreateImportJobRequestFilterSensitiveLog,
-  CreateImportJobResponse,
-  CreateImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateImportJobRequest, CreateImportJobResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateImportJobCommand,
-  serializeAws_restJson1CreateImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateImportJobCommand, se_CreateImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateImportJobCommand}.
  */
 export interface CreateImportJobCommandInput extends CreateImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateImportJobCommand}.
  */
 export interface CreateImportJobCommandOutput extends CreateImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an import job for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  * import { PinpointClient, CreateImportJobCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateImportJobCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // CreateImportJobRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ImportJobRequest: { // ImportJobRequest
+ *     DefineSegment: true || false,
+ *     ExternalId: "STRING_VALUE",
+ *     Format: "CSV" || "JSON", // required
+ *     RegisterEndpoints: true || false,
+ *     RoleArn: "STRING_VALUE", // required
+ *     S3Url: "STRING_VALUE", // required
+ *     SegmentId: "STRING_VALUE",
+ *     SegmentName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImportJobCommandInput - {@link CreateImportJobCommandInput}
+ * @returns {@link CreateImportJobCommandOutput}
  * @see {@link CreateImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateImportJobCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +102,9 @@ export class CreateImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +133,8 @@ export class CreateImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +144,18 @@ export class CreateImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateImportJobCommand(input, context);
+    return se_CreateImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImportJobCommandOutput> {
-    return deserializeAws_restJson1CreateImportJobCommand(output, context);
+    return de_CreateImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

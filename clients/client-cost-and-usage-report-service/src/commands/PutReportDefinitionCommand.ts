@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient";
-import {
-  PutReportDefinitionRequest,
-  PutReportDefinitionRequestFilterSensitiveLog,
-  PutReportDefinitionResponse,
-  PutReportDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutReportDefinitionCommand,
-  serializeAws_json1_1PutReportDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { PutReportDefinitionRequest, PutReportDefinitionResponse } from "../models/models_0";
+import { de_PutReportDefinitionCommand, se_PutReportDefinitionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutReportDefinitionCommand}.
  */
 export interface PutReportDefinitionCommandInput extends PutReportDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutReportDefinitionCommand}.
  */
 export interface PutReportDefinitionCommandOutput extends PutReportDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new report using the description that you provide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,32 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * import { CostAndUsageReportServiceClient, PutReportDefinitionCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
  * // const { CostAndUsageReportServiceClient, PutReportDefinitionCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
  * const client = new CostAndUsageReportServiceClient(config);
+ * const input = { // PutReportDefinitionRequest
+ *   ReportDefinition: { // ReportDefinition
+ *     ReportName: "STRING_VALUE", // required
+ *     TimeUnit: "HOURLY" || "DAILY" || "MONTHLY", // required
+ *     Format: "textORcsv" || "Parquet", // required
+ *     Compression: "ZIP" || "GZIP" || "Parquet", // required
+ *     AdditionalSchemaElements: [ // SchemaElementList // required
+ *       "RESOURCES",
+ *     ],
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Prefix: "STRING_VALUE", // required
+ *     S3Region: "af-south-1" || "ap-east-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "ca-central-1" || "eu-central-1" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-north-1" || "eu-south-1" || "eu-south-2" || "me-central-1" || "me-south-1" || "sa-east-1" || "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "cn-north-1" || "cn-northwest-1", // required
+ *     AdditionalArtifacts: [ // AdditionalArtifactList
+ *       "REDSHIFT" || "QUICKSIGHT" || "ATHENA",
+ *     ],
+ *     RefreshClosedReports: true || false,
+ *     ReportVersioning: "CREATE_NEW_REPORT" || "OVERWRITE_REPORT",
+ *     BillingViewArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutReportDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutReportDefinitionCommandInput - {@link PutReportDefinitionCommandInput}
+ * @returns {@link PutReportDefinitionCommandOutput}
  * @see {@link PutReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link PutReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
@@ -111,6 +130,9 @@ export class PutReportDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutReportDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +161,8 @@ export class PutReportDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutReportDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutReportDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +172,18 @@ export class PutReportDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutReportDefinitionCommand(input, context);
+    return se_PutReportDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutReportDefinitionCommandOutput> {
-    return deserializeAws_json1_1PutReportDefinitionCommand(output, context);
+    return de_PutReportDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import {
-  ListTableRowsRequest,
-  ListTableRowsRequestFilterSensitiveLog,
-  ListTableRowsResult,
-  ListTableRowsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTableRowsCommand,
-  serializeAws_restJson1ListTableRowsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTableRowsRequest, ListTableRowsResult, ListTableRowsResultFilterSensitiveLog } from "../models/models_0";
+import { de_ListTableRowsCommand, se_ListTableRowsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTableRowsCommand}.
  */
 export interface ListTableRowsCommandInput extends ListTableRowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTableRowsCommand}.
  */
 export interface ListTableRowsCommandOutput extends ListTableRowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The ListTableRows API allows you to retrieve a list of all the rows in a table in a workbook.
  *         </p>
@@ -44,10 +41,21 @@ export interface ListTableRowsCommandOutput extends ListTableRowsResult, __Metad
  * import { HoneycodeClient, ListTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, ListTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = { // ListTableRowsRequest
+ *   workbookId: "STRING_VALUE", // required
+ *   tableId: "STRING_VALUE", // required
+ *   rowIds: [ // RowIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTableRowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTableRowsCommandInput - {@link ListTableRowsCommandInput}
+ * @returns {@link ListTableRowsCommandOutput}
  * @see {@link ListTableRowsCommandInput} for command's `input` shape.
  * @see {@link ListTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -97,6 +105,9 @@ export class ListTableRowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTableRowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,7 +134,7 @@ export class ListTableRowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTableRowsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListTableRowsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -134,12 +145,18 @@ export class ListTableRowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTableRowsCommand(input, context);
+    return se_ListTableRowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableRowsCommandOutput> {
-    return deserializeAws_restJson1ListTableRowsCommand(output, context);
+    return de_ListTableRowsCommand(output, context);
   }
 
   // Start section: command_body_extra

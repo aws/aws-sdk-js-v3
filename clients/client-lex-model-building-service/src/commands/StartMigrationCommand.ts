@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  StartMigrationRequest,
-  StartMigrationRequestFilterSensitiveLog,
-  StartMigrationResponse,
-  StartMigrationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartMigrationCommand,
-  serializeAws_restJson1StartMigrationCommand,
-} from "../protocols/Aws_restJson1";
+import { StartMigrationRequest, StartMigrationResponse } from "../models/models_0";
+import { de_StartMigrationCommand, se_StartMigrationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMigrationCommand}.
  */
 export interface StartMigrationCommandInput extends StartMigrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMigrationCommand}.
  */
 export interface StartMigrationCommandOutput extends StartMigrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2. Migrate your bot when
  *       you want to take advantage of the new features of Amazon Lex V2.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/migrate.html">Migrating a bot</a> in the <i>Amazon Lex
@@ -49,10 +46,19 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * import { LexModelBuildingServiceClient, StartMigrationCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, StartMigrationCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // StartMigrationRequest
+ *   v1BotName: "STRING_VALUE", // required
+ *   v1BotVersion: "STRING_VALUE", // required
+ *   v2BotName: "STRING_VALUE", // required
+ *   v2BotRole: "STRING_VALUE", // required
+ *   migrationStrategy: "STRING_VALUE", // required
+ * };
  * const command = new StartMigrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMigrationCommandInput - {@link StartMigrationCommandInput}
+ * @returns {@link StartMigrationCommandOutput}
  * @see {@link StartMigrationCommandInput} for command's `input` shape.
  * @see {@link StartMigrationCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -95,6 +101,9 @@ export class StartMigrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMigrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +132,8 @@ export class StartMigrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMigrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMigrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +143,18 @@ export class StartMigrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMigrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartMigrationCommand(input, context);
+    return se_StartMigrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMigrationCommandOutput> {
-    return deserializeAws_restJson1StartMigrationCommand(output, context);
+    return de_StartMigrationCommand(output, context);
   }
 
   // Start section: command_body_extra

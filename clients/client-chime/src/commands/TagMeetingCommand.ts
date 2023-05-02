@@ -15,21 +15,23 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { TagMeetingRequest, TagMeetingRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1TagMeetingCommand,
-  serializeAws_restJson1TagMeetingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TagMeetingCommand, se_TagMeetingCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TagMeetingCommand}.
  */
 export interface TagMeetingCommandInput extends TagMeetingRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagMeetingCommand}.
  */
 export interface TagMeetingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies the specified tags to the specified Amazon Chime SDK meeting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,21 @@ export interface TagMeetingCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, TagMeetingCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, TagMeetingCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // TagMeetingRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   Tags: [ // MeetingTagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagMeetingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagMeetingCommandInput - {@link TagMeetingCommandInput}
+ * @returns {@link TagMeetingCommandOutput}
  * @see {@link TagMeetingCommandInput} for command's `input` shape.
  * @see {@link TagMeetingCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -88,6 +101,9 @@ export class TagMeetingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagMeetingCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +131,7 @@ export class TagMeetingCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: TagMeetingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +141,18 @@ export class TagMeetingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagMeetingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagMeetingCommand(input, context);
+    return se_TagMeetingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagMeetingCommandOutput> {
-    return deserializeAws_restJson1TagMeetingCommand(output, context);
+    return de_TagMeetingCommand(output, context);
   }
 
   // Start section: command_body_extra

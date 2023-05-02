@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DescribeRulesInput,
-  DescribeRulesInputFilterSensitiveLog,
-  DescribeRulesOutput,
-  DescribeRulesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeRulesCommand,
-  serializeAws_queryDescribeRulesCommand,
-} from "../protocols/Aws_query";
+import { DescribeRulesInput, DescribeRulesOutput } from "../models/models_0";
+import { de_DescribeRulesCommand, se_DescribeRulesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRulesCommand}.
  */
 export interface DescribeRulesCommandInput extends DescribeRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRulesCommand}.
  */
 export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified rules or the rules for the specified listener. You must specify
  *       either a listener or one or more rules.</p>
  * @example
@@ -47,10 +44,20 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * import { ElasticLoadBalancingV2Client, DescribeRulesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeRulesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DescribeRulesInput
+ *   ListenerArn: "STRING_VALUE",
+ *   RuleArns: [ // RuleArns
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new DescribeRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRulesCommandInput - {@link DescribeRulesCommandInput}
+ * @returns {@link DescribeRulesCommandOutput}
  * @see {@link DescribeRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeRulesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -121,6 +128,9 @@ export class DescribeRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +157,8 @@ export class DescribeRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,12 +168,18 @@ export class DescribeRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeRulesCommand(input, context);
+    return se_DescribeRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRulesCommandOutput> {
-    return deserializeAws_queryDescribeRulesCommand(output, context);
+    return de_DescribeRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

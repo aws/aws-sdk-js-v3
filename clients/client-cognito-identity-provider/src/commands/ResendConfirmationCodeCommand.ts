@@ -22,23 +22,24 @@ import {
   ResendConfirmationCodeRequest,
   ResendConfirmationCodeRequestFilterSensitiveLog,
   ResendConfirmationCodeResponse,
-  ResendConfirmationCodeResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ResendConfirmationCodeCommand,
-  serializeAws_json1_1ResendConfirmationCodeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResendConfirmationCodeCommand, se_ResendConfirmationCodeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResendConfirmationCodeCommand}.
  */
 export interface ResendConfirmationCodeCommandInput extends ResendConfirmationCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResendConfirmationCodeCommand}.
  */
 export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationCodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resends the confirmation (for confirmation of registration) to a specific user in the
  *             user pool.</p>
  *
@@ -65,10 +66,27 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  * import { CognitoIdentityProviderClient, ResendConfirmationCodeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ResendConfirmationCodeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // ResendConfirmationCodeRequest
+ *   ClientId: "STRING_VALUE", // required
+ *   SecretHash: "STRING_VALUE",
+ *   UserContextData: { // UserContextDataType
+ *     IpAddress: "STRING_VALUE",
+ *     EncodedData: "STRING_VALUE",
+ *   },
+ *   Username: "STRING_VALUE", // required
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
+ *     AnalyticsEndpointId: "STRING_VALUE",
+ *   },
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ResendConfirmationCodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResendConfirmationCodeCommandInput - {@link ResendConfirmationCodeCommandInput}
+ * @returns {@link ResendConfirmationCodeCommandOutput}
  * @see {@link ResendConfirmationCodeCommandInput} for command's `input` shape.
  * @see {@link ResendConfirmationCodeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -149,6 +167,9 @@ export class ResendConfirmationCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResendConfirmationCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,7 +199,7 @@ export class ResendConfirmationCodeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ResendConfirmationCodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResendConfirmationCodeResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -188,12 +209,18 @@ export class ResendConfirmationCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResendConfirmationCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResendConfirmationCodeCommand(input, context);
+    return se_ResendConfirmationCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResendConfirmationCodeCommandOutput> {
-    return deserializeAws_json1_1ResendConfirmationCodeCommand(output, context);
+    return de_ResendConfirmationCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,21 +20,23 @@ import {
   UpdateBotRecommendationResponse,
   UpdateBotRecommendationResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateBotRecommendationCommand,
-  serializeAws_restJson1UpdateBotRecommendationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBotRecommendationCommand, se_UpdateBotRecommendationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBotRecommendationCommand}.
  */
 export interface UpdateBotRecommendationCommandInput extends UpdateBotRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBotRecommendationCommand}.
  */
 export interface UpdateBotRecommendationCommandOutput extends UpdateBotRecommendationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing bot recommendation request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,23 @@ export interface UpdateBotRecommendationCommandOutput extends UpdateBotRecommend
  * import { LexModelsV2Client, UpdateBotRecommendationCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateBotRecommendationCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // UpdateBotRecommendationRequest
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   botRecommendationId: "STRING_VALUE", // required
+ *   encryptionSetting: { // EncryptionSetting
+ *     kmsKeyArn: "STRING_VALUE",
+ *     botLocaleExportPassword: "STRING_VALUE",
+ *     associatedTranscriptsPassword: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateBotRecommendationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBotRecommendationCommandInput - {@link UpdateBotRecommendationCommandInput}
+ * @returns {@link UpdateBotRecommendationCommandOutput}
  * @see {@link UpdateBotRecommendationCommandInput} for command's `input` shape.
  * @see {@link UpdateBotRecommendationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -98,6 +113,9 @@ export class UpdateBotRecommendationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBotRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,12 +155,18 @@ export class UpdateBotRecommendationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBotRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBotRecommendationCommand(input, context);
+    return se_UpdateBotRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBotRecommendationCommandOutput> {
-    return deserializeAws_restJson1UpdateBotRecommendationCommand(output, context);
+    return de_UpdateBotRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

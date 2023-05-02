@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteIpGroupRequest,
-  DeleteIpGroupRequestFilterSensitiveLog,
-  DeleteIpGroupResult,
-  DeleteIpGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteIpGroupCommand,
-  serializeAws_json1_1DeleteIpGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteIpGroupRequest, DeleteIpGroupResult } from "../models/models_0";
+import { de_DeleteIpGroupCommand, se_DeleteIpGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIpGroupCommand}.
  */
 export interface DeleteIpGroupCommandInput extends DeleteIpGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIpGroupCommand}.
  */
 export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified IP access control group.</p>
  *          <p>You cannot delete an IP access control group that is associated with a directory.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __Metad
  * import { WorkSpacesClient, DeleteIpGroupCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteIpGroupCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DeleteIpGroupRequest
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIpGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIpGroupCommandInput - {@link DeleteIpGroupCommandInput}
+ * @returns {@link DeleteIpGroupCommandOutput}
  * @see {@link DeleteIpGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteIpGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -82,6 +84,9 @@ export class DeleteIpGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIpGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class DeleteIpGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIpGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIpGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class DeleteIpGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIpGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteIpGroupCommand(input, context);
+    return se_DeleteIpGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIpGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteIpGroupCommand(output, context);
+    return de_DeleteIpGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

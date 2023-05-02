@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchExecuteStatementRequest,
-  BatchExecuteStatementRequestFilterSensitiveLog,
-  BatchExecuteStatementResponse,
-  BatchExecuteStatementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchExecuteStatementCommand,
-  serializeAws_restJson1BatchExecuteStatementCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchExecuteStatementRequest, BatchExecuteStatementResponse } from "../models/models_0";
+import { de_BatchExecuteStatementCommand, se_BatchExecuteStatementCommand } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchExecuteStatementCommand}.
  */
 export interface BatchExecuteStatementCommandInput extends BatchExecuteStatementRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchExecuteStatementCommand}.
  */
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs a batch SQL statement over an array of data.</p>
  *         <p>You can run bulk update and insert operations for multiple records using a DML
  *             statement with different parameter sets. Bulk operations can provide a significant
@@ -55,10 +52,69 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * import { RDSDataClient, BatchExecuteStatementCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
  * // const { RDSDataClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
  * const client = new RDSDataClient(config);
+ * const input = { // BatchExecuteStatementRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   secretArn: "STRING_VALUE", // required
+ *   sql: "STRING_VALUE", // required
+ *   database: "STRING_VALUE",
+ *   schema: "STRING_VALUE",
+ *   parameterSets: [ // SqlParameterSets
+ *     [ // SqlParametersList
+ *       { // SqlParameter
+ *         name: "STRING_VALUE",
+ *         value: { // Field Union: only one key present
+ *           isNull: true || false,
+ *           booleanValue: true || false,
+ *           longValue: Number("long"),
+ *           doubleValue: Number("double"),
+ *           stringValue: "STRING_VALUE",
+ *           blobValue: "BLOB_VALUE",
+ *           arrayValue: { // ArrayValue Union: only one key present
+ *             booleanValues: [ // BooleanArray
+ *               true || false,
+ *             ],
+ *             longValues: [ // LongArray
+ *               Number("long"),
+ *             ],
+ *             doubleValues: [ // DoubleArray
+ *               Number("double"),
+ *             ],
+ *             stringValues: [ // StringArray
+ *               "STRING_VALUE",
+ *             ],
+ *             arrayValues: [ // ArrayOfArray
+ *               {//  Union: only one key present
+ *                 booleanValues: [
+ *                   true || false,
+ *                 ],
+ *                 longValues: [
+ *                   Number("long"),
+ *                 ],
+ *                 doubleValues: [
+ *                   Number("double"),
+ *                 ],
+ *                 stringValues: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 arrayValues: [
+ *                   "<ArrayValue>",
+ *                 ],
+ *               },
+ *             ],
+ *           },
+ *         },
+ *         typeHint: "STRING_VALUE",
+ *       },
+ *     ],
+ *   ],
+ *   transactionId: "STRING_VALUE",
+ * };
  * const command = new BatchExecuteStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchExecuteStatementCommandInput - {@link BatchExecuteStatementCommandInput}
+ * @returns {@link BatchExecuteStatementCommandOutput}
  * @see {@link BatchExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link BatchExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
@@ -101,6 +157,9 @@ export class BatchExecuteStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchExecuteStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +188,8 @@ export class BatchExecuteStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchExecuteStatementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchExecuteStatementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +199,18 @@ export class BatchExecuteStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchExecuteStatementCommand(input, context);
+    return se_BatchExecuteStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchExecuteStatementCommandOutput> {
-    return deserializeAws_restJson1BatchExecuteStatementCommand(output, context);
+    return de_BatchExecuteStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

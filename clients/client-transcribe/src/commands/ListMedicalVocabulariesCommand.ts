@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMedicalVocabulariesRequest,
-  ListMedicalVocabulariesRequestFilterSensitiveLog,
-  ListMedicalVocabulariesResponse,
-  ListMedicalVocabulariesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMedicalVocabulariesCommand,
-  serializeAws_json1_1ListMedicalVocabulariesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMedicalVocabulariesRequest, ListMedicalVocabulariesResponse } from "../models/models_0";
+import { de_ListMedicalVocabulariesCommand, se_ListMedicalVocabulariesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMedicalVocabulariesCommand}.
  */
 export interface ListMedicalVocabulariesCommandInput extends ListMedicalVocabulariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMedicalVocabulariesCommand}.
  */
 export interface ListMedicalVocabulariesCommandOutput extends ListMedicalVocabulariesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of custom medical vocabularies that match the specified criteria. If
  *             no criteria are specified, all custom medical vocabularies are returned.</p>
  *          <p>To get detailed information about a specific custom medical vocabulary, use the  operation.</p>
@@ -44,10 +41,18 @@ export interface ListMedicalVocabulariesCommandOutput extends ListMedicalVocabul
  * import { TranscribeClient, ListMedicalVocabulariesCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListMedicalVocabulariesCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // ListMedicalVocabulariesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   StateEquals: "PENDING" || "READY" || "FAILED",
+ *   NameContains: "STRING_VALUE",
+ * };
  * const command = new ListMedicalVocabulariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMedicalVocabulariesCommandInput - {@link ListMedicalVocabulariesCommandInput}
+ * @returns {@link ListMedicalVocabulariesCommandOutput}
  * @see {@link ListMedicalVocabulariesCommandInput} for command's `input` shape.
  * @see {@link ListMedicalVocabulariesCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -85,6 +90,9 @@ export class ListMedicalVocabulariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMedicalVocabulariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class ListMedicalVocabulariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMedicalVocabulariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMedicalVocabulariesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +132,18 @@ export class ListMedicalVocabulariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMedicalVocabulariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMedicalVocabulariesCommand(input, context);
+    return se_ListMedicalVocabulariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMedicalVocabulariesCommandOutput> {
-    return deserializeAws_json1_1ListMedicalVocabulariesCommand(output, context);
+    return de_ListMedicalVocabulariesCommand(output, context);
   }
 
   // Start section: command_body_extra

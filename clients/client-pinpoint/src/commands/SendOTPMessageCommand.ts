@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendOTPMessageRequest,
-  SendOTPMessageRequestFilterSensitiveLog,
-  SendOTPMessageResponse,
-  SendOTPMessageResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { SendOTPMessageRequest, SendOTPMessageResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1SendOTPMessageCommand,
-  serializeAws_restJson1SendOTPMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendOTPMessageCommand, se_SendOTPMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendOTPMessageCommand}.
  */
 export interface SendOTPMessageCommandInput extends SendOTPMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendOTPMessageCommand}.
  */
 export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Send an OTP message</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __M
  * import { PinpointClient, SendOTPMessageCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, SendOTPMessageCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // SendOTPMessageRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   SendOTPMessageRequestParameters: { // SendOTPMessageRequestParameters
+ *     AllowedAttempts: Number("int"),
+ *     BrandName: "STRING_VALUE", // required
+ *     Channel: "STRING_VALUE", // required
+ *     CodeLength: Number("int"),
+ *     DestinationIdentity: "STRING_VALUE", // required
+ *     EntityId: "STRING_VALUE",
+ *     Language: "STRING_VALUE",
+ *     OriginationIdentity: "STRING_VALUE", // required
+ *     ReferenceId: "STRING_VALUE", // required
+ *     TemplateId: "STRING_VALUE",
+ *     ValidityPeriod: Number("int"),
+ *   },
+ * };
  * const command = new SendOTPMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendOTPMessageCommandInput - {@link SendOTPMessageCommandInput}
+ * @returns {@link SendOTPMessageCommandOutput}
  * @see {@link SendOTPMessageCommandInput} for command's `input` shape.
  * @see {@link SendOTPMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +105,9 @@ export class SendOTPMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendOTPMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +136,8 @@ export class SendOTPMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendOTPMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendOTPMessageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +147,18 @@ export class SendOTPMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendOTPMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendOTPMessageCommand(input, context);
+    return se_SendOTPMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendOTPMessageCommandOutput> {
-    return deserializeAws_restJson1SendOTPMessageCommand(output, context);
+    return de_SendOTPMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

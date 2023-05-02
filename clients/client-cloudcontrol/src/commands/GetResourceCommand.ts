@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
-import {
-  GetResourceInput,
-  GetResourceInputFilterSensitiveLog,
-  GetResourceOutput,
-  GetResourceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetResourceCommand,
-  serializeAws_json1_0GetResourceCommand,
-} from "../protocols/Aws_json1_0";
+import { GetResourceInput, GetResourceOutput, GetResourceOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetResourceCommand, se_GetResourceCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceCommand}.
  */
 export interface GetResourceCommandInput extends GetResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceCommand}.
  */
 export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the current state of the specified resource. For details, see
  *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html">Reading a resource's current state</a>.</p>
  *          <p>You can use this action to return information about an existing resource in your account
@@ -45,10 +42,18 @@ export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataB
  * import { CloudControlClient, GetResourceCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, GetResourceCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
  * const client = new CloudControlClient(config);
+ * const input = { // GetResourceInput
+ *   TypeName: "STRING_VALUE", // required
+ *   TypeVersionId: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceCommandInput - {@link GetResourceCommandInput}
+ * @returns {@link GetResourceCommandOutput}
  * @see {@link GetResourceCommandInput} for command's `input` shape.
  * @see {@link GetResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
@@ -137,6 +142,9 @@ export class GetResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,7 +171,7 @@ export class GetResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -174,12 +182,18 @@ export class GetResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetResourceCommand(input, context);
+    return se_GetResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceCommandOutput> {
-    return deserializeAws_json1_0GetResourceCommand(output, context);
+    return de_GetResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

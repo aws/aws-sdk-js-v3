@@ -10,7 +10,7 @@ import { WorkDocsClient } from "../WorkDocsClient";
 import { WorkDocsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkDocsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeRootFoldersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeRootFolders(
   config: WorkDocsPaginationConfiguration,
   input: DescribeRootFoldersCommandInput,

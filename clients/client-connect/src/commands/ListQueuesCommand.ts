@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListQueuesRequest,
-  ListQueuesRequestFilterSensitiveLog,
-  ListQueuesResponse,
-  ListQueuesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListQueuesCommand,
-  serializeAws_restJson1ListQueuesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListQueuesRequest, ListQueuesResponse } from "../models/models_1";
+import { de_ListQueuesCommand, se_ListQueuesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListQueuesCommand}.
  */
 export interface ListQueuesCommandInput extends ListQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListQueuesCommand}.
  */
 export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the queues for the specified Amazon Connect instance.</p>
  *          <p>If you do not specify a <code>QueueTypes</code>
  *    parameter, both standard and agent queues are returned. This might cause an unexpected truncation
@@ -48,10 +45,20 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * import { ConnectClient, ListQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListQueuesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   QueueTypes: [ // QueueTypes
+ *     "STANDARD" || "AGENT",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
+ * @returns {@link ListQueuesCommandOutput}
  * @see {@link ListQueuesCommandInput} for command's `input` shape.
  * @see {@link ListQueuesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +126,8 @@ export class ListQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQueuesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +137,18 @@ export class ListQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListQueuesCommand(input, context);
+    return se_ListQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueuesCommandOutput> {
-    return deserializeAws_restJson1ListQueuesCommand(output, context);
+    return de_ListQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

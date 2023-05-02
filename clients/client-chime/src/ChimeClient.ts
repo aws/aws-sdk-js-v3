@@ -593,6 +593,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociatePhoneNumberWithUserCommandInput
   | AssociatePhoneNumbersWithVoiceConnectorCommandInput
@@ -786,6 +789,9 @@ export type ServiceInputTypes =
   | UpdateVoiceConnectorGroupCommandInput
   | ValidateE911AddressCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociatePhoneNumberWithUserCommandOutput
   | AssociatePhoneNumbersWithVoiceConnectorCommandOutput
@@ -979,6 +985,9 @@ export type ServiceOutputTypes =
   | UpdateVoiceConnectorGroupCommandOutput
   | ValidateE911AddressCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -986,7 +995,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -1095,11 +1104,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ChimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -1110,10 +1122,15 @@ type ChimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ChimeClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ChimeClient class constructor that set the region, credentials and other options.
  */
 export interface ChimeClientConfig extends ChimeClientConfigType {}
 
+/**
+ * @public
+ */
 type ChimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -1124,50 +1141,48 @@ type ChimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandler
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ChimeClient class. This is resolved and normalized from the {@link ChimeClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ChimeClient class. This is resolved and normalized from the {@link ChimeClientConfig | constructor configuration interface}.
  */
 export interface ChimeClientResolvedConfig extends ChimeClientResolvedConfigType {}
 
 /**
- * <p>The Amazon Chime API (application programming interface) is designed for developers to
+ * @public
+ * <p>The Amazon Chime application programming interface (API) is designed so administrators can
  *             perform key tasks, such as creating and managing Amazon Chime accounts, users, and Voice
  *             Connectors. This guide provides detailed information about the Amazon Chime API,
- *             including operations, types, inputs and outputs, and error codes. It also includes API actions for use with the Amazon Chime SDK, which developers use to build their own communication applications. For more information about the
- *             Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">
- *                 Using the Amazon Chime SDK
- *             </a> in the <i>Amazon Chime Developer Guide</i>.</p>
- *          <p>You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST API to make API calls. We recommend using an AWS SDK or the
- *     AWS CLI. Each API operation includes links to information about using it with a language-specific AWS SDK or the AWS CLI.</p>
+ *             including operations, types, inputs and outputs, and error codes.</p>
+ *          <p>You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST API to make API calls for Amazon Chime. We recommend using an AWS SDK or the
+ *             AWS CLI. The page for each API action contains a <i>See Also</i> section that includes links to information about using the action with a language-specific AWS SDK or the AWS CLI.</p>
  *          <dl>
  *             <dt>Using an AWS SDK</dt>
  *             <dd>
  *                <p>
- * You don't need to write code to calculate a signature for request authentication. The SDK clients authenticate your requests by using access keys that you provide. For more information about AWS SDKs, see the
- * <a href="http://aws.amazon.com/developer/">AWS Developer Center</a>.
- * </p>
+ *                         You don't need to write code to calculate a signature for request authentication. The SDK clients authenticate your requests by using access keys that you provide. For more information about AWS SDKs, see the
+ *                         <a href="http://aws.amazon.com/developer/">AWS Developer Center</a>.
+ *                     </p>
  *             </dd>
  *             <dt>Using the AWS CLI</dt>
  *             <dd>
  *                <p>Use your access keys with the AWS CLI to make API calls. For information about setting up the AWS CLI, see
- * <a href="https://docs.aws.amazon.com/cli/latest/userguide/installing.html">Installing the AWS Command Line Interface</a>
- * in the <i>AWS Command Line Interface User Guide</i>. For a list of available Amazon Chime commands, see the
- * <a href="https://docs.aws.amazon.com/cli/latest/reference/chime/index.html">Amazon Chime commands</a> in the
- *     <i>AWS CLI Command Reference</i>.
- * </p>
+ *                         <a href="https://docs.aws.amazon.com/cli/latest/userguide/installing.html">Installing the AWS Command Line Interface</a>
+ *                         in the <i>AWS Command Line Interface User Guide</i>. For a list of available Amazon Chime commands, see the
+ *                         <a href="https://docs.aws.amazon.com/cli/latest/reference/chime/index.html">Amazon Chime commands</a> in the
+ *                         <i>AWS CLI Command Reference</i>.
+ *                     </p>
  *             </dd>
  *             <dt>Using REST APIs</dt>
  *             <dd>
- *                <p>If you use REST to make API calls, you must authenticate your request by providing a signature. Amazon Chime supports signature version 4. For more information, see
- * <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>
- * in the <i>Amazon Web Services General Reference</i>.</p>
- *
+ *                <p>If you use REST to make API calls, you must authenticate your request by providing a signature. Amazon Chime supports Signature Version 4. For more information, see
+ *                         <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>
+ *                         in the <i>Amazon Web Services General Reference</i>.</p>
  *                <p>When making REST API calls, use the service name <code>chime</code> and REST endpoint <code>https://service.chime.aws.amazon.com</code>.</p>
  *             </dd>
  *          </dl>
- *
  *          <p>Administrative permissions are controlled using AWS Identity and Access Management (IAM). For more information, see
- * <a href="https://docs.aws.amazon.com/chime/latest/ag/security-iam.html">Identity and Access Management for Amazon Chime</a>
- * in the <i>Amazon Chime Administration Guide</i>.</p>
+ *             <a href="https://docs.aws.amazon.com/chime/latest/ag/security-iam.html">Identity and Access Management for Amazon Chime</a>
+ *             in the <i>Amazon Chime Administration Guide</i>.</p>
  */
 export class ChimeClient extends __Client<
   __HttpHandlerOptions,

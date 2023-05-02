@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  GetLatestAssessmentIdRequest,
-  GetLatestAssessmentIdRequestFilterSensitiveLog,
-  GetLatestAssessmentIdResponse,
-  GetLatestAssessmentIdResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLatestAssessmentIdCommand,
-  serializeAws_restJson1GetLatestAssessmentIdCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLatestAssessmentIdRequest, GetLatestAssessmentIdResponse } from "../models/models_0";
+import { de_GetLatestAssessmentIdCommand, se_GetLatestAssessmentIdCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLatestAssessmentIdCommand}.
  */
 export interface GetLatestAssessmentIdCommandInput extends GetLatestAssessmentIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLatestAssessmentIdCommand}.
  */
 export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve the latest ID of a specific assessment task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,13 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  * import { MigrationHubStrategyClient, GetLatestAssessmentIdCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetLatestAssessmentIdCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {};
  * const command = new GetLatestAssessmentIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLatestAssessmentIdCommandInput - {@link GetLatestAssessmentIdCommandInput}
+ * @returns {@link GetLatestAssessmentIdCommandOutput}
  * @see {@link GetLatestAssessmentIdCommandInput} for command's `input` shape.
  * @see {@link GetLatestAssessmentIdCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -86,6 +86,9 @@ export class GetLatestAssessmentIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLatestAssessmentIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +117,8 @@ export class GetLatestAssessmentIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLatestAssessmentIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLatestAssessmentIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +128,18 @@ export class GetLatestAssessmentIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLatestAssessmentIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLatestAssessmentIdCommand(input, context);
+    return se_GetLatestAssessmentIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLatestAssessmentIdCommandOutput> {
-    return deserializeAws_restJson1GetLatestAssessmentIdCommand(output, context);
+    return de_GetLatestAssessmentIdCommand(output, context);
   }
 
   // Start section: command_body_extra

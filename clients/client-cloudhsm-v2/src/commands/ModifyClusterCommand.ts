@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import {
-  ModifyClusterRequest,
-  ModifyClusterRequestFilterSensitiveLog,
-  ModifyClusterResponse,
-  ModifyClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyClusterCommand,
-  serializeAws_json1_1ModifyClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { ModifyClusterRequest, ModifyClusterResponse } from "../models/models_0";
+import { de_ModifyClusterCommand, se_ModifyClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterCommand}.
  */
 export interface ModifyClusterCommandInput extends ModifyClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterCommand}.
  */
 export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies AWS CloudHSM cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  * import { CloudHSMV2Client, ModifyClusterCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, ModifyClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = { // ModifyClusterRequest
+ *   BackupRetentionPolicy: { // BackupRetentionPolicy
+ *     Type: "STRING_VALUE",
+ *     Value: "STRING_VALUE",
+ *   },
+ *   ClusterId: "STRING_VALUE", // required
+ * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterCommandInput - {@link ModifyClusterCommandInput}
+ * @returns {@link ModifyClusterCommandOutput}
  * @see {@link ModifyClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
@@ -87,6 +93,9 @@ export class ModifyClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class ModifyClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class ModifyClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyClusterCommand(input, context);
+    return se_ModifyClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterCommandOutput> {
-    return deserializeAws_json1_1ModifyClusterCommand(output, context);
+    return de_ModifyClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,21 +20,23 @@ import {
   UpdateFunctionCodeRequest,
   UpdateFunctionCodeRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFunctionCodeCommand,
-  serializeAws_restJson1UpdateFunctionCodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFunctionCodeCommand, se_UpdateFunctionCodeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFunctionCodeCommand}.
  */
 export interface UpdateFunctionCodeCommandInput extends UpdateFunctionCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFunctionCodeCommand}.
  */
 export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package
  *       must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Configuring code signing for Lambda</a>.</p>
  *          <p>If the function's package type is <code>Image</code>, then you must specify the code package in
@@ -57,10 +59,26 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  * import { LambdaClient, UpdateFunctionCodeCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateFunctionCodeCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // UpdateFunctionCodeRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   ZipFile: "BLOB_VALUE",
+ *   S3Bucket: "STRING_VALUE",
+ *   S3Key: "STRING_VALUE",
+ *   S3ObjectVersion: "STRING_VALUE",
+ *   ImageUri: "STRING_VALUE",
+ *   Publish: true || false,
+ *   DryRun: true || false,
+ *   RevisionId: "STRING_VALUE",
+ *   Architectures: [ // ArchitecturesList
+ *     "x86_64" || "arm64",
+ *   ],
+ * };
  * const command = new UpdateFunctionCodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFunctionCodeCommandInput - {@link UpdateFunctionCodeCommandInput}
+ * @returns {@link UpdateFunctionCodeCommandOutput}
  * @see {@link UpdateFunctionCodeCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionCodeCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -117,6 +135,9 @@ export class UpdateFunctionCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFunctionCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,12 +177,18 @@ export class UpdateFunctionCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFunctionCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFunctionCodeCommand(input, context);
+    return se_UpdateFunctionCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFunctionCodeCommandOutput> {
-    return deserializeAws_restJson1UpdateFunctionCodeCommand(output, context);
+    return de_UpdateFunctionCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

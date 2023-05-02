@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ChangeTagsForResourceRequest,
-  ChangeTagsForResourceRequestFilterSensitiveLog,
-  ChangeTagsForResourceResponse,
-  ChangeTagsForResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlChangeTagsForResourceCommand,
-  serializeAws_restXmlChangeTagsForResourceCommand,
-} from "../protocols/Aws_restXml";
+import { ChangeTagsForResourceRequest, ChangeTagsForResourceResponse } from "../models/models_0";
+import { de_ChangeTagsForResourceCommand, se_ChangeTagsForResourceCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ChangeTagsForResourceCommand}.
  */
 export interface ChangeTagsForResourceCommandInput extends ChangeTagsForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChangeTagsForResourceCommand}.
  */
 export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds, edits, or deletes tags for a health check or a hosted zone.</p>
  *          <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
  * 				Tags</a> in the <i>Billing and Cost Management User Guide</i>.</p>
@@ -44,10 +41,25 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * import { Route53Client, ChangeTagsForResourceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ChangeTagsForResourceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ChangeTagsForResourceRequest
+ *   ResourceType: "healthcheck" || "hostedzone", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   AddTags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   RemoveTagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ChangeTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangeTagsForResourceCommandInput - {@link ChangeTagsForResourceCommandInput}
+ * @returns {@link ChangeTagsForResourceCommandOutput}
  * @see {@link ChangeTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ChangeTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -115,6 +127,9 @@ export class ChangeTagsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangeTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +158,8 @@ export class ChangeTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ChangeTagsForResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ChangeTagsForResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +169,18 @@ export class ChangeTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangeTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlChangeTagsForResourceCommand(input, context);
+    return se_ChangeTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeTagsForResourceCommandOutput> {
-    return deserializeAws_restXmlChangeTagsForResourceCommand(output, context);
+    return de_ChangeTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

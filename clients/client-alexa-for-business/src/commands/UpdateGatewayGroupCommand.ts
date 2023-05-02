@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  UpdateGatewayGroupRequest,
-  UpdateGatewayGroupRequestFilterSensitiveLog,
-  UpdateGatewayGroupResponse,
-  UpdateGatewayGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateGatewayGroupCommand,
-  serializeAws_json1_1UpdateGatewayGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateGatewayGroupRequest, UpdateGatewayGroupResponse } from "../models/models_0";
+import { de_UpdateGatewayGroupCommand, se_UpdateGatewayGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGatewayGroupCommand}.
  */
 export interface UpdateGatewayGroupCommandInput extends UpdateGatewayGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGatewayGroupCommand}.
  */
 export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the details of a gateway group. If any optional field is not provided, the
  *          existing corresponding value is left unmodified.</p>
  * @example
@@ -43,10 +40,17 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
  * import { AlexaForBusinessClient, UpdateGatewayGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateGatewayGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // UpdateGatewayGroupRequest
+ *   GatewayGroupArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateGatewayGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewayGroupCommandInput - {@link UpdateGatewayGroupCommandInput}
+ * @returns {@link UpdateGatewayGroupCommandOutput}
  * @see {@link UpdateGatewayGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -76,6 +80,9 @@ export class UpdateGatewayGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewayGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class UpdateGatewayGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGatewayGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGatewayGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class UpdateGatewayGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewayGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateGatewayGroupCommand(input, context);
+    return se_UpdateGatewayGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateGatewayGroupCommand(output, context);
+    return de_UpdateGatewayGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

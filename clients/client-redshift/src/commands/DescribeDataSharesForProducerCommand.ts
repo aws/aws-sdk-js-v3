@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeDataSharesForProducerMessage, DescribeDataSharesForProducerResult } from "../models/models_0";
 import {
-  DescribeDataSharesForProducerMessage,
-  DescribeDataSharesForProducerMessageFilterSensitiveLog,
-  DescribeDataSharesForProducerResult,
-  DescribeDataSharesForProducerResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDataSharesForProducerCommand,
-  serializeAws_queryDescribeDataSharesForProducerCommand,
+  de_DescribeDataSharesForProducerCommand,
+  se_DescribeDataSharesForProducerCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataSharesForProducerCommand}.
  */
 export interface DescribeDataSharesForProducerCommandInput extends DescribeDataSharesForProducerMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataSharesForProducerCommand}.
  */
 export interface DescribeDataSharesForProducerCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeDataSharesForProducerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of datashares when the account identifier being called is a producer account identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,18 @@ export interface DescribeDataSharesForProducerCommandOutput
  * import { RedshiftClient, DescribeDataSharesForProducerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeDataSharesForProducerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeDataSharesForProducerMessage
+ *   ProducerArn: "STRING_VALUE",
+ *   Status: "ACTIVE" || "AUTHORIZED" || "PENDING_AUTHORIZATION" || "DEAUTHORIZED" || "REJECTED",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDataSharesForProducerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSharesForProducerCommandInput - {@link DescribeDataSharesForProducerCommandInput}
+ * @returns {@link DescribeDataSharesForProducerCommandOutput}
  * @see {@link DescribeDataSharesForProducerCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSharesForProducerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -74,6 +82,9 @@ export class DescribeDataSharesForProducerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSharesForProducerCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +113,8 @@ export class DescribeDataSharesForProducerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataSharesForProducerMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataSharesForProducerResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +124,21 @@ export class DescribeDataSharesForProducerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSharesForProducerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDataSharesForProducerCommand(input, context);
+    return se_DescribeDataSharesForProducerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataSharesForProducerCommandOutput> {
-    return deserializeAws_queryDescribeDataSharesForProducerCommand(output, context);
+    return de_DescribeDataSharesForProducerCommand(output, context);
   }
 
   // Start section: command_body_extra

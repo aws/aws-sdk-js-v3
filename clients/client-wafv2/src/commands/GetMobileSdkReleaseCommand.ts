@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetMobileSdkReleaseRequest,
-  GetMobileSdkReleaseRequestFilterSensitiveLog,
-  GetMobileSdkReleaseResponse,
-  GetMobileSdkReleaseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMobileSdkReleaseCommand,
-  serializeAws_json1_1GetMobileSdkReleaseCommand,
-} from "../protocols/Aws_json1_1";
+import { GetMobileSdkReleaseRequest, GetMobileSdkReleaseResponse } from "../models/models_0";
+import { de_GetMobileSdkReleaseCommand, se_GetMobileSdkReleaseCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetMobileSdkReleaseCommand}.
  */
 export interface GetMobileSdkReleaseCommandInput extends GetMobileSdkReleaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMobileSdkReleaseCommand}.
  */
 export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information for the specified mobile SDK release, including release notes and
  *          tags.</p>
  *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
@@ -45,10 +42,16 @@ export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseRes
  * import { WAFV2Client, GetMobileSdkReleaseCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetMobileSdkReleaseCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // GetMobileSdkReleaseRequest
+ *   Platform: "IOS" || "ANDROID", // required
+ *   ReleaseVersion: "STRING_VALUE", // required
+ * };
  * const command = new GetMobileSdkReleaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMobileSdkReleaseCommandInput - {@link GetMobileSdkReleaseCommandInput}
+ * @returns {@link GetMobileSdkReleaseCommandOutput}
  * @see {@link GetMobileSdkReleaseCommandInput} for command's `input` shape.
  * @see {@link GetMobileSdkReleaseCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -106,6 +109,9 @@ export class GetMobileSdkReleaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMobileSdkReleaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +140,8 @@ export class GetMobileSdkReleaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMobileSdkReleaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMobileSdkReleaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +151,18 @@ export class GetMobileSdkReleaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMobileSdkReleaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMobileSdkReleaseCommand(input, context);
+    return se_GetMobileSdkReleaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMobileSdkReleaseCommandOutput> {
-    return deserializeAws_json1_1GetMobileSdkReleaseCommand(output, context);
+    return de_GetMobileSdkReleaseCommand(output, context);
   }
 
   // Start section: command_body_extra

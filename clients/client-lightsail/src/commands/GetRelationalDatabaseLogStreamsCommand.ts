@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetRelationalDatabaseLogStreamsRequest, GetRelationalDatabaseLogStreamsResult } from "../models/models_1";
 import {
-  GetRelationalDatabaseLogStreamsRequest,
-  GetRelationalDatabaseLogStreamsRequestFilterSensitiveLog,
-  GetRelationalDatabaseLogStreamsResult,
-  GetRelationalDatabaseLogStreamsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommand,
-  serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand,
+  de_GetRelationalDatabaseLogStreamsCommand,
+  se_GetRelationalDatabaseLogStreamsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseLogStreamsCommand}.
  */
 export interface GetRelationalDatabaseLogStreamsCommandInput extends GetRelationalDatabaseLogStreamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseLogStreamsCommand}.
  */
 export interface GetRelationalDatabaseLogStreamsCommandOutput
@@ -37,6 +36,7 @@ export interface GetRelationalDatabaseLogStreamsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of available log streams for a specific database in Amazon Lightsail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetRelationalDatabaseLogStreamsCommandOutput
  * import { LightsailClient, GetRelationalDatabaseLogStreamsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseLogStreamsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetRelationalDatabaseLogStreamsRequest
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ * };
  * const command = new GetRelationalDatabaseLogStreamsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseLogStreamsCommandInput - {@link GetRelationalDatabaseLogStreamsCommandInput}
+ * @returns {@link GetRelationalDatabaseLogStreamsCommandOutput}
  * @see {@link GetRelationalDatabaseLogStreamsCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseLogStreamsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -101,6 +106,9 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseLogStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +137,8 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRelationalDatabaseLogStreamsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRelationalDatabaseLogStreamsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +148,24 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRelationalDatabaseLogStreamsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(input, context);
+    return se_GetRelationalDatabaseLogStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseLogStreamsCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(output, context);
+    return de_GetRelationalDatabaseLogStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

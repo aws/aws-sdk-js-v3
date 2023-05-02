@@ -16,20 +16,22 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   CreateLicenseManagerReportGeneratorRequest,
-  CreateLicenseManagerReportGeneratorRequestFilterSensitiveLog,
   CreateLicenseManagerReportGeneratorResponse,
-  CreateLicenseManagerReportGeneratorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommand,
-  serializeAws_json1_1CreateLicenseManagerReportGeneratorCommand,
+  de_CreateLicenseManagerReportGeneratorCommand,
+  se_CreateLicenseManagerReportGeneratorCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLicenseManagerReportGeneratorCommand}.
  */
 export interface CreateLicenseManagerReportGeneratorCommandInput extends CreateLicenseManagerReportGeneratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLicenseManagerReportGeneratorCommand}.
  */
 export interface CreateLicenseManagerReportGeneratorCommandOutput
@@ -37,6 +39,7 @@ export interface CreateLicenseManagerReportGeneratorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a report generator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,35 @@ export interface CreateLicenseManagerReportGeneratorCommandOutput
  * import { LicenseManagerClient, CreateLicenseManagerReportGeneratorCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateLicenseManagerReportGeneratorCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // CreateLicenseManagerReportGeneratorRequest
+ *   ReportGeneratorName: "STRING_VALUE", // required
+ *   Type: [ // ReportTypeList // required
+ *     "LicenseConfigurationSummaryReport" || "LicenseConfigurationUsageReport",
+ *   ],
+ *   ReportContext: { // ReportContext
+ *     licenseConfigurationArns: [ // ArnList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ReportFrequency: { // ReportFrequency
+ *     value: Number("int"),
+ *     period: "DAY" || "WEEK" || "MONTH",
+ *   },
+ *   ClientToken: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLicenseManagerReportGeneratorCommandInput - {@link CreateLicenseManagerReportGeneratorCommandInput}
+ * @returns {@link CreateLicenseManagerReportGeneratorCommandOutput}
  * @see {@link CreateLicenseManagerReportGeneratorCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseManagerReportGeneratorCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -96,6 +124,9 @@ export class CreateLicenseManagerReportGeneratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLicenseManagerReportGeneratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +155,8 @@ export class CreateLicenseManagerReportGeneratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLicenseManagerReportGeneratorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLicenseManagerReportGeneratorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +166,24 @@ export class CreateLicenseManagerReportGeneratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateLicenseManagerReportGeneratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLicenseManagerReportGeneratorCommand(input, context);
+    return se_CreateLicenseManagerReportGeneratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLicenseManagerReportGeneratorCommandOutput> {
-    return deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommand(output, context);
+    return de_CreateLicenseManagerReportGeneratorCommand(output, context);
   }
 
   // Start section: command_body_extra

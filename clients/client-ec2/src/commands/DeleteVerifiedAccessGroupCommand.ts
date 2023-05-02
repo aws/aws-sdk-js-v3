@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteVerifiedAccessGroupRequest,
-  DeleteVerifiedAccessGroupRequestFilterSensitiveLog,
-  DeleteVerifiedAccessGroupResult,
-  DeleteVerifiedAccessGroupResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteVerifiedAccessGroupCommand,
-  serializeAws_ec2DeleteVerifiedAccessGroupCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteVerifiedAccessGroupRequest, DeleteVerifiedAccessGroupResult } from "../models/models_3";
+import { de_DeleteVerifiedAccessGroupCommand, se_DeleteVerifiedAccessGroupCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVerifiedAccessGroupCommand}.
  */
 export interface DeleteVerifiedAccessGroupCommandInput extends DeleteVerifiedAccessGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVerifiedAccessGroupCommand}.
  */
 export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAccessGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an Amazon Web Services Verified Access group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAc
  * import { EC2Client, DeleteVerifiedAccessGroupCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVerifiedAccessGroupCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteVerifiedAccessGroupRequest
+ *   VerifiedAccessGroupId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteVerifiedAccessGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVerifiedAccessGroupCommandInput - {@link DeleteVerifiedAccessGroupCommandInput}
+ * @returns {@link DeleteVerifiedAccessGroupCommandOutput}
  * @see {@link DeleteVerifiedAccessGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteVerifiedAccessGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +73,9 @@ export class DeleteVerifiedAccessGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVerifiedAccessGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +104,8 @@ export class DeleteVerifiedAccessGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVerifiedAccessGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVerifiedAccessGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +115,21 @@ export class DeleteVerifiedAccessGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVerifiedAccessGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVerifiedAccessGroupCommand(input, context);
+    return se_DeleteVerifiedAccessGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVerifiedAccessGroupCommandOutput> {
-    return deserializeAws_ec2DeleteVerifiedAccessGroupCommand(output, context);
+    return de_DeleteVerifiedAccessGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

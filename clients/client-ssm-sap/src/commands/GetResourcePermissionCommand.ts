@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResourcePermissionInput,
-  GetResourcePermissionInputFilterSensitiveLog,
-  GetResourcePermissionOutput,
-  GetResourcePermissionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourcePermissionCommand,
-  serializeAws_restJson1GetResourcePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetResourcePermissionInput, GetResourcePermissionOutput } from "../models/models_0";
+import { de_GetResourcePermissionCommand, se_GetResourcePermissionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePermissionCommand}.
  */
 export interface GetResourcePermissionCommandInput extends GetResourcePermissionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePermissionCommand}.
  */
 export interface GetResourcePermissionCommandOutput extends GetResourcePermissionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets permissions associated with the target database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetResourcePermissionCommandOutput extends GetResourcePermissio
  * import { SsmSapClient, GetResourcePermissionCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, GetResourcePermissionCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // GetResourcePermissionInput
+ *   ActionType: "STRING_VALUE",
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetResourcePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePermissionCommandInput - {@link GetResourcePermissionCommandInput}
+ * @returns {@link GetResourcePermissionCommandOutput}
  * @see {@link GetResourcePermissionCommandInput} for command's `input` shape.
  * @see {@link GetResourcePermissionCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -78,6 +81,9 @@ export class GetResourcePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class GetResourcePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourcePermissionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourcePermissionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class GetResourcePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourcePermissionCommand(input, context);
+    return se_GetResourcePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePermissionCommandOutput> {
-    return deserializeAws_restJson1GetResourcePermissionCommand(output, context);
+    return de_GetResourcePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

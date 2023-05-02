@@ -232,6 +232,14 @@ BatchDeleteDocument
 </details>
 <details>
 <summary>
+BatchDeleteFeaturedResultsSet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/classes/batchdeletefeaturedresultssetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/batchdeletefeaturedresultssetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/batchdeletefeaturedresultssetcommandoutput.html)
+
+</details>
+<details>
+<summary>
 BatchGetDocumentStatus
 </summary>
 
@@ -284,6 +292,14 @@ CreateFaq
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/classes/createfaqcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/createfaqcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/createfaqcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateFeaturedResultsSet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/classes/createfeaturedresultssetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/createfeaturedresultssetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/createfeaturedresultssetcommandoutput.html)
 
 </details>
 <details>
@@ -404,6 +420,14 @@ DescribeFaq
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/classes/describefaqcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/describefaqcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/describefaqcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeFeaturedResultsSet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/classes/describefeaturedresultssetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/describefeaturedresultssetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/describefeaturedresultssetcommandoutput.html)
 
 </details>
 <details>
@@ -536,6 +560,14 @@ ListFaqs
 </details>
 <details>
 <summary>
+ListFeaturedResultsSets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/classes/listfeaturedresultssetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/listfeaturedresultssetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/listfeaturedresultssetscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListGroupsOlderThanOrderingId
 </summary>
 
@@ -652,6 +684,14 @@ UpdateExperience
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/classes/updateexperiencecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/updateexperiencecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/updateexperiencecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateFeaturedResultsSet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/classes/updatefeaturedresultssetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/updatefeaturedresultssetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/updatefeaturedresultssetcommandoutput.html)
 
 </details>
 <details>

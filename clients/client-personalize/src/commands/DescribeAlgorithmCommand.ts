@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAlgorithmRequest,
-  DescribeAlgorithmRequestFilterSensitiveLog,
-  DescribeAlgorithmResponse,
-  DescribeAlgorithmResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAlgorithmRequest, DescribeAlgorithmResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeAlgorithmCommand,
-  serializeAws_json1_1DescribeAlgorithmCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAlgorithmCommand, se_DescribeAlgorithmCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAlgorithmCommand}.
  */
 export interface DescribeAlgorithmCommandInput extends DescribeAlgorithmRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAlgorithmCommand}.
  */
 export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the given algorithm.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmRespons
  * import { PersonalizeClient, DescribeAlgorithmCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeAlgorithmCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeAlgorithmRequest
+ *   algorithmArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAlgorithmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlgorithmCommandInput - {@link DescribeAlgorithmCommandInput}
+ * @returns {@link DescribeAlgorithmCommandOutput}
  * @see {@link DescribeAlgorithmCommandInput} for command's `input` shape.
  * @see {@link DescribeAlgorithmCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -75,6 +77,9 @@ export class DescribeAlgorithmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlgorithmCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DescribeAlgorithmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAlgorithmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAlgorithmResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DescribeAlgorithmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAlgorithmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAlgorithmCommand(input, context);
+    return se_DescribeAlgorithmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlgorithmCommandOutput> {
-    return deserializeAws_json1_1DescribeAlgorithmCommand(output, context);
+    return de_DescribeAlgorithmCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -27,16 +27,17 @@ import {
   PutSessionResponse,
   PutSessionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSessionCommand,
-  serializeAws_restJson1PutSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutSessionCommand, se_PutSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSessionCommand}.
  */
 export interface PutSessionCommandInput extends PutSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSessionCommand}.
  */
 export interface PutSessionCommandOutput
@@ -44,6 +45,7 @@ export interface PutSessionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new session or modifies an existing session with an Amazon Lex
  *       bot. Use this operation to enable your application to set the state of the
  *       bot.</p>
@@ -55,10 +57,55 @@ export interface PutSessionCommandOutput
  * import { LexRuntimeServiceClient, PutSessionCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, PutSessionCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
+ * const input = { // PutSessionRequest
+ *   botName: "STRING_VALUE", // required
+ *   botAlias: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   sessionAttributes: { // StringMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   dialogAction: { // DialogAction
+ *     type: "STRING_VALUE", // required
+ *     intentName: "STRING_VALUE",
+ *     slots: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     slotToElicit: "STRING_VALUE",
+ *     fulfillmentState: "STRING_VALUE",
+ *     message: "STRING_VALUE",
+ *     messageFormat: "STRING_VALUE",
+ *   },
+ *   recentIntentSummaryView: [ // IntentSummaryList
+ *     { // IntentSummary
+ *       intentName: "STRING_VALUE",
+ *       checkpointLabel: "STRING_VALUE",
+ *       slots: "<StringMap>",
+ *       confirmationStatus: "STRING_VALUE",
+ *       dialogActionType: "STRING_VALUE", // required
+ *       fulfillmentState: "STRING_VALUE",
+ *       slotToElicit: "STRING_VALUE",
+ *     },
+ *   ],
+ *   accept: "STRING_VALUE",
+ *   activeContexts: [ // ActiveContextsList
+ *     { // ActiveContext
+ *       name: "STRING_VALUE", // required
+ *       timeToLive: { // ActiveContextTimeToLive
+ *         timeToLiveInSeconds: Number("int"),
+ *         turnsToLive: Number("int"),
+ *       },
+ *       parameters: { // ActiveContextParametersMap // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PutSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSessionCommandInput - {@link PutSessionCommandInput}
+ * @returns {@link PutSessionCommandOutput}
  * @see {@link PutSessionCommandInput} for command's `input` shape.
  * @see {@link PutSessionCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
@@ -127,6 +174,9 @@ export class PutSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,15 +214,21 @@ export class PutSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSessionCommand(input, context);
+    return se_PutSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<PutSessionCommandOutput> {
-    return deserializeAws_restJson1PutSessionCommand(output, context);
+    return de_PutSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

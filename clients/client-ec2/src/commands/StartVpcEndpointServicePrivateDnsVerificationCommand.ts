@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   StartVpcEndpointServicePrivateDnsVerificationRequest,
-  StartVpcEndpointServicePrivateDnsVerificationRequestFilterSensitiveLog,
   StartVpcEndpointServicePrivateDnsVerificationResult,
-  StartVpcEndpointServicePrivateDnsVerificationResultFilterSensitiveLog,
 } from "../models/models_7";
 import {
-  deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand,
-  serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand,
+  de_StartVpcEndpointServicePrivateDnsVerificationCommand,
+  se_StartVpcEndpointServicePrivateDnsVerificationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link StartVpcEndpointServicePrivateDnsVerificationCommand}.
  */
 export interface StartVpcEndpointServicePrivateDnsVerificationCommandInput
   extends StartVpcEndpointServicePrivateDnsVerificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartVpcEndpointServicePrivateDnsVerificationCommand}.
  */
 export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
@@ -38,6 +40,7 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates the verification process to prove that the service provider owns the private
  *             DNS name domain for the endpoint service.</p>
  *          <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
@@ -48,10 +51,16 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  * import { EC2Client, StartVpcEndpointServicePrivateDnsVerificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, StartVpcEndpointServicePrivateDnsVerificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // StartVpcEndpointServicePrivateDnsVerificationRequest
+ *   DryRun: true || false,
+ *   ServiceId: "STRING_VALUE", // required
+ * };
  * const command = new StartVpcEndpointServicePrivateDnsVerificationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartVpcEndpointServicePrivateDnsVerificationCommandInput - {@link StartVpcEndpointServicePrivateDnsVerificationCommandInput}
+ * @returns {@link StartVpcEndpointServicePrivateDnsVerificationCommandOutput}
  * @see {@link StartVpcEndpointServicePrivateDnsVerificationCommandInput} for command's `input` shape.
  * @see {@link StartVpcEndpointServicePrivateDnsVerificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +84,9 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartVpcEndpointServicePrivateDnsVerificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +121,8 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartVpcEndpointServicePrivateDnsVerificationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartVpcEndpointServicePrivateDnsVerificationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +132,24 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(input, context);
+    return se_StartVpcEndpointServicePrivateDnsVerificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartVpcEndpointServicePrivateDnsVerificationCommandOutput> {
-    return deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(output, context);
+    return de_StartVpcEndpointServicePrivateDnsVerificationCommand(output, context);
   }
 
   // Start section: command_body_extra

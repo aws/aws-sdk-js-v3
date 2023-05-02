@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeTransitGatewayConnectsRequest, DescribeTransitGatewayConnectsResult } from "../models/models_4";
 import {
-  DescribeTransitGatewayConnectsRequest,
-  DescribeTransitGatewayConnectsRequestFilterSensitiveLog,
-  DescribeTransitGatewayConnectsResult,
-  DescribeTransitGatewayConnectsResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeTransitGatewayConnectsCommand,
-  serializeAws_ec2DescribeTransitGatewayConnectsCommand,
+  de_DescribeTransitGatewayConnectsCommand,
+  se_DescribeTransitGatewayConnectsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransitGatewayConnectsCommand}.
  */
 export interface DescribeTransitGatewayConnectsCommandInput extends DescribeTransitGatewayConnectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransitGatewayConnectsCommand}.
  */
 export interface DescribeTransitGatewayConnectsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeTransitGatewayConnectsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Connect attachments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,28 @@ export interface DescribeTransitGatewayConnectsCommandOutput
  * import { EC2Client, DescribeTransitGatewayConnectsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTransitGatewayConnectsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeTransitGatewayConnectsRequest
+ *   TransitGatewayAttachmentIds: [ // TransitGatewayAttachmentIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeTransitGatewayConnectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayConnectsCommandInput - {@link DescribeTransitGatewayConnectsCommandInput}
+ * @returns {@link DescribeTransitGatewayConnectsCommandOutput}
  * @see {@link DescribeTransitGatewayConnectsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayConnectsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +89,9 @@ export class DescribeTransitGatewayConnectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayConnectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +120,8 @@ export class DescribeTransitGatewayConnectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTransitGatewayConnectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTransitGatewayConnectsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +131,24 @@ export class DescribeTransitGatewayConnectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayConnectsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayConnectsCommand(input, context);
+    return se_DescribeTransitGatewayConnectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayConnectsCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayConnectsCommand(output, context);
+    return de_DescribeTransitGatewayConnectsCommand(output, context);
   }
 
   // Start section: command_body_extra

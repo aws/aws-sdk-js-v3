@@ -18,18 +18,21 @@ import {
   CreateSipMediaApplicationCallRequest,
   CreateSipMediaApplicationCallRequestFilterSensitiveLog,
   CreateSipMediaApplicationCallResponse,
-  CreateSipMediaApplicationCallResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateSipMediaApplicationCallCommand,
-  serializeAws_restJson1CreateSipMediaApplicationCallCommand,
+  de_CreateSipMediaApplicationCallCommand,
+  se_CreateSipMediaApplicationCallCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSipMediaApplicationCallCommand}.
  */
 export interface CreateSipMediaApplicationCallCommandInput extends CreateSipMediaApplicationCallRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSipMediaApplicationCallCommand}.
  */
 export interface CreateSipMediaApplicationCallCommandOutput
@@ -37,6 +40,7 @@ export interface CreateSipMediaApplicationCallCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the specified
  * <code>sipMediaApplicationId</code>.</p>
  * @example
@@ -45,10 +49,20 @@ export interface CreateSipMediaApplicationCallCommandOutput
  * import { ChimeClient, CreateSipMediaApplicationCallCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateSipMediaApplicationCallCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateSipMediaApplicationCallRequest
+ *   FromPhoneNumber: "STRING_VALUE", // required
+ *   ToPhoneNumber: "STRING_VALUE", // required
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   SipHeaders: { // SipHeadersMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSipMediaApplicationCallCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSipMediaApplicationCallCommandInput - {@link CreateSipMediaApplicationCallCommandInput}
+ * @returns {@link CreateSipMediaApplicationCallCommandOutput}
  * @see {@link CreateSipMediaApplicationCallCommandInput} for command's `input` shape.
  * @see {@link CreateSipMediaApplicationCallCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -96,6 +110,9 @@ export class CreateSipMediaApplicationCallCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSipMediaApplicationCallCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,7 +142,7 @@ export class CreateSipMediaApplicationCallCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateSipMediaApplicationCallRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSipMediaApplicationCallResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,15 +152,21 @@ export class CreateSipMediaApplicationCallCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSipMediaApplicationCallCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSipMediaApplicationCallCommand(input, context);
+    return se_CreateSipMediaApplicationCallCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSipMediaApplicationCallCommandOutput> {
-    return deserializeAws_restJson1CreateSipMediaApplicationCallCommand(output, context);
+    return de_CreateSipMediaApplicationCallCommand(output, context);
   }
 
   // Start section: command_body_extra

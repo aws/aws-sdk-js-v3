@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import {
-  CreateWorkspaceRequest,
-  CreateWorkspaceRequestFilterSensitiveLog,
-  CreateWorkspaceResponse,
-  CreateWorkspaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkspaceCommand,
-  serializeAws_restJson1CreateWorkspaceCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateWorkspaceRequest, CreateWorkspaceResponse } from "../models/models_0";
+import { de_CreateWorkspaceCommand, se_CreateWorkspaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkspaceCommand}.
  */
 export interface CreateWorkspaceCommandInput extends CreateWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkspaceCommand}.
  */
 export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a new AMP workspace.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * import { AmpClient, CreateWorkspaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, CreateWorkspaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // CreateWorkspaceRequest
+ *   alias: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateWorkspaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkspaceCommandInput - {@link CreateWorkspaceCommandInput}
+ * @returns {@link CreateWorkspaceCommandOutput}
  * @see {@link CreateWorkspaceCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -87,6 +93,9 @@ export class CreateWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +124,8 @@ export class CreateWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkspaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkspaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +135,18 @@ export class CreateWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkspaceCommand(input, context);
+    return se_CreateWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspaceCommandOutput> {
-    return deserializeAws_restJson1CreateWorkspaceCommand(output, context);
+    return de_CreateWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

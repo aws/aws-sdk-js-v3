@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  ListTablesInput,
-  ListTablesInputFilterSensitiveLog,
-  ListTablesOutput,
-  ListTablesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListTablesCommand,
-  serializeAws_json1_0ListTablesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListTablesInput, ListTablesOutput } from "../models/models_0";
+import { de_ListTablesCommand, se_ListTablesCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListTablesCommand}.
  */
 export interface ListTablesCommandInput extends ListTablesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTablesCommand}.
  */
 export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of table names associated with the current account and endpoint. The
  *             output from <code>ListTables</code> is paginated, with each page returning a maximum of
  *             100 table names.</p>
@@ -44,10 +41,16 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  * import { DynamoDBClient, ListTablesCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListTablesCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // ListTablesInput
+ *   ExclusiveStartTableName: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTablesCommandInput - {@link ListTablesCommandInput}
+ * @returns {@link ListTablesCommandOutput}
  * @see {@link ListTablesCommandInput} for command's `input` shape.
  * @see {@link ListTablesCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -95,6 +98,9 @@ export class ListTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class ListTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTablesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTablesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class ListTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListTablesCommand(input, context);
+    return se_ListTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTablesCommandOutput> {
-    return deserializeAws_json1_0ListTablesCommand(output, context);
+    return de_ListTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

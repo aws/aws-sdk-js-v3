@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  ListAliasesRequest,
-  ListAliasesRequestFilterSensitiveLog,
-  ListAliasesResponse,
-  ListAliasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAliasesCommand,
-  serializeAws_restJson1ListAliasesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAliasesRequest, ListAliasesResponse } from "../models/models_0";
+import { de_ListAliasesCommand, se_ListAliasesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAliasesCommand}.
  */
 export interface ListAliasesCommandInput extends ListAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAliasesCommand}.
  */
 export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">aliases</a>
  *       for a Lambda function.</p>
  * @example
@@ -43,10 +40,18 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * import { LambdaClient, ListAliasesCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListAliasesCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // ListAliasesRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   FunctionVersion: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAliasesCommandInput - {@link ListAliasesCommandInput}
+ * @returns {@link ListAliasesCommandOutput}
  * @see {@link ListAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAliasesCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +87,9 @@ export class ListAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class ListAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAliasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +127,18 @@ export class ListAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAliasesCommand(input, context);
+    return se_ListAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAliasesCommandOutput> {
-    return deserializeAws_restJson1ListAliasesCommand(output, context);
+    return de_ListAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

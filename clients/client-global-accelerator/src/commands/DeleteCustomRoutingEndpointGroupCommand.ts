@@ -18,25 +18,27 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
+import { DeleteCustomRoutingEndpointGroupRequest } from "../models/models_0";
 import {
-  DeleteCustomRoutingEndpointGroupRequest,
-  DeleteCustomRoutingEndpointGroupRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCustomRoutingEndpointGroupCommand,
-  serializeAws_json1_1DeleteCustomRoutingEndpointGroupCommand,
+  de_DeleteCustomRoutingEndpointGroupCommand,
+  se_DeleteCustomRoutingEndpointGroupCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomRoutingEndpointGroupCommand}.
  */
 export interface DeleteCustomRoutingEndpointGroupCommandInput extends DeleteCustomRoutingEndpointGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomRoutingEndpointGroupCommand}.
  */
 export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an endpoint group from a listener for a custom routing accelerator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +46,15 @@ export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __Metadat
  * import { GlobalAcceleratorClient, DeleteCustomRoutingEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DeleteCustomRoutingEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // DeleteCustomRoutingEndpointGroupRequest
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCustomRoutingEndpointGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomRoutingEndpointGroupCommandInput - {@link DeleteCustomRoutingEndpointGroupCommandInput}
+ * @returns {@link DeleteCustomRoutingEndpointGroupCommandOutput}
  * @see {@link DeleteCustomRoutingEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomRoutingEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteCustomRoutingEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomRoutingEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class DeleteCustomRoutingEndpointGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomRoutingEndpointGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +129,24 @@ export class DeleteCustomRoutingEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteCustomRoutingEndpointGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCustomRoutingEndpointGroupCommand(input, context);
+    return se_DeleteCustomRoutingEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCustomRoutingEndpointGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteCustomRoutingEndpointGroupCommand(output, context);
+    return de_DeleteCustomRoutingEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

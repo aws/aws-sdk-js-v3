@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  ListSignalCatalogNodesRequest,
-  ListSignalCatalogNodesRequestFilterSensitiveLog,
-  ListSignalCatalogNodesResponse,
-  ListSignalCatalogNodesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListSignalCatalogNodesCommand,
-  serializeAws_json1_0ListSignalCatalogNodesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListSignalCatalogNodesRequest, ListSignalCatalogNodesResponse } from "../models/models_0";
+import { de_ListSignalCatalogNodesCommand, se_ListSignalCatalogNodesCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListSignalCatalogNodesCommand}.
  */
 export interface ListSignalCatalogNodesCommandInput extends ListSignalCatalogNodesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSignalCatalogNodesCommand}.
  */
 export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNodesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists of information about the signals (nodes) specified in a signal catalog. </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -45,10 +42,17 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
  * import { IoTFleetWiseClient, ListSignalCatalogNodesCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListSignalCatalogNodesCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // ListSignalCatalogNodesRequest
+ *   name: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSignalCatalogNodesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSignalCatalogNodesCommandInput - {@link ListSignalCatalogNodesCommandInput}
+ * @returns {@link ListSignalCatalogNodesCommandOutput}
  * @see {@link ListSignalCatalogNodesCommandInput} for command's `input` shape.
  * @see {@link ListSignalCatalogNodesCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -90,6 +94,9 @@ export class ListSignalCatalogNodesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSignalCatalogNodesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class ListSignalCatalogNodesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSignalCatalogNodesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSignalCatalogNodesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class ListSignalCatalogNodesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSignalCatalogNodesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListSignalCatalogNodesCommand(input, context);
+    return se_ListSignalCatalogNodesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSignalCatalogNodesCommandOutput> {
-    return deserializeAws_json1_0ListSignalCatalogNodesCommand(output, context);
+    return de_ListSignalCatalogNodesCommand(output, context);
   }
 
   // Start section: command_body_extra

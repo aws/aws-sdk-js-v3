@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  GetEventSelectorsRequest,
-  GetEventSelectorsRequestFilterSensitiveLog,
-  GetEventSelectorsResponse,
-  GetEventSelectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetEventSelectorsCommand,
-  serializeAws_json1_1GetEventSelectorsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetEventSelectorsRequest, GetEventSelectorsResponse } from "../models/models_0";
+import { de_GetEventSelectorsCommand, se_GetEventSelectorsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventSelectorsCommand}.
  */
 export interface GetEventSelectorsCommandInput extends GetEventSelectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventSelectorsCommand}.
  */
 export interface GetEventSelectorsCommandOutput extends GetEventSelectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the settings for the event selectors that you configured for your trail. The
  *          information returned for your event selectors includes the following:</p>
  *          <ul>
@@ -70,10 +67,15 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  * import { CloudTrailClient, GetEventSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetEventSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // GetEventSelectorsRequest
+ *   TrailName: "STRING_VALUE", // required
+ * };
  * const command = new GetEventSelectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventSelectorsCommandInput - {@link GetEventSelectorsCommandInput}
+ * @returns {@link GetEventSelectorsCommandOutput}
  * @see {@link GetEventSelectorsCommandInput} for command's `input` shape.
  * @see {@link GetEventSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -147,6 +149,9 @@ export class GetEventSelectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventSelectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,8 +180,8 @@ export class GetEventSelectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventSelectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEventSelectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -186,12 +191,18 @@ export class GetEventSelectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventSelectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEventSelectorsCommand(input, context);
+    return se_GetEventSelectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventSelectorsCommandOutput> {
-    return deserializeAws_json1_1GetEventSelectorsCommand(output, context);
+    return de_GetEventSelectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

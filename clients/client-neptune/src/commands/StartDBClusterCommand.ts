@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartDBClusterMessage,
-  StartDBClusterMessageFilterSensitiveLog,
-  StartDBClusterResult,
-  StartDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { StartDBClusterMessage, StartDBClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryStartDBClusterCommand,
-  serializeAws_queryStartDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_StartDBClusterCommand, se_StartDBClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link StartDBClusterCommand}.
  */
 export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartDBClusterCommand}.
  */
 export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an Amazon Neptune  DB cluster that was stopped using the Amazon
  *       console, the Amazon CLI stop-db-cluster command, or the StopDBCluster API.</p>
  * @example
@@ -43,10 +40,15 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * import { NeptuneClient, StartDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, StartDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // StartDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new StartDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDBClusterCommandInput - {@link StartDBClusterCommandInput}
+ * @returns {@link StartDBClusterCommandOutput}
  * @see {@link StartDBClusterCommandInput} for command's `input` shape.
  * @see {@link StartDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -80,6 +82,9 @@ export class StartDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class StartDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class StartDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartDBClusterCommand(input, context);
+    return se_StartDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDBClusterCommandOutput> {
-    return deserializeAws_queryStartDBClusterCommand(output, context);
+    return de_StartDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

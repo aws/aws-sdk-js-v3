@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  BatchPutMessageRequest,
-  BatchPutMessageRequestFilterSensitiveLog,
-  BatchPutMessageResponse,
-  BatchPutMessageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchPutMessageCommand,
-  serializeAws_restJson1BatchPutMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchPutMessageRequest, BatchPutMessageResponse } from "../models/models_0";
+import { de_BatchPutMessageCommand, se_BatchPutMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchPutMessageCommand}.
  */
 export interface BatchPutMessageCommandInput extends BatchPutMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchPutMessageCommand}.
  */
 export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends messages to a channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * import { IoTAnalyticsClient, BatchPutMessageCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, BatchPutMessageCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // BatchPutMessageRequest
+ *   channelName: "STRING_VALUE", // required
+ *   messages: [ // Messages // required
+ *     { // Message
+ *       messageId: "STRING_VALUE", // required
+ *       payload: "BLOB_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new BatchPutMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchPutMessageCommandInput - {@link BatchPutMessageCommandInput}
+ * @returns {@link BatchPutMessageCommandOutput}
  * @see {@link BatchPutMessageCommandInput} for command's `input` shape.
  * @see {@link BatchPutMessageCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -84,6 +92,9 @@ export class BatchPutMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +123,8 @@ export class BatchPutMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchPutMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchPutMessageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +134,18 @@ export class BatchPutMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchPutMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchPutMessageCommand(input, context);
+    return se_BatchPutMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutMessageCommandOutput> {
-    return deserializeAws_restJson1BatchPutMessageCommand(output, context);
+    return de_BatchPutMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

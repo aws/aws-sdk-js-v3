@@ -13,41 +13,49 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateTemplateSyncConfigInput,
-  UpdateTemplateSyncConfigInputFilterSensitiveLog,
-  UpdateTemplateSyncConfigOutput,
-  UpdateTemplateSyncConfigOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateTemplateSyncConfigCommand,
-  serializeAws_json1_0UpdateTemplateSyncConfigCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateTemplateSyncConfigInput, UpdateTemplateSyncConfigOutput } from "../models/models_0";
+import { de_UpdateTemplateSyncConfigCommand, se_UpdateTemplateSyncConfigCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTemplateSyncConfigCommand}.
  */
 export interface UpdateTemplateSyncConfigCommandInput extends UpdateTemplateSyncConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTemplateSyncConfigCommand}.
  */
 export interface UpdateTemplateSyncConfigCommandOutput extends UpdateTemplateSyncConfigOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update template sync configuration parameters, except for the <code>templateName</code> and
- *     <code>templateType</code>. Repository details (branch, name, and provider) should be of a linked repository. A
- *    linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
+ *     <code>templateType</code>. Repository details (branch, name, and provider) should be of a linked
+ *    repository. A linked repository is a repository that has been registered with Proton. For more
+ *    information, see <a>CreateRepository</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ProtonClient, UpdateTemplateSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateTemplateSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // UpdateTemplateSyncConfigInput
+ *   templateName: "STRING_VALUE", // required
+ *   templateType: "STRING_VALUE", // required
+ *   repositoryProvider: "STRING_VALUE", // required
+ *   repositoryName: "STRING_VALUE", // required
+ *   branch: "STRING_VALUE", // required
+ *   subdirectory: "STRING_VALUE",
+ * };
  * const command = new UpdateTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTemplateSyncConfigCommandInput - {@link UpdateTemplateSyncConfigCommandInput}
+ * @returns {@link UpdateTemplateSyncConfigCommandOutput}
  * @see {@link UpdateTemplateSyncConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplateSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -89,6 +97,9 @@ export class UpdateTemplateSyncConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTemplateSyncConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class UpdateTemplateSyncConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTemplateSyncConfigInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTemplateSyncConfigOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +139,18 @@ export class UpdateTemplateSyncConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTemplateSyncConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateTemplateSyncConfigCommand(input, context);
+    return se_UpdateTemplateSyncConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTemplateSyncConfigCommandOutput> {
-    return deserializeAws_json1_0UpdateTemplateSyncConfigCommand(output, context);
+    return de_UpdateTemplateSyncConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

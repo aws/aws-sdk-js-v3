@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTerminologyRequest, DeleteTerminologyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTerminologyCommand,
-  serializeAws_json1_1DeleteTerminologyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTerminologyRequest } from "../models/models_0";
+import { de_DeleteTerminologyCommand, se_DeleteTerminologyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTerminologyCommand}.
  */
 export interface DeleteTerminologyCommandInput extends DeleteTerminologyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTerminologyCommand}.
  */
 export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>A synchronous action that deletes a custom terminology.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  * import { TranslateClient, DeleteTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, DeleteTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = { // DeleteTerminologyRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTerminologyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTerminologyCommandInput - {@link DeleteTerminologyCommandInput}
+ * @returns {@link DeleteTerminologyCommandOutput}
  * @see {@link DeleteTerminologyCommandInput} for command's `input` shape.
  * @see {@link DeleteTerminologyCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteTerminologyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTerminologyCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class DeleteTerminologyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTerminologyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +129,18 @@ export class DeleteTerminologyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTerminologyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTerminologyCommand(input, context);
+    return se_DeleteTerminologyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTerminologyCommandOutput> {
-    return deserializeAws_json1_1DeleteTerminologyCommand(output, context);
+    return de_DeleteTerminologyCommand(output, context);
   }
 
   // Start section: command_body_extra

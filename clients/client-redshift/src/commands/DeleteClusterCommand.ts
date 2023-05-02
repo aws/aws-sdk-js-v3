@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteClusterMessage,
-  DeleteClusterMessageFilterSensitiveLog,
-  DeleteClusterResult,
-  DeleteClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteClusterCommand,
-  serializeAws_queryDeleteClusterCommand,
-} from "../protocols/Aws_query";
+import { DeleteClusterMessage, DeleteClusterResult } from "../models/models_0";
+import { de_DeleteClusterCommand, se_DeleteClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClusterCommand}.
  */
 export interface DeleteClusterCommandInput extends DeleteClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClusterCommand}.
  */
 export interface DeleteClusterCommandOutput extends DeleteClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a previously provisioned cluster without its final snapshot being created. A successful response from the web
  *             service indicates that the request was received correctly. Use <a>DescribeClusters</a> to monitor the status of the deletion. The delete
  *             operation cannot be canceled or reverted once submitted.
@@ -57,10 +54,18 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResult, __Metad
  * import { RedshiftClient, DeleteClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteClusterMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   SkipFinalClusterSnapshot: true || false,
+ *   FinalClusterSnapshotIdentifier: "STRING_VALUE",
+ *   FinalClusterSnapshotRetentionPeriod: Number("int"),
+ * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
+ * @returns {@link DeleteClusterCommandOutput}
  * @see {@link DeleteClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -103,6 +108,9 @@ export class DeleteClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +137,8 @@ export class DeleteClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +148,18 @@ export class DeleteClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteClusterCommand(input, context);
+    return se_DeleteClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterCommandOutput> {
-    return deserializeAws_queryDeleteClusterCommand(output, context);
+    return de_DeleteClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

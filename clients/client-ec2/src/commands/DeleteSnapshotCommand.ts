@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteSnapshotRequest, DeleteSnapshotRequestFilterSensitiveLog } from "../models/models_2";
-import { deserializeAws_ec2DeleteSnapshotCommand, serializeAws_ec2DeleteSnapshotCommand } from "../protocols/Aws_ec2";
+import { DeleteSnapshotRequest } from "../models/models_2";
+import { de_DeleteSnapshotCommand, se_DeleteSnapshotCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSnapshotCommand}.
  */
 export interface DeleteSnapshotCommandInput extends DeleteSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSnapshotCommand}.
  */
 export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified snapshot.</p>
  *          <p>When you make periodic snapshots of a volume, the snapshots are incremental, and only the
  *       blocks on the device that have changed since your last snapshot are saved in the new snapshot.
@@ -43,10 +48,16 @@ export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteSnapshotCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteSnapshotCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteSnapshotRequest
+ *   SnapshotId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
+ * @returns {@link DeleteSnapshotCommandOutput}
  * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -81,6 +92,9 @@ export class DeleteSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +123,8 @@ export class DeleteSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +134,18 @@ export class DeleteSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteSnapshotCommand(input, context);
+    return se_DeleteSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotCommandOutput> {
-    return deserializeAws_ec2DeleteSnapshotCommand(output, context);
+    return de_DeleteSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

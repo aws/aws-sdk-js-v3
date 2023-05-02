@@ -13,24 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetDashboardEmbedUrlRequest, GetDashboardEmbedUrlRequestFilterSensitiveLog } from "../models/models_2";
-import { GetDashboardEmbedUrlResponse, GetDashboardEmbedUrlResponseFilterSensitiveLog } from "../models/models_3";
 import {
-  deserializeAws_restJson1GetDashboardEmbedUrlCommand,
-  serializeAws_restJson1GetDashboardEmbedUrlCommand,
-} from "../protocols/Aws_restJson1";
+  GetDashboardEmbedUrlRequest,
+  GetDashboardEmbedUrlResponse,
+  GetDashboardEmbedUrlResponseFilterSensitiveLog,
+} from "../models/models_3";
+import { de_GetDashboardEmbedUrlCommand, se_GetDashboardEmbedUrlCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDashboardEmbedUrlCommand}.
  */
 export interface GetDashboardEmbedUrlCommandInput extends GetDashboardEmbedUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDashboardEmbedUrlCommand}.
  */
 export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a temporary session URL and authorization code(bearer token) that you can use to embed an Amazon QuickSight read-only dashboard in your website or application. Before you use this command, make sure that you have configured the dashboards and permissions. </p>
  *          <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not from the user's browser. The following rules apply to the generated URL:</p>
  *          <ul>
@@ -59,10 +64,26 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  * import { QuickSightClient, GetDashboardEmbedUrlCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, GetDashboardEmbedUrlCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // GetDashboardEmbedUrlRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DashboardId: "STRING_VALUE", // required
+ *   IdentityType: "IAM" || "QUICKSIGHT" || "ANONYMOUS", // required
+ *   SessionLifetimeInMinutes: Number("long"),
+ *   UndoRedoDisabled: true || false,
+ *   ResetDisabled: true || false,
+ *   StatePersistenceEnabled: true || false,
+ *   UserArn: "STRING_VALUE",
+ *   Namespace: "STRING_VALUE",
+ *   AdditionalDashboardIds: [ // AdditionalDashboardIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetDashboardEmbedUrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDashboardEmbedUrlCommandInput - {@link GetDashboardEmbedUrlCommandInput}
+ * @returns {@link GetDashboardEmbedUrlCommandOutput}
  * @see {@link GetDashboardEmbedUrlCommandInput} for command's `input` shape.
  * @see {@link GetDashboardEmbedUrlCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -141,6 +162,9 @@ export class GetDashboardEmbedUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDashboardEmbedUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,7 +193,7 @@ export class GetDashboardEmbedUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDashboardEmbedUrlRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDashboardEmbedUrlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -180,12 +204,18 @@ export class GetDashboardEmbedUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDashboardEmbedUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDashboardEmbedUrlCommand(input, context);
+    return se_GetDashboardEmbedUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDashboardEmbedUrlCommandOutput> {
-    return deserializeAws_restJson1GetDashboardEmbedUrlCommand(output, context);
+    return de_GetDashboardEmbedUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DescribeProvisioningTemplateRequest, DescribeProvisioningTemplateResponse } from "../models/models_1";
 import {
-  DescribeProvisioningTemplateRequest,
-  DescribeProvisioningTemplateRequestFilterSensitiveLog,
-  DescribeProvisioningTemplateResponse,
-  DescribeProvisioningTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeProvisioningTemplateCommand,
-  serializeAws_restJson1DescribeProvisioningTemplateCommand,
+  de_DescribeProvisioningTemplateCommand,
+  se_DescribeProvisioningTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProvisioningTemplateCommand}.
  */
 export interface DescribeProvisioningTemplateCommandInput extends DescribeProvisioningTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProvisioningTemplateCommand}.
  */
 export interface DescribeProvisioningTemplateCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeProvisioningTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a provisioning template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplate</a> action.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DescribeProvisioningTemplateCommandOutput
  * import { IoTClient, DescribeProvisioningTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeProvisioningTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeProvisioningTemplateRequest
+ *   templateName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProvisioningTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProvisioningTemplateCommandInput - {@link DescribeProvisioningTemplateCommandInput}
+ * @returns {@link DescribeProvisioningTemplateCommandOutput}
  * @see {@link DescribeProvisioningTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisioningTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +92,9 @@ export class DescribeProvisioningTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProvisioningTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class DescribeProvisioningTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProvisioningTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProvisioningTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +134,21 @@ export class DescribeProvisioningTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProvisioningTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeProvisioningTemplateCommand(input, context);
+    return se_DescribeProvisioningTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisioningTemplateCommandOutput> {
-    return deserializeAws_restJson1DescribeProvisioningTemplateCommand(output, context);
+    return de_DescribeProvisioningTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

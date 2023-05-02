@@ -16,20 +16,22 @@ import {
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import {
   GetSavingsPlansUtilizationDetailsRequest,
-  GetSavingsPlansUtilizationDetailsRequestFilterSensitiveLog,
   GetSavingsPlansUtilizationDetailsResponse,
-  GetSavingsPlansUtilizationDetailsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand,
-  serializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand,
+  de_GetSavingsPlansUtilizationDetailsCommand,
+  se_GetSavingsPlansUtilizationDetailsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSavingsPlansUtilizationDetailsCommand}.
  */
 export interface GetSavingsPlansUtilizationDetailsCommandInput extends GetSavingsPlansUtilizationDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSavingsPlansUtilizationDetailsCommand}.
  */
 export interface GetSavingsPlansUtilizationDetailsCommandOutput
@@ -37,6 +39,7 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves attribute data along with aggregate utilization and savings data for a given
  *       time period. This doesn't support granular or grouped data (daily/monthly) in response. You
  *       can't retrieve data by dates in a single response similar to
@@ -55,10 +58,94 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput
  * import { CostExplorerClient, GetSavingsPlansUtilizationDetailsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetSavingsPlansUtilizationDetailsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // GetSavingsPlansUtilizationDetailsRequest
+ *   TimePeriod: { // DateInterval
+ *     Start: "STRING_VALUE", // required
+ *     End: "STRING_VALUE", // required
+ *   },
+ *   Filter: { // Expression
+ *     Or: [ // Expressions
+ *       {
+ *         Or: [
+ *           "<Expression>",
+ *         ],
+ *         And: [
+ *           "<Expression>",
+ *         ],
+ *         Not: "<Expression>",
+ *         Dimensions: { // DimensionValues
+ *           Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *           Values: [ // Values
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchOptions: [ // MatchOptions
+ *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           ],
+ *         },
+ *         Tags: { // TagValues
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchOptions: [
+ *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           ],
+ *         },
+ *         CostCategories: { // CostCategoryValues
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchOptions: [
+ *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     And: [
+ *       "<Expression>",
+ *     ],
+ *     Not: "<Expression>",
+ *     Dimensions: {
+ *       Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *       MatchOptions: [
+ *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *       ],
+ *     },
+ *     Tags: {
+ *       Key: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *       MatchOptions: [
+ *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *       ],
+ *     },
+ *     CostCategories: {
+ *       Key: "STRING_VALUE",
+ *       Values: "<Values>",
+ *       MatchOptions: "<MatchOptions>",
+ *     },
+ *   },
+ *   DataType: [ // SavingsPlansDataTypes
+ *     "ATTRIBUTES" || "UTILIZATION" || "AMORTIZED_COMMITMENT" || "SAVINGS",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SortBy: { // SortDefinition
+ *     Key: "STRING_VALUE", // required
+ *     SortOrder: "ASCENDING" || "DESCENDING",
+ *   },
+ * };
  * const command = new GetSavingsPlansUtilizationDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSavingsPlansUtilizationDetailsCommandInput - {@link GetSavingsPlansUtilizationDetailsCommandInput}
+ * @returns {@link GetSavingsPlansUtilizationDetailsCommandOutput}
  * @see {@link GetSavingsPlansUtilizationDetailsCommandInput} for command's `input` shape.
  * @see {@link GetSavingsPlansUtilizationDetailsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -91,6 +178,9 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSavingsPlansUtilizationDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +209,8 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSavingsPlansUtilizationDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSavingsPlansUtilizationDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +220,24 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSavingsPlansUtilizationDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(input, context);
+    return se_GetSavingsPlansUtilizationDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> {
-    return deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(output, context);
+    return de_GetSavingsPlansUtilizationDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

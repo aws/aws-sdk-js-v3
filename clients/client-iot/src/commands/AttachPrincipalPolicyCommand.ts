@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { AttachPrincipalPolicyRequest, AttachPrincipalPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1AttachPrincipalPolicyCommand,
-  serializeAws_restJson1AttachPrincipalPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { AttachPrincipalPolicyRequest } from "../models/models_0";
+import { de_AttachPrincipalPolicyCommand, se_AttachPrincipalPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachPrincipalPolicyCommand}.
  */
 export interface AttachPrincipalPolicyCommandInput extends AttachPrincipalPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachPrincipalPolicyCommand}.
  */
 export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Attaches the specified policy to the specified principal (certificate or other
@@ -44,10 +46,16 @@ export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * import { IoTClient, AttachPrincipalPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AttachPrincipalPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // AttachPrincipalPolicyRequest
+ *   policyName: "STRING_VALUE", // required
+ *   principal: "STRING_VALUE", // required
+ * };
  * const command = new AttachPrincipalPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachPrincipalPolicyCommandInput - {@link AttachPrincipalPolicyCommandInput}
+ * @returns {@link AttachPrincipalPolicyCommandOutput}
  * @see {@link AttachPrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachPrincipalPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +100,9 @@ export class AttachPrincipalPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachPrincipalPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +131,8 @@ export class AttachPrincipalPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachPrincipalPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +142,18 @@ export class AttachPrincipalPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachPrincipalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AttachPrincipalPolicyCommand(input, context);
+    return se_AttachPrincipalPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachPrincipalPolicyCommandOutput> {
-    return deserializeAws_restJson1AttachPrincipalPolicyCommand(output, context);
+    return de_AttachPrincipalPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

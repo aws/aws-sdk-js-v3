@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportClientBrandingRequest,
-  ImportClientBrandingRequestFilterSensitiveLog,
-  ImportClientBrandingResult,
-  ImportClientBrandingResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportClientBrandingCommand,
-  serializeAws_json1_1ImportClientBrandingCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportClientBrandingRequest, ImportClientBrandingResult } from "../models/models_0";
+import { de_ImportClientBrandingCommand, se_ImportClientBrandingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportClientBrandingCommand}.
  */
 export interface ImportClientBrandingCommandInput extends ImportClientBrandingRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportClientBrandingCommand}.
  */
 export interface ImportClientBrandingCommandOutput extends ImportClientBrandingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports client branding. Client branding allows you to customize your WorkSpace's client
  *          login portal. You can tailor your login portal company logo, the support email address,
  *          support link, link to reset password, and a custom message for users trying to sign
@@ -69,10 +66,69 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  * import { WorkSpacesClient, ImportClientBrandingCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ImportClientBrandingCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // ImportClientBrandingRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   DeviceTypeWindows: { // DefaultImportClientBrandingAttributes
+ *     Logo: "BLOB_VALUE",
+ *     SupportEmail: "STRING_VALUE",
+ *     SupportLink: "STRING_VALUE",
+ *     ForgotPasswordLink: "STRING_VALUE",
+ *     LoginMessage: { // LoginMessage
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   DeviceTypeOsx: {
+ *     Logo: "BLOB_VALUE",
+ *     SupportEmail: "STRING_VALUE",
+ *     SupportLink: "STRING_VALUE",
+ *     ForgotPasswordLink: "STRING_VALUE",
+ *     LoginMessage: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   DeviceTypeAndroid: {
+ *     Logo: "BLOB_VALUE",
+ *     SupportEmail: "STRING_VALUE",
+ *     SupportLink: "STRING_VALUE",
+ *     ForgotPasswordLink: "STRING_VALUE",
+ *     LoginMessage: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   DeviceTypeIos: { // IosImportClientBrandingAttributes
+ *     Logo: "BLOB_VALUE",
+ *     Logo2x: "BLOB_VALUE",
+ *     Logo3x: "BLOB_VALUE",
+ *     SupportEmail: "STRING_VALUE",
+ *     SupportLink: "STRING_VALUE",
+ *     ForgotPasswordLink: "STRING_VALUE",
+ *     LoginMessage: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   DeviceTypeLinux: {
+ *     Logo: "BLOB_VALUE",
+ *     SupportEmail: "STRING_VALUE",
+ *     SupportLink: "STRING_VALUE",
+ *     ForgotPasswordLink: "STRING_VALUE",
+ *     LoginMessage: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   DeviceTypeWeb: {
+ *     Logo: "BLOB_VALUE",
+ *     SupportEmail: "STRING_VALUE",
+ *     SupportLink: "STRING_VALUE",
+ *     ForgotPasswordLink: "STRING_VALUE",
+ *     LoginMessage: "<LoginMessage>",
+ *   },
+ * };
  * const command = new ImportClientBrandingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportClientBrandingCommandInput - {@link ImportClientBrandingCommandInput}
+ * @returns {@link ImportClientBrandingCommandOutput}
  * @see {@link ImportClientBrandingCommandInput} for command's `input` shape.
  * @see {@link ImportClientBrandingCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -108,6 +164,9 @@ export class ImportClientBrandingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportClientBrandingCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +195,8 @@ export class ImportClientBrandingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportClientBrandingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportClientBrandingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +206,18 @@ export class ImportClientBrandingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportClientBrandingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportClientBrandingCommand(input, context);
+    return se_ImportClientBrandingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportClientBrandingCommandOutput> {
-    return deserializeAws_json1_1ImportClientBrandingCommand(output, context);
+    return de_ImportClientBrandingCommand(output, context);
   }
 
   // Start section: command_body_extra

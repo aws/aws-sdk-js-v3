@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DeleteAssetModelRequest,
-  DeleteAssetModelRequestFilterSensitiveLog,
-  DeleteAssetModelResponse,
-  DeleteAssetModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAssetModelCommand,
-  serializeAws_restJson1DeleteAssetModelCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAssetModelRequest, DeleteAssetModelResponse } from "../models/models_0";
+import { de_DeleteAssetModelCommand, se_DeleteAssetModelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssetModelCommand}.
  */
 export interface DeleteAssetModelCommandInput extends DeleteAssetModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssetModelCommand}.
  */
 export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an asset model. This action can't be undone. You must delete all assets created
  *       from an asset model before you can delete the model. Also, you can't delete an asset model if
  *       a parent asset model exists that contains a property formula expression that depends on the
@@ -46,10 +43,16 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  * import { IoTSiteWiseClient, DeleteAssetModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteAssetModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DeleteAssetModelRequest
+ *   assetModelId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteAssetModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssetModelCommandInput - {@link DeleteAssetModelCommandInput}
+ * @returns {@link DeleteAssetModelCommandOutput}
  * @see {@link DeleteAssetModelCommandInput} for command's `input` shape.
  * @see {@link DeleteAssetModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -93,6 +96,9 @@ export class DeleteAssetModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssetModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DeleteAssetModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssetModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAssetModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class DeleteAssetModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAssetModelCommand(input, context);
+    return se_DeleteAssetModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssetModelCommandOutput> {
-    return deserializeAws_restJson1DeleteAssetModelCommand(output, context);
+    return de_DeleteAssetModelCommand(output, context);
   }
 
   // Start section: command_body_extra

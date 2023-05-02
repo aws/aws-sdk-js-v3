@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ReleaseHostsRequest,
-  ReleaseHostsRequestFilterSensitiveLog,
-  ReleaseHostsResult,
-  ReleaseHostsResultFilterSensitiveLog,
-} from "../models/models_6";
-import { deserializeAws_ec2ReleaseHostsCommand, serializeAws_ec2ReleaseHostsCommand } from "../protocols/Aws_ec2";
+import { ReleaseHostsRequest, ReleaseHostsResult } from "../models/models_6";
+import { de_ReleaseHostsCommand, se_ReleaseHostsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReleaseHostsCommand}.
  */
 export interface ReleaseHostsCommandInput extends ReleaseHostsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReleaseHostsCommand}.
  */
 export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When you no longer want to use an On-Demand Dedicated Host it can be released.
  *             On-Demand billing is stopped and the host goes into <code>released</code> state. The
  *             host ID of Dedicated Hosts that have been released can no longer be specified in another
@@ -47,10 +47,17 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  * import { EC2Client, ReleaseHostsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReleaseHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ReleaseHostsRequest
+ *   HostIds: [ // RequestHostIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ReleaseHostsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReleaseHostsCommandInput - {@link ReleaseHostsCommandInput}
+ * @returns {@link ReleaseHostsCommandOutput}
  * @see {@link ReleaseHostsCommandInput} for command's `input` shape.
  * @see {@link ReleaseHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class ReleaseHostsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReleaseHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +110,8 @@ export class ReleaseHostsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleaseHostsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReleaseHostsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +121,18 @@ export class ReleaseHostsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReleaseHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReleaseHostsCommand(input, context);
+    return se_ReleaseHostsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleaseHostsCommandOutput> {
-    return deserializeAws_ec2ReleaseHostsCommand(output, context);
+    return de_ReleaseHostsCommand(output, context);
   }
 
   // Start section: command_body_extra

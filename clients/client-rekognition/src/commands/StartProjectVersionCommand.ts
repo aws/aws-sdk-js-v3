@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartProjectVersionRequest,
-  StartProjectVersionRequestFilterSensitiveLog,
-  StartProjectVersionResponse,
-  StartProjectVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartProjectVersionCommand,
-  serializeAws_json1_1StartProjectVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartProjectVersionRequest, StartProjectVersionResponse } from "../models/models_0";
+import { de_StartProjectVersionCommand, se_StartProjectVersionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartProjectVersionCommand}.
  */
 export interface StartProjectVersionCommandInput extends StartProjectVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartProjectVersionCommand}.
  */
 export interface StartProjectVersionCommandOutput extends StartProjectVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the running of the version of a model. Starting a model takes a while
  *       to complete. To check the current state of the model, use <a>DescribeProjectVersions</a>.</p>
  *          <p>Once the model is running, you can detect custom labels in new images by calling
@@ -52,10 +49,17 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  * import { RekognitionClient, StartProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartProjectVersionRequest
+ *   ProjectVersionArn: "STRING_VALUE", // required
+ *   MinInferenceUnits: Number("int"), // required
+ *   MaxInferenceUnits: Number("int"),
+ * };
  * const command = new StartProjectVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartProjectVersionCommandInput - {@link StartProjectVersionCommandInput}
+ * @returns {@link StartProjectVersionCommandOutput}
  * @see {@link StartProjectVersionCommandInput} for command's `input` shape.
  * @see {@link StartProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -107,6 +111,9 @@ export class StartProjectVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartProjectVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +142,8 @@ export class StartProjectVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartProjectVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartProjectVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +153,18 @@ export class StartProjectVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartProjectVersionCommand(input, context);
+    return se_StartProjectVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartProjectVersionCommandOutput> {
-    return deserializeAws_json1_1StartProjectVersionCommand(output, context);
+    return de_StartProjectVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

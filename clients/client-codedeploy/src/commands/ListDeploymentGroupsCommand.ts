@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  ListDeploymentGroupsInput,
-  ListDeploymentGroupsInputFilterSensitiveLog,
-  ListDeploymentGroupsOutput,
-  ListDeploymentGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeploymentGroupsCommand,
-  serializeAws_json1_1ListDeploymentGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDeploymentGroupsInput, ListDeploymentGroupsOutput } from "../models/models_0";
+import { de_ListDeploymentGroupsCommand, se_ListDeploymentGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeploymentGroupsCommand}.
  */
 export interface ListDeploymentGroupsCommandInput extends ListDeploymentGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDeploymentGroupsCommand}.
  */
 export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the deployment groups for an application registered with the IAM
  *             user or Amazon Web Services account.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
  * import { CodeDeployClient, ListDeploymentGroupsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentGroupsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // ListDeploymentGroupsInput
+ *   applicationName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeploymentGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentGroupsCommandInput - {@link ListDeploymentGroupsCommandInput}
+ * @returns {@link ListDeploymentGroupsCommandOutput}
  * @see {@link ListDeploymentGroupsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListDeploymentGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class ListDeploymentGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeploymentGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeploymentGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class ListDeploymentGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeploymentGroupsCommand(input, context);
+    return se_ListDeploymentGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentGroupsCommandOutput> {
-    return deserializeAws_json1_1ListDeploymentGroupsCommand(output, context);
+    return de_ListDeploymentGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

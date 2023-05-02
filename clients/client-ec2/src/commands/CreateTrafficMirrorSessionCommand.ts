@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateTrafficMirrorSessionRequest,
-  CreateTrafficMirrorSessionRequestFilterSensitiveLog,
-  CreateTrafficMirrorSessionResult,
-  CreateTrafficMirrorSessionResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2CreateTrafficMirrorSessionCommand,
-  serializeAws_ec2CreateTrafficMirrorSessionCommand,
-} from "../protocols/Aws_ec2";
+import { CreateTrafficMirrorSessionRequest, CreateTrafficMirrorSessionResult } from "../models/models_2";
+import { de_CreateTrafficMirrorSessionCommand, se_CreateTrafficMirrorSessionCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrafficMirrorSessionCommand}.
  */
 export interface CreateTrafficMirrorSessionCommandInput extends CreateTrafficMirrorSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrafficMirrorSessionCommand}.
  */
 export interface CreateTrafficMirrorSessionCommandOutput extends CreateTrafficMirrorSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Traffic Mirror session.</p>
  *          <p>A Traffic Mirror session actively copies packets from a Traffic Mirror source to a Traffic Mirror target. Create a filter, and then assign it
  *          to the session to define a subset of the traffic to mirror, for example all TCP
@@ -48,10 +45,34 @@ export interface CreateTrafficMirrorSessionCommandOutput extends CreateTrafficMi
  * import { EC2Client, CreateTrafficMirrorSessionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateTrafficMirrorSessionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateTrafficMirrorSessionRequest
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   TrafficMirrorTargetId: "STRING_VALUE", // required
+ *   TrafficMirrorFilterId: "STRING_VALUE", // required
+ *   PacketLength: Number("int"),
+ *   SessionNumber: Number("int"), // required
+ *   VirtualNetworkId: Number("int"),
+ *   Description: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateTrafficMirrorSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrafficMirrorSessionCommandInput - {@link CreateTrafficMirrorSessionCommandInput}
+ * @returns {@link CreateTrafficMirrorSessionCommandOutput}
  * @see {@link CreateTrafficMirrorSessionCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficMirrorSessionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +96,9 @@ export class CreateTrafficMirrorSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrafficMirrorSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +127,8 @@ export class CreateTrafficMirrorSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTrafficMirrorSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrafficMirrorSessionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +138,21 @@ export class CreateTrafficMirrorSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrafficMirrorSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateTrafficMirrorSessionCommand(input, context);
+    return se_CreateTrafficMirrorSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTrafficMirrorSessionCommandOutput> {
-    return deserializeAws_ec2CreateTrafficMirrorSessionCommand(output, context);
+    return de_CreateTrafficMirrorSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

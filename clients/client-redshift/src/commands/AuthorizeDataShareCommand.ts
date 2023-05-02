@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AuthorizeDataShareMessage,
-  AuthorizeDataShareMessageFilterSensitiveLog,
-  DataShare,
-  DataShareFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryAuthorizeDataShareCommand,
-  serializeAws_queryAuthorizeDataShareCommand,
-} from "../protocols/Aws_query";
+import { AuthorizeDataShareMessage, DataShare } from "../models/models_0";
+import { de_AuthorizeDataShareCommand, se_AuthorizeDataShareCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeDataShareCommand}.
  */
 export interface AuthorizeDataShareCommandInput extends AuthorizeDataShareMessage {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeDataShareCommand}.
  */
 export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
+ * @public
  * <p>From a data producer account, authorizes the sharing of a datashare with one or more
  *             consumer accounts or managing entities. To authorize a datashare for a data consumer,
  *             the producer account must have the correct access permissions.</p>
@@ -44,10 +41,16 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * import { RedshiftClient, AuthorizeDataShareCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, AuthorizeDataShareCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // AuthorizeDataShareMessage
+ *   DataShareArn: "STRING_VALUE", // required
+ *   ConsumerIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new AuthorizeDataShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeDataShareCommandInput - {@link AuthorizeDataShareCommandInput}
+ * @returns {@link AuthorizeDataShareCommandOutput}
  * @see {@link AuthorizeDataShareCommandInput} for command's `input` shape.
  * @see {@link AuthorizeDataShareCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -74,6 +77,9 @@ export class AuthorizeDataShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeDataShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +108,8 @@ export class AuthorizeDataShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeDataShareMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DataShareFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +119,18 @@ export class AuthorizeDataShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeDataShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeDataShareCommand(input, context);
+    return se_AuthorizeDataShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AuthorizeDataShareCommandOutput> {
-    return deserializeAws_queryAuthorizeDataShareCommand(output, context);
+    return de_AuthorizeDataShareCommand(output, context);
   }
 
   // Start section: command_body_extra

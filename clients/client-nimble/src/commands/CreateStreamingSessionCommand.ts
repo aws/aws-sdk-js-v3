@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateStreamingSessionRequest,
-  CreateStreamingSessionRequestFilterSensitiveLog,
-  CreateStreamingSessionResponse,
-  CreateStreamingSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateStreamingSessionRequest, CreateStreamingSessionResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1CreateStreamingSessionCommand,
-  serializeAws_restJson1CreateStreamingSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateStreamingSessionCommand, se_CreateStreamingSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamingSessionCommand}.
  */
 export interface CreateStreamingSessionCommandInput extends CreateStreamingSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamingSessionCommand}.
  */
 export interface CreateStreamingSessionCommandOutput extends CreateStreamingSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a streaming session in a studio.</p>
  *         <p>After invoking this operation, you must poll GetStreamingSession until the streaming
  *             session is in the <code>READY</code> state.</p>
@@ -44,10 +41,23 @@ export interface CreateStreamingSessionCommandOutput extends CreateStreamingSess
  * import { NimbleClient, CreateStreamingSessionCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, CreateStreamingSessionCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // CreateStreamingSessionRequest
+ *   clientToken: "STRING_VALUE",
+ *   ec2InstanceType: "g4dn.xlarge" || "g4dn.2xlarge" || "g4dn.4xlarge" || "g4dn.8xlarge" || "g4dn.12xlarge" || "g4dn.16xlarge" || "g3.4xlarge" || "g3s.xlarge" || "g5.xlarge" || "g5.2xlarge" || "g5.4xlarge" || "g5.8xlarge" || "g5.16xlarge",
+ *   launchProfileId: "STRING_VALUE", // required
+ *   ownedBy: "STRING_VALUE",
+ *   streamingImageId: "STRING_VALUE",
+ *   studioId: "STRING_VALUE", // required
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateStreamingSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamingSessionCommandInput - {@link CreateStreamingSessionCommandInput}
+ * @returns {@link CreateStreamingSessionCommandOutput}
  * @see {@link CreateStreamingSessionCommandInput} for command's `input` shape.
  * @see {@link CreateStreamingSessionCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -95,6 +105,9 @@ export class CreateStreamingSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamingSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +136,8 @@ export class CreateStreamingSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamingSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStreamingSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +147,18 @@ export class CreateStreamingSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamingSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateStreamingSessionCommand(input, context);
+    return se_CreateStreamingSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamingSessionCommandOutput> {
-    return deserializeAws_restJson1CreateStreamingSessionCommand(output, context);
+    return de_CreateStreamingSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

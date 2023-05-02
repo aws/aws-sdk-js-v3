@@ -20,21 +20,23 @@ import {
   ListAppInstanceUsersResponse,
   ListAppInstanceUsersResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppInstanceUsersCommand,
-  serializeAws_restJson1ListAppInstanceUsersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAppInstanceUsersCommand, se_ListAppInstanceUsersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppInstanceUsersCommand}.
  */
 export interface ListAppInstanceUsersCommandInput extends ListAppInstanceUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppInstanceUsersCommand}.
  */
 export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all <code>AppInstanceUsers</code> created under a single
  *          <code>AppInstance</code>.</p>
  * @example
@@ -43,10 +45,17 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  * import { ChimeSDKIdentityClient, ListAppInstanceUsersCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, ListAppInstanceUsersCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = { // ListAppInstanceUsersRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAppInstanceUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppInstanceUsersCommandInput - {@link ListAppInstanceUsersCommandInput}
+ * @returns {@link ListAppInstanceUsersCommandOutput}
  * @see {@link ListAppInstanceUsersCommandInput} for command's `input` shape.
  * @see {@link ListAppInstanceUsersCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -88,6 +97,9 @@ export class ListAppInstanceUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppInstanceUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,12 +139,18 @@ export class ListAppInstanceUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppInstanceUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppInstanceUsersCommand(input, context);
+    return se_ListAppInstanceUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppInstanceUsersCommandOutput> {
-    return deserializeAws_restJson1ListAppInstanceUsersCommand(output, context);
+    return de_ListAppInstanceUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

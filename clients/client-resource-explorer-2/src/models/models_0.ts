@@ -5,6 +5,7 @@ import { DocumentType as __DocumentType } from "@aws-sdk/types";
 import { ResourceExplorer2ServiceException as __BaseException } from "./ResourceExplorer2ServiceException";
 
 /**
+ * @public
  * <p>The credentials that you used to call this operation don't have the minimum required
  *             permissions.</p>
  */
@@ -26,6 +27,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateDefaultViewInput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view to set as the default for the Amazon Web Services Region and
@@ -35,6 +39,9 @@ export interface AssociateDefaultViewInput {
   ViewArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDefaultViewOutput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that the operation set as the default for queries made
@@ -44,6 +51,7 @@ export interface AssociateDefaultViewOutput {
 }
 
 /**
+ * @public
  * <p>The request failed because of internal service error. Try your request again
  *             later.</p>
  */
@@ -66,6 +74,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You specified a resource that doesn't exist. Check the ID or ARN that you used to
  *             identity the resource, and try again.</p>
  */
@@ -88,6 +97,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed because you exceeded a rate limit for this operation. For more
  *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
  *                 for Resource Explorer</a>.</p>
@@ -111,6 +121,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A structure that describes a request field with a validation error.</p>
  */
 export interface ValidationExceptionField {
@@ -126,6 +137,7 @@ export interface ValidationExceptionField {
 }
 
 /**
+ * @public
  * <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  */
@@ -152,6 +164,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchGetViewInput {
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource names (ARNs)</a> that identify the views you want details for.</p>
@@ -160,6 +175,7 @@ export interface BatchGetViewInput {
 }
 
 /**
+ * @public
  * <p>A collection of error messages for any views that Amazon Web Services Resource Explorer couldn't retrieve
  *             details.</p>
  */
@@ -176,6 +192,7 @@ export interface BatchGetViewError {
 }
 
 /**
+ * @public
  * <p>A search filter defines which resources can be part of a search query result
  *             set.</p>
  */
@@ -190,6 +207,7 @@ export interface SearchFilter {
 }
 
 /**
+ * @public
  * <p>Information about an additional property that describes a resource, that you can
  *             optionally include in the view. This lets you view that property in search results, and
  *             filter your search results based on the value of the property.</p>
@@ -210,6 +228,7 @@ export interface IncludedProperty {
 }
 
 /**
+ * @public
  * <p>A view is a structure that defines a set of filters that provide a view into the
  *             information in the Amazon Web Services Resource Explorer index. The filters specify which information from the
  *             index is visible to the users of the view. For example, you can specify filters that
@@ -255,6 +274,9 @@ export interface View {
   Filters?: SearchFilter;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetViewOutput {
   /**
    * <p>A structure with a list of objects with details for each of the specified
@@ -270,6 +292,7 @@ export interface BatchGetViewOutput {
 }
 
 /**
+ * @public
  * <p>The principal making the request isn't permitted to perform the operation.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -291,6 +314,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed because either you specified parameters that didn’t match the
  *             original request, or you attempted to create a view with a name that already exists in
  *             this Amazon Web Services Region.</p>
@@ -313,6 +337,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateIndexInput {
   /**
    * <p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the
@@ -328,29 +355,41 @@ export interface CreateIndexInput {
   Tags?: Record<string, string>;
 }
 
-export enum IndexState {
+/**
+ * @public
+ * @enum
+ */
+export const IndexState = {
   /**
    * Index is active.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Resource Explorer is creating the index.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Resource Explorer successfully deleted the index.
    */
-  DELETED = "DELETED",
+  DELETED: "DELETED",
   /**
    * Resource Explorer is deleting the index.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Resource Explorer is switching the index type between local and aggregator.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type IndexState = (typeof IndexState)[keyof typeof IndexState];
+
+/**
+ * @public
+ */
 export interface CreateIndexOutput {
   /**
    * <p>The ARN of the new local index for the Region. You can reference this ARN in IAM
@@ -377,6 +416,9 @@ export interface CreateIndexOutput {
   CreatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIndexInput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you want to delete.</p>
@@ -384,6 +426,9 @@ export interface DeleteIndexInput {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIndexOutput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you successfully started the deletion
@@ -405,17 +450,29 @@ export interface DeleteIndexOutput {
   LastUpdatedAt?: Date;
 }
 
-export enum IndexType {
+/**
+ * @public
+ * @enum
+ */
+export const IndexType = {
   /**
    * aggregator index
    */
-  AGGREGATOR = "AGGREGATOR",
+  AGGREGATOR: "AGGREGATOR",
   /**
    * local index
    */
-  LOCAL = "LOCAL",
-}
+  LOCAL: "LOCAL",
+} as const;
 
+/**
+ * @public
+ */
+export type IndexType = (typeof IndexType)[keyof typeof IndexType];
+
+/**
+ * @public
+ */
 export interface ListIndexesInput {
   /**
    * <p>If specified, limits the output to only indexes of the specified Type, either
@@ -456,6 +513,7 @@ export interface ListIndexesInput {
 }
 
 /**
+ * @public
  * <p>An index is the data store used by Amazon Web Services Resource Explorer to hold information about your Amazon Web Services
  *             resources that the service discovers. Creating an index in an Amazon Web Services Region turns on
  *             Resource Explorer and lets it discover your resources.</p>
@@ -499,6 +557,9 @@ export interface Index {
   Type?: IndexType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListIndexesOutput {
   /**
    * <p>A structure that contains the details and status of each index.</p>
@@ -515,6 +576,7 @@ export interface ListIndexesOutput {
 }
 
 /**
+ * @public
  * <p>The request failed because it exceeds a service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -546,6 +608,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateIndexTypeInput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you want to update.</p>
@@ -560,6 +625,9 @@ export interface UpdateIndexTypeInput {
   Type: IndexType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIndexTypeOutput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you updated.</p>
@@ -583,6 +651,9 @@ export interface UpdateIndexTypeOutput {
   LastUpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateViewInput {
   /**
    * <p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the
@@ -629,6 +700,9 @@ export interface CreateViewInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateViewOutput {
   /**
    * <p>A structure that contains the details about the new view.</p>
@@ -636,6 +710,9 @@ export interface CreateViewOutput {
   View?: View;
 }
 
+/**
+ * @public
+ */
 export interface DeleteViewInput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that you want to delete.</p>
@@ -643,6 +720,9 @@ export interface DeleteViewInput {
   ViewArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteViewOutput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that you successfully deleted.</p>
@@ -650,6 +730,9 @@ export interface DeleteViewOutput {
   ViewArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetViewInput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that you want information about.</p>
@@ -657,6 +740,9 @@ export interface GetViewInput {
   ViewArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetViewOutput {
   /**
    * <p>A structure that contains the details for the requested view.</p>
@@ -669,6 +755,9 @@ export interface GetViewOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListViewsInput {
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -695,6 +784,9 @@ export interface ListViewsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListViewsOutput {
   /**
    * <p>The list of views available in the Amazon Web Services Region in which you called this
@@ -711,6 +803,9 @@ export interface ListViewsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateViewInput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that you want to modify.</p>
@@ -743,6 +838,9 @@ export interface UpdateViewInput {
   Filters?: SearchFilter;
 }
 
+/**
+ * @public
+ */
 export interface UpdateViewOutput {
   /**
    * <p>Details about the view that you changed with this operation.</p>
@@ -750,6 +848,9 @@ export interface UpdateViewOutput {
   View?: View;
 }
 
+/**
+ * @public
+ */
 export interface GetDefaultViewOutput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that is the current default for the Amazon Web Services Region in
@@ -758,6 +859,9 @@ export interface GetDefaultViewOutput {
   ViewArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIndexOutput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index.</p>
@@ -808,6 +912,9 @@ export interface GetIndexOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListSupportedResourceTypesInput {
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -835,6 +942,7 @@ export interface ListSupportedResourceTypesInput {
 }
 
 /**
+ * @public
  * <p>A structure that describes a resource type supported by Amazon Web Services Resource Explorer.</p>
  */
 export interface SupportedResourceType {
@@ -850,6 +958,9 @@ export interface SupportedResourceType {
   ResourceType?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSupportedResourceTypesOutput {
   /**
    * <p>The list of resource types supported by Resource Explorer.</p>
@@ -865,6 +976,9 @@ export interface ListSupportedResourceTypesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view or index that you want to attach tags to.</p>
@@ -872,6 +986,9 @@ export interface ListTagsForResourceInput {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The tag key and value pairs that you want to attach to the specified view or
@@ -881,6 +998,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p>A structure that describes a property of a resource.</p>
  */
 export interface ResourceProperty {
@@ -903,6 +1021,7 @@ export interface ResourceProperty {
 }
 
 /**
+ * @public
  * <p>A resource in Amazon Web Services that Amazon Web Services Resource Explorer has discovered, and for which it has stored
  *             information in the index of the Amazon Web Services Region that contains the resource.</p>
  */
@@ -947,6 +1066,7 @@ export interface Resource {
 }
 
 /**
+ * @public
  * <p>Information about the number of results that match the query. At this time, Amazon Web Services Resource Explorer
  *             doesn't count more than 1,000 matches for any query. This structure
  *             provides information about whether the query exceeded this limit.</p>
@@ -979,6 +1099,9 @@ export interface ResourceCount {
   Complete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface SearchInput {
   /**
    * <p>A string that includes keywords and filters that specify the resources that you want
@@ -1029,6 +1152,9 @@ export interface SearchInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchOutput {
   /**
    * <p>The list of structures that describe the resources that match the query.</p>
@@ -1054,6 +1180,9 @@ export interface SearchOutput {
   Count?: ResourceCount;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the view or index that you want to attach tags
@@ -1068,8 +1197,14 @@ export interface TagResourceInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the view or index that you want to remove tags
@@ -1084,54 +1219,15 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
 /**
  * @internal
  */
-export const AssociateDefaultViewInputFilterSensitiveLog = (obj: AssociateDefaultViewInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDefaultViewOutputFilterSensitiveLog = (obj: AssociateDefaultViewOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetViewInputFilterSensitiveLog = (obj: BatchGetViewInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetViewErrorFilterSensitiveLog = (obj: BatchGetViewError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SearchFilterFilterSensitiveLog = (obj: SearchFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IncludedPropertyFilterSensitiveLog = (obj: IncludedProperty): any => ({
   ...obj,
 });
 
@@ -1154,69 +1250,6 @@ export const BatchGetViewOutputFilterSensitiveLog = (obj: BatchGetViewOutput): a
 /**
  * @internal
  */
-export const CreateIndexInputFilterSensitiveLog = (obj: CreateIndexInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIndexOutputFilterSensitiveLog = (obj: CreateIndexOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIndexInputFilterSensitiveLog = (obj: DeleteIndexInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIndexOutputFilterSensitiveLog = (obj: DeleteIndexOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIndexesInputFilterSensitiveLog = (obj: ListIndexesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IndexFilterSensitiveLog = (obj: Index): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIndexesOutputFilterSensitiveLog = (obj: ListIndexesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIndexTypeInputFilterSensitiveLog = (obj: UpdateIndexTypeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIndexTypeOutputFilterSensitiveLog = (obj: UpdateIndexTypeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateViewInputFilterSensitiveLog = (obj: CreateViewInput): any => ({
   ...obj,
   ...(obj.Filters && { Filters: SENSITIVE_STRING }),
@@ -1233,44 +1266,9 @@ export const CreateViewOutputFilterSensitiveLog = (obj: CreateViewOutput): any =
 /**
  * @internal
  */
-export const DeleteViewInputFilterSensitiveLog = (obj: DeleteViewInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteViewOutputFilterSensitiveLog = (obj: DeleteViewOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetViewInputFilterSensitiveLog = (obj: GetViewInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetViewOutputFilterSensitiveLog = (obj: GetViewOutput): any => ({
   ...obj,
   ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});
-
-/**
- * @internal
- */
-export const ListViewsInputFilterSensitiveLog = (obj: ListViewsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListViewsOutputFilterSensitiveLog = (obj: ListViewsOutput): any => ({
-  ...obj,
 });
 
 /**
@@ -1292,112 +1290,7 @@ export const UpdateViewOutputFilterSensitiveLog = (obj: UpdateViewOutput): any =
 /**
  * @internal
  */
-export const GetDefaultViewOutputFilterSensitiveLog = (obj: GetDefaultViewOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIndexOutputFilterSensitiveLog = (obj: GetIndexOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSupportedResourceTypesInputFilterSensitiveLog = (obj: ListSupportedResourceTypesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SupportedResourceTypeFilterSensitiveLog = (obj: SupportedResourceType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSupportedResourceTypesOutputFilterSensitiveLog = (obj: ListSupportedResourceTypesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourcePropertyFilterSensitiveLog = (obj: ResourceProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceCountFilterSensitiveLog = (obj: ResourceCount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SearchInputFilterSensitiveLog = (obj: SearchInput): any => ({
   ...obj,
   ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SearchOutputFilterSensitiveLog = (obj: SearchOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
 });

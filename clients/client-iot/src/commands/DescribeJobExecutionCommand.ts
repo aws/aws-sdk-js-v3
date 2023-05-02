@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeJobExecutionRequest,
-  DescribeJobExecutionRequestFilterSensitiveLog,
-  DescribeJobExecutionResponse,
-  DescribeJobExecutionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeJobExecutionCommand,
-  serializeAws_restJson1DescribeJobExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/models_1";
+import { de_DescribeJobExecutionCommand, se_DescribeJobExecutionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobExecutionCommand}.
  */
 export interface DescribeJobExecutionCommandInput extends DescribeJobExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobExecutionCommand}.
  */
 export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a job execution.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeJobExecution</a> action.</p>
  * @example
@@ -43,10 +40,17 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * import { IoTClient, DescribeJobExecutionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeJobExecutionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeJobExecutionRequest
+ *   jobId: "STRING_VALUE", // required
+ *   thingName: "STRING_VALUE", // required
+ *   executionNumber: Number("long"),
+ * };
  * const command = new DescribeJobExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobExecutionCommandInput - {@link DescribeJobExecutionCommandInput}
+ * @returns {@link DescribeJobExecutionCommandOutput}
  * @see {@link DescribeJobExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +86,9 @@ export class DescribeJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class DescribeJobExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJobExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class DescribeJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobExecutionCommand(input, context);
+    return se_DescribeJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobExecutionCommandOutput> {
-    return deserializeAws_restJson1DescribeJobExecutionCommand(output, context);
+    return de_DescribeJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

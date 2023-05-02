@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  CancelJobRequest,
-  CancelJobRequestFilterSensitiveLog,
-  CancelJobResponse,
-  CancelJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelJobCommand,
-  serializeAws_restJson1CancelJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelJobRequest, CancelJobResponse } from "../models/models_0";
+import { de_CancelJobCommand, se_CancelJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelJobCommand}.
  */
 export interface CancelJobCommandInput extends CancelJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelJobCommand}.
  */
 export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The CancelJob operation cancels an unfinished job.</p>
  *         <note>
  *             <p>You can only cancel a job that has a status of <code>Submitted</code>. To prevent a
@@ -51,10 +48,15 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * import { ElasticTranscoderClient, CancelJobCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, CancelJobCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // CancelJobRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelJobCommandInput - {@link CancelJobCommandInput}
+ * @returns {@link CancelJobCommandOutput}
  * @see {@link CancelJobCommandInput} for command's `input` shape.
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -97,6 +99,9 @@ export class CancelJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +128,8 @@ export class CancelJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +139,18 @@ export class CancelJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelJobCommand(input, context);
+    return se_CancelJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobCommandOutput> {
-    return deserializeAws_restJson1CancelJobCommand(output, context);
+    return de_CancelJobCommand(output, context);
   }
 
   // Start section: command_body_extra

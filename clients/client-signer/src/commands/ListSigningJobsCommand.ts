@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSigningJobsRequest,
-  ListSigningJobsRequestFilterSensitiveLog,
-  ListSigningJobsResponse,
-  ListSigningJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSigningJobsCommand,
-  serializeAws_restJson1ListSigningJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSigningJobsRequest, ListSigningJobsResponse } from "../models/models_0";
+import { de_ListSigningJobsCommand, se_ListSigningJobsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSigningJobsCommand}.
  */
 export interface ListSigningJobsCommandInput extends ListSigningJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSigningJobsCommand}.
  */
 export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all your signing jobs. You can use the <code>maxResults</code> parameter to
  * 			limit the number of signing jobs that are returned in the response. If additional jobs
  * 			remain to be listed, code signing returns a <code>nextToken</code> value. Use this value in
@@ -48,10 +45,23 @@ export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, _
  * import { SignerClient, ListSigningJobsCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, ListSigningJobsCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = { // ListSigningJobsRequest
+ *   status: "STRING_VALUE",
+ *   platformId: "STRING_VALUE",
+ *   requestedBy: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   isRevoked: true || false,
+ *   signatureExpiresBefore: new Date("TIMESTAMP"),
+ *   signatureExpiresAfter: new Date("TIMESTAMP"),
+ *   jobInvoker: "STRING_VALUE",
+ * };
  * const command = new ListSigningJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSigningJobsCommandInput - {@link ListSigningJobsCommandInput}
+ * @returns {@link ListSigningJobsCommandOutput}
  * @see {@link ListSigningJobsCommandInput} for command's `input` shape.
  * @see {@link ListSigningJobsCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -88,6 +98,9 @@ export class ListSigningJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSigningJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +129,8 @@ export class ListSigningJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSigningJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSigningJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +140,18 @@ export class ListSigningJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSigningJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSigningJobsCommand(input, context);
+    return se_ListSigningJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSigningJobsCommandOutput> {
-    return deserializeAws_restJson1ListSigningJobsCommand(output, context);
+    return de_ListSigningJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

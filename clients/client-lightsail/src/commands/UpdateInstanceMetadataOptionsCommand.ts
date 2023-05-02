@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { UpdateInstanceMetadataOptionsRequest, UpdateInstanceMetadataOptionsResult } from "../models/models_1";
 import {
-  UpdateInstanceMetadataOptionsRequest,
-  UpdateInstanceMetadataOptionsRequestFilterSensitiveLog,
-  UpdateInstanceMetadataOptionsResult,
-  UpdateInstanceMetadataOptionsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateInstanceMetadataOptionsCommand,
-  serializeAws_json1_1UpdateInstanceMetadataOptionsCommand,
+  de_UpdateInstanceMetadataOptionsCommand,
+  se_UpdateInstanceMetadataOptionsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInstanceMetadataOptionsCommand}.
  */
 export interface UpdateInstanceMetadataOptionsCommandInput extends UpdateInstanceMetadataOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInstanceMetadataOptionsCommand}.
  */
 export interface UpdateInstanceMetadataOptionsCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateInstanceMetadataOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the Amazon Lightsail instance metadata parameters on a running or stopped
  *       instance. When you modify the parameters on a running instance, the <code>GetInstance</code>
  *       or <code>GetInstances</code> API operation initially responds with a state of
@@ -49,10 +49,19 @@ export interface UpdateInstanceMetadataOptionsCommandOutput
  * import { LightsailClient, UpdateInstanceMetadataOptionsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateInstanceMetadataOptionsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // UpdateInstanceMetadataOptionsRequest
+ *   instanceName: "STRING_VALUE", // required
+ *   httpTokens: "optional" || "required",
+ *   httpEndpoint: "disabled" || "enabled",
+ *   httpPutResponseHopLimit: Number("int"),
+ *   httpProtocolIpv6: "disabled" || "enabled",
+ * };
  * const command = new UpdateInstanceMetadataOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInstanceMetadataOptionsCommandInput - {@link UpdateInstanceMetadataOptionsCommandInput}
+ * @returns {@link UpdateInstanceMetadataOptionsCommandOutput}
  * @see {@link UpdateInstanceMetadataOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceMetadataOptionsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -106,6 +115,9 @@ export class UpdateInstanceMetadataOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInstanceMetadataOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +146,8 @@ export class UpdateInstanceMetadataOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceMetadataOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInstanceMetadataOptionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,15 +157,21 @@ export class UpdateInstanceMetadataOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInstanceMetadataOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateInstanceMetadataOptionsCommand(input, context);
+    return se_UpdateInstanceMetadataOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateInstanceMetadataOptionsCommandOutput> {
-    return deserializeAws_json1_1UpdateInstanceMetadataOptionsCommand(output, context);
+    return de_UpdateInstanceMetadataOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

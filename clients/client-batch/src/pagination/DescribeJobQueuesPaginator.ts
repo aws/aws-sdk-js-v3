@@ -10,7 +10,7 @@ import {
 import { BatchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BatchClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeJobQueuesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeJobQueues(
   config: BatchPaginationConfiguration,
   input: DescribeJobQueuesCommandInput,

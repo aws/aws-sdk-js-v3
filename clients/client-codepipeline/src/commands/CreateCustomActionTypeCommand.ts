@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  CreateCustomActionTypeInput,
-  CreateCustomActionTypeInputFilterSensitiveLog,
-  CreateCustomActionTypeOutput,
-  CreateCustomActionTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCustomActionTypeCommand,
-  serializeAws_json1_1CreateCustomActionTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateCustomActionTypeInput, CreateCustomActionTypeOutput } from "../models/models_0";
+import { de_CreateCustomActionTypeCommand, se_CreateCustomActionTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomActionTypeCommand}.
  */
 export interface CreateCustomActionTypeCommandInput extends CreateCustomActionTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomActionTypeCommand}.
  */
 export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom action that can be used in all pipelines associated with the
  *             AWS account. Only used for custom actions.</p>
  * @example
@@ -43,10 +40,48 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * import { CodePipelineClient, CreateCustomActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, CreateCustomActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // CreateCustomActionTypeInput
+ *   category: "STRING_VALUE", // required
+ *   provider: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ *   settings: { // ActionTypeSettings
+ *     thirdPartyConfigurationUrl: "STRING_VALUE",
+ *     entityUrlTemplate: "STRING_VALUE",
+ *     executionUrlTemplate: "STRING_VALUE",
+ *     revisionUrlTemplate: "STRING_VALUE",
+ *   },
+ *   configurationProperties: [ // ActionConfigurationPropertyList
+ *     { // ActionConfigurationProperty
+ *       name: "STRING_VALUE", // required
+ *       required: true || false, // required
+ *       key: true || false, // required
+ *       secret: true || false, // required
+ *       queryable: true || false,
+ *       description: "STRING_VALUE",
+ *       type: "STRING_VALUE",
+ *     },
+ *   ],
+ *   inputArtifactDetails: { // ArtifactDetails
+ *     minimumCount: Number("int"), // required
+ *     maximumCount: Number("int"), // required
+ *   },
+ *   outputArtifactDetails: {
+ *     minimumCount: Number("int"), // required
+ *     maximumCount: Number("int"), // required
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCustomActionTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomActionTypeCommandInput - {@link CreateCustomActionTypeCommandInput}
+ * @returns {@link CreateCustomActionTypeCommandOutput}
  * @see {@link CreateCustomActionTypeCommandInput} for command's `input` shape.
  * @see {@link CreateCustomActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -86,6 +121,9 @@ export class CreateCustomActionTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomActionTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +152,8 @@ export class CreateCustomActionTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomActionTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomActionTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +163,18 @@ export class CreateCustomActionTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomActionTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCustomActionTypeCommand(input, context);
+    return se_CreateCustomActionTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomActionTypeCommandOutput> {
-    return deserializeAws_json1_1CreateCustomActionTypeCommand(output, context);
+    return de_CreateCustomActionTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

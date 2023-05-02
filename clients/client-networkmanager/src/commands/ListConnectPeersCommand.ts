@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListConnectPeersRequest,
-  ListConnectPeersRequestFilterSensitiveLog,
-  ListConnectPeersResponse,
-  ListConnectPeersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListConnectPeersRequest, ListConnectPeersResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1ListConnectPeersCommand,
-  serializeAws_restJson1ListConnectPeersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListConnectPeersCommand, se_ListConnectPeersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConnectPeersCommand}.
  */
 export interface ListConnectPeersCommandInput extends ListConnectPeersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConnectPeersCommand}.
  */
 export interface ListConnectPeersCommandOutput extends ListConnectPeersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of core network Connect peers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListConnectPeersCommandOutput extends ListConnectPeersResponse,
  * import { NetworkManagerClient, ListConnectPeersCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, ListConnectPeersCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // ListConnectPeersRequest
+ *   CoreNetworkId: "STRING_VALUE",
+ *   ConnectAttachmentId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListConnectPeersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConnectPeersCommandInput - {@link ListConnectPeersCommandInput}
+ * @returns {@link ListConnectPeersCommandOutput}
  * @see {@link ListConnectPeersCommandInput} for command's `input` shape.
  * @see {@link ListConnectPeersCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -81,6 +86,9 @@ export class ListConnectPeersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectPeersCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class ListConnectPeersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConnectPeersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConnectPeersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class ListConnectPeersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConnectPeersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConnectPeersCommand(input, context);
+    return se_ListConnectPeersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectPeersCommandOutput> {
-    return deserializeAws_restJson1ListConnectPeersCommand(output, context);
+    return de_ListConnectPeersCommand(output, context);
   }
 
   // Start section: command_body_extra

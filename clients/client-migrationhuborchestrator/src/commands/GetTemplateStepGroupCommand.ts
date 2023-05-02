@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  GetTemplateStepGroupRequest,
-  GetTemplateStepGroupRequestFilterSensitiveLog,
-  GetTemplateStepGroupResponse,
-  GetTemplateStepGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTemplateStepGroupCommand,
-  serializeAws_restJson1GetTemplateStepGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTemplateStepGroupRequest, GetTemplateStepGroupResponse } from "../models/models_0";
+import { de_GetTemplateStepGroupCommand, se_GetTemplateStepGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTemplateStepGroupCommand}.
  */
 export interface GetTemplateStepGroupCommandInput extends GetTemplateStepGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTemplateStepGroupCommand}.
  */
 export interface GetTemplateStepGroupCommandOutput extends GetTemplateStepGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a step group in a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,16 @@ export interface GetTemplateStepGroupCommandOutput extends GetTemplateStepGroupR
  * import { MigrationHubOrchestratorClient, GetTemplateStepGroupCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, GetTemplateStepGroupCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // GetTemplateStepGroupRequest
+ *   templateId: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetTemplateStepGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateStepGroupCommandInput - {@link GetTemplateStepGroupCommandInput}
+ * @returns {@link GetTemplateStepGroupCommandOutput}
  * @see {@link GetTemplateStepGroupCommandInput} for command's `input` shape.
  * @see {@link GetTemplateStepGroupCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -88,6 +91,9 @@ export class GetTemplateStepGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateStepGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class GetTemplateStepGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemplateStepGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTemplateStepGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class GetTemplateStepGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateStepGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTemplateStepGroupCommand(input, context);
+    return se_GetTemplateStepGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateStepGroupCommandOutput> {
-    return deserializeAws_restJson1GetTemplateStepGroupCommand(output, context);
+    return de_GetTemplateStepGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

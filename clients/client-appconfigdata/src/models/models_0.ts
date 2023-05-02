@@ -3,22 +3,32 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { AppConfigDataServiceException as __BaseException } from "./AppConfigDataServiceException";
 
-export enum InvalidParameterProblem {
+/**
+ * @public
+ * @enum
+ */
+export const InvalidParameterProblem = {
   /**
    * The parameter was corrupted and could not be understood by the service.
    */
-  CORRUPTED = "Corrupted",
+  CORRUPTED: "Corrupted",
   /**
    * The parameter was expired and can no longer be used.
    */
-  EXPIRED = "Expired",
+  EXPIRED: "Expired",
   /**
    * The client called the service before the time specified in the poll interval.
    */
-  POLL_INTERVAL_NOT_SATISFIED = "PollIntervalNotSatisfied",
-}
+  POLL_INTERVAL_NOT_SATISFIED: "PollIntervalNotSatisfied",
+} as const;
 
 /**
+ * @public
+ */
+export type InvalidParameterProblem = (typeof InvalidParameterProblem)[keyof typeof InvalidParameterProblem];
+
+/**
+ * @public
  * <p>Information about an invalid parameter.</p>
  */
 export interface InvalidParameterDetail {
@@ -29,11 +39,15 @@ export interface InvalidParameterDetail {
 }
 
 /**
+ * @public
  * <p>Detailed information about the input that failed to satisfy the constraints specified by
  *          a call.</p>
  */
 export type BadRequestDetails = BadRequestDetails.InvalidParametersMember | BadRequestDetails.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace BadRequestDetails {
   /**
    * <p>One or more specified parameters are not valid for the call.</p>
@@ -59,15 +73,25 @@ export namespace BadRequestDetails {
   };
 }
 
-export enum BadRequestReason {
+/**
+ * @public
+ * @enum
+ */
+export const BadRequestReason = {
   /**
    * Indicates there was a problem with one or more of the parameters.
    * See InvalidParameters in the BadRequestDetails for more information.
    */
-  INVALID_PARAMETERS = "InvalidParameters",
-}
+  INVALID_PARAMETERS: "InvalidParameters",
+} as const;
 
 /**
+ * @public
+ */
+export type BadRequestReason = (typeof BadRequestReason)[keyof typeof BadRequestReason];
+
+/**
+ * @public
  * <p>The input fails to satisfy the constraints specified by the service.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -100,6 +124,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was an internal failure in the service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -120,30 +145,40 @@ export class InternalServerException extends __BaseException {
   }
 }
 
-export enum ResourceType {
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
   /**
    * Resource type value for the Application resource.
    */
-  APPLICATION = "Application",
+  APPLICATION: "Application",
   /**
    * Resource type value for the Configuration resource.
    */
-  CONFIGURATION = "Configuration",
+  CONFIGURATION: "Configuration",
   /**
    * Resource type value for the ConfigurationProfile resource.
    */
-  CONFIGURATION_PROFILE = "ConfigurationProfile",
+  CONFIGURATION_PROFILE: "ConfigurationProfile",
   /**
    * Resource type value for the Deployment resource.
    */
-  DEPLOYMENT = "Deployment",
+  DEPLOYMENT: "Deployment",
   /**
    * Resource type value for the Environment resource.
    */
-  ENVIRONMENT = "Environment",
-}
+  ENVIRONMENT: "Environment",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>The requested resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -176,6 +211,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartConfigurationSessionRequest {
   /**
    * <p>The application ID or the application name.</p>
@@ -200,6 +238,9 @@ export interface StartConfigurationSessionRequest {
   RequiredMinimumPollIntervalInSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartConfigurationSessionResponse {
   /**
    * <p>Token encapsulating state about the configuration session. Provide this token to the
@@ -221,6 +262,7 @@ export interface StartConfigurationSessionResponse {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -241,6 +283,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetLatestConfigurationRequest {
   /**
    * <p>Token describing the current state of the configuration session. To obtain a token,
@@ -258,6 +303,9 @@ export interface GetLatestConfigurationRequest {
   ConfigurationToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLatestConfigurationResponse {
   /**
    * <p>The latest token describing the current state of the configuration session. This
@@ -296,50 +344,6 @@ export interface GetLatestConfigurationResponse {
    */
   VersionLabel?: string;
 }
-
-/**
- * @internal
- */
-export const InvalidParameterDetailFilterSensitiveLog = (obj: InvalidParameterDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BadRequestDetailsFilterSensitiveLog = (obj: BadRequestDetails): any => {
-  if (obj.InvalidParameters !== undefined)
-    return {
-      InvalidParameters: Object.entries(obj.InvalidParameters).reduce(
-        (acc: any, [key, value]: [string, InvalidParameterDetail]) => (
-          (acc[key] = InvalidParameterDetailFilterSensitiveLog(value)), acc
-        ),
-        {}
-      ),
-    };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const StartConfigurationSessionRequestFilterSensitiveLog = (obj: StartConfigurationSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartConfigurationSessionResponseFilterSensitiveLog = (obj: StartConfigurationSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLatestConfigurationRequestFilterSensitiveLog = (obj: GetLatestConfigurationRequest): any => ({
-  ...obj,
-});
 
 /**
  * @internal

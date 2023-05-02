@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopNotebookInstanceInput, StopNotebookInstanceInputFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopNotebookInstanceCommand,
-  serializeAws_json1_1StopNotebookInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { StopNotebookInstanceInput } from "../models/models_3";
+import { de_StopNotebookInstanceCommand, se_StopNotebookInstanceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopNotebookInstanceCommand}.
  */
 export interface StopNotebookInstanceCommandInput extends StopNotebookInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link StopNotebookInstanceCommand}.
  */
 export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates the ML compute instance. Before terminating the instance, SageMaker
  *             disconnects the ML storage volume from it. SageMaker preserves the ML storage volume. SageMaker
  *             stops charging you for the ML compute instance when you call
@@ -45,10 +47,15 @@ export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopNotebookInstanceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopNotebookInstanceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopNotebookInstanceInput
+ *   NotebookInstanceName: "STRING_VALUE", // required
+ * };
  * const command = new StopNotebookInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopNotebookInstanceCommandInput - {@link StopNotebookInstanceCommandInput}
+ * @returns {@link StopNotebookInstanceCommandOutput}
  * @see {@link StopNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link StopNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class StopNotebookInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopNotebookInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +110,8 @@ export class StopNotebookInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopNotebookInstanceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +121,18 @@ export class StopNotebookInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopNotebookInstanceCommand(input, context);
+    return se_StopNotebookInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopNotebookInstanceCommandOutput> {
-    return deserializeAws_json1_1StopNotebookInstanceCommand(output, context);
+    return de_StopNotebookInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

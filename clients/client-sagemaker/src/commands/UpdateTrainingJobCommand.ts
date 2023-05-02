@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateTrainingJobRequest,
-  UpdateTrainingJobRequestFilterSensitiveLog,
-  UpdateTrainingJobResponse,
-  UpdateTrainingJobResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateTrainingJobCommand,
-  serializeAws_json1_1UpdateTrainingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTrainingJobRequest, UpdateTrainingJobResponse } from "../models/models_4";
+import { de_UpdateTrainingJobCommand, se_UpdateTrainingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrainingJobCommand}.
  */
 export interface UpdateTrainingJobCommandInput extends UpdateTrainingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrainingJobCommand}.
  */
 export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a model training job to request a new Debugger profiling configuration or to
  *             change warm pool retention length.</p>
  * @example
@@ -43,10 +40,39 @@ export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobRespons
  * import { SageMakerClient, UpdateTrainingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateTrainingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateTrainingJobRequest
+ *   TrainingJobName: "STRING_VALUE", // required
+ *   ProfilerConfig: { // ProfilerConfigForUpdate
+ *     S3OutputPath: "STRING_VALUE",
+ *     ProfilingIntervalInMilliseconds: Number("long"),
+ *     ProfilingParameters: { // ProfilingParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     DisableProfiler: true || false,
+ *   },
+ *   ProfilerRuleConfigurations: [ // ProfilerRuleConfigurations
+ *     { // ProfilerRuleConfiguration
+ *       RuleConfigurationName: "STRING_VALUE", // required
+ *       LocalPath: "STRING_VALUE",
+ *       S3OutputPath: "STRING_VALUE",
+ *       RuleEvaluatorImage: "STRING_VALUE", // required
+ *       InstanceType: "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge",
+ *       VolumeSizeInGB: Number("int"),
+ *       RuleParameters: { // RuleParameters
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   ResourceConfig: { // ResourceConfigForUpdate
+ *     KeepAlivePeriodInSeconds: Number("int"), // required
+ *   },
+ * };
  * const command = new UpdateTrainingJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrainingJobCommandInput - {@link UpdateTrainingJobCommandInput}
+ * @returns {@link UpdateTrainingJobCommandOutput}
  * @see {@link UpdateTrainingJobCommandInput} for command's `input` shape.
  * @see {@link UpdateTrainingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +99,9 @@ export class UpdateTrainingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrainingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +130,8 @@ export class UpdateTrainingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrainingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrainingJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +141,18 @@ export class UpdateTrainingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrainingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTrainingJobCommand(input, context);
+    return se_UpdateTrainingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrainingJobCommandOutput> {
-    return deserializeAws_json1_1UpdateTrainingJobCommand(output, context);
+    return de_UpdateTrainingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

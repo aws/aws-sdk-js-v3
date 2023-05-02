@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  DeleteServiceProfileRequest,
-  DeleteServiceProfileRequestFilterSensitiveLog,
-  DeleteServiceProfileResponse,
-  DeleteServiceProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteServiceProfileCommand,
-  serializeAws_restJson1DeleteServiceProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteServiceProfileRequest, DeleteServiceProfileResponse } from "../models/models_0";
+import { de_DeleteServiceProfileCommand, se_DeleteServiceProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceProfileCommand}.
  */
 export interface DeleteServiceProfileCommandInput extends DeleteServiceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceProfileCommand}.
  */
 export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a service profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileR
  * import { IoTWirelessClient, DeleteServiceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteServiceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DeleteServiceProfileRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServiceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceProfileCommandInput - {@link DeleteServiceProfileCommandInput}
+ * @returns {@link DeleteServiceProfileCommandOutput}
  * @see {@link DeleteServiceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteServiceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DeleteServiceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteServiceProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class DeleteServiceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServiceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteServiceProfileCommand(input, context);
+    return se_DeleteServiceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteServiceProfileCommand(output, context);
+    return de_DeleteServiceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  DeprecateFlowTemplateRequest,
-  DeprecateFlowTemplateRequestFilterSensitiveLog,
-  DeprecateFlowTemplateResponse,
-  DeprecateFlowTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeprecateFlowTemplateCommand,
-  serializeAws_json1_1DeprecateFlowTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { DeprecateFlowTemplateRequest, DeprecateFlowTemplateResponse } from "../models/models_0";
+import { de_DeprecateFlowTemplateCommand, se_DeprecateFlowTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeprecateFlowTemplateCommand}.
  */
 export interface DeprecateFlowTemplateCommandInput extends DeprecateFlowTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeprecateFlowTemplateCommand}.
  */
 export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.</p>
@@ -44,10 +41,15 @@ export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplat
  * import { IoTThingsGraphClient, DeprecateFlowTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeprecateFlowTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // DeprecateFlowTemplateRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeprecateFlowTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprecateFlowTemplateCommandInput - {@link DeprecateFlowTemplateCommandInput}
+ * @returns {@link DeprecateFlowTemplateCommandOutput}
  * @see {@link DeprecateFlowTemplateCommandInput} for command's `input` shape.
  * @see {@link DeprecateFlowTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -83,6 +85,9 @@ export class DeprecateFlowTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprecateFlowTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DeprecateFlowTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprecateFlowTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeprecateFlowTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DeprecateFlowTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprecateFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeprecateFlowTemplateCommand(input, context);
+    return se_DeprecateFlowTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateFlowTemplateCommandOutput> {
-    return deserializeAws_json1_1DeprecateFlowTemplateCommand(output, context);
+    return de_DeprecateFlowTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,25 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   CreateRoomMembershipRequest,
-  CreateRoomMembershipRequestFilterSensitiveLog,
   CreateRoomMembershipResponse,
   CreateRoomMembershipResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRoomMembershipCommand,
-  serializeAws_restJson1CreateRoomMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRoomMembershipCommand, se_CreateRoomMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRoomMembershipCommand}.
  */
 export interface CreateRoomMembershipCommandInput extends CreateRoomMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRoomMembershipCommand}.
  */
 export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a member to a chat room in an Amazon Chime Enterprise account. A member can be either a user or a bot. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,18 @@ export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipR
  * import { ChimeClient, CreateRoomMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateRoomMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateRoomMembershipRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   RoomId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE", // required
+ *   Role: "Administrator" || "Member",
+ * };
  * const command = new CreateRoomMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRoomMembershipCommandInput - {@link CreateRoomMembershipCommandInput}
+ * @returns {@link CreateRoomMembershipCommandOutput}
  * @see {@link CreateRoomMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateRoomMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +106,9 @@ export class CreateRoomMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRoomMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,7 +137,7 @@ export class CreateRoomMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRoomMembershipRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateRoomMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -136,12 +148,18 @@ export class CreateRoomMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRoomMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRoomMembershipCommand(input, context);
+    return se_CreateRoomMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoomMembershipCommandOutput> {
-    return deserializeAws_restJson1CreateRoomMembershipCommand(output, context);
+    return de_CreateRoomMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchFoldersRequest,
-  SearchFoldersRequestFilterSensitiveLog,
-  SearchFoldersResponse,
-  SearchFoldersResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1SearchFoldersCommand,
-  serializeAws_restJson1SearchFoldersCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchFoldersRequest, SearchFoldersResponse } from "../models/models_3";
+import { de_SearchFoldersCommand, se_SearchFoldersCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchFoldersCommand}.
  */
 export interface SearchFoldersCommandInput extends SearchFoldersRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchFoldersCommand}.
  */
 export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches the subfolders in a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  * import { QuickSightClient, SearchFoldersCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchFoldersCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // SearchFoldersRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Filters: [ // FolderSearchFilterList // required
+ *     { // FolderSearchFilter
+ *       Operator: "StringEquals" || "StringLike",
+ *       Name: "PARENT_FOLDER_ARN" || "DIRECT_QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_SOLE_OWNER" || "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" || "QUICKSIGHT_OWNER" || "QUICKSIGHT_VIEWER_OR_OWNER" || "FOLDER_NAME",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new SearchFoldersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchFoldersCommandInput - {@link SearchFoldersCommandInput}
+ * @returns {@link SearchFoldersCommandOutput}
  * @see {@link SearchFoldersCommandInput} for command's `input` shape.
  * @see {@link SearchFoldersCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -99,6 +110,9 @@ export class SearchFoldersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchFoldersCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +139,8 @@ export class SearchFoldersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchFoldersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchFoldersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +150,18 @@ export class SearchFoldersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchFoldersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchFoldersCommand(input, context);
+    return se_SearchFoldersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFoldersCommandOutput> {
-    return deserializeAws_restJson1SearchFoldersCommand(output, context);
+    return de_SearchFoldersCommand(output, context);
   }
 
   // Start section: command_body_extra

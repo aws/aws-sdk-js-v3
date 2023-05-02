@@ -15,22 +15,24 @@ import {
 
 import {
   DeregisterTargetFromMaintenanceWindowRequest,
-  DeregisterTargetFromMaintenanceWindowRequestFilterSensitiveLog,
   DeregisterTargetFromMaintenanceWindowResult,
-  DeregisterTargetFromMaintenanceWindowResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand,
-  serializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand,
+  de_DeregisterTargetFromMaintenanceWindowCommand,
+  se_DeregisterTargetFromMaintenanceWindowCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterTargetFromMaintenanceWindowCommand}.
  */
 export interface DeregisterTargetFromMaintenanceWindowCommandInput
   extends DeregisterTargetFromMaintenanceWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterTargetFromMaintenanceWindowCommand}.
  */
 export interface DeregisterTargetFromMaintenanceWindowCommandOutput
@@ -38,6 +40,7 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a target from a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,17 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
  * import { SSMClient, DeregisterTargetFromMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeregisterTargetFromMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DeregisterTargetFromMaintenanceWindowRequest
+ *   WindowId: "STRING_VALUE", // required
+ *   WindowTargetId: "STRING_VALUE", // required
+ *   Safe: true || false,
+ * };
  * const command = new DeregisterTargetFromMaintenanceWindowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterTargetFromMaintenanceWindowCommandInput - {@link DeregisterTargetFromMaintenanceWindowCommandInput}
+ * @returns {@link DeregisterTargetFromMaintenanceWindowCommandOutput}
  * @see {@link DeregisterTargetFromMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link DeregisterTargetFromMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -85,6 +95,9 @@ export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterTargetFromMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +126,8 @@ export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterTargetFromMaintenanceWindowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterTargetFromMaintenanceWindowResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +137,24 @@ export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterTargetFromMaintenanceWindowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand(input, context);
+    return se_DeregisterTargetFromMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand(output, context);
+    return de_DeregisterTargetFromMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

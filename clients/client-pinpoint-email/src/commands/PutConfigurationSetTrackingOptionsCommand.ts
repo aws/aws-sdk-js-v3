@@ -15,21 +15,23 @@ import {
 
 import {
   PutConfigurationSetTrackingOptionsRequest,
-  PutConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
   PutConfigurationSetTrackingOptionsResponse,
-  PutConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommand,
-  serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand,
+  de_PutConfigurationSetTrackingOptionsCommand,
+  se_PutConfigurationSetTrackingOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationSetTrackingOptionsCommand}.
  */
 export interface PutConfigurationSetTrackingOptionsCommandInput extends PutConfigurationSetTrackingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationSetTrackingOptionsCommand}.
  */
 export interface PutConfigurationSetTrackingOptionsCommandOutput
@@ -37,6 +39,7 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify a custom domain to use for open and click tracking elements in email that you
  *             send using Amazon Pinpoint.</p>
  * @example
@@ -45,10 +48,16 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  * import { PinpointEmailClient, PutConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // PutConfigurationSetTrackingOptionsRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   CustomRedirectDomain: "STRING_VALUE",
+ * };
  * const command = new PutConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationSetTrackingOptionsCommandInput - {@link PutConfigurationSetTrackingOptionsCommandInput}
+ * @returns {@link PutConfigurationSetTrackingOptionsCommandOutput}
  * @see {@link PutConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -81,6 +90,9 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationSetTrackingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +121,8 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +132,24 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand(input, context);
+    return se_PutConfigurationSetTrackingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> {
-    return deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommand(output, context);
+    return de_PutConfigurationSetTrackingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

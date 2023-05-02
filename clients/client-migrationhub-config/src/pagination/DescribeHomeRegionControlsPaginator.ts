@@ -10,7 +10,7 @@ import { MigrationHubConfigClient } from "../MigrationHubConfigClient";
 import { MigrationHubConfigPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MigrationHubConfigClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeHomeRegionControlsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeHomeRegionControls(
   config: MigrationHubConfigPaginationConfiguration,
   input: DescribeHomeRegionControlsCommandInput,

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteManagedPrefixListRequest,
-  DeleteManagedPrefixListRequestFilterSensitiveLog,
-  DeleteManagedPrefixListResult,
-  DeleteManagedPrefixListResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteManagedPrefixListCommand,
-  serializeAws_ec2DeleteManagedPrefixListCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteManagedPrefixListRequest, DeleteManagedPrefixListResult } from "../models/models_2";
+import { de_DeleteManagedPrefixListCommand, se_DeleteManagedPrefixListCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteManagedPrefixListCommand}.
  */
 export interface DeleteManagedPrefixListCommandInput extends DeleteManagedPrefixListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteManagedPrefixListCommand}.
  */
 export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefixListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified managed prefix list. You must first remove all references to the prefix list in your resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefi
  * import { EC2Client, DeleteManagedPrefixListCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteManagedPrefixListCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteManagedPrefixListRequest
+ *   DryRun: true || false,
+ *   PrefixListId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteManagedPrefixListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteManagedPrefixListCommandInput - {@link DeleteManagedPrefixListCommandInput}
+ * @returns {@link DeleteManagedPrefixListCommandOutput}
  * @see {@link DeleteManagedPrefixListCommandInput} for command's `input` shape.
  * @see {@link DeleteManagedPrefixListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +72,9 @@ export class DeleteManagedPrefixListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteManagedPrefixListCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +103,8 @@ export class DeleteManagedPrefixListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteManagedPrefixListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteManagedPrefixListResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +114,18 @@ export class DeleteManagedPrefixListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteManagedPrefixListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteManagedPrefixListCommand(input, context);
+    return se_DeleteManagedPrefixListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteManagedPrefixListCommandOutput> {
-    return deserializeAws_ec2DeleteManagedPrefixListCommand(output, context);
+    return de_DeleteManagedPrefixListCommand(output, context);
   }
 
   // Start section: command_body_extra

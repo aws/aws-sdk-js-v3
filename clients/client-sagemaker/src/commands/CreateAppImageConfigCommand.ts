@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAppImageConfigRequest,
-  CreateAppImageConfigRequestFilterSensitiveLog,
-  CreateAppImageConfigResponse,
-  CreateAppImageConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAppImageConfigCommand,
-  serializeAws_json1_1CreateAppImageConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAppImageConfigRequest, CreateAppImageConfigResponse } from "../models/models_0";
+import { de_CreateAppImageConfigCommand, se_CreateAppImageConfigCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppImageConfigCommand}.
  */
 export interface CreateAppImageConfigCommandInput extends CreateAppImageConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppImageConfigCommand}.
  */
 export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a configuration for running a SageMaker image as a KernelGateway app. The
  *         configuration specifies the Amazon Elastic File System (EFS) storage volume on the image, and a list of the
  *         kernels in the image.</p>
@@ -44,10 +41,34 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * import { SageMakerClient, CreateAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateAppImageConfigRequest
+ *   AppImageConfigName: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   KernelGatewayImageConfig: { // KernelGatewayImageConfig
+ *     KernelSpecs: [ // KernelSpecs // required
+ *       { // KernelSpec
+ *         Name: "STRING_VALUE", // required
+ *         DisplayName: "STRING_VALUE",
+ *       },
+ *     ],
+ *     FileSystemConfig: { // FileSystemConfig
+ *       MountPath: "STRING_VALUE",
+ *       DefaultUid: Number("int"),
+ *       DefaultGid: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new CreateAppImageConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppImageConfigCommandInput - {@link CreateAppImageConfigCommandInput}
+ * @returns {@link CreateAppImageConfigCommandOutput}
  * @see {@link CreateAppImageConfigCommandInput} for command's `input` shape.
  * @see {@link CreateAppImageConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +95,9 @@ export class CreateAppImageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppImageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +126,8 @@ export class CreateAppImageConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppImageConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppImageConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +137,18 @@ export class CreateAppImageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppImageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAppImageConfigCommand(input, context);
+    return se_CreateAppImageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppImageConfigCommandOutput> {
-    return deserializeAws_json1_1CreateAppImageConfigCommand(output, context);
+    return de_CreateAppImageConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

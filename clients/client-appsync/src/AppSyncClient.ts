@@ -126,6 +126,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateApiCommandInput
   | CreateApiCacheCommandInput
@@ -179,6 +182,9 @@ export type ServiceInputTypes =
   | UpdateResolverCommandInput
   | UpdateTypeCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateApiCommandOutput
   | CreateApiCacheCommandOutput
@@ -232,6 +238,9 @@ export type ServiceOutputTypes =
   | UpdateResolverCommandOutput
   | UpdateTypeCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -239,7 +248,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -348,11 +357,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AppSyncClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -363,10 +375,15 @@ type AppSyncClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOption
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AppSyncClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AppSyncClient class constructor that set the region, credentials and other options.
  */
 export interface AppSyncClientConfig extends AppSyncClientConfigType {}
 
+/**
+ * @public
+ */
 type AppSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -377,11 +394,14 @@ type AppSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AppSyncClient class. This is resolved and normalized from the {@link AppSyncClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AppSyncClient class. This is resolved and normalized from the {@link AppSyncClientConfig | constructor configuration interface}.
  */
 export interface AppSyncClientResolvedConfig extends AppSyncClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>AppSync provides API actions for creating and interacting with data sources using GraphQL
  *          from your application.</p>
  */

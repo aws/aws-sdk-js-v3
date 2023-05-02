@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PublishMetricsInput,
-  PublishMetricsInputFilterSensitiveLog,
-  PublishMetricsOutput,
-  PublishMetricsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PublishMetricsInput, PublishMetricsOutput } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import {
-  deserializeAws_restJson1PublishMetricsCommand,
-  serializeAws_restJson1PublishMetricsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PublishMetricsCommand, se_PublishMetricsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PublishMetricsCommand}.
  */
 export interface PublishMetricsCommandInput extends PublishMetricsInput {}
 /**
+ * @public
+ *
  * The output of {@link PublishMetricsCommand}.
  */
 export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.</p>
  * @example
@@ -43,10 +40,35 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * import { MWAAClient, PublishMetricsCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, PublishMetricsCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
+ * const input = { // PublishMetricsInput
+ *   EnvironmentName: "STRING_VALUE", // required
+ *   MetricData: [ // MetricData // required
+ *     { // MetricDatum
+ *       MetricName: "STRING_VALUE", // required
+ *       Timestamp: new Date("TIMESTAMP"), // required
+ *       Dimensions: [ // Dimensions
+ *         { // Dimension
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       Value: Number("double"),
+ *       Unit: "STRING_VALUE",
+ *       StatisticValues: { // StatisticSet
+ *         SampleCount: Number("int"),
+ *         Sum: Number("double"),
+ *         Minimum: Number("double"),
+ *         Maximum: Number("double"),
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PublishMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishMetricsCommandInput - {@link PublishMetricsCommandInput}
+ * @returns {@link PublishMetricsCommandOutput}
  * @see {@link PublishMetricsCommandInput} for command's `input` shape.
  * @see {@link PublishMetricsCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
@@ -76,6 +98,9 @@ export class PublishMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +129,8 @@ export class PublishMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishMetricsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PublishMetricsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +140,18 @@ export class PublishMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PublishMetricsCommand(input, context);
+    return se_PublishMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishMetricsCommandOutput> {
-    return deserializeAws_restJson1PublishMetricsCommand(output, context);
+    return de_PublishMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

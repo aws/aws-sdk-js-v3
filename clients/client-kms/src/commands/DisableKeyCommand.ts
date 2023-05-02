@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DisableKeyRequest, DisableKeyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableKeyCommand,
-  serializeAws_json1_1DisableKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { DisableKeyRequest } from "../models/models_0";
+import { de_DisableKeyCommand, se_DisableKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableKeyCommand}.
  */
 export interface DisableKeyCommandInput extends DisableKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableKeyCommand}.
  */
 export interface DisableKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the state of a KMS key to disabled. This change temporarily prevents use of the KMS
  *       key for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. </p>
  *          <p>For more information about how key state affects the use of a KMS key, see
@@ -51,10 +53,15 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  * import { KMSClient, DisableKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DisableKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // DisableKeyRequest
+ *   KeyId: "STRING_VALUE", // required
+ * };
  * const command = new DisableKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableKeyCommandInput - {@link DisableKeyCommandInput}
+ * @returns {@link DisableKeyCommandOutput}
  * @see {@link DisableKeyCommandInput} for command's `input` shape.
  * @see {@link DisableKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -123,6 +130,9 @@ export class DisableKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +159,8 @@ export class DisableKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,12 +170,18 @@ export class DisableKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableKeyCommand(input, context);
+    return se_DisableKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableKeyCommandOutput> {
-    return deserializeAws_json1_1DisableKeyCommand(output, context);
+    return de_DisableKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

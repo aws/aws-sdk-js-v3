@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { AssumeDecoratedRoleWithSAMLRequest, AssumeDecoratedRoleWithSAMLResponse } from "../models/models_0";
 import {
-  AssumeDecoratedRoleWithSAMLRequest,
-  AssumeDecoratedRoleWithSAMLRequestFilterSensitiveLog,
-  AssumeDecoratedRoleWithSAMLResponse,
-  AssumeDecoratedRoleWithSAMLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand,
-  serializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand,
+  de_AssumeDecoratedRoleWithSAMLCommand,
+  se_AssumeDecoratedRoleWithSAMLCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssumeDecoratedRoleWithSAMLCommand}.
  */
 export interface AssumeDecoratedRoleWithSAMLCommandInput extends AssumeDecoratedRoleWithSAMLRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssumeDecoratedRoleWithSAMLCommand}.
  */
 export interface AssumeDecoratedRoleWithSAMLCommandOutput
@@ -37,6 +36,7 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a caller to assume an IAM role decorated as the SAML user specified in the SAML assertion included in the request. This decoration allows Lake Formation to enforce access policies against the SAML users and groups.  This API operation requires SAML federation setup in the caller’s account as it can only be called with valid SAML assertions.
  *       Lake Formation does not scope down the permission of the assumed role.  All permissions attached to the role via the SAML federation setup will be included in the role session.
  *     </p>
@@ -49,10 +49,18 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
  * import { LakeFormationClient, AssumeDecoratedRoleWithSAMLCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, AssumeDecoratedRoleWithSAMLCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // AssumeDecoratedRoleWithSAMLRequest
+ *   SAMLAssertion: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   PrincipalArn: "STRING_VALUE", // required
+ *   DurationSeconds: Number("int"),
+ * };
  * const command = new AssumeDecoratedRoleWithSAMLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssumeDecoratedRoleWithSAMLCommandInput - {@link AssumeDecoratedRoleWithSAMLCommandInput}
+ * @returns {@link AssumeDecoratedRoleWithSAMLCommandOutput}
  * @see {@link AssumeDecoratedRoleWithSAMLCommandInput} for command's `input` shape.
  * @see {@link AssumeDecoratedRoleWithSAMLCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -61,7 +69,7 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
  *  <p>Access to a resource was denied.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -91,6 +99,9 @@ export class AssumeDecoratedRoleWithSAMLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeDecoratedRoleWithSAMLCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +130,8 @@ export class AssumeDecoratedRoleWithSAMLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeDecoratedRoleWithSAMLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssumeDecoratedRoleWithSAMLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +141,21 @@ export class AssumeDecoratedRoleWithSAMLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeDecoratedRoleWithSAMLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand(input, context);
+    return se_AssumeDecoratedRoleWithSAMLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssumeDecoratedRoleWithSAMLCommandOutput> {
-    return deserializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand(output, context);
+    return de_AssumeDecoratedRoleWithSAMLCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RejectInboundConnectionRequest,
-  RejectInboundConnectionRequestFilterSensitiveLog,
-  RejectInboundConnectionResponse,
-  RejectInboundConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RejectInboundConnectionRequest, RejectInboundConnectionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1RejectInboundConnectionCommand,
-  serializeAws_restJson1RejectInboundConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RejectInboundConnectionCommand, se_RejectInboundConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectInboundConnectionCommand}.
  */
 export interface RejectInboundConnectionCommandInput extends RejectInboundConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectInboundConnectionCommand}.
  */
 export interface RejectInboundConnectionCommandOutput extends RejectInboundConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the remote Amazon OpenSearch Service domain owner to reject an inbound cross-cluster
  *    connection request.</p>
  * @example
@@ -43,10 +40,15 @@ export interface RejectInboundConnectionCommandOutput extends RejectInboundConne
  * import { OpenSearchClient, RejectInboundConnectionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, RejectInboundConnectionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // RejectInboundConnectionRequest
+ *   ConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new RejectInboundConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectInboundConnectionCommandInput - {@link RejectInboundConnectionCommandInput}
+ * @returns {@link RejectInboundConnectionCommandOutput}
  * @see {@link RejectInboundConnectionCommandInput} for command's `input` shape.
  * @see {@link RejectInboundConnectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -76,6 +78,9 @@ export class RejectInboundConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectInboundConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class RejectInboundConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectInboundConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectInboundConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class RejectInboundConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectInboundConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RejectInboundConnectionCommand(input, context);
+    return se_RejectInboundConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectInboundConnectionCommandOutput> {
-    return deserializeAws_restJson1RejectInboundConnectionCommand(output, context);
+    return de_RejectInboundConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

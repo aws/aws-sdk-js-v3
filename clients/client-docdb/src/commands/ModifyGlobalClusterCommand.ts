@@ -14,41 +14,45 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  ModifyGlobalClusterMessage,
-  ModifyGlobalClusterMessageFilterSensitiveLog,
-  ModifyGlobalClusterResult,
-  ModifyGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyGlobalClusterCommand,
-  serializeAws_queryModifyGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { ModifyGlobalClusterMessage, ModifyGlobalClusterResult } from "../models/models_0";
+import { de_ModifyGlobalClusterCommand, se_ModifyGlobalClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyGlobalClusterCommand}.
  */
 export interface ModifyGlobalClusterCommandInput extends ModifyGlobalClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyGlobalClusterCommand}.
  */
 export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify a setting for an Amazon DocumentDB global cluster. You can change one or more configuration parameters (for example: deletion protection), or the global cluster identifier by specifying these parameters and the new values in the request.</p>
- *         <note>
+ *          <note>
  *             <p>This action only applies to Amazon DocumentDB clusters.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, ModifyGlobalClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyGlobalClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // ModifyGlobalClusterMessage
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ *   NewGlobalClusterIdentifier: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ * };
  * const command = new ModifyGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyGlobalClusterCommandInput - {@link ModifyGlobalClusterCommandInput}
+ * @returns {@link ModifyGlobalClusterCommandOutput}
  * @see {@link ModifyGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -78,6 +82,9 @@ export class ModifyGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class ModifyGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class ModifyGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyGlobalClusterCommand(input, context);
+    return se_ModifyGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyGlobalClusterCommandOutput> {
-    return deserializeAws_queryModifyGlobalClusterCommand(output, context);
+    return de_ModifyGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { AssociateKmsKeyRequest, AssociateKmsKeyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateKmsKeyCommand,
-  serializeAws_json1_1AssociateKmsKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateKmsKeyRequest } from "../models/models_0";
+import { de_AssociateKmsKeyCommand, se_AssociateKmsKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateKmsKeyCommand}.
  */
 export interface AssociateKmsKeyCommandInput extends AssociateKmsKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateKmsKeyCommand}.
  */
 export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified KMS key with the specified log
  *       group.</p>
  *          <p>Associating a KMS key with a log group overrides any existing
@@ -50,10 +52,16 @@ export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, AssociateKmsKeyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, AssociateKmsKeyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // AssociateKmsKeyRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   kmsKeyId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateKmsKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateKmsKeyCommandInput - {@link AssociateKmsKeyCommandInput}
+ * @returns {@link AssociateKmsKeyCommandOutput}
  * @see {@link AssociateKmsKeyCommandInput} for command's `input` shape.
  * @see {@link AssociateKmsKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -89,6 +97,9 @@ export class AssociateKmsKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateKmsKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class AssociateKmsKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateKmsKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +139,18 @@ export class AssociateKmsKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateKmsKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateKmsKeyCommand(input, context);
+    return se_AssociateKmsKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateKmsKeyCommandOutput> {
-    return deserializeAws_json1_1AssociateKmsKeyCommand(output, context);
+    return de_AssociateKmsKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

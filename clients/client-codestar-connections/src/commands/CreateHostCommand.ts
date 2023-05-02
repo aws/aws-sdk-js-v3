@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import {
-  CreateHostInput,
-  CreateHostInputFilterSensitiveLog,
-  CreateHostOutput,
-  CreateHostOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateHostCommand,
-  serializeAws_json1_0CreateHostCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateHostInput, CreateHostOutput } from "../models/models_0";
+import { de_CreateHostCommand, se_CreateHostCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHostCommand}.
  */
 export interface CreateHostCommandInput extends CreateHostInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateHostCommand}.
  */
 export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a resource that represents the infrastructure where a third-party provider is
  *       installed. The host is used when you create connections to an installed third-party provider
  *       type, such as GitHub Enterprise Server. You create one host for all connections to that
@@ -53,10 +50,33 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * import { CodeStarConnectionsClient, CreateHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, CreateHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = { // CreateHostInput
+ *   Name: "STRING_VALUE", // required
+ *   ProviderType: "STRING_VALUE", // required
+ *   ProviderEndpoint: "STRING_VALUE", // required
+ *   VpcConfiguration: { // VpcConfiguration
+ *     VpcId: "STRING_VALUE", // required
+ *     SubnetIds: [ // SubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     TlsCertificate: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHostCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHostCommandInput - {@link CreateHostCommandInput}
+ * @returns {@link CreateHostCommandOutput}
  * @see {@link CreateHostCommandInput} for command's `input` shape.
  * @see {@link CreateHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
@@ -83,6 +103,9 @@ export class CreateHostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHostCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +132,8 @@ export class CreateHostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +143,18 @@ export class CreateHostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateHostCommand(input, context);
+    return se_CreateHostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHostCommandOutput> {
-    return deserializeAws_json1_0CreateHostCommand(output, context);
+    return de_CreateHostCommand(output, context);
   }
 
   // Start section: command_body_extra

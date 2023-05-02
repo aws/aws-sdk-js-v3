@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetRelationalDatabaseBundlesRequest, GetRelationalDatabaseBundlesResult } from "../models/models_1";
 import {
-  GetRelationalDatabaseBundlesRequest,
-  GetRelationalDatabaseBundlesRequestFilterSensitiveLog,
-  GetRelationalDatabaseBundlesResult,
-  GetRelationalDatabaseBundlesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetRelationalDatabaseBundlesCommand,
-  serializeAws_json1_1GetRelationalDatabaseBundlesCommand,
+  de_GetRelationalDatabaseBundlesCommand,
+  se_GetRelationalDatabaseBundlesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseBundlesCommand}.
  */
 export interface GetRelationalDatabaseBundlesCommandInput extends GetRelationalDatabaseBundlesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseBundlesCommand}.
  */
 export interface GetRelationalDatabaseBundlesCommandOutput
@@ -37,6 +36,7 @@ export interface GetRelationalDatabaseBundlesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of bundles that are available in Amazon Lightsail. A bundle describes the
  *       performance specifications for a database.</p>
  *          <p>You can use a bundle ID to create a new database with explicit performance
@@ -47,10 +47,16 @@ export interface GetRelationalDatabaseBundlesCommandOutput
  * import { LightsailClient, GetRelationalDatabaseBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetRelationalDatabaseBundlesRequest
+ *   pageToken: "STRING_VALUE",
+ *   includeInactive: true || false,
+ * };
  * const command = new GetRelationalDatabaseBundlesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseBundlesCommandInput - {@link GetRelationalDatabaseBundlesCommandInput}
+ * @returns {@link GetRelationalDatabaseBundlesCommandOutput}
  * @see {@link GetRelationalDatabaseBundlesCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseBundlesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +110,9 @@ export class GetRelationalDatabaseBundlesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseBundlesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +141,8 @@ export class GetRelationalDatabaseBundlesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRelationalDatabaseBundlesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRelationalDatabaseBundlesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,15 +152,21 @@ export class GetRelationalDatabaseBundlesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRelationalDatabaseBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseBundlesCommand(input, context);
+    return se_GetRelationalDatabaseBundlesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseBundlesCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseBundlesCommand(output, context);
+    return de_GetRelationalDatabaseBundlesCommand(output, context);
   }
 
   // Start section: command_body_extra

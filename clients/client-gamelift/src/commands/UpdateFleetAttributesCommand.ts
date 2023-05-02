@@ -14,37 +14,34 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateFleetAttributesInput,
-  UpdateFleetAttributesInputFilterSensitiveLog,
-  UpdateFleetAttributesOutput,
-  UpdateFleetAttributesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFleetAttributesCommand,
-  serializeAws_json1_1UpdateFleetAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateFleetAttributesInput, UpdateFleetAttributesOutput } from "../models/models_0";
+import { de_UpdateFleetAttributesCommand, se_UpdateFleetAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFleetAttributesCommand}.
  */
 export interface UpdateFleetAttributesCommandInput extends UpdateFleetAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFleetAttributesCommand}.
  */
 export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttributesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a fleet's mutable attributes, including game session protection and resource
  *             creation limits.</p>
- *         <p>To update fleet attributes, specify the fleet ID and the property values that you want
+ *          <p>To update fleet attributes, specify the fleet ID and the property values that you want
  *             to change. </p>
- *         <p>If successful, an updated <code>FleetAttributes</code> object is returned.</p>
- *         <p>
+ *          <p>If successful, an updated <code>FleetAttributes</code> object is returned.</p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
  * @example
@@ -53,10 +50,28 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  * import { GameLiftClient, UpdateFleetAttributesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateFleetAttributesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // UpdateFleetAttributesInput
+ *   FleetId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   NewGameSessionProtectionPolicy: "NoProtection" || "FullProtection",
+ *   ResourceCreationLimitPolicy: { // ResourceCreationLimitPolicy
+ *     NewGameSessionsPerCreator: Number("int"),
+ *     PolicyPeriodInMinutes: Number("int"),
+ *   },
+ *   MetricGroups: [ // MetricGroupList
+ *     "STRING_VALUE",
+ *   ],
+ *   AnywhereConfiguration: { // AnywhereConfiguration
+ *     Cost: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateFleetAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFleetAttributesCommandInput - {@link UpdateFleetAttributesCommandInput}
+ * @returns {@link UpdateFleetAttributesCommandOutput}
  * @see {@link UpdateFleetAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetAttributesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -65,7 +80,7 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  *  <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
- *         <p></p>
+ *          <p></p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>The service encountered an unrecoverable internal failure while processing the
@@ -109,6 +124,9 @@ export class UpdateFleetAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFleetAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +155,8 @@ export class UpdateFleetAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFleetAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFleetAttributesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +166,18 @@ export class UpdateFleetAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFleetAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFleetAttributesCommand(input, context);
+    return se_UpdateFleetAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateFleetAttributesCommand(output, context);
+    return de_UpdateFleetAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetKeyPairsRequest,
-  GetKeyPairsRequestFilterSensitiveLog,
-  GetKeyPairsResult,
-  GetKeyPairsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetKeyPairsCommand,
-  serializeAws_json1_1GetKeyPairsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetKeyPairsRequest, GetKeyPairsResult } from "../models/models_1";
+import { de_GetKeyPairsCommand, se_GetKeyPairsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetKeyPairsCommand}.
  */
 export interface GetKeyPairsCommandInput extends GetKeyPairsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetKeyPairsCommand}.
  */
 export interface GetKeyPairsCommandOutput extends GetKeyPairsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all key pairs in the user's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetKeyPairsCommandOutput extends GetKeyPairsResult, __MetadataB
  * import { LightsailClient, GetKeyPairsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetKeyPairsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetKeyPairsRequest
+ *   pageToken: "STRING_VALUE",
+ *   includeDefaultKeyPair: true || false,
+ * };
  * const command = new GetKeyPairsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetKeyPairsCommandInput - {@link GetKeyPairsCommandInput}
+ * @returns {@link GetKeyPairsCommandOutput}
  * @see {@link GetKeyPairsCommandInput} for command's `input` shape.
  * @see {@link GetKeyPairsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +102,9 @@ export class GetKeyPairsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetKeyPairsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +131,8 @@ export class GetKeyPairsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetKeyPairsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetKeyPairsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +142,18 @@ export class GetKeyPairsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetKeyPairsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetKeyPairsCommand(input, context);
+    return se_GetKeyPairsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyPairsCommandOutput> {
-    return deserializeAws_json1_1GetKeyPairsCommand(output, context);
+    return de_GetKeyPairsCommand(output, context);
   }
 
   // Start section: command_body_extra

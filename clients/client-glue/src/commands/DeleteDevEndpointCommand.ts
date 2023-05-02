@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteDevEndpointRequest,
-  DeleteDevEndpointRequestFilterSensitiveLog,
-  DeleteDevEndpointResponse,
-  DeleteDevEndpointResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteDevEndpointCommand,
-  serializeAws_json1_1DeleteDevEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDevEndpointRequest, DeleteDevEndpointResponse } from "../models/models_1";
+import { de_DeleteDevEndpointCommand, se_DeleteDevEndpointCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDevEndpointCommand}.
  */
 export interface DeleteDevEndpointCommandInput extends DeleteDevEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDevEndpointCommand}.
  */
 export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified development endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
  * import { GlueClient, DeleteDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteDevEndpointRequest
+ *   EndpointName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDevEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDevEndpointCommandInput - {@link DeleteDevEndpointCommandInput}
+ * @returns {@link DeleteDevEndpointCommandOutput}
  * @see {@link DeleteDevEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDevEndpointCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +83,9 @@ export class DeleteDevEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDevEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteDevEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDevEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDevEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteDevEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDevEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDevEndpointCommand(input, context);
+    return se_DeleteDevEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDevEndpointCommandOutput> {
-    return deserializeAws_json1_1DeleteDevEndpointCommand(output, context);
+    return de_DeleteDevEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

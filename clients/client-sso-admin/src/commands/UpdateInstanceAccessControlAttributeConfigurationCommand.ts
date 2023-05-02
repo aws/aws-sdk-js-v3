@@ -15,22 +15,24 @@ import {
 
 import {
   UpdateInstanceAccessControlAttributeConfigurationRequest,
-  UpdateInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog,
   UpdateInstanceAccessControlAttributeConfigurationResponse,
-  UpdateInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCommand,
-  serializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCommand,
+  de_UpdateInstanceAccessControlAttributeConfigurationCommand,
+  se_UpdateInstanceAccessControlAttributeConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInstanceAccessControlAttributeConfigurationCommand}.
  */
 export interface UpdateInstanceAccessControlAttributeConfigurationCommandInput
   extends UpdateInstanceAccessControlAttributeConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInstanceAccessControlAttributeConfigurationCommand}.
  */
 export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
@@ -38,6 +40,7 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the IAM Identity Center identity store attributes that you can use with the IAM Identity Center instance
  *       for attributes-based access control (ABAC). When using an external identity provider as an
  *       identity source, you can pass attributes through the SAML assertion as an alternative to
@@ -50,10 +53,27 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
  * import { SSOAdminClient, UpdateInstanceAccessControlAttributeConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, UpdateInstanceAccessControlAttributeConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // UpdateInstanceAccessControlAttributeConfigurationRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   InstanceAccessControlAttributeConfiguration: { // InstanceAccessControlAttributeConfiguration
+ *     AccessControlAttributes: [ // AccessControlAttributeList // required
+ *       { // AccessControlAttribute
+ *         Key: "STRING_VALUE", // required
+ *         Value: { // AccessControlAttributeValue
+ *           Source: [ // AccessControlAttributeValueSourceList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInstanceAccessControlAttributeConfigurationCommandInput - {@link UpdateInstanceAccessControlAttributeConfigurationCommandInput}
+ * @returns {@link UpdateInstanceAccessControlAttributeConfigurationCommandOutput}
  * @see {@link UpdateInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -100,6 +120,9 @@ export class UpdateInstanceAccessControlAttributeConfigurationCommand extends $C
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInstanceAccessControlAttributeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +157,8 @@ export class UpdateInstanceAccessControlAttributeConfigurationCommand extends $C
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +168,24 @@ export class UpdateInstanceAccessControlAttributeConfigurationCommand extends $C
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateInstanceAccessControlAttributeConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCommand(input, context);
+    return se_UpdateInstanceAccessControlAttributeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateInstanceAccessControlAttributeConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCommand(output, context);
+    return de_UpdateInstanceAccessControlAttributeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

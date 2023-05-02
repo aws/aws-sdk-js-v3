@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
+import { GetSourceRepositoryCloneUrlsRequest, GetSourceRepositoryCloneUrlsResponse } from "../models/models_0";
 import {
-  GetSourceRepositoryCloneUrlsRequest,
-  GetSourceRepositoryCloneUrlsRequestFilterSensitiveLog,
-  GetSourceRepositoryCloneUrlsResponse,
-  GetSourceRepositoryCloneUrlsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSourceRepositoryCloneUrlsCommand,
-  serializeAws_restJson1GetSourceRepositoryCloneUrlsCommand,
+  de_GetSourceRepositoryCloneUrlsCommand,
+  se_GetSourceRepositoryCloneUrlsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSourceRepositoryCloneUrlsCommand}.
  */
 export interface GetSourceRepositoryCloneUrlsCommandInput extends GetSourceRepositoryCloneUrlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSourceRepositoryCloneUrlsCommand}.
  */
 export interface GetSourceRepositoryCloneUrlsCommandOutput
@@ -37,6 +36,7 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the URLs that can be used with a Git client to clone a source
  *       repository.</p>
  * @example
@@ -45,10 +45,17 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput
  * import { CodeCatalystClient, GetSourceRepositoryCloneUrlsCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetSourceRepositoryCloneUrlsCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // GetSourceRepositoryCloneUrlsRequest
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   sourceRepositoryName: "STRING_VALUE", // required
+ * };
  * const command = new GetSourceRepositoryCloneUrlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSourceRepositoryCloneUrlsCommandInput - {@link GetSourceRepositoryCloneUrlsCommandInput}
+ * @returns {@link GetSourceRepositoryCloneUrlsCommandOutput}
  * @see {@link GetSourceRepositoryCloneUrlsCommandInput} for command's `input` shape.
  * @see {@link GetSourceRepositoryCloneUrlsCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetSourceRepositoryCloneUrlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSourceRepositoryCloneUrlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +129,8 @@ export class GetSourceRepositoryCloneUrlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSourceRepositoryCloneUrlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSourceRepositoryCloneUrlsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +140,21 @@ export class GetSourceRepositoryCloneUrlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSourceRepositoryCloneUrlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSourceRepositoryCloneUrlsCommand(input, context);
+    return se_GetSourceRepositoryCloneUrlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSourceRepositoryCloneUrlsCommandOutput> {
-    return deserializeAws_restJson1GetSourceRepositoryCloneUrlsCommand(output, context);
+    return de_GetSourceRepositoryCloneUrlsCommand(output, context);
   }
 
   // Start section: command_body_extra

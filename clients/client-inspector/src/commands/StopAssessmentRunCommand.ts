@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { StopAssessmentRunRequest, StopAssessmentRunRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopAssessmentRunCommand,
-  serializeAws_json1_1StopAssessmentRunCommand,
-} from "../protocols/Aws_json1_1";
+import { StopAssessmentRunRequest } from "../models/models_0";
+import { de_StopAssessmentRunCommand, se_StopAssessmentRunCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopAssessmentRunCommand}.
  */
 export interface StopAssessmentRunCommandInput extends StopAssessmentRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopAssessmentRunCommand}.
  */
 export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the assessment run that is specified by the ARN of the assessment
  *          run.</p>
  * @example
@@ -38,10 +40,16 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, StopAssessmentRunCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, StopAssessmentRunCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // StopAssessmentRunRequest
+ *   assessmentRunArn: "STRING_VALUE", // required
+ *   stopAction: "STRING_VALUE",
+ * };
  * const command = new StopAssessmentRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopAssessmentRunCommandInput - {@link StopAssessmentRunCommandInput}
+ * @returns {@link StopAssessmentRunCommandOutput}
  * @see {@link StopAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link StopAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -93,6 +101,9 @@ export class StopAssessmentRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +132,8 @@ export class StopAssessmentRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopAssessmentRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +143,18 @@ export class StopAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopAssessmentRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopAssessmentRunCommand(input, context);
+    return se_StopAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAssessmentRunCommandOutput> {
-    return deserializeAws_json1_1StopAssessmentRunCommand(output, context);
+    return de_StopAssessmentRunCommand(output, context);
   }
 
   // Start section: command_body_extra

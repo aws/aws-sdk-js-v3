@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteIncidentRecordInput,
-  DeleteIncidentRecordInputFilterSensitiveLog,
-  DeleteIncidentRecordOutput,
-  DeleteIncidentRecordOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteIncidentRecordCommand,
-  serializeAws_restJson1DeleteIncidentRecordCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteIncidentRecordInput, DeleteIncidentRecordOutput } from "../models/models_0";
+import { de_DeleteIncidentRecordCommand, se_DeleteIncidentRecordCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIncidentRecordCommand}.
  */
 export interface DeleteIncidentRecordCommandInput extends DeleteIncidentRecordInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIncidentRecordCommand}.
  */
 export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an incident record from Incident Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordO
  * import { SSMIncidentsClient, DeleteIncidentRecordCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, DeleteIncidentRecordCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // DeleteIncidentRecordInput
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIncidentRecordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIncidentRecordCommandInput - {@link DeleteIncidentRecordCommandInput}
+ * @returns {@link DeleteIncidentRecordCommandOutput}
  * @see {@link DeleteIncidentRecordCommandInput} for command's `input` shape.
  * @see {@link DeleteIncidentRecordCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -83,6 +85,9 @@ export class DeleteIncidentRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIncidentRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DeleteIncidentRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIncidentRecordInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIncidentRecordOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DeleteIncidentRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIncidentRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIncidentRecordCommand(input, context);
+    return se_DeleteIncidentRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIncidentRecordCommandOutput> {
-    return deserializeAws_restJson1DeleteIncidentRecordCommand(output, context);
+    return de_DeleteIncidentRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

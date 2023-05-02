@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  FilterLogEventsRequest,
-  FilterLogEventsRequestFilterSensitiveLog,
-  FilterLogEventsResponse,
-  FilterLogEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1FilterLogEventsCommand,
-  serializeAws_json1_1FilterLogEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { FilterLogEventsRequest, FilterLogEventsResponse } from "../models/models_0";
+import { de_FilterLogEventsCommand, se_FilterLogEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link FilterLogEventsCommand}.
  */
 export interface FilterLogEventsCommandInput extends FilterLogEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link FilterLogEventsCommand}.
  */
 export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists log events from the specified log group. You can list all the log events or filter the results
  *       using a filter pattern, a time range, and the name of the log stream.</p>
  *          <p>You must have the <code>logs;FilterLogEvents</code> permission to perform this operation.</p>
@@ -57,10 +54,27 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  * import { CloudWatchLogsClient, FilterLogEventsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, FilterLogEventsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // FilterLogEventsRequest
+ *   logGroupName: "STRING_VALUE",
+ *   logGroupIdentifier: "STRING_VALUE",
+ *   logStreamNames: [ // InputLogStreamNames
+ *     "STRING_VALUE",
+ *   ],
+ *   logStreamNamePrefix: "STRING_VALUE",
+ *   startTime: Number("long"),
+ *   endTime: Number("long"),
+ *   filterPattern: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   interleaved: true || false,
+ *   unmask: true || false,
+ * };
  * const command = new FilterLogEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param FilterLogEventsCommandInput - {@link FilterLogEventsCommandInput}
+ * @returns {@link FilterLogEventsCommandOutput}
  * @see {@link FilterLogEventsCommandInput} for command's `input` shape.
  * @see {@link FilterLogEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -93,6 +107,9 @@ export class FilterLogEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FilterLogEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +138,8 @@ export class FilterLogEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FilterLogEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: FilterLogEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +149,18 @@ export class FilterLogEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FilterLogEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1FilterLogEventsCommand(input, context);
+    return se_FilterLogEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FilterLogEventsCommandOutput> {
-    return deserializeAws_json1_1FilterLogEventsCommand(output, context);
+    return de_FilterLogEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,21 +15,23 @@ import {
 
 import {
   DescribeEmailMonitoringConfigurationRequest,
-  DescribeEmailMonitoringConfigurationRequestFilterSensitiveLog,
   DescribeEmailMonitoringConfigurationResponse,
-  DescribeEmailMonitoringConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommand,
-  serializeAws_json1_1DescribeEmailMonitoringConfigurationCommand,
+  de_DescribeEmailMonitoringConfigurationCommand,
+  se_DescribeEmailMonitoringConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEmailMonitoringConfigurationCommand}.
  */
 export interface DescribeEmailMonitoringConfigurationCommandInput extends DescribeEmailMonitoringConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEmailMonitoringConfigurationCommand}.
  */
 export interface DescribeEmailMonitoringConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current email monitoring configuration for a specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
  * import { WorkMailClient, DescribeEmailMonitoringConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DescribeEmailMonitoringConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // DescribeEmailMonitoringConfigurationRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEmailMonitoringConfigurationCommandInput - {@link DescribeEmailMonitoringConfigurationCommandInput}
+ * @returns {@link DescribeEmailMonitoringConfigurationCommandOutput}
  * @see {@link DescribeEmailMonitoringConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeEmailMonitoringConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -85,6 +93,9 @@ export class DescribeEmailMonitoringConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEmailMonitoringConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +124,8 @@ export class DescribeEmailMonitoringConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEmailMonitoringConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEmailMonitoringConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +135,24 @@ export class DescribeEmailMonitoringConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEmailMonitoringConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEmailMonitoringConfigurationCommand(input, context);
+    return se_DescribeEmailMonitoringConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEmailMonitoringConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommand(output, context);
+    return de_DescribeEmailMonitoringConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

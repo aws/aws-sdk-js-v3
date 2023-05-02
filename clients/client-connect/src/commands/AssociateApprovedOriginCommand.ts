@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { AssociateApprovedOriginRequest, AssociateApprovedOriginRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateApprovedOriginCommand,
-  serializeAws_restJson1AssociateApprovedOriginCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateApprovedOriginRequest } from "../models/models_0";
+import { de_AssociateApprovedOriginCommand, se_AssociateApprovedOriginCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateApprovedOriginCommand}.
  */
 export interface AssociateApprovedOriginCommandInput extends AssociateApprovedOriginRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateApprovedOriginCommand}.
  */
 export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Associates an approved origin to an Amazon Connect instance.</p>
  * @example
@@ -38,10 +40,16 @@ export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {
  * import { ConnectClient, AssociateApprovedOriginCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateApprovedOriginCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // AssociateApprovedOriginRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Origin: "STRING_VALUE", // required
+ * };
  * const command = new AssociateApprovedOriginCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateApprovedOriginCommandInput - {@link AssociateApprovedOriginCommandInput}
+ * @returns {@link AssociateApprovedOriginCommandOutput}
  * @see {@link AssociateApprovedOriginCommandInput} for command's `input` shape.
  * @see {@link AssociateApprovedOriginCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +94,9 @@ export class AssociateApprovedOriginCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateApprovedOriginCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +125,8 @@ export class AssociateApprovedOriginCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateApprovedOriginRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +136,18 @@ export class AssociateApprovedOriginCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateApprovedOriginCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateApprovedOriginCommand(input, context);
+    return se_AssociateApprovedOriginCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateApprovedOriginCommandOutput> {
-    return deserializeAws_restJson1AssociateApprovedOriginCommand(output, context);
+    return de_AssociateApprovedOriginCommand(output, context);
   }
 
   // Start section: command_body_extra

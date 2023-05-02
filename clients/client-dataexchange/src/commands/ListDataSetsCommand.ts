@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  ListDataSetsRequest,
-  ListDataSetsRequestFilterSensitiveLog,
-  ListDataSetsResponse,
-  ListDataSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDataSetsCommand,
-  serializeAws_restJson1ListDataSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDataSetsRequest, ListDataSetsResponse } from "../models/models_0";
+import { de_ListDataSetsCommand, se_ListDataSetsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataSetsCommand}.
  */
 export interface ListDataSetsCommandInput extends ListDataSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataSetsCommand}.
  */
 export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists your data sets. When listing by origin OWNED, results are sorted by CreatedAt in descending order. When listing by origin ENTITLED, there is no order and the maxResults parameter is ignored.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * import { DataExchangeClient, ListDataSetsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, ListDataSetsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // ListDataSetsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Origin: "STRING_VALUE",
+ * };
  * const command = new ListDataSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataSetsCommandInput - {@link ListDataSetsCommandInput}
+ * @returns {@link ListDataSetsCommandOutput}
  * @see {@link ListDataSetsCommandInput} for command's `input` shape.
  * @see {@link ListDataSetsCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -81,6 +85,9 @@ export class ListDataSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class ListDataSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class ListDataSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataSetsCommand(input, context);
+    return se_ListDataSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSetsCommandOutput> {
-    return deserializeAws_restJson1ListDataSetsCommand(output, context);
+    return de_ListDataSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

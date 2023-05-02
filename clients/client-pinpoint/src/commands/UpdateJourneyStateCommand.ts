@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateJourneyStateRequest,
-  UpdateJourneyStateRequestFilterSensitiveLog,
-  UpdateJourneyStateResponse,
-  UpdateJourneyStateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateJourneyStateRequest, UpdateJourneyStateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateJourneyStateCommand,
-  serializeAws_restJson1UpdateJourneyStateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateJourneyStateCommand, se_UpdateJourneyStateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJourneyStateCommand}.
  */
 export interface UpdateJourneyStateCommandInput extends UpdateJourneyStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJourneyStateCommand}.
  */
 export interface UpdateJourneyStateCommandOutput extends UpdateJourneyStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels (stops) an active journey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UpdateJourneyStateCommandOutput extends UpdateJourneyStateRespo
  * import { PinpointClient, UpdateJourneyStateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateJourneyStateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateJourneyStateRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   JourneyId: "STRING_VALUE", // required
+ *   JourneyStateRequest: { // JourneyStateRequest
+ *     State: "DRAFT" || "ACTIVE" || "COMPLETED" || "CANCELLED" || "CLOSED" || "PAUSED",
+ *   },
+ * };
  * const command = new UpdateJourneyStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJourneyStateCommandInput - {@link UpdateJourneyStateCommandInput}
+ * @returns {@link UpdateJourneyStateCommandOutput}
  * @see {@link UpdateJourneyStateCommandInput} for command's `input` shape.
  * @see {@link UpdateJourneyStateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +96,9 @@ export class UpdateJourneyStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJourneyStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +127,8 @@ export class UpdateJourneyStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJourneyStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJourneyStateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +138,18 @@ export class UpdateJourneyStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJourneyStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateJourneyStateCommand(input, context);
+    return se_UpdateJourneyStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJourneyStateCommandOutput> {
-    return deserializeAws_restJson1UpdateJourneyStateCommand(output, context);
+    return de_UpdateJourneyStateCommand(output, context);
   }
 
   // Start section: command_body_extra

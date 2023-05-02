@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { UpdateDatasetRequest, UpdateDatasetRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDatasetCommand,
-  serializeAws_restJson1UpdateDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDatasetRequest } from "../models/models_0";
+import { de_UpdateDatasetCommand, se_UpdateDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDatasetCommand}.
  */
 export interface UpdateDatasetCommandInput extends UpdateDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDatasetCommand}.
  */
 export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings of a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,100 @@ export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, UpdateDatasetCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, UpdateDatasetCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // UpdateDatasetRequest
+ *   datasetName: "STRING_VALUE", // required
+ *   actions: [ // DatasetActions // required
+ *     { // DatasetAction
+ *       actionName: "STRING_VALUE",
+ *       queryAction: { // SqlQueryDatasetAction
+ *         sqlQuery: "STRING_VALUE", // required
+ *         filters: [ // QueryFilters
+ *           { // QueryFilter
+ *             deltaTime: { // DeltaTime
+ *               offsetSeconds: Number("int"), // required
+ *               timeExpression: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       containerAction: { // ContainerDatasetAction
+ *         image: "STRING_VALUE", // required
+ *         executionRoleArn: "STRING_VALUE", // required
+ *         resourceConfiguration: { // ResourceConfiguration
+ *           computeType: "STRING_VALUE", // required
+ *           volumeSizeInGB: Number("int"), // required
+ *         },
+ *         variables: [ // Variables
+ *           { // Variable
+ *             name: "STRING_VALUE", // required
+ *             stringValue: "STRING_VALUE",
+ *             doubleValue: Number("double"),
+ *             datasetContentVersionValue: { // DatasetContentVersionValue
+ *               datasetName: "STRING_VALUE", // required
+ *             },
+ *             outputFileUriValue: { // OutputFileUriValue
+ *               fileName: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   triggers: [ // DatasetTriggers
+ *     { // DatasetTrigger
+ *       schedule: { // Schedule
+ *         expression: "STRING_VALUE",
+ *       },
+ *       dataset: { // TriggeringDataset
+ *         name: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   contentDeliveryRules: [ // DatasetContentDeliveryRules
+ *     { // DatasetContentDeliveryRule
+ *       entryName: "STRING_VALUE",
+ *       destination: { // DatasetContentDeliveryDestination
+ *         iotEventsDestinationConfiguration: { // IotEventsDestinationConfiguration
+ *           inputName: "STRING_VALUE", // required
+ *           roleArn: "STRING_VALUE", // required
+ *         },
+ *         s3DestinationConfiguration: { // S3DestinationConfiguration
+ *           bucket: "STRING_VALUE", // required
+ *           key: "STRING_VALUE", // required
+ *           glueConfiguration: { // GlueConfiguration
+ *             tableName: "STRING_VALUE", // required
+ *             databaseName: "STRING_VALUE", // required
+ *           },
+ *           roleArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   retentionPeriod: { // RetentionPeriod
+ *     unlimited: true || false,
+ *     numberOfDays: Number("int"),
+ *   },
+ *   versioningConfiguration: { // VersioningConfiguration
+ *     unlimited: true || false,
+ *     maxVersions: Number("int"),
+ *   },
+ *   lateDataRules: [ // LateDataRules
+ *     { // LateDataRule
+ *       ruleName: "STRING_VALUE",
+ *       ruleConfiguration: { // LateDataRuleConfiguration
+ *         deltaTimeSessionWindowConfiguration: { // DeltaTimeSessionWindowConfiguration
+ *           timeoutInMinutes: Number("int"), // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatasetCommandInput - {@link UpdateDatasetCommandInput}
+ * @returns {@link UpdateDatasetCommandOutput}
  * @see {@link UpdateDatasetCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -79,6 +171,9 @@ export class UpdateDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +200,8 @@ export class UpdateDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +211,18 @@ export class UpdateDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDatasetCommand(input, context);
+    return se_UpdateDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasetCommandOutput> {
-    return deserializeAws_restJson1UpdateDatasetCommand(output, context);
+    return de_UpdateDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

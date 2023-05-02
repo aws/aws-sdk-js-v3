@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { StartMedicalTranscriptionJobRequest, StartMedicalTranscriptionJobResponse } from "../models/models_0";
 import {
-  StartMedicalTranscriptionJobRequest,
-  StartMedicalTranscriptionJobRequestFilterSensitiveLog,
-  StartMedicalTranscriptionJobResponse,
-  StartMedicalTranscriptionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartMedicalTranscriptionJobCommand,
-  serializeAws_json1_1StartMedicalTranscriptionJobCommand,
+  de_StartMedicalTranscriptionJobCommand,
+  se_StartMedicalTranscriptionJobCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartMedicalTranscriptionJobCommand}.
  */
 export interface StartMedicalTranscriptionJobCommandInput extends StartMedicalTranscriptionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMedicalTranscriptionJobCommand}.
  */
 export interface StartMedicalTranscriptionJobCommandOutput
@@ -37,6 +36,7 @@ export interface StartMedicalTranscriptionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transcribes the audio from a medical dictation or conversation and applies any
  *             additional Request Parameters you choose to include in your request.</p>
  *          <p>In addition to many standard transcription features, Amazon Transcribe Medical
@@ -92,10 +92,45 @@ export interface StartMedicalTranscriptionJobCommandOutput
  * import { TranscribeClient, StartMedicalTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, StartMedicalTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // StartMedicalTranscriptionJobRequest
+ *   MedicalTranscriptionJobName: "STRING_VALUE", // required
+ *   LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE", // required
+ *   MediaSampleRateHertz: Number("int"),
+ *   MediaFormat: "mp3" || "mp4" || "wav" || "flac" || "ogg" || "amr" || "webm",
+ *   Media: { // Media
+ *     MediaFileUri: "STRING_VALUE",
+ *     RedactedMediaFileUri: "STRING_VALUE",
+ *   },
+ *   OutputBucketName: "STRING_VALUE", // required
+ *   OutputKey: "STRING_VALUE",
+ *   OutputEncryptionKMSKeyId: "STRING_VALUE",
+ *   KMSEncryptionContext: { // KMSEncryptionContextMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Settings: { // MedicalTranscriptionSetting
+ *     ShowSpeakerLabels: true || false,
+ *     MaxSpeakerLabels: Number("int"),
+ *     ChannelIdentification: true || false,
+ *     ShowAlternatives: true || false,
+ *     MaxAlternatives: Number("int"),
+ *     VocabularyName: "STRING_VALUE",
+ *   },
+ *   ContentIdentificationType: "PHI",
+ *   Specialty: "PRIMARYCARE", // required
+ *   Type: "CONVERSATION" || "DICTATION", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new StartMedicalTranscriptionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMedicalTranscriptionJobCommandInput - {@link StartMedicalTranscriptionJobCommandInput}
+ * @returns {@link StartMedicalTranscriptionJobCommandOutput}
  * @see {@link StartMedicalTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link StartMedicalTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -137,6 +172,9 @@ export class StartMedicalTranscriptionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMedicalTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,8 +203,8 @@ export class StartMedicalTranscriptionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMedicalTranscriptionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMedicalTranscriptionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -176,15 +214,21 @@ export class StartMedicalTranscriptionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMedicalTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMedicalTranscriptionJobCommand(input, context);
+    return se_StartMedicalTranscriptionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartMedicalTranscriptionJobCommandOutput> {
-    return deserializeAws_json1_1StartMedicalTranscriptionJobCommand(output, context);
+    return de_StartMedicalTranscriptionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

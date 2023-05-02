@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  ListDiscoveredResourcesRequest,
-  ListDiscoveredResourcesRequestFilterSensitiveLog,
-  ListDiscoveredResourcesResponse,
-  ListDiscoveredResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDiscoveredResourcesCommand,
-  serializeAws_json1_1ListDiscoveredResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResponse } from "../models/models_0";
+import { de_ListDiscoveredResourcesCommand, se_ListDiscoveredResourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDiscoveredResourcesCommand}.
  */
 export interface ListDiscoveredResourcesCommandInput extends ListDiscoveredResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDiscoveredResourcesCommand}.
  */
 export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of resources in the organization's accounts that are available to be associated with a resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * import { FMSClient, ListDiscoveredResourcesCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListDiscoveredResourcesCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // ListDiscoveredResourcesRequest
+ *   MemberAccountIds: [ // AWSAccountIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourceType: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDiscoveredResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDiscoveredResourcesCommandInput - {@link ListDiscoveredResourcesCommandInput}
+ * @returns {@link ListDiscoveredResourcesCommandOutput}
  * @see {@link ListDiscoveredResourcesCommandInput} for command's `input` shape.
  * @see {@link ListDiscoveredResourcesCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListDiscoveredResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDiscoveredResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +121,8 @@ export class ListDiscoveredResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDiscoveredResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDiscoveredResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +132,18 @@ export class ListDiscoveredResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDiscoveredResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDiscoveredResourcesCommand(input, context);
+    return se_ListDiscoveredResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDiscoveredResourcesCommandOutput> {
-    return deserializeAws_json1_1ListDiscoveredResourcesCommand(output, context);
+    return de_ListDiscoveredResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

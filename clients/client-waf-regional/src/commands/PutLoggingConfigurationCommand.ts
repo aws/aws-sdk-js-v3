@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutLoggingConfigurationRequest,
-  PutLoggingConfigurationRequestFilterSensitiveLog,
-  PutLoggingConfigurationResponse,
-  PutLoggingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutLoggingConfigurationCommand,
-  serializeAws_json1_1PutLoggingConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { PutLoggingConfigurationRequest, PutLoggingConfigurationResponse } from "../models/models_0";
+import { de_PutLoggingConfigurationCommand, se_PutLoggingConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutLoggingConfigurationCommand}.
  */
 export interface PutLoggingConfigurationCommandInput extends PutLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutLoggingConfigurationCommand}.
  */
 export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -67,10 +64,26 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * import { WAFRegionalClient, PutLoggingConfigurationCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, PutLoggingConfigurationCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // PutLoggingConfigurationRequest
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     ResourceArn: "STRING_VALUE", // required
+ *     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ *       "STRING_VALUE",
+ *     ],
+ *     RedactedFields: [ // RedactedFields
+ *       { // FieldToMatch
+ *         Type: "STRING_VALUE", // required
+ *         Data: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLoggingConfigurationCommandInput - {@link PutLoggingConfigurationCommandInput}
+ * @returns {@link PutLoggingConfigurationCommandOutput}
  * @see {@link PutLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -106,6 +119,9 @@ export class PutLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +150,8 @@ export class PutLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +161,18 @@ export class PutLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLoggingConfigurationCommand(input, context);
+    return se_PutLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutLoggingConfigurationCommand(output, context);
+    return de_PutLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

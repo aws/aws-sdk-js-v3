@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import { UpdateConfiguredTableAssociationInput, UpdateConfiguredTableAssociationOutput } from "../models/models_0";
 import {
-  UpdateConfiguredTableAssociationInput,
-  UpdateConfiguredTableAssociationInputFilterSensitiveLog,
-  UpdateConfiguredTableAssociationOutput,
-  UpdateConfiguredTableAssociationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConfiguredTableAssociationCommand,
-  serializeAws_restJson1UpdateConfiguredTableAssociationCommand,
+  de_UpdateConfiguredTableAssociationCommand,
+  se_UpdateConfiguredTableAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfiguredTableAssociationCommand}.
  */
 export interface UpdateConfiguredTableAssociationCommandInput extends UpdateConfiguredTableAssociationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfiguredTableAssociationCommand}.
  */
 export interface UpdateConfiguredTableAssociationCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateConfiguredTableAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a configured table association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,18 @@ export interface UpdateConfiguredTableAssociationCommandOutput
  * import { CleanRoomsClient, UpdateConfiguredTableAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, UpdateConfiguredTableAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // UpdateConfiguredTableAssociationInput
+ *   configuredTableAssociationIdentifier: "STRING_VALUE", // required
+ *   membershipIdentifier: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateConfiguredTableAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfiguredTableAssociationCommandInput - {@link UpdateConfiguredTableAssociationCommandInput}
+ * @returns {@link UpdateConfiguredTableAssociationCommandOutput}
  * @see {@link UpdateConfiguredTableAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfiguredTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -89,6 +97,9 @@ export class UpdateConfiguredTableAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfiguredTableAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class UpdateConfiguredTableAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfiguredTableAssociationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConfiguredTableAssociationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +139,24 @@ export class UpdateConfiguredTableAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfiguredTableAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConfiguredTableAssociationCommand(input, context);
+    return se_UpdateConfiguredTableAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfiguredTableAssociationCommandOutput> {
-    return deserializeAws_restJson1UpdateConfiguredTableAssociationCommand(output, context);
+    return de_UpdateConfiguredTableAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

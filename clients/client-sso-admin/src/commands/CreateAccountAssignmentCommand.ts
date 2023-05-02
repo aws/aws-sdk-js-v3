@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAccountAssignmentRequest,
-  CreateAccountAssignmentRequestFilterSensitiveLog,
-  CreateAccountAssignmentResponse,
-  CreateAccountAssignmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAccountAssignmentCommand,
-  serializeAws_json1_1CreateAccountAssignmentCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAccountAssignmentRequest, CreateAccountAssignmentResponse } from "../models/models_0";
+import { de_CreateAccountAssignmentCommand, se_CreateAccountAssignmentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccountAssignmentCommand}.
  */
 export interface CreateAccountAssignmentCommandInput extends CreateAccountAssignmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccountAssignmentCommand}.
  */
 export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns access to a principal for a specified AWS account using a specified
  *       permission set.</p>
  *          <note>
@@ -61,10 +58,20 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
  * import { SSOAdminClient, CreateAccountAssignmentCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, CreateAccountAssignmentCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // CreateAccountAssignmentRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   TargetId: "STRING_VALUE", // required
+ *   TargetType: "AWS_ACCOUNT", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   PrincipalType: "USER" || "GROUP", // required
+ *   PrincipalId: "STRING_VALUE", // required
+ * };
  * const command = new CreateAccountAssignmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccountAssignmentCommandInput - {@link CreateAccountAssignmentCommandInput}
+ * @returns {@link CreateAccountAssignmentCommandOutput}
  * @see {@link CreateAccountAssignmentCommandInput} for command's `input` shape.
  * @see {@link CreateAccountAssignmentCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -115,6 +122,9 @@ export class CreateAccountAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccountAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +153,8 @@ export class CreateAccountAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccountAssignmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccountAssignmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +164,18 @@ export class CreateAccountAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccountAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAccountAssignmentCommand(input, context);
+    return se_CreateAccountAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccountAssignmentCommandOutput> {
-    return deserializeAws_json1_1CreateAccountAssignmentCommand(output, context);
+    return de_CreateAccountAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

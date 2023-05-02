@@ -12,23 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { JsonIntEnumsInputOutput, JsonIntEnumsInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1JsonIntEnumsCommand,
-  serializeAws_restJson1JsonIntEnumsCommand,
-} from "../protocols/Aws_restJson1";
+import { JsonIntEnumsInputOutput } from "../models/models_0";
+import { de_JsonIntEnumsCommand, se_JsonIntEnumsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link JsonIntEnumsCommand}.
  */
 export interface JsonIntEnumsCommandInput extends JsonIntEnumsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link JsonIntEnumsCommand}.
  */
 export interface JsonIntEnumsCommandOutput extends JsonIntEnumsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example serializes intEnums as top level properties, in lists, sets, and maps.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,10 +38,26 @@ export interface JsonIntEnumsCommandOutput extends JsonIntEnumsInputOutput, __Me
  * import { RestJsonProtocolClient, JsonIntEnumsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonIntEnumsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // JsonIntEnumsInputOutput
+ *   integerEnum1: 1 || 2 || 3,
+ *   integerEnum2: 1 || 2 || 3,
+ *   integerEnum3: 1 || 2 || 3,
+ *   integerEnumList: [ // IntegerEnumList
+ *     1 || 2 || 3,
+ *   ],
+ *   integerEnumSet: [ // IntegerEnumSet
+ *     1 || 2 || 3,
+ *   ],
+ *   integerEnumMap: { // IntegerEnumMap
+ *     "<keys>": 1 || 2 || 3,
+ *   },
+ * };
  * const command = new JsonIntEnumsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param JsonIntEnumsCommandInput - {@link JsonIntEnumsCommandInput}
+ * @returns {@link JsonIntEnumsCommandOutput}
  * @see {@link JsonIntEnumsCommandInput} for command's `input` shape.
  * @see {@link JsonIntEnumsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -54,6 +72,9 @@ export class JsonIntEnumsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: JsonIntEnumsCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +100,8 @@ export class JsonIntEnumsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JsonIntEnumsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: JsonIntEnumsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +111,18 @@ export class JsonIntEnumsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: JsonIntEnumsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1JsonIntEnumsCommand(input, context);
+    return se_JsonIntEnumsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonIntEnumsCommandOutput> {
-    return deserializeAws_restJson1JsonIntEnumsCommand(output, context);
+    return de_JsonIntEnumsCommand(output, context);
   }
 
   // Start section: command_body_extra

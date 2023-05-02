@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportSshPublicKeyRequest,
-  ImportSshPublicKeyRequestFilterSensitiveLog,
-  ImportSshPublicKeyResponse,
-  ImportSshPublicKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportSshPublicKeyCommand,
-  serializeAws_json1_1ImportSshPublicKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportSshPublicKeyRequest, ImportSshPublicKeyResponse } from "../models/models_0";
+import { de_ImportSshPublicKeyCommand, se_ImportSshPublicKeyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportSshPublicKeyCommand}.
  */
 export interface ImportSshPublicKeyCommandInput extends ImportSshPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportSshPublicKeyCommand}.
  */
 export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
  *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
  *       identified by <code>ServerId</code>.</p>
@@ -46,10 +43,17 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  * import { TransferClient, ImportSshPublicKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ImportSshPublicKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // ImportSshPublicKeyRequest
+ *   ServerId: "STRING_VALUE", // required
+ *   SshPublicKeyBody: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE", // required
+ * };
  * const command = new ImportSshPublicKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportSshPublicKeyCommandInput - {@link ImportSshPublicKeyCommandInput}
+ * @returns {@link ImportSshPublicKeyCommandOutput}
  * @see {@link ImportSshPublicKeyCommandInput} for command's `input` shape.
  * @see {@link ImportSshPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -92,6 +96,9 @@ export class ImportSshPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportSshPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +127,8 @@ export class ImportSshPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportSshPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportSshPublicKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +138,18 @@ export class ImportSshPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportSshPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportSshPublicKeyCommand(input, context);
+    return se_ImportSshPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportSshPublicKeyCommandOutput> {
-    return deserializeAws_json1_1ImportSshPublicKeyCommand(output, context);
+    return de_ImportSshPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

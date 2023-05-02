@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeNetworkInsightsPathsRequest,
-  DescribeNetworkInsightsPathsRequestFilterSensitiveLog,
-  DescribeNetworkInsightsPathsResult,
-  DescribeNetworkInsightsPathsResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeNetworkInsightsPathsCommand,
-  serializeAws_ec2DescribeNetworkInsightsPathsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeNetworkInsightsPathsRequest, DescribeNetworkInsightsPathsResult } from "../models/models_4";
+import { de_DescribeNetworkInsightsPathsCommand, se_DescribeNetworkInsightsPathsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNetworkInsightsPathsCommand}.
  */
 export interface DescribeNetworkInsightsPathsCommandInput extends DescribeNetworkInsightsPathsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNetworkInsightsPathsCommand}.
  */
 export interface DescribeNetworkInsightsPathsCommandOutput
@@ -37,6 +33,7 @@ export interface DescribeNetworkInsightsPathsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your paths.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,28 @@ export interface DescribeNetworkInsightsPathsCommandOutput
  * import { EC2Client, DescribeNetworkInsightsPathsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNetworkInsightsPathsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeNetworkInsightsPathsRequest
+ *   NetworkInsightsPathIds: [ // NetworkInsightsPathIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeNetworkInsightsPathsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNetworkInsightsPathsCommandInput - {@link DescribeNetworkInsightsPathsCommandInput}
+ * @returns {@link DescribeNetworkInsightsPathsCommandOutput}
  * @see {@link DescribeNetworkInsightsPathsCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInsightsPathsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +86,9 @@ export class DescribeNetworkInsightsPathsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNetworkInsightsPathsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +117,8 @@ export class DescribeNetworkInsightsPathsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNetworkInsightsPathsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNetworkInsightsPathsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +128,21 @@ export class DescribeNetworkInsightsPathsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNetworkInsightsPathsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNetworkInsightsPathsCommand(input, context);
+    return se_DescribeNetworkInsightsPathsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNetworkInsightsPathsCommandOutput> {
-    return deserializeAws_ec2DescribeNetworkInsightsPathsCommand(output, context);
+    return de_DescribeNetworkInsightsPathsCommand(output, context);
   }
 
   // Start section: command_body_extra

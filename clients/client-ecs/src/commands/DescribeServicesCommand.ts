@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DescribeServicesRequest,
-  DescribeServicesRequestFilterSensitiveLog,
-  DescribeServicesResponse,
-  DescribeServicesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeServicesCommand,
-  serializeAws_json1_1DescribeServicesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeServicesRequest, DescribeServicesResponse } from "../models/models_0";
+import { de_DescribeServicesCommand, se_DescribeServicesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServicesCommand}.
  */
 export interface DescribeServicesCommandInput extends DescribeServicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServicesCommand}.
  */
 export interface DescribeServicesCommandOutput extends DescribeServicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified services running in your cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * import { ECSClient, DescribeServicesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeServicesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DescribeServicesRequest
+ *   cluster: "STRING_VALUE",
+ *   services: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   include: [ // ServiceFieldList
+ *     "TAGS",
+ *   ],
+ * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServicesCommandInput - {@link DescribeServicesCommandInput}
+ * @returns {@link DescribeServicesCommandOutput}
  * @see {@link DescribeServicesCommandInput} for command's `input` shape.
  * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -139,6 +147,9 @@ export class DescribeServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,8 +178,8 @@ export class DescribeServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeServicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -178,12 +189,18 @@ export class DescribeServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServicesCommand(input, context);
+    return se_DescribeServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServicesCommandOutput> {
-    return deserializeAws_json1_1DescribeServicesCommand(output, context);
+    return de_DescribeServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

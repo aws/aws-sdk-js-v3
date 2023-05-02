@@ -14,39 +14,36 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreateVpcPeeringConnectionInput,
-  CreateVpcPeeringConnectionInputFilterSensitiveLog,
-  CreateVpcPeeringConnectionOutput,
-  CreateVpcPeeringConnectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateVpcPeeringConnectionCommand,
-  serializeAws_json1_1CreateVpcPeeringConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateVpcPeeringConnectionInput, CreateVpcPeeringConnectionOutput } from "../models/models_0";
+import { de_CreateVpcPeeringConnectionCommand, se_CreateVpcPeeringConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcPeeringConnectionCommand}.
  */
 export interface CreateVpcPeeringConnectionCommandInput extends CreateVpcPeeringConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcPeeringConnectionCommand}.
  */
 export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeeringConnectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Establishes a VPC peering connection between a virtual private cloud (VPC) in an Amazon Web Services account with the VPC
  *             for your Amazon GameLift fleet. VPC peering enables the game servers on your fleet to communicate
  *             directly with other Amazon Web Services resources. You can peer with VPCs in any Amazon Web Services account that
  *             you have access to, including the account that you use to manage your Amazon GameLift fleets. You
  *             cannot peer with VPCs that are in different Regions. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
  *                 Peering with Amazon GameLift Fleets</a>.</p>
- *         <p>Before calling this operation to establish the peering connection, you first need to
+ *          <p>Before calling this operation to establish the peering connection, you first need to
  *             use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html">CreateVpcPeeringAuthorization</a> and identify the VPC you want to peer with.
  *             Once the authorization for the specified VPC is issued, you have 24 hours to establish
  *             the connection. These two operations handle all tasks necessary to peer the two VPCs,
  *             including acceptance, updating routing tables, etc. </p>
- *         <p>To establish the connection, call this operation from the Amazon Web Services account that is used
+ *          <p>To establish the connection, call this operation from the Amazon Web Services account that is used
  *             to manage the Amazon GameLift fleets. Identify the following values: (1) The ID of the fleet you
  *             want to be enable a VPC peering connection for; (2) The Amazon Web Services account with the VPC that
  *             you want to peer with; and (3) The ID of the VPC you want to peer with. This operation
@@ -56,7 +53,7 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -65,10 +62,17 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  * import { GameLiftClient, CreateVpcPeeringConnectionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateVpcPeeringConnectionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreateVpcPeeringConnectionInput
+ *   FleetId: "STRING_VALUE", // required
+ *   PeerVpcAwsAccountId: "STRING_VALUE", // required
+ *   PeerVpcId: "STRING_VALUE", // required
+ * };
  * const command = new CreateVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcPeeringConnectionCommandInput - {@link CreateVpcPeeringConnectionCommandInput}
+ * @returns {@link CreateVpcPeeringConnectionCommandOutput}
  * @see {@link CreateVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -106,6 +110,9 @@ export class CreateVpcPeeringConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcPeeringConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +141,8 @@ export class CreateVpcPeeringConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcPeeringConnectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcPeeringConnectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,15 +152,21 @@ export class CreateVpcPeeringConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVpcPeeringConnectionCommand(input, context);
+    return se_CreateVpcPeeringConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVpcPeeringConnectionCommandOutput> {
-    return deserializeAws_json1_1CreateVpcPeeringConnectionCommand(output, context);
+    return de_CreateVpcPeeringConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

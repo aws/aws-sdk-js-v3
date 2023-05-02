@@ -6,7 +6,7 @@ import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "..
 import { BatchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BatchClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListJobs(
   config: BatchPaginationConfiguration,
   input: ListJobsCommandInput,

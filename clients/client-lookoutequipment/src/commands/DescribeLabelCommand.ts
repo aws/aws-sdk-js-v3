@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  DescribeLabelRequest,
-  DescribeLabelRequestFilterSensitiveLog,
-  DescribeLabelResponse,
-  DescribeLabelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeLabelCommand,
-  serializeAws_json1_0DescribeLabelCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeLabelRequest, DescribeLabelResponse } from "../models/models_0";
+import { de_DescribeLabelCommand, se_DescribeLabelCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLabelCommand}.
  */
 export interface DescribeLabelCommandInput extends DescribeLabelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLabelCommand}.
  */
 export interface DescribeLabelCommandOutput extends DescribeLabelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Returns the name of the label.
  * </p>
@@ -44,10 +41,16 @@ export interface DescribeLabelCommandOutput extends DescribeLabelResponse, __Met
  * import { LookoutEquipmentClient, DescribeLabelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DescribeLabelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // DescribeLabelRequest
+ *   LabelGroupName: "STRING_VALUE", // required
+ *   LabelId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLabelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLabelCommandInput - {@link DescribeLabelCommandInput}
+ * @returns {@link DescribeLabelCommandOutput}
  * @see {@link DescribeLabelCommandInput} for command's `input` shape.
  * @see {@link DescribeLabelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -90,6 +93,9 @@ export class DescribeLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class DescribeLabelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLabelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLabelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class DescribeLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeLabelCommand(input, context);
+    return se_DescribeLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLabelCommandOutput> {
-    return deserializeAws_json1_0DescribeLabelCommand(output, context);
+    return de_DescribeLabelCommand(output, context);
   }
 
   // Start section: command_body_extra

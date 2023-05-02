@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  BatchDescribeMergeConflictsInput,
-  BatchDescribeMergeConflictsInputFilterSensitiveLog,
-  BatchDescribeMergeConflictsOutput,
-  BatchDescribeMergeConflictsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDescribeMergeConflictsCommand,
-  serializeAws_json1_1BatchDescribeMergeConflictsCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchDescribeMergeConflictsInput, BatchDescribeMergeConflictsOutput } from "../models/models_0";
+import { de_BatchDescribeMergeConflictsCommand, se_BatchDescribeMergeConflictsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDescribeMergeConflictsCommand}.
  */
 export interface BatchDescribeMergeConflictsCommandInput extends BatchDescribeMergeConflictsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchDescribeMergeConflictsCommand}.
  */
 export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeMergeConflictsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more merge conflicts in the attempted merge of two commit specifiers using the squash or three-way merge strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  * import { CodeCommitClient, BatchDescribeMergeConflictsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, BatchDescribeMergeConflictsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // BatchDescribeMergeConflictsInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   destinationCommitSpecifier: "STRING_VALUE", // required
+ *   sourceCommitSpecifier: "STRING_VALUE", // required
+ *   mergeOption: "STRING_VALUE", // required
+ *   maxMergeHunks: Number("int"),
+ *   maxConflictFiles: Number("int"),
+ *   filePaths: [ // FilePaths
+ *     "STRING_VALUE",
+ *   ],
+ *   conflictDetailLevel: "STRING_VALUE",
+ *   conflictResolutionStrategy: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new BatchDescribeMergeConflictsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDescribeMergeConflictsCommandInput - {@link BatchDescribeMergeConflictsCommandInput}
+ * @returns {@link BatchDescribeMergeConflictsCommandOutput}
  * @see {@link BatchDescribeMergeConflictsCommandInput} for command's `input` shape.
  * @see {@link BatchDescribeMergeConflictsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -139,6 +152,9 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDescribeMergeConflictsCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,8 +183,8 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDescribeMergeConflictsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDescribeMergeConflictsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -178,15 +194,21 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDescribeMergeConflictsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDescribeMergeConflictsCommand(input, context);
+    return se_BatchDescribeMergeConflictsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDescribeMergeConflictsCommandOutput> {
-    return deserializeAws_json1_1BatchDescribeMergeConflictsCommand(output, context);
+    return de_BatchDescribeMergeConflictsCommand(output, context);
   }
 
   // Start section: command_body_extra

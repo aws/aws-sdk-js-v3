@@ -18,21 +18,21 @@ import {
 
 import {
   SynthesizeSpeechInput,
-  SynthesizeSpeechInputFilterSensitiveLog,
   SynthesizeSpeechOutput,
   SynthesizeSpeechOutputFilterSensitiveLog,
 } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1SynthesizeSpeechCommand,
-  serializeAws_restJson1SynthesizeSpeechCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SynthesizeSpeechCommand, se_SynthesizeSpeechCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SynthesizeSpeechCommand}.
  */
 export interface SynthesizeSpeechCommandInput extends SynthesizeSpeechInput {}
 /**
+ * @public
+ *
  * The output of {@link SynthesizeSpeechCommand}.
  */
 export interface SynthesizeSpeechCommandOutput
@@ -40,6 +40,7 @@ export interface SynthesizeSpeechCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
  *       SSML input must be valid, well-formed SSML. Some alphabets might not be
  *       available with all the voices (for example, Cyrillic might not be read at
@@ -51,10 +52,27 @@ export interface SynthesizeSpeechCommandOutput
  * import { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, SynthesizeSpeechCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
+ * const input = { // SynthesizeSpeechInput
+ *   Engine: "standard" || "neural",
+ *   LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI",
+ *   LexiconNames: [ // LexiconNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   OutputFormat: "json" || "mp3" || "ogg_vorbis" || "pcm", // required
+ *   SampleRate: "STRING_VALUE",
+ *   SpeechMarkTypes: [ // SpeechMarkTypeList
+ *     "sentence" || "ssml" || "viseme" || "word",
+ *   ],
+ *   Text: "STRING_VALUE", // required
+ *   TextType: "ssml" || "text",
+ *   VoiceId: "Aditi" || "Amy" || "Astrid" || "Bianca" || "Brian" || "Camila" || "Carla" || "Carmen" || "Celine" || "Chantal" || "Conchita" || "Cristiano" || "Dora" || "Emma" || "Enrique" || "Ewa" || "Filiz" || "Gabrielle" || "Geraint" || "Giorgio" || "Gwyneth" || "Hans" || "Ines" || "Ivy" || "Jacek" || "Jan" || "Joanna" || "Joey" || "Justin" || "Karl" || "Kendra" || "Kevin" || "Kimberly" || "Lea" || "Liv" || "Lotte" || "Lucia" || "Lupe" || "Mads" || "Maja" || "Marlene" || "Mathieu" || "Matthew" || "Maxim" || "Mia" || "Miguel" || "Mizuki" || "Naja" || "Nicole" || "Olivia" || "Penelope" || "Raveena" || "Ricardo" || "Ruben" || "Russell" || "Salli" || "Seoyeon" || "Takumi" || "Tatyana" || "Vicki" || "Vitoria" || "Zeina" || "Zhiyu" || "Aria" || "Ayanda" || "Arlet" || "Hannah" || "Arthur" || "Daniel" || "Liam" || "Pedro" || "Kajal" || "Hiujin" || "Laura" || "Elin" || "Ida" || "Suvi" || "Ola" || "Hala" || "Andres" || "Sergio" || "Remi" || "Adriano" || "Thiago" || "Ruth" || "Stephen" || "Kazuha" || "Tomoko", // required
+ * };
  * const command = new SynthesizeSpeechCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SynthesizeSpeechCommandInput - {@link SynthesizeSpeechCommandInput}
+ * @returns {@link SynthesizeSpeechCommandOutput}
  * @see {@link SynthesizeSpeechCommandInput} for command's `input` shape.
  * @see {@link SynthesizeSpeechCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -147,6 +165,9 @@ export class SynthesizeSpeechCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SynthesizeSpeechCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,7 +196,7 @@ export class SynthesizeSpeechCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SynthesizeSpeechInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SynthesizeSpeechOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -186,15 +207,21 @@ export class SynthesizeSpeechCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SynthesizeSpeechCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SynthesizeSpeechCommand(input, context);
+    return se_SynthesizeSpeechCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<SynthesizeSpeechCommandOutput> {
-    return deserializeAws_restJson1SynthesizeSpeechCommand(output, context);
+    return de_SynthesizeSpeechCommand(output, context);
   }
 
   // Start section: command_body_extra

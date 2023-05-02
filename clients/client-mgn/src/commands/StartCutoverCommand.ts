@@ -20,21 +20,23 @@ import {
   StartCutoverResponse,
   StartCutoverResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartCutoverCommand,
-  serializeAws_restJson1StartCutoverCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartCutoverCommand, se_StartCutoverCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartCutoverCommand}.
  */
 export interface StartCutoverCommandInput extends StartCutoverRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCutoverCommand}.
  */
 export interface StartCutoverCommandOutput extends StartCutoverResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches a Cutover Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartCutover and changes the SourceServer.lifeCycle.state property to CUTTING_OVER.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,20 @@ export interface StartCutoverCommandOutput extends StartCutoverResponse, __Metad
  * import { MgnClient, StartCutoverCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, StartCutoverCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // StartCutoverRequest
+ *   sourceServerIDs: [ // StartCutoverRequestSourceServerIDs // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartCutoverCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCutoverCommandInput - {@link StartCutoverCommandInput}
+ * @returns {@link StartCutoverCommandOutput}
  * @see {@link StartCutoverCommandInput} for command's `input` shape.
  * @see {@link StartCutoverCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +90,9 @@ export class StartCutoverCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCutoverCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,12 +130,18 @@ export class StartCutoverCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCutoverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartCutoverCommand(input, context);
+    return se_StartCutoverCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCutoverCommandOutput> {
-    return deserializeAws_restJson1StartCutoverCommand(output, context);
+    return de_StartCutoverCommand(output, context);
   }
 
   // Start section: command_body_extra

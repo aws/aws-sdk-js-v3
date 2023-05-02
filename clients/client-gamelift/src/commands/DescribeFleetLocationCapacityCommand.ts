@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { DescribeFleetLocationCapacityInput, DescribeFleetLocationCapacityOutput } from "../models/models_0";
 import {
-  DescribeFleetLocationCapacityInput,
-  DescribeFleetLocationCapacityInputFilterSensitiveLog,
-  DescribeFleetLocationCapacityOutput,
-  DescribeFleetLocationCapacityOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetLocationCapacityCommand,
-  serializeAws_json1_1DescribeFleetLocationCapacityCommand,
+  de_DescribeFleetLocationCapacityCommand,
+  se_DescribeFleetLocationCapacityCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetLocationCapacityCommand}.
  */
 export interface DescribeFleetLocationCapacityCommandInput extends DescribeFleetLocationCapacityInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetLocationCapacityCommand}.
  */
 export interface DescribeFleetLocationCapacityCommandOutput
@@ -37,22 +36,23 @@ export interface DescribeFleetLocationCapacityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource capacity settings for a fleet location. The data returned
  *             includes the current capacity (number of EC2 instances) and some scaling settings for
  *             the requested fleet location. Use this operation to retrieve capacity information for a
  *             fleet's remote location or home Region (you can also retrieve home Region capacity by
  *             calling <code>DescribeFleetCapacity</code>).</p>
- *         <p>To retrieve capacity data, identify a fleet and location. </p>
- *         <p>If successful, a <code>FleetCapacity</code> object is returned for the requested fleet
+ *          <p>To retrieve capacity data, identify a fleet and location. </p>
+ *          <p>If successful, a <code>FleetCapacity</code> object is returned for the requested fleet
  *             location. </p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift metrics for fleets</a>
  *          </p>
  * @example
@@ -61,10 +61,16 @@ export interface DescribeFleetLocationCapacityCommandOutput
  * import { GameLiftClient, DescribeFleetLocationCapacityCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetLocationCapacityCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeFleetLocationCapacityInput
+ *   FleetId: "STRING_VALUE", // required
+ *   Location: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFleetLocationCapacityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetLocationCapacityCommandInput - {@link DescribeFleetLocationCapacityCommandInput}
+ * @returns {@link DescribeFleetLocationCapacityCommandOutput}
  * @see {@link DescribeFleetLocationCapacityCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetLocationCapacityCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -105,6 +111,9 @@ export class DescribeFleetLocationCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetLocationCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +142,8 @@ export class DescribeFleetLocationCapacityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetLocationCapacityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetLocationCapacityOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,15 +153,21 @@ export class DescribeFleetLocationCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetLocationCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetLocationCapacityCommand(input, context);
+    return se_DescribeFleetLocationCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetLocationCapacityCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetLocationCapacityCommand(output, context);
+    return de_DescribeFleetLocationCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

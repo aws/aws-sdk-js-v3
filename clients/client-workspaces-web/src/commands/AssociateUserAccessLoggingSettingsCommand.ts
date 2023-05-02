@@ -15,21 +15,23 @@ import {
 
 import {
   AssociateUserAccessLoggingSettingsRequest,
-  AssociateUserAccessLoggingSettingsRequestFilterSensitiveLog,
   AssociateUserAccessLoggingSettingsResponse,
-  AssociateUserAccessLoggingSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateUserAccessLoggingSettingsCommand,
-  serializeAws_restJson1AssociateUserAccessLoggingSettingsCommand,
+  de_AssociateUserAccessLoggingSettingsCommand,
+  se_AssociateUserAccessLoggingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateUserAccessLoggingSettingsCommand}.
  */
 export interface AssociateUserAccessLoggingSettingsCommandInput extends AssociateUserAccessLoggingSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateUserAccessLoggingSettingsCommand}.
  */
 export interface AssociateUserAccessLoggingSettingsCommandOutput
@@ -37,6 +39,7 @@ export interface AssociateUserAccessLoggingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a user access logging settings resource with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,16 @@ export interface AssociateUserAccessLoggingSettingsCommandOutput
  * import { WorkSpacesWebClient, AssociateUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // AssociateUserAccessLoggingSettingsRequest
+ *   portalArn: "STRING_VALUE", // required
+ *   userAccessLoggingSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateUserAccessLoggingSettingsCommandInput - {@link AssociateUserAccessLoggingSettingsCommandInput}
+ * @returns {@link AssociateUserAccessLoggingSettingsCommandOutput}
  * @see {@link AssociateUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link AssociateUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -89,6 +98,9 @@ export class AssociateUserAccessLoggingSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateUserAccessLoggingSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +129,8 @@ export class AssociateUserAccessLoggingSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateUserAccessLoggingSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateUserAccessLoggingSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +140,24 @@ export class AssociateUserAccessLoggingSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateUserAccessLoggingSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateUserAccessLoggingSettingsCommand(input, context);
+    return se_AssociateUserAccessLoggingSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateUserAccessLoggingSettingsCommandOutput> {
-    return deserializeAws_restJson1AssociateUserAccessLoggingSettingsCommand(output, context);
+    return de_AssociateUserAccessLoggingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

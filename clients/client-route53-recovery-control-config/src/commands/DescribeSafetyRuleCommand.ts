@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSafetyRuleRequest,
-  DescribeSafetyRuleRequestFilterSensitiveLog,
-  DescribeSafetyRuleResponse,
-  DescribeSafetyRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSafetyRuleCommand,
-  serializeAws_restJson1DescribeSafetyRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeSafetyRuleRequest, DescribeSafetyRuleResponse } from "../models/models_0";
+import { de_DescribeSafetyRuleCommand, se_DescribeSafetyRuleCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSafetyRuleCommand}.
  */
 export interface DescribeSafetyRuleCommandInput extends DescribeSafetyRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSafetyRuleCommand}.
  */
 export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a safety rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleRespo
  * import { Route53RecoveryControlConfigClient, DescribeSafetyRuleCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DescribeSafetyRuleCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // DescribeSafetyRuleRequest
+ *   SafetyRuleArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSafetyRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSafetyRuleCommandInput - {@link DescribeSafetyRuleCommandInput}
+ * @returns {@link DescribeSafetyRuleCommandOutput}
  * @see {@link DescribeSafetyRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeSafetyRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -79,6 +81,9 @@ export class DescribeSafetyRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSafetyRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class DescribeSafetyRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSafetyRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSafetyRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class DescribeSafetyRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSafetyRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSafetyRuleCommand(input, context);
+    return se_DescribeSafetyRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSafetyRuleCommandOutput> {
-    return deserializeAws_restJson1DescribeSafetyRuleCommand(output, context);
+    return de_DescribeSafetyRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import {
-  ListDatasourcePackagesRequest,
-  ListDatasourcePackagesRequestFilterSensitiveLog,
-  ListDatasourcePackagesResponse,
-  ListDatasourcePackagesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDatasourcePackagesCommand,
-  serializeAws_restJson1ListDatasourcePackagesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDatasourcePackagesRequest, ListDatasourcePackagesResponse } from "../models/models_0";
+import { de_ListDatasourcePackagesCommand, se_ListDatasourcePackagesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasourcePackagesCommand}.
  */
 export interface ListDatasourcePackagesCommandInput extends ListDatasourcePackagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasourcePackagesCommand}.
  */
 export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePackagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists data source packages in the behavior graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePacka
  * import { DetectiveClient, ListDatasourcePackagesCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, ListDatasourcePackagesCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // ListDatasourcePackagesRequest
+ *   GraphArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDatasourcePackagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasourcePackagesCommandInput - {@link ListDatasourcePackagesCommandInput}
+ * @returns {@link ListDatasourcePackagesCommandOutput}
  * @see {@link ListDatasourcePackagesCommandInput} for command's `input` shape.
  * @see {@link ListDatasourcePackagesCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -82,6 +86,9 @@ export class ListDatasourcePackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasourcePackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class ListDatasourcePackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatasourcePackagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatasourcePackagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class ListDatasourcePackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasourcePackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDatasourcePackagesCommand(input, context);
+    return se_ListDatasourcePackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasourcePackagesCommandOutput> {
-    return deserializeAws_restJson1ListDatasourcePackagesCommand(output, context);
+    return de_ListDatasourcePackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

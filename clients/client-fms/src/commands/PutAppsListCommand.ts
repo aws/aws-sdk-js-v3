@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  PutAppsListRequest,
-  PutAppsListRequestFilterSensitiveLog,
-  PutAppsListResponse,
-  PutAppsListResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAppsListCommand,
-  serializeAws_json1_1PutAppsListCommand,
-} from "../protocols/Aws_json1_1";
+import { PutAppsListRequest, PutAppsListResponse } from "../models/models_0";
+import { de_PutAppsListCommand, se_PutAppsListCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAppsListCommand}.
  */
 export interface PutAppsListCommandInput extends PutAppsListRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAppsListCommand}.
  */
 export interface PutAppsListCommandOutput extends PutAppsListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Firewall Manager applications list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,43 @@ export interface PutAppsListCommandOutput extends PutAppsListResponse, __Metadat
  * import { FMSClient, PutAppsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, PutAppsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // PutAppsListRequest
+ *   AppsList: { // AppsListData
+ *     ListId: "STRING_VALUE",
+ *     ListName: "STRING_VALUE", // required
+ *     ListUpdateToken: "STRING_VALUE",
+ *     CreateTime: new Date("TIMESTAMP"),
+ *     LastUpdateTime: new Date("TIMESTAMP"),
+ *     AppsList: [ // AppsList // required
+ *       { // App
+ *         AppName: "STRING_VALUE", // required
+ *         Protocol: "STRING_VALUE", // required
+ *         Port: Number("long"), // required
+ *       },
+ *     ],
+ *     PreviousAppsList: { // PreviousAppsList
+ *       "<keys>": [
+ *         {
+ *           AppName: "STRING_VALUE", // required
+ *           Protocol: "STRING_VALUE", // required
+ *           Port: Number("long"), // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutAppsListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAppsListCommandInput - {@link PutAppsListCommandInput}
+ * @returns {@link PutAppsListCommandOutput}
  * @see {@link PutAppsListCommandInput} for command's `input` shape.
  * @see {@link PutAppsListCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -92,6 +122,9 @@ export class PutAppsListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAppsListCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +151,8 @@ export class PutAppsListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAppsListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAppsListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +162,18 @@ export class PutAppsListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAppsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAppsListCommand(input, context);
+    return se_PutAppsListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAppsListCommandOutput> {
-    return deserializeAws_json1_1PutAppsListCommand(output, context);
+    return de_PutAppsListCommand(output, context);
   }
 
   // Start section: command_body_extra

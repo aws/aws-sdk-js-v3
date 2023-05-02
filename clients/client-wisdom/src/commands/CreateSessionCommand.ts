@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSessionRequest,
-  CreateSessionRequestFilterSensitiveLog,
-  CreateSessionResponse,
-  CreateSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSessionCommand,
-  serializeAws_restJson1CreateSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateSessionRequest, CreateSessionResponse } from "../models/models_0";
+import { de_CreateSessionCommand, se_CreateSessionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSessionCommand}.
  */
 export interface CreateSessionCommandInput extends CreateSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSessionCommand}.
  */
 export interface CreateSessionCommandOutput extends CreateSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a session. A session is a contextual container used for generating
  *       recommendations. Amazon Connect creates a new Wisdom session for each contact on which
  *       Wisdom is enabled.</p>
@@ -44,10 +41,21 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * import { WisdomClient, CreateSessionCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateSessionCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // CreateSessionRequest
+ *   clientToken: "STRING_VALUE",
+ *   assistantId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSessionCommandInput - {@link CreateSessionCommandInput}
+ * @returns {@link CreateSessionCommandOutput}
  * @see {@link CreateSessionCommandInput} for command's `input` shape.
  * @see {@link CreateSessionCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -83,6 +91,9 @@ export class CreateSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +120,8 @@ export class CreateSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +131,18 @@ export class CreateSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSessionCommand(input, context);
+    return se_CreateSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSessionCommandOutput> {
-    return deserializeAws_restJson1CreateSessionCommand(output, context);
+    return de_CreateSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

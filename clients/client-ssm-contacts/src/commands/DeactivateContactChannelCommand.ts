@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeactivateContactChannelRequest,
-  DeactivateContactChannelRequestFilterSensitiveLog,
-  DeactivateContactChannelResult,
-  DeactivateContactChannelResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeactivateContactChannelCommand,
-  serializeAws_json1_1DeactivateContactChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { DeactivateContactChannelRequest, DeactivateContactChannelResult } from "../models/models_0";
+import { de_DeactivateContactChannelCommand, se_DeactivateContactChannelCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivateContactChannelCommand}.
  */
 export interface DeactivateContactChannelCommandInput extends DeactivateContactChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeactivateContactChannelCommand}.
  */
 export interface DeactivateContactChannelCommandOutput extends DeactivateContactChannelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>To no longer receive Incident Manager engagements to a contact channel, you can deactivate
  *          the channel.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  * import { SSMContactsClient, DeactivateContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, DeactivateContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // DeactivateContactChannelRequest
+ *   ContactChannelId: "STRING_VALUE", // required
+ * };
  * const command = new DeactivateContactChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateContactChannelCommandInput - {@link DeactivateContactChannelCommandInput}
+ * @returns {@link DeactivateContactChannelCommandOutput}
  * @see {@link DeactivateContactChannelCommandInput} for command's `input` shape.
  * @see {@link DeactivateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -55,8 +57,7 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  *  <p>You don't have sufficient access to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>
@@ -68,17 +69,6 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
- *
- * @example To deactivate a contact channel
- * ```javascript
- * // The following ``deactivate-contact-channel`` example deactivates a contact channel. Deactivating a contact channel means the contact channel will no longer be paged during an incident. You can also reactivate a contact channel at any time using the activate-contact-channel operation.
- * const input = {
- *   "ContactChannelId": "arn:aws:ssm-contacts:us-east-2:111122223333:contact-channel/akuam/fc7405c4-46b2-48b7-87b2-93e2f225b90d"
- * };
- * const command = new DeactivateContactChannelCommand(input);
- * await client.send(command);
- * // example id: to-deactivate-a-contact-channel-1630360853894
- * ```
  *
  */
 export class DeactivateContactChannelCommand extends $Command<
@@ -98,6 +88,9 @@ export class DeactivateContactChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateContactChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +119,8 @@ export class DeactivateContactChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivateContactChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeactivateContactChannelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +130,18 @@ export class DeactivateContactChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeactivateContactChannelCommand(input, context);
+    return se_DeactivateContactChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateContactChannelCommandOutput> {
-    return deserializeAws_json1_1DeactivateContactChannelCommand(output, context);
+    return de_DeactivateContactChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateSigningCertificateRequest, UpdateSigningCertificateRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateSigningCertificateCommand,
-  serializeAws_queryUpdateSigningCertificateCommand,
-} from "../protocols/Aws_query";
+import { UpdateSigningCertificateRequest } from "../models/models_1";
+import { de_UpdateSigningCertificateCommand, se_UpdateSigningCertificateCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSigningCertificateCommand}.
  */
 export interface UpdateSigningCertificateCommandInput extends UpdateSigningCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSigningCertificateCommand}.
  */
 export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the status of the specified user signing certificate from active to disabled,
  *             or vice versa. This operation can be used to disable an IAM user's signing
  *             certificate as part of a certificate rotation work flow.</p>
@@ -44,10 +46,17 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * import { IAMClient, UpdateSigningCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateSigningCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UpdateSigningCertificateRequest
+ *   UserName: "STRING_VALUE",
+ *   CertificateId: "STRING_VALUE", // required
+ *   Status: "Active" || "Inactive", // required
+ * };
  * const command = new UpdateSigningCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSigningCertificateCommandInput - {@link UpdateSigningCertificateCommandInput}
+ * @returns {@link UpdateSigningCertificateCommandOutput}
  * @see {@link UpdateSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -96,6 +105,9 @@ export class UpdateSigningCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSigningCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +136,8 @@ export class UpdateSigningCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSigningCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +147,18 @@ export class UpdateSigningCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSigningCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateSigningCertificateCommand(input, context);
+    return se_UpdateSigningCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSigningCertificateCommandOutput> {
-    return deserializeAws_queryUpdateSigningCertificateCommand(output, context);
+    return de_UpdateSigningCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

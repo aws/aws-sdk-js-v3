@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateWorkspaceImagePermissionRequest, UpdateWorkspaceImagePermissionResult } from "../models/models_0";
 import {
-  UpdateWorkspaceImagePermissionRequest,
-  UpdateWorkspaceImagePermissionRequestFilterSensitiveLog,
-  UpdateWorkspaceImagePermissionResult,
-  UpdateWorkspaceImagePermissionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateWorkspaceImagePermissionCommand,
-  serializeAws_json1_1UpdateWorkspaceImagePermissionCommand,
+  de_UpdateWorkspaceImagePermissionCommand,
+  se_UpdateWorkspaceImagePermissionCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkspaceImagePermissionCommand}.
  */
 export interface UpdateWorkspaceImagePermissionCommandInput extends UpdateWorkspaceImagePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkspaceImagePermissionCommand}.
  */
 export interface UpdateWorkspaceImagePermissionCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shares or unshares an image with one account in the same Amazon Web Services Region by
  *          specifying whether that account has permission to copy the image. If the copy image
  *          permission is granted, the image is shared with that account. If the copy image permission
@@ -66,10 +66,17 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  * import { WorkSpacesClient, UpdateWorkspaceImagePermissionCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, UpdateWorkspaceImagePermissionCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // UpdateWorkspaceImagePermissionRequest
+ *   ImageId: "STRING_VALUE", // required
+ *   AllowCopyImage: true || false, // required
+ *   SharedAccountId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateWorkspaceImagePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceImagePermissionCommandInput - {@link UpdateWorkspaceImagePermissionCommandInput}
+ * @returns {@link UpdateWorkspaceImagePermissionCommandOutput}
  * @see {@link UpdateWorkspaceImagePermissionCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceImagePermissionCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -108,6 +115,9 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceImagePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +146,8 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkspaceImagePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkspaceImagePermissionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,18 +157,24 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateWorkspaceImagePermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWorkspaceImagePermissionCommand(input, context);
+    return se_UpdateWorkspaceImagePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateWorkspaceImagePermissionCommandOutput> {
-    return deserializeAws_json1_1UpdateWorkspaceImagePermissionCommand(output, context);
+    return de_UpdateWorkspaceImagePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

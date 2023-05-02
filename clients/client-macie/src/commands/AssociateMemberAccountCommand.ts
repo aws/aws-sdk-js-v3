@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import { AssociateMemberAccountRequest, AssociateMemberAccountRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateMemberAccountCommand,
-  serializeAws_json1_1AssociateMemberAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateMemberAccountRequest } from "../models/models_0";
+import { de_AssociateMemberAccountCommand, se_AssociateMemberAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateMemberAccountCommand}.
  */
 export interface AssociateMemberAccountCommandInput extends AssociateMemberAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateMemberAccountCommand}.
  */
 export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Associates a specified Amazon Web Services account with Amazon Macie Classic as a member
  *       account.</p>
  * @example
@@ -38,10 +40,15 @@ export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
  * import { MacieClient, AssociateMemberAccountCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, AssociateMemberAccountCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
+ * const input = { // AssociateMemberAccountRequest
+ *   memberAccountId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateMemberAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateMemberAccountCommandInput - {@link AssociateMemberAccountCommandInput}
+ * @returns {@link AssociateMemberAccountCommandOutput}
  * @see {@link AssociateMemberAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateMemberAccountCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
@@ -76,6 +83,9 @@ export class AssociateMemberAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateMemberAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +114,8 @@ export class AssociateMemberAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateMemberAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +125,18 @@ export class AssociateMemberAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateMemberAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateMemberAccountCommand(input, context);
+    return se_AssociateMemberAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMemberAccountCommandOutput> {
-    return deserializeAws_json1_1AssociateMemberAccountCommand(output, context);
+    return de_AssociateMemberAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

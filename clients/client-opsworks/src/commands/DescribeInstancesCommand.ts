@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeInstancesRequest,
-  DescribeInstancesRequestFilterSensitiveLog,
-  DescribeInstancesResult,
-  DescribeInstancesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeInstancesRequest, DescribeInstancesResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeInstancesCommand,
-  serializeAws_json1_1DescribeInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeInstancesCommand, se_DescribeInstancesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstancesCommand}.
  */
 export interface DescribeInstancesCommandInput extends DescribeInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstancesCommand}.
  */
 export interface DescribeInstancesCommandOutput extends DescribeInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a description of a set of instances.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -50,10 +47,19 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * import { OpsWorksClient, DescribeInstancesCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeInstancesCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeInstancesRequest
+ *   StackId: "STRING_VALUE",
+ *   LayerId: "STRING_VALUE",
+ *   InstanceIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancesCommandInput - {@link DescribeInstancesCommandInput}
+ * @returns {@link DescribeInstancesCommandOutput}
  * @see {@link DescribeInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -83,6 +89,9 @@ export class DescribeInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +120,8 @@ export class DescribeInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +131,18 @@ export class DescribeInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstancesCommand(input, context);
+    return se_DescribeInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeInstancesCommand(output, context);
+    return de_DescribeInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

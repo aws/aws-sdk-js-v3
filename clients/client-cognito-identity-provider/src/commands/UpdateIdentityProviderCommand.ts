@@ -19,27 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  UpdateIdentityProviderRequest,
-  UpdateIdentityProviderRequestFilterSensitiveLog,
-  UpdateIdentityProviderResponse,
-  UpdateIdentityProviderResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateIdentityProviderCommand,
-  serializeAws_json1_1UpdateIdentityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateIdentityProviderRequest, UpdateIdentityProviderResponse } from "../models/models_1";
+import { de_UpdateIdentityProviderCommand, se_UpdateIdentityProviderCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIdentityProviderCommand}.
  */
 export interface UpdateIdentityProviderCommandInput extends UpdateIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIdentityProviderCommand}.
  */
 export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates IdP information for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,10 +44,25 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * import { CognitoIdentityProviderClient, UpdateIdentityProviderCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateIdentityProviderCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // UpdateIdentityProviderRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ProviderName: "STRING_VALUE", // required
+ *   ProviderDetails: { // ProviderDetailsType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AttributeMapping: { // AttributeMappingType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   IdpIdentifiers: [ // IdpIdentifiersListType
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateIdentityProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIdentityProviderCommandInput - {@link UpdateIdentityProviderCommandInput}
+ * @returns {@link UpdateIdentityProviderCommandOutput}
  * @see {@link UpdateIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -99,6 +111,9 @@ export class UpdateIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +143,8 @@ export class UpdateIdentityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIdentityProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIdentityProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +154,18 @@ export class UpdateIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateIdentityProviderCommand(input, context);
+    return se_UpdateIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIdentityProviderCommandOutput> {
-    return deserializeAws_json1_1UpdateIdentityProviderCommand(output, context);
+    return de_UpdateIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

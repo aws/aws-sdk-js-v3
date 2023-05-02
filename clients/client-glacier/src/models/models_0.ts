@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { GlacierServiceException as __BaseException } from "./GlacierServiceException";
 
 /**
+ * @public
  * <p>Provides options to abort a multipart upload identified by the upload ID.</p>
  *
  *          <p>For information about the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html">Abort Multipart
@@ -33,6 +34,7 @@ export interface AbortMultipartUploadInput {
 }
 
 /**
+ * @public
  * <p>Returned if a parameter of the request is incorrectly specified.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -64,6 +66,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if a required header or parameter is missing from the request.</p>
  */
 export class MissingParameterValueException extends __BaseException {
@@ -95,6 +98,7 @@ export class MissingParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
  *          exist.</p>
  */
@@ -127,6 +131,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if the service cannot complete the request.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -158,6 +163,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input values for <code>AbortVaultLock</code>.</p>
  */
 export interface AbortVaultLockInput {
@@ -176,13 +182,23 @@ export interface AbortVaultLockInput {
   vaultName: string | undefined;
 }
 
-export enum Type {
-  AmazonCustomerByEmail = "AmazonCustomerByEmail",
-  CanonicalUser = "CanonicalUser",
-  Group = "Group",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  AmazonCustomerByEmail: "AmazonCustomerByEmail",
+  CanonicalUser: "CanonicalUser",
+  Group: "Group",
+} as const;
 
 /**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * @public
  * <p>Contains information about the grantee.</p>
  */
 export interface Grantee {
@@ -212,15 +228,25 @@ export interface Grantee {
   EmailAddress?: string;
 }
 
-export enum Permission {
-  FULL_CONTROL = "FULL_CONTROL",
-  READ = "READ",
-  READ_ACP = "READ_ACP",
-  WRITE = "WRITE",
-  WRITE_ACP = "WRITE_ACP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Permission = {
+  FULL_CONTROL: "FULL_CONTROL",
+  READ: "READ",
+  READ_ACP: "READ_ACP",
+  WRITE: "WRITE",
+  WRITE_ACP: "WRITE_ACP",
+} as const;
 
 /**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
+
+/**
+ * @public
  * <p>Contains information about a grant.</p>
  */
 export interface Grant {
@@ -235,13 +261,23 @@ export interface Grant {
   Permission?: Permission | string;
 }
 
-export enum ActionCode {
-  ArchiveRetrieval = "ArchiveRetrieval",
-  InventoryRetrieval = "InventoryRetrieval",
-  Select = "Select",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActionCode = {
+  ArchiveRetrieval: "ArchiveRetrieval",
+  InventoryRetrieval: "InventoryRetrieval",
+  Select: "Select",
+} as const;
 
 /**
+ * @public
+ */
+export type ActionCode = (typeof ActionCode)[keyof typeof ActionCode];
+
+/**
+ * @public
  * <p>The input values for <code>AddTagsToVault</code>.</p>
  */
 export interface AddTagsToVaultInput {
@@ -267,6 +303,7 @@ export interface AddTagsToVaultInput {
 }
 
 /**
+ * @public
  * <p>Returned if the request results in a vault or account limit being exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -298,6 +335,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  *          <p>For information about the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html">Upload Archive</a>. For
  *          conceptual information, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working with Archives in
@@ -320,17 +358,27 @@ export interface ArchiveCreationOutput {
   archiveId?: string;
 }
 
-export enum CannedACL {
-  AuthenticatedRead = "authenticated-read",
-  AwsExecRead = "aws-exec-read",
-  BucketOwnerFullControl = "bucket-owner-full-control",
-  BucketOwnerRead = "bucket-owner-read",
-  Private = "private",
-  PublicRead = "public-read",
-  PublicReadWrite = "public-read-write",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CannedACL = {
+  AuthenticatedRead: "authenticated-read",
+  AwsExecRead: "aws-exec-read",
+  BucketOwnerFullControl: "bucket-owner-full-control",
+  BucketOwnerRead: "bucket-owner-read",
+  Private: "private",
+  PublicRead: "public-read",
+  PublicReadWrite: "public-read-write",
+} as const;
 
 /**
+ * @public
+ */
+export type CannedACL = (typeof CannedACL)[keyof typeof CannedACL];
+
+/**
+ * @public
  * <p>Provides options to complete a multipart upload operation. This informs Amazon
  *          Glacier that all the archive parts have been uploaded and Amazon S3 Glacier (Glacier) can now assemble
  *          the archive from the uploaded parts. After assembling and saving the archive to the vault,
@@ -372,6 +420,7 @@ export interface CompleteMultipartUploadInput {
 }
 
 /**
+ * @public
  * <p>The input values for <code>CompleteVaultLock</code>.</p>
  */
 export interface CompleteVaultLockInput {
@@ -396,6 +445,7 @@ export interface CompleteVaultLockInput {
 }
 
 /**
+ * @public
  * <p>Provides options to create a vault.</p>
  */
 export interface CreateVaultInput {
@@ -415,6 +465,7 @@ export interface CreateVaultInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface CreateVaultOutput {
@@ -424,13 +475,23 @@ export interface CreateVaultOutput {
   location?: string;
 }
 
-export enum FileHeaderInfo {
-  Ignore = "IGNORE",
-  None = "NONE",
-  Use = "USE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FileHeaderInfo = {
+  Ignore: "IGNORE",
+  None: "NONE",
+  Use: "USE",
+} as const;
 
 /**
+ * @public
+ */
+export type FileHeaderInfo = (typeof FileHeaderInfo)[keyof typeof FileHeaderInfo];
+
+/**
+ * @public
  * <p>Contains information about the comma-separated value (CSV) file to select from.</p>
  */
 export interface CSVInput {
@@ -469,12 +530,22 @@ export interface CSVInput {
   QuoteCharacter?: string;
 }
 
-export enum QuoteFields {
-  Always = "ALWAYS",
-  AsNeeded = "ASNEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const QuoteFields = {
+  Always: "ALWAYS",
+  AsNeeded: "ASNEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type QuoteFields = (typeof QuoteFields)[keyof typeof QuoteFields];
+
+/**
+ * @public
  * <p>Contains information about the comma-separated value (CSV) file that the job results
  *             are stored in.</p>
  */
@@ -509,6 +580,7 @@ export interface CSVOutput {
 }
 
 /**
+ * @public
  * <p>Data retrieval policy rule.</p>
  */
 export interface DataRetrievalRule {
@@ -528,6 +600,7 @@ export interface DataRetrievalRule {
 }
 
 /**
+ * @public
  * <p>Data retrieval policy.</p>
  */
 export interface DataRetrievalPolicy {
@@ -539,6 +612,7 @@ export interface DataRetrievalPolicy {
 }
 
 /**
+ * @public
  * <p>Provides options for deleting an archive from an Amazon S3 Glacier vault.</p>
  */
 export interface DeleteArchiveInput {
@@ -563,6 +637,7 @@ export interface DeleteArchiveInput {
 }
 
 /**
+ * @public
  * <p>Provides options for deleting a vault from Amazon S3 Glacier.</p>
  */
 export interface DeleteVaultInput {
@@ -582,6 +657,7 @@ export interface DeleteVaultInput {
 }
 
 /**
+ * @public
  * <p>DeleteVaultAccessPolicy input.</p>
  */
 export interface DeleteVaultAccessPolicyInput {
@@ -601,6 +677,7 @@ export interface DeleteVaultAccessPolicyInput {
 }
 
 /**
+ * @public
  * <p>Provides options for deleting a vault notification configuration from an Amazon
  *          Glacier vault.</p>
  */
@@ -621,6 +698,7 @@ export interface DeleteVaultNotificationsInput {
 }
 
 /**
+ * @public
  * <p>Provides options for retrieving a job description.</p>
  */
 export interface DescribeJobInput {
@@ -645,6 +723,7 @@ export interface DescribeJobInput {
 }
 
 /**
+ * @public
  * <p>Describes the options for a range inventory retrieval job.</p>
  */
 export interface InventoryRetrievalJobDescription {
@@ -684,12 +763,22 @@ export interface InventoryRetrievalJobDescription {
   Marker?: string;
 }
 
-export enum EncryptionType {
-  KMS = "aws:kms",
-  S3 = "AES256",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  KMS: "aws:kms",
+  S3: "AES256",
+} as const;
 
 /**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
+ * @public
  * <p>Contains information about the encryption used to store the job results in Amazon S3. </p>
  */
 export interface Encryption {
@@ -713,13 +802,23 @@ export interface Encryption {
   KMSContext?: string;
 }
 
-export enum StorageClass {
-  ReducedRedundancy = "REDUCED_REDUNDANCY",
-  Standard = "STANDARD",
-  StandardInfrequentAccess = "STANDARD_IA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StorageClass = {
+  ReducedRedundancy: "REDUCED_REDUNDANCY",
+  Standard: "STANDARD",
+  StandardInfrequentAccess: "STANDARD_IA",
+} as const;
 
 /**
+ * @public
+ */
+export type StorageClass = (typeof StorageClass)[keyof typeof StorageClass];
+
+/**
+ * @public
  * <p>Contains information about the location in Amazon S3 where the select job results are stored.</p>
  */
 export interface S3Location {
@@ -765,6 +864,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Contains information about the location where the select job results are stored.</p>
  */
 export interface OutputLocation {
@@ -774,11 +874,21 @@ export interface OutputLocation {
   S3?: S3Location;
 }
 
-export enum ExpressionType {
-  SQL = "SQL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExpressionType = {
+  SQL: "SQL",
+} as const;
 
 /**
+ * @public
+ */
+export type ExpressionType = (typeof ExpressionType)[keyof typeof ExpressionType];
+
+/**
+ * @public
  * <p>Describes how the archive is serialized.</p>
  */
 export interface InputSerialization {
@@ -789,6 +899,7 @@ export interface InputSerialization {
 }
 
 /**
+ * @public
  * <p>Describes how the select output is serialized.</p>
  */
 export interface OutputSerialization {
@@ -799,6 +910,7 @@ export interface OutputSerialization {
 }
 
 /**
+ * @public
  * <p>Contains information about the parameters used for a select.</p>
  */
 export interface SelectParameters {
@@ -823,13 +935,23 @@ export interface SelectParameters {
   OutputSerialization?: OutputSerialization;
 }
 
-export enum StatusCode {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Succeeded = "Succeeded",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StatusCode = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Succeeded: "Succeeded",
+} as const;
 
 /**
+ * @public
+ */
+export type StatusCode = (typeof StatusCode)[keyof typeof StatusCode];
+
+/**
+ * @public
  * <p>Contains the description of an Amazon S3 Glacier job.</p>
  */
 export interface GlacierJobDescription {
@@ -987,6 +1109,7 @@ export interface GlacierJobDescription {
 }
 
 /**
+ * @public
  * <p>Provides options for retrieving metadata for a specific vault in Amazon
  *          Glacier.</p>
  */
@@ -1007,6 +1130,7 @@ export interface DescribeVaultInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface DescribeVaultOutput {
@@ -1050,6 +1174,7 @@ export interface DescribeVaultOutput {
 }
 
 /**
+ * @public
  * <p>Input for GetDataRetrievalPolicy.</p>
  */
 export interface GetDataRetrievalPolicyInput {
@@ -1064,6 +1189,7 @@ export interface GetDataRetrievalPolicyInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to the <code>GetDataRetrievalPolicy</code>
  *          request.</p>
  */
@@ -1075,6 +1201,7 @@ export interface GetDataRetrievalPolicyOutput {
 }
 
 /**
+ * @public
  * <p>Provides options for downloading output of an Amazon S3 Glacier job.</p>
  */
 export interface GetJobOutputInput {
@@ -1139,6 +1266,7 @@ export interface GetJobOutputInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface GetJobOutputOutput {
@@ -1205,6 +1333,7 @@ export interface GetJobOutputOutput {
 }
 
 /**
+ * @public
  * <p>Input for GetVaultAccessPolicy.</p>
  */
 export interface GetVaultAccessPolicyInput {
@@ -1224,6 +1353,7 @@ export interface GetVaultAccessPolicyInput {
 }
 
 /**
+ * @public
  * <p>Contains the vault access policy.</p>
  */
 export interface VaultAccessPolicy {
@@ -1234,6 +1364,7 @@ export interface VaultAccessPolicy {
 }
 
 /**
+ * @public
  * <p>Output for GetVaultAccessPolicy.</p>
  */
 export interface GetVaultAccessPolicyOutput {
@@ -1244,6 +1375,7 @@ export interface GetVaultAccessPolicyOutput {
 }
 
 /**
+ * @public
  * <p>The input values for <code>GetVaultLock</code>.</p>
  */
 export interface GetVaultLockInput {
@@ -1263,6 +1395,7 @@ export interface GetVaultLockInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface GetVaultLockOutput {
@@ -1292,6 +1425,7 @@ export interface GetVaultLockOutput {
 }
 
 /**
+ * @public
  * <p>Provides options for retrieving the notification configuration set on an Amazon
  *          Glacier vault.</p>
  */
@@ -1312,6 +1446,7 @@ export interface GetVaultNotificationsInput {
 }
 
 /**
+ * @public
  * <p>Represents a vault's notification configuration.</p>
  */
 export interface VaultNotificationConfig {
@@ -1329,6 +1464,7 @@ export interface VaultNotificationConfig {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface GetVaultNotificationsOutput {
@@ -1339,6 +1475,7 @@ export interface GetVaultNotificationsOutput {
 }
 
 /**
+ * @public
  * <p>Provides options for specifying a range inventory retrieval job.</p>
  */
 export interface InventoryRetrievalJobInput {
@@ -1372,6 +1509,7 @@ export interface InventoryRetrievalJobInput {
 }
 
 /**
+ * @public
  * <p>Provides options for defining a job.</p>
  */
 export interface JobParameters {
@@ -1449,6 +1587,7 @@ export interface JobParameters {
 }
 
 /**
+ * @public
  * <p>Provides options for initiating an Amazon S3 Glacier job.</p>
  */
 export interface InitiateJobInput {
@@ -1473,6 +1612,7 @@ export interface InitiateJobInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface InitiateJobOutput {
@@ -1493,6 +1633,7 @@ export interface InitiateJobOutput {
 }
 
 /**
+ * @public
  * <p>Returned if there is insufficient capacity to process this expedited request. This
  *          error only applies to expedited retrievals and not to standard or bulk
  *          retrievals.</p>
@@ -1518,6 +1659,7 @@ export class InsufficientCapacityException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if a retrieval job would exceed the current data policy's retrieval rate
  *          limit. For more information about data retrieval policies,</p>
  */
@@ -1550,6 +1692,7 @@ export class PolicyEnforcedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides options for initiating a multipart upload to an Amazon S3 Glacier
  *          vault.</p>
  */
@@ -1584,6 +1727,7 @@ export interface InitiateMultipartUploadInput {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 Glacier response to your request.</p>
  */
 export interface InitiateMultipartUploadOutput {
@@ -1600,6 +1744,7 @@ export interface InitiateMultipartUploadOutput {
 }
 
 /**
+ * @public
  * <p>Contains the vault lock policy.</p>
  */
 export interface VaultLockPolicy {
@@ -1610,6 +1755,7 @@ export interface VaultLockPolicy {
 }
 
 /**
+ * @public
  * <p>The input values for <code>InitiateVaultLock</code>.</p>
  */
 export interface InitiateVaultLockInput {
@@ -1635,6 +1781,7 @@ export interface InitiateVaultLockInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface InitiateVaultLockOutput {
@@ -1645,6 +1792,7 @@ export interface InitiateVaultLockOutput {
 }
 
 /**
+ * @public
  * <p>Provides options for retrieving a job list for an Amazon S3 Glacier vault.</p>
  */
 export interface ListJobsInput {
@@ -1691,6 +1839,7 @@ export interface ListJobsInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListJobsOutput {
@@ -1711,6 +1860,7 @@ export interface ListJobsOutput {
 }
 
 /**
+ * @public
  * <p>Provides options for retrieving list of in-progress multipart uploads for an Amazon
  *          Glacier vault.</p>
  */
@@ -1745,6 +1895,7 @@ export interface ListMultipartUploadsInput {
 }
 
 /**
+ * @public
  * <p>A list of in-progress multipart uploads for a vault.</p>
  */
 export interface UploadListElement {
@@ -1778,6 +1929,7 @@ export interface UploadListElement {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListMultipartUploadsOutput {
@@ -1795,6 +1947,7 @@ export interface ListMultipartUploadsOutput {
 }
 
 /**
+ * @public
  * <p>Provides options for retrieving a list of parts of an archive that have been uploaded
  *          in a specific multipart upload.</p>
  */
@@ -1835,6 +1988,7 @@ export interface ListPartsInput {
 }
 
 /**
+ * @public
  * <p>A list of the part sizes of the multipart upload.</p>
  */
 export interface PartListElement {
@@ -1851,6 +2005,7 @@ export interface PartListElement {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListPartsOutput {
@@ -1897,6 +2052,9 @@ export interface ListPartsOutput {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisionedCapacityInput {
   /**
    * <p>The AWS account ID of the account that owns the vault. You can either specify an AWS
@@ -1908,6 +2066,7 @@ export interface ListProvisionedCapacityInput {
 }
 
 /**
+ * @public
  * <p>The definition for a provisioned capacity unit.</p>
  */
 export interface ProvisionedCapacityDescription {
@@ -1927,6 +2086,9 @@ export interface ProvisionedCapacityDescription {
   ExpirationDate?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisionedCapacityOutput {
   /**
    * <p>The response body contains the following JSON fields.</p>
@@ -1935,6 +2097,7 @@ export interface ListProvisionedCapacityOutput {
 }
 
 /**
+ * @public
  * <p>The input value for <code>ListTagsForVaultInput</code>.</p>
  */
 export interface ListTagsForVaultInput {
@@ -1954,6 +2117,7 @@ export interface ListTagsForVaultInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListTagsForVaultOutput {
@@ -1964,6 +2128,7 @@ export interface ListTagsForVaultOutput {
 }
 
 /**
+ * @public
  * <p>Provides options to retrieve the vault list owned by the calling user's account. The
  *          list provides metadata information for each vault.</p>
  */
@@ -1992,6 +2157,7 @@ export interface ListVaultsInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListVaultsOutput {
@@ -2007,6 +2173,9 @@ export interface ListVaultsOutput {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface PurchaseProvisionedCapacityInput {
   /**
    * <p>The AWS account ID of the account that owns the vault. You can either specify an AWS
@@ -2017,6 +2186,9 @@ export interface PurchaseProvisionedCapacityInput {
   accountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PurchaseProvisionedCapacityOutput {
   /**
    * <p>The ID that identifies the provisioned capacity unit.</p>
@@ -2025,6 +2197,7 @@ export interface PurchaseProvisionedCapacityOutput {
 }
 
 /**
+ * @public
  * <p>The input value for <code>RemoveTagsFromVaultInput</code>.</p>
  */
 export interface RemoveTagsFromVaultInput {
@@ -2049,6 +2222,7 @@ export interface RemoveTagsFromVaultInput {
 }
 
 /**
+ * @public
  * <p>SetDataRetrievalPolicy input.</p>
  */
 export interface SetDataRetrievalPolicyInput {
@@ -2068,6 +2242,7 @@ export interface SetDataRetrievalPolicyInput {
 }
 
 /**
+ * @public
  * <p>SetVaultAccessPolicy input.</p>
  */
 export interface SetVaultAccessPolicyInput {
@@ -2092,6 +2267,7 @@ export interface SetVaultAccessPolicyInput {
 }
 
 /**
+ * @public
  * <p>Provides options to configure notifications that will be sent when specific events
  *          happen to a vault.</p>
  */
@@ -2117,6 +2293,7 @@ export interface SetVaultNotificationsInput {
 }
 
 /**
+ * @public
  * <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the
  *          upload.</p>
  */
@@ -2149,6 +2326,7 @@ export class RequestTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides options to add an archive to a vault.</p>
  */
 export interface UploadArchiveInput {
@@ -2183,6 +2361,7 @@ export interface UploadArchiveInput {
 }
 
 /**
+ * @public
  * <p>Provides options to upload a part of an archive in a multipart upload
  *          operation.</p>
  */
@@ -2226,6 +2405,7 @@ export interface UploadMultipartPartInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface UploadMultipartPartOutput {
@@ -2238,497 +2418,7 @@ export interface UploadMultipartPartOutput {
 /**
  * @internal
  */
-export const AbortMultipartUploadInputFilterSensitiveLog = (obj: AbortMultipartUploadInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AbortVaultLockInputFilterSensitiveLog = (obj: AbortVaultLockInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GranteeFilterSensitiveLog = (obj: Grantee): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrantFilterSensitiveLog = (obj: Grant): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsToVaultInputFilterSensitiveLog = (obj: AddTagsToVaultInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArchiveCreationOutputFilterSensitiveLog = (obj: ArchiveCreationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompleteMultipartUploadInputFilterSensitiveLog = (obj: CompleteMultipartUploadInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompleteVaultLockInputFilterSensitiveLog = (obj: CompleteVaultLockInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVaultInputFilterSensitiveLog = (obj: CreateVaultInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVaultOutputFilterSensitiveLog = (obj: CreateVaultOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CSVInputFilterSensitiveLog = (obj: CSVInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CSVOutputFilterSensitiveLog = (obj: CSVOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataRetrievalRuleFilterSensitiveLog = (obj: DataRetrievalRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataRetrievalPolicyFilterSensitiveLog = (obj: DataRetrievalPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteArchiveInputFilterSensitiveLog = (obj: DeleteArchiveInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVaultInputFilterSensitiveLog = (obj: DeleteVaultInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVaultAccessPolicyInputFilterSensitiveLog = (obj: DeleteVaultAccessPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVaultNotificationsInputFilterSensitiveLog = (obj: DeleteVaultNotificationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobInputFilterSensitiveLog = (obj: DescribeJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InventoryRetrievalJobDescriptionFilterSensitiveLog = (obj: InventoryRetrievalJobDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionFilterSensitiveLog = (obj: Encryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputLocationFilterSensitiveLog = (obj: OutputLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputSerializationFilterSensitiveLog = (obj: InputSerialization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputSerializationFilterSensitiveLog = (obj: OutputSerialization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelectParametersFilterSensitiveLog = (obj: SelectParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlacierJobDescriptionFilterSensitiveLog = (obj: GlacierJobDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVaultInputFilterSensitiveLog = (obj: DescribeVaultInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVaultOutputFilterSensitiveLog = (obj: DescribeVaultOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataRetrievalPolicyInputFilterSensitiveLog = (obj: GetDataRetrievalPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataRetrievalPolicyOutputFilterSensitiveLog = (obj: GetDataRetrievalPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobOutputInputFilterSensitiveLog = (obj: GetJobOutputInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetJobOutputOutputFilterSensitiveLog = (obj: GetJobOutputOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVaultAccessPolicyInputFilterSensitiveLog = (obj: GetVaultAccessPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VaultAccessPolicyFilterSensitiveLog = (obj: VaultAccessPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVaultAccessPolicyOutputFilterSensitiveLog = (obj: GetVaultAccessPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVaultLockInputFilterSensitiveLog = (obj: GetVaultLockInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVaultLockOutputFilterSensitiveLog = (obj: GetVaultLockOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVaultNotificationsInputFilterSensitiveLog = (obj: GetVaultNotificationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VaultNotificationConfigFilterSensitiveLog = (obj: VaultNotificationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVaultNotificationsOutputFilterSensitiveLog = (obj: GetVaultNotificationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InventoryRetrievalJobInputFilterSensitiveLog = (obj: InventoryRetrievalJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobParametersFilterSensitiveLog = (obj: JobParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitiateJobInputFilterSensitiveLog = (obj: InitiateJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitiateJobOutputFilterSensitiveLog = (obj: InitiateJobOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitiateMultipartUploadInputFilterSensitiveLog = (obj: InitiateMultipartUploadInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitiateMultipartUploadOutputFilterSensitiveLog = (obj: InitiateMultipartUploadOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VaultLockPolicyFilterSensitiveLog = (obj: VaultLockPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitiateVaultLockInputFilterSensitiveLog = (obj: InitiateVaultLockInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitiateVaultLockOutputFilterSensitiveLog = (obj: InitiateVaultLockOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsInputFilterSensitiveLog = (obj: ListJobsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsOutputFilterSensitiveLog = (obj: ListJobsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMultipartUploadsInputFilterSensitiveLog = (obj: ListMultipartUploadsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadListElementFilterSensitiveLog = (obj: UploadListElement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMultipartUploadsOutputFilterSensitiveLog = (obj: ListMultipartUploadsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPartsInputFilterSensitiveLog = (obj: ListPartsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartListElementFilterSensitiveLog = (obj: PartListElement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPartsOutputFilterSensitiveLog = (obj: ListPartsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProvisionedCapacityInputFilterSensitiveLog = (obj: ListProvisionedCapacityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedCapacityDescriptionFilterSensitiveLog = (obj: ProvisionedCapacityDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProvisionedCapacityOutputFilterSensitiveLog = (obj: ListProvisionedCapacityOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForVaultInputFilterSensitiveLog = (obj: ListTagsForVaultInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForVaultOutputFilterSensitiveLog = (obj: ListTagsForVaultOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVaultsInputFilterSensitiveLog = (obj: ListVaultsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVaultsOutputFilterSensitiveLog = (obj: ListVaultsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseProvisionedCapacityInputFilterSensitiveLog = (obj: PurchaseProvisionedCapacityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseProvisionedCapacityOutputFilterSensitiveLog = (obj: PurchaseProvisionedCapacityOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsFromVaultInputFilterSensitiveLog = (obj: RemoveTagsFromVaultInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetDataRetrievalPolicyInputFilterSensitiveLog = (obj: SetDataRetrievalPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetVaultAccessPolicyInputFilterSensitiveLog = (obj: SetVaultAccessPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetVaultNotificationsInputFilterSensitiveLog = (obj: SetVaultNotificationsInput): any => ({
   ...obj,
 });
 
@@ -2743,12 +2433,5 @@ export const UploadArchiveInputFilterSensitiveLog = (obj: UploadArchiveInput): a
  * @internal
  */
 export const UploadMultipartPartInputFilterSensitiveLog = (obj: UploadMultipartPartInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadMultipartPartOutputFilterSensitiveLog = (obj: UploadMultipartPartOutput): any => ({
   ...obj,
 });

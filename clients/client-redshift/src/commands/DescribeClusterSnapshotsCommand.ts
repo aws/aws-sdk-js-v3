@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeClusterSnapshotsMessage,
-  DescribeClusterSnapshotsMessageFilterSensitiveLog,
-  SnapshotMessage,
-  SnapshotMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterSnapshotsCommand,
-  serializeAws_queryDescribeClusterSnapshotsCommand,
-} from "../protocols/Aws_query";
+import { DescribeClusterSnapshotsMessage, SnapshotMessage } from "../models/models_0";
+import { de_DescribeClusterSnapshotsCommand, se_DescribeClusterSnapshotsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterSnapshotsCommand}.
  */
 export interface DescribeClusterSnapshotsCommandInput extends DescribeClusterSnapshotsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterSnapshotsCommand}.
  */
 export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns one or more snapshot objects, which contain metadata about your cluster
  *             snapshots. By default, this operation returns information about all snapshots of all
  *             clusters that are owned by your Amazon Web Services account. No information is returned for
@@ -54,10 +51,36 @@ export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, 
  * import { RedshiftClient, DescribeClusterSnapshotsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterSnapshotsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeClusterSnapshotsMessage
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   SnapshotIdentifier: "STRING_VALUE",
+ *   SnapshotArn: "STRING_VALUE",
+ *   SnapshotType: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   OwnerAccount: "STRING_VALUE",
+ *   TagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [ // TagValueList
+ *     "STRING_VALUE",
+ *   ],
+ *   ClusterExists: true || false,
+ *   SortingEntities: [ // SnapshotSortingEntityList
+ *     { // SnapshotSortingEntity
+ *       Attribute: "SOURCE_TYPE" || "TOTAL_SIZE" || "CREATE_TIME", // required
+ *       SortOrder: "ASC" || "DESC",
+ *     },
+ *   ],
+ * };
  * const command = new DescribeClusterSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterSnapshotsCommandInput - {@link DescribeClusterSnapshotsCommandInput}
+ * @returns {@link DescribeClusterSnapshotsCommandOutput}
  * @see {@link DescribeClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -94,6 +117,9 @@ export class DescribeClusterSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +148,8 @@ export class DescribeClusterSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterSnapshotsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: SnapshotMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +159,18 @@ export class DescribeClusterSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterSnapshotsCommand(input, context);
+    return se_DescribeClusterSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterSnapshotsCommandOutput> {
-    return deserializeAws_queryDescribeClusterSnapshotsCommand(output, context);
+    return de_DescribeClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

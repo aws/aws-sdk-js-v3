@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeTrustedAdvisorChecksRequest, DescribeTrustedAdvisorChecksResponse } from "../models/models_0";
 import {
-  DescribeTrustedAdvisorChecksRequest,
-  DescribeTrustedAdvisorChecksRequestFilterSensitiveLog,
-  DescribeTrustedAdvisorChecksResponse,
-  DescribeTrustedAdvisorChecksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand,
-  serializeAws_json1_1DescribeTrustedAdvisorChecksCommand,
+  de_DescribeTrustedAdvisorChecksCommand,
+  se_DescribeTrustedAdvisorChecksCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrustedAdvisorChecksCommand}.
  */
 export interface DescribeTrustedAdvisorChecksCommandInput extends DescribeTrustedAdvisorChecksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrustedAdvisorChecksCommand}.
  */
 export interface DescribeTrustedAdvisorChecksCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all available Trusted Advisor checks, including the name, ID,
  *             category, description, and metadata. You must specify a language code.</p>
  *          <p>The response contains a <a>TrustedAdvisorCheckDescription</a> object for
@@ -69,10 +69,15 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
  * import { SupportClient, DescribeTrustedAdvisorChecksCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeTrustedAdvisorChecksCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = { // DescribeTrustedAdvisorChecksRequest
+ *   language: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTrustedAdvisorChecksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrustedAdvisorChecksCommandInput - {@link DescribeTrustedAdvisorChecksCommandInput}
+ * @returns {@link DescribeTrustedAdvisorChecksCommandOutput}
  * @see {@link DescribeTrustedAdvisorChecksCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorChecksCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -99,6 +104,9 @@ export class DescribeTrustedAdvisorChecksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrustedAdvisorChecksCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +135,8 @@ export class DescribeTrustedAdvisorChecksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrustedAdvisorChecksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrustedAdvisorChecksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +146,21 @@ export class DescribeTrustedAdvisorChecksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrustedAdvisorChecksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTrustedAdvisorChecksCommand(input, context);
+    return se_DescribeTrustedAdvisorChecksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrustedAdvisorChecksCommandOutput> {
-    return deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand(output, context);
+    return de_DescribeTrustedAdvisorChecksCommand(output, context);
   }
 
   // Start section: command_body_extra

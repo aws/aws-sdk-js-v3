@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateUserRequest,
-  CreateUserRequestFilterSensitiveLog,
-  CreateUserResponse,
-  CreateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateUserCommand,
-  serializeAws_restJson1CreateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateUserRequest, CreateUserResponse } from "../models/models_0";
+import { de_CreateUserCommand, se_CreateUserCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserCommand}.
  */
 export interface CreateUserCommandInput extends CreateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserCommand}.
  */
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a user account for the specified Amazon Connect instance.</p>
  *          <p>For information about how to create user accounts using the Amazon Connect console, see
  *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add
@@ -45,10 +42,39 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { ConnectClient, CreateUserCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateUserCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // CreateUserRequest
+ *   Username: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE",
+ *   IdentityInfo: { // UserIdentityInfo
+ *     FirstName: "STRING_VALUE",
+ *     LastName: "STRING_VALUE",
+ *     Email: "STRING_VALUE",
+ *     SecondaryEmail: "STRING_VALUE",
+ *     Mobile: "STRING_VALUE",
+ *   },
+ *   PhoneConfig: { // UserPhoneConfig
+ *     PhoneType: "SOFT_PHONE" || "DESK_PHONE", // required
+ *     AutoAccept: true || false,
+ *     AfterContactWorkTimeLimit: Number("int"),
+ *     DeskPhoneNumber: "STRING_VALUE",
+ *   },
+ *   DirectoryUserId: "STRING_VALUE",
+ *   SecurityProfileIds: [ // SecurityProfileIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   RoutingProfileId: "STRING_VALUE", // required
+ *   HierarchyGroupId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserCommandInput - {@link CreateUserCommandInput}
+ * @returns {@link CreateUserCommandOutput}
  * @see {@link CreateUserCommandInput} for command's `input` shape.
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -93,6 +119,9 @@ export class CreateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +148,8 @@ export class CreateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +159,18 @@ export class CreateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUserCommand(input, context);
+    return se_CreateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserCommandOutput> {
-    return deserializeAws_restJson1CreateUserCommand(output, context);
+    return de_CreateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

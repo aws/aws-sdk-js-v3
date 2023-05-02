@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  IncreaseReplicationFactorRequest,
-  IncreaseReplicationFactorRequestFilterSensitiveLog,
-  IncreaseReplicationFactorResponse,
-  IncreaseReplicationFactorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1IncreaseReplicationFactorCommand,
-  serializeAws_json1_1IncreaseReplicationFactorCommand,
-} from "../protocols/Aws_json1_1";
+import { IncreaseReplicationFactorRequest, IncreaseReplicationFactorResponse } from "../models/models_0";
+import { de_IncreaseReplicationFactorCommand, se_IncreaseReplicationFactorCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link IncreaseReplicationFactorCommand}.
  */
 export interface IncreaseReplicationFactorCommandInput extends IncreaseReplicationFactorRequest {}
 /**
+ * @public
+ *
  * The output of {@link IncreaseReplicationFactorCommand}.
  */
 export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicationFactorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more nodes to a DAX cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  * import { DAXClient, IncreaseReplicationFactorCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, IncreaseReplicationFactorCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = { // IncreaseReplicationFactorRequest
+ *   ClusterName: "STRING_VALUE", // required
+ *   NewReplicationFactor: Number("int"), // required
+ *   AvailabilityZones: [ // AvailabilityZoneList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new IncreaseReplicationFactorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param IncreaseReplicationFactorCommandInput - {@link IncreaseReplicationFactorCommandInput}
+ * @returns {@link IncreaseReplicationFactorCommandOutput}
  * @see {@link IncreaseReplicationFactorCommandInput} for command's `input` shape.
  * @see {@link IncreaseReplicationFactorCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -100,6 +106,9 @@ export class IncreaseReplicationFactorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IncreaseReplicationFactorCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +137,8 @@ export class IncreaseReplicationFactorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IncreaseReplicationFactorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: IncreaseReplicationFactorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +148,21 @@ export class IncreaseReplicationFactorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IncreaseReplicationFactorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1IncreaseReplicationFactorCommand(input, context);
+    return se_IncreaseReplicationFactorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<IncreaseReplicationFactorCommandOutput> {
-    return deserializeAws_json1_1IncreaseReplicationFactorCommand(output, context);
+    return de_IncreaseReplicationFactorCommand(output, context);
   }
 
   // Start section: command_body_extra

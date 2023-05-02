@@ -20,21 +20,23 @@ import {
   SearchPlaceIndexForTextResponse,
   SearchPlaceIndexForTextResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchPlaceIndexForTextCommand,
-  serializeAws_restJson1SearchPlaceIndexForTextCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchPlaceIndexForTextCommand, se_SearchPlaceIndexForTextCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchPlaceIndexForTextCommand}.
  */
 export interface SearchPlaceIndexForTextCommandInput extends SearchPlaceIndexForTextRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchPlaceIndexForTextCommand}.
  */
 export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexForTextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Geocodes free-form text, such as an address, name, city, or region to allow you to
  *             search for Places or points of interest. </p>
  *          <p>Optional parameters let you narrow your search results by bounding box or country, or
@@ -51,10 +53,27 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  * import { LocationClient, SearchPlaceIndexForTextCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, SearchPlaceIndexForTextCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // SearchPlaceIndexForTextRequest
+ *   IndexName: "STRING_VALUE", // required
+ *   Text: "STRING_VALUE", // required
+ *   BiasPosition: [ // Position
+ *     Number("double"),
+ *   ],
+ *   FilterBBox: [ // BoundingBox
+ *     Number("double"),
+ *   ],
+ *   FilterCountries: [ // CountryCodeList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   Language: "STRING_VALUE",
+ * };
  * const command = new SearchPlaceIndexForTextCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchPlaceIndexForTextCommandInput - {@link SearchPlaceIndexForTextCommandInput}
+ * @returns {@link SearchPlaceIndexForTextCommandOutput}
  * @see {@link SearchPlaceIndexForTextCommandInput} for command's `input` shape.
  * @see {@link SearchPlaceIndexForTextCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -94,6 +113,9 @@ export class SearchPlaceIndexForTextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchPlaceIndexForTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,12 +155,18 @@ export class SearchPlaceIndexForTextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchPlaceIndexForTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchPlaceIndexForTextCommand(input, context);
+    return se_SearchPlaceIndexForTextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchPlaceIndexForTextCommandOutput> {
-    return deserializeAws_restJson1SearchPlaceIndexForTextCommand(output, context);
+    return de_SearchPlaceIndexForTextCommand(output, context);
   }
 
   // Start section: command_body_extra

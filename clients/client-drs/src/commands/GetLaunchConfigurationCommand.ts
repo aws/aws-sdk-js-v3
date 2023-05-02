@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import {
-  GetLaunchConfigurationRequest,
-  GetLaunchConfigurationRequestFilterSensitiveLog,
-  LaunchConfiguration,
-  LaunchConfigurationFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLaunchConfigurationCommand,
-  serializeAws_restJson1GetLaunchConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLaunchConfigurationRequest, LaunchConfiguration } from "../models/models_0";
+import { de_GetLaunchConfigurationCommand, se_GetLaunchConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLaunchConfigurationCommand}.
  */
 export interface GetLaunchConfigurationCommandInput extends GetLaunchConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLaunchConfigurationCommand}.
  */
 export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a LaunchConfiguration, filtered by Source Server IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * import { DrsClient, GetLaunchConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, GetLaunchConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // GetLaunchConfigurationRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ * };
  * const command = new GetLaunchConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLaunchConfigurationCommandInput - {@link GetLaunchConfigurationCommandInput}
+ * @returns {@link GetLaunchConfigurationCommandOutput}
  * @see {@link GetLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -81,6 +83,9 @@ export class GetLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class GetLaunchConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLaunchConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LaunchConfigurationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class GetLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLaunchConfigurationCommand(input, context);
+    return se_GetLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLaunchConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetLaunchConfigurationCommand(output, context);
+    return de_GetLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

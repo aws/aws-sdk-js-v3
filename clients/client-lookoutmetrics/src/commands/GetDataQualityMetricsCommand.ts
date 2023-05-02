@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  GetDataQualityMetricsRequest,
-  GetDataQualityMetricsRequestFilterSensitiveLog,
-  GetDataQualityMetricsResponse,
-  GetDataQualityMetricsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataQualityMetricsCommand,
-  serializeAws_restJson1GetDataQualityMetricsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDataQualityMetricsRequest, GetDataQualityMetricsResponse } from "../models/models_0";
+import { de_GetDataQualityMetricsCommand, se_GetDataQualityMetricsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataQualityMetricsCommand}.
  */
 export interface GetDataQualityMetricsCommandInput extends GetDataQualityMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataQualityMetricsCommand}.
  */
 export interface GetDataQualityMetricsCommandOutput extends GetDataQualityMetricsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about the requested data quality metrics.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetDataQualityMetricsCommandOutput extends GetDataQualityMetric
  * import { LookoutMetricsClient, GetDataQualityMetricsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, GetDataQualityMetricsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = { // GetDataQualityMetricsRequest
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   MetricSetArn: "STRING_VALUE",
+ * };
  * const command = new GetDataQualityMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataQualityMetricsCommandInput - {@link GetDataQualityMetricsCommandInput}
+ * @returns {@link GetDataQualityMetricsCommandOutput}
  * @see {@link GetDataQualityMetricsCommandInput} for command's `input` shape.
  * @see {@link GetDataQualityMetricsCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -85,6 +88,9 @@ export class GetDataQualityMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataQualityMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class GetDataQualityMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataQualityMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataQualityMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class GetDataQualityMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataQualityMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataQualityMetricsCommand(input, context);
+    return se_GetDataQualityMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataQualityMetricsCommandOutput> {
-    return deserializeAws_restJson1GetDataQualityMetricsCommand(output, context);
+    return de_GetDataQualityMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

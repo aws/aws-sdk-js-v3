@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeServerRequest,
-  DescribeServerRequestFilterSensitiveLog,
-  DescribeServerResponse,
-  DescribeServerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeServerCommand,
-  serializeAws_json1_1DescribeServerCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeServerRequest, DescribeServerResponse } from "../models/models_0";
+import { de_DescribeServerCommand, se_DescribeServerCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServerCommand}.
  */
 export interface DescribeServerCommandInput extends DescribeServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServerCommand}.
  */
 export interface DescribeServerCommandOutput extends DescribeServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a file transfer protocol-enabled server that you specify by passing the
  *         <code>ServerId</code> parameter.</p>
  *          <p>The response contains a description of a server's properties. When you set
@@ -46,10 +43,15 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * import { TransferClient, DescribeServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // DescribeServerRequest
+ *   ServerId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServerCommandInput - {@link DescribeServerCommandInput}
+ * @returns {@link DescribeServerCommandOutput}
  * @see {@link DescribeServerCommandInput} for command's `input` shape.
  * @see {@link DescribeServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -86,6 +88,9 @@ export class DescribeServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class DescribeServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeServerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class DescribeServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServerCommand(input, context);
+    return se_DescribeServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServerCommandOutput> {
-    return deserializeAws_json1_1DescribeServerCommand(output, context);
+    return de_DescribeServerCommand(output, context);
   }
 
   // Start section: command_body_extra

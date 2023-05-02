@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  ClaimDeviceRequest,
-  ClaimDeviceRequestFilterSensitiveLog,
-  ClaimDeviceResponse,
-  ClaimDeviceResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ClaimDeviceCommand,
-  serializeAws_restJson1ClaimDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { ClaimDeviceRequest, ClaimDeviceResponse } from "../models/models_1";
+import { de_ClaimDeviceCommand, se_ClaimDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ClaimDeviceCommand}.
  */
 export interface ClaimDeviceCommandInput extends ClaimDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ClaimDeviceCommand}.
  */
 export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Send a request to claim an AWS Elemental device that you have purchased from a third-party vendor. After the request succeeds, you will own the device.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __Metadat
  * import { MediaLiveClient, ClaimDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ClaimDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // ClaimDeviceRequest
+ *   Id: "STRING_VALUE",
+ * };
  * const command = new ClaimDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ClaimDeviceCommandInput - {@link ClaimDeviceCommandInput}
+ * @returns {@link ClaimDeviceCommandOutput}
  * @see {@link ClaimDeviceCommandInput} for command's `input` shape.
  * @see {@link ClaimDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +95,9 @@ export class ClaimDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ClaimDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class ClaimDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ClaimDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ClaimDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class ClaimDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ClaimDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ClaimDeviceCommand(input, context);
+    return se_ClaimDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClaimDeviceCommandOutput> {
-    return deserializeAws_restJson1ClaimDeviceCommand(output, context);
+    return de_ClaimDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

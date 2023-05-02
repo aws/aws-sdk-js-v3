@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateGlobalSettingsInput, UpdateGlobalSettingsInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGlobalSettingsCommand,
-  serializeAws_restJson1UpdateGlobalSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateGlobalSettingsInput } from "../models/models_0";
+import { de_UpdateGlobalSettingsCommand, se_UpdateGlobalSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGlobalSettingsCommand}.
  */
 export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGlobalSettingsCommand}.
  */
 export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates whether the Amazon Web Services account is opted into organization sharing features.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * import { WellArchitectedClient, UpdateGlobalSettingsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateGlobalSettingsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // UpdateGlobalSettingsInput
+ *   OrganizationSharingStatus: "ENABLED" || "DISABLED",
+ * };
  * const command = new UpdateGlobalSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGlobalSettingsCommandInput - {@link UpdateGlobalSettingsCommandInput}
+ * @returns {@link UpdateGlobalSettingsCommandOutput}
  * @see {@link UpdateGlobalSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalSettingsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -49,7 +56,7 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
@@ -79,6 +86,9 @@ export class UpdateGlobalSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGlobalSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +117,8 @@ export class UpdateGlobalSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGlobalSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +128,18 @@ export class UpdateGlobalSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGlobalSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGlobalSettingsCommand(input, context);
+    return se_UpdateGlobalSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateGlobalSettingsCommand(output, context);
+    return de_UpdateGlobalSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

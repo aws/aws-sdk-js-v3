@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
+import { GetProgrammaticAccessCredentialsRequest, GetProgrammaticAccessCredentialsResponse } from "../models/models_0";
 import {
-  GetProgrammaticAccessCredentialsRequest,
-  GetProgrammaticAccessCredentialsRequestFilterSensitiveLog,
-  GetProgrammaticAccessCredentialsResponse,
-  GetProgrammaticAccessCredentialsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetProgrammaticAccessCredentialsCommand,
-  serializeAws_restJson1GetProgrammaticAccessCredentialsCommand,
+  de_GetProgrammaticAccessCredentialsCommand,
+  se_GetProgrammaticAccessCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProgrammaticAccessCredentialsCommand}.
  */
 export interface GetProgrammaticAccessCredentialsCommandInput extends GetProgrammaticAccessCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProgrammaticAccessCredentialsCommand}.
  */
 export interface GetProgrammaticAccessCredentialsCommandOutput
@@ -37,6 +36,7 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Request programmatic credentials to use with FinSpace SDK.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
  * import { FinspaceDataClient, GetProgrammaticAccessCredentialsCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetProgrammaticAccessCredentialsCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // GetProgrammaticAccessCredentialsRequest
+ *   durationInMinutes: Number("long"),
+ *   environmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetProgrammaticAccessCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProgrammaticAccessCredentialsCommandInput - {@link GetProgrammaticAccessCredentialsCommandInput}
+ * @returns {@link GetProgrammaticAccessCredentialsCommandOutput}
  * @see {@link GetProgrammaticAccessCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetProgrammaticAccessCredentialsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -84,6 +90,9 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProgrammaticAccessCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +121,8 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProgrammaticAccessCredentialsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProgrammaticAccessCredentialsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +132,24 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetProgrammaticAccessCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProgrammaticAccessCredentialsCommand(input, context);
+    return se_GetProgrammaticAccessCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetProgrammaticAccessCredentialsCommandOutput> {
-    return deserializeAws_restJson1GetProgrammaticAccessCredentialsCommand(output, context);
+    return de_GetProgrammaticAccessCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

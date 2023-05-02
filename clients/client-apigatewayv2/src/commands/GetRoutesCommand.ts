@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetRoutesRequest,
-  GetRoutesRequestFilterSensitiveLog,
-  GetRoutesResponse,
-  GetRoutesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRoutesCommand,
-  serializeAws_restJson1GetRoutesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetRoutesRequest, GetRoutesResponse } from "../models/models_0";
+import { de_GetRoutesCommand, se_GetRoutesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRoutesCommand}.
  */
 export interface GetRoutesCommandInput extends GetRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRoutesCommand}.
  */
 export interface GetRoutesCommandOutput extends GetRoutesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the Routes for an API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetRoutesCommandOutput extends GetRoutesResponse, __MetadataBea
  * import { ApiGatewayV2Client, GetRoutesCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetRoutesCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetRoutesRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetRoutesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRoutesCommandInput - {@link GetRoutesCommandInput}
+ * @returns {@link GetRoutesCommandOutput}
  * @see {@link GetRoutesCommandInput} for command's `input` shape.
  * @see {@link GetRoutesCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -78,6 +82,9 @@ export class GetRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class GetRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoutesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRoutesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class GetRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRoutesCommand(input, context);
+    return se_GetRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoutesCommandOutput> {
-    return deserializeAws_restJson1GetRoutesCommand(output, context);
+    return de_GetRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

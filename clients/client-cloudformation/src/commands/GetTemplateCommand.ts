@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  GetTemplateInput,
-  GetTemplateInputFilterSensitiveLog,
-  GetTemplateOutput,
-  GetTemplateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryGetTemplateCommand, serializeAws_queryGetTemplateCommand } from "../protocols/Aws_query";
+import { GetTemplateInput, GetTemplateOutput } from "../models/models_0";
+import { de_GetTemplateCommand, se_GetTemplateCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetTemplateCommand}.
  */
 export interface GetTemplateCommandInput extends GetTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTemplateCommand}.
  */
 export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the template body for a specified stack. You can get the template for running or
  *          deleted stacks.</p>
  *          <p>For deleted stacks, <code>GetTemplate</code> returns the template for up to 90 days
@@ -45,10 +45,17 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * import { CloudFormationClient, GetTemplateCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, GetTemplateCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // GetTemplateInput
+ *   StackName: "STRING_VALUE",
+ *   ChangeSetName: "STRING_VALUE",
+ *   TemplateStage: "Original" || "Processed",
+ * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
+ * @returns {@link GetTemplateCommandOutput}
  * @see {@link GetTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +112,8 @@ export class GetTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemplateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTemplateOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +123,18 @@ export class GetTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetTemplateCommand(input, context);
+    return se_GetTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateCommandOutput> {
-    return deserializeAws_queryGetTemplateCommand(output, context);
+    return de_GetTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

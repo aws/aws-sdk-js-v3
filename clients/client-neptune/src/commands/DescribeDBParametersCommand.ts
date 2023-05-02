@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBParameterGroupDetails,
-  DBParameterGroupDetailsFilterSensitiveLog,
-  DescribeDBParametersMessage,
-  DescribeDBParametersMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DBParameterGroupDetails, DescribeDBParametersMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDescribeDBParametersCommand,
-  serializeAws_queryDescribeDBParametersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBParametersCommand, se_DescribeDBParametersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBParametersCommand}.
  */
 export interface DescribeDBParametersCommandInput extends DescribeDBParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBParametersCommand}.
  */
 export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetails, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the detailed parameter list for a particular DB parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  * import { NeptuneClient, DescribeDBParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DescribeDBParametersMessage
+ *   DBParameterGroupName: "STRING_VALUE", // required
+ *   Source: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBParametersCommandInput - {@link DescribeDBParametersCommandInput}
+ * @returns {@link DescribeDBParametersCommandOutput}
  * @see {@link DescribeDBParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBParametersCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -74,6 +87,9 @@ export class DescribeDBParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +118,8 @@ export class DescribeDBParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBParameterGroupDetailsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +129,18 @@ export class DescribeDBParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBParametersCommand(input, context);
+    return se_DescribeDBParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBParametersCommandOutput> {
-    return deserializeAws_queryDescribeDBParametersCommand(output, context);
+    return de_DescribeDBParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

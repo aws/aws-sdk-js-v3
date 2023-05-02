@@ -10,7 +10,7 @@ import { TimestreamQueryClient } from "../TimestreamQueryClient";
 import { TimestreamQueryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TimestreamQueryClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTagsForResourceCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTagsForResource(
   config: TimestreamQueryPaginationConfiguration,
   input: ListTagsForResourceCommandInput,

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateOpsItemRequest,
-  UpdateOpsItemRequestFilterSensitiveLog,
-  UpdateOpsItemResponse,
-  UpdateOpsItemResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateOpsItemCommand,
-  serializeAws_json1_1UpdateOpsItemCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateOpsItemRequest, UpdateOpsItemResponse } from "../models/models_2";
+import { de_UpdateOpsItemCommand, se_UpdateOpsItemCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOpsItemCommand}.
  */
 export interface UpdateOpsItemCommandInput extends UpdateOpsItemRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOpsItemCommand}.
  */
 export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Edit or change an OpsItem. You must have permission in Identity and Access Management (IAM) to update an OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
  *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
@@ -47,10 +44,45 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  * import { SSMClient, UpdateOpsItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateOpsItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateOpsItemRequest
+ *   Description: "STRING_VALUE",
+ *   OperationalData: { // OpsItemOperationalData
+ *     "<keys>": { // OpsItemDataValue
+ *       Value: "STRING_VALUE",
+ *       Type: "SearchableString" || "String",
+ *     },
+ *   },
+ *   OperationalDataToDelete: [ // OpsItemOpsDataKeysList
+ *     "STRING_VALUE",
+ *   ],
+ *   Notifications: [ // OpsItemNotifications
+ *     { // OpsItemNotification
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Priority: Number("int"),
+ *   RelatedOpsItems: [ // RelatedOpsItems
+ *     { // RelatedOpsItem
+ *       OpsItemId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Status: "Open" || "InProgress" || "Resolved" || "Pending" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "CompletedWithSuccess" || "CompletedWithFailure" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "PendingApproval" || "Approved" || "Rejected" || "Closed",
+ *   OpsItemId: "STRING_VALUE", // required
+ *   Title: "STRING_VALUE",
+ *   Category: "STRING_VALUE",
+ *   Severity: "STRING_VALUE",
+ *   ActualStartTime: new Date("TIMESTAMP"),
+ *   ActualEndTime: new Date("TIMESTAMP"),
+ *   PlannedStartTime: new Date("TIMESTAMP"),
+ *   PlannedEndTime: new Date("TIMESTAMP"),
+ *   OpsItemArn: "STRING_VALUE",
+ * };
  * const command = new UpdateOpsItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOpsItemCommandInput - {@link UpdateOpsItemCommandInput}
+ * @returns {@link UpdateOpsItemCommandOutput}
  * @see {@link UpdateOpsItemCommandInput} for command's `input` shape.
  * @see {@link UpdateOpsItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -96,6 +128,9 @@ export class UpdateOpsItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOpsItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +157,8 @@ export class UpdateOpsItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOpsItemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOpsItemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +168,18 @@ export class UpdateOpsItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateOpsItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateOpsItemCommand(input, context);
+    return se_UpdateOpsItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOpsItemCommandOutput> {
-    return deserializeAws_json1_1UpdateOpsItemCommand(output, context);
+    return de_UpdateOpsItemCommand(output, context);
   }
 
   // Start section: command_body_extra

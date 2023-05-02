@@ -10,7 +10,7 @@ import { PinpointSMSVoiceV2Client } from "../PinpointSMSVoiceV2Client";
 import { PinpointSMSVoiceV2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PinpointSMSVoiceV2Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeSenderIdsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeSenderIds(
   config: PinpointSMSVoiceV2PaginationConfiguration,
   input: DescribeSenderIdsCommandInput,

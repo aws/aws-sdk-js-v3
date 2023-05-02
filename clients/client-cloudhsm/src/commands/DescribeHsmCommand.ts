@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  DescribeHsmRequest,
-  DescribeHsmRequestFilterSensitiveLog,
-  DescribeHsmResponse,
-  DescribeHsmResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeHsmCommand,
-  serializeAws_json1_1DescribeHsmCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeHsmRequest, DescribeHsmResponse } from "../models/models_0";
+import { de_DescribeHsmCommand, se_DescribeHsmCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHsmCommand}.
  */
 export interface DescribeHsmCommandInput extends DescribeHsmRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHsmCommand}.
  */
 export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -53,10 +50,16 @@ export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __Metadat
  * import { CloudHSMClient, DescribeHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DescribeHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // DescribeHsmRequest
+ *   HsmArn: "STRING_VALUE",
+ *   HsmSerialNumber: "STRING_VALUE",
+ * };
  * const command = new DescribeHsmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHsmCommandInput - {@link DescribeHsmCommandInput}
+ * @returns {@link DescribeHsmCommandOutput}
  * @see {@link DescribeHsmCommandInput} for command's `input` shape.
  * @see {@link DescribeHsmCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -89,6 +92,9 @@ export class DescribeHsmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHsmCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class DescribeHsmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHsmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHsmResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class DescribeHsmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHsmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHsmCommand(input, context);
+    return se_DescribeHsmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHsmCommandOutput> {
-    return deserializeAws_json1_1DescribeHsmCommand(output, context);
+    return de_DescribeHsmCommand(output, context);
   }
 
   // Start section: command_body_extra

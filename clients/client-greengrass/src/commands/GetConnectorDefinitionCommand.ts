@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetConnectorDefinitionRequest,
-  GetConnectorDefinitionRequestFilterSensitiveLog,
-  GetConnectorDefinitionResponse,
-  GetConnectorDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConnectorDefinitionCommand,
-  serializeAws_restJson1GetConnectorDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetConnectorDefinitionRequest, GetConnectorDefinitionResponse } from "../models/models_0";
+import { de_GetConnectorDefinitionCommand, se_GetConnectorDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectorDefinitionCommand}.
  */
 export interface GetConnectorDefinitionCommandInput extends GetConnectorDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectorDefinitionCommand}.
  */
 export interface GetConnectorDefinitionCommandOutput extends GetConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a connector definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetConnectorDefinitionCommandOutput extends GetConnectorDefinit
  * import { GreengrassClient, GetConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetConnectorDefinitionRequest
+ *   ConnectorDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new GetConnectorDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectorDefinitionCommandInput - {@link GetConnectorDefinitionCommandInput}
+ * @returns {@link GetConnectorDefinitionCommandOutput}
  * @see {@link GetConnectorDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetConnectorDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +74,9 @@ export class GetConnectorDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectorDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class GetConnectorDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectorDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectorDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +116,18 @@ export class GetConnectorDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectorDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectorDefinitionCommand(input, context);
+    return se_GetConnectorDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectorDefinitionCommandOutput> {
-    return deserializeAws_restJson1GetConnectorDefinitionCommand(output, context);
+    return de_GetConnectorDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

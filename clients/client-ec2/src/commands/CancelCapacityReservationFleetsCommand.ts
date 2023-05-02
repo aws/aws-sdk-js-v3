@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CancelCapacityReservationFleetsRequest, CancelCapacityReservationFleetsResult } from "../models/models_0";
 import {
-  CancelCapacityReservationFleetsRequest,
-  CancelCapacityReservationFleetsRequestFilterSensitiveLog,
-  CancelCapacityReservationFleetsResult,
-  CancelCapacityReservationFleetsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2CancelCapacityReservationFleetsCommand,
-  serializeAws_ec2CancelCapacityReservationFleetsCommand,
+  de_CancelCapacityReservationFleetsCommand,
+  se_CancelCapacityReservationFleetsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelCapacityReservationFleetsCommand}.
  */
 export interface CancelCapacityReservationFleetsCommandInput extends CancelCapacityReservationFleetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelCapacityReservationFleetsCommand}.
  */
 export interface CancelCapacityReservationFleetsCommandOutput
@@ -37,6 +36,7 @@ export interface CancelCapacityReservationFleetsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation
  * 			Fleet, the following happens:</p>
  *          <ul>
@@ -58,10 +58,18 @@ export interface CancelCapacityReservationFleetsCommandOutput
  * import { EC2Client, CancelCapacityReservationFleetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelCapacityReservationFleetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CancelCapacityReservationFleetsRequest
+ *   DryRun: true || false,
+ *   CapacityReservationFleetIds: [ // CapacityReservationFleetIdSet // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CancelCapacityReservationFleetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelCapacityReservationFleetsCommandInput - {@link CancelCapacityReservationFleetsCommandInput}
+ * @returns {@link CancelCapacityReservationFleetsCommandOutput}
  * @see {@link CancelCapacityReservationFleetsCommandInput} for command's `input` shape.
  * @see {@link CancelCapacityReservationFleetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -85,6 +93,9 @@ export class CancelCapacityReservationFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelCapacityReservationFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +124,8 @@ export class CancelCapacityReservationFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelCapacityReservationFleetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelCapacityReservationFleetsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +135,24 @@ export class CancelCapacityReservationFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelCapacityReservationFleetsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelCapacityReservationFleetsCommand(input, context);
+    return se_CancelCapacityReservationFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelCapacityReservationFleetsCommandOutput> {
-    return deserializeAws_ec2CancelCapacityReservationFleetsCommand(output, context);
+    return de_CancelCapacityReservationFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

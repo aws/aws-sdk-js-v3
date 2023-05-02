@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetWorkloadInput,
-  GetWorkloadInputFilterSensitiveLog,
-  GetWorkloadOutput,
-  GetWorkloadOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkloadCommand,
-  serializeAws_restJson1GetWorkloadCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWorkloadInput, GetWorkloadOutput } from "../models/models_0";
+import { de_GetWorkloadCommand, se_GetWorkloadCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkloadCommand}.
  */
 export interface GetWorkloadCommandInput extends GetWorkloadInput {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkloadCommand}.
  */
 export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get an existing workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  * import { WellArchitectedClient, GetWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // GetWorkloadInput
+ *   WorkloadId: "STRING_VALUE", // required
+ * };
  * const command = new GetWorkloadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkloadCommandInput - {@link GetWorkloadCommandInput}
+ * @returns {@link GetWorkloadCommandOutput}
  * @see {@link GetWorkloadCommandInput} for command's `input` shape.
  * @see {@link GetWorkloadCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetWorkloadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetWorkloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkloadInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkloadOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetWorkloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkloadCommand(input, context);
+    return se_GetWorkloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkloadCommandOutput> {
-    return deserializeAws_restJson1GetWorkloadCommand(output, context);
+    return de_GetWorkloadCommand(output, context);
   }
 
   // Start section: command_body_extra

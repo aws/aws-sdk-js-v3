@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteUserPolicyRequest, DeleteUserPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteUserPolicyCommand,
-  serializeAws_queryDeleteUserPolicyCommand,
-} from "../protocols/Aws_query";
+import { DeleteUserPolicyRequest } from "../models/models_0";
+import { de_DeleteUserPolicyCommand, se_DeleteUserPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserPolicyCommand}.
  */
 export interface DeleteUserPolicyCommandInput extends DeleteUserPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserPolicyCommand}.
  */
 export interface DeleteUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified inline policy that is embedded in the specified IAM
  *             user.</p>
  *          <p>A user can also have managed policies attached to it. To detach a managed policy from
@@ -42,10 +44,16 @@ export interface DeleteUserPolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteUserPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteUserPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteUserPolicyRequest
+ *   UserName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserPolicyCommandInput - {@link DeleteUserPolicyCommandInput}
+ * @returns {@link DeleteUserPolicyCommandOutput}
  * @see {@link DeleteUserPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteUserPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -93,6 +101,9 @@ export class DeleteUserPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +132,8 @@ export class DeleteUserPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +143,18 @@ export class DeleteUserPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteUserPolicyCommand(input, context);
+    return se_DeleteUserPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserPolicyCommandOutput> {
-    return deserializeAws_queryDeleteUserPolicyCommand(output, context);
+    return de_DeleteUserPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

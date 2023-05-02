@@ -6,7 +6,7 @@ import { FinspaceDataClient } from "../FinspaceDataClient";
 import { FinspaceDataPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FinspaceDataClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListUsersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListUsers(
   config: FinspaceDataPaginationConfiguration,
   input: ListUsersCommandInput,

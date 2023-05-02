@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { SubmitFeedbackRequest, SubmitFeedbackRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1SubmitFeedbackCommand,
-  serializeAws_json1_1SubmitFeedbackCommand,
-} from "../protocols/Aws_json1_1";
+import { SubmitFeedbackRequest } from "../models/models_1";
+import { de_SubmitFeedbackCommand, se_SubmitFeedbackCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SubmitFeedbackCommand}.
  */
 export interface SubmitFeedbackCommandInput extends SubmitFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubmitFeedbackCommand}.
  */
 export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables you to provide feedback to Amazon Kendra to improve the
  *             performance of your index.</p>
  *          <p>
@@ -41,10 +43,28 @@ export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
  * import { KendraClient, SubmitFeedbackCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, SubmitFeedbackCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // SubmitFeedbackRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   QueryId: "STRING_VALUE", // required
+ *   ClickFeedbackItems: [ // ClickFeedbackList
+ *     { // ClickFeedback
+ *       ResultId: "STRING_VALUE", // required
+ *       ClickTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   RelevanceFeedbackItems: [ // RelevanceFeedbackList
+ *     { // RelevanceFeedback
+ *       ResultId: "STRING_VALUE", // required
+ *       RelevanceValue: "RELEVANT" || "NOT_RELEVANT", // required
+ *     },
+ *   ],
+ * };
  * const command = new SubmitFeedbackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SubmitFeedbackCommandInput - {@link SubmitFeedbackCommandInput}
+ * @returns {@link SubmitFeedbackCommandOutput}
  * @see {@link SubmitFeedbackCommandInput} for command's `input` shape.
  * @see {@link SubmitFeedbackCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -55,7 +75,7 @@ export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -92,6 +112,9 @@ export class SubmitFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubmitFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +143,8 @@ export class SubmitFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +154,18 @@ export class SubmitFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubmitFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubmitFeedbackCommand(input, context);
+    return se_SubmitFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubmitFeedbackCommandOutput> {
-    return deserializeAws_json1_1SubmitFeedbackCommand(output, context);
+    return de_SubmitFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

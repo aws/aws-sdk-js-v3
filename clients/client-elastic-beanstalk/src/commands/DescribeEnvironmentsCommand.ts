@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  DescribeEnvironmentsMessage,
-  DescribeEnvironmentsMessageFilterSensitiveLog,
-  EnvironmentDescriptionsMessage,
-  EnvironmentDescriptionsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEnvironmentsCommand,
-  serializeAws_queryDescribeEnvironmentsCommand,
-} from "../protocols/Aws_query";
+import { DescribeEnvironmentsMessage, EnvironmentDescriptionsMessage } from "../models/models_0";
+import { de_DescribeEnvironmentsCommand, se_DescribeEnvironmentsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEnvironmentsCommand}.
  */
 export interface DescribeEnvironmentsCommandInput extends DescribeEnvironmentsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEnvironmentsCommand}.
  */
 export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns descriptions for existing environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptio
  * import { ElasticBeanstalkClient, DescribeEnvironmentsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEnvironmentsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DescribeEnvironmentsMessage
+ *   ApplicationName: "STRING_VALUE",
+ *   VersionLabel: "STRING_VALUE",
+ *   EnvironmentIds: [ // EnvironmentIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   EnvironmentNames: [ // EnvironmentNamesList
+ *     "STRING_VALUE",
+ *   ],
+ *   IncludeDeleted: true || false,
+ *   IncludedDeletedBackTo: new Date("TIMESTAMP"),
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeEnvironmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentsCommandInput - {@link DescribeEnvironmentsCommandInput}
+ * @returns {@link DescribeEnvironmentsCommandOutput}
  * @see {@link DescribeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -107,6 +120,9 @@ export class DescribeEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +151,8 @@ export class DescribeEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EnvironmentDescriptionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +162,18 @@ export class DescribeEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentsCommand(input, context);
+    return se_DescribeEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEnvironmentsCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentsCommand(output, context);
+    return de_DescribeEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

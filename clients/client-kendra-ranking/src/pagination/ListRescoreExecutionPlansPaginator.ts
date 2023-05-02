@@ -10,7 +10,7 @@ import { KendraRankingClient } from "../KendraRankingClient";
 import { KendraRankingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KendraRankingClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRescoreExecutionPlansCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListRescoreExecutionPlans(
   config: KendraRankingPaginationConfiguration,
   input: ListRescoreExecutionPlansCommandInput,

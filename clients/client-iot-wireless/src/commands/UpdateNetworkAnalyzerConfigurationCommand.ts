@@ -16,20 +16,22 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   UpdateNetworkAnalyzerConfigurationRequest,
-  UpdateNetworkAnalyzerConfigurationRequestFilterSensitiveLog,
   UpdateNetworkAnalyzerConfigurationResponse,
-  UpdateNetworkAnalyzerConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommand,
-  serializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommand,
+  de_UpdateNetworkAnalyzerConfigurationCommand,
+  se_UpdateNetworkAnalyzerConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNetworkAnalyzerConfigurationCommand}.
  */
 export interface UpdateNetworkAnalyzerConfigurationCommandInput extends UpdateNetworkAnalyzerConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNetworkAnalyzerConfigurationCommand}.
  */
 export interface UpdateNetworkAnalyzerConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface UpdateNetworkAnalyzerConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update network analyzer configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,32 @@ export interface UpdateNetworkAnalyzerConfigurationCommandOutput
  * import { IoTWirelessClient, UpdateNetworkAnalyzerConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateNetworkAnalyzerConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // UpdateNetworkAnalyzerConfigurationRequest
+ *   ConfigurationName: "STRING_VALUE", // required
+ *   TraceContent: { // TraceContent
+ *     WirelessDeviceFrameInfo: "ENABLED" || "DISABLED",
+ *     LogLevel: "INFO" || "ERROR" || "DISABLED",
+ *   },
+ *   WirelessDevicesToAdd: [ // WirelessDeviceList
+ *     "STRING_VALUE",
+ *   ],
+ *   WirelessDevicesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   WirelessGatewaysToAdd: [ // WirelessGatewayList
+ *     "STRING_VALUE",
+ *   ],
+ *   WirelessGatewaysToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNetworkAnalyzerConfigurationCommandInput - {@link UpdateNetworkAnalyzerConfigurationCommandInput}
+ * @returns {@link UpdateNetworkAnalyzerConfigurationCommandOutput}
  * @see {@link UpdateNetworkAnalyzerConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkAnalyzerConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +111,9 @@ export class UpdateNetworkAnalyzerConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNetworkAnalyzerConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +142,8 @@ export class UpdateNetworkAnalyzerConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNetworkAnalyzerConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNetworkAnalyzerConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +153,24 @@ export class UpdateNetworkAnalyzerConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateNetworkAnalyzerConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommand(input, context);
+    return se_UpdateNetworkAnalyzerConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNetworkAnalyzerConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommand(output, context);
+    return de_UpdateNetworkAnalyzerConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendWorkflowStepStateRequest,
-  SendWorkflowStepStateRequestFilterSensitiveLog,
-  SendWorkflowStepStateResponse,
-  SendWorkflowStepStateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SendWorkflowStepStateCommand,
-  serializeAws_json1_1SendWorkflowStepStateCommand,
-} from "../protocols/Aws_json1_1";
+import { SendWorkflowStepStateRequest, SendWorkflowStepStateResponse } from "../models/models_0";
+import { de_SendWorkflowStepStateCommand, se_SendWorkflowStepStateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendWorkflowStepStateCommand}.
  */
 export interface SendWorkflowStepStateCommandInput extends SendWorkflowStepStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendWorkflowStepStateCommand}.
  */
 export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a callback for asynchronous custom steps.</p>
  *          <p>
  *       The <code>ExecutionId</code>, <code>WorkflowId</code>, and <code>Token</code> are passed to the target resource during execution of a custom step of a workflow.
@@ -46,10 +43,18 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  * import { TransferClient, SendWorkflowStepStateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, SendWorkflowStepStateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // SendWorkflowStepStateRequest
+ *   WorkflowId: "STRING_VALUE", // required
+ *   ExecutionId: "STRING_VALUE", // required
+ *   Token: "STRING_VALUE", // required
+ *   Status: "SUCCESS" || "FAILURE", // required
+ * };
  * const command = new SendWorkflowStepStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendWorkflowStepStateCommandInput - {@link SendWorkflowStepStateCommandInput}
+ * @returns {@link SendWorkflowStepStateCommandOutput}
  * @see {@link SendWorkflowStepStateCommandInput} for command's `input` shape.
  * @see {@link SendWorkflowStepStateCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -92,6 +97,9 @@ export class SendWorkflowStepStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendWorkflowStepStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +128,8 @@ export class SendWorkflowStepStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendWorkflowStepStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendWorkflowStepStateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +139,18 @@ export class SendWorkflowStepStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendWorkflowStepStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendWorkflowStepStateCommand(input, context);
+    return se_SendWorkflowStepStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendWorkflowStepStateCommandOutput> {
-    return deserializeAws_json1_1SendWorkflowStepStateCommand(output, context);
+    return de_SendWorkflowStepStateCommand(output, context);
   }
 
   // Start section: command_body_extra

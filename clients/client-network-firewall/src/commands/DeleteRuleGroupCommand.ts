@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteRuleGroupRequest,
-  DeleteRuleGroupRequestFilterSensitiveLog,
-  DeleteRuleGroupResponse,
-  DeleteRuleGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteRuleGroupRequest, DeleteRuleGroupResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DeleteRuleGroupCommand,
-  serializeAws_json1_0DeleteRuleGroupCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteRuleGroupCommand, se_DeleteRuleGroupCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRuleGroupCommand}.
  */
 export interface DeleteRuleGroupCommandInput extends DeleteRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRuleGroupCommand}.
  */
 export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified <a>RuleGroup</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * import { NetworkFirewallClient, DeleteRuleGroupCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DeleteRuleGroupCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // DeleteRuleGroupRequest
+ *   RuleGroupName: "STRING_VALUE",
+ *   RuleGroupArn: "STRING_VALUE",
+ *   Type: "STATELESS" || "STATEFUL",
+ * };
  * const command = new DeleteRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRuleGroupCommandInput - {@link DeleteRuleGroupCommandInput}
+ * @returns {@link DeleteRuleGroupCommandOutput}
  * @see {@link DeleteRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -102,6 +106,9 @@ export class DeleteRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +137,8 @@ export class DeleteRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRuleGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRuleGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +148,18 @@ export class DeleteRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteRuleGroupCommand(input, context);
+    return se_DeleteRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleGroupCommandOutput> {
-    return deserializeAws_json1_0DeleteRuleGroupCommand(output, context);
+    return de_DeleteRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

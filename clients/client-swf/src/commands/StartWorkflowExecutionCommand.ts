@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  Run,
-  RunFilterSensitiveLog,
-  StartWorkflowExecutionInput,
-  StartWorkflowExecutionInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0StartWorkflowExecutionCommand,
-  serializeAws_json1_0StartWorkflowExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { Run, StartWorkflowExecutionInput } from "../models/models_0";
+import { de_StartWorkflowExecutionCommand, se_StartWorkflowExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartWorkflowExecutionCommand}.
  */
 export interface StartWorkflowExecutionCommandInput extends StartWorkflowExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StartWorkflowExecutionCommand}.
  */
 export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an execution of the workflow type in the specified domain using the provided
  *         <code>workflowId</code> and input data.</p>
  *
@@ -107,10 +104,32 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  * import { SWFClient, StartWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, StartWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // StartWorkflowExecutionInput
+ *   domain: "STRING_VALUE", // required
+ *   workflowId: "STRING_VALUE", // required
+ *   workflowType: { // WorkflowType
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ *   taskList: { // TaskList
+ *     name: "STRING_VALUE", // required
+ *   },
+ *   taskPriority: "STRING_VALUE",
+ *   input: "STRING_VALUE",
+ *   executionStartToCloseTimeout: "STRING_VALUE",
+ *   tagList: [ // TagList
+ *     "STRING_VALUE",
+ *   ],
+ *   taskStartToCloseTimeout: "STRING_VALUE",
+ *   childPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
+ *   lambdaRole: "STRING_VALUE",
+ * };
  * const command = new StartWorkflowExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartWorkflowExecutionCommandInput - {@link StartWorkflowExecutionCommandInput}
+ * @returns {@link StartWorkflowExecutionCommandOutput}
  * @see {@link StartWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link StartWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -163,6 +182,9 @@ export class StartWorkflowExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartWorkflowExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -191,8 +213,8 @@ export class StartWorkflowExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartWorkflowExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RunFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -202,12 +224,18 @@ export class StartWorkflowExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartWorkflowExecutionCommand(input, context);
+    return se_StartWorkflowExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartWorkflowExecutionCommandOutput> {
-    return deserializeAws_json1_0StartWorkflowExecutionCommand(output, context);
+    return de_StartWorkflowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

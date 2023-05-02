@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  CreateChannelRequest,
-  CreateChannelRequestFilterSensitiveLog,
-  CreateChannelResponse,
-  CreateChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateChannelCommand,
-  serializeAws_json1_1CreateChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateChannelRequest, CreateChannelResponse } from "../models/models_0";
+import { de_CreateChannelCommand, se_CreateChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChannelCommand}.
  */
 export interface CreateChannelCommandInput extends CreateChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChannelCommand}.
  */
 export interface CreateChannelCommandOutput extends CreateChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a channel for CloudTrail to ingest events from a partner or external source.
  *          After you create a channel, a CloudTrail Lake event data store can log events
  *       from the partner or source that you specify.</p>
@@ -44,10 +41,28 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * import { CloudTrailClient, CreateChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, CreateChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // CreateChannelRequest
+ *   Name: "STRING_VALUE", // required
+ *   Source: "STRING_VALUE", // required
+ *   Destinations: [ // Destinations // required
+ *     { // Destination
+ *       Type: "EVENT_DATA_STORE" || "AWS_SERVICE", // required
+ *       Location: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Tags: [ // TagsList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
+ * @returns {@link CreateChannelCommandOutput}
  * @see {@link CreateChannelCommandInput} for command's `input` shape.
  * @see {@link CreateChannelCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -115,6 +130,9 @@ export class CreateChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +159,8 @@ export class CreateChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +170,18 @@ export class CreateChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateChannelCommand(input, context);
+    return se_CreateChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelCommandOutput> {
-    return deserializeAws_json1_1CreateChannelCommand(output, context);
+    return de_CreateChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

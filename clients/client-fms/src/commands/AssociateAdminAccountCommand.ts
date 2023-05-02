@@ -14,36 +14,41 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { AssociateAdminAccountRequest, AssociateAdminAccountRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateAdminAccountCommand,
-  serializeAws_json1_1AssociateAdminAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateAdminAccountRequest } from "../models/models_0";
+import { de_AssociateAdminAccountCommand, se_AssociateAdminAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateAdminAccountCommand}.
  */
 export interface AssociateAdminAccountCommandInput extends AssociateAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateAdminAccountCommand}.
  */
 export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets the Firewall Manager administrator account. The account must be
- *       a member of the organization in Organizations whose resources you want to protect.
- *           Firewall Manager sets the permissions that allow the account to administer your Firewall Manager policies.</p>
- *          <p>The account that you associate with Firewall Manager is called the Firewall Manager administrator account. </p>
+ * @public
+ * <p>Sets a Firewall Manager default administrator account. The Firewall Manager default administrator account can manage third-party firewalls and has full administrative scope that allows administration of all policy types, accounts, organizational units, and Regions. This account must be a member account of the organization in Organizations whose resources you want to protect.</p>
+ *          <p>For information about working with Firewall Manager administrator accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/fms-administrators.html">Managing Firewall Manager administrators</a> in the <i>Firewall Manager Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FMSClient, AssociateAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, AssociateAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // AssociateAdminAccountRequest
+ *   AdminAccount: "STRING_VALUE", // required
+ * };
  * const command = new AssociateAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateAdminAccountCommandInput - {@link AssociateAdminAccountCommandInput}
+ * @returns {@link AssociateAdminAccountCommandOutput}
  * @see {@link AssociateAdminAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -90,6 +95,9 @@ export class AssociateAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class AssociateAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateAdminAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +137,18 @@ export class AssociateAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateAdminAccountCommand(input, context);
+    return se_AssociateAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAdminAccountCommandOutput> {
-    return deserializeAws_json1_1AssociateAdminAccountCommand(output, context);
+    return de_AssociateAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

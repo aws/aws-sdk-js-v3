@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeModelInput,
-  DescribeModelInputFilterSensitiveLog,
-  DescribeModelOutput,
-  DescribeModelOutputFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeModelCommand,
-  serializeAws_json1_1DescribeModelCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeModelInput, DescribeModelOutput } from "../models/models_2";
+import { de_DescribeModelCommand, se_DescribeModelCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelCommand}.
  */
 export interface DescribeModelCommandInput extends DescribeModelInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelCommand}.
  */
 export interface DescribeModelCommandOutput extends DescribeModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a model that you created using the <code>CreateModel</code>
  *             API.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * import { SageMakerClient, DescribeModelCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeModelCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeModelInput
+ *   ModelName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelCommandInput - {@link DescribeModelCommandInput}
+ * @returns {@link DescribeModelCommandOutput}
  * @see {@link DescribeModelCommandInput} for command's `input` shape.
  * @see {@link DescribeModelCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +72,9 @@ export class DescribeModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +101,8 @@ export class DescribeModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeModelOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +112,18 @@ export class DescribeModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeModelCommand(input, context);
+    return se_DescribeModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelCommandOutput> {
-    return deserializeAws_json1_1DescribeModelCommand(output, context);
+    return de_DescribeModelCommand(output, context);
   }
 
   // Start section: command_body_extra

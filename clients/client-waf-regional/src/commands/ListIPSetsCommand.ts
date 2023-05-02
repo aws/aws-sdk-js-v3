@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListIPSetsRequest,
-  ListIPSetsRequestFilterSensitiveLog,
-  ListIPSetsResponse,
-  ListIPSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListIPSetsCommand,
-  serializeAws_json1_1ListIPSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListIPSetsRequest, ListIPSetsResponse } from "../models/models_0";
+import { de_ListIPSetsCommand, se_ListIPSetsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListIPSetsCommand}.
  */
 export interface ListIPSetsCommandInput extends ListIPSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIPSetsCommand}.
  */
 export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -50,10 +47,16 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * import { WAFRegionalClient, ListIPSetsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListIPSetsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // ListIPSetsRequest
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListIPSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIPSetsCommandInput - {@link ListIPSetsCommandInput}
+ * @returns {@link ListIPSetsCommandOutput}
  * @see {@link ListIPSetsCommandInput} for command's `input` shape.
  * @see {@link ListIPSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -104,6 +107,9 @@ export class ListIPSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIPSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +136,8 @@ export class ListIPSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIPSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIPSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +147,18 @@ export class ListIPSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIPSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListIPSetsCommand(input, context);
+    return se_ListIPSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIPSetsCommandOutput> {
-    return deserializeAws_json1_1ListIPSetsCommand(output, context);
+    return de_ListIPSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

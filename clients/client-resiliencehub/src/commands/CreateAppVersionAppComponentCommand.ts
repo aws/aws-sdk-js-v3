@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateAppVersionAppComponentRequest, CreateAppVersionAppComponentResponse } from "../models/models_0";
 import {
-  CreateAppVersionAppComponentRequest,
-  CreateAppVersionAppComponentRequestFilterSensitiveLog,
-  CreateAppVersionAppComponentResponse,
-  CreateAppVersionAppComponentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAppVersionAppComponentCommand,
-  serializeAws_restJson1CreateAppVersionAppComponentCommand,
+  de_CreateAppVersionAppComponentCommand,
+  se_CreateAppVersionAppComponentCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppVersionAppComponentCommand}.
  */
 export interface CreateAppVersionAppComponentCommandInput extends CreateAppVersionAppComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppVersionAppComponentCommand}.
  */
 export interface CreateAppVersionAppComponentCommandOutput
@@ -37,9 +36,10 @@ export interface CreateAppVersionAppComponentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new Application Component in the AWS Resilience Hub application.</p>
+ * @public
+ * <p>Creates a new Application Component in the Resilience Hub application.</p>
  *          <note>
- *             <p>This API updates the AWS Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *             <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,10 +47,24 @@ export interface CreateAppVersionAppComponentCommandOutput
  * import { ResiliencehubClient, CreateAppVersionAppComponentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, CreateAppVersionAppComponentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // CreateAppVersionAppComponentRequest
+ *   appArn: "STRING_VALUE", // required
+ *   id: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
+ *   type: "STRING_VALUE", // required
+ *   additionalInfo: { // AdditionalInfoMap
+ *     "<keys>": [ // AdditionalInfoValueList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateAppVersionAppComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppVersionAppComponentCommandInput - {@link CreateAppVersionAppComponentCommandInput}
+ * @returns {@link CreateAppVersionAppComponentCommandOutput}
  * @see {@link CreateAppVersionAppComponentCommandInput} for command's `input` shape.
  * @see {@link CreateAppVersionAppComponentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -67,7 +81,7 @@ export interface CreateAppVersionAppComponentCommandOutput
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -102,6 +116,9 @@ export class CreateAppVersionAppComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppVersionAppComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +147,8 @@ export class CreateAppVersionAppComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppVersionAppComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppVersionAppComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,15 +158,21 @@ export class CreateAppVersionAppComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppVersionAppComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAppVersionAppComponentCommand(input, context);
+    return se_CreateAppVersionAppComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAppVersionAppComponentCommandOutput> {
-    return deserializeAws_restJson1CreateAppVersionAppComponentCommand(output, context);
+    return de_CreateAppVersionAppComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

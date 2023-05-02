@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListPublishedSchemaArnsRequest,
-  ListPublishedSchemaArnsRequestFilterSensitiveLog,
-  ListPublishedSchemaArnsResponse,
-  ListPublishedSchemaArnsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPublishedSchemaArnsCommand,
-  serializeAws_restJson1ListPublishedSchemaArnsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPublishedSchemaArnsRequest, ListPublishedSchemaArnsResponse } from "../models/models_0";
+import { de_ListPublishedSchemaArnsCommand, se_ListPublishedSchemaArnsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPublishedSchemaArnsCommand}.
  */
 export interface ListPublishedSchemaArnsCommandInput extends ListPublishedSchemaArnsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPublishedSchemaArnsCommand}.
  */
 export interface ListPublishedSchemaArnsCommandOutput extends ListPublishedSchemaArnsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the major version families of each published schema. If a major version ARN is provided as <code>SchemaArn</code>, the minor version revisions in that family are listed instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListPublishedSchemaArnsCommandOutput extends ListPublishedSchem
  * import { CloudDirectoryClient, ListPublishedSchemaArnsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListPublishedSchemaArnsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListPublishedSchemaArnsRequest
+ *   SchemaArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPublishedSchemaArnsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPublishedSchemaArnsCommandInput - {@link ListPublishedSchemaArnsCommandInput}
+ * @returns {@link ListPublishedSchemaArnsCommandOutput}
  * @see {@link ListPublishedSchemaArnsCommandInput} for command's `input` shape.
  * @see {@link ListPublishedSchemaArnsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -94,6 +98,9 @@ export class ListPublishedSchemaArnsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPublishedSchemaArnsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +129,8 @@ export class ListPublishedSchemaArnsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPublishedSchemaArnsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPublishedSchemaArnsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +140,18 @@ export class ListPublishedSchemaArnsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPublishedSchemaArnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPublishedSchemaArnsCommand(input, context);
+    return se_ListPublishedSchemaArnsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPublishedSchemaArnsCommandOutput> {
-    return deserializeAws_restJson1ListPublishedSchemaArnsCommand(output, context);
+    return de_ListPublishedSchemaArnsCommand(output, context);
   }
 
   // Start section: command_body_extra

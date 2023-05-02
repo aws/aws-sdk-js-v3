@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  CreateChannelRequest,
-  CreateChannelRequestFilterSensitiveLog,
-  CreateChannelResponse,
-  CreateChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateChannelCommand,
-  serializeAws_restJson1CreateChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateChannelRequest, CreateChannelResponse } from "../models/models_0";
+import { de_CreateChannelCommand, se_CreateChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChannelCommand}.
  */
 export interface CreateChannelCommandInput extends CreateChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChannelCommand}.
  */
 export interface CreateChannelCommandOutput extends CreateChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,39 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * import { MediaTailorClient, CreateChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // CreateChannelRequest
+ *   ChannelName: "STRING_VALUE", // required
+ *   FillerSlate: { // SlateSource
+ *     SourceLocationName: "STRING_VALUE",
+ *     VodSourceName: "STRING_VALUE",
+ *   },
+ *   Outputs: [ // RequestOutputs // required
+ *     { // RequestOutputItem
+ *       DashPlaylistSettings: { // DashPlaylistSettings
+ *         ManifestWindowSeconds: Number("int"),
+ *         MinBufferTimeSeconds: Number("int"),
+ *         MinUpdatePeriodSeconds: Number("int"),
+ *         SuggestedPresentationDelaySeconds: Number("int"),
+ *       },
+ *       HlsPlaylistSettings: { // HlsPlaylistSettings
+ *         ManifestWindowSeconds: Number("int"),
+ *       },
+ *       ManifestName: "STRING_VALUE", // required
+ *       SourceGroup: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   PlaybackMode: "LOOP" || "LINEAR", // required
+ *   Tags: { // __mapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Tier: "BASIC" || "STANDARD",
+ * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
+ * @returns {@link CreateChannelCommandOutput}
  * @see {@link CreateChannelCommandInput} for command's `input` shape.
  * @see {@link CreateChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +95,9 @@ export class CreateChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +124,8 @@ export class CreateChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +135,18 @@ export class CreateChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateChannelCommand(input, context);
+    return se_CreateChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelCommandOutput> {
-    return deserializeAws_restJson1CreateChannelCommand(output, context);
+    return de_CreateChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

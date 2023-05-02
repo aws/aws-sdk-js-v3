@@ -14,38 +14,43 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  GetAgentConfigurationRequest,
-  GetAgentConfigurationRequestFilterSensitiveLog,
-  GetAgentConfigurationResponse,
-  GetAgentConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAgentConfigurationCommand,
-  serializeAws_restJson1GetAgentConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAgentConfigurationRequest, GetAgentConfigurationResponse } from "../models/models_0";
+import { de_GetAgentConfigurationCommand, se_GetAgentConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAgentConfigurationCommand}.
  */
 export interface GetAgentConfigurationCommandInput extends GetAgentConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAgentConfigurationCommand}.
  */
 export interface GetAgentConfigurationCommandOutput extends GetAgentConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the latest configuration information for a registered agent.</p>
+ * @public
+ * <note>
+ *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
+ *          </note>
+ *          <p>Gets the latest configuration information for a registered agent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GroundStationClient, GetAgentConfigurationCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, GetAgentConfigurationCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // GetAgentConfigurationRequest
+ *   agentId: "STRING_VALUE", // required
+ * };
  * const command = new GetAgentConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAgentConfigurationCommandInput - {@link GetAgentConfigurationCommandInput}
+ * @returns {@link GetAgentConfigurationCommandOutput}
  * @see {@link GetAgentConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAgentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +83,9 @@ export class GetAgentConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAgentConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +114,8 @@ export class GetAgentConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAgentConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAgentConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +125,18 @@ export class GetAgentConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAgentConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAgentConfigurationCommand(input, context);
+    return se_GetAgentConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAgentConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetAgentConfigurationCommand(output, context);
+    return de_GetAgentConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

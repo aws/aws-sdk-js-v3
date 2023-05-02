@@ -14,26 +14,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteStorageLensConfigurationRequest } from "../models/models_0";
 import {
-  DeleteStorageLensConfigurationRequest,
-  DeleteStorageLensConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteStorageLensConfigurationCommand,
-  serializeAws_restXmlDeleteStorageLensConfigurationCommand,
+  de_DeleteStorageLensConfigurationCommand,
+  se_DeleteStorageLensConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStorageLensConfigurationCommand}.
  */
 export interface DeleteStorageLensConfigurationCommandInput extends DeleteStorageLensConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStorageLensConfigurationCommand}.
  */
 export interface DeleteStorageLensConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
  *             activity and usage with Amazon S3 Storage Lens </a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
@@ -49,10 +51,16 @@ export interface DeleteStorageLensConfigurationCommandOutput extends __MetadataB
  * import { S3ControlClient, DeleteStorageLensConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteStorageLensConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // DeleteStorageLensConfigurationRequest
+ *   ConfigId: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new DeleteStorageLensConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStorageLensConfigurationCommandInput - {@link DeleteStorageLensConfigurationCommandInput}
+ * @returns {@link DeleteStorageLensConfigurationCommandOutput}
  * @see {@link DeleteStorageLensConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteStorageLensConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -79,6 +87,9 @@ export class DeleteStorageLensConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStorageLensConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +119,8 @@ export class DeleteStorageLensConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStorageLensConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +130,24 @@ export class DeleteStorageLensConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteStorageLensConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteStorageLensConfigurationCommand(input, context);
+    return se_DeleteStorageLensConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteStorageLensConfigurationCommandOutput> {
-    return deserializeAws_restXmlDeleteStorageLensConfigurationCommand(output, context);
+    return de_DeleteStorageLensConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCalendarStateRequest,
-  GetCalendarStateRequestFilterSensitiveLog,
-  GetCalendarStateResponse,
-  GetCalendarStateResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetCalendarStateCommand,
-  serializeAws_json1_1GetCalendarStateCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCalendarStateRequest, GetCalendarStateResponse } from "../models/models_1";
+import { de_GetCalendarStateCommand, se_GetCalendarStateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCalendarStateCommand}.
  */
 export interface GetCalendarStateCommandInput extends GetCalendarStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCalendarStateCommand}.
  */
 export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the state of a Amazon Web Services Systems Manager change calendar at the current time or a specified time. If
  *    you specify a time, <code>GetCalendarState</code> returns the state of the calendar at that
  *    specific time, and returns the next time that the change calendar state will transition. If you
@@ -50,10 +47,18 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  * import { SSMClient, GetCalendarStateCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetCalendarStateCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetCalendarStateRequest
+ *   CalendarNames: [ // CalendarNameOrARNList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AtTime: "STRING_VALUE",
+ * };
  * const command = new GetCalendarStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCalendarStateCommandInput - {@link GetCalendarStateCommandInput}
+ * @returns {@link GetCalendarStateCommandOutput}
  * @see {@link GetCalendarStateCommandInput} for command's `input` shape.
  * @see {@link GetCalendarStateCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -90,6 +95,9 @@ export class GetCalendarStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCalendarStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class GetCalendarStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCalendarStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCalendarStateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +137,18 @@ export class GetCalendarStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCalendarStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCalendarStateCommand(input, context);
+    return se_GetCalendarStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCalendarStateCommandOutput> {
-    return deserializeAws_json1_1GetCalendarStateCommand(output, context);
+    return de_GetCalendarStateCommand(output, context);
   }
 
   // Start section: command_body_extra

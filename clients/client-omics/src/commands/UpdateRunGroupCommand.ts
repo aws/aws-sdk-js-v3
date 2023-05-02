@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateRunGroupRequest, UpdateRunGroupRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateRunGroupRequest } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1UpdateRunGroupCommand,
-  serializeAws_restJson1UpdateRunGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRunGroupCommand, se_UpdateRunGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRunGroupCommand}.
  */
 export interface UpdateRunGroupCommandInput extends UpdateRunGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRunGroupCommand}.
  */
 export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a run group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,19 @@ export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
  * import { OmicsClient, UpdateRunGroupCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, UpdateRunGroupCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // UpdateRunGroupRequest
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   maxCpus: Number("int"),
+ *   maxRuns: Number("int"),
+ *   maxDuration: Number("int"),
+ * };
  * const command = new UpdateRunGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRunGroupCommandInput - {@link UpdateRunGroupCommandInput}
+ * @returns {@link UpdateRunGroupCommandOutput}
  * @see {@link UpdateRunGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRunGroupCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -88,6 +99,9 @@ export class UpdateRunGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRunGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +130,8 @@ export class UpdateRunGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRunGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +141,18 @@ export class UpdateRunGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRunGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRunGroupCommand(input, context);
+    return se_UpdateRunGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRunGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateRunGroupCommand(output, context);
+    return de_UpdateRunGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

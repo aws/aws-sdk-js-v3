@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { DisassociateInstanceStorageConfigRequest } from "../models/models_0";
 import {
-  DisassociateInstanceStorageConfigRequest,
-  DisassociateInstanceStorageConfigRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateInstanceStorageConfigCommand,
-  serializeAws_restJson1DisassociateInstanceStorageConfigCommand,
+  de_DisassociateInstanceStorageConfigCommand,
+  se_DisassociateInstanceStorageConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateInstanceStorageConfigCommand}.
  */
 export interface DisassociateInstanceStorageConfigCommandInput extends DisassociateInstanceStorageConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateInstanceStorageConfigCommand}.
  */
 export interface DisassociateInstanceStorageConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Removes the storage type configurations for the specified resource type and association
  *    ID.</p>
@@ -42,10 +44,17 @@ export interface DisassociateInstanceStorageConfigCommandOutput extends __Metada
  * import { ConnectClient, DisassociateInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DisassociateInstanceStorageConfigRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   AssociationId: "STRING_VALUE", // required
+ *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS", // required
+ * };
  * const command = new DisassociateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateInstanceStorageConfigCommandInput - {@link DisassociateInstanceStorageConfigCommandInput}
+ * @returns {@link DisassociateInstanceStorageConfigCommandOutput}
  * @see {@link DisassociateInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link DisassociateInstanceStorageConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +93,9 @@ export class DisassociateInstanceStorageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateInstanceStorageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +124,8 @@ export class DisassociateInstanceStorageConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateInstanceStorageConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +135,24 @@ export class DisassociateInstanceStorageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateInstanceStorageConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateInstanceStorageConfigCommand(input, context);
+    return se_DisassociateInstanceStorageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateInstanceStorageConfigCommandOutput> {
-    return deserializeAws_restJson1DisassociateInstanceStorageConfigCommand(output, context);
+    return de_DisassociateInstanceStorageConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DeleteDataSourceRequest, DeleteDataSourceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDataSourceCommand,
-  serializeAws_json1_1DeleteDataSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDataSourceRequest } from "../models/models_0";
+import { de_DeleteDataSourceCommand, se_DeleteDataSourceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataSourceCommand}.
  */
 export interface DeleteDataSourceCommandInput extends DeleteDataSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataSourceCommand}.
  */
 export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Kendra data source connector. An exception is not thrown if the
  *       data source is already being deleted. While the data source is being deleted, the
  *         <code>Status</code> field returned by a call to the <code>DescribeDataSource</code> API is
@@ -40,10 +42,16 @@ export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
  * import { KendraClient, DeleteDataSourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteDataSourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DeleteDataSourceRequest
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataSourceCommandInput - {@link DeleteDataSourceCommandInput}
+ * @returns {@link DeleteDataSourceCommandOutput}
  * @see {@link DeleteDataSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -58,7 +66,7 @@ export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -91,6 +99,9 @@ export class DeleteDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +130,8 @@ export class DeleteDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +141,18 @@ export class DeleteDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDataSourceCommand(input, context);
+    return se_DeleteDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataSourceCommandOutput> {
-    return deserializeAws_json1_1DeleteDataSourceCommand(output, context);
+    return de_DeleteDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

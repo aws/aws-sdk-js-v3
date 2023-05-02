@@ -12,7 +12,6 @@ import {
   CatalogKafkaSource,
   CatalogKinesisSource,
   CatalogSource,
-  Compatibility,
   ConnectionInput,
   ConnectionsList,
   CrawlerTargets,
@@ -61,7 +60,6 @@ import {
   RecrawlPolicy,
   RedshiftSource,
   RedshiftTarget,
-  RegistryId,
   RelationalCatalogSource,
   RenameField,
   S3CatalogDeltaSource,
@@ -96,12 +94,15 @@ import {
   Trigger,
   Union,
   WorkerType,
+  WorkflowRun,
 } from "./models_0";
 import {
   ColumnStatistics,
+  Compatibility,
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
   JobBookmarkEntry,
+  RegistryId,
   RegistryStatus,
   ResourceShareType,
   SchemaStatus,
@@ -116,6 +117,89 @@ import {
   UserDefinedFunctionInput,
 } from "./models_1";
 
+/**
+ * @public
+ */
+export interface GetWorkflowRunPropertiesRequest {
+  /**
+   * <p>Name of the workflow which was run.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ID of the workflow run whose run properties should be returned.</p>
+   */
+  RunId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRunPropertiesResponse {
+  /**
+   * <p>The workflow run properties which were set during the specified run.</p>
+   */
+  RunProperties?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRunsRequest {
+  /**
+   * <p>Name of the workflow whose metadata of runs should be returned.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies whether to include the workflow graph in response or not.</p>
+   */
+  IncludeGraph?: boolean;
+
+  /**
+   * <p>The maximum size of the response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of workflow runs to be included in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRunsResponse {
+  /**
+   * <p>A list of workflow run metadata objects.</p>
+   */
+  Runs?: WorkflowRun[];
+
+  /**
+   * <p>A continuation token, if not all requested workflow runs have been returned.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ImportCatalogToGlueRequest {
+  /**
+   * <p>The ID of the catalog to import. Currently, this should be the Amazon Web Services account ID.</p>
+   */
+  CatalogId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ImportCatalogToGlueResponse {}
+
+/**
+ * @public
+ */
 export interface ListBlueprintsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -133,6 +217,9 @@ export interface ListBlueprintsRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListBlueprintsResponse {
   /**
    * <p>List of names of blueprints in the account.</p>
@@ -145,6 +232,9 @@ export interface ListBlueprintsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCrawlersRequest {
   /**
    * <p>The maximum size of a list to return.</p>
@@ -162,6 +252,9 @@ export interface ListCrawlersRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListCrawlersResponse {
   /**
    * <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
@@ -175,24 +268,43 @@ export interface ListCrawlersResponse {
   NextToken?: string;
 }
 
-export enum FieldName {
-  CRAWL_ID = "CRAWL_ID",
-  DPU_HOUR = "DPU_HOUR",
-  END_TIME = "END_TIME",
-  START_TIME = "START_TIME",
-  STATE = "STATE",
-}
-
-export enum FilterOperator {
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FieldName = {
+  CRAWL_ID: "CRAWL_ID",
+  DPU_HOUR: "DPU_HOUR",
+  END_TIME: "END_TIME",
+  START_TIME: "START_TIME",
+  STATE: "STATE",
+} as const;
 
 /**
+ * @public
+ */
+export type FieldName = (typeof FieldName)[keyof typeof FieldName];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterOperator = {
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  LE: "LE",
+  LT: "LT",
+  NE: "NE",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
+
+/**
+ * @public
  * <p>A list of fields, comparators and value that you can use to filter the crawler runs for a specified crawler.</p>
  */
 export interface CrawlsFilter {
@@ -256,6 +368,9 @@ export interface CrawlsFilter {
   FieldValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCrawlsRequest {
   /**
    * <p>The name of the crawler whose runs you want to retrieve.</p>
@@ -278,14 +393,24 @@ export interface ListCrawlsRequest {
   NextToken?: string;
 }
 
-export enum CrawlerHistoryState {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CrawlerHistoryState = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
 
 /**
+ * @public
+ */
+export type CrawlerHistoryState = (typeof CrawlerHistoryState)[keyof typeof CrawlerHistoryState];
+
+/**
+ * @public
  * <p>Contains the information for a run of a crawler.</p>
  */
 export interface CrawlerHistory {
@@ -340,6 +465,9 @@ export interface CrawlerHistory {
   DPUHour?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCrawlsResponse {
   /**
    * <p>A list of <code>CrawlerHistory</code> objects representing the crawl runs that meet your criteria.</p>
@@ -352,6 +480,9 @@ export interface ListCrawlsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomEntityTypesRequest {
   /**
    * <p>A paginated token to offset the results.</p>
@@ -364,6 +495,9 @@ export interface ListCustomEntityTypesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomEntityTypesResponse {
   /**
    * <p>A list of <code>CustomEntityType</code> objects representing custom patterns.</p>
@@ -377,6 +511,7 @@ export interface ListCustomEntityTypesResponse {
 }
 
 /**
+ * @public
  * <p>Criteria used to return data quality results.</p>
  */
 export interface DataQualityResultFilterCriteria {
@@ -406,6 +541,9 @@ export interface DataQualityResultFilterCriteria {
   StartedBefore?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityResultsRequest {
   /**
    * <p>The filter criteria.</p>
@@ -424,6 +562,7 @@ export interface ListDataQualityResultsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a data quality result.</p>
  */
 export interface DataQualityResultDescription {
@@ -453,6 +592,9 @@ export interface DataQualityResultDescription {
   StartedOn?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityResultsResponse {
   /**
    * <p>A list of <code>DataQualityResultDescription</code> objects.</p>
@@ -466,6 +608,7 @@ export interface ListDataQualityResultsResponse {
 }
 
 /**
+ * @public
  * <p>A filter for listing data quality recommendation runs.</p>
  */
 export interface DataQualityRuleRecommendationRunFilter {
@@ -485,6 +628,9 @@ export interface DataQualityRuleRecommendationRunFilter {
   StartedAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityRuleRecommendationRunsRequest {
   /**
    * <p>The filter criteria.</p>
@@ -503,6 +649,7 @@ export interface ListDataQualityRuleRecommendationRunsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the result of a data quality rule recommendation run.</p>
  */
 export interface DataQualityRuleRecommendationRunDescription {
@@ -527,6 +674,9 @@ export interface DataQualityRuleRecommendationRunDescription {
   DataSource?: DataSource;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityRuleRecommendationRunsResponse {
   /**
    * <p>A list of <code>DataQualityRuleRecommendationRunDescription</code> objects.</p>
@@ -540,6 +690,7 @@ export interface ListDataQualityRuleRecommendationRunsResponse {
 }
 
 /**
+ * @public
  * <p>The filter criteria.</p>
  */
 export interface DataQualityRulesetEvaluationRunFilter {
@@ -559,6 +710,9 @@ export interface DataQualityRulesetEvaluationRunFilter {
   StartedAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityRulesetEvaluationRunsRequest {
   /**
    * <p>The filter criteria.</p>
@@ -577,6 +731,7 @@ export interface ListDataQualityRulesetEvaluationRunsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the result of a data quality ruleset evaluation run.</p>
  */
 export interface DataQualityRulesetEvaluationRunDescription {
@@ -601,6 +756,9 @@ export interface DataQualityRulesetEvaluationRunDescription {
   DataSource?: DataSource;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityRulesetEvaluationRunsResponse {
   /**
    * <p>A list of <code>DataQualityRulesetEvaluationRunDescription</code> objects representing data quality ruleset runs.</p>
@@ -614,6 +772,7 @@ export interface ListDataQualityRulesetEvaluationRunsResponse {
 }
 
 /**
+ * @public
  * <p>The criteria used to filter data quality rulesets.</p>
  */
 export interface DataQualityRulesetFilterCriteria {
@@ -653,6 +812,9 @@ export interface DataQualityRulesetFilterCriteria {
   TargetTable?: DataQualityTargetTable;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityRulesetsRequest {
   /**
    * <p>A paginated token to offset the results.</p>
@@ -676,6 +838,7 @@ export interface ListDataQualityRulesetsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a data quality ruleset returned by <code>GetDataQualityRuleset</code>.</p>
  */
 export interface DataQualityRulesetListDetails {
@@ -715,6 +878,9 @@ export interface DataQualityRulesetListDetails {
   RuleCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityRulesetsResponse {
   /**
    * <p>A paginated list of rulesets for the specified list of Glue tables.</p>
@@ -727,6 +893,9 @@ export interface ListDataQualityRulesetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevEndpointsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -744,6 +913,9 @@ export interface ListDevEndpointsRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListDevEndpointsResponse {
   /**
    * <p>The names of all the <code>DevEndpoint</code>s in the account, or the
@@ -758,6 +930,9 @@ export interface ListDevEndpointsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -775,6 +950,9 @@ export interface ListJobsRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListJobsResponse {
   /**
    * <p>The names of all jobs in the account, or the jobs with the specified tags.</p>
@@ -788,6 +966,9 @@ export interface ListJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMLTransformsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -815,6 +996,9 @@ export interface ListMLTransformsRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListMLTransformsResponse {
   /**
    * <p>The identifiers of all the machine learning transforms in the account, or the
@@ -829,6 +1013,9 @@ export interface ListMLTransformsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRegistriesInput {
   /**
    * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
@@ -842,6 +1029,7 @@ export interface ListRegistriesInput {
 }
 
 /**
+ * @public
  * <p>A structure containing the details for a registry.</p>
  */
 export interface RegistryListItem {
@@ -876,6 +1064,9 @@ export interface RegistryListItem {
   UpdatedTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRegistriesResponse {
   /**
    * <p>An array of <code>RegistryDetailedListItem</code> objects containing minimal details of each registry.</p>
@@ -888,6 +1079,9 @@ export interface ListRegistriesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemasInput {
   /**
    * <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
@@ -906,6 +1100,7 @@ export interface ListSchemasInput {
 }
 
 /**
+ * @public
  * <p>An object that contains minimal details for a schema.</p>
  */
 export interface SchemaListItem {
@@ -945,6 +1140,9 @@ export interface SchemaListItem {
   UpdatedTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemasResponse {
   /**
    * <p>An array of <code>SchemaListItem</code> objects containing details of each schema.</p>
@@ -957,6 +1155,9 @@ export interface ListSchemasResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemaVersionsInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
@@ -983,6 +1184,7 @@ export interface ListSchemaVersionsInput {
 }
 
 /**
+ * @public
  * <p>An object containing the details about a schema version.</p>
  */
 export interface SchemaVersionListItem {
@@ -1012,6 +1214,9 @@ export interface SchemaVersionListItem {
   CreatedTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemaVersionsResponse {
   /**
    * <p>An array of <code>SchemaVersionList</code> objects containing details of each schema version.</p>
@@ -1024,6 +1229,9 @@ export interface ListSchemaVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSessionsRequest {
   /**
    * <p>The token for the next set of results, or null if there are no more result. </p>
@@ -1046,6 +1254,9 @@ export interface ListSessionsRequest {
   RequestOrigin?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSessionsResponse {
   /**
    * <p>Returns the ID of the session. </p>
@@ -1063,6 +1274,9 @@ export interface ListSessionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStatementsRequest {
   /**
    * <p>The Session ID of the statements.</p>
@@ -1080,6 +1294,9 @@ export interface ListStatementsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStatementsResponse {
   /**
    * <p>Returns the list of statements.</p>
@@ -1092,6 +1309,9 @@ export interface ListStatementsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTriggersRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -1115,6 +1335,9 @@ export interface ListTriggersRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListTriggersResponse {
   /**
    * <p>The names of all triggers in the account, or the triggers with the specified tags.</p>
@@ -1128,6 +1351,9 @@ export interface ListTriggersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -1140,6 +1366,9 @@ export interface ListWorkflowsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowsResponse {
   /**
    * <p>List of names of workflows in the account.</p>
@@ -1152,6 +1381,9 @@ export interface ListWorkflowsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutDataCatalogEncryptionSettingsRequest {
   /**
    * <p>The ID of the Data Catalog to set the security configuration for. If none is provided, the
@@ -1165,19 +1397,43 @@ export interface PutDataCatalogEncryptionSettingsRequest {
   DataCatalogEncryptionSettings: DataCatalogEncryptionSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutDataCatalogEncryptionSettingsResponse {}
 
-export enum EnableHybridValues {
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnableHybridValues = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+} as const;
 
-export enum ExistCondition {
-  MUST_EXIST = "MUST_EXIST",
-  NONE = "NONE",
-  NOT_EXIST = "NOT_EXIST",
-}
+/**
+ * @public
+ */
+export type EnableHybridValues = (typeof EnableHybridValues)[keyof typeof EnableHybridValues];
 
+/**
+ * @public
+ * @enum
+ */
+export const ExistCondition = {
+  MUST_EXIST: "MUST_EXIST",
+  NONE: "NONE",
+  NOT_EXIST: "NOT_EXIST",
+} as const;
+
+/**
+ * @public
+ */
+export type ExistCondition = (typeof ExistCondition)[keyof typeof ExistCondition];
+
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>Contains the policy document to set, in JSON format.</p>
@@ -1221,6 +1477,9 @@ export interface PutResourcePolicyRequest {
   EnableHybrid?: EnableHybridValues | string;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {
   /**
    * <p>A hash of the policy that has just been set. This must
@@ -1231,6 +1490,7 @@ export interface PutResourcePolicyResponse {
 }
 
 /**
+ * @public
  * <p>A structure containing a key value pair for metadata.</p>
  */
 export interface MetadataKeyValuePair {
@@ -1245,6 +1505,9 @@ export interface MetadataKeyValuePair {
   MetadataValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutSchemaVersionMetadataInput {
   /**
    * <p>The unique ID for the schema.</p>
@@ -1267,6 +1530,9 @@ export interface PutSchemaVersionMetadataInput {
   MetadataKeyValue: MetadataKeyValuePair | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutSchemaVersionMetadataResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the schema.</p>
@@ -1309,6 +1575,9 @@ export interface PutSchemaVersionMetadataResponse {
   MetadataValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutWorkflowRunPropertiesRequest {
   /**
    * <p>Name of the workflow which was run.</p>
@@ -1326,8 +1595,14 @@ export interface PutWorkflowRunPropertiesRequest {
   RunProperties: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutWorkflowRunPropertiesResponse {}
 
+/**
+ * @public
+ */
 export interface QuerySchemaVersionMetadataInput {
   /**
    * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
@@ -1361,6 +1636,7 @@ export interface QuerySchemaVersionMetadataInput {
 }
 
 /**
+ * @public
  * <p>A structure containing other metadata for a schema version belonging to the same metadata key.</p>
  */
 export interface OtherMetadataValueListItem {
@@ -1376,6 +1652,7 @@ export interface OtherMetadataValueListItem {
 }
 
 /**
+ * @public
  * <p>A structure containing metadata information for a schema version.</p>
  */
 export interface MetadataInfo {
@@ -1395,6 +1672,9 @@ export interface MetadataInfo {
   OtherMetadataValueList?: OtherMetadataValueListItem[];
 }
 
+/**
+ * @public
+ */
 export interface QuerySchemaVersionMetadataResponse {
   /**
    * <p>A map of a metadata key and associated values.</p>
@@ -1412,6 +1692,9 @@ export interface QuerySchemaVersionMetadataResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterSchemaVersionInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
@@ -1432,6 +1715,9 @@ export interface RegisterSchemaVersionInput {
   SchemaDefinition: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterSchemaVersionResponse {
   /**
    * <p>The unique ID that represents the version of this schema.</p>
@@ -1449,6 +1735,9 @@ export interface RegisterSchemaVersionResponse {
   Status?: SchemaVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveSchemaVersionMetadataInput {
   /**
    * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
@@ -1471,6 +1760,9 @@ export interface RemoveSchemaVersionMetadataInput {
   MetadataKeyValue: MetadataKeyValuePair | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveSchemaVersionMetadataResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
@@ -1513,6 +1805,9 @@ export interface RemoveSchemaVersionMetadataResponse {
   MetadataValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResetJobBookmarkRequest {
   /**
    * <p>The name of the job in question.</p>
@@ -1525,6 +1820,9 @@ export interface ResetJobBookmarkRequest {
   RunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResetJobBookmarkResponse {
   /**
    * <p>The reset bookmark entry.</p>
@@ -1533,6 +1831,7 @@ export interface ResetJobBookmarkResponse {
 }
 
 /**
+ * @public
  * <p>Too many jobs are being run concurrently.</p>
  */
 export class ConcurrentRunsExceededException extends __BaseException {
@@ -1557,6 +1856,7 @@ export class ConcurrentRunsExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The workflow is in an invalid state to perform a requested operation.</p>
  */
 export class IllegalWorkflowStateException extends __BaseException {
@@ -1580,6 +1880,9 @@ export class IllegalWorkflowStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ResumeWorkflowRunRequest {
   /**
    * <p>The name of the workflow to resume.</p>
@@ -1597,6 +1900,9 @@ export interface ResumeWorkflowRunRequest {
   NodeIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResumeWorkflowRunResponse {
   /**
    * <p>The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.</p>
@@ -1609,6 +1915,9 @@ export interface ResumeWorkflowRunResponse {
   NodeIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface RunStatementRequest {
   /**
    * <p>The Session Id of the statement to be run.</p>
@@ -1626,6 +1935,9 @@ export interface RunStatementRequest {
   RequestOrigin?: string;
 }
 
+/**
+ * @public
+ */
 export interface RunStatementResponse {
   /**
    * <p>Returns the Id of the statement that was run.</p>
@@ -1633,15 +1945,25 @@ export interface RunStatementResponse {
   Id?: number;
 }
 
-export enum Comparator {
-  EQUALS = "EQUALS",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_EQUALS = "GREATER_THAN_EQUALS",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_EQUALS = "LESS_THAN_EQUALS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Comparator = {
+  EQUALS: "EQUALS",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_EQUALS: "GREATER_THAN_EQUALS",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_EQUALS: "LESS_THAN_EQUALS",
+} as const;
 
 /**
+ * @public
+ */
+export type Comparator = (typeof Comparator)[keyof typeof Comparator];
+
+/**
+ * @public
  * <p>Defines a property predicate.</p>
  */
 export interface PropertyPredicate {
@@ -1661,12 +1983,22 @@ export interface PropertyPredicate {
   Comparator?: Comparator | string;
 }
 
-export enum Sort {
-  ASCENDING = "ASC",
-  DESCENDING = "DESC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Sort = {
+  ASCENDING: "ASC",
+  DESCENDING: "DESC",
+} as const;
 
 /**
+ * @public
+ */
+export type Sort = (typeof Sort)[keyof typeof Sort];
+
+/**
+ * @public
  * <p>Specifies a field to sort by and a sort order.</p>
  */
 export interface SortCriterion {
@@ -1681,6 +2013,9 @@ export interface SortCriterion {
   Sort?: Sort | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchTablesRequest {
   /**
    * <p>A unique identifier, consisting of <code>
@@ -1730,6 +2065,9 @@ export interface SearchTablesRequest {
   ResourceShareType?: ResourceShareType | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchTablesResponse {
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
@@ -1743,6 +2081,7 @@ export interface SearchTablesResponse {
 }
 
 /**
+ * @public
  * <p>The blueprint is in an invalid state to perform a requested operation.</p>
  */
 export class IllegalBlueprintStateException extends __BaseException {
@@ -1766,6 +2105,9 @@ export class IllegalBlueprintStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartBlueprintRunRequest {
   /**
    * <p>The name of the blueprint.</p>
@@ -1783,6 +2125,9 @@ export interface StartBlueprintRunRequest {
   RoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartBlueprintRunResponse {
   /**
    * <p>The run ID for this blueprint run.</p>
@@ -1790,6 +2135,9 @@ export interface StartBlueprintRunResponse {
   RunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartCrawlerRequest {
   /**
    * <p>Name of the crawler to start.</p>
@@ -1797,9 +2145,13 @@ export interface StartCrawlerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartCrawlerResponse {}
 
 /**
+ * @public
  * <p>There is no applicable schedule.</p>
  */
 export class NoScheduleException extends __BaseException {
@@ -1824,6 +2176,7 @@ export class NoScheduleException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified scheduler is already running.</p>
  */
 export class SchedulerRunningException extends __BaseException {
@@ -1847,6 +2200,9 @@ export class SchedulerRunningException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartCrawlerScheduleRequest {
   /**
    * <p>Name of the crawler to schedule.</p>
@@ -1854,8 +2210,14 @@ export interface StartCrawlerScheduleRequest {
   CrawlerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartCrawlerScheduleResponse {}
 
+/**
+ * @public
+ */
 export interface StartDataQualityRuleRecommendationRunRequest {
   /**
    * <p>The data source (Glue table) associated with this run.</p>
@@ -1888,6 +2250,9 @@ export interface StartDataQualityRuleRecommendationRunRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDataQualityRuleRecommendationRunResponse {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -1895,6 +2260,9 @@ export interface StartDataQualityRuleRecommendationRunResponse {
   RunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDataQualityRulesetEvaluationRunRequest {
   /**
    * <p>The data source (Glue table) associated with this run.</p>
@@ -1932,6 +2300,9 @@ export interface StartDataQualityRulesetEvaluationRunRequest {
   RulesetNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDataQualityRulesetEvaluationRunResponse {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -1939,6 +2310,9 @@ export interface StartDataQualityRulesetEvaluationRunResponse {
   RunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartExportLabelsTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -1951,6 +2325,9 @@ export interface StartExportLabelsTaskRunRequest {
   OutputS3Path: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartExportLabelsTaskRunResponse {
   /**
    * <p>The unique identifier for the task run.</p>
@@ -1958,6 +2335,9 @@ export interface StartExportLabelsTaskRunResponse {
   TaskRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartImportLabelsTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -1976,6 +2356,9 @@ export interface StartImportLabelsTaskRunRequest {
   ReplaceAllLabels?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartImportLabelsTaskRunResponse {
   /**
    * <p>The unique identifier for the task run.</p>
@@ -1983,6 +2366,9 @@ export interface StartImportLabelsTaskRunResponse {
   TaskRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRunRequest {
   /**
    * <p>The name of the job definition to use.</p>
@@ -2089,6 +2475,9 @@ export interface StartJobRunRequest {
   ExecutionClass?: ExecutionClass | string;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRunResponse {
   /**
    * <p>The ID assigned to this job run.</p>
@@ -2097,6 +2486,7 @@ export interface StartJobRunResponse {
 }
 
 /**
+ * @public
  * <p>The machine learning transform is not ready to run.</p>
  */
 export class MLTransformNotReadyException extends __BaseException {
@@ -2120,6 +2510,9 @@ export class MLTransformNotReadyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartMLEvaluationTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -2127,6 +2520,9 @@ export interface StartMLEvaluationTaskRunRequest {
   TransformId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMLEvaluationTaskRunResponse {
   /**
    * <p>The unique identifier associated with this run.</p>
@@ -2134,6 +2530,9 @@ export interface StartMLEvaluationTaskRunResponse {
   TaskRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartMLLabelingSetGenerationTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -2147,6 +2546,9 @@ export interface StartMLLabelingSetGenerationTaskRunRequest {
   OutputS3Path: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMLLabelingSetGenerationTaskRunResponse {
   /**
    * <p>The unique run identifier that is associated with this task run.</p>
@@ -2154,6 +2556,9 @@ export interface StartMLLabelingSetGenerationTaskRunResponse {
   TaskRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartTriggerRequest {
   /**
    * <p>The name of the trigger to start.</p>
@@ -2161,6 +2566,9 @@ export interface StartTriggerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartTriggerResponse {
   /**
    * <p>The name of the trigger that was started.</p>
@@ -2168,6 +2576,9 @@ export interface StartTriggerResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartWorkflowRunRequest {
   /**
    * <p>The name of the workflow to start.</p>
@@ -2180,6 +2591,9 @@ export interface StartWorkflowRunRequest {
   RunProperties?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartWorkflowRunResponse {
   /**
    * <p>An Id for the new run.</p>
@@ -2188,6 +2602,7 @@ export interface StartWorkflowRunResponse {
 }
 
 /**
+ * @public
  * <p>The specified crawler is not running.</p>
  */
 export class CrawlerNotRunningException extends __BaseException {
@@ -2212,6 +2627,7 @@ export class CrawlerNotRunningException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified crawler is stopping.</p>
  */
 export class CrawlerStoppingException extends __BaseException {
@@ -2235,6 +2651,9 @@ export class CrawlerStoppingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StopCrawlerRequest {
   /**
    * <p>Name of the crawler to stop.</p>
@@ -2242,9 +2661,13 @@ export interface StopCrawlerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopCrawlerResponse {}
 
 /**
+ * @public
  * <p>The specified scheduler is not running.</p>
  */
 export class SchedulerNotRunningException extends __BaseException {
@@ -2268,6 +2691,9 @@ export class SchedulerNotRunningException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StopCrawlerScheduleRequest {
   /**
    * <p>Name of the crawler whose schedule state to set.</p>
@@ -2275,8 +2701,14 @@ export interface StopCrawlerScheduleRequest {
   CrawlerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopCrawlerScheduleResponse {}
 
+/**
+ * @public
+ */
 export interface StopSessionRequest {
   /**
    * <p>The ID of the session to be stopped.</p>
@@ -2289,6 +2721,9 @@ export interface StopSessionRequest {
   RequestOrigin?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopSessionResponse {
   /**
    * <p>Returns the Id of the stopped session.</p>
@@ -2296,6 +2731,9 @@ export interface StopSessionResponse {
   Id?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopTriggerRequest {
   /**
    * <p>The name of the trigger to stop.</p>
@@ -2303,6 +2741,9 @@ export interface StopTriggerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopTriggerResponse {
   /**
    * <p>The name of the trigger that was stopped.</p>
@@ -2310,6 +2751,9 @@ export interface StopTriggerResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopWorkflowRunRequest {
   /**
    * <p>The name of the workflow to stop.</p>
@@ -2322,8 +2766,14 @@ export interface StopWorkflowRunRequest {
   RunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopWorkflowRunResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the Glue resource to which to add the tags. For more
@@ -2337,8 +2787,14 @@ export interface TagResourceRequest {
   TagsToAdd: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which to remove the tags.</p>
@@ -2351,8 +2807,14 @@ export interface UntagResourceRequest {
   TagsToRemove: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateBlueprintRequest {
   /**
    * <p>The name of the blueprint.</p>
@@ -2370,6 +2832,9 @@ export interface UpdateBlueprintRequest {
   BlueprintLocation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBlueprintResponse {
   /**
    * <p>Returns the name of the blueprint that was updated.</p>
@@ -2378,6 +2843,7 @@ export interface UpdateBlueprintResponse {
 }
 
 /**
+ * @public
  * <p>Specifies a custom CSV classifier to be updated.</p>
  */
 export interface UpdateCsvClassifierRequest {
@@ -2429,6 +2895,7 @@ export interface UpdateCsvClassifierRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a grok classifier to update when passed to
  *       <code>UpdateClassifier</code>.</p>
  */
@@ -2456,6 +2923,7 @@ export interface UpdateGrokClassifierRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a JSON classifier to be updated.</p>
  */
 export interface UpdateJsonClassifierRequest {
@@ -2472,6 +2940,7 @@ export interface UpdateJsonClassifierRequest {
 }
 
 /**
+ * @public
  * <p>Specifies an XML classifier to be updated.</p>
  */
 export interface UpdateXMLClassifierRequest {
@@ -2495,6 +2964,9 @@ export interface UpdateXMLClassifierRequest {
   RowTag?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClassifierRequest {
   /**
    * <p>A <code>GrokClassifier</code> object with updated fields.</p>
@@ -2517,9 +2989,13 @@ export interface UpdateClassifierRequest {
   CsvClassifier?: UpdateCsvClassifierRequest;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClassifierResponse {}
 
 /**
+ * @public
  * <p>There was a version conflict.</p>
  */
 export class VersionMismatchException extends __BaseException {
@@ -2543,6 +3019,9 @@ export class VersionMismatchException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateColumnStatisticsForPartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
@@ -2572,6 +3051,7 @@ export interface UpdateColumnStatisticsForPartitionRequest {
 }
 
 /**
+ * @public
  * <p>Encapsulates a <code>ColumnStatistics</code> object that failed and the reason for failure.</p>
  */
 export interface ColumnStatisticsError {
@@ -2586,6 +3066,9 @@ export interface ColumnStatisticsError {
   Error?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface UpdateColumnStatisticsForPartitionResponse {
   /**
    * <p>Error occurred during updating column statistics data.</p>
@@ -2593,6 +3076,9 @@ export interface UpdateColumnStatisticsForPartitionResponse {
   Errors?: ColumnStatisticsError[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateColumnStatisticsForTableRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
@@ -2616,6 +3102,9 @@ export interface UpdateColumnStatisticsForTableRequest {
   ColumnStatisticsList: ColumnStatistics[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateColumnStatisticsForTableResponse {
   /**
    * <p>List of ColumnStatisticsErrors.</p>
@@ -2623,6 +3112,9 @@ export interface UpdateColumnStatisticsForTableResponse {
   Errors?: ColumnStatisticsError[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectionRequest {
   /**
    * <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services
@@ -2642,8 +3134,14 @@ export interface UpdateConnectionRequest {
   ConnectionInput: ConnectionInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateCrawlerRequest {
   /**
    * <p>Name of the new crawler.</p>
@@ -2726,8 +3224,14 @@ export interface UpdateCrawlerRequest {
   CrawlerSecurityConfiguration?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCrawlerResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateCrawlerScheduleRequest {
   /**
    * <p>The name of the crawler whose schedule to update.</p>
@@ -2742,8 +3246,14 @@ export interface UpdateCrawlerScheduleRequest {
   Schedule?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCrawlerScheduleResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatabaseRequest {
   /**
    * <p>The ID of the Data Catalog in which the metadata database resides. If none is provided,
@@ -2764,18 +3274,19 @@ export interface UpdateDatabaseRequest {
   DatabaseInput: DatabaseInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatabaseResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDataQualityRulesetRequest {
   /**
    * <p>The name of the data quality ruleset.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The new name of the ruleset, if you are renaming it.</p>
-   */
-  UpdatedName?: string;
 
   /**
    * <p>A description of the ruleset.</p>
@@ -2788,6 +3299,9 @@ export interface UpdateDataQualityRulesetRequest {
   Ruleset?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataQualityRulesetResponse {
   /**
    * <p>The name of the data quality ruleset.</p>
@@ -2806,6 +3320,7 @@ export interface UpdateDataQualityRulesetResponse {
 }
 
 /**
+ * @public
  * <p>Custom libraries to be loaded into a development endpoint.</p>
  */
 export interface DevEndpointCustomLibraries {
@@ -2831,6 +3346,9 @@ export interface DevEndpointCustomLibraries {
   ExtraJarsS3Path?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDevEndpointRequest {
   /**
    * <p>The name of the <code>DevEndpoint</code> to be updated.</p>
@@ -2886,8 +3404,14 @@ export interface UpdateDevEndpointRequest {
   AddArguments?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDevEndpointResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateJobResponse {
   /**
    * <p>Returns the name of the updated job definition.</p>
@@ -2895,6 +3419,9 @@ export interface UpdateJobResponse {
   JobName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobFromSourceControlRequest {
   /**
    * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
@@ -2942,6 +3469,9 @@ export interface UpdateJobFromSourceControlRequest {
   AuthToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobFromSourceControlResponse {
   /**
    * <p>The name of the Glue job.</p>
@@ -2949,6 +3479,9 @@ export interface UpdateJobFromSourceControlResponse {
   JobName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMLTransformRequest {
   /**
    * <p>A unique identifier that was generated when the transform was created.</p>
@@ -3023,6 +3556,9 @@ export interface UpdateMLTransformRequest {
   MaxRetries?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMLTransformResponse {
   /**
    * <p>The unique identifier for the transform that was updated.</p>
@@ -3030,6 +3566,9 @@ export interface UpdateMLTransformResponse {
   TransformId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partition to be updated resides. If none is provided,
@@ -3060,8 +3599,14 @@ export interface UpdatePartitionRequest {
   PartitionInput: PartitionInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePartitionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateRegistryInput {
   /**
    * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
@@ -3074,6 +3619,9 @@ export interface UpdateRegistryInput {
   Description: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRegistryResponse {
   /**
    * <p>The name of the updated registry.</p>
@@ -3086,6 +3634,9 @@ export interface UpdateRegistryResponse {
   RegistryArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSchemaInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
@@ -3116,6 +3667,9 @@ export interface UpdateSchemaInput {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSchemaResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
@@ -3133,6 +3687,9 @@ export interface UpdateSchemaResponse {
   RegistryName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSourceControlFromJobRequest {
   /**
    * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
@@ -3180,6 +3737,9 @@ export interface UpdateSourceControlFromJobRequest {
   AuthToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSourceControlFromJobResponse {
   /**
    * <p>The name of the Glue job.</p>
@@ -3187,6 +3747,9 @@ export interface UpdateSourceControlFromJobResponse {
   JobName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableRequest {
   /**
    * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
@@ -3224,9 +3787,13 @@ export interface UpdateTableRequest {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableResponse {}
 
 /**
+ * @public
  * <p>A structure used to provide information used to update a trigger. This object updates the
  *       previous trigger definition by overwriting it completely.</p>
  */
@@ -3266,6 +3833,9 @@ export interface TriggerUpdate {
   EventBatchingCondition?: EventBatchingCondition;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTriggerRequest {
   /**
    * <p>The name of the trigger to update.</p>
@@ -3278,6 +3848,9 @@ export interface UpdateTriggerRequest {
   TriggerUpdate: TriggerUpdate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTriggerResponse {
   /**
    * <p>The resulting trigger definition.</p>
@@ -3285,6 +3858,9 @@ export interface UpdateTriggerResponse {
   Trigger?: Trigger;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserDefinedFunctionRequest {
   /**
    * <p>The ID of the Data Catalog where the function to be updated is located. If none is
@@ -3310,8 +3886,14 @@ export interface UpdateUserDefinedFunctionRequest {
   FunctionInput: UserDefinedFunctionInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserDefinedFunctionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowRequest {
   /**
    * <p>Name of the workflow to be updated.</p>
@@ -3334,6 +3916,9 @@ export interface UpdateWorkflowRequest {
   MaxConcurrentRuns?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowResponse {
   /**
    * <p>The name of the workflow which was specified in input.</p>
@@ -3342,6 +3927,7 @@ export interface UpdateWorkflowResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the mapping of data property keys.</p>
  */
 export interface Mapping {
@@ -3374,39 +3960,40 @@ export interface Mapping {
    * <p>Only applicable to nested data structures. If you want to change the parent structure, but also one of its children, you can fill out this data strucutre. It is also <code>Mapping</code>, but its <code>FromPath</code> will be the parent's <code>FromPath</code> plus the <code>FromPath</code> from this structure.</p>
    *          <p>For the children part, suppose you have the structure:</p>
    *          <p>
-   *             <code>{
+   *             <code>\{
    *   "FromPath": "OuterStructure",
    *   "ToKey": "OuterStructure",
    *   "ToType": "Struct",
    *   "Dropped": false,
-   *   "Chidlren": [{
+   *   "Chidlren": [\{
    *        "FromPath": "inner",
    *        "ToKey": "inner",
    *        "ToType": "Double",
    *       "Dropped": false,
-   *   }]
-   * }</code>
+   *   \}]
+   * \}</code>
    *          </p>
    *          <p>You can specify a <code>Mapping</code> that looks like:</p>
    *          <p>
-   *             <code>{
+   *             <code>\{
    *   "FromPath": "OuterStructure",
    *   "ToKey": "OuterStructure",
    *   "ToType": "Struct",
    *   "Dropped": false,
-   *   "Chidlren": [{
+   *   "Chidlren": [\{
    *        "FromPath": "inner",
    *        "ToKey": "inner",
    *        "ToType": "Double",
    *       "Dropped": false,
-   *   }]
-   * }</code>
+   *   \}]
+   * \}</code>
    *          </p>
    */
   Children?: Mapping[];
 }
 
 /**
+ * @public
  * <p>Specifies a transform that maps data property keys in the data source to data property keys in the data target. You can rename keys, modify the data types for keys, and choose which keys to drop from the dataset.</p>
  */
 export interface ApplyMapping {
@@ -3427,6 +4014,7 @@ export interface ApplyMapping {
 }
 
 /**
+ * @public
  * <p>
  *             <code>CodeGenConfigurationNode</code> enumerates all valid Node types. One and only one of its member variables can be populated.</p>
  */
@@ -3748,6 +4336,9 @@ export interface CodeGenConfigurationNode {
   S3DeltaDirectTarget?: S3DeltaDirectTarget;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobRequest {
   /**
    * <p>The name you assign to this job definition. It must be unique in your account.</p>
@@ -3916,6 +4507,7 @@ export interface CreateJobRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a job definition.</p>
  */
 export interface Job {
@@ -4020,7 +4612,7 @@ export interface Job {
    *             </li>
    *             <li>
    *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl") or Apache
-   *             Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"), you can allocate a minimum of 2 DPUs.
+   *             Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"), you can allocate from 2 to 100 DPUs.
    *             The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
    *             </li>
    *          </ul>
@@ -4089,6 +4681,7 @@ export interface Job {
 }
 
 /**
+ * @public
  * <p>Specifies information used to update an existing job definition. The previous job
  *       definition is completely overwritten by this information.</p>
  */
@@ -4243,6 +4836,9 @@ export interface JobUpdate {
   SourceControlDetails?: SourceControlDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetJobResponse {
   /**
    * <p>The requested job definition.</p>
@@ -4250,6 +4846,9 @@ export interface GetJobResponse {
   Job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobRequest {
   /**
    * <p>The name of the job definition to update.</p>
@@ -4262,6 +4861,9 @@ export interface UpdateJobRequest {
   JobUpdate: JobUpdate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetJobsResponse {
   /**
    * <p>A list of job definitions.</p>
@@ -4274,6 +4876,9 @@ export interface BatchGetJobsResponse {
   JobsNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetJobsResponse {
   /**
    * <p>A list of job definitions.</p>
@@ -4285,1203 +4890,6 @@ export interface GetJobsResponse {
    */
   NextToken?: string;
 }
-
-/**
- * @internal
- */
-export const ListBlueprintsRequestFilterSensitiveLog = (obj: ListBlueprintsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBlueprintsResponseFilterSensitiveLog = (obj: ListBlueprintsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCrawlersRequestFilterSensitiveLog = (obj: ListCrawlersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCrawlersResponseFilterSensitiveLog = (obj: ListCrawlersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrawlsFilterFilterSensitiveLog = (obj: CrawlsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCrawlsRequestFilterSensitiveLog = (obj: ListCrawlsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrawlerHistoryFilterSensitiveLog = (obj: CrawlerHistory): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCrawlsResponseFilterSensitiveLog = (obj: ListCrawlsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomEntityTypesRequestFilterSensitiveLog = (obj: ListCustomEntityTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomEntityTypesResponseFilterSensitiveLog = (obj: ListCustomEntityTypesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityResultFilterCriteriaFilterSensitiveLog = (obj: DataQualityResultFilterCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataQualityResultsRequestFilterSensitiveLog = (obj: ListDataQualityResultsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityResultDescriptionFilterSensitiveLog = (obj: DataQualityResultDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataQualityResultsResponseFilterSensitiveLog = (obj: ListDataQualityResultsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityRuleRecommendationRunFilterFilterSensitiveLog = (
-  obj: DataQualityRuleRecommendationRunFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataQualityRuleRecommendationRunsRequestFilterSensitiveLog = (
-  obj: ListDataQualityRuleRecommendationRunsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityRuleRecommendationRunDescriptionFilterSensitiveLog = (
-  obj: DataQualityRuleRecommendationRunDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataQualityRuleRecommendationRunsResponseFilterSensitiveLog = (
-  obj: ListDataQualityRuleRecommendationRunsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityRulesetEvaluationRunFilterFilterSensitiveLog = (
-  obj: DataQualityRulesetEvaluationRunFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataQualityRulesetEvaluationRunsRequestFilterSensitiveLog = (
-  obj: ListDataQualityRulesetEvaluationRunsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityRulesetEvaluationRunDescriptionFilterSensitiveLog = (
-  obj: DataQualityRulesetEvaluationRunDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataQualityRulesetEvaluationRunsResponseFilterSensitiveLog = (
-  obj: ListDataQualityRulesetEvaluationRunsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityRulesetFilterCriteriaFilterSensitiveLog = (obj: DataQualityRulesetFilterCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataQualityRulesetsRequestFilterSensitiveLog = (obj: ListDataQualityRulesetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityRulesetListDetailsFilterSensitiveLog = (obj: DataQualityRulesetListDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataQualityRulesetsResponseFilterSensitiveLog = (obj: ListDataQualityRulesetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevEndpointsRequestFilterSensitiveLog = (obj: ListDevEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevEndpointsResponseFilterSensitiveLog = (obj: ListDevEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsResponseFilterSensitiveLog = (obj: ListJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMLTransformsRequestFilterSensitiveLog = (obj: ListMLTransformsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMLTransformsResponseFilterSensitiveLog = (obj: ListMLTransformsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRegistriesInputFilterSensitiveLog = (obj: ListRegistriesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegistryListItemFilterSensitiveLog = (obj: RegistryListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRegistriesResponseFilterSensitiveLog = (obj: ListRegistriesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSchemasInputFilterSensitiveLog = (obj: ListSchemasInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaListItemFilterSensitiveLog = (obj: SchemaListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSchemasResponseFilterSensitiveLog = (obj: ListSchemasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSchemaVersionsInputFilterSensitiveLog = (obj: ListSchemaVersionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaVersionListItemFilterSensitiveLog = (obj: SchemaVersionListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSchemaVersionsResponseFilterSensitiveLog = (obj: ListSchemaVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSessionsRequestFilterSensitiveLog = (obj: ListSessionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSessionsResponseFilterSensitiveLog = (obj: ListSessionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStatementsRequestFilterSensitiveLog = (obj: ListStatementsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStatementsResponseFilterSensitiveLog = (obj: ListStatementsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTriggersRequestFilterSensitiveLog = (obj: ListTriggersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTriggersResponseFilterSensitiveLog = (obj: ListTriggersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkflowsRequestFilterSensitiveLog = (obj: ListWorkflowsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkflowsResponseFilterSensitiveLog = (obj: ListWorkflowsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutDataCatalogEncryptionSettingsRequestFilterSensitiveLog = (
-  obj: PutDataCatalogEncryptionSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutDataCatalogEncryptionSettingsResponseFilterSensitiveLog = (
-  obj: PutDataCatalogEncryptionSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetadataKeyValuePairFilterSensitiveLog = (obj: MetadataKeyValuePair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutSchemaVersionMetadataInputFilterSensitiveLog = (obj: PutSchemaVersionMetadataInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutSchemaVersionMetadataResponseFilterSensitiveLog = (obj: PutSchemaVersionMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutWorkflowRunPropertiesRequestFilterSensitiveLog = (obj: PutWorkflowRunPropertiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutWorkflowRunPropertiesResponseFilterSensitiveLog = (obj: PutWorkflowRunPropertiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QuerySchemaVersionMetadataInputFilterSensitiveLog = (obj: QuerySchemaVersionMetadataInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OtherMetadataValueListItemFilterSensitiveLog = (obj: OtherMetadataValueListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetadataInfoFilterSensitiveLog = (obj: MetadataInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QuerySchemaVersionMetadataResponseFilterSensitiveLog = (obj: QuerySchemaVersionMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterSchemaVersionInputFilterSensitiveLog = (obj: RegisterSchemaVersionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterSchemaVersionResponseFilterSensitiveLog = (obj: RegisterSchemaVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveSchemaVersionMetadataInputFilterSensitiveLog = (obj: RemoveSchemaVersionMetadataInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveSchemaVersionMetadataResponseFilterSensitiveLog = (
-  obj: RemoveSchemaVersionMetadataResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResetJobBookmarkRequestFilterSensitiveLog = (obj: ResetJobBookmarkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResetJobBookmarkResponseFilterSensitiveLog = (obj: ResetJobBookmarkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResumeWorkflowRunRequestFilterSensitiveLog = (obj: ResumeWorkflowRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResumeWorkflowRunResponseFilterSensitiveLog = (obj: ResumeWorkflowRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunStatementRequestFilterSensitiveLog = (obj: RunStatementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunStatementResponseFilterSensitiveLog = (obj: RunStatementResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PropertyPredicateFilterSensitiveLog = (obj: PropertyPredicate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SortCriterionFilterSensitiveLog = (obj: SortCriterion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchTablesRequestFilterSensitiveLog = (obj: SearchTablesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchTablesResponseFilterSensitiveLog = (obj: SearchTablesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartBlueprintRunRequestFilterSensitiveLog = (obj: StartBlueprintRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartBlueprintRunResponseFilterSensitiveLog = (obj: StartBlueprintRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartCrawlerRequestFilterSensitiveLog = (obj: StartCrawlerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartCrawlerResponseFilterSensitiveLog = (obj: StartCrawlerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartCrawlerScheduleRequestFilterSensitiveLog = (obj: StartCrawlerScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartCrawlerScheduleResponseFilterSensitiveLog = (obj: StartCrawlerScheduleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDataQualityRuleRecommendationRunRequestFilterSensitiveLog = (
-  obj: StartDataQualityRuleRecommendationRunRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDataQualityRuleRecommendationRunResponseFilterSensitiveLog = (
-  obj: StartDataQualityRuleRecommendationRunResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDataQualityRulesetEvaluationRunRequestFilterSensitiveLog = (
-  obj: StartDataQualityRulesetEvaluationRunRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDataQualityRulesetEvaluationRunResponseFilterSensitiveLog = (
-  obj: StartDataQualityRulesetEvaluationRunResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartExportLabelsTaskRunRequestFilterSensitiveLog = (obj: StartExportLabelsTaskRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartExportLabelsTaskRunResponseFilterSensitiveLog = (obj: StartExportLabelsTaskRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartImportLabelsTaskRunRequestFilterSensitiveLog = (obj: StartImportLabelsTaskRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartImportLabelsTaskRunResponseFilterSensitiveLog = (obj: StartImportLabelsTaskRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartJobRunRequestFilterSensitiveLog = (obj: StartJobRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartJobRunResponseFilterSensitiveLog = (obj: StartJobRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMLEvaluationTaskRunRequestFilterSensitiveLog = (obj: StartMLEvaluationTaskRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMLEvaluationTaskRunResponseFilterSensitiveLog = (obj: StartMLEvaluationTaskRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMLLabelingSetGenerationTaskRunRequestFilterSensitiveLog = (
-  obj: StartMLLabelingSetGenerationTaskRunRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMLLabelingSetGenerationTaskRunResponseFilterSensitiveLog = (
-  obj: StartMLLabelingSetGenerationTaskRunResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartTriggerRequestFilterSensitiveLog = (obj: StartTriggerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartTriggerResponseFilterSensitiveLog = (obj: StartTriggerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartWorkflowRunRequestFilterSensitiveLog = (obj: StartWorkflowRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartWorkflowRunResponseFilterSensitiveLog = (obj: StartWorkflowRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopCrawlerRequestFilterSensitiveLog = (obj: StopCrawlerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopCrawlerResponseFilterSensitiveLog = (obj: StopCrawlerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopCrawlerScheduleRequestFilterSensitiveLog = (obj: StopCrawlerScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopCrawlerScheduleResponseFilterSensitiveLog = (obj: StopCrawlerScheduleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopSessionRequestFilterSensitiveLog = (obj: StopSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopSessionResponseFilterSensitiveLog = (obj: StopSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopTriggerRequestFilterSensitiveLog = (obj: StopTriggerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopTriggerResponseFilterSensitiveLog = (obj: StopTriggerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopWorkflowRunRequestFilterSensitiveLog = (obj: StopWorkflowRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopWorkflowRunResponseFilterSensitiveLog = (obj: StopWorkflowRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBlueprintRequestFilterSensitiveLog = (obj: UpdateBlueprintRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBlueprintResponseFilterSensitiveLog = (obj: UpdateBlueprintResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCsvClassifierRequestFilterSensitiveLog = (obj: UpdateCsvClassifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGrokClassifierRequestFilterSensitiveLog = (obj: UpdateGrokClassifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateJsonClassifierRequestFilterSensitiveLog = (obj: UpdateJsonClassifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateXMLClassifierRequestFilterSensitiveLog = (obj: UpdateXMLClassifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClassifierRequestFilterSensitiveLog = (obj: UpdateClassifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClassifierResponseFilterSensitiveLog = (obj: UpdateClassifierResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateColumnStatisticsForPartitionRequestFilterSensitiveLog = (
-  obj: UpdateColumnStatisticsForPartitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnStatisticsErrorFilterSensitiveLog = (obj: ColumnStatisticsError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateColumnStatisticsForPartitionResponseFilterSensitiveLog = (
-  obj: UpdateColumnStatisticsForPartitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateColumnStatisticsForTableRequestFilterSensitiveLog = (
-  obj: UpdateColumnStatisticsForTableRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateColumnStatisticsForTableResponseFilterSensitiveLog = (
-  obj: UpdateColumnStatisticsForTableResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionRequestFilterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionResponseFilterSensitiveLog = (obj: UpdateConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCrawlerRequestFilterSensitiveLog = (obj: UpdateCrawlerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCrawlerResponseFilterSensitiveLog = (obj: UpdateCrawlerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCrawlerScheduleRequestFilterSensitiveLog = (obj: UpdateCrawlerScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCrawlerScheduleResponseFilterSensitiveLog = (obj: UpdateCrawlerScheduleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatabaseRequestFilterSensitiveLog = (obj: UpdateDatabaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatabaseResponseFilterSensitiveLog = (obj: UpdateDatabaseResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDataQualityRulesetRequestFilterSensitiveLog = (obj: UpdateDataQualityRulesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDataQualityRulesetResponseFilterSensitiveLog = (obj: UpdateDataQualityRulesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DevEndpointCustomLibrariesFilterSensitiveLog = (obj: DevEndpointCustomLibraries): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDevEndpointRequestFilterSensitiveLog = (obj: UpdateDevEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDevEndpointResponseFilterSensitiveLog = (obj: UpdateDevEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateJobResponseFilterSensitiveLog = (obj: UpdateJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateJobFromSourceControlRequestFilterSensitiveLog = (obj: UpdateJobFromSourceControlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateJobFromSourceControlResponseFilterSensitiveLog = (obj: UpdateJobFromSourceControlResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMLTransformRequestFilterSensitiveLog = (obj: UpdateMLTransformRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMLTransformResponseFilterSensitiveLog = (obj: UpdateMLTransformResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePartitionRequestFilterSensitiveLog = (obj: UpdatePartitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePartitionResponseFilterSensitiveLog = (obj: UpdatePartitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRegistryInputFilterSensitiveLog = (obj: UpdateRegistryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRegistryResponseFilterSensitiveLog = (obj: UpdateRegistryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSchemaInputFilterSensitiveLog = (obj: UpdateSchemaInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSchemaResponseFilterSensitiveLog = (obj: UpdateSchemaResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSourceControlFromJobRequestFilterSensitiveLog = (obj: UpdateSourceControlFromJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSourceControlFromJobResponseFilterSensitiveLog = (obj: UpdateSourceControlFromJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableRequestFilterSensitiveLog = (obj: UpdateTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableResponseFilterSensitiveLog = (obj: UpdateTableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TriggerUpdateFilterSensitiveLog = (obj: TriggerUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTriggerRequestFilterSensitiveLog = (obj: UpdateTriggerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTriggerResponseFilterSensitiveLog = (obj: UpdateTriggerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserDefinedFunctionRequestFilterSensitiveLog = (obj: UpdateUserDefinedFunctionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserDefinedFunctionResponseFilterSensitiveLog = (obj: UpdateUserDefinedFunctionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkflowRequestFilterSensitiveLog = (obj: UpdateWorkflowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkflowResponseFilterSensitiveLog = (obj: UpdateWorkflowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MappingFilterSensitiveLog = (obj: Mapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplyMappingFilterSensitiveLog = (obj: ApplyMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeGenConfigurationNodeFilterSensitiveLog = (obj: CodeGenConfigurationNode): any => ({
-  ...obj,
-});
 
 /**
  * @internal

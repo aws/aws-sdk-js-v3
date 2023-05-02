@@ -69,6 +69,7 @@ import {
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**
+ * @public
  * <p>A combo chart.</p>
  *          <p>The <code>ComboChartVisual</code> includes stacked bar combo charts and clustered bar combo charts</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html">Using combo charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
@@ -105,19 +106,39 @@ export interface ComboChartVisual {
   ColumnHierarchies?: ColumnHierarchy[];
 }
 
-export enum CustomContentType {
-  IMAGE = "IMAGE",
-  OTHER_EMBEDDED_CONTENT = "OTHER_EMBEDDED_CONTENT",
-}
-
-export enum CustomContentImageScalingConfiguration {
-  DO_NOT_SCALE = "DO_NOT_SCALE",
-  FIT_TO_HEIGHT = "FIT_TO_HEIGHT",
-  FIT_TO_WIDTH = "FIT_TO_WIDTH",
-  SCALE_TO_VISUAL = "SCALE_TO_VISUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomContentType = {
+  IMAGE: "IMAGE",
+  OTHER_EMBEDDED_CONTENT: "OTHER_EMBEDDED_CONTENT",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomContentType = (typeof CustomContentType)[keyof typeof CustomContentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomContentImageScalingConfiguration = {
+  DO_NOT_SCALE: "DO_NOT_SCALE",
+  FIT_TO_HEIGHT: "FIT_TO_HEIGHT",
+  FIT_TO_WIDTH: "FIT_TO_WIDTH",
+  SCALE_TO_VISUAL: "SCALE_TO_VISUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomContentImageScalingConfiguration =
+  (typeof CustomContentImageScalingConfiguration)[keyof typeof CustomContentImageScalingConfiguration];
+
+/**
+ * @public
  * <p>The configuration of a <code>CustomContentVisual</code>.</p>
  */
 export interface CustomContentConfiguration {
@@ -138,6 +159,7 @@ export interface CustomContentConfiguration {
 }
 
 /**
+ * @public
  * <p>A visual that contains custom content.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html">Using custom visual content</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -174,6 +196,7 @@ export interface CustomContentVisual {
 }
 
 /**
+ * @public
  * <p>An empty visual.</p>
  *          <p>Empty visuals are used in layouts but have not been configured to show any data. A new visual created in the Amazon QuickSight console is considered an <code>EmptyVisual</code> until a visual type is selected.</p>
  */
@@ -195,6 +218,7 @@ export interface EmptyVisual {
 }
 
 /**
+ * @public
  * <p>The aggregated field well of the filled map.</p>
  */
 export interface FilledMapAggregatedFieldWells {
@@ -210,6 +234,7 @@ export interface FilledMapAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a <code>FilledMapVisual</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -220,14 +245,24 @@ export interface FilledMapFieldWells {
   FilledMapAggregatedFieldWells?: FilledMapAggregatedFieldWells;
 }
 
-export enum BaseMapStyleType {
-  DARK_GRAY = "DARK_GRAY",
-  IMAGERY = "IMAGERY",
-  LIGHT_GRAY = "LIGHT_GRAY",
-  STREET = "STREET",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BaseMapStyleType = {
+  DARK_GRAY: "DARK_GRAY",
+  IMAGERY: "IMAGERY",
+  LIGHT_GRAY: "LIGHT_GRAY",
+  STREET: "STREET",
+} as const;
 
 /**
+ * @public
+ */
+export type BaseMapStyleType = (typeof BaseMapStyleType)[keyof typeof BaseMapStyleType];
+
+/**
+ * @public
  * <p>The map style options of the geospatial map.</p>
  */
 export interface GeospatialMapStyleOptions {
@@ -238,6 +273,7 @@ export interface GeospatialMapStyleOptions {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a <code>FilledMapVisual</code>.</p>
  */
 export interface FilledMapSortConfiguration {
@@ -248,6 +284,7 @@ export interface FilledMapSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The bound
  *             options (north, south, west, east) of the geospatial window options.</p>
  */
@@ -273,12 +310,22 @@ export interface GeospatialCoordinateBounds {
   East: number | undefined;
 }
 
-export enum MapZoomMode {
-  AUTO = "AUTO",
-  MANUAL = "MANUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MapZoomMode = {
+  AUTO: "AUTO",
+  MANUAL: "MANUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type MapZoomMode = (typeof MapZoomMode)[keyof typeof MapZoomMode];
+
+/**
+ * @public
  * <p>The window options of the geospatial map visual.</p>
  */
 export interface GeospatialWindowOptions {
@@ -294,6 +341,7 @@ export interface GeospatialWindowOptions {
 }
 
 /**
+ * @public
  * <p>The configuration for a <code>FilledMapVisual</code>.</p>
  */
 export interface FilledMapConfiguration {
@@ -329,6 +377,7 @@ export interface FilledMapConfiguration {
 }
 
 /**
+ * @public
  * <p>Determines the gradient stop configuration.</p>
  */
 export interface GradientStop {
@@ -349,6 +398,7 @@ export interface GradientStop {
 }
 
 /**
+ * @public
  * <p>Determines the gradient color settings.</p>
  */
 export interface GradientColor {
@@ -359,6 +409,7 @@ export interface GradientColor {
 }
 
 /**
+ * @public
  * <p>Formatting configuration for gradient color.</p>
  */
 export interface ConditionalFormattingGradientColor {
@@ -374,6 +425,7 @@ export interface ConditionalFormattingGradientColor {
 }
 
 /**
+ * @public
  * <p>Formatting configuration for solid color.</p>
  */
 export interface ConditionalFormattingSolidColor {
@@ -389,6 +441,7 @@ export interface ConditionalFormattingSolidColor {
 }
 
 /**
+ * @public
  * <p>The formatting configuration for the color.</p>
  */
 export interface ConditionalFormattingColor {
@@ -404,6 +457,7 @@ export interface ConditionalFormattingColor {
 }
 
 /**
+ * @public
  * <p>The shape conditional formatting of a filled map visual.</p>
  */
 export interface ShapeConditionalFormat {
@@ -414,6 +468,7 @@ export interface ShapeConditionalFormat {
 }
 
 /**
+ * @public
  * <p>The conditional formatting that determines the shape of the filled map.</p>
  */
 export interface FilledMapShapeConditionalFormatting {
@@ -429,6 +484,7 @@ export interface FilledMapShapeConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>Conditional formatting options of a <code>FilledMapVisual</code>.</p>
  */
 export interface FilledMapConditionalFormattingOption {
@@ -439,6 +495,7 @@ export interface FilledMapConditionalFormattingOption {
 }
 
 /**
+ * @public
  * <p>The conditional formatting of a <code>FilledMapVisual</code>.</p>
  */
 export interface FilledMapConditionalFormatting {
@@ -449,6 +506,7 @@ export interface FilledMapConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>A filled map.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html">Creating filled maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -489,15 +547,26 @@ export interface FilledMapVisual {
   Actions?: VisualCustomAction[];
 }
 
-export enum FunnelChartMeasureDataLabelStyle {
-  PERCENTAGE_BY_FIRST_STAGE = "PERCENTAGE_BY_FIRST_STAGE",
-  PERCENTAGE_BY_PREVIOUS_STAGE = "PERCENTAGE_BY_PREVIOUS_STAGE",
-  VALUE_AND_PERCENTAGE_BY_FIRST_STAGE = "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE",
-  VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE = "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE",
-  VALUE_ONLY = "VALUE_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FunnelChartMeasureDataLabelStyle = {
+  PERCENTAGE_BY_FIRST_STAGE: "PERCENTAGE_BY_FIRST_STAGE",
+  PERCENTAGE_BY_PREVIOUS_STAGE: "PERCENTAGE_BY_PREVIOUS_STAGE",
+  VALUE_AND_PERCENTAGE_BY_FIRST_STAGE: "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE",
+  VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE: "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE",
+  VALUE_ONLY: "VALUE_ONLY",
+} as const;
 
 /**
+ * @public
+ */
+export type FunnelChartMeasureDataLabelStyle =
+  (typeof FunnelChartMeasureDataLabelStyle)[keyof typeof FunnelChartMeasureDataLabelStyle];
+
+/**
+ * @public
  * <p>The options that determine the presentation of the data labels.</p>
  */
 export interface FunnelChartDataLabelOptions {
@@ -539,6 +608,7 @@ export interface FunnelChartDataLabelOptions {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a <code>FunnelChartVisual</code>.</p>
  */
 export interface FunnelChartAggregatedFieldWells {
@@ -554,6 +624,7 @@ export interface FunnelChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a <code>FunnelChartVisual</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -565,6 +636,7 @@ export interface FunnelChartFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a <code>FunnelChartVisual</code>.</p>
  */
 export interface FunnelChartSortConfiguration {
@@ -580,6 +652,7 @@ export interface FunnelChartSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>FunnelChartVisual</code>.</p>
  */
 export interface FunnelChartConfiguration {
@@ -620,6 +693,7 @@ export interface FunnelChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A funnel chart.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html">Using funnel charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -656,6 +730,7 @@ export interface FunnelChartVisual {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartFieldWells {
@@ -670,13 +745,23 @@ export interface GaugeChartFieldWells {
   TargetValues?: MeasureField[];
 }
 
-export enum ArcThicknessOptions {
-  LARGE = "LARGE",
-  MEDIUM = "MEDIUM",
-  SMALL = "SMALL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ArcThicknessOptions = {
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  SMALL: "SMALL",
+} as const;
 
 /**
+ * @public
+ */
+export type ArcThicknessOptions = (typeof ArcThicknessOptions)[keyof typeof ArcThicknessOptions];
+
+/**
+ * @public
  * <p>The arc configuration of a <code>GaugeChartVisual</code>.</p>
  */
 export interface ArcConfiguration {
@@ -692,6 +777,7 @@ export interface ArcConfiguration {
 }
 
 /**
+ * @public
  * <p>The arc axis range of a <code>GaugeChartVisual</code>.</p>
  */
 export interface ArcAxisDisplayRange {
@@ -707,6 +793,7 @@ export interface ArcAxisDisplayRange {
 }
 
 /**
+ * @public
  * <p>The arc axis configuration of a <code>GaugeChartVisual</code>.</p>
  */
 export interface ArcAxisConfiguration {
@@ -722,6 +809,7 @@ export interface ArcAxisConfiguration {
 }
 
 /**
+ * @public
  * <p>The format of the comparison.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -737,13 +825,23 @@ export interface ComparisonFormatConfiguration {
   PercentageDisplayFormatConfiguration?: PercentageDisplayFormatConfiguration;
 }
 
-export enum ComparisonMethod {
-  DIFFERENCE = "DIFFERENCE",
-  PERCENT = "PERCENT",
-  PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonMethod = {
+  DIFFERENCE: "DIFFERENCE",
+  PERCENT: "PERCENT",
+  PERCENT_DIFFERENCE: "PERCENT_DIFFERENCE",
+} as const;
 
 /**
+ * @public
+ */
+export type ComparisonMethod = (typeof ComparisonMethod)[keyof typeof ComparisonMethod];
+
+/**
+ * @public
  * <p>The comparison display configuration of a KPI or gauge chart.</p>
  */
 export interface ComparisonConfiguration {
@@ -775,13 +873,23 @@ export interface ComparisonConfiguration {
   ComparisonFormat?: ComparisonFormatConfiguration;
 }
 
-export enum PrimaryValueDisplayType {
-  ACTUAL = "ACTUAL",
-  COMPARISON = "COMPARISON",
-  HIDDEN = "HIDDEN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PrimaryValueDisplayType = {
+  ACTUAL: "ACTUAL",
+  COMPARISON: "COMPARISON",
+  HIDDEN: "HIDDEN",
+} as const;
 
 /**
+ * @public
+ */
+export type PrimaryValueDisplayType = (typeof PrimaryValueDisplayType)[keyof typeof PrimaryValueDisplayType];
+
+/**
+ * @public
  * <p>The options that determine the presentation of the <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartOptions {
@@ -812,6 +920,7 @@ export interface GaugeChartOptions {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartConfiguration {
@@ -842,6 +951,7 @@ export interface GaugeChartConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of the arc of a <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartArcConditionalFormatting {
@@ -851,11 +961,22 @@ export interface GaugeChartArcConditionalFormatting {
   ForegroundColor?: ConditionalFormattingColor;
 }
 
-export enum ConditionalFormattingIconDisplayOption {
-  ICON_ONLY = "ICON_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConditionalFormattingIconDisplayOption = {
+  ICON_ONLY: "ICON_ONLY",
+} as const;
 
 /**
+ * @public
+ */
+export type ConditionalFormattingIconDisplayOption =
+  (typeof ConditionalFormattingIconDisplayOption)[keyof typeof ConditionalFormattingIconDisplayOption];
+
+/**
+ * @public
  * <p>Determines the icon display configuration.</p>
  */
 export interface ConditionalFormattingIconDisplayConfiguration {
@@ -865,36 +986,46 @@ export interface ConditionalFormattingIconDisplayConfiguration {
   IconDisplayOption?: ConditionalFormattingIconDisplayOption | string;
 }
 
-export enum Icon {
-  ARROW_DOWN = "ARROW_DOWN",
-  ARROW_DOWN_LEFT = "ARROW_DOWN_LEFT",
-  ARROW_DOWN_RIGHT = "ARROW_DOWN_RIGHT",
-  ARROW_LEFT = "ARROW_LEFT",
-  ARROW_RIGHT = "ARROW_RIGHT",
-  ARROW_UP = "ARROW_UP",
-  ARROW_UP_LEFT = "ARROW_UP_LEFT",
-  ARROW_UP_RIGHT = "ARROW_UP_RIGHT",
-  CARET_DOWN = "CARET_DOWN",
-  CARET_UP = "CARET_UP",
-  CHECKMARK = "CHECKMARK",
-  CIRCLE = "CIRCLE",
-  FACE_DOWN = "FACE_DOWN",
-  FACE_FLAT = "FACE_FLAT",
-  FACE_UP = "FACE_UP",
-  FLAG = "FLAG",
-  MINUS = "MINUS",
-  ONE_BAR = "ONE_BAR",
-  PLUS = "PLUS",
-  SQUARE = "SQUARE",
-  THREE_BAR = "THREE_BAR",
-  THUMBS_DOWN = "THUMBS_DOWN",
-  THUMBS_UP = "THUMBS_UP",
-  TRIANGLE = "TRIANGLE",
-  TWO_BAR = "TWO_BAR",
-  X = "X",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Icon = {
+  ARROW_DOWN: "ARROW_DOWN",
+  ARROW_DOWN_LEFT: "ARROW_DOWN_LEFT",
+  ARROW_DOWN_RIGHT: "ARROW_DOWN_RIGHT",
+  ARROW_LEFT: "ARROW_LEFT",
+  ARROW_RIGHT: "ARROW_RIGHT",
+  ARROW_UP: "ARROW_UP",
+  ARROW_UP_LEFT: "ARROW_UP_LEFT",
+  ARROW_UP_RIGHT: "ARROW_UP_RIGHT",
+  CARET_DOWN: "CARET_DOWN",
+  CARET_UP: "CARET_UP",
+  CHECKMARK: "CHECKMARK",
+  CIRCLE: "CIRCLE",
+  FACE_DOWN: "FACE_DOWN",
+  FACE_FLAT: "FACE_FLAT",
+  FACE_UP: "FACE_UP",
+  FLAG: "FLAG",
+  MINUS: "MINUS",
+  ONE_BAR: "ONE_BAR",
+  PLUS: "PLUS",
+  SQUARE: "SQUARE",
+  THREE_BAR: "THREE_BAR",
+  THUMBS_DOWN: "THUMBS_DOWN",
+  THUMBS_UP: "THUMBS_UP",
+  TRIANGLE: "TRIANGLE",
+  TWO_BAR: "TWO_BAR",
+  X: "X",
+} as const;
 
 /**
+ * @public
+ */
+export type Icon = (typeof Icon)[keyof typeof Icon];
+
+/**
+ * @public
  * <p>Custom icon options for an icon set.</p>
  */
 export interface ConditionalFormattingCustomIconOptions {
@@ -910,6 +1041,7 @@ export interface ConditionalFormattingCustomIconOptions {
 }
 
 /**
+ * @public
  * <p>Determines the custom condition for an icon set.</p>
  */
 export interface ConditionalFormattingCustomIconCondition {
@@ -934,21 +1066,32 @@ export interface ConditionalFormattingCustomIconCondition {
   DisplayConfiguration?: ConditionalFormattingIconDisplayConfiguration;
 }
 
-export enum ConditionalFormattingIconSetType {
-  BARS = "BARS",
-  CARET_UP_MINUS_DOWN = "CARET_UP_MINUS_DOWN",
-  CHECK_X = "CHECK_X",
-  FLAGS = "FLAGS",
-  FOUR_COLOR_ARROW = "FOUR_COLOR_ARROW",
-  FOUR_GRAY_ARROW = "FOUR_GRAY_ARROW",
-  PLUS_MINUS = "PLUS_MINUS",
-  THREE_CIRCLE = "THREE_CIRCLE",
-  THREE_COLOR_ARROW = "THREE_COLOR_ARROW",
-  THREE_GRAY_ARROW = "THREE_GRAY_ARROW",
-  THREE_SHAPE = "THREE_SHAPE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConditionalFormattingIconSetType = {
+  BARS: "BARS",
+  CARET_UP_MINUS_DOWN: "CARET_UP_MINUS_DOWN",
+  CHECK_X: "CHECK_X",
+  FLAGS: "FLAGS",
+  FOUR_COLOR_ARROW: "FOUR_COLOR_ARROW",
+  FOUR_GRAY_ARROW: "FOUR_GRAY_ARROW",
+  PLUS_MINUS: "PLUS_MINUS",
+  THREE_CIRCLE: "THREE_CIRCLE",
+  THREE_COLOR_ARROW: "THREE_COLOR_ARROW",
+  THREE_GRAY_ARROW: "THREE_GRAY_ARROW",
+  THREE_SHAPE: "THREE_SHAPE",
+} as const;
 
 /**
+ * @public
+ */
+export type ConditionalFormattingIconSetType =
+  (typeof ConditionalFormattingIconSetType)[keyof typeof ConditionalFormattingIconSetType];
+
+/**
+ * @public
  * <p>Formatting configuration for icon set.</p>
  */
 export interface ConditionalFormattingIconSet {
@@ -964,6 +1107,7 @@ export interface ConditionalFormattingIconSet {
 }
 
 /**
+ * @public
  * <p>The formatting configuration for the icon.</p>
  */
 export interface ConditionalFormattingIcon {
@@ -979,6 +1123,7 @@ export interface ConditionalFormattingIcon {
 }
 
 /**
+ * @public
  * <p>The conditional formatting for the primary value of a <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartPrimaryValueConditionalFormatting {
@@ -994,6 +1139,7 @@ export interface GaugeChartPrimaryValueConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>Conditional formatting options of a <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartConditionalFormattingOption {
@@ -1009,6 +1155,7 @@ export interface GaugeChartConditionalFormattingOption {
 }
 
 /**
+ * @public
  * <p>The conditional formatting of a <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartConditionalFormatting {
@@ -1019,6 +1166,7 @@ export interface GaugeChartConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>A gauge chart.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html">Using gauge charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -1055,6 +1203,7 @@ export interface GaugeChartVisual {
 }
 
 /**
+ * @public
  * <p>The aggregated field wells for a geospatial map.</p>
  */
 export interface GeospatialMapAggregatedFieldWells {
@@ -1075,6 +1224,7 @@ export interface GeospatialMapAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a <code>GeospatialMapVisual</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1086,6 +1236,7 @@ export interface GeospatialMapFieldWells {
 }
 
 /**
+ * @public
  * <p>The simple cluster marker of the cluster marker.</p>
  */
 export interface SimpleClusterMarker {
@@ -1096,6 +1247,7 @@ export interface SimpleClusterMarker {
 }
 
 /**
+ * @public
  * <p>The cluster marker that is a part of the cluster marker
  *             configuration.</p>
  */
@@ -1107,6 +1259,7 @@ export interface ClusterMarker {
 }
 
 /**
+ * @public
  * <p>The cluster marker configuration of the geospatial map selected point style.</p>
  */
 export interface ClusterMarkerConfiguration {
@@ -1116,12 +1269,23 @@ export interface ClusterMarkerConfiguration {
   ClusterMarker?: ClusterMarker;
 }
 
-export enum GeospatialSelectedPointStyle {
-  CLUSTER = "CLUSTER",
-  POINT = "POINT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GeospatialSelectedPointStyle = {
+  CLUSTER: "CLUSTER",
+  POINT: "POINT",
+} as const;
 
 /**
+ * @public
+ */
+export type GeospatialSelectedPointStyle =
+  (typeof GeospatialSelectedPointStyle)[keyof typeof GeospatialSelectedPointStyle];
+
+/**
+ * @public
  * <p>The point style of the geospatial map.</p>
  */
 export interface GeospatialPointStyleOptions {
@@ -1137,6 +1301,7 @@ export interface GeospatialPointStyleOptions {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>GeospatialMapVisual</code>.</p>
  */
 export interface GeospatialMapConfiguration {
@@ -1177,6 +1342,7 @@ export interface GeospatialMapConfiguration {
 }
 
 /**
+ * @public
  * <p>A geospatial map or a points on map visual.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html">Creating point maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -1212,12 +1378,22 @@ export interface GeospatialMapVisual {
   Actions?: VisualCustomAction[];
 }
 
-export enum ColorFillType {
-  DISCRETE = "DISCRETE",
-  GRADIENT = "GRADIENT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ColorFillType = {
+  DISCRETE: "DISCRETE",
+  GRADIENT: "GRADIENT",
+} as const;
 
 /**
+ * @public
+ */
+export type ColorFillType = (typeof ColorFillType)[keyof typeof ColorFillType];
+
+/**
+ * @public
  * <p>Determines the color that is applied to a particular data value.</p>
  */
 export interface DataColor {
@@ -1233,6 +1409,7 @@ export interface DataColor {
 }
 
 /**
+ * @public
  * <p>Determines the color scale that is applied to the visual.</p>
  */
 export interface ColorScale {
@@ -1253,6 +1430,7 @@ export interface ColorScale {
 }
 
 /**
+ * @public
  * <p>The aggregated field wells of a heat map.</p>
  */
 export interface HeatMapAggregatedFieldWells {
@@ -1273,6 +1451,7 @@ export interface HeatMapAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a heat map.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1284,6 +1463,7 @@ export interface HeatMapFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a heat map.</p>
  */
 export interface HeatMapSortConfiguration {
@@ -1309,6 +1489,7 @@ export interface HeatMapSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a heat map.</p>
  */
 export interface HeatMapConfiguration {
@@ -1354,6 +1535,7 @@ export interface HeatMapConfiguration {
 }
 
 /**
+ * @public
  * <p>A heat map.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html">Using heat maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -1390,6 +1572,7 @@ export interface HeatMapVisual {
 }
 
 /**
+ * @public
  * <p>The options that determine the bin count of a histogram.</p>
  */
 export interface BinCountOptions {
@@ -1400,6 +1583,7 @@ export interface BinCountOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the bin width of a histogram.</p>
  */
 export interface BinWidthOptions {
@@ -1414,12 +1598,22 @@ export interface BinWidthOptions {
   BinCountLimit?: number;
 }
 
-export enum HistogramBinType {
-  BIN_COUNT = "BIN_COUNT",
-  BIN_WIDTH = "BIN_WIDTH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HistogramBinType = {
+  BIN_COUNT: "BIN_COUNT",
+  BIN_WIDTH: "BIN_WIDTH",
+} as const;
 
 /**
+ * @public
+ */
+export type HistogramBinType = (typeof HistogramBinType)[keyof typeof HistogramBinType];
+
+/**
+ * @public
  * <p>The options that determine the presentation of histogram bins.</p>
  */
 export interface HistogramBinOptions {
@@ -1445,6 +1639,7 @@ export interface HistogramBinOptions {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a histogram.</p>
  */
 export interface HistogramAggregatedFieldWells {
@@ -1455,6 +1650,7 @@ export interface HistogramAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a histogram.</p>
  */
 export interface HistogramFieldWells {
@@ -1465,6 +1661,7 @@ export interface HistogramFieldWells {
 }
 
 /**
+ * @public
  * <p>The configuration for a <code>HistogramVisual</code>.</p>
  */
 export interface HistogramConfiguration {
@@ -1510,6 +1707,7 @@ export interface HistogramConfiguration {
 }
 
 /**
+ * @public
  * <p>A histogram.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html">Using histograms</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -1540,12 +1738,23 @@ export interface HistogramVisual {
   Actions?: VisualCustomAction[];
 }
 
-export enum ForecastComputationSeasonality {
-  AUTOMATIC = "AUTOMATIC",
-  CUSTOM = "CUSTOM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ForecastComputationSeasonality = {
+  AUTOMATIC: "AUTOMATIC",
+  CUSTOM: "CUSTOM",
+} as const;
 
 /**
+ * @public
+ */
+export type ForecastComputationSeasonality =
+  (typeof ForecastComputationSeasonality)[keyof typeof ForecastComputationSeasonality];
+
+/**
+ * @public
  * <p>The forecast computation configuration.</p>
  */
 export interface ForecastComputation {
@@ -1617,6 +1826,7 @@ export interface ForecastComputation {
 }
 
 /**
+ * @public
  * <p>The growth rate computation configuration.</p>
  */
 export interface GrowthRateComputation {
@@ -1646,12 +1856,23 @@ export interface GrowthRateComputation {
   PeriodSize?: number;
 }
 
-export enum MaximumMinimumComputationType {
-  MAXIMUM = "MAXIMUM",
-  MINIMUM = "MINIMUM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MaximumMinimumComputationType = {
+  MAXIMUM: "MAXIMUM",
+  MINIMUM: "MINIMUM",
+} as const;
 
 /**
+ * @public
+ */
+export type MaximumMinimumComputationType =
+  (typeof MaximumMinimumComputationType)[keyof typeof MaximumMinimumComputationType];
+
+/**
+ * @public
  * <p>The maximum and minimum computation configuration.</p>
  */
 export interface MaximumMinimumComputation {
@@ -1690,6 +1911,7 @@ export interface MaximumMinimumComputation {
 }
 
 /**
+ * @public
  * <p>The metric comparison computation configuration.</p>
  */
 export interface MetricComparisonComputation {
@@ -1720,6 +1942,7 @@ export interface MetricComparisonComputation {
 }
 
 /**
+ * @public
  * <p>The period over period computation configuration.</p>
  */
 export interface PeriodOverPeriodComputation {
@@ -1745,6 +1968,7 @@ export interface PeriodOverPeriodComputation {
 }
 
 /**
+ * @public
  * <p>The period to date computation configuration.</p>
  */
 export interface PeriodToDateComputation {
@@ -1782,17 +2006,36 @@ export interface PeriodToDateComputation {
   PeriodTimeGranularity?: TimeGranularity | string;
 }
 
-export enum TopBottomSortOrder {
-  ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE",
-  PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE",
-}
-
-export enum TopBottomComputationType {
-  BOTTOM = "BOTTOM",
-  TOP = "TOP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TopBottomSortOrder = {
+  ABSOLUTE_DIFFERENCE: "ABSOLUTE_DIFFERENCE",
+  PERCENT_DIFFERENCE: "PERCENT_DIFFERENCE",
+} as const;
 
 /**
+ * @public
+ */
+export type TopBottomSortOrder = (typeof TopBottomSortOrder)[keyof typeof TopBottomSortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const TopBottomComputationType = {
+  BOTTOM: "BOTTOM",
+  TOP: "TOP",
+} as const;
+
+/**
+ * @public
+ */
+export type TopBottomComputationType = (typeof TopBottomComputationType)[keyof typeof TopBottomComputationType];
+
+/**
+ * @public
  * <p>The top movers and bottom movers computation setup.</p>
  */
 export interface TopBottomMoversComputation {
@@ -1846,6 +2089,7 @@ export interface TopBottomMoversComputation {
 }
 
 /**
+ * @public
  * <p>The top ranked and bottom ranked computation configuration.</p>
  */
 export interface TopBottomRankedComputation {
@@ -1889,6 +2133,7 @@ export interface TopBottomRankedComputation {
 }
 
 /**
+ * @public
  * <p>The total aggregation computation configuration.</p>
  */
 export interface TotalAggregationComputation {
@@ -1909,6 +2154,7 @@ export interface TotalAggregationComputation {
 }
 
 /**
+ * @public
  * <p>The unique values computation configuration.</p>
  */
 export interface UniqueValuesComputation {
@@ -1929,6 +2175,7 @@ export interface UniqueValuesComputation {
 }
 
 /**
+ * @public
  * <p>The computation union that is used in an insight visual.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1985,6 +2232,7 @@ export interface Computation {
 }
 
 /**
+ * @public
  * <p>The custom narrative options.</p>
  */
 export interface CustomNarrativeOptions {
@@ -1995,6 +2243,7 @@ export interface CustomNarrativeOptions {
 }
 
 /**
+ * @public
  * <p>The configuration of an insight visual.</p>
  */
 export interface InsightConfiguration {
@@ -2010,6 +2259,7 @@ export interface InsightConfiguration {
 }
 
 /**
+ * @public
  * <p>An insight visual.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html">Working with insights</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -2046,6 +2296,7 @@ export interface InsightVisual {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a KPI visual.</p>
  */
 export interface KPIFieldWells {
@@ -2066,6 +2317,7 @@ export interface KPIFieldWells {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of the progress bar of a KPI visual.</p>
  */
 export interface ProgressBarOptions {
@@ -2076,6 +2328,7 @@ export interface ProgressBarOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of the secondary value of a KPI visual.</p>
  */
 export interface SecondaryValueOptions {
@@ -2086,6 +2339,7 @@ export interface SecondaryValueOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of trend arrows in a KPI visual.</p>
  */
 export interface TrendArrowOptions {
@@ -2096,6 +2350,7 @@ export interface TrendArrowOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of a KPI visual.</p>
  */
 export interface KPIOptions {
@@ -2136,6 +2391,7 @@ export interface KPIOptions {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a KPI visual.</p>
  */
 export interface KPISortConfiguration {
@@ -2146,6 +2402,7 @@ export interface KPISortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a KPI visual.</p>
  */
 export interface KPIConfiguration {
@@ -2166,6 +2423,7 @@ export interface KPIConfiguration {
 }
 
 /**
+ * @public
  * <p>The conditional formatting for the primary value of a KPI visual.</p>
  */
 export interface KPIPrimaryValueConditionalFormatting {
@@ -2181,6 +2439,7 @@ export interface KPIPrimaryValueConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>The conditional formatting for the progress bar of a KPI visual.</p>
  */
 export interface KPIProgressBarConditionalFormatting {
@@ -2191,6 +2450,7 @@ export interface KPIProgressBarConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>The conditional formatting options of a KPI visual.</p>
  */
 export interface KPIConditionalFormattingOption {
@@ -2206,6 +2466,7 @@ export interface KPIConditionalFormattingOption {
 }
 
 /**
+ * @public
  * <p>The conditional formatting of a KPI visual.</p>
  */
 export interface KPIConditionalFormatting {
@@ -2216,6 +2477,7 @@ export interface KPIConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>A key performance indicator (KPI).</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/kpi.html">Using KPIs</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -2256,19 +2518,38 @@ export interface KPIVisual {
   ColumnHierarchies?: ColumnHierarchy[];
 }
 
-export enum LineInterpolation {
-  LINEAR = "LINEAR",
-  SMOOTH = "SMOOTH",
-  STEPPED = "STEPPED",
-}
-
-export enum LineChartLineStyle {
-  DASHED = "DASHED",
-  DOTTED = "DOTTED",
-  SOLID = "SOLID",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LineInterpolation = {
+  LINEAR: "LINEAR",
+  SMOOTH: "SMOOTH",
+  STEPPED: "STEPPED",
+} as const;
 
 /**
+ * @public
+ */
+export type LineInterpolation = (typeof LineInterpolation)[keyof typeof LineInterpolation];
+
+/**
+ * @public
+ * @enum
+ */
+export const LineChartLineStyle = {
+  DASHED: "DASHED",
+  DOTTED: "DOTTED",
+  SOLID: "SOLID",
+} as const;
+
+/**
+ * @public
+ */
+export type LineChartLineStyle = (typeof LineChartLineStyle)[keyof typeof LineChartLineStyle];
+
+/**
+ * @public
  * <p>Line styles options for a line series in <code>LineChartVisual</code>.</p>
  */
 export interface LineChartLineStyleSettings {
@@ -2321,15 +2602,25 @@ export interface LineChartLineStyleSettings {
   LineWidth?: string;
 }
 
-export enum LineChartMarkerShape {
-  CIRCLE = "CIRCLE",
-  DIAMOND = "DIAMOND",
-  ROUNDED_SQUARE = "ROUNDED_SQUARE",
-  SQUARE = "SQUARE",
-  TRIANGLE = "TRIANGLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LineChartMarkerShape = {
+  CIRCLE: "CIRCLE",
+  DIAMOND: "DIAMOND",
+  ROUNDED_SQUARE: "ROUNDED_SQUARE",
+  SQUARE: "SQUARE",
+  TRIANGLE: "TRIANGLE",
+} as const;
 
 /**
+ * @public
+ */
+export type LineChartMarkerShape = (typeof LineChartMarkerShape)[keyof typeof LineChartMarkerShape];
+
+/**
+ * @public
  * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
  */
 export interface LineChartMarkerStyleSettings {
@@ -2377,6 +2668,7 @@ export interface LineChartMarkerStyleSettings {
 }
 
 /**
+ * @public
  * <p>The options that determine the default presentation of all line series in <code>LineChartVisual</code>.</p>
  */
 export interface LineChartDefaultSeriesSettings {
@@ -2397,6 +2689,7 @@ export interface LineChartDefaultSeriesSettings {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a line chart.</p>
  */
 export interface LineChartAggregatedFieldWells {
@@ -2422,6 +2715,7 @@ export interface LineChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a line chart.</p>
  */
 export interface LineChartFieldWells {
@@ -2432,6 +2726,7 @@ export interface LineChartFieldWells {
 }
 
 /**
+ * @public
  * <p>The forecast properties setup of a forecast in the line chart.</p>
  */
 export interface TimeBasedForecastProperties {
@@ -2477,6 +2772,7 @@ export interface TimeBasedForecastProperties {
 }
 
 /**
+ * @public
  * <p>Provides the forecast to meet the target for a particular date.</p>
  */
 export interface WhatIfPointScenario {
@@ -2492,6 +2788,7 @@ export interface WhatIfPointScenario {
 }
 
 /**
+ * @public
  * <p>Provides the forecast to meet the target for a particular date range.</p>
  */
 export interface WhatIfRangeScenario {
@@ -2512,6 +2809,7 @@ export interface WhatIfRangeScenario {
 }
 
 /**
+ * @public
  * <p>The forecast scenario of a forecast in the line chart.</p>
  */
 export interface ForecastScenario {
@@ -2527,6 +2825,7 @@ export interface ForecastScenario {
 }
 
 /**
+ * @public
  * <p>The forecast configuration that is used in a line chart's display properties.</p>
  */
 export interface ForecastConfiguration {
@@ -2542,13 +2841,23 @@ export interface ForecastConfiguration {
   Scenario?: ForecastScenario;
 }
 
-export enum MissingDataTreatmentOption {
-  INTERPOLATE = "INTERPOLATE",
-  SHOW_AS_BLANK = "SHOW_AS_BLANK",
-  SHOW_AS_ZERO = "SHOW_AS_ZERO",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MissingDataTreatmentOption = {
+  INTERPOLATE: "INTERPOLATE",
+  SHOW_AS_BLANK: "SHOW_AS_BLANK",
+  SHOW_AS_ZERO: "SHOW_AS_ZERO",
+} as const;
 
 /**
+ * @public
+ */
+export type MissingDataTreatmentOption = (typeof MissingDataTreatmentOption)[keyof typeof MissingDataTreatmentOption];
+
+/**
+ * @public
  * <p>The configuration options that determine how missing data is treated during the rendering of a line chart.</p>
  */
 export interface MissingDataConfiguration {
@@ -2574,6 +2883,7 @@ export interface MissingDataConfiguration {
 }
 
 /**
+ * @public
  * <p>The series axis configuration of a line chart.</p>
  */
 export interface LineSeriesAxisDisplayOptions {
@@ -2589,6 +2899,7 @@ export interface LineSeriesAxisDisplayOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of a line series in the visual</p>
  */
 export interface LineChartSeriesSettings {
@@ -2604,6 +2915,7 @@ export interface LineChartSeriesSettings {
 }
 
 /**
+ * @public
  * <p>The data field series item configuration of a line chart.</p>
  */
 export interface DataFieldSeriesItem {
@@ -2629,6 +2941,7 @@ export interface DataFieldSeriesItem {
 }
 
 /**
+ * @public
  * <p>The field series item configuration of a line chart.</p>
  */
 export interface FieldSeriesItem {
@@ -2649,6 +2962,7 @@ export interface FieldSeriesItem {
 }
 
 /**
+ * @public
  * <p>The series item configuration of a line chart.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -2665,6 +2979,7 @@ export interface SeriesItem {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a line chart.</p>
  */
 export interface LineChartSortConfiguration {
@@ -2694,13 +3009,23 @@ export interface LineChartSortConfiguration {
   SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration;
 }
 
-export enum LineChartType {
-  AREA = "AREA",
-  LINE = "LINE",
-  STACKED_AREA = "STACKED_AREA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LineChartType = {
+  AREA: "AREA",
+  LINE: "LINE",
+  STACKED_AREA: "STACKED_AREA",
+} as const;
 
 /**
+ * @public
+ */
+export type LineChartType = (typeof LineChartType)[keyof typeof LineChartType];
+
+/**
+ * @public
  * <p>The configuration of a line chart.</p>
  */
 export interface LineChartConfiguration {
@@ -2801,6 +3126,7 @@ export interface LineChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A line chart.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html">Using line charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -2836,14 +3162,24 @@ export interface LineChartVisual {
   ColumnHierarchies?: ColumnHierarchy[];
 }
 
-export enum ArcThickness {
-  LARGE = "LARGE",
-  MEDIUM = "MEDIUM",
-  SMALL = "SMALL",
-  WHOLE = "WHOLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ArcThickness = {
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  SMALL: "SMALL",
+  WHOLE: "WHOLE",
+} as const;
 
 /**
+ * @public
+ */
+export type ArcThickness = (typeof ArcThickness)[keyof typeof ArcThickness];
+
+/**
+ * @public
  * <p>The options that determine the arc thickness of a <code>GaugeChartVisual</code>.</p>
  */
 export interface ArcOptions {
@@ -2854,6 +3190,7 @@ export interface ArcOptions {
 }
 
 /**
+ * @public
  * <p>The label options of the label that is displayed in the center of a donut chart. This option isn't available for pie charts.</p>
  */
 export interface DonutCenterOptions {
@@ -2864,6 +3201,7 @@ export interface DonutCenterOptions {
 }
 
 /**
+ * @public
  * <p>The options for configuring a donut chart or pie chart.</p>
  */
 export interface DonutOptions {
@@ -2897,6 +3235,7 @@ export interface DonutOptions {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a pie chart.</p>
  */
 export interface PieChartAggregatedFieldWells {
@@ -2917,6 +3256,7 @@ export interface PieChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a pie chart.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -2928,6 +3268,7 @@ export interface PieChartFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a pie chart.</p>
  */
 export interface PieChartSortConfiguration {
@@ -2953,6 +3294,7 @@ export interface PieChartSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a pie chart.</p>
  */
 export interface PieChartConfiguration {
@@ -3013,6 +3355,7 @@ export interface PieChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A pie or donut chart.</p>
  *          <p>The <code>PieChartVisual</code> structure describes a visual that is a member of the pie chart family.</p>
  *          <p>The following charts can be described by using this structure:</p>
@@ -3060,6 +3403,7 @@ export interface PieChartVisual {
 }
 
 /**
+ * @public
  * <p>The data path options for the pivot table field options.</p>
  */
 export interface PivotTableDataPathOption {
@@ -3075,6 +3419,7 @@ export interface PivotTableDataPathOption {
 }
 
 /**
+ * @public
  * <p>The selected field options for the pivot table field options.</p>
  */
 export interface PivotTableFieldOption {
@@ -3095,6 +3440,7 @@ export interface PivotTableFieldOption {
 }
 
 /**
+ * @public
  * <p>The field options for a pivot table visual.</p>
  */
 export interface PivotTableFieldOptions {
@@ -3110,6 +3456,7 @@ export interface PivotTableFieldOptions {
 }
 
 /**
+ * @public
  * <p>The aggregated field well for the pivot table.</p>
  */
 export interface PivotTableAggregatedFieldWells {
@@ -3130,6 +3477,7 @@ export interface PivotTableAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells for a pivot table visual.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3141,6 +3489,7 @@ export interface PivotTableFieldWells {
 }
 
 /**
+ * @public
  * <p>The paginated report options for a pivot table visual.</p>
  */
 export interface PivotTablePaginatedReportOptions {
@@ -3156,6 +3505,7 @@ export interface PivotTablePaginatedReportOptions {
 }
 
 /**
+ * @public
  * <p>Allows data paths to be sorted by a specific data value.</p>
  */
 export interface DataPathSort {
@@ -3171,6 +3521,7 @@ export interface DataPathSort {
 }
 
 /**
+ * @public
  * <p>The sort by field for the field sort options.</p>
  */
 export interface PivotTableSortBy {
@@ -3191,6 +3542,7 @@ export interface PivotTableSortBy {
 }
 
 /**
+ * @public
  * <p>The field sort options for a pivot table sort configuration.</p>
  */
 export interface PivotFieldSortOptions {
@@ -3206,6 +3558,7 @@ export interface PivotFieldSortOptions {
 }
 
 /**
+ * @public
  * <p>The sort configuration for a <code>PivotTableVisual</code>.</p>
  */
 export interface PivotTableSortConfiguration {
@@ -3215,12 +3568,22 @@ export interface PivotTableSortConfiguration {
   FieldSortOptions?: PivotFieldSortOptions[];
 }
 
-export enum TableBorderStyle {
-  NONE = "NONE",
-  SOLID = "SOLID",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TableBorderStyle = {
+  NONE: "NONE",
+  SOLID: "SOLID",
+} as const;
 
 /**
+ * @public
+ */
+export type TableBorderStyle = (typeof TableBorderStyle)[keyof typeof TableBorderStyle];
+
+/**
+ * @public
  * <p>The border options for a table border.</p>
  */
 export interface TableBorderOptions {
@@ -3241,6 +3604,7 @@ export interface TableBorderOptions {
 }
 
 /**
+ * @public
  * <p>The side border options for a table.</p>
  */
 export interface TableSideBorderOptions {
@@ -3276,6 +3640,7 @@ export interface TableSideBorderOptions {
 }
 
 /**
+ * @public
  * <p>Determines the border options for a table visual.</p>
  */
 export interface GlobalTableBorderOptions {
@@ -3290,18 +3655,37 @@ export interface GlobalTableBorderOptions {
   SideSpecificBorder?: TableSideBorderOptions;
 }
 
-export enum TextWrap {
-  NONE = "NONE",
-  WRAP = "WRAP",
-}
-
-export enum VerticalTextAlignment {
-  BOTTOM = "BOTTOM",
-  MIDDLE = "MIDDLE",
-  TOP = "TOP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TextWrap = {
+  NONE: "NONE",
+  WRAP: "WRAP",
+} as const;
 
 /**
+ * @public
+ */
+export type TextWrap = (typeof TextWrap)[keyof typeof TextWrap];
+
+/**
+ * @public
+ * @enum
+ */
+export const VerticalTextAlignment = {
+  BOTTOM: "BOTTOM",
+  MIDDLE: "MIDDLE",
+  TOP: "TOP",
+} as const;
+
+/**
+ * @public
+ */
+export type VerticalTextAlignment = (typeof VerticalTextAlignment)[keyof typeof VerticalTextAlignment];
+
+/**
+ * @public
  * <p>The table cell style for a cell in pivot table or table visual.</p>
  */
 export interface TableCellStyle {
@@ -3346,12 +3730,22 @@ export interface TableCellStyle {
   Border?: GlobalTableBorderOptions;
 }
 
-export enum PivotTableMetricPlacement {
-  COLUMN = "COLUMN",
-  ROW = "ROW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PivotTableMetricPlacement = {
+  COLUMN: "COLUMN",
+  ROW: "ROW",
+} as const;
 
 /**
+ * @public
+ */
+export type PivotTableMetricPlacement = (typeof PivotTableMetricPlacement)[keyof typeof PivotTableMetricPlacement];
+
+/**
+ * @public
  * <p>Determines the row alternate color options.</p>
  */
 export interface RowAlternateColorOptions {
@@ -3367,6 +3761,7 @@ export interface RowAlternateColorOptions {
 }
 
 /**
+ * @public
  * <p>The table options for a pivot table visual.</p>
  */
 export interface PivotTableOptions {
@@ -3421,13 +3816,23 @@ export interface PivotTableOptions {
   CollapsedRowDimensionsVisibility?: Visibility | string;
 }
 
-export enum PivotTableSubtotalLevel {
-  ALL = "ALL",
-  CUSTOM = "CUSTOM",
-  LAST = "LAST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PivotTableSubtotalLevel = {
+  ALL: "ALL",
+  CUSTOM: "CUSTOM",
+  LAST: "LAST",
+} as const;
 
 /**
+ * @public
+ */
+export type PivotTableSubtotalLevel = (typeof PivotTableSubtotalLevel)[keyof typeof PivotTableSubtotalLevel];
+
+/**
+ * @public
  * <p>The optional configuration of subtotals cells.</p>
  */
 export interface PivotTableFieldSubtotalOptions {
@@ -3438,6 +3843,7 @@ export interface PivotTableFieldSubtotalOptions {
 }
 
 /**
+ * @public
  * <p>The subtotal options.</p>
  */
 export interface SubtotalOptions {
@@ -3477,17 +3883,36 @@ export interface SubtotalOptions {
   MetricHeaderCellStyle?: TableCellStyle;
 }
 
-export enum TableTotalsPlacement {
-  END = "END",
-  START = "START",
-}
-
-export enum TableTotalsScrollStatus {
-  PINNED = "PINNED",
-  SCROLLED = "SCROLLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TableTotalsPlacement = {
+  END: "END",
+  START: "START",
+} as const;
 
 /**
+ * @public
+ */
+export type TableTotalsPlacement = (typeof TableTotalsPlacement)[keyof typeof TableTotalsPlacement];
+
+/**
+ * @public
+ * @enum
+ */
+export const TableTotalsScrollStatus = {
+  PINNED: "PINNED",
+  SCROLLED: "SCROLLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TableTotalsScrollStatus = (typeof TableTotalsScrollStatus)[keyof typeof TableTotalsScrollStatus];
+
+/**
+ * @public
  * <p>The optional configuration of totals cells in a <code>PivotTableVisual</code>.</p>
  */
 export interface PivotTotalOptions {
@@ -3528,6 +3953,7 @@ export interface PivotTotalOptions {
 }
 
 /**
+ * @public
  * <p>The total options for a pivot table visual.</p>
  */
 export interface PivotTableTotalOptions {
@@ -3553,6 +3979,7 @@ export interface PivotTableTotalOptions {
 }
 
 /**
+ * @public
  * <p>The configuration for a <code>PivotTableVisual</code>.</p>
  */
 export interface PivotTableConfiguration {
@@ -3587,13 +4014,24 @@ export interface PivotTableConfiguration {
   PaginatedReportOptions?: PivotTablePaginatedReportOptions;
 }
 
-export enum PivotTableConditionalFormattingScopeRole {
-  FIELD = "FIELD",
-  FIELD_TOTAL = "FIELD_TOTAL",
-  GRAND_TOTAL = "GRAND_TOTAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PivotTableConditionalFormattingScopeRole = {
+  FIELD: "FIELD",
+  FIELD_TOTAL: "FIELD_TOTAL",
+  GRAND_TOTAL: "GRAND_TOTAL",
+} as const;
 
 /**
+ * @public
+ */
+export type PivotTableConditionalFormattingScopeRole =
+  (typeof PivotTableConditionalFormattingScopeRole)[keyof typeof PivotTableConditionalFormattingScopeRole];
+
+/**
+ * @public
  * <p>The scope of the cell for conditional formatting.</p>
  */
 export interface PivotTableConditionalFormattingScope {
@@ -3604,6 +4042,7 @@ export interface PivotTableConditionalFormattingScope {
 }
 
 /**
+ * @public
  * <p>The conditional formatting for the text.</p>
  */
 export interface TextConditionalFormat {
@@ -3624,6 +4063,7 @@ export interface TextConditionalFormat {
 }
 
 /**
+ * @public
  * <p>The cell conditional formatting option for a pivot table.</p>
  */
 export interface PivotTableCellConditionalFormatting {
@@ -3644,6 +4084,7 @@ export interface PivotTableCellConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
  */
 export interface PivotTableConditionalFormattingOption {
@@ -3654,6 +4095,7 @@ export interface PivotTableConditionalFormattingOption {
 }
 
 /**
+ * @public
  * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
  */
 export interface PivotTableConditionalFormatting {
@@ -3664,6 +4106,7 @@ export interface PivotTableConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>A pivot table.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -3700,6 +4143,7 @@ export interface PivotTableVisual {
 }
 
 /**
+ * @public
  * <p>The configured style settings of a radar chart.</p>
  */
 export interface RadarChartAreaStyleSettings {
@@ -3710,6 +4154,7 @@ export interface RadarChartAreaStyleSettings {
 }
 
 /**
+ * @public
  * <p>The series settings of a radar chart.</p>
  */
 export interface RadarChartSeriesSettings {
@@ -3720,6 +4165,7 @@ export interface RadarChartSeriesSettings {
 }
 
 /**
+ * @public
  * <p>The aggregated field well configuration of a <code>RadarChartVisual</code>.</p>
  */
 export interface RadarChartAggregatedFieldWells {
@@ -3740,6 +4186,7 @@ export interface RadarChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a radar chart visual.</p>
  */
 export interface RadarChartFieldWells {
@@ -3749,12 +4196,22 @@ export interface RadarChartFieldWells {
   RadarChartAggregatedFieldWells?: RadarChartAggregatedFieldWells;
 }
 
-export enum RadarChartShape {
-  CIRCLE = "CIRCLE",
-  POLYGON = "POLYGON",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RadarChartShape = {
+  CIRCLE: "CIRCLE",
+  POLYGON: "POLYGON",
+} as const;
 
 /**
+ * @public
+ */
+export type RadarChartShape = (typeof RadarChartShape)[keyof typeof RadarChartShape];
+
+/**
+ * @public
  * <p>The sort configuration of a <code>RadarChartVisual</code>.</p>
  */
 export interface RadarChartSortConfiguration {
@@ -3780,6 +4237,7 @@ export interface RadarChartSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>RadarChartVisual</code>.</p>
  */
 export interface RadarChartConfiguration {
@@ -3855,6 +4313,7 @@ export interface RadarChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A radar chart visual.</p>
  */
 export interface RadarChartVisual {
@@ -3890,6 +4349,7 @@ export interface RadarChartVisual {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a sankey diagram.</p>
  */
 export interface SankeyDiagramAggregatedFieldWells {
@@ -3910,6 +4370,7 @@ export interface SankeyDiagramAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a sankey diagram.</p>
  */
 export interface SankeyDiagramFieldWells {
@@ -3920,6 +4381,7 @@ export interface SankeyDiagramFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a sankey diagram.</p>
  */
 export interface SankeyDiagramSortConfiguration {
@@ -3940,6 +4402,7 @@ export interface SankeyDiagramSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a sankey diagram.</p>
  */
 export interface SankeyDiagramChartConfiguration {
@@ -3960,6 +4423,7 @@ export interface SankeyDiagramChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A sankey diagram.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html">Using Sankey diagrams</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -3991,6 +4455,7 @@ export interface SankeyDiagramVisual {
 }
 
 /**
+ * @public
  * <p>The aggregated field well of a scatter plot.</p>
  */
 export interface ScatterPlotCategoricallyAggregatedFieldWells {
@@ -4018,6 +4483,7 @@ export interface ScatterPlotCategoricallyAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The unaggregated field wells of a scatter plot.</p>
  */
 export interface ScatterPlotUnaggregatedFieldWells {
@@ -4040,6 +4506,7 @@ export interface ScatterPlotUnaggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a scatter plot.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -4058,6 +4525,7 @@ export interface ScatterPlotFieldWells {
 }
 
 /**
+ * @public
  * <p>The configuration of a scatter plot.</p>
  */
 export interface ScatterPlotConfiguration {
@@ -4108,6 +4576,7 @@ export interface ScatterPlotConfiguration {
 }
 
 /**
+ * @public
  * <p>A scatter plot.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html">Using scatter plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -4143,13 +4612,24 @@ export interface ScatterPlotVisual {
   ColumnHierarchies?: ColumnHierarchy[];
 }
 
-export enum TableCellImageScalingConfiguration {
-  DO_NOT_SCALE = "DO_NOT_SCALE",
-  FIT_TO_CELL_HEIGHT = "FIT_TO_CELL_HEIGHT",
-  FIT_TO_CELL_WIDTH = "FIT_TO_CELL_WIDTH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TableCellImageScalingConfiguration = {
+  DO_NOT_SCALE: "DO_NOT_SCALE",
+  FIT_TO_CELL_HEIGHT: "FIT_TO_CELL_HEIGHT",
+  FIT_TO_CELL_WIDTH: "FIT_TO_CELL_WIDTH",
+} as const;
 
 /**
+ * @public
+ */
+export type TableCellImageScalingConfiguration =
+  (typeof TableCellImageScalingConfiguration)[keyof typeof TableCellImageScalingConfiguration];
+
+/**
+ * @public
  * <p>The sizing options for the table image configuration.</p>
  */
 export interface TableCellImageSizingConfiguration {
@@ -4160,6 +4640,7 @@ export interface TableCellImageSizingConfiguration {
 }
 
 /**
+ * @public
  * <p>The image configuration of a table field URL.</p>
  */
 export interface TableFieldImageConfiguration {
@@ -4169,11 +4650,21 @@ export interface TableFieldImageConfiguration {
   SizingOptions?: TableCellImageSizingConfiguration;
 }
 
-export enum TableFieldIconSetType {
-  LINK = "LINK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TableFieldIconSetType = {
+  LINK: "LINK",
+} as const;
 
 /**
+ * @public
+ */
+export type TableFieldIconSetType = (typeof TableFieldIconSetType)[keyof typeof TableFieldIconSetType];
+
+/**
+ * @public
  * <p>The custom icon content for the table link content configuration.</p>
  */
 export interface TableFieldCustomIconContent {
@@ -4184,6 +4675,7 @@ export interface TableFieldCustomIconContent {
 }
 
 /**
+ * @public
  * <p>The custom text content (value, font configuration) for the table link content configuration.</p>
  */
 export interface TableFieldCustomTextContent {
@@ -4199,6 +4691,7 @@ export interface TableFieldCustomTextContent {
 }
 
 /**
+ * @public
  * <p>The URL content (text, icon) for the table link configuration.</p>
  */
 export interface TableFieldLinkContentConfiguration {
@@ -4214,6 +4707,7 @@ export interface TableFieldLinkContentConfiguration {
 }
 
 /**
+ * @public
  * <p>The link configuration of a table field URL.</p>
  */
 export interface TableFieldLinkConfiguration {
@@ -4229,6 +4723,7 @@ export interface TableFieldLinkConfiguration {
 }
 
 /**
+ * @public
  * <p>The URL configuration for a table field.</p>
  */
 export interface TableFieldURLConfiguration {
@@ -4244,6 +4739,7 @@ export interface TableFieldURLConfiguration {
 }
 
 /**
+ * @public
  * <p>The options for a table field.</p>
  */
 export interface TableFieldOption {
@@ -4274,6 +4770,7 @@ export interface TableFieldOption {
 }
 
 /**
+ * @public
  * <p>The field options for a table visual.</p>
  */
 export interface TableFieldOptions {
@@ -4289,6 +4786,7 @@ export interface TableFieldOptions {
 }
 
 /**
+ * @public
  * <p>The aggregated field well for the table.</p>
  */
 export interface TableAggregatedFieldWells {
@@ -4304,6 +4802,7 @@ export interface TableAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The unaggregated field for a table.</p>
  */
 export interface UnaggregatedField {
@@ -4324,6 +4823,7 @@ export interface UnaggregatedField {
 }
 
 /**
+ * @public
  * <p>The unaggregated field well for the table.</p>
  */
 export interface TableUnaggregatedFieldWells {
@@ -4334,6 +4834,7 @@ export interface TableUnaggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells for a table visual.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -4350,6 +4851,7 @@ export interface TableFieldWells {
 }
 
 /**
+ * @public
  * <p>The paginated report options for a table visual.</p>
  */
 export interface TablePaginatedReportOptions {
@@ -4365,6 +4867,7 @@ export interface TablePaginatedReportOptions {
 }
 
 /**
+ * @public
  * <p>The sort configuration for a <code>TableVisual</code>.</p>
  */
 export interface TableSortConfiguration {
@@ -4380,6 +4883,7 @@ export interface TableSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The options for data bars.</p>
  */
 export interface DataBarsOptions {
@@ -4400,6 +4904,7 @@ export interface DataBarsOptions {
 }
 
 /**
+ * @public
  * <p>The inline visualization of a specific type to display within a chart.</p>
  */
 export interface TableInlineVisualization {
@@ -4409,12 +4914,22 @@ export interface TableInlineVisualization {
   DataBars?: DataBarsOptions;
 }
 
-export enum TableOrientation {
-  HORIZONTAL = "HORIZONTAL",
-  VERTICAL = "VERTICAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TableOrientation = {
+  HORIZONTAL: "HORIZONTAL",
+  VERTICAL: "VERTICAL",
+} as const;
 
 /**
+ * @public
+ */
+export type TableOrientation = (typeof TableOrientation)[keyof typeof TableOrientation];
+
+/**
+ * @public
  * <p>The table options for a table visual.</p>
  */
 export interface TableOptions {
@@ -4440,6 +4955,7 @@ export interface TableOptions {
 }
 
 /**
+ * @public
  * <p>The total options for a table visual.</p>
  */
 export interface TotalOptions {
@@ -4470,6 +4986,7 @@ export interface TotalOptions {
 }
 
 /**
+ * @public
  * <p>The configuration for a <code>TableVisual</code>.</p>
  */
 export interface TableConfiguration {
@@ -4510,6 +5027,7 @@ export interface TableConfiguration {
 }
 
 /**
+ * @public
  * <p>The cell conditional formatting option for a table.</p>
  */
 export interface TableCellConditionalFormatting {
@@ -4525,6 +5043,7 @@ export interface TableCellConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>The conditional formatting of a table row.</p>
  */
 export interface TableRowConditionalFormatting {
@@ -4540,6 +5059,7 @@ export interface TableRowConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
  */
 export interface TableConditionalFormattingOption {
@@ -4555,6 +5075,7 @@ export interface TableConditionalFormattingOption {
 }
 
 /**
+ * @public
  * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
  */
 export interface TableConditionalFormatting {
@@ -4565,6 +5086,7 @@ export interface TableConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>A table visual.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -4601,6 +5123,7 @@ export interface TableVisual {
 }
 
 /**
+ * @public
  * <p>Aggregated field wells of a tree map.</p>
  */
 export interface TreeMapAggregatedFieldWells {
@@ -4621,6 +5144,7 @@ export interface TreeMapAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a tree map.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -4632,6 +5156,7 @@ export interface TreeMapFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a tree map.</p>
  */
 export interface TreeMapSortConfiguration {
@@ -4647,6 +5172,7 @@ export interface TreeMapSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a tree map.</p>
  */
 export interface TreeMapConfiguration {
@@ -4697,6 +5223,7 @@ export interface TreeMapConfiguration {
 }
 
 /**
+ * @public
  * <p>A tree map.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -4733,6 +5260,7 @@ export interface TreeMapVisual {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a waterfall visual.</p>
  */
 export interface WaterfallChartAggregatedFieldWells {
@@ -4753,6 +5281,7 @@ export interface WaterfallChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a waterfall visual.</p>
  */
 export interface WaterfallChartFieldWells {
@@ -4763,6 +5292,7 @@ export interface WaterfallChartFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a waterfall visual.</p>
  */
 export interface WaterfallChartSortConfiguration {
@@ -4778,6 +5308,7 @@ export interface WaterfallChartSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of a waterfall visual.</p>
  */
 export interface WaterfallChartOptions {
@@ -4788,6 +5319,7 @@ export interface WaterfallChartOptions {
 }
 
 /**
+ * @public
  * <p>The configuration for a waterfall visual.</p>
  */
 export interface WaterfallChartConfiguration {
@@ -4843,6 +5375,7 @@ export interface WaterfallChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A waterfall chart.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -4879,6 +5412,7 @@ export interface WaterfallVisual {
 }
 
 /**
+ * @public
  * <p>The aggregated field wells of a word cloud.</p>
  */
 export interface WordCloudAggregatedFieldWells {
@@ -4894,6 +5428,7 @@ export interface WordCloudAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a word cloud visual.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -4905,6 +5440,7 @@ export interface WordCloudFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a word cloud visual.</p>
  */
 export interface WordCloudSortConfiguration {
@@ -4919,34 +5455,80 @@ export interface WordCloudSortConfiguration {
   CategorySort?: FieldSortOptions[];
 }
 
-export enum WordCloudCloudLayout {
-  FLUID = "FLUID",
-  NORMAL = "NORMAL",
-}
-
-export enum WordCloudWordCasing {
-  EXISTING_CASE = "EXISTING_CASE",
-  LOWER_CASE = "LOWER_CASE",
-}
-
-export enum WordCloudWordOrientation {
-  HORIZONTAL = "HORIZONTAL",
-  HORIZONTAL_AND_VERTICAL = "HORIZONTAL_AND_VERTICAL",
-}
-
-export enum WordCloudWordPadding {
-  LARGE = "LARGE",
-  MEDIUM = "MEDIUM",
-  NONE = "NONE",
-  SMALL = "SMALL",
-}
-
-export enum WordCloudWordScaling {
-  EMPHASIZE = "EMPHASIZE",
-  NORMAL = "NORMAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudCloudLayout = {
+  FLUID: "FLUID",
+  NORMAL: "NORMAL",
+} as const;
 
 /**
+ * @public
+ */
+export type WordCloudCloudLayout = (typeof WordCloudCloudLayout)[keyof typeof WordCloudCloudLayout];
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudWordCasing = {
+  EXISTING_CASE: "EXISTING_CASE",
+  LOWER_CASE: "LOWER_CASE",
+} as const;
+
+/**
+ * @public
+ */
+export type WordCloudWordCasing = (typeof WordCloudWordCasing)[keyof typeof WordCloudWordCasing];
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudWordOrientation = {
+  HORIZONTAL: "HORIZONTAL",
+  HORIZONTAL_AND_VERTICAL: "HORIZONTAL_AND_VERTICAL",
+} as const;
+
+/**
+ * @public
+ */
+export type WordCloudWordOrientation = (typeof WordCloudWordOrientation)[keyof typeof WordCloudWordOrientation];
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudWordPadding = {
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+  SMALL: "SMALL",
+} as const;
+
+/**
+ * @public
+ */
+export type WordCloudWordPadding = (typeof WordCloudWordPadding)[keyof typeof WordCloudWordPadding];
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudWordScaling = {
+  EMPHASIZE: "EMPHASIZE",
+  NORMAL: "NORMAL",
+} as const;
+
+/**
+ * @public
+ */
+export type WordCloudWordScaling = (typeof WordCloudWordScaling)[keyof typeof WordCloudWordScaling];
+
+/**
+ * @public
  * <p>The word cloud options for a word cloud visual.</p>
  */
 export interface WordCloudOptions {
@@ -4982,6 +5564,7 @@ export interface WordCloudOptions {
 }
 
 /**
+ * @public
  * <p>The configuration of a word cloud visual.</p>
  */
 export interface WordCloudChartConfiguration {
@@ -5007,6 +5590,7 @@ export interface WordCloudChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A word cloud.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -5043,6 +5627,7 @@ export interface WordCloudVisual {
 }
 
 /**
+ * @public
  * <p>A visual displayed on a sheet in an analysis, dashboard, or template.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5186,6 +5771,7 @@ export interface Visual {
 }
 
 /**
+ * @public
  * <p>A sheet is an object that contains a set of visuals that
  *             are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.</p>
  */
@@ -5261,6 +5847,7 @@ export interface SheetDefinition {
 }
 
 /**
+ * @public
  * <p>The definition of an analysis.</p>
  */
 export interface AnalysisDefinition {
@@ -5308,22 +5895,41 @@ export interface AnalysisDefinition {
   AnalysisDefaults?: AnalysisDefaults;
 }
 
-export enum AnalysisFilterAttribute {
-  ANALYSIS_NAME = "ANALYSIS_NAME",
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
-  QUICKSIGHT_USER = "QUICKSIGHT_USER",
-  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
-}
-
-export enum FilterOperator {
-  StringEquals = "StringEquals",
-  StringLike = "StringLike",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisFilterAttribute = {
+  ANALYSIS_NAME: "ANALYSIS_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_USER: "QUICKSIGHT_USER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
 
 /**
+ * @public
+ */
+export type AnalysisFilterAttribute = (typeof AnalysisFilterAttribute)[keyof typeof AnalysisFilterAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterOperator = {
+  StringEquals: "StringEquals",
+  StringLike: "StringLike",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
+
+/**
+ * @public
  * <p>A filter that you apply when searching for one or more analyses.</p>
  */
 export interface AnalysisSearchFilter {
@@ -5376,6 +5982,7 @@ export interface AnalysisSearchFilter {
 }
 
 /**
+ * @public
  * <p>Dataset reference.</p>
  */
 export interface DataSetReference {
@@ -5391,6 +5998,7 @@ export interface DataSetReference {
 }
 
 /**
+ * @public
  * <p>The source template of an analysis.</p>
  */
 export interface AnalysisSourceTemplate {
@@ -5406,6 +6014,7 @@ export interface AnalysisSourceTemplate {
 }
 
 /**
+ * @public
  * <p>The source entity of an analysis.</p>
  */
 export interface AnalysisSourceEntity {
@@ -5416,6 +6025,7 @@ export interface AnalysisSourceEntity {
 }
 
 /**
+ * @public
  * <p>The summary metadata that describes an analysis.</p>
  */
 export interface AnalysisSummary {
@@ -5452,6 +6062,7 @@ export interface AnalysisSummary {
 }
 
 /**
+ * @public
  * <p>Information about the dashboard that you want to embed.</p>
  */
 export interface AnonymousUserDashboardEmbeddingConfiguration {
@@ -5463,6 +6074,7 @@ export interface AnonymousUserDashboardEmbeddingConfiguration {
 }
 
 /**
+ * @public
  * <p>A structure that contains the following elements:</p>
  *          <ul>
  *             <li>
@@ -5495,6 +6107,7 @@ export interface DashboardVisualId {
 }
 
 /**
+ * @public
  * <p>The experience that you are embedding. You can use this object to generate a url that embeds a visual into your application.</p>
  */
 export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
@@ -5506,6 +6119,7 @@ export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
 }
 
 /**
+ * @public
  * <p>The settings that you want to use with the Q search bar.</p>
  */
 export interface AnonymousUserQSearchBarEmbeddingConfiguration {
@@ -5517,6 +6131,7 @@ export interface AnonymousUserQSearchBarEmbeddingConfiguration {
 }
 
 /**
+ * @public
  * <p>The type of experience you want to embed. For anonymous users, you can embed Amazon QuickSight dashboards.</p>
  */
 export interface AnonymousUserEmbeddingExperienceConfiguration {
@@ -5536,13 +6151,23 @@ export interface AnonymousUserEmbeddingExperienceConfiguration {
   QSearchBar?: AnonymousUserQSearchBarEmbeddingConfiguration;
 }
 
-export enum AssignmentStatus {
-  DISABLED = "DISABLED",
-  DRAFT = "DRAFT",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssignmentStatus = {
+  DISABLED: "DISABLED",
+  DRAFT: "DRAFT",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type AssignmentStatus = (typeof AssignmentStatus)[keyof typeof AssignmentStatus];
+
+/**
+ * @public
  * <p>Parameters for Amazon Athena.</p>
  */
 export interface AthenaParameters {
@@ -5558,6 +6183,7 @@ export interface AthenaParameters {
 }
 
 /**
+ * @public
  * <p>Parameters for Amazon Aurora.</p>
  */
 export interface AuroraParameters {
@@ -5578,6 +6204,7 @@ export interface AuroraParameters {
 }
 
 /**
+ * @public
  * <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
  */
 export interface AuroraPostgreSqlParameters {
@@ -5597,13 +6224,23 @@ export interface AuroraPostgreSqlParameters {
   Database: string | undefined;
 }
 
-export enum AuthenticationMethodOption {
-  ACTIVE_DIRECTORY = "ACTIVE_DIRECTORY",
-  IAM_AND_QUICKSIGHT = "IAM_AND_QUICKSIGHT",
-  IAM_ONLY = "IAM_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticationMethodOption = {
+  ACTIVE_DIRECTORY: "ACTIVE_DIRECTORY",
+  IAM_AND_QUICKSIGHT: "IAM_AND_QUICKSIGHT",
+  IAM_ONLY: "IAM_ONLY",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthenticationMethodOption = (typeof AuthenticationMethodOption)[keyof typeof AuthenticationMethodOption];
+
+/**
+ * @public
  * <p>The parameters for IoT Analytics.</p>
  */
 export interface AwsIotAnalyticsParameters {
@@ -5614,6 +6251,7 @@ export interface AwsIotAnalyticsParameters {
 }
 
 /**
+ * @public
  * <p>The display options for tile borders for visuals.</p>
  */
 export interface BorderStyle {
@@ -5624,6 +6262,7 @@ export interface BorderStyle {
 }
 
 /**
+ * @public
  * <p>A calculated column for a dataset.</p>
  */
 export interface CalculatedColumn {
@@ -5645,6 +6284,9 @@ export interface CalculatedColumn {
   Expression: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelIngestionRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -5662,6 +6304,9 @@ export interface CancelIngestionRequest {
   IngestionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelIngestionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
@@ -5685,6 +6330,7 @@ export interface CancelIngestionResponse {
 }
 
 /**
+ * @public
  * <p>An internal failure occurred.</p>
  */
 export class InternalFailureException extends __BaseException {
@@ -5711,6 +6357,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more parameters has a value that isn't valid.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -5736,19 +6383,29 @@ export class InvalidParameterValueException extends __BaseException {
   }
 }
 
-export enum ExceptionResourceType {
-  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
-  DATA_SET = "DATA_SET",
-  DATA_SOURCE = "DATA_SOURCE",
-  GROUP = "GROUP",
-  IAMPOLICY_ASSIGNMENT = "IAMPOLICY_ASSIGNMENT",
-  INGESTION = "INGESTION",
-  NAMESPACE = "NAMESPACE",
-  USER = "USER",
-  VPC_CONNECTION = "VPC_CONNECTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExceptionResourceType = {
+  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
+  DATA_SET: "DATA_SET",
+  DATA_SOURCE: "DATA_SOURCE",
+  GROUP: "GROUP",
+  IAMPOLICY_ASSIGNMENT: "IAMPOLICY_ASSIGNMENT",
+  INGESTION: "INGESTION",
+  NAMESPACE: "NAMESPACE",
+  USER: "USER",
+  VPC_CONNECTION: "VPC_CONNECTION",
+} as const;
 
 /**
+ * @public
+ */
+export type ExceptionResourceType = (typeof ExceptionResourceType)[keyof typeof ExceptionResourceType];
+
+/**
+ * @public
  * <p>The resource specified already exists. </p>
  */
 export class ResourceExistsException extends __BaseException {
@@ -5781,6 +6438,7 @@ export class ResourceExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more resources can't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -5813,6 +6471,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Access is throttled.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -5838,14 +6497,24 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
-export enum ColumnDataType {
-  DATETIME = "DATETIME",
-  DECIMAL = "DECIMAL",
-  INTEGER = "INTEGER",
-  STRING = "STRING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ColumnDataType = {
+  DATETIME: "DATETIME",
+  DECIMAL: "DECIMAL",
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+} as const;
 
 /**
+ * @public
+ */
+export type ColumnDataType = (typeof ColumnDataType)[keyof typeof ColumnDataType];
+
+/**
+ * @public
  * <p>A transform operation that casts a column to a different type.</p>
  */
 export interface CastColumnTypeOperation {
@@ -5867,6 +6536,7 @@ export interface CastColumnTypeOperation {
 }
 
 /**
+ * @public
  * <p>Metadata that contains a description for a column.</p>
  */
 export interface ColumnDescription {
@@ -5876,11 +6546,21 @@ export interface ColumnDescription {
   Text?: string;
 }
 
-export enum GeoSpatialCountryCode {
-  US = "US",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GeoSpatialCountryCode = {
+  US: "US",
+} as const;
 
 /**
+ * @public
+ */
+export type GeoSpatialCountryCode = (typeof GeoSpatialCountryCode)[keyof typeof GeoSpatialCountryCode];
+
+/**
+ * @public
  * <p>Geospatial column group that denotes a hierarchy.</p>
  */
 export interface GeoSpatialColumnGroup {
@@ -5901,6 +6581,7 @@ export interface GeoSpatialColumnGroup {
 }
 
 /**
+ * @public
  * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
  *             a variant type structure. For this structure to be valid, only one of the attributes can
  *             be non-null.</p>
@@ -5913,6 +6594,7 @@ export interface ColumnGroup {
 }
 
 /**
+ * @public
  * <p>A structure describing the name, data type, and geographic role of the columns.</p>
  */
 export interface ColumnGroupColumnSchema {
@@ -5923,6 +6605,7 @@ export interface ColumnGroupColumnSchema {
 }
 
 /**
+ * @public
  * <p>The column group schema.</p>
  */
 export interface ColumnGroupSchema {
@@ -5938,6 +6621,7 @@ export interface ColumnGroupSchema {
 }
 
 /**
+ * @public
  * <p>A rule defined to grant access on one or more restricted columns.
  *             Each dataset can have multiple rules.
  *             To create a restricted column, you add it to one or more rules.
@@ -5958,6 +6642,7 @@ export interface ColumnLevelPermissionRule {
 }
 
 /**
+ * @public
  * <p>The column schema.</p>
  */
 export interface ColumnSchema {
@@ -5977,17 +6662,27 @@ export interface ColumnSchema {
   GeographicRole?: string;
 }
 
-export enum GeoSpatialDataRole {
-  CITY = "CITY",
-  COUNTRY = "COUNTRY",
-  COUNTY = "COUNTY",
-  LATITUDE = "LATITUDE",
-  LONGITUDE = "LONGITUDE",
-  POSTCODE = "POSTCODE",
-  STATE = "STATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GeoSpatialDataRole = {
+  CITY: "CITY",
+  COUNTRY: "COUNTRY",
+  COUNTY: "COUNTY",
+  LATITUDE: "LATITUDE",
+  LONGITUDE: "LONGITUDE",
+  POSTCODE: "POSTCODE",
+  STATE: "STATE",
+} as const;
 
 /**
+ * @public
+ */
+export type GeoSpatialDataRole = (typeof GeoSpatialDataRole)[keyof typeof GeoSpatialDataRole];
+
+/**
+ * @public
  * <p>A tag for a column in a
  *             <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
@@ -6008,12 +6703,22 @@ export interface ColumnTag {
   ColumnDescription?: ColumnDescription;
 }
 
-export enum ColumnTagName {
-  COLUMN_DESCRIPTION = "COLUMN_DESCRIPTION",
-  COLUMN_GEOGRAPHIC_ROLE = "COLUMN_GEOGRAPHIC_ROLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ColumnTagName = {
+  COLUMN_DESCRIPTION: "COLUMN_DESCRIPTION",
+  COLUMN_GEOGRAPHIC_ROLE: "COLUMN_GEOGRAPHIC_ROLE",
+} as const;
 
 /**
+ * @public
+ */
+export type ColumnTagName = (typeof ColumnTagName)[keyof typeof ColumnTagName];
+
+/**
+ * @public
  * <p>A resource is already in a state that indicates an operation is happening that must complete
  * 			before a new update can be applied.</p>
  */
@@ -6038,6 +6743,7 @@ export class ConcurrentUpdatingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -6064,6 +6770,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
  *             resource.</p>
  */
@@ -6079,6 +6786,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountCustomizationRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to customize Amazon QuickSight for.</p>
@@ -6094,11 +6804,11 @@ export interface CreateAccountCustomizationRequest {
    * <p>The Amazon QuickSight customizations you're adding in the current Amazon Web Services Region. You can add
    *             these to an Amazon Web Services account and a QuickSight namespace. </p>
    *          <p>For example, you can add a default theme by setting <code>AccountCustomization</code>
-   *             to the midnight theme: <code>"AccountCustomization": { "DefaultTheme":
-   *                 "arn:aws:quicksight::aws:theme/MIDNIGHT" }</code>. Or, you can add a custom theme by
-   *             specifying <code>"AccountCustomization": { "DefaultTheme":
+   *             to the midnight theme: <code>"AccountCustomization": \{ "DefaultTheme":
+   *                 "arn:aws:quicksight::aws:theme/MIDNIGHT" \}</code>. Or, you can add a custom theme by
+   *             specifying <code>"AccountCustomization": \{ "DefaultTheme":
    *                 "arn:aws:quicksight:us-west-2:111122223333:theme/bdb844d0-0fe9-4d9d-b520-0fe602d93639"
-   *                 }</code>. </p>
+   *                 \}</code>. </p>
    */
   AccountCustomization: AccountCustomization | undefined;
 
@@ -6108,6 +6818,9 @@ export interface CreateAccountCustomizationRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountCustomizationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the customization that you created for this Amazon Web Services account.</p>
@@ -6141,6 +6854,7 @@ export interface CreateAccountCustomizationResponse {
 }
 
 /**
+ * @public
  * <p>This resource is currently unavailable.</p>
  */
 export class ResourceUnavailableException extends __BaseException {
@@ -6172,6 +6886,9 @@ export class ResourceUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountSubscriptionRequest {
   /**
    * <p>The edition of Amazon QuickSight that you want your account to have. Currently, you can
@@ -6297,6 +7014,7 @@ export interface CreateAccountSubscriptionRequest {
 }
 
 /**
+ * @public
  * <p>A <code>SignupResponse</code> object that contains a summary of a newly created account.</p>
  */
 export interface SignupResponse {
@@ -6324,6 +7042,9 @@ export interface SignupResponse {
   directoryType?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountSubscriptionResponse {
   /**
    * <p>A <code>SignupResponse</code> object that returns information about a newly created Amazon QuickSight account.</p>
@@ -6345,13 +7066,6 @@ export interface CreateAccountSubscriptionResponse {
  * @internal
  */
 export const ComboChartVisualFilterSensitiveLog = (obj: ComboChartVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomContentConfigurationFilterSensitiveLog = (obj: CustomContentConfiguration): any => ({
   ...obj,
 });
 
@@ -6387,49 +7101,7 @@ export const FilledMapFieldWellsFilterSensitiveLog = (obj: FilledMapFieldWells):
 /**
  * @internal
  */
-export const GeospatialMapStyleOptionsFilterSensitiveLog = (obj: GeospatialMapStyleOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilledMapSortConfigurationFilterSensitiveLog = (obj: FilledMapSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeospatialCoordinateBoundsFilterSensitiveLog = (obj: GeospatialCoordinateBounds): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeospatialWindowOptionsFilterSensitiveLog = (obj: GeospatialWindowOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const FilledMapConfigurationFilterSensitiveLog = (obj: FilledMapConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GradientStopFilterSensitiveLog = (obj: GradientStop): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GradientColorFilterSensitiveLog = (obj: GradientColor): any => ({
   ...obj,
 });
 
@@ -6511,13 +7183,6 @@ export const FilledMapVisualFilterSensitiveLog = (obj: FilledMapVisual): any => 
 /**
  * @internal
  */
-export const FunnelChartDataLabelOptionsFilterSensitiveLog = (obj: FunnelChartDataLabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const FunnelChartAggregatedFieldWellsFilterSensitiveLog = (obj: FunnelChartAggregatedFieldWells): any => ({
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
@@ -6527,13 +7192,6 @@ export const FunnelChartAggregatedFieldWellsFilterSensitiveLog = (obj: FunnelCha
  * @internal
  */
 export const FunnelChartFieldWellsFilterSensitiveLog = (obj: FunnelChartFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FunnelChartSortConfigurationFilterSensitiveLog = (obj: FunnelChartSortConfiguration): any => ({
   ...obj,
 });
 
@@ -6559,27 +7217,6 @@ export const GaugeChartFieldWellsFilterSensitiveLog = (obj: GaugeChartFieldWells
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
   ...(obj.TargetValues && { TargetValues: obj.TargetValues.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ArcConfigurationFilterSensitiveLog = (obj: ArcConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArcAxisDisplayRangeFilterSensitiveLog = (obj: ArcAxisDisplayRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArcAxisConfigurationFilterSensitiveLog = (obj: ArcAxisConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -6634,24 +7271,6 @@ export const GaugeChartConfigurationFilterSensitiveLog = (obj: GaugeChartConfigu
 export const GaugeChartArcConditionalFormattingFilterSensitiveLog = (obj: GaugeChartArcConditionalFormatting): any => ({
   ...obj,
   ...(obj.ForegroundColor && { ForegroundColor: ConditionalFormattingColorFilterSensitiveLog(obj.ForegroundColor) }),
-});
-
-/**
- * @internal
- */
-export const ConditionalFormattingIconDisplayConfigurationFilterSensitiveLog = (
-  obj: ConditionalFormattingIconDisplayConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionalFormattingCustomIconOptionsFilterSensitiveLog = (
-  obj: ConditionalFormattingCustomIconOptions
-): any => ({
-  ...obj,
 });
 
 /**
@@ -6750,34 +7369,6 @@ export const GeospatialMapFieldWellsFilterSensitiveLog = (obj: GeospatialMapFiel
 /**
  * @internal
  */
-export const SimpleClusterMarkerFilterSensitiveLog = (obj: SimpleClusterMarker): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterMarkerFilterSensitiveLog = (obj: ClusterMarker): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterMarkerConfigurationFilterSensitiveLog = (obj: ClusterMarkerConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeospatialPointStyleOptionsFilterSensitiveLog = (obj: GeospatialPointStyleOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GeospatialMapConfigurationFilterSensitiveLog = (obj: GeospatialMapConfiguration): any => ({
   ...obj,
   ...(obj.VisualPalette && { VisualPalette: VisualPaletteFilterSensitiveLog(obj.VisualPalette) }),
@@ -6787,20 +7378,6 @@ export const GeospatialMapConfigurationFilterSensitiveLog = (obj: GeospatialMapC
  * @internal
  */
 export const GeospatialMapVisualFilterSensitiveLog = (obj: GeospatialMapVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataColorFilterSensitiveLog = (obj: DataColor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColorScaleFilterSensitiveLog = (obj: ColorScale): any => ({
   ...obj,
 });
 
@@ -6822,13 +7399,6 @@ export const HeatMapFieldWellsFilterSensitiveLog = (obj: HeatMapFieldWells): any
 /**
  * @internal
  */
-export const HeatMapSortConfigurationFilterSensitiveLog = (obj: HeatMapSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const HeatMapConfigurationFilterSensitiveLog = (obj: HeatMapConfiguration): any => ({
   ...obj,
   ...(obj.DataLabels && { DataLabels: DataLabelOptionsFilterSensitiveLog(obj.DataLabels) }),
@@ -6838,27 +7408,6 @@ export const HeatMapConfigurationFilterSensitiveLog = (obj: HeatMapConfiguration
  * @internal
  */
 export const HeatMapVisualFilterSensitiveLog = (obj: HeatMapVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BinCountOptionsFilterSensitiveLog = (obj: BinCountOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BinWidthOptionsFilterSensitiveLog = (obj: BinWidthOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HistogramBinOptionsFilterSensitiveLog = (obj: HistogramBinOptions): any => ({
   ...obj,
 });
 
@@ -7005,13 +7554,6 @@ export const ComputationFilterSensitiveLog = (obj: Computation): any => ({
 /**
  * @internal
  */
-export const CustomNarrativeOptionsFilterSensitiveLog = (obj: CustomNarrativeOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const InsightConfigurationFilterSensitiveLog = (obj: InsightConfiguration): any => ({
   ...obj,
   ...(obj.Computations && { Computations: obj.Computations.map((item) => ComputationFilterSensitiveLog(item)) }),
@@ -7039,37 +7581,9 @@ export const KPIFieldWellsFilterSensitiveLog = (obj: KPIFieldWells): any => ({
 /**
  * @internal
  */
-export const ProgressBarOptionsFilterSensitiveLog = (obj: ProgressBarOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecondaryValueOptionsFilterSensitiveLog = (obj: SecondaryValueOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrendArrowOptionsFilterSensitiveLog = (obj: TrendArrowOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const KPIOptionsFilterSensitiveLog = (obj: KPIOptions): any => ({
   ...obj,
   ...(obj.Comparison && { Comparison: ComparisonConfigurationFilterSensitiveLog(obj.Comparison) }),
-});
-
-/**
- * @internal
- */
-export const KPISortConfigurationFilterSensitiveLog = (obj: KPISortConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -7137,27 +7651,6 @@ export const KPIVisualFilterSensitiveLog = (obj: KPIVisual): any => ({
 /**
  * @internal
  */
-export const LineChartLineStyleSettingsFilterSensitiveLog = (obj: LineChartLineStyleSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LineChartMarkerStyleSettingsFilterSensitiveLog = (obj: LineChartMarkerStyleSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LineChartDefaultSeriesSettingsFilterSensitiveLog = (obj: LineChartDefaultSeriesSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const LineChartAggregatedFieldWellsFilterSensitiveLog = (obj: LineChartAggregatedFieldWells): any => ({
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
@@ -7173,72 +7666,9 @@ export const LineChartFieldWellsFilterSensitiveLog = (obj: LineChartFieldWells):
 /**
  * @internal
  */
-export const TimeBasedForecastPropertiesFilterSensitiveLog = (obj: TimeBasedForecastProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WhatIfPointScenarioFilterSensitiveLog = (obj: WhatIfPointScenario): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WhatIfRangeScenarioFilterSensitiveLog = (obj: WhatIfRangeScenario): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForecastScenarioFilterSensitiveLog = (obj: ForecastScenario): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForecastConfigurationFilterSensitiveLog = (obj: ForecastConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MissingDataConfigurationFilterSensitiveLog = (obj: MissingDataConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LineSeriesAxisDisplayOptionsFilterSensitiveLog = (obj: LineSeriesAxisDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LineChartSeriesSettingsFilterSensitiveLog = (obj: LineChartSeriesSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DataFieldSeriesItemFilterSensitiveLog = (obj: DataFieldSeriesItem): any => ({
   ...obj,
   ...(obj.FieldValue && { FieldValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FieldSeriesItemFilterSensitiveLog = (obj: FieldSeriesItem): any => ({
-  ...obj,
 });
 
 /**
@@ -7249,13 +7679,6 @@ export const SeriesItemFilterSensitiveLog = (obj: SeriesItem): any => ({
   ...(obj.DataFieldSeriesItem && {
     DataFieldSeriesItem: DataFieldSeriesItemFilterSensitiveLog(obj.DataFieldSeriesItem),
   }),
-});
-
-/**
- * @internal
- */
-export const LineChartSortConfigurationFilterSensitiveLog = (obj: LineChartSortConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -7281,27 +7704,6 @@ export const LineChartVisualFilterSensitiveLog = (obj: LineChartVisual): any => 
 /**
  * @internal
  */
-export const ArcOptionsFilterSensitiveLog = (obj: ArcOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DonutCenterOptionsFilterSensitiveLog = (obj: DonutCenterOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DonutOptionsFilterSensitiveLog = (obj: DonutOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PieChartAggregatedFieldWellsFilterSensitiveLog = (obj: PieChartAggregatedFieldWells): any => ({
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
@@ -7311,13 +7713,6 @@ export const PieChartAggregatedFieldWellsFilterSensitiveLog = (obj: PieChartAggr
  * @internal
  */
 export const PieChartFieldWellsFilterSensitiveLog = (obj: PieChartFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PieChartSortConfigurationFilterSensitiveLog = (obj: PieChartSortConfiguration): any => ({
   ...obj,
 });
 
@@ -7348,13 +7743,6 @@ export const PivotTableDataPathOptionFilterSensitiveLog = (obj: PivotTableDataPa
 /**
  * @internal
  */
-export const PivotTableFieldOptionFilterSensitiveLog = (obj: PivotTableFieldOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PivotTableFieldOptionsFilterSensitiveLog = (obj: PivotTableFieldOptions): any => ({
   ...obj,
 });
@@ -7371,13 +7759,6 @@ export const PivotTableAggregatedFieldWellsFilterSensitiveLog = (obj: PivotTable
  * @internal
  */
 export const PivotTableFieldWellsFilterSensitiveLog = (obj: PivotTableFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTablePaginatedReportOptionsFilterSensitiveLog = (obj: PivotTablePaginatedReportOptions): any => ({
   ...obj,
 });
 
@@ -7415,86 +7796,7 @@ export const PivotTableSortConfigurationFilterSensitiveLog = (obj: PivotTableSor
 /**
  * @internal
  */
-export const TableBorderOptionsFilterSensitiveLog = (obj: TableBorderOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableSideBorderOptionsFilterSensitiveLog = (obj: TableSideBorderOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlobalTableBorderOptionsFilterSensitiveLog = (obj: GlobalTableBorderOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableCellStyleFilterSensitiveLog = (obj: TableCellStyle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RowAlternateColorOptionsFilterSensitiveLog = (obj: RowAlternateColorOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTableOptionsFilterSensitiveLog = (obj: PivotTableOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTableFieldSubtotalOptionsFilterSensitiveLog = (obj: PivotTableFieldSubtotalOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubtotalOptionsFilterSensitiveLog = (obj: SubtotalOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTotalOptionsFilterSensitiveLog = (obj: PivotTotalOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTableTotalOptionsFilterSensitiveLog = (obj: PivotTableTotalOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PivotTableConfigurationFilterSensitiveLog = (obj: PivotTableConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTableConditionalFormattingScopeFilterSensitiveLog = (
-  obj: PivotTableConditionalFormattingScope
-): any => ({
   ...obj,
 });
 
@@ -7553,20 +7855,6 @@ export const PivotTableVisualFilterSensitiveLog = (obj: PivotTableVisual): any =
 /**
  * @internal
  */
-export const RadarChartAreaStyleSettingsFilterSensitiveLog = (obj: RadarChartAreaStyleSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RadarChartSeriesSettingsFilterSensitiveLog = (obj: RadarChartSeriesSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RadarChartAggregatedFieldWellsFilterSensitiveLog = (obj: RadarChartAggregatedFieldWells): any => ({
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
@@ -7576,13 +7864,6 @@ export const RadarChartAggregatedFieldWellsFilterSensitiveLog = (obj: RadarChart
  * @internal
  */
 export const RadarChartFieldWellsFilterSensitiveLog = (obj: RadarChartFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RadarChartSortConfigurationFilterSensitiveLog = (obj: RadarChartSortConfiguration): any => ({
   ...obj,
 });
 
@@ -7613,13 +7894,6 @@ export const SankeyDiagramAggregatedFieldWellsFilterSensitiveLog = (obj: SankeyD
  * @internal
  */
 export const SankeyDiagramFieldWellsFilterSensitiveLog = (obj: SankeyDiagramFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SankeyDiagramSortConfigurationFilterSensitiveLog = (obj: SankeyDiagramSortConfiguration): any => ({
   ...obj,
 });
 
@@ -7693,69 +7967,6 @@ export const ScatterPlotVisualFilterSensitiveLog = (obj: ScatterPlotVisual): any
 /**
  * @internal
  */
-export const TableCellImageSizingConfigurationFilterSensitiveLog = (obj: TableCellImageSizingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldImageConfigurationFilterSensitiveLog = (obj: TableFieldImageConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldCustomIconContentFilterSensitiveLog = (obj: TableFieldCustomIconContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldCustomTextContentFilterSensitiveLog = (obj: TableFieldCustomTextContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldLinkContentConfigurationFilterSensitiveLog = (obj: TableFieldLinkContentConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldLinkConfigurationFilterSensitiveLog = (obj: TableFieldLinkConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldURLConfigurationFilterSensitiveLog = (obj: TableFieldURLConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldOptionFilterSensitiveLog = (obj: TableFieldOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldOptionsFilterSensitiveLog = (obj: TableFieldOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TableAggregatedFieldWellsFilterSensitiveLog = (obj: TableAggregatedFieldWells): any => ({
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
@@ -7787,48 +7998,6 @@ export const TableFieldWellsFilterSensitiveLog = (obj: TableFieldWells): any => 
   ...(obj.TableUnaggregatedFieldWells && {
     TableUnaggregatedFieldWells: TableUnaggregatedFieldWellsFilterSensitiveLog(obj.TableUnaggregatedFieldWells),
   }),
-});
-
-/**
- * @internal
- */
-export const TablePaginatedReportOptionsFilterSensitiveLog = (obj: TablePaginatedReportOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableSortConfigurationFilterSensitiveLog = (obj: TableSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataBarsOptionsFilterSensitiveLog = (obj: DataBarsOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableInlineVisualizationFilterSensitiveLog = (obj: TableInlineVisualization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableOptionsFilterSensitiveLog = (obj: TableOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TotalOptionsFilterSensitiveLog = (obj: TotalOptions): any => ({
-  ...obj,
 });
 
 /**
@@ -7905,13 +8074,6 @@ export const TreeMapFieldWellsFilterSensitiveLog = (obj: TreeMapFieldWells): any
 /**
  * @internal
  */
-export const TreeMapSortConfigurationFilterSensitiveLog = (obj: TreeMapSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TreeMapConfigurationFilterSensitiveLog = (obj: TreeMapConfiguration): any => ({
   ...obj,
   ...(obj.DataLabels && { DataLabels: DataLabelOptionsFilterSensitiveLog(obj.DataLabels) }),
@@ -7936,20 +8098,6 @@ export const WaterfallChartAggregatedFieldWellsFilterSensitiveLog = (obj: Waterf
  * @internal
  */
 export const WaterfallChartFieldWellsFilterSensitiveLog = (obj: WaterfallChartFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WaterfallChartSortConfigurationFilterSensitiveLog = (obj: WaterfallChartSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WaterfallChartOptionsFilterSensitiveLog = (obj: WaterfallChartOptions): any => ({
   ...obj,
 });
 
@@ -7981,20 +8129,6 @@ export const WordCloudAggregatedFieldWellsFilterSensitiveLog = (obj: WordCloudAg
  * @internal
  */
 export const WordCloudFieldWellsFilterSensitiveLog = (obj: WordCloudFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WordCloudSortConfigurationFilterSensitiveLog = (obj: WordCloudSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WordCloudOptionsFilterSensitiveLog = (obj: WordCloudOptions): any => ({
   ...obj,
 });
 
@@ -8050,239 +8184,7 @@ export const AnalysisDefinitionFilterSensitiveLog = (obj: AnalysisDefinition): a
 /**
  * @internal
  */
-export const AnalysisSearchFilterFilterSensitiveLog = (obj: AnalysisSearchFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSetReferenceFilterSensitiveLog = (obj: DataSetReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisSourceTemplateFilterSensitiveLog = (obj: AnalysisSourceTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisSourceEntityFilterSensitiveLog = (obj: AnalysisSourceEntity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisSummaryFilterSensitiveLog = (obj: AnalysisSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnonymousUserDashboardEmbeddingConfigurationFilterSensitiveLog = (
-  obj: AnonymousUserDashboardEmbeddingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardVisualIdFilterSensitiveLog = (obj: DashboardVisualId): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnonymousUserDashboardVisualEmbeddingConfigurationFilterSensitiveLog = (
-  obj: AnonymousUserDashboardVisualEmbeddingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnonymousUserQSearchBarEmbeddingConfigurationFilterSensitiveLog = (
-  obj: AnonymousUserQSearchBarEmbeddingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnonymousUserEmbeddingExperienceConfigurationFilterSensitiveLog = (
-  obj: AnonymousUserEmbeddingExperienceConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AthenaParametersFilterSensitiveLog = (obj: AthenaParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuroraParametersFilterSensitiveLog = (obj: AuroraParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuroraPostgreSqlParametersFilterSensitiveLog = (obj: AuroraPostgreSqlParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIotAnalyticsParametersFilterSensitiveLog = (obj: AwsIotAnalyticsParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BorderStyleFilterSensitiveLog = (obj: BorderStyle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CalculatedColumnFilterSensitiveLog = (obj: CalculatedColumn): any => ({
   ...obj,
   ...(obj.Expression && { Expression: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CancelIngestionRequestFilterSensitiveLog = (obj: CancelIngestionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelIngestionResponseFilterSensitiveLog = (obj: CancelIngestionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CastColumnTypeOperationFilterSensitiveLog = (obj: CastColumnTypeOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnDescriptionFilterSensitiveLog = (obj: ColumnDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeoSpatialColumnGroupFilterSensitiveLog = (obj: GeoSpatialColumnGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnGroupFilterSensitiveLog = (obj: ColumnGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnGroupColumnSchemaFilterSensitiveLog = (obj: ColumnGroupColumnSchema): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnGroupSchemaFilterSensitiveLog = (obj: ColumnGroupSchema): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnLevelPermissionRuleFilterSensitiveLog = (obj: ColumnLevelPermissionRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnSchemaFilterSensitiveLog = (obj: ColumnSchema): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnTagFilterSensitiveLog = (obj: ColumnTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccountCustomizationRequestFilterSensitiveLog = (obj: CreateAccountCustomizationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccountCustomizationResponseFilterSensitiveLog = (obj: CreateAccountCustomizationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccountSubscriptionRequestFilterSensitiveLog = (obj: CreateAccountSubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SignupResponseFilterSensitiveLog = (obj: SignupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccountSubscriptionResponseFilterSensitiveLog = (obj: CreateAccountSubscriptionResponse): any => ({
-  ...obj,
 });

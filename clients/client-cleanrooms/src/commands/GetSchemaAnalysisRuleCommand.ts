@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  GetSchemaAnalysisRuleInput,
-  GetSchemaAnalysisRuleInputFilterSensitiveLog,
-  GetSchemaAnalysisRuleOutput,
-  GetSchemaAnalysisRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSchemaAnalysisRuleCommand,
-  serializeAws_restJson1GetSchemaAnalysisRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSchemaAnalysisRuleInput, GetSchemaAnalysisRuleOutput } from "../models/models_0";
+import { de_GetSchemaAnalysisRuleCommand, se_GetSchemaAnalysisRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSchemaAnalysisRuleCommand}.
  */
 export interface GetSchemaAnalysisRuleCommandInput extends GetSchemaAnalysisRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSchemaAnalysisRuleCommand}.
  */
 export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRuleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a schema analysis rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * import { CleanRoomsClient, GetSchemaAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetSchemaAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // GetSchemaAnalysisRuleInput
+ *   collaborationIdentifier: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   type: "AGGREGATION" || "LIST", // required
+ * };
  * const command = new GetSchemaAnalysisRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSchemaAnalysisRuleCommandInput - {@link GetSchemaAnalysisRuleCommandInput}
+ * @returns {@link GetSchemaAnalysisRuleCommandOutput}
  * @see {@link GetSchemaAnalysisRuleCommandInput} for command's `input` shape.
  * @see {@link GetSchemaAnalysisRuleCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -84,6 +88,9 @@ export class GetSchemaAnalysisRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSchemaAnalysisRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class GetSchemaAnalysisRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSchemaAnalysisRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSchemaAnalysisRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class GetSchemaAnalysisRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSchemaAnalysisRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSchemaAnalysisRuleCommand(input, context);
+    return se_GetSchemaAnalysisRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaAnalysisRuleCommandOutput> {
-    return deserializeAws_restJson1GetSchemaAnalysisRuleCommand(output, context);
+    return de_GetSchemaAnalysisRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

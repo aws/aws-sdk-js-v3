@@ -17,24 +17,25 @@ import {
   CreateEmailIdentityRequest,
   CreateEmailIdentityRequestFilterSensitiveLog,
   CreateEmailIdentityResponse,
-  CreateEmailIdentityResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEmailIdentityCommand,
-  serializeAws_restJson1CreateEmailIdentityCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateEmailIdentityCommand, se_CreateEmailIdentityCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEmailIdentityCommand}.
  */
 export interface CreateEmailIdentityCommandInput extends CreateEmailIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEmailIdentityCommand}.
  */
 export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the process of verifying an email identity. An <i>identity</i> is
  *             an email address or domain that you use when you send email. Before you can use an
  *             identity to send email, you first have to verify it. By verifying an identity, you
@@ -67,10 +68,27 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * import { SESv2Client, CreateEmailIdentityCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateEmailIdentityCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // CreateEmailIdentityRequest
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DkimSigningAttributes: { // DkimSigningAttributes
+ *     DomainSigningSelector: "STRING_VALUE",
+ *     DomainSigningPrivateKey: "STRING_VALUE",
+ *     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
+ *   },
+ *   ConfigurationSetName: "STRING_VALUE",
+ * };
  * const command = new CreateEmailIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEmailIdentityCommandInput - {@link CreateEmailIdentityCommandInput}
+ * @returns {@link CreateEmailIdentityCommandOutput}
  * @see {@link CreateEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link CreateEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -112,6 +130,9 @@ export class CreateEmailIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEmailIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,7 +162,7 @@ export class CreateEmailIdentityCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateEmailIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEmailIdentityResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,12 +172,18 @@ export class CreateEmailIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEmailIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEmailIdentityCommand(input, context);
+    return se_CreateEmailIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEmailIdentityCommandOutput> {
-    return deserializeAws_restJson1CreateEmailIdentityCommand(output, context);
+    return de_CreateEmailIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

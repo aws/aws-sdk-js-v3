@@ -20,21 +20,23 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   DeleteInboundCrossClusterSearchConnectionRequest,
-  DeleteInboundCrossClusterSearchConnectionRequestFilterSensitiveLog,
   DeleteInboundCrossClusterSearchConnectionResponse,
-  DeleteInboundCrossClusterSearchConnectionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommand,
-  serializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommand,
+  de_DeleteInboundCrossClusterSearchConnectionCommand,
+  se_DeleteInboundCrossClusterSearchConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInboundCrossClusterSearchConnectionCommand}.
  */
 export interface DeleteInboundCrossClusterSearchConnectionCommandInput
   extends DeleteInboundCrossClusterSearchConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInboundCrossClusterSearchConnectionCommand}.
  */
 export interface DeleteInboundCrossClusterSearchConnectionCommandOutput
@@ -42,6 +44,7 @@ export interface DeleteInboundCrossClusterSearchConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the destination domain owner to delete an existing inbound cross-cluster search connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +52,15 @@ export interface DeleteInboundCrossClusterSearchConnectionCommandOutput
  * import { ElasticsearchServiceClient, DeleteInboundCrossClusterSearchConnectionCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DeleteInboundCrossClusterSearchConnectionCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // DeleteInboundCrossClusterSearchConnectionRequest
+ *   CrossClusterSearchConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInboundCrossClusterSearchConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInboundCrossClusterSearchConnectionCommandInput - {@link DeleteInboundCrossClusterSearchConnectionCommandInput}
+ * @returns {@link DeleteInboundCrossClusterSearchConnectionCommandOutput}
  * @see {@link DeleteInboundCrossClusterSearchConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteInboundCrossClusterSearchConnectionCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -82,6 +90,9 @@ export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInboundCrossClusterSearchConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +127,8 @@ export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInboundCrossClusterSearchConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInboundCrossClusterSearchConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +138,24 @@ export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteInboundCrossClusterSearchConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommand(input, context);
+    return se_DeleteInboundCrossClusterSearchConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInboundCrossClusterSearchConnectionCommandOutput> {
-    return deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommand(output, context);
+    return de_DeleteInboundCrossClusterSearchConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

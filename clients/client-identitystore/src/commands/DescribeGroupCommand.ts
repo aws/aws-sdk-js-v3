@@ -16,25 +16,26 @@ import {
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import {
   DescribeGroupRequest,
-  DescribeGroupRequestFilterSensitiveLog,
   DescribeGroupResponse,
   DescribeGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGroupCommand,
-  serializeAws_json1_1DescribeGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeGroupCommand, se_DescribeGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGroupCommand}.
  */
 export interface DescribeGroupCommandInput extends DescribeGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGroupCommand}.
  */
 export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity
  *          store.</p>
  * @example
@@ -43,10 +44,16 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * import { IdentitystoreClient, DescribeGroupCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, DescribeGroupCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = { // DescribeGroupRequest
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGroupCommandInput - {@link DescribeGroupCommandInput}
+ * @returns {@link DescribeGroupCommandOutput}
  * @see {@link DescribeGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,7 +121,7 @@ export class DescribeGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGroupRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -122,12 +132,18 @@ export class DescribeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGroupCommand(input, context);
+    return se_DescribeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeGroupCommand(output, context);
+    return de_DescribeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

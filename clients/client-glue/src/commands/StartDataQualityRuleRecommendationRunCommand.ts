@@ -16,21 +16,23 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   StartDataQualityRuleRecommendationRunRequest,
-  StartDataQualityRuleRecommendationRunRequestFilterSensitiveLog,
   StartDataQualityRuleRecommendationRunResponse,
-  StartDataQualityRuleRecommendationRunResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1StartDataQualityRuleRecommendationRunCommand,
-  serializeAws_json1_1StartDataQualityRuleRecommendationRunCommand,
+  de_StartDataQualityRuleRecommendationRunCommand,
+  se_StartDataQualityRuleRecommendationRunCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDataQualityRuleRecommendationRunCommand}.
  */
 export interface StartDataQualityRuleRecommendationRunCommandInput
   extends StartDataQualityRuleRecommendationRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDataQualityRuleRecommendationRunCommand}.
  */
 export interface StartDataQualityRuleRecommendationRunCommandOutput
@@ -38,6 +40,7 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a recommendation run that is used to generate rules when you don't know what rules to write. Glue Data Quality analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset and modify the generated ruleset to your liking.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,30 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput
  * import { GlueClient, StartDataQualityRuleRecommendationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartDataQualityRuleRecommendationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StartDataQualityRuleRecommendationRunRequest
+ *   DataSource: { // DataSource
+ *     GlueTable: { // GlueTable
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       CatalogId: "STRING_VALUE",
+ *       ConnectionName: "STRING_VALUE",
+ *       AdditionalOptions: { // GlueTableAdditionalOptions
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   Role: "STRING_VALUE", // required
+ *   NumberOfWorkers: Number("int"),
+ *   Timeout: Number("int"),
+ *   CreatedRulesetName: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new StartDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDataQualityRuleRecommendationRunCommandInput - {@link StartDataQualityRuleRecommendationRunCommandInput}
+ * @returns {@link StartDataQualityRuleRecommendationRunCommandOutput}
  * @see {@link StartDataQualityRuleRecommendationRunCommandInput} for command's `input` shape.
  * @see {@link StartDataQualityRuleRecommendationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +107,9 @@ export class StartDataQualityRuleRecommendationRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDataQualityRuleRecommendationRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +138,8 @@ export class StartDataQualityRuleRecommendationRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDataQualityRuleRecommendationRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDataQualityRuleRecommendationRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +149,24 @@ export class StartDataQualityRuleRecommendationRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartDataQualityRuleRecommendationRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDataQualityRuleRecommendationRunCommand(input, context);
+    return se_StartDataQualityRuleRecommendationRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDataQualityRuleRecommendationRunCommandOutput> {
-    return deserializeAws_json1_1StartDataQualityRuleRecommendationRunCommand(output, context);
+    return de_StartDataQualityRuleRecommendationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

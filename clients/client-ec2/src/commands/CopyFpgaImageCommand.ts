@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CopyFpgaImageRequest,
-  CopyFpgaImageRequestFilterSensitiveLog,
-  CopyFpgaImageResult,
-  CopyFpgaImageResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_ec2CopyFpgaImageCommand, serializeAws_ec2CopyFpgaImageCommand } from "../protocols/Aws_ec2";
+import { CopyFpgaImageRequest, CopyFpgaImageResult } from "../models/models_0";
+import { de_CopyFpgaImageCommand, se_CopyFpgaImageCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CopyFpgaImageCommand}.
  */
 export interface CopyFpgaImageCommandInput extends CopyFpgaImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyFpgaImageCommand}.
  */
 export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the specified Amazon FPGA Image (AFI) to the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,20 @@ export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __Metad
  * import { EC2Client, CopyFpgaImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CopyFpgaImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CopyFpgaImageRequest
+ *   DryRun: true || false,
+ *   SourceFpgaImageId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   SourceRegion: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CopyFpgaImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyFpgaImageCommandInput - {@link CopyFpgaImageCommandInput}
+ * @returns {@link CopyFpgaImageCommandOutput}
  * @see {@link CopyFpgaImageCommandInput} for command's `input` shape.
  * @see {@link CopyFpgaImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -66,6 +76,9 @@ export class CopyFpgaImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyFpgaImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +105,8 @@ export class CopyFpgaImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyFpgaImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyFpgaImageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +116,18 @@ export class CopyFpgaImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyFpgaImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CopyFpgaImageCommand(input, context);
+    return se_CopyFpgaImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyFpgaImageCommandOutput> {
-    return deserializeAws_ec2CopyFpgaImageCommand(output, context);
+    return de_CopyFpgaImageCommand(output, context);
   }
 
   // Start section: command_body_extra

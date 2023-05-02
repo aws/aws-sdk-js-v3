@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutInventoryRequest,
-  PutInventoryRequestFilterSensitiveLog,
-  PutInventoryResult,
-  PutInventoryResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PutInventoryCommand,
-  serializeAws_json1_1PutInventoryCommand,
-} from "../protocols/Aws_json1_1";
+import { PutInventoryRequest, PutInventoryResult } from "../models/models_1";
+import { de_PutInventoryCommand, se_PutInventoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutInventoryCommand}.
  */
 export interface PutInventoryCommandInput extends PutInventoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutInventoryCommand}.
  */
 export interface PutInventoryCommandOutput extends PutInventoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Bulk update custom inventory items on one or more managed nodes. The request adds an
  *    inventory item, if it doesn't already exist, or updates an inventory item, if it does
  *    exist.</p>
@@ -44,10 +41,31 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  * import { SSMClient, PutInventoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, PutInventoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // PutInventoryRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Items: [ // InventoryItemList // required
+ *     { // InventoryItem
+ *       TypeName: "STRING_VALUE", // required
+ *       SchemaVersion: "STRING_VALUE", // required
+ *       CaptureTime: "STRING_VALUE", // required
+ *       ContentHash: "STRING_VALUE",
+ *       Content: [ // InventoryItemEntryList
+ *         { // InventoryItemEntry
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       ],
+ *       Context: { // InventoryItemContentContext
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PutInventoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutInventoryCommandInput - {@link PutInventoryCommandInput}
+ * @returns {@link PutInventoryCommandOutput}
  * @see {@link PutInventoryCommandInput} for command's `input` shape.
  * @see {@link PutInventoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -129,6 +147,9 @@ export class PutInventoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutInventoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,8 +176,8 @@ export class PutInventoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutInventoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutInventoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -166,12 +187,18 @@ export class PutInventoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutInventoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutInventoryCommand(input, context);
+    return se_PutInventoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutInventoryCommandOutput> {
-    return deserializeAws_json1_1PutInventoryCommand(output, context);
+    return de_PutInventoryCommand(output, context);
   }
 
   // Start section: command_body_extra

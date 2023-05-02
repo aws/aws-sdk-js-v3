@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchProvisionedProductsInput,
-  SearchProvisionedProductsInputFilterSensitiveLog,
-  SearchProvisionedProductsOutput,
-  SearchProvisionedProductsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchProvisionedProductsCommand,
-  serializeAws_json1_1SearchProvisionedProductsCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchProvisionedProductsInput, SearchProvisionedProductsOutput } from "../models/models_0";
+import { de_SearchProvisionedProductsCommand, se_SearchProvisionedProductsCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchProvisionedProductsCommand}.
  */
 export interface SearchProvisionedProductsCommandInput extends SearchProvisionedProductsInput {}
 /**
+ * @public
+ *
  * The output of {@link SearchProvisionedProductsCommand}.
  */
 export interface SearchProvisionedProductsCommandOutput extends SearchProvisionedProductsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the provisioned products that meet the specified criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface SearchProvisionedProductsCommandOutput extends SearchProvisione
  * import { ServiceCatalogClient, SearchProvisionedProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, SearchProvisionedProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // SearchProvisionedProductsInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   AccessLevelFilter: { // AccessLevelFilter
+ *     Key: "Account" || "Role" || "User",
+ *     Value: "STRING_VALUE",
+ *   },
+ *   Filters: { // ProvisionedProductFilters
+ *     "<keys>": [ // ProvisionedProductViewFilterValues
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   SortBy: "STRING_VALUE",
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new SearchProvisionedProductsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchProvisionedProductsCommandInput - {@link SearchProvisionedProductsCommandInput}
+ * @returns {@link SearchProvisionedProductsCommandOutput}
  * @see {@link SearchProvisionedProductsCommandInput} for command's `input` shape.
  * @see {@link SearchProvisionedProductsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -72,6 +87,9 @@ export class SearchProvisionedProductsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchProvisionedProductsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +118,8 @@ export class SearchProvisionedProductsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchProvisionedProductsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchProvisionedProductsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +129,21 @@ export class SearchProvisionedProductsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchProvisionedProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchProvisionedProductsCommand(input, context);
+    return se_SearchProvisionedProductsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchProvisionedProductsCommandOutput> {
-    return deserializeAws_json1_1SearchProvisionedProductsCommand(output, context);
+    return de_SearchProvisionedProductsCommand(output, context);
   }
 
   // Start section: command_body_extra

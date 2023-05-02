@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  DeleteLogPatternRequest,
-  DeleteLogPatternRequestFilterSensitiveLog,
-  DeleteLogPatternResponse,
-  DeleteLogPatternResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLogPatternCommand,
-  serializeAws_json1_1DeleteLogPatternCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteLogPatternRequest, DeleteLogPatternResponse } from "../models/models_0";
+import { de_DeleteLogPatternCommand, se_DeleteLogPatternCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLogPatternCommand}.
  */
 export interface DeleteLogPatternCommandInput extends DeleteLogPatternRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLogPatternCommand}.
  */
 export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified log pattern from a <code>LogPatternSet</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse,
  * import { ApplicationInsightsClient, DeleteLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DeleteLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // DeleteLogPatternRequest
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   PatternSetName: "STRING_VALUE", // required
+ *   PatternName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLogPatternCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLogPatternCommandInput - {@link DeleteLogPatternCommandInput}
+ * @returns {@link DeleteLogPatternCommandOutput}
  * @see {@link DeleteLogPatternCommandInput} for command's `input` shape.
  * @see {@link DeleteLogPatternCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -85,6 +89,9 @@ export class DeleteLogPatternCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLogPatternCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class DeleteLogPatternCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLogPatternRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLogPatternResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class DeleteLogPatternCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLogPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLogPatternCommand(input, context);
+    return se_DeleteLogPatternCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLogPatternCommandOutput> {
-    return deserializeAws_json1_1DeleteLogPatternCommand(output, context);
+    return de_DeleteLogPatternCommand(output, context);
   }
 
   // Start section: command_body_extra

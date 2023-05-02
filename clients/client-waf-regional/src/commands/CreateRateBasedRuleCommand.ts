@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRateBasedRuleRequest,
-  CreateRateBasedRuleRequestFilterSensitiveLog,
-  CreateRateBasedRuleResponse,
-  CreateRateBasedRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRateBasedRuleCommand,
-  serializeAws_json1_1CreateRateBasedRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateRateBasedRuleRequest, CreateRateBasedRuleResponse } from "../models/models_0";
+import { de_CreateRateBasedRuleCommand, se_CreateRateBasedRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRateBasedRuleCommand}.
  */
 export interface CreateRateBasedRuleCommandInput extends CreateRateBasedRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRateBasedRuleCommand}.
  */
 export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -135,10 +132,25 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  * import { WAFRegionalClient, CreateRateBasedRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateRateBasedRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // CreateRateBasedRuleRequest
+ *   Name: "STRING_VALUE", // required
+ *   MetricName: "STRING_VALUE", // required
+ *   RateKey: "STRING_VALUE", // required
+ *   RateLimit: Number("long"), // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRateBasedRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRateBasedRuleCommandInput - {@link CreateRateBasedRuleCommandInput}
+ * @returns {@link CreateRateBasedRuleCommandOutput}
  * @see {@link CreateRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRateBasedRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -225,6 +237,9 @@ export class CreateRateBasedRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRateBasedRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -253,8 +268,8 @@ export class CreateRateBasedRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRateBasedRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRateBasedRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -264,12 +279,18 @@ export class CreateRateBasedRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRateBasedRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRateBasedRuleCommand(input, context);
+    return se_CreateRateBasedRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRateBasedRuleCommandOutput> {
-    return deserializeAws_json1_1CreateRateBasedRuleCommand(output, context);
+    return de_CreateRateBasedRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  AssociatePersonasToEntitiesRequest,
-  AssociatePersonasToEntitiesRequestFilterSensitiveLog,
-  AssociatePersonasToEntitiesResponse,
-  AssociatePersonasToEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociatePersonasToEntitiesCommand,
-  serializeAws_json1_1AssociatePersonasToEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociatePersonasToEntitiesRequest, AssociatePersonasToEntitiesResponse } from "../models/models_0";
+import { de_AssociatePersonasToEntitiesCommand, se_AssociatePersonasToEntitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePersonasToEntitiesCommand}.
  */
 export interface AssociatePersonasToEntitiesCommandInput extends AssociatePersonasToEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePersonasToEntitiesCommand}.
  */
 export interface AssociatePersonasToEntitiesCommandOutput
@@ -37,6 +33,7 @@ export interface AssociatePersonasToEntitiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines the specific permissions of users or groups in your IAM Identity Center
  *             identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
  *             experience such as a search application. For more information on creating a
@@ -48,10 +45,22 @@ export interface AssociatePersonasToEntitiesCommandOutput
  * import { KendraClient, AssociatePersonasToEntitiesCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, AssociatePersonasToEntitiesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // AssociatePersonasToEntitiesRequest
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ *   Personas: [ // EntityPersonaConfigurationList // required
+ *     { // EntityPersonaConfiguration
+ *       EntityId: "STRING_VALUE", // required
+ *       Persona: "OWNER" || "VIEWER", // required
+ *     },
+ *   ],
+ * };
  * const command = new AssociatePersonasToEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePersonasToEntitiesCommandInput - {@link AssociatePersonasToEntitiesCommandInput}
+ * @returns {@link AssociatePersonasToEntitiesCommandOutput}
  * @see {@link AssociatePersonasToEntitiesCommandInput} for command's `input` shape.
  * @see {@link AssociatePersonasToEntitiesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -62,7 +71,7 @@ export interface AssociatePersonasToEntitiesCommandOutput
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceAlreadyExistException} (client fault)
  *  <p>The resource you want to use already exists. Please check you have provided the
@@ -99,6 +108,9 @@ export class AssociatePersonasToEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePersonasToEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +139,8 @@ export class AssociatePersonasToEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociatePersonasToEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociatePersonasToEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +150,21 @@ export class AssociatePersonasToEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociatePersonasToEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociatePersonasToEntitiesCommand(input, context);
+    return se_AssociatePersonasToEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePersonasToEntitiesCommandOutput> {
-    return deserializeAws_json1_1AssociatePersonasToEntitiesCommand(output, context);
+    return de_AssociatePersonasToEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

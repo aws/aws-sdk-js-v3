@@ -24,21 +24,23 @@ import {
   CreateServiceResponse,
   CreateServiceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateServiceCommand,
-  serializeAws_restJson1CreateServiceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateServiceCommand, se_CreateServiceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServiceCommand}.
  */
 export interface CreateServiceCommandInput extends CreateServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateServiceCommand}.
  */
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces service. The account owner of the service is always the
  *       environment owner, regardless of which account in the environment creates the service.
  *       Services have either a URL endpoint in a virtual private cloud (VPC), or a Lambda
@@ -55,10 +57,31 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * import { MigrationHubRefactorSpacesClient, CreateServiceCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, CreateServiceCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = { // CreateServiceRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE",
+ *   EndpointType: "STRING_VALUE", // required
+ *   UrlEndpoint: { // UrlEndpointInput
+ *     Url: "STRING_VALUE", // required
+ *     HealthUrl: "STRING_VALUE",
+ *   },
+ *   LambdaEndpoint: { // LambdaEndpointInput
+ *     Arn: "STRING_VALUE", // required
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
+ * @returns {@link CreateServiceCommandOutput}
  * @see {@link CreateServiceCommandInput} for command's `input` shape.
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
@@ -104,6 +127,9 @@ export class CreateServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,12 +167,18 @@ export class CreateServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateServiceCommand(input, context);
+    return se_CreateServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceCommandOutput> {
-    return deserializeAws_restJson1CreateServiceCommand(output, context);
+    return de_CreateServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

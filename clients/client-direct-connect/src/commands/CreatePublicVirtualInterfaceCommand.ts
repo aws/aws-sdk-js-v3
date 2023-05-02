@@ -14,27 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { CreatePublicVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
 import {
-  CreatePublicVirtualInterfaceRequest,
-  CreatePublicVirtualInterfaceRequestFilterSensitiveLog,
-  VirtualInterface,
-  VirtualInterfaceFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePublicVirtualInterfaceCommand,
-  serializeAws_json1_1CreatePublicVirtualInterfaceCommand,
+  de_CreatePublicVirtualInterfaceCommand,
+  se_CreatePublicVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePublicVirtualInterfaceCommand}.
  */
 export interface CreatePublicVirtualInterfaceCommandInput extends CreatePublicVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePublicVirtualInterfaceCommand}.
  */
 export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a public virtual interface. A virtual interface is the VLAN that transports Direct Connect traffic.
  *       A public virtual interface supports sending traffic to public services of Amazon Web Services such as Amazon S3.</p>
  *          <p>When creating an IPv6 public virtual interface (<code>addressFamily</code> is <code>ipv6</code>), leave the <code>customer</code>
@@ -45,10 +45,35 @@ export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterf
  * import { DirectConnectClient, CreatePublicVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreatePublicVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // CreatePublicVirtualInterfaceRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   newPublicVirtualInterface: { // NewPublicVirtualInterface
+ *     virtualInterfaceName: "STRING_VALUE", // required
+ *     vlan: Number("int"), // required
+ *     asn: Number("int"), // required
+ *     authKey: "STRING_VALUE",
+ *     amazonAddress: "STRING_VALUE",
+ *     customerAddress: "STRING_VALUE",
+ *     addressFamily: "ipv4" || "ipv6",
+ *     routeFilterPrefixes: [ // RouteFilterPrefixList
+ *       { // RouteFilterPrefix
+ *         cidr: "STRING_VALUE",
+ *       },
+ *     ],
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreatePublicVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePublicVirtualInterfaceCommandInput - {@link CreatePublicVirtualInterfaceCommandInput}
+ * @returns {@link CreatePublicVirtualInterfaceCommandOutput}
  * @see {@link CreatePublicVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreatePublicVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -84,6 +109,9 @@ export class CreatePublicVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePublicVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +140,8 @@ export class CreatePublicVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePublicVirtualInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VirtualInterfaceFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +151,21 @@ export class CreatePublicVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePublicVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePublicVirtualInterfaceCommand(input, context);
+    return se_CreatePublicVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePublicVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1CreatePublicVirtualInterfaceCommand(output, context);
+    return de_CreatePublicVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

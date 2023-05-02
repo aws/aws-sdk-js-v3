@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DisassociateTagOptionFromResourceInput, DisassociateTagOptionFromResourceOutput } from "../models/models_0";
 import {
-  DisassociateTagOptionFromResourceInput,
-  DisassociateTagOptionFromResourceInputFilterSensitiveLog,
-  DisassociateTagOptionFromResourceOutput,
-  DisassociateTagOptionFromResourceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateTagOptionFromResourceCommand,
-  serializeAws_json1_1DisassociateTagOptionFromResourceCommand,
+  de_DisassociateTagOptionFromResourceCommand,
+  se_DisassociateTagOptionFromResourceCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTagOptionFromResourceCommand}.
  */
 export interface DisassociateTagOptionFromResourceCommandInput extends DisassociateTagOptionFromResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTagOptionFromResourceCommand}.
  */
 export interface DisassociateTagOptionFromResourceCommandOutput
@@ -37,6 +36,7 @@ export interface DisassociateTagOptionFromResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified TagOption from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DisassociateTagOptionFromResourceCommandOutput
  * import { ServiceCatalogClient, DisassociateTagOptionFromResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisassociateTagOptionFromResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DisassociateTagOptionFromResourceInput
+ *   ResourceId: "STRING_VALUE", // required
+ *   TagOptionId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateTagOptionFromResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTagOptionFromResourceCommandInput - {@link DisassociateTagOptionFromResourceCommandInput}
+ * @returns {@link DisassociateTagOptionFromResourceCommandOutput}
  * @see {@link DisassociateTagOptionFromResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateTagOptionFromResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -79,6 +85,9 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTagOptionFromResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +116,8 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTagOptionFromResourceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTagOptionFromResourceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +127,24 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateTagOptionFromResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateTagOptionFromResourceCommand(input, context);
+    return se_DisassociateTagOptionFromResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateTagOptionFromResourceCommandOutput> {
-    return deserializeAws_json1_1DisassociateTagOptionFromResourceCommand(output, context);
+    return de_DisassociateTagOptionFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

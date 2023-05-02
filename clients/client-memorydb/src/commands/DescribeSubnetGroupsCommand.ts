@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  DescribeSubnetGroupsRequest,
-  DescribeSubnetGroupsRequestFilterSensitiveLog,
-  DescribeSubnetGroupsResponse,
-  DescribeSubnetGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSubnetGroupsCommand,
-  serializeAws_json1_1DescribeSubnetGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSubnetGroupsRequest, DescribeSubnetGroupsResponse } from "../models/models_0";
+import { de_DescribeSubnetGroupsCommand, se_DescribeSubnetGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSubnetGroupsCommand}.
  */
 export interface DescribeSubnetGroupsCommandInput extends DescribeSubnetGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSubnetGroupsCommand}.
  */
 export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of subnet group descriptions. If a subnet group name is specified, the list contains only the description of that group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * import { MemoryDBClient, DescribeSubnetGroupsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeSubnetGroupsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // DescribeSubnetGroupsRequest
+ *   SubnetGroupName: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeSubnetGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSubnetGroupsCommandInput - {@link DescribeSubnetGroupsCommandInput}
+ * @returns {@link DescribeSubnetGroupsCommandOutput}
  * @see {@link DescribeSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -75,6 +79,9 @@ export class DescribeSubnetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSubnetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +110,8 @@ export class DescribeSubnetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSubnetGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSubnetGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +121,18 @@ export class DescribeSubnetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSubnetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSubnetGroupsCommand(input, context);
+    return se_DescribeSubnetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSubnetGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeSubnetGroupsCommand(output, context);
+    return de_DescribeSubnetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

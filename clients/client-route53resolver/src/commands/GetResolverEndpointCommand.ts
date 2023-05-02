@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResolverEndpointRequest,
-  GetResolverEndpointRequestFilterSensitiveLog,
-  GetResolverEndpointResponse,
-  GetResolverEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetResolverEndpointCommand,
-  serializeAws_json1_1GetResolverEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { GetResolverEndpointRequest, GetResolverEndpointResponse } from "../models/models_0";
+import { de_GetResolverEndpointCommand, se_GetResolverEndpointCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverEndpointCommand}.
  */
 export interface GetResolverEndpointCommandInput extends GetResolverEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverEndpointCommand}.
  */
 export interface GetResolverEndpointCommandOutput extends GetResolverEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified Resolver endpoint, such as whether it's an inbound or an outbound Resolver endpoint, and the
  * 			current status of the endpoint.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetResolverEndpointCommandOutput extends GetResolverEndpointRes
  * import { Route53ResolverClient, GetResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // GetResolverEndpointRequest
+ *   ResolverEndpointId: "STRING_VALUE", // required
+ * };
  * const command = new GetResolverEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverEndpointCommandInput - {@link GetResolverEndpointCommandInput}
+ * @returns {@link GetResolverEndpointCommandOutput}
  * @see {@link GetResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link GetResolverEndpointCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetResolverEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetResolverEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResolverEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResolverEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetResolverEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResolverEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResolverEndpointCommand(input, context);
+    return se_GetResolverEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResolverEndpointCommandOutput> {
-    return deserializeAws_json1_1GetResolverEndpointCommand(output, context);
+    return de_GetResolverEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

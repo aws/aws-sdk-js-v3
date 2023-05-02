@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteProvisioningArtifactInput,
-  DeleteProvisioningArtifactInputFilterSensitiveLog,
-  DeleteProvisioningArtifactOutput,
-  DeleteProvisioningArtifactOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProvisioningArtifactCommand,
-  serializeAws_json1_1DeleteProvisioningArtifactCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteProvisioningArtifactInput, DeleteProvisioningArtifactOutput } from "../models/models_0";
+import { de_DeleteProvisioningArtifactCommand, se_DeleteProvisioningArtifactCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProvisioningArtifactCommand}.
  */
 export interface DeleteProvisioningArtifactCommandInput extends DeleteProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProvisioningArtifactCommand}.
  */
 export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified provisioning artifact (also known as a version) for the specified product.</p>
  *          <p>You cannot delete a provisioning artifact associated with a product that was shared with you.
  *          You cannot delete the last provisioning artifact for a product, because a product must have at
@@ -45,10 +42,17 @@ export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvision
  * import { ServiceCatalogClient, DeleteProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DeleteProvisioningArtifactInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE", // required
+ *   ProvisioningArtifactId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProvisioningArtifactCommandInput - {@link DeleteProvisioningArtifactCommandInput}
+ * @returns {@link DeleteProvisioningArtifactCommandOutput}
  * @see {@link DeleteProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +85,9 @@ export class DeleteProvisioningArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class DeleteProvisioningArtifactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProvisioningArtifactInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProvisioningArtifactOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +127,21 @@ export class DeleteProvisioningArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProvisioningArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProvisioningArtifactCommand(input, context);
+    return se_DeleteProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1DeleteProvisioningArtifactCommand(output, context);
+    return de_DeleteProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

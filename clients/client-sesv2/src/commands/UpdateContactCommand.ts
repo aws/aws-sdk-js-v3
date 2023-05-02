@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateContactRequest,
-  UpdateContactRequestFilterSensitiveLog,
-  UpdateContactResponse,
-  UpdateContactResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateContactCommand,
-  serializeAws_restJson1UpdateContactCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateContactRequest, UpdateContactResponse } from "../models/models_0";
+import { de_UpdateContactCommand, se_UpdateContactCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactCommand}.
  */
 export interface UpdateContactCommandInput extends UpdateContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactCommand}.
  */
 export interface UpdateContactCommandOutput extends UpdateContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a contact's preferences for a list. It is not necessary to specify all
  *             existing topic preferences in the TopicPreferences object, just the ones that need
  *             updating.</p>
@@ -44,10 +41,24 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * import { SESv2Client, UpdateContactCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, UpdateContactCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // UpdateContactRequest
+ *   ContactListName: "STRING_VALUE", // required
+ *   EmailAddress: "STRING_VALUE", // required
+ *   TopicPreferences: [ // TopicPreferenceList
+ *     { // TopicPreference
+ *       TopicName: "STRING_VALUE", // required
+ *       SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ *     },
+ *   ],
+ *   UnsubscribeAll: true || false,
+ *   AttributesData: "STRING_VALUE",
+ * };
  * const command = new UpdateContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
+ * @returns {@link UpdateContactCommandOutput}
  * @see {@link UpdateContactCommandInput} for command's `input` shape.
  * @see {@link UpdateContactCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -83,6 +94,9 @@ export class UpdateContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +123,8 @@ export class UpdateContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +134,18 @@ export class UpdateContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateContactCommand(input, context);
+    return se_UpdateContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactCommandOutput> {
-    return deserializeAws_restJson1UpdateContactCommand(output, context);
+    return de_UpdateContactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  DeleteResourcesByExternalIdInput,
-  DeleteResourcesByExternalIdInputFilterSensitiveLog,
-  DeleteResourcesByExternalIdOutput,
-  DeleteResourcesByExternalIdOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResourcesByExternalIdCommand,
-  serializeAws_json1_1DeleteResourcesByExternalIdCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteResourcesByExternalIdInput, DeleteResourcesByExternalIdOutput } from "../models/models_0";
+import { de_DeleteResourcesByExternalIdCommand, se_DeleteResourcesByExternalIdCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourcesByExternalIdCommand}.
  */
 export interface DeleteResourcesByExternalIdCommandInput extends DeleteResourcesByExternalIdInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourcesByExternalIdCommand}.
  */
 export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResourcesByExternalIdOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes resources linked to an external ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
  * import { CodeDeployClient, DeleteResourcesByExternalIdCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, DeleteResourcesByExternalIdCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // DeleteResourcesByExternalIdInput
+ *   externalId: "STRING_VALUE",
+ * };
  * const command = new DeleteResourcesByExternalIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourcesByExternalIdCommandInput - {@link DeleteResourcesByExternalIdCommandInput}
+ * @returns {@link DeleteResourcesByExternalIdCommandOutput}
  * @see {@link DeleteResourcesByExternalIdCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcesByExternalIdCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -69,6 +71,9 @@ export class DeleteResourcesByExternalIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourcesByExternalIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +102,8 @@ export class DeleteResourcesByExternalIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcesByExternalIdInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcesByExternalIdOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +113,21 @@ export class DeleteResourcesByExternalIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourcesByExternalIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResourcesByExternalIdCommand(input, context);
+    return se_DeleteResourcesByExternalIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteResourcesByExternalIdCommandOutput> {
-    return deserializeAws_json1_1DeleteResourcesByExternalIdCommand(output, context);
+    return de_DeleteResourcesByExternalIdCommand(output, context);
   }
 
   // Start section: command_body_extra

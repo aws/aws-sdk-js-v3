@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
-import {
-  DeleteMonitorInput,
-  DeleteMonitorInputFilterSensitiveLog,
-  DeleteMonitorOutput,
-  DeleteMonitorOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMonitorCommand,
-  serializeAws_restJson1DeleteMonitorCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMonitorInput, DeleteMonitorOutput } from "../models/models_0";
+import { de_DeleteMonitorCommand, se_DeleteMonitorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMonitorCommand}.
  */
 export interface DeleteMonitorCommandInput extends DeleteMonitorInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMonitorCommand}.
  */
 export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a monitor in Amazon CloudWatch Internet Monitor. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * import { InternetMonitorClient, DeleteMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, DeleteMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
+ * const input = { // DeleteMonitorInput
+ *   MonitorName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMonitorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMonitorCommandInput - {@link DeleteMonitorCommandInput}
+ * @returns {@link DeleteMonitorCommandOutput}
  * @see {@link DeleteMonitorCommandInput} for command's `input` shape.
  * @see {@link DeleteMonitorCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
@@ -80,6 +82,9 @@ export class DeleteMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class DeleteMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMonitorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMonitorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class DeleteMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMonitorCommand(input, context);
+    return se_DeleteMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMonitorCommandOutput> {
-    return deserializeAws_restJson1DeleteMonitorCommand(output, context);
+    return de_DeleteMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

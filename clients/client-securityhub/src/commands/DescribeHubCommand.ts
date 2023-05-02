@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeHubRequest,
-  DescribeHubRequestFilterSensitiveLog,
-  DescribeHubResponse,
-  DescribeHubResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeHubCommand,
-  serializeAws_restJson1DescribeHubCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeHubRequest, DescribeHubResponse } from "../models/models_2";
+import { de_DescribeHubCommand, se_DescribeHubCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHubCommand}.
  */
 export interface DescribeHubCommandInput extends DescribeHubRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHubCommand}.
  */
 export interface DescribeHubCommandOutput extends DescribeHubResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about the Hub resource in your account, including the
  *          <code>HubArn</code> and the time when you enabled Security Hub.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * import { SecurityHubClient, DescribeHubCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DescribeHubCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DescribeHubRequest
+ *   HubArn: "STRING_VALUE",
+ * };
  * const command = new DescribeHubCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHubCommandInput - {@link DescribeHubCommandInput}
+ * @returns {@link DescribeHubCommandOutput}
  * @see {@link DescribeHubCommandInput} for command's `input` shape.
  * @see {@link DescribeHubCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -69,6 +71,25 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To return details about Hub resource
+ * ```javascript
+ * // The following example returns details about the Hub resource in the calling account. The Hub resource represents the implementation of  the AWS Security Hub service in the calling account.
+ * const input = {
+ *   "HubArn": "arn:aws:securityhub:us-west-1:123456789012:hub/default"
+ * };
+ * const command = new DescribeHubCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AutoEnableControls": true,
+ *   "ControlFindingGenerator": "SECURITY_CONTROL",
+ *   "HubArn": "arn:aws:securityhub:us-west-1:123456789012:hub/default",
+ *   "SubscribedAt": "2019-11-19T23:15:10.046Z"
+ * }
+ * *\/
+ * // example id: to-return-details-about-hub-resource-1675884542597
+ * ```
+ *
  */
 export class DescribeHubCommand extends $Command<
   DescribeHubCommandInput,
@@ -87,6 +108,9 @@ export class DescribeHubCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHubCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +137,8 @@ export class DescribeHubCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHubRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHubResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +148,18 @@ export class DescribeHubCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeHubCommand(input, context);
+    return se_DescribeHubCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHubCommandOutput> {
-    return deserializeAws_restJson1DescribeHubCommand(output, context);
+    return de_DescribeHubCommand(output, context);
   }
 
   // Start section: command_body_extra

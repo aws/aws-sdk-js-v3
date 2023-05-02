@@ -20,20 +20,22 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   GetCompatibleElasticsearchVersionsRequest,
-  GetCompatibleElasticsearchVersionsRequestFilterSensitiveLog,
   GetCompatibleElasticsearchVersionsResponse,
-  GetCompatibleElasticsearchVersionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand,
-  serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand,
+  de_GetCompatibleElasticsearchVersionsCommand,
+  se_GetCompatibleElasticsearchVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCompatibleElasticsearchVersionsCommand}.
  */
 export interface GetCompatibleElasticsearchVersionsCommandInput extends GetCompatibleElasticsearchVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCompatibleElasticsearchVersionsCommand}.
  */
 export interface GetCompatibleElasticsearchVersionsCommandOutput
@@ -41,6 +43,7 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Returns a list of upgrade compatible Elastisearch versions.
  *         You can optionally pass a
@@ -55,10 +58,15 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
  * import { ElasticsearchServiceClient, GetCompatibleElasticsearchVersionsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, GetCompatibleElasticsearchVersionsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // GetCompatibleElasticsearchVersionsRequest
+ *   DomainName: "STRING_VALUE",
+ * };
  * const command = new GetCompatibleElasticsearchVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCompatibleElasticsearchVersionsCommandInput - {@link GetCompatibleElasticsearchVersionsCommandInput}
+ * @returns {@link GetCompatibleElasticsearchVersionsCommandOutput}
  * @see {@link GetCompatibleElasticsearchVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCompatibleElasticsearchVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -97,6 +105,9 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCompatibleElasticsearchVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +136,8 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCompatibleElasticsearchVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCompatibleElasticsearchVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +147,24 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetCompatibleElasticsearchVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand(input, context);
+    return se_GetCompatibleElasticsearchVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCompatibleElasticsearchVersionsCommandOutput> {
-    return deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand(output, context);
+    return de_GetCompatibleElasticsearchVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

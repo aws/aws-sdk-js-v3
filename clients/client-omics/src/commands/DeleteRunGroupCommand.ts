@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteRunGroupRequest, DeleteRunGroupRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteRunGroupRequest } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1DeleteRunGroupCommand,
-  serializeAws_restJson1DeleteRunGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRunGroupCommand, se_DeleteRunGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRunGroupCommand}.
  */
 export interface DeleteRunGroupCommandInput extends DeleteRunGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRunGroupCommand}.
  */
 export interface DeleteRunGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a workflow run group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteRunGroupCommandOutput extends __MetadataBearer {}
  * import { OmicsClient, DeleteRunGroupCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteRunGroupCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // DeleteRunGroupRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRunGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRunGroupCommandInput - {@link DeleteRunGroupCommandInput}
+ * @returns {@link DeleteRunGroupCommandOutput}
  * @see {@link DeleteRunGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteRunGroupCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteRunGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRunGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +126,8 @@ export class DeleteRunGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRunGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +137,18 @@ export class DeleteRunGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRunGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRunGroupCommand(input, context);
+    return se_DeleteRunGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRunGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteRunGroupCommand(output, context);
+    return de_DeleteRunGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

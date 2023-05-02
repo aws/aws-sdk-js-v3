@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { DeregisterStreamConsumerInput, DeregisterStreamConsumerInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterStreamConsumerCommand,
-  serializeAws_json1_1DeregisterStreamConsumerCommand,
-} from "../protocols/Aws_json1_1";
+import { DeregisterStreamConsumerInput } from "../models/models_0";
+import { de_DeregisterStreamConsumerCommand, se_DeregisterStreamConsumerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterStreamConsumerCommand}.
  */
 export interface DeregisterStreamConsumerCommandInput extends DeregisterStreamConsumerInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterStreamConsumerCommand}.
  */
 export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of
  *             the data stream and the name you gave the consumer when you registered it. You may also
  *             provide all three parameters, as long as they don't conflict with each other. If you
@@ -44,10 +46,17 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  * import { KinesisClient, DeregisterStreamConsumerCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DeregisterStreamConsumerCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // DeregisterStreamConsumerInput
+ *   StreamARN: "STRING_VALUE",
+ *   ConsumerName: "STRING_VALUE",
+ *   ConsumerARN: "STRING_VALUE",
+ * };
  * const command = new DeregisterStreamConsumerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterStreamConsumerCommandInput - {@link DeregisterStreamConsumerCommandInput}
+ * @returns {@link DeregisterStreamConsumerCommandOutput}
  * @see {@link DeregisterStreamConsumerCommandInput} for command's `input` shape.
  * @see {@link DeregisterStreamConsumerCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -86,6 +95,9 @@ export class DeregisterStreamConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterStreamConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +126,8 @@ export class DeregisterStreamConsumerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterStreamConsumerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +137,18 @@ export class DeregisterStreamConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterStreamConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterStreamConsumerCommand(input, context);
+    return se_DeregisterStreamConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterStreamConsumerCommandOutput> {
-    return deserializeAws_json1_1DeregisterStreamConsumerCommand(output, context);
+    return de_DeregisterStreamConsumerCommand(output, context);
   }
 
   // Start section: command_body_extra

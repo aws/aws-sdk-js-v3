@@ -21,16 +21,15 @@ import {
   UploadPartRequest,
   UploadPartRequestFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlUploadPartCommand,
-  serializeAws_restXmlUploadPartCommand,
-} from "../protocols/Aws_restXml";
+import { de_UploadPartCommand, se_UploadPartCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link UploadPartCommand}.
  */
-type UploadPartCommandInputType = Omit<UploadPartRequest, "Body"> & {
+export type UploadPartCommandInputType = Omit<UploadPartRequest, "Body"> & {
   /**
    * For *`UploadPartRequest["Body"]`*, see {@link UploadPartRequest.Body}.
    */
@@ -41,11 +40,14 @@ type UploadPartCommandInputType = Omit<UploadPartRequest, "Body"> & {
  */
 export interface UploadPartCommandInput extends UploadPartCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link UploadPartCommand}.
  */
 export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads a part in a multipart upload.</p>
  *          <note>
  *             <p>In this operation, you provide part data in your request. However, you have an option
@@ -172,10 +174,31 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * import { S3Client, UploadPartCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, UploadPartCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // UploadPartRequest
+ *   Body: "STREAMING_BLOB_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentLength: Number("long"),
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumCRC32: "STRING_VALUE",
+ *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumSHA1: "STRING_VALUE",
+ *   ChecksumSHA256: "STRING_VALUE",
+ *   Key: "STRING_VALUE", // required
+ *   PartNumber: Number("int"), // required
+ *   UploadId: "STRING_VALUE", // required
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new UploadPartCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadPartCommandInput - {@link UploadPartCommandInput}
+ * @returns {@link UploadPartCommandOutput}
  * @see {@link UploadPartCommandInput} for command's `input` shape.
  * @see {@link UploadPartCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -225,6 +248,9 @@ export class UploadPartCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -270,12 +296,18 @@ export class UploadPartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUploadPartCommand(input, context);
+    return se_UploadPartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadPartCommandOutput> {
-    return deserializeAws_restXmlUploadPartCommand(output, context);
+    return de_UploadPartCommand(output, context);
   }
 
   // Start section: command_body_extra

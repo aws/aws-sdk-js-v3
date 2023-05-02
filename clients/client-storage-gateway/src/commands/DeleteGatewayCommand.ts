@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteGatewayInput,
-  DeleteGatewayInputFilterSensitiveLog,
-  DeleteGatewayOutput,
-  DeleteGatewayOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGatewayCommand,
-  serializeAws_json1_1DeleteGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteGatewayInput, DeleteGatewayOutput } from "../models/models_0";
+import { de_DeleteGatewayCommand, se_DeleteGatewayCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGatewayCommand}.
  */
 export interface DeleteGatewayCommandInput extends DeleteGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGatewayCommand}.
  */
 export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name
  *          (ARN) of the gateway in your request. The operation deletes the gateway; however, it does
  *          not delete the gateway virtual machine (VM) from your host computer.</p>
@@ -59,10 +56,15 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  * import { StorageGatewayClient, DeleteGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DeleteGatewayInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGatewayCommandInput - {@link DeleteGatewayCommandInput}
+ * @returns {@link DeleteGatewayCommandOutput}
  * @see {@link DeleteGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -110,6 +112,9 @@ export class DeleteGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +141,8 @@ export class DeleteGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGatewayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGatewayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +152,18 @@ export class DeleteGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGatewayCommand(input, context);
+    return se_DeleteGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayCommandOutput> {
-    return deserializeAws_json1_1DeleteGatewayCommand(output, context);
+    return de_DeleteGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

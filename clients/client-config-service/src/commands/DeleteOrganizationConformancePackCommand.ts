@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DeleteOrganizationConformancePackRequest } from "../models/models_0";
 import {
-  DeleteOrganizationConformancePackRequest,
-  DeleteOrganizationConformancePackRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteOrganizationConformancePackCommand,
-  serializeAws_json1_1DeleteOrganizationConformancePackCommand,
+  de_DeleteOrganizationConformancePackCommand,
+  se_DeleteOrganizationConformancePackCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOrganizationConformancePackCommand}.
  */
 export interface DeleteOrganizationConformancePackCommandInput extends DeleteOrganizationConformancePackRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOrganizationConformancePackCommand}.
  */
 export interface DeleteOrganizationConformancePackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified organization conformance pack and all of the Config rules and remediation actions from
  * 			all member accounts in that organization. </p>
  *          <p> Only a management account or a delegated administrator account can delete an organization conformance pack.
@@ -46,10 +48,15 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  * import { ConfigServiceClient, DeleteOrganizationConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteOrganizationConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeleteOrganizationConformancePackRequest
+ *   OrganizationConformancePackName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteOrganizationConformancePackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOrganizationConformancePackCommandInput - {@link DeleteOrganizationConformancePackCommandInput}
+ * @returns {@link DeleteOrganizationConformancePackCommandOutput}
  * @see {@link DeleteOrganizationConformancePackCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationConformancePackCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -124,6 +131,9 @@ export class DeleteOrganizationConformancePackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOrganizationConformancePackCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,8 +162,8 @@ export class DeleteOrganizationConformancePackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOrganizationConformancePackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -163,18 +173,24 @@ export class DeleteOrganizationConformancePackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteOrganizationConformancePackCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteOrganizationConformancePackCommand(input, context);
+    return se_DeleteOrganizationConformancePackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOrganizationConformancePackCommandOutput> {
-    return deserializeAws_json1_1DeleteOrganizationConformancePackCommand(output, context);
+    return de_DeleteOrganizationConformancePackCommand(output, context);
   }
 
   // Start section: command_body_extra

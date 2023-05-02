@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  DeleteProfileObjectTypeRequest,
-  DeleteProfileObjectTypeRequestFilterSensitiveLog,
-  DeleteProfileObjectTypeResponse,
-  DeleteProfileObjectTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteProfileObjectTypeCommand,
-  serializeAws_restJson1DeleteProfileObjectTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteProfileObjectTypeRequest, DeleteProfileObjectTypeResponse } from "../models/models_0";
+import { de_DeleteProfileObjectTypeCommand, se_DeleteProfileObjectTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProfileObjectTypeCommand}.
  */
 export interface DeleteProfileObjectTypeCommandInput extends DeleteProfileObjectTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProfileObjectTypeCommand}.
  */
 export interface DeleteProfileObjectTypeCommandOutput extends DeleteProfileObjectTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a ProfileObjectType from a specific domain as well as removes all the
  *          ProfileObjects of that type. It also disables integrations from this specific
  *          ProfileObjectType. In addition, it scrubs all of the fields of the standard profile that
@@ -45,10 +42,16 @@ export interface DeleteProfileObjectTypeCommandOutput extends DeleteProfileObjec
  * import { CustomerProfilesClient, DeleteProfileObjectTypeCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteProfileObjectTypeCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // DeleteProfileObjectTypeRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   ObjectTypeName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProfileObjectTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProfileObjectTypeCommandInput - {@link DeleteProfileObjectTypeCommandInput}
+ * @returns {@link DeleteProfileObjectTypeCommandOutput}
  * @see {@link DeleteProfileObjectTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileObjectTypeCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -87,6 +90,9 @@ export class DeleteProfileObjectTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProfileObjectTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class DeleteProfileObjectTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProfileObjectTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProfileObjectTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class DeleteProfileObjectTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProfileObjectTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteProfileObjectTypeCommand(input, context);
+    return se_DeleteProfileObjectTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfileObjectTypeCommandOutput> {
-    return deserializeAws_restJson1DeleteProfileObjectTypeCommand(output, context);
+    return de_DeleteProfileObjectTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

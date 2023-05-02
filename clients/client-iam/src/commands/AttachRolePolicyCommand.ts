@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { AttachRolePolicyRequest, AttachRolePolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryAttachRolePolicyCommand,
-  serializeAws_queryAttachRolePolicyCommand,
-} from "../protocols/Aws_query";
+import { AttachRolePolicyRequest } from "../models/models_0";
+import { de_AttachRolePolicyCommand, se_AttachRolePolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AttachRolePolicyCommand}.
  */
 export interface AttachRolePolicyCommandInput extends AttachRolePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachRolePolicyCommand}.
  */
 export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches the specified managed policy to the specified IAM role. When you attach a
  *             managed policy to a role, the managed policy becomes part of the role's permission
  *             (access) policy.</p>
@@ -51,10 +53,16 @@ export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, AttachRolePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, AttachRolePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // AttachRolePolicyRequest
+ *   RoleName: "STRING_VALUE", // required
+ *   PolicyArn: "STRING_VALUE", // required
+ * };
  * const command = new AttachRolePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachRolePolicyCommandInput - {@link AttachRolePolicyCommandInput}
+ * @returns {@link AttachRolePolicyCommandOutput}
  * @see {@link AttachRolePolicyCommandInput} for command's `input` shape.
  * @see {@link AttachRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -80,10 +88,10 @@ export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
  *       failure.</p>
  *
  * @throws {@link UnmodifiableEntityException} (client fault)
- *  <p>The request was rejected because only the service that depends on the service-linked role
- *       can modify or delete the role on your behalf. The error message includes the name of the
- *       service that depends on this service-linked role. You must request the change through that
- *       service.</p>
+ *  <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
+ *       the service that depends on the service-linked role can modify or delete the role on your
+ *       behalf. The error message includes the name of the service that depends on this service-linked
+ *       role. You must request the change through that service.</p>
  *
  *
  * @example To attach a managed policy to an IAM role
@@ -116,6 +124,9 @@ export class AttachRolePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachRolePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +155,8 @@ export class AttachRolePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachRolePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +166,18 @@ export class AttachRolePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAttachRolePolicyCommand(input, context);
+    return se_AttachRolePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachRolePolicyCommandOutput> {
-    return deserializeAws_queryAttachRolePolicyCommand(output, context);
+    return de_AttachRolePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

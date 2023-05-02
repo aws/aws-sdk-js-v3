@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { DeleteDeploymentStrategyRequest, DeleteDeploymentStrategyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDeploymentStrategyCommand,
-  serializeAws_restJson1DeleteDeploymentStrategyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDeploymentStrategyRequest } from "../models/models_0";
+import { de_DeleteDeploymentStrategyCommand, se_DeleteDeploymentStrategyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeploymentStrategyCommand}.
  */
 export interface DeleteDeploymentStrategyCommandInput extends DeleteDeploymentStrategyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeploymentStrategyCommand}.
  */
 export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a deployment strategy. Deleting a deployment strategy does not delete a
  *          configuration from a host.</p>
  * @example
@@ -38,10 +40,15 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * import { AppConfigClient, DeleteDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // DeleteDeploymentStrategyRequest
+ *   DeploymentStrategyId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeploymentStrategyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeploymentStrategyCommandInput - {@link DeleteDeploymentStrategyCommandInput}
+ * @returns {@link DeleteDeploymentStrategyCommandOutput}
  * @see {@link DeleteDeploymentStrategyCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteDeploymentStrategyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeploymentStrategyCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +123,8 @@ export class DeleteDeploymentStrategyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeploymentStrategyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +134,18 @@ export class DeleteDeploymentStrategyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDeploymentStrategyCommand(input, context);
+    return se_DeleteDeploymentStrategyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1DeleteDeploymentStrategyCommand(output, context);
+    return de_DeleteDeploymentStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

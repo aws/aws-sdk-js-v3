@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  DeletePresetRequest,
-  DeletePresetRequestFilterSensitiveLog,
-  DeletePresetResponse,
-  DeletePresetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePresetCommand,
-  serializeAws_restJson1DeletePresetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeletePresetRequest, DeletePresetResponse } from "../models/models_0";
+import { de_DeletePresetCommand, se_DeletePresetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePresetCommand}.
  */
 export interface DeletePresetCommandInput extends DeletePresetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePresetCommand}.
  */
 export interface DeletePresetCommandOutput extends DeletePresetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The DeletePreset operation removes a preset that you've added in an AWS region.</p>
  *         <note>
  *             <p>You can't delete the default presets that are included with Elastic Transcoder.</p>
@@ -49,10 +46,15 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  * import { ElasticTranscoderClient, DeletePresetCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, DeletePresetCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // DeletePresetRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeletePresetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePresetCommandInput - {@link DeletePresetCommandInput}
+ * @returns {@link DeletePresetCommandOutput}
  * @see {@link DeletePresetCommandInput} for command's `input` shape.
  * @see {@link DeletePresetCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -91,6 +93,9 @@ export class DeletePresetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePresetCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class DeletePresetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePresetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePresetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class DeletePresetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePresetCommand(input, context);
+    return se_DeletePresetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePresetCommandOutput> {
-    return deserializeAws_restJson1DeletePresetCommand(output, context);
+    return de_DeletePresetCommand(output, context);
   }
 
   // Start section: command_body_extra

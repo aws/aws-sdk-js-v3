@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DeleteBotAliasRequest,
-  DeleteBotAliasRequestFilterSensitiveLog,
-  DeleteBotAliasResponse,
-  DeleteBotAliasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBotAliasCommand,
-  serializeAws_restJson1DeleteBotAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteBotAliasRequest, DeleteBotAliasResponse } from "../models/models_0";
+import { de_DeleteBotAliasCommand, se_DeleteBotAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBotAliasCommand}.
  */
 export interface DeleteBotAliasCommandInput extends DeleteBotAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBotAliasCommand}.
  */
 export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified bot alias.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __M
  * import { LexModelsV2Client, DeleteBotAliasCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteBotAliasCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DeleteBotAliasRequest
+ *   botAliasId: "STRING_VALUE", // required
+ *   botId: "STRING_VALUE", // required
+ *   skipResourceInUseCheck: true || false,
+ * };
  * const command = new DeleteBotAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBotAliasCommandInput - {@link DeleteBotAliasCommandInput}
+ * @returns {@link DeleteBotAliasCommandOutput}
  * @see {@link DeleteBotAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -94,6 +98,9 @@ export class DeleteBotAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBotAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +129,8 @@ export class DeleteBotAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBotAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBotAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +140,18 @@ export class DeleteBotAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBotAliasCommand(input, context);
+    return se_DeleteBotAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBotAliasCommandOutput> {
-    return deserializeAws_restJson1DeleteBotAliasCommand(output, context);
+    return de_DeleteBotAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

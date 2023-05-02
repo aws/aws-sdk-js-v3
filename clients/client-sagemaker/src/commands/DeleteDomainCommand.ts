@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDomainRequest, DeleteDomainRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteDomainCommand,
-  serializeAws_json1_1DeleteDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDomainRequest } from "../models/models_1";
+import { de_DeleteDomainCommand, se_DeleteDomainCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDomainCommand}.
  */
 export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDomainCommand}.
  */
 export interface DeleteDomainCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to delete a domain.
  *       If you onboarded with IAM mode, you will need to delete your domain to onboard again using IAM Identity Center.
  *      Use with caution. All of the members of the domain will lose access to their EFS volume,
@@ -41,10 +43,18 @@ export interface DeleteDomainCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteDomainCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteDomainCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteDomainRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   RetentionPolicy: { // RetentionPolicy
+ *     HomeEfsFileSystem: "Retain" || "Delete",
+ *   },
+ * };
  * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDomainCommandInput - {@link DeleteDomainCommandInput}
+ * @returns {@link DeleteDomainCommandOutput}
  * @see {@link DeleteDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +84,9 @@ export class DeleteDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +113,8 @@ export class DeleteDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +124,18 @@ export class DeleteDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDomainCommand(input, context);
+    return se_DeleteDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainCommandOutput> {
-    return deserializeAws_json1_1DeleteDomainCommand(output, context);
+    return de_DeleteDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

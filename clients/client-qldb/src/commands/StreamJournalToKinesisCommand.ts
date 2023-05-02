@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StreamJournalToKinesisRequest,
-  StreamJournalToKinesisRequestFilterSensitiveLog,
-  StreamJournalToKinesisResponse,
-  StreamJournalToKinesisResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StreamJournalToKinesisCommand,
-  serializeAws_restJson1StreamJournalToKinesisCommand,
-} from "../protocols/Aws_restJson1";
+import { StreamJournalToKinesisRequest, StreamJournalToKinesisResponse } from "../models/models_0";
+import { de_StreamJournalToKinesisCommand, se_StreamJournalToKinesisCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link StreamJournalToKinesisCommand}.
  */
 export interface StreamJournalToKinesisCommandInput extends StreamJournalToKinesisRequest {}
 /**
+ * @public
+ *
  * The output of {@link StreamJournalToKinesisCommand}.
  */
 export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKinesisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a journal stream for a given Amazon QLDB ledger. The stream captures every
  *          document revision that is committed to the ledger's journal and delivers the data to a
  *          specified Amazon Kinesis Data Streams resource.</p>
@@ -44,10 +41,26 @@ export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKine
  * import { QLDBClient, StreamJournalToKinesisCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, StreamJournalToKinesisCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // StreamJournalToKinesisRequest
+ *   LedgerName: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   InclusiveStartTime: new Date("TIMESTAMP"), // required
+ *   ExclusiveEndTime: new Date("TIMESTAMP"),
+ *   KinesisConfiguration: { // KinesisConfiguration
+ *     StreamArn: "STRING_VALUE", // required
+ *     AggregationEnabled: true || false,
+ *   },
+ *   StreamName: "STRING_VALUE", // required
+ * };
  * const command = new StreamJournalToKinesisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StreamJournalToKinesisCommandInput - {@link StreamJournalToKinesisCommandInput}
+ * @returns {@link StreamJournalToKinesisCommandOutput}
  * @see {@link StreamJournalToKinesisCommandInput} for command's `input` shape.
  * @see {@link StreamJournalToKinesisCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -80,6 +93,9 @@ export class StreamJournalToKinesisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StreamJournalToKinesisCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +124,8 @@ export class StreamJournalToKinesisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StreamJournalToKinesisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StreamJournalToKinesisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +135,18 @@ export class StreamJournalToKinesisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StreamJournalToKinesisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StreamJournalToKinesisCommand(input, context);
+    return se_StreamJournalToKinesisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StreamJournalToKinesisCommandOutput> {
-    return deserializeAws_restJson1StreamJournalToKinesisCommand(output, context);
+    return de_StreamJournalToKinesisCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateServerCertificateRequest, UpdateServerCertificateRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateServerCertificateCommand,
-  serializeAws_queryUpdateServerCertificateCommand,
-} from "../protocols/Aws_query";
+import { UpdateServerCertificateRequest } from "../models/models_1";
+import { de_UpdateServerCertificateCommand, se_UpdateServerCertificateCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServerCertificateCommand}.
  */
 export interface UpdateServerCertificateCommandInput extends UpdateServerCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServerCertificateCommand}.
  */
 export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name and/or the path of the specified server certificate stored in
  *             IAM.</p>
  *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
@@ -56,10 +58,17 @@ export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {
  * import { IAMClient, UpdateServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UpdateServerCertificateRequest
+ *   ServerCertificateName: "STRING_VALUE", // required
+ *   NewPath: "STRING_VALUE",
+ *   NewServerCertificateName: "STRING_VALUE",
+ * };
  * const command = new UpdateServerCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServerCertificateCommandInput - {@link UpdateServerCertificateCommandInput}
+ * @returns {@link UpdateServerCertificateCommandOutput}
  * @see {@link UpdateServerCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -99,6 +108,9 @@ export class UpdateServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +139,8 @@ export class UpdateServerCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServerCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +150,18 @@ export class UpdateServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateServerCertificateCommand(input, context);
+    return se_UpdateServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServerCertificateCommandOutput> {
-    return deserializeAws_queryUpdateServerCertificateCommand(output, context);
+    return de_UpdateServerCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetFirewallRuleGroupRequest,
-  GetFirewallRuleGroupRequestFilterSensitiveLog,
-  GetFirewallRuleGroupResponse,
-  GetFirewallRuleGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetFirewallRuleGroupCommand,
-  serializeAws_json1_1GetFirewallRuleGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { GetFirewallRuleGroupRequest, GetFirewallRuleGroupResponse } from "../models/models_0";
+import { de_GetFirewallRuleGroupCommand, se_GetFirewallRuleGroupCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetFirewallRuleGroupCommand}.
  */
 export interface GetFirewallRuleGroupCommandInput extends GetFirewallRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFirewallRuleGroupCommand}.
  */
 export interface GetFirewallRuleGroupCommandOutput extends GetFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified firewall rule group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetFirewallRuleGroupCommandOutput extends GetFirewallRuleGroupR
  * import { Route53ResolverClient, GetFirewallRuleGroupCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetFirewallRuleGroupCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // GetFirewallRuleGroupRequest
+ *   FirewallRuleGroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFirewallRuleGroupCommandInput - {@link GetFirewallRuleGroupCommandInput}
+ * @returns {@link GetFirewallRuleGroupCommandOutput}
  * @see {@link GetFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link GetFirewallRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -81,6 +83,9 @@ export class GetFirewallRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFirewallRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class GetFirewallRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFirewallRuleGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFirewallRuleGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class GetFirewallRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFirewallRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFirewallRuleGroupCommand(input, context);
+    return se_GetFirewallRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFirewallRuleGroupCommandOutput> {
-    return deserializeAws_json1_1GetFirewallRuleGroupCommand(output, context);
+    return de_GetFirewallRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,33 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateWebACLRequest,
-  AssociateWebACLRequestFilterSensitiveLog,
-  AssociateWebACLResponse,
-  AssociateWebACLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateWebACLCommand,
-  serializeAws_json1_1AssociateWebACLCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateWebACLRequest, AssociateWebACLResponse } from "../models/models_0";
+import { de_AssociateWebACLCommand, se_AssociateWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateWebACLCommand}.
  */
 export interface AssociateWebACLCommandInput extends AssociateWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateWebACLCommand}.
  */
 export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a web ACL with a regional application resource, to protect the resource.
- *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
+ *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
  *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
  *          associate a web ACL, in the CloudFront call <code>UpdateDistribution</code>, set the web ACL ID
- *          to the Amazon Resource Name (ARN) of the web ACL. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
+ *          to the Amazon Resource Name (ARN) of the web ACL. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
  *          <p>When you make changes to web ACLs or web ACL components, like rules and rule groups, WAF propagates the changes everywhere that the web ACL and its components are stored and used. Your changes are applied within seconds, but there might be a brief period of inconsistency when the changes have arrived in some places and not in others. So, for example, if you change a rule action setting, the action might be the old action in one area and the new action in another area. Or if you add an IP address to an IP set used in a blocking rule, the new address might briefly be blocked in one area while still allowed in another. This temporary inconsistency can occur when you first associate a web ACL with an Amazon Web Services resource and when you change a web ACL that is already associated with a resource. Generally, any inconsistencies of this type last only a few seconds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,10 +44,16 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  * import { WAFV2Client, AssociateWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, AssociateWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // AssociateWebACLRequest
+ *   WebACLArn: "STRING_VALUE", // required
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateWebACLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWebACLCommandInput - {@link AssociateWebACLCommandInput}
+ * @returns {@link AssociateWebACLCommandOutput}
  * @see {@link AssociateWebACLCommandInput} for command's `input` shape.
  * @see {@link AssociateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -115,6 +118,9 @@ export class AssociateWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +149,8 @@ export class AssociateWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateWebACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateWebACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +160,18 @@ export class AssociateWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateWebACLCommand(input, context);
+    return se_AssociateWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateWebACLCommandOutput> {
-    return deserializeAws_json1_1AssociateWebACLCommand(output, context);
+    return de_AssociateWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

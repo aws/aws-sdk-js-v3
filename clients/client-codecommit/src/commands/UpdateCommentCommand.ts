@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  UpdateCommentInput,
-  UpdateCommentInputFilterSensitiveLog,
-  UpdateCommentOutput,
-  UpdateCommentOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateCommentCommand,
-  serializeAws_json1_1UpdateCommentCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateCommentInput, UpdateCommentOutput } from "../models/models_1";
+import { de_UpdateCommentCommand, se_UpdateCommentCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCommentCommand}.
  */
 export interface UpdateCommentCommandInput extends UpdateCommentInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCommentCommand}.
  */
 export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the contents of a comment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __Metad
  * import { CodeCommitClient, UpdateCommentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateCommentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // UpdateCommentInput
+ *   commentId: "STRING_VALUE", // required
+ *   content: "STRING_VALUE", // required
+ * };
  * const command = new UpdateCommentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCommentCommandInput - {@link UpdateCommentCommandInput}
+ * @returns {@link UpdateCommentCommandOutput}
  * @see {@link UpdateCommentCommandInput} for command's `input` shape.
  * @see {@link UpdateCommentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -91,6 +94,9 @@ export class UpdateCommentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCommentCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +123,8 @@ export class UpdateCommentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCommentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCommentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +134,18 @@ export class UpdateCommentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCommentCommand(input, context);
+    return se_UpdateCommentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCommentCommandOutput> {
-    return deserializeAws_json1_1UpdateCommentCommand(output, context);
+    return de_UpdateCommentCommand(output, context);
   }
 
   // Start section: command_body_extra

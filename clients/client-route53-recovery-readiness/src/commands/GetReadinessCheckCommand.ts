@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetReadinessCheckRequest,
-  GetReadinessCheckRequestFilterSensitiveLog,
-  GetReadinessCheckResponse,
-  GetReadinessCheckResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetReadinessCheckCommand,
-  serializeAws_restJson1GetReadinessCheckCommand,
-} from "../protocols/Aws_restJson1";
+import { GetReadinessCheckRequest, GetReadinessCheckResponse } from "../models/models_0";
+import { de_GetReadinessCheckCommand, se_GetReadinessCheckCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetReadinessCheckCommand}.
  */
 export interface GetReadinessCheckCommandInput extends GetReadinessCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReadinessCheckCommand}.
  */
 export interface GetReadinessCheckCommandOutput extends GetReadinessCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about a readiness check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface GetReadinessCheckCommandOutput extends GetReadinessCheckRespons
  * import { Route53RecoveryReadinessClient, GetReadinessCheckCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetReadinessCheckCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // GetReadinessCheckRequest
+ *   ReadinessCheckName: "STRING_VALUE", // required
+ * };
  * const command = new GetReadinessCheckCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReadinessCheckCommandInput - {@link GetReadinessCheckCommandInput}
+ * @returns {@link GetReadinessCheckCommandOutput}
  * @see {@link GetReadinessCheckCommandInput} for command's `input` shape.
  * @see {@link GetReadinessCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +90,9 @@ export class GetReadinessCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReadinessCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class GetReadinessCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReadinessCheckRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReadinessCheckResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class GetReadinessCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReadinessCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReadinessCheckCommand(input, context);
+    return se_GetReadinessCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReadinessCheckCommandOutput> {
-    return deserializeAws_restJson1GetReadinessCheckCommand(output, context);
+    return de_GetReadinessCheckCommand(output, context);
   }
 
   // Start section: command_body_extra

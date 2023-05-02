@@ -12,18 +12,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlEmptyStringsInputOutput, XmlEmptyStringsInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlXmlEmptyStringsCommand,
-  serializeAws_restXmlXmlEmptyStringsCommand,
-} from "../protocols/Aws_restXml";
+import { XmlEmptyStringsInputOutput } from "../models/models_0";
+import { de_XmlEmptyStringsCommand, se_XmlEmptyStringsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link XmlEmptyStringsCommand}.
  */
 export interface XmlEmptyStringsCommandInput extends XmlEmptyStringsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link XmlEmptyStringsCommand}.
  */
 export interface XmlEmptyStringsCommandOutput extends XmlEmptyStringsInputOutput, __MetadataBearer {}
@@ -36,6 +37,9 @@ export class XmlEmptyStringsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlEmptyStringsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +65,8 @@ export class XmlEmptyStringsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlEmptyStringsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlEmptyStringsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,12 +76,18 @@ export class XmlEmptyStringsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlEmptyStringsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlEmptyStringsCommand(input, context);
+    return se_XmlEmptyStringsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyStringsCommandOutput> {
-    return deserializeAws_restXmlXmlEmptyStringsCommand(output, context);
+    return de_XmlEmptyStringsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateLabelsRequest,
-  CreateLabelsRequestFilterSensitiveLog,
-  CreateLabelsResponse,
-  CreateLabelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLabelsCommand,
-  serializeAws_restJson1CreateLabelsCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateLabelsRequest, CreateLabelsRequestFilterSensitiveLog, CreateLabelsResponse } from "../models/models_0";
+import { de_CreateLabelsCommand, se_CreateLabelsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLabelsCommand}.
  */
 export interface CreateLabelsCommandInput extends CreateLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLabelsCommand}.
  */
 export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified list of labels to the given resource (a document or
  *             folder)</p>
  * @example
@@ -43,10 +40,19 @@ export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __Metad
  * import { WorkDocsClient, CreateLabelsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateLabelsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // CreateLabelsRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   Labels: [ // SharedLabels // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AuthenticationToken: "STRING_VALUE",
+ * };
  * const command = new CreateLabelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLabelsCommandInput - {@link CreateLabelsCommandInput}
+ * @returns {@link CreateLabelsCommandOutput}
  * @see {@link CreateLabelsCommandInput} for command's `input` shape.
  * @see {@link CreateLabelsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -91,6 +97,9 @@ export class CreateLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +127,7 @@ export class CreateLabelsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLabelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLabelsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +137,18 @@ export class CreateLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLabelsCommand(input, context);
+    return se_CreateLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLabelsCommandOutput> {
-    return deserializeAws_restJson1CreateLabelsCommand(output, context);
+    return de_CreateLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAnnotationImportJobsRequest,
-  ListAnnotationImportJobsRequestFilterSensitiveLog,
-  ListAnnotationImportJobsResponse,
-  ListAnnotationImportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAnnotationImportJobsRequest, ListAnnotationImportJobsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListAnnotationImportJobsCommand,
-  serializeAws_restJson1ListAnnotationImportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAnnotationImportJobsCommand, se_ListAnnotationImportJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnnotationImportJobsCommand}.
  */
 export interface ListAnnotationImportJobsCommandInput extends ListAnnotationImportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnnotationImportJobsCommand}.
  */
 export interface ListAnnotationImportJobsCommandOutput extends ListAnnotationImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of annotation import jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface ListAnnotationImportJobsCommandOutput extends ListAnnotationImp
  * import { OmicsClient, ListAnnotationImportJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListAnnotationImportJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // ListAnnotationImportJobsRequest
+ *   maxResults: Number("int"),
+ *   ids: [ // IdList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   filter: { // ListAnnotationImportJobsFilter
+ *     status: "STRING_VALUE",
+ *     storeName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListAnnotationImportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnnotationImportJobsCommandInput - {@link ListAnnotationImportJobsCommandInput}
+ * @returns {@link ListAnnotationImportJobsCommandOutput}
  * @see {@link ListAnnotationImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListAnnotationImportJobsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -84,6 +94,9 @@ export class ListAnnotationImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnnotationImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +125,8 @@ export class ListAnnotationImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAnnotationImportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAnnotationImportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +136,18 @@ export class ListAnnotationImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnnotationImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAnnotationImportJobsCommand(input, context);
+    return se_ListAnnotationImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnnotationImportJobsCommandOutput> {
-    return deserializeAws_restJson1ListAnnotationImportJobsCommand(output, context);
+    return de_ListAnnotationImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

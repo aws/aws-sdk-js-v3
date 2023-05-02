@@ -19,6 +19,9 @@ import {
 } from "./models_0";
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
 
+/**
+ * @public
+ */
 export interface PutObjectRetentionOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -27,6 +30,9 @@ export interface PutObjectRetentionOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectRetentionRequest {
   /**
    * <p>The bucket name that contains the object you want to apply this Object Retention
@@ -90,6 +96,9 @@ export interface PutObjectRetentionRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectTaggingOutput {
   /**
    * <p>The versionId of the object the tag-set was added to.</p>
@@ -97,6 +106,9 @@ export interface PutObjectTaggingOutput {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectTaggingRequest {
   /**
    * <p>The bucket name containing the object. </p>
@@ -154,6 +166,9 @@ export interface PutObjectTaggingRequest {
   RequestPayer?: RequestPayer | string;
 }
 
+/**
+ * @public
+ */
 export interface PutPublicAccessBlockRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want
@@ -194,6 +209,7 @@ export interface PutPublicAccessBlockRequest {
 }
 
 /**
+ * @public
  * <p>This action is not allowed against this storage tier.</p>
  */
 export class ObjectAlreadyInActiveTierError extends __BaseException {
@@ -212,6 +228,9 @@ export class ObjectAlreadyInActiveTierError extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RestoreObjectOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -226,13 +245,23 @@ export interface RestoreObjectOutput {
   RestoreOutputPath?: string;
 }
 
-export enum Tier {
-  Bulk = "Bulk",
-  Expedited = "Expedited",
-  Standard = "Standard",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Tier = {
+  Bulk: "Bulk",
+  Expedited: "Expedited",
+  Standard: "Standard",
+} as const;
 
 /**
+ * @public
+ */
+export type Tier = (typeof Tier)[keyof typeof Tier];
+
+/**
+ * @public
  * <p>Container for S3 Glacier job parameters.</p>
  */
 export interface GlacierJobParameters {
@@ -243,6 +272,7 @@ export interface GlacierJobParameters {
 }
 
 /**
+ * @public
  * <p>Contains the type of server-side encryption used.</p>
  */
 export interface Encryption {
@@ -269,6 +299,7 @@ export interface Encryption {
 }
 
 /**
+ * @public
  * <p>A metadata key-value pair to store with an object.</p>
  */
 export interface MetadataEntry {
@@ -284,6 +315,7 @@ export interface MetadataEntry {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon S3 location that will receive the results of the restore request.</p>
  */
 export interface S3Location {
@@ -329,6 +361,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Describes the location where the restore job's output is stored.</p>
  */
 export interface OutputLocation {
@@ -338,23 +371,51 @@ export interface OutputLocation {
   S3?: S3Location;
 }
 
-export enum ExpressionType {
-  SQL = "SQL",
-}
-
-export enum CompressionType {
-  BZIP2 = "BZIP2",
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
-
-export enum FileHeaderInfo {
-  IGNORE = "IGNORE",
-  NONE = "NONE",
-  USE = "USE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExpressionType = {
+  SQL: "SQL",
+} as const;
 
 /**
+ * @public
+ */
+export type ExpressionType = (typeof ExpressionType)[keyof typeof ExpressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CompressionType = {
+  BZIP2: "BZIP2",
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type CompressionType = (typeof CompressionType)[keyof typeof CompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FileHeaderInfo = {
+  IGNORE: "IGNORE",
+  NONE: "NONE",
+  USE: "USE",
+} as const;
+
+/**
+ * @public
+ */
+export type FileHeaderInfo = (typeof FileHeaderInfo)[keyof typeof FileHeaderInfo];
+
+/**
+ * @public
  * <p>Describes how an uncompressed comma-separated values (CSV)-formatted input object is
  *          formatted.</p>
  */
@@ -427,12 +488,22 @@ export interface CSVInput {
   AllowQuotedRecordDelimiter?: boolean;
 }
 
-export enum JSONType {
-  DOCUMENT = "DOCUMENT",
-  LINES = "LINES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JSONType = {
+  DOCUMENT: "DOCUMENT",
+  LINES: "LINES",
+} as const;
 
 /**
+ * @public
+ */
+export type JSONType = (typeof JSONType)[keyof typeof JSONType];
+
+/**
+ * @public
  * <p>Specifies JSON as object's input serialization format.</p>
  */
 export interface JSONInput {
@@ -443,11 +514,13 @@ export interface JSONInput {
 }
 
 /**
+ * @public
  * <p>Container for Parquet.</p>
  */
 export interface ParquetInput {}
 
 /**
+ * @public
  * <p>Describes the serialization format of the object.</p>
  */
 export interface InputSerialization {
@@ -473,12 +546,22 @@ export interface InputSerialization {
   Parquet?: ParquetInput;
 }
 
-export enum QuoteFields {
-  ALWAYS = "ALWAYS",
-  ASNEEDED = "ASNEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const QuoteFields = {
+  ALWAYS: "ALWAYS",
+  ASNEEDED: "ASNEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type QuoteFields = (typeof QuoteFields)[keyof typeof QuoteFields];
+
+/**
+ * @public
  * <p>Describes how uncompressed comma-separated values (CSV)-formatted results are
  *          formatted.</p>
  */
@@ -525,6 +608,7 @@ export interface CSVOutput {
 }
 
 /**
+ * @public
  * <p>Specifies JSON as request's output serialization format.</p>
  */
 export interface JSONOutput {
@@ -536,6 +620,7 @@ export interface JSONOutput {
 }
 
 /**
+ * @public
  * <p>Describes how results of the Select job are serialized.</p>
  */
 export interface OutputSerialization {
@@ -551,6 +636,7 @@ export interface OutputSerialization {
 }
 
 /**
+ * @public
  * <p>Describes the parameters for Select job types.</p>
  */
 export interface SelectParameters {
@@ -575,11 +661,21 @@ export interface SelectParameters {
   OutputSerialization: OutputSerialization | undefined;
 }
 
-export enum RestoreRequestType {
-  SELECT = "SELECT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RestoreRequestType = {
+  SELECT: "SELECT",
+} as const;
 
 /**
+ * @public
+ */
+export type RestoreRequestType = (typeof RestoreRequestType)[keyof typeof RestoreRequestType];
+
+/**
+ * @public
  * <p>Container for restore job parameters.</p>
  */
 export interface RestoreRequest {
@@ -623,6 +719,9 @@ export interface RestoreRequest {
   OutputLocation?: OutputLocation;
 }
 
+/**
+ * @public
+ */
 export interface RestoreObjectRequest {
   /**
    * <p>The bucket name containing the object to restore. </p>
@@ -675,11 +774,13 @@ export interface RestoreObjectRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ContinuationEvent {}
 
 /**
+ * @public
  * <p>A message that indicates the request is complete and no more messages will be sent. You
  *          should not assume that the request is complete until the client receives an
  *             <code>EndEvent</code>.</p>
@@ -687,6 +788,7 @@ export interface ContinuationEvent {}
 export interface EndEvent {}
 
 /**
+ * @public
  * <p>This data type contains information about progress of an operation.</p>
  */
 export interface Progress {
@@ -707,6 +809,7 @@ export interface Progress {
 }
 
 /**
+ * @public
  * <p>This data type contains information about the progress event of an operation.</p>
  */
 export interface ProgressEvent {
@@ -717,6 +820,7 @@ export interface ProgressEvent {
 }
 
 /**
+ * @public
  * <p>The container for the records event.</p>
  */
 export interface RecordsEvent {
@@ -727,6 +831,7 @@ export interface RecordsEvent {
 }
 
 /**
+ * @public
  * <p>Container for the stats details.</p>
  */
 export interface Stats {
@@ -747,6 +852,7 @@ export interface Stats {
 }
 
 /**
+ * @public
  * <p>Container for the Stats Event.</p>
  */
 export interface StatsEvent {
@@ -757,6 +863,7 @@ export interface StatsEvent {
 }
 
 /**
+ * @public
  * <p>The container for selecting objects from a content event stream.</p>
  */
 export type SelectObjectContentEventStream =
@@ -767,6 +874,9 @@ export type SelectObjectContentEventStream =
   | SelectObjectContentEventStream.StatsMember
   | SelectObjectContentEventStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace SelectObjectContentEventStream {
   /**
    * <p>The Records Event.</p>
@@ -856,6 +966,9 @@ export namespace SelectObjectContentEventStream {
   };
 }
 
+/**
+ * @public
+ */
 export interface SelectObjectContentOutput {
   /**
    * <p>The array of results.</p>
@@ -864,6 +977,7 @@ export interface SelectObjectContentOutput {
 }
 
 /**
+ * @public
  * <p>Container for specifying if periodic <code>QueryProgress</code> messages should be
  *          sent.</p>
  */
@@ -876,6 +990,7 @@ export interface RequestProgress {
 }
 
 /**
+ * @public
  * <p>Specifies the byte range of the object to get the records from. A record is processed
  *          when its first byte is contained by the range. This parameter is optional, but when
  *          specified, it must not be empty. See RFC 2616, Section 14.35.1 about how to specify the
@@ -903,6 +1018,7 @@ export interface ScanRange {
 }
 
 /**
+ * @public
  * <p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query
  *          Language (SQL) statement. In the request, along with the SQL expression, you must specify a
  *          data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data
@@ -1006,6 +1122,9 @@ export interface SelectObjectContentRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface UploadPartOutput {
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
@@ -1081,6 +1200,9 @@ export interface UploadPartOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface UploadPartRequest {
   /**
    * <p>Object data.</p>
@@ -1208,6 +1330,7 @@ export interface UploadPartRequest {
 }
 
 /**
+ * @public
  * <p>Container for all response elements.</p>
  */
 export interface CopyPartResult {
@@ -1254,6 +1377,9 @@ export interface CopyPartResult {
   ChecksumSHA256?: string;
 }
 
+/**
+ * @public
+ */
 export interface UploadPartCopyOutput {
   /**
    * <p>The version of the source object that was copied, if you have enabled versioning on the
@@ -1303,6 +1429,9 @@ export interface UploadPartCopyOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface UploadPartCopyRequest {
   /**
    * <p>The bucket name.</p>
@@ -1446,6 +1575,9 @@ export interface UploadPartCopyRequest {
   ExpectedSourceBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface WriteGetObjectResponseRequest {
   /**
    * <p>Route prefix to the HTTP URL generated.</p>
@@ -1789,65 +1921,9 @@ export interface WriteGetObjectResponseRequest {
 /**
  * @internal
  */
-export const PutObjectRetentionOutputFilterSensitiveLog = (obj: PutObjectRetentionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutObjectRetentionRequestFilterSensitiveLog = (obj: PutObjectRetentionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutObjectTaggingOutputFilterSensitiveLog = (obj: PutObjectTaggingOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutObjectTaggingRequestFilterSensitiveLog = (obj: PutObjectTaggingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutPublicAccessBlockRequestFilterSensitiveLog = (obj: PutPublicAccessBlockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreObjectOutputFilterSensitiveLog = (obj: RestoreObjectOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlacierJobParametersFilterSensitiveLog = (obj: GlacierJobParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EncryptionFilterSensitiveLog = (obj: Encryption): any => ({
   ...obj,
   ...(obj.KMSKeyId && { KMSKeyId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const MetadataEntryFilterSensitiveLog = (obj: MetadataEntry): any => ({
-  ...obj,
 });
 
 /**
@@ -1869,62 +1945,6 @@ export const OutputLocationFilterSensitiveLog = (obj: OutputLocation): any => ({
 /**
  * @internal
  */
-export const CSVInputFilterSensitiveLog = (obj: CSVInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JSONInputFilterSensitiveLog = (obj: JSONInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParquetInputFilterSensitiveLog = (obj: ParquetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputSerializationFilterSensitiveLog = (obj: InputSerialization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CSVOutputFilterSensitiveLog = (obj: CSVOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JSONOutputFilterSensitiveLog = (obj: JSONOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputSerializationFilterSensitiveLog = (obj: OutputSerialization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelectParametersFilterSensitiveLog = (obj: SelectParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RestoreRequestFilterSensitiveLog = (obj: RestoreRequest): any => ({
   ...obj,
   ...(obj.OutputLocation && { OutputLocation: OutputLocationFilterSensitiveLog(obj.OutputLocation) }),
@@ -1941,61 +1961,12 @@ export const RestoreObjectRequestFilterSensitiveLog = (obj: RestoreObjectRequest
 /**
  * @internal
  */
-export const ContinuationEventFilterSensitiveLog = (obj: ContinuationEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndEventFilterSensitiveLog = (obj: EndEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProgressFilterSensitiveLog = (obj: Progress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProgressEventFilterSensitiveLog = (obj: ProgressEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecordsEventFilterSensitiveLog = (obj: RecordsEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatsFilterSensitiveLog = (obj: Stats): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatsEventFilterSensitiveLog = (obj: StatsEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SelectObjectContentEventStreamFilterSensitiveLog = (obj: SelectObjectContentEventStream): any => {
-  if (obj.Records !== undefined) return { Records: RecordsEventFilterSensitiveLog(obj.Records) };
-  if (obj.Stats !== undefined) return { Stats: StatsEventFilterSensitiveLog(obj.Stats) };
-  if (obj.Progress !== undefined) return { Progress: ProgressEventFilterSensitiveLog(obj.Progress) };
-  if (obj.Cont !== undefined) return { Cont: ContinuationEventFilterSensitiveLog(obj.Cont) };
-  if (obj.End !== undefined) return { End: EndEventFilterSensitiveLog(obj.End) };
+  if (obj.Records !== undefined) return { Records: obj.Records };
+  if (obj.Stats !== undefined) return { Stats: obj.Stats };
+  if (obj.Progress !== undefined) return { Progress: obj.Progress };
+  if (obj.Cont !== undefined) return { Cont: obj.Cont };
+  if (obj.End !== undefined) return { End: obj.End };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -2005,20 +1976,6 @@ export const SelectObjectContentEventStreamFilterSensitiveLog = (obj: SelectObje
 export const SelectObjectContentOutputFilterSensitiveLog = (obj: SelectObjectContentOutput): any => ({
   ...obj,
   ...(obj.Payload && { Payload: "STREAMING_CONTENT" }),
-});
-
-/**
- * @internal
- */
-export const RequestProgressFilterSensitiveLog = (obj: RequestProgress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScanRangeFilterSensitiveLog = (obj: ScanRange): any => ({
-  ...obj,
 });
 
 /**
@@ -2043,13 +2000,6 @@ export const UploadPartOutputFilterSensitiveLog = (obj: UploadPartOutput): any =
 export const UploadPartRequestFilterSensitiveLog = (obj: UploadPartRequest): any => ({
   ...obj,
   ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CopyPartResultFilterSensitiveLog = (obj: CopyPartResult): any => ({
-  ...obj,
 });
 
 /**

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateWorkloadShareInput,
-  UpdateWorkloadShareInputFilterSensitiveLog,
-  UpdateWorkloadShareOutput,
-  UpdateWorkloadShareOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkloadShareCommand,
-  serializeAws_restJson1UpdateWorkloadShareCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateWorkloadShareInput, UpdateWorkloadShareOutput } from "../models/models_0";
+import { de_UpdateWorkloadShareCommand, se_UpdateWorkloadShareCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkloadShareCommand}.
  */
 export interface UpdateWorkloadShareCommandInput extends UpdateWorkloadShareInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkloadShareCommand}.
  */
 export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a workload share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOut
  * import { WellArchitectedClient, UpdateWorkloadShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateWorkloadShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // UpdateWorkloadShareInput
+ *   ShareId: "STRING_VALUE", // required
+ *   WorkloadId: "STRING_VALUE", // required
+ *   PermissionType: "READONLY" || "CONTRIBUTOR", // required
+ * };
  * const command = new UpdateWorkloadShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkloadShareCommandInput - {@link UpdateWorkloadShareCommandInput}
+ * @returns {@link UpdateWorkloadShareCommandOutput}
  * @see {@link UpdateWorkloadShareCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkloadShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -54,7 +58,7 @@ export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOut
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
@@ -87,6 +91,9 @@ export class UpdateWorkloadShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkloadShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class UpdateWorkloadShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkloadShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkloadShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class UpdateWorkloadShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkloadShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkloadShareCommand(input, context);
+    return se_UpdateWorkloadShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkloadShareCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkloadShareCommand(output, context);
+    return de_UpdateWorkloadShareCommand(output, context);
   }
 
   // Start section: command_body_extra

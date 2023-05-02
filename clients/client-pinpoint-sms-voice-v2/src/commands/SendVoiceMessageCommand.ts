@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendVoiceMessageRequest,
-  SendVoiceMessageRequestFilterSensitiveLog,
-  SendVoiceMessageResult,
-  SendVoiceMessageResultFilterSensitiveLog,
-} from "../models/models_0";
+import { SendVoiceMessageRequest, SendVoiceMessageResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0SendVoiceMessageCommand,
-  serializeAws_json1_0SendVoiceMessageCommand,
-} from "../protocols/Aws_json1_0";
+import { de_SendVoiceMessageCommand, se_SendVoiceMessageCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link SendVoiceMessageCommand}.
  */
 export interface SendVoiceMessageCommandInput extends SendVoiceMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendVoiceMessageCommand}.
  */
 export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to send a request that sends a text message through Amazon Pinpoint.
  *             This operation uses <a href="http://aws.amazon.com/polly/">Amazon Polly</a> to
  *             convert a text script into a voice message.</p>
@@ -48,10 +45,26 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  * import { PinpointSMSVoiceV2Client, SendVoiceMessageCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, SendVoiceMessageCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // SendVoiceMessageRequest
+ *   DestinationPhoneNumber: "STRING_VALUE", // required
+ *   OriginationIdentity: "STRING_VALUE", // required
+ *   MessageBody: "STRING_VALUE",
+ *   MessageBodyTextType: "STRING_VALUE",
+ *   VoiceId: "STRING_VALUE",
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   MaxPricePerMinute: "STRING_VALUE",
+ *   TimeToLive: Number("int"),
+ *   Context: { // ContextMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   DryRun: true || false,
+ * };
  * const command = new SendVoiceMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendVoiceMessageCommandInput - {@link SendVoiceMessageCommandInput}
+ * @returns {@link SendVoiceMessageCommandOutput}
  * @see {@link SendVoiceMessageCommandInput} for command's `input` shape.
  * @see {@link SendVoiceMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -102,6 +115,9 @@ export class SendVoiceMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendVoiceMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +146,8 @@ export class SendVoiceMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendVoiceMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendVoiceMessageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +157,18 @@ export class SendVoiceMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendVoiceMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0SendVoiceMessageCommand(input, context);
+    return se_SendVoiceMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendVoiceMessageCommandOutput> {
-    return deserializeAws_json1_0SendVoiceMessageCommand(output, context);
+    return de_SendVoiceMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

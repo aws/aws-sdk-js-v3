@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteAppVersionAppComponentRequest, DeleteAppVersionAppComponentResponse } from "../models/models_0";
 import {
-  DeleteAppVersionAppComponentRequest,
-  DeleteAppVersionAppComponentRequestFilterSensitiveLog,
-  DeleteAppVersionAppComponentResponse,
-  DeleteAppVersionAppComponentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAppVersionAppComponentCommand,
-  serializeAws_restJson1DeleteAppVersionAppComponentCommand,
+  de_DeleteAppVersionAppComponentCommand,
+  se_DeleteAppVersionAppComponentCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppVersionAppComponentCommand}.
  */
 export interface DeleteAppVersionAppComponentCommandInput extends DeleteAppVersionAppComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppVersionAppComponentCommand}.
  */
 export interface DeleteAppVersionAppComponentCommandOutput
@@ -37,11 +36,12 @@ export interface DeleteAppVersionAppComponentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes an Application Component from the AWS Resilience Hub application.</p>
+ * @public
+ * <p>Deletes an Application Component from the Resilience Hub application.</p>
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>This API updates the AWS Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *                   <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
  *                </li>
  *                <li>
  *                   <p>You will not be able to delete an Application Component if it has resources associated with it.</p>
@@ -54,10 +54,17 @@ export interface DeleteAppVersionAppComponentCommandOutput
  * import { ResiliencehubClient, DeleteAppVersionAppComponentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteAppVersionAppComponentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // DeleteAppVersionAppComponentRequest
+ *   appArn: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteAppVersionAppComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppVersionAppComponentCommandInput - {@link DeleteAppVersionAppComponentCommandInput}
+ * @returns {@link DeleteAppVersionAppComponentCommandOutput}
  * @see {@link DeleteAppVersionAppComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteAppVersionAppComponentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -74,7 +81,7 @@ export interface DeleteAppVersionAppComponentCommandOutput
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -105,6 +112,9 @@ export class DeleteAppVersionAppComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppVersionAppComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +143,8 @@ export class DeleteAppVersionAppComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppVersionAppComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppVersionAppComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,15 +154,21 @@ export class DeleteAppVersionAppComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppVersionAppComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppVersionAppComponentCommand(input, context);
+    return se_DeleteAppVersionAppComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAppVersionAppComponentCommandOutput> {
-    return deserializeAws_restJson1DeleteAppVersionAppComponentCommand(output, context);
+    return de_DeleteAppVersionAppComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

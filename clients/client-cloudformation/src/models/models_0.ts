@@ -3,20 +3,39 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { CloudFormationServiceException as __BaseException } from "./CloudFormationServiceException";
 
-export enum AccountFilterType {
-  DIFFERENCE = "DIFFERENCE",
-  INTERSECTION = "INTERSECTION",
-  NONE = "NONE",
-  UNION = "UNION",
-}
-
-export enum AccountGateStatus {
-  FAILED = "FAILED",
-  SKIPPED = "SKIPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccountFilterType = {
+  DIFFERENCE: "DIFFERENCE",
+  INTERSECTION: "INTERSECTION",
+  NONE: "NONE",
+  UNION: "UNION",
+} as const;
 
 /**
+ * @public
+ */
+export type AccountFilterType = (typeof AccountFilterType)[keyof typeof AccountFilterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccountGateStatus = {
+  FAILED: "FAILED",
+  SKIPPED: "SKIPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountGateStatus = (typeof AccountGateStatus)[keyof typeof AccountGateStatus];
+
+/**
+ * @public
  * <p>Structure that contains the results of the account gate function which CloudFormation invokes, if present, before proceeding with a stack set operation in an account and
  *          Region.</p>
  *          <p>For each account and Region, CloudFormation lets you specify a Lambda
@@ -80,6 +99,7 @@ export interface AccountGateResult {
 }
 
 /**
+ * @public
  * <p>The AccountLimit data type.</p>
  *          <p>CloudFormation has the following limits per account:</p>
  *          <ul>
@@ -113,6 +133,7 @@ export interface AccountLimit {
 }
 
 /**
+ * @public
  * <p>Contains logging configuration information for an extension.</p>
  */
 export interface LoggingConfig {
@@ -129,17 +150,38 @@ export interface LoggingConfig {
   LogGroupName: string | undefined;
 }
 
-export enum ThirdPartyType {
-  HOOK = "HOOK",
-  MODULE = "MODULE",
-  RESOURCE = "RESOURCE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ThirdPartyType = {
+  HOOK: "HOOK",
+  MODULE: "MODULE",
+  RESOURCE: "RESOURCE",
+} as const;
 
-export enum VersionBump {
-  MAJOR = "MAJOR",
-  MINOR = "MINOR",
-}
+/**
+ * @public
+ */
+export type ThirdPartyType = (typeof ThirdPartyType)[keyof typeof ThirdPartyType];
 
+/**
+ * @public
+ * @enum
+ */
+export const VersionBump = {
+  MAJOR: "MAJOR",
+  MINOR: "MINOR",
+} as const;
+
+/**
+ * @public
+ */
+export type VersionBump = (typeof VersionBump)[keyof typeof VersionBump];
+
+/**
+ * @public
+ */
 export interface ActivateTypeInput {
   /**
    * <p>The extension type.</p>
@@ -228,6 +270,9 @@ export interface ActivateTypeInput {
   MajorVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface ActivateTypeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the activated extension, in this account and
@@ -237,6 +282,7 @@ export interface ActivateTypeOutput {
 }
 
 /**
+ * @public
  * <p>An error occurred during a CloudFormation registry operation.</p>
  */
 export class CFNRegistryException extends __BaseException {
@@ -258,6 +304,7 @@ export class CFNRegistryException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  */
 export class TypeNotFoundException extends __BaseException {
@@ -279,6 +326,7 @@ export class TypeNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource with the name requested already exists.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -300,6 +348,7 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to
  *             Organizations accounts that are added to a target organization or organizational
  *          unit (OU).</p>
@@ -322,6 +371,7 @@ export interface AutoDeployment {
 }
 
 /**
+ * @public
  * <p>Identifying information for the configuration of a CloudFormation
  *          extension.</p>
  */
@@ -355,6 +405,9 @@ export interface TypeConfigurationIdentifier {
   TypeName?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDescribeTypeConfigurationsInput {
   /**
    * <p>The list of identifiers for the desired extension configurations.</p>
@@ -363,6 +416,7 @@ export interface BatchDescribeTypeConfigurationsInput {
 }
 
 /**
+ * @public
  * <p>Detailed information concerning an error generated during the setting of configuration
  *          data for a CloudFormation extension.</p>
  */
@@ -385,6 +439,7 @@ export interface BatchDescribeTypeConfigurationsError {
 }
 
 /**
+ * @public
  * <p>Detailed information concerning the specification of a CloudFormation extension
  *          in a given account and region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the
@@ -407,7 +462,7 @@ export interface TypeConfigurationDetails {
    * <p>A JSON string specifying the configuration data for the extension, in this account and
    *          region.</p>
    *          <p>If a configuration hasn't been set for a specified extension, CloudFormation
-   *          returns <code>{}</code>.</p>
+   *          returns <code>\{\}</code>.</p>
    */
   Configuration?: string;
 
@@ -436,6 +491,9 @@ export interface TypeConfigurationDetails {
   IsDefaultConfiguration?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface BatchDescribeTypeConfigurationsOutput {
   /**
    * <p>A list of information concerning any errors generated during the setting of the
@@ -457,6 +515,7 @@ export interface BatchDescribeTypeConfigurationsOutput {
 }
 
 /**
+ * @public
  * <p>The specified extension configuration can't be found.</p>
  */
 export class TypeConfigurationNotFoundException extends __BaseException {
@@ -477,12 +536,22 @@ export class TypeConfigurationNotFoundException extends __BaseException {
   }
 }
 
-export enum CallAs {
-  DELEGATED_ADMIN = "DELEGATED_ADMIN",
-  SELF = "SELF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CallAs = {
+  DELEGATED_ADMIN: "DELEGATED_ADMIN",
+  SELF: "SELF",
+} as const;
 
 /**
+ * @public
+ */
+export type CallAs = (typeof CallAs)[keyof typeof CallAs];
+
+/**
+ * @public
  * <p>The input for the <a>CancelUpdateStack</a> action.</p>
  */
 export interface CancelUpdateStackInput {
@@ -502,6 +571,7 @@ export interface CancelUpdateStackInput {
 }
 
 /**
+ * @public
  * <p>A client request token already exists.</p>
  */
 export class TokenAlreadyExistsException extends __BaseException {
@@ -522,56 +592,120 @@ export class TokenAlreadyExistsException extends __BaseException {
   }
 }
 
-export enum Capability {
-  CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND",
-  CAPABILITY_IAM = "CAPABILITY_IAM",
-  CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM",
-}
-
-export enum Category {
-  ACTIVATED = "ACTIVATED",
-  AWS_TYPES = "AWS_TYPES",
-  REGISTERED = "REGISTERED",
-  THIRD_PARTY = "THIRD_PARTY",
-}
-
-export enum ChangeAction {
-  Add = "Add",
-  Dynamic = "Dynamic",
-  Import = "Import",
-  Modify = "Modify",
-  Remove = "Remove",
-}
-
-export enum ChangeSource {
-  Automatic = "Automatic",
-  DirectModification = "DirectModification",
-  ParameterReference = "ParameterReference",
-  ResourceAttribute = "ResourceAttribute",
-  ResourceReference = "ResourceReference",
-}
-
-export enum EvaluationType {
-  Dynamic = "Dynamic",
-  Static = "Static",
-}
-
-export enum ResourceAttribute {
-  CreationPolicy = "CreationPolicy",
-  DeletionPolicy = "DeletionPolicy",
-  Metadata = "Metadata",
-  Properties = "Properties",
-  Tags = "Tags",
-  UpdatePolicy = "UpdatePolicy",
-}
-
-export enum RequiresRecreation {
-  Always = "Always",
-  Conditionally = "Conditionally",
-  Never = "Never",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Capability = {
+  CAPABILITY_AUTO_EXPAND: "CAPABILITY_AUTO_EXPAND",
+  CAPABILITY_IAM: "CAPABILITY_IAM",
+  CAPABILITY_NAMED_IAM: "CAPABILITY_NAMED_IAM",
+} as const;
 
 /**
+ * @public
+ */
+export type Capability = (typeof Capability)[keyof typeof Capability];
+
+/**
+ * @public
+ * @enum
+ */
+export const Category = {
+  ACTIVATED: "ACTIVATED",
+  AWS_TYPES: "AWS_TYPES",
+  REGISTERED: "REGISTERED",
+  THIRD_PARTY: "THIRD_PARTY",
+} as const;
+
+/**
+ * @public
+ */
+export type Category = (typeof Category)[keyof typeof Category];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeAction = {
+  Add: "Add",
+  Dynamic: "Dynamic",
+  Import: "Import",
+  Modify: "Modify",
+  Remove: "Remove",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeSource = {
+  Automatic: "Automatic",
+  DirectModification: "DirectModification",
+  ParameterReference: "ParameterReference",
+  ResourceAttribute: "ResourceAttribute",
+  ResourceReference: "ResourceReference",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeSource = (typeof ChangeSource)[keyof typeof ChangeSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationType = {
+  Dynamic: "Dynamic",
+  Static: "Static",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceAttribute = {
+  CreationPolicy: "CreationPolicy",
+  DeletionPolicy: "DeletionPolicy",
+  Metadata: "Metadata",
+  Properties: "Properties",
+  Tags: "Tags",
+  UpdatePolicy: "UpdatePolicy",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceAttribute = (typeof ResourceAttribute)[keyof typeof ResourceAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const RequiresRecreation = {
+  Always: "Always",
+  Conditionally: "Conditionally",
+  Never: "Never",
+} as const;
+
+/**
+ * @public
+ */
+export type RequiresRecreation = (typeof RequiresRecreation)[keyof typeof RequiresRecreation];
+
+/**
+ * @public
  * <p>The field that CloudFormation will change, such as the name of a resource's
  *          property, and whether the resource will be recreated.</p>
  */
@@ -600,6 +734,7 @@ export interface ResourceTargetDefinition {
 }
 
 /**
+ * @public
  * <p>For a resource with <code>Modify</code> as the action, the <code>ResourceChange</code>
  *          structure describes the changes CloudFormation will make to that resource.</p>
  */
@@ -634,20 +769,20 @@ export interface ResourceChangeDetail {
    *             <li>
    *                <p>
    *                   <code>ResourceReference</code> entities are <code>Ref</code> intrinsic functions that
-   *                refer to resources in the template, such as <code>{ "Ref" : "MyEC2InstanceResource"
-   *                   }</code>.</p>
+   *                refer to resources in the template, such as <code>\{ "Ref" : "MyEC2InstanceResource"
+   *                   \}</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>ParameterReference</code> entities are <code>Ref</code> intrinsic functions
-   *                that get template parameter values, such as <code>{ "Ref" : "MyPasswordParameter"
-   *                   }</code>.</p>
+   *                that get template parameter values, such as <code>\{ "Ref" : "MyPasswordParameter"
+   *                   \}</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>ResourceAttribute</code> entities are <code>Fn::GetAtt</code> intrinsic
-   *                functions that get resource attribute values, such as <code>{ "Fn::GetAtt" : [
-   *                   "MyEC2InstanceResource", "PublicDnsName" ] }</code>.</p>
+   *                functions that get resource attribute values, such as <code>\{ "Fn::GetAtt" : [
+   *                   "MyEC2InstanceResource", "PublicDnsName" ] \}</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -679,6 +814,7 @@ export interface ResourceChangeDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about the module from which the resource was created, if the
  *          resource was created from a module included in the stack template.</p>
  *          <p>For more information about modules, see <a href="AWSCloudFormation/latest/UserGuide/modules.html">Using modules to encapsulate and
@@ -715,13 +851,23 @@ export interface ModuleInfo {
   LogicalIdHierarchy?: string;
 }
 
-export enum Replacement {
-  Conditional = "Conditional",
-  False = "False",
-  True = "True",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Replacement = {
+  Conditional: "Conditional",
+  False: "False",
+  True: "True",
+} as const;
 
 /**
+ * @public
+ */
+export type Replacement = (typeof Replacement)[keyof typeof Replacement];
+
+/**
+ * @public
  * <p>The <code>ResourceChange</code> structure describes the resource and the action that
  *             CloudFormation will perform on it if you execute this change set.</p>
  */
@@ -793,11 +939,21 @@ export interface ResourceChange {
   ModuleInfo?: ModuleInfo;
 }
 
-export enum ChangeType {
-  Resource = "Resource",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeType = {
+  Resource: "Resource",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
+
+/**
+ * @public
  * <p>The <code>Change</code> structure describes the changes CloudFormation will perform
  *          if you execute the change set.</p>
  */
@@ -821,16 +977,35 @@ export interface Change {
   ResourceChange?: ResourceChange;
 }
 
-export enum HookFailureMode {
-  FAIL = "FAIL",
-  WARN = "WARN",
-}
-
-export enum HookInvocationPoint {
-  PRE_PROVISION = "PRE_PROVISION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HookFailureMode = {
+  FAIL: "FAIL",
+  WARN: "WARN",
+} as const;
 
 /**
+ * @public
+ */
+export type HookFailureMode = (typeof HookFailureMode)[keyof typeof HookFailureMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const HookInvocationPoint = {
+  PRE_PROVISION: "PRE_PROVISION",
+} as const;
+
+/**
+ * @public
+ */
+export type HookInvocationPoint = (typeof HookInvocationPoint)[keyof typeof HookInvocationPoint];
+
+/**
+ * @public
  * <p>Specifies <code>RESOURCE</code> type target details for activated hooks.</p>
  */
 export interface ChangeSetHookResourceTargetDetails {
@@ -850,11 +1025,21 @@ export interface ChangeSetHookResourceTargetDetails {
   ResourceAction?: ChangeAction | string;
 }
 
-export enum HookTargetType {
-  RESOURCE = "RESOURCE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HookTargetType = {
+  RESOURCE: "RESOURCE",
+} as const;
 
 /**
+ * @public
+ */
+export type HookTargetType = (typeof HookTargetType)[keyof typeof HookTargetType];
+
+/**
+ * @public
  * <p>Specifies target details for an activated hook.</p>
  */
 export interface ChangeSetHookTargetDetails {
@@ -870,6 +1055,7 @@ export interface ChangeSetHookTargetDetails {
 }
 
 /**
+ * @public
  * <p>Specifies the resource, the hook, and the hook version to be invoked.</p>
  */
 export interface ChangeSetHook {
@@ -956,13 +1142,23 @@ export interface ChangeSetHook {
   TargetDetails?: ChangeSetHookTargetDetails;
 }
 
-export enum ChangeSetHooksStatus {
-  PLANNED = "PLANNED",
-  PLANNING = "PLANNING",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeSetHooksStatus = {
+  PLANNED: "PLANNED",
+  PLANNING: "PLANNING",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeSetHooksStatus = (typeof ChangeSetHooksStatus)[keyof typeof ChangeSetHooksStatus];
+
+/**
+ * @public
  * <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack,
  *          use the <code>ListChangeSets</code> operation.</p>
  */
@@ -984,27 +1180,46 @@ export class ChangeSetNotFoundException extends __BaseException {
   }
 }
 
-export enum ChangeSetStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_PENDING = "CREATE_PENDING",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_PENDING = "DELETE_PENDING",
-  FAILED = "FAILED",
-}
-
-export enum ExecutionStatus {
-  AVAILABLE = "AVAILABLE",
-  EXECUTE_COMPLETE = "EXECUTE_COMPLETE",
-  EXECUTE_FAILED = "EXECUTE_FAILED",
-  EXECUTE_IN_PROGRESS = "EXECUTE_IN_PROGRESS",
-  OBSOLETE = "OBSOLETE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeSetStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_PENDING: "CREATE_PENDING",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_PENDING: "DELETE_PENDING",
+  FAILED: "FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeSetStatus = (typeof ChangeSetStatus)[keyof typeof ChangeSetStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  AVAILABLE: "AVAILABLE",
+  EXECUTE_COMPLETE: "EXECUTE_COMPLETE",
+  EXECUTE_FAILED: "EXECUTE_FAILED",
+  EXECUTE_IN_PROGRESS: "EXECUTE_IN_PROGRESS",
+  OBSOLETE: "OBSOLETE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
+
+/**
+ * @public
  * <p>The <code>ChangeSetSummary</code> structure describes a change set, its status, and the
  *          stack with which it's associated.</p>
  */
@@ -1077,13 +1292,23 @@ export interface ChangeSetSummary {
   RootChangeSetId?: string;
 }
 
-export enum ChangeSetType {
-  CREATE = "CREATE",
-  IMPORT = "IMPORT",
-  UPDATE = "UPDATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeSetType = {
+  CREATE: "CREATE",
+  IMPORT: "IMPORT",
+  UPDATE: "UPDATE",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeSetType = (typeof ChangeSetType)[keyof typeof ChangeSetType];
+
+/**
+ * @public
  * <p>The input for the <a>ContinueUpdateRollback</a> action.</p>
  */
 export interface ContinueUpdateRollbackInput {
@@ -1155,11 +1380,13 @@ export interface ContinueUpdateRollbackInput {
 }
 
 /**
+ * @public
  * <p>The output for a <a>ContinueUpdateRollback</a> operation.</p>
  */
 export interface ContinueUpdateRollbackOutput {}
 
 /**
+ * @public
  * <p>The Parameter data type.</p>
  */
 export interface Parameter {
@@ -1192,6 +1419,7 @@ export interface Parameter {
 }
 
 /**
+ * @public
  * <p>Describes the target resource of an import operation.</p>
  */
 export interface ResourceToImport {
@@ -1215,6 +1443,7 @@ export interface ResourceToImport {
 }
 
 /**
+ * @public
  * <p>A rollback trigger CloudFormation monitors during creation and updating of stacks. If any of the
  *          alarms you specify goes to ALARM state during the stack operation or within the specified
  *          monitoring period afterwards, CloudFormation rolls back the entire stack
@@ -1235,6 +1464,7 @@ export interface RollbackTrigger {
 }
 
 /**
+ * @public
  * <p>Structure containing the rollback triggers for CloudFormation to monitor during stack creation
  *          and updating operations, and for the specified monitoring period afterwards.</p>
  *          <p>Rollback triggers enable you to have CloudFormation monitor the state of your application during
@@ -1288,6 +1518,7 @@ export interface RollbackConfiguration {
 }
 
 /**
+ * @public
  * <p>The Tag type enables you to specify a key-value pair that can be used to store
  *          information about an CloudFormation stack.</p>
  */
@@ -1308,6 +1539,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>The input for the <a>CreateChangeSet</a> action.</p>
  */
 export interface CreateChangeSetInput {
@@ -1544,6 +1776,7 @@ export interface CreateChangeSetInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>CreateChangeSet</a> action.</p>
  */
 export interface CreateChangeSetOutput {
@@ -1559,6 +1792,7 @@ export interface CreateChangeSetOutput {
 }
 
 /**
+ * @public
  * <p>The template contains resources with capabilities that weren't specified in the
  *          Capabilities parameter.</p>
  */
@@ -1581,6 +1815,7 @@ export class InsufficientCapabilitiesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The quota for the resource has already been reached.</p>
  *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
  *             quotas</a> in the <i>CloudFormation User Guide</i>.</p>
@@ -1603,13 +1838,23 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
-export enum OnFailure {
-  DELETE = "DELETE",
-  DO_NOTHING = "DO_NOTHING",
-  ROLLBACK = "ROLLBACK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OnFailure = {
+  DELETE: "DELETE",
+  DO_NOTHING: "DO_NOTHING",
+  ROLLBACK: "ROLLBACK",
+} as const;
 
 /**
+ * @public
+ */
+export type OnFailure = (typeof OnFailure)[keyof typeof OnFailure];
+
+/**
+ * @public
  * <p>The input for <a>CreateStack</a> action.</p>
  */
 export interface CreateStackInput {
@@ -1882,6 +2127,7 @@ export interface CreateStackInput {
 }
 
 /**
+ * @public
  * <p>The output for a <a>CreateStack</a> action.</p>
  */
 export interface CreateStackOutput {
@@ -1892,6 +2138,7 @@ export interface CreateStackOutput {
 }
 
 /**
+ * @public
  * <p>[Service-managed permissions] The Organizations accounts to which StackSets
  *          deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in
  *          your organization or in an OU in your organization.</p>
@@ -1951,12 +2198,22 @@ export interface DeploymentTargets {
   AccountFilterType?: AccountFilterType | string;
 }
 
-export enum RegionConcurrencyType {
-  PARALLEL = "PARALLEL",
-  SEQUENTIAL = "SEQUENTIAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RegionConcurrencyType = {
+  PARALLEL: "PARALLEL",
+  SEQUENTIAL: "SEQUENTIAL",
+} as const;
 
 /**
+ * @public
+ */
+export type RegionConcurrencyType = (typeof RegionConcurrencyType)[keyof typeof RegionConcurrencyType];
+
+/**
+ * @public
  * <p>The user-specified preferences for how CloudFormation performs a stack set
  *          operation.</p>
  *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
@@ -2023,6 +2280,9 @@ export interface StackSetOperationPreferences {
   MaxConcurrentPercentage?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateStackInstancesInput {
   /**
    * <p>The name or unique ID of the stack set that you want to create stack instances
@@ -2124,6 +2384,9 @@ export interface CreateStackInstancesInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStackInstancesOutput {
   /**
    * <p>The unique identifier for this stack set operation.</p>
@@ -2132,6 +2395,7 @@ export interface CreateStackInstancesOutput {
 }
 
 /**
+ * @public
  * <p>The specified operation isn't valid.</p>
  */
 export class InvalidOperationException extends __BaseException {
@@ -2153,6 +2417,7 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified operation ID already exists.</p>
  */
 export class OperationIdAlreadyExistsException extends __BaseException {
@@ -2174,6 +2439,7 @@ export class OperationIdAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Another operation is currently in progress for this stack set. Only one operation can be
  *          performed for a stack set at a given time.</p>
  */
@@ -2196,6 +2462,7 @@ export class OperationInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified stack set doesn't exist.</p>
  */
 export class StackSetNotFoundException extends __BaseException {
@@ -2217,6 +2484,7 @@ export class StackSetNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Another operation has been performed on this stack set since the specified operation was
  *          performed.</p>
  */
@@ -2239,6 +2507,7 @@ export class StaleRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource exists, but has been changed.</p>
  */
 export class CreatedButModifiedException extends __BaseException {
@@ -2260,6 +2529,7 @@ export class CreatedButModifiedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues
  *          conflicting operations.</p>
  */
@@ -2280,11 +2550,23 @@ export interface ManagedExecution {
   Active?: boolean;
 }
 
-export enum PermissionModels {
-  SELF_MANAGED = "SELF_MANAGED",
-  SERVICE_MANAGED = "SERVICE_MANAGED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PermissionModels = {
+  SELF_MANAGED: "SELF_MANAGED",
+  SERVICE_MANAGED: "SERVICE_MANAGED",
+} as const;
 
+/**
+ * @public
+ */
+export type PermissionModels = (typeof PermissionModels)[keyof typeof PermissionModels];
+
+/**
+ * @public
+ */
 export interface CreateStackSetInput {
   /**
    * <p>The name to associate with the stack set. The name must be unique in the Region where
@@ -2525,6 +2807,9 @@ export interface CreateStackSetInput {
   ManagedExecution?: ManagedExecution;
 }
 
+/**
+ * @public
+ */
 export interface CreateStackSetOutput {
   /**
    * <p>The ID of the stack set that you're creating.</p>
@@ -2533,6 +2818,7 @@ export interface CreateStackSetOutput {
 }
 
 /**
+ * @public
  * <p>The specified name is already in use.</p>
  */
 export class NameAlreadyExistsException extends __BaseException {
@@ -2553,6 +2839,9 @@ export class NameAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeactivateTypeInput {
   /**
    * <p>The type name of the extension, in this account and region. If you specified a type name
@@ -2577,9 +2866,13 @@ export interface DeactivateTypeInput {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateTypeOutput {}
 
 /**
+ * @public
  * <p>The input for the <a>DeleteChangeSet</a> action.</p>
  */
 export interface DeleteChangeSetInput {
@@ -2596,11 +2889,13 @@ export interface DeleteChangeSetInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>DeleteChangeSet</a> action.</p>
  */
 export interface DeleteChangeSetOutput {}
 
 /**
+ * @public
  * <p>The specified change set can't be used to update the stack. For example, the change set
  *          status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be
  *             <code>UPDATE_IN_PROGRESS</code>.</p>
@@ -2624,6 +2919,7 @@ export class InvalidChangeSetStatusException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for <a>DeleteStack</a> action.</p>
  */
 export interface DeleteStackInput {
@@ -2670,6 +2966,9 @@ export interface DeleteStackInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStackInstancesInput {
   /**
    * <p>The name or unique ID of the stack set that you want to delete stack instances
@@ -2744,6 +3043,9 @@ export interface DeleteStackInstancesInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStackInstancesOutput {
   /**
    * <p>The unique identifier for this stack set operation.</p>
@@ -2751,6 +3053,9 @@ export interface DeleteStackInstancesOutput {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStackSetInput {
   /**
    * <p>The name or unique ID of the stack set that you're deleting. You can obtain this value
@@ -2780,9 +3085,13 @@ export interface DeleteStackSetInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStackSetOutput {}
 
 /**
+ * @public
  * <p>You can't yet delete this stack set, because it still contains one or more stack
  *          instances. Delete all stack instances from the stack set before deleting the stack
  *          set.</p>
@@ -2805,12 +3114,24 @@ export class StackSetNotEmptyException extends __BaseException {
   }
 }
 
-export enum RegistryType {
-  HOOK = "HOOK",
-  MODULE = "MODULE",
-  RESOURCE = "RESOURCE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RegistryType = {
+  HOOK: "HOOK",
+  MODULE: "MODULE",
+  RESOURCE: "RESOURCE",
+} as const;
 
+/**
+ * @public
+ */
+export type RegistryType = (typeof RegistryType)[keyof typeof RegistryType];
+
+/**
+ * @public
+ */
 export interface DeregisterTypeInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
@@ -2841,9 +3162,13 @@ export interface DeregisterTypeInput {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTypeOutput {}
 
 /**
+ * @public
  * <p>The input for the <a>DescribeAccountLimits</a> action.</p>
  */
 export interface DescribeAccountLimitsInput {
@@ -2854,6 +3179,7 @@ export interface DescribeAccountLimitsInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>DescribeAccountLimits</a> action.</p>
  */
 export interface DescribeAccountLimitsOutput {
@@ -2871,6 +3197,7 @@ export interface DescribeAccountLimitsOutput {
 }
 
 /**
+ * @public
  * <p>The input for the <a>DescribeChangeSet</a> action.</p>
  */
 export interface DescribeChangeSetInput {
@@ -2894,6 +3221,7 @@ export interface DescribeChangeSetInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>DescribeChangeSet</a> action.</p>
  */
 export interface DescribeChangeSetOutput {
@@ -3008,6 +3336,9 @@ export interface DescribeChangeSetOutput {
   RootChangeSetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChangeSetHooksInput {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the change set that you want to
@@ -3034,6 +3365,9 @@ export interface DescribeChangeSetHooksInput {
   LogicalResourceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChangeSetHooksOutput {
   /**
    * <p>The change set identifier (stack ID).</p>
@@ -3071,6 +3405,9 @@ export interface DescribeChangeSetHooksOutput {
   StackName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePublisherInput {
   /**
    * <p>The ID of the extension publisher.</p>
@@ -3081,17 +3418,38 @@ export interface DescribePublisherInput {
   PublisherId?: string;
 }
 
-export enum IdentityProvider {
-  AWS_Marketplace = "AWS_Marketplace",
-  Bitbucket = "Bitbucket",
-  GitHub = "GitHub",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IdentityProvider = {
+  AWS_Marketplace: "AWS_Marketplace",
+  Bitbucket: "Bitbucket",
+  GitHub: "GitHub",
+} as const;
 
-export enum PublisherStatus {
-  UNVERIFIED = "UNVERIFIED",
-  VERIFIED = "VERIFIED",
-}
+/**
+ * @public
+ */
+export type IdentityProvider = (typeof IdentityProvider)[keyof typeof IdentityProvider];
 
+/**
+ * @public
+ * @enum
+ */
+export const PublisherStatus = {
+  UNVERIFIED: "UNVERIFIED",
+  VERIFIED: "VERIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type PublisherStatus = (typeof PublisherStatus)[keyof typeof PublisherStatus];
+
+/**
+ * @public
+ */
 export interface DescribePublisherOutput {
   /**
    * <p>The ID of the extension publisher.</p>
@@ -3116,6 +3474,9 @@ export interface DescribePublisherOutput {
   PublisherProfile?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackDriftDetectionStatusInput {
   /**
    * <p>The ID of the drift detection results of this operation.</p>
@@ -3126,19 +3487,40 @@ export interface DescribeStackDriftDetectionStatusInput {
   StackDriftDetectionId: string | undefined;
 }
 
-export enum StackDriftDetectionStatus {
-  DETECTION_COMPLETE = "DETECTION_COMPLETE",
-  DETECTION_FAILED = "DETECTION_FAILED",
-  DETECTION_IN_PROGRESS = "DETECTION_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackDriftDetectionStatus = {
+  DETECTION_COMPLETE: "DETECTION_COMPLETE",
+  DETECTION_FAILED: "DETECTION_FAILED",
+  DETECTION_IN_PROGRESS: "DETECTION_IN_PROGRESS",
+} as const;
 
-export enum StackDriftStatus {
-  DRIFTED = "DRIFTED",
-  IN_SYNC = "IN_SYNC",
-  NOT_CHECKED = "NOT_CHECKED",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ */
+export type StackDriftDetectionStatus = (typeof StackDriftDetectionStatus)[keyof typeof StackDriftDetectionStatus];
 
+/**
+ * @public
+ * @enum
+ */
+export const StackDriftStatus = {
+  DRIFTED: "DRIFTED",
+  IN_SYNC: "IN_SYNC",
+  NOT_CHECKED: "NOT_CHECKED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type StackDriftStatus = (typeof StackDriftStatus)[keyof typeof StackDriftStatus];
+
+/**
+ * @public
+ */
 export interface DescribeStackDriftDetectionStatusOutput {
   /**
    * <p>The ID of the stack.</p>
@@ -3227,6 +3609,7 @@ export interface DescribeStackDriftDetectionStatusOutput {
 }
 
 /**
+ * @public
  * <p>The input for <a>DescribeStackEvents</a> action.</p>
  */
 export interface DescribeStackEventsInput {
@@ -3252,39 +3635,58 @@ export interface DescribeStackEventsInput {
   NextToken?: string;
 }
 
-export enum HookStatus {
-  HOOK_COMPLETE_FAILED = "HOOK_COMPLETE_FAILED",
-  HOOK_COMPLETE_SUCCEEDED = "HOOK_COMPLETE_SUCCEEDED",
-  HOOK_FAILED = "HOOK_FAILED",
-  HOOK_IN_PROGRESS = "HOOK_IN_PROGRESS",
-}
-
-export enum ResourceStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_SKIPPED = "DELETE_SKIPPED",
-  IMPORT_COMPLETE = "IMPORT_COMPLETE",
-  IMPORT_FAILED = "IMPORT_FAILED",
-  IMPORT_IN_PROGRESS = "IMPORT_IN_PROGRESS",
-  IMPORT_ROLLBACK_COMPLETE = "IMPORT_ROLLBACK_COMPLETE",
-  IMPORT_ROLLBACK_FAILED = "IMPORT_ROLLBACK_FAILED",
-  IMPORT_ROLLBACK_IN_PROGRESS = "IMPORT_ROLLBACK_IN_PROGRESS",
-  ROLLBACK_COMPLETE = "ROLLBACK_COMPLETE",
-  ROLLBACK_FAILED = "ROLLBACK_FAILED",
-  ROLLBACK_IN_PROGRESS = "ROLLBACK_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_ROLLBACK_COMPLETE = "UPDATE_ROLLBACK_COMPLETE",
-  UPDATE_ROLLBACK_FAILED = "UPDATE_ROLLBACK_FAILED",
-  UPDATE_ROLLBACK_IN_PROGRESS = "UPDATE_ROLLBACK_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HookStatus = {
+  HOOK_COMPLETE_FAILED: "HOOK_COMPLETE_FAILED",
+  HOOK_COMPLETE_SUCCEEDED: "HOOK_COMPLETE_SUCCEEDED",
+  HOOK_FAILED: "HOOK_FAILED",
+  HOOK_IN_PROGRESS: "HOOK_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type HookStatus = (typeof HookStatus)[keyof typeof HookStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_SKIPPED: "DELETE_SKIPPED",
+  IMPORT_COMPLETE: "IMPORT_COMPLETE",
+  IMPORT_FAILED: "IMPORT_FAILED",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+  IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
+  IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
+  IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
+  ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
+  UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
+  UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
+
+/**
+ * @public
  * <p>The StackEvent data type.</p>
  */
 export interface StackEvent {
@@ -3392,6 +3794,7 @@ export interface StackEvent {
 }
 
 /**
+ * @public
  * <p>The output for a <a>DescribeStackEvents</a> action.</p>
  */
 export interface DescribeStackEventsOutput {
@@ -3407,6 +3810,9 @@ export interface DescribeStackEventsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackInstanceInput {
   /**
    * <p>The name or the unique stack ID of the stack set that you want to get stack instance
@@ -3447,16 +3853,27 @@ export interface DescribeStackInstanceInput {
   CallAs?: CallAs | string;
 }
 
-export enum StackInstanceDetailedStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  INOPERABLE = "INOPERABLE",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackInstanceDetailedStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  INOPERABLE: "INOPERABLE",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type StackInstanceDetailedStatus =
+  (typeof StackInstanceDetailedStatus)[keyof typeof StackInstanceDetailedStatus];
+
+/**
+ * @public
  * <p>The detailed status of the stack instance.</p>
  */
 export interface StackInstanceComprehensiveStatus {
@@ -3503,13 +3920,23 @@ export interface StackInstanceComprehensiveStatus {
   DetailedStatus?: StackInstanceDetailedStatus | string;
 }
 
-export enum StackInstanceStatus {
-  CURRENT = "CURRENT",
-  INOPERABLE = "INOPERABLE",
-  OUTDATED = "OUTDATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackInstanceStatus = {
+  CURRENT: "CURRENT",
+  INOPERABLE: "INOPERABLE",
+  OUTDATED: "OUTDATED",
+} as const;
 
 /**
+ * @public
+ */
+export type StackInstanceStatus = (typeof StackInstanceStatus)[keyof typeof StackInstanceStatus];
+
+/**
+ * @public
  * <p>An CloudFormation stack, in a specific account and Region, that's part of a stack
  *          set operation. A stack instance is a reference to an attempted or actual stack in a given
  *          account within a given Region. A stack instance can exist without a stack—for example, if
@@ -3643,6 +4070,9 @@ export interface StackInstance {
   LastOperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackInstanceOutput {
   /**
    * <p>The stack instance that matches the specified request parameters.</p>
@@ -3651,6 +4081,7 @@ export interface DescribeStackInstanceOutput {
 }
 
 /**
+ * @public
  * <p>The specified stack instance doesn't exist.</p>
  */
 export class StackInstanceNotFoundException extends __BaseException {
@@ -3672,6 +4103,7 @@ export class StackInstanceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for <a>DescribeStackResource</a> action.</p>
  */
 export interface DescribeStackResourceInput {
@@ -3698,14 +4130,24 @@ export interface DescribeStackResourceInput {
   LogicalResourceId: string | undefined;
 }
 
-export enum StackResourceDriftStatus {
-  DELETED = "DELETED",
-  IN_SYNC = "IN_SYNC",
-  MODIFIED = "MODIFIED",
-  NOT_CHECKED = "NOT_CHECKED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackResourceDriftStatus = {
+  DELETED: "DELETED",
+  IN_SYNC: "IN_SYNC",
+  MODIFIED: "MODIFIED",
+  NOT_CHECKED: "NOT_CHECKED",
+} as const;
 
 /**
+ * @public
+ */
+export type StackResourceDriftStatus = (typeof StackResourceDriftStatus)[keyof typeof StackResourceDriftStatus];
+
+/**
+ * @public
  * <p>Contains information about whether the resource's actual configuration differs, or has
  *             <i>drifted</i>, from its expected configuration.</p>
  */
@@ -3748,6 +4190,7 @@ export interface StackResourceDriftInformation {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about the specified stack resource.</p>
  */
 export interface StackResourceDetail {
@@ -3820,6 +4263,7 @@ export interface StackResourceDetail {
 }
 
 /**
+ * @public
  * <p>The output for a <a>DescribeStackResource</a> action.</p>
  */
 export interface DescribeStackResourceOutput {
@@ -3830,6 +4274,9 @@ export interface DescribeStackResourceOutput {
   StackResourceDetail?: StackResourceDetail;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackResourceDriftsInput {
   /**
    * <p>The name of the stack for which you want drift information.</p>
@@ -3878,6 +4325,7 @@ export interface DescribeStackResourceDriftsInput {
 }
 
 /**
+ * @public
  * <p>Context information that enables CloudFormation to uniquely identify a resource. CloudFormation uses
  *          context key-value pairs in cases where a resource's logical and physical IDs aren't enough
  *          to uniquely identify that resource. Each context key-value pair specifies a resource that
@@ -3895,13 +4343,23 @@ export interface PhysicalResourceIdContextKeyValuePair {
   Value: string | undefined;
 }
 
-export enum DifferenceType {
-  ADD = "ADD",
-  NOT_EQUAL = "NOT_EQUAL",
-  REMOVE = "REMOVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DifferenceType = {
+  ADD: "ADD",
+  NOT_EQUAL: "NOT_EQUAL",
+  REMOVE: "REMOVE",
+} as const;
 
 /**
+ * @public
+ */
+export type DifferenceType = (typeof DifferenceType)[keyof typeof DifferenceType];
+
+/**
+ * @public
  * <p>Information about a resource property whose actual value differs from its expected
  *          value, as defined in the stack template and any values specified as template parameters.
  *          These will be present only for resources whose <code>StackResourceDriftStatus</code> is
@@ -3950,6 +4408,7 @@ export interface PropertyDifference {
 }
 
 /**
+ * @public
  * <p>Contains the drift information for a resource that has been checked for drift. This
  *          includes actual and expected property values for resources in which CloudFormation has detected
  *          drift. Only resource properties explicitly defined in the stack template are checked for
@@ -4055,6 +4514,9 @@ export interface StackResourceDrift {
   ModuleInfo?: ModuleInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackResourceDriftsOutput {
   /**
    * <p>Drift information for the resources that have been checked for drift in the specified
@@ -4078,6 +4540,7 @@ export interface DescribeStackResourceDriftsOutput {
 }
 
 /**
+ * @public
  * <p>The input for <a>DescribeStackResources</a> action.</p>
  */
 export interface DescribeStackResourcesInput {
@@ -4120,6 +4583,7 @@ export interface DescribeStackResourcesInput {
 }
 
 /**
+ * @public
  * <p>The StackResource data type.</p>
  */
 export interface StackResource {
@@ -4186,6 +4650,7 @@ export interface StackResource {
 }
 
 /**
+ * @public
  * <p>The output for a <a>DescribeStackResources</a> action.</p>
  */
 export interface DescribeStackResourcesOutput {
@@ -4196,6 +4661,7 @@ export interface DescribeStackResourcesOutput {
 }
 
 /**
+ * @public
  * <p>The input for <a>DescribeStacks</a> action.</p>
  */
 export interface DescribeStacksInput {
@@ -4222,6 +4688,7 @@ export interface DescribeStacksInput {
 }
 
 /**
+ * @public
  * <p>Contains information about whether the stack's actual configuration differs, or has
  *             <i>drifted</i>, from its expected configuration, as defined in the stack
  *          template and any values specified as template parameters. A stack is considered to have
@@ -4264,6 +4731,7 @@ export interface StackDriftInformation {
 }
 
 /**
+ * @public
  * <p>The Output data type.</p>
  */
 export interface Output {
@@ -4288,33 +4756,43 @@ export interface Output {
   ExportName?: string;
 }
 
-export enum StackStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  IMPORT_COMPLETE = "IMPORT_COMPLETE",
-  IMPORT_IN_PROGRESS = "IMPORT_IN_PROGRESS",
-  IMPORT_ROLLBACK_COMPLETE = "IMPORT_ROLLBACK_COMPLETE",
-  IMPORT_ROLLBACK_FAILED = "IMPORT_ROLLBACK_FAILED",
-  IMPORT_ROLLBACK_IN_PROGRESS = "IMPORT_ROLLBACK_IN_PROGRESS",
-  REVIEW_IN_PROGRESS = "REVIEW_IN_PROGRESS",
-  ROLLBACK_COMPLETE = "ROLLBACK_COMPLETE",
-  ROLLBACK_FAILED = "ROLLBACK_FAILED",
-  ROLLBACK_IN_PROGRESS = "ROLLBACK_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_COMPLETE_CLEANUP_IN_PROGRESS = "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_ROLLBACK_COMPLETE = "UPDATE_ROLLBACK_COMPLETE",
-  UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS = "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
-  UPDATE_ROLLBACK_FAILED = "UPDATE_ROLLBACK_FAILED",
-  UPDATE_ROLLBACK_IN_PROGRESS = "UPDATE_ROLLBACK_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  IMPORT_COMPLETE: "IMPORT_COMPLETE",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+  IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
+  IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
+  IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
+  REVIEW_IN_PROGRESS: "REVIEW_IN_PROGRESS",
+  ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_COMPLETE_CLEANUP_IN_PROGRESS: "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
+  UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS: "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
+  UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
+  UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type StackStatus = (typeof StackStatus)[keyof typeof StackStatus];
+
+/**
+ * @public
  * <p>The Stack data type.</p>
  */
 export interface Stack {
@@ -4457,6 +4935,7 @@ export interface Stack {
 }
 
 /**
+ * @public
  * <p>The output for a <a>DescribeStacks</a> action.</p>
  */
 export interface DescribeStacksOutput {
@@ -4472,6 +4951,9 @@ export interface DescribeStacksOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackSetInput {
   /**
    * <p>The name or unique ID of the stack set whose description you want.</p>
@@ -4500,21 +4982,41 @@ export interface DescribeStackSetInput {
   CallAs?: CallAs | string;
 }
 
-export enum StackSetDriftDetectionStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  STOPPED = "STOPPED",
-}
-
-export enum StackSetDriftStatus {
-  DRIFTED = "DRIFTED",
-  IN_SYNC = "IN_SYNC",
-  NOT_CHECKED = "NOT_CHECKED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackSetDriftDetectionStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+  STOPPED: "STOPPED",
+} as const;
 
 /**
+ * @public
+ */
+export type StackSetDriftDetectionStatus =
+  (typeof StackSetDriftDetectionStatus)[keyof typeof StackSetDriftDetectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StackSetDriftStatus = {
+  DRIFTED: "DRIFTED",
+  IN_SYNC: "IN_SYNC",
+  NOT_CHECKED: "NOT_CHECKED",
+} as const;
+
+/**
+ * @public
+ */
+export type StackSetDriftStatus = (typeof StackSetDriftStatus)[keyof typeof StackSetDriftStatus];
+
+/**
+ * @public
  * <p>Detailed information about the drift status of the stack set.</p>
  *          <p>For stack sets, contains information about the last <i>completed</i> drift
  *          operation performed on the stack set. Information about drift operations in-progress isn't
@@ -4634,12 +5136,22 @@ export interface StackSetDriftDetectionDetails {
   FailedStackInstancesCount?: number;
 }
 
-export enum StackSetStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackSetStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+} as const;
 
 /**
+ * @public
+ */
+export type StackSetStatus = (typeof StackSetStatus)[keyof typeof StackSetStatus];
+
+/**
+ * @public
  * <p>A structure that contains information about a stack set. A stack set enables you to
  *          provision stacks into Amazon Web Services accounts and across Regions by using a single
  *             CloudFormation template. In the stack set, you specify the template to use, in
@@ -4764,6 +5276,9 @@ export interface StackSet {
   Regions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackSetOutput {
   /**
    * <p>The specified stack set.</p>
@@ -4771,6 +5286,9 @@ export interface DescribeStackSetOutput {
   StackSet?: StackSet;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackSetOperationInput {
   /**
    * <p>The name or the unique stack ID of the stack set for the stack operation.</p>
@@ -4804,23 +5322,42 @@ export interface DescribeStackSetOperationInput {
   CallAs?: CallAs | string;
 }
 
-export enum StackSetOperationAction {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  DETECT_DRIFT = "DETECT_DRIFT",
-  UPDATE = "UPDATE",
-}
-
-export enum StackSetOperationStatus {
-  FAILED = "FAILED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackSetOperationAction = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  DETECT_DRIFT: "DETECT_DRIFT",
+  UPDATE: "UPDATE",
+} as const;
 
 /**
+ * @public
+ */
+export type StackSetOperationAction = (typeof StackSetOperationAction)[keyof typeof StackSetOperationAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const StackSetOperationStatus = {
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type StackSetOperationStatus = (typeof StackSetOperationStatus)[keyof typeof StackSetOperationStatus];
+
+/**
+ * @public
  * <p>Detailed information about the StackSet operation.</p>
  */
 export interface StackSetOperationStatusDetails {
@@ -4831,6 +5368,7 @@ export interface StackSetOperationStatusDetails {
 }
 
 /**
+ * @public
  * <p>The structure that contains information about a stack set operation.</p>
  */
 export interface StackSetOperation {
@@ -4966,6 +5504,9 @@ export interface StackSetOperation {
   StatusDetails?: StackSetOperationStatusDetails;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackSetOperationOutput {
   /**
    * <p>The specified stack set operation.</p>
@@ -4974,6 +5515,7 @@ export interface DescribeStackSetOperationOutput {
 }
 
 /**
+ * @public
  * <p>The specified ID refers to an operation that doesn't exist.</p>
  */
 export class OperationNotFoundException extends __BaseException {
@@ -4994,6 +5536,9 @@ export class OperationNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeTypeInput {
   /**
    * <p>The kind of extension.</p>
@@ -5038,18 +5583,37 @@ export interface DescribeTypeInput {
   PublicVersionNumber?: string;
 }
 
-export enum DeprecatedStatus {
-  DEPRECATED = "DEPRECATED",
-  LIVE = "LIVE",
-}
-
-export enum ProvisioningType {
-  FULLY_MUTABLE = "FULLY_MUTABLE",
-  IMMUTABLE = "IMMUTABLE",
-  NON_PROVISIONABLE = "NON_PROVISIONABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeprecatedStatus = {
+  DEPRECATED: "DEPRECATED",
+  LIVE: "LIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type DeprecatedStatus = (typeof DeprecatedStatus)[keyof typeof DeprecatedStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProvisioningType = {
+  FULLY_MUTABLE: "FULLY_MUTABLE",
+  IMMUTABLE: "IMMUTABLE",
+  NON_PROVISIONABLE: "NON_PROVISIONABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisioningType = (typeof ProvisioningType)[keyof typeof ProvisioningType];
+
+/**
+ * @public
  * <p>For extensions that are modules, a public third-party extension that must be activated
  *          in your account in order for the module itself to be activated.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html#module-enabling">Activating public
@@ -5086,18 +5650,39 @@ export interface RequiredActivatedType {
   SupportedMajorVersions?: number[];
 }
 
-export enum TypeTestsStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_TESTED = "NOT_TESTED",
-  PASSED = "PASSED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TypeTestsStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_TESTED: "NOT_TESTED",
+  PASSED: "PASSED",
+} as const;
 
-export enum Visibility {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+/**
+ * @public
+ */
+export type TypeTestsStatus = (typeof TypeTestsStatus)[keyof typeof TypeTestsStatus];
 
+/**
+ * @public
+ * @enum
+ */
+export const Visibility = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type Visibility = (typeof Visibility)[keyof typeof Visibility];
+
+/**
+ * @public
+ */
 export interface DescribeTypeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
@@ -5392,6 +5977,9 @@ export interface DescribeTypeOutput {
   AutoUpdate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTypeRegistrationInput {
   /**
    * <p>The identifier for this registration request.</p>
@@ -5403,12 +5991,24 @@ export interface DescribeTypeRegistrationInput {
   RegistrationToken: string | undefined;
 }
 
-export enum RegistrationStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RegistrationStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
+/**
+ * @public
+ */
+export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof RegistrationStatus];
+
+/**
+ * @public
+ */
 export interface DescribeTypeRegistrationOutput {
   /**
    * <p>The current status of the extension registration request.</p>
@@ -5436,6 +6036,9 @@ export interface DescribeTypeRegistrationOutput {
   TypeVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DetectStackDriftInput {
   /**
    * <p>The name of the stack for which you want to detect drift.</p>
@@ -5448,6 +6051,9 @@ export interface DetectStackDriftInput {
   LogicalResourceIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DetectStackDriftOutput {
   /**
    * <p>The ID of the drift detection results of this operation.</p>
@@ -5458,6 +6064,9 @@ export interface DetectStackDriftOutput {
   StackDriftDetectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectStackResourceDriftInput {
   /**
    * <p>The name of the stack to which the resource belongs.</p>
@@ -5470,6 +6079,9 @@ export interface DetectStackResourceDriftInput {
   LogicalResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectStackResourceDriftOutput {
   /**
    * <p>Information about whether the resource's actual configuration has drifted from its
@@ -5479,6 +6091,9 @@ export interface DetectStackResourceDriftOutput {
   StackResourceDrift: StackResourceDrift | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectStackSetDriftInput {
   /**
    * <p>The name of the stack set on which to perform the drift detection operation.</p>
@@ -5521,6 +6136,9 @@ export interface DetectStackSetDriftInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface DetectStackSetDriftOutput {
   /**
    * <p>The ID of the drift detection stack set operation.</p>
@@ -5532,6 +6150,7 @@ export interface DetectStackSetDriftOutput {
 }
 
 /**
+ * @public
  * <p>The input for an <a>EstimateTemplateCost</a> action.</p>
  */
 export interface EstimateTemplateCostInput {
@@ -5561,6 +6180,7 @@ export interface EstimateTemplateCostInput {
 }
 
 /**
+ * @public
  * <p>The output for a <a>EstimateTemplateCost</a> action.</p>
  */
 export interface EstimateTemplateCostOutput {
@@ -5572,6 +6192,7 @@ export interface EstimateTemplateCostOutput {
 }
 
 /**
+ * @public
  * <p>The input for the <a>ExecuteChangeSet</a> action.</p>
  */
 export interface ExecuteChangeSetInput {
@@ -5605,11 +6226,13 @@ export interface ExecuteChangeSetInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>ExecuteChangeSet</a> action.</p>
  */
 export interface ExecuteChangeSetOutput {}
 
 /**
+ * @public
  * <p>The input for the <a>GetStackPolicy</a> action.</p>
  */
 export interface GetStackPolicyInput {
@@ -5621,6 +6244,7 @@ export interface GetStackPolicyInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>GetStackPolicy</a> action.</p>
  */
 export interface GetStackPolicyOutput {
@@ -5631,12 +6255,22 @@ export interface GetStackPolicyOutput {
   StackPolicyBody?: string;
 }
 
-export enum TemplateStage {
-  Original = "Original",
-  Processed = "Processed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TemplateStage = {
+  Original: "Original",
+  Processed: "Processed",
+} as const;
 
 /**
+ * @public
+ */
+export type TemplateStage = (typeof TemplateStage)[keyof typeof TemplateStage];
+
+/**
+ * @public
  * <p>The input for a <a>GetTemplate</a> action.</p>
  */
 export interface GetTemplateInput {
@@ -5675,6 +6309,7 @@ export interface GetTemplateInput {
 }
 
 /**
+ * @public
  * <p>The output for <a>GetTemplate</a> action.</p>
  */
 export interface GetTemplateOutput {
@@ -5696,6 +6331,7 @@ export interface GetTemplateOutput {
 }
 
 /**
+ * @public
  * <p>The input for the <a>GetTemplateSummary</a> action.</p>
  */
 export interface GetTemplateSummaryInput {
@@ -5760,6 +6396,7 @@ export interface GetTemplateSummaryInput {
 }
 
 /**
+ * @public
  * <p>A set of criteria that CloudFormation uses to validate parameter values. Although
  *          other constraints might be defined in the stack template, CloudFormation returns only
  *          the <code>AllowedValues</code> property.</p>
@@ -5772,6 +6409,7 @@ export interface ParameterConstraints {
 }
 
 /**
+ * @public
  * <p>The ParameterDeclaration data type.</p>
  */
 export interface ParameterDeclaration {
@@ -5808,6 +6446,7 @@ export interface ParameterDeclaration {
 }
 
 /**
+ * @public
  * <p>Describes the target resources of a specific type in your import template (for example,
  *          all <code>AWS::S3::Bucket</code> resources) and the properties you can provide during the
  *          import to identify resources of that type.</p>
@@ -5834,6 +6473,7 @@ export interface ResourceIdentifierSummary {
 }
 
 /**
+ * @public
  * <p>The output for the <a>GetTemplateSummary</a> action.</p>
  */
 export interface GetTemplateSummaryOutput {
@@ -5897,6 +6537,9 @@ export interface GetTemplateSummaryOutput {
   ResourceIdentifierSummaries?: ResourceIdentifierSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ImportStacksToStackSetInput {
   /**
    * <p>The name of the stack set. The name must be unique in the Region where you create your
@@ -5951,6 +6594,9 @@ export interface ImportStacksToStackSetInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface ImportStacksToStackSetOutput {
   /**
    * <p>The unique identifier for the stack set operation.</p>
@@ -5959,6 +6605,7 @@ export interface ImportStacksToStackSetOutput {
 }
 
 /**
+ * @public
  * <p>The specified stack ARN doesn't exist or stack doesn't exist corresponding to the ARN in
  *          input.</p>
  */
@@ -5981,6 +6628,7 @@ export class StackNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the <a>ListChangeSets</a> action.</p>
  */
 export interface ListChangeSetsInput {
@@ -5998,6 +6646,7 @@ export interface ListChangeSetsInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>ListChangeSets</a> action.</p>
  */
 export interface ListChangeSetsOutput {
@@ -6014,6 +6663,9 @@ export interface ListChangeSetsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExportsInput {
   /**
    * <p>A string (provided by the <a>ListExports</a> response output) that identifies
@@ -6023,6 +6675,7 @@ export interface ListExportsInput {
 }
 
 /**
+ * @public
  * <p>The <code>Export</code> structure describes the exported output values for a
  *          stack.</p>
  */
@@ -6047,6 +6700,9 @@ export interface Export {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExportsOutput {
   /**
    * <p>The output for the <a>ListExports</a> action.</p>
@@ -6060,6 +6716,9 @@ export interface ListExportsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImportsInput {
   /**
    * <p>The name of the exported output value. CloudFormation returns the stack names that
@@ -6074,6 +6733,9 @@ export interface ListImportsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImportsOutput {
   /**
    * <p>A list of stack names that are importing the specified exported output value.</p>
@@ -6087,12 +6749,22 @@ export interface ListImportsOutput {
   NextToken?: string;
 }
 
-export enum StackInstanceFilterName {
-  DETAILED_STATUS = "DETAILED_STATUS",
-  LAST_OPERATION_ID = "LAST_OPERATION_ID",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackInstanceFilterName = {
+  DETAILED_STATUS: "DETAILED_STATUS",
+  LAST_OPERATION_ID: "LAST_OPERATION_ID",
+} as const;
 
 /**
+ * @public
+ */
+export type StackInstanceFilterName = (typeof StackInstanceFilterName)[keyof typeof StackInstanceFilterName];
+
+/**
+ * @public
  * <p>The filter to apply to stack instances</p>
  */
 export interface StackInstanceFilter {
@@ -6107,6 +6779,9 @@ export interface StackInstanceFilter {
   Values?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackInstancesInput {
   /**
    * <p>The name or unique ID of the stack set that you want to list stack instances for.</p>
@@ -6169,6 +6844,7 @@ export interface ListStackInstancesInput {
 }
 
 /**
+ * @public
  * <p>The structure that contains summary information about a stack instance.</p>
  */
 export interface StackInstanceSummary {
@@ -6290,6 +6966,9 @@ export interface StackInstanceSummary {
   LastOperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackInstancesOutput {
   /**
    * <p>A list of <code>StackInstanceSummary</code> structures that contain information about
@@ -6307,6 +6986,7 @@ export interface ListStackInstancesOutput {
 }
 
 /**
+ * @public
  * <p>The input for the <a>ListStackResource</a> action.</p>
  */
 export interface ListStackResourcesInput {
@@ -6334,6 +7014,7 @@ export interface ListStackResourcesInput {
 }
 
 /**
+ * @public
  * <p>Summarizes information about whether the resource's actual configuration differs, or has
  *             <i>drifted</i>, from its expected configuration.</p>
  */
@@ -6378,6 +7059,7 @@ export interface StackResourceDriftInformationSummary {
 }
 
 /**
+ * @public
  * <p>Contains high-level information about the specified stack resource.</p>
  */
 export interface StackResourceSummary {
@@ -6428,6 +7110,7 @@ export interface StackResourceSummary {
 }
 
 /**
+ * @public
  * <p>The output for a <a>ListStackResources</a> action.</p>
  */
 export interface ListStackResourcesOutput {
@@ -6444,6 +7127,7 @@ export interface ListStackResourcesOutput {
 }
 
 /**
+ * @public
  * <p>The input for <a>ListStacks</a> action.</p>
  */
 export interface ListStacksInput {
@@ -6461,6 +7145,7 @@ export interface ListStacksInput {
 }
 
 /**
+ * @public
  * <p>Contains information about whether the stack's actual configuration differs, or has
  *             <i>drifted</i>, from its expected configuration, as defined in the stack
  *          template and any values specified as template parameters. A stack is considered to have
@@ -6503,6 +7188,7 @@ export interface StackDriftInformationSummary {
 }
 
 /**
+ * @public
  * <p>The StackSummary Data Type</p>
  */
 export interface StackSummary {
@@ -6572,6 +7258,7 @@ export interface StackSummary {
 }
 
 /**
+ * @public
  * <p>The output for <a>ListStacks</a> action.</p>
  */
 export interface ListStacksOutput {
@@ -6588,11 +7275,21 @@ export interface ListStacksOutput {
   NextToken?: string;
 }
 
-export enum OperationResultFilterName {
-  OPERATION_RESULT_STATUS = "OPERATION_RESULT_STATUS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OperationResultFilterName = {
+  OPERATION_RESULT_STATUS: "OPERATION_RESULT_STATUS",
+} as const;
 
 /**
+ * @public
+ */
+export type OperationResultFilterName = (typeof OperationResultFilterName)[keyof typeof OperationResultFilterName];
+
+/**
+ * @public
  * <p>The status that operation results are filtered by.</p>
  */
 export interface OperationResultFilter {
@@ -6607,6 +7304,9 @@ export interface OperationResultFilter {
   Values?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackSetOperationResultsInput {
   /**
    * <p>The name or unique ID of the stack set that you want to get operation results
@@ -6664,15 +7364,26 @@ export interface ListStackSetOperationResultsInput {
   Filters?: OperationResultFilter[];
 }
 
-export enum StackSetOperationResultStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackSetOperationResultStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type StackSetOperationResultStatus =
+  (typeof StackSetOperationResultStatus)[keyof typeof StackSetOperationResultStatus];
+
+/**
+ * @public
  * <p>The structure that contains information about a specified operation's results for a
  *          given account in a given Region.</p>
  */
@@ -6742,6 +7453,9 @@ export interface StackSetOperationResultSummary {
   OrganizationalUnitId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackSetOperationResultsOutput {
   /**
    * <p>A list of <code>StackSetOperationResultSummary</code> structures that contain
@@ -6758,6 +7472,9 @@ export interface ListStackSetOperationResultsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackSetOperationsInput {
   /**
    * <p>The name or unique ID of the stack set that you want to get operation summaries
@@ -6806,6 +7523,7 @@ export interface ListStackSetOperationsInput {
 }
 
 /**
+ * @public
  * <p>The structures that contain summary information about the specified operation.</p>
  */
 export interface StackSetOperationSummary {
@@ -6897,6 +7615,9 @@ export interface StackSetOperationSummary {
   OperationPreferences?: StackSetOperationPreferences;
 }
 
+/**
+ * @public
+ */
 export interface ListStackSetOperationsOutput {
   /**
    * <p>A list of <code>StackSetOperationSummary</code> structures that contain summary
@@ -6913,6 +7634,9 @@ export interface ListStackSetOperationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackSetsInput {
   /**
    * <p>If the previous paginated request didn't return all the remaining results, the response
@@ -6959,6 +7683,7 @@ export interface ListStackSetsInput {
 }
 
 /**
+ * @public
  * <p>The structures that contain summary information about the specified stack set.</p>
  */
 export interface StackSetSummary {
@@ -7052,6 +7777,9 @@ export interface StackSetSummary {
   ManagedExecution?: ManagedExecution;
 }
 
+/**
+ * @public
+ */
 export interface ListStackSetsOutput {
   /**
    * <p>A list of <code>StackSetSummary</code> structures that contain information about the
@@ -7068,6 +7796,9 @@ export interface ListStackSetsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTypeRegistrationsInput {
   /**
    * <p>The kind of extension.</p>
@@ -7114,6 +7845,9 @@ export interface ListTypeRegistrationsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTypeRegistrationsOutput {
   /**
    * <p>A list of extension registration tokens.</p>
@@ -7134,6 +7868,7 @@ export interface ListTypeRegistrationsOutput {
 }
 
 /**
+ * @public
  * <p>Filter criteria to use in determining which extensions to return.</p>
  */
 export interface TypeFilters {
@@ -7185,6 +7920,9 @@ export interface TypeFilters {
   TypeNamePrefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTypesInput {
   /**
    * <p>The scope at which the extensions are visible and usable in CloudFormation
@@ -7294,6 +8032,7 @@ export interface ListTypesInput {
 }
 
 /**
+ * @public
  * <p>Contains summary information about the specified CloudFormation
  *          extension.</p>
  */
@@ -7408,6 +8147,9 @@ export interface TypeSummary {
   IsActivated?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListTypesOutput {
   /**
    * <p>A list of <code>TypeSummary</code> structures that contain information about the
@@ -7424,6 +8166,9 @@ export interface ListTypesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTypeVersionsInput {
   /**
    * <p>The kind of the extension.</p>
@@ -7492,6 +8237,7 @@ export interface ListTypeVersionsInput {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a specific version of a CloudFormation
  *          extension.</p>
  */
@@ -7548,6 +8294,9 @@ export interface TypeVersionSummary {
   PublicVersionNumber?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTypeVersionsOutput {
   /**
    * <p>A list of <code>TypeVersionSummary</code> structures that contain information about the
@@ -7564,6 +8313,9 @@ export interface ListTypeVersionsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PublishTypeInput {
   /**
    * <p>The type of the extension.</p>
@@ -7603,6 +8355,9 @@ export interface PublishTypeInput {
   PublicVersionNumber?: string;
 }
 
+/**
+ * @public
+ */
 export interface PublishTypeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) assigned to the public extension upon publication.</p>
@@ -7611,6 +8366,7 @@ export interface PublishTypeOutput {
 }
 
 /**
+ * @public
  * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't return this error to
  *          users.</p>
  */
@@ -7633,6 +8389,7 @@ export class InvalidStateTransitionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't return this error to
  *          users.</p>
  */
@@ -7654,35 +8411,56 @@ export class OperationStatusCheckFailedException extends __BaseException {
   }
 }
 
-export enum OperationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
 
-export enum HandlerErrorCode {
-  AccessDenied = "AccessDenied",
-  AlreadyExists = "AlreadyExists",
-  GeneralServiceException = "GeneralServiceException",
-  HandlerInternalFailure = "HandlerInternalFailure",
-  InternalFailure = "InternalFailure",
-  InvalidCredentials = "InvalidCredentials",
-  InvalidRequest = "InvalidRequest",
-  InvalidTypeConfiguration = "InvalidTypeConfiguration",
-  NetworkFailure = "NetworkFailure",
-  NonCompliant = "NonCompliant",
-  NotFound = "NotFound",
-  NotUpdatable = "NotUpdatable",
-  ResourceConflict = "ResourceConflict",
-  ServiceInternalError = "ServiceInternalError",
-  ServiceLimitExceeded = "ServiceLimitExceeded",
-  ServiceTimeout = "NotStabilized",
-  Throttling = "Throttling",
-  Unknown = "Unknown",
-  UnsupportedTarget = "UnsupportedTarget",
-}
+/**
+ * @public
+ */
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
 
+/**
+ * @public
+ * @enum
+ */
+export const HandlerErrorCode = {
+  AccessDenied: "AccessDenied",
+  AlreadyExists: "AlreadyExists",
+  GeneralServiceException: "GeneralServiceException",
+  HandlerInternalFailure: "HandlerInternalFailure",
+  InternalFailure: "InternalFailure",
+  InvalidCredentials: "InvalidCredentials",
+  InvalidRequest: "InvalidRequest",
+  InvalidTypeConfiguration: "InvalidTypeConfiguration",
+  NetworkFailure: "NetworkFailure",
+  NonCompliant: "NonCompliant",
+  NotFound: "NotFound",
+  NotUpdatable: "NotUpdatable",
+  ResourceConflict: "ResourceConflict",
+  ServiceInternalError: "ServiceInternalError",
+  ServiceLimitExceeded: "ServiceLimitExceeded",
+  ServiceTimeout: "NotStabilized",
+  Throttling: "Throttling",
+  Unknown: "Unknown",
+  UnsupportedTarget: "UnsupportedTarget",
+} as const;
+
+/**
+ * @public
+ */
+export type HandlerErrorCode = (typeof HandlerErrorCode)[keyof typeof HandlerErrorCode];
+
+/**
+ * @public
+ */
 export interface RecordHandlerProgressInput {
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
@@ -7720,8 +8498,14 @@ export interface RecordHandlerProgressInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RecordHandlerProgressOutput {}
 
+/**
+ * @public
+ */
 export interface RegisterPublisherInput {
   /**
    * <p>Whether you accept the <a href="https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf">Terms and Conditions</a> for publishing extensions in the CloudFormation
@@ -7741,6 +8525,9 @@ export interface RegisterPublisherInput {
   ConnectionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterPublisherOutput {
   /**
    * <p>The ID assigned this account by CloudFormation for publishing
@@ -7749,6 +8536,9 @@ export interface RegisterPublisherOutput {
   PublisherId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterTypeInput {
   /**
    * <p>The kind of extension.</p>
@@ -7860,6 +8650,9 @@ export interface RegisterTypeInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterTypeOutput {
   /**
    * <p>The identifier for this registration request.</p>
@@ -7871,6 +8664,9 @@ export interface RegisterTypeOutput {
   RegistrationToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RollbackStackInput {
   /**
    * <p>The name that's associated with the stack.</p>
@@ -7889,6 +8685,9 @@ export interface RollbackStackInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RollbackStackOutput {
   /**
    * <p>Unique identifier of the stack.</p>
@@ -7897,6 +8696,7 @@ export interface RollbackStackOutput {
 }
 
 /**
+ * @public
  * <p>The input for the <a>SetStackPolicy</a> action.</p>
  */
 export interface SetStackPolicyInput {
@@ -7922,6 +8722,9 @@ export interface SetStackPolicyInput {
   StackPolicyURL?: string;
 }
 
+/**
+ * @public
+ */
 export interface SetTypeConfigurationInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the extension, in this account and region.</p>
@@ -7962,6 +8765,9 @@ export interface SetTypeConfigurationInput {
   Type?: ThirdPartyType | string;
 }
 
+/**
+ * @public
+ */
 export interface SetTypeConfigurationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) for the configuration data, in this account and
@@ -7972,6 +8778,9 @@ export interface SetTypeConfigurationOutput {
   ConfigurationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface SetTypeDefaultVersionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the extension for which you want version summary
@@ -8003,14 +8812,27 @@ export interface SetTypeDefaultVersionInput {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SetTypeDefaultVersionOutput {}
 
-export enum ResourceSignalStatus {
-  FAILURE = "FAILURE",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceSignalStatus = {
+  FAILURE: "FAILURE",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceSignalStatus = (typeof ResourceSignalStatus)[keyof typeof ResourceSignalStatus];
+
+/**
+ * @public
  * <p>The input for the <a>SignalResource</a> action.</p>
  */
 export interface SignalResourceInput {
@@ -8040,6 +8862,9 @@ export interface SignalResourceInput {
   Status: ResourceSignalStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopStackSetOperationInput {
   /**
    * <p>The name or unique ID of the stack set that you want to stop the operation for.</p>
@@ -8073,8 +8898,14 @@ export interface StopStackSetOperationInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface StopStackSetOperationOutput {}
 
+/**
+ * @public
+ */
 export interface TestTypeInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
@@ -8133,6 +8964,9 @@ export interface TestTypeInput {
   LogDeliveryBucket?: string;
 }
 
+/**
+ * @public
+ */
 export interface TestTypeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
@@ -8141,6 +8975,7 @@ export interface TestTypeOutput {
 }
 
 /**
+ * @public
  * <p>The input for an <a>UpdateStack</a> action.</p>
  */
 export interface UpdateStackInput {
@@ -8406,6 +9241,7 @@ export interface UpdateStackInput {
 }
 
 /**
+ * @public
  * <p>The output for an <a>UpdateStack</a> action.</p>
  */
 export interface UpdateStackOutput {
@@ -8415,6 +9251,9 @@ export interface UpdateStackOutput {
   StackId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStackInstancesInput {
   /**
    * <p>The name or unique ID of the stack set associated with the stack instances.</p>
@@ -8522,6 +9361,9 @@ export interface UpdateStackInstancesInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStackInstancesOutput {
   /**
    * <p>The unique identifier for this stack set operation.</p>
@@ -8529,6 +9371,9 @@ export interface UpdateStackInstancesOutput {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStackSetInput {
   /**
    * <p>The name or unique ID of the stack set that you want to update.</p>
@@ -8853,6 +9698,9 @@ export interface UpdateStackSetInput {
   ManagedExecution?: ManagedExecution;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStackSetOutput {
   /**
    * <p>The unique ID for this stack set operation.</p>
@@ -8860,6 +9708,9 @@ export interface UpdateStackSetOutput {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTerminationProtectionInput {
   /**
    * <p>Whether to enable termination protection on the specified stack.</p>
@@ -8873,6 +9724,9 @@ export interface UpdateTerminationProtectionInput {
   StackName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTerminationProtectionOutput {
   /**
    * <p>The unique ID of the stack.</p>
@@ -8881,6 +9735,7 @@ export interface UpdateTerminationProtectionOutput {
 }
 
 /**
+ * @public
  * <p>The input for <a>ValidateTemplate</a> action.</p>
  */
 export interface ValidateTemplateInput {
@@ -8905,6 +9760,7 @@ export interface ValidateTemplateInput {
 }
 
 /**
+ * @public
  * <p>The TemplateParameter data type.</p>
  */
 export interface TemplateParameter {
@@ -8931,6 +9787,7 @@ export interface TemplateParameter {
 }
 
 /**
+ * @public
  * <p>The output for <a>ValidateTemplate</a> action.</p>
  */
 export interface ValidateTemplateOutput {
@@ -8966,1326 +9823,3 @@ export interface ValidateTemplateOutput {
    */
   DeclaredTransforms?: string[];
 }
-
-/**
- * @internal
- */
-export const AccountGateResultFilterSensitiveLog = (obj: AccountGateResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountLimitFilterSensitiveLog = (obj: AccountLimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingConfigFilterSensitiveLog = (obj: LoggingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivateTypeInputFilterSensitiveLog = (obj: ActivateTypeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivateTypeOutputFilterSensitiveLog = (obj: ActivateTypeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoDeploymentFilterSensitiveLog = (obj: AutoDeployment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TypeConfigurationIdentifierFilterSensitiveLog = (obj: TypeConfigurationIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDescribeTypeConfigurationsInputFilterSensitiveLog = (
-  obj: BatchDescribeTypeConfigurationsInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDescribeTypeConfigurationsErrorFilterSensitiveLog = (
-  obj: BatchDescribeTypeConfigurationsError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TypeConfigurationDetailsFilterSensitiveLog = (obj: TypeConfigurationDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDescribeTypeConfigurationsOutputFilterSensitiveLog = (
-  obj: BatchDescribeTypeConfigurationsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelUpdateStackInputFilterSensitiveLog = (obj: CancelUpdateStackInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceTargetDefinitionFilterSensitiveLog = (obj: ResourceTargetDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceChangeDetailFilterSensitiveLog = (obj: ResourceChangeDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModuleInfoFilterSensitiveLog = (obj: ModuleInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceChangeFilterSensitiveLog = (obj: ResourceChange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeFilterSensitiveLog = (obj: Change): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeSetHookResourceTargetDetailsFilterSensitiveLog = (obj: ChangeSetHookResourceTargetDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeSetHookTargetDetailsFilterSensitiveLog = (obj: ChangeSetHookTargetDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeSetHookFilterSensitiveLog = (obj: ChangeSetHook): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeSetSummaryFilterSensitiveLog = (obj: ChangeSetSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContinueUpdateRollbackInputFilterSensitiveLog = (obj: ContinueUpdateRollbackInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContinueUpdateRollbackOutputFilterSensitiveLog = (obj: ContinueUpdateRollbackOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterFilterSensitiveLog = (obj: Parameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceToImportFilterSensitiveLog = (obj: ResourceToImport): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RollbackTriggerFilterSensitiveLog = (obj: RollbackTrigger): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RollbackConfigurationFilterSensitiveLog = (obj: RollbackConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChangeSetInputFilterSensitiveLog = (obj: CreateChangeSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChangeSetOutputFilterSensitiveLog = (obj: CreateChangeSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStackInputFilterSensitiveLog = (obj: CreateStackInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStackOutputFilterSensitiveLog = (obj: CreateStackOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentTargetsFilterSensitiveLog = (obj: DeploymentTargets): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackSetOperationPreferencesFilterSensitiveLog = (obj: StackSetOperationPreferences): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStackInstancesInputFilterSensitiveLog = (obj: CreateStackInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStackInstancesOutputFilterSensitiveLog = (obj: CreateStackInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManagedExecutionFilterSensitiveLog = (obj: ManagedExecution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStackSetInputFilterSensitiveLog = (obj: CreateStackSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStackSetOutputFilterSensitiveLog = (obj: CreateStackSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeactivateTypeInputFilterSensitiveLog = (obj: DeactivateTypeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeactivateTypeOutputFilterSensitiveLog = (obj: DeactivateTypeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChangeSetInputFilterSensitiveLog = (obj: DeleteChangeSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChangeSetOutputFilterSensitiveLog = (obj: DeleteChangeSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStackInputFilterSensitiveLog = (obj: DeleteStackInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStackInstancesInputFilterSensitiveLog = (obj: DeleteStackInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStackInstancesOutputFilterSensitiveLog = (obj: DeleteStackInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStackSetInputFilterSensitiveLog = (obj: DeleteStackSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStackSetOutputFilterSensitiveLog = (obj: DeleteStackSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTypeInputFilterSensitiveLog = (obj: DeregisterTypeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTypeOutputFilterSensitiveLog = (obj: DeregisterTypeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountLimitsInputFilterSensitiveLog = (obj: DescribeAccountLimitsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountLimitsOutputFilterSensitiveLog = (obj: DescribeAccountLimitsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeChangeSetInputFilterSensitiveLog = (obj: DescribeChangeSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeChangeSetOutputFilterSensitiveLog = (obj: DescribeChangeSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeChangeSetHooksInputFilterSensitiveLog = (obj: DescribeChangeSetHooksInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeChangeSetHooksOutputFilterSensitiveLog = (obj: DescribeChangeSetHooksOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePublisherInputFilterSensitiveLog = (obj: DescribePublisherInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePublisherOutputFilterSensitiveLog = (obj: DescribePublisherOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackDriftDetectionStatusInputFilterSensitiveLog = (
-  obj: DescribeStackDriftDetectionStatusInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackDriftDetectionStatusOutputFilterSensitiveLog = (
-  obj: DescribeStackDriftDetectionStatusOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackEventsInputFilterSensitiveLog = (obj: DescribeStackEventsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackEventFilterSensitiveLog = (obj: StackEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackEventsOutputFilterSensitiveLog = (obj: DescribeStackEventsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackInstanceInputFilterSensitiveLog = (obj: DescribeStackInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackInstanceComprehensiveStatusFilterSensitiveLog = (obj: StackInstanceComprehensiveStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackInstanceFilterSensitiveLog = (obj: StackInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackInstanceOutputFilterSensitiveLog = (obj: DescribeStackInstanceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackResourceInputFilterSensitiveLog = (obj: DescribeStackResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackResourceDriftInformationFilterSensitiveLog = (obj: StackResourceDriftInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackResourceDetailFilterSensitiveLog = (obj: StackResourceDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackResourceOutputFilterSensitiveLog = (obj: DescribeStackResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackResourceDriftsInputFilterSensitiveLog = (obj: DescribeStackResourceDriftsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PhysicalResourceIdContextKeyValuePairFilterSensitiveLog = (
-  obj: PhysicalResourceIdContextKeyValuePair
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PropertyDifferenceFilterSensitiveLog = (obj: PropertyDifference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackResourceDriftFilterSensitiveLog = (obj: StackResourceDrift): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackResourceDriftsOutputFilterSensitiveLog = (obj: DescribeStackResourceDriftsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackResourcesInputFilterSensitiveLog = (obj: DescribeStackResourcesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackResourceFilterSensitiveLog = (obj: StackResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackResourcesOutputFilterSensitiveLog = (obj: DescribeStackResourcesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStacksInputFilterSensitiveLog = (obj: DescribeStacksInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackDriftInformationFilterSensitiveLog = (obj: StackDriftInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputFilterSensitiveLog = (obj: Output): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackFilterSensitiveLog = (obj: Stack): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStacksOutputFilterSensitiveLog = (obj: DescribeStacksOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackSetInputFilterSensitiveLog = (obj: DescribeStackSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackSetDriftDetectionDetailsFilterSensitiveLog = (obj: StackSetDriftDetectionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackSetFilterSensitiveLog = (obj: StackSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackSetOutputFilterSensitiveLog = (obj: DescribeStackSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackSetOperationInputFilterSensitiveLog = (obj: DescribeStackSetOperationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackSetOperationStatusDetailsFilterSensitiveLog = (obj: StackSetOperationStatusDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackSetOperationFilterSensitiveLog = (obj: StackSetOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStackSetOperationOutputFilterSensitiveLog = (obj: DescribeStackSetOperationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTypeInputFilterSensitiveLog = (obj: DescribeTypeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RequiredActivatedTypeFilterSensitiveLog = (obj: RequiredActivatedType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTypeOutputFilterSensitiveLog = (obj: DescribeTypeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTypeRegistrationInputFilterSensitiveLog = (obj: DescribeTypeRegistrationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTypeRegistrationOutputFilterSensitiveLog = (obj: DescribeTypeRegistrationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetectStackDriftInputFilterSensitiveLog = (obj: DetectStackDriftInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetectStackDriftOutputFilterSensitiveLog = (obj: DetectStackDriftOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetectStackResourceDriftInputFilterSensitiveLog = (obj: DetectStackResourceDriftInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetectStackResourceDriftOutputFilterSensitiveLog = (obj: DetectStackResourceDriftOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetectStackSetDriftInputFilterSensitiveLog = (obj: DetectStackSetDriftInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetectStackSetDriftOutputFilterSensitiveLog = (obj: DetectStackSetDriftOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EstimateTemplateCostInputFilterSensitiveLog = (obj: EstimateTemplateCostInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EstimateTemplateCostOutputFilterSensitiveLog = (obj: EstimateTemplateCostOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteChangeSetInputFilterSensitiveLog = (obj: ExecuteChangeSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteChangeSetOutputFilterSensitiveLog = (obj: ExecuteChangeSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStackPolicyInputFilterSensitiveLog = (obj: GetStackPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStackPolicyOutputFilterSensitiveLog = (obj: GetStackPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateInputFilterSensitiveLog = (obj: GetTemplateInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateOutputFilterSensitiveLog = (obj: GetTemplateOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateSummaryInputFilterSensitiveLog = (obj: GetTemplateSummaryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterConstraintsFilterSensitiveLog = (obj: ParameterConstraints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterDeclarationFilterSensitiveLog = (obj: ParameterDeclaration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceIdentifierSummaryFilterSensitiveLog = (obj: ResourceIdentifierSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateSummaryOutputFilterSensitiveLog = (obj: GetTemplateSummaryOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportStacksToStackSetInputFilterSensitiveLog = (obj: ImportStacksToStackSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportStacksToStackSetOutputFilterSensitiveLog = (obj: ImportStacksToStackSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChangeSetsInputFilterSensitiveLog = (obj: ListChangeSetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChangeSetsOutputFilterSensitiveLog = (obj: ListChangeSetsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExportsInputFilterSensitiveLog = (obj: ListExportsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportFilterSensitiveLog = (obj: Export): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExportsOutputFilterSensitiveLog = (obj: ListExportsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImportsInputFilterSensitiveLog = (obj: ListImportsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImportsOutputFilterSensitiveLog = (obj: ListImportsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackInstanceFilterFilterSensitiveLog = (obj: StackInstanceFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStackInstancesInputFilterSensitiveLog = (obj: ListStackInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackInstanceSummaryFilterSensitiveLog = (obj: StackInstanceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStackInstancesOutputFilterSensitiveLog = (obj: ListStackInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStackResourcesInputFilterSensitiveLog = (obj: ListStackResourcesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackResourceDriftInformationSummaryFilterSensitiveLog = (
-  obj: StackResourceDriftInformationSummary
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackResourceSummaryFilterSensitiveLog = (obj: StackResourceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStackResourcesOutputFilterSensitiveLog = (obj: ListStackResourcesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStacksInputFilterSensitiveLog = (obj: ListStacksInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackDriftInformationSummaryFilterSensitiveLog = (obj: StackDriftInformationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackSummaryFilterSensitiveLog = (obj: StackSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStacksOutputFilterSensitiveLog = (obj: ListStacksOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OperationResultFilterFilterSensitiveLog = (obj: OperationResultFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStackSetOperationResultsInputFilterSensitiveLog = (obj: ListStackSetOperationResultsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackSetOperationResultSummaryFilterSensitiveLog = (obj: StackSetOperationResultSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStackSetOperationResultsOutputFilterSensitiveLog = (obj: ListStackSetOperationResultsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStackSetOperationsInputFilterSensitiveLog = (obj: ListStackSetOperationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackSetOperationSummaryFilterSensitiveLog = (obj: StackSetOperationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStackSetOperationsOutputFilterSensitiveLog = (obj: ListStackSetOperationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStackSetsInputFilterSensitiveLog = (obj: ListStackSetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackSetSummaryFilterSensitiveLog = (obj: StackSetSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStackSetsOutputFilterSensitiveLog = (obj: ListStackSetsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTypeRegistrationsInputFilterSensitiveLog = (obj: ListTypeRegistrationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTypeRegistrationsOutputFilterSensitiveLog = (obj: ListTypeRegistrationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TypeFiltersFilterSensitiveLog = (obj: TypeFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTypesInputFilterSensitiveLog = (obj: ListTypesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TypeSummaryFilterSensitiveLog = (obj: TypeSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTypesOutputFilterSensitiveLog = (obj: ListTypesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTypeVersionsInputFilterSensitiveLog = (obj: ListTypeVersionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TypeVersionSummaryFilterSensitiveLog = (obj: TypeVersionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTypeVersionsOutputFilterSensitiveLog = (obj: ListTypeVersionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishTypeInputFilterSensitiveLog = (obj: PublishTypeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishTypeOutputFilterSensitiveLog = (obj: PublishTypeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecordHandlerProgressInputFilterSensitiveLog = (obj: RecordHandlerProgressInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecordHandlerProgressOutputFilterSensitiveLog = (obj: RecordHandlerProgressOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterPublisherInputFilterSensitiveLog = (obj: RegisterPublisherInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterPublisherOutputFilterSensitiveLog = (obj: RegisterPublisherOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterTypeInputFilterSensitiveLog = (obj: RegisterTypeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterTypeOutputFilterSensitiveLog = (obj: RegisterTypeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RollbackStackInputFilterSensitiveLog = (obj: RollbackStackInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RollbackStackOutputFilterSensitiveLog = (obj: RollbackStackOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetStackPolicyInputFilterSensitiveLog = (obj: SetStackPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetTypeConfigurationInputFilterSensitiveLog = (obj: SetTypeConfigurationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetTypeConfigurationOutputFilterSensitiveLog = (obj: SetTypeConfigurationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetTypeDefaultVersionInputFilterSensitiveLog = (obj: SetTypeDefaultVersionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetTypeDefaultVersionOutputFilterSensitiveLog = (obj: SetTypeDefaultVersionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SignalResourceInputFilterSensitiveLog = (obj: SignalResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopStackSetOperationInputFilterSensitiveLog = (obj: StopStackSetOperationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopStackSetOperationOutputFilterSensitiveLog = (obj: StopStackSetOperationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestTypeInputFilterSensitiveLog = (obj: TestTypeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestTypeOutputFilterSensitiveLog = (obj: TestTypeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStackInputFilterSensitiveLog = (obj: UpdateStackInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStackOutputFilterSensitiveLog = (obj: UpdateStackOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStackInstancesInputFilterSensitiveLog = (obj: UpdateStackInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStackInstancesOutputFilterSensitiveLog = (obj: UpdateStackInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStackSetInputFilterSensitiveLog = (obj: UpdateStackSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStackSetOutputFilterSensitiveLog = (obj: UpdateStackSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTerminationProtectionInputFilterSensitiveLog = (obj: UpdateTerminationProtectionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTerminationProtectionOutputFilterSensitiveLog = (obj: UpdateTerminationProtectionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateTemplateInputFilterSensitiveLog = (obj: ValidateTemplateInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateParameterFilterSensitiveLog = (obj: TemplateParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateTemplateOutputFilterSensitiveLog = (obj: ValidateTemplateOutput): any => ({
-  ...obj,
-});

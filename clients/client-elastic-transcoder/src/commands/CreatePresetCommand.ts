@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  CreatePresetRequest,
-  CreatePresetRequestFilterSensitiveLog,
-  CreatePresetResponse,
-  CreatePresetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePresetCommand,
-  serializeAws_restJson1CreatePresetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreatePresetRequest, CreatePresetResponse } from "../models/models_0";
+import { de_CreatePresetCommand, se_CreatePresetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePresetCommand}.
  */
 export interface CreatePresetCommandInput extends CreatePresetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePresetCommand}.
  */
 export interface CreatePresetCommandOutput extends CreatePresetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The CreatePreset operation creates a preset with settings that you specify.</p>
  *         <important>
  *             <p>Elastic Transcoder checks the CreatePreset settings to ensure that they meet Elastic Transcoder requirements
@@ -59,10 +56,72 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * import { ElasticTranscoderClient, CreatePresetCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, CreatePresetCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // CreatePresetRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Container: "STRING_VALUE", // required
+ *   Video: { // VideoParameters
+ *     Codec: "STRING_VALUE",
+ *     CodecOptions: { // CodecOptions
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     KeyframesMaxDist: "STRING_VALUE",
+ *     FixedGOP: "STRING_VALUE",
+ *     BitRate: "STRING_VALUE",
+ *     FrameRate: "STRING_VALUE",
+ *     MaxFrameRate: "STRING_VALUE",
+ *     Resolution: "STRING_VALUE",
+ *     AspectRatio: "STRING_VALUE",
+ *     MaxWidth: "STRING_VALUE",
+ *     MaxHeight: "STRING_VALUE",
+ *     DisplayAspectRatio: "STRING_VALUE",
+ *     SizingPolicy: "STRING_VALUE",
+ *     PaddingPolicy: "STRING_VALUE",
+ *     Watermarks: [ // PresetWatermarks
+ *       { // PresetWatermark
+ *         Id: "STRING_VALUE",
+ *         MaxWidth: "STRING_VALUE",
+ *         MaxHeight: "STRING_VALUE",
+ *         SizingPolicy: "STRING_VALUE",
+ *         HorizontalAlign: "STRING_VALUE",
+ *         HorizontalOffset: "STRING_VALUE",
+ *         VerticalAlign: "STRING_VALUE",
+ *         VerticalOffset: "STRING_VALUE",
+ *         Opacity: "STRING_VALUE",
+ *         Target: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Audio: { // AudioParameters
+ *     Codec: "STRING_VALUE",
+ *     SampleRate: "STRING_VALUE",
+ *     BitRate: "STRING_VALUE",
+ *     Channels: "STRING_VALUE",
+ *     AudioPackingMode: "STRING_VALUE",
+ *     CodecOptions: { // AudioCodecOptions
+ *       Profile: "STRING_VALUE",
+ *       BitDepth: "STRING_VALUE",
+ *       BitOrder: "STRING_VALUE",
+ *       Signed: "STRING_VALUE",
+ *     },
+ *   },
+ *   Thumbnails: { // Thumbnails
+ *     Format: "STRING_VALUE",
+ *     Interval: "STRING_VALUE",
+ *     Resolution: "STRING_VALUE",
+ *     AspectRatio: "STRING_VALUE",
+ *     MaxWidth: "STRING_VALUE",
+ *     MaxHeight: "STRING_VALUE",
+ *     SizingPolicy: "STRING_VALUE",
+ *     PaddingPolicy: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePresetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePresetCommandInput - {@link CreatePresetCommandInput}
+ * @returns {@link CreatePresetCommandOutput}
  * @see {@link CreatePresetCommandInput} for command's `input` shape.
  * @see {@link CreatePresetCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -101,6 +160,9 @@ export class CreatePresetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePresetCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +189,8 @@ export class CreatePresetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePresetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePresetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +200,18 @@ export class CreatePresetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePresetCommand(input, context);
+    return se_CreatePresetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePresetCommandOutput> {
-    return deserializeAws_restJson1CreatePresetCommand(output, context);
+    return de_CreatePresetCommand(output, context);
   }
 
   // Start section: command_body_extra

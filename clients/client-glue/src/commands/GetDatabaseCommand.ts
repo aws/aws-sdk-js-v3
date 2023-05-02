@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetDatabaseRequest,
-  GetDatabaseRequestFilterSensitiveLog,
-  GetDatabaseResponse,
-  GetDatabaseResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDatabaseCommand,
-  serializeAws_json1_1GetDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDatabaseRequest, GetDatabaseResponse } from "../models/models_1";
+import { de_GetDatabaseCommand, se_GetDatabaseCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDatabaseCommand}.
  */
 export interface GetDatabaseCommandInput extends GetDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDatabaseCommand}.
  */
 export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the definition of a specified database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,16 +39,25 @@ export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __Metadat
  * import { GlueClient, GetDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetDatabaseRequest
+ *   CatalogId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetDatabaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatabaseCommandInput - {@link GetDatabaseCommandInput}
+ * @returns {@link GetDatabaseCommandOutput}
  * @see {@link GetDatabaseCommandInput} for command's `input` shape.
  * @see {@link GetDatabaseCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
  *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
@@ -84,6 +90,9 @@ export class GetDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +119,8 @@ export class GetDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatabaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDatabaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +130,18 @@ export class GetDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDatabaseCommand(input, context);
+    return se_GetDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatabaseCommandOutput> {
-    return deserializeAws_json1_1GetDatabaseCommand(output, context);
+    return de_GetDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

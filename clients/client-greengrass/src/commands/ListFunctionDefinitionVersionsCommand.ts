@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { ListFunctionDefinitionVersionsRequest, ListFunctionDefinitionVersionsResponse } from "../models/models_0";
 import {
-  ListFunctionDefinitionVersionsRequest,
-  ListFunctionDefinitionVersionsRequestFilterSensitiveLog,
-  ListFunctionDefinitionVersionsResponse,
-  ListFunctionDefinitionVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFunctionDefinitionVersionsCommand,
-  serializeAws_restJson1ListFunctionDefinitionVersionsCommand,
+  de_ListFunctionDefinitionVersionsCommand,
+  se_ListFunctionDefinitionVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFunctionDefinitionVersionsCommand}.
  */
 export interface ListFunctionDefinitionVersionsCommandInput extends ListFunctionDefinitionVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFunctionDefinitionVersionsCommand}.
  */
 export interface ListFunctionDefinitionVersionsCommandOutput
@@ -37,6 +36,7 @@ export interface ListFunctionDefinitionVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Lists the versions of a Lambda function definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface ListFunctionDefinitionVersionsCommandOutput
  * import { GreengrassClient, ListFunctionDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListFunctionDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListFunctionDefinitionVersionsRequest
+ *   FunctionDefinitionId: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFunctionDefinitionVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionDefinitionVersionsCommandInput - {@link ListFunctionDefinitionVersionsCommandInput}
+ * @returns {@link ListFunctionDefinitionVersionsCommandOutput}
  * @see {@link ListFunctionDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionDefinitionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +112,8 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFunctionDefinitionVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFunctionDefinitionVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +123,24 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListFunctionDefinitionVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFunctionDefinitionVersionsCommand(input, context);
+    return se_ListFunctionDefinitionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFunctionDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1ListFunctionDefinitionVersionsCommand(output, context);
+    return de_ListFunctionDefinitionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

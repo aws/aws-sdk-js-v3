@@ -14,27 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { GetContextKeysForCustomPolicyRequest, GetContextKeysForPolicyResponse } from "../models/models_0";
 import {
-  GetContextKeysForCustomPolicyRequest,
-  GetContextKeysForCustomPolicyRequestFilterSensitiveLog,
-  GetContextKeysForPolicyResponse,
-  GetContextKeysForPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetContextKeysForCustomPolicyCommand,
-  serializeAws_queryGetContextKeysForCustomPolicyCommand,
+  de_GetContextKeysForCustomPolicyCommand,
+  se_GetContextKeysForCustomPolicyCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetContextKeysForCustomPolicyCommand}.
  */
 export interface GetContextKeysForCustomPolicyCommandInput extends GetContextKeysForCustomPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContextKeysForCustomPolicyCommand}.
  */
 export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKeysForPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all of the context keys referenced in the input policies. The policies
  *             are supplied as a list of one or more strings. To get the context keys from policies
  *             associated with an IAM user, group, or role, use <a>GetContextKeysForPrincipalPolicy</a>.</p>
@@ -51,10 +51,17 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  * import { IAMClient, GetContextKeysForCustomPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetContextKeysForCustomPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetContextKeysForCustomPolicyRequest
+ *   PolicyInputList: [ // SimulationPolicyListType // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetContextKeysForCustomPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContextKeysForCustomPolicyCommandInput - {@link GetContextKeysForCustomPolicyCommandInput}
+ * @returns {@link GetContextKeysForCustomPolicyCommandOutput}
  * @see {@link GetContextKeysForCustomPolicyCommandInput} for command's `input` shape.
  * @see {@link GetContextKeysForCustomPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetContextKeysForCustomPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContextKeysForCustomPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class GetContextKeysForCustomPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContextKeysForCustomPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContextKeysForPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +131,21 @@ export class GetContextKeysForCustomPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContextKeysForCustomPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetContextKeysForCustomPolicyCommand(input, context);
+    return se_GetContextKeysForCustomPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContextKeysForCustomPolicyCommandOutput> {
-    return deserializeAws_queryGetContextKeysForCustomPolicyCommand(output, context);
+    return de_GetContextKeysForCustomPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

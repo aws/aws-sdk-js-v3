@@ -10,7 +10,7 @@ import { NimbleClient } from "../NimbleClient";
 import { NimblePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NimbleClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListStudioMembersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListStudioMembers(
   config: NimblePaginationConfiguration,
   input: ListStudioMembersCommandInput,

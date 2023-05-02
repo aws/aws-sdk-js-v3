@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  FlushApiCacheRequest,
-  FlushApiCacheRequestFilterSensitiveLog,
-  FlushApiCacheResponse,
-  FlushApiCacheResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1FlushApiCacheCommand,
-  serializeAws_restJson1FlushApiCacheCommand,
-} from "../protocols/Aws_restJson1";
+import { FlushApiCacheRequest, FlushApiCacheResponse } from "../models/models_0";
+import { de_FlushApiCacheCommand, se_FlushApiCacheCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link FlushApiCacheCommand}.
  */
 export interface FlushApiCacheCommandInput extends FlushApiCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link FlushApiCacheCommand}.
  */
 export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Flushes an <code>ApiCache</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __Met
  * import { AppSyncClient, FlushApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, FlushApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // FlushApiCacheRequest
+ *   apiId: "STRING_VALUE", // required
+ * };
  * const command = new FlushApiCacheCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param FlushApiCacheCommandInput - {@link FlushApiCacheCommandInput}
+ * @returns {@link FlushApiCacheCommandOutput}
  * @see {@link FlushApiCacheCommandInput} for command's `input` shape.
  * @see {@link FlushApiCacheCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +88,9 @@ export class FlushApiCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FlushApiCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class FlushApiCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FlushApiCacheRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: FlushApiCacheResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class FlushApiCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FlushApiCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1FlushApiCacheCommand(input, context);
+    return se_FlushApiCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FlushApiCacheCommandOutput> {
-    return deserializeAws_restJson1FlushApiCacheCommand(output, context);
+    return de_FlushApiCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,20 +15,62 @@ import {
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { GetPhoneNumberSettingsResponse, GetPhoneNumberSettingsResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPhoneNumberSettingsCommand,
-  serializeAws_restJson1GetPhoneNumberSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPhoneNumberSettingsCommand, se_GetPhoneNumberSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPhoneNumberSettingsCommand}.
  */
 export interface GetPhoneNumberSettingsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetPhoneNumberSettingsCommand}.
  */
 export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSettingsResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Retrieves the phone number settings for the administrator's AWS account,
+ *          such as the default outbound calling name.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, GetPhoneNumberSettingsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetPhoneNumberSettingsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {};
+ * const command = new GetPhoneNumberSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param GetPhoneNumberSettingsCommandInput - {@link GetPhoneNumberSettingsCommandInput}
+ * @returns {@link GetPhoneNumberSettingsCommandOutput}
+ * @see {@link GetPhoneNumberSettingsCommandInput} for command's `input` shape.
+ * @see {@link GetPhoneNumberSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class GetPhoneNumberSettingsCommand extends $Command<
   GetPhoneNumberSettingsCommandInput,
   GetPhoneNumberSettingsCommandOutput,
@@ -46,6 +88,9 @@ export class GetPhoneNumberSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPhoneNumberSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,7 +119,7 @@ export class GetPhoneNumberSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPhoneNumberSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -85,12 +130,18 @@ export class GetPhoneNumberSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPhoneNumberSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPhoneNumberSettingsCommand(input, context);
+    return se_GetPhoneNumberSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPhoneNumberSettingsCommandOutput> {
-    return deserializeAws_restJson1GetPhoneNumberSettingsCommand(output, context);
+    return de_GetPhoneNumberSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

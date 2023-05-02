@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { DisableStageTransitionInput, DisableStageTransitionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableStageTransitionCommand,
-  serializeAws_json1_1DisableStageTransitionCommand,
-} from "../protocols/Aws_json1_1";
+import { DisableStageTransitionInput } from "../models/models_0";
+import { de_DisableStageTransitionCommand, se_DisableStageTransitionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableStageTransitionCommand}.
  */
 export interface DisableStageTransitionCommandInput extends DisableStageTransitionInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableStageTransitionCommand}.
  */
 export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Prevents artifacts in a pipeline from transitioning to the next stage in the
  *             pipeline.</p>
  * @example
@@ -38,10 +40,18 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
  * import { CodePipelineClient, DisableStageTransitionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, DisableStageTransitionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // DisableStageTransitionInput
+ *   pipelineName: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ *   transitionType: "STRING_VALUE", // required
+ *   reason: "STRING_VALUE", // required
+ * };
  * const command = new DisableStageTransitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableStageTransitionCommandInput - {@link DisableStageTransitionCommandInput}
+ * @returns {@link DisableStageTransitionCommandOutput}
  * @see {@link DisableStageTransitionCommandInput} for command's `input` shape.
  * @see {@link DisableStageTransitionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -74,6 +84,9 @@ export class DisableStageTransitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableStageTransitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +115,8 @@ export class DisableStageTransitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableStageTransitionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +126,18 @@ export class DisableStageTransitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableStageTransitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableStageTransitionCommand(input, context);
+    return se_DisableStageTransitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableStageTransitionCommandOutput> {
-    return deserializeAws_json1_1DisableStageTransitionCommand(output, context);
+    return de_DisableStageTransitionCommand(output, context);
   }
 
   // Start section: command_body_extra

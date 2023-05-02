@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import {
-  PutAlertManagerDefinitionRequest,
-  PutAlertManagerDefinitionRequestFilterSensitiveLog,
-  PutAlertManagerDefinitionResponse,
-  PutAlertManagerDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAlertManagerDefinitionCommand,
-  serializeAws_restJson1PutAlertManagerDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { PutAlertManagerDefinitionRequest, PutAlertManagerDefinitionResponse } from "../models/models_0";
+import { de_PutAlertManagerDefinitionCommand, se_PutAlertManagerDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAlertManagerDefinitionCommand}.
  */
 export interface PutAlertManagerDefinitionCommandInput extends PutAlertManagerDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAlertManagerDefinitionCommand}.
  */
 export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Update an alert manager definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  * import { AmpClient, PutAlertManagerDefinitionCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, PutAlertManagerDefinitionCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // PutAlertManagerDefinitionRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   data: "BLOB_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new PutAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAlertManagerDefinitionCommandInput - {@link PutAlertManagerDefinitionCommandInput}
+ * @returns {@link PutAlertManagerDefinitionCommandOutput}
  * @see {@link PutAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link PutAlertManagerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -90,6 +94,9 @@ export class PutAlertManagerDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAlertManagerDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class PutAlertManagerDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAlertManagerDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAlertManagerDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +136,21 @@ export class PutAlertManagerDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAlertManagerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAlertManagerDefinitionCommand(input, context);
+    return se_PutAlertManagerDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAlertManagerDefinitionCommandOutput> {
-    return deserializeAws_restJson1PutAlertManagerDefinitionCommand(output, context);
+    return de_PutAlertManagerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

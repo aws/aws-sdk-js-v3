@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SignalWorkflowExecutionInput, SignalWorkflowExecutionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0SignalWorkflowExecutionCommand,
-  serializeAws_json1_0SignalWorkflowExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { SignalWorkflowExecutionInput } from "../models/models_0";
+import { de_SignalWorkflowExecutionCommand, se_SignalWorkflowExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link SignalWorkflowExecutionCommand}.
  */
 export interface SignalWorkflowExecutionCommandInput extends SignalWorkflowExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link SignalWorkflowExecutionCommand}.
  */
 export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Records a <code>WorkflowExecutionSignaled</code> event in the workflow execution
  *       history and creates a decision task for the workflow execution identified by the given domain,
  *       workflowId and runId. The event is recorded with the specified user defined signalName and
@@ -75,10 +77,19 @@ export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {
  * import { SWFClient, SignalWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, SignalWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // SignalWorkflowExecutionInput
+ *   domain: "STRING_VALUE", // required
+ *   workflowId: "STRING_VALUE", // required
+ *   runId: "STRING_VALUE",
+ *   signalName: "STRING_VALUE", // required
+ *   input: "STRING_VALUE",
+ * };
  * const command = new SignalWorkflowExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SignalWorkflowExecutionCommandInput - {@link SignalWorkflowExecutionCommandInput}
+ * @returns {@link SignalWorkflowExecutionCommandOutput}
  * @see {@link SignalWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link SignalWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -108,6 +119,9 @@ export class SignalWorkflowExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SignalWorkflowExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +150,8 @@ export class SignalWorkflowExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SignalWorkflowExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +161,18 @@ export class SignalWorkflowExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SignalWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0SignalWorkflowExecutionCommand(input, context);
+    return se_SignalWorkflowExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignalWorkflowExecutionCommandOutput> {
-    return deserializeAws_json1_0SignalWorkflowExecutionCommand(output, context);
+    return de_SignalWorkflowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

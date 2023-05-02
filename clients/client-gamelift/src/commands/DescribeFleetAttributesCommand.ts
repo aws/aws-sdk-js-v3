@@ -14,53 +14,50 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeFleetAttributesInput,
-  DescribeFleetAttributesInputFilterSensitiveLog,
-  DescribeFleetAttributesOutput,
-  DescribeFleetAttributesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetAttributesCommand,
-  serializeAws_json1_1DescribeFleetAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFleetAttributesInput, DescribeFleetAttributesOutput } from "../models/models_0";
+import { de_DescribeFleetAttributesCommand, se_DescribeFleetAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetAttributesCommand}.
  */
 export interface DescribeFleetAttributesCommandInput extends DescribeFleetAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetAttributesCommand}.
  */
 export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttributesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves core fleet-wide properties, including the computing hardware and deployment
  *             configuration for all instances in the fleet.</p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To get attributes for one or more specific fleets, provide a list of fleet IDs
+ *                <p>To get attributes for one or more specific fleets, provide a list of fleet IDs
  *                     or fleet ARNs. </p>
  *             </li>
  *             <li>
- *                 <p>To get attributes for all fleets, do not provide a fleet identifier. </p>
+ *                <p>To get attributes for all fleets, do not provide a fleet identifier. </p>
  *             </li>
  *          </ul>
- *         <p>When requesting attributes for multiple fleets, use the pagination parameters to
+ *          <p>When requesting attributes for multiple fleets, use the pagination parameters to
  *             retrieve results as a set of sequential pages. </p>
- *         <p>If successful, a <code>FleetAttributes</code> object is returned for each fleet
+ *          <p>If successful, a <code>FleetAttributes</code> object is returned for each fleet
  *             requested, unless the fleet identifier is not found. </p>
- *         <note>
+ *          <note>
  *             <p>Some API operations limit the number of fleet IDs that allowed in one request. If
  *                 a request exceeds this limit, the request fails and the error message contains the
  *                 maximum allowed number.</p>
- *         </note>
+ *          </note>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
  * @example
@@ -69,10 +66,19 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  * import { GameLiftClient, DescribeFleetAttributesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetAttributesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeFleetAttributesInput
+ *   FleetIds: [ // FleetIdOrArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetAttributesCommandInput - {@link DescribeFleetAttributesCommandInput}
+ * @returns {@link DescribeFleetAttributesCommandOutput}
  * @see {@link DescribeFleetAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAttributesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -110,6 +116,9 @@ export class DescribeFleetAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +147,8 @@ export class DescribeFleetAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetAttributesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +158,18 @@ export class DescribeFleetAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetAttributesCommand(input, context);
+    return se_DescribeFleetAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetAttributesCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetAttributesCommand(output, context);
+    return de_DescribeFleetAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

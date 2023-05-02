@@ -16,25 +16,26 @@ import {
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import {
   DeleteWorkspaceRequest,
-  DeleteWorkspaceRequestFilterSensitiveLog,
   DeleteWorkspaceResponse,
   DeleteWorkspaceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkspaceCommand,
-  serializeAws_restJson1DeleteWorkspaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteWorkspaceCommand, se_DeleteWorkspaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkspaceCommand}.
  */
 export interface DeleteWorkspaceCommandInput extends DeleteWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkspaceCommand}.
  */
 export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Managed Grafana workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * import { GrafanaClient, DeleteWorkspaceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, DeleteWorkspaceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // DeleteWorkspaceRequest
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkspaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkspaceCommandInput - {@link DeleteWorkspaceCommandInput}
+ * @returns {@link DeleteWorkspaceCommandOutput}
  * @see {@link DeleteWorkspaceCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -87,6 +93,9 @@ export class DeleteWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +124,7 @@ export class DeleteWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkspaceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteWorkspaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,12 +135,18 @@ export class DeleteWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkspaceCommand(input, context);
+    return se_DeleteWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkspaceCommand(output, context);
+    return de_DeleteWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

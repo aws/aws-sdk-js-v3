@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
-import {
-  ListMonitorsInput,
-  ListMonitorsInputFilterSensitiveLog,
-  ListMonitorsOutput,
-  ListMonitorsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMonitorsCommand,
-  serializeAws_restJson1ListMonitorsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMonitorsInput, ListMonitorsOutput } from "../models/models_0";
+import { de_ListMonitorsCommand, se_ListMonitorsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMonitorsCommand}.
  */
 export interface ListMonitorsCommandInput extends ListMonitorsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListMonitorsCommand}.
  */
 export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of your monitors for Amazon CloudWatch Internet Monitor and their statuses, along with the Amazon Resource Name (ARN) and name of each monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * import { InternetMonitorClient, ListMonitorsCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, ListMonitorsCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
+ * const input = { // ListMonitorsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   MonitorStatus: "STRING_VALUE",
+ * };
  * const command = new ListMonitorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMonitorsCommandInput - {@link ListMonitorsCommandInput}
+ * @returns {@link ListMonitorsCommandOutput}
  * @see {@link ListMonitorsCommandInput} for command's `input` shape.
  * @see {@link ListMonitorsCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
@@ -80,6 +84,9 @@ export class ListMonitorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMonitorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class ListMonitorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMonitorsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMonitorsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class ListMonitorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMonitorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMonitorsCommand(input, context);
+    return se_ListMonitorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitorsCommandOutput> {
-    return deserializeAws_restJson1ListMonitorsCommand(output, context);
+    return de_ListMonitorsCommand(output, context);
   }
 
   // Start section: command_body_extra

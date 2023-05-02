@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceEntitlementServiceClient";
-import {
-  GetEntitlementsRequest,
-  GetEntitlementsRequestFilterSensitiveLog,
-  GetEntitlementsResult,
-  GetEntitlementsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetEntitlementsCommand,
-  serializeAws_json1_1GetEntitlementsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetEntitlementsRequest, GetEntitlementsResult } from "../models/models_0";
+import { de_GetEntitlementsCommand, se_GetEntitlementsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEntitlementsCommand}.
  */
 export interface GetEntitlementsCommandInput extends GetEntitlementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEntitlementsCommand}.
  */
 export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>GetEntitlements retrieves entitlement values for a given product. The results can be
  *       filtered based on customer identifier or product dimensions.</p>
  * @example
@@ -47,10 +44,22 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * import { MarketplaceEntitlementServiceClient, GetEntitlementsCommand } from "@aws-sdk/client-marketplace-entitlement-service"; // ES Modules import
  * // const { MarketplaceEntitlementServiceClient, GetEntitlementsCommand } = require("@aws-sdk/client-marketplace-entitlement-service"); // CommonJS import
  * const client = new MarketplaceEntitlementServiceClient(config);
+ * const input = { // GetEntitlementsRequest
+ *   ProductCode: "STRING_VALUE", // required
+ *   Filter: { // GetEntitlementFilters
+ *     "<keys>": [ // FilterValueList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetEntitlementsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEntitlementsCommandInput - {@link GetEntitlementsCommandInput}
+ * @returns {@link GetEntitlementsCommandOutput}
  * @see {@link GetEntitlementsCommandInput} for command's `input` shape.
  * @see {@link GetEntitlementsCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceEntitlementServiceClientResolvedConfig | config} for MarketplaceEntitlementServiceClient's `config` shape.
@@ -84,6 +93,9 @@ export class GetEntitlementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEntitlementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +124,8 @@ export class GetEntitlementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEntitlementsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEntitlementsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +135,18 @@ export class GetEntitlementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEntitlementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEntitlementsCommand(input, context);
+    return se_GetEntitlementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEntitlementsCommandOutput> {
-    return deserializeAws_json1_1GetEntitlementsCommand(output, context);
+    return de_GetEntitlementsCommand(output, context);
   }
 
   // Start section: command_body_extra

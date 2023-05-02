@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  SearchSecurityProfilesRequest,
-  SearchSecurityProfilesRequestFilterSensitiveLog,
-  SearchSecurityProfilesResponse,
-  SearchSecurityProfilesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1SearchSecurityProfilesCommand,
-  serializeAws_restJson1SearchSecurityProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchSecurityProfilesRequest, SearchSecurityProfilesResponse } from "../models/models_1";
+import { de_SearchSecurityProfilesCommand, se_SearchSecurityProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchSecurityProfilesCommand}.
  */
 export interface SearchSecurityProfilesCommandInput extends SearchSecurityProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchSecurityProfilesCommand}.
  */
 export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Searches security profiles in an Amazon Connect instance, with optional
  *    filtering.</p>
@@ -44,10 +41,61 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  * import { ConnectClient, SearchSecurityProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchSecurityProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // SearchSecurityProfilesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SearchCriteria: { // SecurityProfileSearchCriteria
+ *     OrConditions: [ // SecurityProfileSearchConditionList
+ *       {
+ *         OrConditions: [
+ *           "<SecurityProfileSearchCriteria>",
+ *         ],
+ *         AndConditions: [
+ *           "<SecurityProfileSearchCriteria>",
+ *         ],
+ *         StringCondition: { // StringCondition
+ *           FieldName: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *         },
+ *       },
+ *     ],
+ *     AndConditions: [
+ *       "<SecurityProfileSearchCriteria>",
+ *     ],
+ *     StringCondition: {
+ *       FieldName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *     },
+ *   },
+ *   SearchFilter: { // SecurityProfilesSearchFilter
+ *     TagFilter: { // ControlPlaneTagFilter
+ *       OrConditions: [ // TagOrConditionList
+ *         [ // TagAndConditionList
+ *           { // TagCondition
+ *             TagKey: "STRING_VALUE",
+ *             TagValue: "STRING_VALUE",
+ *           },
+ *         ],
+ *       ],
+ *       AndConditions: [
+ *         {
+ *           TagKey: "STRING_VALUE",
+ *           TagValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       TagCondition: "<TagCondition>",
+ *     },
+ *   },
+ * };
  * const command = new SearchSecurityProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchSecurityProfilesCommandInput - {@link SearchSecurityProfilesCommandInput}
+ * @returns {@link SearchSecurityProfilesCommandOutput}
  * @see {@link SearchSecurityProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchSecurityProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +134,9 @@ export class SearchSecurityProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchSecurityProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +165,8 @@ export class SearchSecurityProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchSecurityProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchSecurityProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +176,18 @@ export class SearchSecurityProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchSecurityProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchSecurityProfilesCommand(input, context);
+    return se_SearchSecurityProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSecurityProfilesCommandOutput> {
-    return deserializeAws_restJson1SearchSecurityProfilesCommand(output, context);
+    return de_SearchSecurityProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

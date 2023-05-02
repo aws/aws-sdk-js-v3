@@ -141,6 +141,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AbortMultipartUploadCommandInput
   | AbortVaultLockCommandInput
@@ -176,6 +179,9 @@ export type ServiceInputTypes =
   | UploadArchiveCommandInput
   | UploadMultipartPartCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AbortMultipartUploadCommandOutput
   | AbortVaultLockCommandOutput
@@ -211,6 +217,9 @@ export type ServiceOutputTypes =
   | UploadArchiveCommandOutput
   | UploadMultipartPartCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -218,7 +227,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -336,7 +345,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
@@ -347,6 +356,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   sdkStreamMixin?: __SdkStreamMixinInjector;
 }
 
+/**
+ * @public
+ */
 type GlacierClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -357,10 +369,15 @@ type GlacierClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOption
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of GlacierClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of GlacierClient class constructor that set the region, credentials and other options.
  */
 export interface GlacierClientConfig extends GlacierClientConfigType {}
 
+/**
+ * @public
+ */
 type GlacierClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -371,11 +388,14 @@ type GlacierClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of GlacierClient class. This is resolved and normalized from the {@link GlacierClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of GlacierClient class. This is resolved and normalized from the {@link GlacierClientConfig | constructor configuration interface}.
  */
 export interface GlacierClientResolvedConfig extends GlacierClientResolvedConfigType {}
 
 /**
+ * @public
  * <p> Amazon S3 Glacier (Glacier) is a storage solution for "cold data."</p>
  *
  *          <p>Glacier is an extremely low-cost storage service that provides secure,

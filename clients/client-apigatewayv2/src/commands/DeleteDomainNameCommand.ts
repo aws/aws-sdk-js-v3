@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteDomainNameRequest, DeleteDomainNameRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDomainNameCommand,
-  serializeAws_restJson1DeleteDomainNameCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDomainNameRequest } from "../models/models_0";
+import { de_DeleteDomainNameCommand, se_DeleteDomainNameCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDomainNameCommand}.
  */
 export interface DeleteDomainNameCommandInput extends DeleteDomainNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDomainNameCommand}.
  */
 export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a domain name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteDomainNameCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteDomainNameCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // DeleteDomainNameRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDomainNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDomainNameCommandInput - {@link DeleteDomainNameCommandInput}
+ * @returns {@link DeleteDomainNameCommandOutput}
  * @see {@link DeleteDomainNameCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainNameCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteDomainNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +108,8 @@ export class DeleteDomainNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +119,18 @@ export class DeleteDomainNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDomainNameCommand(input, context);
+    return se_DeleteDomainNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainNameCommandOutput> {
-    return deserializeAws_restJson1DeleteDomainNameCommand(output, context);
+    return de_DeleteDomainNameCommand(output, context);
   }
 
   // Start section: command_body_extra

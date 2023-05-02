@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DeletePortalRequest,
-  DeletePortalRequestFilterSensitiveLog,
-  DeletePortalResponse,
-  DeletePortalResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePortalCommand,
-  serializeAws_restJson1DeletePortalCommand,
-} from "../protocols/Aws_restJson1";
+import { DeletePortalRequest, DeletePortalResponse } from "../models/models_0";
+import { de_DeletePortalCommand, se_DeletePortalCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePortalCommand}.
  */
 export interface DeletePortalCommandInput extends DeletePortalRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePortalCommand}.
  */
 export interface DeletePortalCommandOutput extends DeletePortalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a portal from IoT SiteWise Monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * import { IoTSiteWiseClient, DeletePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeletePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DeletePortalRequest
+ *   portalId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeletePortalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePortalCommandInput - {@link DeletePortalCommandInput}
+ * @returns {@link DeletePortalCommandOutput}
  * @see {@link DeletePortalCommandInput} for command's `input` shape.
  * @see {@link DeletePortalCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -89,6 +92,9 @@ export class DeletePortalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePortalCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class DeletePortalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePortalRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePortalResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class DeletePortalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePortalCommand(input, context);
+    return se_DeletePortalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePortalCommandOutput> {
-    return deserializeAws_restJson1DeletePortalCommand(output, context);
+    return de_DeletePortalCommand(output, context);
   }
 
   // Start section: command_body_extra

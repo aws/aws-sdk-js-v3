@@ -15,21 +15,23 @@ import {
 
 import {
   GetIdentityVerificationAttributesRequest,
-  GetIdentityVerificationAttributesRequestFilterSensitiveLog,
   GetIdentityVerificationAttributesResponse,
-  GetIdentityVerificationAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGetIdentityVerificationAttributesCommand,
-  serializeAws_queryGetIdentityVerificationAttributesCommand,
+  de_GetIdentityVerificationAttributesCommand,
+  se_GetIdentityVerificationAttributesCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetIdentityVerificationAttributesCommand}.
  */
 export interface GetIdentityVerificationAttributesCommandInput extends GetIdentityVerificationAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIdentityVerificationAttributesCommand}.
  */
 export interface GetIdentityVerificationAttributesCommandOutput
@@ -37,6 +39,7 @@ export interface GetIdentityVerificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a list of identities (email addresses and/or domains), returns the verification
  *             status and (for domain identities) the verification token for each identity.</p>
  *         <p>The verification status of an email address is "Pending" until the email address owner
@@ -59,10 +62,17 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * import { SESClient, GetIdentityVerificationAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityVerificationAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // GetIdentityVerificationAttributesRequest
+ *   Identities: [ // IdentityList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetIdentityVerificationAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityVerificationAttributesCommandInput - {@link GetIdentityVerificationAttributesCommandInput}
+ * @returns {@link GetIdentityVerificationAttributesCommandOutput}
  * @see {@link GetIdentityVerificationAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityVerificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -109,6 +119,9 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityVerificationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +150,8 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityVerificationAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityVerificationAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,18 +161,24 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetIdentityVerificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityVerificationAttributesCommand(input, context);
+    return se_GetIdentityVerificationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityVerificationAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityVerificationAttributesCommand(output, context);
+    return de_GetIdentityVerificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

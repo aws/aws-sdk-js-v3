@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRunGroupRequest,
-  GetRunGroupRequestFilterSensitiveLog,
-  GetRunGroupResponse,
-  GetRunGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRunGroupRequest, GetRunGroupResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetRunGroupCommand,
-  serializeAws_restJson1GetRunGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRunGroupCommand, se_GetRunGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRunGroupCommand}.
  */
 export interface GetRunGroupCommandInput extends GetRunGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRunGroupCommand}.
  */
 export interface GetRunGroupCommandOutput extends GetRunGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a workflow run group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetRunGroupCommandOutput extends GetRunGroupResponse, __Metadat
  * import { OmicsClient, GetRunGroupCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetRunGroupCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // GetRunGroupRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetRunGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRunGroupCommandInput - {@link GetRunGroupCommandInput}
+ * @returns {@link GetRunGroupCommandOutput}
  * @see {@link GetRunGroupCommandInput} for command's `input` shape.
  * @see {@link GetRunGroupCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -93,6 +95,9 @@ export class GetRunGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRunGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class GetRunGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRunGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRunGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class GetRunGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRunGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRunGroupCommand(input, context);
+    return se_GetRunGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRunGroupCommandOutput> {
-    return deserializeAws_restJson1GetRunGroupCommand(output, context);
+    return de_GetRunGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

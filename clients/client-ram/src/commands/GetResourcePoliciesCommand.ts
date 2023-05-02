@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResourcePoliciesRequest,
-  GetResourcePoliciesRequestFilterSensitiveLog,
-  GetResourcePoliciesResponse,
-  GetResourcePoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourcePoliciesCommand,
-  serializeAws_restJson1GetResourcePoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetResourcePoliciesRequest, GetResourcePoliciesResponse } from "../models/models_0";
+import { de_GetResourcePoliciesCommand, se_GetResourcePoliciesCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePoliciesCommand}.
  */
 export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePoliciesCommand}.
  */
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource policies for the specified resources that you own and have
  *             shared.</p>
  * @example
@@ -43,31 +40,45 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * import { RAMClient, GetResourcePoliciesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetResourcePoliciesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // GetResourcePoliciesRequest
+ *   resourceArns: [ // ResourceArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   principal: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePoliciesCommandInput - {@link GetResourcePoliciesCommandInput}
+ * @returns {@link GetResourcePoliciesCommandOutput}
  * @see {@link GetResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified value for <code>NextToken</code> is not valid.</p>
+ *  <p>The operation failed because the specified value for <code>NextToken</code> isn't
+ *             valid. You must specify a value you received in the <code>NextToken</code> response of a
+ *             previous call to this operation.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
+ *             valid.</p>
  *
  * @throws {@link ResourceArnNotFoundException} (client fault)
- *  <p>The specified Amazon Resource Name (ARN) was not found.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> was not found.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *  <p>The operation failed because the service could not respond to the request due to an
+ *             internal problem. Try again later.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is not available.</p>
+ *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
  *
  */
@@ -88,6 +99,9 @@ export class GetResourcePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +130,8 @@ export class GetResourcePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourcePoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourcePoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +141,18 @@ export class GetResourcePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourcePoliciesCommand(input, context);
+    return se_GetResourcePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePoliciesCommandOutput> {
-    return deserializeAws_restJson1GetResourcePoliciesCommand(output, context);
+    return de_GetResourcePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

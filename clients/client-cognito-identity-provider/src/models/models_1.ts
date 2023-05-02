@@ -39,6 +39,7 @@ import {
 } from "./models_0";
 
 /**
+ * @public
  * <p>Represents the request to register a user.</p>
  */
 export interface SignUpRequest {
@@ -128,6 +129,7 @@ export interface SignUpRequest {
 }
 
 /**
+ * @public
  * <p>The response from the server for a registration request.</p>
  */
 export interface SignUpResponse {
@@ -151,6 +153,7 @@ export interface SignUpResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to start the user import job.</p>
  */
 export interface StartUserImportJobRequest {
@@ -166,6 +169,7 @@ export interface StartUserImportJobRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server to the request to start the user import
  *             job.</p>
  */
@@ -177,6 +181,7 @@ export interface StartUserImportJobResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to stop the user import job.</p>
  */
 export interface StopUserImportJobRequest {
@@ -192,6 +197,7 @@ export interface StopUserImportJobRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server to the request to stop the user import
  *             job.</p>
  */
@@ -202,6 +208,9 @@ export interface StopUserImportJobResponse {
   UserImportJob?: UserImportJobType;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the user pool to assign the tags to.</p>
@@ -214,8 +223,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
@@ -228,8 +243,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAuthEventFeedbackRequest {
   /**
    * <p>The user pool ID.</p>
@@ -257,9 +278,13 @@ export interface UpdateAuthEventFeedbackRequest {
   FeedbackValue: FeedbackValueType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAuthEventFeedbackResponse {}
 
 /**
+ * @public
  * <p>Represents the request to update the device status.</p>
  */
 export interface UpdateDeviceStatusRequest {
@@ -281,10 +306,14 @@ export interface UpdateDeviceStatusRequest {
 }
 
 /**
+ * @public
  * <p>The response to the request to update the device status.</p>
  */
 export interface UpdateDeviceStatusResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateGroupRequest {
   /**
    * <p>The name of the group.</p>
@@ -315,6 +344,9 @@ export interface UpdateGroupRequest {
   Precedence?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGroupResponse {
   /**
    * <p>The group object for the group.</p>
@@ -322,6 +354,9 @@ export interface UpdateGroupResponse {
   Group?: GroupType;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIdentityProviderRequest {
   /**
    * <p>The user pool ID.</p>
@@ -350,6 +385,9 @@ export interface UpdateIdentityProviderRequest {
   IdpIdentifiers?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateIdentityProviderResponse {
   /**
    * <p>The identity provider details.</p>
@@ -357,6 +395,9 @@ export interface UpdateIdentityProviderResponse {
   IdentityProvider: IdentityProviderType | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceServerRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -379,6 +420,9 @@ export interface UpdateResourceServerRequest {
   Scopes?: ResourceServerScopeType[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceServerResponse {
   /**
    * <p>The resource server.</p>
@@ -387,6 +431,7 @@ export interface UpdateResourceServerResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to update user attributes.</p>
  */
 export interface UpdateUserAttributesRequest {
@@ -447,6 +492,7 @@ export interface UpdateUserAttributesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server for the request to update user
  *             attributes.</p>
  */
@@ -459,6 +505,7 @@ export interface UpdateUserAttributesResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to update the user pool.</p>
  */
 export interface UpdateUserPoolRequest {
@@ -604,12 +651,14 @@ export interface UpdateUserPoolRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server when you make a request to update the user
  *             pool.</p>
  */
 export interface UpdateUserPoolResponse {}
 
 /**
+ * @public
  * <p>Represents the request to update the user pool client.</p>
  */
 export interface UpdateUserPoolClientRequest {
@@ -889,6 +938,7 @@ export interface UpdateUserPoolClientRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server to the request to update the user pool
  *             client.</p>
  */
@@ -901,6 +951,7 @@ export interface UpdateUserPoolClientResponse {
 }
 
 /**
+ * @public
  * <p>The UpdateUserPoolDomain request input.</p>
  */
 export interface UpdateUserPoolDomainRequest {
@@ -927,6 +978,7 @@ export interface UpdateUserPoolDomainRequest {
 }
 
 /**
+ * @public
  * <p>The UpdateUserPoolDomain response output.</p>
  */
 export interface UpdateUserPoolDomainResponse {
@@ -938,6 +990,7 @@ export interface UpdateUserPoolDomainResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when there is a code mismatch and the service fails to
  *             configure the software token TOTP multi-factor authentication (MFA).</p>
  */
@@ -957,6 +1010,9 @@ export class EnableSoftwareTokenMFAException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface VerifySoftwareTokenRequest {
   /**
    * <p>A valid access token that Amazon Cognito issued to the user whose software token you want to
@@ -981,11 +1037,24 @@ export interface VerifySoftwareTokenRequest {
   FriendlyDeviceName?: string;
 }
 
-export enum VerifySoftwareTokenResponseType {
-  ERROR = "ERROR",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VerifySoftwareTokenResponseType = {
+  ERROR: "ERROR",
+  SUCCESS: "SUCCESS",
+} as const;
 
+/**
+ * @public
+ */
+export type VerifySoftwareTokenResponseType =
+  (typeof VerifySoftwareTokenResponseType)[keyof typeof VerifySoftwareTokenResponseType];
+
+/**
+ * @public
+ */
 export interface VerifySoftwareTokenResponse {
   /**
    * <p>The status of the verify software token.</p>
@@ -1000,6 +1069,7 @@ export interface VerifySoftwareTokenResponse {
 }
 
 /**
+ * @public
  * <p>Represents the request to verify user attributes.</p>
  */
 export interface VerifyUserAttributeRequest {
@@ -1021,6 +1091,7 @@ export interface VerifyUserAttributeRequest {
 }
 
 /**
+ * @public
  * <p>A container representing the response from the server from the request to verify user
  *             attributes.</p>
  */
@@ -1046,80 +1117,10 @@ export const SignUpRequestFilterSensitiveLog = (obj: SignUpRequest): any => ({
 /**
  * @internal
  */
-export const SignUpResponseFilterSensitiveLog = (obj: SignUpResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartUserImportJobRequestFilterSensitiveLog = (obj: StartUserImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartUserImportJobResponseFilterSensitiveLog = (obj: StartUserImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopUserImportJobRequestFilterSensitiveLog = (obj: StopUserImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopUserImportJobResponseFilterSensitiveLog = (obj: StopUserImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateAuthEventFeedbackRequestFilterSensitiveLog = (obj: UpdateAuthEventFeedbackRequest): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
   ...(obj.FeedbackToken && { FeedbackToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateAuthEventFeedbackResponseFilterSensitiveLog = (obj: UpdateAuthEventFeedbackResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -1133,82 +1134,12 @@ export const UpdateDeviceStatusRequestFilterSensitiveLog = (obj: UpdateDeviceSta
 /**
  * @internal
  */
-export const UpdateDeviceStatusResponseFilterSensitiveLog = (obj: UpdateDeviceStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGroupRequestFilterSensitiveLog = (obj: UpdateGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGroupResponseFilterSensitiveLog = (obj: UpdateGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIdentityProviderRequestFilterSensitiveLog = (obj: UpdateIdentityProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIdentityProviderResponseFilterSensitiveLog = (obj: UpdateIdentityProviderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceServerRequestFilterSensitiveLog = (obj: UpdateResourceServerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceServerResponseFilterSensitiveLog = (obj: UpdateResourceServerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateUserAttributesRequestFilterSensitiveLog = (obj: UpdateUserAttributesRequest): any => ({
   ...obj,
   ...(obj.UserAttributes && {
     UserAttributes: obj.UserAttributes.map((item) => AttributeTypeFilterSensitiveLog(item)),
   }),
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateUserAttributesResponseFilterSensitiveLog = (obj: UpdateUserAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserPoolRequestFilterSensitiveLog = (obj: UpdateUserPoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserPoolResponseFilterSensitiveLog = (obj: UpdateUserPoolResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -1230,20 +1161,6 @@ export const UpdateUserPoolClientResponseFilterSensitiveLog = (obj: UpdateUserPo
 /**
  * @internal
  */
-export const UpdateUserPoolDomainRequestFilterSensitiveLog = (obj: UpdateUserPoolDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserPoolDomainResponseFilterSensitiveLog = (obj: UpdateUserPoolDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const VerifySoftwareTokenRequestFilterSensitiveLog = (obj: VerifySoftwareTokenRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
@@ -1252,21 +1169,7 @@ export const VerifySoftwareTokenRequestFilterSensitiveLog = (obj: VerifySoftware
 /**
  * @internal
  */
-export const VerifySoftwareTokenResponseFilterSensitiveLog = (obj: VerifySoftwareTokenResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const VerifyUserAttributeRequestFilterSensitiveLog = (obj: VerifyUserAttributeRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const VerifyUserAttributeResponseFilterSensitiveLog = (obj: VerifyUserAttributeResponse): any => ({
-  ...obj,
 });

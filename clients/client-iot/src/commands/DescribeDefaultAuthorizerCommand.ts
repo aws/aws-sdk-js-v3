@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeDefaultAuthorizerRequest,
-  DescribeDefaultAuthorizerRequestFilterSensitiveLog,
-  DescribeDefaultAuthorizerResponse,
-  DescribeDefaultAuthorizerResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeDefaultAuthorizerCommand,
-  serializeAws_restJson1DescribeDefaultAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDefaultAuthorizerRequest, DescribeDefaultAuthorizerResponse } from "../models/models_1";
+import { de_DescribeDefaultAuthorizerCommand, se_DescribeDefaultAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDefaultAuthorizerCommand}.
  */
 export interface DescribeDefaultAuthorizerCommandInput extends DescribeDefaultAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDefaultAuthorizerCommand}.
  */
 export interface DescribeDefaultAuthorizerCommandOutput extends DescribeDefaultAuthorizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the default authorizer.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDefaultAuthorizer</a> action.</p>
  * @example
@@ -43,10 +40,13 @@ export interface DescribeDefaultAuthorizerCommandOutput extends DescribeDefaultA
  * import { IoTClient, DescribeDefaultAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeDefaultAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {};
  * const command = new DescribeDefaultAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDefaultAuthorizerCommandInput - {@link DescribeDefaultAuthorizerCommandInput}
+ * @returns {@link DescribeDefaultAuthorizerCommandOutput}
  * @see {@link DescribeDefaultAuthorizerCommandInput} for command's `input` shape.
  * @see {@link DescribeDefaultAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +88,9 @@ export class DescribeDefaultAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDefaultAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +119,8 @@ export class DescribeDefaultAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDefaultAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDefaultAuthorizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +130,21 @@ export class DescribeDefaultAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDefaultAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDefaultAuthorizerCommand(input, context);
+    return se_DescribeDefaultAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDefaultAuthorizerCommandOutput> {
-    return deserializeAws_restJson1DescribeDefaultAuthorizerCommand(output, context);
+    return de_DescribeDefaultAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

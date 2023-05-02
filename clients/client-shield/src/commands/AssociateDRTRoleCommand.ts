@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateDRTRoleRequest,
-  AssociateDRTRoleRequestFilterSensitiveLog,
-  AssociateDRTRoleResponse,
-  AssociateDRTRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateDRTRoleCommand,
-  serializeAws_json1_1AssociateDRTRoleCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateDRTRoleRequest, AssociateDRTRoleResponse } from "../models/models_0";
+import { de_AssociateDRTRoleCommand, se_AssociateDRTRoleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDRTRoleCommand}.
  */
 export interface AssociateDRTRoleCommandInput extends AssociateDRTRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDRTRoleCommand}.
  */
 export interface AssociateDRTRoleCommandOutput extends AssociateDRTRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Authorizes the Shield Response Team (SRT) using the specified role, to access your Amazon Web Services account to assist with DDoS attack mitigation during potential attacks. This enables the SRT to inspect your WAF configuration and create or update WAF rules and web ACLs.</p>
  *          <p>You can associate only one <code>RoleArn</code> with your subscription. If you submit an <code>AssociateDRTRole</code> request for an account that already has an associated role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>. </p>
  *          <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <code>AWSShieldDRTAccessPolicy</code> managed policy to the role that you'll specify in the request. You can access this policy in the IAM console at <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a>. For more information see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Adding and removing IAM identity permissions</a>. The role must also trust the service principal
@@ -49,10 +46,15 @@ export interface AssociateDRTRoleCommandOutput extends AssociateDRTRoleResponse,
  * import { ShieldClient, AssociateDRTRoleCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, AssociateDRTRoleCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // AssociateDRTRoleRequest
+ *   RoleArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateDRTRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDRTRoleCommandInput - {@link AssociateDRTRoleCommandInput}
+ * @returns {@link AssociateDRTRoleCommandOutput}
  * @see {@link AssociateDRTRoleCommandInput} for command's `input` shape.
  * @see {@link AssociateDRTRoleCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -95,6 +97,9 @@ export class AssociateDRTRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDRTRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +128,8 @@ export class AssociateDRTRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDRTRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDRTRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +139,18 @@ export class AssociateDRTRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDRTRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDRTRoleCommand(input, context);
+    return se_AssociateDRTRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDRTRoleCommandOutput> {
-    return deserializeAws_json1_1AssociateDRTRoleCommand(output, context);
+    return de_AssociateDRTRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

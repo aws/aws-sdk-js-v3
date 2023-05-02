@@ -13,28 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DBClusterCapacityInfo, ModifyCurrentDBClusterCapacityMessage } from "../models/models_1";
 import {
-  DBClusterCapacityInfo,
-  DBClusterCapacityInfoFilterSensitiveLog,
-  ModifyCurrentDBClusterCapacityMessage,
-  ModifyCurrentDBClusterCapacityMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyCurrentDBClusterCapacityCommand,
-  serializeAws_queryModifyCurrentDBClusterCapacityCommand,
+  de_ModifyCurrentDBClusterCapacityCommand,
+  se_ModifyCurrentDBClusterCapacityCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCurrentDBClusterCapacityCommand}.
  */
 export interface ModifyCurrentDBClusterCapacityCommandInput extends ModifyCurrentDBClusterCapacityMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCurrentDBClusterCapacityCommand}.
  */
 export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCapacityInfo, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set the capacity of an Aurora Serverless v1 DB cluster to a specific value.</p>
  *          <p>Aurora Serverless v1 scales seamlessly based on the workload on the DB cluster. In some cases, the capacity might not scale
  *         fast enough to meet a sudden change in workload, such as a large number of new transactions. Call <code>ModifyCurrentDBClusterCapacity</code>
@@ -59,10 +59,18 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  * import { RDSClient, ModifyCurrentDBClusterCapacityCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyCurrentDBClusterCapacityCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyCurrentDBClusterCapacityMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   Capacity: Number("int"),
+ *   SecondsBeforeTimeout: Number("int"),
+ *   TimeoutAction: "STRING_VALUE",
+ * };
  * const command = new ModifyCurrentDBClusterCapacityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCurrentDBClusterCapacityCommandInput - {@link ModifyCurrentDBClusterCapacityCommandInput}
+ * @returns {@link ModifyCurrentDBClusterCapacityCommandOutput}
  * @see {@link ModifyCurrentDBClusterCapacityCommandInput} for command's `input` shape.
  * @see {@link ModifyCurrentDBClusterCapacityCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -80,6 +88,27 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ *
+ * @example To scale the capacity of an Aurora Serverless DB cluster
+ * ```javascript
+ * // The following example scales the capacity of an Aurora Serverless DB cluster to 8.
+ * const input = {
+ *   "Capacity": 8,
+ *   "DBClusterIdentifier": "mydbcluster"
+ * };
+ * const command = new ModifyCurrentDBClusterCapacityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CurrentCapacity": 1,
+ *   "DBClusterIdentifier": "mydbcluster",
+ *   "PendingCapacity": 8,
+ *   "SecondsBeforeTimeout": 300,
+ *   "TimeoutAction": "ForceApplyCapacityChange"
+ * }
+ * *\/
+ * // example id: to-scale-the-capacity-of-an-aurora-serverless-db-cluster-1680307179599
+ * ```
  *
  */
 export class ModifyCurrentDBClusterCapacityCommand extends $Command<
@@ -99,6 +128,9 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCurrentDBClusterCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +159,8 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCurrentDBClusterCapacityMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterCapacityInfoFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,18 +170,24 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyCurrentDBClusterCapacityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyCurrentDBClusterCapacityCommand(input, context);
+    return se_ModifyCurrentDBClusterCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyCurrentDBClusterCapacityCommandOutput> {
-    return deserializeAws_queryModifyCurrentDBClusterCapacityCommand(output, context);
+    return de_ModifyCurrentDBClusterCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

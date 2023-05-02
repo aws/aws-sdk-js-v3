@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { RejectResourceShareInvitationRequest, RejectResourceShareInvitationResponse } from "../models/models_0";
 import {
-  RejectResourceShareInvitationRequest,
-  RejectResourceShareInvitationRequestFilterSensitiveLog,
-  RejectResourceShareInvitationResponse,
-  RejectResourceShareInvitationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RejectResourceShareInvitationCommand,
-  serializeAws_restJson1RejectResourceShareInvitationCommand,
+  de_RejectResourceShareInvitationCommand,
+  se_RejectResourceShareInvitationCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link RejectResourceShareInvitationCommand}.
  */
 export interface RejectResourceShareInvitationCommandInput extends RejectResourceShareInvitationRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectResourceShareInvitationCommand}.
  */
 export interface RejectResourceShareInvitationCommandOutput
@@ -37,6 +36,7 @@ export interface RejectResourceShareInvitationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects an invitation to a resource share from another Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,45 +44,55 @@ export interface RejectResourceShareInvitationCommandOutput
  * import { RAMClient, RejectResourceShareInvitationCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, RejectResourceShareInvitationCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // RejectResourceShareInvitationRequest
+ *   resourceShareInvitationArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new RejectResourceShareInvitationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectResourceShareInvitationCommandInput - {@link RejectResourceShareInvitationCommandInput}
+ * @returns {@link RejectResourceShareInvitationCommandOutput}
  * @see {@link RejectResourceShareInvitationCommandInput} for command's `input` shape.
  * @see {@link RejectResourceShareInvitationCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>The client token input parameter was matched one used with a previous call to the
- *             operation, but at least one of the other input parameters is different from the previous
- *             call.</p>
+ *  <p>The operation failed because the client token input parameter matched one that was
+ *             used with a previous call to the operation, but at least one of the other input
+ *             parameters is different from the previous call.</p>
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The client token is not valid.</p>
+ *  <p>The operation failed because the specified client token isn't valid.</p>
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
+ *             valid.</p>
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The requested operation is not permitted.</p>
+ *  <p>The operation failed because the requested operation isn't permitted.</p>
  *
  * @throws {@link ResourceShareInvitationAlreadyAcceptedException} (client fault)
- *  <p>The specified invitation was already accepted.</p>
+ *  <p>The operation failed because the specified invitation was already accepted.</p>
  *
  * @throws {@link ResourceShareInvitationAlreadyRejectedException} (client fault)
- *  <p>The specified invitation was already rejected.</p>
+ *  <p>The operation failed because the specified invitation was already rejected.</p>
  *
  * @throws {@link ResourceShareInvitationArnNotFoundException} (client fault)
- *  <p>The specified Amazon Resource Name (ARN) for an invitation was not found.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> for an invitation was not
+ *             found.</p>
  *
  * @throws {@link ResourceShareInvitationExpiredException} (client fault)
- *  <p>The specified invitation is expired.</p>
+ *  <p>The operation failed because the specified invitation is past its expiration date and
+ *             time.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *  <p>The operation failed because the service could not respond to the request due to an
+ *             internal problem. Try again later.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is not available.</p>
+ *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
  *
  */
@@ -103,6 +113,9 @@ export class RejectResourceShareInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectResourceShareInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +144,8 @@ export class RejectResourceShareInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectResourceShareInvitationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectResourceShareInvitationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,15 +155,21 @@ export class RejectResourceShareInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectResourceShareInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RejectResourceShareInvitationCommand(input, context);
+    return se_RejectResourceShareInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectResourceShareInvitationCommandOutput> {
-    return deserializeAws_restJson1RejectResourceShareInvitationCommand(output, context);
+    return de_RejectResourceShareInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

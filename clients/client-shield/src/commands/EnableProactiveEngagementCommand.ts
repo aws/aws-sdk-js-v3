@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  EnableProactiveEngagementRequest,
-  EnableProactiveEngagementRequestFilterSensitiveLog,
-  EnableProactiveEngagementResponse,
-  EnableProactiveEngagementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableProactiveEngagementCommand,
-  serializeAws_json1_1EnableProactiveEngagementCommand,
-} from "../protocols/Aws_json1_1";
+import { EnableProactiveEngagementRequest, EnableProactiveEngagementResponse } from "../models/models_0";
+import { de_EnableProactiveEngagementCommand, se_EnableProactiveEngagementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableProactiveEngagementCommand}.
  */
 export interface EnableProactiveEngagementCommandInput extends EnableProactiveEngagementRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableProactiveEngagementCommand}.
  */
 export interface EnableProactiveEngagementCommandOutput extends EnableProactiveEngagementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface EnableProactiveEngagementCommandOutput extends EnableProactiveE
  * import { ShieldClient, EnableProactiveEngagementCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, EnableProactiveEngagementCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new EnableProactiveEngagementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableProactiveEngagementCommandInput - {@link EnableProactiveEngagementCommandInput}
+ * @returns {@link EnableProactiveEngagementCommandOutput}
  * @see {@link EnableProactiveEngagementCommandInput} for command's `input` shape.
  * @see {@link EnableProactiveEngagementCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -85,6 +85,9 @@ export class EnableProactiveEngagementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableProactiveEngagementCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +116,8 @@ export class EnableProactiveEngagementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableProactiveEngagementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableProactiveEngagementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +127,21 @@ export class EnableProactiveEngagementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableProactiveEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableProactiveEngagementCommand(input, context);
+    return se_EnableProactiveEngagementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableProactiveEngagementCommandOutput> {
-    return deserializeAws_json1_1EnableProactiveEngagementCommand(output, context);
+    return de_EnableProactiveEngagementCommand(output, context);
   }
 
   // Start section: command_body_extra

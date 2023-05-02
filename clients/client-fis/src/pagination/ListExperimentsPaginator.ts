@@ -10,7 +10,7 @@ import { FisClient } from "../FisClient";
 import { FisPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FisClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListExperimentsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListExperiments(
   config: FisPaginationConfiguration,
   input: ListExperimentsCommandInput,

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  AssociateCertificateRequest,
-  AssociateCertificateRequestFilterSensitiveLog,
-  AssociateCertificateResponse,
-  AssociateCertificateResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1AssociateCertificateCommand,
-  serializeAws_restJson1AssociateCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/models_1";
+import { de_AssociateCertificateCommand, se_AssociateCertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateCertificateCommand}.
  */
 export interface AssociateCertificateCommandInput extends AssociateCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateCertificateCommand}.
  */
 export interface AssociateCertificateCommandOutput extends AssociateCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface AssociateCertificateCommandOutput extends AssociateCertificateR
  * import { MediaConvertClient, AssociateCertificateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, AssociateCertificateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = { // AssociateCertificateRequest
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateCertificateCommandInput - {@link AssociateCertificateCommandInput}
+ * @returns {@link AssociateCertificateCommandOutput}
  * @see {@link AssociateCertificateCommandInput} for command's `input` shape.
  * @see {@link AssociateCertificateCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +89,9 @@ export class AssociateCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class AssociateCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class AssociateCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateCertificateCommand(input, context);
+    return se_AssociateCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateCertificateCommandOutput> {
-    return deserializeAws_restJson1AssociateCertificateCommand(output, context);
+    return de_AssociateCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

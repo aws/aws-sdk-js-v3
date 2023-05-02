@@ -20,21 +20,23 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   DescribeOutboundCrossClusterSearchConnectionsRequest,
-  DescribeOutboundCrossClusterSearchConnectionsRequestFilterSensitiveLog,
   DescribeOutboundCrossClusterSearchConnectionsResponse,
-  DescribeOutboundCrossClusterSearchConnectionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommand,
-  serializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommand,
+  de_DescribeOutboundCrossClusterSearchConnectionsCommand,
+  se_DescribeOutboundCrossClusterSearchConnectionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOutboundCrossClusterSearchConnectionsCommand}.
  */
 export interface DescribeOutboundCrossClusterSearchConnectionsCommandInput
   extends DescribeOutboundCrossClusterSearchConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOutboundCrossClusterSearchConnectionsCommand}.
  */
 export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
@@ -42,6 +44,7 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the outbound cross-cluster search connections for a source domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +52,24 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
  * import { ElasticsearchServiceClient, DescribeOutboundCrossClusterSearchConnectionsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribeOutboundCrossClusterSearchConnectionsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // DescribeOutboundCrossClusterSearchConnectionsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeOutboundCrossClusterSearchConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOutboundCrossClusterSearchConnectionsCommandInput - {@link DescribeOutboundCrossClusterSearchConnectionsCommandInput}
+ * @returns {@link DescribeOutboundCrossClusterSearchConnectionsCommandOutput}
  * @see {@link DescribeOutboundCrossClusterSearchConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOutboundCrossClusterSearchConnectionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -82,6 +99,9 @@ export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOutboundCrossClusterSearchConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +136,8 @@ export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOutboundCrossClusterSearchConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOutboundCrossClusterSearchConnectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +147,24 @@ export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommand(input, context);
+    return se_DescribeOutboundCrossClusterSearchConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOutboundCrossClusterSearchConnectionsCommandOutput> {
-    return deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommand(output, context);
+    return de_DescribeOutboundCrossClusterSearchConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

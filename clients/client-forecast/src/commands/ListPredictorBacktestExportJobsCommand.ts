@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { ListPredictorBacktestExportJobsRequest, ListPredictorBacktestExportJobsResponse } from "../models/models_0";
 import {
-  ListPredictorBacktestExportJobsRequest,
-  ListPredictorBacktestExportJobsRequestFilterSensitiveLog,
-  ListPredictorBacktestExportJobsResponse,
-  ListPredictorBacktestExportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPredictorBacktestExportJobsCommand,
-  serializeAws_json1_1ListPredictorBacktestExportJobsCommand,
+  de_ListPredictorBacktestExportJobsCommand,
+  se_ListPredictorBacktestExportJobsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPredictorBacktestExportJobsCommand}.
  */
 export interface ListPredictorBacktestExportJobsCommandInput extends ListPredictorBacktestExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPredictorBacktestExportJobsCommand}.
  */
 export interface ListPredictorBacktestExportJobsCommandOutput
@@ -37,6 +36,7 @@ export interface ListPredictorBacktestExportJobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of predictor backtest export jobs created using the <a>CreatePredictorBacktestExportJob</a> operation. This operation returns a
  *             summary for each backtest export job. You can filter the list using an array of <a>Filter</a> objects.</p>
  *          <p>To retrieve the complete set of properties for a particular backtest export job, use
@@ -47,10 +47,23 @@ export interface ListPredictorBacktestExportJobsCommandOutput
  * import { ForecastClient, ListPredictorBacktestExportJobsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListPredictorBacktestExportJobsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // ListPredictorBacktestExportJobsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *       Condition: "IS" || "IS_NOT", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListPredictorBacktestExportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPredictorBacktestExportJobsCommandInput - {@link ListPredictorBacktestExportJobsCommandInput}
+ * @returns {@link ListPredictorBacktestExportJobsCommandOutput}
  * @see {@link ListPredictorBacktestExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListPredictorBacktestExportJobsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -81,6 +94,9 @@ export class ListPredictorBacktestExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPredictorBacktestExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +125,8 @@ export class ListPredictorBacktestExportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPredictorBacktestExportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPredictorBacktestExportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +136,24 @@ export class ListPredictorBacktestExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPredictorBacktestExportJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPredictorBacktestExportJobsCommand(input, context);
+    return se_ListPredictorBacktestExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPredictorBacktestExportJobsCommandOutput> {
-    return deserializeAws_json1_1ListPredictorBacktestExportJobsCommand(output, context);
+    return de_ListPredictorBacktestExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

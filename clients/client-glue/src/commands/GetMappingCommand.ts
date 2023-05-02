@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetMappingRequest,
-  GetMappingRequestFilterSensitiveLog,
-  GetMappingResponse,
-  GetMappingResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetMappingCommand,
-  serializeAws_json1_1GetMappingCommand,
-} from "../protocols/Aws_json1_1";
+import { GetMappingRequest, GetMappingResponse } from "../models/models_1";
+import { de_GetMappingCommand, se_GetMappingCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMappingCommand}.
  */
 export interface GetMappingCommandInput extends GetMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMappingCommand}.
  */
 export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates mappings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,47 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  * import { GlueClient, GetMappingCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetMappingCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetMappingRequest
+ *   Source: { // CatalogEntry
+ *     DatabaseName: "STRING_VALUE", // required
+ *     TableName: "STRING_VALUE", // required
+ *   },
+ *   Sinks: [ // CatalogEntries
+ *     {
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Location: { // Location
+ *     Jdbc: [ // CodeGenNodeArgs
+ *       { // CodeGenNodeArg
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *         Param: true || false,
+ *       },
+ *     ],
+ *     S3: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *         Param: true || false,
+ *       },
+ *     ],
+ *     DynamoDB: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *         Param: true || false,
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new GetMappingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMappingCommandInput - {@link GetMappingCommandInput}
+ * @returns {@link GetMappingCommandOutput}
  * @see {@link GetMappingCommandInput} for command's `input` shape.
  * @see {@link GetMappingCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +115,9 @@ export class GetMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +144,8 @@ export class GetMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMappingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMappingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +155,18 @@ export class GetMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMappingCommand(input, context);
+    return se_GetMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMappingCommandOutput> {
-    return deserializeAws_json1_1GetMappingCommand(output, context);
+    return de_GetMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ResumeBatchLoadTaskRequest,
-  ResumeBatchLoadTaskRequestFilterSensitiveLog,
-  ResumeBatchLoadTaskResponse,
-  ResumeBatchLoadTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ResumeBatchLoadTaskCommand,
-  serializeAws_json1_0ResumeBatchLoadTaskCommand,
-} from "../protocols/Aws_json1_0";
+import { ResumeBatchLoadTaskRequest, ResumeBatchLoadTaskResponse } from "../models/models_0";
+import { de_ResumeBatchLoadTaskCommand, se_ResumeBatchLoadTaskCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResumeBatchLoadTaskCommand}.
  */
 export interface ResumeBatchLoadTaskCommandInput extends ResumeBatchLoadTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResumeBatchLoadTaskCommand}.
  */
 export interface ResumeBatchLoadTaskCommandOutput extends ResumeBatchLoadTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       </p>
  * @example
@@ -44,10 +41,15 @@ export interface ResumeBatchLoadTaskCommandOutput extends ResumeBatchLoadTaskRes
  * import { TimestreamWriteClient, ResumeBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, ResumeBatchLoadTaskCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = { // ResumeBatchLoadTaskRequest
+ *   TaskId: "STRING_VALUE", // required
+ * };
  * const command = new ResumeBatchLoadTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeBatchLoadTaskCommandInput - {@link ResumeBatchLoadTaskCommandInput}
+ * @returns {@link ResumeBatchLoadTaskCommandOutput}
  * @see {@link ResumeBatchLoadTaskCommandInput} for command's `input` shape.
  * @see {@link ResumeBatchLoadTaskCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -93,6 +95,9 @@ export class ResumeBatchLoadTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeBatchLoadTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +129,8 @@ export class ResumeBatchLoadTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeBatchLoadTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResumeBatchLoadTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +140,18 @@ export class ResumeBatchLoadTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeBatchLoadTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ResumeBatchLoadTaskCommand(input, context);
+    return se_ResumeBatchLoadTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeBatchLoadTaskCommandOutput> {
-    return deserializeAws_json1_0ResumeBatchLoadTaskCommand(output, context);
+    return de_ResumeBatchLoadTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

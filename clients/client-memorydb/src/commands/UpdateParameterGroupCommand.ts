@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  UpdateParameterGroupRequest,
-  UpdateParameterGroupRequestFilterSensitiveLog,
-  UpdateParameterGroupResponse,
-  UpdateParameterGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateParameterGroupCommand,
-  serializeAws_json1_1UpdateParameterGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateParameterGroupRequest, UpdateParameterGroupResponse } from "../models/models_0";
+import { de_UpdateParameterGroupCommand, se_UpdateParameterGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateParameterGroupCommand}.
  */
 export interface UpdateParameterGroupCommandInput extends UpdateParameterGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateParameterGroupCommand}.
  */
 export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the parameters of a parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * import { MemoryDBClient, UpdateParameterGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, UpdateParameterGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // UpdateParameterGroupRequest
+ *   ParameterGroupName: "STRING_VALUE", // required
+ *   ParameterNameValues: [ // ParameterNameValueList // required
+ *     { // ParameterNameValue
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateParameterGroupCommandInput - {@link UpdateParameterGroupCommandInput}
+ * @returns {@link UpdateParameterGroupCommandOutput}
  * @see {@link UpdateParameterGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -84,6 +92,9 @@ export class UpdateParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +123,8 @@ export class UpdateParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateParameterGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateParameterGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +134,18 @@ export class UpdateParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateParameterGroupCommand(input, context);
+    return se_UpdateParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateParameterGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateParameterGroupCommand(output, context);
+    return de_UpdateParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

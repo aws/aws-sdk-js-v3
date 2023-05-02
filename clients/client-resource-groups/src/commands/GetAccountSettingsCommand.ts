@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAccountSettingsOutput, GetAccountSettingsOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAccountSettingsCommand,
-  serializeAws_restJson1GetAccountSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAccountSettingsOutput } from "../models/models_0";
+import { de_GetAccountSettingsCommand, se_GetAccountSettingsCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountSettingsCommand}.
  */
 export interface GetAccountSettingsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountSettingsCommand}.
  */
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current status of optional features in Resource Groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,13 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * import { ResourceGroupsClient, GetAccountSettingsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GetAccountSettingsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
+ * @returns {@link GetAccountSettingsCommandOutput}
  * @see {@link GetAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -80,6 +85,9 @@ export class GetAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class GetAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetAccountSettingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +127,18 @@ export class GetAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAccountSettingsCommand(input, context);
+    return se_GetAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSettingsCommandOutput> {
-    return deserializeAws_restJson1GetAccountSettingsCommand(output, context);
+    return de_GetAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

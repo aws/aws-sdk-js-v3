@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteInstanceSnapshotRequest,
-  DeleteInstanceSnapshotRequestFilterSensitiveLog,
-  DeleteInstanceSnapshotResult,
-  DeleteInstanceSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteInstanceSnapshotCommand,
-  serializeAws_json1_1DeleteInstanceSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteInstanceSnapshotRequest, DeleteInstanceSnapshotResult } from "../models/models_0";
+import { de_DeleteInstanceSnapshotCommand, se_DeleteInstanceSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceSnapshotCommand}.
  */
 export interface DeleteInstanceSnapshotCommandInput extends DeleteInstanceSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceSnapshotCommand}.
  */
 export interface DeleteInstanceSnapshotCommandOutput extends DeleteInstanceSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific snapshot of a virtual private server (or
  *       <i>instance</i>).</p>
  *          <p>The <code>delete instance snapshot</code> operation supports tag-based access control via
@@ -46,10 +43,15 @@ export interface DeleteInstanceSnapshotCommandOutput extends DeleteInstanceSnaps
  * import { LightsailClient, DeleteInstanceSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteInstanceSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteInstanceSnapshotRequest
+ *   instanceSnapshotName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInstanceSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceSnapshotCommandInput - {@link DeleteInstanceSnapshotCommandInput}
+ * @returns {@link DeleteInstanceSnapshotCommandOutput}
  * @see {@link DeleteInstanceSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -103,6 +105,9 @@ export class DeleteInstanceSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +136,8 @@ export class DeleteInstanceSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInstanceSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +147,18 @@ export class DeleteInstanceSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInstanceSnapshotCommand(input, context);
+    return se_DeleteInstanceSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceSnapshotCommandOutput> {
-    return deserializeAws_json1_1DeleteInstanceSnapshotCommand(output, context);
+    return de_DeleteInstanceSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,21 +20,23 @@ import {
   BatchDetectSentimentResponse,
   BatchDetectSentimentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDetectSentimentCommand,
-  serializeAws_json1_1BatchDetectSentimentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDetectSentimentCommand, se_BatchDetectSentimentCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDetectSentimentCommand}.
  */
 export interface BatchDetectSentimentCommandInput extends BatchDetectSentimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDetectSentimentCommand}.
  */
 export interface BatchDetectSentimentCommandOutput extends BatchDetectSentimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects a batch of documents and returns an inference of the prevailing sentiment,
  *         <code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>,
  *       in each one.</p>
@@ -44,10 +46,18 @@ export interface BatchDetectSentimentCommandOutput extends BatchDetectSentimentR
  * import { ComprehendClient, BatchDetectSentimentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, BatchDetectSentimentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // BatchDetectSentimentRequest
+ *   TextList: [ // CustomerInputStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ * };
  * const command = new BatchDetectSentimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDetectSentimentCommandInput - {@link BatchDetectSentimentCommandInput}
+ * @returns {@link BatchDetectSentimentCommandOutput}
  * @see {@link BatchDetectSentimentCommandInput} for command's `input` shape.
  * @see {@link BatchDetectSentimentCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -91,6 +101,9 @@ export class BatchDetectSentimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDetectSentimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,12 +143,18 @@ export class BatchDetectSentimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDetectSentimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDetectSentimentCommand(input, context);
+    return se_BatchDetectSentimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDetectSentimentCommandOutput> {
-    return deserializeAws_json1_1BatchDetectSentimentCommand(output, context);
+    return de_BatchDetectSentimentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  CreateLogPatternRequest,
-  CreateLogPatternRequestFilterSensitiveLog,
-  CreateLogPatternResponse,
-  CreateLogPatternResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLogPatternCommand,
-  serializeAws_json1_1CreateLogPatternCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLogPatternRequest, CreateLogPatternResponse } from "../models/models_0";
+import { de_CreateLogPatternCommand, se_CreateLogPatternCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLogPatternCommand}.
  */
 export interface CreateLogPatternCommandInput extends CreateLogPatternRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLogPatternCommand}.
  */
 export interface CreateLogPatternCommandOutput extends CreateLogPatternResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an log pattern to a <code>LogPatternSet</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,19 @@ export interface CreateLogPatternCommandOutput extends CreateLogPatternResponse,
  * import { ApplicationInsightsClient, CreateLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, CreateLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // CreateLogPatternRequest
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   PatternSetName: "STRING_VALUE", // required
+ *   PatternName: "STRING_VALUE", // required
+ *   Pattern: "STRING_VALUE", // required
+ *   Rank: Number("int"), // required
+ * };
  * const command = new CreateLogPatternCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLogPatternCommandInput - {@link CreateLogPatternCommandInput}
+ * @returns {@link CreateLogPatternCommandOutput}
  * @see {@link CreateLogPatternCommandInput} for command's `input` shape.
  * @see {@link CreateLogPatternCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -85,6 +91,9 @@ export class CreateLogPatternCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLogPatternCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class CreateLogPatternCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLogPatternRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLogPatternResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class CreateLogPatternCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLogPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLogPatternCommand(input, context);
+    return se_CreateLogPatternCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogPatternCommandOutput> {
-    return deserializeAws_json1_1CreateLogPatternCommand(output, context);
+    return de_CreateLogPatternCommand(output, context);
   }
 
   // Start section: command_body_extra

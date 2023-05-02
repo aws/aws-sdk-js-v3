@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import {
-  InitializeClusterRequest,
-  InitializeClusterRequestFilterSensitiveLog,
-  InitializeClusterResponse,
-  InitializeClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1InitializeClusterCommand,
-  serializeAws_json1_1InitializeClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { InitializeClusterRequest, InitializeClusterResponse } from "../models/models_0";
+import { de_InitializeClusterCommand, se_InitializeClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link InitializeClusterCommand}.
  */
 export interface InitializeClusterCommandInput extends InitializeClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link InitializeClusterCommand}.
  */
 export interface InitializeClusterCommandOutput extends InitializeClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by your
  *       issuing certificate authority (CA) and the CA's root certificate. Before you can claim a
  *       cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA.
@@ -45,10 +42,17 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * import { CloudHSMV2Client, InitializeClusterCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, InitializeClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = { // InitializeClusterRequest
+ *   ClusterId: "STRING_VALUE", // required
+ *   SignedCert: "STRING_VALUE", // required
+ *   TrustAnchor: "STRING_VALUE", // required
+ * };
  * const command = new InitializeClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InitializeClusterCommandInput - {@link InitializeClusterCommandInput}
+ * @returns {@link InitializeClusterCommandOutput}
  * @see {@link InitializeClusterCommandInput} for command's `input` shape.
  * @see {@link InitializeClusterCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
@@ -90,6 +94,9 @@ export class InitializeClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitializeClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class InitializeClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InitializeClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InitializeClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class InitializeClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitializeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1InitializeClusterCommand(input, context);
+    return se_InitializeClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitializeClusterCommandOutput> {
-    return deserializeAws_json1_1InitializeClusterCommand(output, context);
+    return de_InitializeClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

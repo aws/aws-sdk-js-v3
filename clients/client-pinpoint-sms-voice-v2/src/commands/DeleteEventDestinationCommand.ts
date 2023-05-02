@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteEventDestinationRequest,
-  DeleteEventDestinationRequestFilterSensitiveLog,
-  DeleteEventDestinationResult,
-  DeleteEventDestinationResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEventDestinationRequest, DeleteEventDestinationResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DeleteEventDestinationCommand,
-  serializeAws_json1_0DeleteEventDestinationCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteEventDestinationCommand, se_DeleteEventDestinationCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventDestinationCommand}.
  */
 export interface DeleteEventDestinationCommandInput extends DeleteEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventDestinationCommand}.
  */
 export interface DeleteEventDestinationCommandOutput extends DeleteEventDestinationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing event destination.</p>
  *         <p>An event destination is a location where you send response information about the
  *             messages that you send. For example, when a message is delivered successfully, you can
@@ -50,10 +47,16 @@ export interface DeleteEventDestinationCommandOutput extends DeleteEventDestinat
  * import { PinpointSMSVoiceV2Client, DeleteEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DeleteEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DeleteEventDestinationRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   EventDestinationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventDestinationCommandInput - {@link DeleteEventDestinationCommandInput}
+ * @returns {@link DeleteEventDestinationCommandOutput}
  * @see {@link DeleteEventDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -95,6 +98,9 @@ export class DeleteEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class DeleteEventDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEventDestinationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class DeleteEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteEventDestinationCommand(input, context);
+    return se_DeleteEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventDestinationCommandOutput> {
-    return deserializeAws_json1_0DeleteEventDestinationCommand(output, context);
+    return de_DeleteEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

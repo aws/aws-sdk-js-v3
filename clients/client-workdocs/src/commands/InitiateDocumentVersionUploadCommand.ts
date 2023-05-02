@@ -20,16 +20,20 @@ import {
   InitiateDocumentVersionUploadResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1InitiateDocumentVersionUploadCommand,
-  serializeAws_restJson1InitiateDocumentVersionUploadCommand,
+  de_InitiateDocumentVersionUploadCommand,
+  se_InitiateDocumentVersionUploadCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link InitiateDocumentVersionUploadCommand}.
  */
 export interface InitiateDocumentVersionUploadCommandInput extends InitiateDocumentVersionUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link InitiateDocumentVersionUploadCommand}.
  */
 export interface InitiateDocumentVersionUploadCommandOutput
@@ -37,6 +41,7 @@ export interface InitiateDocumentVersionUploadCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new document object and version object.</p>
  *          <p>The client specifies the parent folder ID and name of the document to upload. The
  *             ID is optionally specified when creating a new version of an existing document. This is
@@ -49,10 +54,22 @@ export interface InitiateDocumentVersionUploadCommandOutput
  * import { WorkDocsClient, InitiateDocumentVersionUploadCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, InitiateDocumentVersionUploadCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // InitiateDocumentVersionUploadRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   ContentCreatedTimestamp: new Date("TIMESTAMP"),
+ *   ContentModifiedTimestamp: new Date("TIMESTAMP"),
+ *   ContentType: "STRING_VALUE",
+ *   DocumentSizeInBytes: Number("long"),
+ *   ParentFolderId: "STRING_VALUE",
+ * };
  * const command = new InitiateDocumentVersionUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InitiateDocumentVersionUploadCommandInput - {@link InitiateDocumentVersionUploadCommandInput}
+ * @returns {@link InitiateDocumentVersionUploadCommandOutput}
  * @see {@link InitiateDocumentVersionUploadCommandInput} for command's `input` shape.
  * @see {@link InitiateDocumentVersionUploadCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -121,6 +138,9 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitiateDocumentVersionUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,15 +180,21 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitiateDocumentVersionUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InitiateDocumentVersionUploadCommand(input, context);
+    return se_InitiateDocumentVersionUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InitiateDocumentVersionUploadCommandOutput> {
-    return deserializeAws_restJson1InitiateDocumentVersionUploadCommand(output, context);
+    return de_InitiateDocumentVersionUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,22 +15,24 @@ import {
 
 import {
   DescribeAppVersionResourcesResolutionStatusRequest,
-  DescribeAppVersionResourcesResolutionStatusRequestFilterSensitiveLog,
   DescribeAppVersionResourcesResolutionStatusResponse,
-  DescribeAppVersionResourcesResolutionStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommand,
-  serializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommand,
+  de_DescribeAppVersionResourcesResolutionStatusCommand,
+  se_DescribeAppVersionResourcesResolutionStatusCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppVersionResourcesResolutionStatusCommand}.
  */
 export interface DescribeAppVersionResourcesResolutionStatusCommandInput
   extends DescribeAppVersionResourcesResolutionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppVersionResourcesResolutionStatusCommand}.
  */
 export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the resolution status for the specified resolution identifier for an application
  *       version. If <code>resolutionId</code> is not specified, the current resolution status is
  *       returned.</p>
@@ -47,10 +50,17 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
  * import { ResiliencehubClient, DescribeAppVersionResourcesResolutionStatusCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeAppVersionResourcesResolutionStatusCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // DescribeAppVersionResourcesResolutionStatusRequest
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   resolutionId: "STRING_VALUE",
+ * };
  * const command = new DescribeAppVersionResourcesResolutionStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppVersionResourcesResolutionStatusCommandInput - {@link DescribeAppVersionResourcesResolutionStatusCommandInput}
+ * @returns {@link DescribeAppVersionResourcesResolutionStatusCommandOutput}
  * @see {@link DescribeAppVersionResourcesResolutionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeAppVersionResourcesResolutionStatusCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -61,7 +71,7 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -92,6 +102,9 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppVersionResourcesResolutionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +139,8 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppVersionResourcesResolutionStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAppVersionResourcesResolutionStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,18 +150,24 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAppVersionResourcesResolutionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommand(input, context);
+    return se_DescribeAppVersionResourcesResolutionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAppVersionResourcesResolutionStatusCommandOutput> {
-    return deserializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommand(output, context);
+    return de_DescribeAppVersionResourcesResolutionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

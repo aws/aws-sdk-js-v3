@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTransitGatewayPeeringRequest,
-  GetTransitGatewayPeeringRequestFilterSensitiveLog,
-  GetTransitGatewayPeeringResponse,
-  GetTransitGatewayPeeringResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTransitGatewayPeeringRequest, GetTransitGatewayPeeringResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetTransitGatewayPeeringCommand,
-  serializeAws_restJson1GetTransitGatewayPeeringCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTransitGatewayPeeringCommand, se_GetTransitGatewayPeeringCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTransitGatewayPeeringCommand}.
  */
 export interface GetTransitGatewayPeeringCommandInput extends GetTransitGatewayPeeringRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTransitGatewayPeeringCommand}.
  */
 export interface GetTransitGatewayPeeringCommandOutput extends GetTransitGatewayPeeringResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a transit gateway peer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetTransitGatewayPeeringCommandOutput extends GetTransitGateway
  * import { NetworkManagerClient, GetTransitGatewayPeeringCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetTransitGatewayPeeringCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetTransitGatewayPeeringRequest
+ *   PeeringId: "STRING_VALUE", // required
+ * };
  * const command = new GetTransitGatewayPeeringCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTransitGatewayPeeringCommandInput - {@link GetTransitGatewayPeeringCommandInput}
+ * @returns {@link GetTransitGatewayPeeringCommandOutput}
  * @see {@link GetTransitGatewayPeeringCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayPeeringCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetTransitGatewayPeeringCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTransitGatewayPeeringCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class GetTransitGatewayPeeringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTransitGatewayPeeringRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTransitGatewayPeeringResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class GetTransitGatewayPeeringCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTransitGatewayPeeringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTransitGatewayPeeringCommand(input, context);
+    return se_GetTransitGatewayPeeringCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTransitGatewayPeeringCommandOutput> {
-    return deserializeAws_restJson1GetTransitGatewayPeeringCommand(output, context);
+    return de_GetTransitGatewayPeeringCommand(output, context);
   }
 
   // Start section: command_body_extra

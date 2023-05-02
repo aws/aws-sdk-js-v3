@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSolFunctionPackageInput,
-  UpdateSolFunctionPackageInputFilterSensitiveLog,
-  UpdateSolFunctionPackageOutput,
-  UpdateSolFunctionPackageOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSolFunctionPackageCommand,
-  serializeAws_restJson1UpdateSolFunctionPackageCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateSolFunctionPackageInput, UpdateSolFunctionPackageOutput } from "../models/models_0";
+import { de_UpdateSolFunctionPackageCommand, se_UpdateSolFunctionPackageCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSolFunctionPackageCommand}.
  */
 export interface UpdateSolFunctionPackageCommandInput extends UpdateSolFunctionPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSolFunctionPackageCommand}.
  */
 export interface UpdateSolFunctionPackageCommandOutput extends UpdateSolFunctionPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the operational state of function package.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  * @example
@@ -43,10 +40,16 @@ export interface UpdateSolFunctionPackageCommandOutput extends UpdateSolFunction
  * import { TnbClient, UpdateSolFunctionPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, UpdateSolFunctionPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // UpdateSolFunctionPackageInput
+ *   vnfPkgId: "STRING_VALUE", // required
+ *   operationalState: "ENABLED" || "DISABLED", // required
+ * };
  * const command = new UpdateSolFunctionPackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSolFunctionPackageCommandInput - {@link UpdateSolFunctionPackageCommandInput}
+ * @returns {@link UpdateSolFunctionPackageCommandOutput}
  * @see {@link UpdateSolFunctionPackageCommandInput} for command's `input` shape.
  * @see {@link UpdateSolFunctionPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -85,6 +88,9 @@ export class UpdateSolFunctionPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSolFunctionPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class UpdateSolFunctionPackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSolFunctionPackageInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSolFunctionPackageOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class UpdateSolFunctionPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSolFunctionPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSolFunctionPackageCommand(input, context);
+    return se_UpdateSolFunctionPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSolFunctionPackageCommandOutput> {
-    return deserializeAws_restJson1UpdateSolFunctionPackageCommand(output, context);
+    return de_UpdateSolFunctionPackageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCellsRequest,
-  ListCellsRequestFilterSensitiveLog,
-  ListCellsResponse,
-  ListCellsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCellsCommand,
-  serializeAws_restJson1ListCellsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCellsRequest, ListCellsResponse } from "../models/models_0";
+import { de_ListCellsCommand, se_ListCellsCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCellsCommand}.
  */
 export interface ListCellsCommandInput extends ListCellsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCellsCommand}.
  */
 export interface ListCellsCommandOutput extends ListCellsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the cells for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,16 @@ export interface ListCellsCommandOutput extends ListCellsResponse, __MetadataBea
  * import { Route53RecoveryReadinessClient, ListCellsCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, ListCellsCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // ListCellsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCellsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCellsCommandInput - {@link ListCellsCommandInput}
+ * @returns {@link ListCellsCommandOutput}
  * @see {@link ListCellsCommandInput} for command's `input` shape.
  * @see {@link ListCellsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -85,6 +88,9 @@ export class ListCellsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCellsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class ListCellsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCellsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCellsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class ListCellsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCellsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCellsCommand(input, context);
+    return se_ListCellsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCellsCommandOutput> {
-    return deserializeAws_restJson1ListCellsCommand(output, context);
+    return de_ListCellsCommand(output, context);
   }
 
   // Start section: command_body_extra

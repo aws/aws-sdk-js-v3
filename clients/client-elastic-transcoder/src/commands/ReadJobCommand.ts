@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  ReadJobRequest,
-  ReadJobRequestFilterSensitiveLog,
-  ReadJobResponse,
-  ReadJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ReadJobCommand,
-  serializeAws_restJson1ReadJobCommand,
-} from "../protocols/Aws_restJson1";
+import { ReadJobRequest, ReadJobResponse } from "../models/models_0";
+import { de_ReadJobCommand, se_ReadJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ReadJobCommand}.
  */
 export interface ReadJobCommandInput extends ReadJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReadJobCommand}.
  */
 export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The ReadJob operation returns detailed information about a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer 
  * import { ElasticTranscoderClient, ReadJobCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ReadJobCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // ReadJobRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new ReadJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReadJobCommandInput - {@link ReadJobCommandInput}
+ * @returns {@link ReadJobCommandOutput}
  * @see {@link ReadJobCommandInput} for command's `input` shape.
  * @see {@link ReadJobCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -88,6 +90,9 @@ export class ReadJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReadJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class ReadJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReadJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReadJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class ReadJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReadJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ReadJobCommand(input, context);
+    return se_ReadJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReadJobCommandOutput> {
-    return deserializeAws_restJson1ReadJobCommand(output, context);
+    return de_ReadJobCommand(output, context);
   }
 
   // Start section: command_body_extra

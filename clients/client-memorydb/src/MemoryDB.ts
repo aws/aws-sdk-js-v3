@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -159,1200 +160,597 @@ import {
   UpdateSubnetGroupCommandOutput,
 } from "./commands/UpdateSubnetGroupCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { MemoryDBClient } from "./MemoryDBClient";
+import { MemoryDBClient, MemoryDBClientConfig } from "./MemoryDBClient";
 
-/**
- * <p>MemoryDB for Redis is a fully managed, Redis-compatible, in-memory database that delivers ultra-fast performance and Multi-AZ durability for modern applications built using microservices architectures.
- *
- *        MemoryDB stores the entire database in-memory, enabling low latency and high throughput data access. It is compatible with Redis, a popular open source data store, enabling you to leverage Redis’ flexible and friendly data structures, APIs, and commands.</p>
- */
-export class MemoryDB extends MemoryDBClient {
+const commands = {
+  BatchUpdateClusterCommand,
+  CopySnapshotCommand,
+  CreateACLCommand,
+  CreateClusterCommand,
+  CreateParameterGroupCommand,
+  CreateSnapshotCommand,
+  CreateSubnetGroupCommand,
+  CreateUserCommand,
+  DeleteACLCommand,
+  DeleteClusterCommand,
+  DeleteParameterGroupCommand,
+  DeleteSnapshotCommand,
+  DeleteSubnetGroupCommand,
+  DeleteUserCommand,
+  DescribeACLsCommand,
+  DescribeClustersCommand,
+  DescribeEngineVersionsCommand,
+  DescribeEventsCommand,
+  DescribeParameterGroupsCommand,
+  DescribeParametersCommand,
+  DescribeReservedNodesCommand,
+  DescribeReservedNodesOfferingsCommand,
+  DescribeServiceUpdatesCommand,
+  DescribeSnapshotsCommand,
+  DescribeSubnetGroupsCommand,
+  DescribeUsersCommand,
+  FailoverShardCommand,
+  ListAllowedNodeTypeUpdatesCommand,
+  ListTagsCommand,
+  PurchaseReservedNodesOfferingCommand,
+  ResetParameterGroupCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateACLCommand,
+  UpdateClusterCommand,
+  UpdateParameterGroupCommand,
+  UpdateSubnetGroupCommand,
+  UpdateUserCommand,
+};
+
+export interface MemoryDB {
   /**
-   * <p>Apply the service update to a list of clusters supplied. For more information on service updates and applying them, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/managing-updates.html#applying-updates">Applying the service updates</a>.</p>
+   * @see {@link BatchUpdateClusterCommand}
    */
-  public batchUpdateCluster(
+  batchUpdateCluster(
     args: BatchUpdateClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchUpdateClusterCommandOutput>;
-  public batchUpdateCluster(
+  batchUpdateCluster(
     args: BatchUpdateClusterCommandInput,
     cb: (err: any, data?: BatchUpdateClusterCommandOutput) => void
   ): void;
-  public batchUpdateCluster(
+  batchUpdateCluster(
     args: BatchUpdateClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchUpdateClusterCommandOutput) => void
   ): void;
-  public batchUpdateCluster(
-    args: BatchUpdateClusterCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchUpdateClusterCommandOutput) => void),
-    cb?: (err: any, data?: BatchUpdateClusterCommandOutput) => void
-  ): Promise<BatchUpdateClusterCommandOutput> | void {
-    const command = new BatchUpdateClusterCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Makes a copy of an existing snapshot.</p>
+   * @see {@link CopySnapshotCommand}
    */
-  public copySnapshot(
-    args: CopySnapshotCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CopySnapshotCommandOutput>;
-  public copySnapshot(args: CopySnapshotCommandInput, cb: (err: any, data?: CopySnapshotCommandOutput) => void): void;
-  public copySnapshot(
+  copySnapshot(args: CopySnapshotCommandInput, options?: __HttpHandlerOptions): Promise<CopySnapshotCommandOutput>;
+  copySnapshot(args: CopySnapshotCommandInput, cb: (err: any, data?: CopySnapshotCommandOutput) => void): void;
+  copySnapshot(
     args: CopySnapshotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CopySnapshotCommandOutput) => void
   ): void;
-  public copySnapshot(
-    args: CopySnapshotCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopySnapshotCommandOutput) => void),
-    cb?: (err: any, data?: CopySnapshotCommandOutput) => void
-  ): Promise<CopySnapshotCommandOutput> | void {
-    const command = new CopySnapshotCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates an Access Control List. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
+   * @see {@link CreateACLCommand}
    */
-  public createACL(args: CreateACLCommandInput, options?: __HttpHandlerOptions): Promise<CreateACLCommandOutput>;
-  public createACL(args: CreateACLCommandInput, cb: (err: any, data?: CreateACLCommandOutput) => void): void;
-  public createACL(
+  createACL(args: CreateACLCommandInput, options?: __HttpHandlerOptions): Promise<CreateACLCommandOutput>;
+  createACL(args: CreateACLCommandInput, cb: (err: any, data?: CreateACLCommandOutput) => void): void;
+  createACL(
     args: CreateACLCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateACLCommandOutput) => void
   ): void;
-  public createACL(
-    args: CreateACLCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateACLCommandOutput) => void),
-    cb?: (err: any, data?: CreateACLCommandOutput) => void
-  ): Promise<CreateACLCommandOutput> | void {
-    const command = new CreateACLCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a cluster. All nodes in the cluster run the same protocol-compliant engine software.</p>
+   * @see {@link CreateClusterCommand}
    */
-  public createCluster(
-    args: CreateClusterCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateClusterCommandOutput>;
-  public createCluster(
-    args: CreateClusterCommandInput,
-    cb: (err: any, data?: CreateClusterCommandOutput) => void
-  ): void;
-  public createCluster(
+  createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
+  createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
+  createCluster(
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
   ): void;
-  public createCluster(
-    args: CreateClusterCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
-    cb?: (err: any, data?: CreateClusterCommandOutput) => void
-  ): Promise<CreateClusterCommandOutput> | void {
-    const command = new CreateClusterCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new MemoryDB parameter group. A parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster. For
-   *          more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html">Configuring engine parameters using parameter groups</a>.
-   *
-   *          </p>
+   * @see {@link CreateParameterGroupCommand}
    */
-  public createParameterGroup(
+  createParameterGroup(
     args: CreateParameterGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateParameterGroupCommandOutput>;
-  public createParameterGroup(
+  createParameterGroup(
     args: CreateParameterGroupCommandInput,
     cb: (err: any, data?: CreateParameterGroupCommandOutput) => void
   ): void;
-  public createParameterGroup(
+  createParameterGroup(
     args: CreateParameterGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateParameterGroupCommandOutput) => void
   ): void;
-  public createParameterGroup(
-    args: CreateParameterGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateParameterGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateParameterGroupCommandOutput) => void
-  ): Promise<CreateParameterGroupCommandOutput> | void {
-    const command = new CreateParameterGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a copy of an entire cluster at a specific moment in time.</p>
+   * @see {@link CreateSnapshotCommand}
    */
-  public createSnapshot(
+  createSnapshot(
     args: CreateSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSnapshotCommandOutput>;
-  public createSnapshot(
-    args: CreateSnapshotCommandInput,
-    cb: (err: any, data?: CreateSnapshotCommandOutput) => void
-  ): void;
-  public createSnapshot(
+  createSnapshot(args: CreateSnapshotCommandInput, cb: (err: any, data?: CreateSnapshotCommandOutput) => void): void;
+  createSnapshot(
     args: CreateSnapshotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): void;
-  public createSnapshot(
-    args: CreateSnapshotCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotCommandOutput) => void),
-    cb?: (err: any, data?: CreateSnapshotCommandOutput) => void
-  ): Promise<CreateSnapshotCommandOutput> | void {
-    const command = new CreateSnapshotCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a subnet group. A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment.
-   *
-   *          When you create a cluster in an Amazon VPC, you must specify a subnet group. MemoryDB uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes.
-   *          For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/subnetgroups.html">Subnets and subnet groups</a>.</p>
+   * @see {@link CreateSubnetGroupCommand}
    */
-  public createSubnetGroup(
+  createSubnetGroup(
     args: CreateSubnetGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSubnetGroupCommandOutput>;
-  public createSubnetGroup(
+  createSubnetGroup(
     args: CreateSubnetGroupCommandInput,
     cb: (err: any, data?: CreateSubnetGroupCommandOutput) => void
   ): void;
-  public createSubnetGroup(
+  createSubnetGroup(
     args: CreateSubnetGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSubnetGroupCommandOutput) => void
   ): void;
-  public createSubnetGroup(
-    args: CreateSubnetGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSubnetGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateSubnetGroupCommandOutput) => void
-  ): Promise<CreateSubnetGroupCommandOutput> | void {
-    const command = new CreateSubnetGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a MemoryDB user. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
+   * @see {@link CreateUserCommand}
    */
-  public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
-  public createUser(
+  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
+  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateUserCommandOutput) => void
   ): void;
-  public createUser(
-    args: CreateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
-    cb?: (err: any, data?: CreateUserCommandOutput) => void
-  ): Promise<CreateUserCommandOutput> | void {
-    const command = new CreateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes an Access Control List. The ACL must first be disassociated from the cluster before it can be deleted. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
+   * @see {@link DeleteACLCommand}
    */
-  public deleteACL(args: DeleteACLCommandInput, options?: __HttpHandlerOptions): Promise<DeleteACLCommandOutput>;
-  public deleteACL(args: DeleteACLCommandInput, cb: (err: any, data?: DeleteACLCommandOutput) => void): void;
-  public deleteACL(
+  deleteACL(args: DeleteACLCommandInput, options?: __HttpHandlerOptions): Promise<DeleteACLCommandOutput>;
+  deleteACL(args: DeleteACLCommandInput, cb: (err: any, data?: DeleteACLCommandOutput) => void): void;
+  deleteACL(
     args: DeleteACLCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteACLCommandOutput) => void
   ): void;
-  public deleteACL(
-    args: DeleteACLCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteACLCommandOutput) => void),
-    cb?: (err: any, data?: DeleteACLCommandOutput) => void
-  ): Promise<DeleteACLCommandOutput> | void {
-    const command = new DeleteACLCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a cluster. It also deletes all associated nodes and node endpoints</p>
+   * @see {@link DeleteClusterCommand}
    */
-  public deleteCluster(
-    args: DeleteClusterCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteClusterCommandOutput>;
-  public deleteCluster(
-    args: DeleteClusterCommandInput,
-    cb: (err: any, data?: DeleteClusterCommandOutput) => void
-  ): void;
-  public deleteCluster(
+  deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
+  deleteCluster(args: DeleteClusterCommandInput, cb: (err: any, data?: DeleteClusterCommandOutput) => void): void;
+  deleteCluster(
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
   ): void;
-  public deleteCluster(
-    args: DeleteClusterCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterCommandOutput) => void),
-    cb?: (err: any, data?: DeleteClusterCommandOutput) => void
-  ): Promise<DeleteClusterCommandOutput> | void {
-    const command = new DeleteClusterCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the specified parameter group. You cannot delete a parameter group if it is associated with any clusters.
-   *          You cannot delete the default parameter groups in your account.</p>
+   * @see {@link DeleteParameterGroupCommand}
    */
-  public deleteParameterGroup(
+  deleteParameterGroup(
     args: DeleteParameterGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteParameterGroupCommandOutput>;
-  public deleteParameterGroup(
+  deleteParameterGroup(
     args: DeleteParameterGroupCommandInput,
     cb: (err: any, data?: DeleteParameterGroupCommandOutput) => void
   ): void;
-  public deleteParameterGroup(
+  deleteParameterGroup(
     args: DeleteParameterGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteParameterGroupCommandOutput) => void
   ): void;
-  public deleteParameterGroup(
-    args: DeleteParameterGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteParameterGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteParameterGroupCommandOutput) => void
-  ): Promise<DeleteParameterGroupCommandOutput> | void {
-    const command = new DeleteParameterGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes an existing snapshot. When you receive a successful response from this operation, MemoryDB immediately begins deleting the snapshot; you cannot cancel or revert this operation.</p>
+   * @see {@link DeleteSnapshotCommand}
    */
-  public deleteSnapshot(
+  deleteSnapshot(
     args: DeleteSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSnapshotCommandOutput>;
-  public deleteSnapshot(
-    args: DeleteSnapshotCommandInput,
-    cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
-  ): void;
-  public deleteSnapshot(
+  deleteSnapshot(args: DeleteSnapshotCommandInput, cb: (err: any, data?: DeleteSnapshotCommandOutput) => void): void;
+  deleteSnapshot(
     args: DeleteSnapshotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
   ): void;
-  public deleteSnapshot(
-    args: DeleteSnapshotCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSnapshotCommandOutput) => void
-  ): Promise<DeleteSnapshotCommandOutput> | void {
-    const command = new DeleteSnapshotCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a subnet group. You cannot delete a default subnet group or one that is associated with any clusters.</p>
+   * @see {@link DeleteSubnetGroupCommand}
    */
-  public deleteSubnetGroup(
+  deleteSubnetGroup(
     args: DeleteSubnetGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSubnetGroupCommandOutput>;
-  public deleteSubnetGroup(
+  deleteSubnetGroup(
     args: DeleteSubnetGroupCommandInput,
     cb: (err: any, data?: DeleteSubnetGroupCommandOutput) => void
   ): void;
-  public deleteSubnetGroup(
+  deleteSubnetGroup(
     args: DeleteSubnetGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSubnetGroupCommandOutput) => void
   ): void;
-  public deleteSubnetGroup(
-    args: DeleteSubnetGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSubnetGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSubnetGroupCommandOutput) => void
-  ): Promise<DeleteSubnetGroupCommandOutput> | void {
-    const command = new DeleteSubnetGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a user. The user will be removed from all ACLs and in turn removed from all clusters.</p>
+   * @see {@link DeleteUserCommand}
    */
-  public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
-  public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
-  public deleteUser(
+  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
-    cb?: (err: any, data?: DeleteUserCommandOutput) => void
-  ): Promise<DeleteUserCommandOutput> | void {
-    const command = new DeleteUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of ACLs</p>
+   * @see {@link DescribeACLsCommand}
    */
-  public describeACLs(
-    args: DescribeACLsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeACLsCommandOutput>;
-  public describeACLs(args: DescribeACLsCommandInput, cb: (err: any, data?: DescribeACLsCommandOutput) => void): void;
-  public describeACLs(
+  describeACLs(args: DescribeACLsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeACLsCommandOutput>;
+  describeACLs(args: DescribeACLsCommandInput, cb: (err: any, data?: DescribeACLsCommandOutput) => void): void;
+  describeACLs(
     args: DescribeACLsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeACLsCommandOutput) => void
   ): void;
-  public describeACLs(
-    args: DescribeACLsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeACLsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeACLsCommandOutput) => void
-  ): Promise<DescribeACLsCommandOutput> | void {
-    const command = new DescribeACLsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about all provisioned clusters if no cluster identifier is specified, or about a specific cluster if a cluster name is supplied.</p>
+   * @see {@link DescribeClustersCommand}
    */
-  public describeClusters(
+  describeClusters(
     args: DescribeClustersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeClustersCommandOutput>;
-  public describeClusters(
+  describeClusters(
     args: DescribeClustersCommandInput,
     cb: (err: any, data?: DescribeClustersCommandOutput) => void
   ): void;
-  public describeClusters(
+  describeClusters(
     args: DescribeClustersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeClustersCommandOutput) => void
   ): void;
-  public describeClusters(
-    args: DescribeClustersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClustersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeClustersCommandOutput) => void
-  ): Promise<DescribeClustersCommandOutput> | void {
-    const command = new DescribeClustersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of the available Redis engine versions.</p>
+   * @see {@link DescribeEngineVersionsCommand}
    */
-  public describeEngineVersions(
+  describeEngineVersions(
     args: DescribeEngineVersionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEngineVersionsCommandOutput>;
-  public describeEngineVersions(
+  describeEngineVersions(
     args: DescribeEngineVersionsCommandInput,
     cb: (err: any, data?: DescribeEngineVersionsCommandOutput) => void
   ): void;
-  public describeEngineVersions(
+  describeEngineVersions(
     args: DescribeEngineVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeEngineVersionsCommandOutput) => void
   ): void;
-  public describeEngineVersions(
-    args: DescribeEngineVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEngineVersionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEngineVersionsCommandOutput) => void
-  ): Promise<DescribeEngineVersionsCommandOutput> | void {
-    const command = new DescribeEngineVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns events related to clusters, security groups, and parameter groups. You can obtain events specific to a particular cluster, security group, or parameter group by providing the name as a parameter.
-   *
-   *          By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.</p>
+   * @see {@link DescribeEventsCommand}
    */
-  public describeEvents(
+  describeEvents(
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEventsCommandOutput>;
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    cb: (err: any, data?: DescribeEventsCommandOutput) => void
-  ): void;
-  public describeEvents(
+  describeEvents(args: DescribeEventsCommandInput, cb: (err: any, data?: DescribeEventsCommandOutput) => void): void;
+  describeEvents(
     args: DescribeEventsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeEventsCommandOutput) => void
   ): void;
-  public describeEvents(
-    args: DescribeEventsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEventsCommandOutput) => void
-  ): Promise<DescribeEventsCommandOutput> | void {
-    const command = new DescribeEventsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of parameter group descriptions. If a parameter group name is specified, the list contains only the descriptions for that group.</p>
+   * @see {@link DescribeParameterGroupsCommand}
    */
-  public describeParameterGroups(
+  describeParameterGroups(
     args: DescribeParameterGroupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeParameterGroupsCommandOutput>;
-  public describeParameterGroups(
+  describeParameterGroups(
     args: DescribeParameterGroupsCommandInput,
     cb: (err: any, data?: DescribeParameterGroupsCommandOutput) => void
   ): void;
-  public describeParameterGroups(
+  describeParameterGroups(
     args: DescribeParameterGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeParameterGroupsCommandOutput) => void
   ): void;
-  public describeParameterGroups(
-    args: DescribeParameterGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeParameterGroupsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeParameterGroupsCommandOutput) => void
-  ): Promise<DescribeParameterGroupsCommandOutput> | void {
-    const command = new DescribeParameterGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns the detailed parameter list for a particular parameter group.</p>
+   * @see {@link DescribeParametersCommand}
    */
-  public describeParameters(
+  describeParameters(
     args: DescribeParametersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeParametersCommandOutput>;
-  public describeParameters(
+  describeParameters(
     args: DescribeParametersCommandInput,
     cb: (err: any, data?: DescribeParametersCommandOutput) => void
   ): void;
-  public describeParameters(
+  describeParameters(
     args: DescribeParametersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeParametersCommandOutput) => void
   ): void;
-  public describeParameters(
-    args: DescribeParametersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeParametersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeParametersCommandOutput) => void
-  ): Promise<DescribeParametersCommandOutput> | void {
-    const command = new DescribeParametersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about reserved nodes for this account, or about a specified reserved node.</p>
+   * @see {@link DescribeReservedNodesCommand}
    */
-  public describeReservedNodes(
+  describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeReservedNodesCommandOutput>;
-  public describeReservedNodes(
+  describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
     cb: (err: any, data?: DescribeReservedNodesCommandOutput) => void
   ): void;
-  public describeReservedNodes(
+  describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeReservedNodesCommandOutput) => void
   ): void;
-  public describeReservedNodes(
-    args: DescribeReservedNodesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedNodesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeReservedNodesCommandOutput) => void
-  ): Promise<DescribeReservedNodesCommandOutput> | void {
-    const command = new DescribeReservedNodesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists available reserved node offerings.</p>
+   * @see {@link DescribeReservedNodesOfferingsCommand}
    */
-  public describeReservedNodesOfferings(
+  describeReservedNodesOfferings(
     args: DescribeReservedNodesOfferingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeReservedNodesOfferingsCommandOutput>;
-  public describeReservedNodesOfferings(
+  describeReservedNodesOfferings(
     args: DescribeReservedNodesOfferingsCommandInput,
     cb: (err: any, data?: DescribeReservedNodesOfferingsCommandOutput) => void
   ): void;
-  public describeReservedNodesOfferings(
+  describeReservedNodesOfferings(
     args: DescribeReservedNodesOfferingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeReservedNodesOfferingsCommandOutput) => void
   ): void;
-  public describeReservedNodesOfferings(
-    args: DescribeReservedNodesOfferingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedNodesOfferingsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeReservedNodesOfferingsCommandOutput) => void
-  ): Promise<DescribeReservedNodesOfferingsCommandOutput> | void {
-    const command = new DescribeReservedNodesOfferingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns details of the service updates</p>
+   * @see {@link DescribeServiceUpdatesCommand}
    */
-  public describeServiceUpdates(
+  describeServiceUpdates(
     args: DescribeServiceUpdatesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeServiceUpdatesCommandOutput>;
-  public describeServiceUpdates(
+  describeServiceUpdates(
     args: DescribeServiceUpdatesCommandInput,
     cb: (err: any, data?: DescribeServiceUpdatesCommandOutput) => void
   ): void;
-  public describeServiceUpdates(
+  describeServiceUpdates(
     args: DescribeServiceUpdatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeServiceUpdatesCommandOutput) => void
   ): void;
-  public describeServiceUpdates(
-    args: DescribeServiceUpdatesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServiceUpdatesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeServiceUpdatesCommandOutput) => void
-  ): Promise<DescribeServiceUpdatesCommandOutput> | void {
-    const command = new DescribeServiceUpdatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about cluster snapshots. By default, DescribeSnapshots lists all of your snapshots; it can optionally describe a single snapshot,
-   *          or just the snapshots associated with a particular cluster.</p>
+   * @see {@link DescribeSnapshotsCommand}
    */
-  public describeSnapshots(
+  describeSnapshots(
     args: DescribeSnapshotsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeSnapshotsCommandOutput>;
-  public describeSnapshots(
+  describeSnapshots(
     args: DescribeSnapshotsCommandInput,
     cb: (err: any, data?: DescribeSnapshotsCommandOutput) => void
   ): void;
-  public describeSnapshots(
+  describeSnapshots(
     args: DescribeSnapshotsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSnapshotsCommandOutput) => void
   ): void;
-  public describeSnapshots(
-    args: DescribeSnapshotsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSnapshotsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeSnapshotsCommandOutput) => void
-  ): Promise<DescribeSnapshotsCommandOutput> | void {
-    const command = new DescribeSnapshotsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of subnet group descriptions. If a subnet group name is specified, the list contains only the description of that group.</p>
+   * @see {@link DescribeSubnetGroupsCommand}
    */
-  public describeSubnetGroups(
+  describeSubnetGroups(
     args: DescribeSubnetGroupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeSubnetGroupsCommandOutput>;
-  public describeSubnetGroups(
+  describeSubnetGroups(
     args: DescribeSubnetGroupsCommandInput,
     cb: (err: any, data?: DescribeSubnetGroupsCommandOutput) => void
   ): void;
-  public describeSubnetGroups(
+  describeSubnetGroups(
     args: DescribeSubnetGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSubnetGroupsCommandOutput) => void
   ): void;
-  public describeSubnetGroups(
-    args: DescribeSubnetGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSubnetGroupsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeSubnetGroupsCommandOutput) => void
-  ): Promise<DescribeSubnetGroupsCommandOutput> | void {
-    const command = new DescribeSubnetGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of users.</p>
+   * @see {@link DescribeUsersCommand}
    */
-  public describeUsers(
-    args: DescribeUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeUsersCommandOutput>;
-  public describeUsers(
-    args: DescribeUsersCommandInput,
-    cb: (err: any, data?: DescribeUsersCommandOutput) => void
-  ): void;
-  public describeUsers(
+  describeUsers(args: DescribeUsersCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUsersCommandOutput>;
+  describeUsers(args: DescribeUsersCommandInput, cb: (err: any, data?: DescribeUsersCommandOutput) => void): void;
+  describeUsers(
     args: DescribeUsersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeUsersCommandOutput) => void
   ): void;
-  public describeUsers(
-    args: DescribeUsersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUsersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeUsersCommandOutput) => void
-  ): Promise<DescribeUsersCommandOutput> | void {
-    const command = new DescribeUsersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Used to failover a shard. This API is designed for testing the behavior of your application in case of MemoryDB failover. It is not designed to be used as a production-level tool for initiating
-   *          a failover to overcome a problem you may have with the cluster. Moreover, in certain conditions such as large scale operational events, Amazon may block this API. </p>
+   * @see {@link FailoverShardCommand}
    */
-  public failoverShard(
-    args: FailoverShardCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<FailoverShardCommandOutput>;
-  public failoverShard(
-    args: FailoverShardCommandInput,
-    cb: (err: any, data?: FailoverShardCommandOutput) => void
-  ): void;
-  public failoverShard(
+  failoverShard(args: FailoverShardCommandInput, options?: __HttpHandlerOptions): Promise<FailoverShardCommandOutput>;
+  failoverShard(args: FailoverShardCommandInput, cb: (err: any, data?: FailoverShardCommandOutput) => void): void;
+  failoverShard(
     args: FailoverShardCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: FailoverShardCommandOutput) => void
   ): void;
-  public failoverShard(
-    args: FailoverShardCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FailoverShardCommandOutput) => void),
-    cb?: (err: any, data?: FailoverShardCommandOutput) => void
-  ): Promise<FailoverShardCommandOutput> | void {
-    const command = new FailoverShardCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all available node types that you can scale to from your cluster's current node type.
-   *
-   *          When you use the UpdateCluster operation to scale your cluster, the value of the NodeType parameter must be one of the node types returned by this operation.</p>
+   * @see {@link ListAllowedNodeTypeUpdatesCommand}
    */
-  public listAllowedNodeTypeUpdates(
+  listAllowedNodeTypeUpdates(
     args: ListAllowedNodeTypeUpdatesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAllowedNodeTypeUpdatesCommandOutput>;
-  public listAllowedNodeTypeUpdates(
+  listAllowedNodeTypeUpdates(
     args: ListAllowedNodeTypeUpdatesCommandInput,
     cb: (err: any, data?: ListAllowedNodeTypeUpdatesCommandOutput) => void
   ): void;
-  public listAllowedNodeTypeUpdates(
+  listAllowedNodeTypeUpdates(
     args: ListAllowedNodeTypeUpdatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAllowedNodeTypeUpdatesCommandOutput) => void
   ): void;
-  public listAllowedNodeTypeUpdates(
-    args: ListAllowedNodeTypeUpdatesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAllowedNodeTypeUpdatesCommandOutput) => void),
-    cb?: (err: any, data?: ListAllowedNodeTypeUpdatesCommandOutput) => void
-  ): Promise<ListAllowedNodeTypeUpdatesCommandOutput> | void {
-    const command = new ListAllowedNodeTypeUpdatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all tags currently on a named resource.
-   *
-   *          A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track your MemoryDB resources.
-   *          For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html">Tagging your MemoryDB resources</a>
-   *          </p>
+   * @see {@link ListTagsCommand}
    */
-  public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
-  public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
-  public listTags(
+  listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
+  listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
+  listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsCommandOutput) => void
   ): void;
-  public listTags(
-    args: ListTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsCommandOutput) => void
-  ): Promise<ListTagsCommandOutput> | void {
-    const command = new ListTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Allows you to purchase a reserved  node offering. Reserved nodes are not eligible for cancellation and are non-refundable.</p>
+   * @see {@link PurchaseReservedNodesOfferingCommand}
    */
-  public purchaseReservedNodesOffering(
+  purchaseReservedNodesOffering(
     args: PurchaseReservedNodesOfferingCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PurchaseReservedNodesOfferingCommandOutput>;
-  public purchaseReservedNodesOffering(
+  purchaseReservedNodesOffering(
     args: PurchaseReservedNodesOfferingCommandInput,
     cb: (err: any, data?: PurchaseReservedNodesOfferingCommandOutput) => void
   ): void;
-  public purchaseReservedNodesOffering(
+  purchaseReservedNodesOffering(
     args: PurchaseReservedNodesOfferingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PurchaseReservedNodesOfferingCommandOutput) => void
   ): void;
-  public purchaseReservedNodesOffering(
-    args: PurchaseReservedNodesOfferingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseReservedNodesOfferingCommandOutput) => void),
-    cb?: (err: any, data?: PurchaseReservedNodesOfferingCommandOutput) => void
-  ): Promise<PurchaseReservedNodesOfferingCommandOutput> | void {
-    const command = new PurchaseReservedNodesOfferingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Modifies the parameters of a parameter group to the engine or system default value. You can reset specific parameters by submitting a list of parameter names. To reset the entire parameter group, specify the AllParameters and ParameterGroupName parameters.</p>
+   * @see {@link ResetParameterGroupCommand}
    */
-  public resetParameterGroup(
+  resetParameterGroup(
     args: ResetParameterGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ResetParameterGroupCommandOutput>;
-  public resetParameterGroup(
+  resetParameterGroup(
     args: ResetParameterGroupCommandInput,
     cb: (err: any, data?: ResetParameterGroupCommandOutput) => void
   ): void;
-  public resetParameterGroup(
+  resetParameterGroup(
     args: ResetParameterGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ResetParameterGroupCommandOutput) => void
   ): void;
-  public resetParameterGroup(
-    args: ResetParameterGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetParameterGroupCommandOutput) => void),
-    cb?: (err: any, data?: ResetParameterGroupCommandOutput) => void
-  ): Promise<ResetParameterGroupCommandOutput> | void {
-    const command = new ResetParameterGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources.
-   *
-   *          When you add or remove tags on clusters, those actions will be replicated to all nodes in the cluster. For more information, see
-   *
-   *          <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/iam.resourcelevelpermissions.html">Resource-level permissions</a>.</p>
-   *          <p>For example, you can use cost-allocation tags to your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value
-   *           (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories
-   *           (such as cost centers, application names, or owners) to organize your costs across multiple services.
-   *
-   *          For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html">Using Cost Allocation Tags</a>.</p>
+   * @see {@link TagResourceCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Use this operation to remove tags on a resource</p>
+   * @see {@link UntagResourceCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Changes the list of users that belong to the Access Control List.</p>
+   * @see {@link UpdateACLCommand}
    */
-  public updateACL(args: UpdateACLCommandInput, options?: __HttpHandlerOptions): Promise<UpdateACLCommandOutput>;
-  public updateACL(args: UpdateACLCommandInput, cb: (err: any, data?: UpdateACLCommandOutput) => void): void;
-  public updateACL(
+  updateACL(args: UpdateACLCommandInput, options?: __HttpHandlerOptions): Promise<UpdateACLCommandOutput>;
+  updateACL(args: UpdateACLCommandInput, cb: (err: any, data?: UpdateACLCommandOutput) => void): void;
+  updateACL(
     args: UpdateACLCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateACLCommandOutput) => void
   ): void;
-  public updateACL(
-    args: UpdateACLCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateACLCommandOutput) => void),
-    cb?: (err: any, data?: UpdateACLCommandOutput) => void
-  ): Promise<UpdateACLCommandOutput> | void {
-    const command = new UpdateACLCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Modifies the settings for a cluster. You can use this operation to change one or more cluster configuration settings by specifying the settings and the new values.</p>
+   * @see {@link UpdateClusterCommand}
    */
-  public updateCluster(
-    args: UpdateClusterCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateClusterCommandOutput>;
-  public updateCluster(
-    args: UpdateClusterCommandInput,
-    cb: (err: any, data?: UpdateClusterCommandOutput) => void
-  ): void;
-  public updateCluster(
+  updateCluster(args: UpdateClusterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateClusterCommandOutput>;
+  updateCluster(args: UpdateClusterCommandInput, cb: (err: any, data?: UpdateClusterCommandOutput) => void): void;
+  updateCluster(
     args: UpdateClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateClusterCommandOutput) => void
   ): void;
-  public updateCluster(
-    args: UpdateClusterCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateClusterCommandOutput) => void),
-    cb?: (err: any, data?: UpdateClusterCommandOutput) => void
-  ): Promise<UpdateClusterCommandOutput> | void {
-    const command = new UpdateClusterCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates the parameters of a parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.</p>
+   * @see {@link UpdateParameterGroupCommand}
    */
-  public updateParameterGroup(
+  updateParameterGroup(
     args: UpdateParameterGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateParameterGroupCommandOutput>;
-  public updateParameterGroup(
+  updateParameterGroup(
     args: UpdateParameterGroupCommandInput,
     cb: (err: any, data?: UpdateParameterGroupCommandOutput) => void
   ): void;
-  public updateParameterGroup(
+  updateParameterGroup(
     args: UpdateParameterGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateParameterGroupCommandOutput) => void
   ): void;
-  public updateParameterGroup(
-    args: UpdateParameterGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateParameterGroupCommandOutput) => void),
-    cb?: (err: any, data?: UpdateParameterGroupCommandOutput) => void
-  ): Promise<UpdateParameterGroupCommandOutput> | void {
-    const command = new UpdateParameterGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a subnet group. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html">Updating a subnet group</a>
-   *          </p>
+   * @see {@link UpdateSubnetGroupCommand}
    */
-  public updateSubnetGroup(
+  updateSubnetGroup(
     args: UpdateSubnetGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSubnetGroupCommandOutput>;
-  public updateSubnetGroup(
+  updateSubnetGroup(
     args: UpdateSubnetGroupCommandInput,
     cb: (err: any, data?: UpdateSubnetGroupCommandOutput) => void
   ): void;
-  public updateSubnetGroup(
+  updateSubnetGroup(
     args: UpdateSubnetGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSubnetGroupCommandOutput) => void
   ): void;
-  public updateSubnetGroup(
-    args: UpdateSubnetGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSubnetGroupCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSubnetGroupCommandOutput) => void
-  ): Promise<UpdateSubnetGroupCommandOutput> | void {
-    const command = new UpdateSubnetGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Changes user password(s) and/or access string.</p>
+   * @see {@link UpdateUserCommand}
    */
-  public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  public updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
-  public updateUser(
+  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
+  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
-    cb?: (err: any, data?: UpdateUserCommandOutput) => void
-  ): Promise<UpdateUserCommandOutput> | void {
-    const command = new UpdateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>MemoryDB for Redis is a fully managed, Redis-compatible, in-memory database that delivers ultra-fast performance and Multi-AZ durability for modern applications built using microservices architectures.
+ *
+ *        MemoryDB stores the entire database in-memory, enabling low latency and high throughput data access. It is compatible with Redis, a popular open source data store, enabling you to leverage Redis’ flexible and friendly data structures, APIs, and commands.</p>
+ */
+export class MemoryDB extends MemoryDBClient implements MemoryDB {}
+createAggregatedClient(commands, MemoryDB);

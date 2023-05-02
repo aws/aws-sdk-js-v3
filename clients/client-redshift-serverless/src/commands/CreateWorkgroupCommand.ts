@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWorkgroupRequest,
-  CreateWorkgroupRequestFilterSensitiveLog,
-  CreateWorkgroupResponse,
-  CreateWorkgroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWorkgroupCommand,
-  serializeAws_json1_1CreateWorkgroupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateWorkgroupRequest, CreateWorkgroupResponse } from "../models/models_0";
+import { de_CreateWorkgroupCommand, se_CreateWorkgroupCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkgroupCommand}.
  */
 export interface CreateWorkgroupCommandInput extends CreateWorkgroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkgroupCommand}.
  */
 export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an workgroup in Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,38 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  * import { RedshiftServerlessClient, CreateWorkgroupCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, CreateWorkgroupCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // CreateWorkgroupRequest
+ *   workgroupName: "STRING_VALUE", // required
+ *   namespaceName: "STRING_VALUE", // required
+ *   baseCapacity: Number("int"),
+ *   enhancedVpcRouting: true || false,
+ *   configParameters: [ // ConfigParameterList
+ *     { // ConfigParameter
+ *       parameterKey: "STRING_VALUE",
+ *       parameterValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   securityGroupIds: [ // SecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   subnetIds: [ // SubnetIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   publiclyAccessible: true || false,
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   port: Number("int"),
+ * };
  * const command = new CreateWorkgroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkgroupCommandInput - {@link CreateWorkgroupCommandInput}
+ * @returns {@link CreateWorkgroupCommandOutput}
  * @see {@link CreateWorkgroupCommandInput} for command's `input` shape.
  * @see {@link CreateWorkgroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -91,6 +116,9 @@ export class CreateWorkgroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkgroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +147,8 @@ export class CreateWorkgroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkgroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkgroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +158,18 @@ export class CreateWorkgroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkgroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkgroupCommand(input, context);
+    return se_CreateWorkgroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkgroupCommandOutput> {
-    return deserializeAws_json1_1CreateWorkgroupCommand(output, context);
+    return de_CreateWorkgroupCommand(output, context);
   }
 
   // Start section: command_body_extra

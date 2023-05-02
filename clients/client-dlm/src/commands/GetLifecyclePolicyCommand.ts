@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
-import {
-  GetLifecyclePolicyRequest,
-  GetLifecyclePolicyRequestFilterSensitiveLog,
-  GetLifecyclePolicyResponse,
-  GetLifecyclePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLifecyclePolicyCommand,
-  serializeAws_restJson1GetLifecyclePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLifecyclePolicyRequest, GetLifecyclePolicyResponse } from "../models/models_0";
+import { de_GetLifecyclePolicyCommand, se_GetLifecyclePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLifecyclePolicyCommand}.
  */
 export interface GetLifecyclePolicyCommandInput extends GetLifecyclePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLifecyclePolicyCommand}.
  */
 export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets detailed information about the specified lifecycle policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * import { DLMClient, GetLifecyclePolicyCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, GetLifecyclePolicyCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
  * const client = new DLMClient(config);
+ * const input = { // GetLifecyclePolicyRequest
+ *   PolicyId: "STRING_VALUE", // required
+ * };
  * const command = new GetLifecyclePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLifecyclePolicyCommandInput - {@link GetLifecyclePolicyCommandInput}
+ * @returns {@link GetLifecyclePolicyCommandOutput}
  * @see {@link GetLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link GetLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
@@ -78,6 +80,9 @@ export class GetLifecyclePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class GetLifecyclePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLifecyclePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLifecyclePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class GetLifecyclePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLifecyclePolicyCommand(input, context);
+    return se_GetLifecyclePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLifecyclePolicyCommandOutput> {
-    return deserializeAws_restJson1GetLifecyclePolicyCommand(output, context);
+    return de_GetLifecyclePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

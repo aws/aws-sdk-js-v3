@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListThemeVersionsRequest,
-  ListThemeVersionsRequestFilterSensitiveLog,
-  ListThemeVersionsResponse,
-  ListThemeVersionsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1ListThemeVersionsCommand,
-  serializeAws_restJson1ListThemeVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListThemeVersionsRequest, ListThemeVersionsResponse } from "../models/models_3";
+import { de_ListThemeVersionsCommand, se_ListThemeVersionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListThemeVersionsCommand}.
  */
 export interface ListThemeVersionsCommandInput extends ListThemeVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThemeVersionsCommand}.
  */
 export interface ListThemeVersionsCommandOutput extends ListThemeVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the versions of the themes in the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListThemeVersionsCommandOutput extends ListThemeVersionsRespons
  * import { QuickSightClient, ListThemeVersionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListThemeVersionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // ListThemeVersionsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   ThemeId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListThemeVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThemeVersionsCommandInput - {@link ListThemeVersionsCommandInput}
+ * @returns {@link ListThemeVersionsCommandOutput}
  * @see {@link ListThemeVersionsCommandInput} for command's `input` shape.
  * @see {@link ListThemeVersionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -96,6 +101,9 @@ export class ListThemeVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThemeVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +132,8 @@ export class ListThemeVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListThemeVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListThemeVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +143,18 @@ export class ListThemeVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThemeVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListThemeVersionsCommand(input, context);
+    return se_ListThemeVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThemeVersionsCommandOutput> {
-    return deserializeAws_restJson1ListThemeVersionsCommand(output, context);
+    return de_ListThemeVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

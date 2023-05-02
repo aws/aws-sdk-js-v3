@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  UpdatePricingPlanRequest,
-  UpdatePricingPlanRequestFilterSensitiveLog,
-  UpdatePricingPlanResponse,
-  UpdatePricingPlanResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePricingPlanCommand,
-  serializeAws_restJson1UpdatePricingPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePricingPlanRequest, UpdatePricingPlanResponse } from "../models/models_0";
+import { de_UpdatePricingPlanCommand, se_UpdatePricingPlanCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePricingPlanCommand}.
  */
 export interface UpdatePricingPlanCommandInput extends UpdatePricingPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePricingPlanCommand}.
  */
 export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the pricing plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanRespons
  * import { IoTTwinMakerClient, UpdatePricingPlanCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, UpdatePricingPlanCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // UpdatePricingPlanRequest
+ *   pricingMode: "STRING_VALUE", // required
+ *   bundleNames: [ // PricingBundles
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdatePricingPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePricingPlanCommandInput - {@link UpdatePricingPlanCommandInput}
+ * @returns {@link UpdatePricingPlanCommandOutput}
  * @see {@link UpdatePricingPlanCommandInput} for command's `input` shape.
  * @see {@link UpdatePricingPlanCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -81,6 +86,9 @@ export class UpdatePricingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePricingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class UpdatePricingPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePricingPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePricingPlanResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class UpdatePricingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePricingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePricingPlanCommand(input, context);
+    return se_UpdatePricingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePricingPlanCommandOutput> {
-    return deserializeAws_restJson1UpdatePricingPlanCommand(output, context);
+    return de_UpdatePricingPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

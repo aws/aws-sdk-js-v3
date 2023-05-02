@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TestRenderTemplateRequest,
-  TestRenderTemplateRequestFilterSensitiveLog,
-  TestRenderTemplateResponse,
-  TestRenderTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryTestRenderTemplateCommand,
-  serializeAws_queryTestRenderTemplateCommand,
-} from "../protocols/Aws_query";
+import { TestRenderTemplateRequest, TestRenderTemplateResponse } from "../models/models_0";
+import { de_TestRenderTemplateCommand, se_TestRenderTemplateCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link TestRenderTemplateCommand}.
  */
 export interface TestRenderTemplateCommandInput extends TestRenderTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestRenderTemplateCommand}.
  */
 export interface TestRenderTemplateCommandOutput extends TestRenderTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a preview of the MIME content of an email when provided with a template and a
  *             set of replacement data.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -44,10 +41,16 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  * import { SESClient, TestRenderTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, TestRenderTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // TestRenderTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ *   TemplateData: "STRING_VALUE", // required
+ * };
  * const command = new TestRenderTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestRenderTemplateCommandInput - {@link TestRenderTemplateCommandInput}
+ * @returns {@link TestRenderTemplateCommandOutput}
  * @see {@link TestRenderTemplateCommandInput} for command's `input` shape.
  * @see {@link TestRenderTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -84,6 +87,9 @@ export class TestRenderTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestRenderTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class TestRenderTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestRenderTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestRenderTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class TestRenderTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestRenderTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTestRenderTemplateCommand(input, context);
+    return se_TestRenderTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestRenderTemplateCommandOutput> {
-    return deserializeAws_queryTestRenderTemplateCommand(output, context);
+    return de_TestRenderTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

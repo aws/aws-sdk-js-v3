@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  DeleteNamespaceRequest,
-  DeleteNamespaceRequestFilterSensitiveLog,
-  DeleteNamespaceResponse,
-  DeleteNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteNamespaceCommand,
-  serializeAws_json1_1DeleteNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_0";
+import { de_DeleteNamespaceCommand, se_DeleteNamespaceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNamespaceCommand}.
  */
 export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNamespaceCommand}.
  */
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action. This action takes no
@@ -45,10 +42,13 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * import { IoTThingsGraphClient, DeleteNamespaceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeleteNamespaceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {};
  * const command = new DeleteNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNamespaceCommandInput - {@link DeleteNamespaceCommandInput}
+ * @returns {@link DeleteNamespaceCommandOutput}
  * @see {@link DeleteNamespaceCommandInput} for command's `input` shape.
  * @see {@link DeleteNamespaceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -78,6 +78,9 @@ export class DeleteNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +109,8 @@ export class DeleteNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +120,18 @@ export class DeleteNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNamespaceCommand(input, context);
+    return se_DeleteNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNamespaceCommandOutput> {
-    return deserializeAws_json1_1DeleteNamespaceCommand(output, context);
+    return de_DeleteNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,23 +23,24 @@ import {
   UpdateDeviceStatusRequest,
   UpdateDeviceStatusRequestFilterSensitiveLog,
   UpdateDeviceStatusResponse,
-  UpdateDeviceStatusResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateDeviceStatusCommand,
-  serializeAws_json1_1UpdateDeviceStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDeviceStatusCommand, se_UpdateDeviceStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeviceStatusCommand}.
  */
 export interface UpdateDeviceStatusCommandInput extends UpdateDeviceStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeviceStatusCommand}.
  */
 export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the device status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,10 +48,17 @@ export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusRespo
  * import { CognitoIdentityProviderClient, UpdateDeviceStatusCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateDeviceStatusCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // UpdateDeviceStatusRequest
+ *   AccessToken: "STRING_VALUE", // required
+ *   DeviceKey: "STRING_VALUE", // required
+ *   DeviceRememberedStatus: "remembered" || "not_remembered",
+ * };
  * const command = new UpdateDeviceStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeviceStatusCommandInput - {@link UpdateDeviceStatusCommandInput}
+ * @returns {@link UpdateDeviceStatusCommandOutput}
  * @see {@link UpdateDeviceStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceStatusCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -107,6 +115,9 @@ export class UpdateDeviceStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeviceStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,7 +148,7 @@ export class UpdateDeviceStatusCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateDeviceStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeviceStatusResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +158,18 @@ export class UpdateDeviceStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeviceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDeviceStatusCommand(input, context);
+    return se_UpdateDeviceStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceStatusCommandOutput> {
-    return deserializeAws_json1_1UpdateDeviceStatusCommand(output, context);
+    return de_UpdateDeviceStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

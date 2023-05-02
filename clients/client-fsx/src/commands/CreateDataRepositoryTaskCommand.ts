@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CreateDataRepositoryTaskRequest,
-  CreateDataRepositoryTaskRequestFilterSensitiveLog,
-  CreateDataRepositoryTaskResponse,
-  CreateDataRepositoryTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDataRepositoryTaskCommand,
-  serializeAws_json1_1CreateDataRepositoryTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDataRepositoryTaskRequest, CreateDataRepositoryTaskResponse } from "../models/models_0";
+import { de_CreateDataRepositoryTaskCommand, se_CreateDataRepositoryTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataRepositoryTaskCommand}.
  */
 export interface CreateDataRepositoryTaskCommandInput extends CreateDataRepositoryTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataRepositoryTaskCommand}.
  */
 export interface CreateDataRepositoryTaskCommandOutput extends CreateDataRepositoryTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon FSx for Lustre data repository task. You use data repository tasks
  *             to perform bulk operations between your Amazon FSx file system and its linked data
  *             repositories. An example of a data repository task is exporting any data and metadata
@@ -51,10 +48,33 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  * import { FSxClient, CreateDataRepositoryTaskCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateDataRepositoryTaskCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // CreateDataRepositoryTaskRequest
+ *   Type: "EXPORT_TO_REPOSITORY" || "IMPORT_METADATA_FROM_REPOSITORY" || "RELEASE_DATA_FROM_FILESYSTEM" || "AUTO_RELEASE_DATA", // required
+ *   Paths: [ // DataRepositoryTaskPaths
+ *     "STRING_VALUE",
+ *   ],
+ *   FileSystemId: "STRING_VALUE", // required
+ *   Report: { // CompletionReport
+ *     Enabled: true || false, // required
+ *     Path: "STRING_VALUE",
+ *     Format: "REPORT_CSV_20191124",
+ *     Scope: "FAILED_FILES_ONLY",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   CapacityToRelease: Number("long"),
+ * };
  * const command = new CreateDataRepositoryTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataRepositoryTaskCommandInput - {@link CreateDataRepositoryTaskCommandInput}
+ * @returns {@link CreateDataRepositoryTaskCommandOutput}
  * @see {@link CreateDataRepositoryTaskCommandInput} for command's `input` shape.
  * @see {@link CreateDataRepositoryTaskCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -103,6 +123,9 @@ export class CreateDataRepositoryTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataRepositoryTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +154,8 @@ export class CreateDataRepositoryTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataRepositoryTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataRepositoryTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +165,18 @@ export class CreateDataRepositoryTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataRepositoryTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDataRepositoryTaskCommand(input, context);
+    return se_CreateDataRepositoryTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataRepositoryTaskCommandOutput> {
-    return deserializeAws_json1_1CreateDataRepositoryTaskCommand(output, context);
+    return de_CreateDataRepositoryTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

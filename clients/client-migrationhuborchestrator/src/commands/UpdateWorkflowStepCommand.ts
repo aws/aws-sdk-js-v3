@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  UpdateWorkflowStepRequest,
-  UpdateWorkflowStepRequestFilterSensitiveLog,
-  UpdateWorkflowStepResponse,
-  UpdateWorkflowStepResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkflowStepCommand,
-  serializeAws_restJson1UpdateWorkflowStepCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateWorkflowStepRequest, UpdateWorkflowStepResponse } from "../models/models_0";
+import { de_UpdateWorkflowStepCommand, se_UpdateWorkflowStepCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkflowStepCommand}.
  */
 export interface UpdateWorkflowStepCommandInput extends UpdateWorkflowStepRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkflowStepCommand}.
  */
 export interface UpdateWorkflowStepCommandOutput extends UpdateWorkflowStepResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a step in a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,57 @@ export interface UpdateWorkflowStepCommandOutput extends UpdateWorkflowStepRespo
  * import { MigrationHubOrchestratorClient, UpdateWorkflowStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, UpdateWorkflowStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // UpdateWorkflowStepRequest
+ *   id: "STRING_VALUE", // required
+ *   stepGroupId: "STRING_VALUE", // required
+ *   workflowId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   stepActionType: "STRING_VALUE",
+ *   workflowStepAutomationConfiguration: { // WorkflowStepAutomationConfiguration
+ *     scriptLocationS3Bucket: "STRING_VALUE",
+ *     scriptLocationS3Key: { // PlatformScriptKey
+ *       linux: "STRING_VALUE",
+ *       windows: "STRING_VALUE",
+ *     },
+ *     command: { // PlatformCommand
+ *       linux: "STRING_VALUE",
+ *       windows: "STRING_VALUE",
+ *     },
+ *     runEnvironment: "STRING_VALUE",
+ *     targetType: "STRING_VALUE",
+ *   },
+ *   stepTarget: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   outputs: [ // WorkflowStepOutputList
+ *     { // WorkflowStepOutput
+ *       name: "STRING_VALUE",
+ *       dataType: "STRING_VALUE",
+ *       required: true || false,
+ *       value: { // WorkflowStepOutputUnion Union: only one key present
+ *         integerValue: Number("int"),
+ *         stringValue: "STRING_VALUE",
+ *         listOfStringValue: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   previous: [
+ *     "STRING_VALUE",
+ *   ],
+ *   next: [
+ *     "STRING_VALUE",
+ *   ],
+ *   status: "STRING_VALUE",
+ * };
  * const command = new UpdateWorkflowStepCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkflowStepCommandInput - {@link UpdateWorkflowStepCommandInput}
+ * @returns {@link UpdateWorkflowStepCommandOutput}
  * @see {@link UpdateWorkflowStepCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkflowStepCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -85,6 +129,9 @@ export class UpdateWorkflowStepCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkflowStepCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +160,8 @@ export class UpdateWorkflowStepCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkflowStepRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkflowStepResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +171,18 @@ export class UpdateWorkflowStepCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkflowStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkflowStepCommand(input, context);
+    return se_UpdateWorkflowStepCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkflowStepCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkflowStepCommand(output, context);
+    return de_UpdateWorkflowStepCommand(output, context);
   }
 
   // Start section: command_body_extra

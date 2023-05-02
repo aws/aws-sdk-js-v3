@@ -16,20 +16,22 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   DisassociateWirelessGatewayFromThingRequest,
-  DisassociateWirelessGatewayFromThingRequestFilterSensitiveLog,
   DisassociateWirelessGatewayFromThingResponse,
-  DisassociateWirelessGatewayFromThingResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateWirelessGatewayFromThingCommand,
-  serializeAws_restJson1DisassociateWirelessGatewayFromThingCommand,
+  de_DisassociateWirelessGatewayFromThingCommand,
+  se_DisassociateWirelessGatewayFromThingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWirelessGatewayFromThingCommand}.
  */
 export interface DisassociateWirelessGatewayFromThingCommandInput extends DisassociateWirelessGatewayFromThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWirelessGatewayFromThingCommand}.
  */
 export interface DisassociateWirelessGatewayFromThingCommandOutput
@@ -37,6 +39,7 @@ export interface DisassociateWirelessGatewayFromThingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a wireless gateway from its currently associated thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface DisassociateWirelessGatewayFromThingCommandOutput
  * import { IoTWirelessClient, DisassociateWirelessGatewayFromThingCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DisassociateWirelessGatewayFromThingCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DisassociateWirelessGatewayFromThingRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateWirelessGatewayFromThingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWirelessGatewayFromThingCommandInput - {@link DisassociateWirelessGatewayFromThingCommandInput}
+ * @returns {@link DisassociateWirelessGatewayFromThingCommandOutput}
  * @see {@link DisassociateWirelessGatewayFromThingCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessGatewayFromThingCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +97,9 @@ export class DisassociateWirelessGatewayFromThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWirelessGatewayFromThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class DisassociateWirelessGatewayFromThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateWirelessGatewayFromThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateWirelessGatewayFromThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +139,24 @@ export class DisassociateWirelessGatewayFromThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateWirelessGatewayFromThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateWirelessGatewayFromThingCommand(input, context);
+    return se_DisassociateWirelessGatewayFromThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateWirelessGatewayFromThingCommandOutput> {
-    return deserializeAws_restJson1DisassociateWirelessGatewayFromThingCommand(output, context);
+    return de_DisassociateWirelessGatewayFromThingCommand(output, context);
   }
 
   // Start section: command_body_extra

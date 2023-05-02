@@ -6,7 +6,7 @@ import { ListThemesCommand, ListThemesCommandInput, ListThemesCommandOutput } fr
 import { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AmplifyUIBuilderClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListThemesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListThemes(
   config: AmplifyUIBuilderPaginationConfiguration,
   input: ListThemesCommandInput,

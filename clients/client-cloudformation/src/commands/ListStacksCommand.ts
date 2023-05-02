@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ListStacksInput,
-  ListStacksInputFilterSensitiveLog,
-  ListStacksOutput,
-  ListStacksOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryListStacksCommand, serializeAws_queryListStacksCommand } from "../protocols/Aws_query";
+import { ListStacksInput, ListStacksOutput } from "../models/models_0";
+import { de_ListStacksCommand, se_ListStacksCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListStacksCommand}.
  */
 export interface ListStacksCommandInput extends ListStacksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStacksCommand}.
  */
 export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the summary information for stacks whose status matches the specified
  *          StackStatusFilter. Summary information for stacks that have been deleted is kept for 90
  *          days after the stack is deleted. If no StackStatusFilter is specified, summary information
@@ -43,10 +43,18 @@ export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBea
  * import { CloudFormationClient, ListStacksCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStacksCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ListStacksInput
+ *   NextToken: "STRING_VALUE",
+ *   StackStatusFilter: [ // StackStatusFilter
+ *     "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATE_COMPLETE" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_FAILED" || "ROLLBACK_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "DELETE_COMPLETE" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED" || "UPDATE_ROLLBACK_IN_PROGRESS" || "UPDATE_ROLLBACK_FAILED" || "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS" || "UPDATE_ROLLBACK_COMPLETE" || "REVIEW_IN_PROGRESS" || "IMPORT_IN_PROGRESS" || "IMPORT_COMPLETE" || "IMPORT_ROLLBACK_IN_PROGRESS" || "IMPORT_ROLLBACK_FAILED" || "IMPORT_ROLLBACK_COMPLETE",
+ *   ],
+ * };
  * const command = new ListStacksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStacksCommandInput - {@link ListStacksCommandInput}
+ * @returns {@link ListStacksCommandOutput}
  * @see {@link ListStacksCommandInput} for command's `input` shape.
  * @see {@link ListStacksCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -70,6 +78,9 @@ export class ListStacksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +107,8 @@ export class ListStacksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStacksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStacksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +118,18 @@ export class ListStacksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListStacksCommand(input, context);
+    return se_ListStacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStacksCommandOutput> {
-    return deserializeAws_queryListStacksCommand(output, context);
+    return de_ListStacksCommand(output, context);
   }
 
   // Start section: command_body_extra

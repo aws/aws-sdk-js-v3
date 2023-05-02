@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  AssociateGatewayToServerInput,
-  AssociateGatewayToServerInputFilterSensitiveLog,
-  AssociateGatewayToServerOutput,
-  AssociateGatewayToServerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0AssociateGatewayToServerCommand,
-  serializeAws_json1_0AssociateGatewayToServerCommand,
-} from "../protocols/Aws_json1_0";
+import { AssociateGatewayToServerInput, AssociateGatewayToServerOutput } from "../models/models_0";
+import { de_AssociateGatewayToServerCommand, se_AssociateGatewayToServerCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateGatewayToServerCommand}.
  */
 export interface AssociateGatewayToServerCommandInput extends AssociateGatewayToServerInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateGatewayToServerCommand}.
  */
 export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayToServerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a backup gateway with your server. After you complete the association process,
  *       you can back up and restore your VMs through the gateway.</p>
  * @example
@@ -43,10 +40,16 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  * import { BackupGatewayClient, AssociateGatewayToServerCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, AssociateGatewayToServerCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // AssociateGatewayToServerInput
+ *   GatewayArn: "STRING_VALUE", // required
+ *   ServerArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateGatewayToServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateGatewayToServerCommandInput - {@link AssociateGatewayToServerCommandInput}
+ * @returns {@link AssociateGatewayToServerCommandOutput}
  * @see {@link AssociateGatewayToServerCommandInput} for command's `input` shape.
  * @see {@link AssociateGatewayToServerCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -83,6 +86,9 @@ export class AssociateGatewayToServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateGatewayToServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class AssociateGatewayToServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateGatewayToServerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateGatewayToServerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class AssociateGatewayToServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateGatewayToServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0AssociateGatewayToServerCommand(input, context);
+    return se_AssociateGatewayToServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateGatewayToServerCommandOutput> {
-    return deserializeAws_json1_0AssociateGatewayToServerCommand(output, context);
+    return de_AssociateGatewayToServerCommand(output, context);
   }
 
   // Start section: command_body_extra

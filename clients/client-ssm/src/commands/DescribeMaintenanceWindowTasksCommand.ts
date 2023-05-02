@@ -15,21 +15,24 @@ import {
 
 import {
   DescribeMaintenanceWindowTasksRequest,
-  DescribeMaintenanceWindowTasksRequestFilterSensitiveLog,
   DescribeMaintenanceWindowTasksResult,
   DescribeMaintenanceWindowTasksResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeMaintenanceWindowTasksCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowTasksCommand,
+  de_DescribeMaintenanceWindowTasksCommand,
+  se_DescribeMaintenanceWindowTasksCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMaintenanceWindowTasksCommand}.
  */
 export interface DescribeMaintenanceWindowTasksCommandInput extends DescribeMaintenanceWindowTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMaintenanceWindowTasksCommand}.
  */
 export interface DescribeMaintenanceWindowTasksCommandOutput
@@ -37,6 +40,7 @@ export interface DescribeMaintenanceWindowTasksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tasks in a maintenance window.</p>
  *          <note>
  *             <p>For maintenance window tasks without a specified target, you can't supply values for
@@ -50,10 +54,25 @@ export interface DescribeMaintenanceWindowTasksCommandOutput
  * import { SSMClient, DescribeMaintenanceWindowTasksCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowTasksCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeMaintenanceWindowTasksRequest
+ *   WindowId: "STRING_VALUE", // required
+ *   Filters: [ // MaintenanceWindowFilterList
+ *     { // MaintenanceWindowFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // MaintenanceWindowFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeMaintenanceWindowTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceWindowTasksCommandInput - {@link DescribeMaintenanceWindowTasksCommandInput}
+ * @returns {@link DescribeMaintenanceWindowTasksCommandOutput}
  * @see {@link DescribeMaintenanceWindowTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowTasksCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -86,6 +105,9 @@ export class DescribeMaintenanceWindowTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,7 +136,7 @@ export class DescribeMaintenanceWindowTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceWindowTasksRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeMaintenanceWindowTasksResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -125,18 +147,24 @@ export class DescribeMaintenanceWindowTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMaintenanceWindowTasksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowTasksCommand(input, context);
+    return se_DescribeMaintenanceWindowTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowTasksCommand(output, context);
+    return de_DescribeMaintenanceWindowTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

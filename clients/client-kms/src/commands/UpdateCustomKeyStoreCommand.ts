@@ -18,23 +18,24 @@ import {
   UpdateCustomKeyStoreRequest,
   UpdateCustomKeyStoreRequestFilterSensitiveLog,
   UpdateCustomKeyStoreResponse,
-  UpdateCustomKeyStoreResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateCustomKeyStoreCommand,
-  serializeAws_json1_1UpdateCustomKeyStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateCustomKeyStoreCommand, se_UpdateCustomKeyStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCustomKeyStoreCommand}.
  */
 export interface UpdateCustomKeyStoreCommandInput extends UpdateCustomKeyStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCustomKeyStoreCommand}.
  */
 export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the properties of a custom key store. You can use this operation to change the
  *       properties of an CloudHSM key store or an external key store.</p>
  *          <p>Use the required <code>CustomKeyStoreId</code> parameter to identify the custom key store.
@@ -134,10 +135,26 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * import { KMSClient, UpdateCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, UpdateCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // UpdateCustomKeyStoreRequest
+ *   CustomKeyStoreId: "STRING_VALUE", // required
+ *   NewCustomKeyStoreName: "STRING_VALUE",
+ *   KeyStorePassword: "STRING_VALUE",
+ *   CloudHsmClusterId: "STRING_VALUE",
+ *   XksProxyUriEndpoint: "STRING_VALUE",
+ *   XksProxyUriPath: "STRING_VALUE",
+ *   XksProxyVpcEndpointServiceName: "STRING_VALUE",
+ *   XksProxyAuthenticationCredential: { // XksProxyAuthenticationCredentialType
+ *     AccessKeyId: "STRING_VALUE", // required
+ *     RawSecretAccessKey: "STRING_VALUE", // required
+ *   },
+ *   XksProxyConnectivity: "PUBLIC_ENDPOINT" || "VPC_ENDPOINT_SERVICE",
+ * };
  * const command = new UpdateCustomKeyStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCustomKeyStoreCommandInput - {@link UpdateCustomKeyStoreCommandInput}
+ * @returns {@link UpdateCustomKeyStoreCommandOutput}
  * @see {@link UpdateCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -394,6 +411,9 @@ export class UpdateCustomKeyStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCustomKeyStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -423,7 +443,7 @@ export class UpdateCustomKeyStoreCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateCustomKeyStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCustomKeyStoreResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -433,12 +453,18 @@ export class UpdateCustomKeyStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCustomKeyStoreCommand(input, context);
+    return se_UpdateCustomKeyStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCustomKeyStoreCommandOutput> {
-    return deserializeAws_json1_1UpdateCustomKeyStoreCommand(output, context);
+    return de_UpdateCustomKeyStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

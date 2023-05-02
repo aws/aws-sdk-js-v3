@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { AddClientIDToOpenIDConnectProviderRequest } from "../models/models_0";
 import {
-  AddClientIDToOpenIDConnectProviderRequest,
-  AddClientIDToOpenIDConnectProviderRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryAddClientIDToOpenIDConnectProviderCommand,
-  serializeAws_queryAddClientIDToOpenIDConnectProviderCommand,
+  de_AddClientIDToOpenIDConnectProviderCommand,
+  se_AddClientIDToOpenIDConnectProviderCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AddClientIDToOpenIDConnectProviderCommand}.
  */
 export interface AddClientIDToOpenIDConnectProviderCommandInput extends AddClientIDToOpenIDConnectProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddClientIDToOpenIDConnectProviderCommand}.
  */
 export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new client ID (also known as audience) to the list of client IDs already
  *             registered for the specified IAM OpenID Connect (OIDC) provider resource.</p>
  *          <p>This operation is idempotent; it does not fail or return an error if you add an
@@ -43,10 +45,16 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  * import { IAMClient, AddClientIDToOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, AddClientIDToOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // AddClientIDToOpenIDConnectProviderRequest
+ *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ *   ClientID: "STRING_VALUE", // required
+ * };
  * const command = new AddClientIDToOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddClientIDToOpenIDConnectProviderCommandInput - {@link AddClientIDToOpenIDConnectProviderCommandInput}
+ * @returns {@link AddClientIDToOpenIDConnectProviderCommandOutput}
  * @see {@link AddClientIDToOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link AddClientIDToOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -98,6 +106,9 @@ export class AddClientIDToOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddClientIDToOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +137,8 @@ export class AddClientIDToOpenIDConnectProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddClientIDToOpenIDConnectProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,18 +148,24 @@ export class AddClientIDToOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddClientIDToOpenIDConnectProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAddClientIDToOpenIDConnectProviderCommand(input, context);
+    return se_AddClientIDToOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddClientIDToOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryAddClientIDToOpenIDConnectProviderCommand(output, context);
+    return de_AddClientIDToOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

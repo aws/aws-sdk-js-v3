@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutCodeBindingRequest,
-  PutCodeBindingRequestFilterSensitiveLog,
-  PutCodeBindingResponse,
-  PutCodeBindingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutCodeBindingCommand,
-  serializeAws_restJson1PutCodeBindingCommand,
-} from "../protocols/Aws_restJson1";
+import { PutCodeBindingRequest, PutCodeBindingResponse } from "../models/models_0";
+import { de_PutCodeBindingCommand, se_PutCodeBindingCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutCodeBindingCommand}.
  */
 export interface PutCodeBindingCommandInput extends PutCodeBindingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutCodeBindingCommand}.
  */
 export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Put code binding URI</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __M
  * import { SchemasClient, PutCodeBindingCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, PutCodeBindingCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // PutCodeBindingRequest
+ *   Language: "STRING_VALUE", // required
+ *   RegistryName: "STRING_VALUE", // required
+ *   SchemaName: "STRING_VALUE", // required
+ *   SchemaVersion: "STRING_VALUE",
+ * };
  * const command = new PutCodeBindingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutCodeBindingCommandInput - {@link PutCodeBindingCommandInput}
+ * @returns {@link PutCodeBindingCommandOutput}
  * @see {@link PutCodeBindingCommandInput} for command's `input` shape.
  * @see {@link PutCodeBindingCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -83,6 +88,9 @@ export class PutCodeBindingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutCodeBindingCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +119,8 @@ export class PutCodeBindingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutCodeBindingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutCodeBindingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +130,18 @@ export class PutCodeBindingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutCodeBindingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutCodeBindingCommand(input, context);
+    return se_PutCodeBindingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCodeBindingCommandOutput> {
-    return deserializeAws_restJson1PutCodeBindingCommand(output, context);
+    return de_PutCodeBindingCommand(output, context);
   }
 
   // Start section: command_body_extra

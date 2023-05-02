@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  StopQueryRequest,
-  StopQueryRequestFilterSensitiveLog,
-  StopQueryResponse,
-  StopQueryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1StopQueryCommand, serializeAws_json1_1StopQueryCommand } from "../protocols/Aws_json1_1";
+import { StopQueryRequest, StopQueryResponse } from "../models/models_0";
+import { de_StopQueryCommand, se_StopQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopQueryCommand}.
  */
 export interface StopQueryCommandInput extends StopQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopQueryCommand}.
  */
 export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation
  *     returns an error indicating that the specified query is not running.</p>
  * @example
@@ -40,10 +40,15 @@ export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBea
  * import { CloudWatchLogsClient, StopQueryCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, StopQueryCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // StopQueryRequest
+ *   queryId: "STRING_VALUE", // required
+ * };
  * const command = new StopQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopQueryCommandInput - {@link StopQueryCommandInput}
+ * @returns {@link StopQueryCommandOutput}
  * @see {@link StopQueryCommandInput} for command's `input` shape.
  * @see {@link StopQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -76,6 +81,9 @@ export class StopQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +110,8 @@ export class StopQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopQueryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +121,18 @@ export class StopQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopQueryCommand(input, context);
+    return se_StopQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopQueryCommandOutput> {
-    return deserializeAws_json1_1StopQueryCommand(output, context);
+    return de_StopQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

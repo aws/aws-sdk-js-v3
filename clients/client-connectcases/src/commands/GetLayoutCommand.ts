@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  GetLayoutRequest,
-  GetLayoutRequestFilterSensitiveLog,
-  GetLayoutResponse,
-  GetLayoutResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLayoutCommand,
-  serializeAws_restJson1GetLayoutCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLayoutRequest, GetLayoutResponse } from "../models/models_0";
+import { de_GetLayoutCommand, se_GetLayoutCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLayoutCommand}.
  */
 export interface GetLayoutCommandInput extends GetLayoutRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLayoutCommand}.
  */
 export interface GetLayoutCommandOutput extends GetLayoutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details for the requested layout.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetLayoutCommandOutput extends GetLayoutResponse, __MetadataBea
  * import { ConnectCasesClient, GetLayoutCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, GetLayoutCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // GetLayoutRequest
+ *   domainId: "STRING_VALUE", // required
+ *   layoutId: "STRING_VALUE", // required
+ * };
  * const command = new GetLayoutCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLayoutCommandInput - {@link GetLayoutCommandInput}
+ * @returns {@link GetLayoutCommandOutput}
  * @see {@link GetLayoutCommandInput} for command's `input` shape.
  * @see {@link GetLayoutCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +89,9 @@ export class GetLayoutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLayoutCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetLayoutCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLayoutRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLayoutResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetLayoutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLayoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLayoutCommand(input, context);
+    return se_GetLayoutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayoutCommandOutput> {
-    return deserializeAws_restJson1GetLayoutCommand(output, context);
+    return de_GetLayoutCommand(output, context);
   }
 
   // Start section: command_body_extra

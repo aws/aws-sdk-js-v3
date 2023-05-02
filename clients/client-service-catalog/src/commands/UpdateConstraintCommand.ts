@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateConstraintInput,
-  UpdateConstraintInputFilterSensitiveLog,
-  UpdateConstraintOutput,
-  UpdateConstraintOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateConstraintCommand,
-  serializeAws_json1_1UpdateConstraintCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateConstraintInput, UpdateConstraintOutput } from "../models/models_0";
+import { de_UpdateConstraintCommand, se_UpdateConstraintCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConstraintCommand}.
  */
 export interface UpdateConstraintCommandInput extends UpdateConstraintInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConstraintCommand}.
  */
 export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified constraint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, _
  * import { ServiceCatalogClient, UpdateConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // UpdateConstraintInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Parameters: "STRING_VALUE",
+ * };
  * const command = new UpdateConstraintCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConstraintCommandInput - {@link UpdateConstraintCommandInput}
+ * @returns {@link UpdateConstraintCommandOutput}
  * @see {@link UpdateConstraintCommandInput} for command's `input` shape.
  * @see {@link UpdateConstraintCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +80,9 @@ export class UpdateConstraintCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConstraintCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +111,8 @@ export class UpdateConstraintCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConstraintInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConstraintOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +122,18 @@ export class UpdateConstraintCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConstraintCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConstraintCommand(input, context);
+    return se_UpdateConstraintCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConstraintCommandOutput> {
-    return deserializeAws_json1_1UpdateConstraintCommand(output, context);
+    return de_UpdateConstraintCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePortfolioInput,
-  DescribePortfolioInputFilterSensitiveLog,
-  DescribePortfolioOutput,
-  DescribePortfolioOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePortfolioCommand,
-  serializeAws_json1_1DescribePortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePortfolioInput, DescribePortfolioOutput } from "../models/models_0";
+import { de_DescribePortfolioCommand, se_DescribePortfolioCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePortfolioCommand}.
  */
 export interface DescribePortfolioCommandInput extends DescribePortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribePortfolioCommand}.
  */
 export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput,
  * import { ServiceCatalogClient, DescribePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribePortfolioInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DescribePortfolioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePortfolioCommandInput - {@link DescribePortfolioCommandInput}
+ * @returns {@link DescribePortfolioCommandOutput}
  * @see {@link DescribePortfolioCommandInput} for command's `input` shape.
  * @see {@link DescribePortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -73,6 +76,9 @@ export class DescribePortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +107,8 @@ export class DescribePortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePortfolioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePortfolioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +118,18 @@ export class DescribePortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePortfolioCommand(input, context);
+    return se_DescribePortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePortfolioCommandOutput> {
-    return deserializeAws_json1_1DescribePortfolioCommand(output, context);
+    return de_DescribePortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

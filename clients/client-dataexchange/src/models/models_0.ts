@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { DataExchangeServiceException as __BaseException } from "./DataExchangeServiceException";
 
 /**
+ * @public
  * <p>Access to the resource is denied.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,12 +28,22 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum ServerSideEncryptionTypes {
-  AES256 = "AES256",
-  aws_kms = "aws:kms",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServerSideEncryptionTypes = {
+  AES256: "AES256",
+  aws_kms: "aws:kms",
+} as const;
 
 /**
+ * @public
+ */
+export type ServerSideEncryptionTypes = (typeof ServerSideEncryptionTypes)[keyof typeof ServerSideEncryptionTypes];
+
+/**
+ * @public
  * <p>Encryption configuration of the export job. Includes the encryption type in addition to the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption type.</p>
  */
 export interface ExportServerSideEncryption {
@@ -48,6 +59,7 @@ export interface ExportServerSideEncryption {
 }
 
 /**
+ * @public
  * <p>A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.</p>
  */
 export interface AutoExportRevisionDestinationEntry {
@@ -63,6 +75,7 @@ export interface AutoExportRevisionDestinationEntry {
 }
 
 /**
+ * @public
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface AutoExportRevisionToS3RequestDetails {
@@ -78,6 +91,7 @@ export interface AutoExportRevisionToS3RequestDetails {
 }
 
 /**
+ * @public
  * <p>What occurs after a certain event.</p>
  */
 export interface Action {
@@ -87,11 +101,21 @@ export interface Action {
   ExportRevisionToS3?: AutoExportRevisionToS3RequestDetails;
 }
 
-export enum ProtocolType {
-  REST = "REST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProtocolType = {
+  REST: "REST",
+} as const;
 
 /**
+ * @public
+ */
+export type ProtocolType = (typeof ProtocolType)[keyof typeof ProtocolType];
+
+/**
+ * @public
  * <p>The API Gateway API that is the asset.</p>
  */
 export interface ApiGatewayApiAsset {
@@ -142,6 +166,7 @@ export interface ApiGatewayApiAsset {
 }
 
 /**
+ * @public
  * <p>The destination for the asset.</p>
  */
 export interface AssetDestinationEntry {
@@ -162,6 +187,7 @@ export interface AssetDestinationEntry {
 }
 
 /**
+ * @public
  * <p>A structure that allows an LF-admin to grant permissions on certain conditions.</p>
  */
 export interface LFTag {
@@ -177,6 +203,7 @@ export interface LFTag {
 }
 
 /**
+ * @public
  * <p>The LF-tag policy for database resources.</p>
  */
 export interface DatabaseLFTagPolicy {
@@ -187,6 +214,7 @@ export interface DatabaseLFTagPolicy {
 }
 
 /**
+ * @public
  * <p>The LF-tag policy for a table resource.</p>
  */
 export interface TableLFTagPolicy {
@@ -197,6 +225,7 @@ export interface TableLFTagPolicy {
 }
 
 /**
+ * @public
  * <p>Details about the AWS Lake Formation resource (Table or Database) included in the AWS Lake Formation data permission.</p>
  */
 export interface LFResourceDetails {
@@ -211,12 +240,22 @@ export interface LFResourceDetails {
   Table?: TableLFTagPolicy;
 }
 
-export enum LFResourceType {
-  DATABASE = "DATABASE",
-  TABLE = "TABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LFResourceType = {
+  DATABASE: "DATABASE",
+  TABLE: "TABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type LFResourceType = (typeof LFResourceType)[keyof typeof LFResourceType];
+
+/**
+ * @public
  * <p>Details about the LF-tag policy.</p>
  */
 export interface LFTagPolicyDetails {
@@ -237,6 +276,7 @@ export interface LFTagPolicyDetails {
 }
 
 /**
+ * @public
  * <p>Details about the AWS Lake Formation data permission.</p>
  */
 export interface LakeFormationDataPermissionDetails {
@@ -246,16 +286,36 @@ export interface LakeFormationDataPermissionDetails {
   LFTagPolicy?: LFTagPolicyDetails;
 }
 
-export enum LakeFormationDataPermissionType {
-  LFTagPolicy = "LFTagPolicy",
-}
-
-export enum LFPermission {
-  DESCRIBE = "DESCRIBE",
-  SELECT = "SELECT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LakeFormationDataPermissionType = {
+  LFTagPolicy: "LFTagPolicy",
+} as const;
 
 /**
+ * @public
+ */
+export type LakeFormationDataPermissionType =
+  (typeof LakeFormationDataPermissionType)[keyof typeof LakeFormationDataPermissionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LFPermission = {
+  DESCRIBE: "DESCRIBE",
+  SELECT: "SELECT",
+} as const;
+
+/**
+ * @public
+ */
+export type LFPermission = (typeof LFPermission)[keyof typeof LFPermission];
+
+/**
+ * @public
  * <p>The AWS Lake Formation data permission asset.</p>
  */
 export interface LakeFormationDataPermissionAsset {
@@ -281,6 +341,7 @@ export interface LakeFormationDataPermissionAsset {
 }
 
 /**
+ * @public
  * <p>The Amazon Redshift datashare asset.</p>
  */
 export interface RedshiftDataShareAsset {
@@ -291,6 +352,7 @@ export interface RedshiftDataShareAsset {
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the shared S3
  *          objects.</p>
  */
@@ -305,6 +367,7 @@ export interface KmsKeyToGrant {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 data access that is the asset.</p>
  */
 export interface S3DataAccessAsset {
@@ -342,6 +405,7 @@ export interface S3DataAccessAsset {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 object that is the asset.</p>
  */
 export interface S3SnapshotAsset {
@@ -352,6 +416,7 @@ export interface S3SnapshotAsset {
 }
 
 /**
+ * @public
  * <p>Details about the asset.</p>
  */
 export interface AssetDetails {
@@ -381,15 +446,25 @@ export interface AssetDetails {
   LakeFormationDataPermissionAsset?: LakeFormationDataPermissionAsset;
 }
 
-export enum AssetType {
-  API_GATEWAY_API = "API_GATEWAY_API",
-  LAKE_FORMATION_DATA_PERMISSION = "LAKE_FORMATION_DATA_PERMISSION",
-  REDSHIFT_DATA_SHARE = "REDSHIFT_DATA_SHARE",
-  S3_DATA_ACCESS = "S3_DATA_ACCESS",
-  S3_SNAPSHOT = "S3_SNAPSHOT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssetType = {
+  API_GATEWAY_API: "API_GATEWAY_API",
+  LAKE_FORMATION_DATA_PERMISSION: "LAKE_FORMATION_DATA_PERMISSION",
+  REDSHIFT_DATA_SHARE: "REDSHIFT_DATA_SHARE",
+  S3_DATA_ACCESS: "S3_DATA_ACCESS",
+  S3_SNAPSHOT: "S3_SNAPSHOT",
+} as const;
 
 /**
+ * @public
+ */
+export type AssetType = (typeof AssetType)[keyof typeof AssetType];
+
+/**
+ * @public
  * <p>An asset in AWS Data Exchange is a piece of data (Amazon S3 object) or a means of
  *          fulfilling data (Amazon Redshift datashare or Amazon API Gateway API, AWS Lake Formation
  *          data permission, or Amazon S3 data access). The asset can be a structured data file, an
@@ -458,6 +533,7 @@ export interface AssetEntry {
 }
 
 /**
+ * @public
  * <p>The source of the assets.</p>
  */
 export interface AssetSourceEntry {
@@ -472,6 +548,9 @@ export interface AssetSourceEntry {
   Key: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobRequest {
   /**
    * <p>The unique identifier for a job.</p>
@@ -479,15 +558,25 @@ export interface CancelJobRequest {
   JobId: string | undefined;
 }
 
-export enum ResourceType {
-  ASSET = "ASSET",
-  DATA_SET = "DATA_SET",
-  EVENT_ACTION = "EVENT_ACTION",
-  JOB = "JOB",
-  REVISION = "REVISION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  ASSET: "ASSET",
+  DATA_SET: "DATA_SET",
+  EVENT_ACTION: "EVENT_ACTION",
+  JOB: "JOB",
+  REVISION: "REVISION",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -524,6 +613,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An exception occurred with the service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -548,6 +638,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource couldn't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -584,6 +675,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -607,12 +699,22 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
-export enum ExceptionCause {
-  InsufficientS3BucketPolicy = "InsufficientS3BucketPolicy",
-  S3AccessDenied = "S3AccessDenied",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExceptionCause = {
+  InsufficientS3BucketPolicy: "InsufficientS3BucketPolicy",
+  S3AccessDenied: "S3AccessDenied",
+} as const;
 
 /**
+ * @public
+ */
+export type ExceptionCause = (typeof ExceptionCause)[keyof typeof ExceptionCause];
+
+/**
+ * @public
  * <p>The request was invalid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -642,16 +744,28 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum Code {
-  ACCESS_DENIED_EXCEPTION = "ACCESS_DENIED_EXCEPTION",
-  INTERNAL_SERVER_EXCEPTION = "INTERNAL_SERVER_EXCEPTION",
-  MALWARE_DETECTED = "MALWARE_DETECTED",
-  MALWARE_SCAN_ENCRYPTED_FILE = "MALWARE_SCAN_ENCRYPTED_FILE",
-  RESOURCE_NOT_FOUND_EXCEPTION = "RESOURCE_NOT_FOUND_EXCEPTION",
-  SERVICE_QUOTA_EXCEEDED_EXCEPTION = "SERVICE_QUOTA_EXCEEDED_EXCEPTION",
-  VALIDATION_EXCEPTION = "VALIDATION_EXCEPTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Code = {
+  ACCESS_DENIED_EXCEPTION: "ACCESS_DENIED_EXCEPTION",
+  INTERNAL_SERVER_EXCEPTION: "INTERNAL_SERVER_EXCEPTION",
+  MALWARE_DETECTED: "MALWARE_DETECTED",
+  MALWARE_SCAN_ENCRYPTED_FILE: "MALWARE_SCAN_ENCRYPTED_FILE",
+  RESOURCE_NOT_FOUND_EXCEPTION: "RESOURCE_NOT_FOUND_EXCEPTION",
+  SERVICE_QUOTA_EXCEEDED_EXCEPTION: "SERVICE_QUOTA_EXCEEDED_EXCEPTION",
+  VALIDATION_EXCEPTION: "VALIDATION_EXCEPTION",
+} as const;
 
+/**
+ * @public
+ */
+export type Code = (typeof Code)[keyof typeof Code];
+
+/**
+ * @public
+ */
 export interface CreateDataSetRequest {
   /**
    * <p>The type of asset that is added to a data set.</p>
@@ -674,12 +788,22 @@ export interface CreateDataSetRequest {
   Tags?: Record<string, string>;
 }
 
-export enum Origin {
-  ENTITLED = "ENTITLED",
-  OWNED = "OWNED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Origin = {
+  ENTITLED: "ENTITLED",
+  OWNED: "OWNED",
+} as const;
 
 /**
+ * @public
+ */
+export type Origin = (typeof Origin)[keyof typeof Origin];
+
+/**
+ * @public
  * <p>Details about the origin of the data set.</p>
  */
 export interface OriginDetails {
@@ -689,6 +813,9 @@ export interface OriginDetails {
   ProductId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSetResponse {
   /**
    * <p>The ARN for the data set.</p>
@@ -746,38 +873,59 @@ export interface CreateDataSetResponse {
   UpdatedAt?: Date;
 }
 
-export enum LimitName {
-  AWS_Lake_Formation_data_permission_assets_per_revision = "AWS Lake Formation data permission assets per revision",
-  Amazon_API_Gateway_API_assets_per_revision = "Amazon API Gateway API assets per revision",
-  Amazon_Redshift_datashare_assets_per_import_job_from_Redshift = "Amazon Redshift datashare assets per import job from Redshift",
-  Amazon_Redshift_datashare_assets_per_revision = "Amazon Redshift datashare assets per revision",
-  Amazon_S3_data_access_assets_per_revision = "Amazon S3 data access assets per revision",
-  Asset_per_export_job_from_Amazon_S3 = "Asset per export job from Amazon S3",
-  Asset_size_in_GB = "Asset size in GB",
-  Assets_per_import_job_from_Amazon_S3 = "Assets per import job from Amazon S3",
-  Assets_per_revision = "Assets per revision",
-  Auto_export_event_actions_per_data_set = "Auto export event actions per data set",
-  Concurrent_in_progress_jobs_to_create_Amazon_S3_data_access_assets_from_S3_buckets = "Concurrent in progress jobs to create Amazon S3 data access assets from S3 buckets",
-  Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3 = "Concurrent in progress jobs to export assets to Amazon S3",
-  Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL = "Concurrent in progress jobs to export assets to a signed URL",
-  Concurrent_in_progress_jobs_to_export_revisions_to_Amazon_S3 = "Concurrent in progress jobs to export revisions to Amazon S3",
-  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_Redshift_datashares = "Concurrent in progress jobs to import assets from Amazon Redshift datashares",
-  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3 = "Concurrent in progress jobs to import assets from Amazon S3",
-  Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL = "Concurrent in progress jobs to import assets from a signed URL",
-  Concurrent_in_progress_jobs_to_import_assets_from_an_API_Gateway_API = "Concurrent in progress jobs to import assets from an API Gateway API",
-  Concurrent_in_progress_jobs_to_import_assets_from_an_AWS_Lake_Formation_tag_policy = "Concurrent in progress jobs to import assets from an AWS Lake Formation tag policy",
-  Data_sets_per_account = "Data sets per account",
-  Data_sets_per_product = "Data sets per product",
-  Event_actions_per_account = "Event actions per account",
-  Products_per_account = "Products per account",
-  Revisions_per_AWS_Lake_Formation_data_permission_data_set = "Revisions per AWS Lake Formation data permission data set",
-  Revisions_per_Amazon_API_Gateway_API_data_set = "Revisions per Amazon API Gateway API data set",
-  Revisions_per_Amazon_Redshift_datashare_data_set = "Revisions per Amazon Redshift datashare data set",
-  Revisions_per_Amazon_S3_data_access_data_set = "Revisions per Amazon S3 data access data set",
-  Revisions_per_data_set = "Revisions per data set",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LimitName = {
+  AWS_Lake_Formation_data_permission_assets_per_revision: "AWS Lake Formation data permission assets per revision",
+  Amazon_API_Gateway_API_assets_per_revision: "Amazon API Gateway API assets per revision",
+  Amazon_Redshift_datashare_assets_per_import_job_from_Redshift:
+    "Amazon Redshift datashare assets per import job from Redshift",
+  Amazon_Redshift_datashare_assets_per_revision: "Amazon Redshift datashare assets per revision",
+  Amazon_S3_data_access_assets_per_revision: "Amazon S3 data access assets per revision",
+  Asset_per_export_job_from_Amazon_S3: "Asset per export job from Amazon S3",
+  Asset_size_in_GB: "Asset size in GB",
+  Assets_per_import_job_from_Amazon_S3: "Assets per import job from Amazon S3",
+  Assets_per_revision: "Assets per revision",
+  Auto_export_event_actions_per_data_set: "Auto export event actions per data set",
+  Concurrent_in_progress_jobs_to_create_Amazon_S3_data_access_assets_from_S3_buckets:
+    "Concurrent in progress jobs to create Amazon S3 data access assets from S3 buckets",
+  Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3:
+    "Concurrent in progress jobs to export assets to Amazon S3",
+  Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL:
+    "Concurrent in progress jobs to export assets to a signed URL",
+  Concurrent_in_progress_jobs_to_export_revisions_to_Amazon_S3:
+    "Concurrent in progress jobs to export revisions to Amazon S3",
+  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_Redshift_datashares:
+    "Concurrent in progress jobs to import assets from Amazon Redshift datashares",
+  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3:
+    "Concurrent in progress jobs to import assets from Amazon S3",
+  Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL:
+    "Concurrent in progress jobs to import assets from a signed URL",
+  Concurrent_in_progress_jobs_to_import_assets_from_an_API_Gateway_API:
+    "Concurrent in progress jobs to import assets from an API Gateway API",
+  Concurrent_in_progress_jobs_to_import_assets_from_an_AWS_Lake_Formation_tag_policy:
+    "Concurrent in progress jobs to import assets from an AWS Lake Formation tag policy",
+  Data_sets_per_account: "Data sets per account",
+  Data_sets_per_product: "Data sets per product",
+  Event_actions_per_account: "Event actions per account",
+  Products_per_account: "Products per account",
+  Revisions_per_AWS_Lake_Formation_data_permission_data_set:
+    "Revisions per AWS Lake Formation data permission data set",
+  Revisions_per_Amazon_API_Gateway_API_data_set: "Revisions per Amazon API Gateway API data set",
+  Revisions_per_Amazon_Redshift_datashare_data_set: "Revisions per Amazon Redshift datashare data set",
+  Revisions_per_Amazon_S3_data_access_data_set: "Revisions per Amazon S3 data access data set",
+  Revisions_per_data_set: "Revisions per data set",
+} as const;
 
 /**
+ * @public
+ */
+export type LimitName = (typeof LimitName)[keyof typeof LimitName];
+
+/**
+ * @public
  * <p>The request has exceeded the quotas imposed by the service.</p>
  */
 export class ServiceLimitExceededException extends __BaseException {
@@ -814,6 +962,7 @@ export class ServiceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about the published revision.</p>
  */
 export interface RevisionPublished {
@@ -824,6 +973,7 @@ export interface RevisionPublished {
 }
 
 /**
+ * @public
  * <p>What occurs to start an action.</p>
  */
 export interface Event {
@@ -833,6 +983,9 @@ export interface Event {
   RevisionPublished?: RevisionPublished;
 }
 
+/**
+ * @public
+ */
 export interface CreateEventActionRequest {
   /**
    * <p>What occurs after a certain event.</p>
@@ -845,6 +998,9 @@ export interface CreateEventActionRequest {
   Event: Event | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEventActionResponse {
   /**
    * <p>What occurs after a certain event.</p>
@@ -878,6 +1034,7 @@ export interface CreateEventActionResponse {
 }
 
 /**
+ * @public
  * <p>Source details for an Amazon S3 data access asset.</p>
  */
 export interface S3DataAccessAssetSourceEntry {
@@ -904,6 +1061,7 @@ export interface S3DataAccessAssetSourceEntry {
 }
 
 /**
+ * @public
  * <p>Details of the operation to create an Amazon S3 data access from an S3 bucket.</p>
  */
 export interface CreateS3DataAccessFromS3BucketRequestDetails {
@@ -924,6 +1082,7 @@ export interface CreateS3DataAccessFromS3BucketRequestDetails {
 }
 
 /**
+ * @public
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ExportAssetsToS3RequestDetails {
@@ -949,6 +1108,7 @@ export interface ExportAssetsToS3RequestDetails {
 }
 
 /**
+ * @public
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ExportAssetToSignedUrlRequestDetails {
@@ -969,6 +1129,7 @@ export interface ExportAssetToSignedUrlRequestDetails {
 }
 
 /**
+ * @public
  * <p>The destination where the assets in the revision will be exported.</p>
  */
 export interface RevisionDestinationEntry {
@@ -989,6 +1150,7 @@ export interface RevisionDestinationEntry {
 }
 
 /**
+ * @public
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ExportRevisionsToS3RequestDetails {
@@ -1009,6 +1171,7 @@ export interface ExportRevisionsToS3RequestDetails {
 }
 
 /**
+ * @public
  * <p>The request details.</p>
  */
 export interface ImportAssetFromApiGatewayApiRequestDetails {
@@ -1059,6 +1222,7 @@ export interface ImportAssetFromApiGatewayApiRequestDetails {
 }
 
 /**
+ * @public
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ImportAssetFromSignedUrlRequestDetails {
@@ -1083,11 +1247,22 @@ export interface ImportAssetFromSignedUrlRequestDetails {
   RevisionId: string | undefined;
 }
 
-export enum DatabaseLFTagPolicyPermission {
-  DESCRIBE = "DESCRIBE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DatabaseLFTagPolicyPermission = {
+  DESCRIBE: "DESCRIBE",
+} as const;
 
 /**
+ * @public
+ */
+export type DatabaseLFTagPolicyPermission =
+  (typeof DatabaseLFTagPolicyPermission)[keyof typeof DatabaseLFTagPolicyPermission];
+
+/**
+ * @public
  * <p>The LF-tag policy and permissions for database resources.</p>
  */
 export interface DatabaseLFTagPolicyAndPermissions {
@@ -1102,12 +1277,22 @@ export interface DatabaseLFTagPolicyAndPermissions {
   Permissions: (DatabaseLFTagPolicyPermission | string)[] | undefined;
 }
 
-export enum TableTagPolicyLFPermission {
-  DESCRIBE = "DESCRIBE",
-  SELECT = "SELECT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TableTagPolicyLFPermission = {
+  DESCRIBE: "DESCRIBE",
+  SELECT: "SELECT",
+} as const;
 
 /**
+ * @public
+ */
+export type TableTagPolicyLFPermission = (typeof TableTagPolicyLFPermission)[keyof typeof TableTagPolicyLFPermission];
+
+/**
+ * @public
  * <p>The LF-tag policy and permissions that apply to table resources.</p>
  */
 export interface TableLFTagPolicyAndPermissions {
@@ -1123,6 +1308,7 @@ export interface TableLFTagPolicyAndPermissions {
 }
 
 /**
+ * @public
  * <p>Details about the assets imported from an AWS Lake Formation tag policy request.</p>
  */
 export interface ImportAssetsFromLakeFormationTagPolicyRequestDetails {
@@ -1158,6 +1344,7 @@ export interface ImportAssetsFromLakeFormationTagPolicyRequestDetails {
 }
 
 /**
+ * @public
  * <p>The source of the Amazon Redshift datashare asset.</p>
  */
 export interface RedshiftDataShareAssetSourceEntry {
@@ -1168,6 +1355,7 @@ export interface RedshiftDataShareAssetSourceEntry {
 }
 
 /**
+ * @public
  * <p>Details from an import from Amazon Redshift datashare request.</p>
  */
 export interface ImportAssetsFromRedshiftDataSharesRequestDetails {
@@ -1188,6 +1376,7 @@ export interface ImportAssetsFromRedshiftDataSharesRequestDetails {
 }
 
 /**
+ * @public
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ImportAssetsFromS3RequestDetails {
@@ -1208,6 +1397,7 @@ export interface ImportAssetsFromS3RequestDetails {
 }
 
 /**
+ * @public
  * <p>The details for the request.</p>
  */
 export interface RequestDetails {
@@ -1257,18 +1447,30 @@ export interface RequestDetails {
   ImportAssetsFromLakeFormationTagPolicy?: ImportAssetsFromLakeFormationTagPolicyRequestDetails;
 }
 
-export enum Type {
-  CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET = "CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET",
-  EXPORT_ASSETS_TO_S3 = "EXPORT_ASSETS_TO_S3",
-  EXPORT_ASSET_TO_SIGNED_URL = "EXPORT_ASSET_TO_SIGNED_URL",
-  EXPORT_REVISIONS_TO_S3 = "EXPORT_REVISIONS_TO_S3",
-  IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY = "IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY",
-  IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES = "IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES",
-  IMPORT_ASSETS_FROM_S3 = "IMPORT_ASSETS_FROM_S3",
-  IMPORT_ASSET_FROM_API_GATEWAY_API = "IMPORT_ASSET_FROM_API_GATEWAY_API",
-  IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET: "CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET",
+  EXPORT_ASSETS_TO_S3: "EXPORT_ASSETS_TO_S3",
+  EXPORT_ASSET_TO_SIGNED_URL: "EXPORT_ASSET_TO_SIGNED_URL",
+  EXPORT_REVISIONS_TO_S3: "EXPORT_REVISIONS_TO_S3",
+  IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY: "IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY",
+  IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES: "IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES",
+  IMPORT_ASSETS_FROM_S3: "IMPORT_ASSETS_FROM_S3",
+  IMPORT_ASSET_FROM_API_GATEWAY_API: "IMPORT_ASSET_FROM_API_GATEWAY_API",
+  IMPORT_ASSET_FROM_SIGNED_URL: "IMPORT_ASSET_FROM_SIGNED_URL",
+} as const;
 
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * @public
+ */
 export interface CreateJobRequest {
   /**
    * <p>The details for the CreateJob request.</p>
@@ -1282,6 +1484,7 @@ export interface CreateJobRequest {
 }
 
 /**
+ * @public
  * <p>Details about the response of the operation to create an S3 data access from an S3 bucket.</p>
  */
 export interface CreateS3DataAccessFromS3BucketResponseDetails {
@@ -1302,6 +1505,7 @@ export interface CreateS3DataAccessFromS3BucketResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details about the export to Amazon S3 response.</p>
  */
 export interface ExportAssetsToS3ResponseDetails {
@@ -1327,6 +1531,7 @@ export interface ExportAssetsToS3ResponseDetails {
 }
 
 /**
+ * @public
  * <p>The details of the export to signed URL response.</p>
  */
 export interface ExportAssetToSignedUrlResponseDetails {
@@ -1357,6 +1562,7 @@ export interface ExportAssetToSignedUrlResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details about the export revisions to Amazon S3 response.</p>
  */
 export interface ExportRevisionsToS3ResponseDetails {
@@ -1382,6 +1588,7 @@ export interface ExportRevisionsToS3ResponseDetails {
 }
 
 /**
+ * @public
  * <p>The response details.</p>
  */
 export interface ImportAssetFromApiGatewayApiResponseDetails {
@@ -1442,6 +1649,7 @@ export interface ImportAssetFromApiGatewayApiResponseDetails {
 }
 
 /**
+ * @public
  * <p>The details in the response for an import request, including the signed URL and other information.</p>
  */
 export interface ImportAssetFromSignedUrlResponseDetails {
@@ -1477,6 +1685,7 @@ export interface ImportAssetFromSignedUrlResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details from an import AWS Lake Formation tag policy job response.</p>
  */
 export interface ImportAssetsFromLakeFormationTagPolicyResponseDetails {
@@ -1512,6 +1721,7 @@ export interface ImportAssetsFromLakeFormationTagPolicyResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details from an import from Amazon Redshift datashare response.</p>
  */
 export interface ImportAssetsFromRedshiftDataSharesResponseDetails {
@@ -1532,6 +1742,7 @@ export interface ImportAssetsFromRedshiftDataSharesResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details from an import from Amazon S3 response.</p>
  */
 export interface ImportAssetsFromS3ResponseDetails {
@@ -1552,6 +1763,7 @@ export interface ImportAssetsFromS3ResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details for the response.</p>
  */
 export interface ResponseDetails {
@@ -1602,6 +1814,7 @@ export interface ResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details about the job error.</p>
  */
 export interface ImportAssetFromSignedUrlJobErrorDetails {
@@ -1612,6 +1825,7 @@ export interface ImportAssetFromSignedUrlJobErrorDetails {
 }
 
 /**
+ * @public
  * <p>Information about the job error.</p>
  */
 export interface Details {
@@ -1626,21 +1840,40 @@ export interface Details {
   ImportAssetsFromS3JobErrorDetails?: AssetSourceEntry[];
 }
 
-export enum JobErrorLimitName {
-  AWS_Lake_Formation_data_permission_assets_per_revision = "AWS Lake Formation data permission assets per revision",
-  Amazon_Redshift_datashare_assets_per_revision = "Amazon Redshift datashare assets per revision",
-  Amazon_S3_data_access_assets_per_revision = "Amazon S3 data access assets per revision",
-  Asset_size_in_GB = "Asset size in GB",
-  Assets_per_revision = "Assets per revision",
-}
-
-export enum JobErrorResourceTypes {
-  ASSET = "ASSET",
-  DATA_SET = "DATA_SET",
-  REVISION = "REVISION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobErrorLimitName = {
+  AWS_Lake_Formation_data_permission_assets_per_revision: "AWS Lake Formation data permission assets per revision",
+  Amazon_Redshift_datashare_assets_per_revision: "Amazon Redshift datashare assets per revision",
+  Amazon_S3_data_access_assets_per_revision: "Amazon S3 data access assets per revision",
+  Asset_size_in_GB: "Asset size in GB",
+  Assets_per_revision: "Assets per revision",
+} as const;
 
 /**
+ * @public
+ */
+export type JobErrorLimitName = (typeof JobErrorLimitName)[keyof typeof JobErrorLimitName];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobErrorResourceTypes = {
+  ASSET: "ASSET",
+  DATA_SET: "DATA_SET",
+  REVISION: "REVISION",
+} as const;
+
+/**
+ * @public
+ */
+export type JobErrorResourceTypes = (typeof JobErrorResourceTypes)[keyof typeof JobErrorResourceTypes];
+
+/**
+ * @public
  * <p>An error that occurred with the job request.</p>
  */
 export interface JobError {
@@ -1680,15 +1913,27 @@ export interface JobError {
   ResourceType?: JobErrorResourceTypes | string;
 }
 
-export enum State {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-  TIMED_OUT = "TIMED_OUT",
-  WAITING = "WAITING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const State = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+  TIMED_OUT: "TIMED_OUT",
+  WAITING: "WAITING",
+} as const;
 
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * @public
+ */
 export interface CreateJobResponse {
   /**
    * <p>The ARN for the job.</p>
@@ -1731,6 +1976,9 @@ export interface CreateJobResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateRevisionRequest {
   /**
    * <p>An optional comment about the revision.</p>
@@ -1748,6 +1996,9 @@ export interface CreateRevisionRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRevisionResponse {
   /**
    * <p>The ARN for the revision.</p>
@@ -1810,6 +2061,9 @@ export interface CreateRevisionResponse {
   RevokedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssetRequest {
   /**
    * <p>The unique identifier for an asset.</p>
@@ -1827,6 +2081,9 @@ export interface DeleteAssetRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataSetRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -1834,6 +2091,9 @@ export interface DeleteDataSetRequest {
   DataSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventActionRequest {
   /**
    * <p>The unique identifier for the event action.</p>
@@ -1841,6 +2101,9 @@ export interface DeleteEventActionRequest {
   EventActionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRevisionRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -1853,6 +2116,9 @@ export interface DeleteRevisionRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAssetRequest {
   /**
    * <p>The unique identifier for an asset.</p>
@@ -1870,6 +2136,9 @@ export interface GetAssetRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAssetResponse {
   /**
    * <p>The ARN for the asset.</p>
@@ -1928,6 +2197,9 @@ export interface GetAssetResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetDataSetRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -1935,6 +2207,9 @@ export interface GetDataSetRequest {
   DataSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataSetResponse {
   /**
    * <p>The ARN for the data set.</p>
@@ -1992,6 +2267,9 @@ export interface GetDataSetResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetEventActionRequest {
   /**
    * <p>The unique identifier for the event action.</p>
@@ -1999,6 +2277,9 @@ export interface GetEventActionRequest {
   EventActionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEventActionResponse {
   /**
    * <p>What occurs after a certain event.</p>
@@ -2031,6 +2312,9 @@ export interface GetEventActionResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetJobRequest {
   /**
    * <p>The unique identifier for a job.</p>
@@ -2038,6 +2322,9 @@ export interface GetJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJobResponse {
   /**
    * <p>The ARN for the job.</p>
@@ -2080,6 +2367,9 @@ export interface GetJobResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetRevisionRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2092,6 +2382,9 @@ export interface GetRevisionRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRevisionResponse {
   /**
    * <p>The ARN for the revision.</p>
@@ -2154,6 +2447,9 @@ export interface GetRevisionResponse {
   RevokedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDataSetRevisionsRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2172,6 +2468,7 @@ export interface ListDataSetRevisionsRequest {
 }
 
 /**
+ * @public
  * <p>A revision is a container for one or more assets.</p>
  */
 export interface RevisionEntry {
@@ -2231,6 +2528,9 @@ export interface RevisionEntry {
   RevokedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDataSetRevisionsResponse {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -2243,6 +2543,9 @@ export interface ListDataSetRevisionsResponse {
   Revisions?: RevisionEntry[];
 }
 
+/**
+ * @public
+ */
 export interface ListDataSetsRequest {
   /**
    * <p>The maximum number of results returned by a single call.</p>
@@ -2261,6 +2564,7 @@ export interface ListDataSetsRequest {
 }
 
 /**
+ * @public
  * <p>A data set is an AWS resource with one or more revisions.</p>
  */
 export interface DataSetEntry {
@@ -2315,6 +2619,9 @@ export interface DataSetEntry {
   UpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDataSetsResponse {
   /**
    * <p>The data set objects listed by the request.</p>
@@ -2327,6 +2634,9 @@ export interface ListDataSetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventActionsRequest {
   /**
    * <p>The unique identifier for the event source.</p>
@@ -2345,6 +2655,7 @@ export interface ListEventActionsRequest {
 }
 
 /**
+ * @public
  * <p>An event action is an object that defines the relationship between a specific event and an automated action that will be taken on behalf of the customer.</p>
  */
 export interface EventActionEntry {
@@ -2379,6 +2690,9 @@ export interface EventActionEntry {
   UpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEventActionsResponse {
   /**
    * <p>The event action objects listed by the request.</p>
@@ -2391,6 +2705,9 @@ export interface ListEventActionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobsRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2414,6 +2731,7 @@ export interface ListJobsRequest {
 }
 
 /**
+ * @public
  * <p>AWS Data Exchange Jobs are asynchronous import or export operations used to create or copy assets. A data set owner can both import and export as they see fit. Someone with an entitlement to a data set can only export. Jobs are deleted 90 days after they are created.</p>
  */
 export interface JobEntry {
@@ -2458,6 +2776,9 @@ export interface JobEntry {
   UpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListJobsResponse {
   /**
    * <p>The jobs listed by the request.</p>
@@ -2470,6 +2791,9 @@ export interface ListJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRevisionAssetsRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2492,6 +2816,9 @@ export interface ListRevisionAssetsRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRevisionAssetsResponse {
   /**
    * <p>The asset objects listed by the request.</p>
@@ -2504,6 +2831,9 @@ export interface ListRevisionAssetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
@@ -2511,6 +2841,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A label that consists of a customer-defined key and an optional value.</p>
@@ -2518,6 +2851,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RevokeRevisionRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2535,6 +2871,9 @@ export interface RevokeRevisionRequest {
   RevocationComment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RevokeRevisionResponse {
   /**
    * <p>The ARN for the revision.</p>
@@ -2592,6 +2931,9 @@ export interface RevokeRevisionResponse {
   RevokedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface SendApiAssetRequest {
   /**
    * <p>The request body.</p>
@@ -2624,7 +2966,7 @@ export interface SendApiAssetRequest {
   Method?: string;
 
   /**
-   * <p>URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/{pathValue}.</p>
+   * <p>URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/\{pathValue\}.</p>
    */
   Path?: string;
 
@@ -2634,6 +2976,9 @@ export interface SendApiAssetRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendApiAssetResponse {
   /**
    * <p>The response body from the underlying API tracked by the API asset.</p>
@@ -2646,6 +2991,9 @@ export interface SendApiAssetResponse {
   ResponseHeaders?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRequest {
   /**
    * <p>The unique identifier for a job.</p>
@@ -2653,8 +3001,14 @@ export interface StartJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartJobResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
@@ -2667,6 +3021,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
@@ -2679,6 +3036,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssetRequest {
   /**
    * <p>The unique identifier for an asset.</p>
@@ -2707,6 +3067,9 @@ export interface UpdateAssetRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssetResponse {
   /**
    * <p>The ARN for the asset.</p>
@@ -2765,6 +3128,9 @@ export interface UpdateAssetResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSetRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2782,6 +3148,9 @@ export interface UpdateDataSetRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSetResponse {
   /**
    * <p>The ARN for the data set.</p>
@@ -2834,6 +3203,9 @@ export interface UpdateDataSetResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventActionRequest {
   /**
    * <p>What occurs after a certain event.</p>
@@ -2846,6 +3218,9 @@ export interface UpdateEventActionRequest {
   EventActionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventActionResponse {
   /**
    * <p>What occurs after a certain event.</p>
@@ -2878,6 +3253,9 @@ export interface UpdateEventActionResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRevisionRequest {
   /**
    * <p>An optional comment about the revision.</p>
@@ -2900,6 +3278,9 @@ export interface UpdateRevisionRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRevisionResponse {
   /**
    * <p>The ARN for the revision.</p>
@@ -2956,773 +3337,3 @@ export interface UpdateRevisionResponse {
    */
   RevokedAt?: Date;
 }
-
-/**
- * @internal
- */
-export const ExportServerSideEncryptionFilterSensitiveLog = (obj: ExportServerSideEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoExportRevisionDestinationEntryFilterSensitiveLog = (obj: AutoExportRevisionDestinationEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoExportRevisionToS3RequestDetailsFilterSensitiveLog = (
-  obj: AutoExportRevisionToS3RequestDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionFilterSensitiveLog = (obj: Action): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApiGatewayApiAssetFilterSensitiveLog = (obj: ApiGatewayApiAsset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssetDestinationEntryFilterSensitiveLog = (obj: AssetDestinationEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LFTagFilterSensitiveLog = (obj: LFTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseLFTagPolicyFilterSensitiveLog = (obj: DatabaseLFTagPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableLFTagPolicyFilterSensitiveLog = (obj: TableLFTagPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LFResourceDetailsFilterSensitiveLog = (obj: LFResourceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LFTagPolicyDetailsFilterSensitiveLog = (obj: LFTagPolicyDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LakeFormationDataPermissionDetailsFilterSensitiveLog = (obj: LakeFormationDataPermissionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LakeFormationDataPermissionAssetFilterSensitiveLog = (obj: LakeFormationDataPermissionAsset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedshiftDataShareAssetFilterSensitiveLog = (obj: RedshiftDataShareAsset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KmsKeyToGrantFilterSensitiveLog = (obj: KmsKeyToGrant): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DataAccessAssetFilterSensitiveLog = (obj: S3DataAccessAsset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3SnapshotAssetFilterSensitiveLog = (obj: S3SnapshotAsset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssetDetailsFilterSensitiveLog = (obj: AssetDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssetEntryFilterSensitiveLog = (obj: AssetEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssetSourceEntryFilterSensitiveLog = (obj: AssetSourceEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJobRequestFilterSensitiveLog = (obj: CancelJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataSetRequestFilterSensitiveLog = (obj: CreateDataSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OriginDetailsFilterSensitiveLog = (obj: OriginDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataSetResponseFilterSensitiveLog = (obj: CreateDataSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevisionPublishedFilterSensitiveLog = (obj: RevisionPublished): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventFilterSensitiveLog = (obj: Event): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventActionRequestFilterSensitiveLog = (obj: CreateEventActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventActionResponseFilterSensitiveLog = (obj: CreateEventActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DataAccessAssetSourceEntryFilterSensitiveLog = (obj: S3DataAccessAssetSourceEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateS3DataAccessFromS3BucketRequestDetailsFilterSensitiveLog = (
-  obj: CreateS3DataAccessFromS3BucketRequestDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportAssetsToS3RequestDetailsFilterSensitiveLog = (obj: ExportAssetsToS3RequestDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportAssetToSignedUrlRequestDetailsFilterSensitiveLog = (
-  obj: ExportAssetToSignedUrlRequestDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevisionDestinationEntryFilterSensitiveLog = (obj: RevisionDestinationEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportRevisionsToS3RequestDetailsFilterSensitiveLog = (obj: ExportRevisionsToS3RequestDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAssetFromApiGatewayApiRequestDetailsFilterSensitiveLog = (
-  obj: ImportAssetFromApiGatewayApiRequestDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAssetFromSignedUrlRequestDetailsFilterSensitiveLog = (
-  obj: ImportAssetFromSignedUrlRequestDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseLFTagPolicyAndPermissionsFilterSensitiveLog = (obj: DatabaseLFTagPolicyAndPermissions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableLFTagPolicyAndPermissionsFilterSensitiveLog = (obj: TableLFTagPolicyAndPermissions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAssetsFromLakeFormationTagPolicyRequestDetailsFilterSensitiveLog = (
-  obj: ImportAssetsFromLakeFormationTagPolicyRequestDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedshiftDataShareAssetSourceEntryFilterSensitiveLog = (obj: RedshiftDataShareAssetSourceEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAssetsFromRedshiftDataSharesRequestDetailsFilterSensitiveLog = (
-  obj: ImportAssetsFromRedshiftDataSharesRequestDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAssetsFromS3RequestDetailsFilterSensitiveLog = (obj: ImportAssetsFromS3RequestDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RequestDetailsFilterSensitiveLog = (obj: RequestDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateS3DataAccessFromS3BucketResponseDetailsFilterSensitiveLog = (
-  obj: CreateS3DataAccessFromS3BucketResponseDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportAssetsToS3ResponseDetailsFilterSensitiveLog = (obj: ExportAssetsToS3ResponseDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportAssetToSignedUrlResponseDetailsFilterSensitiveLog = (
-  obj: ExportAssetToSignedUrlResponseDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportRevisionsToS3ResponseDetailsFilterSensitiveLog = (obj: ExportRevisionsToS3ResponseDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAssetFromApiGatewayApiResponseDetailsFilterSensitiveLog = (
-  obj: ImportAssetFromApiGatewayApiResponseDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAssetFromSignedUrlResponseDetailsFilterSensitiveLog = (
-  obj: ImportAssetFromSignedUrlResponseDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAssetsFromLakeFormationTagPolicyResponseDetailsFilterSensitiveLog = (
-  obj: ImportAssetsFromLakeFormationTagPolicyResponseDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAssetsFromRedshiftDataSharesResponseDetailsFilterSensitiveLog = (
-  obj: ImportAssetsFromRedshiftDataSharesResponseDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAssetsFromS3ResponseDetailsFilterSensitiveLog = (obj: ImportAssetsFromS3ResponseDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResponseDetailsFilterSensitiveLog = (obj: ResponseDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAssetFromSignedUrlJobErrorDetailsFilterSensitiveLog = (
-  obj: ImportAssetFromSignedUrlJobErrorDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetailsFilterSensitiveLog = (obj: Details): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobErrorFilterSensitiveLog = (obj: JobError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobResponseFilterSensitiveLog = (obj: CreateJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRevisionRequestFilterSensitiveLog = (obj: CreateRevisionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRevisionResponseFilterSensitiveLog = (obj: CreateRevisionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssetRequestFilterSensitiveLog = (obj: DeleteAssetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataSetRequestFilterSensitiveLog = (obj: DeleteDataSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventActionRequestFilterSensitiveLog = (obj: DeleteEventActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRevisionRequestFilterSensitiveLog = (obj: DeleteRevisionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssetRequestFilterSensitiveLog = (obj: GetAssetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssetResponseFilterSensitiveLog = (obj: GetAssetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataSetRequestFilterSensitiveLog = (obj: GetDataSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataSetResponseFilterSensitiveLog = (obj: GetDataSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEventActionRequestFilterSensitiveLog = (obj: GetEventActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEventActionResponseFilterSensitiveLog = (obj: GetEventActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobRequestFilterSensitiveLog = (obj: GetJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobResponseFilterSensitiveLog = (obj: GetJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRevisionRequestFilterSensitiveLog = (obj: GetRevisionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRevisionResponseFilterSensitiveLog = (obj: GetRevisionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataSetRevisionsRequestFilterSensitiveLog = (obj: ListDataSetRevisionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevisionEntryFilterSensitiveLog = (obj: RevisionEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataSetRevisionsResponseFilterSensitiveLog = (obj: ListDataSetRevisionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataSetsRequestFilterSensitiveLog = (obj: ListDataSetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSetEntryFilterSensitiveLog = (obj: DataSetEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataSetsResponseFilterSensitiveLog = (obj: ListDataSetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventActionsRequestFilterSensitiveLog = (obj: ListEventActionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventActionEntryFilterSensitiveLog = (obj: EventActionEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventActionsResponseFilterSensitiveLog = (obj: ListEventActionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobEntryFilterSensitiveLog = (obj: JobEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsResponseFilterSensitiveLog = (obj: ListJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRevisionAssetsRequestFilterSensitiveLog = (obj: ListRevisionAssetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRevisionAssetsResponseFilterSensitiveLog = (obj: ListRevisionAssetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeRevisionRequestFilterSensitiveLog = (obj: RevokeRevisionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeRevisionResponseFilterSensitiveLog = (obj: RevokeRevisionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendApiAssetRequestFilterSensitiveLog = (obj: SendApiAssetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendApiAssetResponseFilterSensitiveLog = (obj: SendApiAssetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartJobRequestFilterSensitiveLog = (obj: StartJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartJobResponseFilterSensitiveLog = (obj: StartJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssetRequestFilterSensitiveLog = (obj: UpdateAssetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssetResponseFilterSensitiveLog = (obj: UpdateAssetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDataSetRequestFilterSensitiveLog = (obj: UpdateDataSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDataSetResponseFilterSensitiveLog = (obj: UpdateDataSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventActionRequestFilterSensitiveLog = (obj: UpdateEventActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventActionResponseFilterSensitiveLog = (obj: UpdateEventActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRevisionRequestFilterSensitiveLog = (obj: UpdateRevisionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRevisionResponseFilterSensitiveLog = (obj: UpdateRevisionResponse): any => ({
-  ...obj,
-});

@@ -2,7 +2,6 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
 
 import {
-  AccountDetails,
   Action,
   Adjustment,
   AssociatedStandard,
@@ -28,6 +27,7 @@ import {
   AwsEc2LaunchTemplateDetails,
   AwsEc2NetworkAclDetails,
   AwsEc2NetworkInterfaceDetails,
+  AwsEc2RouteTableDetails,
   AwsEc2SecurityGroupDetails,
   AwsEc2SubnetDetails,
   AwsEc2TransitGatewayDetails,
@@ -49,12 +49,167 @@ import {
   AwsElasticsearchDomainDetails,
   AwsElbLoadBalancerDetails,
   AwsElbv2LoadBalancerDetails,
-  AwsIamAccessKeyDetails,
-  AwsIamAttachedManagedPolicy,
 } from "./models_0";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
 
 /**
+ * @public
+ * <p>Attributes of the session that the key was used for.</p>
+ */
+export interface AwsIamAccessKeySessionContextAttributes {
+  /**
+   * <p>Indicates whether the session used multi-factor authentication (MFA).</p>
+   */
+  MfaAuthenticated?: boolean;
+
+  /**
+   * <p>Indicates when the session was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreationDate?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the entity that created the session.</p>
+ */
+export interface AwsIamAccessKeySessionContextSessionIssuer {
+  /**
+   * <p>The type of principal (user, role, or group) that created the session.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The principal ID of the principal (user, role, or group) that created the
+   *          session.</p>
+   */
+  PrincipalId?: string;
+
+  /**
+   * <p>The ARN of the session.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The identifier of the Amazon Web Services account that created the session.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The name of the principal that created the session.</p>
+   */
+  UserName?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about the session that the key was used for.</p>
+ */
+export interface AwsIamAccessKeySessionContext {
+  /**
+   * <p>Attributes of the session that the key was used for.</p>
+   */
+  Attributes?: AwsIamAccessKeySessionContextAttributes;
+
+  /**
+   * <p>Information about the entity that created the session.</p>
+   */
+  SessionIssuer?: AwsIamAccessKeySessionContextSessionIssuer;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AwsIamAccessKeyStatus = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+} as const;
+
+/**
+ * @public
+ */
+export type AwsIamAccessKeyStatus = (typeof AwsIamAccessKeyStatus)[keyof typeof AwsIamAccessKeyStatus];
+
+/**
+ * @public
+ * <p>IAM access key details related to a finding.</p>
+ */
+export interface AwsIamAccessKeyDetails {
+  /**
+   * @deprecated
+   *
+   * <p>The user associated with the IAM access key related to a finding.</p>
+   *          <p>The <code>UserName</code> parameter has been replaced with the
+   *             <code>PrincipalName</code> parameter because access keys can also be assigned to
+   *          principals that are not IAM users.</p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>The status of the IAM access key related to a finding.</p>
+   */
+  Status?: AwsIamAccessKeyStatus | string;
+
+  /**
+   * <p>Indicates when the IAM access key was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreatedAt?: string;
+
+  /**
+   * <p>The ID of the principal associated with an access key.</p>
+   */
+  PrincipalId?: string;
+
+  /**
+   * <p>The type of principal associated with an access key.</p>
+   */
+  PrincipalType?: string;
+
+  /**
+   * <p>The name of the principal.</p>
+   */
+  PrincipalName?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID of the account for the key.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The identifier of the access key.</p>
+   */
+  AccessKeyId?: string;
+
+  /**
+   * <p>Information about the session that the key was used for.</p>
+   */
+  SessionContext?: AwsIamAccessKeySessionContext;
+}
+
+/**
+ * @public
+ * <p>A managed policy that is attached to an IAM principal.</p>
+ */
+export interface AwsIamAttachedManagedPolicy {
+  /**
+   * <p>The name of the policy.</p>
+   */
+  PolicyName?: string;
+
+  /**
+   * <p>The ARN of the policy.</p>
+   */
+  PolicyArn?: string;
+}
+
+/**
+ * @public
  * <p>A managed policy that is attached to the IAM group.</p>
  */
 export interface AwsIamGroupPolicy {
@@ -65,6 +220,7 @@ export interface AwsIamGroupPolicy {
 }
 
 /**
+ * @public
  * <p>Contains details about an IAM group.</p>
  */
 export interface AwsIamGroupDetails {
@@ -103,6 +259,7 @@ export interface AwsIamGroupDetails {
 }
 
 /**
+ * @public
  * <p>Information about a role associated with an instance profile.</p>
  */
 export interface AwsIamInstanceProfileRole {
@@ -141,6 +298,7 @@ export interface AwsIamInstanceProfileRole {
 }
 
 /**
+ * @public
  * <p>Information about an instance profile.</p>
  */
 export interface AwsIamInstanceProfile {
@@ -179,6 +337,7 @@ export interface AwsIamInstanceProfile {
 }
 
 /**
+ * @public
  * <p>Information about the policy used to set the permissions boundary for an IAM
  *          principal.</p>
  */
@@ -195,6 +354,7 @@ export interface AwsIamPermissionsBoundary {
 }
 
 /**
+ * @public
  * <p>A version of an IAM policy.</p>
  */
 export interface AwsIamPolicyVersion {
@@ -218,6 +378,7 @@ export interface AwsIamPolicyVersion {
 }
 
 /**
+ * @public
  * <p>Represents an IAM permissions policy.</p>
  */
 export interface AwsIamPolicyDetails {
@@ -285,6 +446,7 @@ export interface AwsIamPolicyDetails {
 }
 
 /**
+ * @public
  * <p>An inline policy that is embedded in the role.</p>
  */
 export interface AwsIamRolePolicy {
@@ -295,6 +457,7 @@ export interface AwsIamRolePolicy {
 }
 
 /**
+ * @public
  * <p>Contains information about an IAM role, including all of the role's policies.</p>
  */
 export interface AwsIamRoleDetails {
@@ -354,6 +517,7 @@ export interface AwsIamRoleDetails {
 }
 
 /**
+ * @public
  * <p>Information about an inline policy that is embedded in the user.</p>
  */
 export interface AwsIamUserPolicy {
@@ -364,6 +528,7 @@ export interface AwsIamUserPolicy {
 }
 
 /**
+ * @public
  * <p>Information about an IAM user.</p>
  */
 export interface AwsIamUserDetails {
@@ -412,6 +577,7 @@ export interface AwsIamUserDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about stream encryption.
  *       </p>
  */
@@ -429,6 +595,7 @@ export interface AwsKinesisStreamStreamEncryptionDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about an Amazon Kinesis data stream.
  *       </p>
  */
@@ -467,6 +634,7 @@ export interface AwsKinesisStreamDetails {
 }
 
 /**
+ * @public
  * <p>Contains metadata about an KMS key.</p>
  */
 export interface AwsKmsKeyDetails {
@@ -546,6 +714,7 @@ export interface AwsKmsKeyDetails {
 }
 
 /**
+ * @public
  * <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.</p>
  */
 export interface AwsLambdaFunctionCode {
@@ -571,6 +740,7 @@ export interface AwsLambdaFunctionCode {
 }
 
 /**
+ * @public
  * <p>The dead-letter queue for failed asynchronous invocations.</p>
  */
 export interface AwsLambdaFunctionDeadLetterConfig {
@@ -581,6 +751,7 @@ export interface AwsLambdaFunctionDeadLetterConfig {
 }
 
 /**
+ * @public
  * <p>Error messages for environment variables that could not be applied.</p>
  */
 export interface AwsLambdaFunctionEnvironmentError {
@@ -596,6 +767,7 @@ export interface AwsLambdaFunctionEnvironmentError {
 }
 
 /**
+ * @public
  * <p>A function's environment variable settings.</p>
  */
 export interface AwsLambdaFunctionEnvironment {
@@ -611,6 +783,7 @@ export interface AwsLambdaFunctionEnvironment {
 }
 
 /**
+ * @public
  * <p>An Lambda layer.</p>
  */
 export interface AwsLambdaFunctionLayer {
@@ -626,6 +799,7 @@ export interface AwsLambdaFunctionLayer {
 }
 
 /**
+ * @public
  * <p>The function's X-Ray tracing configuration.</p>
  */
 export interface AwsLambdaFunctionTracingConfig {
@@ -636,6 +810,7 @@ export interface AwsLambdaFunctionTracingConfig {
 }
 
 /**
+ * @public
  * <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
  */
 export interface AwsLambdaFunctionVpcConfig {
@@ -656,6 +831,7 @@ export interface AwsLambdaFunctionVpcConfig {
 }
 
 /**
+ * @public
  * <p>Details about an Lambda function's configuration.</p>
  */
 export interface AwsLambdaFunctionDetails {
@@ -766,6 +942,7 @@ export interface AwsLambdaFunctionDetails {
 }
 
 /**
+ * @public
  * <p>Details about a Lambda layer version.</p>
  */
 export interface AwsLambdaLayerVersionDetails {
@@ -795,6 +972,7 @@ export interface AwsLambdaLayerVersionDetails {
 }
 
 /**
+ * @public
  * <p>A public subnet that Network Firewall uses for the firewall.</p>
  */
 export interface AwsNetworkFirewallFirewallSubnetMappingsDetails {
@@ -805,6 +983,7 @@ export interface AwsNetworkFirewallFirewallSubnetMappingsDetails {
 }
 
 /**
+ * @public
  * <p>Details about an Network Firewall firewall.</p>
  */
 export interface AwsNetworkFirewallFirewallDetails {
@@ -860,6 +1039,7 @@ export interface AwsNetworkFirewallFirewallDetails {
 }
 
 /**
+ * @public
  * <p>A stateful rule group that is used by the firewall policy.</p>
  */
 export interface FirewallPolicyStatefulRuleGroupReferencesDetails {
@@ -870,6 +1050,7 @@ export interface FirewallPolicyStatefulRuleGroupReferencesDetails {
 }
 
 /**
+ * @public
  * <p>Defines a CloudWatch dimension value to publish.</p>
  */
 export interface StatelessCustomPublishMetricActionDimension {
@@ -880,6 +1061,7 @@ export interface StatelessCustomPublishMetricActionDimension {
 }
 
 /**
+ * @public
  * <p>Information about metrics to publish to CloudWatch.</p>
  */
 export interface StatelessCustomPublishMetricAction {
@@ -890,6 +1072,7 @@ export interface StatelessCustomPublishMetricAction {
 }
 
 /**
+ * @public
  * <p>The definition of a custom action that can be used for stateless packet handling.</p>
  */
 export interface StatelessCustomActionDefinition {
@@ -900,6 +1083,7 @@ export interface StatelessCustomActionDefinition {
 }
 
 /**
+ * @public
  * <p>A custom action that can be used for stateless packet handling.</p>
  */
 export interface FirewallPolicyStatelessCustomActionsDetails {
@@ -915,6 +1099,7 @@ export interface FirewallPolicyStatelessCustomActionsDetails {
 }
 
 /**
+ * @public
  * <p>A stateless rule group that is used by the firewall policy.</p>
  */
 export interface FirewallPolicyStatelessRuleGroupReferencesDetails {
@@ -930,6 +1115,7 @@ export interface FirewallPolicyStatelessRuleGroupReferencesDetails {
 }
 
 /**
+ * @public
  * <p>Defines the behavior of the firewall.</p>
  */
 export interface FirewallPolicyDetails {
@@ -964,6 +1150,7 @@ export interface FirewallPolicyDetails {
 }
 
 /**
+ * @public
  * <p>Details about a firewall policy. A firewall policy defines the behavior of a network firewall.</p>
  */
 export interface AwsNetworkFirewallFirewallPolicyDetails {
@@ -994,6 +1181,7 @@ export interface AwsNetworkFirewallFirewallPolicyDetails {
 }
 
 /**
+ * @public
  * <p>Stateful inspection criteria for a domain list rule group.</p>
  */
 export interface RuleGroupSourceListDetails {
@@ -1014,6 +1202,7 @@ export interface RuleGroupSourceListDetails {
 }
 
 /**
+ * @public
  * <p>The inspection criteria for a stateful rule.</p>
  */
 export interface RuleGroupSourceStatefulRulesHeaderDetails {
@@ -1049,6 +1238,7 @@ export interface RuleGroupSourceStatefulRulesHeaderDetails {
 }
 
 /**
+ * @public
  * <p>A rule option for a stateful rule.</p>
  */
 export interface RuleGroupSourceStatefulRulesOptionsDetails {
@@ -1064,6 +1254,7 @@ export interface RuleGroupSourceStatefulRulesOptionsDetails {
 }
 
 /**
+ * @public
  * <p>A Suricata rule specification.</p>
  */
 export interface RuleGroupSourceStatefulRulesDetails {
@@ -1084,6 +1275,7 @@ export interface RuleGroupSourceStatefulRulesDetails {
 }
 
 /**
+ * @public
  * <p>A custom action definition. A custom action is an optional, non-standard action to use for stateless packet handling.</p>
  */
 export interface RuleGroupSourceCustomActionsDetails {
@@ -1099,6 +1291,7 @@ export interface RuleGroupSourceCustomActionsDetails {
 }
 
 /**
+ * @public
  * <p>A port range to specify the destination ports to inspect for.</p>
  */
 export interface RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
@@ -1114,6 +1307,7 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
 }
 
 /**
+ * @public
  * <p>A destination IP address or range.</p>
  */
 export interface RuleGroupSourceStatelessRuleMatchAttributesDestinations {
@@ -1124,6 +1318,7 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesDestinations {
 }
 
 /**
+ * @public
  * <p>A port range to specify the source ports to inspect for.</p>
  */
 export interface RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
@@ -1139,6 +1334,7 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
 }
 
 /**
+ * @public
  * <p>A source IP addresses and address range to inspect for.</p>
  */
 export interface RuleGroupSourceStatelessRuleMatchAttributesSources {
@@ -1149,6 +1345,7 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesSources {
 }
 
 /**
+ * @public
  * <p>A set of TCP flags and masks to inspect for.</p>
  */
 export interface RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
@@ -1164,6 +1361,7 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
 }
 
 /**
+ * @public
  * <p>Criteria for the stateless rule.</p>
  */
 export interface RuleGroupSourceStatelessRuleMatchAttributes {
@@ -1199,6 +1397,7 @@ export interface RuleGroupSourceStatelessRuleMatchAttributes {
 }
 
 /**
+ * @public
  * <p>The definition of the stateless rule.</p>
  */
 export interface RuleGroupSourceStatelessRuleDefinition {
@@ -1214,6 +1413,7 @@ export interface RuleGroupSourceStatelessRuleDefinition {
 }
 
 /**
+ * @public
  * <p>A stateless rule in the rule group.</p>
  */
 export interface RuleGroupSourceStatelessRulesDetails {
@@ -1229,6 +1429,7 @@ export interface RuleGroupSourceStatelessRulesDetails {
 }
 
 /**
+ * @public
  * <p>Stateless rules and custom actions for a stateless rule group.</p>
  */
 export interface RuleGroupSourceStatelessRulesAndCustomActionsDetails {
@@ -1244,6 +1445,7 @@ export interface RuleGroupSourceStatelessRulesAndCustomActionsDetails {
 }
 
 /**
+ * @public
  * <p>The rules and actions for the rule group.</p>
  */
 export interface RuleGroupSource {
@@ -1269,6 +1471,7 @@ export interface RuleGroupSource {
 }
 
 /**
+ * @public
  * <p>A list of IP addresses and address ranges, in CIDR notation.</p>
  */
 export interface RuleGroupVariablesIpSetsDetails {
@@ -1279,6 +1482,7 @@ export interface RuleGroupVariablesIpSetsDetails {
 }
 
 /**
+ * @public
  * <p>A list of port ranges.</p>
  */
 export interface RuleGroupVariablesPortSetsDetails {
@@ -1289,6 +1493,7 @@ export interface RuleGroupVariablesPortSetsDetails {
 }
 
 /**
+ * @public
  * <p>Additional settings to use in the specified rules.</p>
  */
 export interface RuleGroupVariables {
@@ -1304,6 +1509,7 @@ export interface RuleGroupVariables {
 }
 
 /**
+ * @public
  * <p>Details about the rule group.</p>
  */
 export interface RuleGroupDetails {
@@ -1321,6 +1527,7 @@ export interface RuleGroupDetails {
 }
 
 /**
+ * @public
  * <p>Details about an Network Firewall rule group. Rule groups are used to inspect and control network traffic. Stateless rule groups apply to individual packets. Stateful rule groups apply to packets in the context of their traffic flow.</p>
  *          <p>Rule groups are referenced in firewall policies.
  *       </p>
@@ -1363,6 +1570,7 @@ export interface AwsNetworkFirewallRuleGroupDetails {
 }
 
 /**
+ * @public
  * <p>Specifies information about the master user of the domain.
  *       </p>
  */
@@ -1387,6 +1595,7 @@ export interface AwsOpenSearchServiceDomainMasterUserOptionsDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about domain access control options.
  *       </p>
  */
@@ -1411,6 +1620,7 @@ export interface AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails {
 }
 
 /**
+ * @public
  * <p>Configuration options for zone awareness.</p>
  */
 export interface AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails {
@@ -1421,6 +1631,7 @@ export interface AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetai
 }
 
 /**
+ * @public
  * <p>Details about the configuration of an OpenSearch cluster.</p>
  */
 export interface AwsOpenSearchServiceDomainClusterConfigDetails {
@@ -1479,6 +1690,7 @@ export interface AwsOpenSearchServiceDomainClusterConfigDetails {
 }
 
 /**
+ * @public
  * <p>Information about additional options for the domain endpoint.</p>
  */
 export interface AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
@@ -1509,6 +1721,7 @@ export interface AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
 }
 
 /**
+ * @public
  * <p>Details about the configuration for encryption at rest for the OpenSearch domain.</p>
  */
 export interface AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails {
@@ -1524,6 +1737,7 @@ export interface AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails {
 }
 
 /**
+ * @public
  * <p>Configuration details for a log publishing option.</p>
  */
 export interface AwsOpenSearchServiceDomainLogPublishingOption {
@@ -1539,6 +1753,7 @@ export interface AwsOpenSearchServiceDomainLogPublishingOption {
 }
 
 /**
+ * @public
  * <p>Configures the CloudWatch Logs to publish for the OpenSearch domain.</p>
  */
 export interface AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
@@ -1559,6 +1774,7 @@ export interface AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about the configuration for node-to-node encryption.</p>
  */
 export interface AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails {
@@ -1569,6 +1785,7 @@ export interface AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the state of the domain relative to the latest service software.</p>
  */
 export interface AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
@@ -1641,6 +1858,7 @@ export interface AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
 }
 
 /**
+ * @public
  * <p>Contains information that OpenSearch Service derives based on the <code>VPCOptions</code> for the domain.</p>
  */
 export interface AwsOpenSearchServiceDomainVpcOptionsDetails {
@@ -1656,6 +1874,7 @@ export interface AwsOpenSearchServiceDomainVpcOptionsDetails {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon OpenSearch Service domain.</p>
  */
 export interface AwsOpenSearchServiceDomainDetails {
@@ -1738,6 +1957,7 @@ export interface AwsOpenSearchServiceDomainDetails {
 }
 
 /**
+ * @public
  * <p>An IAM role that is associated with the Amazon RDS DB cluster.</p>
  */
 export interface AwsRdsDbClusterAssociatedRole {
@@ -1770,6 +1990,7 @@ export interface AwsRdsDbClusterAssociatedRole {
 }
 
 /**
+ * @public
  * <p>Information about an instance in the DB cluster.</p>
  */
 export interface AwsRdsDbClusterMember {
@@ -1796,6 +2017,7 @@ export interface AwsRdsDbClusterMember {
 }
 
 /**
+ * @public
  * <p>Information about an option group membership for a DB cluster.</p>
  */
 export interface AwsRdsDbClusterOptionGroupMembership {
@@ -1811,6 +2033,7 @@ export interface AwsRdsDbClusterOptionGroupMembership {
 }
 
 /**
+ * @public
  * <p>Information about an Active Directory domain membership record associated with the DB
  *          instance.</p>
  */
@@ -1837,6 +2060,7 @@ export interface AwsRdsDbDomainMembership {
 }
 
 /**
+ * @public
  * <p>A VPC security groups that the DB instance belongs to.</p>
  */
 export interface AwsRdsDbInstanceVpcSecurityGroup {
@@ -1852,6 +2076,7 @@ export interface AwsRdsDbInstanceVpcSecurityGroup {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon RDS DB cluster.</p>
  */
 export interface AwsRdsDbClusterDetails {
@@ -2128,6 +2353,7 @@ export interface AwsRdsDbClusterDetails {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon RDS DB cluster snapshot.</p>
  */
 export interface AwsRdsDbClusterSnapshotDetails {
@@ -2230,6 +2456,7 @@ export interface AwsRdsDbClusterSnapshotDetails {
 }
 
 /**
+ * @public
  * <p>An IAM role associated with the DB instance.</p>
  */
 export interface AwsRdsDbInstanceAssociatedRole {
@@ -2270,6 +2497,7 @@ export interface AwsRdsDbInstanceAssociatedRole {
 }
 
 /**
+ * @public
  * <p>Provides information about a parameter group for a DB instance.</p>
  */
 export interface AwsRdsDbParameterGroup {
@@ -2285,6 +2513,7 @@ export interface AwsRdsDbParameterGroup {
 }
 
 /**
+ * @public
  * <p>An Availability Zone for a subnet in a subnet group.</p>
  */
 export interface AwsRdsDbSubnetGroupSubnetAvailabilityZone {
@@ -2295,6 +2524,7 @@ export interface AwsRdsDbSubnetGroupSubnetAvailabilityZone {
 }
 
 /**
+ * @public
  * <p>Information about a subnet in a subnet group.</p>
  */
 export interface AwsRdsDbSubnetGroupSubnet {
@@ -2315,6 +2545,7 @@ export interface AwsRdsDbSubnetGroupSubnet {
 }
 
 /**
+ * @public
  * <p>Information about the subnet group for the database instance.</p>
  */
 export interface AwsRdsDbSubnetGroup {
@@ -2350,6 +2581,7 @@ export interface AwsRdsDbSubnetGroup {
 }
 
 /**
+ * @public
  * <p>Specifies the connection endpoint.</p>
  */
 export interface AwsRdsDbInstanceEndpoint {
@@ -2370,6 +2602,7 @@ export interface AwsRdsDbInstanceEndpoint {
 }
 
 /**
+ * @public
  * <p>An option group membership.</p>
  */
 export interface AwsRdsDbOptionGroupMembership {
@@ -2385,6 +2618,7 @@ export interface AwsRdsDbOptionGroupMembership {
 }
 
 /**
+ * @public
  * <p>Identifies the log types to enable and disable.</p>
  */
 export interface AwsRdsPendingCloudWatchLogsExports {
@@ -2400,6 +2634,7 @@ export interface AwsRdsPendingCloudWatchLogsExports {
 }
 
 /**
+ * @public
  * <p>A processor feature.</p>
  */
 export interface AwsRdsDbProcessorFeature {
@@ -2415,6 +2650,7 @@ export interface AwsRdsDbProcessorFeature {
 }
 
 /**
+ * @public
  * <p>Changes to a DB instance that are currently pending.</p>
  */
 export interface AwsRdsDbPendingModifiedValues {
@@ -2495,6 +2731,7 @@ export interface AwsRdsDbPendingModifiedValues {
 }
 
 /**
+ * @public
  * <p>Information about the status of a read replica.</p>
  */
 export interface AwsRdsDbStatusInfo {
@@ -2520,6 +2757,7 @@ export interface AwsRdsDbStatusInfo {
 }
 
 /**
+ * @public
  * <p>Contains the details of an Amazon RDS DB instance.</p>
  */
 export interface AwsRdsDbInstanceDetails {
@@ -2871,6 +3109,7 @@ export interface AwsRdsDbInstanceDetails {
 }
 
 /**
+ * @public
  * <p>EC2 security group information for an RDS DB security group.</p>
  */
 export interface AwsRdsDbSecurityGroupEc2SecurityGroup {
@@ -2896,6 +3135,7 @@ export interface AwsRdsDbSecurityGroupEc2SecurityGroup {
 }
 
 /**
+ * @public
  * <p>IP range information for an RDS DB security group.</p>
  */
 export interface AwsRdsDbSecurityGroupIpRange {
@@ -2911,6 +3151,7 @@ export interface AwsRdsDbSecurityGroupIpRange {
 }
 
 /**
+ * @public
  * <p>Provides information about an Amazon RDS DB security group.</p>
  */
 export interface AwsRdsDbSecurityGroupDetails {
@@ -2952,6 +3193,7 @@ export interface AwsRdsDbSecurityGroupDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an Amazon RDS DB cluster snapshot.</p>
  */
 export interface AwsRdsDbSnapshotDetails {
@@ -3181,6 +3423,7 @@ export interface AwsRdsDbSnapshotDetails {
 }
 
 /**
+ * @public
  * <p>Details about an Amazon RDS event notification subscription. The subscription allows Amazon RDS to post events to an SNS topic.</p>
  */
 export interface AwsRdsEventSubscriptionDetails {
@@ -3241,6 +3484,7 @@ export interface AwsRdsEventSubscriptionDetails {
 }
 
 /**
+ * @public
  * <p>A node in an Amazon Redshift cluster.</p>
  */
 export interface AwsRedshiftClusterClusterNode {
@@ -3261,6 +3505,7 @@ export interface AwsRedshiftClusterClusterNode {
 }
 
 /**
+ * @public
  * <p>The status of a parameter in a cluster parameter group for an Amazon Redshift
  *          cluster.</p>
  */
@@ -3287,6 +3532,7 @@ export interface AwsRedshiftClusterClusterParameterStatus {
 }
 
 /**
+ * @public
  * <p>A cluster parameter group that is associated with an Amazon Redshift cluster.</p>
  */
 export interface AwsRedshiftClusterClusterParameterGroup {
@@ -3307,6 +3553,7 @@ export interface AwsRedshiftClusterClusterParameterGroup {
 }
 
 /**
+ * @public
  * <p>A security group that is associated with the cluster.</p>
  */
 export interface AwsRedshiftClusterClusterSecurityGroup {
@@ -3322,6 +3569,7 @@ export interface AwsRedshiftClusterClusterSecurityGroup {
 }
 
 /**
+ * @public
  * <p>You can configure Amazon Redshift to copy snapshots for a cluster to another Amazon Web Services Region. This parameter
  *          provides information about a cross-Region snapshot copy.</p>
  */
@@ -3355,6 +3603,7 @@ export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
 }
 
 /**
+ * @public
  * <p>A time windows during which maintenance was deferred for an Amazon Redshift
  *          cluster.</p>
  */
@@ -3382,6 +3631,7 @@ export interface AwsRedshiftClusterDeferredMaintenanceWindow {
 }
 
 /**
+ * @public
  * <p>The status of the elastic IP (EIP) address for an Amazon Redshift cluster.</p>
  */
 export interface AwsRedshiftClusterElasticIpStatus {
@@ -3397,6 +3647,7 @@ export interface AwsRedshiftClusterElasticIpStatus {
 }
 
 /**
+ * @public
  * <p>The connection endpoint for an Amazon Redshift cluster.</p>
  */
 export interface AwsRedshiftClusterEndpoint {
@@ -3412,6 +3663,7 @@ export interface AwsRedshiftClusterEndpoint {
 }
 
 /**
+ * @public
  * <p>Information about whether an Amazon Redshift cluster finished applying any hardware
  *          changes to security module (HSM) settings that were specified in a modify cluster
  *          command.</p>
@@ -3440,6 +3692,7 @@ export interface AwsRedshiftClusterHsmStatus {
 }
 
 /**
+ * @public
  * <p>An IAM role that the cluster can use to access other Amazon Web Services services.</p>
  */
 export interface AwsRedshiftClusterIamRole {
@@ -3457,6 +3710,7 @@ export interface AwsRedshiftClusterIamRole {
 }
 
 /**
+ * @public
  * <p>Provides information about the logging status of the cluster.</p>
  */
 export interface AwsRedshiftClusterLoggingStatus {
@@ -3498,6 +3752,7 @@ export interface AwsRedshiftClusterLoggingStatus {
 }
 
 /**
+ * @public
  * <p>Changes to the Amazon Redshift cluster that are currently pending.</p>
  */
 export interface AwsRedshiftClusterPendingModifiedValues {
@@ -3560,6 +3815,7 @@ export interface AwsRedshiftClusterPendingModifiedValues {
 }
 
 /**
+ * @public
  * <p>Information about the resize operation for the cluster.</p>
  */
 export interface AwsRedshiftClusterResizeInfo {
@@ -3577,6 +3833,7 @@ export interface AwsRedshiftClusterResizeInfo {
 }
 
 /**
+ * @public
  * <p>Information about the status of a cluster restore action. It only applies if the cluster
  *          was created by restoring a snapshot.</p>
  */
@@ -3624,6 +3881,7 @@ export interface AwsRedshiftClusterRestoreStatus {
 }
 
 /**
+ * @public
  * <p>A VPC security group that the cluster belongs to, if the cluster is in a VPC.</p>
  */
 export interface AwsRedshiftClusterVpcSecurityGroup {
@@ -3639,6 +3897,7 @@ export interface AwsRedshiftClusterVpcSecurityGroup {
 }
 
 /**
+ * @public
  * <p>Details about an Amazon Redshift cluster.</p>
  */
 export interface AwsRedshiftClusterDetails {
@@ -3939,6 +4198,7 @@ export interface AwsRedshiftClusterDetails {
 }
 
 /**
+ * @public
  * <p>provides information about the Amazon S3 Public Access Block configuration for accounts.</p>
  */
 export interface AwsS3AccountPublicAccessBlockDetails {
@@ -3964,6 +4224,7 @@ export interface AwsS3AccountPublicAccessBlockDetails {
 }
 
 /**
+ * @public
  * <p>Information about what Amazon S3
  *          does when a multipart upload is incomplete.</p>
  */
@@ -3975,6 +4236,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMult
 }
 
 /**
+ * @public
  * <p>A tag that is assigned to matching objects.</p>
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails {
@@ -3990,6 +4252,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOper
 }
 
 /**
+ * @public
  * <p>A value to use for the filter.</p>
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails {
@@ -4011,6 +4274,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOper
 }
 
 /**
+ * @public
  * <p>A tag filter.</p>
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails {
@@ -4026,6 +4290,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagD
 }
 
 /**
+ * @public
  * <p>The configuration for the filter.</p>
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails {
@@ -4052,6 +4317,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDeta
 }
 
 /**
+ * @public
  * <p>Identifies the objects that a rule applies to.</p>
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails {
@@ -4062,6 +4328,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails {
 }
 
 /**
+ * @public
  * <p>A transition rule that describes when noncurrent objects transition to a specified storage class.</p>
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails {
@@ -4077,6 +4344,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTr
 }
 
 /**
+ * @public
  * <p>A rule for when objects transition to specific storage classes.</p>
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails {
@@ -4127,6 +4395,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails 
 }
 
 /**
+ * @public
  * <p>Configuration for a lifecycle rule.</p>
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
@@ -4195,6 +4464,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
 }
 
 /**
+ * @public
  * <p>The lifecycle configuration for the objects in the S3 bucket.</p>
  */
 export interface AwsS3BucketBucketLifecycleConfigurationDetails {
@@ -4205,6 +4475,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>Describes the versioning state of an S3 bucket.</p>
  */
 export interface AwsS3BucketBucketVersioningConfiguration {
@@ -4220,6 +4491,7 @@ export interface AwsS3BucketBucketVersioningConfiguration {
 }
 
 /**
+ * @public
  * <p>Information about logging for
  *          the S3 bucket</p>
  */
@@ -4235,12 +4507,23 @@ export interface AwsS3BucketLoggingConfiguration {
   LogFilePrefix?: string;
 }
 
-export enum AwsS3BucketNotificationConfigurationS3KeyFilterRuleName {
-  PREFIX = "Prefix",
-  SUFFIX = "Suffix",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AwsS3BucketNotificationConfigurationS3KeyFilterRuleName = {
+  PREFIX: "Prefix",
+  SUFFIX: "Suffix",
+} as const;
 
 /**
+ * @public
+ */
+export type AwsS3BucketNotificationConfigurationS3KeyFilterRuleName =
+  (typeof AwsS3BucketNotificationConfigurationS3KeyFilterRuleName)[keyof typeof AwsS3BucketNotificationConfigurationS3KeyFilterRuleName];
+
+/**
+ * @public
  * <p>Details for a filter rule.</p>
  */
 export interface AwsS3BucketNotificationConfigurationS3KeyFilterRule {
@@ -4256,6 +4539,7 @@ export interface AwsS3BucketNotificationConfigurationS3KeyFilterRule {
 }
 
 /**
+ * @public
  * <p>Details for an Amazon S3 filter.</p>
  */
 export interface AwsS3BucketNotificationConfigurationS3KeyFilter {
@@ -4266,6 +4550,7 @@ export interface AwsS3BucketNotificationConfigurationS3KeyFilter {
 }
 
 /**
+ * @public
  * <p>Filtering information for the notifications. The
  *          filtering is based on Amazon S3 key names.</p>
  */
@@ -4277,6 +4562,7 @@ export interface AwsS3BucketNotificationConfigurationFilter {
 }
 
 /**
+ * @public
  * <p>Details for an S3 bucket notification configuration.</p>
  */
 export interface AwsS3BucketNotificationConfigurationDetail {
@@ -4321,6 +4607,7 @@ export interface AwsS3BucketNotificationConfigurationDetail {
 }
 
 /**
+ * @public
  * <p>The notification
  *          configuration for the S3 bucket.</p>
  */
@@ -4332,6 +4619,7 @@ export interface AwsS3BucketNotificationConfiguration {
 }
 
 /**
+ * @public
  * <p>The redirect behavior for requests
  *          to the website.</p>
  */
@@ -4349,6 +4637,7 @@ export interface AwsS3BucketWebsiteConfigurationRedirectTo {
 }
 
 /**
+ * @public
  * <p>The condition that must be met in order to apply the routing rule.</p>
  */
 export interface AwsS3BucketWebsiteConfigurationRoutingRuleCondition {
@@ -4364,6 +4653,7 @@ export interface AwsS3BucketWebsiteConfigurationRoutingRuleCondition {
 }
 
 /**
+ * @public
  * <p>The rules to redirect the request if the condition in <code>Condition</code> is
  *          met.</p>
  */
@@ -4398,6 +4688,7 @@ export interface AwsS3BucketWebsiteConfigurationRoutingRuleRedirect {
 }
 
 /**
+ * @public
  * <p>A rule for redirecting requests
  *          to the website.</p>
  */
@@ -4415,6 +4706,7 @@ export interface AwsS3BucketWebsiteConfigurationRoutingRule {
 }
 
 /**
+ * @public
  * <p>Website parameters for the S3
  *          bucket.</p>
  */
@@ -4441,6 +4733,73 @@ export interface AwsS3BucketWebsiteConfiguration {
 }
 
 /**
+ * @public
+ * <p>
+ *          The default S3 Object Lock retention mode and period that you want to apply to new objects placed in the specified Amazon S3 bucket.
+ *       </p>
+ */
+export interface AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails {
+  /**
+   * <p>
+   *          The number of days that you want to specify for the default retention period.
+   *       </p>
+   */
+  Days?: number;
+
+  /**
+   * <p>
+   *          The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.
+   *       </p>
+   */
+  Mode?: string;
+
+  /**
+   * <p>
+   *          The number of years that you want to specify for the default retention period.
+   *       </p>
+   */
+  Years?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *          Specifies the S3 Object Lock rule for the specified object. In Amazon S3, Object Lock can help prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely.
+ *       </p>
+ */
+export interface AwsS3BucketObjectLockConfigurationRuleDetails {
+  /**
+   * <p>
+   *          The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket.
+   *       </p>
+   */
+  DefaultRetention?: AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          The container element for S3 Object Lock configuration parameters. In Amazon S3, Object Lock can help prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely.
+ *       </p>
+ */
+export interface AwsS3BucketObjectLockConfiguration {
+  /**
+   * <p>
+   *          Indicates whether the bucket has an Object Lock configuration enabled.
+   *       </p>
+   */
+  ObjectLockEnabled?: string;
+
+  /**
+   * <p>
+   *          Specifies the Object Lock rule for the specified object.
+   *       </p>
+   */
+  Rule?: AwsS3BucketObjectLockConfigurationRuleDetails;
+}
+
+/**
+ * @public
  * <p>Specifies the default server-side encryption to apply to new objects in the
  *          bucket.</p>
  */
@@ -4458,6 +4817,7 @@ export interface AwsS3BucketServerSideEncryptionByDefault {
 }
 
 /**
+ * @public
  * <p>An encryption rule to apply to the S3 bucket.</p>
  */
 export interface AwsS3BucketServerSideEncryptionRule {
@@ -4470,6 +4830,7 @@ export interface AwsS3BucketServerSideEncryptionRule {
 }
 
 /**
+ * @public
  * <p>The encryption configuration for the S3 bucket.</p>
  */
 export interface AwsS3BucketServerSideEncryptionConfiguration {
@@ -4480,6 +4841,7 @@ export interface AwsS3BucketServerSideEncryptionConfiguration {
 }
 
 /**
+ * @public
  * <p>The details of an Amazon S3 bucket.</p>
  */
 export interface AwsS3BucketDetails {
@@ -4545,9 +4907,17 @@ export interface AwsS3BucketDetails {
    * <p>The versioning state of an S3 bucket.</p>
    */
   BucketVersioningConfiguration?: AwsS3BucketBucketVersioningConfiguration;
+
+  /**
+   * <p>
+   *          Specifies which rule Amazon S3 applies by default to every new object placed in the specified bucket.
+   *       </p>
+   */
+  ObjectLockConfiguration?: AwsS3BucketObjectLockConfiguration;
 }
 
 /**
+ * @public
  * <p>Details about an Amazon S3 object.</p>
  */
 export interface AwsS3ObjectDetails {
@@ -4588,6 +4958,7 @@ export interface AwsS3ObjectDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Information on the instance metadata service (IMDS) configuration of the notebook instance.
  *       </p>
@@ -4602,6 +4973,7 @@ export interface AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails
 }
 
 /**
+ * @public
  * <p>
  *          Provides details about an Amazon SageMaker notebook instance.
  *       </p>
@@ -4752,6 +5124,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
 }
 
 /**
+ * @public
  * <p>Defines the rotation schedule for the secret.</p>
  */
 export interface AwsSecretsManagerSecretRotationRules {
@@ -4762,6 +5135,7 @@ export interface AwsSecretsManagerSecretRotationRules {
 }
 
 /**
+ * @public
  * <p>Details about an Secrets Manager secret.</p>
  */
 export interface AwsSecretsManagerSecretDetails {
@@ -4808,14 +5182,24 @@ export interface AwsSecretsManagerSecretDetails {
   Description?: string;
 }
 
-export enum ComplianceStatus {
-  FAILED = "FAILED",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  PASSED = "PASSED",
-  WARNING = "WARNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComplianceStatus = {
+  FAILED: "FAILED",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  PASSED: "PASSED",
+  WARNING: "WARNING",
+} as const;
 
 /**
+ * @public
+ */
+export type ComplianceStatus = (typeof ComplianceStatus)[keyof typeof ComplianceStatus];
+
+/**
+ * @public
  * <p>Provides additional context for the value of <code>Compliance.Status</code>.</p>
  */
 export interface StatusReason {
@@ -4833,6 +5217,7 @@ export interface StatusReason {
 }
 
 /**
+ * @public
  * <p>Contains finding details that are specific to control-based findings. Only returned for
  *          findings generated from controls.</p>
  */
@@ -4901,6 +5286,7 @@ export interface Compliance {
 }
 
 /**
+ * @public
  * <p>Details about a related finding.</p>
  */
 export interface RelatedFinding {
@@ -4915,15 +5301,25 @@ export interface RelatedFinding {
   Id: string | undefined;
 }
 
-export enum SeverityLabel {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  INFORMATIONAL = "INFORMATIONAL",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SeverityLabel = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
 
 /**
+ * @public
+ */
+export type SeverityLabel = (typeof SeverityLabel)[keyof typeof SeverityLabel];
+
+/**
+ * @public
  * <p>The severity assigned to the finding by the finding provider.</p>
  */
 export interface FindingProviderSeverity {
@@ -4939,6 +5335,7 @@ export interface FindingProviderSeverity {
 }
 
 /**
+ * @public
  * <p>In a <code>BatchImportFindings</code> request, finding providers use <code>FindingProviderFields</code> to provide and update values for confidence, criticality, related findings, severity, and types.</p>
  */
 export interface FindingProviderFields {
@@ -4976,31 +5373,50 @@ export interface FindingProviderFields {
   Types?: string[];
 }
 
-export enum MalwareState {
-  OBSERVED = "OBSERVED",
-  REMOVAL_FAILED = "REMOVAL_FAILED",
-  REMOVED = "REMOVED",
-}
-
-export enum MalwareType {
-  ADWARE = "ADWARE",
-  BLENDED_THREAT = "BLENDED_THREAT",
-  BOTNET_AGENT = "BOTNET_AGENT",
-  COIN_MINER = "COIN_MINER",
-  EXPLOIT_KIT = "EXPLOIT_KIT",
-  KEYLOGGER = "KEYLOGGER",
-  MACRO = "MACRO",
-  POTENTIALLY_UNWANTED = "POTENTIALLY_UNWANTED",
-  RANSOMWARE = "RANSOMWARE",
-  REMOTE_ACCESS = "REMOTE_ACCESS",
-  ROOTKIT = "ROOTKIT",
-  SPYWARE = "SPYWARE",
-  TROJAN = "TROJAN",
-  VIRUS = "VIRUS",
-  WORM = "WORM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MalwareState = {
+  OBSERVED: "OBSERVED",
+  REMOVAL_FAILED: "REMOVAL_FAILED",
+  REMOVED: "REMOVED",
+} as const;
 
 /**
+ * @public
+ */
+export type MalwareState = (typeof MalwareState)[keyof typeof MalwareState];
+
+/**
+ * @public
+ * @enum
+ */
+export const MalwareType = {
+  ADWARE: "ADWARE",
+  BLENDED_THREAT: "BLENDED_THREAT",
+  BOTNET_AGENT: "BOTNET_AGENT",
+  COIN_MINER: "COIN_MINER",
+  EXPLOIT_KIT: "EXPLOIT_KIT",
+  KEYLOGGER: "KEYLOGGER",
+  MACRO: "MACRO",
+  POTENTIALLY_UNWANTED: "POTENTIALLY_UNWANTED",
+  RANSOMWARE: "RANSOMWARE",
+  REMOTE_ACCESS: "REMOTE_ACCESS",
+  ROOTKIT: "ROOTKIT",
+  SPYWARE: "SPYWARE",
+  TROJAN: "TROJAN",
+  VIRUS: "VIRUS",
+  WORM: "WORM",
+} as const;
+
+/**
+ * @public
+ */
+export type MalwareType = (typeof MalwareType)[keyof typeof MalwareType];
+
+/**
+ * @public
  * <p>A list of malware related to a finding.</p>
  */
 export interface Malware {
@@ -5025,12 +5441,22 @@ export interface Malware {
   State?: MalwareState | string;
 }
 
-export enum NetworkDirection {
-  IN = "IN",
-  OUT = "OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkDirection = {
+  IN: "IN",
+  OUT: "OUT",
+} as const;
 
 /**
+ * @public
+ */
+export type NetworkDirection = (typeof NetworkDirection)[keyof typeof NetworkDirection];
+
+/**
+ * @public
  * <p>A range of ports.</p>
  */
 export interface PortRange {
@@ -5046,6 +5472,7 @@ export interface PortRange {
 }
 
 /**
+ * @public
  * <p>The details of network-related information about a finding.</p>
  */
 export interface Network {
@@ -5112,6 +5539,7 @@ export interface Network {
 }
 
 /**
+ * @public
  * <p>Information about the destination of the next component in the network path.</p>
  */
 export interface NetworkPathComponentDetails {
@@ -5127,6 +5555,7 @@ export interface NetworkPathComponentDetails {
 }
 
 /**
+ * @public
  * <p>Details about a network path component that occurs before or after the current
  *          component.</p>
  */
@@ -5148,6 +5577,7 @@ export interface NetworkHeader {
 }
 
 /**
+ * @public
  * <p>Information about a network path component.</p>
  */
 export interface NetworkPathComponent {
@@ -5175,6 +5605,7 @@ export interface NetworkPathComponent {
 }
 
 /**
+ * @public
  * <p>A user-defined note added to a finding.</p>
  */
 export interface Note {
@@ -5198,6 +5629,7 @@ export interface Note {
 }
 
 /**
+ * @public
  * <p>Provides an overview of the patch compliance status for an instance against a selected
  *          compliance standard.</p>
  */
@@ -5271,6 +5703,7 @@ export interface PatchSummary {
 }
 
 /**
+ * @public
  * <p>The details of process-related information about a finding.</p>
  */
 export interface ProcessDetails {
@@ -5290,7 +5723,7 @@ export interface ProcessDetails {
   Pid?: number;
 
   /**
-   * <p>The parent process ID.</p>
+   * <p>The parent process ID. This field accepts positive integers between <code>O</code> and <code>2147483647</code>.</p>
    */
   ParentPid?: number;
 
@@ -5311,12 +5744,22 @@ export interface ProcessDetails {
   TerminatedAt?: string;
 }
 
-export enum RecordState {
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecordState = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+} as const;
 
 /**
+ * @public
+ */
+export type RecordState = (typeof RecordState)[keyof typeof RecordState];
+
+/**
+ * @public
  * <p>A recommendation on how to remediate the issue identified in a finding.</p>
  */
 export interface Recommendation {
@@ -5332,6 +5775,7 @@ export interface Recommendation {
 }
 
 /**
+ * @public
  * <p>Details about the remediation steps for a finding.</p>
  */
 export interface Remediation {
@@ -5342,6 +5786,7 @@ export interface Remediation {
 }
 
 /**
+ * @public
  * <p>An occurrence of sensitive data detected in a Microsoft Excel workbook, comma-separated value (CSV) file, or tab-separated value (TSV) file.</p>
  */
 export interface Cell {
@@ -5367,6 +5812,7 @@ export interface Cell {
 }
 
 /**
+ * @public
  * <p>Identifies where the sensitive data begins and ends.</p>
  */
 export interface Range {
@@ -5387,6 +5833,7 @@ export interface Range {
 }
 
 /**
+ * @public
  * <p>An occurrence of sensitive data in an Adobe Portable Document Format (PDF) file.</p>
  */
 export interface Page {
@@ -5407,6 +5854,7 @@ export interface Page {
 }
 
 /**
+ * @public
  * <p>An occurrence of sensitive data in an Apache Avro object container or an Apache Parquet file.</p>
  */
 export interface _Record {
@@ -5422,6 +5870,7 @@ export interface _Record {
 }
 
 /**
+ * @public
  * <p>The detected occurrences of sensitive data.</p>
  */
 export interface Occurrences {
@@ -5452,6 +5901,7 @@ export interface Occurrences {
 }
 
 /**
+ * @public
  * <p>The list of detected instances of sensitive data.</p>
  */
 export interface CustomDataIdentifiersDetections {
@@ -5477,6 +5927,7 @@ export interface CustomDataIdentifiersDetections {
 }
 
 /**
+ * @public
  * <p>Contains an instance of sensitive data that was detected by a customer-defined identifier.</p>
  */
 export interface CustomDataIdentifiersResult {
@@ -5492,6 +5943,7 @@ export interface CustomDataIdentifiersResult {
 }
 
 /**
+ * @public
  * <p>The list of detected instances of sensitive data.</p>
  */
 export interface SensitiveDataDetections {
@@ -5512,6 +5964,7 @@ export interface SensitiveDataDetections {
 }
 
 /**
+ * @public
  * <p>Contains a detected instance of sensitive data that are based on built-in identifiers.</p>
  */
 export interface SensitiveDataResult {
@@ -5532,6 +5985,7 @@ export interface SensitiveDataResult {
 }
 
 /**
+ * @public
  * <p>Provides details about the current status of the sensitive data detection.</p>
  */
 export interface ClassificationStatus {
@@ -5547,6 +6001,7 @@ export interface ClassificationStatus {
 }
 
 /**
+ * @public
  * <p>Details about the sensitive data that was detected on the resource.</p>
  */
 export interface ClassificationResult {
@@ -5582,6 +6037,7 @@ export interface ClassificationResult {
 }
 
 /**
+ * @public
  * <p>Provides details about sensitive data that was detected on a resource.</p>
  */
 export interface DataClassificationDetails {
@@ -5597,6 +6053,7 @@ export interface DataClassificationDetails {
 }
 
 /**
+ * @public
  * <p>A wrapper type for the attributes of an Amazon SNS subscription.</p>
  */
 export interface AwsSnsTopicSubscription {
@@ -5612,6 +6069,7 @@ export interface AwsSnsTopicSubscription {
 }
 
 /**
+ * @public
  * <p>Provides information about an Amazon SNS topic to which notifications can be published.</p>
  */
 export interface AwsSnsTopicDetails {
@@ -5678,6 +6136,7 @@ export interface AwsSnsTopicDetails {
 }
 
 /**
+ * @public
  * <p>Data about a queue.</p>
  */
 export interface AwsSqsQueueDetails {
@@ -5705,6 +6164,7 @@ export interface AwsSqsQueueDetails {
 }
 
 /**
+ * @public
  * <p>Provides the details about the compliance status for a patch.</p>
  */
 export interface AwsSsmComplianceSummary {
@@ -5864,6 +6324,7 @@ export interface AwsSsmComplianceSummary {
 }
 
 /**
+ * @public
  * <p>Provides details about the compliance for a patch.</p>
  */
 export interface AwsSsmPatch {
@@ -5874,6 +6335,7 @@ export interface AwsSsmPatch {
 }
 
 /**
+ * @public
  * <p>Provides information about the state of a patch on an instance based on the patch
  *          baseline that was used to patch the instance.</p>
  */
@@ -5885,6 +6347,7 @@ export interface AwsSsmPatchComplianceDetails {
 }
 
 /**
+ * @public
  * <p>A match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
  */
 export interface AwsWafRateBasedRuleMatchPredicate {
@@ -5944,6 +6407,7 @@ export interface AwsWafRateBasedRuleMatchPredicate {
 }
 
 /**
+ * @public
  * <p>Details about a rate-based rule for global resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
  */
 export interface AwsWafRateBasedRuleDetails {
@@ -5979,6 +6443,7 @@ export interface AwsWafRateBasedRuleDetails {
 }
 
 /**
+ * @public
  * <p>Details for a match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
  */
 export interface AwsWafRegionalRateBasedRuleMatchPredicate {
@@ -6037,6 +6502,7 @@ export interface AwsWafRegionalRateBasedRuleMatchPredicate {
 }
 
 /**
+ * @public
  * <p>contains details about a rate-based rule for Regional resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
  */
 export interface AwsWafRegionalRateBasedRuleDetails {
@@ -6072,6 +6538,7 @@ export interface AwsWafRegionalRateBasedRuleDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
  *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.
  *       </p>
@@ -6099,6 +6566,7 @@ export interface AwsWafRegionalRulePredicateListDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about an WAF Regional rule. This rule identifies the web requests that you want to allow, block, or count. </p>
  */
 export interface AwsWafRegionalRuleDetails {
@@ -6130,6 +6598,7 @@ export interface AwsWafRegionalRuleDetails {
 }
 
 /**
+ * @public
  * <p>Describes the action that WAF should take on a web request when it matches the criteria defined in the rule.
  *       </p>
  */
@@ -6142,6 +6611,7 @@ export interface AwsWafRegionalRuleGroupRulesActionDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the rules attached to a rule group
  *       </p>
  */
@@ -6171,6 +6641,7 @@ export interface AwsWafRegionalRuleGroupRulesDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about an WAF Regional rule group. The rule group is a collection of rules for inspecting and controlling web
  *          requests. </p>
  */
@@ -6202,6 +6673,7 @@ export interface AwsWafRegionalRuleGroupDetails {
 }
 
 /**
+ * @public
  * <p>The action that WAF takes when a web request matches all conditions in the
  *          rule, such as allow, block, or count the request. </p>
  */
@@ -6214,6 +6686,7 @@ export interface AwsWafRegionalWebAclRulesListActionDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about the action to use in the place of the action that results from the rule group
  * evaluation.
  *       </p>
@@ -6227,6 +6700,7 @@ export interface AwsWafRegionalWebAclRulesListOverrideActionDetails {
 }
 
 /**
+ * @public
  * <p>A combination of <code>ByteMatchSet</code>, <code>IPSet</code>, and/or <code>SqlInjectionMatchSet</code>
  * objects that identify the web requests that you want to allow, block, or count.
  *       </p>
@@ -6265,6 +6739,7 @@ export interface AwsWafRegionalWebAclRulesListDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the web access control list (web ACL). The web ACL contains the rules that identify the requests that you
  *          want to allow, block, or count. </p>
  */
@@ -6302,6 +6777,7 @@ export interface AwsWafRegionalWebAclDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
  *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
  * for each object, indicates whether you want to negate the settings.
@@ -6330,6 +6806,7 @@ export interface AwsWafRulePredicateListDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about a WAF rule. This rule specifies the web requests that you want to allow, block, or count.
  *       </p>
  */
@@ -6362,6 +6839,7 @@ export interface AwsWafRuleDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
  *       </p>
  */
@@ -6374,6 +6852,7 @@ export interface AwsWafRuleGroupRulesActionDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
  *          allow, block, or count.
  *       </p>
@@ -6405,6 +6884,7 @@ export interface AwsWafRuleGroupRulesDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
  *       </p>
  */
@@ -6436,6 +6916,7 @@ export interface AwsWafRuleGroupDetails {
 }
 
 /**
+ * @public
  * <p>
  *          A custom header for custom request and response handling.
  *       </p>
@@ -6457,6 +6938,7 @@ export interface AwsWafv2CustomHttpHeader {
 }
 
 /**
+ * @public
  * <p>
  *          Custom request handling behavior that inserts custom headers into a web request. WAF uses custom request handling when the rule action doesn't block the request.
  *       </p>
@@ -6471,6 +6953,7 @@ export interface AwsWafv2CustomRequestHandlingDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies that WAF should allow the request and optionally defines additional custom handling for the request.
  *       </p>
@@ -6486,6 +6969,7 @@ export interface AwsWafv2ActionAllowDetails {
 }
 
 /**
+ * @public
  * <p>
  *          A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to block.
  *       </p>
@@ -6515,6 +6999,7 @@ export interface AwsWafv2CustomResponseDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies that WAF should block the request and optionally defines additional custom handling for the response to the web request.
  *       </p>
@@ -6530,6 +7015,7 @@ export interface AwsWafv2ActionBlockDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies that WAF should run a CAPTCHA check against the request.
  *       </p>
@@ -6545,6 +7031,7 @@ export interface AwsWafv2RulesActionCaptchaDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies that WAF should count the request.
  *       </p>
@@ -6560,6 +7047,7 @@ export interface AwsWafv2RulesActionCountDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The action that WAF should take on a web request when it matches a rule's statement.
  *          Settings at the web ACL level can override the rule action setting.
@@ -6596,6 +7084,7 @@ export interface AwsWafv2RulesActionDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
  *       </p>
@@ -6626,6 +7115,7 @@ export interface AwsWafv2VisibilityConfigDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details about rules in a rule group. A rule identifies web requests that you want to allow, block, or count. Each rule includes one top-level Statement that WAF uses to identify matching web requests, and parameters that govern how WAF handles them.
  *       </p>
@@ -6669,6 +7159,7 @@ export interface AwsWafv2RulesDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Details about an WAFv2 rule group.
  *       </p>
@@ -6736,6 +7227,7 @@ export interface AwsWafv2RuleGroupDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Used for CAPTCHA and challenge token settings. Determines how long a CAPTCHA or challenge timestamp remains valid after WAF updates it for a successful CAPTCHA or challenge response.
  *       </p>
@@ -6750,6 +7242,7 @@ export interface AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies how WAF should handle CAPTCHA evaluations for rules that don't have their own <code>CaptchaConfig</code> settings.
  *       </p>
@@ -6764,6 +7257,7 @@ export interface AwsWafv2WebAclCaptchaConfigDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies the action that Amazon CloudFront or WAF takes when a web request matches the conditions in the rule.
  *       </p>
@@ -6785,6 +7279,7 @@ export interface AwsWafv2WebAclActionDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Details about an WAFv2 web Access Control List (ACL).
  *       </p>
@@ -6865,6 +7360,7 @@ export interface AwsWafv2WebAclDetails {
 }
 
 /**
+ * @public
  * <p>Details about the action that CloudFront or WAF takes when a web request matches the
  *          conditions in the rule. </p>
  */
@@ -6895,6 +7391,7 @@ export interface WafAction {
 }
 
 /**
+ * @public
  * <p>Details about a rule to exclude from a rule group.</p>
  */
 export interface WafExcludedRule {
@@ -6905,6 +7402,7 @@ export interface WafExcludedRule {
 }
 
 /**
+ * @public
  * <p>Details about an override action for a rule.</p>
  */
 export interface WafOverrideAction {
@@ -6918,6 +7416,7 @@ export interface WafOverrideAction {
 }
 
 /**
+ * @public
  * <p>Details for a rule in an WAF web ACL.</p>
  */
 export interface AwsWafWebAclRule {
@@ -6975,6 +7474,7 @@ export interface AwsWafWebAclRule {
 }
 
 /**
+ * @public
  * <p>Provides information about an WAF web access control list (web ACL).</p>
  */
 export interface AwsWafWebAclDetails {
@@ -7000,6 +7500,7 @@ export interface AwsWafWebAclDetails {
 }
 
 /**
+ * @public
  * <p>Information about the encryption configuration for X-Ray.</p>
  */
 export interface AwsXrayEncryptionConfigDetails {
@@ -7021,6 +7522,7 @@ export interface AwsXrayEncryptionConfigDetails {
 }
 
 /**
+ * @public
  * <p>Describes the mounting of a volume in a container.
  *       </p>
  */
@@ -7039,6 +7541,7 @@ export interface VolumeMount {
 }
 
 /**
+ * @public
  * <p>Container details related to a finding.</p>
  */
 export interface ContainerDetails {
@@ -7086,6 +7589,7 @@ export interface ContainerDetails {
 }
 
 /**
+ * @public
  * <p>Additional details about a resource related to a finding.</p>
  *          <p>To provide the details, use the object that corresponds to the resource type. For
  *          example, if the resource type is <code>AwsEc2Instance</code>, then you use the
@@ -7544,15 +8048,33 @@ export interface ResourceDetails {
    *       </p>
    */
   AwsWafv2RuleGroup?: AwsWafv2RuleGroupDetails;
-}
 
-export enum Partition {
-  AWS = "aws",
-  AWS_CN = "aws-cn",
-  AWS_US_GOV = "aws-us-gov",
+  /**
+   * <p>
+   *          Provides details about a route table. A route table contains a set of rules, called routes, that
+   *          determine where to direct network traffic from your subnet or gateway.
+   *       </p>
+   */
+  AwsEc2RouteTable?: AwsEc2RouteTableDetails;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const Partition = {
+  AWS: "aws",
+  AWS_CN: "aws-cn",
+  AWS_US_GOV: "aws-us-gov",
+} as const;
+
+/**
+ * @public
+ */
+export type Partition = (typeof Partition)[keyof typeof Partition];
+
+/**
+ * @public
  * <p>A resource related to a finding.</p>
  */
 export interface Resource {
@@ -7603,6 +8125,7 @@ export interface Resource {
 }
 
 /**
+ * @public
  * <p>The severity of the finding.</p>
  *          <p>The finding provider can provide the initial severity. The finding provider can only
  *          update the severity if it hasn't been updated using
@@ -7709,30 +8232,50 @@ export interface Severity {
   Original?: string;
 }
 
-export enum ThreatIntelIndicatorCategory {
-  BACKDOOR = "BACKDOOR",
-  CARD_STEALER = "CARD_STEALER",
-  COMMAND_AND_CONTROL = "COMMAND_AND_CONTROL",
-  DROP_SITE = "DROP_SITE",
-  EXPLOIT_SITE = "EXPLOIT_SITE",
-  KEYLOGGER = "KEYLOGGER",
-}
-
-export enum ThreatIntelIndicatorType {
-  DOMAIN = "DOMAIN",
-  EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  HASH_MD5 = "HASH_MD5",
-  HASH_SHA1 = "HASH_SHA1",
-  HASH_SHA256 = "HASH_SHA256",
-  HASH_SHA512 = "HASH_SHA512",
-  IPV4_ADDRESS = "IPV4_ADDRESS",
-  IPV6_ADDRESS = "IPV6_ADDRESS",
-  MUTEX = "MUTEX",
-  PROCESS = "PROCESS",
-  URL = "URL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ThreatIntelIndicatorCategory = {
+  BACKDOOR: "BACKDOOR",
+  CARD_STEALER: "CARD_STEALER",
+  COMMAND_AND_CONTROL: "COMMAND_AND_CONTROL",
+  DROP_SITE: "DROP_SITE",
+  EXPLOIT_SITE: "EXPLOIT_SITE",
+  KEYLOGGER: "KEYLOGGER",
+} as const;
 
 /**
+ * @public
+ */
+export type ThreatIntelIndicatorCategory =
+  (typeof ThreatIntelIndicatorCategory)[keyof typeof ThreatIntelIndicatorCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThreatIntelIndicatorType = {
+  DOMAIN: "DOMAIN",
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  HASH_MD5: "HASH_MD5",
+  HASH_SHA1: "HASH_SHA1",
+  HASH_SHA256: "HASH_SHA256",
+  HASH_SHA512: "HASH_SHA512",
+  IPV4_ADDRESS: "IPV4_ADDRESS",
+  IPV6_ADDRESS: "IPV6_ADDRESS",
+  MUTEX: "MUTEX",
+  PROCESS: "PROCESS",
+  URL: "URL",
+} as const;
+
+/**
+ * @public
+ */
+export type ThreatIntelIndicatorType = (typeof ThreatIntelIndicatorType)[keyof typeof ThreatIntelIndicatorType];
+
+/**
+ * @public
  * <p>Details about the threat intelligence related to a finding.</p>
  */
 export interface ThreatIntelIndicator {
@@ -7773,6 +8316,7 @@ export interface ThreatIntelIndicator {
 }
 
 /**
+ * @public
  * <p>Provides information about the file paths that were affected by the threat.
  * 		</p>
  */
@@ -7803,6 +8347,7 @@ export interface FilePaths {
 }
 
 /**
+ * @public
  * <p>Provides information about the threat detected in a security finding and the file paths that were affected by the threat.
  * 		</p>
  */
@@ -7832,14 +8377,24 @@ export interface Threat {
   FilePaths?: FilePaths[];
 }
 
-export enum VerificationState {
-  BENIGN_POSITIVE = "BENIGN_POSITIVE",
-  FALSE_POSITIVE = "FALSE_POSITIVE",
-  TRUE_POSITIVE = "TRUE_POSITIVE",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VerificationState = {
+  BENIGN_POSITIVE: "BENIGN_POSITIVE",
+  FALSE_POSITIVE: "FALSE_POSITIVE",
+  TRUE_POSITIVE: "TRUE_POSITIVE",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type VerificationState = (typeof VerificationState)[keyof typeof VerificationState];
+
+/**
+ * @public
  * <p>CVSS scores from the advisory related to the vulnerability.</p>
  */
 export interface Cvss {
@@ -7869,13 +8424,23 @@ export interface Cvss {
   Adjustments?: Adjustment[];
 }
 
-export enum VulnerabilityFixAvailable {
-  NO = "NO",
-  PARTIAL = "PARTIAL",
-  YES = "YES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VulnerabilityFixAvailable = {
+  NO: "NO",
+  PARTIAL: "PARTIAL",
+  YES: "YES",
+} as const;
 
 /**
+ * @public
+ */
+export type VulnerabilityFixAvailable = (typeof VulnerabilityFixAvailable)[keyof typeof VulnerabilityFixAvailable];
+
+/**
+ * @public
  * <p>A vendor that generates a vulnerability report.</p>
  */
 export interface VulnerabilityVendor {
@@ -7912,6 +8477,7 @@ export interface VulnerabilityVendor {
 }
 
 /**
+ * @public
  * <p>Information about a software package.</p>
  */
 export interface SoftwarePackage {
@@ -7976,6 +8542,7 @@ export interface SoftwarePackage {
 }
 
 /**
+ * @public
  * <p>A vulnerability associated with a finding.</p>
  */
 export interface Vulnerability {
@@ -8034,14 +8601,24 @@ export interface Vulnerability {
   FixAvailable?: VulnerabilityFixAvailable | string;
 }
 
-export enum WorkflowStatus {
-  NEW = "NEW",
-  NOTIFIED = "NOTIFIED",
-  RESOLVED = "RESOLVED",
-  SUPPRESSED = "SUPPRESSED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowStatus = {
+  NEW: "NEW",
+  NOTIFIED: "NOTIFIED",
+  RESOLVED: "RESOLVED",
+  SUPPRESSED: "SUPPRESSED",
+} as const;
 
 /**
+ * @public
+ */
+export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus];
+
+/**
+ * @public
  * <p>Provides information about the status of the investigation into a finding.</p>
  */
 export interface Workflow {
@@ -8088,15 +8665,25 @@ export interface Workflow {
   Status?: WorkflowStatus | string;
 }
 
-export enum WorkflowState {
-  ASSIGNED = "ASSIGNED",
-  DEFERRED = "DEFERRED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NEW = "NEW",
-  RESOLVED = "RESOLVED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowState = {
+  ASSIGNED: "ASSIGNED",
+  DEFERRED: "DEFERRED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NEW: "NEW",
+  RESOLVED: "RESOLVED",
+} as const;
 
 /**
+ * @public
+ */
+export type WorkflowState = (typeof WorkflowState)[keyof typeof WorkflowState];
+
+/**
+ * @public
  * <p>Provides a consistent format for Security Hub findings.
  *          <code>AwsSecurityFinding</code> format allows you to share findings between Amazon Web Services
  *          security services and third-party solutions.</p>
@@ -8362,14 +8949,24 @@ export interface AwsSecurityFinding {
   Sample?: boolean;
 }
 
-export enum StringFilterComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-  PREFIX = "PREFIX",
-  PREFIX_NOT_EQUALS = "PREFIX_NOT_EQUALS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StringFilterComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+  PREFIX: "PREFIX",
+  PREFIX_NOT_EQUALS: "PREFIX_NOT_EQUALS",
+} as const;
 
 /**
+ * @public
+ */
+export type StringFilterComparison = (typeof StringFilterComparison)[keyof typeof StringFilterComparison];
+
+/**
+ * @public
  * <p>A string filter for querying findings.</p>
  */
 export interface StringFilter {
@@ -8465,6 +9062,7 @@ export interface StringFilter {
 }
 
 /**
+ * @public
  * <p>A number filter for querying findings.</p>
  */
 export interface NumberFilter {
@@ -8487,11 +9085,21 @@ export interface NumberFilter {
   Eq?: number;
 }
 
-export enum DateRangeUnit {
-  DAYS = "DAYS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DateRangeUnit = {
+  DAYS: "DAYS",
+} as const;
 
 /**
+ * @public
+ */
+export type DateRangeUnit = (typeof DateRangeUnit)[keyof typeof DateRangeUnit];
+
+/**
+ * @public
  * <p>A date range for the date filter.</p>
  */
 export interface DateRange {
@@ -8507,6 +9115,7 @@ export interface DateRange {
 }
 
 /**
+ * @public
  * <p>A date filter for querying findings.</p>
  */
 export interface DateFilter {
@@ -8531,6 +9140,7 @@ export interface DateFilter {
 }
 
 /**
+ * @public
  * <p>A keyword filter for querying findings.</p>
  */
 export interface KeywordFilter {
@@ -8541,6 +9151,7 @@ export interface KeywordFilter {
 }
 
 /**
+ * @public
  * <p>The IP filter for querying findings.</p>
  */
 export interface IpFilter {
@@ -8550,12 +9161,22 @@ export interface IpFilter {
   Cidr?: string;
 }
 
-export enum MapFilterComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MapFilterComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+} as const;
 
 /**
+ * @public
+ */
+export type MapFilterComparison = (typeof MapFilterComparison)[keyof typeof MapFilterComparison];
+
+/**
+ * @public
  * <p>A map filter for querying findings. Each map filter provides the field to check, the
  *          value to look for, and the comparison operator.</p>
  */
@@ -8598,6 +9219,7 @@ export interface MapFilter {
 }
 
 /**
+ * @public
  * <p>Boolean filter for querying findings.</p>
  */
 export interface BooleanFilter {
@@ -8608,6 +9230,7 @@ export interface BooleanFilter {
 }
 
 /**
+ * @public
  * <p>A collection of attributes that are applied to all active Security Hub-aggregated findings and
  *          that result in a subset of findings that are included in this insight.</p>
  *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
@@ -8848,7 +9471,7 @@ export interface AwsSecurityFindingFilters {
   ProcessPid?: NumberFilter[];
 
   /**
-   * <p>The parent process ID.</p>
+   * <p>The parent process ID. This field accepts positive integers between <code>O</code> and <code>2147483647</code>.</p>
    */
   ProcessParentPid?: NumberFilter[];
 
@@ -9226,6 +9849,7 @@ export interface AwsSecurityFindingFilters {
 }
 
 /**
+ * @public
  * <p>Identifies a finding to update using <code>BatchUpdateFindings</code>.</p>
  */
 export interface AwsSecurityFindingIdentifier {
@@ -9242,6 +9866,9 @@ export interface AwsSecurityFindingIdentifier {
   ProductArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisableStandardsRequest {
   /**
    * <p>The ARNs of the standards subscriptions to disable.</p>
@@ -9249,20 +9876,39 @@ export interface BatchDisableStandardsRequest {
   StandardsSubscriptionArns: string[] | undefined;
 }
 
-export enum StandardsStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INCOMPLETE = "INCOMPLETE",
-  PENDING = "PENDING",
-  READY = "READY",
-}
-
-export enum StatusReasonCode {
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  NO_AVAILABLE_CONFIGURATION_RECORDER = "NO_AVAILABLE_CONFIGURATION_RECORDER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StandardsStatus = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INCOMPLETE: "INCOMPLETE",
+  PENDING: "PENDING",
+  READY: "READY",
+} as const;
 
 /**
+ * @public
+ */
+export type StandardsStatus = (typeof StandardsStatus)[keyof typeof StandardsStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusReasonCode = {
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NO_AVAILABLE_CONFIGURATION_RECORDER: "NO_AVAILABLE_CONFIGURATION_RECORDER",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusReasonCode = (typeof StatusReasonCode)[keyof typeof StatusReasonCode];
+
+/**
+ * @public
  * <p>The reason for the current status of a standard subscription.</p>
  */
 export interface StandardsStatusReason {
@@ -9273,6 +9919,7 @@ export interface StandardsStatusReason {
 }
 
 /**
+ * @public
  * <p>A resource that represents your subscription to a supported standard.</p>
  */
 export interface StandardsSubscription {
@@ -9325,6 +9972,9 @@ export interface StandardsSubscription {
   StandardsStatusReason?: StandardsStatusReason;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisableStandardsResponse {
   /**
    * <p>The details of the standards subscriptions that were disabled.</p>
@@ -9333,6 +9983,7 @@ export interface BatchDisableStandardsResponse {
 }
 
 /**
+ * @public
  * <p>The standard that you want to enable.</p>
  */
 export interface StandardsSubscriptionRequest {
@@ -9348,6 +9999,9 @@ export interface StandardsSubscriptionRequest {
   StandardsInput?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface BatchEnableStandardsRequest {
   /**
    * <p>The list of standards checks to enable.</p>
@@ -9355,6 +10009,9 @@ export interface BatchEnableStandardsRequest {
   StandardsSubscriptionRequests: StandardsSubscriptionRequest[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchEnableStandardsResponse {
   /**
    * <p>The details of the standards subscriptions that were enabled.</p>
@@ -9362,6 +10019,9 @@ export interface BatchEnableStandardsResponse {
   StandardsSubscriptions?: StandardsSubscription[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetSecurityControlsRequest {
   /**
    * <p> A list of security controls (identified with <code>SecurityControlId</code>,
@@ -9371,19 +10031,38 @@ export interface BatchGetSecurityControlsRequest {
   SecurityControlIds: string[] | undefined;
 }
 
-export enum ControlStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum SeverityRating {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ControlStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type ControlStatus = (typeof ControlStatus)[keyof typeof ControlStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SeverityRating = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type SeverityRating = (typeof SeverityRating)[keyof typeof SeverityRating];
+
+/**
+ * @public
  * <p>
  *          A security control in Security Hub describes a security best practice related to a specific resource.
  *       </p>
@@ -9443,14 +10122,24 @@ export interface SecurityControl {
   SecurityControlStatus: ControlStatus | string | undefined;
 }
 
-export enum UnprocessedErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INVALID_INPUT = "INVALID_INPUT",
-  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
-  NOT_FOUND = "NOT_FOUND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UnprocessedErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INVALID_INPUT: "INVALID_INPUT",
+  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
+  NOT_FOUND: "NOT_FOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type UnprocessedErrorCode = (typeof UnprocessedErrorCode)[keyof typeof UnprocessedErrorCode];
+
+/**
+ * @public
  * <p> Provides details about a security control for which a response couldn't be returned. </p>
  */
 export interface UnprocessedSecurityControl {
@@ -9476,6 +10165,9 @@ export interface UnprocessedSecurityControl {
   ErrorReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetSecurityControlsResponse {
   /**
    * <p>
@@ -9495,6 +10187,7 @@ export interface BatchGetSecurityControlsResponse {
 }
 
 /**
+ * @public
  * <p>
  *          An array with one or more objects that includes a security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters)
  *          and the Amazon Resource Name (ARN) of a standard. The security control ID or ARN is the same across standards.
@@ -9517,6 +10210,9 @@ export interface StandardsControlAssociationId {
   StandardsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetStandardsControlAssociationsRequest {
   /**
    * <p>
@@ -9528,6 +10224,7 @@ export interface BatchGetStandardsControlAssociationsRequest {
 }
 
 /**
+ * @public
  * <p> Provides details about a control's enablement status in a specified standard. </p>
  */
 export interface StandardsControlAssociationDetail {
@@ -9604,6 +10301,7 @@ export interface StandardsControlAssociationDetail {
 }
 
 /**
+ * @public
  * <p> Provides details about which
  *          control's enablement status couldn't be retrieved in a specified standard when calling <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a>. This parameter also provides details
  *          about why the request was unprocessed. </p>
@@ -9630,6 +10328,9 @@ export interface UnprocessedStandardsControlAssociation {
   ErrorReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetStandardsControlAssociationsResponse {
   /**
    * <p>Provides the enablement status of a security control in a specified standard and other details for the control in relation to
@@ -9647,6 +10348,9 @@ export interface BatchGetStandardsControlAssociationsResponse {
   UnprocessedAssociations?: UnprocessedStandardsControlAssociation[];
 }
 
+/**
+ * @public
+ */
 export interface BatchImportFindingsRequest {
   /**
    * <p>A list of findings to import. To successfully import a finding, it must follow the
@@ -9656,6 +10360,7 @@ export interface BatchImportFindingsRequest {
 }
 
 /**
+ * @public
  * <p>The list of the findings that cannot be imported. For each finding, the list provides
  *          the error.</p>
  */
@@ -9677,6 +10382,9 @@ export interface ImportFindingsError {
   ErrorMessage: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchImportFindingsResponse {
   /**
    * <p>The number of findings that failed to import.</p>
@@ -9695,6 +10403,7 @@ export interface BatchImportFindingsResponse {
 }
 
 /**
+ * @public
  * <p>The updated note.</p>
  */
 export interface NoteUpdate {
@@ -9710,6 +10419,7 @@ export interface NoteUpdate {
 }
 
 /**
+ * @public
  * <p>Updates to the severity information for a finding.</p>
  */
 export interface SeverityUpdate {
@@ -9779,6 +10489,7 @@ export interface SeverityUpdate {
 }
 
 /**
+ * @public
  * <p>Used to update information about the investigation into the finding.</p>
  */
 export interface WorkflowUpdate {
@@ -9823,6 +10534,9 @@ export interface WorkflowUpdate {
   Status?: WorkflowStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateFindingsRequest {
   /**
    * <p>The list of findings to update. <code>BatchUpdateFindings</code> can be used to update
@@ -9928,6 +10642,7 @@ export interface BatchUpdateFindingsRequest {
 }
 
 /**
+ * @public
  * <p>A finding from a <code>BatchUpdateFindings</code> request that Security Hub was unable to
  *          update.</p>
  */
@@ -10012,6 +10727,9 @@ export interface BatchUpdateFindingsUnprocessedFinding {
   ErrorMessage: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateFindingsResponse {
   /**
    * <p>The list of findings that were updated successfully.</p>
@@ -10025,6 +10743,7 @@ export interface BatchUpdateFindingsResponse {
 }
 
 /**
+ * @public
  * <p>An array of requested updates to the enablement status of controls in specified
  *          standards. The objects in the array include a security control ID, the Amazon Resource Name (ARN) of the standard, the requested
  *          enablement status, and the reason for updating the enablement status.</p>
@@ -10052,6 +10771,9 @@ export interface StandardsControlAssociationUpdate {
   UpdatedReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateStandardsControlAssociationsRequest {
   /**
    * <p>
@@ -10062,6 +10784,7 @@ export interface BatchUpdateStandardsControlAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>Provides details about which control's enablement status could not be updated in a
  *          specified standard when calling the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a> API. This parameter also provides
  *          details about why the request was unprocessed. </p>
@@ -10086,6 +10809,9 @@ export interface UnprocessedStandardsControlAssociationUpdate {
   ErrorReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateStandardsControlAssociationsResponse {
   /**
    * <p>
@@ -10095,11 +10821,23 @@ export interface BatchUpdateStandardsControlAssociationsResponse {
   UnprocessedAssociationUpdates?: UnprocessedStandardsControlAssociationUpdate[];
 }
 
-export enum ControlFindingGenerator {
-  SECURITY_CONTROL = "SECURITY_CONTROL",
-  STANDARD_CONTROL = "STANDARD_CONTROL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ControlFindingGenerator = {
+  SECURITY_CONTROL: "SECURITY_CONTROL",
+  STANDARD_CONTROL: "STANDARD_CONTROL",
+} as const;
 
+/**
+ * @public
+ */
+export type ControlFindingGenerator = (typeof ControlFindingGenerator)[keyof typeof ControlFindingGenerator];
+
+/**
+ * @public
+ */
 export interface CreateActionTargetRequest {
   /**
    * <p>The name of the custom action target. Can contain up to 20 characters.</p>
@@ -10117,6 +10855,9 @@ export interface CreateActionTargetRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateActionTargetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the custom action target.</p>
@@ -10125,6 +10866,7 @@ export interface CreateActionTargetResponse {
 }
 
 /**
+ * @public
  * <p>The resource specified in the request conflicts with an existing resource.</p>
  */
 export class ResourceConflictException extends __BaseException {
@@ -10147,6 +10889,9 @@ export class ResourceConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateFindingAggregatorRequest {
   /**
    * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.</p>
@@ -10180,6 +10925,9 @@ export interface CreateFindingAggregatorRequest {
   Regions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFindingAggregatorResponse {
   /**
    * <p>The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and stop finding aggregation.</p>
@@ -10201,2190 +10949,3 @@ export interface CreateFindingAggregatorResponse {
    */
   Regions?: string[];
 }
-
-export interface CreateInsightRequest {
-  /**
-   * <p>The name of the custom insight to create.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>One or more attributes used to filter the findings included in the insight. The insight
-   *          only includes findings that match the criteria defined in the filters.</p>
-   */
-  Filters: AwsSecurityFindingFilters | undefined;
-
-  /**
-   * <p>The attribute used to group the findings for the insight. The grouping attribute
-   *          identifies the type of item that the insight applies to. For example, if an insight is
-   *          grouped by resource identifier, then the insight produces a list of resource
-   *          identifiers.</p>
-   */
-  GroupByAttribute: string | undefined;
-}
-
-export interface CreateInsightResponse {
-  /**
-   * <p>The ARN of the insight created.</p>
-   */
-  InsightArn: string | undefined;
-}
-
-export interface CreateMembersRequest {
-  /**
-   * <p>The list of accounts to associate with the Security Hub administrator account. For each account, the
-   *          list includes the account ID and optionally the email address.</p>
-   */
-  AccountDetails: AccountDetails[] | undefined;
-}
-
-/**
- * <p>Details about the account that was not processed.</p>
- */
-export interface Result {
-  /**
-   * <p>An Amazon Web Services account ID of the account that was not processed.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The reason that the account was not processed.</p>
-   */
-  ProcessingResult?: string;
-}
-
-export interface CreateMembersResponse {
-  /**
-   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
-   *          the account ID and the email address.</p>
-   */
-  UnprocessedAccounts?: Result[];
-}
-
-export interface DeclineInvitationsRequest {
-  /**
-   * <p>The list of account IDs for the accounts from which to decline the invitations to
-   *          Security Hub.</p>
-   */
-  AccountIds: string[] | undefined;
-}
-
-export interface DeclineInvitationsResponse {
-  /**
-   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
-   *          the account ID and the email address.</p>
-   */
-  UnprocessedAccounts?: Result[];
-}
-
-export interface DeleteActionTargetRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the custom action target to delete.</p>
-   */
-  ActionTargetArn: string | undefined;
-}
-
-export interface DeleteActionTargetResponse {
-  /**
-   * <p>The ARN of the custom action target that was deleted.</p>
-   */
-  ActionTargetArn: string | undefined;
-}
-
-/**
- * @internal
- */
-export const AwsIamGroupPolicyFilterSensitiveLog = (obj: AwsIamGroupPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamGroupDetailsFilterSensitiveLog = (obj: AwsIamGroupDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamInstanceProfileRoleFilterSensitiveLog = (obj: AwsIamInstanceProfileRole): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamInstanceProfileFilterSensitiveLog = (obj: AwsIamInstanceProfile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamPermissionsBoundaryFilterSensitiveLog = (obj: AwsIamPermissionsBoundary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamPolicyVersionFilterSensitiveLog = (obj: AwsIamPolicyVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamPolicyDetailsFilterSensitiveLog = (obj: AwsIamPolicyDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamRolePolicyFilterSensitiveLog = (obj: AwsIamRolePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamRoleDetailsFilterSensitiveLog = (obj: AwsIamRoleDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamUserPolicyFilterSensitiveLog = (obj: AwsIamUserPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamUserDetailsFilterSensitiveLog = (obj: AwsIamUserDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsKinesisStreamStreamEncryptionDetailsFilterSensitiveLog = (
-  obj: AwsKinesisStreamStreamEncryptionDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsKinesisStreamDetailsFilterSensitiveLog = (obj: AwsKinesisStreamDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsKmsKeyDetailsFilterSensitiveLog = (obj: AwsKmsKeyDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionCodeFilterSensitiveLog = (obj: AwsLambdaFunctionCode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionDeadLetterConfigFilterSensitiveLog = (obj: AwsLambdaFunctionDeadLetterConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionEnvironmentErrorFilterSensitiveLog = (obj: AwsLambdaFunctionEnvironmentError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionEnvironmentFilterSensitiveLog = (obj: AwsLambdaFunctionEnvironment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionLayerFilterSensitiveLog = (obj: AwsLambdaFunctionLayer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionTracingConfigFilterSensitiveLog = (obj: AwsLambdaFunctionTracingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionVpcConfigFilterSensitiveLog = (obj: AwsLambdaFunctionVpcConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionDetailsFilterSensitiveLog = (obj: AwsLambdaFunctionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaLayerVersionDetailsFilterSensitiveLog = (obj: AwsLambdaLayerVersionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsNetworkFirewallFirewallSubnetMappingsDetailsFilterSensitiveLog = (
-  obj: AwsNetworkFirewallFirewallSubnetMappingsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsNetworkFirewallFirewallDetailsFilterSensitiveLog = (obj: AwsNetworkFirewallFirewallDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallPolicyStatefulRuleGroupReferencesDetailsFilterSensitiveLog = (
-  obj: FirewallPolicyStatefulRuleGroupReferencesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatelessCustomPublishMetricActionDimensionFilterSensitiveLog = (
-  obj: StatelessCustomPublishMetricActionDimension
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatelessCustomPublishMetricActionFilterSensitiveLog = (obj: StatelessCustomPublishMetricAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatelessCustomActionDefinitionFilterSensitiveLog = (obj: StatelessCustomActionDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallPolicyStatelessCustomActionsDetailsFilterSensitiveLog = (
-  obj: FirewallPolicyStatelessCustomActionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallPolicyStatelessRuleGroupReferencesDetailsFilterSensitiveLog = (
-  obj: FirewallPolicyStatelessRuleGroupReferencesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallPolicyDetailsFilterSensitiveLog = (obj: FirewallPolicyDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsNetworkFirewallFirewallPolicyDetailsFilterSensitiveLog = (
-  obj: AwsNetworkFirewallFirewallPolicyDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceListDetailsFilterSensitiveLog = (obj: RuleGroupSourceListDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatefulRulesHeaderDetailsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatefulRulesHeaderDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatefulRulesOptionsDetailsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatefulRulesOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatefulRulesDetailsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatefulRulesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceCustomActionsDetailsFilterSensitiveLog = (
-  obj: RuleGroupSourceCustomActionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleMatchAttributesDestinationsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleMatchAttributesDestinations
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleMatchAttributesSourcePortsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleMatchAttributesSourcesFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleMatchAttributesSources
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleMatchAttributesFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleMatchAttributes
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleDefinitionFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleDefinition
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRulesDetailsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRulesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRulesAndCustomActionsDetailsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRulesAndCustomActionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceFilterSensitiveLog = (obj: RuleGroupSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupVariablesIpSetsDetailsFilterSensitiveLog = (obj: RuleGroupVariablesIpSetsDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupVariablesPortSetsDetailsFilterSensitiveLog = (obj: RuleGroupVariablesPortSetsDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupVariablesFilterSensitiveLog = (obj: RuleGroupVariables): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupDetailsFilterSensitiveLog = (obj: RuleGroupDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsNetworkFirewallRuleGroupDetailsFilterSensitiveLog = (obj: AwsNetworkFirewallRuleGroupDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsOpenSearchServiceDomainMasterUserOptionsDetailsFilterSensitiveLog = (
-  obj: AwsOpenSearchServiceDomainMasterUserOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsFilterSensitiveLog = (
-  obj: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsFilterSensitiveLog = (
-  obj: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsOpenSearchServiceDomainClusterConfigDetailsFilterSensitiveLog = (
-  obj: AwsOpenSearchServiceDomainClusterConfigDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsFilterSensitiveLog = (
-  obj: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsFilterSensitiveLog = (
-  obj: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsOpenSearchServiceDomainLogPublishingOptionFilterSensitiveLog = (
-  obj: AwsOpenSearchServiceDomainLogPublishingOption
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsOpenSearchServiceDomainLogPublishingOptionsDetailsFilterSensitiveLog = (
-  obj: AwsOpenSearchServiceDomainLogPublishingOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsFilterSensitiveLog = (
-  obj: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsFilterSensitiveLog = (
-  obj: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsOpenSearchServiceDomainVpcOptionsDetailsFilterSensitiveLog = (
-  obj: AwsOpenSearchServiceDomainVpcOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsOpenSearchServiceDomainDetailsFilterSensitiveLog = (obj: AwsOpenSearchServiceDomainDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbClusterAssociatedRoleFilterSensitiveLog = (obj: AwsRdsDbClusterAssociatedRole): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbClusterMemberFilterSensitiveLog = (obj: AwsRdsDbClusterMember): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbClusterOptionGroupMembershipFilterSensitiveLog = (
-  obj: AwsRdsDbClusterOptionGroupMembership
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbDomainMembershipFilterSensitiveLog = (obj: AwsRdsDbDomainMembership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbInstanceVpcSecurityGroupFilterSensitiveLog = (obj: AwsRdsDbInstanceVpcSecurityGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbClusterDetailsFilterSensitiveLog = (obj: AwsRdsDbClusterDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbClusterSnapshotDetailsFilterSensitiveLog = (obj: AwsRdsDbClusterSnapshotDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbInstanceAssociatedRoleFilterSensitiveLog = (obj: AwsRdsDbInstanceAssociatedRole): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbParameterGroupFilterSensitiveLog = (obj: AwsRdsDbParameterGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbSubnetGroupSubnetAvailabilityZoneFilterSensitiveLog = (
-  obj: AwsRdsDbSubnetGroupSubnetAvailabilityZone
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbSubnetGroupSubnetFilterSensitiveLog = (obj: AwsRdsDbSubnetGroupSubnet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbSubnetGroupFilterSensitiveLog = (obj: AwsRdsDbSubnetGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbInstanceEndpointFilterSensitiveLog = (obj: AwsRdsDbInstanceEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbOptionGroupMembershipFilterSensitiveLog = (obj: AwsRdsDbOptionGroupMembership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsPendingCloudWatchLogsExportsFilterSensitiveLog = (obj: AwsRdsPendingCloudWatchLogsExports): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbProcessorFeatureFilterSensitiveLog = (obj: AwsRdsDbProcessorFeature): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbPendingModifiedValuesFilterSensitiveLog = (obj: AwsRdsDbPendingModifiedValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbStatusInfoFilterSensitiveLog = (obj: AwsRdsDbStatusInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbInstanceDetailsFilterSensitiveLog = (obj: AwsRdsDbInstanceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbSecurityGroupEc2SecurityGroupFilterSensitiveLog = (
-  obj: AwsRdsDbSecurityGroupEc2SecurityGroup
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbSecurityGroupIpRangeFilterSensitiveLog = (obj: AwsRdsDbSecurityGroupIpRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbSecurityGroupDetailsFilterSensitiveLog = (obj: AwsRdsDbSecurityGroupDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsDbSnapshotDetailsFilterSensitiveLog = (obj: AwsRdsDbSnapshotDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRdsEventSubscriptionDetailsFilterSensitiveLog = (obj: AwsRdsEventSubscriptionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterClusterNodeFilterSensitiveLog = (obj: AwsRedshiftClusterClusterNode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterClusterParameterStatusFilterSensitiveLog = (
-  obj: AwsRedshiftClusterClusterParameterStatus
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterClusterParameterGroupFilterSensitiveLog = (
-  obj: AwsRedshiftClusterClusterParameterGroup
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterClusterSecurityGroupFilterSensitiveLog = (
-  obj: AwsRedshiftClusterClusterSecurityGroup
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterClusterSnapshotCopyStatusFilterSensitiveLog = (
-  obj: AwsRedshiftClusterClusterSnapshotCopyStatus
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterDeferredMaintenanceWindowFilterSensitiveLog = (
-  obj: AwsRedshiftClusterDeferredMaintenanceWindow
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterElasticIpStatusFilterSensitiveLog = (obj: AwsRedshiftClusterElasticIpStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterEndpointFilterSensitiveLog = (obj: AwsRedshiftClusterEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterHsmStatusFilterSensitiveLog = (obj: AwsRedshiftClusterHsmStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterIamRoleFilterSensitiveLog = (obj: AwsRedshiftClusterIamRole): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterLoggingStatusFilterSensitiveLog = (obj: AwsRedshiftClusterLoggingStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterPendingModifiedValuesFilterSensitiveLog = (
-  obj: AwsRedshiftClusterPendingModifiedValues
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterResizeInfoFilterSensitiveLog = (obj: AwsRedshiftClusterResizeInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterRestoreStatusFilterSensitiveLog = (obj: AwsRedshiftClusterRestoreStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterVpcSecurityGroupFilterSensitiveLog = (obj: AwsRedshiftClusterVpcSecurityGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsRedshiftClusterDetailsFilterSensitiveLog = (obj: AwsRedshiftClusterDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3AccountPublicAccessBlockDetailsFilterSensitiveLog = (
-  obj: AwsS3AccountPublicAccessBlockDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsFilterSensitiveLog = (
-  obj: AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetailsFilterSensitiveLog = (
-  obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetailsFilterSensitiveLog = (
-  obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsFilterSensitiveLog = (
-  obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsFilterSensitiveLog = (
-  obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsFilterSensitiveLog = (
-  obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsFilterSensitiveLog = (
-  obj: AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsFilterSensitiveLog = (
-  obj: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketBucketLifecycleConfigurationRulesDetailsFilterSensitiveLog = (
-  obj: AwsS3BucketBucketLifecycleConfigurationRulesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketBucketLifecycleConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsS3BucketBucketLifecycleConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketBucketVersioningConfigurationFilterSensitiveLog = (
-  obj: AwsS3BucketBucketVersioningConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketLoggingConfigurationFilterSensitiveLog = (obj: AwsS3BucketLoggingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketNotificationConfigurationS3KeyFilterRuleFilterSensitiveLog = (
-  obj: AwsS3BucketNotificationConfigurationS3KeyFilterRule
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketNotificationConfigurationS3KeyFilterFilterSensitiveLog = (
-  obj: AwsS3BucketNotificationConfigurationS3KeyFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketNotificationConfigurationFilterFilterSensitiveLog = (
-  obj: AwsS3BucketNotificationConfigurationFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketNotificationConfigurationDetailFilterSensitiveLog = (
-  obj: AwsS3BucketNotificationConfigurationDetail
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketNotificationConfigurationFilterSensitiveLog = (
-  obj: AwsS3BucketNotificationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketWebsiteConfigurationRedirectToFilterSensitiveLog = (
-  obj: AwsS3BucketWebsiteConfigurationRedirectTo
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketWebsiteConfigurationRoutingRuleConditionFilterSensitiveLog = (
-  obj: AwsS3BucketWebsiteConfigurationRoutingRuleCondition
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketWebsiteConfigurationRoutingRuleRedirectFilterSensitiveLog = (
-  obj: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketWebsiteConfigurationRoutingRuleFilterSensitiveLog = (
-  obj: AwsS3BucketWebsiteConfigurationRoutingRule
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketWebsiteConfigurationFilterSensitiveLog = (obj: AwsS3BucketWebsiteConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketServerSideEncryptionByDefaultFilterSensitiveLog = (
-  obj: AwsS3BucketServerSideEncryptionByDefault
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketServerSideEncryptionRuleFilterSensitiveLog = (
-  obj: AwsS3BucketServerSideEncryptionRule
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketServerSideEncryptionConfigurationFilterSensitiveLog = (
-  obj: AwsS3BucketServerSideEncryptionConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3BucketDetailsFilterSensitiveLog = (obj: AwsS3BucketDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsS3ObjectDetailsFilterSensitiveLog = (obj: AwsS3ObjectDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSageMakerNotebookInstanceDetailsFilterSensitiveLog = (
-  obj: AwsSageMakerNotebookInstanceDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSecretsManagerSecretRotationRulesFilterSensitiveLog = (
-  obj: AwsSecretsManagerSecretRotationRules
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSecretsManagerSecretDetailsFilterSensitiveLog = (obj: AwsSecretsManagerSecretDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatusReasonFilterSensitiveLog = (obj: StatusReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComplianceFilterSensitiveLog = (obj: Compliance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelatedFindingFilterSensitiveLog = (obj: RelatedFinding): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingProviderSeverityFilterSensitiveLog = (obj: FindingProviderSeverity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingProviderFieldsFilterSensitiveLog = (obj: FindingProviderFields): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MalwareFilterSensitiveLog = (obj: Malware): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortRangeFilterSensitiveLog = (obj: PortRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkFilterSensitiveLog = (obj: Network): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkPathComponentDetailsFilterSensitiveLog = (obj: NetworkPathComponentDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkHeaderFilterSensitiveLog = (obj: NetworkHeader): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkPathComponentFilterSensitiveLog = (obj: NetworkPathComponent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NoteFilterSensitiveLog = (obj: Note): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PatchSummaryFilterSensitiveLog = (obj: PatchSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessDetailsFilterSensitiveLog = (obj: ProcessDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemediationFilterSensitiveLog = (obj: Remediation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CellFilterSensitiveLog = (obj: Cell): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RangeFilterSensitiveLog = (obj: Range): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PageFilterSensitiveLog = (obj: Page): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const _RecordFilterSensitiveLog = (obj: _Record): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OccurrencesFilterSensitiveLog = (obj: Occurrences): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomDataIdentifiersDetectionsFilterSensitiveLog = (obj: CustomDataIdentifiersDetections): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomDataIdentifiersResultFilterSensitiveLog = (obj: CustomDataIdentifiersResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SensitiveDataDetectionsFilterSensitiveLog = (obj: SensitiveDataDetections): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SensitiveDataResultFilterSensitiveLog = (obj: SensitiveDataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClassificationStatusFilterSensitiveLog = (obj: ClassificationStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClassificationResultFilterSensitiveLog = (obj: ClassificationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataClassificationDetailsFilterSensitiveLog = (obj: DataClassificationDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSnsTopicSubscriptionFilterSensitiveLog = (obj: AwsSnsTopicSubscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSnsTopicDetailsFilterSensitiveLog = (obj: AwsSnsTopicDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSqsQueueDetailsFilterSensitiveLog = (obj: AwsSqsQueueDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSsmComplianceSummaryFilterSensitiveLog = (obj: AwsSsmComplianceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSsmPatchFilterSensitiveLog = (obj: AwsSsmPatch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSsmPatchComplianceDetailsFilterSensitiveLog = (obj: AwsSsmPatchComplianceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRateBasedRuleMatchPredicateFilterSensitiveLog = (obj: AwsWafRateBasedRuleMatchPredicate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRateBasedRuleDetailsFilterSensitiveLog = (obj: AwsWafRateBasedRuleDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRegionalRateBasedRuleMatchPredicateFilterSensitiveLog = (
-  obj: AwsWafRegionalRateBasedRuleMatchPredicate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRegionalRateBasedRuleDetailsFilterSensitiveLog = (obj: AwsWafRegionalRateBasedRuleDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRegionalRulePredicateListDetailsFilterSensitiveLog = (
-  obj: AwsWafRegionalRulePredicateListDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRegionalRuleDetailsFilterSensitiveLog = (obj: AwsWafRegionalRuleDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRegionalRuleGroupRulesActionDetailsFilterSensitiveLog = (
-  obj: AwsWafRegionalRuleGroupRulesActionDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRegionalRuleGroupRulesDetailsFilterSensitiveLog = (
-  obj: AwsWafRegionalRuleGroupRulesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRegionalRuleGroupDetailsFilterSensitiveLog = (obj: AwsWafRegionalRuleGroupDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRegionalWebAclRulesListActionDetailsFilterSensitiveLog = (
-  obj: AwsWafRegionalWebAclRulesListActionDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRegionalWebAclRulesListOverrideActionDetailsFilterSensitiveLog = (
-  obj: AwsWafRegionalWebAclRulesListOverrideActionDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRegionalWebAclRulesListDetailsFilterSensitiveLog = (
-  obj: AwsWafRegionalWebAclRulesListDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRegionalWebAclDetailsFilterSensitiveLog = (obj: AwsWafRegionalWebAclDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRulePredicateListDetailsFilterSensitiveLog = (obj: AwsWafRulePredicateListDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRuleDetailsFilterSensitiveLog = (obj: AwsWafRuleDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRuleGroupRulesActionDetailsFilterSensitiveLog = (obj: AwsWafRuleGroupRulesActionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRuleGroupRulesDetailsFilterSensitiveLog = (obj: AwsWafRuleGroupRulesDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafRuleGroupDetailsFilterSensitiveLog = (obj: AwsWafRuleGroupDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2CustomHttpHeaderFilterSensitiveLog = (obj: AwsWafv2CustomHttpHeader): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2CustomRequestHandlingDetailsFilterSensitiveLog = (
-  obj: AwsWafv2CustomRequestHandlingDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2ActionAllowDetailsFilterSensitiveLog = (obj: AwsWafv2ActionAllowDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2CustomResponseDetailsFilterSensitiveLog = (obj: AwsWafv2CustomResponseDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2ActionBlockDetailsFilterSensitiveLog = (obj: AwsWafv2ActionBlockDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2RulesActionCaptchaDetailsFilterSensitiveLog = (obj: AwsWafv2RulesActionCaptchaDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2RulesActionCountDetailsFilterSensitiveLog = (obj: AwsWafv2RulesActionCountDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2RulesActionDetailsFilterSensitiveLog = (obj: AwsWafv2RulesActionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2VisibilityConfigDetailsFilterSensitiveLog = (obj: AwsWafv2VisibilityConfigDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2RulesDetailsFilterSensitiveLog = (obj: AwsWafv2RulesDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2RuleGroupDetailsFilterSensitiveLog = (obj: AwsWafv2RuleGroupDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsFilterSensitiveLog = (
-  obj: AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2WebAclCaptchaConfigDetailsFilterSensitiveLog = (obj: AwsWafv2WebAclCaptchaConfigDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2WebAclActionDetailsFilterSensitiveLog = (obj: AwsWafv2WebAclActionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafv2WebAclDetailsFilterSensitiveLog = (obj: AwsWafv2WebAclDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WafActionFilterSensitiveLog = (obj: WafAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WafExcludedRuleFilterSensitiveLog = (obj: WafExcludedRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WafOverrideActionFilterSensitiveLog = (obj: WafOverrideAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafWebAclRuleFilterSensitiveLog = (obj: AwsWafWebAclRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsWafWebAclDetailsFilterSensitiveLog = (obj: AwsWafWebAclDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsXrayEncryptionConfigDetailsFilterSensitiveLog = (obj: AwsXrayEncryptionConfigDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeMountFilterSensitiveLog = (obj: VolumeMount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerDetailsFilterSensitiveLog = (obj: ContainerDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceDetailsFilterSensitiveLog = (obj: ResourceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SeverityFilterSensitiveLog = (obj: Severity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThreatIntelIndicatorFilterSensitiveLog = (obj: ThreatIntelIndicator): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilePathsFilterSensitiveLog = (obj: FilePaths): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThreatFilterSensitiveLog = (obj: Threat): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CvssFilterSensitiveLog = (obj: Cvss): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VulnerabilityVendorFilterSensitiveLog = (obj: VulnerabilityVendor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SoftwarePackageFilterSensitiveLog = (obj: SoftwarePackage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VulnerabilityFilterSensitiveLog = (obj: Vulnerability): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkflowFilterSensitiveLog = (obj: Workflow): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSecurityFindingFilterSensitiveLog = (obj: AwsSecurityFinding): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StringFilterFilterSensitiveLog = (obj: StringFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumberFilterFilterSensitiveLog = (obj: NumberFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DateRangeFilterSensitiveLog = (obj: DateRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DateFilterFilterSensitiveLog = (obj: DateFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeywordFilterFilterSensitiveLog = (obj: KeywordFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpFilterFilterSensitiveLog = (obj: IpFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MapFilterFilterSensitiveLog = (obj: MapFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BooleanFilterFilterSensitiveLog = (obj: BooleanFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSecurityFindingFiltersFilterSensitiveLog = (obj: AwsSecurityFindingFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSecurityFindingIdentifierFilterSensitiveLog = (obj: AwsSecurityFindingIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisableStandardsRequestFilterSensitiveLog = (obj: BatchDisableStandardsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardsStatusReasonFilterSensitiveLog = (obj: StandardsStatusReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardsSubscriptionFilterSensitiveLog = (obj: StandardsSubscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisableStandardsResponseFilterSensitiveLog = (obj: BatchDisableStandardsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardsSubscriptionRequestFilterSensitiveLog = (obj: StandardsSubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchEnableStandardsRequestFilterSensitiveLog = (obj: BatchEnableStandardsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchEnableStandardsResponseFilterSensitiveLog = (obj: BatchEnableStandardsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetSecurityControlsRequestFilterSensitiveLog = (obj: BatchGetSecurityControlsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityControlFilterSensitiveLog = (obj: SecurityControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnprocessedSecurityControlFilterSensitiveLog = (obj: UnprocessedSecurityControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetSecurityControlsResponseFilterSensitiveLog = (obj: BatchGetSecurityControlsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardsControlAssociationIdFilterSensitiveLog = (obj: StandardsControlAssociationId): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetStandardsControlAssociationsRequestFilterSensitiveLog = (
-  obj: BatchGetStandardsControlAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardsControlAssociationDetailFilterSensitiveLog = (obj: StandardsControlAssociationDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnprocessedStandardsControlAssociationFilterSensitiveLog = (
-  obj: UnprocessedStandardsControlAssociation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetStandardsControlAssociationsResponseFilterSensitiveLog = (
-  obj: BatchGetStandardsControlAssociationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchImportFindingsRequestFilterSensitiveLog = (obj: BatchImportFindingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportFindingsErrorFilterSensitiveLog = (obj: ImportFindingsError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchImportFindingsResponseFilterSensitiveLog = (obj: BatchImportFindingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NoteUpdateFilterSensitiveLog = (obj: NoteUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SeverityUpdateFilterSensitiveLog = (obj: SeverityUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkflowUpdateFilterSensitiveLog = (obj: WorkflowUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdateFindingsRequestFilterSensitiveLog = (obj: BatchUpdateFindingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdateFindingsUnprocessedFindingFilterSensitiveLog = (
-  obj: BatchUpdateFindingsUnprocessedFinding
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdateFindingsResponseFilterSensitiveLog = (obj: BatchUpdateFindingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardsControlAssociationUpdateFilterSensitiveLog = (obj: StandardsControlAssociationUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdateStandardsControlAssociationsRequestFilterSensitiveLog = (
-  obj: BatchUpdateStandardsControlAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnprocessedStandardsControlAssociationUpdateFilterSensitiveLog = (
-  obj: UnprocessedStandardsControlAssociationUpdate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdateStandardsControlAssociationsResponseFilterSensitiveLog = (
-  obj: BatchUpdateStandardsControlAssociationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateActionTargetRequestFilterSensitiveLog = (obj: CreateActionTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateActionTargetResponseFilterSensitiveLog = (obj: CreateActionTargetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFindingAggregatorRequestFilterSensitiveLog = (obj: CreateFindingAggregatorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFindingAggregatorResponseFilterSensitiveLog = (obj: CreateFindingAggregatorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInsightRequestFilterSensitiveLog = (obj: CreateInsightRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInsightResponseFilterSensitiveLog = (obj: CreateInsightResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMembersRequestFilterSensitiveLog = (obj: CreateMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResultFilterSensitiveLog = (obj: Result): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMembersResponseFilterSensitiveLog = (obj: CreateMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeclineInvitationsRequestFilterSensitiveLog = (obj: DeclineInvitationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeclineInvitationsResponseFilterSensitiveLog = (obj: DeclineInvitationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteActionTargetRequestFilterSensitiveLog = (obj: DeleteActionTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteActionTargetResponseFilterSensitiveLog = (obj: DeleteActionTargetResponse): any => ({
-  ...obj,
-});

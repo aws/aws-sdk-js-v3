@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ListTypesInput,
-  ListTypesInputFilterSensitiveLog,
-  ListTypesOutput,
-  ListTypesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryListTypesCommand, serializeAws_queryListTypesCommand } from "../protocols/Aws_query";
+import { ListTypesInput, ListTypesOutput } from "../models/models_0";
+import { de_ListTypesCommand, se_ListTypesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListTypesCommand}.
  */
 export interface ListTypesCommandInput extends ListTypesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTypesCommand}.
  */
 export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summary information about extension that have been registered with CloudFormation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,25 @@ export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBeare
  * import { CloudFormationClient, ListTypesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListTypesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ListTypesInput
+ *   Visibility: "PUBLIC" || "PRIVATE",
+ *   ProvisioningType: "NON_PROVISIONABLE" || "IMMUTABLE" || "FULLY_MUTABLE",
+ *   DeprecatedStatus: "LIVE" || "DEPRECATED",
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   Filters: { // TypeFilters
+ *     Category: "REGISTERED" || "ACTIVATED" || "THIRD_PARTY" || "AWS_TYPES",
+ *     PublisherId: "STRING_VALUE",
+ *     TypeNamePrefix: "STRING_VALUE",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTypesCommandInput - {@link ListTypesCommandInput}
+ * @returns {@link ListTypesCommandOutput}
  * @see {@link ListTypesCommandInput} for command's `input` shape.
  * @see {@link ListTypesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -69,6 +84,9 @@ export class ListTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +113,8 @@ export class ListTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTypesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTypesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +124,18 @@ export class ListTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListTypesCommand(input, context);
+    return se_ListTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTypesCommandOutput> {
-    return deserializeAws_queryListTypesCommand(output, context);
+    return de_ListTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

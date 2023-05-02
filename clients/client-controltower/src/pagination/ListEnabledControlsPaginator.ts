@@ -10,7 +10,7 @@ import { ControlTowerClient } from "../ControlTowerClient";
 import { ControlTowerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ControlTowerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEnabledControlsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListEnabledControls(
   config: ControlTowerPaginationConfiguration,
   input: ListEnabledControlsCommandInput,

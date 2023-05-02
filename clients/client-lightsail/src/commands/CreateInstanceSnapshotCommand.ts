@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CreateInstanceSnapshotRequest,
-  CreateInstanceSnapshotRequestFilterSensitiveLog,
-  CreateInstanceSnapshotResult,
-  CreateInstanceSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateInstanceSnapshotCommand,
-  serializeAws_json1_1CreateInstanceSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateInstanceSnapshotRequest, CreateInstanceSnapshotResult } from "../models/models_0";
+import { de_CreateInstanceSnapshotCommand, se_CreateInstanceSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstanceSnapshotCommand}.
  */
 export interface CreateInstanceSnapshotCommandInput extends CreateInstanceSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstanceSnapshotCommand}.
  */
 export interface CreateInstanceSnapshotCommandOutput extends CreateInstanceSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot of a specific virtual private server, or <i>instance</i>.
  *       You can use a snapshot to create a new instance that is based on that snapshot.</p>
  *          <p>The <code>create instance snapshot</code> operation supports tag-based access control via
@@ -45,10 +42,22 @@ export interface CreateInstanceSnapshotCommandOutput extends CreateInstanceSnaps
  * import { LightsailClient, CreateInstanceSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateInstanceSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateInstanceSnapshotRequest
+ *   instanceSnapshotName: "STRING_VALUE", // required
+ *   instanceName: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateInstanceSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstanceSnapshotCommandInput - {@link CreateInstanceSnapshotCommandInput}
+ * @returns {@link CreateInstanceSnapshotCommandOutput}
  * @see {@link CreateInstanceSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +111,9 @@ export class CreateInstanceSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstanceSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +142,8 @@ export class CreateInstanceSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInstanceSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInstanceSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +153,18 @@ export class CreateInstanceSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstanceSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateInstanceSnapshotCommand(input, context);
+    return se_CreateInstanceSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceSnapshotCommandOutput> {
-    return deserializeAws_json1_1CreateInstanceSnapshotCommand(output, context);
+    return de_CreateInstanceSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

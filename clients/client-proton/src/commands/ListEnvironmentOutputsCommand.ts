@@ -15,26 +15,27 @@ import {
 
 import {
   ListEnvironmentOutputsInput,
-  ListEnvironmentOutputsInputFilterSensitiveLog,
   ListEnvironmentOutputsOutput,
   ListEnvironmentOutputsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListEnvironmentOutputsCommand,
-  serializeAws_json1_0ListEnvironmentOutputsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListEnvironmentOutputsCommand, se_ListEnvironmentOutputsCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEnvironmentOutputsCommand}.
  */
 export interface ListEnvironmentOutputsCommandInput extends ListEnvironmentOutputsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEnvironmentOutputsCommand}.
  */
 export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutputsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the infrastructure as code outputs for your environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutp
  * import { ProtonClient, ListEnvironmentOutputsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListEnvironmentOutputsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // ListEnvironmentOutputsInput
+ *   environmentName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListEnvironmentOutputsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentOutputsCommandInput - {@link ListEnvironmentOutputsCommandInput}
+ * @returns {@link ListEnvironmentOutputsCommandOutput}
  * @see {@link ListEnvironmentOutputsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentOutputsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListEnvironmentOutputsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentOutputsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +122,7 @@ export class ListEnvironmentOutputsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentOutputsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListEnvironmentOutputsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,12 +133,18 @@ export class ListEnvironmentOutputsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEnvironmentOutputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListEnvironmentOutputsCommand(input, context);
+    return se_ListEnvironmentOutputsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentOutputsCommandOutput> {
-    return deserializeAws_json1_0ListEnvironmentOutputsCommand(output, context);
+    return de_ListEnvironmentOutputsCommand(output, context);
   }
 
   // Start section: command_body_extra

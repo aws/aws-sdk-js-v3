@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  GetPricingPlanRequest,
-  GetPricingPlanRequestFilterSensitiveLog,
-  GetPricingPlanResponse,
-  GetPricingPlanResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPricingPlanCommand,
-  serializeAws_restJson1GetPricingPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPricingPlanRequest, GetPricingPlanResponse } from "../models/models_0";
+import { de_GetPricingPlanCommand, se_GetPricingPlanCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPricingPlanCommand}.
  */
 export interface GetPricingPlanCommandInput extends GetPricingPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPricingPlanCommand}.
  */
 export interface GetPricingPlanCommandOutput extends GetPricingPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the pricing plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface GetPricingPlanCommandOutput extends GetPricingPlanResponse, __M
  * import { IoTTwinMakerClient, GetPricingPlanCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetPricingPlanCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {};
  * const command = new GetPricingPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPricingPlanCommandInput - {@link GetPricingPlanCommandInput}
+ * @returns {@link GetPricingPlanCommandOutput}
  * @see {@link GetPricingPlanCommandInput} for command's `input` shape.
  * @see {@link GetPricingPlanCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -81,6 +81,9 @@ export class GetPricingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPricingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +112,8 @@ export class GetPricingPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPricingPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPricingPlanResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +123,18 @@ export class GetPricingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPricingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPricingPlanCommand(input, context);
+    return se_GetPricingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPricingPlanCommandOutput> {
-    return deserializeAws_restJson1GetPricingPlanCommand(output, context);
+    return de_GetPricingPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

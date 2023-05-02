@@ -16,26 +16,81 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   SearchAvailablePhoneNumbersRequest,
-  SearchAvailablePhoneNumbersRequestFilterSensitiveLog,
   SearchAvailablePhoneNumbersResponse,
   SearchAvailablePhoneNumbersResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1SearchAvailablePhoneNumbersCommand,
-  serializeAws_restJson1SearchAvailablePhoneNumbersCommand,
+  de_SearchAvailablePhoneNumbersCommand,
+  se_SearchAvailablePhoneNumbersCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchAvailablePhoneNumbersCommand}.
  */
 export interface SearchAvailablePhoneNumbersCommandInput extends SearchAvailablePhoneNumbersRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchAvailablePhoneNumbersCommand}.
  */
 export interface SearchAvailablePhoneNumbersCommandOutput
   extends SearchAvailablePhoneNumbersResponse,
     __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Searches the provisioned phone numbers in an organization.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, SearchAvailablePhoneNumbersCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, SearchAvailablePhoneNumbersCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // SearchAvailablePhoneNumbersRequest
+ *   AreaCode: "STRING_VALUE",
+ *   City: "STRING_VALUE",
+ *   Country: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   TollFreePrefix: "STRING_VALUE",
+ *   PhoneNumberType: "Local" || "TollFree",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
+ * const command = new SearchAvailablePhoneNumbersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param SearchAvailablePhoneNumbersCommandInput - {@link SearchAvailablePhoneNumbersCommandInput}
+ * @returns {@link SearchAvailablePhoneNumbersCommandOutput}
+ * @see {@link SearchAvailablePhoneNumbersCommandInput} for command's `input` shape.
+ * @see {@link SearchAvailablePhoneNumbersCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have the permissions needed to run this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class SearchAvailablePhoneNumbersCommand extends $Command<
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
@@ -53,6 +108,9 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchAvailablePhoneNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,7 +139,7 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchAvailablePhoneNumbersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SearchAvailablePhoneNumbersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -92,15 +150,21 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchAvailablePhoneNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchAvailablePhoneNumbersCommand(input, context);
+    return se_SearchAvailablePhoneNumbersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchAvailablePhoneNumbersCommandOutput> {
-    return deserializeAws_restJson1SearchAvailablePhoneNumbersCommand(output, context);
+    return de_SearchAvailablePhoneNumbersCommand(output, context);
   }
 
   // Start section: command_body_extra

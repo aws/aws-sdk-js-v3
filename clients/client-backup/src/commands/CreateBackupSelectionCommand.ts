@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  CreateBackupSelectionInput,
-  CreateBackupSelectionInputFilterSensitiveLog,
-  CreateBackupSelectionOutput,
-  CreateBackupSelectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBackupSelectionCommand,
-  serializeAws_restJson1CreateBackupSelectionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateBackupSelectionInput, CreateBackupSelectionOutput } from "../models/models_0";
+import { de_CreateBackupSelectionCommand, se_CreateBackupSelectionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBackupSelectionCommand}.
  */
 export interface CreateBackupSelectionCommandInput extends CreateBackupSelectionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateBackupSelectionCommand}.
  */
 export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a JSON document that specifies a set of resources to assign to a backup plan.
  *          For examples, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json">Assigning resources programmatically</a>. </p>
  * @example
@@ -43,10 +40,59 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  * import { BackupClient, CreateBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // CreateBackupSelectionInput
+ *   BackupPlanId: "STRING_VALUE", // required
+ *   BackupSelection: { // BackupSelection
+ *     SelectionName: "STRING_VALUE", // required
+ *     IamRoleArn: "STRING_VALUE", // required
+ *     Resources: [ // ResourceArns
+ *       "STRING_VALUE",
+ *     ],
+ *     ListOfTags: [ // ListOfTags
+ *       { // Condition
+ *         ConditionType: "STRINGEQUALS", // required
+ *         ConditionKey: "STRING_VALUE", // required
+ *         ConditionValue: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     NotResources: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Conditions: { // Conditions
+ *       StringEquals: [ // ConditionParameters
+ *         { // ConditionParameter
+ *           ConditionKey: "STRING_VALUE",
+ *           ConditionValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       StringNotEquals: [
+ *         {
+ *           ConditionKey: "STRING_VALUE",
+ *           ConditionValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       StringLike: [
+ *         {
+ *           ConditionKey: "STRING_VALUE",
+ *           ConditionValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       StringNotLike: [
+ *         {
+ *           ConditionKey: "STRING_VALUE",
+ *           ConditionValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   CreatorRequestId: "STRING_VALUE",
+ * };
  * const command = new CreateBackupSelectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackupSelectionCommandInput - {@link CreateBackupSelectionCommandInput}
+ * @returns {@link CreateBackupSelectionCommandOutput}
  * @see {@link CreateBackupSelectionCommandInput} for command's `input` shape.
  * @see {@link CreateBackupSelectionCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -87,6 +133,9 @@ export class CreateBackupSelectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackupSelectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +164,8 @@ export class CreateBackupSelectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackupSelectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackupSelectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +175,18 @@ export class CreateBackupSelectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackupSelectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBackupSelectionCommand(input, context);
+    return se_CreateBackupSelectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupSelectionCommandOutput> {
-    return deserializeAws_restJson1CreateBackupSelectionCommand(output, context);
+    return de_CreateBackupSelectionCommand(output, context);
   }
 
   // Start section: command_body_extra

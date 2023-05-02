@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { RejectEnvironmentAccountConnectionInput, RejectEnvironmentAccountConnectionOutput } from "../models/models_0";
 import {
-  RejectEnvironmentAccountConnectionInput,
-  RejectEnvironmentAccountConnectionInputFilterSensitiveLog,
-  RejectEnvironmentAccountConnectionOutput,
-  RejectEnvironmentAccountConnectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0RejectEnvironmentAccountConnectionCommand,
-  serializeAws_json1_0RejectEnvironmentAccountConnectionCommand,
+  de_RejectEnvironmentAccountConnectionCommand,
+  se_RejectEnvironmentAccountConnectionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link RejectEnvironmentAccountConnectionCommand}.
  */
 export interface RejectEnvironmentAccountConnectionCommandInput extends RejectEnvironmentAccountConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link RejectEnvironmentAccountConnectionCommand}.
  */
 export interface RejectEnvironmentAccountConnectionCommandOutput
@@ -37,6 +36,7 @@ export interface RejectEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>In a management account, reject an environment account connection from another environment account.</p>
  *          <p>After you reject an environment account connection request, you <i>can't</i> accept or use the rejected environment account
  *       connection.</p>
@@ -49,10 +49,15 @@ export interface RejectEnvironmentAccountConnectionCommandOutput
  * import { ProtonClient, RejectEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, RejectEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // RejectEnvironmentAccountConnectionInput
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new RejectEnvironmentAccountConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectEnvironmentAccountConnectionCommandInput - {@link RejectEnvironmentAccountConnectionCommandInput}
+ * @returns {@link RejectEnvironmentAccountConnectionCommandOutput}
  * @see {@link RejectEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link RejectEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -94,6 +99,9 @@ export class RejectEnvironmentAccountConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectEnvironmentAccountConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +130,8 @@ export class RejectEnvironmentAccountConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectEnvironmentAccountConnectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectEnvironmentAccountConnectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +141,24 @@ export class RejectEnvironmentAccountConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RejectEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0RejectEnvironmentAccountConnectionCommand(input, context);
+    return se_RejectEnvironmentAccountConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectEnvironmentAccountConnectionCommandOutput> {
-    return deserializeAws_json1_0RejectEnvironmentAccountConnectionCommand(output, context);
+    return de_RejectEnvironmentAccountConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

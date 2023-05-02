@@ -16,20 +16,22 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import {
   DescribeAccessControlConfigurationRequest,
-  DescribeAccessControlConfigurationRequestFilterSensitiveLog,
   DescribeAccessControlConfigurationResponse,
-  DescribeAccessControlConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAccessControlConfigurationCommand,
-  serializeAws_json1_1DescribeAccessControlConfigurationCommand,
+  de_DescribeAccessControlConfigurationCommand,
+  se_DescribeAccessControlConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccessControlConfigurationCommand}.
  */
 export interface DescribeAccessControlConfigurationCommandInput extends DescribeAccessControlConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccessControlConfigurationCommand}.
  */
 export interface DescribeAccessControlConfigurationCommandOutput
@@ -37,20 +39,27 @@ export interface DescribeAccessControlConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an access control configuration that you created for your
  *             documents in an index. This includes user and group access information for your
- *             documents. This is useful for user context filtering, where search results are
- *             filtered based on the user or their group access to documents.</p>
+ *             documents. This is useful for user context filtering, where search results are filtered
+ *             based on the user or their group access to documents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, DescribeAccessControlConfigurationCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeAccessControlConfigurationCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DescribeAccessControlConfigurationRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccessControlConfigurationCommandInput - {@link DescribeAccessControlConfigurationCommandInput}
+ * @returns {@link DescribeAccessControlConfigurationCommandOutput}
  * @see {@link DescribeAccessControlConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAccessControlConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -61,7 +70,7 @@ export interface DescribeAccessControlConfigurationCommandOutput
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -94,6 +103,9 @@ export class DescribeAccessControlConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccessControlConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +134,8 @@ export class DescribeAccessControlConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccessControlConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccessControlConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +145,24 @@ export class DescribeAccessControlConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAccessControlConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAccessControlConfigurationCommand(input, context);
+    return se_DescribeAccessControlConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccessControlConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeAccessControlConfigurationCommand(output, context);
+    return de_DescribeAccessControlConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

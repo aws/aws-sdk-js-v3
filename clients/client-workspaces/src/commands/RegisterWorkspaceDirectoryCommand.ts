@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterWorkspaceDirectoryRequest,
-  RegisterWorkspaceDirectoryRequestFilterSensitiveLog,
-  RegisterWorkspaceDirectoryResult,
-  RegisterWorkspaceDirectoryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterWorkspaceDirectoryCommand,
-  serializeAws_json1_1RegisterWorkspaceDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterWorkspaceDirectoryRequest, RegisterWorkspaceDirectoryResult } from "../models/models_0";
+import { de_RegisterWorkspaceDirectoryCommand, se_RegisterWorkspaceDirectoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterWorkspaceDirectoryCommand}.
  */
 export interface RegisterWorkspaceDirectoryCommandInput extends RegisterWorkspaceDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterWorkspaceDirectoryCommand}.
  */
 export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspaceDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers the specified directory. This operation is asynchronous and returns before the
  *          WorkSpace directory is registered. If this is the first time you are registering a
  *          directory, you will need to create the workspaces_DefaultRole role before you can register
@@ -46,10 +43,27 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * import { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // RegisterWorkspaceDirectoryRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   SubnetIds: [ // SubnetIds
+ *     "STRING_VALUE",
+ *   ],
+ *   EnableWorkDocs: true || false, // required
+ *   EnableSelfService: true || false,
+ *   Tenancy: "DEDICATED" || "SHARED",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new RegisterWorkspaceDirectoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterWorkspaceDirectoryCommandInput - {@link RegisterWorkspaceDirectoryCommandInput}
+ * @returns {@link RegisterWorkspaceDirectoryCommandOutput}
  * @see {@link RegisterWorkspaceDirectoryCommandInput} for command's `input` shape.
  * @see {@link RegisterWorkspaceDirectoryCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -101,6 +115,9 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterWorkspaceDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +146,8 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterWorkspaceDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterWorkspaceDirectoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,15 +157,21 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterWorkspaceDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterWorkspaceDirectoryCommand(input, context);
+    return se_RegisterWorkspaceDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterWorkspaceDirectoryCommandOutput> {
-    return deserializeAws_json1_1RegisterWorkspaceDirectoryCommand(output, context);
+    return de_RegisterWorkspaceDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

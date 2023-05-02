@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  GetAssessmentReportRequest,
-  GetAssessmentReportRequestFilterSensitiveLog,
-  GetAssessmentReportResponse,
-  GetAssessmentReportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAssessmentReportCommand,
-  serializeAws_json1_1GetAssessmentReportCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAssessmentReportRequest, GetAssessmentReportResponse } from "../models/models_0";
+import { de_GetAssessmentReportCommand, se_GetAssessmentReportCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssessmentReportCommand}.
  */
 export interface GetAssessmentReportCommandInput extends GetAssessmentReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssessmentReportCommand}.
  */
 export interface GetAssessmentReportCommandOutput extends GetAssessmentReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Produces an assessment report that includes detailed and comprehensive results of a
  *          specified assessment run. </p>
  * @example
@@ -43,10 +40,17 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  * import { InspectorClient, GetAssessmentReportCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, GetAssessmentReportCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // GetAssessmentReportRequest
+ *   assessmentRunArn: "STRING_VALUE", // required
+ *   reportFileFormat: "STRING_VALUE", // required
+ *   reportType: "STRING_VALUE", // required
+ * };
  * const command = new GetAssessmentReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssessmentReportCommandInput - {@link GetAssessmentReportCommandInput}
+ * @returns {@link GetAssessmentReportCommandOutput}
  * @see {@link GetAssessmentReportCommandInput} for command's `input` shape.
  * @see {@link GetAssessmentReportCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -98,6 +102,9 @@ export class GetAssessmentReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssessmentReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +133,8 @@ export class GetAssessmentReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssessmentReportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssessmentReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +144,18 @@ export class GetAssessmentReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssessmentReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAssessmentReportCommand(input, context);
+    return se_GetAssessmentReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssessmentReportCommandOutput> {
-    return deserializeAws_json1_1GetAssessmentReportCommand(output, context);
+    return de_GetAssessmentReportCommand(output, context);
   }
 
   // Start section: command_body_extra

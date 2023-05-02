@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import { DeleteFormRequest, DeleteFormRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFormCommand,
-  serializeAws_restJson1DeleteFormCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFormRequest } from "../models/models_0";
+import { de_DeleteFormCommand, se_DeleteFormCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFormCommand}.
  */
 export interface DeleteFormCommandInput extends DeleteFormRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFormCommand}.
  */
 export interface DeleteFormCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a form from an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,17 @@ export interface DeleteFormCommandOutput extends __MetadataBearer {}
  * import { AmplifyUIBuilderClient, DeleteFormCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, DeleteFormCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = { // DeleteFormRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFormCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFormCommandInput - {@link DeleteFormCommandInput}
+ * @returns {@link DeleteFormCommandOutput}
  * @see {@link DeleteFormCommandInput} for command's `input` shape.
  * @see {@link DeleteFormCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -73,6 +82,9 @@ export class DeleteFormCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFormCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +111,8 @@ export class DeleteFormCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFormRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +122,18 @@ export class DeleteFormCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFormCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFormCommand(input, context);
+    return se_DeleteFormCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFormCommandOutput> {
-    return deserializeAws_restJson1DeleteFormCommand(output, context);
+    return de_DeleteFormCommand(output, context);
   }
 
   // Start section: command_body_extra

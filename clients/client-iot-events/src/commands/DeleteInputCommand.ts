@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import {
-  DeleteInputRequest,
-  DeleteInputRequestFilterSensitiveLog,
-  DeleteInputResponse,
-  DeleteInputResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteInputCommand,
-  serializeAws_restJson1DeleteInputCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteInputRequest, DeleteInputResponse } from "../models/models_0";
+import { de_DeleteInputCommand, se_DeleteInputCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInputCommand}.
  */
 export interface DeleteInputCommandInput extends DeleteInputRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInputCommand}.
  */
 export interface DeleteInputCommandOutput extends DeleteInputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * import { IoTEventsClient, DeleteInputCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DeleteInputCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // DeleteInputRequest
+ *   inputName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInputCommandInput - {@link DeleteInputCommandInput}
+ * @returns {@link DeleteInputCommandOutput}
  * @see {@link DeleteInputCommandInput} for command's `input` shape.
  * @see {@link DeleteInputCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteInputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteInputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteInputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInputCommand(input, context);
+    return se_DeleteInputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInputCommandOutput> {
-    return deserializeAws_restJson1DeleteInputCommand(output, context);
+    return de_DeleteInputCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { StopCampaignRequest, StopCampaignRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopCampaignCommand,
-  serializeAws_restJson1StopCampaignCommand,
-} from "../protocols/Aws_restJson1";
+import { StopCampaignRequest } from "../models/models_0";
+import { de_StopCampaignCommand, se_StopCampaignCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopCampaignCommand}.
  */
 export interface StopCampaignCommandInput extends StopCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopCampaignCommand}.
  */
 export interface StopCampaignCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Stops a campaign for the specified Amazon Connect account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface StopCampaignCommandOutput extends __MetadataBearer {}
  * import { ConnectCampaignsClient, StopCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, StopCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // StopCampaignRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new StopCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopCampaignCommandInput - {@link StopCampaignCommandInput}
+ * @returns {@link StopCampaignCommandOutput}
  * @see {@link StopCampaignCommandInput} for command's `input` shape.
  * @see {@link StopCampaignCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -85,6 +92,9 @@ export class StopCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +121,8 @@ export class StopCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +132,18 @@ export class StopCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopCampaignCommand(input, context);
+    return se_StopCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCampaignCommandOutput> {
-    return deserializeAws_restJson1StopCampaignCommand(output, context);
+    return de_StopCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

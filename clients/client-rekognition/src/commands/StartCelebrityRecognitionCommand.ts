@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartCelebrityRecognitionRequest,
-  StartCelebrityRecognitionRequestFilterSensitiveLog,
-  StartCelebrityRecognitionResponse,
-  StartCelebrityRecognitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartCelebrityRecognitionCommand,
-  serializeAws_json1_1StartCelebrityRecognitionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartCelebrityRecognitionRequest, StartCelebrityRecognitionResponse } from "../models/models_0";
+import { de_StartCelebrityRecognitionCommand, se_StartCelebrityRecognitionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartCelebrityRecognitionCommand}.
  */
 export interface StartCelebrityRecognitionCommandInput extends StartCelebrityRecognitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCelebrityRecognitionCommand}.
  */
 export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRecognitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts asynchronous recognition of celebrities in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect celebrities in a video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
  *       and the filename of the video.
@@ -52,10 +49,27 @@ export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRe
  * import { RekognitionClient, StartCelebrityRecognitionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartCelebrityRecognitionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartCelebrityRecognitionRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ * };
  * const command = new StartCelebrityRecognitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCelebrityRecognitionCommandInput - {@link StartCelebrityRecognitionCommandInput}
+ * @returns {@link StartCelebrityRecognitionCommandOutput}
  * @see {@link StartCelebrityRecognitionCommandInput} for command's `input` shape.
  * @see {@link StartCelebrityRecognitionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -112,6 +126,9 @@ export class StartCelebrityRecognitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCelebrityRecognitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +157,8 @@ export class StartCelebrityRecognitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartCelebrityRecognitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartCelebrityRecognitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,15 +168,21 @@ export class StartCelebrityRecognitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCelebrityRecognitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartCelebrityRecognitionCommand(input, context);
+    return se_StartCelebrityRecognitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartCelebrityRecognitionCommandOutput> {
-    return deserializeAws_json1_1StartCelebrityRecognitionCommand(output, context);
+    return de_StartCelebrityRecognitionCommand(output, context);
   }
 
   // Start section: command_body_extra

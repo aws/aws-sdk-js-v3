@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateSimulationApplicationRequest, UpdateSimulationApplicationResponse } from "../models/models_0";
 import {
-  UpdateSimulationApplicationRequest,
-  UpdateSimulationApplicationRequestFilterSensitiveLog,
-  UpdateSimulationApplicationResponse,
-  UpdateSimulationApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSimulationApplicationCommand,
-  serializeAws_restJson1UpdateSimulationApplicationCommand,
+  de_UpdateSimulationApplicationCommand,
+  se_UpdateSimulationApplicationCommand,
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSimulationApplicationCommand}.
  */
 export interface UpdateSimulationApplicationCommandInput extends UpdateSimulationApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSimulationApplicationCommand}.
  */
 export interface UpdateSimulationApplicationCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateSimulationApplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a simulation application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,38 @@ export interface UpdateSimulationApplicationCommandOutput
  * import { RoboMakerClient, UpdateSimulationApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, UpdateSimulationApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // UpdateSimulationApplicationRequest
+ *   application: "STRING_VALUE", // required
+ *   sources: [ // SourceConfigs
+ *     { // SourceConfig
+ *       s3Bucket: "STRING_VALUE",
+ *       s3Key: "STRING_VALUE",
+ *       architecture: "STRING_VALUE",
+ *     },
+ *   ],
+ *   simulationSoftwareSuite: { // SimulationSoftwareSuite
+ *     name: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *   },
+ *   robotSoftwareSuite: { // RobotSoftwareSuite
+ *     name: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *   },
+ *   renderingEngine: { // RenderingEngine
+ *     name: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *   },
+ *   currentRevisionId: "STRING_VALUE",
+ *   environment: { // Environment
+ *     uri: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateSimulationApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSimulationApplicationCommandInput - {@link UpdateSimulationApplicationCommandInput}
+ * @returns {@link UpdateSimulationApplicationCommandOutput}
  * @see {@link UpdateSimulationApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateSimulationApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -88,6 +116,9 @@ export class UpdateSimulationApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSimulationApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +147,8 @@ export class UpdateSimulationApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSimulationApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSimulationApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +158,21 @@ export class UpdateSimulationApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSimulationApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSimulationApplicationCommand(input, context);
+    return se_UpdateSimulationApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1UpdateSimulationApplicationCommand(output, context);
+    return de_UpdateSimulationApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { DrsServiceException as __BaseException } from "./DrsServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>AWS account.</p>
  */
 export interface Account {
@@ -35,6 +37,7 @@ export interface Account {
 }
 
 /**
+ * @public
  * <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -68,6 +71,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Properties of a conversion job</p>
  */
 export interface ConversionProperties {
@@ -98,6 +102,7 @@ export interface ConversionProperties {
 }
 
 /**
+ * @public
  * <p>Information about a server's CPU.</p>
  */
 export interface CPU {
@@ -112,6 +117,9 @@ export interface CPU {
   modelName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateExtendedSourceServerRequest {
   /**
    * <p>This defines the ARN of the source server in staging Account based on which you want to create an extended source server.</p>
@@ -124,24 +132,34 @@ export interface CreateExtendedSourceServerRequest {
   tags?: Record<string, string>;
 }
 
-export enum DataReplicationErrorString {
-  AGENT_NOT_SEEN = "AGENT_NOT_SEEN",
-  FAILED_TO_ATTACH_STAGING_DISKS = "FAILED_TO_ATTACH_STAGING_DISKS",
-  FAILED_TO_AUTHENTICATE_WITH_SERVICE = "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
-  FAILED_TO_BOOT_REPLICATION_SERVER = "FAILED_TO_BOOT_REPLICATION_SERVER",
-  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER = "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
-  FAILED_TO_CREATE_SECURITY_GROUP = "FAILED_TO_CREATE_SECURITY_GROUP",
-  FAILED_TO_CREATE_STAGING_DISKS = "FAILED_TO_CREATE_STAGING_DISKS",
-  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE = "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
-  FAILED_TO_LAUNCH_REPLICATION_SERVER = "FAILED_TO_LAUNCH_REPLICATION_SERVER",
-  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT = "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
-  FAILED_TO_START_DATA_TRANSFER = "FAILED_TO_START_DATA_TRANSFER",
-  NOT_CONVERGING = "NOT_CONVERGING",
-  SNAPSHOTS_FAILURE = "SNAPSHOTS_FAILURE",
-  UNSTABLE_NETWORK = "UNSTABLE_NETWORK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataReplicationErrorString = {
+  AGENT_NOT_SEEN: "AGENT_NOT_SEEN",
+  FAILED_TO_ATTACH_STAGING_DISKS: "FAILED_TO_ATTACH_STAGING_DISKS",
+  FAILED_TO_AUTHENTICATE_WITH_SERVICE: "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
+  FAILED_TO_BOOT_REPLICATION_SERVER: "FAILED_TO_BOOT_REPLICATION_SERVER",
+  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER: "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
+  FAILED_TO_CREATE_SECURITY_GROUP: "FAILED_TO_CREATE_SECURITY_GROUP",
+  FAILED_TO_CREATE_STAGING_DISKS: "FAILED_TO_CREATE_STAGING_DISKS",
+  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE: "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
+  FAILED_TO_LAUNCH_REPLICATION_SERVER: "FAILED_TO_LAUNCH_REPLICATION_SERVER",
+  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT: "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
+  FAILED_TO_START_DATA_TRANSFER: "FAILED_TO_START_DATA_TRANSFER",
+  NOT_CONVERGING: "NOT_CONVERGING",
+  SNAPSHOTS_FAILURE: "SNAPSHOTS_FAILURE",
+  UNSTABLE_NETWORK: "UNSTABLE_NETWORK",
+} as const;
 
 /**
+ * @public
+ */
+export type DataReplicationErrorString = (typeof DataReplicationErrorString)[keyof typeof DataReplicationErrorString];
+
+/**
+ * @public
  * <p>Error in data replication.</p>
  */
 export interface DataReplicationError {
@@ -156,29 +174,50 @@ export interface DataReplicationError {
   rawError?: string;
 }
 
-export enum DataReplicationInitiationStepName {
-  ATTACH_STAGING_DISKS = "ATTACH_STAGING_DISKS",
-  AUTHENTICATE_WITH_SERVICE = "AUTHENTICATE_WITH_SERVICE",
-  BOOT_REPLICATION_SERVER = "BOOT_REPLICATION_SERVER",
-  CONNECT_AGENT_TO_REPLICATION_SERVER = "CONNECT_AGENT_TO_REPLICATION_SERVER",
-  CREATE_SECURITY_GROUP = "CREATE_SECURITY_GROUP",
-  CREATE_STAGING_DISKS = "CREATE_STAGING_DISKS",
-  DOWNLOAD_REPLICATION_SOFTWARE = "DOWNLOAD_REPLICATION_SOFTWARE",
-  LAUNCH_REPLICATION_SERVER = "LAUNCH_REPLICATION_SERVER",
-  PAIR_REPLICATION_SERVER_WITH_AGENT = "PAIR_REPLICATION_SERVER_WITH_AGENT",
-  START_DATA_TRANSFER = "START_DATA_TRANSFER",
-  WAIT = "WAIT",
-}
-
-export enum DataReplicationInitiationStepStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SKIPPED = "SKIPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataReplicationInitiationStepName = {
+  ATTACH_STAGING_DISKS: "ATTACH_STAGING_DISKS",
+  AUTHENTICATE_WITH_SERVICE: "AUTHENTICATE_WITH_SERVICE",
+  BOOT_REPLICATION_SERVER: "BOOT_REPLICATION_SERVER",
+  CONNECT_AGENT_TO_REPLICATION_SERVER: "CONNECT_AGENT_TO_REPLICATION_SERVER",
+  CREATE_SECURITY_GROUP: "CREATE_SECURITY_GROUP",
+  CREATE_STAGING_DISKS: "CREATE_STAGING_DISKS",
+  DOWNLOAD_REPLICATION_SOFTWARE: "DOWNLOAD_REPLICATION_SOFTWARE",
+  LAUNCH_REPLICATION_SERVER: "LAUNCH_REPLICATION_SERVER",
+  PAIR_REPLICATION_SERVER_WITH_AGENT: "PAIR_REPLICATION_SERVER_WITH_AGENT",
+  START_DATA_TRANSFER: "START_DATA_TRANSFER",
+  WAIT: "WAIT",
+} as const;
 
 /**
+ * @public
+ */
+export type DataReplicationInitiationStepName =
+  (typeof DataReplicationInitiationStepName)[keyof typeof DataReplicationInitiationStepName];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataReplicationInitiationStepStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  SKIPPED: "SKIPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataReplicationInitiationStepStatus =
+  (typeof DataReplicationInitiationStepStatus)[keyof typeof DataReplicationInitiationStepStatus];
+
+/**
+ * @public
  * <p>Data replication initiation step.</p>
  */
 export interface DataReplicationInitiationStep {
@@ -194,6 +233,7 @@ export interface DataReplicationInitiationStep {
 }
 
 /**
+ * @public
  * <p>Data replication initiation.</p>
  */
 export interface DataReplicationInitiation {
@@ -213,20 +253,30 @@ export interface DataReplicationInitiation {
   steps?: DataReplicationInitiationStep[];
 }
 
-export enum DataReplicationState {
-  BACKLOG = "BACKLOG",
-  CONTINUOUS = "CONTINUOUS",
-  CREATING_SNAPSHOT = "CREATING_SNAPSHOT",
-  DISCONNECTED = "DISCONNECTED",
-  INITIAL_SYNC = "INITIAL_SYNC",
-  INITIATING = "INITIATING",
-  PAUSED = "PAUSED",
-  RESCAN = "RESCAN",
-  STALLED = "STALLED",
-  STOPPED = "STOPPED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataReplicationState = {
+  BACKLOG: "BACKLOG",
+  CONTINUOUS: "CONTINUOUS",
+  CREATING_SNAPSHOT: "CREATING_SNAPSHOT",
+  DISCONNECTED: "DISCONNECTED",
+  INITIAL_SYNC: "INITIAL_SYNC",
+  INITIATING: "INITIATING",
+  PAUSED: "PAUSED",
+  RESCAN: "RESCAN",
+  STALLED: "STALLED",
+  STOPPED: "STOPPED",
+} as const;
 
 /**
+ * @public
+ */
+export type DataReplicationState = (typeof DataReplicationState)[keyof typeof DataReplicationState];
+
+/**
+ * @public
  * <p>A disk that should be replicated.</p>
  */
 export interface DataReplicationInfoReplicatedDisk {
@@ -257,6 +307,7 @@ export interface DataReplicationInfoReplicatedDisk {
 }
 
 /**
+ * @public
  * <p>Information about Data Replication</p>
  */
 export interface DataReplicationInfo {
@@ -296,19 +347,38 @@ export interface DataReplicationInfo {
   stagingAvailabilityZone?: string;
 }
 
-export enum LastLaunchResult {
-  FAILED = "FAILED",
-  NOT_STARTED = "NOT_STARTED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
-
-export enum LastLaunchType {
-  DRILL = "DRILL",
-  RECOVERY = "RECOVERY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LastLaunchResult = {
+  FAILED: "FAILED",
+  NOT_STARTED: "NOT_STARTED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type LastLaunchResult = (typeof LastLaunchResult)[keyof typeof LastLaunchResult];
+
+/**
+ * @public
+ * @enum
+ */
+export const LastLaunchType = {
+  DRILL: "DRILL",
+  RECOVERY: "RECOVERY",
+} as const;
+
+/**
+ * @public
+ */
+export type LastLaunchType = (typeof LastLaunchType)[keyof typeof LastLaunchType];
+
+/**
+ * @public
  * <p>An object containing information regarding the initiation of the last launch of a Source Server.</p>
  */
 export interface LifeCycleLastLaunchInitiated {
@@ -328,15 +398,25 @@ export interface LifeCycleLastLaunchInitiated {
   type?: LastLaunchType | string;
 }
 
-export enum LaunchStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  LAUNCHED = "LAUNCHED",
-  PENDING = "PENDING",
-  TERMINATED = "TERMINATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  LAUNCHED: "LAUNCHED",
+  PENDING: "PENDING",
+  TERMINATED: "TERMINATED",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchStatus = (typeof LaunchStatus)[keyof typeof LaunchStatus];
+
+/**
+ * @public
  * <p>An object containing information regarding the last launch of a Source Server.</p>
  */
 export interface LifeCycleLastLaunch {
@@ -352,6 +432,7 @@ export interface LifeCycleLastLaunch {
 }
 
 /**
+ * @public
  * <p>An object representing the Source Server Lifecycle.</p>
  */
 export interface LifeCycle {
@@ -381,12 +462,22 @@ export interface LifeCycle {
   lastLaunch?: LifeCycleLastLaunch;
 }
 
-export enum ReplicationDirection {
-  FAILBACK = "FAILBACK",
-  FAILOVER = "FAILOVER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationDirection = {
+  FAILBACK: "FAILBACK",
+  FAILOVER: "FAILOVER",
+} as const;
 
 /**
+ * @public
+ */
+export type ReplicationDirection = (typeof ReplicationDirection)[keyof typeof ReplicationDirection];
+
+/**
+ * @public
  * <p>Properties of the cloud environment where this Source Server originated from.</p>
  */
 export interface SourceCloudProperties {
@@ -407,6 +498,7 @@ export interface SourceCloudProperties {
 }
 
 /**
+ * @public
  * <p>An object representing a data storage device on a server.</p>
  */
 export interface Disk {
@@ -422,6 +514,7 @@ export interface Disk {
 }
 
 /**
+ * @public
  * <p>Hints used to uniquely identify a machine.</p>
  */
 export interface IdentificationHints {
@@ -447,6 +540,7 @@ export interface IdentificationHints {
 }
 
 /**
+ * @public
  * <p>Network interface.</p>
  */
 export interface NetworkInterface {
@@ -467,6 +561,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>Operating System.</p>
  */
 export interface OS {
@@ -477,6 +572,7 @@ export interface OS {
 }
 
 /**
+ * @public
  * <p>Properties of the Source Server machine.</p>
  */
 export interface SourceProperties {
@@ -519,15 +615,30 @@ export interface SourceProperties {
    * <p>Operating system.</p>
    */
   os?: OS;
-}
 
-export enum ExtensionStatus {
-  EXTENDED = "EXTENDED",
-  EXTENSION_ERROR = "EXTENSION_ERROR",
-  NOT_EXTENDED = "NOT_EXTENDED",
+  /**
+   * <p>Are EC2 nitro instance types supported when recovering the Source Server.</p>
+   */
+  supportsNitroInstances?: boolean;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ExtensionStatus = {
+  EXTENDED: "EXTENDED",
+  EXTENSION_ERROR: "EXTENSION_ERROR",
+  NOT_EXTENDED: "NOT_EXTENDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExtensionStatus = (typeof ExtensionStatus)[keyof typeof ExtensionStatus];
+
+/**
+ * @public
  * <p>Staging information related to source server.</p>
  */
 export interface StagingArea {
@@ -555,6 +666,9 @@ export interface StagingArea {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface SourceServer {
   /**
    * <p>The ID of the Source Server.</p>
@@ -617,6 +731,9 @@ export interface SourceServer {
   reversedDirectionSourceServerArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateExtendedSourceServerResponse {
   /**
    * <p>Created extended source server.</p>
@@ -625,6 +742,7 @@ export interface CreateExtendedSourceServerResponse {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception or failure.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -650,6 +768,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource for this operation was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -683,6 +802,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request could not be completed because its exceeded the service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -728,6 +848,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -765,6 +886,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The account performing the request has not been initialized.</p>
  */
 export class UninitializedAccountException extends __BaseException {
@@ -786,6 +908,7 @@ export class UninitializedAccountException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Validate exception field.</p>
  */
 export interface ValidationExceptionField {
@@ -800,14 +923,24 @@ export interface ValidationExceptionField {
   message?: string;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -840,30 +973,201 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum ReplicationConfigurationDataPlaneRouting {
-  PRIVATE_IP = "PRIVATE_IP",
-  PUBLIC_IP = "PUBLIC_IP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchDisposition = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+} as const;
 
-export enum ReplicationConfigurationDefaultLargeStagingDiskType {
-  AUTO = "AUTO",
-  GP2 = "GP2",
-  GP3 = "GP3",
-  ST1 = "ST1",
-}
+/**
+ * @public
+ */
+export type LaunchDisposition = (typeof LaunchDisposition)[keyof typeof LaunchDisposition];
 
-export enum ReplicationConfigurationEbsEncryption {
-  CUSTOM = "CUSTOM",
-  DEFAULT = "DEFAULT",
-}
-
-export enum PITPolicyRuleUnits {
-  DAY = "DAY",
-  HOUR = "HOUR",
-  MINUTE = "MINUTE",
+/**
+ * @public
+ * <p>Configuration of a machine's license.</p>
+ */
+export interface Licensing {
+  /**
+   * <p>Whether to enable "Bring your own license" or not.</p>
+   */
+  osByol?: boolean;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const TargetInstanceTypeRightSizingMethod = {
+  BASIC: "BASIC",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetInstanceTypeRightSizingMethod =
+  (typeof TargetInstanceTypeRightSizingMethod)[keyof typeof TargetInstanceTypeRightSizingMethod];
+
+/**
+ * @public
+ */
+export interface CreateLaunchConfigurationTemplateRequest {
+  /**
+   * <p>Request to associate tags during creation of a Launch Configuration Template.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Launch disposition.</p>
+   */
+  launchDisposition?: LaunchDisposition | string;
+
+  /**
+   * <p>Target instance type right-sizing method.</p>
+   */
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+
+  /**
+   * <p>Copy private IP.</p>
+   */
+  copyPrivateIp?: boolean;
+
+  /**
+   * <p>Copy tags.</p>
+   */
+  copyTags?: boolean;
+
+  /**
+   * <p>Licensing.</p>
+   */
+  licensing?: Licensing;
+}
+
+/**
+ * @public
+ * <p>Account level Launch Configuration Template.</p>
+ */
+export interface LaunchConfigurationTemplate {
+  /**
+   * <p>ID of the Launch Configuration Template.</p>
+   */
+  launchConfigurationTemplateID?: string;
+
+  /**
+   * <p>ARN of the Launch Configuration Template.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Tags of the Launch Configuration Template.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Launch disposition.</p>
+   */
+  launchDisposition?: LaunchDisposition | string;
+
+  /**
+   * <p>Target instance type right-sizing method.</p>
+   */
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+
+  /**
+   * <p>Copy private IP.</p>
+   */
+  copyPrivateIp?: boolean;
+
+  /**
+   * <p>Copy tags.</p>
+   */
+  copyTags?: boolean;
+
+  /**
+   * <p>Licensing.</p>
+   */
+  licensing?: Licensing;
+}
+
+/**
+ * @public
+ */
+export interface CreateLaunchConfigurationTemplateResponse {
+  /**
+   * <p>Created Launch Configuration Template.</p>
+   */
+  launchConfigurationTemplate?: LaunchConfigurationTemplate;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationConfigurationDataPlaneRouting = {
+  PRIVATE_IP: "PRIVATE_IP",
+  PUBLIC_IP: "PUBLIC_IP",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationConfigurationDataPlaneRouting =
+  (typeof ReplicationConfigurationDataPlaneRouting)[keyof typeof ReplicationConfigurationDataPlaneRouting];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationConfigurationDefaultLargeStagingDiskType = {
+  AUTO: "AUTO",
+  GP2: "GP2",
+  GP3: "GP3",
+  ST1: "ST1",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationConfigurationDefaultLargeStagingDiskType =
+  (typeof ReplicationConfigurationDefaultLargeStagingDiskType)[keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationConfigurationEbsEncryption = {
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationConfigurationEbsEncryption =
+  (typeof ReplicationConfigurationEbsEncryption)[keyof typeof ReplicationConfigurationEbsEncryption];
+
+/**
+ * @public
+ * @enum
+ */
+export const PITPolicyRuleUnits = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  MINUTE: "MINUTE",
+} as const;
+
+/**
+ * @public
+ */
+export type PITPolicyRuleUnits = (typeof PITPolicyRuleUnits)[keyof typeof PITPolicyRuleUnits];
+
+/**
+ * @public
  * <p>A rule in the Point in Time (PIT) policy representing when to take snapshots and how long to retain them for.</p>
  */
 export interface PITPolicyRule {
@@ -893,6 +1197,9 @@ export interface PITPolicyRule {
   enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateReplicationConfigurationTemplateRequest {
   /**
    * <p>The subnet to be used by the replication staging area.</p>
@@ -963,8 +1270,16 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   */
+  autoReplicateNewDisks?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ReplicationConfigurationTemplate {
   /**
    * <p>The Replication Configuration Template ID.</p>
@@ -1045,8 +1360,16 @@ export interface ReplicationConfigurationTemplate {
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
    */
   pitPolicy?: PITPolicyRule[];
+
+  /**
+   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   */
+  autoReplicateNewDisks?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobRequest {
   /**
    * <p>The ID of the Job to be deleted.</p>
@@ -1054,8 +1377,29 @@ export interface DeleteJobRequest {
   jobID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobResponse {}
 
+/**
+ * @public
+ */
+export interface DeleteLaunchConfigurationTemplateRequest {
+  /**
+   * <p>The ID of the Launch Configuration Template to be deleted.</p>
+   */
+  launchConfigurationTemplateID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLaunchConfigurationTemplateResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteRecoveryInstanceRequest {
   /**
    * <p>The ID of the Recovery Instance to be deleted.</p>
@@ -1063,6 +1407,9 @@ export interface DeleteRecoveryInstanceRequest {
   recoveryInstanceID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationConfigurationTemplateRequest {
   /**
    * <p>The ID of the Replication Configuration Template to be deleted.</p>
@@ -1070,8 +1417,14 @@ export interface DeleteReplicationConfigurationTemplateRequest {
   replicationConfigurationTemplateID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationConfigurationTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSourceServerRequest {
   /**
    * <p>The ID of the Source Server to be deleted.</p>
@@ -1079,8 +1432,14 @@ export interface DeleteSourceServerRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSourceServerResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeJobLogItemsRequest {
   /**
    * <p>The ID of the Job for which Job log items will be retrieved.</p>
@@ -1098,27 +1457,37 @@ export interface DescribeJobLogItemsRequest {
   nextToken?: string;
 }
 
-export enum JobLogEvent {
-  CLEANUP_END = "CLEANUP_END",
-  CLEANUP_FAIL = "CLEANUP_FAIL",
-  CLEANUP_START = "CLEANUP_START",
-  CONVERSION_END = "CONVERSION_END",
-  CONVERSION_FAIL = "CONVERSION_FAIL",
-  CONVERSION_START = "CONVERSION_START",
-  JOB_CANCEL = "JOB_CANCEL",
-  JOB_END = "JOB_END",
-  JOB_START = "JOB_START",
-  LAUNCH_FAILED = "LAUNCH_FAILED",
-  LAUNCH_START = "LAUNCH_START",
-  SERVER_SKIPPED = "SERVER_SKIPPED",
-  SNAPSHOT_END = "SNAPSHOT_END",
-  SNAPSHOT_FAIL = "SNAPSHOT_FAIL",
-  SNAPSHOT_START = "SNAPSHOT_START",
-  USING_PREVIOUS_SNAPSHOT = "USING_PREVIOUS_SNAPSHOT",
-  USING_PREVIOUS_SNAPSHOT_FAILED = "USING_PREVIOUS_SNAPSHOT_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobLogEvent = {
+  CLEANUP_END: "CLEANUP_END",
+  CLEANUP_FAIL: "CLEANUP_FAIL",
+  CLEANUP_START: "CLEANUP_START",
+  CONVERSION_END: "CONVERSION_END",
+  CONVERSION_FAIL: "CONVERSION_FAIL",
+  CONVERSION_START: "CONVERSION_START",
+  JOB_CANCEL: "JOB_CANCEL",
+  JOB_END: "JOB_END",
+  JOB_START: "JOB_START",
+  LAUNCH_FAILED: "LAUNCH_FAILED",
+  LAUNCH_START: "LAUNCH_START",
+  SERVER_SKIPPED: "SERVER_SKIPPED",
+  SNAPSHOT_END: "SNAPSHOT_END",
+  SNAPSHOT_FAIL: "SNAPSHOT_FAIL",
+  SNAPSHOT_START: "SNAPSHOT_START",
+  USING_PREVIOUS_SNAPSHOT: "USING_PREVIOUS_SNAPSHOT",
+  USING_PREVIOUS_SNAPSHOT_FAILED: "USING_PREVIOUS_SNAPSHOT_FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type JobLogEvent = (typeof JobLogEvent)[keyof typeof JobLogEvent];
+
+/**
+ * @public
  * <p>Metadata associated with a Job log.</p>
  */
 export interface JobLogEventData {
@@ -1149,6 +1518,7 @@ export interface JobLogEventData {
 }
 
 /**
+ * @public
  * <p>A log outputted by a Job.</p>
  */
 export interface JobLog {
@@ -1168,6 +1538,9 @@ export interface JobLog {
   eventData?: JobLogEventData;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobLogItemsResponse {
   /**
    * <p>An array of Job log items.</p>
@@ -1181,6 +1554,7 @@ export interface DescribeJobLogItemsResponse {
 }
 
 /**
+ * @public
  * <p>A set of filters by which to return Jobs.</p>
  */
 export interface DescribeJobsRequestFilters {
@@ -1200,6 +1574,9 @@ export interface DescribeJobsRequestFilters {
   toDate?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobsRequest {
   /**
    * <p>A set of filters by which to return Jobs.</p>
@@ -1217,16 +1594,26 @@ export interface DescribeJobsRequest {
   nextToken?: string;
 }
 
-export enum InitiatedBy {
-  DIAGNOSTIC = "DIAGNOSTIC",
-  FAILBACK = "FAILBACK",
-  START_DRILL = "START_DRILL",
-  START_RECOVERY = "START_RECOVERY",
-  TARGET_ACCOUNT = "TARGET_ACCOUNT",
-  TERMINATE_RECOVERY_INSTANCES = "TERMINATE_RECOVERY_INSTANCES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InitiatedBy = {
+  DIAGNOSTIC: "DIAGNOSTIC",
+  FAILBACK: "FAILBACK",
+  START_DRILL: "START_DRILL",
+  START_RECOVERY: "START_RECOVERY",
+  TARGET_ACCOUNT: "TARGET_ACCOUNT",
+  TERMINATE_RECOVERY_INSTANCES: "TERMINATE_RECOVERY_INSTANCES",
+} as const;
 
 /**
+ * @public
+ */
+export type InitiatedBy = (typeof InitiatedBy)[keyof typeof InitiatedBy];
+
+/**
+ * @public
  * <p>Represents a server participating in an asynchronous Job.</p>
  */
 export interface ParticipatingServer {
@@ -1246,19 +1633,38 @@ export interface ParticipatingServer {
   launchStatus?: LaunchStatus | string;
 }
 
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  PENDING = "PENDING",
-  STARTED = "STARTED",
-}
-
-export enum JobType {
-  CREATE_CONVERTED_SNAPSHOT = "CREATE_CONVERTED_SNAPSHOT",
-  LAUNCH = "LAUNCH",
-  TERMINATE = "TERMINATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+} as const;
 
 /**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobType = {
+  CREATE_CONVERTED_SNAPSHOT: "CREATE_CONVERTED_SNAPSHOT",
+  LAUNCH: "LAUNCH",
+  TERMINATE: "TERMINATE",
+} as const;
+
+/**
+ * @public
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
  * <p>A job is an asynchronous workflow.</p>
  */
 export interface Job {
@@ -1308,6 +1714,9 @@ export interface Job {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobsResponse {
   /**
    * <p>An array of Jobs.</p>
@@ -1321,6 +1730,42 @@ export interface DescribeJobsResponse {
 }
 
 /**
+ * @public
+ */
+export interface DescribeLaunchConfigurationTemplatesRequest {
+  /**
+   * <p>Request to filter Launch Configuration Templates list by Launch Configuration Template ID.</p>
+   */
+  launchConfigurationTemplateIDs?: string[];
+
+  /**
+   * <p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token of the next Launch Configuration Template to retrieve.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLaunchConfigurationTemplatesResponse {
+  /**
+   * <p>List of items returned by DescribeLaunchConfigurationTemplates.</p>
+   */
+  items?: LaunchConfigurationTemplate[];
+
+  /**
+   * <p>The token of the next Launch Configuration Template to retrieve.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  * <p>A set of filters by which to return Recovery Instances.</p>
  */
 export interface DescribeRecoveryInstancesRequestFilters {
@@ -1335,6 +1780,9 @@ export interface DescribeRecoveryInstancesRequestFilters {
   sourceServerIDs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecoveryInstancesRequest {
   /**
    * <p>A set of filters by which to return Recovery Instances.</p>
@@ -1352,31 +1800,43 @@ export interface DescribeRecoveryInstancesRequest {
   nextToken?: string;
 }
 
-export enum FailbackReplicationError {
-  AGENT_NOT_SEEN = "AGENT_NOT_SEEN",
-  FAILBACK_CLIENT_NOT_SEEN = "FAILBACK_CLIENT_NOT_SEEN",
-  FAILED_GETTING_REPLICATION_STATE = "FAILED_GETTING_REPLICATION_STATE",
-  FAILED_TO_ATTACH_STAGING_DISKS = "FAILED_TO_ATTACH_STAGING_DISKS",
-  FAILED_TO_AUTHENTICATE_WITH_SERVICE = "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
-  FAILED_TO_BOOT_REPLICATION_SERVER = "FAILED_TO_BOOT_REPLICATION_SERVER",
-  FAILED_TO_CONFIGURE_REPLICATION_SOFTWARE = "FAILED_TO_CONFIGURE_REPLICATION_SOFTWARE",
-  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER = "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
-  FAILED_TO_CREATE_SECURITY_GROUP = "FAILED_TO_CREATE_SECURITY_GROUP",
-  FAILED_TO_CREATE_STAGING_DISKS = "FAILED_TO_CREATE_STAGING_DISKS",
-  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE = "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
-  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT = "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT",
-  FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION = "FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION",
-  FAILED_TO_ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION = "FAILED_TO_ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION",
-  FAILED_TO_LAUNCH_REPLICATION_SERVER = "FAILED_TO_LAUNCH_REPLICATION_SERVER",
-  FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE = "FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE",
-  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT = "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
-  FAILED_TO_START_DATA_TRANSFER = "FAILED_TO_START_DATA_TRANSFER",
-  NOT_CONVERGING = "NOT_CONVERGING",
-  SNAPSHOTS_FAILURE = "SNAPSHOTS_FAILURE",
-  UNSTABLE_NETWORK = "UNSTABLE_NETWORK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FailbackReplicationError = {
+  AGENT_NOT_SEEN: "AGENT_NOT_SEEN",
+  FAILBACK_CLIENT_NOT_SEEN: "FAILBACK_CLIENT_NOT_SEEN",
+  FAILED_GETTING_REPLICATION_STATE: "FAILED_GETTING_REPLICATION_STATE",
+  FAILED_TO_ATTACH_STAGING_DISKS: "FAILED_TO_ATTACH_STAGING_DISKS",
+  FAILED_TO_AUTHENTICATE_WITH_SERVICE: "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
+  FAILED_TO_BOOT_REPLICATION_SERVER: "FAILED_TO_BOOT_REPLICATION_SERVER",
+  FAILED_TO_CONFIGURE_REPLICATION_SOFTWARE: "FAILED_TO_CONFIGURE_REPLICATION_SOFTWARE",
+  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER: "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
+  FAILED_TO_CREATE_SECURITY_GROUP: "FAILED_TO_CREATE_SECURITY_GROUP",
+  FAILED_TO_CREATE_STAGING_DISKS: "FAILED_TO_CREATE_STAGING_DISKS",
+  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE: "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
+  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT:
+    "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT",
+  FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION:
+    "FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION",
+  FAILED_TO_ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION: "FAILED_TO_ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION",
+  FAILED_TO_LAUNCH_REPLICATION_SERVER: "FAILED_TO_LAUNCH_REPLICATION_SERVER",
+  FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE: "FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE",
+  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT: "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
+  FAILED_TO_START_DATA_TRANSFER: "FAILED_TO_START_DATA_TRANSFER",
+  NOT_CONVERGING: "NOT_CONVERGING",
+  SNAPSHOTS_FAILURE: "SNAPSHOTS_FAILURE",
+  UNSTABLE_NETWORK: "UNSTABLE_NETWORK",
+} as const;
 
 /**
+ * @public
+ */
+export type FailbackReplicationError = (typeof FailbackReplicationError)[keyof typeof FailbackReplicationError];
+
+/**
+ * @public
  * <p>Error in data replication.</p>
  */
 export interface RecoveryInstanceDataReplicationError {
@@ -1391,36 +1851,57 @@ export interface RecoveryInstanceDataReplicationError {
   rawError?: string;
 }
 
-export enum RecoveryInstanceDataReplicationInitiationStepName {
-  ATTACH_STAGING_DISKS = "ATTACH_STAGING_DISKS",
-  AUTHENTICATE_WITH_SERVICE = "AUTHENTICATE_WITH_SERVICE",
-  BOOT_REPLICATION_SERVER = "BOOT_REPLICATION_SERVER",
-  COMPLETE_VOLUME_MAPPING = "COMPLETE_VOLUME_MAPPING",
-  CONFIGURE_REPLICATION_SOFTWARE = "CONFIGURE_REPLICATION_SOFTWARE",
-  CONNECT_AGENT_TO_REPLICATION_SERVER = "CONNECT_AGENT_TO_REPLICATION_SERVER",
-  CREATE_SECURITY_GROUP = "CREATE_SECURITY_GROUP",
-  CREATE_STAGING_DISKS = "CREATE_STAGING_DISKS",
-  DOWNLOAD_REPLICATION_SOFTWARE = "DOWNLOAD_REPLICATION_SOFTWARE",
-  DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT = "DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT",
-  ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION = "ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION",
-  ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION = "ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION",
-  LAUNCH_REPLICATION_SERVER = "LAUNCH_REPLICATION_SERVER",
-  LINK_FAILBACK_CLIENT_WITH_RECOVERY_INSTANCE = "LINK_FAILBACK_CLIENT_WITH_RECOVERY_INSTANCE",
-  PAIR_AGENT_WITH_REPLICATION_SOFTWARE = "PAIR_AGENT_WITH_REPLICATION_SOFTWARE",
-  PAIR_REPLICATION_SERVER_WITH_AGENT = "PAIR_REPLICATION_SERVER_WITH_AGENT",
-  START_DATA_TRANSFER = "START_DATA_TRANSFER",
-  WAIT = "WAIT",
-}
-
-export enum RecoveryInstanceDataReplicationInitiationStepStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SKIPPED = "SKIPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecoveryInstanceDataReplicationInitiationStepName = {
+  ATTACH_STAGING_DISKS: "ATTACH_STAGING_DISKS",
+  AUTHENTICATE_WITH_SERVICE: "AUTHENTICATE_WITH_SERVICE",
+  BOOT_REPLICATION_SERVER: "BOOT_REPLICATION_SERVER",
+  COMPLETE_VOLUME_MAPPING: "COMPLETE_VOLUME_MAPPING",
+  CONFIGURE_REPLICATION_SOFTWARE: "CONFIGURE_REPLICATION_SOFTWARE",
+  CONNECT_AGENT_TO_REPLICATION_SERVER: "CONNECT_AGENT_TO_REPLICATION_SERVER",
+  CREATE_SECURITY_GROUP: "CREATE_SECURITY_GROUP",
+  CREATE_STAGING_DISKS: "CREATE_STAGING_DISKS",
+  DOWNLOAD_REPLICATION_SOFTWARE: "DOWNLOAD_REPLICATION_SOFTWARE",
+  DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT: "DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT",
+  ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION: "ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION",
+  ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION: "ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION",
+  LAUNCH_REPLICATION_SERVER: "LAUNCH_REPLICATION_SERVER",
+  LINK_FAILBACK_CLIENT_WITH_RECOVERY_INSTANCE: "LINK_FAILBACK_CLIENT_WITH_RECOVERY_INSTANCE",
+  PAIR_AGENT_WITH_REPLICATION_SOFTWARE: "PAIR_AGENT_WITH_REPLICATION_SOFTWARE",
+  PAIR_REPLICATION_SERVER_WITH_AGENT: "PAIR_REPLICATION_SERVER_WITH_AGENT",
+  START_DATA_TRANSFER: "START_DATA_TRANSFER",
+  WAIT: "WAIT",
+} as const;
 
 /**
+ * @public
+ */
+export type RecoveryInstanceDataReplicationInitiationStepName =
+  (typeof RecoveryInstanceDataReplicationInitiationStepName)[keyof typeof RecoveryInstanceDataReplicationInitiationStepName];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecoveryInstanceDataReplicationInitiationStepStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  SKIPPED: "SKIPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type RecoveryInstanceDataReplicationInitiationStepStatus =
+  (typeof RecoveryInstanceDataReplicationInitiationStepStatus)[keyof typeof RecoveryInstanceDataReplicationInitiationStepStatus];
+
+/**
+ * @public
  * <p>Data replication initiation step.</p>
  */
 export interface RecoveryInstanceDataReplicationInitiationStep {
@@ -1436,6 +1917,7 @@ export interface RecoveryInstanceDataReplicationInitiationStep {
 }
 
 /**
+ * @public
  * <p>Data replication initiation.</p>
  */
 export interface RecoveryInstanceDataReplicationInitiation {
@@ -1450,22 +1932,33 @@ export interface RecoveryInstanceDataReplicationInitiation {
   steps?: RecoveryInstanceDataReplicationInitiationStep[];
 }
 
-export enum RecoveryInstanceDataReplicationState {
-  BACKLOG = "BACKLOG",
-  CONTINUOUS = "CONTINUOUS",
-  CREATING_SNAPSHOT = "CREATING_SNAPSHOT",
-  DISCONNECTED = "DISCONNECTED",
-  INITIAL_SYNC = "INITIAL_SYNC",
-  INITIATING = "INITIATING",
-  NOT_STARTED = "NOT_STARTED",
-  PAUSED = "PAUSED",
-  REPLICATION_STATE_NOT_AVAILABLE = "REPLICATION_STATE_NOT_AVAILABLE",
-  RESCAN = "RESCAN",
-  STALLED = "STALLED",
-  STOPPED = "STOPPED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecoveryInstanceDataReplicationState = {
+  BACKLOG: "BACKLOG",
+  CONTINUOUS: "CONTINUOUS",
+  CREATING_SNAPSHOT: "CREATING_SNAPSHOT",
+  DISCONNECTED: "DISCONNECTED",
+  INITIAL_SYNC: "INITIAL_SYNC",
+  INITIATING: "INITIATING",
+  NOT_STARTED: "NOT_STARTED",
+  PAUSED: "PAUSED",
+  REPLICATION_STATE_NOT_AVAILABLE: "REPLICATION_STATE_NOT_AVAILABLE",
+  RESCAN: "RESCAN",
+  STALLED: "STALLED",
+  STOPPED: "STOPPED",
+} as const;
 
 /**
+ * @public
+ */
+export type RecoveryInstanceDataReplicationState =
+  (typeof RecoveryInstanceDataReplicationState)[keyof typeof RecoveryInstanceDataReplicationState];
+
+/**
+ * @public
  * <p>A disk that should be replicated.</p>
  */
 export interface RecoveryInstanceDataReplicationInfoReplicatedDisk {
@@ -1496,6 +1989,7 @@ export interface RecoveryInstanceDataReplicationInfoReplicatedDisk {
 }
 
 /**
+ * @public
  * <p>Information about Data Replication</p>
  */
 export interface RecoveryInstanceDataReplicationInfo {
@@ -1535,32 +2029,60 @@ export interface RecoveryInstanceDataReplicationInfo {
   stagingAvailabilityZone?: string;
 }
 
-export enum EC2InstanceState {
-  NOT_FOUND = "NOT_FOUND",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING-DOWN",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TERMINATED = "TERMINATED",
-}
-
-export enum FailbackLaunchType {
-  DRILL = "DRILL",
-  RECOVERY = "RECOVERY",
-}
-
-export enum FailbackState {
-  FAILBACK_COMPLETED = "FAILBACK_COMPLETED",
-  FAILBACK_ERROR = "FAILBACK_ERROR",
-  FAILBACK_IN_PROGRESS = "FAILBACK_IN_PROGRESS",
-  FAILBACK_LAUNCH_STATE_NOT_AVAILABLE = "FAILBACK_LAUNCH_STATE_NOT_AVAILABLE",
-  FAILBACK_NOT_READY_FOR_LAUNCH = "FAILBACK_NOT_READY_FOR_LAUNCH",
-  FAILBACK_NOT_STARTED = "FAILBACK_NOT_STARTED",
-  FAILBACK_READY_FOR_LAUNCH = "FAILBACK_READY_FOR_LAUNCH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EC2InstanceState = {
+  NOT_FOUND: "NOT_FOUND",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SHUTTING_DOWN: "SHUTTING-DOWN",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TERMINATED: "TERMINATED",
+} as const;
 
 /**
+ * @public
+ */
+export type EC2InstanceState = (typeof EC2InstanceState)[keyof typeof EC2InstanceState];
+
+/**
+ * @public
+ * @enum
+ */
+export const FailbackLaunchType = {
+  DRILL: "DRILL",
+  RECOVERY: "RECOVERY",
+} as const;
+
+/**
+ * @public
+ */
+export type FailbackLaunchType = (typeof FailbackLaunchType)[keyof typeof FailbackLaunchType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FailbackState = {
+  FAILBACK_COMPLETED: "FAILBACK_COMPLETED",
+  FAILBACK_ERROR: "FAILBACK_ERROR",
+  FAILBACK_IN_PROGRESS: "FAILBACK_IN_PROGRESS",
+  FAILBACK_LAUNCH_STATE_NOT_AVAILABLE: "FAILBACK_LAUNCH_STATE_NOT_AVAILABLE",
+  FAILBACK_NOT_READY_FOR_LAUNCH: "FAILBACK_NOT_READY_FOR_LAUNCH",
+  FAILBACK_NOT_STARTED: "FAILBACK_NOT_STARTED",
+  FAILBACK_READY_FOR_LAUNCH: "FAILBACK_READY_FOR_LAUNCH",
+} as const;
+
+/**
+ * @public
+ */
+export type FailbackState = (typeof FailbackState)[keyof typeof FailbackState];
+
+/**
+ * @public
  * <p>An object representing failback related information of the Recovery Instance.</p>
  */
 export interface RecoveryInstanceFailback {
@@ -1615,12 +2137,22 @@ export interface RecoveryInstanceFailback {
   failbackLaunchType?: FailbackLaunchType | string;
 }
 
-export enum OriginEnvironment {
-  AWS = "AWS",
-  ON_PREMISES = "ON_PREMISES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OriginEnvironment = {
+  AWS: "AWS",
+  ON_PREMISES: "ON_PREMISES",
+} as const;
 
 /**
+ * @public
+ */
+export type OriginEnvironment = (typeof OriginEnvironment)[keyof typeof OriginEnvironment];
+
+/**
+ * @public
  * <p>An object representing a block storage device on the Recovery Instance.</p>
  */
 export interface RecoveryInstanceDisk {
@@ -1641,6 +2173,7 @@ export interface RecoveryInstanceDisk {
 }
 
 /**
+ * @public
  * <p>Properties of the Recovery Instance machine.</p>
  */
 export interface RecoveryInstanceProperties {
@@ -1681,6 +2214,7 @@ export interface RecoveryInstanceProperties {
 }
 
 /**
+ * @public
  * <p>A Recovery Instance is a replica of a Source Server running on EC2.</p>
  */
 export interface RecoveryInstance {
@@ -1755,6 +2289,9 @@ export interface RecoveryInstance {
   originAvailabilityZone?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecoveryInstancesResponse {
   /**
    * <p>The token of the next Recovery Instance to retrieve.</p>
@@ -1768,6 +2305,7 @@ export interface DescribeRecoveryInstancesResponse {
 }
 
 /**
+ * @public
  * <p>A set of filters by which to return Recovery Snapshots.</p>
  */
 export interface DescribeRecoverySnapshotsRequestFilters {
@@ -1782,11 +2320,23 @@ export interface DescribeRecoverySnapshotsRequestFilters {
   toDateTime?: string;
 }
 
-export enum RecoverySnapshotsOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecoverySnapshotsOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
 
+/**
+ * @public
+ */
+export type RecoverySnapshotsOrder = (typeof RecoverySnapshotsOrder)[keyof typeof RecoverySnapshotsOrder];
+
+/**
+ * @public
+ */
 export interface DescribeRecoverySnapshotsRequest {
   /**
    * <p>Filter Recovery Snapshots by Source Server ID.</p>
@@ -1815,6 +2365,7 @@ export interface DescribeRecoverySnapshotsRequest {
 }
 
 /**
+ * @public
  * <p>A snapshot of a Source Server used during recovery.</p>
  */
 export interface RecoverySnapshot {
@@ -1844,6 +2395,9 @@ export interface RecoverySnapshot {
   ebsSnapshots?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecoverySnapshotsResponse {
   /**
    * <p>An array of Recovery Snapshots.</p>
@@ -1856,6 +2410,9 @@ export interface DescribeRecoverySnapshotsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplicationConfigurationTemplatesRequest {
   /**
    * <p>The IDs of the Replication Configuration Templates to retrieve. An empty list means all Replication Configuration Templates.</p>
@@ -1873,6 +2430,9 @@ export interface DescribeReplicationConfigurationTemplatesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplicationConfigurationTemplatesResponse {
   /**
    * <p>An array of Replication Configuration Templates.</p>
@@ -1886,6 +2446,7 @@ export interface DescribeReplicationConfigurationTemplatesResponse {
 }
 
 /**
+ * @public
  * <p>A set of filters by which to return Source Servers.</p>
  */
 export interface DescribeSourceServersRequestFilters {
@@ -1905,6 +2466,9 @@ export interface DescribeSourceServersRequestFilters {
   stagingAccountIDs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSourceServersRequest {
   /**
    * <p>A set of filters by which to return Source Servers.</p>
@@ -1922,6 +2486,9 @@ export interface DescribeSourceServersRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSourceServersResponse {
   /**
    * <p>An array of Source Servers.</p>
@@ -1934,6 +2501,9 @@ export interface DescribeSourceServersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectRecoveryInstanceRequest {
   /**
    * <p>The ID of the Recovery Instance to disconnect.</p>
@@ -1941,6 +2511,9 @@ export interface DisconnectRecoveryInstanceRequest {
   recoveryInstanceID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectSourceServerRequest {
   /**
    * <p>The ID of the Source Server to disconnect.</p>
@@ -1948,10 +2521,64 @@ export interface DisconnectSourceServerRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface InitializeServiceRequest {}
 
+/**
+ * @public
+ */
 export interface InitializeServiceResponse {}
 
+/**
+ * @public
+ */
+export interface UpdateLaunchConfigurationTemplateRequest {
+  /**
+   * <p>Launch Configuration Template ID.</p>
+   */
+  launchConfigurationTemplateID: string | undefined;
+
+  /**
+   * <p>Launch disposition.</p>
+   */
+  launchDisposition?: LaunchDisposition | string;
+
+  /**
+   * <p>Target instance type right-sizing method.</p>
+   */
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+
+  /**
+   * <p>Copy private IP.</p>
+   */
+  copyPrivateIp?: boolean;
+
+  /**
+   * <p>Copy tags.</p>
+   */
+  copyTags?: boolean;
+
+  /**
+   * <p>Licensing.</p>
+   */
+  licensing?: Licensing;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLaunchConfigurationTemplateResponse {
+  /**
+   * <p>Updated Launch Configuration Template.</p>
+   */
+  launchConfigurationTemplate?: LaunchConfigurationTemplate;
+}
+
+/**
+ * @public
+ */
 export interface ListExtensibleSourceServersRequest {
   /**
    * <p>The Id of the staging Account to retrieve extensible source servers from.</p>
@@ -1970,6 +2597,7 @@ export interface ListExtensibleSourceServersRequest {
 }
 
 /**
+ * @public
  * <p>Source server in staging account that extended source server connected to.</p>
  */
 export interface StagingSourceServer {
@@ -1989,6 +2617,9 @@ export interface StagingSourceServer {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListExtensibleSourceServersResponse {
   /**
    * <p>A list of source servers on a staging Account that are extensible.</p>
@@ -2001,6 +2632,9 @@ export interface ListExtensibleSourceServersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStagingAccountsRequest {
   /**
    * <p>The maximum number of staging Accounts to retrieve.</p>
@@ -2013,6 +2647,9 @@ export interface ListStagingAccountsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStagingAccountsResponse {
   /**
    * <p>An array of staging AWS Accounts.</p>
@@ -2025,6 +2662,9 @@ export interface ListStagingAccountsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource whose tags should be returned.</p>
@@ -2032,6 +2672,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags of the requested resource.</p>
@@ -2039,6 +2682,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetFailbackReplicationConfigurationRequest {
   /**
    * <p>The ID of the Recovery Instance whose failback replication configuration should be returned.</p>
@@ -2046,6 +2692,9 @@ export interface GetFailbackReplicationConfigurationRequest {
   recoveryInstanceID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFailbackReplicationConfigurationResponse {
   /**
    * <p>The ID of the Recovery Instance.</p>
@@ -2068,6 +2717,9 @@ export interface GetFailbackReplicationConfigurationResponse {
   usePrivateIP?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ReverseReplicationRequest {
   /**
    * <p>The ID of the Recovery Instance that we want to reverse the replication for.</p>
@@ -2075,6 +2727,9 @@ export interface ReverseReplicationRequest {
   recoveryInstanceID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ReverseReplicationResponse {
   /**
    * <p>ARN of created SourceServer.</p>
@@ -2082,6 +2737,9 @@ export interface ReverseReplicationResponse {
   reversedDirectionSourceServerArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartFailbackLaunchRequest {
   /**
    * <p>The IDs of the Recovery Instance whose failback launch we want to request.</p>
@@ -2094,6 +2752,9 @@ export interface StartFailbackLaunchRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartFailbackLaunchResponse {
   /**
    * <p>The failback launch Job.</p>
@@ -2101,6 +2762,9 @@ export interface StartFailbackLaunchResponse {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface StopFailbackRequest {
   /**
    * <p>The ID of the Recovery Instance we want to stop failback for.</p>
@@ -2108,6 +2772,9 @@ export interface StopFailbackRequest {
   recoveryInstanceID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TerminateRecoveryInstancesRequest {
   /**
    * <p>The IDs of the Recovery Instances that should be terminated.</p>
@@ -2115,6 +2782,9 @@ export interface TerminateRecoveryInstancesRequest {
   recoveryInstanceIDs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TerminateRecoveryInstancesResponse {
   /**
    * <p>The Job for terminating the Recovery Instances.</p>
@@ -2122,6 +2792,9 @@ export interface TerminateRecoveryInstancesResponse {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFailbackReplicationConfigurationRequest {
   /**
    * <p>The ID of the Recovery Instance.</p>
@@ -2144,6 +2817,9 @@ export interface UpdateFailbackReplicationConfigurationRequest {
   usePrivateIP?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationConfigurationTemplateRequest {
   /**
    * <p>The Replication Configuration Template ID.</p>
@@ -2219,8 +2895,16 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
    */
   pitPolicy?: PITPolicyRule[];
+
+  /**
+   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   */
+  autoReplicateNewDisks?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchConfigurationRequest {
   /**
    * <p>The ID of the Source Server that we want to retrieve a Launch Configuration for.</p>
@@ -2228,26 +2912,9 @@ export interface GetLaunchConfigurationRequest {
   sourceServerID: string | undefined;
 }
 
-export enum LaunchDisposition {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-}
-
 /**
- * <p>Configuration of a machine's license.</p>
+ * @public
  */
-export interface Licensing {
-  /**
-   * <p>Whether to enable "Bring your own license" or not.</p>
-   */
-  osByol?: boolean;
-}
-
-export enum TargetInstanceTypeRightSizingMethod {
-  BASIC = "BASIC",
-  NONE = "NONE",
-}
-
 export interface LaunchConfiguration {
   /**
    * <p>The ID of the Source Server for this launch configuration.</p>
@@ -2290,6 +2957,9 @@ export interface LaunchConfiguration {
   licensing?: Licensing;
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationConfigurationRequest {
   /**
    * <p>The ID of the Source Serve for this Replication Configuration.r</p>
@@ -2297,17 +2967,28 @@ export interface GetReplicationConfigurationRequest {
   sourceServerID: string | undefined;
 }
 
-export enum ReplicationConfigurationReplicatedDiskStagingDiskType {
-  AUTO = "AUTO",
-  GP2 = "GP2",
-  GP3 = "GP3",
-  IO1 = "IO1",
-  SC1 = "SC1",
-  ST1 = "ST1",
-  STANDARD = "STANDARD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationConfigurationReplicatedDiskStagingDiskType = {
+  AUTO: "AUTO",
+  GP2: "GP2",
+  GP3: "GP3",
+  IO1: "IO1",
+  SC1: "SC1",
+  ST1: "ST1",
+  STANDARD: "STANDARD",
+} as const;
 
 /**
+ * @public
+ */
+export type ReplicationConfigurationReplicatedDiskStagingDiskType =
+  (typeof ReplicationConfigurationReplicatedDiskStagingDiskType)[keyof typeof ReplicationConfigurationReplicatedDiskStagingDiskType];
+
+/**
+ * @public
  * <p>The configuration of a disk of the Source Server to be replicated.</p>
  */
 export interface ReplicationConfigurationReplicatedDisk {
@@ -2342,6 +3023,9 @@ export interface ReplicationConfigurationReplicatedDisk {
   optimizedStagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
 }
 
+/**
+ * @public
+ */
 export interface ReplicationConfiguration {
   /**
    * <p>The ID of the Source Server for this Replication Configuration.</p>
@@ -2422,8 +3106,16 @@ export interface ReplicationConfiguration {
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
    */
   pitPolicy?: PITPolicyRule[];
+
+  /**
+   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   */
+  autoReplicateNewDisks?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RetryDataReplicationRequest {
   /**
    * <p>The ID of the Source Server whose data replication should be retried.</p>
@@ -2432,6 +3124,7 @@ export interface RetryDataReplicationRequest {
 }
 
 /**
+ * @public
  * <p>An object representing the Source Server to recover.</p>
  */
 export interface StartRecoveryRequestSourceServer {
@@ -2446,6 +3139,9 @@ export interface StartRecoveryRequestSourceServer {
   recoverySnapshotID?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartRecoveryRequest {
   /**
    * <p>The Source Servers that we want to start a Recovery Job for.</p>
@@ -2463,6 +3159,9 @@ export interface StartRecoveryRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartRecoveryResponse {
   /**
    * <p>The Recovery Job.</p>
@@ -2470,6 +3169,9 @@ export interface StartRecoveryResponse {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface StartReplicationRequest {
   /**
    * <p>The ID of the Source Server to start replication for.</p>
@@ -2477,6 +3179,9 @@ export interface StartReplicationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartReplicationResponse {
   /**
    * <p>The Source Server that this action was targeted on.</p>
@@ -2484,6 +3189,9 @@ export interface StartReplicationResponse {
   sourceServer?: SourceServer;
 }
 
+/**
+ * @public
+ */
 export interface StopReplicationRequest {
   /**
    * <p>The ID of the Source Server to stop replication for.</p>
@@ -2491,6 +3199,9 @@ export interface StopReplicationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopReplicationResponse {
   /**
    * <p>The Source Server that this action was targeted on.</p>
@@ -2498,6 +3209,9 @@ export interface StopReplicationResponse {
   sourceServer?: SourceServer;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchConfigurationRequest {
   /**
    * <p>The ID of the Source Server that we want to retrieve a Launch Configuration for.</p>
@@ -2535,6 +3249,9 @@ export interface UpdateLaunchConfigurationRequest {
   licensing?: Licensing;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationConfigurationRequest {
   /**
    * <p>The ID of the Source Server for this Replication Configuration.</p>
@@ -2615,8 +3332,16 @@ export interface UpdateReplicationConfigurationRequest {
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
    */
   pitPolicy?: PITPolicyRule[];
+
+  /**
+   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   */
+  autoReplicateNewDisks?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>ARN of the resource for which tags are to be added or updated.</p>
@@ -2629,6 +3354,9 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>ARN of the resource for which tags are to be removed.</p>
@@ -2644,135 +3372,9 @@ export interface UntagResourceRequest {
 /**
  * @internal
  */
-export const AccountFilterSensitiveLog = (obj: Account): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConversionPropertiesFilterSensitiveLog = (obj: ConversionProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CPUFilterSensitiveLog = (obj: CPU): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateExtendedSourceServerRequestFilterSensitiveLog = (obj: CreateExtendedSourceServerRequest): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DataReplicationErrorFilterSensitiveLog = (obj: DataReplicationError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataReplicationInitiationStepFilterSensitiveLog = (obj: DataReplicationInitiationStep): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataReplicationInitiationFilterSensitiveLog = (obj: DataReplicationInitiation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataReplicationInfoReplicatedDiskFilterSensitiveLog = (obj: DataReplicationInfoReplicatedDisk): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataReplicationInfoFilterSensitiveLog = (obj: DataReplicationInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifeCycleLastLaunchInitiatedFilterSensitiveLog = (obj: LifeCycleLastLaunchInitiated): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifeCycleLastLaunchFilterSensitiveLog = (obj: LifeCycleLastLaunch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifeCycleFilterSensitiveLog = (obj: LifeCycle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceCloudPropertiesFilterSensitiveLog = (obj: SourceCloudProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DiskFilterSensitiveLog = (obj: Disk): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentificationHintsFilterSensitiveLog = (obj: IdentificationHints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OSFilterSensitiveLog = (obj: OS): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourcePropertiesFilterSensitiveLog = (obj: SourceProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StagingAreaFilterSensitiveLog = (obj: StagingArea): any => ({
-  ...obj,
 });
 
 /**
@@ -2794,15 +3396,31 @@ export const CreateExtendedSourceServerResponseFilterSensitiveLog = (obj: Create
 /**
  * @internal
  */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+export const CreateLaunchConfigurationTemplateRequestFilterSensitiveLog = (
+  obj: CreateLaunchConfigurationTemplateRequest
+): any => ({
   ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const PITPolicyRuleFilterSensitiveLog = (obj: PITPolicyRule): any => ({
+export const LaunchConfigurationTemplateFilterSensitiveLog = (obj: LaunchConfigurationTemplate): any => ({
   ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateLaunchConfigurationTemplateResponseFilterSensitiveLog = (
+  obj: CreateLaunchConfigurationTemplateResponse
+): any => ({
+  ...obj,
+  ...(obj.launchConfigurationTemplate && {
+    launchConfigurationTemplate: LaunchConfigurationTemplateFilterSensitiveLog(obj.launchConfigurationTemplate),
+  }),
 });
 
 /**
@@ -2828,108 +3446,6 @@ export const ReplicationConfigurationTemplateFilterSensitiveLog = (obj: Replicat
 /**
  * @internal
  */
-export const DeleteJobRequestFilterSensitiveLog = (obj: DeleteJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobResponseFilterSensitiveLog = (obj: DeleteJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRecoveryInstanceRequestFilterSensitiveLog = (obj: DeleteRecoveryInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationConfigurationTemplateRequestFilterSensitiveLog = (
-  obj: DeleteReplicationConfigurationTemplateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationConfigurationTemplateResponseFilterSensitiveLog = (
-  obj: DeleteReplicationConfigurationTemplateResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSourceServerRequestFilterSensitiveLog = (obj: DeleteSourceServerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSourceServerResponseFilterSensitiveLog = (obj: DeleteSourceServerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobLogItemsRequestFilterSensitiveLog = (obj: DescribeJobLogItemsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobLogEventDataFilterSensitiveLog = (obj: JobLogEventData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobLogFilterSensitiveLog = (obj: JobLog): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobLogItemsResponseFilterSensitiveLog = (obj: DescribeJobLogItemsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobsRequestFiltersFilterSensitiveLog = (obj: DescribeJobsRequestFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobsRequestFilterSensitiveLog = (obj: DescribeJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParticipatingServerFilterSensitiveLog = (obj: ParticipatingServer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const JobFilterSensitiveLog = (obj: Job): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
@@ -2946,83 +3462,11 @@ export const DescribeJobsResponseFilterSensitiveLog = (obj: DescribeJobsResponse
 /**
  * @internal
  */
-export const DescribeRecoveryInstancesRequestFiltersFilterSensitiveLog = (
-  obj: DescribeRecoveryInstancesRequestFilters
+export const DescribeLaunchConfigurationTemplatesResponseFilterSensitiveLog = (
+  obj: DescribeLaunchConfigurationTemplatesResponse
 ): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecoveryInstancesRequestFilterSensitiveLog = (obj: DescribeRecoveryInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecoveryInstanceDataReplicationErrorFilterSensitiveLog = (
-  obj: RecoveryInstanceDataReplicationError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecoveryInstanceDataReplicationInitiationStepFilterSensitiveLog = (
-  obj: RecoveryInstanceDataReplicationInitiationStep
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecoveryInstanceDataReplicationInitiationFilterSensitiveLog = (
-  obj: RecoveryInstanceDataReplicationInitiation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecoveryInstanceDataReplicationInfoReplicatedDiskFilterSensitiveLog = (
-  obj: RecoveryInstanceDataReplicationInfoReplicatedDisk
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecoveryInstanceDataReplicationInfoFilterSensitiveLog = (
-  obj: RecoveryInstanceDataReplicationInfo
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecoveryInstanceFailbackFilterSensitiveLog = (obj: RecoveryInstanceFailback): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecoveryInstanceDiskFilterSensitiveLog = (obj: RecoveryInstanceDisk): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecoveryInstancePropertiesFilterSensitiveLog = (obj: RecoveryInstanceProperties): any => ({
-  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => LaunchConfigurationTemplateFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -3044,66 +3488,11 @@ export const DescribeRecoveryInstancesResponseFilterSensitiveLog = (obj: Describ
 /**
  * @internal
  */
-export const DescribeRecoverySnapshotsRequestFiltersFilterSensitiveLog = (
-  obj: DescribeRecoverySnapshotsRequestFilters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecoverySnapshotsRequestFilterSensitiveLog = (obj: DescribeRecoverySnapshotsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecoverySnapshotFilterSensitiveLog = (obj: RecoverySnapshot): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecoverySnapshotsResponseFilterSensitiveLog = (obj: DescribeRecoverySnapshotsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationConfigurationTemplatesRequestFilterSensitiveLog = (
-  obj: DescribeReplicationConfigurationTemplatesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeReplicationConfigurationTemplatesResponseFilterSensitiveLog = (
   obj: DescribeReplicationConfigurationTemplatesResponse
 ): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => ReplicationConfigurationTemplateFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const DescribeSourceServersRequestFiltersFilterSensitiveLog = (
-  obj: DescribeSourceServersRequestFilters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSourceServersRequestFilterSensitiveLog = (obj: DescribeSourceServersRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3117,36 +3506,13 @@ export const DescribeSourceServersResponseFilterSensitiveLog = (obj: DescribeSou
 /**
  * @internal
  */
-export const DisconnectRecoveryInstanceRequestFilterSensitiveLog = (obj: DisconnectRecoveryInstanceRequest): any => ({
+export const UpdateLaunchConfigurationTemplateResponseFilterSensitiveLog = (
+  obj: UpdateLaunchConfigurationTemplateResponse
+): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const DisconnectSourceServerRequestFilterSensitiveLog = (obj: DisconnectSourceServerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitializeServiceRequestFilterSensitiveLog = (obj: InitializeServiceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitializeServiceResponseFilterSensitiveLog = (obj: InitializeServiceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExtensibleSourceServersRequestFilterSensitiveLog = (obj: ListExtensibleSourceServersRequest): any => ({
-  ...obj,
+  ...(obj.launchConfigurationTemplate && {
+    launchConfigurationTemplate: LaunchConfigurationTemplateFilterSensitiveLog(obj.launchConfigurationTemplate),
+  }),
 });
 
 /**
@@ -3170,62 +3536,9 @@ export const ListExtensibleSourceServersResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const ListStagingAccountsRequestFilterSensitiveLog = (obj: ListStagingAccountsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStagingAccountsResponseFilterSensitiveLog = (obj: ListStagingAccountsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetFailbackReplicationConfigurationRequestFilterSensitiveLog = (
-  obj: GetFailbackReplicationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFailbackReplicationConfigurationResponseFilterSensitiveLog = (
-  obj: GetFailbackReplicationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReverseReplicationRequestFilterSensitiveLog = (obj: ReverseReplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReverseReplicationResponseFilterSensitiveLog = (obj: ReverseReplicationResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3247,32 +3560,9 @@ export const StartFailbackLaunchResponseFilterSensitiveLog = (obj: StartFailback
 /**
  * @internal
  */
-export const StopFailbackRequestFilterSensitiveLog = (obj: StopFailbackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateRecoveryInstancesRequestFilterSensitiveLog = (obj: TerminateRecoveryInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TerminateRecoveryInstancesResponseFilterSensitiveLog = (obj: TerminateRecoveryInstancesResponse): any => ({
   ...obj,
   ...(obj.job && { job: JobFilterSensitiveLog(obj.job) }),
-});
-
-/**
- * @internal
- */
-export const UpdateFailbackReplicationConfigurationRequestFilterSensitiveLog = (
-  obj: UpdateFailbackReplicationConfigurationRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3288,60 +3578,9 @@ export const UpdateReplicationConfigurationTemplateRequestFilterSensitiveLog = (
 /**
  * @internal
  */
-export const GetLaunchConfigurationRequestFilterSensitiveLog = (obj: GetLaunchConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LicensingFilterSensitiveLog = (obj: Licensing): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchConfigurationFilterSensitiveLog = (obj: LaunchConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReplicationConfigurationRequestFilterSensitiveLog = (obj: GetReplicationConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationConfigurationReplicatedDiskFilterSensitiveLog = (
-  obj: ReplicationConfigurationReplicatedDisk
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ReplicationConfigurationFilterSensitiveLog = (obj: ReplicationConfiguration): any => ({
   ...obj,
   ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RetryDataReplicationRequestFilterSensitiveLog = (obj: RetryDataReplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRecoveryRequestSourceServerFilterSensitiveLog = (obj: StartRecoveryRequestSourceServer): any => ({
-  ...obj,
 });
 
 /**
@@ -3363,13 +3602,6 @@ export const StartRecoveryResponseFilterSensitiveLog = (obj: StartRecoveryRespon
 /**
  * @internal
  */
-export const StartReplicationRequestFilterSensitiveLog = (obj: StartReplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StartReplicationResponseFilterSensitiveLog = (obj: StartReplicationResponse): any => ({
   ...obj,
   ...(obj.sourceServer && { sourceServer: SourceServerFilterSensitiveLog(obj.sourceServer) }),
@@ -3378,23 +3610,9 @@ export const StartReplicationResponseFilterSensitiveLog = (obj: StartReplication
 /**
  * @internal
  */
-export const StopReplicationRequestFilterSensitiveLog = (obj: StopReplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StopReplicationResponseFilterSensitiveLog = (obj: StopReplicationResponse): any => ({
   ...obj,
   ...(obj.sourceServer && { sourceServer: SourceServerFilterSensitiveLog(obj.sourceServer) }),
-});
-
-/**
- * @internal
- */
-export const UpdateLaunchConfigurationRequestFilterSensitiveLog = (obj: UpdateLaunchConfigurationRequest): any => ({
-  ...obj,
 });
 
 /**

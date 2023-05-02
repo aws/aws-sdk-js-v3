@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSolNetworkPackageInput, DeleteSolNetworkPackageInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSolNetworkPackageCommand,
-  serializeAws_restJson1DeleteSolNetworkPackageCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSolNetworkPackageInput } from "../models/models_0";
+import { de_DeleteSolNetworkPackageCommand, se_DeleteSolNetworkPackageCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSolNetworkPackageCommand}.
  */
 export interface DeleteSolNetworkPackageCommandInput extends DeleteSolNetworkPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSolNetworkPackageCommand}.
  */
 export interface DeleteSolNetworkPackageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes network package.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  *          <p>To delete a network package, the package must be in a disable state. To disable a network package, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolNetworkPackage.html">UpdateSolNetworkPackage</a>.</p>
@@ -39,10 +41,15 @@ export interface DeleteSolNetworkPackageCommandOutput extends __MetadataBearer {
  * import { TnbClient, DeleteSolNetworkPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, DeleteSolNetworkPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // DeleteSolNetworkPackageInput
+ *   nsdInfoId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSolNetworkPackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSolNetworkPackageCommandInput - {@link DeleteSolNetworkPackageCommandInput}
+ * @returns {@link DeleteSolNetworkPackageCommandOutput}
  * @see {@link DeleteSolNetworkPackageCommandInput} for command's `input` shape.
  * @see {@link DeleteSolNetworkPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteSolNetworkPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSolNetworkPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +119,8 @@ export class DeleteSolNetworkPackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSolNetworkPackageInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class DeleteSolNetworkPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSolNetworkPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSolNetworkPackageCommand(input, context);
+    return se_DeleteSolNetworkPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSolNetworkPackageCommandOutput> {
-    return deserializeAws_restJson1DeleteSolNetworkPackageCommand(output, context);
+    return de_DeleteSolNetworkPackageCommand(output, context);
   }
 
   // Start section: command_body_extra

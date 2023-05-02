@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  UpdateUserRequest,
-  UpdateUserRequestFilterSensitiveLog,
-  UpdateUserResponse,
-  UpdateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateUserCommand,
-  serializeAws_json1_1UpdateUserCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateUserRequest, UpdateUserResponse } from "../models/models_0";
+import { de_UpdateUserCommand, se_UpdateUserCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserCommand}.
  */
 export interface UpdateUserCommandInput extends UpdateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserCommand}.
  */
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For the specified user in the specified identity store, updates the user metadata and attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * import { IdentitystoreClient, UpdateUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, UpdateUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = { // UpdateUserRequest
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ *   Operations: [ // AttributeOperations // required
+ *     { // AttributeOperation
+ *       AttributePath: "STRING_VALUE", // required
+ *       AttributeValue: "DOCUMENT_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
+ * @returns {@link UpdateUserCommandOutput}
  * @see {@link UpdateUserCommandInput} for command's `input` shape.
  * @see {@link UpdateUserCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -98,6 +107,9 @@ export class UpdateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +136,8 @@ export class UpdateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +147,18 @@ export class UpdateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateUserCommand(input, context);
+    return se_UpdateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserCommandOutput> {
-    return deserializeAws_json1_1UpdateUserCommand(output, context);
+    return de_UpdateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

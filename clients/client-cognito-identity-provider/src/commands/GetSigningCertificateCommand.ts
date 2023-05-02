@@ -19,27 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  GetSigningCertificateRequest,
-  GetSigningCertificateRequestFilterSensitiveLog,
-  GetSigningCertificateResponse,
-  GetSigningCertificateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSigningCertificateCommand,
-  serializeAws_json1_1GetSigningCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSigningCertificateRequest, GetSigningCertificateResponse } from "../models/models_0";
+import { de_GetSigningCertificateCommand, se_GetSigningCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSigningCertificateCommand}.
  */
 export interface GetSigningCertificateCommandInput extends GetSigningCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSigningCertificateCommand}.
  */
 export interface GetSigningCertificateCommandOutput extends GetSigningCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This method takes a user pool ID, and returns the signing certificate. The issued certificate is valid for 10 years from the date of issue.</p>
  *         <p>Amazon Cognito issues and assigns a new signing certificate annually. This process returns a new value in the response to <code>GetSigningCertificate</code>,
  *             but doesn't invalidate the original certificate.</p>
@@ -49,10 +46,15 @@ export interface GetSigningCertificateCommandOutput extends GetSigningCertificat
  * import { CognitoIdentityProviderClient, GetSigningCertificateCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetSigningCertificateCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // GetSigningCertificateRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ * };
  * const command = new GetSigningCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSigningCertificateCommandInput - {@link GetSigningCertificateCommandInput}
+ * @returns {@link GetSigningCertificateCommandOutput}
  * @see {@link GetSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link GetSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -87,6 +89,9 @@ export class GetSigningCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSigningCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class GetSigningCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSigningCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSigningCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class GetSigningCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSigningCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSigningCertificateCommand(input, context);
+    return se_GetSigningCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSigningCertificateCommandOutput> {
-    return deserializeAws_json1_1GetSigningCertificateCommand(output, context);
+    return de_GetSigningCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

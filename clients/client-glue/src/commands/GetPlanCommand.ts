@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetPlanRequest,
-  GetPlanRequestFilterSensitiveLog,
-  GetPlanResponse,
-  GetPlanResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_json1_1GetPlanCommand, serializeAws_json1_1GetPlanCommand } from "../protocols/Aws_json1_1";
+import { GetPlanRequest, GetPlanResponse } from "../models/models_1";
+import { de_GetPlanCommand, se_GetPlanCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPlanCommand}.
  */
 export interface GetPlanCommandInput extends GetPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPlanCommand}.
  */
 export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets code to perform a specified mapping.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,61 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * import { GlueClient, GetPlanCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetPlanCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetPlanRequest
+ *   Mapping: [ // MappingList // required
+ *     { // MappingEntry
+ *       SourceTable: "STRING_VALUE",
+ *       SourcePath: "STRING_VALUE",
+ *       SourceType: "STRING_VALUE",
+ *       TargetTable: "STRING_VALUE",
+ *       TargetPath: "STRING_VALUE",
+ *       TargetType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Source: { // CatalogEntry
+ *     DatabaseName: "STRING_VALUE", // required
+ *     TableName: "STRING_VALUE", // required
+ *   },
+ *   Sinks: [ // CatalogEntries
+ *     {
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Location: { // Location
+ *     Jdbc: [ // CodeGenNodeArgs
+ *       { // CodeGenNodeArg
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *         Param: true || false,
+ *       },
+ *     ],
+ *     S3: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *         Param: true || false,
+ *       },
+ *     ],
+ *     DynamoDB: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *         Param: true || false,
+ *       },
+ *     ],
+ *   },
+ *   Language: "PYTHON" || "SCALA",
+ *   AdditionalPlanOptionsMap: { // AdditionalPlanOptionsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPlanCommandInput - {@link GetPlanCommandInput}
+ * @returns {@link GetPlanCommandOutput}
  * @see {@link GetPlanCommandInput} for command's `input` shape.
  * @see {@link GetPlanCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -71,6 +122,9 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +151,8 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPlanResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +162,18 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPlanCommand(input, context);
+    return se_GetPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPlanCommandOutput> {
-    return deserializeAws_json1_1GetPlanCommand(output, context);
+    return de_GetPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

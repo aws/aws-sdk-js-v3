@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  AttachToIndexRequest,
-  AttachToIndexRequestFilterSensitiveLog,
-  AttachToIndexResponse,
-  AttachToIndexResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AttachToIndexCommand,
-  serializeAws_restJson1AttachToIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { AttachToIndexRequest, AttachToIndexResponse } from "../models/models_0";
+import { de_AttachToIndexCommand, se_AttachToIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachToIndexCommand}.
  */
 export interface AttachToIndexCommandInput extends AttachToIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachToIndexCommand}.
  */
 export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches the specified object to the specified index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  * import { CloudDirectoryClient, AttachToIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AttachToIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // AttachToIndexRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   IndexReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   TargetReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ * };
  * const command = new AttachToIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachToIndexCommandInput - {@link AttachToIndexCommandInput}
+ * @returns {@link AttachToIndexCommandOutput}
  * @see {@link AttachToIndexCommandInput} for command's `input` shape.
  * @see {@link AttachToIndexCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -108,6 +116,9 @@ export class AttachToIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachToIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +145,8 @@ export class AttachToIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachToIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachToIndexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +156,18 @@ export class AttachToIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachToIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AttachToIndexCommand(input, context);
+    return se_AttachToIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachToIndexCommandOutput> {
-    return deserializeAws_restJson1AttachToIndexCommand(output, context);
+    return de_AttachToIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

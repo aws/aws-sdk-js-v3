@@ -16,31 +16,32 @@ import {
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import {
   ExecuteCommandRequest,
-  ExecuteCommandRequestFilterSensitiveLog,
   ExecuteCommandResponse,
   ExecuteCommandResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ExecuteCommandCommand,
-  serializeAws_json1_1ExecuteCommandCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ExecuteCommandCommand, se_ExecuteCommandCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteCommandCommand}.
  */
 export interface ExecuteCommandCommandInput extends ExecuteCommandRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteCommandCommand}.
  */
 export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs a command remotely on a container within a task.</p>
  *          <p>If you use a condition key in your IAM policy to refine the conditions for the policy
  * 			statement, for example limit the actions to a specific cluster, you receive an
  * 				<code>AccessDeniedException</code> when there is a mismatch between the condition
  * 			key value and the corresponding parameter value.</p>
- *          <p>For information about required permissions and considerations, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.htm">Using Amazon ECS Exec for
+ *          <p>For information about required permissions and considerations, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">Using Amazon ECS Exec for
  * 			debugging</a> in the <i>Amazon ECS Developer Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +49,19 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
  * import { ECSClient, ExecuteCommandCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ExecuteCommandCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // ExecuteCommandRequest
+ *   cluster: "STRING_VALUE",
+ *   container: "STRING_VALUE",
+ *   command: "STRING_VALUE", // required
+ *   interactive: true || false, // required
+ *   task: "STRING_VALUE", // required
+ * };
  * const command = new ExecuteCommandCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteCommandCommandInput - {@link ExecuteCommandCommandInput}
+ * @returns {@link ExecuteCommandCommandOutput}
  * @see {@link ExecuteCommandCommandInput} for command's `input` shape.
  * @see {@link ExecuteCommandCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -85,8 +95,8 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
  *                <p>The SSM agent is not installed or is not running</p>
  *             </li>
  *             <li>
- *                <p> There is an interface Amazon VPC endpoint for Amazon ECS, but there is not one for
- * 					for Systems Manager Session Manager</p>
+ *                <p> There is an interface Amazon VPC endpoint for Amazon ECS, but there is not one for Systems
+ * 					Manager Session Manager</p>
  *             </li>
  *          </ul>
  *          <p>For information about how to troubleshoot the issues, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">Troubleshooting issues with ECS
@@ -111,6 +121,9 @@ export class ExecuteCommandCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteCommandCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,7 +152,7 @@ export class ExecuteCommandCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteCommandRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ExecuteCommandResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -150,12 +163,18 @@ export class ExecuteCommandCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteCommandCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExecuteCommandCommand(input, context);
+    return se_ExecuteCommandCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteCommandCommandOutput> {
-    return deserializeAws_json1_1ExecuteCommandCommand(output, context);
+    return de_ExecuteCommandCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { S3OutpostsServiceException as __BaseException } from "./S3OutpostsServiceException";
 
 /**
+ * @public
  * <p>Access was denied for this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was a conflict with this action, and it could not be completed.</p>
  */
 export class ConflictException extends __BaseException {
@@ -45,11 +47,23 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum EndpointAccessType {
-  CUSTOMER_OWNED_IP = "CustomerOwnedIp",
-  PRIVATE = "Private",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndpointAccessType = {
+  CUSTOMER_OWNED_IP: "CustomerOwnedIp",
+  PRIVATE: "Private",
+} as const;
 
+/**
+ * @public
+ */
+export type EndpointAccessType = (typeof EndpointAccessType)[keyof typeof EndpointAccessType];
+
+/**
+ * @public
+ */
 export interface CreateEndpointRequest {
   /**
    * <p>The ID of the Outposts. </p>
@@ -87,6 +101,9 @@ export interface CreateEndpointRequest {
   CustomerOwnedIpv4Pool?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEndpointResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
@@ -95,6 +112,7 @@ export interface CreateEndpointResult {
 }
 
 /**
+ * @public
  * <p>There was an exception with the internal server.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -116,6 +134,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service link connection to your Outposts home Region is down. Check your connection and try again.</p>
  */
 export class OutpostOfflineException extends __BaseException {
@@ -137,6 +156,7 @@ export class OutpostOfflineException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -158,6 +178,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -179,6 +200,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was an exception validating this data.</p>
  */
 export class ValidationException extends __BaseException {
@@ -199,6 +221,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteEndpointRequest {
   /**
    * <p>The ID of the endpoint.</p>
@@ -212,6 +237,7 @@ export interface DeleteEndpointRequest {
 }
 
 /**
+ * @public
  * <p>The failure reason, if any, for a create or delete endpoint operation.</p>
  */
 export interface FailedReason {
@@ -227,6 +253,7 @@ export interface FailedReason {
 }
 
 /**
+ * @public
  * <p>The container for the network interface.</p>
  */
 export interface NetworkInterface {
@@ -236,15 +263,25 @@ export interface NetworkInterface {
   NetworkInterfaceId?: string;
 }
 
-export enum EndpointStatus {
-  AVAILABLE = "Available",
-  CREATE_FAILED = "Create_Failed",
-  DELETE_FAILED = "Delete_Failed",
-  DELETING = "Deleting",
-  PENDING = "Pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndpointStatus = {
+  AVAILABLE: "Available",
+  CREATE_FAILED: "Create_Failed",
+  DELETE_FAILED: "Delete_Failed",
+  DELETING: "Deleting",
+  PENDING: "Pending",
+} as const;
 
 /**
+ * @public
+ */
+export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];
+
+/**
+ * @public
  * <p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts.
  *             S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your
  *                virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/WorkingWithS3Outposts.html">
@@ -312,6 +349,9 @@ export interface Endpoint {
   FailedReason?: FailedReason;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointsRequest {
   /**
    * <p>If a previous response from this operation included a <code>NextToken</code> value,
@@ -325,6 +365,9 @@ export interface ListEndpointsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointsResult {
   /**
    * <p>The list of endpoints associated with the specified Outpost.</p>
@@ -338,6 +381,9 @@ export interface ListEndpointsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOutpostsWithS3Request {
   /**
    * <p>When you can get additional results from the <code>ListOutpostsWithS3</code> call, a
@@ -354,6 +400,7 @@ export interface ListOutpostsWithS3Request {
 }
 
 /**
+ * @public
  * <p>Contains the details for the Outpost object.</p>
  */
 export interface Outpost {
@@ -378,6 +425,9 @@ export interface Outpost {
   CapacityInBytes?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListOutpostsWithS3Result {
   /**
    * <p>Returns the list of Outposts that have the following characteristics:</p>
@@ -401,6 +451,9 @@ export interface ListOutpostsWithS3Result {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSharedEndpointsRequest {
   /**
    * <p>If a previous response from this operation included a <code>NextToken</code> value, you
@@ -419,6 +472,9 @@ export interface ListSharedEndpointsRequest {
   OutpostId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSharedEndpointsResult {
   /**
    * <p>The list of endpoints associated with the specified Outpost that have been shared by Amazon Web Services Resource Access Manager (RAM).</p>
@@ -431,94 +487,3 @@ export interface ListSharedEndpointsResult {
    */
   NextToken?: string;
 }
-
-/**
- * @internal
- */
-export const CreateEndpointRequestFilterSensitiveLog = (obj: CreateEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEndpointResultFilterSensitiveLog = (obj: CreateEndpointResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEndpointRequestFilterSensitiveLog = (obj: DeleteEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailedReasonFilterSensitiveLog = (obj: FailedReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEndpointsRequestFilterSensitiveLog = (obj: ListEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEndpointsResultFilterSensitiveLog = (obj: ListEndpointsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOutpostsWithS3RequestFilterSensitiveLog = (obj: ListOutpostsWithS3Request): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutpostFilterSensitiveLog = (obj: Outpost): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOutpostsWithS3ResultFilterSensitiveLog = (obj: ListOutpostsWithS3Result): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSharedEndpointsRequestFilterSensitiveLog = (obj: ListSharedEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSharedEndpointsResultFilterSensitiveLog = (obj: ListSharedEndpointsResult): any => ({
-  ...obj,
-});

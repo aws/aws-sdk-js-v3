@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  UpdateConnectorDefinitionRequest,
-  UpdateConnectorDefinitionRequestFilterSensitiveLog,
-  UpdateConnectorDefinitionResponse,
-  UpdateConnectorDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConnectorDefinitionCommand,
-  serializeAws_restJson1UpdateConnectorDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateConnectorDefinitionRequest, UpdateConnectorDefinitionResponse } from "../models/models_0";
+import { de_UpdateConnectorDefinitionCommand, se_UpdateConnectorDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectorDefinitionCommand}.
  */
 export interface UpdateConnectorDefinitionCommandInput extends UpdateConnectorDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectorDefinitionCommand}.
  */
 export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates a connector definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorD
  * import { GreengrassClient, UpdateConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // UpdateConnectorDefinitionRequest
+ *   ConnectorDefinitionId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateConnectorDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectorDefinitionCommandInput - {@link UpdateConnectorDefinitionCommandInput}
+ * @returns {@link UpdateConnectorDefinitionCommandOutput}
  * @see {@link UpdateConnectorDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectorDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +75,9 @@ export class UpdateConnectorDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectorDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class UpdateConnectorDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectorDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectorDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +117,21 @@ export class UpdateConnectorDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectorDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConnectorDefinitionCommand(input, context);
+    return se_UpdateConnectorDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConnectorDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateConnectorDefinitionCommand(output, context);
+    return de_UpdateConnectorDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

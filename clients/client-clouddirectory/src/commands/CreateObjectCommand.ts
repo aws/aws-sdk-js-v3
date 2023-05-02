@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  CreateObjectRequest,
-  CreateObjectRequestFilterSensitiveLog,
-  CreateObjectResponse,
-  CreateObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateObjectCommand,
-  serializeAws_restJson1CreateObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateObjectRequest, CreateObjectResponse } from "../models/models_0";
+import { de_CreateObjectCommand, se_CreateObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateObjectCommand}.
  */
 export interface CreateObjectCommandInput extends CreateObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateObjectCommand}.
  */
 export interface CreateObjectCommandOutput extends CreateObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an object in a <a>Directory</a>. Additionally attaches the object to
  *       a parent, if a parent reference and <code>LinkName</code> is specified. An object is simply a
  *       collection of <a>Facet</a> attributes. You can also use this API call to create a
@@ -45,10 +42,41 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  * import { CloudDirectoryClient, CreateObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // CreateObjectRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   SchemaFacets: [ // SchemaFacetList // required
+ *     { // SchemaFacet
+ *       SchemaArn: "STRING_VALUE",
+ *       FacetName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ObjectAttributeList: [ // AttributeKeyAndValueList
+ *     { // AttributeKeyAndValue
+ *       Key: { // AttributeKey
+ *         SchemaArn: "STRING_VALUE", // required
+ *         FacetName: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       Value: { // TypedAttributeValue Union: only one key present
+ *         StringValue: "STRING_VALUE",
+ *         BinaryValue: "BLOB_VALUE",
+ *         BooleanValue: true || false,
+ *         NumberValue: "STRING_VALUE",
+ *         DatetimeValue: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *   ],
+ *   ParentReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   LinkName: "STRING_VALUE",
+ * };
  * const command = new CreateObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateObjectCommandInput - {@link CreateObjectCommandInput}
+ * @returns {@link CreateObjectCommandOutput}
  * @see {@link CreateObjectCommandInput} for command's `input` shape.
  * @see {@link CreateObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -108,6 +136,9 @@ export class CreateObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +165,8 @@ export class CreateObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateObjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +176,18 @@ export class CreateObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateObjectCommand(input, context);
+    return se_CreateObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateObjectCommandOutput> {
-    return deserializeAws_restJson1CreateObjectCommand(output, context);
+    return de_CreateObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

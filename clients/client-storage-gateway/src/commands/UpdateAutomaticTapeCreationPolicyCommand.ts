@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateAutomaticTapeCreationPolicyInput, UpdateAutomaticTapeCreationPolicyOutput } from "../models/models_0";
 import {
-  UpdateAutomaticTapeCreationPolicyInput,
-  UpdateAutomaticTapeCreationPolicyInputFilterSensitiveLog,
-  UpdateAutomaticTapeCreationPolicyOutput,
-  UpdateAutomaticTapeCreationPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand,
-  serializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand,
+  de_UpdateAutomaticTapeCreationPolicyCommand,
+  se_UpdateAutomaticTapeCreationPolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAutomaticTapeCreationPolicyCommand}.
  */
 export interface UpdateAutomaticTapeCreationPolicyCommandInput extends UpdateAutomaticTapeCreationPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAutomaticTapeCreationPolicyCommand}.
  */
 export interface UpdateAutomaticTapeCreationPolicyCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the automatic tape creation policy of a gateway. Use this to update the policy
  *          with a new set of automatic tape creation rules. This is only supported for tape
  *          gateways.</p>
@@ -52,10 +52,24 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput
  * import { StorageGatewayClient, UpdateAutomaticTapeCreationPolicyCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateAutomaticTapeCreationPolicyCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // UpdateAutomaticTapeCreationPolicyInput
+ *   AutomaticTapeCreationRules: [ // AutomaticTapeCreationRules // required
+ *     { // AutomaticTapeCreationRule
+ *       TapeBarcodePrefix: "STRING_VALUE", // required
+ *       PoolId: "STRING_VALUE", // required
+ *       TapeSizeInBytes: Number("long"), // required
+ *       MinimumNumTapes: Number("int"), // required
+ *       Worm: true || false,
+ *     },
+ *   ],
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new UpdateAutomaticTapeCreationPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAutomaticTapeCreationPolicyCommandInput - {@link UpdateAutomaticTapeCreationPolicyCommandInput}
+ * @returns {@link UpdateAutomaticTapeCreationPolicyCommandOutput}
  * @see {@link UpdateAutomaticTapeCreationPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAutomaticTapeCreationPolicyCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -87,6 +101,9 @@ export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAutomaticTapeCreationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +132,8 @@ export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAutomaticTapeCreationPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAutomaticTapeCreationPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +143,24 @@ export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateAutomaticTapeCreationPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand(input, context);
+    return se_UpdateAutomaticTapeCreationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAutomaticTapeCreationPolicyCommandOutput> {
-    return deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand(output, context);
+    return de_UpdateAutomaticTapeCreationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

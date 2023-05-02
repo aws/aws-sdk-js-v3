@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRoutingControlStatesRequest,
-  UpdateRoutingControlStatesRequestFilterSensitiveLog,
-  UpdateRoutingControlStatesResponse,
-  UpdateRoutingControlStatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateRoutingControlStatesCommand,
-  serializeAws_json1_0UpdateRoutingControlStatesCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateRoutingControlStatesRequest, UpdateRoutingControlStatesResponse } from "../models/models_0";
+import { de_UpdateRoutingControlStatesCommand, se_UpdateRoutingControlStatesCommand } from "../protocols/Aws_json1_0";
 import {
   Route53RecoveryClusterClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryClusterClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoutingControlStatesCommand}.
  */
 export interface UpdateRoutingControlStatesCommandInput extends UpdateRoutingControlStatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoutingControlStatesCommand}.
  */
 export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingControlStatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set multiple routing control states. You can set the value for each state to be On or Off.
  * 			When the state is On, traffic flows to a cell. When it's Off, traffic does not
  * 			flow.</p>
@@ -79,10 +76,23 @@ export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingCo
  * import { Route53RecoveryClusterClient, UpdateRoutingControlStatesCommand } from "@aws-sdk/client-route53-recovery-cluster"; // ES Modules import
  * // const { Route53RecoveryClusterClient, UpdateRoutingControlStatesCommand } = require("@aws-sdk/client-route53-recovery-cluster"); // CommonJS import
  * const client = new Route53RecoveryClusterClient(config);
+ * const input = { // UpdateRoutingControlStatesRequest
+ *   UpdateRoutingControlStateEntries: [ // UpdateRoutingControlStateEntries // required
+ *     { // UpdateRoutingControlStateEntry
+ *       RoutingControlArn: "STRING_VALUE", // required
+ *       RoutingControlState: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   SafetyRulesToOverride: [ // Arns
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateRoutingControlStatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoutingControlStatesCommandInput - {@link UpdateRoutingControlStatesCommandInput}
+ * @returns {@link UpdateRoutingControlStatesCommandOutput}
  * @see {@link UpdateRoutingControlStatesCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingControlStatesCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.
@@ -130,6 +140,9 @@ export class UpdateRoutingControlStatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoutingControlStatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,8 +171,8 @@ export class UpdateRoutingControlStatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoutingControlStatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRoutingControlStatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -169,15 +182,21 @@ export class UpdateRoutingControlStatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoutingControlStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateRoutingControlStatesCommand(input, context);
+    return se_UpdateRoutingControlStatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRoutingControlStatesCommandOutput> {
-    return deserializeAws_json1_0UpdateRoutingControlStatesCommand(output, context);
+    return de_UpdateRoutingControlStatesCommand(output, context);
   }
 
   // Start section: command_body_extra

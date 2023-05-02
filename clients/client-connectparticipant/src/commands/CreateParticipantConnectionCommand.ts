@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
+import { CreateParticipantConnectionRequest, CreateParticipantConnectionResponse } from "../models/models_0";
 import {
-  CreateParticipantConnectionRequest,
-  CreateParticipantConnectionRequestFilterSensitiveLog,
-  CreateParticipantConnectionResponse,
-  CreateParticipantConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateParticipantConnectionCommand,
-  serializeAws_restJson1CreateParticipantConnectionCommand,
+  de_CreateParticipantConnectionCommand,
+  se_CreateParticipantConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateParticipantConnectionCommand}.
  */
 export interface CreateParticipantConnectionCommandInput extends CreateParticipantConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateParticipantConnectionCommand}.
  */
 export interface CreateParticipantConnectionCommandOutput
@@ -41,6 +40,7 @@ export interface CreateParticipantConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the participant's connection. </p>
  *          <note>
  *             <p>
@@ -55,7 +55,7 @@ export interface CreateParticipantConnectionCommandOutput
  *          <p>For chat, you need to publish the following on the established websocket
  *             connection:</p>
  *          <p>
- *             <code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code>
+ *             <code>\{"topic":"aws/subscribe","content":\{"topics":["aws/chat"]\}\}</code>
  *          </p>
  *          <p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,
  *             clients need to call this API again to obtain a new websocket URL and perform the same
@@ -82,10 +82,19 @@ export interface CreateParticipantConnectionCommandOutput
  * import { ConnectParticipantClient, CreateParticipantConnectionCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, CreateParticipantConnectionCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
+ * const input = { // CreateParticipantConnectionRequest
+ *   Type: [ // ConnectionTypeList
+ *     "WEBSOCKET" || "CONNECTION_CREDENTIALS",
+ *   ],
+ *   ParticipantToken: "STRING_VALUE", // required
+ *   ConnectParticipant: true || false,
+ * };
  * const command = new CreateParticipantConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateParticipantConnectionCommandInput - {@link CreateParticipantConnectionCommandInput}
+ * @returns {@link CreateParticipantConnectionCommandOutput}
  * @see {@link CreateParticipantConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateParticipantConnectionCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
@@ -121,6 +130,9 @@ export class CreateParticipantConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateParticipantConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +161,8 @@ export class CreateParticipantConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateParticipantConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateParticipantConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,15 +172,21 @@ export class CreateParticipantConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateParticipantConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateParticipantConnectionCommand(input, context);
+    return se_CreateParticipantConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateParticipantConnectionCommandOutput> {
-    return deserializeAws_restJson1CreateParticipantConnectionCommand(output, context);
+    return de_CreateParticipantConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

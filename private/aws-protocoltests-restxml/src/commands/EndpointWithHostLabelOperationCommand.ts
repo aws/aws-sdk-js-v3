@@ -12,18 +12,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HostLabelInput, HostLabelInputFilterSensitiveLog } from "../models/models_0";
+import { HostLabelInput } from "../models/models_0";
 import {
-  deserializeAws_restXmlEndpointWithHostLabelOperationCommand,
-  serializeAws_restXmlEndpointWithHostLabelOperationCommand,
+  de_EndpointWithHostLabelOperationCommand,
+  se_EndpointWithHostLabelOperationCommand,
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link EndpointWithHostLabelOperationCommand}.
  */
 export interface EndpointWithHostLabelOperationCommandInput extends HostLabelInput {}
 /**
+ * @public
+ *
  * The output of {@link EndpointWithHostLabelOperationCommand}.
  */
 export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataBearer {}
@@ -36,6 +40,9 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: EndpointWithHostLabelOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HostLabelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,18 +79,24 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EndpointWithHostLabelOperationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlEndpointWithHostLabelOperationCommand(input, context);
+    return se_EndpointWithHostLabelOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EndpointWithHostLabelOperationCommandOutput> {
-    return deserializeAws_restXmlEndpointWithHostLabelOperationCommand(output, context);
+    return de_EndpointWithHostLabelOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

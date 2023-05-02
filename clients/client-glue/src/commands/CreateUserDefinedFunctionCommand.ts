@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateUserDefinedFunctionRequest,
-  CreateUserDefinedFunctionRequestFilterSensitiveLog,
-  CreateUserDefinedFunctionResponse,
-  CreateUserDefinedFunctionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateUserDefinedFunctionCommand,
-  serializeAws_json1_1CreateUserDefinedFunctionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateUserDefinedFunctionRequest, CreateUserDefinedFunctionResponse } from "../models/models_1";
+import { de_CreateUserDefinedFunctionCommand, se_CreateUserDefinedFunctionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserDefinedFunctionCommand}.
  */
 export interface CreateUserDefinedFunctionCommandInput extends CreateUserDefinedFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserDefinedFunctionCommand}.
  */
 export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new function definition in the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefine
  * import { GlueClient, CreateUserDefinedFunctionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateUserDefinedFunctionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateUserDefinedFunctionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   FunctionInput: { // UserDefinedFunctionInput
+ *     FunctionName: "STRING_VALUE",
+ *     ClassName: "STRING_VALUE",
+ *     OwnerName: "STRING_VALUE",
+ *     OwnerType: "USER" || "ROLE" || "GROUP",
+ *     ResourceUris: [ // ResourceUriList
+ *       { // ResourceUri
+ *         ResourceType: "JAR" || "FILE" || "ARCHIVE",
+ *         Uri: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserDefinedFunctionCommandInput - {@link CreateUserDefinedFunctionCommandInput}
+ * @returns {@link CreateUserDefinedFunctionCommandOutput}
  * @see {@link CreateUserDefinedFunctionCommandInput} for command's `input` shape.
  * @see {@link CreateUserDefinedFunctionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -90,6 +105,9 @@ export class CreateUserDefinedFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserDefinedFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +136,8 @@ export class CreateUserDefinedFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserDefinedFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserDefinedFunctionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +147,21 @@ export class CreateUserDefinedFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserDefinedFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUserDefinedFunctionCommand(input, context);
+    return se_CreateUserDefinedFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateUserDefinedFunctionCommandOutput> {
-    return deserializeAws_json1_1CreateUserDefinedFunctionCommand(output, context);
+    return de_CreateUserDefinedFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteServerRequest,
-  DeleteServerRequestFilterSensitiveLog,
-  DeleteServerResponse,
-  DeleteServerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteServerRequest, DeleteServerResponse } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1DeleteServerCommand,
-  serializeAws_json1_1DeleteServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteServerCommand, se_DeleteServerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServerCommand}.
  */
 export interface DeleteServerCommandInput extends DeleteServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServerCommand}.
  */
 export interface DeleteServerCommandOutput extends DeleteServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes the server and the underlying AWS CloudFormation stacks
  *       (including the server's EC2 instance). When you run this command, the server state is updated
@@ -57,10 +54,15 @@ export interface DeleteServerCommandOutput extends DeleteServerResponse, __Metad
  * import { OpsWorksCMClient, DeleteServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DeleteServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // DeleteServerRequest
+ *   ServerName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServerCommandInput - {@link DeleteServerCommandInput}
+ * @returns {@link DeleteServerCommandOutput}
  * @see {@link DeleteServerCommandInput} for command's `input` shape.
  * @see {@link DeleteServerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -96,6 +98,9 @@ export class DeleteServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +127,8 @@ export class DeleteServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteServerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +138,18 @@ export class DeleteServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteServerCommand(input, context);
+    return se_DeleteServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServerCommandOutput> {
-    return deserializeAws_json1_1DeleteServerCommand(output, context);
+    return de_DeleteServerCommand(output, context);
   }
 
   // Start section: command_body_extra

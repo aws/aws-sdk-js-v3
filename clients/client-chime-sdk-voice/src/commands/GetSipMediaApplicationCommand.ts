@@ -16,24 +16,70 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   GetSipMediaApplicationRequest,
-  GetSipMediaApplicationRequestFilterSensitiveLog,
   GetSipMediaApplicationResponse,
   GetSipMediaApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSipMediaApplicationCommand,
-  serializeAws_restJson1GetSipMediaApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSipMediaApplicationCommand, se_GetSipMediaApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSipMediaApplicationCommand}.
  */
 export interface GetSipMediaApplicationCommandInput extends GetSipMediaApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSipMediaApplicationCommand}.
  */
 export interface GetSipMediaApplicationCommandOutput extends GetSipMediaApplicationResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Retrieves the information for a SIP media application, including name,
+ *          AWS Region, and endpoints.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, GetSipMediaApplicationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetSipMediaApplicationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // GetSipMediaApplicationRequest
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ * };
+ * const command = new GetSipMediaApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param GetSipMediaApplicationCommandInput - {@link GetSipMediaApplicationCommandInput}
+ * @returns {@link GetSipMediaApplicationCommandOutput}
+ * @see {@link GetSipMediaApplicationCommandInput} for command's `input` shape.
+ * @see {@link GetSipMediaApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class GetSipMediaApplicationCommand extends $Command<
   GetSipMediaApplicationCommandInput,
   GetSipMediaApplicationCommandOutput,
@@ -51,6 +97,9 @@ export class GetSipMediaApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSipMediaApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,7 +128,7 @@ export class GetSipMediaApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSipMediaApplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSipMediaApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -90,12 +139,18 @@ export class GetSipMediaApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSipMediaApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSipMediaApplicationCommand(input, context);
+    return se_GetSipMediaApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSipMediaApplicationCommandOutput> {
-    return deserializeAws_restJson1GetSipMediaApplicationCommand(output, context);
+    return de_GetSipMediaApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

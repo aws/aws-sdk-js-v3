@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import {
-  ListRegionsRequest,
-  ListRegionsRequestFilterSensitiveLog,
-  ListRegionsResponse,
-  ListRegionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRegionsCommand,
-  serializeAws_restJson1ListRegionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRegionsRequest, ListRegionsResponse } from "../models/models_0";
+import { de_ListRegionsCommand, se_ListRegionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRegionsCommand}.
  */
 export interface ListRegionsCommandInput extends ListRegionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRegionsCommand}.
  */
 export interface ListRegionsCommandOutput extends ListRegionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the Regions for a given account and their respective opt-in statuses.
  *             Optionally, this list can be filtered by the <code>region-opt-status-contains</code>
  *             parameter. </p>
@@ -44,10 +41,20 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * import { AccountClient, ListRegionsCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, ListRegionsCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
+ * const input = { // ListRegionsRequest
+ *   AccountId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RegionOptStatusContains: [ // RegionOptStatusList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListRegionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRegionsCommandInput - {@link ListRegionsCommandInput}
+ * @returns {@link ListRegionsCommandOutput}
  * @see {@link ListRegionsCommandInput} for command's `input` shape.
  * @see {@link ListRegionsCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListRegionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class ListRegionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRegionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRegionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +133,18 @@ export class ListRegionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRegionsCommand(input, context);
+    return se_ListRegionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegionsCommandOutput> {
-    return deserializeAws_restJson1ListRegionsCommand(output, context);
+    return de_ListRegionsCommand(output, context);
   }
 
   // Start section: command_body_extra

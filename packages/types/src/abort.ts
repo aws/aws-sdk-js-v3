@@ -23,7 +23,7 @@ export interface AbortSignal {
    * A function to be invoked when the action represented by this signal has
    * been cancelled.
    */
-  onabort: AbortHandler | null;
+  onabort: AbortHandler | Function | null;
 }
 
 /**

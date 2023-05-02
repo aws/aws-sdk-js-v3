@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  ListProtectedQueriesInput,
-  ListProtectedQueriesInputFilterSensitiveLog,
-  ListProtectedQueriesOutput,
-  ListProtectedQueriesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProtectedQueriesCommand,
-  serializeAws_restJson1ListProtectedQueriesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProtectedQueriesInput, ListProtectedQueriesOutput } from "../models/models_0";
+import { de_ListProtectedQueriesCommand, se_ListProtectedQueriesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProtectedQueriesCommand}.
  */
 export interface ListProtectedQueriesCommandInput extends ListProtectedQueriesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListProtectedQueriesCommand}.
  */
 export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists protected queries, sorted by the most recent query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  * import { CleanRoomsClient, ListProtectedQueriesCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListProtectedQueriesCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // ListProtectedQueriesInput
+ *   membershipIdentifier: "STRING_VALUE", // required
+ *   status: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListProtectedQueriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProtectedQueriesCommandInput - {@link ListProtectedQueriesCommandInput}
+ * @returns {@link ListProtectedQueriesCommandOutput}
  * @see {@link ListProtectedQueriesCommandInput} for command's `input` shape.
  * @see {@link ListProtectedQueriesCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -84,6 +89,9 @@ export class ListProtectedQueriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProtectedQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class ListProtectedQueriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProtectedQueriesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProtectedQueriesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class ListProtectedQueriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProtectedQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProtectedQueriesCommand(input, context);
+    return se_ListProtectedQueriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtectedQueriesCommandOutput> {
-    return deserializeAws_restJson1ListProtectedQueriesCommand(output, context);
+    return de_ListProtectedQueriesCommand(output, context);
   }
 
   // Start section: command_body_extra

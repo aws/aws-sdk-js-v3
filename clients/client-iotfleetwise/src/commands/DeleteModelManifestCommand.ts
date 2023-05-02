@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  DeleteModelManifestRequest,
-  DeleteModelManifestRequestFilterSensitiveLog,
-  DeleteModelManifestResponse,
-  DeleteModelManifestResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteModelManifestCommand,
-  serializeAws_json1_0DeleteModelManifestCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteModelManifestRequest, DeleteModelManifestResponse } from "../models/models_0";
+import { de_DeleteModelManifestCommand, se_DeleteModelManifestCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelManifestCommand}.
  */
 export interface DeleteModelManifestCommandInput extends DeleteModelManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelManifestCommand}.
  */
 export interface DeleteModelManifestCommandOutput extends DeleteModelManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a vehicle model (model manifest).</p>
  *         <note>
  *             <p>If the vehicle model is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200
@@ -46,10 +43,15 @@ export interface DeleteModelManifestCommandOutput extends DeleteModelManifestRes
  * import { IoTFleetWiseClient, DeleteModelManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, DeleteModelManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // DeleteModelManifestRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteModelManifestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelManifestCommandInput - {@link DeleteModelManifestCommandInput}
+ * @returns {@link DeleteModelManifestCommandOutput}
  * @see {@link DeleteModelManifestCommandInput} for command's `input` shape.
  * @see {@link DeleteModelManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -89,6 +91,9 @@ export class DeleteModelManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class DeleteModelManifestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelManifestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteModelManifestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class DeleteModelManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteModelManifestCommand(input, context);
+    return se_DeleteModelManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelManifestCommandOutput> {
-    return deserializeAws_json1_0DeleteModelManifestCommand(output, context);
+    return de_DeleteModelManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

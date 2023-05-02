@@ -16,25 +16,26 @@ import {
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import {
   DescribeEdgeConfigurationInput,
-  DescribeEdgeConfigurationInputFilterSensitiveLog,
   DescribeEdgeConfigurationOutput,
   DescribeEdgeConfigurationOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeEdgeConfigurationCommand,
-  serializeAws_restJson1DescribeEdgeConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeEdgeConfigurationCommand, se_DescribeEdgeConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEdgeConfigurationCommand}.
  */
 export interface DescribeEdgeConfigurationCommandInput extends DescribeEdgeConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEdgeConfigurationCommand}.
  */
 export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API.
  *              Use this API to get the status of the configuration if the configuration is in sync with the
  *             Edge Agent.</p>
@@ -44,10 +45,16 @@ export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConf
  * import { KinesisVideoClient, DescribeEdgeConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeEdgeConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // DescribeEdgeConfigurationInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new DescribeEdgeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEdgeConfigurationCommandInput - {@link DescribeEdgeConfigurationCommandInput}
+ * @returns {@link DescribeEdgeConfigurationCommandOutput}
  * @see {@link DescribeEdgeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeEdgeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeEdgeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEdgeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +126,7 @@ export class DescribeEdgeConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEdgeConfigurationInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeEdgeConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -127,15 +137,21 @@ export class DescribeEdgeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEdgeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeEdgeConfigurationCommand(input, context);
+    return se_DescribeEdgeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEdgeConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeEdgeConfigurationCommand(output, context);
+    return de_DescribeEdgeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

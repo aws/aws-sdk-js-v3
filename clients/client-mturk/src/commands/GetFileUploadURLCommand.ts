@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetFileUploadURLRequest,
-  GetFileUploadURLRequestFilterSensitiveLog,
-  GetFileUploadURLResponse,
-  GetFileUploadURLResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetFileUploadURLRequest, GetFileUploadURLResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1GetFileUploadURLCommand,
-  serializeAws_json1_1GetFileUploadURLCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetFileUploadURLCommand, se_GetFileUploadURLCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFileUploadURLCommand}.
  */
 export interface GetFileUploadURLCommandInput extends GetFileUploadURLRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFileUploadURLCommand}.
  */
 export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>GetFileUploadURL</code>
@@ -59,10 +56,16 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  * import { MTurkClient, GetFileUploadURLCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, GetFileUploadURLCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // GetFileUploadURLRequest
+ *   AssignmentId: "STRING_VALUE", // required
+ *   QuestionIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetFileUploadURLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFileUploadURLCommandInput - {@link GetFileUploadURLCommandInput}
+ * @returns {@link GetFileUploadURLCommandOutput}
  * @see {@link GetFileUploadURLCommandInput} for command's `input` shape.
  * @see {@link GetFileUploadURLCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -92,6 +95,9 @@ export class GetFileUploadURLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFileUploadURLCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +126,8 @@ export class GetFileUploadURLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFileUploadURLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFileUploadURLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +137,18 @@ export class GetFileUploadURLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFileUploadURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFileUploadURLCommand(input, context);
+    return se_GetFileUploadURLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFileUploadURLCommandOutput> {
-    return deserializeAws_json1_1GetFileUploadURLCommand(output, context);
+    return de_GetFileUploadURLCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeReplaceRootVolumeTasksRequest, DescribeReplaceRootVolumeTasksResult } from "../models/models_4";
 import {
-  DescribeReplaceRootVolumeTasksRequest,
-  DescribeReplaceRootVolumeTasksRequestFilterSensitiveLog,
-  DescribeReplaceRootVolumeTasksResult,
-  DescribeReplaceRootVolumeTasksResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeReplaceRootVolumeTasksCommand,
-  serializeAws_ec2DescribeReplaceRootVolumeTasksCommand,
+  de_DescribeReplaceRootVolumeTasksCommand,
+  se_DescribeReplaceRootVolumeTasksCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplaceRootVolumeTasksCommand}.
  */
 export interface DescribeReplaceRootVolumeTasksCommandInput extends DescribeReplaceRootVolumeTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplaceRootVolumeTasksCommand}.
  */
 export interface DescribeReplaceRootVolumeTasksCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a root volume replacement task. For more information, see
  *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -45,10 +45,28 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
  * import { EC2Client, DescribeReplaceRootVolumeTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeReplaceRootVolumeTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeReplaceRootVolumeTasksRequest
+ *   ReplaceRootVolumeTaskIds: [ // ReplaceRootVolumeTaskIds
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeReplaceRootVolumeTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplaceRootVolumeTasksCommandInput - {@link DescribeReplaceRootVolumeTasksCommandInput}
+ * @returns {@link DescribeReplaceRootVolumeTasksCommandOutput}
  * @see {@link DescribeReplaceRootVolumeTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeReplaceRootVolumeTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +90,9 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplaceRootVolumeTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +121,8 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplaceRootVolumeTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplaceRootVolumeTasksResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +132,24 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplaceRootVolumeTasksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeReplaceRootVolumeTasksCommand(input, context);
+    return se_DescribeReplaceRootVolumeTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplaceRootVolumeTasksCommandOutput> {
-    return deserializeAws_ec2DescribeReplaceRootVolumeTasksCommand(output, context);
+    return de_DescribeReplaceRootVolumeTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

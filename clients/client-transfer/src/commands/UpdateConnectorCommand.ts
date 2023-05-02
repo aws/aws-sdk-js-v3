@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateConnectorRequest,
-  UpdateConnectorRequestFilterSensitiveLog,
-  UpdateConnectorResponse,
-  UpdateConnectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateConnectorCommand,
-  serializeAws_json1_1UpdateConnectorCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateConnectorRequest, UpdateConnectorResponse } from "../models/models_0";
+import { de_UpdateConnectorCommand, se_UpdateConnectorCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectorCommand}.
  */
 export interface UpdateConnectorCommandInput extends UpdateConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectorCommand}.
  */
 export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates some of the parameters for an existing connector. Provide the
  *         <code>ConnectorId</code> for the connector that you want to update, along with the new
  *       values for the parameters to update.</p>
@@ -44,10 +41,28 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * import { TransferClient, UpdateConnectorCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateConnectorCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // UpdateConnectorRequest
+ *   ConnectorId: "STRING_VALUE", // required
+ *   Url: "STRING_VALUE",
+ *   As2Config: { // As2ConnectorConfig
+ *     LocalProfileId: "STRING_VALUE",
+ *     PartnerProfileId: "STRING_VALUE",
+ *     MessageSubject: "STRING_VALUE",
+ *     Compression: "ZLIB" || "DISABLED",
+ *     EncryptionAlgorithm: "AES128_CBC" || "AES192_CBC" || "AES256_CBC" || "NONE",
+ *     SigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE",
+ *     MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
+ *     MdnResponse: "SYNC" || "NONE",
+ *   },
+ *   AccessRole: "STRING_VALUE",
+ *   LoggingRole: "STRING_VALUE",
+ * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectorCommandInput - {@link UpdateConnectorCommandInput}
+ * @returns {@link UpdateConnectorCommandOutput}
  * @see {@link UpdateConnectorCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectorCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -90,6 +105,9 @@ export class UpdateConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +136,8 @@ export class UpdateConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +147,18 @@ export class UpdateConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConnectorCommand(input, context);
+    return se_UpdateConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectorCommandOutput> {
-    return deserializeAws_json1_1UpdateConnectorCommand(output, context);
+    return de_UpdateConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

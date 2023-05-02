@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetLoadBalancerTlsCertificatesRequest, GetLoadBalancerTlsCertificatesResult } from "../models/models_1";
 import {
-  GetLoadBalancerTlsCertificatesRequest,
-  GetLoadBalancerTlsCertificatesRequestFilterSensitiveLog,
-  GetLoadBalancerTlsCertificatesResult,
-  GetLoadBalancerTlsCertificatesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommand,
-  serializeAws_json1_1GetLoadBalancerTlsCertificatesCommand,
+  de_GetLoadBalancerTlsCertificatesCommand,
+  se_GetLoadBalancerTlsCertificatesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLoadBalancerTlsCertificatesCommand}.
  */
 export interface GetLoadBalancerTlsCertificatesCommandInput extends GetLoadBalancerTlsCertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLoadBalancerTlsCertificatesCommand}.
  */
 export interface GetLoadBalancerTlsCertificatesCommandOutput
@@ -37,6 +36,7 @@ export interface GetLoadBalancerTlsCertificatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the TLS certificates that are associated with the specified
  *       Lightsail load balancer.</p>
  *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
@@ -48,10 +48,15 @@ export interface GetLoadBalancerTlsCertificatesCommandOutput
  * import { LightsailClient, GetLoadBalancerTlsCertificatesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetLoadBalancerTlsCertificatesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetLoadBalancerTlsCertificatesRequest
+ *   loadBalancerName: "STRING_VALUE", // required
+ * };
  * const command = new GetLoadBalancerTlsCertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoadBalancerTlsCertificatesCommandInput - {@link GetLoadBalancerTlsCertificatesCommandInput}
+ * @returns {@link GetLoadBalancerTlsCertificatesCommandOutput}
  * @see {@link GetLoadBalancerTlsCertificatesCommandInput} for command's `input` shape.
  * @see {@link GetLoadBalancerTlsCertificatesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -105,6 +110,9 @@ export class GetLoadBalancerTlsCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoadBalancerTlsCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +141,8 @@ export class GetLoadBalancerTlsCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLoadBalancerTlsCertificatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLoadBalancerTlsCertificatesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,18 +152,24 @@ export class GetLoadBalancerTlsCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetLoadBalancerTlsCertificatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLoadBalancerTlsCertificatesCommand(input, context);
+    return se_GetLoadBalancerTlsCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLoadBalancerTlsCertificatesCommandOutput> {
-    return deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommand(output, context);
+    return de_GetLoadBalancerTlsCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

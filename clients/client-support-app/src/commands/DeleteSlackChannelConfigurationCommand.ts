@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteSlackChannelConfigurationRequest, DeleteSlackChannelConfigurationResult } from "../models/models_0";
 import {
-  DeleteSlackChannelConfigurationRequest,
-  DeleteSlackChannelConfigurationRequestFilterSensitiveLog,
-  DeleteSlackChannelConfigurationResult,
-  DeleteSlackChannelConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSlackChannelConfigurationCommand,
-  serializeAws_restJson1DeleteSlackChannelConfigurationCommand,
+  de_DeleteSlackChannelConfigurationCommand,
+  se_DeleteSlackChannelConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSlackChannelConfigurationCommand}.
  */
 export interface DeleteSlackChannelConfigurationCommandInput extends DeleteSlackChannelConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSlackChannelConfigurationCommand}.
  */
 export interface DeleteSlackChannelConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteSlackChannelConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Slack channel configuration from your Amazon Web Services account. This operation doesn't
  *       delete your Slack channel.</p>
  * @example
@@ -45,10 +45,16 @@ export interface DeleteSlackChannelConfigurationCommandOutput
  * import { SupportAppClient, DeleteSlackChannelConfigurationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, DeleteSlackChannelConfigurationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = { // DeleteSlackChannelConfigurationRequest
+ *   teamId: "STRING_VALUE", // required
+ *   channelId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSlackChannelConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSlackChannelConfigurationCommandInput - {@link DeleteSlackChannelConfigurationCommandInput}
+ * @returns {@link DeleteSlackChannelConfigurationCommandOutput}
  * @see {@link DeleteSlackChannelConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSlackChannelConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -114,6 +120,9 @@ export class DeleteSlackChannelConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSlackChannelConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +151,8 @@ export class DeleteSlackChannelConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSlackChannelConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSlackChannelConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,18 +162,24 @@ export class DeleteSlackChannelConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteSlackChannelConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSlackChannelConfigurationCommand(input, context);
+    return se_DeleteSlackChannelConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSlackChannelConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteSlackChannelConfigurationCommand(output, context);
+    return de_DeleteSlackChannelConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

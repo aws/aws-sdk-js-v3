@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  ListAssessmentRunAgentsRequest,
-  ListAssessmentRunAgentsRequestFilterSensitiveLog,
-  ListAssessmentRunAgentsResponse,
-  ListAssessmentRunAgentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAssessmentRunAgentsCommand,
-  serializeAws_json1_1ListAssessmentRunAgentsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAssessmentRunAgentsRequest, ListAssessmentRunAgentsResponse } from "../models/models_0";
+import { de_ListAssessmentRunAgentsCommand, se_ListAssessmentRunAgentsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssessmentRunAgentsCommand}.
  */
 export interface ListAssessmentRunAgentsCommandInput extends ListAssessmentRunAgentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssessmentRunAgentsCommand}.
  */
 export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunAgentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the agents of the assessment runs that are specified by the ARNs of the
  *          assessment runs.</p>
  * @example
@@ -43,10 +40,25 @@ export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunA
  * import { InspectorClient, ListAssessmentRunAgentsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListAssessmentRunAgentsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // ListAssessmentRunAgentsRequest
+ *   assessmentRunArn: "STRING_VALUE", // required
+ *   filter: { // AgentFilter
+ *     agentHealths: [ // AgentHealthList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     agentHealthCodes: [ // AgentHealthCodeList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentRunAgentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssessmentRunAgentsCommandInput - {@link ListAssessmentRunAgentsCommandInput}
+ * @returns {@link ListAssessmentRunAgentsCommandOutput}
  * @see {@link ListAssessmentRunAgentsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentRunAgentsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -256,6 +268,9 @@ export class ListAssessmentRunAgentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssessmentRunAgentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -284,8 +299,8 @@ export class ListAssessmentRunAgentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssessmentRunAgentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssessmentRunAgentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -295,12 +310,18 @@ export class ListAssessmentRunAgentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssessmentRunAgentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssessmentRunAgentsCommand(input, context);
+    return se_ListAssessmentRunAgentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentRunAgentsCommandOutput> {
-    return deserializeAws_json1_1ListAssessmentRunAgentsCommand(output, context);
+    return de_ListAssessmentRunAgentsCommand(output, context);
   }
 
   // Start section: command_body_extra

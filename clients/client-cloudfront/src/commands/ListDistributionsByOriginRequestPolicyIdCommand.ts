@@ -16,21 +16,23 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   ListDistributionsByOriginRequestPolicyIdRequest,
-  ListDistributionsByOriginRequestPolicyIdRequestFilterSensitiveLog,
   ListDistributionsByOriginRequestPolicyIdResult,
-  ListDistributionsByOriginRequestPolicyIdResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand,
-  serializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand,
+  de_ListDistributionsByOriginRequestPolicyIdCommand,
+  se_ListDistributionsByOriginRequestPolicyIdCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListDistributionsByOriginRequestPolicyIdCommand}.
  */
 export interface ListDistributionsByOriginRequestPolicyIdCommandInput
   extends ListDistributionsByOriginRequestPolicyIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDistributionsByOriginRequestPolicyIdCommand}.
  */
 export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
@@ -38,6 +40,7 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
  * 			associated with the specified origin request policy.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -51,10 +54,17 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
  * import { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListDistributionsByOriginRequestPolicyIdRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   OriginRequestPolicyId: "STRING_VALUE", // required
+ * };
  * const command = new ListDistributionsByOriginRequestPolicyIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsByOriginRequestPolicyIdCommandInput - {@link ListDistributionsByOriginRequestPolicyIdCommandInput}
+ * @returns {@link ListDistributionsByOriginRequestPolicyIdCommandOutput}
  * @see {@link ListDistributionsByOriginRequestPolicyIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByOriginRequestPolicyIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -87,6 +97,9 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsByOriginRequestPolicyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +134,8 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributionsByOriginRequestPolicyIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDistributionsByOriginRequestPolicyIdResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,18 +145,24 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDistributionsByOriginRequestPolicyIdCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand(input, context);
+    return se_ListDistributionsByOriginRequestPolicyIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByOriginRequestPolicyIdCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand(output, context);
+    return de_ListDistributionsByOriginRequestPolicyIdCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { GetGroupCertificateAuthorityRequest, GetGroupCertificateAuthorityResponse } from "../models/models_0";
 import {
-  GetGroupCertificateAuthorityRequest,
-  GetGroupCertificateAuthorityRequestFilterSensitiveLog,
-  GetGroupCertificateAuthorityResponse,
-  GetGroupCertificateAuthorityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGroupCertificateAuthorityCommand,
-  serializeAws_restJson1GetGroupCertificateAuthorityCommand,
+  de_GetGroupCertificateAuthorityCommand,
+  se_GetGroupCertificateAuthorityCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupCertificateAuthorityCommand}.
  */
 export interface GetGroupCertificateAuthorityCommandInput extends GetGroupCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupCertificateAuthorityCommand}.
  */
 export interface GetGroupCertificateAuthorityCommandOutput
@@ -37,6 +36,7 @@ export interface GetGroupCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Retreives the CA associated with a group. Returns the public key of the CA.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface GetGroupCertificateAuthorityCommandOutput
  * import { GreengrassClient, GetGroupCertificateAuthorityCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetGroupCertificateAuthorityCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetGroupCertificateAuthorityRequest
+ *   CertificateAuthorityId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetGroupCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupCertificateAuthorityCommandInput - {@link GetGroupCertificateAuthorityCommandInput}
+ * @returns {@link GetGroupCertificateAuthorityCommandOutput}
  * @see {@link GetGroupCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link GetGroupCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -77,6 +83,9 @@ export class GetGroupCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +114,8 @@ export class GetGroupCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupCertificateAuthorityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupCertificateAuthorityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +125,21 @@ export class GetGroupCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGroupCertificateAuthorityCommand(input, context);
+    return se_GetGroupCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGroupCertificateAuthorityCommandOutput> {
-    return deserializeAws_restJson1GetGroupCertificateAuthorityCommand(output, context);
+    return de_GetGroupCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

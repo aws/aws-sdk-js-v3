@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreSecretRequest,
-  RestoreSecretRequestFilterSensitiveLog,
-  RestoreSecretResponse,
-  RestoreSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreSecretCommand,
-  serializeAws_json1_1RestoreSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { RestoreSecretRequest, RestoreSecretResponse } from "../models/models_0";
+import { de_RestoreSecretCommand, se_RestoreSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreSecretCommand}.
  */
 export interface RestoreSecretCommandInput extends RestoreSecretRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreSecretCommand}.
  */
 export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the scheduled deletion of a secret by removing the <code>DeletedDate</code> time
  *       stamp. You can access a secret again after it has been restored.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
@@ -50,10 +47,15 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
  * import { SecretsManagerClient, RestoreSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, RestoreSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // RestoreSecretRequest
+ *   SecretId: "STRING_VALUE", // required
+ * };
  * const command = new RestoreSecretCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreSecretCommandInput - {@link RestoreSecretCommandInput}
+ * @returns {@link RestoreSecretCommandOutput}
  * @see {@link RestoreSecretCommandInput} for command's `input` shape.
  * @see {@link RestoreSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -121,6 +123,9 @@ export class RestoreSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +152,8 @@ export class RestoreSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreSecretResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,12 +163,18 @@ export class RestoreSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreSecretCommand(input, context);
+    return se_RestoreSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreSecretCommandOutput> {
-    return deserializeAws_json1_1RestoreSecretCommand(output, context);
+    return de_RestoreSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

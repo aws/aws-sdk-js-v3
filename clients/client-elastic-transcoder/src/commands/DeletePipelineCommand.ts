@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  DeletePipelineRequest,
-  DeletePipelineRequestFilterSensitiveLog,
-  DeletePipelineResponse,
-  DeletePipelineResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePipelineCommand,
-  serializeAws_restJson1DeletePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { DeletePipelineRequest, DeletePipelineResponse } from "../models/models_0";
+import { de_DeletePipelineCommand, se_DeletePipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePipelineCommand}.
  */
 export interface DeletePipelineCommandInput extends DeletePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePipelineCommand}.
  */
 export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The DeletePipeline operation removes a pipeline.</p>
  *         <p> You can only delete a pipeline that has never been used or that is not currently in use
  *             (doesn't contain any active jobs). If the pipeline is currently in use,
@@ -49,10 +46,15 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * import { ElasticTranscoderClient, DeletePipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, DeletePipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // DeletePipelineRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
+ * @returns {@link DeletePipelineCommandOutput}
  * @see {@link DeletePipelineCommandInput} for command's `input` shape.
  * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -95,6 +97,9 @@ export class DeletePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +128,8 @@ export class DeletePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePipelineResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +139,18 @@ export class DeletePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePipelineCommand(input, context);
+    return se_DeletePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipelineCommandOutput> {
-    return deserializeAws_restJson1DeletePipelineCommand(output, context);
+    return de_DeletePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

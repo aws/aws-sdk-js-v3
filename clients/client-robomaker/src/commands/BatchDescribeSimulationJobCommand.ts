@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchDescribeSimulationJobRequest,
-  BatchDescribeSimulationJobRequestFilterSensitiveLog,
-  BatchDescribeSimulationJobResponse,
-  BatchDescribeSimulationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDescribeSimulationJobCommand,
-  serializeAws_restJson1BatchDescribeSimulationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchDescribeSimulationJobRequest, BatchDescribeSimulationJobResponse } from "../models/models_0";
+import { de_BatchDescribeSimulationJobCommand, se_BatchDescribeSimulationJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDescribeSimulationJobCommand}.
  */
 export interface BatchDescribeSimulationJobCommandInput extends BatchDescribeSimulationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDescribeSimulationJobCommand}.
  */
 export interface BatchDescribeSimulationJobCommandOutput extends BatchDescribeSimulationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more simulation jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface BatchDescribeSimulationJobCommandOutput extends BatchDescribeSi
  * import { RoboMakerClient, BatchDescribeSimulationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, BatchDescribeSimulationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // BatchDescribeSimulationJobRequest
+ *   jobs: [ // Arns // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDescribeSimulationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDescribeSimulationJobCommandInput - {@link BatchDescribeSimulationJobCommandInput}
+ * @returns {@link BatchDescribeSimulationJobCommandOutput}
  * @see {@link BatchDescribeSimulationJobCommandInput} for command's `input` shape.
  * @see {@link BatchDescribeSimulationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -82,6 +86,9 @@ export class BatchDescribeSimulationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDescribeSimulationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class BatchDescribeSimulationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDescribeSimulationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDescribeSimulationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +128,21 @@ export class BatchDescribeSimulationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDescribeSimulationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDescribeSimulationJobCommand(input, context);
+    return se_BatchDescribeSimulationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDescribeSimulationJobCommandOutput> {
-    return deserializeAws_restJson1BatchDescribeSimulationJobCommand(output, context);
+    return de_BatchDescribeSimulationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

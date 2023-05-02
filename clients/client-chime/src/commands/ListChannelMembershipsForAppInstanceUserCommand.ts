@@ -21,16 +21,20 @@ import {
   ListChannelMembershipsForAppInstanceUserResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommand,
-  serializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommand,
+  de_ListChannelMembershipsForAppInstanceUserCommand,
+  se_ListChannelMembershipsForAppInstanceUserCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChannelMembershipsForAppInstanceUserCommand}.
  */
 export interface ListChannelMembershipsForAppInstanceUserCommandInput
   extends ListChannelMembershipsForAppInstanceUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChannelMembershipsForAppInstanceUserCommand}.
  */
 export interface ListChannelMembershipsForAppInstanceUserCommandOutput
@@ -38,9 +42,9 @@ export interface ListChannelMembershipsForAppInstanceUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an
  *             <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
@@ -52,10 +56,18 @@ export interface ListChannelMembershipsForAppInstanceUserCommandOutput
  * import { ChimeClient, ListChannelMembershipsForAppInstanceUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListChannelMembershipsForAppInstanceUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListChannelMembershipsForAppInstanceUserRequest
+ *   AppInstanceUserArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new ListChannelMembershipsForAppInstanceUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelMembershipsForAppInstanceUserCommandInput - {@link ListChannelMembershipsForAppInstanceUserCommandInput}
+ * @returns {@link ListChannelMembershipsForAppInstanceUserCommandOutput}
  * @see {@link ListChannelMembershipsForAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link ListChannelMembershipsForAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +109,9 @@ export class ListChannelMembershipsForAppInstanceUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelMembershipsForAppInstanceUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,18 +157,24 @@ export class ListChannelMembershipsForAppInstanceUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListChannelMembershipsForAppInstanceUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommand(input, context);
+    return se_ListChannelMembershipsForAppInstanceUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput> {
-    return deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommand(output, context);
+    return de_ListChannelMembershipsForAppInstanceUserCommand(output, context);
   }
 
   // Start section: command_body_extra

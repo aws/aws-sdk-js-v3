@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeManagedRuleGroupRequest,
-  DescribeManagedRuleGroupRequestFilterSensitiveLog,
-  DescribeManagedRuleGroupResponse,
-  DescribeManagedRuleGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeManagedRuleGroupCommand,
-  serializeAws_json1_1DescribeManagedRuleGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeManagedRuleGroupRequest, DescribeManagedRuleGroupResponse } from "../models/models_0";
+import { de_DescribeManagedRuleGroupCommand, se_DescribeManagedRuleGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeManagedRuleGroupCommand}.
  */
 export interface DescribeManagedRuleGroupCommandInput extends DescribeManagedRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeManagedRuleGroupCommand}.
  */
 export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides high-level information for a managed rule group, including descriptions of the
  *          rules. </p>
  * @example
@@ -43,10 +40,18 @@ export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRu
  * import { WAFV2Client, DescribeManagedRuleGroupCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DescribeManagedRuleGroupCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // DescribeManagedRuleGroupRequest
+ *   VendorName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   VersionName: "STRING_VALUE",
+ * };
  * const command = new DescribeManagedRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeManagedRuleGroupCommandInput - {@link DescribeManagedRuleGroupCommandInput}
+ * @returns {@link DescribeManagedRuleGroupCommandOutput}
  * @see {@link DescribeManagedRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeManagedRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -113,6 +118,9 @@ export class DescribeManagedRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeManagedRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +149,8 @@ export class DescribeManagedRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeManagedRuleGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeManagedRuleGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +160,18 @@ export class DescribeManagedRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeManagedRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeManagedRuleGroupCommand(input, context);
+    return se_DescribeManagedRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeManagedRuleGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeManagedRuleGroupCommand(output, context);
+    return de_DescribeManagedRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

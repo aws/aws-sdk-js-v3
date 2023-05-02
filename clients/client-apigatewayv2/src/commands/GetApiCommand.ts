@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetApiRequest,
-  GetApiRequestFilterSensitiveLog,
-  GetApiResponse,
-  GetApiResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_restJson1GetApiCommand, serializeAws_restJson1GetApiCommand } from "../protocols/Aws_restJson1";
+import { GetApiRequest, GetApiResponse } from "../models/models_0";
+import { de_GetApiCommand, se_GetApiCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApiCommand}.
  */
 export interface GetApiCommandInput extends GetApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApiCommand}.
  */
 export interface GetApiCommandOutput extends GetApiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an Api resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,15 @@ export interface GetApiCommandOutput extends GetApiResponse, __MetadataBearer {}
  * import { ApiGatewayV2Client, GetApiCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetApiCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetApiRequest
+ *   ApiId: "STRING_VALUE", // required
+ * };
  * const command = new GetApiCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApiCommandInput - {@link GetApiCommandInput}
+ * @returns {@link GetApiCommandOutput}
  * @see {@link GetApiCommandInput} for command's `input` shape.
  * @see {@link GetApiCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -68,6 +73,9 @@ export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +102,8 @@ export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +113,18 @@ export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApiCommand(input, context);
+    return se_GetApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApiCommandOutput> {
-    return deserializeAws_restJson1GetApiCommand(output, context);
+    return de_GetApiCommand(output, context);
   }
 
   // Start section: command_body_extra

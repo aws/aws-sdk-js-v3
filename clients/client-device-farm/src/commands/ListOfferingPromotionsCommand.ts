@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListOfferingPromotionsRequest,
-  ListOfferingPromotionsRequestFilterSensitiveLog,
-  ListOfferingPromotionsResult,
-  ListOfferingPromotionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListOfferingPromotionsCommand,
-  serializeAws_json1_1ListOfferingPromotionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListOfferingPromotionsRequest, ListOfferingPromotionsResult } from "../models/models_0";
+import { de_ListOfferingPromotionsCommand, se_ListOfferingPromotionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOfferingPromotionsCommand}.
  */
 export interface ListOfferingPromotionsCommandInput extends ListOfferingPromotionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOfferingPromotionsCommand}.
  */
 export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromotionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of offering promotions. Each offering promotion record contains the ID and description
  *             of the promotion. The API returns a <code>NotEligible</code> error if the caller is not permitted to invoke
  *             the operation. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you must be able to invoke this operation.</p>
@@ -44,10 +41,15 @@ export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromoti
  * import { DeviceFarmClient, ListOfferingPromotionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListOfferingPromotionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListOfferingPromotionsRequest
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListOfferingPromotionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOfferingPromotionsCommandInput - {@link ListOfferingPromotionsCommandInput}
+ * @returns {@link ListOfferingPromotionsCommandOutput}
  * @see {@link ListOfferingPromotionsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingPromotionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -87,6 +89,9 @@ export class ListOfferingPromotionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOfferingPromotionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class ListOfferingPromotionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOfferingPromotionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOfferingPromotionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class ListOfferingPromotionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOfferingPromotionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOfferingPromotionsCommand(input, context);
+    return se_ListOfferingPromotionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOfferingPromotionsCommandOutput> {
-    return deserializeAws_json1_1ListOfferingPromotionsCommand(output, context);
+    return de_ListOfferingPromotionsCommand(output, context);
   }
 
   // Start section: command_body_extra

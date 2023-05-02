@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateFeatureGroupRequest,
-  UpdateFeatureGroupRequestFilterSensitiveLog,
-  UpdateFeatureGroupResponse,
-  UpdateFeatureGroupResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateFeatureGroupCommand,
-  serializeAws_json1_1UpdateFeatureGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateFeatureGroupRequest, UpdateFeatureGroupResponse } from "../models/models_4";
+import { de_UpdateFeatureGroupCommand, se_UpdateFeatureGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFeatureGroupCommand}.
  */
 export interface UpdateFeatureGroupCommandInput extends UpdateFeatureGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFeatureGroupCommand}.
  */
 export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the feature group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  * import { SageMakerClient, UpdateFeatureGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateFeatureGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateFeatureGroupRequest
+ *   FeatureGroupName: "STRING_VALUE", // required
+ *   FeatureAdditions: [ // FeatureAdditions
+ *     { // FeatureDefinition
+ *       FeatureName: "STRING_VALUE",
+ *       FeatureType: "Integral" || "Fractional" || "String",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateFeatureGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFeatureGroupCommandInput - {@link UpdateFeatureGroupCommandInput}
+ * @returns {@link UpdateFeatureGroupCommandOutput}
  * @see {@link UpdateFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateFeatureGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +80,9 @@ export class UpdateFeatureGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFeatureGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +111,8 @@ export class UpdateFeatureGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFeatureGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFeatureGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +122,18 @@ export class UpdateFeatureGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFeatureGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFeatureGroupCommand(input, context);
+    return se_UpdateFeatureGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFeatureGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateFeatureGroupCommand(output, context);
+    return de_UpdateFeatureGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

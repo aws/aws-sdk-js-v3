@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateElasticIpRequest, DisassociateElasticIpRequestFilterSensitiveLog } from "../models/models_0";
+import { DisassociateElasticIpRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DisassociateElasticIpCommand,
-  serializeAws_json1_1DisassociateElasticIpCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateElasticIpCommand, se_DisassociateElasticIpCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateElasticIpCommand}.
  */
 export interface DisassociateElasticIpCommandInput extends DisassociateElasticIpRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateElasticIpCommand}.
  */
 export interface DisassociateElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an Elastic IP address from its instance. The address remains registered with
  *       the stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
  *          <p>
@@ -43,10 +45,15 @@ export interface DisassociateElasticIpCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DisassociateElasticIpCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DisassociateElasticIpCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DisassociateElasticIpRequest
+ *   ElasticIp: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateElasticIpCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateElasticIpCommandInput - {@link DisassociateElasticIpCommandInput}
+ * @returns {@link DisassociateElasticIpCommandOutput}
  * @see {@link DisassociateElasticIpCommandInput} for command's `input` shape.
  * @see {@link DisassociateElasticIpCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -76,6 +83,9 @@ export class DisassociateElasticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateElasticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +114,8 @@ export class DisassociateElasticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateElasticIpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +125,18 @@ export class DisassociateElasticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateElasticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateElasticIpCommand(input, context);
+    return se_DisassociateElasticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateElasticIpCommandOutput> {
-    return deserializeAws_json1_1DisassociateElasticIpCommand(output, context);
+    return de_DisassociateElasticIpCommand(output, context);
   }
 
   // Start section: command_body_extra

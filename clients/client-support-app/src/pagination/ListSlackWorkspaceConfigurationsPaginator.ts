@@ -10,7 +10,7 @@ import { SupportAppClient } from "../SupportAppClient";
 import { SupportAppPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SupportAppClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSlackWorkspaceConfigurationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSlackWorkspaceConfigurations(
   config: SupportAppPaginationConfiguration,
   input: ListSlackWorkspaceConfigurationsCommandInput,

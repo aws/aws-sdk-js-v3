@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  UpdateFlywheelRequest,
-  UpdateFlywheelRequestFilterSensitiveLog,
-  UpdateFlywheelResponse,
-  UpdateFlywheelResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateFlywheelCommand,
-  serializeAws_json1_1UpdateFlywheelCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateFlywheelRequest, UpdateFlywheelResponse } from "../models/models_1";
+import { de_UpdateFlywheelCommand, se_UpdateFlywheelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFlywheelCommand}.
  */
 export interface UpdateFlywheelCommandInput extends UpdateFlywheelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFlywheelCommand}.
  */
 export interface UpdateFlywheelCommandOutput extends UpdateFlywheelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the configuration information for an existing flywheel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,29 @@ export interface UpdateFlywheelCommandOutput extends UpdateFlywheelResponse, __M
  * import { ComprehendClient, UpdateFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, UpdateFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // UpdateFlywheelRequest
+ *   FlywheelArn: "STRING_VALUE", // required
+ *   ActiveModelArn: "STRING_VALUE",
+ *   DataAccessRoleArn: "STRING_VALUE",
+ *   DataSecurityConfig: { // UpdateDataSecurityConfig
+ *     ModelKmsKeyId: "STRING_VALUE",
+ *     VolumeKmsKeyId: "STRING_VALUE",
+ *     VpcConfig: { // VpcConfig
+ *       SecurityGroupIds: [ // SecurityGroupIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Subnets: [ // Subnets // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new UpdateFlywheelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFlywheelCommandInput - {@link UpdateFlywheelCommandInput}
+ * @returns {@link UpdateFlywheelCommandOutput}
  * @see {@link UpdateFlywheelCommandInput} for command's `input` shape.
  * @see {@link UpdateFlywheelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -85,6 +101,9 @@ export class UpdateFlywheelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFlywheelCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +132,8 @@ export class UpdateFlywheelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFlywheelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFlywheelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +143,18 @@ export class UpdateFlywheelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFlywheelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFlywheelCommand(input, context);
+    return se_UpdateFlywheelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlywheelCommandOutput> {
-    return deserializeAws_json1_1UpdateFlywheelCommand(output, context);
+    return de_UpdateFlywheelCommand(output, context);
   }
 
   // Start section: command_body_extra

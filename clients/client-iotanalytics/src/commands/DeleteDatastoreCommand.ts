@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { DeleteDatastoreRequest, DeleteDatastoreRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDatastoreCommand,
-  serializeAws_restJson1DeleteDatastoreCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDatastoreRequest } from "../models/models_0";
+import { de_DeleteDatastoreCommand, se_DeleteDatastoreCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatastoreCommand}.
  */
 export interface DeleteDatastoreCommandInput extends DeleteDatastoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatastoreCommand}.
  */
 export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, DeleteDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DeleteDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // DeleteDatastoreRequest
+ *   datastoreName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDatastoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatastoreCommandInput - {@link DeleteDatastoreCommandInput}
+ * @returns {@link DeleteDatastoreCommandOutput}
  * @see {@link DeleteDatastoreCommandInput} for command's `input` shape.
  * @see {@link DeleteDatastoreCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +117,8 @@ export class DeleteDatastoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatastoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +128,18 @@ export class DeleteDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDatastoreCommand(input, context);
+    return se_DeleteDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatastoreCommandOutput> {
-    return deserializeAws_restJson1DeleteDatastoreCommand(output, context);
+    return de_DeleteDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

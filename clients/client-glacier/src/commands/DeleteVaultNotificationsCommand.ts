@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { DeleteVaultNotificationsInput, DeleteVaultNotificationsInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVaultNotificationsCommand,
-  serializeAws_restJson1DeleteVaultNotificationsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVaultNotificationsInput } from "../models/models_0";
+import { de_DeleteVaultNotificationsCommand, se_DeleteVaultNotificationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVaultNotificationsCommand}.
  */
 export interface DeleteVaultNotificationsCommandInput extends DeleteVaultNotificationsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVaultNotificationsCommand}.
  */
 export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes the notification configuration set for a vault. The operation
  *          is eventually consistent; that is, it might take some time for Amazon S3 Glacier to completely
  *          disable the notifications and you might still receive some notifications for a short time
@@ -49,10 +51,16 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  * import { GlacierClient, DeleteVaultNotificationsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, DeleteVaultNotificationsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // DeleteVaultNotificationsInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVaultNotificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVaultNotificationsCommandInput - {@link DeleteVaultNotificationsCommandInput}
+ * @returns {@link DeleteVaultNotificationsCommandOutput}
  * @see {@link DeleteVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link DeleteVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -101,6 +109,9 @@ export class DeleteVaultNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVaultNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +140,8 @@ export class DeleteVaultNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVaultNotificationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +151,18 @@ export class DeleteVaultNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVaultNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVaultNotificationsCommand(input, context);
+    return se_DeleteVaultNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1DeleteVaultNotificationsCommand(output, context);
+    return de_DeleteVaultNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

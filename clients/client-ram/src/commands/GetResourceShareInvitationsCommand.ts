@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetResourceShareInvitationsRequest, GetResourceShareInvitationsResponse } from "../models/models_0";
 import {
-  GetResourceShareInvitationsRequest,
-  GetResourceShareInvitationsRequestFilterSensitiveLog,
-  GetResourceShareInvitationsResponse,
-  GetResourceShareInvitationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceShareInvitationsCommand,
-  serializeAws_restJson1GetResourceShareInvitationsCommand,
+  de_GetResourceShareInvitationsCommand,
+  se_GetResourceShareInvitationsCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceShareInvitationsCommand}.
  */
 export interface GetResourceShareInvitationsCommandInput extends GetResourceShareInvitationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceShareInvitationsCommand}.
  */
 export interface GetResourceShareInvitationsCommandOutput
@@ -37,6 +36,7 @@ export interface GetResourceShareInvitationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about invitations that you have received for resource shares.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,37 +44,55 @@ export interface GetResourceShareInvitationsCommandOutput
  * import { RAMClient, GetResourceShareInvitationsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetResourceShareInvitationsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // GetResourceShareInvitationsRequest
+ *   resourceShareInvitationArns: [ // ResourceShareInvitationArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   resourceShareArns: [ // ResourceShareArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetResourceShareInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceShareInvitationsCommandInput - {@link GetResourceShareInvitationsCommandInput}
+ * @returns {@link GetResourceShareInvitationsCommandOutput}
  * @see {@link GetResourceShareInvitationsCommandInput} for command's `input` shape.
  * @see {@link GetResourceShareInvitationsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidMaxResultsException} (client fault)
- *  <p>The specified value for <code>MaxResults</code> is not valid.</p>
+ *  <p>The operation failed because the specified value for <code>MaxResults</code> isn't
+ *             valid.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified value for <code>NextToken</code> is not valid.</p>
+ *  <p>The operation failed because the specified value for <code>NextToken</code> isn't
+ *             valid. You must specify a value you received in the <code>NextToken</code> response of a
+ *             previous call to this operation.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
+ *             valid.</p>
  *
  * @throws {@link ResourceShareInvitationArnNotFoundException} (client fault)
- *  <p>The specified Amazon Resource Name (ARN) for an invitation was not found.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> for an invitation was not
+ *             found.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *  <p>The operation failed because the service could not respond to the request due to an
+ *             internal problem. Try again later.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is not available.</p>
+ *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>A specified resource was not found.</p>
+ *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
  *
  */
@@ -95,6 +113,9 @@ export class GetResourceShareInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceShareInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +144,8 @@ export class GetResourceShareInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceShareInvitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceShareInvitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,15 +155,21 @@ export class GetResourceShareInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceShareInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceShareInvitationsCommand(input, context);
+    return se_GetResourceShareInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourceShareInvitationsCommandOutput> {
-    return deserializeAws_restJson1GetResourceShareInvitationsCommand(output, context);
+    return de_GetResourceShareInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

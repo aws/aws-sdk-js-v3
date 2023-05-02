@@ -13,11 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteReadinessCheckRequest, DeleteReadinessCheckRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteReadinessCheckCommand,
-  serializeAws_restJson1DeleteReadinessCheckCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteReadinessCheckRequest } from "../models/models_0";
+import { de_DeleteReadinessCheckCommand, se_DeleteReadinessCheckCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -25,15 +22,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReadinessCheckCommand}.
  */
 export interface DeleteReadinessCheckCommandInput extends DeleteReadinessCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReadinessCheckCommand}.
  */
 export interface DeleteReadinessCheckCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a readiness check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,10 +43,15 @@ export interface DeleteReadinessCheckCommandOutput extends __MetadataBearer {}
  * import { Route53RecoveryReadinessClient, DeleteReadinessCheckCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, DeleteReadinessCheckCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // DeleteReadinessCheckRequest
+ *   ReadinessCheckName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReadinessCheckCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReadinessCheckCommandInput - {@link DeleteReadinessCheckCommandInput}
+ * @returns {@link DeleteReadinessCheckCommandOutput}
  * @see {@link DeleteReadinessCheckCommandInput} for command's `input` shape.
  * @see {@link DeleteReadinessCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteReadinessCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReadinessCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +121,8 @@ export class DeleteReadinessCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReadinessCheckRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +132,18 @@ export class DeleteReadinessCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReadinessCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteReadinessCheckCommand(input, context);
+    return se_DeleteReadinessCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReadinessCheckCommandOutput> {
-    return deserializeAws_restJson1DeleteReadinessCheckCommand(output, context);
+    return de_DeleteReadinessCheckCommand(output, context);
   }
 
   // Start section: command_body_extra

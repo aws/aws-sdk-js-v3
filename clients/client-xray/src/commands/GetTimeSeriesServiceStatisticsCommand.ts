@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult } from "../models/models_0";
 import {
-  GetTimeSeriesServiceStatisticsRequest,
-  GetTimeSeriesServiceStatisticsRequestFilterSensitiveLog,
-  GetTimeSeriesServiceStatisticsResult,
-  GetTimeSeriesServiceStatisticsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand,
-  serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand,
+  de_GetTimeSeriesServiceStatisticsCommand,
+  se_GetTimeSeriesServiceStatisticsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTimeSeriesServiceStatisticsCommand}.
  */
 export interface GetTimeSeriesServiceStatisticsCommandInput extends GetTimeSeriesServiceStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTimeSeriesServiceStatisticsCommand}.
  */
 export interface GetTimeSeriesServiceStatisticsCommandOutput
@@ -37,6 +36,7 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get an aggregation of service statistics defined by a specific time
  *             range.</p>
  * @example
@@ -45,10 +45,22 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
  * import { XRayClient, GetTimeSeriesServiceStatisticsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetTimeSeriesServiceStatisticsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // GetTimeSeriesServiceStatisticsRequest
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   GroupName: "STRING_VALUE",
+ *   GroupARN: "STRING_VALUE",
+ *   EntitySelectorExpression: "STRING_VALUE",
+ *   Period: Number("int"),
+ *   ForecastStatistics: true || false,
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetTimeSeriesServiceStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTimeSeriesServiceStatisticsCommandInput - {@link GetTimeSeriesServiceStatisticsCommandInput}
+ * @returns {@link GetTimeSeriesServiceStatisticsCommandOutput}
  * @see {@link GetTimeSeriesServiceStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetTimeSeriesServiceStatisticsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -78,6 +90,9 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTimeSeriesServiceStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +121,8 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTimeSeriesServiceStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTimeSeriesServiceStatisticsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +132,24 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTimeSeriesServiceStatisticsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand(input, context);
+    return se_GetTimeSeriesServiceStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand(output, context);
+    return de_GetTimeSeriesServiceStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

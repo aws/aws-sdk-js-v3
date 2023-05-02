@@ -15,21 +15,23 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { UntagAttendeeRequest, UntagAttendeeRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UntagAttendeeCommand,
-  serializeAws_restJson1UntagAttendeeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UntagAttendeeCommand, se_UntagAttendeeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagAttendeeCommand}.
  */
 export interface UntagAttendeeCommandInput extends UntagAttendeeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagAttendeeCommand}.
  */
 export interface UntagAttendeeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Untags the specified tags from the specified Amazon Chime SDK attendee.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,19 @@ export interface UntagAttendeeCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, UntagAttendeeCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UntagAttendeeCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // UntagAttendeeRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   AttendeeId: "STRING_VALUE", // required
+ *   TagKeys: [ // AttendeeTagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagAttendeeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagAttendeeCommandInput - {@link UntagAttendeeCommandInput}
+ * @returns {@link UntagAttendeeCommandOutput}
  * @see {@link UntagAttendeeCommandInput} for command's `input` shape.
  * @see {@link UntagAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -85,6 +96,9 @@ export class UntagAttendeeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagAttendeeCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +126,7 @@ export class UntagAttendeeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UntagAttendeeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +136,18 @@ export class UntagAttendeeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UntagAttendeeCommand(input, context);
+    return se_UntagAttendeeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagAttendeeCommandOutput> {
-    return deserializeAws_restJson1UntagAttendeeCommand(output, context);
+    return de_UntagAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

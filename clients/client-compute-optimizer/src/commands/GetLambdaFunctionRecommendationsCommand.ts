@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { GetLambdaFunctionRecommendationsRequest, GetLambdaFunctionRecommendationsResponse } from "../models/models_0";
 import {
-  GetLambdaFunctionRecommendationsRequest,
-  GetLambdaFunctionRecommendationsRequestFilterSensitiveLog,
-  GetLambdaFunctionRecommendationsResponse,
-  GetLambdaFunctionRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetLambdaFunctionRecommendationsCommand,
-  serializeAws_json1_0GetLambdaFunctionRecommendationsCommand,
+  de_GetLambdaFunctionRecommendationsCommand,
+  se_GetLambdaFunctionRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetLambdaFunctionRecommendationsCommand}.
  */
 export interface GetLambdaFunctionRecommendationsCommandInput extends GetLambdaFunctionRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLambdaFunctionRecommendationsCommand}.
  */
 export interface GetLambdaFunctionRecommendationsCommandOutput
@@ -37,6 +36,7 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns Lambda function recommendations.</p>
  *          <p>Compute Optimizer generates recommendations for functions that meet a specific set
  *             of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
@@ -48,10 +48,30 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  * import { ComputeOptimizerClient, GetLambdaFunctionRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetLambdaFunctionRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetLambdaFunctionRecommendationsRequest
+ *   functionArns: [ // FunctionArns
+ *     "STRING_VALUE",
+ *   ],
+ *   accountIds: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [ // LambdaFunctionRecommendationFilters
+ *     { // LambdaFunctionRecommendationFilter
+ *       name: "Finding" || "FindingReasonCode",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetLambdaFunctionRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLambdaFunctionRecommendationsCommandInput - {@link GetLambdaFunctionRecommendationsCommandInput}
+ * @returns {@link GetLambdaFunctionRecommendationsCommandOutput}
  * @see {@link GetLambdaFunctionRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetLambdaFunctionRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -100,6 +120,9 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLambdaFunctionRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +151,8 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLambdaFunctionRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLambdaFunctionRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,18 +162,24 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetLambdaFunctionRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetLambdaFunctionRecommendationsCommand(input, context);
+    return se_GetLambdaFunctionRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLambdaFunctionRecommendationsCommandOutput> {
-    return deserializeAws_json1_0GetLambdaFunctionRecommendationsCommand(output, context);
+    return de_GetLambdaFunctionRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

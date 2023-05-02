@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  DescribeForecastRequest,
-  DescribeForecastRequestFilterSensitiveLog,
-  DescribeForecastResponse,
-  DescribeForecastResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeForecastCommand,
-  serializeAws_json1_1DescribeForecastCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeForecastRequest, DescribeForecastResponse } from "../models/models_0";
+import { de_DescribeForecastCommand, se_DescribeForecastCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeForecastCommand}.
  */
 export interface DescribeForecastCommandInput extends DescribeForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeForecastCommand}.
  */
 export interface DescribeForecastCommandOutput extends DescribeForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a forecast created using the <a>CreateForecast</a> operation.</p>
  *          <p>In addition to listing the properties provided in the <code>CreateForecast</code> request,
  *       this operation lists the following properties:</p>
@@ -70,10 +67,15 @@ export interface DescribeForecastCommandOutput extends DescribeForecastResponse,
  * import { ForecastClient, DescribeForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DescribeForecastRequest
+ *   ForecastArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeForecastCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeForecastCommandInput - {@link DescribeForecastCommandInput}
+ * @returns {@link DescribeForecastCommandOutput}
  * @see {@link DescribeForecastCommandInput} for command's `input` shape.
  * @see {@link DescribeForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -105,6 +107,9 @@ export class DescribeForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +138,8 @@ export class DescribeForecastCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeForecastRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeForecastResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +149,18 @@ export class DescribeForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeForecastCommand(input, context);
+    return se_DescribeForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeForecastCommandOutput> {
-    return deserializeAws_json1_1DescribeForecastCommand(output, context);
+    return de_DescribeForecastCommand(output, context);
   }
 
   // Start section: command_body_extra

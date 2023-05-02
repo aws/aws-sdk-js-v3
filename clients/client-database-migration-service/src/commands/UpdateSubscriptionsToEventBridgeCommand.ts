@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { UpdateSubscriptionsToEventBridgeMessage, UpdateSubscriptionsToEventBridgeResponse } from "../models/models_0";
 import {
-  UpdateSubscriptionsToEventBridgeMessage,
-  UpdateSubscriptionsToEventBridgeMessageFilterSensitiveLog,
-  UpdateSubscriptionsToEventBridgeResponse,
-  UpdateSubscriptionsToEventBridgeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand,
-  serializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand,
+  de_UpdateSubscriptionsToEventBridgeCommand,
+  se_UpdateSubscriptionsToEventBridgeCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSubscriptionsToEventBridgeCommand}.
  */
 export interface UpdateSubscriptionsToEventBridgeCommandInput extends UpdateSubscriptionsToEventBridgeMessage {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSubscriptionsToEventBridgeCommand}.
  */
 export interface UpdateSubscriptionsToEventBridgeCommandOutput
@@ -41,6 +40,7 @@ export interface UpdateSubscriptionsToEventBridgeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Migrates 10 active and enabled Amazon SNS subscriptions at a time and converts them to corresponding Amazon EventBridge rules.
  *          By default, this operation migrates subscriptions only when all your replication instance versions are 3.4.6 or higher.
  *          If any replication instances are from versions earlier than 3.4.6, the operation raises an error and tells you
@@ -56,10 +56,15 @@ export interface UpdateSubscriptionsToEventBridgeCommandOutput
  * import { DatabaseMigrationServiceClient, UpdateSubscriptionsToEventBridgeCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, UpdateSubscriptionsToEventBridgeCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // UpdateSubscriptionsToEventBridgeMessage
+ *   ForceMove: true || false,
+ * };
  * const command = new UpdateSubscriptionsToEventBridgeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSubscriptionsToEventBridgeCommandInput - {@link UpdateSubscriptionsToEventBridgeCommandInput}
+ * @returns {@link UpdateSubscriptionsToEventBridgeCommandOutput}
  * @see {@link UpdateSubscriptionsToEventBridgeCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriptionsToEventBridgeCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -90,6 +95,9 @@ export class UpdateSubscriptionsToEventBridgeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSubscriptionsToEventBridgeCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class UpdateSubscriptionsToEventBridgeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSubscriptionsToEventBridgeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubscriptionsToEventBridgeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +137,24 @@ export class UpdateSubscriptionsToEventBridgeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSubscriptionsToEventBridgeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand(input, context);
+    return se_UpdateSubscriptionsToEventBridgeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSubscriptionsToEventBridgeCommandOutput> {
-    return deserializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand(output, context);
+    return de_UpdateSubscriptionsToEventBridgeCommand(output, context);
   }
 
   // Start section: command_body_extra

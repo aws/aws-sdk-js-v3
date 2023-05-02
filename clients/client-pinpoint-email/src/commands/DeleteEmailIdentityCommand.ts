@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteEmailIdentityRequest,
-  DeleteEmailIdentityRequestFilterSensitiveLog,
-  DeleteEmailIdentityResponse,
-  DeleteEmailIdentityResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEmailIdentityRequest, DeleteEmailIdentityResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1DeleteEmailIdentityCommand,
-  serializeAws_restJson1DeleteEmailIdentityCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteEmailIdentityCommand, se_DeleteEmailIdentityCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEmailIdentityCommand}.
  */
 export interface DeleteEmailIdentityCommandInput extends DeleteEmailIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEmailIdentityCommand}.
  */
 export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an email identity that you previously verified for use with Amazon Pinpoint. An identity
  *             can be either an email address or a domain name.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
  * import { PinpointEmailClient, DeleteEmailIdentityCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, DeleteEmailIdentityCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // DeleteEmailIdentityRequest
+ *   EmailIdentity: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEmailIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEmailIdentityCommandInput - {@link DeleteEmailIdentityCommandInput}
+ * @returns {@link DeleteEmailIdentityCommandOutput}
  * @see {@link DeleteEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -82,6 +84,9 @@ export class DeleteEmailIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEmailIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DeleteEmailIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEmailIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEmailIdentityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DeleteEmailIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEmailIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEmailIdentityCommand(input, context);
+    return se_DeleteEmailIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEmailIdentityCommandOutput> {
-    return deserializeAws_restJson1DeleteEmailIdentityCommand(output, context);
+    return de_DeleteEmailIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

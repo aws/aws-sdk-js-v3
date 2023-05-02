@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteSecurityConfigurationRequest,
-  DeleteSecurityConfigurationRequestFilterSensitiveLog,
-  DeleteSecurityConfigurationResponse,
-  DeleteSecurityConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteSecurityConfigurationCommand,
-  serializeAws_json1_1DeleteSecurityConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSecurityConfigurationRequest, DeleteSecurityConfigurationResponse } from "../models/models_1";
+import { de_DeleteSecurityConfigurationCommand, se_DeleteSecurityConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSecurityConfigurationCommand}.
  */
 export interface DeleteSecurityConfigurationCommandInput extends DeleteSecurityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSecurityConfigurationCommand}.
  */
 export interface DeleteSecurityConfigurationCommandOutput
@@ -37,6 +33,7 @@ export interface DeleteSecurityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified security configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,15 @@ export interface DeleteSecurityConfigurationCommandOutput
  * import { GlueClient, DeleteSecurityConfigurationCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteSecurityConfigurationCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteSecurityConfigurationRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSecurityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSecurityConfigurationCommandInput - {@link DeleteSecurityConfigurationCommandInput}
+ * @returns {@link DeleteSecurityConfigurationCommandOutput}
  * @see {@link DeleteSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -83,6 +85,9 @@ export class DeleteSecurityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSecurityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DeleteSecurityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSecurityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSecurityConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,15 +127,21 @@ export class DeleteSecurityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSecurityConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSecurityConfigurationCommand(input, context);
+    return se_DeleteSecurityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSecurityConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteSecurityConfigurationCommand(output, context);
+    return de_DeleteSecurityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

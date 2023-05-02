@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListRoleAliasesRequest,
-  ListRoleAliasesRequestFilterSensitiveLog,
-  ListRoleAliasesResponse,
-  ListRoleAliasesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListRoleAliasesCommand,
-  serializeAws_restJson1ListRoleAliasesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRoleAliasesRequest, ListRoleAliasesResponse } from "../models/models_1";
+import { de_ListRoleAliasesCommand, se_ListRoleAliasesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRoleAliasesCommand}.
  */
 export interface ListRoleAliasesCommandInput extends ListRoleAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRoleAliasesCommand}.
  */
 export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the role aliases registered in your account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListRoleAliases</a> action.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, _
  * import { IoTClient, ListRoleAliasesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListRoleAliasesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListRoleAliasesRequest
+ *   pageSize: Number("int"),
+ *   marker: "STRING_VALUE",
+ *   ascendingOrder: true || false,
+ * };
  * const command = new ListRoleAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoleAliasesCommandInput - {@link ListRoleAliasesCommandInput}
+ * @returns {@link ListRoleAliasesCommandOutput}
  * @see {@link ListRoleAliasesCommandInput} for command's `input` shape.
  * @see {@link ListRoleAliasesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListRoleAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoleAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class ListRoleAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRoleAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRoleAliasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class ListRoleAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoleAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRoleAliasesCommand(input, context);
+    return se_ListRoleAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoleAliasesCommandOutput> {
-    return deserializeAws_restJson1ListRoleAliasesCommand(output, context);
+    return de_ListRoleAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

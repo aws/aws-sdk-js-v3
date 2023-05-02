@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  DeleteEvaluationResultsRequest,
-  DeleteEvaluationResultsRequestFilterSensitiveLog,
-  DeleteEvaluationResultsResponse,
-  DeleteEvaluationResultsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEvaluationResultsCommand,
-  serializeAws_json1_1DeleteEvaluationResultsCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEvaluationResultsRequest, DeleteEvaluationResultsResponse } from "../models/models_0";
+import { de_DeleteEvaluationResultsCommand, se_DeleteEvaluationResultsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEvaluationResultsCommand}.
  */
 export interface DeleteEvaluationResultsCommandInput extends DeleteEvaluationResultsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEvaluationResultsCommand}.
  */
 export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationResultsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the evaluation results for the specified Config
  * 			rule. You can specify one Config rule per request. After you
  * 			delete the evaluation results, you can call the <a>StartConfigRulesEvaluation</a> API to start evaluating
@@ -45,10 +42,15 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  * import { ConfigServiceClient, DeleteEvaluationResultsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteEvaluationResultsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeleteEvaluationResultsRequest
+ *   ConfigRuleName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEvaluationResultsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEvaluationResultsCommandInput - {@link DeleteEvaluationResultsCommandInput}
+ * @returns {@link DeleteEvaluationResultsCommandOutput}
  * @see {@link DeleteEvaluationResultsCommandInput} for command's `input` shape.
  * @see {@link DeleteEvaluationResultsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -101,6 +103,9 @@ export class DeleteEvaluationResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEvaluationResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +134,8 @@ export class DeleteEvaluationResultsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEvaluationResultsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEvaluationResultsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +145,18 @@ export class DeleteEvaluationResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEvaluationResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEvaluationResultsCommand(input, context);
+    return se_DeleteEvaluationResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEvaluationResultsCommandOutput> {
-    return deserializeAws_json1_1DeleteEvaluationResultsCommand(output, context);
+    return de_DeleteEvaluationResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

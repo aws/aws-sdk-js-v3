@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DescribeImageBuildersRequest,
-  DescribeImageBuildersRequestFilterSensitiveLog,
-  DescribeImageBuildersResult,
-  DescribeImageBuildersResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImageBuildersCommand,
-  serializeAws_json1_1DescribeImageBuildersCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeImageBuildersRequest, DescribeImageBuildersResult } from "../models/models_0";
+import { de_DescribeImageBuildersCommand, se_DescribeImageBuildersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImageBuildersCommand}.
  */
 export interface DescribeImageBuildersCommandInput extends DescribeImageBuildersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImageBuildersCommand}.
  */
 export interface DescribeImageBuildersCommandOutput extends DescribeImageBuildersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more specified image builders, if the image builder names are provided. Otherwise, all image builders in the account are described.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface DescribeImageBuildersCommandOutput extends DescribeImageBuilder
  * import { AppStreamClient, DescribeImageBuildersCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeImageBuildersCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DescribeImageBuildersRequest
+ *   Names: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeImageBuildersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImageBuildersCommandInput - {@link DescribeImageBuildersCommandInput}
+ * @returns {@link DescribeImageBuildersCommandOutput}
  * @see {@link DescribeImageBuildersCommandInput} for command's `input` shape.
  * @see {@link DescribeImageBuildersCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -72,6 +78,9 @@ export class DescribeImageBuildersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImageBuildersCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +109,8 @@ export class DescribeImageBuildersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageBuildersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageBuildersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +120,18 @@ export class DescribeImageBuildersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImageBuildersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImageBuildersCommand(input, context);
+    return se_DescribeImageBuildersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImageBuildersCommandOutput> {
-    return deserializeAws_json1_1DescribeImageBuildersCommand(output, context);
+    return de_DescribeImageBuildersCommand(output, context);
   }
 
   // Start section: command_body_extra

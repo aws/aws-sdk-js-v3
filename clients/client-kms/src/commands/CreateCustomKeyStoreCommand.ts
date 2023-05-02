@@ -18,23 +18,24 @@ import {
   CreateCustomKeyStoreRequest,
   CreateCustomKeyStoreRequestFilterSensitiveLog,
   CreateCustomKeyStoreResponse,
-  CreateCustomKeyStoreResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCustomKeyStoreCommand,
-  serializeAws_json1_1CreateCustomKeyStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateCustomKeyStoreCommand, se_CreateCustomKeyStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomKeyStoreCommand}.
  */
 export interface CreateCustomKeyStoreCommandInput extends CreateCustomKeyStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomKeyStoreCommand}.
  */
 export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> backed by a key store that you own and manage. When you use a
  *       KMS key in a custom key store for a cryptographic operation, the cryptographic operation is
  *       actually performed in your key store using your keys. KMS supports <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>
@@ -129,10 +130,27 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * import { KMSClient, CreateCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CreateCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // CreateCustomKeyStoreRequest
+ *   CustomKeyStoreName: "STRING_VALUE", // required
+ *   CloudHsmClusterId: "STRING_VALUE",
+ *   TrustAnchorCertificate: "STRING_VALUE",
+ *   KeyStorePassword: "STRING_VALUE",
+ *   CustomKeyStoreType: "AWS_CLOUDHSM" || "EXTERNAL_KEY_STORE",
+ *   XksProxyUriEndpoint: "STRING_VALUE",
+ *   XksProxyUriPath: "STRING_VALUE",
+ *   XksProxyVpcEndpointServiceName: "STRING_VALUE",
+ *   XksProxyAuthenticationCredential: { // XksProxyAuthenticationCredentialType
+ *     AccessKeyId: "STRING_VALUE", // required
+ *     RawSecretAccessKey: "STRING_VALUE", // required
+ *   },
+ *   XksProxyConnectivity: "PUBLIC_ENDPOINT" || "VPC_ENDPOINT_SERVICE",
+ * };
  * const command = new CreateCustomKeyStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomKeyStoreCommandInput - {@link CreateCustomKeyStoreCommandInput}
+ * @returns {@link CreateCustomKeyStoreCommandOutput}
  * @see {@link CreateCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link CreateCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -348,6 +366,9 @@ export class CreateCustomKeyStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomKeyStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -377,7 +398,7 @@ export class CreateCustomKeyStoreCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateCustomKeyStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomKeyStoreResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -387,12 +408,18 @@ export class CreateCustomKeyStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCustomKeyStoreCommand(input, context);
+    return se_CreateCustomKeyStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomKeyStoreCommandOutput> {
-    return deserializeAws_json1_1CreateCustomKeyStoreCommand(output, context);
+    return de_CreateCustomKeyStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

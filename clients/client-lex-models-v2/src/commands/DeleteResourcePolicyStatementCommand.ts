@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { DeleteResourcePolicyStatementRequest, DeleteResourcePolicyStatementResponse } from "../models/models_0";
 import {
-  DeleteResourcePolicyStatementRequest,
-  DeleteResourcePolicyStatementRequestFilterSensitiveLog,
-  DeleteResourcePolicyStatementResponse,
-  DeleteResourcePolicyStatementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResourcePolicyStatementCommand,
-  serializeAws_restJson1DeleteResourcePolicyStatementCommand,
+  de_DeleteResourcePolicyStatementCommand,
+  se_DeleteResourcePolicyStatementCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourcePolicyStatementCommand}.
  */
 export interface DeleteResourcePolicyStatementCommandInput extends DeleteResourcePolicyStatementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourcePolicyStatementCommand}.
  */
 export interface DeleteResourcePolicyStatementCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteResourcePolicyStatementCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a policy statement from a resource policy. If you delete the
  *          last statement from a policy, the policy is deleted. If you specify a
  *          statement ID that doesn't exist in the policy, or if the bot or bot
@@ -48,10 +48,17 @@ export interface DeleteResourcePolicyStatementCommandOutput
  * import { LexModelsV2Client, DeleteResourcePolicyStatementCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteResourcePolicyStatementCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DeleteResourcePolicyStatementRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   statementId: "STRING_VALUE", // required
+ *   expectedRevisionId: "STRING_VALUE",
+ * };
  * const command = new DeleteResourcePolicyStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourcePolicyStatementCommandInput - {@link DeleteResourcePolicyStatementCommandInput}
+ * @returns {@link DeleteResourcePolicyStatementCommandOutput}
  * @see {@link DeleteResourcePolicyStatementCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyStatementCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteResourcePolicyStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourcePolicyStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +130,8 @@ export class DeleteResourcePolicyStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcePolicyStatementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcePolicyStatementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +141,21 @@ export class DeleteResourcePolicyStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourcePolicyStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResourcePolicyStatementCommand(input, context);
+    return se_DeleteResourcePolicyStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteResourcePolicyStatementCommandOutput> {
-    return deserializeAws_restJson1DeleteResourcePolicyStatementCommand(output, context);
+    return de_DeleteResourcePolicyStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

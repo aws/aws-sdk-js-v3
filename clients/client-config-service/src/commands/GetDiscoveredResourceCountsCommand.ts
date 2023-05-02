@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  GetDiscoveredResourceCountsRequest,
-  GetDiscoveredResourceCountsRequestFilterSensitiveLog,
-  GetDiscoveredResourceCountsResponse,
-  GetDiscoveredResourceCountsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDiscoveredResourceCountsCommand,
-  serializeAws_json1_1GetDiscoveredResourceCountsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDiscoveredResourceCountsRequest, GetDiscoveredResourceCountsResponse } from "../models/models_0";
+import { de_GetDiscoveredResourceCountsCommand, se_GetDiscoveredResourceCountsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDiscoveredResourceCountsCommand}.
  */
 export interface GetDiscoveredResourceCountsCommandInput extends GetDiscoveredResourceCountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDiscoveredResourceCountsCommand}.
  */
 export interface GetDiscoveredResourceCountsCommandOutput
@@ -37,6 +33,7 @@ export interface GetDiscoveredResourceCountsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the resource types, the number of each resource type,
  * 			and the total number of resources that Config is recording in
  * 			this region for your Amazon Web Services account. </p>
@@ -101,10 +98,19 @@ export interface GetDiscoveredResourceCountsCommandOutput
  * import { ConfigServiceClient, GetDiscoveredResourceCountsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetDiscoveredResourceCountsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // GetDiscoveredResourceCountsRequest
+ *   resourceTypes: [ // ResourceTypes
+ *     "STRING_VALUE",
+ *   ],
+ *   limit: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new GetDiscoveredResourceCountsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDiscoveredResourceCountsCommandInput - {@link GetDiscoveredResourceCountsCommandInput}
+ * @returns {@link GetDiscoveredResourceCountsCommandOutput}
  * @see {@link GetDiscoveredResourceCountsCommandInput} for command's `input` shape.
  * @see {@link GetDiscoveredResourceCountsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -141,6 +147,9 @@ export class GetDiscoveredResourceCountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDiscoveredResourceCountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,8 +178,8 @@ export class GetDiscoveredResourceCountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDiscoveredResourceCountsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDiscoveredResourceCountsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -180,15 +189,21 @@ export class GetDiscoveredResourceCountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDiscoveredResourceCountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDiscoveredResourceCountsCommand(input, context);
+    return se_GetDiscoveredResourceCountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDiscoveredResourceCountsCommandOutput> {
-    return deserializeAws_json1_1GetDiscoveredResourceCountsCommand(output, context);
+    return de_GetDiscoveredResourceCountsCommand(output, context);
   }
 
   // Start section: command_body_extra

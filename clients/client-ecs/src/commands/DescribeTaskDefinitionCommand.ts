@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DescribeTaskDefinitionRequest,
-  DescribeTaskDefinitionRequestFilterSensitiveLog,
-  DescribeTaskDefinitionResponse,
-  DescribeTaskDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTaskDefinitionCommand,
-  serializeAws_json1_1DescribeTaskDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTaskDefinitionRequest, DescribeTaskDefinitionResponse } from "../models/models_0";
+import { de_DescribeTaskDefinitionCommand, se_DescribeTaskDefinitionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTaskDefinitionCommand}.
  */
 export interface DescribeTaskDefinitionCommandInput extends DescribeTaskDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTaskDefinitionCommand}.
  */
 export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a task definition. You can specify a <code>family</code> and
  * 				<code>revision</code> to find information about a specific task definition, or you
  * 			can simply specify the family to find the latest <code>ACTIVE</code> revision in that
@@ -49,10 +46,18 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * import { ECSClient, DescribeTaskDefinitionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeTaskDefinitionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DescribeTaskDefinitionRequest
+ *   taskDefinition: "STRING_VALUE", // required
+ *   include: [ // TaskDefinitionFieldList
+ *     "TAGS",
+ *   ],
+ * };
  * const command = new DescribeTaskDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTaskDefinitionCommandInput - {@link DescribeTaskDefinitionCommandInput}
+ * @returns {@link DescribeTaskDefinitionCommandOutput}
  * @see {@link DescribeTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -146,6 +151,9 @@ export class DescribeTaskDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,8 +182,8 @@ export class DescribeTaskDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTaskDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTaskDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -185,12 +193,18 @@ export class DescribeTaskDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTaskDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTaskDefinitionCommand(input, context);
+    return se_DescribeTaskDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTaskDefinitionCommandOutput> {
-    return deserializeAws_json1_1DescribeTaskDefinitionCommand(output, context);
+    return de_DescribeTaskDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

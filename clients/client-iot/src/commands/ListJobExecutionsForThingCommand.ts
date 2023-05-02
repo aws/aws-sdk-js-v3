@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListJobExecutionsForThingRequest,
-  ListJobExecutionsForThingRequestFilterSensitiveLog,
-  ListJobExecutionsForThingResponse,
-  ListJobExecutionsForThingResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListJobExecutionsForThingCommand,
-  serializeAws_restJson1ListJobExecutionsForThingCommand,
-} from "../protocols/Aws_restJson1";
+import { ListJobExecutionsForThingRequest, ListJobExecutionsForThingResponse } from "../models/models_1";
+import { de_ListJobExecutionsForThingCommand, se_ListJobExecutionsForThingCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobExecutionsForThingCommand}.
  */
 export interface ListJobExecutionsForThingCommandInput extends ListJobExecutionsForThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJobExecutionsForThingCommand}.
  */
 export interface ListJobExecutionsForThingCommandOutput extends ListJobExecutionsForThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the job executions for the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobExecutionsForThing</a> action.</p>
  * @example
@@ -43,10 +40,20 @@ export interface ListJobExecutionsForThingCommandOutput extends ListJobExecution
  * import { IoTClient, ListJobExecutionsForThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListJobExecutionsForThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListJobExecutionsForThingRequest
+ *   thingName: "STRING_VALUE", // required
+ *   status: "QUEUED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "REJECTED" || "REMOVED" || "CANCELED",
+ *   namespaceId: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   jobId: "STRING_VALUE",
+ * };
  * const command = new ListJobExecutionsForThingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobExecutionsForThingCommandInput - {@link ListJobExecutionsForThingCommandInput}
+ * @returns {@link ListJobExecutionsForThingCommandOutput}
  * @see {@link ListJobExecutionsForThingCommandInput} for command's `input` shape.
  * @see {@link ListJobExecutionsForThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListJobExecutionsForThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobExecutionsForThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class ListJobExecutionsForThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobExecutionsForThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJobExecutionsForThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +131,21 @@ export class ListJobExecutionsForThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobExecutionsForThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJobExecutionsForThingCommand(input, context);
+    return se_ListJobExecutionsForThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJobExecutionsForThingCommandOutput> {
-    return deserializeAws_restJson1ListJobExecutionsForThingCommand(output, context);
+    return de_ListJobExecutionsForThingCommand(output, context);
   }
 
   // Start section: command_body_extra

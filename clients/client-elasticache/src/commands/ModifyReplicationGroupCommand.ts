@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  ModifyReplicationGroupMessage,
-  ModifyReplicationGroupMessageFilterSensitiveLog,
-  ModifyReplicationGroupResult,
-  ModifyReplicationGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyReplicationGroupCommand,
-  serializeAws_queryModifyReplicationGroupCommand,
-} from "../protocols/Aws_query";
+import { ModifyReplicationGroupMessage, ModifyReplicationGroupResult } from "../models/models_0";
+import { de_ModifyReplicationGroupCommand, se_ModifyReplicationGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyReplicationGroupCommand}.
  */
 export interface ModifyReplicationGroupCommandInput extends ModifyReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyReplicationGroupCommand}.
  */
 export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a replication group.</p>
  *          <ul>
  *             <li>
@@ -57,10 +54,65 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * import { ElastiCacheClient, ModifyReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // ModifyReplicationGroupMessage
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   ReplicationGroupDescription: "STRING_VALUE",
+ *   PrimaryClusterId: "STRING_VALUE",
+ *   SnapshottingClusterId: "STRING_VALUE",
+ *   AutomaticFailoverEnabled: true || false,
+ *   MultiAZEnabled: true || false,
+ *   NodeGroupId: "STRING_VALUE",
+ *   CacheSecurityGroupNames: [ // CacheSecurityGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [ // SecurityGroupIdsList
+ *     "STRING_VALUE",
+ *   ],
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   NotificationTopicArn: "STRING_VALUE",
+ *   CacheParameterGroupName: "STRING_VALUE",
+ *   NotificationTopicStatus: "STRING_VALUE",
+ *   ApplyImmediately: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   SnapshotRetentionLimit: Number("int"),
+ *   SnapshotWindow: "STRING_VALUE",
+ *   CacheNodeType: "STRING_VALUE",
+ *   AuthToken: "STRING_VALUE",
+ *   AuthTokenUpdateStrategy: "SET" || "ROTATE" || "DELETE",
+ *   UserGroupIdsToAdd: [ // UserGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   UserGroupIdsToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RemoveUserGroups: true || false,
+ *   LogDeliveryConfigurations: [ // LogDeliveryConfigurationRequestList
+ *     { // LogDeliveryConfigurationRequest
+ *       LogType: "slow-log" || "engine-log",
+ *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
+ *       DestinationDetails: { // DestinationDetails
+ *         CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
+ *           LogGroup: "STRING_VALUE",
+ *         },
+ *         KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
+ *           DeliveryStream: "STRING_VALUE",
+ *         },
+ *       },
+ *       LogFormat: "text" || "json",
+ *       Enabled: true || false,
+ *     },
+ *   ],
+ *   IpDiscovery: "ipv4" || "ipv6",
+ *   TransitEncryptionEnabled: true || false,
+ *   TransitEncryptionMode: "preferred" || "required",
+ * };
  * const command = new ModifyReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyReplicationGroupCommandInput - {@link ModifyReplicationGroupCommandInput}
+ * @returns {@link ModifyReplicationGroupCommandOutput}
  * @see {@link ModifyReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -207,6 +259,9 @@ export class ModifyReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -235,8 +290,8 @@ export class ModifyReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -246,12 +301,18 @@ export class ModifyReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyReplicationGroupCommand(input, context);
+    return se_ModifyReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyReplicationGroupCommandOutput> {
-    return deserializeAws_queryModifyReplicationGroupCommand(output, context);
+    return de_ModifyReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

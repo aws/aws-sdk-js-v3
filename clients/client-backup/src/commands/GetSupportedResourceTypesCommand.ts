@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { GetSupportedResourceTypesOutput, GetSupportedResourceTypesOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSupportedResourceTypesCommand,
-  serializeAws_restJson1GetSupportedResourceTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSupportedResourceTypesOutput } from "../models/models_0";
+import { de_GetSupportedResourceTypesCommand, se_GetSupportedResourceTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSupportedResourceTypesCommand}.
  */
 export interface GetSupportedResourceTypesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSupportedResourceTypesCommand}.
  */
 export interface GetSupportedResourceTypesCommandOutput extends GetSupportedResourceTypesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Amazon Web Services resource types supported by Backup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,13 @@ export interface GetSupportedResourceTypesCommandOutput extends GetSupportedReso
  * import { BackupClient, GetSupportedResourceTypesCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetSupportedResourceTypesCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {};
  * const command = new GetSupportedResourceTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSupportedResourceTypesCommandInput - {@link GetSupportedResourceTypesCommandInput}
+ * @returns {@link GetSupportedResourceTypesCommandOutput}
  * @see {@link GetSupportedResourceTypesCommandInput} for command's `input` shape.
  * @see {@link GetSupportedResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -67,6 +72,9 @@ export class GetSupportedResourceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSupportedResourceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +103,8 @@ export class GetSupportedResourceTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetSupportedResourceTypesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +114,21 @@ export class GetSupportedResourceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSupportedResourceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSupportedResourceTypesCommand(input, context);
+    return se_GetSupportedResourceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSupportedResourceTypesCommandOutput> {
-    return deserializeAws_restJson1GetSupportedResourceTypesCommand(output, context);
+    return de_GetSupportedResourceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

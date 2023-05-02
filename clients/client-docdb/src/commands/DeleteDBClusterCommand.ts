@@ -14,39 +14,43 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  DeleteDBClusterMessage,
-  DeleteDBClusterMessageFilterSensitiveLog,
-  DeleteDBClusterResult,
-  DeleteDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBClusterCommand,
-  serializeAws_queryDeleteDBClusterCommand,
-} from "../protocols/Aws_query";
+import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/models_0";
+import { de_DeleteDBClusterCommand, se_DeleteDBClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBClusterCommand}.
  */
 export interface DeleteDBClusterCommandInput extends DeleteDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBClusterCommand}.
  */
 export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a previously provisioned cluster. When you delete a cluster, all automated backups for that cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified cluster are not deleted.</p>
- *         <p></p>
+ *          <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, DeleteDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DeleteDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DeleteDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   SkipFinalSnapshot: true || false,
+ *   FinalDBSnapshotIdentifier: "STRING_VALUE",
+ * };
  * const command = new DeleteDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBClusterCommandInput - {@link DeleteDBClusterCommandInput}
+ * @returns {@link DeleteDBClusterCommandOutput}
  * @see {@link DeleteDBClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -86,6 +90,9 @@ export class DeleteDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class DeleteDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class DeleteDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterCommand(input, context);
+    return se_DeleteDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterCommand(output, context);
+    return de_DeleteDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

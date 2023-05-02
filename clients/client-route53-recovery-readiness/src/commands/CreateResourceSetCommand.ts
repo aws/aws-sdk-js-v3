@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateResourceSetRequest,
-  CreateResourceSetRequestFilterSensitiveLog,
-  CreateResourceSetResponse,
-  CreateResourceSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateResourceSetCommand,
-  serializeAws_restJson1CreateResourceSetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateResourceSetRequest, CreateResourceSetResponse } from "../models/models_0";
+import { de_CreateResourceSetCommand, se_CreateResourceSetCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourceSetCommand}.
  */
 export interface CreateResourceSetCommandInput extends CreateResourceSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourceSetCommand}.
  */
 export interface CreateResourceSetCommandOutput extends CreateResourceSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a resource set. A resource set is a set of resources of one type that span multiple cells. You can associate a resource set with a readiness check to monitor the resources for failover readiness.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,43 @@ export interface CreateResourceSetCommandOutput extends CreateResourceSetRespons
  * import { Route53RecoveryReadinessClient, CreateResourceSetCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, CreateResourceSetCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // CreateResourceSetRequest
+ *   ResourceSetName: "STRING_VALUE", // required
+ *   ResourceSetType: "STRING_VALUE", // required
+ *   Resources: [ // __listOfResource // required
+ *     { // Resource
+ *       ComponentId: "STRING_VALUE",
+ *       DnsTargetResource: { // DNSTargetResource
+ *         DomainName: "STRING_VALUE",
+ *         HostedZoneArn: "STRING_VALUE",
+ *         RecordSetId: "STRING_VALUE",
+ *         RecordType: "STRING_VALUE",
+ *         TargetResource: { // TargetResource
+ *           NLBResource: { // NLBResource
+ *             Arn: "STRING_VALUE",
+ *           },
+ *           R53Resource: { // R53ResourceRecord
+ *             DomainName: "STRING_VALUE",
+ *             RecordSetId: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *       ReadinessScopes: [ // __listOf__string
+ *         "STRING_VALUE",
+ *       ],
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateResourceSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceSetCommandInput - {@link CreateResourceSetCommandInput}
+ * @returns {@link CreateResourceSetCommandOutput}
  * @see {@link CreateResourceSetCommandInput} for command's `input` shape.
  * @see {@link CreateResourceSetCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +118,9 @@ export class CreateResourceSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +149,8 @@ export class CreateResourceSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResourceSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateResourceSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +160,18 @@ export class CreateResourceSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateResourceSetCommand(input, context);
+    return se_CreateResourceSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceSetCommandOutput> {
-    return deserializeAws_restJson1CreateResourceSetCommand(output, context);
+    return de_CreateResourceSetCommand(output, context);
   }
 
   // Start section: command_body_extra

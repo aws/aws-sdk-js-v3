@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  CreateCachePolicyRequest,
-  CreateCachePolicyRequestFilterSensitiveLog,
-  CreateCachePolicyResult,
-  CreateCachePolicyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateCachePolicyCommand,
-  serializeAws_restXmlCreateCachePolicyCommand,
-} from "../protocols/Aws_restXml";
+import { CreateCachePolicyRequest, CreateCachePolicyResult } from "../models/models_0";
+import { de_CreateCachePolicyCommand, se_CreateCachePolicyCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCachePolicyCommand}.
  */
 export interface CreateCachePolicyCommandInput extends CreateCachePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCachePolicyCommand}.
  */
 export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a cache policy.</p>
  *          <p>After you create a cache policy, you can attach it to one or more cache behaviors.
  * 			When it's attached to a cache behavior, the cache policy determines the
@@ -64,10 +61,52 @@ export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult,
  * import { CloudFrontClient, CreateCachePolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateCachePolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreateCachePolicyRequest
+ *   CachePolicyConfig: { // CachePolicyConfig
+ *     Comment: "STRING_VALUE",
+ *     Name: "STRING_VALUE", // required
+ *     DefaultTTL: Number("long"),
+ *     MaxTTL: Number("long"),
+ *     MinTTL: Number("long"), // required
+ *     ParametersInCacheKeyAndForwardedToOrigin: { // ParametersInCacheKeyAndForwardedToOrigin
+ *       EnableAcceptEncodingGzip: true || false, // required
+ *       EnableAcceptEncodingBrotli: true || false,
+ *       HeadersConfig: { // CachePolicyHeadersConfig
+ *         HeaderBehavior: "none" || "whitelist", // required
+ *         Headers: { // Headers
+ *           Quantity: Number("int"), // required
+ *           Items: [ // HeaderList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       CookiesConfig: { // CachePolicyCookiesConfig
+ *         CookieBehavior: "none" || "whitelist" || "allExcept" || "all", // required
+ *         Cookies: { // CookieNames
+ *           Quantity: Number("int"), // required
+ *           Items: [ // CookieNameList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       QueryStringsConfig: { // CachePolicyQueryStringsConfig
+ *         QueryStringBehavior: "none" || "whitelist" || "allExcept" || "all", // required
+ *         QueryStrings: { // QueryStringNames
+ *           Quantity: Number("int"), // required
+ *           Items: [ // QueryStringNamesList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreateCachePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCachePolicyCommandInput - {@link CreateCachePolicyCommandInput}
+ * @returns {@link CreateCachePolicyCommandOutput}
  * @see {@link CreateCachePolicyCommandInput} for command's `input` shape.
  * @see {@link CreateCachePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -125,6 +164,9 @@ export class CreateCachePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCachePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,8 +195,8 @@ export class CreateCachePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCachePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCachePolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -164,12 +206,18 @@ export class CreateCachePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCachePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateCachePolicyCommand(input, context);
+    return se_CreateCachePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCachePolicyCommandOutput> {
-    return deserializeAws_restXmlCreateCachePolicyCommand(output, context);
+    return de_CreateCachePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

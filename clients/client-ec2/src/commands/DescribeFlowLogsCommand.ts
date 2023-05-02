@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeFlowLogsRequest,
-  DescribeFlowLogsRequestFilterSensitiveLog,
-  DescribeFlowLogsResult,
-  DescribeFlowLogsResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeFlowLogsCommand,
-  serializeAws_ec2DescribeFlowLogsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeFlowLogsRequest, DescribeFlowLogsResult } from "../models/models_3";
+import { de_DescribeFlowLogsCommand, se_DescribeFlowLogsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFlowLogsCommand}.
  */
 export interface DescribeFlowLogsCommandInput extends DescribeFlowLogsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFlowLogsCommand}.
  */
 export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more flow logs.</p>
  *          <p>To view the published flow log records, you must view the log destination. For example,
  *             the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.</p>
@@ -44,10 +41,28 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  * import { EC2Client, DescribeFlowLogsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFlowLogsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeFlowLogsRequest
+ *   DryRun: true || false,
+ *   Filter: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   FlowLogIds: [ // FlowLogIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFlowLogsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFlowLogsCommandInput - {@link DescribeFlowLogsCommandInput}
+ * @returns {@link DescribeFlowLogsCommandOutput}
  * @see {@link DescribeFlowLogsCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowLogsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +86,9 @@ export class DescribeFlowLogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFlowLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +117,8 @@ export class DescribeFlowLogsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFlowLogsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFlowLogsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +128,18 @@ export class DescribeFlowLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFlowLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeFlowLogsCommand(input, context);
+    return se_DescribeFlowLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFlowLogsCommandOutput> {
-    return deserializeAws_ec2DescribeFlowLogsCommand(output, context);
+    return de_DescribeFlowLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

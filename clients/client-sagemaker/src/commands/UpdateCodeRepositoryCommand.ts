@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateCodeRepositoryInput,
-  UpdateCodeRepositoryInputFilterSensitiveLog,
-  UpdateCodeRepositoryOutput,
-  UpdateCodeRepositoryOutputFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1UpdateCodeRepositoryCommand,
-  serializeAws_json1_1UpdateCodeRepositoryCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateCodeRepositoryInput, UpdateCodeRepositoryOutput } from "../models/models_4";
+import { de_UpdateCodeRepositoryCommand, se_UpdateCodeRepositoryCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCodeRepositoryCommand}.
  */
 export interface UpdateCodeRepositoryCommandInput extends UpdateCodeRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCodeRepositoryCommand}.
  */
 export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified Git repository with the specified values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryO
  * import { SageMakerClient, UpdateCodeRepositoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateCodeRepositoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateCodeRepositoryInput
+ *   CodeRepositoryName: "STRING_VALUE", // required
+ *   GitConfig: { // GitConfigForUpdate
+ *     SecretArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateCodeRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCodeRepositoryCommandInput - {@link UpdateCodeRepositoryCommandInput}
+ * @returns {@link UpdateCodeRepositoryCommandOutput}
  * @see {@link UpdateCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link UpdateCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +74,9 @@ export class UpdateCodeRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCodeRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +105,8 @@ export class UpdateCodeRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCodeRepositoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCodeRepositoryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +116,18 @@ export class UpdateCodeRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCodeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCodeRepositoryCommand(input, context);
+    return se_UpdateCodeRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCodeRepositoryCommandOutput> {
-    return deserializeAws_json1_1UpdateCodeRepositoryCommand(output, context);
+    return de_UpdateCodeRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

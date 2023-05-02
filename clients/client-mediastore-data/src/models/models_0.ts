@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { MediaStoreDataServiceException as __BaseException } from "./MediaStoreDataServiceException";
 
 /**
+ * @public
  * <p>The specified container was not found for the specified account.</p>
  */
 export class ContainerNotFoundException extends __BaseException {
@@ -25,6 +26,9 @@ export class ContainerNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectRequest {
   /**
    * <p>The path (including the file name) where the object is stored in the container.
@@ -33,9 +37,13 @@ export interface DeleteObjectRequest {
   Path: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectResponse {}
 
 /**
+ * @public
  * <p>The service is temporarily unavailable.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -57,6 +65,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Could not perform an operation on an object that does not exist.</p>
  */
 export class ObjectNotFoundException extends __BaseException {
@@ -77,6 +86,9 @@ export class ObjectNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeObjectRequest {
   /**
    * <p>The path (including the file name) where the object is stored in the container.
@@ -85,6 +97,9 @@ export interface DescribeObjectRequest {
   Path: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeObjectResponse {
   /**
    * <p>The ETag that represents a unique instance of the object.</p>
@@ -114,6 +129,9 @@ export interface DescribeObjectResponse {
   LastModified?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectRequest {
   /**
    * <p>The path (including the file name) where the object is stored in the container.
@@ -144,6 +162,9 @@ export interface GetObjectRequest {
   Range?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectResponse {
   /**
    * <p>The bytes of the object. </p>
@@ -190,6 +211,7 @@ export interface GetObjectResponse {
 }
 
 /**
+ * @public
  * <p>The requested content range is not valid.</p>
  */
 export class RequestedRangeNotSatisfiableException extends __BaseException {
@@ -210,12 +232,22 @@ export class RequestedRangeNotSatisfiableException extends __BaseException {
   }
 }
 
-export enum ItemType {
-  FOLDER = "FOLDER",
-  OBJECT = "OBJECT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ItemType = {
+  FOLDER: "FOLDER",
+  OBJECT: "OBJECT",
+} as const;
 
 /**
+ * @public
+ */
+export type ItemType = (typeof ItemType)[keyof typeof ItemType];
+
+/**
+ * @public
  * <p>A metadata entry for a folder or object.</p>
  */
 export interface Item {
@@ -250,6 +282,9 @@ export interface Item {
   ContentLength?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListItemsRequest {
   /**
    * <p>The path in the container from which to retrieve items. Format: <folder
@@ -280,6 +315,9 @@ export interface ListItemsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListItemsResponse {
   /**
    * <p>The metadata entries for the folders and objects at the requested path.</p>
@@ -296,15 +334,36 @@ export interface ListItemsResponse {
   NextToken?: string;
 }
 
-export enum StorageClass {
-  TEMPORAL = "TEMPORAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StorageClass = {
+  TEMPORAL: "TEMPORAL",
+} as const;
 
-export enum UploadAvailability {
-  STANDARD = "STANDARD",
-  STREAMING = "STREAMING",
-}
+/**
+ * @public
+ */
+export type StorageClass = (typeof StorageClass)[keyof typeof StorageClass];
 
+/**
+ * @public
+ * @enum
+ */
+export const UploadAvailability = {
+  STANDARD: "STANDARD",
+  STREAMING: "STREAMING",
+} as const;
+
+/**
+ * @public
+ */
+export type UploadAvailability = (typeof UploadAvailability)[keyof typeof UploadAvailability];
+
+/**
+ * @public
+ */
 export interface PutObjectRequest {
   /**
    * <p>The bytes to be stored. </p>
@@ -361,6 +420,9 @@ export interface PutObjectRequest {
   UploadAvailability?: UploadAvailability | string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectResponse {
   /**
    * <p>The SHA256 digest of the object that is persisted.</p>
@@ -382,41 +444,6 @@ export interface PutObjectResponse {
 /**
  * @internal
  */
-export const DeleteObjectRequestFilterSensitiveLog = (obj: DeleteObjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteObjectResponseFilterSensitiveLog = (obj: DeleteObjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeObjectRequestFilterSensitiveLog = (obj: DescribeObjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeObjectResponseFilterSensitiveLog = (obj: DescribeObjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetObjectRequestFilterSensitiveLog = (obj: GetObjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetObjectResponseFilterSensitiveLog = (obj: GetObjectResponse): any => ({
   ...obj,
 });
@@ -424,34 +451,6 @@ export const GetObjectResponseFilterSensitiveLog = (obj: GetObjectResponse): any
 /**
  * @internal
  */
-export const ItemFilterSensitiveLog = (obj: Item): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListItemsRequestFilterSensitiveLog = (obj: ListItemsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListItemsResponseFilterSensitiveLog = (obj: ListItemsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PutObjectRequestFilterSensitiveLog = (obj: PutObjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutObjectResponseFilterSensitiveLog = (obj: PutObjectResponse): any => ({
   ...obj,
 });

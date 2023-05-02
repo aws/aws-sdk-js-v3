@@ -15,21 +15,23 @@ import {
 
 import {
   ListPermissionSetProvisioningStatusRequest,
-  ListPermissionSetProvisioningStatusRequestFilterSensitiveLog,
   ListPermissionSetProvisioningStatusResponse,
-  ListPermissionSetProvisioningStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListPermissionSetProvisioningStatusCommand,
-  serializeAws_json1_1ListPermissionSetProvisioningStatusCommand,
+  de_ListPermissionSetProvisioningStatusCommand,
+  se_ListPermissionSetProvisioningStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPermissionSetProvisioningStatusCommand}.
  */
 export interface ListPermissionSetProvisioningStatusCommandInput extends ListPermissionSetProvisioningStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPermissionSetProvisioningStatusCommand}.
  */
 export interface ListPermissionSetProvisioningStatusCommandOutput
@@ -37,6 +39,7 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the status of the permission set provisioning requests for a specified IAM Identity Center
  *       instance.</p>
  * @example
@@ -45,10 +48,20 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
  * import { SSOAdminClient, ListPermissionSetProvisioningStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListPermissionSetProvisioningStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // ListPermissionSetProvisioningStatusRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filter: { // OperationStatusFilter
+ *     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ *   },
+ * };
  * const command = new ListPermissionSetProvisioningStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPermissionSetProvisioningStatusCommandInput - {@link ListPermissionSetProvisioningStatusCommandInput}
+ * @returns {@link ListPermissionSetProvisioningStatusCommandOutput}
  * @see {@link ListPermissionSetProvisioningStatusCommandInput} for command's `input` shape.
  * @see {@link ListPermissionSetProvisioningStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +102,9 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPermissionSetProvisioningStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +133,8 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPermissionSetProvisioningStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPermissionSetProvisioningStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +144,24 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPermissionSetProvisioningStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPermissionSetProvisioningStatusCommand(input, context);
+    return se_ListPermissionSetProvisioningStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPermissionSetProvisioningStatusCommandOutput> {
-    return deserializeAws_json1_1ListPermissionSetProvisioningStatusCommand(output, context);
+    return de_ListPermissionSetProvisioningStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

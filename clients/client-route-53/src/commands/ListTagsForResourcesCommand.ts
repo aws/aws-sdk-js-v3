@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTagsForResourcesRequest,
-  ListTagsForResourcesRequestFilterSensitiveLog,
-  ListTagsForResourcesResponse,
-  ListTagsForResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListTagsForResourcesCommand,
-  serializeAws_restXmlListTagsForResourcesCommand,
-} from "../protocols/Aws_restXml";
+import { ListTagsForResourcesRequest, ListTagsForResourcesResponse } from "../models/models_0";
+import { de_ListTagsForResourcesCommand, se_ListTagsForResourcesCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForResourcesCommand}.
  */
 export interface ListTagsForResourcesCommandInput extends ListTagsForResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForResourcesCommand}.
  */
 export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists tags for up to 10 health checks or hosted zones.</p>
  *          <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
  * 				Tags</a> in the <i>Billing and Cost Management User Guide</i>.</p>
@@ -44,10 +41,18 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * import { Route53Client, ListTagsForResourcesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListTagsForResourcesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListTagsForResourcesRequest
+ *   ResourceType: "healthcheck" || "hostedzone", // required
+ *   ResourceIds: [ // TagResourceIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListTagsForResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForResourcesCommandInput - {@link ListTagsForResourcesCommandInput}
+ * @returns {@link ListTagsForResourcesCommandOutput}
  * @see {@link ListTagsForResourcesCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourcesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -90,6 +95,9 @@ export class ListTagsForResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class ListTagsForResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +137,18 @@ export class ListTagsForResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListTagsForResourcesCommand(input, context);
+    return se_ListTagsForResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourcesCommandOutput> {
-    return deserializeAws_restXmlListTagsForResourcesCommand(output, context);
+    return de_ListTagsForResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

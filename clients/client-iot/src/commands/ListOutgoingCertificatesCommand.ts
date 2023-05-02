@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListOutgoingCertificatesRequest,
-  ListOutgoingCertificatesRequestFilterSensitiveLog,
-  ListOutgoingCertificatesResponse,
-  ListOutgoingCertificatesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListOutgoingCertificatesCommand,
-  serializeAws_restJson1ListOutgoingCertificatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListOutgoingCertificatesRequest, ListOutgoingCertificatesResponse } from "../models/models_1";
+import { de_ListOutgoingCertificatesCommand, se_ListOutgoingCertificatesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOutgoingCertificatesCommand}.
  */
 export interface ListOutgoingCertificatesCommandInput extends ListOutgoingCertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOutgoingCertificatesCommand}.
  */
 export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCertificatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists certificates that are being transferred but not yet accepted.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListOutgoingCertificates</a> action.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCerti
  * import { IoTClient, ListOutgoingCertificatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListOutgoingCertificatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListOutgoingCertificatesRequest
+ *   pageSize: Number("int"),
+ *   marker: "STRING_VALUE",
+ *   ascendingOrder: true || false,
+ * };
  * const command = new ListOutgoingCertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOutgoingCertificatesCommandInput - {@link ListOutgoingCertificatesCommandInput}
+ * @returns {@link ListOutgoingCertificatesCommandOutput}
  * @see {@link ListOutgoingCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListOutgoingCertificatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListOutgoingCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOutgoingCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class ListOutgoingCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOutgoingCertificatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOutgoingCertificatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class ListOutgoingCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOutgoingCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOutgoingCertificatesCommand(input, context);
+    return se_ListOutgoingCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOutgoingCertificatesCommandOutput> {
-    return deserializeAws_restJson1ListOutgoingCertificatesCommand(output, context);
+    return de_ListOutgoingCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -12,28 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  MediaTypeHeaderInput,
-  MediaTypeHeaderInputFilterSensitiveLog,
-  MediaTypeHeaderOutput,
-  MediaTypeHeaderOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1MediaTypeHeaderCommand,
-  serializeAws_restJson1MediaTypeHeaderCommand,
-} from "../protocols/Aws_restJson1";
+import { MediaTypeHeaderInput, MediaTypeHeaderOutput } from "../models/models_0";
+import { de_MediaTypeHeaderCommand, se_MediaTypeHeaderCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MediaTypeHeaderCommand}.
  */
 export interface MediaTypeHeaderCommandInput extends MediaTypeHeaderInput {}
 /**
+ * @public
+ *
  * The output of {@link MediaTypeHeaderCommand}.
  */
 export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example ensures that mediaType strings are base64 encoded in headers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,10 +38,15 @@ export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __M
  * import { RestJsonProtocolClient, MediaTypeHeaderCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, MediaTypeHeaderCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // MediaTypeHeaderInput
+ *   json: "STRING_VALUE",
+ * };
  * const command = new MediaTypeHeaderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MediaTypeHeaderCommandInput - {@link MediaTypeHeaderCommandInput}
+ * @returns {@link MediaTypeHeaderCommandOutput}
  * @see {@link MediaTypeHeaderCommandInput} for command's `input` shape.
  * @see {@link MediaTypeHeaderCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -59,6 +61,9 @@ export class MediaTypeHeaderCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MediaTypeHeaderCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +89,8 @@ export class MediaTypeHeaderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MediaTypeHeaderInputFilterSensitiveLog,
-      outputFilterSensitiveLog: MediaTypeHeaderOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +100,18 @@ export class MediaTypeHeaderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MediaTypeHeaderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MediaTypeHeaderCommand(input, context);
+    return se_MediaTypeHeaderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MediaTypeHeaderCommandOutput> {
-    return deserializeAws_restJson1MediaTypeHeaderCommand(output, context);
+    return de_MediaTypeHeaderCommand(output, context);
   }
 
   // Start section: command_body_extra

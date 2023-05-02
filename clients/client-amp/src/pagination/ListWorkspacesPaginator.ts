@@ -10,7 +10,7 @@ import {
 import { AmpPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AmpClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWorkspacesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListWorkspaces(
   config: AmpPaginationConfiguration,
   input: ListWorkspacesCommandInput,

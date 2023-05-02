@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  UnmonitorInstancesRequest,
-  UnmonitorInstancesRequestFilterSensitiveLog,
-  UnmonitorInstancesResult,
-  UnmonitorInstancesResultFilterSensitiveLog,
-} from "../models/models_7";
-import {
-  deserializeAws_ec2UnmonitorInstancesCommand,
-  serializeAws_ec2UnmonitorInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { UnmonitorInstancesRequest, UnmonitorInstancesResult } from "../models/models_7";
+import { de_UnmonitorInstancesCommand, se_UnmonitorInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link UnmonitorInstancesCommand}.
  */
 export interface UnmonitorInstancesCommandInput extends UnmonitorInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnmonitorInstancesCommand}.
  */
 export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables detailed monitoring for a running instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
  *                 your instances and volumes</a> in the
  *             <i>Amazon EC2 User Guide</i>.</p>
@@ -44,10 +41,18 @@ export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResul
  * import { EC2Client, UnmonitorInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, UnmonitorInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // UnmonitorInstancesRequest
+ *   InstanceIds: [ // InstanceIdStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new UnmonitorInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnmonitorInstancesCommandInput - {@link UnmonitorInstancesCommandInput}
+ * @returns {@link UnmonitorInstancesCommandOutput}
  * @see {@link UnmonitorInstancesCommandInput} for command's `input` shape.
  * @see {@link UnmonitorInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +76,9 @@ export class UnmonitorInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnmonitorInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +107,8 @@ export class UnmonitorInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnmonitorInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UnmonitorInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +118,18 @@ export class UnmonitorInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnmonitorInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2UnmonitorInstancesCommand(input, context);
+    return se_UnmonitorInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnmonitorInstancesCommandOutput> {
-    return deserializeAws_ec2UnmonitorInstancesCommand(output, context);
+    return de_UnmonitorInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

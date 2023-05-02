@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { DescribeEntitiesDetectionJobRequest, DescribeEntitiesDetectionJobResponse } from "../models/models_0";
 import {
-  DescribeEntitiesDetectionJobRequest,
-  DescribeEntitiesDetectionJobRequestFilterSensitiveLog,
-  DescribeEntitiesDetectionJobResponse,
-  DescribeEntitiesDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEntitiesDetectionJobCommand,
-  serializeAws_json1_1DescribeEntitiesDetectionJobCommand,
+  de_DescribeEntitiesDetectionJobCommand,
+  se_DescribeEntitiesDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEntitiesDetectionJobCommand}.
  */
 export interface DescribeEntitiesDetectionJobCommandInput extends DescribeEntitiesDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEntitiesDetectionJobCommand}.
  */
 export interface DescribeEntitiesDetectionJobCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeEntitiesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with an entities detection job. Use this operation to get
  *       the status of a detection job.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DescribeEntitiesDetectionJobCommandOutput
  * import { ComprehendClient, DescribeEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribeEntitiesDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEntitiesDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEntitiesDetectionJobCommandInput - {@link DescribeEntitiesDetectionJobCommandInput}
+ * @returns {@link DescribeEntitiesDetectionJobCommandOutput}
  * @see {@link DescribeEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +89,9 @@ export class DescribeEntitiesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEntitiesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class DescribeEntitiesDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEntitiesDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEntitiesDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +131,21 @@ export class DescribeEntitiesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEntitiesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEntitiesDetectionJobCommand(input, context);
+    return se_DescribeEntitiesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEntitiesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeEntitiesDetectionJobCommand(output, context);
+    return de_DescribeEntitiesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

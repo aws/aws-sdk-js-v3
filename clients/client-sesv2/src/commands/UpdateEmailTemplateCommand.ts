@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateEmailTemplateRequest,
-  UpdateEmailTemplateRequestFilterSensitiveLog,
-  UpdateEmailTemplateResponse,
-  UpdateEmailTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEmailTemplateCommand,
-  serializeAws_restJson1UpdateEmailTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateEmailTemplateRequest, UpdateEmailTemplateResponse } from "../models/models_0";
+import { de_UpdateEmailTemplateCommand, se_UpdateEmailTemplateCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEmailTemplateCommand}.
  */
 export interface UpdateEmailTemplateCommandInput extends UpdateEmailTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEmailTemplateCommand}.
  */
 export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an email template. Email templates enable you to send personalized email to
  *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -45,10 +42,20 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * import { SESv2Client, UpdateEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, UpdateEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // UpdateEmailTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ *   TemplateContent: { // EmailTemplateContent
+ *     Subject: "STRING_VALUE",
+ *     Text: "STRING_VALUE",
+ *     Html: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateEmailTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEmailTemplateCommandInput - {@link UpdateEmailTemplateCommandInput}
+ * @returns {@link UpdateEmailTemplateCommandOutput}
  * @see {@link UpdateEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +119,8 @@ export class UpdateEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEmailTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEmailTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class UpdateEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEmailTemplateCommand(input, context);
+    return se_UpdateEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateEmailTemplateCommand(output, context);
+    return de_UpdateEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

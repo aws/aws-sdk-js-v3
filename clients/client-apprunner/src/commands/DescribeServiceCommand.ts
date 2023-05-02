@@ -16,25 +16,26 @@ import {
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import {
   DescribeServiceRequest,
-  DescribeServiceRequestFilterSensitiveLog,
   DescribeServiceResponse,
   DescribeServiceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeServiceCommand,
-  serializeAws_json1_0DescribeServiceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeServiceCommand, se_DescribeServiceCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServiceCommand}.
  */
 export interface DescribeServiceCommandInput extends DescribeServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServiceCommand}.
  */
 export interface DescribeServiceCommandOutput extends DescribeServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a full description of an App Runner service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  * import { AppRunnerClient, DescribeServiceCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DescribeServiceCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // DescribeServiceRequest
+ *   ServiceArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServiceCommandInput - {@link DescribeServiceCommandInput}
+ * @returns {@link DescribeServiceCommandOutput}
  * @see {@link DescribeServiceCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -78,6 +84,9 @@ export class DescribeServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,7 +115,7 @@ export class DescribeServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServiceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -117,12 +126,18 @@ export class DescribeServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeServiceCommand(input, context);
+    return se_DescribeServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServiceCommandOutput> {
-    return deserializeAws_json1_0DescribeServiceCommand(output, context);
+    return de_DescribeServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

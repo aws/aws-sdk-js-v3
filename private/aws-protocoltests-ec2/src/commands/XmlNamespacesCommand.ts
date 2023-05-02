@@ -13,14 +13,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { XmlNamespacesOutput, XmlNamespacesOutputFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_ec2XmlNamespacesCommand, serializeAws_ec2XmlNamespacesCommand } from "../protocols/Aws_ec2";
+import { XmlNamespacesOutput } from "../models/models_0";
+import { de_XmlNamespacesCommand, se_XmlNamespacesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link XmlNamespacesCommand}.
  */
 export interface XmlNamespacesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link XmlNamespacesCommand}.
  */
 export interface XmlNamespacesCommandOutput extends XmlNamespacesOutput, __MetadataBearer {}
@@ -33,6 +37,9 @@ export class XmlNamespacesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlNamespacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -58,8 +65,8 @@ export class XmlNamespacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlNamespacesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -69,12 +76,18 @@ export class XmlNamespacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlNamespacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2XmlNamespacesCommand(input, context);
+    return se_XmlNamespacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlNamespacesCommandOutput> {
-    return deserializeAws_ec2XmlNamespacesCommand(output, context);
+    return de_XmlNamespacesCommand(output, context);
   }
 
   // Start section: command_body_extra

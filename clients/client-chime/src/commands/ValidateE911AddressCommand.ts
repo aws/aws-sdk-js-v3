@@ -20,21 +20,23 @@ import {
   ValidateE911AddressResponse,
   ValidateE911AddressResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ValidateE911AddressCommand,
-  serializeAws_restJson1ValidateE911AddressCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ValidateE911AddressCommand, se_ValidateE911AddressCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateE911AddressCommand}.
  */
 export interface ValidateE911AddressCommandInput extends ValidateE911AddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link ValidateE911AddressCommand}.
  */
 export interface ValidateE911AddressCommandOutput extends ValidateE911AddressResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates an address to be used for 911 calls made with Amazon
  *             Chime Voice Connectors. You can use validated addresses
  *             in a Presence Information Data Format Location Object file that you include in SIP requests.
@@ -45,10 +47,21 @@ export interface ValidateE911AddressCommandOutput extends ValidateE911AddressRes
  * import { ChimeClient, ValidateE911AddressCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ValidateE911AddressCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ValidateE911AddressRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   StreetNumber: "STRING_VALUE", // required
+ *   StreetInfo: "STRING_VALUE", // required
+ *   City: "STRING_VALUE", // required
+ *   State: "STRING_VALUE", // required
+ *   Country: "STRING_VALUE", // required
+ *   PostalCode: "STRING_VALUE", // required
+ * };
  * const command = new ValidateE911AddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateE911AddressCommandInput - {@link ValidateE911AddressCommandInput}
+ * @returns {@link ValidateE911AddressCommandOutput}
  * @see {@link ValidateE911AddressCommandInput} for command's `input` shape.
  * @see {@link ValidateE911AddressCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +106,9 @@ export class ValidateE911AddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateE911AddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,12 +148,18 @@ export class ValidateE911AddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidateE911AddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ValidateE911AddressCommand(input, context);
+    return se_ValidateE911AddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidateE911AddressCommandOutput> {
-    return deserializeAws_restJson1ValidateE911AddressCommand(output, context);
+    return de_ValidateE911AddressCommand(output, context);
   }
 
   // Start section: command_body_extra

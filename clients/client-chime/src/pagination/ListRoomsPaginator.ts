@@ -6,7 +6,7 @@ import { ListRoomsCommand, ListRoomsCommandInput, ListRoomsCommandOutput } from 
 import { ChimePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRoomsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListRooms(
   config: ChimePaginationConfiguration,
   input: ListRoomsCommandInput,

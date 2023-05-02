@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DescribeChangeSetHooksInput,
-  DescribeChangeSetHooksInputFilterSensitiveLog,
-  DescribeChangeSetHooksOutput,
-  DescribeChangeSetHooksOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeChangeSetHooksCommand,
-  serializeAws_queryDescribeChangeSetHooksCommand,
-} from "../protocols/Aws_query";
+import { DescribeChangeSetHooksInput, DescribeChangeSetHooksOutput } from "../models/models_0";
+import { de_DescribeChangeSetHooksCommand, se_DescribeChangeSetHooksCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChangeSetHooksCommand}.
  */
 export interface DescribeChangeSetHooksCommandInput extends DescribeChangeSetHooksInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChangeSetHooksCommand}.
  */
 export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHooksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns hook-related information for the change set and a list of changes that CloudFormation makes when you run the change set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
  * import { CloudFormationClient, DescribeChangeSetHooksCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeChangeSetHooksCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribeChangeSetHooksInput
+ *   ChangeSetName: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   LogicalResourceId: "STRING_VALUE",
+ * };
  * const command = new DescribeChangeSetHooksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChangeSetHooksCommandInput - {@link DescribeChangeSetHooksCommandInput}
+ * @returns {@link DescribeChangeSetHooksCommandOutput}
  * @see {@link DescribeChangeSetHooksCommandInput} for command's `input` shape.
  * @see {@link DescribeChangeSetHooksCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -73,6 +78,9 @@ export class DescribeChangeSetHooksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChangeSetHooksCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +109,8 @@ export class DescribeChangeSetHooksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChangeSetHooksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeChangeSetHooksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +120,18 @@ export class DescribeChangeSetHooksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChangeSetHooksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeChangeSetHooksCommand(input, context);
+    return se_DescribeChangeSetHooksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChangeSetHooksCommandOutput> {
-    return deserializeAws_queryDescribeChangeSetHooksCommand(output, context);
+    return de_DescribeChangeSetHooksCommand(output, context);
   }
 
   // Start section: command_body_extra

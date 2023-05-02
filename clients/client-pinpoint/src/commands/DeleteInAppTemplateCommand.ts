@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteInAppTemplateRequest,
-  DeleteInAppTemplateRequestFilterSensitiveLog,
-  DeleteInAppTemplateResponse,
-  DeleteInAppTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteInAppTemplateRequest, DeleteInAppTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteInAppTemplateCommand,
-  serializeAws_restJson1DeleteInAppTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteInAppTemplateCommand, se_DeleteInAppTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInAppTemplateCommand}.
  */
 export interface DeleteInAppTemplateCommandInput extends DeleteInAppTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInAppTemplateCommand}.
  */
 export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a message template for messages sent using the in-app message channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateRes
  * import { PinpointClient, DeleteInAppTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteInAppTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // DeleteInAppTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new DeleteInAppTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInAppTemplateCommandInput - {@link DeleteInAppTemplateCommandInput}
+ * @returns {@link DeleteInAppTemplateCommandOutput}
  * @see {@link DeleteInAppTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteInAppTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +93,9 @@ export class DeleteInAppTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInAppTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class DeleteInAppTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInAppTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInAppTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class DeleteInAppTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInAppTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInAppTemplateCommand(input, context);
+    return se_DeleteInAppTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInAppTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteInAppTemplateCommand(output, context);
+    return de_DeleteInAppTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

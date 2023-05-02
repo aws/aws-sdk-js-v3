@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  DescribeInferenceSchedulerRequest,
-  DescribeInferenceSchedulerRequestFilterSensitiveLog,
-  DescribeInferenceSchedulerResponse,
-  DescribeInferenceSchedulerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeInferenceSchedulerCommand,
-  serializeAws_json1_0DescribeInferenceSchedulerCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeInferenceSchedulerRequest, DescribeInferenceSchedulerResponse } from "../models/models_0";
+import { de_DescribeInferenceSchedulerCommand, se_DescribeInferenceSchedulerCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInferenceSchedulerCommand}.
  */
 export interface DescribeInferenceSchedulerCommandInput extends DescribeInferenceSchedulerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInferenceSchedulerCommand}.
  */
 export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Specifies information about the inference scheduler being used, including name, model,
  *          status, and associated metadata </p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferen
  * import { LookoutEquipmentClient, DescribeInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DescribeInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // DescribeInferenceSchedulerRequest
+ *   InferenceSchedulerName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInferenceSchedulerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInferenceSchedulerCommandInput - {@link DescribeInferenceSchedulerCommandInput}
+ * @returns {@link DescribeInferenceSchedulerCommandOutput}
  * @see {@link DescribeInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link DescribeInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +91,9 @@ export class DescribeInferenceSchedulerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInferenceSchedulerCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class DescribeInferenceSchedulerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInferenceSchedulerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInferenceSchedulerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +133,21 @@ export class DescribeInferenceSchedulerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeInferenceSchedulerCommand(input, context);
+    return se_DescribeInferenceSchedulerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInferenceSchedulerCommandOutput> {
-    return deserializeAws_json1_0DescribeInferenceSchedulerCommand(output, context);
+    return de_DescribeInferenceSchedulerCommand(output, context);
   }
 
   // Start section: command_body_extra

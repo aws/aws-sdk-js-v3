@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteWorkflowRequest, DeleteWorkflowRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteWorkflowRequest } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1DeleteWorkflowCommand,
-  serializeAws_restJson1DeleteWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteWorkflowCommand, se_DeleteWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkflowCommand}.
  */
 export interface DeleteWorkflowCommandInput extends DeleteWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkflowCommand}.
  */
 export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
  * import { OmicsClient, DeleteWorkflowCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteWorkflowCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // DeleteWorkflowRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkflowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkflowCommandInput - {@link DeleteWorkflowCommandInput}
+ * @returns {@link DeleteWorkflowCommandOutput}
  * @see {@link DeleteWorkflowCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkflowCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +126,8 @@ export class DeleteWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +137,18 @@ export class DeleteWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkflowCommand(input, context);
+    return se_DeleteWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkflowCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkflowCommand(output, context);
+    return de_DeleteWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

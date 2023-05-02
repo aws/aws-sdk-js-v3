@@ -204,6 +204,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateConfigurationSetCommandInput
   | CreateConfigurationSetEventDestinationCommandInput
@@ -248,6 +251,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateConfigurationSetEventDestinationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateConfigurationSetCommandOutput
   | CreateConfigurationSetEventDestinationCommandOutput
@@ -292,6 +298,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateConfigurationSetEventDestinationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -299,7 +308,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -408,11 +417,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type PinpointEmailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -423,10 +435,15 @@ type PinpointEmailClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of PinpointEmailClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of PinpointEmailClient class constructor that set the region, credentials and other options.
  */
 export interface PinpointEmailClientConfig extends PinpointEmailClientConfigType {}
 
+/**
+ * @public
+ */
 type PinpointEmailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -437,11 +454,14 @@ type PinpointEmailClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of PinpointEmailClient class. This is resolved and normalized from the {@link PinpointEmailClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of PinpointEmailClient class. This is resolved and normalized from the {@link PinpointEmailClientConfig | constructor configuration interface}.
  */
 export interface PinpointEmailClientResolvedConfig extends PinpointEmailClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Pinpoint Email Service</fullname>
  *         <p>Welcome to the <i>Amazon Pinpoint Email API Reference</i>. This guide provides
  *             information about the Amazon Pinpoint Email API (version 1.0), including supported

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -7,11 +8,21 @@ import {
   CreateExtendedSourceServerCommandOutput,
 } from "./commands/CreateExtendedSourceServerCommand";
 import {
+  CreateLaunchConfigurationTemplateCommand,
+  CreateLaunchConfigurationTemplateCommandInput,
+  CreateLaunchConfigurationTemplateCommandOutput,
+} from "./commands/CreateLaunchConfigurationTemplateCommand";
+import {
   CreateReplicationConfigurationTemplateCommand,
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
 import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import {
+  DeleteLaunchConfigurationTemplateCommand,
+  DeleteLaunchConfigurationTemplateCommandInput,
+  DeleteLaunchConfigurationTemplateCommandOutput,
+} from "./commands/DeleteLaunchConfigurationTemplateCommand";
 import {
   DeleteRecoveryInstanceCommand,
   DeleteRecoveryInstanceCommandInput,
@@ -37,6 +48,11 @@ import {
   DescribeJobsCommandInput,
   DescribeJobsCommandOutput,
 } from "./commands/DescribeJobsCommand";
+import {
+  DescribeLaunchConfigurationTemplatesCommand,
+  DescribeLaunchConfigurationTemplatesCommandInput,
+  DescribeLaunchConfigurationTemplatesCommandOutput,
+} from "./commands/DescribeLaunchConfigurationTemplatesCommand";
 import {
   DescribeRecoveryInstancesCommand,
   DescribeRecoveryInstancesCommandInput,
@@ -159,6 +175,11 @@ import {
   UpdateLaunchConfigurationCommandOutput,
 } from "./commands/UpdateLaunchConfigurationCommand";
 import {
+  UpdateLaunchConfigurationTemplateCommand,
+  UpdateLaunchConfigurationTemplateCommandInput,
+  UpdateLaunchConfigurationTemplateCommandOutput,
+} from "./commands/UpdateLaunchConfigurationTemplateCommand";
+import {
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
@@ -168,1127 +189,679 @@ import {
   UpdateReplicationConfigurationTemplateCommandInput,
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/UpdateReplicationConfigurationTemplateCommand";
-import { DrsClient } from "./DrsClient";
+import { DrsClient, DrsClientConfig } from "./DrsClient";
 
-/**
- * <p>AWS Elastic Disaster Recovery Service.</p>
- */
-export class Drs extends DrsClient {
+const commands = {
+  CreateExtendedSourceServerCommand,
+  CreateLaunchConfigurationTemplateCommand,
+  CreateReplicationConfigurationTemplateCommand,
+  DeleteJobCommand,
+  DeleteLaunchConfigurationTemplateCommand,
+  DeleteRecoveryInstanceCommand,
+  DeleteReplicationConfigurationTemplateCommand,
+  DeleteSourceServerCommand,
+  DescribeJobLogItemsCommand,
+  DescribeJobsCommand,
+  DescribeLaunchConfigurationTemplatesCommand,
+  DescribeRecoveryInstancesCommand,
+  DescribeRecoverySnapshotsCommand,
+  DescribeReplicationConfigurationTemplatesCommand,
+  DescribeSourceServersCommand,
+  DisconnectRecoveryInstanceCommand,
+  DisconnectSourceServerCommand,
+  GetFailbackReplicationConfigurationCommand,
+  GetLaunchConfigurationCommand,
+  GetReplicationConfigurationCommand,
+  InitializeServiceCommand,
+  ListExtensibleSourceServersCommand,
+  ListStagingAccountsCommand,
+  ListTagsForResourceCommand,
+  RetryDataReplicationCommand,
+  ReverseReplicationCommand,
+  StartFailbackLaunchCommand,
+  StartRecoveryCommand,
+  StartReplicationCommand,
+  StopFailbackCommand,
+  StopReplicationCommand,
+  TagResourceCommand,
+  TerminateRecoveryInstancesCommand,
+  UntagResourceCommand,
+  UpdateFailbackReplicationConfigurationCommand,
+  UpdateLaunchConfigurationCommand,
+  UpdateLaunchConfigurationTemplateCommand,
+  UpdateReplicationConfigurationCommand,
+  UpdateReplicationConfigurationTemplateCommand,
+};
+
+export interface Drs {
   /**
-   * <p>Create an extended source server in the target Account based on the source server in staging account.</p>
+   * @see {@link CreateExtendedSourceServerCommand}
    */
-  public createExtendedSourceServer(
+  createExtendedSourceServer(
     args: CreateExtendedSourceServerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateExtendedSourceServerCommandOutput>;
-  public createExtendedSourceServer(
+  createExtendedSourceServer(
     args: CreateExtendedSourceServerCommandInput,
     cb: (err: any, data?: CreateExtendedSourceServerCommandOutput) => void
   ): void;
-  public createExtendedSourceServer(
+  createExtendedSourceServer(
     args: CreateExtendedSourceServerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateExtendedSourceServerCommandOutput) => void
   ): void;
-  public createExtendedSourceServer(
-    args: CreateExtendedSourceServerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExtendedSourceServerCommandOutput) => void),
-    cb?: (err: any, data?: CreateExtendedSourceServerCommandOutput) => void
-  ): Promise<CreateExtendedSourceServerCommandOutput> | void {
-    const command = new CreateExtendedSourceServerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new ReplicationConfigurationTemplate.</p>
+   * @see {@link CreateLaunchConfigurationTemplateCommand}
    */
-  public createReplicationConfigurationTemplate(
+  createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLaunchConfigurationTemplateCommandOutput>;
+  createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    cb: (err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateReplicationConfigurationTemplateCommand}
+   */
+  createReplicationConfigurationTemplate(
     args: CreateReplicationConfigurationTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateReplicationConfigurationTemplateCommandOutput>;
-  public createReplicationConfigurationTemplate(
+  createReplicationConfigurationTemplate(
     args: CreateReplicationConfigurationTemplateCommandInput,
     cb: (err: any, data?: CreateReplicationConfigurationTemplateCommandOutput) => void
   ): void;
-  public createReplicationConfigurationTemplate(
+  createReplicationConfigurationTemplate(
     args: CreateReplicationConfigurationTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateReplicationConfigurationTemplateCommandOutput) => void
   ): void;
-  public createReplicationConfigurationTemplate(
-    args: CreateReplicationConfigurationTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateReplicationConfigurationTemplateCommandOutput) => void),
-    cb?: (err: any, data?: CreateReplicationConfigurationTemplateCommandOutput) => void
-  ): Promise<CreateReplicationConfigurationTemplateCommandOutput> | void {
-    const command = new CreateReplicationConfigurationTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a single Job by ID.</p>
+   * @see {@link DeleteJobCommand}
    */
-  public deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
-  public deleteJob(args: DeleteJobCommandInput, cb: (err: any, data?: DeleteJobCommandOutput) => void): void;
-  public deleteJob(
+  deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
+  deleteJob(args: DeleteJobCommandInput, cb: (err: any, data?: DeleteJobCommandOutput) => void): void;
+  deleteJob(
     args: DeleteJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteJobCommandOutput) => void
   ): void;
-  public deleteJob(
-    args: DeleteJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJobCommandOutput) => void),
-    cb?: (err: any, data?: DeleteJobCommandOutput) => void
-  ): Promise<DeleteJobCommandOutput> | void {
-    const command = new DeleteJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a single Recovery Instance by ID. This deletes the Recovery Instance resource from Elastic Disaster Recovery. The Recovery Instance must be disconnected first in order to delete it.</p>
+   * @see {@link DeleteLaunchConfigurationTemplateCommand}
    */
-  public deleteRecoveryInstance(
+  deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLaunchConfigurationTemplateCommandOutput>;
+  deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    cb: (err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRecoveryInstanceCommand}
+   */
+  deleteRecoveryInstance(
     args: DeleteRecoveryInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRecoveryInstanceCommandOutput>;
-  public deleteRecoveryInstance(
+  deleteRecoveryInstance(
     args: DeleteRecoveryInstanceCommandInput,
     cb: (err: any, data?: DeleteRecoveryInstanceCommandOutput) => void
   ): void;
-  public deleteRecoveryInstance(
+  deleteRecoveryInstance(
     args: DeleteRecoveryInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRecoveryInstanceCommandOutput) => void
   ): void;
-  public deleteRecoveryInstance(
-    args: DeleteRecoveryInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRecoveryInstanceCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRecoveryInstanceCommandOutput) => void
-  ): Promise<DeleteRecoveryInstanceCommandOutput> | void {
-    const command = new DeleteRecoveryInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a single Replication Configuration Template by ID</p>
+   * @see {@link DeleteReplicationConfigurationTemplateCommand}
    */
-  public deleteReplicationConfigurationTemplate(
+  deleteReplicationConfigurationTemplate(
     args: DeleteReplicationConfigurationTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteReplicationConfigurationTemplateCommandOutput>;
-  public deleteReplicationConfigurationTemplate(
+  deleteReplicationConfigurationTemplate(
     args: DeleteReplicationConfigurationTemplateCommandInput,
     cb: (err: any, data?: DeleteReplicationConfigurationTemplateCommandOutput) => void
   ): void;
-  public deleteReplicationConfigurationTemplate(
+  deleteReplicationConfigurationTemplate(
     args: DeleteReplicationConfigurationTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteReplicationConfigurationTemplateCommandOutput) => void
   ): void;
-  public deleteReplicationConfigurationTemplate(
-    args: DeleteReplicationConfigurationTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReplicationConfigurationTemplateCommandOutput) => void),
-    cb?: (err: any, data?: DeleteReplicationConfigurationTemplateCommandOutput) => void
-  ): Promise<DeleteReplicationConfigurationTemplateCommandOutput> | void {
-    const command = new DeleteReplicationConfigurationTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a single Source Server by ID. The Source Server must be disconnected first.</p>
+   * @see {@link DeleteSourceServerCommand}
    */
-  public deleteSourceServer(
+  deleteSourceServer(
     args: DeleteSourceServerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSourceServerCommandOutput>;
-  public deleteSourceServer(
+  deleteSourceServer(
     args: DeleteSourceServerCommandInput,
     cb: (err: any, data?: DeleteSourceServerCommandOutput) => void
   ): void;
-  public deleteSourceServer(
+  deleteSourceServer(
     args: DeleteSourceServerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSourceServerCommandOutput) => void
   ): void;
-  public deleteSourceServer(
-    args: DeleteSourceServerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSourceServerCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSourceServerCommandOutput) => void
-  ): Promise<DeleteSourceServerCommandOutput> | void {
-    const command = new DeleteSourceServerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a detailed Job log with pagination.</p>
+   * @see {@link DescribeJobLogItemsCommand}
    */
-  public describeJobLogItems(
+  describeJobLogItems(
     args: DescribeJobLogItemsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeJobLogItemsCommandOutput>;
-  public describeJobLogItems(
+  describeJobLogItems(
     args: DescribeJobLogItemsCommandInput,
     cb: (err: any, data?: DescribeJobLogItemsCommandOutput) => void
   ): void;
-  public describeJobLogItems(
+  describeJobLogItems(
     args: DescribeJobLogItemsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeJobLogItemsCommandOutput) => void
   ): void;
-  public describeJobLogItems(
-    args: DescribeJobLogItemsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobLogItemsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeJobLogItemsCommandOutput) => void
-  ): Promise<DescribeJobLogItemsCommandOutput> | void {
-    const command = new DescribeJobLogItemsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of Jobs. Use the JobsID and fromDate and toDate filters to limit which jobs are returned. The response is sorted by creationDataTime - latest date first. Jobs are created by the StartRecovery, TerminateRecoveryInstances and StartFailbackLaunch APIs. Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances, which are APIs available only to *Support* and only used in response to relevant support tickets.</p>
+   * @see {@link DescribeJobsCommand}
    */
-  public describeJobs(
-    args: DescribeJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeJobsCommandOutput>;
-  public describeJobs(args: DescribeJobsCommandInput, cb: (err: any, data?: DescribeJobsCommandOutput) => void): void;
-  public describeJobs(
+  describeJobs(args: DescribeJobsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobsCommandOutput>;
+  describeJobs(args: DescribeJobsCommandInput, cb: (err: any, data?: DescribeJobsCommandOutput) => void): void;
+  describeJobs(
     args: DescribeJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeJobsCommandOutput) => void
   ): void;
-  public describeJobs(
-    args: DescribeJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeJobsCommandOutput) => void
-  ): Promise<DescribeJobsCommandOutput> | void {
-    const command = new DescribeJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all Recovery Instances or multiple Recovery Instances by ID.</p>
+   * @see {@link DescribeLaunchConfigurationTemplatesCommand}
    */
-  public describeRecoveryInstances(
+  describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLaunchConfigurationTemplatesCommandOutput>;
+  describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    cb: (err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void
+  ): void;
+  describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRecoveryInstancesCommand}
+   */
+  describeRecoveryInstances(
     args: DescribeRecoveryInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeRecoveryInstancesCommandOutput>;
-  public describeRecoveryInstances(
+  describeRecoveryInstances(
     args: DescribeRecoveryInstancesCommandInput,
     cb: (err: any, data?: DescribeRecoveryInstancesCommandOutput) => void
   ): void;
-  public describeRecoveryInstances(
+  describeRecoveryInstances(
     args: DescribeRecoveryInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeRecoveryInstancesCommandOutput) => void
   ): void;
-  public describeRecoveryInstances(
-    args: DescribeRecoveryInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRecoveryInstancesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeRecoveryInstancesCommandOutput) => void
-  ): Promise<DescribeRecoveryInstancesCommandOutput> | void {
-    const command = new DescribeRecoveryInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all Recovery Snapshots for a single Source Server.</p>
+   * @see {@link DescribeRecoverySnapshotsCommand}
    */
-  public describeRecoverySnapshots(
+  describeRecoverySnapshots(
     args: DescribeRecoverySnapshotsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeRecoverySnapshotsCommandOutput>;
-  public describeRecoverySnapshots(
+  describeRecoverySnapshots(
     args: DescribeRecoverySnapshotsCommandInput,
     cb: (err: any, data?: DescribeRecoverySnapshotsCommandOutput) => void
   ): void;
-  public describeRecoverySnapshots(
+  describeRecoverySnapshots(
     args: DescribeRecoverySnapshotsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeRecoverySnapshotsCommandOutput) => void
   ): void;
-  public describeRecoverySnapshots(
-    args: DescribeRecoverySnapshotsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRecoverySnapshotsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeRecoverySnapshotsCommandOutput) => void
-  ): Promise<DescribeRecoverySnapshotsCommandOutput> | void {
-    const command = new DescribeRecoverySnapshotsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.</p>
+   * @see {@link DescribeReplicationConfigurationTemplatesCommand}
    */
-  public describeReplicationConfigurationTemplates(
+  describeReplicationConfigurationTemplates(
     args: DescribeReplicationConfigurationTemplatesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeReplicationConfigurationTemplatesCommandOutput>;
-  public describeReplicationConfigurationTemplates(
+  describeReplicationConfigurationTemplates(
     args: DescribeReplicationConfigurationTemplatesCommandInput,
     cb: (err: any, data?: DescribeReplicationConfigurationTemplatesCommandOutput) => void
   ): void;
-  public describeReplicationConfigurationTemplates(
+  describeReplicationConfigurationTemplates(
     args: DescribeReplicationConfigurationTemplatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeReplicationConfigurationTemplatesCommandOutput) => void
   ): void;
-  public describeReplicationConfigurationTemplates(
-    args: DescribeReplicationConfigurationTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReplicationConfigurationTemplatesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeReplicationConfigurationTemplatesCommandOutput) => void
-  ): Promise<DescribeReplicationConfigurationTemplatesCommandOutput> | void {
-    const command = new DescribeReplicationConfigurationTemplatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all Source Servers or multiple Source Servers filtered by ID.</p>
+   * @see {@link DescribeSourceServersCommand}
    */
-  public describeSourceServers(
+  describeSourceServers(
     args: DescribeSourceServersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeSourceServersCommandOutput>;
-  public describeSourceServers(
+  describeSourceServers(
     args: DescribeSourceServersCommandInput,
     cb: (err: any, data?: DescribeSourceServersCommandOutput) => void
   ): void;
-  public describeSourceServers(
+  describeSourceServers(
     args: DescribeSourceServersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSourceServersCommandOutput) => void
   ): void;
-  public describeSourceServers(
-    args: DescribeSourceServersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSourceServersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeSourceServersCommandOutput) => void
-  ): Promise<DescribeSourceServersCommandOutput> | void {
-    const command = new DescribeSourceServersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disconnect a Recovery Instance from Elastic Disaster Recovery. Data replication is stopped immediately. All AWS resources created by Elastic Disaster Recovery for enabling the replication of the Recovery Instance will be terminated / deleted within 90 minutes. If the agent on the Recovery Instance has not been prevented from communicating with the Elastic Disaster Recovery service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the Recovery Instance will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
+   * @see {@link DisconnectRecoveryInstanceCommand}
    */
-  public disconnectRecoveryInstance(
+  disconnectRecoveryInstance(
     args: DisconnectRecoveryInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisconnectRecoveryInstanceCommandOutput>;
-  public disconnectRecoveryInstance(
+  disconnectRecoveryInstance(
     args: DisconnectRecoveryInstanceCommandInput,
     cb: (err: any, data?: DisconnectRecoveryInstanceCommandOutput) => void
   ): void;
-  public disconnectRecoveryInstance(
+  disconnectRecoveryInstance(
     args: DisconnectRecoveryInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisconnectRecoveryInstanceCommandOutput) => void
   ): void;
-  public disconnectRecoveryInstance(
-    args: DisconnectRecoveryInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisconnectRecoveryInstanceCommandOutput) => void),
-    cb?: (err: any, data?: DisconnectRecoveryInstanceCommandOutput) => void
-  ): Promise<DisconnectRecoveryInstanceCommandOutput> | void {
-    const command = new DisconnectRecoveryInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disconnects a specific Source Server from Elastic Disaster Recovery. Data replication is stopped immediately. All AWS resources created by Elastic Disaster Recovery for enabling the replication of the Source Server will be terminated / deleted within 90 minutes. You cannot disconnect a Source Server if it has a Recovery Instance. If the agent on the Source Server has not been prevented from communicating with the Elastic Disaster Recovery service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
+   * @see {@link DisconnectSourceServerCommand}
    */
-  public disconnectSourceServer(
+  disconnectSourceServer(
     args: DisconnectSourceServerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisconnectSourceServerCommandOutput>;
-  public disconnectSourceServer(
+  disconnectSourceServer(
     args: DisconnectSourceServerCommandInput,
     cb: (err: any, data?: DisconnectSourceServerCommandOutput) => void
   ): void;
-  public disconnectSourceServer(
+  disconnectSourceServer(
     args: DisconnectSourceServerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisconnectSourceServerCommandOutput) => void
   ): void;
-  public disconnectSourceServer(
-    args: DisconnectSourceServerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisconnectSourceServerCommandOutput) => void),
-    cb?: (err: any, data?: DisconnectSourceServerCommandOutput) => void
-  ): Promise<DisconnectSourceServerCommandOutput> | void {
-    const command = new DisconnectSourceServerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all Failback ReplicationConfigurations, filtered by Recovery Instance ID.</p>
+   * @see {@link GetFailbackReplicationConfigurationCommand}
    */
-  public getFailbackReplicationConfiguration(
+  getFailbackReplicationConfiguration(
     args: GetFailbackReplicationConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetFailbackReplicationConfigurationCommandOutput>;
-  public getFailbackReplicationConfiguration(
+  getFailbackReplicationConfiguration(
     args: GetFailbackReplicationConfigurationCommandInput,
     cb: (err: any, data?: GetFailbackReplicationConfigurationCommandOutput) => void
   ): void;
-  public getFailbackReplicationConfiguration(
+  getFailbackReplicationConfiguration(
     args: GetFailbackReplicationConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFailbackReplicationConfigurationCommandOutput) => void
   ): void;
-  public getFailbackReplicationConfiguration(
-    args: GetFailbackReplicationConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFailbackReplicationConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetFailbackReplicationConfigurationCommandOutput) => void
-  ): Promise<GetFailbackReplicationConfigurationCommandOutput> | void {
-    const command = new GetFailbackReplicationConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a LaunchConfiguration, filtered by Source Server IDs.</p>
+   * @see {@link GetLaunchConfigurationCommand}
    */
-  public getLaunchConfiguration(
+  getLaunchConfiguration(
     args: GetLaunchConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetLaunchConfigurationCommandOutput>;
-  public getLaunchConfiguration(
+  getLaunchConfiguration(
     args: GetLaunchConfigurationCommandInput,
     cb: (err: any, data?: GetLaunchConfigurationCommandOutput) => void
   ): void;
-  public getLaunchConfiguration(
+  getLaunchConfiguration(
     args: GetLaunchConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLaunchConfigurationCommandOutput) => void
   ): void;
-  public getLaunchConfiguration(
-    args: GetLaunchConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLaunchConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetLaunchConfigurationCommandOutput) => void
-  ): Promise<GetLaunchConfigurationCommandOutput> | void {
-    const command = new GetLaunchConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a ReplicationConfiguration, filtered by Source Server ID.</p>
+   * @see {@link GetReplicationConfigurationCommand}
    */
-  public getReplicationConfiguration(
+  getReplicationConfiguration(
     args: GetReplicationConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetReplicationConfigurationCommandOutput>;
-  public getReplicationConfiguration(
+  getReplicationConfiguration(
     args: GetReplicationConfigurationCommandInput,
     cb: (err: any, data?: GetReplicationConfigurationCommandOutput) => void
   ): void;
-  public getReplicationConfiguration(
+  getReplicationConfiguration(
     args: GetReplicationConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReplicationConfigurationCommandOutput) => void
   ): void;
-  public getReplicationConfiguration(
-    args: GetReplicationConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReplicationConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetReplicationConfigurationCommandOutput) => void
-  ): Promise<GetReplicationConfigurationCommandOutput> | void {
-    const command = new GetReplicationConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Initialize Elastic Disaster Recovery.</p>
+   * @see {@link InitializeServiceCommand}
    */
-  public initializeService(
+  initializeService(
     args: InitializeServiceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<InitializeServiceCommandOutput>;
-  public initializeService(
+  initializeService(
     args: InitializeServiceCommandInput,
     cb: (err: any, data?: InitializeServiceCommandOutput) => void
   ): void;
-  public initializeService(
+  initializeService(
     args: InitializeServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InitializeServiceCommandOutput) => void
   ): void;
-  public initializeService(
-    args: InitializeServiceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitializeServiceCommandOutput) => void),
-    cb?: (err: any, data?: InitializeServiceCommandOutput) => void
-  ): Promise<InitializeServiceCommandOutput> | void {
-    const command = new InitializeServiceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of source servers on a staging account that are extensible, which means that:
-   *             a. The source server is not already extended into this Account.
-   *             b. The source server on the Account we’re reading from is not an extension of another source server.
-   *         </p>
+   * @see {@link ListExtensibleSourceServersCommand}
    */
-  public listExtensibleSourceServers(
+  listExtensibleSourceServers(
     args: ListExtensibleSourceServersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListExtensibleSourceServersCommandOutput>;
-  public listExtensibleSourceServers(
+  listExtensibleSourceServers(
     args: ListExtensibleSourceServersCommandInput,
     cb: (err: any, data?: ListExtensibleSourceServersCommandOutput) => void
   ): void;
-  public listExtensibleSourceServers(
+  listExtensibleSourceServers(
     args: ListExtensibleSourceServersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListExtensibleSourceServersCommandOutput) => void
   ): void;
-  public listExtensibleSourceServers(
-    args: ListExtensibleSourceServersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExtensibleSourceServersCommandOutput) => void),
-    cb?: (err: any, data?: ListExtensibleSourceServersCommandOutput) => void
-  ): Promise<ListExtensibleSourceServersCommandOutput> | void {
-    const command = new ListExtensibleSourceServersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns an array of staging accounts for existing extended source servers.</p>
+   * @see {@link ListStagingAccountsCommand}
    */
-  public listStagingAccounts(
+  listStagingAccounts(
     args: ListStagingAccountsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListStagingAccountsCommandOutput>;
-  public listStagingAccounts(
+  listStagingAccounts(
     args: ListStagingAccountsCommandInput,
     cb: (err: any, data?: ListStagingAccountsCommandOutput) => void
   ): void;
-  public listStagingAccounts(
+  listStagingAccounts(
     args: ListStagingAccountsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListStagingAccountsCommandOutput) => void
   ): void;
-  public listStagingAccounts(
-    args: ListStagingAccountsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStagingAccountsCommandOutput) => void),
-    cb?: (err: any, data?: ListStagingAccountsCommandOutput) => void
-  ): Promise<ListStagingAccountsCommandOutput> | void {
-    const command = new ListStagingAccountsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>List all tags for your Elastic Disaster Recovery resources.</p>
+   * @see {@link ListTagsForResourceCommand}
    */
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Causes the data replication initiation sequence to begin immediately upon next Handshake for the specified Source Server ID, regardless of when the previous initiation started. This command will work only if the Source Server is stalled or is in a DISCONNECTED or STOPPED state.</p>
+   * @see {@link RetryDataReplicationCommand}
    */
-  public retryDataReplication(
+  retryDataReplication(
     args: RetryDataReplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RetryDataReplicationCommandOutput>;
-  public retryDataReplication(
+  retryDataReplication(
     args: RetryDataReplicationCommandInput,
     cb: (err: any, data?: RetryDataReplicationCommandOutput) => void
   ): void;
-  public retryDataReplication(
+  retryDataReplication(
     args: RetryDataReplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RetryDataReplicationCommandOutput) => void
   ): void;
-  public retryDataReplication(
-    args: RetryDataReplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetryDataReplicationCommandOutput) => void),
-    cb?: (err: any, data?: RetryDataReplicationCommandOutput) => void
-  ): Promise<RetryDataReplicationCommandOutput> | void {
-    const command = new RetryDataReplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Start replication to origin / target region - applies only to protected instances that originated in EC2.
-   *             For recovery instances on target region - starts replication back to origin region.
-   *             For failback instances on origin region - starts replication to target region to re-protect them.
-   *         </p>
+   * @see {@link ReverseReplicationCommand}
    */
-  public reverseReplication(
+  reverseReplication(
     args: ReverseReplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ReverseReplicationCommandOutput>;
-  public reverseReplication(
+  reverseReplication(
     args: ReverseReplicationCommandInput,
     cb: (err: any, data?: ReverseReplicationCommandOutput) => void
   ): void;
-  public reverseReplication(
+  reverseReplication(
     args: ReverseReplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ReverseReplicationCommandOutput) => void
   ): void;
-  public reverseReplication(
-    args: ReverseReplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReverseReplicationCommandOutput) => void),
-    cb?: (err: any, data?: ReverseReplicationCommandOutput) => void
-  ): Promise<ReverseReplicationCommandOutput> | void {
-    const command = new ReverseReplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Initiates a Job for launching the machine that is being failed back to from the specified Recovery Instance. This will run conversion on the failback client and will reboot your machine, thus completing the failback process.</p>
+   * @see {@link StartFailbackLaunchCommand}
    */
-  public startFailbackLaunch(
+  startFailbackLaunch(
     args: StartFailbackLaunchCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartFailbackLaunchCommandOutput>;
-  public startFailbackLaunch(
+  startFailbackLaunch(
     args: StartFailbackLaunchCommandInput,
     cb: (err: any, data?: StartFailbackLaunchCommandOutput) => void
   ): void;
-  public startFailbackLaunch(
+  startFailbackLaunch(
     args: StartFailbackLaunchCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartFailbackLaunchCommandOutput) => void
   ): void;
-  public startFailbackLaunch(
-    args: StartFailbackLaunchCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFailbackLaunchCommandOutput) => void),
-    cb?: (err: any, data?: StartFailbackLaunchCommandOutput) => void
-  ): Promise<StartFailbackLaunchCommandOutput> | void {
-    const command = new StartFailbackLaunchCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Launches Recovery Instances for the specified Source Servers. For each Source Server you may choose a point in time snapshot to launch from, or use an on demand snapshot.</p>
+   * @see {@link StartRecoveryCommand}
    */
-  public startRecovery(
-    args: StartRecoveryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartRecoveryCommandOutput>;
-  public startRecovery(
-    args: StartRecoveryCommandInput,
-    cb: (err: any, data?: StartRecoveryCommandOutput) => void
-  ): void;
-  public startRecovery(
+  startRecovery(args: StartRecoveryCommandInput, options?: __HttpHandlerOptions): Promise<StartRecoveryCommandOutput>;
+  startRecovery(args: StartRecoveryCommandInput, cb: (err: any, data?: StartRecoveryCommandOutput) => void): void;
+  startRecovery(
     args: StartRecoveryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartRecoveryCommandOutput) => void
   ): void;
-  public startRecovery(
-    args: StartRecoveryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartRecoveryCommandOutput) => void),
-    cb?: (err: any, data?: StartRecoveryCommandOutput) => void
-  ): Promise<StartRecoveryCommandOutput> | void {
-    const command = new StartRecoveryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts replication for a stopped Source Server. This action would make the Source Server protected again and restart billing for it.</p>
+   * @see {@link StartReplicationCommand}
    */
-  public startReplication(
+  startReplication(
     args: StartReplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartReplicationCommandOutput>;
-  public startReplication(
+  startReplication(
     args: StartReplicationCommandInput,
     cb: (err: any, data?: StartReplicationCommandOutput) => void
   ): void;
-  public startReplication(
+  startReplication(
     args: StartReplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartReplicationCommandOutput) => void
   ): void;
-  public startReplication(
-    args: StartReplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReplicationCommandOutput) => void),
-    cb?: (err: any, data?: StartReplicationCommandOutput) => void
-  ): Promise<StartReplicationCommandOutput> | void {
-    const command = new StartReplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stops the failback process for a specified Recovery Instance. This changes the Failback State of the Recovery Instance back to FAILBACK_NOT_STARTED.</p>
+   * @see {@link StopFailbackCommand}
    */
-  public stopFailback(
-    args: StopFailbackCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopFailbackCommandOutput>;
-  public stopFailback(args: StopFailbackCommandInput, cb: (err: any, data?: StopFailbackCommandOutput) => void): void;
-  public stopFailback(
+  stopFailback(args: StopFailbackCommandInput, options?: __HttpHandlerOptions): Promise<StopFailbackCommandOutput>;
+  stopFailback(args: StopFailbackCommandInput, cb: (err: any, data?: StopFailbackCommandOutput) => void): void;
+  stopFailback(
     args: StopFailbackCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopFailbackCommandOutput) => void
   ): void;
-  public stopFailback(
-    args: StopFailbackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopFailbackCommandOutput) => void),
-    cb?: (err: any, data?: StopFailbackCommandOutput) => void
-  ): Promise<StopFailbackCommandOutput> | void {
-    const command = new StopFailbackCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stops replication for a Source Server. This action would make the Source Server unprotected, delete its existing snapshots and stop billing for it.</p>
+   * @see {@link StopReplicationCommand}
    */
-  public stopReplication(
+  stopReplication(
     args: StopReplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopReplicationCommandOutput>;
-  public stopReplication(
-    args: StopReplicationCommandInput,
-    cb: (err: any, data?: StopReplicationCommandOutput) => void
-  ): void;
-  public stopReplication(
+  stopReplication(args: StopReplicationCommandInput, cb: (err: any, data?: StopReplicationCommandOutput) => void): void;
+  stopReplication(
     args: StopReplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopReplicationCommandOutput) => void
   ): void;
-  public stopReplication(
-    args: StopReplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopReplicationCommandOutput) => void),
-    cb?: (err: any, data?: StopReplicationCommandOutput) => void
-  ): Promise<StopReplicationCommandOutput> | void {
-    const command = new StopReplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Adds or overwrites only the specified tags for the specified Elastic Disaster Recovery resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value.</p>
+   * @see {@link TagResourceCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Initiates a Job for terminating the EC2 resources associated with the specified Recovery Instances, and then will delete the Recovery Instances from the Elastic Disaster Recovery service.</p>
+   * @see {@link TerminateRecoveryInstancesCommand}
    */
-  public terminateRecoveryInstances(
+  terminateRecoveryInstances(
     args: TerminateRecoveryInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<TerminateRecoveryInstancesCommandOutput>;
-  public terminateRecoveryInstances(
+  terminateRecoveryInstances(
     args: TerminateRecoveryInstancesCommandInput,
     cb: (err: any, data?: TerminateRecoveryInstancesCommandOutput) => void
   ): void;
-  public terminateRecoveryInstances(
+  terminateRecoveryInstances(
     args: TerminateRecoveryInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TerminateRecoveryInstancesCommandOutput) => void
   ): void;
-  public terminateRecoveryInstances(
-    args: TerminateRecoveryInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateRecoveryInstancesCommandOutput) => void),
-    cb?: (err: any, data?: TerminateRecoveryInstancesCommandOutput) => void
-  ): Promise<TerminateRecoveryInstancesCommandOutput> | void {
-    const command = new TerminateRecoveryInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the specified set of tags from the specified set of Elastic Disaster Recovery resources.</p>
+   * @see {@link UntagResourceCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Allows you to update the failback replication configuration of a Recovery Instance by ID.</p>
+   * @see {@link UpdateFailbackReplicationConfigurationCommand}
    */
-  public updateFailbackReplicationConfiguration(
+  updateFailbackReplicationConfiguration(
     args: UpdateFailbackReplicationConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateFailbackReplicationConfigurationCommandOutput>;
-  public updateFailbackReplicationConfiguration(
+  updateFailbackReplicationConfiguration(
     args: UpdateFailbackReplicationConfigurationCommandInput,
     cb: (err: any, data?: UpdateFailbackReplicationConfigurationCommandOutput) => void
   ): void;
-  public updateFailbackReplicationConfiguration(
+  updateFailbackReplicationConfiguration(
     args: UpdateFailbackReplicationConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateFailbackReplicationConfigurationCommandOutput) => void
   ): void;
-  public updateFailbackReplicationConfiguration(
-    args: UpdateFailbackReplicationConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFailbackReplicationConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateFailbackReplicationConfigurationCommandOutput) => void
-  ): Promise<UpdateFailbackReplicationConfigurationCommandOutput> | void {
-    const command = new UpdateFailbackReplicationConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a LaunchConfiguration by Source Server ID.</p>
+   * @see {@link UpdateLaunchConfigurationCommand}
    */
-  public updateLaunchConfiguration(
+  updateLaunchConfiguration(
     args: UpdateLaunchConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateLaunchConfigurationCommandOutput>;
-  public updateLaunchConfiguration(
+  updateLaunchConfiguration(
     args: UpdateLaunchConfigurationCommandInput,
     cb: (err: any, data?: UpdateLaunchConfigurationCommandOutput) => void
   ): void;
-  public updateLaunchConfiguration(
+  updateLaunchConfiguration(
     args: UpdateLaunchConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLaunchConfigurationCommandOutput) => void
   ): void;
-  public updateLaunchConfiguration(
-    args: UpdateLaunchConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLaunchConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateLaunchConfigurationCommandOutput) => void
-  ): Promise<UpdateLaunchConfigurationCommandOutput> | void {
-    const command = new UpdateLaunchConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Allows you to update a ReplicationConfiguration by Source Server ID.</p>
+   * @see {@link UpdateLaunchConfigurationTemplateCommand}
    */
-  public updateReplicationConfiguration(
+  updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLaunchConfigurationTemplateCommandOutput>;
+  updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    cb: (err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateReplicationConfigurationCommand}
+   */
+  updateReplicationConfiguration(
     args: UpdateReplicationConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateReplicationConfigurationCommandOutput>;
-  public updateReplicationConfiguration(
+  updateReplicationConfiguration(
     args: UpdateReplicationConfigurationCommandInput,
     cb: (err: any, data?: UpdateReplicationConfigurationCommandOutput) => void
   ): void;
-  public updateReplicationConfiguration(
+  updateReplicationConfiguration(
     args: UpdateReplicationConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateReplicationConfigurationCommandOutput) => void
   ): void;
-  public updateReplicationConfiguration(
-    args: UpdateReplicationConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateReplicationConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateReplicationConfigurationCommandOutput) => void
-  ): Promise<UpdateReplicationConfigurationCommandOutput> | void {
-    const command = new UpdateReplicationConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a ReplicationConfigurationTemplate by ID.</p>
+   * @see {@link UpdateReplicationConfigurationTemplateCommand}
    */
-  public updateReplicationConfigurationTemplate(
+  updateReplicationConfigurationTemplate(
     args: UpdateReplicationConfigurationTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateReplicationConfigurationTemplateCommandOutput>;
-  public updateReplicationConfigurationTemplate(
+  updateReplicationConfigurationTemplate(
     args: UpdateReplicationConfigurationTemplateCommandInput,
     cb: (err: any, data?: UpdateReplicationConfigurationTemplateCommandOutput) => void
   ): void;
-  public updateReplicationConfigurationTemplate(
+  updateReplicationConfigurationTemplate(
     args: UpdateReplicationConfigurationTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateReplicationConfigurationTemplateCommandOutput) => void
   ): void;
-  public updateReplicationConfigurationTemplate(
-    args: UpdateReplicationConfigurationTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateReplicationConfigurationTemplateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateReplicationConfigurationTemplateCommandOutput) => void
-  ): Promise<UpdateReplicationConfigurationTemplateCommandOutput> | void {
-    const command = new UpdateReplicationConfigurationTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>AWS Elastic Disaster Recovery Service.</p>
+ */
+export class Drs extends DrsClient implements Drs {}
+createAggregatedClient(commands, Drs);

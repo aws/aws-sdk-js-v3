@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DescribeEventTopicsRequest,
-  DescribeEventTopicsRequestFilterSensitiveLog,
-  DescribeEventTopicsResult,
-  DescribeEventTopicsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventTopicsCommand,
-  serializeAws_json1_1DescribeEventTopicsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEventTopicsRequest, DescribeEventTopicsResult } from "../models/models_0";
+import { de_DescribeEventTopicsCommand, se_DescribeEventTopicsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventTopicsCommand}.
  */
 export interface DescribeEventTopicsCommandInput extends DescribeEventTopicsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventTopicsCommand}.
  */
 export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtains information about which Amazon SNS topics receive status messages from the specified
  *       directory.</p>
  *          <p>If no input parameters are provided, such as DirectoryId or TopicName, this request
@@ -45,10 +42,18 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  * import { DirectoryServiceClient, DescribeEventTopicsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeEventTopicsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DescribeEventTopicsRequest
+ *   DirectoryId: "STRING_VALUE",
+ *   TopicNames: [ // TopicNames
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeEventTopicsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventTopicsCommandInput - {@link DescribeEventTopicsCommandInput}
+ * @returns {@link DescribeEventTopicsCommandOutput}
  * @see {@link DescribeEventTopicsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventTopicsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -84,6 +89,9 @@ export class DescribeEventTopicsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventTopicsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class DescribeEventTopicsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventTopicsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventTopicsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class DescribeEventTopicsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventTopicsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventTopicsCommand(input, context);
+    return se_DescribeEventTopicsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventTopicsCommandOutput> {
-    return deserializeAws_json1_1DescribeEventTopicsCommand(output, context);
+    return de_DescribeEventTopicsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDataSetsRequest,
-  ListDataSetsRequestFilterSensitiveLog,
-  ListDataSetsResponse,
-  ListDataSetsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1ListDataSetsCommand,
-  serializeAws_restJson1ListDataSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDataSetsRequest, ListDataSetsResponse } from "../models/models_3";
+import { de_ListDataSetsCommand, se_ListDataSetsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataSetsCommand}.
  */
 export interface ListDataSetsCommandInput extends ListDataSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataSetsCommand}.
  */
 export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the datasets belonging to the current Amazon Web Services account in an Amazon Web Services Region.</p>
  *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * import { QuickSightClient, ListDataSetsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListDataSetsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // ListDataSetsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDataSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataSetsCommandInput - {@link ListDataSetsCommandInput}
+ * @returns {@link ListDataSetsCommandOutput}
  * @see {@link ListDataSetsCommandInput} for command's `input` shape.
  * @see {@link ListDataSetsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -88,6 +92,9 @@ export class ListDataSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class ListDataSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class ListDataSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataSetsCommand(input, context);
+    return se_ListDataSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSetsCommandOutput> {
-    return deserializeAws_restJson1ListDataSetsCommand(output, context);
+    return de_ListDataSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListNamespacesRequest,
-  ListNamespacesRequestFilterSensitiveLog,
-  ListNamespacesResponse,
-  ListNamespacesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListNamespacesCommand,
-  serializeAws_json1_1ListNamespacesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListNamespacesRequest, ListNamespacesResponse } from "../models/models_0";
+import { de_ListNamespacesCommand, se_ListNamespacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListNamespacesCommand}.
  */
 export interface ListNamespacesCommandInput extends ListNamespacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNamespacesCommand}.
  */
 export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists summary information about the namespaces that were created by the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * import { ServiceDiscoveryClient, ListNamespacesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, ListNamespacesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // ListNamespacesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // NamespaceFilters
+ *     { // NamespaceFilter
+ *       Name: "TYPE" || "NAME" || "HTTP_NAME", // required
+ *       Values: [ // FilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Condition: "EQ" || "IN" || "BETWEEN" || "BEGINS_WITH",
+ *     },
+ *   ],
+ * };
  * const command = new ListNamespacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNamespacesCommandInput - {@link ListNamespacesCommandInput}
+ * @returns {@link ListNamespacesCommandOutput}
  * @see {@link ListNamespacesCommandInput} for command's `input` shape.
  * @see {@link ListNamespacesCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -54,11 +66,6 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
  *    numeric value might be outside the allowed range, or a string value might exceed length
  *    constraints.</p>
- *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
  *
  *
  * @example Example: List namespaces
@@ -138,6 +145,9 @@ export class ListNamespacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNamespacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,8 +176,8 @@ export class ListNamespacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNamespacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNamespacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -177,12 +187,18 @@ export class ListNamespacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNamespacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNamespacesCommand(input, context);
+    return se_ListNamespacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNamespacesCommandOutput> {
-    return deserializeAws_json1_1ListNamespacesCommand(output, context);
+    return de_ListNamespacesCommand(output, context);
   }
 
   // Start section: command_body_extra

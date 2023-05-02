@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteSipRuleRequest, DeleteSipRuleRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSipRuleCommand,
-  serializeAws_restJson1DeleteSipRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSipRuleRequest } from "../models/models_0";
+import { de_DeleteSipRuleCommand, se_DeleteSipRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSipRuleCommand}.
  */
 export interface DeleteSipRuleCommandInput extends DeleteSipRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSipRuleCommand}.
  */
 export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a SIP rule. You must disable a SIP rule before you can delete it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, DeleteSipRuleCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteSipRuleCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DeleteSipRuleRequest
+ *   SipRuleId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSipRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSipRuleCommandInput - {@link DeleteSipRuleCommandInput}
+ * @returns {@link DeleteSipRuleCommandOutput}
  * @see {@link DeleteSipRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteSipRuleCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteSipRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSipRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +125,8 @@ export class DeleteSipRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSipRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +136,18 @@ export class DeleteSipRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSipRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSipRuleCommand(input, context);
+    return se_DeleteSipRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSipRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteSipRuleCommand(output, context);
+    return de_DeleteSipRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

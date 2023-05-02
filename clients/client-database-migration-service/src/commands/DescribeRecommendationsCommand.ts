@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeRecommendationsRequest,
-  DescribeRecommendationsRequestFilterSensitiveLog,
-  DescribeRecommendationsResponse,
-  DescribeRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRecommendationsCommand,
-  serializeAws_json1_1DescribeRecommendationsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeRecommendationsRequest, DescribeRecommendationsResponse } from "../models/models_0";
+import { de_DescribeRecommendationsCommand, se_DescribeRecommendationsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecommendationsCommand}.
  */
 export interface DescribeRecommendationsCommandInput extends DescribeRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecommendationsCommand}.
  */
 export interface DescribeRecommendationsCommandOutput extends DescribeRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of target engine recommendations for your source
  *             databases.</p>
  * @example
@@ -47,10 +44,24 @@ export interface DescribeRecommendationsCommandOutput extends DescribeRecommenda
  * import { DatabaseMigrationServiceClient, DescribeRecommendationsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeRecommendationsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeRecommendationsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecommendationsCommandInput - {@link DescribeRecommendationsCommandInput}
+ * @returns {@link DescribeRecommendationsCommandOutput}
  * @see {@link DescribeRecommendationsCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -81,6 +92,9 @@ export class DescribeRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +123,8 @@ export class DescribeRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +134,18 @@ export class DescribeRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRecommendationsCommand(input, context);
+    return se_DescribeRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecommendationsCommandOutput> {
-    return deserializeAws_json1_1DescribeRecommendationsCommand(output, context);
+    return de_DescribeRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

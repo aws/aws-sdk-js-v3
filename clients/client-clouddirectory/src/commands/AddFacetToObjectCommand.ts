@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  AddFacetToObjectRequest,
-  AddFacetToObjectRequestFilterSensitiveLog,
-  AddFacetToObjectResponse,
-  AddFacetToObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AddFacetToObjectCommand,
-  serializeAws_restJson1AddFacetToObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { AddFacetToObjectRequest, AddFacetToObjectResponse } from "../models/models_0";
+import { de_AddFacetToObjectCommand, se_AddFacetToObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddFacetToObjectCommand}.
  */
 export interface AddFacetToObjectCommandInput extends AddFacetToObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddFacetToObjectCommand}.
  */
 export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new <a>Facet</a> to an object. An object can have more than one facet applied on it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,38 @@ export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse,
  * import { CloudDirectoryClient, AddFacetToObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AddFacetToObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // AddFacetToObjectRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   SchemaFacet: { // SchemaFacet
+ *     SchemaArn: "STRING_VALUE",
+ *     FacetName: "STRING_VALUE",
+ *   },
+ *   ObjectAttributeList: [ // AttributeKeyAndValueList
+ *     { // AttributeKeyAndValue
+ *       Key: { // AttributeKey
+ *         SchemaArn: "STRING_VALUE", // required
+ *         FacetName: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       Value: { // TypedAttributeValue Union: only one key present
+ *         StringValue: "STRING_VALUE",
+ *         BinaryValue: "BLOB_VALUE",
+ *         BooleanValue: true || false,
+ *         NumberValue: "STRING_VALUE",
+ *         DatetimeValue: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *   ],
+ *   ObjectReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ * };
  * const command = new AddFacetToObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddFacetToObjectCommandInput - {@link AddFacetToObjectCommandInput}
+ * @returns {@link AddFacetToObjectCommandOutput}
  * @see {@link AddFacetToObjectCommandInput} for command's `input` shape.
  * @see {@link AddFacetToObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +123,9 @@ export class AddFacetToObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddFacetToObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +154,8 @@ export class AddFacetToObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddFacetToObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddFacetToObjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +165,18 @@ export class AddFacetToObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddFacetToObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddFacetToObjectCommand(input, context);
+    return se_AddFacetToObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddFacetToObjectCommandOutput> {
-    return deserializeAws_restJson1AddFacetToObjectCommand(output, context);
+    return de_AddFacetToObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

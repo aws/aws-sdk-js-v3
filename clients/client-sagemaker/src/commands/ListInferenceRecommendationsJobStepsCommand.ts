@@ -15,21 +15,23 @@ import {
 
 import {
   ListInferenceRecommendationsJobStepsRequest,
-  ListInferenceRecommendationsJobStepsRequestFilterSensitiveLog,
   ListInferenceRecommendationsJobStepsResponse,
-  ListInferenceRecommendationsJobStepsResponseFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommand,
-  serializeAws_json1_1ListInferenceRecommendationsJobStepsCommand,
+  de_ListInferenceRecommendationsJobStepsCommand,
+  se_ListInferenceRecommendationsJobStepsCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListInferenceRecommendationsJobStepsCommand}.
  */
 export interface ListInferenceRecommendationsJobStepsCommandInput extends ListInferenceRecommendationsJobStepsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInferenceRecommendationsJobStepsCommand}.
  */
 export interface ListInferenceRecommendationsJobStepsCommandOutput
@@ -37,6 +39,7 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the subtasks for an Inference Recommender job.</p>
  *          <p>The supported subtasks are benchmarks, which evaluate the performance of your model on different instance types.</p>
  * @example
@@ -45,10 +48,19 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput
  * import { SageMakerClient, ListInferenceRecommendationsJobStepsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListInferenceRecommendationsJobStepsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListInferenceRecommendationsJobStepsRequest
+ *   JobName: "STRING_VALUE", // required
+ *   Status: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED",
+ *   StepType: "BENCHMARK",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListInferenceRecommendationsJobStepsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInferenceRecommendationsJobStepsCommandInput - {@link ListInferenceRecommendationsJobStepsCommandInput}
+ * @returns {@link ListInferenceRecommendationsJobStepsCommandOutput}
  * @see {@link ListInferenceRecommendationsJobStepsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceRecommendationsJobStepsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +87,9 @@ export class ListInferenceRecommendationsJobStepsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInferenceRecommendationsJobStepsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +118,8 @@ export class ListInferenceRecommendationsJobStepsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInferenceRecommendationsJobStepsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInferenceRecommendationsJobStepsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +129,24 @@ export class ListInferenceRecommendationsJobStepsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListInferenceRecommendationsJobStepsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListInferenceRecommendationsJobStepsCommand(input, context);
+    return se_ListInferenceRecommendationsJobStepsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListInferenceRecommendationsJobStepsCommandOutput> {
-    return deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommand(output, context);
+    return de_ListInferenceRecommendationsJobStepsCommand(output, context);
   }
 
   // Start section: command_body_extra

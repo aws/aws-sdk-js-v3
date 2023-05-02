@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetReadSetMetadataRequest,
-  GetReadSetMetadataRequestFilterSensitiveLog,
-  GetReadSetMetadataResponse,
-  GetReadSetMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetReadSetMetadataRequest, GetReadSetMetadataResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetReadSetMetadataCommand,
-  serializeAws_restJson1GetReadSetMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReadSetMetadataCommand, se_GetReadSetMetadataCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReadSetMetadataCommand}.
  */
 export interface GetReadSetMetadataCommandInput extends GetReadSetMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReadSetMetadataCommand}.
  */
 export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about a read set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataRespo
  * import { OmicsClient, GetReadSetMetadataCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReadSetMetadataCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // GetReadSetMetadataRequest
+ *   id: "STRING_VALUE", // required
+ *   sequenceStoreId: "STRING_VALUE", // required
+ * };
  * const command = new GetReadSetMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReadSetMetadataCommandInput - {@link GetReadSetMetadataCommandInput}
+ * @returns {@link GetReadSetMetadataCommandOutput}
  * @see {@link GetReadSetMetadataCommandInput} for command's `input` shape.
  * @see {@link GetReadSetMetadataCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +90,9 @@ export class GetReadSetMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReadSetMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class GetReadSetMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReadSetMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReadSetMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class GetReadSetMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReadSetMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReadSetMetadataCommand(input, context);
+    return se_GetReadSetMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReadSetMetadataCommandOutput> {
-    return deserializeAws_restJson1GetReadSetMetadataCommand(output, context);
+    return de_GetReadSetMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

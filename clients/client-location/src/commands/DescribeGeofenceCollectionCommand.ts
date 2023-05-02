@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DescribeGeofenceCollectionRequest,
-  DescribeGeofenceCollectionRequestFilterSensitiveLog,
-  DescribeGeofenceCollectionResponse,
-  DescribeGeofenceCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeGeofenceCollectionCommand,
-  serializeAws_restJson1DescribeGeofenceCollectionCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeGeofenceCollectionRequest, DescribeGeofenceCollectionResponse } from "../models/models_0";
+import { de_DescribeGeofenceCollectionCommand, se_DescribeGeofenceCollectionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGeofenceCollectionCommand}.
  */
 export interface DescribeGeofenceCollectionCommandInput extends DescribeGeofenceCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGeofenceCollectionCommand}.
  */
 export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenceCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the geofence collection details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenc
  * import { LocationClient, DescribeGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribeGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // DescribeGeofenceCollectionRequest
+ *   CollectionName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGeofenceCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGeofenceCollectionCommandInput - {@link DescribeGeofenceCollectionCommandInput}
+ * @returns {@link DescribeGeofenceCollectionCommandOutput}
  * @see {@link DescribeGeofenceCollectionCommandInput} for command's `input` shape.
  * @see {@link DescribeGeofenceCollectionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +87,9 @@ export class DescribeGeofenceCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGeofenceCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DescribeGeofenceCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGeofenceCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGeofenceCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +129,21 @@ export class DescribeGeofenceCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGeofenceCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeGeofenceCollectionCommand(input, context);
+    return se_DescribeGeofenceCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGeofenceCollectionCommandOutput> {
-    return deserializeAws_restJson1DescribeGeofenceCollectionCommand(output, context);
+    return de_DescribeGeofenceCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

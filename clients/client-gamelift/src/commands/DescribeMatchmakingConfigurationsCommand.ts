@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { DescribeMatchmakingConfigurationsInput, DescribeMatchmakingConfigurationsOutput } from "../models/models_0";
 import {
-  DescribeMatchmakingConfigurationsInput,
-  DescribeMatchmakingConfigurationsInputFilterSensitiveLog,
-  DescribeMatchmakingConfigurationsOutput,
-  DescribeMatchmakingConfigurationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMatchmakingConfigurationsCommand,
-  serializeAws_json1_1DescribeMatchmakingConfigurationsCommand,
+  de_DescribeMatchmakingConfigurationsCommand,
+  se_DescribeMatchmakingConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMatchmakingConfigurationsCommand}.
  */
 export interface DescribeMatchmakingConfigurationsCommandInput extends DescribeMatchmakingConfigurationsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMatchmakingConfigurationsCommand}.
  */
 export interface DescribeMatchmakingConfigurationsCommandOutput
@@ -37,17 +36,18 @@ export interface DescribeMatchmakingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of FlexMatch matchmaking configurations. </p>
- *         <p>This operation offers the following options: (1) retrieve all matchmaking
+ *          <p>This operation offers the following options: (1) retrieve all matchmaking
  *             configurations, (2) retrieve configurations for a specified list, or (3) retrieve all
  *             configurations that use a specified rule set name. When requesting multiple items, use
  *             the pagination parameters to retrieve results as a set of sequential pages. </p>
- *         <p>If successful, a configuration is returned for each requested name. When specifying a
+ *          <p>If successful, a configuration is returned for each requested name. When specifying a
  *             list of names, only configurations that currently exist are returned. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/matchmaker-build.html"> Setting up FlexMatch matchmakers</a>
  *          </p>
  * @example
@@ -56,10 +56,20 @@ export interface DescribeMatchmakingConfigurationsCommandOutput
  * import { GameLiftClient, DescribeMatchmakingConfigurationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeMatchmakingConfigurationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeMatchmakingConfigurationsInput
+ *   Names: [ // MatchmakingConfigurationNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   RuleSetName: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeMatchmakingConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMatchmakingConfigurationsCommandInput - {@link DescribeMatchmakingConfigurationsCommandInput}
+ * @returns {@link DescribeMatchmakingConfigurationsCommandOutput}
  * @see {@link DescribeMatchmakingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeMatchmakingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -94,6 +104,9 @@ export class DescribeMatchmakingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMatchmakingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +135,8 @@ export class DescribeMatchmakingConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMatchmakingConfigurationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMatchmakingConfigurationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +146,24 @@ export class DescribeMatchmakingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMatchmakingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMatchmakingConfigurationsCommand(input, context);
+    return se_DescribeMatchmakingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMatchmakingConfigurationsCommandOutput> {
-    return deserializeAws_json1_1DescribeMatchmakingConfigurationsCommand(output, context);
+    return de_DescribeMatchmakingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

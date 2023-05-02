@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  UpdateWebhookInput,
-  UpdateWebhookInputFilterSensitiveLog,
-  UpdateWebhookOutput,
-  UpdateWebhookOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateWebhookCommand,
-  serializeAws_json1_1UpdateWebhookCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateWebhookInput, UpdateWebhookOutput } from "../models/models_0";
+import { de_UpdateWebhookCommand, se_UpdateWebhookCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWebhookCommand}.
  */
 export interface UpdateWebhookCommandInput extends UpdateWebhookInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWebhookCommand}.
  */
 export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the webhook associated with an CodeBuild build project. </p>
  *          <note>
  *             <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored.
@@ -46,10 +43,27 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * import { CodeBuildClient, UpdateWebhookCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, UpdateWebhookCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // UpdateWebhookInput
+ *   projectName: "STRING_VALUE", // required
+ *   branchFilter: "STRING_VALUE",
+ *   rotateSecret: true || false,
+ *   filterGroups: [ // FilterGroups
+ *     [ // FilterGroup
+ *       { // WebhookFilter
+ *         type: "STRING_VALUE", // required
+ *         pattern: "STRING_VALUE", // required
+ *         excludeMatchedPattern: true || false,
+ *       },
+ *     ],
+ *   ],
+ *   buildType: "STRING_VALUE",
+ * };
  * const command = new UpdateWebhookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWebhookCommandInput - {@link UpdateWebhookCommandInput}
+ * @returns {@link UpdateWebhookCommandOutput}
  * @see {@link UpdateWebhookCommandInput} for command's `input` shape.
  * @see {@link UpdateWebhookCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -82,6 +96,9 @@ export class UpdateWebhookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +125,8 @@ export class UpdateWebhookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWebhookInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWebhookOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +136,18 @@ export class UpdateWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWebhookCommand(input, context);
+    return se_UpdateWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWebhookCommandOutput> {
-    return deserializeAws_json1_1UpdateWebhookCommand(output, context);
+    return de_UpdateWebhookCommand(output, context);
   }
 
   // Start section: command_body_extra

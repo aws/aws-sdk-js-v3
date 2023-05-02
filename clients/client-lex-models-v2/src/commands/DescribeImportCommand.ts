@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DescribeImportRequest,
-  DescribeImportRequestFilterSensitiveLog,
-  DescribeImportResponse,
-  DescribeImportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeImportCommand,
-  serializeAws_restJson1DescribeImportCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeImportRequest, DescribeImportResponse } from "../models/models_0";
+import { de_DescribeImportCommand, se_DescribeImportCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImportCommand}.
  */
 export interface DescribeImportCommandInput extends DescribeImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImportCommand}.
  */
 export interface DescribeImportCommandOutput extends DescribeImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specific import.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  * import { LexModelsV2Client, DescribeImportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeImportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DescribeImportRequest
+ *   importId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeImportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImportCommandInput - {@link DescribeImportCommandInput}
+ * @returns {@link DescribeImportCommandOutput}
  * @see {@link DescribeImportCommandInput} for command's `input` shape.
  * @see {@link DescribeImportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -85,6 +87,9 @@ export class DescribeImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DescribeImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DescribeImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeImportCommand(input, context);
+    return se_DescribeImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImportCommandOutput> {
-    return deserializeAws_restJson1DescribeImportCommand(output, context);
+    return de_DescribeImportCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AccessAnalyzerServiceException as __BaseException } from "./AccessAnalyzerServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A conflict exception error.</p>
  */
 export class ConflictException extends __BaseException {
@@ -54,6 +56,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The criteria to use in the filter that defines the archive rule. For more information on
  *          available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer
  *             filter keys</a>.</p>
@@ -81,6 +84,7 @@ export interface Criterion {
 }
 
 /**
+ * @public
  * <p>Creates an archive rule.</p>
  */
 export interface CreateArchiveRuleRequest {
@@ -106,6 +110,7 @@ export interface CreateArchiveRuleRequest {
 }
 
 /**
+ * @public
  * <p>Internal server error.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -132,6 +137,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -163,6 +169,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Service quote met error.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -194,6 +201,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Throttling limit exceeded error.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -222,6 +230,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about a validation exception.</p>
  */
 export interface ValidationExceptionField {
@@ -236,14 +245,24 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>Validation exception error.</p>
  */
 export class ValidationException extends __BaseException {
@@ -275,6 +294,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Deletes an archive rule.</p>
  */
 export interface DeleteArchiveRuleRequest {
@@ -295,6 +315,7 @@ export interface DeleteArchiveRuleRequest {
 }
 
 /**
+ * @public
  * <p>Retrieves an archive rule.</p>
  */
 export interface GetArchiveRuleRequest {
@@ -310,6 +331,7 @@ export interface GetArchiveRuleRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an archive rule.</p>
  */
 export interface ArchiveRuleSummary {
@@ -335,6 +357,7 @@ export interface ArchiveRuleSummary {
 }
 
 /**
+ * @public
  * <p>The response to the request.</p>
  */
 export interface GetArchiveRuleResponse {
@@ -345,6 +368,7 @@ export interface GetArchiveRuleResponse {
 }
 
 /**
+ * @public
  * <p>Retrieves a list of archive rules created for the specified analyzer.</p>
  */
 export interface ListArchiveRulesRequest {
@@ -365,6 +389,7 @@ export interface ListArchiveRulesRequest {
 }
 
 /**
+ * @public
  * <p>The response to the request.</p>
  */
 export interface ListArchiveRulesResponse {
@@ -380,6 +405,7 @@ export interface ListArchiveRulesResponse {
 }
 
 /**
+ * @public
  * <p>Updates the specified archive rule.</p>
  */
 export interface UpdateArchiveRuleRequest {
@@ -406,6 +432,7 @@ export interface UpdateArchiveRuleRequest {
 }
 
 /**
+ * @public
  * <p>An criterion statement in an archive rule. Each archive rule may have multiple
  *          criteria.</p>
  */
@@ -421,9 +448,13 @@ export interface InlineArchiveRule {
   filter: Record<string, Criterion> | undefined;
 }
 
+/**
+ * @public
+ */
 export type Type = "ACCOUNT" | "ORGANIZATION";
 
 /**
+ * @public
  * <p>Creates an analyzer.</p>
  */
 export interface CreateAnalyzerRequest {
@@ -457,6 +488,7 @@ export interface CreateAnalyzerRequest {
 }
 
 /**
+ * @public
  * <p>The response to the request to create an analyzer.</p>
  */
 export interface CreateAnalyzerResponse {
@@ -467,6 +499,7 @@ export interface CreateAnalyzerResponse {
 }
 
 /**
+ * @public
  * <p>Deletes an analyzer.</p>
  */
 export interface DeleteAnalyzerRequest {
@@ -482,6 +515,7 @@ export interface DeleteAnalyzerRequest {
 }
 
 /**
+ * @public
  * <p>Retrieves an analyzer.</p>
  */
 export interface GetAnalyzerRequest {
@@ -491,8 +525,14 @@ export interface GetAnalyzerRequest {
   analyzerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export type AnalyzerStatus = "ACTIVE" | "CREATING" | "DISABLED" | "FAILED";
 
+/**
+ * @public
+ */
 export type ReasonCode =
   | "AWS_SERVICE_ACCESS_DISABLED"
   | "DELEGATED_ADMINISTRATOR_DEREGISTERED"
@@ -500,6 +540,7 @@ export type ReasonCode =
   | "SERVICE_LINKED_ROLE_CREATION_FAILED";
 
 /**
+ * @public
  * <p>Provides more details about the current status of the analyzer. For example, if the
  *          creation for the analyzer fails, a <code>Failed</code> status is returned. For an analyzer
  *          with organization as the type, this failure can be due to an issue with creating the
@@ -513,6 +554,7 @@ export interface StatusReason {
 }
 
 /**
+ * @public
  * <p>Contains information about the analyzer.</p>
  */
 export interface AnalyzerSummary {
@@ -573,6 +615,7 @@ export interface AnalyzerSummary {
 }
 
 /**
+ * @public
  * <p>The response to the request.</p>
  */
 export interface GetAnalyzerResponse {
@@ -584,6 +627,7 @@ export interface GetAnalyzerResponse {
 }
 
 /**
+ * @public
  * <p>Retrieves a list of analyzers.</p>
  */
 export interface ListAnalyzersRequest {
@@ -604,6 +648,7 @@ export interface ListAnalyzersRequest {
 }
 
 /**
+ * @public
  * <p>The response to the request.</p>
  */
 export interface ListAnalyzersResponse {
@@ -619,6 +664,7 @@ export interface ListAnalyzersResponse {
 }
 
 /**
+ * @public
  * <p>Retroactively applies an archive rule.</p>
  */
 export interface ApplyArchiveRuleRequest {
@@ -638,6 +684,9 @@ export interface ApplyArchiveRuleRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelPolicyGenerationRequest {
   /**
    * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
@@ -648,9 +697,13 @@ export interface CancelPolicyGenerationRequest {
   jobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelPolicyGenerationResponse {}
 
 /**
+ * @public
  * <p>The proposed access control configuration for an Amazon EBS volume snapshot. You can propose
  *          a configuration for a new Amazon EBS volume snapshot or an Amazon EBS volume snapshot that you own by
  *          specifying the user IDs, groups, and optional KMS encryption key. For more information,
@@ -720,6 +773,7 @@ export interface EbsSnapshotConfiguration {
 }
 
 /**
+ * @public
  * <p>The proposed access control configuration for an Amazon ECR repository. You can propose a
  *          configuration for a new Amazon ECR repository or an existing Amazon ECR repository that you own by
  *          specifying the Amazon ECR policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_Repository.html">Repository</a>.</p>
@@ -749,6 +803,7 @@ export interface EcrRepositoryConfiguration {
 }
 
 /**
+ * @public
  * <p>The proposed access control configuration for an Amazon EFS file system. You can propose a
  *          configuration for a new Amazon EFS file system or an existing Amazon EFS file system that you own by
  *          specifying the Amazon EFS policy. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/using-fs.html">Using file systems in Amazon EFS</a>.</p>
@@ -777,6 +832,7 @@ export interface EfsFileSystemConfiguration {
 }
 
 /**
+ * @public
  * <p>The proposed access control configuration for an IAM role. You can propose a
  *          configuration for a new IAM role or an existing IAM role that you own by specifying the
  *          trust policy. If the configuration is for a new IAM role, you must specify the trust
@@ -794,6 +850,7 @@ export interface IamRoleConfiguration {
 }
 
 /**
+ * @public
  * <p>Use this structure to propose allowing <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
  *             operations</a> in the grant only when the operation request includes the specified
  *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption
@@ -818,24 +875,34 @@ export interface KmsGrantConstraints {
   encryptionContextSubset?: Record<string, string>;
 }
 
-export enum KmsGrantOperation {
-  CREATE_GRANT = "CreateGrant",
-  DECRYPT = "Decrypt",
-  DESCRIBE_KEY = "DescribeKey",
-  ENCRYPT = "Encrypt",
-  GENERATE_DATA_KEY = "GenerateDataKey",
-  GENERATE_DATA_KEY_PAIR = "GenerateDataKeyPair",
-  GENERATE_DATA_KEY_PAIR_WITHOUT_PLAINTEXT = "GenerateDataKeyPairWithoutPlaintext",
-  GENERATE_DATA_KEY_WITHOUT_PLAINTEXT = "GenerateDataKeyWithoutPlaintext",
-  GET_PUBLIC_KEY = "GetPublicKey",
-  REENCRYPT_FROM = "ReEncryptFrom",
-  REENCRYPT_TO = "ReEncryptTo",
-  RETIRE_GRANT = "RetireGrant",
-  SIGN = "Sign",
-  VERIFY = "Verify",
-}
+/**
+ * @public
+ * @enum
+ */
+export const KmsGrantOperation = {
+  CREATE_GRANT: "CreateGrant",
+  DECRYPT: "Decrypt",
+  DESCRIBE_KEY: "DescribeKey",
+  ENCRYPT: "Encrypt",
+  GENERATE_DATA_KEY: "GenerateDataKey",
+  GENERATE_DATA_KEY_PAIR: "GenerateDataKeyPair",
+  GENERATE_DATA_KEY_PAIR_WITHOUT_PLAINTEXT: "GenerateDataKeyPairWithoutPlaintext",
+  GENERATE_DATA_KEY_WITHOUT_PLAINTEXT: "GenerateDataKeyWithoutPlaintext",
+  GET_PUBLIC_KEY: "GetPublicKey",
+  REENCRYPT_FROM: "ReEncryptFrom",
+  REENCRYPT_TO: "ReEncryptTo",
+  RETIRE_GRANT: "RetireGrant",
+  SIGN: "Sign",
+  VERIFY: "Verify",
+} as const;
 
 /**
+ * @public
+ */
+export type KmsGrantOperation = (typeof KmsGrantOperation)[keyof typeof KmsGrantOperation];
+
+/**
+ * @public
  * <p>A proposed grant configuration for a KMS key. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a>.</p>
  */
 export interface KmsGrantConfiguration {
@@ -871,6 +938,7 @@ export interface KmsGrantConfiguration {
 }
 
 /**
+ * @public
  * <p>Proposed access control configuration for a KMS key. You can propose a configuration
  *          for a new KMS key or an existing KMS key that you own by specifying the key policy and
  *          KMS grant configuration. If the configuration is for an existing key and you do not
@@ -900,12 +968,16 @@ export interface KmsKeyConfiguration {
 }
 
 /**
+ * @public
  * <p>The values for a manual Amazon RDS DB cluster snapshot attribute.</p>
  */
 export type RdsDbClusterSnapshotAttributeValue =
   | RdsDbClusterSnapshotAttributeValue.AccountIdsMember
   | RdsDbClusterSnapshotAttributeValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace RdsDbClusterSnapshotAttributeValue {
   /**
    * <p>The Amazon Web Services account IDs that have access to the manual Amazon RDS DB cluster snapshot. If the
@@ -952,6 +1024,7 @@ export namespace RdsDbClusterSnapshotAttributeValue {
 }
 
 /**
+ * @public
  * <p>The proposed access control configuration for an Amazon RDS DB cluster snapshot. You can
  *          propose a configuration for a new Amazon RDS DB cluster snapshot or an Amazon RDS DB cluster snapshot
  *          that you own by specifying the <code>RdsDbClusterSnapshotAttributeValue</code> and optional
@@ -987,6 +1060,7 @@ export interface RdsDbClusterSnapshotConfiguration {
 }
 
 /**
+ * @public
  * <p>The name and values of a manual Amazon RDS DB snapshot attribute. Manual DB snapshot
  *          attributes are used to authorize other Amazon Web Services accounts to restore a manual DB
  *          snapshot.</p>
@@ -995,6 +1069,9 @@ export type RdsDbSnapshotAttributeValue =
   | RdsDbSnapshotAttributeValue.AccountIdsMember
   | RdsDbSnapshotAttributeValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace RdsDbSnapshotAttributeValue {
   /**
    * <p>The Amazon Web Services account IDs that have access to the manual Amazon RDS DB snapshot. If the value
@@ -1041,6 +1118,7 @@ export namespace RdsDbSnapshotAttributeValue {
 }
 
 /**
+ * @public
  * <p>The proposed access control configuration for an Amazon RDS DB snapshot. You can propose a
  *          configuration for a new Amazon RDS DB snapshot or an Amazon RDS DB snapshot that you own by
  *          specifying the <code>RdsDbSnapshotAttributeValue</code> and optional KMS encryption key.
@@ -1074,12 +1152,14 @@ export interface RdsDbSnapshotConfiguration {
 }
 
 /**
+ * @public
  * <p>This configuration sets the network origin for the Amazon S3 access point or multi-region
  *          access point to <code>Internet</code>.</p>
  */
 export interface InternetConfiguration {}
 
 /**
+ * @public
  * <p>The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. VPC
  *          configuration does not apply to multi-region access points. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_VpcConfiguration.html">VpcConfiguration</a>. </p>
@@ -1093,6 +1173,7 @@ export interface VpcConfiguration {
 }
 
 /**
+ * @public
  * <p>The proposed <code>InternetConfiguration</code> or <code>VpcConfiguration</code> to
  *          apply to the Amazon S3 access point. <code>VpcConfiguration</code> does not apply to
  *          multi-region access points. You can make the access point accessible from the internet, or
@@ -1106,6 +1187,9 @@ export type NetworkOriginConfiguration =
   | NetworkOriginConfiguration.VpcConfigurationMember
   | NetworkOriginConfiguration.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace NetworkOriginConfiguration {
   /**
    * <p>The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. VPC
@@ -1148,6 +1232,7 @@ export namespace NetworkOriginConfiguration {
 }
 
 /**
+ * @public
  * <p>The <code>PublicAccessBlock</code> configuration to apply to this Amazon S3 bucket. If the
  *          proposed configuration is for an existing Amazon S3 bucket and the configuration is not
  *          specified, the access preview uses the existing setting. If the proposed configuration is
@@ -1170,6 +1255,7 @@ export interface S3PublicAccessBlockConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for an Amazon S3 access point or multi-region access point for the bucket.
  *          You can propose up to 10 access points or multi-region access points per bucket. If the
  *          proposed Amazon S3 access point configuration is for an existing bucket, the access preview uses
@@ -1203,11 +1289,15 @@ export interface S3AccessPointConfiguration {
 }
 
 /**
+ * @public
  * <p>You specify each grantee as a type-value pair using one of these types. You can specify
  *          only one type of grantee. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAcl.html">PutBucketAcl</a>.</p>
  */
 export type AclGrantee = AclGrantee.IdMember | AclGrantee.UriMember | AclGrantee.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AclGrantee {
   /**
    * <p>The value specified is the canonical user ID of an Amazon Web Services account.</p>
@@ -1246,15 +1336,25 @@ export namespace AclGrantee {
   };
 }
 
-export enum AclPermission {
-  FULL_CONTROL = "FULL_CONTROL",
-  READ = "READ",
-  READ_ACP = "READ_ACP",
-  WRITE = "WRITE",
-  WRITE_ACP = "WRITE_ACP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AclPermission = {
+  FULL_CONTROL: "FULL_CONTROL",
+  READ: "READ",
+  READ_ACP: "READ_ACP",
+  WRITE: "WRITE",
+  WRITE_ACP: "WRITE_ACP",
+} as const;
 
 /**
+ * @public
+ */
+export type AclPermission = (typeof AclPermission)[keyof typeof AclPermission];
+
+/**
+ * @public
  * <p>A proposed access control list grant configuration for an Amazon S3 bucket. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#setting-acls">How to Specify an
  *          ACL</a>.</p>
@@ -1272,6 +1372,7 @@ export interface S3BucketAclGrantConfiguration {
 }
 
 /**
+ * @public
  * <p>Proposed access control configuration for an Amazon S3 bucket. You can propose a
  *          configuration for a new Amazon S3 bucket or an existing Amazon S3 bucket that you own by specifying
  *          the Amazon S3 bucket policy, bucket ACLs, bucket BPA settings, Amazon S3 access points, and
@@ -1310,6 +1411,7 @@ export interface S3BucketConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for a Secrets Manager secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html">CreateSecret</a>.</p>
  *          <p>You can propose a configuration for a new secret or an existing secret that you own by
  *          specifying the secret policy and optional KMS encryption key. If the configuration is for
@@ -1336,6 +1438,7 @@ export interface SecretsManagerSecretConfiguration {
 }
 
 /**
+ * @public
  * <p>The proposed access control configuration for an Amazon SNS topic. You can propose a
  *          configuration for a new Amazon SNS topic or an existing Amazon SNS topic that you own by specifying
  *          the policy. If the configuration is for an existing Amazon SNS topic and you do not specify the
@@ -1355,6 +1458,7 @@ export interface SnsTopicConfiguration {
 }
 
 /**
+ * @public
  * <p>The proposed access control configuration for an Amazon SQS queue. You can propose a
  *          configuration for a new Amazon SQS queue or an existing Amazon SQS queue that you own by specifying
  *          the Amazon SQS policy. If the configuration is for an existing Amazon SQS queue and you do not
@@ -1373,6 +1477,7 @@ export interface SqsQueueConfiguration {
 }
 
 /**
+ * @public
  * <p>Access control configuration structures for your resource. You specify the configuration
  *          as a type-value pair. You can specify only one type of access control configuration.</p>
  */
@@ -1390,6 +1495,9 @@ export type Configuration =
   | Configuration.SqsQueueMember
   | Configuration.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Configuration {
   /**
    * <p>The access control configuration is for an Amazon EBS volume snapshot.</p>
@@ -1635,6 +1743,9 @@ export namespace Configuration {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessPreviewRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
@@ -1658,6 +1769,9 @@ export interface CreateAccessPreviewRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessPreviewResponse {
   /**
    * <p>The unique ID for the access preview.</p>
@@ -1665,6 +1779,9 @@ export interface CreateAccessPreviewResponse {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPreviewRequest {
   /**
    * <p>The unique ID for the access preview.</p>
@@ -1678,18 +1795,38 @@ export interface GetAccessPreviewRequest {
   analyzerArn: string | undefined;
 }
 
-export enum AccessPreviewStatus {
-  COMPLETED = "COMPLETED",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-}
-
-export enum AccessPreviewStatusReasonCode {
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_CONFIGURATION = "INVALID_CONFIGURATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccessPreviewStatus = {
+  COMPLETED: "COMPLETED",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type AccessPreviewStatus = (typeof AccessPreviewStatus)[keyof typeof AccessPreviewStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccessPreviewStatusReasonCode = {
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_CONFIGURATION: "INVALID_CONFIGURATION",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessPreviewStatusReasonCode =
+  (typeof AccessPreviewStatusReasonCode)[keyof typeof AccessPreviewStatusReasonCode];
+
+/**
+ * @public
  * <p>Provides more details about the current status of the access preview. For example, if
  *          the creation of the access preview fails, a <code>Failed</code> status is returned. This
  *          failure can be due to an internal issue with the analysis or due to an invalid proposed
@@ -1703,6 +1840,7 @@ export interface AccessPreviewStatusReason {
 }
 
 /**
+ * @public
  * <p>Contains information about an access preview.</p>
  */
 export interface AccessPreview {
@@ -1755,6 +1893,9 @@ export interface AccessPreview {
   statusReason?: AccessPreviewStatusReason;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPreviewResponse {
   /**
    * <p>An object that contains information about the access preview.</p>
@@ -1763,6 +1904,7 @@ export interface GetAccessPreviewResponse {
 }
 
 /**
+ * @public
  * <p>Retrieves an analyzed resource.</p>
  */
 export interface GetAnalyzedResourceRequest {
@@ -1778,6 +1920,9 @@ export interface GetAnalyzedResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export type ResourceType =
   | "AWS::EC2::Snapshot"
   | "AWS::ECR::Repository"
@@ -1793,9 +1938,13 @@ export type ResourceType =
   | "AWS::SQS::Queue"
   | "AWS::SecretsManager::Secret";
 
+/**
+ * @public
+ */
 export type FindingStatus = "ACTIVE" | "ARCHIVED" | "RESOLVED";
 
 /**
+ * @public
  * <p>Contains details about the analyzed resource.</p>
  */
 export interface AnalyzedResource {
@@ -1859,6 +2008,7 @@ export interface AnalyzedResource {
 }
 
 /**
+ * @public
  * <p>The response to the request.</p>
  */
 export interface GetAnalyzedResourceResponse {
@@ -1870,6 +2020,7 @@ export interface GetAnalyzedResourceResponse {
 }
 
 /**
+ * @public
  * <p>Retrieves a finding.</p>
  */
 export interface GetFindingRequest {
@@ -1886,6 +2037,7 @@ export interface GetFindingRequest {
 }
 
 /**
+ * @public
  * <p>Includes details about how the access that generated the finding is granted. This is
  *          populated for Amazon S3 bucket findings.</p>
  */
@@ -1902,9 +2054,13 @@ export interface FindingSourceDetail {
   accessPointAccount?: string;
 }
 
+/**
+ * @public
+ */
 export type FindingSourceType = "BUCKET_ACL" | "POLICY" | "S3_ACCESS_POINT" | "S3_ACCESS_POINT_ACCOUNT";
 
 /**
+ * @public
  * <p>The source of the finding. This indicates how the access that generated the finding is
  *          granted. It is populated for Amazon S3 bucket findings.</p>
  */
@@ -1922,6 +2078,7 @@ export interface FindingSource {
 }
 
 /**
+ * @public
  * <p>Contains information about a finding.</p>
  */
 export interface Finding {
@@ -2000,6 +2157,7 @@ export interface Finding {
 }
 
 /**
+ * @public
  * <p>The response to the request.</p>
  */
 export interface GetFindingResponse {
@@ -2009,6 +2167,9 @@ export interface GetFindingResponse {
   finding?: Finding;
 }
 
+/**
+ * @public
+ */
 export interface GetGeneratedPolicyRequest {
   /**
    * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
@@ -2023,7 +2184,7 @@ export interface GetGeneratedPolicyRequest {
    *          policies with placeholders for resource ARNs for actions that support resource level
    *          granularity in policies.</p>
    *          <p>For example, in the resource section of a policy, you can receive a placeholder such as
-   *             <code>"Resource":"arn:aws:s3:::${BucketName}"</code> instead of <code>"*"</code>.</p>
+   *             <code>"Resource":"arn:aws:s3:::$\{BucketName\}"</code> instead of <code>"*"</code>.</p>
    */
   includeResourcePlaceholders?: boolean;
 
@@ -2037,6 +2198,7 @@ export interface GetGeneratedPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Contains the text for the generated policy.</p>
  */
 export interface GeneratedPolicy {
@@ -2048,6 +2210,7 @@ export interface GeneratedPolicy {
 }
 
 /**
+ * @public
  * <p>Contains details about the CloudTrail trail being analyzed to generate a policy.</p>
  */
 export interface TrailProperties {
@@ -2071,6 +2234,7 @@ export interface TrailProperties {
 }
 
 /**
+ * @public
  * <p>Contains information about CloudTrail access.</p>
  */
 export interface CloudTrailProperties {
@@ -2095,6 +2259,7 @@ export interface CloudTrailProperties {
 }
 
 /**
+ * @public
  * <p>Contains the generated policy details.</p>
  */
 export interface GeneratedPolicyProperties {
@@ -2117,6 +2282,7 @@ export interface GeneratedPolicyProperties {
 }
 
 /**
+ * @public
  * <p>Contains the text for the generated policy and its details.</p>
  */
 export interface GeneratedPolicyResult {
@@ -2133,14 +2299,24 @@ export interface GeneratedPolicyResult {
   generatedPolicies?: GeneratedPolicy[];
 }
 
-export enum JobErrorCode {
-  AUTHORIZATION_ERROR = "AUTHORIZATION_ERROR",
-  RESOURCE_NOT_FOUND_ERROR = "RESOURCE_NOT_FOUND_ERROR",
-  SERVICE_ERROR = "SERVICE_ERROR",
-  SERVICE_QUOTA_EXCEEDED_ERROR = "SERVICE_QUOTA_EXCEEDED_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobErrorCode = {
+  AUTHORIZATION_ERROR: "AUTHORIZATION_ERROR",
+  RESOURCE_NOT_FOUND_ERROR: "RESOURCE_NOT_FOUND_ERROR",
+  SERVICE_ERROR: "SERVICE_ERROR",
+  SERVICE_QUOTA_EXCEEDED_ERROR: "SERVICE_QUOTA_EXCEEDED_ERROR",
+} as const;
 
 /**
+ * @public
+ */
+export type JobErrorCode = (typeof JobErrorCode)[keyof typeof JobErrorCode];
+
+/**
+ * @public
  * <p>Contains the details about the policy generation error.</p>
  */
 export interface JobError {
@@ -2156,14 +2332,24 @@ export interface JobError {
   message: string | undefined;
 }
 
-export enum JobStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
  * <p>Contains details about the policy generation request.</p>
  */
 export interface JobDetails {
@@ -2196,6 +2382,9 @@ export interface JobDetails {
   jobError?: JobError;
 }
 
+/**
+ * @public
+ */
 export interface GetGeneratedPolicyResponse {
   /**
    * <p>A <code>GeneratedPolicyDetails</code> object that contains details about the generated
@@ -2210,6 +2399,9 @@ export interface GetGeneratedPolicyResponse {
   generatedPolicyResult: GeneratedPolicyResult | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessPreviewFindingsRequest {
   /**
    * <p>The unique ID for the access preview.</p>
@@ -2238,13 +2430,23 @@ export interface ListAccessPreviewFindingsRequest {
   maxResults?: number;
 }
 
-export enum FindingChangeType {
-  CHANGED = "CHANGED",
-  NEW = "NEW",
-  UNCHANGED = "UNCHANGED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FindingChangeType = {
+  CHANGED: "CHANGED",
+  NEW: "NEW",
+  UNCHANGED: "UNCHANGED",
+} as const;
 
 /**
+ * @public
+ */
+export type FindingChangeType = (typeof FindingChangeType)[keyof typeof FindingChangeType];
+
+/**
+ * @public
  * <p>An access preview finding generated by the access preview.</p>
  */
 export interface AccessPreviewFinding {
@@ -2356,6 +2558,9 @@ export interface AccessPreviewFinding {
   sources?: FindingSource[];
 }
 
+/**
+ * @public
+ */
 export interface ListAccessPreviewFindingsResponse {
   /**
    * <p>A list of access preview findings that match the specified filter criteria.</p>
@@ -2368,6 +2573,9 @@ export interface ListAccessPreviewFindingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessPreviewsRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
@@ -2387,6 +2595,7 @@ export interface ListAccessPreviewsRequest {
 }
 
 /**
+ * @public
  * <p>Contains a summary of information about an access preview.</p>
  */
 export interface AccessPreviewSummary {
@@ -2434,6 +2643,9 @@ export interface AccessPreviewSummary {
   statusReason?: AccessPreviewStatusReason;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessPreviewsResponse {
   /**
    * <p>A list of access previews retrieved for the analyzer.</p>
@@ -2447,6 +2659,7 @@ export interface ListAccessPreviewsResponse {
 }
 
 /**
+ * @public
  * <p>Retrieves a list of resources that have been analyzed.</p>
  */
 export interface ListAnalyzedResourcesRequest {
@@ -2473,6 +2686,7 @@ export interface ListAnalyzedResourcesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the ARN of the analyzed resource.</p>
  */
 export interface AnalyzedResourceSummary {
@@ -2493,6 +2707,7 @@ export interface AnalyzedResourceSummary {
 }
 
 /**
+ * @public
  * <p>The response to the request.</p>
  */
 export interface ListAnalyzedResourcesResponse {
@@ -2507,9 +2722,13 @@ export interface ListAnalyzedResourcesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export type OrderBy = "ASC" | "DESC";
 
 /**
+ * @public
  * <p>The criteria used to sort.</p>
  */
 export interface SortCriteria {
@@ -2525,6 +2744,7 @@ export interface SortCriteria {
 }
 
 /**
+ * @public
  * <p>Retrieves a list of findings generated by the specified analyzer.</p>
  */
 export interface ListFindingsRequest {
@@ -2556,6 +2776,7 @@ export interface ListFindingsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a finding.</p>
  */
 export interface FindingSummary {
@@ -2635,6 +2856,7 @@ export interface FindingSummary {
 }
 
 /**
+ * @public
  * <p>The response to the request.</p>
  */
 export interface ListFindingsResponse {
@@ -2650,6 +2872,9 @@ export interface ListFindingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPolicyGenerationsRequest {
   /**
    * <p>The ARN of the IAM entity (user or role) for which you are generating a policy. Use
@@ -2670,6 +2895,7 @@ export interface ListPolicyGenerationsRequest {
 }
 
 /**
+ * @public
  * <p>Contains details about the policy generation status and properties.</p>
  */
 export interface PolicyGeneration {
@@ -2702,6 +2928,9 @@ export interface PolicyGeneration {
   completedOn?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPolicyGenerationsResponse {
   /**
    * <p>A <code>PolicyGeneration</code> object that contains details about the generated
@@ -2716,6 +2945,7 @@ export interface ListPolicyGenerationsResponse {
 }
 
 /**
+ * @public
  * <p>Retrieves a list of tags applied to the specified resource.</p>
  */
 export interface ListTagsForResourceRequest {
@@ -2726,6 +2956,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>The response to the request.</p>
  */
 export interface ListTagsForResourceResponse {
@@ -2736,6 +2967,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>Contains details about the CloudTrail trail being analyzed to generate a policy.</p>
  */
 export interface Trail {
@@ -2759,6 +2991,7 @@ export interface Trail {
 }
 
 /**
+ * @public
  * <p>Contains information about CloudTrail access.</p>
  */
 export interface CloudTrailDetails {
@@ -2788,6 +3021,7 @@ export interface CloudTrailDetails {
 }
 
 /**
+ * @public
  * <p>Contains the ARN details about the IAM entity for which the policy is
  *          generated.</p>
  */
@@ -2798,6 +3032,9 @@ export interface PolicyGenerationDetails {
   principalArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartPolicyGenerationRequest {
   /**
    * <p>Contains the ARN of the IAM entity (user or role) for which you are generating a
@@ -2823,6 +3060,9 @@ export interface StartPolicyGenerationRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartPolicyGenerationResponse {
   /**
    * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
@@ -2834,6 +3074,7 @@ export interface StartPolicyGenerationResponse {
 }
 
 /**
+ * @public
  * <p>Starts a scan of the policies applied to the specified resource.</p>
  */
 export interface StartResourceScanRequest {
@@ -2857,6 +3098,7 @@ export interface StartResourceScanRequest {
 }
 
 /**
+ * @public
  * <p>Adds a tag to the specified resource.</p>
  */
 export interface TagResourceRequest {
@@ -2872,11 +3114,13 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * <p>The response to the request.</p>
  */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>Removes a tag from the specified resource.</p>
  */
 export interface UntagResourceRequest {
@@ -2892,13 +3136,18 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * <p>The response to the request.</p>
  */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export type FindingStatusUpdate = "ACTIVE" | "ARCHIVED";
 
 /**
+ * @public
  * <p>Updates findings with the new values provided in the request.</p>
  */
 export interface UpdateFindingsRequest {
@@ -2931,33 +3180,63 @@ export interface UpdateFindingsRequest {
   clientToken?: string;
 }
 
-export enum Locale {
-  DE = "DE",
-  EN = "EN",
-  ES = "ES",
-  FR = "FR",
-  IT = "IT",
-  JA = "JA",
-  KO = "KO",
-  PT_BR = "PT_BR",
-  ZH_CN = "ZH_CN",
-  ZH_TW = "ZH_TW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Locale = {
+  DE: "DE",
+  EN: "EN",
+  ES: "ES",
+  FR: "FR",
+  IT: "IT",
+  JA: "JA",
+  KO: "KO",
+  PT_BR: "PT_BR",
+  ZH_CN: "ZH_CN",
+  ZH_TW: "ZH_TW",
+} as const;
 
-export enum PolicyType {
-  IDENTITY_POLICY = "IDENTITY_POLICY",
-  RESOURCE_POLICY = "RESOURCE_POLICY",
-  SERVICE_CONTROL_POLICY = "SERVICE_CONTROL_POLICY",
-}
+/**
+ * @public
+ */
+export type Locale = (typeof Locale)[keyof typeof Locale];
 
-export enum ValidatePolicyResourceType {
-  ROLE_TRUST = "AWS::IAM::AssumeRolePolicyDocument",
-  S3_ACCESS_POINT = "AWS::S3::AccessPoint",
-  S3_BUCKET = "AWS::S3::Bucket",
-  S3_MULTI_REGION_ACCESS_POINT = "AWS::S3::MultiRegionAccessPoint",
-  S3_OBJECT_LAMBDA_ACCESS_POINT = "AWS::S3ObjectLambda::AccessPoint",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PolicyType = {
+  IDENTITY_POLICY: "IDENTITY_POLICY",
+  RESOURCE_POLICY: "RESOURCE_POLICY",
+  SERVICE_CONTROL_POLICY: "SERVICE_CONTROL_POLICY",
+} as const;
 
+/**
+ * @public
+ */
+export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidatePolicyResourceType = {
+  ROLE_TRUST: "AWS::IAM::AssumeRolePolicyDocument",
+  S3_ACCESS_POINT: "AWS::S3::AccessPoint",
+  S3_BUCKET: "AWS::S3::Bucket",
+  S3_MULTI_REGION_ACCESS_POINT: "AWS::S3::MultiRegionAccessPoint",
+  S3_OBJECT_LAMBDA_ACCESS_POINT: "AWS::S3ObjectLambda::AccessPoint",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidatePolicyResourceType = (typeof ValidatePolicyResourceType)[keyof typeof ValidatePolicyResourceType];
+
+/**
+ * @public
+ */
 export interface ValidatePolicyRequest {
   /**
    * <p>The locale to use for localizing the findings.</p>
@@ -3004,14 +3283,24 @@ export interface ValidatePolicyRequest {
   validatePolicyResourceType?: ValidatePolicyResourceType | string;
 }
 
-export enum ValidatePolicyFindingType {
-  ERROR = "ERROR",
-  SECURITY_WARNING = "SECURITY_WARNING",
-  SUGGESTION = "SUGGESTION",
-  WARNING = "WARNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidatePolicyFindingType = {
+  ERROR: "ERROR",
+  SECURITY_WARNING: "SECURITY_WARNING",
+  SUGGESTION: "SUGGESTION",
+  WARNING: "WARNING",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidatePolicyFindingType = (typeof ValidatePolicyFindingType)[keyof typeof ValidatePolicyFindingType];
+
+/**
+ * @public
  * <p>A reference to a substring of a literal string in a JSON document.</p>
  */
 export interface Substring {
@@ -3027,6 +3316,7 @@ export interface Substring {
 }
 
 /**
+ * @public
  * <p>A single element in a path through the JSON representation of a policy.</p>
  */
 export type PathElement =
@@ -3036,6 +3326,9 @@ export type PathElement =
   | PathElement.ValueMember
   | PathElement.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace PathElement {
   /**
    * <p>Refers to an index in a JSON array.</p>
@@ -3107,6 +3400,7 @@ export namespace PathElement {
 }
 
 /**
+ * @public
  * <p>A position in a policy.</p>
  */
 export interface Position {
@@ -3127,6 +3421,7 @@ export interface Position {
 }
 
 /**
+ * @public
  * <p>A span in a policy. The span consists of a start position (inclusive) and end position
  *          (exclusive).</p>
  */
@@ -3143,6 +3438,7 @@ export interface Span {
 }
 
 /**
+ * @public
  * <p>A location in a policy that is represented as a path through the JSON representation and
  *          a corresponding span.</p>
  */
@@ -3159,6 +3455,7 @@ export interface Location {
 }
 
 /**
+ * @public
  * <p>A finding in a policy. Each finding is an actionable recommendation that can be used to
  *          improve the policy.</p>
  */
@@ -3198,6 +3495,9 @@ export interface ValidatePolicyFinding {
   locations: Location[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ValidatePolicyResponse {
   /**
    * <p>The list of findings in a policy returned by IAM Access Analyzer based on its suite of policy
@@ -3210,818 +3510,3 @@ export interface ValidatePolicyResponse {
    */
   nextToken?: string;
 }
-
-/**
- * @internal
- */
-export const CriterionFilterSensitiveLog = (obj: Criterion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateArchiveRuleRequestFilterSensitiveLog = (obj: CreateArchiveRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteArchiveRuleRequestFilterSensitiveLog = (obj: DeleteArchiveRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetArchiveRuleRequestFilterSensitiveLog = (obj: GetArchiveRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArchiveRuleSummaryFilterSensitiveLog = (obj: ArchiveRuleSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetArchiveRuleResponseFilterSensitiveLog = (obj: GetArchiveRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListArchiveRulesRequestFilterSensitiveLog = (obj: ListArchiveRulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListArchiveRulesResponseFilterSensitiveLog = (obj: ListArchiveRulesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateArchiveRuleRequestFilterSensitiveLog = (obj: UpdateArchiveRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InlineArchiveRuleFilterSensitiveLog = (obj: InlineArchiveRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAnalyzerRequestFilterSensitiveLog = (obj: CreateAnalyzerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAnalyzerResponseFilterSensitiveLog = (obj: CreateAnalyzerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAnalyzerRequestFilterSensitiveLog = (obj: DeleteAnalyzerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnalyzerRequestFilterSensitiveLog = (obj: GetAnalyzerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatusReasonFilterSensitiveLog = (obj: StatusReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalyzerSummaryFilterSensitiveLog = (obj: AnalyzerSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnalyzerResponseFilterSensitiveLog = (obj: GetAnalyzerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnalyzersRequestFilterSensitiveLog = (obj: ListAnalyzersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnalyzersResponseFilterSensitiveLog = (obj: ListAnalyzersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplyArchiveRuleRequestFilterSensitiveLog = (obj: ApplyArchiveRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelPolicyGenerationRequestFilterSensitiveLog = (obj: CancelPolicyGenerationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelPolicyGenerationResponseFilterSensitiveLog = (obj: CancelPolicyGenerationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsSnapshotConfigurationFilterSensitiveLog = (obj: EbsSnapshotConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcrRepositoryConfigurationFilterSensitiveLog = (obj: EcrRepositoryConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EfsFileSystemConfigurationFilterSensitiveLog = (obj: EfsFileSystemConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IamRoleConfigurationFilterSensitiveLog = (obj: IamRoleConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KmsGrantConstraintsFilterSensitiveLog = (obj: KmsGrantConstraints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KmsGrantConfigurationFilterSensitiveLog = (obj: KmsGrantConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KmsKeyConfigurationFilterSensitiveLog = (obj: KmsKeyConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RdsDbClusterSnapshotAttributeValueFilterSensitiveLog = (obj: RdsDbClusterSnapshotAttributeValue): any => {
-  if (obj.accountIds !== undefined) return { accountIds: obj.accountIds };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const RdsDbClusterSnapshotConfigurationFilterSensitiveLog = (obj: RdsDbClusterSnapshotConfiguration): any => ({
-  ...obj,
-  ...(obj.attributes && {
-    attributes: Object.entries(obj.attributes).reduce(
-      (acc: any, [key, value]: [string, RdsDbClusterSnapshotAttributeValue]) => (
-        (acc[key] = RdsDbClusterSnapshotAttributeValueFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const RdsDbSnapshotAttributeValueFilterSensitiveLog = (obj: RdsDbSnapshotAttributeValue): any => {
-  if (obj.accountIds !== undefined) return { accountIds: obj.accountIds };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const RdsDbSnapshotConfigurationFilterSensitiveLog = (obj: RdsDbSnapshotConfiguration): any => ({
-  ...obj,
-  ...(obj.attributes && {
-    attributes: Object.entries(obj.attributes).reduce(
-      (acc: any, [key, value]: [string, RdsDbSnapshotAttributeValue]) => (
-        (acc[key] = RdsDbSnapshotAttributeValueFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const InternetConfigurationFilterSensitiveLog = (obj: InternetConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConfigurationFilterSensitiveLog = (obj: VpcConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkOriginConfigurationFilterSensitiveLog = (obj: NetworkOriginConfiguration): any => {
-  if (obj.vpcConfiguration !== undefined)
-    return { vpcConfiguration: VpcConfigurationFilterSensitiveLog(obj.vpcConfiguration) };
-  if (obj.internetConfiguration !== undefined)
-    return { internetConfiguration: InternetConfigurationFilterSensitiveLog(obj.internetConfiguration) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const S3PublicAccessBlockConfigurationFilterSensitiveLog = (obj: S3PublicAccessBlockConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3AccessPointConfigurationFilterSensitiveLog = (obj: S3AccessPointConfiguration): any => ({
-  ...obj,
-  ...(obj.networkOrigin && { networkOrigin: NetworkOriginConfigurationFilterSensitiveLog(obj.networkOrigin) }),
-});
-
-/**
- * @internal
- */
-export const AclGranteeFilterSensitiveLog = (obj: AclGrantee): any => {
-  if (obj.id !== undefined) return { id: obj.id };
-  if (obj.uri !== undefined) return { uri: obj.uri };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const S3BucketAclGrantConfigurationFilterSensitiveLog = (obj: S3BucketAclGrantConfiguration): any => ({
-  ...obj,
-  ...(obj.grantee && { grantee: AclGranteeFilterSensitiveLog(obj.grantee) }),
-});
-
-/**
- * @internal
- */
-export const S3BucketConfigurationFilterSensitiveLog = (obj: S3BucketConfiguration): any => ({
-  ...obj,
-  ...(obj.bucketAclGrants && {
-    bucketAclGrants: obj.bucketAclGrants.map((item) => S3BucketAclGrantConfigurationFilterSensitiveLog(item)),
-  }),
-  ...(obj.accessPoints && {
-    accessPoints: Object.entries(obj.accessPoints).reduce(
-      (acc: any, [key, value]: [string, S3AccessPointConfiguration]) => (
-        (acc[key] = S3AccessPointConfigurationFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const SecretsManagerSecretConfigurationFilterSensitiveLog = (obj: SecretsManagerSecretConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnsTopicConfigurationFilterSensitiveLog = (obj: SnsTopicConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SqsQueueConfigurationFilterSensitiveLog = (obj: SqsQueueConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => {
-  if (obj.ebsSnapshot !== undefined)
-    return { ebsSnapshot: EbsSnapshotConfigurationFilterSensitiveLog(obj.ebsSnapshot) };
-  if (obj.ecrRepository !== undefined)
-    return { ecrRepository: EcrRepositoryConfigurationFilterSensitiveLog(obj.ecrRepository) };
-  if (obj.iamRole !== undefined) return { iamRole: IamRoleConfigurationFilterSensitiveLog(obj.iamRole) };
-  if (obj.efsFileSystem !== undefined)
-    return { efsFileSystem: EfsFileSystemConfigurationFilterSensitiveLog(obj.efsFileSystem) };
-  if (obj.kmsKey !== undefined) return { kmsKey: KmsKeyConfigurationFilterSensitiveLog(obj.kmsKey) };
-  if (obj.rdsDbClusterSnapshot !== undefined)
-    return { rdsDbClusterSnapshot: RdsDbClusterSnapshotConfigurationFilterSensitiveLog(obj.rdsDbClusterSnapshot) };
-  if (obj.rdsDbSnapshot !== undefined)
-    return { rdsDbSnapshot: RdsDbSnapshotConfigurationFilterSensitiveLog(obj.rdsDbSnapshot) };
-  if (obj.secretsManagerSecret !== undefined)
-    return { secretsManagerSecret: SecretsManagerSecretConfigurationFilterSensitiveLog(obj.secretsManagerSecret) };
-  if (obj.s3Bucket !== undefined) return { s3Bucket: S3BucketConfigurationFilterSensitiveLog(obj.s3Bucket) };
-  if (obj.snsTopic !== undefined) return { snsTopic: SnsTopicConfigurationFilterSensitiveLog(obj.snsTopic) };
-  if (obj.sqsQueue !== undefined) return { sqsQueue: SqsQueueConfigurationFilterSensitiveLog(obj.sqsQueue) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateAccessPreviewRequestFilterSensitiveLog = (obj: CreateAccessPreviewRequest): any => ({
-  ...obj,
-  ...(obj.configurations && {
-    configurations: Object.entries(obj.configurations).reduce(
-      (acc: any, [key, value]: [string, Configuration]) => ((acc[key] = ConfigurationFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateAccessPreviewResponseFilterSensitiveLog = (obj: CreateAccessPreviewResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccessPreviewRequestFilterSensitiveLog = (obj: GetAccessPreviewRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessPreviewStatusReasonFilterSensitiveLog = (obj: AccessPreviewStatusReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessPreviewFilterSensitiveLog = (obj: AccessPreview): any => ({
-  ...obj,
-  ...(obj.configurations && {
-    configurations: Object.entries(obj.configurations).reduce(
-      (acc: any, [key, value]: [string, Configuration]) => ((acc[key] = ConfigurationFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetAccessPreviewResponseFilterSensitiveLog = (obj: GetAccessPreviewResponse): any => ({
-  ...obj,
-  ...(obj.accessPreview && { accessPreview: AccessPreviewFilterSensitiveLog(obj.accessPreview) }),
-});
-
-/**
- * @internal
- */
-export const GetAnalyzedResourceRequestFilterSensitiveLog = (obj: GetAnalyzedResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalyzedResourceFilterSensitiveLog = (obj: AnalyzedResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnalyzedResourceResponseFilterSensitiveLog = (obj: GetAnalyzedResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFindingRequestFilterSensitiveLog = (obj: GetFindingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingSourceDetailFilterSensitiveLog = (obj: FindingSourceDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingSourceFilterSensitiveLog = (obj: FindingSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingFilterSensitiveLog = (obj: Finding): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFindingResponseFilterSensitiveLog = (obj: GetFindingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGeneratedPolicyRequestFilterSensitiveLog = (obj: GetGeneratedPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeneratedPolicyFilterSensitiveLog = (obj: GeneratedPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrailPropertiesFilterSensitiveLog = (obj: TrailProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudTrailPropertiesFilterSensitiveLog = (obj: CloudTrailProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeneratedPolicyPropertiesFilterSensitiveLog = (obj: GeneratedPolicyProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeneratedPolicyResultFilterSensitiveLog = (obj: GeneratedPolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobErrorFilterSensitiveLog = (obj: JobError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobDetailsFilterSensitiveLog = (obj: JobDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGeneratedPolicyResponseFilterSensitiveLog = (obj: GetGeneratedPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccessPreviewFindingsRequestFilterSensitiveLog = (obj: ListAccessPreviewFindingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessPreviewFindingFilterSensitiveLog = (obj: AccessPreviewFinding): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccessPreviewFindingsResponseFilterSensitiveLog = (obj: ListAccessPreviewFindingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccessPreviewsRequestFilterSensitiveLog = (obj: ListAccessPreviewsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessPreviewSummaryFilterSensitiveLog = (obj: AccessPreviewSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccessPreviewsResponseFilterSensitiveLog = (obj: ListAccessPreviewsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnalyzedResourcesRequestFilterSensitiveLog = (obj: ListAnalyzedResourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalyzedResourceSummaryFilterSensitiveLog = (obj: AnalyzedResourceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnalyzedResourcesResponseFilterSensitiveLog = (obj: ListAnalyzedResourcesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SortCriteriaFilterSensitiveLog = (obj: SortCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFindingsRequestFilterSensitiveLog = (obj: ListFindingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingSummaryFilterSensitiveLog = (obj: FindingSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFindingsResponseFilterSensitiveLog = (obj: ListFindingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPolicyGenerationsRequestFilterSensitiveLog = (obj: ListPolicyGenerationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyGenerationFilterSensitiveLog = (obj: PolicyGeneration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPolicyGenerationsResponseFilterSensitiveLog = (obj: ListPolicyGenerationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrailFilterSensitiveLog = (obj: Trail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudTrailDetailsFilterSensitiveLog = (obj: CloudTrailDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyGenerationDetailsFilterSensitiveLog = (obj: PolicyGenerationDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartPolicyGenerationRequestFilterSensitiveLog = (obj: StartPolicyGenerationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartPolicyGenerationResponseFilterSensitiveLog = (obj: StartPolicyGenerationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartResourceScanRequestFilterSensitiveLog = (obj: StartResourceScanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFindingsRequestFilterSensitiveLog = (obj: UpdateFindingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidatePolicyRequestFilterSensitiveLog = (obj: ValidatePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubstringFilterSensitiveLog = (obj: Substring): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PathElementFilterSensitiveLog = (obj: PathElement): any => {
-  if (obj.index !== undefined) return { index: obj.index };
-  if (obj.key !== undefined) return { key: obj.key };
-  if (obj.substring !== undefined) return { substring: SubstringFilterSensitiveLog(obj.substring) };
-  if (obj.value !== undefined) return { value: obj.value };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const PositionFilterSensitiveLog = (obj: Position): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpanFilterSensitiveLog = (obj: Span): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocationFilterSensitiveLog = (obj: Location): any => ({
-  ...obj,
-  ...(obj.path && { path: obj.path.map((item) => PathElementFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ValidatePolicyFindingFilterSensitiveLog = (obj: ValidatePolicyFinding): any => ({
-  ...obj,
-  ...(obj.locations && { locations: obj.locations.map((item) => LocationFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ValidatePolicyResponseFilterSensitiveLog = (obj: ValidatePolicyResponse): any => ({
-  ...obj,
-});

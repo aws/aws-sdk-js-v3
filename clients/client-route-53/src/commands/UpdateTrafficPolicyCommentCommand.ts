@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateTrafficPolicyCommentRequest,
-  UpdateTrafficPolicyCommentRequestFilterSensitiveLog,
-  UpdateTrafficPolicyCommentResponse,
-  UpdateTrafficPolicyCommentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlUpdateTrafficPolicyCommentCommand,
-  serializeAws_restXmlUpdateTrafficPolicyCommentCommand,
-} from "../protocols/Aws_restXml";
+import { UpdateTrafficPolicyCommentRequest, UpdateTrafficPolicyCommentResponse } from "../models/models_0";
+import { de_UpdateTrafficPolicyCommentCommand, se_UpdateTrafficPolicyCommentCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrafficPolicyCommentCommand}.
  */
 export interface UpdateTrafficPolicyCommentCommandInput extends UpdateTrafficPolicyCommentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrafficPolicyCommentCommand}.
  */
 export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPolicyCommentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the comment for a specified traffic policy version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,10 +40,17 @@ export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPo
  * import { Route53Client, UpdateTrafficPolicyCommentCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, UpdateTrafficPolicyCommentCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // UpdateTrafficPolicyCommentRequest
+ *   Id: "STRING_VALUE", // required
+ *   Version: Number("int"), // required
+ *   Comment: "STRING_VALUE", // required
+ * };
  * const command = new UpdateTrafficPolicyCommentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrafficPolicyCommentCommandInput - {@link UpdateTrafficPolicyCommentCommandInput}
+ * @returns {@link UpdateTrafficPolicyCommentCommandOutput}
  * @see {@link UpdateTrafficPolicyCommentCommandInput} for command's `input` shape.
  * @see {@link UpdateTrafficPolicyCommentCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -80,6 +84,9 @@ export class UpdateTrafficPolicyCommentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrafficPolicyCommentCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class UpdateTrafficPolicyCommentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrafficPolicyCommentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrafficPolicyCommentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +127,21 @@ export class UpdateTrafficPolicyCommentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrafficPolicyCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateTrafficPolicyCommentCommand(input, context);
+    return se_UpdateTrafficPolicyCommentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTrafficPolicyCommentCommandOutput> {
-    return deserializeAws_restXmlUpdateTrafficPolicyCommentCommand(output, context);
+    return de_UpdateTrafficPolicyCommentCommand(output, context);
   }
 
   // Start section: command_body_extra

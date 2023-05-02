@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetContainerImagesRequest,
-  GetContainerImagesRequestFilterSensitiveLog,
-  GetContainerImagesResult,
-  GetContainerImagesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetContainerImagesCommand,
-  serializeAws_json1_1GetContainerImagesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetContainerImagesRequest, GetContainerImagesResult } from "../models/models_0";
+import { de_GetContainerImagesCommand, se_GetContainerImagesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContainerImagesCommand}.
  */
 export interface GetContainerImagesCommandInput extends GetContainerImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContainerImagesCommand}.
  */
 export interface GetContainerImagesCommandOutput extends GetContainerImagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the container images that are registered to your Amazon Lightsail container
  *       service.</p>
  *          <note>
@@ -48,10 +45,15 @@ export interface GetContainerImagesCommandOutput extends GetContainerImagesResul
  * import { LightsailClient, GetContainerImagesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerImagesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetContainerImagesRequest
+ *   serviceName: "STRING_VALUE", // required
+ * };
  * const command = new GetContainerImagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerImagesCommandInput - {@link GetContainerImagesCommandInput}
+ * @returns {@link GetContainerImagesCommandOutput}
  * @see {@link GetContainerImagesCommandInput} for command's `input` shape.
  * @see {@link GetContainerImagesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -98,6 +100,9 @@ export class GetContainerImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +131,8 @@ export class GetContainerImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContainerImagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContainerImagesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +142,18 @@ export class GetContainerImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContainerImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContainerImagesCommand(input, context);
+    return se_GetContainerImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerImagesCommandOutput> {
-    return deserializeAws_json1_1GetContainerImagesCommand(output, context);
+    return de_GetContainerImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

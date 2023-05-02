@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  UpdateBrokerTypeRequest,
-  UpdateBrokerTypeRequestFilterSensitiveLog,
-  UpdateBrokerTypeResponse,
-  UpdateBrokerTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBrokerTypeCommand,
-  serializeAws_restJson1UpdateBrokerTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateBrokerTypeRequest, UpdateBrokerTypeResponse } from "../models/models_0";
+import { de_UpdateBrokerTypeCommand, se_UpdateBrokerTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBrokerTypeCommand}.
  */
 export interface UpdateBrokerTypeCommandInput extends UpdateBrokerTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBrokerTypeCommand}.
  */
 export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates EC2 instance type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse,
  * import { KafkaClient, UpdateBrokerTypeCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateBrokerTypeCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // UpdateBrokerTypeRequest
+ *   ClusterArn: "STRING_VALUE", // required
+ *   CurrentVersion: "STRING_VALUE", // required
+ *   TargetInstanceType: "STRING_VALUE", // required
+ * };
  * const command = new UpdateBrokerTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBrokerTypeCommandInput - {@link UpdateBrokerTypeCommandInput}
+ * @returns {@link UpdateBrokerTypeCommandOutput}
  * @see {@link UpdateBrokerTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateBrokerTypeCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -90,6 +94,9 @@ export class UpdateBrokerTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBrokerTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class UpdateBrokerTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBrokerTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBrokerTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class UpdateBrokerTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBrokerTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBrokerTypeCommand(input, context);
+    return se_UpdateBrokerTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrokerTypeCommandOutput> {
-    return deserializeAws_restJson1UpdateBrokerTypeCommand(output, context);
+    return de_UpdateBrokerTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

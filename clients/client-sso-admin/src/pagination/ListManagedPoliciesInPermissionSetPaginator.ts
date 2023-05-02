@@ -10,7 +10,7 @@ import { SSOAdminClient } from "../SSOAdminClient";
 import { SSOAdminPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSOAdminClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListManagedPoliciesInPermissionSetCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListManagedPoliciesInPermissionSet(
   config: SSOAdminPaginationConfiguration,
   input: ListManagedPoliciesInPermissionSetCommandInput,

@@ -7,6 +7,7 @@ import {
 import { RUMServiceException as __BaseException } from "./RUMServiceException";
 
 /**
+ * @public
  * <p>You don't have sufficient permissions to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,22 +26,32 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum Telemetry {
+/**
+ * @public
+ * @enum
+ */
+export const Telemetry = {
   /**
    * Includes JS error event plugin
    */
-  ERRORS = "errors",
+  ERRORS: "errors",
   /**
    * Includes X-Ray Xhr and X-Ray Fetch plugin
    */
-  HTTP = "http",
+  HTTP: "http",
   /**
    * Includes navigation, paint, resource and web vital event plugins
    */
-  PERFORMANCE = "performance",
-}
+  PERFORMANCE: "performance",
+} as const;
 
 /**
+ * @public
+ */
+export type Telemetry = (typeof Telemetry)[keyof typeof Telemetry];
+
+/**
+ * @public
  * <p>This structure contains much of the configuration data for the app monitor.</p>
  */
 export interface AppMonitorConfiguration {
@@ -123,12 +134,22 @@ export interface AppMonitorConfiguration {
   EnableXRay?: boolean;
 }
 
-export enum CustomEventsStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomEventsStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomEventsStatus = (typeof CustomEventsStatus)[keyof typeof CustomEventsStatus];
+
+/**
+ * @public
  * <p>A structure that contains information about custom events for this app monitor.</p>
  */
 export interface CustomEvents {
@@ -140,6 +161,7 @@ export interface CustomEvents {
 }
 
 /**
+ * @public
  * <p>A structure that contains the information about whether the app monitor stores copies of the data
  *       that RUM collects in CloudWatch Logs. If it does, this structure also contains the name of the log group.</p>
  */
@@ -157,6 +179,7 @@ export interface CwLog {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about whether this app monitor stores a copy of
  *          the telemetry data that RUM collects using CloudWatch Logs.</p>
  */
@@ -168,13 +191,23 @@ export interface DataStorage {
   CwLog?: CwLog;
 }
 
-export enum StateEnum {
-  ACTIVE = "ACTIVE",
-  CREATED = "CREATED",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StateEnum = {
+  ACTIVE: "ACTIVE",
+  CREATED: "CREATED",
+  DELETING: "DELETING",
+} as const;
 
 /**
+ * @public
+ */
+export type StateEnum = (typeof StateEnum)[keyof typeof StateEnum];
+
+/**
+ * @public
  * <p>A RUM app monitor collects telemetry data from your application and sends that
  *          data to RUM. The data includes performance and reliability information such as page load time, client-side errors,
  *          and user behavior.</p>
@@ -236,6 +269,7 @@ export interface AppMonitor {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about the RUM app monitor.</p>
  */
 export interface AppMonitorDetails {
@@ -255,12 +289,22 @@ export interface AppMonitorDetails {
   version?: string;
 }
 
-export enum MetricDestination {
-  CloudWatch = "CloudWatch",
-  Evidently = "Evidently",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MetricDestination = {
+  CloudWatch: "CloudWatch",
+  Evidently: "Evidently",
+} as const;
 
 /**
+ * @public
+ */
+export type MetricDestination = (typeof MetricDestination)[keyof typeof MetricDestination];
+
+/**
+ * @public
  * <p>Use this structure to define one extended metric or custom metric that RUM will send
  *          to CloudWatch or CloudWatch Evidently. For more information, see
  *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html">
@@ -279,88 +323,88 @@ export enum MetricDestination {
  *                   <li>
  *                      <p>If <code>Name</code> is <code>PerformanceNavigationDuration</code>, then
  *                   <code>ValueKey</code>must be <code>event_details.duration</code> and the <code>EventPattern</code>
- *                   must include <code>{"event_type":["com.amazon.rum.performance_navigation_event"]}</code>
+ *                   must include <code>\{"event_type":["com.amazon.rum.performance_navigation_event"]\}</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>If <code>Name</code> is <code>PerformanceResourceDuration</code>, then
  *                   <code>ValueKey</code>must be <code>event_details.duration</code> and the <code>EventPattern</code>
- *                   must include <code>{"event_type":["com.amazon.rum.performance_resource_event"]}</code>
+ *                   must include <code>\{"event_type":["com.amazon.rum.performance_resource_event"]\}</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>If <code>Name</code> is <code>NavigationSatisfiedTransaction</code>, then
  *                   <code>ValueKey</code>must be null and the <code>EventPattern</code>
- *                   must include <code>{
+ *                   must include <code>\{
  *                      "event_type": ["com.amazon.rum.performance_navigation_event"],
- *                      "event_details": {
- *                      "duration": [{
+ *                      "event_details": \{
+ *                      "duration": [\{
  *                      "numeric": ["&gt;",2000]
- *                      }]
- *                      }
- *                      }</code>
+ *                      \}]
+ *                      \}
+ *                      \}</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>If <code>Name</code> is <code>NavigationToleratedTransaction</code>, then
  *                   <code>ValueKey</code>must be null and the <code>EventPattern</code>
- *                   must include <code>{
+ *                   must include <code>\{
  *                      "event_type": ["com.amazon.rum.performance_navigation_event"],
- *                      "event_details": {
- *                      "duration": [{
+ *                      "event_details": \{
+ *                      "duration": [\{
  *                      "numeric": ["&gt;=",2000,"&lt;"8000]
- *                      }]
- *                      }
- *                      }</code>
+ *                      \}]
+ *                      \}
+ *                      \}</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>If <code>Name</code> is <code>NavigationFrustratedTransaction</code>, then
  *                   <code>ValueKey</code>must be null and the <code>EventPattern</code>
- *                   must include <code>{
+ *                   must include <code>\{
  *                      "event_type": ["com.amazon.rum.performance_navigation_event"],
- *                      "event_details": {
- *                      "duration": [{
+ *                      "event_details": \{
+ *                      "duration": [\{
  *                      "numeric": ["&gt;=",8000]
- *                      }]
- *                      }
- *                      }</code>
+ *                      \}]
+ *                      \}
+ *                      \}</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>If <code>Name</code> is <code>WebVitalsCumulativeLayoutShift</code>, then
  *                   <code>ValueKey</code>must be <code>event_details.value</code> and the <code>EventPattern</code>
- *                   must include <code>{"event_type":["com.amazon.rum.cumulative_layout_shift_event"]}</code>
+ *                   must include <code>\{"event_type":["com.amazon.rum.cumulative_layout_shift_event"]\}</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>If <code>Name</code> is <code>WebVitalsFirstInputDelay</code>, then
  *                   <code>ValueKey</code>must be <code>event_details.value</code> and the <code>EventPattern</code>
- *                   must include <code>{"event_type":["com.amazon.rum.first_input_delay_event"]}</code>
+ *                   must include <code>\{"event_type":["com.amazon.rum.first_input_delay_event"]\}</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>If <code>Name</code> is <code>WebVitalsLargestContentfulPaint</code>, then
  *                   <code>ValueKey</code>must be <code>event_details.value</code> and the <code>EventPattern</code>
- *                   must include <code>{"event_type":["com.amazon.rum.largest_contentful_paint_event"]}</code>
+ *                   must include <code>\{"event_type":["com.amazon.rum.largest_contentful_paint_event"]\}</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>If <code>Name</code> is <code>JsErrorCount</code>, then
  *                   <code>ValueKey</code>must be null and the <code>EventPattern</code>
- *                   must include <code>{"event_type":["com.amazon.rum.js_error_event"]}</code>
+ *                   must include <code>\{"event_type":["com.amazon.rum.js_error_event"]\}</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>If <code>Name</code> is <code>HttpErrorCount</code>, then
  *                   <code>ValueKey</code>must be null and the <code>EventPattern</code>
- *                   must include <code>{"event_type":["com.amazon.rum.http_event"]}</code>
+ *                   must include <code>\{"event_type":["com.amazon.rum.http_event"]\}</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>If <code>Name</code> is <code>SessionCount</code>, then
  *                   <code>ValueKey</code>must be null and the <code>EventPattern</code>
- *                   must include <code>{"event_type":["com.amazon.rum.session_start_event"]}</code>
+ *                   must include <code>\{"event_type":["com.amazon.rum.session_start_event"]\}</code>
  *                      </p>
  *                   </li>
  *                </ul>
@@ -615,41 +659,41 @@ export interface MetricDefinitionRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>'{
+   *                   <code>'\{
    *             "event_type": ["com.amazon.rum.js_error_event"],
-   *             "metadata": {
-   *             "browserName": [ "Chrome", "Safari" ], } }'</code>
+   *             "metadata": \{
+   *             "browserName": [ "Chrome", "Safari" ], \} \}'</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>'{
+   *                   <code>'\{
    *             "event_type": ["com.amazon.rum.performance_navigation_event"],
-   *             "metadata": {
+   *             "metadata": \{
    *             "browserName": [ "Chrome", "Firefox" ]
-   *             },
-   *             "event_details": {
-   *             "duration": [{
+   *             \},
+   *             "event_details": \{
+   *             "duration": [\{
    *             "numeric": [ "&lt;", 2000 ]
-   *             }]
-   *             }
-   *             }'</code>
+   *             \}]
+   *             \}
+   *             \}'</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>'{
+   *                   <code>'\{
    *             "event_type": ["com.amazon.rum.performance_navigation_event"],
-   *             "metadata": {
+   *             "metadata": \{
    *             "browserName": [ "Chrome", "Safari" ],
    *             "countryCode": [ "US" ]
-   *             },
-   *             "event_details": {
-   *             "duration": [{
+   *             \},
+   *             "event_details": \{
+   *             "duration": [\{
    *             "numeric": [ "&gt;=", 2000, "&lt;", 8000 ]
-   *             }]
-   *             }
-   *             }'</code>
+   *             \}]
+   *             \}
+   *             \}'</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -667,6 +711,9 @@ export interface MetricDefinitionRequest {
   Namespace?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateRumMetricDefinitionsRequest {
   /**
    * <p>The name of the CloudWatch RUM app monitor that is to send the metrics.</p>
@@ -696,6 +743,7 @@ export interface BatchCreateRumMetricDefinitionsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that defines one error caused by a
  *          <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html">BatchCreateRumMetricsDefinitions</a>
  *       operation.</p>
@@ -718,6 +766,7 @@ export interface BatchCreateRumMetricDefinitionsError {
 }
 
 /**
+ * @public
  * <p>A structure that displays the definition of one extended metric that RUM sends
  *          to CloudWatch or CloudWatch Evidently. For more information, see
  *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html">
@@ -768,6 +817,9 @@ export interface MetricDefinition {
   Namespace?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateRumMetricDefinitionsResponse {
   /**
    * <p>An array of error objects, if the operation caused any errors.</p>
@@ -781,6 +833,7 @@ export interface BatchCreateRumMetricDefinitionsResponse {
 }
 
 /**
+ * @public
  * <p>This operation attempted to create a resource that already exists.</p>
  */
 export class ConflictException extends __BaseException {
@@ -812,6 +865,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Internal service exception.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -838,6 +892,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Resource not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -869,6 +924,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This request exceeds a service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -888,6 +944,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was throttled because of quota limits.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -928,6 +985,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One of the arguments for the request is not valid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -946,6 +1004,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteRumMetricDefinitionsRequest {
   /**
    * <p>The name of the CloudWatch RUM app monitor that is sending these metrics.</p>
@@ -975,6 +1036,7 @@ export interface BatchDeleteRumMetricDefinitionsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that defines one error caused by a
  *          <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchDeleteRumMetricsDefinitions.html">BatchCreateRumMetricsDefinitions</a>
  *          operation.</p>
@@ -996,6 +1058,9 @@ export interface BatchDeleteRumMetricDefinitionsError {
   ErrorMessage: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteRumMetricDefinitionsResponse {
   /**
    * <p>An array of error objects, if the operation caused any errors.</p>
@@ -1008,6 +1073,9 @@ export interface BatchDeleteRumMetricDefinitionsResponse {
   MetricDefinitionIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetRumMetricDefinitionsRequest {
   /**
    * <p>The name of the CloudWatch RUM app monitor that is sending the metrics.</p>
@@ -1042,6 +1110,9 @@ export interface BatchGetRumMetricDefinitionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetRumMetricDefinitionsResponse {
   /**
    * <p>An array of structures that display information about the metrics that are sent by the specified
@@ -1056,6 +1127,9 @@ export interface BatchGetRumMetricDefinitionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppMonitorRequest {
   /**
    * <p>A name for the app monitor.</p>
@@ -1107,6 +1181,9 @@ export interface CreateAppMonitorRequest {
   CustomEvents?: CustomEvents;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppMonitorResponse {
   /**
    * <p>The unique ID of the new app monitor.</p>
@@ -1114,6 +1191,9 @@ export interface CreateAppMonitorResponse {
   Id?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppMonitorRequest {
   /**
    * <p>The name of the app monitor to delete.</p>
@@ -1121,8 +1201,14 @@ export interface DeleteAppMonitorRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppMonitorResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRumMetricsDestinationRequest {
   /**
    * <p>The name of the app monitor that is sending metrics to the destination that you want to delete.</p>
@@ -1142,8 +1228,14 @@ export interface DeleteRumMetricsDestinationRequest {
   DestinationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRumMetricsDestinationResponse {}
 
+/**
+ * @public
+ */
 export interface GetAppMonitorRequest {
   /**
    * <p>The app monitor to retrieve information for.</p>
@@ -1151,6 +1243,9 @@ export interface GetAppMonitorRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAppMonitorResponse {
   /**
    * <p>A structure containing all the configuration information for the app monitor.</p>
@@ -1159,6 +1254,7 @@ export interface GetAppMonitorResponse {
 }
 
 /**
+ * @public
  * <p>A structure that defines a key and values that you can use to filter the results. The
  *          only performance events that are returned are those that have values matching the ones that
  *          you specify in one of your <code>QueryFilter</code> structures.</p>
@@ -1189,6 +1285,7 @@ export interface QueryFilter {
 }
 
 /**
+ * @public
  * <p>A structure that defines the time range that you want to retrieve results from.</p>
  */
 export interface TimeRange {
@@ -1204,6 +1301,9 @@ export interface TimeRange {
   Before?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetAppMonitorDataRequest {
   /**
    * <p>The name of the app monitor that collected the data that you want to retrieve.</p>
@@ -1232,6 +1332,9 @@ export interface GetAppMonitorDataRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAppMonitorDataResponse {
   /**
    * <p>The events that RUM collected that match your request.</p>
@@ -1245,6 +1348,9 @@ export interface GetAppMonitorDataResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppMonitorsRequest {
   /**
    * <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can
@@ -1259,6 +1365,7 @@ export interface ListAppMonitorsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that includes some data about app monitors and their settings.</p>
  */
 export interface AppMonitorSummary {
@@ -1288,6 +1395,9 @@ export interface AppMonitorSummary {
   State?: StateEnum | string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppMonitorsResponse {
   /**
    * <p>A token that you can use in a subsequent operation to retrieve the next set of
@@ -1301,6 +1411,9 @@ export interface ListAppMonitorsResponse {
   AppMonitorSummaries?: AppMonitorSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListRumMetricsDestinationsRequest {
   /**
    * <p>The name of the app monitor associated with the destinations that you want to retrieve.</p>
@@ -1322,6 +1435,7 @@ export interface ListRumMetricsDestinationsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that displays information about one destination that CloudWatch RUM sends
  *       extended metrics to.</p>
  */
@@ -1344,6 +1458,9 @@ export interface MetricDestinationSummary {
   IamRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRumMetricsDestinationsResponse {
   /**
    * <p>The list of CloudWatch RUM extended metrics destinations associated with the app monitor that
@@ -1358,6 +1475,9 @@ export interface ListRumMetricsDestinationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutRumMetricsDestinationRequest {
   /**
    * <p>The name of the CloudWatch RUM app monitor that will send the metrics.</p>
@@ -1388,8 +1508,14 @@ export interface PutRumMetricsDestinationRequest {
   IamRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutRumMetricsDestinationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAppMonitorRequest {
   /**
    * <p>The name of the app monitor to update.</p>
@@ -1428,8 +1554,14 @@ export interface UpdateAppMonitorRequest {
   CustomEvents?: CustomEvents;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppMonitorResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateRumMetricDefinitionRequest {
   /**
    * <p>The name of the CloudWatch RUM app monitor that sends these metrics.</p>
@@ -1463,8 +1595,14 @@ export interface UpdateRumMetricDefinitionRequest {
   MetricDefinitionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRumMetricDefinitionResponse {}
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource that you want to see the tags of.</p>
@@ -1472,6 +1610,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The ARN of the resource that you are viewing.</p>
@@ -1485,6 +1626,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>A structure that contains the information for one performance event that RUM collects from a user session with your
  *       application.</p>
  */
@@ -1518,6 +1660,7 @@ export interface RumEvent {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about the user session that this batch of events was collected from.</p>
  */
 export interface UserDetails {
@@ -1533,6 +1676,9 @@ export interface UserDetails {
   sessionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutRumEventsRequest {
   /**
    * <p>The ID of the app monitor that is sending this data.</p>
@@ -1560,8 +1706,14 @@ export interface PutRumEventsRequest {
   RumEvents: RumEvent[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRumEventsResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the CloudWatch RUM resource that you're adding tags to.</p>
@@ -1574,8 +1726,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the CloudWatch RUM resource that you're removing tags from.</p>
@@ -1588,372 +1746,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const AppMonitorConfigurationFilterSensitiveLog = (obj: AppMonitorConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomEventsFilterSensitiveLog = (obj: CustomEvents): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CwLogFilterSensitiveLog = (obj: CwLog): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataStorageFilterSensitiveLog = (obj: DataStorage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppMonitorFilterSensitiveLog = (obj: AppMonitor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppMonitorDetailsFilterSensitiveLog = (obj: AppMonitorDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDefinitionRequestFilterSensitiveLog = (obj: MetricDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateRumMetricDefinitionsRequestFilterSensitiveLog = (
-  obj: BatchCreateRumMetricDefinitionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateRumMetricDefinitionsErrorFilterSensitiveLog = (
-  obj: BatchCreateRumMetricDefinitionsError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDefinitionFilterSensitiveLog = (obj: MetricDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateRumMetricDefinitionsResponseFilterSensitiveLog = (
-  obj: BatchCreateRumMetricDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteRumMetricDefinitionsRequestFilterSensitiveLog = (
-  obj: BatchDeleteRumMetricDefinitionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteRumMetricDefinitionsErrorFilterSensitiveLog = (
-  obj: BatchDeleteRumMetricDefinitionsError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteRumMetricDefinitionsResponseFilterSensitiveLog = (
-  obj: BatchDeleteRumMetricDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetRumMetricDefinitionsRequestFilterSensitiveLog = (
-  obj: BatchGetRumMetricDefinitionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetRumMetricDefinitionsResponseFilterSensitiveLog = (
-  obj: BatchGetRumMetricDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppMonitorRequestFilterSensitiveLog = (obj: CreateAppMonitorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppMonitorResponseFilterSensitiveLog = (obj: CreateAppMonitorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppMonitorRequestFilterSensitiveLog = (obj: DeleteAppMonitorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppMonitorResponseFilterSensitiveLog = (obj: DeleteAppMonitorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRumMetricsDestinationRequestFilterSensitiveLog = (obj: DeleteRumMetricsDestinationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRumMetricsDestinationResponseFilterSensitiveLog = (
-  obj: DeleteRumMetricsDestinationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppMonitorRequestFilterSensitiveLog = (obj: GetAppMonitorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppMonitorResponseFilterSensitiveLog = (obj: GetAppMonitorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryFilterFilterSensitiveLog = (obj: QueryFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeRangeFilterSensitiveLog = (obj: TimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppMonitorDataRequestFilterSensitiveLog = (obj: GetAppMonitorDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppMonitorDataResponseFilterSensitiveLog = (obj: GetAppMonitorDataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppMonitorsRequestFilterSensitiveLog = (obj: ListAppMonitorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppMonitorSummaryFilterSensitiveLog = (obj: AppMonitorSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppMonitorsResponseFilterSensitiveLog = (obj: ListAppMonitorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRumMetricsDestinationsRequestFilterSensitiveLog = (obj: ListRumMetricsDestinationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDestinationSummaryFilterSensitiveLog = (obj: MetricDestinationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRumMetricsDestinationsResponseFilterSensitiveLog = (obj: ListRumMetricsDestinationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRumMetricsDestinationRequestFilterSensitiveLog = (obj: PutRumMetricsDestinationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRumMetricsDestinationResponseFilterSensitiveLog = (obj: PutRumMetricsDestinationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAppMonitorRequestFilterSensitiveLog = (obj: UpdateAppMonitorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAppMonitorResponseFilterSensitiveLog = (obj: UpdateAppMonitorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRumMetricDefinitionRequestFilterSensitiveLog = (obj: UpdateRumMetricDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRumMetricDefinitionResponseFilterSensitiveLog = (obj: UpdateRumMetricDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RumEventFilterSensitiveLog = (obj: RumEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserDetailsFilterSensitiveLog = (obj: UserDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRumEventsRequestFilterSensitiveLog = (obj: PutRumEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRumEventsResponseFilterSensitiveLog = (obj: PutRumEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  CreateComponentVersionRequest,
-  CreateComponentVersionRequestFilterSensitiveLog,
-  CreateComponentVersionResponse,
-  CreateComponentVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateComponentVersionCommand,
-  serializeAws_restJson1CreateComponentVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateComponentVersionRequest, CreateComponentVersionResponse } from "../models/models_0";
+import { de_CreateComponentVersionCommand, se_CreateComponentVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateComponentVersionCommand}.
  */
 export interface CreateComponentVersionCommandInput extends CreateComponentVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateComponentVersionCommand}.
  */
 export interface CreateComponentVersionCommandOutput extends CreateComponentVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a component. Components are software that run on Greengrass core devices. After you
  *       develop and test a component on your core device, you can use this operation to upload your
  *       component to IoT Greengrass. Then, you can deploy the component to other core devices.</p>
@@ -97,8 +94,8 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *                      </p>
  *                   </li>
  *                </ul>
- *                <p>To create a component from a Lambda function, specify <code>lambdaFunction</code>
- *           when you call this operation.</p>
+ *                <p>To create a component from a Lambda function, specify <code>lambdaFunction</code> when
+ *           you call this operation.</p>
  *                <note>
  *                   <p>IoT Greengrass currently supports Lambda functions on only Linux core devices.</p>
  *                </note>
@@ -110,10 +107,81 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  * import { GreengrassV2Client, CreateComponentVersionCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, CreateComponentVersionCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // CreateComponentVersionRequest
+ *   inlineRecipe: "BLOB_VALUE",
+ *   lambdaFunction: { // LambdaFunctionRecipeSource
+ *     lambdaArn: "STRING_VALUE", // required
+ *     componentName: "STRING_VALUE",
+ *     componentVersion: "STRING_VALUE",
+ *     componentPlatforms: [ // ComponentPlatformList
+ *       { // ComponentPlatform
+ *         name: "STRING_VALUE",
+ *         attributes: { // PlatformAttributesMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     componentDependencies: { // ComponentDependencyMap
+ *       "<keys>": { // ComponentDependencyRequirement
+ *         versionRequirement: "STRING_VALUE",
+ *         dependencyType: "HARD" || "SOFT",
+ *       },
+ *     },
+ *     componentLambdaParameters: { // LambdaExecutionParameters
+ *       eventSources: [ // LambdaEventSourceList
+ *         { // LambdaEventSource
+ *           topic: "STRING_VALUE", // required
+ *           type: "PUB_SUB" || "IOT_CORE", // required
+ *         },
+ *       ],
+ *       maxQueueSize: Number("int"),
+ *       maxInstancesCount: Number("int"),
+ *       maxIdleTimeInSeconds: Number("int"),
+ *       timeoutInSeconds: Number("int"),
+ *       statusTimeoutInSeconds: Number("int"),
+ *       pinned: true || false,
+ *       inputPayloadEncodingType: "json" || "binary",
+ *       execArgs: [ // LambdaExecArgsList
+ *         "STRING_VALUE",
+ *       ],
+ *       environmentVariables: { // LambdaEnvironmentVariables
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       linuxProcessParams: { // LambdaLinuxProcessParams
+ *         isolationMode: "GreengrassContainer" || "NoContainer",
+ *         containerParams: { // LambdaContainerParams
+ *           memorySizeInKB: Number("int"),
+ *           mountROSysfs: true || false,
+ *           volumes: [ // LambdaVolumeList
+ *             { // LambdaVolumeMount
+ *               sourcePath: "STRING_VALUE", // required
+ *               destinationPath: "STRING_VALUE", // required
+ *               permission: "ro" || "rw",
+ *               addGroupOwner: true || false,
+ *             },
+ *           ],
+ *           devices: [ // LambdaDeviceList
+ *             { // LambdaDeviceMount
+ *               path: "STRING_VALUE", // required
+ *               permission: "ro" || "rw",
+ *               addGroupOwner: true || false,
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateComponentVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComponentVersionCommandInput - {@link CreateComponentVersionCommandInput}
+ * @returns {@link CreateComponentVersionCommandOutput}
  * @see {@link CreateComponentVersionCommandInput} for command's `input` shape.
  * @see {@link CreateComponentVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -164,6 +232,9 @@ export class CreateComponentVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComponentVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -192,8 +263,8 @@ export class CreateComponentVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateComponentVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateComponentVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -203,12 +274,18 @@ export class CreateComponentVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComponentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateComponentVersionCommand(input, context);
+    return se_CreateComponentVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentVersionCommandOutput> {
-    return deserializeAws_restJson1CreateComponentVersionCommand(output, context);
+    return de_CreateComponentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

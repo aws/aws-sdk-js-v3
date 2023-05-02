@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeVpcPeeringConnectionsRequest,
-  DescribeVpcPeeringConnectionsRequestFilterSensitiveLog,
-  DescribeVpcPeeringConnectionsResult,
-  DescribeVpcPeeringConnectionsResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2DescribeVpcPeeringConnectionsCommand,
-  serializeAws_ec2DescribeVpcPeeringConnectionsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeVpcPeeringConnectionsRequest, DescribeVpcPeeringConnectionsResult } from "../models/models_5";
+import { de_DescribeVpcPeeringConnectionsCommand, se_DescribeVpcPeeringConnectionsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcPeeringConnectionsCommand}.
  */
 export interface DescribeVpcPeeringConnectionsCommandInput extends DescribeVpcPeeringConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcPeeringConnectionsCommand}.
  */
 export interface DescribeVpcPeeringConnectionsCommandOutput
@@ -37,6 +33,7 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your VPC peering connections.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,28 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  * import { EC2Client, DescribeVpcPeeringConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcPeeringConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVpcPeeringConnectionsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   VpcPeeringConnectionIds: [ // VpcPeeringConnectionIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeVpcPeeringConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcPeeringConnectionsCommandInput - {@link DescribeVpcPeeringConnectionsCommandInput}
+ * @returns {@link DescribeVpcPeeringConnectionsCommandOutput}
  * @see {@link DescribeVpcPeeringConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcPeeringConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +86,9 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcPeeringConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +117,8 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcPeeringConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcPeeringConnectionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +128,21 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcPeeringConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcPeeringConnectionsCommand(input, context);
+    return se_DescribeVpcPeeringConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcPeeringConnectionsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcPeeringConnectionsCommand(output, context);
+    return de_DescribeVpcPeeringConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

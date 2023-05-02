@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchGetVpcEndpointRequest,
-  BatchGetVpcEndpointRequestFilterSensitiveLog,
-  BatchGetVpcEndpointResponse,
-  BatchGetVpcEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetVpcEndpointRequest, BatchGetVpcEndpointResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0BatchGetVpcEndpointCommand,
-  serializeAws_json1_0BatchGetVpcEndpointCommand,
-} from "../protocols/Aws_json1_0";
+import { de_BatchGetVpcEndpointCommand, se_BatchGetVpcEndpointCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetVpcEndpointCommand}.
  */
 export interface BatchGetVpcEndpointCommandInput extends BatchGetVpcEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetVpcEndpointCommand}.
  */
 export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns attributes for one or more VPC endpoints associated with the current account.
  *             For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
@@ -48,10 +45,17 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  * import { OpenSearchServerlessClient, BatchGetVpcEndpointCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, BatchGetVpcEndpointCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // BatchGetVpcEndpointRequest
+ *   ids: [ // VpcEndpointIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetVpcEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetVpcEndpointCommandInput - {@link BatchGetVpcEndpointCommandInput}
+ * @returns {@link BatchGetVpcEndpointCommandOutput}
  * @see {@link BatchGetVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link BatchGetVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -82,6 +86,9 @@ export class BatchGetVpcEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetVpcEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class BatchGetVpcEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetVpcEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetVpcEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class BatchGetVpcEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0BatchGetVpcEndpointCommand(input, context);
+    return se_BatchGetVpcEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetVpcEndpointCommandOutput> {
-    return deserializeAws_json1_0BatchGetVpcEndpointCommand(output, context);
+    return de_BatchGetVpcEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

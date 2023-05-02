@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  TransactWriteItemsInput,
-  TransactWriteItemsInputFilterSensitiveLog,
-  TransactWriteItemsOutput,
-  TransactWriteItemsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0TransactWriteItemsCommand,
-  serializeAws_json1_0TransactWriteItemsCommand,
-} from "../protocols/Aws_json1_0";
+import { TransactWriteItemsInput, TransactWriteItemsOutput } from "../models/models_0";
+import { de_TransactWriteItemsCommand, se_TransactWriteItemsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link TransactWriteItemsCommand}.
  */
 export interface TransactWriteItemsCommandInput extends TransactWriteItemsInput {}
 /**
+ * @public
+ *
  * The output of {@link TransactWriteItemsCommand}.
  */
 export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>TransactWriteItems</code> is a synchronous write operation that groups up to 100
  *             action requests. These actions can target items in different tables, but not in
@@ -114,10 +111,120 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  * import { DynamoDBClient, TransactWriteItemsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, TransactWriteItemsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // TransactWriteItemsInput
+ *   TransactItems: [ // TransactWriteItemList // required
+ *     { // TransactWriteItem
+ *       ConditionCheck: { // ConditionCheck
+ *         Key: { // Key // required
+ *           "<keys>": { // AttributeValue Union: only one key present
+ *             S: "STRING_VALUE",
+ *             N: "STRING_VALUE",
+ *             B: "BLOB_VALUE",
+ *             SS: [ // StringSetAttributeValue
+ *               "STRING_VALUE",
+ *             ],
+ *             NS: [ // NumberSetAttributeValue
+ *               "STRING_VALUE",
+ *             ],
+ *             BS: [ // BinarySetAttributeValue
+ *               "BLOB_VALUE",
+ *             ],
+ *             M: { // MapAttributeValue
+ *               "<keys>": {//  Union: only one key present
+ *                 S: "STRING_VALUE",
+ *                 N: "STRING_VALUE",
+ *                 B: "BLOB_VALUE",
+ *                 SS: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 NS: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 BS: [
+ *                   "BLOB_VALUE",
+ *                 ],
+ *                 M: {
+ *                   "<keys>": "<AttributeValue>",
+ *                 },
+ *                 L: [ // ListAttributeValue
+ *                   "<AttributeValue>",
+ *                 ],
+ *                 NULL: true || false,
+ *                 BOOL: true || false,
+ *               },
+ *             },
+ *             L: [
+ *               "<AttributeValue>",
+ *             ],
+ *             NULL: true || false,
+ *             BOOL: true || false,
+ *           },
+ *         },
+ *         TableName: "STRING_VALUE", // required
+ *         ConditionExpression: "STRING_VALUE", // required
+ *         ExpressionAttributeNames: { // ExpressionAttributeNameMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         ExpressionAttributeValues: { // ExpressionAttributeValueMap
+ *           "<keys>": "<AttributeValue>",
+ *         },
+ *         ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
+ *       },
+ *       Put: { // Put
+ *         Item: { // PutItemInputAttributeMap // required
+ *           "<keys>": "<AttributeValue>",
+ *         },
+ *         TableName: "STRING_VALUE", // required
+ *         ConditionExpression: "STRING_VALUE",
+ *         ExpressionAttributeNames: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         ExpressionAttributeValues: {
+ *           "<keys>": "<AttributeValue>",
+ *         },
+ *         ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
+ *       },
+ *       Delete: { // Delete
+ *         Key: { // required
+ *           "<keys>": "<AttributeValue>",
+ *         },
+ *         TableName: "STRING_VALUE", // required
+ *         ConditionExpression: "STRING_VALUE",
+ *         ExpressionAttributeNames: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         ExpressionAttributeValues: {
+ *           "<keys>": "<AttributeValue>",
+ *         },
+ *         ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
+ *       },
+ *       Update: { // Update
+ *         Key: { // required
+ *           "<keys>": "<AttributeValue>",
+ *         },
+ *         UpdateExpression: "STRING_VALUE", // required
+ *         TableName: "STRING_VALUE", // required
+ *         ConditionExpression: "STRING_VALUE",
+ *         ExpressionAttributeNames: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         ExpressionAttributeValues: {
+ *           "<keys>": "<AttributeValue>",
+ *         },
+ *         ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
+ *       },
+ *     },
+ *   ],
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   ReturnItemCollectionMetrics: "SIZE" || "NONE",
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new TransactWriteItemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TransactWriteItemsCommandInput - {@link TransactWriteItemsCommandInput}
+ * @returns {@link TransactWriteItemsCommandOutput}
  * @see {@link TransactWriteItemsCommandInput} for command's `input` shape.
  * @see {@link TransactWriteItemsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -463,6 +570,9 @@ export class TransactWriteItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TransactWriteItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -491,8 +601,8 @@ export class TransactWriteItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TransactWriteItemsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TransactWriteItemsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -502,12 +612,18 @@ export class TransactWriteItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TransactWriteItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0TransactWriteItemsCommand(input, context);
+    return se_TransactWriteItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransactWriteItemsCommandOutput> {
-    return deserializeAws_json1_0TransactWriteItemsCommand(output, context);
+    return de_TransactWriteItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

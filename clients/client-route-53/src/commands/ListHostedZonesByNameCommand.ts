@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListHostedZonesByNameRequest,
-  ListHostedZonesByNameRequestFilterSensitiveLog,
-  ListHostedZonesByNameResponse,
-  ListHostedZonesByNameResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListHostedZonesByNameCommand,
-  serializeAws_restXmlListHostedZonesByNameCommand,
-} from "../protocols/Aws_restXml";
+import { ListHostedZonesByNameRequest, ListHostedZonesByNameResponse } from "../models/models_0";
+import { de_ListHostedZonesByNameCommand, se_ListHostedZonesByNameCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListHostedZonesByNameCommand}.
  */
 export interface ListHostedZonesByNameCommandInput extends ListHostedZonesByNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHostedZonesByNameCommand}.
  */
 export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNameResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of your hosted zones in lexicographic order. The response includes a
  * 				<code>HostedZones</code> child element for each hosted zone created by the current
  * 				Amazon Web Services account. </p>
@@ -98,10 +95,17 @@ export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNam
  * import { Route53Client, ListHostedZonesByNameCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListHostedZonesByNameCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListHostedZonesByNameRequest
+ *   DNSName: "STRING_VALUE",
+ *   HostedZoneId: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListHostedZonesByNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHostedZonesByNameCommandInput - {@link ListHostedZonesByNameCommandInput}
+ * @returns {@link ListHostedZonesByNameCommandOutput}
  * @see {@link ListHostedZonesByNameCommandInput} for command's `input` shape.
  * @see {@link ListHostedZonesByNameCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -131,6 +135,9 @@ export class ListHostedZonesByNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHostedZonesByNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,8 +167,8 @@ export class ListHostedZonesByNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHostedZonesByNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListHostedZonesByNameResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -171,12 +178,18 @@ export class ListHostedZonesByNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHostedZonesByNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListHostedZonesByNameCommand(input, context);
+    return se_ListHostedZonesByNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostedZonesByNameCommandOutput> {
-    return deserializeAws_restXmlListHostedZonesByNameCommand(output, context);
+    return de_ListHostedZonesByNameCommand(output, context);
   }
 
   // Start section: command_body_extra

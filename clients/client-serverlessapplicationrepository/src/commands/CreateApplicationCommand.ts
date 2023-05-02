@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateApplicationRequest,
-  CreateApplicationRequestFilterSensitiveLog,
-  CreateApplicationResponse,
-  CreateApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateApplicationCommand,
-  serializeAws_restJson1CreateApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0";
+import { de_CreateApplicationCommand, se_CreateApplicationCommand } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ServerlessApplicationRepositoryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandInput extends CreateApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application, optionally including an AWS SAM file to create the first application version in the same call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,31 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { ServerlessApplicationRepositoryClient, CreateApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, CreateApplicationCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = { // CreateApplicationRequest
+ *   Author: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   HomePageUrl: "STRING_VALUE",
+ *   Labels: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   LicenseBody: "STRING_VALUE",
+ *   LicenseUrl: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   ReadmeBody: "STRING_VALUE",
+ *   ReadmeUrl: "STRING_VALUE",
+ *   SemanticVersion: "STRING_VALUE",
+ *   SourceCodeArchiveUrl: "STRING_VALUE",
+ *   SourceCodeUrl: "STRING_VALUE",
+ *   SpdxLicenseId: "STRING_VALUE",
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateUrl: "STRING_VALUE",
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
+ * @returns {@link CreateApplicationCommandOutput}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
@@ -88,6 +106,9 @@ export class CreateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +137,8 @@ export class CreateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +148,18 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApplicationCommand(input, context);
+    return se_CreateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
-    return deserializeAws_restJson1CreateApplicationCommand(output, context);
+    return de_CreateApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

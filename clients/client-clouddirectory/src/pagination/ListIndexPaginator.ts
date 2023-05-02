@@ -6,7 +6,7 @@ import { ListIndexCommand, ListIndexCommandInput, ListIndexCommandOutput } from 
 import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudDirectoryClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListIndexCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListIndex(
   config: CloudDirectoryPaginationConfiguration,
   input: ListIndexCommandInput,

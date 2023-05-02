@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteResourcePolicyRequest,
-  DeleteResourcePolicyRequestFilterSensitiveLog,
-  DeleteResourcePolicyResponse,
-  DeleteResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DeleteResourcePolicyCommand,
-  serializeAws_json1_0DeleteResourcePolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourcePolicyCommand}.
  */
 export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourcePolicyCommand}.
  */
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a resource policy that you created in a <a>PutResourcePolicy</a> request. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * import { NetworkFirewallClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // DeleteResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
+ * @returns {@link DeleteResourcePolicyCommandOutput}
  * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -98,6 +100,9 @@ export class DeleteResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +131,8 @@ export class DeleteResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +142,18 @@ export class DeleteResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteResourcePolicyCommand(input, context);
+    return se_DeleteResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePolicyCommandOutput> {
-    return deserializeAws_json1_0DeleteResourcePolicyCommand(output, context);
+    return de_DeleteResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

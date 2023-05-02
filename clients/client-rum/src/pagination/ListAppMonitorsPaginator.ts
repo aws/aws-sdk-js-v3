@@ -10,7 +10,7 @@ import { RUMClient } from "../RUMClient";
 import { RUMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RUMClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAppMonitorsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAppMonitors(
   config: RUMPaginationConfiguration,
   input: ListAppMonitorsCommandInput,

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  ListBotsRequest,
-  ListBotsRequestFilterSensitiveLog,
-  ListBotsResponse,
-  ListBotsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBotsCommand,
-  serializeAws_restJson1ListBotsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBotsRequest, ListBotsResponse } from "../models/models_0";
+import { de_ListBotsCommand, se_ListBotsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBotsCommand}.
  */
 export interface ListBotsCommandInput extends ListBotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBotsCommand}.
  */
 export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of available bots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,29 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * import { LexModelsV2Client, ListBotsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBotsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // ListBotsRequest
+ *   sortBy: { // BotSortBy
+ *     attribute: "BotName", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   filters: [ // BotFilters
+ *     { // BotFilter
+ *       name: "BotName" || "BotType", // required
+ *       values: [ // FilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       operator: "CO" || "EQ" || "NE", // required
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBotsCommandInput - {@link ListBotsCommandInput}
+ * @returns {@link ListBotsCommandOutput}
  * @see {@link ListBotsCommandInput} for command's `input` shape.
  * @see {@link ListBotsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -84,6 +100,9 @@ export class ListBotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +129,8 @@ export class ListBotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBotsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +140,18 @@ export class ListBotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBotsCommand(input, context);
+    return se_ListBotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBotsCommandOutput> {
-    return deserializeAws_restJson1ListBotsCommand(output, context);
+    return de_ListBotsCommand(output, context);
   }
 
   // Start section: command_body_extra

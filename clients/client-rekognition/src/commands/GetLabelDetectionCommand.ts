@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLabelDetectionRequest,
-  GetLabelDetectionRequestFilterSensitiveLog,
-  GetLabelDetectionResponse,
-  GetLabelDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLabelDetectionCommand,
-  serializeAws_json1_1GetLabelDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetLabelDetectionRequest, GetLabelDetectionResponse } from "../models/models_0";
+import { de_GetLabelDetectionCommand, se_GetLabelDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetLabelDetectionCommand}.
  */
 export interface GetLabelDetectionCommandInput extends GetLabelDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLabelDetectionCommand}.
  */
 export interface GetLabelDetectionCommandOutput extends GetLabelDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the label detection results of a Amazon Rekognition Video analysis started by <a>StartLabelDetection</a>.  </p>
  *          <p>The label detection operation is started by a call to <a>StartLabelDetection</a> which returns a job identifier (<code>JobId</code>). When
  *       the label detection operation finishes, Amazon Rekognition publishes a completion status to the
@@ -107,10 +104,19 @@ export interface GetLabelDetectionCommandOutput extends GetLabelDetectionRespons
  * import { RekognitionClient, GetLabelDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetLabelDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // GetLabelDetectionRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "NAME" || "TIMESTAMP",
+ *   AggregateBy: "TIMESTAMPS" || "SEGMENTS",
+ * };
  * const command = new GetLabelDetectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLabelDetectionCommandInput - {@link GetLabelDetectionCommandInput}
+ * @returns {@link GetLabelDetectionCommandOutput}
  * @see {@link GetLabelDetectionCommandInput} for command's `input` shape.
  * @see {@link GetLabelDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -157,6 +163,9 @@ export class GetLabelDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLabelDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,8 +194,8 @@ export class GetLabelDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLabelDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLabelDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -196,12 +205,18 @@ export class GetLabelDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLabelDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLabelDetectionCommand(input, context);
+    return se_GetLabelDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLabelDetectionCommandOutput> {
-    return deserializeAws_json1_1GetLabelDetectionCommand(output, context);
+    return de_GetLabelDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

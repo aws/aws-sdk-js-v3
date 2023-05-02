@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  BatchPutPropertyValuesRequest,
-  BatchPutPropertyValuesRequestFilterSensitiveLog,
-  BatchPutPropertyValuesResponse,
-  BatchPutPropertyValuesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchPutPropertyValuesCommand,
-  serializeAws_restJson1BatchPutPropertyValuesCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchPutPropertyValuesRequest, BatchPutPropertyValuesResponse } from "../models/models_0";
+import { de_BatchPutPropertyValuesCommand, se_BatchPutPropertyValuesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchPutPropertyValuesCommand}.
  */
 export interface BatchPutPropertyValuesCommandInput extends BatchPutPropertyValuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchPutPropertyValuesCommand}.
  */
 export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyValuesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets values for multiple time series properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,68 @@ export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyVal
  * import { IoTTwinMakerClient, BatchPutPropertyValuesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, BatchPutPropertyValuesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // BatchPutPropertyValuesRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   entries: [ // Entries // required
+ *     { // PropertyValueEntry
+ *       entityPropertyReference: { // EntityPropertyReference
+ *         componentName: "STRING_VALUE",
+ *         externalIdProperty: { // ExternalIdProperty
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         entityId: "STRING_VALUE",
+ *         propertyName: "STRING_VALUE", // required
+ *       },
+ *       propertyValues: [ // PropertyValues
+ *         { // PropertyValue
+ *           timestamp: new Date("TIMESTAMP"),
+ *           value: { // DataValue
+ *             booleanValue: true || false,
+ *             doubleValue: Number("double"),
+ *             integerValue: Number("int"),
+ *             longValue: Number("long"),
+ *             stringValue: "STRING_VALUE",
+ *             listValue: [ // DataValueList
+ *               {
+ *                 booleanValue: true || false,
+ *                 doubleValue: Number("double"),
+ *                 integerValue: Number("int"),
+ *                 longValue: Number("long"),
+ *                 stringValue: "STRING_VALUE",
+ *                 listValue: [
+ *                   "<DataValue>",
+ *                 ],
+ *                 mapValue: { // DataValueMap
+ *                   "<keys>": "<DataValue>",
+ *                 },
+ *                 relationshipValue: { // RelationshipValue
+ *                   targetEntityId: "STRING_VALUE",
+ *                   targetComponentName: "STRING_VALUE",
+ *                 },
+ *                 expression: "STRING_VALUE",
+ *               },
+ *             ],
+ *             mapValue: {
+ *               "<keys>": "<DataValue>",
+ *             },
+ *             relationshipValue: {
+ *               targetEntityId: "STRING_VALUE",
+ *               targetComponentName: "STRING_VALUE",
+ *             },
+ *             expression: "STRING_VALUE",
+ *           },
+ *           time: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new BatchPutPropertyValuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchPutPropertyValuesCommandInput - {@link BatchPutPropertyValuesCommandInput}
+ * @returns {@link BatchPutPropertyValuesCommandOutput}
  * @see {@link BatchPutPropertyValuesCommandInput} for command's `input` shape.
  * @see {@link BatchPutPropertyValuesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -81,6 +136,9 @@ export class BatchPutPropertyValuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutPropertyValuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +167,8 @@ export class BatchPutPropertyValuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchPutPropertyValuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchPutPropertyValuesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +178,18 @@ export class BatchPutPropertyValuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchPutPropertyValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchPutPropertyValuesCommand(input, context);
+    return se_BatchPutPropertyValuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutPropertyValuesCommandOutput> {
-    return deserializeAws_restJson1BatchPutPropertyValuesCommand(output, context);
+    return de_BatchPutPropertyValuesCommand(output, context);
   }
 
   // Start section: command_body_extra

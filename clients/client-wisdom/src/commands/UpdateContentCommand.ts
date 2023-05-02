@@ -15,26 +15,27 @@ import {
 
 import {
   UpdateContentRequest,
-  UpdateContentRequestFilterSensitiveLog,
   UpdateContentResponse,
   UpdateContentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateContentCommand,
-  serializeAws_restJson1UpdateContentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateContentCommand, se_UpdateContentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContentCommand}.
  */
 export interface UpdateContentCommandInput extends UpdateContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContentCommand}.
  */
 export interface UpdateContentCommandOutput extends UpdateContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information about the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,24 @@ export interface UpdateContentCommandOutput extends UpdateContentResponse, __Met
  * import { WisdomClient, UpdateContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, UpdateContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // UpdateContentRequest
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ *   contentId: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE",
+ *   title: "STRING_VALUE",
+ *   overrideLinkOutUri: "STRING_VALUE",
+ *   removeOverrideLinkOutUri: true || false,
+ *   metadata: { // ContentMetadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   uploadId: "STRING_VALUE",
+ * };
  * const command = new UpdateContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContentCommandInput - {@link UpdateContentCommandInput}
+ * @returns {@link UpdateContentCommandOutput}
  * @see {@link UpdateContentCommandInput} for command's `input` shape.
  * @see {@link UpdateContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -82,6 +97,9 @@ export class UpdateContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,7 +126,7 @@ export class UpdateContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateContentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -119,12 +137,18 @@ export class UpdateContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateContentCommand(input, context);
+    return se_UpdateContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContentCommandOutput> {
-    return deserializeAws_restJson1UpdateContentCommand(output, context);
+    return de_UpdateContentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from LexModelsV2 service.
  */
 export class LexModelsV2ServiceException extends __ServiceException {

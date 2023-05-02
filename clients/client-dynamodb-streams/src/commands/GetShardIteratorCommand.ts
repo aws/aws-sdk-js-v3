@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient";
-import {
-  GetShardIteratorInput,
-  GetShardIteratorInputFilterSensitiveLog,
-  GetShardIteratorOutput,
-  GetShardIteratorOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetShardIteratorCommand,
-  serializeAws_json1_0GetShardIteratorCommand,
-} from "../protocols/Aws_json1_0";
+import { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
+import { de_GetShardIteratorCommand, se_GetShardIteratorCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetShardIteratorCommand}.
  */
 export interface GetShardIteratorCommandInput extends GetShardIteratorInput {}
 /**
+ * @public
+ *
  * The output of {@link GetShardIteratorCommand}.
  */
 export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a shard iterator. A shard iterator provides information
  *       about how to retrieve the stream records from within a shard.  Use
  *       the shard iterator in a subsequent
@@ -49,10 +46,18 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * import { DynamoDBStreamsClient, GetShardIteratorCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
  * // const { DynamoDBStreamsClient, GetShardIteratorCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
  * const client = new DynamoDBStreamsClient(config);
+ * const input = { // GetShardIteratorInput
+ *   StreamArn: "STRING_VALUE", // required
+ *   ShardId: "STRING_VALUE", // required
+ *   ShardIteratorType: "TRIM_HORIZON" || "LATEST" || "AT_SEQUENCE_NUMBER" || "AFTER_SEQUENCE_NUMBER", // required
+ *   SequenceNumber: "STRING_VALUE",
+ * };
  * const command = new GetShardIteratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetShardIteratorCommandInput - {@link GetShardIteratorCommandInput}
+ * @returns {@link GetShardIteratorCommandOutput}
  * @see {@link GetShardIteratorCommandInput} for command's `input` shape.
  * @see {@link GetShardIteratorCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
@@ -116,6 +121,9 @@ export class GetShardIteratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetShardIteratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +152,8 @@ export class GetShardIteratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetShardIteratorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetShardIteratorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +163,18 @@ export class GetShardIteratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetShardIteratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetShardIteratorCommand(input, context);
+    return se_GetShardIteratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetShardIteratorCommandOutput> {
-    return deserializeAws_json1_0GetShardIteratorCommand(output, context);
+    return de_GetShardIteratorCommand(output, context);
   }
 
   // Start section: command_body_extra

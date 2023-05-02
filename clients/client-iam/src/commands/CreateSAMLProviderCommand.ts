@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  CreateSAMLProviderRequest,
-  CreateSAMLProviderRequestFilterSensitiveLog,
-  CreateSAMLProviderResponse,
-  CreateSAMLProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateSAMLProviderCommand,
-  serializeAws_queryCreateSAMLProviderCommand,
-} from "../protocols/Aws_query";
+import { CreateSAMLProviderRequest, CreateSAMLProviderResponse } from "../models/models_0";
+import { de_CreateSAMLProviderCommand, se_CreateSAMLProviderCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSAMLProviderCommand}.
  */
 export interface CreateSAMLProviderCommandInput extends CreateSAMLProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSAMLProviderCommand}.
  */
 export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IAM resource that describes an identity provider (IdP) that supports SAML
  *             2.0.</p>
  *          <p>The SAML provider resource that you create with this operation can be used as a
@@ -59,10 +56,22 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  * import { IAMClient, CreateSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // CreateSAMLProviderRequest
+ *   SAMLMetadataDocument: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSAMLProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSAMLProviderCommandInput - {@link CreateSAMLProviderCommandInput}
+ * @returns {@link CreateSAMLProviderCommandOutput}
  * @see {@link CreateSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link CreateSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -106,6 +115,9 @@ export class CreateSAMLProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSAMLProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +146,8 @@ export class CreateSAMLProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSAMLProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSAMLProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +157,18 @@ export class CreateSAMLProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateSAMLProviderCommand(input, context);
+    return se_CreateSAMLProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSAMLProviderCommandOutput> {
-    return deserializeAws_queryCreateSAMLProviderCommand(output, context);
+    return de_CreateSAMLProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import {
-  UnsubscribeRequest,
-  UnsubscribeRequestFilterSensitiveLog,
-  UnsubscribeResult,
-  UnsubscribeResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UnsubscribeCommand,
-  serializeAws_restJson1UnsubscribeCommand,
-} from "../protocols/Aws_restJson1";
+import { UnsubscribeRequest, UnsubscribeRequestFilterSensitiveLog, UnsubscribeResult } from "../models/models_0";
+import { de_UnsubscribeCommand, se_UnsubscribeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UnsubscribeCommand}.
  */
 export interface UnsubscribeCommandInput extends UnsubscribeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnsubscribeCommand}.
  */
 export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an association between a notification rule and an Chatbot topic so that
  *             subscribers to that topic stop receiving notifications when the events described in the
  *             rule are triggered.</p>
@@ -48,10 +45,16 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  * import { CodestarNotificationsClient, UnsubscribeCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, UnsubscribeCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
+ * const input = { // UnsubscribeRequest
+ *   Arn: "STRING_VALUE", // required
+ *   TargetAddress: "STRING_VALUE", // required
+ * };
  * const command = new UnsubscribeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnsubscribeCommandInput - {@link UnsubscribeCommandInput}
+ * @returns {@link UnsubscribeCommandOutput}
  * @see {@link UnsubscribeCommandInput} for command's `input` shape.
  * @see {@link UnsubscribeCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -78,6 +81,9 @@ export class UnsubscribeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnsubscribeCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,7 +111,7 @@ export class UnsubscribeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UnsubscribeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UnsubscribeResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class UnsubscribeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnsubscribeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnsubscribeCommand(input, context);
+    return se_UnsubscribeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeCommandOutput> {
-    return deserializeAws_restJson1UnsubscribeCommand(output, context);
+    return de_UnsubscribeCommand(output, context);
   }
 
   // Start section: command_body_extra

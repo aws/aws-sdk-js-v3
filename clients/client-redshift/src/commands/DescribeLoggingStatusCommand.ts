@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeLoggingStatusMessage,
-  DescribeLoggingStatusMessageFilterSensitiveLog,
-  LoggingStatus,
-  LoggingStatusFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeLoggingStatusCommand,
-  serializeAws_queryDescribeLoggingStatusCommand,
-} from "../protocols/Aws_query";
+import { DescribeLoggingStatusMessage, LoggingStatus } from "../models/models_1";
+import { de_DescribeLoggingStatusCommand, se_DescribeLoggingStatusCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoggingStatusCommand}.
  */
 export interface DescribeLoggingStatusCommandInput extends DescribeLoggingStatusMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoggingStatusCommand}.
  */
 export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes whether information, such as queries and connection attempts, is being
  *             logged for the specified Amazon Redshift cluster.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __Met
  * import { RedshiftClient, DescribeLoggingStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeLoggingStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeLoggingStatusMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLoggingStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoggingStatusCommandInput - {@link DescribeLoggingStatusCommandInput}
+ * @returns {@link DescribeLoggingStatusCommandOutput}
  * @see {@link DescribeLoggingStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeLoggingStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -74,6 +76,9 @@ export class DescribeLoggingStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoggingStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +107,8 @@ export class DescribeLoggingStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoggingStatusMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: LoggingStatusFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +118,18 @@ export class DescribeLoggingStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoggingStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoggingStatusCommand(input, context);
+    return se_DescribeLoggingStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoggingStatusCommandOutput> {
-    return deserializeAws_queryDescribeLoggingStatusCommand(output, context);
+    return de_DescribeLoggingStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

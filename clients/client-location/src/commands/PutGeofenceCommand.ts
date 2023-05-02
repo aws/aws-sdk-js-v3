@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  PutGeofenceRequest,
-  PutGeofenceRequestFilterSensitiveLog,
-  PutGeofenceResponse,
-  PutGeofenceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutGeofenceCommand,
-  serializeAws_restJson1PutGeofenceCommand,
-} from "../protocols/Aws_restJson1";
+import { PutGeofenceRequest, PutGeofenceRequestFilterSensitiveLog, PutGeofenceResponse } from "../models/models_0";
+import { de_PutGeofenceCommand, se_PutGeofenceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutGeofenceCommand}.
  */
 export interface PutGeofenceCommandInput extends PutGeofenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutGeofenceCommand}.
  */
 export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stores a geofence geometry in a given geofence collection, or updates the geometry of
  *             an existing geofence if a geofence ID is included in the request. </p>
  * @example
@@ -43,10 +40,31 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
  * import { LocationClient, PutGeofenceCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, PutGeofenceCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // PutGeofenceRequest
+ *   CollectionName: "STRING_VALUE", // required
+ *   GeofenceId: "STRING_VALUE", // required
+ *   Geometry: { // GeofenceGeometry
+ *     Polygon: [ // LinearRings
+ *       [ // LinearRing
+ *         [ // Position
+ *           Number("double"),
+ *         ],
+ *       ],
+ *     ],
+ *     Circle: { // Circle
+ *       Center: [ // required
+ *         Number("double"),
+ *       ],
+ *       Radius: Number("double"), // required
+ *     },
+ *   },
+ * };
  * const command = new PutGeofenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutGeofenceCommandInput - {@link PutGeofenceCommandInput}
+ * @returns {@link PutGeofenceCommandOutput}
  * @see {@link PutGeofenceCommandInput} for command's `input` shape.
  * @see {@link PutGeofenceCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -89,6 +107,9 @@ export class PutGeofenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutGeofenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +137,7 @@ export class PutGeofenceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutGeofenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutGeofenceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +147,18 @@ export class PutGeofenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutGeofenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutGeofenceCommand(input, context);
+    return se_PutGeofenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutGeofenceCommandOutput> {
-    return deserializeAws_restJson1PutGeofenceCommand(output, context);
+    return de_PutGeofenceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { S3OutpostsClient } from "../S3OutpostsClient";
 import { S3OutpostsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: S3OutpostsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEndpointsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListEndpoints(
   config: S3OutpostsPaginationConfiguration,
   input: ListEndpointsCommandInput,

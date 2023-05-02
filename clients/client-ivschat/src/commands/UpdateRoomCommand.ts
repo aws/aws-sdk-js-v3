@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  UpdateRoomRequest,
-  UpdateRoomRequestFilterSensitiveLog,
-  UpdateRoomResponse,
-  UpdateRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRoomCommand,
-  serializeAws_restJson1UpdateRoomCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRoomRequest, UpdateRoomResponse } from "../models/models_0";
+import { de_UpdateRoomCommand, se_UpdateRoomCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoomCommand}.
  */
 export interface UpdateRoomCommandInput extends UpdateRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoomCommand}.
  */
 export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a room’s configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * import { IvschatClient, UpdateRoomCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, UpdateRoomCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = { // UpdateRoomRequest
+ *   identifier: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   maximumMessageRatePerSecond: Number("int"),
+ *   maximumMessageLength: Number("int"),
+ *   messageReviewHandler: { // MessageReviewHandler
+ *     uri: "STRING_VALUE",
+ *     fallbackResult: "STRING_VALUE",
+ *   },
+ *   loggingConfigurationIdentifiers: [ // LoggingConfigurationIdentifierList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoomCommandInput - {@link UpdateRoomCommandInput}
+ * @returns {@link UpdateRoomCommandOutput}
  * @see {@link UpdateRoomCommandInput} for command's `input` shape.
  * @see {@link UpdateRoomCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
@@ -81,6 +93,9 @@ export class UpdateRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +122,8 @@ export class UpdateRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +133,18 @@ export class UpdateRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRoomCommand(input, context);
+    return se_UpdateRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoomCommandOutput> {
-    return deserializeAws_restJson1UpdateRoomCommand(output, context);
+    return de_UpdateRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

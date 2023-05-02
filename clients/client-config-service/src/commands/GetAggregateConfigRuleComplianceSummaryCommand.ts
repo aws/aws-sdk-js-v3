@@ -16,21 +16,23 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   GetAggregateConfigRuleComplianceSummaryRequest,
-  GetAggregateConfigRuleComplianceSummaryRequestFilterSensitiveLog,
   GetAggregateConfigRuleComplianceSummaryResponse,
-  GetAggregateConfigRuleComplianceSummaryResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand,
-  serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand,
+  de_GetAggregateConfigRuleComplianceSummaryCommand,
+  se_GetAggregateConfigRuleComplianceSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAggregateConfigRuleComplianceSummaryCommand}.
  */
 export interface GetAggregateConfigRuleComplianceSummaryCommandInput
   extends GetAggregateConfigRuleComplianceSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAggregateConfigRuleComplianceSummaryCommand}.
  */
 export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
@@ -38,6 +40,7 @@ export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of compliant and noncompliant rules for one
  * 			or more accounts and regions in an aggregator.</p>
  *          <note>
@@ -51,10 +54,22 @@ export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
  * import { ConfigServiceClient, GetAggregateConfigRuleComplianceSummaryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetAggregateConfigRuleComplianceSummaryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // GetAggregateConfigRuleComplianceSummaryRequest
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   Filters: { // ConfigRuleComplianceSummaryFilters
+ *     AccountId: "STRING_VALUE",
+ *     AwsRegion: "STRING_VALUE",
+ *   },
+ *   GroupByKey: "ACCOUNT_ID" || "AWS_REGION",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetAggregateConfigRuleComplianceSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAggregateConfigRuleComplianceSummaryCommandInput - {@link GetAggregateConfigRuleComplianceSummaryCommandInput}
+ * @returns {@link GetAggregateConfigRuleComplianceSummaryCommandOutput}
  * @see {@link GetAggregateConfigRuleComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetAggregateConfigRuleComplianceSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -94,6 +109,9 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAggregateConfigRuleComplianceSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +146,8 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAggregateConfigRuleComplianceSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAggregateConfigRuleComplianceSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,18 +157,24 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAggregateConfigRuleComplianceSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand(input, context);
+    return se_GetAggregateConfigRuleComplianceSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput> {
-    return deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand(output, context);
+    return de_GetAggregateConfigRuleComplianceSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

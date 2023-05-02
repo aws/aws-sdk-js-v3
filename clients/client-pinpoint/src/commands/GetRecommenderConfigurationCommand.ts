@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRecommenderConfigurationRequest,
-  GetRecommenderConfigurationRequestFilterSensitiveLog,
-  GetRecommenderConfigurationResponse,
-  GetRecommenderConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetRecommenderConfigurationRequest, GetRecommenderConfigurationResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
-  deserializeAws_restJson1GetRecommenderConfigurationCommand,
-  serializeAws_restJson1GetRecommenderConfigurationCommand,
+  de_GetRecommenderConfigurationCommand,
+  se_GetRecommenderConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecommenderConfigurationCommand}.
  */
 export interface GetRecommenderConfigurationCommandInput extends GetRecommenderConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecommenderConfigurationCommand}.
  */
 export interface GetRecommenderConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface GetRecommenderConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an Amazon Pinpoint configuration for a recommender model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetRecommenderConfigurationCommandOutput
  * import { PinpointClient, GetRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetRecommenderConfigurationRequest
+ *   RecommenderId: "STRING_VALUE", // required
+ * };
  * const command = new GetRecommenderConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommenderConfigurationCommandInput - {@link GetRecommenderConfigurationCommandInput}
+ * @returns {@link GetRecommenderConfigurationCommandOutput}
  * @see {@link GetRecommenderConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetRecommenderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -92,6 +97,9 @@ export class GetRecommenderConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommenderConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +128,8 @@ export class GetRecommenderConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommenderConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommenderConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +139,21 @@ export class GetRecommenderConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommenderConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecommenderConfigurationCommand(input, context);
+    return se_GetRecommenderConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecommenderConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetRecommenderConfigurationCommand(output, context);
+    return de_GetRecommenderConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

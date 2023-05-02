@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  ListSlotsRequest,
-  ListSlotsRequestFilterSensitiveLog,
-  ListSlotsResponse,
-  ListSlotsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSlotsCommand,
-  serializeAws_restJson1ListSlotsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSlotsRequest, ListSlotsResponse } from "../models/models_0";
+import { de_ListSlotsCommand, se_ListSlotsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSlotsCommand}.
  */
 export interface ListSlotsCommandInput extends ListSlotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSlotsCommand}.
  */
 export interface ListSlotsCommandOutput extends ListSlotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of slots that match the specified criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,33 @@ export interface ListSlotsCommandOutput extends ListSlotsResponse, __MetadataBea
  * import { LexModelsV2Client, ListSlotsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListSlotsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // ListSlotsRequest
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   intentId: "STRING_VALUE", // required
+ *   sortBy: { // SlotSortBy
+ *     attribute: "SlotName" || "LastUpdatedDateTime", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   filters: [ // SlotFilters
+ *     { // SlotFilter
+ *       name: "SlotName", // required
+ *       values: [ // FilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       operator: "CO" || "EQ", // required
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSlotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSlotsCommandInput - {@link ListSlotsCommandInput}
+ * @returns {@link ListSlotsCommandOutput}
  * @see {@link ListSlotsCommandInput} for command's `input` shape.
  * @see {@link ListSlotsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -84,6 +104,9 @@ export class ListSlotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSlotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +133,8 @@ export class ListSlotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSlotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSlotsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +144,18 @@ export class ListSlotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSlotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSlotsCommand(input, context);
+    return se_ListSlotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSlotsCommandOutput> {
-    return deserializeAws_restJson1ListSlotsCommand(output, context);
+    return de_ListSlotsCommand(output, context);
   }
 
   // Start section: command_body_extra

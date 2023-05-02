@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartServerRequest, StartServerRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartServerCommand,
-  serializeAws_json1_1StartServerCommand,
-} from "../protocols/Aws_json1_1";
+import { StartServerRequest } from "../models/models_0";
+import { de_StartServerCommand, se_StartServerCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartServerCommand}.
  */
 export interface StartServerCommandInput extends StartServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartServerCommand}.
  */
 export interface StartServerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to
  *         <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An
  *         <code>ONLINE</code> server can accept and process file transfer jobs.</p>
@@ -43,10 +45,15 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  * import { TransferClient, StartServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, StartServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // StartServerRequest
+ *   ServerId: "STRING_VALUE", // required
+ * };
  * const command = new StartServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartServerCommandInput - {@link StartServerCommandInput}
+ * @returns {@link StartServerCommandOutput}
  * @see {@link StartServerCommandInput} for command's `input` shape.
  * @see {@link StartServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -86,6 +93,9 @@ export class StartServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class StartServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartServerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +133,18 @@ export class StartServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartServerCommand(input, context);
+    return se_StartServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartServerCommandOutput> {
-    return deserializeAws_json1_1StartServerCommand(output, context);
+    return de_StartServerCommand(output, context);
   }
 
   // Start section: command_body_extra

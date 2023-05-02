@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  GetDeploymentRequest,
-  GetDeploymentRequestFilterSensitiveLog,
-  GetDeploymentResponse,
-  GetDeploymentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeploymentCommand,
-  serializeAws_restJson1GetDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDeploymentRequest, GetDeploymentResponse } from "../models/models_0";
+import { de_GetDeploymentCommand, se_GetDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeploymentCommand}.
  */
 export interface GetDeploymentCommandInput extends GetDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeploymentCommand}.
  */
 export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details of a specific deployment with a given deployment identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
  * import { M2Client, GetDeploymentCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, GetDeploymentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // GetDeploymentRequest
+ *   deploymentId: "STRING_VALUE", // required
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentCommandInput - {@link GetDeploymentCommandInput}
+ * @returns {@link GetDeploymentCommandOutput}
  * @see {@link GetDeploymentCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -84,6 +87,9 @@ export class GetDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class GetDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeploymentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class GetDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeploymentCommand(input, context);
+    return se_GetDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentCommandOutput> {
-    return deserializeAws_restJson1GetDeploymentCommand(output, context);
+    return de_GetDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

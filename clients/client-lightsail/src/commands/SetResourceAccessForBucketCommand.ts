@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  SetResourceAccessForBucketRequest,
-  SetResourceAccessForBucketRequestFilterSensitiveLog,
-  SetResourceAccessForBucketResult,
-  SetResourceAccessForBucketResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1SetResourceAccessForBucketCommand,
-  serializeAws_json1_1SetResourceAccessForBucketCommand,
-} from "../protocols/Aws_json1_1";
+import { SetResourceAccessForBucketRequest, SetResourceAccessForBucketResult } from "../models/models_1";
+import { de_SetResourceAccessForBucketCommand, se_SetResourceAccessForBucketCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetResourceAccessForBucketCommand}.
  */
 export interface SetResourceAccessForBucketCommandInput extends SetResourceAccessForBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetResourceAccessForBucketCommand}.
  */
 export interface SetResourceAccessForBucketCommandOutput extends SetResourceAccessForBucketResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the Amazon Lightsail resources that can access the specified Lightsail
  *       bucket.</p>
  *          <p>Lightsail buckets currently support setting access for Lightsail instances in the same
@@ -45,10 +42,17 @@ export interface SetResourceAccessForBucketCommandOutput extends SetResourceAcce
  * import { LightsailClient, SetResourceAccessForBucketCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, SetResourceAccessForBucketCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // SetResourceAccessForBucketRequest
+ *   resourceName: "STRING_VALUE", // required
+ *   bucketName: "STRING_VALUE", // required
+ *   access: "allow" || "deny", // required
+ * };
  * const command = new SetResourceAccessForBucketCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetResourceAccessForBucketCommandInput - {@link SetResourceAccessForBucketCommandInput}
+ * @returns {@link SetResourceAccessForBucketCommandOutput}
  * @see {@link SetResourceAccessForBucketCommandInput} for command's `input` shape.
  * @see {@link SetResourceAccessForBucketCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -95,6 +99,9 @@ export class SetResourceAccessForBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetResourceAccessForBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +130,8 @@ export class SetResourceAccessForBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetResourceAccessForBucketRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetResourceAccessForBucketResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,15 +141,21 @@ export class SetResourceAccessForBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetResourceAccessForBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetResourceAccessForBucketCommand(input, context);
+    return se_SetResourceAccessForBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetResourceAccessForBucketCommandOutput> {
-    return deserializeAws_json1_1SetResourceAccessForBucketCommand(output, context);
+    return de_SetResourceAccessForBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

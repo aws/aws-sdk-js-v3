@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetLoadBalancersRequest,
-  GetLoadBalancersRequestFilterSensitiveLog,
-  GetLoadBalancersResult,
-  GetLoadBalancersResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetLoadBalancersCommand,
-  serializeAws_json1_1GetLoadBalancersCommand,
-} from "../protocols/Aws_json1_1";
+import { GetLoadBalancersRequest, GetLoadBalancersResult } from "../models/models_1";
+import { de_GetLoadBalancersCommand, se_GetLoadBalancersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLoadBalancersCommand}.
  */
 export interface GetLoadBalancersCommandInput extends GetLoadBalancersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLoadBalancersCommand}.
  */
 export interface GetLoadBalancersCommandOutput extends GetLoadBalancersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all load balancers in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetLoadBalancersCommandOutput extends GetLoadBalancersResult, _
  * import { LightsailClient, GetLoadBalancersCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetLoadBalancersCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetLoadBalancersRequest
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetLoadBalancersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoadBalancersCommandInput - {@link GetLoadBalancersCommandInput}
+ * @returns {@link GetLoadBalancersCommandOutput}
  * @see {@link GetLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link GetLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +101,9 @@ export class GetLoadBalancersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoadBalancersCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +132,8 @@ export class GetLoadBalancersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLoadBalancersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLoadBalancersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +143,18 @@ export class GetLoadBalancersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLoadBalancersCommand(input, context);
+    return se_GetLoadBalancersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoadBalancersCommandOutput> {
-    return deserializeAws_json1_1GetLoadBalancersCommand(output, context);
+    return de_GetLoadBalancersCommand(output, context);
   }
 
   // Start section: command_body_extra

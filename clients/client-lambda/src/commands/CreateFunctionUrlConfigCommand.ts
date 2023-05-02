@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  CreateFunctionUrlConfigRequest,
-  CreateFunctionUrlConfigRequestFilterSensitiveLog,
-  CreateFunctionUrlConfigResponse,
-  CreateFunctionUrlConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFunctionUrlConfigCommand,
-  serializeAws_restJson1CreateFunctionUrlConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateFunctionUrlConfigRequest, CreateFunctionUrlConfigResponse } from "../models/models_0";
+import { de_CreateFunctionUrlConfigCommand, se_CreateFunctionUrlConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFunctionUrlConfigCommand}.
  */
 export interface CreateFunctionUrlConfigCommandInput extends CreateFunctionUrlConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFunctionUrlConfigCommand}.
  */
 export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Lambda function URL with the specified configuration parameters. A function URL is
  *       a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
  * @example
@@ -43,10 +40,34 @@ export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlC
  * import { LambdaClient, CreateFunctionUrlConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateFunctionUrlConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // CreateFunctionUrlConfigRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ *   AuthType: "NONE" || "AWS_IAM", // required
+ *   Cors: { // Cors
+ *     AllowCredentials: true || false,
+ *     AllowHeaders: [ // HeadersList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowMethods: [ // AllowMethodsList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowOrigins: [ // AllowOriginsList
+ *       "STRING_VALUE",
+ *     ],
+ *     ExposeHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     MaxAge: Number("int"),
+ *   },
+ *   InvokeMode: "BUFFERED" || "RESPONSE_STREAM",
+ * };
  * const command = new CreateFunctionUrlConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFunctionUrlConfigCommandInput - {@link CreateFunctionUrlConfigCommandInput}
+ * @returns {@link CreateFunctionUrlConfigCommandOutput}
  * @see {@link CreateFunctionUrlConfigCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionUrlConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -85,6 +106,9 @@ export class CreateFunctionUrlConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFunctionUrlConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +137,8 @@ export class CreateFunctionUrlConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFunctionUrlConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFunctionUrlConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +148,18 @@ export class CreateFunctionUrlConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFunctionUrlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFunctionUrlConfigCommand(input, context);
+    return se_CreateFunctionUrlConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionUrlConfigCommandOutput> {
-    return deserializeAws_restJson1CreateFunctionUrlConfigCommand(output, context);
+    return de_CreateFunctionUrlConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

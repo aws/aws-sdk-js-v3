@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  ListPluginsRequest,
-  ListPluginsRequestFilterSensitiveLog,
-  ListPluginsResponse,
-  ListPluginsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPluginsCommand,
-  serializeAws_restJson1ListPluginsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPluginsRequest, ListPluginsResponse } from "../models/models_0";
+import { de_ListPluginsCommand, se_ListPluginsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPluginsCommand}.
  */
 export interface ListPluginsCommandInput extends ListPluginsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPluginsCommand}.
  */
 export interface ListPluginsCommandOutput extends ListPluginsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List AWS Migration Hub Orchestrator plugins.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,16 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * import { MigrationHubOrchestratorClient, ListPluginsCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, ListPluginsCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // ListPluginsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListPluginsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPluginsCommandInput - {@link ListPluginsCommandInput}
+ * @returns {@link ListPluginsCommandOutput}
  * @see {@link ListPluginsCommandInput} for command's `input` shape.
  * @see {@link ListPluginsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListPluginsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPluginsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class ListPluginsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPluginsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPluginsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class ListPluginsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPluginsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPluginsCommand(input, context);
+    return se_ListPluginsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPluginsCommandOutput> {
-    return deserializeAws_restJson1ListPluginsCommand(output, context);
+    return de_ListPluginsCommand(output, context);
   }
 
   // Start section: command_body_extra

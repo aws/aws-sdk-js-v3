@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAdmChannelRequest,
-  GetAdmChannelRequestFilterSensitiveLog,
-  GetAdmChannelResponse,
-  GetAdmChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAdmChannelRequest, GetAdmChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetAdmChannelCommand,
-  serializeAws_restJson1GetAdmChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAdmChannelCommand, se_GetAdmChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAdmChannelCommand}.
  */
 export interface GetAdmChannelCommandInput extends GetAdmChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAdmChannelCommand}.
  */
 export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the ADM channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __Met
  * import { PinpointClient, GetAdmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetAdmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetAdmChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetAdmChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAdmChannelCommandInput - {@link GetAdmChannelCommandInput}
+ * @returns {@link GetAdmChannelCommandOutput}
  * @see {@link GetAdmChannelCommandInput} for command's `input` shape.
  * @see {@link GetAdmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +92,9 @@ export class GetAdmChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAdmChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class GetAdmChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAdmChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAdmChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class GetAdmChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAdmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAdmChannelCommand(input, context);
+    return se_GetAdmChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdmChannelCommandOutput> {
-    return deserializeAws_restJson1GetAdmChannelCommand(output, context);
+    return de_GetAdmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

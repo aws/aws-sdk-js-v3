@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  DeleteMetricStreamInput,
-  DeleteMetricStreamInputFilterSensitiveLog,
-  DeleteMetricStreamOutput,
-  DeleteMetricStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteMetricStreamCommand,
-  serializeAws_queryDeleteMetricStreamCommand,
-} from "../protocols/Aws_query";
+import { DeleteMetricStreamInput, DeleteMetricStreamOutput } from "../models/models_0";
+import { de_DeleteMetricStreamCommand, se_DeleteMetricStreamCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMetricStreamCommand}.
  */
 export interface DeleteMetricStreamCommandInput extends DeleteMetricStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMetricStreamCommand}.
  */
 export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes the metric stream that you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
  * import { CloudWatchClient, DeleteMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DeleteMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // DeleteMetricStreamInput
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMetricStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMetricStreamCommandInput - {@link DeleteMetricStreamCommandInput}
+ * @returns {@link DeleteMetricStreamCommandOutput}
  * @see {@link DeleteMetricStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteMetricStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -78,6 +80,9 @@ export class DeleteMetricStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMetricStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class DeleteMetricStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMetricStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMetricStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class DeleteMetricStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMetricStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteMetricStreamCommand(input, context);
+    return se_DeleteMetricStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMetricStreamCommandOutput> {
-    return deserializeAws_queryDeleteMetricStreamCommand(output, context);
+    return de_DeleteMetricStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

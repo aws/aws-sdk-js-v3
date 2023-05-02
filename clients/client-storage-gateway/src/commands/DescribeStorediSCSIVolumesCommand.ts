@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeStorediSCSIVolumesInput,
-  DescribeStorediSCSIVolumesInputFilterSensitiveLog,
-  DescribeStorediSCSIVolumesOutput,
-  DescribeStorediSCSIVolumesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeStorediSCSIVolumesCommand,
-  serializeAws_json1_1DescribeStorediSCSIVolumesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeStorediSCSIVolumesInput, DescribeStorediSCSIVolumesOutput } from "../models/models_0";
+import { de_DescribeStorediSCSIVolumesCommand, se_DescribeStorediSCSIVolumesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStorediSCSIVolumesCommand}.
  */
 export interface DescribeStorediSCSIVolumesCommandInput extends DescribeStorediSCSIVolumesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStorediSCSIVolumesCommand}.
  */
 export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStorediSCSIVolumesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of the gateway volumes specified in the request. The list of
  *          gateway volumes in the request must be from one gateway. In the response, Storage Gateway returns volume information sorted by volume ARNs. This operation is only
  *          supported in stored volume gateway type.</p>
@@ -44,10 +41,17 @@ export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStoredi
  * import { StorageGatewayClient, DescribeStorediSCSIVolumesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeStorediSCSIVolumesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeStorediSCSIVolumesInput
+ *   VolumeARNs: [ // VolumeARNs // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeStorediSCSIVolumesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStorediSCSIVolumesCommandInput - {@link DescribeStorediSCSIVolumesCommandInput}
+ * @returns {@link DescribeStorediSCSIVolumesCommandOutput}
  * @see {@link DescribeStorediSCSIVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeStorediSCSIVolumesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -113,6 +117,9 @@ export class DescribeStorediSCSIVolumesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStorediSCSIVolumesCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +148,8 @@ export class DescribeStorediSCSIVolumesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStorediSCSIVolumesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStorediSCSIVolumesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,15 +159,21 @@ export class DescribeStorediSCSIVolumesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStorediSCSIVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStorediSCSIVolumesCommand(input, context);
+    return se_DescribeStorediSCSIVolumesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStorediSCSIVolumesCommandOutput> {
-    return deserializeAws_json1_1DescribeStorediSCSIVolumesCommand(output, context);
+    return de_DescribeStorediSCSIVolumesCommand(output, context);
   }
 
   // Start section: command_body_extra

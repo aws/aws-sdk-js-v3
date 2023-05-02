@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteRegexMatchSetRequest,
-  DeleteRegexMatchSetRequestFilterSensitiveLog,
-  DeleteRegexMatchSetResponse,
-  DeleteRegexMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRegexMatchSetCommand,
-  serializeAws_json1_1DeleteRegexMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRegexMatchSetRequest, DeleteRegexMatchSetResponse } from "../models/models_0";
+import { de_DeleteRegexMatchSetCommand, se_DeleteRegexMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRegexMatchSetCommand}.
  */
 export interface DeleteRegexMatchSetCommandInput extends DeleteRegexMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRegexMatchSetCommand}.
  */
 export interface DeleteRegexMatchSetCommandOutput extends DeleteRegexMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -65,10 +62,16 @@ export interface DeleteRegexMatchSetCommandOutput extends DeleteRegexMatchSetRes
  * import { WAFClient, DeleteRegexMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, DeleteRegexMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // DeleteRegexMatchSetRequest
+ *   RegexMatchSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRegexMatchSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRegexMatchSetCommandInput - {@link DeleteRegexMatchSetCommandInput}
+ * @returns {@link DeleteRegexMatchSetCommandOutput}
  * @see {@link DeleteRegexMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteRegexMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -133,6 +136,9 @@ export class DeleteRegexMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRegexMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,8 +167,8 @@ export class DeleteRegexMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRegexMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRegexMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -172,12 +178,18 @@ export class DeleteRegexMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRegexMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRegexMatchSetCommand(input, context);
+    return se_DeleteRegexMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegexMatchSetCommandOutput> {
-    return deserializeAws_json1_1DeleteRegexMatchSetCommand(output, context);
+    return de_DeleteRegexMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

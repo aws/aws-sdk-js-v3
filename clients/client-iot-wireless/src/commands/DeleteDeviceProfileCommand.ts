@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  DeleteDeviceProfileRequest,
-  DeleteDeviceProfileRequestFilterSensitiveLog,
-  DeleteDeviceProfileResponse,
-  DeleteDeviceProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDeviceProfileCommand,
-  serializeAws_restJson1DeleteDeviceProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDeviceProfileRequest, DeleteDeviceProfileResponse } from "../models/models_0";
+import { de_DeleteDeviceProfileCommand, se_DeleteDeviceProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeviceProfileCommand}.
  */
 export interface DeleteDeviceProfileCommandInput extends DeleteDeviceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeviceProfileCommand}.
  */
 export interface DeleteDeviceProfileCommandOutput extends DeleteDeviceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a device profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteDeviceProfileCommandOutput extends DeleteDeviceProfileRes
  * import { IoTWirelessClient, DeleteDeviceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteDeviceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DeleteDeviceProfileRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeviceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeviceProfileCommandInput - {@link DeleteDeviceProfileCommandInput}
+ * @returns {@link DeleteDeviceProfileCommandOutput}
  * @see {@link DeleteDeviceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteDeviceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeviceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DeleteDeviceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeviceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDeviceProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class DeleteDeviceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeviceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDeviceProfileCommand(input, context);
+    return se_DeleteDeviceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteDeviceProfileCommand(output, context);
+    return de_DeleteDeviceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

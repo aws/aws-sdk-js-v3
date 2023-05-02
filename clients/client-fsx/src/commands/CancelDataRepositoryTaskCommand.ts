@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CancelDataRepositoryTaskRequest,
-  CancelDataRepositoryTaskRequestFilterSensitiveLog,
-  CancelDataRepositoryTaskResponse,
-  CancelDataRepositoryTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelDataRepositoryTaskCommand,
-  serializeAws_json1_1CancelDataRepositoryTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelDataRepositoryTaskRequest, CancelDataRepositoryTaskResponse } from "../models/models_0";
+import { de_CancelDataRepositoryTaskCommand, se_CancelDataRepositoryTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelDataRepositoryTaskCommand}.
  */
 export interface CancelDataRepositoryTaskCommandInput extends CancelDataRepositoryTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelDataRepositoryTaskCommand}.
  */
 export interface CancelDataRepositoryTaskCommandOutput extends CancelDataRepositoryTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an existing Amazon FSx for Lustre data repository task if that task is in either the
  *             <code>PENDING</code> or <code>EXECUTING</code> state. When you cancel a task, Amazon FSx does the following.</p>
  *          <ul>
@@ -54,10 +51,15 @@ export interface CancelDataRepositoryTaskCommandOutput extends CancelDataReposit
  * import { FSxClient, CancelDataRepositoryTaskCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CancelDataRepositoryTaskCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // CancelDataRepositoryTaskRequest
+ *   TaskId: "STRING_VALUE", // required
+ * };
  * const command = new CancelDataRepositoryTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelDataRepositoryTaskCommandInput - {@link CancelDataRepositoryTaskCommandInput}
+ * @returns {@link CancelDataRepositoryTaskCommandOutput}
  * @see {@link CancelDataRepositoryTaskCommandInput} for command's `input` shape.
  * @see {@link CancelDataRepositoryTaskCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -96,6 +98,9 @@ export class CancelDataRepositoryTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelDataRepositoryTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +129,8 @@ export class CancelDataRepositoryTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelDataRepositoryTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelDataRepositoryTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +140,18 @@ export class CancelDataRepositoryTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelDataRepositoryTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelDataRepositoryTaskCommand(input, context);
+    return se_CancelDataRepositoryTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelDataRepositoryTaskCommandOutput> {
-    return deserializeAws_json1_1CancelDataRepositoryTaskCommand(output, context);
+    return de_CancelDataRepositoryTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

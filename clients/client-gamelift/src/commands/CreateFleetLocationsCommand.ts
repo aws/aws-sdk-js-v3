@@ -14,39 +14,36 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreateFleetLocationsInput,
-  CreateFleetLocationsInputFilterSensitiveLog,
-  CreateFleetLocationsOutput,
-  CreateFleetLocationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFleetLocationsCommand,
-  serializeAws_json1_1CreateFleetLocationsCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateFleetLocationsInput, CreateFleetLocationsOutput } from "../models/models_0";
+import { de_CreateFleetLocationsCommand, se_CreateFleetLocationsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFleetLocationsCommand}.
  */
 export interface CreateFleetLocationsCommandInput extends CreateFleetLocationsInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateFleetLocationsCommand}.
  */
 export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds remote locations to a fleet and begins populating the new locations with EC2
  *             instances. The new instances conform to the fleet's instance type, auto-scaling, and
  *             other configuration settings. </p>
- *         <note>
+ *          <note>
  *             <p>This operation cannot be used with fleets that don't support remote locations.
  *                 Fleets can have multiple locations only if they reside in Amazon Web Services Regions that support
  *                 this feature and were created after the feature was released in March 2021.</p>
- *         </note>
- *         <p>To add fleet locations, specify the fleet to be updated and provide a list of one or
+ *          </note>
+ *          <p>To add fleet locations, specify the fleet to be updated and provide a list of one or
  *             more locations. </p>
- *         <p>If successful, this operation returns the list of added locations with their status
- *             set to <code>NEW</code>. GameLift initiates the process of starting an instance in each
+ *          <p>If successful, this operation returns the list of added locations with their status
+ *             set to <code>NEW</code>. Amazon GameLift initiates the process of starting an instance in each
  *             added location. You can track the status of each new location by monitoring location
  *             creation events using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html">DescribeFleetEvents</a>.</p>
  *          <p>
@@ -56,7 +53,7 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up
  *             fleets</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Multi-location fleets</a>
  *          </p>
  * @example
@@ -65,10 +62,20 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  * import { GameLiftClient, CreateFleetLocationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateFleetLocationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreateFleetLocationsInput
+ *   FleetId: "STRING_VALUE", // required
+ *   Locations: [ // LocationConfigurationList // required
+ *     { // LocationConfiguration
+ *       Location: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateFleetLocationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFleetLocationsCommandInput - {@link CreateFleetLocationsCommandInput}
+ * @returns {@link CreateFleetLocationsCommandOutput}
  * @see {@link CreateFleetLocationsCommandInput} for command's `input` shape.
  * @see {@link CreateFleetLocationsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -77,7 +84,7 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *  <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
- *         <p></p>
+ *          <p></p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>The service encountered an unrecoverable internal failure while processing the
@@ -91,6 +98,10 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
  *             values before retrying.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested operation would cause the resource to exceed the allowed service limit.
+ *             Resolve the issue before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
  *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
@@ -120,6 +131,9 @@ export class CreateFleetLocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFleetLocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +162,8 @@ export class CreateFleetLocationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFleetLocationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFleetLocationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +173,18 @@ export class CreateFleetLocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFleetLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFleetLocationsCommand(input, context);
+    return se_CreateFleetLocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFleetLocationsCommandOutput> {
-    return deserializeAws_json1_1CreateFleetLocationsCommand(output, context);
+    return de_CreateFleetLocationsCommand(output, context);
   }
 
   // Start section: command_body_extra

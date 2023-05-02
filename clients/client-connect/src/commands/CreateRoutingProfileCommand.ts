@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateRoutingProfileRequest,
-  CreateRoutingProfileRequestFilterSensitiveLog,
-  CreateRoutingProfileResponse,
-  CreateRoutingProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRoutingProfileCommand,
-  serializeAws_restJson1CreateRoutingProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRoutingProfileRequest, CreateRoutingProfileResponse } from "../models/models_0";
+import { de_CreateRoutingProfileCommand, se_CreateRoutingProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRoutingProfileCommand}.
  */
 export interface CreateRoutingProfileCommandInput extends CreateRoutingProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRoutingProfileCommand}.
  */
 export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,40 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  * import { ConnectClient, CreateRoutingProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateRoutingProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // CreateRoutingProfileRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   DefaultOutboundQueueId: "STRING_VALUE", // required
+ *   QueueConfigs: [ // RoutingProfileQueueConfigList
+ *     { // RoutingProfileQueueConfig
+ *       QueueReference: { // RoutingProfileQueueReference
+ *         QueueId: "STRING_VALUE", // required
+ *         Channel: "VOICE" || "CHAT" || "TASK", // required
+ *       },
+ *       Priority: Number("int"), // required
+ *       Delay: Number("int"), // required
+ *     },
+ *   ],
+ *   MediaConcurrencies: [ // MediaConcurrencies // required
+ *     { // MediaConcurrency
+ *       Channel: "VOICE" || "CHAT" || "TASK", // required
+ *       Concurrency: Number("int"), // required
+ *       CrossChannelBehavior: { // CrossChannelBehavior
+ *         BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
+ *       },
+ *     },
+ *   ],
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateRoutingProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRoutingProfileCommandInput - {@link CreateRoutingProfileCommandInput}
+ * @returns {@link CreateRoutingProfileCommandOutput}
  * @see {@link CreateRoutingProfileCommandInput} for command's `input` shape.
  * @see {@link CreateRoutingProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -90,6 +117,9 @@ export class CreateRoutingProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRoutingProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +148,8 @@ export class CreateRoutingProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRoutingProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRoutingProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +159,18 @@ export class CreateRoutingProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRoutingProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRoutingProfileCommand(input, context);
+    return se_CreateRoutingProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoutingProfileCommandOutput> {
-    return deserializeAws_restJson1CreateRoutingProfileCommand(output, context);
+    return de_CreateRoutingProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

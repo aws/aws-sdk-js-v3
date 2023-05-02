@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { CloudHSMServiceException as __BaseException } from "./CloudHSMServiceException";
 
 /**
+ * @public
  * <p>A key-value pair that identifies or specifies metadata about an AWS CloudHSM
  *       resource.</p>
  */
@@ -19,6 +20,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsToResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.</p>
@@ -31,6 +35,9 @@ export interface AddTagsToResourceRequest {
   TagList: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsToResourceResponse {
   /**
    * <p>The status of the operation.</p>
@@ -39,6 +46,7 @@ export interface AddTagsToResourceResponse {
 }
 
 /**
+ * @public
  * <p>Indicates that an internal error occurred.</p>
  */
 export class CloudHsmInternalException extends __BaseException {
@@ -64,6 +72,7 @@ export class CloudHsmInternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
  */
 export class CloudHsmServiceException extends __BaseException {
@@ -89,6 +98,7 @@ export class CloudHsmServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that one or more of the request parameters are not valid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -113,12 +123,22 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
-export enum ClientVersion {
-  FIVE_ONE = "5.1",
-  FIVE_THREE = "5.3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClientVersion = {
+  FIVE_ONE: "5.1",
+  FIVE_THREE: "5.3",
+} as const;
 
 /**
+ * @public
+ */
+export type ClientVersion = (typeof ClientVersion)[keyof typeof ClientVersion];
+
+/**
+ * @public
  * <p>Contains the inputs for the <a>CreateHapgRequest</a> action.</p>
  */
 export interface CreateHapgRequest {
@@ -129,6 +149,7 @@ export interface CreateHapgRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <a>CreateHAPartitionGroup</a> action.</p>
  */
 export interface CreateHapgResponse {
@@ -138,11 +159,21 @@ export interface CreateHapgResponse {
   HapgArn?: string;
 }
 
-export enum SubscriptionType {
-  PRODUCTION = "PRODUCTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionType = {
+  PRODUCTION: "PRODUCTION",
+} as const;
 
 /**
+ * @public
+ */
+export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
+
+/**
+ * @public
  * <p>Contains the inputs for the <code>CreateHsm</code> operation.</p>
  */
 export interface CreateHsmRequest {
@@ -205,6 +236,7 @@ export interface CreateHsmRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <code>CreateHsm</code> operation.</p>
  */
 export interface CreateHsmResponse {
@@ -215,6 +247,7 @@ export interface CreateHsmResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>CreateLunaClient</a> action.</p>
  */
 export interface CreateLunaClientRequest {
@@ -231,6 +264,7 @@ export interface CreateLunaClientRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <a>CreateLunaClient</a> action.</p>
  */
 export interface CreateLunaClientResponse {
@@ -241,6 +275,7 @@ export interface CreateLunaClientResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DeleteHapg</a> action.</p>
  */
 export interface DeleteHapgRequest {
@@ -251,6 +286,7 @@ export interface DeleteHapgRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <a>DeleteHapg</a> action.</p>
  */
 export interface DeleteHapgResponse {
@@ -261,6 +297,7 @@ export interface DeleteHapgResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DeleteHsm</a> operation.</p>
  */
 export interface DeleteHsmRequest {
@@ -271,6 +308,7 @@ export interface DeleteHsmRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <a>DeleteHsm</a> operation.</p>
  */
 export interface DeleteHsmResponse {
@@ -280,6 +318,9 @@ export interface DeleteHsmResponse {
   Status: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLunaClientRequest {
   /**
    * <p>The ARN of the client to delete.</p>
@@ -287,6 +328,9 @@ export interface DeleteLunaClientRequest {
   ClientArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLunaClientResponse {
   /**
    * <p>The status of the action.</p>
@@ -295,6 +339,7 @@ export interface DeleteLunaClientResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DescribeHapg</a> action.</p>
  */
 export interface DescribeHapgRequest {
@@ -304,13 +349,23 @@ export interface DescribeHapgRequest {
   HapgArn: string | undefined;
 }
 
-export enum CloudHsmObjectState {
-  DEGRADED = "DEGRADED",
-  READY = "READY",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CloudHsmObjectState = {
+  DEGRADED: "DEGRADED",
+  READY: "READY",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type CloudHsmObjectState = (typeof CloudHsmObjectState)[keyof typeof CloudHsmObjectState];
+
+/**
+ * @public
  * <p>Contains the output of the <a>DescribeHapg</a> action.</p>
  */
 export interface DescribeHapgResponse {
@@ -362,6 +417,7 @@ export interface DescribeHapgResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DescribeHsm</a> operation.</p>
  */
 export interface DescribeHsmRequest {
@@ -378,17 +434,27 @@ export interface DescribeHsmRequest {
   HsmSerialNumber?: string;
 }
 
-export enum HsmStatus {
-  DEGRADED = "DEGRADED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HsmStatus = {
+  DEGRADED: "DEGRADED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUSPENDED: "SUSPENDED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type HsmStatus = (typeof HsmStatus)[keyof typeof HsmStatus];
+
+/**
+ * @public
  * <p>Contains the output of the <a>DescribeHsm</a> operation.</p>
  */
 export interface DescribeHsmResponse {
@@ -510,6 +576,9 @@ export interface DescribeHsmResponse {
   Partitions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLunaClientRequest {
   /**
    * <p>The ARN of the client.</p>
@@ -522,6 +591,9 @@ export interface DescribeLunaClientRequest {
   CertificateFingerprint?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLunaClientResponse {
   /**
    * <p>The ARN of the client.</p>
@@ -549,6 +621,9 @@ export interface DescribeLunaClientResponse {
   Label?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConfigRequest {
   /**
    * <p>The ARN of the client.</p>
@@ -567,6 +642,9 @@ export interface GetConfigRequest {
   HapgList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConfigResponse {
   /**
    * <p>The type of credentials.</p>
@@ -585,10 +663,14 @@ export interface GetConfigResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>ListAvailableZones</a> action.</p>
  */
 export interface ListAvailableZonesRequest {}
 
+/**
+ * @public
+ */
 export interface ListAvailableZonesResponse {
   /**
    * <p>The list of Availability Zones that have available AWS CloudHSM capacity.</p>
@@ -596,6 +678,9 @@ export interface ListAvailableZonesResponse {
   AZList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListHapgsRequest {
   /**
    * <p>The <code>NextToken</code> value from a previous call to <code>ListHapgs</code>. Pass
@@ -604,6 +689,9 @@ export interface ListHapgsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHapgsResponse {
   /**
    * <p>The list of high-availability partition groups.</p>
@@ -617,6 +705,9 @@ export interface ListHapgsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHsmsRequest {
   /**
    * <p>The <code>NextToken</code> value from a previous call to <code>ListHsms</code>. Pass
@@ -626,6 +717,7 @@ export interface ListHsmsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <code>ListHsms</code> operation.</p>
  */
 export interface ListHsmsResponse {
@@ -641,6 +733,9 @@ export interface ListHsmsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLunaClientsRequest {
   /**
    * <p>The <code>NextToken</code> value from a previous call to <code>ListLunaClients</code>.
@@ -649,6 +744,9 @@ export interface ListLunaClientsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLunaClientsResponse {
   /**
    * <p>The list of clients.</p>
@@ -662,6 +760,9 @@ export interface ListLunaClientsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
@@ -669,6 +770,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>One or more tags.</p>
@@ -676,6 +780,9 @@ export interface ListTagsForResourceResponse {
   TagList: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyHapgRequest {
   /**
    * <p>The ARN of the high-availability partition group to modify.</p>
@@ -694,6 +801,9 @@ export interface ModifyHapgRequest {
   PartitionSerialList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyHapgResponse {
   /**
    * <p>The ARN of the high-availability partition group.</p>
@@ -702,6 +812,7 @@ export interface ModifyHapgResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>ModifyHsm</a> operation.</p>
  */
 export interface ModifyHsmRequest {
@@ -742,6 +853,7 @@ export interface ModifyHsmRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <a>ModifyHsm</a> operation.</p>
  */
 export interface ModifyHsmResponse {
@@ -751,6 +863,9 @@ export interface ModifyHsmResponse {
   HsmArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyLunaClientRequest {
   /**
    * <p>The ARN of the client.</p>
@@ -763,6 +878,9 @@ export interface ModifyLunaClientRequest {
   Certificate: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyLunaClientResponse {
   /**
    * <p>The ARN of the client.</p>
@@ -770,6 +888,9 @@ export interface ModifyLunaClientResponse {
   ClientArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTagsFromResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
@@ -784,296 +905,12 @@ export interface RemoveTagsFromResourceRequest {
   TagKeyList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTagsFromResourceResponse {
   /**
    * <p>The status of the operation.</p>
    */
   Status: string | undefined;
 }
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsToResourceRequestFilterSensitiveLog = (obj: AddTagsToResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsToResourceResponseFilterSensitiveLog = (obj: AddTagsToResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHapgRequestFilterSensitiveLog = (obj: CreateHapgRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHapgResponseFilterSensitiveLog = (obj: CreateHapgResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHsmRequestFilterSensitiveLog = (obj: CreateHsmRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHsmResponseFilterSensitiveLog = (obj: CreateHsmResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLunaClientRequestFilterSensitiveLog = (obj: CreateLunaClientRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLunaClientResponseFilterSensitiveLog = (obj: CreateLunaClientResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHapgRequestFilterSensitiveLog = (obj: DeleteHapgRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHapgResponseFilterSensitiveLog = (obj: DeleteHapgResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHsmRequestFilterSensitiveLog = (obj: DeleteHsmRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHsmResponseFilterSensitiveLog = (obj: DeleteHsmResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLunaClientRequestFilterSensitiveLog = (obj: DeleteLunaClientRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLunaClientResponseFilterSensitiveLog = (obj: DeleteLunaClientResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHapgRequestFilterSensitiveLog = (obj: DescribeHapgRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHapgResponseFilterSensitiveLog = (obj: DescribeHapgResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHsmRequestFilterSensitiveLog = (obj: DescribeHsmRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHsmResponseFilterSensitiveLog = (obj: DescribeHsmResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLunaClientRequestFilterSensitiveLog = (obj: DescribeLunaClientRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLunaClientResponseFilterSensitiveLog = (obj: DescribeLunaClientResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfigRequestFilterSensitiveLog = (obj: GetConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfigResponseFilterSensitiveLog = (obj: GetConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAvailableZonesRequestFilterSensitiveLog = (obj: ListAvailableZonesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAvailableZonesResponseFilterSensitiveLog = (obj: ListAvailableZonesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHapgsRequestFilterSensitiveLog = (obj: ListHapgsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHapgsResponseFilterSensitiveLog = (obj: ListHapgsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHsmsRequestFilterSensitiveLog = (obj: ListHsmsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHsmsResponseFilterSensitiveLog = (obj: ListHsmsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLunaClientsRequestFilterSensitiveLog = (obj: ListLunaClientsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLunaClientsResponseFilterSensitiveLog = (obj: ListLunaClientsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyHapgRequestFilterSensitiveLog = (obj: ModifyHapgRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyHapgResponseFilterSensitiveLog = (obj: ModifyHapgResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyHsmRequestFilterSensitiveLog = (obj: ModifyHsmRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyHsmResponseFilterSensitiveLog = (obj: ModifyHsmResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyLunaClientRequestFilterSensitiveLog = (obj: ModifyLunaClientRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyLunaClientResponseFilterSensitiveLog = (obj: ModifyLunaClientResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsFromResourceRequestFilterSensitiveLog = (obj: RemoveTagsFromResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsFromResourceResponseFilterSensitiveLog = (obj: RemoveTagsFromResourceResponse): any => ({
-  ...obj,
-});

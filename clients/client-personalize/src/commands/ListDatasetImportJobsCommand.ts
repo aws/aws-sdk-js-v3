@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDatasetImportJobsRequest,
-  ListDatasetImportJobsRequestFilterSensitiveLog,
-  ListDatasetImportJobsResponse,
-  ListDatasetImportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDatasetImportJobsRequest, ListDatasetImportJobsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListDatasetImportJobsCommand,
-  serializeAws_json1_1ListDatasetImportJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDatasetImportJobsCommand, se_ListDatasetImportJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetImportJobsCommand}.
  */
 export interface ListDatasetImportJobsCommandInput extends ListDatasetImportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetImportJobsCommand}.
  */
 export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of dataset import jobs that use the given dataset. When
  *       a dataset is not specified, all the dataset import jobs associated with
  *       the account are listed. The response provides the properties for each
@@ -47,10 +44,17 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  * import { PersonalizeClient, ListDatasetImportJobsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListDatasetImportJobsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListDatasetImportJobsRequest
+ *   datasetArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDatasetImportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetImportJobsCommandInput - {@link ListDatasetImportJobsCommandInput}
+ * @returns {@link ListDatasetImportJobsCommandOutput}
  * @see {@link ListDatasetImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetImportJobsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -80,6 +84,9 @@ export class ListDatasetImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class ListDatasetImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatasetImportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatasetImportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class ListDatasetImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDatasetImportJobsCommand(input, context);
+    return se_ListDatasetImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetImportJobsCommandOutput> {
-    return deserializeAws_json1_1ListDatasetImportJobsCommand(output, context);
+    return de_ListDatasetImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

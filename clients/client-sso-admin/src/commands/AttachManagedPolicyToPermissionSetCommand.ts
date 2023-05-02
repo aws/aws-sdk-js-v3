@@ -15,21 +15,23 @@ import {
 
 import {
   AttachManagedPolicyToPermissionSetRequest,
-  AttachManagedPolicyToPermissionSetRequestFilterSensitiveLog,
   AttachManagedPolicyToPermissionSetResponse,
-  AttachManagedPolicyToPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AttachManagedPolicyToPermissionSetCommand,
-  serializeAws_json1_1AttachManagedPolicyToPermissionSetCommand,
+  de_AttachManagedPolicyToPermissionSetCommand,
+  se_AttachManagedPolicyToPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link AttachManagedPolicyToPermissionSetCommand}.
  */
 export interface AttachManagedPolicyToPermissionSetCommandInput extends AttachManagedPolicyToPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachManagedPolicyToPermissionSetCommand}.
  */
 export interface AttachManagedPolicyToPermissionSetCommandOutput
@@ -37,6 +39,7 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an AWS managed policy ARN to a permission set.</p>
  *          <note>
  *             <p>If the permission set is already referenced by one or more account assignments, you will
@@ -52,10 +55,17 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
  * import { SSOAdminClient, AttachManagedPolicyToPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, AttachManagedPolicyToPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // AttachManagedPolicyToPermissionSetRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   ManagedPolicyArn: "STRING_VALUE", // required
+ * };
  * const command = new AttachManagedPolicyToPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachManagedPolicyToPermissionSetCommandInput - {@link AttachManagedPolicyToPermissionSetCommandInput}
+ * @returns {@link AttachManagedPolicyToPermissionSetCommandOutput}
  * @see {@link AttachManagedPolicyToPermissionSetCommandInput} for command's `input` shape.
  * @see {@link AttachManagedPolicyToPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -106,6 +116,9 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachManagedPolicyToPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +147,8 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachManagedPolicyToPermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachManagedPolicyToPermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +158,24 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AttachManagedPolicyToPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachManagedPolicyToPermissionSetCommand(input, context);
+    return se_AttachManagedPolicyToPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachManagedPolicyToPermissionSetCommandOutput> {
-    return deserializeAws_json1_1AttachManagedPolicyToPermissionSetCommand(output, context);
+    return de_AttachManagedPolicyToPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

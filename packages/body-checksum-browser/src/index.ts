@@ -6,6 +6,9 @@ import { toUint8Array } from "@aws-sdk/util-utf8";
 
 const MiB = 1024 * 1024;
 
+/**
+ * @internal
+ */
 export async function bodyChecksumGenerator(
   request: HttpRequest,
   options: {

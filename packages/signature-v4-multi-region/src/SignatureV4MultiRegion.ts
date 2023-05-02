@@ -8,6 +8,9 @@ import {
   RequestSigningArguments,
 } from "@aws-sdk/types";
 
+/**
+ * @internal
+ */
 export type SignatureV4MultiRegionInit = SignatureV4Init &
   SignatureV4CryptoInit & {
     runtime?: string;
@@ -19,7 +22,7 @@ export type SignatureV4MultiRegionInit = SignatureV4Init &
  * algorithm if the request needs to be signed with `*` region. Otherwise, it signs the request with normal SigV4
  * signer.
  * Note that SigV4a signer is only supported in Node.js now because it depends on a native dependency.
- * @private
+ * @internal
  */
 export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
   private readonly sigv4Signer: SignatureV4;

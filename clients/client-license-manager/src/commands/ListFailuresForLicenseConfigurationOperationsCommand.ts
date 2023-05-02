@@ -16,21 +16,23 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   ListFailuresForLicenseConfigurationOperationsRequest,
-  ListFailuresForLicenseConfigurationOperationsRequestFilterSensitiveLog,
   ListFailuresForLicenseConfigurationOperationsResponse,
-  ListFailuresForLicenseConfigurationOperationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand,
-  serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand,
+  de_ListFailuresForLicenseConfigurationOperationsCommand,
+  se_ListFailuresForLicenseConfigurationOperationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFailuresForLicenseConfigurationOperationsCommand}.
  */
 export interface ListFailuresForLicenseConfigurationOperationsCommandInput
   extends ListFailuresForLicenseConfigurationOperationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFailuresForLicenseConfigurationOperationsCommand}.
  */
 export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
@@ -38,6 +40,7 @@ export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the license configuration operations that failed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,17 @@ export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
  * import { LicenseManagerClient, ListFailuresForLicenseConfigurationOperationsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListFailuresForLicenseConfigurationOperationsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListFailuresForLicenseConfigurationOperationsRequest
+ *   LicenseConfigurationArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFailuresForLicenseConfigurationOperationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFailuresForLicenseConfigurationOperationsCommandInput - {@link ListFailuresForLicenseConfigurationOperationsCommandInput}
+ * @returns {@link ListFailuresForLicenseConfigurationOperationsCommandOutput}
  * @see {@link ListFailuresForLicenseConfigurationOperationsCommandInput} for command's `input` shape.
  * @see {@link ListFailuresForLicenseConfigurationOperationsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -88,6 +98,9 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFailuresForLicenseConfigurationOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +135,8 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFailuresForLicenseConfigurationOperationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFailuresForLicenseConfigurationOperationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +146,24 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListFailuresForLicenseConfigurationOperationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(input, context);
+    return se_ListFailuresForLicenseConfigurationOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> {
-    return deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(output, context);
+    return de_ListFailuresForLicenseConfigurationOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

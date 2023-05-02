@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCodeRepositoryInput,
-  CreateCodeRepositoryInputFilterSensitiveLog,
-  CreateCodeRepositoryOutput,
-  CreateCodeRepositoryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCodeRepositoryCommand,
-  serializeAws_json1_1CreateCodeRepositoryCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateCodeRepositoryInput, CreateCodeRepositoryOutput } from "../models/models_0";
+import { de_CreateCodeRepositoryCommand, se_CreateCodeRepositoryCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCodeRepositoryCommand}.
  */
 export interface CreateCodeRepositoryCommandInput extends CreateCodeRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateCodeRepositoryCommand}.
  */
 export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Git repository as a resource in your SageMaker account. You can associate the
  *             repository with notebook instances so that you can use Git source control for the
  *             notebooks you create. The Git repository is a resource in your SageMaker account, so it can
@@ -48,10 +45,26 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  * import { SageMakerClient, CreateCodeRepositoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateCodeRepositoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateCodeRepositoryInput
+ *   CodeRepositoryName: "STRING_VALUE", // required
+ *   GitConfig: { // GitConfig
+ *     RepositoryUrl: "STRING_VALUE", // required
+ *     Branch: "STRING_VALUE",
+ *     SecretArn: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCodeRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCodeRepositoryCommandInput - {@link CreateCodeRepositoryCommandInput}
+ * @returns {@link CreateCodeRepositoryCommandOutput}
  * @see {@link CreateCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link CreateCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +88,9 @@ export class CreateCodeRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCodeRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +119,8 @@ export class CreateCodeRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCodeRepositoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCodeRepositoryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +130,18 @@ export class CreateCodeRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCodeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCodeRepositoryCommand(input, context);
+    return se_CreateCodeRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCodeRepositoryCommandOutput> {
-    return deserializeAws_json1_1CreateCodeRepositoryCommand(output, context);
+    return de_CreateCodeRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

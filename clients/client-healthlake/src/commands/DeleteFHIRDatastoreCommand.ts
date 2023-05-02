@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
-import {
-  DeleteFHIRDatastoreRequest,
-  DeleteFHIRDatastoreRequestFilterSensitiveLog,
-  DeleteFHIRDatastoreResponse,
-  DeleteFHIRDatastoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteFHIRDatastoreCommand,
-  serializeAws_json1_0DeleteFHIRDatastoreCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteFHIRDatastoreRequest, DeleteFHIRDatastoreResponse } from "../models/models_0";
+import { de_DeleteFHIRDatastoreCommand, se_DeleteFHIRDatastoreCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFHIRDatastoreCommand}.
  */
 export interface DeleteFHIRDatastoreCommandInput extends DeleteFHIRDatastoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFHIRDatastoreCommand}.
  */
 export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Data Store. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  * import { HealthLakeClient, DeleteFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, DeleteFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
+ * const input = { // DeleteFHIRDatastoreRequest
+ *   DatastoreId: "STRING_VALUE",
+ * };
  * const command = new DeleteFHIRDatastoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFHIRDatastoreCommandInput - {@link DeleteFHIRDatastoreCommandInput}
+ * @returns {@link DeleteFHIRDatastoreCommandOutput}
  * @see {@link DeleteFHIRDatastoreCommandInput} for command's `input` shape.
  * @see {@link DeleteFHIRDatastoreCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteFHIRDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFHIRDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DeleteFHIRDatastoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFHIRDatastoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFHIRDatastoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class DeleteFHIRDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFHIRDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteFHIRDatastoreCommand(input, context);
+    return se_DeleteFHIRDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFHIRDatastoreCommandOutput> {
-    return deserializeAws_json1_0DeleteFHIRDatastoreCommand(output, context);
+    return de_DeleteFHIRDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

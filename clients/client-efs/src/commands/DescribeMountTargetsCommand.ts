@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  DescribeMountTargetsRequest,
-  DescribeMountTargetsRequestFilterSensitiveLog,
-  DescribeMountTargetsResponse,
-  DescribeMountTargetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeMountTargetsCommand,
-  serializeAws_restJson1DescribeMountTargetsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeMountTargetsRequest, DescribeMountTargetsResponse } from "../models/models_0";
+import { de_DescribeMountTargetsCommand, se_DescribeMountTargetsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMountTargetsCommand}.
  */
 export interface DescribeMountTargetsCommandInput extends DescribeMountTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMountTargetsCommand}.
  */
 export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the descriptions of all the current mount targets, or a specific mount target,
  *       for a file system. When requesting all of the current mount targets, the order of mount
  *       targets returned in the response is unspecified.</p>
@@ -48,10 +45,19 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  * import { EFSClient, DescribeMountTargetsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeMountTargetsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DescribeMountTargetsRequest
+ *   MaxItems: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   FileSystemId: "STRING_VALUE",
+ *   MountTargetId: "STRING_VALUE",
+ *   AccessPointId: "STRING_VALUE",
+ * };
  * const command = new DescribeMountTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMountTargetsCommandInput - {@link DescribeMountTargetsCommandInput}
+ * @returns {@link DescribeMountTargetsCommandOutput}
  * @see {@link DescribeMountTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeMountTargetsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -120,6 +126,9 @@ export class DescribeMountTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMountTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +157,8 @@ export class DescribeMountTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMountTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMountTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +168,18 @@ export class DescribeMountTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMountTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMountTargetsCommand(input, context);
+    return se_DescribeMountTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMountTargetsCommandOutput> {
-    return deserializeAws_restJson1DescribeMountTargetsCommand(output, context);
+    return de_DescribeMountTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

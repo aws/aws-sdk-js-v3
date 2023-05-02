@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DescribeFlywheelIterationRequest,
-  DescribeFlywheelIterationRequestFilterSensitiveLog,
-  DescribeFlywheelIterationResponse,
-  DescribeFlywheelIterationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFlywheelIterationCommand,
-  serializeAws_json1_1DescribeFlywheelIterationCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFlywheelIterationRequest, DescribeFlywheelIterationResponse } from "../models/models_0";
+import { de_DescribeFlywheelIterationCommand, se_DescribeFlywheelIterationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFlywheelIterationCommand}.
  */
 export interface DescribeFlywheelIterationCommandInput extends DescribeFlywheelIterationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFlywheelIterationCommand}.
  */
 export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheelIterationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve the configuration properties of a flywheel iteration.
  *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
@@ -44,10 +41,16 @@ export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheel
  * import { ComprehendClient, DescribeFlywheelIterationCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeFlywheelIterationCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribeFlywheelIterationRequest
+ *   FlywheelArn: "STRING_VALUE", // required
+ *   FlywheelIterationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFlywheelIterationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFlywheelIterationCommandInput - {@link DescribeFlywheelIterationCommandInput}
+ * @returns {@link DescribeFlywheelIterationCommandOutput}
  * @see {@link DescribeFlywheelIterationCommandInput} for command's `input` shape.
  * @see {@link DescribeFlywheelIterationCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -83,6 +86,9 @@ export class DescribeFlywheelIterationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFlywheelIterationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class DescribeFlywheelIterationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFlywheelIterationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFlywheelIterationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,15 +128,21 @@ export class DescribeFlywheelIterationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFlywheelIterationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFlywheelIterationCommand(input, context);
+    return se_DescribeFlywheelIterationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFlywheelIterationCommandOutput> {
-    return deserializeAws_json1_1DescribeFlywheelIterationCommand(output, context);
+    return de_DescribeFlywheelIterationCommand(output, context);
   }
 
   // Start section: command_body_extra

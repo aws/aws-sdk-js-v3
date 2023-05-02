@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCellRequest,
-  GetCellRequestFilterSensitiveLog,
-  GetCellResponse,
-  GetCellResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCellCommand,
-  serializeAws_restJson1GetCellCommand,
-} from "../protocols/Aws_restJson1";
+import { GetCellRequest, GetCellResponse } from "../models/models_0";
+import { de_GetCellCommand, se_GetCellCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCellCommand}.
  */
 export interface GetCellCommandInput extends GetCellRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCellCommand}.
  */
 export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a cell including cell name, cell Amazon Resource Name (ARN), ARNs of nested cells for this cell, and a list of those cell ARNs with their associated recovery group ARNs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer 
  * import { Route53RecoveryReadinessClient, GetCellCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetCellCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // GetCellRequest
+ *   CellName: "STRING_VALUE", // required
+ * };
  * const command = new GetCellCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCellCommandInput - {@link GetCellCommandInput}
+ * @returns {@link GetCellCommandOutput}
  * @see {@link GetCellCommandInput} for command's `input` shape.
  * @see {@link GetCellCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +90,9 @@ export class GetCellCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCellCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class GetCellCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCellRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCellResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class GetCellCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCellCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCellCommand(input, context);
+    return se_GetCellCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCellCommandOutput> {
-    return deserializeAws_restJson1GetCellCommand(output, context);
+    return de_GetCellCommand(output, context);
   }
 
   // Start section: command_body_extra

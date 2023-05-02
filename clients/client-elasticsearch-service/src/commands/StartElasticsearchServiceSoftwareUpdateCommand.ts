@@ -20,21 +20,23 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   StartElasticsearchServiceSoftwareUpdateRequest,
-  StartElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog,
   StartElasticsearchServiceSoftwareUpdateResponse,
-  StartElasticsearchServiceSoftwareUpdateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand,
-  serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand,
+  de_StartElasticsearchServiceSoftwareUpdateCommand,
+  se_StartElasticsearchServiceSoftwareUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartElasticsearchServiceSoftwareUpdateCommand}.
  */
 export interface StartElasticsearchServiceSoftwareUpdateCommandInput
   extends StartElasticsearchServiceSoftwareUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartElasticsearchServiceSoftwareUpdateCommand}.
  */
 export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
@@ -42,6 +44,7 @@ export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Schedules a service software update for an Amazon ES domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +52,15 @@ export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
  * import { ElasticsearchServiceClient, StartElasticsearchServiceSoftwareUpdateCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, StartElasticsearchServiceSoftwareUpdateCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // StartElasticsearchServiceSoftwareUpdateRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new StartElasticsearchServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartElasticsearchServiceSoftwareUpdateCommandInput - {@link StartElasticsearchServiceSoftwareUpdateCommandInput}
+ * @returns {@link StartElasticsearchServiceSoftwareUpdateCommandOutput}
  * @see {@link StartElasticsearchServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link StartElasticsearchServiceSoftwareUpdateCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -88,6 +96,9 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartElasticsearchServiceSoftwareUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +133,8 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartElasticsearchServiceSoftwareUpdateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +144,24 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartElasticsearchServiceSoftwareUpdateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand(input, context);
+    return se_StartElasticsearchServiceSoftwareUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> {
-    return deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand(output, context);
+    return de_StartElasticsearchServiceSoftwareUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

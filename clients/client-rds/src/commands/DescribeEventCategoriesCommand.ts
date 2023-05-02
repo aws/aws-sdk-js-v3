@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEventCategoriesMessage,
-  DescribeEventCategoriesMessageFilterSensitiveLog,
-  EventCategoriesMessage,
-  EventCategoriesMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeEventCategoriesCommand,
-  serializeAws_queryDescribeEventCategoriesCommand,
-} from "../protocols/Aws_query";
+import { DescribeEventCategoriesMessage, EventCategoriesMessage } from "../models/models_1";
+import { de_DescribeEventCategoriesCommand, se_DescribeEventCategoriesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventCategoriesCommand}.
  */
 export interface DescribeEventCategoriesCommandInput extends DescribeEventCategoriesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventCategoriesCommand}.
  */
 export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays a list of categories for all event source types, or, if specified, for a specified source type.
  *             You can also see this list in the "Amazon RDS event categories and event messages" section of the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html">
  *                <i>Amazon RDS User Guide</i>
@@ -48,24 +45,99 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * import { RDSClient, DescribeEventCategoriesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeEventCategoriesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeEventCategoriesMessage
+ *   SourceType: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DescribeEventCategoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
+ * @returns {@link DescribeEventCategoriesCommandOutput}
  * @see {@link DescribeEventCategoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  *
- * @example To list event categories.
+ * @example To describe event categories
  * ```javascript
- * // This example lists all DB instance event categories.
+ * // The following example retrieves details about the event categories for all available event sources.
  * const input = {
- *   "SourceType": "db-instance"
+ *   "Filters": [],
+ *   "SourceType": ""
  * };
  * const command = new DescribeEventCategoriesCommand(input);
- * await client.send(command);
- * // example id: describe-event-categories-97bd4c77-12da-4be6-b42f-edf77771428b
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventCategoriesMapList": [
+ *     {
+ *       "EventCategories": [
+ *         "deletion",
+ *         "read replica",
+ *         "failover",
+ *         "restoration",
+ *         "maintenance",
+ *         "low storage",
+ *         "configuration change",
+ *         "backup",
+ *         "creation",
+ *         "availability",
+ *         "recovery",
+ *         "failure",
+ *         "backtrack",
+ *         "notification"
+ *       ],
+ *       "SourceType": "db-instance"
+ *     },
+ *     {
+ *       "EventCategories": [
+ *         "configuration change",
+ *         "failure"
+ *       ],
+ *       "SourceType": "db-security-group"
+ *     },
+ *     {
+ *       "EventCategories": [
+ *         "configuration change"
+ *       ],
+ *       "SourceType": "db-parameter-group"
+ *     },
+ *     {
+ *       "EventCategories": [
+ *         "deletion",
+ *         "creation",
+ *         "restoration",
+ *         "notification"
+ *       ],
+ *       "SourceType": "db-snapshot"
+ *     },
+ *     {
+ *       "EventCategories": [
+ *         "failover",
+ *         "failure",
+ *         "notification"
+ *       ],
+ *       "SourceType": "db-cluster"
+ *     },
+ *     {
+ *       "EventCategories": [
+ *         "backup"
+ *       ],
+ *       "SourceType": "db-cluster-snapshot"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-event-categories-1680281431508
  * ```
  *
  */
@@ -86,6 +158,9 @@ export class DescribeEventCategoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventCategoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +189,8 @@ export class DescribeEventCategoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventCategoriesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EventCategoriesMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +200,18 @@ export class DescribeEventCategoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEventCategoriesCommand(input, context);
+    return se_DescribeEventCategoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventCategoriesCommandOutput> {
-    return deserializeAws_queryDescribeEventCategoriesCommand(output, context);
+    return de_DescribeEventCategoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

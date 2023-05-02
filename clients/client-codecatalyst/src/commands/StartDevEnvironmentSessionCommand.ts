@@ -16,25 +16,26 @@ import {
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import {
   StartDevEnvironmentSessionRequest,
-  StartDevEnvironmentSessionRequestFilterSensitiveLog,
   StartDevEnvironmentSessionResponse,
   StartDevEnvironmentSessionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartDevEnvironmentSessionCommand,
-  serializeAws_restJson1StartDevEnvironmentSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartDevEnvironmentSessionCommand, se_StartDevEnvironmentSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDevEnvironmentSessionCommand}.
  */
 export interface StartDevEnvironmentSessionCommandInput extends StartDevEnvironmentSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDevEnvironmentSessionCommand}.
  */
 export interface StartDevEnvironmentSessionCommandOutput extends StartDevEnvironmentSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a session for a specified Dev Environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,26 @@ export interface StartDevEnvironmentSessionCommandOutput extends StartDevEnviron
  * import { CodeCatalystClient, StartDevEnvironmentSessionCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, StartDevEnvironmentSessionCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // StartDevEnvironmentSessionRequest
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   sessionConfiguration: { // DevEnvironmentSessionConfiguration
+ *     sessionType: "STRING_VALUE", // required
+ *     executeCommandSessionConfiguration: { // ExecuteCommandSessionConfiguration
+ *       command: "STRING_VALUE", // required
+ *       arguments: [ // ExecuteCommandSessionConfigurationArguments
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new StartDevEnvironmentSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDevEnvironmentSessionCommandInput - {@link StartDevEnvironmentSessionCommandInput}
+ * @returns {@link StartDevEnvironmentSessionCommandOutput}
  * @see {@link StartDevEnvironmentSessionCommandInput} for command's `input` shape.
  * @see {@link StartDevEnvironmentSessionCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +105,9 @@ export class StartDevEnvironmentSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDevEnvironmentSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +136,7 @@ export class StartDevEnvironmentSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDevEnvironmentSessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: StartDevEnvironmentSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -127,15 +147,21 @@ export class StartDevEnvironmentSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDevEnvironmentSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartDevEnvironmentSessionCommand(input, context);
+    return se_StartDevEnvironmentSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDevEnvironmentSessionCommandOutput> {
-    return deserializeAws_restJson1StartDevEnvironmentSessionCommand(output, context);
+    return de_StartDevEnvironmentSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

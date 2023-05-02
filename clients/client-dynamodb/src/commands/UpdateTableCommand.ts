@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  UpdateTableInput,
-  UpdateTableInputFilterSensitiveLog,
-  UpdateTableOutput,
-  UpdateTableOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateTableCommand,
-  serializeAws_json1_0UpdateTableCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateTableInput, UpdateTableOutput } from "../models/models_0";
+import { de_UpdateTableCommand, se_UpdateTableCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTableCommand}.
  */
 export interface UpdateTableCommandInput extends UpdateTableInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTableCommand}.
  */
 export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
  *             Streams settings for a given table.</p>
  *          <important>
@@ -68,10 +65,109 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * import { DynamoDBClient, UpdateTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // UpdateTableInput
+ *   AttributeDefinitions: [ // AttributeDefinitions
+ *     { // AttributeDefinition
+ *       AttributeName: "STRING_VALUE", // required
+ *       AttributeType: "S" || "N" || "B", // required
+ *     },
+ *   ],
+ *   TableName: "STRING_VALUE", // required
+ *   BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
+ *   ProvisionedThroughput: { // ProvisionedThroughput
+ *     ReadCapacityUnits: Number("long"), // required
+ *     WriteCapacityUnits: Number("long"), // required
+ *   },
+ *   GlobalSecondaryIndexUpdates: [ // GlobalSecondaryIndexUpdateList
+ *     { // GlobalSecondaryIndexUpdate
+ *       Update: { // UpdateGlobalSecondaryIndexAction
+ *         IndexName: "STRING_VALUE", // required
+ *         ProvisionedThroughput: {
+ *           ReadCapacityUnits: Number("long"), // required
+ *           WriteCapacityUnits: Number("long"), // required
+ *         },
+ *       },
+ *       Create: { // CreateGlobalSecondaryIndexAction
+ *         IndexName: "STRING_VALUE", // required
+ *         KeySchema: [ // KeySchema // required
+ *           { // KeySchemaElement
+ *             AttributeName: "STRING_VALUE", // required
+ *             KeyType: "HASH" || "RANGE", // required
+ *           },
+ *         ],
+ *         Projection: { // Projection
+ *           ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *           NonKeyAttributes: [ // NonKeyAttributeNameList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         ProvisionedThroughput: {
+ *           ReadCapacityUnits: Number("long"), // required
+ *           WriteCapacityUnits: Number("long"), // required
+ *         },
+ *       },
+ *       Delete: { // DeleteGlobalSecondaryIndexAction
+ *         IndexName: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   StreamSpecification: { // StreamSpecification
+ *     StreamEnabled: true || false, // required
+ *     StreamViewType: "NEW_IMAGE" || "OLD_IMAGE" || "NEW_AND_OLD_IMAGES" || "KEYS_ONLY",
+ *   },
+ *   SSESpecification: { // SSESpecification
+ *     Enabled: true || false,
+ *     SSEType: "AES256" || "KMS",
+ *     KMSMasterKeyId: "STRING_VALUE",
+ *   },
+ *   ReplicaUpdates: [ // ReplicationGroupUpdateList
+ *     { // ReplicationGroupUpdate
+ *       Create: { // CreateReplicationGroupMemberAction
+ *         RegionName: "STRING_VALUE", // required
+ *         KMSMasterKeyId: "STRING_VALUE",
+ *         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
+ *           ReadCapacityUnits: Number("long"),
+ *         },
+ *         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexList
+ *           { // ReplicaGlobalSecondaryIndex
+ *             IndexName: "STRING_VALUE", // required
+ *             ProvisionedThroughputOverride: {
+ *               ReadCapacityUnits: Number("long"),
+ *             },
+ *           },
+ *         ],
+ *         TableClassOverride: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ *       },
+ *       Update: { // UpdateReplicationGroupMemberAction
+ *         RegionName: "STRING_VALUE", // required
+ *         KMSMasterKeyId: "STRING_VALUE",
+ *         ProvisionedThroughputOverride: {
+ *           ReadCapacityUnits: Number("long"),
+ *         },
+ *         GlobalSecondaryIndexes: [
+ *           {
+ *             IndexName: "STRING_VALUE", // required
+ *             ProvisionedThroughputOverride: {
+ *               ReadCapacityUnits: Number("long"),
+ *             },
+ *           },
+ *         ],
+ *         TableClassOverride: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ *       },
+ *       Delete: { // DeleteReplicationGroupMemberAction
+ *         RegionName: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ *   DeletionProtectionEnabled: true || false,
+ * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTableCommandInput - {@link UpdateTableCommandInput}
+ * @returns {@link UpdateTableCommandOutput}
  * @see {@link UpdateTableCommandInput} for command's `input` shape.
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -174,6 +270,9 @@ export class UpdateTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -200,8 +299,8 @@ export class UpdateTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTableInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTableOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -211,12 +310,18 @@ export class UpdateTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateTableCommand(input, context);
+    return se_UpdateTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTableCommandOutput> {
-    return deserializeAws_json1_0UpdateTableCommand(output, context);
+    return de_UpdateTableCommand(output, context);
   }
 
   // Start section: command_body_extra

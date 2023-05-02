@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteUsagePlanRequest, DeleteUsagePlanRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUsagePlanCommand,
-  serializeAws_restJson1DeleteUsagePlanCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteUsagePlanRequest } from "../models/models_0";
+import { de_DeleteUsagePlanCommand, se_DeleteUsagePlanCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUsagePlanCommand}.
  */
 export interface DeleteUsagePlanCommandInput extends DeleteUsagePlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUsagePlanCommand}.
  */
 export interface DeleteUsagePlanCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a usage plan of a given plan Id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteUsagePlanCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteUsagePlanCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteUsagePlanCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteUsagePlanRequest
+ *   usagePlanId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUsagePlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUsagePlanCommandInput - {@link DeleteUsagePlanCommandInput}
+ * @returns {@link DeleteUsagePlanCommandOutput}
  * @see {@link DeleteUsagePlanCommandInput} for command's `input` shape.
  * @see {@link DeleteUsagePlanCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteUsagePlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUsagePlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +117,8 @@ export class DeleteUsagePlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUsagePlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +128,18 @@ export class DeleteUsagePlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUsagePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUsagePlanCommand(input, context);
+    return se_DeleteUsagePlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUsagePlanCommandOutput> {
-    return deserializeAws_restJson1DeleteUsagePlanCommand(output, context);
+    return de_DeleteUsagePlanCommand(output, context);
   }
 
   // Start section: command_body_extra

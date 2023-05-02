@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  ListBotRecommendationsRequest,
-  ListBotRecommendationsRequestFilterSensitiveLog,
-  ListBotRecommendationsResponse,
-  ListBotRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBotRecommendationsCommand,
-  serializeAws_restJson1ListBotRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBotRecommendationsRequest, ListBotRecommendationsResponse } from "../models/models_0";
+import { de_ListBotRecommendationsCommand, se_ListBotRecommendationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBotRecommendationsCommand}.
  */
 export interface ListBotRecommendationsCommandInput extends ListBotRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBotRecommendationsCommand}.
  */
 export interface ListBotRecommendationsCommandOutput extends ListBotRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a list of bot recommendations that meet the specified
  *          criteria.</p>
  * @example
@@ -43,10 +40,19 @@ export interface ListBotRecommendationsCommandOutput extends ListBotRecommendati
  * import { LexModelsV2Client, ListBotRecommendationsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBotRecommendationsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // ListBotRecommendationsRequest
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBotRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBotRecommendationsCommandInput - {@link ListBotRecommendationsCommandInput}
+ * @returns {@link ListBotRecommendationsCommandOutput}
  * @see {@link ListBotRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListBotRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -86,6 +92,9 @@ export class ListBotRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBotRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +123,8 @@ export class ListBotRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBotRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBotRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +134,18 @@ export class ListBotRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBotRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBotRecommendationsCommand(input, context);
+    return se_ListBotRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBotRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListBotRecommendationsCommand(output, context);
+    return de_ListBotRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

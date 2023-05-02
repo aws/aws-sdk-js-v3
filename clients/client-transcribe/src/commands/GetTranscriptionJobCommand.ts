@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTranscriptionJobRequest,
-  GetTranscriptionJobRequestFilterSensitiveLog,
-  GetTranscriptionJobResponse,
-  GetTranscriptionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTranscriptionJobCommand,
-  serializeAws_json1_1GetTranscriptionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { GetTranscriptionJobRequest, GetTranscriptionJobResponse } from "../models/models_0";
+import { de_GetTranscriptionJobCommand, se_GetTranscriptionJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTranscriptionJobCommand}.
  */
 export interface GetTranscriptionJobCommandInput extends GetTranscriptionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTranscriptionJobCommand}.
  */
 export interface GetTranscriptionJobCommandOutput extends GetTranscriptionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the specified transcription job.</p>
  *          <p>To view the status of the specified transcription job, check the
  *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
@@ -51,10 +48,15 @@ export interface GetTranscriptionJobCommandOutput extends GetTranscriptionJobRes
  * import { TranscribeClient, GetTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // GetTranscriptionJobRequest
+ *   TranscriptionJobName: "STRING_VALUE", // required
+ * };
  * const command = new GetTranscriptionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTranscriptionJobCommandInput - {@link GetTranscriptionJobCommandInput}
+ * @returns {@link GetTranscriptionJobCommandOutput}
  * @see {@link GetTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link GetTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -96,6 +98,9 @@ export class GetTranscriptionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +129,8 @@ export class GetTranscriptionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTranscriptionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTranscriptionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +140,18 @@ export class GetTranscriptionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTranscriptionJobCommand(input, context);
+    return se_GetTranscriptionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTranscriptionJobCommandOutput> {
-    return deserializeAws_json1_1GetTranscriptionJobCommand(output, context);
+    return de_GetTranscriptionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

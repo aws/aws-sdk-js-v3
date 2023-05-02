@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DeleteImagePermissionsRequest,
-  DeleteImagePermissionsRequestFilterSensitiveLog,
-  DeleteImagePermissionsResult,
-  DeleteImagePermissionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteImagePermissionsCommand,
-  serializeAws_json1_1DeleteImagePermissionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteImagePermissionsRequest, DeleteImagePermissionsResult } from "../models/models_0";
+import { de_DeleteImagePermissionsCommand, se_DeleteImagePermissionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImagePermissionsCommand}.
  */
 export interface DeleteImagePermissionsCommandInput extends DeleteImagePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImagePermissionsCommand}.
  */
 export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes permissions for the specified private image. After you delete permissions for an image, AWS accounts to which you previously granted these permissions can no longer use the image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissi
  * import { AppStreamClient, DeleteImagePermissionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteImagePermissionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DeleteImagePermissionsRequest
+ *   Name: "STRING_VALUE", // required
+ *   SharedAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteImagePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImagePermissionsCommandInput - {@link DeleteImagePermissionsCommandInput}
+ * @returns {@link DeleteImagePermissionsCommandOutput}
  * @see {@link DeleteImagePermissionsCommandInput} for command's `input` shape.
  * @see {@link DeleteImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -75,6 +78,9 @@ export class DeleteImagePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImagePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class DeleteImagePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteImagePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteImagePermissionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class DeleteImagePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImagePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteImagePermissionsCommand(input, context);
+    return se_DeleteImagePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImagePermissionsCommandOutput> {
-    return deserializeAws_json1_1DeleteImagePermissionsCommand(output, context);
+    return de_DeleteImagePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

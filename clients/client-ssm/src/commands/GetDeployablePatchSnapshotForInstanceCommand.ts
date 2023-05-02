@@ -17,20 +17,23 @@ import {
   GetDeployablePatchSnapshotForInstanceRequest,
   GetDeployablePatchSnapshotForInstanceRequestFilterSensitiveLog,
   GetDeployablePatchSnapshotForInstanceResult,
-  GetDeployablePatchSnapshotForInstanceResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand,
-  serializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand,
+  de_GetDeployablePatchSnapshotForInstanceCommand,
+  se_GetDeployablePatchSnapshotForInstanceCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeployablePatchSnapshotForInstanceCommand}.
  */
 export interface GetDeployablePatchSnapshotForInstanceCommandInput
   extends GetDeployablePatchSnapshotForInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeployablePatchSnapshotForInstanceCommand}.
  */
 export interface GetDeployablePatchSnapshotForInstanceCommandOutput
@@ -38,6 +41,7 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current snapshot for the patch baseline the managed node uses. This API is
  *    primarily used by the <code>AWS-RunPatchBaseline</code> Systems Manager document (SSM document).</p>
  *          <note>
@@ -53,10 +57,67 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  * import { SSMClient, GetDeployablePatchSnapshotForInstanceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetDeployablePatchSnapshotForInstanceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetDeployablePatchSnapshotForInstanceRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   BaselineOverride: { // BaselineOverride
+ *     OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
+ *     GlobalFilters: { // PatchFilterGroup
+ *       PatchFilters: [ // PatchFilterList // required
+ *         { // PatchFilter
+ *           Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
+ *           Values: [ // PatchFilterValueList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     ApprovalRules: { // PatchRuleGroup
+ *       PatchRules: [ // PatchRuleList // required
+ *         { // PatchRule
+ *           PatchFilterGroup: {
+ *             PatchFilters: [ // required
+ *               {
+ *                 Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
+ *                 Values: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             ],
+ *           },
+ *           ComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
+ *           ApproveAfterDays: Number("int"),
+ *           ApproveUntilDate: "STRING_VALUE",
+ *           EnableNonSecurity: true || false,
+ *         },
+ *       ],
+ *     },
+ *     ApprovedPatches: [ // PatchIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     ApprovedPatchesComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
+ *     RejectedPatches: [
+ *       "STRING_VALUE",
+ *     ],
+ *     RejectedPatchesAction: "ALLOW_AS_DEPENDENCY" || "BLOCK",
+ *     ApprovedPatchesEnableNonSecurity: true || false,
+ *     Sources: [ // PatchSourceList
+ *       { // PatchSource
+ *         Name: "STRING_VALUE", // required
+ *         Products: [ // PatchSourceProductList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Configuration: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new GetDeployablePatchSnapshotForInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeployablePatchSnapshotForInstanceCommandInput - {@link GetDeployablePatchSnapshotForInstanceCommandInput}
+ * @returns {@link GetDeployablePatchSnapshotForInstanceCommandOutput}
  * @see {@link GetDeployablePatchSnapshotForInstanceCommandInput} for command's `input` shape.
  * @see {@link GetDeployablePatchSnapshotForInstanceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -93,6 +154,9 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeployablePatchSnapshotForInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,7 +186,7 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetDeployablePatchSnapshotForInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeployablePatchSnapshotForInstanceResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,18 +196,24 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDeployablePatchSnapshotForInstanceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand(input, context);
+    return se_GetDeployablePatchSnapshotForInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput> {
-    return deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand(output, context);
+    return de_GetDeployablePatchSnapshotForInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

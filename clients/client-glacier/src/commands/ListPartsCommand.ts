@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  ListPartsInput,
-  ListPartsInputFilterSensitiveLog,
-  ListPartsOutput,
-  ListPartsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPartsCommand,
-  serializeAws_restJson1ListPartsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPartsInput, ListPartsOutput } from "../models/models_0";
+import { de_ListPartsCommand, se_ListPartsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPartsCommand}.
  */
 export interface ListPartsCommandInput extends ListPartsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPartsCommand}.
  */
 export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists the parts of an archive that have been uploaded in a specific
  *          multipart upload. You can make this request at any time during an in-progress multipart
  *          upload before you complete the upload (see <a>CompleteMultipartUpload</a>. List
@@ -63,10 +60,19 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * import { GlacierClient, ListPartsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListPartsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // ListPartsInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   uploadId: "STRING_VALUE", // required
+ *   marker: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new ListPartsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPartsCommandInput - {@link ListPartsCommandInput}
+ * @returns {@link ListPartsCommandOutput}
  * @see {@link ListPartsCommandInput} for command's `input` shape.
  * @see {@link ListPartsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -136,6 +142,9 @@ export class ListPartsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPartsCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,8 +171,8 @@ export class ListPartsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPartsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPartsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -173,12 +182,18 @@ export class ListPartsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPartsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPartsCommand(input, context);
+    return se_ListPartsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPartsCommandOutput> {
-    return deserializeAws_restJson1ListPartsCommand(output, context);
+    return de_ListPartsCommand(output, context);
   }
 
   // Start section: command_body_extra

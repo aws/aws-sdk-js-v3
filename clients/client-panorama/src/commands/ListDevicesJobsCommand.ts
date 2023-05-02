@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDevicesJobsRequest,
-  ListDevicesJobsRequestFilterSensitiveLog,
-  ListDevicesJobsResponse,
-  ListDevicesJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDevicesJobsRequest, ListDevicesJobsResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1ListDevicesJobsCommand,
-  serializeAws_restJson1ListDevicesJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDevicesJobsCommand, se_ListDevicesJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDevicesJobsCommand}.
  */
 export interface ListDevicesJobsCommandInput extends ListDevicesJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDevicesJobsCommand}.
  */
 export interface ListDevicesJobsCommandOutput extends ListDevicesJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListDevicesJobsCommandOutput extends ListDevicesJobsResponse, _
  * import { PanoramaClient, ListDevicesJobsCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListDevicesJobsCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // ListDevicesJobsRequest
+ *   DeviceId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDevicesJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevicesJobsCommandInput - {@link ListDevicesJobsCommandInput}
+ * @returns {@link ListDevicesJobsCommandOutput}
  * @see {@link ListDevicesJobsCommandInput} for command's `input` shape.
  * @see {@link ListDevicesJobsCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -84,6 +88,9 @@ export class ListDevicesJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevicesJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class ListDevicesJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevicesJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDevicesJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class ListDevicesJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevicesJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDevicesJobsCommand(input, context);
+    return se_ListDevicesJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicesJobsCommandOutput> {
-    return deserializeAws_restJson1ListDevicesJobsCommand(output, context);
+    return de_ListDevicesJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

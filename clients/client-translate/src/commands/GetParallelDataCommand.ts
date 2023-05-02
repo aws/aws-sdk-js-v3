@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetParallelDataRequest,
-  GetParallelDataRequestFilterSensitiveLog,
-  GetParallelDataResponse,
-  GetParallelDataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetParallelDataCommand,
-  serializeAws_json1_1GetParallelDataCommand,
-} from "../protocols/Aws_json1_1";
+import { GetParallelDataRequest, GetParallelDataResponse } from "../models/models_0";
+import { de_GetParallelDataCommand, se_GetParallelDataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetParallelDataCommand}.
  */
 export interface GetParallelDataCommandInput extends GetParallelDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetParallelDataCommand}.
  */
 export interface GetParallelDataCommandOutput extends GetParallelDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about a parallel data resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetParallelDataCommandOutput extends GetParallelDataResponse, _
  * import { TranslateClient, GetParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, GetParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = { // GetParallelDataRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetParallelDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetParallelDataCommandInput - {@link GetParallelDataCommandInput}
+ * @returns {@link GetParallelDataCommandOutput}
  * @see {@link GetParallelDataCommandInput} for command's `input` shape.
  * @see {@link GetParallelDataCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -85,6 +87,9 @@ export class GetParallelDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetParallelDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class GetParallelDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetParallelDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetParallelDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class GetParallelDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetParallelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetParallelDataCommand(input, context);
+    return se_GetParallelDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetParallelDataCommandOutput> {
-    return deserializeAws_json1_1GetParallelDataCommand(output, context);
+    return de_GetParallelDataCommand(output, context);
   }
 
   // Start section: command_body_extra

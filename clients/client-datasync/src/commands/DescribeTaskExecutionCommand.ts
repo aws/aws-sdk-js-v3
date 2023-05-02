@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  DescribeTaskExecutionRequest,
-  DescribeTaskExecutionRequestFilterSensitiveLog,
-  DescribeTaskExecutionResponse,
-  DescribeTaskExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTaskExecutionCommand,
-  serializeAws_json1_1DescribeTaskExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTaskExecutionRequest, DescribeTaskExecutionResponse } from "../models/models_0";
+import { de_DescribeTaskExecutionCommand, se_DescribeTaskExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTaskExecutionCommand}.
  */
 export interface DescribeTaskExecutionCommandInput extends DescribeTaskExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTaskExecutionCommand}.
  */
 export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed metadata about a task that is being executed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,16 +39,22 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  * import { DataSyncClient, DescribeTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // DescribeTaskExecutionRequest
+ *   TaskExecutionArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTaskExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTaskExecutionCommandInput - {@link DescribeTaskExecutionCommandInput}
+ * @returns {@link DescribeTaskExecutionCommandOutput}
  * @see {@link DescribeTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskExecutionCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
@@ -75,6 +78,9 @@ export class DescribeTaskExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTaskExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class DescribeTaskExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTaskExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTaskExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class DescribeTaskExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTaskExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTaskExecutionCommand(input, context);
+    return se_DescribeTaskExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTaskExecutionCommandOutput> {
-    return deserializeAws_json1_1DescribeTaskExecutionCommand(output, context);
+    return de_DescribeTaskExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

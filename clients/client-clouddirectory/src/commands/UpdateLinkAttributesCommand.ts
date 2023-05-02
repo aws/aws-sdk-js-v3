@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  UpdateLinkAttributesRequest,
-  UpdateLinkAttributesRequestFilterSensitiveLog,
-  UpdateLinkAttributesResponse,
-  UpdateLinkAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLinkAttributesCommand,
-  serializeAws_restJson1UpdateLinkAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateLinkAttributesRequest, UpdateLinkAttributesResponse } from "../models/models_0";
+import { de_UpdateLinkAttributesCommand, se_UpdateLinkAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLinkAttributesCommand}.
  */
 export interface UpdateLinkAttributesCommandInput extends UpdateLinkAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLinkAttributesCommand}.
  */
 export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a given typed link’s attributes. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,58 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  * import { CloudDirectoryClient, UpdateLinkAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateLinkAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // UpdateLinkAttributesRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   TypedLinkSpecifier: { // TypedLinkSpecifier
+ *     TypedLinkFacet: { // TypedLinkSchemaAndFacetName
+ *       SchemaArn: "STRING_VALUE", // required
+ *       TypedLinkName: "STRING_VALUE", // required
+ *     },
+ *     SourceObjectReference: { // ObjectReference
+ *       Selector: "STRING_VALUE",
+ *     },
+ *     TargetObjectReference: {
+ *       Selector: "STRING_VALUE",
+ *     },
+ *     IdentityAttributeValues: [ // AttributeNameAndValueList // required
+ *       { // AttributeNameAndValue
+ *         AttributeName: "STRING_VALUE", // required
+ *         Value: { // TypedAttributeValue Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   AttributeUpdates: [ // LinkAttributeUpdateList // required
+ *     { // LinkAttributeUpdate
+ *       AttributeKey: { // AttributeKey
+ *         SchemaArn: "STRING_VALUE", // required
+ *         FacetName: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       AttributeAction: { // LinkAttributeAction
+ *         AttributeActionType: "CREATE_OR_UPDATE" || "DELETE",
+ *         AttributeUpdateValue: {//  Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateLinkAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLinkAttributesCommandInput - {@link UpdateLinkAttributesCommandInput}
+ * @returns {@link UpdateLinkAttributesCommandOutput}
  * @see {@link UpdateLinkAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateLinkAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +143,9 @@ export class UpdateLinkAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLinkAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +174,8 @@ export class UpdateLinkAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLinkAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLinkAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +185,18 @@ export class UpdateLinkAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLinkAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLinkAttributesCommand(input, context);
+    return se_UpdateLinkAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLinkAttributesCommandOutput> {
-    return deserializeAws_restJson1UpdateLinkAttributesCommand(output, context);
+    return de_UpdateLinkAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

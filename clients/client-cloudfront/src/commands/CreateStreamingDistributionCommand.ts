@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  CreateStreamingDistributionRequest,
-  CreateStreamingDistributionRequestFilterSensitiveLog,
-  CreateStreamingDistributionResult,
-  CreateStreamingDistributionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlCreateStreamingDistributionCommand,
-  serializeAws_restXmlCreateStreamingDistributionCommand,
-} from "../protocols/Aws_restXml";
+import { CreateStreamingDistributionRequest, CreateStreamingDistributionResult } from "../models/models_1";
+import { de_CreateStreamingDistributionCommand, se_CreateStreamingDistributionCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamingDistributionCommand}.
  */
 export interface CreateStreamingDistributionCommandInput extends CreateStreamingDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamingDistributionCommand}.
  */
 export interface CreateStreamingDistributionCommandOutput extends CreateStreamingDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
  * 			distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion
  * 			forum.</p>
@@ -44,10 +41,42 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  * import { CloudFrontClient, CreateStreamingDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateStreamingDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreateStreamingDistributionRequest
+ *   StreamingDistributionConfig: { // StreamingDistributionConfig
+ *     CallerReference: "STRING_VALUE", // required
+ *     S3Origin: { // S3Origin
+ *       DomainName: "STRING_VALUE", // required
+ *       OriginAccessIdentity: "STRING_VALUE", // required
+ *     },
+ *     Aliases: { // Aliases
+ *       Quantity: Number("int"), // required
+ *       Items: [ // AliasList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Comment: "STRING_VALUE", // required
+ *     Logging: { // StreamingLoggingConfig
+ *       Enabled: true || false, // required
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE", // required
+ *     },
+ *     TrustedSigners: { // TrustedSigners
+ *       Enabled: true || false, // required
+ *       Quantity: Number("int"), // required
+ *       Items: [ // AwsAccountNumberList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *     Enabled: true || false, // required
+ *   },
+ * };
  * const command = new CreateStreamingDistributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamingDistributionCommandInput - {@link CreateStreamingDistributionCommandInput}
+ * @returns {@link CreateStreamingDistributionCommandOutput}
  * @see {@link CreateStreamingDistributionCommandInput} for command's `input` shape.
  * @see {@link CreateStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -114,6 +143,9 @@ export class CreateStreamingDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamingDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +174,8 @@ export class CreateStreamingDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamingDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStreamingDistributionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,15 +185,21 @@ export class CreateStreamingDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamingDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateStreamingDistributionCommand(input, context);
+    return se_CreateStreamingDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateStreamingDistributionCommandOutput> {
-    return deserializeAws_restXmlCreateStreamingDistributionCommand(output, context);
+    return de_CreateStreamingDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  CancelKeyDeletionRequest,
-  CancelKeyDeletionRequestFilterSensitiveLog,
-  CancelKeyDeletionResponse,
-  CancelKeyDeletionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelKeyDeletionCommand,
-  serializeAws_json1_1CancelKeyDeletionCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelKeyDeletionRequest, CancelKeyDeletionResponse } from "../models/models_0";
+import { de_CancelKeyDeletionCommand, se_CancelKeyDeletionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelKeyDeletionCommand}.
  */
 export interface CancelKeyDeletionCommandInput extends CancelKeyDeletionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelKeyDeletionCommand}.
  */
 export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the deletion of a KMS key. When this operation succeeds, the key state of the KMS
  *       key is <code>Disabled</code>. To enable the KMS key, use <a>EnableKey</a>. </p>
  *          <p>For more information about scheduling and canceling deletion of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting KMS keys</a> in the
@@ -54,10 +51,15 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  * import { KMSClient, CancelKeyDeletionCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CancelKeyDeletionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // CancelKeyDeletionRequest
+ *   KeyId: "STRING_VALUE", // required
+ * };
  * const command = new CancelKeyDeletionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelKeyDeletionCommandInput - {@link CancelKeyDeletionCommandInput}
+ * @returns {@link CancelKeyDeletionCommandOutput}
  * @see {@link CancelKeyDeletionCommandInput} for command's `input` shape.
  * @see {@link CancelKeyDeletionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -131,6 +133,9 @@ export class CancelKeyDeletionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelKeyDeletionCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,8 +164,8 @@ export class CancelKeyDeletionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelKeyDeletionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelKeyDeletionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,12 +175,18 @@ export class CancelKeyDeletionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelKeyDeletionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelKeyDeletionCommand(input, context);
+    return se_CancelKeyDeletionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelKeyDeletionCommandOutput> {
-    return deserializeAws_json1_1CancelKeyDeletionCommand(output, context);
+    return de_CancelKeyDeletionCommand(output, context);
   }
 
   // Start section: command_body_extra
